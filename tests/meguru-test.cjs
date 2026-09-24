@@ -2,6 +2,9 @@ const assert = require('node:assert/strict');
 const { test } = require('node:test');
 const { harness } = require('./helpers/runtime-harness.cjs');
 
+// たねつき らんすう(meguru-life-test と おなじ mulberry32)。テストで めぐるの らんすうを 決定論に する ため
+const seededRandom = (seed) => { let t = seed >>> 0; return () => { t = (t + 0x6D2B79F5) >>> 0; let x = Math.imul(t ^ (t >>> 15), 1 | t); x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x; return ((x ^ (x >>> 14)) >>> 0) / 4294967296; }; };
+
 // ずかんに いろいろ のった セーブを つくる
 function populated(h) {
   const s = h.api.state();
@@ -68,6 +71,15 @@ test('Naoto never appears before the secret is unlocked, and afterwards waits at
 
 test('entering めぐる from the travel screen switches to the field, inhabitants live, talking works, and returning restores home', () => {
   const h = harness(); const s = populated(h);
+  // テストだけ 決定論に する。'auto' の じかん・てんきは じっさいの とけいから きまり、
+  // 「ひる × はれ」「あさ × ゆき」「ゆうがた × くもり」では くまが きのこの そばへ 来る。
+  // どちらが ちかいかは らんすう(たね なし)しだいで、2026-09-23 11:23 UTC の CI が 赤に なった。
+  // なので じかん・てんき を とめて、めぐるの らんすうに たねを 入れる(ほんばんの らんすうは かえない)
+  s.lifetime.timeMode = 'day'; s.lifetime.weatherMode = 'cloudy';
+  h.api.meguruMod.setRandom(seededRandom(20260923));
+  try { enterAndReturn(h, s); } finally { h.api.meguruMod.setRandom(null); }
+});
+function enterAndReturn(h, s) {
   h.api.renderTravelRegionGrid();
   assert.match(h.get('meguruEntry').innerHTML, /もりをめぐる/, 'the travel screen offers the current region');
   const homeHiddenBefore = h.get('screenNormal').classList.contains('hidden');
@@ -100,7 +112,7 @@ test('entering めぐる from the travel screen switches to the field, inhabitan
   assert.equal(h.get('meguruOverlay').classList.contains('hidden'), true, 'the field is closed');
   assert.equal(h.get('screenNormal').classList.contains('hidden'), homeHiddenBefore, 'the home screen is back to how it was');
   assert.equal(s.lifetime.meguru.visits, 1);
-});
+}
 
 test('げんざいち keeps the home world and only changes its flavour; sleeping blocks entry', () => {
   const h = harness(); const s = populated(h);
@@ -148,9 +160,11 @@ test('the simulation runs with no renderer or DOM: world coordinates, movement, 
   // 歩かせるのではなく、実際の入力移動で追従を確認する。
   const followSim = M.createSimulation({ regionId: 'forest', env: { time: 'day', weather: 'sunny', season: 'spring', region: 'forest' } });
   for (let i = 0; i < 240; i++) followSim.step(1 / 60, { x: 0, y: -1 });
+  // ならびは partyFormationSlots(じぶんの うしろ = カメラから みて おく に ゆるく あつまる)。ひとり ひとりの ちいさな ちがい(formJ)も たす
+  const slots = M.partyFormationSlots(followSim.party.length), yaw = followSim.camera.yaw;
   for (const [i, p] of followSim.party.entries()) {
-    const side = p.kind === 'partner' ? -followSim.player.face : (i % 2 === 0 ? 1 : -1) * (1 + Math.floor(i / 2) * .9);
-    const target = { x: followSim.player.x + side * followSim.RULES.follow.gap, z: followSim.player.z + followSim.RULES.follow.back + i * followSim.RULES.follow.spacing };
+    const sl = slots[i], j = p.formJ || { x: 0, z: 0 }, side = sl.side + j.x, back = sl.back + j.z;
+    const target = { x: followSim.player.x + Math.cos(yaw) * side + Math.sin(yaw) * back, z: followSim.player.z - Math.sin(yaw) * side + Math.cos(yaw) * back };
     const lag = Math.hypot(p.x - target.x, p.z - target.z);
     assert.ok(lag < 90, `party follows its ordinary walking position (lag=${lag.toFixed(1)}, slot=${i})`);
   }

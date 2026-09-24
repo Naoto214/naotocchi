@@ -1009,6 +1009,7 @@
     };
 
     function buildWorld(regionId, registry, opts = {}) {
+      { const pre = takeCorridorWorld(regionId, registry, opts); if (pre) return pre; } // Phase 4E-2
       const base = WORLDS[regionId] || WORLDS.home;
       const e = env();
       const day = typeof S.dailyKey === 'function' ? S.dailyKey() : '';
@@ -1510,6 +1511,73 @@
     }
     // いっしょに あるく なかま・こいびと(この せかいの じゅうみんとしては おかず、プレイヤーの そばに いる)
     function companionsOf(registry) { return registry.residents.filter((r) => r.withPlayer).map((r, i) => makeActor(r, { x: 0, z: 0, follow: true, slot: i, heading: 0 })); }
+
+    // ================= なかまの ならび(party formation)=================
+    // いっしょに あるく なかま・こいびとの いばしょ。じぶんの うしろ(カメラから みて おく)に ゆるく あつまる。
+    //   1〜2: ななめ うしろ / 3〜4: ちいさな V / 5〜: 半円〜おうぎ(おくへ いくほど ひろく、まんなかほど おく)。
+    // 横いっぱいの 1 列には しない。はばには 上限(maxHalf)を もち、人数が おおいと 段を ふやす(ひろい ところ 4 段まで、
+    // せまい ところ 8 段まで)。それでも はいりきらない ときは 段の なかを すこし こく する。
+    // side: よこ(+ = カメラから みて みぎ)、back: おく(+ = カメラから とおい)。world 単位。らんすうは つかわない。O(n)
+    const FORMATION = Object.freeze({ first: 100, firstBack: 60, gain: 6, spread: 50, rowGap: 65, curve: 40, depth: 300, depthNarrow: 440,
+      spacing: 72, spacingNarrow: 90, open: 260, narrow: 180, maxRows: 4, maxRowsNarrow: 8, jitter: 12 });
+    function partyFormationSlots(count, ctx = {}) {
+      const n = Math.max(0, Math.floor(Number(count)) || 0);
+      if (!n) return [];
+      const maxHalf = clamp(ctx.maxHalf != null ? Number(ctx.maxHalf) : FORMATION.open, 50, FORMATION.open);
+      const narrow = maxHalf < FORMATION.narrow;
+      const first = Math.min(FORMATION.first, maxHalf * 0.75), spacing = narrow ? FORMATION.spacingNarrow : FORMATION.spacing;
+      const halfOf = (r) => Math.min(maxHalf, first + r * FORMATION.spread);
+      const capOf = (r) => Math.max(2, Math.floor((2 * halfOf(r)) / spacing) + 1);
+      const maxRows = narrow ? FORMATION.maxRowsNarrow : FORMATION.maxRows;
+      let rows = 1, cap = 2;
+      while (cap < n && rows < maxRows) { cap += capOf(rows); rows++; }
+      // 段ごとの 人数。1 段目は 2(じぶんの まうしろは あける)。のこりは 段の はばに あわせて くばる(はいりきらなければ こく)
+      const counts = [Math.min(2, n)];
+      let left = n - counts[0];
+      if (rows > 1) {
+        let capSum = 0; for (let r = 1; r < rows; r++) capSum += capOf(r);
+        let given = 0;
+        for (let r = 1; r < rows; r++) { const v = r === rows - 1 ? left - given : Math.min(left - given, Math.round(left * capOf(r) / capSum)); counts.push(v); given += v; }
+      }
+      const gap = rows > 1 ? Math.min(FORMATION.rowGap, (narrow ? FORMATION.depthNarrow : FORMATION.depth) / (rows - 1)) : 0;
+      const out = [];
+      counts.forEach((k, r) => {
+        if (k <= 0) return;
+        const half = r === 0 ? first : halfOf(r), base = FORMATION.firstBack + r * gap, row = [];
+        for (let j = 0; j < k; j++) {
+          // ひとりだけの 段は まんなかを さけて すこし よこへ(じぶんの あたまの うしろに かくれない)
+          const x = k === 1 ? (r === 0 ? -0.8 : r % 2 ? 0.5 : -0.5) * half : -half + (j * 2 * half) / (k - 1);
+          // まんなかほど おく(じぶんを かこむ 半円)
+          row.push({ side: x, back: base + (1 - Math.min(1, (x / half) ** 2)) * (r === 0 ? 0 : FORMATION.curve), row: r });
+        }
+        // 段の なかは まんなか → そと、みぎ → ひだり の じゅん(並び順が いつも おなじ)
+        row.sort((a, b) => Math.abs(a.side) - Math.abs(b.side) || b.side - a.side);
+        out.push(...row);
+      });
+      return out;
+    }
+    // 人数と はば ごとに 1 回だけ 作って つかいまわす(毎 frame 作らない)
+    const formationCache = new Map();
+    function formationFor(count, maxHalf) {
+      const key = count + ':' + (maxHalf == null ? 'open' : Math.round(maxHalf / 10) * 10);
+      let v = formationCache.get(key);
+      if (!v) { v = partyFormationSlots(count, { maxHalf: maxHalf == null ? undefined : Math.round(maxHalf / 10) * 10 }); if (formationCache.size > 64) formationCache.clear(); formationCache.set(key, v); }
+      return v;
+    }
+    // ついていく つよさ(gain): はなれた きょり × gain で おいかける。あるいて いる ときの おくれ(= はやさ / gain)が ちいさく なる ように
+    // もとの 3.5 から 6 に した(260/s で おくれ 74 → 43)。ひとり ひとりの ちいさな ちがい(よこ・おく・ついていく はやさ)は なまえ(key)から。毎 frame かわらない
+    function formationJitter(a, i) {
+      if (a.formJ) return a.formJ;
+      const h = hash('form:' + (a.key || a.id || i)), J = FORMATION.jitter;
+      a.formJ = { x: ((h & 255) / 255 - 0.5) * 2 * J, z: (((h >>> 8) & 255) / 255 - 0.5) * 2 * J, k: 0.9 + (((h >>> 16) & 255) / 255) * 0.2 };
+      return a.formJ;
+    }
+    // その なかまの めざす ところ(カメラの むきで まわす。カメラは なめらかに まわる ので ならびも なめらかに まわる)
+    function formationPoint(a, i, slots, px, pz, yaw) {
+      const sl = slots[i] || slots[slots.length - 1] || { side: 0, back: FORMATION.firstBack }, j = formationJitter(a, i);
+      const fx = Math.sin(yaw), fz = Math.cos(yaw), rx = Math.cos(yaw), rz = -Math.sin(yaw), side = sl.side + j.x, back = sl.back + j.z;
+      return { x: px + rx * side + fx * back, z: pz + rz * side + fz * back, k: j.k };
+    }
 
     // heading: むいている むき(ラジアン、0 = +z おく、+ = ひだりまわりに x+)。レンダラーは カメラの むきとの さで まえ/よこ/うしろ の え を えらぶ
     // sprites: { front, side?, back? } しょうらい ほうこう べつの えを たせる(いまは front だけ。よこは はんてん、うしろは すこし つぶして えがく)
@@ -2434,6 +2502,7 @@
           heading: head, face: 1, bob: 0, moving: false, onPath: true };
         clampToWorld(player, world); resolveObstacles(player, world); // いりぐちで なにかに めりこまない
         camera.x = player.x; camera.z = player.z; camera.yaw = head; nearest = null; curSpot = null; inputActive = false;
+        placeParty();
         // となりから あるいて 入って きた ときは、**出るときの むきと からだの いきおい**を
         // ひきつぐ。camFx.yaw に さ を いれて おくと、いつもの ease で 0 へ もどる ので
         // 「こえた しゅんかんに カメラが 180 度 とぶ」ことが なくなる(3D でも おなじ 値)
@@ -2466,16 +2535,19 @@
       const gatesAt = (spotId) => gates.filter((g) => g.spot.id === spotId);
       // いっしょに あるく なかま・こいびと: じぶんの すこし うしろ(カメラから みて おく)と よこ
       function followParty(dt) {
-        const F = RULES.follow; const fx = Math.sin(camera.yaw), fz = Math.cos(camera.yaw), rx = Math.cos(camera.yaw), rz = -Math.sin(camera.yaw);
+        const F = RULES.follow, slots = formationFor(party.length);
         party.forEach((a, i) => {
-          const side = a.kind === 'partner' ? -player.face : (i % 2 === 0 ? 1 : -1) * (1 + Math.floor(i / 2) * 0.9);
-          const back = F.back + i * F.spacing;
-          const tx = player.x + rx * side * F.gap + fx * back, tz = player.z + rz * side * F.gap + fz * back;
+          const t = formationPoint(a, i, slots, player.x, player.z, camera.yaw), tx = t.x, tz = t.z;
           const dx = tx - a.x, dz = tz - a.z, d = Math.hypot(dx, dz);
-          if (d > F.snap) { const spd = Math.min(F.maxSpeed, d * 3.5); a.x += dx / d * spd * dt; a.z += dz / d * spd * dt; a.behavior = 'walk'; a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1; a.bob += dt; }
+          if (d > F.snap) { const spd = Math.min(F.maxSpeed, d * FORMATION.gain) * t.k; a.x += dx / d * Math.min(d, spd * dt); a.z += dz / d * Math.min(d, spd * dt); a.behavior = 'walk'; a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1; a.bob += dt; }
           else if (a.behavior !== 'idle') { a.behavior = 'idle'; a.heading = player.heading; }
           if (a.sayFor > 0) { a.sayFor -= dt; if (a.sayFor <= 0) { a.sayFor = 0; a.say = null; } }
         });
+      }
+      // なかまを いまの ならびの ばしょへ そのまま おく(地域に はいった とき。とおくから かけよって こない)
+      function placeParty() {
+        const slots = formationFor(party.length);
+        party.forEach((a, i) => { const t = formationPoint(a, i, slots, player.x, player.z, camera.yaw); a.x = t.x; a.z = t.z; clampToWorld(a, world); a.heading = player.heading; a.behavior = 'idle'; });
       }
       // 1 フレームぶん すすめる。input: { x: -1..1(よこ), y: -1..1(てまえ +) } は カメラから みた むき。もどりち: おきた できごと
       function step(dt, input) {
@@ -2696,6 +2768,7 @@
         // よいやすい ひとの ための スイッチ(prefers-reduced-motion)。せかいは かわらない
         setCameraMotion(on) { camFxOn = !!on; }, get cameraMotion() { return camFxOn; },
         setPlayer(x, z) { player.x = x; player.z = z; clampToWorld(player, world); resolveObstacles(player, world); camera.x = player.x; camera.z = player.z; },
+        placeParty,
         get world() { return world; }, get party() { return party; }, get player() { return player; }, get camera() { return camera; }, get nearest() { return nearest; }, get registry() { return registry; }, get spot() { return curSpot; }, get zone() { return mood.zone || null; }, get mood() { return mood; }, get discovered() { return discovered; }, get visitedZones() { return visitedZones; }, get walkedPaths() { return walkedPaths; }, get foundMarks() { return foundMarks; },
         loadMapRecords(rec) { if (!rec) return; if (rec.zones) visitedZones = new Set(rec.zones); if (rec.paths) walkedPaths = new Set(rec.paths); if (rec.marks) foundMarks = new Set(rec.marks); },
         metCount,
@@ -2727,6 +2800,21 @@
       neonskyline: ['#2f3450', '#1b1f34'], canopy: ['#2f6a2f', '#1f4a22'], mesas: ['#b56a44', '#8a4f34'], farhills: ['#8fbe76', '#6aa05a'],
     };
     const KIND_COLOR = { form: 'rgba(90,70,60,.75)', companion: 'rgba(210,130,60,.8)', partner: 'rgba(220,100,150,.8)', naoto: 'rgba(80,80,120,.8)' };
+    // なかまの えがきかたの こまかさ(LOD)。人数では なく、がめんの うえの 見かけ(じぶんに くらべた 大きさ)と じぶんからの きょりで きめる
+    //   full   = いまの まま(かげ・かたむき・しるし)
+    //   medium = かげを 1 まいの え に(かたむき・しるしは のこす)
+    //   light  = かげと からだを 1 まいの え に(かたむき・しるしは えがかない)。からだの いろ・かたちは おなじ
+    // さかいで ぱたぱた かわらない ように、いまの LOD から うつる ときは すこし あそび(hys)を もつ
+    const PARTY_LOD = Object.freeze({ nearD: 150, full: 0.9, medium: 0.72, hys: 0.03 });
+    function partyLod(ratio, d, prev) {
+      const L = PARTY_LOD;
+      if (d < L.nearD) return 'full';
+      // こまかく する ときは しきいを すこし こえてから、あらく する ときは すこし したまで まつ
+      const tFull = prev === 'full' ? L.full - L.hys : L.full + (prev ? L.hys : 0);
+      if (ratio >= tFull) return 'full';
+      const tMed = prev === 'full' || prev === 'medium' ? L.medium - L.hys : L.medium + (prev ? L.hys : 0);
+      return ratio >= tMed ? 'medium' : 'light';
+    }
     // カメラの むきに たいする キャラの むき: front(こちら) back(むこう) left/right(よこ)。しょうらい ほうこう べつの えに さしかえる ときは ここを つかう
     function facingOf(heading, yaw) { const rel = wrapAngle(heading - yaw); const c = Math.cos(rel); if (c > 0.45) return 'back'; if (c < -0.45) return 'front'; return Math.sin(rel) < 0 ? 'left' : 'right'; }
     function spriteFor(a, facing) { const s = a.sprites || {}; if ((facing === 'left' || facing === 'right') && s.side) return { asset: s.side, flip: facing === 'left' }; if (facing === 'back' && s.back) return { asset: s.back, flip: false }; return { asset: s.front || a.asset, flip: facing === 'left' || (facing === 'front' && a.face < 0) }; }
@@ -3276,15 +3364,56 @@
         ctx.restore();
       }
       // ---- キャラ(むき・しせいで ちがいを だす) ----
-      function drawSprite(a, p, size, alpha, yaw) {
+      // ---- キャラの え の したく(つかいまわす) ----
+      // うしろむきで「うしろの え」が ない ときの「すこし くらく」は、まえは まいかい ctx.filter で えがいて いた。
+      // filter は 1 まい ごとに べつの 板で ラスタを はしらせる ので、人数ぶん おもく なる(27 にんで 1 frame 約 700 ms)。
+      // くらく した え・かげつきの え を 画像ごとに 1 回だけ 作って つかいまわす(くらさは brightness(0.9) と おなじ)。
+      // 作れない とき(canvas が ない など)は もとの えがきかた(filter)に もどる
+      const newCanvas = typeof o.makeCanvas === 'function' ? o.makeCanvas : (w, h) => {
+        if (typeof document === 'undefined' || !document.createElement) return null;
+        const c = document.createElement('canvas'); if (!c) return null;
+        c.width = w; c.height = h; return c;
+      };
+      const SPRITE_CACHE_MAX = 160, SHADOW_PAD = 0.1;   // SHADOW_PAD: かげの ぶん、え の したに たす たかさ(え の 大きさ に たいして)
+      const spriteCache = new Map(); let spriteCacheOff = false, shadowBlob;
+      const spriteStats = { built: 0, hits: 0, fails: 0, bytes: 0, full: 0, medium: 0, light: 0 };
+      const lodMemo = new WeakMap();   // なかま ごとの いまの LOD(さかいで ぱたぱた しない ため)。セーブ しない
+      function bakedSprite(im, dark, shadow) {
+        if (spriteCacheOff || !im) return null;
+        const key = im.src + (dark ? '|d' : '|n') + (shadow ? 's' : '');
+        let c = spriteCache.get(key);
+        if (c) { spriteStats.hits++; return c; }
+        try {
+          const S = im.naturalWidth || im.width || 128, pad = shadow ? Math.ceil(S * SHADOW_PAD) : 0;
+          c = newCanvas(S, S + pad);
+          const g = c && c.getContext && c.getContext('2d');
+          if (!g) throw new Error('no canvas');
+          g.drawImage(im, 0, 0, S, S);
+          // すける ところは そのまま、え の ある ところだけ 0.9 ばい(= brightness(0.9))
+          if (dark) { g.globalCompositeOperation = 'source-atop'; g.fillStyle = 'rgba(0,0,0,0.1)'; g.fillRect(0, 0, S, S); }
+          // かげは え の うしろ(あしもと)。いまの かげと おなじ いろ・おおきさ
+          if (shadow) { g.globalCompositeOperation = 'destination-over'; g.fillStyle = 'rgba(0,0,0,.18)'; g.beginPath(); g.ellipse(S / 2, S, S * 0.32, S * 0.09, 0, 0, TAU); g.fill(); }
+          g.globalCompositeOperation = 'source-over';
+          if (spriteCache.size >= SPRITE_CACHE_MAX) { spriteCache.clear(); spriteStats.bytes = 0; }
+          spriteCache.set(key, c); spriteStats.built++; spriteStats.bytes += S * (S + pad) * 4;
+          return c;
+        } catch (_) { spriteCacheOff = true; spriteStats.fails++; spriteCache.clear(); spriteStats.bytes = 0; return null; }
+      }
+      // medium の かげ: 1 まいの ちいさな え(ellipse + fill の かわりに drawImage 1 回)
+      function shadowImg() {
+        if (shadowBlob === undefined) {
+          shadowBlob = null;
+          try { const c = newCanvas(64, 18), g = c && c.getContext && c.getContext('2d'); if (g) { g.fillStyle = 'rgba(0,0,0,.18)'; g.beginPath(); g.ellipse(32, 9, 32, 9, 0, 0, TAU); g.fill(); shadowBlob = c; spriteStats.bytes += 64 * 18 * 4; } } catch (_) { shadowBlob = null; }
+        }
+        return shadowBlob;
+      }
+      function drawSprite(a, p, size, alpha, yaw, lod) {
         const px = size * p.s; if (px < 3) return;
         const facing = facingOf(a.heading, yaw); const sprite = spriteFor(a, facing);
         // とおい ひとは かんたんに(シルエット)。そんざいは わかる
         if (px < 22) { ctx.globalAlpha = alpha != null ? alpha * 0.9 : 0.9; ctx.fillStyle = KIND_COLOR[a.kind] || KIND_COLOR.form; const bob = MOVING.has(a.behavior) ? Math.abs(Math.sin(a.bob * 4)) * px * 0.1 : 0; ctx.beginPath(); ctx.ellipse(p.sx, p.sy - px * 0.45 - bob, px * 0.28, px * 0.45, 0, 0, TAU); ctx.fill(); ctx.globalAlpha = 1; return; }
         const im = imageFor(sprite.asset);
-        ctx.save();
-        if (alpha != null) ctx.globalAlpha = alpha;
-        ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.beginPath(); ctx.ellipse(p.sx, p.sy, px * 0.32, px * 0.09, 0, 0, TAU); ctx.fill();
+        const dark = facing === 'back' && !(a.sprites && a.sprites.back);
         // しせい: あるく(おくへ は ゆれ ひかえめ、てまえへ は つよめ)、すわる、ねる、はなす(あいてへ かたむく)
         const toward = facing === 'back' ? 0.7 : facing === 'front' ? 1.3 : 1;
         let lift = a.behavior === 'swim' || a.behavior === 'sway' ? Math.sin(a.bob) * px * 0.06 : MOVING.has(a.behavior) ? Math.abs(Math.sin(a.bob * 4)) * px * 0.08 * toward : 0;
@@ -3293,13 +3422,33 @@
         if (MOVING.has(a.behavior) && (facing === 'left' || facing === 'right')) rot = (facing === 'left' ? -1 : 1) * 0.07;
         if (a.behavior === 'sit') { syScale = 0.9; sxScale = 1.04; }
         if (a.behavior === 'rest') { syScale = 0.92; rot = a.face * 0.08; }
-        if (a.behavior === 'sleep') { rot = a.face * 0.28; syScale = 0.9; ctx.globalAlpha *= 0.85; }
+        if (a.behavior === 'sleep') { rot = a.face * 0.28; syScale = 0.9; }
         if (a.behavior === 'talk' || a.behavior === 'gather') rot = a.face * 0.07;
         if (a.behavior === 'look' || a.behavior === 'watch') rot = (facing === 'left' ? -1 : facing === 'right' ? 1 : 0) * 0.05;
         const y = p.sy - lift;
+        // light: かげと からだを 1 まいの え で 1 回(かたむき・しるしは えがかない。いろ・かたち・はんてん・ゆれは おなじ)
+        if (lod === 'light' && im) {
+          const b = bakedSprite(im, dark, true);
+          if (b) {
+            const S = b.width, w = px * sxScale, hh = px * syScale, ga = ctx.globalAlpha;
+            ctx.globalAlpha = (alpha != null ? alpha : 1) * (a.behavior === 'sleep' ? 0.85 : 1);
+            if (sprite.flip) { ctx.save(); ctx.translate(p.sx, 0); ctx.scale(-1, 1); ctx.drawImage(b, -w / 2, y - hh, w, hh * b.height / S); ctx.restore(); }
+            else ctx.drawImage(b, p.sx - w / 2, y - hh, w, hh * b.height / S);
+            ctx.globalAlpha = ga;
+            return;
+          }
+        }
+        ctx.save();
+        if (alpha != null) ctx.globalAlpha = alpha;
+        const blob = lod === 'medium' ? shadowImg() : null;
+        if (blob) ctx.drawImage(blob, p.sx - px * 0.32, p.sy - px * 0.09, px * 0.64, px * 0.18);
+        else { ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.beginPath(); ctx.ellipse(p.sx, p.sy, px * 0.32, px * 0.09, 0, 0, TAU); ctx.fill(); }
+        if (a.behavior === 'sleep') ctx.globalAlpha *= 0.85;
         ctx.translate(p.sx, y); ctx.rotate(rot); ctx.scale((sprite.flip ? -1 : 1) * sxScale, syScale);
-        if (facing === 'back' && !(a.sprites && a.sprites.back)) ctx.filter = 'brightness(0.9)';
-        if (im) ctx.drawImage(im, -px / 2, -px, px, px);
+        const b = dark && im ? bakedSprite(im, true, false) : null;
+        if (dark && im && !b) ctx.filter = 'brightness(0.9)';   // したくが できない ときだけ もとの えがきかた
+        if (b) ctx.drawImage(b, -px / 2, -px, px, px);
+        else if (im) ctx.drawImage(im, -px / 2, -px, px, px);
         else drawGlyph(a.emoji || '❓', 0, 0, px * 0.9);
         ctx.restore();
         const mark = a.behavior === 'sleep' ? '💤' : a.behavior === 'talk' ? '💬' : a.behavior === 'fish' ? '🎣' : a.behavior === 'play' || a.behavior === 'chase' ? '✨' : a.behavior === 'watch' ? '👀' : a.behavior === 'shop' ? '🛍️' : null;
@@ -4211,7 +4360,11 @@
             ctx.font = `${Math.round(px * 0.9)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(playerGlyph(), 0, 0); ctx.restore();
           }
           else {
-            const a = it.o; drawSprite(a, it.p, ACTOR_SIZE, clamp(1.5 - it.p.dz / farCull, 0.3, 1), cam.yaw);
+            const a = it.o;
+            // なかまは 見かけの 大きさ(じぶんに くらべて)と きょりで こまかさを きめる。じゅうみんは いつも full
+            let lod;
+            if (a.follow && pp) { lod = partyLod(it.p.s / pp.s, it.d, lodMemo.get(a)); lodMemo.set(a, lod); spriteStats[lod]++; }
+            drawSprite(a, it.p, ACTOR_SIZE, clamp(1.5 - it.p.dz / farCull, 0.3, 1), cam.yaw, lod);
             const top = it.p.sy - ACTOR_SIZE * it.p.s;
             if (a.say && a.sayFor > 0) drawBubble(a.say, it.p.sx, top);
             else if (a === nearest && it.p.s > 0.3) drawLabel(a.label + (a.behavior && VERBS[a.behavior] ? '・' + VERBS[a.behavior] : ''), it.p.sx, top - 4, false);
@@ -4247,7 +4400,8 @@
         setAnimLevel(v) { animLv = clamp(Math.round(v), 0, 2); }, get animLevel() { return animLv; },
         setDistant, get distantShown() { return distantShown; }, // Phase 4D-2
         get backdropLayers() { return bdLayers; },
-        resize(n) { ctx = n.ctx; W = n.W; H = n.H; if (n.rawCtx) { rawMain = n.rawCtx; sceneryMain = wrapScenery ? wrapScenery(n.rawCtx) || n.rawCtx : n.rawCtx; } setup(); }, destroy() { skyCache = null; nebula = null; } };
+        get spriteStats() { return spriteStats; }, get spriteCacheSize() { return spriteCache.size; },   // なかまの LOD・え の したく(しらべる ため)
+        resize(n) { ctx = n.ctx; W = n.W; H = n.H; if (n.rawCtx) { rawMain = n.rawCtx; sceneryMain = wrapScenery ? wrapScenery(n.rawCtx) || n.rawCtx : n.rawCtx; } setup(); }, destroy() { skyCache = null; nebula = null; spriteCache.clear(); spriteStats.bytes = 0; } };
     }
 
     // ================= なおとっち世界 正式地理 v1（D案「弓なりの大陸と、そのふところの湾」） =================
@@ -5458,6 +5612,335 @@
       return { region: e.region, spot: e.spot, x: e.x + ox, z: e.z + oz, heading: Math.atan2(dir.x, dir.z),
         headingLocal: round3(headingOf(dir)), arrived, commit: arrived };
     }
+
+    // ====== Phase 4E-2: home|forest を ほんとうに あるく(Canvas の PoC)======
+    // docs/handoff/meguru-phase4e2-home-forest-poc-2026-09-23.md
+    // 4E-1 の かたち(CorridorSpec)を つかって、**許可リストの 1 本だけ** 出口 → corridor → 入口 を あるけるように する。
+    // ほかの 出口(walk 9 本・ふね・ゴンドラ・もぐる)は これまでの transition の まま。
+    //
+    // ・corridor の 平面(chart)は **出発 地域の local の むき**に そろえる。原点は 出口 spot。
+    //   だから 入る しゅんかんは からだも カメラも 1 つも うごかない。着く ときだけ 地域の むきの ちがいを 暗転の なかで うめる
+    // ・player の 正本は s(あるいた きょり)と u(よこずれ)。chart の x / z は そこから 出す(セーブしない)
+    // ・え は いまの Canvas renderer に 「かるい にせの world」を わたす だけ(道 1 本・もよう・両わきの 飾り・はしの いし)。
+    //   region の 700 こ の props も 住民も 持ちこまない
+    // ・当たり判定は 帯の 左右と はしの いし だけ。region の 当たり判定と 同時には 持たない
+    // ・ここには セーブ・DOM・実時刻は ない(start() の がわが つなぐ)
+    const CONTINUOUS_WALK_ALLOWLIST = Object.freeze(['home|forest']);   // いまは 1 本だけ。ふやすのは 4E-4
+    // 出口・入口の 暗転(秒)。着く ときは くらく なりきった frame で commit と さいしょの え を すませ、あとは 0.14 秒で あける
+    const CORRIDOR_COVER = Object.freeze({ fadeIn: 0.06, fadeOut: 0.12 });
+    // 暗転が これより こい ときは 道の え を えがかない(ぬりつぶし 1 まいだけ)。のこる え は 3% いか で 見えない ので、ちらつかない
+    const CORRIDOR_COVER_SKIP = 0.95;
+    function corridorCoverSkip(cover) { return cover >= CORRIDOR_COVER_SKIP; }
+    const CORRIDOR_ORIGIN = 20000;       // chart の 原点を ここに おく(地面の もようは 負の 座標を よまない)
+    const CORRIDOR_SAMPLE = 10;          // 曲線を 10 world ごとに つみあげる
+    const CORRIDOR_PATH_HALF = Object.freeze({ wide: PATH_HALF.wide, normal: PATH_HALF.path, narrow: PATH_HALF.narrow });
+    // 地面の 種類(4E-1 の terrain)→ みため。**いまの 地域の いろ と 飾りの ことば だけ** を つかう(あたらしい 絵は ない)。
+    //   palette: 地面・みち・くさ・とおくの 山なみ の いろを かりる 地域
+    //   near: みちの すぐ そば(低い もの・さく・はたけの うね)/ far: おくの 大きな もの(いえ・木)。[飾り, 大きさ]
+    //   飾りは 絵文字 か いまの 地域の 構造物(canvas で えがく fence / hedge / cropline …)。あたり判定は もたない
+    const CORRIDOR_TERRAIN_LOOK = Object.freeze({
+      'urban-edge': { palette: 'home', nearN: 4, farN: 3, farU: [40, 150], near: [['fence', 92], ['🌷', 70], ['🌼', 55], ['fence', 92], ['🪴', 80]], far: [['🏠', 185], ['🏡', 195], ['🏠', 170], ['🌳', 200]] },
+      field: { palette: 'countryside', nearN: 4, farN: 3, near: [['cropline', 290], ['🌾', 80], ['🌻', 85], ['🌾', 70]], far: [['🌳', 230], ['🏡', 175], ['hayroll', 250], ['🌳', 210]] },
+      forest: { palette: 'forest', nearN: 4, farN: 4, farU: [80, 220], near: [['🌿', 85], ['🍄', 58], ['🪵', 80], ['🍂', 70], ['fern', 90], ['🌿', 75]], far: [['🌲', 190], ['🌳', 230], ['🌲', 165], ['🌲', 210]] },
+      road: { palette: 'home', nearN: 4, farN: 3, near: [['🌼', 55], ['🪧', 90]], far: [['🌳', 210]] },
+      slope: { palette: 'mountain', nearN: 4, farN: 3, near: [['🪨', 80], ['🌿', 80]], far: [['🌲', 180]] },
+      ridge: { palette: 'mountain', nearN: 4, farN: 3, near: [['🪨', 85]], far: [['🌲', 170], ['🪨', 120]] },
+      rock: { palette: 'mountain', nearN: 4, farN: 2, near: [['🪨', 85]], far: [['🪨', 140]] },
+      river: { palette: 'river_lake', nearN: 4, farN: 3, near: [['🌿', 80], ['🪨', 75]], far: [['🌳', 210]] },
+      shore: { palette: 'sea', nearN: 4, farN: 2, near: [['🌿', 75], ['🪨', 75]], far: [['🌴', 220]] },
+      dry: { palette: 'desert', nearN: 4, farN: 2, near: [['🪨', 80]], far: [['🌵', 200]] },
+      snow: { palette: 'snow', nearN: 4, farN: 3, near: [['🪨', 80]], far: [['🌲', 180]] },
+    });
+    const CORRIDOR_BLEND = 0.3;          // 段の さかいの まざる はば(段の 長さに たいして。450 × 0.3 = 135 = 全体の 5%)
+    const CORRIDOR_BLOCKER = '🪨';       // 帯の はしの いし(当たり判定 つき)
+    const CORRIDOR_SCENE_MAX = 150;      // 飾りの 上限(設計 §14)
+    const CORRIDOR_CAM_FOLLOW = 3;       // カメラが 道の むきを おいかける つよさ(1/秒)。あそび なし
+    const CORRIDOR_BLOCKERS_PER_STAGE = 1;   // PoC は 1 段に 1 こ まで(上限 24 の なかで、しくみの たしかめ だけ)
+    // 着く ときの じゅんばん: prepare(着く がわの world を 組む)→ commit(地域を 書きかえる)→ show(さいしょの え)。
+    // prepare は どこで するか: 'ahead' = 終端の すこし てまえ(walkLength × prepareAhead)。'cover' = 暗転の はじめ。'end' = 暗転しきってから。
+    // どれでも セーブ・地域の 書きかえは 着いた ときの 1 かい だけ。引き返したら(dropBehind より もどったら)組んだ ものは すてる
+    const CORRIDOR_ARRIVAL = Object.freeze({ prepare: 'ahead', prepareAhead: 0.08, dropBehind: 0.12, warmChunks: 8 });
+    // prepare で 組んだ world を commit の buildWorld に 1 かい だけ わたす(同じ 到着で 2 かい 組まない)。メモリの なか だけ
+    var corridorHandoff = null;
+    const CORRIDOR_HANDOFF_STATS = { offers: 0, hits: 0, misses: 0, drops: 0 };
+    // 組んだ ときと 同じ 条件か(住民の 台帳・まち・じかん・てんき・きせつ・ひづけ)。ちがえば つかわず、いつもどおり 組む
+    function corridorWorldKey(regionId, registry, opts) {
+      const e = env(), day = typeof S.dailyKey === 'function' ? S.dailyKey() : '';
+      const loc = opts && opts.locality ? opts.locality.profileId || opts.locality.name || '' : '';
+      return JSON.stringify([regionId, loc, e.time, e.weather, e.season, day, registry ? registry.residents : null, registry ? registry.naoto : null]);
+    }
+    function offerCorridorWorld(regionId, registry, opts, world) { corridorHandoff = { regionId, key: corridorWorldKey(regionId, registry, opts), world }; CORRIDOR_HANDOFF_STATS.offers++; }
+    function dropCorridorWorld() { if (corridorHandoff) CORRIDOR_HANDOFF_STATS.drops++; corridorHandoff = null; }
+    // buildWorld の いりぐちで よぶ。1 かい きり(あっても なくても ここで からに する)
+    function takeCorridorWorld(regionId, registry, opts) {
+      const h = corridorHandoff;
+      if (!h) return null;
+      corridorHandoff = null;
+      if (h.regionId === regionId && h.key === corridorWorldKey(regionId, registry, opts)) { CORRIDOR_HANDOFF_STATS.hits++; return h.world; }
+      CORRIDOR_HANDOFF_STATS.misses++;
+      return null;
+    }
+
+    // その 出口を corridor で あるくか、いまの transition に するか。**ここ 1 か所だけで きめる**
+    // opts: { perfTier, reducedMotion, heavy, failed(Set), allow }
+    function continuousWalkMode(gate, opts = {}) {
+      const no = (reason, spec) => ({ mode: 'transition', reason, spec: spec || null });
+      if (!gate || gate.kind !== 'walk' || gate.way !== 'walk') return no('not-walk');
+      const allow = opts.allow || CONTINUOUS_WALK_ALLOWLIST;
+      if (allow.indexOf(gate.id) < 0) return no('not-allowed');
+      const spec = walkCorridorSpec(gate.id);
+      if (!spec) return no('no-spec');
+      const here = spec.endpoints[gate.from], there = spec.endpoints[gate.to];
+      if (!here || !there || !gate.spot || gate.spot.id !== here.spot || gate.at !== there.spot) return no('geometry-invalid', spec);
+      const m = corridorMode(spec, { allow, perfTier: opts.perfTier, reducedMotion: opts.reducedMotion, heavy: opts.heavy,
+        failed: !!(opts.failed && typeof opts.failed.has === 'function' && opts.failed.has(spec.connectionId)) });
+      return { mode: m.mode, reason: m.reason, spec };
+    }
+
+    // ---- corridor の 平面(chart)----
+    // 出発 地域の local の むきで、4E-1 の むき(global)を つみあげる。原点 = 出口 spot(+ CORRIDOR_ORIGIN)
+    function corridorChart(spec, from) {
+      const L = spec.walkLength, n = Math.ceil(L / CORRIDOR_SAMPLE), e = spec.endpoints[from];
+      const to = from === spec.a ? spec.b : spec.a;
+      // local → global の 角度の さ(度)。4E-1 の 出口の むき(local と global)から 出す
+      const offOf = (r) => spec.endpoints[r].leaveHeadingGlobal - spec.endpoints[r].leaveHeadingLocal;
+      const off = offOf(from), offTo = offOf(to);
+      const xs = new Float64Array(n + 1), zs = new Float64Array(n + 1), hs = new Float64Array(n + 1);
+      const headAt = (s) => (corridorHeadingAt(spec, from, s) - off) * Math.PI / 180;
+      let x = CORRIDOR_ORIGIN, z = CORRIDOR_ORIGIN, prevS = 0;
+      xs[0] = x; zs[0] = z; hs[0] = headAt(0);
+      for (let i = 1; i <= n; i++) {
+        const s = Math.min(L, i * CORRIDOR_SAMPLE), h = headAt(s), hm = hs[i - 1] + wrapAngle(h - hs[i - 1]) / 2, ds = s - prevS;
+        x += Math.sin(hm) * ds; z += Math.cos(hm) * ds;
+        xs[i] = x; zs[i] = z; hs[i] = h; prevS = s;
+      }
+      return { spec, from, to, L, n, xs, zs, hs, off, offTo, end: e };
+    }
+    // s / u → chart の x / z と すすむ むき(ラジアン。0 = chart の +z)。はしの そとは まっすぐ のばす
+    function chartPose(ch, s, u) {
+      const q = Math.max(0, Math.min(ch.L, s)) / CORRIDOR_SAMPLE, i = Math.min(ch.n - 1, Math.floor(q)), f = Math.min(1, q - i);
+      const j = Math.min(ch.n, i + 1);
+      const h = ch.hs[i] + wrapAngle(ch.hs[j] - ch.hs[i]) * f;
+      let x = ch.xs[i] + (ch.xs[j] - ch.xs[i]) * f, z = ch.zs[i] + (ch.zs[j] - ch.zs[i]) * f;
+      const over = s < 0 ? s : s > ch.L ? s - ch.L : 0;
+      if (over) { x += Math.sin(h) * over; z += Math.cos(h) * over; }
+      return { x: x + Math.cos(h) * u, z: z - Math.sin(h) * u, h };
+    }
+    // chart の 点 → いちばん ちかい s / u(near の まわり だけ さがす)
+    function chartSU(ch, x, z, near) {
+      const c = Math.round(Math.max(0, Math.min(ch.L, near)) / CORRIDOR_SAMPLE);
+      let best = c, bd = Infinity;
+      for (let i = Math.max(0, c - 60); i <= Math.min(ch.n, c + 60); i++) { const d = (ch.xs[i] - x) ** 2 + (ch.zs[i] - z) ** 2; if (d < bd) { bd = d; best = i; } }
+      const h = ch.hs[best];
+      return { s: Math.min(ch.L, best * CORRIDOR_SAMPLE), u: (x - ch.xs[best]) * Math.cos(h) - (z - ch.zs[best]) * Math.sin(h) };
+    }
+    const hexOf = (rgb) => '#' + rgb.map((v) => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, '0')).join('');
+    const smooth01 = (t) => { const k = Math.max(0, Math.min(1, t)); return k * k * (3 - 2 * k); };
+
+    // ---- え に わたす かるい world(region の world と おなじ かたちの 一部だけ)----
+    // 段ごとの みため(地面の いろ・飾り)は corridor を 作る ときに 1 かい だけ きめて おく(毎 frame つくらない)。
+    // 段の さかいでは まえの 段と つぎの 段を みじかく まぜる(飾りの ことば も 地面の いろ も)
+    function corridorWorld(ch) {
+      const spec = ch.spec, A = WORLDS[ch.from] || WORLDS.home, B = WORLDS[ch.to] || WORLDS.home;
+      const stages = ch.from === spec.a ? spec.stages : spec.stages.slice().reverse();
+      const seed = hash('corridor:' + spec.connectionId + ':' + ch.from);
+      const rnd = (k) => hash(seed + ':' + k) / 4294967296;
+      const len = spec.stageLength, band = len * CORRIDOR_BLEND, last = stages.length - 1;
+      // 段ごとの みため(palette の 地域から)。いろは rgb の まま もって おく
+      const looks = stages.map((st) => {
+        const lk = CORRIDOR_TERRAIN_LOOK[st.terrain] || CORRIDOR_TERRAIN_LOOK.road, P = WORLDS[lk.palette] || A;
+        return { terrain: st.terrain, lk, P, g0: hexToRgb(P.ground[0]), g1: hexToRgb(P.ground[1]), path: hexToRgb(P.path), marks: P.marks || A.marks };
+      });
+      // その 場所の 段と、となりの 段へ どれだけ よって いるか(さかいで 0.5。はばの そとは 0)
+      const lean = (s) => {
+        const i = Math.max(0, Math.min(last, Math.floor(s / len))), s0 = i * len, s1 = s0 + len;
+        if (i > 0 && s - s0 < band) return { i, j: i - 1, w: 0.5 * (1 - (s - s0) / band) };
+        if (i < last && s1 - s < band) return { i, j: i + 1, w: 0.5 * (1 - (s1 - s) / band) };
+        return { i, j: i, w: 0 };
+      };
+      const segments = [], marks = [], props = [], blockers = [];
+      stages.forEach((st, i) => {
+        const s0 = i * len, s1 = s0 + len, half = CORRIDOR_PATH_HALF[st.widthClass] || PATH_HALF.path;
+        // みち(90 world ごとの 四角。え は region の みちと おなじ ように えがく)
+        for (let s = s0; s < s1; s += 90) {
+          const p = chartPose(ch, s, 0), q = chartPose(ch, Math.min(s1, s + 90), 0);
+          segments.push({ a: { x: p.x, z: p.z }, b: { x: q.x, z: q.z }, len: Math.hypot(q.x - p.x, q.z - p.z) || 1, half, kind: 'path' });
+          for (const side of [-1, 1]) { const m = chartPose(ch, s + 45, side * (half + 6)); marks.push({ x: m.x, z: m.z, size: 16, phase: 0, edge: true }); }
+        }
+        // 帯の なかの くさ(はしの ほう)
+        for (let k = 0; k < 6; k++) { const s = s0 + rnd('t' + i + k) * len, side = rnd('ts' + i + k) < 0.5 ? -1 : 1;
+          const m = chartPose(ch, Math.min(s1, s), side * (half + 20 + rnd('tu' + i + k) * (st.halfWidth - half))); marks.push({ x: m.x, z: m.z, size: 10 + rnd('tk' + i + k) * 14, phase: rnd('tf' + i + k) * 6.28 }); }
+        // 両わきの 飾り(帯の そと)。near は みちの そば、far は おく。さかいの ちかくは となりの 段の ことばも まぜる
+        const place = (kind, n, uMin, uSpan) => {
+          for (let k = 0; k < n; k++) for (const side of [-1, 1]) {
+            const key = kind + i + k + side, s = s0 + (k + 0.15 + rnd('ps' + key) * 0.7) * len / n;
+            const le = lean(s), from = looks[le.w > 0 && rnd('pl' + key) < le.w ? le.j : le.i], look = from.lk;
+            const pool = look[kind], it = pool[hash(seed + 'pe' + key) % pool.length];
+            const u = side * (st.halfWidth + uMin + rnd('pu' + key) * uSpan), p = chartPose(ch, s, u);
+            const size = it[1] * (0.85 + rnd('pz' + key) * 0.3), deco = { x: p.x, z: p.z, size, layer: 'side', s, terrain: from.terrain };
+            if (/^[a-z]/.test(it[0])) Object.assign(deco, { struct: it[0], ang: p.h, side, solid: false }); else deco.emoji = it[0];
+            props.push(deco);
+          }
+        };
+        place('near', looks[i].lk.nearN, 20, 70);
+        place('far', looks[i].lk.farN, ...(looks[i].lk.farU || [120, 260]));
+        // 帯の はしの いし(当たり判定 つき)。道の 通行帯には おかない
+        for (let k = 0; k < Math.min(CORRIDOR_BLOCKERS_PER_STAGE, st.obstacleAllowance); k++) {
+          const side = hash(seed + 'bs' + i + k) % 2 ? 1 : -1, s = s0 + (0.35 + rnd('bs' + i + k) * 0.3) * len;
+          const u = side * (st.uMax - 16), p = chartPose(ch, s, u);   // 帯の なかの はし(道の 通行帯の そと)
+          blockers.push({ s, u, r: 24 });
+          props.push({ x: p.x, z: p.z, emoji: CORRIDOR_BLOCKER, size: 70, layer: 'side', blocker: true });
+        }
+      });
+      const world = {
+        corridor: spec.connectionId, regionId: ch.from, len: CORRIDOR_ORIGIN * 2, halfW: CORRIDOR_ORIGIN, minX: 0, maxX: CORRIDOR_ORIGIN * 2, seed,
+        ground: A.ground, path: A.path, spots: [], segments, marks: marks.slice(0, 400), props: props.slice(0, CORRIDOR_SCENE_MAX), residents: [],
+        detail: A.detail || [], canopy: null, density: 0.8, view: 1, terrain: null, wind: A.wind || [0.5, 1], motion: A.motion || [],
+        areas: [], shore: [], edge: A.edge || '#8a7a5a', backdrop: A.backdrop || 'hills', sky: A.sky || null, floor: null,
+        markStyle: A.marks || { color: '#88aa66', kind: 'tuft' }, blockers,
+      };
+      // 森の 屋根(canopy)は 森の 段の おく(森で ない 段から 2 段 いじょう はなれた ところ)だけ
+      const deep = looks.map((lk, i) => lk.terrain === 'forest' && looks.every((o, j) => o.terrain === 'forest' || Math.abs(i - j) >= 2));
+      let lastKey = null;
+      // すすみぐあい → その 場所の みため。地面・みちの いろは さかいで なめらかに、山なみ・くさ は その 段の もの。
+      // 地域の なまえ(遠景の きりかえ)は まんなかで 出発 → 到着
+      world.setProgress = (t) => {
+        const s = Math.max(0, Math.min(1, t)) * ch.L, le = lean(s), a = looks[le.i], b = looks[le.j], k = smooth01(le.w * 2) / 2;
+        const key = le.i + ':' + le.j + ':' + Math.round(k * 64) + ':' + (t < 0.5 ? 0 : 1);
+        if (key === lastKey) return;
+        lastKey = key;
+        world.regionId = t < 0.5 ? ch.from : ch.to;
+        world.ground = [hexOf(mixRgbArr(a.g0, b.g0, k)), hexOf(mixRgbArr(a.g1, b.g1, k))];
+        world.path = hexOf(mixRgbArr(a.path, b.path, k));
+        const P = a.P;
+        world.backdrop = P.backdrop || 'hills'; world.sky = (t < 0.5 ? A : B).sky || null; world.detail = P.detail || [];
+        world.wind = P.wind || [0.5, 1]; world.motion = P.motion || []; world.markStyle = a.marks || world.markStyle; world.edge = P.edge || world.edge;
+        world.canopy = deep[le.i] ? a.P.canopy || null : null;
+      };
+      world.setProgress(0);
+      return world;
+    }
+    const mixRgbArr = (a, b, k) => [a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k, a[2] + (b[2] - a[2]) * k];
+
+    // 遠景: 出発 がわ と 到着 がわ を すすみぐあいで まぜる(t < 0.4 出発、0.4〜0.6 両方、t > 0.6 到着)。
+    // 方位は chart(出発 地域の local)へ なおす。renderer は いまの まま(方角 + カメラの むき)で えがく
+    function corridorDistantBlend(ch, t, fromList, toList) {
+      const wFrom = t < 0.4 ? 1 : t > 0.6 ? 0 : (0.6 - t) / 0.2, wTo = 1 - wFrom;
+      const out = [];
+      const put = (list, w, dOff) => { if (w <= 0.001) return; for (const v of list || []) {
+        const f = v.feature, b = f.bearingLocal == null ? null : (((f.bearingLocal + dOff) % 360) + 360) % 360;
+        out.push({ id: v.id, alpha: v.alpha * w, feature: Object.assign({}, f, { bearingLocal: b }) }); } };
+      put(fromList, wFrom, 0);
+      put(toList, wTo, ch.offTo - ch.off);
+      return out;
+    }
+
+    // ---- あるく しくみ(1 本の corridor を 1 かい あるく あいだ だけ)----
+    // opts: { local: {x, z}(出発 地域の local), heading, yaw(出発 地域の local のカメラ), cam: {dist, height}, firstVisit, party, env }
+    function createCorridorWalk(spec, from, opts = {}) {
+      const ch = corridorChart(spec, from), e = ch.end, L = ch.L;
+      const init = corridorEnterState(spec, from, opts.local || { x: e.x, z: e.z }, { firstVisit: opts.firstVisit !== false });
+      if (!init || !Number.isFinite(init.s) || !Number.isFinite(init.u)) throw new Error('corridor state');
+      const state = Object.assign(init, { width: spec.nominalWidth, active: true });
+      const world = corridorWorld(ch);
+      const blockers = world.blockers;
+      const toChart = (p) => ({ x: CORRIDOR_ORIGIN + (p.x - e.x), z: CORRIDOR_ORIGIN + (p.z - e.z) });
+      const toFromLocal = (p) => ({ x: p.x - CORRIDOR_ORIGIN + e.x, z: p.z - CORRIDOR_ORIGIN + e.z });
+      const p0 = chartPose(ch, state.s, state.u);
+      const player = { x: p0.x, z: p0.z, heading: opts.heading != null ? opts.heading : p0.h, face: 1, bob: 0, moving: false, onPath: true, speed: 0 };
+      const prof = CAM_PROFILES.path || CAM_PROFILES.default;
+      const camera = { x: p0.x, z: p0.z, yaw: opts.yaw != null ? opts.yaw : p0.h,
+        dist: opts.cam && opts.cam.dist ? opts.cam.dist : prof.dist, height: opts.cam && opts.cam.height ? opts.cam.height : prof.height };
+      const party = opts.party || [];
+      for (const a of party) { const c = toChart(a); a.x = c.x; a.z = c.z; }
+      const envNow = opts.env || ENV_FALLBACK;
+      const mood = Object.assign({}, MOOD_DEFAULT);
+      let inputActive = false, inputDir = 1, frame = 0;
+      function followParty(dt) {
+        // ならびは region と おなじ partyFormationSlots。はばは いまの 段の 帯(4E-1 の widthClass → uMax)から。せまい 段では ほそく なる
+        const Fo = RULES.follow, slots = formationFor(party.length, corridorStageAt(spec, from, Math.max(0, Math.min(L, state.s))).uMax * 0.9);
+        party.forEach((a, i) => {
+          const t = formationPoint(a, i, slots, player.x, player.z, camera.yaw);
+          let tx = t.x, tz = t.z;
+          // 帯の そとへ 出ない
+          const su = chartSU(ch, tx, tz, state.s), lim = corridorStageAt(spec, from, su.s).uMax;
+          if (Math.abs(su.u) > lim) { const q = chartPose(ch, su.s, Math.sign(su.u) * lim); tx = q.x; tz = q.z; }
+          const dx = tx - a.x, dz = tz - a.z, d = Math.hypot(dx, dz);
+          // 2 かいめ の はやあし(speedMultiplier)でも おいつける
+          if (d > Fo.snap) { const spd = Math.min(Fo.maxSpeed * 1.4 * state.speedMultiplier, d * FORMATION.gain) * t.k; a.x += dx / d * Math.min(d, spd * dt); a.z += dz / d * Math.min(d, spd * dt); a.behavior = 'walk'; a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1; a.bob += dt; }
+          else if (a.behavior !== 'idle') { a.behavior = 'idle'; a.heading = player.heading; }
+        });
+      }
+      function step(dt, v) {
+        frame++;
+        const inp = v || { x: 0, y: 0 };
+        player.moving = !!(inp.x || inp.y);
+        const h = chartPose(ch, state.s, 0).h;
+        if (!player.moving) { inputActive = false; player.speed = 0; }
+        // ゆびを おいた ときに カメラが 道の どちらを むいて いるかで「まえ」を きめ、はなす まで かえない
+        // (いまの たんさくの「ゆびを おいた ときの むきで こてい」と おなじ かんがえ。ふりむいても いったり きたり しない)
+        else if (!inputActive) { inputActive = true; inputDir = Math.cos(camera.yaw - h) >= 0 ? 1 : -1; }
+        if (player.moving) {
+          // 道に そって: がめんの うえ/した = 道の まえ/うしろ、ひだり/みぎ = 道の よこ。レールでは なく 帯の なかを あるく
+          const m = Math.hypot(inp.x, inp.y) || 1;
+          const spd = RULES.playerSpeed * state.speedMultiplier * Math.min(1, m);
+          const fwd = -inp.y / m * inputDir, side = inp.x / m * inputDir;
+          let s = state.s + fwd * spd * dt;
+          let u = state.u + side * spd * dt;
+          const mx = Math.sin(h) * fwd + Math.cos(h) * side, mz = Math.cos(h) * fwd - Math.sin(h) * side;
+          // 帯の はし(左右の さかい)
+          const lim = corridorStageAt(spec, from, Math.max(0, Math.min(L, s))).uMax;
+          if (u > lim) u = lim; else if (u < -lim) u = -lim;
+          // はしの いし: 横へ すべらせる(前へは すすめる)
+          for (const o of blockers) {
+            const os = o.s, ou = o.u, rr = o.r + RULES.bodyRadius;   // いしは この むきの chart で おいて ある
+            const ds = s - os, du = u - ou, d = Math.hypot(ds, du);
+            if (d < rr) { if (d < 1e-6) { u = ou - Math.sign(ou || 1) * rr; } else { s = os + ds / d * rr; u = ou + du / d * rr; } }
+          }
+          if (u > lim) u = lim; else if (u < -lim) u = -lim;   // いしに おされても 帯の そとへは 出ない
+          state.s = s; state.u = u;
+          player.heading = Math.atan2(mx, mz);
+          const scr = Math.cos(camera.yaw) * mx - Math.sin(camera.yaw) * mz; player.face = scr < -0.2 ? -1 : scr > 0.2 ? 1 : player.face;
+          player.bob += dt; player.speed = spd / RULES.playerSpeed;
+        }
+        const P = chartPose(ch, state.s, state.u);
+        player.x = P.x; player.z = P.z;
+        camera.x = player.x; camera.z = player.z;
+        // カメラの むきは 道の むきへ(もどる ときは うしろむき)。道は ずっと すこしずつ 曲がる ので、
+        // たんさくの「あそび(deadZone)を こえたら まわす」だと とまる → きゅうに まわる を くりかえす。
+        // ここは あそび なしで なめらかに おいかける(はやさの 上限は おなじ turnRate)
+        if (player.moving) {
+          let want = player.heading, pd = P.h;
+          if (Math.cos(pd - want) < 0) pd += Math.PI;
+          want = want + wrapAngle(pd - want) * RULES.cam.pathAssist;
+          const delta = wrapAngle(want - camera.yaw);
+          const turn = Math.sign(delta) * Math.min(Math.abs(delta) * Math.min(1, dt * CORRIDOR_CAM_FOLLOW), RULES.cam.turnRate * dt);
+          camera.yaw = wrapAngle(camera.yaw + turn);
+        }
+        camera.dist += (prof.dist - camera.dist) * Math.min(1, dt * RULES.cam.ease);
+        camera.height += (prof.height - camera.height) * Math.min(1, dt * RULES.cam.ease);
+        followParty(dt);
+        world.setProgress(Math.max(0, Math.min(1, state.s / L)));
+        if (state.s >= L) return { type: 'arrive' };
+        if (state.s < 0) return { type: 'back' };
+        return null;
+      }
+      const view = () => ({ regionId: world.regionId, world, residents: [], party, player, camera, rig: camera, camFx: null, nearest: null,
+        spot: null, zone: null, mood, env: envNow, frame, lifeDebug: false, lifeOf: () => null, corridor: state });
+      return {
+        spec, chart: ch, state, world, player, camera, party, step, view,
+        get t() { return Math.max(0, Math.min(1, state.s / L)); },
+        stage: () => corridorStageAt(spec, from, Math.max(0, Math.min(L, state.s))),
+        exitPose: () => corridorExitPose(spec, state),
+        backPose: () => corridorExitPose(spec, Object.assign({}, state, { s: Math.min(-1, state.s) })),
+        // カメラの むきを その 地域の local へ(着いた がわ = 地域の むきの さを たす)
+        yawIn: (region) => (region === from ? camera.yaw : wrapAngle(camera.yaw + (ch.off - ch.offTo) * Math.PI / 180)),
+        // もどった とき: なかまを 出発 地域の local へ もどす
+        restoreParty() { for (const a of party) { const p = toFromLocal(a); a.x = p.x; a.z = p.z; } },
+        distant: (t, fromList, toList) => corridorDistantBlend(ch, t, fromList, toList),
+      };
+    }
+    // ====== /Phase 4E-2 ======
 
     // 世界地図に 出す 地域(= 地上の 10 と、たてじくの 上下 2)。きおくのみずうみは 入らない
     const GEO_GROUND = Object.keys(WORLD_GEOGRAPHY.regions).filter((id) => WORLD_GEOGRAPHY.regions[id].layer === 'ground');
@@ -6792,6 +7275,7 @@
       };
       function beginTransition(g) {
         if (trans) return;                                   // 二重に はじめない(§33)
+        if (tryCorridor(g)) return;                          // home|forest は あるいて こえる(ほかは この まま) // Phase 4E-2
         if (sim.busy) sim.endTalk();                         // はなしを おえて から こえる(§31)
         const key = `${g.id}:${g.to}`;
         // 海路だけは セーブも 見る。しまを もう 見つけて いる ひとに、
@@ -6846,6 +7330,228 @@
           lastHint = null;
         }
       }
+      // ====== Phase 4E-2: home|forest を あるいて こえる(PoC。ほかの 出口は いまの transition の まま)======
+      // gate が 出た とき、continuousWalkMode が 'corridor' なら transition の かわりに corridor を あるく。
+      // それ いがい(許可リスト外・よいやすい せってい・端末が おもい・まえに しっぱいした・形が あわない)は いまの transition。
+      // **セーブは さわらない**: 地域の 書きかえ(enterRegionByMove)は 着いた ときの 1 かい だけ。とちゅうで reload したら 出発 地域から
+      let corr = null, corrFade = null;
+      const corrFailed = new Set();                 // この セッションで しっぱいした corridor(つぎからは transition)
+      // しらべもの よう(え には つかわない)。prepare / commit / さいしょの え / 暗転の ながさ(ms)
+      const corrStats = { enters: 0, arrives: 0, backs: 0, fails: 0, prepares: 0, discards: 0, warms: 0, lastPrepareMs: null, lastCommitMs: null, lastFirstDrawMs: null, lastCoverMs: null, lastBuildMs: null, coverSkips: 0, handoff: CORRIDOR_HANDOFF_STATS };
+      const perfNow = () => (typeof performance !== 'undefined' && performance.now ? performance.now() : Date.now());
+      let corrLinks = null, corrFromList = null, corrToList = null, corrDistantKey = null;
+      function tryCorridor(g) {
+        let m = null;
+        try { m = continuousWalkMode(g, { perfTier: tier, reducedMotion, failed: corrFailed }); } catch (err) { m = null; }
+        if (!m || m.mode !== 'corridor') return false;
+        if (sim.busy) sim.endTalk();
+        const key = `${g.id}:${g.to}`;
+        // はじめてかは いまの はっけんの きろく(みちの はっけん)と、この セッションで こえたか。あたらしい セーブの key は つくらない
+        const stored = typeof S.worldLinks === 'function' ? S.worldLinks() || [] : [];
+        const spots = typeof S.allDiscoveredSpots === 'function' ? S.allDiscoveredSpots() : {};
+        corrLinks = [...new Set([...stored, ...worldLinksFrom(spots)])];
+        const firstVisit = !crossedBefore.has(key) && corrLinks.indexOf(g.id) < 0;
+        let walk = null;
+        try {
+          walk = createCorridorWalk(m.spec, g.from, { local: { x: sim.player.x, z: sim.player.z }, heading: sim.player.heading, yaw: sim.camera.yaw,
+            cam: sim.camera, firstVisit, party: sim.party, env: sim.env });
+        } catch (err) { corrFailed.add(g.id); corrStats.fails++; return false; }
+        crossedBefore.add(key);
+        dropCorridorWorld();
+        corr = { g, walk, phase: 'in', t: 0, cover: 0, stage: -1, coverStart: null, prep: false, prepFailed: false };
+        corrStats.enters++;
+        const e = sim.env || {};
+        corrFromList = visibleDistant(g.from, e, { links: corrLinks }, {});
+        corrToList = visibleDistant(g.to, e, { links: corrLinks }, {});
+        corrDistantKey = null;
+        setAct(null); hideFound(); spotEl.classList.add('hidden');   // 出口の spot / 地区の なまえは corridor では 出さない
+        travelBtn.disabled = true; mapBtn.disabled = true;   // もどる(めぐるを 出る)は つかえる。セーブは 出発 地域の まま
+        sfx('step');
+        hintEl.textContent = HINT_BY_WAY.walk(g);
+        return true;
+      }
+      function corridorDistant() {
+        if (!corr || typeof renderer.setDistant !== 'function') return;
+        // renderer は「いま えがく world の 地域」と おなじ ときだけ 遠景を えがく。corridor の world は まんなかで 到着 がわに なるので あわせる
+        const rid = corr.walk.world.regionId, k = rid + ':' + Math.round(corr.walk.t * 40);
+        if (k === corrDistantKey) return;
+        corrDistantKey = k;
+        renderer.setDistant({ regionId: rid, list: corr.walk.distant(corr.walk.t, corrFromList, corrToList), reduced: false });
+      }
+      // くらく する おおい(いまの transition と おなじ いろの かんがえ: 行きさきの 地面の いろ + すこし くらく)
+      function drawCorridorCover(a, to) {
+        if (!ctx2d || a <= 0) return;
+        const w = canvas.width, h = canvas.height;
+        ctx2d.save(); ctx2d.setTransform(1, 0, 0, 1, 0, 0);
+        ctx2d.fillStyle = `rgba(${hexToRgb(groundOf(to)).join(',')},${Math.min(1, a)})`; ctx2d.fillRect(0, 0, w, h);
+        ctx2d.fillStyle = `rgba(16,14,11,${0.45 * a})`; ctx2d.fillRect(0, 0, w, h);
+        ctx2d.restore();
+      }
+      function endCorridor(c) {
+        dropCorridorWorld();
+        corr = null; corrFromList = corrToList = null;
+        travelBtn.disabled = false; mapBtn.disabled = false; homeBtn.disabled = false;
+        // 暗転の あけは じっさいの じかんで すすめる(おもい frame が あっても 0.14 秒で あける)。はじまりは つぎの frame
+        corrFade = { start: null, to: sim.world.regionId, coverStart: c && c.coverStart != null ? c.coverStart : null };
+        last = null; lastHint = null;
+      }
+      // prepare: 着く がわの world を 組んで おく(まだ 地域は かえない・セーブも しない)。しっぱいしたら 着く ときに 出発 地域へ
+      function prepareCorridor(c) {
+        if (c.prep || c.prepFailed) return;
+        const t0 = perfNow();
+        try {
+          const registry = buildRegistry(), opts = { locality: typeof S.selectedLocality === 'function' ? S.selectedLocality() : null };
+          const world = buildWorld(c.g.to, registry, opts);
+          offerCorridorWorld(c.g.to, registry, opts, world);
+          c.prep = true; corrStats.prepares++;
+          c.warm = { world, i: 0 };
+        } catch (err) { c.prepFailed = true; dropCorridorWorld(); }
+        corrStats.lastPrepareMs = perfNow() - t0;
+      }
+      // 引き返した: 組んだ ものは すてる(メモリだけ。セーブは はじめから さわって いない)
+      function discardCorridor(c) {
+        if (!c.prep) return;
+        dropCorridorWorld(); c.prep = false; c.warm = null; corrStats.discards++;
+      }
+      // show の したく: 組んだ world の さいしょの え に つかう 絵(立て看板の 絵)を、見えない ちいさな canvas に
+      // 何回かに わけて えがき、さきに つくって おく(絵は 地域を こえて つかいまわされる)。着いた frame の いちばん おもい
+      // ところ(絵を はじめて つくる)を、歩いて いる あいだに 小わけに する。地域も セーブも かえない
+      let warmR = null;
+      function warmCorridor(c, now) {
+        try { warmStep(c, now); } catch (_) { c.warm = null; }   // したく は しっぱいしても あるく ことを とめない
+      }
+      function warmStep(c, now) {
+        const wm = c.warm;
+        if (!wm) return;
+        if (rendererFactory !== createCanvasRenderer || typeof document === 'undefined' || !document.createElement) { c.warm = null; return; }
+        if (!warmR) {
+          const oc = document.createElement('canvas'); oc.width = 4; oc.height = 4;
+          const g = oc.getContext && oc.getContext('2d');
+          if (!g) { c.warm = null; return; }
+          warmR = createCanvasRenderer({ canvas: oc, ctx: g, rawCtx: g, W, H, tier, playerGlyph: typeof S.playerGlyph === 'function' ? S.playerGlyph : () => '🐣',
+            wrapCtx: typeof S.wrapCanvasCtx === 'function' ? S.wrapCanvasCtx : null, wrapScenery: typeof S.sceneryCtx === 'function' ? S.sceneryCtx : null,
+            resolveScenery: typeof S.resolveScenery === 'function' ? S.resolveScenery : null });
+        }
+        const w = c.walk, world = wm.world, n = CORRIDOR_ARRIVAL.warmChunks;
+        if (!wm.pose) {
+          const p = corridorExitPose(w.spec, Object.assign({}, w.state, { s: w.spec.walkLength })), at = world.spots.find((q) => q.id === p.spot) || world.entry;
+          const prof = CAM_PROFILES.path || CAM_PROFILES.default;
+          const x = at.x, z = at.z, yaw = p.heading;
+          wm.pose = { player: { x, z, heading: yaw, face: 1, bob: 0, moving: true, onPath: true }, cam: { x, z, yaw, dist: prof.dist, height: prof.height } };
+        }
+        const last = wm.i >= n - 1;
+        // 絵を つくる ための ものだけ(地面・みち・くぎりは えがかない)。ちかい じゅんに ならべ、n こ おきに くばる
+        // (ちかくの 大きな 絵が 1 回に かたよらない)
+        if (!wm.order) wm.order = world.props.slice().sort((a, b) => Math.hypot(a.x - wm.pose.player.x, a.z - wm.pose.player.z) - Math.hypot(b.x - wm.pose.player.x, b.z - wm.pose.player.z));
+        const part = Object.assign({}, world, { props: wm.order.filter((_, j) => j % n === wm.i), segments: [], marks: [], areas: [], shore: [], detail: [], spots: last ? world.spots : [] });
+        warmR.draw({ regionId: world.regionId, world: part, residents: last ? world.residents : [], party: [], player: wm.pose.player, camera: wm.pose.cam, rig: wm.pose.cam,
+          camFx: null, nearest: null, spot: null, zone: null, mood: MOOD_DEFAULT, env: sim.env, frame: 0, lifeDebug: false, lifeOf: () => null }, now);
+        wm.i++; corrStats.warms++;
+        if (wm.i >= n) c.warm = null;
+      }
+      // 出発 地域へ もどる(引き返した / 着く がわが 作れなかった)。地域は かわって いないので セーブも かわらない
+      function backCorridor(c) {
+        const w = c.walk, pose = w.backPose();
+        w.restoreParty();
+        sim.setPlayer(pose.x, pose.z);
+        sim.player.heading = pose.heading;
+        sim.camera.yaw = w.yawIn(c.g.from);
+        corrStats.backs++;
+        distantKey = null; syncDistant();
+        endCorridor(c);
+      }
+      // 着いた: commit(地域を 書きかえる。ここ 1 か所)→ show(さいしょの え を 暗転の したで えがく)
+      function arriveCorridor(c, now) {
+        const w = c.walk, g = c.g, pose = w.exitPose();
+        if (!c.prep && !c.prepFailed) prepareCorridor(c);           // まだ 組んで いなければ ここで('end' の しかた)
+        const fail = () => {
+          dropCorridorWorld(); corrFailed.add(g.id); corrStats.fails++;
+          // とちゅうまで かわって いたら 出発 地域を 組みなおす(こわれた 地域の まま のこさない)
+          if (sim.world.regionId !== g.from) { try { enterWorld(g.from, { at: g.spot.id, heading: w.backPose().heading, quiet: true }); } catch (_) { /* ここで とまらない */ } }
+          return backCorridor(c);
+        };
+        if (c.prepFailed) return fail();
+        const carry = { yaw: w.yawIn(g.to), bob: w.player.bob, phase: 0, speed: w.player.speed, moving: w.player.moving };
+        const t0 = perfNow();
+        try {
+          enterWorld(g.to, { at: pose.spot, heading: pose.heading, carry, quiet: true });   // buildWorld は prepare の ものを 1 かい だけ つかう
+        } catch (err) { return fail(); }
+        const r = typeof S.enterRegionByMove === 'function' ? S.enterRegionByMove(g.to, { by: 'walk' }) : { ok: false };
+        sim.setPlayer(pose.x, pose.z);
+        // なかまは 1 くみ だけ(あたらしい 地域の なかま)。いつもの ならび(partyFormationSlots)で じぶんの うしろに おく
+        sim.placeParty();   // なかまは いまの ならびの ばしょへ(1 列に もどさない)
+        corrStats.lastCommitMs = corrStats.lastBuildMs = perfNow() - t0;
+        // show: 着いた 地域の さいしょの え(いちばん おもい)は 暗転しきった この frame で えがく
+        const t1 = perfNow();
+        renderer.draw(sim.view(), now);
+        drawCorridorCover(1, g.to);
+        corrStats.lastFirstDrawMs = perfNow() - t1;
+        corrStats.arrives++;
+        endCorridor(c);
+        corrFade.start = perfNow();   // あけるのは この おもい frame の おわりから(つぎの frame で もう すこし あかるく)
+        if (r && r.first) { showBanner(`はじめての ${plainLabel(g.to)}`, 2000); sfx('pop'); foundQueue = foundQueue.filter((q) => q.kind === 'link'); }
+        else showBanner(plainLabel(g.to), 900);
+      }
+      function stepCorridor(dt, now) {
+        const c = corr, w = c.walk;
+        c.t += dt;
+        if (c.phase === 'in') {
+          // まだ 出発 地域が 見えて いる。ほんの すこし くらく して から corridor へ
+          c.cover = Math.min(1, c.t / CORRIDOR_COVER.fadeIn);
+          if (corridorCoverSkip(c.cover)) { c.skipDraw = true; corrStats.coverSkips++; } else renderer.draw(sim.view(), now);
+          if (c.t >= CORRIDOR_COVER.fadeIn) { c.phase = 'walk'; c.t = 0; corridorDistant(); }
+        } else if (c.phase === 'walk') {
+          c.cover = Math.max(0, 1 - c.t / CORRIDOR_COVER.fadeOut);
+          const ev = w.step(dt, pad.vector());
+          const st = w.stage(), newStage = st.index !== c.stage;
+          corridorDistant();
+          // 終端の てまえ(あるいて fadeIn 秒の ぶん)から、s に あわせて くらく する。とまれば そのまま、もどれば また あかるく
+          const L0 = w.spec.walkLength, D = Math.max(1, RULES.playerSpeed * w.state.speedMultiplier * CORRIDOR_COVER.fadeIn);
+          const pre = Math.max(0, Math.min(1, (w.state.s - (L0 - D)) / D));
+          if (pre > 0 && c.preStart == null) c.preStart = now; else if (pre <= 0) c.preStart = null;
+          if (ev && ev.type === 'arrive' && pre >= 0.5) {           // もう くらい: この frame で 着く(暗転の まま とまる frame を つくらない)
+            c.coverStart = c.preStart != null ? c.preStart : now; c.phase = 'out';
+            return arriveCorridor(c, now);
+          }
+          if (corridorCoverSkip(Math.max(c.cover, pre))) { c.skipDraw = true; corrStats.coverSkips++; } else renderer.draw(w.view(), now);
+          // 段の なまえは え を えがいた あとで かえる(DOM を かえてから canvas に 字を えがくと、その frame で スタイルの 計算が はしる)
+          if (newStage) { c.stage = st.index; hintEl.textContent = `【${st.label}】${plainLabel(c.g.to)}の ほうへ`; lastHint = null; }
+          if (pre > 0) c.cover = Math.max(c.cover, pre);
+          if (ev) { c.phase = ev.type === 'arrive' ? 'out' : 'back'; c.t = 0; c.coverStart = now; if (ev.type === 'back') discardCorridor(c); }
+          else {
+            const L = w.spec.walkLength, s = w.state.s;
+            // 引き返したら 組んだ ものを すてる。終端の てまえに 来たら 組む(え を 出した あとで。セーブは さわらない)
+            if (c.prep && s < L * (1 - CORRIDOR_ARRIVAL.dropBehind)) discardCorridor(c);
+            else if (CORRIDOR_ARRIVAL.prepare === 'ahead' && !c.prep && !c.prepFailed && s >= L * (1 - CORRIDOR_ARRIVAL.prepareAhead)) {
+              drawCorridorCover(c.skipDraw ? 1 : c.cover, c.g.from); c.skipDraw = false; prepareCorridor(c); return;
+            } else if (c.warm) warmCorridor(c, now);
+          }
+        } else {
+          // 暗転は じっさいの じかんで(おもい frame が あっても のびない)
+          c.cover = Math.min(1, (now - c.coverStart) / (CORRIDOR_COVER.fadeIn * 1000));
+          if (c.cover >= 1) { if (c.phase === 'out') arriveCorridor(c, now); else backCorridor(c); return; }
+          if (corridorCoverSkip(c.cover)) { corrStats.coverSkips++; drawCorridorCover(1, c.phase === 'out' ? c.g.to : c.g.from); }
+          else { renderer.draw(w.view(), now); drawCorridorCover(c.cover, c.phase === 'out' ? c.g.to : c.g.from); }
+          if (c.phase === 'out' && CORRIDOR_ARRIVAL.prepare === 'cover') prepareCorridor(c);   // え を 出して から 組む
+          return;
+        }
+        drawCorridorCover(c.skipDraw ? 1 : c.cover, c.phase === 'out' ? c.g.to : c.g.from); c.skipDraw = false;
+        if (banner && now >= bannerUntil) { banner = null; bannerEl.classList.add('hidden'); }   // 入る まえの おびも いつもどおり きえる
+      }
+      // 着いた / もどった あとの 暗転の あけ(いつもの たんさくの え の うえに かさねる)。じっさいの じかんで 0.14 秒
+      function fadeCorridor(now, drawn) {
+        const f = corrFade;
+        if (f.start == null) f.start = now;
+        const a = Math.max(0, 1 - (now - f.start) / (CORRIDOR_COVER.fadeOut * 1000));
+        if (drawn) drawCorridorCover(a, f.to);   // えがかない フレームに かさねると こく なる
+        if (a <= 0) { corrFade = null; if (f.coverStart != null) corrStats.lastCoverMs = now - f.coverStart; }
+      }
+      const corridorInfo = () => (corr ? { connectionId: corr.g.id, from: corr.g.from, to: corr.g.to, phase: corr.phase, cover: corr.cover,
+        s: corr.walk.state.s, u: corr.walk.state.u, t: corr.walk.t, stage: corr.walk.stage().index, speedMultiplier: corr.walk.state.speedMultiplier,
+        firstVisit: corr.walk.state.firstVisit, direction: corr.walk.state.direction, props: corr.walk.world.props.length, party: corr.walk.party.length,
+        prepared: !!corr.prep, prepFailed: !!corr.prepFailed, ui: { found: !!foundNow, act: act ? act.kind : null, hint: hintEl.textContent },
+        cam: { x: corr.walk.camera.x, z: corr.walk.camera.z, yaw: corr.walk.camera.yaw, dist: corr.walk.camera.dist }, player: { x: corr.walk.player.x, z: corr.walk.player.z } } : null);
+      // ====== /Phase 4E-2 ======
       function frameFn(now) {
         if (!running) return;
         if (last === null) last = now; const last0 = last; const dt = Math.min(0.05, (now - last) / 1000); last = now; frame++;
@@ -6853,6 +7559,7 @@
         // 「たび」などの オーバーレイが かぶさって いる あいだは、せかいを すすめない。
         // とじたら そのまま つづきから(ロックを のこさない)
         if (typeof S.menuOpen === 'function' && S.menuOpen()) { last = null; rafId = requestAnimationFrame(frameFn); return; }
+        if (corr) { stepCorridor(dt, now); rafId = requestAnimationFrame(frameFn); return; } // Phase 4E-2
         if (trans) {
           // こえて いる あいだも せかいは すすむ。ゆびを はなして いても、こえる ちょくぜんの
           // むきへ すこし だけ あるきつづける ので「とまる → ワープ → また うごきだす」に ならない(§5)
@@ -6901,6 +7608,7 @@
           else if (ev.type === 'gate') beginTransition(ev.gate);
         }
         flushMarks();
+        if (corr) { rafId = requestAnimationFrame(frameFn); return; }   // こえはじめた frame: ここから さきの しらせ・ボタン・ヒントは 出さない // Phase 4E-2
         // ちずに ふえた ことを、おおげさに しないで しらせる(「ちず」ボタンが すこし ひかる)
         if (mapAdded) { mapAdded = false; mapBtn.classList.add('mgr-map-new'); if (mapGlowTimer) clearTimeout(mapGlowTimer); mapGlowTimer = setTimeout(() => mapBtn.classList.remove('mgr-map-new'), 2400); }
         if (!sim.spot && sim.zone !== lastZone) { lastZone = sim.zone; showSpot(null); }
@@ -6920,6 +7628,7 @@
         frameEma += ((now - last0) / 1000 - frameEma) * 0.05;
         if (!halfRate && frameEma > 0.036) halfRate = true; else if (halfRate && tier < 2 && frameEma < 0.024) halfRate = false;
         if (!(halfRate && frame % 2 === 1)) renderer.draw(sim.view(), now);
+        if (corrFade) fadeCorridor(now, !(halfRate && frame % 2 === 1)); // Phase 4E-2
         rafId = requestAnimationFrame(frameFn);
       }
       // region を こえる あいだ の え。ふだんの たんさくには 1つも 足さない
@@ -7217,6 +7926,7 @@
       homeBtn.addEventListener('click', () => stop());
       function stop() {
         if (!running) return; running = false; if (rafId) cancelAnimationFrame(rafId);
+        dropCorridorWorld(); // Phase 4E-2
         if (typeof window !== 'undefined' && typeof window.removeEventListener === 'function') window.removeEventListener('resize', onResize);
         if (typeof window !== 'undefined' && window.visualViewport && typeof window.visualViewport.removeEventListener === 'function') window.visualViewport.removeEventListener('resize', onResize);
         if (resizeTimer) clearTimeout(resizeTimer);
@@ -7234,9 +7944,9 @@
       const foundInfo = () => ({ now: foundNow ? { ...foundNow } : null, queue: foundQueue.map((q) => ({ ...q })), banner });
       // その ばしょを 見つけた とき しらせるか(しらべ もの よう)。え には つかわない
       const spotLevel = (id) => { const q = sim.world.spots.find((x) => x.id === id); return q ? spotDiscoveryLevel(q) : 0; };
-      return { stop, layoutInfo, foundInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; } };
+      return { stop, layoutInfo, foundInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; }, get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
+    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
   };
 })();

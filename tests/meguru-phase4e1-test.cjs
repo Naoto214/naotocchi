@@ -31,7 +31,16 @@ const deg = (rad) => ((rad * 180 / Math.PI) % 360 + 360) % 360;
 
 const SRC = fs.readFileSync('meguru.js', 'utf8');
 const strip4d2 = (src) => src.replace(/^[ \t]*\/\/ ====== Phase 4D-2:[\s\S]*?\/\/ ====== \/Phase 4D-2 ======\n/gm, '')
-  .split('\n').filter((l) => !/\/\/ Phase 4D-2$/.test(l)).join('\n');
+  // Phase 4E-2(home|forest を あるく PoC)も 印の ついた ブロックと 行だけ。4D-2 と いっしょに 消す
+  .replace(/^[ \t]*\/\/ ====== Phase 4E-2:[\s\S]*?\/\/ ====== \/Phase 4E-2 ======\n/gm, '')
+  .split('\n').filter((l) => !/\/\/ Phase 4D-2$|\/\/ Phase 4E-2$/.test(l)).join('\n')
+  .replace(/ CONTINUOUS_WALK_ALLOWLIST,[^\n]*? createCorridorWalk,/, '')
+  .replace(', get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; }', '');
+// 4E-2(home|forest を あるく PoC)は 4E-1 の かたちを はじめて つかう そう。4E-1 を 消す ときは 4E-2 だけ いっしょに 消す(4D-2 は のこす)
+const strip4e2 = (src) => src.replace(/^[ \t]*\/\/ ====== Phase 4E-2:[\s\S]*?\/\/ ====== \/Phase 4E-2 ======\n/gm, '')
+  .split('\n').filter((l) => !/\/\/ Phase 4E-2$/.test(l)).join('\n')
+  .replace(/ CONTINUOUS_WALK_ALLOWLIST,[^\n]*? createCorridorWalk,/, '')
+  .replace(', get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; }', '');
 function phase4e1Block() {
   const a = SRC.indexOf('// ====== Phase 4E-1:');
   const b = SRC.indexOf('// 世界地図に 出す 地域', a);
@@ -371,7 +380,7 @@ test('14. 1 どだけ 組み立てて freeze。生成は かるい', () => {
 
 test('15. まだ だれも つかって いない: simulation / renderer / UI / script.js から よばない', () => {
   const block = phase4e1Block();
-  const rest = SRC.replace(block, '');
+  const rest = strip4e2(SRC.replace(block, ''));   // 4E-2(4E-1 を つかう さいしょの ひと)の 印の ところは のぞく
   const INNER = ['CORRIDOR_REVISIT_SPEED', 'CORRIDOR_TURN_BUDGET', 'CORRIDOR_RAMP', 'CORRIDOR_EDGE', 'CORRIDOR_OBSTACLE_ALLOWANCE',
     'CORRIDOR_OBSTACLE_MAX', 'CORRIDOR_TERRAIN', 'CORRIDOR_WIDTH_ORDER', 'buildWalkCorridorSpec', 'walkSpecCache', 'turnedAt', 'deepFreeze', 'wrapDeg', 'deg360', 'round3'];
   const exportLine = rest.split('\n').find((l) => l.includes('return { computeMapData,')) || '';
@@ -401,7 +410,7 @@ test('16. **消しても うごきが 変わらない**: 4E-1 を 消した megu
   };
   try {
     plant(dirA); plant(dirB);
-    const stripped = SRC.replace(block, '').replace(' ' + EXPORTS_4E1.join(', ') + ',', '');
+    const stripped = strip4e2(SRC.replace(block, '')).replace(' ' + EXPORTS_4E1.join(', ') + ',', '');
     assert.ok(!/walkCorridorSpecs|corridorExitPose|CORRIDOR_STAGE_WALK/.test(stripped), 'けしのこしが ない');
     assert.ok(/worldCorridors/.test(stripped) && /distantRegistry/.test(stripped) && /setDistant/.test(stripped), '4C / 4D は のこって いる');
     fs.writeFileSync(path.join(dirB, 'meguru.js'), stripped);

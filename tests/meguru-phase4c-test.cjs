@@ -35,7 +35,11 @@ const angDiff = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
 const SRC = fs.readFileSync('meguru.js', 'utf8');
 // Phase 4D-2(遠景 PoC)は 印の ついた ブロックと 行だけ。消す ときは いっしょに 消す
 const strip4d2 = (src) => src.replace(/^[ \t]*\/\/ ====== Phase 4D-2:[\s\S]*?\/\/ ====== \/Phase 4D-2 ======\n/gm, '')
-  .split('\n').filter((l) => !/\/\/ Phase 4D-2$/.test(l)).join('\n');
+  // Phase 4E-2(home|forest を あるく PoC)も 印の ついた ブロックと 行だけ。4D-2 と いっしょに 消す
+  .replace(/^[ \t]*\/\/ ====== Phase 4E-2:[\s\S]*?\/\/ ====== \/Phase 4E-2 ======\n/gm, '')
+  .split('\n').filter((l) => !/\/\/ Phase 4D-2$|\/\/ Phase 4E-2$/.test(l)).join('\n')
+  .replace(/ CONTINUOUS_WALK_ALLOWLIST,[^\n]*? createCorridorWalk,/, '')
+  .replace(', get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; }', '');
 // Phase 4C で 足した ぶんだけを 切りだす
 function phase4cBlock() {
   const a = SRC.indexOf('// ====== Phase 4C:');
