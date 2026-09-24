@@ -1,0 +1,71 @@
+{
+  "schema": "naotocchi.card_game.proxy_board_response_plan.v1",
+  "checkpoint": 134,
+  "protected_133_stop_raw_sha256": {
+    "order-01-a-first": "636d71feb2230178e38a6c4ae9ddddfd2c7e1a544d29bc879454210e18258ef2",
+    "order-01-b-first": "bf2ba112444a2429ed2fc7dd1b5f38bafff56c821c45aec2b0ff975ba2139326"
+  },
+  "source_contracts": [
+    6,
+    72,
+    107,
+    114,
+    119,
+    121,
+    128,
+    132,
+    133
+  ],
+  "response_board_registry": {
+    "C-bat": {
+      "kind": "response_triggered",
+      "source_text_reference": "72-companion-26-card-text-draft.md#C-bat",
+      "placement_action": "place_companion",
+      "placement_growth_delta": 0,
+      "placement_duration": "none",
+      "response_candidate_family": "triggered_ability",
+      "response_timing": "opponent_turn_after_own_quick_use",
+      "independent_normal_action": false
+    }
+  },
+  "routes": [
+    {
+      "path_id": "order-01-a-first",
+      "source_stop_sha256": "636d71feb2230178e38a6c4ae9ddddfd2c7e1a544d29bc879454210e18258ef2",
+      "source_game_state_sha256": "7799f65a216baa869d180e4e190d3287dd9cfd07cb42a2ad45d9b9a7b1e6220e",
+      "source_continuation_state_sha256": "5eb1adde62ca8f20f041c174fbd17ffaa76c4a8b1596e2507ae478b17eeae014",
+      "last_valid_event_seq": 126,
+      "game_state_sha256": "b53ca6ffce98717b17e56adaa23dc2280125626cd702502e9894e6b5e11c884d",
+      "continuation_state_sha256": "47210fc3888e40bd6aed81819b731aebc266b9b737fff008cbdbbd056f05fc81",
+      "status": "completed",
+      "reason": null,
+      "winner": "A",
+      "result": "winner",
+      "decision_count": 14,
+      "event_count": 21,
+      "snapshot_count": 22,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "result_file": "proxy-board-response-results-134/stop-134-order-01-a-first.json"
+    },
+    {
+      "path_id": "order-01-b-first",
+      "source_stop_sha256": "bf2ba112444a2429ed2fc7dd1b5f38bafff56c821c45aec2b0ff975ba2139326",
+      "source_game_state_sha256": "b8c56c4d942c2085ace6e02655ff4b4fa6f64fff44a4b8209895d59873f8b215",
+      "source_continuation_state_sha256": "b870c4026aeec3c9adb59573cf1abbf2930340850e9fc2255e488f1a176124c5",
+      "last_valid_event_seq": 126,
+      "game_state_sha256": "1c00f9d630ed571eda5eb4c437beb6c764c1d3cca23a70bbc4183f855ca756ce",
+      "continuation_state_sha256": "1fca74359b393eda28f8655effbf4b799d24fb666505b07849f02d7da5d1c4e4",
+      "status": "completed",
+      "reason": null,
+      "winner": "A",
+      "result": "winner",
+      "decision_count": 8,
+      "event_count": 13,
+      "snapshot_count": 14,
+      "seeded_fallback_used": true,
+      "counts_as_independent_balance_sample": false,
+      "result_file": "proxy-board-response-results-134/stop-134-order-01-b-first.json"
+    }
+  ]
+}
