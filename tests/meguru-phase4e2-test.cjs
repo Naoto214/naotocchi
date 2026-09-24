@@ -69,9 +69,10 @@ function run(o = {}) {
 }
 const seq = (kinds) => kinds.join(',').replace(/(home,?)+/g, 'H').replace(/(C,?)+/g, 'C').replace(/(forest,?)+/g, 'F').replace(/(river_lake,?)+/g, 'R');
 
-test('1. corridor を あるくのは home|forest(行きと 帰り)だけ。ほかの 出口は いまの transition', () => {
+test('1. corridor を あるくのは 許可リストの 5 本(行きと 帰り)だけ。ほかの 出口は いまの transition(Phase 4E-4A で LOW 4 本を たした)', () => {
   const { M } = setup();
-  assert.deepEqual(arr(M.CONTINUOUS_WALK_ALLOWLIST), ['home|forest']);
+  const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain'];
+  assert.deepEqual(arr(M.CONTINUOUS_WALK_ALLOWLIST), CONT);
   const seen = {};
   for (const id of Object.keys(M.WORLDS)) {
     const w = M.buildWorld(id, M.buildRegistry());
@@ -79,21 +80,21 @@ test('1. corridor を あるくのは home|forest(行きと 帰り)だけ。ほ�
       const m = M.continuousWalkMode(g, {});
       const key = g.id + ':' + g.from;
       seen[key] = m.mode;
-      if (g.id === 'home|forest') assert.equal(m.mode, 'corridor', key);
+      if (CONT.includes(g.id)) assert.equal(m.mode, 'corridor', key);
       else {
         assert.equal(m.mode, 'transition', key);
         assert.equal(m.reason, g.kind === 'walk' ? 'not-allowed' : 'not-walk', key);
       }
     }
   }
-  assert.equal(Object.values(seen).filter((v) => v === 'corridor').length, 2, 'home → forest と forest → home の 2 つ');
+  assert.equal(Object.values(seen).filter((v) => v === 'corridor').length, 10, '5 本 × 行きと 帰り');
   // ふね・ゴンドラ・もぐる は つねに transition
   for (const id of ['jungle|sea', 'countryside|star_stop', 'deepsea|sea']) assert.ok(Object.keys(seen).some((k) => k.startsWith(id + ':')), id + ' を しらべた');
   for (const k of Object.keys(seen)) if (/jungle\|sea|star_stop|deepsea/.test(k)) assert.equal(seen[k], 'transition', k);
-  // home.bigtree の もう 1 つの 出口(かわ)は transition
-  assert.equal(seen['home|river_lake:home'], 'transition');
-  // walk の のこり 9 本も transition
-  for (const id of WALK.filter((x) => x !== 'home|forest')) for (const k of Object.keys(seen).filter((q) => q.startsWith(id + ':'))) assert.equal(seen[k], 'transition', k);
+  // home.bigtree の もう 1 つの 出口(かわ)も Phase 4E-4A から corridor(出口の とりちがえは テスト 15)
+  assert.equal(seen['home|river_lake:home'], 'corridor');
+  // walk の のこり 5 本(MEDIUM 3・HIGH 2)は transition
+  for (const id of WALK.filter((x) => !CONT.includes(x))) for (const k of Object.keys(seen).filter((q) => q.startsWith(id + ':'))) assert.equal(seen[k], 'transition', k);
 });
 
 test('2. fallback: よいやすい せってい・perfTier 2・しっぱいした・おもい・形が あわない → transition。perfTier 0 / 1 は corridor', () => {
@@ -228,20 +229,19 @@ test('9. 引き返し: とちゅうで もどると 出発 地域の 同じ 出�
   assert.ok(w.state.s < 0);
 });
 
-test('10. け しき: 飾りは 150 こ いない、段の 地面の 種類で かわり、さかいは みじかく まざる。地面の いろも なめらか。遠景は すすみぐあいで まざる', () => {
+test('10. け しき: 飾りは 150 こ いない、段の 地面の 種類で かわり、となりの 段と なめらかに まざる。地面の いろは 出発 → 到着 へ とばずに。背景は まんなかで 1 回だけ(Phase 4E-4A)。遠景は すすみぐあいで まざる', () => {
   const { M } = setup();
   const { w } = walker(M, 'home');
-  const props = w.world.props, L = w.spec.walkLength, len = w.spec.stageLength, band = len * 0.3;
+  const props = w.world.props, L = w.spec.walkLength, len = w.spec.stageLength, band = len * 0.5;
   assert.ok(props.length > 60 && props.length <= 150, 'props ' + props.length);
   assert.ok(w.world.segments.length > 0 && w.world.segments.every((sg) => sg.half > 0 && sg.len > 0));
   const deco = props.filter((p) => !p.blocker), name = (p) => p.emoji || p.struct;
   const terr = arr(w.spec.stages.map((st) => st.terrain));
   assert.deepEqual(terr, ['urban-edge', 'field', 'field', 'forest', 'forest', 'forest']);
-  // さかいの はば(段の 30% = 全体の 5%)の そとは、その 段の 地面の 種類の 飾り だけ
+  // 飾りは その 段か となりの 段の 地面の 種類(段の まんなか から まんなか まで なめらかに まざる)
   for (const p of deco) {
-    const i = Math.min(5, Math.floor(p.s / len)), inBand = p.s - i * len < band || (i + 1) * len - p.s < band;
-    if (!inBand) assert.equal(p.terrain, terr[i], `${name(p)} @${Math.round(p.s)} は ${terr[i]}`);
-    else assert.ok(p.terrain === terr[i] || p.terrain === terr[i - 1] || p.terrain === terr[i + 1]);
+    const i = Math.min(5, Math.floor(p.s / len));
+    assert.ok(p.terrain === terr[i] || p.terrain === terr[i - 1] || p.terrain === terr[i + 1], `${name(p)} @${Math.round(p.s)}`);
   }
   // 地面の 種類ごとに ちがいが わかる(いえなみ = いえ・さく、はたけ = うね・むぎ、もり = しんようじゅ・しだ)
   const set = (t) => new Set(deco.filter((p) => p.terrain === t).map(name));
@@ -252,17 +252,21 @@ test('10. け しき: 飾りは 150 こ いない、段の 地面の 種類で �
   assert.ok(!has('forest', ['🏠', '🏡', 'fence', 'hedge']) && !has('urban-edge', ['🌲', 'fern']), 'まざらない');
   // 着く ちょくぜん(さいごの 段の はばの そと)に 出発 がわの 飾りは のこらない
   assert.ok(deco.filter((p) => p.s > L - len + band).every((p) => p.terrain === 'forest'), '森の いりぐちに いえは ない');
-  // 地面の いろ: 段の まんなかは その 地域の いろ、さかいで なめらかに かわる(10 ごとの とびが ちいさい)
+  // 地面の いろ: 出発 → 到着 の いろに 地面の 種類の いろを かさねる。はしは その 地域の いろ、10 ごとの とびが ちいさい
   const at = (s) => { w.world.setProgress(s / L); return w.world.ground[0]; };
-  assert.equal(at(len * 0.5), M.WORLDS.home.ground[0]); assert.equal(at(len * 1.5), M.WORLDS.countryside.ground[0]); assert.equal(at(len * 4.5), M.WORLDS.forest.ground[0]);
   const rgb = (h) => [1, 3, 5].map((k) => parseInt(h.slice(k, k + 2), 16));
+  const near = (a, b, tol) => rgb(a).every((v, k) => Math.abs(v - rgb(b)[k]) <= tol);
+  assert.ok(near(at(len * 0.5), M.WORLDS.home.ground[0], 4), 'はじめは home の いろ ' + at(len * 0.5));
+  assert.ok(near(at(len * 5.5), M.WORLDS.forest.ground[0], 4), 'おわりは forest の いろ ' + at(len * 5.5));
+  assert.ok(!near(at(len * 1.5), M.WORLDS.home.ground[0], 2) && !near(at(len * 1.5), M.WORLDS.forest.ground[0], 2), 'はたけの 段は どちらとも ちがう(地面の 種類の いろ)');
   let jump = 0;
   for (let s = 0; s < L; s += 10) { const a = rgb(at(s)), b = rgb(at(s + 10)); jump = Math.max(jump, ...a.map((v, k) => Math.abs(v - b[k]))); }
   assert.ok(jump <= 6, '地面の いろの とび ' + jump);
-  // 山なみ: いえなみ → はたけ → もり
+  // 山なみ(背景): 出発 地域の もの → まんなかで 1 回だけ 到着 地域の もの。とちゅうの 段の 地面で かわらない
   assert.equal((at(len * 0.5), w.world.backdrop), M.WORLDS.home.backdrop);
-  assert.equal((at(len * 1.5), w.world.backdrop), M.WORLDS.countryside.backdrop);
+  assert.equal((at(len * 1.5), w.world.backdrop), M.WORLDS.home.backdrop);
   assert.equal((at(len * 5.5), w.world.backdrop), M.WORLDS.forest.backdrop);
+  { let flips = 0, prev = null; for (let s = 0; s <= L; s += 10) { const b = (at(s), w.world.backdrop); if (prev && b !== prev) flips++; prev = b; } assert.equal(flips, 1, '背景の きりかわり ' + flips); }
   // 森の 屋根は 森の おく だけ
   assert.equal((at(len * 3.5), w.world.canopy), null); assert.ok((at(len * 5.5), w.world.canopy) === (M.WORLDS.forest.canopy || null));
   const g0 = (w.world.setProgress(0), w.world.ground[0]);
@@ -509,13 +513,17 @@ test('14. よいやすい せってい・perfTier 2 は いまの transition(cor
   }
 });
 
-test('15. home.bigtree で かわ(river_lake)へ 出ると corridor は はじまらない(いまの transition)', () => {
-  const R = run();
-  R.go('river_lake');
-  for (let i = 0; i < 80 && R.s.regionId === 'home'; i++) R.h.advance(50);
-  assert.equal(R.s.regionId, 'river_lake');
-  assert.equal(R.r.corridorStats.enters, 0);
-  R.r.stop();
+test('15. home.bigtree の 2 つの 出口を とりちがえない: かわ(river_lake)の むきは home|river_lake、もりの むきは home|forest(Phase 4E-4A から どちらも corridor)', () => {
+  for (const [to, id] of [['river_lake', 'home|river_lake'], ['forest', 'home|forest']]) {
+    const R = run();
+    R.go(to);
+    for (let i = 0; i < 80 && !R.r.corridor; i++) R.h.advance(50);
+    assert.ok(R.r.corridor, to + ' へ corridor');
+    assert.equal(R.r.corridor.connectionId, id); assert.equal(R.r.corridor.to, to);
+    for (let i = 0; i < 600 && R.r.corridor; i++) R.h.advance(50);
+    assert.equal(R.s.regionId, to); assert.equal(R.r.corridorStats.enters, 1);
+    R.r.stop();
+  }
 });
 
 test('16. 着く がわが 組み立てられない とき: home の 出口へ もどる。セーブは home、つぎからは transition', () => {

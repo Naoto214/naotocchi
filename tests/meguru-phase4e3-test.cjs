@@ -2,7 +2,7 @@
 // (docs/handoff/meguru-phase4e3-corridor-preload-2026-09-24.md)
 //
 // ここで しばるのは
-//   ・じょうたい: idle → preparing → ready → committed / aborted / failed。start 0.70・dispose 0.45(あそび)
+//   ・じょうたい: idle → preparing → ready → committed / aborted / failed。のこり 810 で 組み、のこり 1485 より もどれば すてる(あそび。6 段では 0.70 / 0.45)
 //   ・buildWorldSteps は くぎって 組んでも 1 回で 組んでも 同じ world(13 地域)
 //   ・組んで いる あいだ 正本(regionId・セーブ)は 出発 地域の まま。地域を かえるのは 着いた ときの 1 回
 //   ・着いた ときに 組んだ world を つかう(buildWorld を 2 回 よばない)。まにあわなければ のこりを 組む
@@ -48,22 +48,28 @@ function run(o = {}) {
 }
 const snap = (x) => JSON.parse(JSON.stringify(x));
 
-test('1. じょうたいの きまり: 0.70 で 組みはじめ、0.45 より もどったら すてる(あそび)。こけた あと・着いた あとは なにも しない', () => {
+test('1. じょうたいの きまり: 道の のこり 810 で 組みはじめ、のこり 1485 より もどったら すてる(あそび)。こけた あと・着いた あとは なにも しない(Phase 4E-4A で 割合 → のこり きょり)', () => {
   const { M } = setup();
-  const P = M.CORRIDOR_PRELOAD, A = M.corridorPreloadAction;
+  const P = M.CORRIDOR_PRELOAD, A = M.corridorPreloadAction, LEAD = M.CORRIDOR_PRELOAD_LEAD;
   assert.deepEqual(arr(M.CORRIDOR_PRELOAD_STATES), ['idle', 'preparing', 'ready', 'failed', 'aborted', 'committed']);
-  assert.equal(P.start, 0.7); assert.equal(P.dispose, 0.45);
-  assert.ok(P.start - P.dispose >= 0.2, 'あそびが ある');
-  assert.equal(A('idle', 0.69), null); assert.equal(A('idle', 0.7), 'start'); assert.equal(A('aborted', 0.75), 'start');
-  assert.equal(A('preparing', 0.5), null, '0.45〜0.70 の あいだは そのまま'); assert.equal(A('ready', 0.46), null);
-  assert.equal(A('preparing', 0.44), 'abort'); assert.equal(A('ready', 0.1), 'abort');
-  for (const st of ['failed', 'committed']) for (const f of [0, 0.3, 0.5, 0.8, 1]) assert.equal(A(st, f), null, st);
+  // 810 は「2 かいめの はやさ(260 × 1.4)で 着くまでに のこす 秒(組む + 余裕)」から 出る(magic number では ない)
+  assert.equal(P.leadSec, LEAD.readySec + LEAD.marginSec);
+  assert.equal(P.startRemaining, Math.ceil(P.leadSec * M.RULES.playerSpeed * 1.4 / 10) * 10);
+  assert.equal(P.startRemaining, 810); assert.equal(P.disposeRemaining, 1485);
+  assert.ok(P.disposeRemaining - P.startRemaining >= 450, 'あそびが 1 段 いじょう');
+  // 6 段(2700)では 4E-3 と おなじ 0.70 / 0.45。5 段(2250)では 0.64 / 0.34
+  assert.equal(1 - P.startRemaining / 2700, 0.7); assert.ok(Math.abs((1 - P.disposeRemaining / 2700) - 0.45) < 1e-9);
+  assert.ok(Math.abs((1 - P.startRemaining / 2250) - 0.64) < 1e-9);
+  assert.equal(A('idle', 811), null); assert.equal(A('idle', 810), 'start'); assert.equal(A('aborted', 600), 'start');
+  assert.equal(A('preparing', 1200), null, 'のこり 810〜1485 の あいだは そのまま'); assert.equal(A('ready', 1485), null);
+  assert.equal(A('preparing', 1486), 'abort'); assert.equal(A('ready', 2500), 'abort');
+  for (const st of ['failed', 'committed']) for (const r of [0, 400, 810, 1500, 2700]) assert.equal(A(st, r), null, st);
   // さかいの まわりで ゆれても 組む / すてる を くりかえさない
   let st = 'idle', starts = 0, aborts = 0;
-  for (let i = 0; i < 200; i++) { const f = i % 2 ? 0.69 : 0.71; const a = A(st, f); if (a === 'start') { starts++; st = 'ready'; } else if (a === 'abort') { aborts++; st = 'aborted'; } }
+  for (let i = 0; i < 200; i++) { const r = i % 2 ? 815 : 805; const a = A(st, r); if (a === 'start') { starts++; st = 'ready'; } else if (a === 'abort') { aborts++; st = 'aborted'; } }
   assert.equal(starts, 1); assert.equal(aborts, 0);
-  st = 'ready'; for (let i = 0; i < 200; i++) { const a = A(st, i % 2 ? 0.44 : 0.46); if (a === 'abort') { aborts++; st = 'aborted'; } else if (a === 'start') starts++; }
-  assert.equal(aborts, 1); assert.equal(starts, 1, '0.45 あたりで ゆれても 組みなおさない');
+  st = 'ready'; for (let i = 0; i < 200; i++) { const a = A(st, i % 2 ? 1490 : 1480); if (a === 'abort') { aborts++; st = 'aborted'; } else if (a === 'start') starts++; }
+  assert.equal(aborts, 1); assert.equal(starts, 1, 'のこり 1485 あたりで ゆれても 組みなおさない');
 });
 
 test('2. buildWorldSteps: くぎって 組んでも・とちゅうで ほかの ことを しても、buildWorld と おなじ world(13 地域)', () => {
@@ -279,9 +285,10 @@ test('11. reduced motion・perfTier 2 は いまの transition(preload も し�
     R.r.stop();
   }
   const { M } = setup();
-  assert.deepEqual(arr(M.CONTINUOUS_WALK_ALLOWLIST), ['home|forest']);
+  const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain'];   // Phase 4E-4A: LOW 4 本を たした
+  assert.deepEqual(arr(M.CONTINUOUS_WALK_ALLOWLIST), CONT);
   for (const id of Object.keys(M.WORLDS)) {
     const w = M.buildWorld(id, M.buildRegistry());
-    for (const g of arr(M.regionGates(id, w))) { const m = M.continuousWalkMode(g, {}); if (g.id !== 'home|forest') assert.equal(m.mode, 'transition', g.id); }
+    for (const g of arr(M.regionGates(id, w))) { const m = M.continuousWalkMode(g, {}); if (!CONT.includes(g.id)) assert.equal(m.mode, 'transition', g.id); }
   }
 });

@@ -214,3 +214,39 @@ test('illustrated road play retains input results, rewards and completion timing
   }
   assert.deepEqual(play(true),play(false));
 });
+
+// Phase 4E-4A: prepare(list, { decode: true }) — 画面の そとで さきに デコード(ImageBitmap)。版は あげない
+function decodeSetup({fail=false,svg=false,size=1254}={}) {
+  const fetched=[], bitmaps=[], calls=[];
+  const atlas={complete:true,naturalWidth:1254,naturalHeight:1254,src:'assets/ui/atlas.png'};
+  const document={createElement(){return {complete:true,naturalWidth:128,naturalHeight:128,addEventListener(){},removeEventListener(){},src:''};}};
+  const sandbox={document,setTimeout(){assert.fail('no timers');}};
+  vm.createContext(sandbox);
+  vm.runInContext(fs.readFileSync('canvas-illustrations.js','utf8'),sandbox);
+  const fetchFn=async(src)=>{fetched.push(src);if(fail)throw Error('offline');return {ok:true,blob:async()=>({src})};};
+  const bitmapFn=async(blob)=>{const b={width:size,height:size,from:blob.src,closed:false,close(){this.closed=true;}};bitmaps.push(b);return b;};
+  const art=sandbox.NaotocchiCanvasIllustrations.create({document,resolve:(e)=>svg?{svg:'<svg/>'}:{image:atlas,frame:[0,0,100,100]},fetch:fetchFn,createImageBitmap:bitmapFn});
+  const ctx={save(){},restore(){},drawImage(...a){calls.push(a);},fillRect(){},imageSmoothingEnabled:true};
+  return {art,atlas,fetched,bitmaps,calls,ctx};
+}
+test('pre-decode keeps the atlas decoded once as an ImageBitmap, draws from it, and never bumps the sprite version',async()=>{
+  const {art,atlas,fetched,bitmaps,calls,ctx}=decodeSetup();
+  art.drawSymbol(ctx,'⭐',0,0,24);assert.equal(calls[0][0],atlas,'before decode the image itself');
+  const v0=art.version;
+  await art.prepare(['⭐','🌼'],{decode:true});
+  assert.deepEqual(fetched,['assets/ui/atlas.png'],'one shared atlas is fetched once');
+  assert.equal(bitmaps.length,1);assert.equal(art.decoded.count,1);assert.equal(art.decoded.bytes,1254*1254*4);
+  calls.length=0;art.drawSymbol(ctx,'⭐',0,0,24);assert.equal(calls[0][0],bitmaps[0],'after decode the bitmap');
+  assert.equal(art.version,v0,'cached sprites stay valid');
+  await art.prepare(['⭐'],{decode:true});assert.equal(fetched.length,1,'no second decode');
+  await art.prepare(['⭐']);assert.equal(fetched.length,1,'plain prepare never decodes');
+});
+test('pre-decode failure, svg art and a size mismatch all keep the ordinary lazy image draw',async()=>{
+  let t=decodeSetup({fail:true});await t.art.prepare(['⭐'],{decode:true});
+  assert.equal(t.art.decoded.count,0);assert.equal(t.art.decoded.failed,1);
+  t.art.drawSymbol(t.ctx,'⭐',0,0,24);assert.equal(t.calls[0][0],t.atlas);
+  t=decodeSetup({svg:true});await t.art.prepare(['⭐'],{decode:true});assert.equal(t.fetched.length,0,'svg is not fetched');
+  t=decodeSetup({size:10});await t.art.prepare(['⭐'],{decode:true});
+  assert.equal(t.art.decoded.count,0);assert.equal(t.bitmaps[0].closed,true,'a wrong bitmap is released');
+  t.art.drawSymbol(t.ctx,'⭐',0,0,24);assert.equal(t.calls[0][0],t.atlas);
+});
