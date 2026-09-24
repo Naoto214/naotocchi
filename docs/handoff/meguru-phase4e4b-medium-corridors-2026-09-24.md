@@ -85,9 +85,50 @@ walk で transition に のこるのは HIGH 2 本(`countryside|forest`・`city|
 
 ## 4. 性能(CPU 4 倍・390 × 844・DPR 3。あるいて 入る)
 
-<!-- PERF -->
+はかりかた: 4E-4A と おなじ(出口の 260 てまえから 上を おしつづけて あるいて こえる。1 ページで A→B 初回 → B→A 2 かいめ → A→B 2 かいめ)。
+MEDIUM 3 本 × 行き / 帰り を 2 セット(各 方向 6 回、合計 36 回)、なかま 8 にん。
 
-## 5. テスト
+| corridor 向き | 回数 | entry max(最大) | corridor p95(最大) | prepare max | ready margin 最小 | arrival 中央 / 最大 | first visible 最大 | カメラ °/s 最大 / 反転 | heap 最大 MB | decode MB | walkFail / errs / fallback |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| forest|mountain forest→mountain | 6 | 23.9 | 18.9 | 30.9 | 1724 | 217 / 300 | 15.3 | 27 / 0 | 60.1 | 18 | 0 / 0 / 0 |
+| forest|mountain mountain→forest | 6 | 22.5 | 23.5 | 47.3 | 1577 | 250 / 283 | 14.7 | 26.8 / 0 | 60.1 | 18 | 0 / 0 / 0 |
+| mountain|river_lake mountain→river_lake | 6 | 23.4 | 18.5 | 30.5 | 1859 | 233 / 250 | 17.1 | 26.6 / 0 | 60.1 | 18 | 0 / 0 / 0 |
+| mountain|river_lake river_lake→mountain | 6 | 31.3 | 19.2 | 35.5 | 1802 | 217 / 233 | 28.6 | 63.4 / 1 | 60.1 | 18 | 0 / 0 / 0 |
+| city|sea city→sea | 6 | 35.1 | 19 | 24.1 | 1899 | 217 / 267 | 18.2 | 87.6 / 1 | 60.4 | 12 | 0 / 0 / 0 |
+| city|sea sea→city | 6 | 37.9 | 20.3 | 27.1 | 1681 | 217 / 250 | 13.8 | 40.6 / 1 | 60.3 | 12 | 0 / 0 / 0 |
+
+| まとめ(MEDIUM 36 回) | 値 | 目標 |
+|---|---|---|
+| entry max 中央値 / 最大 | 19.6 / **37.9 ms** | ≤ 60(100 こえ なし) |
+| 初回 / 2 かいめ の entry max | 35.1 / 37.9 ms | — |
+| corridor p95 最大 | 23.5 ms | 4E-4A(21〜25)と 同じ |
+| prepare(組む frame)最大 | 47.3 ms | 4E-4A の LOW(42.9〜49.9)と 同じ |
+| ready margin 最小(初回 / 2 かいめ) | 2422 / **1577 ms** | 2 かいめ ≥ 1000 |
+| arrival fade 中央値 / 最大 | 217 / **300 ms** | ≤ 250 / ≤ 300 |
+| first visible 最大 | 28.6 ms(river_lake→mountain、ほかは ≤ 18) | 〜20 |
+| fallback(その場で 組む)・エラー | 0 / 0 | 0 |
+| カメラの むきの はやさ(あるく 区間) | 曲がり 26〜27°/s、さいだい 88°/s(上限 `RULES.cam.turnRate` 109°/s いか。大きい 値は 左右 反転 1 回と いっしょで、入口で カメラを 道の むきへ あわせる ところ と みて いる。場所は 記録して いない) | ふらつかない |
+
+- **turn spread で 入口は 重く ならない**: 曲がりは spec を 組む ときに 1 回 きまる だけ(chart は 4E-2 と 同じ 180 点)。入口の したく(world を さきに 組む)も 同じ
+- **1 回目の 計測で 見つけて なおした こと**: city\|sea の 帰り(sea→city)で 入口 105 ms、forest\|mountain の 帰り(mountain→forest)で 暗転 417 ms。どちらも **道の とちゅうの 段の 絵(🌼・🍂)を あるいて いる とちゅうで はじめて デコード**(1 こ 63〜99 ms)して いた。さきどり デコードの リストを「最初の 2 段」→「道 ぜんぶの 段」に した(1 本 4〜14 こ、atlas は さいだい 3 まい の まま)。上の 表は なおした あと
+
+**なかま 27 にん(CPU 4 倍・行き 3 本 × 3 回)**: entry max 最大 55.4 ms(city\|sea 初回)・corridor p95 最大 25.7・prepare 最大 42.5・ready margin 最小 1774 ms・暗転 217〜267 ms・first visible 最大 24.9 ms。27 にん みんな べつの ばしょ・帯の そとへ 出ない(4E-4A テスト 3・4E-4B テスト 3)。
+
+**ふだんの はやさ(CPU 1 倍・行き 3 本 × 3 回)**: entry max 最大 9.2 ms・corridor p95 3.5 ms・暗転 200 ms・first visible 4.9 ms。
+
+<!-- LOWREG -->
+
+## 5. メモリ
+
+| | 4E-4A | 4E-4B |
+|---|---|---|
+| JS ヒープ さいだい(gc の あと、なかま 8) | 61.6 MB | 60.4 MB |
+| デコードした 絵(ImageBitmap) | さいだい 18 MB(atlas 3 まい) | さいだい 18 MB(city\|sea は 12 MB) |
+| 組んだ 着く がわ の world | 1 つ | 1 つ(かわらない。8 本に しても 同時に もつのは 1 つ) |
+| 入口の したくで もつ corridor world | 2 出口 まで | 2 出口 まで(mountain は 4 出口 ある が、もつのは さきに ちかづいた 2 つ まで。地域を 出たら すてる) |
+
+
+## 6. テスト
 
 あたらしく `tests/meguru-phase4e4b-test.cjs`(5 本):
 
