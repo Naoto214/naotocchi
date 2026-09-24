@@ -715,5 +715,6 @@ corridorMode(gate) =
 |---|---|---|
 | 4E 設計 | 完了(#335、main `a564730`) | この文書 |
 | 4E-1 corridor の形と状態(pure data) | **完了**(#336、main `6191f76`。PR 上の npm test 1266 / 1266、main の Home layout 緑。main の Runtime smoke は 1 回目 前からの ゆらぐ 2 本で赤 → 再実行で緑。4E-2 handoff §12) | [handoff](../handoff/meguru-phase4e1-corridor-geometry-2026-09-23.md) |
-| 4E-2 home\|forest を Canvas で歩く PoC | Draft PR #337。安定化(ゆらぐ テスト・prepare → commit → show・段の 切りかわり・けしき)ずみ。なかまの ならび(party formation)・大人数の なかまを かるく えがく(filter → cache・LOD・暗転中は えがかない)も たした。判定: **採用**(27 にん: 暗転 1342 → 300 ms、corridor p95 32.3 → 18.6 ms) | [handoff](../handoff/meguru-phase4e2-home-forest-poc-2026-09-23.md) §15・§16・§17 |
-| 4E-3 ほかの walk へ広げる | まだ(4E-2 handoff §15.13 の条件のあと) | |
+| 4E-2 home\|forest を Canvas で歩く PoC | **完了**(#337、main `13bd8bf`)。安定化・なかまの ならび・大人数の なかまを かるく えがく。判定: 採用 | [handoff](../handoff/meguru-phase4e2-home-forest-poc-2026-09-23.md) §15〜§17 |
+| 4E-3 着く がわを とちゅうで 組む(preload) | Draft PR。home\|forest だけ。`buildWorldSteps` で 0.70 から わけて 組み、着いた ときに つかう。暗転 中央値 292 → 233 ms、組む frame 100 ms 級 → 21〜33 ms(CPU 4 倍)。判定: 採用 | [handoff](../handoff/meguru-phase4e3-corridor-preload-2026-09-24.md) |
+| 4E-4 のこりの walk へ 広げる | まだ(4E-3 handoff §10 の 条件の あと) | |
