@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [138](138-start-response-restart.md) | 新seed開始時response候補列挙・保存4状態から独立再開 |
 | [137](137-start-response-id-design-decision.md) | 開始時responseの対象なし・宣言variant候補IDの設計判断 |
 | [136](136-new-seed-start-response-audit.md) | 新seedの開始時response 4停止点を横断監査 |
 | [135](135-new-seed-opening-probe.md) | 新seedの初手探索・4経路のR1交換後response境界で停止 |
@@ -21,7 +22,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[137 開始時responseの候補ID設計判断](137-start-response-id-design-decision.md)** の保存地点。136の監査で判明した02のすぐつかう候補について、119の対象あり応答IDと128の通常行動variant IDからは対象なし・宣言variantのresponse IDが一意に決まらない。推奨Aと代替B、決定後のTDD検証境界を記録した。135の4停止stateは未再開、新seedの完走0、独立balance標本0。カード本文・数値・登録区分変更0件。
+現在は **[138 新seed開始時response再開](138-start-response-restart.md)** の保存地点。ユーザーが承認した137のA案でresponse専用IDを一般拡張し、135の4保存stateから独立再開した。01の2経路と02-Bは双方pass後の通常行動入口で停止、02-Aはヒット&ブローの7宣言を含む8候補からseedで宣言を選んだ後、未証明の発動・解決の手前で停止。4経路とも新規完走0、独立balance標本0。カード本文・数値・登録区分変更0件。
 
 履歴上、135は **[135 新seedの初手基盤耐性探索](135-new-seed-opening-probe.md)** の保存地点。事前固定した新seed2組の先後鏡像4経路で初手7候補の選択とhash連鎖を検証し、交換後のresponse候補が未証明のため4経路とも真正停止。全proxyは411件中410件PASS・既知117旧テスト1件FAIL、新規失敗0件。全件GREENとは扱わない。
 
