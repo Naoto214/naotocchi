@@ -13,4 +13,4 @@
 
 集計: planned 4、completed 0、rules stop 4 (`unproved_post_egg_response_window`)、winner 0、独立balance標本0。R1交換後のresponse候補完全性とターン進行を未知順では証明できず、先回りして解決していない。初手7候補が完全でも、対戦全体の候補完全性・勝率・先後差は主張できない。既存134の4経路completedは履歴として維持し、これらの新経路とは合算しない。カード本文・数値・登録区分変更0、既存停止証拠/state/hash変更0。
 
-検証: 専用テスト4件PASS（任意の将来seed受付、改ざん拒否を含む）、保存JSONの `--check` 一致、設計データ検査errors空、`git diff --check` 異常なし。全proxy検査は実行中であり、全件のPASS/FAILは未確定。既知117旧テスト期待値差を分離し、新規failureを確認してから検証結果を追記する。134の保存JSON検査は全proxy内の該当テストでPASSを確認した。
+検証: 専用テスト4件PASS（任意の将来seed受付、改ざん拒否を含む）、保存JSONの `--check` 一致、設計データ検査errors空、`git diff --check` 異常なし。全34 proxyテストファイルを個別プロセスで実行し、合計411件中410件PASS、FAIL 1件、ERROR 0件。唯一のFAILは117旧テスト `test_population_and_checkpoint_112_boundaries_remain_unchanged` の件数期待値差（期待190、実測263）で、134検証時からの既知問題。新規failureは0件。全件GREENとは扱わない。134の保存JSON検査は全proxy内の該当テストでPASSを確認した。

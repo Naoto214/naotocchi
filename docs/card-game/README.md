@@ -19,7 +19,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[135 新seedの初手基盤耐性探索](135-new-seed-opening-probe.md)** の保存地点。事前固定した新seed2組の先後鏡像4経路で初手7候補の選択とhash連鎖を検証し、交換後のresponse候補が未証明のため4経路とも真正停止。新seedの完走0、独立balance標本0。カード本文・数値・登録区分変更0件。
+現在は **[135 新seedの初手基盤耐性探索](135-new-seed-opening-probe.md)** の保存地点。事前固定した新seed2組の先後鏡像4経路で初手7候補の選択とhash連鎖を検証し、交換後のresponse候補が未証明のため4経路とも真正停止。新seedの完走0、独立balance標本0。全proxyは411件中410件PASS・既知117旧テスト1件FAIL、新規失敗0件。全件GREENとは扱わない。カード本文・数値・登録区分変更0件。
 
 履歴上、134は **[134 C-batの応答誘発分類と独立再開](134-board-response-restart.md)** の保存地点。133で停止した01の2経路もR10後攻終了まで到達し、いずれもAの勝利。133の02の2経路と合わせて旧4経路すべて完了。全経路でseeded fallbackを使っているため独立balance標本は0。[134全proxy回帰検証](134-proxy-regression-verification.md)は407件中406件PASS・既知117旧テスト1件FAILで、新規失敗0件。全件GREENとは扱わない。
 
