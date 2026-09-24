@@ -7902,8 +7902,10 @@
         if (st.regionId !== sim.world.regionId) enterWorld(st.regionId || 'home');
         if (frame % 30 === 0) { const nx = env(); const changed = nx.time !== sim.env.time || nx.weather !== sim.env.weather; sim.setEnv(nx); if (changed) hud(); }
         if (frame % 30 === 0) syncDistant(); // Phase 4D-2
-        // Phase 4E-4A: あるける 出口に ちかづいたら corridor の 絵を さきに デコードし、おわったら 入口の したく(1 frame 1 くぎり)
-        if (frame % 10 === 5) predecodeNearGates(); // Phase 4E-2
+        // Phase 4E-4A: あるける 出口に ちかづいたら corridor の 絵を さきに デコードし、おわったら 入口の したく(1 frame 1 くぎり)。
+        // 着いた 暗転の あいだは しない(着いた がわの さいしょの frame と かさねない。着く ところは かえりの 出口の そば)
+        if (corrFade) { /* あとで */ } // Phase 4E-2
+        else if (frame % 10 === 5) predecodeNearGates(); // Phase 4E-2
         else entryPrepStep(now); // Phase 4E-2
         // ならびは あとから かわる(ヒントが 2行に なる・ブラウザの バーが 出入りする・
         // スポット名が つく)。ときどき はかり なおして、ずれて いたら 組みなおす
