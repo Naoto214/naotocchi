@@ -5739,8 +5739,10 @@
     }
     // 端の ことばを まぜる わりあい(t = すすみぐあい 0〜1)。出発 がわは 前半、到着 がわは 後半だけ
     const corridorEndWeights = (t) => ({ from: CORRIDOR_END_MIX.words * (1 - smooth01(t / 0.5)), to: CORRIDOR_END_MIX.words * smooth01((t - 0.5) / 0.5) });
-    // corridor に 入る まえに さきに デコードする 絵(最初の 2 段 と 両端の 地域の ことば だけ。構造物は 絵を つかわない)
-    function corridorSceneryEmojis(spec, from, stageCount = 2) {
+    // corridor に 入る まえに さきに デコードする 絵(段の ことば と 両端の 地域の ことば だけ。構造物は 絵を つかわない)。
+    // Phase 4E-4B: 道 ぜんぶの 段(4〜14 こ)。入口で とおくに 見える 段や とちゅうの 段の 絵を、あるいて いる とちゅうで
+    // はじめて デコード しない(atlas ごとに 1 回。のこる のは さいだい 3 まい)
+    function corridorSceneryEmojis(spec, from, stageCount = Infinity) {
       if (!spec || (from !== spec.a && from !== spec.b)) return [];
       const to = from === spec.a ? spec.b : spec.a, st = from === spec.a ? spec.stages : spec.stages.slice().reverse();
       const out = new Set(), add = (pool) => { for (const it of pool || []) if (!/^[a-z]/.test(it[0])) out.add(it[0]); };
