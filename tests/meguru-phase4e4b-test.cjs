@@ -122,6 +122,14 @@ test('4. 景色(MEDIUM 3 本): 森 → 岩 → 山、山 → 川 → 湖(海に 
   const FOREST = ['🌿', '🍄', '🪵', '🍂', '🌲', '🌳', 'fern'];
   const SEA_ONLY = ['🌴', '🐚', '⛵', '⚓', '🪸'];
   const NEVER = ['⛵', '⚓', '🪸', '🐠', '🦑', '🐙', '🦈', '🌺', '🦜', '🛶'];
+  // 地形の きまり(本ごとで ない): どの walk corridor でも(transition の 本も)道の はしは 端の 地域の いろ。
+  // 端の 段が ほかの 地域の いろの 地面(countryside|forest の いえなみ など)でも、端から 1 段 かけて かさね はじめる
+  const dist = (a, b) => Math.max(...rgb(a).map((v, k) => Math.abs(v - rgb(b)[k])));
+  for (const spec of arr(M.walkCorridorSpecs())) for (const from of [spec.a, spec.b]) {
+    const to = from === spec.a ? spec.b : spec.a, W = M.createCorridorWalk(spec, from, {}).world;
+    W.setProgress(0.01); assert.ok(dist(W.ground[0], M.WORLDS[from].ground[0]) <= 6, `${spec.connectionId} ${from} はじめ ${W.ground[0]}`);
+    W.setProgress(0.99); assert.ok(dist(W.ground[0], M.WORLDS[to].ground[0]) <= 6, `${spec.connectionId} ${to} おわり ${W.ground[0]}`);
+  }
   for (const id of MEDIUM) {
     const spec = M.walkCorridorSpec(id);
     for (const from of [spec.a, spec.b]) {
