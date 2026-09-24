@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [140](140-new-seed-normal-candidate-audit.md) | 138通常行動の3停止stateを既存候補契約で再監査。対戦event追加なし |
+| [139](139-new-seed-stop-cross-audit.md) | 138の4停止点と既存契約を横断監査 |
 | [138](138-start-response-restart.md) | 新seed開始時response候補列挙・保存4状態から独立再開 |
 | [137](137-start-response-id-design-decision.md) | 開始時responseの対象なし・宣言variant候補IDの設計判断 |
 | [136](136-new-seed-start-response-audit.md) | 新seedの開始時response 4停止点を横断監査 |
@@ -22,7 +24,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[138 新seed開始時response再開](138-start-response-restart.md)** の保存地点。ユーザーが承認した137のA案でresponse専用IDを一般拡張し、135の4保存stateから独立再開した。01の2経路と02-Bは双方pass後の通常行動入口で停止、02-Aはヒット&ブローの7宣言を含む8候補からseedで宣言を選んだ後、未証明の発動・解決の手前で停止。4経路とも新規完走0、独立balance標本0。カード本文・数値・登録区分変更0件。
+現在は **[140 新seed通常行動候補の監査](140-new-seed-normal-candidate-audit.md)** の保存地点。139の横断監査で、138が121旧監査器を直接参照したことによる3件の停止を発見した。140では138の4保存state/hashを維持し、通常行動へ到達した3件について125・127・128・132の既存契約で候補の12条件を再証明した。02-AはG-hit-blowの発動前停止を維持する。新しい選択・event・snapshot・完走は0、独立balance標本0、カード本文・数値・登録区分変更0件。全proxyは420件中419件PASS、既知117旧テスト1件FAIL、新規失敗0件。全件GREENとは扱わない。次は候補比較と発動・解決の接続であり、140の候補列挙だけを対戦再開とみなさない。
+
+履歴上、138は **[138 新seed開始時response再開](138-start-response-restart.md)** の保存地点。ユーザーが承認した137のA案でresponse専用IDを一般拡張し、135の4保存stateから独立再開した。01の2経路と02-Bは双方pass後の通常行動入口で停止、02-Aはヒット&ブローの7宣言を含む8候補からseedで宣言を選んだ後、未証明の発動・解決の手前で停止。4経路とも新規完走0、独立balance標本0。カード本文・数値・登録区分変更0件。
 
 履歴上、135は **[135 新seedの初手基盤耐性探索](135-new-seed-opening-probe.md)** の保存地点。事前固定した新seed2組の先後鏡像4経路で初手7候補の選択とhash連鎖を検証し、交換後のresponse候補が未証明のため4経路とも真正停止。全proxyは411件中410件PASS・既知117旧テスト1件FAIL、新規失敗0件。全件GREENとは扱わない。
 
