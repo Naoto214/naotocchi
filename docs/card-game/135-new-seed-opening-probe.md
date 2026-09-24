@@ -1,6 +1,6 @@
 # 新seedの初手基盤耐性探索（135）
 
-保存元: 134と独立新seed移行監査を含むブランチHEAD `dd29d39606bd582ccb7742377ceead821623b40b`。旧4経路は追加再実行しない。探索の設計は `plans/2026-09-24-new-seed-opening-probe.md`、再生成器は `tools/proxy_independent_seed_probe.py`、保存証拠は `data/proxy-independent-seed-probe-20260924.json`。
+保存元: 134と独立新seed移行監査を含むブランチHEAD `dd29d39606bd582ccb7742377ceead821623b40b`。新seedプローブには旧4経路を再投入しない（全proxy回帰検査では既存テストを実行）。探索の設計は `plans/2026-09-24-new-seed-opening-probe.md`、再生成器は `tools/proxy_independent_seed_probe.py`、保存証拠は `data/proxy-independent-seed-probe-20260924.json`。
 
 107のA/B各40枚の個体を保持し、115と同じshuffleで新seedを2組事前固定した。各順序につき先後を交換した4経路をすべて保存した。元fixtureのcanonical SHA-256は `30c1bbb67fbc762c94a78c05bfc14c8a12c1418b39eab161b3366560a59aeac8`。7候補のR1たまご交換は116のseed証明と114の意思決定・公開情報検査を通し、イベントseq 1、2とスナップショットseq 0、1、2を連鎖させた。
 
