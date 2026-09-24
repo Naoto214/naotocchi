@@ -71,7 +71,7 @@ const seq = (kinds) => kinds.join(',').replace(/(home,?)+/g, 'H').replace(/(C,?)
 
 test('1. corridor を あるくのは 許可リストの 5 本(行きと 帰り)だけ。ほかの 出口は いまの transition(Phase 4E-4A で LOW 4 本を たした)', () => {
   const { M } = setup();
-  const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain'];
+  const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain', 'forest|mountain', 'mountain|river_lake', 'city|sea'];
   assert.deepEqual(arr(M.CONTINUOUS_WALK_ALLOWLIST), CONT);
   const seen = {};
   for (const id of Object.keys(M.WORLDS)) {
@@ -87,13 +87,13 @@ test('1. corridor を あるくのは 許可リストの 5 本(行きと 帰り)
       }
     }
   }
-  assert.equal(Object.values(seen).filter((v) => v === 'corridor').length, 10, '5 本 × 行きと 帰り');
+  assert.equal(Object.values(seen).filter((v) => v === 'corridor').length, CONT.length * 2, '8 本 × 行きと 帰り(Phase 4E-4B)');
   // ふね・ゴンドラ・もぐる は つねに transition
   for (const id of ['jungle|sea', 'countryside|star_stop', 'deepsea|sea']) assert.ok(Object.keys(seen).some((k) => k.startsWith(id + ':')), id + ' を しらべた');
   for (const k of Object.keys(seen)) if (/jungle\|sea|star_stop|deepsea/.test(k)) assert.equal(seen[k], 'transition', k);
   // home.bigtree の もう 1 つの 出口(かわ)も Phase 4E-4A から corridor(出口の とりちがえは テスト 15)
   assert.equal(seen['home|river_lake:home'], 'corridor');
-  // walk の のこり 5 本(MEDIUM 3・HIGH 2)は transition
+  // walk の のこり 2 本(HIGH 2)は transition
   for (const id of WALK.filter((x) => !CONT.includes(x))) for (const k of Object.keys(seen).filter((q) => q.startsWith(id + ':'))) assert.equal(seen[k], 'transition', k);
 });
 

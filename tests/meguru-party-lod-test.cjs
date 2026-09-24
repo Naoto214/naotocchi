@@ -247,7 +247,7 @@ test('7. 27 にん: 着く まえに 引き返す(組んだ ものを すてる)
 
 test('8. ほかの 出口・special は いまの まま(連続で あるくのは 許可リストの 5 本だけ。Phase 4E-4A)', () => {
   const { M } = setup(1);
-  const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain'];
+  const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain', 'forest|mountain', 'mountain|river_lake', 'city|sea'];
   assert.deepEqual(arr(M.CONTINUOUS_WALK_ALLOWLIST), CONT);
   let n = 0;
   for (const id of Object.keys(M.WORLDS)) {
@@ -258,5 +258,5 @@ test('8. ほかの 出口・special は いまの まま(連続で あるくの�
       else assert.equal(m.reason, g.kind === 'walk' ? 'not-allowed' : 'not-walk', g.id);
     }
   }
-  assert.equal(n, 10);
+  assert.equal(n, CONT.length * 2);   // Phase 4E-4B: 8 本 × 行きと 帰り
 });
