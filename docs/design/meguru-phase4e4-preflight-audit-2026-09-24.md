@@ -648,5 +648,6 @@ CPU 4 倍・なかま 8 人。単位 ms。
 | 段階 | 状態 |
 |---|---|
 | 4E-3 preload | **完了**(#338、main `f273748`。npm test 1318 / 1318、Runtime smoke・Home layout 緑) |
-| 4E-4 Preflight(この文書) | Draft PR(マージしない) |
-| 4E-4A / B / C | まだ |
+| 4E-4 Preflight(この文書) | **完了**(#339、main `c7705d8`。Runtime smoke 緑) |
+| 4E-4A(LOW 4 本) | Draft PR(マージしない)。[handoff](../handoff/meguru-phase4e4a-low-corridors-2026-09-24.md)。判定 A、入口 ≤ 45 ms・暗転 ≤ 300 ms(CPU 4 倍) |
+| 4E-4B / C | まだ |

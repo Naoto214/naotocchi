@@ -245,17 +245,18 @@ test('7. 27 にん: 着く まえに 引き返す(組んだ ものを すてる)
   }
 });
 
-test('8. ほかの 出口・special は いまの まま(連続で あるくのは home|forest だけ)', () => {
+test('8. ほかの 出口・special は いまの まま(連続で あるくのは 許可リストの 5 本だけ。Phase 4E-4A)', () => {
   const { M } = setup(1);
-  assert.deepEqual(arr(M.CONTINUOUS_WALK_ALLOWLIST), ['home|forest']);
+  const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain'];
+  assert.deepEqual(arr(M.CONTINUOUS_WALK_ALLOWLIST), CONT);
   let n = 0;
   for (const id of Object.keys(M.WORLDS)) {
     const w = M.buildWorld(id, M.buildRegistry());
     for (const g of arr(M.regionGates(id, w))) {
       const m = M.continuousWalkMode(g, {});
-      if (g.id === 'home|forest') { assert.equal(m.mode, 'corridor'); n++; }
+      if (CONT.includes(g.id)) { assert.equal(m.mode, 'corridor', g.id); n++; }
       else assert.equal(m.reason, g.kind === 'walk' ? 'not-allowed' : 'not-walk', g.id);
     }
   }
-  assert.equal(n, 2);
+  assert.equal(n, 10);
 });

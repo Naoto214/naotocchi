@@ -13888,9 +13888,11 @@
     sceneryCtx: (c) => (SCENERY_CANVAS && c ? SCENERY_CANVAS.canvas(c) || c : c),
     resolveScenery: (emoji) => (SCENERY_RESOLVE ? SCENERY_RESOLVE(emoji) : null),
     // え の よみこみが すすむと かわる ばんごう(めぐる の 立て看板キャッシュを つくりなおす きっかけ)と、まえもって よみこむ
+    illustrationDecoded: () => (SCENERY_CANVAS && SCENERY_CANVAS.decoded) || null,   // しらべもの よう(さきに デコードした 絵の かず・バイト)
     illustrationVersion: () => (CANVAS_ILLUSTRATIONS ? CANVAS_ILLUSTRATIONS.version : 0) + (SCENERY_CANVAS ? SCENERY_CANVAS.version : 0),
     // よみこみ おわりの Promise を かえす(めぐるの corridor が 着く まえに 絵を よみこみ おえて から したく する ため。つかわない ひとは そのまま)
-    prepareIllustrations: (sceneryList, actorList) => { try { const a = SCENERY_CANVAS ? SCENERY_CANVAS.prepare(sceneryList || []) : null; const b = CANVAS_ILLUSTRATIONS ? CANVAS_ILLUSTRATIONS.prepare(actorList || []) : null; return Promise.all([a, b]).catch(() => false); } catch (_) { /* よみこみの しっぱいは えがきを とめない */ return Promise.resolve(false); } },
+    // opts.decode: けしきの 絵(atlas など)を 画面の そとで さきに デコードして おく(めぐるの corridor。はじめて えがく frame を かるく する)
+    prepareIllustrations: (sceneryList, actorList, opts) => { try { const a = SCENERY_CANVAS ? SCENERY_CANVAS.prepare(sceneryList || [], opts || {}) : null; const b = CANVAS_ILLUSTRATIONS ? CANVAS_ILLUSTRATIONS.prepare(actorList || []) : null; return Promise.all([a, b]).catch(() => false); } catch (_) { /* よみこみの しっぱいは えがきを とめない */ return Promise.resolve(false); } },
     resolveDisplay: (emoji) => (DISPLAY_CATALOG ? DISPLAY_CATALOG.resolve(emoji) : null),
     ALL_LINES, currentPetLine: () => state.speciesLine || null,
     isAuthorUnlocked: () => isAuthorUnlocked(),
