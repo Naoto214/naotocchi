@@ -48,7 +48,8 @@ function phase4e1Block() {
   return SRC.slice(SRC.lastIndexOf('\n', a) + 1, SRC.lastIndexOf('\n', b) + 1);
 }
 const codeOnly = (src) => src.split('\n').filter((l) => !/^\s*\/\//.test(l)).join('\n');
-const EXPORTS_4E1 = ['CORRIDOR_STAGE_WALK', 'CORRIDOR_WIDTH', 'CORRIDOR_TERRAIN_WIDTH', 'CORRIDOR_STATE_KEYS', 'walkCorridorSpecs',
+// Phase 4E-4B: CORRIDOR_TURN_SPREAD / corridorTurnSpread(turn spread)を たした
+const EXPORTS_4E1 = ['CORRIDOR_STAGE_WALK', 'CORRIDOR_TURN_SPREAD', 'corridorTurnSpread', 'CORRIDOR_WIDTH', 'CORRIDOR_TERRAIN_WIDTH', 'CORRIDOR_STATE_KEYS', 'walkCorridorSpecs',
   'walkCorridorSpec', 'orientWalkCorridor', 'corridorHeadingAt', 'corridorStageAt', 'corridorMode', 'makeCorridorState',
   'corridorEnterState', 'corridorExitPose'];
 const WALK = ['snow|mountain', 'forest|mountain', 'mountain|river_lake', 'desert|mountain', 'countryside|forest',
