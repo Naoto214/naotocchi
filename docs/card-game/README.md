@@ -1,11 +1,12 @@
 # なおとっちカードゲーム — 設計正本
 
-最終更新: 2026-09-23
+最終更新: 2026-09-24
 
 このディレクトリをカードゲーム設計の **Single Source of Truth** とする。再開時はGitHubの最新main・作業ブランチ・関連PRを確認し、記憶だけで既決定事項を再設計しない。
 
 ## 現在フェーズと再開地点
 
+| [135](135-new-seed-opening-probe.md) | 新seedの初手探索・4経路のR1交換後response境界で停止 |
 | [134](134-board-response-restart.md) | C-batの応答誘発分類・01の2経路独立再開 |
 | [133](133-cross-stop-restart.md) | 設置道具・終了誘発・R10終局・4経路独立再開 |
 
@@ -18,7 +19,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[134 C-batの応答誘発分類と独立再開](134-board-response-restart.md)** の保存地点。133で停止した01の2経路もR10後攻終了まで到達し、いずれもAの勝利。133の02の2経路と合わせて4経路すべて完了。全経路でseeded fallbackを使っているため独立balance標本は0。カード本文・数値・登録区分変更は0件。[134全proxy回帰検証](134-proxy-regression-verification.md)は407件中406件PASS・既知117旧テスト1件FAILで、新規失敗0件。全件GREENとは扱わない。
+現在は **[135 新seedの初手基盤耐性探索](135-new-seed-opening-probe.md)** の保存地点。事前固定した新seed2組の先後鏡像4経路で初手7候補の選択とhash連鎖を検証し、交換後のresponse候補が未証明のため4経路とも真正停止。新seedの完走0、独立balance標本0。カード本文・数値・登録区分変更0件。
+
+履歴上、134は **[134 C-batの応答誘発分類と独立再開](134-board-response-restart.md)** の保存地点。133で停止した01の2経路もR10後攻終了まで到達し、いずれもAの勝利。133の02の2経路と合わせて旧4経路すべて完了。全経路でseeded fallbackを使っているため独立balance標本は0。[134全proxy回帰検証](134-proxy-regression-verification.md)は407件中406件PASS・既知117旧テスト1件FAILで、新規失敗0件。全件GREENとは扱わない。
 
 履歴上、133は **[133 132停止点の横断監査と独立再開](133-cross-stop-restart.md)** の保存地点。01の2経路はR9 Aの盤上源で真正停止、02の2経路はR10最終比較で引き分け完了。独立balance標本は0。
 
