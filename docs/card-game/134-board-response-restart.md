@@ -11,6 +11,6 @@
 
 133停止原本のraw SHA、開始game/continuation hash、最初のevent before hash、event seq連続性、両hashの連鎖、最終state/hashを照合した。生成JSONはcanonical bytes再生成との一致を検査する。初回の`missing_turn_start_source_proof`は132の公開`run_route`を迂回したwrapperの接続問題であり、公開runnerへ接続して解消した。これは新しいゲーム裁定を要しない。
 
-修正後の専用テスト5件は成功し、`proxy_board_response_134.py --check`は一致。全proxy検査は実行中で、完了件数・既知117失敗との照合は未確定。旧132 canonical再生成テストは単独の診断実行でも120秒を超えるため、全件成功やCI成功とは記録しない。
+修正後の専用テスト5件は成功し、`proxy_board_response_134.py --check`は一致。[全proxy回帰検証](134-proxy-regression-verification.md)で33ファイル・407件を完走し、406件PASS・既知117旧テスト1件FAIL・ERROR 0件を確認した。全件GREENやCI成功とは記録しない。
 
 [保存計画](data/proxy-board-response-plan-134-20260923.json)、[評価](data/proxy-board-response-evaluation-134-20260923.json)、[2経路の結果](data/proxy-board-response-results-134/)、[実装](tools/proxy_board_response_134.py)、[専用テスト](tools/test_proxy_board_response_134.py)。117旧テストの期待190対実際263の差は別件。PR #259はDraft・open・未マージ、main未マージを維持する。
