@@ -183,8 +183,10 @@ CPU 4 倍・390×844・DPR 3。なかま 1 / 27 にん。**余裕 = ready から
 ## 10. 4E-4(のこり 9 本へ ひろげる)へ すすむ 条件
 
 - [x] 両方向・初回 / 2 かいめ・なかま 27・引き返し / reload・メモリ・fallback が 安定(この PR)
-- [ ] この PR を main へ
-- [ ] 4E-4 の まえに: ほかの 9 本の 着く がわ(`buildWorld`)の 重さを はかる(city・mountain など forest より 大きい 地域が あれば、出発 world の すてかた B / C を もういちど くらべる)
-- [ ] corridor に 入った さいしょの frame(140〜186 ms、CPU 4 倍)は 4E-2 からの もの。9 本に ひろげる まえに、corridor の けしきも 同じ しくみ(わけて 組む・絵を さきに よむ)で かるく できるか しらべる
+- [x] この PR を main へ(#338、main `f273748`)
+- [x] 4E-4 の まえに: ほかの 9 本の 着く がわ(`buildWorld`)の 重さを はかる(city・mountain など forest より 大きい 地域が あれば、出発 world の すてかた B / C を もういちど くらべる)
+- [x] corridor に 入った さいしょの frame(140〜186 ms、CPU 4 倍)は 4E-2 からの もの。9 本に ひろげる まえに、corridor の けしきも 同じ しくみ(わけて 組む・絵を さきに よむ)で かるく できるか しらべる
 
 まだ すすまない: のこり 9 本への 展開・global collision・住民の 地域間 移動・セーブの 形・Three.js。
+
+→ 2 つめ・3 つめの しらべは [4E-4 Preflight 監査](../design/meguru-phase4e4-preflight-audit-2026-09-24.md)(forest より 重い 着く がわは ない → 案 D の まま。入口の 重さは 絵を はじめて 出す 1 回 → 4E-4A で 直す)。
