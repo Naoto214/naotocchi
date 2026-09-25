@@ -1,0 +1,79 @@
+{
+  "status": "held-candidate-not-formal-baseline",
+  "user_instruction_time": "2026-09-25T22:54:25+09:00",
+  "base_head": "6e537684baecb3e6f4cdf3eef07a929ad12355a0",
+  "base_tree": "c037508c3474af809982816446a025c9774a6b5d",
+  "candidate_generation_calls_previous_turn": 4,
+  "candidate_images": 3,
+  "new_generation_this_save": 0,
+  "expression_generation": 0,
+  "runtime_replacement": 0,
+  "hunger": "held",
+  "files": [
+    {
+      "stage": "01",
+      "file": "01-candidate.png",
+      "status": "candidate-not-adopted",
+      "sha256": "bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39",
+      "original_runtime_path": "assets/characters/starfish/01.png",
+      "original_runtime_sha256": "dcbd67f8016518b3492842ccccded235137b81fb7584cbd6fd422632a98183d7"
+    },
+    {
+      "stage": "02",
+      "file": "02-candidate.png",
+      "status": "candidate-not-adopted",
+      "sha256": "d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d",
+      "original_runtime_path": "assets/characters/starfish/02.png",
+      "original_runtime_sha256": "c96b74fd84f18ab534b46f7c21289a3ec151b5beca47df726c0e2a0ef756f28f"
+    },
+    {
+      "stage": "03",
+      "file": "03-candidate.png",
+      "status": "candidate-not-adopted",
+      "sha256": "220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0",
+      "original_runtime_path": "assets/characters/starfish/03.png",
+      "original_runtime_sha256": "b7224acbc062e564eede8d8b7588a7da15c0f20b1b82f54f56d64aa51e6b5ac9"
+    },
+    {
+      "stage": "04",
+      "file": "04-existing.png",
+      "status": "byte-identical-copy-of-existing-normal",
+      "sha256": "67cc700986fea3bf4584744a8f58a10978d1dce0eec173ea4666b73c82bc9863",
+      "original_runtime_path": "assets/characters/starfish/04.png",
+      "original_runtime_sha256": "67cc700986fea3bf4584744a8f58a10978d1dce0eec173ea4666b73c82bc9863"
+    },
+    {
+      "stage": "05",
+      "file": "05-existing.png",
+      "status": "byte-identical-copy-of-existing-normal",
+      "sha256": "5075539019147a587ab984f058edabdb3ea994ab91067108f48e4c3cb9afa462",
+      "original_runtime_path": "assets/characters/starfish/05.png",
+      "original_runtime_sha256": "5075539019147a587ab984f058edabdb3ea994ab91067108f48e4c3cb9afa462"
+    },
+    {
+      "stage": "06",
+      "file": "06-existing.png",
+      "status": "byte-identical-copy-of-existing-normal",
+      "sha256": "9530edaae3061ba58e55e460d1ee72f67dfc33c74841d0f1cc30eb05a8ed32d8",
+      "original_runtime_path": "assets/characters/starfish/06.png",
+      "original_runtime_sha256": "9530edaae3061ba58e55e460d1ee72f67dfc33c74841d0f1cc30eb05a8ed32d8"
+    },
+    {
+      "stage": "07",
+      "file": "07-existing.png",
+      "status": "byte-identical-copy-of-existing-normal",
+      "sha256": "c806f9b9fb0d489db9c253f5caed5a1773c953cd6db756084feef49db6c9f6fa",
+      "original_runtime_path": "assets/characters/starfish/07.png",
+      "original_runtime_sha256": "c806f9b9fb0d489db9c253f5caed5a1773c953cd6db756084feef49db6c9f6fa"
+    },
+    {
+      "stage": "08",
+      "file": "08-existing.png",
+      "status": "byte-identical-copy-of-existing-normal",
+      "sha256": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4",
+      "original_runtime_path": "assets/characters/starfish/08.png",
+      "original_runtime_sha256": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4"
+    }
+  ],
+  "comparison": "index.html; embedded image bytes replaced by relative references to identical copied PNGs; game CSS untouched"
+}
