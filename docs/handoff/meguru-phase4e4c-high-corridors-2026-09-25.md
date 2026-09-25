@@ -7,6 +7,17 @@ special 3 本(ふね `jungle|sea`・もぐる `deepsea|sea`・ゴンドラ `coun
 
 2 かいめの はやあし(1.4 倍)は **どの 本も そのまま**。はやさの 上限(speed cap)は **つかわない**(§1.3)。セーブの 形・`travelToRegion()`・世界地図・分母・party の LOD / cache・global collision は かえて いない。
 
+
+> ## 追記(2026-09-25)— #342 マージ・**Phase 4E 完了**
+>
+> #342 は main へ マージ(`671fa90`、npm test 1343 / 1343)。ユーザー 判断 で、下の 性能 2 点 と なかま の 障害物 バグ は **Phase 4E の blocker に しない**:
+> - A. forest / mountain に 着く ときの 暗転 が CPU 4 倍 で まれ に 300 ms を こえる(§4.3)→ Release Hardening / renderer 性能
+> - B. city\|countryside の corridor p95 26〜30 ms(§4.4)→ Release Hardening / renderer 性能
+> - なかま が 障害物 に めりこむ(transition でも 同じ、§6)→ RH-7
+>
+> 理由: 既存 の 地域 の 描画 でも 同じ 傾向・continuous corridor 固有 の 破綻 で ない・preload / ready / commit / save / fallback は 正常・CPU 等倍 では 小さい。
+> よって §10〜§12 の「『Phase 4E 完了』は 宣言 しない」は この 追記 で おきかえ、**Phase 4E continuous corridor は 完了** と する([まとめ](meguru-phase4e-completion-2026-09-25.md))。
+
 ---
 
 ## 0. 基準(main `742a406`)

@@ -3,6 +3,15 @@
 日付: 2026-09-23 ／ 対象: めぐる(`meguru.js` / `script.js` の `meguruBridge`)
 前提: [Phase 4A 設計](./meguru-phase4a-region-origin-global-world-2026-09-22.md)(アトラス方式)・[Phase 4C 引き継ぎ](../handoff/meguru-phase4c-corridor-2026-09-23.md)(corridor 13 本)・[Phase 4D 設計](./meguru-phase4d-distant-world-streaming-renderer-2026-09-23.md)(遠景・streaming)・[4D-2c 引き継ぎ](../handoff/meguru-phase4d2c-backdrop-yaw-2026-09-23.md)(遠景の角度系そろえ)
 
+> ## 追記(2026-09-25)— **Phase 4E continuous corridor は完了**
+>
+> 完了日 2026-09-25 ／ 最終 main **`671fa90`**(Merge PR #342、4E-4C)。npm test 1343 / 1343。
+> - **walk 10 / 10** を あるいて こえる(continuous corridor)。**special 3 本**(ふね・もぐる・ゴンドラ)と memory_lake は いまの transition の まま
+> - 曲がり: 10 本 とも 2 かいめ(1.4 倍)≤ 28.75°/s、はやさ の 上限 なし。セーブ の 形・`travelToRegion()`・世界地図 は かわらない
+> - のこる 課題 は blocker に しない: forest / mountain に 着く ときの 描画 コスト・city 系 の ふだん の 描画 コスト(→ Release Hardening / renderer 性能)、なかま が 障害物 に めりこむ 既存 バグ(→ RH-7)
+> - 見た目 の 仕上げ(景観 F 系・viewpoint・空白感・地域らしさ・装飾 密度・最終 polish)は 飾り付け / scenery polish タブ へ 返す。Three.js へ は 進まない(将来 の PoC)
+> - まとめ: [`../handoff/meguru-phase4e-completion-2026-09-25.md`](../handoff/meguru-phase4e-completion-2026-09-25.md)
+
 > ## 追記(2026-09-23)— 設計監査は完了し、4E-1 を実装しました
 >
 > この設計監査は PR #335 で main(`a564730`)に入り、**Phase 4E 設計監査として完了**しました。
@@ -717,5 +726,8 @@ corridorMode(gate) =
 | 4E-1 corridor の形と状態(pure data) | **完了**(#336、main `6191f76`。PR 上の npm test 1266 / 1266、main の Home layout 緑。main の Runtime smoke は 1 回目 前からの ゆらぐ 2 本で赤 → 再実行で緑。4E-2 handoff §12) | [handoff](../handoff/meguru-phase4e1-corridor-geometry-2026-09-23.md) |
 | 4E-2 home\|forest を Canvas で歩く PoC | **完了**(#337、main `13bd8bf`)。安定化・なかまの ならび・大人数の なかまを かるく えがく。判定: 採用 | [handoff](../handoff/meguru-phase4e2-home-forest-poc-2026-09-23.md) §15〜§17 |
 | 4E-3 着く がわを とちゅうで 組む(preload) | **完了**(#338、main `f273748`。npm test 1318 / 1318、Runtime smoke・Home layout 緑)。home\|forest だけ。`buildWorldSteps` で 0.70 から わけて 組み、着いた ときに つかう。判定: 採用 | [handoff](../handoff/meguru-phase4e3-corridor-preload-2026-09-24.md) |
-| 4E-4 Preflight(10 本 横断監査) | Draft PR(文書だけ)。10 本すべて いまの しくみで 歩けることを計測用コピーで確認。4E-4A / B / C に わける | [監査](meguru-phase4e4-preflight-audit-2026-09-24.md) |
-| 4E-4 のこりの walk へ 広げる | まだ(監査 §22〜§25 の 順と 基準で) | |
+| 4E-4 Preflight(10 本 横断監査) | **完了**(#339、main `c7705d8`)。10 本すべて いまの しくみで 歩けることを計測用コピーで確認。4E-4A / B / C に わける | [監査](meguru-phase4e4-preflight-audit-2026-09-24.md) |
+| 4E-4A LOW 4 本 | **完了**(#340、main `134e210`)。判定 A | [handoff](../handoff/meguru-phase4e4a-low-corridors-2026-09-24.md) |
+| 4E-4B MEDIUM 3 本 | **完了**(#341、main `742a406`)。判定 A | [handoff](../handoff/meguru-phase4e4b-medium-corridors-2026-09-24.md) |
+| 4E-4C HIGH 2 本 | **完了**(#342、main `671fa90`)。判定 B(条件 の 性能 2 点 は RH へ) | [handoff](../handoff/meguru-phase4e4c-high-corridors-2026-09-25.md) |
+| **Phase 4E** | **完了(2026-09-25)**。walk 10 / 10・special 3 は transition | [完了](../handoff/meguru-phase4e-completion-2026-09-25.md) |
