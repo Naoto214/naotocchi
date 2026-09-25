@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [238](238-new-seed-mixed-choice.md) | 開始時pass3、01-B無料P-cat_ceo配置を選択 |
 | [237](237-new-seed-mixed-audit.md) | 開始時response3件は唯一pass、01-B通常4候補完全 |
 | [236](236-new-seed-egg-replay.md) | たまご交換3件をseed再生し開始時responseへ、01-B通常保持 |
 | [235](235-new-seed-mixed-audit.md) | たまご交換3件と01-B通常行動の候補完全性を監査 |
@@ -121,7 +122,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[237 新seed混合候補監査](237-new-seed-mixed-audit.md)** の保存地点。開始時response3件は唯一pass、01-Bは通常行動4候補。
+現在は **[238 新seed混合選択監査](238-new-seed-mixed-choice.md)** の保存地点。3経路は唯一response pass、01-Bは無料P-cat_ceo配置を選択。次にstateへ適用。
 
 履歴上、221は **[221 新seed2経路たまご交換](221-new-seed-egg-replay.md)** の保存地点。01-B/02-Bは開始時response入口、01-A/02-Aは各応答局面保持。
 
