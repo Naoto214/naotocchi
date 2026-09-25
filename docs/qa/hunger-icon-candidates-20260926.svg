@@ -1,63 +1,94 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 800" width="780" height="800">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 1430" width="780" height="1430">
 <rect width="100%" height="100%" fill="#f6f5ef"/>
-<text x="24" y="32" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#222">Hunger icon candidates — 2026-09-26</text><g transform="translate(15 50)"><rect width="230" height="125" rx="12" fill="white" stroke="#c8c8c8"/>
-  <g transform="translate(10 10)"><path d='M34 49c0-8 8-14 18-14s18 6 18 14z' fill='none' stroke='#d59f13' stroke-width='4'/><path d='M31 49h42l-6 18H37z' fill='#f4c542' stroke='#d59f13' stroke-width='3'/></g>
-  <text x="112" y="45" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#222">rice</text>
-  <text x="112" y="68" font-family="system-ui,sans-serif" font-size="12" fill="#666">既存</text>
-  </g><g transform="translate(275 50)"><rect width="230" height="125" rx="12" fill="white" stroke="#c8c8c8"/>
-  <g transform="translate(10 10)"><path d='M30 47h44l-7 18H37z' fill='#f4c542' stroke='#d59f13' stroke-width='3'/><circle cx='40' cy='43' r='4' fill='#f4c542'/><circle cx='54' cy='41' r='4' fill='#f4c542'/><circle cx='67' cy='44' r='4' fill='#f4c542'/></g>
-  <text x="112" y="45" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#222">food_bowl</text>
-  <text x="112" y="68" font-family="system-ui,sans-serif" font-size="12" fill="#666">既存</text>
-  </g><g transform="translate(535 50)"><rect width="230" height="125" rx="12" fill="white" stroke="#c8c8c8"/>
-  <g transform="translate(10 10)"><path d='M34 47c14-12 28-6 34 3-6 9-20 15-34 3l-10 7V40z' fill='#f4c542' stroke='#d59f13' stroke-width='3'/><circle cx='58' cy='47' r='2.5' fill='#6d5310'/></g>
-  <text x="112" y="45" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#222">fish</text>
-  <text x="112" y="68" font-family="system-ui,sans-serif" font-size="12" fill="#666">既存</text>
-  </g><g transform="translate(15 200)"><rect width="230" height="125" rx="12" fill="white" stroke="#c8c8c8"/>
-  <g transform="translate(10 10)"><ellipse cx='52' cy='51' rx='10' ry='7' fill='#f4c542' stroke='#d59f13' stroke-width='3'/><path d='M42 48l-11-9m11 16-11 9m20-20V33m0 36V58m10-10 11-9m-11 16 11 9' stroke='#d59f13' stroke-width='3' stroke-linecap='round'/></g>
-  <text x="112" y="45" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#222">insect / fly</text>
-  <text x="112" y="68" font-family="system-ui,sans-serif" font-size="12" fill="#666">既存共用</text>
-  </g><g transform="translate(275 200)"><rect width="230" height="125" rx="12" fill="white" stroke="#c8c8c8"/>
-  <g transform="translate(10 10)"><circle cx='40' cy='50' r='7' fill='#f4c542'/><circle cx='57' cy='42' r='5.5' fill='#f4c542'/><circle cx='65' cy='58' r='4.5' fill='#f4c542'/></g>
-  <text x="112" y="45" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#222">aquatic_small_prey</text>
-  <text x="112" y="68" font-family="system-ui,sans-serif" font-size="12" fill="#666">既存粒</text>
-  </g><g transform="translate(535 200)"><rect width="230" height="125" rx="12" fill="white" stroke="#c8c8c8"/>
-  <g transform="translate(10 10)"><path d='M43 31h18v8l5 7v25H38V46l5-7z' fill='none' stroke='#d59f13' stroke-width='4' stroke-linejoin='round'/><path d='M43 55h18v13H43z' fill='#f4c542'/><path d='M47 31v-6h10v6' stroke='#d59f13' stroke-width='4' stroke-linecap='round'/></g>
-  <text x="112" y="45" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#222">milk</text>
-  <text x="112" y="68" font-family="system-ui,sans-serif" font-size="12" fill="#666">新規</text>
-  </g><g transform="translate(15 350)"><rect width="230" height="125" rx="12" fill="white" stroke="#c8c8c8"/>
-  <g transform="translate(10 10)"><circle cx='52' cy='51' r='16' fill='none' stroke='#d59f13' stroke-width='4'/><circle cx='52' cy='51' r='7' fill='#f4c542'/><path d='M52 27v-7M52 82v-7M28 51h-7M83 51h-7' stroke='#d59f13' stroke-width='3' stroke-linecap='round'/></g>
-  <text x="112" y="45" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#222">neutral_nutrition</text>
-  <text x="112" y="68" font-family="system-ui,sans-serif" font-size="12" fill="#666">新規</text>
-  </g><g transform="translate(275 350)"><rect width="230" height="125" rx="12" fill="white" stroke="#c8c8c8"/>
-  <g transform="translate(10 10)"><path d='M35 48h30v22H35z' fill='none' stroke='#d59f13' stroke-width='4' stroke-linejoin='round'/><path d='M65 52c10-4 15-1 17 4M35 52c-8-5-12-1-13 4M46 48V37h13v11' fill='none' stroke='#d59f13' stroke-width='4' stroke-linecap='round'/><path d='M20 58c4 0 7 2 9 5' stroke='#f4c542' stroke-width='4' stroke-linecap='round'/></g>
-  <text x="112" y="45" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#222">water</text>
-  <text x="112" y="68" font-family="system-ui,sans-serif" font-size="12" fill="#666">新規</text>
-  </g><g transform="translate(535 350)"><rect width="230" height="125" rx="12" fill="white" stroke="#c8c8c8"/>
-  <g transform="translate(10 10)"><path d='M39 70c-4-14 4-17 0-30M52 70c5-15-5-20 2-37M64 70c-4-10 7-17 2-29' fill='none' stroke='#d59f13' stroke-width='5' stroke-linecap='round'/><path d='M30 72h45' stroke='#f4c542' stroke-width='5' stroke-linecap='round'/></g>
-  <text x="112" y="45" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#222">algae_aquatic_plant</text>
-  <text x="112" y="68" font-family="system-ui,sans-serif" font-size="12" fill="#666">新規</text>
-  </g><g transform="translate(15 500)"><rect width="230" height="125" rx="12" fill="white" stroke="#c8c8c8"/>
-  <g transform="translate(10 10)"><path d='M29 59c9-26 31-30 47-26-1 23-16 39-40 36z' fill='#f4c542' stroke='#d59f13' stroke-width='3'/><path d='M35 65c13-11 23-18 36-28' stroke='#6d5310' stroke-width='3' stroke-linecap='round'/></g>
-  <text x="112" y="45" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#222">leaf</text>
-  <text x="112" y="68" font-family="system-ui,sans-serif" font-size="12" fill="#666">新規</text>
-  </g><g transform="translate(275 500)"><rect width="230" height="125" rx="12" fill="white" stroke="#c8c8c8"/>
-  <g transform="translate(10 10)"><circle cx='52' cy='49' r='7' fill='#f4c542'/><circle cx='52' cy='33' r='8' fill='none' stroke='#d59f13' stroke-width='4'/><circle cx='67' cy='43' r='8' fill='none' stroke='#d59f13' stroke-width='4'/><circle cx='61' cy='61' r='8' fill='none' stroke='#d59f13' stroke-width='4'/><circle cx='43' cy='61' r='8' fill='none' stroke='#d59f13' stroke-width='4'/><circle cx='37' cy='43' r='8' fill='none' stroke='#d59f13' stroke-width='4'/></g>
-  <text x="112" y="45" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#222">nectar</text>
-  <text x="112" y="68" font-family="system-ui,sans-serif" font-size="12" fill="#666">新規</text>
-  </g><g transform="translate(535 500)"><rect width="230" height="125" rx="12" fill="white" stroke="#c8c8c8"/>
-  <g transform="translate(10 10)"><path d='M27 63c7-14 17-17 27-9 8-10 18-7 24 9z' fill='#f4c542' stroke='#d59f13' stroke-width='3'/><path d='M39 50l-7-8m20 7 2-11m13 15 8-7' stroke='#d59f13' stroke-width='3' stroke-linecap='round'/><circle cx='44' cy='65' r='2.5' fill='#6d5310'/><circle cx='59' cy='63' r='2.5' fill='#6d5310'/></g>
-  <text x="112" y="45" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#222">organic_matter</text>
-  <text x="112" y="68" font-family="system-ui,sans-serif" font-size="12" fill="#666">新規共用</text>
-  </g><g transform="translate(15 650)"><rect width="230" height="125" rx="12" fill="white" stroke="#c8c8c8"/>
-  <g transform="translate(10 10)"><path d='M27 45h45l8 10-8 14H27z' fill='#f4c542' stroke='#d59f13' stroke-width='3' stroke-linejoin='round'/><circle cx='31' cy='57' r='9' fill='none' stroke='#6d5310' stroke-width='3'/><path d='M44 49h20m-15 9h17m-23 8h19' stroke='#6d5310' stroke-width='3' stroke-linecap='round'/></g>
-  <text x="112" y="45" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#222">decaying_wood</text>
-  <text x="112" y="68" font-family="system-ui,sans-serif" font-size="12" fill="#666">新規</text>
-  </g><g transform="translate(275 650)"><rect width="230" height="125" rx="12" fill="white" stroke="#c8c8c8"/>
-  <g transform="translate(10 10)"><path d='M35 67V34h16v33z' fill='none' stroke='#d59f13' stroke-width='4'/><path d='M51 43c10-3 16 1 20 8-8 2-14 0-20-5z' fill='#f4c542' stroke='#d59f13' stroke-width='3'/><path d='M70 57c0 8-10 8-10 0 0-4 5-9 5-9s5 5 5 9z' fill='#f4c542' stroke='#d59f13' stroke-width='2'/></g>
-  <text x="112" y="45" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#222">sap</text>
-  <text x="112" y="68" font-family="system-ui,sans-serif" font-size="12" fill="#666">新規共用</text>
-  </g><g transform="translate(535 650)"><rect width="230" height="125" rx="12" fill="white" stroke="#c8c8c8"/>
-  <g transform="translate(10 10)"><path d='M31 63c6-19 18-28 34-23 11 4 14 16 7 25-10 12-30 10-41-2z' fill='none' stroke='#d59f13' stroke-width='4'/><path d='M41 60c7-11 16-14 24-9' fill='none' stroke='#d59f13' stroke-width='3'/><circle cx='74' cy='68' r='4' fill='#f4c542'/></g>
-  <text x="112" y="45" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#222">benthic_small_prey</text>
-  <text x="112" y="68" font-family="system-ui,sans-serif" font-size="12" fill="#666">新規</text>
+<text x="24" y="34" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#222">空腹マーク候補一覧（日本語版）</text>
+<text x="24" y="56" font-family="system-ui,sans-serif" font-size="13" fill="#555">※まだゲーム表示には接続していません。見た目確認用の候補です。</text><g transform="translate(15 70)"><rect width="355" height="145" rx="14" fill="white" stroke="#c8c8c8"/>
+  <g transform="translate(14 24)"><path d='M34 49c0-8 8-14 18-14s18 6 18 14z' fill='none' stroke='#d59f13' stroke-width='4'/><path d='M31 49h42l-6 18H37z' fill='#f4c542' stroke='#d59f13' stroke-width='3'/></g>
+  <text x="118" y="34" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#222">ごはん</text>
+  <text x="118" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#666">既存</text>
+  <text x="118" y="84" font-family="system-ui,sans-serif" font-size="13" fill="#333">主な対象：人・れんくん</text>
+  <text x="118" y="109" font-family="system-ui,sans-serif" font-size="11" fill="#999">内部ID：rice</text>
+  </g><g transform="translate(405 70)"><rect width="355" height="145" rx="14" fill="white" stroke="#c8c8c8"/>
+  <g transform="translate(14 24)"><path d='M30 47h44l-7 18H37z' fill='#f4c542' stroke='#d59f13' stroke-width='3'/><circle cx='40' cy='43' r='4' fill='#f4c542'/><circle cx='54' cy='41' r='4' fill='#f4c542'/><circle cx='67' cy='44' r='4' fill='#f4c542'/></g>
+  <text x="118" y="34" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#222">フード皿</text>
+  <text x="118" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#666">既存</text>
+  <text x="118" y="84" font-family="system-ui,sans-serif" font-size="13" fill="#333">主な対象：犬・カメ・りゅう等</text>
+  <text x="118" y="109" font-family="system-ui,sans-serif" font-size="11" fill="#999">内部ID：food_bowl</text>
+  </g><g transform="translate(15 240)"><rect width="355" height="145" rx="14" fill="white" stroke="#c8c8c8"/>
+  <g transform="translate(14 24)"><path d='M34 47c14-12 28-6 34 3-6 9-20 15-34 3l-10 7V40z' fill='#f4c542' stroke='#d59f13' stroke-width='3'/><circle cx='58' cy='47' r='2.5' fill='#6d5310'/></g>
+  <text x="118" y="34" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#222">魚</text>
+  <text x="118" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#666">既存</text>
+  <text x="118" y="84" font-family="system-ui,sans-serif" font-size="13" fill="#333">主な対象：猫・ペンギン</text>
+  <text x="118" y="109" font-family="system-ui,sans-serif" font-size="11" fill="#999">内部ID：fish</text>
+  </g><g transform="translate(405 240)"><rect width="355" height="145" rx="14" fill="white" stroke="#c8c8c8"/>
+  <g transform="translate(14 24)"><ellipse cx='52' cy='51' rx='10' ry='7' fill='#f4c542' stroke='#d59f13' stroke-width='3'/><path d='M42 48l-11-9m11 16-11 9m20-20V33m0 36V58m10-10 11-9m-11 16 11 9' stroke='#d59f13' stroke-width='3' stroke-linecap='round'/></g>
+  <text x="118" y="34" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#222">虫／ハエ</text>
+  <text x="118" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#666">既存共用候補</text>
+  <text x="118" y="84" font-family="system-ui,sans-serif" font-size="13" fill="#333">主な対象：カエル・ハエトリグサ等</text>
+  <text x="118" y="109" font-family="system-ui,sans-serif" font-size="11" fill="#999">内部ID：insect / fly</text>
+  </g><g transform="translate(15 410)"><rect width="355" height="145" rx="14" fill="white" stroke="#c8c8c8"/>
+  <g transform="translate(14 24)"><circle cx='39' cy='50' r='7' fill='#f4c542'/><circle cx='57' cy='42' r='5.5' fill='#f4c542'/><circle cx='67' cy='59' r='4.5' fill='#f4c542'/><path d='M31 65c12 5 30 5 42-1' fill='none' stroke='#d59f13' stroke-width='2' stroke-dasharray='3 4'/></g>
+  <text x="118" y="34" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#222">水中の小さな餌</text>
+  <text x="118" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#666">既存粒を共用候補</text>
+  <text x="118" y="84" font-family="system-ui,sans-serif" font-size="13" fill="#333">主な対象：サケ・クマノミ・クラゲ等</text>
+  <text x="118" y="109" font-family="system-ui,sans-serif" font-size="11" fill="#999">内部ID：aquatic_small_prey</text>
+  </g><g transform="translate(405 410)"><rect width="355" height="145" rx="14" fill="white" stroke="#c8c8c8"/>
+  <g transform="translate(14 24)"><path d='M43 31h18v8l5 7v25H38V46l5-7z' fill='#fff7dc' stroke='#d59f13' stroke-width='4' stroke-linejoin='round'/><path d='M43 55h18v13H43z' fill='#f4c542'/><path d='M47 31v-6h10v6' stroke='#d59f13' stroke-width='4' stroke-linecap='round'/></g>
+  <text x="118" y="34" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#222">ミルク</text>
+  <text x="118" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#666">新規候補</text>
+  <text x="118" y="84" font-family="system-ui,sans-serif" font-size="13" fill="#333">主な対象：人・犬・猫の乳幼期</text>
+  <text x="118" y="109" font-family="system-ui,sans-serif" font-size="11" fill="#999">内部ID：milk</text>
+  </g><g transform="translate(15 580)"><rect width="355" height="145" rx="14" fill="white" stroke="#c8c8c8"/>
+  <g transform="translate(14 24)"><circle cx='45' cy='52' r='8' fill='#f4c542' stroke='#d59f13' stroke-width='2'/><circle cx='59' cy='46' r='6' fill='#ffe88b' stroke='#d59f13' stroke-width='2'/><circle cx='62' cy='61' r='5' fill='#f4c542' stroke='#d59f13' stroke-width='2'/><path d='M30 39l5 5m37-5-5 5M34 70l5-4m29 4-5-4' stroke='#d59f13' stroke-width='3' stroke-linecap='round'/></g>
+  <text x="118" y="34" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#222">中立養分</text>
+  <text x="118" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#666">新規候補</text>
+  <text x="118" y="84" font-family="system-ui,sans-serif" font-size="13" fill="#333">主な対象：種・蛹・変態中・幻想系</text>
+  <text x="118" y="109" font-family="system-ui,sans-serif" font-size="11" fill="#999">内部ID：neutral_nutrition</text>
+  </g><g transform="translate(405 580)"><rect width="355" height="145" rx="14" fill="white" stroke="#c8c8c8"/>
+  <g transform="translate(14 24)"><path d='M38 44h26v25H38z' fill='#fff' stroke='#d59f13' stroke-width='4'/><path d='M64 48c11-4 17-1 19 5M38 48c-8-5-13-1-14 4M46 44V34h11v10' fill='none' stroke='#d59f13' stroke-width='4' stroke-linecap='round'/><path d='M23 56c5 0 9 2 12 6M76 61c4 0 7 2 10 5' stroke='#f4c542' stroke-width='4' stroke-linecap='round'/></g>
+  <text x="118" y="34" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#222">水</text>
+  <text x="118" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#666">新規候補</text>
+  <text x="118" y="84" font-family="system-ui,sans-serif" font-size="13" fill="#333">主な対象：植物体</text>
+  <text x="118" y="109" font-family="system-ui,sans-serif" font-size="11" fill="#999">内部ID：water</text>
+  </g><g transform="translate(15 750)"><rect width="355" height="145" rx="14" fill="white" stroke="#c8c8c8"/>
+  <g transform="translate(14 24)"><path d='M39 70c-4-14 4-17 0-30M52 70c5-15-5-20 2-37M64 70c-4-10 7-17 2-29' fill='none' stroke='#d59f13' stroke-width='5' stroke-linecap='round'/><path d='M30 72h45' stroke='#f4c542' stroke-width='5' stroke-linecap='round'/></g>
+  <text x="118" y="34" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#222">藻・水中植物</text>
+  <text x="118" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#666">新規候補</text>
+  <text x="118" y="84" font-family="system-ui,sans-serif" font-size="13" fill="#333">主な対象：オタマジャクシ期</text>
+  <text x="118" y="109" font-family="system-ui,sans-serif" font-size="11" fill="#999">内部ID：algae_aquatic_plant</text>
+  </g><g transform="translate(405 750)"><rect width="355" height="145" rx="14" fill="white" stroke="#c8c8c8"/>
+  <g transform="translate(14 24)"><path d='M29 59c9-26 31-30 47-26-1 23-16 39-40 36z' fill='#f4c542' stroke='#d59f13' stroke-width='3'/><path d='M35 65c13-11 23-18 36-28' stroke='#6d5310' stroke-width='3' stroke-linecap='round'/></g>
+  <text x="118" y="34" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#222">葉</text>
+  <text x="118" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#666">新規候補</text>
+  <text x="118" y="84" font-family="system-ui,sans-serif" font-size="13" fill="#333">主な対象：チョウ幼虫</text>
+  <text x="118" y="109" font-family="system-ui,sans-serif" font-size="11" fill="#999">内部ID：leaf</text>
+  </g><g transform="translate(15 920)"><rect width="355" height="145" rx="14" fill="white" stroke="#c8c8c8"/>
+  <g transform="translate(14 24)"><circle cx='52' cy='49' r='7' fill='#f4c542'/><circle cx='52' cy='33' r='8' fill='none' stroke='#d59f13' stroke-width='4'/><circle cx='67' cy='43' r='8' fill='none' stroke='#d59f13' stroke-width='4'/><circle cx='61' cy='61' r='8' fill='none' stroke='#d59f13' stroke-width='4'/><circle cx='43' cy='61' r='8' fill='none' stroke='#d59f13' stroke-width='4'/><circle cx='37' cy='43' r='8' fill='none' stroke='#d59f13' stroke-width='4'/></g>
+  <text x="118" y="34" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#222">花蜜</text>
+  <text x="118" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#666">新規候補</text>
+  <text x="118" y="84" font-family="system-ui,sans-serif" font-size="13" fill="#333">主な対象：チョウ成虫</text>
+  <text x="118" y="109" font-family="system-ui,sans-serif" font-size="11" fill="#999">内部ID：nectar</text>
+  </g><g transform="translate(405 920)"><rect width="355" height="145" rx="14" fill="white" stroke="#c8c8c8"/>
+  <g transform="translate(14 24)"><path d='M27 63c7-14 17-17 27-9 8-10 18-7 24 9z' fill='#f4c542' stroke='#d59f13' stroke-width='3'/><path d='M36 47c8 2 11 6 14 11M55 45c8 1 12 5 16 11' fill='none' stroke='#6d5310' stroke-width='3'/><path d='M30 40c10-8 17-5 21 1-7 5-14 6-21-1zM58 36c9-5 15-2 19 4-7 4-13 4-19-4z' fill='#ffe88b' stroke='#d59f13' stroke-width='2'/></g>
+  <text x="118" y="34" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#222">腐植質・有機養分</text>
+  <text x="118" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#666">新規共用候補</text>
+  <text x="118" y="84" font-family="system-ui,sans-serif" font-size="13" fill="#333">主な対象：カブト幼虫・キノコ等</text>
+  <text x="118" y="109" font-family="system-ui,sans-serif" font-size="11" fill="#999">内部ID：organic_matter</text>
+  </g><g transform="translate(15 1090)"><rect width="355" height="145" rx="14" fill="white" stroke="#c8c8c8"/>
+  <g transform="translate(14 24)"><path d='M27 45h45l8 10-8 14H27z' fill='#f4c542' stroke='#d59f13' stroke-width='3' stroke-linejoin='round'/><circle cx='31' cy='57' r='9' fill='none' stroke='#6d5310' stroke-width='3'/><path d='M44 49h20m-15 9h17m-23 8h19' stroke='#6d5310' stroke-width='3' stroke-linecap='round'/></g>
+  <text x="118" y="34" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#222">朽木</text>
+  <text x="118" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#666">新規候補</text>
+  <text x="118" y="84" font-family="system-ui,sans-serif" font-size="13" fill="#333">主な対象：クワガタ幼虫</text>
+  <text x="118" y="109" font-family="system-ui,sans-serif" font-size="11" fill="#999">内部ID：decaying_wood</text>
+  </g><g transform="translate(405 1090)"><rect width="355" height="145" rx="14" fill="white" stroke="#c8c8c8"/>
+  <g transform="translate(14 24)"><path d='M33 70V34h18v36z' fill='#fff7dc' stroke='#d59f13' stroke-width='4'/><path d='M51 43c10-3 16 1 20 8-8 2-14 0-20-5z' fill='#f4c542' stroke='#d59f13' stroke-width='3'/><path d='M73 59c0 9-11 9-11 0 0-4 5.5-10 5.5-10S73 55 73 59z' fill='#f4c542' stroke='#d59f13' stroke-width='2'/></g>
+  <text x="118" y="34" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#222">樹液・植物汁</text>
+  <text x="118" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#666">新規共用候補</text>
+  <text x="118" y="84" font-family="system-ui,sans-serif" font-size="13" fill="#333">主な対象：カブト・クワガタ・セミ</text>
+  <text x="118" y="109" font-family="system-ui,sans-serif" font-size="11" fill="#999">内部ID：sap</text>
+  </g><g transform="translate(15 1260)"><rect width="355" height="145" rx="14" fill="white" stroke="#c8c8c8"/>
+  <g transform="translate(14 24)"><path d='M30 64c5-19 17-29 33-24 11 4 15 16 8 25-10 13-30 11-41-1z' fill='#fff7dc' stroke='#d59f13' stroke-width='4'/><path d='M40 61c7-11 16-14 24-9' fill='none' stroke='#d59f13' stroke-width='3'/><circle cx='75' cy='69' r='4' fill='#f4c542'/><path d='M25 73h55' stroke='#d59f13' stroke-width='2' stroke-dasharray='4 4'/></g>
+  <text x="118" y="34" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#222">底生の小さな餌</text>
+  <text x="118" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#666">新規候補</text>
+  <text x="118" y="84" font-family="system-ui,sans-serif" font-size="13" fill="#333">主な対象：ヒトデ04〜08</text>
+  <text x="118" y="109" font-family="system-ui,sans-serif" font-size="11" fill="#999">内部ID：benthic_small_prey</text>
   </g></svg>
