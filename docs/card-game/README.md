@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [234](234-new-seed-mixed-replay.md) | 3経路のターン終了・ドロー、01-B能力解決を適用 |
 | [233](233-new-seed-turn-end-proof.md) | 3経路の6手順ターン終了を保存履歴で証明、01-B連鎖保持 |
 | [232](232-new-seed-response-replay.md) | 唯一response pass4件を適用、終了状態3・能力解決待ち1 |
 | [231](231-new-seed-response-audit.md) | 終了response3・能力連鎖次優先response1は全て唯一pass |
@@ -117,7 +118,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[233 新seedターン終了履歴監査](233-new-seed-turn-end-proof.md)** の保存地点。3経路の6手順ターン終了を履歴から証明。01-BはC-chicken能力の連鎖解決待ち。
+現在は **[234 新seedターン進行・能力解決](234-new-seed-mixed-replay.md)** の保存地点。3経路は次手番のたまご交換待ち、01-BはC-chicken解決後の通常行動入口。
 
 履歴上、221は **[221 新seed2経路たまご交換](221-new-seed-egg-replay.md)** の保存地点。01-B/02-Bは開始時response入口、01-A/02-Aは各応答局面保持。
 
