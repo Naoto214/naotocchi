@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [179](179-new-seed-board-partner-audit.md) | P-cliff_goat一般response分類、2通常行動と終了response監査 |
 | [178](178-new-seed-followup-restart.md) | 4唯一passを適用しターン終了1・終了response1・通常行動2 |
 | [177](177-new-seed-followup-audit.md) | 3次優先者response passと02-A通常passを完全監査 |
 | [176](176-new-seed-current-restart.md) | 3 passとI-c_coin2解決、次のresponse／通常行動入口 |
@@ -62,7 +63,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[178 新seed4唯一pass再開](178-new-seed-followup-restart.md)** の保存地点。01-Aはターン終了入口、01-B/02-Bは通常行動入口、02-Aはターン終了response入口。新decision/event/snapshot各4、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+現在は **[179 新seed盤上こいびと能力と現在機会監査](179-new-seed-board-partner-audit.md)** の保存地点。02-BのP-cliff_goatはresponse誘発分類、01-B/02-B通常候補は有償メイン誕生とpass、02-A終了responseはpassのみ。01-Aはターン終了履歴監査待ち。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+
+履歴上、178は **[178 新seed4唯一pass再開](178-new-seed-followup-restart.md)** の保存地点。01-Aはターン終了入口、01-B/02-Bは通常行動入口、02-Aはターン終了response入口。新decision/event/snapshot各4、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
 履歴上、177は **[177 新seed次機会横断監査](177-new-seed-followup-audit.md)** の保存地点。3経路の次優先者responseはpassのみ、02-Aの通常行動もpassのみ。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
