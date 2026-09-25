@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [194](194-new-seed-followup-response.md) | 設置後・連鎖相手・終了前の4機会すべて唯一pass |
 | [193](193-new-seed-current-restart.md) | P-cat_ceo配置、2通常pass、C-chicken連鎖中passを再開 |
 | [192](192-new-seed-current-choices.md) | 無料こいびと配置1・時収支pass2・連鎖pass1を証明 |
 | [191](191-new-seed-chain-normal-audit.md) | 3通常行動候補完全、01-B連鎖中は唯一pass |
@@ -77,7 +78,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[193 新seed4証明済み選択の再開](193-new-seed-current-restart.md)** の保存地点。P-cat_ceo配置1・通常pass2・C-chicken連鎖中pass1を適用。新decision/event/snapshot各4、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+現在は **[194 新seed4つの混合response機会監査](194-new-seed-followup-response.md)** の保存地点。設置後・連鎖相手・終了前の4機会がすべて唯一pass。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
 履歴上、179は **[179 新seed盤上こいびと能力と現在機会監査](179-new-seed-board-partner-audit.md)** の保存地点。02-BのP-cliff_goatはresponse誘発分類、01-B/02-B通常候補は有償メイン誕生とpass、02-A終了responseはpassのみ。01-Aはターン終了履歴監査待ち。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
