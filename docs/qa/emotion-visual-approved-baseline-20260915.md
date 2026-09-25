@@ -63,3 +63,13 @@ PR #278はDraftのまま。mainへマージしない。
 2026-09-16: User approved young dog05 final orange wantsPlay(-33,7) (“これでお願いします”), then requested continuation. Preserve young dog05 and proceed only to calm dog07; new stage iPhone appearance remains pending.
 
 2026-09-16: User approved calm dog07 (“良いです 続きを！”), then approved batching remaining dog01/02/08 (“それでお願いします”) to reduce review burden. Preserve all earlier confirmed portraits/anchors. Remaining three receive one combined preview review; not yet visually accepted.
+
+## 2026-09-25：汗と状態マークの描画順を正式採用
+
+ユーザー承認により **本体 → 汗 → 状態マーク** を正式採用する。状態マークはresolverが選ぶ現在の代表表示（状態または一時反応）として最前面、汗は独立した病気併存の補助情報としてその下に置く。「代表」は常に医学的に最重症の状態という意味ではなく、既存の睡眠・危険・一時反応等の優先順位を変更しない。
+
+採用根拠は既存346交差候補の同条件A/B比較。Bでは明確な実不具合0、境界0、状態マーク判読困難0、病気併存の判読困難0、逆転による新規問題0。現行Aは明確0・境界17（前回3から同じ346内で14を再分類）。比較は64/80/104px×4位相＋静止のオフライン合成であり、実機や連続全時刻の保証ではない。
+
+実装はマークz-index1→4、汗3を保持。位置・サイズ・色・形・アニメーション・resolver・全キャラ画像は不変。17境界への個別調整なし。状態マークは引き続き同時に1種類。詳細とfresh検証は [採用QA](expression-zorder-20260925.md)。過去の描画順・保留記録は当時の履歴として残し、本追記を現在の決定とする。
+
+犬03、ウスバカゲロウ07/08、空腹マーク、なおと制作は今回の変更に含めない。通常育成表情編の総完成判定は別途保留。PR278はDraft・open・未マージ。

@@ -505,3 +505,17 @@ for(let i=1;i<=8;i++)test(`ren/${i} exposes face-relative sickness drops`,()=>{
   assert.ok(Object.values(drops).every(Number.isFinite));
  }
 });
+
+test('the selected expression mark paints above illness sweat and character art', () => {
+  const expressionCss = fs.readFileSync(require.resolve('../pet-expression.css'), 'utf8');
+  const careCss = fs.readFileSync(require.resolve('../care-attention.css'), 'utf8');
+  const styleCss = fs.readFileSync(require.resolve('../style.css'), 'utf8');
+  const markRule = expressionCss.match(/\.pet-expression-accent\s*\{([^}]+)\}/)[1];
+  const sweatRule = careCss.match(/#petSprite::after\s*\{([^}]+)\}/)[1];
+  const visualRule = styleCss.match(/\.character-visual\s*\{([^}]+)\}/)[1];
+  const z = rule => Number(rule.match(/z-index\s*:\s*(-?\d+)/)?.[1] ?? 0);
+  assert.ok(z(sweatRule) > 0, 'illness sweat remains above normal character art');
+  assert.ok(z(markRule) > z(sweatRule), 'selected state mark must paint above coexisting illness sweat');
+  assert.doesNotMatch(visualRule, /z-index\s*:|isolation\s*:\s*isolate|transform\s*:(?!\s*none)/,
+    'the visual wrapper must not trap its mark below sibling sweat');
+});
