@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [153](153-new-seed-start-response.md) | 01の開始時responseを閉じ、02-Bは選択済みI-c_coin2の起動直前で停止 |
 | [152](152-new-seed-egg-restart.md) | 3経路のR1たまご交換を116 seedで選択し開始時responseへ進める |
 | [151](151-new-seed-turn-end-restart.md) | 3経路のターン終了と次手番ドローを独立再開し、たまご交換入口まで進める |
 | [150](150-new-seed-turn-end-history.md) | 3ターン終了入口の保存済み全履歴を再構築し、期限・成長到達出所を証明 |
@@ -36,7 +37,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[152 新seedたまご交換再開](152-new-seed-egg-restart.md)** の保存地点。151の3経路は116のseeded fallbackでR1たまご交換を選び、次手番開始response入口まで進んだ。新decision/event/snapshot各3、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは実行中で全件GREENとは扱わない。
+現在は **[153 新seed開始時response再開](153-new-seed-start-response.md)** の保存地点。01-A/Bはそれぞれ2回のresponse-passで通常行動へ戻った。02-BはG-hit-blow起動＋1回のpass後、BのI-c_coin2が合法となりseeded fallbackで選ばれたため、起動前のseq11・state/hashで真正停止。新event/snapshot各6、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは実行中で全件GREENとは扱わない。
+
+履歴上、152は **[152 新seedたまご交換再開](152-new-seed-egg-restart.md)** の保存地点。151の3経路は116のseeded fallbackでR1たまご交換を選び、次手番開始response入口まで進んだ。新decision/event/snapshot各3、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは実行中で全件GREENとは扱わない。
 
 履歴上、151は **[151 新seedターン終了と次手番ドロー](151-new-seed-turn-end-restart.md)** の保存地点。01-A/B/02-Bの3経路で123/124のターン終了完全性を現在stateと150履歴から再計算し、各経路ターン終了と次手番2枚ドローを処理してたまご交換選択入口に到達した。新event/snapshot各6、decision0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは実行中で全件GREENとは扱わない。
 
