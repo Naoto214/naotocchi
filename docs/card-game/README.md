@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [158](158-new-seed-response-restart.md) | 4経路の現在responseをpassで閉じ、02-Aはターン終了入口へ |
 | [157](157-new-seed-normal-restart.md) | 4経路の通常行動を107/114/116で選択・再開 |
 | [156](156-new-seed-normal-audit.md) | 4経路の通常行動候補を完全列挙し、02-Aの盤上P-anglerfishをresponse分類 |
 | [155](155-new-seed-chain-resolution.md) | 02-Bの2リンクを2 pass後に逆順解決して通常行動へ復帰 |
@@ -41,7 +42,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[157 新seed4経路通常行動再開](157-new-seed-normal-restart.md)** の保存地点。01-AはC-batの時0配置、01-BはseedでC-chicken配置、02-BはseedでP-cliff_goat配置、02-Aは唯一のpass。新decision/event/snapshot各4、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは実行中で全件GREENとは扱わない。
+現在は **[158 新seed現在response再開](158-new-seed-response-restart.md)** の保存地点。01-A/B/02-Bは各2回passで通常行動へ、02-Aは1回passでターン終了入口へ。新decision/event/snapshot各7、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxy検査は固定HEAD別作業領域で再実行予定で全件GREENとは扱わない。
+
+履歴上、157は **[157 新seed4経路通常行動再開](157-new-seed-normal-restart.md)** の保存地点。01-AはC-batの時0配置、01-BはseedでC-chicken配置、02-BはseedでP-cliff_goat配置、02-Aは唯一のpass。新decision/event/snapshot各4、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは実行中で全件GREENとは扱わない。
 
 履歴上、156は **[156 新seed4経路通常行動候補監査](156-new-seed-normal-audit.md)** の保存地点。155の01-A/B/02-Bと148から保持した02-Aを合わせ、4経路すべての現在通常行動候補集合を完全証明した。02-AのP-anglerfishは74本文と06/119に従うresponse_triggered区分として通常行動から除外。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは実行中で全件GREENとは扱わない。
 
