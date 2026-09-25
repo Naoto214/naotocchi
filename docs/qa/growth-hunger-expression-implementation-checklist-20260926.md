@@ -272,3 +272,14 @@
 - [ ] PR #278 Draft/open/未マージ維持
 - [ ] なおと未着手
 
+
+
+## 2026-09-26 semantic hunger resolver 保存区切り
+
+- `pet-expression.js` に31系統の `HUNGER_PROFILES` と `hungerCategoryFor(baseAsset)` を追加。
+- 構造は系統default＋必要段階override。中立養分は明示カテゴリでありfallbackではない。
+- 表示側 `accentFor` はまだこのresolverへ接続しておらず、既存の空腹SVG表示はこの区切りでは不変。
+- `tests/hunger-profile-test.cjs` を追加し、31系統×8段階＝248割当とunsupported→null契約を記録。
+- GitHubから最新 `pet-expression.js` とtestを再取得し、V8で両ファイルの構文を確認。
+- 同じ最新コードを実行し、248/248の期待カテゴリ一致、unsupported/malformedのfallback 0、export API frozenを確認。
+- Nodeのrepo全体テストはこの区切りでは未実施。CI成功扱いにしない。
