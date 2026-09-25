@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [150](150-new-seed-turn-end-history.md) | 3ターン終了入口の保存済み全履歴を再構築し、期限・成長到達出所を証明 |
 | [149](149-new-seed-turn-end-audit.md) | 3ターン終了入口の盤上誘発時点を分類し、履歴出所の不足を切り分け |
 | [148](148-new-seed-response-restart.md) | 147の現在response窓を再開し、01の2経路をターン終了入口、02-Aを通常行動へ返す |
 | [147](147-new-seed-normal-restart.md) | 01-A/Bのpassと02-Aのseed付き時0こいびと配置を独立再開 |
@@ -33,7 +34,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[149 新seedターン終了出所監査](149-new-seed-turn-end-audit.md)** の保存地点。01-A/B/02-Bの閉じたターン終了入口3状態でC-chicken/C-batの発動時点を本文から照合し、終了時盤上誘発を除外した。残る`unresolved_expiration`・`missing_growth_reach_history`は履歴出所証明が必要であり、まだターン終了遷移は実行していない。new event 0、completed 0、独立balance標本0、カード本文・数値・登録区分変更0件。専用2件PASS、保存JSON一致、設計データerrors空。全proxy検査は実行中で全件GREENとは扱わない。
+現在は **[150 新seedターン終了履歴出所監査](150-new-seed-turn-end-history.md)** の保存地点。135〜148の保存済みevent/snapshotを連結し、01-A/B/02-Bで成長20対20が全時点不変、予約・未処理誘発・期限付き効果0、100到達0を再構築した。ターン終了の現在完全性と遷移は次checkpointで再評価する。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは実行中で全件GREENとは扱わない。
+
+履歴上、149は **[149 新seedターン終了出所監査](149-new-seed-turn-end-audit.md)** の保存地点。01-A/B/02-Bの閉じたターン終了入口3状態でC-chicken/C-batの発動時点を本文から照合し、終了時盤上誘発を除外した。残る`unresolved_expiration`・`missing_growth_reach_history`は履歴出所証明が必要であり、まだターン終了遷移は実行していない。new event 0、completed 0、独立balance標本0、カード本文・数値・登録区分変更0件。専用2件PASS、保存JSON一致、設計データerrors空。全proxy検査は実行中で全件GREENとは扱わない。
 
 履歴上、148は **[148 新seed現在response窓の再開](148-new-seed-response-restart.md)** の保存地点。01-A/Bのpass後の相手response-passを適用してターン終了入口へ進み、02-AではP-anglerfishの現在の配置イベントに対する不発を本文で証明して2回のresponse-pass後に通常行動へ戻した。02-Bはターン終了入口を保持。新decision/event/snapshot各4、completed 0、独立balance標本0、カード本文・数値・登録区分変更0件。専用2件PASS、保存JSON一致、設計データerrors空。全proxy検査は実行中で総数・失敗内訳は未確定。全件GREENとは扱わない。
 
