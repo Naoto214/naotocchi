@@ -14,9 +14,10 @@ const assert = require('node:assert/strict');
 const { harness } = require('./helpers/runtime-harness.cjs');
 
 const arr = (x) => Array.from(x || []);
-const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain'];
+// Phase 4E-4B: 表は 8 本(4E-4A の 5 本 + MEDIUM 3 本)。NEW4 = home|forest いがい(4E-4A の LOW 4 本 と MEDIUM 3 本)
+const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain', 'forest|mountain', 'mountain|river_lake', 'city|sea'];
 const NEW4 = CONT.slice(1);
-const LATER = ['forest|mountain', 'mountain|river_lake', 'city|sea', 'countryside|forest', 'city|countryside'];
+const LATER = ['countryside|forest', 'city|countryside'];
 const SPECIAL = ['jungle|sea', 'deepsea|sea', 'countryside|star_stop'];
 const DIRS = CONT.flatMap((id) => { const [a, b] = id.split('|'); return [[id, a, b], [id, b, a]]; });
 
@@ -79,7 +80,7 @@ test('1. 許可リストは 5 本(かさならない)。のこり 5 本と speci
       else assert.equal(m.reason, 'not-walk', g.id);
     }
   }
-  assert.equal(Object.values(seen).filter((m) => m.mode === 'corridor').length, 10, '5 本 × 行きと 帰り');
+  assert.equal(Object.values(seen).filter((m) => m.mode === 'corridor').length, CONT.length * 2, '8 本 × 行きと 帰り');
   for (const id of SPECIAL) assert.ok(Object.keys(seen).some((k) => k.startsWith(id + ':')) && Object.keys(seen).filter((k) => k.startsWith(id + ':')).every((k) => seen[k].mode === 'transition'), id);
   // こまった とき: spec が ない・形が あわない は transition(許可リストに いれても)
   assert.equal(M.continuousWalkMode({ id: 'x|y', kind: 'walk', way: 'walk', from: 'x', to: 'y', spot: { id: 'q' }, at: 'q' }, { allow: ['x|y'] }).reason, 'no-spec');
@@ -173,7 +174,7 @@ test('5. しっぱい: 組む とちゅう / 絵の デコード / 着く とき
   }
 });
 
-test('6. 絵の さきどり デコード: あるける 出口に ちかづくと その corridor の 最初の 段と 両端の ことば だけを 1 回。セーブ・地域は かわらない', async () => {
+test('6. 絵の さきどり デコード: あるける 出口に ちかづくと その corridor の 段と 両端の ことば だけを 1 回(4E-4B: 道 ぜんぶの 段)。セーブ・地域は かわらない', async () => {
   const { M } = setup();
   for (const id of NEW4) {
     const [from, to] = id.split('|');
@@ -217,12 +218,12 @@ test('6. 絵の さきどり デコード: あるける 出口に ちかづく�
     R.arrive(); assert.equal(R.s.regionId, 'river_lake');
     R.r.stop();
   }
-  // corridor に ならない 出口(city|sea)では しない
+  // corridor に ならない 出口(city|countryside。4E-4C まで transition)では しない
   const R = run({ region: 'city' });
-  const g = R.r.sim.gates.find((q) => q.id === 'city|sea');
-  R.r.setPlayer(g.spot.x, g.spot.z + (g.spot.r + 100)); R.h.advance(600);
-  const seaWords = M.corridorSceneryEmojis(M.walkCorridorSpec('city|sea'), 'city');
-  assert.equal(R.decodes.filter((d) => d.list.length === seaWords.length && d.list.every((e) => seaWords.includes(e))).length, 0, 'city|sea は まだ transition');
+  const g = R.r.sim.gates.find((q) => q.id === 'city|countryside'), gb = g.bearing || (g.out === 'far' ? { x: 0, z: 1 } : { x: 0, z: -1 });
+  R.r.setPlayer(g.spot.x - gb.x * (g.spot.r + 100), g.spot.z - gb.z * (g.spot.r + 100)); R.h.advance(600);
+  const ccWords = M.corridorSceneryEmojis(M.walkCorridorSpec('city|countryside'), 'city');
+  assert.equal(R.decodes.filter((d) => d.list.length === ccWords.length && d.list.every((e) => ccWords.includes(e))).length, 0, 'city|countryside は まだ transition');
   R.r.stop();
   // 最初の 2 段 と 両端の 地域 だけ(ほかの 地域の ことばを ぜんぶ いれない)
   const w = M.corridorSceneryEmojis(M.walkCorridorSpec('city|desert'), 'city');
@@ -272,13 +273,18 @@ test('7. 景色(5 本 × 行きと 帰り): 背景は まんなかで 1 回だ�
   }
 });
 
-test('8. home.bigtree の 2 出口: むきで 1 つに きまる(もり / かわ を とりちがえない)。city の 3 出口も とりちがえない', () => {
-  for (const [region, cases] of [['home', [['forest', 'home|forest'], ['river_lake', 'home|river_lake']]], ['city', [['desert', 'city|desert']]]]) {
+test('8. home.bigtree の 2 出口: むきで 1 つに きまる(もり / かわ を とりちがえない)。city の 3 出口・mountain の 4 出口も とりちがえない', () => {
+  // Phase 4E-4B: city の 3 出口(desert・sea は corridor、countryside は まだ transition)と mountain の 4 出口
+  const GATES = [['home', [['forest', 'home|forest'], ['river_lake', 'home|river_lake']]],
+    ['city', [['desert', 'city|desert'], ['sea', 'city|sea'], ['countryside', null]]],
+    ['mountain', [['forest', 'forest|mountain'], ['river_lake', 'mountain|river_lake'], ['snow', 'snow|mountain'], ['desert', 'desert|mountain']]]];
+  for (const [region, cases] of GATES) {
     for (const [to, id] of cases) {
       const R = run({ region });
       R.go(to); const c = R.enter();
-      assert.ok(c, `${region}→${to}`); assert.equal(c.connectionId, id);
-      R.arrive(); assert.equal(R.s.regionId, to);
+      if (id) { assert.ok(c, `${region}→${to}`); assert.equal(c.connectionId, id); R.arrive(); }
+      else { assert.equal(c, null, `${region}→${to} は transition`); for (let i = 0; i < 400 && R.s.regionId !== to; i++) R.h.advance(50); }
+      assert.equal(R.s.regionId, to, `${region}→${to}`);
       R.r.stop();
     }
   }

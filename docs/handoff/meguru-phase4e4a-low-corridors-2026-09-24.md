@@ -254,8 +254,8 @@ entry max = corridor に 入る 1 frame まえ 〜 6 frame あと の いちば�
 ## 12. 4E-4B へ すすむ 条件
 
 - [x] LOW 5 本が 両方向・初回 / 2 かいめ・なかま 27 で 目標の なか(この PR)
-- [ ] この PR を main へ
-- [ ] 4E-4B(MEDIUM 3 本: forest|mountain・mountain|river_lake・city|sea)の まえに: **2 かいめの 曲がる はやさが 30°/s を こえる**(31.5 / 34.8 / 32.7)ので、曲がりを 段に ひろげる(turn-spread)か 2 かいめの はやさを おさえるかを きめる。city|sea は 海ぞいの 景色(砂・海の 背景)が 端の 地域の もの だけで たりるか 撮って たしかめる
+- [x] この PR を main へ(#340、main `134e210`。Runtime smoke・Home layout 緑)
+- [x] 4E-4B(MEDIUM 3 本: forest|mountain・mountain|river_lake・city|sea)の まえに: **2 かいめの 曲がる はやさが 30°/s を こえる**(31.5 / 34.8 / 32.7)ので、曲がりを 段に ひろげる(turn-spread)か 2 かいめの はやさを おさえるかを きめる。city|sea は 海ぞいの 景色(砂・海の 背景)が 端の 地域の もの だけで たりるか 撮って たしかめる
 - [ ] 4E-4C(HIGH 2 本: countryside|forest 32.1 / 44.9・city|countryside 25.0 / 35.0)は 4E-4B の あと。countryside|forest は 5 段(2250)で みじかい ので、組みはじめ(のこり 810 = 0.64)と 余裕を もう 1 度 はかる
 - 入口の したく・さきどり デコード・のこり きょり は 本ごとの `if` なし で そのまま つかえる(許可リストに たす だけ)
 
@@ -266,3 +266,5 @@ entry max = corridor に 入る 1 frame まえ 〜 6 frame あと の いちば�
 - MEDIUM 3 本・HIGH 2 本(transition の まま)・`countryside|forest` の はやさの 上限
 - party が 障害物に ひっかかる いまの バグ(4E-2 から。今回 わるく なって いない ことだけ たしかめた)
 - global collision・住民の 地域間 移動・セーブの 形の 変更・Three.js
+
+→ 4E-4B: [MEDIUM 3 本の handoff](meguru-phase4e4b-medium-corridors-2026-09-24.md)(曲がりを 道 ぜんぶへ ひろげて 2 かいめ ≤ 28°/s。はやさの 上限は つかわない)

@@ -5430,6 +5430,21 @@
     const CORRIDOR_REVISIT_SPEED = 1.4;     // 2 かいめ からは はやあし。かたちは 変えない(TRANSITION.repeat 0.62 の ぎゃく数 ほど)
     const CORRIDOR_TURN_BUDGET = 30;        // 曲がる はやさの めやす(度 / 秒)。こえる ものは しるしを つける だけ(なおすのは 4E-4)
     const CORRIDOR_RAMP = 0.2;              // 曲がる 区間の はしの 2 わりで 曲率を 0 から 上げ下げ する(台形)
+    // Phase 4E-4B: 曲がる ところの ひろげかた(turn spread)。曲がる 量(度)と 両はしの むきは かえず、曲がる はばだけ ひろげる。
+    // 上から じゅんに ためし、2 かいめ(はやあし 1.4 倍)の いちばん はやい 曲がりが CORRIDOR_TURN_TARGET いかに なる さいしょの もの。
+    // margin = 出口の まえで まっすぐ に する ながさ(段の いくつぶん)、ramp = 曲率を 上げ下げ する わりあい。
+    // 本ごとの 指定は しない(曲がる 量 と 道の ながさ から きまる)。めやすに おさまる 本は 4E-1 の かたち(level 0)の まま
+    const CORRIDOR_TURN_TARGET = 28;
+    const CORRIDOR_TURN_SPREAD = Object.freeze([
+      Object.freeze({ level: 0, margin: 0.5, ramp: CORRIDOR_RAMP }),   // 4E-1: 出口の まえ 半段は まっすぐ
+      Object.freeze({ level: 1, margin: 0, ramp: CORRIDOR_RAMP }),     // 道 ぜんぶで 曲がる
+      Object.freeze({ level: 2, margin: 0, ramp: 0.1 }),               // + 曲率の 上げ下げを みじかく
+    ]);
+    // 曲がる 量 turn(度)・道の ながさ L で、2 かいめの さいだい(度 / 秒)が target いかに なる ひろげかた
+    function corridorTurnSpread(turn, L, target = CORRIDOR_TURN_TARGET) {
+      const revisitPeak = (p) => Math.abs(turn) / ((1 - p.ramp) * (L - 2 * p.margin * CORRIDOR_STAGE_WALK)) * RULES.playerSpeed * CORRIDOR_REVISIT_SPEED;
+      return CORRIDOR_TURN_SPREAD.find((p) => revisitPeak(p) <= target) || CORRIDOR_TURN_SPREAD[CORRIDOR_TURN_SPREAD.length - 1];
+    }
     // 幅は 数 1 つで きめない。いみの クラス → world たんいの 幅(歩ける 帯 ぜんぶ。道 + 路肩)。
     // edgeSoftness = 帯の はしで よこの うごきを やわらげる はば
     const CORRIDOR_WIDTH = Object.freeze({
@@ -5495,9 +5510,11 @@
       // むき: a を 出る むき → b へ 入る むき(= b の 出口の はんたい)。global は この 2 つの むきだけ
       const hA = headingOf(A.leave), hB = deg360(headingOf(B.leave) + 180);
       const turn = wrapDeg(hB - hA);
-      // 曲がるのは 段 1 の うしろ はんぶん 〜 さいごの 段の まえ はんぶん。出口の ちかくは まっすぐ(出口の むきの まま)
-      const a0 = CORRIDOR_STAGE_WALK / 2, a1 = L - CORRIDOR_STAGE_WALK / 2, Lt = a1 - a0, ramp = CORRIDOR_RAMP * Lt;
-      const k = turn / ((1 - CORRIDOR_RAMP) * Lt);
+      // 曲がるのは 段 1 の うしろ はんぶん 〜 さいごの 段の まえ はんぶん。出口の ちかくは まっすぐ(出口の むきの まま)。
+      // 曲がる 量が 大きくて 2 かいめに はやすぎる ときは 道 ぜんぶへ ひろげる(Phase 4E-4B。曲がる 量と 両はしの むきは おなじ)
+      const sp = corridorTurnSpread(turn, L);
+      const a0 = sp.margin * CORRIDOR_STAGE_WALK, a1 = L - sp.margin * CORRIDOR_STAGE_WALK, Lt = a1 - a0, ramp = sp.ramp * Lt;
+      const k = turn / ((1 - sp.ramp) * Lt);
       const curve = [
         { kind: 'straight', s0: 0, s1: a0, k0: 0, k1: 0 },
         { kind: 'rampIn', s0: a0, s1: a0 + ramp, k0: 0, k1: k },
@@ -5537,7 +5554,7 @@
         headingProfile: { startGlobal: round3(hA), endGlobal: round3(hB), turn: round3(turn), bend: round3(cor.bend),
           cumulative: stages.map((st, i) => round3(at(i))).concat([round3(at(n))]),
           perStage: stages.map((st) => st.headingDelta) },
-        curveProfile: { unit: 'deg/world', ramp: CORRIDOR_RAMP, startHeading: hA, turnFrom: a0, turnTo: a1, peakCurvature: k, segments: curve },
+        curveProfile: { unit: 'deg/world', ramp: sp.ramp, spread: sp.level, startHeading: hA, turnFrom: a0, turnTo: a1, peakCurvature: k, segments: curve },
         turnClass, turnFlags: { gentle: turnClass === 'gentle', wideTurn: turnClass === 'wide', sharpTurn: turnClass === 'sharp',
           uTurnLike: turnClass === 'uTurnLike', overTurnBudget: peak > CORRIDOR_TURN_BUDGET,
           overTurnBudgetRevisit: peak * CORRIDOR_REVISIT_SPEED > CORRIDOR_TURN_BUDGET },
@@ -5660,7 +5677,7 @@
     // ・ここには セーブ・DOM・実時刻は ない(start() の がわが つなぐ)
     // あるいて こえる corridor(connection id)。4E-2 の home|forest + Phase 4E-4A の LOW 4 本。
     // のこり 5 本(MEDIUM 3・HIGH 2)は 4E-4B / C まで いまの transition
-    const CONTINUOUS_WALK_ALLOWLIST = Object.freeze(['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain']);
+    const CONTINUOUS_WALK_ALLOWLIST = Object.freeze(['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain', 'forest|mountain', 'mountain|river_lake', 'city|sea']);
     // 出口・入口の 暗転(秒)。着く ときは くらく なりきった frame で commit と さいしょの え を すませ、あとは 0.14 秒で あける
     const CORRIDOR_COVER = Object.freeze({ fadeIn: 0.06, fadeOut: 0.12 });
     // 暗転が これより こい ときは 道の え を えがかない(ぬりつぶし 1 まいだけ)。のこる え は 3% いか で 見えない ので、ちらつかない
@@ -5708,7 +5725,9 @@
     });
     const CORRIDOR_REGION_TERRAIN = Object.freeze({
       river_lake: { shore: { palette: 'river_lake', near: [['🌿', 75], ['🪷', 60], ['🪨', 75]], far: [['🌳', 210]] } },
-      city: { 'urban-edge': { palette: 'city', near: [['🚲', 90], ['🪧', 90], ['🗑️', 70]], far: [['🏢', 230], ['🏬', 210]] }, road: { palette: 'city' } },
+      // まちの ちかくの 川は まちの 運河(石の いろ・とおくに ビル)。Phase 4E-4B
+      city: { 'urban-edge': { palette: 'city', near: [['🚲', 90], ['🪧', 90], ['🗑️', 70]], far: [['🏢', 230], ['🏬', 210]] }, road: { palette: 'city' },
+        river: { palette: 'city', far: [['🏢', 230], ['🏬', 210]] } },
       desert: { road: { palette: 'desert', near: [['🪧', 90], ['🪨', 75]], far: [['🌵', 200]] } },
     });
     const CORRIDOR_END_MIX = Object.freeze({ tint: 0.55, words: 0.5 });
@@ -5720,8 +5739,10 @@
     }
     // 端の ことばを まぜる わりあい(t = すすみぐあい 0〜1)。出発 がわは 前半、到着 がわは 後半だけ
     const corridorEndWeights = (t) => ({ from: CORRIDOR_END_MIX.words * (1 - smooth01(t / 0.5)), to: CORRIDOR_END_MIX.words * smooth01((t - 0.5) / 0.5) });
-    // corridor に 入る まえに さきに デコードする 絵(最初の 2 段 と 両端の 地域の ことば だけ。構造物は 絵を つかわない)
-    function corridorSceneryEmojis(spec, from, stageCount = 2) {
+    // corridor に 入る まえに さきに デコードする 絵(段の ことば と 両端の 地域の ことば だけ。構造物は 絵を つかわない)。
+    // Phase 4E-4B: 道 ぜんぶの 段(4〜14 こ)。入口で とおくに 見える 段や とちゅうの 段の 絵を、あるいて いる とちゅうで
+    // はじめて デコード しない(atlas ごとに 1 回。のこる のは さいだい 3 まい)
+    function corridorSceneryEmojis(spec, from, stageCount = Infinity) {
       if (!spec || (from !== spec.a && from !== spec.b)) return [];
       const to = from === spec.a ? spec.b : spec.a, st = from === spec.a ? spec.stages : spec.stages.slice().reverse();
       const out = new Set(), add = (pool) => { for (const it of pool || []) if (!/^[a-z]/.test(it[0])) out.add(it[0]); };
@@ -5901,7 +5922,9 @@
         // Phase 4E-4A: いろ = 出発 → 到着 の いろ(すすみぐあい に そって まっすぐ)に 地面の 種類の いろ を かさねる。
         // 地面の 種類の いろが 端の 地域の いろ(出発 / 到着)の ときは、その 端から はなれる ほど よわく する
         // (さばく → 岩 → さばく → 山 のように 行ったり 来たり しない)。はたけ・坂 のような ほかの 地域の いろは そのまま かさねる
-        const T = CORRIDOR_END_MIX.tint, wOf = (lk) => (lk.P === A ? (1 - tq) * (1 - tq) : lk.P === B ? tq * tq : 1);
+        // Phase 4E-4B: 端の 地域で ない いろ(川・はたけ など)は 端から 1 段 かけて かさね はじめる(道の はしは かならず 端の 地域の いろ)
+        const edge = smooth01(Math.min(tq, 1 - tq) * n);
+        const T = CORRIDOR_END_MIX.tint, wOf = (lk) => (lk.P === A ? (1 - tq) * (1 - tq) : lk.P === B ? tq * tq : edge);
         const tw = T * (wOf(a) * (1 - k) + wOf(b) * k);
         const terr = (f) => mixRgbArr(a[f], b[f], k), base = (f) => mixRgbArr(EA[f], EB[f], tq);
         world.ground = [hexOf(mixRgbArr(base('g0'), terr('g0'), tw)), hexOf(mixRgbArr(base('g1'), terr('g1'), tw))];
@@ -8266,6 +8289,6 @@
       return { stop, layoutInfo, foundInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; }, get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
+    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
   };
 })();

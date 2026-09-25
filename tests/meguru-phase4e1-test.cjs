@@ -48,7 +48,8 @@ function phase4e1Block() {
   return SRC.slice(SRC.lastIndexOf('\n', a) + 1, SRC.lastIndexOf('\n', b) + 1);
 }
 const codeOnly = (src) => src.split('\n').filter((l) => !/^\s*\/\//.test(l)).join('\n');
-const EXPORTS_4E1 = ['CORRIDOR_STAGE_WALK', 'CORRIDOR_WIDTH', 'CORRIDOR_TERRAIN_WIDTH', 'CORRIDOR_STATE_KEYS', 'walkCorridorSpecs',
+// Phase 4E-4B: CORRIDOR_TURN_SPREAD / corridorTurnSpread(turn spread)を たした
+const EXPORTS_4E1 = ['CORRIDOR_STAGE_WALK', 'CORRIDOR_TURN_SPREAD', 'corridorTurnSpread', 'CORRIDOR_WIDTH', 'CORRIDOR_TERRAIN_WIDTH', 'CORRIDOR_STATE_KEYS', 'walkCorridorSpecs',
   'walkCorridorSpec', 'orientWalkCorridor', 'corridorHeadingAt', 'corridorStageAt', 'corridorMode', 'makeCorridorState',
   'corridorEnterState', 'corridorExitPose'];
 const WALK = ['snow|mountain', 'forest|mountain', 'mountain|river_lake', 'desert|mountain', 'countryside|forest',
@@ -162,9 +163,13 @@ test('5. むきは a の 出口 → b へ 入る むき へ なめらかに。�
       assert.ok(angDiff(h, prev) <= s.curveProfile.peakCurvature * Math.sign(s.curveProfile.peakCurvature) * step + 1e-9, 'とびが ない');
       prev = h;
     }
-    // 出口の ちかく(はじめと おわりの 半段)は まっすぐ
-    assert.ok(angDiff(M.corridorHeadingAt(s, s.a, 225), hA) < 1e-9);
-    assert.ok(angDiff(M.corridorHeadingAt(s, s.a, L - 225), hB) < 1e-9);
+    // 出口の ちかく: 4E-1 の かたち(spread 0)は はじめと おわりの 半段が まっすぐ。
+    // 曲がりを 道 ぜんぶへ ひろげた 本(Phase 4E-4B)は 出口で 曲率 0 から はじまり 0 で おわる(むきは とばない)
+    const m = s.curveProfile.turnFrom;
+    assert.equal(m, s.curveProfile.spread === 0 ? 225 : 0, s.connectionId);
+    assert.ok(angDiff(M.corridorHeadingAt(s, s.a, m), hA) < 1e-9);
+    assert.ok(angDiff(M.corridorHeadingAt(s, s.a, L - m), hB) < 1e-9);
+    assert.ok(angDiff(M.corridorHeadingAt(s, s.a, 1), hA) < 1e-3 && angDiff(M.corridorHeadingAt(s, s.a, L - 1), hB) < 1e-3, '出口で 曲率 0');
   }
 });
 
@@ -185,12 +190,13 @@ test('6. 曲がる はやさ(260/s): めやす 30°/s。こえる ものには �
     assert.equal(s.turnFlags.uTurnLike, s.turnClass === 'uTurnLike');
     rows.push([s.connectionId, rate]);
   }
-  const over = specs(M).filter((s) => s.turnFlags.overTurnBudget).map((s) => s.connectionId);
-  assert.deepEqual(over, ['countryside|forest'], '初回で めやすを こえるのは countryside|forest だけ');
+  // Phase 4E-4B: 曲がりを ひろげた ので 初回で こえる ものは ない。2 かいめ(1.4 倍)で こえるのは countryside|forest だけ(4E-4C)
+  assert.deepEqual(specs(M).filter((s) => s.turnFlags.overTurnBudget).map((s) => s.connectionId), []);
+  assert.deepEqual(specs(M).filter((s) => s.turnFlags.overTurnBudgetRevisit).map((s) => s.connectionId), ['countryside|forest']);
   assert.equal(M.walkCorridorSpec('countryside|forest').turnClass, 'uTurnLike');
   assert.equal(M.walkCorridorSpec('home|forest').turnClass, 'wide');
   assert.equal(M.walkCorridorSpec('home|river_lake').turnClass, 'gentle');
-  assert.ok(Math.max(...rows.map((r) => r[1])) < 33, 'いちばん はやくても 32°/s ほど');
+  assert.ok(Math.max(...rows.map((r) => r[1])) < 23, 'いちばん はやくても 23°/s ほど(countryside|forest)');
 });
 
 test('7. 幅は いみの クラス(narrow / normal / wide)。world たんいの 幅と よこずれの 上限を みちびける', () => {
