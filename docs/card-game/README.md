@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [154](154-new-seed-item-chain.md) | 02-Bの選択済みI-c_coin2を連鎖へ起動し、2リンクの解決前で保存 |
 | [153](153-new-seed-start-response.md) | 01の開始時responseを閉じ、02-Bは選択済みI-c_coin2の起動直前で停止 |
 | [152](152-new-seed-egg-restart.md) | 3経路のR1たまご交換を116 seedで選択し開始時responseへ進める |
 | [151](151-new-seed-turn-end-restart.md) | 3経路のターン終了と次手番ドローを独立再開し、たまご交換入口まで進める |
@@ -37,7 +38,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[153 新seed開始時response再開](153-new-seed-start-response.md)** の保存地点。01-A/Bはそれぞれ2回のresponse-passで通常行動へ戻った。02-BはG-hit-blow起動＋1回のpass後、BのI-c_coin2が合法となりseeded fallbackで選ばれたため、起動前のseq11・state/hashで真正停止。新event/snapshot各6、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは実行中で全件GREENとは扱わない。
+現在は **[154 新seedI-c_coin2連鎖起動](154-new-seed-item-chain.md)** の保存地点。02-Bで77本文と119の既存連鎖遷移から選択済みI-c_coin2を時1で起動し、G-hit-blowに続く2リンクを保存した。01-A/Bは通常行動入口を保持。新event/snapshot各1、decision0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは実行中で全件GREENとは扱わない。
+
+履歴上、153は **[153 新seed開始時response再開](153-new-seed-start-response.md)** の保存地点。01-A/Bはそれぞれ2回のresponse-passで通常行動へ戻った。02-BはG-hit-blow起動＋1回のpass後、BのI-c_coin2が合法となりseeded fallbackで選ばれたため、起動前のseq11・state/hashで真正停止。新event/snapshot各6、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは実行中で全件GREENとは扱わない。
 
 履歴上、152は **[152 新seedたまご交換再開](152-new-seed-egg-restart.md)** の保存地点。151の3経路は116のseeded fallbackでR1たまご交換を選び、次手番開始response入口まで進んだ。新decision/event/snapshot各3、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは実行中で全件GREENとは扱わない。
 
