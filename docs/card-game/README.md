@@ -6,7 +6,8 @@
 
 ## 現在フェーズと再開地点
 
-| [180](180-new-seed-partner-followup.md) | 2通常pass・終了response passで4経路ともR2ターン終了入口 |
+| [181](181-new-seed-r2-turn-end-history.md) | 保存済み全履歴の連鎖を照合。R2ターン終了2経路、終了response継続2経路。180の局面名を訂正 |
+| [180](180-new-seed-partner-followup.md) | 2通常pass・終了response pass。保存stateの実際のphaseはturn_end 2・turn_end_response 2（181で訂正） |
 | [179](179-new-seed-board-partner-audit.md) | P-cliff_goat一般response分類、2通常行動と終了response監査 |
 | [178](178-new-seed-followup-restart.md) | 4唯一passを適用しターン終了1・終了response1・通常行動2 |
 | [177](177-new-seed-followup-audit.md) | 3次優先者response passと02-A通常passを完全監査 |
@@ -64,7 +65,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[180 新seedターン終了入口4経路へ](180-new-seed-partner-followup.md)** の保存地点。4経路ともR2ターン終了入口で履歴・六段階監査待ち。新decision/event/snapshot各3、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+現在は **[181 新seed R2終了境界の全履歴監査](181-new-seed-r2-turn-end-history.md)** の保存地点。180までの全event/hash/成長履歴を照合し、01-A・02-AがR2ターン終了、01-B・02-Bが終了response継続と確認。181の新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
 履歴上、179は **[179 新seed盤上こいびと能力と現在機会監査](179-new-seed-board-partner-audit.md)** の保存地点。02-BのP-cliff_goatはresponse誘発分類、01-B/02-B通常候補は有償メイン誕生とpass、02-A終了responseはpassのみ。01-Aはターン終了履歴監査待ち。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 

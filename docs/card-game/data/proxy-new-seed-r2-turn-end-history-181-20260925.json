@@ -1,0 +1,1699 @@
+{
+  "baseline_raw_sha256": "8642f094b08a2370ffc7653de1201c4909f41e8f2e66faa5f4a2a1f9db8324b2",
+  "completed": 0,
+  "independent_balance_sample_count": 0,
+  "new_events": 0,
+  "planned": 4,
+  "results": [
+    {
+      "active_expiring_effects": [],
+      "balance_sample_count": 0,
+      "classified_events": [
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 3,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 4,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "place_companion",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 5,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 6,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 7,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "normal_pass_end_request",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 8,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 9,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "turn_end_completed",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 10,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "turn_start_and_egg_draw",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 11,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "egg_exchange_bottom",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 12,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 13,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 14,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "place_companion",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 15,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 16,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 17,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "normal_pass_end_request",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 18,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 19,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "turn_end_completed",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 20,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "turn_start_and_egg_draw",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 21,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "egg_exchange_bottom",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 22,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 23,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 24,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "normal_pass_end_request",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 25,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 26,
+          "source_reference": "119-response-window-contract.md"
+        }
+      ],
+      "completed": false,
+      "current_phase": "turn_end",
+      "growth_reach_100": [],
+      "growth_trace": [
+        {
+          "event_seq": 0,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 1,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 2,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 3,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 4,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 5,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 6,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 7,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 8,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 9,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 10,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 11,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 12,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 13,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 14,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 15,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 16,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 17,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 18,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 19,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 20,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 21,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 22,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 23,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 24,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 25,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 26,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        }
+      ],
+      "new_events": 0,
+      "path_id": "probe-01-a-first",
+      "source_continuation_state_sha256": "ef39d82e9fb12a0e230ff26b0d6a42b6b82cbd5e1854758023b38bf444e26f89",
+      "source_game_state_sha256": "b8aba450f5195fff004cb58ed82badb71f38587b62bdba5628ae0c61aed390d1",
+      "source_last_valid_event_seq": 26,
+      "unresolved_codes": []
+    },
+    {
+      "active_expiring_effects": [],
+      "balance_sample_count": 0,
+      "classified_events": [
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 3,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 4,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "place_companion",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 5,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 6,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 7,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "normal_pass_end_request",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 8,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 9,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "turn_end_completed",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 10,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "turn_start_and_egg_draw",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 11,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "egg_exchange_bottom",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 12,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 13,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 14,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "place_companion",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 15,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 16,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 17,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "normal_pass_end_request",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 18,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 19,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "turn_end_completed",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 20,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "turn_start_and_egg_draw",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 21,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "egg_exchange_bottom",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 22,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 23,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 24,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "place_partner",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 25,
+          "source_reference": "66-relationship-start-and-romance-profile.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 26,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 27,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "normal_pass_end_request",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 28,
+          "source_reference": "119-response-window-contract.md"
+        }
+      ],
+      "completed": false,
+      "current_phase": "turn_end_response",
+      "growth_reach_100": [],
+      "growth_trace": [
+        {
+          "event_seq": 0,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 1,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 2,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 3,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 4,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 5,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 6,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 7,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 8,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 9,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 10,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 11,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 12,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 13,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 14,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 15,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 16,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 17,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 18,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 19,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 20,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 21,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 22,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 23,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 24,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 25,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 26,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 27,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 28,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        }
+      ],
+      "new_events": 0,
+      "path_id": "probe-01-b-first",
+      "source_continuation_state_sha256": "ecf62262a641b1c804b1eba38907c92c16219498e234b1f9bc8270503311fcb0",
+      "source_game_state_sha256": "52c9685d1b046b637ac03917141a53bdb3cd9db8fa5aa79fe55d4cc8317ebe3a",
+      "source_last_valid_event_seq": 28,
+      "unresolved_codes": []
+    },
+    {
+      "active_expiring_effects": [],
+      "balance_sample_count": 0,
+      "classified_events": [
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 3,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 4,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "normal_pass_end_request",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 5,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 6,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "turn_end_completed",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 7,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "turn_start_and_egg_draw",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 8,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "egg_exchange_bottom",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 9,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "activate_response",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 10,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 11,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "activate_response",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 12,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 13,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 14,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "resolve_item",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 15,
+          "source_reference": "155-new-seed-chain-resolution.md"
+        },
+        {
+          "action_type": "resolve_play",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 16,
+          "source_reference": "155-new-seed-chain-resolution.md"
+        },
+        {
+          "action_type": "place_partner",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 17,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 18,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 19,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "normal_pass_end_request",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 20,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 21,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "turn_end_completed",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 22,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "turn_start_and_egg_draw",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 23,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "egg_exchange_bottom",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 24,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 25,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 26,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "place_partner",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 27,
+          "source_reference": "74-partner-18-card-text-draft.md#P-cliff_goat"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 28,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 29,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "normal_pass_end_request",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 30,
+          "source_reference": "119-response-window-contract.md"
+        }
+      ],
+      "completed": false,
+      "current_phase": "turn_end_response",
+      "growth_reach_100": [],
+      "growth_trace": [
+        {
+          "event_seq": 0,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 1,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 2,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 3,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 4,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 5,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 6,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 7,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 8,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 9,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 10,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 11,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 12,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 13,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 14,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 15,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 16,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 17,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 18,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 19,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 20,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 21,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 22,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 23,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 24,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 25,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 26,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 27,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 28,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 29,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 30,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        }
+      ],
+      "new_events": 0,
+      "path_id": "probe-02-b-first",
+      "source_continuation_state_sha256": "782cfc1c5273e706d91e54d64015699dcc2e497a9008ce7bb1c527be79b6d086",
+      "source_game_state_sha256": "5a0b277db511a5ec2640b4abe469fdb979a514950c512d8a8d41a427ac38d9d1",
+      "source_last_valid_event_seq": 30,
+      "unresolved_codes": []
+    },
+    {
+      "active_expiring_effects": [],
+      "balance_sample_count": 0,
+      "classified_events": [
+        {
+          "action_type": "activate_response",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 3,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 4,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 5,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "resolve_play",
+          "growth_delta": {
+            "A": 5,
+            "B": 0
+          },
+          "seq": 6,
+          "source_reference": "142-hit-blow-start-response-restart.md"
+        },
+        {
+          "action_type": "place_partner",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 7,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 8,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 9,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "normal_pass_end_request",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 10,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 11,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "turn_end_completed",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 12,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "turn_start_and_egg_draw",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 13,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "egg_exchange_bottom",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 14,
+          "source_reference": "01-core-rules.md"
+        },
+        {
+          "action_type": "activate_response",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 15,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 16,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 17,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "resolve_item",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 18,
+          "source_reference": "77-current-items-card-text-draft.md#I-c_coin2"
+        },
+        {
+          "action_type": "normal_pass_end_request",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 19,
+          "source_reference": "119-response-window-contract.md"
+        },
+        {
+          "action_type": "response_pass",
+          "growth_delta": {
+            "A": 0,
+            "B": 0
+          },
+          "seq": 20,
+          "source_reference": "119-response-window-contract.md"
+        }
+      ],
+      "completed": false,
+      "current_phase": "turn_end",
+      "growth_reach_100": [],
+      "growth_trace": [
+        {
+          "event_seq": 0,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 1,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 2,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 3,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 4,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 5,
+          "growth": {
+            "A": 20,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 6,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 7,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 8,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 9,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 10,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 11,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 12,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 13,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 14,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 15,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 16,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 17,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 18,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 19,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        },
+        {
+          "event_seq": 20,
+          "growth": {
+            "A": 25,
+            "B": 20
+          }
+        }
+      ],
+      "new_events": 0,
+      "path_id": "probe-02-a-first",
+      "source_continuation_state_sha256": "e5b8a5cd27612bcad4cacb50c135f45986d90093170fd9427b333095bfcc97d0",
+      "source_game_state_sha256": "9f566752ee55e9aee57732bca6d0dc3c019bc8497d470c79c0b16ca5f4f8cfac",
+      "source_last_valid_event_seq": 20,
+      "unresolved_codes": []
+    }
+  ],
+  "schema": "naotocchi.card_game.proxy_new_seed_r2_turn_end_history_181.v1",
+  "source_raw_sha256": "17a4356d448858b990858766f14d94fba6c6b4aad99201f29c0fcbf8e88f89a4"
+}
