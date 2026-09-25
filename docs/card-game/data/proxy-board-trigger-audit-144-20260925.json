@@ -1,0 +1,73 @@
+{
+  "completed": 0,
+  "independent_balance_sample_count": 0,
+  "new_events": 0,
+  "planned": 4,
+  "results": [
+    {
+      "board_exclusions": [
+        {
+          "card_id": "C-chicken",
+          "reason_code": "trigger_condition_not_met",
+          "source_instance_id": "A-015#1",
+          "source_reference": "72-companion-26-card-text-draft.md#C-chicken",
+          "timing_class": "turn_start"
+        }
+      ],
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "candidate_set_complete": true,
+      "new_events": 0,
+      "path_id": "probe-01-a-first",
+      "source_continuation_state_sha256": "0982ca7ac61c0701cd9dd3aa6beec78cc3a71c85903254c4061ca6c4b30d6ddf",
+      "source_game_state_sha256": "8771816c61d71434ac4c12c4870a65f49bc612fd225891105cb746870f64049a"
+    },
+    {
+      "board_exclusions": [
+        {
+          "card_id": "C-bat",
+          "reason_code": "trigger_condition_not_met",
+          "source_instance_id": "B-011#1",
+          "source_reference": "72-companion-26-card-text-draft.md#C-bat",
+          "timing_class": "opponent_quick_use"
+        }
+      ],
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "candidate_set_complete": true,
+      "new_events": 0,
+      "path_id": "probe-01-b-first",
+      "source_continuation_state_sha256": "109c0b85476239b6570a7f82c1319e87e82cf43adf300f15aadd3d5f23984c95",
+      "source_game_state_sha256": "f2595593b3a6e4fe022283377f49e1176949153e19ca9a6e76a121d53ba30a86"
+    },
+    {
+      "board_exclusions": [],
+      "candidate_ids": [
+        "candidate-place-partner-A-016#1",
+        "candidate-place-partner-A-018#1",
+        "candidate-place-partner-A-019#1",
+        "pass"
+      ],
+      "candidate_set_complete": true,
+      "new_events": 0,
+      "path_id": "probe-02-a-first",
+      "source_continuation_state_sha256": "403f46618f8f3e475e24016a81a904020cc1b33ac2e6e357f61f2511837f9966",
+      "source_game_state_sha256": "9260a08c590c5e80f7c9420eb58e5a2a6df022711ff0d50397152a2205d2a5ac"
+    },
+    {
+      "board_exclusions": [],
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "candidate_set_complete": true,
+      "new_events": 0,
+      "path_id": "probe-02-b-first",
+      "source_continuation_state_sha256": "5b66cddfab0988bbb423b3aec2ac82bec9f699b2c74d5a21fde9e5a8db1f7302",
+      "source_game_state_sha256": "f5ace7d68ac314f2b85ceb88a107c1ac2d5d8c3bd46b1eb75160de3b68a7bcff"
+    }
+  ],
+  "schema": "naotocchi.card_game.proxy_board_trigger_audit.v1",
+  "source_raw_sha256": "19a2a21d45d9304a8c1cdd1a98859254d5cdda4973dded2b67b6e3d72c4cd8b4"
+}

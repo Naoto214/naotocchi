@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [144](144-board-trigger-response-audit.md) | 現在の配置eventに対する盤上誘発条件を分類し、4状態の候補完全性を証明 |
 | [143](143-new-seed-next-opportunities-audit.md) | 新seed4状態の次のresponse／通常行動候補を横断監査、未証明盤上familyを分離 |
 | [142](142-hit-blow-start-response-restart.md) | 02-Aの宣言済みG-hit-blowを発動・双方pass・解決して通常行動入口へ |
 | [141](141-new-seed-r1-normal-restart.md) | 140の3通常行動を比較・各1 event再開、次のresponseで停止 |
@@ -27,7 +28,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[143 新seed次機会の横断監査](143-new-seed-next-opportunities-audit.md)** の保存地点。142の4停止state/hashを維持して、02-Aの通常行動4候補と02-Bの現在優先者のresponse-passを完全証明した。01-A/Bの手札部分はpassのみだが、盤上なかまを含むresponse全体は未証明として保持する。新decision/event/snapshot 0、completed 0、独立balance標本0、カード本文・数値・登録区分変更0件。専用2件PASS、全proxy39ファイル・428件中427件PASS、既知117旧テスト1件FAIL（期待190／実測263）、新規失敗0件。全件GREENとは扱わない。
+現在は **[144 盤上誘発responseの現在機会監査](144-board-trigger-response-audit.md)** の保存地点。01-A/Bの盤上C-chicken／C-batは今回の配置eventで誘発条件を満たさず、現在はresponse-passのみと証明した。02-A/Bの143完全候補は保持。4状態の現在機会は完全、対戦event・completed・独立balance標本は0、カード本文・数値・登録区分変更0件。専用2件PASS、全proxy40ファイル・430件中429件PASS、既知117旧テスト1件FAIL（期待190／実測263）、新規失敗0件。全件GREENとは扱わない。
+
+履歴上、143は **[143 新seed次機会の横断監査](143-new-seed-next-opportunities-audit.md)** の保存地点。142の4停止state/hashを維持して、02-Aの通常行動4候補と02-Bの現在優先者のresponse-passを完全証明した。01-A/Bの手札部分はpassのみだが、盤上なかまを含むresponse全体は未証明として保持する。新decision/event/snapshot 0、completed 0、独立balance標本0、カード本文・数値・登録区分変更0件。専用2件PASS、全proxy39ファイル・428件中427件PASS、既知117旧テスト1件FAIL（期待190／実測263）、新規失敗0件。全件GREENとは扱わない。
 
 履歴上、142は **[142 G-hit-blow開始時responseの発動・解決](142-hit-blow-start-response-restart.md)** の保存地点。141の02-A停止stateから宣言済み `partner` のG-hit-blowを時1で発動し、A→Bの連続pass後に山札上を公開して一致したpartnerを手札へ加え、Aのそだち+5。02-Aの最終有効eventは6。01-A/Bと02-Bは141の停止位置を保持する。新decision 2／event 4／snapshot 4、completed 0、独立balance標本0、カード本文・数値・登録区分変更0件。専用3件PASS、全proxy38ファイル・426件中425件PASS、既知117旧テスト1件FAIL（期待190／実測263）、新規失敗0件。全件GREENとは扱わない。次は3件の後続response完全性と02-Aの解決後通常行動候補を横断監査する。
 
