@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [176](176-new-seed-current-restart.md) | 3 passとI-c_coin2解決、次のresponse／通常行動入口 |
 | [175](175-new-seed-current-audit.md) | 世界pass・2後続response passを証明、02-A item解決境界、固定168全proxy結果 |
 | [174](174-new-seed-next-restart.md) | 2こいびと配置、02-A連鎖resolving、01-A世界判断保持 |
 | [173](173-new-seed-next-audit.md) | 2無料こいびと配置選択、02-A次pass唯一、01-A世界判断保持 |
@@ -59,7 +60,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[175 新seed現在機会横断監査](175-new-seed-current-audit.md)** の保存地点。01-A世界／passはpass一意、01-B/02-B後続responseはpassのみ、02-Aはitem解決入口。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168の全proxyは478件中477件PASSと既知117旧テスト1件FAIL、新規failure0。
+現在は **[176 新seed3 pass・item解決](176-new-seed-current-restart.md)** の保存地点。01-Aターン終了response、01-B/02-B次優先者response、02-A通常行動入口へ。新decision3・event/snapshot各4、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+
+履歴上、175は **[175 新seed現在機会横断監査](175-new-seed-current-audit.md)** の保存地点。01-A世界／passはpass一意、01-B/02-B後続responseはpassのみ、02-Aはitem解決入口。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168の全proxyは478件中477件PASSと既知117旧テスト1件FAIL、新規failure0。
 
 履歴上、174は **[174 新seedこいびと配置・連鎖終了再開](174-new-seed-next-restart.md)** の保存地点。01-B/02-Bのこいびと配置、02-AはI-c_coin2連鎖の解決待ち、01-A世界判断は保持。新decision/event/snapshot各3、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy検査中。
 
