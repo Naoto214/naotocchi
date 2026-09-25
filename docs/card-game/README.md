@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [200](200-new-seed-normal-pass.md) | 01-A/01-B通常passを適用、終了responseへ |
 | [199](199-new-seed-normal-choice.md) | 有償メイン誕生・セカイ配置は時比較でpass、実行前保存 |
 | [198](198-new-seed-normal-audit.md) | 01-A/01-B通常行動候補完全、02-A/02-B終了履歴入口 |
 | [197](197-new-seed-followup-pass.md) | 01-A設置後の次優先者は唯一pass、通常行動へ |
@@ -83,7 +84,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[199 新seed2通常行動意思決定](199-new-seed-normal-choice.md)** の保存地点。01-Aのメイン誕生と01-BのW-city配置は確定時収支でpassに劣り、いずれもpass選択を監査して実行前保存。02-A/02-Bは終了履歴入口。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+現在は **[200 新seed2通常pass適用](200-new-seed-normal-pass.md)** の保存地点。01-A/01-Bの通常passを適用し終了response入口、02-A/02-Bは終了履歴入口。新decision/event/snapshot各2、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+
+履歴上、199は **[199 新seed2通常行動意思決定](199-new-seed-normal-choice.md)** の保存地点。01-Aのメイン誕生と01-BのW-city配置は確定時収支でpassに劣り、いずれもpass選択を監査して実行前保存。02-A/02-Bは終了履歴入口。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
 履歴上、198は **[198 新seed2通常行動候補監査](198-new-seed-normal-audit.md)** の保存地点。01-Aはメイン誕生とpass、01-Bはセカイ配置とpassの候補完全性を検査。02-A/02-Bはターン終了履歴入口。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
