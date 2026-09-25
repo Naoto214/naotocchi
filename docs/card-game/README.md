@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [191](191-new-seed-chain-normal-audit.md) | 3通常行動候補完全、01-B連鎖中は唯一pass |
 | [190](190-new-seed-ability-activation.md) | 3次優先者passと01-B盤上C-chickenの連鎖起動、効果未解決 |
 | [189](189-new-seed-followup-opportunity.md) | 3次優先者pass唯一、01-BのC-chicken起動境界を監査 |
 | [188](188-new-seed-start-choice.md) | 3唯一passを適用し、01-BはC-chicken能力選択の起動前で保存 |
@@ -74,7 +75,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[190 新seed盤上能力起動と次優先者pass](190-new-seed-ability-activation.md)** の保存地点。3経路の唯一passと01-BのC-chicken能力起動を適用、効果は連鎖待ち。新decision3、event/snapshot各4、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+現在は **[191 新seed現在の連鎖responseと通常行動監査](191-new-seed-chain-normal-audit.md)** の保存地点。3通常行動を完全監査、01-B連鎖は起動者唯一pass。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
 履歴上、179は **[179 新seed盤上こいびと能力と現在機会監査](179-new-seed-board-partner-audit.md)** の保存地点。02-BのP-cliff_goatはresponse誘発分類、01-B/02-B通常候補は有償メイン誕生とpass、02-A終了responseはpassのみ。01-Aはターン終了履歴監査待ち。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
