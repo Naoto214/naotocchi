@@ -1,0 +1,3 @@
+# 187 新seed開始時response候補監査 TDD計画
+
+186保存stateと185開始時盤上をraw SHAで固定する。先に専用テストをREDにする。各経路の手札即時カード・盤上なかま・こいびとの本文条件を調べ、114/119のresponse namespaceへ候補を統合する。E-final-timeのメイン⑧またはR10条件、G-animal-shogiの自分の捨て札のなかま対象の有無を出所つきで判定する。盤上能力は167の一般IDを同一個体から合法能力1件の場合だけ適用する。4機会のcandidate_set_complete、canonical JSON、設計データを検証しGitHub保存する。
