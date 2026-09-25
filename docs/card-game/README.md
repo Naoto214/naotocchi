@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [164](164-new-seed-turn-end-restart.md) | 4経路のR1終了と次手番2枚ドローでたまご交換へ |
 | [163](163-new-seed-turn-end-audit.md) | 4経路の6段階ターン終了監査で全項目真・停止コード空 |
 | [162](162-new-seed-turn-end-history.md) | 4経路の全event/hash/成長履歴をターン終了入口まで検証 |
 | [161](161-new-seed-end-response-restart.md) | 3ターン終了responseをpassで閉じ、4経路ともターン終了入口 |
@@ -47,7 +48,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[163 新seedターン終了6段階監査](163-new-seed-turn-end-audit.md)** の保存地点。162全履歴と161の4状態を123/124へ接続し、4経路とも全チェック真・停止コード空。P-cliff_goat／P-anglerfishは74の発動時点によりターン終了誘発から除外。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxy固定158 snapshot検査中で全件GREENとは扱わない。
+現在は **[164 新seedターン終了・次手番ドロー](164-new-seed-turn-end-restart.md)** の保存地点。4経路でR1ターン終了と次手番2枚ドローを記録し、たまご交換入口へ。01-AのC-chickenは交換後の開始誘発へ保持。新event/snapshot各8、decision0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxy固定158 snapshot検査中で全件GREENとは扱わない。
+
+履歴上、163は **[163 新seedターン終了6段階監査](163-new-seed-turn-end-audit.md)** の保存地点。162全履歴と161の4状態を123/124へ接続し、4経路とも全チェック真・停止コード空。P-cliff_goat／P-anglerfishは74の発動時点によりターン終了誘発から除外。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。
 
 履歴上、162は **[162 新seedターン終了履歴出所](162-new-seed-turn-end-history.md)** の保存地点。4経路の135〜161全event/hash/成長を現在のターン終了入口まで連結し、02-AのG-hit-blow一致+5、02-Bの不一致+0、予約・100到達なしを検証。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。
 
