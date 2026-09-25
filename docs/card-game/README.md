@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [197](197-new-seed-followup-pass.md) | 01-A設置後の次優先者は唯一pass、通常行動へ |
 | [196](196-new-seed-ability-resolution.md) | 01-B盤上C-chicken解決、公開した非なかまは山札先頭に保持 |
 | [195](195-new-seed-mixed-pass.md) | 4唯一passで連鎖解決入口1・ターン終了2・次優先者1 |
 | [194](194-new-seed-followup-response.md) | 設置後・連鎖相手・終了前の4機会すべて唯一pass |
@@ -80,7 +81,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[196 新seed盤上能力解決](196-new-seed-ability-resolution.md)** の保存地点。01-Bは山札上パートナーを公開して位置を保持し、通常行動へ復帰。新decision0、event/snapshot各1、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+現在は **[197 新seed設置後の次優先者pass](197-new-seed-followup-pass.md)** の保存地点。01-Aは合法response候補がpassだけで通常行動へ。01-Bも通常行動、02-A/02-Bは終了入口。新decision/event/snapshot各1、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+
+履歴上、196は **[196 新seed盤上能力解決](196-new-seed-ability-resolution.md)** の保存地点。01-Bは山札上パートナーを公開して位置を保持し、通常行動へ復帰。新decision0、event/snapshot各1、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
 履歴上、195は **[195 新seed4混合response pass再開](195-new-seed-mixed-pass.md)** の保存地点。01-B能力解決入口、02-A/02-B終了入口、01-A設置後次優先者。新decision/event/snapshot各4、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
