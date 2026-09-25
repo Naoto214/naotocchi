@@ -211,3 +211,53 @@ visual polish の完了を**止めない**。見た目の問題ではなく、so
 | forest | LOW | 太い幹と枝の重なり。間引きは不要と判断 |
 | forest.fallslook | 別タスク | solid bigtrunk(当たり判定の変更が必要) |
 | city 性能 | RH | p95 26〜30 ms(Phase 4E からの持ち越し) |
+
+---
+
+## 12. scenery polish 全体の完了(正本)
+
+> **めぐる 2D の scenery polish は完了。最終判定 B(軽微な残りあり)だが、visual polish としては完了。**
+> 残りは §11 の記録だけで、どれもゲームの進行を壊さない。完了を止めるものはない。
+
+### 12.1 3 段階
+
+| 段階 | PR / main | 中身 | 判定 | 記録 |
+|---|---|---|---|---|
+| 第1段階: 明らかな欠落・弱い景観 | #344 / `0c884dc` | ほしのおちるところ(starfall)・げれんでのうえ(snow slopetop)・ゆきやま(snow peak)に deco。いわのアーチ(rock arch)・ほねのアーチ(bone arch)を汎用 arch で | A 採用 | [第1段階](meguru-scenery-polish-audit-2026-09-25.md) |
+| 第2段階: 地域差別化 | #345 / `0180172` | snow の道と雪面・memory_lake の霧・star_stop の地平線の霞 | A 採用 | [第2段階](meguru-scenery-polish-stage2-2026-09-25.md) |
+| 第3段階: 13 地域の最終 visual QA | #346(この PR) | 全地域の横断確認・city のビルの繰り返し・river_lake の夜と朝のもや | B(完了扱い) | この文書 |
+
+マージ後の main は #346 の merge commit。
+
+### 12.2 最終状態(めぐる 2D visual)
+
+| 項目 | 状態 |
+|---|---|
+| 13 地域すべての監査 | ✅ 済み(第1段階でデータ + 実画面、第3段階で横断) |
+| 主要 spot 名と実画面の一致 | ✅ 名前が約束するものが画面にある(第1段階の 5 か所を含む) |
+| 地域差別化 | ✅ ラベルなしで 13 地域を見分けられる(§3) |
+| density | ✅ city / forest / jungle は密だが読める。snow / desert / star_stop / memory_lake の空白は意図どおり |
+| mobile | ✅ 390×844 / 375×667 / 360×640 |
+| performance | ✅ 回帰なし(3 段階とも描画命令 ±数個、props はアーチ・deco の分だけ) |
+| counts / collision / gate / discovery / save / corridor / なかま / 住民 / DistantFeature 37 | ✅ 3 段階とも不変 |
+
+### 12.3 Release Hardening / post-4E backlog へ送るもの(実装はしていない)
+
+| 項目 | 由来 |
+|---|---|
+| forest.fallslook(たきのみはらし)の solid bigtrunk | 当たり判定の変更が必要で、visual-only の範囲外 |
+| なかまが障害物にめりこむ既存バグ(RH-7) | Phase 4E 完了時 |
+| forest / mountain に着くときの描画コスト | Phase 4E 完了時 |
+| city 系のふだんの描画コスト(p95) | Phase 4E 完了時 |
+| jungle の夜の暗さ | 第3段階 YELLOW |
+| star_stop の軽微な 2 件(地平線の下のうすいもや / ていりゅうじょの看板) | 第3段階 YELLOW |
+
+forest の幹と枝の重なり(LOW)は、間引き不要の判断のまま記録のみ。
+
+### 12.4 Three.js
+
+**不要の判断を維持**。2D Canvas で完成品質(13 地域の個性・遠景・歩いて越える移動・mobile 3 サイズ)に達している。Three.js は将来の PoC 扱い。
+
+### 12.5 この後
+
+このタブ(飾り付け)は scenery polish の完了で閉じる。新しい visual polish・collision の修正・Release Hardening の実装・なかまの障害物・region registry・Three.js には進んでいない。
