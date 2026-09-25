@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [229](229-new-seed-normal-choice.md) | 有償5行動とpassを107/114で比較、通常pass3・連鎖response pass1 |
 | [228](228-new-seed-normal-audit.md) | 3経路通常行動と01-B能力連鎖responseの候補完全 |
 | [227](227-new-seed-current-replay.md) | response pass3件とC-chicken起動を各1event適用 |
 | [226](226-new-seed-current-audit.md) | 応答3件の唯一pass、選択済みC-chicken起動入口を再監査 |
@@ -112,7 +113,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[228 新seed通常/連鎖候補監査](228-new-seed-normal-audit.md)** の保存地点。3経路の通常行動候補と01-B能力連鎖中の唯一passを確認。次は保存stateから優先順位を比較。
+現在は **[229 新seed通常/連鎖選択監査](229-new-seed-normal-choice.md)** の保存地点。通常3経路は有償行動より時を保持するpass、01-B能力連鎖中は唯一response-passを選択。次にstateへ適用。
 
 履歴上、221は **[221 新seed2経路たまご交換](221-new-seed-egg-replay.md)** の保存地点。01-B/02-Bは開始時response入口、01-A/02-Aは各応答局面保持。
 
