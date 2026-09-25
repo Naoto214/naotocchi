@@ -1,0 +1,3 @@
+# 224 新seed混合選択適用計画
+
+223のcanonical選択、222の完全候補、221のstate/hashを照合する。専用テストをREDにしてから、唯一response pass2件と通常pass1件を既存transitionで再生し、能力選択1件は起動待ちのまま維持する。event/snapshot/hashを検証しGREENにする。

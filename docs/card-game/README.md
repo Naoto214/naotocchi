@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [224](224-new-seed-mixed-replay.md) | response pass2、通常pass1をstateへ適用、01-B能力起動待ち |
 | [223](223-new-seed-mixed-choice.md) | 4経路の選択監査：能力1、response pass2、通常pass1 |
 | [222](222-new-seed-mixed-audit.md) | 開始時response2、配置後response1、通常行動1の候補完全 |
 | [221](221-new-seed-egg-replay.md) | 01-B/02-Bたまご交換、開始時response入口 |
@@ -107,7 +108,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[223 新seed4局面選択監査](223-new-seed-mixed-choice.md)** の保存地点。01-BはC-chicken能力をseed選択、他2responseは唯一pass、02-A通常は時を保持するpassを選択。次に保存stateへ適用する。
+現在は **[224 新seed4局面選択適用](224-new-seed-mixed-replay.md)** の保存地点。01-A/02-Bのresponse pass、02-Aの通常passをstateへ適用。01-BはC-chicken能力起動待ち。
 
 履歴上、221は **[221 新seed2経路たまご交換](221-new-seed-egg-replay.md)** の保存地点。01-B/02-Bは開始時response入口、01-A/02-Aは各応答局面保持。
 
