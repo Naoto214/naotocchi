@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [218](218-new-seed-mixed-replay.md) | 01-A無料配置、02-A次response passをstateへ適用 |
 | [217](217-new-seed-mixed-choice.md) | 01-A無料P-cat_ceo配置を一意に選択、他3経路保持 |
 | [216](216-new-seed-mixed-audit.md) | 01-A通常4候補、02-A次response唯一pass、終了履歴2件保持 |
 | [215](215-new-seed-ability-resolution.md) | 01-A盤上C-chicken効果を解決、他3経路保持 |
@@ -101,7 +102,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[217 新seed通常行動優先順位](217-new-seed-mixed-choice.md)** の保存地点。01-Aの無料P-cat_ceo配置が有償W-city/I-poop1とpassに優先、実行前。
+現在は **[218 新seed混合選択再開](218-new-seed-mixed-replay.md)** の保存地点。01-A無料配置と02-A次response passをstateへ適用。終了履歴2経路は保持。
+
+履歴上、217は **[217 新seed通常行動優先順位](217-new-seed-mixed-choice.md)** の保存地点。01-Aの無料P-cat_ceo配置が有償W-city/I-poop1とpassに優先、実行前。
 
 履歴上、216は **[216 新seed混合局面監査](216-new-seed-mixed-audit.md)** の保存地点。01-A通常候補完全、02-A配置後次response唯一pass、01-B/02-B終了履歴入口は保持。
 
