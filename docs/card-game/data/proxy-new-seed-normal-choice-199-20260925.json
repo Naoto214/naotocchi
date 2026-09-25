@@ -1,0 +1,124 @@
+{
+  "completed": 0,
+  "independent_balance_sample_count": 0,
+  "new_events": 0,
+  "planned": 4,
+  "results": [
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "candidate-play-main-B-001#1-birth",
+        "pass"
+      ],
+      "comparison": {
+        "decided_at": "time_after_certain_resolution",
+        "reason": "time_after_certain_resolution",
+        "winner": "left"
+      },
+      "completed": false,
+      "new_events": 0,
+      "next_opportunity": "selected_normal_pass",
+      "path_id": "probe-01-a-first",
+      "priority_scores": {
+        "paid": {
+          "avoid_loss_or_abort": 0,
+          "candidate_id": "candidate-play-main-B-001#1-birth",
+          "card_copy_id": "B-001",
+          "certain_growth_difference": 0,
+          "consumed_card_count": 0,
+          "maintain_or_prevent_100": 0,
+          "payment_time": 1,
+          "time_after_certain_resolution": 1,
+          "value_comparison_to": {}
+        },
+        "pass": {
+          "avoid_loss_or_abort": 0,
+          "candidate_id": "pass",
+          "card_copy_id": "",
+          "certain_growth_difference": 0,
+          "consumed_card_count": 0,
+          "maintain_or_prevent_100": 0,
+          "payment_time": 0,
+          "time_after_certain_resolution": 2,
+          "value_comparison_to": {}
+        }
+      },
+      "selected_candidate": "pass",
+      "source_continuation_state_sha256": "10238099197b539d4f22cd59e665a4ffc80578ce3a2152f0762d70f583ba8247",
+      "source_game_state_sha256": "736be5fe5dce8b139a38ffd08f9b8cb1f7a13946dca9a672a53fee95a35045a5",
+      "source_last_valid_event_seq": 34
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "candidate-place_world-A-020#1",
+        "pass"
+      ],
+      "comparison": {
+        "decided_at": "time_after_certain_resolution",
+        "reason": "time_after_certain_resolution",
+        "winner": "left"
+      },
+      "completed": false,
+      "new_events": 0,
+      "next_opportunity": "selected_normal_pass",
+      "path_id": "probe-01-b-first",
+      "priority_scores": {
+        "paid": {
+          "avoid_loss_or_abort": 0,
+          "candidate_id": "candidate-place_world-A-020#1",
+          "card_copy_id": "A-020",
+          "certain_growth_difference": 0,
+          "consumed_card_count": 0,
+          "maintain_or_prevent_100": 0,
+          "payment_time": 2,
+          "time_after_certain_resolution": 0,
+          "value_comparison_to": {}
+        },
+        "pass": {
+          "avoid_loss_or_abort": 0,
+          "candidate_id": "pass",
+          "card_copy_id": "",
+          "certain_growth_difference": 0,
+          "consumed_card_count": 0,
+          "maintain_or_prevent_100": 0,
+          "payment_time": 0,
+          "time_after_certain_resolution": 2,
+          "value_comparison_to": {}
+        }
+      },
+      "selected_candidate": "pass",
+      "source_continuation_state_sha256": "66c7b357c42fd7bff1ce3d978588e53dc1987beccca3307ac072c25348ed4964",
+      "source_game_state_sha256": "30703456420b3db428e450e413eaf86bea69e91be3e019704db13bfd5c0d00f0",
+      "source_last_valid_event_seq": 36
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [],
+      "comparison": null,
+      "completed": false,
+      "new_events": 0,
+      "next_opportunity": "turn_end_provenance",
+      "path_id": "probe-02-b-first",
+      "selected_candidate": null,
+      "source_continuation_state_sha256": "e3aac49bc5b73e24a738d6be56bc42fd5386dc59e4064e2acd4a755cd28724ac",
+      "source_game_state_sha256": "510d8f01dfeb594134cc2fd80153e1e81a196003bfda0d1f9a560050e8a722ea",
+      "source_last_valid_event_seq": 38
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [],
+      "comparison": null,
+      "completed": false,
+      "new_events": 0,
+      "next_opportunity": "turn_end_provenance",
+      "path_id": "probe-02-a-first",
+      "selected_candidate": null,
+      "source_continuation_state_sha256": "ce917657dffc1cbf34a6c72e2e7a2815cbeaba3c5c4a4c52b65be659b4a167cd",
+      "source_game_state_sha256": "ed49bc0a04c159fb88621df507a6d6ccf40ea198a591fd3144ee104598500520",
+      "source_last_valid_event_seq": 27
+    }
+  ],
+  "schema": "naotocchi.card_game.proxy_new_seed_normal_choice_199.v1",
+  "source_raw_sha256": "b73d57575a7d9cc041b42472cebf1b6b5674c0867a65c70433cc7ba7d2409f98"
+}
