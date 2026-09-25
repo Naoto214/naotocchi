@@ -109,7 +109,7 @@
       // あるくほど うみが ちかづいたり とおのいたり する
       sea: { len: 8000, halfW: 2500, ground: ['#f2e2b6', '#e2cf9a'], path: '#f7ecc9', props: ['🐚', '⛵', '🌴', '⛱️', '🌴', '🐚', '🌴', '⛱️'],
         zones: [Z('beach', 'すなはま', { crowd: 2.6, light: 1.05, walls: 0.45, hero: ['parasol', 300], anim: 'water', open: 1.07 }), Z('tidepools', 'しおだまりのあたり', { crowd: 2.0, tint: '#e8dcb0', walls: 0.6, hero: ['rockpool', 300], anim: 'water' }), Z('pier', 'さんばしのあたり', { crowd: 1.6, walls: 0.45, hero: ['pier', 360], anim: 'water', open: 1.04 }), Z('bay', 'いりえ', { crowd: 1.0, light: 0.98, tint: '#cfd9b0', walls: 0.85, frame: 'palmgrove', frameScale: 1.05, hero: ['driftwood', 320], field: ['🐚', '🌴', '🪵'], anim: 'water', open: 0.98, lane: ['🐚', '🌿', '🪵', '🐚'] }), Z('rocks', 'いわば', { crowd: 0.8, tint: '#c8bfa8', walls: 1.1, frame: 'searock', hero: ['bigrock', 360], field: ['🐚', '🐚', '🪸'], anim: 'water', lane: ['🐚', '🪸', '🐚', '⛱️'] }), Z('port', 'みなと', { crowd: 1.5, light: 1.0, tint: '#bfb49a', walls: 0.95, frame: 'farmhouse', frameScale: 0.85, hero: ['wreck', 380], field: ['⛵', '⚓', '🐚'], anim: 'water', open: 1.0, lane: ['⛵', '⚓', '🪵', '🐚'] }), Z('dunes', 'すなおか', { crowd: 0.5, light: 1.08, tint: '#e6d3a0', walls: 0.75, frame: 'duneridge', frameScale: 1.25, hero: ['sandcrest', 360], field: ['🌴', '🐚', '⛱️'], anim: 'sand', open: 1.1 }), Z('cape', 'みさき', { crowd: 0.6, light: 1.02, fog: 0.15, walls: 0.8, frame: 'seacliff', frameScale: 1.2, anim: 'water', open: 1.06 }), Z('seacave', 'かいしょくどうくつ', { crowd: 0.4, light: 0.72, fog: 0.28, tint: '#8f8f88', walls: 1.55, frame: 'seacliff', frameScale: 1.4, hero: ['searock', 380], field: ['🪨', '🐚', '🪨'], anim: 'water', open: 0.88, lane: ['🪨', '🐚', '💧', '🪨'] }), Z('far', 'はてのはま', { crowd: 0.35, light: 1.06, fog: 0.18, tint: '#efdcae', walls: 0.35, frameScale: 0.95, hero: ['driftwood', 340], field: ['🐚', '🪵', '🐚'], anim: 'water', open: 1.12 })],
-        spots: [sp('beach', 'すなはま', 340, 250, 240, 'plaza', 2, { zone: 'beach' }), sp('shore', 'なみうちぎわ', 340, 800, 300, 'plaza', 9, { hub: true, prop: '🌊', zone: 'beach' }), sp('parasols', 'パラソルのならび', 820, 1150, 200, 'plaza', 5, { prop: '⛱️', zone: 'beach' }), sp('tidepool', 'しおだまり', -20, 1050, 220, 'water', 6, { prop: '🪸', zone: 'tidepools' }), sp('shells', 'かいがらのはま', 30, 1650, 200, 'plaza', 2, { prop: '🐚', zone: 'tidepools' }), sp('cove', 'かくれたいりえ', -290, 1500, 140, 'water', 1, { secret: true, zone: 'tidepools' }), sp('pier', 'さんばし', 620, 1400, 200, 'path', 2, { prop: '⛵', zone: 'pier' }), sp('boats', 'ふねのふとう', 950, 1750, 170, 'rest', 2, { prop: '⛵', zone: 'pier' }), sp('hut', 'うみのいえ', 520, 1950, 200, 'shelter', 5, { prop: '🏚️', zone: 'pier' }), sp('bayhead', 'いりえのおく', 150, 2400, 220, 'water', 3, { zone: 'bay' }), sp('baywalk', 'いりえのみち', 720, 2700, 170, 'path', 1, { prop: '🌴', zone: 'bay' }), sp('sandbar', 'すなす', 450, 3100, 150, 'path', 0, { zone: 'bay' }), sp('oysters', 'かきのいわ', -150, 3000, 180, 'water', 2, { prop: '🐚', zone: 'bay' }), sp('palmcove', 'ヤシのかくれはま', 1050, 3150, 140, 'rest', 1, { secret: true, prop: '🌴', zone: 'bay' }), sp('rocks', 'いわば', 450, 3550, 220, 'grove', 2, { prop: '🪨', zone: 'rocks' }), sp('rockpool', 'いわばのしおだまり', 120, 3900, 180, 'water', 2, { zone: 'rocks' }), sp('rockarch', 'いわのアーチ', 900, 3850, 190, 'edge', 1, { cam: 'wide', zone: 'rocks' }), sp('nets', 'あみのおきば', 1400, 3700, 160, 'rest', 2, { prop: '🐚', zone: 'port' }), sp('port', 'みなと', 1100, 4200, 240, 'plaza', 7, { prop: '⛵', zone: 'port' }), sp('fishmarket', 'さかないちば', 1100, 4800, 180, 'shop', 6, { prop: '🏚️', zone: 'port' }), sp('warehouse', 'そうこのまえ', 1650, 4550, 180, 'shelter', 3, { prop: '🏚️', zone: 'port' }), sp('breakwater', 'ぼうはてい', 620, 4700, 170, 'path', 1, { zone: 'port' }), sp('dunes', 'すなおか', 1950, 5000, 170, 'path', 1, { prop: '🌴', zone: 'dunes' }), sp('dunehollow', 'すなのくぼち', 1500, 5400, 170, 'path', 0, { zone: 'dunes' }), sp('dunetop', 'すなおかのうえ', 2200, 5600, 190, 'edge', 1, { cam: 'wide', zone: 'dunes' }), sp('cape', 'みさき', 900, 5550, 200, 'edge', 2, { zone: 'cape' }), sp('capepath', 'みさきのみち', 1250, 6150, 160, 'path', 1, { zone: 'cape' }), sp('lighthouse', 'とうだい', 1550, 6700, 220, 'edge', 2, { landmark: 'lighthouse', lmTier: 1, cam: 'wide', zone: 'cape' }), sp('seacave', 'かいしょくどうくつ', 400, 6200, 200, 'shelter', 2, { prop: '🪨', zone: 'seacave', mood: { light: -0.12, fog: 0.08, open: -0.15, tint: '#5f7f96' } }), sp('cliffcave', 'がけのどうくつ', 120, 6750, 140, 'rest', 1, { secret: true, zone: 'seacave' }), sp('echo', 'こだまのいわま', 650, 6900, 160, 'path', 0, { zone: 'seacave' }), sp('farbeach', 'はてのはま', 850, 7350, 240, 'plaza', 1, { zone: 'far' }), sp('endrock', 'さいはてのいわ', 350, 7600, 170, 'edge', 1, { cam: 'wide', zone: 'far' }), sp('driftbeach', 'ながれぎのはま', 1500, 7450, 180, 'rest', 1, { prop: '🪵', zone: 'far' }), sp('wreckboat', 'うちあげられたふね', 1950, 7150, 140, 'rest', 1, { secret: true, zone: 'far' })],
+        spots: [sp('beach', 'すなはま', 340, 250, 240, 'plaza', 2, { zone: 'beach' }), sp('shore', 'なみうちぎわ', 340, 800, 300, 'plaza', 9, { hub: true, prop: '🌊', zone: 'beach' }), sp('parasols', 'パラソルのならび', 820, 1150, 200, 'plaza', 5, { prop: '⛱️', zone: 'beach' }), sp('tidepool', 'しおだまり', -20, 1050, 220, 'water', 6, { prop: '🪸', zone: 'tidepools' }), sp('shells', 'かいがらのはま', 30, 1650, 200, 'plaza', 2, { prop: '🐚', zone: 'tidepools' }), sp('cove', 'かくれたいりえ', -290, 1500, 140, 'water', 1, { secret: true, zone: 'tidepools' }), sp('pier', 'さんばし', 620, 1400, 200, 'path', 2, { prop: '⛵', zone: 'pier' }), sp('boats', 'ふねのふとう', 950, 1750, 170, 'rest', 2, { prop: '⛵', zone: 'pier' }), sp('hut', 'うみのいえ', 520, 1950, 200, 'shelter', 5, { prop: '🏚️', zone: 'pier' }), sp('bayhead', 'いりえのおく', 150, 2400, 220, 'water', 3, { zone: 'bay' }), sp('baywalk', 'いりえのみち', 720, 2700, 170, 'path', 1, { prop: '🌴', zone: 'bay' }), sp('sandbar', 'すなす', 450, 3100, 150, 'path', 0, { zone: 'bay' }), sp('oysters', 'かきのいわ', -150, 3000, 180, 'water', 2, { prop: '🐚', zone: 'bay' }), sp('palmcove', 'ヤシのかくれはま', 1050, 3150, 140, 'rest', 1, { secret: true, prop: '🌴', zone: 'bay' }), sp('rocks', 'いわば', 450, 3550, 220, 'grove', 2, { prop: '🪨', zone: 'rocks' }), sp('rockpool', 'いわばのしおだまり', 120, 3900, 180, 'water', 2, { zone: 'rocks' }), sp('rockarch', 'いわのアーチ', 900, 3850, 190, 'edge', 1, { cam: 'wide', zone: 'rocks', deco: ['arch:rock'] }), sp('nets', 'あみのおきば', 1400, 3700, 160, 'rest', 2, { prop: '🐚', zone: 'port' }), sp('port', 'みなと', 1100, 4200, 240, 'plaza', 7, { prop: '⛵', zone: 'port' }), sp('fishmarket', 'さかないちば', 1100, 4800, 180, 'shop', 6, { prop: '🏚️', zone: 'port' }), sp('warehouse', 'そうこのまえ', 1650, 4550, 180, 'shelter', 3, { prop: '🏚️', zone: 'port' }), sp('breakwater', 'ぼうはてい', 620, 4700, 170, 'path', 1, { zone: 'port' }), sp('dunes', 'すなおか', 1950, 5000, 170, 'path', 1, { prop: '🌴', zone: 'dunes' }), sp('dunehollow', 'すなのくぼち', 1500, 5400, 170, 'path', 0, { zone: 'dunes' }), sp('dunetop', 'すなおかのうえ', 2200, 5600, 190, 'edge', 1, { cam: 'wide', zone: 'dunes' }), sp('cape', 'みさき', 900, 5550, 200, 'edge', 2, { zone: 'cape' }), sp('capepath', 'みさきのみち', 1250, 6150, 160, 'path', 1, { zone: 'cape' }), sp('lighthouse', 'とうだい', 1550, 6700, 220, 'edge', 2, { landmark: 'lighthouse', lmTier: 1, cam: 'wide', zone: 'cape' }), sp('seacave', 'かいしょくどうくつ', 400, 6200, 200, 'shelter', 2, { prop: '🪨', zone: 'seacave', mood: { light: -0.12, fog: 0.08, open: -0.15, tint: '#5f7f96' } }), sp('cliffcave', 'がけのどうくつ', 120, 6750, 140, 'rest', 1, { secret: true, zone: 'seacave' }), sp('echo', 'こだまのいわま', 650, 6900, 160, 'path', 0, { zone: 'seacave' }), sp('farbeach', 'はてのはま', 850, 7350, 240, 'plaza', 1, { zone: 'far' }), sp('endrock', 'さいはてのいわ', 350, 7600, 170, 'edge', 1, { cam: 'wide', zone: 'far' }), sp('driftbeach', 'ながれぎのはま', 1500, 7450, 180, 'rest', 1, { prop: '🪵', zone: 'far' }), sp('wreckboat', 'うちあげられたふね', 1950, 7150, 140, 'rest', 1, { secret: true, zone: 'far' })],
         paths: [['beach', 'shore', 'wide'], ['shore', 'tidepool'], ['shore', 'pier'], ['shore', 'parasols'], ['tidepool', 'cove', 'secret'], ['tidepool', 'shells'], ['parasols', 'pier', 'narrow'], ['pier', 'boats'], ['pier', 'hut'], ['boats', 'hut', 'narrow'], ['shells', 'hut', 'narrow'], ['hut', 'bayhead'], ['shells', 'bayhead', 'narrow'], ['bayhead', 'baywalk'], ['boats', 'baywalk', 'narrow'], ['bayhead', 'oysters', 'narrow'], ['baywalk', 'sandbar', 'narrow'], ['oysters', 'sandbar', 'narrow'], ['sandbar', 'palmcove', 'secret'], ['sandbar', 'rocks'], ['oysters', 'rockpool', 'narrow'], ['rocks', 'rockpool', 'narrow'], ['rocks', 'rockarch', 'narrow'], ['rockarch', 'nets', 'narrow'], ['rocks', 'nets', 'narrow'], ['nets', 'port'], ['port', 'fishmarket'], ['port', 'warehouse'], ['warehouse', 'dunes', 'narrow'], ['port', 'breakwater', 'narrow'], ['rockpool', 'breakwater', 'narrow'], ['fishmarket', 'breakwater', 'narrow'], ['dunes', 'dunehollow', 'narrow'], ['dunes', 'dunetop', 'narrow'], ['dunehollow', 'dunetop', 'narrow'], ['fishmarket', 'cape'], ['dunehollow', 'cape', 'narrow'], ['cape', 'capepath'], ['capepath', 'lighthouse'], ['dunetop', 'lighthouse', 'narrow'], ['cape', 'seacave', 'narrow'], ['seacave', 'cliffcave', 'secret'], ['seacave', 'echo', 'narrow'], ['echo', 'capepath', 'narrow'], ['echo', 'farbeach'], ['farbeach', 'endrock', 'narrow'], ['lighthouse', 'driftbeach', 'narrow'], ['farbeach', 'driftbeach', 'narrow'], ['driftbeach', 'wreckboat', 'secret']] },
       // しんかい: ふかく なるほど くらく なる めいきゅう型。あさせの たな → サンゴの まち →
       // こんぶの もり / ちんぼつせん → ひかる ふかば → かいていの いせき / ねっすいこう →
@@ -137,7 +137,7 @@
       // めじるしは とおくの メサ と オアシス と ピラミッド だけ。あるいても あるいても つかない ひろさ に する
       desert: { len: 8800, halfW: 3400, ground: ['#e9cf95', '#d2b271'], path: '#f1dfb0', props: ['🌵', '🏺', '🌵', '⛺', '🌴', '🌵', '🏺', '🌵'],
         zones: [Z('gate', 'さばくのいりぐち', { crowd: 4.0, walls: 0.5, hero: ['pot', 290], anim: 'sand', open: 1.02 }), Z('dunes', 'すなやま', { crowd: 0.8, walls: 0.7, light: 1.06, frameScale: 1.05, hero: ['dune', 430], anim: 'sand', open: 1.08 }), Z('canyon', 'いわのたに', { crowd: 0.6, light: 0.82, fog: 0.14, tint: '#9a6a4f', walls: 1.7, frame: 'mesa', frameScale: 1.5, hero: ['bigrock', 400], field: ['🪨', '⛰️', '🪨'], anim: 'sand', open: 0.88, lane: ['🪨', '🏺', '🪨', '🌵'] }), Z('oasis', 'オアシス', { crowd: 1.8, tint: '#b8c98a', walls: 0.6, frame: 'palmgrove', hero: ['oasispool', 420], field: ['🌴', '🌴', '🏺'], anim: 'water' }), Z('tents', 'キャラバンのあたり', { crowd: 1.2, walls: 0.45, hero: ['tent', 340], anim: 'glow', open: 1.04 }), Z('mesas', 'メサのあたり', { crowd: 0.6, light: 1.04, fog: 0.1, tint: '#c78a5a', walls: 1.15, frame: 'mesa', frameScale: 1.35, hero: ['mesa', 480], field: ['⛰️', '🪨', '🌵'], anim: 'sand', open: 1.02 }), Z('ruins', 'いせき', { crowd: 1.0, tint: '#d9c28a', walls: 0.8, frame: 'ruinwall', hero: ['obelisk', 370], anim: 'sand', open: 0.96 }), Z('saltflat', 'しおのひらち', { crowd: 0.4, light: 1.12, fog: 0.14, tint: '#eceadd', walls: 0.25, frameScale: 0.85, hero: ['cairn', 330], field: ['🏺', '🪨', '🏺'], anim: 'sand', open: 1.14, marks: { color: '#d8d4c0', kind: 'tuft' } }), Z('sandsea', 'すなのうみ', { crowd: 0.4, light: 1.1, fog: 0.22, tint: '#e4c184', walls: 0.55, frame: 'duneridge', frameScale: 1.4, hero: ['duneridge', 470], field: ['🌵', '🏺', '🌵'], anim: 'sand', open: 1.15 }), Z('bones', 'ほねのたにま', { crowd: 0.35, light: 0.98, fog: 0.2, tint: '#d8cbb0', walls: 0.9, frameScale: 1.2, hero: ['stonestack', 350], field: ['🪨', '🏺', '🪨'], anim: 'sand', open: 1.04, marks: { color: '#b8ad94', kind: 'tuft' } }), Z('far', 'さばくのはて', { crowd: 0.4, light: 1.08, fog: 0.28, walls: 0.3, anim: 'sand', open: 1.12 })],
-        spots: [sp('gate', 'さばくのいりぐち', 0, 250, 200, 'plaza', 1, { zone: 'gate' }), sp('well', 'いどのひろば', 0, 900, 280, 'plaza', 8, { hub: true, prop: '🏺', zone: 'gate' }), sp('dune1', 'すなやま', -1000, 1400, 200, 'path', 1, { zone: 'dunes' }), sp('dunecrest', 'すなやまのおね', -600, 1950, 170, 'edge', 1, { cam: 'wide', zone: 'dunes' }), sp('dune2', 'おおきなすなやま', -1700, 2100, 220, 'path', 1, { zone: 'dunes' }), sp('dunehollow', 'すなのくぼ', -1200, 2550, 180, 'rest', 1, { prop: '🌵', zone: 'dunes' }), sp('canyon', 'いわのたに', -2250, 2900, 200, 'path', 1, { prop: '🪨', zone: 'canyon' }), sp('canyonnarrow', 'いわのせまみち', -2650, 3500, 160, 'path', 0, { zone: 'canyon' }), sp('canyonshade', 'いわかげのみずたまり', -1900, 3700, 180, 'water', 2, { zone: 'canyon' }), sp('oasis', 'オアシス', -1500, 4400, 260, 'water', 7, { landmark: 'palms', lmTier: 1, zone: 'oasis' }), sp('oasiscamp', 'オアシスのテント', -900, 4850, 180, 'shelter', 3, { prop: '⛺', zone: 'oasis' }), sp('oasisback', 'オアシスのうら', -2150, 4900, 160, 'rest', 1, { zone: 'oasis' }), sp('caravan', 'キャラバンのテント', 1100, 1400, 200, 'shelter', 6, { prop: '⛺', zone: 'tents' }), sp('tentwell', 'キャラバンのいど', 800, 2150, 160, 'rest', 2, { prop: '🏺', zone: 'tents' }), sp('camel', 'ラクダのみずば', 1800, 2100, 180, 'water', 2, { prop: '🪧', zone: 'tents' }), sp('cliff', 'がけのかげ', 1400, 2800, 170, 'rest', 2, { prop: '🪨', zone: 'tents' }), sp('mesa1', 'メサのふもと', 2250, 3000, 200, 'path', 1, { zone: 'mesas' }), sp('mesacave', 'メサのほらあな', 3000, 3250, 140, 'rest', 1, { secret: true, zone: 'mesas' }), sp('mesa2', 'おおきなメサ', 2700, 3750, 220, 'edge', 2, { cam: 'wide', zone: 'mesas' }), sp('mesashade', 'メサのかげ', 1850, 3800, 170, 'rest', 1, { zone: 'mesas' }), sp('ruins', 'いしのいせき', 0, 1900, 240, 'plaza', 3, { prop: '🏛️', zone: 'ruins' }), sp('ruinsteps', 'いせきのかいだん', 500, 2350, 150, 'path', 0, { zone: 'ruins' }), sp('pillars', 'はしらのみち', 150, 2750, 170, 'path', 1, { zone: 'ruins' }), sp('ruinyard', 'いせきのなかにわ', -400, 3300, 180, 'rest', 2, { prop: '🏺', zone: 'ruins' }), sp('saltflat', 'しおのひらち', 350, 4000, 260, 'plaza', 1, { zone: 'saltflat' }), sp('saltpool', 'しおのみずたまり', -200, 4600, 180, 'water', 1, { zone: 'saltflat' }), sp('saltmark', 'しおのみちしるべ', 900, 4600, 160, 'path', 0, { prop: '🪧', zone: 'saltflat' }), sp('sandsea', 'すなのうみ', 1250, 5300, 240, 'path', 1, { zone: 'sandsea' }), sp('sandhollow', 'すなのそこ', 600, 5900, 180, 'path', 0, { zone: 'sandsea' }), sp('sandridge', 'すなのおね', 1950, 5800, 200, 'edge', 1, { cam: 'wide', zone: 'sandsea' }), sp('buried', 'すなにうまったもん', 2400, 5400, 140, 'rest', 1, { secret: true, zone: 'sandsea' }), sp('bonevale', 'ほねのたにま', -1000, 5700, 220, 'plaza', 1, { zone: 'bones' }), sp('bones', 'ほねのおか', -1750, 6200, 150, 'rest', 1, { secret: true, zone: 'bones' }), sp('bonearch', 'ほねのアーチ', -400, 6400, 190, 'edge', 1, { cam: 'wide', zone: 'bones' }), sp('lastwell', 'さいごのいど', -250, 6950, 170, 'rest', 1, { prop: '🏺', zone: 'far' }), sp('mirage', 'しんきろうのおか', 1150, 7050, 170, 'edge', 1, { zone: 'far' }), sp('pyramid', 'おおきないせき', 0, 7500, 240, 'edge', 2, { landmark: 'temple', lmTier: 1, cam: 'wide', zone: 'far' }), sp('spring', 'かくれたいずみ', 1700, 7700, 130, 'water', 1, { secret: true, zone: 'far' }), sp('endsand', 'さいはてのすなやま', -900, 7850, 200, 'path', 0, { zone: 'far' }), sp('sunstone', 'ひのいし', 450, 8150, 180, 'rest', 1, { prop: '🏺', zone: 'far' })],
+        spots: [sp('gate', 'さばくのいりぐち', 0, 250, 200, 'plaza', 1, { zone: 'gate' }), sp('well', 'いどのひろば', 0, 900, 280, 'plaza', 8, { hub: true, prop: '🏺', zone: 'gate' }), sp('dune1', 'すなやま', -1000, 1400, 200, 'path', 1, { zone: 'dunes' }), sp('dunecrest', 'すなやまのおね', -600, 1950, 170, 'edge', 1, { cam: 'wide', zone: 'dunes' }), sp('dune2', 'おおきなすなやま', -1700, 2100, 220, 'path', 1, { zone: 'dunes' }), sp('dunehollow', 'すなのくぼ', -1200, 2550, 180, 'rest', 1, { prop: '🌵', zone: 'dunes' }), sp('canyon', 'いわのたに', -2250, 2900, 200, 'path', 1, { prop: '🪨', zone: 'canyon' }), sp('canyonnarrow', 'いわのせまみち', -2650, 3500, 160, 'path', 0, { zone: 'canyon' }), sp('canyonshade', 'いわかげのみずたまり', -1900, 3700, 180, 'water', 2, { zone: 'canyon' }), sp('oasis', 'オアシス', -1500, 4400, 260, 'water', 7, { landmark: 'palms', lmTier: 1, zone: 'oasis' }), sp('oasiscamp', 'オアシスのテント', -900, 4850, 180, 'shelter', 3, { prop: '⛺', zone: 'oasis' }), sp('oasisback', 'オアシスのうら', -2150, 4900, 160, 'rest', 1, { zone: 'oasis' }), sp('caravan', 'キャラバンのテント', 1100, 1400, 200, 'shelter', 6, { prop: '⛺', zone: 'tents' }), sp('tentwell', 'キャラバンのいど', 800, 2150, 160, 'rest', 2, { prop: '🏺', zone: 'tents' }), sp('camel', 'ラクダのみずば', 1800, 2100, 180, 'water', 2, { prop: '🪧', zone: 'tents' }), sp('cliff', 'がけのかげ', 1400, 2800, 170, 'rest', 2, { prop: '🪨', zone: 'tents' }), sp('mesa1', 'メサのふもと', 2250, 3000, 200, 'path', 1, { zone: 'mesas' }), sp('mesacave', 'メサのほらあな', 3000, 3250, 140, 'rest', 1, { secret: true, zone: 'mesas' }), sp('mesa2', 'おおきなメサ', 2700, 3750, 220, 'edge', 2, { cam: 'wide', zone: 'mesas' }), sp('mesashade', 'メサのかげ', 1850, 3800, 170, 'rest', 1, { zone: 'mesas' }), sp('ruins', 'いしのいせき', 0, 1900, 240, 'plaza', 3, { prop: '🏛️', zone: 'ruins' }), sp('ruinsteps', 'いせきのかいだん', 500, 2350, 150, 'path', 0, { zone: 'ruins' }), sp('pillars', 'はしらのみち', 150, 2750, 170, 'path', 1, { zone: 'ruins' }), sp('ruinyard', 'いせきのなかにわ', -400, 3300, 180, 'rest', 2, { prop: '🏺', zone: 'ruins' }), sp('saltflat', 'しおのひらち', 350, 4000, 260, 'plaza', 1, { zone: 'saltflat' }), sp('saltpool', 'しおのみずたまり', -200, 4600, 180, 'water', 1, { zone: 'saltflat' }), sp('saltmark', 'しおのみちしるべ', 900, 4600, 160, 'path', 0, { prop: '🪧', zone: 'saltflat' }), sp('sandsea', 'すなのうみ', 1250, 5300, 240, 'path', 1, { zone: 'sandsea' }), sp('sandhollow', 'すなのそこ', 600, 5900, 180, 'path', 0, { zone: 'sandsea' }), sp('sandridge', 'すなのおね', 1950, 5800, 200, 'edge', 1, { cam: 'wide', zone: 'sandsea' }), sp('buried', 'すなにうまったもん', 2400, 5400, 140, 'rest', 1, { secret: true, zone: 'sandsea' }), sp('bonevale', 'ほねのたにま', -1000, 5700, 220, 'plaza', 1, { zone: 'bones' }), sp('bones', 'ほねのおか', -1750, 6200, 150, 'rest', 1, { secret: true, zone: 'bones' }), sp('bonearch', 'ほねのアーチ', -400, 6400, 190, 'edge', 1, { cam: 'wide', zone: 'bones', deco: ['arch:bone'] }), sp('lastwell', 'さいごのいど', -250, 6950, 170, 'rest', 1, { prop: '🏺', zone: 'far' }), sp('mirage', 'しんきろうのおか', 1150, 7050, 170, 'edge', 1, { zone: 'far' }), sp('pyramid', 'おおきないせき', 0, 7500, 240, 'edge', 2, { landmark: 'temple', lmTier: 1, cam: 'wide', zone: 'far' }), sp('spring', 'かくれたいずみ', 1700, 7700, 130, 'water', 1, { secret: true, zone: 'far' }), sp('endsand', 'さいはてのすなやま', -900, 7850, 200, 'path', 0, { zone: 'far' }), sp('sunstone', 'ひのいし', 450, 8150, 180, 'rest', 1, { prop: '🏺', zone: 'far' })],
         paths: [['gate', 'well', 'wide'], ['well', 'dune1'], ['well', 'caravan'], ['well', 'ruins'], ['dune1', 'dunecrest', 'narrow'], ['dune1', 'dune2', 'narrow'], ['dunecrest', 'dunehollow', 'narrow'], ['dune2', 'dunehollow', 'narrow'], ['dune2', 'canyon', 'narrow'], ['dunehollow', 'canyonshade', 'narrow'], ['canyon', 'canyonnarrow', 'narrow'], ['canyonnarrow', 'canyonshade', 'narrow'], ['canyonshade', 'oasis'], ['canyonnarrow', 'oasisback', 'narrow'], ['oasis', 'oasiscamp'], ['oasis', 'oasisback', 'narrow'], ['dunecrest', 'ruinyard', 'narrow'], ['caravan', 'tentwell', 'narrow'], ['caravan', 'camel'], ['camel', 'cliff', 'narrow'], ['tentwell', 'cliff', 'narrow'], ['tentwell', 'ruinsteps', 'narrow'], ['camel', 'mesa1', 'narrow'], ['mesa1', 'mesacave', 'secret'], ['mesa1', 'mesa2'], ['mesa2', 'mesashade', 'narrow'], ['cliff', 'mesashade', 'narrow'], ['ruins', 'ruinsteps', 'narrow'], ['ruins', 'pillars'], ['ruinsteps', 'pillars', 'narrow'], ['pillars', 'ruinyard'], ['ruinyard', 'saltflat'], ['mesashade', 'saltmark', 'narrow'], ['saltflat', 'saltpool', 'narrow'], ['saltflat', 'saltmark', 'narrow'], ['oasiscamp', 'saltpool', 'narrow'], ['saltmark', 'sandsea'], ['sandsea', 'sandhollow', 'narrow'], ['sandsea', 'sandridge', 'narrow'], ['sandridge', 'buried', 'secret'], ['saltpool', 'bonevale'], ['sandhollow', 'bonearch', 'narrow'], ['bonevale', 'bones', 'secret'], ['bonevale', 'bonearch', 'narrow'], ['bonearch', 'lastwell', 'narrow'], ['sandhollow', 'mirage', 'narrow'], ['lastwell', 'pyramid'], ['mirage', 'pyramid', 'narrow'], ['mirage', 'spring', 'secret'], ['lastwell', 'endsand', 'narrow'], ['endsand', 'pyramid', 'narrow'], ['pyramid', 'sunstone', 'narrow']] },
       // ほしぞらの ていりゅうじょ: うきしま ネットワーク型。ていりゅうじょ から にし・ひがし・くもの かいろう の
       // 3ほうこうへ しまが つながり、ほしの はたけ / ふるい うきしま を へて つぎの ていりゅうじょ →
@@ -659,7 +659,7 @@
     const STRUCT_ROLE = {
       building: 'building', shopfront: 'building', shopblock: 'building', alleywall: 'building', barn: 'building', farmhouse: 'building', house: 'building', igloo: 'building', tent: 'building', vending: 'building', ruingate: 'building', ruinwall: 'building', ruinpillar: 'building', obelisk: 'building', statue: 'building', telescope: 'building', woodbridge: 'building', ropebridge: 'building', lightbridge: 'building', pier: 'building', waterwheel: 'building', wreck: 'building',
       bigtrunk: 'vegetation', hedge: 'vegetation', riverwood: 'vegetation', mistwood: 'vegetation', bluetree: 'vegetation', parktree: 'vegetation', pinewall: 'vegetation', palmgrove: 'vegetation', cropline: 'vegetation', bigleaf: 'vegetation', vine: 'vegetation', fern: 'vegetation', reed: 'vegetation', reedclump: 'vegetation', kelp: 'vegetation', kelpwall: 'vegetation', crop: 'vegetation', mushroomcluster: 'vegetation', mushroomgrove: 'vegetation', hugeleaf: 'vegetation', palmfrond: 'vegetation', branch: 'vegetation', ricestalk: 'vegetation', stump: 'vegetation', log: 'vegetation', driftwood: 'vegetation', hayroll: 'vegetation', planter: 'vegetation', buttress: 'vegetation', coralfan: 'vegetation', coralarm: 'vegetation', glowgarden: 'vegetation', glowglade: 'vegetation',
-      cliffwall: 'terrain', cliff: 'terrain', bigrock: 'terrain', ledgerock: 'terrain', mesa: 'terrain', dune: 'terrain', duneridge: 'terrain', dunewall: 'terrain', sandcrest: 'terrain', snowbank: 'terrain', snowdrift: 'terrain', reefwall: 'terrain', searock: 'terrain', seacliff: 'terrain', islandedge: 'terrain', riverrock: 'terrain', rockpool: 'terrain', icepillar: 'terrain', cairn: 'terrain', stonestack: 'terrain', shellpile: 'terrain', cloudwisp: 'terrain',
+      arch: 'terrain', cliffwall: 'terrain', cliff: 'terrain', bigrock: 'terrain', ledgerock: 'terrain', mesa: 'terrain', dune: 'terrain', duneridge: 'terrain', dunewall: 'terrain', sandcrest: 'terrain', snowbank: 'terrain', snowdrift: 'terrain', reefwall: 'terrain', searock: 'terrain', seacliff: 'terrain', islandedge: 'terrain', riverrock: 'terrain', rockpool: 'terrain', icepillar: 'terrain', cairn: 'terrain', stonestack: 'terrain', shellpile: 'terrain', cloudwisp: 'terrain',
       springpool: 'water', oasispool: 'water',
       neonsign: 'light', streetlight: 'light', lantern: 'light', lanternpost: 'light', stoplamp: 'light', vent: 'light', crystal: 'light', crystalgarden: 'light', glowcoral: 'light', moonlamp: 'light', orrery: 'light',
       fence: 'obstacle', parasol: 'obstacle', woodfence: 'obstacle', snowfence: 'obstacle', guardrail: 'obstacle', guardpost: 'obstacle', fencerail: 'obstacle', crosswalk: 'road', firewood: 'obstacle', pot: 'obstacle', oldpost: 'obstacle',
@@ -684,7 +684,7 @@
     // じぶんを かくして いるか どうかを はかる ための、しゅるいごとの「あたり」の おおきさ。
     // [よこ半分, たかさ] を えがき はば(px)の 何ばい で もつ。ほそい みき は ほそく、
     // よこに ながい かこみ は ひろく。これが ある ので となりの ものまで いっしょに すけない
-    const OCCLUDER_BOX = { glyph: [0.32, 0.95], landmark: [0.34, 1.0], bigtrunk: [0.16, 1.55], building: [0.40, 2.6], alleywall: [0.40, 2.6], shopblock: [0.40, 1.0], cliffwall: [0.60, 1.6], seacliff: [0.60, 1.7], cliff: [0.50, 1.05], searock: [0.62, 0.85], dunewall: [0.95, 0.9], duneridge: [0.95, 0.6], dune: [0.6, 0.35], sandcrest: [1.0, 0.3], snowbank: [0.9, 0.5], snowdrift: [0.7, 0.3], reefwall: [0.6, 1.9], kelpwall: [0.5, 1.9], hedge: [0.55, 0.55], pinewall: [0.5, 1.5], palmgrove: [0.5, 1.3], riverwood: [0.4, 1.0], mistwood: [0.35, 1.05], bluetree: [0.35, 1.0], parktree: [0.42, 1.0], farmhouse: [0.58, 1.05], house: [0.58, 1.05], barn: [0.48, 1.0], mesa: [0.5, 0.65], islandedge: [0.72, 0.2], ruinwall: [0.6, 0.78], ruinpillar: [0.16, 0.95], cropline: [0.9, 0.35], woodfence: [0.52, 0.45], bigleaf: [0.36, 0.6], hugeleaf: [0.62, 0.75], palmfrond: [0.4, 0.9], branch: [0.75, 0.95], vine: [0.1, 1.05], buttress: [0.5, 0.9], wreck: [0.55, 0.95], bigrock: [0.44, 0.5], ledgerock: [0.6, 0.42], fern: [0.26, 0.52], reedclump: [0.3, 0.7], reed: [0.2, 0.75], cloudwisp: [0.5, 0.2], ricestalk: [0.35, 0.58], crystal: [0.16, 0.85], icepillar: [0.18, 0.85] };
+    const OCCLUDER_BOX = { glyph: [0.32, 0.95], landmark: [0.34, 1.0], bigtrunk: [0.16, 1.55], building: [0.40, 2.6], alleywall: [0.40, 2.6], shopblock: [0.40, 1.0], cliffwall: [0.60, 1.6], seacliff: [0.60, 1.7], cliff: [0.50, 1.05], searock: [0.62, 0.85], dunewall: [0.95, 0.9], duneridge: [0.95, 0.6], dune: [0.6, 0.35], sandcrest: [1.0, 0.3], snowbank: [0.9, 0.5], snowdrift: [0.7, 0.3], reefwall: [0.6, 1.9], kelpwall: [0.5, 1.9], hedge: [0.55, 0.55], pinewall: [0.5, 1.5], palmgrove: [0.5, 1.3], riverwood: [0.4, 1.0], mistwood: [0.35, 1.05], bluetree: [0.35, 1.0], parktree: [0.42, 1.0], farmhouse: [0.58, 1.05], house: [0.58, 1.05], barn: [0.48, 1.0], mesa: [0.5, 0.65], islandedge: [0.72, 0.2], ruinwall: [0.6, 0.78], ruinpillar: [0.16, 0.95], cropline: [0.9, 0.35], woodfence: [0.52, 0.45], bigleaf: [0.36, 0.6], hugeleaf: [0.62, 0.75], palmfrond: [0.4, 0.9], branch: [0.75, 0.95], vine: [0.1, 1.05], buttress: [0.5, 0.9], wreck: [0.55, 0.95], bigrock: [0.44, 0.5], arch: [0.52, 1.0], ledgerock: [0.6, 0.42], fern: [0.26, 0.52], reedclump: [0.3, 0.7], reed: [0.2, 0.75], cloudwisp: [0.5, 0.2], ricestalk: [0.35, 0.58], crystal: [0.16, 0.85], icepillar: [0.18, 0.85] };
     // ================= あたりはんてい(せかい ざひょうの 正本) =================
     // 「絵の 四角」では なく「地面に ついて いる ところ」を もつ。
     // 木は みき だけ、家は たてもの 本体、柵は ほそい すじ。は や 草では 止まらない。
@@ -1402,6 +1402,23 @@
         }
         return m;
       };
+      // 着く ひと(カメラ)から その こうほ まで の 視線を、おおきな もの が さえぎって いないか。
+      // 見る がわ は spot の てまえ(来た みち の がわ)。障害物 は 1 つも うごかさず、
+      // さえぎられない 場所 を えらぶ だけ(いわのアーチ は frame の searock の うらに かくれて いた)
+      const sightBlock = (vx, vz, x, z) => {
+        const dx = x - vx, dz = z - vz, L2 = dx * dx + dz * dz || 1;
+        let b = 0;
+        for (const q of world.props) {
+          if (!VIEW_BIG.has(q.layer) || (q.size || 0) < 200 || q.deco) continue;
+          const t = ((q.x - vx) * dx + (q.z - vz) * dz) / L2;
+          if (t < 0.05 || t > 0.97) continue;
+          const r0 = (q.size || 0) * 0.32, e = Math.hypot(vx + dx * t - q.x, vz + dz * t - q.z);
+          if (e < r0) b += (1 - e / r0) * (q.size || 0) / 300;   // まんなかで ふさぐ おおきな もの ほど おもい
+        }
+        return b;
+      };
+      // 主役の おおきさ(地形 の ような もの は 1 まわり おおきく)。ないものは 300
+      const DECO_LEAD_SIZE = { arch: 400 };
       for (const s of base.spots) {
         // view = はっけん の レベルに かかわる けしき(#319)。
         // deco = **見た目だけ** の けしき。spotDiscoveryLevel() は deco を 見ないので、
@@ -1415,7 +1432,9 @@
         const link = world.segments.find((g) => g.a === s || g.b === s);
         const other = link ? (link.a === s ? link.b : link.a) : null;
         const away = other ? Math.atan2(s.x - other.x, s.z - other.z) : 0;
-        look.forEach((kind, i) => {
+        look.forEach((entry, i) => {
+          // 'arch:rock' の ように「かたち:material」で かける(1 つの かたちを ぬりわける)
+          const [kind, variant] = String(entry).split(':');
           const lead = i === 0;
           let best = null;
           for (let k = 0; k < 28; k++) {
@@ -1426,7 +1445,9 @@
             // うまく いかない ほど まわりへ ひろげ、すこし 近づける
             const grow = k / 8;
             const ang = away + (hrand(seed + 'a') - 0.5) * ((lead ? 0.5 : 1.6) + grow);
-            const d = s.r * (lead ? 1.02 : 1.15) + hrand(seed + 'd') * (lead ? 40 : 90) - grow * 18;
+            const d = isDeco && lead
+              ? s.r * (1.02 + 0.55 * hrand(seed + 'e'))                  // deco の 主役: 窓 を さがして すこし 先まで
+              : s.r * (lead ? 1.02 : 1.15) + hrand(seed + 'd') * (lead ? 40 : 90) - grow * 18;
             const x = s.x + Math.sin(ang) * d, z = s.z + Math.cos(ang) * d * 0.8;
             // 主役は spot の ふちに ちかい ので みちからの よゆうを 小さく する。
             // solid では ない ので ふさぐ ことは なく、「ふちに ある」見えかたに なる。
@@ -1434,12 +1455,18 @@
             //  ほとんどが みちの えいきょう けん に 入って しまい、1つも おけなかった)
             if (d < s.r * 0.8 || !onLand(x, z) || !offPath(x, z, lead ? 30 : 70)) continue;
             const room = bigNear(x, z);
-            if (!best || room > best.room) best = { x, z, room };
-            if (room > (lead ? 190 : 120)) break;   // じゅうぶん あいて いれば そこで きめる
+            // deco の 主役 だけ は「着いた ひと から 見える か」を さきに みる。
+            // view(#319)と deco の 補助 は もとの えらびかた の まま(いち は かわらない)
+            const block = isDeco && lead ? sightBlock(s.x - Math.sin(away) * (s.r + 420), s.z - Math.cos(away) * (s.r + 420), x, z) : 0;
+            if (!best || block < best.block - 1e-9 || (Math.abs(block - best.block) <= 1e-9 && room > best.room)) best = { x, z, room, block };
+            if (block === 0 && room > (lead ? 190 : 120)) break;   // さえぎられず じゅうぶん あいて いれば そこで きめる
           }
           if (!best) return;
-          world.props.push({ struct: kind, x: best.x, z: best.z, size: lead ? 300 : 180, ang: 0,
-            side: best.x < s.x ? -1 : 1, region: regionId, layer: 'landmark', view: s.id, deco: isDeco || undefined });
+          world.props.push({ struct: kind, x: best.x, z: best.z, size: lead ? (isDeco && DECO_LEAD_SIZE[kind]) || 300 : 180, ang: 0,
+            side: best.x < s.x ? -1 : 1, region: regionId, layer: 'landmark', view: s.id, deco: isDeco || undefined, variant: variant || undefined,
+            // keep: 同時に えがく かずの せいげん で けずらない(その ばしょ の 主役 だから)。
+            // hero は つけない(つけると カメラが ふりむく ので「見た目だけ」で なくなる)
+            keep: (isDeco && lead) || undefined });
         });
       }
       yield;
@@ -3694,7 +3721,7 @@
       // がけ = ふぞろいな りんかく + そう、すなおか = ゆるい きょくせん + かさなり…。
       // たんじゅんな 長方形・三角形を そのまま かんせいけいに しない
       // とおくの ちいさな 造形物の いろ(シルエット 1つで えがく)。ない ものは やくわりの いろ
-      const TINY_COLOR = { dune: '#e0c48a', duneridge: '#e0c48a', dunewall: '#e0c48a', sandcrest: '#e8d2a0', snowbank: '#eef3fa', snowdrift: '#f4f8fd', reefwall: '#24466a', kelpwall: '#2f6a50', kelp: '#2f7a5a', mesa: '#a8623f', hedge: '#3f7a3a', mistwood: '#7fa8dc', bluetree: '#7fa8dc', cliffwall: '#7d7768', seacliff: '#b89a70', searock: '#5f5a50', cliff: '#6f6a58', bigrock: '#7a7a70', islandedge: '#4a4470', pinewall: '#2f6a3a', palmgrove: '#3f9a4a', cropline: '#6aa83f', crystal: '#9fe8ff', crystalgarden: '#9fe8ff' };
+      const TINY_COLOR = { dune: '#e0c48a', duneridge: '#e0c48a', dunewall: '#e0c48a', sandcrest: '#e8d2a0', snowbank: '#eef3fa', snowdrift: '#f4f8fd', reefwall: '#24466a', kelpwall: '#2f6a50', kelp: '#2f7a5a', mesa: '#a8623f', hedge: '#3f7a3a', mistwood: '#7fa8dc', bluetree: '#7fa8dc', cliffwall: '#7d7768', seacliff: '#b89a70', searock: '#5f5a50', cliff: '#6f6a58', bigrock: '#7a7a70', arch: '#a8845c', islandedge: '#4a4470', pinewall: '#2f6a3a', palmgrove: '#3f9a4a', cropline: '#6aa83f', crystal: '#9fe8ff', crystalgarden: '#9fe8ff' };
       const ROLE_COLOR = { vegetation: '#3f7a3a', building: '#6a7183', terrain: '#8a8474', water: '#6fb7e8', light: '#ffe9a8', obstacle: '#8a8a80', road: '#9aa0ab' };
       function drawStructure(kind, p, size, o) {
         const px = size * p.s; if (px < 5) return;
@@ -3801,6 +3828,68 @@
             oval(sh('#6d4b2c'), -0.46, -0.1, 0.075, 0.1); oval(sh('#c8a070'), -0.46, -0.1, 0.045, 0.065); oval(sh('#3f7a3a'), 0.1, -0.19, 0.18, 0.05); oval(sh('#3f7a3a'), 0.3, -0.16, 0.08, 0.035);
             ctx.restore(); break; }
           case 'fern': { ctx.strokeStyle = sh('#3f8a4a'); ctx.lineWidth = Math.max(1, px * 0.035); for (let k = -2; k <= 2; k++) { ctx.beginPath(); ctx.moveTo(x, y); ctx.quadraticCurveTo(x + px * k * 0.12, y - px * 0.4, x + px * k * 0.26, y - px * 0.52); ctx.stroke(); } break; }
+          // アーチ。1 つの かたちを material(o.variant)で ぬりわける: 'rock'(いわ・既定)/ 'bone'(ほね)。
+          // 人の たてた 門に 見えないよう、はしらは ふぞろいで、うえは まるく つながる。
+          // どちらも「ひだり の はしら・みぎ の はしら・うえ の つながり・あいだ の あな」が
+          // 小さな 画面でも 見える かたち。けしき は いつも カメラを むく 板 なので、
+          // yaw が かわっても アーチの まま 見える
+          case 'arch': {
+            const j = (k, a) => (R(k) - 0.5) * a;                     // ふぞろい(いつも おなじ)
+            oval('rgba(0,0,0,.16)', 0, 0.01, 0.6, 0.1);               // あしもと の かげ
+            ctx.save();
+            if (o.variant === 'bone') {
+              // ほね: ろっこつ の ような 2 本 が うえで あわさる。かわいた しろ 〜 おうど。
+              // こわく ならないよう、ふとく まるく、ちいさな ふくらみ で おわる
+              const ivory = sh('#efe6cf'), shade = sh('#b8a27a'), knob = sh('#e4d8b8');   // shade は すな より こく(かたち が たつ)
+              ctx.lineCap = 'round';
+              const pair = (dx, sc, a) => {
+                ctx.globalAlpha = a;
+                const rib = (x0, xt, yt, bend) => { ctx.beginPath(); ctx.moveTo(x + px * (dx + x0 * sc), y);
+                  ctx.quadraticCurveTo(x + px * (dx + (x0 + bend) * sc), y - px * yt * sc * 0.72, x + px * (dx + xt * sc), y - px * yt * sc); ctx.stroke(); };
+                const both = () => { rib(-0.46, 0.05, 0.96, -0.12); rib(0.47 + j(5, 0.05), -0.05, 0.9 + j(6, 0.08), 0.13); };
+                ctx.strokeStyle = shade; ctx.lineWidth = Math.max(2, px * 0.12 * sc); both();
+                ctx.strokeStyle = ivory; ctx.lineWidth = Math.max(1.5, px * 0.085 * sc); both();
+                ctx.strokeStyle = 'rgba(255,255,255,.38)'; ctx.lineWidth = Math.max(1, px * 0.024 * sc); both();
+                oval(knob, dx - 0.46 * sc, -0.02 * sc, 0.075 * sc, 0.05 * sc);
+                oval(knob, dx + 0.47 * sc, -0.02 * sc, 0.075 * sc, 0.05 * sc);
+                oval(ivory, dx, -0.93 * sc, 0.07 * sc, 0.055 * sc);     // うえで あわさる ところ
+              };
+              pair(sd * 0.15, 0.72, 0.5);                               // おくの ひと組(ふかさ)
+              pair(0, 1, 1);
+              ctx.globalAlpha = 1;
+              oval(sh('#e0c48a'), -0.46, 0.005, 0.15, 0.04);            // すなに うまった ねもと
+              oval(sh('#e0c48a'), 0.47, 0.005, 0.15, 0.04);
+            } else {
+              // いわ: なみ と かぜ に けずられた 岩。左の 岩かたまり は ふとく たかく、右の あし は ほそく ひくい。
+              // うえの はし は うすく すこし たれ、あな は まんなか から ずれた ふぞろいな かたち。
+              // 人の たてた 門 に 見えない ことが いちばん だいじ(なめらかな 半円 に しない)
+              const f = sd;                                              // ひだり みぎ を ひっくりかえす
+              const J = (arr, a) => arr.map((v, i) => v + (i % 2 ? (R(i + 20) - 0.5) * a * 0.6 : (R(i + 40) - 0.5) * a) * (i % 2 ? 1 : f));
+              const outerP = J([-0.64, 0.02, -0.7, -0.28, -0.63, -0.6, -0.52, -0.86, -0.3, -1.02, -0.06, -1.0, 0.16, -0.9, 0.36, -0.84, 0.5, -0.66, 0.53, -0.4, 0.49, -0.16, 0.55, 0.02], 0.06);
+              const holeP = J([-0.26, 0.03, -0.3, -0.26, -0.24, -0.54, -0.08, -0.69, 0.1, -0.66, 0.26, -0.5, 0.32, -0.24, 0.3, 0.03], 0.05);
+              for (let i = 0; i < outerP.length; i += 2) outerP[i] *= f;
+              for (let i = 0; i < holeP.length; i += 2) holeP[i] *= f;
+              const sub = (pts) => { const n = pts.length / 2, P = (k) => { const q = ((k % n) + n) % n; return [x + px * pts[q * 2], y + px * pts[q * 2 + 1]]; };
+                const a0 = P(0), a1 = P(1); ctx.moveTo((a0[0] + a1[0]) / 2, (a0[1] + a1[1]) / 2);
+                for (let k = 1; k <= n; k++) { const q = P(k), r2 = P(k + 1); ctx.quadraticCurveTo(q[0], q[1], (q[0] + r2[0]) / 2, (q[1] + r2[1]) / 2); }
+                ctx.closePath(); };
+              const shape = () => { ctx.beginPath(); sub(outerP); sub(holeP); };
+              // いろ は うみべ の 砂岩(てまえ の はいいろ の searock とも、あかるい すな とも ちがう)
+              shape(); ctx.fillStyle = sh('#a8845c'); ctx.fill('evenodd');
+              ctx.save(); shape(); ctx.clip('evenodd');
+              rect('rgba(0,0,0,.16)', -0.8, -0.24, 1.6, 0.26);             // ねもと は なみに ぬれて くらい
+              oval('rgba(255,255,255,.16)', -0.34 * f, -0.86, 0.26, 0.12); // かぜの あたる うえ の ひかり
+              oval('rgba(0,0,0,.12)', 0.42 * f, -0.55, 0.14, 0.4);         // ほそい あし の かげ
+              lines('rgba(0,0,0,.14)', 0.012, [-0.66 * f, -0.36, -0.3 * f, -0.4, -0.64 * f, -0.66, -0.26 * f, -0.7, 0.34 * f, -0.3, 0.52 * f, -0.26, -0.2 * f, -0.84, 0.3 * f, -0.78]);
+              ctx.restore();
+              // ふちに こい りんかく(小さな 画面でも かたち が たつ)
+              shape(); ctx.strokeStyle = 'rgba(60,40,24,.45)'; ctx.lineWidth = Math.max(1, px * 0.02); ctx.lineJoin = 'round'; ctx.stroke();
+              // うえ の くさ(しぜん の 岩 の しるし。seacliff と おなじ いろ)
+              oval(sh('#7fb35a'), -0.2 * f, -1.0, 0.2, 0.045); oval(sh('#7fb35a'), 0.1 * f, -0.93, 0.1, 0.03);
+              // うみ では ねもと に しろい なみ(しおかぜ の けはい)
+              if (o.region === 'sea') for (let k = 0; k < 4; k++) oval('rgba(255,255,255,.5)', (k - 1.5) * 0.36 + Math.sin(curNow * 0.002 + k) * 0.04, 0.02, 0.15, 0.03);
+            }
+            ctx.restore(); break; }
           case 'bigrock': { const a = (o.ang || 0) * 0.25; ctx.save(); ctx.translate(x, y); ctx.rotate(a); ctx.translate(-x, -y);
             oval('rgba(0,0,0,.16)', 0.02, 0.01, 0.46, 0.1); tri(sh('#7a7a70'), [-0.42, 0, -0.36, -0.28, -0.22, -0.4, 0.05, -0.5, 0.28, -0.38, 0.4, -0.2, 0.44, 0]); tri('rgba(255,255,255,.14)', [-0.22, -0.4, 0.05, -0.5, 0.1, -0.3, -0.12, -0.24]); tri('rgba(0,0,0,.2)', [0.28, -0.38, 0.4, -0.2, 0.44, 0, 0.14, 0, 0.12, -0.24]); if (o.mossy !== false && o.region !== 'desert') oval(sh('#4f8a45'), -0.1, -0.44, 0.14, 0.05);
             ctx.restore(); break; }
@@ -4292,7 +4381,7 @@
           if (p.sx < -margin || p.sx > W + margin) continue;
           if (p.dz > (pr.landmark ? 5200 : big ? farCull * 1.15 : farCull)) continue;
           if (pr.layer === 'wall' && p.dz > farCull * 0.62 && (pi & 1)) continue;
-          items.push({ kind: 'prop', o: pr, p, must: !!pr.landmark || !!pr.hero || (big && p.dz < farCull * 0.7) }); }
+          items.push({ kind: 'prop', o: pr, p, must: !!pr.landmark || !!pr.hero || !!pr.keep || (big && p.dz < farCull * 0.7) }); }
         const talkR = 130;
         for (const a of residents) { const p = project(a.x, a.z); if (p && p.dz < farCull && p.s * ACTOR_SIZE >= 4 && p.sx > -60 && p.sx < W + 60) { const d = Math.hypot(a.x - player.x, a.z - player.z); items.push({ kind: 'actor', o: a, p, d, must: a === nearest || d < talkR * 1.5 }); } }
         for (const a of party) { const p = project(a.x, a.z); if (p) items.push({ kind: 'actor', o: a, p, d: Math.hypot(a.x - player.x, a.z - player.z), must: true }); }
