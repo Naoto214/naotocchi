@@ -1,0 +1,286 @@
+{
+  "completed": 0,
+  "independent_balance_sample_count": 0,
+  "new_events": 0,
+  "planned": 4,
+  "results": [
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "candidate-place-partner-B-017#1",
+        "candidate-play-main-B-001#1-birth",
+        "pass"
+      ],
+      "candidate_set_complete": true,
+      "comparison_evidence": {
+        "candidate_id": "candidate-play-main-B-001#1-birth",
+        "comparison": {
+          "decided_at": "time_after_certain_resolution",
+          "reason": "time_after_certain_resolution",
+          "winner": "left"
+        },
+        "effect_class": "continuous_only",
+        "payment_time": 1,
+        "source_reference": "55-insect-three-lines-card-text-draft.md#M-antlion-01"
+      },
+      "completed": false,
+      "new_events": 0,
+      "next_opportunity": "normal_action",
+      "path_id": "probe-01-a-first",
+      "resolution_mode": "safe_free_development",
+      "selected_candidate": "candidate-place-partner-B-017#1",
+      "selected_decision": {
+        "additional_card_consumption": 0,
+        "candidate_set_complete": true,
+        "candidate_set_evidence": {
+          "enumeration_rule": "all legal actions supplied by caller, including pass",
+          "source_ref": "complete_legal_candidate_ids_input",
+          "state_ref": "safe_free_placement_context"
+        },
+        "decision_kind": "normal_action",
+        "event_seq": 31,
+        "legal_candidate_details": [
+          {
+            "action_type": "place_partner",
+            "candidate_id": "candidate-place-partner-B-017#1",
+            "candidate_variant": "start_relationship_stage_zero",
+            "card_id": "P-cat_ceo",
+            "disposition": "admitted",
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-017#1\",\"place_partner\",\"start_relationship_stage_zero\",[]]",
+            "evidence": {},
+            "reason_codes": [],
+            "source_family": "hand_card_action",
+            "source_id": "B-017#1",
+            "source_instance_id": "B-017#1",
+            "source_references": [
+              "74-partner-18-card-text-draft.md#P-cat_ceo"
+            ],
+            "source_zone": "hand",
+            "target_instance_ids": []
+          },
+          {
+            "action_type": "play_main",
+            "candidate_id": "candidate-play-main-B-001#1-birth",
+            "candidate_variant": "birth",
+            "card_id": "M-antlion-01",
+            "disposition": "admitted",
+            "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-001#1\",\"play_main\",\"birth\",[]]",
+            "evidence": {},
+            "reason_codes": [],
+            "source_family": "hand_card_action",
+            "source_id": "B-001#1",
+            "source_instance_id": "B-001#1",
+            "source_references": [
+              "55-insect-three-lines-card-text-draft.md#M-antlion-01"
+            ],
+            "source_zone": "hand",
+            "target_instance_ids": []
+          },
+          {
+            "action_type": "pass",
+            "candidate_id": "pass",
+            "candidate_variant": "pass",
+            "card_id": null,
+            "disposition": "admitted",
+            "enumeration_unit_id": "[\"standing_pass\",\"synthetic\",\"pass\",\"pass\",\"pass\",[]]",
+            "evidence": {},
+            "reason_codes": [],
+            "source_family": "standing_pass",
+            "source_id": "pass",
+            "source_instance_id": null,
+            "source_references": [
+              "01-core-rules.md"
+            ],
+            "source_zone": "synthetic",
+            "target_instance_ids": []
+          }
+        ],
+        "legal_candidates": [
+          "candidate-place-partner-B-017#1",
+          "candidate-play-main-B-001#1-birth",
+          "pass"
+        ],
+        "paid_birth_comparison": {
+          "candidate_id": "candidate-play-main-B-001#1-birth",
+          "comparison": {
+            "decided_at": "time_after_certain_resolution",
+            "reason": "time_after_certain_resolution",
+            "winner": "left"
+          },
+          "effect_class": "continuous_only",
+          "payment_time": 1,
+          "source_reference": "55-insect-three-lines-card-text-draft.md#M-antlion-01"
+        },
+        "pass_dominated": true,
+        "pass_dominated_by": "safe_free_development",
+        "placement_card_zone_transfer_counts_as_consumption": false,
+        "pre_continuation_state_sha256": "b2487b6b32d6a60db91d1f063bf2438ef197a4d023c8bb6c25385aa04bf4ab34",
+        "pre_game_state_sha256": "8ed4c8ef3a0abdc7180fe71dc7e9464754514eb08b692329ffbddbe5fa5bd8cf",
+        "reason_code": "safe_free_development_dominates_pass",
+        "resolution_mode": "safe_free_development",
+        "runner_up_candidates": [
+          "pass"
+        ],
+        "seed_context": null,
+        "seed_proof": null,
+        "selected_action": {
+          "action_type": "place_partner",
+          "candidate_id": "candidate-place-partner-B-017#1",
+          "candidate_variant": "start_relationship_stage_zero",
+          "card_id": "P-cat_ceo",
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-017#1\",\"place_partner\",\"start_relationship_stage_zero\",[]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "hand_card_action",
+          "source_id": "B-017#1",
+          "source_instance_id": "B-017#1",
+          "source_references": [
+            "74-partner-18-card-text-draft.md#P-cat_ceo"
+          ],
+          "source_zone": "hand",
+          "target_instance_ids": []
+        },
+        "selected_candidate": "candidate-place-partner-B-017#1",
+        "selected_placement": {
+          "actual_time_cost": 0,
+          "additional_card_consumption": 0,
+          "candidate_id": "candidate-place-partner-B-017#1",
+          "card_copy_id": "B-017",
+          "certain_downside": false,
+          "legality": "confirmed",
+          "person_type": "partner",
+          "replacement_required": false,
+          "slot_empty": true,
+          "unresolved_required_choice": false
+        },
+        "strategic_unresolved": false
+      },
+      "source_continuation_state_sha256": "b2487b6b32d6a60db91d1f063bf2438ef197a4d023c8bb6c25385aa04bf4ab34",
+      "source_game_state_sha256": "8ed4c8ef3a0abdc7180fe71dc7e9464754514eb08b692329ffbddbe5fa5bd8cf",
+      "source_last_valid_event_seq": 31
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "candidate_set_complete": true,
+      "comparison_evidence": null,
+      "completed": false,
+      "new_events": 0,
+      "next_opportunity": "response_window",
+      "path_id": "probe-01-b-first",
+      "resolution_mode": "response_unique",
+      "selected_candidate": "response-pass",
+      "selected_decision": null,
+      "source_continuation_state_sha256": "c0cdcf7bbce7b86a33882aab673edd88d1fd201c31d18957596dfac15fa6bdf3",
+      "source_game_state_sha256": "a504803f226752511a859a2f17305d6f889a124966a19f520d32496324bb6d0f",
+      "source_last_valid_event_seq": 33
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "candidate-attach_item-A-032#1-target-A-018#1",
+        "pass"
+      ],
+      "candidate_set_complete": true,
+      "comparison_evidence": {
+        "attach_item": {
+          "avoid_loss_or_abort": 0,
+          "candidate_id": "candidate-attach_item-A-032#1-target-A-018#1",
+          "card_copy_id": "A-032",
+          "certain_growth_difference": 0,
+          "consumed_card_count": 0,
+          "maintain_or_prevent_100": 0,
+          "payment_time": 2,
+          "time_after_certain_resolution": 0,
+          "value_comparison_to": {}
+        },
+        "paid_vs_pass": {
+          "decided_at": "time_after_certain_resolution",
+          "reason": "time_after_certain_resolution",
+          "winner": "left"
+        },
+        "pass": {
+          "avoid_loss_or_abort": 0,
+          "candidate_id": "pass",
+          "card_copy_id": "",
+          "certain_growth_difference": 0,
+          "consumed_card_count": 0,
+          "maintain_or_prevent_100": 0,
+          "payment_time": 0,
+          "time_after_certain_resolution": 2,
+          "value_comparison_to": {}
+        },
+        "source_contracts": [
+          107,
+          114
+        ]
+      },
+      "completed": false,
+      "new_events": 0,
+      "next_opportunity": "normal_action",
+      "path_id": "probe-02-b-first",
+      "resolution_mode": "priority_unique",
+      "selected_candidate": "pass",
+      "selected_decision": null,
+      "source_continuation_state_sha256": "400a03f9f91f774428adc5bd097999a96b1d30dbdb2d3909f446777ac3497ab1",
+      "source_game_state_sha256": "601e5b47798a19a3c9b04e4259aaa08cf96b484cea046111da5a0eef51c5d21d",
+      "source_last_valid_event_seq": 36
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "candidate-attach_item-A-032#1-target-A-016#1",
+        "pass"
+      ],
+      "candidate_set_complete": true,
+      "comparison_evidence": {
+        "attach_item": {
+          "avoid_loss_or_abort": 0,
+          "candidate_id": "candidate-attach_item-A-032#1-target-A-016#1",
+          "card_copy_id": "A-032",
+          "certain_growth_difference": 0,
+          "consumed_card_count": 0,
+          "maintain_or_prevent_100": 0,
+          "payment_time": 2,
+          "time_after_certain_resolution": 0,
+          "value_comparison_to": {}
+        },
+        "paid_vs_pass": {
+          "decided_at": "time_after_certain_resolution",
+          "reason": "time_after_certain_resolution",
+          "winner": "left"
+        },
+        "pass": {
+          "avoid_loss_or_abort": 0,
+          "candidate_id": "pass",
+          "card_copy_id": "",
+          "certain_growth_difference": 0,
+          "consumed_card_count": 0,
+          "maintain_or_prevent_100": 0,
+          "payment_time": 0,
+          "time_after_certain_resolution": 2,
+          "value_comparison_to": {}
+        },
+        "source_contracts": [
+          107,
+          114
+        ]
+      },
+      "completed": false,
+      "new_events": 0,
+      "next_opportunity": "normal_action",
+      "path_id": "probe-02-a-first",
+      "resolution_mode": "priority_unique",
+      "selected_candidate": "pass",
+      "selected_decision": null,
+      "source_continuation_state_sha256": "131dabe022d860b5930f9fbec0034c7c019fdf99242e1e555a21efbf3cf9335c",
+      "source_game_state_sha256": "07dc4b51a2ab471853d2f673aa3eb52a8df30626d1f9bda1e18bb716bed82105",
+      "source_last_valid_event_seq": 25
+    }
+  ],
+  "schema": "naotocchi.card_game.proxy_new_seed_current_choices_192.v1",
+  "source_raw_sha256": "f6c89e4fafb932a9e31662851e1a40869846b1dcb3db3bdcbd477ee5cb32b68e"
+}
