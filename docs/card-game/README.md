@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [143](143-new-seed-next-opportunities-audit.md) | 新seed4状態の次のresponse／通常行動候補を横断監査、未証明盤上familyを分離 |
 | [142](142-hit-blow-start-response-restart.md) | 02-Aの宣言済みG-hit-blowを発動・双方pass・解決して通常行動入口へ |
 | [141](141-new-seed-r1-normal-restart.md) | 140の3通常行動を比較・各1 event再開、次のresponseで停止 |
 | [140](140-new-seed-normal-candidate-audit.md) | 138通常行動の3停止stateを既存候補契約で再監査。対戦event追加なし |
@@ -26,7 +27,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[142 G-hit-blow開始時responseの発動・解決](142-hit-blow-start-response-restart.md)** の保存地点。141の02-A停止stateから宣言済み `partner` のG-hit-blowを時1で発動し、A→Bの連続pass後に山札上を公開して一致したpartnerを手札へ加え、Aのそだち+5。02-Aの最終有効eventは6。01-A/Bと02-Bは141の停止位置を保持する。新decision 2／event 4／snapshot 4、completed 0、独立balance標本0、カード本文・数値・登録区分変更0件。専用3件PASS、全proxy38ファイル・426件中425件PASS、既知117旧テスト1件FAIL（期待190／実測263）、新規失敗0件。全件GREENとは扱わない。次は3件の後続response完全性と02-Aの解決後通常行動候補を横断監査する。
+現在は **[143 新seed次機会の横断監査](143-new-seed-next-opportunities-audit.md)** の保存地点。142の4停止state/hashを維持して、02-Aの通常行動4候補と02-Bの現在優先者のresponse-passを完全証明した。01-A/Bの手札部分はpassのみだが、盤上なかまを含むresponse全体は未証明として保持する。新decision/event/snapshot 0、completed 0、独立balance標本0、カード本文・数値・登録区分変更0件。専用2件PASS、全proxy39ファイル・428件中427件PASS、既知117旧テスト1件FAIL（期待190／実測263）、新規失敗0件。全件GREENとは扱わない。
+
+履歴上、142は **[142 G-hit-blow開始時responseの発動・解決](142-hit-blow-start-response-restart.md)** の保存地点。141の02-A停止stateから宣言済み `partner` のG-hit-blowを時1で発動し、A→Bの連続pass後に山札上を公開して一致したpartnerを手札へ加え、Aのそだち+5。02-Aの最終有効eventは6。01-A/Bと02-Bは141の停止位置を保持する。新decision 2／event 4／snapshot 4、completed 0、独立balance標本0、カード本文・数値・登録区分変更0件。専用3件PASS、全proxy38ファイル・426件中425件PASS、既知117旧テスト1件FAIL（期待190／実測263）、新規失敗0件。全件GREENとは扱わない。次は3件の後続response完全性と02-Aの解決後通常行動候補を横断監査する。
 
 履歴上、141は **[141 新seed R1通常行動の比較と独立再開](141-new-seed-r1-normal-restart.md)** の保存地点。140の3候補完全stateを107・114・116で比較し、01-A/Bのなかま時0配置と02-Bの通常passを各1 event進めた。02-Aはヒット&ブロー発動前停止を保持。新decision 3／event 3／snapshot 3、completed 0、独立balance標本0、カード本文・数値・登録区分変更0件。全proxyは423件中422件PASS、既知117旧テスト1件FAIL、新規失敗0件。全件GREENとは扱わない。
 
