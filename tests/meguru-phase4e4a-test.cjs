@@ -14,10 +14,10 @@ const assert = require('node:assert/strict');
 const { harness } = require('./helpers/runtime-harness.cjs');
 
 const arr = (x) => Array.from(x || []);
-// Phase 4E-4B: 表は 8 本(4E-4A の 5 本 + MEDIUM 3 本)。NEW4 = home|forest いがい(4E-4A の LOW 4 本 と MEDIUM 3 本)
-const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain', 'forest|mountain', 'mountain|river_lake', 'city|sea'];
+// Phase 4E-4C: 表は walk 10 本 ぜんぶ(4E-4A の 5 本 + MEDIUM 3 本 + HIGH 2 本)。NEW4 = home|forest いがい
+const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain', 'forest|mountain', 'mountain|river_lake', 'city|sea', 'city|countryside', 'countryside|forest'];
 const NEW4 = CONT.slice(1);
-const LATER = ['countryside|forest', 'city|countryside'];
+const LATER = [];   // Phase 4E-4C: walk は 10 本 ぜんぶ corridor
 const SPECIAL = ['jungle|sea', 'deepsea|sea', 'countryside|star_stop'];
 const DIRS = CONT.flatMap((id) => { const [a, b] = id.split('|'); return [[id, a, b], [id, b, a]]; });
 
@@ -61,6 +61,7 @@ function run(o = {}) {
   return { h, M, s, r, B, pad, go, enter, walkTo, arrive, decodes, P: () => r.corridorStats.preload, H: () => r.corridorStats.handoff };
 }
 const tick = () => new Promise((res) => setImmediate(res));
+const M_PRE = { startRemaining: 810 };   // のこり きょり の 組みはじめ(テスト 2 で CORRIDOR_PRELOAD と くらべる)
 const keysOf = (s) => JSON.stringify([Object.keys(s).sort(), Object.keys(s.lifetime || {}).sort(), Object.keys((s.lifetime || {}).meguru || {}).sort()]);
 
 test('1. 許可リストは 5 本(かさならない)。のこり 5 本と special・memory_lake は いまの transition。LOW 4 本は 形が そろって いる', () => {
@@ -80,7 +81,7 @@ test('1. 許可リストは 5 本(かさならない)。のこり 5 本と speci
       else assert.equal(m.reason, 'not-walk', g.id);
     }
   }
-  assert.equal(Object.values(seen).filter((m) => m.mode === 'corridor').length, CONT.length * 2, '8 本 × 行きと 帰り');
+  assert.equal(Object.values(seen).filter((m) => m.mode === 'corridor').length, CONT.length * 2, '10 本 × 行きと 帰り');
   for (const id of SPECIAL) assert.ok(Object.keys(seen).some((k) => k.startsWith(id + ':')) && Object.keys(seen).filter((k) => k.startsWith(id + ':')).every((k) => seen[k].mode === 'transition'), id);
   // こまった とき: spec が ない・形が あわない は transition(許可リストに いれても)
   assert.equal(M.continuousWalkMode({ id: 'x|y', kind: 'walk', way: 'walk', from: 'x', to: 'y', spot: { id: 'q' }, at: 'q' }, { allow: ['x|y'] }).reason, 'no-spec');
@@ -94,8 +95,9 @@ test('2. 組みはじめ は 道の のこり 810(6 段 = 0.70)。5 本とも �
   const { M } = setup();
   for (const id of CONT) {
     const sp = M.walkCorridorSpec(id);
-    assert.equal(sp.walkLength, 2700, id);
-    assert.ok(Math.abs((1 - M.CORRIDOR_PRELOAD.startRemaining / sp.walkLength) - 0.7) < 1e-9, id);
+    // Phase 4E-4C: 5 段(2250)の countryside|forest では のこり 810 = 0.64
+    assert.equal(sp.walkLength, sp.stageCount * 450, id);
+    assert.ok(Math.abs((1 - M.CORRIDOR_PRELOAD.startRemaining / sp.walkLength) - (sp.stageCount === 6 ? 0.7 : 0.64)) < 1e-9, id);
     assert.ok(sp.turnRate.first <= 30 && sp.turnRate.revisit <= 30, `${id} ${sp.turnRate.first} / ${sp.turnRate.revisit}`);
   }
 });
@@ -113,7 +115,7 @@ test('3. 5 本 × 行きと 帰り(27 にん): 0.70 から 組み、着く ま�
     assert.equal(R.s.regionId, to, id); assert.equal(R.r.world.regionId, to, id);
     const P = R.P(), H = R.H();
     assert.equal(P.commits, 1, id); assert.equal(P.fallbacks, 0, id); assert.equal(P.fails, 0, id);
-    assert.ok(Math.abs(P.last.startFrac - 0.7) < 0.03, `${id} はじめ ${P.last.startFrac}`);
+    assert.ok(Math.abs(P.last.startFrac - (1 - M_PRE.startRemaining / L)) < 0.03, `${id} はじめ ${P.last.startFrac}`);
     assert.ok(P.last.readyFrac < 1 && !P.last.late, `${id} ready ${P.last.readyFrac}`);
     assert.equal(H.hits - H0.hits, 1, id); assert.equal(H.misses - H0.misses, 0, `${id} 二重 build なし`);
     // 組んだ world の 絵(住民・なかま つき)は デコードまで まって から ready(着いて はじめて デコードしない)
@@ -141,12 +143,12 @@ test('3. 5 本 × 行きと 帰り(27 にん): 0.70 から 組み、着く ま�
   }
 });
 
-test('4. reload(組みかけ / ready で やめる): セーブは 出発 地域、組んだ ものは のこらない(LOW 4 本)', () => {
+test('4. reload(組みかけ / ready で やめる): セーブは 出発 地域、組んだ ものは のこらない(home|forest いがい の 9 本)', () => {
   for (const id of NEW4) {
     const [from, to] = id.split('|');
     for (const [frac, faults] of [[0.72, { slow: true }], [0.9, null]]) {
       const R = run({ region: from, faults });
-      R.go(to); R.enter(); R.walkTo(frac, 2700);
+      R.go(to); R.enter(); R.walkTo(frac, R.M.walkCorridorSpec(id).walkLength);   // 4E-4C: 5 段(2250)も ある
       const st = R.r.corridor.preload;
       assert.ok(st === 'preparing' || st === 'ready', `${id} ${st}`);
       R.r.stop();
@@ -218,12 +220,13 @@ test('6. 絵の さきどり デコード: あるける 出口に ちかづく�
     R.arrive(); assert.equal(R.s.regionId, 'river_lake');
     R.r.stop();
   }
-  // corridor に ならない 出口(city|countryside。4E-4C まで transition)では しない
-  const R = run({ region: 'city' });
-  const g = R.r.sim.gates.find((q) => q.id === 'city|countryside'), gb = g.bearing || (g.out === 'far' ? { x: 0, z: 1 } : { x: 0, z: -1 });
+  // corridor に ならない 出口(countryside の ゴンドラ。とくべつな のりもの は transition の まま)では しない
+  const R = run({ region: 'countryside' });
+  const g = R.r.sim.gates.find((q) => q.id === 'countryside|star_stop'), gb = g.bearing || (g.out === 'far' ? { x: 0, z: 1 } : { x: 0, z: -1 });
   R.r.setPlayer(g.spot.x - gb.x * (g.spot.r + 100), g.spot.z - gb.z * (g.spot.r + 100)); R.h.advance(600);
-  const ccWords = M.corridorSceneryEmojis(M.walkCorridorSpec('city|countryside'), 'city');
-  assert.equal(R.decodes.filter((d) => d.list.length === ccWords.length && d.list.every((e) => ccWords.includes(e))).length, 0, 'city|countryside は まだ transition');
+  assert.equal(M.walkCorridorSpec('countryside|star_stop'), null, 'ゴンドラ は corridor で ない');
+  assert.equal(R.r.corridorStats.enters, 0);
+  assert.ok(R.decodes.every((d) => !d.list.includes('🚡')), 'ゴンドラ の ために デコード しない');
   R.r.stop();
   // 最初の 2 段 と 両端の 地域 だけ(ほかの 地域の ことばを ぜんぶ いれない)
   const w = M.corridorSceneryEmojis(M.walkCorridorSpec('city|desert'), 'city');
@@ -276,7 +279,8 @@ test('7. 景色(5 本 × 行きと 帰り): 背景は まんなかで 1 回だ�
 test('8. home.bigtree の 2 出口: むきで 1 つに きまる(もり / かわ を とりちがえない)。city の 3 出口・mountain の 4 出口も とりちがえない', () => {
   // Phase 4E-4B: city の 3 出口(desert・sea は corridor、countryside は まだ transition)と mountain の 4 出口
   const GATES = [['home', [['forest', 'home|forest'], ['river_lake', 'home|river_lake']]],
-    ['city', [['desert', 'city|desert'], ['sea', 'city|sea'], ['countryside', null]]],
+    ['city', [['desert', 'city|desert'], ['sea', 'city|sea'], ['countryside', 'city|countryside']]],
+    ['countryside', [['forest', 'countryside|forest'], ['city', 'city|countryside']]],
     ['mountain', [['forest', 'forest|mountain'], ['river_lake', 'mountain|river_lake'], ['snow', 'snow|mountain'], ['desert', 'desert|mountain']]]];
   for (const [region, cases] of GATES) {
     for (const [to, id] of cases) {

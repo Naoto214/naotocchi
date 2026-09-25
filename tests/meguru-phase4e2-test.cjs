@@ -71,7 +71,7 @@ const seq = (kinds) => kinds.join(',').replace(/(home,?)+/g, 'H').replace(/(C,?)
 
 test('1. corridor を あるくのは 許可リストの 5 本(行きと 帰り)だけ。ほかの 出口は いまの transition(Phase 4E-4A で LOW 4 本を たした)', () => {
   const { M } = setup();
-  const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain', 'forest|mountain', 'mountain|river_lake', 'city|sea'];
+  const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain', 'forest|mountain', 'mountain|river_lake', 'city|sea', 'city|countryside', 'countryside|forest'];
   assert.deepEqual(arr(M.CONTINUOUS_WALK_ALLOWLIST), CONT);
   const seen = {};
   for (const id of Object.keys(M.WORLDS)) {
@@ -87,7 +87,7 @@ test('1. corridor を あるくのは 許可リストの 5 本(行きと 帰り)
       }
     }
   }
-  assert.equal(Object.values(seen).filter((v) => v === 'corridor').length, CONT.length * 2, '8 本 × 行きと 帰り(Phase 4E-4B)');
+  assert.equal(Object.values(seen).filter((v) => v === 'corridor').length, CONT.length * 2, '10 本 × 行きと 帰り(Phase 4E-4C)');
   // ふね・ゴンドラ・もぐる は つねに transition
   for (const id of ['jungle|sea', 'countryside|star_stop', 'deepsea|sea']) assert.ok(Object.keys(seen).some((k) => k.startsWith(id + ':')), id + ' を しらべた');
   for (const k of Object.keys(seen)) if (/jungle\|sea|star_stop|deepsea/.test(k)) assert.equal(seen[k], 'transition', k);
@@ -548,11 +548,11 @@ test('16. 着く がわが 組み立てられない とき: home の 出口へ �
   R.r.stop();
 });
 
-test('17. ほかの walk 出口(例: countryside → forest)は いまの transition の まま', () => {
+test('17. walk で ない 出口(例: countryside の ゴンドラ)は いまの transition の まま(Phase 4E-4C で walk は 10 本 ぜんぶ corridor)', () => {
   const R = run({ region: 'countryside' });
-  R.go('forest');
-  for (let i = 0; i < 80 && R.s.regionId === 'countryside'; i++) R.h.advance(50);
-  assert.equal(R.s.regionId, 'forest');
+  const g = R.r.sim.gates.find((q) => q.id === 'countryside|star_stop');
+  assert.ok(g && g.kind !== 'walk', 'ゴンドラ は walk で ない');
+  assert.equal(R.M.continuousWalkMode(g, {}).mode, 'transition');
   assert.equal(R.r.corridorStats.enters, 0);
   R.r.stop();
 });

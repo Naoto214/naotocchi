@@ -169,7 +169,9 @@ test('5. むきは a の 出口 → b へ 入る むき へ なめらかに。�
     assert.equal(m, s.curveProfile.spread === 0 ? 225 : 0, s.connectionId);
     assert.ok(angDiff(M.corridorHeadingAt(s, s.a, m), hA) < 1e-9);
     assert.ok(angDiff(M.corridorHeadingAt(s, s.a, L - m), hB) < 1e-9);
-    assert.ok(angDiff(M.corridorHeadingAt(s, s.a, 1), hA) < 1e-3 && angDiff(M.corridorHeadingAt(s, s.a, L - 1), hB) < 1e-3, '出口で 曲率 0');
+    // 出口で むきが とばない(上げ下げ ありは 曲率 0 から、4E-4C の 一定 曲率は その 曲率の ぶん だけ)
+    const k1 = s.curveProfile.ramp > 0 ? 1e-3 : Math.abs(s.curveProfile.peakCurvature) + 1e-9;
+    assert.ok(angDiff(M.corridorHeadingAt(s, s.a, 1), hA) < k1 && angDiff(M.corridorHeadingAt(s, s.a, L - 1), hB) < k1, '出口で むきが とばない');
   }
 });
 
@@ -190,9 +192,9 @@ test('6. 曲がる はやさ(260/s): めやす 30°/s。こえる ものには �
     assert.equal(s.turnFlags.uTurnLike, s.turnClass === 'uTurnLike');
     rows.push([s.connectionId, rate]);
   }
-  // Phase 4E-4B: 曲がりを ひろげた ので 初回で こえる ものは ない。2 かいめ(1.4 倍)で こえるのは countryside|forest だけ(4E-4C)
+  // Phase 4E-4B / 4C: 曲がりを ひろげた ので 初回 / 2 かいめ(1.4 倍)とも こえる ものは ない(countryside|forest は 一定 曲率 で 28.7)
   assert.deepEqual(specs(M).filter((s) => s.turnFlags.overTurnBudget).map((s) => s.connectionId), []);
-  assert.deepEqual(specs(M).filter((s) => s.turnFlags.overTurnBudgetRevisit).map((s) => s.connectionId), ['countryside|forest']);
+  assert.deepEqual(specs(M).filter((s) => s.turnFlags.overTurnBudgetRevisit).map((s) => s.connectionId), []);
   assert.equal(M.walkCorridorSpec('countryside|forest').turnClass, 'uTurnLike');
   assert.equal(M.walkCorridorSpec('home|forest').turnClass, 'wide');
   assert.equal(M.walkCorridorSpec('home|river_lake').turnClass, 'gentle');

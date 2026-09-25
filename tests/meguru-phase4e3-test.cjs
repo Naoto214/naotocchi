@@ -285,7 +285,7 @@ test('11. reduced motion・perfTier 2 は いまの transition(preload も し�
     R.r.stop();
   }
   const { M } = setup();
-  const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain', 'forest|mountain', 'mountain|river_lake', 'city|sea'];   // Phase 4E-4A: LOW 4 本・4E-4B: MEDIUM 3 本を たした
+  const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain', 'forest|mountain', 'mountain|river_lake', 'city|sea', 'city|countryside', 'countryside|forest'];   // Phase 4E-4A: LOW 4 本・4E-4B: MEDIUM 3 本を たした
   assert.deepEqual(arr(M.CONTINUOUS_WALK_ALLOWLIST), CONT);
   for (const id of Object.keys(M.WORLDS)) {
     const w = M.buildWorld(id, M.buildRegistry());
