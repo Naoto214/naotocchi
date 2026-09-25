@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [210](210-new-seed-chain-normal-audit.md) | 3通常行動候補完全、能力連鎖中は唯一pass |
 | [209](209-new-seed-ability-activation.md) | 01-A盤上C-chicken起動、他3経路通常行動入口 |
 | [208](208-new-seed-next-response-audit.md) | 次優先者3機会唯一pass、盤上能力起動境界1 |
 | [207](207-new-seed-start-choice.md) | 01-A盤上能力をseed選択、他3経路唯一passを適用 |
@@ -93,7 +94,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[209 新seed盤上能力起動・3pass](209-new-seed-ability-activation.md)** の保存地点。01-Aの盤上C-chickenを連鎖起動して効果未解決、他3経路は通常行動入口。新decision3、event/snapshot各4、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+現在は **[210 新seed連鎖・通常行動候補監査](210-new-seed-chain-normal-audit.md)** の保存地点。3経路の通常行動候補完全、01-Aの連鎖中候補は唯一pass。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+
+履歴上、209は **[209 新seed盤上能力起動・3pass](209-new-seed-ability-activation.md)** の保存地点。01-Aの盤上C-chickenを連鎖起動して効果未解決、他3経路は通常行動入口。新decision3、event/snapshot各4、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
 履歴上、208は **[208 新seed次優先者response監査](208-new-seed-next-response-audit.md)** の保存地点。次優先者3機会はpassのみ、01-Aの盤上C-chickenは起動前境界。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
