@@ -2866,6 +2866,24 @@
       if (!m || !m.kinds[emoji]) return 1;
       return 1 - (1 - m.min) * clamp((dz - m.near) / (m.far - m.near), 0, 1);
     }
+    // 地域ごとの 絵文字の ばらつき(見た目だけ): [いちばん ちいさい, いちばん おおきい, たかさ の のびしろ]
+    // prop.size・当たり判定 は かえない。いち(x, z)から きめる ので まいかい おなじ
+    const EMOJI_VARY = Object.freeze({ city: Object.freeze({ '🏢': Object.freeze([0.8, 1.2, 1.25]), '🏬': Object.freeze([0.86, 1.12, 1.12]) }) });
+    function emojiVary(regionId, emoji, x, z) {
+      const v = (EMOJI_VARY[regionId] || {})[emoji];
+      if (!v) return null;
+      const key = Math.round(x) + ':' + Math.round(z), w = v[0] + (v[1] - v[0]) * hrand('vary:' + key);
+      return [w, w * (1 + (v[2] - 1) * hrand('varh:' + key))];
+    }
+    const varyMemo = new WeakMap();
+    function emojiVaryOf(regionId, p) {
+      if (!EMOJI_VARY[regionId]) return null;
+      let m = varyMemo.get(p);
+      if (m === undefined || m.r !== regionId) { m = { r: regionId, v: emojiVary(regionId, p.emoji, p.x, p.z) }; varyMemo.set(p, m); }
+      return m.v;
+    }
+    // かわの もや(朝・夜): 3 つの やま(もとの 3 本の おびの まんなか)を なだらかに つなぐ
+    const RIVERMIST_STOPS = Object.freeze([[0, 0], [0.17, 0.12], [0.33, 0.06], [0.5, 0.12], [0.67, 0.06], [0.83, 0.12], [1, 0]].map(Object.freeze));
     const SKY_OVERRIDE = { deepsea: ['#0b1d3a', '#163a66'], star_stop: ['#0a0c2a', '#2c2560'], memory_lake: ['#2a2d4d', '#5b6190'] };
     const ACTOR_SIZE = 110; // キャラの おおきさ(せかい たんい)
     const BACKDROP_COLORS = {
@@ -2937,7 +2955,7 @@
       }
       // 立て看板を えがく: キャッシュした えが あれば drawImage、なければ fillText。
       // scenery=true の ものは けしき せんよう の みちすじ(なかま・こいびと・しゅぞくの え に ぜったい ならず、placeholder にも ならない)
-      function drawGlyph(emoji, sx, sy, px, scenery) {
+      function drawGlyph(emoji, sx, sy, px, scenery, kw = 1, kh = 1) {
         let wrap = wrapCtx, ns = 'c', fallback = ctx;
         if (scenery) {
           const mode = sceneryMode(emoji);
@@ -2945,11 +2963,12 @@
           if (mode === 'art') { wrap = wrapScenery; ns = 's'; fallback = sceneryMain || rawMain || ctx; }
           else { wrap = null; ns = 'n'; fallback = rawMain || ctx; }
         }
+        if (kw !== 1) px *= kw; // kw / kh: 絵の はば と たかさ の かけざん(見た目だけ)
         const c = px >= 12 ? glyphSprite(emoji, px, wrap, ns) : null;
-        if (c) { const bucket = Math.min(256, Math.max(12, Math.ceil(px / 12) * 12)); const k = px / bucket; ctx.drawImage(c, sx - c.width * k / 2, sy - (c.height - 2) * k, c.width * k, c.height * k); }
-        else { const g = fallback; if (g !== ctx) g.globalAlpha = ctx.globalAlpha; g.font = `${Math.round(px)}px sans-serif`; g.textAlign = 'center'; g.textBaseline = 'bottom'; g.fillText(emoji, sx, sy); if (g !== ctx) g.globalAlpha = 1; }
+        if (c) { const bucket = Math.min(256, Math.max(12, Math.ceil(px / 12) * 12)); const k = px / bucket, kv = k * kh / kw; ctx.drawImage(c, sx - c.width * k / 2, sy - (c.height - 2) * kv, c.width * k, c.height * kv); }
+        else { const g = fallback; if (g !== ctx) g.globalAlpha = ctx.globalAlpha; g.font = `${Math.round(px * kh / kw)}px sans-serif`; g.textAlign = 'center'; g.textBaseline = 'bottom'; g.fillText(emoji, sx, sy); if (g !== ctx) g.globalAlpha = 1; }
       }
-      const drawScenery = (emoji, sx, sy, px) => drawGlyph(emoji, sx, sy, px, true);
+      const drawScenery = (emoji, sx, sy, px, kw, kh) => drawGlyph(emoji, sx, sy, px, true, kw, kh);
       const playerGlyph = typeof o.playerGlyph === 'function' ? o.playerGlyph : () => '🐣';
       // とうえい: カメラは じぶんの camera.dist うしろ(むき yaw)、たかさは じぶんの あしもとが FEET_FRAC に くる ように ぎゃくさん。地平線 HOR
       const HOR_BASE = 0.30, FEET_FRAC = 0.80, NEAR = 30;
@@ -4301,8 +4320,10 @@
           for (let i = 0; i < 3; i++) { const x2 = wrapN(curNow * 0.008 * (1 + i * 0.4) + i * 220 + plx('far') * 0.6, W + 300) - 150, y2 = HOR - H * (0.02 + i * 0.03); ctx.beginPath(); ctx.ellipse(x2, y2, W * 0.24, H * 0.015, 0, 0, TAU); ctx.fill(); }
         }
         else if (k === 'rivermist' && (t === 'morning' || night)) { // かわの あさもや
-          ctx.fillStyle = 'rgba(230,240,250,.14)';
-          for (let i = 0; i < 3; i++) { const y2 = HOR + (H - HOR) * (0.04 + i * 0.09); ctx.fillRect(0, y2, W, (H - HOR) * 0.05); }
+          // 3 本の もやを 1 まいの たての グラデーションで。ふちを ぼかして 線(しましま)に 見せない
+          const y0 = HOR + (H - HOR) * 0.02, y1 = HOR + (H - HOR) * 0.29, g = ctx.createLinearGradient(0, y0, 0, y1);
+          for (const [t, a] of RIVERMIST_STOPS) g.addColorStop(t, 'rgba(230,240,250,' + a + ')');
+          ctx.fillStyle = g; ctx.fillRect(0, y0, W, y1 - y0);
         }
         else if (k === 'mistveil') { // きおくのみずうみ: しずかな きりの そう
           ctx.fillStyle = 'rgba(200,208,232,.13)';
@@ -4494,7 +4515,11 @@
             // きりの 地域は 木の 絵文字を とおくほど 霧に しずめる(見た目だけ。数・位置・当たりは そのまま)
             fade *= emojiMistFactor(world.regionId, it.o.emoji, it.p.dz);
             if (fade <= 0.04) continue;
-            const px = it.o.size * it.p.s; if (px < 5) continue; ctx.globalAlpha = fade; drawScenery(it.o.emoji, it.p.sx, it.p.sy, px); ctx.globalAlpha = 1;
+            const px = it.o.size * it.p.s; if (px < 5) continue; ctx.globalAlpha = fade;
+            // おなじ 絵の ビルが ならぶ ところは、1 つ ずつ 大きさ と たかさ を かえる(当たり・位置は そのまま)
+            const vary = emojiVaryOf(world.regionId, it.o);
+            if (vary) drawScenery(it.o.emoji, it.p.sx, it.p.sy, px, vary[0], vary[1]); else drawScenery(it.o.emoji, it.p.sx, it.p.sy, px);
+            ctx.globalAlpha = 1;
           }
           else if (it.kind === 'player') {
             const px = ACTOR_SIZE * it.p.s; const facing = facingOf(player.heading, cam.yaw);
@@ -8405,6 +8430,6 @@
       return { stop, layoutInfo, foundInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; }, get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
+    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, EMOJI_VARY, emojiVary, RIVERMIST_STOPS, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
   };
 })();
