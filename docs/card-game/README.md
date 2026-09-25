@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [204](204-new-seed-turn-end-replay.md) | 4経路の終了遷移・次手番各2枚ドロー、たまご交換入口 |
 | [203](203-new-seed-turn-end-proof.md) | 185〜202の全event/hash・4経路六段階ターン終了を監査 |
 | [202](202-new-seed-end-response-replay.md) | 2唯一passを適用し4経路ともターン終了入口 |
 | [201](201-new-seed-end-response-audit.md) | 01-A/01-B終了responseは唯一pass、02-A/02-B終了履歴入口 |
@@ -87,7 +88,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[203 新seed4経路終了履歴監査](203-new-seed-turn-end-proof.md)** の保存地点。185〜202のevent/hashを連結し4経路で六段階ターン終了完全。次は終了遷移。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+現在は **[204 新seed4終了遷移・次手番ドロー](204-new-seed-turn-end-replay.md)** の保存地点。4経路で終了遷移と各2枚ドローを適用し全経路たまご交換入口。新event/snapshot各8、decision0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+
+履歴上、203は **[203 新seed4経路終了履歴監査](203-new-seed-turn-end-proof.md)** の保存地点。185〜202のevent/hashを連結し4経路で六段階ターン終了完全。次は終了遷移。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
 履歴上、202は **[202 新seed終了response2経路再開](202-new-seed-end-response-replay.md)** の保存地点。01-A/01-Bの唯一passを適用し4経路すべてターン終了入口。六段階履歴監査が次。新decision/event/snapshot各2、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
