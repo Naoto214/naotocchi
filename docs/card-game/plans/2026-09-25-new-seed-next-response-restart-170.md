@@ -1,0 +1,5 @@
+# 170 TDD計画：開始時responseのpass閉鎖とitem起動
+
+169 raw SHA・監査再生成と168の4保存state/hashを入口とする。3経路の次優先者が唯一のpassを選ぶことを119で再計算し、双方連続passで通常行動入口へ戻す。02-Aの選択済みI-c_coin2は空の開始時連鎖から時1を払い、154の既存quick item link schemaと119のpriority遷移で起動する。公開山札上と解決は次のcheckpointに残す。
+
+REDは4経路各1 event/snapshot、起動中のchain、dual hash改ざん拒否の専用2テスト。GREEN後は保存原本raw、seq、state/hash連鎖、正準JSONを再生成する。起動中のcardはactivation zoneに置き、解決前の通常board-zone整合検査へ誤投入しない。

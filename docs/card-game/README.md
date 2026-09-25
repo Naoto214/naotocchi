@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [170](170-new-seed-next-response-restart.md) | 3経路で2回目passを閉じ、02-A item連鎖起動 |
 | [169](169-new-seed-next-response-audit.md) | 3経路の次優先者pass完全証明、02-A item起動境界 |
 | [168](168-new-seed-start-restart.md) | 4経路の開始時response初回選択、3 pass・1 item選択 |
 | [167](167-board-ability-response-id.md) | 119の追加契約として盤上能力の一般response IDを確定、4機会候補完全 |
@@ -53,7 +54,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[169 新seed次優先者response監査](169-new-seed-next-response-audit.md)** の保存地点。01-A/B・02-Bの次優先者候補はpassのみと完全証明。02-AはI-c_coin2の手札・時・山札・空連鎖を検査し起動前保持。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxy固定168 snapshot検査中で全件GREENとは扱わない。
+現在は **[170 新seed次優先者response再開](170-new-seed-next-response-restart.md)** の保存地点。01-A/B・02-Bは2回目passで通常行動入口へ、02-AはI-c_coin2を空の開始時連鎖へ起動。新decision3・event/snapshot各4、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxy固定168 snapshot検査中で全件GREENとは扱わない。
+
+履歴上、169は **[169 新seed次優先者response監査](169-new-seed-next-response-audit.md)** の保存地点。01-A/B・02-Bの次優先者候補はpassのみと完全証明。02-AはI-c_coin2の手札・時・山札・空連鎖を検査し起動前保持。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。
 
 履歴上、168は **[168 新seed開始時response初回選択](168-new-seed-start-restart.md)** の保存地点。01-AはC-chickenとpassを比較しseeded fallbackでpass、01-B/02-Bもpass。02-AはI-c_coin2をseeded fallbackで選択し発動前保持。新decision4・event/snapshot各3、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。
 
