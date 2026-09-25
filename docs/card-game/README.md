@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [206](206-new-seed-start-audit.md) | 4開始response候補完全、01-AだけC-chickenとpass |
 | [205](205-new-seed-egg-replay.md) | 4経路たまご交換をseedで処理、開始response入口へ |
 | [204](204-new-seed-turn-end-replay.md) | 4経路の終了遷移・次手番各2枚ドロー、たまご交換入口 |
 | [203](203-new-seed-turn-end-proof.md) | 185〜202の全event/hash・4経路六段階ターン終了を監査 |
@@ -89,7 +90,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[205 新seed4たまご交換再開](205-new-seed-egg-replay.md)** の保存地点。4経路の交換をseedで処理し開始時response入口。全経路seeded fallbackにより独立balance標本0。新decision/event/snapshot各4、completed0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+現在は **[206 新seed4開始response監査](206-new-seed-start-audit.md)** の保存地点。01-Aは盤上C-chickenとpassの2候補、他3経路はpassのみ。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+
+履歴上、205は **[205 新seed4たまご交換再開](205-new-seed-egg-replay.md)** の保存地点。4経路の交換をseedで処理し開始時response入口。全経路seeded fallbackにより独立balance標本0。新decision/event/snapshot各4、completed0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
 履歴上、204は **[204 新seed4終了遷移・次手番ドロー](204-new-seed-turn-end-replay.md)** の保存地点。4経路で終了遷移と各2枚ドローを適用し全経路たまご交換入口。新event/snapshot各8、decision0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
