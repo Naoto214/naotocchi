@@ -1,0 +1,236 @@
+{
+  "completed": 0,
+  "independent_balance_sample_count": 0,
+  "new_events": 0,
+  "planned": 4,
+  "results": [
+    {
+      "balance_sample_count": 0,
+      "board_exclusions": [
+        {
+          "card_id": "C-bat",
+          "reason_code": "trigger_condition_not_met",
+          "source_instance_id": "B-011#1"
+        },
+        {
+          "card_id": "P-cat_ceo",
+          "reason_code": "partner_ability_disabled_during_egg",
+          "source_instance_id": "B-017#1"
+        }
+      ],
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "candidate_set_complete": true,
+      "completed": false,
+      "hand_conditional_exclusions": [
+        {
+          "card_id": "E-final-time",
+          "reason_code": "requires_main_eight_or_r10",
+          "source_instance_id": "B-039#1",
+          "source_reference": "91-event-21-card-text-draft.md#E-final-time"
+        },
+        {
+          "card_id": "E-big-illness",
+          "reason_code": "no_opponent_main_target",
+          "source_instance_id": "B-036#1",
+          "source_reference": "91-event-21-card-text-draft.md#E-big-illness"
+        }
+      ],
+      "hand_other_exclusions": [
+        {
+          "card_id": "M-antlion-01",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "B-001#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "M-beetle-02",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "B-010#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "M-antlion-06",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "B-006#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": null,
+          "reason_code": "no_prepared_activation_present",
+          "source_instance_id": null,
+          "source_zone": "prepared"
+        }
+      ],
+      "new_events": 0,
+      "next_opportunity": "response_window",
+      "path_id": "probe-01-a-first",
+      "source_continuation_state_sha256": "33200f36c72e72a3f3ce306f5531381055c9c32653df7068f35f8c4f39f1a1a5",
+      "source_game_state_sha256": "8a6ffcc10068c42e9d84193810d2d1e3cb0510014ffb83e2475e3e1bd1803167",
+      "source_last_valid_event_seq": 45,
+      "verified_stop_reason_code": "unproved_next_priority_response_candidates"
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-activate-ability-A-015#1"
+      ],
+      "candidate_set_complete": true,
+      "completed": false,
+      "new_events": 0,
+      "next_opportunity": "selected_board_ability_activation",
+      "path_id": "probe-01-b-first",
+      "public_top_card_preinspection": false,
+      "source_continuation_state_sha256": "1bd8512b48226dc2b47e3d266c0ded562239d7e51e1979c2d22684ed6038bd61",
+      "source_game_state_sha256": "af6628cab557e51ff12b1f8f1a381aed930f842a87512273aae035204e511321",
+      "source_instance_id": "A-015#1",
+      "source_last_valid_event_seq": 48,
+      "verified_stop_reason_code": "unproved_selected_board_ability_activation"
+    },
+    {
+      "balance_sample_count": 0,
+      "board_exclusions": [
+        {
+          "card_id": "P-cliff_goat",
+          "reason_code": "trigger_condition_not_met",
+          "source_instance_id": "B-018#1"
+        }
+      ],
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "candidate_set_complete": true,
+      "completed": false,
+      "hand_conditional_exclusions": [
+        {
+          "card_id": "G-area-claim",
+          "reason_code": "fewer_than_seven_non_egg_board_cards",
+          "source_instance_id": "B-026#1",
+          "source_reference": "85-play-batch-4-card-text-draft.md#G-area-claim"
+        },
+        {
+          "card_id": "G-archery-3d",
+          "reason_code": "requires_own_world",
+          "source_instance_id": "B-025#1",
+          "source_reference": "79-play-batch-1-card-text-draft.md#G-archery-3d"
+        },
+        {
+          "card_id": "E-fateful-transform",
+          "reason_code": "requires_own_main",
+          "source_instance_id": "B-038#1",
+          "source_reference": "91-event-21-card-text-draft.md#E-fateful-transform"
+        },
+        {
+          "card_id": "G-asteroids-classic",
+          "reason_code": "requires_own_prepared_target",
+          "source_instance_id": "B-027#1",
+          "source_reference": "83-play-batch-3-card-text-draft.md#G-asteroids-classic"
+        },
+        {
+          "card_id": "E-final-time",
+          "reason_code": "requires_main_eight_or_r10",
+          "source_instance_id": "B-039#1",
+          "source_reference": "91-event-21-card-text-draft.md#E-final-time"
+        }
+      ],
+      "hand_other_exclusions": [
+        {
+          "card_id": "M-antlion-01",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "B-001#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "W-deepsea",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "B-022#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": null,
+          "reason_code": "no_prepared_activation_present",
+          "source_instance_id": null,
+          "source_zone": "prepared"
+        }
+      ],
+      "new_events": 0,
+      "next_opportunity": "response_window",
+      "path_id": "probe-02-b-first",
+      "source_continuation_state_sha256": "1d4f5152191d13cd53261fdf97783cf6bc37c0e693308678d1a14598a763aa8a",
+      "source_game_state_sha256": "4cab47f1e1f15e2647ca3aec266d9c48a5731e9e7879dfaefffcbf95591bac51",
+      "source_last_valid_event_seq": 49,
+      "verified_stop_reason_code": "unproved_next_priority_response_candidates"
+    },
+    {
+      "balance_sample_count": 0,
+      "board_exclusions": [
+        {
+          "card_id": "P-anglerfish",
+          "reason_code": "trigger_condition_not_met",
+          "source_instance_id": "A-016#1"
+        }
+      ],
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "candidate_set_complete": true,
+      "completed": false,
+      "hand_conditional_exclusions": [
+        {
+          "card_id": "G-animal-shogi",
+          "reason_code": "requires_own_discarded_companion",
+          "source_instance_id": "A-024#1",
+          "source_reference": "83-play-batch-3-card-text-draft.md#G-animal-shogi"
+        }
+      ],
+      "hand_other_exclusions": [
+        {
+          "card_id": "G-basketball-3d",
+          "reason_code": "no_own_main_target",
+          "source_instance_id": "A-029#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "I-bond1",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "A-031#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "M-antlion-06",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "A-006#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "P-desert_scorpion",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "A-019#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "I-bowtie",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "A-032#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": null,
+          "reason_code": "no_prepared_activation_present",
+          "source_instance_id": null,
+          "source_zone": "prepared"
+        }
+      ],
+      "new_events": 0,
+      "next_opportunity": "response_window",
+      "path_id": "probe-02-a-first",
+      "source_continuation_state_sha256": "ba93bc2ba0e6161781dda0e4a582339b7cff3deb769bee4d7ac9780a6e52e53e",
+      "source_game_state_sha256": "1b6f927a75618bc42302f07ce699e271568db5872246e9987776817340253241",
+      "source_last_valid_event_seq": 36,
+      "verified_stop_reason_code": "unproved_turn_end_response_candidates"
+    }
+  ],
+  "schema": "naotocchi.card_game.proxy_new_seed_current_audit_226.v1",
+  "source_raw_sha256": "8563a9890cafd46aff65c30940538d59453e599d16be0c36a1b9191a29edfda8"
+}

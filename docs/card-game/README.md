@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [226](226-new-seed-current-audit.md) | 応答3件の唯一pass、選択済みC-chicken起動入口を再監査 |
 | [225](225-new-seed-boundary.md) | 224のphase/eventを照合し01-Aの停止理由ラベルを訂正 |
 | [224](224-new-seed-mixed-replay.md) | response pass2、通常pass1をstateへ適用、01-B能力起動待ち |
 | [223](223-new-seed-mixed-choice.md) | 4経路の選択監査：能力1、response pass2、通常pass1 |
@@ -109,7 +110,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[225 新seed境界訂正](225-new-seed-boundary.md)** の保存地点。224の01-Aは配置後responseの次優先権が正しく、停止理由ラベルのみ訂正を記録。保存済み224のstate/hashと報告は保持。
+現在は **[226 新seed現在局面監査](226-new-seed-current-audit.md)** の保存地点。3経路のresponseは唯一pass、01-Bは選択済み盤上能力起動の入口。
 
 履歴上、221は **[221 新seed2経路たまご交換](221-new-seed-egg-replay.md)** の保存地点。01-B/02-Bは開始時response入口、01-A/02-Aは各応答局面保持。
 
