@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [220](220-new-seed-turn-end-replay.md) | 01-B/02-Bターン終了・次手番2枚ドロー、他2経路保持 |
 | [219](219-new-seed-turn-end-proof.md) | 01-B/02-B終了履歴6手順完全、他2経路保持 |
 | [218](218-new-seed-mixed-replay.md) | 01-A無料配置、02-A次response passをstateへ適用 |
 | [217](217-new-seed-mixed-choice.md) | 01-A無料P-cat_ceo配置を一意に選択、他3経路保持 |
@@ -103,7 +104,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[219 新seed終了履歴証明](219-new-seed-turn-end-proof.md)** の保存地点。01-B/02-Bの6手順終了履歴完全、01-A/02-Aは各応答局面保持。
+現在は **[220 新seed2経路次手番ドロー](220-new-seed-turn-end-replay.md)** の保存地点。01-B/02-Bはたまご交換入口、01-A/02-Aは各応答局面を保持。
+
+履歴上、219は **[219 新seed終了履歴証明](219-new-seed-turn-end-proof.md)** の保存地点。01-B/02-Bの6手順終了履歴完全、01-A/02-Aは各応答局面保持。
 
 履歴上、218は **[218 新seed混合選択再開](218-new-seed-mixed-replay.md)** の保存地点。01-A無料配置と02-A次response passをstateへ適用。終了履歴2経路は保持。
 
