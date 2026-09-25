@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [162](162-new-seed-turn-end-history.md) | 4経路の全event/hash/成長履歴をターン終了入口まで検証 |
 | [161](161-new-seed-end-response-restart.md) | 3ターン終了responseをpassで閉じ、4経路ともターン終了入口 |
 | [160](160-new-seed-normal-restart.md) | 3通常行動をpassで再開し、02-Aターン終了入口を保持 |
 | [159](159-new-seed-next-audit.md) | 3通常行動を完全監査し、02-Aターン終了入口を保持 |
@@ -45,7 +46,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[161 新seedターン終了response再開](161-new-seed-end-response-restart.md)** の保存地点。01-A/B・02-Bの現在候補を完全証明し、それぞれ唯一のresponse-passで閉じた。02-Aと合わせて4経路ともターン終了入口。新decision/event/snapshot各3、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxy固定158 snapshot検査中で全件GREENとは扱わない。
+現在は **[162 新seedターン終了履歴出所](162-new-seed-turn-end-history.md)** の保存地点。4経路の135〜161全event/hash/成長を現在のターン終了入口まで連結し、02-AのG-hit-blow一致+5、02-Bの不一致+0、予約・100到達なしを検証。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxy固定158 snapshot検査中で全件GREENとは扱わない。
+
+履歴上、161は **[161 新seedターン終了response再開](161-new-seed-end-response-restart.md)** の保存地点。01-A/B・02-Bの現在候補を完全証明し、それぞれ唯一のresponse-passで閉じた。02-Aと合わせて4経路ともターン終了入口。新decision/event/snapshot各3、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。
 
 履歴上、160は **[160 新seed3通常行動再開](160-new-seed-normal-restart.md)** の保存地点。01-AはM-antlionたんじょうとpassを時残高で比較してpass、01-B/02-Bは唯一のpassを選択。3経路はターン終了前response入口、02-Aはターン終了入口を保持。新decision/event/snapshot各3、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。
 
