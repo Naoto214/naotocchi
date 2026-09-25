@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [214](214-new-seed-followup-replay.md) | response-pass4件をstateへ適用、能力解決1・終了履歴2 |
 | [213](213-new-seed-followup-audit.md) | 次response4機会とも候補唯一pass |
 | [212](212-new-seed-choice-replay.md) | 4経路選択を各1eventでstateへ適用 |
 | [211](211-new-seed-choice-audit.md) | 01-A唯一pass、02-A無料こいびと配置、01-B/02-B有償行動対pass比較 |
@@ -97,7 +98,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[213 新seed次response横断監査](213-new-seed-followup-audit.md)** の保存地点。連鎖相手、配置後、ターン終了2件の4機会とも唯一pass。次のチェックポイントでstateへ適用。
+現在は **[214 新seed4response再開](214-new-seed-followup-replay.md)** の保存地点。唯一pass4件をstateへ適用。能力連鎖解決1、配置後次優先者1、終了履歴2を次に監査。
+
+履歴上、213は **[213 新seed次response横断監査](213-new-seed-followup-audit.md)** の保存地点。連鎖相手、配置後、ターン終了2件の4機会とも唯一pass。次のチェックポイントでstateへ適用。
 
 履歴上、212は **[212 新seed4経路選択再開](212-new-seed-choice-replay.md)** の保存地点。response pass1、無料配置1、通常pass2をstateへ適用。新decision/event/snapshot各4、completed0、独立balance標本0。次は発生した局面を横断監査。
 
