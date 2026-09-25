@@ -22,7 +22,7 @@
 | 4E-4B MEDIUM 3 本 | #341 / `742a406` | turn spread(曲がり を 道 ぜんぶ へ)・端の いろ・まち の 運河 | A 採用 | [4E-4B](meguru-phase4e4b-medium-corridors-2026-09-24.md) |
 | 4E-4C HIGH 2 本 | #342 / `671fa90` | 一定 曲率(level 3)・村の はし・walk 10 / 10 | B 条件つき 採用 → 条件 は RH へ | [4E-4C](meguru-phase4e4c-high-corridors-2026-09-25.md) |
 
-main `671fa90`: npm test **1343 / 1343**(worktree)・Runtime smoke / Home layout は マージ 後の CI で 確認(§5)。
+main `671fa90`: npm test **1343 / 1343**(worktree)・Runtime smoke 緑・Home layout 緑。
 
 ## 2. 最終 チェック
 
@@ -83,7 +83,7 @@ Phase 4 本線 では あたらしい scenery polish を はじめない。以�
 
 - main HEAD: `671fa90`(Merge PR #342。親 `742a406` + `de11d51`)
 - npm test: 1343 / 1343(マージ 後 の main を worktree で)
-- CI: マージ 後 の main で Runtime smoke・Home layout(この 文書 の PR で 結果 を 追記)
+- CI: マージ 後 の main で **Runtime smoke 緑・Home layout 緑**
 
 ## 6. Three.js
 
