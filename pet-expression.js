@@ -341,6 +341,48 @@
     wantsPlay: '<svg viewBox="0 0 104 104" focusable="false"><path class="accent-call accent-outline" d="M72 18l-6-7M82 16V7M91 20l7-6"/><path class="accent-call" d="M72 18l-6-7M82 16V7M91 20l7-6"/></svg>',
     sleeping: '<svg viewBox="0 0 104 104" focusable="false"><path class="accent-sleep-z accent-outline" d="M68 31h6l-6 6h6"/><path class="accent-sleep-z" d="M68 31h6l-6 6h6"/><path class="accent-sleep-z accent-outline" d="M78 21h8l-8 8h8"/><path class="accent-sleep-z" d="M78 21h8l-8 8h8"/><path class="accent-sleep-z accent-outline" d="M88 8h11L88 19h11"/><path class="accent-sleep-z" d="M88 8h11L88 19h11"/></svg>',
   });
+  const HUNGER_PROFILES = Object.freeze({
+    man: Object.freeze({default:'rice',overrides:Object.freeze({'01':'milk'})}),
+    woman: Object.freeze({default:'rice',overrides:Object.freeze({'01':'milk'})}),
+    dog: Object.freeze({default:'food_bowl',overrides:Object.freeze({'01':'milk'})}),
+    cat: Object.freeze({default:'fish',overrides:Object.freeze({'01':'milk'})}),
+    penguin: Object.freeze({default:'fish',overrides:Object.freeze({})}),
+    turtle: Object.freeze({default:'food_bowl',overrides:Object.freeze({})}),
+    frog: Object.freeze({default:'insect',overrides:Object.freeze({'01':'algae_aquatic_plant','02':'algae_aquatic_plant','03':'algae_aquatic_plant','04':'neutral_nutrition'})}),
+    salmon: Object.freeze({default:'aquatic_small_prey',overrides:Object.freeze({'01':'neutral_nutrition','07':'neutral_nutrition','08':'neutral_nutrition'})}),
+    clownfish: Object.freeze({default:'aquatic_small_prey',overrides:Object.freeze({})}),
+    butterfly: Object.freeze({default:'leaf',overrides:Object.freeze({'05':'neutral_nutrition','06':'neutral_nutrition','07':'nectar','08':'nectar'})}),
+    beetle: Object.freeze({default:'tree_sap',overrides:Object.freeze({'01':'humus','02':'humus','03':'humus','04':'neutral_nutrition','05':'neutral_nutrition'})}),
+    stagbeetle: Object.freeze({default:'tree_sap',overrides:Object.freeze({'01':'decaying_wood_humus','02':'decaying_wood_humus','03':'decaying_wood_humus','04':'neutral_nutrition','05':'neutral_nutrition'})}),
+    cicada: Object.freeze({default:'plant_sap',overrides:Object.freeze({'05':'neutral_nutrition'})}),
+    antlion: Object.freeze({default:'neutral_nutrition',overrides:Object.freeze({'01':'insect','02':'insect','03':'insect'})}),
+    hermit_crab: Object.freeze({default:'omnivore_food',overrides:Object.freeze({})}),
+    jellyfish: Object.freeze({default:'aquatic_small_prey',overrides:Object.freeze({'02':'neutral_nutrition'})}),
+    starfish: Object.freeze({default:'benthic_small_prey',overrides:Object.freeze({'01':'aquatic_small_prey','02':'aquatic_small_prey','03':'neutral_nutrition'})}),
+    coral: Object.freeze({default:'aquatic_small_prey',overrides:Object.freeze({'01':'neutral_nutrition'})}),
+    dandelion: Object.freeze({default:'water',overrides:Object.freeze({'01':'neutral_nutrition','07':'neutral_nutrition','08':'neutral_nutrition'})}),
+    sakura: Object.freeze({default:'water',overrides:Object.freeze({'01':'neutral_nutrition'})}),
+    venus_flytrap: Object.freeze({default:'fly',overrides:Object.freeze({'01':'neutral_nutrition','02':'water','03':'water'})}),
+    mushroom: Object.freeze({default:'organic_nutrients',overrides:Object.freeze({'01':'neutral_nutrition'})}),
+    dragon: Object.freeze({default:'food_bowl',overrides:Object.freeze({})}),
+    phoenix: Object.freeze({default:'neutral_nutrition',overrides:Object.freeze({})}),
+    god: Object.freeze({default:'neutral_nutrition',overrides:Object.freeze({})}),
+    world_tree: Object.freeze({default:'water',overrides:Object.freeze({'01':'neutral_nutrition'})}),
+    ghost: Object.freeze({default:'neutral_nutrition',overrides:Object.freeze({})}),
+    star: Object.freeze({default:'neutral_nutrition',overrides:Object.freeze({})}),
+    plush: Object.freeze({default:'neutral_nutrition',overrides:Object.freeze({})}),
+    unknown: Object.freeze({default:'neutral_nutrition',overrides:Object.freeze({})}),
+    ren: Object.freeze({default:'rice',overrides:Object.freeze({'01':'milk'})}),
+  });
+
+  function hungerCategoryFor(baseAsset) {
+    if (typeof baseAsset !== 'string') return null;
+    const match = /^assets\/characters\/([^/]+)\/(0[1-8])\.png$/.exec(baseAsset);
+    if (!match || !Object.hasOwn(HUNGER_PROFILES,match[1])) return null;
+    const profile = HUNGER_PROFILES[match[1]];
+    return Object.hasOwn(profile.overrides,match[2]) ? profile.overrides[match[2]] : profile.default;
+  }
+
   const REACTIONS = Object.freeze({
     play_with: 'happy',
     play_with_annoyed: 'sulky',
@@ -408,5 +450,5 @@
     return Object.hasOwn(REACTIONS,event) ? REACTIONS[event] : null;
   }
 
-  return Object.freeze({ resolve, assetFor, accentFor, sweatFor, reactionFor });
+  return Object.freeze({ resolve, assetFor, accentFor, sweatFor, reactionFor, hungerCategoryFor });
 });
