@@ -1,0 +1,3 @@
+# 184 新seed4ターン終了の履歴・六段階監査 TDD計画
+
+181全履歴と183最終stateをraw SHAで固定する。先に専用テストをREDにする。183で増えたresponse-pass2件をevent seq・前後game/continuation SHA・snapshot・成長推移で接続し、保持した2経路を含む4経路の全履歴を再構成する。123六段階を現在state・履歴出所から再計算し、全項目真・stop code空のときだけ次のターン終了遷移へ進める。新eventなしのcanonical JSON、専用テスト・設計データを確認しGitHubへ保存する。
