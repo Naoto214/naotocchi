@@ -276,3 +276,21 @@ test('9. special の 表(ふね・ゴンドラ・もぐる): 許可リストに 
     }
   }
 });
+
+test('10. 端の いろ の きまり(地形 × 地域 の きまり で、本ごと で ない): 10 本 の 端の 段を ほかの 地域の いろの 地形に かえても、道の はしは 端の 地域の いろ', () => {
+  const { M } = setup();
+  // いまの 10 本は 端の 段が みな 端の 地域の いろ(4E-4C の 村の はし で さいごの 1 本 も そろった)。きまり が のこって いる ことを 地形を かえて たしかめる
+  const dist = (a, b) => Math.max(...rgb(a).map((v, k) => Math.abs(v - rgb(b)[k])));
+  const foreign = (region) => ['dry', 'river', 'forest', 'field', 'shore'].find((t) => M.corridorStageLook(t, region).palette !== region);
+  for (const id of arr(M.CONTINUOUS_WALK_ALLOWLIST)) {
+    const sp = JSON.parse(JSON.stringify(M.walkCorridorSpec(id))), n = sp.stages.length;
+    const ta = foreign(sp.a), tb = foreign(sp.b);
+    sp.stages[0].terrain = sp.terrainStages[0] = ta; sp.stages[n - 1].terrain = sp.terrainStages[n - 1] = tb;
+    assert.notEqual(M.corridorStageLook(ta, sp.a).palette, sp.a); assert.notEqual(M.corridorStageLook(tb, sp.b).palette, sp.b);
+    for (const from of [sp.a, sp.b]) {
+      const to = from === sp.a ? sp.b : sp.a, W = M.createCorridorWalk(sp, from, {}).world;
+      W.setProgress(0.01); assert.ok(dist(W.ground[0], M.WORLDS[from].ground[0]) <= 6, `${id} ${from} はじめ ${W.ground[0]}`);
+      W.setProgress(0.99); assert.ok(dist(W.ground[0], M.WORLDS[to].ground[0]) <= 6, `${id} ${to} おわり ${W.ground[0]}`);
+    }
+  }
+});

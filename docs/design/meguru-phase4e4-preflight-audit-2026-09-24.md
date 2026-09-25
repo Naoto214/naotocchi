@@ -650,5 +650,5 @@ CPU 4 倍・なかま 8 人。単位 ms。
 | 4E-3 preload | **完了**(#338、main `f273748`。npm test 1318 / 1318、Runtime smoke・Home layout 緑) |
 | 4E-4 Preflight(この文書) | **完了**(#339、main `c7705d8`。Runtime smoke 緑) |
 | 4E-4A(LOW 4 本) | **完了**(#340、main `134e210`。npm test 1328 / 1328、Runtime smoke・Home layout 緑)。[handoff](../handoff/meguru-phase4e4a-low-corridors-2026-09-24.md)。判定 A、入口 ≤ 45 ms・暗転 ≤ 300 ms(CPU 4 倍) |
-| 4E-4B(MEDIUM 3 本) | Draft PR(マージしない)。[handoff](../handoff/meguru-phase4e4b-medium-corridors-2026-09-24.md)。曲がりを 道 ぜんぶへ ひろげる(turn spread)で 2 かいめ ≤ 28°/s |
-| 4E-4C | まだ |
+| 4E-4B(MEDIUM 3 本) | **完了**(#341、main `742a406`。npm test 1333 / 1333、Runtime smoke・Home layout 緑)。[handoff](../handoff/meguru-phase4e4b-medium-corridors-2026-09-24.md)。曲がりを 道 ぜんぶへ ひろげる(turn spread)で 2 かいめ 26.3 / 25.8 / 27.2°/s |
+| 4E-4C(HIGH 2 本) | Draft PR(マージしない)。[handoff](../handoff/meguru-phase4e4c-high-corridors-2026-09-25.md)。countryside\|forest は 道 ぜんぶ 一定 曲率 で 2 かいめ 28.7°/s、city\|countryside は turn spread で 26.0°/s。1.4 倍 の まま。walk 10 / 10。Phase 4E の 完了 監査 も そこに |
