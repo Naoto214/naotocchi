@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [147](147-new-seed-normal-restart.md) | 01-A/Bのpassと02-Aのseed付き時0こいびと配置を独立再開 |
 | [146](146-new-seed-normal-trigger-audit.md) | 01の盤上誘発をresponse_triggeredへ接続し、3通常行動の完全候補を再証明 |
 | [145](145-new-seed-response-restart.md) | 01-A/Bの双方response-passと02-Bの終了窓passを独立再開 |
 | [144](144-board-trigger-response-audit.md) | 現在の配置eventに対する盤上誘発条件を分類し、4状態の候補完全性を証明 |
@@ -30,7 +31,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[146 新seed通常行動の盤上誘発分類](146-new-seed-normal-trigger-audit.md)** の保存地点。01-Aはpassのみ、01-Bはたんじょうとpass、02-Aはこいびと3配置とpassを完全列挙した。C-chicken/C-batの盤上誘発は通常行動から除外し、02-Bはターン終了入口を維持。新decision/event/snapshot 0、completed 0、独立balance標本0、カード本文・数値・登録区分変更0件。専用2件PASS、全proxy42ファイル・434件中433件PASS、既知117旧テスト1件FAIL（期待190／実測263）、新規失敗0件。全件GREENとは扱わない。
+現在は **[147 新seed通常行動3機会の独立再開](147-new-seed-normal-restart.md)** の保存地点。01-A/Bはpassで終了response入口、02-Aは116 seedでP-anglerfishを時0配置して配置後response入口へ進んだ。02-Bはターン終了入口のまま。新decision/event/snapshot各3、completed 0、独立balance標本0、カード本文・数値・登録区分変更0件。専用2件PASS、全proxy43ファイル・436件中435件PASS、既知117旧テスト1件FAIL（期待190／実測263）、新規失敗0件。全件GREENとは扱わない。
+
+履歴上、146は **[146 新seed通常行動の盤上誘発分類](146-new-seed-normal-trigger-audit.md)** の保存地点。01-Aはpassのみ、01-Bはたんじょうとpass、02-Aはこいびと3配置とpassを完全列挙した。C-chicken/C-batの盤上誘発は通常行動から除外し、02-Bはターン終了入口を維持。新decision/event/snapshot 0、completed 0、独立balance標本0、カード本文・数値・登録区分変更0件。専用2件PASS、全proxy42ファイル・434件中433件PASS、既知117旧テスト1件FAIL（期待190／実測263）、新規失敗0件。全件GREENとは扱わない。
 
 履歴上、145は **[145 新seedresponse窓の独立再開](145-new-seed-response-restart.md)** の保存地点。01-A/Bは双方passで通常行動入口、02-BはAの一意なpassでターン終了入口に到達。02-Aは142の通常行動選択前を維持。新decision/event/snapshot各5、completed 0、独立balance標本0、カード本文・数値・登録区分変更0件。専用2件PASS、全proxy41ファイル・432件中431件PASS、既知117旧テスト1件FAIL（期待190／実測263）、新規失敗0件。全件GREENとは扱わない。
 
