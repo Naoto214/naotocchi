@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [202](202-new-seed-end-response-replay.md) | 2唯一passを適用し4経路ともターン終了入口 |
 | [201](201-new-seed-end-response-audit.md) | 01-A/01-B終了responseは唯一pass、02-A/02-B終了履歴入口 |
 | [200](200-new-seed-normal-pass.md) | 01-A/01-B通常passを適用、終了responseへ |
 | [199](199-new-seed-normal-choice.md) | 有償メイン誕生・セカイ配置は時比較でpass、実行前保存 |
@@ -85,7 +86,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[201 新seed終了response2機会監査](201-new-seed-end-response-audit.md)** の保存地点。01-A/01-Bの終了前候補はresponse-passだけ、02-A/02-Bは終了履歴入口。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+現在は **[202 新seed終了response2経路再開](202-new-seed-end-response-replay.md)** の保存地点。01-A/01-Bの唯一passを適用し4経路すべてターン終了入口。六段階履歴監査が次。新decision/event/snapshot各2、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
+
+履歴上、201は **[201 新seed終了response2機会監査](201-new-seed-end-response-audit.md)** の保存地点。01-A/01-Bの終了前候補はresponse-passだけ、02-A/02-Bは終了履歴入口。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
 履歴上、200は **[200 新seed2通常pass適用](200-new-seed-normal-pass.md)** の保存地点。01-A/01-Bの通常passを適用し終了response入口、02-A/02-Bは終了履歴入口。新decision/event/snapshot各2、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy478件中477件PASS・既知117旧テスト1件FAIL、新規failure0。
 
