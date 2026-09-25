@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [236](236-new-seed-egg-replay.md) | たまご交換3件をseed再生し開始時responseへ、01-B通常保持 |
 | [235](235-new-seed-mixed-audit.md) | たまご交換3件と01-B通常行動の候補完全性を監査 |
 | [234](234-new-seed-mixed-replay.md) | 3経路のターン終了・ドロー、01-B能力解決を適用 |
 | [233](233-new-seed-turn-end-proof.md) | 3経路の6手順ターン終了を保存履歴で証明、01-B連鎖保持 |
@@ -119,7 +120,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[235 新seed混合候補監査](235-new-seed-mixed-audit.md)** の保存地点。3経路のたまご交換と01-B通常行動の候補を保存stateから完全監査。
+現在は **[236 新seedたまご交換再生](236-new-seed-egg-replay.md)** の保存地点。3経路は開始時responseへ、01-Bは通常行動の優先順位比較待ち。
 
 履歴上、221は **[221 新seed2経路たまご交換](221-new-seed-egg-replay.md)** の保存地点。01-B/02-Bは開始時response入口、01-A/02-Aは各応答局面保持。
 
