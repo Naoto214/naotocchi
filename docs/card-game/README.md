@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [216](216-new-seed-mixed-audit.md) | 01-A通常4候補、02-A次response唯一pass、終了履歴2件保持 |
 | [215](215-new-seed-ability-resolution.md) | 01-A盤上C-chicken効果を解決、他3経路保持 |
 | [214](214-new-seed-followup-replay.md) | response-pass4件をstateへ適用、能力解決1・終了履歴2 |
 | [213](213-new-seed-followup-audit.md) | 次response4機会とも候補唯一pass |
@@ -99,7 +100,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[215 新seed盤上能力解決](215-new-seed-ability-resolution.md)** の保存地点。01-AのC-chickenを解決し、他3経路は保持。次は通常候補・次優先者・終了履歴を横断監査。
+現在は **[216 新seed混合局面監査](216-new-seed-mixed-audit.md)** の保存地点。01-A通常候補完全、02-A配置後次response唯一pass、01-B/02-B終了履歴入口は保持。
+
+履歴上、215は **[215 新seed盤上能力解決](215-new-seed-ability-resolution.md)** の保存地点。01-AのC-chickenを解決し、他3経路は保持。次は通常候補・次優先者・終了履歴を横断監査。
 
 履歴上、214は **[214 新seed4response再開](214-new-seed-followup-replay.md)** の保存地点。唯一pass4件をstateへ適用。能力連鎖解決1、配置後次優先者1、終了履歴2を次に監査。
 
