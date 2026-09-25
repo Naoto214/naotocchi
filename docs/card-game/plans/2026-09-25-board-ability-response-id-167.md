@@ -1,0 +1,5 @@
+# 167 TDD計画：承認済み盤上能力response ID
+
+166の保存raw SHAと独立再生を入口とする。119の保存原本は120の保護済みsource SHAに固定されているため、その本文を変えず、167を119 response namespaceの追加正本としてユーザー承認形式`response-activate-ability-{source_instance_id}`を定義する。通常行動ID・手札quick-use IDと分離する。同一instanceから同一機会に2能力以上が合法なら停止し、派生規則を先取りしない。
+
+REDは無関係な個体IDでも同じ形式、単一以外拒否、保存4機会のID・重複拒否を試す専用テスト。GREENは166の候補集合へIDを付け、4経路の候補完全性を再計算する。decision/event/解決は次のcheckpointに限定し、166停止stateを変更しない。

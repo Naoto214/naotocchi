@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [167](167-board-ability-response-id.md) | 119の追加契約として盤上能力の一般response IDを確定、4機会候補完全 |
 | [166](166-new-seed-start-audit.md) | 4開始時response候補を監査し、01-A盤上能力IDの未確定を記録 |
 | [165](165-new-seed-egg-restart.md) | 4経路の次手番たまご交換をseeded fallbackで記録 |
 | [164](164-new-seed-turn-end-restart.md) | 4経路のR1終了と次手番2枚ドローでたまご交換へ |
@@ -50,7 +51,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[166 新seed開始時response横断監査](166-new-seed-start-audit.md)** の保存地点。01-AはC-chicken盤上誘発が発動可能だが、盤上能力のresponse専用stable IDが未定義で真正停止。01-B/02-Bはpassのみ、02-Aはpass＋I-c_coin2を完全証明。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは固定158 snapshotで458件中457 PASS・既知117旧テスト1 FAIL、新規失敗0。166 HEAD全件GREENとは扱わない。
+現在は **[167 盤上能力response ID一般契約](167-board-ability-response-id.md)** の保存地点。ユーザー承認形式`response-activate-ability-{source_instance_id}`を119の原本を保持した追加契約として確定し、166の4開始時機会をすべて完全候補集合へ。01-Aは盤上C-chickenとpassの2候補。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは固定158 snapshotで458件中457 PASS・既知117旧テスト1 FAIL、新規失敗0。167 HEAD全件GREENとは扱わない。
+
+履歴上、166は **[166 新seed開始時response横断監査](166-new-seed-start-audit.md)** の保存地点。01-AはC-chicken盤上誘発が発動可能だが、盤上能力のresponse専用stable IDが未定義で真正停止。01-B/02-Bはpassのみ、02-Aはpass＋I-c_coin2を完全証明。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。
 
 履歴上、165は **[165 新seed次手番たまご交換](165-new-seed-egg-restart.md)** の保存地点。4経路の現在手札から116 seeded fallbackで1枚ずつ山札下へ戻し、開始時response入口へ。C-chickenの誘発候補は次の監査へ保持。新decision/event/snapshot各4、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。
 
