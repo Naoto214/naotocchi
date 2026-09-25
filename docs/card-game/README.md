@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [213](213-new-seed-followup-audit.md) | 次response4機会とも候補唯一pass |
 | [212](212-new-seed-choice-replay.md) | 4経路選択を各1eventでstateへ適用 |
 | [211](211-new-seed-choice-audit.md) | 01-A唯一pass、02-A無料こいびと配置、01-B/02-B有償行動対pass比較 |
 | [210](210-new-seed-chain-normal-audit.md) | 3通常行動候補完全、能力連鎖中は唯一pass |
@@ -96,7 +97,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[212 新seed4経路選択再開](212-new-seed-choice-replay.md)** の保存地点。response pass1、無料配置1、通常pass2をstateへ適用。新decision/event/snapshot各4、completed0、独立balance標本0。次は発生した局面を横断監査。
+現在は **[213 新seed次response横断監査](213-new-seed-followup-audit.md)** の保存地点。連鎖相手、配置後、ターン終了2件の4機会とも唯一pass。次のチェックポイントでstateへ適用。
+
+履歴上、212は **[212 新seed4経路選択再開](212-new-seed-choice-replay.md)** の保存地点。response pass1、無料配置1、通常pass2をstateへ適用。新decision/event/snapshot各4、completed0、独立balance標本0。次は発生した局面を横断監査。
 
 履歴上、211は **[211 新seed4経路選択監査](211-new-seed-choice-audit.md)** の保存地点。01-A response-pass、02-A無料P-cliff_goat配置、01-B/02-Bは有償2候補よりpassが優先。新event0、completed0、独立balance標本0。196以降の全proxy回帰は未取得。
 
