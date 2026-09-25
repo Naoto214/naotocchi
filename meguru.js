@@ -5439,6 +5439,9 @@
       Object.freeze({ level: 0, margin: 0.5, ramp: CORRIDOR_RAMP }),   // 4E-1: 出口の まえ 半段は まっすぐ
       Object.freeze({ level: 1, margin: 0, ramp: CORRIDOR_RAMP }),     // 道 ぜんぶで 曲がる
       Object.freeze({ level: 2, margin: 0, ramp: 0.1 }),               // + 曲率の 上げ下げを みじかく
+      // Phase 4E-4C: 道 ぜんぶで ほぼ 一定の 曲率(上げ下げ なし)。ほぼ U ターンの みじかい 道(countryside|forest 178°・5 段)で
+      // 2 かいめ 28.7°/s。どの だんでも TARGET に とどかない ときは この いちばん 下を つかう(めやす 30°/s いか)
+      Object.freeze({ level: 3, margin: 0, ramp: 0 }),
     ]);
     // 曲がる 量 turn(度)・道の ながさ L で、2 かいめの さいだい(度 / 秒)が target いかに なる ひろげかた
     function corridorTurnSpread(turn, L, target = CORRIDOR_TURN_TARGET) {
@@ -5677,7 +5680,7 @@
     // ・ここには セーブ・DOM・実時刻は ない(start() の がわが つなぐ)
     // あるいて こえる corridor(connection id)。4E-2 の home|forest + Phase 4E-4A の LOW 4 本。
     // のこり 5 本(MEDIUM 3・HIGH 2)は 4E-4B / C まで いまの transition
-    const CONTINUOUS_WALK_ALLOWLIST = Object.freeze(['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain', 'forest|mountain', 'mountain|river_lake', 'city|sea']);
+    const CONTINUOUS_WALK_ALLOWLIST = Object.freeze(['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain', 'forest|mountain', 'mountain|river_lake', 'city|sea', 'city|countryside', 'countryside|forest']);
     // 出口・入口の 暗転(秒)。着く ときは くらく なりきった frame で commit と さいしょの え を すませ、あとは 0.14 秒で あける
     const CORRIDOR_COVER = Object.freeze({ fadeIn: 0.06, fadeOut: 0.12 });
     // 暗転が これより こい ときは 道の え を えがかない(ぬりつぶし 1 まいだけ)。のこる え は 3% いか で 見えない ので、ちらつかない
@@ -5728,6 +5731,8 @@
       // まちの ちかくの 川は まちの 運河(石の いろ・とおくに ビル)。Phase 4E-4B
       city: { 'urban-edge': { palette: 'city', near: [['🚲', 90], ['🪧', 90], ['🗑️', 70]], far: [['🏢', 230], ['🏬', 210]] }, road: { palette: 'city' },
         river: { palette: 'city', far: [['🏢', 230], ['🏬', 210]] } },
+      // いなかの ちかくの まちはずれ は 村はずれ(はたけ・ひまわり・わらの ロール・農家)。家の ちかくの いろ(home)に しない。Phase 4E-4C
+      countryside: { 'urban-edge': { palette: 'countryside', near: [['🌾', 80], ['🌻', 85], ['fence', 92]], far: [['🏡', 175], ['🌳', 220], ['hayroll', 250]] } },
       desert: { road: { palette: 'desert', near: [['🪧', 90], ['🪨', 75]], far: [['🌵', 200]] } },
     });
     const CORRIDOR_END_MIX = Object.freeze({ tint: 0.55, words: 0.5 });

@@ -10,8 +10,9 @@ const assert = require('node:assert/strict');
 const { harness } = require('./helpers/runtime-harness.cjs');
 
 const arr = (x) => Array.from(x || []);
-const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain', 'forest|mountain', 'mountain|river_lake', 'city|sea'];
+const CONT = ['home|forest', 'home|river_lake', 'city|desert', 'desert|mountain', 'snow|mountain', 'forest|mountain', 'mountain|river_lake', 'city|sea', 'city|countryside', 'countryside|forest'];
 const MEDIUM = ['forest|mountain', 'mountain|river_lake', 'city|sea'];
+const HIGH = ['city|countryside', 'countryside|forest'];   // Phase 4E-4C
 // 4E-1 の 曲がる はやさ(°/s、初回)。4E-4A の 5 本は これから かわらない
 const LOW_FIRST = { 'home|forest': 10.857, 'home|river_lake': 6.212, 'city|desert': 8.686, 'desert|mountain': 7.148, 'snow|mountain': 18.884 };
 const angDiff = (a, b) => { const d = Math.abs(((a - b) % 360 + 360) % 360); return Math.min(d, 360 - d); };
@@ -42,6 +43,11 @@ test('1. 曲がる はやさ: 8 本 × 行き / 帰り × 初回 / 2 かいめ �
       assert.ok(spec.curveProfile.spread > 0, id + ' ひろげる');
       assert.ok(spec.turnRate.revisit <= 28, `${id} 2 かいめ ${spec.turnRate.revisit}`);
       assert.equal(spec.turnFlags.overTurnBudgetRevisit, false, id);
+    } else if (HIGH.includes(id)) {
+      // Phase 4E-4C: city|countryside は level 2(≤ 28)、countryside|forest は 一定 曲率(level 3、≤ 29)
+      assert.ok(spec.curveProfile.spread >= 2, id + ' ひろげる');
+      assert.ok(spec.turnRate.revisit <= 29, `${id} 2 かいめ ${spec.turnRate.revisit}`);
+      assert.equal(spec.turnFlags.overTurnBudgetRevisit, false, id);
     } else {
       assert.equal(spec.curveProfile.spread, 0, id + ' は 4E-1 の かたち');
       assert.ok(Math.abs(spec.turnRate.first - LOW_FIRST[id]) < 1e-3, `${id} かわらない ${spec.turnRate.first}`);
@@ -49,7 +55,7 @@ test('1. 曲がる はやさ: 8 本 × 行き / 帰り × 初回 / 2 かいめ �
   }
   // 2 かいめの はやさは どの 本も 1.4 倍(MEDIUM だけ べつの 倍率を もたない)
   for (const id of CONT) assert.equal(M.walkCorridorSpec(id).timing.revisitSpeedMultiplier, 1.4, id);
-  assert.equal(rows.length, 16);
+  assert.equal(rows.length, CONT.length * 2);
 });
 
 test('2. 曲がる 量 と 両はしの むきは 4C / 4E-1 の まま(ひろげる だけ)。むきの 積分 = 出口の むき、行きと 帰りは 同じ かたちを さかさに', () => {
@@ -62,7 +68,8 @@ test('2. 曲がる 量 と 両はしの むきは 4C / 4E-1 の まま(ひろげ
     // 帰り(b から)は 同じ かたちを さかさ + 180°
     for (const s of [0, 300, 900, 1350, 2000, L]) assert.ok(angDiff(M.corridorHeadingAt(spec, spec.b, s), (M.corridorHeadingAt(spec, spec.a, L - s) + 180) % 360) < 1e-6, `${id} s=${s}`);
     // 出口で 曲率 0(むきが とばない)
-    assert.ok(angDiff(M.corridorHeadingAt(spec, spec.a, 1), hp.startGlobal) < 1e-3 && angDiff(M.corridorHeadingAt(spec, spec.a, L - 1), hp.endGlobal) < 1e-3, id);
+    const k1 = spec.curveProfile.ramp > 0 ? 1e-3 : Math.abs(spec.curveProfile.peakCurvature) + 2e-3;   // 一定 曲率(4E-4C)は その 曲率の ぶん
+    assert.ok(angDiff(M.corridorHeadingAt(spec, spec.a, 1), hp.startGlobal) < k1 && angDiff(M.corridorHeadingAt(spec, spec.a, L - 1), hp.endGlobal) < k1, id);
     // chart(あるく 平面)の はしの むき = 出口の むき(入口・出口の yaw の さを ふやさない)
     for (const from of [spec.a, spec.b]) {
       const w = M.createCorridorWalk(spec, from, {}), to = from === spec.a ? spec.b : spec.a;
@@ -74,8 +81,8 @@ test('2. 曲がる 量 と 両はしの むきは 4C / 4E-1 の まま(ひろげ
     }
   }
   // ひろげかたは 曲がる 量から きまる(本ごとの 指定は ない)。表は 3 だん
-  assert.deepEqual(arr(M.CORRIDOR_TURN_SPREAD).map((p) => p.level), [0, 1, 2]);
-  for (const id of MEDIUM) {
+  assert.deepEqual(arr(M.CORRIDOR_TURN_SPREAD).map((p) => p.level), [0, 1, 2, 3]);
+  for (const id of MEDIUM.concat(HIGH)) {
     const spec = M.walkCorridorSpec(id), p = M.corridorTurnSpread(spec.headingProfile.turn, spec.walkLength);
     assert.equal(p.level, spec.curveProfile.spread, id);
   }
@@ -165,12 +172,12 @@ test('4. 景色(MEDIUM 3 本): 森 → 岩 → 山、山 → 川 → 湖(海に 
   }
 });
 
-test('5. city の 3 出口: desert・sea は corridor、countryside は transition。special(ふね・ゴンドラ・もぐる)は 許可リストに ない', () => {
+test('5. city の 3 出口: desert・sea・countryside とも corridor(4E-4C)。special(ふね・ゴンドラ・もぐる)は 許可リストに ない', () => {
   const { M } = setup();
   const w = M.buildWorld('city', M.buildRegistry()), gs = arr(M.regionGates('city', w)).filter((g) => g.kind === 'walk');
   const modes = Object.fromEntries(gs.map((g) => [g.id, M.continuousWalkMode(g, {}).mode]));
-  assert.deepEqual(modes, { 'city|countryside': 'transition', 'city|desert': 'corridor', 'city|sea': 'corridor' });
-  for (const id of ['jungle|sea', 'deepsea|sea', 'countryside|star_stop', 'countryside|forest', 'city|countryside']) assert.ok(!arr(M.CONTINUOUS_WALK_ALLOWLIST).includes(id), id);
+  assert.deepEqual(modes, { 'city|countryside': 'corridor', 'city|desert': 'corridor', 'city|sea': 'corridor' });
+  for (const id of ['jungle|sea', 'deepsea|sea', 'countryside|star_stop']) assert.ok(!arr(M.CONTINUOUS_WALK_ALLOWLIST).includes(id), id);
   // mountain の 4 出口は ぜんぶ corridor(4 本とも 許可リスト)
   const wm = M.buildWorld('mountain', M.buildRegistry());
   const mm = arr(M.regionGates('mountain', wm)).filter((g) => g.kind === 'walk').map((g) => [g.id, M.continuousWalkMode(g, {}).mode]);
