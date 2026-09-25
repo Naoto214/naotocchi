@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [151](151-new-seed-turn-end-restart.md) | 3経路のターン終了と次手番ドローを独立再開し、たまご交換入口まで進める |
 | [150](150-new-seed-turn-end-history.md) | 3ターン終了入口の保存済み全履歴を再構築し、期限・成長到達出所を証明 |
 | [149](149-new-seed-turn-end-audit.md) | 3ターン終了入口の盤上誘発時点を分類し、履歴出所の不足を切り分け |
 | [148](148-new-seed-response-restart.md) | 147の現在response窓を再開し、01の2経路をターン終了入口、02-Aを通常行動へ返す |
@@ -34,7 +35,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[150 新seedターン終了履歴出所監査](150-new-seed-turn-end-history.md)** の保存地点。135〜148の保存済みevent/snapshotを連結し、01-A/B/02-Bで成長20対20が全時点不変、予約・未処理誘発・期限付き効果0、100到達0を再構築した。ターン終了の現在完全性と遷移は次checkpointで再評価する。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは実行中で全件GREENとは扱わない。
+現在は **[151 新seedターン終了と次手番ドロー](151-new-seed-turn-end-restart.md)** の保存地点。01-A/B/02-Bの3経路で123/124のターン終了完全性を現在stateと150履歴から再計算し、各経路ターン終了と次手番2枚ドローを処理してたまご交換選択入口に到達した。新event/snapshot各6、decision0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは実行中で全件GREENとは扱わない。
+
+履歴上、150は **[150 新seedターン終了履歴出所監査](150-new-seed-turn-end-history.md)** の保存地点。135〜148の保存済みevent/snapshotを連結し、01-A/B/02-Bで成長20対20が全時点不変、予約・未処理誘発・期限付き効果0、100到達0を再構築した。ターン終了の現在完全性と遷移は次checkpointで再評価する。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxyは実行中で全件GREENとは扱わない。
 
 履歴上、149は **[149 新seedターン終了出所監査](149-new-seed-turn-end-audit.md)** の保存地点。01-A/B/02-Bの閉じたターン終了入口3状態でC-chicken/C-batの発動時点を本文から照合し、終了時盤上誘発を除外した。残る`unresolved_expiration`・`missing_growth_reach_history`は履歴出所証明が必要であり、まだターン終了遷移は実行していない。new event 0、completed 0、独立balance標本0、カード本文・数値・登録区分変更0件。専用2件PASS、保存JSON一致、設計データerrors空。全proxy検査は実行中で全件GREENとは扱わない。
 
