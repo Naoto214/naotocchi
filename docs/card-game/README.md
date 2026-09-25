@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [172](172-new-seed-chain-pass.md) | 02-A連鎖中唯一passを記録、通常行動3経路は保持 |
 | [171](171-new-seed-opportunity-audit.md) | 通常行動3・連鎖response1の候補完全性を監査 |
 | [170](170-new-seed-next-response-restart.md) | 3経路で2回目passを閉じ、02-A item連鎖起動 |
 | [169](169-new-seed-next-response-audit.md) | 3経路の次優先者pass完全証明、02-A item起動境界 |
@@ -55,7 +56,9 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[171 新seed現在機会横断監査](171-new-seed-opportunity-audit.md)** の保存地点。3経路の通常行動候補は完全、02-Aの連鎖中responseはpassのみ。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy検査中。
+現在は **[172 新seed連鎖中response pass](172-new-seed-chain-pass.md)** の保存地点。02-Aは連鎖中responseの唯一passを記録し、次優先者監査前に停止。3経路の通常行動stateを保持。新decision/event/snapshot各1、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy検査中。
+
+履歴上、171は **[171 新seed現在機会横断監査](171-new-seed-opportunity-audit.md)** の保存地点。3経路の通常行動候補は完全、02-Aの連鎖中responseはpassのみ。新event0、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致。固定168全proxy検査中。
 
 履歴上、170は **[170 新seed次優先者response再開](170-new-seed-next-response-restart.md)** の保存地点。01-A/B・02-Bは2回目passで通常行動入口へ、02-AはI-c_coin2を空の開始時連鎖へ起動。新decision3・event/snapshot各4、completed0、独立balance標本0、カード変更0。専用2件PASS、保存JSON一致、設計データerrors空。全proxy固定168 snapshot検査中で全件GREENとは扱わない。
 
