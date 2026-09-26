@@ -351,10 +351,32 @@ test('elder dog expressions are distinct transparent assets with original sprite
   assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
 });
 
+// Step 2 checkpoint: approved masters replace 01–03; the 30 old expressions
+// deliberately remain frozen until separately authorized Step 3. No general
+// relaxation of the 128px expression contract or other species' bounds.
+const starfishAdopted = {
+  '01': ['bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39', [8,9,120,118]],
+  '02': ['d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d', [8,11,120,116]],
+  '03': ['220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0', [8,11,120,116]],
+};
+const legacyStarfish = require('../docs/qa/starfish-expressions-20260917-manifest.json').records;
+for (const [stage, [expected]] of Object.entries(starfishAdopted)) {
+  test(`starfish/${stage} master is the exact approved candidate; normal routing uses it`, () => {
+    const base = `assets/characters/starfish/${stage}.png`;
+    const data = fs.readFileSync(path.join(ROOT, base));
+    const candidate = fs.readFileSync(path.join(ROOT, `docs/qa/starfish-baseline-candidates-20260925/${stage}-candidate.png`));
+    assert.equal(crypto.createHash('sha256').update(data).digest('hex'), expected);
+    assert.deepEqual(data, candidate, 'no regeneration, normalization or recompression');
+    assert.equal(expression.assetFor(base, 'normal'), base);
+  });
+}
+
 for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap','mushroom','dragon','phoenix','god','world_tree','ghost','star','plush','unknown','ren']) for(let index=1;index<=8;index++) {
   const stage=String(index).padStart(2,'0');
-  test(`${species}/${stage} has ten distinct transparent expressions with original bounds`, () => {
-    const original=inspectPng(`assets/characters/${species}/${stage}.png`),hashes=[];
+  test(`${species}/${stage} has ten distinct transparent expressions with ${species === 'starfish' && starfishAdopted[stage] ? 'frozen legacy' : 'original'} bounds`, () => {
+    const pending = species === 'starfish' && starfishAdopted[stage];
+    const original = pending ? {data:fs.readFileSync(path.join(ROOT, `assets/characters/${species}/${stage}.png`)), bounds:pending[1]} : inspectPng(`assets/characters/${species}/${stage}.png`);
+    const hashes=[];
     for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
       const file=`assets/characters/expressions/${species}/${stage}-${name}.png`;
       assert.equal(expression.assetFor(`assets/characters/${species}/${stage}.png`,name),file);
@@ -362,7 +384,9 @@ for (const species of ['man','woman','penguin','turtle','frog','clownfish','salm
       const {data,bounds,alpha}=inspectPng(file);
       assert.deepEqual(bounds,original.bounds,name);
       assert.deepEqual(alpha,[0,255],name);
-      hashes.push(crypto.createHash('sha256').update(data).digest('hex'));
+      const hash = crypto.createHash('sha256').update(data).digest('hex');
+      if (pending) assert.equal(hash, legacyStarfish.find(record => record.final === file).final_sha256, 'old expression stays byte-identical pending Step 3');
+      hashes.push(hash);
     }
     assert.equal(new Set(hashes).size,10);
     assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
