@@ -2156,10 +2156,10 @@
     { id: 'consumable-1', emoji: '🎈', label: 'はじめてのつかいきり', desc: '使い切りのあいてむをはじめてつかった', tier: 'easy', condition: (l) => (l.consumablesUsed || 0) >= 1 },
     { id: 'sticker-10', crown: { kind: 'sticker', unowned: true }, emoji: '🏷️', label: 'シールあつめ', desc: 'シールを10しゅるいあつめた', tier: 'easy', condition: (l) => ownedStickerKinds(l) >= 10 },
     { id: 'money-100', emoji: '💰', label: 'ちょきんかデビュー', desc: '持っているおかねが100以上になった', tier: 'easy', condition: (l) => l.money >= 100 },
-    { id: 'region-3', emoji: '🧳', label: 'たびずき', desc: '3つの地域を訪れた', tier: 'easy', condition: (l) => l.regionsVisited.length >= 3 },
+    { id: 'region-3', emoji: '🧳', label: 'たびずき', desc: '3つの地域を訪れた', tier: 'easy', condition: (l) => regionsVisitedCount(l) >= 3 },
 
     // --- やや かんたん ---
-    { id: 'time-all', emoji: '🕰️', label: 'いちにちのともだち', desc: '朝・昼・夕・夜をすべて過ごした', tier: 'easy2', condition: (l) => (l.timeSeen || []).length >= 4 },
+    { id: 'time-all', emoji: '🕰️', label: 'いちにちのともだち', desc: '朝・昼・夕・夜をすべて過ごした', tier: 'easy2', condition: (l) => countRegistered(l.timeSeen, progressRegistry().times) >= progressRegistry().times.size },
     { id: 'rain-play', emoji: '☔', label: 'あめの日のあそび', desc: '雨の日にミニゲームであそんだ', tier: 'easy2', condition: (l) => ((l.envPlays || {}).rain || 0) >= 1 },
     { id: 'snow-play', emoji: '⛄', label: 'ゆきの日のあそび', desc: '雪の日にミニゲームであそんだ', tier: 'easy2', condition: (l) => ((l.envPlays || {}).snow || 0) >= 1 },
     { id: 'evolve-10', emoji: '🌿', label: 'ぐんぐんそだつ', desc: 'そだちが合計で10あがった', tier: 'easy2', condition: (l) => l.evolutions >= 10 },
@@ -2167,19 +2167,19 @@
     { id: 'transform-10', emoji: '🌟', label: 'へんしんざんまい', desc: '5かいへんしんした', tier: 'easy2', condition: (l) => l.transforms >= 5 },
     { id: 'sick-cured-10', emoji: '💊', label: 'めいいのたまご', desc: 'びょうきを5かいなおした', tier: 'easy2', condition: (l) => l.sicknessCured >= 5 },
     { id: 'age-25', emoji: '🌼', label: 'すくすくせいちょう', desc: '25さいになった', tier: 'easy2', condition: (l) => l.maxAgeReached >= 25 },
-    { id: 'dex-25', emoji: '📗', label: 'ずかんのはじまり', desc: 'ずかんを25しゅるいうめた', tier: 'easy2', condition: (l, s) => s.discoveredStages.length >= 25 },
+    { id: 'dex-25', emoji: '📗', label: 'ずかんのはじまり', desc: 'ずかんを25しゅるいうめた', tier: 'easy2', condition: (l, s) => dexFoundCount(s) >= 25 },
     { id: 'feed-100', emoji: '🍚', label: 'ごはんだいすき', desc: 'ひとつの人生で、ごはんを30回あげた', tier: 'easy2', condition: (l, s) => s.actionCounts.feed >= 30 },
     { id: 'play-100', emoji: '🎯', label: 'あそびっぱなし', desc: 'ひとつの人生で、30回あそんだ', tier: 'easy2', condition: (l, s) => s.actionCounts.play >= 30 },
     { id: 'pet-100', emoji: '🤲', label: 'なでなでまめ', desc: 'ひとつの人生で「じゃれる」を30かいした', tier: 'easy2', condition: (l, s) => s.actionCounts.pet >= 30 },
     { id: 'gentle-10', emoji: '💗', label: 'やさしいこころ', desc: 'ひとつの人生で、やさしい選択を10回した', tier: 'easy2', condition: (l, s) => s.traitCounts.gentle >= 10 },
     { id: 'brave-10', emoji: '🦁', label: 'ゆうかんなこころ', desc: 'ひとつの人生で、ゆうかんな選択を10回した', tier: 'easy2', condition: (l, s) => s.traitCounts.brave >= 10 },
     { id: 'romantic-10', emoji: '💘', label: 'ロマンチスト', desc: 'ひとつの人生で、ロマンチックな選択を10回した', tier: 'easy2', condition: (l, s) => s.traitCounts.romantic >= 10 },
-    { id: 'companion-1', emoji: '🐾', label: 'はじめてのなかま', desc: 'はじめてなかまができた', tier: 'easy2', condition: (l) => l.companionsRecruited.length >= 1 },
-    { id: 'partner-1', emoji: '💑', label: 'はじめてのこいびと', desc: 'はじめてこいびとができた', tier: 'easy2', condition: (l) => l.partnersRecorded.length >= 1 },
+    { id: 'companion-1', emoji: '🐾', label: 'はじめてのなかま', desc: 'はじめてなかまができた', tier: 'easy2', condition: (l) => companionsRecruitedCount(l) >= 1 },
+    { id: 'partner-1', emoji: '💑', label: 'はじめてのこいびと', desc: 'はじめてこいびとができた', tier: 'easy2', condition: (l) => partnersFoundCount(l) >= 1 },
     { id: 'money-500', emoji: '💴', label: 'おおがねもち', desc: '持っているおかねが500以上になった', tier: 'easy2', condition: (l) => l.money >= 500 },
 
     // --- ふつう ---
-    { id: 'weather-all', emoji: '🌦️', label: 'てんきはかせ', desc: '晴れ・くもり・雨・雪をすべて見た', tier: 'normal', condition: (l) => (l.weatherSeen || []).length >= 4 },
+    { id: 'weather-all', emoji: '🌦️', label: 'てんきはかせ', desc: '晴れ・くもり・雨・雪をすべて見た', tier: 'normal', condition: (l) => countRegistered(l.weatherSeen, progressRegistry().weathers) >= progressRegistry().weathers.size },
     { id: 'night-play-10', emoji: '🦉', label: 'よふかし', desc: '夜にミニゲームで10回あそんだ', tier: 'normal', condition: (l) => ((l.envPlays || {}).night || 0) >= 10 },
     { id: 'env-moments-10', crown: { kind: 'moment' }, emoji: '🍃', label: 'せかいをかんじる', desc: '天気や時間にちなんだ出来事に、10回出会った', tier: 'normal', condition: (l) => (l.envMoments || 0) >= 10 },
     { id: 'death-5', emoji: '💀', label: 'なんどもおわかれ', desc: '3かいてんごくにいった', tier: 'normal', condition: (l) => l.deaths >= 3 },
@@ -2189,18 +2189,18 @@
     { id: 'games-played-60', crown: { kind: 'game', unplayed: true }, emoji: '🧭', label: 'あそびたんけんか', desc: '60しゅるいのミニゲームをあそんだ', tier: 'normal', condition: (l) => countMinigamesPlayed(l) >= 60 },
     { id: 'record-rank-a-20', crown: { kind: 'game', bestBelow: 75 }, emoji: '🎖️', label: 'Aランクコレクター', desc: '20しゅるいのゲームでAランクいじょう', tier: 'normal', condition: (l) => countMinigameRecords(l, (r) => r.best >= 75) >= 20 },
     { id: 'age-50', emoji: '🎂', label: 'はんせいき', desc: '50さいになった', tier: 'normal', condition: (l) => l.maxAgeReached >= 50 },
-    { id: 'dex-50', emoji: '📘', label: 'ずかんなかば', desc: 'ずかんを50しゅるいうめた', tier: 'normal', condition: (l, s) => s.discoveredStages.length >= 50 },
+    { id: 'dex-50', emoji: '📘', label: 'ずかんなかば', desc: 'ずかんを50しゅるいうめた', tier: 'normal', condition: (l, s) => dexFoundCount(s) >= 50 },
     { id: 'rare-line-1', emoji: '🌈', label: 'レアなであい', desc: 'レアなしゅぞくにはじめてであった', tier: 'normal', condition: (l, s) => s.discoveredStages.some((e) => RARE_LINES.includes(e.split(':')[0])) },
     { id: 'clean-50', emoji: '🧹', label: 'ピカピカ20かい', desc: 'ひとつの人生で、そうじを20回した', tier: 'normal', condition: (l, s) => s.actionCounts.clean >= 20 },
     { id: 'reset-5', emoji: '🔄', label: 'なんどもちょうせん', desc: 'あたらしいたまごを5かいむかえた', tier: 'normal', condition: (l) => (l.resets || 0) >= 5 },
-    { id: 'companion-5', emoji: '🐕', label: 'にぎやかななかよしグループ', desc: 'なかまが5にんできた', tier: 'normal', condition: (l) => l.companionsRecruited.length >= 5 },
-    { id: 'sticker-tasks-5', crown: { kind: 'sticker', tasks: true }, emoji: '📒', label: 'シールちょうのたつじん', desc: 'シールちょうのおだいを5つたっせいした', tier: 'normal', condition: (l) => ((l.stickers && l.stickers.tasksDone) || []).length >= 5 },
+    { id: 'companion-5', emoji: '🐕', label: 'にぎやかななかよしグループ', desc: 'なかまが5にんできた', tier: 'normal', condition: (l) => companionsRecruitedCount(l) >= 5 },
+    { id: 'sticker-tasks-5', crown: { kind: 'sticker', tasks: true }, emoji: '📒', label: 'シールちょうのたつじん', desc: 'シールちょうのおだいを5つたっせいした', tier: 'normal', condition: (l) => stickerTasksDoneCount(l) >= 5 },
     { id: 'sticker-tasks-all', emoji: '🌟', label: 'シールちょうマスター', desc: 'シールちょうのおだいを8つぜんぶたっせいした', tier: 'normal', condition: (l) => {
       const done = new Set((l.stickers && l.stickers.tasksDone) || []);
       return typeof STICKER_TASKS !== 'undefined' && STICKER_TASKS.every((task) => done.has(task.id));
     } },
     { id: 'companion-active-5', emoji: '💞', label: 'そばにいるしあわせ', desc: 'いまそばにいるなかまが5にんいる', tier: 'normal', condition: (l, s) => s.companions.length >= 5 },
-    { id: 'married-1', emoji: '💍', label: 'はじめてのけっこん', desc: 'はじめてけっこんした', tier: 'normal', condition: (l) => l.partnersMarried.length >= 1 },
+    { id: 'married-1', emoji: '💍', label: 'はじめてのけっこん', desc: 'はじめてけっこんした', tier: 'normal', condition: (l) => partnersMarriedCount(l) >= 1 },
 
     // --- そだち・いっしょう(あたらしい じっせき) ---
     { id: 'sodachi-70', emoji: '🌟', label: 'よくそだてた', desc: 'そだちが70にとどいた', tier: 'life', condition: (l) => (l.bestSodachi || 0) >= 70 },
@@ -2220,18 +2220,18 @@
     { id: 'sick-cured-30', emoji: '🏥', label: 'めいいのたまご(じょうきゅう)', desc: 'びょうきを15かいなおした', tier: 'hard1', condition: (l) => l.sicknessCured >= 15 },
     { id: 'age-100', emoji: '🎊', label: 'ひゃくさいばんざい', desc: '100さいになった', tier: 'hard1', condition: (l) => l.maxAgeReached >= 100 },
     { id: 'medicine-30', emoji: '🩹', label: 'かんびょうのきろく', desc: 'ひとつの人生で、くすりを10回あげた', tier: 'hard1', condition: (l, s) => s.actionCounts.medicine >= 10 },
-    { id: 'region-all', emoji: '🌍', label: 'せかいいっしゅう', desc: 'おうちをふくむ、すべての通常地域を訪れた', tier: 'hard1', condition: (l) => l.regionsVisited.length >= REGIONS.length },
+    { id: 'region-all', emoji: '🌍', label: 'せかいいっしゅう', desc: 'おうちをふくむ、すべての通常地域を訪れた', tier: 'hard1', condition: (l) => regionsVisitedCount(l) >= progressRegistry().regions.size },
     { id: 'consumable-30', emoji: '🫧', label: 'つかいきりいっぱい', desc: '使い切りのあいてむを15かいつかった', tier: 'hard1', condition: (l) => (l.consumablesUsed || 0) >= 15 },
     { id: 'sticker-100', crown: { kind: 'sticker', unowned: true }, emoji: '🗂️', label: 'シールコレクター', desc: 'シールを100しゅるいあつめた', tier: 'hard1', condition: (l) => ownedStickerKinds(l) >= 100 },
 
     // --- むずかしい ---
     { id: 'evolve-100', emoji: '🌲', label: 'そだてのきわみ', desc: 'そだちが合計で100あがった', tier: 'hard2', condition: (l) => l.evolutions >= 100 },
     { id: 'clear-1', emoji: '🏅', label: 'てんじゅをまっとうした', desc: 'はじめて100さいまでいきた', tier: 'hard2', condition: (l) => l.clears >= 1 },
-    { id: 'dex-100', emoji: '📙', label: 'ずかんたいはん', desc: 'ずかんを100しゅるいうめた', tier: 'hard2', condition: (l, s) => s.discoveredStages.length >= 100 },
+    { id: 'dex-100', emoji: '📙', label: 'ずかんたいはん', desc: 'ずかんを100しゅるいうめた', tier: 'hard2', condition: (l, s) => dexFoundCount(s) >= 100 },
     { id: 'every-normal-line', emoji: '🐾', label: 'どうぶつはかせ', desc: 'ふつうのしゅぞくすべてにであった', tier: 'hard2', condition: (l, s) => NORMAL_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
     { id: 'reset-20', emoji: '♾️', label: 'むげんループのたび', desc: 'あたらしいたまごを10かいむかえた', tier: 'hard2', condition: (l) => (l.resets || 0) >= 10 },
-    { id: 'married-3', emoji: '👰', label: 'なんどもウェディング', desc: '3にんとけっこんした(いろんな人生で)', tier: 'hard2', condition: (l) => l.partnersMarried.length >= 3 },
-    { id: 'naoto-1', emoji: '🧿', label: 'でんせつへのいっぽ', desc: '「なおとの〜」という、でんせつのあいてむを初めて手に入れた', tier: 'hard2', condition: (l) => (l.ownedNaotoItems || []).length >= 1 },
+    { id: 'married-3', emoji: '👰', label: 'なんどもウェディング', desc: '3にんとけっこんした(いろんな人生で)', tier: 'hard2', condition: (l) => partnersMarriedCount(l) >= 3 },
+    { id: 'naoto-1', emoji: '🧿', label: 'でんせつへのいっぽ', desc: '「なおとの〜」という、でんせつのあいてむを初めて手に入れた', tier: 'hard2', condition: (l) => countRegistered(l.ownedNaotoItems, progressRegistry().naotoItems) >= 1 },
 
     // --- かなり むずかしい ---
     { id: 'clear-5', emoji: '🏆', label: 'みっつのいっしょう', desc: '3かい100さいまでいきた', tier: 'hard3', condition: (l) => l.clears >= 3 },
@@ -2239,18 +2239,18 @@
     { id: 'games-complete-100', crown: { kind: 'game', unplayed: true }, emoji: '💯', label: '100ぼんコンプリート', desc: 'ぜんぶのミニゲームを1かいいじょうあそんだ', tier: 'hard3', condition: (l) => countMinigamesPlayed(l) >= buildMinigamePool().length },
     { id: 'record-rank-s-15', crown: { kind: 'game', bestBelow: 90 }, emoji: '👑', label: 'Sランクマスター', desc: '10しゅるいのゲームでSランク', tier: 'hard3', condition: (l) => countMinigameRecords(l, (r) => r.best >= 90) >= 10 },
     { id: 'rare-line-all', emoji: '🎇', label: 'でんせつコレクター', desc: 'レアなしゅぞくすべてにであった', tier: 'hard3', condition: (l, s) => RARE_LINES.every((line) => s.discoveredStages.some((e) => e.startsWith(`${line}:`))) },
-    { id: 'elder-collector', emoji: '👴', label: 'ちょうろうはかせ', desc: '8種類以上の、さいごの姿に出会った', tier: 'hard3', condition: (l, s) => s.discoveredStages.filter((e) => e.endsWith(':7')).length >= 8 },
+    { id: 'elder-collector', emoji: '👴', label: 'ちょうろうはかせ', desc: '8種類以上の、さいごの姿に出会った', tier: 'hard3', condition: (l, s) => dexElderCount(s) >= 8 },
     { id: 'companion-all', emoji: '🎉', label: 'なかまだいしゅうごう', desc: '通常のなかま全員となかよくなった', tier: 'hard3', condition: (l) => hasAllCurrentCompanions(l) },
-    { id: 'perfect-life', emoji: '🏵️', label: 'かんぺきななおとっちライフ', desc: 'けっこんと、通常のなかま全員との出会いをたっせいした', tier: 'hard3', condition: (l) => l.partnersMarried.length >= 1 && hasAllCurrentCompanions(l) },
+    { id: 'perfect-life', emoji: '🏵️', label: 'かんぺきななおとっちライフ', desc: 'けっこんと、通常のなかま全員との出会いをたっせいした', tier: 'hard3', condition: (l) => partnersMarriedCount(l) >= 1 && hasAllCurrentCompanions(l) },
 
     // --- 超むずかしい ---
     { id: 'clear-10', emoji: '👑', label: 'いつつのいっしょう', desc: '5かい100さいまでいきた', tier: 'hard4', condition: (l) => l.clears >= 5 },
-    { id: 'dex-150', emoji: '📕', label: 'ずかんもうすぐ', desc: 'ずかんを150しゅるいうめた', tier: 'hard4', condition: (l, s) => s.discoveredStages.length >= 150 },
-    { id: 'partner-all', emoji: '🌏', label: 'れんあいたっせいしゃ', desc: '各地域のこいびと候補全員とこいびとになった', tier: 'hard4', condition: (l) => l.partnersRecorded.length >= ALL_PARTNER_CANDIDATES.length },
+    { id: 'dex-150', emoji: '📕', label: 'ずかんもうすぐ', desc: 'ずかんを150しゅるいうめた', tier: 'hard4', condition: (l, s) => dexFoundCount(s) >= 150 },
+    { id: 'partner-all', emoji: '🌏', label: 'れんあいたっせいしゃ', desc: '各地域のこいびと候補全員とこいびとになった', tier: 'hard4', condition: (l) => partnersFoundCount(l) >= progressRegistry().partners.size },
 
     // --- きわめて むずかしい ---
     { id: 'clear-25', emoji: '🎖️', label: 'いっしょうのたつじん', desc: '10かい100さいまでいきた', tier: 'hard5', condition: (l) => l.clears >= 10 },
-    { id: 'dex-complete', emoji: '📖', label: 'ずかんコンプリート', desc: 'ずかんをぜんぶうめた', tier: 'hard5', condition: (l, s) => s.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE },
+    { id: 'dex-complete', emoji: '📖', label: 'ずかんコンプリート', desc: 'ずかんをぜんぶうめた', tier: 'hard5', condition: (l, s) => isDexComplete(s) },
     { id: 'shop-all', emoji: '🛍️', label: 'みにつけるものコンプリート', desc: '身につけるあいてむを全部買った', tier: 'hard5', condition: (l) => SHOP_ITEMS.every(it => (l.ownedShopItems || []).includes(it.id)) },
     { id: 'item-all', emoji: '💯', label: 'あいてむぜんぶあつめた', desc: '身につけるものと、使い切りのあいてむを全種類集めた', tier: 'hard5', condition: (l) => SHOP_ITEMS.every(it => (l.ownedShopItems || []).includes(it.id)) && CONSUMABLE_ITEMS.every(it => (l.ownedConsumableItems || []).includes(it.id)) },
   ];
@@ -2280,6 +2280,57 @@
     const counts = (lifetime && lifetime.minigamePlayCounts) || {};
     return buildMinigamePool().filter((game) => (counts[game.id] || 0) > 0).length;
   }
+
+  // 進捗の件数の正本(RH-2)。save の配列は履歴として そのまま のこす(未知・未来・
+  // 退役・typo の ID も消さない)。いまの版の進捗・実績・ゴール・表示は ここで数える:
+  // raw ID → alias の正規化 → 登録表との照合 → 重複の除去 → 件数
+  function countRegistered(ids, registered, canon = (id) => id) {
+    const found = new Set();
+    for (const raw of Array.isArray(ids) ? ids : []) {
+      const id = canon(raw);
+      if (registered.has(id)) found.add(id);
+    }
+    return found.size;
+  }
+  // 登録表は master と定数から作られ、起動中は変わらない。この関数より後で定義される
+  // 表も使うので、はじめて数えるときに作る
+  let progressRegistryCache = null;
+  function progressRegistry() {
+    if (progressRegistryCache) return progressRegistryCache;
+    const ids = (list) => new Set(list.map((item) => item.id));
+    const choices = (table) => new Set(Object.keys(table).filter((key) => key !== 'auto'));
+    progressRegistryCache = {
+      dex: new Set(ALL_LINES.flatMap((line) => Array.from({ length: STAGES_PER_LINE }, (_, i) => `${line}:${i}`))),
+      partners: ids(ALL_PARTNER_CANDIDATES),
+      regions: ids(REGIONS),
+      companions: ids(COMPANIONS),
+      naotoItems: ids(NAOTO_ITEMS),
+      times: choices(TIME_CHOICES),
+      weathers: choices(WEATHER_CHOICES),
+      stickerTasks: ids(STICKER_TASKS),
+      achievements: ids(ACHIEVEMENTS),
+    };
+    return progressRegistryCache;
+  }
+  function canonicalPartnerId(id) {
+    return WORLD_MASTER?.compatibility?.partnerAliases?.[id] || id;
+  }
+  function canonicalRegionId(id) {
+    return WORLD_MASTER?.compatibility?.regionAliases?.[id] || id;
+  }
+  function dexTotalCount() { return progressRegistry().dex.size; }
+  function dexFoundCount(s = state) { return countRegistered(s.discoveredStages, progressRegistry().dex); }
+  function isDexComplete(s = state) { return dexFoundCount(s) >= dexTotalCount(); }
+  function dexElderCount(s = state) {
+    const last = `:${STAGES_PER_LINE - 1}`;
+    return countRegistered((s.discoveredStages || []).filter((key) => typeof key === 'string' && key.endsWith(last)), progressRegistry().dex);
+  }
+  function partnersFoundCount(l = state.lifetime) { return countRegistered(l.partnersRecorded, progressRegistry().partners, canonicalPartnerId); }
+  function partnersMarriedCount(l = state.lifetime) { return countRegistered(l.partnersMarried, progressRegistry().partners, canonicalPartnerId); }
+  function regionsVisitedCount(l = state.lifetime) { return countRegistered(l.regionsVisited, progressRegistry().regions, canonicalRegionId); }
+  function companionsRecruitedCount(l = state.lifetime) { return countRegistered(l.companionsRecruited, progressRegistry().companions, canonicalCompanionId); }
+  function stickerTasksDoneCount(l = state.lifetime) { return countRegistered(l.stickers && l.stickers.tasksDone, progressRegistry().stickerTasks); }
+  function achievementsUnlockedCount(s = state) { return countRegistered(s.achievementsUnlocked, progressRegistry().achievements); }
 
   const achievementErrorsReported = new Set();
   function checkAchievements() {
@@ -2542,7 +2593,7 @@
   function crownAchievementWeight(kind, candidate) {
     const L = state.lifetime || {};
     if (!L.ownedNaotoItems?.includes('naoto_crown')
-      || !(L.dexCleared || (state.discoveredStages || []).length >= ALL_LINES.length * STAGES_PER_LINE)) return 1;
+      || !(L.dexCleared || isDexComplete())) return 1;
     const unlocked = state.achievementsUnlocked || [];
     const needed = ACHIEVEMENTS.some((achievement) => {
       const target = achievement.crown;
@@ -2569,7 +2620,7 @@
     if ((L.clears || 0) >= 1) tiers.push(0);
     if ((L.lifeClears || 0) >= 1) tiers.push(1);
     if ((L.bestLives || 0) >= 1) tiers.push(2);
-    if (L.dexCleared || state.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE) tiers.push(3);
+    if (L.dexCleared || isDexComplete()) tiers.push(3);
     if (L.perfectCleared || ACHIEVEMENTS.every((ach) => state.achievementsUnlocked.includes(ach.id))) tiers.push(4);
     return tiers;
   }
@@ -2661,7 +2712,7 @@
 
 
   function endingProgress() {
-    const dexComplete = state.discoveredStages.length >= ALL_LINES.length * STAGES_PER_LINE;
+    const dexComplete = isDexComplete();
     // 「実績だけクリア」は廃止。⑤は dex-complete を含む全ACHIEVEMENTSで判定する。
     const achComplete = ACHIEVEMENTS.every((ach) => state.achievementsUnlocked.includes(ach.id));
     return { dexComplete, achComplete };
@@ -9965,7 +10016,7 @@
     } else if (state.legendMet) {
       rows.push('<div class="lifecard-line">でんせつにであった</div>');
     }
-    rows.push(`<div class="lifecard-line">びょうきを${state.totalSicknessCount}かいのりこえた／ずかん${state.discoveredStages.length}／${ALL_LINES.length * STAGES_PER_LINE}</div>`);
+    rows.push(`<div class="lifecard-line">びょうきを${state.totalSicknessCount}かいのりこえた／ずかん${dexFoundCount()}／${dexTotalCount()}</div>`);
     const stats = lifeSummaryStats();
     if (stats.bestGame) rows.push(`<div class="lifecard-line">いちばんとくいなゲーム: ${displayIconHTML(stats.bestGame.emoji)}${escapeHtml(stats.bestGame.name)} ${stats.bestGame.best}てん</div>`);
     const log = state.lifeLog || [];
@@ -12937,8 +12988,8 @@
       if (reward) el.gameClearDesc.innerHTML += `<br>${escapeHtml(reward.emoji)} ${escapeHtml(reward.label)}をもらった!<br>${escapeHtml(reward.desc)}`;
     }
     if (tierIndex === 3) {
-      const totalForms = ALL_LINES.length * STAGES_PER_LINE;
-      const knownForms = Math.min(state.discoveredStages.length, totalForms);
+      const totalForms = dexTotalCount();
+      const knownForms = dexFoundCount();
       el.gameClearDesc.innerHTML += `<br>📖みつけたすがた: ${knownForms} / ${totalForms}<br>👑なおとのかんむりをもらった!`;
     }
     if (meetsAuthor) {
@@ -12993,13 +13044,13 @@
   }
 
   function renderDex() {
-    const discoveredCount = state.discoveredStages.length;
-    const totalCount = ALL_LINES.length * STAGES_PER_LINE;
+    const discoveredCount = dexFoundCount();
+    const totalCount = dexTotalCount();
     // ヘッダーの ぜんたい数は、しゅぞく・なかま・こいびとの 3セクション
     // ぶんを あわせた かずで あらわす(dex-complete じっせきの はんてい
     // じたいは しゅぞくだけの totalCount の ままで、ここは 表示だけ)
     const companionEntries = companionDexEntries();
-    const combinedDiscovered = discoveredCount + companionEntries.filter((c) => hasRecruitedCompanionId(c.id)).length + state.lifetime.partnersRecorded.length;
+    const combinedDiscovered = discoveredCount + companionEntries.filter((c) => hasRecruitedCompanionId(c.id)).length + partnersFoundCount();
     const combinedTotal = totalCount + companionEntries.length + ALL_PARTNER_CANDIDATES.length;
     el.dexProgress.textContent = `${combinedDiscovered} / ${combinedTotal}`;
     el.dexFreePlayHint.classList.toggle('hidden', !state.infinite);
@@ -13046,7 +13097,9 @@
     el.dexSummary.innerHTML = `<div class="records-summary dex-summary"><div class="records-head"><span class="records-title">📗ずかんのまとめ</span><span class="records-headline">${linesStarted}/${ALL_LINES.length}しゅぞく</span></div>`
       + `<div class="records-row"><span class="records-label">ふつう</span>${bar(normal, normalTotal, 'dex-fill')}<span class="records-num">${normal}/${normalTotal}</span></div>`
       + `<div class="records-row"><span class="records-label">レア</span>${bar(rare, rareTotal, 'dex-fill-rare')}<span class="records-num">${rare}/${rareTotal}</span></div>`
-      + (next ? `<div class="dex-next">🔎 ${next}</div>` : '') + '</div>';
+      + (next ? `<div class="dex-next">🔎 ${next}</div>` : '')
+      // 「いまの版で何種類みつけたか」と「むかし コンプリートした きろく」は べつもの。数は水増しせず、きろくだけ そえる
+      + (state.lifetime.dexCleared === true && !isDexComplete() ? '<div class="dex-next">📖 ずかんコンプリートの きろく あり</div>' : '') + '</div>';
   }
 
   // ずかんの したの ほうに、なかまイベントで であえる COMPANIONS の
@@ -14718,7 +14771,7 @@
   function ownedStickerCount(id) { return stickerStore().owned[id] || 0; }
   function ownedStickerKinds(lifetime = state.lifetime) {
     const owned = lifetime && lifetime.stickers && lifetime.stickers.owned;
-    return owned ? Object.keys(owned).filter((k) => owned[k] > 0).length : 0;
+    return owned ? Object.keys(owned).filter((k) => owned[k] > 0 && stickerById(k)).length : 0;
   }
   // おなじシールも別の1枚として所持できる。1種類につき最大9枚。
   function grantSticker(id, source) {
@@ -17172,10 +17225,9 @@
   // 2だんかいの かくにん + 3びょうの ながおし で ごそうさを ふせぐ
   el.wipeBtn.addEventListener('click', () => {
     const L = state.lifetime;
-    const dexTotal = ALL_LINES.length * STAGES_PER_LINE;
     el.wipeSummary.innerHTML = [
-      `ずかん<b>${state.discoveredStages.length} / ${dexTotal}</b>`,
-      `じっせき<b>${state.achievementsUnlocked.length} / ${ACHIEVEMENTS.length}</b>`,
+      `ずかん<b>${dexFoundCount()} / ${dexTotalCount()}</b>`,
+      `じっせき<b>${achievementsUnlockedCount()} / ${ACHIEVEMENTS.length}</b>`,
       `おかね<b>💰${L.money}</b>`,
       `そうび<b>${(L.ownedShopItems || []).length}こ</b>`,
       `これまでそだてたこ<b>${(L.pastLives || []).length}ひき</b>`,

@@ -361,6 +361,16 @@ main ────●──────●──────●──────
 
 ### 5.2 RH-2 Canonical Progress Counts
 
+> **2026-09-26 追記(RH-2 の事前確認と実装で確かめた事実・決定。基準 main `5a53933`)**
+> - **範囲を足した**: 下の表の domain のほかに、同じ「raw な ID 配列の length を いまの版の進捗として数える」問題が `companion-1` / `companion-5`・`married-1` / `married-3`・`perfect-life`(結婚の数)・`weather-all`・`time-all`・`elder-collector`・`sticker-tasks-5`・人生カード・「ぜんぶけす」の まとめ にあった。RH-2 に含めた。
+> - 「仲間は既に正規化済み」は `companion-all`(`hasAllCurrentCompanions`)だけ。`companion-1` / `companion-5` は raw の length だった。
+> - master の `regionAliases`(`tropical → jungle` など)は、これまで script.js のどこでも使われていなかった。RH-2 の地域の件数で使う(save は書きかえない)。
+> - **`legacyUnlocks` は保存しない(決定)**。`lifetime.saveRepair` は RH-1 の「壊れた save を修復した事実」の記録のまま。grandfathering は既存の `achievementsUnlocked`・`dexCleared`・`endingTiersReached`・`ownedNaotoItems` から判断し、調査の情報は QA 文書と fixture に残す。新しい save field は足さない。
+> - **「コンプリートの きろく あり」の文言(決定)**: `📖 ずかんコンプリートの きろく あり`。`dexCleared === true` かつ いまの版の正本の件数が いまの登録数に届かないときだけ、図鑑のまとめに そえる。件数は水増ししない。248 は埋めこまず、登録表の大きさを使う。
+> - 行番号は RH-1 で約 70 行ずれた。関数名で探す。
+> - #302(シールの枚数)の変更は既に main に入っている(`08aea68`)。シールの種類は「登録済みのシールで 1 枚以上」を数える。
+> - `shop-1` と「ぜんぶけす」の そうびの数は そのまま(`loadState` が既に SHOP_ITEMS で絞っている。未知 ID の削除は RH-8)。`pastLives` は履歴の件数、`meguru.js` の会話の条件(`regionsVisited` の length)は意味がちがうので対象外。
+
 **目的**: 達成と件数を、必ず「登録済みの ID ∩ 保存された ID」の、重複を除いた数で決める。
 
 **共通の部品(shared primitive、1 つだけ)**:
@@ -385,7 +395,7 @@ function countRegistered(ids, registered, canon = (x) => x) → number   // 重�
 - **取り消さない**(ユーザーに不利益を与えない)。`dexCleared`・`endingTiersReached`・`ownedNaotoItems`・`achievementsUnlocked` は **そのまま残します**。
 - RH-2 が止めるのは「**これから** 誤って解放されること」だけです。
 - 表示: 図鑑の件数は正しい数を出します。`dexCleared === true` なのに正しい数が 248 に満たない save では、図鑑に「コンプリートの きろく あり」を表示して、矛盾を説明します(文言は仕様として 1 行で決める)。
-- 集計: `lifetime.saveRepair.legacyUnlocks` に「正しい数では達成していない解放」を記録する(将来の調査用。UI には出さない)。
+- 集計: `lifetime.saveRepair.legacyUnlocks` に「正しい数では達成していない解放」を記録する(将来の調査用。UI には出さない)。 **(2026-09-26: 取りやめ。save に新しい field を足さない)**
 - migration: **不要**(判定の関数を変えるだけ。保存形式は変わらない)。
 
 **対象**: `script.js` の実績表(2,073〜2,185)、2,436〜2,600(かんむり・ゴール・`endingProgress`)、`isAuthorUnlocked`(8,433)、人生カード(9,891)、図鑑(12,860〜12,960)、プロフィール(17,095 付近)、恋人の alias の 8 か所。
@@ -459,6 +469,7 @@ harness({
 | 実績 `dex-complete` / `partner-all` / `region-all` | **残す** |
 | ⑤ PERFECT | ⑤ は全実績が条件。実績が残るので、⑤ も変わらない |
 | 新しく誤って解放されること | RH-2 以降は起きない |
+| (2026-09-26 追記)`legacyUnlocks` | **保存しない**。上の「集計: `lifetime.saveRepair.legacyUnlocks`」は取りやめ。既存の永続記録から判断する(§5.2 の追記) |
 
 ---
 

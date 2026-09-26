@@ -49,7 +49,10 @@ test('repetitive achievement thresholds use the approved moderate values', () =>
   assert.equal(achievement(h, 'pastlives-10').condition(l, s), true);
   l.minigameRecords = Object.fromEntries(h.api.games.slice(0, 10).map((game) => [game.id, {best:90,last:90}]));
   assert.equal(achievement(h, 'record-rank-s-15').condition(l, s), true);
-  s.discoveredStages = Array.from({length:8}, (_, i) => `dog-${i}:7`);
+  // 登録済みの種族の「さいごの姿」8 種類(RH-2: 登録にないキーは数えない)
+  s.discoveredStages = h.api.ALL_LINES.slice(0, 7).map((line) => `${line}:7`);
+  assert.equal(achievement(h, 'elder-collector').condition(l, s), false);
+  s.discoveredStages.push(`${h.api.ALL_LINES[7]}:7`);
   assert.equal(achievement(h, 'elder-collector').condition(l, s), true);
 });
 
