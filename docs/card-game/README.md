@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [249](249-new-seed-followup-audit.md) | ターン終了履歴待ち2・唯一response pass2を監査 |
 | [248](248-new-seed-followup-replay.md) | 通常pass1・response pass3をstateへ適用 |
 | [247](247-new-seed-followup-choice.md) | 01-B通常passと3経路の唯一response passを選択 |
 | [246](246-new-seed-followup-audit.md) | 終了response2・配置後response1は唯一pass、通常行動1は候補完全 |
@@ -132,7 +133,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[248 新seed次局面適用](248-new-seed-followup-replay.md)** の保存地点。01-A/02-Aはturn_end、01-Bは終了response、02-Bは配置後次優先response。
+現在は **[249 新seed次局面監査](249-new-seed-followup-audit.md)** の保存地点。終了履歴待ち2・唯一response pass2。
 
 履歴上、221は **[221 新seed2経路たまご交換](221-new-seed-egg-replay.md)** の保存地点。01-B/02-Bは開始時response入口、01-A/02-Aは各応答局面保持。
 
