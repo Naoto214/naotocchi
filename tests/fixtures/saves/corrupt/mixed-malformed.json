@@ -1,0 +1,30 @@
+{
+  "_note": "RH-1: こわれた 値(null / 数値 / object / 配列 / 空文字 / 重複)と、のこすべき 未知・未来・退役の ID が まざった save",
+  "stage": "growing",
+  "speciesLine": "dog",
+  "stageIndex": 4,
+  "ageTicks": 1200,
+  "schemaVersion": 5,
+  "romanceCompatibilityVersion": 2,
+  "transformStageDone": ["2", 3, "2"],
+  "marriageMilestonesSeen": [1, "10", null],
+  "discoveredStages": ["dog:0", null, 5, {"line": "dog"}, ["cat:1"], "", "dog:0", "futureline:3", "bird:2", "dog:1"],
+  "achievementsUnlocked": ["evolve-1", null, "evolve-1", "future-achievement-99"],
+  "lifetime": {
+    "money": 777,
+    "regionsVisited": ["home", null, 7, "home", "future_region"],
+    "partnersRecorded": [3, {"id": "x"}, "retired_partner_old"],
+    "companionsRecruited": [null, "retired_companion_old"],
+    "weatherSeen": ["sunny", false, "sunny"],
+    "legendsMet": ["future_legend", ""],
+    "duelRecentQuestionIds": ["q1", null, "q1", "q2"],
+    "stickers": { "tasksDone": ["future-task", null, "future-task"], "seen": [1, "form:dog:0"], "pageOrder": ["page-1", null, "page-1"] },
+    "endingTiersReached": ["1", null]
+  },
+  "infiniteReturn": {
+    "stage": "growing",
+    "speciesLine": "cat",
+    "discoveredStages": ["cat:0", null, "future_cat:9"],
+    "lifetime": {}
+  }
+}
