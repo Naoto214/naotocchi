@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Offline placement: exact PNG alpha + outlined SVG alpha, 2px clearance.
 // Requires sharp; no image-generation or runtime image analysis.
+const inlineExpressionImages=require('./inline-expression-images.cjs');
 const fs=require('node:fs'),path=require('node:path'),sharp=require('sharp');
 const ROOT=path.resolve(__dirname,'..'),expression=require('../pet-expression.js');
 const anchors=require('./expression-face-anchors.json'),bounds=require('../cast-bounds.js');
@@ -59,7 +60,7 @@ async function mask(asset){return (await sharp(path.join(ROOT,asset)).resize(208
   }
   for(const name of names){
    const art=expression.accentFor(base,name).match(/<svg[^>]*>([\s\S]*)<\/svg>/)[1].replace(/<\/?g\b[^>]*>/g,'');
-   const {data}=await sharp(Buffer.from(`<svg width="208" height="208" viewBox="0 0 104 104"><style>${css}</style><g class="pet-expression-accent">${art}</g></svg>`)).ensureAlpha().raw().toBuffer({resolveWithObject:true});
+   const {data}=await sharp(Buffer.from(`<svg width="208" height="208" viewBox="0 0 104 104"><style>${css}</style><g class="pet-expression-accent">${inlineExpressionImages(art)}</g></svg>`)).ensureAlpha().raw().toBuffer({resolveWithObject:true});
    const pts=[];let x1=208,y1=208,x2=0,y2=0;
    for(let y=0;y<208;y++)for(let x=0;x<208;x++)if(data[(y*208+x)*4+3]>16){pts.push([x,y]);x1=Math.min(x1,x);x2=Math.max(x2,x);y1=Math.min(y1,y);y2=Math.max(y2,y);}
    const cx=(x1+x2)/2,cy=(y1+y2)/2,target=name==='strained'?135:name==='wantsPlay'?90:45;

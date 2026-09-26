@@ -259,7 +259,7 @@ test('young dog supports ten expressions while unsupported species retain base p
 
 test('young dog accents follow its upright head and hunger uses a food bowl', () => {
   const base='assets/characters/dog/05.png';
-  assert.match(expression.accentFor(base,'hungry'),/M79 18h18l-3 7H82z/);
+  assert.match(expression.accentFor(base,'hungry'),/hunger\/bowl\.svg/);
   assert.doesNotMatch(expression.accentFor(base,'hungry'),/accent-food-eye/);
 });
 
@@ -278,17 +278,17 @@ test('calm dog supports ten expressions while unsupported species retain base po
 
 test('calm dog accents follow its head and hunger uses a food bowl', () => {
   const base='assets/characters/dog/07.png';
-  assert.match(expression.accentFor(base,'hungry'),/M79 18h18l-3 7H82z/);
+  assert.match(expression.accentFor(base,'hungry'),/hunger\/bowl\.svg/);
   assert.doesNotMatch(expression.accentFor(base,'hungry'),/accent-food-eye/);
 });
 
 for (const stage of ['01','02','08']) {
-  test(`dog ${stage} routes ten expressions with head-relative accents and food bowl`, () => {
+  test(`dog ${stage} routes ten expressions with approved milk/bowl hunger artwork`, () => {
     const base=`assets/characters/dog/${stage}.png`;
     for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
       assert.equal(expression.assetFor(base,name),`assets/characters/expressions/dog/${stage}-${name}.png`);
     }
-    assert.match(expression.accentFor(base,'hungry'),/M79 18h18l-3 7H82z/);
+    assert.ok(expression.accentFor(base,'hungry').includes(`hunger/${stage==='01'?'milk':'bowl'}.svg`));
     assert.doesNotMatch(expression.accentFor(base,'hungry'),/accent-food-eye/);
     assert.equal(expression.assetFor(base,'normal'),base);
     assert.equal(expression.accentFor(base,'normal'),'');
@@ -296,7 +296,7 @@ for (const stage of ['01','02','08']) {
 }
 
 for (const species of ['man','woman']) {
-  test(`${species} supports all eight stages with ten faces and a rice-bowl hunger mark`, () => {
+  test(`${species} supports all eight stages with ten faces and age-appropriate milk/rice artwork`, () => {
     for (let stage=1;stage<=8;stage++) {
       const id=String(stage).padStart(2,'0'),base=`assets/characters/${species}/${id}.png`;
       for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
@@ -306,7 +306,7 @@ for (const species of ['man','woman']) {
       assert.equal(expression.assetFor(base,'normal'),base);
       assert.equal(expression.assetFor(base,'unknown'),base);
       assert.equal(expression.accentFor(base,'normal'),'');
-      assert.match(expression.accentFor(base,'hungry'),/accent-rice/);
+      assert.ok(expression.accentFor(base,'hungry').includes(`hunger/${stage===1?'milk':'rice'}.svg`));
       assert.doesNotMatch(expression.accentFor(base,'hungry'),/accent-food-eye/);
     }
   });
@@ -384,95 +384,95 @@ for(const line of ['penguin','turtle','frog','clownfish','salmon','hermit_crab',
 test('frog and clownfish use distinct species-appropriate hunger marks',()=>{
  const frog=expression.accentFor('assets/characters/frog/06.png','hungry');
  const clownfish=expression.accentFor('assets/characters/clownfish/06.png','hungry');
- assert.match(frog,/<ellipse class="accent-food"/,'frog thinks of an insect');
- assert.match(clownfish,/<circle class="accent-food"/,'clownfish thinks of food pellets');
+ assert.match(frog,/hunger\/insect\.svg/,'frog thinks of an insect');
+ assert.match(clownfish,/hunger\/aquatic\.svg/,'clownfish thinks of food pellets');
  assert.notEqual(frog,clownfish);
 });
 
-for(let i=1;i<=8;i++)test(`salmon/${i} keeps the shared yellow fish hunger mark`,()=>{
+for(let i=1;i<=8;i++)test(`salmon/${i} renders a food mark with normal/unknown fallback intact`,()=>{
  const base=`assets/characters/salmon/${String(i).padStart(2,'0')}.png`;
- const food=svg=>svg.match(/<path class="accent-food"[^>]*>/)?.[0];
+ const food=svg=>svg.match(/<image[^>]*href="([^"]+)"/)?.[1];
  assert.ok(food(expression.accentFor(base,'hungry')));
- assert.equal(food(expression.accentFor(base,'hungry')),food(expression.accentFor('assets/characters/cat/06.png','hungry')));
+ assert.ok(fs.existsSync(require('node:path').join(__dirname,'..',food(expression.accentFor(base,'hungry')))));
  assert.equal(expression.accentFor(base,'normal'),'');
  assert.equal(expression.assetFor(base,'unknown'),base);
 });
 
-for(let i=1;i<=8;i++)test(`hermit_crab/${i} keeps the shared yellow fish hunger mark`,()=>{
+for(let i=1;i<=8;i++)test(`hermit_crab/${i} renders a food mark with normal/unknown fallback intact`,()=>{
  const base=`assets/characters/hermit_crab/${String(i).padStart(2,'0')}.png`;
- const food=svg=>svg.match(/<path class="accent-food"[^>]*>/)?.[0];
+ const food=svg=>svg.match(/<image[^>]*href="([^"]+)"/)?.[1];
  assert.ok(food(expression.accentFor(base,'hungry')));
- assert.equal(food(expression.accentFor(base,'hungry')),food(expression.accentFor('assets/characters/cat/06.png','hungry')));
+ assert.ok(fs.existsSync(require('node:path').join(__dirname,'..',food(expression.accentFor(base,'hungry')))));
  assert.equal(expression.accentFor(base,'normal'),'');
  assert.equal(expression.assetFor(base,'unknown'),base);
 });
 
-for(let i=1;i<=8;i++)test(`jellyfish/${i} keeps the shared yellow fish hunger mark`,()=>{
+for(let i=1;i<=8;i++)test(`jellyfish/${i} renders a food mark with normal/unknown fallback intact`,()=>{
  const base=`assets/characters/jellyfish/${String(i).padStart(2,'0')}.png`;
- const food=svg=>svg.match(/<path class="accent-food"[^>]*>/)?.[0];
+ const food=svg=>svg.match(/<image[^>]*href="([^"]+)"/)?.[1];
  assert.ok(food(expression.accentFor(base,'hungry')));
- assert.equal(food(expression.accentFor(base,'hungry')),food(expression.accentFor('assets/characters/cat/06.png','hungry')));
+ assert.ok(fs.existsSync(require('node:path').join(__dirname,'..',food(expression.accentFor(base,'hungry')))));
  assert.equal(expression.accentFor(base,'normal'),'');
  assert.equal(expression.assetFor(base,'unknown'),base);
 });
 
-for(let i=1;i<=8;i++)test(`starfish/${i} keeps the shared yellow fish hunger mark`,()=>{
+for(let i=1;i<=8;i++)test(`starfish/${i} renders a food mark with normal/unknown fallback intact`,()=>{
  const base=`assets/characters/starfish/${String(i).padStart(2,'0')}.png`;
- const food=svg=>svg.match(/<path class="accent-food"[^>]*>/)?.[0];
+ const food=svg=>svg.match(/<image[^>]*href="([^"]+)"/)?.[1];
  assert.ok(food(expression.accentFor(base,'hungry')));
- assert.equal(food(expression.accentFor(base,'hungry')),food(expression.accentFor('assets/characters/cat/06.png','hungry')));
+ assert.ok(fs.existsSync(require('node:path').join(__dirname,'..',food(expression.accentFor(base,'hungry')))));
  assert.equal(expression.accentFor(base,'normal'),'');
  assert.equal(expression.assetFor(base,'unknown'),base);
 });
 
-for(let i=1;i<=8;i++)test(`coral/${i} keeps the shared yellow fish hunger mark`,()=>{
+for(let i=1;i<=8;i++)test(`coral/${i} renders a food mark with normal/unknown fallback intact`,()=>{
  const base=`assets/characters/coral/${String(i).padStart(2,'0')}.png`;
- const food=svg=>svg.match(/<path class="accent-food"[^>]*>/)?.[0];
+ const food=svg=>svg.match(/<image[^>]*href="([^"]+)"/)?.[1];
  assert.ok(food(expression.accentFor(base,'hungry')));
- assert.equal(food(expression.accentFor(base,'hungry')),food(expression.accentFor('assets/characters/cat/06.png','hungry')));
+ assert.ok(fs.existsSync(require('node:path').join(__dirname,'..',food(expression.accentFor(base,'hungry')))));
  assert.equal(expression.accentFor(base,'normal'),'');
  assert.equal(expression.assetFor(base,'unknown'),base);
 });
 
-for(let i=1;i<=8;i++)test(`butterfly/${i} keeps the shared yellow fish hunger mark`,()=>{
+for(let i=1;i<=8;i++)test(`butterfly/${i} renders a food mark with normal/unknown fallback intact`,()=>{
  const base=`assets/characters/butterfly/${String(i).padStart(2,'0')}.png`;
- const food=svg=>svg.match(/<path class="accent-food"[^>]*>/)?.[0];
+ const food=svg=>svg.match(/<image[^>]*href="([^"]+)"/)?.[1];
  assert.ok(food(expression.accentFor(base,'hungry')));
- assert.equal(food(expression.accentFor(base,'hungry')),food(expression.accentFor('assets/characters/cat/06.png','hungry')));
+ assert.ok(fs.existsSync(require('node:path').join(__dirname,'..',food(expression.accentFor(base,'hungry')))));
  assert.equal(expression.accentFor(base,'normal'),'');
  assert.equal(expression.assetFor(base,'unknown'),base);
 });
 
-for(let i=1;i<=8;i++)test(`beetle/${i} keeps the shared yellow fish hunger mark`,()=>{
+for(let i=1;i<=8;i++)test(`beetle/${i} renders a food mark with normal/unknown fallback intact`,()=>{
  const base=`assets/characters/beetle/${String(i).padStart(2,'0')}.png`;
- const food=svg=>svg.match(/<path class="accent-food"[^>]*>/)?.[0];
+ const food=svg=>svg.match(/<image[^>]*href="([^"]+)"/)?.[1];
  assert.ok(food(expression.accentFor(base,'hungry')));
- assert.equal(food(expression.accentFor(base,'hungry')),food(expression.accentFor('assets/characters/cat/06.png','hungry')));
+ assert.ok(fs.existsSync(require('node:path').join(__dirname,'..',food(expression.accentFor(base,'hungry')))));
  assert.equal(expression.accentFor(base,'normal'),'');
  assert.equal(expression.assetFor(base,'unknown'),base);
 });
 
-for(let i=1;i<=8;i++)test(`stagbeetle/${i} keeps the shared yellow fish hunger mark`,()=>{
+for(let i=1;i<=8;i++)test(`stagbeetle/${i} renders a food mark with normal/unknown fallback intact`,()=>{
  const base=`assets/characters/stagbeetle/${String(i).padStart(2,'0')}.png`;
- const food=svg=>svg.match(/<path class="accent-food"[^>]*>/)?.[0];
+ const food=svg=>svg.match(/<image[^>]*href="([^"]+)"/)?.[1];
  assert.ok(food(expression.accentFor(base,'hungry')));
- assert.equal(food(expression.accentFor(base,'hungry')),food(expression.accentFor('assets/characters/cat/06.png','hungry')));
+ assert.ok(fs.existsSync(require('node:path').join(__dirname,'..',food(expression.accentFor(base,'hungry')))));
  assert.equal(expression.accentFor(base,'normal'),'');
  assert.equal(expression.assetFor(base,'unknown'),base);
 });
 
-for(let i=1;i<=8;i++)test(`cicada/${i} keeps the shared yellow fish hunger mark`,()=>{
+for(let i=1;i<=8;i++)test(`cicada/${i} renders a food mark with normal/unknown fallback intact`,()=>{
  const base=`assets/characters/cicada/${String(i).padStart(2,'0')}.png`;
- const food=svg=>svg.match(/<path class="accent-food"[^>]*>/)?.[0];
+ const food=svg=>svg.match(/<image[^>]*href="([^"]+)"/)?.[1];
  assert.ok(food(expression.accentFor(base,'hungry')));
- assert.equal(food(expression.accentFor(base,'hungry')),food(expression.accentFor('assets/characters/cat/06.png','hungry')));
+ assert.ok(fs.existsSync(require('node:path').join(__dirname,'..',food(expression.accentFor(base,'hungry')))));
  assert.equal(expression.accentFor(base,'normal'),'');
  assert.equal(expression.assetFor(base,'unknown'),base);
 });
 
 test('venus_flytrap uses the shared yellow insect hunger mark',()=>{
  const base='assets/characters/venus_flytrap/06.png';
- const food=svg=>svg.match(/<ellipse class="accent-food"[^>]*>/)?.[0];
+ const food=svg=>svg.match(/<image[^>]*href="([^"]+)"/)?.[1];
  assert.ok(food(expression.accentFor(base,'hungry')));
  assert.equal(food(expression.accentFor(base,'hungry')),food(expression.accentFor('assets/characters/frog/06.png','hungry')));
 });
@@ -484,18 +484,18 @@ for(let i=1;i<=8;i++)test(`unknown/${i} exposes face-relative sickness drops and
   assert.ok(drops,'supported stages expose a sickness drop envelope');
   assert.ok(Object.values(drops).every(Number.isFinite));
  }
- const food=svg=>svg.match(/<path class="accent-food"[^>]*>/)?.[0];
+ const food=svg=>svg.match(/<image[^>]*href="([^"]+)"/)?.[1];
  assert.ok(food(expression.accentFor(base,'hungry')));
- assert.equal(food(expression.accentFor(base,'hungry')),food(expression.accentFor('assets/characters/cat/06.png','hungry')));
+ assert.ok(fs.existsSync(require('node:path').join(__dirname,'..',food(expression.accentFor(base,'hungry')))));
  assert.equal(expression.accentFor(base,'normal'),'');
  assert.equal(expression.assetFor(base,'unrecognized-expression'),base);
 });
 
-for(let i=1;i<=8;i++)test(`ren/${i} uses the existing human rice hunger artwork`,()=>{
+for(let i=1;i<=8;i++)test(`ren/${i} uses the shared age-appropriate human hunger artwork`,()=>{
  const base=`assets/characters/ren/${String(i).padStart(2,'0')}.png`;
  const art=svg=>svg.replace(/translate\([^)]*\)/,'translate(placement)');
- assert.equal(art(expression.accentFor(base,'hungry')),art(expression.accentFor('assets/characters/man/06.png','hungry')));
- assert.match(expression.accentFor(base,'hungry'),/accent-rice/);
+ assert.equal(art(expression.accentFor(base,'hungry')),art(expression.accentFor(`assets/characters/man/${String(i).padStart(2,'0')}.png`,'hungry')));
+ assert.ok(expression.accentFor(base,'hungry').includes(`hunger/${i===1?'milk':'rice'}.svg`));
 });
 for(let i=1;i<=8;i++)test(`ren/${i} exposes face-relative sickness drops`,()=>{
  const base=`assets/characters/ren/${String(i).padStart(2,'0')}.png`;

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // Independent check of emitted production SVG against every expression PNG.
+const inlineExpressionImages=require('./inline-expression-images.cjs');
 const fs=require('fs'),path=require('path'),sharp=require('sharp');
 const root=path.resolve(__dirname,'..'),exp=require('../pet-expression.js'),bounds=require('../cast-bounds.js');
 const css=fs.readFileSync(path.join(root,'pet-expression.css'),'utf8');
@@ -11,7 +12,7 @@ const S=2,P=80,W=368;let checked=0,sweats=0;const issues=[];
   for(const name of names){
    const png=await sharp(path.join(root,exp.assetFor(base,name))).resize(208,208,{kernel:'nearest'}).ensureAlpha().raw().toBuffer();
    const raw=exp.accentFor(base,name).match(/<svg[^>]*>([\s\S]*)<\/svg>/)[1];
-   const mark=await sharp(Buffer.from(`<svg width="368" height="368" viewBox="-40 -40 184 184"><style>${css}</style><g class="pet-expression-accent">${raw}</g></svg>`)).ensureAlpha().raw().toBuffer();
+   const mark=await sharp(Buffer.from(`<svg width="368" height="368" viewBox="-40 -40 184 184"><style>${css}</style><g class="pet-expression-accent">${inlineExpressionImages(raw)}</g></svg>`)).ensureAlpha().raw().toBuffer();
    let overlaps=0;
    for(let y=0;y<208;y++)for(let x=0;x<208;x++)if(png[(y*208+x)*4+3]>16){
     const my=y+Math.round(floor*S)+P,mx=x+P;

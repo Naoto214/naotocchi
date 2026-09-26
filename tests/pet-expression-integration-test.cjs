@@ -602,3 +602,22 @@ for (const species of ['man','woman','penguin','turtle','frog','clownfish','salm
     });
   }
 }
+
+test('Home connects all fifteen food artworks without changing saved state', () => {
+  const samples=[
+    ['man',1,'milk'],['man',3,'rice'],['dog',3,'bowl'],['cat',3,'fish'],
+    ['frog',25,'insect'],['clownfish',3,'aquatic'],['phoenix',25,'neutral'],
+    ['sakura',3,'water'],['frog',3,'algae'],['butterfly',3,'leaf'],
+    ['butterfly',40,'nectar'],['mushroom',40,'organic'],['stagbeetle',3,'wood'],
+    ['beetle',25,'sap'],['starfish',25,'benthic'],
+  ];
+  const h=harness();
+  for(const [species,age,icon] of samples){
+    adultCat(h,{speciesLine:species,ageTicks:age*20,stageIndex:h.api.stageForAge(age),hunger:40});
+    assert.equal(accent(h),'hungry',species);
+    assert.ok(h.get('petSprite').innerHTML.includes(`assets/marks/hunger/${icon}.svg`),species);
+    assert.equal((h.get('petSprite').innerHTML.match(/<image\b/g)||[]).length,1,species);
+    const saved=JSON.stringify(h.api.state());h.api.render();
+    assert.equal(JSON.stringify(h.api.state()),saved,species);
+  }
+});

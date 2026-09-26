@@ -60,3 +60,38 @@ test('hunger category resolver does not silently fallback for unsupported or mal
     undefined,
   ]) assert.equal(expression.hungerCategoryFor(value),null);
 });
+
+const iconForCategory = {
+  rice:'rice', food_bowl:'bowl', omnivore_food:'bowl', fish:'fish',
+  insect:'insect', fly:'insect', aquatic_small_prey:'aquatic', milk:'milk',
+  neutral_nutrition:'neutral', water:'water', algae_aquatic_plant:'algae',
+  leaf:'leaf', nectar:'nectar', humus:'organic', organic_nutrients:'organic',
+  decaying_wood_humus:'wood', tree_sap:'sap', plant_sap:'sap', benthic_small_prey:'benthic',
+};
+
+test('all 248 hungry displays use the approved food artwork, including life-stage overrides', () => {
+  const fs = require('node:fs'), path = require('node:path');
+  const used = new Set();
+  for (const [species,categories] of Object.entries(expected)) {
+    categories.forEach((category,index) => {
+      const base=`assets/characters/${species}/${String(index+1).padStart(2,'0')}.png`;
+      const markup=expression.accentFor(base,'hungry');
+      const images=[...markup.matchAll(/<image\b[^>]*href="([^"]+)"/g)];
+      const icon=`assets/marks/hunger/${iconForCategory[category]}.svg`;
+      assert.deepEqual(images.map(m=>m[1]),[icon],base);
+      assert.ok(fs.existsSync(path.join(__dirname,'..',icon)),icon);
+      assert.equal((markup.match(/class="accent-thought"/g)||[]).length,2,base);
+      used.add(icon);
+    });
+  }
+  assert.equal(used.size,15);
+});
+
+test('mushroom07 hunger bubble separates from spores without moving other state marks', () => {
+  const base='assets/characters/mushroom/07.png';
+  assert.match(expression.accentFor(base,'hungry'),/translate\(-23 -9\)/);
+  assert.match(expression.accentFor(base,'happy'),/translate\(16.5 -10\)/);
+  assert.match(expression.accentFor(base,'strained'),/translate\(-15.5 15\)/);
+  assert.equal(expression.accentFor('assets/characters/author/naoto.png','hungry'),'');
+  assert.equal(expression.accentFor('assets/characters/cat/09.png','hungry'),'');
+});

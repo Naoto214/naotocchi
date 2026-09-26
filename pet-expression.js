@@ -195,7 +195,7 @@
     "mushroom/04": {"face":[64,55],"sweat":{"leftInner":23.5,"rightInner":79.5,"centerY":44.6875},"marks":{"happy":[1,-3],"strained":[-2.5,0.5],"hungry":[7,-6.5],"sick":[-4.5,-15],"tired":[5,-3.5],"sulky":[12.5,-10],"weak":[5.5,1],"critical":[11,-2],"wantsPlay":[-29.5,-9.5],"sleeping":[9.5,-5.5]}},
     "mushroom/05": {"face":[64,90],"sweat":{"leftInner":8.5,"rightInner":96,"centerY":73.125},"marks":{"happy":[15.5,6],"strained":[-19.5,12],"hungry":[26.5,6],"sick":[-3,-15],"tired":[24,9],"sulky":[31,3],"weak":[24.5,13.5],"critical":[30,10.5],"wantsPlay":[-29.5,-4.5],"sleeping":[29,7]}},
     "mushroom/06": {"face":[64,88],"sweat":{"leftInner":19.5,"rightInner":84.5,"centerY":71.5},"marks":{"happy":[17.5,2.5],"strained":[-5.5,10.5],"hungry":[8,-2.5],"sick":[-12,-7],"tired":[7,1],"sulky":[12.5,-5],"weak":[3.5,4.5],"critical":[13.5,0],"wantsPlay":[-29.5,6.5],"sleeping":[9,-2]}},
-    "mushroom/07": {"face":[55,80],"sweat":{"leftInner":8.1875,"rightInner":89.6875,"centerY":65},"marks":{"happy":[16.5,-10],"strained":[-15.5,15],"hungry":[-5,-1],"sick":[-18,-1.5],"tired":[-10.5,0.5],"sulky":[2.5,-18.5],"weak":[1,-11],"critical":[4.5,-14.5],"wantsPlay":[-37,10],"sleeping":[-8,-3.5]}},
+    "mushroom/07": {"face":[55,80],"sweat":{"leftInner":8.1875,"rightInner":89.6875,"centerY":65},"marks":{"happy":[16.5,-10],"strained":[-15.5,15],"hungry":[-23,-9],"sick":[-18,-1.5],"tired":[-10.5,0.5],"sulky":[2.5,-18.5],"weak":[1,-11],"critical":[4.5,-14.5],"wantsPlay":[-37,10],"sleeping":[-8,-3.5]}},
     "mushroom/08": {"face":[78,85],"sweat":{"leftInner":8.375,"rightInner":96.375,"centerY":69.0625},"marks":{"happy":[13,20.5],"strained":[-2.5,5.5],"hungry":[14.5,16],"sick":[7.5,8],"tired":[12,20],"sulky":[22.5,16],"weak":[16,26],"critical":[22,22.5],"wantsPlay":[-18.5,8],"sleeping":[16.5,17]}},
     "dragon/01": {"face":[83,84],"sweat":{"leftInner":47.4375,"rightInner":77.4375,"centerY":62.25},"marks":{"happy":[2.5,32],"strained":[22.5,30],"hungry":[10.5,27],"sick":[-1,17],"tired":[8.5,30],"sulky":[14,22],"weak":[8.5,35],"critical":[12,30],"wantsPlay":[-14.5,36],"sleeping":[13.5,28]}},
     "dragon/02": {"face":[92,61],"sweat":{"leftInner":52.75,"rightInner":83.25,"centerY":29.5625},"marks":{"happy":[9,12],"strained":[29,9.5],"hungry":[17,5.5],"sick":[11.5,-15.5],"tired":[16.5,11],"sulky":[21,3],"weak":[15,14],"critical":[21.5,13],"wantsPlay":[-7,16],"sleeping":[19,6]}},
@@ -333,7 +333,7 @@
     happy: '<svg viewBox="0 0 104 104" focusable="false"><path class="accent-warm" d="M76 17l2.2 5.2 5.3 2.2-5.3 2.2-2.2 5.2-2.2-5.2-5.3-2.2 5.3-2.2zM88 34l1.4 3.2 3.2 1.4-3.2 1.4-1.4 3.2-1.4-3.2-3.2-1.4 3.2-1.4z"/></svg>',
     strained: '<svg viewBox="0 0 104 104" focusable="false"><path class="accent-warm-line accent-outline" d="M17 24l7-5 4 7 7-5"/><path class="accent-warm-line" d="M17 24l7-5 4 7 7-5"/></svg>',
     sulky: '<svg viewBox="0 0 104 104" focusable="false"><path class="accent-cloud" d="M67 24c1-6 10-7 13-2 5-4 13 1 10 7 6 2 5 11-2 12H68c-9 0-10-13-1-17z"/><path class="accent-cloud-line" d="M70 29c4-4 7 5 11 0s7 4 4 7"/></svg>',
-    hungry: '<svg viewBox="0 0 104 104" focusable="false"><circle class="accent-thought" cx="71" cy="37" r="2.5"/><circle class="accent-thought" cx="77" cy="29" r="4"/><path class="accent-food" d="M82 17c6-5 12-2 14 2-2 4-8 7-14 2l-4 3v-10z"/><circle class="accent-food-eye" cx="91" cy="18.5" r="1"/></svg>',
+    hungry: '<svg viewBox="0 0 104 104" focusable="false"><circle class="accent-thought" cx="71" cy="37" r="2.5"/><circle class="accent-thought" cx="77" cy="29" r="4"/></svg>',
     sick: '<svg viewBox="0 0 104 104" focusable="false"><path class="accent-cool" d="M69 15h23v5H69zM72 23h17v3H72z"/><path class="accent-cool-line accent-outline" d="M72 31h17M75 35h11"/><path class="accent-cool-line" d="M72 31h17M75 35h11"/></svg>',
     tired: '<svg viewBox="0 0 104 104" focusable="false"><circle class="accent-sleepy" cx="84" cy="23" r="7"/><circle class="accent-sleepy" cx="74" cy="34" r="3"/></svg>',
     weak: '<svg viewBox="0 0 104 104" focusable="false"><path class="accent-weak accent-outline" d="M72 16v13m0 0-4-5m4 5 4-5M83 18v15m0 0-4-5m4 5 4-5"/><path class="accent-weak" d="M72 16v13m0 0-4-5m4 5 4-5M83 18v15m0 0-4-5m4 5 4-5"/></svg>',
@@ -341,6 +341,30 @@
     wantsPlay: '<svg viewBox="0 0 104 104" focusable="false"><path class="accent-call accent-outline" d="M72 18l-6-7M82 16V7M91 20l7-6"/><path class="accent-call" d="M72 18l-6-7M82 16V7M91 20l7-6"/></svg>',
     sleeping: '<svg viewBox="0 0 104 104" focusable="false"><path class="accent-sleep-z accent-outline" d="M68 31h6l-6 6h6"/><path class="accent-sleep-z" d="M68 31h6l-6 6h6"/><path class="accent-sleep-z accent-outline" d="M78 21h8l-8 8h8"/><path class="accent-sleep-z" d="M78 21h8l-8 8h8"/><path class="accent-sleep-z accent-outline" d="M88 8h11L88 19h11"/><path class="accent-sleep-z" d="M88 8h11L88 19h11"/></svg>',
   });
+  // Human-approved 19 semantic categories share 15 food artworks.
+  // Meaning stays in HUNGER_PROFILES; this table only chooses the visual asset.
+  const HUNGER_ICONS = Object.freeze({
+    rice: 'rice',
+    food_bowl: 'bowl',
+    omnivore_food: 'bowl',
+    fish: 'fish',
+    insect: 'insect',
+    fly: 'insect',
+    aquatic_small_prey: 'aquatic',
+    milk: 'milk',
+    neutral_nutrition: 'neutral',
+    water: 'water',
+    algae_aquatic_plant: 'algae',
+    leaf: 'leaf',
+    nectar: 'nectar',
+    humus: 'organic',
+    organic_nutrients: 'organic',
+    decaying_wood_humus: 'wood',
+    tree_sap: 'sap',
+    plant_sap: 'sap',
+    benthic_small_prey: 'benthic',
+  });
+
   const HUNGER_PROFILES = Object.freeze({
     man: Object.freeze({default:'rice',overrides:Object.freeze({'01':'milk'})}),
     woman: Object.freeze({default:'rice',overrides:Object.freeze({'01':'milk'})}),
@@ -414,19 +438,17 @@
 
   function accentFor(baseAsset, expression) {
     if (!Object.hasOwn(STAGE_ASSETS,baseAsset) || !Object.hasOwn(ACCENTS,expression)) return '';
-    const human = /^assets\/characters\/(man|woman|ren)\/(0[1-8])\.png$/.exec(baseAsset);
     const placement = MARK_PLACEMENT[baseAsset.slice(18,-4)];
     const offset = (placement?.marks[expression] || [0,0]).join(' ');
-    // Each species thinks of recognizable food; keep the shared yellow palette and thought bubbles.
-    const artwork = /^assets\/characters\/(?:frog|venus_flytrap)\/0[1-8]\.png$/.test(baseAsset) && expression === 'hungry'
-      ? '<svg viewBox="0 0 104 104" focusable="false"><circle class="accent-thought" cx="71" cy="37" r="2.5"/><circle class="accent-thought" cx="77" cy="29" r="4"/><ellipse class="accent-food" cx="88" cy="19" rx="5" ry="3"/><path class="accent-food" d="M83 17l-5-4m5 8-5 4m15-8 5-4m-5 8 5 4"/><circle class="accent-food-eye" cx="86" cy="18" r="1"/></svg>'
-      : /^assets\/characters\/clownfish\/0[1-8]\.png$/.test(baseAsset) && expression === 'hungry'
-        ? '<svg viewBox="0 0 104 104" focusable="false"><circle class="accent-thought" cx="71" cy="37" r="2.5"/><circle class="accent-thought" cx="77" cy="29" r="4"/><circle class="accent-food" cx="84" cy="18" r="3"/><circle class="accent-food" cx="92" cy="15" r="2.5"/><circle class="accent-food" cx="94" cy="23" r="2"/></svg>'
-      : ['assets/characters/turtle/01.png','assets/characters/turtle/02.png','assets/characters/turtle/03.png','assets/characters/turtle/04.png','assets/characters/turtle/05.png','assets/characters/turtle/06.png','assets/characters/turtle/07.png','assets/characters/turtle/08.png','assets/characters/dog/01.png','assets/characters/dog/02.png','assets/characters/dog/03.png','assets/characters/dog/04.png','assets/characters/dog/05.png','assets/characters/dog/06.png','assets/characters/dog/07.png','assets/characters/dog/08.png'].includes(baseAsset) && expression === 'hungry'
-      ? '<svg viewBox="0 0 104 104" focusable="false"><circle class="accent-thought" cx="71" cy="37" r="2.5"/><circle class="accent-thought" cx="77" cy="29" r="4"/><path class="accent-food" d="M79 18h18l-3 7H82z"/><circle class="accent-food" cx="84" cy="16" r="2"/><circle class="accent-food" cx="91" cy="16" r="2"/></svg>'
-      : human && expression === 'hungry'
-        ? '<svg viewBox="0 0 104 104" focusable="false"><circle class="accent-thought" cx="71" cy="37" r="2.5"/><circle class="accent-thought" cx="77" cy="29" r="4"/><path class="accent-thought accent-rice" d="M80 19c0-4 4-7 8-7s8 3 8 7z"/><path class="accent-food" d="M79 19h18l-3 8H82z"/></svg>'
-        : ACCENTS[expression];
+    let artwork = ACCENTS[expression];
+    if (expression === 'hungry') {
+      const category = hungerCategoryFor(baseAsset);
+      if (!Object.hasOwn(HUNGER_ICONS,category)) throw new Error(`Missing hunger artwork: ${category}`);
+      const icon = HUNGER_ICONS[category];
+      // Two design-unit padding preserves strokes outside the approved 24-unit artwork.
+      // Visible artwork still starts at (78,6) at scale .875; bubble positions stay unchanged.
+      artwork = artwork.replace('</svg>', `<image href="assets/marks/hunger/${icon}.svg" x="76.25" y="4.25" width="24.5" height="24.5"/></svg>`);
+    }
     const accent = artwork.replace(/(<svg[^>]*>)/, `$1<g transform="translate(${offset})">`).replace('</svg>', '</g></svg>');
     return `<span class="pet-expression-accent pet-expression-accent--${expression}" aria-hidden="true">${accent}</span>`;
   }
