@@ -213,3 +213,34 @@ forest.fallslook の solid bigtrunk は、**見た目の問題としては解決
 ### Release Hardening へ進めるか
 
 **進めてよい**。見た目の側に RH を待たせるものはない。**実装はまだ始めていない**。
+
+---
+
+## 9. めぐる 2D scenery / visual polish — 正式完了
+
+> **めぐる 2D の scenery / visual polish は正式に完了。**
+> 判定 B(visual 完成・別タスクのみ残り)。見た目の残課題で安全に直せるものはすべて直した。
+
+| 段階 | PR | 中身 |
+|---|---|---|
+| 第1段階: 明らかな欠落・弱い景観 | #344 | starfall / snow slopetop / snow peak の deco、rock arch / bone arch |
+| 第2段階: 地域差別化 | #345 | snow の道と雪面 / memory_lake の霧 / star_stop の地平線の霞 |
+| 第3段階: 13 地域の最終 visual QA | #346 | city のビルのばらつき / river_lake のもや / 全地域の横断 |
+| 最終 completion pass | #347(この PR) | たきのみはらし / jungle の夜 / star_stop 2 件 / ちょうじょうの到着 / つりばし / くぼちのみはらし |
+
+最終状態: 13 地域すべて監査済み・主要 spot 名と実画面が一致・地域差を確認・密度を確認・mobile 3 サイズ正常・performance 回帰なし・counts / collision / gate / discovery / save / corridor / なかま / 住民 / DistantFeature 37 は不変。
+
+### Release Hardening へ送るもの(これだけ)
+
+| 項目 | 由来 |
+|---|---|
+| forest / mountain に着くときの描画コスト | Phase 4E |
+| city 系のふだんの描画コスト(steady-state) | Phase 4E |
+| corridor の中でまれに 60 ms を超えるフレーム | Phase 4E |
+| なかまが障害物にめりこむ既存バグ(party obstacle / RH-7) | Phase 4E |
+
+見た目の残課題は Release Hardening に送らない(KEEP-AS-IS は §1 のとおり、理由つきで据え置き)。
+
+Three.js は不要の判断を維持(将来の PoC 扱い)。
+
+このタブ(飾り付け / visual polish)はここで閉じる。新しい visual polish・Release Hardening の実装には進んでいない。
