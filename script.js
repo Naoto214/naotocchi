@@ -1695,9 +1695,73 @@
     return total;
   }
 
+  // 配列の「要素」の かた(RH-1)。登録表とは てらしあわせない ので、
+  // 未知・未来・退役の ID も 空でない 文字列なら そのまま のこす。
+  // ids = 文字列の 集合(重複は 最初の 1つ)、idSeq = 文字列の 履歴(重複を 保つ)、
+  // ints = 整数の 集合("2" は 2 に なおす。範囲外の 整数は 未来の 値として のこす)。
+  // idObjs = id が 文字列の object(下の 既存の filter と おなじ 条件。なかまの いこうより 前に かける)。
+  // ほかの object の 配列(lifeLog / pastLives)と midlifeSeen は 下の 既存の filter、
+  // itemMemories は item-system、stickers.pages は シールの 仕組みが うけもつ
+  const SAVE_ARRAY_KINDS = {
+    '': { transformStageDone: 'ids', marriageMilestonesSeen: 'ints', attractedTo: 'ids', discoveredStages: 'ids', achievementsUnlocked: 'ids', companions: 'idObjs' },
+    lifetime: {
+      endingTiersReached: 'ints', weatherSeen: 'ids', timeSeen: 'ids', companionsRecruited: 'ids', rareCompanionsRecruited: 'ids',
+      partnersRecorded: 'ids', partnerEncounters: 'ids', partnersMarried: 'ids', ownedShopItems: 'ids', raisedSpecies: 'ids',
+      ownedNaotoItems: 'ids', ownedConsumableItems: 'ids', bonusUnlockedThemeIds: 'ids', regionsVisited: 'ids',
+      specialRegionsVisited: 'ids', legendsMet: 'ids', duelRecentQuestionIds: 'idSeq',
+    },
+    'lifetime.stickers': { pageOrder: 'ids', tasksDone: 'ids', seen: 'ids' },
+  };
+  const SAVE_REPAIR_SAMPLE_MAX = 10;
+  // こわれた 要素は 取り除き、repair に 件数と 見本を のこす(黙って すてない)
+  function sanitizeSaveArrays(st, repair, prefix = '') {
+    for (const [path, fields] of Object.entries(SAVE_ARRAY_KINDS)) {
+      const owner = path ? path.split('.').reduce((o, k) => (o && typeof o === 'object' ? o[k] : null), st) : st;
+      if (!owner || typeof owner !== 'object') continue;
+      for (const [key, kind] of Object.entries(fields)) {
+        if (!Array.isArray(owner[key])) continue;
+        const kept = [], seen = new Set();
+        for (const v of owner[key]) {
+          let ok = null;
+          if (kind === 'ints') {
+            const n = typeof v === 'string' && /^\s*-?\d+\s*$/.test(v) ? Number(v) : v;
+            if (Number.isInteger(n)) ok = n;
+          } else if (kind === 'idObjs') {
+            if (v && typeof v === 'object' && typeof v.id === 'string') ok = v;
+          } else if (typeof v === 'string' && v !== '') ok = v;
+          if (ok !== null && !(kind !== 'idSeq' && kind !== 'idObjs' && seen.has(ok))) {
+            seen.add(ok);
+            kept.push(ok);
+            if (ok === v) continue;
+          }
+          if (!repair) continue;
+          const field = `${prefix}${path ? path + '.' : ''}${key}`;
+          repair.count++;
+          repair.byField[field] = (repair.byField[field] || 0) + 1;
+          let sample;
+          try { sample = v === undefined ? 'undefined' : JSON.stringify(v); } catch (e) { sample = String(v); }
+          repair.samples.push({ field, value: String(sample).slice(0, 120) });
+          if (repair.samples.length > SAVE_REPAIR_SAMPLE_MAX) repair.samples.shift();
+        }
+        owner[key] = kept;
+      }
+    }
+  }
+  // lifetime.saveRepair は 修復の きろく(配列の 正規化表には いれない)。
+  // 修復が 1件も ない load では 作らず、さわらない
+  function recordSaveRepair(lifetime, repair) {
+    if (!repair.count) return;
+    const prev = lifetime.saveRepair && typeof lifetime.saveRepair === 'object' && !Array.isArray(lifetime.saveRepair) ? lifetime.saveRepair : {};
+    const byField = prev.byField && typeof prev.byField === 'object' && !Array.isArray(prev.byField) ? { ...prev.byField } : {};
+    for (const [field, n] of Object.entries(repair.byField)) byField[field] = (Number(byField[field]) || 0) + n;
+    const samples = [...(Array.isArray(prev.samples) ? prev.samples : []), ...repair.samples].slice(-SAVE_REPAIR_SAMPLE_MAX);
+    lifetime.saveRepair = { v: 1, lastAt: Date.now(), total: (Number(prev.total) || 0) + repair.count, byField, samples };
+  }
+
   // メーターと きろくの 中身も かたを そろえる(normalizeStateShape の
   // あとに よぶ。ここでも 正しい 値は かえない)
-  function normalizeStateValues(st) {
+  function normalizeStateValues(st, repair, prefix) {
+    sanitizeSaveArrays(st, repair, prefix);
     for (const key of ['hunger', 'happiness', 'energy', 'health', 'growth', 'decline']) st[key] = clamp(st[key], 0, 100);
     for (const [key, bounds] of Object.entries(GLASS_SETTINGS)) {
       st.lifetime[key] = Math.round(clamp(st.lifetime[key], bounds.min, bounds.max));
@@ -1750,6 +1814,8 @@
       // schemaVersion 5: いこうの まえに かたを そろえておく(下の いこう
       // コードは 配列の .map などを ためらいなく よぶ ので)
       normalizeStateShape(merged, freshState());
+      // 要素の かたも いこうより 前に そろえ、取り除いた 値を 記録する
+      sanitizeSaveArrays(merged, repair);
       migrateNormalEquipmentV2(merged);
       // 地域/きせつゲームの id を「登録順の 連番(region:city:road:0 …)」から
       // 固定の 文字列 id に かえた ぶんを ひきつぐ(プレイ回数の きろく)
@@ -1949,11 +2015,11 @@
       // v4 の セーブは 値を いっさい かえずに そのまま v5 に なる。上の
       // normalizeStateShape() と ここの normalizeStateValues() が「配列で
       // あるべき ものは 配列、メーターは 0〜100」を ほしょうする
-      normalizeStateValues(merged);
+      normalizeStateValues(merged, repair);
       if (merged.infiniteReturn && typeof merged.infiniteReturn === 'object') {
         normalizeStateShape(merged.infiniteReturn, freshState());
         migrateNormalEquipmentV2(merged.infiniteReturn);
-        normalizeStateValues(merged.infiniteReturn);
+        normalizeStateValues(merged.infiniteReturn, repair, 'infiniteReturn.');
         merged.infiniteReturn.schemaVersion = 5;
         normalizeRomanticIdentity(merged.infiniteReturn);
         normalizeRomanticIdentity(merged.infiniteReturn.partner);
@@ -2004,12 +2070,14 @@
         pendingMigrationQuiet = true;
       }
 
+      recordSaveRepair(merged.lifetime, repair);
       delete merged.age;
       delete merged.evoMeter;
       delete merged.devoMeter;
       delete merged.freePlay;
       return merged;
     };
+    let repair;
     stateLoadRecovered = false;
     lastGoodSaveRaw = null;
     saveWriteBlocked = false;
@@ -2018,14 +2086,17 @@
       try {
         const raw = localStorage.getItem(key);
         if (!raw) continue;
+        repair = { count: 0, byField: {}, samples: [] };
         const merged = migrate(raw);
+        // backup は saveState が lastGoodSaveRaw から書く。読みこんだ直後には
+        // 写さない(こわれた 要素ごと backup に ひろげない)。修復した load では
+        // 元の raw を snapshot に のこし、backup の 候補は 修復後の ものに する
         lastGoodSaveRaw = raw;
-        if (key === SAVE_KEY) {
-          // 移行に失敗したデータで、正常なバックアップを上書きしない。
-          try { localStorage.setItem(SAVE_BACKUP_KEY, raw); } catch (ignore) { /* backup is best effort */ }
-        } else {
-          stateLoadRecovered = true;
+        if (repair.count) {
+          takeSaveSnapshot(raw, true);
+          try { lastGoodSaveRaw = JSON.stringify(merged); } catch (ignore) { /* keep the loaded raw */ }
         }
+        if (key !== SAVE_KEY) stateLoadRecovered = true;
         return merged;
       } catch (e) {
         failed = true;
@@ -2210,11 +2281,17 @@
     return buildMinigamePool().filter((game) => (counts[game.id] || 0) > 0).length;
   }
 
+  const achievementErrorsReported = new Set();
   function checkAchievements() {
     state.lifetime.maxAgeReached = Math.max(state.lifetime.maxAgeReached, currentAge());
     for (const ach of ACHIEVEMENTS) {
       if (state.achievementsUnlocked.includes(ach.id)) continue;
-      if (!ach.condition(state.lifetime, state)) continue;
+      // 2番目の 防御: 1件の 条件の 例外で save と 起動を とめない。未達の まま 記録する
+      let met = false;
+      try { met = ach.condition(state.lifetime, state); } catch (err) {
+        if (!achievementErrorsReported.has(ach.id)) { achievementErrorsReported.add(ach.id); reportRuntimeError(err, `achievement:${ach.id}`); }
+      }
+      if (!met) continue;
       state.achievementsUnlocked.push(ach.id);
       // かいほうした ひづけ(じっせき画面の「さいきん」と NEW の しるしに つかう)
       (state.lifetime.achievementUnlockedAt || (state.lifetime.achievementUnlockedAt = {}))[ach.id] = Date.now();
@@ -11280,6 +11357,8 @@
       // tier0の🎉は「100さいクリア済み」の証。セーブに古い値が残っても
       // clears===0なら画面には絶対に出さない。
       .filter((tierIndex) => tierIndex !== 0 || (state.lifetime.clears || 0) > 0)
+      // 未知の tier(未来版の 値など)は save に のこし、表示だけ とばす
+      .filter((tierIndex) => Number.isInteger(tierIndex) && ENDING_TIERS[tierIndex] !== undefined)
       .sort((a, b) => a - b)
       .map((tierIndex) => {
         const label = ENDING_TIER_UNLOCK_LABELS[tierIndex] || ENDING_TIERS[tierIndex].title;

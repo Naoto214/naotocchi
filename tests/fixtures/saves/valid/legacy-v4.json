@@ -1,0 +1,12 @@
+{
+  "_note": "RH-1: 正常な 旧版(schemaVersion 4)の save。修復は おきず、saveRepair も 作られない",
+  "stage": "growing",
+  "speciesLine": "dog",
+  "stageIndex": 3,
+  "ageTicks": 900,
+  "schemaVersion": 4,
+  "romanceCompatibilityVersion": 2,
+  "discoveredStages": ["dog:0", "dog:1", "dog:2", "futureline:1"],
+  "achievementsUnlocked": ["evolve-1"],
+  "lifetime": { "money": 321, "evolutions": 2, "regionsVisited": ["home", "city"], "endingTiersReached": [], "companionsRecruited": ["retired_companion_old"] }
+}
