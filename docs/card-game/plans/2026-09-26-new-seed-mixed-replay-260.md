@@ -1,0 +1,3 @@
+# 260 次優先者pass適用計画
+
+259の唯一候補と258の保存state/hashを照合し、3経路のresponse passを既存の遷移で適用する。02-Bは終了履歴証明待ちの保存stateを保持する。event/snapshot/hashとcanonical bytesを検証して保存し、通常行動候補および終了履歴を監査する。
