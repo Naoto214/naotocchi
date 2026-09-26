@@ -1,30 +1,32 @@
-<?xml version="1.0" ?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="1670" viewBox="0 0 1200 1670" font-family="Noto Sans CJK JP, sans-serif">
-  <rect width="100%" height="100%" fill="#f6f3e9"/>
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1710" viewBox="0 0 1200 1710" font-family="Noto Sans CJK JP, sans-serif">
+  <rect width="100%" height="100%" fill="#f6f3e9" />
   <text x="24" y="38" font-size="26" fill="#514831" font-weight="700">空腹マーク｜全15絵柄の改善候補</text>
   <text x="24" y="65" font-size="14" fill="#514831" font-weight="400">19の意味カテゴリは保持 ／ 食べ物部分だけの比較 ／ 本番未採用・runtime未接続</text>
   <g transform="translate(20 88)">
-    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5"/>
+    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5" />
     <text x="18" y="30" font-size="20" fill="#514831" font-weight="700">ごはん</text>
-    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">A 既存候補を維持</text>
-    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">旧候補</text>
+    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">A 前回候補を維持</text>
+    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">前回候補</text>
     <text x="155" y="79" font-size="12" fill="#514831" font-weight="400">今回の候補</text>
     <text x="286" y="79" font-size="12" fill="#514831" font-weight="400">単色</text>
-    <g transform="translate(4 74) scale(.9)">
-      <path d="M34 49c0-8 8-14 18-14s18 6 18 14z" fill="none" stroke="#d59f13" stroke-width="4"/>
-      <path d="M31 49h42l-6 18H37z" fill="#f4c542" stroke="#d59f13" stroke-width="3"/>
+    <g transform="translate(25 99) scale(2.4)">
+      <g transform="translate(-10 -11) scale(.44)">
+        <path d="M34 49c0-8 8-14 18-14s18 6 18 14z" fill="none" stroke="#d59f13" stroke-width="4" />
+        <path d="M31 49h42l-6 18H37z" fill="#f4c542" stroke="#d59f13" stroke-width="3" />
+      </g>
     </g>
     <g transform="translate(148 89) scale(3.3333333333333335)">
       <g transform="translate(-10 -11) scale(.44)">
-        <path d="M34 49c0-8 8-14 18-14s18 6 18 14z" fill="none" stroke="#d59f13" stroke-width="4"/>
-        <path d="M31 49h42l-6 18H37z" fill="#f4c542" stroke="#d59f13" stroke-width="3"/>
+        <path d="M34 49c0-8 8-14 18-14s18 6 18 14z" fill="none" stroke="#d59f13" stroke-width="4" />
+        <path d="M31 49h42l-6 18H37z" fill="#f4c542" stroke="#d59f13" stroke-width="3" />
       </g>
     </g>
     <g style="filter:url(#gray)">
       <g transform="translate(280 112) scale(1.5)">
         <g transform="translate(-10 -11) scale(.44)">
-          <path d="M34 49c0-8 8-14 18-14s18 6 18 14z" fill="none" stroke="#d59f13" stroke-width="4"/>
-          <path d="M31 49h42l-6 18H37z" fill="#f4c542" stroke="#d59f13" stroke-width="3"/>
+          <path d="M34 49c0-8 8-14 18-14s18 6 18 14z" fill="none" stroke="#d59f13" stroke-width="4" />
+          <path d="M31 49h42l-6 18H37z" fill="#f4c542" stroke="#d59f13" stroke-width="3" />
         </g>
       </g>
     </g>
@@ -33,33 +35,35 @@
     <text x="18" y="236" font-size="13" fill="#514831" font-weight="400">輪郭を維持し、作り直さない。</text>
   </g>
   <g transform="translate(415 88)">
-    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5"/>
+    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5" />
     <text x="18" y="30" font-size="20" fill="#514831" font-weight="700">フード皿・汎用雑食餌</text>
-    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">A＋D 維持・共用候補</text>
-    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">旧候補</text>
+    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">A 前回候補を維持</text>
+    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">前回候補</text>
     <text x="155" y="79" font-size="12" fill="#514831" font-weight="400">今回の候補</text>
     <text x="286" y="79" font-size="12" fill="#514831" font-weight="400">単色</text>
-    <g transform="translate(4 74) scale(.9)">
-      <path d="M30 47h44l-7 18H37z" fill="#f4c542" stroke="#d59f13" stroke-width="3"/>
-      <circle cx="40" cy="43" r="4" fill="#f4c542"/>
-      <circle cx="54" cy="41" r="4" fill="#f4c542"/>
-      <circle cx="67" cy="44" r="4" fill="#f4c542"/>
+    <g transform="translate(25 99) scale(2.4)">
+      <g transform="translate(-10 -11) scale(.44)">
+        <path d="M30 47h44l-7 18H37z" fill="#f4c542" stroke="#d59f13" stroke-width="3" />
+        <circle cx="40" cy="43" r="4" fill="#f4c542" />
+        <circle cx="54" cy="41" r="4" fill="#f4c542" />
+        <circle cx="67" cy="44" r="4" fill="#f4c542" />
+      </g>
     </g>
     <g transform="translate(148 89) scale(3.3333333333333335)">
       <g transform="translate(-10 -11) scale(.44)">
-        <path d="M30 47h44l-7 18H37z" fill="#f4c542" stroke="#d59f13" stroke-width="3"/>
-        <circle cx="40" cy="43" r="4" fill="#f4c542"/>
-        <circle cx="54" cy="41" r="4" fill="#f4c542"/>
-        <circle cx="67" cy="44" r="4" fill="#f4c542"/>
+        <path d="M30 47h44l-7 18H37z" fill="#f4c542" stroke="#d59f13" stroke-width="3" />
+        <circle cx="40" cy="43" r="4" fill="#f4c542" />
+        <circle cx="54" cy="41" r="4" fill="#f4c542" />
+        <circle cx="67" cy="44" r="4" fill="#f4c542" />
       </g>
     </g>
     <g style="filter:url(#gray)">
       <g transform="translate(280 112) scale(1.5)">
         <g transform="translate(-10 -11) scale(.44)">
-          <path d="M30 47h44l-7 18H37z" fill="#f4c542" stroke="#d59f13" stroke-width="3"/>
-          <circle cx="40" cy="43" r="4" fill="#f4c542"/>
-          <circle cx="54" cy="41" r="4" fill="#f4c542"/>
-          <circle cx="67" cy="44" r="4" fill="#f4c542"/>
+          <path d="M30 47h44l-7 18H37z" fill="#f4c542" stroke="#d59f13" stroke-width="3" />
+          <circle cx="40" cy="43" r="4" fill="#f4c542" />
+          <circle cx="54" cy="41" r="4" fill="#f4c542" />
+          <circle cx="67" cy="44" r="4" fill="#f4c542" />
         </g>
       </g>
     </g>
@@ -68,27 +72,29 @@
     <text x="18" y="236" font-size="13" fill="#514831" font-weight="400">雑食餌も同じ絵で共用を提案。</text>
   </g>
   <g transform="translate(810 88)">
-    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5"/>
+    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5" />
     <text x="18" y="30" font-size="20" fill="#514831" font-weight="700">魚</text>
-    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">A 既存候補を維持</text>
-    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">旧候補</text>
+    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">A 前回候補を維持</text>
+    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">前回候補</text>
     <text x="155" y="79" font-size="12" fill="#514831" font-weight="400">今回の候補</text>
     <text x="286" y="79" font-size="12" fill="#514831" font-weight="400">単色</text>
-    <g transform="translate(4 74) scale(.9)">
-      <path d="M34 47c14-12 28-6 34 3-6 9-20 15-34 3l-10 7V40z" fill="#f4c542" stroke="#d59f13" stroke-width="3"/>
-      <circle cx="58" cy="47" r="2.5" fill="#6d5310"/>
+    <g transform="translate(25 99) scale(2.4)">
+      <g transform="translate(-10 -11) scale(.44)">
+        <path d="M34 47c14-12 28-6 34 3-6 9-20 15-34 3l-10 7V40z" fill="#f4c542" stroke="#d59f13" stroke-width="3" />
+        <circle cx="58" cy="47" r="2.5" fill="#6d5310" />
+      </g>
     </g>
     <g transform="translate(148 89) scale(3.3333333333333335)">
       <g transform="translate(-10 -11) scale(.44)">
-        <path d="M34 47c14-12 28-6 34 3-6 9-20 15-34 3l-10 7V40z" fill="#f4c542" stroke="#d59f13" stroke-width="3"/>
-        <circle cx="58" cy="47" r="2.5" fill="#6d5310"/>
+        <path d="M34 47c14-12 28-6 34 3-6 9-20 15-34 3l-10 7V40z" fill="#f4c542" stroke="#d59f13" stroke-width="3" />
+        <circle cx="58" cy="47" r="2.5" fill="#6d5310" />
       </g>
     </g>
     <g style="filter:url(#gray)">
       <g transform="translate(280 112) scale(1.5)">
         <g transform="translate(-10 -11) scale(.44)">
-          <path d="M34 47c14-12 28-6 34 3-6 9-20 15-34 3l-10 7V40z" fill="#f4c542" stroke="#d59f13" stroke-width="3"/>
-          <circle cx="58" cy="47" r="2.5" fill="#6d5310"/>
+          <path d="M34 47c14-12 28-6 34 3-6 9-20 15-34 3l-10 7V40z" fill="#f4c542" stroke="#d59f13" stroke-width="3" />
+          <circle cx="58" cy="47" r="2.5" fill="#6d5310" />
         </g>
       </g>
     </g>
@@ -97,100 +103,103 @@
     <text x="18" y="236" font-size="13" fill="#514831" font-weight="400">猫の意味割当は変更しない。</text>
   </g>
   <g transform="translate(20 368)">
-    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5"/>
+    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5" />
     <text x="18" y="30" font-size="20" fill="#514831" font-weight="700">虫／ハエ</text>
-    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">C＋D 描き直し・共用</text>
-    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">旧候補</text>
+    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">B 小表示を改善</text>
+    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">前回候補</text>
     <text x="155" y="79" font-size="12" fill="#514831" font-weight="400">今回の候補</text>
     <text x="286" y="79" font-size="12" fill="#514831" font-weight="400">単色</text>
-    <g transform="translate(4 74) scale(.9)">
-      <ellipse cx="52" cy="51" rx="10" ry="7" fill="#f4c542" stroke="#d59f13" stroke-width="3"/>
-      <path d="M42 48l-11-9m11 16-11 9m20-20V33m0 36V58m10-10 11-9m-11 16 11 9" stroke="#d59f13" stroke-width="3" stroke-linecap="round"/>
+    <g transform="translate(25 99) scale(2.4)">
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 15 5 18m4-5-5 1m11 1 4 3m-4-5 5 1" fill="none" />
+        <path d="M10 11C0 11 1 2 6 4c3 1 5 5 6 8M14 11C24 11 23 2 18 4c-3 1-5 5-6 8" fill="#fff8dc" />
+        <ellipse cx="12" cy="15" rx="3.5" ry="5" />
+        <circle cx="12" cy="8" r="3" />
+        <path d="M10 15h4" fill="none" />
+      </g>
     </g>
     <g transform="translate(148 89) scale(3.3333333333333335)">
-      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M9 15 5 18m4-5-5 1m11 1 4 3m-4-5 5 1" fill="none"/>
-        <path d="M10 11C0 11 1 2 6 4c3 1 5 5 6 8M14 11C24 11 23 2 18 4c-3 1-5 5-6 8" fill="#fff8dc"/>
-        <ellipse cx="12" cy="15" rx="3.5" ry="5"/>
-        <circle cx="12" cy="8" r="3"/>
-        <path d="M10 15h4" fill="none"/>
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 15 4 18m5-5-6 1m12 1 5 3m-5-5 6 1" fill="none" />
+        <path d="M10 11C0 11 0 1 6 4l6 8M14 11C24 11 24 1 18 4l-6 8" fill="#fff8dc" />
+        <ellipse cx="12" cy="16" rx="3.4" ry="5" />
+        <circle cx="12" cy="8" r="3.5" />
       </g>
     </g>
     <g style="filter:url(#gray)">
       <g transform="translate(280 112) scale(1.5)">
-        <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M9 15 5 18m4-5-5 1m11 1 4 3m-4-5 5 1" fill="none"/>
-          <path d="M10 11C0 11 1 2 6 4c3 1 5 5 6 8M14 11C24 11 23 2 18 4c-3 1-5 5-6 8" fill="#fff8dc"/>
-          <ellipse cx="12" cy="15" rx="3.5" ry="5"/>
-          <circle cx="12" cy="8" r="3"/>
-          <path d="M10 15h4" fill="none"/>
+        <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 15 4 18m5-5-6 1m12 1 5 3m-5-5 6 1" fill="none" />
+          <path d="M10 11C0 11 0 1 6 4l6 8M14 11C24 11 24 1 18 4l-6 8" fill="#fff8dc" />
+          <ellipse cx="12" cy="16" rx="3.4" ry="5" />
+          <circle cx="12" cy="8" r="3.5" />
         </g>
       </g>
     </g>
     <text x="18" y="190" font-size="12" fill="#514831" font-weight="400">カエル05〜08／ハエトリグサ04〜08等</text>
-    <text x="18" y="215" font-size="13" fill="#514831" font-weight="400">大きな左右の羽＋頭＋胴体。</text>
-    <text x="18" y="236" font-size="13" fill="#514831" font-weight="400">虫・ハエを１つの形で表す。</text>
+    <text x="18" y="215" font-size="12" fill="#514831" font-weight="400">頭・胴・大きな左右の羽を優先。</text>
+    <text x="18" y="236" font-size="12" fill="#514831" font-weight="400">細かな縞を省き、小表示の虫らしさを強化。</text>
   </g>
   <g transform="translate(415 368)">
-    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5"/>
+    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5" />
     <text x="18" y="30" font-size="20" fill="#514831" font-weight="700">水中の小さな餌</text>
-    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">C 描き直し</text>
-    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">旧候補</text>
+    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">B 小表示を改善</text>
+    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">前回候補</text>
     <text x="155" y="79" font-size="12" fill="#514831" font-weight="400">今回の候補</text>
     <text x="286" y="79" font-size="12" fill="#514831" font-weight="400">単色</text>
-    <g transform="translate(4 74) scale(.9)">
-      <circle cx="39" cy="50" r="7" fill="#f4c542"/>
-      <circle cx="57" cy="42" r="5.5" fill="#f4c542"/>
-      <circle cx="67" cy="59" r="4.5" fill="#f4c542"/>
-      <path d="M31 65c12 5 30 5 42-1" fill="none" stroke="#d59f13" stroke-width="2" stroke-dasharray="3 4"/>
+    <g transform="translate(25 99) scale(2.4)">
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 5q3-2 6 0t6 0t6 0" fill="none" />
+        <path d="M6 11q-3 0-3 3t4 2q3-2-1-5" />
+        <path d="M15 10q3-2 5 1t-1 4q-4 0-4-5" />
+        <path d="M12 18q-3-2-4 1t4 2q2-1 0-3" />
+      </g>
     </g>
     <g transform="translate(148 89) scale(3.3333333333333335)">
-      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 5q3-2 6 0t6 0t6 0" fill="none"/>
-        <path d="M6 11q-3 0-3 3t4 2q3-2-1-5"/>
-        <path d="M15 10q3-2 5 1t-1 4q-4 0-4-5"/>
-        <path d="M12 18q-3-2-4 1t4 2q2-1 0-3"/>
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 5q3-3 6 0t7 0t7 0" fill="none" />
+        <path d="M5 10q-4 2-2 5l4 1 2-3-4-3M17 10l4 2-1 4-4-1zM11 18l4-1 2 3-4 2-3-2z" />
       </g>
     </g>
     <g style="filter:url(#gray)">
       <g transform="translate(280 112) scale(1.5)">
-        <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 5q3-2 6 0t6 0t6 0" fill="none"/>
-          <path d="M6 11q-3 0-3 3t4 2q3-2-1-5"/>
-          <path d="M15 10q3-2 5 1t-1 4q-4 0-4-5"/>
-          <path d="M12 18q-3-2-4 1t4 2q2-1 0-3"/>
+        <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 5q3-3 6 0t7 0t7 0" fill="none" />
+          <path d="M5 10q-4 2-2 5l4 1 2-3-4-3M17 10l4 2-1 4-4-1zM11 18l4-1 2 3-4 2-3-2z" />
         </g>
       </g>
     </g>
     <text x="18" y="190" font-size="12" fill="#514831" font-weight="400">サケ・クマノミ・クラゲ・サンゴ等</text>
-    <text x="18" y="215" font-size="13" fill="#514831" font-weight="400">波の下に、不揃いな餌３片。</text>
-    <text x="18" y="236" font-size="13" fill="#514831" font-weight="400">思考バブルの丸い泡と分離。</text>
+    <text x="18" y="215" font-size="12" fill="#514831" font-weight="400">水面の下に、角のある不揃いな餌片。</text>
+    <text x="18" y="236" font-size="12" fill="#514831" font-weight="400">泡の丸と異なる形にする。</text>
   </g>
   <g transform="translate(810 368)">
-    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5"/>
+    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5" />
     <text x="18" y="30" font-size="20" fill="#514831" font-weight="700">ミルク</text>
-    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">B 軽微改善</text>
-    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">旧候補</text>
+    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">A 前回候補を維持</text>
+    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">前回候補</text>
     <text x="155" y="79" font-size="12" fill="#514831" font-weight="400">今回の候補</text>
     <text x="286" y="79" font-size="12" fill="#514831" font-weight="400">単色</text>
-    <g transform="translate(4 74) scale(.9)">
-      <path d="M43 31h18v8l5 7v25H38V46l5-7z" fill="#fff7dc" stroke="#d59f13" stroke-width="4" stroke-linejoin="round"/>
-      <path d="M43 55h18v13H43z" fill="#f4c542"/>
-      <path d="M47 31v-6h10v6" stroke="#d59f13" stroke-width="4" stroke-linecap="round"/>
+    <g transform="translate(25 99) scale(2.4)">
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 5V4a2 2 0 0 1 4 0v1l2 2v3l2 2v8q0 2-2 2H8q-2 0-2-2v-8l2-2V7z" fill="#fff8dc" />
+        <path d="M8 8h8M7 16h10" fill="none" />
+        <path d="M10 19h3" fill="none" />
+      </g>
     </g>
     <g transform="translate(148 89) scale(3.3333333333333335)">
       <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M10 5V4a2 2 0 0 1 4 0v1l2 2v3l2 2v8q0 2-2 2H8q-2 0-2-2v-8l2-2V7z" fill="#fff8dc"/>
-        <path d="M8 8h8M7 16h10" fill="none"/>
-        <path d="M10 19h3" fill="none"/>
+        <path d="M10 5V4a2 2 0 0 1 4 0v1l2 2v3l2 2v8q0 2-2 2H8q-2 0-2-2v-8l2-2V7z" fill="#fff8dc" />
+        <path d="M8 8h8M7 16h10" fill="none" />
+        <path d="M10 19h3" fill="none" />
       </g>
     </g>
     <g style="filter:url(#gray)">
       <g transform="translate(280 112) scale(1.5)">
         <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M10 5V4a2 2 0 0 1 4 0v1l2 2v3l2 2v8q0 2-2 2H8q-2 0-2-2v-8l2-2V7z" fill="#fff8dc"/>
-          <path d="M8 8h8M7 16h10" fill="none"/>
-          <path d="M10 19h3" fill="none"/>
+          <path d="M10 5V4a2 2 0 0 1 4 0v1l2 2v3l2 2v8q0 2-2 2H8q-2 0-2-2v-8l2-2V7z" fill="#fff8dc" />
+          <path d="M8 8h8M7 16h10" fill="none" />
+          <path d="M10 19h3" fill="none" />
         </g>
       </g>
     </g>
@@ -199,98 +208,104 @@
     <text x="18" y="236" font-size="13" fill="#514831" font-weight="400">普通の飲料ボトルと区別。</text>
   </g>
   <g transform="translate(20 648)">
-    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5"/>
+    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5" />
     <text x="18" y="30" font-size="20" fill="#514831" font-weight="700">中立養分</text>
-    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">C＋E 描き直し・判断待ち</text>
-    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">旧候補</text>
+    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">C 再設計・人間判断待ち</text>
+    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">前回候補</text>
     <text x="155" y="79" font-size="12" fill="#514831" font-weight="400">今回の候補</text>
     <text x="286" y="79" font-size="12" fill="#514831" font-weight="400">単色</text>
-    <g transform="translate(4 74) scale(.9)">
-      <circle cx="45" cy="52" r="8" fill="#f4c542" stroke="#d59f13" stroke-width="2"/>
-      <circle cx="59" cy="46" r="6" fill="#ffe88b" stroke="#d59f13" stroke-width="2"/>
-      <circle cx="62" cy="61" r="5" fill="#f4c542" stroke="#d59f13" stroke-width="2"/>
-      <path d="M30 39l5 5m37-5-5 5M34 70l5-4m29 4-5-4" stroke="#d59f13" stroke-width="3" stroke-linecap="round"/>
+    <g transform="translate(25 99) scale(2.4)">
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2C17 3 22 8 22 12s-5 9-10 10C7 21 2 16 2 12S7 3 12 2z" fill="#fff8dc" />
+        <path d="M12 7q6 0 6 5t-6 5q-6 0-6-5t6-5" />
+        <path d="M9 11q1-2 3-2" fill="none" />
+      </g>
     </g>
     <g transform="translate(148 89) scale(3.3333333333333335)">
-      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 2C17 3 22 8 22 12s-5 9-10 10C7 21 2 16 2 12S7 3 12 2z" fill="#fff8dc"/>
-        <path d="M12 7q6 0 6 5t-6 5q-6 0-6-5t6-5"/>
-        <path d="M9 11q1-2 3-2" fill="none"/>
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4Q12 1 20 5l2 12q-4 6-12 4L2 18 1 9z" fill="#fff3a3" />
+        <path d="M3 10q5 3 9 1t9 0M11 11l-1 9" fill="none" />
       </g>
     </g>
     <g style="filter:url(#gray)">
       <g transform="translate(280 112) scale(1.5)">
-        <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2C17 3 22 8 22 12s-5 9-10 10C7 21 2 16 2 12S7 3 12 2z" fill="#fff8dc"/>
-          <path d="M12 7q6 0 6 5t-6 5q-6 0-6-5t6-5"/>
-          <path d="M9 11q1-2 3-2" fill="none"/>
+        <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4Q12 1 20 5l2 12q-4 6-12 4L2 18 1 9z" fill="#fff3a3" />
+          <path d="M3 10q5 3 9 1t9 0M11 11l-1 9" fill="none" />
         </g>
       </g>
     </g>
     <text x="18" y="190" font-size="12" fill="#514831" font-weight="400">種・蛹・変態中・幻想／特殊系</text>
-    <text x="18" y="215" font-size="13" fill="#514831" font-weight="400">１つのまとまった栄養核。</text>
-    <text x="18" y="236" font-size="13" fill="#514831" font-weight="400">粒３個・光線・星・十字を避ける。</text>
+    <text x="18" y="215" font-size="12" fill="#514831" font-weight="400">卵型を廃止。連なる栄養片をA案に。</text>
+    <text x="18" y="236" font-size="12" fill="#514831" font-weight="400">下段のA/B/Cから人間が判断。</text>
   </g>
   <g transform="translate(415 648)">
-    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5"/>
+    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5" />
     <text x="18" y="30" font-size="20" fill="#514831" font-weight="700">水</text>
-    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">C 描き直し</text>
-    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">旧候補</text>
+    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">B 小表示を改善</text>
+    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">前回候補</text>
     <text x="155" y="79" font-size="12" fill="#514831" font-weight="400">今回の候補</text>
     <text x="286" y="79" font-size="12" fill="#514831" font-weight="400">単色</text>
-    <g transform="translate(4 74) scale(.9)">
-      <path d="M38 44h26v25H38z" fill="#fff" stroke="#d59f13" stroke-width="4"/>
-      <path d="M64 48c11-4 17-1 19 5M38 48c-8-5-13-1-14 4M46 44V34h11v10" fill="none" stroke="#d59f13" stroke-width="4" stroke-linecap="round"/>
-      <path d="M23 56c5 0 9 2 12 6M76 61c4 0 7 2 10 5" stroke="#f4c542" stroke-width="4" stroke-linecap="round"/>
+    <g transform="translate(25 99) scale(2.4)">
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 8C-1 5 0 17 5 16" fill="none" />
+        <path d="M5 8h9v10q0 2-2 2H7q-2 0-2-2z" />
+        <path d="M14 11 19 7l2 3-7 7z" fill="#fff8dc" />
+        <path d="M7 8V5h5v3" fill="none" />
+        <path d="M20 12l2 6m-4-5 2 7" fill="none" />
+      </g>
     </g>
     <g transform="translate(148 89) scale(3.3333333333333335)">
-      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 8C-1 5 0 17 5 16" fill="none"/>
-        <path d="M5 8h9v10q0 2-2 2H7q-2 0-2-2z"/>
-        <path d="M14 11 19 7l2 3-7 7z" fill="#fff8dc"/>
-        <path d="M7 8V5h5v3" fill="none"/>
-        <path d="M20 12l2 6m-4-5 2 7" fill="none"/>
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 8C-2 5-1 17 6 17" fill="none" />
+        <path d="M6 8h9v10q0 3-3 3H9q-3 0-3-3z" />
+        <path d="M15 11 20 7l2 3-7 7z" fill="#fff3a3" />
+        <path d="M8 8V4h5v4" fill="none" />
+        <path d="M20 13l2 5m-4-3 2 7" fill="none" />
       </g>
     </g>
     <g style="filter:url(#gray)">
       <g transform="translate(280 112) scale(1.5)">
-        <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 8C-1 5 0 17 5 16" fill="none"/>
-          <path d="M5 8h9v10q0 2-2 2H7q-2 0-2-2z"/>
-          <path d="M14 11 19 7l2 3-7 7z" fill="#fff8dc"/>
-          <path d="M7 8V5h5v3" fill="none"/>
-          <path d="M20 12l2 6m-4-5 2 7" fill="none"/>
+        <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 8C-2 5-1 17 6 17" fill="none" />
+          <path d="M6 8h9v10q0 3-3 3H9q-3 0-3-3z" />
+          <path d="M15 11 20 7l2 3-7 7z" fill="#fff3a3" />
+          <path d="M8 8V4h5v4" fill="none" />
+          <path d="M20 13l2 5m-4-3 2 7" fill="none" />
         </g>
       </g>
     </g>
     <text x="18" y="190" font-size="12" fill="#514831" font-weight="400">タンポポ・サクラ・世界樹・ハエトリグサ</text>
-    <text x="18" y="215" font-size="13" fill="#514831" font-weight="400">持ち手＋大きな注ぎ口＋水の線。</text>
-    <text x="18" y="236" font-size="13" fill="#514831" font-weight="400">滴だけではなく、水やりの動作。</text>
+    <text x="18" y="215" font-size="12" fill="#514831" font-weight="400">大きな持ち手・注ぎ口・２本の注水線。</text>
+    <text x="18" y="236" font-size="12" fill="#514831" font-weight="400">小表示でも水やりの形を残す。</text>
   </g>
   <g transform="translate(810 648)">
-    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5"/>
+    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5" />
     <text x="18" y="30" font-size="20" fill="#514831" font-weight="700">藻・水中植物</text>
-    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">B 軽微改善</text>
-    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">旧候補</text>
+    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">A 前回候補を維持</text>
+    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">前回候補</text>
     <text x="155" y="79" font-size="12" fill="#514831" font-weight="400">今回の候補</text>
     <text x="286" y="79" font-size="12" fill="#514831" font-weight="400">単色</text>
-    <g transform="translate(4 74) scale(.9)">
-      <path d="M39 70c-4-14 4-17 0-30M52 70c5-15-5-20 2-37M64 70c-4-10 7-17 2-29" fill="none" stroke="#d59f13" stroke-width="5" stroke-linecap="round"/>
-      <path d="M30 72h45" stroke="#f4c542" stroke-width="5" stroke-linecap="round"/>
+    <g transform="translate(25 99) scale(2.4)">
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 21c-3-6 3-8 1-14m6 14c4-7-4-10 1-18m5 18c-2-5 3-8 1-13" fill="none" />
+        <path d="M4 6q1-3 4-3-1 3-4 3M11 9q-4 0-4-4 4 0 4 4M18 10q4-3 4-6-4 1-4 6" />
+        <path d="M3 22h18" fill="none" />
+      </g>
     </g>
     <g transform="translate(148 89) scale(3.3333333333333335)">
       <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 21c-3-6 3-8 1-14m6 14c4-7-4-10 1-18m5 18c-2-5 3-8 1-13" fill="none"/>
-        <path d="M4 6q1-3 4-3-1 3-4 3M11 9q-4 0-4-4 4 0 4 4M18 10q4-3 4-6-4 1-4 6"/>
-        <path d="M3 22h18" fill="none"/>
+        <path d="M5 21c-3-6 3-8 1-14m6 14c4-7-4-10 1-18m5 18c-2-5 3-8 1-13" fill="none" />
+        <path d="M4 6q1-3 4-3-1 3-4 3M11 9q-4 0-4-4 4 0 4 4M18 10q4-3 4-6-4 1-4 6" />
+        <path d="M3 22h18" fill="none" />
       </g>
     </g>
     <g style="filter:url(#gray)">
       <g transform="translate(280 112) scale(1.5)">
         <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 21c-3-6 3-8 1-14m6 14c4-7-4-10 1-18m5 18c-2-5 3-8 1-13" fill="none"/>
-          <path d="M4 6q1-3 4-3-1 3-4 3M11 9q-4 0-4-4 4 0 4 4M18 10q4-3 4-6-4 1-4 6"/>
-          <path d="M3 22h18" fill="none"/>
+          <path d="M5 21c-3-6 3-8 1-14m6 14c4-7-4-10 1-18m5 18c-2-5 3-8 1-13" fill="none" />
+          <path d="M4 6q1-3 4-3-1 3-4 3M11 9q-4 0-4-4 4 0 4 4M18 10q4-3 4-6-4 1-4 6" />
+          <path d="M3 22h18" fill="none" />
         </g>
       </g>
     </g>
@@ -299,126 +314,141 @@
     <text x="18" y="236" font-size="13" fill="#514831" font-weight="400">単葉とは違う縦の群れ。</text>
   </g>
   <g transform="translate(20 928)">
-    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5"/>
+    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5" />
     <text x="18" y="30" font-size="20" fill="#514831" font-weight="700">葉</text>
-    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">A 既存候補を維持</text>
-    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">旧候補</text>
+    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">B 小表示を改善</text>
+    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">前回候補</text>
     <text x="155" y="79" font-size="12" fill="#514831" font-weight="400">今回の候補</text>
     <text x="286" y="79" font-size="12" fill="#514831" font-weight="400">単色</text>
-    <g transform="translate(4 74) scale(.9)">
-      <path d="M29 59c9-26 31-30 47-26-1 23-16 39-40 36z" fill="#f4c542" stroke="#d59f13" stroke-width="3"/>
-      <path d="M35 65c13-11 23-18 36-28" stroke="#6d5310" stroke-width="3" stroke-linecap="round"/>
+    <g transform="translate(25 99) scale(2.4)">
+      <g transform="translate(-11 -12) scale(.43)">
+        <path d="M29 59c9-26 31-30 47-26-1 23-16 39-40 36z" fill="#f4c542" stroke="#d59f13" stroke-width="3" />
+        <path d="M35 65c13-11 23-18 36-28" stroke="#6d5310" stroke-width="3" stroke-linecap="round" />
+      </g>
     </g>
     <g transform="translate(148 89) scale(3.3333333333333335)">
-      <g transform="translate(-11 -12) scale(.43)">
-        <path d="M29 59c9-26 31-30 47-26-1 23-16 39-40 36z" fill="#f4c542" stroke="#d59f13" stroke-width="3"/>
-        <path d="M35 65c13-11 23-18 36-28" stroke="#6d5310" stroke-width="3" stroke-linecap="round"/>
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 18C3 5 12 2 22 3c-1 12-7 19-18 18z" />
+        <path d="M3 21 19 6m-9 8-1-6m1 6 6 1m-3-4V6" fill="none" />
       </g>
     </g>
     <g style="filter:url(#gray)">
       <g transform="translate(280 112) scale(1.5)">
-        <g transform="translate(-11 -12) scale(.43)">
-          <path d="M29 59c9-26 31-30 47-26-1 23-16 39-40 36z" fill="#f4c542" stroke="#d59f13" stroke-width="3"/>
-          <path d="M35 65c13-11 23-18 36-28" stroke="#6d5310" stroke-width="3" stroke-linecap="round"/>
+        <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 18C3 5 12 2 22 3c-1 12-7 19-18 18z" />
+          <path d="M3 21 19 6m-9 8-1-6m1 6 6 1m-3-4V6" fill="none" />
         </g>
       </g>
     </g>
     <text x="18" y="190" font-size="12" fill="#514831" font-weight="400">チョウ：01〜04</text>
-    <text x="18" y="215" font-size="13" fill="#514831" font-weight="400">単葉の輪郭＋中央の線で明瞭。</text>
-    <text x="18" y="236" font-size="13" fill="#514831" font-weight="400">細かな葉脈は追加しない。</text>
+    <text x="18" y="215" font-size="12" fill="#514831" font-weight="400">太い中央葉脈＋少数の枝葉脈。</text>
+    <text x="18" y="236" font-size="12" fill="#514831" font-weight="400">色だけでなく葉の形で伝える。</text>
   </g>
   <g transform="translate(415 928)">
-    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5"/>
+    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5" />
     <text x="18" y="30" font-size="20" fill="#514831" font-weight="700">花蜜</text>
-    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">B＋E 改善・判断待ち</text>
-    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">旧候補</text>
+    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">C 再設計・人間判断待ち</text>
+    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">前回候補</text>
     <text x="155" y="79" font-size="12" fill="#514831" font-weight="400">今回の候補</text>
     <text x="286" y="79" font-size="12" fill="#514831" font-weight="400">単色</text>
-    <g transform="translate(4 74) scale(.9)">
-      <circle cx="52" cy="49" r="7" fill="#f4c542"/>
-      <circle cx="52" cy="33" r="8" fill="none" stroke="#d59f13" stroke-width="4"/>
-      <circle cx="67" cy="43" r="8" fill="none" stroke="#d59f13" stroke-width="4"/>
-      <circle cx="61" cy="61" r="8" fill="none" stroke="#d59f13" stroke-width="4"/>
-      <circle cx="43" cy="61" r="8" fill="none" stroke="#d59f13" stroke-width="4"/>
-      <circle cx="37" cy="43" r="8" fill="none" stroke="#d59f13" stroke-width="4"/>
+    <g transform="translate(25 99) scale(2.4)">
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 4C6-3 1 5 5 9c-7 4-1 11 4 8 1 8 10 6 10 0 7-1 5-10-1-10 0-5-5-7-6-3z" fill="#fff8dc" />
+        <path d="M12 8c-2 3-4 5-4 7a4 4 0 0 0 8 0c0-2-2-4-4-7z" />
+      </g>
     </g>
     <g transform="translate(148 89) scale(3.3333333333333335)">
-      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 4C6-3 1 5 5 9c-7 4-1 11 4 8 1 8 10 6 10 0 7-1 5-10-1-10 0-5-5-7-6-3z" fill="#fff8dc"/>
-        <path d="M12 8c-2 3-4 5-4 7a4 4 0 0 0 8 0c0-2-2-4-4-7z"/>
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="5" r="4.8" fill="#fff3a3" />
+        <circle cx="19" cy="10" r="4.8" fill="#fff3a3" />
+        <circle cx="16" cy="18" r="4.8" fill="#fff3a3" />
+        <circle cx="7" cy="18" r="4.8" fill="#fff3a3" />
+        <circle cx="4" cy="10" r="4.8" fill="#fff3a3" />
+        <circle cx="11.5" cy="11.5" r="3.2" />
+        <path d="M12 10v2" fill="none" />
       </g>
     </g>
     <g style="filter:url(#gray)">
       <g transform="translate(280 112) scale(1.5)">
-        <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 4C6-3 1 5 5 9c-7 4-1 11 4 8 1 8 10 6 10 0 7-1 5-10-1-10 0-5-5-7-6-3z" fill="#fff8dc"/>
-          <path d="M12 8c-2 3-4 5-4 7a4 4 0 0 0 8 0c0-2-2-4-4-7z"/>
+        <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="5" r="4.8" fill="#fff3a3" />
+          <circle cx="19" cy="10" r="4.8" fill="#fff3a3" />
+          <circle cx="16" cy="18" r="4.8" fill="#fff3a3" />
+          <circle cx="7" cy="18" r="4.8" fill="#fff3a3" />
+          <circle cx="4" cy="10" r="4.8" fill="#fff3a3" />
+          <circle cx="11.5" cy="11.5" r="3.2" />
+          <path d="M12 10v2" fill="none" />
         </g>
       </g>
     </g>
     <text x="18" y="190" font-size="12" fill="#514831" font-weight="400">チョウ：07〜08</text>
-    <text x="18" y="215" font-size="13" fill="#514831" font-weight="400">花の中心に１滴を収める。</text>
-    <text x="18" y="236" font-size="13" fill="#514831" font-weight="400">汗から離れた「花の中の蜜」。</text>
+    <text x="18" y="215" font-size="12" fill="#514831" font-weight="400">５枚の丸い花びらを主役に。</text>
+    <text x="18" y="236" font-size="12" fill="#514831" font-weight="400">蜜は小さな中心部で補助し、卵型を除く。</text>
   </g>
   <g transform="translate(810 928)">
-    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5"/>
+    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5" />
     <text x="18" y="30" font-size="20" fill="#514831" font-weight="700">腐植質／有機養分</text>
-    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">C＋D 描き直し・共用</text>
-    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">旧候補</text>
+    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">C 再設計・人間判断待ち</text>
+    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">前回候補</text>
     <text x="155" y="79" font-size="12" fill="#514831" font-weight="400">今回の候補</text>
     <text x="286" y="79" font-size="12" fill="#514831" font-weight="400">単色</text>
-    <g transform="translate(4 74) scale(.9)">
-      <path d="M27 63c7-14 17-17 27-9 8-10 18-7 24 9z" fill="#f4c542" stroke="#d59f13" stroke-width="3"/>
-      <path d="M36 47c8 2 11 6 14 11M55 45c8 1 12 5 16 11" fill="none" stroke="#6d5310" stroke-width="3"/>
-      <path d="M30 40c10-8 17-5 21 1-7 5-14 6-21-1zM58 36c9-5 15-2 19 4-7 4-13 4-19-4z" fill="#ffe88b" stroke="#d59f13" stroke-width="2"/>
+    <g transform="translate(25 99) scale(2.4)">
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 19q4-3 7-1 4-3 7-1l6 2v3H2z" fill="#c79c42" />
+        <path d="M2 11c4-6 10-4 13 2-5 5-10 3-13-2z" />
+        <path d="M12 7c3-4 7-4 10 0-3 4-7 4-10 0z" fill="#fff3a3" />
+        <path d="M5 11l7 2m3-6h4" fill="none" />
+      </g>
     </g>
     <g transform="translate(148 89) scale(3.3333333333333335)">
-      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M2 19q4-3 7-1 4-3 7-1l6 2v3H2z" fill="#c79c42"/>
-        <path d="M2 11c4-6 10-4 13 2-5 5-10 3-13-2z"/>
-        <path d="M12 7c3-4 7-4 10 0-3 4-7 4-10 0z" fill="#fff3a3"/>
-        <path d="M5 11l7 2m3-6h4" fill="none"/>
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 19l4-2 4 2 5-2 7 3v3H2z" fill="#c79c42" />
+        <path d="M2 7q2-5 5-2 4-2 4 2 5 0 3 4 1 5-4 4-5 2-5-2-4 0-3-6z" fill="#fff3a3" />
+        <path d="M15 4q4-3 6 1l-2 3-4-1z" />
+        <path d="M4 6l7 8m-4-5 4-1m2 9 8-4m-3 2-1-3" fill="none" />
       </g>
     </g>
     <g style="filter:url(#gray)">
       <g transform="translate(280 112) scale(1.5)">
-        <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2 19q4-3 7-1 4-3 7-1l6 2v3H2z" fill="#c79c42"/>
-          <path d="M2 11c4-6 10-4 13 2-5 5-10 3-13-2z"/>
-          <path d="M12 7c3-4 7-4 10 0-3 4-7 4-10 0z" fill="#fff3a3"/>
-          <path d="M5 11l7 2m3-6h4" fill="none"/>
+        <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 19l4-2 4 2 5-2 7 3v3H2z" fill="#c79c42" />
+          <path d="M2 7q2-5 5-2 4-2 4 2 5 0 3 4 1 5-4 4-5 2-5-2-4 0-3-6z" fill="#fff3a3" />
+          <path d="M15 4q4-3 6 1l-2 3-4-1z" />
+          <path d="M4 6l7 8m-4-5 4-1m2 9 8-4m-3 2-1-3" fill="none" />
         </g>
       </g>
     </g>
     <text x="18" y="190" font-size="12" fill="#514831" font-weight="400">カブト幼虫01〜03／キノコ02〜08</text>
-    <text x="18" y="215" font-size="13" fill="#514831" font-weight="400">低い土の層＋大きな落ち葉２枚。</text>
-    <text x="18" y="236" font-size="13" fill="#514831" font-weight="400">丸い山や丸太とは違う形。</text>
+    <text x="18" y="215" font-size="12" fill="#514831" font-weight="400">切れ込みのある落ち葉＋土＋小枝。</text>
+    <text x="18" y="236" font-size="12" fill="#514831" font-weight="400">コーヒー豆に似た楕円を使わない。</text>
   </g>
   <g transform="translate(20 1208)">
-    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5"/>
+    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5" />
     <text x="18" y="30" font-size="20" fill="#514831" font-weight="700">朽木・腐植質系</text>
-    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">B 軽微改善</text>
-    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">旧候補</text>
+    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">A 前回候補を維持</text>
+    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">前回候補</text>
     <text x="155" y="79" font-size="12" fill="#514831" font-weight="400">今回の候補</text>
     <text x="286" y="79" font-size="12" fill="#514831" font-weight="400">単色</text>
-    <g transform="translate(4 74) scale(.9)">
-      <path d="M27 45h45l8 10-8 14H27z" fill="#f4c542" stroke="#d59f13" stroke-width="3" stroke-linejoin="round"/>
-      <circle cx="31" cy="57" r="9" fill="none" stroke="#6d5310" stroke-width="3"/>
-      <path d="M44 49h20m-15 9h17m-23 8h19" stroke="#6d5310" stroke-width="3" stroke-linecap="round"/>
+    <g transform="translate(25 99) scale(2.4)">
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 6h13l-1 3 5 2-3 3 2 4H5z" />
+        <ellipse cx="5" cy="12" rx="3.5" ry="6" fill="#fff3a3" />
+        <path d="M5 9q-2 3 0 6m5-7 2 3-2 3m4 2h4" fill="none" />
+      </g>
     </g>
     <g transform="translate(148 89) scale(3.3333333333333335)">
       <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 6h13l-1 3 5 2-3 3 2 4H5z"/>
-        <ellipse cx="5" cy="12" rx="3.5" ry="6" fill="#fff3a3"/>
-        <path d="M5 9q-2 3 0 6m5-7 2 3-2 3m4 2h4" fill="none"/>
+        <path d="M5 6h13l-1 3 5 2-3 3 2 4H5z" />
+        <ellipse cx="5" cy="12" rx="3.5" ry="6" fill="#fff3a3" />
+        <path d="M5 9q-2 3 0 6m5-7 2 3-2 3m4 2h4" fill="none" />
       </g>
     </g>
     <g style="filter:url(#gray)">
       <g transform="translate(280 112) scale(1.5)">
         <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 6h13l-1 3 5 2-3 3 2 4H5z"/>
-          <ellipse cx="5" cy="12" rx="3.5" ry="6" fill="#fff3a3"/>
-          <path d="M5 9q-2 3 0 6m5-7 2 3-2 3m4 2h4" fill="none"/>
+          <path d="M5 6h13l-1 3 5 2-3 3 2 4H5z" />
+          <ellipse cx="5" cy="12" rx="3.5" ry="6" fill="#fff3a3" />
+          <path d="M5 9q-2 3 0 6m5-7 2 3-2 3m4 2h4" fill="none" />
         </g>
       </g>
     </g>
@@ -427,32 +457,35 @@
     <text x="18" y="236" font-size="13" fill="#514831" font-weight="400">土の堆積とは輪郭を分ける。</text>
   </g>
   <g transform="translate(415 1208)">
-    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5"/>
+    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5" />
     <text x="18" y="30" font-size="20" fill="#514831" font-weight="700">樹液／植物汁</text>
-    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">B＋D 改善・共用</text>
-    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">旧候補</text>
+    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">A 前回候補を維持</text>
+    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">前回候補</text>
     <text x="155" y="79" font-size="12" fill="#514831" font-weight="400">今回の候補</text>
     <text x="286" y="79" font-size="12" fill="#514831" font-weight="400">単色</text>
-    <g transform="translate(4 74) scale(.9)">
-      <path d="M33 70V34h18v36z" fill="#fff7dc" stroke="#d59f13" stroke-width="4"/>
-      <path d="M51 43c10-3 16 1 20 8-8 2-14 0-20-5z" fill="#f4c542" stroke="#d59f13" stroke-width="3"/>
-      <path d="M73 59c0 9-11 9-11 0 0-4 5.5-10 5.5-10S73 55 73 59z" fill="#f4c542" stroke="#d59f13" stroke-width="2"/>
+    <g transform="translate(25 99) scale(2.4)">
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 22V3h7v19" fill="#fff3a3" />
+        <path d="M12 9c1-6 7-7 10-6-1 6-6 8-10 6z" />
+        <path d="M9 7v5m3 1 4-1" fill="none" />
+        <path d="M18 10c-2 3-4 5-4 7a4 4 0 0 0 8 0c0-2-2-4-4-7z" />
+      </g>
     </g>
     <g transform="translate(148 89) scale(3.3333333333333335)">
       <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M5 22V3h7v19" fill="#fff3a3"/>
-        <path d="M12 9c1-6 7-7 10-6-1 6-6 8-10 6z"/>
-        <path d="M9 7v5m3 1 4-1" fill="none"/>
-        <path d="M18 10c-2 3-4 5-4 7a4 4 0 0 0 8 0c0-2-2-4-4-7z"/>
+        <path d="M5 22V3h7v19" fill="#fff3a3" />
+        <path d="M12 9c1-6 7-7 10-6-1 6-6 8-10 6z" />
+        <path d="M9 7v5m3 1 4-1" fill="none" />
+        <path d="M18 10c-2 3-4 5-4 7a4 4 0 0 0 8 0c0-2-2-4-4-7z" />
       </g>
     </g>
     <g style="filter:url(#gray)">
       <g transform="translate(280 112) scale(1.5)">
         <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 22V3h7v19" fill="#fff3a3"/>
-          <path d="M12 9c1-6 7-7 10-6-1 6-6 8-10 6z"/>
-          <path d="M9 7v5m3 1 4-1" fill="none"/>
-          <path d="M18 10c-2 3-4 5-4 7a4 4 0 0 0 8 0c0-2-2-4-4-7z"/>
+          <path d="M5 22V3h7v19" fill="#fff3a3" />
+          <path d="M12 9c1-6 7-7 10-6-1 6-6 8-10 6z" />
+          <path d="M9 7v5m3 1 4-1" fill="none" />
+          <path d="M18 10c-2 3-4 5-4 7a4 4 0 0 0 8 0c0-2-2-4-4-7z" />
         </g>
       </g>
     </g>
@@ -461,63 +494,70 @@
     <text x="18" y="236" font-size="13" fill="#514831" font-weight="400">水や汗の単独の滴と分ける。</text>
   </g>
   <g transform="translate(810 1208)">
-    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5"/>
+    <rect width="380" height="266" rx="18" fill="#fff" stroke="#e0d8c5" />
     <text x="18" y="30" font-size="20" fill="#514831" font-weight="700">底生の小さな餌</text>
-    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">C＋E 描き直し・判断待ち</text>
-    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">旧候補</text>
+    <text x="18" y="53" font-size="13" fill="#87691c" font-weight="400">C 再設計・人間判断待ち</text>
+    <text x="38" y="79" font-size="12" fill="#514831" font-weight="400">前回候補</text>
     <text x="155" y="79" font-size="12" fill="#514831" font-weight="400">今回の候補</text>
     <text x="286" y="79" font-size="12" fill="#514831" font-weight="400">単色</text>
-    <g transform="translate(4 74) scale(.9)">
-      <path d="M30 64c5-19 17-29 33-24 11 4 15 16 8 25-10 13-30 11-41-1z" fill="#fff7dc" stroke="#d59f13" stroke-width="4"/>
-      <path d="M40 61c7-11 16-14 24-9" fill="none" stroke="#d59f13" stroke-width="3"/>
-      <circle cx="75" cy="69" r="4" fill="#f4c542"/>
-      <path d="M25 73h55" stroke="#d59f13" stroke-width="2" stroke-dasharray="4 4"/>
+    <g transform="translate(25 99) scale(2.4)">
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 21q5-1 10 0t10 0" fill="none" />
+        <path d="M3 17C-1 10 4 6 6 9c0-6 6-6 6-1 4-4 8 2 3 9z" fill="#fff3a3" />
+        <path d="M8 18 6 11m4 7 2-6" fill="none" />
+        <path d="M19 16q4-1 3 3h-5z" />
+      </g>
     </g>
     <g transform="translate(148 89) scale(3.3333333333333335)">
-      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M2 21q5-1 10 0t10 0" fill="none"/>
-        <path d="M3 17C-1 10 4 6 6 9c0-6 6-6 6-1 4-4 8 2 3 9z" fill="#fff3a3"/>
-        <path d="M8 18 6 11m4 7 2-6" fill="none"/>
-        <path d="M19 16q4-1 3 3h-5z"/>
+      <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M1 22q5-2 11 0t11 0" fill="none" />
+        <path d="M2 17C0 11 4 9 5 12c1-5 6-4 6 1 3-1 3 3 0 5z" fill="#fff3a3" />
+        <path d="M15 14q-2-5 1-7t4 3q-3-1-3 2t3 4" fill="none" />
+        <path d="M16 19l3-2 3 2-1 2h-5z" />
       </g>
     </g>
     <g style="filter:url(#gray)">
       <g transform="translate(280 112) scale(1.5)">
-        <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2 21q5-1 10 0t10 0" fill="none"/>
-          <path d="M3 17C-1 10 4 6 6 9c0-6 6-6 6-1 4-4 8 2 3 9z" fill="#fff3a3"/>
-          <path d="M8 18 6 11m4 7 2-6" fill="none"/>
-          <path d="M19 16q4-1 3 3h-5z"/>
+        <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 22q5-2 11 0t11 0" fill="none" />
+          <path d="M2 17C0 11 4 9 5 12c1-5 6-4 6 1 3-1 3 3 0 5z" fill="#fff3a3" />
+          <path d="M15 14q-2-5 1-7t4 3q-3-1-3 2t3 4" fill="none" />
+          <path d="M16 19l3-2 3 2-1 2h-5z" />
         </g>
       </g>
     </g>
     <text x="18" y="190" font-size="12" fill="#514831" font-weight="400">ヒトデ：04〜08</text>
-    <text x="18" y="215" font-size="13" fill="#514831" font-weight="400">海底の線＋扇形の殻状餌＋小片。</text>
-    <text x="18" y="236" font-size="13" fill="#514831" font-weight="400">貝だけを食べる設定ではない。</text>
+    <text x="18" y="215" font-size="12" fill="#514831" font-weight="400">海底＋小さな殻・虫状の餌・かけら。</text>
+    <text x="18" y="236" font-size="12" fill="#514831" font-weight="400">大きな貝１個に意味を固定しない。</text>
   </g>
   <defs>
     <filter id="gray" color-interpolation-filters="sRGB">
-      <feColorMatrix type="saturate" values="0"/>
+      <feColorMatrix type="saturate" values="0" />
     </filter>
   </defs>
-  <text x="24" y="1512" font-size="18" fill="#514831" font-weight="700">まず見てほしい：虫・水・腐植質／有機養分・底生小餌・中立養分</text>
-  <text x="24" y="1543" font-size="15" fill="#514831" font-weight="400">中立養分：左の「栄養核」を推奨。右の「まとまった栄養粒」は比較案。</text>
-  <g transform="translate(30 1560) scale(2.5)">
-    <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M12 2C17 3 22 8 22 12s-5 9-10 10C7 21 2 16 2 12S7 3 12 2z" fill="#fff8dc"/>
-      <path d="M12 7q6 0 6 5t-6 5q-6 0-6-5t6-5"/>
-      <path d="M9 11q1-2 3-2" fill="none"/>
+  <text x="24" y="1510" font-size="18" fill="#514831">中立養分 A/B/C｜卵・コイン・薬・星・十字を避けた比較。まだ採用しません。</text>
+  <text x="30" y="1540" font-size="17" fill="#514831">A 連なる栄養片</text>
+  <g transform="translate(30 1560) scale(2.7)">
+    <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 4Q12 1 20 5l2 12q-4 6-12 4L2 18 1 9z" fill="#fff3a3" />
+      <path d="M3 10q5 3 9 1t9 0M11 11l-1 9" fill="none" />
     </g>
   </g>
-  <g transform="translate(115 1560) scale(2.5)">
-    <g fill="#ffe03b" stroke="#a58008" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 6Q7 2 12 6q6-3 9 2 2 4-2 7 0 7-7 7-4 0-5-4-7 0-5-6Q0 8 4 6z" fill="#fff3a3"/>
-      <circle cx="8" cy="10" r="2"/>
-      <circle cx="15" cy="11" r="2"/>
-      <circle cx="12" cy="17" r="2"/>
+  <text x="30" y="1660" font-size="12" fill="#514831">暫定推奨。卵型は避けたが、パンや石に見える余地。</text>
+  <text x="425" y="1540" font-size="17" fill="#514831">B 栄養のかけら</text>
+  <g transform="translate(425 1560) scale(2.7)">
+    <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 6q4-4 8-1l1 6-4 3-5-3zM12 3q6-2 10 3l-2 7-6-1-2-9zM9 14l9 1 1 6-7 2-5-4z" />
     </g>
   </g>
-  <text x="200" y="1585" font-size="14" fill="#514831" font-weight="400">A 栄養核：粒状餌と区別。卵・魔法に見えないか、人間確認が必要。</text>
-  <text x="200" y="1613" font-size="14" fill="#514831" font-weight="400">B 栄養粒：柔らかいまとまり。細部が小表示で潰れやすい。</text>
-  <text x="24" y="1650" font-size="14" fill="#514831" font-weight="400">大きい絵だけで採否を決めず、別紙の64・80・104px合成も確認してください。</text>
+  <text x="425" y="1660" font-size="12" fill="#514831">食べ物感はある。水中餌との近さが弱点。</text>
+  <text x="820" y="1540" font-size="17" fill="#514831">C 栄養の折り重なり</text>
+  <g transform="translate(820 1560) scale(2.7)">
+    <g fill="#ffe03b" stroke="#a58008" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 5q7-4 20 0l-2 5q-9-4-17 0z" fill="#fff3a3" />
+      <path d="M3 13q8-5 18 0l-2 7q-8-3-14 1z" />
+    </g>
+  </g>
+  <text x="820" y="1660" font-size="12" fill="#514831">層で表す案。食品や布に見える余地。</text>
+  <text x="24" y="1692" font-size="14" fill="#514831">特殊な栄養に唯一の既成記号はありません。栄養と読めるかを人間確認し、意味カテゴリは維持します。</text>
 </svg>

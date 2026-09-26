@@ -1,0 +1,7946 @@
+{
+  "baseHead": "a0db7ca0042d3f29b5c4f34f651b4c2c5b9aac99",
+  "stages": 248,
+  "runtimeBelowFace": 0,
+  "oldPreviewBelowFace": 30,
+  "headSideReviewCount": 9,
+  "method": "originY > faceY+3 for below; originY > faceY-10 for head-side review; 104 coordinates; actual artOffsetY included; not collision validation",
+  "rows": [
+    {
+      "key": "cat/01",
+      "base": "assets/characters/cat/01.png",
+      "asset": "assets/characters/expressions/cat/01-hungry.png",
+      "face": [
+        42.25,
+        79.625
+      ],
+      "floor": 6.5,
+      "offset": [
+        -26.5,
+        23.5
+      ],
+      "origin": [
+        44.5,
+        60.5
+      ],
+      "category": "milk",
+      "name": "ねこ",
+      "faceY": 86.125,
+      "headTop": 65.81,
+      "deltaFace": -25.62,
+      "previewDeltaFace": -19.12,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -26.5,
+        23.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "cat/02",
+      "base": "assets/characters/cat/02.png",
+      "asset": "assets/characters/expressions/cat/02-hungry.png",
+      "face": [
+        44.6875,
+        62.5625
+      ],
+      "floor": 6.5,
+      "offset": [
+        -23.5,
+        5
+      ],
+      "origin": [
+        47.5,
+        42
+      ],
+      "category": "fish",
+      "name": "ねこ",
+      "faceY": 69.0625,
+      "headTop": 39.0,
+      "deltaFace": -27.06,
+      "previewDeltaFace": -20.56,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -23.5,
+        5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "cat/03",
+      "base": "assets/characters/cat/03.png",
+      "asset": "assets/characters/expressions/cat/03-hungry.png",
+      "face": [
+        39.8125,
+        56.875
+      ],
+      "floor": 6.5,
+      "offset": [
+        -25.5,
+        0.5
+      ],
+      "origin": [
+        45.5,
+        37.5
+      ],
+      "category": "fish",
+      "name": "ねこ",
+      "faceY": 63.375,
+      "headTop": 29.25,
+      "deltaFace": -25.88,
+      "previewDeltaFace": -19.38,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -25.5,
+        0.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "cat/04",
+      "base": "assets/characters/cat/04.png",
+      "asset": "assets/characters/expressions/cat/04-hungry.png",
+      "face": [
+        27.625,
+        60.125
+      ],
+      "floor": 6.5,
+      "offset": [
+        -38.5,
+        5.5
+      ],
+      "origin": [
+        32.5,
+        42.5
+      ],
+      "category": "fish",
+      "name": "ねこ",
+      "faceY": 66.625,
+      "headTop": 37.38,
+      "deltaFace": -24.12,
+      "previewDeltaFace": -17.62,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -38.5,
+        5.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "cat/05",
+      "base": "assets/characters/cat/05.png",
+      "asset": "assets/characters/expressions/cat/05-hungry.png",
+      "face": [
+        31.6875,
+        44.6875
+      ],
+      "floor": 6.5,
+      "offset": [
+        -33,
+        -12
+      ],
+      "origin": [
+        38,
+        25
+      ],
+      "category": "fish",
+      "name": "ねこ",
+      "faceY": 51.1875,
+      "headTop": 18.69,
+      "deltaFace": -26.19,
+      "previewDeltaFace": -19.69,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -33,
+        -12
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "cat/06",
+      "base": "assets/characters/cat/06.png",
+      "asset": "assets/characters/expressions/cat/06-hungry.png",
+      "face": [
+        39,
+        42.25
+      ],
+      "floor": 6.5,
+      "offset": [
+        -30.5,
+        -15.5
+      ],
+      "origin": [
+        40.5,
+        21.5
+      ],
+      "category": "fish",
+      "name": "ねこ",
+      "faceY": 48.75,
+      "headTop": 13.0,
+      "deltaFace": -27.25,
+      "previewDeltaFace": -20.75,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -30.5,
+        -15.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "cat/07",
+      "base": "assets/characters/cat/07.png",
+      "asset": "assets/characters/expressions/cat/07-hungry.png",
+      "face": [
+        39,
+        43.875
+      ],
+      "floor": 6.5,
+      "offset": [
+        -18.5,
+        -18
+      ],
+      "origin": [
+        52.5,
+        19
+      ],
+      "category": "fish",
+      "name": "ねこ",
+      "faceY": 50.375,
+      "headTop": 17.88,
+      "deltaFace": -31.38,
+      "previewDeltaFace": -24.88,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -18.5,
+        -18
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "cat/08",
+      "base": "assets/characters/cat/08.png",
+      "asset": "assets/characters/expressions/cat/08-hungry.png",
+      "face": [
+        39,
+        53.625
+      ],
+      "floor": 6.5,
+      "offset": [
+        -24.5,
+        -6.5
+      ],
+      "origin": [
+        46.5,
+        30.5
+      ],
+      "category": "fish",
+      "name": "ねこ",
+      "faceY": 60.125,
+      "headTop": 24.38,
+      "deltaFace": -29.62,
+      "previewDeltaFace": -23.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -24.5,
+        -6.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dog/01",
+      "base": "assets/characters/dog/01.png",
+      "asset": "assets/characters/expressions/dog/01-hungry.png",
+      "face": [
+        42.25,
+        87.75
+      ],
+      "floor": 6.5,
+      "offset": [
+        -26.5,
+        30
+      ],
+      "origin": [
+        44.5,
+        67
+      ],
+      "category": "milk",
+      "name": "いぬ",
+      "faceY": 94.25,
+      "headTop": 72.31,
+      "deltaFace": -27.25,
+      "previewDeltaFace": -20.75,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -26.5,
+        30
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dog/02",
+      "base": "assets/characters/dog/02.png",
+      "asset": "assets/characters/expressions/dog/02-hungry.png",
+      "face": [
+        51.1875,
+        64.1875
+      ],
+      "floor": 6.5,
+      "offset": [
+        -12,
+        2.5
+      ],
+      "origin": [
+        59,
+        39.5
+      ],
+      "category": "food_bowl",
+      "name": "いぬ",
+      "faceY": 70.6875,
+      "headTop": 39.0,
+      "deltaFace": -31.19,
+      "previewDeltaFace": -24.69,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -12,
+        2.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dog/03",
+      "base": "assets/characters/dog/03.png",
+      "asset": "assets/characters/expressions/dog/03-hungry.png",
+      "face": [
+        41.4375,
+        59.3125
+      ],
+      "floor": 6.5,
+      "offset": [
+        -29,
+        -5
+      ],
+      "origin": [
+        42,
+        32
+      ],
+      "category": "food_bowl",
+      "name": "いぬ",
+      "faceY": 65.8125,
+      "headTop": 30.06,
+      "deltaFace": -33.81,
+      "previewDeltaFace": -27.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -29,
+        -5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dog/04",
+      "base": "assets/characters/dog/04.png",
+      "asset": "assets/characters/expressions/dog/04-hungry.png",
+      "face": [
+        42.25,
+        61.75
+      ],
+      "floor": 6.5,
+      "offset": [
+        -28,
+        -5
+      ],
+      "origin": [
+        43,
+        32
+      ],
+      "category": "food_bowl",
+      "name": "いぬ",
+      "faceY": 68.25,
+      "headTop": 28.44,
+      "deltaFace": -36.25,
+      "previewDeltaFace": -29.75,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -28,
+        -5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dog/05",
+      "base": "assets/characters/dog/05.png",
+      "asset": "assets/characters/expressions/dog/05-hungry.png",
+      "face": [
+        31.6875,
+        43.0625
+      ],
+      "floor": 6.5,
+      "offset": [
+        -11.5,
+        -9.5
+      ],
+      "origin": [
+        59.5,
+        27.5
+      ],
+      "category": "food_bowl",
+      "name": "いぬ",
+      "faceY": 49.5625,
+      "headTop": 16.25,
+      "deltaFace": -22.06,
+      "previewDeltaFace": -15.56,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -11.5,
+        -9.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dog/06",
+      "base": "assets/characters/dog/06.png",
+      "asset": "assets/characters/expressions/dog/06-hungry.png",
+      "face": [
+        32.5,
+        43.0625
+      ],
+      "floor": 6.5,
+      "offset": [
+        -36,
+        -17.5
+      ],
+      "origin": [
+        35,
+        19.5
+      ],
+      "category": "food_bowl",
+      "name": "いぬ",
+      "faceY": 49.5625,
+      "headTop": 13.0,
+      "deltaFace": -30.06,
+      "previewDeltaFace": -23.56,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -36,
+        -17.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dog/07",
+      "base": "assets/characters/dog/07.png",
+      "asset": "assets/characters/expressions/dog/07-hungry.png",
+      "face": [
+        40.625,
+        53.625
+      ],
+      "floor": 6.5,
+      "offset": [
+        -29.5,
+        -11.5
+      ],
+      "origin": [
+        41.5,
+        25.5
+      ],
+      "category": "food_bowl",
+      "name": "いぬ",
+      "faceY": 60.125,
+      "headTop": 17.88,
+      "deltaFace": -34.62,
+      "previewDeltaFace": -28.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -29.5,
+        -11.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dog/08",
+      "base": "assets/characters/dog/08.png",
+      "asset": "assets/characters/expressions/dog/08-hungry.png",
+      "face": [
+        40.625,
+        59.3125
+      ],
+      "floor": 6.5,
+      "offset": [
+        -28.5,
+        -9
+      ],
+      "origin": [
+        42.5,
+        28
+      ],
+      "category": "food_bowl",
+      "name": "いぬ",
+      "faceY": 65.8125,
+      "headTop": 29.25,
+      "deltaFace": -37.81,
+      "previewDeltaFace": -31.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -28.5,
+        -9
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "man/01",
+      "base": "assets/characters/man/01.png",
+      "asset": "assets/characters/expressions/man/01-hungry.png",
+      "face": [
+        52.8125,
+        73.9375
+      ],
+      "floor": 6.5,
+      "offset": [
+        8,
+        41.5
+      ],
+      "origin": [
+        79,
+        78.5
+      ],
+      "category": "milk",
+      "name": "おとこのひと",
+      "faceY": 80.4375,
+      "headTop": 49.56,
+      "deltaFace": -1.94,
+      "previewDeltaFace": 4.56,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        8,
+        7.6
+      ],
+      "proposalNote": "xは維持。小バブルの中心を頭帯上端の5単位上へ。未検証の配置候補",
+      "review": true
+    },
+    {
+      "key": "man/02",
+      "base": "assets/characters/man/02.png",
+      "asset": "assets/characters/expressions/man/02-hungry.png",
+      "face": [
+        52.8125,
+        54.4375
+      ],
+      "floor": 6.5,
+      "offset": [
+        5.5,
+        0
+      ],
+      "origin": [
+        76.5,
+        37
+      ],
+      "category": "rice",
+      "name": "おとこのひと",
+      "faceY": 60.9375,
+      "headTop": 26.81,
+      "deltaFace": -23.94,
+      "previewDeltaFace": -17.44,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        5.5,
+        0
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "man/03",
+      "base": "assets/characters/man/03.png",
+      "asset": "assets/characters/expressions/man/03-hungry.png",
+      "face": [
+        52.8125,
+        48.75
+      ],
+      "floor": 6.5,
+      "offset": [
+        8,
+        -1.5
+      ],
+      "origin": [
+        79,
+        35.5
+      ],
+      "category": "rice",
+      "name": "おとこのひと",
+      "faceY": 55.25,
+      "headTop": 23.56,
+      "deltaFace": -19.75,
+      "previewDeltaFace": -13.25,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        8,
+        -1.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "man/04",
+      "base": "assets/characters/man/04.png",
+      "asset": "assets/characters/expressions/man/04-hungry.png",
+      "face": [
+        52.8125,
+        37.375
+      ],
+      "floor": 6.5,
+      "offset": [
+        11,
+        3.5
+      ],
+      "origin": [
+        82,
+        40.5
+      ],
+      "category": "rice",
+      "name": "おとこのひと",
+      "faceY": 43.875,
+      "headTop": 14.62,
+      "deltaFace": -3.38,
+      "previewDeltaFace": 3.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        11,
+        -27.4
+      ],
+      "proposalNote": "xは維持。小バブルの中心を頭帯上端の5単位上へ。未検証の配置候補",
+      "review": true
+    },
+    {
+      "key": "man/05",
+      "base": "assets/characters/man/05.png",
+      "asset": "assets/characters/expressions/man/05-hungry.png",
+      "face": [
+        52.8125,
+        36.5625
+      ],
+      "floor": 6.5,
+      "offset": [
+        11.5,
+        2.5
+      ],
+      "origin": [
+        82.5,
+        39.5
+      ],
+      "category": "rice",
+      "name": "おとこのひと",
+      "faceY": 43.0625,
+      "headTop": 13.81,
+      "deltaFace": -3.56,
+      "previewDeltaFace": 2.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        11.5,
+        -28.2
+      ],
+      "proposalNote": "xは維持。小バブルの中心を頭帯上端の5単位上へ。未検証の配置候補",
+      "review": true
+    },
+    {
+      "key": "man/06",
+      "base": "assets/characters/man/06.png",
+      "asset": "assets/characters/expressions/man/06-hungry.png",
+      "face": [
+        52.8125,
+        35.75
+      ],
+      "floor": 6.5,
+      "offset": [
+        13,
+        1
+      ],
+      "origin": [
+        84,
+        38
+      ],
+      "category": "rice",
+      "name": "おとこのひと",
+      "faceY": 42.25,
+      "headTop": 13.0,
+      "deltaFace": -4.25,
+      "previewDeltaFace": 2.25,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        13,
+        -29.0
+      ],
+      "proposalNote": "xは維持。小バブルの中心を頭帯上端の5単位上へ。未検証の配置候補",
+      "review": true
+    },
+    {
+      "key": "man/07",
+      "base": "assets/characters/man/07.png",
+      "asset": "assets/characters/expressions/man/07-hungry.png",
+      "face": [
+        52.8125,
+        36.5625
+      ],
+      "floor": 6.5,
+      "offset": [
+        12,
+        2.5
+      ],
+      "origin": [
+        83,
+        39.5
+      ],
+      "category": "rice",
+      "name": "おとこのひと",
+      "faceY": 43.0625,
+      "headTop": 14.62,
+      "deltaFace": -3.56,
+      "previewDeltaFace": 2.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        12,
+        -27.4
+      ],
+      "proposalNote": "xは維持。小バブルの中心を頭帯上端の5単位上へ。未検証の配置候補",
+      "review": true
+    },
+    {
+      "key": "man/08",
+      "base": "assets/characters/man/08.png",
+      "asset": "assets/characters/expressions/man/08-hungry.png",
+      "face": [
+        52,
+        39
+      ],
+      "floor": 6.5,
+      "offset": [
+        9,
+        5.5
+      ],
+      "origin": [
+        80,
+        42.5
+      ],
+      "category": "rice",
+      "name": "おとこのひと",
+      "faceY": 45.5,
+      "headTop": 20.31,
+      "deltaFace": -3.0,
+      "previewDeltaFace": 3.5,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        9,
+        -21.7
+      ],
+      "proposalNote": "xは維持。小バブルの中心を頭帯上端の5単位上へ。未検証の配置候補",
+      "review": true
+    },
+    {
+      "key": "woman/01",
+      "base": "assets/characters/woman/01.png",
+      "asset": "assets/characters/expressions/woman/01-hungry.png",
+      "face": [
+        52.8125,
+        73.125
+      ],
+      "floor": 6.5,
+      "offset": [
+        3,
+        21.5
+      ],
+      "origin": [
+        74,
+        58.5
+      ],
+      "category": "milk",
+      "name": "おんなのひと",
+      "faceY": 79.625,
+      "headTop": 48.75,
+      "deltaFace": -21.12,
+      "previewDeltaFace": -14.62,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        3,
+        21.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "woman/02",
+      "base": "assets/characters/woman/02.png",
+      "asset": "assets/characters/expressions/woman/02-hungry.png",
+      "face": [
+        53.625,
+        52
+      ],
+      "floor": 6.5,
+      "offset": [
+        1,
+        -2.5
+      ],
+      "origin": [
+        72,
+        34.5
+      ],
+      "category": "rice",
+      "name": "おんなのひと",
+      "faceY": 58.5,
+      "headTop": 28.44,
+      "deltaFace": -24.0,
+      "previewDeltaFace": -17.5,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        1,
+        -2.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "woman/03",
+      "base": "assets/characters/woman/03.png",
+      "asset": "assets/characters/expressions/woman/03-hungry.png",
+      "face": [
+        52,
+        49.5625
+      ],
+      "floor": 6.5,
+      "offset": [
+        8,
+        -1.5
+      ],
+      "origin": [
+        79,
+        35.5
+      ],
+      "category": "rice",
+      "name": "おんなのひと",
+      "faceY": 56.0625,
+      "headTop": 21.12,
+      "deltaFace": -20.56,
+      "previewDeltaFace": -14.06,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        8,
+        -1.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "woman/04",
+      "base": "assets/characters/woman/04.png",
+      "asset": "assets/characters/expressions/woman/04-hungry.png",
+      "face": [
+        53.625,
+        47.9375
+      ],
+      "floor": 6.5,
+      "offset": [
+        9,
+        -3
+      ],
+      "origin": [
+        80,
+        34
+      ],
+      "category": "rice",
+      "name": "おんなのひと",
+      "faceY": 54.4375,
+      "headTop": 21.12,
+      "deltaFace": -20.44,
+      "previewDeltaFace": -13.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        9,
+        -3
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "woman/05",
+      "base": "assets/characters/woman/05.png",
+      "asset": "assets/characters/expressions/woman/05-hungry.png",
+      "face": [
+        52.8125,
+        43.875
+      ],
+      "floor": 6.5,
+      "offset": [
+        9.5,
+        -8
+      ],
+      "origin": [
+        80.5,
+        29
+      ],
+      "category": "rice",
+      "name": "おんなのひと",
+      "faceY": 50.375,
+      "headTop": 17.88,
+      "deltaFace": -21.38,
+      "previewDeltaFace": -14.88,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        9.5,
+        -8
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "woman/06",
+      "base": "assets/characters/woman/06.png",
+      "asset": "assets/characters/expressions/woman/06-hungry.png",
+      "face": [
+        52.8125,
+        43.875
+      ],
+      "floor": 6.5,
+      "offset": [
+        9,
+        -7.5
+      ],
+      "origin": [
+        80,
+        29.5
+      ],
+      "category": "rice",
+      "name": "おんなのひと",
+      "faceY": 50.375,
+      "headTop": 17.88,
+      "deltaFace": -20.88,
+      "previewDeltaFace": -14.38,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        9,
+        -7.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "woman/07",
+      "base": "assets/characters/woman/07.png",
+      "asset": "assets/characters/expressions/woman/07-hungry.png",
+      "face": [
+        52,
+        43.0625
+      ],
+      "floor": 6.5,
+      "offset": [
+        9.5,
+        -9.5
+      ],
+      "origin": [
+        80.5,
+        27.5
+      ],
+      "category": "rice",
+      "name": "おんなのひと",
+      "faceY": 49.5625,
+      "headTop": 17.06,
+      "deltaFace": -22.06,
+      "previewDeltaFace": -15.56,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        9.5,
+        -9.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "woman/08",
+      "base": "assets/characters/woman/08.png",
+      "asset": "assets/characters/expressions/woman/08-hungry.png",
+      "face": [
+        52.8125,
+        44.6875
+      ],
+      "floor": 6.5,
+      "offset": [
+        3,
+        -7
+      ],
+      "origin": [
+        74,
+        30
+      ],
+      "category": "rice",
+      "name": "おんなのひと",
+      "faceY": 51.1875,
+      "headTop": 20.31,
+      "deltaFace": -21.19,
+      "previewDeltaFace": -14.69,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        3,
+        -7
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "penguin/01",
+      "base": "assets/characters/penguin/01.png",
+      "asset": "assets/characters/expressions/penguin/01-hungry.png",
+      "face": [
+        52,
+        73.125
+      ],
+      "floor": 6.5,
+      "offset": [
+        1.5,
+        21.5
+      ],
+      "origin": [
+        72.5,
+        58.5
+      ],
+      "category": "fish",
+      "name": "ペンギン",
+      "faceY": 79.625,
+      "headTop": 52.0,
+      "deltaFace": -21.12,
+      "previewDeltaFace": -14.62,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        1.5,
+        21.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "penguin/02",
+      "base": "assets/characters/penguin/02.png",
+      "asset": "assets/characters/expressions/penguin/02-hungry.png",
+      "face": [
+        51.1875,
+        65
+      ],
+      "floor": 6.5,
+      "offset": [
+        4,
+        10.5
+      ],
+      "origin": [
+        75,
+        47.5
+      ],
+      "category": "fish",
+      "name": "ペンギン",
+      "faceY": 71.5,
+      "headTop": 39.0,
+      "deltaFace": -24.0,
+      "previewDeltaFace": -17.5,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        4,
+        10.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "penguin/03",
+      "base": "assets/characters/penguin/03.png",
+      "asset": "assets/characters/expressions/penguin/03-hungry.png",
+      "face": [
+        52,
+        56.0625
+      ],
+      "floor": 6.5,
+      "offset": [
+        5.5,
+        6
+      ],
+      "origin": [
+        76.5,
+        43
+      ],
+      "category": "fish",
+      "name": "ペンギン",
+      "faceY": 62.5625,
+      "headTop": 29.25,
+      "deltaFace": -19.56,
+      "previewDeltaFace": -13.06,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        5.5,
+        6
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "penguin/04",
+      "base": "assets/characters/penguin/04.png",
+      "asset": "assets/characters/expressions/penguin/04-hungry.png",
+      "face": [
+        52.8125,
+        50.375
+      ],
+      "floor": 6.5,
+      "offset": [
+        6.5,
+        -5.5
+      ],
+      "origin": [
+        77.5,
+        31.5
+      ],
+      "category": "fish",
+      "name": "ペンギン",
+      "faceY": 56.875,
+      "headTop": 21.12,
+      "deltaFace": -25.38,
+      "previewDeltaFace": -18.88,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        6.5,
+        -5.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "penguin/05",
+      "base": "assets/characters/penguin/05.png",
+      "asset": "assets/characters/expressions/penguin/05-hungry.png",
+      "face": [
+        52,
+        40.625
+      ],
+      "floor": 6.5,
+      "offset": [
+        6,
+        -9.5
+      ],
+      "origin": [
+        77,
+        27.5
+      ],
+      "category": "fish",
+      "name": "ペンギン",
+      "faceY": 47.125,
+      "headTop": 19.5,
+      "deltaFace": -19.62,
+      "previewDeltaFace": -13.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        6,
+        -9.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "penguin/06",
+      "base": "assets/characters/penguin/06.png",
+      "asset": "assets/characters/expressions/penguin/06-hungry.png",
+      "face": [
+        52,
+        39.8125
+      ],
+      "floor": 6.5,
+      "offset": [
+        6.5,
+        -10.5
+      ],
+      "origin": [
+        77.5,
+        26.5
+      ],
+      "category": "fish",
+      "name": "ペンギン",
+      "faceY": 46.3125,
+      "headTop": 13.0,
+      "deltaFace": -19.81,
+      "previewDeltaFace": -13.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        6.5,
+        -10.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "penguin/07",
+      "base": "assets/characters/penguin/07.png",
+      "asset": "assets/characters/expressions/penguin/07-hungry.png",
+      "face": [
+        52,
+        46.3125
+      ],
+      "floor": 6.5,
+      "offset": [
+        9,
+        -6.5
+      ],
+      "origin": [
+        80,
+        30.5
+      ],
+      "category": "fish",
+      "name": "ペンギン",
+      "faceY": 52.8125,
+      "headTop": 14.62,
+      "deltaFace": -22.31,
+      "previewDeltaFace": -15.81,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        9,
+        -6.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "penguin/08",
+      "base": "assets/characters/penguin/08.png",
+      "asset": "assets/characters/expressions/penguin/08-hungry.png",
+      "face": [
+        52,
+        49.5625
+      ],
+      "floor": 6.5,
+      "offset": [
+        13,
+        -6.5
+      ],
+      "origin": [
+        84,
+        30.5
+      ],
+      "category": "fish",
+      "name": "ペンギン",
+      "faceY": 56.0625,
+      "headTop": 17.88,
+      "deltaFace": -25.56,
+      "previewDeltaFace": -19.06,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        13,
+        -6.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "turtle/01",
+      "base": "assets/characters/turtle/01.png",
+      "asset": "assets/characters/expressions/turtle/01-hungry.png",
+      "face": [
+        39.8125,
+        76.375
+      ],
+      "floor": 6.5,
+      "offset": [
+        -16.5,
+        30
+      ],
+      "origin": [
+        54.5,
+        67
+      ],
+      "category": "food_bowl",
+      "name": "カメ",
+      "faceY": 82.875,
+      "headTop": 69.06,
+      "deltaFace": -15.88,
+      "previewDeltaFace": -9.38,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -16.5,
+        30
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "turtle/02",
+      "base": "assets/characters/turtle/02.png",
+      "asset": "assets/characters/expressions/turtle/02-hungry.png",
+      "face": [
+        37.375,
+        65.8125
+      ],
+      "floor": 6.5,
+      "offset": [
+        -14.5,
+        15.5
+      ],
+      "origin": [
+        56.5,
+        52.5
+      ],
+      "category": "food_bowl",
+      "name": "カメ",
+      "faceY": 72.3125,
+      "headTop": 52.0,
+      "deltaFace": -19.81,
+      "previewDeltaFace": -13.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -14.5,
+        15.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "turtle/03",
+      "base": "assets/characters/turtle/03.png",
+      "asset": "assets/characters/expressions/turtle/03-hungry.png",
+      "face": [
+        35.75,
+        58.5
+      ],
+      "floor": 6.5,
+      "offset": [
+        -18,
+        9.5
+      ],
+      "origin": [
+        53,
+        46.5
+      ],
+      "category": "food_bowl",
+      "name": "カメ",
+      "faceY": 65.0,
+      "headTop": 46.31,
+      "deltaFace": -18.5,
+      "previewDeltaFace": -12.0,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -18,
+        9.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "turtle/04",
+      "base": "assets/characters/turtle/04.png",
+      "asset": "assets/characters/expressions/turtle/04-hungry.png",
+      "face": [
+        26,
+        51.1875
+      ],
+      "floor": 6.5,
+      "offset": [
+        -33,
+        3
+      ],
+      "origin": [
+        38,
+        40
+      ],
+      "category": "food_bowl",
+      "name": "カメ",
+      "faceY": 57.6875,
+      "headTop": 43.06,
+      "deltaFace": -17.69,
+      "previewDeltaFace": -11.19,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -33,
+        3
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "turtle/05",
+      "base": "assets/characters/turtle/05.png",
+      "asset": "assets/characters/expressions/turtle/05-hungry.png",
+      "face": [
+        25.1875,
+        53.625
+      ],
+      "floor": 6.5,
+      "offset": [
+        -32,
+        3.5
+      ],
+      "origin": [
+        39,
+        40.5
+      ],
+      "category": "food_bowl",
+      "name": "カメ",
+      "faceY": 60.125,
+      "headTop": 43.88,
+      "deltaFace": -19.62,
+      "previewDeltaFace": -13.12,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -32,
+        3.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "turtle/06",
+      "base": "assets/characters/turtle/06.png",
+      "asset": "assets/characters/expressions/turtle/06-hungry.png",
+      "face": [
+        22.75,
+        55.25
+      ],
+      "floor": 6.5,
+      "offset": [
+        -40.5,
+        2
+      ],
+      "origin": [
+        30.5,
+        39
+      ],
+      "category": "food_bowl",
+      "name": "カメ",
+      "faceY": 61.75,
+      "headTop": 40.62,
+      "deltaFace": -22.75,
+      "previewDeltaFace": -16.25,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -40.5,
+        2
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "turtle/07",
+      "base": "assets/characters/turtle/07.png",
+      "asset": "assets/characters/expressions/turtle/07-hungry.png",
+      "face": [
+        21.9375,
+        56.875
+      ],
+      "floor": 6.5,
+      "offset": [
+        -40.5,
+        2
+      ],
+      "origin": [
+        30.5,
+        39
+      ],
+      "category": "food_bowl",
+      "name": "カメ",
+      "faceY": 63.375,
+      "headTop": 42.25,
+      "deltaFace": -24.38,
+      "previewDeltaFace": -17.88,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -40.5,
+        2
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "turtle/08",
+      "base": "assets/characters/turtle/08.png",
+      "asset": "assets/characters/expressions/turtle/08-hungry.png",
+      "face": [
+        21.125,
+        68.25
+      ],
+      "floor": 6.5,
+      "offset": [
+        -29.5,
+        -7
+      ],
+      "origin": [
+        41.5,
+        30
+      ],
+      "category": "food_bowl",
+      "name": "カメ",
+      "faceY": 74.75,
+      "headTop": 39.81,
+      "deltaFace": -44.75,
+      "previewDeltaFace": -38.25,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -29.5,
+        -7
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "frog/01",
+      "base": "assets/characters/frog/01.png",
+      "asset": "assets/characters/expressions/frog/01-hungry.png",
+      "face": [
+        39,
+        55.25
+      ],
+      "floor": 36.5625,
+      "offset": [
+        -13.5,
+        36
+      ],
+      "origin": [
+        57.5,
+        73
+      ],
+      "category": "algae_aquatic_plant",
+      "name": "カエル",
+      "faceY": 91.8125,
+      "headTop": 73.12,
+      "deltaFace": -18.81,
+      "previewDeltaFace": 17.75,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -13.5,
+        36
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "frog/02",
+      "base": "assets/characters/frog/02.png",
+      "asset": "assets/characters/expressions/frog/02-hungry.png",
+      "face": [
+        32.5,
+        53.625
+      ],
+      "floor": 38.1875,
+      "offset": [
+        -26,
+        37
+      ],
+      "origin": [
+        45,
+        74
+      ],
+      "category": "algae_aquatic_plant",
+      "name": "カエル",
+      "faceY": 91.8125,
+      "headTop": 76.38,
+      "deltaFace": -17.81,
+      "previewDeltaFace": 20.38,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -26,
+        37
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "frog/03",
+      "base": "assets/characters/frog/03.png",
+      "asset": "assets/characters/expressions/frog/03-hungry.png",
+      "face": [
+        30.0625,
+        50.375
+      ],
+      "floor": 33.3125,
+      "offset": [
+        -24,
+        29
+      ],
+      "origin": [
+        47,
+        66
+      ],
+      "category": "algae_aquatic_plant",
+      "name": "カエル",
+      "faceY": 83.6875,
+      "headTop": 65.81,
+      "deltaFace": -17.69,
+      "previewDeltaFace": 15.62,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -24,
+        29
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "frog/04",
+      "base": "assets/characters/frog/04.png",
+      "asset": "assets/characters/expressions/frog/04-hungry.png",
+      "face": [
+        26.8125,
+        75.5625
+      ],
+      "floor": 6.5,
+      "offset": [
+        -26.5,
+        26.5
+      ],
+      "origin": [
+        44.5,
+        63.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "カエル",
+      "faceY": 82.0625,
+      "headTop": 61.75,
+      "deltaFace": -18.56,
+      "previewDeltaFace": -12.06,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -26.5,
+        26.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "frog/05",
+      "base": "assets/characters/frog/05.png",
+      "asset": "assets/characters/expressions/frog/05-hungry.png",
+      "face": [
+        41.4375,
+        64.1875
+      ],
+      "floor": 6.5,
+      "offset": [
+        -16.5,
+        9.5
+      ],
+      "origin": [
+        54.5,
+        46.5
+      ],
+      "category": "insect",
+      "name": "カエル",
+      "faceY": 70.6875,
+      "headTop": 47.12,
+      "deltaFace": -24.19,
+      "previewDeltaFace": -17.69,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -16.5,
+        9.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "frog/06",
+      "base": "assets/characters/frog/06.png",
+      "asset": "assets/characters/expressions/frog/06-hungry.png",
+      "face": [
+        43.0625,
+        56.875
+      ],
+      "floor": 6.5,
+      "offset": [
+        -20.5,
+        4
+      ],
+      "origin": [
+        50.5,
+        41
+      ],
+      "category": "insect",
+      "name": "カエル",
+      "faceY": 63.375,
+      "headTop": 42.25,
+      "deltaFace": -22.38,
+      "previewDeltaFace": -15.88,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -20.5,
+        4
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "frog/07",
+      "base": "assets/characters/frog/07.png",
+      "asset": "assets/characters/expressions/frog/07-hungry.png",
+      "face": [
+        51.1875,
+        35.75
+      ],
+      "floor": 6.5,
+      "offset": [
+        -11,
+        -19.5
+      ],
+      "origin": [
+        60,
+        17.5
+      ],
+      "category": "insect",
+      "name": "カエル",
+      "faceY": 42.25,
+      "headTop": 19.5,
+      "deltaFace": -24.75,
+      "previewDeltaFace": -18.25,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -11,
+        -19.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "frog/08",
+      "base": "assets/characters/frog/08.png",
+      "asset": "assets/characters/expressions/frog/08-hungry.png",
+      "face": [
+        50.375,
+        43.875
+      ],
+      "floor": 6.5,
+      "offset": [
+        -12,
+        -10.5
+      ],
+      "origin": [
+        59,
+        26.5
+      ],
+      "category": "insect",
+      "name": "カエル",
+      "faceY": 50.375,
+      "headTop": 26.0,
+      "deltaFace": -23.88,
+      "previewDeltaFace": -17.38,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -12,
+        -10.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "clownfish/01",
+      "base": "assets/characters/clownfish/01.png",
+      "asset": "assets/characters/expressions/clownfish/01-hungry.png",
+      "face": [
+        38.1875,
+        52.8125
+      ],
+      "floor": 39.8125,
+      "offset": [
+        -28,
+        39
+      ],
+      "origin": [
+        43,
+        76
+      ],
+      "category": "aquatic_small_prey",
+      "name": "カクレクマノミ",
+      "faceY": 92.625,
+      "headTop": 79.62,
+      "deltaFace": -16.62,
+      "previewDeltaFace": 23.19,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -28,
+        39
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "clownfish/02",
+      "base": "assets/characters/clownfish/02.png",
+      "asset": "assets/characters/expressions/clownfish/02-hungry.png",
+      "face": [
+        34.125,
+        52.8125
+      ],
+      "floor": 37.375,
+      "offset": [
+        -27,
+        35
+      ],
+      "origin": [
+        44,
+        72
+      ],
+      "category": "aquatic_small_prey",
+      "name": "カクレクマノミ",
+      "faceY": 90.1875,
+      "headTop": 75.56,
+      "deltaFace": -18.19,
+      "previewDeltaFace": 19.19,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -27,
+        35
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "clownfish/03",
+      "base": "assets/characters/clownfish/03.png",
+      "asset": "assets/characters/expressions/clownfish/03-hungry.png",
+      "face": [
+        29.25,
+        53.625
+      ],
+      "floor": 31.6875,
+      "offset": [
+        -34,
+        27
+      ],
+      "origin": [
+        37,
+        64
+      ],
+      "category": "aquatic_small_prey",
+      "name": "カクレクマノミ",
+      "faceY": 85.3125,
+      "headTop": 63.38,
+      "deltaFace": -21.31,
+      "previewDeltaFace": 10.38,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -34,
+        27
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "clownfish/04",
+      "base": "assets/characters/clownfish/04.png",
+      "asset": "assets/characters/expressions/clownfish/04-hungry.png",
+      "face": [
+        26,
+        56.0625
+      ],
+      "floor": 29.25,
+      "offset": [
+        -33.5,
+        20.5
+      ],
+      "origin": [
+        37.5,
+        57.5
+      ],
+      "category": "aquatic_small_prey",
+      "name": "カクレクマノミ",
+      "faceY": 85.3125,
+      "headTop": 58.5,
+      "deltaFace": -27.81,
+      "previewDeltaFace": 1.44,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -33.5,
+        20.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "clownfish/05",
+      "base": "assets/characters/clownfish/05.png",
+      "asset": "assets/characters/expressions/clownfish/05-hungry.png",
+      "face": [
+        22.75,
+        52.8125
+      ],
+      "floor": 9.75,
+      "offset": [
+        -33.5,
+        -8
+      ],
+      "origin": [
+        37.5,
+        29
+      ],
+      "category": "aquatic_small_prey",
+      "name": "カクレクマノミ",
+      "faceY": 62.5625,
+      "headTop": 32.5,
+      "deltaFace": -33.56,
+      "previewDeltaFace": -23.81,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -33.5,
+        -8
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "clownfish/06",
+      "base": "assets/characters/clownfish/06.png",
+      "asset": "assets/characters/expressions/clownfish/06-hungry.png",
+      "face": [
+        23.5625,
+        55.25
+      ],
+      "floor": 26.8125,
+      "offset": [
+        -38.5,
+        21.5
+      ],
+      "origin": [
+        32.5,
+        58.5
+      ],
+      "category": "aquatic_small_prey",
+      "name": "カクレクマノミ",
+      "faceY": 82.0625,
+      "headTop": 55.25,
+      "deltaFace": -23.56,
+      "previewDeltaFace": 3.25,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -38.5,
+        21.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "clownfish/07",
+      "base": "assets/characters/clownfish/07.png",
+      "asset": "assets/characters/expressions/clownfish/07-hungry.png",
+      "face": [
+        21.125,
+        50.375
+      ],
+      "floor": 21.9375,
+      "offset": [
+        -40.5,
+        11
+      ],
+      "origin": [
+        30.5,
+        48
+      ],
+      "category": "aquatic_small_prey",
+      "name": "カクレクマノミ",
+      "faceY": 72.3125,
+      "headTop": 46.31,
+      "deltaFace": -24.31,
+      "previewDeltaFace": -2.38,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -40.5,
+        11
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "clownfish/08",
+      "base": "assets/characters/clownfish/08.png",
+      "asset": "assets/characters/expressions/clownfish/08-hungry.png",
+      "face": [
+        19.5,
+        55.25
+      ],
+      "floor": 20.3125,
+      "offset": [
+        -39,
+        9
+      ],
+      "origin": [
+        32,
+        46
+      ],
+      "category": "aquatic_small_prey",
+      "name": "カクレクマノミ",
+      "faceY": 75.5625,
+      "headTop": 47.12,
+      "deltaFace": -29.56,
+      "previewDeltaFace": -9.25,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -39,
+        9
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "salmon/01",
+      "base": "assets/characters/salmon/01.png",
+      "asset": "assets/characters/expressions/salmon/01-hungry.png",
+      "face": [
+        34.9375,
+        52
+      ],
+      "floor": 39,
+      "offset": [
+        -28,
+        37.5
+      ],
+      "origin": [
+        43,
+        74.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "サケ",
+      "faceY": 91,
+      "headTop": 79.62,
+      "deltaFace": -16.5,
+      "previewDeltaFace": 22.5,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -28,
+        37.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "salmon/02",
+      "base": "assets/characters/salmon/02.png",
+      "asset": "assets/characters/expressions/salmon/02-hungry.png",
+      "face": [
+        29.25,
+        55.25
+      ],
+      "floor": 37.375,
+      "offset": [
+        -32.5,
+        37.5
+      ],
+      "origin": [
+        38.5,
+        74.5
+      ],
+      "category": "aquatic_small_prey",
+      "name": "サケ",
+      "faceY": 92.625,
+      "headTop": 79.62,
+      "deltaFace": -18.12,
+      "previewDeltaFace": 19.25,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -32.5,
+        37.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "salmon/03",
+      "base": "assets/characters/salmon/03.png",
+      "asset": "assets/characters/expressions/salmon/03-hungry.png",
+      "face": [
+        24.375,
+        56.875
+      ],
+      "floor": 34.9375,
+      "offset": [
+        -41,
+        36.5
+      ],
+      "origin": [
+        30,
+        73.5
+      ],
+      "category": "aquatic_small_prey",
+      "name": "サケ",
+      "faceY": 91.8125,
+      "headTop": 77.19,
+      "deltaFace": -18.31,
+      "previewDeltaFace": 16.62,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -41,
+        36.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "salmon/04",
+      "base": "assets/characters/salmon/04.png",
+      "asset": "assets/characters/expressions/salmon/04-hungry.png",
+      "face": [
+        22.75,
+        56.875
+      ],
+      "floor": 35.75,
+      "offset": [
+        -42,
+        36
+      ],
+      "origin": [
+        29,
+        73
+      ],
+      "category": "aquatic_small_prey",
+      "name": "サケ",
+      "faceY": 92.625,
+      "headTop": 78.81,
+      "deltaFace": -19.62,
+      "previewDeltaFace": 16.12,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -42,
+        36
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "salmon/05",
+      "base": "assets/characters/salmon/05.png",
+      "asset": "assets/characters/expressions/salmon/05-hungry.png",
+      "face": [
+        21.9375,
+        52
+      ],
+      "floor": 31.6875,
+      "offset": [
+        -38.5,
+        26.5
+      ],
+      "origin": [
+        32.5,
+        63.5
+      ],
+      "category": "aquatic_small_prey",
+      "name": "サケ",
+      "faceY": 83.6875,
+      "headTop": 69.88,
+      "deltaFace": -20.19,
+      "previewDeltaFace": 11.5,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -38.5,
+        26.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "salmon/06",
+      "base": "assets/characters/salmon/06.png",
+      "asset": "assets/characters/expressions/salmon/06-hungry.png",
+      "face": [
+        20.3125,
+        55.25
+      ],
+      "floor": 30.0625,
+      "offset": [
+        -38.5,
+        26
+      ],
+      "origin": [
+        32.5,
+        63
+      ],
+      "category": "aquatic_small_prey",
+      "name": "サケ",
+      "faceY": 85.3125,
+      "headTop": 69.06,
+      "deltaFace": -22.31,
+      "previewDeltaFace": 7.75,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -38.5,
+        26
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "salmon/07",
+      "base": "assets/characters/salmon/07.png",
+      "asset": "assets/characters/expressions/salmon/07-hungry.png",
+      "face": [
+        21.125,
+        53.625
+      ],
+      "floor": 28.4375,
+      "offset": [
+        -38,
+        23
+      ],
+      "origin": [
+        33,
+        60
+      ],
+      "category": "neutral_nutrition",
+      "name": "サケ",
+      "faceY": 82.0625,
+      "headTop": 65.81,
+      "deltaFace": -22.06,
+      "previewDeltaFace": 6.38,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -38,
+        23
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "salmon/08",
+      "base": "assets/characters/salmon/08.png",
+      "asset": "assets/characters/expressions/salmon/08-hungry.png",
+      "face": [
+        20.3125,
+        53.625
+      ],
+      "floor": 30.875,
+      "offset": [
+        -45,
+        29
+      ],
+      "origin": [
+        26,
+        66
+      ],
+      "category": "neutral_nutrition",
+      "name": "サケ",
+      "faceY": 84.5,
+      "headTop": 69.06,
+      "deltaFace": -18.5,
+      "previewDeltaFace": 12.38,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -45,
+        29
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "hermit_crab/01",
+      "base": "assets/characters/hermit_crab/01.png",
+      "asset": "assets/characters/expressions/hermit_crab/01-hungry.png",
+      "face": [
+        65,
+        78
+      ],
+      "floor": 6.5,
+      "offset": [
+        10,
+        35.5
+      ],
+      "origin": [
+        81,
+        72.5
+      ],
+      "category": "omnivore_food",
+      "name": "ヤドカリ",
+      "faceY": 84.5,
+      "headTop": 66.62,
+      "deltaFace": -12.0,
+      "previewDeltaFace": -5.5,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        10,
+        35.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "hermit_crab/02",
+      "base": "assets/characters/hermit_crab/02.png",
+      "asset": "assets/characters/expressions/hermit_crab/02-hungry.png",
+      "face": [
+        67.4375,
+        78
+      ],
+      "floor": 6.5,
+      "offset": [
+        15,
+        33.5
+      ],
+      "origin": [
+        86,
+        70.5
+      ],
+      "category": "omnivore_food",
+      "name": "ヤドカリ",
+      "faceY": 84.5,
+      "headTop": 59.31,
+      "deltaFace": -14.0,
+      "previewDeltaFace": -7.5,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        15,
+        33.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "hermit_crab/03",
+      "base": "assets/characters/hermit_crab/03.png",
+      "asset": "assets/characters/expressions/hermit_crab/03-hungry.png",
+      "face": [
+        73.125,
+        66.625
+      ],
+      "floor": 6.5,
+      "offset": [
+        20,
+        18
+      ],
+      "origin": [
+        91,
+        55
+      ],
+      "category": "omnivore_food",
+      "name": "ヤドカリ",
+      "faceY": 73.125,
+      "headTop": 37.38,
+      "deltaFace": -18.12,
+      "previewDeltaFace": -11.62,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        20,
+        18
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "hermit_crab/04",
+      "base": "assets/characters/hermit_crab/04.png",
+      "asset": "assets/characters/expressions/hermit_crab/04-hungry.png",
+      "face": [
+        70.6875,
+        73.9375
+      ],
+      "floor": 6.5,
+      "offset": [
+        14,
+        28.5
+      ],
+      "origin": [
+        85,
+        65.5
+      ],
+      "category": "omnivore_food",
+      "name": "ヤドカリ",
+      "faceY": 80.4375,
+      "headTop": 48.75,
+      "deltaFace": -14.94,
+      "previewDeltaFace": -8.44,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        14,
+        28.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "hermit_crab/05",
+      "base": "assets/characters/hermit_crab/05.png",
+      "asset": "assets/characters/expressions/hermit_crab/05-hungry.png",
+      "face": [
+        73.9375,
+        71.5
+      ],
+      "floor": 6.5,
+      "offset": [
+        19,
+        24.5
+      ],
+      "origin": [
+        90,
+        61.5
+      ],
+      "category": "omnivore_food",
+      "name": "ヤドカリ",
+      "faceY": 78.0,
+      "headTop": 47.94,
+      "deltaFace": -16.5,
+      "previewDeltaFace": -10.0,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        19,
+        24.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "hermit_crab/06",
+      "base": "assets/characters/hermit_crab/06.png",
+      "asset": "assets/characters/expressions/hermit_crab/06-hungry.png",
+      "face": [
+        71.5,
+        68.25
+      ],
+      "floor": 6.5,
+      "offset": [
+        21.5,
+        21.5
+      ],
+      "origin": [
+        92.5,
+        58.5
+      ],
+      "category": "omnivore_food",
+      "name": "ヤドカリ",
+      "faceY": 74.75,
+      "headTop": 36.56,
+      "deltaFace": -16.25,
+      "previewDeltaFace": -9.75,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        21.5,
+        21.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "hermit_crab/07",
+      "base": "assets/characters/hermit_crab/07.png",
+      "asset": "assets/characters/expressions/hermit_crab/07-hungry.png",
+      "face": [
+        71.5,
+        65.8125
+      ],
+      "floor": 6.5,
+      "offset": [
+        20,
+        15.5
+      ],
+      "origin": [
+        91,
+        52.5
+      ],
+      "category": "omnivore_food",
+      "name": "ヤドカリ",
+      "faceY": 72.3125,
+      "headTop": 38.19,
+      "deltaFace": -19.81,
+      "previewDeltaFace": -13.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        20,
+        15.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "hermit_crab/08",
+      "base": "assets/characters/hermit_crab/08.png",
+      "asset": "assets/characters/expressions/hermit_crab/08-hungry.png",
+      "face": [
+        72.3125,
+        67.4375
+      ],
+      "floor": 6.5,
+      "offset": [
+        16.5,
+        16.5
+      ],
+      "origin": [
+        87.5,
+        53.5
+      ],
+      "category": "omnivore_food",
+      "name": "ヤドカリ",
+      "faceY": 73.9375,
+      "headTop": 35.75,
+      "deltaFace": -20.44,
+      "previewDeltaFace": -13.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        16.5,
+        16.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "jellyfish/01",
+      "base": "assets/characters/jellyfish/01.png",
+      "asset": "assets/characters/expressions/jellyfish/01-hungry.png",
+      "face": [
+        52,
+        58.5
+      ],
+      "floor": 6.5,
+      "offset": [
+        10,
+        5
+      ],
+      "origin": [
+        81,
+        42
+      ],
+      "category": "aquatic_small_prey",
+      "name": "クラゲ",
+      "faceY": 65.0,
+      "headTop": 17.06,
+      "deltaFace": -23.0,
+      "previewDeltaFace": -16.5,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        10,
+        5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "jellyfish/02",
+      "base": "assets/characters/jellyfish/02.png",
+      "asset": "assets/characters/expressions/jellyfish/02-hungry.png",
+      "face": [
+        50.375,
+        45.5
+      ],
+      "floor": 6.5,
+      "offset": [
+        10.5,
+        -16.5
+      ],
+      "origin": [
+        81.5,
+        20.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "クラゲ",
+      "faceY": 52.0,
+      "headTop": 13.0,
+      "deltaFace": -31.5,
+      "previewDeltaFace": -25.0,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        10.5,
+        -16.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "jellyfish/03",
+      "base": "assets/characters/jellyfish/03.png",
+      "asset": "assets/characters/expressions/jellyfish/03-hungry.png",
+      "face": [
+        52,
+        58.5
+      ],
+      "floor": 11.375,
+      "offset": [
+        0,
+        -8.5
+      ],
+      "origin": [
+        71,
+        28.5
+      ],
+      "category": "aquatic_small_prey",
+      "name": "クラゲ",
+      "faceY": 69.875,
+      "headTop": 25.19,
+      "deltaFace": -41.38,
+      "previewDeltaFace": -30.0,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        0,
+        -8.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "jellyfish/04",
+      "base": "assets/characters/jellyfish/04.png",
+      "asset": "assets/characters/expressions/jellyfish/04-hungry.png",
+      "face": [
+        52.8125,
+        47.9375
+      ],
+      "floor": 12.1875,
+      "offset": [
+        0,
+        -8
+      ],
+      "origin": [
+        71,
+        29
+      ],
+      "category": "aquatic_small_prey",
+      "name": "クラゲ",
+      "faceY": 60.125,
+      "headTop": 30.88,
+      "deltaFace": -31.12,
+      "previewDeltaFace": -18.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        0,
+        -8
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "jellyfish/05",
+      "base": "assets/characters/jellyfish/05.png",
+      "asset": "assets/characters/expressions/jellyfish/05-hungry.png",
+      "face": [
+        52,
+        40.625
+      ],
+      "floor": 9.75,
+      "offset": [
+        -2,
+        -16
+      ],
+      "origin": [
+        69,
+        21
+      ],
+      "category": "aquatic_small_prey",
+      "name": "クラゲ",
+      "faceY": 50.375,
+      "headTop": 22.75,
+      "deltaFace": -29.38,
+      "previewDeltaFace": -19.62,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -2,
+        -16
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "jellyfish/06",
+      "base": "assets/characters/jellyfish/06.png",
+      "asset": "assets/characters/expressions/jellyfish/06-hungry.png",
+      "face": [
+        51.1875,
+        38.1875
+      ],
+      "floor": 7.3125,
+      "offset": [
+        2.5,
+        -21
+      ],
+      "origin": [
+        73.5,
+        16
+      ],
+      "category": "aquatic_small_prey",
+      "name": "クラゲ",
+      "faceY": 45.5,
+      "headTop": 13.81,
+      "deltaFace": -29.5,
+      "previewDeltaFace": -22.19,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        2.5,
+        -21
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "jellyfish/07",
+      "base": "assets/characters/jellyfish/07.png",
+      "asset": "assets/characters/expressions/jellyfish/07-hungry.png",
+      "face": [
+        60.125,
+        34.125
+      ],
+      "floor": 11.375,
+      "offset": [
+        5,
+        -13
+      ],
+      "origin": [
+        76,
+        24
+      ],
+      "category": "aquatic_small_prey",
+      "name": "クラゲ",
+      "faceY": 45.5,
+      "headTop": 21.94,
+      "deltaFace": -21.5,
+      "previewDeltaFace": -10.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        5,
+        -13
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "jellyfish/08",
+      "base": "assets/characters/jellyfish/08.png",
+      "asset": "assets/characters/expressions/jellyfish/08-hungry.png",
+      "face": [
+        60.9375,
+        41.4375
+      ],
+      "floor": 9.75,
+      "offset": [
+        4.5,
+        -20
+      ],
+      "origin": [
+        75.5,
+        17
+      ],
+      "category": "aquatic_small_prey",
+      "name": "クラゲ",
+      "faceY": 51.1875,
+      "headTop": 18.69,
+      "deltaFace": -34.19,
+      "previewDeltaFace": -24.44,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        4.5,
+        -20
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "starfish/01",
+      "base": "assets/characters/starfish/01.png",
+      "asset": "assets/characters/expressions/starfish/01-hungry.png",
+      "face": [
+        51.1875,
+        60.9375
+      ],
+      "floor": 8.125,
+      "offset": [
+        21,
+        -9
+      ],
+      "origin": [
+        92,
+        28
+      ],
+      "category": "aquatic_small_prey",
+      "name": "ヒトデ",
+      "faceY": 69.0625,
+      "headTop": 15.44,
+      "deltaFace": -41.06,
+      "previewDeltaFace": -32.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        21,
+        -9
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "starfish/02",
+      "base": "assets/characters/starfish/02.png",
+      "asset": "assets/characters/expressions/starfish/02-hungry.png",
+      "face": [
+        50.375,
+        59.3125
+      ],
+      "floor": 9.75,
+      "offset": [
+        4.5,
+        6.5
+      ],
+      "origin": [
+        75.5,
+        43.5
+      ],
+      "category": "aquatic_small_prey",
+      "name": "ヒトデ",
+      "faceY": 69.0625,
+      "headTop": 18.69,
+      "deltaFace": -25.56,
+      "previewDeltaFace": -15.81,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        4.5,
+        6.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "starfish/03",
+      "base": "assets/characters/starfish/03.png",
+      "asset": "assets/characters/expressions/starfish/03-hungry.png",
+      "face": [
+        52,
+        54.4375
+      ],
+      "floor": 9.75,
+      "offset": [
+        3,
+        4.5
+      ],
+      "origin": [
+        74,
+        41.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "ヒトデ",
+      "faceY": 64.1875,
+      "headTop": 18.69,
+      "deltaFace": -22.69,
+      "previewDeltaFace": -12.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        3,
+        4.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "starfish/04",
+      "base": "assets/characters/starfish/04.png",
+      "asset": "assets/characters/expressions/starfish/04-hungry.png",
+      "face": [
+        46.3125,
+        52.8125
+      ],
+      "floor": 6.5,
+      "offset": [
+        4.5,
+        -1
+      ],
+      "origin": [
+        75.5,
+        36
+      ],
+      "category": "benthic_small_prey",
+      "name": "ヒトデ",
+      "faceY": 59.3125,
+      "headTop": 13.0,
+      "deltaFace": -23.31,
+      "previewDeltaFace": -16.81,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        4.5,
+        -1
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "starfish/05",
+      "base": "assets/characters/starfish/05.png",
+      "asset": "assets/characters/expressions/starfish/05-hungry.png",
+      "face": [
+        52,
+        53.625
+      ],
+      "floor": 8.9375,
+      "offset": [
+        4.5,
+        1.5
+      ],
+      "origin": [
+        75.5,
+        38.5
+      ],
+      "category": "benthic_small_prey",
+      "name": "ヒトデ",
+      "faceY": 62.5625,
+      "headTop": 17.88,
+      "deltaFace": -24.06,
+      "previewDeltaFace": -15.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        4.5,
+        1.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "starfish/06",
+      "base": "assets/characters/starfish/06.png",
+      "asset": "assets/characters/expressions/starfish/06-hungry.png",
+      "face": [
+        52,
+        55.25
+      ],
+      "floor": 12.1875,
+      "offset": [
+        4.5,
+        6.5
+      ],
+      "origin": [
+        75.5,
+        43.5
+      ],
+      "category": "benthic_small_prey",
+      "name": "ヒトデ",
+      "faceY": 67.4375,
+      "headTop": 23.56,
+      "deltaFace": -23.94,
+      "previewDeltaFace": -11.75,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        4.5,
+        6.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "starfish/07",
+      "base": "assets/characters/starfish/07.png",
+      "asset": "assets/characters/expressions/starfish/07-hungry.png",
+      "face": [
+        52.8125,
+        56.875
+      ],
+      "floor": 13,
+      "offset": [
+        2.5,
+        12
+      ],
+      "origin": [
+        73.5,
+        49
+      ],
+      "category": "benthic_small_prey",
+      "name": "ヒトデ",
+      "faceY": 69.875,
+      "headTop": 25.19,
+      "deltaFace": -20.88,
+      "previewDeltaFace": -7.88,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        2.5,
+        12
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "starfish/08",
+      "base": "assets/characters/starfish/08.png",
+      "asset": "assets/characters/expressions/starfish/08-hungry.png",
+      "face": [
+        52.8125,
+        56.0625
+      ],
+      "floor": 12.1875,
+      "offset": [
+        -1,
+        1
+      ],
+      "origin": [
+        70,
+        38
+      ],
+      "category": "benthic_small_prey",
+      "name": "ヒトデ",
+      "faceY": 68.25,
+      "headTop": 23.56,
+      "deltaFace": -30.25,
+      "previewDeltaFace": -18.06,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -1,
+        1
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "coral/01",
+      "base": "assets/characters/coral/01.png",
+      "asset": "assets/characters/expressions/coral/01-hungry.png",
+      "face": [
+        52,
+        56.875
+      ],
+      "floor": 11.375,
+      "offset": [
+        18,
+        -6.5
+      ],
+      "origin": [
+        89,
+        30.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "サンゴ",
+      "faceY": 68.25,
+      "headTop": 21.94,
+      "deltaFace": -37.75,
+      "previewDeltaFace": -26.38,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        18,
+        -6.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "coral/02",
+      "base": "assets/characters/coral/02.png",
+      "asset": "assets/characters/expressions/coral/02-hungry.png",
+      "face": [
+        52,
+        68.25
+      ],
+      "floor": 6.5,
+      "offset": [
+        24.5,
+        2.5
+      ],
+      "origin": [
+        95.5,
+        39.5
+      ],
+      "category": "aquatic_small_prey",
+      "name": "サンゴ",
+      "faceY": 74.75,
+      "headTop": 20.31,
+      "deltaFace": -35.25,
+      "previewDeltaFace": -28.75,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        24.5,
+        2.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "coral/03",
+      "base": "assets/characters/coral/03.png",
+      "asset": "assets/characters/expressions/coral/03-hungry.png",
+      "face": [
+        55.25,
+        60.9375
+      ],
+      "floor": 6.5,
+      "offset": [
+        17.5,
+        -3.5
+      ],
+      "origin": [
+        88.5,
+        33.5
+      ],
+      "category": "aquatic_small_prey",
+      "name": "サンゴ",
+      "faceY": 67.4375,
+      "headTop": 13.0,
+      "deltaFace": -33.94,
+      "previewDeltaFace": -27.44,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        17.5,
+        -3.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "coral/04",
+      "base": "assets/characters/coral/04.png",
+      "asset": "assets/characters/expressions/coral/04-hungry.png",
+      "face": [
+        52.8125,
+        73.125
+      ],
+      "floor": 6.5,
+      "offset": [
+        9,
+        -1.5
+      ],
+      "origin": [
+        80,
+        35.5
+      ],
+      "category": "aquatic_small_prey",
+      "name": "サンゴ",
+      "faceY": 79.625,
+      "headTop": 29.25,
+      "deltaFace": -44.12,
+      "previewDeltaFace": -37.62,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        9,
+        -1.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "coral/05",
+      "base": "assets/characters/coral/05.png",
+      "asset": "assets/characters/expressions/coral/05-hungry.png",
+      "face": [
+        51.1875,
+        77.1875
+      ],
+      "floor": 6.5,
+      "offset": [
+        4.5,
+        6.5
+      ],
+      "origin": [
+        75.5,
+        43.5
+      ],
+      "category": "aquatic_small_prey",
+      "name": "サンゴ",
+      "faceY": 83.6875,
+      "headTop": 41.44,
+      "deltaFace": -40.19,
+      "previewDeltaFace": -33.69,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        4.5,
+        6.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "coral/06",
+      "base": "assets/characters/coral/06.png",
+      "asset": "assets/characters/expressions/coral/06-hungry.png",
+      "face": [
+        45.5,
+        73.125
+      ],
+      "floor": 6.5,
+      "offset": [
+        9,
+        -1.5
+      ],
+      "origin": [
+        80,
+        35.5
+      ],
+      "category": "aquatic_small_prey",
+      "name": "サンゴ",
+      "faceY": 79.625,
+      "headTop": 45.5,
+      "deltaFace": -44.12,
+      "previewDeltaFace": -37.62,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        9,
+        -1.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "coral/07",
+      "base": "assets/characters/coral/07.png",
+      "asset": "assets/characters/expressions/coral/07-hungry.png",
+      "face": [
+        51.1875,
+        58.5
+      ],
+      "floor": 6.5,
+      "offset": [
+        8,
+        6
+      ],
+      "origin": [
+        79,
+        43
+      ],
+      "category": "aquatic_small_prey",
+      "name": "サンゴ",
+      "faceY": 65.0,
+      "headTop": 29.25,
+      "deltaFace": -22.0,
+      "previewDeltaFace": -15.5,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        8,
+        6
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "coral/08",
+      "base": "assets/characters/coral/08.png",
+      "asset": "assets/characters/expressions/coral/08-hungry.png",
+      "face": [
+        59.3125,
+        65.8125
+      ],
+      "floor": 6.5,
+      "offset": [
+        6,
+        11.5
+      ],
+      "origin": [
+        77,
+        48.5
+      ],
+      "category": "aquatic_small_prey",
+      "name": "サンゴ",
+      "faceY": 72.3125,
+      "headTop": 50.38,
+      "deltaFace": -23.81,
+      "previewDeltaFace": -17.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        6,
+        11.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "butterfly/01",
+      "base": "assets/characters/butterfly/01.png",
+      "asset": "assets/characters/expressions/butterfly/01-hungry.png",
+      "face": [
+        37.375,
+        47.125
+      ],
+      "floor": 38.1875,
+      "offset": [
+        -16.5,
+        35
+      ],
+      "origin": [
+        54.5,
+        72
+      ],
+      "category": "leaf",
+      "name": "ちょう",
+      "faceY": 85.3125,
+      "headTop": 68.25,
+      "deltaFace": -13.31,
+      "previewDeltaFace": 24.88,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -16.5,
+        35
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "butterfly/02",
+      "base": "assets/characters/butterfly/02.png",
+      "asset": "assets/characters/expressions/butterfly/02-hungry.png",
+      "face": [
+        34.125,
+        47.125
+      ],
+      "floor": 27.625,
+      "offset": [
+        -16.5,
+        22
+      ],
+      "origin": [
+        54.5,
+        59
+      ],
+      "category": "leaf",
+      "name": "ちょう",
+      "faceY": 74.75,
+      "headTop": 55.25,
+      "deltaFace": -15.75,
+      "previewDeltaFace": 11.88,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -16.5,
+        22
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "butterfly/03",
+      "base": "assets/characters/butterfly/03.png",
+      "asset": "assets/characters/expressions/butterfly/03-hungry.png",
+      "face": [
+        29.25,
+        42.25
+      ],
+      "floor": 19.5,
+      "offset": [
+        -20,
+        2.5
+      ],
+      "origin": [
+        51,
+        39.5
+      ],
+      "category": "leaf",
+      "name": "ちょう",
+      "faceY": 61.75,
+      "headTop": 39.0,
+      "deltaFace": -22.25,
+      "previewDeltaFace": -2.75,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -20,
+        2.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "butterfly/04",
+      "base": "assets/characters/butterfly/04.png",
+      "asset": "assets/characters/expressions/butterfly/04-hungry.png",
+      "face": [
+        34.9375,
+        62.5625
+      ],
+      "floor": 8.125,
+      "offset": [
+        -12,
+        -17
+      ],
+      "origin": [
+        59,
+        20
+      ],
+      "category": "leaf",
+      "name": "ちょう",
+      "faceY": 70.6875,
+      "headTop": 16.25,
+      "deltaFace": -50.69,
+      "previewDeltaFace": -42.56,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -12,
+        -17
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "butterfly/05",
+      "base": "assets/characters/butterfly/05.png",
+      "asset": "assets/characters/expressions/butterfly/05-hungry.png",
+      "face": [
+        56.875,
+        56.875
+      ],
+      "floor": 8.125,
+      "offset": [
+        19.5,
+        1
+      ],
+      "origin": [
+        90.5,
+        38
+      ],
+      "category": "neutral_nutrition",
+      "name": "ちょう",
+      "faceY": 65.0,
+      "headTop": 17.88,
+      "deltaFace": -27.0,
+      "previewDeltaFace": -18.88,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        19.5,
+        1
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "butterfly/06",
+      "base": "assets/characters/butterfly/06.png",
+      "asset": "assets/characters/expressions/butterfly/06-hungry.png",
+      "face": [
+        45.5,
+        58.5
+      ],
+      "floor": 6.5,
+      "offset": [
+        -4.5,
+        -16.5
+      ],
+      "origin": [
+        66.5,
+        20.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "ちょう",
+      "faceY": 65.0,
+      "headTop": 13.0,
+      "deltaFace": -44.5,
+      "previewDeltaFace": -38.0,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -4.5,
+        -16.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "butterfly/07",
+      "base": "assets/characters/butterfly/07.png",
+      "asset": "assets/characters/expressions/butterfly/07-hungry.png",
+      "face": [
+        51.1875,
+        52.8125
+      ],
+      "floor": 9.75,
+      "offset": [
+        5.5,
+        -7
+      ],
+      "origin": [
+        76.5,
+        30
+      ],
+      "category": "nectar",
+      "name": "ちょう",
+      "faceY": 62.5625,
+      "headTop": 27.62,
+      "deltaFace": -32.56,
+      "previewDeltaFace": -22.81,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        5.5,
+        -7
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "butterfly/08",
+      "base": "assets/characters/butterfly/08.png",
+      "asset": "assets/characters/expressions/butterfly/08-hungry.png",
+      "face": [
+        49.5625,
+        52.8125
+      ],
+      "floor": 12.1875,
+      "offset": [
+        -7.5,
+        -4.5
+      ],
+      "origin": [
+        63.5,
+        32.5
+      ],
+      "category": "nectar",
+      "name": "ちょう",
+      "faceY": 65.0,
+      "headTop": 30.06,
+      "deltaFace": -32.5,
+      "previewDeltaFace": -20.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -7.5,
+        -4.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "beetle/01",
+      "base": "assets/characters/beetle/01.png",
+      "asset": "assets/characters/expressions/beetle/01-hungry.png",
+      "face": [
+        69.875,
+        62.5625
+      ],
+      "floor": 6.5,
+      "offset": [
+        13.5,
+        21
+      ],
+      "origin": [
+        84.5,
+        58
+      ],
+      "category": "humus",
+      "name": "カブトムシ",
+      "faceY": 69.0625,
+      "headTop": 47.94,
+      "deltaFace": -11.06,
+      "previewDeltaFace": -4.56,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        13.5,
+        21
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "beetle/02",
+      "base": "assets/characters/beetle/02.png",
+      "asset": "assets/characters/expressions/beetle/02-hungry.png",
+      "face": [
+        82.875,
+        74.75
+      ],
+      "floor": 6.5,
+      "offset": [
+        25.5,
+        34
+      ],
+      "origin": [
+        96.5,
+        71
+      ],
+      "category": "humus",
+      "name": "カブトムシ",
+      "faceY": 81.25,
+      "headTop": 65.0,
+      "deltaFace": -10.25,
+      "previewDeltaFace": -3.75,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        25.5,
+        34
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "beetle/03",
+      "base": "assets/characters/beetle/03.png",
+      "asset": "assets/characters/expressions/beetle/03-hungry.png",
+      "face": [
+        83.6875,
+        39.8125
+      ],
+      "floor": 6.5,
+      "offset": [
+        29,
+        -3
+      ],
+      "origin": [
+        100,
+        34
+      ],
+      "category": "humus",
+      "name": "カブトムシ",
+      "faceY": 46.3125,
+      "headTop": 16.25,
+      "deltaFace": -12.31,
+      "previewDeltaFace": -5.81,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        29,
+        -3
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "beetle/04",
+      "base": "assets/characters/beetle/04.png",
+      "asset": "assets/characters/expressions/beetle/04-hungry.png",
+      "face": [
+        65,
+        44.6875
+      ],
+      "floor": 6.5,
+      "offset": [
+        11,
+        1
+      ],
+      "origin": [
+        82,
+        38
+      ],
+      "category": "neutral_nutrition",
+      "name": "カブトムシ",
+      "faceY": 51.1875,
+      "headTop": 17.88,
+      "deltaFace": -13.19,
+      "previewDeltaFace": -6.69,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        11,
+        1
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "beetle/05",
+      "base": "assets/characters/beetle/05.png",
+      "asset": "assets/characters/expressions/beetle/05-hungry.png",
+      "face": [
+        67.4375,
+        73.9375
+      ],
+      "floor": 6.5,
+      "offset": [
+        22,
+        23.5
+      ],
+      "origin": [
+        93,
+        60.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "カブトムシ",
+      "faceY": 80.4375,
+      "headTop": 41.44,
+      "deltaFace": -19.94,
+      "previewDeltaFace": -13.44,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        22,
+        23.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "beetle/06",
+      "base": "assets/characters/beetle/06.png",
+      "asset": "assets/characters/expressions/beetle/06-hungry.png",
+      "face": [
+        70.6875,
+        73.9375
+      ],
+      "floor": 6.5,
+      "offset": [
+        20.5,
+        27.5
+      ],
+      "origin": [
+        91.5,
+        64.5
+      ],
+      "category": "tree_sap",
+      "name": "カブトムシ",
+      "faceY": 80.4375,
+      "headTop": 39.81,
+      "deltaFace": -15.94,
+      "previewDeltaFace": -9.44,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        20.5,
+        27.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "beetle/07",
+      "base": "assets/characters/beetle/07.png",
+      "asset": "assets/characters/expressions/beetle/07-hungry.png",
+      "face": [
+        68.25,
+        72.3125
+      ],
+      "floor": 6.5,
+      "offset": [
+        22,
+        22.5
+      ],
+      "origin": [
+        93,
+        59.5
+      ],
+      "category": "tree_sap",
+      "name": "カブトムシ",
+      "faceY": 78.8125,
+      "headTop": 35.75,
+      "deltaFace": -19.31,
+      "previewDeltaFace": -12.81,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        22,
+        22.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "beetle/08",
+      "base": "assets/characters/beetle/08.png",
+      "asset": "assets/characters/expressions/beetle/08-hungry.png",
+      "face": [
+        70.6875,
+        82.875
+      ],
+      "floor": 6.5,
+      "offset": [
+        21,
+        36
+      ],
+      "origin": [
+        92,
+        73
+      ],
+      "category": "tree_sap",
+      "name": "カブトムシ",
+      "faceY": 89.375,
+      "headTop": 41.44,
+      "deltaFace": -16.38,
+      "previewDeltaFace": -9.88,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        21,
+        36
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "stagbeetle/01",
+      "base": "assets/characters/stagbeetle/01.png",
+      "asset": "assets/characters/expressions/stagbeetle/01-hungry.png",
+      "face": [
+        66.625,
+        60.125
+      ],
+      "floor": 6.5,
+      "offset": [
+        9,
+        20
+      ],
+      "origin": [
+        80,
+        57
+      ],
+      "category": "decaying_wood_humus",
+      "name": "クワガタムシ",
+      "faceY": 66.625,
+      "headTop": 48.75,
+      "deltaFace": -9.62,
+      "previewDeltaFace": -3.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        9,
+        6.8
+      ],
+      "proposalNote": "xは維持。小バブルの中心を頭帯上端の5単位上へ。未検証の配置候補",
+      "review": true
+    },
+    {
+      "key": "stagbeetle/02",
+      "base": "assets/characters/stagbeetle/02.png",
+      "asset": "assets/characters/expressions/stagbeetle/02-hungry.png",
+      "face": [
+        85.3125,
+        82.875
+      ],
+      "floor": 6.5,
+      "offset": [
+        28.5,
+        41.5
+      ],
+      "origin": [
+        99.5,
+        78.5
+      ],
+      "category": "decaying_wood_humus",
+      "name": "クワガタムシ",
+      "faceY": 89.375,
+      "headTop": 69.88,
+      "deltaFace": -10.88,
+      "previewDeltaFace": -4.38,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        28.5,
+        41.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "stagbeetle/03",
+      "base": "assets/characters/stagbeetle/03.png",
+      "asset": "assets/characters/expressions/stagbeetle/03-hungry.png",
+      "face": [
+        79.625,
+        33.3125
+      ],
+      "floor": 6.5,
+      "offset": [
+        23.5,
+        -8.5
+      ],
+      "origin": [
+        94.5,
+        28.5
+      ],
+      "category": "decaying_wood_humus",
+      "name": "クワガタムシ",
+      "faceY": 39.8125,
+      "headTop": 16.25,
+      "deltaFace": -11.31,
+      "previewDeltaFace": -4.81,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        23.5,
+        -8.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "stagbeetle/04",
+      "base": "assets/characters/stagbeetle/04.png",
+      "asset": "assets/characters/expressions/stagbeetle/04-hungry.png",
+      "face": [
+        65,
+        34.125
+      ],
+      "floor": 6.5,
+      "offset": [
+        10,
+        -8.5
+      ],
+      "origin": [
+        81,
+        28.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "クワガタムシ",
+      "faceY": 40.625,
+      "headTop": 17.88,
+      "deltaFace": -12.12,
+      "previewDeltaFace": -5.62,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        10,
+        -8.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "stagbeetle/05",
+      "base": "assets/characters/stagbeetle/05.png",
+      "asset": "assets/characters/expressions/stagbeetle/05-hungry.png",
+      "face": [
+        74.75,
+        65.8125
+      ],
+      "floor": 6.5,
+      "offset": [
+        10.5,
+        15
+      ],
+      "origin": [
+        81.5,
+        52
+      ],
+      "category": "neutral_nutrition",
+      "name": "クワガタムシ",
+      "faceY": 72.3125,
+      "headTop": 43.06,
+      "deltaFace": -20.31,
+      "previewDeltaFace": -13.81,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        10.5,
+        15
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "stagbeetle/06",
+      "base": "assets/characters/stagbeetle/06.png",
+      "asset": "assets/characters/expressions/stagbeetle/06-hungry.png",
+      "face": [
+        70.6875,
+        73.125
+      ],
+      "floor": 6.5,
+      "offset": [
+        6,
+        28
+      ],
+      "origin": [
+        77,
+        65
+      ],
+      "category": "tree_sap",
+      "name": "クワガタムシ",
+      "faceY": 79.625,
+      "headTop": 63.38,
+      "deltaFace": -14.62,
+      "previewDeltaFace": -8.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        6,
+        28
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "stagbeetle/07",
+      "base": "assets/characters/stagbeetle/07.png",
+      "asset": "assets/characters/expressions/stagbeetle/07-hungry.png",
+      "face": [
+        72.3125,
+        65.8125
+      ],
+      "floor": 6.5,
+      "offset": [
+        18.5,
+        22.5
+      ],
+      "origin": [
+        89.5,
+        59.5
+      ],
+      "category": "tree_sap",
+      "name": "クワガタムシ",
+      "faceY": 72.3125,
+      "headTop": 55.25,
+      "deltaFace": -12.81,
+      "previewDeltaFace": -6.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        18.5,
+        22.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "stagbeetle/08",
+      "base": "assets/characters/stagbeetle/08.png",
+      "asset": "assets/characters/expressions/stagbeetle/08-hungry.png",
+      "face": [
+        76.375,
+        80.4375
+      ],
+      "floor": 6.5,
+      "offset": [
+        12.5,
+        29.5
+      ],
+      "origin": [
+        83.5,
+        66.5
+      ],
+      "category": "tree_sap",
+      "name": "クワガタムシ",
+      "faceY": 86.9375,
+      "headTop": 61.75,
+      "deltaFace": -20.44,
+      "previewDeltaFace": -13.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        12.5,
+        29.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "cicada/01",
+      "base": "assets/characters/cicada/01.png",
+      "asset": "assets/characters/expressions/cicada/01-hungry.png",
+      "face": [
+        63.375,
+        69.875
+      ],
+      "floor": 6.5,
+      "offset": [
+        13.5,
+        23
+      ],
+      "origin": [
+        84.5,
+        60
+      ],
+      "category": "plant_sap",
+      "name": "セミ",
+      "faceY": 76.375,
+      "headTop": 52.81,
+      "deltaFace": -16.38,
+      "previewDeltaFace": -9.88,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        13.5,
+        23
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "cicada/02",
+      "base": "assets/characters/cicada/02.png",
+      "asset": "assets/characters/expressions/cicada/02-hungry.png",
+      "face": [
+        67.4375,
+        51.1875
+      ],
+      "floor": 6.5,
+      "offset": [
+        17,
+        -0.5
+      ],
+      "origin": [
+        88,
+        36.5
+      ],
+      "category": "plant_sap",
+      "name": "セミ",
+      "faceY": 57.6875,
+      "headTop": 35.75,
+      "deltaFace": -21.19,
+      "previewDeltaFace": -14.69,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        17,
+        -0.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "cicada/03",
+      "base": "assets/characters/cicada/03.png",
+      "asset": "assets/characters/expressions/cicada/03-hungry.png",
+      "face": [
+        71.5,
+        39.8125
+      ],
+      "floor": 6.5,
+      "offset": [
+        16.5,
+        -2.5
+      ],
+      "origin": [
+        87.5,
+        34.5
+      ],
+      "category": "plant_sap",
+      "name": "セミ",
+      "faceY": 46.3125,
+      "headTop": 21.94,
+      "deltaFace": -11.81,
+      "previewDeltaFace": -5.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        16.5,
+        -2.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "cicada/04",
+      "base": "assets/characters/cicada/04.png",
+      "asset": "assets/characters/expressions/cicada/04-hungry.png",
+      "face": [
+        68.25,
+        34.9375
+      ],
+      "floor": 6.5,
+      "offset": [
+        22.5,
+        -15.5
+      ],
+      "origin": [
+        93.5,
+        21.5
+      ],
+      "category": "plant_sap",
+      "name": "セミ",
+      "faceY": 41.4375,
+      "headTop": 14.62,
+      "deltaFace": -19.94,
+      "previewDeltaFace": -13.44,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        22.5,
+        -15.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "cicada/05",
+      "base": "assets/characters/cicada/05.png",
+      "asset": "assets/characters/expressions/cicada/05-hungry.png",
+      "face": [
+        53.625,
+        21.9375
+      ],
+      "floor": 6.5,
+      "offset": [
+        -13,
+        -25
+      ],
+      "origin": [
+        58,
+        12
+      ],
+      "category": "neutral_nutrition",
+      "name": "セミ",
+      "faceY": 28.4375,
+      "headTop": 13.0,
+      "deltaFace": -16.44,
+      "previewDeltaFace": -9.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -13,
+        -25
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "cicada/06",
+      "base": "assets/characters/cicada/06.png",
+      "asset": "assets/characters/expressions/cicada/06-hungry.png",
+      "face": [
+        51.1875,
+        30.0625
+      ],
+      "floor": 6.5,
+      "offset": [
+        -16,
+        -15.5
+      ],
+      "origin": [
+        55,
+        21.5
+      ],
+      "category": "plant_sap",
+      "name": "セミ",
+      "faceY": 36.5625,
+      "headTop": 22.75,
+      "deltaFace": -15.06,
+      "previewDeltaFace": -8.56,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -16,
+        -15.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "cicada/07",
+      "base": "assets/characters/cicada/07.png",
+      "asset": "assets/characters/expressions/cicada/07-hungry.png",
+      "face": [
+        52,
+        27.625
+      ],
+      "floor": 6.5,
+      "offset": [
+        -4.5,
+        -23
+      ],
+      "origin": [
+        66.5,
+        14
+      ],
+      "category": "plant_sap",
+      "name": "セミ",
+      "faceY": 34.125,
+      "headTop": 17.06,
+      "deltaFace": -20.12,
+      "previewDeltaFace": -13.62,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -4.5,
+        -23
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "cicada/08",
+      "base": "assets/characters/cicada/08.png",
+      "asset": "assets/characters/expressions/cicada/08-hungry.png",
+      "face": [
+        47.9375,
+        29.25
+      ],
+      "floor": 6.5,
+      "offset": [
+        -16.5,
+        -21
+      ],
+      "origin": [
+        54.5,
+        16
+      ],
+      "category": "plant_sap",
+      "name": "セミ",
+      "faceY": 35.75,
+      "headTop": 16.25,
+      "deltaFace": -19.75,
+      "previewDeltaFace": -13.25,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -16.5,
+        -21
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "antlion/01",
+      "base": "assets/characters/antlion/01.png",
+      "asset": "assets/characters/expressions/antlion/01-hungry.png",
+      "face": [
+        39.8125,
+        69.875
+      ],
+      "floor": 6.5,
+      "offset": [
+        -15.5,
+        3.5
+      ],
+      "origin": [
+        55.5,
+        40.5
+      ],
+      "category": "insect",
+      "name": "ウスバカゲロウ",
+      "faceY": 76.375,
+      "headTop": 54.44,
+      "deltaFace": -35.88,
+      "previewDeltaFace": -29.38,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -15.5,
+        3.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "antlion/02",
+      "base": "assets/characters/antlion/02.png",
+      "asset": "assets/characters/expressions/antlion/02-hungry.png",
+      "face": [
+        52,
+        80.4375
+      ],
+      "floor": 6.5,
+      "offset": [
+        29.5,
+        10.5
+      ],
+      "origin": [
+        100.5,
+        47.5
+      ],
+      "category": "insect",
+      "name": "ウスバカゲロウ",
+      "faceY": 86.9375,
+      "headTop": 30.88,
+      "deltaFace": -39.44,
+      "previewDeltaFace": -32.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        29.5,
+        10.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "antlion/03",
+      "base": "assets/characters/antlion/03.png",
+      "asset": "assets/characters/expressions/antlion/03-hungry.png",
+      "face": [
+        39.8125,
+        70.6875
+      ],
+      "floor": 6.5,
+      "offset": [
+        -7.5,
+        -9.5
+      ],
+      "origin": [
+        63.5,
+        27.5
+      ],
+      "category": "insect",
+      "name": "ウスバカゲロウ",
+      "faceY": 77.1875,
+      "headTop": 30.06,
+      "deltaFace": -49.69,
+      "previewDeltaFace": -43.19,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -7.5,
+        -9.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "antlion/04",
+      "base": "assets/characters/antlion/04.png",
+      "asset": "assets/characters/expressions/antlion/04-hungry.png",
+      "face": [
+        49.5625,
+        40.625
+      ],
+      "floor": 6.5,
+      "offset": [
+        7,
+        -18.5
+      ],
+      "origin": [
+        78,
+        18.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "ウスバカゲロウ",
+      "faceY": 47.125,
+      "headTop": 13.0,
+      "deltaFace": -28.62,
+      "previewDeltaFace": -22.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        7,
+        -18.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "antlion/05",
+      "base": "assets/characters/antlion/05.png",
+      "asset": "assets/characters/expressions/antlion/05-hungry.png",
+      "face": [
+        52,
+        32.5
+      ],
+      "floor": 6.5,
+      "offset": [
+        6,
+        -17.5
+      ],
+      "origin": [
+        77,
+        19.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "ウスバカゲロウ",
+      "faceY": 39.0,
+      "headTop": 13.0,
+      "deltaFace": -19.5,
+      "previewDeltaFace": -13.0,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        6,
+        -17.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "antlion/06",
+      "base": "assets/characters/antlion/06.png",
+      "asset": "assets/characters/expressions/antlion/06-hungry.png",
+      "face": [
+        24.375,
+        49.5625
+      ],
+      "floor": 6.5,
+      "offset": [
+        -26,
+        3
+      ],
+      "origin": [
+        45,
+        40
+      ],
+      "category": "neutral_nutrition",
+      "name": "ウスバカゲロウ",
+      "faceY": 56.0625,
+      "headTop": 35.75,
+      "deltaFace": -16.06,
+      "previewDeltaFace": -9.56,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -26,
+        3
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "antlion/07",
+      "base": "assets/characters/antlion/07.png",
+      "asset": "assets/characters/expressions/antlion/07-hungry.png",
+      "face": [
+        63.375,
+        48.75
+      ],
+      "floor": 17.875,
+      "offset": [
+        13.5,
+        8
+      ],
+      "origin": [
+        84.5,
+        45
+      ],
+      "category": "neutral_nutrition",
+      "name": "ウスバカゲロウ",
+      "faceY": 66.625,
+      "headTop": 44.69,
+      "deltaFace": -21.62,
+      "previewDeltaFace": -3.75,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        13.5,
+        8
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "antlion/08",
+      "base": "assets/characters/antlion/08.png",
+      "asset": "assets/characters/expressions/antlion/08-hungry.png",
+      "face": [
+        80.4375,
+        49.5625
+      ],
+      "floor": 9.75,
+      "offset": [
+        32,
+        5
+      ],
+      "origin": [
+        103,
+        42
+      ],
+      "category": "neutral_nutrition",
+      "name": "ウスバカゲロウ",
+      "faceY": 59.3125,
+      "headTop": 33.31,
+      "deltaFace": -17.31,
+      "previewDeltaFace": -7.56,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        32,
+        5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dandelion/01",
+      "base": "assets/characters/dandelion/01.png",
+      "asset": "assets/characters/expressions/dandelion/01-hungry.png",
+      "face": [
+        26,
+        78
+      ],
+      "floor": 6.5,
+      "offset": [
+        3,
+        -26
+      ],
+      "origin": [
+        74,
+        11
+      ],
+      "category": "neutral_nutrition",
+      "name": "タンポポ",
+      "faceY": 84.5,
+      "headTop": 17.06,
+      "deltaFace": -73.5,
+      "previewDeltaFace": -67,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        3,
+        -26
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dandelion/02",
+      "base": "assets/characters/dandelion/02.png",
+      "asset": "assets/characters/expressions/dandelion/02-hungry.png",
+      "face": [
+        52,
+        76.375
+      ],
+      "floor": 6.5,
+      "offset": [
+        23,
+        12
+      ],
+      "origin": [
+        94,
+        49
+      ],
+      "category": "water",
+      "name": "タンポポ",
+      "faceY": 82.875,
+      "headTop": 18.69,
+      "deltaFace": -33.88,
+      "previewDeltaFace": -27.38,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        23,
+        12
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dandelion/03",
+      "base": "assets/characters/dandelion/03.png",
+      "asset": "assets/characters/expressions/dandelion/03-hungry.png",
+      "face": [
+        52,
+        86.125
+      ],
+      "floor": 6.5,
+      "offset": [
+        16.5,
+        27
+      ],
+      "origin": [
+        87.5,
+        64
+      ],
+      "category": "water",
+      "name": "タンポポ",
+      "faceY": 92.625,
+      "headTop": 43.06,
+      "deltaFace": -28.62,
+      "previewDeltaFace": -22.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        16.5,
+        27
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dandelion/04",
+      "base": "assets/characters/dandelion/04.png",
+      "asset": "assets/characters/expressions/dandelion/04-hungry.png",
+      "face": [
+        52,
+        77.1875
+      ],
+      "floor": 6.5,
+      "offset": [
+        14.5,
+        20
+      ],
+      "origin": [
+        85.5,
+        57
+      ],
+      "category": "water",
+      "name": "タンポポ",
+      "faceY": 83.6875,
+      "headTop": 48.75,
+      "deltaFace": -26.69,
+      "previewDeltaFace": -20.19,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        14.5,
+        20
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dandelion/05",
+      "base": "assets/characters/dandelion/05.png",
+      "asset": "assets/characters/expressions/dandelion/05-hungry.png",
+      "face": [
+        51.1875,
+        44.6875
+      ],
+      "floor": 6.5,
+      "offset": [
+        2,
+        -3
+      ],
+      "origin": [
+        73,
+        34
+      ],
+      "category": "water",
+      "name": "タンポポ",
+      "faceY": 51.1875,
+      "headTop": 26.0,
+      "deltaFace": -17.19,
+      "previewDeltaFace": -10.69,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        2,
+        -3
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dandelion/06",
+      "base": "assets/characters/dandelion/06.png",
+      "asset": "assets/characters/expressions/dandelion/06-hungry.png",
+      "face": [
+        51.1875,
+        56.0625
+      ],
+      "floor": 6.5,
+      "offset": [
+        2.5,
+        -4
+      ],
+      "origin": [
+        73.5,
+        33
+      ],
+      "category": "water",
+      "name": "タンポポ",
+      "faceY": 62.5625,
+      "headTop": 30.06,
+      "deltaFace": -29.56,
+      "previewDeltaFace": -23.06,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        2.5,
+        -4
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dandelion/07",
+      "base": "assets/characters/dandelion/07.png",
+      "asset": "assets/characters/expressions/dandelion/07-hungry.png",
+      "face": [
+        55.25,
+        51.1875
+      ],
+      "floor": 6.5,
+      "offset": [
+        12,
+        -7.5
+      ],
+      "origin": [
+        83,
+        29.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "タンポポ",
+      "faceY": 57.6875,
+      "headTop": 22.75,
+      "deltaFace": -28.19,
+      "previewDeltaFace": -21.69,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        12,
+        -7.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dandelion/08",
+      "base": "assets/characters/dandelion/08.png",
+      "asset": "assets/characters/expressions/dandelion/08-hungry.png",
+      "face": [
+        42.25,
+        52.8125
+      ],
+      "floor": 14.625,
+      "offset": [
+        -9.5,
+        -11.5
+      ],
+      "origin": [
+        61.5,
+        25.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "タンポポ",
+      "faceY": 67.4375,
+      "headTop": 30.06,
+      "deltaFace": -41.94,
+      "previewDeltaFace": -27.31,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -9.5,
+        -11.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "sakura/01",
+      "base": "assets/characters/sakura/01.png",
+      "asset": "assets/characters/expressions/sakura/01-hungry.png",
+      "face": [
+        41.4375,
+        69.0625
+      ],
+      "floor": 6.5,
+      "offset": [
+        25,
+        -6
+      ],
+      "origin": [
+        96,
+        31
+      ],
+      "category": "neutral_nutrition",
+      "name": "サクラ",
+      "faceY": 75.5625,
+      "headTop": 13.0,
+      "deltaFace": -44.56,
+      "previewDeltaFace": -38.06,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        25,
+        -6
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "sakura/02",
+      "base": "assets/characters/sakura/02.png",
+      "asset": "assets/characters/expressions/sakura/02-hungry.png",
+      "face": [
+        52.8125,
+        69.0625
+      ],
+      "floor": 6.5,
+      "offset": [
+        23,
+        5.5
+      ],
+      "origin": [
+        94,
+        42.5
+      ],
+      "category": "water",
+      "name": "サクラ",
+      "faceY": 75.5625,
+      "headTop": 14.62,
+      "deltaFace": -33.06,
+      "previewDeltaFace": -26.56,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        23,
+        5.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "sakura/03",
+      "base": "assets/characters/sakura/03.png",
+      "asset": "assets/characters/expressions/sakura/03-hungry.png",
+      "face": [
+        52,
+        77.1875
+      ],
+      "floor": 6.5,
+      "offset": [
+        19,
+        8.5
+      ],
+      "origin": [
+        90,
+        45.5
+      ],
+      "category": "water",
+      "name": "サクラ",
+      "faceY": 83.6875,
+      "headTop": 28.44,
+      "deltaFace": -38.19,
+      "previewDeltaFace": -31.69,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        19,
+        8.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "sakura/04",
+      "base": "assets/characters/sakura/04.png",
+      "asset": "assets/characters/expressions/sakura/04-hungry.png",
+      "face": [
+        52,
+        70.6875
+      ],
+      "floor": 6.5,
+      "offset": [
+        21.5,
+        -0.5
+      ],
+      "origin": [
+        92.5,
+        36.5
+      ],
+      "category": "water",
+      "name": "サクラ",
+      "faceY": 77.1875,
+      "headTop": 21.94,
+      "deltaFace": -40.69,
+      "previewDeltaFace": -34.19,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        21.5,
+        -0.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "sakura/05",
+      "base": "assets/characters/sakura/05.png",
+      "asset": "assets/characters/expressions/sakura/05-hungry.png",
+      "face": [
+        52.8125,
+        56.0625
+      ],
+      "floor": 6.5,
+      "offset": [
+        -7,
+        -2.5
+      ],
+      "origin": [
+        64,
+        34.5
+      ],
+      "category": "water",
+      "name": "サクラ",
+      "faceY": 62.5625,
+      "headTop": 43.88,
+      "deltaFace": -28.06,
+      "previewDeltaFace": -21.56,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -7,
+        -2.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "sakura/06",
+      "base": "assets/characters/sakura/06.png",
+      "asset": "assets/characters/expressions/sakura/06-hungry.png",
+      "face": [
+        37.375,
+        61.75
+      ],
+      "floor": 6.5,
+      "offset": [
+        -23.5,
+        5
+      ],
+      "origin": [
+        47.5,
+        42
+      ],
+      "category": "water",
+      "name": "サクラ",
+      "faceY": 68.25,
+      "headTop": 42.25,
+      "deltaFace": -26.25,
+      "previewDeltaFace": -19.75,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -23.5,
+        5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "sakura/07",
+      "base": "assets/characters/sakura/07.png",
+      "asset": "assets/characters/expressions/sakura/07-hungry.png",
+      "face": [
+        47.125,
+        76.375
+      ],
+      "floor": 10.5625,
+      "offset": [
+        21,
+        13.5
+      ],
+      "origin": [
+        92,
+        50.5
+      ],
+      "category": "water",
+      "name": "サクラ",
+      "faceY": 86.9375,
+      "headTop": 25.19,
+      "deltaFace": -36.44,
+      "previewDeltaFace": -25.88,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        21,
+        13.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "sakura/08",
+      "base": "assets/characters/sakura/08.png",
+      "asset": "assets/characters/expressions/sakura/08-hungry.png",
+      "face": [
+        50.375,
+        72.3125
+      ],
+      "floor": 6.5,
+      "offset": [
+        14,
+        -2
+      ],
+      "origin": [
+        85,
+        35
+      ],
+      "category": "water",
+      "name": "サクラ",
+      "faceY": 78.8125,
+      "headTop": 30.06,
+      "deltaFace": -43.81,
+      "previewDeltaFace": -37.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        14,
+        -2
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "venus_flytrap/01",
+      "base": "assets/characters/venus_flytrap/01.png",
+      "asset": "assets/characters/expressions/venus_flytrap/01-hungry.png",
+      "face": [
+        46.3125,
+        59.3125
+      ],
+      "floor": 6.5,
+      "offset": [
+        27,
+        -13
+      ],
+      "origin": [
+        98,
+        24
+      ],
+      "category": "neutral_nutrition",
+      "name": "ハエトリグサ",
+      "faceY": 65.8125,
+      "headTop": 13.0,
+      "deltaFace": -41.81,
+      "previewDeltaFace": -35.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        27,
+        -13
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "venus_flytrap/02",
+      "base": "assets/characters/venus_flytrap/02.png",
+      "asset": "assets/characters/expressions/venus_flytrap/02-hungry.png",
+      "face": [
+        52,
+        76.375
+      ],
+      "floor": 6.5,
+      "offset": [
+        -4,
+        10.5
+      ],
+      "origin": [
+        67,
+        47.5
+      ],
+      "category": "water",
+      "name": "ハエトリグサ",
+      "faceY": 82.875,
+      "headTop": 49.56,
+      "deltaFace": -35.38,
+      "previewDeltaFace": -28.88,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -4,
+        10.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "venus_flytrap/03",
+      "base": "assets/characters/venus_flytrap/03.png",
+      "asset": "assets/characters/expressions/venus_flytrap/03-hungry.png",
+      "face": [
+        49.5625,
+        84.5
+      ],
+      "floor": 6.5,
+      "offset": [
+        -3.5,
+        14
+      ],
+      "origin": [
+        67.5,
+        51
+      ],
+      "category": "water",
+      "name": "ハエトリグサ",
+      "faceY": 91.0,
+      "headTop": 46.31,
+      "deltaFace": -40.0,
+      "previewDeltaFace": -33.5,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -3.5,
+        14
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "venus_flytrap/04",
+      "base": "assets/characters/venus_flytrap/04.png",
+      "asset": "assets/characters/expressions/venus_flytrap/04-hungry.png",
+      "face": [
+        34.9375,
+        40.625
+      ],
+      "floor": 6.5,
+      "offset": [
+        -19,
+        -7.5
+      ],
+      "origin": [
+        52,
+        29.5
+      ],
+      "category": "fly",
+      "name": "ハエトリグサ",
+      "faceY": 47.125,
+      "headTop": 27.62,
+      "deltaFace": -17.62,
+      "previewDeltaFace": -11.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -19,
+        -7.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "venus_flytrap/05",
+      "base": "assets/characters/venus_flytrap/05.png",
+      "asset": "assets/characters/expressions/venus_flytrap/05-hungry.png",
+      "face": [
+        52.8125,
+        34.125
+      ],
+      "floor": 6.5,
+      "offset": [
+        1.5,
+        -17
+      ],
+      "origin": [
+        72.5,
+        20
+      ],
+      "category": "fly",
+      "name": "ハエトリグサ",
+      "faceY": 40.625,
+      "headTop": 17.88,
+      "deltaFace": -20.62,
+      "previewDeltaFace": -14.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        1.5,
+        -17
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "venus_flytrap/06",
+      "base": "assets/characters/venus_flytrap/06.png",
+      "asset": "assets/characters/expressions/venus_flytrap/06-hungry.png",
+      "face": [
+        52.8125,
+        70.6875
+      ],
+      "floor": 6.5,
+      "offset": [
+        7.5,
+        6.5
+      ],
+      "origin": [
+        78.5,
+        43.5
+      ],
+      "category": "fly",
+      "name": "ハエトリグサ",
+      "faceY": 77.1875,
+      "headTop": 42.25,
+      "deltaFace": -33.69,
+      "previewDeltaFace": -27.19,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        7.5,
+        6.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "venus_flytrap/07",
+      "base": "assets/characters/venus_flytrap/07.png",
+      "asset": "assets/characters/expressions/venus_flytrap/07-hungry.png",
+      "face": [
+        52.8125,
+        34.9375
+      ],
+      "floor": 6.5,
+      "offset": [
+        0,
+        -9.5
+      ],
+      "origin": [
+        71,
+        27.5
+      ],
+      "category": "fly",
+      "name": "ハエトリグサ",
+      "faceY": 41.4375,
+      "headTop": 24.38,
+      "deltaFace": -13.94,
+      "previewDeltaFace": -7.44,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        0,
+        -9.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "venus_flytrap/08",
+      "base": "assets/characters/venus_flytrap/08.png",
+      "asset": "assets/characters/expressions/venus_flytrap/08-hungry.png",
+      "face": [
+        49.5625,
+        31.6875
+      ],
+      "floor": 6.5,
+      "offset": [
+        -6.5,
+        -19.5
+      ],
+      "origin": [
+        64.5,
+        17.5
+      ],
+      "category": "fly",
+      "name": "ハエトリグサ",
+      "faceY": 38.1875,
+      "headTop": 16.25,
+      "deltaFace": -20.69,
+      "previewDeltaFace": -14.19,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -6.5,
+        -19.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "mushroom/01",
+      "base": "assets/characters/mushroom/01.png",
+      "asset": "assets/characters/expressions/mushroom/01-hungry.png",
+      "face": [
+        50.375,
+        52
+      ],
+      "floor": 12.1875,
+      "offset": [
+        -5,
+        -8.5
+      ],
+      "origin": [
+        66,
+        28.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "キノコ",
+      "faceY": 64.1875,
+      "headTop": 24.38,
+      "deltaFace": -35.69,
+      "previewDeltaFace": -23.5,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -5,
+        -8.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "mushroom/02",
+      "base": "assets/characters/mushroom/02.png",
+      "asset": "assets/characters/expressions/mushroom/02-hungry.png",
+      "face": [
+        52,
+        68.25
+      ],
+      "floor": 6.5,
+      "offset": [
+        13,
+        5
+      ],
+      "origin": [
+        84,
+        42
+      ],
+      "category": "organic_nutrients",
+      "name": "キノコ",
+      "faceY": 74.75,
+      "headTop": 25.19,
+      "deltaFace": -32.75,
+      "previewDeltaFace": -26.25,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        13,
+        5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "mushroom/03",
+      "base": "assets/characters/mushroom/03.png",
+      "asset": "assets/characters/expressions/mushroom/03-hungry.png",
+      "face": [
+        49.5625,
+        46.3125
+      ],
+      "floor": 6.5,
+      "offset": [
+        1.5,
+        -14
+      ],
+      "origin": [
+        72.5,
+        23
+      ],
+      "category": "organic_nutrients",
+      "name": "キノコ",
+      "faceY": 52.8125,
+      "headTop": 22.75,
+      "deltaFace": -29.81,
+      "previewDeltaFace": -23.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        1.5,
+        -14
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "mushroom/04",
+      "base": "assets/characters/mushroom/04.png",
+      "asset": "assets/characters/expressions/mushroom/04-hungry.png",
+      "face": [
+        52,
+        44.6875
+      ],
+      "floor": 6.5,
+      "offset": [
+        7,
+        -6.5
+      ],
+      "origin": [
+        78,
+        30.5
+      ],
+      "category": "organic_nutrients",
+      "name": "キノコ",
+      "faceY": 51.1875,
+      "headTop": 13.0,
+      "deltaFace": -20.69,
+      "previewDeltaFace": -14.19,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        7,
+        -6.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "mushroom/05",
+      "base": "assets/characters/mushroom/05.png",
+      "asset": "assets/characters/expressions/mushroom/05-hungry.png",
+      "face": [
+        52,
+        73.125
+      ],
+      "floor": 6.5,
+      "offset": [
+        26.5,
+        6
+      ],
+      "origin": [
+        97.5,
+        43
+      ],
+      "category": "organic_nutrients",
+      "name": "キノコ",
+      "faceY": 79.625,
+      "headTop": 19.5,
+      "deltaFace": -36.62,
+      "previewDeltaFace": -30.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        26.5,
+        6
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "mushroom/06",
+      "base": "assets/characters/mushroom/06.png",
+      "asset": "assets/characters/expressions/mushroom/06-hungry.png",
+      "face": [
+        52,
+        71.5
+      ],
+      "floor": 6.5,
+      "offset": [
+        8,
+        -2.5
+      ],
+      "origin": [
+        79,
+        34.5
+      ],
+      "category": "organic_nutrients",
+      "name": "キノコ",
+      "faceY": 78.0,
+      "headTop": 30.88,
+      "deltaFace": -43.5,
+      "previewDeltaFace": -37.0,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        8,
+        -2.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "mushroom/07",
+      "base": "assets/characters/mushroom/07.png",
+      "asset": "assets/characters/expressions/mushroom/07-hungry.png",
+      "face": [
+        44.6875,
+        65
+      ],
+      "floor": 6.5,
+      "offset": [
+        -5,
+        -1
+      ],
+      "origin": [
+        66,
+        36
+      ],
+      "category": "organic_nutrients",
+      "name": "キノコ",
+      "faceY": 71.5,
+      "headTop": 33.31,
+      "deltaFace": -35.5,
+      "previewDeltaFace": -29,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -5,
+        -1
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "mushroom/08",
+      "base": "assets/characters/mushroom/08.png",
+      "asset": "assets/characters/expressions/mushroom/08-hungry.png",
+      "face": [
+        63.375,
+        69.0625
+      ],
+      "floor": 6.5,
+      "offset": [
+        14.5,
+        16
+      ],
+      "origin": [
+        85.5,
+        53
+      ],
+      "category": "organic_nutrients",
+      "name": "キノコ",
+      "faceY": 75.5625,
+      "headTop": 30.06,
+      "deltaFace": -22.56,
+      "previewDeltaFace": -16.06,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        14.5,
+        16
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dragon/01",
+      "base": "assets/characters/dragon/01.png",
+      "asset": "assets/characters/expressions/dragon/01-hungry.png",
+      "face": [
+        67.4375,
+        68.25
+      ],
+      "floor": 6.5,
+      "offset": [
+        10.5,
+        27
+      ],
+      "origin": [
+        81.5,
+        64
+      ],
+      "category": "food_bowl",
+      "name": "りゅう",
+      "faceY": 74.75,
+      "headTop": 58.5,
+      "deltaFace": -10.75,
+      "previewDeltaFace": -4.25,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        10.5,
+        27
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dragon/02",
+      "base": "assets/characters/dragon/02.png",
+      "asset": "assets/characters/expressions/dragon/02-hungry.png",
+      "face": [
+        74.75,
+        49.5625
+      ],
+      "floor": 6.5,
+      "offset": [
+        17,
+        5.5
+      ],
+      "origin": [
+        88,
+        42.5
+      ],
+      "category": "food_bowl",
+      "name": "りゅう",
+      "faceY": 56.0625,
+      "headTop": 38.19,
+      "deltaFace": -13.56,
+      "previewDeltaFace": -7.06,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        17,
+        5.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dragon/03",
+      "base": "assets/characters/dragon/03.png",
+      "asset": "assets/characters/expressions/dragon/03-hungry.png",
+      "face": [
+        78,
+        44.6875
+      ],
+      "floor": 6.5,
+      "offset": [
+        22.5,
+        2.5
+      ],
+      "origin": [
+        93.5,
+        39.5
+      ],
+      "category": "food_bowl",
+      "name": "りゅう",
+      "faceY": 51.1875,
+      "headTop": 24.38,
+      "deltaFace": -11.69,
+      "previewDeltaFace": -5.19,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        22.5,
+        2.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dragon/04",
+      "base": "assets/characters/dragon/04.png",
+      "asset": "assets/characters/expressions/dragon/04-hungry.png",
+      "face": [
+        71.5,
+        36.5625
+      ],
+      "floor": 6.5,
+      "offset": [
+        16.5,
+        -6
+      ],
+      "origin": [
+        87.5,
+        31
+      ],
+      "category": "food_bowl",
+      "name": "りゅう",
+      "faceY": 43.0625,
+      "headTop": 16.25,
+      "deltaFace": -12.06,
+      "previewDeltaFace": -5.56,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        16.5,
+        -6
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dragon/05",
+      "base": "assets/characters/dragon/05.png",
+      "asset": "assets/characters/expressions/dragon/05-hungry.png",
+      "face": [
+        69.0625,
+        43.0625
+      ],
+      "floor": 6.5,
+      "offset": [
+        16.5,
+        -6.5
+      ],
+      "origin": [
+        87.5,
+        30.5
+      ],
+      "category": "food_bowl",
+      "name": "りゅう",
+      "faceY": 49.5625,
+      "headTop": 30.06,
+      "deltaFace": -19.06,
+      "previewDeltaFace": -12.56,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        16.5,
+        -6.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dragon/06",
+      "base": "assets/characters/dragon/06.png",
+      "asset": "assets/characters/expressions/dragon/06-hungry.png",
+      "face": [
+        67.4375,
+        39.8125
+      ],
+      "floor": 6.5,
+      "offset": [
+        11.5,
+        -6.5
+      ],
+      "origin": [
+        82.5,
+        30.5
+      ],
+      "category": "food_bowl",
+      "name": "りゅう",
+      "faceY": 46.3125,
+      "headTop": 25.19,
+      "deltaFace": -15.81,
+      "previewDeltaFace": -9.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        11.5,
+        -6.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dragon/07",
+      "base": "assets/characters/dragon/07.png",
+      "asset": "assets/characters/expressions/dragon/07-hungry.png",
+      "face": [
+        62.5625,
+        25.1875
+      ],
+      "floor": 6.5,
+      "offset": [
+        3,
+        -17
+      ],
+      "origin": [
+        74,
+        20
+      ],
+      "category": "food_bowl",
+      "name": "りゅう",
+      "faceY": 31.6875,
+      "headTop": 13.0,
+      "deltaFace": -11.69,
+      "previewDeltaFace": -5.19,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        3,
+        -17
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "dragon/08",
+      "base": "assets/characters/dragon/08.png",
+      "asset": "assets/characters/expressions/dragon/08-hungry.png",
+      "face": [
+        69.0625,
+        34.9375
+      ],
+      "floor": 6.5,
+      "offset": [
+        14,
+        -12
+      ],
+      "origin": [
+        85,
+        25
+      ],
+      "category": "food_bowl",
+      "name": "りゅう",
+      "faceY": 41.4375,
+      "headTop": 13.0,
+      "deltaFace": -16.44,
+      "previewDeltaFace": -9.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        14,
+        -12
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "phoenix/01",
+      "base": "assets/characters/phoenix/01.png",
+      "asset": "assets/characters/expressions/phoenix/01-hungry.png",
+      "face": [
+        59.3125,
+        71.5
+      ],
+      "floor": 6.5,
+      "offset": [
+        0.5,
+        28.5
+      ],
+      "origin": [
+        71.5,
+        65.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "フェニックス",
+      "faceY": 78.0,
+      "headTop": 55.25,
+      "deltaFace": -12.5,
+      "previewDeltaFace": -6.0,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        0.5,
+        28.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "phoenix/02",
+      "base": "assets/characters/phoenix/02.png",
+      "asset": "assets/characters/expressions/phoenix/02-hungry.png",
+      "face": [
+        62.5625,
+        59.3125
+      ],
+      "floor": 6.5,
+      "offset": [
+        6,
+        18
+      ],
+      "origin": [
+        77,
+        55
+      ],
+      "category": "neutral_nutrition",
+      "name": "フェニックス",
+      "faceY": 65.8125,
+      "headTop": 43.06,
+      "deltaFace": -10.81,
+      "previewDeltaFace": -4.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        6,
+        18
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "phoenix/03",
+      "base": "assets/characters/phoenix/03.png",
+      "asset": "assets/characters/expressions/phoenix/03-hungry.png",
+      "face": [
+        65,
+        44.6875
+      ],
+      "floor": 6.5,
+      "offset": [
+        6,
+        5.5
+      ],
+      "origin": [
+        77,
+        42.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "フェニックス",
+      "faceY": 51.1875,
+      "headTop": 30.88,
+      "deltaFace": -8.69,
+      "previewDeltaFace": -2.19,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        6,
+        -11.1
+      ],
+      "proposalNote": "xは維持。小バブルの中心を頭帯上端の5単位上へ。未検証の配置候補",
+      "review": true
+    },
+    {
+      "key": "phoenix/04",
+      "base": "assets/characters/phoenix/04.png",
+      "asset": "assets/characters/expressions/phoenix/04-hungry.png",
+      "face": [
+        66.625,
+        47.9375
+      ],
+      "floor": 6.5,
+      "offset": [
+        7.5,
+        5
+      ],
+      "origin": [
+        78.5,
+        42
+      ],
+      "category": "neutral_nutrition",
+      "name": "フェニックス",
+      "faceY": 54.4375,
+      "headTop": 31.69,
+      "deltaFace": -12.44,
+      "previewDeltaFace": -5.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        7.5,
+        5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "phoenix/05",
+      "base": "assets/characters/phoenix/05.png",
+      "asset": "assets/characters/expressions/phoenix/05-hungry.png",
+      "face": [
+        67.4375,
+        35.75
+      ],
+      "floor": 6.5,
+      "offset": [
+        5,
+        -12
+      ],
+      "origin": [
+        76,
+        25
+      ],
+      "category": "neutral_nutrition",
+      "name": "フェニックス",
+      "faceY": 42.25,
+      "headTop": 20.31,
+      "deltaFace": -17.25,
+      "previewDeltaFace": -10.75,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        5,
+        -12
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "phoenix/06",
+      "base": "assets/characters/phoenix/06.png",
+      "asset": "assets/characters/expressions/phoenix/06-hungry.png",
+      "face": [
+        62.5625,
+        28.4375
+      ],
+      "floor": 6.5,
+      "offset": [
+        -4,
+        -18.5
+      ],
+      "origin": [
+        67,
+        18.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "フェニックス",
+      "faceY": 34.9375,
+      "headTop": 17.88,
+      "deltaFace": -16.44,
+      "previewDeltaFace": -9.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -4,
+        -18.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "phoenix/07",
+      "base": "assets/characters/phoenix/07.png",
+      "asset": "assets/characters/expressions/phoenix/07-hungry.png",
+      "face": [
+        68.25,
+        29.25
+      ],
+      "floor": 6.5,
+      "offset": [
+        8.5,
+        -9.5
+      ],
+      "origin": [
+        79.5,
+        27.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "フェニックス",
+      "faceY": 35.75,
+      "headTop": 16.25,
+      "deltaFace": -8.25,
+      "previewDeltaFace": -1.75,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        8.5,
+        -25.8
+      ],
+      "proposalNote": "xは維持。小バブルの中心を頭帯上端の5単位上へ。未検証の配置候補",
+      "review": true
+    },
+    {
+      "key": "phoenix/08",
+      "base": "assets/characters/phoenix/08.png",
+      "asset": "assets/characters/expressions/phoenix/08-hungry.png",
+      "face": [
+        51.1875,
+        64.1875
+      ],
+      "floor": 6.5,
+      "offset": [
+        -6,
+        14.5
+      ],
+      "origin": [
+        65,
+        51.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "フェニックス",
+      "faceY": 70.6875,
+      "headTop": 41.44,
+      "deltaFace": -19.19,
+      "previewDeltaFace": -12.69,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -6,
+        14.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "god/01",
+      "base": "assets/characters/god/01.png",
+      "asset": "assets/characters/expressions/god/01-hungry.png",
+      "face": [
+        53.625,
+        55.25
+      ],
+      "floor": 32.5,
+      "offset": [
+        0,
+        37.5
+      ],
+      "origin": [
+        71,
+        74.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "かみさま",
+      "faceY": 87.75,
+      "headTop": 65.0,
+      "deltaFace": -13.25,
+      "previewDeltaFace": 19.25,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        0,
+        37.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "god/02",
+      "base": "assets/characters/god/02.png",
+      "asset": "assets/characters/expressions/god/02-hungry.png",
+      "face": [
+        58.5,
+        53.625
+      ],
+      "floor": 24.375,
+      "offset": [
+        0.5,
+        27.5
+      ],
+      "origin": [
+        71.5,
+        64.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "かみさま",
+      "faceY": 78.0,
+      "headTop": 48.75,
+      "deltaFace": -13.5,
+      "previewDeltaFace": 10.88,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        0.5,
+        27.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "god/03",
+      "base": "assets/characters/god/03.png",
+      "asset": "assets/characters/expressions/god/03-hungry.png",
+      "face": [
+        58.5,
+        50.375
+      ],
+      "floor": 17.875,
+      "offset": [
+        5,
+        18
+      ],
+      "origin": [
+        76,
+        55
+      ],
+      "category": "neutral_nutrition",
+      "name": "かみさま",
+      "faceY": 68.25,
+      "headTop": 35.75,
+      "deltaFace": -13.25,
+      "previewDeltaFace": 4.62,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        5,
+        18
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "god/04",
+      "base": "assets/characters/god/04.png",
+      "asset": "assets/characters/expressions/god/04-hungry.png",
+      "face": [
+        55.25,
+        47.125
+      ],
+      "floor": 13,
+      "offset": [
+        2,
+        5
+      ],
+      "origin": [
+        73,
+        42
+      ],
+      "category": "neutral_nutrition",
+      "name": "かみさま",
+      "faceY": 60.125,
+      "headTop": 26.0,
+      "deltaFace": -18.12,
+      "previewDeltaFace": -5.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        2,
+        5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "god/05",
+      "base": "assets/characters/god/05.png",
+      "asset": "assets/characters/expressions/god/05-hungry.png",
+      "face": [
+        52.8125,
+        34.125
+      ],
+      "floor": 9.75,
+      "offset": [
+        3,
+        -15
+      ],
+      "origin": [
+        74,
+        22
+      ],
+      "category": "neutral_nutrition",
+      "name": "かみさま",
+      "faceY": 43.875,
+      "headTop": 18.69,
+      "deltaFace": -21.88,
+      "previewDeltaFace": -12.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        3,
+        -15
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "god/06",
+      "base": "assets/characters/god/06.png",
+      "asset": "assets/characters/expressions/god/06-hungry.png",
+      "face": [
+        54.4375,
+        44.6875
+      ],
+      "floor": 6.5,
+      "offset": [
+        12.5,
+        -15.5
+      ],
+      "origin": [
+        83.5,
+        21.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "かみさま",
+      "faceY": 51.1875,
+      "headTop": 13.0,
+      "deltaFace": -29.69,
+      "previewDeltaFace": -23.19,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        12.5,
+        -15.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "god/07",
+      "base": "assets/characters/god/07.png",
+      "asset": "assets/characters/expressions/god/07-hungry.png",
+      "face": [
+        54.4375,
+        36.5625
+      ],
+      "floor": 6.5,
+      "offset": [
+        1.5,
+        -18
+      ],
+      "origin": [
+        72.5,
+        19
+      ],
+      "category": "neutral_nutrition",
+      "name": "かみさま",
+      "faceY": 43.0625,
+      "headTop": 13.0,
+      "deltaFace": -24.06,
+      "previewDeltaFace": -17.56,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        1.5,
+        -18
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "god/08",
+      "base": "assets/characters/god/08.png",
+      "asset": "assets/characters/expressions/god/08-hungry.png",
+      "face": [
+        52.8125,
+        61.75
+      ],
+      "floor": 8.125,
+      "offset": [
+        14.5,
+        0
+      ],
+      "origin": [
+        85.5,
+        37
+      ],
+      "category": "neutral_nutrition",
+      "name": "かみさま",
+      "faceY": 69.875,
+      "headTop": 15.44,
+      "deltaFace": -32.88,
+      "previewDeltaFace": -24.75,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        14.5,
+        0
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "world_tree/01",
+      "base": "assets/characters/world_tree/01.png",
+      "asset": "assets/characters/expressions/world_tree/01-hungry.png",
+      "face": [
+        44.6875,
+        65
+      ],
+      "floor": 6.5,
+      "offset": [
+        25,
+        -7.5
+      ],
+      "origin": [
+        96,
+        29.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "世界樹",
+      "faceY": 71.5,
+      "headTop": 21.12,
+      "deltaFace": -42.0,
+      "previewDeltaFace": -35.5,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        25,
+        -7.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "world_tree/02",
+      "base": "assets/characters/world_tree/02.png",
+      "asset": "assets/characters/expressions/world_tree/02-hungry.png",
+      "face": [
+        54.4375,
+        73.9375
+      ],
+      "floor": 6.5,
+      "offset": [
+        12,
+        21
+      ],
+      "origin": [
+        83,
+        58
+      ],
+      "category": "water",
+      "name": "世界樹",
+      "faceY": 80.4375,
+      "headTop": 18.69,
+      "deltaFace": -22.44,
+      "previewDeltaFace": -15.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        12,
+        21
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "world_tree/03",
+      "base": "assets/characters/world_tree/03.png",
+      "asset": "assets/characters/expressions/world_tree/03-hungry.png",
+      "face": [
+        51.1875,
+        69.875
+      ],
+      "floor": 6.5,
+      "offset": [
+        24,
+        4
+      ],
+      "origin": [
+        95,
+        41
+      ],
+      "category": "water",
+      "name": "世界樹",
+      "faceY": 76.375,
+      "headTop": 13.0,
+      "deltaFace": -35.38,
+      "previewDeltaFace": -28.88,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        24,
+        4
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "world_tree/04",
+      "base": "assets/characters/world_tree/04.png",
+      "asset": "assets/characters/expressions/world_tree/04-hungry.png",
+      "face": [
+        54.4375,
+        75.5625
+      ],
+      "floor": 6.5,
+      "offset": [
+        19,
+        9
+      ],
+      "origin": [
+        90,
+        46
+      ],
+      "category": "water",
+      "name": "世界樹",
+      "faceY": 82.0625,
+      "headTop": 13.0,
+      "deltaFace": -36.06,
+      "previewDeltaFace": -29.56,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        19,
+        9
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "world_tree/05",
+      "base": "assets/characters/world_tree/05.png",
+      "asset": "assets/characters/expressions/world_tree/05-hungry.png",
+      "face": [
+        49.5625,
+        69.0625
+      ],
+      "floor": 6.5,
+      "offset": [
+        20,
+        -3.5
+      ],
+      "origin": [
+        91,
+        33.5
+      ],
+      "category": "water",
+      "name": "世界樹",
+      "faceY": 75.5625,
+      "headTop": 15.44,
+      "deltaFace": -42.06,
+      "previewDeltaFace": -35.56,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        20,
+        -3.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "world_tree/06",
+      "base": "assets/characters/world_tree/06.png",
+      "asset": "assets/characters/expressions/world_tree/06-hungry.png",
+      "face": [
+        52,
+        78.8125
+      ],
+      "floor": 6.5,
+      "offset": [
+        17.5,
+        11.5
+      ],
+      "origin": [
+        88.5,
+        48.5
+      ],
+      "category": "water",
+      "name": "世界樹",
+      "faceY": 85.3125,
+      "headTop": 34.94,
+      "deltaFace": -36.81,
+      "previewDeltaFace": -30.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        17.5,
+        11.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "world_tree/07",
+      "base": "assets/characters/world_tree/07.png",
+      "asset": "assets/characters/expressions/world_tree/07-hungry.png",
+      "face": [
+        52.8125,
+        72.3125
+      ],
+      "floor": 6.5,
+      "offset": [
+        15,
+        8
+      ],
+      "origin": [
+        86,
+        45
+      ],
+      "category": "water",
+      "name": "世界樹",
+      "faceY": 78.8125,
+      "headTop": 25.19,
+      "deltaFace": -33.81,
+      "previewDeltaFace": -27.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        15,
+        8
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "world_tree/08",
+      "base": "assets/characters/world_tree/08.png",
+      "asset": "assets/characters/expressions/world_tree/08-hungry.png",
+      "face": [
+        52,
+        62.5625
+      ],
+      "floor": 16.25,
+      "offset": [
+        10.5,
+        11.5
+      ],
+      "origin": [
+        81.5,
+        48.5
+      ],
+      "category": "water",
+      "name": "世界樹",
+      "faceY": 78.8125,
+      "headTop": 32.5,
+      "deltaFace": -30.31,
+      "previewDeltaFace": -14.06,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        10.5,
+        11.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "ghost/01",
+      "base": "assets/characters/ghost/01.png",
+      "asset": "assets/characters/expressions/ghost/01-hungry.png",
+      "face": [
+        53.625,
+        63.375
+      ],
+      "floor": 26,
+      "offset": [
+        -1.5,
+        40.5
+      ],
+      "origin": [
+        69.5,
+        77.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "おばけ",
+      "faceY": 89.375,
+      "headTop": 52.0,
+      "deltaFace": -11.88,
+      "previewDeltaFace": 14.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -1.5,
+        40.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "ghost/02",
+      "base": "assets/characters/ghost/02.png",
+      "asset": "assets/characters/expressions/ghost/02-hungry.png",
+      "face": [
+        64.1875,
+        47.9375
+      ],
+      "floor": 21.9375,
+      "offset": [
+        12.5,
+        13
+      ],
+      "origin": [
+        83.5,
+        50
+      ],
+      "category": "neutral_nutrition",
+      "name": "おばけ",
+      "faceY": 69.875,
+      "headTop": 43.06,
+      "deltaFace": -19.88,
+      "previewDeltaFace": 2.06,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        12.5,
+        13
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "ghost/03",
+      "base": "assets/characters/ghost/03.png",
+      "asset": "assets/characters/expressions/ghost/03-hungry.png",
+      "face": [
+        63.375,
+        45.5
+      ],
+      "floor": 16.25,
+      "offset": [
+        13.5,
+        8.5
+      ],
+      "origin": [
+        84.5,
+        45.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "おばけ",
+      "faceY": 61.75,
+      "headTop": 32.5,
+      "deltaFace": -16.25,
+      "previewDeltaFace": 0.0,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        13.5,
+        8.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "ghost/04",
+      "base": "assets/characters/ghost/04.png",
+      "asset": "assets/characters/expressions/ghost/04-hungry.png",
+      "face": [
+        63.375,
+        41.4375
+      ],
+      "floor": 11.375,
+      "offset": [
+        16,
+        -2.5
+      ],
+      "origin": [
+        87,
+        34.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "おばけ",
+      "faceY": 52.8125,
+      "headTop": 22.75,
+      "deltaFace": -18.31,
+      "previewDeltaFace": -6.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        16,
+        -2.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "ghost/05",
+      "base": "assets/characters/ghost/05.png",
+      "asset": "assets/characters/expressions/ghost/05-hungry.png",
+      "face": [
+        59.3125,
+        51.1875
+      ],
+      "floor": 7.3125,
+      "offset": [
+        12,
+        3
+      ],
+      "origin": [
+        83,
+        40
+      ],
+      "category": "neutral_nutrition",
+      "name": "おばけ",
+      "faceY": 58.5,
+      "headTop": 13.81,
+      "deltaFace": -18.5,
+      "previewDeltaFace": -11.19,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        12,
+        3
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "ghost/06",
+      "base": "assets/characters/ghost/06.png",
+      "asset": "assets/characters/expressions/ghost/06-hungry.png",
+      "face": [
+        58.5,
+        60.125
+      ],
+      "floor": 6.5,
+      "offset": [
+        25,
+        -0.5
+      ],
+      "origin": [
+        96,
+        36.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "おばけ",
+      "faceY": 66.625,
+      "headTop": 13.0,
+      "deltaFace": -30.12,
+      "previewDeltaFace": -23.62,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        25,
+        -0.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "ghost/07",
+      "base": "assets/characters/ghost/07.png",
+      "asset": "assets/characters/expressions/ghost/07-hungry.png",
+      "face": [
+        52.8125,
+        47.125
+      ],
+      "floor": 6.5,
+      "offset": [
+        4.5,
+        -21
+      ],
+      "origin": [
+        75.5,
+        16
+      ],
+      "category": "neutral_nutrition",
+      "name": "おばけ",
+      "faceY": 53.625,
+      "headTop": 13.0,
+      "deltaFace": -37.62,
+      "previewDeltaFace": -31.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        4.5,
+        -21
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "ghost/08",
+      "base": "assets/characters/ghost/08.png",
+      "asset": "assets/characters/expressions/ghost/08-hungry.png",
+      "face": [
+        55.25,
+        38.1875
+      ],
+      "floor": 6.5,
+      "offset": [
+        2,
+        -16
+      ],
+      "origin": [
+        73,
+        21
+      ],
+      "category": "neutral_nutrition",
+      "name": "おばけ",
+      "faceY": 44.6875,
+      "headTop": 13.0,
+      "deltaFace": -23.69,
+      "previewDeltaFace": -17.19,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        2,
+        -16
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "star/01",
+      "base": "assets/characters/star/01.png",
+      "asset": "assets/characters/expressions/star/01-hungry.png",
+      "face": [
+        56.0625,
+        56.875
+      ],
+      "floor": 24.375,
+      "offset": [
+        11,
+        23.5
+      ],
+      "origin": [
+        82,
+        60.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "ほし",
+      "faceY": 81.25,
+      "headTop": 48.75,
+      "deltaFace": -20.75,
+      "previewDeltaFace": 3.62,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        11,
+        23.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "star/02",
+      "base": "assets/characters/star/02.png",
+      "asset": "assets/characters/expressions/star/02-hungry.png",
+      "face": [
+        54.4375,
+        54.4375
+      ],
+      "floor": 23.5625,
+      "offset": [
+        10.5,
+        13.5
+      ],
+      "origin": [
+        81.5,
+        50.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "ほし",
+      "faceY": 78.0,
+      "headTop": 47.12,
+      "deltaFace": -27.5,
+      "previewDeltaFace": -3.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        10.5,
+        13.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "star/03",
+      "base": "assets/characters/star/03.png",
+      "asset": "assets/characters/expressions/star/03-hungry.png",
+      "face": [
+        52.8125,
+        52
+      ],
+      "floor": 26,
+      "offset": [
+        -4,
+        15.5
+      ],
+      "origin": [
+        67,
+        52.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "ほし",
+      "faceY": 78,
+      "headTop": 52.0,
+      "deltaFace": -25.5,
+      "previewDeltaFace": 0.5,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -4,
+        15.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "star/04",
+      "base": "assets/characters/star/04.png",
+      "asset": "assets/characters/expressions/star/04-hungry.png",
+      "face": [
+        56.875,
+        54.4375
+      ],
+      "floor": 15.4375,
+      "offset": [
+        12,
+        12
+      ],
+      "origin": [
+        83,
+        49
+      ],
+      "category": "neutral_nutrition",
+      "name": "ほし",
+      "faceY": 69.875,
+      "headTop": 30.88,
+      "deltaFace": -20.88,
+      "previewDeltaFace": -5.44,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        12,
+        12
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "star/05",
+      "base": "assets/characters/star/05.png",
+      "asset": "assets/characters/expressions/star/05-hungry.png",
+      "face": [
+        52,
+        52.8125
+      ],
+      "floor": 11.375,
+      "offset": [
+        5,
+        -4
+      ],
+      "origin": [
+        76,
+        33
+      ],
+      "category": "neutral_nutrition",
+      "name": "ほし",
+      "faceY": 64.1875,
+      "headTop": 22.75,
+      "deltaFace": -31.19,
+      "previewDeltaFace": -19.81,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        5,
+        -4
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "star/06",
+      "base": "assets/characters/star/06.png",
+      "asset": "assets/characters/expressions/star/06-hungry.png",
+      "face": [
+        56.0625,
+        51.1875
+      ],
+      "floor": 8.9375,
+      "offset": [
+        12.5,
+        -12
+      ],
+      "origin": [
+        83.5,
+        25
+      ],
+      "category": "neutral_nutrition",
+      "name": "ほし",
+      "faceY": 60.125,
+      "headTop": 17.06,
+      "deltaFace": -35.12,
+      "previewDeltaFace": -26.19,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        12.5,
+        -12
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "star/07",
+      "base": "assets/characters/star/07.png",
+      "asset": "assets/characters/expressions/star/07-hungry.png",
+      "face": [
+        55.25,
+        51.1875
+      ],
+      "floor": 6.5,
+      "offset": [
+        7.5,
+        -17.5
+      ],
+      "origin": [
+        78.5,
+        19.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "ほし",
+      "faceY": 57.6875,
+      "headTop": 13.0,
+      "deltaFace": -38.19,
+      "previewDeltaFace": -31.69,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        7.5,
+        -17.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "star/08",
+      "base": "assets/characters/star/08.png",
+      "asset": "assets/characters/expressions/star/08-hungry.png",
+      "face": [
+        51.1875,
+        54.4375
+      ],
+      "floor": 9.75,
+      "offset": [
+        -0.5,
+        -15
+      ],
+      "origin": [
+        70.5,
+        22
+      ],
+      "category": "neutral_nutrition",
+      "name": "ほし",
+      "faceY": 64.1875,
+      "headTop": 19.5,
+      "deltaFace": -42.19,
+      "previewDeltaFace": -32.44,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -0.5,
+        -15
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "plush/01",
+      "base": "assets/characters/plush/01.png",
+      "asset": "assets/characters/expressions/plush/01-hungry.png",
+      "face": [
+        52,
+        44.6875
+      ],
+      "floor": 6.5,
+      "offset": [
+        1.5,
+        -29.5
+      ],
+      "origin": [
+        72.5,
+        7.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "ぬいぐるみ",
+      "faceY": 51.1875,
+      "headTop": 13.0,
+      "deltaFace": -43.69,
+      "previewDeltaFace": -37.19,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        1.5,
+        -29.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "plush/02",
+      "base": "assets/characters/plush/02.png",
+      "asset": "assets/characters/expressions/plush/02-hungry.png",
+      "face": [
+        56.0625,
+        45.5
+      ],
+      "floor": 6.5,
+      "offset": [
+        22.5,
+        -15
+      ],
+      "origin": [
+        93.5,
+        22
+      ],
+      "category": "neutral_nutrition",
+      "name": "ぬいぐるみ",
+      "faceY": 52.0,
+      "headTop": 13.0,
+      "deltaFace": -30.0,
+      "previewDeltaFace": -23.5,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        22.5,
+        -15
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "plush/03",
+      "base": "assets/characters/plush/03.png",
+      "asset": "assets/characters/expressions/plush/03-hungry.png",
+      "face": [
+        48.75,
+        44.6875
+      ],
+      "floor": 6.5,
+      "offset": [
+        1,
+        -24
+      ],
+      "origin": [
+        72,
+        13
+      ],
+      "category": "neutral_nutrition",
+      "name": "ぬいぐるみ",
+      "faceY": 51.1875,
+      "headTop": 15.44,
+      "deltaFace": -38.19,
+      "previewDeltaFace": -31.69,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        1,
+        -24
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "plush/04",
+      "base": "assets/characters/plush/04.png",
+      "asset": "assets/characters/expressions/plush/04-hungry.png",
+      "face": [
+        49.5625,
+        46.3125
+      ],
+      "floor": 6.5,
+      "offset": [
+        -5.5,
+        -20
+      ],
+      "origin": [
+        65.5,
+        17
+      ],
+      "category": "neutral_nutrition",
+      "name": "ぬいぐるみ",
+      "faceY": 52.8125,
+      "headTop": 13.0,
+      "deltaFace": -35.81,
+      "previewDeltaFace": -29.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -5.5,
+        -20
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "plush/05",
+      "base": "assets/characters/plush/05.png",
+      "asset": "assets/characters/expressions/plush/05-hungry.png",
+      "face": [
+        52.8125,
+        47.9375
+      ],
+      "floor": 6.5,
+      "offset": [
+        15,
+        -9
+      ],
+      "origin": [
+        86,
+        28
+      ],
+      "category": "neutral_nutrition",
+      "name": "ぬいぐるみ",
+      "faceY": 54.4375,
+      "headTop": 13.0,
+      "deltaFace": -26.44,
+      "previewDeltaFace": -19.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        15,
+        -9
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "plush/06",
+      "base": "assets/characters/plush/06.png",
+      "asset": "assets/characters/expressions/plush/06-hungry.png",
+      "face": [
+        50.375,
+        44.6875
+      ],
+      "floor": 6.5,
+      "offset": [
+        -0.5,
+        -29.5
+      ],
+      "origin": [
+        70.5,
+        7.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "ぬいぐるみ",
+      "faceY": 51.1875,
+      "headTop": 13.0,
+      "deltaFace": -43.69,
+      "previewDeltaFace": -37.19,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        -0.5,
+        -29.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "plush/07",
+      "base": "assets/characters/plush/07.png",
+      "asset": "assets/characters/expressions/plush/07-hungry.png",
+      "face": [
+        44.6875,
+        52
+      ],
+      "floor": 6.5,
+      "offset": [
+        6,
+        -4.5
+      ],
+      "origin": [
+        77,
+        32.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "ぬいぐるみ",
+      "faceY": 58.5,
+      "headTop": 18.69,
+      "deltaFace": -26.0,
+      "previewDeltaFace": -19.5,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        6,
+        -4.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "plush/08",
+      "base": "assets/characters/plush/08.png",
+      "asset": "assets/characters/expressions/plush/08-hungry.png",
+      "face": [
+        48.75,
+        47.125
+      ],
+      "floor": 6.5,
+      "offset": [
+        13,
+        -12
+      ],
+      "origin": [
+        84,
+        25
+      ],
+      "category": "neutral_nutrition",
+      "name": "ぬいぐるみ",
+      "faceY": 53.625,
+      "headTop": 13.0,
+      "deltaFace": -28.62,
+      "previewDeltaFace": -22.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        13,
+        -12
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "unknown/01",
+      "base": "assets/characters/unknown/01.png",
+      "asset": "assets/characters/expressions/unknown/01-hungry.png",
+      "face": [
+        52,
+        52.8125
+      ],
+      "floor": 39,
+      "offset": [
+        -5,
+        40
+      ],
+      "origin": [
+        66,
+        77
+      ],
+      "category": "neutral_nutrition",
+      "name": "？？？",
+      "faceY": 91.8125,
+      "headTop": 77.19,
+      "deltaFace": -14.81,
+      "previewDeltaFace": 24.19,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -5,
+        40
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "unknown/02",
+      "base": "assets/characters/unknown/02.png",
+      "asset": "assets/characters/expressions/unknown/02-hungry.png",
+      "face": [
+        52,
+        56.875
+      ],
+      "floor": 31.6875,
+      "offset": [
+        5,
+        33
+      ],
+      "origin": [
+        76,
+        70
+      ],
+      "category": "neutral_nutrition",
+      "name": "？？？",
+      "faceY": 88.5625,
+      "headTop": 63.38,
+      "deltaFace": -18.56,
+      "previewDeltaFace": 13.12,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        5,
+        33
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "unknown/03",
+      "base": "assets/characters/unknown/03.png",
+      "asset": "assets/characters/expressions/unknown/03-hungry.png",
+      "face": [
+        52.8125,
+        51.1875
+      ],
+      "floor": 23.5625,
+      "offset": [
+        7,
+        18
+      ],
+      "origin": [
+        78,
+        55
+      ],
+      "category": "neutral_nutrition",
+      "name": "？？？",
+      "faceY": 74.75,
+      "headTop": 47.12,
+      "deltaFace": -19.75,
+      "previewDeltaFace": 3.81,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        7,
+        18
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "unknown/04",
+      "base": "assets/characters/unknown/04.png",
+      "asset": "assets/characters/expressions/unknown/04-hungry.png",
+      "face": [
+        55.25,
+        62.5625
+      ],
+      "floor": 15.4375,
+      "offset": [
+        5.5,
+        24.5
+      ],
+      "origin": [
+        76.5,
+        61.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "？？？",
+      "faceY": 78.0,
+      "headTop": 30.88,
+      "deltaFace": -16.5,
+      "previewDeltaFace": -1.06,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        5.5,
+        24.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "unknown/05",
+      "base": "assets/characters/unknown/05.png",
+      "asset": "assets/characters/expressions/unknown/05-hungry.png",
+      "face": [
+        56.875,
+        64.1875
+      ],
+      "floor": 18.6875,
+      "offset": [
+        2,
+        9
+      ],
+      "origin": [
+        73,
+        46
+      ],
+      "category": "neutral_nutrition",
+      "name": "？？？",
+      "faceY": 82.875,
+      "headTop": 50.38,
+      "deltaFace": -36.88,
+      "previewDeltaFace": -18.19,
+      "belowFace": false,
+      "upperReview": false,
+      "proposalOffset": [
+        2,
+        9
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "unknown/06",
+      "base": "assets/characters/unknown/06.png",
+      "asset": "assets/characters/expressions/unknown/06-hungry.png",
+      "face": [
+        51.1875,
+        65
+      ],
+      "floor": 10.5625,
+      "offset": [
+        22,
+        4.5
+      ],
+      "origin": [
+        93,
+        41.5
+      ],
+      "category": "neutral_nutrition",
+      "name": "？？？",
+      "faceY": 75.5625,
+      "headTop": 21.12,
+      "deltaFace": -34.06,
+      "previewDeltaFace": -23.5,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        22,
+        4.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "unknown/07",
+      "base": "assets/characters/unknown/07.png",
+      "asset": "assets/characters/expressions/unknown/07-hungry.png",
+      "face": [
+        52,
+        59.3125
+      ],
+      "floor": 34.125,
+      "offset": [
+        -0.5,
+        42
+      ],
+      "origin": [
+        70.5,
+        79
+      ],
+      "category": "neutral_nutrition",
+      "name": "？？？",
+      "faceY": 93.4375,
+      "headTop": 69.06,
+      "deltaFace": -14.44,
+      "previewDeltaFace": 19.69,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        -0.5,
+        42
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "unknown/08",
+      "base": "assets/characters/unknown/08.png",
+      "asset": "assets/characters/expressions/unknown/08-hungry.png",
+      "face": [
+        50.375,
+        56.0625
+      ],
+      "floor": 35.75,
+      "offset": [
+        0,
+        39
+      ],
+      "origin": [
+        71,
+        76
+      ],
+      "category": "neutral_nutrition",
+      "name": "？？？",
+      "faceY": 91.8125,
+      "headTop": 71.5,
+      "deltaFace": -15.81,
+      "previewDeltaFace": 19.94,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        0,
+        39
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "ren/01",
+      "base": "assets/characters/ren/01.png",
+      "asset": "assets/characters/expressions/ren/01-hungry.png",
+      "face": [
+        48.75,
+        71.5
+      ],
+      "floor": 6.5,
+      "offset": [
+        8,
+        17.5
+      ],
+      "origin": [
+        79,
+        54.5
+      ],
+      "category": "milk",
+      "name": "れんくん",
+      "faceY": 78.0,
+      "headTop": 40.62,
+      "deltaFace": -23.5,
+      "previewDeltaFace": -17.0,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        8,
+        17.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "ren/02",
+      "base": "assets/characters/ren/02.png",
+      "asset": "assets/characters/expressions/ren/02-hungry.png",
+      "face": [
+        52.8125,
+        57.6875
+      ],
+      "floor": 6.5,
+      "offset": [
+        9,
+        6
+      ],
+      "origin": [
+        80,
+        43
+      ],
+      "category": "rice",
+      "name": "れんくん",
+      "faceY": 64.1875,
+      "headTop": 30.06,
+      "deltaFace": -21.19,
+      "previewDeltaFace": -14.69,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        9,
+        6
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "ren/03",
+      "base": "assets/characters/ren/03.png",
+      "asset": "assets/characters/expressions/ren/03-hungry.png",
+      "face": [
+        52.8125,
+        52.8125
+      ],
+      "floor": 6.5,
+      "offset": [
+        10,
+        0.5
+      ],
+      "origin": [
+        81,
+        37.5
+      ],
+      "category": "rice",
+      "name": "れんくん",
+      "faceY": 59.3125,
+      "headTop": 22.75,
+      "deltaFace": -21.81,
+      "previewDeltaFace": -15.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        10,
+        0.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "ren/04",
+      "base": "assets/characters/ren/04.png",
+      "asset": "assets/characters/expressions/ren/04-hungry.png",
+      "face": [
+        55.25,
+        47.9375
+      ],
+      "floor": 6.5,
+      "offset": [
+        12.5,
+        -4.5
+      ],
+      "origin": [
+        83.5,
+        32.5
+      ],
+      "category": "rice",
+      "name": "れんくん",
+      "faceY": 54.4375,
+      "headTop": 17.88,
+      "deltaFace": -21.94,
+      "previewDeltaFace": -15.44,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        12.5,
+        -4.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "ren/05",
+      "base": "assets/characters/ren/05.png",
+      "asset": "assets/characters/expressions/ren/05-hungry.png",
+      "face": [
+        55.25,
+        45.5
+      ],
+      "floor": 6.5,
+      "offset": [
+        12,
+        -6.5
+      ],
+      "origin": [
+        83,
+        30.5
+      ],
+      "category": "rice",
+      "name": "れんくん",
+      "faceY": 52.0,
+      "headTop": 14.62,
+      "deltaFace": -21.5,
+      "previewDeltaFace": -15.0,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        12,
+        -6.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "ren/06",
+      "base": "assets/characters/ren/06.png",
+      "asset": "assets/characters/expressions/ren/06-hungry.png",
+      "face": [
+        54.4375,
+        46.3125
+      ],
+      "floor": 6.5,
+      "offset": [
+        13,
+        -7
+      ],
+      "origin": [
+        84,
+        30
+      ],
+      "category": "rice",
+      "name": "れんくん",
+      "faceY": 52.8125,
+      "headTop": 13.0,
+      "deltaFace": -22.81,
+      "previewDeltaFace": -16.31,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        13,
+        -7
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "ren/07",
+      "base": "assets/characters/ren/07.png",
+      "asset": "assets/characters/expressions/ren/07-hungry.png",
+      "face": [
+        52.8125,
+        50.375
+      ],
+      "floor": 6.5,
+      "offset": [
+        13,
+        -4.5
+      ],
+      "origin": [
+        84,
+        32.5
+      ],
+      "category": "rice",
+      "name": "れんくん",
+      "faceY": 56.875,
+      "headTop": 16.25,
+      "deltaFace": -24.38,
+      "previewDeltaFace": -17.88,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        13,
+        -4.5
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    },
+    {
+      "key": "ren/08",
+      "base": "assets/characters/ren/08.png",
+      "asset": "assets/characters/expressions/ren/08-hungry.png",
+      "face": [
+        52,
+        52.8125
+      ],
+      "floor": 6.5,
+      "offset": [
+        12.5,
+        -2
+      ],
+      "origin": [
+        83.5,
+        35
+      ],
+      "category": "rice",
+      "name": "れんくん",
+      "faceY": 59.3125,
+      "headTop": 19.5,
+      "deltaFace": -24.31,
+      "previewDeltaFace": -17.81,
+      "belowFace": false,
+      "upperReview": true,
+      "proposalOffset": [
+        12.5,
+        -2
+      ],
+      "proposalNote": "現位置維持を提案",
+      "review": false
+    }
+  ]
+}
