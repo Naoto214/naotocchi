@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [262](262-new-seed-mixed-replay.md) | 02-Bのターン終了と次プレイヤードローを適用 |
 | [261](261-new-seed-mixed-audit.md) | 通常候補3経路と終了履歴1経路を証明 |
 | [260](260-new-seed-mixed-replay.md) | 次優先者pass3件を適用、通常行動3経路へ |
 | [259](259-new-seed-mixed-audit.md) | 次優先者の唯一pass3と終了履歴待ち1を監査 |
@@ -145,7 +146,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[261 新seed通常候補・終了履歴監査](261-new-seed-mixed-audit.md)** の保存地点。3経路の通常候補と02-Bの六段階終了履歴を証明。
+現在は **[262 新seedターン終了適用](262-new-seed-mixed-replay.md)** の保存地点。02-Bは次のたまご交換、3経路は通常行動を保持。
 
 履歴上、221は **[221 新seed2経路たまご交換](221-new-seed-egg-replay.md)** の保存地点。01-B/02-Bは開始時response入口、01-A/02-Aは各応答局面保持。
 
