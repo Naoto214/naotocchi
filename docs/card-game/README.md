@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [257](257-new-seed-mixed-choice.md) | 01-Aはseedでpass、他3経路も唯一passを選択 |
 | [256](256-new-seed-mixed-audit.md) | 開始時能力1件と各response passの候補を監査 |
 | [255](255-new-seed-mixed-replay.md) | たまご交換3件・02-B通常passを適用 |
 | [254](254-new-seed-mixed-choice.md) | たまご交換3経路と02-Bのpassを選択 |
@@ -140,7 +141,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[256 新seedresponse横断監査](256-new-seed-mixed-audit.md)** の保存地点。01-Aは能力とpass、残り3経路はpassのみ。
+現在は **[257 新seedresponse選択](257-new-seed-mixed-choice.md)** の保存地点。4経路のpassを適用前に保存。
 
 履歴上、221は **[221 新seed2経路たまご交換](221-new-seed-egg-replay.md)** の保存地点。01-B/02-Bは開始時response入口、01-A/02-Aは各応答局面保持。
 
