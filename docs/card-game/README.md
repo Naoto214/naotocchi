@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [268](268-new-seed-mixed-audit.md) | 267報告の優先者表記を訂正し、終了2・response2の保存局面を監査 |
 | [267](267-new-seed-mixed-replay.md) | response pass3・ラッキーコイン時1起動1を適用 |
 | [266](266-new-seed-mixed-choice.md) | 3経路pass一意・02-Bのラッキーコインをseedで選択 |
 | [265](265-new-seed-mixed-audit.md) | response4経路の候補完全性。02-Bはラッキーコインとpass |
