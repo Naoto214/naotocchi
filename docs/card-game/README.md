@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [243](243-new-seed-followup-audit.md) | 通常3経路と配置後response1経路の候補完全性を監査 |
 | [242](242-new-seed-followup-correction.md) | 241の01-B phase誤りを239から訂正再生、241の証拠は保持 |
 | [241](241-new-seed-followup-replay.md) | 次優先response3と配置後response1の唯一passを適用 |
 | [240](240-new-seed-followup-audit.md) | 次優先response3と配置後response1、全て唯一pass |
@@ -126,7 +127,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[242 新seed次response訂正](242-new-seed-followup-correction.md)** の保存地点。241の01-B phaseを既存の197先例に沿って訂正し、保存済み241は保持する。
+現在は **[243 新seed次局面監査](243-new-seed-followup-audit.md)** の保存地点。3経路は通常行動、01-Bは配置後responseの唯一pass。242の訂正stateを基準とする。
 
 履歴上、221は **[221 新seed2経路たまご交換](221-new-seed-egg-replay.md)** の保存地点。01-B/02-Bは開始時response入口、01-A/02-Aは各応答局面保持。
 
