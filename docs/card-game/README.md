@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [245](245-new-seed-followup-replay.md) | 通常pass2・response pass1・無料なかま配置1をstateへ適用 |
 | [244](244-new-seed-followup-choice.md) | 02-B無料なかま配置、01-A/02-A通常pass、01-B応答passを選択 |
 | [243](243-new-seed-followup-audit.md) | 通常3経路と配置後response1経路の候補完全性を監査 |
 | [242](242-new-seed-followup-correction.md) | 241の01-B phase誤りを239から訂正再生、241の証拠は保持 |
@@ -128,7 +129,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[244 新seed次局面選択](244-new-seed-followup-choice.md)** の保存地点。02-Bは無料なかま配置、01-A/02-Aは通常pass、01-Bはresponse passを選択済みで未適用。
+現在は **[245 新seed次局面適用](245-new-seed-followup-replay.md)** の保存地点。01-A/02-Aは終了response、01-Bは通常行動、02-Bはなかま配置後response。
 
 履歴上、221は **[221 新seed2経路たまご交換](221-new-seed-egg-replay.md)** の保存地点。01-B/02-Bは開始時response入口、01-A/02-Aは各応答局面保持。
 
