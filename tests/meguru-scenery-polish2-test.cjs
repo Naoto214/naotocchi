@@ -144,8 +144,8 @@ for (const time of ['day', 'night']) test(`star_stop(${time}): 地平線 を ま
   assert.ok(haze, '地平線 を またぐ 霞 の グラデーション');
   assert.ok(painted.has(haze), '霞 を ぬって いる');
   const a = haze.stops.map(([, c]) => +/,\s*([\d.]+)\)$/.exec(c)[1]);
-  assert.deepEqual(a, [0, 1, 0.5, 0], 'うえ と した は すきとおり、地平線 で いちばん こい');
-  assert.deepEqual(haze.stops.map(([t]) => t), [0, 0.33, 0.6, 1]);
+  assert.deepEqual(a, [0, 1, 0.7, 0], 'うえ と した は すきとおり、地平線 で いちばん こい(地上 の こい ところ でも 0.7)');
+  assert.deepEqual(haze.stops.map(([t]) => t), [0, 0.27, 0.58, 1]);
   const hazeRgb = haze.stops[1][1].replace(/^rgba\((\d+),(\d+),(\d+),.*$/, 'rgb($1,$2,$3)');
   assert.ok(new Set(haze.stops.map(([, c]) => c.replace(/,[\d.]+\)$/, ''))).size === 1, '霞 は 1 つ の いろ');
   const land = grads.find((g) => g.stops.length === 3 && g.stops[2][1] === 'rgba(0,0,0,0)' && g.stops[1][0] === 0.4);
