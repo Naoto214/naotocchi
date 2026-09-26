@@ -38,13 +38,15 @@ function setup(regionId = 'sea', log = []) {
 const fixedWorld = (M, rid) => M.buildWorld(rid, M.buildRegistry(), {});
 const spotOf = (M, rid, id) => M.WORLDS[rid].spots.find((q) => q.id === id);
 
-// deco を もつ spot(第1段階 3 + アーチ 2)
+// deco を もつ spot(第1段階 3 + アーチ 2 + 最終 completion pass 2)
 const DECO = [
   ['star_stop', 'starfall', 'ほしのおちるところ', 'crystalgarden', 0],
   ['snow', 'slopetop', 'げれんでのうえ', 'snowfence', 0],
   ['snow', 'peak', 'ゆきやま', 'firewood', 3],
   ['sea', 'rockarch', 'いわのアーチ', 'arch', 0],
   ['desert', 'bonearch', 'ほねのアーチ', 'arch', 0],
+  ['forest', 'fernlook', 'くぼちのみはらし', 'fern', 0],
+  ['jungle', 'hanging', 'つりばし', 'ropebridge', 2],
 ];
 
 // アーチ の まえに たって、なんフレーム か えがかせ、その あいだ の canvas よびだし を かえす
@@ -126,7 +128,7 @@ test('arch: 1 フレーム の よびだし の ふえかた は ちいさい(2 
 
 // ────────────────────────────── deco = 見た目 だけ
 
-test('deco: 5 か所 とも deco で、view に して いない。しらせ の レベル は そのまま', () => {
+test('deco: 7 か所 とも deco で、view に して いない。しらせ の レベル は そのまま', () => {
   const { M } = setup();
   for (const [rid, id, label, lead, level] of DECO) {
     const sp = spotOf(M, rid, id);
@@ -193,7 +195,7 @@ test('counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル �
   assert.equal(df, 37, 'DistantFeature 37');
 });
 
-test('counts: props が ふえる の は deco を もつ 4 地域 だけ(その かず だけ)', () => {
+test('counts: props が ふえる の は deco を もつ 6 地域 だけ(その かず だけ)', () => {
   const { M } = setup();
   const decoRegions = new Set(DECO.map(([rid]) => rid));
   for (const rid of Object.keys(M.WORLDS)) {
