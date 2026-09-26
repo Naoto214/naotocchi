@@ -351,15 +351,14 @@ test('elder dog expressions are distinct transparent assets with original sprite
   assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
 });
 
-// Step 2 checkpoint: approved masters replace 01–03; the 30 old expressions
-// deliberately remain frozen until separately authorized Step 3. No general
-// relaxation of the 128px expression contract or other species' bounds.
+// Step 3: 128px expressions use the visible bounds of the approved high-resolution
+// masters projected to the runtime canvas. Other species keep their original contract.
 const starfishAdopted = {
-  '01': ['bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39', [8,9,120,118]],
-  '02': ['d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d', [8,11,120,116]],
-  '03': ['220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0', [8,11,120,116]],
+  '01': ['bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39', [30,18,99,110]],
+  '02': ['d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d', [26,18,98,114]],
+  '03': ['220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0', [32,27,101,102]],
 };
-const legacyStarfish = require('../docs/qa/starfish-expressions-20260917-manifest.json').records;
+
 for (const [stage, [expected]] of Object.entries(starfishAdopted)) {
   test(`starfish/${stage} master is the exact approved candidate; normal routing uses it`, () => {
     const base = `assets/characters/starfish/${stage}.png`;
@@ -373,9 +372,9 @@ for (const [stage, [expected]] of Object.entries(starfishAdopted)) {
 
 for (const species of ['man','woman','penguin','turtle','frog','clownfish','salmon','hermit_crab','jellyfish','starfish','coral','butterfly','beetle','stagbeetle','cicada','antlion','dandelion','sakura','venus_flytrap','mushroom','dragon','phoenix','god','world_tree','ghost','star','plush','unknown','ren']) for(let index=1;index<=8;index++) {
   const stage=String(index).padStart(2,'0');
-  test(`${species}/${stage} has ten distinct transparent expressions with ${species === 'starfish' && starfishAdopted[stage] ? 'frozen legacy' : 'original'} bounds`, () => {
-    const pending = species === 'starfish' && starfishAdopted[stage];
-    const original = pending ? {data:fs.readFileSync(path.join(ROOT, `assets/characters/${species}/${stage}.png`)), bounds:pending[1]} : inspectPng(`assets/characters/${species}/${stage}.png`);
+  test(`${species}/${stage} has ten distinct transparent expressions with ${species === 'starfish' && starfishAdopted[stage] ? 'projected approved master' : 'original'} bounds`, () => {
+    const projected = species === 'starfish' && starfishAdopted[stage];
+    const original = projected ? {data:fs.readFileSync(path.join(ROOT, `assets/characters/${species}/${stage}.png`)), bounds:projected[1]} : inspectPng(`assets/characters/${species}/${stage}.png`);
     const hashes=[];
     for (const name of ['happy','strained','sulky','hungry','sick','tired','weak','critical','wantsPlay','sleeping']) {
       const file=`assets/characters/expressions/${species}/${stage}-${name}.png`;
@@ -385,10 +384,35 @@ for (const species of ['man','woman','penguin','turtle','frog','clownfish','salm
       assert.deepEqual(bounds,original.bounds,name);
       assert.deepEqual(alpha,[0,255],name);
       const hash = crypto.createHash('sha256').update(data).digest('hex');
-      if (pending) assert.equal(hash, legacyStarfish.find(record => record.final === file).final_sha256, 'old expression stays byte-identical pending Step 3');
+      if (projected) assert.equal(hash, require('../docs/qa/starfish-expressions-step3-20260927-manifest.json').records.find(r => r.final === file).final_sha256);
       hashes.push(hash);
     }
     assert.equal(new Set(hashes).size,10);
     assert.ok(hashes.every(hash=>hash!==crypto.createHash('sha256').update(original.data).digest('hex')));
   });
 }
+
+// Regression: normalization must read the complete source canvas, not the first
+// 128 rows/columns of a high-resolution PNG. Temporary fixture writes only.
+test('normalization produces identical framing for high-resolution and projected masters', async () => {
+  const sharp = require('sharp');
+  const {execFileSync} = require('node:child_process');
+  const tmp = fs.mkdtempSync(path.join(require('node:os').tmpdir(), 'expression-normalize-'));
+  try {
+    fs.mkdirSync(path.join(tmp, 'tools'));
+    fs.mkdirSync(path.join(tmp, 'assets/characters/starfish'), {recursive:true});
+    fs.copyFileSync(path.join(ROOT,'tools/normalize-expression-image.cjs'), path.join(tmp,'tools/normalize-expression-image.cjs'));
+    const base = path.join(ROOT,'assets/characters/starfish/01.png');
+    const local = path.join(tmp,'assets/characters/starfish/01.png');
+    const output = path.join(tmp,'assets/characters/expressions/starfish/01-hungry.png');
+    const run = () => execFileSync(process.execPath,[path.join(tmp,'tools/normalize-expression-image.cjs'),base,'starfish','01','hungry']);
+    fs.copyFileSync(base,local);
+    run();
+    const high = fs.readFileSync(output);
+    await sharp(base).resize(128,128,{kernel:'nearest'}).png().toFile(local);
+    run();
+    assert.deepEqual(fs.readFileSync(output),high);
+    const {width,height} = await sharp(high).metadata();
+    assert.deepEqual([width,height],[128,128]);
+  } finally { fs.rmSync(tmp,{recursive:true,force:true}); }
+});
