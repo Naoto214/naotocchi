@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [277](277-new-seed-mixed-choice.md) | 唯一response pass2、証明済み終了1、02-BのC-box無償配置を選択 |
 | [276](276-new-seed-mixed-audit.md) | 01-B終了の六段階履歴、02-B通常行動、01-A/02-A唯一passを監査 |
 | [275](275-new-seed-mixed-replay.md) | response pass2・コイン起動1・別経路コイン公開解決1を適用 |
 | [274](274-new-seed-mixed-choice.md) | 唯一pass2・02-Aはseedでコイン・02-Bは確定解決処理を選択 |
