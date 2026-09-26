@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [279](279-new-seed-mixed-audit.md) | 278の4局面で通常行動4、必須交換8、response pass各1を監査 |
 | [278](278-new-seed-mixed-replay.md) | response pass2、終了とドロー2、C-box配置1をstateへ適用 |
 | [277](277-new-seed-mixed-choice.md) | 唯一response pass2、証明済み終了1、02-BのC-box無償配置を選択 |
 | [276](276-new-seed-mixed-audit.md) | 01-B終了の六段階履歴、02-B通常行動、01-A/02-A唯一passを監査 |
