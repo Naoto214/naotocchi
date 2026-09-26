@@ -6,6 +6,13 @@
 元になる監査: [`docs/audit/naotocchi-full-architecture-audit-2026-09-24.md`](../audit/naotocchi-full-architecture-audit-2026-09-24.md)
 (監査の基準は `13bd8bf`。同じ branch `claude/naotocchi-architecture-audit-evmymg` にあり、main には入っていない)
 
+> **2026-09-26 追記(RH-1 実装時に確かめた事実。基準 main `d4a9594`)**
+> - Phase 4E(walk corridor 10 / 10)と scenery polish 第1〜3段階は完了して main に入った。§0.2 / §4 の「4E 完了待ち」は解除済み(RH-4〜RH-7 も着手可。順番は RH-1 → RH-2 → RH-3 のまま)。
+> - この Roadmap と監査は RH-1 の branch で main に入る(それまでは `claude/naotocchi-architecture-audit-evmymg` にだけあった)。
+> - P1-1 の「起動が止まる」経路は `rare-line-1` の `.split` だけではなかった。§2 P1-1 と §5.1 を実際の経路に合わせて直した。
+> - §8.1 の隠れたタブの推奨(A′: 最大 30 分の留守中処理を流用)は、その後の仕様検討で **更新が必要**。RH-9 着手時に書き直す(下の §8.1 の注記)。
+> - §0.3 の open PR に、#302(シール所持 Draft)・#300 / #298(docs)が増えている。どれも RH-1 の save まわりには触れていない。
+
 ---
 
 ## 0. いまの位置(このロードマップを書く前に確かめたこと)
@@ -114,6 +121,11 @@
 
 ### P1-1 save の配列要素の型(→ RH-1、最優先)
 - **影響**: 1 要素でも `null` や数値になると、起動のたびに `checkAchievements` の中で例外になる。load の時点で raw がすでに backup に写っているので、**主キーと backup の両方が使えなくなる**。残るのは snapshot だけ。
+- **実際の経路(2026-09-26、`d4a9594` で [V])**: 次の 3 つ。
+  1. `discoveredStages` の非文字列 → `checkAchievements` の `rare-line-1`(`.split`)で例外。boot が止まる。
+  2. `lifetime.endingTiersReached` に `ENDING_TIERS` に無い値(`null`・小数・`9`・`-1` など) → `render()` のバッジの行(`ENDING_TIERS[tierIndex].title`)で例外。boot が止まる。
+  3. `companions` に `null` → load の なかまの いこう(`companion.id`)で例外。**その save 全体が読めない扱い**になり、backup が無ければ新しい いのち + 書きこみ停止になる。
+  - 例外にならない配列でも、`null` や数値が件数に入って実績が誤って解放される(`[null]` で `companion-1`、`[3]` で `partner-1` など)。
 - **入り口**: セーブコードの取りこみ(`decodeSaveCode` は `lifetime` と `stage` しか見ない)、将来の bug。
   - `replaceSavedLife` は backup に「今の正常な save」を書く。けれど reload 後の load が、取りこんだ壊れた raw を backup へ写しなおしてしまう。**害を生んでいるのは、load 直後の写しだけ** [V]。
 - **今直すべきか**: はい。局所的で、後で無駄になりにくい。
@@ -161,7 +173,7 @@
 | キャラの平行表・欠けると起動時に例外 | B / RH-5 | テストだけの validator なら A に前倒しもできる |
 | ゴールを 4 通りで記録・ordinal の平行配列 | B / RH-5(ID 変換表だけ) | 保存形式は変えない |
 | 接続の field の平行・spec が `null` になると黙って fallback | B / RH-4 | 4E-4C の後 |
-| 未来の save を検出しない・未知 ID を削除 | C / RH-8 | `savedByBuild`、未知 ID を消さない |
+| 未来の save を検出しない・未知 ID を削除 | C / RH-8 | `savedByBuild`、未知 ID を消さない。削除している箇所は item-system の `known()` のほかに、`loadState` の `ownedShopItems` / `equippedItemId` の SHOP_ITEMS filter もある(RH-1 は変えていない) |
 | `grandGoalPending` を保存しない | C / RH-10 | お祝いの再表示 |
 | bi の恋人が毎回振り直される | C / RH-10 | 相手の対象を master か master の seed から決定的にする |
 | `'ren'` の直書き、alias を runtime で使っていない | B / RH-5 | |
@@ -300,7 +312,9 @@ main ────●──────●──────●──────
 | 重複 | 最初の 1 つを残す(順序は保つ) | 同じ | **repair**(集合の意味なので、損をする人はいない) |
 | 未知の ID(未来・typo) | **残す** | — | **無視**(件数には数えない。RH-2 で扱う) |
 | 退役した ID(旧系統・旧恋人) | **残す** | — | **無視**(履歴として残す。件数には数えない) |
-| 範囲外の数値(tier 9 など) | — | **残す** | 無視(RH-2 の判定で除外する) |
+| 範囲外の整数(tier 9 など) | — | **残す** | save には残す(未来版の値)。**今の `ENDING_TIERS` に無い tier は、バッジの表示だけ飛ばす**(残すだけだと `render()` で例外になるため。tier 個別ではなく未知の整数一般への防御)。判定での除外は RH-2 |
+| 小数・非整数(1.5 など) | — | 取り除く | **隔離** |
+| `companions` の要素(`id` が文字列の object 以外) | — | — | **隔離**。条件は既存の filter と同じ。なかまの いこうより前に かける(でないと save 全体が読めなくなる) |
 
 - **削除はしない。** 取り除いたものは `lifetime.saveRepair = { v: 1, lastAt, total, byField: {field: n}, samples: [{field, value}] (最大 10) }` に隔離する。
 - `saveRepair` は未知のキーとして、古いコードでも残ります(rollback しても安全)。
@@ -310,7 +324,7 @@ main ────●──────●──────●──────
 - 保存する内容の意味(ID・数値)を変えません。
 - 古いコードで読めます(配列の要素が減るだけ、未知の lifetime キーは残る)。
 
-**対象ファイル**: `script.js` の次の部分だけ。
+**対象ファイル**: `script.js` の次の部分だけ(2026-09-26: 上の経路 2 のため、`render()` のバッジの行に存在確認の filter を 1 つ足す)。
 - `normalizeStateValues`(1,700 行付近)
 - `loadState`(1,721〜2,038)
 - `saveState`(2,642〜2,678)
@@ -505,6 +519,10 @@ harness({
 ## 8. C 期(リリース直前): RH-8〜RH-11
 
 ### 8.1 隠れたタブの仕様(RH-9。**仕様は今すぐ決める**)
+
+> **2026-09-26 注記: この節の推奨(A′、最大 30 分)は古い。RH-9 着手時に書き直す。** その後の第一候補は次のとおり(まだ実装しない)。
+> hidden 中は通常 tick を止め、hidden 開始時刻を記録する。離席時間そのものは打ち切らずに把握し、復帰時に offline 処理を 1 回だけ行う(離席時間ぶんの高速再生はしない)。年齢は hidden 中に進めず、長期離席だけで 100 さいゴールに届かない。status ごとに安全な反映の上限を持ち、長期離席だけで病気・死亡を理不尽に進めない。恋愛・なかま・discovery などは勝手に進めない。環境・昼夜は復帰時点の現在時刻に同期する。実際の離席時間(「7日3時間ぶり」など)は要約の演出に使ってよい。
+> つまり「離席時間は無制限に記録」+「ゲームへの反映は domain ごとに安全な cap」。下の表と「30 分の上限」のテスト項目はこの方針で置きかえる。
 | 案 | 挙動 | 公平性 | 電池 | iOS との一貫性 | 既存の設計との整合 |
 |---|---|---|---|---|---|
 | **A. 完全に止める** | 隠れたら tick しない。見えたら続きから | ◎ | ◎ | ◎(iOS は元々バックグラウンドで止まる) | ◎(「開いているあいだだけ進む」) |
