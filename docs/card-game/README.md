@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [265](265-new-seed-mixed-audit.md) | response4経路の候補完全性。02-Bはラッキーコインとpass |
 | [264](264-new-seed-mixed-replay.md) | 通常pass2・なかま配置1・たまご交換1を適用 |
 | [263](263-new-seed-mixed-choice.md) | 通常pass2・時0なかま配置1・必須たまご交換1を選択 |
 | [262](262-new-seed-mixed-replay.md) | 02-Bのターン終了と次プレイヤードローを適用 |
@@ -148,7 +149,7 @@
 | [129](129-conditional-growth-restart.md) | 条件付き成長の比較・4経路独立再開 |
 
 
-現在は **[264 新seed混合選択適用](264-new-seed-mixed-replay.md)** の保存地点。終了response2、配置後response1、開始response1。
+現在は **[265 新seed混合response監査](265-new-seed-mixed-audit.md)** の保存地点。終了response2・配置後response1はpassのみ。02-Bの開始responseはラッキーコイン時1とpassの2候補。次に既存優先順位契約で選択を比較する。
 
 履歴上、221は **[221 新seed2経路たまご交換](221-new-seed-egg-replay.md)** の保存地点。01-B/02-Bは開始時response入口、01-A/02-Aは各応答局面保持。
 
