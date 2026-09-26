@@ -416,3 +416,38 @@ test('normalization produces identical framing for high-resolution and projected
     assert.deepEqual([width,height],[128,128]);
   } finally { fs.rmSync(tmp,{recursive:true,force:true}); }
 });
+
+// Protect the approved larval outline from reattaching the left sweat/silver mark.
+// Real PNG silhouettes and rendered runtime SVG, including the full sweat travel.
+for (const stage of ['02','03']) test(`starfish/${stage} left illness sweat and silver mark clear the new body at Home sizes`, async () => {
+  const sharp = require('sharp');
+  const bounds = require('../cast-bounds.js');
+  const css = fs.readFileSync(path.join(ROOT,'pet-expression.css'),'utf8');
+  const base = `assets/characters/starfish/${stage}.png`;
+  for (const size of [64,80,104]) {
+    const scale=4, pad=40, width=(size+pad*2)*scale;
+    const floor=size*(128-bounds[base].box[3])/128;
+    const render=async content => (await sharp(Buffer.from(`<svg width="${width}" height="${width}" viewBox="-40 -40 ${size+80} ${size+80}">${content}</svg>`)).ensureAlpha().raw().toBuffer());
+    const points=data=>{const p=[];for(let y=0;y<width;y++)for(let x=0;x<width;x++)if(data[(y*width+x)*4+3]>16)p.push([x/scale-pad,y/scale-pad]);return p;};
+    const drops=expression.sweatFor(base,size,size,floor);
+    const dw=Math.max(6,Math.min(11,size*.1)),dh=Math.max(9,Math.min(16,size*.15));
+    const rw=dw*Math.cos(Math.PI/10)+dh*Math.sin(Math.PI/10),rh=dh*Math.cos(Math.PI/10)+dw*Math.sin(Math.PI/10);
+    const box=[drops.left+(dw-rw)/2,drops.top+(dh-rh)/2,drops.left+(dw+rw)/2,drops.top+(dh+rh)/2+drops.travel];
+    const distanceToSweat=([x,y])=>Math.hypot(Math.max(box[0]-x,0,x-box[2]),Math.max(box[1]-y,0,y-box[3]));
+    const body=[];
+    for(const name of ['hungry','sick','tired','sulky','weak','critical','wantsPlay','sleeping','happy','strained']) {
+      const png=fs.readFileSync(path.join(ROOT,expression.assetFor(base,name))).toString('base64');
+      const p=points(await render(`<image width="${size}" height="${size}" y="${floor}" href="data:image/png;base64,${png}"/>`));
+      assert.ok(p.every(p=>distanceToSweat(p)>=1.75),`${size}px ${name}: left sweat needs visible body clearance throughout its travel`);
+      body.push(...p);
+    }
+    const svg=expression.accentFor(base,'strained').match(/<svg[^>]*>([\s\S]*)<\/svg>/)[1];
+    const silver=points(await render(`<style>${css}</style><g class="pet-expression-accent" transform="scale(${size/104})">${svg}</g>`));
+    assert.ok(silver.every(p=>distanceToSweat(p)>=1.25),`${size}px silver must not merge with coexisting left sweat`);
+    const occupied=new Set(body.map(([x,y])=>`${Math.round(x*scale)},${Math.round(y*scale)}`));
+    for(const [x,y] of silver)for(let dy=-7;dy<=7;dy++)for(let dx=-7;dx<=7;dx++) {
+      if(dx*dx+dy*dy>=49)continue;
+      assert.ok(!occupied.has(`${Math.round(x*scale)+dx},${Math.round(y*scale)+dy}`),`${size}px silver needs visible body clearance`);
+    }
+  }
+});
