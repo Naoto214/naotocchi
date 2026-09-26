@@ -1,7 +1,9 @@
 # RH-1 Save Integrity — QA 記録(2026-09-26)
 
-基準: `main` `d4a95949638d9fec9ce762b436577d156dae254a`(Merge PR #346)
-branch: `claude/naotocchi-rh1-precheck-gpttmq`
+基準: 実装は `main` `d4a95949638d9fec9ce762b436577d156dae254a`(Merge PR #346)から。途中で main が `6fd3c9e`(Merge PR #347)へ進んだので通常の merge で取りこんだ
+branch: `claude/naotocchi-rh1-precheck-gpttmq` / PR: #348(Draft)
+最終 HEAD(main 取りこみ後・QA 対象): `b0429bf69074c2f6fae97b363448f14fc8a69102`
+**最終判定: `npm test` 1403 / 1403 PASS(exit 0)、CI 2 本とも success、manual Chromium 確認 GREEN**
 正本: `docs/roadmap/naotocchi-release-hardening-roadmap-2026-09-24.md` §5.1 / §2 P1-1
 
 ## 1. 変えたこと
@@ -79,9 +81,44 @@ RH-1 の後: 上のすべての場合で boot が通り、backup には修復後
 | `legacy-v4` 由来(saveRepair なし) | boot 可。同上 |
 | `ending-tiers` 由来(tier `9` / `-1` を保持) | **古いコードのバッジ表示で例外**。ただし、これは RH-1 の前から入っていた値で、古いコードは元の fixture でも同じ例外になる。RH-1 は範囲外の tier を新しく作らない(ユーザー判断で「未知の整数 tier は save に残す」)。rollback で悪化はしない |
 
-## 5. 結果
+## 5. main の取りこみ
 
-- `node --test tests/save-integrity-test.cjs`: 12 / 12 pass
-- 既存の save / migration テスト(`save-recovery-test`・`migration-test`): 変更なしで pass
-- `npm test` 全体(smoke / dialogue / visual-qa + node --test 1387 件): 1386 pass・1 fail。fail は `item-art-unification-test` の `Cannot find module 'sharp'`(この container に node_modules が無かった)。`npm ci` の後に単体で 4 / 4 pass → 全件 green
-- CI(`runtime-smoke-test` / `home-layout`)は main への PR と push でしか走らない。PR を開いた時点で確認する
+- 実装の HEAD は `6a0e16b`(基準 `d4a9594`)。PR を開いた後に main が `6fd3c9e`(#347 final visual completion pass)へ進み、PR が conflict になった
+- 通常の merge(`b0429bf`。rebase・force-push はしていない)で取りこんだ
+- 衝突は `package.json` の `test` の行だけ。main の `tests/meguru-visual-completion-test.cjs` と RH-1 の `tests/save-integrity-test.cjs` を **両方残した**。ほかのファイルは自動で merge され、`index.html` の main との差は `script.js` の `?v=` だけ
+
+## 6. テスト結果
+
+### 最終(`b0429bf`、main 取りこみ後)
+- `npm test` 全体(smoke / dialogue / visual-qa + node --test): **1403 / 1403 PASS、exit 0**
+
+### 初回の環境確認(`6a0e16b`、参考。最終判定ではない)
+- `npm test` 全体: 1386 / 1387。1 件の FAIL は `item-art-unification-test` の `Cannot find module 'sharp'`(作業 container に node_modules が無かったため)。`npm ci` の後に当該テスト単体で 4 / 4 PASS。コードの問題ではない
+
+## 7. manual Chromium 確認(実ブラウザ、Chromium 141 headless)
+
+手順: 正常な save で起動 → 本物の UI(データ → セーブコード → よみこんでおきかえる ×2)で、壊れた要素入りのセーブコードを取りこむ → アプリ自身の reload → 起動を確かめる → もう一度 reload。
+取りこんだコードの中身: `discoveredStages` に null / 5 / object / 重複 / 未知 ID、`achievementsUnlocked` に null / 未知 ID、`regionsVisited` に null / 未知 ID、`endingTiersReached` = `[0, null, 9, "2"]`、`companions` = `[null]`。
+
+| 観点 | 結果(RH-1) |
+|---|---|
+| reload 後の起動 | 正常(ホームが動き、3 秒ごとの save が続く) |
+| 取りこんだ save | 保持(money 999 のまま採用) |
+| 壊れた要素 | 修復済み(残り 0、`companions` は `[]`、`saveRepair.total` 9 = 期待どおり) |
+| 未知の tier 9 | save に保持(`[0, 9, 2]`)、バッジは既知の 2 個だけ表示(表示だけ skip) |
+| backup | 修復後の save(壊れた raw ではない) |
+| 壊れた raw | 強制 snapshot に保持(取りこむ前の save も snapshot に残る) |
+| 2 回目の reload | `saveRepair` も snapshot も増えない(冪等) |
+| console error | 0 |
+
+- **対照(main `d4a9594`)**: 同じコードを取りこむと、`companions` の null で save 全体が読めない扱いになり、取りこむ前の save に黙って戻る(取りこんだデータは失われる)
+- `/favicon.ico` の 404 は main でも同じ(この site に favicon が無い)。RH-1 とは無関係
+
+## 8. CI
+
+| HEAD | Runtime smoke test / `smoke-test` | Home layout / `home-layout` |
+|---|---|---|
+| **`b0429bf`(最終)** | **success** | **success** |
+| `6a0e16b`(旧) | success | failure(2 回) |
+
+旧 HEAD `6a0e16b` の `home-layout` は、2 回とも `tests/home-layout-browser.cjs:110:44`(safe-area 用の CSS 差しかえ)の `route.fetch: read ECONNRESET` だった。RH-1 由来ではないと判断した理由: この PR は CSS とそのテストに触れていない / 同じ日の #347 の 1 回目も同じ行で落ちた / 手元で RH-1 の無い main `d4a9594` でも同じ ECONNRESET が再現した(直前に vite の依存の再最適化)/ RH-1 の head では該当ケースが PASS。テスト基盤の問題として RH-1 の範囲外に置く(PR #348 のコメント)。

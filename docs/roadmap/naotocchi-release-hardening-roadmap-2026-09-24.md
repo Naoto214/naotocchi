@@ -7,7 +7,9 @@
 (監査の基準は `13bd8bf`。同じ branch `claude/naotocchi-architecture-audit-evmymg` にあり、main には入っていない)
 
 > **2026-09-26 追記(RH-1 実装時に確かめた事実。基準 main `d4a9594`)**
-> - Phase 4E(walk corridor 10 / 10)と scenery polish 第1〜3段階は完了して main に入った。§0.2 / §4 の「4E 完了待ち」は解除済み(RH-4〜RH-7 も着手可。順番は RH-1 → RH-2 → RH-3 のまま)。
+> - **めぐる 2D 本線と scenery / visual polish は正式に完了した**(main `6fd3c9e` 時点)。walk corridor 10 / 10 continuous(4E-4A #340・4E-4B #341・4E-4C #342、完了の正本化 #343)、special 3 本は既存 transition、memory_lake は通常 corridor の対象外、party 27 対応、preload / reload / fallback 完成、13 地域の visual QA(#344 / #345 / #346)、final visual completion pass(#347)、Three.js は不要と判断。save の形・`travelToRegion`・world map は不変。**めぐる本線へ戻る必要はない。**
+> - §0.2 / §4 / §7 / §11 / §13.4 の「4E 完了待ち」「4E のあいだ」は解除済み(RH-4〜RH-7 も着手可)。順番は **RH-1 → RH-2 → RH-3** のまま。
+> - めぐる側の既知の残りは次の 4 件だけで、Phase 4 / scenery polish の未完了には戻さず、**Release Hardening / post-4E backlog(RH-7)** として持つ: ① forest / mountain の到着時の描画コスト、② city 系の定常時の描画コスト、③ corridor 内のまれな 60 ms 超の frame、④ なかまが障害物に重なる既存バグ(continuous corridor 固有ではなく、既存 transition でも再現する)。fallslook・jungle の夜・star_stop などの軽い見た目の問題は、final visual completion pass で安全に直せる範囲を処理済み。
 > - この Roadmap と監査は RH-1 の branch で main に入る(それまでは `claude/naotocchi-architecture-audit-evmymg` にだけあった)。
 > - P1-1 の「起動が止まる」経路は `rare-line-1` の `.split` だけではなかった。§2 P1-1 と §5.1 を実際の経路に合わせて直した。
 > - §8.1 の隠れたタブの推奨(A′: 最大 30 分の留守中処理を流用)は、その後の仕様検討で **更新が必要**。RH-9 着手時に書き直す(下の §8.1 の注記)。
@@ -46,8 +48,8 @@
 | 4E-2(`home|forest` の Canvas PoC) | ✅ #337 |
 | 4E-3(着く側の preload) | ✅ #338 |
 | 4E-4 Preflight(10 本の横断監査) | ✅ #339 |
-| **4E-4A** | 未着手 |
-| 4E-4B / 4E-4C | 未着手 |
+| **4E-4A** | 未着手(2026-09-26 追記: ✅ #340) |
+| 4E-4B / 4E-4C | 未着手(2026-09-26 追記: ✅ #341 / #342。完了の正本化 #343、scenery / visual polish #344〜#347 も完了) |
 
 4E-4A の中身:
 - 絵を先に、非同期でデコードする。**`script.js` の `prepareIllustrations` を触る**
@@ -279,6 +281,7 @@ main ────●──────●──────●──────
 
 ### 4.8 4E-4 の日程との合わせかた
 - **いま(4E-4A を始める時点)**: RH-1 と RH-3 を並行して始める。
+- (2026-09-26 追記: 4E と scenery / visual polish は完了したので、下の 3 行は当時の計画として残す。今は RH-1 → RH-2 → RH-3 の順に進め、B 期もその後に着手できる)
 - **4E-4A の merge 前後**: RH-2。
 - **4E-4B・4E-4C の期間**: RH の新規着手は「C 期の仕様決め」(隠れたタブ・PERFECT・通知の優先度・Android)と、C 期の文書・設計の準備だけにとどめる。
 - **4E-4C の merge と、4E の完了 handoff の後**: B 期(RH-4〜7)を開始。C 期の実装も並行して始めてよい(meguru.js 以外)。
@@ -461,6 +464,8 @@ harness({
 
 ## 7. B 期(4E 完了後): RH-4〜RH-7
 
+> 2026-09-26 追記: 4E は完了済み。B 期は着手可(A 期の RH-1 → RH-2 → RH-3 の後)。
+
 ### 7.1 RH-4 Region Registry Integrity
 - **目的**: 地域を 13→26 に増やしても、「表の追加漏れ」を CI で必ず検出できるようにする。
 - **1 つの巨大な registry にはしない。** 「**地域 ID の正本**」+「**各表の網羅テスト**」にする。
@@ -505,6 +510,12 @@ harness({
 - `movie-browser.cjs` を CI に入れるか、削除するかを決める。
 
 ### 7.4 RH-7 Meguru Post-4E Fixes
+> 2026-09-26 追記: めぐる側から引き継いだ post-4E backlog は次の 4 件(ほかは final visual completion pass で処理済み)。
+> 1. forest / mountain の到着時の描画コスト
+> 2. city 系の定常時の描画コスト
+> 3. corridor 内のまれな 60 ms 超の frame
+> 4. なかまが障害物に重なる既存バグ(下の 1 行目。continuous corridor 固有ではなく、既存 transition でも再現する)
+
 - **なかまが障害物にめりこむ**(4E-4 preflight §12): 着いたときの並びを `standClear` で押し出す。**今の transition でも起きるので、独立した小さな bugfix PR にする。** 18 方向 × 27 人で、1.5 秒後にめりこむ人数が 0 になることを受け入れ条件にする。
 - **meguru.js の分割は「分割すべきだから」ではやらない。** 境界がはっきりした所だけにする。
   - 候補 1: `start()` の found toast の queue と、save の adapter。
@@ -717,6 +728,8 @@ harness({
 
 ## 11. Phase 4E のあいだは触らないもの(再掲)
 
+> 2026-09-26 追記: 4E は完了したので「4E のあいだ」という期限は解除。ただし下の規則のうち設計上の約束(corridor の状態を save しない、`continuousWalkMode` が唯一の分岐点、`meguruBridge` の署名など)は、RH-4〜RH-7 で触るときも守る。
+
 - `REGION_FRAME` と local ↔ global の変換(meguru.js:4887-5019)
 - `continuousWalkMode` という唯一の分岐点・許可リスト(4E-4 が 1 本ずつ広げる)
 - **corridor の状態を save しない** という規則(`state.regionId` は、着いた frame で 1 回だけ変わる)
@@ -873,7 +886,7 @@ save の配列要素の型が壊れていても、起動不能にならないよ
 ### 13.4 B 期・C 期の要約
 - RH-4(§7.1)、RH-5(§7.2)、RH-6(§7.3)、RH-7(§7.4)、RH-8(§8.7)、RH-9(§8.1 / §8.2 / §8.3)、RH-10(§8.4 / §8.5 / §8.6)、RH-11(§8.10)。
 - どれも、この文書の該当節を「目的・対象・非対象・テスト・完了条件」として渡せば、13.1 と同じ形の全文にできます。
-- **B 期の指示書には必ず「4E-4C の merge と 4E の完了 handoff の後であること」を最初の確認に入れる。**
+- **B 期の指示書には必ず「4E-4C の merge と 4E の完了 handoff の後であること」を最初の確認に入れる。**(2026-09-26 追記: この条件は満たされた。#342 / #343)
 
 ---
 

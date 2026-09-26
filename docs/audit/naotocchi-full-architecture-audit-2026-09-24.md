@@ -9,6 +9,8 @@
 
 行番号は `main 13bd8bf` のものです。
 
+> **2026-09-26 追記**: この監査は `13bd8bf` 時点の記録。その後、Phase 4E(walk corridor 10 / 10)と scenery / visual polish(#340〜#347)は完了し、めぐる本線へ戻る必要はなくなった。本文の「4E が終わるまで」「4E の後に」は解除済みとして読む。めぐる側の既知の残り 4 件(forest / mountain の到着時の描画コスト、city 系の定常時の描画コスト、corridor 内のまれな 60 ms 超の frame、なかまが障害物に重なる既存バグ)は Release Hardening / post-4E backlog(Roadmap §7.4 RH-7)で扱う。P1-1 は RH-1(#348)で対応。
+
 ---
 
 ## 0. 前提として確かめた実態
