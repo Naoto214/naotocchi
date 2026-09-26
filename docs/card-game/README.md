@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [270](270-new-seed-mixed-audit.md) | たまご交換2・通常3候補1・コイン連鎖中B唯一passを監査 |
 | [269](269-new-seed-mixed-replay.md) | 終了遷移・次手番ドロー2経路、唯一response pass2経路を適用 |
 | [268](268-new-seed-mixed-audit.md) | 267報告の優先者表記を訂正し、終了2・response2の保存局面を監査 |
 | [267](267-new-seed-mixed-replay.md) | response pass3・ラッキーコイン時1起動1を適用 |
