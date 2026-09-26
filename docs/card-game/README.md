@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [272](272-new-seed-mixed-replay.md) | 必須交換2・通常pass1・コイン連鎖の閉鎖pass1をstateへ適用 |
 | [271](271-new-seed-mixed-choice.md) | 必須たまご交換2件をseed選択、01-Bは時の比較でpass、02-Bは唯一pass |
 | [270](270-new-seed-mixed-audit.md) | たまご交換2・通常3候補1・コイン連鎖中B唯一passを監査 |
 | [269](269-new-seed-mixed-replay.md) | 終了遷移・次手番ドロー2経路、唯一response pass2経路を適用 |
