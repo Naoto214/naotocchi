@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [280](280-new-seed-mixed-choice.md) | 時0なかま配置、seeded交換、唯一response pass2件を選択 |
 | [279](279-new-seed-mixed-audit.md) | 278の4局面で通常行動4、必須交換8、response pass各1を監査 |
 | [278](278-new-seed-mixed-replay.md) | response pass2、終了とドロー2、C-box配置1をstateへ適用 |
 | [277](277-new-seed-mixed-choice.md) | 唯一response pass2、証明済み終了1、02-BのC-box無償配置を選択 |
