@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [273](273-new-seed-mixed-audit.md) | response3経路と02-Bコイン解決入口を監査 |
 | [272](272-new-seed-mixed-replay.md) | 必須交換2・通常pass1・コイン連鎖の閉鎖pass1をstateへ適用 |
 | [271](271-new-seed-mixed-choice.md) | 必須たまご交換2件をseed選択、01-Bは時の比較でpass、02-Bは唯一pass |
 | [270](270-new-seed-mixed-audit.md) | たまご交換2・通常3候補1・コイン連鎖中B唯一passを監査 |
