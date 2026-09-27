@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [302](302-new-seed-mixed-replay.md) | 01-A盤上C-chicken起動、他3経路pass適用 |
 | [301](301-new-seed-mixed-choice.md) | 01-AはseedでC-chicken能力起動、他3経路は唯一passを選択 |
 | [300](300-new-seed-mixed-audit.md) | 01-AはC-chicken盤上能力とpass、他3経路はpassのみ |
 | [299](299-new-seed-mixed-replay.md) | たまご交換2件とresponse-pass2件を適用、4経路の開始時候補監査へ |
