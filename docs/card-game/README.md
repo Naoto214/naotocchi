@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [294](294-new-seed-mixed-audit.md) | 終了2経路を6段階証明、B側たまご交換各9候補を監査 |
 | [293](293-new-seed-mixed-replay.md) | 終了前pass2件、証明済み終了と次手番ドロー2経路を再生 |
 | [292](292-new-seed-mixed-choice.md) | 終了前response各唯一passと6段階証明済みターン終了2件を選択 |
 | [291](291-new-seed-mixed-audit.md) | 終了前response各唯一pass、残り2経路の6段階ターン終了を証明 |
