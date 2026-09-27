@@ -93,3 +93,18 @@ asset gate: 欠け・大文字小文字・古い token・token なし・hash の
 - `npm test` 全体: **1432 / 1432 PASS、exit 0**(RH-2 後の 1418 + 8 + 6)
 - remove-it: harness 7 / 7 が赤、asset gate は こわれた入力 すべてで赤
 - workflow の YAML は parse できる(`timeout-minutes: 30`、paths の追加)
+
+## 8. 他レーンとの確認(Draft PR 前、read-only)
+
+確認した head: #278 `b04fe221ded8ace3eba7b38488de774a1fa8b8c8`、#259 `e0ec22cc18741523740702815694a2221f3c89b8`(main は `d686838…` のまま)。
+一時 worktree で、各レーンの いまの tree に RH-3 の asset gate を当てた。古い base 由来の差は 競合として扱わず、レーン自身の commit で変わった中身だけを見た。
+
+- **harness**: #278 自身の変更(`NaotocchiEmotionState` / `NaotocchiPetExpression` の追加、`homeEmotion` / `stageForAge` / `scheduleIdleGreeting` の export)は RH-3 と別の行で、RH-3 の branch と conflict なしで自動 merge される。#278 の新しい module は `Math.random` も environment も使わない。`package.json` は test 行の機械的な競合だけ。#259 は harness に触れていない。
+- **#278 で token の食いちがいを 2 件 検出**:
+  - `pet-expression.js`: token `20260926-19c9a562`(`4b87ef70` で付けた)のあと `3fd47071` / `b69c94e8` で中身が変わり、いまの hash は `77a295ed`
+  - `character-world-master.v1.js`: `3474e220` で中身が変わったのに token は main と同じ `d24939fa` のままで、いまの hash は `59b21854`
+  - これは RH-3 の false positive ではなく、**実ファイルの hash と token が一致しない本物の不整合**(このまま公開すると、再訪したブラウザが古い file を cache から使う)。既存の `tests/asset-versions-test.cjs` は token があるかどうかしか見ないので、いままで見えなかった。
+  - #278 の古い base(2026-09-15、`UNIFIED_ITEM_IDS` がまだない)由来の 動的 path の検査の失敗とは区別する。
+  - #278 は main を取り込んだあと、merge の前に 通常の手順の `npm run bump` が必要になる。
+  - RH-3 は #278 の branch も token も変えていない。asset gate(hash の検査)は この事情のために緩めていない。
+- **#259**: 古い token(`style.css` / `cast-layout.js` / `games.js`)と 動的 path の失敗は、すべて古い base(2026-09-14)由来。#259 がルート直下で変えたのは `.gitignore` だけで、レーン固有の意味の衝突はない。
