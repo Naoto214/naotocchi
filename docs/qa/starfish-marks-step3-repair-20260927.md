@@ -66,3 +66,7 @@
 quick-modeの `quick mode chains 3-6 second games: cue, immediate play, judge, next game within the result flash` は全体実行内PASS。初回FAILの原因は未特定のまま。解消済み・既知flaky・全体GREENとは扱わない。
 
 保存差分はpet-expression.jsの2レコード、回帰テスト、02/03一覧更新、補修比較SVG・本QA・handoffの7ファイル。PNG変更0。保存後のremote HEAD/tree/実main/PR/CIはfresh取得し最終報告に記載する。
+
+## 銀位置の再評価による訂正
+
+銀と汗の重なり自体を避ける条件は既存の前面描画ルールに沿わず、銀の下13.5px補正は撤回した。左汗は維持。銀の最新候補・fresh資料は[再評価記録](starfish-silver-reevaluation-20260927.md)を参照。本文の旧位置は履歴として残す。手順3は人間確認待ち。

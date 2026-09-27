@@ -443,7 +443,10 @@ for (const stage of ['02','03']) test(`starfish/${stage} left illness sweat and 
     }
     const svg=expression.accentFor(base,'strained').match(/<svg[^>]*>([\s\S]*)<\/svg>/)[1];
     const silver=points(await render(`<style>${css}</style><g class="pet-expression-accent" transform="scale(${size/104})">${svg}</g>`));
-    assert.ok(silver.every(p=>distanceToSweat(p)>=1.25),`${size}px silver must not merge with coexisting left sweat`);
+    // Sweat overlap is allowed: the silver mark paints above it. Preserve the
+    // upper-left relationship instead of moving the mark below the larval head.
+    const silverCenterY=silver.reduce((sum,p)=>sum+p[1],0)/silver.length;
+    assert.ok(silverCenterY<=body.reduce((min,p)=>Math.min(min,p[1]),Infinity)+size*.1, `${size}px silver stays by the upper contour`);
     const occupied=new Set(body.map(([x,y])=>`${Math.round(x*scale)},${Math.round(y*scale)}`));
     for(const [x,y] of silver)for(let dy=-7;dy<=7;dy++)for(let dx=-7;dx<=7;dx++) {
       if(dx*dx+dy*dy>=49)continue;
