@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [315](315-new-seed-mixed-audit.md) | 3件の唯一response-passと01-Bのたまご交換9候補を監査 |
 | [314](314-new-seed-mixed-replay.md) | 2件のnormal pass、01-B終了・ドロー、02-Bたまご交換を適用 |
 | [313](313-new-seed-mixed-choice.md) | 2件のnormal pass、01-B必須終了、02-Bのseededたまご交換A-037を選択 |
 | [312](312-new-seed-mixed-audit.md) | 2件の通常行動各3候補、01-B必須終了、02-Bたまご交換8候補を監査 |
