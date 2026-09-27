@@ -28,8 +28,8 @@ Cは10表情の身体alpha輪郭の和集合に対し、左・上方向の0.5単
 ## fresh比較資料
 
 - [02/03 A・B・C比較](starfish-silver-reevaluation-20260927.svg)：銀だけを比較するため左汗は全列B固定。同じPNG・背景・サイズ・汗位相。
-- [02 最終10表情＋病気併存10表情](starfish-expressions-step3-20260927-02.svg)
-- [03 最終10表情＋病気併存10表情](starfish-expressions-step3-20260927-03.svg)
+- [02 最終10表情＋病気併存10表情](starfish-expressions-step3-20260927-02-C-verified.svg)
+- [03 最終10表情＋病気併存10表情](starfish-expressions-step3-20260927-03-C-verified.svg)
 
 旧contact sheetの内部座標はBと一致しており、補修前Aの再利用とは確認されなかった。ただし最終判断用には使わず、今回の実設定を読みfreshに全面出力した。生成器は `tools/starfish-silver-review.cjs`。ソースSHA256: `2286598972fd1ef4c5a88dbafd3292f6929b7bb109205ebfc5b282229ac18f8c`。各sheetに座標・hashを明記。
 
@@ -51,3 +51,7 @@ Cは10表情の身体alpha輪郭の和集合に対し、左・上方向の0.5単
 ## 停止点
 
 人間確認待ち。手順3正式完了ではない。ヒトデ08小泡、犬03、ウスバカゲロウ07/08、名称4 FAIL、quick-mode原因追跡、最終QA、なおと等の残件は維持し、今回着手しない。
+
+## 候補Cの反映照合
+
+[独立座標・pixel照合](starfish-contact-source-proof-20260927.md)で保存SVGとfresh SVGの一致を確認。今回の最終判断にはC-verified版を使用する。旧同名資料は履歴。手順3は引き続き人間確認待ち。
