@@ -88,4 +88,8 @@ asset gate: 欠け・大文字小文字・古い token・token なし・hash の
 
 ## 7. 結果
 
-(下に追記)
+- `harness-determinism-test`: 8 / 8 PASS(別 process を ふくめて 約 5 秒)
+- `asset-integrity-test`: 6 / 6 PASS
+- `npm test` 全体: **1432 / 1432 PASS、exit 0**(RH-2 後の 1418 + 8 + 6)
+- remove-it: harness 7 / 7 が赤、asset gate は こわれた入力 すべてで赤
+- workflow の YAML は parse できる(`timeout-minutes: 30`、paths の追加)
