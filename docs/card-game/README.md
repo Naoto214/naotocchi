@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [309](309-new-seed-mixed-audit.md) | C-chicken非なかま公開、2件の唯一pass、02-B必須ターン終了を証明 |
 | [308](308-new-seed-mixed-replay.md) | C-chicken連鎖を解決入口へ、他3経路のpassも適用 |
 | [307](307-new-seed-mixed-choice.md) | 3件の唯一response-passと01-Bのnormal passを選択 |
 | [306](306-new-seed-mixed-audit.md) | 3件のresponse-passと01-Bの通常行動4候補を横断監査 |
