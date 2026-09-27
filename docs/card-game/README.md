@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [288](288-new-seed-mixed-audit.md) | 通常行動3/2候補とターン終了前response各唯一passを監査 |
 | [287](287-new-seed-mixed-replay.md) | response pass2件と通常pass2件を適用、4経路の次局面候補監査へ |
 | [286](286-new-seed-mixed-choice.md) | response pass2件、通常pass2件を107/114で選択 |
 | [285](285-new-seed-mixed-audit.md) | 次優先者response2件と通常行動3/5候補を監査 |
