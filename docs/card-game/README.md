@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [291](291-new-seed-mixed-audit.md) | 終了前response各唯一pass、残り2経路の6段階ターン終了を証明 |
 | [290](290-new-seed-mixed-replay.md) | 通常pass2件と終了前response-pass2件を適用、次の終了境界を監査へ |
 | [289](289-new-seed-mixed-choice.md) | 有償通常行動3件をpassと比較、response各唯一passを選択 |
 | [288](288-new-seed-mixed-audit.md) | 通常行動3/2候補とターン終了前response各唯一passを監査 |
