@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [310](310-new-seed-mixed-choice.md) | 01-Aの必須能力解決、02-Bの必須終了、2件の唯一passを選択 |
 | [309](309-new-seed-mixed-audit.md) | C-chicken非なかま公開、2件の唯一pass、02-B必須ターン終了を証明 |
 | [308](308-new-seed-mixed-replay.md) | C-chicken連鎖を解決入口へ、他3経路のpassも適用 |
 | [307](307-new-seed-mixed-choice.md) | 3件の唯一response-passと01-Bのnormal passを選択 |
