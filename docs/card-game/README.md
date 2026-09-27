@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [313](313-new-seed-mixed-choice.md) | 2件のnormal pass、01-B必須終了、02-Bのseededたまご交換A-037を選択 |
 | [312](312-new-seed-mixed-audit.md) | 2件の通常行動各3候補、01-B必須終了、02-Bたまご交換8候補を監査 |
 | [311](311-new-seed-mixed-replay.md) | C-chicken解決、2件のresponse-pass、02-B終了・次手番ドローを適用 |
 | [310](310-new-seed-mixed-choice.md) | 01-Aの必須能力解決、02-Bの必須終了、2件の唯一passを選択 |
