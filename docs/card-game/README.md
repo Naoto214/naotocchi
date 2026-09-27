@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [322](322-new-seed-mixed-choice.md) | seeded交換B-019／A-003、唯一response-pass、02-B通常passを選択 |
 | [321](321-new-seed-mixed-audit.md) | たまご交換8件／10件、唯一pass、通常行動5件を監査 |
 | [320](320-new-seed-mixed-replay.md) | 証明済み終了・次手番ドロー2経路、response-pass2経路を再生し6 event/snapshotを検証 |
 | [319](319-new-seed-mixed-choice.md) | 証明済みターン終了2件と唯一response-pass2件を選択 |
