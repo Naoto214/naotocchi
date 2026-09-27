@@ -8458,8 +8458,28 @@
   // ふつうの 地域と まったく おなじ しくみで つかえる ように する ため、
   // findRegion() の たんいで 両方を みる(REGIONS じたいには いれない)
   function findRegion(id) {
-    return REGIONS.find((r) => r.id === id) || SPECIAL_REGIONS.find((r) => r.id === id) || REGIONS[0];
+    const rid = resolveRegionId(id, 'findRegion');
+    return REGIONS.find((r) => r.id === rid) || SPECIAL_REGIONS.find((r) => r.id === rid);
   }
+
+  // RH-4: 地域 ID の 解決(1 か所だけ)。raw ID → 正式な alias(tropical → jungle)→ 登録表(master の regions)→ ID。
+  // 知らない ID・typo・文字列でない 値は、テスト(harness の strictRegions)では throw、
+  // 本番では master の policy.unknownRegionFallback(= home)へ。reportRuntimeError は raw ID ごとに 1 回だけ(最初の site を残す)。
+  // save の regionId / regionsVisited は 書きかえない(policy.preserveRawSaveIds)。つかう ときだけ 解決する
+  const REGION_IDS = new Set([...REGIONS, ...SPECIAL_REGIONS].map((r) => r.id));
+  const REGION_FALLBACK = WORLD_MASTER?.compatibility?.policy?.unknownRegionFallback || 'home';
+  const regionErrorsReported = new Map();
+  function resolveRegionId(raw, site = 'region') {
+    const id = typeof raw === 'string' ? canonicalRegionId(raw) : raw;
+    if (typeof id === 'string' && REGION_IDS.has(id)) return id;
+    const key = typeof raw === 'string' ? raw : `<${raw === null ? 'null' : typeof raw}>`;
+    const err = new Error(`unknown region id ${JSON.stringify(key)} (${site})`);
+    if (typeof window !== 'undefined' && window.NaotocchiStrictRegions === true) throw err;
+    if (!regionErrorsReported.has(key)) { regionErrorsReported.set(key, site); reportRuntimeError(err, `region:${site}`); }
+    return REGION_FALLBACK;
+  }
+  // いま いる 地域(解決ずみ)。state.regionId は raw の まま のこす
+  function currentRegionId() { return resolveRegionId(state.regionId, 'state.regionId'); }
 
   // 「ずかん」の「こいびと」セクションで つかう、地域ごとの きめうち
   // キャラの ぜんいちらん(REGIONSの candidatesを ひとつに まとめたもの)
@@ -12008,7 +12028,7 @@
     saveState();
     render();
     if (seasonAfter !== seasonBefore) {
-      celebrateSeasonChange(state.regionId, seasonAfter);
+      celebrateSeasonChange(currentRegionId(), seasonAfter);
     }
   }
 
@@ -12028,7 +12048,7 @@
     // 地域カード: こうか・出やすいゲーム・こいびと候補・ごとうちゲーム・おとずれた しるし
     const visited = new Set([...(state.lifetime.regionsVisited || []), ...(state.lifetime.specialRegionsVisited || [])]);
     const swatch = (region) => {
-      const isCurrent = region.id === state.regionId && !(region.id === 'home' && state.lifetime.currentLocationSelected);
+      const isCurrent = region.id === currentRegionId() && !(region.id === 'home' && state.lifetime.currentLocationSelected);
       const effect = ENV_EFFECTS.region[region.id] ? ENV_EFFECTS.region[region.id].text : '';
       const weights = ENV_GAME_WEIGHTS.region[region.id] || {};
       const ups = MINIGAME_GENRES.filter((g) => weights[g.id] > 1).map((g) => g.emoji + g.label);
@@ -13284,8 +13304,8 @@
     const snapshot = environmentTracker?.snapshot();
     const observed = snapshot?.weather;
     const fresh = observed && Date.now() - Date.parse(observed.measuredAt) <= 2 * 60 * 60 * 1000;
-    if (fresh && state.regionId === 'home') return { weather: observed.mode, source: 'observed' };
-    const sim = window.NaotocchiEnvironment?.simulatedWeather?.(state.regionId, getEffectiveSeason());
+    if (fresh && currentRegionId() === 'home') return { weather: observed.mode, source: 'observed' };
+    const sim = window.NaotocchiEnvironment?.simulatedWeather?.(currentRegionId(), getEffectiveSeason());
     return sim ? { weather: sim.mode, source: 'sim' } : { weather: null, source: 'none' };
   }
   function currentTimeOfDay() {
@@ -13314,7 +13334,7 @@
   }
   function currentEnvironment() {
     const w = effectiveWeather();
-    const environment = { time: currentTimeOfDay(), weather: w.weather, weatherSource: w.source, season: getEffectiveSeason(), region: state.regionId };
+    const environment = { time: currentTimeOfDay(), weather: w.weather, weatherSource: w.source, season: getEffectiveSeason(), region: currentRegionId() };
     const locality = selectedLocality();
     if (locality) environment.locality = locality;
     return environment;
@@ -13730,7 +13750,7 @@
     el.screen.dataset.weather = weather || 'unknown';
     document.body.dataset.time = visualTime;
     document.body.dataset.weather = weather || 'unknown';
-    applyWeatherFx(weather, time, state.regionId);
+    applyWeatherFx(weather, time, currentRegionId());
     const weatherText = weather ? WEATHER_CHOICES[weather].join(' ') + (eff.source === 'sim' ? '(よそう)' : '') : environmentContextLabel(eff.source);
     el.environmentLabel.innerHTML = `${environmentIconHTML('time',time,TIME_CHOICES[time][0])} ${TIME_CHOICES[time][1]}・${weather ? environmentIconHTML('weather',weather,WEATHER_CHOICES[weather][0]) + ' ' + WEATHER_CHOICES[weather][1] + (eff.source === 'sim' ? '(よそう)' : '') : escapeHtml(weatherText)}`;
     const selected = selectedLocality();
@@ -13997,6 +14017,7 @@
     getState: () => state,
     currentEnvironment: () => currentEnvironment(),
     findRegion,
+    resolveRegionId: (id, site) => resolveRegionId(id, site), canonicalRegionId, // RH-4: めぐるは 地域 ID を 自分で 判定しない
     regionLabel: (id, local) => { const r = findRegion(id); const loc = local ? selectedLocality() : null; return loc ? `📍${escapeHtml(loc.display || loc.name || '')}` : environmentIconHTML('region', r.id, r.emoji) + escapeHtml(r.label); },
     regionPlainLabel: (id, local) => { const loc = local ? selectedLocality() : null; return loc ? (loc.display || loc.name || findRegion(id).label) : findRegion(id).label; },
     selectedLocality: () => selectedLocality(),
@@ -14075,7 +14096,7 @@
     // ストーリー判定・えんしゅつは 1つも おこらない**(あるいて となりへ 出ただけ なので)
     enterRegionByMove: (regionId, opts = {}) => {
       const region = findRegion(regionId);
-      if (!region || region.id === state.regionId) return { ok: false, first: false };
+      if (!region || region.id === currentRegionId()) return { ok: false, first: false };
       if (!state.lifetime.specialRegionsVisited) state.lifetime.specialRegionsVisited = [];
       const isSpecial = !!region.special;
       const list = isSpecial ? state.lifetime.specialRegionsVisited : state.lifetime.regionsVisited;
@@ -15297,7 +15318,7 @@
   }
 
   function isSeasonExclusiveGame(game) {
-    if (!hasSurfaceSeasons(state.regionId)) return false;
+    if (!hasSurfaceSeasons(currentRegionId())) return false;
     const seasonEntries = SEASONAL_MINIGAMES[getEffectiveSeason()];
     return !!seasonEntries && seasonEntries.some((entry) => entry.game === game);
   }
@@ -17036,13 +17057,13 @@
     if (state.isSleeping) { setMessage(randomBlockedMessage('sleepingTravel'));saveState();render();return false; }
     if (region?.special && !hasPerk(70)) { setMessage('そのばしょへつづく道はまだ見つからない');render();return false; }
     if (!travelStartAllowed(region)) return false;
-    const sameLocalHome = region.id === 'home' && state.regionId === 'home' && state.lifetime.currentLocationSelected;
-    if (region.id === state.regionId && !sameLocalHome) return false;
+    const sameLocalHome = region.id === 'home' && currentRegionId() === 'home' && state.lifetime.currentLocationSelected;
+    if (region.id === currentRegionId() && !sameLocalHome) return false;
     currentLocationIntent += 1;
     if (overlayIs('travel') || overlayIs('world')) activeOverlay = null;
     // 現在地の景色と通常のおうちは、ゲーム上はどちらも home。同じ地域の
     // 表示だけを戻す操作では、旅の消費や記録を発生させない。
-    if (region.id === 'home' && state.regionId === 'home' && state.lifetime.currentLocationSelected) {
+    if (region.id === 'home' && currentRegionId() === 'home' && state.lifetime.currentLocationSelected) {
       state.lifetime.currentLocationSelected = false;
       state.lifetime.currentLocation = null;
       saveState();

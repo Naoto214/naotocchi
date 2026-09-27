@@ -503,6 +503,16 @@ harness({
 - **対象外**: `WORLDS` の統合、表の書式の変更、`REGION_FRAME` の値。
 - **完了条件**: どこか 1 つの表から地域を 1 つ消すと、必ず赤になる(remove-it)。
 
+> **2026-09-27 追記(RH-4 の事前確認と実装で確かめた事実。基準 main `fc83cf0`)**
+> - 正本は master の `regions` 13 件。`compatibility.policy` に `unknownRegionFallback: 'home'` と `preserveRawSaveIds: true` が既にあったので、これを使う(いままでコードから読まれていなかった)。
+> - 13 件ちょうどの表(15): meguru の `WORLDS` / `WORLD_STYLE` / `THEME` / `MOTION` / `SPACE` / `REGION_LIFE` / `REGION_LINE` / `GEO_AREA` / `GEO_ASPECT` / `WORLD_GEOGRAPHY.regions` / `FOLIAGE`、script の `ITEM_REGION_SCENES` / `STICKER_BACKGROUND_THEMES` / `ENV_EFFECTS.region`、world-scene の `SCENES`。
+> - 意図して一部だけ持つ表(16)は、監査で確定した集合と **完全一致** で固定した(`REGION_FRAME` は memory_lake なし、`SKY_OVERRIDE` は deepsea / star_stop / memory_lake、`CLIMATE` は deepsea / star_stop なし、`CORRIDOR_REGION_LOOK` 9・`CORRIDOR_REGION_TERRAIN` 4、`REGION_RUNTIME_META` / `REGION_MINIGAMES` は home + normal など)。`LOCAL_FLAVOR` / `LOCAL_SCENES` / `BACKDROP_COLORS` / `DISTANT_KIND_OF` / `SEASON_REGION_OVERRIDES` は地域で引く表ではない。
+> - 黙って置きかわる箇所は 100(本番で置きかえ + 報告 26、固定データなので test で止める 26、意図した一部 31、呼ぶ側の問題 15)。RH-4 は **要(かなめ)の 8 か所だけ** を 1 つの `resolveRegionId`(script.js)に通した: `findRegion`、`currentEnvironment` と天気、旅の「いまの地域」、`enterRegionByMove`、めぐるの入口(`start`・毎 frame の比較・registry の住民の地域)と `seedWorldRegions` の alias。めぐるは bridge の `resolveRegionId` / `canonicalRegionId` を使い、自分では判定しない。
+> - 行番号の更新: `|| WORLDS.home` は meguru.js:1031(buildWorldSteps。本番の安全網として残す)、`findRegion → REGIONS[0]` は script.js:8461(RH-4 で resolver に置きかえ)。
+> - 見つかった食い違い: save の `tropical` は、表示は home・進捗は jungle(RH-2 の件数だけ alias を通していた)。知らない地域では めぐるの記録(`meguru.spots` など)に知らないキーが増えていた。`reportRuntimeError` は重複を抑えず、めぐるからは呼べなかった。どれも RH-4 で解消(save は書きかえない)。
+> - corridor: walk 10 本(許可リスト = spec)、既存の transition 3 本(`jungle|sea` = sea、`deepsea|sea` / `countryside|star_stop` = vertical)、memory_lake は専用の接続で corridor ではない。`walkCorridorSpecs().filter(Boolean)` の本番の fallback は変えず、テストで ID ごとに spec があることを確かめる。
+> - 残したもの(RH-4 の範囲外): script.js の地域アイコンの表(`tropical` の古い行が残り、river_lake / deepsea / star_stop は絵文字で代用)は表示に害がないので、後の cleanup 候補(RH-11)。シールのページの背景の知らない値を home に書きかえて保存する挙動は RH-8 の候補(§8.7)。分類「呼ぶ側の問題」の個別の箇所は、要の 8 か所で入口が正本の ID に なったので 実害は消えた。
+
 ### 7.2 RH-5 Content Registry Coverage
 - **キャラ**(248→350 でも登録漏れを検出する):
   - master の種族・仲間・恋人の全 ID × 平行表(`MASTER_SPECIES_EMOJI`、`SPECIES_STAGE_DESCS`、`PARTNER_RUNTIME_PROFILE`、`COMPANION_RUNTIME`、台詞の表 6 か所、`movie-dialogue.partners`、meguru の `HABITAT` など、`cast-bounds`、画像 01〜08)の網羅テストを作る。
@@ -645,6 +655,7 @@ harness({
 | 320 px | toast の `nowrap` による溢れを直す |
 
 ### 8.7 RH-8 Save Compatibility Suite
+> **2026-09-27 追記(RH-4 から)**: シールのページの背景に知らない値があると `stickerPageBackground` が `'home'` に書きかえて保存する(script.js、RH-4 時点の 14,890 行付近)。RH-4 では変えていない。save の値を黙って書きかえる挙動として、ここで方針を決める。
 - **本物の古い save の fixture**(`tests/fixtures/saves/real/`):
   | fixture | 作り方 |
   |---|---|

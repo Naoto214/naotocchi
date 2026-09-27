@@ -33,6 +33,10 @@
     const sfx = typeof S.sfx === 'function' ? S.sfx : () => {};
     const getState = S.getState;
     const env = () => (typeof S.currentEnvironment === 'function' ? S.currentEnvironment() : { time: 'day', weather: 'sunny', season: 'spring', region: 'home' });
+    // RH-4: 地域 ID の 解決は 本体(S.resolveRegionId: alias → 登録表 → 本番は home)に まかせる。めぐるは 自分で 判定しない。
+    // 本体が ない(めぐるだけの テスト)ときは これまでどおり。save の regionId は ここでは 書きかえない
+    const regionOf = (id, site) => (typeof S.resolveRegionId === 'function' ? S.resolveRegionId(id, site) : (id || 'home'));
+    const canonicalRegion = (id) => (typeof S.canonicalRegionId === 'function' ? S.canonicalRegionId(id) : id);
     // らんすう。ふだんは Math.random そのもの。テストだけ たねを 入れかえて、
     // おなじ ながれを なんども ためせる ように する(ほんばんは これまでどおり)
     let RANDOM = Math.random;
@@ -393,7 +397,7 @@
         if (!def || seen.has(def.id)) continue; seen.add(def.id);
         const withPlayer = withIds.has(def.id);
         // たびびと: 日がわり。すきな 地域(preferredRegions)は 4ばい でやすい
-        let region = state.regionId || 'home';
+        let region = regionOf(state.regionId, 'meguru:registry');
         if (!withPlayer) {
           const pref = Array.isArray(def.preferredRegions) ? def.preferredRegions.filter((r) => NORMAL_REGIONS.includes(r)) : [];
           const pool = []; for (const r of NORMAL_REGIONS) { const w = pref.includes(r) ? 4 : 1; for (let i = 0; i < w; i++) pool.push(r); }
@@ -408,7 +412,7 @@
         const withPlayer = cur === id;
         const asset = typeof S.partnerAsset === 'function' ? S.partnerAsset(id) : null;
         list.push({ key: 'partner:' + id, kind: 'partner', id, label: p.label, emoji: p.emoji, asset, sprites: { front: asset },
-          region: withPlayer ? (state.regionId || 'home') : (p.firstRegion || 'home'), withPlayer, hook: p.hook || '' });
+          region: withPlayer ? regionOf(state.regionId, 'meguru:registry') : (p.firstRegion || 'home'), withPlayer, hook: p.hook || '' });
       }
       const naoto = typeof S.isAuthorUnlocked === 'function' && S.isAuthorUnlocked() ? { key: 'naoto', kind: 'naoto', id: 'naoto', label: 'ナオト', emoji: '🧑', asset: S.authorAsset || null, sprites: { front: S.authorAsset || null }, region: 'memory_lake', spot: 'deep', secret: true } : null;
       // さいごに key で いちい に(ふるい セーブ・いこう・じゅうふくした はいれつが あっても、おなじ じゅうみんは せかいに 1体だけ)
@@ -6326,7 +6330,7 @@
     // みちの はっけんは spot たんいの べつの じょうけん(worldLinksFrom)で きまる
     function seedWorldRegions(lifetime) {
       const out = new Set();
-      const add = (list) => { for (const id of (list || [])) if (WORLD_GEOGRAPHY.regions[id]) out.add(id); };
+      const add = (list) => { for (const raw of (list || [])) { const id = canonicalRegion(raw); if (WORLD_GEOGRAPHY.regions[id]) out.add(id); } };
       add(lifetime && lifetime.regionsVisited);
       add(lifetime && lifetime.specialRegionsVisited);
       out.add('home');                       // はじめての ひとも おうちだけは わかって いる(#47)
@@ -7260,7 +7264,7 @@
       const state = getState();
       const locality = typeof S.selectedLocality === 'function' ? S.selectedLocality() : null;
       const tier = typeof S.perfTier === 'function' ? S.perfTier() : 0;
-      const regionId0 = state.regionId || 'home';
+      const regionId0 = regionOf(state.regionId, 'meguru:start');
       const sim = createSimulation({ regionId: regionId0, locality, discovered: typeof S.discoveredSpots === 'function' ? S.discoveredSpots(regionId0) : [] });
       let running = true, rafId = null, last = null, frame = 0, banner = null, bannerUntil = 0, lastHint = null;
       // おもい ときは えを 2フレームに 1かい(せかいの けいさんは まいフレーム)。フレームの ながさの へいきんで じどう
@@ -8127,7 +8131,7 @@
           rafId = requestAnimationFrame(frameFn);
           return;
         }
-        if (st.regionId !== sim.world.regionId) enterWorld(st.regionId || 'home');
+        { const rid = regionOf(st.regionId, 'meguru:frame'); if (rid !== sim.world.regionId) enterWorld(rid); }
         if (frame % 30 === 0) { const nx = env(); const changed = nx.time !== sim.env.time || nx.weather !== sim.env.weather; sim.setEnv(nx); if (changed) hud(); }
         if (frame % 30 === 0) syncDistant(); // Phase 4D-2
         // Phase 4E-4A: あるける 出口に ちかづいたら corridor の 絵を さきに デコードし、おわったら 入口の したく(1 frame 1 くぎり)。
@@ -8494,6 +8498,6 @@
       return { stop, layoutInfo, foundInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; }, get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, EMOJI_VARY, emojiVary, RIVERMIST_STOPS, NIGHT_LIFT, LEAF_NIGHT, HORIZON_HAZE, LANDMARK_NEAR, landmarkNearAlpha, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_SHIFT, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK };
+    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, EMOJI_VARY, emojiVary, RIVERMIST_STOPS, NIGHT_LIFT, LEAF_NIGHT, HORIZON_HAZE, LANDMARK_NEAR, landmarkNearAlpha, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_SHIFT, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK, WORLD_THEME, WORLD_MOTION, WORLD_SPACE, REGION_LINE, SKY_OVERRIDE, GEO_AREA, GEO_ASPECT };
   };
 })();

@@ -39,6 +39,9 @@ function fakeDate(nowOf, pin) {
 //     host の じっさいの 時計を 見る。これを harness の 時計(now)に する(時刻の 解釈は host の TZ)。
 //   seed: 数 … 1 つの mulberry32 を、起動前から ページの Math.random と めぐるの setRandom の
 //     両方に つなぐ。new Date() ぜんたいは 固定しない(9edc0e7 の hang を さける)。
+//   strictRegions(RH-4、既定 true)… 知らない 地域 ID・typo・文字列でない 値で script.js の resolveRegionId が throw する
+//     (本番では home へ 解決して 1 回だけ 記録)。正式な alias(tropical → jungle)は 正常。
+//     知らない ID を わざと ためす テストだけ false にする。
 const ENVIRONMENT_TIMES = ['morning', 'day', 'evening', 'night'];
 const ENVIRONMENT_WEATHERS = ['sunny', 'cloudy', 'rain', 'snow'];
 // world-environment.js の WEATHER_LABELS と おなじ(export されていないので うつす。テストで一致を たしかめる)
@@ -80,7 +83,7 @@ function environmentModule(nowOf, environment, hostEnvironmentClock) {
 
 // Run the real session/input code. The DOM and clock are substitutes: these
 // tests do not measure browser rendering, physical input delivery or FPS.
-function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, imageClass, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false, clockNow = 1000, pinDate = false, environment, hostEnvironmentClock = false, seed} = {}) {
+function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, imageClass, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false, clockNow = 1000, pinDate = false, environment, hostEnvironmentClock = false, seed, strictRegions = true} = {}) {
   let now = clockNow, serial = 0;
   const rng = seed === undefined ? null : seededRandom(seed);
   const timers = new Map(), elements = new Map();
@@ -202,6 +205,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
     NaotocchiCastBounds: require('../../cast-bounds.js'),
     NaotocchiCastMotion: fs.existsSync('cast-motion.js') ? require('../../cast-motion.js') : undefined,
     NaotocchiEnvironment: environmentModule(() => now, environment, hostEnvironmentClock),
+    NaotocchiStrictRegions: strictRegions,
     NaotocchiLocalScenery: require('../../local-scenery.js'),
     NaotocchiWorldScene: worldScene ? require('../../world-scene.js') : undefined,
     NaotocchiCareStatus: require('../../care-status.js'),
@@ -252,7 +256,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
       applyOfflineProgress, OFFLINE_CAP_TICKS,
       renderDex, renderTravelRegionGrid, REGIONS, ALL_LINES, decayRelationship, decayCompanionBonds, reinforceRelationship, goOnDate, closeDateOverlay, renderItemOverlay, renderItemMemories, renderNaotoItemGrid,
       computeSeasonVisual, effectiveWeather, envModifiers, environmentGameWeight, isRegionExclusiveGame,
-      scheduleEnvironmentMoment, REGION_MOMENTS, triggerLegendEncounter, maybeLegendEncounter,
+      scheduleEnvironmentMoment, REGION_MOMENTS, REGION_MOMENT_HINTS, REGION_RUNTIME_META, SPECIAL_REGIONS, REGION_BASE_FX, ITEM_REGION_SCENES, STICKER_BACKGROUND_THEMES, ENV_GAME_WEIGHTS, ENV_EFFECTS, REGION_MINIGAMES, resolveRegionId, currentRegionId, triggerLegendEncounter, maybeLegendEncounter,
       playLegendEncounterMovie, playOrdinaryDateMovie, playMarriageMovie, closeDateOverlay, finishDateMovie, DATE_PLANS,
       mgDuration, GAME_LENGTH_CHOICES, MG_SWIPE_MIN, MG_HOLD_PROFILES, createTouchPad, minigameDemoKind, QUICK_RUN, startQuickRun, quickSoloRun, quickStats, QUICK_VOICE_CHOICES, meguruMod, meguruBridge, startMeguru, stopMeguru, meguruActive: () => meguruActive, meguruRun: () => meguruRun, SPECIES, LEGACY_NORMAL_LINES, canonicalCompanionId, sceneryResolve: typeof SCENERY_RESOLVE === 'function' ? SCENERY_RESOLVE : undefined, sceneryCanvas: typeof SCENERY_CANVAS !== 'undefined' ? SCENERY_CANVAS : undefined, sceneryCtx: (c) => (typeof SCENERY_CANVAS !== 'undefined' && SCENERY_CANVAS ? SCENERY_CANVAS.canvas(c) : c), wrapCanvasCtx: (c) => (CANVAS_ILLUSTRATIONS ? CANVAS_ILLUSTRATIONS.canvas(c) || c : c), isAuthorUnlocked, currentFormStageIndex, renderTravelRegionGrid, QUICK_GAMES: quickMod ? quickMod.QUICK_GAMES : [], QUICK_RULES: quickMod ? quickMod.QUICK_RULES : null, isFirstMinigamePlay, arrangeMinigameControls, openMinigameHelp, closeMinigameHelp, MINIGAME_INTRO_PLAYS,
       stickerCatalog, stickerStore, stickerById, grantSticker, grantRandomSticker, openStickerPack, openThemedStickerPack, placeSticker, updateSticker, removeSticker, checkStickerTasks, STICKER_TASKS, STICKER_RARITY, STICKER_PACK_PRICE, STICKER_THEME_PRICE, STICKER_PACK_SIZE, STICKER_COPY_MAX, STICKER_TASK_ADEPT_ID, STICKER_TASK_MASTER_ID, STICKER_PAGE_MAX, STICKER_BOOK_MAX_PAGES, stickerPageIds, addStickerPage, stickerBackgroundOptions, stickerBackgroundSvg: typeof stickerBackgroundSvg === 'function' ? stickerBackgroundSvg : () => '', stickerBackgroundDataUrl: typeof stickerBackgroundDataUrl === 'function' ? stickerBackgroundDataUrl : () => '', stickerPageBackground, setStickerPageBackground, stickerPageInfo, exportStickerPageImage, renderStickerOverlay, setStickerPage, recordDiscoveryKey, ownedStickerKinds, stickerPackPool, stickerDrawablePool, placedStickerCount, normalizeStateShape, normalizeStateValues, freshState, perfTier: () => mgPerfTier, mgPerfDpr, mgPerfScale, setPerfTier, overlayState: () => activeOverlay, MG_DEMO_KINDS, showMinigameResultToast, tryStartPlay,
