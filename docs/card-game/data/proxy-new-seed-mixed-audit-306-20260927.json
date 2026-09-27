@@ -1,0 +1,369 @@
+{
+  "completed": 0,
+  "independent_balance_sample_count": 0,
+  "new_events": 0,
+  "planned": 4,
+  "results": [
+    {
+      "active_link_id": "response-link-76-A-015#1",
+      "balance_sample_count": 0,
+      "board_exclusions": [
+        {
+          "card_id": "C-bat",
+          "reason_code": "trigger_condition_not_met",
+          "source_instance_id": "B-011#1"
+        },
+        {
+          "card_id": "C-cat_friend",
+          "reason_code": "requires_other_discarded_companion",
+          "source_instance_id": "B-013#1"
+        },
+        {
+          "card_id": "P-cat_ceo",
+          "reason_code": "relationship_start_event_not_met",
+          "source_instance_id": "B-017#1"
+        }
+      ],
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "candidate_set_complete": true,
+      "completed": false,
+      "hand_exclusions": [
+        {
+          "card_id": "E-final-time",
+          "reason_code": "requires_main_eight_or_r10",
+          "source_instance_id": "B-039#1",
+          "source_reference": "91-event-21-card-text-draft.md#E-final-time"
+        }
+      ],
+      "hand_other_exclusions": [
+        {
+          "card_id": "M-antlion-01",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "B-001#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "M-beetle-02",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "B-010#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "W-deepsea",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "B-022#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "G-baseball-batting",
+          "reason_code": "no_active_own_challenge",
+          "source_instance_id": "B-028#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "P-anglerfish",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "B-016#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": null,
+          "reason_code": "no_prepared_activation_present",
+          "source_instance_id": null,
+          "source_zone": "prepared"
+        }
+      ],
+      "new_events": 0,
+      "next_opportunity": "response_window",
+      "path_id": "probe-01-a-first",
+      "source_continuation_state_sha256": "7d14397569066e30ef9c4c836ee627882ed2fe150f843250570eb6b54ef04b79",
+      "source_game_state_sha256": "3bcbde1207a98d7e87720dd2992d63518d255415e5935953b0545f25183ff309",
+      "source_last_valid_event_seq": 77
+    },
+    {
+      "balance_sample_count": 0,
+      "board_exclusions": [
+        {
+          "action_type": "board_response_trigger",
+          "candidate_id": null,
+          "candidate_variant": "response_triggered",
+          "card_id": "C-bat",
+          "disposition": "excluded",
+          "enumeration_unit_id": "[\"board_card_action\",\"board\",\"B-011#1\",\"board_response_trigger\",\"response_triggered\",[]]",
+          "evidence": {
+            "phase": "normal_action",
+            "template.timing": "response_window"
+          },
+          "reason_codes": [
+            "timing_not_normal_action"
+          ],
+          "source_family": "board_card_action",
+          "source_id": "B-011#1",
+          "source_instance_id": "B-011#1",
+          "source_references": [
+            "72-companion-26-card-text-draft.md#C-bat",
+            "06-action-chain-checkpoint.md"
+          ],
+          "source_zone": "board",
+          "target_instance_ids": []
+        }
+      ],
+      "candidate_ids": [
+        "candidate-place_world-B-020#1",
+        "candidate-place_world-B-022#1",
+        "candidate-play-main-B-001#1-birth",
+        "pass"
+      ],
+      "candidate_set_complete": true,
+      "completed": false,
+      "completeness_checks": {
+        "candidate_templates_complete": true,
+        "candidate_variants_complete": true,
+        "canonical_predicates_resolved": true,
+        "dispositions_and_reasons_valid": true,
+        "information_boundary_valid": true,
+        "legal_candidate_projection_exact": true,
+        "opportunity_context_valid": true,
+        "required_source_families_present": true,
+        "source_artifact_integrity_valid": true,
+        "source_inventory_complete": true,
+        "stable_candidate_ids_valid": true,
+        "target_expansions_complete": true
+      },
+      "legal_candidate_details": [
+        {
+          "action_type": "place_world",
+          "candidate_id": "candidate-place_world-B-020#1",
+          "candidate_variant": "empty_world_slot",
+          "card_id": "W-city",
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-020#1\",\"place_world\",\"empty_world_slot\",[]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "hand_card_action",
+          "source_id": "B-020#1",
+          "source_instance_id": "B-020#1",
+          "source_references": [
+            "89-world-13-card-text-draft.md#W-city"
+          ],
+          "source_zone": "hand",
+          "target_instance_ids": []
+        },
+        {
+          "action_type": "place_world",
+          "candidate_id": "candidate-place_world-B-022#1",
+          "candidate_variant": "empty_world_slot",
+          "card_id": "W-deepsea",
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-022#1\",\"place_world\",\"empty_world_slot\",[]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "hand_card_action",
+          "source_id": "B-022#1",
+          "source_instance_id": "B-022#1",
+          "source_references": [
+            "89-world-13-card-text-draft.md#W-deepsea"
+          ],
+          "source_zone": "hand",
+          "target_instance_ids": []
+        },
+        {
+          "action_type": "play_main",
+          "candidate_id": "candidate-play-main-B-001#1-birth",
+          "candidate_variant": "birth",
+          "card_id": "M-antlion-01",
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"hand_card_action\",\"hand\",\"B-001#1\",\"play_main\",\"birth\",[]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "hand_card_action",
+          "source_id": "B-001#1",
+          "source_instance_id": "B-001#1",
+          "source_references": [
+            "55-insect-three-lines-card-text-draft.md#M-antlion-01"
+          ],
+          "source_zone": "hand",
+          "target_instance_ids": []
+        },
+        {
+          "action_type": "pass",
+          "candidate_id": "pass",
+          "candidate_variant": "pass",
+          "card_id": null,
+          "disposition": "admitted",
+          "enumeration_unit_id": "[\"standing_pass\",\"synthetic\",\"pass\",\"pass\",\"pass\",[]]",
+          "evidence": {},
+          "reason_codes": [],
+          "source_family": "standing_pass",
+          "source_id": "pass",
+          "source_instance_id": null,
+          "source_references": [
+            "01-core-rules.md"
+          ],
+          "source_zone": "synthetic",
+          "target_instance_ids": []
+        }
+      ],
+      "new_events": 0,
+      "next_opportunity": "normal_action",
+      "path_id": "probe-01-b-first",
+      "source_continuation_state_sha256": "bccfca6a1915fb57b966373af7ad1a2c77372dd842755c9817bf4295d954e1ee",
+      "source_game_state_sha256": "6e0afcf96acdba002cd9de553eeb48a89ddf616d3944ecf3b35adfbe67b56018",
+      "source_last_valid_event_seq": 79
+    },
+    {
+      "active_link_id": null,
+      "balance_sample_count": 0,
+      "board_exclusions": [
+        {
+          "card_id": "C-box",
+          "reason_code": "no_ability",
+          "source_instance_id": "A-012#1"
+        },
+        {
+          "card_id": "P-cliff_goat",
+          "reason_code": "different_world_replacement_not_met",
+          "source_instance_id": "A-018#1"
+        }
+      ],
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "candidate_set_complete": true,
+      "completed": false,
+      "hand_exclusions": [
+        {
+          "card_id": "G-animal-shogi",
+          "reason_code": "requires_own_discarded_companion",
+          "source_instance_id": "A-024#1"
+        },
+        {
+          "card_id": "E-final-time",
+          "reason_code": "requires_main_eight_or_r10",
+          "source_instance_id": "A-039#1",
+          "source_reference": "91-event-21-card-text-draft.md#E-final-time"
+        }
+      ],
+      "hand_other_exclusions": [
+        {
+          "card_id": "I-bond1",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "A-031#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "M-antlion-06",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "A-006#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "I-bowtie",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "A-032#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "M-beetle-01",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "A-009#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": null,
+          "reason_code": "no_prepared_activation_present",
+          "source_instance_id": null,
+          "source_zone": "prepared"
+        }
+      ],
+      "new_events": 0,
+      "next_opportunity": "turn_end_response",
+      "path_id": "probe-02-b-first",
+      "source_continuation_state_sha256": "172ef9d8284391d08cbecc35d1814289f8fdc807907a0deb1d290a4bd6ad88be",
+      "source_game_state_sha256": "ee28974844f09ab8c768a768c5e8a27a0519564e715a7502111ec52669201343",
+      "source_last_valid_event_seq": 80
+    },
+    {
+      "active_link_id": null,
+      "balance_sample_count": 0,
+      "board_exclusions": [
+        {
+          "card_id": "C-cat_friend",
+          "reason_code": "requires_other_discarded_companion",
+          "source_instance_id": "B-013#1"
+        },
+        {
+          "card_id": "P-cliff_goat",
+          "reason_code": "different_world_replacement_not_met",
+          "source_instance_id": "B-018#1"
+        }
+      ],
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "candidate_set_complete": true,
+      "completed": false,
+      "hand_exclusions": [
+        {
+          "card_id": "G-area-claim",
+          "reason_code": "fewer_than_seven_non_egg_board_cards",
+          "source_instance_id": "B-026#1",
+          "source_reference": "85-play-batch-4-card-text-draft.md#G-area-claim"
+        },
+        {
+          "card_id": "G-archery-3d",
+          "reason_code": "requires_own_world",
+          "source_instance_id": "B-025#1",
+          "source_reference": "79-play-batch-1-card-text-draft.md#G-archery-3d"
+        },
+        {
+          "card_id": "G-beach-volley",
+          "reason_code": "requires_own_main_target",
+          "source_instance_id": "B-030#1"
+        }
+      ],
+      "hand_other_exclusions": [
+        {
+          "card_id": "I-sleepboost1",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "B-035#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "M-antlion-01",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "B-001#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "M-antlion-03",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "B-003#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": "W-deepsea",
+          "reason_code": "not_hand_quick_use",
+          "source_instance_id": "B-022#1",
+          "source_zone": "hand"
+        },
+        {
+          "card_id": null,
+          "reason_code": "no_prepared_activation_present",
+          "source_instance_id": null,
+          "source_zone": "prepared"
+        }
+      ],
+      "new_events": 0,
+      "next_opportunity": "post_placement_response",
+      "path_id": "probe-02-a-first",
+      "source_continuation_state_sha256": "faf245d1285b8c441cb3bb5e94f6bb329561620ea33d4905189aa59b81d5e97f",
+      "source_game_state_sha256": "0acda0753bbaa3c9a3564f746c169d5146f27540ee2ddbed010927d186b05a3c",
+      "source_last_valid_event_seq": 68
+    }
+  ],
+  "schema": "naotocchi.card_game.proxy_new_seed_mixed_audit_306.v1",
+  "source_raw_sha256": "f6e693cd0b1e2ed29c4d36c271bb16a4f802e3729b580d018273c1b7ac7b7457"
+}
