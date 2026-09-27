@@ -74,3 +74,41 @@ branch: `claude/naotocchi-rh4-region-registry`
 - walk 10 本: `CONTINUOUS_WALK_ALLOWLIST` = `walkCorridorSpecs()` の ID。各 ID について `walkCorridorSpec(id) !== null`(欠けたら ID を名指しで赤)。
 - 既存の transition 3 本: `jungle|sea`(sea)、`deepsea|sea` / `countryside|star_stop`(vertical)。spec なし。
 - memory_lake: 専用の接続は あるが corridor に ならない。
+
+## 6. strictRegions(harness の既定 on)
+
+- `NaotocchiStrictRegions` を sandbox に渡し、既定は `true`。`harness({ strictRegions: false })` で本番の動きを試す。
+- 既定 on のまま 既存テスト全部(1,430 件)を走らせて、**知らない地域 ID で止まった テストは 0 件**(隠れた typo なし)。off に した 既存テストは ない。off を使うのは RH-4 の テストの 本番の動きを 試す 箇所だけ。
+- 最新 #278 の テストが 使う 地域 ID(`jungle` / `snow`)も 正本。
+
+## 7. remove-it(本物の source を 1 か所ずつ こわし、`region-registry-test` の 赤を 確かめて もとに もどした)
+
+| こわした もの | 赤に なった テスト |
+|---|---|
+| resolver の alias の段 | 5, 6, 8 |
+| 重複の抑え | 6, 7 |
+| strict の throw | 5, 9 |
+| `findRegion` を `|| REGIONS[0]` に もどす | 8, 9 |
+| `currentEnvironment().region` を raw に もどす | 7, 8 |
+| `enterRegionByMove` の比較を raw に もどす | 7 |
+| めぐるの `start` を raw に もどす | 7 |
+| めぐるの 毎 frame の比較を raw に もどす | 7, 8 |
+| `seedWorldRegions` の alias を 外す | 8 |
+| `SKY_OVERRIDE` から memory_lake を 外す | 3 |
+| `REGION_LINE` に typo の キーを 足す | 2 |
+| `CLIMATE` から desert を 外す | 3 |
+| `CORRIDOR_TERRAIN` の `city|sea` を こわす(spec が 組めない) | 10(`city|sea` を 名指し) |
+
+テストの 中でも、15 の 全件の表と 16 の 一部の表の それぞれで「1 件 消す」「typo / 余分を 足す」が 赤に なることと、spec の 欠けを ID で 返すことを 確かめる(テスト 12)。
+
+## 8. cache token
+
+- 中身が 変わった `script.js` と `meguru.js` だけ、RH-3 の式(`YYYYMMDD-<assetHash>`、`tools/bump-versions.js` の `assetHash`)で 更新: `script.js?v=20260927-34391726`、`meguru.js?v=20260927-ccc2677a`。
+- `npm run bump` は hash が 同じ file も 含めて 33 件 全部の 日付を 書きかえる(中身の 変わらない 31 件の URL も 変わり、再訪時に 取りなおしに なる)ので、使わずに 2 件だけ 同じ式で 更新した(hash は `npm run bump` の 出力と 一致を 確認)。asset gate(`asset-integrity-test`)は 33 / 33 一致。
+
+## 9. 結果
+
+- `region-registry-test`: 12 / 12 PASS
+- `npm test` 全体: **1444 / 1444 PASS、exit 0**(RH-3 後の 1432 + 12)
+- ログの「unknown region id」5 行は、すべて `region-registry-test` の 本番の動きを 試す 箇所(`moon` ×2・`forrest`・`null`・数)
+- remove-it: 13 / 13 が 赤
