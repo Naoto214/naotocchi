@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [319](319-new-seed-mixed-choice.md) | 証明済みターン終了2件と唯一response-pass2件を選択 |
 | [318](318-new-seed-mixed-audit.md) | 01-A・02-Aの必須終了と01-B・02-Bの唯一response-passを監査 |
 | [317](317-new-seed-mixed-replay.md) | 3件のresponse-passと01-Bのたまご交換を適用し4 event/snapshotを検証 |
 | [316](316-new-seed-mixed-choice.md) | 3件の唯一response-passと01-Bのseededたまご交換A-019を選択 |
