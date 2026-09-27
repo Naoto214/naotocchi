@@ -31,10 +31,58 @@ function fakeDate(nowOf, pin) {
   return TestDate;
 }
 
+// RH-3: 決定的に うごかす ための 任意の せってい。どれも わたさなければ いままでどおり。
+//   environment: { time, weather } … world-environment の 時間帯と 予想天気を この値に する。
+//     script.js の timeMode / weatherMode は 'auto' の まま(save の 状態は 書きかえない)。
+//     季節は script.js の こよみ から きまるので、ここでは 固定しない(pinDate + clockNow を つかう)。
+//   hostEnvironmentClock: true … world-environment は host の require なので、日付を 省いた ときは
+//     host の じっさいの 時計を 見る。これを harness の 時計(now)に する(時刻の 解釈は host の TZ)。
+//   seed: 数 … 1 つの mulberry32 を、起動前から ページの Math.random と めぐるの setRandom の
+//     両方に つなぐ。new Date() ぜんたいは 固定しない(9edc0e7 の hang を さける)。
+const ENVIRONMENT_TIMES = ['morning', 'day', 'evening', 'night'];
+const ENVIRONMENT_WEATHERS = ['sunny', 'cloudy', 'rain', 'snow'];
+// world-environment.js の WEATHER_LABELS と おなじ(export されていないので うつす。テストで一致を たしかめる)
+const ENVIRONMENT_WEATHER_LABELS = { sunny: 'はれ', cloudy: 'くもり', rain: 'あめ', snow: 'ゆき' };
+function seededRandom(seed) {
+  let a = seed >>> 0, calls = 0;
+  const next = () => {
+    calls++;
+    a = (a + 0x6D2B79F5) >>> 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  return { next, calls: () => calls };
+}
+function environmentModule(nowOf, environment, hostEnvironmentClock) {
+  const real = require('../../world-environment.js');
+  if (!environment && !hostEnvironmentClock) return real;
+  const { time, weather } = environment || {};
+  assert.ok(time === undefined || ENVIRONMENT_TIMES.includes(time), 'environment.time: ' + time);
+  assert.ok(weather === undefined || ENVIRONMENT_WEATHERS.includes(weather), 'environment.weather: ' + weather);
+  const clock = (date) => date || (hostEnvironmentClock ? new Date(nowOf()) : undefined);
+  // require の キャッシュを こわさない ように、うつしを つくって かぶせる
+  return Object.assign({}, real, {
+    timeOfDay(mode, date) {
+      if (time && !ENVIRONMENT_TIMES.includes(mode)) return time; // 手で えらんだ mode は そのまま
+      return real.timeOfDay(mode, clock(date));
+    },
+    simulatedWeather(regionId, season, date) {
+      const base = real.simulatedWeather(regionId, season, clock(date));
+      if (base === null || !weather) return base; // 海の底・星の停留所は いままでどおり null
+      return { ...base, mode: weather, label: ENVIRONMENT_WEATHER_LABELS[weather] };
+    },
+    weatherFromResponse(data, at) {
+      return real.weatherFromResponse(data, at === undefined && hostEnvironmentClock ? nowOf() : at);
+    },
+  });
+}
+
 // Run the real session/input code. The DOM and clock are substitutes: these
 // tests do not measure browser rendering, physical input delivery or FPS.
-function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, imageClass, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false, clockNow = 1000, pinDate = false} = {}) {
+function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, imageClass, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false, clockNow = 1000, pinDate = false, environment, hostEnvironmentClock = false, seed} = {}) {
   let now = clockNow, serial = 0;
+  const rng = seed === undefined ? null : seededRandom(seed);
   const timers = new Map(), elements = new Map();
   const motionListeners = [];
   const motionPreference = {matches:reducedMotion,addEventListener:(type,fn)=>{if(type==='change')motionListeners.push(fn);}};
@@ -153,7 +201,7 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
     NaotocchiCast: require('../../cast-layout.js'),
     NaotocchiCastBounds: require('../../cast-bounds.js'),
     NaotocchiCastMotion: fs.existsSync('cast-motion.js') ? require('../../cast-motion.js') : undefined,
-    NaotocchiEnvironment: require('../../world-environment.js'),
+    NaotocchiEnvironment: environmentModule(() => now, environment, hostEnvironmentClock),
     NaotocchiLocalScenery: require('../../local-scenery.js'),
     NaotocchiWorldScene: worldScene ? require('../../world-scene.js') : undefined,
     NaotocchiCareStatus: require('../../care-status.js'),
@@ -233,11 +281,15 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
     };
   `;
   vm.createContext(sandbox);
+  // seed: 起動時の 乱数も ふくめて、ページの Math.random を 最初から この 1 本に する
+  if (rng) { sandbox.__harnessRandom = rng.next; vm.runInContext('Math.random = __harnessRandom; delete globalThis.__harnessRandom;', sandbox); }
   vm.runInContext(master, sandbox);
   if (propIllustrations && fs.existsSync('prop-illustrations.js')) vm.runInContext(fs.readFileSync('prop-illustrations.js','utf8'), sandbox);
   if(fullDisplay) for(const file of ['game-symbol-art.js','ui-symbol-art.js','illustration-catalog.js','display-illustrations.js','canvas-illustrations.js']) vm.runInContext(fs.readFileSync(file,'utf8'),sandbox);
   const runtimeSource = foodIllustrations ? source : source.replace('foodIconHTML: minigameFoodHTML, ', '');
   vm.runInContext(runtimeSource.replace(/\}\)\(\);\s*$/, expose + '\n})();'), sandbox);
+  // めぐるは 読みこみ時に Math.random を つかまえるが、明示的にも おなじ 1 本を わたす
+  if (rng) sandbox.lifecycle.meguruMod?.setRandom(rng.next);
   if (!resume) sandbox.lifecycle.reset();
   timers.clear();
   function advance(ms) {
@@ -250,9 +302,9 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
     }
     now = until;
   }
-  return {api: sandbox.lifecycle, get, advance, sandbox, dispatch: (target, type, init) => dispatch(target, event(type, init)), document, window,
+  return {api: sandbox.lifecycle, get, advance, sandbox, rng, dispatch: (target, type, init) => dispatch(target, event(type, init)), document, window,
     setReducedMotion(matches) {motionPreference.matches=matches;motionListeners.forEach(fn=>fn({matches}));},
   };
 }
 
-module.exports = {harness};
+module.exports = {harness, ENVIRONMENT_WEATHER_LABELS};

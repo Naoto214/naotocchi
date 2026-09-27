@@ -415,6 +415,16 @@ function countRegistered(ids, registered, canon = (x) => x) → number   // 重�
 
 ### 5.3 RH-3 Deterministic Harness & Asset Gate
 
+> **2026-09-27 追記(RH-3 の事前確認と実装で確かめた事実・決定。基準 main `d686838`)**
+> - `world-environment.js` は harness が **host の `require`** で読む。そのため `timeOfDay` / `simulatedWeather` は host の じっさいの 時計を見て、`pinDate` では届かない。→ harness が module の **うつし** を包む(require の キャッシュは こわさない)。
+> - めぐるの らんすうは `meguruMod.setRandom` が別にある(`api.setRandom` は届かない)。→ `seed` は 1 本の mulberry32 を ページの `Math.random`(起動前から)と めぐるの `setRandom` の両方に つなぐ。
+> - **`environment.season` は作らない(決定)**。季節は script.js の こよみ から決まるので、既存の `pinDate` + `clockNow` で固定する。harness から `seasonMode` を書きかえると「環境の固定」と「save の状態の変更」が まざるため。`environment` は `{ time, weather }` だけで、`timeMode` / `weatherMode` は `'auto'` のまま(手で えらんだ mode は そのまま優先)。
+> - host の TZ は ひきつづき管理しない(process 全体の設定なので)。`environment` を使えば 時間帯・天気は TZ に よらない。
+> - **asset gate の item の正本は `UNIFIED_ITEM_IDS`(訂正)**。下の表の「CATALOG × `assets/items/unified/<id>.png`」は誤り(`new_themed_pack` は画像を持たず `sticker_pack` を使う)。renderer が実際に画像を出す一覧を正本にする。
+> - **token は `<script src>` と `<link rel="stylesheet">` だけ必須**。font と egg 画像の `rel="preload"` は、CSS / JS が同じ token なしの URL で読むので、意図的に token なし(付けると二重に取得する)。
+> - 監査時点で 欠けは 0(静的な参照 413・大文字小文字の食いちがい 0・token 33 すべて hash 一致・動的な種族 248 / items 27 / シール 319 / 卵 3 / ゴールの絵の fallback 5)。RH-3 の gate は「これからの欠け」を止めるためのもの。item とシールは既存の `item-art-unification-test` / `sticker-test` が強く見ている。
+> - 既知の flaky 2 本: Phase 4E は完了したが、書きかえは **RH-6 のまま**。RH-3 は同じ場面を新しい option で決定的に表せることを新しいテストで示すだけ。
+
 **目的**:
 - テストから時刻・天気・季節・乱数を注入できる最小の契約を作る(production は変えない)。
 - `?v=` と asset の不一致を CI で止める。
@@ -507,6 +517,12 @@ harness({
 - **完了条件**: 種族を 1 つ足して表を 1 つ書き忘れると、赤になる。
 
 ### 7.3 RH-6 Test Architecture Cleanup
+
+> **2026-09-27 追記: home-layout の `ECONNRESET`(test-infra の backlog。RH-3 には入れない)**
+> - 症状: `tests/home-layout-browser.cjs` の safe-area 用 CSS の差しかえ(`context.route('**/*.css?*', …)` の中の `route.fetch()`)が `read ECONNRESET` で失敗する。handler に try/catch がないので **unhandled promise rejection として process ごと落ちる**。
+> - 頻度: 2026-09-26 の CI で 3 回(#347 の 1 回目、#348 の `6a0e16b` で 2 回)。どれも直前の case が PASS した あとの safe-area の case。main と ほかの run は緑。
+> - 手元では再現しない: vite の cache を空にして 3 回、cache の configHash を わざと食いちがわせて(依存の再最適化が走る)1 回、さらに `optimizeDeps.noDiscovery` を つけて 1 回、どれも chromium 94 / 94 PASS。以前 1 回だけ手元で起きたときは vite の再最適化の直後だったが、CI の log には再最適化の表示がない → **vite の optimizer が原因とは証明できていない**。
+> - 小さな retry や catch は根本原因を隠しうるので、原因を特定してから直す(home-layout 専用の retry や runner の hack は入れない)。
 - **harness の既定値を反転する**: `environment` の既定値を固定側にし、`'auto'` は opt-in にする。めぐるの 28 ファイルと flaky 2 本の書き方を新しい option に移す。
 - **source-text テスト 24 本の分類**:
 | 分類 | 対象(代表) | 方針 |
