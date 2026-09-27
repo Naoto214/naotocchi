@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [287](287-new-seed-mixed-replay.md) | response pass2件と通常pass2件を適用、4経路の次局面候補監査へ |
 | [286](286-new-seed-mixed-choice.md) | response pass2件、通常pass2件を107/114で選択 |
 | [285](285-new-seed-mixed-audit.md) | 次優先者response2件と通常行動3/5候補を監査 |
 | [284](284-new-seed-mixed-replay.md) | response pass3件、コイン公開解決1件をstateへ適用 |
