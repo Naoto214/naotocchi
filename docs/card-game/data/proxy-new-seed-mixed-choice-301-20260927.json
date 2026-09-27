@@ -1,0 +1,394 @@
+{
+  "completed": 0,
+  "independent_balance_sample_count": 0,
+  "new_events": 0,
+  "planned": 4,
+  "results": [
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-activate-ability-A-015#1",
+        "response-pass"
+      ],
+      "comparison": {
+        "actor": "A",
+        "candidate_set_evidence": {
+          "actor": "A",
+          "board_exclusions": [
+            {
+              "card_id": "P-cat_ceo",
+              "reason_code": "relationship_start_event_not_met",
+              "source_instance_id": "A-017#1"
+            }
+          ],
+          "candidate_set_complete": true,
+          "excluded_candidates": [
+            {
+              "card_id": "M-antlion-06",
+              "reason_code": "not_hand_quick_use",
+              "source_instance_id": "A-006#1",
+              "source_zone": "hand"
+            },
+            {
+              "card_id": "M-antlion-05",
+              "reason_code": "not_hand_quick_use",
+              "source_instance_id": "A-005#1",
+              "source_zone": "hand"
+            },
+            {
+              "card_id": "M-antlion-04",
+              "reason_code": "not_hand_quick_use",
+              "source_instance_id": "A-004#1",
+              "source_zone": "hand"
+            },
+            {
+              "card_id": "W-countryside",
+              "reason_code": "not_hand_quick_use",
+              "source_instance_id": "A-021#1",
+              "source_zone": "hand"
+            },
+            {
+              "card_id": null,
+              "reason_code": "no_prepared_activation_present",
+              "source_instance_id": null,
+              "source_zone": "prepared"
+            }
+          ],
+          "forbidden_information_used": [],
+          "hand_conditional_exclusions": [
+            {
+              "card_id": "G-basketball-3d",
+              "reason_code": "requires_own_main_target",
+              "source_instance_id": "A-029#1"
+            },
+            {
+              "card_id": "E-final-time",
+              "reason_code": "requires_main_eight_or_r10",
+              "source_instance_id": "A-039#1",
+              "source_reference": "91-event-21-card-text-draft.md#E-final-time"
+            },
+            {
+              "card_id": "I-poop1",
+              "reason_code": "not_hand_quick_use",
+              "source_instance_id": "A-034#1",
+              "source_reference": "77-current-items-card-text-draft.md#I-poop1"
+            },
+            {
+              "card_id": "G-beach-volley",
+              "reason_code": "requires_own_main_target",
+              "source_instance_id": "A-030#1"
+            }
+          ],
+          "inspected_information": {
+            "opponent_public": {
+              "board": {
+                "companions": [
+                  {
+                    "card_copy_id": "B-011",
+                    "card_id": "C-bat",
+                    "instance_id": "B-011#1"
+                  },
+                  {
+                    "card_copy_id": "B-013",
+                    "card_id": "C-cat_friend",
+                    "instance_id": "B-013#1"
+                  }
+                ],
+                "main": null,
+                "partner": {
+                  "card_copy_id": "B-017",
+                  "card_id": "P-cat_ceo",
+                  "instance_id": "B-017#1"
+                },
+                "partner_stage": 0,
+                "world": null
+              },
+              "discard": [],
+              "prepared_public": [],
+              "reservations": [],
+              "time": 4
+            },
+            "owner": {
+              "board": {
+                "companions": [
+                  {
+                    "card_copy_id": "A-015",
+                    "card_id": "C-chicken",
+                    "instance_id": "A-015#1"
+                  }
+                ],
+                "main": null,
+                "partner": {
+                  "card_copy_id": "A-017",
+                  "card_id": "P-cat_ceo",
+                  "instance_id": "A-017#1"
+                },
+                "partner_stage": 0,
+                "world": null
+              },
+              "discard": [],
+              "hand": [
+                {
+                  "card_copy_id": "A-006",
+                  "card_id": "M-antlion-06",
+                  "instance_id": "A-006#1"
+                },
+                {
+                  "card_copy_id": "A-005",
+                  "card_id": "M-antlion-05",
+                  "instance_id": "A-005#1"
+                },
+                {
+                  "card_copy_id": "A-029",
+                  "card_id": "G-basketball-3d",
+                  "instance_id": "A-029#1"
+                },
+                {
+                  "card_copy_id": "A-039",
+                  "card_id": "E-final-time",
+                  "instance_id": "A-039#1"
+                },
+                {
+                  "card_copy_id": "A-034",
+                  "card_id": "I-poop1",
+                  "instance_id": "A-034#1"
+                },
+                {
+                  "card_copy_id": "A-004",
+                  "card_id": "M-antlion-04",
+                  "instance_id": "A-004#1"
+                },
+                {
+                  "card_copy_id": "A-030",
+                  "card_id": "G-beach-volley",
+                  "instance_id": "A-030#1"
+                },
+                {
+                  "card_copy_id": "A-021",
+                  "card_id": "W-countryside",
+                  "instance_id": "A-021#1"
+                }
+              ],
+              "prepared": [],
+              "reservations": [],
+              "time": 5
+            }
+          },
+          "legal_candidate_details": [
+            {
+              "action_type": "activate_board_ability",
+              "base_time_cost": 0,
+              "candidate_family": "triggered_ability",
+              "candidate_id": "response-activate-ability-A-015#1",
+              "candidate_variant": null,
+              "card_copy_id": "A-015",
+              "card_id": "C-chicken",
+              "source_instance_id": "A-015#1",
+              "source_references": [
+                "72-companion-26-card-text-draft.md#C-chicken"
+              ],
+              "target_instance_ids": []
+            },
+            {
+              "action_type": "response_pass",
+              "base_time_cost": 0,
+              "candidate_family": "pass",
+              "candidate_id": "response-pass",
+              "card_copy_id": null,
+              "card_id": null,
+              "source_instance_id": null,
+              "source_references": [
+                "01-core-rules.md#通常行動と反応【確定】",
+                "06-action-chain-checkpoint.md#反応機会・パス【確定】"
+              ],
+              "target_instance_ids": []
+            }
+          ],
+          "legal_candidate_ids": [
+            "response-activate-ability-A-015#1",
+            "response-pass"
+          ],
+          "response_context": {
+            "chain_links": [],
+            "chain_status": "empty",
+            "choice_kind": "reaction_or_pass",
+            "consecutive_passes": 0,
+            "decision_kind": "response_action",
+            "origin_event_seq": 75,
+            "phase": "response_window",
+            "priority_actor": "A",
+            "response_opportunity_index": 1,
+            "source_phase": "response_window",
+            "turn_player": "A",
+            "window_kind": "turn_start"
+          },
+          "source_references": [
+            "01-core-rules.md#通常行動と反応【確定】",
+            "06-action-chain-checkpoint.md#反応機会・パス【確定】",
+            "72-companion-26-card-text-draft.md#C-chicken"
+          ]
+        },
+        "choice_kind": "reaction_or_pass",
+        "comparison_evidence": null,
+        "decision_kind": "response_action",
+        "legal_candidate_details": [
+          {
+            "action_type": "activate_board_ability",
+            "base_time_cost": 0,
+            "candidate_family": "triggered_ability",
+            "candidate_id": "response-activate-ability-A-015#1",
+            "candidate_variant": null,
+            "card_copy_id": "A-015",
+            "card_id": "C-chicken",
+            "source_instance_id": "A-015#1",
+            "source_references": [
+              "72-companion-26-card-text-draft.md#C-chicken"
+            ],
+            "target_instance_ids": []
+          },
+          {
+            "action_type": "response_pass",
+            "base_time_cost": 0,
+            "candidate_family": "pass",
+            "candidate_id": "response-pass",
+            "card_copy_id": null,
+            "card_id": null,
+            "source_instance_id": null,
+            "source_references": [
+              "01-core-rules.md#通常行動と反応【確定】",
+              "06-action-chain-checkpoint.md#反応機会・パス【確定】"
+            ],
+            "target_instance_ids": []
+          }
+        ],
+        "legal_candidate_ids": [
+          "response-activate-ability-A-015#1",
+          "response-pass"
+        ],
+        "phase": "response_window",
+        "reason_code": "strategic_unresolved_response_seeded_fallback",
+        "resolution_mode": "response_seeded_fallback",
+        "response_opportunity_index": 1,
+        "runner_up_candidates": [
+          "response-pass"
+        ],
+        "seed_context": {
+          "actor": "A",
+          "actor_turn_index": 5,
+          "choice_kind": "reaction_or_pass",
+          "contract_version": "naotocchi.card_game.proxy_response_window.v1",
+          "decision_kind": "response_action",
+          "order_id": "probe-01",
+          "origin_event_seq": 75,
+          "phase": "response_window",
+          "response_opportunity_index": 1,
+          "round": 5
+        },
+        "seed_proof": {
+          "algorithm": "sha256_big_endian_unsigned_modulo_n",
+          "candidate_count": 2,
+          "canonical_candidate_ids": [
+            "response-activate-ability-A-015#1",
+            "response-pass"
+          ],
+          "canonical_serialization": "[\"naotocchi.card_game.proxy_response_window.v1\",\"probe-01\",\"A\",5,5,75,1,\"response_window\",\"response_action\",\"reaction_or_pass\",[\"response-activate-ability-A-015#1\",\"response-pass\"]]",
+          "seed_material": [
+            "naotocchi.card_game.proxy_response_window.v1",
+            "probe-01",
+            "A",
+            5,
+            5,
+            75,
+            1,
+            "response_window",
+            "response_action",
+            "reaction_or_pass",
+            [
+              "response-activate-ability-A-015#1",
+              "response-pass"
+            ]
+          ],
+          "selected_candidate": "response-activate-ability-A-015#1",
+          "selected_index": 0,
+          "sha256": "7293bc33d5c10daa188d4edcc976a680f3ade87a35ef044796ac0829679ff4b0"
+        },
+        "selected_action": {
+          "action_type": "activate_board_ability",
+          "base_time_cost": 0,
+          "candidate_family": "triggered_ability",
+          "candidate_id": "response-activate-ability-A-015#1",
+          "candidate_variant": null,
+          "card_copy_id": "A-015",
+          "card_id": "C-chicken",
+          "source_instance_id": "A-015#1",
+          "source_references": [
+            "72-companion-26-card-text-draft.md#C-chicken"
+          ],
+          "target_instance_ids": []
+        },
+        "selected_candidate": "response-activate-ability-A-015#1"
+      },
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-01-a-first",
+      "resolution_mode": "response_seeded_fallback",
+      "selected_candidate": "response-activate-ability-A-015#1",
+      "source_continuation_state_sha256": "106699fbc7c15e4716a0d4ffc8aedf8c4243dd072bfed9c44b6dff13ce5ad13c",
+      "source_game_state_sha256": "3bcbde1207a98d7e87720dd2992d63518d255415e5935953b0545f25183ff309",
+      "source_last_valid_event_seq": 75
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "comparison": {
+        "reason": "only_complete_legal_candidate"
+      },
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-01-b-first",
+      "resolution_mode": "response_unique",
+      "selected_candidate": "response-pass",
+      "source_continuation_state_sha256": "5e514f67c6181ff29afb53ed6c51bad896f23f1a701024647157d157d8922de5",
+      "source_game_state_sha256": "db9f2c57ab1bed49701863d7b499d485e7adb9475092e3729189679a90c07b9d",
+      "source_last_valid_event_seq": 77
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "comparison": {
+        "reason": "only_complete_legal_candidate"
+      },
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-02-b-first",
+      "resolution_mode": "response_unique",
+      "selected_candidate": "response-pass",
+      "source_continuation_state_sha256": "3f3d2b3f5f5c2e039cd8ada6e022188a639346c7f2430242461c9394771dad01",
+      "source_game_state_sha256": "8ff0548dad884caaaa480f1d2811185f687b00b070407396393ab22505170062",
+      "source_last_valid_event_seq": 78
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "comparison": {
+        "reason": "only_complete_legal_candidate"
+      },
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-02-a-first",
+      "resolution_mode": "response_unique",
+      "selected_candidate": "response-pass",
+      "source_continuation_state_sha256": "c69331b4dda737a0441ddc8484f2de99e6d24cea3e361aa23d9c427c65ad66c6",
+      "source_game_state_sha256": "9327c304443384d41a506f2f20733f06c6e0f92ca69295ab0342562f182bf043",
+      "source_last_valid_event_seq": 66
+    }
+  ],
+  "schema": "naotocchi.card_game.proxy_new_seed_mixed_choice_301.v1",
+  "source_raw_sha256": "7d4f8b6426e08fb2446ab96aa259ee699037c7ce54d2a48ed6868b1ab9f2ad6f"
+}
