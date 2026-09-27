@@ -112,6 +112,19 @@ test('the checks catch a missing file, a case mismatch, a stale token, a missing
   assert.deepEqual(missingPaths(['assets/characters/dog/09.png', 'assets/a/dog.png'], files), ['assets/characters/dog/09.png']);
 });
 
+test('the real index.html and references turn red when a token goes stale, a token is dropped or a path changes case', () => {
+  const files = tracked();
+  const html = read('index.html').toString('utf8');
+  const hashOf = (file) => (files.has(file) ? assetHash(read(file)) : null);
+  const staleHtml = html.replace(/(script\.js\?v=\d{8}-)[0-9a-f]{8}/, '$100000000');
+  assert.deepEqual(checkTokens(staleHtml, hashOf).stale.map((x) => x.file), ['script.js']);
+  const droppedHtml = html.replace(/(href="style\.css)\?v=[^"]+"/, '$1"');
+  assert.deepEqual(checkTokens(droppedHtml, hashOf).missingToken, ['style.css']);
+  const ref = staticAssetRefs([{ file: 'index.html', text: html }])[0].ref;
+  const shouted = ref.replace(/[^/]+$/, (name) => name.toUpperCase());
+  assert.deepEqual(checkRefs([{ file: 'index.html', ref: shouted }], files).caseMismatch.map((x) => x.actual), [ref]);
+});
+
 // --- bump-versions の CLI は変わらない(export は hash だけ) ---
 test('npm run bump still rewrites only the ?v= tokens with YYYYMMDD-<assetHash>, and is idempotent', () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'rh3-bump-'));

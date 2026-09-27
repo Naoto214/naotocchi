@@ -140,6 +140,9 @@ test('a manual time/weather mode still wins over environment, and the undersea/s
     s.regionId = region;
     assert.equal(h.api.currentEnvironment().weather, null, region);
   }
+  // script.js は この 2 地域で simulatedWeather を よばないので、包んだ module を じかに たしかめる
+  for (const region of ['deepsea', 'star_stop']) assert.equal(h.sandbox.NaotocchiEnvironment.simulatedWeather(region, 'autumn'), null, region);
+  assert.equal(h.sandbox.NaotocchiEnvironment.simulatedWeather('forest', 'autumn').mode, 'rain');
   assert.throws(() => harness({ environment: { time: 'noon' } }), /environment\.time/);
 });
 
