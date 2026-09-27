@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [307](307-new-seed-mixed-choice.md) | 3件の唯一response-passと01-Bのnormal passを選択 |
 | [306](306-new-seed-mixed-audit.md) | 3件のresponse-passと01-Bの通常行動4候補を横断監査 |
 | [305](305-new-seed-mixed-replay.md) | 連鎖中pass、response-pass、時0なかま配置、normal passを4経路で適用 |
 | [304](304-new-seed-mixed-choice.md) | 01-A/Bは唯一pass、02-Aは時0C-cat_friend配置、02-Bはpassを選択 |
