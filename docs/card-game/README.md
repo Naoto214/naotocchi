@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [299](299-new-seed-mixed-replay.md) | たまご交換2件とresponse-pass2件を適用、4経路の開始時候補監査へ |
 | [298](298-new-seed-mixed-choice.md) | R5たまご交換2件をseed選択、B側開始時response各唯一pass |
 | [297](297-new-seed-mixed-audit.md) | R5たまご交換9/8候補とB側開始時response各唯一passを監査 |
 | [296](296-new-seed-mixed-replay.md) | 終了・ドロー2経路、たまご交換2経路を再生 |
