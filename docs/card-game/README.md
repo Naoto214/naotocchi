@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [282](282-new-seed-mixed-audit.md) | response pass2、C-chicken起動候補、コイン解決入口を監査 |
 | [281](281-new-seed-mixed-replay.md) | なかま配置、交換、response pass2件をstateへ適用 |
 | [280](280-new-seed-mixed-choice.md) | 時0なかま配置、seeded交換、唯一response pass2件を選択 |
 | [279](279-new-seed-mixed-audit.md) | 278の4局面で通常行動4、必須交換8、response pass各1を監査 |
