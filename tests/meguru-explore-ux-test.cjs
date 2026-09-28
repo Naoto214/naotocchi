@@ -4,6 +4,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { harness } = require('./helpers/runtime-harness.cjs');
+const D = require('./helpers/meguru-denominators.cjs'); // RH-6: 分母の 置き場所
 
 function fakeCtx() {
   const state = { imageSmoothingEnabled: true }, stack = [];
@@ -270,7 +271,7 @@ test('B4. 探索率の しきは ひとつも かわって いない(471 spot / 
     spots += w.spots.length; paths += w.paths.length; zones += w.zones.length;
     secret += w.spots.filter((s) => s.secret).length + w.paths.filter((p) => p[2] === 'secret').length;
   }
-  assert.equal(spots, 471); assert.equal(paths, 654); assert.equal(zones, 118); assert.equal(secret, 107);
+  assert.equal(spots, D.SPOTS); assert.equal(paths, D.PATHS); assert.equal(zones, D.ZONES); assert.equal(secret, D.SECRETS);
   // 0% は 0、100% は 100
   const zero = wd(M, { regions: [] });
   assert.equal(zero.progress.percent, 0);

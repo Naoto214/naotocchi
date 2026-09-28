@@ -1,34 +1,17 @@
 const assert = require('node:assert/strict');
 const { test } = require('node:test');
-const fs = require('node:fs');
-const path = require('node:path');
-const vm = require('node:vm');
 const { harness } = require('./helpers/runtime-harness.cjs');
 
 // RH-4 Region Registry Integrity: 地域 ID の 正本(master の regions)と、地域で ひく 表・参照・corridor が
 // ずれたら CI で 赤に する。知らない ID は 本番では home へ 解決して 1 回だけ 記録、テスト(strictRegions)では throw。
 // save の regionId / regionsVisited は 書きかえない(policy.preserveRawSaveIds)
-const ROOT = path.join(__dirname, '..');
 const SAVE = 'naotocchi-save-v1';
-const read = (file) => fs.readFileSync(path.join(ROOT, file), 'utf8');
-const master = (() => {
-  const ctx = { window: {} }; vm.createContext(ctx);
-  vm.runInContext(read('character-world-master.v1.js') + ';window.M = NAOTOCCHI_CHARACTER_WORLD_MASTER_V1;', ctx);
-  return ctx.window.M;
-})();
+const { read, literal, loadMaster } = require('./helpers/source.cjs'); // RH-6: 共通の 部品
+const master = loadMaster();
 const R = master.regions;
 const CANON = [R.home.id, ...R.normal.map((r) => r.id), ...R.special.map((r) => r.id)];
 const HOME_AND_NORMAL = [R.home.id, ...R.normal.map((r) => r.id)];
 const without = (...ids) => CANON.filter((id) => !ids.includes(id));
-// export されていない 小さな 表(本番の file は かえない)は、宣言の オブジェクトを そのまま 評価する
-function literal(file, decl) {
-  const src = read(file), i = src.indexOf(decl);
-  assert.ok(i >= 0, `${file}: ${decl}`);
-  let j = src.indexOf('{', i), d = 0;
-  const start = j;
-  for (; j < src.length; j++) { if (src[j] === '{') d++; else if (src[j] === '}' && --d === 0) break; }
-  return vm.runInNewContext('(' + src.slice(start, j + 1) + ')');
-}
 
 // --- 検査の 部品(純粋な 関数。remove-it で こわした 写しにも つかう) ---
 const keysOf = (t) => (Array.isArray(t) ? [...t] : Object.keys(t || {}));

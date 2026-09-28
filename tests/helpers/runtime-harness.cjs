@@ -31,8 +31,10 @@ function fakeDate(nowOf, pin) {
   return TestDate;
 }
 
-// RH-3: 決定的に うごかす ための 任意の せってい。どれも わたさなければ いままでどおり。
+// RH-3: 決定的に うごかす ための 任意の せってい。
 //   environment: { time, weather } … world-environment の 時間帯と 予想天気を この値に する。
+//     RH-6: 既定は DEFAULT_ENVIRONMENT(ひる・はれ)。host の 時計しだいで 時間帯と 天気が かわる 本物の
+//     ふるまいを ためす テストだけ environment: 'auto' を わたす(Roadmap §7.3「既定値を 固定側に、'auto' は opt-in」)。
 //     script.js の timeMode / weatherMode は 'auto' の まま(save の 状態は 書きかえない)。
 //     季節は script.js の こよみ から きまるので、ここでは 固定しない(pinDate + clockNow を つかう)。
 //   hostEnvironmentClock: true … world-environment は host の require なので、日付を 省いた ときは
@@ -42,7 +44,12 @@ function fakeDate(nowOf, pin) {
 //   strictRegions(RH-4、既定 true)… 知らない 地域 ID・typo・文字列でない 値で script.js の resolveRegionId が throw する
 //     (本番では home へ 解決して 1 回だけ 記録)。正式な alias(tropical → jungle)は 正常。
 //     知らない ID を わざと ためす テストだけ false にする。
+//   deterministic: true(RH-6)… host の 時計・TZ・らんすう に よらない 場面に する プリセット
+//     (environment + hostEnvironmentClock + seed + pinDate + clockNow)。個別に わたした 値が 優先。
+//     seed / pinDate は 既定には しない(別の harness が 同じ らんすうに なる・日の 進む テストが とまる)。
 const ENVIRONMENT_TIMES = ['morning', 'day', 'evening', 'night'];
+const DEFAULT_ENVIRONMENT = Object.freeze({ time: 'day', weather: 'sunny' });
+const DETERMINISTIC = Object.freeze({ environment: DEFAULT_ENVIRONMENT, hostEnvironmentClock: true, seed: 20260923, pinDate: true, clockNow: Date.parse('2026-09-16T12:00:00Z') });
 const ENVIRONMENT_WEATHERS = ['sunny', 'cloudy', 'rain', 'snow'];
 // world-environment.js の WEATHER_LABELS と おなじ(export されていないので うつす。テストで一致を たしかめる)
 const ENVIRONMENT_WEATHER_LABELS = { sunny: 'はれ', cloudy: 'くもり', rain: 'あめ', snow: 'ゆき' };
@@ -59,6 +66,7 @@ function seededRandom(seed) {
 }
 function environmentModule(nowOf, environment, hostEnvironmentClock) {
   const real = require('../../world-environment.js');
+  if (environment === 'auto') environment = undefined;
   if (!environment && !hostEnvironmentClock) return real;
   const { time, weather } = environment || {};
   assert.ok(time === undefined || ENVIRONMENT_TIMES.includes(time), 'environment.time: ' + time);
@@ -83,7 +91,10 @@ function environmentModule(nowOf, environment, hostEnvironmentClock) {
 
 // Run the real session/input code. The DOM and clock are substitutes: these
 // tests do not measure browser rendering, physical input delivery or FPS.
-function harness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, imageClass, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false, clockNow = 1000, pinDate = false, environment, hostEnvironmentClock = false, seed, strictRegions = true} = {}) {
+function harness(options = {}) {
+  return createHarness(options.deterministic ? { ...DETERMINISTIC, ...options } : options);
+}
+function createHarness({storage, resume = false, geolocation, fetcher, reducedMotion = false, viewportHeight, canvasContext, imageClass, foodIllustrations = true, propIllustrations = true, fullDisplay = false, worldScene = false, clockNow = 1000, pinDate = false, environment = DEFAULT_ENVIRONMENT, hostEnvironmentClock = false, seed, strictRegions = true} = {}) {
   let now = clockNow, serial = 0;
   const rng = seed === undefined ? null : seededRandom(seed);
   const timers = new Map(), elements = new Map();
@@ -311,4 +322,4 @@ function harness({storage, resume = false, geolocation, fetcher, reducedMotion =
   };
 }
 
-module.exports = {harness, ENVIRONMENT_WEATHER_LABELS};
+module.exports = {harness, ENVIRONMENT_WEATHER_LABELS, DEFAULT_ENVIRONMENT, DETERMINISTIC};

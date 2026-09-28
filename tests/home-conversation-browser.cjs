@@ -3,6 +3,7 @@
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
+const { guardedRoute } = require('./helpers/browser-route.cjs');
 
 function measureConversation() {
   const rect=e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height};};
@@ -101,7 +102,8 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
     if(onlyNames && !onlyNames.includes(name)) continue;
     const label=engine+'-conversation-'+name;
     const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce',isMobile:width<500,hasTouch:width<500});
-    if(name==='safe-area') await context.route('**/*.css?*',async route=>{
+    const routeErrors=[]; // RH-6: route の fetch が こけたら 記録して この case を 赤に(retry しない)
+    if(name==='safe-area') await guardedRoute(context,'**/*.css?*',label,routeErrors,async route=>{
       const response=await route.fetch();
       await route.fulfill({response,body:(await response.text()).replace(/env\(safe-area-inset-(top|right|bottom|left)\)/g,(_,edge)=>({top:59,bottom:34}[edge]||0)+'px')});
     });
@@ -114,7 +116,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
           name==='missing-friends-min'?url.includes('/companions/'):true;
         return fail?route.abort('failed'):route.continue();
       });
-      if(name.endsWith('-min')) await context.route('**/world-scene.css?*',async route=>{
+      if(name.endsWith('-min')) await guardedRoute(context,'**/world-scene.css?*',label,routeErrors,async route=>{
         const response=await route.fetch();
         // Restrict the available region, without overriding the inline min
         // height whose erroneous expansion caused this regression.
@@ -219,6 +221,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
         assert.ok(Math.max(...m.poops.map(p=>p.x+p.w))-first.x<=102.6,label+': poop row exceeds its compact bounds');
       }
       assert.deepEqual(errors,[],label+': browser errors');
+      assert.deepEqual(routeErrors,[],label+': CSS substitution fetch failed');
       assert.equal(!!m.ring,!!save.partner?.married,label+': marriage ring visibility');
       if(m.ring) {
         assert.ok(m.ring.w>=15 && m.ring.w<=23 && Math.abs(m.ring.h-m.ring.w)<.1,label+': ring size');

@@ -11,6 +11,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const { harness } = require('./helpers/runtime-harness.cjs');
+const D = require('./helpers/meguru-denominators.cjs'); // RH-6: 分母の 置き場所
 
 const arr = (x) => Array.from(x || []);
 const deg = (r) => ((r * 180 / Math.PI) % 360 + 360) % 360;
@@ -584,7 +585,7 @@ test('19. 分母・spot・たび・セーブ・世界地図・corridor の か�
   for (const id of Object.keys(M.WORLDS)) { const w = M.WORLDS[id];
     sp += w.spots.length; pa += w.paths.length; zo += w.zones.length;
     se += w.spots.filter((x) => x.secret).length + w.paths.filter((x) => x[2] === 'secret').length; }
-  assert.equal(sp, 471); assert.equal(pa, 654); assert.equal(zo, 118); assert.equal(se, 107);
+  assert.equal(sp, D.SPOTS); assert.equal(pa, D.PATHS); assert.equal(zo, D.ZONES); assert.equal(se, D.SECRETS);
   assert.equal(M.WORLD_GEOGRAPHY.connections.length, 14);
   assert.equal(M.WORLD_GEOGRAPHY.connections.filter((c) => c.gate).length, 13);
   assert.equal(arr(M.worldCorridors()).length, 13); assert.equal(arr(M.walkCorridorSpecs()).length, 10);

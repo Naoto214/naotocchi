@@ -5,6 +5,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { harness } = require('./helpers/runtime-harness.cjs');
+const D = require('./helpers/meguru-denominators.cjs'); // RH-6: 分母の 置き場所
 
 function fakeCtx() {
   const state = { imageSmoothingEnabled: true }, stack = [];
@@ -356,7 +357,7 @@ test('16. 地域の なかみは 1 つも かわって いない', () => {
     spots += w.spots.length; paths += w.paths.length; zones += w.zones.length;
     secret += w.spots.filter((q) => q.secret).length + w.paths.filter((q) => q[2] === 'secret').length;
   }
-  assert.equal(spots, 471); assert.equal(paths, 654); assert.equal(zones, 118); assert.equal(secret, 107);
+  assert.equal(spots, D.SPOTS); assert.equal(paths, D.PATHS); assert.equal(zones, D.ZONES); assert.equal(secret, D.SECRETS);
 });
 
 test('17. ひみつは 1 つも 世界地図へ もれない(海路を 足した あとも)', () => {
