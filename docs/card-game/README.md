@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [342](342-new-seed-mixed-replay.md) | seeded交換2・response-pass・C-box配置を4 event/snapshotで再生 |
 | [341](341-new-seed-mixed-choice.md) | seeded交換A-030／B-022、唯一pass、02-Bの時0 C-box配置を選択 |
 
 | [340](340-new-seed-mixed-audit.md) | たまご交換10件／9件、唯一pass、通常行動3件を横断監査 |
