@@ -131,3 +131,8 @@ branch: `claude/naotocchi-rh9-session-safety`
 
 - 中身が 変わった `script.js` だけ、RH-3 の 式(`assetHash`)で 更新: `script.js?v=20260928-1b018efe`。
 - `index.html` の inline guard は 外の ファイルを 参照しない。
+
+## 9. 結果
+
+- `session-safety-test`: 9 / 9、`boot-rescue-browser`: Chromium PASS(手元)
+- `npm test` 全体: **1500 / 1500 PASS、exit 0**(RH-8 後の 1491 + 9)
