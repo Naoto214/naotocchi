@@ -78,3 +78,36 @@ save の 形・schemaVersion(5)・ending の 番号・見た目は 変えてい�
 - 4 段 だった ころの 4 件 のまま で、perfect の 分が ない(perfect では 演出が 出ない)。**4 件が 正しい 仕様 では ない。**
 - RH-5 では 見た目を 決めない。テストの `KNOWN_GAPS.ENDING_CELEBRATIONS = { missing: ['perfect'] }` で「欠けて いるのは perfect だけ」を 固定した。5 件目を 足したら `KNOWN_GAPS` から 外す(外さないと 赤に なる)。
 - 中身の 決定は 後続の visual / content cleanup 候補(Roadmap §7.2 に 記録)。
+
+## 6. remove-it(本物の source を 1 か所ずつ こわし、`content-registry-test` の 赤を 確かめて もとに もどした)
+
+| こわした もの | 赤に なった テスト | 名指し |
+|---|---|---|
+| `COMPANION_RUNTIME` の shiba(起動時 TypeError に なる 欠け) | 3(+ 起動が 要る テスト) | `missing=[shiba]` |
+| `PARTNER_RUNTIME_PROFILE` の cat_ceo(同上) | 3(+ 起動が 要る テスト) | `missing=[cat_ceo]` |
+| `MASTER_SPECIES_EMOJI` の frog | 3, 13 | `missing=[frog]` |
+| `PARTNER_SIGNATURE_LINES` の snowman | 3, 13 | `missing=[snowman]` |
+| movie-dialogue `partners` の cat_ceo | 3, 13 | `missing=[cat_ceo]` |
+| meguru `HABITAT` の frog | 3, 13 | `missing=[frog]` |
+| cast-bounds の `dog/03.png` | 8 | `missing=[assets/characters/dog/03.png]` |
+| cast-motion `PERSONALITY` に typo | 4 | `missing=[snail] extra=[snial]` |
+| `SECRET_LINES` を `['ren']` の 直書きに もどす | 2 | |
+| `dexFoundCount` から alias を 外す | 7 | |
+| 図鑑の 表示から alias を 外す | 7 | |
+| `GOAL_TIER_IDS` の 並びを 入れかえる | 10, 11, 12 | |
+| `ENDING_CELEBRATIONS` に 5 件目を 足して `KNOWN_GAPS` を 外さない | 10, 11 | |
+| `achievedGoalTiers` の dex を 番号 4 に | 12 | |
+
+- 起動時 TypeError に なる 欠けでも、表の テスト(3)は 起動せずに「どの 表の どの ID か」を 出す(テストの 起動は 遅延)。
+- テストの 中でも、master に しゅぞく / こいびとを 1 つ 足して 1 つの 表だけ 書きわすれた 想定・typo・余分・退役 ID の まぎれこみ を それぞれ 名指しで 返す ことを 確かめる(テスト 13)。
+
+## 7. cache token
+
+- 中身が 変わった `script.js` だけ、RH-3 の式(`tools/bump-versions.js` の `assetHash`)で 更新: `script.js?v=20260928-112733cf`。asset gate は 33 / 33 一致。
+
+## 8. 結果
+
+- `content-registry-test`: 13 / 13 PASS
+- `npm test` 全体: **1457 / 1457 PASS、exit 0**(RH-4 後の 1444 + 13)
+- remove-it: 14 / 14 が 赤
+- 最新 #278(`89315adf`)/ #259(`99665367`): RH-5 と 試しに merge しても conflict の 数は main との あいだと 同じ(#278: script.js 2・index.html 2・package.json 1、#259: .gitignore 1)。conflict の 中に RH-5 の 記号は ない。harness は 自動 merge。#278 自身の 変更は `'ren'`・`ALL_LINES`・ゴールの 段・実行時の 表・`PERSONALITY` を 使っていない。
