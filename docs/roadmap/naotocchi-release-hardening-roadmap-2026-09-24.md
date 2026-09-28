@@ -526,6 +526,18 @@ harness({
   - `unknown` 04 の例外は、data の `note` として明記する。
 - **完了条件**: 種族を 1 つ足して表を 1 つ書き忘れると、赤になる。
 
+> **2026-09-28 追記(RH-5 の事前確認と実装で確かめた事実。基準 main `ddb9187`)**
+> - 正本は master の `playerSpecies`(normal 22 + rare 8 + secret 1 = 31 × 8 = 248)、`companions`(18 + 8 = 26)、`partners` 18、`legends` 5。master に `species` という キーは ない。欠けている 登録は 0 件 だった。
+> - 全件の表(16、`tests/content-registry-test.cjs`): `MASTER_SPECIES_EMOJI` / `SPECIES_STAGE_DESCS`(+ 旧しゅぞく 11)/ meguru `HABITAT` / `COMPANION_RUNTIME`(+ 旧 koala)/ `RARE_COMPANION_RUNTIME`(+ 旧 kinoko)/ なかまの 台詞 2(+ koala・kinoko)/ `PARTNER_RUNTIME_PROFILE` / こいびとの 台詞 6 / movie-dialogue の `partners` と `legends`、それに cast-bounds(画像 パスごと、+ 旧 `companions/kinoko.png`)。意図して 一部だけ 持つ 表 6(meguru の WATER / PLANT / NIGHT / SCENERY / NIGHT_COMPANIONS、cast-motion の PERSONALITY)は 集合を 完全一致で 固定。
+> - `COMPANION_RUNTIME` / `RARE_COMPANION_RUNTIME` / `PARTNER_RUNTIME_PROFILE` は 欠けると 起動時に TypeError。本番の 防御は 足さず、テストが 起動せずに 表と ID を 名指しして 止める。
+> - 旧 ID の 行(koala / kinoko / 旧しゅぞく 11 / `companions/kinoko.png` の 枠)は 消さずに 集合を 固定した。削除・整理は RH-11 の cleanup 候補。
+> - `'ren'` の 判定は master の `playerSpecies.secret` から 作る `SECRET_LINES` / `SECRET_LINE` へ。`['ren']` は master が ない ときだけの 互換の 安全網。表の キー・画像 パス・CSS・表示文言の「ren」は そのまま。
+> - `speciesAliases` は いま すべて 同じ ID どうし。`canonicalSpeciesId` を 図鑑の 件数(`dexFoundCount` / `dexElderCount`、RH-2 の `countRegistered`)と 図鑑の「見つけた」表示に 接続した(alias が ふえても 件数と 表示が ずれない)。
+> - `GOAL_TIER_IDS = ['life','lifeClear','best','dex','perfect']` と `GOAL_TIER` を 1 か所に 置き、ゴールの 段を 意味する 番号の 比較だけ 置きかえた。save の `endingTiersReached`(0〜4)・`unlockTier`・goal の 絵・`data-goal`・CSS の クラス・ending の 条件は 変えていない。
+> - **既知の 未解決の すきま**: `ENDING_CELEBRATIONS` は 4 段 だった ころの 4 件 のまま で、perfect の 分が ない(perfect では 演出が 出ない)。4 件が 正しい 仕様 では ない。中身は RH-5 では 決めず、後続の visual / content cleanup 候補。5 件目を 足したら テストの `KNOWN_GAPS` から 外す。
+> - RH-8 の 候補: 旧しゅぞくの 人生で プロフィールの しゅぞく名が `???` に なる(master の policy は「旧定義で 表示」)、`recordDiscovery` が 知らない しゅぞくの キーを そのまま `discoveredStages` に 書く。save の 旧 ID の 整理も RH-8。
+> - **#278 の 後の follow-up gate**(RH-5 本体には 入れない): 表情の registry `STAGE_ASSETS` の 系統 × 段階 = `ALL_LINES × 8`、`bodyKind` の 網羅、表情 PNG の 網羅、`unknown` 04 の 注記。
+
 ### 7.3 RH-6 Test Architecture Cleanup
 
 > **2026-09-27 追記: home-layout の `ECONNRESET`(test-infra の backlog。RH-3 には入れない)**
@@ -655,6 +667,7 @@ harness({
 | 320 px | toast の `nowrap` による溢れを直す |
 
 ### 8.7 RH-8 Save Compatibility Suite
+> **2026-09-28 追記(RH-5 から)**: 旧しゅぞくの 人生の しゅぞく名が `???` に なる 表示、`recordDiscovery` が 知らない しゅぞくの キーを 書く 挙動、save の 旧しゅぞく ID の 整理 を ここで 扱う(RH-5 では 変えていない)。
 > **2026-09-27 追記(RH-4 から)**: シールのページの背景に知らない値があると `stickerPageBackground` が `'home'` に書きかえて保存する(script.js、RH-4 時点の 14,890 行付近)。RH-4 では変えていない。save の値を黙って書きかえる挙動として、ここで方針を決める。
 - **本物の古い save の fixture**(`tests/fixtures/saves/real/`):
   | fixture | 作り方 |
