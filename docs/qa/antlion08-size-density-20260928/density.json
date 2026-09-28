@@ -1,0 +1,1626 @@
+{
+  "source_head": "f1707cc65fb638bc5128ec0151b8c8f5d67d9a32",
+  "assets": {
+    "normal": {
+      "path": "assets/characters/antlion/08.png",
+      "sha256": "2f6879f36f91bf27b7f4be12a74ca5684d969a067977ec552787ea70d2e23dbe"
+    },
+    "happy": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/happy.png",
+      "sha256": "a57e0c5ff540258da43414fc2dd215ea6c110dbf5f25706fcadb5ff48ff22df9"
+    },
+    "strained": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/strained.png",
+      "sha256": "55e9e083b2118bf47b3fbd26b55373831c0d5b05047619c2ff73458d681d86cc"
+    },
+    "hungry": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/hungry.png",
+      "sha256": "2780c3124a1e93e4f6c8f86f298170deedc4a861e3a9f5243c5c713be581d66c"
+    },
+    "sick": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sick.png",
+      "sha256": "b7d99326718c8830137f83b001d4e99acbd018bd2083f573e51c73b57f760b5f"
+    },
+    "tired": {
+      "path": "assets/characters/expressions/antlion/08-tired.png",
+      "sha256": "ec6466cc95cd475282449d6a7f666e369976e97f58e8686cbf75d3f2bf499161"
+    },
+    "sulky": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sulky.png",
+      "sha256": "4c702c641f299446af142c5595a3ec7f796122bc241ed7f80316feca598b56f9"
+    },
+    "weak": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/weak.png",
+      "sha256": "5a76b0f8b3c6fd3b4b2b4f1927ad0b55f8ff8c7ff0a3e404fb80788b04b513a7"
+    },
+    "critical": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/critical.png",
+      "sha256": "dd79d2fbf0624ab9ea78f4ddfaa66e7805ec2baf65773a01a1964475c7137a49"
+    },
+    "wantsPlay": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/wantsPlay.png",
+      "sha256": "98fbc19d6a07ce65bf28d3baf9f5955be28ae3fef052c68394b4548b2897dc66"
+    },
+    "sleeping": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sleeping.png",
+      "sha256": "010d2b3253687af436dfea1e964dcee72fbcea6717e6db8244549e1230ee7490"
+    }
+  },
+  "method": {
+    "alpha_threshold": ">0",
+    "connectivity": 8,
+    "rear_roi": [
+      8,
+      59,
+      62,
+      118
+    ],
+    "trail_corridor": [
+      8,
+      95,
+      35,
+      118
+    ],
+    "elongated_span_px": 12,
+    "local_window_px": [
+      12,
+      12
+    ],
+    "particle_definition": "Detached components excluding largest body-connected component and detached components with x/y span >=12; not semantic counts.",
+    "trail_definition": "Body-connected or elongated component pixels ONLY in fixed wing-free exterior corridor; a partial trail proxy, not full trail segmentation.",
+    "occupancy": "Binary-alpha occupied area equals foreground pixel count. Bbox is NOT occupied area.",
+    "outlier_limit": "Descriptive non-independent set n=10; Tukey fence is a flag, not significance or aesthetic acceptance."
+  },
+  "metrics": {
+    "normal": {
+      "particle_components": 19,
+      "particle_pixels": 98,
+      "occupied_area_px2": 98,
+      "rear_area_px2": 3186,
+      "coverage_pct": 3.0759573132454485,
+      "particle_bbox_xyxy": [
+        8,
+        63,
+        59,
+        116
+      ],
+      "max_local_12x12_pixels": 31,
+      "max_local_12x12_pct": 21.52777777777778,
+      "max_local_window_xyxy": [
+        30,
+        75,
+        42,
+        87
+      ],
+      "local_grid": [
+        {
+          "roi": [
+            8,
+            59,
+            26,
+            79
+          ],
+          "pixels": 13,
+          "coverage_pct": 3.6111111111111107
+        },
+        {
+          "roi": [
+            26,
+            59,
+            44,
+            79
+          ],
+          "pixels": 18,
+          "coverage_pct": 5.0
+        },
+        {
+          "roi": [
+            44,
+            59,
+            62,
+            79
+          ],
+          "pixels": 0,
+          "coverage_pct": 0.0
+        },
+        {
+          "roi": [
+            8,
+            79,
+            26,
+            99
+          ],
+          "pixels": 8,
+          "coverage_pct": 2.2222222222222223
+        },
+        {
+          "roi": [
+            26,
+            79,
+            44,
+            99
+          ],
+          "pixels": 31,
+          "coverage_pct": 8.61111111111111
+        },
+        {
+          "roi": [
+            44,
+            79,
+            62,
+            99
+          ],
+          "pixels": 0,
+          "coverage_pct": 0.0
+        },
+        {
+          "roi": [
+            8,
+            99,
+            26,
+            118
+          ],
+          "pixels": 7,
+          "coverage_pct": 2.046783625730994
+        },
+        {
+          "roi": [
+            26,
+            99,
+            44,
+            118
+          ],
+          "pixels": 4,
+          "coverage_pct": 1.1695906432748537
+        },
+        {
+          "roi": [
+            44,
+            99,
+            62,
+            118
+          ],
+          "pixels": 17,
+          "coverage_pct": 4.970760233918129
+        }
+      ],
+      "corridor_particle_pixels": 15,
+      "corridor_trail_pixels": 73,
+      "corridor_particle_to_trail_ratio": 0.2054794520547945,
+      "rear_particles_to_corridor_trail_ratio": 1.3424657534246576,
+      "elongated_component_ids": [
+        17
+      ],
+      "span_threshold_sensitivity": {
+        "10": {
+          "rear_particle_pixels": 98,
+          "elongated_component_ids": [
+            17
+          ]
+        },
+        "12": {
+          "rear_particle_pixels": 98,
+          "elongated_component_ids": [
+            17
+          ]
+        },
+        "16": {
+          "rear_particle_pixels": 98,
+          "elongated_component_ids": [
+            17
+          ]
+        }
+      },
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "happy": {
+      "particle_components": 32,
+      "particle_pixels": 101,
+      "occupied_area_px2": 101,
+      "rear_area_px2": 3186,
+      "coverage_pct": 3.170119271814187,
+      "particle_bbox_xyxy": [
+        9,
+        64,
+        62,
+        116
+      ],
+      "max_local_12x12_pixels": 24,
+      "max_local_12x12_pct": 16.666666666666664,
+      "max_local_window_xyxy": [
+        30,
+        76,
+        42,
+        88
+      ],
+      "local_grid": [
+        {
+          "roi": [
+            8,
+            59,
+            26,
+            79
+          ],
+          "pixels": 8,
+          "coverage_pct": 2.2222222222222223
+        },
+        {
+          "roi": [
+            26,
+            59,
+            44,
+            79
+          ],
+          "pixels": 20,
+          "coverage_pct": 5.555555555555555
+        },
+        {
+          "roi": [
+            44,
+            59,
+            62,
+            79
+          ],
+          "pixels": 0,
+          "coverage_pct": 0.0
+        },
+        {
+          "roi": [
+            8,
+            79,
+            26,
+            99
+          ],
+          "pixels": 10,
+          "coverage_pct": 2.7777777777777777
+        },
+        {
+          "roi": [
+            26,
+            79,
+            44,
+            99
+          ],
+          "pixels": 23,
+          "coverage_pct": 6.388888888888888
+        },
+        {
+          "roi": [
+            44,
+            79,
+            62,
+            99
+          ],
+          "pixels": 1,
+          "coverage_pct": 0.2777777777777778
+        },
+        {
+          "roi": [
+            8,
+            99,
+            26,
+            118
+          ],
+          "pixels": 11,
+          "coverage_pct": 3.216374269005848
+        },
+        {
+          "roi": [
+            26,
+            99,
+            44,
+            118
+          ],
+          "pixels": 4,
+          "coverage_pct": 1.1695906432748537
+        },
+        {
+          "roi": [
+            44,
+            99,
+            62,
+            118
+          ],
+          "pixels": 24,
+          "coverage_pct": 7.017543859649122
+        }
+      ],
+      "corridor_particle_pixels": 20,
+      "corridor_trail_pixels": 69,
+      "corridor_particle_to_trail_ratio": 0.2898550724637681,
+      "rear_particles_to_corridor_trail_ratio": 1.463768115942029,
+      "elongated_component_ids": [],
+      "span_threshold_sensitivity": {
+        "10": {
+          "rear_particle_pixels": 101,
+          "elongated_component_ids": []
+        },
+        "12": {
+          "rear_particle_pixels": 101,
+          "elongated_component_ids": []
+        },
+        "16": {
+          "rear_particle_pixels": 101,
+          "elongated_component_ids": []
+        }
+      },
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "strained": {
+      "particle_components": 25,
+      "particle_pixels": 128,
+      "occupied_area_px2": 128,
+      "rear_area_px2": 3186,
+      "coverage_pct": 4.017576898932831,
+      "particle_bbox_xyxy": [
+        8,
+        63,
+        62,
+        116
+      ],
+      "max_local_12x12_pixels": 28,
+      "max_local_12x12_pct": 19.444444444444446,
+      "max_local_window_xyxy": [
+        21,
+        62,
+        33,
+        74
+      ],
+      "local_grid": [
+        {
+          "roi": [
+            8,
+            59,
+            26,
+            79
+          ],
+          "pixels": 21,
+          "coverage_pct": 5.833333333333333
+        },
+        {
+          "roi": [
+            26,
+            59,
+            44,
+            79
+          ],
+          "pixels": 24,
+          "coverage_pct": 6.666666666666667
+        },
+        {
+          "roi": [
+            44,
+            59,
+            62,
+            79
+          ],
+          "pixels": 0,
+          "coverage_pct": 0.0
+        },
+        {
+          "roi": [
+            8,
+            79,
+            26,
+            99
+          ],
+          "pixels": 7,
+          "coverage_pct": 1.9444444444444444
+        },
+        {
+          "roi": [
+            26,
+            79,
+            44,
+            99
+          ],
+          "pixels": 27,
+          "coverage_pct": 7.5
+        },
+        {
+          "roi": [
+            44,
+            79,
+            62,
+            99
+          ],
+          "pixels": 0,
+          "coverage_pct": 0.0
+        },
+        {
+          "roi": [
+            8,
+            99,
+            26,
+            118
+          ],
+          "pixels": 16,
+          "coverage_pct": 4.678362573099415
+        },
+        {
+          "roi": [
+            26,
+            99,
+            44,
+            118
+          ],
+          "pixels": 10,
+          "coverage_pct": 2.923976608187134
+        },
+        {
+          "roi": [
+            44,
+            99,
+            62,
+            118
+          ],
+          "pixels": 23,
+          "coverage_pct": 6.725146198830409
+        }
+      ],
+      "corridor_particle_pixels": 30,
+      "corridor_trail_pixels": 82,
+      "corridor_particle_to_trail_ratio": 0.36585365853658536,
+      "rear_particles_to_corridor_trail_ratio": 1.5609756097560976,
+      "elongated_component_ids": [],
+      "span_threshold_sensitivity": {
+        "10": {
+          "rear_particle_pixels": 128,
+          "elongated_component_ids": []
+        },
+        "12": {
+          "rear_particle_pixels": 128,
+          "elongated_component_ids": []
+        },
+        "16": {
+          "rear_particle_pixels": 128,
+          "elongated_component_ids": []
+        }
+      },
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "hungry": {
+      "particle_components": 39,
+      "particle_pixels": 149,
+      "occupied_area_px2": 149,
+      "rear_area_px2": 3186,
+      "coverage_pct": 4.676710608913999,
+      "particle_bbox_xyxy": [
+        8,
+        62,
+        61,
+        116
+      ],
+      "max_local_12x12_pixels": 35,
+      "max_local_12x12_pct": 24.305555555555554,
+      "max_local_window_xyxy": [
+        32,
+        75,
+        44,
+        87
+      ],
+      "local_grid": [
+        {
+          "roi": [
+            8,
+            59,
+            26,
+            79
+          ],
+          "pixels": 18,
+          "coverage_pct": 5.0
+        },
+        {
+          "roi": [
+            26,
+            59,
+            44,
+            79
+          ],
+          "pixels": 33,
+          "coverage_pct": 9.166666666666666
+        },
+        {
+          "roi": [
+            44,
+            59,
+            62,
+            79
+          ],
+          "pixels": 3,
+          "coverage_pct": 0.8333333333333334
+        },
+        {
+          "roi": [
+            8,
+            79,
+            26,
+            99
+          ],
+          "pixels": 4,
+          "coverage_pct": 1.1111111111111112
+        },
+        {
+          "roi": [
+            26,
+            79,
+            44,
+            99
+          ],
+          "pixels": 50,
+          "coverage_pct": 13.88888888888889
+        },
+        {
+          "roi": [
+            44,
+            79,
+            62,
+            99
+          ],
+          "pixels": 0,
+          "coverage_pct": 0.0
+        },
+        {
+          "roi": [
+            8,
+            99,
+            26,
+            118
+          ],
+          "pixels": 11,
+          "coverage_pct": 3.216374269005848
+        },
+        {
+          "roi": [
+            26,
+            99,
+            44,
+            118
+          ],
+          "pixels": 6,
+          "coverage_pct": 1.7543859649122806
+        },
+        {
+          "roi": [
+            44,
+            99,
+            62,
+            118
+          ],
+          "pixels": 24,
+          "coverage_pct": 7.017543859649122
+        }
+      ],
+      "corridor_particle_pixels": 24,
+      "corridor_trail_pixels": 66,
+      "corridor_particle_to_trail_ratio": 0.36363636363636365,
+      "rear_particles_to_corridor_trail_ratio": 2.257575757575758,
+      "elongated_component_ids": [],
+      "span_threshold_sensitivity": {
+        "10": {
+          "rear_particle_pixels": 149,
+          "elongated_component_ids": []
+        },
+        "12": {
+          "rear_particle_pixels": 149,
+          "elongated_component_ids": []
+        },
+        "16": {
+          "rear_particle_pixels": 149,
+          "elongated_component_ids": []
+        }
+      },
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "sick": {
+      "particle_components": 27,
+      "particle_pixels": 90,
+      "occupied_area_px2": 90,
+      "rear_area_px2": 3186,
+      "coverage_pct": 2.824858757062147,
+      "particle_bbox_xyxy": [
+        11,
+        64,
+        62,
+        116
+      ],
+      "max_local_12x12_pixels": 21,
+      "max_local_12x12_pct": 14.583333333333334,
+      "max_local_window_xyxy": [
+        28,
+        74,
+        40,
+        86
+      ],
+      "local_grid": [
+        {
+          "roi": [
+            8,
+            59,
+            26,
+            79
+          ],
+          "pixels": 10,
+          "coverage_pct": 2.7777777777777777
+        },
+        {
+          "roi": [
+            26,
+            59,
+            44,
+            79
+          ],
+          "pixels": 17,
+          "coverage_pct": 4.722222222222222
+        },
+        {
+          "roi": [
+            44,
+            59,
+            62,
+            79
+          ],
+          "pixels": 1,
+          "coverage_pct": 0.2777777777777778
+        },
+        {
+          "roi": [
+            8,
+            79,
+            26,
+            99
+          ],
+          "pixels": 4,
+          "coverage_pct": 1.1111111111111112
+        },
+        {
+          "roi": [
+            26,
+            79,
+            44,
+            99
+          ],
+          "pixels": 22,
+          "coverage_pct": 6.111111111111111
+        },
+        {
+          "roi": [
+            44,
+            79,
+            62,
+            99
+          ],
+          "pixels": 0,
+          "coverage_pct": 0.0
+        },
+        {
+          "roi": [
+            8,
+            99,
+            26,
+            118
+          ],
+          "pixels": 7,
+          "coverage_pct": 2.046783625730994
+        },
+        {
+          "roi": [
+            26,
+            99,
+            44,
+            118
+          ],
+          "pixels": 6,
+          "coverage_pct": 1.7543859649122806
+        },
+        {
+          "roi": [
+            44,
+            99,
+            62,
+            118
+          ],
+          "pixels": 23,
+          "coverage_pct": 6.725146198830409
+        }
+      ],
+      "corridor_particle_pixels": 15,
+      "corridor_trail_pixels": 69,
+      "corridor_particle_to_trail_ratio": 0.21739130434782608,
+      "rear_particles_to_corridor_trail_ratio": 1.3043478260869565,
+      "elongated_component_ids": [],
+      "span_threshold_sensitivity": {
+        "10": {
+          "rear_particle_pixels": 90,
+          "elongated_component_ids": []
+        },
+        "12": {
+          "rear_particle_pixels": 90,
+          "elongated_component_ids": []
+        },
+        "16": {
+          "rear_particle_pixels": 90,
+          "elongated_component_ids": []
+        }
+      },
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "tired": {
+      "particle_components": 35,
+      "particle_pixels": 135,
+      "occupied_area_px2": 135,
+      "rear_area_px2": 3186,
+      "coverage_pct": 4.23728813559322,
+      "particle_bbox_xyxy": [
+        8,
+        62,
+        62,
+        116
+      ],
+      "max_local_12x12_pixels": 30,
+      "max_local_12x12_pct": 20.833333333333336,
+      "max_local_window_xyxy": [
+        22,
+        67,
+        34,
+        79
+      ],
+      "local_grid": [
+        {
+          "roi": [
+            8,
+            59,
+            26,
+            79
+          ],
+          "pixels": 19,
+          "coverage_pct": 5.277777777777778
+        },
+        {
+          "roi": [
+            26,
+            59,
+            44,
+            79
+          ],
+          "pixels": 29,
+          "coverage_pct": 8.055555555555555
+        },
+        {
+          "roi": [
+            44,
+            59,
+            62,
+            79
+          ],
+          "pixels": 1,
+          "coverage_pct": 0.2777777777777778
+        },
+        {
+          "roi": [
+            8,
+            79,
+            26,
+            99
+          ],
+          "pixels": 10,
+          "coverage_pct": 2.7777777777777777
+        },
+        {
+          "roi": [
+            26,
+            79,
+            44,
+            99
+          ],
+          "pixels": 34,
+          "coverage_pct": 9.444444444444445
+        },
+        {
+          "roi": [
+            44,
+            79,
+            62,
+            99
+          ],
+          "pixels": 1,
+          "coverage_pct": 0.2777777777777778
+        },
+        {
+          "roi": [
+            8,
+            99,
+            26,
+            118
+          ],
+          "pixels": 17,
+          "coverage_pct": 4.970760233918129
+        },
+        {
+          "roi": [
+            26,
+            99,
+            44,
+            118
+          ],
+          "pixels": 7,
+          "coverage_pct": 2.046783625730994
+        },
+        {
+          "roi": [
+            44,
+            99,
+            62,
+            118
+          ],
+          "pixels": 17,
+          "coverage_pct": 4.970760233918129
+        }
+      ],
+      "corridor_particle_pixels": 30,
+      "corridor_trail_pixels": 65,
+      "corridor_particle_to_trail_ratio": 0.46153846153846156,
+      "rear_particles_to_corridor_trail_ratio": 2.076923076923077,
+      "elongated_component_ids": [],
+      "span_threshold_sensitivity": {
+        "10": {
+          "rear_particle_pixels": 135,
+          "elongated_component_ids": []
+        },
+        "12": {
+          "rear_particle_pixels": 135,
+          "elongated_component_ids": []
+        },
+        "16": {
+          "rear_particle_pixels": 135,
+          "elongated_component_ids": []
+        }
+      },
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "sulky": {
+      "particle_components": 34,
+      "particle_pixels": 147,
+      "occupied_area_px2": 147,
+      "rear_area_px2": 3186,
+      "coverage_pct": 4.613935969868174,
+      "particle_bbox_xyxy": [
+        8,
+        65,
+        60,
+        116
+      ],
+      "max_local_12x12_pixels": 29,
+      "max_local_12x12_pct": 20.13888888888889,
+      "max_local_window_xyxy": [
+        31,
+        75,
+        43,
+        87
+      ],
+      "local_grid": [
+        {
+          "roi": [
+            8,
+            59,
+            26,
+            79
+          ],
+          "pixels": 16,
+          "coverage_pct": 4.444444444444445
+        },
+        {
+          "roi": [
+            26,
+            59,
+            44,
+            79
+          ],
+          "pixels": 30,
+          "coverage_pct": 8.333333333333332
+        },
+        {
+          "roi": [
+            44,
+            59,
+            62,
+            79
+          ],
+          "pixels": 1,
+          "coverage_pct": 0.2777777777777778
+        },
+        {
+          "roi": [
+            8,
+            79,
+            26,
+            99
+          ],
+          "pixels": 11,
+          "coverage_pct": 3.0555555555555554
+        },
+        {
+          "roi": [
+            26,
+            79,
+            44,
+            99
+          ],
+          "pixels": 37,
+          "coverage_pct": 10.277777777777777
+        },
+        {
+          "roi": [
+            44,
+            79,
+            62,
+            99
+          ],
+          "pixels": 0,
+          "coverage_pct": 0.0
+        },
+        {
+          "roi": [
+            8,
+            99,
+            26,
+            118
+          ],
+          "pixels": 13,
+          "coverage_pct": 3.8011695906432745
+        },
+        {
+          "roi": [
+            26,
+            99,
+            44,
+            118
+          ],
+          "pixels": 15,
+          "coverage_pct": 4.385964912280701
+        },
+        {
+          "roi": [
+            44,
+            99,
+            62,
+            118
+          ],
+          "pixels": 24,
+          "coverage_pct": 7.017543859649122
+        }
+      ],
+      "corridor_particle_pixels": 34,
+      "corridor_trail_pixels": 76,
+      "corridor_particle_to_trail_ratio": 0.4473684210526316,
+      "rear_particles_to_corridor_trail_ratio": 1.9342105263157894,
+      "elongated_component_ids": [],
+      "span_threshold_sensitivity": {
+        "10": {
+          "rear_particle_pixels": 147,
+          "elongated_component_ids": []
+        },
+        "12": {
+          "rear_particle_pixels": 147,
+          "elongated_component_ids": []
+        },
+        "16": {
+          "rear_particle_pixels": 147,
+          "elongated_component_ids": []
+        }
+      },
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "weak": {
+      "particle_components": 28,
+      "particle_pixels": 83,
+      "occupied_area_px2": 83,
+      "rear_area_px2": 3186,
+      "coverage_pct": 2.605147520401758,
+      "particle_bbox_xyxy": [
+        9,
+        63,
+        59,
+        116
+      ],
+      "max_local_12x12_pixels": 19,
+      "max_local_12x12_pct": 13.194444444444445,
+      "max_local_window_xyxy": [
+        32,
+        75,
+        44,
+        87
+      ],
+      "local_grid": [
+        {
+          "roi": [
+            8,
+            59,
+            26,
+            79
+          ],
+          "pixels": 9,
+          "coverage_pct": 2.5
+        },
+        {
+          "roi": [
+            26,
+            59,
+            44,
+            79
+          ],
+          "pixels": 15,
+          "coverage_pct": 4.166666666666666
+        },
+        {
+          "roi": [
+            44,
+            59,
+            62,
+            79
+          ],
+          "pixels": 0,
+          "coverage_pct": 0.0
+        },
+        {
+          "roi": [
+            8,
+            79,
+            26,
+            99
+          ],
+          "pixels": 3,
+          "coverage_pct": 0.8333333333333334
+        },
+        {
+          "roi": [
+            26,
+            79,
+            44,
+            99
+          ],
+          "pixels": 22,
+          "coverage_pct": 6.111111111111111
+        },
+        {
+          "roi": [
+            44,
+            79,
+            62,
+            99
+          ],
+          "pixels": 0,
+          "coverage_pct": 0.0
+        },
+        {
+          "roi": [
+            8,
+            99,
+            26,
+            118
+          ],
+          "pixels": 13,
+          "coverage_pct": 3.8011695906432745
+        },
+        {
+          "roi": [
+            26,
+            99,
+            44,
+            118
+          ],
+          "pixels": 6,
+          "coverage_pct": 1.7543859649122806
+        },
+        {
+          "roi": [
+            44,
+            99,
+            62,
+            118
+          ],
+          "pixels": 15,
+          "coverage_pct": 4.385964912280701
+        }
+      ],
+      "corridor_particle_pixels": 22,
+      "corridor_trail_pixels": 68,
+      "corridor_particle_to_trail_ratio": 0.3235294117647059,
+      "rear_particles_to_corridor_trail_ratio": 1.2205882352941178,
+      "elongated_component_ids": [],
+      "span_threshold_sensitivity": {
+        "10": {
+          "rear_particle_pixels": 83,
+          "elongated_component_ids": []
+        },
+        "12": {
+          "rear_particle_pixels": 83,
+          "elongated_component_ids": []
+        },
+        "16": {
+          "rear_particle_pixels": 83,
+          "elongated_component_ids": []
+        }
+      },
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "critical": {
+      "particle_components": 53,
+      "particle_pixels": 189,
+      "occupied_area_px2": 189,
+      "rear_area_px2": 3186,
+      "coverage_pct": 5.932203389830509,
+      "particle_bbox_xyxy": [
+        8,
+        62,
+        62,
+        116
+      ],
+      "max_local_12x12_pixels": 39,
+      "max_local_12x12_pct": 27.083333333333332,
+      "max_local_window_xyxy": [
+        32,
+        75,
+        44,
+        87
+      ],
+      "local_grid": [
+        {
+          "roi": [
+            8,
+            59,
+            26,
+            79
+          ],
+          "pixels": 32,
+          "coverage_pct": 8.88888888888889
+        },
+        {
+          "roi": [
+            26,
+            59,
+            44,
+            79
+          ],
+          "pixels": 40,
+          "coverage_pct": 11.11111111111111
+        },
+        {
+          "roi": [
+            44,
+            59,
+            62,
+            79
+          ],
+          "pixels": 1,
+          "coverage_pct": 0.2777777777777778
+        },
+        {
+          "roi": [
+            8,
+            79,
+            26,
+            99
+          ],
+          "pixels": 14,
+          "coverage_pct": 3.888888888888889
+        },
+        {
+          "roi": [
+            26,
+            79,
+            44,
+            99
+          ],
+          "pixels": 37,
+          "coverage_pct": 10.277777777777777
+        },
+        {
+          "roi": [
+            44,
+            79,
+            62,
+            99
+          ],
+          "pixels": 0,
+          "coverage_pct": 0.0
+        },
+        {
+          "roi": [
+            8,
+            99,
+            26,
+            118
+          ],
+          "pixels": 22,
+          "coverage_pct": 6.432748538011696
+        },
+        {
+          "roi": [
+            26,
+            99,
+            44,
+            118
+          ],
+          "pixels": 11,
+          "coverage_pct": 3.216374269005848
+        },
+        {
+          "roi": [
+            44,
+            99,
+            62,
+            118
+          ],
+          "pixels": 32,
+          "coverage_pct": 9.35672514619883
+        }
+      ],
+      "corridor_particle_pixels": 34,
+      "corridor_trail_pixels": 70,
+      "corridor_particle_to_trail_ratio": 0.4857142857142857,
+      "rear_particles_to_corridor_trail_ratio": 2.7,
+      "elongated_component_ids": [],
+      "span_threshold_sensitivity": {
+        "10": {
+          "rear_particle_pixels": 189,
+          "elongated_component_ids": []
+        },
+        "12": {
+          "rear_particle_pixels": 189,
+          "elongated_component_ids": []
+        },
+        "16": {
+          "rear_particle_pixels": 189,
+          "elongated_component_ids": []
+        }
+      },
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "wantsPlay": {
+      "particle_components": 43,
+      "particle_pixels": 125,
+      "occupied_area_px2": 125,
+      "rear_area_px2": 3186,
+      "coverage_pct": 3.923414940364093,
+      "particle_bbox_xyxy": [
+        8,
+        63,
+        62,
+        116
+      ],
+      "max_local_12x12_pixels": 27,
+      "max_local_12x12_pct": 18.75,
+      "max_local_window_xyxy": [
+        30,
+        75,
+        42,
+        87
+      ],
+      "local_grid": [
+        {
+          "roi": [
+            8,
+            59,
+            26,
+            79
+          ],
+          "pixels": 18,
+          "coverage_pct": 5.0
+        },
+        {
+          "roi": [
+            26,
+            59,
+            44,
+            79
+          ],
+          "pixels": 22,
+          "coverage_pct": 6.111111111111111
+        },
+        {
+          "roi": [
+            44,
+            59,
+            62,
+            79
+          ],
+          "pixels": 3,
+          "coverage_pct": 0.8333333333333334
+        },
+        {
+          "roi": [
+            8,
+            79,
+            26,
+            99
+          ],
+          "pixels": 11,
+          "coverage_pct": 3.0555555555555554
+        },
+        {
+          "roi": [
+            26,
+            79,
+            44,
+            99
+          ],
+          "pixels": 30,
+          "coverage_pct": 8.333333333333332
+        },
+        {
+          "roi": [
+            44,
+            79,
+            62,
+            99
+          ],
+          "pixels": 1,
+          "coverage_pct": 0.2777777777777778
+        },
+        {
+          "roi": [
+            8,
+            99,
+            26,
+            118
+          ],
+          "pixels": 11,
+          "coverage_pct": 3.216374269005848
+        },
+        {
+          "roi": [
+            26,
+            99,
+            44,
+            118
+          ],
+          "pixels": 8,
+          "coverage_pct": 2.3391812865497075
+        },
+        {
+          "roi": [
+            44,
+            99,
+            62,
+            118
+          ],
+          "pixels": 21,
+          "coverage_pct": 6.140350877192982
+        }
+      ],
+      "corridor_particle_pixels": 26,
+      "corridor_trail_pixels": 69,
+      "corridor_particle_to_trail_ratio": 0.37681159420289856,
+      "rear_particles_to_corridor_trail_ratio": 1.8115942028985508,
+      "elongated_component_ids": [],
+      "span_threshold_sensitivity": {
+        "10": {
+          "rear_particle_pixels": 125,
+          "elongated_component_ids": []
+        },
+        "12": {
+          "rear_particle_pixels": 125,
+          "elongated_component_ids": []
+        },
+        "16": {
+          "rear_particle_pixels": 125,
+          "elongated_component_ids": []
+        }
+      },
+      "alpha_values": [
+        0,
+        255
+      ]
+    },
+    "sleeping": {
+      "particle_components": 28,
+      "particle_pixels": 102,
+      "occupied_area_px2": 102,
+      "rear_area_px2": 3186,
+      "coverage_pct": 3.2015065913371,
+      "particle_bbox_xyxy": [
+        8,
+        62,
+        59,
+        116
+      ],
+      "max_local_12x12_pixels": 33,
+      "max_local_12x12_pct": 22.916666666666664,
+      "max_local_window_xyxy": [
+        25,
+        82,
+        37,
+        94
+      ],
+      "local_grid": [
+        {
+          "roi": [
+            8,
+            59,
+            26,
+            79
+          ],
+          "pixels": 16,
+          "coverage_pct": 4.444444444444445
+        },
+        {
+          "roi": [
+            26,
+            59,
+            44,
+            79
+          ],
+          "pixels": 13,
+          "coverage_pct": 3.6111111111111107
+        },
+        {
+          "roi": [
+            44,
+            59,
+            62,
+            79
+          ],
+          "pixels": 1,
+          "coverage_pct": 0.2777777777777778
+        },
+        {
+          "roi": [
+            8,
+            79,
+            26,
+            99
+          ],
+          "pixels": 6,
+          "coverage_pct": 1.6666666666666667
+        },
+        {
+          "roi": [
+            26,
+            79,
+            44,
+            99
+          ],
+          "pixels": 39,
+          "coverage_pct": 10.833333333333334
+        },
+        {
+          "roi": [
+            44,
+            79,
+            62,
+            99
+          ],
+          "pixels": 0,
+          "coverage_pct": 0.0
+        },
+        {
+          "roi": [
+            8,
+            99,
+            26,
+            118
+          ],
+          "pixels": 8,
+          "coverage_pct": 2.3391812865497075
+        },
+        {
+          "roi": [
+            26,
+            99,
+            44,
+            118
+          ],
+          "pixels": 1,
+          "coverage_pct": 0.29239766081871343
+        },
+        {
+          "roi": [
+            44,
+            99,
+            62,
+            118
+          ],
+          "pixels": 18,
+          "coverage_pct": 5.263157894736842
+        }
+      ],
+      "corridor_particle_pixels": 12,
+      "corridor_trail_pixels": 89,
+      "corridor_particle_to_trail_ratio": 0.1348314606741573,
+      "rear_particles_to_corridor_trail_ratio": 1.146067415730337,
+      "elongated_component_ids": [],
+      "span_threshold_sensitivity": {
+        "10": {
+          "rear_particle_pixels": 102,
+          "elongated_component_ids": []
+        },
+        "12": {
+          "rear_particle_pixels": 102,
+          "elongated_component_ids": []
+        },
+        "16": {
+          "rear_particle_pixels": 102,
+          "elongated_component_ids": []
+        }
+      },
+      "alpha_values": [
+        0,
+        255
+      ]
+    }
+  },
+  "critical_vs_other_ten": {
+    "particle_components": {
+      "reference_n": 10,
+      "min": 19,
+      "max": 43,
+      "q1": 27.25,
+      "median": 30.0,
+      "q3": 34.75,
+      "tukey_upper_fence": 46.0,
+      "critical": 53,
+      "critical_to_median": 1.7666666666666666
+    },
+    "particle_pixels": {
+      "reference_n": 10,
+      "min": 83,
+      "max": 149,
+      "q1": 98.75,
+      "median": 113.5,
+      "q3": 133.25,
+      "tukey_upper_fence": 185.0,
+      "critical": 189,
+      "critical_to_median": 1.6651982378854626
+    },
+    "max_local_12x12_pixels": {
+      "reference_n": 10,
+      "min": 19,
+      "max": 35,
+      "q1": 24.75,
+      "median": 28.5,
+      "q3": 30.75,
+      "tukey_upper_fence": 39.75,
+      "critical": 39,
+      "critical_to_median": 1.368421052631579
+    },
+    "corridor_particle_to_trail_ratio": {
+      "reference_n": 10,
+      "min": 0.1348314606741573,
+      "max": 0.46153846153846156,
+      "q1": 0.23550724637681159,
+      "median": 0.3435828877005348,
+      "q3": 0.37407211028632026,
+      "tukey_upper_fence": 0.5819194061505832,
+      "critical": 0.4857142857142857,
+      "critical_to_median": 1.4136742634797108
+    }
+  }
+}
