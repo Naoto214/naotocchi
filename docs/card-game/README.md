@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [333](333-new-seed-mixed-replay.md) | 通常pass2件・証明済み終了とドロー・seeded交換を再生し5 event/snapshotを検証 |
+
 | [332](332-new-seed-mixed-choice.md) | 通常pass2件、証明済み終了、seededたまご交換を選択 |
 
 | [331](331-new-seed-mixed-audit-correction.md) | 330の02-Aこいびと枠誤投影を補正し、不適法な配置候補を除外 |
