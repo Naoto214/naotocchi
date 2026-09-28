@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [329](329-new-seed-mixed-replay.md) | response-pass3件・証明済み終了と次手番ドローを再生し5 event/snapshotを検証 |
+
 | [328](328-new-seed-mixed-choice.md) | 3件の唯一response-passと02-Bの証明済み必須ターン終了を選択 |
 
 | [327](327-new-seed-mixed-audit.md) | 3件の唯一response-passと02-Bの必須ターン終了を証明 |
