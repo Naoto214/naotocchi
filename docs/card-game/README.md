@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [360](360-new-seed-mixed-replay.md) | 配置後pass、必須終了・ドロー、seeded交換2件を5 event/snapshotで再生 |
+
 | [359](359-new-seed-mixed-choice.md) | 唯一pass、必須終了、seededたまご交換A-027／A-009を選択 |
 
 | [358](358-new-seed-mixed-audit.md) | 01-A配置後唯一pass、01-B終了集合、02-A/Bたまご交換11／9候補を監査 |
