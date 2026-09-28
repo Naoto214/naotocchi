@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [331](331-new-seed-mixed-audit-correction.md) | 330の02-Aこいびと枠誤投影を補正し、不適法な配置候補を除外 |
+
 | [330](330-new-seed-mixed-audit.md) | 通常行動2経路、01-B必須終了、02-Bたまご交換10候補を監査 |
 
 | [329](329-new-seed-mixed-replay.md) | response-pass3件・証明済み終了と次手番ドローを再生し5 event/snapshotを検証 |
