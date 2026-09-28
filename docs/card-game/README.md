@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [355](355-new-seed-mixed-audit.md) | 01-A通常行動、01-B終了前response、02-A/Bの終了集合を横断監査 |
+
 | [354](354-new-seed-mixed-replay.md) | E-first-dateを1枚ドロー・そだち+5で解決しpass3件を再生 |
 
 | [353](353-new-seed-mixed-choice.md) | E-first-date必須解決、通常pass、終了前唯一pass2件を選択 |
