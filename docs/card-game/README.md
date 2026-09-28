@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [340](340-new-seed-mixed-audit.md) | たまご交換10件／9件、唯一pass、通常行動3件を横断監査 |
+
 | [339](339-new-seed-mixed-replay.md) | 証明済み終了・ドロー2経路とresponse-pass2経路を再生し6 event/snapshotを検証 |
 
 | [338](338-new-seed-mixed-choice.md) | 証明済み必須終了2件と唯一response-pass2件を選択 |
