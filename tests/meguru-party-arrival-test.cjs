@@ -1,7 +1,7 @@
 // RH-7: なかまが しょうがいぶつに めりこまない(Roadmap §7.4 / 4E-4 preflight §12)。
 // あるける 出口の ぜんぶ(10 本 × 両方の むき = 20 とおり)で、ふつうの 地域の いどう(transition)と
 // corridor で 着いた ときの それぞれ。なかま 26 + こいびと 1 = 27 にんで、着いてから 1.5 びょう とまって いて、
-// 住人と おなじ はんけい(bodyRadius × STAND_CLEAR)で めりこむ 人数が 0。あるいた あと とまっても 0
+// 住人と おなじ はんけい(bodyRadius × STAND_CLEAR)で めりこむ 人数が 0(おかれた 直後も)。あるいた あと とまっても 0
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { harness } = require('./helpers/runtime-harness.cjs');
@@ -49,7 +49,7 @@ function arrive(S, { spec, from, to }, mode) {
 }
 
 for (const mode of ['transition', 'corridor']) {
-  test(`${mode}: 27 companions never stand inside an obstacle after arriving (all 20 walk directions, 1.5 s idle; also after walking)`, () => {
+  test(`${mode}: 27 companions never stand inside an obstacle after arriving (all 20 walk directions: on placement, after 1.5 s idle, and after walking)`, () => {
     const { M, S } = setup();
     const list = arrivals(M);
     assert.equal(list.length, 20);
@@ -57,6 +57,8 @@ for (const mode of ['transition', 'corridor']) {
     for (const arrival of list) {
       arrive(S, arrival, mode);
       assert.equal(S.party.length, 27);
+      const placed = overlapping(M, S);
+      if (placed.length) bad.push(`${arrival.from}->${arrival.to} placed: ${placed.join(',')}`);
       idle(S, 90);
       const now = overlapping(M, S);
       if (now.length) bad.push(`${arrival.from}->${arrival.to} idle: ${now.join(',')}`);
