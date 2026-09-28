@@ -24,12 +24,18 @@ test('a hidden tab does not tick, age, or run encounters / moments / idle talk',
   const h = harness({ deterministic: true }), s = growing(h);
   const before = { ageTicks: s.ageTicks, hunger: s.hunger, envMoments: s.lifetime.envMoments || 0, log: s.lifeLog.length };
   hide(h);
-  h.advance(30 * MIN);
+  // harness は 起動時の タイマーを 消し、setInterval(loop) も うごかない ので、ここで 始めて loop を 直接 よぶ(3 秒ごと × 3 時間)
+  h.api.scheduleCompanionEncounter(); h.api.scheduleEnvironmentMoment(); h.api.scheduleIdleGreeting();
+  for (let i = 0; i < 3600; i++) { h.api.loop(); h.advance(3000); }
   assert.equal(s.ageTicks, before.ageTicks, 'no aging while hidden');
   assert.equal(s.hunger, before.hunger, 'no meter change while hidden');
   assert.equal(s.lifetime.envMoments || 0, before.envMoments, 'no environment moment while hidden');
   assert.equal(h.api.isAnyMenuOverlayOpen(), false, 'no companion invite (or any overlay) while hidden');
   assert.equal(s.lifeLog.length, before.log);
+  // 見える ように なれば いつもどおり おこる(テストが タイマーを ほんとうに うごかして いる ことの 確認)
+  show(h);
+  for (let i = 0; i < 3600 && !h.api.isAnyMenuOverlayOpen() && !(s.lifetime.envMoments > before.envMoments); i++) { s.hunger = 90; s.happiness = 90; h.advance(3000); }
+  assert.ok(h.api.isAnyMenuOverlayOpen() || s.lifetime.envMoments > before.envMoments, 'visible: an encounter or a moment happens');
 });
 
 test('coming back runs the same gentle absence processing once (existing caps: ≤30 drop, floor 20, no aging)', () => {
