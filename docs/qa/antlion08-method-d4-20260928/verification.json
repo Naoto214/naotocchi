@@ -1,0 +1,31 @@
+{
+  "source_head": "5f1f9a9b4c60b94b70a8758c108e62dda9b0ae82",
+  "passed": true,
+  "changed_pixels": 233,
+  "alpha_changes": 0,
+  "protected_changes": 0,
+  "reference_RGB_exact_matches": 233,
+  "reproduced_files": {
+    "tired-d4-candidate.png": "ec6466cc95cd475282449d6a7f666e369976e97f58e8686cbf75d3f2bf499161",
+    "audit.json": "6d807394844331e66b7d8c0dd1e0a46d4984dd5818049c59e3b3a02bdf5c5425",
+    "01-sizes.svg": "0d1d5c74b8dd26f65f04d2b55af209c5a0f79fd021c25c7ff44c97d79c427b3a",
+    "02-particles-trail.svg": "3efb93b579fb100f3123b246c7560cada434a882d39465d9f2a26ca89520a452",
+    "03-masks.svg": "1fd6852638d07665543e7e37f50b837e76575ce1b032a9c036adf5ceee7f5529",
+    "comparison.html": "e241754694cbb9e2f73dbd2ab4bbe0ecf7f7bf98644666ceebba70a30427e2ee"
+  },
+  "preservation": {
+    "assets": 2862,
+    "approved16": 16,
+    "existing_tracked_files": 3808
+  },
+  "focused": {
+    "tests": 852,
+    "pass": 852,
+    "fail": 0,
+    "command": "node --test tests/pet-expression-assets-test.cjs tests/pet-expression-test.cjs"
+  },
+  "full_npm_test": "今回未実行",
+  "quick_mode": "今回未実行。既知初回FAIL原因未特定の追跡を維持",
+  "git_diff_check": "PASS",
+  "production_and_runtime_changed": 0
+}
