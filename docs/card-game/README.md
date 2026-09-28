@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [347](347-new-seed-mixed-choice.md) | 346の唯一pass4件を選択、適用前で保存 |
+
 | [346](346-new-seed-mixed-audit.md) | 345後の4経路response候補を横断監査、各唯一pass |
 
 | [345](345-new-seed-mixed-replay.md) | E-first-date起動、C-chicken配置、pass2件を4 event/snapshotで再生 |
