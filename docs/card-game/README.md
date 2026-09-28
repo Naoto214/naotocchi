@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [352](352-new-seed-mixed-audit.md) | E-first-date解決条件、通常候補4件、終了前唯一pass2件を監査 |
+
 | [351](351-new-seed-mixed-replay.md) | 連鎖中pass・配置後pass・通常pass2件を再生 |
 
 | [350](350-new-seed-mixed-choice.md) | response唯一pass2件と通常pass2件を選択、適用前保存 |
