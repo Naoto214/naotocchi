@@ -137,7 +137,9 @@ function partialTables() {
   };
 }
 
-const H = harness();
+// 起動は 必要な テストの 中だけ(表の 欠けで 起動が こけても、表の テストは 起動せずに 名指しで 赤に なる)
+let booted = null;
+const boot = () => booted || (booted = harness());
 
 // --- 正本 ---
 test('registry sizes: species 31 (22 normal + 8 rare + 1 secret, 8 stages each = 248), companions 26, partners 18, legends 5', () => {
@@ -148,14 +150,14 @@ test('registry sizes: species 31 (22 normal + 8 rare + 1 secret, 8 stages each =
   assert.equal(COMPANIONS.length, 26); assert.equal(COMPANIONS_NORMAL.length, 18); assert.equal(COMPANIONS_RARE.length, 8);
   assert.equal(PARTNERS.length, 18);
   assert.equal(LEGENDS.length, 5);
-  assert.deepEqual([...H.api.ALL_LINES], SPECIES, 'ALL_LINES is master normal + rare + secret, in order');
-  assert.equal(H.api.dexTotalCount(), 248);
+  assert.deepEqual([...boot().api.ALL_LINES], SPECIES, 'ALL_LINES is master normal + rare + secret, in order');
+  assert.equal(boot().api.dexTotalCount(), 248);
 });
 
 test('the secret species comes from master.playerSpecies.secret; the ren fallback is only for a missing master', () => {
-  assert.deepEqual([...H.api.SECRET_LINES], SECRET);
-  assert.equal(H.api.SECRET_LINE, SECRET[0]);
-  assert.ok(SECRET.every((id) => H.api.isSecretLine(id)) && !H.api.isSecretLine('dog'));
+  assert.deepEqual([...boot().api.SECRET_LINES], SECRET);
+  assert.equal(boot().api.SECRET_LINE, SECRET[0]);
+  assert.ok(SECRET.every((id) => boot().api.isSecretLine(id)) && !boot().api.isSecretLine('dog'));
   // script.js の 組み立ての 行を そのまま 別の master で 動かす: master が あれば その ID、なければ ['ren']
   const src = read('script.js');
   const block = src.slice(src.indexOf('  const MASTER_NORMAL_LINES = '), src.indexOf('  const ALL_LINES = '));
@@ -187,15 +189,15 @@ test('every intentionally partial table is exactly its audited subset', () => {
 
 test('legacy rows are pinned and never leak into the current canonical sets', () => {
   assert.deepEqual([...LEGACY_SPECIES], ['bird', 'rabbit', 'fish', 'panda', 'fox', 'owl', 'plant', 'robot', 'dinosaur', 'mermaid', 'unicorn']);
-  assert.deepEqual([...H.api.LEGACY_NORMAL_LINES, ...literal('script.js', 'const LEGACY_RARE_LINES = ')], [...LEGACY_SPECIES]);
+  assert.deepEqual([...boot().api.LEGACY_NORMAL_LINES, ...literal('script.js', 'const LEGACY_RARE_LINES = ')], [...LEGACY_SPECIES]);
   assert.deepEqual(disjoint(LEGACY_SPECIES, SPECIES), [], 'legacy species are not current species');
-  assert.deepEqual(disjoint(LEGACY_SPECIES, [...H.api.ALL_LINES]), [], 'legacy species are not in ALL_LINES');
+  assert.deepEqual(disjoint(LEGACY_SPECIES, [...boot().api.ALL_LINES]), [], 'legacy species are not in ALL_LINES');
   const retiredCompanions = [...LEGACY.companionNormal, ...LEGACY.companionRare];
   assert.deepEqual(disjoint(retiredCompanions, COMPANIONS), []);
   // 旧なかまの 行は 正式な alias で 現行の なかまへ よみかえられる(だから 実行時には 引かれない)
   for (const id of retiredCompanions) assert.ok(COMPANIONS.includes(C.companionAliases[id]), `${id} → ${C.companionAliases[id]}`);
-  assert.deepEqual([...H.api.normalCompanions.map((c) => c.id), ...H.api.rareCompanions.map((c) => c.id)], COMPANIONS);
-  assert.deepEqual([...H.api.partnerCandidates.map((p) => p.id)].sort(), [...PARTNERS].sort());
+  assert.deepEqual([...boot().api.normalCompanions.map((c) => c.id), ...boot().api.rareCompanions.map((c) => c.id)], COMPANIONS);
+  assert.deepEqual([...boot().api.partnerCandidates.map((p) => p.id)].sort(), [...PARTNERS].sort());
 });
 
 test('alias destinations are canonical, and alias keys are canonical or retired', () => {
@@ -253,7 +255,7 @@ test('cast-bounds covers every current species stage, companion, partner, the au
 
 test('images: every master species has 8 stages whose asset is <id>/01..08.png and whose label matches master', () => {
   for (const def of [...P.normal, ...P.rare, ...P.secret]) {
-    const stages = H.api.SPECIES[def.id].stages;
+    const stages = boot().api.SPECIES[def.id].stages;
     assert.equal(stages.length, 8, def.id);
     stages.forEach((st, i) => {
       assert.equal(st.asset, `assets/characters/${def.id}/${String(i + 1).padStart(2, '0')}.png`, `${def.id} stage ${i + 1}`);
@@ -266,14 +268,14 @@ test('images: every master species has 8 stages whose asset is <id>/01..08.png a
 
 // --- ゴールの 段 ---
 test('GOAL_TIER_IDS is the single tier map: id ↔ ordinal both ways, and every per-tier table follows it', () => {
-  const ids = [...H.api.GOAL_TIER_IDS], GOAL_TIER = { ...H.api.GOAL_TIER };
+  const ids = [...boot().api.GOAL_TIER_IDS], GOAL_TIER = { ...boot().api.GOAL_TIER };
   assert.deepEqual([...ids], GOAL_TIER_IDS);
   assert.deepEqual(Object.keys(GOAL_TIER), GOAL_TIER_IDS);
   ids.forEach((id, i) => { assert.equal(GOAL_TIER[id], i); assert.equal(ids[GOAL_TIER[id]], id); });
   const perTier = {
-    ENDING_TIERS: H.api.ENDING_TIERS, ENDING_TIER_ICONS: H.api.ENDING_TIER_ICONS,
-    ENDING_TIER_UNLOCK_LABELS: H.api.ENDING_TIER_UNLOCK_LABELS, 'endingBadgeIconHTML keys': JSON.parse(read('script.js').match(/const keys = (\['fireworks'[^\]]*\])/)[1].replace(/'/g, '"')),
-    ENDING_CELEBRATIONS: H.api.ENDING_CELEBRATIONS,
+    ENDING_TIERS: boot().api.ENDING_TIERS, ENDING_TIER_ICONS: boot().api.ENDING_TIER_ICONS,
+    ENDING_TIER_UNLOCK_LABELS: boot().api.ENDING_TIER_UNLOCK_LABELS, 'endingBadgeIconHTML keys': JSON.parse(read('script.js').match(/const keys = (\['fireworks'[^\]]*\])/)[1].replace(/'/g, '"')),
+    ENDING_CELEBRATIONS: boot().api.ENDING_CELEBRATIONS,
   };
   for (const [name, table] of Object.entries(perTier)) {
     const gap = KNOWN_GAPS[name];
@@ -282,15 +284,15 @@ test('GOAL_TIER_IDS is the single tier map: id ↔ ordinal both ways, and every 
     if (gap) assert.deepEqual(ids.slice(table.length), gap.missing, `${name}: the known gap is exactly [${gap.missing}] (remove it from KNOWN_GAPS once filled)`);
   }
   // 段の 絵は goal-(番号+1)。data-goal / CSS の 番号も この 並び
-  H.api.ENDING_TIERS.forEach((tier, i) => assert.match(tier.art, new RegExp(`goal-${i + 1}`), ids[i]));
+  boot().api.ENDING_TIERS.forEach((tier, i) => assert.match(tier.art, new RegExp(`goal-${i + 1}`), ids[i]));
   // ごほうび・テーマの unlockTier は 段の 番号
-  assert.deepEqual([...H.api.NAOTO_ITEMS.map((item) => item.unlockTier)], [GOAL_TIER.life, GOAL_TIER.lifeClear, GOAL_TIER.best, GOAL_TIER.dex]);
-  for (const theme of Object.values(H.api.COLOR_THEMES)) if (theme.unlockTier !== undefined) assert.ok(ids[theme.unlockTier], `COLOR_THEMES unlockTier ${theme.unlockTier}`);
+  assert.deepEqual([...boot().api.NAOTO_ITEMS.map((item) => item.unlockTier)], [GOAL_TIER.life, GOAL_TIER.lifeClear, GOAL_TIER.best, GOAL_TIER.dex]);
+  for (const theme of Object.values(boot().api.COLOR_THEMES)) if (theme.unlockTier !== undefined) assert.ok(ids[theme.unlockTier], `COLOR_THEMES unlockTier ${theme.unlockTier}`);
 });
 
 test('ENDING_CELEBRATIONS still lacks the perfect tier: a known open gap, not the spec', () => {
-  assert.equal(H.api.ENDING_CELEBRATIONS.length, GOAL_TIER_IDS.length - KNOWN_GAPS.ENDING_CELEBRATIONS.missing.length);
-  assert.equal(H.api.ENDING_CELEBRATIONS[H.api.GOAL_TIER.perfect], undefined, 'perfect has no celebration yet (content decision pending)');
+  assert.equal(boot().api.ENDING_CELEBRATIONS.length, GOAL_TIER_IDS.length - KNOWN_GAPS.ENDING_CELEBRATIONS.missing.length);
+  assert.equal(boot().api.ENDING_CELEBRATIONS[boot().api.GOAL_TIER.perfect], undefined, 'perfect has no celebration yet (content decision pending)');
   assert.match(read('script.js'), /既知の 未解決の 網羅の すきま[\s\S]{0,200}perfect/);
 });
 
@@ -334,5 +336,5 @@ test('remove-it: a species added to master but forgotten in one table is named w
   assert.deepEqual(coverage({ x: [...PARTNERS.filter((id) => id !== 'cat_ceo'), 'cat_c3o'] }, { x: PARTNERS }), [{ table: 'x', missing: ['cat_ceo'], extra: ['cat_c3o'] }]);
   assert.deepEqual(coverage({ x: [...COMPANIONS_NORMAL, 'hakuchou'] }, { x: COMPANIONS_NORMAL }), [{ table: 'x', missing: [], extra: ['hakuchou'] }]);
   assert.throws(() => assertCoverage({ 'script COMPANION_RUNTIME': COMPANIONS_NORMAL.slice(1) }, { 'script COMPANION_RUNTIME': COMPANIONS_NORMAL }), /script COMPANION_RUNTIME: missing=\[cat_friend\]/);
-  assert.deepEqual(disjoint(['koala', 'dog'], [...H.api.ALL_LINES]), ['dog']);
+  assert.deepEqual(disjoint(['koala', 'dog'], [...boot().api.ALL_LINES]), ['dog']);
 });
