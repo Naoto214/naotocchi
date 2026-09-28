@@ -534,3 +534,10 @@ Sites APIで最新保存は**version72**、source `9a1c44d6ebce2eeeba8680a18a550
 方式A/Bへ戻らず、通常基準08からhappy / strained / hungry / sick / sulky / weak / critical / wantsPlay / sleepingの9候補を新規制作した。既存9枚は置換していない。状態マーク・汗・resolver・offset・z-orderは変更しない。候補比較・構造／色調QAの後、人間確認待ちで停止。手順5、他段階、Ready化、mainマージへ進まない。
 
 詳細：[D4採用・9候補QA](antlion08-method-d-nine-20260928/report.md)、[承認17枚のhash](antlion08-method-d-nine-20260928/tired-adoption.json)。旧資料は当時の監査履歴として保持し、現在状態は本節を優先する。
+
+## 2026-09-29 人間裁定：hungry B現状維持／wantsPlay本人左目の限定候補
+
+- hungryのB判定・現状維持を人間が正式承認。本人左目（viewer-right）は本人右目（viewer-left）より細く暗いが、空腹・弱りの自然な非対称として許容。顔・両眼・身体・粒子／軌跡を完全保持。候補SHA-256 `2780c3124a1e93e4f6c8f86f298170deedc4a861e3a9f5243c5c713be581d66c`。この承認は現状維持の裁定であり、本番PNGへの置換はまだ実施しない。
+- wantsPlayはCを人間が採用。本人左目（viewer-right）のみRGB3画素を変更したQA候補1枚を保存。本人右目（viewer-left）・口・鼻・身体・粒子等はpixel不変。境界 `(105,63)` の色1画素は分離のため変更、alpha／頭部シルエットは不変。候補未承認、本番PNG変更0。
+- D4 tired正式承認、ヒトデ泡監査正式完了、犬03 wantsPlay、ウスバカゲロウ07指定5枚、ヒトデ08指定10枚の承認を維持。最新strained／critical候補を含め既存画像は変更しない。
+- 詳細：[wantsPlay本人左目（viewer-right）候補QA](antlion08-wantsplay-left-eye-candidate-20260929/report.md)。手順4全体は未完了。残り候補の一括正式承認・本番置換・手順5・main取り込み・既存競合解消は行わず、人間確認待ち。
