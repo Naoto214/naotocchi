@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [326](326-new-seed-mixed-replay.md) | response-pass3件・通常pass1件を適用し4 event/snapshotを検証 |
 | [325](325-new-seed-mixed-choice.md) | 3件の唯一response-passと01-Bの通常passを選択 |
 | [324](324-new-seed-mixed-audit.md) | 3件の唯一response-passと01-Bの通常行動3候補を監査 |
 | [323](323-new-seed-mixed-replay.md) | たまご交換2件・response-pass・通常passを適用して4 event/snapshotを検証 |
