@@ -32,12 +32,8 @@ const specialConns = (G) => G.connections.filter((c) => c.b && c.gate && c.gate.
 
 const SRC = fs.readFileSync('meguru.js', 'utf8');
 // Phase 4D-2(遠景 PoC)は 印の ついた ブロックと 行だけ。消す ときは いっしょに 消す
-const strip4d2 = (src) => src.replace(/^[ \t]*\/\/ ====== Phase 4D-2:[\s\S]*?\/\/ ====== \/Phase 4D-2 ======\n/gm, '')
-  // Phase 4E-2(home|forest を あるく PoC)も 印の ついた ブロックと 行だけ。4D-2 と いっしょに 消す
-  .replace(/^[ \t]*\/\/ ====== Phase 4E-2:[\s\S]*?\/\/ ====== \/Phase 4E-2 ======\n/gm, '')
-  .split('\n').filter((l) => !/\/\/ Phase 4D-2$|\/\/ Phase 4E-2$/.test(l)).join('\n')
-  .replace(/ CONTINUOUS_WALK_ALLOWLIST,[^\n]*? createCorridorWalk,/, '')
-  .replace(', get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; }', '');
+const { stripPhase4d2: strip4d2 } = require('./helpers/source.cjs'); // RH-6: 共通の 部品
+const D = require('./helpers/meguru-denominators.cjs'); // RH-6: 分母の 置き場所
 // Phase 4B で 足した ぶんだけを 切りだす
 function phase4bBlock() {
   const a = SRC.indexOf('// ====== Phase 4B:');
@@ -352,7 +348,7 @@ test('12. 分母・spot・たび・セーブの かたちは 1 つも 動いて 
   for (const id of Object.keys(W)) { const w = W[id];
     sp += w.spots.length; pa += w.paths.length; zo += w.zones.length;
     se += w.spots.filter((x) => x.secret).length + w.paths.filter((x) => x[2] === 'secret').length; }
-  assert.equal(sp, 471); assert.equal(pa, 654); assert.equal(zo, 118); assert.equal(se, 107);
+  assert.equal(sp, D.SPOTS); assert.equal(pa, D.PATHS); assert.equal(zo, D.ZONES); assert.equal(se, D.SECRETS);
   assert.equal(G.connections.length, 14);
   assert.equal(G.connections.filter((c) => c.gate).length, 13);
   assert.equal(G.connections.filter((c) => c.b && !c.gate).length, 0);

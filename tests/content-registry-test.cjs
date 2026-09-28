@@ -1,7 +1,5 @@
 const assert = require('node:assert/strict');
 const { test } = require('node:test');
-const fs = require('node:fs');
-const path = require('node:path');
 const vm = require('node:vm');
 const { harness } = require('./helpers/runtime-harness.cjs');
 
@@ -9,28 +7,8 @@ const { harness } = require('./helpers/runtime-harness.cjs');
 // 実行時の 定義 から もれて いない ことを、起動時の TypeError では なく テストで 名指しして とめる。
 // 表は 起動せずに source の 宣言を そのまま 評価する(表が 1 つ 欠けても 全テストが 起動で こける 前に、
 // どの 表の どの ID か を 出す)。save / ending の 番号 / 見た目は かえない
-const ROOT = path.join(__dirname, '..');
-const read = (file) => fs.readFileSync(path.join(ROOT, file), 'utf8');
-const master = (() => {
-  const ctx = { window: {} }; vm.createContext(ctx);
-  vm.runInContext(read('character-world-master.v1.js') + ';window.M = NAOTOCCHI_CHARACTER_WORLD_MASTER_V1;', ctx);
-  return JSON.parse(JSON.stringify(ctx.window.M)); // vm の 別 realm の 配列を この realm へ
-})();
-// 宣言の オブジェクト / 配列を そのまま 評価する(文字列・コメントの 中の かっこは かぞえない)
-function literal(file, decl) {
-  const src = read(file), i = src.indexOf(decl);
-  assert.ok(i >= 0, `${file}: ${decl}`);
-  let j = i + decl.length;
-  while (src[j] !== '{' && src[j] !== '[') j++;
-  const open = src[j], close = open === '{' ? '}' : ']', start = j;
-  for (let d = 0; j < src.length; j++) {
-    const c = src[j];
-    if (c === "'" || c === '"' || c === '`') { const q = c; j++; while (src[j] !== q) { if (src[j] === '\\') j++; j++; } continue; }
-    if (c === '/' && src[j + 1] === '/') { while (src[j] !== '\n') j++; continue; }
-    if (c === open) d++; else if (c === close && --d === 0) break;
-  }
-  return JSON.parse(JSON.stringify(vm.runInNewContext('(' + src.slice(start, j + 1) + ')')));
-}
+const { read, literal, loadMaster } = require('./helpers/source.cjs'); // RH-6: 共通の 部品
+const master = loadMaster();
 
 // --- 正本(master) ---
 const P = master.playerSpecies;

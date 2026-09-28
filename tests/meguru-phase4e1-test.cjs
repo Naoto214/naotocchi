@@ -30,12 +30,7 @@ const angDiff = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
 const deg = (rad) => ((rad * 180 / Math.PI) % 360 + 360) % 360;
 
 const SRC = fs.readFileSync('meguru.js', 'utf8');
-const strip4d2 = (src) => src.replace(/^[ \t]*\/\/ ====== Phase 4D-2:[\s\S]*?\/\/ ====== \/Phase 4D-2 ======\n/gm, '')
-  // Phase 4E-2(home|forest を あるく PoC)も 印の ついた ブロックと 行だけ。4D-2 と いっしょに 消す
-  .replace(/^[ \t]*\/\/ ====== Phase 4E-2:[\s\S]*?\/\/ ====== \/Phase 4E-2 ======\n/gm, '')
-  .split('\n').filter((l) => !/\/\/ Phase 4D-2$|\/\/ Phase 4E-2$/.test(l)).join('\n')
-  .replace(/ CONTINUOUS_WALK_ALLOWLIST,[^\n]*? createCorridorWalk,/, '')
-  .replace(', get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; }', '');
+const { stripPhase4d2: strip4d2 } = require('./helpers/source.cjs'); // RH-6: 共通の 部品
 // 4E-2(home|forest を あるく PoC)は 4E-1 の かたちを はじめて つかう そう。4E-1 を 消す ときは 4E-2 だけ いっしょに 消す(4D-2 は のこす)
 const strip4e2 = (src) => src.replace(/^[ \t]*\/\/ ====== Phase 4E-2:[\s\S]*?\/\/ ====== \/Phase 4E-2 ======\n/gm, '')
   .split('\n').filter((l) => !/\/\/ Phase 4E-2$/.test(l)).join('\n')
@@ -47,7 +42,8 @@ function phase4e1Block() {
   assert.ok(a > 0 && b > a, 'Phase 4E-1 の ブロックが 見つかる');
   return SRC.slice(SRC.lastIndexOf('\n', a) + 1, SRC.lastIndexOf('\n', b) + 1);
 }
-const codeOnly = (src) => src.split('\n').filter((l) => !/^\s*\/\//.test(l)).join('\n');
+const { codeOnly } = require('./helpers/source.cjs');
+const D = require('./helpers/meguru-denominators.cjs'); // RH-6: 分母の 置き場所
 // Phase 4E-4B: CORRIDOR_TURN_SPREAD / corridorTurnSpread(turn spread)を たした
 const EXPORTS_4E1 = ['CORRIDOR_STAGE_WALK', 'CORRIDOR_TURN_SPREAD', 'corridorTurnSpread', 'CORRIDOR_WIDTH', 'CORRIDOR_TERRAIN_WIDTH', 'CORRIDOR_STATE_KEYS', 'walkCorridorSpecs',
   'walkCorridorSpec', 'orientWalkCorridor', 'corridorHeadingAt', 'corridorStageAt', 'corridorMode', 'makeCorridorState',
@@ -479,7 +475,7 @@ test('17. 分母・spot・たび・セーブ・世界地図・corridor・遠景�
   for (const id of Object.keys(W)) { const w = W[id];
     sp += w.spots.length; pa += w.paths.length; zo += w.zones.length;
     se += w.spots.filter((x) => x.secret).length + w.paths.filter((x) => x[2] === 'secret').length; }
-  assert.equal(sp, 471); assert.equal(pa, 654); assert.equal(zo, 118); assert.equal(se, 107);
+  assert.equal(sp, D.SPOTS); assert.equal(pa, D.PATHS); assert.equal(zo, D.ZONES); assert.equal(se, D.SECRETS);
   assert.equal(G.connections.length, 14);
   assert.equal(G.connections.filter((c) => c.gate).length, 13);
   assert.equal(arr(M.worldCorridors()).length, 13);

@@ -6,6 +6,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { harness } = require('./helpers/runtime-harness.cjs');
+const D = require('./helpers/meguru-denominators.cjs'); // RH-6: 分母の 置き場所
 
 function setup(regionId = 'home') {
   const h = harness({ fullDisplay: true });
@@ -87,7 +88,7 @@ test('A4. みちを けしても region の なかみは 1 つも かわって �
     spots += w.spots.length; paths += w.paths.length; zones += w.zones.length;
     secret += w.spots.filter((q) => q.secret).length + w.paths.filter((q) => q[2] === 'secret').length;
   }
-  assert.equal(spots, 471); assert.equal(paths, 654); assert.equal(zones, 118); assert.equal(secret, 107);
+  assert.equal(spots, D.SPOTS); assert.equal(paths, D.PATHS); assert.equal(zones, D.ZONES); assert.equal(secret, D.SECRETS);
   // もと mouth だった spot は ふつうの spot として のこる(spot は けして いない)
   assert.ok(M.WORLDS.forest.spots.some((q) => q.id === 'anc1'));
   assert.ok(M.WORLDS.snow.spots.some((q) => q.id === 'pines'));

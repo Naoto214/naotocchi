@@ -3,7 +3,6 @@ const { test } = require('node:test');
 const { harness } = require('./helpers/runtime-harness.cjs');
 
 // たねつき らんすう(meguru-life-test と おなじ mulberry32)。テストで めぐるの らんすうを 決定論に する ため
-const seededRandom = (seed) => { let t = seed >>> 0; return () => { t = (t + 0x6D2B79F5) >>> 0; let x = Math.imul(t ^ (t >>> 15), 1 | t); x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x; return ((x ^ (x >>> 14)) >>> 0) / 4294967296; }; };
 
 // ずかんに いろいろ のった セーブを つくる
 function populated(h) {
@@ -70,14 +69,11 @@ test('Naoto never appears before the secret is unlocked, and afterwards waits at
 });
 
 test('entering めぐる from the travel screen switches to the field, inhabitants live, talking works, and returning restores home', () => {
-  const h = harness(); const s = populated(h);
-  // テストだけ 決定論に する。'auto' の じかん・てんきは じっさいの とけいから きまり、
-  // 「ひる × はれ」「あさ × ゆき」「ゆうがた × くもり」では くまが きのこの そばへ 来る。
-  // どちらが ちかいかは らんすう(たね なし)しだいで、2026-09-23 11:23 UTC の CI が 赤に なった。
-  // なので じかん・てんき を とめて、めぐるの らんすうに たねを 入れる(ほんばんの らんすうは かえない)
-  s.lifetime.timeMode = 'day'; s.lifetime.weatherMode = 'cloudy';
-  h.api.meguruMod.setRandom(seededRandom(20260923));
-  try { enterAndReturn(h, s); } finally { h.api.meguruMod.setRandom(null); }
+  // テストだけ 決定論に する(RH-6: harness の deterministic プリセット)。host の とけいの じかん・てんき、
+  // こよみ、らんすう しだいで くまが きのこの そばへ 来て、どちらが ちかいかが かわった(2026-09-23 11:23 UTC の CI が 赤)。
+  // じかん・てんき・日付・らんすう(ページ と めぐる)を ぜんぶ 固定する。ほんばんの らんすうは かえない
+  const h = harness({ deterministic: true, environment: { time: 'day', weather: 'cloudy' } }); const s = populated(h);
+  enterAndReturn(h, s);
 });
 function enterAndReturn(h, s) {
   h.api.renderTravelRegionGrid();
