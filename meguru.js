@@ -1557,9 +1557,13 @@
     // きまる ので、もどってきても おなじ もように なる。え には いぞんしない ので、
     // Three.js の レンダラーからも おなじ ように よべる
     const DETAIL_CELL = 190;
+    // RH-7: 地面の もようは マス(DETAIL_CELL)ごとに 決定的なので、world と マスごとに おぼえて 毎 frame 作りなおさない
+    // (中身は 同じ。描く がわは 読むだけ)。おぼえる マスは world ごとに DETAIL_MEMO_MAX まで(こえたら 捨てて 作りなおす)
+    const DETAIL_MEMO = new WeakMap(), DETAIL_MEMO_MAX = 1024;
     function sampleGroundDetails(world, cx, cz, radius, out) {
       const list = out || []; list.length = 0;
       const spec = world.detail || []; if (!spec.length) return list;
+      let memo = DETAIL_MEMO.get(world); if (!memo) { memo = new Map(); DETAIL_MEMO.set(world, memo); }
       const minX = world.minX != null ? world.minX : -world.halfW, maxX = world.maxX != null ? world.maxX : world.halfW;
       const t = world.terrain, riverish = t && (t.kind === 'river' || t.kind === 'chasm');
       const gx0 = Math.floor((cx - radius) / DETAIL_CELL), gx1 = Math.floor((cx + radius) / DETAIL_CELL);
@@ -1568,6 +1572,9 @@
         const z0 = gz * DETAIL_CELL; if (z0 < -DETAIL_CELL || z0 > world.len + DETAIL_CELL) continue;
         for (let gx = gx0; gx <= gx1; gx++) {
           const x0 = gx * DETAIL_CELL; if (x0 < minX - DETAIL_CELL || x0 > maxX) continue;
+          const ck = gx * 100003 + gz, hit = memo.get(ck);
+          if (hit) { for (let q = 0; q < hit.length; q++) list.push(hit[q]); continue; }
+          const start = list.length;
           let sd = (gx * 374761393 + gz * 668265263 + world.seed) >>> 0;
           sd = (Math.imul(sd ^ (sd >>> 13), 1274126177)) >>> 0;
           const rnd = () => { sd = (Math.imul(sd, 1664525) + 1013904223) >>> 0; return sd / 4294967296; };
@@ -1585,6 +1592,8 @@
               list.push({ kind: layer[0], color: layer[1], x, z, size: layer[3] + rnd() * (layer[4] - layer[3]), phase: rnd() * TAU, rot: rnd() * TAU });
             }
           }
+          if (memo.size >= DETAIL_MEMO_MAX) memo.clear();
+          memo.set(ck, list.slice(start));
         }
       }
       return list;
@@ -2617,17 +2626,27 @@
       function followParty(dt) {
         const F = RULES.follow, slots = formationFor(party.length);
         party.forEach((a, i) => {
-          const t = formationPoint(a, i, slots, player.x, player.z, camera.yaw), tx = t.x, tz = t.z;
+          // RH-7: とまって いる ときは ならびの ばしょを しょうがいぶつの そとへ ずらして から よる(あるいて いる ときは いままでどおり)
+          const t = formationPoint(a, i, slots, player.x, player.z, camera.yaw), c = player.moving ? t : clearSlot(a, t), tx = c.x, tz = c.z;
           const dx = tx - a.x, dz = tz - a.z, d = Math.hypot(dx, dz);
-          if (d > F.snap) { const spd = Math.min(F.maxSpeed, d * FORMATION.gain) * t.k; a.x += dx / d * Math.min(d, spd * dt); a.z += dz / d * Math.min(d, spd * dt); a.behavior = 'walk'; a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1; a.bob += dt; }
+          if (d > F.snap || (d > 0.001 && collidesAt(world, a.x, a.z, RULES.bodyRadius * STAND_CLEAR))) { const spd = Math.max(40, Math.min(F.maxSpeed, d * FORMATION.gain)) * t.k; a.x += dx / d * Math.min(d, spd * dt); a.z += dz / d * Math.min(d, spd * dt); a.behavior = 'walk'; a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1; a.bob += dt; }
           else if (a.behavior !== 'idle') { a.behavior = 'idle'; a.heading = player.heading; }
           if (a.sayFor > 0) { a.sayFor -= dt; if (a.sayFor <= 0) { a.sayFor = 0; a.say = null; } }
         });
       }
-      // なかまを いまの ならびの ばしょへ そのまま おく(地域に はいった とき。とおくから かけよって こない)
+      // RH-7: ならびの ばしょ → 立てる ばしょ(standClear。住人と おなじ はんけい)。world と 4 の マスごとに おぼえる
+      function clearSlot(a, t) {
+        const k = Math.round(t.x / 4) + ',' + Math.round(t.z / 4);
+        if (a.clearW === world && a.clearK === k) return a.clearT;
+        const p = standClear({ x: t.x, z: t.z }, world, false, player);
+        a.clearW = world; a.clearK = k; a.clearT = p;
+        return p;
+      }
+      // なかまを いまの ならびの ばしょへ そのまま おく(地域に はいった とき。とおくから かけよって こない)。
+      // RH-7: しょうがいぶつに めりこむ ばしょは 立てる ばしょへ ずらす(standClear が 世界の はしも おさえる)
       function placeParty() {
         const slots = formationFor(party.length);
-        party.forEach((a, i) => { const t = formationPoint(a, i, slots, player.x, player.z, camera.yaw); a.x = t.x; a.z = t.z; clampToWorld(a, world); a.heading = player.heading; a.behavior = 'idle'; });
+        party.forEach((a, i) => { const t = clearSlot(a, formationPoint(a, i, slots, player.x, player.z, camera.yaw)); a.x = t.x; a.z = t.z; a.heading = player.heading; a.behavior = 'idle'; });
       }
       // 1 フレームぶん すすめる。input: { x: -1..1(よこ), y: -1..1(てまえ +) } は カメラから みた むき。もどりち: おきた できごと
       function step(dt, input) {
@@ -2956,7 +2975,10 @@
       return c;
     }
     function createCanvasRenderer(o) {
-      let ctx = o.ctx, W = o.W, H = o.H; const tier = o.tier || 0;
+      // RH-7: えがく のは なまの ctx(Proxy を とおらない ので 1 frame 数千回の よびだしが かるい)。
+      // 絵文字を イラストに かえる のは fillText / strokeText だけ なので、文字は txt(o.ctx = つつんだ ctx)で えがく。
+      // どちらも おなじ canvas の おなじ 状態(font・fillStyle・変換)を つかう ので、えがかれる ものは 同じ
+      let ctx = o.rawCtx || o.ctx, txt = o.ctx, W = o.W, H = o.H; const tier = o.tier || 0;
       const wrapCtx = typeof o.wrapCtx === 'function' ? o.wrapCtx : null;          // キャラ(じゅうみん)よう
       const wrapScenery = typeof o.wrapScenery === 'function' ? o.wrapScenery : null; // けしき よう(キャラの え には ならない)
       const resolveScenery = typeof o.resolveScenery === 'function' ? o.resolveScenery : null;
@@ -2979,12 +3001,12 @@
       // 立て看板を えがく: キャッシュした えが あれば drawImage、なければ fillText。
       // scenery=true の ものは けしき せんよう の みちすじ(なかま・こいびと・しゅぞくの え に ぜったい ならず、placeholder にも ならない)
       function drawGlyph(emoji, sx, sy, px, scenery, kw = 1, kh = 1) {
-        let wrap = wrapCtx, ns = 'c', fallback = ctx;
+        let wrap = wrapCtx, ns = 'c', fallback = txt;
         if (scenery) {
           const mode = sceneryMode(emoji);
           if (mode === 'skip') return;
-          if (mode === 'art') { wrap = wrapScenery; ns = 's'; fallback = sceneryMain || rawMain || ctx; }
-          else { wrap = null; ns = 'n'; fallback = rawMain || ctx; }
+          if (mode === 'art') { wrap = wrapScenery; ns = 's'; fallback = sceneryMain || rawMain || txt; }
+          else { wrap = null; ns = 'n'; fallback = rawMain || txt; }
         }
         if (kw !== 1) px *= kw; // kw / kh: 絵の はば と たかさ の かけざん(見た目だけ)
         const c = px >= 12 ? glyphSprite(emoji, px, wrap, ns) : null;
@@ -3575,7 +3597,7 @@
         else drawGlyph(a.emoji || '❓', 0, 0, px * 0.9);
         ctx.restore();
         const mark = a.behavior === 'sleep' ? '💤' : a.behavior === 'talk' ? '💬' : a.behavior === 'fish' ? '🎣' : a.behavior === 'play' || a.behavior === 'chase' ? '✨' : a.behavior === 'watch' ? '👀' : a.behavior === 'shop' ? '🛍️' : null;
-        if (mark && px > 26) { ctx.font = `${Math.round(px * 0.32)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(mark, p.sx + px * 0.4, y - px * 0.85 + Math.sin(a.bob) * 2); }
+        if (mark && px > 26) { ctx.font = `${Math.round(px * 0.32)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; txt.fillText(mark, p.sx + px * 0.4, y - px * 0.85 + Math.sin(a.bob) * 2); }
       }
       function drawBubble(text, sx, sy) {
         const fontPx = 12; ctx.font = `bold ${fontPx}px sans-serif`;
@@ -3586,11 +3608,11 @@
         ctx.fillStyle = 'rgba(255,255,255,.94)'; ctx.strokeStyle = 'rgba(0,0,0,.25)'; ctx.lineWidth = 1.5;
         ctx.beginPath(); ctx.roundRect ? ctx.roundRect(x, y, w, h, 8) : ctx.rect(x, y, w, h); ctx.fill(); ctx.stroke();
         ctx.fillStyle = '#223'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
-        lines.forEach((l, i) => ctx.fillText(l, x + 8, y + 5 + i * (fontPx + 3)));
+        lines.forEach((l, i) => txt.fillText(l, x + 8, y + 5 + i * (fontPx + 3)));
       }
       function drawLabel(text, sx, sy, small) {
         ctx.font = `bold ${small ? 10 : 12}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillStyle = small ? 'rgba(255,255,255,.8)' : 'rgba(255,255,255,.95)'; ctx.strokeStyle = 'rgba(0,0,0,.5)'; ctx.lineWidth = 3;
-        ctx.strokeText(text, sx, sy); ctx.fillText(text, sx, sy);
+        txt.strokeText(text, sx, sy); txt.fillText(text, sx, sy);
       }
 
       // ================= 地域の こせい を えがく =================
@@ -4594,7 +4616,7 @@
             ctx.fillStyle = 'rgba(0,0,0,.2)'; ctx.beginPath(); ctx.ellipse(it.p.sx, it.p.sy, px * 0.32, px * 0.09, 0, 0, TAU); ctx.fill();
             const lift = player.moving ? Math.abs(Math.sin(player.bob * 5)) * px * (facing === 'back' ? 0.06 : 0.09) : 0;
             ctx.save(); ctx.translate(it.p.sx, it.p.sy - lift); ctx.scale(facing === 'left' ? -1 : 1, facing === 'back' ? 0.95 : 1); if (player.moving && (facing === 'left' || facing === 'right')) ctx.rotate((facing === 'left' ? -1 : 1) * 0.06);
-            ctx.font = `${Math.round(px * 0.9)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.fillText(playerGlyph(), 0, 0); ctx.restore();
+            ctx.font = `${Math.round(px * 0.9)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; txt.fillText(playerGlyph(), 0, 0); ctx.restore();
           }
           else {
             const a = it.o;
@@ -4638,7 +4660,7 @@
         setDistant, get distantShown() { return distantShown; }, // Phase 4D-2
         get backdropLayers() { return bdLayers; },
         get spriteStats() { return spriteStats; }, get spriteCacheSize() { return spriteCache.size; },   // なかまの LOD・え の したく(しらべる ため)
-        resize(n) { ctx = n.ctx; W = n.W; H = n.H; if (n.rawCtx) { rawMain = n.rawCtx; sceneryMain = wrapScenery ? wrapScenery(n.rawCtx) || n.rawCtx : n.rawCtx; } setup(); }, destroy() { skyCache = null; nebula = null; spriteCache.clear(); spriteStats.bytes = 0; } };
+        resize(n) { ctx = n.rawCtx || n.ctx; txt = n.ctx; W = n.W; H = n.H; if (n.rawCtx) { rawMain = n.rawCtx; sceneryMain = wrapScenery ? wrapScenery(n.rawCtx) || n.rawCtx : n.rawCtx; } setup(); }, destroy() { skyCache = null; nebula = null; spriteCache.clear(); spriteStats.bytes = 0; } };
     }
 
     // ================= なおとっち世界 正式地理 v1（D案「弓なりの大陸と、そのふところの湾」） =================
