@@ -6,6 +6,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { harness } = require('./helpers/runtime-harness.cjs');
+const D = require('./helpers/meguru-denominators.cjs'); // RH-6: 分母の 置き場所
 
 function setup() {
   const h = harness({ fullDisplay: true });
@@ -64,7 +65,7 @@ test('2. anchor は ぜんぶ 既存の 非秘密 spot。**新しい spot は 1 
     spots += w.spots.length; paths += w.paths.length; zones += w.zones.length;
     secret += w.spots.filter((x) => x.secret).length + w.paths.filter((x) => x[2] === 'secret').length;
   }
-  assert.equal(spots, 471); assert.equal(paths, 654); assert.equal(zones, 118); assert.equal(secret, 107);
+  assert.equal(spots, D.SPOTS); assert.equal(paths, D.PATHS); assert.equal(zones, D.ZONES); assert.equal(secret, D.SECRETS);
   assert.equal(M.worldCountable().zones, 103);
 });
 

@@ -5,6 +5,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const { chromium, webkit } = require('playwright');
+const { guardedRoute } = require('./helpers/browser-route.cjs');
 
 const output = path.resolve('test-results/home-layout');
 fs.mkdirSync(output, { recursive: true });
@@ -103,10 +104,12 @@ function checkLayout(m, label) {
           const label = engine + '-' + name;
           const context = await browser.newContext({ viewport:{width,height}, deviceScaleFactor:1,
             ...(name === 'phone-touch' ? {isMobile:true,hasTouch:true} : {}) });
+          const routeErrors = [];
           if (insets) {
             // Desktop CI has no physical notch. Substitute only CSS env inputs;
             // the shipped padding rules still calculate and lay out the page.
-            await context.route('**/*.css?*', async route => {
+            // RH-6: a failed fetch is recorded and fails this case (no retry), instead of killing the process.
+            await guardedRoute(context, '**/*.css?*', label, routeErrors, async route => {
               const response = await route.fetch();
               const css = (await response.text()).replace(/env\(safe-area-inset-(top|right|bottom|left)\)/g,
                 (_match,edge) => (insets[edge] || 0) + 'px');
@@ -238,8 +241,10 @@ function checkLayout(m, label) {
               assert.equal(await page.locator('#message').isVisible(),false,label+': narration remains over the life record');
             }
             assert.deepEqual(errors, [], label+': browser runtime errors');
+            assert.deepEqual(routeErrors, [], label+': CSS substitution fetch failed');
             console.log('PASS '+label);
           } catch (error) {
+            if (routeErrors.length) results.push({ label, phase:'route-errors', routeErrors });
             failures.push(label+': '+error.message);
             console.error('FAIL '+label+': '+error.message);
             await page.screenshot({ path:path.join(output,label+'-failure.png') }).catch(() => {});

@@ -558,6 +558,13 @@ harness({
 - **phase ごとのファイルを topic ごとにまとめる**(`meguru-corridor-test` など)。**4E が完了した後に 1 回だけ** 行う。
 - `movie-browser.cjs` を CI に入れるか、削除するかを決める。
 
+> **2026-09-28 追記(RH-6 の 実装。基準 main `7831249`)**
+> - harness の 既定: `environment` だけ 固定側(ひる・はれ)に 反転し、host の 時計の 本物の ふるまいは `environment: 'auto'` で opt-in。`seed` / `pinDate` は 既定に しない(別の harness が 同じ らんすうに なる — `item-collections-economy` の duel `matchId` が 同じに なる、日の 進む テストが とまる)。host の 時計・TZ・らんすう に よらない 場面には `deterministic: true` プリセット(environment + hostEnvironmentClock + seed + pinDate + clockNow)。既定を 反転しても 既存の テストは ぜんぶ 緑(めぐる 40 file を host の 時計 2 とおりで 544/544)。
+> - 既知の flaky 2 本(`meguru-test` の「めぐるに はいる」、`meguru-discovery` ⑥-1)は 手書きの timeMode / weatherMode / setRandom を やめて `deterministic` プリセットへ。assertion は そのまま。
+> - 共通の 部品: `tests/helpers/source.cjs`(`literal` / `loadMaster` / `codeOnly` / `stripPhase4d2`。RH-4 / RH-5 の `literal` 2 とおり と 5 本の `strip4d2` の 写しを 1 つに)、`tests/helpers/meguru-denominators.cjs`(471 / 654 / 118 / 107 / 17 / 103 / 11 / 12、値は 直書きの まま)+ WORLDS から 数えなおす テスト 1 本。4 つの 件数を 並べた 14 本の テストを これに 置きかえた。
+> - home-layout の ECONNRESET: 原因は まだ 特定できない ので、retry は 入れず **観測性だけ**(`tests/helpers/browser-route.cjs` の `guardedRoute`)。route の fetch が こけたら case・URL・code・case の 開始からの ms を 記録して その case を 赤に する(process ごと 落ちて 残りの case の 証拠が 消える ことが なくなる)。home-layout と home-conversation の browser テストに 適用。
+> - 残した もの(判断が 要る / 後で): 4B / 4C / 4D-1 / 4E-1 の remove-it の「卒業」(4E-4C で 層を 本番が 使いはじめた。behavior テストへの 置きかえは オーナーの 了承の うえで)、`movie-browser.cjs`(CI に なく、中身も 古い。入れるか 消すかは 未決)、source-text の 危ない 切り出し(transition-polish / sea-route / 4e2 の 層分離 / smoke の `make*`)の AST 化は RH-7 の meguru.js 分割と いっしょに、phase → topic の file 統合は 見送り。
+
 ### 7.4 RH-7 Meguru Post-4E Fixes
 > 2026-09-26 追記: めぐる側から引き継いだ post-4E backlog は次の 4 件(ほかは final visual completion pass で処理済み)。
 > 1. forest / mountain の到着時の描画コスト

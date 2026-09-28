@@ -72,19 +72,19 @@ test('the same environment + seed + pinned clock gives the same time, weather, s
   assert.equal(runs[0].env.weather, 'sunny');
 });
 
-test('without the options the result follows the host clock (the test detects the difference)', () => {
-  const morning = probe('2026-09-27T03:00:00Z', 'UTC', {});
-  const afternoon = probe('2026-09-27T13:00:00Z', 'UTC', {});
+test('with environment: \'auto\' the result follows the host clock (the test detects the difference)', () => {
+  const morning = probe('2026-09-27T03:00:00Z', 'UTC', { environment: 'auto' });
+  const afternoon = probe('2026-09-27T13:00:00Z', 'UTC', { environment: 'auto' });
   assert.notEqual(morning.env.time, afternoon.env.time, 'time of day comes from the host clock');
-  const winter = probe('2027-01-15T12:00:00Z', 'UTC', {});
+  const winter = probe('2027-01-15T12:00:00Z', 'UTC', { environment: 'auto' });
   assert.notEqual(winter.env.season, afternoon.env.season, 'season comes from the host calendar without pinDate');
   // pinDate + clockNow だけで 季節は そろう(environment.season は つくらない)
-  const pinned = { pinDate: true, clockNow: Date.parse('2026-09-16T12:00:00Z') };
+  const pinned = { environment: 'auto', pinDate: true, clockNow: Date.parse('2026-09-16T12:00:00Z') };
   assert.equal(probe('2027-01-15T12:00:00Z', 'UTC', pinned).env.season, probe('2026-09-27T13:00:00Z', 'UTC', pinned).env.season);
 });
 
 test('hostEnvironmentClock alone makes the time of day follow the harness clock instead of the host clock', () => {
-  const options = { hostEnvironmentClock: true, clockNow: Date.parse('2026-09-16T08:00:00Z') };
+  const options = { environment: 'auto', hostEnvironmentClock: true, clockNow: Date.parse('2026-09-16T08:00:00Z') };
   const a = probe('2026-09-27T03:00:00Z', 'UTC', options);
   const b = probe('2026-09-27T20:00:00Z', 'UTC', options);
   assert.equal(a.env.time, 'morning');
@@ -97,7 +97,7 @@ test('the flaky "entering meguru" scene is reproducible with the options on any 
   assert.ok(runs[0].meguru.length >= 3, 'the forest has inhabitants');
   for (const r of runs.slice(1)) assert.deepEqual(r.meguru, runs[0].meguru);
   // options なし(clock だけ固定)では、host の 時刻と たねの ない らんすうで 場面が ゆれる
-  const pinnedOnly = { pinDate: true, clockNow: FIXED.clockNow };
+  const pinnedOnly = { environment: 'auto', pinDate: true, clockNow: FIXED.clockNow };
   const loose = [probe('2026-09-27T03:00:00Z', 'UTC', pinnedOnly, { PROBE_MEGURU: '1' }), probe('2026-09-27T13:00:00Z', 'UTC', pinnedOnly, { PROBE_MEGURU: '1' })];
   assert.notDeepEqual(loose[0].meguru, loose[1].meguru);
 });
@@ -117,10 +117,12 @@ test('one generator feeds the page Math.random (from boot) and meguru', () => {
   assert.equal(vm.runInContext('Math.random()', twin.sandbox), (() => { const g = harness({ seed: 5 }); return vm.runInContext('Math.random()', g.sandbox); })());
 });
 
-test('default harness() behaviour is unchanged', () => {
+test('default harness(): fixed day/sunny environment (RH-6), native random, unpinned new Date(), harness Date.now()', () => {
   const h = harness();
   assert.equal(h.rng, null);
-  assert.equal(h.sandbox.NaotocchiEnvironment, require('../world-environment.js'), 'the real module object is passed through');
+  assert.equal(h.api.currentEnvironment().time, 'day');
+  assert.equal(h.api.currentEnvironment().weather, 'sunny');
+  assert.equal(harness({ environment: 'auto' }).sandbox.NaotocchiEnvironment, require('../world-environment.js'), "environment: 'auto' passes the real module through");
   assert.match(vm.runInContext('Math.random.toString()', h.sandbox), /native code/, 'Math.random is not replaced');
   const drift = Math.abs(vm.runInContext('new Date().getTime()', h.sandbox) - Date.now());
   assert.ok(drift < 60000, 'new Date() is not pinned by default');
@@ -144,6 +146,17 @@ test('a manual time/weather mode still wins over environment, and the undersea/s
   for (const region of ['deepsea', 'star_stop']) assert.equal(h.sandbox.NaotocchiEnvironment.simulatedWeather(region, 'autumn'), null, region);
   assert.equal(h.sandbox.NaotocchiEnvironment.simulatedWeather('forest', 'autumn').mode, 'rain');
   assert.throws(() => harness({ environment: { time: 'noon' } }), /environment\.time/);
+});
+
+test('the deterministic preset pins environment, host clock, seed and date; explicit options win', () => {
+  const { DETERMINISTIC } = require('./helpers/runtime-harness.cjs');
+  const h = harness({ deterministic: true });
+  assert.ok(h.rng, 'seeded');
+  assert.equal(vm.runInContext('new Date().getTime()', h.sandbox), DETERMINISTIC.clockNow, 'new Date() is pinned');
+  assert.equal(h.api.currentEnvironment().time, 'day');
+  const o = harness({ deterministic: true, environment: { time: 'night', weather: 'rain' } });
+  assert.equal(o.api.currentEnvironment().time, 'night');
+  assert.equal(o.api.currentEnvironment().weather, 'rain');
 });
 
 test('the weather labels the harness returns match world-environment.js', () => {

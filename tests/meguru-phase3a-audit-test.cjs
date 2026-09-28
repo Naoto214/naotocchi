@@ -5,6 +5,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { harness } = require('./helpers/runtime-harness.cjs');
+const D = require('./helpers/meguru-denominators.cjs'); // RH-6: 分母の 置き場所
 
 function setup() {
   const h = harness({ fullDisplay: true });
@@ -191,7 +192,7 @@ test('11. 地域の かずと 世界の 中みは 1 つも 動いて いない',
     spots += w.spots.length; paths += w.paths.length; zones += w.zones.length;
     secret += w.spots.filter((s) => s.secret).length + w.paths.filter((p) => p[2] === 'secret').length;
   }
-  assert.equal(spots, 471); assert.equal(paths, 654); assert.equal(zones, 118); assert.equal(secret, 107);
+  assert.equal(spots, D.SPOTS); assert.equal(paths, D.PATHS); assert.equal(zones, D.ZONES); assert.equal(secret, D.SECRETS);
   const j = W.jungle;
   assert.equal(j.spots.length, 40); assert.equal(j.paths.length, 57); assert.equal(j.zones.length, 10);
   assert.equal(j.spots.filter((s) => s.secret).length + j.paths.filter((p) => p[2] === 'secret').length, 10);

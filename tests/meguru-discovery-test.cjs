@@ -31,8 +31,8 @@ function fakeCtx() {
     return () => {};
   }, set(o, k, v) { o[k] = v; return true; } });
 }
-function setup(regionId = 'forest', patch = {}) {
-  const h = harness({ fullDisplay: true, canvasContext: fakeCtx() });
+function setup(regionId = 'forest', patch = {}, options = {}) {
+  const h = harness({ fullDisplay: true, canvasContext: fakeCtx(), ...options });
   const s = h.api.state();
   Object.assign(s, { stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80,
     speciesLine: 'dog', stageIndex: 4, ageTicks: 500 });
@@ -454,11 +454,10 @@ test('⑤-4 みちの はっけんは 出かたが かわる だけ。ひらく 
 test('⑥-1 travelToRegion() と その ばの ボタンは 1つも かえて いない', () => {
   const src = require('node:fs').readFileSync('script.js', 'utf8');
   assert.ok(src.includes('function travelToRegion('), 'travelToRegion は のこって いる');
-  const { h, s } = setup('forest');
-  // じかん と てんきを とめる(テストだけ)。'auto' の ままだと じっさいの とけいから きまり、
+  // じかん と てんきを とめる(テストだけ。RH-6: harness の deterministic プリセット)。host の とけいの まま だと
   // 「ひる × はれ」(じっさいの 3 じかんごとの てんき)の ときだけ きのこが ひだまりの 107 さきに 来て
-  // 「はなす」が 出る(2026-09-23 11:23 UTC の CI で 赤)。らんすうでは かわらない(たね 160 とおりで 同じ)
-  s.lifetime.timeMode = 'day'; s.lifetime.weatherMode = 'cloudy';
+  // 「はなす」が 出た(2026-09-23 11:23 UTC の CI で 赤)
+  const { h, s } = setup('forest', {}, { deterministic: true, environment: { time: 'day', weather: 'cloudy' } });
   const u = open(h);
   settle(h, u);
   // なにも ない ところでは その ばの ボタンは 出ない

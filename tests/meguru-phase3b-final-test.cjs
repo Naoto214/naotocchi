@@ -12,6 +12,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { harness } = require('./helpers/runtime-harness.cjs');
+const D = require('./helpers/meguru-denominators.cjs'); // RH-6: 分母の 置き場所
 
 const GONE = 'countryside|river_lake';
 
@@ -221,7 +222,7 @@ test('10. region の なかみ・たび・なかま・住民は 1 つも 変わ�
     sp += w.spots.length; pa += w.paths.length; zo += w.zones.length;
     se += w.spots.filter((x) => x.secret).length + w.paths.filter((x) => x[2] === 'secret').length;
   }
-  assert.equal(sp, 471); assert.equal(pa, 654); assert.equal(zo, 118); assert.equal(se, 107);
+  assert.equal(sp, D.SPOTS); assert.equal(pa, D.PATHS); assert.equal(zo, D.ZONES); assert.equal(se, D.SECRETS);
   // travelToRegion() は そのまま。けした 2 地域へも たびで 行ける
   assert.equal(typeof h.api.travelToRegion, 'function');
   for (const id of ['countryside', 'river_lake', 'forest']) {
