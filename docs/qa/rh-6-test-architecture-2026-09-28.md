@@ -47,3 +47,19 @@ assertion は 変えていない。監査で 3 日 × 9 時刻 × 2 TZ(entering 
 - 4B / 4C / 4D-1 / 4E-1 の remove-it の「卒業」(behavior テストへの 置きかえ)は オーナーの 了承が 要る ので 触れていない。
 - `movie-browser.cjs` は CI に なく 中身も 古いが、入れるか 消すかは 未決の まま。
 - source-text の 危ない 切り出し(transition-polish / sea-route / 4e2 の 層分離 / smoke の `make*`)の AST 化は RH-7 の meguru.js の 分割と いっしょに。phase → topic の file 統合は 見送り。
+
+## 6. remove-it(1 か所ずつ こわして 赤を 確かめ、もとに もどした)
+
+| こわした もの | 赤に なった テスト |
+|---|---|
+| `environment` の 既定を 固定しない | harness-determinism 6 |
+| `environment: 'auto'` を 解釈しない | harness-determinism 6 |
+| `deterministic` プリセットを 無視 | harness-determinism 8 |
+| `guardedRoute` が 記録せず 投げなおす | test-helpers 2 |
+| 分母 SPOTS を 1 ずらす | meguru-denominators 1、meguru-phase3b1 3 |
+
+## 7. 結果
+
+- `npm test` 全体: **1461 / 1461 PASS、exit 0**(RH-5 後の 1457 + プリセット 1 + 分母 1 + 部品 2)
+- flaky だった 2 本を ふくむ `meguru-test` / `meguru-discovery-test`: 44 / 44
+- remove-it: 5 / 5 が 赤
