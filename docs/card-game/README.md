@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [354](354-new-seed-mixed-replay.md) | E-first-dateを1枚ドロー・そだち+5で解決しpass3件を再生 |
+
 | [353](353-new-seed-mixed-choice.md) | E-first-date必須解決、通常pass、終了前唯一pass2件を選択 |
 
 | [352](352-new-seed-mixed-audit.md) | E-first-date解決条件、通常候補4件、終了前唯一pass2件を監査 |
