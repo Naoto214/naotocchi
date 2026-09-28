@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [327](327-new-seed-mixed-audit.md) | 3件の唯一response-passと02-Bの必須ターン終了を証明 |
 | [326](326-new-seed-mixed-replay.md) | response-pass3件・通常pass1件を適用し4 event/snapshotを検証 |
 | [325](325-new-seed-mixed-choice.md) | 3件の唯一response-passと01-Bの通常passを選択 |
 | [324](324-new-seed-mixed-audit.md) | 3件の唯一response-passと01-Bの通常行動3候補を監査 |
