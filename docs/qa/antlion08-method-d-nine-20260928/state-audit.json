@@ -1,0 +1,732 @@
+{
+  "records": [
+    {
+      "state": "tired",
+      "size": 104,
+      "profile": {
+        "state": "tired"
+      },
+      "options": {},
+      "resolved": "tired",
+      "art_offset_y": 9.75,
+      "sweat": {
+        "left": 1.8816735591406113,
+        "right": 2.0066735591406113,
+        "top": 48.0125,
+        "travel": 7
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--tired\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(24 13)\"><circle class=\"accent-sleepy\" cx=\"84\" cy=\"23\" r=\"7\"/><circle class=\"accent-sleepy\" cx=\"74\" cy=\"34\" r=\"3\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 25,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 38,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "happy",
+      "size": 104,
+      "profile": {
+        "state": "normal"
+      },
+      "options": {
+        "reaction": "happy"
+      },
+      "resolved": "happy",
+      "art_offset_y": 9.75,
+      "sweat": {
+        "left": 1.8816735591406113,
+        "right": 2.0066735591406113,
+        "top": 48.0125,
+        "travel": 7
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--happy\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(25.5 4.5)\"><path class=\"accent-warm\" d=\"M76 17l2.2 5.2 5.3 2.2-5.3 2.2-2.2 5.2-2.2-5.2-5.3-2.2 5.3-2.2zM88 34l1.4 3.2 3.2 1.4-3.2 1.4-1.4 3.2-1.4-3.2-3.2-1.4 3.2-1.4z\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "strained",
+      "size": 104,
+      "profile": {
+        "state": "normal"
+      },
+      "options": {
+        "reaction": "strained"
+      },
+      "resolved": "strained",
+      "art_offset_y": 9.75,
+      "sweat": {
+        "left": 1.8816735591406113,
+        "right": 2.0066735591406113,
+        "top": 48.0125,
+        "travel": 7
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--strained\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(32 4.5)\"><path class=\"accent-warm-line accent-outline\" d=\"M17 24l7-5 4 7 7-5\"/><path class=\"accent-warm-line\" d=\"M17 24l7-5 4 7 7-5\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "hungry",
+      "size": 104,
+      "profile": {
+        "state": "hungry"
+      },
+      "options": {},
+      "resolved": "hungry",
+      "art_offset_y": 9.75,
+      "sweat": {
+        "left": 1.8816735591406113,
+        "right": 2.0066735591406113,
+        "top": 48.0125,
+        "travel": 7
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--hungry\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(32 5)\"><circle class=\"accent-thought\" cx=\"71\" cy=\"37\" r=\"2.5\"/><circle class=\"accent-thought\" cx=\"77\" cy=\"29\" r=\"4\"/><image href=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0yIC0yIDI4IDI4Ij48ZGVmcyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyYWRpYWxHcmFkaWVudCBpZD0iYmlnMGdsb3ciPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmVmMyIgLz48c3RvcCBvZmZzZXQ9Ii40OCIgc3RvcC1jb2xvcj0iI2ZmZjZiYyIgLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNlZmM0NGQiIC8+PC9yYWRpYWxHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9ImJpZzBoYWxvIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmM2NmNWIiIHN0b3Atb3BhY2l0eT0iLjU1IiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2YzY2Y1YiIgc3RvcC1vcGFjaXR5PSIwIiAvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxkZWZzIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJhZGlhbEdyYWRpZW50IGlkPSJ0aW55MHMxM2dsb3ciPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmVmMyIgLz48c3RvcCBvZmZzZXQ9Ii40OCIgc3RvcC1jb2xvcj0iI2ZmZjZiYyIgLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNlZmM0NGQiIC8+PC9yYWRpYWxHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9InRpbnkwczEzaGFsbyI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZjNjZjViIiBzdG9wLW9wYWNpdHk9Ii41NSIgLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmM2NmNWIiIHN0b3Atb3BhY2l0eT0iMCIgLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48ZGVmcyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyYWRpYWxHcmFkaWVudCBpZD0idGlueTBzMTZnbG93Ij48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZlZjMiIC8+PHN0b3Agb2Zmc2V0PSIuNDgiIHN0b3AtY29sb3I9IiNmZmY2YmMiIC8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZWZjNDRkIiAvPjwvcmFkaWFsR3JhZGllbnQ+PHJhZGlhbEdyYWRpZW50IGlkPSJ0aW55MHMxNmhhbG8iPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2YzY2Y1YiIgc3RvcC1vcGFjaXR5PSIuNTUiIC8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjNjZjViIiBzdG9wLW9wYWNpdHk9IjAiIC8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PGRlZnMgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmFkaWFsR3JhZGllbnQgaWQ9InRpbnkwczIxZ2xvdyI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmZWYzIiAvPjxzdG9wIG9mZnNldD0iLjQ4IiBzdG9wLWNvbG9yPSIjZmZmNmJjIiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2VmYzQ0ZCIgLz48L3JhZGlhbEdyYWRpZW50PjxyYWRpYWxHcmFkaWVudCBpZD0idGlueTBzMjFoYWxvIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmM2NmNWIiIHN0b3Atb3BhY2l0eT0iLjU1IiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2YzY2Y1YiIgc3RvcC1vcGFjaXR5PSIwIiAvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0iI2ZmZTAzYiIgc3Ryb2tlPSIjYTU4MDA4IiBzdHJva2Utd2lkdGg9IjEuNDUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTkgM0MzIDMgMSAxMCA0IDE2TTE1IDIxYzYtMSA4LTggNS0xMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYjE4YjA5IiBzdHJva2Utd2lkdGg9IjEuNCIgLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI4IiBmaWxsPSJ1cmwoI2JpZzBoYWxvKSIgc3Ryb2tlPSJub25lIiAvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjQuNCIgZmlsbD0idXJsKCNiaWcwZ2xvdykiIC8+PC9nPjwvc3ZnPgo=\" x=\"76.25\" y=\"4.25\" width=\"24.5\" height=\"24.5\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "sick",
+      "size": 104,
+      "profile": {
+        "state": "sick"
+      },
+      "options": {},
+      "resolved": "sick",
+      "art_offset_y": 9.75,
+      "sweat": {
+        "left": 1.8816735591406113,
+        "right": 2.0066735591406113,
+        "top": 48.0125,
+        "travel": 7
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--sick\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(14.5 -5)\"><path class=\"accent-cool\" d=\"M69 15h23v5H69zM72 23h17v3H72z\"/><path class=\"accent-cool-line accent-outline\" d=\"M72 31h17M75 35h11\"/><path class=\"accent-cool-line\" d=\"M72 31h17M75 35h11\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "sulky",
+      "size": 104,
+      "profile": {
+        "state": "unhappy"
+      },
+      "options": {},
+      "resolved": "sulky",
+      "art_offset_y": 9.75,
+      "sweat": {
+        "left": 1.8816735591406113,
+        "right": 2.0066735591406113,
+        "top": 48.0125,
+        "travel": 7
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--sulky\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(40 -0.5)\"><path class=\"accent-cloud\" d=\"M67 24c1-6 10-7 13-2 5-4 13 1 10 7 6 2 5 11-2 12H68c-9 0-10-13-1-17z\"/><path class=\"accent-cloud-line\" d=\"M70 29c4-4 7 5 11 0s7 4 4 7\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "weak",
+      "size": 104,
+      "profile": {
+        "state": "weak"
+      },
+      "options": {},
+      "resolved": "weak",
+      "art_offset_y": 9.75,
+      "sweat": {
+        "left": 1.8816735591406113,
+        "right": 2.0066735591406113,
+        "top": 48.0125,
+        "travel": 7
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--weak\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(31 7)\"><path class=\"accent-weak accent-outline\" d=\"M72 16v13m0 0-4-5m4 5 4-5M83 18v15m0 0-4-5m4 5 4-5\"/><path class=\"accent-weak\" d=\"M72 16v13m0 0-4-5m4 5 4-5M83 18v15m0 0-4-5m4 5 4-5\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "critical",
+      "size": 104,
+      "profile": {
+        "state": "weak",
+        "severity": "critical"
+      },
+      "options": {},
+      "resolved": "critical",
+      "art_offset_y": 9.75,
+      "sweat": {
+        "left": 1.8816735591406113,
+        "right": 2.0066735591406113,
+        "top": 48.0125,
+        "travel": 7
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--critical\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(38.5 7)\"><path class=\"accent-critical accent-outline\" d=\"M69 13v20m0 0-6-7m6 7 6-7M84 13v22m0 0-6-7m6 7 6-7\"/><path class=\"accent-critical\" d=\"M69 13v20m0 0-6-7m6 7 6-7M84 13v22m0 0-6-7m6 7 6-7\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "wantsPlay",
+      "size": 104,
+      "profile": {
+        "state": "wantsPlay"
+      },
+      "options": {},
+      "resolved": "wantsPlay",
+      "art_offset_y": 9.75,
+      "sweat": {
+        "left": 1.8816735591406113,
+        "right": 2.0066735591406113,
+        "top": 48.0125,
+        "travel": 7
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--wantsPlay\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(-1.5 8)\"><path class=\"accent-call accent-outline\" d=\"M72 18l-6-7M82 16V7M91 20l7-6\"/><path class=\"accent-call\" d=\"M72 18l-6-7M82 16V7M91 20l7-6\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "sleeping",
+      "size": 104,
+      "profile": {
+        "state": "normal"
+      },
+      "options": {
+        "sleeping": true
+      },
+      "resolved": "sleeping",
+      "art_offset_y": 9.75,
+      "sweat": {
+        "left": 1.8816735591406113,
+        "right": 2.0066735591406113,
+        "top": 48.0125,
+        "travel": 7
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--sleeping\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(34.5 6)\"><path class=\"accent-sleep-z accent-outline\" d=\"M68 31h6l-6 6h6\"/><path class=\"accent-sleep-z\" d=\"M68 31h6l-6 6h6\"/><path class=\"accent-sleep-z accent-outline\" d=\"M78 21h8l-8 8h8\"/><path class=\"accent-sleep-z\" d=\"M78 21h8l-8 8h8\"/><path class=\"accent-sleep-z accent-outline\" d=\"M88 8h11L88 19h11\"/><path class=\"accent-sleep-z\" d=\"M88 8h11L88 19h11\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "tired",
+      "size": 80,
+      "profile": {
+        "state": "tired"
+      },
+      "options": {},
+      "resolved": "tired",
+      "art_offset_y": 7.5,
+      "sweat": {
+        "left": 0.9859027378004717,
+        "right": 1.0820565839543148,
+        "top": 36.825,
+        "travel": 5.6000000000000005
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--tired\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(24 13)\"><circle class=\"accent-sleepy\" cx=\"84\" cy=\"23\" r=\"7\"/><circle class=\"accent-sleepy\" cx=\"74\" cy=\"34\" r=\"3\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 18,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 27,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "happy",
+      "size": 80,
+      "profile": {
+        "state": "normal"
+      },
+      "options": {
+        "reaction": "happy"
+      },
+      "resolved": "happy",
+      "art_offset_y": 7.5,
+      "sweat": {
+        "left": 0.9859027378004717,
+        "right": 1.0820565839543148,
+        "top": 36.825,
+        "travel": 5.6000000000000005
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--happy\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(25.5 4.5)\"><path class=\"accent-warm\" d=\"M76 17l2.2 5.2 5.3 2.2-5.3 2.2-2.2 5.2-2.2-5.2-5.3-2.2 5.3-2.2zM88 34l1.4 3.2 3.2 1.4-3.2 1.4-1.4 3.2-1.4-3.2-3.2-1.4 3.2-1.4z\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "strained",
+      "size": 80,
+      "profile": {
+        "state": "normal"
+      },
+      "options": {
+        "reaction": "strained"
+      },
+      "resolved": "strained",
+      "art_offset_y": 7.5,
+      "sweat": {
+        "left": 0.9859027378004717,
+        "right": 1.0820565839543148,
+        "top": 36.825,
+        "travel": 5.6000000000000005
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--strained\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(32 4.5)\"><path class=\"accent-warm-line accent-outline\" d=\"M17 24l7-5 4 7 7-5\"/><path class=\"accent-warm-line\" d=\"M17 24l7-5 4 7 7-5\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "hungry",
+      "size": 80,
+      "profile": {
+        "state": "hungry"
+      },
+      "options": {},
+      "resolved": "hungry",
+      "art_offset_y": 7.5,
+      "sweat": {
+        "left": 0.9859027378004717,
+        "right": 1.0820565839543148,
+        "top": 36.825,
+        "travel": 5.6000000000000005
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--hungry\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(32 5)\"><circle class=\"accent-thought\" cx=\"71\" cy=\"37\" r=\"2.5\"/><circle class=\"accent-thought\" cx=\"77\" cy=\"29\" r=\"4\"/><image href=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0yIC0yIDI4IDI4Ij48ZGVmcyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyYWRpYWxHcmFkaWVudCBpZD0iYmlnMGdsb3ciPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmVmMyIgLz48c3RvcCBvZmZzZXQ9Ii40OCIgc3RvcC1jb2xvcj0iI2ZmZjZiYyIgLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNlZmM0NGQiIC8+PC9yYWRpYWxHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9ImJpZzBoYWxvIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmM2NmNWIiIHN0b3Atb3BhY2l0eT0iLjU1IiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2YzY2Y1YiIgc3RvcC1vcGFjaXR5PSIwIiAvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxkZWZzIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJhZGlhbEdyYWRpZW50IGlkPSJ0aW55MHMxM2dsb3ciPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmVmMyIgLz48c3RvcCBvZmZzZXQ9Ii40OCIgc3RvcC1jb2xvcj0iI2ZmZjZiYyIgLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNlZmM0NGQiIC8+PC9yYWRpYWxHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9InRpbnkwczEzaGFsbyI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZjNjZjViIiBzdG9wLW9wYWNpdHk9Ii41NSIgLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmM2NmNWIiIHN0b3Atb3BhY2l0eT0iMCIgLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48ZGVmcyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyYWRpYWxHcmFkaWVudCBpZD0idGlueTBzMTZnbG93Ij48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZlZjMiIC8+PHN0b3Agb2Zmc2V0PSIuNDgiIHN0b3AtY29sb3I9IiNmZmY2YmMiIC8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZWZjNDRkIiAvPjwvcmFkaWFsR3JhZGllbnQ+PHJhZGlhbEdyYWRpZW50IGlkPSJ0aW55MHMxNmhhbG8iPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2YzY2Y1YiIgc3RvcC1vcGFjaXR5PSIuNTUiIC8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjNjZjViIiBzdG9wLW9wYWNpdHk9IjAiIC8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PGRlZnMgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmFkaWFsR3JhZGllbnQgaWQ9InRpbnkwczIxZ2xvdyI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmZWYzIiAvPjxzdG9wIG9mZnNldD0iLjQ4IiBzdG9wLWNvbG9yPSIjZmZmNmJjIiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2VmYzQ0ZCIgLz48L3JhZGlhbEdyYWRpZW50PjxyYWRpYWxHcmFkaWVudCBpZD0idGlueTBzMjFoYWxvIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmM2NmNWIiIHN0b3Atb3BhY2l0eT0iLjU1IiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2YzY2Y1YiIgc3RvcC1vcGFjaXR5PSIwIiAvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0iI2ZmZTAzYiIgc3Ryb2tlPSIjYTU4MDA4IiBzdHJva2Utd2lkdGg9IjEuNDUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTkgM0MzIDMgMSAxMCA0IDE2TTE1IDIxYzYtMSA4LTggNS0xMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYjE4YjA5IiBzdHJva2Utd2lkdGg9IjEuNCIgLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI4IiBmaWxsPSJ1cmwoI2JpZzBoYWxvKSIgc3Ryb2tlPSJub25lIiAvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjQuNCIgZmlsbD0idXJsKCNiaWcwZ2xvdykiIC8+PC9nPjwvc3ZnPgo=\" x=\"76.25\" y=\"4.25\" width=\"24.5\" height=\"24.5\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "sick",
+      "size": 80,
+      "profile": {
+        "state": "sick"
+      },
+      "options": {},
+      "resolved": "sick",
+      "art_offset_y": 7.5,
+      "sweat": {
+        "left": 0.9859027378004717,
+        "right": 1.0820565839543148,
+        "top": 36.825,
+        "travel": 5.6000000000000005
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--sick\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(14.5 -5)\"><path class=\"accent-cool\" d=\"M69 15h23v5H69zM72 23h17v3H72z\"/><path class=\"accent-cool-line accent-outline\" d=\"M72 31h17M75 35h11\"/><path class=\"accent-cool-line\" d=\"M72 31h17M75 35h11\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "sulky",
+      "size": 80,
+      "profile": {
+        "state": "unhappy"
+      },
+      "options": {},
+      "resolved": "sulky",
+      "art_offset_y": 7.5,
+      "sweat": {
+        "left": 0.9859027378004717,
+        "right": 1.0820565839543148,
+        "top": 36.825,
+        "travel": 5.6000000000000005
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--sulky\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(40 -0.5)\"><path class=\"accent-cloud\" d=\"M67 24c1-6 10-7 13-2 5-4 13 1 10 7 6 2 5 11-2 12H68c-9 0-10-13-1-17z\"/><path class=\"accent-cloud-line\" d=\"M70 29c4-4 7 5 11 0s7 4 4 7\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "weak",
+      "size": 80,
+      "profile": {
+        "state": "weak"
+      },
+      "options": {},
+      "resolved": "weak",
+      "art_offset_y": 7.5,
+      "sweat": {
+        "left": 0.9859027378004717,
+        "right": 1.0820565839543148,
+        "top": 36.825,
+        "travel": 5.6000000000000005
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--weak\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(31 7)\"><path class=\"accent-weak accent-outline\" d=\"M72 16v13m0 0-4-5m4 5 4-5M83 18v15m0 0-4-5m4 5 4-5\"/><path class=\"accent-weak\" d=\"M72 16v13m0 0-4-5m4 5 4-5M83 18v15m0 0-4-5m4 5 4-5\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "critical",
+      "size": 80,
+      "profile": {
+        "state": "weak",
+        "severity": "critical"
+      },
+      "options": {},
+      "resolved": "critical",
+      "art_offset_y": 7.5,
+      "sweat": {
+        "left": 0.9859027378004717,
+        "right": 1.0820565839543148,
+        "top": 36.825,
+        "travel": 5.6000000000000005
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--critical\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(38.5 7)\"><path class=\"accent-critical accent-outline\" d=\"M69 13v20m0 0-6-7m6 7 6-7M84 13v22m0 0-6-7m6 7 6-7\"/><path class=\"accent-critical\" d=\"M69 13v20m0 0-6-7m6 7 6-7M84 13v22m0 0-6-7m6 7 6-7\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "wantsPlay",
+      "size": 80,
+      "profile": {
+        "state": "wantsPlay"
+      },
+      "options": {},
+      "resolved": "wantsPlay",
+      "art_offset_y": 7.5,
+      "sweat": {
+        "left": 0.9859027378004717,
+        "right": 1.0820565839543148,
+        "top": 36.825,
+        "travel": 5.6000000000000005
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--wantsPlay\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(-1.5 8)\"><path class=\"accent-call accent-outline\" d=\"M72 18l-6-7M82 16V7M91 20l7-6\"/><path class=\"accent-call\" d=\"M72 18l-6-7M82 16V7M91 20l7-6\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "sleeping",
+      "size": 80,
+      "profile": {
+        "state": "normal"
+      },
+      "options": {
+        "sleeping": true
+      },
+      "resolved": "sleeping",
+      "art_offset_y": 7.5,
+      "sweat": {
+        "left": 0.9859027378004717,
+        "right": 1.0820565839543148,
+        "top": 36.825,
+        "travel": 5.6000000000000005
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--sleeping\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(34.5 6)\"><path class=\"accent-sleep-z accent-outline\" d=\"M68 31h6l-6 6h6\"/><path class=\"accent-sleep-z\" d=\"M68 31h6l-6 6h6\"/><path class=\"accent-sleep-z accent-outline\" d=\"M78 21h8l-8 8h8\"/><path class=\"accent-sleep-z\" d=\"M78 21h8l-8 8h8\"/><path class=\"accent-sleep-z accent-outline\" d=\"M88 8h11L88 19h11\"/><path class=\"accent-sleep-z\" d=\"M88 8h11L88 19h11\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "tired",
+      "size": 64,
+      "profile": {
+        "state": "tired"
+      },
+      "options": {},
+      "resolved": "tired",
+      "art_offset_y": 6,
+      "sweat": {
+        "left": 0.3887221902403759,
+        "right": 0.46564526716345433,
+        "top": 29.46,
+        "travel": 4.48
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--tired\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(24 13)\"><circle class=\"accent-sleepy\" cx=\"84\" cy=\"23\" r=\"7\"/><circle class=\"accent-sleepy\" cx=\"74\" cy=\"34\" r=\"3\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 14,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 23,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "happy",
+      "size": 64,
+      "profile": {
+        "state": "normal"
+      },
+      "options": {
+        "reaction": "happy"
+      },
+      "resolved": "happy",
+      "art_offset_y": 6,
+      "sweat": {
+        "left": 0.3887221902403759,
+        "right": 0.46564526716345433,
+        "top": 29.46,
+        "travel": 4.48
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--happy\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(25.5 4.5)\"><path class=\"accent-warm\" d=\"M76 17l2.2 5.2 5.3 2.2-5.3 2.2-2.2 5.2-2.2-5.2-5.3-2.2 5.3-2.2zM88 34l1.4 3.2 3.2 1.4-3.2 1.4-1.4 3.2-1.4-3.2-3.2-1.4 3.2-1.4z\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "strained",
+      "size": 64,
+      "profile": {
+        "state": "normal"
+      },
+      "options": {
+        "reaction": "strained"
+      },
+      "resolved": "strained",
+      "art_offset_y": 6,
+      "sweat": {
+        "left": 0.3887221902403759,
+        "right": 0.46564526716345433,
+        "top": 29.46,
+        "travel": 4.48
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--strained\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(32 4.5)\"><path class=\"accent-warm-line accent-outline\" d=\"M17 24l7-5 4 7 7-5\"/><path class=\"accent-warm-line\" d=\"M17 24l7-5 4 7 7-5\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "hungry",
+      "size": 64,
+      "profile": {
+        "state": "hungry"
+      },
+      "options": {},
+      "resolved": "hungry",
+      "art_offset_y": 6,
+      "sweat": {
+        "left": 0.3887221902403759,
+        "right": 0.46564526716345433,
+        "top": 29.46,
+        "travel": 4.48
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--hungry\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(32 5)\"><circle class=\"accent-thought\" cx=\"71\" cy=\"37\" r=\"2.5\"/><circle class=\"accent-thought\" cx=\"77\" cy=\"29\" r=\"4\"/><image href=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0yIC0yIDI4IDI4Ij48ZGVmcyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyYWRpYWxHcmFkaWVudCBpZD0iYmlnMGdsb3ciPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmVmMyIgLz48c3RvcCBvZmZzZXQ9Ii40OCIgc3RvcC1jb2xvcj0iI2ZmZjZiYyIgLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNlZmM0NGQiIC8+PC9yYWRpYWxHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9ImJpZzBoYWxvIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmM2NmNWIiIHN0b3Atb3BhY2l0eT0iLjU1IiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2YzY2Y1YiIgc3RvcC1vcGFjaXR5PSIwIiAvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxkZWZzIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJhZGlhbEdyYWRpZW50IGlkPSJ0aW55MHMxM2dsb3ciPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2ZmZmVmMyIgLz48c3RvcCBvZmZzZXQ9Ii40OCIgc3RvcC1jb2xvcj0iI2ZmZjZiYyIgLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNlZmM0NGQiIC8+PC9yYWRpYWxHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9InRpbnkwczEzaGFsbyI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZjNjZjViIiBzdG9wLW9wYWNpdHk9Ii41NSIgLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmM2NmNWIiIHN0b3Atb3BhY2l0eT0iMCIgLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48ZGVmcyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyYWRpYWxHcmFkaWVudCBpZD0idGlueTBzMTZnbG93Ij48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmZlZjMiIC8+PHN0b3Agb2Zmc2V0PSIuNDgiIHN0b3AtY29sb3I9IiNmZmY2YmMiIC8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZWZjNDRkIiAvPjwvcmFkaWFsR3JhZGllbnQ+PHJhZGlhbEdyYWRpZW50IGlkPSJ0aW55MHMxNmhhbG8iPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2YzY2Y1YiIgc3RvcC1vcGFjaXR5PSIuNTUiIC8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZjNjZjViIiBzdG9wLW9wYWNpdHk9IjAiIC8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PGRlZnMgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmFkaWFsR3JhZGllbnQgaWQ9InRpbnkwczIxZ2xvdyI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjZmZmZWYzIiAvPjxzdG9wIG9mZnNldD0iLjQ4IiBzdG9wLWNvbG9yPSIjZmZmNmJjIiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2VmYzQ0ZCIgLz48L3JhZGlhbEdyYWRpZW50PjxyYWRpYWxHcmFkaWVudCBpZD0idGlueTBzMjFoYWxvIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmM2NmNWIiIHN0b3Atb3BhY2l0eT0iLjU1IiAvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2YzY2Y1YiIgc3RvcC1vcGFjaXR5PSIwIiAvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0iI2ZmZTAzYiIgc3Ryb2tlPSIjYTU4MDA4IiBzdHJva2Utd2lkdGg9IjEuNDUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTkgM0MzIDMgMSAxMCA0IDE2TTE1IDIxYzYtMSA4LTggNS0xMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYjE4YjA5IiBzdHJva2Utd2lkdGg9IjEuNCIgLz48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI4IiBmaWxsPSJ1cmwoI2JpZzBoYWxvKSIgc3Ryb2tlPSJub25lIiAvPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjQuNCIgZmlsbD0idXJsKCNiaWcwZ2xvdykiIC8+PC9nPjwvc3ZnPgo=\" x=\"76.25\" y=\"4.25\" width=\"24.5\" height=\"24.5\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 4,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "sick",
+      "size": 64,
+      "profile": {
+        "state": "sick"
+      },
+      "options": {},
+      "resolved": "sick",
+      "art_offset_y": 6,
+      "sweat": {
+        "left": 0.3887221902403759,
+        "right": 0.46564526716345433,
+        "top": 29.46,
+        "travel": 4.48
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--sick\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(14.5 -5)\"><path class=\"accent-cool\" d=\"M69 15h23v5H69zM72 23h17v3H72z\"/><path class=\"accent-cool-line accent-outline\" d=\"M72 31h17M75 35h11\"/><path class=\"accent-cool-line\" d=\"M72 31h17M75 35h11\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "sulky",
+      "size": 64,
+      "profile": {
+        "state": "unhappy"
+      },
+      "options": {},
+      "resolved": "sulky",
+      "art_offset_y": 6,
+      "sweat": {
+        "left": 0.3887221902403759,
+        "right": 0.46564526716345433,
+        "top": 29.46,
+        "travel": 4.48
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--sulky\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(40 -0.5)\"><path class=\"accent-cloud\" d=\"M67 24c1-6 10-7 13-2 5-4 13 1 10 7 6 2 5 11-2 12H68c-9 0-10-13-1-17z\"/><path class=\"accent-cloud-line\" d=\"M70 29c4-4 7 5 11 0s7 4 4 7\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "weak",
+      "size": 64,
+      "profile": {
+        "state": "weak"
+      },
+      "options": {},
+      "resolved": "weak",
+      "art_offset_y": 6,
+      "sweat": {
+        "left": 0.3887221902403759,
+        "right": 0.46564526716345433,
+        "top": 29.46,
+        "travel": 4.48
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--weak\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(31 7)\"><path class=\"accent-weak accent-outline\" d=\"M72 16v13m0 0-4-5m4 5 4-5M83 18v15m0 0-4-5m4 5 4-5\"/><path class=\"accent-weak\" d=\"M72 16v13m0 0-4-5m4 5 4-5M83 18v15m0 0-4-5m4 5 4-5\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "critical",
+      "size": 64,
+      "profile": {
+        "state": "weak",
+        "severity": "critical"
+      },
+      "options": {},
+      "resolved": "critical",
+      "art_offset_y": 6,
+      "sweat": {
+        "left": 0.3887221902403759,
+        "right": 0.46564526716345433,
+        "top": 29.46,
+        "travel": 4.48
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--critical\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(38.5 7)\"><path class=\"accent-critical accent-outline\" d=\"M69 13v20m0 0-6-7m6 7 6-7M84 13v22m0 0-6-7m6 7 6-7\"/><path class=\"accent-critical\" d=\"M69 13v20m0 0-6-7m6 7 6-7M84 13v22m0 0-6-7m6 7 6-7\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "wantsPlay",
+      "size": 64,
+      "profile": {
+        "state": "wantsPlay"
+      },
+      "options": {},
+      "resolved": "wantsPlay",
+      "art_offset_y": 6,
+      "sweat": {
+        "left": 0.3887221902403759,
+        "right": 0.46564526716345433,
+        "top": 29.46,
+        "travel": 4.48
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--wantsPlay\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(-1.5 8)\"><path class=\"accent-call accent-outline\" d=\"M72 18l-6-7M82 16V7M91 20l7-6\"/><path class=\"accent-call\" d=\"M72 18l-6-7M82 16V7M91 20l7-6\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 0,
+      "conservative_sweat_motion_box_art_overlap": 0
+    },
+    {
+      "state": "sleeping",
+      "size": 64,
+      "profile": {
+        "state": "normal"
+      },
+      "options": {
+        "sleeping": true
+      },
+      "resolved": "sleeping",
+      "art_offset_y": 6,
+      "sweat": {
+        "left": 0.3887221902403759,
+        "right": 0.46564526716345433,
+        "top": 29.46,
+        "travel": 4.48
+      },
+      "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--sleeping\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(34.5 6)\"><path class=\"accent-sleep-z accent-outline\" d=\"M68 31h6l-6 6h6\"/><path class=\"accent-sleep-z\" d=\"M68 31h6l-6 6h6\"/><path class=\"accent-sleep-z accent-outline\" d=\"M78 21h8l-8 8h8\"/><path class=\"accent-sleep-z\" d=\"M78 21h8l-8 8h8\"/><path class=\"accent-sleep-z accent-outline\" d=\"M88 8h11L88 19h11\"/><path class=\"accent-sleep-z\" d=\"M88 8h11L88 19h11\"/></g></svg></span>",
+      "static_approx_sweat_mark_overlap": 0,
+      "static_approx_sweat_art_overlap": 0,
+      "asset_mark_alpha_overlap": 0,
+      "face_ROI_mark_overlap": 0,
+      "conservative_sweat_motion_box_mark_overlap": 5,
+      "conservative_sweat_motion_box_art_overlap": 0
+    }
+  ],
+  "layer_order": [
+    "body",
+    "sweat z3",
+    "mark z4"
+  ],
+  "runtime_hashes": {
+    "pet-expression.js": "2286598972fd1ef4c5a88dbafd3292f6929b7bb109205ebfc5b282229ac18f8c",
+    "pet-expression.css": "3e6a9bc6262bfe485c691839931c940c0746180ca5d7d31c067180abe75040e0",
+    "care-attention.css": "356834a1a0c582cc1ae6204ec6f271da104ec779a909b63dd0a6e2dae32aa5ad",
+    "cast-bounds.js": "3844bd70323ca765ea9bc24b3486b2142c633d345b8156821d02167beefa0c1e"
+  },
+  "limitations": [
+    "SVG sweat outline is approximate; canonical HTML retains exact CSS.",
+    "Conservative motion boxes include travel and2px padding, not exact animated silhouette.",
+    "Actual Home browser was not rendered; static SVG and source-based geometry checked.",
+    "Face box overlap is a warning proxy, not exact face-pixel occlusion."
+  ]
+}
