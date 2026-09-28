@@ -16,6 +16,16 @@
   let stateLoadRecovered = false;
   let lastGoodSaveRaw = null;
   let saveWriteBlocked = false;
+  // RH-9 複数タブ(Roadmap §8.2): save の たびに lifetime.saveRevision を 1 ふやす。書く まえに storage の 値が
+  // 自分の 知っている 値より 大きければ(べつの タブが 書いた)書かずに、このタブを 読みとり専用に する。
+  // 古い コードでも 知らない キーとして のこる(rollback しても 安全)
+  let knownSaveRevision = 0;
+  let otherTabTookOver = false;
+  const OTHER_TAB_MESSAGE = 'べつの タブで ひらかれています。こちらを とじるか、よみこみなおしてください';
+  function storedSaveRevision(raw) {
+    const m = /"saveRevision":(\d+)/.exec(typeof raw === 'string' ? raw : '');
+    return m ? Number(m[1]) : 0;
+  }
   const TICK_MS = 3000; // 1 tick = 3 seconds of real time; time only passes while the page is open
   const MAX_POOP = 4;
   const ITEM_AUTO_CARE_DANGER = 25;
@@ -2819,10 +2829,15 @@
     if (saveLocked) return;
     // 復旧候補がすべて読めないときは、非表示時の保存でも原本を消さない。
     if (saveWriteBlocked) return;
+    if (otherTabTookOver) return;
+    let storedRevision = 0;
+    try { storedRevision = storedSaveRevision(localStorage.getItem(SAVE_KEY)); } catch (e) { /* storage unavailable */ }
+    if (storedRevision > knownSaveRevision) { yieldToOtherTab(); return; }
     recordDiscovery();
     checkAchievements();
     checkGrandGoals();
     state.savedAt = Date.now();
+    state.lifetime.saveRevision = knownSaveRevision + 1;
     let raw;
     try { raw = JSON.stringify(state); } catch (e) { return; }
     // 復旧中の壊れた主キーではなく、最後に読込／保存できたデータを退避。
@@ -2832,6 +2847,7 @@
     }
     try {
       localStorage.setItem(SAVE_KEY, raw);
+      knownSaveRevision = state.lifetime.saveRevision;
       lastGoodSaveRaw = raw;
       stateLoadRecovered = false;
       takeSaveSnapshot(raw);
@@ -2843,6 +2859,7 @@
       try {
         localStorage.removeItem(SAVE_SNAP_KEY);
         localStorage.setItem(SAVE_KEY, raw);
+        knownSaveRevision = state.lifetime.saveRevision;
         lastGoodSaveRaw = raw;
         stateLoadRecovered = false;
         noteStorageWarning(false);
@@ -2852,6 +2869,11 @@
     }
   }
 
+  function yieldToOtherTab() {
+    if (otherTabTookOver) return;
+    otherTabTookOver = true;
+    try { setMessage(OTHER_TAB_MESSAGE); } catch (e) { /* before boot finished */ }
+  }
   function clamp(n, min, max) {
     return Math.max(min, Math.min(max, n));
   }
@@ -3479,6 +3501,8 @@
   }
 
   let state = loadState();
+  // RH-9: あとから ひらいた タブが 引きつぐ(起動の save で 1 ふやす ので、まえの タブは 読みとり専用に なる)
+  try { knownSaveRevision = Math.max(Number(state.lifetime.saveRevision) || 0, storedSaveRevision(localStorage.getItem(SAVE_KEY))); } catch (e) { knownSaveRevision = Number(state.lifetime.saveRevision) || 0; }
   // きどう中の さいしょの saveState() で savedAt が いまに なる まえに、
   // まえの セーブの じこくを とっておく(るすのあいだの けいさん用)
   const bootSavedAt = Number(state && state.savedAt) || 0;
@@ -10737,7 +10761,7 @@
   function scheduleIdlePerk() {
     const delay = 4000 + Math.random() * 5000;
     setTimeout(() => {
-      const idleOk = !gameActive
+      const idleOk = !gameActive && pageVisible()
         && state.stage !== STAGE.DEAD
         && state.stage !== STAGE.EGG
         && !state.isSleeping && !state.isSick && !state.dying
@@ -10764,7 +10788,7 @@
     // 放置会話は掛け合いより間を空ける。吹き出し自体の表示時間は共通。
     const delay = 5200 + Math.random() * 3800;
     setTimeout(() => {
-      const canGreet = !gameActive
+      const canGreet = !gameActive && pageVisible()
         && state.stage === STAGE.GROWING
         && !state.isSleeping
         && !state.transformOptions
@@ -10829,6 +10853,11 @@
   // せわが できない がめん(メニュー系・めぐる・ミニゲーム・へんしんの えらび)
   // では tick() を まるごと とめる。とめておかないと、めぐっている あいだや
   // ゲームの さいちゅうに おなかが へりつづけて、しんでしまう ことが あった
+  // RH-9: タブが かくれて いる あいだは ふつうの tick も、なかまの であい・けしきの できごと・ひとりごと も おこさない
+  // (恋愛・なかま・discovery を かってに すすめない)。もどった ときに るすの 処理を 1 回だけ する
+  function pageVisible() {
+    return document.visibilityState !== 'hidden';
+  }
   function isTimePaused() {
     return gameActive || !!state.transformOptions || isAnyMenuOverlayOpen();
   }
@@ -10851,7 +10880,7 @@
       const rareRemaining = hasPerk(80)
         ? RARE_COMPANIONS.filter((c) => !hasActiveCompanionId(c.id))
         : [];
-      const canEncounter = !gameActive
+      const canEncounter = !gameActive && pageVisible()
         && state.stage === STAGE.GROWING
         && !state.isSleeping
         && !state.transformOptions
@@ -10942,6 +10971,14 @@
   }
 
   const TEMPORARY_FORM_MS = 5 * 60 * 1000;
+  // RH-9: 待ち時間の 上限。時計が すすんだ 端末で 書かれた save・こわれた 値で ずっと 待たされない ように、
+  // 読む ときに「いま + 本来の 長さ」で おさえる(もっと 早い 値は そのまま)
+  const GAME_PASS_WAIT_MS = 5000;
+  function gamePassReadyAt() {
+    const at = Number(state.gamePassReadyAt) || 0, cap = Date.now() + GAME_PASS_WAIT_MS;
+    if (at > cap) state.gamePassReadyAt = cap;
+    return Math.min(at, cap);
+  }
   function clearTemporaryForm() {
     if (state.itemLife?.temporaryForm) delete state.itemLife.temporaryForm;
   }
@@ -10956,6 +10993,7 @@
       && form.originLine === state.speciesLine && form.originIndex === currentFormStageIndex()
       && Number.isFinite(form.expiresAt) && form.expiresAt > Date.now();
     if (!valid) { clearTemporaryForm(); return actual; }
+    if (form.expiresAt > Date.now() + TEMPORARY_FORM_MS) form.expiresAt = Date.now() + TEMPORARY_FORM_MS; // RH-9: 上限で おさえる
     return {line:form.line,index:form.index};
   }
 
@@ -11359,9 +11397,10 @@
   function render() {
     // 実時間の残りだけ待つ。保存からの再開でも5秒を延長しない。
     clearTimeout(gamePassCooldownTimer);
-    const passRemaining = (state.gamePassReadyAt || 0) - Date.now();
+    const passRemaining = gamePassReadyAt() - Date.now();
     gamePassCooldownTimer = passRemaining > 0 ? setTimeout(() => render(), passRemaining) : null;
     clearTimeout(temporaryFormTimer);
+    if (state.itemLife?.temporaryForm) currentVisualForm(); // RH-9: 上限で おさえてから のこりを はかる
     const temporaryRemaining = (state.itemLife?.temporaryForm?.expiresAt || 0) - Date.now();
     temporaryFormTimer = temporaryRemaining > 0 ? setTimeout(() => render(), temporaryRemaining) : null;
     if (temporaryRemaining <= 0) clearTemporaryForm();
@@ -11502,7 +11541,7 @@
     const disableCare = isOver || isEgg || hasTransformChoice;
     // さいごの じかん は お世話が できる(そだち等は とまっている)
     el.feedBtn.disabled = disableCare;
-    el.playBtn.disabled = disableCare || state.isSleeping || Date.now() < (state.gamePassReadyAt || 0);
+    el.playBtn.disabled = disableCare || state.isSleeping || Date.now() < gamePassReadyAt();
     el.cleanBtn.disabled = disableCare || state.poopCount === 0;
     el.sleepBtn.disabled = disableCare;
     el.medicineBtn.disabled = disableCare;
@@ -13630,7 +13669,7 @@
     const delay = 150000 + Math.random() * 150000;
     setTimeout(() => {
       try {
-        const idleOk = !gameActive
+        const idleOk = !gameActive && pageVisible()
           && state.stage === STAGE.GROWING
           && !state.isSleeping && !state.isSick && !state.dying
           && !state.transformOptions && !conversationIsBusy() && !speechActive && !isAnyMenuOverlayOpen()
@@ -16557,7 +16596,7 @@
     applyGrowth(7);
     applyDecline(-3);
     state.lifetime.money += 30;
-    state.gamePassReadyAt = Date.now() + 5000;
+    state.gamePassReadyAt = Date.now() + GAME_PASS_WAIT_MS;
     setMessage('ゲームパスで通常成功!／30コインをもらった');
     audio.play('clear');
     emotePet('happy');
@@ -16581,7 +16620,7 @@
     }
     const isQuick = chosenGame?.id === 'quick-run' || chosenGame?.id === 'quick-solo';
     if (state.stage === STAGE.DEAD || state.stage === STAGE.EGG || state.transformOptions) return false;
-    if (!isQuick && Date.now() < (state.gamePassReadyAt || 0)) return false;
+    if (!isQuick && Date.now() < gamePassReadyAt()) return false;
     if (!isQuick && state.energy < 10) {
       setMessage(randomBlockedMessage('lowEnergyPlay'));
       saveState();
@@ -18234,6 +18273,13 @@
   const OFFLINE_MIN_MS = 2 * 60 * 1000;
   const OFFLINE_CAP_TICKS = 600; // 30ぷんぶん
   const OFFLINE_FLOOR = 20;
+  // RH-9: 離れていた 時間は 打ち切らずに そのまま あらわす(7日3時間 など)。ゲームへの 反映は この下の 上限の まま
+  function formatAbsence(minutes) {
+    if (minutes >= 24 * 60) { const days = Math.floor(minutes / (24 * 60)), hours = Math.floor((minutes % (24 * 60)) / 60); return hours ? `${days}日${hours}時間` : `${days}日`; }
+    return minutes >= 120 ? `${Math.floor(minutes / 60)}時間` : `${minutes}分`;
+  }
+  // タブが かくれた 時刻(メモリだけ。save には 書かない)。とじた ときは save の savedAt、かくれた ときは これが 起点
+  let hiddenSince = 0;
   function applyOfflineProgress(now = Date.now(), savedAtOverride) {
     const savedAt = savedAtOverride != null ? Number(savedAtOverride) || 0 : Number(state.savedAt) || 0;
     if (!savedAt || state.stage !== STAGE.GROWING || state.infinite) return null;
@@ -18259,7 +18305,7 @@
     const d = (k, label) => { const diff = Math.round(state[k] - before[k]); if (diff) parts.push(`${label}${diff > 0 ? '+' : ''}${diff}`); };
     d('hunger', 'おなか'); d('happiness', 'ごきげん'); d('energy', 'げんき');
     if (poop) parts.push('うんち+1');
-    const span = minutes >= 120 ? `${Math.floor(minutes / 60)}時間` : `${minutes}分`;
+    const span = formatAbsence(minutes);
     const summary = `🏠おかえり。留守のあいだ（${span}）、${sleeping ? 'ぐっすり寝ていた' : 'おとなしく待っていた'}。${parts.length ? '変化：' + parts.join('／') : ''}`;
     pushLifeLog('🏠', `るすばん：${span}`);
     setMessage(summary);
@@ -18268,6 +18314,10 @@
   }
 
   function loop() {
+    // RH-9: かくれて いる タブでは すすめない(ブラウザの 間引きで 端末ごとに すすみかたが かわらない ように)
+    if (!pageVisible()) return;
+    // RH-9: べつの タブが 引きついだ あとは すすめない・書かない(案内を 出しつづける)
+    if (otherTabTookOver) { if (message !== compactJapaneseText(OTHER_TAB_MESSAGE)) setMessage(OTHER_TAB_MESSAGE); return; }
     // せわが できない がめんが ひらいている あいだは、じかんを とめる
     // (isTimePaused: メニュー系オーバーレイ・うそつきしょうぶ・デート・
     // なかまの さそい・おいわい・めぐる・ミニゲーム・へんしんの えらび)。
@@ -18349,11 +18399,17 @@
     if (document.visibilityState === 'hidden') {
       clearConversationTimers(); hideSpeechBubble(); castMotion?.clear();
       renderCareAttention(null, false);
+      if (!hiddenSince) hiddenSince = Date.now();
       saveState();
     }
   });
   window.addEventListener('beforeunload', () => {
     saveState();
+  });
+  // RH-9: ほかの タブが save を 書いたら(storage event は 自分の 書きこみでは こない)すぐ 読みとり専用に する。
+  // セーブコードの よみこみ・バックアップから もどす も ここで 気づく(revision が 小さい save でも)
+  window.addEventListener('storage', (e) => {
+    if (e && e.key === SAVE_KEY && e.newValue != null) yieldToOtherTab();
   });
   function syncHomeViewport() {
     const viewport = window.visualViewport;
@@ -18388,8 +18444,18 @@
     if (isAnyMenuOverlayOpen()) { closeAllMenuOverlays(); render(); el.menuBtn.focus(); }
   });
   document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') { renderEnvironment(); maybeRefreshEnvironment(); }
+    if (document.visibilityState === 'visible') {
+      // RH-9: かくれて いた あいだの ぶんを、とじて いた ときと 同じ るすの 処理で 1 回だけ 反映する
+      if (hiddenSince) {
+        const since = hiddenSince; hiddenSince = 0;
+        if (applyOfflineProgress(Date.now(), since)) { saveState(); render(); }
+      }
+      renderEnvironment(); maybeRefreshEnvironment();
+    }
   });
   window.matchMedia?.('(prefers-reduced-motion: reduce)').addEventListener?.('change', renderEnvironment);
   globalThis.NaotocchiDisplayIllustrations?.create({document,iconHTML:displayIconHTML}).install(el.device);
+  // RH-9: 起動が おわった しるし(index.html の 救済パネルは これが 立たない ときだけ 出る)
+  globalThis.__naotocchiBooted = true;
+  globalThis.__naotocchiBootGuard?.done?.();
 })();

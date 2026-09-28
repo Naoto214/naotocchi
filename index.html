@@ -4,6 +4,80 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>なおとっち</title>
+<script>
+/* RH-9 起動の 救済(Roadmap §8.3)。外の ファイルに たよらない(script.js が こわれて いても・古い cache でも うごく)。
+   script.js が 起動の さいごに window.__naotocchiBooted = true を 立てる。立たない まま 6 秒 たつか、起動中に error が 出たら パネルを 出す。
+   ボタンは 危なくない ものから: 1 もういちど よみこむ / 2 セーブコードを うつす / 3 じどうバックアップから もどす */
+(function () {
+  var KEY = 'naotocchi-save-v1', BACKUP = KEY + '-backup', SNAPS = KEY + '-snaps', RESCUED = KEY + '-rescued';
+  var panel = null;
+  function booted() { return window.__naotocchiBooted === true; }
+  function read(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  // script.js の encodeSaveCode と 同じ 手順(NTS1. + base64url)
+  function encode(json) {
+    var bytes = new TextEncoder().encode(json), bin = '';
+    for (var i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+    return 'NTS1.' + btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  }
+  function el(tag, text, style) { var n = document.createElement(tag); if (text) n.textContent = text; if (style) n.style.cssText = style; return n; }
+  var BTN = 'display:block;width:100%;margin:10px 0;padding:12px;font:inherit;font-size:16px;border-radius:12px;border:2px solid #555;background:#fff;color:#222;';
+  function show() {
+    if (panel || booted() || !document.body) return;
+    panel = el('div', '', 'position:fixed;inset:0;z-index:2147483647;overflow:auto;padding:24px 16px;background:#fffdf6;color:#222;font:16px/1.6 system-ui,sans-serif;');
+    panel.id = 'bootRescue'; panel.setAttribute('role', 'alertdialog'); panel.setAttribute('aria-labelledby', 'bootRescueTitle');
+    var box = el('div', '', 'max-width:420px;margin:0 auto;');
+    var title = el('h1', 'うまく ひらけませんでした', 'font-size:20px;margin:0 0 8px;'); title.id = 'bootRescueTitle';
+    box.appendChild(title);
+    box.appendChild(el('p', 'きろくは まだ のこっています。したの ボタンを うえから ためしてください。', 'margin:0 0 12px;'));
+    var reload = el('button', 'もういちど よみこむ', BTN + 'font-size:20px;padding:16px;border-color:#2a7;');
+    reload.id = 'bootRescueReload'; reload.type = 'button';
+    reload.onclick = function () { location.reload(); };
+    var copy = el('button', 'セーブコードを うつす', BTN); copy.id = 'bootRescueCopy'; copy.type = 'button';
+    var out = el('textarea', '', 'display:none;width:100%;height:96px;font:12px monospace;'); out.id = 'bootRescueCode'; out.readOnly = true;
+    copy.onclick = function () {
+      var codes = [], main = read(KEY), backup = read(BACKUP);
+      if (main) codes.push(encode(main));
+      if (backup && backup !== main) codes.push(encode(backup));
+      out.value = codes.length ? codes.join('\n\n') : '(きろくが ありません)';
+      out.style.display = 'block'; out.focus(); out.select();
+      try { if (codes.length && navigator.clipboard) navigator.clipboard.writeText(codes.join('\n\n')); } catch (e) { /* 手で コピー */ }
+    };
+    var restore = el('button', 'じどうバックアップから もどす', BTN); restore.id = 'bootRescueRestore'; restore.type = 'button';
+    var list = el('div', ''); list.id = 'bootRescueSnaps';
+    restore.onclick = function () {
+      list.textContent = '';
+      var snaps = [];
+      try { snaps = JSON.parse(read(SNAPS) || '[]'); } catch (e) { snaps = []; }
+      snaps = Array.isArray(snaps) ? snaps.filter(function (x) { return x && typeof x.raw === 'string' && typeof x.at === 'number'; }) : [];
+      if (!snaps.length) { list.appendChild(el('p', 'じどうバックアップは ありません。')); return; }
+      snaps.forEach(function (snap, i) {
+        var b = el('button', new Date(snap.at).toLocaleString('ja-JP') + ' に もどす', BTN); b.type = 'button'; b.setAttribute('data-snap', String(i));
+        b.onclick = function () {
+          if (b.getAttribute('data-armed') !== '1') { b.setAttribute('data-armed', '1'); b.textContent = 'ほんとうに もどす(' + new Date(snap.at).toLocaleString('ja-JP') + ')'; return; }
+          try {
+            var current = read(KEY);
+            if (current) localStorage.setItem(RESCUED, current); // もどす まえの きろくは べつの 場所に のこす(消さない)
+            localStorage.setItem(KEY, snap.raw);
+          } catch (e) { b.textContent = 'もどせませんでした'; return; }
+          location.reload();
+        };
+        list.appendChild(b);
+      });
+    };
+    box.appendChild(reload); box.appendChild(copy); box.appendChild(out); box.appendChild(restore); box.appendChild(list);
+    panel.appendChild(box);
+    document.body.appendChild(panel);
+    reload.focus();
+  }
+  window.__naotocchiBootGuard = {
+    show: show,
+    // 起動が あとから おわったら パネルを しまう(起動中の ちいさな error で とじこめない)
+    done: function () { if (panel && panel.parentNode) panel.parentNode.removeChild(panel); panel = null; }
+  };
+  window.addEventListener('error', function () { if (!booted()) setTimeout(show, 0); });
+  setTimeout(function () { if (!booted()) show(); }, 6000);
+})();
+</script>
   <link rel="stylesheet" href="style.css?v=20260925-50a23d89">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mplus-rounded-1c-regular.woff2" crossorigin>
   <link rel="stylesheet" href="ui.css?v=20260925-0d3533b6">
@@ -805,7 +879,7 @@
   <script src="item-memories.js?v=20260925-1636293f"></script>
   <script src="item-system.js?v=20260925-b218da8f"></script>
   <script src="movie-dialogue.js?v=20260925-2b99e35a"></script>
-  <script src="script.js?v=20260928-8eba402c"></script>
+  <script src="script.js?v=20260928-1b018efe"></script>
   <script src="home-touch.js?v=20260925-36be057a"></script>
 </body>
 </html>
