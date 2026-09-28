@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [357](357-new-seed-mixed-replay.md) | C-box配置、終了前pass、必須終了・次手番ドロー2経路を6 event/snapshotで再生 |
+
 | [356](356-new-seed-mixed-choice.md) | 時0 C-box配置、終了前唯一pass、必須終了2件を選択 |
 
 | [355](355-new-seed-mixed-audit.md) | 01-A通常行動、01-B終了前response、02-A/Bの終了集合を横断監査 |
