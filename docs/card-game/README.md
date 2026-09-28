@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [351](351-new-seed-mixed-replay.md) | 連鎖中pass・配置後pass・通常pass2件を再生 |
+
 | [350](350-new-seed-mixed-choice.md) | response唯一pass2件と通常pass2件を選択、適用前保存 |
 
 | [349](349-new-seed-mixed-audit.md) | response2件は唯一pass、通常2件は候補完全性を監査 |
