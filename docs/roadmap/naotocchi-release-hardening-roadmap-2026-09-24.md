@@ -581,6 +581,12 @@ harness({
 - `buildWorld` の hash seed を数値にする・`nearestPath` を格子にする: 4E-4 が終わった後の実測で予算(到着の暗転 ≤ 300 ms)を超えているときだけ行う。
 - `foreignMap` を同期で build している問題: 世界地図の UX を改修するときにまとめる。
 
+> **2026-09-28 追記(RH-7 の 実装。基準 main `193e6ab`。QA: `docs/qa/rh-7-meguru-post4e-2026-09-28.md`)**
+> - 4(なかまの めりこみ): ならびの 点を `standClear`(住人と 同じ はんけい)で 立てる ばしょへ ずらす(着いた とき・とまって いる とき。あるいて いる ときの うごきは そのまま)。受け入れは いまの あるける 出口 10 本 × 両方 = 20 とおり × {transition, corridor} × 27 にんで、1.5 秒後・あるいた あと ともに 0。
+> - 1・2(描画の 重さ): 見た目は へらさず、(a) 描画の よびだしを なまの ctx へ(Proxy は 絵文字 → イラストの 文字だけ)、(b) 地面の もようを world・マスごとに おぼえる。CPU 4× の replay で city 66.8→52.7 ms、forest 36.5→27.9 ms、mountain 51.9→38.1 ms。もようは 1.25→0.06 ms(forest)。
+> - 3(corridor の 60 ms こえ): Node では 再現しない ので 未完了の backlog。提案: 描画が 16 ms を こえた frame では 先読み・warm を 次の frame へ。Playwright CPU 4× の frame 時間の 分布で 前後を 比べる。
+> - meguru.js の 分割・`buildWorld` の hash seed・`nearestPath` の 格子・`foreignMap` は 今回の 4 件の 範囲外(手を つけていない)。
+
 ---
 
 ## 8. C 期(リリース直前): RH-8〜RH-11
