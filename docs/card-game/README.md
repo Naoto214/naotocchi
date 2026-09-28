@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [335](335-new-seed-mixed-choice.md) | 唯一response-pass3件と01-Bのseeded交換を選択 |
+
 | [334](334-new-seed-mixed-audit.md) | response-pass3件と01-B必須たまご交換候補を横断監査 |
 
 | [333](333-new-seed-mixed-replay.md) | 通常pass2件・証明済み終了とドロー・seeded交換を再生し5 event/snapshotを検証 |
