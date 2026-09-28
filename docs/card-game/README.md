@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [348](348-new-seed-mixed-replay.md) | 連鎖中を含む唯一pass4件をevent/snapshot/hashで再生 |
+
 | [347](347-new-seed-mixed-choice.md) | 346の唯一pass4件を選択、適用前で保存 |
 
 | [346](346-new-seed-mixed-audit.md) | 345後の4経路response候補を横断監査、各唯一pass |
