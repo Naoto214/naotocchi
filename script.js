@@ -431,7 +431,14 @@
   const LEGACY_RARE_LINES = ['mermaid','unicorn'];
   const NORMAL_LINES = MASTER_NORMAL_LINES.length ? MASTER_NORMAL_LINES : ['dog','cat','man','woman','beetle','stagbeetle'];
   const RARE_LINES = MASTER_RARE_LINES.length ? MASTER_RARE_LINES : ['dragon','phoenix','god'];
-  const ALL_LINES = [...NORMAL_LINES, ...RARE_LINES, 'ren'];
+  // RH-5: ひみつの しゅぞく(れんくん)は master の playerSpecies.secret が正本。
+  // ['ren'] は master が ない ときだけの 互換の 安全網(ハードコードの SPECIES.ren に あわせる)
+  const MASTER_SECRET_LINES = (WORLD_MASTER?.playerSpecies?.secret || []).map((x) => x.id);
+  const SECRET_LINES = MASTER_SECRET_LINES.length ? MASTER_SECRET_LINES : ['ren'];
+  // れんくん固有の しくみ(変身への 差しこみ・はじめて であう 演出・人生カード)が 指す 1 体
+  const SECRET_LINE = SECRET_LINES[0];
+  const isSecretLine = (line) => SECRET_LINES.includes(line);
+  const ALL_LINES = [...NORMAL_LINES, ...RARE_LINES, ...SECRET_LINES];
 
   // プロフィール表示用の しゅぞく名。新マスターを正とし、れんくんだけsecret枠から追加。
   const SPECIES_DISPLAY_NAMES = Object.fromEntries([
@@ -918,7 +925,7 @@
     // まま こうほに まぎれこむ - 隠しキャラとしての「見つけた感」を のこす ため
     const rarePool = RARE_LINES.filter((line) => {
       if (line === state.speciesLine || excluded.includes(line)) return false;
-      if (line === 'ren') return false;
+      if (isSecretLine(line)) return false;
       if (line === 'god') return avgCare >= (eased ? 82 : 90);
       // せいかくは「せいかくクイズ」でしか たまらず、それは ぜんミニゲームの
       // 6%。100分でも 7かい前後しか まわってこない ので、基本閾値を 3 に する
@@ -933,10 +940,10 @@
       const rare = ringBias ? pickRingCandidate(rarePool, 'species') : rarePool[Math.floor(Math.random() * rarePool.length)];
       candidates[Math.floor(Math.random() * candidates.length)] = rare;
     }
-    const renReady = state.speciesLine !== 'ren' && !excluded.includes('ren')
+    const renReady = state.speciesLine !== SECRET_LINE && !excluded.includes(SECRET_LINE)
       && ((state.minigameCount >= 5 && avgSkill >= (renEased ? 78 : 85)) || state.traitCounts.romantic >= (renEased ? 3 : 5));
     if (renReady && Math.random() < (renEased ? 0.3 : 0.18)) {
-      candidates[Math.floor(Math.random() * candidates.length)] = 'ren';
+      candidates[Math.floor(Math.random() * candidates.length)] = SECRET_LINE;
     }
     return candidates;
   }
@@ -2035,7 +2042,7 @@
       // 実際に100さいクリアを一度もしていない(clears===0)なら未達成として扱う。
       // これで「一度もクリアしていないのに左上に🎉」を既存セーブからも除去する。
       if ((Number(merged.lifetime.clears) || 0) <= 0 && Array.isArray(merged.lifetime.endingTiersReached)) {
-        merged.lifetime.endingTiersReached = merged.lifetime.endingTiersReached.filter((tier) => tier !== 0);
+        merged.lifetime.endingTiersReached = merged.lifetime.endingTiersReached.filter((tier) => tier !== GOAL_TIER.life);
       }
       // 旧版で購入式だった「なおとの〜」を、達成報酬式へ移行する。
       if (!Array.isArray(merged.lifetime.ownedNaotoItems)) merged.lifetime.ownedNaotoItems = [];
@@ -2318,12 +2325,27 @@
   function canonicalRegionId(id) {
     return WORLD_MASTER?.compatibility?.regionAliases?.[id] || id;
   }
+  // RH-5: しゅぞく ID の 正本化。raw → 正式な alias(master の speciesAliases)→ 登録表(progressRegistry().dex)で 照合。
+  // いまの alias は すべて 同じ ID どうし だが、alias が ふえても 件数と ずかんの 表示が ずれない ように 1 か所に おく。save は 書きかえない
+  function canonicalSpeciesId(id) {
+    return WORLD_MASTER?.compatibility?.speciesAliases?.[id] || id;
+  }
+  // 'line:段' の ずかんの キーを 正本の しゅぞく ID に なおす
+  function canonicalDexKey(key) {
+    if (typeof key !== 'string') return key;
+    const at = key.lastIndexOf(':');
+    return at < 0 ? key : `${canonicalSpeciesId(key.slice(0, at))}${key.slice(at)}`;
+  }
+  // ずかんで「見つけた」と あつかう キー(正本化 ずみ)。件数と 表示は これを 共有する
+  function knownDexKeys(s = state) {
+    return new Set((Array.isArray(s.discoveredStages) ? s.discoveredStages : []).map(canonicalDexKey));
+  }
   function dexTotalCount() { return progressRegistry().dex.size; }
-  function dexFoundCount(s = state) { return countRegistered(s.discoveredStages, progressRegistry().dex); }
+  function dexFoundCount(s = state) { return countRegistered(s.discoveredStages, progressRegistry().dex, canonicalDexKey); }
   function isDexComplete(s = state) { return dexFoundCount(s) >= dexTotalCount(); }
   function dexElderCount(s = state) {
     const last = `:${STAGES_PER_LINE - 1}`;
-    return countRegistered((s.discoveredStages || []).filter((key) => typeof key === 'string' && key.endsWith(last)), progressRegistry().dex);
+    return countRegistered((s.discoveredStages || []).filter((key) => typeof key === 'string' && key.endsWith(last)), progressRegistry().dex, canonicalDexKey);
   }
   function partnersFoundCount(l = state.lifetime) { return countRegistered(l.partnersRecorded, progressRegistry().partners, canonicalPartnerId); }
   function partnersMarriedCount(l = state.lifetime) { return countRegistered(l.partnersMarried, progressRegistry().partners, canonicalPartnerId); }
@@ -2362,6 +2384,10 @@
   // 5つのゴール:
   // ①〜③は100さいの人生評価、④は現在の図鑑全形態、⑤は全実績。
   // ①〜③を同じ人生で同時達成した場合は最高位だけを大きく見せる。
+  // RH-5: ゴールの 段の ID と 番号の 正本(1 か所)。番号 = save の endingTiersReached / NAOTO_ITEMS などの unlockTier の 値
+  // = goal-(番号+1) の 絵 = data-goal - 1。番号も 並びも 変えない(save の 形式は そのまま)。下の 段ごとの 表は この 並びに そろえる
+  const GOAL_TIER_IDS = Object.freeze(['life', 'lifeClear', 'best', 'dex', 'perfect']);
+  const GOAL_TIER = Object.freeze(Object.fromEntries(GOAL_TIER_IDS.map((id, i) => [id, i])));
   const ENDING_TIER_ICONS = ['🎉', '🏮', '🌳', '📖', '👑'];
   const ENDING_TIERS = [
     {
@@ -2570,7 +2596,7 @@
     if (!hasNaotoItem('naoto_ring')) return 1;
     let known;
     if (kind === 'species') {
-      if (!ALL_LINES.includes(candidate) || candidate === 'ren') return 1;
+      if (!ALL_LINES.includes(candidate) || isSecretLine(candidate)) return 1;
       known = state.discoveredStages.includes(`${candidate}:${currentFormStageIndex()}`);
     } else if (kind === 'companion') {
       if (!candidate || !allCompanionsById(candidate.id)) return 1;
@@ -2617,11 +2643,11 @@
   function achievedGoalTiers() {
     const L = state.lifetime || {};
     const tiers = [];
-    if ((L.clears || 0) >= 1) tiers.push(0);
-    if ((L.lifeClears || 0) >= 1) tiers.push(1);
-    if ((L.bestLives || 0) >= 1) tiers.push(2);
-    if (L.dexCleared || isDexComplete()) tiers.push(3);
-    if (L.perfectCleared || ACHIEVEMENTS.every((ach) => state.achievementsUnlocked.includes(ach.id))) tiers.push(4);
+    if ((L.clears || 0) >= 1) tiers.push(GOAL_TIER.life);
+    if ((L.lifeClears || 0) >= 1) tiers.push(GOAL_TIER.lifeClear);
+    if ((L.bestLives || 0) >= 1) tiers.push(GOAL_TIER.best);
+    if (L.dexCleared || isDexComplete()) tiers.push(GOAL_TIER.dex);
+    if (L.perfectCleared || ACHIEVEMENTS.every((ach) => state.achievementsUnlocked.includes(ach.id))) tiers.push(GOAL_TIER.perfect);
     return tiers;
   }
 
@@ -2719,15 +2745,15 @@
   }
 
   function getEndingTier() {
-    if (grandGoalPending === 'perfect') return 4;
-    if (grandGoalPending === 'dex') return 3;
+    if (grandGoalPending === 'perfect') return GOAL_TIER.perfect;
+    if (grandGoalPending === 'dex') return GOAL_TIER.dex;
     if (state.stage === STAGE.FAREWELL) {
-      if (state.maxSodachi >= SODACHI_MAX) return 2;
-      if (state.maxSodachi >= LIFE_CLEAR_SODACHI) return 1;
-      return 0;
+      if (state.maxSodachi >= SODACHI_MAX) return GOAL_TIER.best;
+      if (state.maxSodachi >= LIFE_CLEAR_SODACHI) return GOAL_TIER.lifeClear;
+      return GOAL_TIER.life;
     }
     const reached = achievedGoalTiers();
-    return reached.length ? Math.max(...reached) : 0;
+    return reached.length ? Math.max(...reached) : GOAL_TIER.life;
   }
 
   function qualifyingEndingTiers() {
@@ -10013,8 +10039,8 @@
     // SECRET れんくんが天寿をまっとうした人生だけ、通常カードの情報を
     // 削らずに小さな専用回想を添える。別Renderer/別エンディングにはせず、
     // 248形態共通の人生記録フローを保ったまま「同じ一人が育った」ことを見せる。
-    if (state.speciesLine === 'ren' && age >= GOAL_AGE) {
-      const renStages = SPECIES.ren?.stages || [];
+    if (state.speciesLine === SECRET_LINE && age >= GOAL_AGE) {
+      const renStages = SPECIES[SECRET_LINE]?.stages || [];
       const renMemories = [0, 2, 4, 5, 7]
         .map((stageIndex) => renStages[stageIndex])
         .filter(Boolean)
@@ -10252,7 +10278,7 @@
   // New reservations draw from unraised species. A funded legacy choice stays
   // valid even if already raised; only a successful hatch spends its stock.
   function dreamLines(kind) {
-    return (kind === 'normal' ? NORMAL_LINES : kind === 'rare' ? RARE_LINES : []).filter(line => line !== 'ren');
+    return (kind === 'normal' ? NORMAL_LINES : kind === 'rare' ? RARE_LINES : []).filter(line => !isSecretLine(line));
   }
   function unraisedEggLines(kind) {
     const raised = new Set(experiencedSpecies());
@@ -11427,7 +11453,7 @@
     setHTMLIfChanged(el.endingBadges, [...endingTiersReached]
       // tier0の🎉は「100さいクリア済み」の証。セーブに古い値が残っても
       // clears===0なら画面には絶対に出さない。
-      .filter((tierIndex) => tierIndex !== 0 || (state.lifetime.clears || 0) > 0)
+      .filter((tierIndex) => tierIndex !== GOAL_TIER.life || (state.lifetime.clears || 0) > 0)
       // 未知の tier(未来版の 値など)は save に のこし、表示だけ とばす
       .filter((tierIndex) => Number.isInteger(tierIndex) && ENDING_TIERS[tierIndex] !== undefined)
       .sort((a, b) => a - b)
@@ -11652,6 +11678,10 @@
   // 受け持つ)。ふつうクリアは ふわっと おちる かるい かんじ、ずかんは
   // はっぱが ゆれながら おちる しぜんな かんじ、じっせきは まわりに はじける
   // ごうかな かんじ、PERFECTは その両方を いちばん たくさん・はやく
+  // RH-5: 既知の 未解決の 網羅の すきま。GOAL_TIER_IDS は 5 段 だが、ここは 4 段 だった ころの 4 件 のまま で、
+  // perfect(GOAL_TIER.perfect)の 分が ない(perfect では 演出が 出ない)。4 件が 正しい 仕様 では ない。
+  // 中身(見た目)は RH-5 では 決めない(Roadmap の 後続の visual / content cleanup 候補)。5 件目を 足したら
+  // tests/content-registry-test.cjs の KNOWN_GAPS から 外す
   const ENDING_CELEBRATIONS = [
     { kinds: ['fall'], pool: ['🎉', '🎊', '✨', '🎈'], count: 10 },
     { kinds: ['sway'], pool: ['🍃', '🌿', '📖', '✨'], count: 12 },
@@ -12990,9 +13020,9 @@
       el.gameClearArt.alt = tier.artAlt || tier.title;
     }
     el.gameClearOverlay.dataset.goal = String(tierIndex + 1);
-    el.gameClearOverlay.classList.toggle('tier-1', tierIndex === 1);
-    el.gameClearOverlay.classList.toggle('tier-2', tierIndex === 2);
-    el.gameClearOverlay.classList.toggle('tier-3', tierIndex >= 3);
+    el.gameClearOverlay.classList.toggle('tier-1', tierIndex === GOAL_TIER.lifeClear);
+    el.gameClearOverlay.classList.toggle('tier-2', tierIndex === GOAL_TIER.best);
+    el.gameClearOverlay.classList.toggle('tier-3', tierIndex >= GOAL_TIER.dex);
     // ⑤を一度でも達成していれば、人生を残したまま♾️のせかいへ進める。
     el.gameClearFreePlayBtn.classList.toggle('hidden', !state.lifetime.perfectCleared);
     el.gameClearCloseBtn.classList.remove('hidden');
@@ -13003,11 +13033,11 @@
     el.gameClearConfettiTop.textContent = tier.confetti;
     el.gameClearConfettiBottom.textContent = tier.confetti;
     el.gameClearDesc.innerHTML = tier.desc;
-    if (tierIndex < 3) {
+    if (tierIndex < GOAL_TIER.dex) {
       const reward = NAOTO_ITEMS.find((item) => item.unlockTier === tierIndex);
       if (reward) el.gameClearDesc.innerHTML += `<br>${escapeHtml(reward.emoji)} ${escapeHtml(reward.label)}をもらった!<br>${escapeHtml(reward.desc)}`;
     }
-    if (tierIndex === 3) {
+    if (tierIndex === GOAL_TIER.dex) {
       const totalForms = dexTotalCount();
       const knownForms = dexFoundCount();
       el.gameClearDesc.innerHTML += `<br>📖みつけたすがた: ${knownForms} / ${totalForms}<br>👑なおとのかんむりをもらった!`;
@@ -13018,12 +13048,12 @@
       el.gameClearDesc.innerHTML += '<br>このあと、おわかれのじかんに<br>この子のいっしょうをきろくできるよ。';
     }
     el.gameClearBadges.innerHTML = tier.badges.map((b) => `<span class="game-clear-badge">${b}</span>`).join('');
-    const hadPerfect = state.lifetime.endingTiersReached.includes(4);
+    const hadPerfect = state.lifetime.endingTiersReached.includes(GOAL_TIER.perfect);
     qualifyingEndingTiers().forEach((t) => {
       if (!state.lifetime.endingTiersReached.includes(t)) state.lifetime.endingTiersReached.push(t);
     });
     syncNaotoRewardItems();
-    if (!hadPerfect && state.lifetime.endingTiersReached.includes(4)) {
+    if (!hadPerfect && state.lifetime.endingTiersReached.includes(GOAL_TIER.perfect)) {
       state.lifetime.screenThemeId = 'rainbow';
     }
     if (!endingCelebrationShown) {
@@ -13045,7 +13075,7 @@
 
   function openDexDetail(line, stageIndex) {
     if (!SPECIES[line] || !SPECIES[line].stages[stageIndex]) return;
-    if (!state.discoveredStages.includes(`${line}:${stageIndex}`)) return;
+    if (!knownDexKeys().has(`${line}:${stageIndex}`)) return;
     dexDetail = { line, stageIndex };
     render();
   }
@@ -13075,15 +13105,16 @@
     el.dexProgress.textContent = `${combinedDiscovered} / ${combinedTotal}`;
     el.dexFreePlayHint.classList.toggle('hidden', !state.infinite);
     renderDexSummary();
+    const knownKeys = knownDexKeys();
     el.dexGrid.innerHTML = ALL_LINES.map((line) => {
       const stages = SPECIES[line].stages;
-      const knownCount = stages.filter((_, i) => state.discoveredStages.includes(`${line}:${i}`)).length;
-      const isRare = RARE_LINES.includes(line) || line === 'ren';
+      const knownCount = stages.filter((_, i) => knownKeys.has(`${line}:${i}`)).length;
+      const isRare = RARE_LINES.includes(line) || isSecretLine(line);
       const name = knownCount ? (SPECIES_DISPLAY_NAMES[line] || line) : '？？？';
       const head = `<div class="dex-line-head"><span class="dex-line-name">${escapeHtml(name)}${knownCount && isRare ? ' <span class="dex-line-rare">✨レア</span>' : ''}</span><span class="dex-line-bar"><span class="dex-line-fill" style="width:${(knownCount / stages.length * 100).toFixed(0)}%"></span></span><span class="dex-line-count">${knownCount}/${stages.length}</span></div>`;
       const cells = stages
         .map((stage, i) => {
-          const known = state.discoveredStages.includes(`${line}:${i}`);
+          const known = knownKeys.has(`${line}:${i}`);
           if (!known) return `<div class="dex-cell locked"><span class="dex-cell-emoji">❓</span><span class="dex-cell-label">？？？</span></div>`;
           // であった すがたは いつでも タップして、なまえ・しゅぞく・
           // ライフステージ・せつめい文を 読める(§28)。♾️ の せかいでは
@@ -13101,10 +13132,10 @@
   // ずかんの あたまの まとめ: ふつう/レアの うまりぐあい と「いまの子の つぎの すがた」
   function renderDexSummary() {
     if (!el.dexSummary) return;
-    const known = new Set(state.discoveredStages);
+    const known = knownDexKeys();
     const count = (lines) => lines.reduce((a, line) => a + SPECIES[line].stages.filter((_, i) => known.has(`${line}:${i}`)).length, 0);
     const normal = count(NORMAL_LINES), normalTotal = NORMAL_LINES.length * STAGES_PER_LINE;
-    const rare = count([...RARE_LINES, 'ren']), rareTotal = (RARE_LINES.length + 1) * STAGES_PER_LINE;
+    const rare = count([...RARE_LINES, ...SECRET_LINES]), rareTotal = (RARE_LINES.length + SECRET_LINES.length) * STAGES_PER_LINE;
     const linesStarted = ALL_LINES.filter((line) => SPECIES[line].stages.some((_, i) => known.has(`${line}:${i}`))).length;
     let next = '';
     if (state.stage === STAGE.GROWING && state.speciesLine && SPECIES[state.speciesLine]) {
@@ -13823,7 +13854,7 @@
   // 正体を みせない。「なんだか わからない ものを えらぶ」という
   // 隠しキャラ らしい たいけんに する(いちど であえば ふつうに 名前が出る)
   function isHiddenTransformLine(line) {
-    return line === 'ren' && !state.discoveredStages.some((e) => e.startsWith('ren:'));
+    return line === SECRET_LINE && !state.discoveredStages.some((e) => e.startsWith(`${SECRET_LINE}:`));
   }
 
   function renderTransformChoices() {
@@ -13891,7 +13922,7 @@
       state.transformStageDone.push(String(state.stageIndex));
     }
     const stage = SPECIES[line].stages[stageForAge(currentAge())];
-    const wasHiddenRen = line === 'ren' && hiddenRenRevealPending;
+    const wasHiddenRen = line === SECRET_LINE && hiddenRenRevealPending;
     hiddenRenRevealPending = false;
     const breakupMessage = rerollIdentityAndBreakupIfNeeded(line);
     pushLifeLog(stage.emoji, wasHiddenRen ? 'れんくんにであった' : `${stage.label}にへんしんした`);
@@ -14659,10 +14690,10 @@
     for (const line of ALL_LINES) {
       const stages = (SPECIES[line] && SPECIES[line].stages) || [];
       stages.forEach((stage, i) => {
-        const rare = RARE_LINES.includes(line) || line === 'ren';
+        const rare = RARE_LINES.includes(line) || isSecretLine(line);
         list.push({
           id: `form:${line}:${i}`, kind: 'form', label: stage.label, rarity: rare ? 'rare' : i >= 6 ? 'uncommon' : 'common',
-          secret: line === 'ren', art: { asset: stage.asset || '', emoji: stage.emoji || '❓' },
+          secret: isSecretLine(line), art: { asset: stage.asset || '', emoji: stage.emoji || '❓' },
           visual: () => stageVisualHTML(stage, 'thumb'),
         });
       });
@@ -14716,7 +14747,7 @@
   }
   function stickerSecretUnlocked(s) {
     if (!s.secret) return true;
-    return state.discoveredStages.some((k) => k.startsWith('ren:'));
+    return state.discoveredStages.some((k) => k.startsWith(`${SECRET_LINE}:`));
   }
   // パックから でる・かぞえる たいしょう(ひみつの しゅぞくは であってから)
   function stickerPackPool() { return stickerCatalog().filter((s) => stickerSecretUnlocked(s) && !s.rewardOnly); }
