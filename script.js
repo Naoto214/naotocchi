@@ -441,11 +441,19 @@
   const ALL_LINES = [...NORMAL_LINES, ...RARE_LINES, ...SECRET_LINES];
 
   // プロフィール表示用の しゅぞく名。新マスターを正とし、れんくんだけsecret枠から追加。
+  // RH-8: 旧しゅぞく(LEGACY_*_LINES)の 名前。master に のらない ので、古い save の 人生で「???」に ならない ように
+  // master より まえの 表示名(3aec31f2 の まえ)を そのまま のこす。正本の しゅぞくには まぜない(表示の よみかえ だけ)
+  const LEGACY_SPECIES_DISPLAY_NAMES = Object.freeze({
+    bird: 'とり', rabbit: 'うさぎ', fish: 'さかな', panda: 'パンダ', fox: 'きつね', owl: 'ふくろう', plant: 'はな',
+    robot: 'ロボット', dinosaur: 'きょうりゅう', mermaid: 'にんぎょ', unicorn: 'ユニコーン',
+  });
+  // 正本が さき(名前 → しゅぞく の さがし もの[lifeRecordVisual]で 正本が かつ)、旧しゅぞくは 正本に ない ID だけ あと に たす
   const SPECIES_DISPLAY_NAMES = Object.fromEntries([
     ...(WORLD_MASTER?.playerSpecies?.normal || []),
     ...(WORLD_MASTER?.playerSpecies?.rare || []),
     ...(WORLD_MASTER?.playerSpecies?.secret || []),
   ].map((x) => [x.id, x.label]));
+  for (const [id, label] of Object.entries(LEGACY_SPECIES_DISPLAY_NAMES)) if (!(id in SPECIES_DISPLAY_NAMES)) SPECIES_DISPLAY_NAMES[id] = label;
 
   // ================================================================
   // 現在の全248段階と旧セーブの種族に対応する、ずかんの説明文
@@ -1823,6 +1831,19 @@
       normalizeStateShape(merged, freshState());
       // 要素の かたも いこうより 前に そろえ、取り除いた 値を 記録する
       sanitizeSaveArrays(merged, repair);
+      // RH-8: えらんでいる とちゅうの 変身の こうほ(null か 文字列の 配列。おてほんが null なので 上では みない)。
+      // かたが ちがう 値だけ とりのぞいて 記録する(知らない しゅぞく ID は のこす。えがく ときに とばす)
+      if (merged.transformOptions != null) {
+        const opts = merged.transformOptions, kept = Array.isArray(opts) ? opts.filter((v) => typeof v === 'string' && v !== '') : [];
+        if (repair && (!Array.isArray(opts) || kept.length !== opts.length)) {
+          repair.count++;
+          repair.byField.transformOptions = (repair.byField.transformOptions || 0) + 1;
+          let sample; try { sample = JSON.stringify(opts); } catch (e) { sample = String(opts); }
+          repair.samples.push({ field: 'transformOptions', value: String(sample).slice(0, 120) });
+          if (repair.samples.length > SAVE_REPAIR_SAMPLE_MAX) repair.samples.shift();
+        }
+        merged.transformOptions = kept.length ? kept : null;
+      }
       migrateNormalEquipmentV2(merged);
       // 地域/きせつゲームの id を「登録順の 連番(region:city:road:0 …)」から
       // 固定の 文字列 id に かえた ぶんを ひきつぐ(プレイ回数の きろく)
@@ -10081,7 +10102,7 @@
     if (!shown.length) return '<div class="life-timeline-empty">まだ できごとは ない</div>';
     let lastAge = null;
     return '<div class="life-timeline">' + shown.map((e) => {
-      const ageCell = e.age !== lastAge ? `<span class="life-timeline-age">${e.age}さい</span>` : '<span class="life-timeline-age"></span>';
+      const ageCell = e.age !== lastAge ? `<span class="life-timeline-age">${escapeHtml(e.age)}さい</span>` : '<span class="life-timeline-age"></span>';
       lastAge = e.age;
       return `<div class="life-timeline-row">${ageCell}<span class="life-timeline-icon">${lifeLogIconHTML(e,line)}</span><span class="life-timeline-text">${commentTextHTML(compactJapaneseText(e.text))}</span></div>`;
     }).join('') + '</div>';
@@ -10142,7 +10163,7 @@
     if (el.profilePastLives) {
       const past = (state.lifetime.pastLives || []).slice().reverse();
       el.profilePastLives.innerHTML = past.length
-        ? past.slice(0, 12).map((p, i) => `<details class="past-life"><summary>${lifeRecordVisual(p)} ${escapeHtml(p.species || '???')}・${p.age}さい・そだち${p.sodachi}${p.married ? '・💍' : ''}${p.companions ? `・なかま${p.companions}` : ''}</summary>${Array.isArray(p.log) && p.log.length ? buildLifeTimelineHTML(p.log,0,p.line) : '<div class="life-timeline-empty">この子の ねんぴょうは のこっていない(古いきろく)</div>'}${p.code ? `<button type="button" class="profile-code-btn past-life-code-btn" data-code="${escapeHtml(p.code)}">📋いっしょうカードのコード</button>` : ''}</details>`).join('')
+        ? past.slice(0, 12).map((p, i) => `<details class="past-life"><summary>${lifeRecordVisual(p)} ${escapeHtml(p.species || '???')}・${escapeHtml(p.age)}さい・そだち${escapeHtml(p.sodachi)}${p.married ? '・💍' : ''}${p.companions ? `・なかま${escapeHtml(p.companions)}` : ''}</summary>${Array.isArray(p.log) && p.log.length ? buildLifeTimelineHTML(p.log,0,p.line) : '<div class="life-timeline-empty">この子の ねんぴょうは のこっていない(古いきろく)</div>'}${p.code ? `<button type="button" class="profile-code-btn past-life-code-btn" data-code="${escapeHtml(p.code)}">📋いっしょうカードのコード</button>` : ''}</details>`).join('')
         : '<div class="profile-hint">まだ おわかれした子は いない</div>';
     }
   }
@@ -13858,7 +13879,8 @@
   }
 
   function renderTransformChoices() {
-    const options = state.transformOptions || [];
+    // RH-8: 知らない しゅぞく(未来の save など)は えがかない(save には のこる)
+    const options = (state.transformOptions || []).filter((line) => SPECIES[line] || isHiddenTransformLine(line));
     el.transformChoices.innerHTML = options
       .map((line) => {
         if (isHiddenTransformLine(line)) {
@@ -14043,6 +14065,16 @@
   // 「たび」の 地域えらび(travelToRegion)は そのまま。ここは その うえの べつの がめん。
   // 地域を かえる ときは かならず 本体の travelToRegion() を とおる(めぐる の なかの
   // 「たび」ボタンも ふつうの たび がめんを ひらくだけ)
+  // RH-8: めぐるの きろく(であった・はなした・見つけた・ちず・みち)は frame の なかで 何回 よばれても、
+  // saveState(実績・ゴールの 判定と JSON の 書き出し)は frame の そとで 1 回に まとめる。
+  // microtask なので つぎの frame・タブを 閉じる イベントより さきに かならず 確定する。bridge の 署名は そのまま
+  let meguruSaveQueued = false;
+  const queueMicro = typeof queueMicrotask === 'function' ? queueMicrotask : (fn) => Promise.resolve().then(fn);
+  function saveMeguruRecordSoon() {
+    if (meguruSaveQueued) return;
+    meguruSaveQueued = true;
+    queueMicro(() => { meguruSaveQueued = false; saveState(); });
+  }
   const meguruBridge = {
     clamp, lerp, escapeHtml, sfx: (name) => audio.play(name), createMgCanvas, createTouchPad, createPadRow,
     getState: () => state,
@@ -14089,10 +14121,10 @@
     openTravel: () => openTravelOverlay(),
     // オーバーレイが かぶさって いる あいだ、めぐるは せかいを すすめない
     menuOpen: () => !!activeOverlay,
-    recordMet: (key) => { const m = meguruStats(); if (!m.met[key]) { m.met[key] = 1; saveState(); } },
-    recordTalk: (key) => { const m = meguruStats(); m.talks[key] = (m.talks[key] || 0) + 1; m.talkCount += 1; saveState(); },
+    recordMet: (key) => { const m = meguruStats(); if (!m.met[key]) { m.met[key] = 1; saveMeguruRecordSoon(); } },
+    recordTalk: (key) => { const m = meguruStats(); m.talks[key] = (m.talks[key] || 0) + 1; m.talkCount += 1; saveMeguruRecordSoon(); },
     // スポットの はっけん(地域ごと)。ずかん・じっせきとは べつの きろく
-    recordSpot: (regionId, spotId) => { const m = meguruStats(); const list = m.spots[regionId] || (m.spots[regionId] = []); if (!list.includes(spotId)) { list.push(spotId); saveState(); } },
+    recordSpot: (regionId, spotId) => { const m = meguruStats(); const list = m.spots[regionId] || (m.spots[regionId] = []); if (!list.includes(spotId)) { list.push(spotId); saveMeguruRecordSoon(); } },
     discoveredSpots: (regionId) => { const m = meguruStats(); return (m.spots[regionId] || []).slice(); },
     // ちず(あるいた きろく)。地区・とおった みち・見つけた めじるし を id だけで もつ。
     // あるいた ざひょうは のこさない ので、ふえかたは せかいの おおきさ ぶんで とまる
@@ -14101,7 +14133,7 @@
       const list = bag[regionId] || (bag[regionId] = []);
       let added = false;
       for (const id of (Array.isArray(ids) ? ids : [ids])) if (id && !list.includes(id)) { list.push(id); added = true; }
-      if (added) saveState();
+      if (added) saveMeguruRecordSoon();
     },
     // その地域の きろくを よむ。まだ 一度も きろくして いない ときは null(= 旧セーブ)。
     // よびだしがわが「すでに 見つけた スポット」から あんぜんに 組みなおす
@@ -14148,7 +14180,7 @@
     recordWorldLinks: (ids) => {
       const m = meguruStats(); let added = false;
       for (const id of (Array.isArray(ids) ? ids : [ids])) if (id && !m.world.links.includes(id)) { m.world.links.push(id); added = true; }
-      if (added) saveState();
+      if (added) saveMeguruRecordSoon();
     },
     // みちの はっけんを しらべる ための「地域ごとの 見つけた spot」。せかいのちずを
     // ひらいた ときだけ よむ
@@ -14938,9 +14970,9 @@
   function stickerPageBackground(pageId) {
     const store = stickerStore();
     const meta = store.pageMeta[pageId] || (store.pageMeta[pageId] = { background: 'home' });
-    const available = stickerBackgroundOptions();
-    if (!available.some((r) => r.id === meta.background)) meta.background = 'home';
-    return meta.background;
+    // RH-8: いま えらべない 背景(知らない ID・まだ いっていない とくべつな 地域・未来の save)は 表示だけ home に する。
+    // save の 値は 書きかえない(RH-2 と おなじ: 知らない 値は のこし、いまの 表示と 進行には 数えない)
+    return stickerBackgroundOptions().some((r) => r.id === meta.background) ? meta.background : 'home';
   }
   function setStickerPageBackground(pageId, backgroundId) {
     const store = stickerStore();
@@ -15020,7 +15052,7 @@
     { id: 'page-other-3', supply: { count: 3, matches: s => s.kind === 'scenery' }, page: null, label: 'ひとつの ページに その他の シールを 3まい はる', check: (pages) => anyPageHas(pages, p => countStickerKind(p, 'scenery') >= 3) },
     { id: 'page-8', supply: { count: 8, matches: () => true }, page: null, label: 'ひとつの ページに 8まい はる', check: (pages) => anyPageHas(pages, p => p.length >= 8) },
     { id: 'multi-pages-2', supply: { count: 2, matches: () => true }, page: null, label: '2つの ページに シールを はる', check: (pages) => Object.values(pages).filter((p) => p.length >= 1).length >= 2 },
-    { id: 'background-change', supply: { count: 0, matches: () => false }, page: null, label: 'はいけいを かえる', check: (_pages, store) => store.pageOrder.some((id) => (store.pageMeta[id]?.background || 'home') !== 'home') },
+    { id: 'background-change', supply: { count: 0, matches: () => false }, page: null, label: 'はいけいを かえる', check: (_pages, store) => store.pageOrder.some((id) => stickerPageBackground(id) !== 'home') },
   ]
   function crownNeedsTaskSticker(candidate) {
     const store = stickerStore(), pages = stickerPages();
@@ -17700,14 +17732,21 @@
     return json;
   }
   // --- じどうバックアップ(3世代) ---
+  // RH-8: セーブの たびに 3 世代ぶんの JSON を parse しない。localStorage の 文字列が 前と 同じ なら 前の 結果を つかう
+  // (別の タブが 書きかえたら 文字列が かわる ので parse しなおす)。かえす のは 毎回 あたらしい 配列
+  let saveSnapsCache = null;
   function readSaveSnaps() {
     try {
-      const list = JSON.parse(localStorage.getItem(SAVE_SNAP_KEY) || '[]');
-      return Array.isArray(list) ? list.filter((s) => s && typeof s.raw === 'string' && typeof s.at === 'number') : [];
+      const text = localStorage.getItem(SAVE_SNAP_KEY) || '[]';
+      if (saveSnapsCache && saveSnapsCache.text === text) return saveSnapsCache.list.slice();
+      const list = JSON.parse(text);
+      const out = Array.isArray(list) ? list.filter((s) => s && typeof s.raw === 'string' && typeof s.at === 'number') : [];
+      saveSnapsCache = { text, list: out };
+      return out.slice();
     } catch (e) { return []; }
   }
   function writeSaveSnaps(list) {
-    try { localStorage.setItem(SAVE_SNAP_KEY, JSON.stringify(list)); return true; } catch (e) { return false; }
+    try { const text = JSON.stringify(list); localStorage.setItem(SAVE_SNAP_KEY, text); saveSnapsCache = { text, list: list.slice() }; return true; } catch (e) { return false; }
   }
   // force=true は セーブコードの よみこみ/もどす の 直前に、いまの セーブを
   // かならず のこす ため(あとで「もどすのを やめる」が できる)
