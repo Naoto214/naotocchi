@@ -1,0 +1,126 @@
+{
+  "completed": 0,
+  "independent_balance_sample_count": 0,
+  "new_events": 0,
+  "planned": 4,
+  "results": [
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-01-a-first",
+      "resolution_mode": "response_unique",
+      "selected_candidate": "response-pass",
+      "source_continuation_state_sha256": "3846ef2aada116549f3836b28e82a8e61fbda554ec6dd343cd723998ae41a363",
+      "source_game_state_sha256": "465a9b88430c83978e8f948b89cae339ea62c5d2c98e90ee6317a1e0c0525a2a",
+      "source_last_valid_event_seq": 84
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "candidate-place_world-A-021#1",
+        "candidate-set_item-A-034#1",
+        "pass"
+      ],
+      "completed": false,
+      "new_events": 0,
+      "paid_comparisons": [
+        {
+          "candidate_id": "candidate-place_world-A-021#1",
+          "comparison": {
+            "decided_at": "time_after_certain_resolution",
+            "reason": "time_after_certain_resolution",
+            "winner": "left"
+          },
+          "score": {
+            "avoid_loss_or_abort": 0,
+            "candidate_id": "candidate-place_world-A-021#1",
+            "card_copy_id": "A-021",
+            "certain_growth_difference": 0,
+            "consumed_card_count": 0,
+            "maintain_or_prevent_100": 0,
+            "payment_time": 2,
+            "time_after_certain_resolution": 3,
+            "value_comparison_to": {}
+          },
+          "source_reference": "89-world-13-card-text-draft.md#W-countryside"
+        },
+        {
+          "candidate_id": "candidate-set_item-A-034#1",
+          "comparison": {
+            "decided_at": "time_after_certain_resolution",
+            "reason": "time_after_certain_resolution",
+            "winner": "left"
+          },
+          "score": {
+            "avoid_loss_or_abort": 0,
+            "candidate_id": "candidate-set_item-A-034#1",
+            "card_copy_id": "A-034",
+            "certain_growth_difference": 0,
+            "consumed_card_count": 0,
+            "maintain_or_prevent_100": 0,
+            "payment_time": 1,
+            "time_after_certain_resolution": 4,
+            "value_comparison_to": {}
+          },
+          "source_reference": "77-current-items-card-text-draft.md#I-poop1"
+        }
+      ],
+      "pass_score": {
+        "avoid_loss_or_abort": 0,
+        "candidate_id": "pass",
+        "card_copy_id": "",
+        "certain_growth_difference": 0,
+        "consumed_card_count": 0,
+        "maintain_or_prevent_100": 0,
+        "payment_time": 0,
+        "time_after_certain_resolution": 5,
+        "value_comparison_to": {}
+      },
+      "path_id": "probe-01-b-first",
+      "resolution_mode": "priority_unique",
+      "selected_candidate": "pass",
+      "source_continuation_state_sha256": "3a2e401a4e6aa7296ccb1888abb3a35f7ec093c757774b99ddc617b10eef9740",
+      "source_contracts": [
+        107,
+        114
+      ],
+      "source_game_state_sha256": "f14ac97408829914128464b09442728e5aab7a53f2a4b0e5518da0ee5312fc52",
+      "source_last_valid_event_seq": 86
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-02-b-first",
+      "resolution_mode": "response_unique",
+      "selected_candidate": "response-pass",
+      "source_continuation_state_sha256": "fa0faccae033188a0ff4d163d03968472b35895507d8d985db74c1dfbdb738b3",
+      "source_game_state_sha256": "51638769c180b79c75275a6ffcd04b997f5ce3e9879913cf78b4ab6a9ff4ab1d",
+      "source_last_valid_event_seq": 87
+    },
+    {
+      "balance_sample_count": 0,
+      "candidate_ids": [
+        "response-pass"
+      ],
+      "completed": false,
+      "new_events": 0,
+      "path_id": "probe-02-a-first",
+      "resolution_mode": "response_unique",
+      "selected_candidate": "response-pass",
+      "source_continuation_state_sha256": "692f3fb361bce9a568b5c3059e35de1cf44d929c92575132e33d5f9526da97c6",
+      "source_game_state_sha256": "086c0680f5af08f120def7853442a053b607554b9efe7d8ad6ae0d3d8d737217",
+      "source_last_valid_event_seq": 75
+    }
+  ],
+  "schema": "naotocchi.card_game.proxy_new_seed_mixed_choice_325.v1",
+  "source_raw_sha256": "e7bd59182547da169af797facfe117780b66cb6f2bd0cf1bbaf1112197311de3",
+  "state_raw_sha256": "4858ef627f32dfe7096bbdcfc3c8a0032c4734ed8f85f18f76cf017b0f848f04"
+}
