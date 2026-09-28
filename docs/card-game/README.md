@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [338](338-new-seed-mixed-choice.md) | 証明済み必須終了2件と唯一response-pass2件を選択 |
+
 | [337](337-new-seed-mixed-audit.md) | 必須終了2件と唯一response-pass2件を横断監査 |
 
 | [336](336-new-seed-mixed-replay.md) | response-pass3件・seeded交換を再生し4 event/snapshotを検証 |
