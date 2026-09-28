@@ -715,6 +715,10 @@ harness({
   - めぐるの記録を frame の外で確定させる(`queueMicrotask` でまとめる。**bridge の署名は変えない**)。
 - `itemMemories` に上限を付け、save の大きさの上限を検査する(2 MB など)。
 
+> **2026-09-28 追記(RH-8 の 実装。基準 main `e90ff9a`。QA: `docs/qa/rh-8-save-compat-2026-09-28.md`)**
+> - やった: 本物の 古い save 6 時代(古い commit の コード 自身に 書かせる generator。旧 → 新 → 旧 も 確認)、こわれた save 11 とおり、fuzz 200 回、旧しゅぞくの 名前(表示だけ)、シールの 背景を 書きもどさない、過去の 人生の エスケープ、snapshot の parse の cache、めぐるの きろくの まとめ保存(microtask)。fuzz で 見つけた `transformOptions` が 文字列の save で 起動時に 落ちる バグを 修復。
+> - やらなかった(判断が 要る): `savedByBuild`(新しい save の field)と `known()` の 変更、`itemMemories` の 上限(データを 切る)、`recordDiscovery` の 知らない キー、dirty flag(→ RH-9 と いっしょに)、オーナーの 実機の save(セーブコード 待ち)。
+
 ### 8.8 RH-9 Session Safety & Recovery
 §8.1 A′、§8.2、§8.3、`gamePassReadyAt` と `temporaryForm.expiresAt` の clamp、HeartRails の座標の丸め(まだ行っていなければ)。
 
