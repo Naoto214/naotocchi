@@ -786,6 +786,23 @@ harness({
 - README に最低動作環境(iOS Safari 16 以上 / Chrome 105 以上)を明記する。
 - 装備の反応文を今の概念に合わせる。
 
+> **2026-09-29 追記(RH-11 の 実装。QA: `docs/qa/rh-11-release-hygiene-2026-09-29.md`)**
+> - やった:
+>   - 地域の アイコン・CSS の `tropical` の 使われない 行を 削除
+>   - README の 時間・複数タブ・救済・動作環境・シールちょう
+>   - MASTER_SPEC K-5 と TEXT_STYLE の koala / kinoko に 注記
+>   - 文書と 登録表の 一致を テストで 固定
+> - 記録:
+>   - #278(`54ce21d8`)の token が 古い 2 件(master・pet-expression)と、starfish の 上書き
+>   - main で 同じ パスの まま 上書きされた beetle / stagbeetle 14 件
+> - やらなかった(判断が 要る):
+>   - `ENDING_CELEBRATIONS` の perfect(演出が 一意で ない)
+>   - 画像の cache 方針と 基準の release
+>   - PR の close
+>   - EXP-Final
+>   - #259 の docs
+>   - 装備の 反応文
+
 ---
 
 ## 9. Release Gate(リリースできる条件)
