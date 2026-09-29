@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [396](396-new-seed-mixed-replay.md) | 六段階終了・ドロー、C-chicken連鎖解決、開始時・終了前passを5 eventで再生 |
+
 | [395](395-new-seed-mixed-replay.md) | 終了前・連鎖中の唯一pass、seededたまご交換、107・114通常passを4 eventで再生 |
 
 | [394](394-new-seed-mixed-replay.md) | 107・114通常pass、連鎖・配置後pass、六段階終了・ドローを5 eventで再生 |
