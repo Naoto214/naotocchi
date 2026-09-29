@@ -266,7 +266,9 @@ test('the production Quick voice control saves every selected mode for the audio
     assert.equal(s.lifetime.quickVoice, mode);
     assert.equal(saved.quickVoice, mode);
     assert.equal(saved.quickVoiceChosen, true);
-    assert.equal(harness({resume:true, storage}).api.state().lifetime.quickVoice, mode);
+    // 読みなおしの 確認は 写しの storage で(同じ storage に もう 1 つ 起動すると、RH-9 で あとから ひらいた タブが 引きつぎ、この タブは 書かなく なる)
+    const copy = memoryStorage(); copy.setItem('naotocchi-save-v1', storage.getItem('naotocchi-save-v1'));
+    assert.equal(harness({resume:true, storage: copy}).api.state().lifetime.quickVoice, mode);
   }
   assert.deepEqual(voiceCalls, [
     {text:'よけろ', mode:'pico'},

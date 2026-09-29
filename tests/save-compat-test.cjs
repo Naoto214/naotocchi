@@ -73,7 +73,11 @@ for (const { file } of MANIFEST) {
     const a = storage.getItem(SAVE);
     const again = storageWith([[SAVE, a]]);
     boot(again).api.saveState();
-    assert.deepEqual(JSON.parse(again.getItem(SAVE)), JSON.parse(a));
+    // saveRevision は save の 回数(RH-9。起動の save と ここの save)なので ふえる。それ以外は 同じ
+    const second = JSON.parse(again.getItem(SAVE)), first = JSON.parse(a);
+    assert.ok(second.lifetime.saveRevision > first.lifetime.saveRevision);
+    delete second.lifetime.saveRevision; delete first.lifetime.saveRevision;
+    assert.deepEqual(second, first);
   });
 }
 

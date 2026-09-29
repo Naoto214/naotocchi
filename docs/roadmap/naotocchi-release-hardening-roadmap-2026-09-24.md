@@ -722,6 +722,17 @@ harness({
 ### 8.8 RH-9 Session Safety & Recovery
 §8.1 A′、§8.2、§8.3、`gamePassReadyAt` と `temporaryForm.expiresAt` の clamp、HeartRails の座標の丸め(まだ行っていなければ)。
 
+> **2026-09-28 追記(RH-9 の 実装。基準 main `6e0658d`。QA: `docs/qa/rh-9-session-safety-2026-09-28.md`)**
+> - やった:
+>   - §8.1 の 芯(かくれた タブは tick・であい・できごと・ひとりごと を 止め、もどったら とじた ときと 同じ `applyOfflineProgress` を 1 回。離れていた 時間は「7日3時間」と 打ち切らずに 表示)
+>   - §8.2(`lifetime.saveRevision` + storage event、あとから ひらいた タブが 引きつぐ)
+>   - §8.3 の ボタン 1〜3(inline guard、6 秒 / 起動中の error)
+>   - 待ち時間 2 つの 上限
+> - やらなかった(判断が 要る):
+>   - status ごとの 反映の 上限の 値(`applyOfflineProgress` の 上限は いまの まま)
+>   - 救済の「はじめから」(退避で いちばん 古い snapshot を 押しだす)
+>   - HeartRails の 丸め(既存の テストが「市区町村の 精度を たもつ ため 丸めない」を 固定して いて、Roadmap と 食いちがう)
+
 ### 8.9 RH-10 Navigation, Notifications & A11y
 §8.4、§8.5、§8.6、P1-8 の仕様の反映、`grandGoalPending` の保存(お祝いを再表示できるようにする)、bi の恋人の対象を決定的にする。
 

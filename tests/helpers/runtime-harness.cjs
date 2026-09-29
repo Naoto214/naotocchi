@@ -238,6 +238,8 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
     globalThis.lifecycle = {
       getMessage: () => message,
       crownAchievementWeight: typeof crownAchievementWeight === 'function' ? crownAchievementWeight : () => 1,
+      // RH-9: 起動時の タイマーは harness が 消す ので、テストから もういちど 始められる ように
+      scheduleCompanionEncounter, scheduleEnvironmentMoment, scheduleIdleGreeting,
       drawRandomSticker, pickRandomMinigame, refillMinigameQueue,
       queue: () => minigameQueue.map(i => currentMinigamePool[i].id),
       rankGameFixtures: games => {
