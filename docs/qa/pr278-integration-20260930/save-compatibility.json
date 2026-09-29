@@ -1,0 +1,2238 @@
+{
+  "scope": "existing runtime harness; generated schema5 fixtures, not user private saves; legacy schema migrations covered by formal migration-test",
+  "pass": 248,
+  "rows": [
+    {
+      "line": "cat",
+      "stage": 1,
+      "schema": 5,
+      "name": "あかちゃんねこ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/cat/01-hungry.png",
+      "hunger": "milk"
+    },
+    {
+      "line": "cat",
+      "stage": 2,
+      "schema": 5,
+      "name": "よちよちこねこ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/cat/02-hungry.png",
+      "hunger": "fish"
+    },
+    {
+      "line": "cat",
+      "stage": 3,
+      "schema": 5,
+      "name": "こねこ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/cat/03-hungry.png",
+      "hunger": "fish"
+    },
+    {
+      "line": "cat",
+      "stage": 4,
+      "schema": 5,
+      "name": "おてんばねこ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/cat/04-hungry.png",
+      "hunger": "fish"
+    },
+    {
+      "line": "cat",
+      "stage": 5,
+      "schema": 5,
+      "name": "若いねこ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/cat/05-hungry.png",
+      "hunger": "fish"
+    },
+    {
+      "line": "cat",
+      "stage": 6,
+      "schema": 5,
+      "name": "大人のねこ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/cat/06-hungry.png",
+      "hunger": "fish"
+    },
+    {
+      "line": "cat",
+      "stage": 7,
+      "schema": 5,
+      "name": "落ちついたねこ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/cat/07-hungry.png",
+      "hunger": "fish"
+    },
+    {
+      "line": "cat",
+      "stage": 8,
+      "schema": 5,
+      "name": "おとしよりのねこ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/cat/08-hungry.png",
+      "hunger": "fish"
+    },
+    {
+      "line": "dog",
+      "stage": 1,
+      "schema": 5,
+      "name": "あかちゃんいぬ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dog/01-hungry.png",
+      "hunger": "milk"
+    },
+    {
+      "line": "dog",
+      "stage": 2,
+      "schema": 5,
+      "name": "よちよちこいぬ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dog/02-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "dog",
+      "stage": 3,
+      "schema": 5,
+      "name": "こいぬ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dog/03-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "dog",
+      "stage": 4,
+      "schema": 5,
+      "name": "わんぱくいぬ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dog/04-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "dog",
+      "stage": 5,
+      "schema": 5,
+      "name": "若いいぬ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dog/05-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "dog",
+      "stage": 6,
+      "schema": 5,
+      "name": "大人のいぬ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dog/06-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "dog",
+      "stage": 7,
+      "schema": 5,
+      "name": "落ちついたいぬ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dog/07-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "dog",
+      "stage": 8,
+      "schema": 5,
+      "name": "おとしよりのいぬ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dog/08-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "man",
+      "stage": 1,
+      "schema": 5,
+      "name": "あかちゃん",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/man/01-hungry.png",
+      "hunger": "milk"
+    },
+    {
+      "line": "man",
+      "stage": 2,
+      "schema": 5,
+      "name": "よちよち",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/man/02-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "man",
+      "stage": 3,
+      "schema": 5,
+      "name": "子ども",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/man/03-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "man",
+      "stage": 4,
+      "schema": 5,
+      "name": "少年",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/man/04-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "man",
+      "stage": 5,
+      "schema": 5,
+      "name": "若者",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/man/05-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "man",
+      "stage": 6,
+      "schema": 5,
+      "name": "大人",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/man/06-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "man",
+      "stage": 7,
+      "schema": 5,
+      "name": "落ちついた大人",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/man/07-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "man",
+      "stage": 8,
+      "schema": 5,
+      "name": "おじいさん",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/man/08-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "woman",
+      "stage": 1,
+      "schema": 5,
+      "name": "あかちゃん",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/woman/01-hungry.png",
+      "hunger": "milk"
+    },
+    {
+      "line": "woman",
+      "stage": 2,
+      "schema": 5,
+      "name": "よちよち",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/woman/02-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "woman",
+      "stage": 3,
+      "schema": 5,
+      "name": "子ども",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/woman/03-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "woman",
+      "stage": 4,
+      "schema": 5,
+      "name": "少女",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/woman/04-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "woman",
+      "stage": 5,
+      "schema": 5,
+      "name": "若者",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/woman/05-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "woman",
+      "stage": 6,
+      "schema": 5,
+      "name": "大人",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/woman/06-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "woman",
+      "stage": 7,
+      "schema": 5,
+      "name": "落ちついた大人",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/woman/07-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "woman",
+      "stage": 8,
+      "schema": 5,
+      "name": "おばあさん",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/woman/08-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "penguin",
+      "stage": 1,
+      "schema": 5,
+      "name": "小さなひな",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/penguin/01-hungry.png",
+      "hunger": "fish"
+    },
+    {
+      "line": "penguin",
+      "stage": 2,
+      "schema": 5,
+      "name": "ふわふわのひな",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/penguin/02-hungry.png",
+      "hunger": "fish"
+    },
+    {
+      "line": "penguin",
+      "stage": 3,
+      "schema": 5,
+      "name": "大きなひな",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/penguin/03-hungry.png",
+      "hunger": "fish"
+    },
+    {
+      "line": "penguin",
+      "stage": 4,
+      "schema": 5,
+      "name": "羽の衣替え中",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/penguin/04-hungry.png",
+      "hunger": "fish"
+    },
+    {
+      "line": "penguin",
+      "stage": 5,
+      "schema": 5,
+      "name": "若いペンギン",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/penguin/05-hungry.png",
+      "hunger": "fish"
+    },
+    {
+      "line": "penguin",
+      "stage": 6,
+      "schema": 5,
+      "name": "大人のペンギン",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/penguin/06-hungry.png",
+      "hunger": "fish"
+    },
+    {
+      "line": "penguin",
+      "stage": 7,
+      "schema": 5,
+      "name": "ベテランペンギン",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/penguin/07-hungry.png",
+      "hunger": "fish"
+    },
+    {
+      "line": "penguin",
+      "stage": 8,
+      "schema": 5,
+      "name": "おとしよりペンギン",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/penguin/08-hungry.png",
+      "hunger": "fish"
+    },
+    {
+      "line": "turtle",
+      "stage": 1,
+      "schema": 5,
+      "name": "うまれたてのかめ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/turtle/01-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "turtle",
+      "stage": 2,
+      "schema": 5,
+      "name": "ちびがめ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/turtle/02-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "turtle",
+      "stage": 3,
+      "schema": 5,
+      "name": "子がめ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/turtle/03-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "turtle",
+      "stage": 4,
+      "schema": 5,
+      "name": "若いかめ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/turtle/04-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "turtle",
+      "stage": 5,
+      "schema": 5,
+      "name": "大人のかめ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/turtle/05-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "turtle",
+      "stage": 6,
+      "schema": 5,
+      "name": "大きなかめ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/turtle/06-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "turtle",
+      "stage": 7,
+      "schema": 5,
+      "name": "古いかめ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/turtle/07-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "turtle",
+      "stage": 8,
+      "schema": 5,
+      "name": "長生きのかめ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/turtle/08-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "frog",
+      "stage": 1,
+      "schema": 5,
+      "name": "ちびおたま",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/frog/01-hungry.png",
+      "hunger": "algae_aquatic_plant"
+    },
+    {
+      "line": "frog",
+      "stage": 2,
+      "schema": 5,
+      "name": "おたまじゃくし",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/frog/02-hungry.png",
+      "hunger": "algae_aquatic_plant"
+    },
+    {
+      "line": "frog",
+      "stage": 3,
+      "schema": 5,
+      "name": "後ろ足が出たおたま",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/frog/03-hungry.png",
+      "hunger": "algae_aquatic_plant"
+    },
+    {
+      "line": "frog",
+      "stage": 4,
+      "schema": 5,
+      "name": "しっぽつきかえる",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/frog/04-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "frog",
+      "stage": 5,
+      "schema": 5,
+      "name": "陸に上がったかえる",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/frog/05-hungry.png",
+      "hunger": "insect"
+    },
+    {
+      "line": "frog",
+      "stage": 6,
+      "schema": 5,
+      "name": "子がえる",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/frog/06-hungry.png",
+      "hunger": "insect"
+    },
+    {
+      "line": "frog",
+      "stage": 7,
+      "schema": 5,
+      "name": "大人のかえる",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/frog/07-hungry.png",
+      "hunger": "insect"
+    },
+    {
+      "line": "frog",
+      "stage": 8,
+      "schema": 5,
+      "name": "おとしよりのかえる",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/frog/08-hungry.png",
+      "hunger": "insect"
+    },
+    {
+      "line": "clownfish",
+      "stage": 1,
+      "schema": 5,
+      "name": "透けたあかちゃん",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/clownfish/01-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "clownfish",
+      "stage": 2,
+      "schema": 5,
+      "name": "しまが出た子",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/clownfish/02-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "clownfish",
+      "stage": 3,
+      "schema": 5,
+      "name": "かくれんぼの子",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/clownfish/03-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "clownfish",
+      "stage": 4,
+      "schema": 5,
+      "name": "若いクマノミ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/clownfish/04-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "clownfish",
+      "stage": 5,
+      "schema": 5,
+      "name": "群れのクマノミ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/clownfish/05-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "clownfish",
+      "stage": 6,
+      "schema": 5,
+      "name": "卵を守るオス",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/clownfish/06-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "clownfish",
+      "stage": 7,
+      "schema": 5,
+      "name": "メスへ変わる途中",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/clownfish/07-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "clownfish",
+      "stage": 8,
+      "schema": 5,
+      "name": "群れのリーダーのメス",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/clownfish/08-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "salmon",
+      "stage": 1,
+      "schema": 5,
+      "name": "うまれたてのさけ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/salmon/01-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "salmon",
+      "stage": 2,
+      "schema": 5,
+      "name": "小さなさけ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/salmon/02-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "salmon",
+      "stage": 3,
+      "schema": 5,
+      "name": "しま模様のさけ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/salmon/03-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "salmon",
+      "stage": 4,
+      "schema": 5,
+      "name": "銀色のさけ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/salmon/04-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "salmon",
+      "stage": 5,
+      "schema": 5,
+      "name": "海の若いさけ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/salmon/05-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "salmon",
+      "stage": 6,
+      "schema": 5,
+      "name": "大人のさけ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/salmon/06-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "salmon",
+      "stage": 7,
+      "schema": 5,
+      "name": "川をのぼるさけ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/salmon/07-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "salmon",
+      "stage": 8,
+      "schema": 5,
+      "name": "赤く色づくさけ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/salmon/08-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "hermit_crab",
+      "stage": 1,
+      "schema": 5,
+      "name": "ちびヤドカリ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/hermit_crab/01-hungry.png",
+      "hunger": "omnivore_food"
+    },
+    {
+      "line": "hermit_crab",
+      "stage": 2,
+      "schema": 5,
+      "name": "小さな貝の家",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/hermit_crab/02-hungry.png",
+      "hunger": "omnivore_food"
+    },
+    {
+      "line": "hermit_crab",
+      "stage": 3,
+      "schema": 5,
+      "name": "引っ越し中",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/hermit_crab/03-hungry.png",
+      "hunger": "omnivore_food"
+    },
+    {
+      "line": "hermit_crab",
+      "stage": 4,
+      "schema": 5,
+      "name": "若いヤドカリ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/hermit_crab/04-hungry.png",
+      "hunger": "omnivore_food"
+    },
+    {
+      "line": "hermit_crab",
+      "stage": 5,
+      "schema": 5,
+      "name": "ゆったり貝の家",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/hermit_crab/05-hungry.png",
+      "hunger": "omnivore_food"
+    },
+    {
+      "line": "hermit_crab",
+      "stage": 6,
+      "schema": 5,
+      "name": "大きな貝の家",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/hermit_crab/06-hungry.png",
+      "hunger": "omnivore_food"
+    },
+    {
+      "line": "hermit_crab",
+      "stage": 7,
+      "schema": 5,
+      "name": "ごうかな貝の家",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/hermit_crab/07-hungry.png",
+      "hunger": "omnivore_food"
+    },
+    {
+      "line": "hermit_crab",
+      "stage": 8,
+      "schema": 5,
+      "name": "ベテランヤドカリ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/hermit_crab/08-hungry.png",
+      "hunger": "omnivore_food"
+    },
+    {
+      "line": "jellyfish",
+      "stage": 1,
+      "schema": 5,
+      "name": "岩ぐらしの子",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/jellyfish/01-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "jellyfish",
+      "stage": 2,
+      "schema": 5,
+      "name": "重なった子",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/jellyfish/02-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "jellyfish",
+      "stage": 3,
+      "schema": 5,
+      "name": "星形の子",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/jellyfish/03-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "jellyfish",
+      "stage": 4,
+      "schema": 5,
+      "name": "小さなかさ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/jellyfish/04-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "jellyfish",
+      "stage": 5,
+      "schema": 5,
+      "name": "若いクラゲ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/jellyfish/05-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "jellyfish",
+      "stage": 6,
+      "schema": 5,
+      "name": "大人のクラゲ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/jellyfish/06-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "jellyfish",
+      "stage": 7,
+      "schema": 5,
+      "name": "大きなクラゲ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/jellyfish/07-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "jellyfish",
+      "stage": 8,
+      "schema": 5,
+      "name": "年を重ねたクラゲ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/jellyfish/08-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "starfish",
+      "stage": 1,
+      "schema": 5,
+      "name": "浮遊幼生",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/starfish/01-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "starfish",
+      "stage": 2,
+      "schema": 5,
+      "name": "後期浮遊幼生",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/starfish/02-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "starfish",
+      "stage": 3,
+      "schema": 5,
+      "name": "着底・変態期",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/starfish/03-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "starfish",
+      "stage": 4,
+      "schema": 5,
+      "name": "変態後の稚ヒトデ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/starfish/04-hungry.png",
+      "hunger": "benthic_small_prey"
+    },
+    {
+      "line": "starfish",
+      "stage": 5,
+      "schema": 5,
+      "name": "小型の稚ヒトデ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/starfish/05-hungry.png",
+      "hunger": "benthic_small_prey"
+    },
+    {
+      "line": "starfish",
+      "stage": 6,
+      "schema": 5,
+      "name": "若いヒトデ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/starfish/06-hungry.png",
+      "hunger": "benthic_small_prey"
+    },
+    {
+      "line": "starfish",
+      "stage": 7,
+      "schema": 5,
+      "name": "成熟したヒトデ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/starfish/07-hungry.png",
+      "hunger": "benthic_small_prey"
+    },
+    {
+      "line": "starfish",
+      "stage": 8,
+      "schema": 5,
+      "name": "長生きしたヒトデ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/starfish/08-hungry.png",
+      "hunger": "benthic_small_prey"
+    },
+    {
+      "line": "coral",
+      "stage": 1,
+      "schema": 5,
+      "name": "住みついた子",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/coral/01-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "coral",
+      "stage": 2,
+      "schema": 5,
+      "name": "ひとつのサンゴ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/coral/02-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "coral",
+      "stage": 3,
+      "schema": 5,
+      "name": "枝分かれサンゴ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/coral/03-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "coral",
+      "stage": 4,
+      "schema": 5,
+      "name": "小さなサンゴの森",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/coral/04-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "coral",
+      "stage": 5,
+      "schema": 5,
+      "name": "若いサンゴの森",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/coral/05-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "coral",
+      "stage": 6,
+      "schema": 5,
+      "name": "色とりどりのサンゴ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/coral/06-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "coral",
+      "stage": 7,
+      "schema": 5,
+      "name": "大きなサンゴの森",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/coral/07-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "coral",
+      "stage": 8,
+      "schema": 5,
+      "name": "広がるサンゴの海",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/coral/08-hungry.png",
+      "hunger": "aquatic_small_prey"
+    },
+    {
+      "line": "butterfly",
+      "stage": 1,
+      "schema": 5,
+      "name": "うまれたてのいもむし",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/butterfly/01-hungry.png",
+      "hunger": "leaf"
+    },
+    {
+      "line": "butterfly",
+      "stage": 2,
+      "schema": 5,
+      "name": "育ちざかりのいもむし",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/butterfly/02-hungry.png",
+      "hunger": "leaf"
+    },
+    {
+      "line": "butterfly",
+      "stage": 3,
+      "schema": 5,
+      "name": "大きないもむし",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/butterfly/03-hungry.png",
+      "hunger": "leaf"
+    },
+    {
+      "line": "butterfly",
+      "stage": 4,
+      "schema": 5,
+      "name": "さなぎの準備中",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/butterfly/04-hungry.png",
+      "hunger": "leaf"
+    },
+    {
+      "line": "butterfly",
+      "stage": 5,
+      "schema": 5,
+      "name": "さなぎ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/butterfly/05-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "butterfly",
+      "stage": 6,
+      "schema": 5,
+      "name": "羽を広げたちょう",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/butterfly/06-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "butterfly",
+      "stage": 7,
+      "schema": 5,
+      "name": "花めぐりのちょう",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/butterfly/07-hungry.png",
+      "hunger": "nectar"
+    },
+    {
+      "line": "butterfly",
+      "stage": 8,
+      "schema": 5,
+      "name": "年を重ねたちょう",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/butterfly/08-hungry.png",
+      "hunger": "nectar"
+    },
+    {
+      "line": "beetle",
+      "stage": 1,
+      "schema": 5,
+      "name": "うまれたての幼虫",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/beetle/01-hungry.png",
+      "hunger": "humus"
+    },
+    {
+      "line": "beetle",
+      "stage": 2,
+      "schema": 5,
+      "name": "育ちざかりの幼虫",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/beetle/02-hungry.png",
+      "hunger": "humus"
+    },
+    {
+      "line": "beetle",
+      "stage": 3,
+      "schema": 5,
+      "name": "まるまる幼虫",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/beetle/03-hungry.png",
+      "hunger": "humus"
+    },
+    {
+      "line": "beetle",
+      "stage": 4,
+      "schema": 5,
+      "name": "さなぎ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/beetle/04-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "beetle",
+      "stage": 5,
+      "schema": 5,
+      "name": "出たてのカブトムシ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/beetle/05-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "beetle",
+      "stage": 6,
+      "schema": 5,
+      "name": "若いカブトムシ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/beetle/06-hungry.png",
+      "hunger": "tree_sap"
+    },
+    {
+      "line": "beetle",
+      "stage": 7,
+      "schema": 5,
+      "name": "りっぱなカブトムシ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/beetle/07-hungry.png",
+      "hunger": "tree_sap"
+    },
+    {
+      "line": "beetle",
+      "stage": 8,
+      "schema": 5,
+      "name": "長生きカブトムシ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/beetle/08-hungry.png",
+      "hunger": "tree_sap"
+    },
+    {
+      "line": "stagbeetle",
+      "stage": 1,
+      "schema": 5,
+      "name": "うまれたての幼虫",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/stagbeetle/01-hungry.png",
+      "hunger": "decaying_wood_humus"
+    },
+    {
+      "line": "stagbeetle",
+      "stage": 2,
+      "schema": 5,
+      "name": "育ちざかりの幼虫",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/stagbeetle/02-hungry.png",
+      "hunger": "decaying_wood_humus"
+    },
+    {
+      "line": "stagbeetle",
+      "stage": 3,
+      "schema": 5,
+      "name": "大きな幼虫",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/stagbeetle/03-hungry.png",
+      "hunger": "decaying_wood_humus"
+    },
+    {
+      "line": "stagbeetle",
+      "stage": 4,
+      "schema": 5,
+      "name": "さなぎ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/stagbeetle/04-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "stagbeetle",
+      "stage": 5,
+      "schema": 5,
+      "name": "出たてのクワガタ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/stagbeetle/05-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "stagbeetle",
+      "stage": 6,
+      "schema": 5,
+      "name": "若いクワガタ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/stagbeetle/06-hungry.png",
+      "hunger": "tree_sap"
+    },
+    {
+      "line": "stagbeetle",
+      "stage": 7,
+      "schema": 5,
+      "name": "りっぱなクワガタ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/stagbeetle/07-hungry.png",
+      "hunger": "tree_sap"
+    },
+    {
+      "line": "stagbeetle",
+      "stage": 8,
+      "schema": 5,
+      "name": "長生きクワガタ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/stagbeetle/08-hungry.png",
+      "hunger": "tree_sap"
+    },
+    {
+      "line": "cicada",
+      "stage": 1,
+      "schema": 5,
+      "name": "小さな幼虫",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/cicada/01-hungry.png",
+      "hunger": "plant_sap"
+    },
+    {
+      "line": "cicada",
+      "stage": 2,
+      "schema": 5,
+      "name": "土ぐらしの幼虫",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/cicada/02-hungry.png",
+      "hunger": "plant_sap"
+    },
+    {
+      "line": "cicada",
+      "stage": 3,
+      "schema": 5,
+      "name": "旅立ち前の幼虫",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/cicada/03-hungry.png",
+      "hunger": "plant_sap"
+    },
+    {
+      "line": "cicada",
+      "stage": 4,
+      "schema": 5,
+      "name": "地上に出たセミ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/cicada/04-hungry.png",
+      "hunger": "plant_sap"
+    },
+    {
+      "line": "cicada",
+      "stage": 5,
+      "schema": 5,
+      "name": "ぬけがらをぬぐセミ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/cicada/05-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "cicada",
+      "stage": 6,
+      "schema": 5,
+      "name": "若いセミ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/cicada/06-hungry.png",
+      "hunger": "plant_sap"
+    },
+    {
+      "line": "cicada",
+      "stage": 7,
+      "schema": 5,
+      "name": "よく鳴くセミ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/cicada/07-hungry.png",
+      "hunger": "plant_sap"
+    },
+    {
+      "line": "cicada",
+      "stage": 8,
+      "schema": 5,
+      "name": "年を重ねたセミ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/cicada/08-hungry.png",
+      "hunger": "plant_sap"
+    },
+    {
+      "line": "antlion",
+      "stage": 1,
+      "schema": 5,
+      "name": "ちびアリジゴク",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/antlion/01-hungry.png",
+      "hunger": "insect"
+    },
+    {
+      "line": "antlion",
+      "stage": 2,
+      "schema": 5,
+      "name": "巣作りアリジゴク",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/antlion/02-hungry.png",
+      "hunger": "insect"
+    },
+    {
+      "line": "antlion",
+      "stage": 3,
+      "schema": 5,
+      "name": "大きなアリジゴク",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/antlion/03-hungry.png",
+      "hunger": "insect"
+    },
+    {
+      "line": "antlion",
+      "stage": 4,
+      "schema": 5,
+      "name": "砂のまゆ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/antlion/04-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "antlion",
+      "stage": 5,
+      "schema": 5,
+      "name": "まゆの中のさなぎ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/antlion/05-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "antlion",
+      "stage": 6,
+      "schema": 5,
+      "name": "出たてのウスバカゲロウ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/antlion/06-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "antlion",
+      "stage": 7,
+      "schema": 5,
+      "name": "飛び回るウスバカゲロウ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/antlion/07-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "antlion",
+      "stage": 8,
+      "schema": 5,
+      "name": "羽休めのウスバカゲロウ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/antlion/08-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "dandelion",
+      "stage": 1,
+      "schema": 5,
+      "name": "芽ぶきのたね",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dandelion/01-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "dandelion",
+      "stage": 2,
+      "schema": 5,
+      "name": "ふたば",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dandelion/02-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "dandelion",
+      "stage": 3,
+      "schema": 5,
+      "name": "地面に広がる葉",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dandelion/03-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "dandelion",
+      "stage": 4,
+      "schema": 5,
+      "name": "葉がしげるタンポポ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dandelion/04-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "dandelion",
+      "stage": 5,
+      "schema": 5,
+      "name": "つぼみ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dandelion/05-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "dandelion",
+      "stage": 6,
+      "schema": 5,
+      "name": "花咲くタンポポ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dandelion/06-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "dandelion",
+      "stage": 7,
+      "schema": 5,
+      "name": "わたげ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dandelion/07-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "dandelion",
+      "stage": 8,
+      "schema": 5,
+      "name": "旅立つたね",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dandelion/08-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "sakura",
+      "stage": 1,
+      "schema": 5,
+      "name": "芽ぶきのサクラ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/sakura/01-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "sakura",
+      "stage": 2,
+      "schema": 5,
+      "name": "ふたばのサクラ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/sakura/02-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "sakura",
+      "stage": 3,
+      "schema": 5,
+      "name": "小さなサクラ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/sakura/03-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "sakura",
+      "stage": 4,
+      "schema": 5,
+      "name": "育ったサクラ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/sakura/04-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "sakura",
+      "stage": 5,
+      "schema": 5,
+      "name": "サクラのつぼみ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/sakura/05-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "sakura",
+      "stage": 6,
+      "schema": 5,
+      "name": "サクラの花",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/sakura/06-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "sakura",
+      "stage": 7,
+      "schema": 5,
+      "name": "サクラの実",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/sakura/07-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "sakura",
+      "stage": 8,
+      "schema": 5,
+      "name": "年を重ねたサクラ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/sakura/08-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": 1,
+      "schema": 5,
+      "name": "目覚めるたね",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/venus_flytrap/01-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": 2,
+      "schema": 5,
+      "name": "小さな口の芽",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/venus_flytrap/02-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": 3,
+      "schema": 5,
+      "name": "若葉のハエトリグサ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/venus_flytrap/03-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": 4,
+      "schema": 5,
+      "name": "口を広げた葉",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/venus_flytrap/04-hungry.png",
+      "hunger": "fly"
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": 5,
+      "schema": 5,
+      "name": "育ちざかりの葉",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/venus_flytrap/05-hungry.png",
+      "hunger": "fly"
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": 6,
+      "schema": 5,
+      "name": "大きな口の葉",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/venus_flytrap/06-hungry.png",
+      "hunger": "fly"
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": 7,
+      "schema": 5,
+      "name": "口がいっぱい",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/venus_flytrap/07-hungry.png",
+      "hunger": "fly"
+    },
+    {
+      "line": "venus_flytrap",
+      "stage": 8,
+      "schema": 5,
+      "name": "花咲くハエトリグサ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/venus_flytrap/08-hungry.png",
+      "hunger": "fly"
+    },
+    {
+      "line": "mushroom",
+      "stage": 1,
+      "schema": 5,
+      "name": "キノコの小さな粒",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/mushroom/01-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "mushroom",
+      "stage": 2,
+      "schema": 5,
+      "name": "広がるキノコの糸",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/mushroom/02-hungry.png",
+      "hunger": "organic_nutrients"
+    },
+    {
+      "line": "mushroom",
+      "stage": 3,
+      "schema": 5,
+      "name": "小さなキノコの芽",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/mushroom/03-hungry.png",
+      "hunger": "organic_nutrients"
+    },
+    {
+      "line": "mushroom",
+      "stage": 4,
+      "schema": 5,
+      "name": "のびる子キノコ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/mushroom/04-hungry.png",
+      "hunger": "organic_nutrients"
+    },
+    {
+      "line": "mushroom",
+      "stage": 5,
+      "schema": 5,
+      "name": "育ちざかりのキノコ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/mushroom/05-hungry.png",
+      "hunger": "organic_nutrients"
+    },
+    {
+      "line": "mushroom",
+      "stage": 6,
+      "schema": 5,
+      "name": "かさを広げたキノコ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/mushroom/06-hungry.png",
+      "hunger": "organic_nutrients"
+    },
+    {
+      "line": "mushroom",
+      "stage": 7,
+      "schema": 5,
+      "name": "粉を飛ばすキノコ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/mushroom/07-hungry.png",
+      "hunger": "organic_nutrients"
+    },
+    {
+      "line": "mushroom",
+      "stage": 8,
+      "schema": 5,
+      "name": "年を重ねたキノコ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/mushroom/08-hungry.png",
+      "hunger": "organic_nutrients"
+    },
+    {
+      "line": "dragon",
+      "stage": 1,
+      "schema": 5,
+      "name": "ちびりゅう",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dragon/01-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "dragon",
+      "stage": 2,
+      "schema": 5,
+      "name": "子りゅう",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dragon/02-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "dragon",
+      "stage": 3,
+      "schema": 5,
+      "name": "つのの生えたりゅう",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dragon/03-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "dragon",
+      "stage": 4,
+      "schema": 5,
+      "name": "小さなつばさのりゅう",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dragon/04-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "dragon",
+      "stage": 5,
+      "schema": 5,
+      "name": "つばさの育ったりゅう",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dragon/05-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "dragon",
+      "stage": 6,
+      "schema": 5,
+      "name": "火をふくりゅう",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dragon/06-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "dragon",
+      "stage": 7,
+      "schema": 5,
+      "name": "大きなりゅう",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dragon/07-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "dragon",
+      "stage": 8,
+      "schema": 5,
+      "name": "いにしえのりゅう",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/dragon/08-hungry.png",
+      "hunger": "food_bowl"
+    },
+    {
+      "line": "phoenix",
+      "stage": 1,
+      "schema": 5,
+      "name": "火のひな",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/phoenix/01-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "phoenix",
+      "stage": 2,
+      "schema": 5,
+      "name": "よちよち火の鳥",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/phoenix/02-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "phoenix",
+      "stage": 3,
+      "schema": 5,
+      "name": "若い火の鳥",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/phoenix/03-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "phoenix",
+      "stage": 4,
+      "schema": 5,
+      "name": "空を飛ぶ火の鳥",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/phoenix/04-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "phoenix",
+      "stage": 5,
+      "schema": 5,
+      "name": "燃えさかる火の鳥",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/phoenix/05-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "phoenix",
+      "stage": 6,
+      "schema": 5,
+      "name": "金色の火の鳥",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/phoenix/06-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "phoenix",
+      "stage": 7,
+      "schema": 5,
+      "name": "年を重ねた火の鳥",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/phoenix/07-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "phoenix",
+      "stage": 8,
+      "schema": 5,
+      "name": "灰からよみがえる鳥",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/phoenix/08-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "god",
+      "stage": 1,
+      "schema": 5,
+      "name": "光の粒",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/god/01-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "god",
+      "stage": 2,
+      "schema": 5,
+      "name": "光の子",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/god/02-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "god",
+      "stage": 3,
+      "schema": 5,
+      "name": "小さな精霊",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/god/03-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "god",
+      "stage": 4,
+      "schema": 5,
+      "name": "見習いかみさま",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/god/04-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "god",
+      "stage": 5,
+      "schema": 5,
+      "name": "かみさま",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/god/05-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "god",
+      "stage": 6,
+      "schema": 5,
+      "name": "大いなるかみさま",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/god/06-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "god",
+      "stage": 7,
+      "schema": 5,
+      "name": "神々しい光",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/god/07-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "god",
+      "stage": 8,
+      "schema": 5,
+      "name": "光そのもの",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/god/08-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "world_tree",
+      "stage": 1,
+      "schema": 5,
+      "name": "光るたね",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/world_tree/01-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "world_tree",
+      "stage": 2,
+      "schema": 5,
+      "name": "ふしぎな苗",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/world_tree/02-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "world_tree",
+      "stage": 3,
+      "schema": 5,
+      "name": "若い木",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/world_tree/03-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "world_tree",
+      "stage": 4,
+      "schema": 5,
+      "name": "精霊の木",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/world_tree/04-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "world_tree",
+      "stage": 5,
+      "schema": 5,
+      "name": "大樹",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/world_tree/05-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "world_tree",
+      "stage": 6,
+      "schema": 5,
+      "name": "巨大な木",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/world_tree/06-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "world_tree",
+      "stage": 7,
+      "schema": 5,
+      "name": "天にのびる木",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/world_tree/07-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "world_tree",
+      "stage": 8,
+      "schema": 5,
+      "name": "世界樹",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/world_tree/08-hungry.png",
+      "hunger": "water"
+    },
+    {
+      "line": "ghost",
+      "stage": 1,
+      "schema": 5,
+      "name": "小さなたましい",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/ghost/01-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "ghost",
+      "stage": 2,
+      "schema": 5,
+      "name": "ちびおばけ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/ghost/02-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "ghost",
+      "stage": 3,
+      "schema": 5,
+      "name": "いたずらおばけ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/ghost/03-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "ghost",
+      "stage": 4,
+      "schema": 5,
+      "name": "おばけ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/ghost/04-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "ghost",
+      "stage": 5,
+      "schema": 5,
+      "name": "大きなおばけ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/ghost/05-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "ghost",
+      "stage": 6,
+      "schema": 5,
+      "name": "昔からいるおばけ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/ghost/06-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "ghost",
+      "stage": 7,
+      "schema": 5,
+      "name": "おだやかなおばけ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/ghost/07-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "ghost",
+      "stage": 8,
+      "schema": 5,
+      "name": "旅立ち前のおばけ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/ghost/08-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "star",
+      "stage": 1,
+      "schema": 5,
+      "name": "星のもとの雲",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/star/01-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "star",
+      "stage": 2,
+      "schema": 5,
+      "name": "集まる星の雲",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/star/02-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "star",
+      "stage": 3,
+      "schema": 5,
+      "name": "うまれかけの星",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/star/03-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "star",
+      "stage": 4,
+      "schema": 5,
+      "name": "若い星",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/star/04-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "star",
+      "stage": 5,
+      "schema": 5,
+      "name": "輝く星",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/star/05-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "star",
+      "stage": 6,
+      "schema": 5,
+      "name": "ふくらんだ星",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/star/06-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "star",
+      "stage": 7,
+      "schema": 5,
+      "name": "はじける星",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/star/07-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "star",
+      "stage": 8,
+      "schema": 5,
+      "name": "星のなごり",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/star/08-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "plush",
+      "stage": 1,
+      "schema": 5,
+      "name": "新品のぬいぐるみ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/plush/01-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "plush",
+      "stage": 2,
+      "schema": 5,
+      "name": "遊び相手",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/plush/02-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "plush",
+      "stage": 3,
+      "schema": 5,
+      "name": "お気に入り",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/plush/03-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "plush",
+      "stage": 4,
+      "schema": 5,
+      "name": "よごれたぬいぐるみ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/plush/04-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "plush",
+      "stage": 5,
+      "schema": 5,
+      "name": "ほつれたぬいぐるみ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/plush/05-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "plush",
+      "stage": 6,
+      "schema": 5,
+      "name": "つぎはぎ",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/plush/06-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "plush",
+      "stage": 7,
+      "schema": 5,
+      "name": "くたくた",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/plush/07-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "plush",
+      "stage": 8,
+      "schema": 5,
+      "name": "大切な宝物",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/plush/08-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "unknown",
+      "stage": 1,
+      "schema": 5,
+      "name": "点",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/unknown/01-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "unknown",
+      "stage": 2,
+      "schema": 5,
+      "name": "ぷるたま",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/unknown/02-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "unknown",
+      "stage": 3,
+      "schema": 5,
+      "name": "あしつきたま",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/unknown/03-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "unknown",
+      "stage": 4,
+      "schema": 5,
+      "name": "ふたつぶたま",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/unknown/04-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "unknown",
+      "stage": 5,
+      "schema": 5,
+      "name": "はねつきたま",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/unknown/05-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "unknown",
+      "stage": 6,
+      "schema": 5,
+      "name": "おおたま",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/unknown/06-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "unknown",
+      "stage": 7,
+      "schema": 5,
+      "name": "ちいさなたま",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/unknown/07-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "unknown",
+      "stage": 8,
+      "schema": 5,
+      "name": "もどりの点",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/unknown/08-hungry.png",
+      "hunger": "neutral_nutrition"
+    },
+    {
+      "line": "ren",
+      "stage": 1,
+      "schema": 5,
+      "name": "ちびれん",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/ren/01-hungry.png",
+      "hunger": "milk"
+    },
+    {
+      "line": "ren",
+      "stage": 2,
+      "schema": 5,
+      "name": "げんきれん",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/ren/02-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "ren",
+      "stage": 3,
+      "schema": 5,
+      "name": "子どもれん",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/ren/03-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "ren",
+      "stage": 4,
+      "schema": 5,
+      "name": "少年れん",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/ren/04-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "ren",
+      "stage": 5,
+      "schema": 5,
+      "name": "若者れん",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/ren/05-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "ren",
+      "stage": 6,
+      "schema": 5,
+      "name": "大人れん",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/ren/06-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "ren",
+      "stage": 7,
+      "schema": 5,
+      "name": "年を重ねたれん",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/ren/07-hungry.png",
+      "hunger": "rice"
+    },
+    {
+      "line": "ren",
+      "stage": 8,
+      "schema": 5,
+      "name": "おじいちゃんれん",
+      "expression": "hungry",
+      "asset": "assets/characters/expressions/ren/08-hungry.png",
+      "hunger": "rice"
+    }
+  ]
+}

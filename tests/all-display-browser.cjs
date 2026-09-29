@@ -223,13 +223,14 @@ module.exports = async function checkAllDisplay(browser, engine, fixtures, baseU
       await page.locator('#worldCloseBtn').click();
 
       await menu(page, '#stickerBtn', '#stickerOverlay');
-      for (const id of ['home','travel','friends','memory']) {
-        await page.locator('#stickerPageTabs [data-page="' + id + '"]').click();
-        assert.equal(await page.locator('#stickerBoard').getAttribute('data-page'), id);
-        await audit(page, 'stickers-' + id, '#device', id === 'memory');
-      }
+      await page.locator('#stickerPageTabs [data-page="page-1"]').click();
+      assert.equal(await page.locator('#stickerBoard').getAttribute('data-page'), 'page-1');
+      await audit(page, 'stickers-page-1', '#device');
+      await page.locator('#stickerBackgroundSelect').selectOption('sea');
+      assert.equal(await page.locator('#stickerBoard').getAttribute('data-background'), 'sea');
+      await audit(page, 'stickers-sea-background', '#device');
       await page.locator('#stickerFilter [data-filter="scenery"]').click();
-      await audit(page, 'sticker-scenery'); await page.locator('#stickerCloseBtn').click();
+      await audit(page, 'sticker-other'); await page.locator('#stickerCloseBtn').click();
 
       await page.locator('#commBtn').click(); await audit(page, 'communication', '#device', true);
       await page.locator('#makeCodeBtn').click();

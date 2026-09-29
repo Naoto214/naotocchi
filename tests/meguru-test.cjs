@@ -2,6 +2,8 @@ const assert = require('node:assert/strict');
 const { test } = require('node:test');
 const { harness } = require('./helpers/runtime-harness.cjs');
 
+// たねつき らんすう(meguru-life-test と おなじ mulberry32)。テストで めぐるの らんすうを 決定論に する ため
+
 // ずかんに いろいろ のった セーブを つくる
 function populated(h) {
   const s = h.api.state();
@@ -67,7 +69,13 @@ test('Naoto never appears before the secret is unlocked, and afterwards waits at
 });
 
 test('entering めぐる from the travel screen switches to the field, inhabitants live, talking works, and returning restores home', () => {
-  const h = harness(); const s = populated(h);
+  // テストだけ 決定論に する(RH-6: harness の deterministic プリセット)。host の とけいの じかん・てんき、
+  // こよみ、らんすう しだいで くまが きのこの そばへ 来て、どちらが ちかいかが かわった(2026-09-23 11:23 UTC の CI が 赤)。
+  // じかん・てんき・日付・らんすう(ページ と めぐる)を ぜんぶ 固定する。ほんばんの らんすうは かえない
+  const h = harness({ deterministic: true, environment: { time: 'day', weather: 'cloudy' } }); const s = populated(h);
+  enterAndReturn(h, s);
+});
+function enterAndReturn(h, s) {
   h.api.renderTravelRegionGrid();
   assert.match(h.get('meguruEntry').innerHTML, /もりをめぐる/, 'the travel screen offers the current region');
   const homeHiddenBefore = h.get('screenNormal').classList.contains('hidden');
@@ -79,8 +87,9 @@ test('entering めぐる from the travel screen switches to the field, inhabitan
   assert.equal(run.world.regionId, 'forest');
   assert.ok(run.world.residents.length >= 3, 'the forest has inhabitants (bear, mushroom, beetle)');
   h.advance(2000);
-  const states = new Set(run.world.residents.map((a) => a.state));
+  const states = new Set(run.world.residents.map((a) => a.behavior));
   assert.ok(states.size >= 1);
+  for (const b of states) assert.ok(typeof b === 'string' && b.length > 0, 'every inhabitant carries a named behavior');
   // だれかの そばへ いって「はなす」
   const a = run.world.residents[0];
   run.setPlayer(a.x, a.z - 30); h.advance(40);
@@ -99,7 +108,7 @@ test('entering めぐる from the travel screen switches to the field, inhabitan
   assert.equal(h.get('meguruOverlay').classList.contains('hidden'), true, 'the field is closed');
   assert.equal(h.get('screenNormal').classList.contains('hidden'), homeHiddenBefore, 'the home screen is back to how it was');
   assert.equal(s.lifetime.meguru.visits, 1);
-});
+}
 
 test('げんざいち keeps the home world and only changes its flavour; sleeping blocks entry', () => {
   const h = harness(); const s = populated(h);
@@ -147,9 +156,11 @@ test('the simulation runs with no renderer or DOM: world coordinates, movement, 
   // 歩かせるのではなく、実際の入力移動で追従を確認する。
   const followSim = M.createSimulation({ regionId: 'forest', env: { time: 'day', weather: 'sunny', season: 'spring', region: 'forest' } });
   for (let i = 0; i < 240; i++) followSim.step(1 / 60, { x: 0, y: -1 });
+  // ならびは partyFormationSlots(じぶんの うしろ = カメラから みて おく に ゆるく あつまる)。ひとり ひとりの ちいさな ちがい(formJ)も たす
+  const slots = M.partyFormationSlots(followSim.party.length), yaw = followSim.camera.yaw;
   for (const [i, p] of followSim.party.entries()) {
-    const side = p.kind === 'partner' ? -followSim.player.face : (i % 2 === 0 ? 1 : -1) * (1 + Math.floor(i / 2) * .9);
-    const target = { x: followSim.player.x + side * followSim.RULES.follow.gap, z: followSim.player.z + followSim.RULES.follow.back + i * followSim.RULES.follow.spacing };
+    const sl = slots[i], j = p.formJ || { x: 0, z: 0 }, side = sl.side + j.x, back = sl.back + j.z;
+    const target = { x: followSim.player.x + Math.cos(yaw) * side + Math.sin(yaw) * back, z: followSim.player.z - Math.sin(yaw) * side + Math.cos(yaw) * back };
     const lag = Math.hypot(p.x - target.x, p.z - target.z);
     assert.ok(lag < 90, `party follows its ordinary walking position (lag=${lag.toFixed(1)}, slot=${i})`);
   }
@@ -182,7 +193,7 @@ test('every region is a spot graph: all spots reachable from the entrance, at le
   for (const id of Object.keys(M.WORLDS)) {
     const w = M.WORLDS[id];
     const ids = new Set(w.spots.map((s) => s.id));
-    assert.ok(w.spots.length >= 8 && w.spots.length <= 24, id + ' has 8-24 spots');
+    assert.ok(w.spots.length >= 8 && w.spots.length <= 60, id + ' has 8-60 spots');
     for (const sp0 of w.spots) assert.ok(w.zones.some((z) => z.id === sp0.zone), id + ': spot ' + sp0.id + ' belongs to a zone');
     for (const sp0 of w.spots) assert.ok(Math.abs(sp0.x) <= w.halfW && sp0.z <= w.len, id + ': spot inside the world: ' + sp0.id);
     for (const [a, b] of w.paths) assert.ok(ids.has(a) && ids.has(b), id + ' path endpoints exist: ' + a + '-' + b);
@@ -275,13 +286,14 @@ test('regions differ in size and structure; zones give a mood that changes with 
   const M = h.api.meguruMod;
   const W = M.WORLDS;
   assert.ok(W.forest.spots.length >= 20 && W.forest.paths.length >= W.forest.spots.length + 5, 'the forest has many spots and extra loops');
-  assert.ok(W.home.spots.length <= 10 && W.home.len < W.forest.len * 0.7, 'home stays compact');
+  assert.ok(W.home.spots.length <= 16 && W.home.len < W.forest.len * 0.5, 'home stays compact');
   assert.ok(W.desert.halfW >= 1700 && W.desert.len >= 4400, 'the desert is the widest');
-  assert.ok(W.memory_lake.halfW <= 900 && W.memory_lake.spots.filter((s) => s.secret).length >= 2, 'the memory lake is narrow and hides its end');
+  assert.ok(W.memory_lake.halfW <= 1400 && W.memory_lake.halfW < W.desert.halfW * 0.5 && W.memory_lake.spots.filter((s) => s.secret).length >= 2, 'the memory lake is narrow and hides its end');
   // ふかい 地区は くらく きりが ふかい(おくへ いくほど けしきが かわる)
   const reg = M.buildRegistry();
   const forest = M.buildWorld('forest', reg);
-  const entry = M.moodAt(forest, forest.entry.x, forest.entry.z), deep = M.moodAt(forest, 300, 3200);
+  const deepSpot = forest.spots.find((s) => s.zone === 'deep' && s.kind === 'grove');
+  const entry = M.moodAt(forest, forest.entry.x, forest.entry.z), deep = M.moodAt(forest, deepSpot.x, deepSpot.z);
   assert.ok(deep.light < entry.light - 0.15 && deep.fog > entry.fog + 0.2, 'deep forest is darker and foggier: ' + JSON.stringify({ entry, deep }));
   assert.equal(deep.zone.id, 'deep'); assert.equal(entry.zone.id, 'bright');
   // かくし みちには さそい(ヒント)と あかり、ぶんきには ひょうしき、みちの ふちに もよう
@@ -295,7 +307,8 @@ test('regions differ in size and structure; zones give a mood that changes with 
   const sim = M.createSimulation({ regionId: 'forest', env: { time: 'day', weather: 'sunny', season: 'spring', region: 'forest' } });
   sim.step(1 / 60, { x: 0, y: 0 });
   assert.equal(sim.zone.id, 'bright'); assert.ok(sim.view().mood.light > 0.95);
-  sim.setPlayer(0, 4000); sim.step(1 / 60, { x: 0, y: 0 });
+  const greatSpot = forest.spots.find((s) => s.id === 'great');
+  sim.setPlayer(greatSpot.x, greatSpot.z); sim.step(1 / 60, { x: 0, y: 0 });
   assert.equal(sim.zone.id, 'great');
   assert.ok(sim.mapData().zones.length === forest.zones.length);
 });

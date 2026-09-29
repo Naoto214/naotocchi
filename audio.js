@@ -386,23 +386,6 @@
       if (mode === 'tts') return tts(text, o);
       return pico(text);
     }
-    // Small collected melodies share the effect channel and its saved mute setting.
-    const ITEM_SEASON_TUNES = {
-      spring:[72,76,79,76,74,77,81,79], summer:[72,79,81,84,81,79,76,72],
-      autumn:[76,74,72,69,72,76,74,69], winter:[79,83,86,83,81,78,74,79],
-    };
-    function playItemTune(tuneId) {
-      if (typeof tuneId !== 'string' || !unlocked || !sfxOn() || !ensure()) return false;
-      const [kind,id] = tuneId.split(':');
-      let notes = kind === 'season' ? ITEM_SEASON_TUNES[id] : null;
-      if (kind === 'place' && /^[a-z][a-z0-9_]*$/.test(id || '')) {
-        const seed = [...id].reduce((n,c)=>n+c.charCodeAt(0),0);
-        const steps=[0,4,7,12,9,7,4,0];notes=steps.map((n,i)=>60+(seed%12)+n+(i===3?seed%3:0));
-      }
-      if (!notes) return false;
-      notes.forEach((midi,i)=>tone(N(midi),.35,{type:'sine',vol:.12,attack:.02,delay:i*.25}));
-      return true;
-    }
-    return { play, playItemTune, voice, voiceMode, _shapeCue: shapeCue, settingsChanged, currentScene, get unlocked() { return unlocked; }, _debug: () => ({ ctx, master, scene, track, step }), _tracks: TRACKS };
+    return { play, voice, voiceMode, _shapeCue: shapeCue, settingsChanged, currentScene, get unlocked() { return unlocked; }, _debug: () => ({ ctx, master, scene, track, step }), _tracks: TRACKS };
   };
 })();

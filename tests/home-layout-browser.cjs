@@ -5,6 +5,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const { chromium, webkit } = require('playwright');
+const { guardedRoute } = require('./helpers/browser-route.cjs');
 
 const output = path.resolve('test-results/home-layout');
 fs.mkdirSync(output, { recursive: true });
@@ -41,6 +42,8 @@ async function measure(page) {
     const hit = document.elementFromPoint(n.x + n.width / 2, n.bottom - 4);
     const frame = document.querySelector('.screen-frame');
     return {
+      retiredItemsRow:!!document.getElementById('itemsRow'),
+      retiredFooterSpace:document.getElementById('screenNormal').style.paddingBottom === '38px',
       width:innerWidth, height:innerHeight, pageWidth:document.documentElement.scrollWidth,
       pageHeight:document.documentElement.scrollHeight,
       header:rect(document.querySelector('.device-header')),
@@ -57,6 +60,8 @@ async function measure(page) {
 }
 
 function checkLayout(m, label) {
+  assert.equal(m.retiredItemsRow, false, label + ': retired fun strip must not occupy the home');
+  assert.equal(m.retiredFooterSpace, false, label + ': retired strip must not reserve home space');
   assert.ok(m.pageWidth <= m.width + 1, label + ': page overflows horizontally');
   assert.ok(m.pageHeight <= m.height + 1, label + ': home exceeds the visible viewport');
   assert.ok(m.header.y >= 0, label + ': header leaves the viewport');
@@ -99,10 +104,12 @@ function checkLayout(m, label) {
           const label = engine + '-' + name;
           const context = await browser.newContext({ viewport:{width,height}, deviceScaleFactor:1,
             ...(name === 'phone-touch' ? {isMobile:true,hasTouch:true} : {}) });
+          const routeErrors = [];
           if (insets) {
             // Desktop CI has no physical notch. Substitute only CSS env inputs;
             // the shipped padding rules still calculate and lay out the page.
-            await context.route('**/*.css?*', async route => {
+            // RH-6: a failed fetch is recorded and fails this case (no retry), instead of killing the process.
+            await guardedRoute(context, '**/*.css?*', label, routeErrors, async route => {
               const response = await route.fetch();
               const css = (await response.text()).replace(/env\(safe-area-inset-(top|right|bottom|left)\)/g,
                 (_match,edge) => (insets[edge] || 0) + 'px');
@@ -234,8 +241,10 @@ function checkLayout(m, label) {
               assert.equal(await page.locator('#message').isVisible(),false,label+': narration remains over the life record');
             }
             assert.deepEqual(errors, [], label+': browser runtime errors');
+            assert.deepEqual(routeErrors, [], label+': CSS substitution fetch failed');
             console.log('PASS '+label);
           } catch (error) {
+            if (routeErrors.length) results.push({ label, phase:'route-errors', routeErrors });
             failures.push(label+': '+error.message);
             console.error('FAIL '+label+': '+error.message);
             await page.screenshot({ path:path.join(output,label+'-failure.png') }).catch(() => {});
@@ -254,6 +263,36 @@ function checkLayout(m, label) {
           console.error('FAIL '+engine+' conversation: '+error.message);
         }
         try {
+          await require('./naoto-lantern-ring-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
+        } catch(error) {
+          failures.push(engine+' lantern ring: '+error.message);
+          console.error('FAIL '+engine+' lantern ring: '+error.message);
+        }
+        try {
+          await require('./naoto-crown-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
+        } catch(error) {
+          failures.push(engine+' crown: '+error.message);
+          console.error('FAIL '+engine+' crown: '+error.message);
+        }
+        try {
+          await require('./normal-equipment-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
+        } catch(error) {
+          failures.push(engine+' normal equipment: '+error.message);
+          console.error('FAIL '+engine+' normal equipment: '+error.message);
+        }
+        try {
+          await require('./consumables-v2-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
+        } catch(error) {
+          failures.push(engine+' consumables v2: '+error.message);
+          console.error('FAIL '+engine+' consumables v2: '+error.message);
+        }
+        try {
+          await require('./item-economy-v2-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
+        } catch(error) {
+          failures.push(engine+' item economy v2: '+error.message);
+          console.error('FAIL '+engine+' item economy v2: '+error.message);
+        }
+        try {
           await require('./dialog-layout-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
         } catch(error) {
           failures.push(engine+' dialogs: '+error.message);
@@ -270,6 +309,18 @@ function checkLayout(m, label) {
         } catch(error) {
           failures.push(engine+' illustrations: '+error.message);
           console.error('FAIL '+engine+' illustrations: '+error.message);
+        }
+        try {
+          await require('./meguru-layout-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output);
+        } catch(error) {
+          failures.push(engine+' meguru layout: '+error.message);
+          console.error('FAIL '+engine+' meguru layout: '+error.message);
+        }
+        try {
+          results.push(...await require('./meguru-discovery-browser.cjs')(browser,engine,fixtures,'http://127.0.0.1:5191/',output));
+        } catch(error) {
+          failures.push(engine+' meguru discovery: '+error.message);
+          console.error('FAIL '+engine+' meguru discovery: '+error.message);
         }
       } finally { await browser.close(); }
     }

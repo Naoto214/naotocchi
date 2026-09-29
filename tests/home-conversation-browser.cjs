@@ -3,7 +3,7 @@
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
-const itemSystem=require('../item-system.js');
+const { guardedRoute } = require('./helpers/browser-route.cjs');
 
 function measureConversation() {
   const rect=e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height};};
@@ -41,12 +41,13 @@ function measureConversation() {
   };
 }
 
-module.exports=async function(browser,engine,fixtures,baseURL,output) {
+module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) {
   const results=[],failures=[];
   const scenarios=[
     ['alone',390,760,0,false,false,0],['partner',390,760,0,true,false,0],
     ['one-friend',390,760,1,false,false,0],['friends',390,760,6,false,false,0],
     ['family',390,760,6,true,false,0],['item',390,760,0,false,true,0],
+    ['paper-auto-clean',390,760,6,true,true,4],
     ['poop',390,760,0,false,false,1],['item-poop',390,760,6,true,true,4],
     ['full',390,760,26,true,true,4],['small',320,568,0,false,true,4],
     ['small-full',320,568,26,true,true,4],['large-text',320,640,26,true,true,4,'large'],
@@ -65,7 +66,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     ['full-friends-only',320,568,26,false,false,4],
     ['full-partner-only',320,568,26,true,false,4],
     ['full-item-only',320,568,26,false,true,4],
-    ['item-crown',320,568,26,true,true,4],
+    ['item-gamepass',320,568,26,true,true,4],
     ['right-speaker',390,760,6,true,true,4,'normal','dog',5],
     ['adult-single',390,760,0,false,false,1,'normal','dog',5],
     ['normal-poop-four',390,760,0,false,false,4],
@@ -98,9 +99,11 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       cy>=partner.y+partner.h/2-.6 && cy<=m.main.y+m.main.h/2+.6;
   };
   for(const [name,width,height,count,partner,item,poops,textSize,species,stage] of scenarios) {
+    if(onlyNames && !onlyNames.includes(name)) continue;
     const label=engine+'-conversation-'+name;
     const context=await browser.newContext({viewport:{width,height},reducedMotion:'reduce',isMobile:width<500,hasTouch:width<500});
-    if(name==='safe-area') await context.route('**/*.css?*',async route=>{
+    const routeErrors=[]; // RH-6: route の fetch が こけたら 記録して この case を 赤に(retry しない)
+    if(name==='safe-area') await guardedRoute(context,'**/*.css?*',label,routeErrors,async route=>{
       const response=await route.fetch();
       await route.fulfill({response,body:(await response.text()).replace(/env\(safe-area-inset-(top|right|bottom|left)\)/g,(_,edge)=>({top:59,bottom:34}[edge]||0)+'px')});
     });
@@ -113,7 +116,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
           name==='missing-friends-min'?url.includes('/companions/'):true;
         return fail?route.abort('failed'):route.continue();
       });
-      if(name.endsWith('-min')) await context.route('**/world-scene.css?*',async route=>{
+      if(name.endsWith('-min')) await guardedRoute(context,'**/world-scene.css?*',label,routeErrors,async route=>{
         const response=await route.fetch();
         // Restrict the available region, without overriding the inline min
         // height whose erroneous expansion caused this regression.
@@ -125,7 +128,8 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     const save=JSON.parse(JSON.stringify(fixtures.phone_dog));
     Object.assign(save,{companions:fixtures.equipped.companions.slice(0,count),partner:partner?{...fixtures.equipped.partner}:null,
       poopCount:poops,health:100,hunger:60,energy:100,happiness:90,transformMeter:0,isSick:false,isSleeping:false});
-    const itemId=name==='item-crown'?'crown':'poop1';
+    // Keep floor-layout specimens stable while the real activity clock runs.
+    const itemId=name==='paper-auto-clean'?'poop1':name==='item-gamepass'?'gamepass1':'travel1';
     Object.assign(save.lifetime,{textSize:textSize||'normal',equippedItemId:item?itemId:null,ownedShopItems:item?[itemId]:[]});
     if(name.endsWith('-snow')) {
       save.companions=['owl','hamster','shiba'].map(id=>({id,bond:95}));
@@ -136,7 +140,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     if(name==='balanced-cat') {
       save.companions=['sheep','seal','otter','rabbit_friend','shiba','parrot'].map(id=>({id,bond:95}));
       Object.assign(save.partner,{id:'gentle_gorilla',label:'やさしいゴリラ'});
-      Object.assign(save.lifetime,{equippedItemId:'flower',ownedShopItems:['flower']});
+      Object.assign(save.lifetime,{equippedItemId:'bowtie',ownedShopItems:['bowtie']});
     }
     if(name==='balanced-eight') {
       save.companions=['tanuki','cat_friend','hedgehog','many_tail_fox','sekizou','unicorn','punyu','monkey'].map(id=>({id,bond:95}));
@@ -151,10 +155,6 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
       Object.assign(save,{regionId:'jungle',ageTicks:51*20});
       Object.assign(save.lifetime,{timeMode:'night',weatherMode:'sunny',seasonMode:'summer'});
     }
-    // Conversation measurements advance the real activity clock. Start paper
-    // fixtures in its ordinary saved cooldown so their configured poop row stays
-    // available while speaker and layout assertions run.
-    if(save.lifetime.equippedItemId==='poop1') itemSystem.cooldown(save,'paper',60);
     await page.addInitScript(s=>{localStorage.setItem('naotocchi-save-v1',JSON.stringify(s));Math.random=()=>.4;},save);
     if(name==='right-speaker') await page.addInitScript(()=>{Math.random=()=>.2;});
     if(name==='small-toolbar') await page.addInitScript(()=>Object.defineProperty(visualViewport,'height',{get:()=>568}));
@@ -181,7 +181,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         assert.ok(Math.abs(a.y+a.h/2-b.y-b.h/2)<.6,label+': paired visible heights differ');
       }
       assert.ok(m.pageHeight<=height+1 && m.pageWidth<=width+1,label+': page overflow');
-      assert.ok(m.meters.y+m.meters.h<=m.frame.y+m.frame.h+1,label+': meters clipped');
+      assert.ok(m.meters.y+m.meters.h<=m.frame.y+m.frame.h+1,label+': meters clipped '+JSON.stringify({meters:m.meters,frame:m.frame}));
       for(const c of m.controls) assert.ok(c.w>=44 && c.h>=44 && c.y+c.h<=m.visibleHeight+1,label+': control is too small or below the visible viewport');
       assert.ok(m.narration.y+m.narration.h<=m.stage.y,label+': narration must stay above the cast');
       assert.ok(m.nameVisible,label+': dialogue hides character names');
@@ -221,6 +221,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         assert.ok(Math.max(...m.poops.map(p=>p.x+p.w))-first.x<=102.6,label+': poop row exceeds its compact bounds');
       }
       assert.deepEqual(errors,[],label+': browser errors');
+      assert.deepEqual(routeErrors,[],label+': CSS substitution fetch failed');
       assert.equal(!!m.ring,!!save.partner?.married,label+': marriage ring visibility');
       if(m.ring) {
         assert.ok(m.ring.w>=15 && m.ring.w<=23 && Math.abs(m.ring.h-m.ring.w)<.1,label+': ring size');
@@ -242,7 +243,16 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         const slot=document.getElementById('speechSlot').getBoundingClientRect();
         return Math.abs(slot.y-stage.y-Math.floor(stage.height)+slot.height+10)<.6;
       },null,{timeout:4500});
+      if(name==='paper-auto-clean') {
+        const dirty=await check('before-auto-clean');
+        assert.equal(dirty.poops.length,4,label+': dirty fixture must render before the first tick');
+        await page.clock.runFor(3001);
+        const cleaned=await check('auto-cleaned');
+        assert.equal(cleaned.poops.length,0,label+': V2 paper must clear all poop without a cooldown');
+        assert.ok(samePosition(cleaned.main,dirty.main) && samePosition(cleaned.slot,dirty.slot),label+': automatic cleaning moves cast/conversation');
+      }
       const before=await check('silent');
+      assert.equal(before.poops.length,name==='paper-auto-clean'?0:poops,label+': layout specimen must retain its configured floor row');
       await page.locator('#feedBtn').click();await page.clock.runFor(1);
       const expected=['pet',...(partner?['partner']:[]),...(count?['companion']:[])];
       for(let i=0;i<expected.length;i++) {
@@ -296,7 +306,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
         await page.emulateMedia({reducedMotion:'reduce'});
         await page.clock.runFor(1);
       }
-      if(poops) {
+      if(poops && name!=='paper-auto-clean') {
         await page.locator('#cleanBtn').click();await page.clock.runFor(1);
         const cleaned=await check('cleaned');
         assert.equal(cleaned.poops.length,0,label+': cleaning failed');

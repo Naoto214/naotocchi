@@ -43,8 +43,14 @@ function solve(h, run, cur) {
   if (t.kind === 'follow') { for (let i = 0; i < 400 && !judged(); i++) { const k = g.target(); if (!k) break; g.onPress(k.x, k.y); h.advance(16); } return; }
 }
 
-function begin() {
+function seededRandom(seed) {
+  let value = seed >>> 0;
+  return () => ((value = (1664525 * value + 1013904223) >>> 0) / 4294967296);
+}
+
+function begin(random) {
   const h = harness(), s = h.api.state();
+  if (random) h.api.setRandom(random);
   Object.assign(s, { stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80, transformMeter: 0 });
   h.api.render(); // the play button is enabled by render()
   assert.equal(h.api.startQuickRun(), true, 'quick run starts like a normal game');
@@ -54,8 +60,29 @@ function begin() {
   return { h, s, run };
 }
 
+test('coins target keeps the basket clear of bad drops at levels 1-5', () => {
+  const h = harness();
+  const def = h.api.QUICK_GAMES.find((game) => game.id === 'coins');
+  assert.ok(def);
+  for (let level = 1; level <= 5; level++) {
+    h.api.setRandom(seededRandom(21));
+    let result = null;
+    const k = level - 1;
+    const game = def.create({W:300,H:300,level,speed:1+h.api.QUICK_RULES.SPEED_UP*k,
+      extra:Math.floor(k/2),feint:level>=3,win:()=>{result='win';},lose:()=>{result='lose';}});
+    for (let elapsed = 0; elapsed < 6000 && !result; elapsed += 16) {
+      game.update(.016);
+      const target = game.target();
+      game.onPress(target.x,target.y);
+    }
+    assert.equal(result,'win',`coins target solves level ${level}`);
+  }
+});
+
 test('quick mode chains 3-6 second games: cue, immediate play, judge, next game within the result flash', () => {
-  const { h, s, run } = begin();
+  // This assertion requires the first game to be solved. Seed it so a random
+  // dodge collision cannot make the chaining contract fail intermittently.
+  const { h, s, run } = begin(seededRandom(0x12345678));
   const R = h.api.QUICK_RULES;
   const ov = h.get('minigameOverlay');
   assert.equal(ov.querySelector('#qkLives').textContent, '❤️❤️❤️');
@@ -167,9 +194,9 @@ test('every game can be played on its own: a solo run repeats one game 10 times 
   assert.equal(s.lifetime.minigameRecords['quick-solo'].last, 100, '10 clears of 10 points');
   assert.equal(s.lifetime.minigamesPlayed, 1, 'one completed solo run settles as one game');
   assert.equal(s.minigameCount, 1, 'one completed solo run applies one result');
-  assert.equal(s.energy, 91, 'the start equipment applies one energy cost after a swap');
-  assert.equal(s.lifetime.money, 13, 'the completed run receives one great-game coin reward');
-  assert.equal(s.sodachi, 56, 'the completed run applies one ordinary great-game growth reward');
+  assert.equal(s.energy, 100, 'Quick preserves energy after an equipment swap');
+  assert.equal(s.lifetime.money, 0, 'a solo run pays no coins');
+  assert.equal(s.sodachi, 55, 'Quick preserves growth');
   const restored = harness({resume:true, storage}).api.state();
   assert.deepEqual(JSON.parse(JSON.stringify(restored.lifetime.quick.single.knock)), {runs:1, best:10});
   assert.deepEqual(JSON.parse(JSON.stringify(restored.lifetime.minigameRecords['quick-solo'])), {best:100, last:100});
@@ -192,7 +219,7 @@ test('Quick list toggle uses its dedicated control and a selected solo starts', 
   h.api.retireMinigame();
 });
 
-test('both Quick entries share quick-run as the Star stamp type', () => {
+test('both Quick entries pay zero for incomplete runs even with Star', () => {
   const h = harness(), s = h.api.state();
   Object.assign(s, { stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80 });
   s.lifetime.equippedItemId = 'star';
@@ -200,12 +227,14 @@ test('both Quick entries share quick-run as the Star stamp type', () => {
   for (const id of [null, 'knock', 'tickle']) {
     assert.equal(h.api.startQuickRun(id), true);
     h.advance(40);
+    const money = s.lifetime.money;
     h.api.finishMinigame(30);
+    assert.equal(s.lifetime.money, money);
   }
-  assert.deepEqual([...s.lifetime.itemProgress.starGames], ['quick-run']);
+  assert.equal(s.lifetime.itemProgress.starGames, undefined);
 });
 
-test('both Quick entries retain their game-start equipment snapshot', () => {
+test('both Quick entries ignore retired energy-band snapshots', () => {
   for (const id of [null, 'knock']) {
     const h = harness(), s = h.api.state();
     Object.assign(s, { stage: 'growing', isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 80 });
@@ -217,7 +246,7 @@ test('both Quick entries retain their game-start equipment snapshot', () => {
     s.lifetime.equippedItemId = null;
     h.advance(40);
     h.api.finishMinigame(50);
-    assert.equal(s.energy, 91, `${id || 'mixed'} Quick run keeps the band selected at start`);
+    assert.equal(s.energy, 100, `${id || 'mixed'} Quick preserves energy despite a retired band snapshot`);
   }
 });
 
@@ -237,7 +266,9 @@ test('the production Quick voice control saves every selected mode for the audio
     assert.equal(s.lifetime.quickVoice, mode);
     assert.equal(saved.quickVoice, mode);
     assert.equal(saved.quickVoiceChosen, true);
-    assert.equal(harness({resume:true, storage}).api.state().lifetime.quickVoice, mode);
+    // 読みなおしの 確認は 写しの storage で(同じ storage に もう 1 つ 起動すると、RH-9 で あとから ひらいた タブが 引きつぎ、この タブは 書かなく なる)
+    const copy = memoryStorage(); copy.setItem('naotocchi-save-v1', storage.getItem('naotocchi-save-v1'));
+    assert.equal(harness({resume:true, storage: copy}).api.state().lifetime.quickVoice, mode);
   }
   assert.deepEqual(voiceCalls, [
     {text:'よけろ', mode:'pico'},
@@ -278,4 +309,72 @@ test('umbrella solo shows a compact cue and waits for rain before a successful s
   h.advance(h.api.QUICK_RULES.RESULT_MS + 40);
   assert.notEqual(run.current, cur);
   assert.equal(run.current.def.id, 'umbrella');
+});
+
+for(const id of ['quick-run','quick-solo']) test(`game pass never shortcuts ${id}, including during ordinary cooldown`,()=>{
+  const h=harness(),s=h.api.state();
+  s.lifetime.equippedItemId='gamepass1';
+  Object.assign(s,{sodachi:80,maxSodachi:80,growth:0});
+  h.api.render();
+  h.dispatch(h.get('playBtn'),'click');
+  let started=false;
+  assert.equal(h.api.tryStartPlay({id,noIntro:true,start(){started=true;}}),true);
+  assert.equal(started,true);
+  assert.equal(s.actionCounts.play,1);
+  h.api.finishMinigame(50);
+  assert.equal(s.lifetime.minigameRecords[id].last,50);
+});
+
+// Fixed randomness makes this settlement fixture repeat weather/feather/sneak/doors.
+// The broader randomized solver and input coverage above is deliberately unchanged.
+function perfectMixedRun(h) {
+  h.api.setRandom(() => 0.99);
+  assert.equal(h.api.startQuickRun(), true);
+  h.advance(40);
+  const run = h.api.QUICK_RUN._run, beforeRuns = h.api.state().lifetime.quick.runs;
+  for (let i = 0; i < 20; i++) {
+    solve(h, run, run.current); h.advance(16);
+    assert.equal(h.get('minigameOverlay').querySelector('#qkCount').textContent, `✔ ${i + 1}／20`);
+    h.advance(h.api.QUICK_RULES.RESULT_MS + 40);
+  }
+  assert.equal(h.api.state().lifetime.quick.runs, beforeRuns + 1);
+}
+
+test('real mixed 20/20 callback pays 100, keeps records and achievements, and a new perfect run pays again', () => {
+  const storage = memoryStorage(), h = harness({storage}), s = h.api.state();
+  s.lifetime.equippedItemId = 'star';
+  const before = s.lifetime.money, energy = s.energy, growth = s.growth;
+  for (let n = 1; n <= 2; n++) {
+    perfectMixedRun(h);
+    assert.equal(s.lifetime.money, before + (n - 1) * 100, 'final card does not settle early');
+    h.advance(h.api.QUICK_RULES.FINAL_MS + 100);
+    assert.equal(s.lifetime.money, before + n * 100);
+    assert.equal(s.lifetime.quick.runs, n);
+    assert.equal(s.lifetime.quick.bestCleared, 20);
+    assert.equal(s.lifetime.minigamePlayCounts['quick-run'], n);
+    assert.equal(s.lifetime.minigamesPlayed, n);
+    assert.equal(s.lifetime.minigameRecords['quick-run'].best, 100);
+    assert.equal(s.energy, energy); assert.equal(s.growth, growth);
+    assert.ok(s.achievementsUnlocked.includes('quick-10'));
+    assert.ok(s.achievementsUnlocked.includes('quick-perfect'));
+    h.api.finishMinigame(100);
+    assert.equal(s.lifetime.money, before + n * 100, 'duplicate settlement is ignored');
+  }
+  const restored = harness({resume:true, storage}).api.state();
+  assert.equal(restored.lifetime.money, before + 200);
+  assert.equal(restored.lifetime.quick.runs, 2);
+  assert.ok(restored.achievementsUnlocked.includes('quick-perfect'));
+});
+
+test('retiring a real Quick final card invalidates its delayed completion during the next session', () => {
+  const h = harness(), s = h.api.state();
+  const money = s.lifetime.money;
+  perfectMixedRun(h);
+  h.api.retireMinigame();
+  assert.equal(s.lifetime.money, money);
+  assert.equal(h.api.startQuickRun('knock'), true);
+  h.advance(h.api.QUICK_RULES.FINAL_MS + 100);
+  assert.equal(s.lifetime.money, money);
+  assert.equal(s.lifetime.minigamesPlayed, 0, 'retired callback cannot settle the active solo game');
+  h.api.retireMinigame();
 });

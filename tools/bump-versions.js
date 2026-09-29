@@ -4,6 +4,13 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+// トークンの hash 部分の正本(YYYYMMDD-<この値>)。テストの asset gate も これを使う
+function assetHash(bytes) {
+  return crypto.createHash('sha1').update(bytes).digest('hex').slice(0, 8);
+}
+module.exports = { assetHash };
+if (require.main !== module) return;
+
 const root = path.join(__dirname, '..');
 const htmlPath = path.join(root, 'index.html');
 let html = fs.readFileSync(htmlPath, 'utf8');
@@ -12,7 +19,7 @@ let changed = 0;
 html = html.replace(/((?:href|src)=")([^"?]+)\?v=([^"]+)(")/g, (all, pre, file, token, post) => {
   const full = path.join(root, file);
   if (!fs.existsSync(full)) return all;
-  const hash = crypto.createHash('sha1').update(fs.readFileSync(full)).digest('hex').slice(0, 8);
+  const hash = assetHash(fs.readFileSync(full));
   const next = `${stamp}-${hash}`;
   if (token === next) return all;
   changed++;

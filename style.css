@@ -1,5 +1,8 @@
 :root {
   color-scheme: light;
+  /* iPhone の したの ホームバー(と ブラウザの バー)が かぶさる ぶん。
+     JS からも --safe-bottom を よんで、めぐるの がめんの たかさを きめる */
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 * {
@@ -9,12 +12,18 @@
 body {
   margin: 0;
   min-height: 100vh;
+  /* iPhone の ブラウザは バーの ぶんだけ 100vh が みえている たかさより
+     おおきく なる。dvh なら いま みえている ぶんに あう(ふるい ブラウザは
+     うえの 100vh の まま) */
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: radial-gradient(circle at 50% 20%, #ffe1f0 0%, #d6c8ff 60%, #b3a4f7 100%);
   font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   padding: 20px;
+  /* したの ボタンが ホームバーに かくれない ように */
+  padding-bottom: max(20px, var(--safe-bottom));
   transition: background 0.6s ease;
 }
 
@@ -27,7 +36,6 @@ body.region-city { background: radial-gradient(circle at 50% 20%, #f5e6ff 0%, #b
 body.region-countryside { background: radial-gradient(circle at 50% 20%, #fef6d0 0%, #cbe6a0 55%, #7fae5a 100%); }
 body.region-forest { background: radial-gradient(circle at 50% 20%, #e3f3d6 0%, #a3cf85 55%, #4f7a3d 100%); }
 body.region-desert { background: radial-gradient(circle at 50% 20%, #fff3d6 0%, #f0c877 55%, #d99a4e 100%); }
-body.region-tropical { background: radial-gradient(circle at 50% 20%, #d6fff2 0%, #7fe0c9 55%, #1fa98a 100%); }
 body.region-mountain { background: radial-gradient(circle at 50% 20%, #edf1e8 0%, #9fb39a 55%, #596c57 100%); }
 body.region-deepsea { background: radial-gradient(circle at 50% 20%, #18345f 0%, #0b1f3b 58%, #03101f 100%); }
 body.region-river_lake { background: radial-gradient(circle at 50% 20%, #dff7ef 0%, #83c8ba 55%, #3b7f74 100%); }
@@ -35,6 +43,9 @@ body.region-jungle { background: radial-gradient(circle at 50% 20%, #d8f6c8 0%, 
 
 .device {
   width: 340px;
+  /* ほんたいが みえている たかさを こえない ように する。こえると
+     iPhone では したの パッドや ボタンが がめんの そとに おしだされる */
+  max-height: calc(100dvh - 20px - max(20px, var(--safe-bottom)));
   background: linear-gradient(160deg, #ff9ecb 0%, #ff7ab8 45%, #f45fa8 100%);
   border-radius: 50% 50% 40px 40px / 35% 35% 40px 40px;
   padding: 28px 24px 20px;
@@ -1640,61 +1651,12 @@ body.region-deepsea .season-fx-item {
   font-weight: bold;
 }
 
-.items-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  justify-content: center;
-  margin-top: 4px;
-}
-
-.item-btn {
-  position: relative;
-  background: linear-gradient(160deg, #fff0f7, #ffd3ea);
-  border: none;
-  border-radius: 8px;
-  padding: 4px 6px;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
-}
-
-.item-btn:active {
-  transform: translateY(2px);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
-}
-
-.item-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-/* とくべつな ごほうび(おとろえ・いのちにも きく もの)は、がめん下の
-   アイテムらんでも ひと目で わかるように 金いろに ひからせる */
-.item-btn.special {
-  background: linear-gradient(160deg, #fff8dc, #ffe08a);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15), 0 0 8px rgba(255, 200, 60, 0.75);
-}
-
 /* あいてむ画面の「ごほうび」いちらん */
 .shop-item.reward-item.locked {
   opacity: 0.55;
 }
 
-.item-count {
-  position: absolute;
-  bottom: -4px;
-  right: -4px;
-  background: #d6336c;
-  color: #fff;
-  font-size: 9px;
-  font-weight: bold;
-  border-radius: 8px;
-  min-width: 14px;
-  line-height: 14px;
-  text-align: center;
-  padding: 0 2px;
-}
+
 
 /* お世話の続きをそのまま見て操作できるよう、画面全体をふさぐパネルではなく
    上に かぶさる ちいさな バナーとして表示する(下のキャラ・ステータス・
@@ -4030,10 +3992,12 @@ body.region-memory_lake { background: radial-gradient(circle at 50% 20%, #f2fbff
   box-shadow: 0 2px 6px rgba(255, 179, 0, 0.35);
 }
 .daily-card.done { border-color: #9ccc65; background: linear-gradient(135deg, #f1f8e9, #dcedc8); box-shadow: none; }
-.daily-head { font-size: 10px; font-weight: 900; margin-bottom: 4px; display: flex; justify-content: space-between; align-items: center; }
+.daily-head { font-size: 10px; font-weight: 900; margin-bottom: 4px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px; }
 .daily-streak { font-size: 9px; background: #ff7043; color: #fff; padding: 1px 7px; border-radius: 999px; }
-.daily-body { display: flex; align-items: center; gap: 8px; }
-.daily-status { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+/* Reward copy needs its own width; controls must not squeeze it at 320px. */
+.daily-body { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 6px 8px; }
+.daily-card .game-cell-desc { display: block; -webkit-line-clamp: unset; overflow: visible; }
+.daily-status { grid-column: 2; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 4px; }
 .daily-score { font-size: 10px; font-weight: bold; }
 .daily-start { min-height: 34px; padding: 4px 12px; font-size: 11px; }
 
@@ -4311,9 +4275,15 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 .error-log-msg { min-width: 0; overflow-wrap: anywhere; font-family: monospace; }
 
 /* ================= シールちょう ================= */
-.sticker-tabs { margin-bottom: 6px; }
-.sticker-tabs .ach-tab { font-size: 11px; min-height: 38px; display: flex; flex-direction: column; align-items: center; gap: 0; line-height: 1.1; }
+.sticker-tabs { margin-bottom: 6px; overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; scrollbar-width: thin; }
+.sticker-tabs .ach-tab { flex: 0 0 58px; font-size: 11px; min-height: 38px; display: flex; flex-direction: column; align-items: center; gap: 0; line-height: 1.1; }
 .sticker-tabs .ach-tab small { font-size: 9px; opacity: 0.75; }
+.sticker-page-controls { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 4px; }
+.sticker-page-controls label { font-size: 10px; font-weight: bold; white-space: nowrap; }
+.sticker-page-controls select { flex: 1 1 150px; min-width: 0; min-height: 36px; border: 1px solid rgba(107, 54, 84, 0.22); border-radius: 9px; background: rgba(255,255,255,0.84); padding: 4px 8px; font: inherit; color: inherit; }
+.sticker-page-controls .profile-code-btn { margin: 0; min-height: 36px; }
+.sticker-page-controls .profile-code-btn:disabled { opacity: 0.5; }
+.sticker-page-hint { margin: 2px 0 6px; }
 .sticker-board-wrap { position: relative; margin-bottom: 8px; }
 .sticker-board {
   position: relative;
@@ -4326,18 +4296,6 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
   -webkit-user-select: none;
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.7), 0 2px 6px rgba(0, 0, 0, 0.12);
   background: #fff8e8;
-}
-.sticker-board.page-home { background: linear-gradient(180deg, #ffe9f0 0%, #fff8e8 55%, #e9f5d8 100%); }
-.sticker-board.page-travel { background: linear-gradient(180deg, #cfe9ff 0%, #eaf7ff 50%, #d9f0c9 100%); }
-.sticker-board.page-friends { background: linear-gradient(180deg, #fff3cf 0%, #ffe6c2 60%, #f7d9b0 100%); }
-.sticker-board.page-memory { background: linear-gradient(180deg, #ece4ff 0%, #f8eaff 50%, #ffe6f2 100%); }
-.sticker-board::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.55) 1px, transparent 1.6px);
-  background-size: 14px 14px;
-  pointer-events: none;
 }
 .sticker-board-empty { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: bold; opacity: 0.5; pointer-events: none; }
 .sticker-placed {
@@ -4374,11 +4332,14 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 .sticker-task { display: flex; align-items: center; gap: 6px; padding: 5px 8px; border-radius: 8px; background: rgba(255, 255, 255, 0.6); font-size: 10px; font-weight: bold; }
 .sticker-task.done { opacity: 0.6; }
 .sticker-task.done span:nth-child(2) { text-decoration: line-through; }
-.sticker-task-reward { margin-left: auto; white-space: nowrap; font-size: 9px; opacity: 0.85; }
-.sticker-shop-row { display: flex; flex-wrap: wrap; gap: 6px; }
-.sticker-shop-row .profile-code-btn { min-height: 36px; display: inline-flex; align-items: center; gap: 4px; }
-.sticker-shop-row .profile-code-btn:disabled { opacity: 0.5; cursor: default; }
-.sticker-shop-row .care-icon { width: 14px; height: 14px; }
+.sticker-pack-controls { display: grid; grid-template-columns: 1fr; gap: 6px; }
+.sticker-pack-controls label { font-size: 10px; font-weight: bold; margin-top: 2px; }
+.sticker-pack-controls select { width: 100%; min-height: 38px; border: 1px solid rgba(107,54,84,.22); border-radius: 9px; background: rgba(255,255,255,.84); padding: 5px 8px; font: inherit; color: inherit; }
+.sticker-pack-controls .profile-code-btn,
+.sticker-page-action .profile-code-btn { min-height: 38px; display: inline-flex; align-items: center; justify-content: center; gap: 4px; margin: 0; }
+.sticker-pack-controls .profile-code-btn:disabled { opacity: 0.5; cursor: default; }
+.sticker-pack-controls .care-icon { width: 14px; height: 14px; }
+.sticker-page-action { margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(107,54,84,.12); }
 .sticker-pack-result { display: flex; gap: 6px; justify-content: center; margin-top: 8px; flex-wrap: wrap; }
 .sticker-pack-result.hidden { display: none; }
 .sticker-pack-card {
@@ -4618,17 +4579,116 @@ body[data-time="morning"] .time-tint { background: linear-gradient(180deg, rgba(
 .meguru-overlay .mg-meguru-header { margin-bottom: 4px; font-size: 11px; line-height: 1.2; gap: 6px; }
 .meguru-overlay .mg-meguru-header > span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .meguru-overlay .mg-meguru-header > span:first-child { flex: 1 1 auto; min-width: 0; }
-.mgr-hint { min-height: 0; margin-top: 4px; font-size: 11px; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 4px; }
+/* ヒントは 1ぎょうだと ほそい がめんで おしりが 「…」で きれていた。
+   2ぎょうまで おりかえして さいごまで 見せる(3ぎょうめは かくす) */
+/* たかさを 2ぎょうぶんで こていする。ばしょの なまえが あとから アタマに
+   つく(「【えきまえ】…」)と ぎょうが ふえて、たんさく がめんが はみ出して
+   ボタンが 見きれていた */
+.mgr-hint { min-height: 2.6em; margin-top: 4px; font-size: 11px; line-height: 1.3; padding: 0 4px; transition: opacity 0.18s ease;
+  white-space: normal; word-break: keep-all; overflow-wrap: anywhere;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
 .meguru-overlay .mg-pad-row { margin-top: 6px; gap: 6px; }
+/* その ばで いみの ない ボタンは **ほんとうに けす**。これが なかったので
+   「のる」が どこでも 出て いた(class は ついて いたが、けす きまりが なかった) */
+.meguru-overlay .mg-tap-btn.hidden { display: none; }
+/* こえて いる あいだの ロックを 目でも わかる ように する */
+.meguru-overlay .mg-tap-btn:disabled,
+.meguru-overlay .mgr-map-btn:disabled { opacity: 0.45; cursor: default; }
 .meguru-overlay .mg-pad { min-height: 112px; }
 .meguru-overlay .mg-pad-actions { min-width: 88px; gap: 5px; }
 .meguru-overlay .mg-pad-actions .mg-tap-btn { min-width: 88px; min-height: 34px; padding: 4px 4px; font-size: 13px; }
 .mgr-wrap .mg-canvas { border-radius: 16px; }
-.mgr-spot { position: absolute; left: 8px; top: 8px; padding: 3px 9px; border-radius: 999px; background: rgba(0, 0, 0, 0.42); color: #fff; font-size: 11px; font-weight: bold; pointer-events: none; max-width: 70%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* .mg-canvas-wrap は line-height: 0(canvas の すきま けし)。そのままだと
+   なかの もじの ぎょうの たかさが 0 に なり、overflow: hidden で もじが
+   見きれる。ここで はっきり ぎょうの たかさを あたえる */
+.mgr-spot { position: absolute; left: 8px; top: 8px; padding: 3px 9px; border-radius: 999px; background: rgba(0, 0, 0, 0.42); color: #fff; font-size: 11px; line-height: 1.45; font-weight: bold; pointer-events: none; max-width: 70%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .mgr-spot.hidden { display: none; }
+
+/* ===== めぐる: みつけた しらせ(はっけん つうち) =====
+   おび(.mgr-banner)は 地域の おしらせ せんよう。ばしょの はっけんは ここ。
+   いちを 上と下で わけて いる ので、2つが かさなって よめなく ならない。
+   ちず ボタン(みぎした)より 上に おき、なぞる パッドにも かからない。
+   pointer-events は 出さない ので、出て いる あいだ も あるける(§17) */
+.mgr-found { position: absolute; left: 8px; right: 8px; bottom: 46px; z-index: 4;
+  display: flex; justify-content: center; pointer-events: none;
+  animation: qkPop 0.28s cubic-bezier(0.2, 1.4, 0.4, 1) both; }
+.mgr-found.hidden { display: none; }
+.mgr-found-card { display: flex; align-items: center; gap: 7px; max-width: 100%;
+  padding: 6px 12px; border-radius: 14px; background: rgba(22, 22, 28, 0.74); color: #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.32); }
+.mgr-found-icon { font-size: 16px; line-height: 1.2; flex: 0 0 auto; }
+.mgr-found-icon.hidden { display: none; }
+.mgr-found-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.mgr-found-title { font-size: 14px; font-weight: 900; line-height: 1.3;
+  white-space: normal; word-break: keep-all; overflow-wrap: anywhere;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+.mgr-found-sub { font-size: 10px; line-height: 1.3; opacity: 0.82;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mgr-found-sub.hidden { display: none; }
+/* 地区(ちずが ひろがる)と みち(せかいの ちず)は いろで みわけ が つく */
+.mgr-found-zone .mgr-found-card { background: rgba(26, 38, 30, 0.76); }
+.mgr-found-link .mgr-found-card { background: rgba(22, 34, 52, 0.78); box-shadow: 0 0 0 1px rgba(150, 196, 255, 0.5), 0 3px 10px rgba(0, 0, 0, 0.32); }
+/* とくべつな はっけん(ひみつ・おおきな めじるし)だけ すこし つよく。
+   それでも がめんは ふさがない・ボタンも 出さない */
+.mgr-found-strong { bottom: 52px; }
+.mgr-found-strong .mgr-found-card { padding: 8px 14px; }
+.mgr-found-strong .mgr-found-title { font-size: 16px; }
+.mgr-found-landmark .mgr-found-card { background: rgba(48, 36, 16, 0.82);
+  box-shadow: 0 0 0 2px rgba(255, 216, 130, 0.9), 0 4px 14px rgba(0, 0, 0, 0.35); }
+.mgr-found-secret .mgr-found-card { background: linear-gradient(150deg, rgba(58, 34, 74, 0.9), rgba(30, 26, 58, 0.9));
+  box-shadow: 0 0 0 2px rgba(214, 178, 255, 0.92), 0 4px 16px rgba(0, 0, 0, 0.4); }
+/* しらせが 出て いる あいだ は した の そうさ せつめいを よわめる。
+   けさない(なぞりかたを わすれた ひとが こまる)が、目は しらせへ 行く(§16) */
+/* セレクタが ながい りゆう: world-scene.css の
+   「.world-mode .minigame-overlay :is(...,.mg-hint,...) { opacity: 1 }」が
+   あとから よみこまれ、みじかい .mgr-hint-quiet では まけて しまう。
+   ここは いちばん つよい ところで きめる(めぐるの ヒント だけ) */
+.minigame-overlay .mgr-hint.mgr-hint-quiet,
+.world-mode .minigame-overlay .mgr-hint.mgr-hint-quiet { opacity: 0.38; }
+@media (prefers-reduced-motion: reduce) { .mgr-found { animation: none; } }
 .mgr-env { opacity: 0.85; margin-left: 2px; }
 .meguru-overlay .mg-meguru-header > span:nth-child(2) { opacity: 0.8; }
 @media (max-height: 700px) {
   .meguru-overlay .mg-pad { min-height: 96px; }
   .meguru-overlay .mg-pad-actions .mg-tap-btn { min-height: 30px; font-size: 12px; }
+}
+
+/* ===== めぐるの ちず(あるいた きろく) ===== */
+/* たんさく がめんの みぎした に 小さく おく。ならびの たかさは ふやさない */
+.mgr-map-btn { position: absolute; right: 8px; bottom: 8px; z-index: 3;
+  padding: 7px 12px; border: 0; border-radius: 999px; cursor: pointer;
+  background: rgba(24, 24, 30, 0.56); color: #fff; font-size: 12px; font-weight: bold;
+  line-height: 1.2; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); }
+.mgr-map-btn:active { transform: translateY(1px); }
+/* ちずに なにか ふえた ときだけ そっと ひかる(ポップアップは ふやさない) */
+.mgr-map-new { box-shadow: 0 0 0 2px rgba(255, 226, 138, 0.95), 0 2px 8px rgba(0, 0, 0, 0.3); }
+
+/* ちずは たんさく がめん ぜんたいに かぶせる。かぶせる もとに なる ように
+   めぐるの overlay 自体を position: relative に して おく */
+.meguru-overlay { position: relative; }
+.mgr-map { position: absolute; inset: 0; z-index: 12; display: flex; flex-direction: column;
+  background: #f8f2e3; color: #544530; padding: 8px 8px 10px; gap: 6px; }
+.mgr-map-dark { background: #171c31; color: #d5def4; }
+/* くらい 地域(しんかい・ほしぞら・きおくのみずうみ)でも ボタンの 字が よめる ように */
+.mgr-map-dark .mg-tap-btn { background: #2b3352; color: #e8eeff; box-shadow: 0 2px 0 rgba(0, 0, 0, 0.35); }
+.mgr-map-dark .mg-tap-btn.primary { background: linear-gradient(160deg, #5b6aa8, #3d4878); color: #fff; }
+.mgr-map-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px;
+  font-size: 12px; line-height: 1.25; min-height: 16px; }
+.mgr-map-name { font-weight: bold; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mgr-map-prog { flex: 0 0 auto; font-size: 11px; opacity: 0.85; white-space: nowrap; }
+.mgr-map-body { position: relative; flex: 1 1 auto; min-height: 0; border-radius: 10px; overflow: hidden; }
+.mgr-map-canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+.mgr-map-tip { position: absolute; left: 8px; top: 8px; max-width: 78%; padding: 3px 9px; border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5); color: #fff; font-size: 11px; line-height: 1.45; font-weight: bold;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; pointer-events: none; }
+.mgr-map-tip.hidden { display: none; }
+.mgr-map-bar { display: flex; gap: 8px; flex: 0 0 auto; padding-bottom: env(safe-area-inset-bottom, 0px); }
+.mgr-map-bar .mg-tap-btn { min-height: 44px; padding: 8px 6px; font-size: 14px; }
+.mgr-map-zoom { flex: 0 0 auto; min-width: 56px; font-size: 18px; }
+.mgr-map-close { flex: 1 1 auto; }
+.mgr-map-world { flex: 1 1 auto; }
+.mgr-map-world.hidden { display: none; }
+@media (max-height: 640px) {
+  .mgr-map { padding: 6px 6px 8px; gap: 4px; }
+  .mgr-map-bar .mg-tap-btn { min-height: 40px; }
 }

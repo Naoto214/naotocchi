@@ -9,10 +9,14 @@ on:
 jobs:
   smoke-test:
     runs-on: ubuntu-latest
+    # RH-3: npm test is 7-14 minutes; stop a hang (e.g. a never-ending test loop) instead of the 6-hour default.
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Install locked test dependencies
+        run: npm ci
       - name: Run the full test suite (same as npm test)
         run: npm test

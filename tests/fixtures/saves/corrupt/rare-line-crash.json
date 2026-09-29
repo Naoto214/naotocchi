@@ -1,0 +1,12 @@
+{
+  "_note": "RH-1: discoveredStages に null が 1つ あるだけで、boot の checkAchievements(rare-line-1 の .split)が 例外に なっていた",
+  "stage": "growing",
+  "speciesLine": "dog",
+  "stageIndex": 2,
+  "ageTicks": 400,
+  "schemaVersion": 5,
+  "romanceCompatibilityVersion": 2,
+  "discoveredStages": ["dog:0", null, "dog:1"],
+  "achievementsUnlocked": ["evolve-1"],
+  "lifetime": { "money": 1234, "evolutions": 3 }
+}

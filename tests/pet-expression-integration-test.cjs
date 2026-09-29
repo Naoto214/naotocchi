@@ -621,3 +621,13 @@ test('Home connects all fifteen food artworks without changing saved state', () 
     assert.equal(JSON.stringify(h.api.state()),saved,species);
   }
 });
+
+test('short tab return restores the current expression without replaying a stale reaction', () => {
+  const h=harness(); adultCat(h,{hunger:40}); avoidRoutineStories(h);
+  h.api.setSpeechBubble('うれしい',{kind:'pet',label:'ねこ'},{event:'play_with'});
+  assert.equal(h.get('petSprite').dataset.expression,'happy');
+  h.document.visibilityState='hidden'; h.dispatch(h.document,'visibilitychange');
+  assert.equal(h.get('petSprite').dataset.expression,'normal');
+  h.document.visibilityState='visible'; h.dispatch(h.document,'visibilitychange');
+  assert.deepEqual(face(h),['hungry',variant('hungry')]);
+});

@@ -86,7 +86,9 @@ body.world-mode:has(.world-scene:is([data-time="night"],[data-habitat="abyss"],[
 /* A narrow light halo protects small glyphs without whitening the whole pane. */
 .world-mode :is(.name-plate,.header-button,.status-row,.sub-status-row,.cast-names,.world-care-state,.speech-bubble,.home-meters,.message,.ending-badge-tip,.birthday-toast,.mg-result-toast,.farewell-bar),.world-mode :is(.buttons,.life-actions) button {text-shadow:var(--world-text-halo)}
 body.world-mode .season-tint,body.world-mode .time-tint,body.world-mode .region-decor,body.world-mode .season-bg-fx,body.world-mode .season-front-fx,body.world-mode .weather-fx {display:none!important}
-.world-mode .device.surface-device {width:min(100%,620px);min-height:var(--app-height);padding:max(10px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));margin:0;border:0;border-radius:0;background:transparent;box-shadow:none;isolation:auto;z-index:2;--home-action-height:50px}
+/* The world already accounts for safe areas in its padding. Do not inherit
+   the retired device frame's viewport-minus-40px height cap. */
+.world-mode .device.surface-device {width:min(100%,620px);max-height:none;min-height:var(--app-height);padding:max(10px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));margin:0;border:0;border-radius:0;background:transparent;box-shadow:none;isolation:auto;z-index:2;--home-action-height:50px}
 .world-mode .device.surface-device::before,.world-mode .screen.surface-screen::before,.world-mode .screen-frame::before,.world-mode .device::after {display:none}
 .world-mode .device.ui-home-active {height:var(--app-height);min-height:0;grid-template-rows:auto minmax(0,1fr) auto auto;gap:6px}
 .world-mode .device.ui-home-active:has(#screenNormal:not(.hidden)) {grid-template-rows:auto auto minmax(0,1fr) auto auto}

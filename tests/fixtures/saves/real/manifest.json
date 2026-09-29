@@ -1,0 +1,38 @@
+[
+ {
+  "file": "pre-v3.json",
+  "commit": "2c38b42d",
+  "schemaVersion": null,
+  "note": "schemaVersion 3 より まえ(旧 age / 旧 stage)"
+ },
+ {
+  "file": "v3.json",
+  "commit": "dc137f1e",
+  "schemaVersion": 3,
+  "note": "schemaVersion 3(1さい=54秒 の ころ)"
+ },
+ {
+  "file": "v4-pre-master.json",
+  "commit": "dcc9eaec",
+  "schemaVersion": 4,
+  "note": "master 導入より まえ(旧しゅぞく bird / rabbit・旧 図鑑 キー)"
+ },
+ {
+  "file": "v5-pre-items-v2.json",
+  "commit": "300d2aee",
+  "schemaVersion": 5,
+  "note": "items-v2 より まえ(退役した アイテム・かう しきの「なおとの〜」)"
+ },
+ {
+  "file": "sticker-points-meguru-p1.json",
+  "commit": "619fc900",
+  "schemaVersion": 5,
+  "note": "シールの ポイント・4 ページ制(#304 より まえ)+ めぐる Phase 1"
+ },
+ {
+  "file": "meguru-p2.json",
+  "commit": "e4254e4c",
+  "schemaVersion": 5,
+  "note": "めぐる Phase 2 の はじめ(links・zones の 初期の 形)"
+ }
+]

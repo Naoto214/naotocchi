@@ -22,26 +22,18 @@ const STAGED_FORMS = Object.freeze(Object.fromEntries(['man','woman','penguin','
 
 const FORMS = Object.freeze({...STAGED_FORMS,adult:25,kitten:7,otemba:12,young:16,calm:40,elder:70,toddler:3,baby:1,dogAdult:25,puppy:7,wanpaku:12,youngDog:16,calmDog:40,babyDog:1,toddlerDog:3,elderDog:70});
 
-function runtimeFreshPet(form='adult') {
-  const previousDirectory=process.cwd();
-  try {
-    process.chdir(ROOT);
-    const {harness}=require('../tests/helpers/runtime-harness.cjs');
-    const runtime=harness();
-    const state=runtime.api.freshState();
-    Object.assign(state,{
-      stage:'growing',speciesLine:['dogAdult','puppy','wanpaku','youngDog','calmDog','babyDog','toddlerDog','elderDog'].includes(form)?'dog':Object.hasOwn(STAGED_FORMS,form)?form.slice(0,-2):'cat',stageIndex:runtime.api.stageForAge(FORMS[form]),ageTicks:FORMS[form]*20,
-      hunger:80,happiness:80,energy:80,health:80,isSick:false,sicknessType:null,
-      isSleeping:false,deathMeter:0,dying:false,affectionStreak:0,
-      transformOptions:null,companions:[],partner:null,
-      // The disposable elder fixture has already passed its 50th birthday.
-      // The disposable rare-line fixtures have already encountered their rare line.
-      achievementsUnlocked:['age-10','age-25',...(FORMS[form]>=50 ? ['age-50'] : []),...(['dragon','phoenix','god','world_tree','ghost','star','plush','unknown'].some(line=>form.startsWith(line)) ? ['rare-line-1'] : [])],
-    });
-    return state;
-  } finally {
-    process.chdir(previousDirectory);
-  }
+function runtimeFreshPet(form,runtime) {
+  const state=runtime.api.freshState();
+  Object.assign(state,{
+    stage:'growing',speciesLine:['dogAdult','puppy','wanpaku','youngDog','calmDog','babyDog','toddlerDog','elderDog'].includes(form)?'dog':Object.hasOwn(STAGED_FORMS,form)?form.slice(0,-2):'cat',stageIndex:runtime.api.stageForAge(FORMS[form]),ageTicks:FORMS[form]*20,
+    hunger:80,happiness:80,energy:80,health:80,isSick:false,sicknessType:null,
+    isSleeping:false,deathMeter:0,dying:false,affectionStreak:0,
+    transformOptions:null,companions:[],partner:null,
+    // The disposable elder fixture has already passed its 50th birthday.
+    // The disposable rare-line fixtures have already encountered their rare line.
+    achievementsUnlocked:['age-10','age-25',...(FORMS[form]>=50 ? ['age-50'] : []),...(['dragon','phoenix','god','world_tree','ghost','star','plush','unknown'].some(line=>form.startsWith(line)) ? ['rare-line-1'] : [])],
+  });
+  return state;
 }
 
 function scriptJson(value) {
@@ -54,7 +46,16 @@ function attribute(value) {
 }
 
 function buildBootstrap(defaultPreset,defaultForm) {
-  const bases=Object.fromEntries(Object.keys(FORMS).map(form=>[form,runtimeFreshPet(form)]));
+  // All 248 fixtures need independent fresh states, not 248 retained VM runtimes.
+  const previousDirectory=process.cwd();
+  let bases;
+  try {
+    process.chdir(ROOT);
+    const runtime=require('../tests/helpers/runtime-harness.cjs').harness();
+    bases=Object.fromEntries(Object.keys(FORMS).map(form=>[form,runtimeFreshPet(form,runtime)]));
+  } finally {
+    process.chdir(previousDirectory);
+  }
   return `<script id="cat-expression-preview-bootstrap">
 (() => {
   'use strict';
