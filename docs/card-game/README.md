@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [387](387-new-seed-mixed-replay.md) | 六段階終了証明2件・次手番ドロー2件・次優先者pass2件を6 eventで再生 |
+
 | [386](386-new-seed-mixed-replay.md) | C-chicken開始時応答のseeded pass、唯一pass3件を監査・再生 |
 
 | [385](385-new-seed-mixed-replay.md) | 01-Aの107/114/116を最後まで監査、通常pass2件・seeded交換2件を再生 |
