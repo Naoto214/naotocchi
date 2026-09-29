@@ -91,6 +91,21 @@ async function withPage(browser, fn) {
           assert.equal(await page.$('#bootRescue'), null, `${engine}: no panel after a normal boot`);
           assert.deepEqual(errors, [], `${engine}: no page errors`);
         });
+        // 複数タブ(RH-9 §8.2): reload は 同じ タブ なので 止まらない。2 つめの タブを ひらくと まえの タブが 読みとり専用に なる
+        {
+          const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
+          const booted = (p) => p.waitForFunction(() => window.__naotocchiBooted === true, null, { timeout: 15000 });
+          const notice = (p) => p.evaluate(() => (document.getElementById('message') || {}).textContent || '');
+          const a = await context.newPage();
+          await a.goto('http://127.0.0.1:5197/'); await booted(a);
+          for (let i = 0; i < 2; i++) { await a.reload(); await booted(a); await a.waitForTimeout(500); }
+          assert.doesNotMatch(await notice(a), /べつのタブ/, `${engine}: a reload is the same tab`);
+          const b = await context.newPage();
+          await b.goto('http://127.0.0.1:5197/'); await booted(b);
+          await a.waitForFunction(() => /べつのタブ/.test((document.getElementById('message') || {}).textContent || ''), null, { timeout: 5000 });
+          assert.doesNotMatch(await notice(b), /べつのタブ/, `${engine}: the newer tab keeps going`);
+          await context.close();
+        }
         console.log(`PASS ${engine}`);
       } catch (e) {
         failures.push(`${engine}: ${e.message}`);

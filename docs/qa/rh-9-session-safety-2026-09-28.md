@@ -45,6 +45,12 @@ branch: `claude/naotocchi-rh9-session-safety`
     - バックアップから もどす
     - 救済パネル
   - event は 自分の 書きこみでは こない。ほかの キーや 消去では 止まらない。
+- **同じ タブの reload は 止まらない**(CI で 見つけて 直した)
+  - reload の とき、同じ タブの まえの ページが 閉じぎわに 書いた save も storage event で とどく。
+  - 最初の 実装(どの event でも 止まる)では、reload した ページが 読みとり専用に なった。home-layout の equipment / consumables v2 / item economy v2 / crown が 赤。
+  - 直しかた: タブごとの id(`sessionStorage` の `naotocchi-tab`。reload でも のこる)を、save の 直前に 別の キー `naotocchi-save-v1-writer` に 書く。event の 書き手が 自分の タブなら むしする。
+  - 複製した タブは sessionStorage が 写るので、書く まえの revision の 判定で 止まる。
+  - 手元で 4 本 とも、この 判定が ないと 赤、あると 緑を 確かめた。
 - **あとから ひらいた タブが 引きつぐ**
   - 起動時に storage の revision を 引きつぎ、起動の save で 1 ふやす。
   - まえの タブは 次の 書きこみの まえ(または event)で 止まる。
@@ -134,5 +140,5 @@ branch: `claude/naotocchi-rh9-session-safety`
 
 ## 9. 結果
 
-- `session-safety-test`: 9 / 9、`boot-rescue-browser`: Chromium PASS(手元)
+- `session-safety-test`: 9 / 9、`boot-rescue-browser`: Chromium PASS(手元。複数タブ: reload では 止まらない・2 つめの タブで まえの タブが 止まる、も 追加)
 - `npm test` 全体: **1500 / 1500 PASS、exit 0**(RH-8 後の 1491 + 9)

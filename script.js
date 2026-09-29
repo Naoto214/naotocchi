@@ -20,6 +20,19 @@
   // 自分の 知っている 値より 大きければ(べつの タブが 書いた)書かずに、このタブを 読みとり専用に する。
   // 古い コードでも 知らない キーとして のこる(rollback しても 安全)
   let knownSaveRevision = 0;
+  // どの タブが 書いたか(sessionStorage は reload でも 同じ タブなら のこる)。reload の とき、同じ タブの まえの ページが
+  // 閉じぎわに 書いた save も storage event で とどく ので、それを ほかの タブと 区別する。save の 中身には 入れない
+  const SAVE_WRITER_KEY = 'naotocchi-save-v1-writer';
+  const saveTabId = (() => {
+    try {
+      let id = sessionStorage.getItem('naotocchi-tab');
+      if (!id) { id = Date.now().toString(36) + Math.random().toString(36).slice(2, 8); sessionStorage.setItem('naotocchi-tab', id); }
+      return id;
+    } catch (e) { return null; }
+  })();
+  function markSaveWriter() {
+    if (saveTabId) try { localStorage.setItem(SAVE_WRITER_KEY, saveTabId); } catch (e) { /* best effort */ }
+  }
   let otherTabTookOver = false;
   const OTHER_TAB_MESSAGE = 'べつの タブで ひらかれています。こちらを とじるか、よみこみなおしてください';
   function storedSaveRevision(raw) {
@@ -2846,6 +2859,7 @@
       try { localStorage.setItem(SAVE_BACKUP_KEY, lastGoodSaveRaw); } catch (e) { /* backup is best effort */ }
     }
     try {
+      markSaveWriter();
       localStorage.setItem(SAVE_KEY, raw);
       knownSaveRevision = state.lifetime.saveRevision;
       lastGoodSaveRaw = raw;
@@ -17812,6 +17826,7 @@
         if (!takeSaveSnapshot(saved, true)) throw new Error('Previous save could not be retained');
       }
       if (lastGoodSaveRaw) localStorage.setItem(SAVE_BACKUP_KEY, lastGoodSaveRaw);
+      markSaveWriter();
       localStorage.setItem(SAVE_KEY, raw);
       return true;
     } catch (err) {
@@ -18406,10 +18421,15 @@
   window.addEventListener('beforeunload', () => {
     saveState();
   });
-  // RH-9: ほかの タブが save を 書いたら(storage event は 自分の 書きこみでは こない)すぐ 読みとり専用に する。
-  // セーブコードの よみこみ・バックアップから もどす も ここで 気づく(revision が 小さい save でも)
+  // RH-9: ほかの タブが save を 書いたら(セーブコードの よみこみ・もどす を ふくむ)すぐ 読みとり専用に する。
+  // storage event は 自分の 書きこみでは こないが、reload の ときは 同じ タブの まえの ページの 書きこみが とどく ので、
+  // 書いた タブ(SAVE_WRITER_KEY)が 自分なら むしする。複製した タブ(sessionStorage が 写る)は 書く まえの revision の 判定で 止まる
   window.addEventListener('storage', (e) => {
-    if (e && e.key === SAVE_KEY && e.newValue != null) yieldToOtherTab();
+    if (!e || e.key !== SAVE_KEY || e.newValue == null) return;
+    let writer = null;
+    try { writer = localStorage.getItem(SAVE_WRITER_KEY); } catch (err) { /* storage unavailable */ }
+    if (saveTabId && writer === saveTabId) return;
+    yieldToOtherTab();
   });
   function syncHomeViewport() {
     const viewport = window.visualViewport;
