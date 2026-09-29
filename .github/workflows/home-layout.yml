@@ -46,6 +46,7 @@ jobs:
       - run: npx playwright install --with-deps chromium webkit
       - run: node tests/sticker-background-browser.cjs
       - run: node tests/boot-rescue-browser.cjs
+      - run: node tests/back-navigation-browser.cjs
       - run: node tests/home-layout-regressions-browser.cjs
       - run: node tests/home-layout-browser.cjs
       - uses: actions/upload-artifact@v4
