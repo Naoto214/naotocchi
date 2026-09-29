@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [367](367-new-seed-mixed-audit.md) | 4経路のresponse/通常行動候補を横断監査 |
 | [366](366-new-seed-mixed-replay.md) | 通常pass、E-first-date起動、開始時pass2件を4 event/snapshotで再生 |
 
 | [365](365-new-seed-mixed-choice.md) | 01-A通常pass、01-B対象付きE-first-date、02-A/B唯一passを選択 |
