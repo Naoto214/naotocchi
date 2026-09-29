@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [371](371-new-seed-mixed-audit.md) | 01-A終了集合と他3経路の唯一response-passを監査 |
+
 | [370](370-new-seed-mixed-replay.md) | response-pass2件、通常pass2件を4 event/snapshotで再生 |
 
 | [369](369-new-seed-mixed-choice.md) | response-pass2件、通常pass2件を選択 |
