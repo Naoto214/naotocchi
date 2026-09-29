@@ -541,3 +541,10 @@ Sites APIで最新保存は**version72**、source `9a1c44d6ebce2eeeba8680a18a550
 - wantsPlayはCを人間が採用。本人左目（viewer-right）のみRGB3画素を変更したQA候補1枚を保存。本人右目（viewer-left）・口・鼻・身体・粒子等はpixel不変。境界 `(105,63)` の色1画素は分離のため変更、alpha／頭部シルエットは不変。候補未承認、本番PNG変更0。
 - D4 tired正式承認、ヒトデ泡監査正式完了、犬03 wantsPlay、ウスバカゲロウ07指定5枚、ヒトデ08指定10枚の承認を維持。最新strained／critical候補を含め既存画像は変更しない。
 - 詳細：[wantsPlay本人左目（viewer-right）候補QA](antlion08-wantsplay-left-eye-candidate-20260929/report.md)。手順4全体は未完了。残り候補の一括正式承認・本番置換・手順5・main取り込み・既存競合解消は行わず、人間確認待ち。
+
+## 2026-09-29 人間正式裁定：WP-CL1採用／WP-CL2不採用
+
+- wantsPlayはWP-CL1を正式採用し、本番08-wantsPlay.pngへbyte一致で反映。本人左目＝character-left / viewer-right、本人右目＝character-right / viewer-leftを固定。128pxでの自然さと顔全体の調和を正式基準とする。
+- WP-CL2は不採用、既存QA履歴のみ保持。104／80pxで白点が消えても許容、64pxで細かな眼の可読性は要求しない。正式な「かまって」状態マークで意味を補完する。128px単一PNG・通常表示系を維持し、サイズ別asset／runtime特例は作らない。
+- hungryはB・現状維持。追加修正も本番置換も行わない。D4 tiredは正式採用のまま。strained／criticalは限定候補を未承認で提示、sickの小成分保持。他候補・既存承認・粒子の通常08実在RGB基準も維持。
+- [採用検証・最終横断資料](antlion08-final-review-20260929/report.md)。旧資料の未承認記述は履歴とし、この裁定を現在状態とする。手順4全体は未完了。手順5・main取り込み・競合解消・残り候補の一括採用は行わず人間確認待ち。
