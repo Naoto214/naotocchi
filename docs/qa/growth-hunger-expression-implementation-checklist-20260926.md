@@ -600,3 +600,13 @@ Sites APIで最新保存は**version72**、source `9a1c44d6ebce2eeeba8680a18a550
 - [ ] 公開Site version74の本人認証後画面。認証画面まで確認し、保存ソースの検証と区別する。
 - [ ] GitHub CI成功。Actions/check-runs/statuses各0、pendingを成功扱いしない。
 - 判定：Expression Systemは条件付き、repo全体testはGREEN、GitHub CIは未確認。詳細：[手順6報告](step6-final-20260930/report.md)。PR Draft/open/未マージ、既存dirty維持。main取り込み・競合解消・なおと制作・微細再監査なし。
+
+## 2026-09-30 人間最終承認・Expression System GREEN確定
+
+本節を現行完了状態とする。上記手順6の公開Site人間確認待ち・条件付き判定は、今回の明示承認により終了。
+
+- [x] 人間最終目視承認完了。公開Site認証後画面の人間確認、画像／表情の追加目視、128／104／80／64px追加比較、1px監査、美的微調整を残件から除外。
+- [x] CI 0件をfresh調査。workflowは2本存在。pushはmain限定、pull_requestは既存merge conflictにより起動しない。現HEADはActions/check-runs/statuses各0・combined pendingで、queued/runningの実行待ちではない。CIは未実行と記録し、成功を捏造しない。
+- [x] 確認済みfresh全体1,850 PASS、focused1,154 PASS、名称8 PASS、quick-mode再発なし、248 resolver、15絵柄、空腹位置、z-order、save tests、実Home、version74ソース整合、非対象hash保持と人間承認を根拠にExpression System GREEN確定。今回は記録のみで正式testの再実行結果とは称さない。
+- [x] 画像・runtime・workflow変更0。既存競合維持、PR Draft/open/未マージ。main取り込み・Ready化・mergeなし。
+- 正本：[人間承認・CI調査・最終判定](step6-final-20260930/final-approval-and-ci.md)。なおと制作や追加美的監査へ進まず停止。

@@ -1,5 +1,7 @@
 # 手順6 fresh最終QA（2026-09-30 JST／2026-09-29 UTC）
 
+> **現行確定状態（2026-09-30 JST）**：人間最終目視承認は完了。Expression System **GREEN**、repo全体test **GREEN**、GitHub CIは**未実行（成功ではない）**。公開Site認証後の人間確認・追加画像目視・サイズ比較・1px監査・美的微調整は残件ではない。[最終承認とCI調査](final-approval-and-ci.md)を現行判定の正本とする。以下の「条件付き／目視残件」は、その承認前のQA実施記録として保持する。
+
 - **Expression System：条件付き。** ローカルruntime・正式asset・resolver・名称・保存fixture・Site version74保存ソースは検証済み。公開Siteの本人認証後画面は未確認のため完全GREENとはしない。
 - **repo全体test：GREEN。** 今回の正式 `npm test` はexit 0、Node test runner **1,850 PASS / 0 FAIL / 0 SKIP / 0 cancelled / 0 todo**。先行smoke・dialogue・visual QAスクリプトも成功。件数をrunnerの集計へ二重加算しない。
 - **GitHub CI：未確認。** Actions / check-runs / statusesは各0、combined pending。ローカルPASSをCI成功に置き換えない。
