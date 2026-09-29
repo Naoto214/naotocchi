@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [389](389-new-seed-mixed-replay.md) | 開始時C-chickenのseeded能力起動と唯一response-pass3件を監査・再生 |
+
 | [388](388-new-seed-mixed-replay.md) | seededたまご交換2件・有料候補に対するpass・無料C-chicken配置を監査・再生 |
 
 | [387](387-new-seed-mixed-replay.md) | 六段階終了証明2件・次手番ドロー2件・次優先者pass2件を6 eventで再生 |
