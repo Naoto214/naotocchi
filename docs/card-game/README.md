@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [401](401-new-seed-mixed-replay.md) | 4経路の応答・連鎖・通常pass・六段階終了・次手番ドローを19 eventにまとめて保存。次の交換候補も監査済み |
+
 | [400](400-new-seed-mixed-replay.md) | 有料セカイ2件に対する107・114の通常pass、116 seeded交換、唯一応答pass2件を4 eventで再生 |
 
 | [399](399-new-seed-mixed-replay.md) | 唯一応答pass3件、六段階終了・次手番ドローを5 eventで再生。C-chameleon継続分類を監査 |
