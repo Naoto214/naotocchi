@@ -23,7 +23,7 @@ remove-it: `tropical` の 行を もどすと 3 本目が 赤。
 
 ## 2. 確かめた もの(記録のみ)
 
-### #278 の 最新 head(`54ce21d8`)の asset / token
+### #278 の 最新 head(`54ce21d8`、その後の `852ac7b9` でも 同じ)の asset / token
 
 - **token が 古い(RH-3 の gate で 赤に なる)**
   - `character-world-master.v1.js`: token `d24939fa`、中身 `59b21854`
