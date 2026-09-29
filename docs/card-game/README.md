@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [384](384-new-seed-mixed-replay.md) | 終了・次手番ドロー2件、唯一response-pass1件を5 eventで再生。01-Aは複数候補を保持 |
+
 | [383](383-new-seed-mixed-audit.md) | 4経路を監査し、終了2件の六段階証明・応答唯一pass・通常行動4候補を確定 |
 
 | [382](382-new-seed-mixed-replay.md) | 4経路のresponse候補監査と唯一passを一括適用、2経路は終了入口 |
