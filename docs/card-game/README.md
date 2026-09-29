@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [392](392-new-seed-mixed-replay.md) | C-chicken開始時連鎖解決、終了前唯一passを2 eventで再生。残る応答2経路はstate保持 |
+
 | [391](391-new-seed-mixed-replay.md) | 連鎖pass、seededたまご交換、通常pass、無料C-chicken配置を4 eventで監査・再生 |
 
 | [390](390-new-seed-mixed-replay.md) | 起動済みC-chickenの連鎖pass、六段階終了・ドロー、唯一pass2件を5 eventで再生 |
