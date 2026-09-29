@@ -564,3 +564,16 @@ Sites APIで最新保存は**version72**、source `9a1c44d6ebce2eeeba8680a18a550
 - [x] hungryの現状維持判断をいったん最終確定から外し、A（現状）と本人左眼限定B（1案）を追加比較。左右はcharacter-left＝viewer-rightを固定。通常08／左右眼の座標監査を先行し、白点だけを正解としない。
 - [ ] WP-CL1／CL3、hungry A／Bの人間最終裁定。現在の正本は[追加監査報告](antlion08-eye-review-20260929/report.md)と[候補status](antlion08-eye-review-20260929/status.json)。以前のhungry維持は履歴として保持する。
 - strained A／critical A／tired D4等は維持。画像再生成・本番置換・手順5・main取り込み・競合解消なし。既存PNG全保持。
+
+## 2026-09-29 最終完了：手順4ウスバカゲロウ08・10表情本番反映
+
+本節をウスバカゲロウ08の現行状態とする。過去の未完了・人間確認待ち・CL1維持・hungry未確定は履歴。
+
+- [x] 10表情の最終人間承認：wantsPlay CL3、hungry B、strained A、critical A、tired D4、happy／sick／sulky／weak／sleepingは現在の方式D最終候補。
+- [x] 選択元PNGをbyte一致で本番へ正式反映。変更9枚、D4は既に一致し変更0。全候補原本・不採用CL1／CL2・strained B／critical B・hungry Aを履歴保持。
+- [x] 候補status・provenance・系統manifest・本台帳を同期。[最終反映正本](antlion08-production-final-20260929/report.md)／[10表情manifest](antlion08-production-final-20260929/manifest.json)。
+- [x] 非対象hash・既承認16枚＋D4・選択元とのbyte一致・focused tests・diff検査を実施（結果は最終反映正本参照）。
+- [x] **手順4のウスバカゲロウ08項目は完了。追加の人間確認待ちなし。**
+- 確定後に新しい1px差・左右非対称・縮小時の微細消失を修正課題へ追加しない。128pxで明確な破綻なし、104／80pxでゲーム上の可読性、64pxで致命的崩れなしを許容基準とする。白点消失単独は修正理由にしない。
+- CL3はviewer-right向きの3/4構図・奥側の本人左眼の意図した非対称。critical Aの53成分／189粒子画素／5.93%は危険・限界・切迫感として保持し、外れ値だけで均さない。
+- 手順5は未着手。PR Draft/open/未マージ、main取り込み・既存競合解消なし。他の未解決事項や全体最終GREENを、この完了で自動的に完了扱いしない。
