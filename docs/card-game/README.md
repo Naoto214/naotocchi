@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [403](403-new-seed-mixed-replay.md) | Bの4ターンを31 eventで保存。C-chameleon無料配置の全合法候補・安全条件・有料比較を検証。全経路R9のA交換へ |
+
 | [402](402-new-seed-mixed-replay.md) | Aの4ターンの交換・開始時応答/連鎖・通常pass・六段階終了・Bドローを30 eventで保存 |
 
 | [401](401-new-seed-mixed-replay.md) | 4経路の応答・連鎖・通常pass・六段階終了・次手番ドローを19 eventにまとめて保存。次の交換候補も監査済み |
