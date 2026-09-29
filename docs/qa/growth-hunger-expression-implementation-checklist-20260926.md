@@ -548,3 +548,12 @@ Sites APIで最新保存は**version72**、source `9a1c44d6ebce2eeeba8680a18a550
 - WP-CL2は不採用、既存QA履歴のみ保持。104／80pxで白点が消えても許容、64pxで細かな眼の可読性は要求しない。正式な「かまって」状態マークで意味を補完する。128px単一PNG・通常表示系を維持し、サイズ別asset／runtime特例は作らない。
 - hungryはB・現状維持。追加修正も本番置換も行わない。D4 tiredは正式採用のまま。strained／criticalは限定候補を未承認で提示、sickの小成分保持。他候補・既存承認・粒子の通常08実在RGB基準も維持。
 - [採用検証・最終横断資料](antlion08-final-review-20260929/report.md)。旧資料の未承認記述は履歴とし、この裁定を現在状態とする。手順4全体は未完了。手順5・main取り込み・競合解消・残り候補の一括採用は行わず人間確認待ち。
+
+## 2026-09-29 最新人間裁定：strained A／critical A正式採用（本番反映は保留）
+
+- [x] strained Aを正式選択。128pxの顔全体の自然さ・同一個体感を優先し、Bの口15画素修正は不採用・履歴保持。
+- [x] critical Aを正式選択。Bの18成分／30 alpha画素削除は不採用・履歴保持。Aの53成分／189粒子画素／後方占有率5.93%を意図した危険・限界・切迫の表現として保持。外れ値だけを修正根拠にせず、他表情へ密度を揃えない。
+- [x] tired D4／wantsPlay WP-CL1／hungry現状維持、sick等その他候補維持、通常08実在RGB基準を継承。候補の新規生成・修正なし。
+- [x] [人間裁定正本](antlion08-final-selection-20260929/decision.md)と[採用／不採用status・SHA・provenance](antlion08-final-selection-20260929/selection.json)を現行参照先として固定。旧QAの未承認status・推奨は履歴とする。
+- [ ] 裁定反映contact sheetの人間確認。本番一括置換はまだ行わない。
+- [ ] 手順4全体完了。手順5・Ready化・main取り込み・競合解消は引き続き保留。
