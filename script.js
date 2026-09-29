@@ -3632,7 +3632,7 @@
     const keys = kind === 'weather' ? {sunny:'sun',cloudy:'cloud',rain:'rain',snow:'snow'}
       : kind === 'time' ? {morning:'sunrise',day:'sun',evening:'sunset',night:'moon'}
       : kind === 'season' ? {spring:'cherry_blossom',summer:'sunflower',autumn:'maple_leaf',winter:'snow'}
-      : kind === 'region' ? {home:'house',forest:'tree',countryside:'wheat',sea:'wave',tropical:'palm',jungle:'palm',mountain:'mountain',snow:'snow_mountain',desert:'cactus',city:'city',memory_lake:'bubbles'} : {};
+      : kind === 'region' ? {home:'house',forest:'tree',countryside:'wheat',sea:'wave',jungle:'palm',mountain:'mountain',snow:'snow_mountain',desert:'cactus',city:'city',memory_lake:'bubbles'} : {};
     return uiIconHTML(Object.hasOwn(keys,id) ? keys[id] : '', '', fallback) || PROP_ILLUSTRATIONS?.iconHTML(fallback) || escapeHtml(fallback || '');
   }
   // Reuse only illustrations of the same object. Region/season data and saved
