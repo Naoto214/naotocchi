@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [370](370-new-seed-mixed-replay.md) | response-pass2件、通常pass2件を4 event/snapshotで再生 |
+
 | [369](369-new-seed-mixed-choice.md) | response-pass2件、通常pass2件を選択 |
 | [368](368-new-seed-mixed-audit-correction.md) | 02-Aのこいびと枠占有候補を既存331に従って訂正 |
 | [367](367-new-seed-mixed-audit.md) | 4経路のresponse/通常行動候補を横断監査 |
