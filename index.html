@@ -130,7 +130,7 @@
             <div class="age-status"><span id="ageLabel">ねんれい: 0さい</span><span id="sodachiLabel">そだち: 20</span></div>
             <span id="moneyLabel">💰 0</span>
           </div>
-          <div class="birthday-toast hidden" id="birthdayToast"></div>
+          <div class="birthday-toast hidden" id="birthdayToast" role="status" aria-live="polite"></div>
           <div class="mg-result-toast hidden" id="mgResultToast" role="status" aria-live="polite"></div>
 
           <div class="sub-status-row hidden" id="subStatusRow">
@@ -218,8 +218,8 @@
 
         </div>
 
-        <div class="minigame-overlay hidden" id="minigameOverlay"></div>
-        <div class="minigame-overlay hidden" id="meguruOverlay" aria-label="めぐる"></div>
+        <div class="minigame-overlay hidden" id="minigameOverlay" role="dialog" aria-modal="true" aria-label="ミニゲーム"></div>
+        <div class="minigame-overlay hidden" id="meguruOverlay" aria-label="めぐる" role="dialog" aria-modal="true"></div>
         <div class="mg-help hidden" id="mgHelpOverlay" role="dialog" aria-label="そうさのせつめい">
           <div class="mg-help-card">
             <div class="mg-help-title" id="mgHelpTitle"></div>
@@ -230,23 +230,23 @@
           </div>
         </div>
 
-        <div class="life-card-overlay hidden" id="lifeCardOverlay">
+        <div class="life-card-overlay hidden" id="lifeCardOverlay" role="dialog" aria-modal="true" aria-label="いっしょうカード">
           <div class="life-card" id="lifeCardBody"></div>
           <button class="life-card-next" id="lifeCardNextBtn">あたらしいたまごをむかえる</button>
         </div>
 
-        <div class="story-flash hidden" id="storyFlash">
+        <div class="story-flash hidden" id="storyFlash" role="status" aria-live="polite">
           <div class="story-flash-emoji" id="storyFlashEmoji"></div>
           <div class="story-flash-text" id="storyFlashText"></div>
         </div>
 
-        <div class="transform-overlay hidden" id="transformOverlay">
+        <div class="transform-overlay hidden" id="transformOverlay" role="dialog" aria-modal="true" aria-label="すがたをえらべるよ!">
           <div class="transform-title">すがたをえらべるよ!</div>
           <div class="transform-choices" id="transformChoices"></div>
           <button class="transform-skip-btn" id="transformSkipBtn">このままでいい</button>
         </div>
 
-        <div class="dex-overlay hidden" id="dexOverlay">
+        <div class="dex-overlay hidden" id="dexOverlay" role="dialog" aria-modal="true" aria-label="ずかん">
           <div class="dex-header">
             <span class="dex-title">ずかん</span>
             <span class="dex-progress" id="dexProgress">0 / —</span>
@@ -275,7 +275,7 @@
           </div>
         </div>
 
-        <div class="dex-detail-overlay hidden" id="dexDetailOverlay">
+        <div class="dex-detail-overlay hidden" id="dexDetailOverlay" role="dialog" aria-modal="true" aria-label="ずかんの くわしい がめん">
           <div class="dex-detail-card">
             <button class="dex-close-btn dex-detail-close" id="dexDetailCloseBtn">✕</button>
             <div class="dex-detail-emoji" id="dexDetailEmoji"></div>
@@ -286,7 +286,7 @@
           </div>
         </div>
 
-        <div class="dex-overlay hidden" id="achOverlay">
+        <div class="dex-overlay hidden" id="achOverlay" role="dialog" aria-modal="true" aria-label="じっせき">
           <div class="dex-header">
             <span class="dex-title" id="achTitle">じっせき</span>
             <span class="dex-progress" id="achProgress">0 / —</span>
@@ -300,7 +300,7 @@
           <div class="ach-grid game-list hidden" id="gameListGrid"></div>
         </div>
 
-        <div class="dex-overlay hidden" id="themeOverlay">
+        <div class="dex-overlay hidden" id="themeOverlay" role="dialog" aria-modal="true" aria-label="でざいん">
           <div class="dex-header">
             <span class="dex-title">でざいん</span>
             <button class="dex-close-btn" id="themeCloseBtn" aria-label="でざいんをとじる">✕</button>
@@ -339,7 +339,7 @@
           </div>
         </div>
 
-        <div class="wipe-overlay hidden" id="wipeOverlay">
+        <div class="wipe-overlay hidden" id="wipeOverlay" role="dialog" aria-modal="true" aria-label="⚠️ぜんぶさいしょからやりなおす">
           <div class="wipe-box">
             <div class="wipe-title">⚠️ぜんぶさいしょからやりなおす</div>
             <div class="wipe-body" id="wipeSummary"></div>
@@ -351,7 +351,7 @@
           </div>
         </div>
 
-        <div class="wipe-overlay hidden" id="wipeConfirmOverlay">
+        <div class="wipe-overlay hidden" id="wipeConfirmOverlay" role="dialog" aria-modal="true" aria-label="ほんとうにぜんぶけしますか?">
           <div class="wipe-box">
             <div class="wipe-title">ほんとうにぜんぶけしますか?</div>
             <div class="wipe-warn">けすにはしたのボタンを<b>3びょうながおし</b>してください。</div>
@@ -362,7 +362,7 @@
           </div>
         </div>
 
-        <div class="dex-overlay hidden" id="itemOverlay">
+        <div class="dex-overlay hidden" id="itemOverlay" role="dialog" aria-modal="true" aria-label="あいてむ">
           <div class="dex-header">
             <span class="dex-title">あいてむ</span>
             <span class="dex-progress" id="itemMoneyLabel">💰 0</span>
@@ -391,7 +391,7 @@
           </div>
         </div>
 
-        <div class="dex-overlay hidden" id="pickerOverlay">
+        <div class="dex-overlay hidden" id="pickerOverlay" role="dialog" aria-modal="true" aria-label="えらぶ">
           <div class="dex-header">
             <span class="dex-title" id="pickerTitle">えらぶ</span>
             <button class="dex-close-btn" id="pickerCloseBtn">✕</button>
@@ -402,7 +402,7 @@
           </div>
         </div>
 
-        <div class="companion-invite-overlay hidden" id="companionInviteOverlay">
+        <div class="companion-invite-overlay hidden" id="companionInviteOverlay" role="dialog" aria-modal="true" aria-label="なかまの さそい">
           <div class="companion-invite-card">
             <div class="companion-invite-emoji" id="companionInviteEmoji">🐾</div>
             <div class="companion-invite-title" id="companionInviteTitle"></div>
@@ -414,7 +414,7 @@
           </div>
         </div>
 
-        <div class="date-overlay hidden" id="itemSceneOverlay">
+        <div class="date-overlay hidden" id="itemSceneOverlay" role="dialog" aria-modal="true" aria-label="あいてむ">
           <div class="date-card date-reward-confirm" style="max-height:100%;overflow-y:auto" role="group" aria-labelledby="itemSceneTitle">
             <h2 class="date-title" id="itemSceneTitle"></h2>
             <div class="date-movie-actors hidden" id="itemSceneActors"></div>
@@ -423,7 +423,7 @@
             <button type="button" class="date-cancel-btn" id="itemSceneCancelBtn">またこんど</button>
           </div>
         </div>
-        <div class="date-overlay hidden" id="dateOverlay">
+        <div class="date-overlay hidden" id="dateOverlay" role="dialog" aria-modal="true" aria-label="デートをえらぼう">
           <div class="date-card" id="dateChooser">
             <div class="date-kicker">💞きょうはどこへいく?</div>
             <div class="date-title">デートをえらぼう</div>
@@ -457,7 +457,7 @@
           </div>
         </div>
 
-        <div class="dex-overlay hidden" id="menuOverlay" aria-label="メニュー">
+        <div class="dex-overlay hidden" id="menuOverlay" aria-label="メニュー" role="dialog" aria-modal="true">
           <div class="dex-header"><span class="dex-title">メニュー</span><button type="button" class="dex-close-btn" id="menuCloseBtn" aria-label="メニューをとじる">✕</button></div>
           <div class="menu-grid">
             <button type="button" id="worldBtn"><i class="care-icon ui-icon" data-ui-icon="world" aria-hidden="true"></i><span>せかい</span><small>じかん・てんき・きせつ</small></button>
@@ -470,7 +470,7 @@
             <button type="button" id="stickerBtn"><i class="care-icon ui-icon" data-ui-icon="star_badge" aria-hidden="true"></i><span>シールちょう</span><small>あつめて・はる</small></button>
           </div>
         </div>
-        <div class="dex-overlay hidden" id="worldOverlay">
+        <div class="dex-overlay hidden" id="worldOverlay" role="dialog" aria-modal="true" aria-label="せかい">
           <div class="dex-header"><span class="dex-title">せかい</span><button class="dex-close-btn" id="worldCloseBtn" aria-label="せかいをとじる">✕</button></div>
           <div class="profile-scroll">
             <div class="profile-hint">「げんざい」は、じかんをスマホの時計、てんきを現在地、きせつをスマホの日付にあわせます。てんきが取れないときは、いまいる地域の気候から予想します。</div>
@@ -485,7 +485,7 @@
           </div>
         </div>
 
-        <div class="dex-overlay hidden" id="travelOverlay">
+        <div class="dex-overlay hidden" id="travelOverlay" role="dialog" aria-modal="true" aria-label="たびにでる">
           <div class="dex-header">
             <span class="dex-title">たびにでる</span>
             <button class="dex-close-btn" id="travelCloseBtn">✕</button>
@@ -505,7 +505,7 @@
           </div>
         </div>
 
-        <div class="dex-overlay hidden" id="stickerOverlay" aria-label="シールちょう">
+        <div class="dex-overlay hidden" id="stickerOverlay" aria-label="シールちょう" role="dialog" aria-modal="true">
           <div class="dex-header"><span class="dex-title">シールちょう</span><span class="dex-progress" id="stickerProgress"></span><button type="button" class="dex-close-btn" id="stickerCloseBtn" aria-label="シールちょうをとじる">✕</button></div>
           <div class="ach-tabs sticker-tabs" id="stickerPageTabs" role="tablist"></div>
           <div class="profile-scroll sticker-scroll">
@@ -552,7 +552,7 @@
             </section>
           </div>
         </div>
-        <div class="dex-overlay hidden" id="profileOverlay">
+        <div class="dex-overlay hidden" id="profileOverlay" role="dialog" aria-modal="true" aria-label="データ">
           <div class="dex-header">
             <span class="dex-title">データ</span>
             <button class="dex-close-btn" id="profileCloseBtn">✕</button>
@@ -633,7 +633,7 @@
           </div>
         </div>
 
-        <div class="dex-overlay hidden" id="commOverlay">
+        <div class="dex-overlay hidden" id="commOverlay" role="dialog" aria-modal="true" aria-label="つうしん">
           <div class="dex-header">
             <span class="dex-title">つうしん</span>
             <button class="dex-close-btn" id="commCloseBtn">✕</button>
@@ -664,7 +664,7 @@
           </div>
         </div>
 
-        <div class="dex-overlay hidden" id="duelOverlay">
+        <div class="dex-overlay hidden" id="duelOverlay" role="dialog" aria-modal="true" aria-label="うそつきしょうぶ">
           <div class="dex-header">
             <span class="dex-title">うそつきしょうぶ</span>
             <button class="dex-close-btn" id="duelCloseBtn">✕</button>
@@ -808,7 +808,7 @@
           </div>
         </div>
 
-        <div class="game-clear-overlay hidden" id="gameClearOverlay">
+        <div class="game-clear-overlay hidden" id="gameClearOverlay" role="dialog" aria-modal="true" aria-label="GAME CLEAR">
           <img class="game-clear-art" id="gameClearArt" src="" alt="">
           <div class="game-clear-confetti" id="gameClearConfettiTop">🎉🎊✨🎉🎊✨</div>
           <div class="game-clear-title" id="gameClearTitle">GAME CLEAR</div>
@@ -873,13 +873,13 @@
   <script src="canvas-illustrations.js?v=20260925-0c241de2"></script>
   <script src="meguru.js?v=20260928-cea11cf5"></script>
   <script src="quick.js?v=20260925-302dab6e"></script>
-  <script src="games.js?v=20260925-b2c04ce6"></script>
+  <script src="games.js?v=20260929-5a399dc0"></script>
   <script src="audio.js?v=20260925-f12be965"></script>
   <script src="care-status.js?v=20260925-3d4dd0f4"></script>
   <script src="item-memories.js?v=20260925-1636293f"></script>
   <script src="item-system.js?v=20260925-b218da8f"></script>
   <script src="movie-dialogue.js?v=20260925-2b99e35a"></script>
-  <script src="script.js?v=20260929-c32d03ef"></script>
+  <script src="script.js?v=20260929-4aef1d44"></script>
   <script src="home-touch.js?v=20260925-36be057a"></script>
 </body>
 </html>

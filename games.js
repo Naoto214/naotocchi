@@ -11,6 +11,10 @@
   root.installNaotocchiMinigames = function installNaotocchiMinigames(S) {
   const sfx = typeof S.sfx === 'function' ? S.sfx : () => {};
   const perfLow = typeof S.perfLow === 'function' ? S.perfLow : () => false;
+  // RH-10(§8.6): 画面の ゆれ(当たった ときの ctx.translate)は prefers-reduced-motion では うごかさない。
+  // 引数は かならず 計算する(Math.random を 同じ 回数 つかう = ゲームの 乱数の 並びは かわらない)。照準の ゆれ など 遊びの 一部は 対象外
+  const reducedMotion = () => !!(root.matchMedia && root.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  function shakeTranslate(ctx, dx, dy) { if (!reducedMotion()) ctx.translate(dx, dy); }
   // かざりの こすうの ばいりつ(1 / 0.65 / 0.4)。perfLow() は いちばん かるい だんかい だけ true
   const perfScale = typeof S.perfScale === 'function' ? S.perfScale : () => (perfLow() ? 0.4 : 1);
   const foodIconHTML = typeof S.foodIconHTML === 'function' ? S.foodIconHTML : (_key, emoji) => emoji;
@@ -281,7 +285,7 @@
         function block(x, y, w, color, emoji, rot = 0) { ctx.save(); ctx.translate(x + w / 2, y - camY + BLOCK_H / 2); ctx.rotate(rot); ctx.fillStyle = 'rgba(0,0,0,.18)'; ctx.fillRect(-w / 2 + 3, -BLOCK_H / 2 + 4, w, BLOCK_H); const g = ctx.createLinearGradient(0, -BLOCK_H / 2, 0, BLOCK_H / 2); g.addColorStop(0, color); g.addColorStop(1, mgShade(color, 0.72)); ctx.fillStyle = g; mgRoundRect(ctx, -w / 2, -BLOCK_H / 2, w, BLOCK_H, 4); ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.fillRect(-w / 2 + 3, -BLOCK_H / 2 + 2, w - 6, 3); if (emoji && w > 18) { ctx.font = `${Math.round(BLOCK_H * 0.7)}px sans-serif`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; if (!drawStackBlockArt(ctx, emoji, Math.round(BLOCK_H * 0.7))) ctx.fillText(emoji, 0, 1); } ctx.restore(); }
         function render(now) {
           if (!ctx) return;
-          ctx.save(); if (shake > 0) ctx.translate((Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake);
+          ctx.save(); if (shake > 0) shakeTranslate(ctx, (Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake);
           const k = clamp(blocks.length / 40, 0, 1); const bg = ctx.createLinearGradient(0, 0, 0, H); bg.addColorStop(0, `rgb(${Math.round(lerp(120, 30, k))},${Math.round(lerp(180, 40, k))},${Math.round(lerp(255, 110, k))})`); bg.addColorStop(1, `rgb(${Math.round(lerp(220, 90, k))},${Math.round(lerp(235, 120, k))},${Math.round(lerp(255, 200, k))})`); ctx.fillStyle = bg; ctx.fillRect(-10, -10, W + 20, H + 20);
           ctx.fillStyle = 'rgba(255,255,255,.7)'; for (let i = 0; i < 5; i++) { const cy = ((i * 97 + 40) - camY * 0.4) % (H + 80) - 40; const cx = (i * 61) % W; ctx.beginPath(); ctx.arc(cx, cy, 12, 0, Math.PI * 2); ctx.arc(cx + 14, cy - 5, 15, 0, Math.PI * 2); ctx.arc(cx + 30, cy, 10, 0, Math.PI * 2); ctx.fill(); }
           if (GROUND - camY < H + 10) { ctx.fillStyle = '#6b8e4e'; ctx.fillRect(0, GROUND - camY, W, H - (GROUND - camY) + 10); }
@@ -1286,7 +1290,7 @@
           if (rem <= 0) { finish(false); return; }
           if (ctx) {
             ctx.save();
-            if (shake > 0) { ctx.translate((Math.random() - .5) * shake, (Math.random() - .5) * shake); shake = Math.max(0, shake - 0.5); }
+            if (shake > 0) { shakeTranslate(ctx, (Math.random() - .5) * shake, (Math.random() - .5) * shake); shake = Math.max(0, shake - 0.5); }
             view.render(map, px, py, ang, sprites(now));
             ctx.restore();
             view.drawMinimap(map, px, py, ang, seen, [
@@ -1887,7 +1891,7 @@
       function draw(now){
         if(!ctx)return;
         ctx.save();ctx.clearRect(0,0,W,H);
-        if(shake>0){ctx.translate((Math.random()-.5)*shake,(Math.random()-.5)*shake);shake=Math.max(0,shake-0.6);}
+        if(shake>0){shakeTranslate(ctx, (Math.random() - .5) * shake, (Math.random() - .5) * shake);shake=Math.max(0,shake-0.6);}
         const bg=ctx.createRadialGradient(W*.45,H*.2,10,W*.5,H*.5,H);bg.addColorStop(0,'#2f5486');bg.addColorStop(.6,'#17263c');bg.addColorStop(1,'#0b111a');ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
         // レーン
         ctx.fillStyle='rgba(255,255,255,.06)';ctx.fillRect(LANE_X*S,LANE_GATE_Y*S,(FW-LANE_X)*S,(FH-LANE_GATE_Y)*S);
@@ -2044,7 +2048,7 @@
           if (danger) nearMs += dt * 1000;
           if (ctx) {
             ctx.save();
-            if (shake > 0) { ctx.translate((Math.random() - .5) * shake, (Math.random() - .5) * shake); shake = Math.max(0, shake - 0.5); }
+            if (shake > 0) { shakeTranslate(ctx, (Math.random() - .5) * shake, (Math.random() - .5) * shake); shake = Math.max(0, shake - 0.5); }
             const pulse = danger ? 0.35 + 0.3 * Math.abs(Math.sin(now / 160)) : 0;
             view.render(map, px, py, ang, sprites(now), { vignette: danger ? `rgba(120,0,25,${0.55 + pulse})` : undefined });
             ctx.restore();
@@ -2726,7 +2730,7 @@
         function render(now) {
           if (!ctx) return;
           ctx.save();
-          if (shake > 0) { ctx.translate((Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake); shake = Math.max(0, shake - 0.6); }
+          if (shake > 0) { shakeTranslate(ctx, (Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake); shake = Math.max(0, shake - 0.6); }
           const bg = ctx.createRadialGradient(W / 2 - panX() * 0.5, H / 2 - panY() * 0.5, 10, W / 2, H / 2, H); bg.addColorStop(0, '#182a55'); bg.addColorStop(1, '#03060f');
           ctx.fillStyle = bg; ctx.fillRect(-10, -10, W + 20, H + 20);
           mgSpaceBackdrop(ctx, W, H, now, { stars: false, top: 'rgba(0,0,0,0)', bottom: 'rgba(0,0,0,0)', blobs: [[0.25 - panX() / W * 0.2, 0.35, 0.5, 'rgba(120,70,200,.22)'], [0.8 - panX() / W * 0.2, 0.7, 0.55, 'rgba(60,150,230,.18)']] });
@@ -3630,7 +3634,7 @@
         function render(now) {
           if (!ctx) return;
           ctx.save();
-          if (shake > 0) { ctx.translate((Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake); shake = Math.max(0, shake - 0.6); }
+          if (shake > 0) { shakeTranslate(ctx, (Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake); shake = Math.max(0, shake - 0.6); }
           const bg = ctx.createLinearGradient(0, 0, 0, H); bg.addColorStop(0, rival.bg[0]); bg.addColorStop(0.75, rival.bg[1]); bg.addColorStop(0.76, rival.floor[0]); bg.addColorStop(1, rival.floor[1]);
           ctx.fillStyle = bg; ctx.fillRect(-10, -10, W + 20, H + 20);
           ctx.font = '26px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom'; ctx.globalAlpha = 0.85;
@@ -4259,7 +4263,7 @@
         }
         function render(now) {
           if (!ctx) return;
-          ctx.save(); if (shake > 0) { ctx.translate((Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake); shake = Math.max(0, shake - 0.6); }
+          ctx.save(); if (shake > 0) { shakeTranslate(ctx, (Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake); shake = Math.max(0, shake - 0.6); }
           const bg = ctx.createLinearGradient(0, 0, 0, H); bg.addColorStop(0, '#0b1030'); bg.addColorStop(1, '#22306b'); ctx.fillStyle = bg; ctx.fillRect(-10, -10, W + 20, H + 20);
           for (const s of stars) { ctx.fillStyle = `rgba(255,255,255,${0.3 + s.s * 0.5})`; ctx.fillRect(s.x, s.y, 1 + s.s, 1 + s.s); }
           ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
@@ -4383,7 +4387,7 @@
         }
         function render(now) {
           if (!ctx) return;
-          ctx.save(); if (shake > 0) { ctx.translate((Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake); shake = Math.max(0, shake - 0.5); }
+          ctx.save(); if (shake > 0) { shakeTranslate(ctx, (Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake); shake = Math.max(0, shake - 0.5); }
           const bg = ctx.createLinearGradient(0, 0, 0, H); bg.addColorStop(0, '#79c7ff'); bg.addColorStop(1, '#dff3ff'); ctx.fillStyle = bg; ctx.fillRect(-10, -10, W + 20, H + 20);
           ctx.fillStyle = 'rgba(255,255,255,.7)'; for (let i = 0; i < 5; i++) { const cx = ((i * 137 - camX * 0.3) % (W + 80) + W + 80) % (W + 80) - 40; ctx.beginPath(); ctx.ellipse(cx, 24 + (i % 3) * 14, 26, 9, 0, 0, Math.PI * 2); ctx.fill(); }
           ctx.fillStyle = 'rgba(60,140,80,.35)'; for (let i = 0; i < 6; i++) { const hx = ((i * 190 - camX * 0.5) % (W + 200) + W + 200) % (W + 200) - 100; ctx.beginPath(); ctx.moveTo(hx - 70, H - 2 * T); ctx.lineTo(hx, H - 2 * T - 60); ctx.lineTo(hx + 70, H - 2 * T); ctx.closePath(); ctx.fill(); }
@@ -5243,7 +5247,7 @@
         }
         function render(now) {
           if (!ctx) return;
-          ctx.save(); if (shake > 0) ctx.translate((Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake);
+          ctx.save(); if (shake > 0) shakeTranslate(ctx, (Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake);
           const sky = ctx.createLinearGradient(0, 0, 0, H); sky.addColorStop(0, T.sky[0]); sky.addColorStop(0.55, T.sky[1]); sky.addColorStop(0.56, T.sea[0]); sky.addColorStop(1, T.sea[1]); ctx.fillStyle = sky; ctx.fillRect(-10, -10, W + 20, H + 20);
           ctx.fillStyle = T.sun; ctx.beginPath(); ctx.arc(W * 0.78, H * 0.2, 16, 0, Math.PI * 2); ctx.fill(); if (T.deco) { ctx.font = '18px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; const jump = Math.abs(Math.sin(now / 700)); ctx.fillText(T.deco, W * 0.2 + Math.sin(now / 1500) * 20, H * 0.62 - jump * 18); }
           // うみの ライン(スピードかん)
@@ -6065,7 +6069,7 @@
         }
         function render(now) {
           if (!ctx) return;
-          ctx.save(); if (shake > 0) ctx.translate((Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake);
+          ctx.save(); if (shake > 0) shakeTranslate(ctx, (Math.random() - 0.5) * shake, (Math.random() - 0.5) * shake);
           const k = clamp(depth / 120, 0, 1); const bg = ctx.createLinearGradient(0, 0, 0, H); bg.addColorStop(0, `rgb(${Math.round(lerp(30, 5, k))},${Math.round(lerp(120, 30, k))},${Math.round(lerp(190, 80, k))})`); bg.addColorStop(1, `rgb(${Math.round(lerp(5, 2, k))},${Math.round(lerp(40, 10, k))},${Math.round(lerp(90, 40, k))})`); ctx.fillStyle = bg; ctx.fillRect(-12, -12, W + 24, H + 24);
           // ひかりの すじ
           ctx.fillStyle = 'rgba(255,255,255,.05)'; for (let i = 0; i < 5; i++) { const lx = ((i * 61 + now / 40) % (W + 60)) - 30; ctx.beginPath(); ctx.moveTo(lx, 0); ctx.lineTo(lx + 22, 0); ctx.lineTo(lx + 50, H); ctx.lineTo(lx + 10, H); ctx.fill(); }

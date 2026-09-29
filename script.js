@@ -19,6 +19,11 @@
   // RH-9 複数タブ(Roadmap §8.2): save の たびに lifetime.saveRevision を 1 ふやす。書く まえに storage の 値が
   // 自分の 知っている 値より 大きければ(べつの タブが 書いた)書かずに、このタブを 読みとり専用に する。
   // 古い コードでも 知らない キーとして のこる(rollback しても 安全)
+  // RH-10: 戻るの ための history の 層(render より まえに 使われる ので ここで 宣言する)
+  let historyLayer = false, ignoreNextPop = 0, historySyncQueued = false;
+  // RH-10: 優先度 0(critical)の おしらせ(setCriticalMessage)
+  const CRITICAL_MESSAGE_MS = 8000;
+  let criticalUntil = 0, deferredMessage = null, criticalTimer = null;
   let knownSaveRevision = 0;
   // どの タブが 書いたか(sessionStorage は reload でも 同じ タブなら のこる)。reload の とき、同じ タブの まえの ページが
   // 閉じぎわに 書いた save も storage event で とどく ので、それを ほかの タブと 区別する。save の 中身には 入れない
@@ -2303,7 +2308,7 @@
     { id: 'clear-25', emoji: '🎖️', label: 'いっしょうのたつじん', desc: '10かい100さいまでいきた', tier: 'hard5', condition: (l) => l.clears >= 10 },
     { id: 'dex-complete', emoji: '📖', label: 'ずかんコンプリート', desc: 'ずかんをぜんぶうめた', tier: 'hard5', condition: (l, s) => isDexComplete(s) },
     { id: 'shop-all', emoji: '🛍️', label: 'みにつけるものコンプリート', desc: '身につけるあいてむを全部買った', tier: 'hard5', condition: (l) => SHOP_ITEMS.every(it => (l.ownedShopItems || []).includes(it.id)) },
-    { id: 'item-all', emoji: '💯', label: 'あいてむぜんぶあつめた', desc: '身につけるものと、使い切りのあいてむを全種類集めた', tier: 'hard5', condition: (l) => SHOP_ITEMS.every(it => (l.ownedShopItems || []).includes(it.id)) && CONSUMABLE_ITEMS.every(it => (l.ownedConsumableItems || []).includes(it.id)) },
+    { id: 'item-all', emoji: '💯', label: 'あいてむぜんぶあつめた', desc: '身につけるものと、使い切りのあいてむを全種類集めた', tier: 'hard5', condition: (l) => SHOP_ITEMS.every(it => (l.ownedShopItems || []).includes(it.id)) && CONSUMABLE_ITEMS.every(it => consumableEverAcquired(l, it.id)) },
   ];
   // じっせきの だんかい(むずかしさ)。画面では この じゅんに セクション分けする
   const ACHIEVEMENT_TIERS = [
@@ -2831,7 +2836,7 @@
     if (storageWarnedAt && now - storageWarnedAt < 5 * 60 * 1000) return;
     storageWarnedAt = now;
     reportRuntimeError(new Error('localStorage quota exceeded'), 'storage');
-    try { setMessage('⚠️保存に失敗しました。「データ」でセーブコードをひかえられますが、最後に保存できた記録になる場合があります。保存できていない変更は、画面を閉じると失われます。'); } catch (e) { /* ignore */ }
+    try { setCriticalMessage('⚠️保存に失敗しました。「データ」でセーブコードをひかえられますが、最後に保存できた記録になる場合があります。保存できていない変更は、画面を閉じると失われます。'); } catch (e) { /* ignore */ }
   }
 
   // セーブコードの よみこみ中は、ページを とじる ときの じどうセーブで
@@ -2886,7 +2891,7 @@
   function yieldToOtherTab() {
     if (otherTabTookOver) return;
     otherTabTookOver = true;
-    try { setMessage(OTHER_TAB_MESSAGE); } catch (e) { /* before boot finished */ }
+    try { setCriticalMessage(OTHER_TAB_MESSAGE); } catch (e) { /* before boot finished */ }
   }
   function clamp(n, min, max) {
     return Math.max(min, Math.min(max, n));
@@ -3971,7 +3976,25 @@
     }
   }
 
+  // RH-10(Roadmap §8.5 の 優先度 0 critical だけ): 保存の 失敗・読みこみからの 復旧・複数タブ の おしらせは、
+  // ほかの おしらせに 上書き されず 8 秒 のこす。そのあいだに 来た ふつうの おしらせは 最後の 1 つだけ あとで 出す
+  // (優先度 1〜3 の queue と 雑談の 間隔は 決めて いない。いままでどおり)
+  function setCriticalMessage(msg) {
+    criticalUntil = Date.now() + CRITICAL_MESSAGE_MS;
+    deferredMessage = null;
+    showMessage(msg, CRITICAL_MESSAGE_MS);
+    clearTimeout(criticalTimer);
+    criticalTimer = setTimeout(() => {
+      criticalTimer = null; criticalUntil = 0;
+      const next = deferredMessage; deferredMessage = null;
+      if (next) showMessage(next, MESSAGE_DURATION_MS);
+    }, CRITICAL_MESSAGE_MS);
+  }
   function setMessage(msg) {
+    if (criticalUntil && Date.now() < criticalUntil) { if (msg) deferredMessage = msg; return; }
+    showMessage(msg, MESSAGE_DURATION_MS);
+  }
+  function showMessage(msg, duration) {
     message = compactJapaneseText(msg);
     if (CARE_STATUS) renderCareNotice();
     else { setCommentText(el.message, message); el.message.scrollTop = 0; }
@@ -3989,7 +4012,7 @@
         messageTimer = null;
         message = '';
         if (!gameActive) render();
-      }, MESSAGE_DURATION_MS);
+      }, duration);
     }
   }
 
@@ -9949,6 +9972,17 @@
   // 解禁されない(endingTiersReached・レインボーの 解禁も とまる)
   let grandGoalPending = null;
 
+  // RH-10(Roadmap §8.9): ④ ずかん / ⑤ PERFECT の おいわいは、見る まえに とじても 次に ひらいた とき もういちど 出す。
+  // 見おわったら(とじる / ♾️ へ)消す。人生の おわり(life)は 保存しない(いままでどおり)
+  function clearPendingGrandGoal() {
+    if (state.lifetime && state.lifetime.pendingGrandGoal) { delete state.lifetime.pendingGrandGoal; saveState(); }
+  }
+  function restorePendingGrandGoal() {
+    const goal = state.lifetime && state.lifetime.pendingGrandGoal;
+    const reached = goal === 'perfect' ? state.lifetime.perfectCleared : goal === 'dex' ? state.lifetime.dexCleared : false;
+    if (reached && !grandGoalPending) grandGoalPending = goal;
+    else if (goal && !reached) delete state.lifetime.pendingGrandGoal;
+  }
   function checkGrandGoals() {
     if (!state.lifetime) return;
     const { dexComplete, achComplete } = endingProgress();
@@ -9960,12 +9994,14 @@
     if (dexComplete && !state.lifetime.dexCleared) {
       state.lifetime.dexCleared = true;
       grandGoalPending = 'dex';
+      state.lifetime.pendingGrandGoal = 'dex';
     }
     if (achComplete && !state.lifetime.perfectCleared) {
       state.lifetime.perfectCleared = true;
       // dex-complete は全実績の一部なので、⑤成立時には④も必ず成立済み。
       // 同時成立なら PERFECT を最終表示として優先する。
       grandGoalPending = 'perfect';
+      state.lifetime.pendingGrandGoal = 'perfect';
     }
   }
 
@@ -11409,6 +11445,7 @@
   }
 
   function render() {
+    scheduleHistoryLayerSync();
     // 実時間の残りだけ待つ。保存からの再開でも5秒を延長しない。
     clearTimeout(gamePassCooldownTimer);
     const passRemaining = gamePassReadyAt() - Date.now();
@@ -12811,6 +12848,11 @@
     return memory;
   }
 
+  // RH-10(P1-8 ①): 使い切りの あいてむは「一度でも 手に入れた」で 数える。つかった / もらった 記録(ownedConsumableItems)か、
+  // いま もって いる(在庫)。死にかけた ときだけ つかわれる c_life_charm も、もって いれば 数える。save には 何も 足さない
+  function consumableEverAcquired(l, id) {
+    return (l.ownedConsumableItems || []).includes(id) || ITEM_SYSTEM.stock(state, id) > 0;
+  }
   function recordItemUse(id, consumed = true) {
     if (consumed) state.lifetime.consumablesUsed = (state.lifetime.consumablesUsed || 0) + 1;
     if (!state.lifetime.ownedConsumableItems.includes(id)) state.lifetime.ownedConsumableItems.push(id);
@@ -14277,6 +14319,7 @@
     clearConversationTimers();
     hideSpeechBubble();
     meguruActive = true;
+    scheduleHistoryLayerSync(); // RH-10: 戻るの 層
     renderWorldScene(true);
     el.screenNormal.classList.add('hidden');
     el.meguruOverlay.classList.remove('hidden');
@@ -16013,6 +16056,7 @@
     hideSpeechBubble();
     hideMinigameResultToast();
     gameActive = true;
+    scheduleHistoryLayerSync(); // RH-10: 戻るの 層(ミニゲームは render を まだ よばない)
     renderWorldScene(true);
     castMotion?.clear();
     el.device.classList.add('ui-game-active');
@@ -17472,6 +17516,7 @@
   el.gameClearCloseBtn.addEventListener('click', withFeedback(() => {
     const goal = grandGoalPending;
     grandGoalPending = null;
+    clearPendingGrandGoal();
     return goal;
   }, (goal) => {
     if (goal === 'dex' || goal === 'perfect') showAuthorGreeting(goal);
@@ -17480,6 +17525,7 @@
   el.gameClearFreePlayBtn.addEventListener('click', withFeedback(() => {
     const goal = grandGoalPending;
     grandGoalPending = null;
+    clearPendingGrandGoal();
     // ⑤ パーフェクトクリアの ごほうび: ねんれいから じゆうに なった
     // ♾️ の せかいへ はいる(enterInfinite() さんしょう)
     enterInfinite();
@@ -18332,7 +18378,7 @@
     // RH-9: かくれて いる タブでは すすめない(ブラウザの 間引きで 端末ごとに すすみかたが かわらない ように)
     if (!pageVisible()) return;
     // RH-9: べつの タブが 引きついだ あとは すすめない・書かない(案内を 出しつづける)
-    if (otherTabTookOver) { if (message !== compactJapaneseText(OTHER_TAB_MESSAGE)) setMessage(OTHER_TAB_MESSAGE); return; }
+    if (otherTabTookOver) { if (message !== compactJapaneseText(OTHER_TAB_MESSAGE)) setCriticalMessage(OTHER_TAB_MESSAGE); return; }
     // せわが できない がめんが ひらいている あいだは、じかんを とめる
     // (isTimePaused: メニュー系オーバーレイ・うそつきしょうぶ・デート・
     // なかまの さそい・おいわい・めぐる・ミニゲーム・へんしんの えらび)。
@@ -18392,7 +18438,7 @@
     saveState();
   } else {
     // 復旧できた場合は次の保存から再開。候補が全滅した場合は原本を保持する。
-    setTimeout(() => setMessage(saveWriteBlocked
+    setTimeout(() => setCriticalMessage(saveWriteBlocked
       ? 'きろくを読みこめませんでした。前のきろくを守るため、いまは保存を止めています'
       : '前のきろくから元にもどしました。内容をたしかめてください'), 250);
   }
@@ -18401,6 +18447,7 @@
   // としも とらない)。ねていれば げんきが かいふくする。もどってきたら
   // 「おかえり」の おしらせと、るすの ながさに おうじた ちいさな おみやげ
   applyOfflineProgress(Date.now(), bootSavedAt);
+  restorePendingGrandGoal();
   render();
   showPendingClownfishTransition();
   setInterval(loop, TICK_MS);
@@ -18447,21 +18494,59 @@
   window.addEventListener('resize', syncHomeViewport);
   window.visualViewport?.addEventListener('resize', syncHomeViewport);
   syncHomeViewport();
+  // RH-10(Roadmap §8.4): Escape と ブラウザの 戻る(Android の 戻る・iOS の スワイプ)は 同じ closeTopLayer を とおる。
+  // かえす 値: 'closed'(1 つ とじた・確認を 出した)/ 'stay'(とじられない 場面)/ false(home。何も しない)
+  function closeTopLayer() {
+    if (!el.wipeConfirmOverlay.classList.contains('hidden')) { cancelWipeConfirmation(); return 'closed'; }
+    if (!el.wipeOverlay.classList.contains('hidden')) { cancelWipePrompt(); return 'closed'; }
+    if (meguruActive && meguruRun && meguruRun.mapOpen) { meguruRun.closeMap(); return 'closed'; }
+    // ミニゲームは すぐには おわらせない。やめるかの 確認を 出す
+    if (gameActive) { if (el.mgQuitBtn) setMinigameQuitConfirm(true); return 'stay'; }
+    if (dateOpen || duelOpen || companionInviteOpen || state.transformOptions || grandGoalPending) return 'stay';
+    if (meguruActive) { stopMeguru(); el.menuBtn.focus(); return 'closed'; }
+    if (isAnyMenuOverlayOpen()) { closeAllMenuOverlays(); render(); el.menuBtn.focus(); return 'closed'; }
+    return false;
+  }
+  function historyLayerOpen() {
+    return gameActive || meguruActive || !!state.transformOptions || isAnyMenuOverlayOpen()
+      || !el.wipeConfirmOverlay.classList.contains('hidden') || !el.wipeOverlay.classList.contains('hidden');
+  }
+  // home 以外の 層に いる あいだだけ、history に entry を 1 つだけ もつ(層の あいだの 移動では ふやさない)。
+  // UI で 閉じて home に もどったら、その entry を history.back() で けす(その popstate は むしする)
+  // RH-10(§8.6): パネル(role=dialog)が ひらいて いる あいだ、その 下に かくれた ホームの 画面を inert に する
+  // (Tab で うしろに 行かない・読み上げで 読まない)。下の ボタンの 列と ヘッダーは パネルの きりかえに つかう ので そのまま
+  function syncModalInert() {
+    if (!el.screenNormal) return;
+    const modal = isAnyMenuOverlayOpen() && !meguruActive || !!state.transformOptions
+      || !el.wipeConfirmOverlay.classList.contains('hidden') || !el.wipeOverlay.classList.contains('hidden')
+      || !el.lifeCardOverlay.classList.contains('hidden');
+    if (el.screenNormal.inert !== modal) el.screenNormal.inert = modal;
+  }
+  function syncHistoryLayer() {
+    historySyncQueued = false;
+    syncModalInert();
+    if (typeof history === 'undefined' || typeof history.pushState !== 'function') return;
+    const open = historyLayerOpen();
+    if (open && !historyLayer) { history.pushState({ nt: 'layer' }, ''); historyLayer = true; }
+    else if (!open && historyLayer) { historyLayer = false; ignoreNextPop++; history.back(); }
+  }
+  function scheduleHistoryLayerSync() {
+    if (historySyncQueued) return;
+    historySyncQueued = true;
+    Promise.resolve().then(syncHistoryLayer);
+  }
+  window.addEventListener('popstate', () => {
+    if (ignoreNextPop) { ignoreNextPop--; return; }
+    if (!historyLayer) return; // home で 戻る: ページを はなれる(何も しない)
+    historyLayer = false;
+    closeTopLayer();
+    // まだ 層の 中(とじられない 場面・ミニゲームの 確認・層が かさなって いた)なら entry を もどして とどまる
+    syncHistoryLayer();
+  });
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
-    if (!el.wipeConfirmOverlay.classList.contains('hidden')) {
-      e.preventDefault();
-      cancelWipeConfirmation();
-      return;
-    }
-    if (!el.wipeOverlay.classList.contains('hidden')) {
-      e.preventDefault();
-      cancelWipePrompt();
-      return;
-    }
-    if (dateOpen || duelOpen || companionInviteOpen || gameActive || state.transformOptions) return;
-    if (meguruActive) { e.preventDefault(); stopMeguru(); el.menuBtn.focus(); return; }
-    if (isAnyMenuOverlayOpen()) { closeAllMenuOverlays(); render(); el.menuBtn.focus(); }
+    if (gameActive) return; // ミニゲームの Escape は ミニゲームの keydown が うけもつ(確認の 出し入れ)
+    if (closeTopLayer()) e.preventDefault();
   });
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'visible') {
