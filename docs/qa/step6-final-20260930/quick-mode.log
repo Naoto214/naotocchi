@@ -1,0 +1,18 @@
+✔ quick mode chains 3-6 second games: cue, immediate play, judge, next game within the result flash (84.023798ms)
+✔ every quick game can be solved from its own target hint and each kind of input is covered (35.541814ms)
+✔ three misses end the run, the score feeds the normal result flow, and difficulty ramps every 4 games (21.752336ms)
+✔ every game can be played on its own: a solo run repeats one game 10 times and keeps a per-game best (43.567965ms)
+✔ Quick list toggle uses its dedicated control and a selected solo starts (15.397679ms)
+✔ both Quick entries share quick-run as the Star stamp type (25.650558ms)
+✔ both Quick entries retain their game-start equipment snapshot (38.911939ms)
+✔ the production Quick voice control saves every selected mode for the audio router (57.123161ms)
+✔ an unchosen legacy pico setting migrates to reading while chosen pico remains selected (23.315554ms)
+✔ umbrella solo shows a compact cue and waits for rain before a successful swipe (14.376946ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 500.569496

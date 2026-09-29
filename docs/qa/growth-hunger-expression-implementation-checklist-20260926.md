@@ -589,3 +589,14 @@ Sites APIで最新保存は**version72**、source `9a1c44d6ebce2eeeba8680a18a550
 - [x] 確認Siteを現行通常画像・正式10表情・空腹マークへ同期。31系統／248段階／2,480表情を既存ギャラリーで確認可能。公開範囲・セーブキー・選択メモを維持。
 - 詳細・検証証拠：[手順4完了と手順5同期](step5-sync-20260929/report.md)。
 - 手順6は未着手。fresh全体npm test、quick-mode原因追跡、最終セーブ互換、実Home、最終確認Site QA、CI成功確認は次工程。最終GREENではない。
+
+## 2026-09-30 手順6 fresh最終QA
+
+本節を現行QA状態とし、前節の「手順6未着手」は履歴とする。
+
+- [x] 最新remote `a662da3c` からfresh clone・開始snapshot・全体npm testを実行。1,850 PASS / 0 FAIL。quick-modeは全体内・単独10件とも再発なし。原因特定・恒久解消とはしない。
+- [x] focused 1,154件、名称8件、248段階save fixture、31名称/248 hunger/15絵柄、247位置維持＋キノコ07 B、z-order、正式画像26枚・ヒトデ30枚のhash整合を確認。本番画像変更0。
+- [x] 実Homeのブラウザー確認（memory saveによる実runtime）、version74保存ソースの全asset/248シート照合と重点目視。既存画像3,280ファイル保持。
+- [ ] 公開Site version74の本人認証後画面。認証画面まで確認し、保存ソースの検証と区別する。
+- [ ] GitHub CI成功。Actions/check-runs/statuses各0、pendingを成功扱いしない。
+- 判定：Expression Systemは条件付き、repo全体testはGREEN、GitHub CIは未確認。詳細：[手順6報告](step6-final-20260930/report.md)。PR Draft/open/未マージ、既存dirty維持。main取り込み・競合解消・なおと制作・微細再監査なし。

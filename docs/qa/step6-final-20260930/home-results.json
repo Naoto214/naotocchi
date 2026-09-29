@@ -1,0 +1,100 @@
+{
+  "preview": "actual runtime Home / disposable memory storage",
+  "states": [
+    {
+      "form": "antlion08",
+      "preset": "normal",
+      "actual": "normal"
+    },
+    {
+      "form": "antlion08",
+      "preset": "hungry",
+      "actual": "hungry"
+    },
+    {
+      "form": "antlion08",
+      "preset": "sick",
+      "actual": "sick"
+    },
+    {
+      "form": "antlion08",
+      "preset": "tired",
+      "actual": "tired"
+    },
+    {
+      "form": "antlion08",
+      "preset": "sulky",
+      "actual": "sulky"
+    },
+    {
+      "form": "antlion08",
+      "preset": "weak",
+      "actual": "weak"
+    },
+    {
+      "form": "antlion08",
+      "preset": "critical",
+      "actual": "critical"
+    },
+    {
+      "form": "antlion08",
+      "preset": "wantsPlay",
+      "actual": "wantsPlay"
+    },
+    {
+      "form": "antlion08",
+      "preset": "sleeping",
+      "actual": "sleeping"
+    }
+  ],
+  "actions": [
+    {
+      "form": "antlion08",
+      "action": "playWithBtn",
+      "actual": "happy"
+    },
+    {
+      "form": "antlion08",
+      "action": "medicine healthy",
+      "actual": "strained"
+    }
+  ],
+  "priority": [
+    {
+      "form": "puppy",
+      "preset": "wantsPlay",
+      "actual": "wantsPlay"
+    },
+    {
+      "form": "starfish01",
+      "preset": "hungry",
+      "actual": "hungry"
+    },
+    {
+      "form": "starfish02",
+      "preset": "sick",
+      "actual": "sick"
+    },
+    {
+      "form": "starfish03",
+      "preset": "sick",
+      "actual": "sick"
+    },
+    {
+      "form": "starfish08",
+      "preset": "hungry",
+      "actual": "hungry"
+    },
+    {
+      "form": "antlion07",
+      "preset": "tired",
+      "actual": "tired"
+    },
+    {
+      "form": "mushroom07",
+      "preset": "hungry",
+      "actual": "hungry"
+    }
+  ],
+  "limitations": "No mobile viewport emulation; asynchronous srcdoc transitions gave stale early screenshots; only verified captures retained."
+}
