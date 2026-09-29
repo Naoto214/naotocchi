@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [375](375-new-seed-mixed-choice.md) | seeded交換B-032、E-first-date解決、必須終了2件を選択 |
+
 | [374](374-new-seed-mixed-audit.md) | 01-Aたまご交換9候補、01-B連鎖解決、02-A/B終了集合を監査 |
 
 | [373](373-new-seed-mixed-replay.md) | 必須終了・ドロー、連鎖2回目pass、終了前pass2件を5 event/snapshotで再生 |
