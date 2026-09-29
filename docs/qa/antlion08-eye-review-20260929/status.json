@@ -1,0 +1,26 @@
+{
+  "authority": "current user request supersedes hungry final-retain decision only",
+  "wantsPlay": {
+    "formal": "WP-CL1 maintained",
+    "CL3": {
+      "status": "pending_human_review",
+      "sha256": "86752efc4217a7eaa090742ff92ebd1676ae36e4d61392a468a55707a4eba2bd"
+    },
+    "CL2": "rejected_history_only_not_used"
+  },
+  "hungry": {
+    "A": {
+      "status": "reopened_pending_human_decision",
+      "sha256": "2780c3124a1e93e4f6c8f86f298170deedc4a861e3a9f5243c5c713be581d66c"
+    },
+    "B": {
+      "status": "pending_human_review",
+      "sha256": "cefbbf6c25c9835d09f67cda266c19f7d8e1f47ef7c28324ade9dc1e132682ce"
+    }
+  },
+  "strained": "A formal maintained",
+  "critical": "A formal maintained including intentional density",
+  "tired": "D4 maintained",
+  "production_changes": 0,
+  "step5": false
+}

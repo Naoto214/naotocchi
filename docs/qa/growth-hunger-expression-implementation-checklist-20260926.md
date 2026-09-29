@@ -557,3 +557,10 @@ Sites APIで最新保存は**version72**、source `9a1c44d6ebce2eeeba8680a18a550
 - [x] [人間裁定正本](antlion08-final-selection-20260929/decision.md)と[採用／不採用status・SHA・provenance](antlion08-final-selection-20260929/selection.json)を現行参照先として固定。旧QAの未承認status・推奨は履歴とする。
 - [ ] 裁定反映contact sheetの人間確認。本番一括置換はまだ行わない。
 - [ ] 手順4全体完了。手順5・Ready化・main取り込み・競合解消は引き続き保留。
+
+## 2026-09-29 本人左眼（viewer-right）の追加検討：CL3／hungry B
+
+- [x] wantsPlayのWP-CL1正式採用を維持したまま、ハイライトを1px上へ移したWP-CL3をQA候補1案のみ作成。CL2は不採用のまま再利用なし。本番置換なし。
+- [x] hungryの現状維持判断をいったん最終確定から外し、A（現状）と本人左眼限定B（1案）を追加比較。左右はcharacter-left＝viewer-rightを固定。通常08／左右眼の座標監査を先行し、白点だけを正解としない。
+- [ ] WP-CL1／CL3、hungry A／Bの人間最終裁定。現在の正本は[追加監査報告](antlion08-eye-review-20260929/report.md)と[候補status](antlion08-eye-review-20260929/status.json)。以前のhungry維持は履歴として保持する。
+- strained A／critical A／tired D4等は維持。画像再生成・本番置換・手順5・main取り込み・競合解消なし。既存PNG全保持。
