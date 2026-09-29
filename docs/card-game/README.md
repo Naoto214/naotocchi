@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [374](374-new-seed-mixed-audit.md) | 01-Aたまご交換9候補、01-B連鎖解決、02-A/B終了集合を監査 |
+
 | [373](373-new-seed-mixed-replay.md) | 必須終了・ドロー、連鎖2回目pass、終了前pass2件を5 event/snapshotで再生 |
 
 | [372](372-new-seed-mixed-choice.md) | 01-A必須終了と他3経路の唯一response-passを選択 |
