@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [399](399-new-seed-mixed-replay.md) | 唯一応答pass3件、六段階終了・次手番ドローを5 eventで再生。C-chameleon継続分類を監査 |
+
 | [398](398-new-seed-mixed-replay.md) | 開始時応答の116 seeded pass、終了前pass、無料C-chameleon配置、seeded交換を4 eventで再生 |
 
 | [397](397-new-seed-mixed-replay.md) | seededたまご交換、107・114通常pass、唯一応答pass、六段階終了・ドローを5 eventで再生 |
