@@ -46,3 +46,9 @@ Only after terminal local gates and review are green may this exact merge commit
 General same-URL image-cache/publication architecture remains a separate unresolved RH-11-related item. Human Expression approval remains complete. No additional size/pixel/beauty gate has been introduced.
 
 Logs that contained trailing whitespace have readable whitespace-normalized `.log` copies and byte-exact `.log.raw.gz` originals. No test output content was removed.
+
+## Post-save CI portability correction
+
+The first remote Runtime run36641517800 on merge commit `ba4800db81714cca72c8af5d72f3aea415cf602a` finished2779 PASS /1 FAIL /0 SKIP. `ci-attempt1-runtime.json` retains the failure excerpt and run identity. A copied temporary helper could not resolve sharp without the local environment's global NODE_PATH. Only its child-process dependency path is corrected; assertions, dependency versions, runtime and images are unchanged. The follow-up commit preserves the original two-parent merge commit as its parent. `npm-test-ci-portable.log.gz` / `focused-ci-portable.log.gz` and matching exit files supersede earlier local logs for the final test tree; these explicitly run with NODE_PATH empty. Remote CI must be observed again on that saved follow-up SHA.
+
+Portable-environment terminal rerun: **2780 PASS / 0 FAIL / 0 SKIP**; focused **1306 / 0 / 0**. Main runtime, all prior save/Home/Site checks remain bound to identical product bytes. Image recheck:3289/3289 unchanged.

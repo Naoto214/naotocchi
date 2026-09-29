@@ -405,7 +405,10 @@ test('normalization produces identical framing for high-resolution and projected
     const base = path.join(ROOT,'assets/characters/starfish/01.png');
     const local = path.join(tmp,'assets/characters/starfish/01.png');
     const output = path.join(tmp,'assets/characters/expressions/starfish/01-hungry.png');
-    const run = () => execFileSync(process.execPath,[path.join(tmp,'tools/normalize-expression-image.cjs'),base,'starfish','01','hungry']);
+    // The copied tool lives outside the repo; resolve its dependencies from the
+    // locked installation instead of relying on an ambient global NODE_PATH.
+    const env = {...process.env, NODE_PATH:[path.join(ROOT,'node_modules'),process.env.NODE_PATH].filter(Boolean).join(path.delimiter)};
+    const run = () => execFileSync(process.execPath,[path.join(tmp,'tools/normalize-expression-image.cjs'),base,'starfish','01','hungry'],{env});
     fs.copyFileSync(base,local);
     run();
     const high = fs.readFileSync(output);

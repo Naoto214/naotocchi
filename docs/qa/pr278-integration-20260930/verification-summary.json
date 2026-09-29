@@ -3,13 +3,15 @@
     "tests": 2780,
     "pass": 2780,
     "fail": 0,
-    "skipped": 0
+    "skipped": 0,
+    "environment": "NODE_PATH empty"
   },
   "focused": {
     "tests": 1306,
     "pass": 1306,
     "fail": 0,
-    "skipped": 0
+    "skipped": 0,
+    "environment": "NODE_PATH empty"
   },
   "main_regression": {
     "tests": 211,
@@ -34,5 +36,11 @@
   "local_webkit": "unavailable, not a pass",
   "github_ci": "must be freshly checked after authorized fast-forward",
   "main": "05b31dfd4c2c2ebecc5890ffc2a23efbcfd1d032",
-  "feature_parent": "544c585a11efc383643d292a313042660fe14264"
+  "feature_parent": "544c585a11efc383643d292a313042660fe14264",
+  "ci_attempt1": {
+    "head": "ba4800db81714cca72c8af5d72f3aea415cf602a",
+    "runtime": "2779 PASS / 1 FAIL: temporary helper sharp resolution",
+    "home": "existing RH-6 CSS route ECONNRESET; fresh run required"
+  },
+  "ci_followup_scope": "Only child test dependency lookup; production runtime and all image bytes unchanged"
 }
