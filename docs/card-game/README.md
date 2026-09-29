@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [364](364-new-seed-mixed-audit.md) | 01-A通常3候補、01-B開始時response3候補、02-A/B各唯一passを監査 |
+
 | [363](363-new-seed-mixed-replay.md) | response-pass3件・seeded交換を4 event/snapshotで再生 |
 
 | [362](362-new-seed-mixed-choice.md) | response唯一pass3件、01-Bのseeded交換A-030を選択 |
