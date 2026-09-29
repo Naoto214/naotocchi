@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [377](377-new-seed-mixed-audit.md) | 376保存stateの4経路候補・stable ID・源領域を監査 |
 | [376](376-new-seed-mixed-replay.md) | seeded交換・E-first-date解決・必須終了2件を6 event/snapshotで再生 |
 
 | [375](375-new-seed-mixed-choice.md) | seeded交換B-032、E-first-date解決、必須終了2件を選択 |
