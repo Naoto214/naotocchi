@@ -736,6 +736,24 @@ harness({
 ### 8.9 RH-10 Navigation, Notifications & A11y
 §8.4、§8.5、§8.6、P1-8 の仕様の反映、`grandGoalPending` の保存(お祝いを再表示できるようにする)、bi の恋人の対象を決定的にする。
 
+> **2026-09-29 追記(RH-10 の 実装。QA: `docs/qa/rh-10-nav-a11y-2026-09-29.md`)**
+> - やった:
+>   - P1-8 ①(オーナー決定。使い切りは「一度でも 手に入れた」、PERFECT は とり消さない)
+>   - ④⑤ の おいわいを `lifetime.pendingGrandGoal` に 保存
+>   - §8.4 の 戻る(`closeTopLayer` を Escape と popstate で 共有、history は 層の あいだ 1 つ、ミニゲームは 確認)
+>   - §8.5 の 優先度 0 だけ
+>   - §8.6 の 次の もの:
+>     - dialog の 属性
+>     - 背景の inert
+>     - storyFlash / birthdayToast の status
+>     - ミニゲームの 画面の ゆれの reduced motion
+> - やらなかった(判断が 要る):
+>   - 優先度 1〜3 の queue と 分類
+>   - 当たり判定・コントラスト・再挑戦 3.6 秒・iOS・320 px
+>   - レインボーの 不具合
+>   - bi の 恋人
+>   - life の おいわいの 保存
+
 ### 8.10 RH-11 Release Hygiene & EXP-Final
 
 **PR の整理(release housekeeping)**:
