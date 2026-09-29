@@ -53,3 +53,8 @@ remove-it: `tropical` の 行を もどすと 3 本目が 赤。
 ## 4. cache token
 
 - `script.js?v=20260929-b001de03`、`style.css?v=20260929-4584fdbe`(assetHash、この 2 件)。
+
+## 5. 結果
+
+- `release-hygiene-test`: 3 / 3
+- `npm test` 全体: **1514 / 1514 PASS、exit 0**(RH-10 後の 1511 + 3)
