@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [378](378-new-seed-mixed-replay.md) | 4経路の唯一pass・無料C-box配置・seeded交換2件を選択適用 |
 | [377](377-new-seed-mixed-audit.md) | 376保存stateの4経路候補・stable ID・源領域を監査 |
 | [376](376-new-seed-mixed-replay.md) | seeded交換・E-first-date解決・必須終了2件を6 event/snapshotで再生 |
 
