@@ -1,4 +1,4 @@
-# 手順6 fresh最終QA（2026-09-30 UTC）
+# 手順6 fresh最終QA（2026-09-30 JST／2026-09-29 UTC）
 
 - **Expression System：条件付き。** ローカルruntime・正式asset・resolver・名称・保存fixture・Site version74保存ソースは検証済み。公開Siteの本人認証後画面は未確認のため完全GREENとはしない。
 - **repo全体test：GREEN。** 今回の正式 `npm test` はexit 0、Node test runner **1,850 PASS / 0 FAIL / 0 SKIP / 0 cancelled / 0 todo**。先行smoke・dialogue・visual QAスクリプトも成功。件数をrunnerの集計へ二重加算しない。
