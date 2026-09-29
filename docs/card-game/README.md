@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [373](373-new-seed-mixed-replay.md) | 必須終了・ドロー、連鎖2回目pass、終了前pass2件を5 event/snapshotで再生 |
+
 | [372](372-new-seed-mixed-choice.md) | 01-A必須終了と他3経路の唯一response-passを選択 |
 
 | [371](371-new-seed-mixed-audit.md) | 01-A終了集合と他3経路の唯一response-passを監査 |
