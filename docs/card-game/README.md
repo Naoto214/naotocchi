@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [383](383-new-seed-mixed-audit.md) | 4経路を監査し、終了2件の六段階証明・応答唯一pass・通常行動4候補を確定 |
+
 | [382](382-new-seed-mixed-replay.md) | 4経路のresponse候補監査と唯一passを一括適用、2経路は終了入口 |
 | [381](381-new-seed-mixed-replay.md) | 4経路の候補監査と無料C-box配置・通常pass2件・唯一response-passを一括適用 |
 | [380](380-new-seed-mixed-replay.md) | 4経路の候補監査と無料C-chicken配置・唯一pass3件を一括適用 |
