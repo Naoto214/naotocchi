@@ -668,7 +668,7 @@ test('plush preview uses all eight canonical stage names',()=>{
 });
 
  test('unknown preview uses canonical punctuation and suppresses disposable rare achievement flashes',()=>{
- const names=['点','ぷる','足？','目？','羽？','でっかい？','ちっちゃい？','点……？'];
+ const names=['点','ぷるたま','あしつきたま','ふたつぶたま','はねつきたま','おおたま','ちいさなたま','もどりの点'];
  const context={};
  vm.runInNewContext(fs.readFileSync(path.join(ROOT,'character-world-master.v1.js'),'utf8')+';globalThis.master=NAOTOCCHI_CHARACTER_WORLD_MASTER_V1;',context);
  assert.deepEqual(Array.from(context.master.playerSpecies.rare.find(item=>item.id==='unknown').stages),names);

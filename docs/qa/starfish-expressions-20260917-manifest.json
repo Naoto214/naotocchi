@@ -852,7 +852,15 @@
       "original_sha256": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4",
       "source_sha256": "7e2b52ebe0b4c18ac9f53695abf175c19e926219fddb41853f9d320e770a79a1",
       "final": "assets/characters/expressions/starfish/08-critical.png",
-      "final_sha256": "8fbfd9dd42a3b3f7bf01b5f7e82e435c85f4e9a8954c2e985014329e00b5313e"
+      "final_sha256": "67fe4ed67069735926dafc0f7f1a9fdb3dfb59deab38a5c36d9fca62829d0529",
+      "original_generation_final_sha256": "8fbfd9dd42a3b3f7bf01b5f7e82e435c85f4e9a8954c2e985014329e00b5313e",
+      "final_adoption": {
+        "status": "human_approved_production_adopted_locked",
+        "sha256": "67fe4ed67069735926dafc0f7f1a9fdb3dfb59deab38a5c36d9fca62829d0529",
+        "provenance": "docs/qa/step4-local-repair-20260927.json",
+        "approval": "docs/qa/starfish-bubble-final-approval-20260928.json",
+        "verification": "docs/qa/step5-sync-20260929/verification.json"
+      }
     },
     {
       "line": "starfish",
@@ -864,7 +872,15 @@
       "original_sha256": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4",
       "source_sha256": "31cb7f5fec1e2f9c2d5ae7d4d8bca7694164b6b9b804d338e59ae23023638e5d",
       "final": "assets/characters/expressions/starfish/08-happy.png",
-      "final_sha256": "12b0f356978fa07c29156057ef4076d969205176f25b7995d3f2712ecbe5be98"
+      "final_sha256": "d5fb3908d5a4ab09f30c56784ae3299499b74fcb7e8b989171f023e743431c19",
+      "original_generation_final_sha256": "12b0f356978fa07c29156057ef4076d969205176f25b7995d3f2712ecbe5be98",
+      "final_adoption": {
+        "status": "human_approved_production_adopted_locked",
+        "sha256": "d5fb3908d5a4ab09f30c56784ae3299499b74fcb7e8b989171f023e743431c19",
+        "provenance": "docs/qa/step4-local-repair-20260927.json",
+        "approval": "docs/qa/starfish-bubble-final-approval-20260928.json",
+        "verification": "docs/qa/step5-sync-20260929/verification.json"
+      }
     },
     {
       "line": "starfish",
@@ -876,7 +892,15 @@
       "original_sha256": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4",
       "source_sha256": "4fdc490cbd44c8d0b548be3e07c1a22b430d01e44167ee0227712772a8fa310c",
       "final": "assets/characters/expressions/starfish/08-hungry.png",
-      "final_sha256": "f5024a7f6f235e44618078ce77b09b08cb2c022dfab5c060845dbdcb84320452"
+      "final_sha256": "a9621df6e19c4e3039c5be4e1aba58ef9372c402c8f29554c2b45de6b041ffe7",
+      "original_generation_final_sha256": "f5024a7f6f235e44618078ce77b09b08cb2c022dfab5c060845dbdcb84320452",
+      "final_adoption": {
+        "status": "human_approved_production_adopted_locked",
+        "sha256": "a9621df6e19c4e3039c5be4e1aba58ef9372c402c8f29554c2b45de6b041ffe7",
+        "provenance": "docs/qa/step4-local-repair-20260927.json",
+        "approval": "docs/qa/starfish-bubble-final-approval-20260928.json",
+        "verification": "docs/qa/step5-sync-20260929/verification.json"
+      }
     },
     {
       "line": "starfish",
@@ -888,7 +912,15 @@
       "original_sha256": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4",
       "source_sha256": "32ab2daec9f069245f7b6618494b63d4ca6c08cbf3f3ca42975d341893556982",
       "final": "assets/characters/expressions/starfish/08-sick.png",
-      "final_sha256": "5347a0ee296fa4458fc0273386a9f743882cc727d7f2dd31fc2a9e12cadcaa2e"
+      "final_sha256": "4852f6b4cee0b8a5e7ff5ae5061c0c25c9f9b279e042cf7478a5b646c9a6e4a4",
+      "original_generation_final_sha256": "5347a0ee296fa4458fc0273386a9f743882cc727d7f2dd31fc2a9e12cadcaa2e",
+      "final_adoption": {
+        "status": "human_approved_production_adopted_locked",
+        "sha256": "4852f6b4cee0b8a5e7ff5ae5061c0c25c9f9b279e042cf7478a5b646c9a6e4a4",
+        "provenance": "docs/qa/step4-local-repair-20260927.json",
+        "approval": "docs/qa/starfish-bubble-final-approval-20260928.json",
+        "verification": "docs/qa/step5-sync-20260929/verification.json"
+      }
     },
     {
       "line": "starfish",
@@ -900,7 +932,15 @@
       "original_sha256": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4",
       "source_sha256": "9664d7a888ce2fb2a6681734ea07f93f30ab0f122d7e889bbda91af3d2aa937b",
       "final": "assets/characters/expressions/starfish/08-sleeping.png",
-      "final_sha256": "757d4d0eba59eafbaf31a6b50bd883374b7c74bc1f25429704e53b39c84da768"
+      "final_sha256": "51160b6f31dd8da5d3081764f38d937a99c8e884583f481a404f437cbb4ab0c6",
+      "original_generation_final_sha256": "757d4d0eba59eafbaf31a6b50bd883374b7c74bc1f25429704e53b39c84da768",
+      "final_adoption": {
+        "status": "human_approved_production_adopted_locked",
+        "sha256": "51160b6f31dd8da5d3081764f38d937a99c8e884583f481a404f437cbb4ab0c6",
+        "provenance": "docs/qa/step4-local-repair-20260927.json",
+        "approval": "docs/qa/starfish-bubble-final-approval-20260928.json",
+        "verification": "docs/qa/step5-sync-20260929/verification.json"
+      }
     },
     {
       "line": "starfish",
@@ -912,7 +952,15 @@
       "original_sha256": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4",
       "source_sha256": "94a1066581dd579684ef0362b9a009e86e4142eebe4912a986a7bc92e2d64426",
       "final": "assets/characters/expressions/starfish/08-strained.png",
-      "final_sha256": "5898ebaee16fa2a5e8f25c4236c4f16180f437cd5fd16370807baa6145887524"
+      "final_sha256": "b16cae6b7aa7bfbe1048c2c023f9cc82e622b47e8af7e9a8d3feb2fa27d558f0",
+      "original_generation_final_sha256": "5898ebaee16fa2a5e8f25c4236c4f16180f437cd5fd16370807baa6145887524",
+      "final_adoption": {
+        "status": "human_approved_production_adopted_locked",
+        "sha256": "b16cae6b7aa7bfbe1048c2c023f9cc82e622b47e8af7e9a8d3feb2fa27d558f0",
+        "provenance": "docs/qa/step4-local-repair-20260927.json",
+        "approval": "docs/qa/starfish-bubble-final-approval-20260928.json",
+        "verification": "docs/qa/step5-sync-20260929/verification.json"
+      }
     },
     {
       "line": "starfish",
@@ -924,7 +972,15 @@
       "original_sha256": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4",
       "source_sha256": "76fd844382310ef0a48f7aed769cb86599b27f0ea900a251ef0ccde9ee9c8fd6",
       "final": "assets/characters/expressions/starfish/08-sulky.png",
-      "final_sha256": "0fca46b69f95c67bab2b1cfff2414358bf7400303211d24334bb6aec0d1966b0"
+      "final_sha256": "e2e041c014eba37e26bafc78a63ef48043831f8e251829acb412a7a1f6a35ff9",
+      "original_generation_final_sha256": "0fca46b69f95c67bab2b1cfff2414358bf7400303211d24334bb6aec0d1966b0",
+      "final_adoption": {
+        "status": "human_approved_production_adopted_locked",
+        "sha256": "e2e041c014eba37e26bafc78a63ef48043831f8e251829acb412a7a1f6a35ff9",
+        "provenance": "docs/qa/step4-local-repair-20260927.json",
+        "approval": "docs/qa/starfish-bubble-final-approval-20260928.json",
+        "verification": "docs/qa/step5-sync-20260929/verification.json"
+      }
     },
     {
       "line": "starfish",
@@ -936,7 +992,15 @@
       "original_sha256": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4",
       "source_sha256": "c316edc252fb4f3f254c736bec9cd5e857fd444a08ae1db26641385e4f469d1f",
       "final": "assets/characters/expressions/starfish/08-tired.png",
-      "final_sha256": "882489220568bc1a09e3108021dd53ef7436f66b1a23978bed15ecfca87ea9d1"
+      "final_sha256": "407c3ba7846fcf0a58058c5054b2fc94606a5ad868583eaafa3f181a5a57e0d8",
+      "original_generation_final_sha256": "882489220568bc1a09e3108021dd53ef7436f66b1a23978bed15ecfca87ea9d1",
+      "final_adoption": {
+        "status": "human_approved_production_adopted_locked",
+        "sha256": "407c3ba7846fcf0a58058c5054b2fc94606a5ad868583eaafa3f181a5a57e0d8",
+        "provenance": "docs/qa/step4-local-repair-20260927.json",
+        "approval": "docs/qa/starfish-bubble-final-approval-20260928.json",
+        "verification": "docs/qa/step5-sync-20260929/verification.json"
+      }
     },
     {
       "line": "starfish",
@@ -948,7 +1012,15 @@
       "original_sha256": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4",
       "source_sha256": "cbf5c3d4bed98ee3c8c581c5dfdb291fa81b4170e91b3a39f492be77cd2ff211",
       "final": "assets/characters/expressions/starfish/08-wantsPlay.png",
-      "final_sha256": "b37ceff37448ece01886526efa42722b92c6596421a2a18ec28ddb37f0288921"
+      "final_sha256": "baeea72ba6b5cc5f4fd14631df82231103a314b539b3b969e52f142cd5bd9a56",
+      "original_generation_final_sha256": "b37ceff37448ece01886526efa42722b92c6596421a2a18ec28ddb37f0288921",
+      "final_adoption": {
+        "status": "human_approved_production_adopted_locked",
+        "sha256": "baeea72ba6b5cc5f4fd14631df82231103a314b539b3b969e52f142cd5bd9a56",
+        "provenance": "docs/qa/step4-local-repair-20260927.json",
+        "approval": "docs/qa/starfish-bubble-final-approval-20260928.json",
+        "verification": "docs/qa/step5-sync-20260929/verification.json"
+      }
     },
     {
       "line": "starfish",
@@ -960,7 +1032,15 @@
       "original_sha256": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4",
       "source_sha256": "98635100c7d408d9ca98de845a1fe9be073439d2e725e8c45482fa8f7524769e",
       "final": "assets/characters/expressions/starfish/08-weak.png",
-      "final_sha256": "b784efd5b848129025881db321263b4d4aea68eb86b9d365cbdcc61bc2ad1f13"
+      "final_sha256": "67bdda126378e439bc97bfe6e37682527573880d11d87372290c1158fd291d52",
+      "original_generation_final_sha256": "b784efd5b848129025881db321263b4d4aea68eb86b9d365cbdcc61bc2ad1f13",
+      "final_adoption": {
+        "status": "human_approved_production_adopted_locked",
+        "sha256": "67bdda126378e439bc97bfe6e37682527573880d11d87372290c1158fd291d52",
+        "provenance": "docs/qa/step4-local-repair-20260927.json",
+        "approval": "docs/qa/starfish-bubble-final-approval-20260928.json",
+        "verification": "docs/qa/step5-sync-20260929/verification.json"
+      }
     }
   ]
 }

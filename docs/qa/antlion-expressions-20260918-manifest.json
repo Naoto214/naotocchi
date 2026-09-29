@@ -736,7 +736,15 @@
       "original_sha256": "57f77769ec9d717b94c56086e26b770487357880975e0733232447676aa308e8",
       "source_sha256": "ace18b0b16d14e13e4fa9efab8ce75c65e7005e58f3ad76d92cc9d676c9dbbe7",
       "final": "assets/characters/expressions/antlion/07-critical.png",
-      "final_sha256": "178dfeb38b105f7b4a971dfde65a6eab2f26746cff9d04cb5d532ddd6eb228a2"
+      "final_sha256": "f1f24ed925d1fed368ebe5adc85eb9a7060a2dea9c7f8ce617e7a12c37ae5c97",
+      "original_generation_final_sha256": "178dfeb38b105f7b4a971dfde65a6eab2f26746cff9d04cb5d532ddd6eb228a2",
+      "final_adoption": {
+        "status": "human_approved_production_adopted_locked",
+        "sha256": "f1f24ed925d1fed368ebe5adc85eb9a7060a2dea9c7f8ce617e7a12c37ae5c97",
+        "provenance": "docs/qa/step4-local-repair-20260927.json",
+        "approval": "docs/qa/starfish-bubble-final-approval-20260928.json",
+        "verification": "docs/qa/step5-sync-20260929/verification.json"
+      }
     },
     {
       "line": "antlion",
@@ -760,7 +768,15 @@
       "original_sha256": "57f77769ec9d717b94c56086e26b770487357880975e0733232447676aa308e8",
       "source_sha256": "e4397b81da48a4b7454180f4c9e1417b696b15ced57b89d9ace5095b3e6b6c25",
       "final": "assets/characters/expressions/antlion/07-hungry.png",
-      "final_sha256": "7470bc5fced1ca46a1e418c9c0316efffdedbf22116e5b668690eb3c6085ebca"
+      "final_sha256": "d7dc6c4e7193534cfc0524d9beede22e7ec72a14b7eaa8cb350c68cacd745d11",
+      "original_generation_final_sha256": "7470bc5fced1ca46a1e418c9c0316efffdedbf22116e5b668690eb3c6085ebca",
+      "final_adoption": {
+        "status": "human_approved_production_adopted_locked",
+        "sha256": "d7dc6c4e7193534cfc0524d9beede22e7ec72a14b7eaa8cb350c68cacd745d11",
+        "provenance": "docs/qa/step4-local-repair-20260927.json",
+        "approval": "docs/qa/starfish-bubble-final-approval-20260928.json",
+        "verification": "docs/qa/step5-sync-20260929/verification.json"
+      }
     },
     {
       "line": "antlion",
@@ -796,7 +812,15 @@
       "original_sha256": "57f77769ec9d717b94c56086e26b770487357880975e0733232447676aa308e8",
       "source_sha256": "ae9f097c751f1b3045ef9ad5db645781afce37eb24067bc0b2c7faed0a4a4cd8",
       "final": "assets/characters/expressions/antlion/07-strained.png",
-      "final_sha256": "78bc156654b2c84fd33c35c3c32cb1336063b4ac9ad57bff1e65e2b179832893"
+      "final_sha256": "8abd70730055245f8934a95e53fc17340113ad86bf376c33b3a14a67a73df9f4",
+      "original_generation_final_sha256": "78bc156654b2c84fd33c35c3c32cb1336063b4ac9ad57bff1e65e2b179832893",
+      "final_adoption": {
+        "status": "human_approved_production_adopted_locked",
+        "sha256": "8abd70730055245f8934a95e53fc17340113ad86bf376c33b3a14a67a73df9f4",
+        "provenance": "docs/qa/step4-local-repair-20260927.json",
+        "approval": "docs/qa/starfish-bubble-final-approval-20260928.json",
+        "verification": "docs/qa/step5-sync-20260929/verification.json"
+      }
     },
     {
       "line": "antlion",
@@ -820,7 +844,15 @@
       "original_sha256": "57f77769ec9d717b94c56086e26b770487357880975e0733232447676aa308e8",
       "source_sha256": "c7daa3cc17a575b10c1be5be65a22f5b7255cbdd8f8d7c2a8ae13f1dab1f9b39",
       "final": "assets/characters/expressions/antlion/07-tired.png",
-      "final_sha256": "c9636d0a70987329065105fbcb8f94d1007cae0991a03accfdc86c3fbe88970e"
+      "final_sha256": "f8471ba9d52d557a95adda900e9564ce5a36fce19c27b4f38ca4b3a2a7837fb5",
+      "original_generation_final_sha256": "c9636d0a70987329065105fbcb8f94d1007cae0991a03accfdc86c3fbe88970e",
+      "final_adoption": {
+        "status": "human_approved_production_adopted_locked",
+        "sha256": "f8471ba9d52d557a95adda900e9564ce5a36fce19c27b4f38ca4b3a2a7837fb5",
+        "provenance": "docs/qa/step4-local-repair-20260927.json",
+        "approval": "docs/qa/starfish-bubble-final-approval-20260928.json",
+        "verification": "docs/qa/step5-sync-20260929/verification.json"
+      }
     },
     {
       "line": "antlion",
@@ -846,7 +878,15 @@
       "original_sha256": "57f77769ec9d717b94c56086e26b770487357880975e0733232447676aa308e8",
       "source_sha256": "8e1623bd61cc256e674d4250b7ca348aabb59c49d4d90cff5e3bb3bcc6c49cce",
       "final": "assets/characters/expressions/antlion/07-weak.png",
-      "final_sha256": "86a3575f1fd5b79572f9477ed49e20f8ec7cdbf394554db3cac67ade05f249ba"
+      "final_sha256": "5355d8211a77150d3e72e2618232a5411b3e3b32608fdfbcf37690d383f754b8",
+      "original_generation_final_sha256": "86a3575f1fd5b79572f9477ed49e20f8ec7cdbf394554db3cac67ade05f249ba",
+      "final_adoption": {
+        "status": "human_approved_production_adopted_locked",
+        "sha256": "5355d8211a77150d3e72e2618232a5411b3e3b32608fdfbcf37690d383f754b8",
+        "provenance": "docs/qa/step4-local-repair-20260927.json",
+        "approval": "docs/qa/starfish-bubble-final-approval-20260928.json",
+        "verification": "docs/qa/step5-sync-20260929/verification.json"
+      }
     },
     {
       "line": "antlion",
