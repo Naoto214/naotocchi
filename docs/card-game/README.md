@@ -6,6 +6,7 @@
 
 ## 現在フェーズと再開地点
 
+| [381](381-new-seed-mixed-replay.md) | 4経路の候補監査と無料C-box配置・通常pass2件・唯一response-passを一括適用 |
 | [380](380-new-seed-mixed-replay.md) | 4経路の候補監査と無料C-chicken配置・唯一pass3件を一括適用 |
 | [379](379-new-seed-mixed-replay.md) | 4経路のresponse候補監査と唯一passを一括適用 |
 | [378](378-new-seed-mixed-replay.md) | 4経路の唯一pass・無料C-box配置・seeded交換2件を選択適用 |
