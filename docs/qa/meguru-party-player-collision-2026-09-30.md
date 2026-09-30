@@ -96,13 +96,40 @@ branch: `claude/naotocchi-party-player-collision-fix`
   - `meguru-party-arrival` の めりこみの しきい値 0 → 0.5: すべりながら ふれる ぶん(0.00x)を 数えない。
   - `meguru-scenery-polish` の アーチの よびだし: 時刻を すすめて くらべて いたので 波・住人の ぶれ(±500)が アーチ(~600)に まざって いた → おなじ frame で くらべる(main でも 緑)。
 - remove-it(1 つずつ もどす): なかまの あたり・fore・`fitOffRoad` の 符号・corridor の うちがわ・`reachSlot`・`bandClear`・道の あき・ちいさな solid の 8 つは 赤。たて看板の そとがわの 上限は 箱の おさまり(`fits`)が 先に きく ので 単独では 赤に ならない(二重の まもり)。
-- `npm test` 1522 / 1522。
+- `npm test` 1522 / 1522(PR #359 取り込み 前)、**2788 / 2788(PR #359 取り込み 後の 最終)**。PR の diff に map 配置・けしき・save・corridor の 作りの 変更 なし(props の push は `solid` の 追加 だけ)。
 
-## 4. のこり(判断が いる もの / 3D へ)
+## 4. 完了範囲(2026-09-30 オーナー決定)
 
-- **道の 面の うえに ねもとが ある かたい 物**(forest 136・mountain 76・city 106): あたりを つけると 道を ふさぐ。配置を かえる(生成で 見た目を おかない)か、道を ふさぐ ことを みとめるか、3D へ まわすか の 判断が いる(停止条件「map 配置を 変更しないと 解決できない」)。この PR では さわって いない。
-- たて看板の 絵が 見る むきで 道の どちらがわに 出るかが かわる(2D の 絵の しくみ。3D へ)。
-- 半径の 統一(player 22 / なかま・住人 17.6)は 3D へ。
-- かどに 4 秒 はさまった なかまは ならびの そばへ もどる(city で 6000 frame × 27 にん に 5 かい)。
-- corridor の chart の きざみ・ひずみ による のこり(player 13・なかま 19 の かすり)。
-- 10 本の corridor・3 つの transition・memory_lake の 除外・save・travel は かえて いない(既存の テストが 全部 緑)。
+道の 面の うえに ねもとが ある かたい 物(forest 136・mountain 76・city 106)は **Option 3: forest 3D prototype へ のこす** で 確定。2D では 見た目を けさない・道を ふさがない・配置を つくりなおさない。この PR の 達成範囲を 2D collision fix の 正式な 完了範囲と する:
+
+- region の なかまの めりこみ 0(forest / mountain / city)
+- corridor の なかまの ふかい めりこみ 0
+- player の 道の そとの かたい 物への めりこみを 大きく へらした(64 / 145 / 184 → 22 / 64 / 53)
+- 道はばの 3/4 の なかは 13 地域 ぜんぶ あいて いる
+- corridor / transition / travel / save は かわらない
+- けしき・見た目・配置は かわらない
+
+## 5. 速さの baseline(3D prototype まえ)
+
+§2 の 27 にんの step(Node、`deterministic`、3000 frame の うち 300 frame 以降)を 3D prototype まえの baseline として のこす。いまは 許容。将来の 実機 / CPU 低速化の 計測は この 表と くらべる。
+
+| | main 05b31dfd | この PR |
+|---|---|---|
+| forest | 0.19 ms | **0.45 ms** |
+| mountain | 0.19 ms | **0.48 ms** |
+| city | 0.21 ms | **0.67 ms** |
+
+軽く する ためだけに なかまの あたりを よわめたり とばしたり しない。
+
+## 6. forest 3D prototype へ おくる collision の のこり(ここでは 2D を つくりなおさない)
+
+- 道の 面の うえに ねもとが ある かたい 物(136 / 76 / 106)
+- 見た目 と あたりの 完全な 統合(同じ world object に 見た目の 形と あたりの 形を もつ)
+- 物の 高さ(いまの あたりは 地面の 形 だけ)
+- 半径の ちがい(player 22 / なかま・住人 17.6)
+- たて看板の anchor と 見る むきで かわる 絵の いち
+- corridor の C5(chart の きざみ・ひずみ による のこり: player 13・なかま 19 の かすり)
+- world object の collision model の 全体
+- なかまの もどり(かどに 4 秒 はさまった なかまを ならびの そばへ もどす。city で 6000 frame × 27 にん に 5 かい)を 正式な navigation / 障害物 回避へ おきかえる
+
+10 本の corridor・3 つの transition・memory_lake の 除外・save・travel は かえて いない(既存の テストが 全部 緑)。
