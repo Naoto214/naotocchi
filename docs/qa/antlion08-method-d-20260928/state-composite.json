@@ -1,0 +1,65 @@
+{
+  "resolver_input": {
+    "state": "tired"
+  },
+  "resolved": "tired",
+  "production_asset": "assets/characters/expressions/antlion/08-tired.png",
+  "qa_candidate": "docs/qa/antlion08-method-d-20260928/tired-candidate.png",
+  "records": [
+    {
+      "size": 128,
+      "artOffsetY": 12,
+      "sweat": {
+        "left": 5.027822436146307,
+        "right": 5.181668589992464,
+        "top": 61.5,
+        "travel": 7
+      }
+    },
+    {
+      "size": 104,
+      "artOffsetY": 9.75,
+      "sweat": {
+        "left": 1.8816735591406113,
+        "right": 2.0066735591406113,
+        "top": 48.0125,
+        "travel": 7
+      }
+    },
+    {
+      "size": 80,
+      "artOffsetY": 7.5,
+      "sweat": {
+        "left": 0.9859027378004717,
+        "right": 1.0820565839543148,
+        "top": 36.825,
+        "travel": 5.6000000000000005
+      }
+    },
+    {
+      "size": 64,
+      "artOffsetY": 6,
+      "sweat": {
+        "left": 0.3887221902403759,
+        "right": 0.46564526716345433,
+        "top": 29.46,
+        "travel": 4.48
+      }
+    }
+  ],
+  "canonical_accent": "<span class=\"pet-expression-accent pet-expression-accent--tired\" aria-hidden=\"true\"><svg viewBox=\"0 0 104 104\" focusable=\"false\"><g transform=\"translate(24 13)\"><circle class=\"accent-sleepy\" cx=\"84\" cy=\"23\" r=\"7\"/><circle class=\"accent-sleepy\" cx=\"74\" cy=\"34\" r=\"3\"/></g></svg></span>",
+  "layer_order": [
+    "body",
+    "sweat z3",
+    "mark z4"
+  ],
+  "runtime_hashes": {
+    "pet-expression.js": "2286598972fd1ef4c5a88dbafd3292f6929b7bb109205ebfc5b282229ac18f8c",
+    "pet-expression.css": "3e6a9bc6262bfe485c691839931c940c0746180ca5d7d31c067180abe75040e0",
+    "care-attention.css": "356834a1a0c582cc1ae6204ec6f271da104ec779a909b63dd0a6e2dae32aa5ad",
+    "cast-bounds.js": "3844bd70323ca765ea9bc24b3486b2142c633d345b8156821d02167beefa0c1e"
+  },
+  "html": "actual CSS, frozen using existing still mode, sandboxed local frames",
+  "svg_sweat": "approximate outline, no CSS box shadow; canonical placement only",
+  "browser": "not rendered in actual Home; browser executable unavailable"
+}

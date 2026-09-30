@@ -26,6 +26,51 @@
     return Number.isFinite(value) ? value : fallback;
   }
 
+  function lifeRiskOf(state, health) {
+    const deathMeter = numeric(state, 'deathMeter', 0);
+    const lowHealthStreak = numeric(state, 'lowHealthStreak', 0);
+    const immediate = Boolean(state.dying) || deathMeter >= 80;
+    const healthLimit = health <= 0 || (health < 20 && lowHealthStreak > 0);
+    return {
+      critical: immediate || healthLimit,
+      warning: deathMeter >= 60,
+      immediate,
+    };
+  }
+
+  function band(value, strongMax, mildMax) {
+    if (value <= strongMax) return 'strong';
+    if (value <= mildMax) return 'mild';
+    return 'none';
+  }
+
+  function signals(input, options) {
+    const state = input || {};
+    const stage = String(state.stage || '').toLowerCase();
+    const playable = !['egg', 'dead', 'farewell'].includes(stage);
+    const config = options || {};
+    const immortal = Object.prototype.hasOwnProperty.call(config, 'immortal')
+      ? Boolean(config.immortal)
+      : Boolean(state.infinite);
+    const petAvailable = Object.prototype.hasOwnProperty.call(config, 'petAvailable')
+      ? Boolean(config.petAvailable)
+      : true;
+    const health = numeric(state, 'health', 100);
+    const risk = lifeRiskOf(state, health);
+
+    return {
+      playable,
+      life: !playable || immortal ? 'none' : risk.critical ? 'critical' : risk.warning ? 'warning' : 'none',
+      health: playable && health <= 25 ? 'strong' : 'none',
+      sick: playable && Boolean(state.isSick),
+      hunger: playable ? band(numeric(state, 'hunger', 100), 25, 50) : 'none',
+      energy: playable && !state.isSleeping ? band(numeric(state, 'energy', 100), 25, 50) : 'none',
+      happiness: playable ? band(numeric(state, 'happiness', 100), 25, 50) : 'none',
+      sleeping: playable && Boolean(state.isSleeping),
+      petAvailable,
+    };
+  }
+
   function nextHealthCare(state, petAvailable, lifeRecovery) {
     const hunger = numeric(state, 'hunger', 100);
     const happiness = numeric(state, 'happiness', 100);
@@ -82,20 +127,17 @@
       ? Boolean(config.petAvailable)
       : true;
     const health = numeric(state, 'health', 100);
-    const deathMeter = numeric(state, 'deathMeter', 0);
-    const lowHealthStreak = numeric(state, 'lowHealthStreak', 0);
-    const lifeRisk = Boolean(state.dying) || deathMeter >= 80;
-    const healthLimit = health <= 0 || (health < 20 && lowHealthStreak > 0);
+    const risk = lifeRiskOf(state, health);
 
-    if (!immortal && (lifeRisk || healthLimit)) {
-      const care = nextHealthCare(state, petAvailable, lifeRisk);
-      const title = lifeRisk ? 'いのちがあぶない' : 'けんこうがげんかい';
+    if (!immortal && risk.critical) {
+      const care = nextHealthCare(state, petAvailable, risk.immediate);
+      const title = risk.immediate ? 'いのちがあぶない' : 'けんこうがげんかい';
       return notice('life', 'critical', title, care.detail, 'danger', care.action, 'droop');
     }
 
     // Match the world's warning band (remaining life <= 40). Start useful
     // recovery advice before the critical band, using the real 60+ care rule.
-    if (!immortal && deathMeter >= 60) {
+    if (!immortal && risk.warning) {
       const care = nextHealthCare(state, petAvailable, true);
       return notice('life', 'warning', 'いのちがすくない', care.detail, 'danger', care.action, 'droop');
     }
@@ -201,5 +243,5 @@
     return { text: found.map((item) => item.text).join(' / '), icon: found[0].icon };
   }
 
-  return { assess, snapshot, changes };
+  return { assess, snapshot, changes, signals };
 });

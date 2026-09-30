@@ -1,0 +1,21 @@
+{
+  "authority": "2026-09-29 final explicit user approval supersedes prior CL1 maintenance and hungry pending status",
+  "wantsPlay": {
+    "formal": "CL3 adopted to production",
+    "CL1": "rejected_history_only",
+    "CL2": "rejected_history_only"
+  },
+  "hungry": {
+    "formal": "B adopted to production",
+    "A": "not_selected_history_only"
+  },
+  "strained": "A adopted to production",
+  "critical": "A adopted; intentional high density retained",
+  "tired": "D4 retained in production",
+  "other_states": "all current final candidates adopted",
+  "all_ten_locked": true,
+  "human_confirmation_pending": false,
+  "antlion08_step4": "complete",
+  "step5": false,
+  "manifest": "docs/qa/antlion08-production-final-20260929/manifest.json"
+}

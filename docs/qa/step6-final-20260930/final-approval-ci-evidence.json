@@ -1,0 +1,57 @@
+{
+  "checked_at": "2026-09-29T16:07:15.938Z",
+  "head": "e0416c8dc3a538bff38ae6a13f655536fea5bce3",
+  "tree": "de3a06978db591869b19f72ad523e612e0aab990",
+  "main": "05b31dfd4c2c2ebecc5890ffc2a23efbcfd1d032",
+  "pr": {
+    "number": 278,
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "mergeable": false,
+    "mergeable_state": "dirty"
+  },
+  "head_ci": {
+    "actions": 0,
+    "check_runs": 0,
+    "statuses": 0,
+    "combined": "pending"
+  },
+  "workflow_files": [
+    {
+      "path": ".github/workflows/home-layout.yml",
+      "blob": "ea01b931b0248d70989e0d41861bb7b984f063bf"
+    },
+    {
+      "path": ".github/workflows/runtime-smoke-test.yml",
+      "blob": "5cabfdd2b1968ce5af5f43b92221b71acfdc0e9b"
+    }
+  ],
+  "branch_historical_runs": {
+    "total": 22,
+    "current_head_runs": 0,
+    "latest_run_head": "68f368424811460cf18751b6dbdbcccd5d1ed60d",
+    "note": "Historical successes do not attest current HEAD."
+  },
+  "conclusion": "CI configured in repository, but not executed for current HEAD. Feature-branch push is excluded; pull_request workflows do not run with merge conflicts. Not a queued or running job. No CI success claimed; not a blocker for the explicitly human-approved Expression scope.",
+  "official_reference": "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request",
+  "api_limit": "actions/workflows listing endpoint rejected by connector URL allowlist. Used authorized contents/.github/workflows, exact Git blobs, Actions runs, check-runs and statuses. No administration or workflow settings changed.",
+  "human_approval": {
+    "date_jst": "2026-09-30",
+    "source": "Explicit user approval in this conversation",
+    "complete": true,
+    "remove_from_remaining": [
+      "公開Site本人認証後画面の人間確認",
+      "画像／表情の追加目視",
+      "128／104／80／64px追加比較",
+      "1px再監査",
+      "美的微調整"
+    ],
+    "automated_authenticated_site_browser_check": false
+  },
+  "verdict": {
+    "expression_system": "GREEN",
+    "repo_test": "GREEN (previous fresh 1850 PASS/0 FAIL/0 SKIP; no executable changes since)",
+    "github_ci": "未実行 (0 checks/pending; not success)"
+  }
+}

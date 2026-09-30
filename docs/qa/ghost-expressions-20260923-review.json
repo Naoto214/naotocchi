@@ -1,0 +1,647 @@
+{
+  "complete": true,
+  "count": 80,
+  "records": [
+    {
+      "path": "assets/characters/expressions/ghost/01-happy.png",
+      "sha256": "4972e644b79468d20cdcfd2f03929e83b20afed454f3dc534bc57ba8d99140dc",
+      "stage": "01",
+      "state": "happy",
+      "verdict": "ACCEPT",
+      "note": "上向き弧の喜び目と笑口。小さな滴状単一身体、上の曲がる尾、白青発光を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/01-strained.png",
+      "sha256": "9037c14dd95ff94a624c38ab8aaf78ba3ba65a1d079e9a049cee1198396cb284",
+      "stage": "01",
+      "state": "strained",
+      "verdict": "ACCEPT",
+      "note": "困り眉・下がる目と小さな引きつり笑い。滴状単一身体と細尾を保持、PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/01-hungry.png",
+      "sha256": "4a80d934f799f427e1514447546a34498d54d66c20b3da463397b6f568d615bb",
+      "stage": "01",
+      "state": "hungry",
+      "verdict": "ACCEPT",
+      "note": "求める潤んだ目と小開口で空腹。滴状単一身体と細尾を保持、PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/01-sick.png",
+      "sha256": "a99d5ed9e614dba021e1e3c2fa25476fa603bb1fdfcb5a2d5a900c5c520ac773",
+      "stage": "01",
+      "state": "sick",
+      "verdict": "ACCEPT",
+      "note": "強く狭めた目と波打つ苦痛口で病気。滴状単一身体と細尾を保持、汗等焼込なし。criticalとの差は原寸で控えめだが眉・口形は異なる。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/01-tired.png",
+      "sha256": "0957e0cc065f90401a2d769111dd9218cf0404de99e2026bc2a0bb4a9608e562",
+      "stage": "01",
+      "state": "tired",
+      "verdict": "ACCEPT",
+      "note": "半閉じ目と小さなあくび口で眠気。滴状単一身体と細尾を保持、PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/01-sulky.png",
+      "sha256": "a2a50ebc4c6b8bc311dfde96c26b230b7a66db3807362ca49ad9981c4f480379",
+      "stage": "01",
+      "state": "sulky",
+      "verdict": "ACCEPT",
+      "note": "斜めの不満目と片寄った口で拗ね。滴状単一身体と細尾を保持、PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/01-weak.png",
+      "sha256": "6d00555585d8ba71730988ce0a16be7e15f31dd046972c11b63751efd9b683bc",
+      "stage": "01",
+      "state": "weak",
+      "verdict": "ACCEPT",
+      "note": "力の抜けた下がる目と薄い下向き口。滴状単一身体と細尾を保持、PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/01-critical.png",
+      "sha256": "832e24876df42609f1e1123457db3e84f60785dcb85d97e13cd3c6328df08475",
+      "stage": "01",
+      "state": "critical",
+      "verdict": "ACCEPT",
+      "note": "苦痛眉・強く閉じた目・山形の大きい口で危険。滴状単一身体と細尾を保持、PNG内状態マークなし。sickとの差は原寸で控えめだが口眉は異なる。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/01-wantsPlay.png",
+      "sha256": "460d343ca2077918f62f2d553e629b813a84aa8d9745f25a4d51f2b5851a5d2e",
+      "stage": "01",
+      "state": "wantsPlay",
+      "verdict": "ACCEPT",
+      "note": "見開く期待目と明るい開口で遊びを求める。滴状単一身体と細尾を保持、PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/01-sleeping.png",
+      "sha256": "a5da3e16b7e421491374ccb35f1ddabbb0e183bb4280e701f7d786b5dfcd0361",
+      "stage": "01",
+      "state": "sleeping",
+      "verdict": "ACCEPT",
+      "note": "穏やかな閉じ目と小さな口で休息。滴状単一身体と細尾を保持、PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/02-happy.png",
+      "sha256": "5f9a0ccc290d991b70c3447183f326aaccf4730a1d35176044d5b8fa43983369",
+      "stage": "02",
+      "state": "happy",
+      "verdict": "ACCEPT",
+      "note": "上向き喜び目と小さな笑口。腕のない単一の幼い丸頭、左下へ巻く尾、白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/02-strained.png",
+      "sha256": "fdc965a2c449d511cd6adfd1f4d7ae49a23d675065b26bf5648b8f17ca524040",
+      "stage": "02",
+      "state": "strained",
+      "verdict": "ACCEPT",
+      "note": "力んだ眉、強く閉じる目と食いしばる口で嫌な反応。criticalとの差は眉の向きと食いしばり口で示す。腕のない単一の幼い丸頭、左下へ巻く尾、白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/02-hungry.png",
+      "sha256": "6dfe4b55dc1dc4a6dc1d482652bc088d55484e7cdb04a46359cc9c8d8274f31a",
+      "stage": "02",
+      "state": "hungry",
+      "verdict": "ACCEPT",
+      "note": "困り眉と求める目、小開口。腕のない単一の幼い丸頭、左下へ巻く尾、白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/02-sick.png",
+      "sha256": "c3981ef6d9f7d48f3e0c64ef45e85bd79be280ef903f65e98b2a18779e4addcd",
+      "stage": "02",
+      "state": "sick",
+      "verdict": "ACCEPT",
+      "note": "下がる眉と重い目、波打つ不調口。腕のない単一の幼い丸頭、左下へ巻く尾、白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/02-tired.png",
+      "sha256": "b1521418bfb5385356f401e0cbc9fa441321a14633d3ea34bf4bf1a64bb671ac",
+      "stage": "02",
+      "state": "tired",
+      "verdict": "ACCEPT",
+      "note": "重い半閉じ目と横口。腕のない単一の幼い丸頭、左下へ巻く尾、白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/02-sulky.png",
+      "sha256": "5a2fa6c39d4306073129825f6dbf37227cdf7f914d925a767a6c961a35b0d4c1",
+      "stage": "02",
+      "state": "sulky",
+      "verdict": "ACCEPT",
+      "note": "強い不満眉と縦目、尖った口。腕のない単一の幼い丸頭、左下へ巻く尾、白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/02-weak.png",
+      "sha256": "29cf12a0ef176651a3e30ec8d7c3d9d7392a4ab0caa395ab4f4f129e33d5d80a",
+      "stage": "02",
+      "state": "weak",
+      "verdict": "ACCEPT",
+      "note": "下がる眉、力のない狭い目と薄い口。腕のない単一の幼い丸頭、左下へ巻く尾、白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/02-critical.png",
+      "sha256": "2605e47e238c165199e6b25b9a92ccbe0b9a7641015692f0e943c12de564b8ea",
+      "stage": "02",
+      "state": "critical",
+      "verdict": "ACCEPT",
+      "note": "困り眉、強く閉じる目と苦痛の下向き開口。strainedとの差は眉の向きと口形で示す。腕のない単一の幼い丸頭、左下へ巻く尾、白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/02-wantsPlay.png",
+      "sha256": "cbc614c2b2ec570a77adbb7de33ad0faa5871bc562f2bd0c779271afba23f948",
+      "stage": "02",
+      "state": "wantsPlay",
+      "verdict": "ACCEPT",
+      "note": "輝いた大きな期待目と笑開口。腕のない単一の幼い丸頭、左下へ巻く尾、白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/02-sleeping.png",
+      "sha256": "f5b275fe1737d1ae933d4314fa9ca2954918f91634363368a83915e6b3ab4ba6",
+      "stage": "02",
+      "state": "sleeping",
+      "verdict": "ACCEPT",
+      "note": "穏やかな閉じ目と小横口。腕のない単一の幼い丸頭、左下へ巻く尾、白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/03-happy.png",
+      "sha256": "5de1692372702f935e0cdbf00f25c40179ac769b4a021890b900e45604fd7ba5",
+      "stage": "03",
+      "state": "happy",
+      "verdict": "ACCEPT",
+      "note": "喜びの弧の目と明るい開口。単一の丸頭、左頭房、左右の丸い手、桃色頬、分岐尾と白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/03-strained.png",
+      "sha256": "3b774495e0f6849073606f94d255206910552f1b8aafee83f5c8c62a6be1f3c6",
+      "stage": "03",
+      "state": "strained",
+      "verdict": "ACCEPT",
+      "note": "困り眉、縦目と浅い引きつり笑い。単一の丸頭、左頭房、左右の丸い手、桃色頬、分岐尾と白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/03-hungry.png",
+      "sha256": "d06d753579b7d0cf899541fb44c03297904d0c6f6c0f84e32f1df0ac89443e0e",
+      "stage": "03",
+      "state": "hungry",
+      "verdict": "ACCEPT",
+      "note": "困り眉、潤んだ要求の目と小開口。単一の丸頭、左頭房、左右の丸い手、桃色頬、分岐尾と白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/03-sick.png",
+      "sha256": "ef81974c3c19cee8b49c35cfaebfd1822ee58880dca1e18c7f4830c9ce3e5b81",
+      "stage": "03",
+      "state": "sick",
+      "verdict": "ACCEPT",
+      "note": "強く閉じる目と波形の不調口。単一の丸頭、左頭房、左右の丸い手、桃色頬、分岐尾と白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/03-tired.png",
+      "sha256": "3989899f6019aa1920225a9ee1494e42f5591b93bf1c2dc197b8e8885f487c28",
+      "stage": "03",
+      "state": "tired",
+      "verdict": "ACCEPT",
+      "note": "下がる重い瞼とあくび口。単一の丸頭、左頭房、左右の丸い手、桃色頬、分岐尾と白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/03-sulky.png",
+      "sha256": "9cf6462ab9adb917a8e0d0ae01d33991bb81755a8184ce96e62f14da772cadb7",
+      "stage": "03",
+      "state": "sulky",
+      "verdict": "ACCEPT",
+      "note": "不満眉、横へ寄る目と尖った片口。単一の丸頭、左頭房、左右の丸い手、桃色頬、分岐尾と白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/03-weak.png",
+      "sha256": "2e74b897051e9ebeca660843e0fc5d1fff3cd8f21987aee61fb49e8dbf99d3a0",
+      "stage": "03",
+      "state": "weak",
+      "verdict": "ACCEPT",
+      "note": "力のない垂れ目と小さな下向き口。単一の丸頭、左頭房、左右の丸い手、桃色頬、分岐尾と白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/03-critical.png",
+      "sha256": "08e7008719ff96a65455b7b44d15020db88de7dd79034c6ecab80038fefa9777",
+      "stage": "03",
+      "state": "critical",
+      "verdict": "ACCEPT",
+      "note": "強い困り眉、苦痛に閉じる目と大きい下向き開口。単一の丸頭、左頭房、左右の丸い手、桃色頬、分岐尾と白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/03-wantsPlay.png",
+      "sha256": "f48144b6c2d7400f4b16b91e85bb0aef2c4dadc3e48c54a1d77f5973b5d834e3",
+      "stage": "03",
+      "state": "wantsPlay",
+      "verdict": "ACCEPT",
+      "note": "輝く大きな期待目と明るい笑開口。単一の丸頭、左頭房、左右の丸い手、桃色頬、分岐尾と白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/03-sleeping.png",
+      "sha256": "def07b52ebd123bb17ab0cd45dc8554bfca248bcd84ea7fa62f9d533c7e2dcf7",
+      "stage": "03",
+      "state": "sleeping",
+      "verdict": "ACCEPT",
+      "note": "穏やかな閉じ目と小横口で休息。単一の丸頭、左頭房、左右の丸い手、桃色頬、分岐尾と白紫陰影を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/04-happy.png",
+      "sha256": "831a13d7bd7c2de60102d2c5ed30838204385bb8b79849f14e5559c177355213",
+      "stage": "04",
+      "state": "happy",
+      "verdict": "ACCEPT",
+      "note": "上向き喜び目と舌のある笑口。単一の大きな丸頭、両手、流れる分岐裾、白紫陰影を保持。舌は口の一部で状態に応じ変化。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/04-strained.png",
+      "sha256": "8108a83d872eed2289bab252944fe430eb63ff1f33ccf9b713698c0705a84d17",
+      "stage": "04",
+      "state": "strained",
+      "verdict": "ACCEPT",
+      "note": "困り眉、下がる目と引きつった笑口。単一の大きな丸頭、両手、流れる分岐裾、白紫陰影を保持。舌は口の一部で状態に応じ変化。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/04-hungry.png",
+      "sha256": "bf37bd7daaf9d8dc58bc24bb1fbe140f160f32cf20ea1be0bd98da57c2367494",
+      "stage": "04",
+      "state": "hungry",
+      "verdict": "ACCEPT",
+      "note": "求める潤んだ目と小開口。単一の大きな丸頭、両手、流れる分岐裾、白紫陰影を保持。舌は口の一部で状態に応じ変化。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/04-sick.png",
+      "sha256": "8c734450988879c6fbf9fb3b13ff3733c332f5cc2c0ec0c135ae2bb2072af6ca",
+      "stage": "04",
+      "state": "sick",
+      "verdict": "ACCEPT",
+      "note": "苦痛の細い目と波打つ不調口。単一の大きな丸頭、両手、流れる分岐裾、白紫陰影を保持。舌は口の一部で状態に応じ変化。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/04-tired.png",
+      "sha256": "74537c197f11935600808307aa14696390138b282935c44656c82b0b148bed90",
+      "stage": "04",
+      "state": "tired",
+      "verdict": "ACCEPT",
+      "note": "重い半閉じ目とあくび口。単一の大きな丸頭、両手、流れる分岐裾、白紫陰影を保持。舌は口の一部で状態に応じ変化。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/04-sulky.png",
+      "sha256": "692553ce8b1d6f2e86c8161775e17a6165721161bdc38c34e4bbef6092345595",
+      "stage": "04",
+      "state": "sulky",
+      "verdict": "ACCEPT",
+      "note": "鋭い不満目と下向き口。単一の大きな丸頭、両手、流れる分岐裾、白紫陰影を保持。舌は口の一部で状態に応じ変化。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/04-weak.png",
+      "sha256": "058fe33ec539cc161b65b713ed6d405ca591ced6145d539d4d900965cbd1f21e",
+      "stage": "04",
+      "state": "weak",
+      "verdict": "ACCEPT",
+      "note": "力のない下がる目と小開口。tiredとの差は原寸で控えめだが瞼角度と眉・口形が異なる。単一の大きな丸頭、両手、流れる分岐裾、白紫陰影を保持。舌は口の一部で状態に応じ変化。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/04-critical.png",
+      "sha256": "81dbd2d40fd76d9dfe920981b446623b84794da19ca74317ffe8bb82b8c1f017",
+      "stage": "04",
+      "state": "critical",
+      "verdict": "ACCEPT",
+      "note": "強く閉じた山形の目と大きい苦痛開口。単一の大きな丸頭、両手、流れる分岐裾、白紫陰影を保持。舌は口の一部で状態に応じ変化。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/04-wantsPlay.png",
+      "sha256": "259f9852c4d20cbba159d785ac762aa20c9d6f3cb9b410429651d998b85f481c",
+      "stage": "04",
+      "state": "wantsPlay",
+      "verdict": "ACCEPT",
+      "note": "見開く輝いた期待目と大きな笑口。単一の大きな丸頭、両手、流れる分岐裾、白紫陰影を保持。舌は口の一部で状態に応じ変化。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/04-sleeping.png",
+      "sha256": "6e3fe0a4c074810446239bbc2087dfeda6b2cbe5db34b3da5bb473dead543957",
+      "stage": "04",
+      "state": "sleeping",
+      "verdict": "ACCEPT",
+      "note": "緩い閉じ目と小口で休息。単一の大きな丸頭、両手、流れる分岐裾、白紫陰影を保持。舌は口の一部で状態に応じ変化。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/05-happy.png",
+      "sha256": "5970cb0807215a6b8350018b9c618a8183328de087bf8e3dd57ae0d12db85da4",
+      "stage": "05",
+      "state": "happy",
+      "verdict": "ACCEPT",
+      "note": "上向き喜び目と大きなギザギザ笑口。単一の大きな身体、曲がる尖った頭頂、広げた両手と裂けた尾、左上の顔なし青火玉1個を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/05-strained.png",
+      "sha256": "5655404d2097f784fbb0d4ffbed7f5b7e24864576c2d43f1b7e714c0b59f4aa3",
+      "stage": "05",
+      "state": "strained",
+      "verdict": "ACCEPT",
+      "note": "困り眉と下がる目、引きつる波形口。単一の大きな身体、曲がる尖った頭頂、広げた両手と裂けた尾、左上の顔なし青火玉1個を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/05-hungry.png",
+      "sha256": "ac2ff8d47dd67841d093b0961b1718af64969a64d21a61ca3342dd4167601f47",
+      "stage": "05",
+      "state": "hungry",
+      "verdict": "ACCEPT",
+      "note": "困り眉と求める潤んだ目、小さいギザギザ開口。単一の大きな身体、曲がる尖った頭頂、広げた両手と裂けた尾、左上の顔なし青火玉1個を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/05-sick.png",
+      "sha256": "23c658b1e4f46a73f56ebc1ece0a2378a52fc3d44dbff93d8fb1691b8b5316ab",
+      "stage": "05",
+      "state": "sick",
+      "verdict": "ACCEPT",
+      "note": "苦痛眉、重く下がる目と波打つ不調口。単一の大きな身体、曲がる尖った頭頂、広げた両手と裂けた尾、左上の顔なし青火玉1個を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/05-tired.png",
+      "sha256": "88fb08072e19471e0eafda846f0e2982c4277e2f4e7255fbfb2b51d6cf8ea113",
+      "stage": "05",
+      "state": "tired",
+      "verdict": "ACCEPT",
+      "note": "垂れた半閉じ瞼と小さい波形口。単一の大きな身体、曲がる尖った頭頂、広げた両手と裂けた尾、左上の顔なし青火玉1個を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/05-sulky.png",
+      "sha256": "c43e9afdfb9937643276647d61232860ad22360bfb52d8a6eb9cd914307be03d",
+      "stage": "05",
+      "state": "sulky",
+      "verdict": "ACCEPT",
+      "note": "鋭い不満眉と狭い目、への字口。単一の大きな身体、曲がる尖った頭頂、広げた両手と裂けた尾、左上の顔なし青火玉1個を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/05-weak.png",
+      "sha256": "9e88567964ce5ce143a11833ba5803a9383fd39e2a059b2aa466f1f6831777e6",
+      "stage": "05",
+      "state": "weak",
+      "verdict": "ACCEPT",
+      "note": "力の抜けた目と大きい下向き口。単一の大きな身体、曲がる尖った頭頂、広げた両手と裂けた尾、左上の顔なし青火玉1個を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/05-critical.png",
+      "sha256": "88f62e5d94854fd4437904db5679d81b6e3e45ddc76251e32dff859fc634f868",
+      "stage": "05",
+      "state": "critical",
+      "verdict": "ACCEPT",
+      "note": "強く閉じる目、強い苦痛眉と大きいギザギザ開口で重い危険。単一の大きな身体、曲がる尖った頭頂、広げた両手と裂けた尾、左上の顔なし青火玉1個を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/05-wantsPlay.png",
+      "sha256": "83d85132d69eae562c58636fe2e6cacbf1cbf1486bd2200c788701c058e72fa3",
+      "stage": "05",
+      "state": "wantsPlay",
+      "verdict": "ACCEPT",
+      "note": "見開く期待目と明るい大きなギザギザ笑口。青白ハイライトは瞳内に収まり、頬に流れる涙ではない。単一の大きな身体、曲がる尖った頭頂、広げた両手と裂けた尾、左上の顔なし青火玉1個を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/05-sleeping.png",
+      "sha256": "4f20c5d69895ae1007715ca991b48cfa84c5d39f82690794ee7801e9d1b59cc8",
+      "stage": "05",
+      "state": "sleeping",
+      "verdict": "ACCEPT",
+      "note": "穏やかに閉じた目と小さく緩い波形口。通常の威圧顔から明確に休息へ変化。単一の大きな身体、曲がる尖った頭頂、広げた両手と裂けた尾、左上の顔なし青火玉1個を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/06-happy.png",
+      "sha256": "8e3b5aa84abcf4b546581bc749b5104ad89d78231f731bb3da40fe18efd371e3",
+      "stage": "06",
+      "state": "happy",
+      "verdict": "ACCEPT",
+      "note": "上向き喜び目と笑口。長い頭頂の尾、垂れたひげ・手・裾、青火玉3個と左下小光を保持。PNG内状態マークなし。原寸と6倍実見。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/06-strained.png",
+      "sha256": "f10832241d231514b22b9d489c149f56aa9b0b35d850d41dc6c655367d4c32df",
+      "stage": "06",
+      "state": "strained",
+      "verdict": "ACCEPT",
+      "note": "困り眉と細めた目、引きつり笑口。長い頭頂の尾、垂れたひげ・手・裾、青火玉3個と左下小光を保持。PNG内状態マークなし。原寸と6倍実見。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/06-hungry.png",
+      "sha256": "1723bcb43ed436e8f44612186d310c72a1ba26893be98ad4aa02a45e64f6e57a",
+      "stage": "06",
+      "state": "hungry",
+      "verdict": "ACCEPT",
+      "note": "求める潤んだ目と困り眉、小開口。長い頭頂の尾、垂れたひげ・手・裾、青火玉3個と左下小光を保持。PNG内状態マークなし。原寸と6倍実見。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/06-sick.png",
+      "sha256": "27cc29699ce6c4f0b2dc1dec8340de598ea06530a032a9d95430c94bf347493d",
+      "stage": "06",
+      "state": "sick",
+      "verdict": "ACCEPT",
+      "note": "苦痛の狭い目と波形口。長い頭頂の尾、垂れたひげ・手・裾、青火玉3個と左下小光を保持。PNG内状態マークなし。原寸と6倍実見。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/06-tired.png",
+      "sha256": "e1cb7dc984bed85c9af6bbaada3883a663e39543f7e87baf4744bf509646cbd3",
+      "stage": "06",
+      "state": "tired",
+      "verdict": "ACCEPT",
+      "note": "重い垂れた瞼と下向き小口。長い頭頂の尾、垂れたひげ・手・裾、青火玉3個と左下小光を保持。PNG内状態マークなし。原寸と6倍実見。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/06-sulky.png",
+      "sha256": "bf69215957dfcdcfe8aa877f1740f8c8082568f1ff7237d5b756dfc4cd2e9ca1",
+      "stage": "06",
+      "state": "sulky",
+      "verdict": "ACCEPT",
+      "note": "横を見る不満目と尖った下向き口。長い頭頂の尾、垂れたひげ・手・裾、青火玉3個と左下小光を保持。PNG内状態マークなし。原寸と6倍実見。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/06-weak.png",
+      "sha256": "60d9fa1152f7864e95d087e432688645247b28f88dbc033fa1f9a2ae0139413f",
+      "stage": "06",
+      "state": "weak",
+      "verdict": "ACCEPT",
+      "note": "虚ろな半閉じ目と小横口。長い頭頂の尾、垂れたひげ・手・裾、青火玉3個と左下小光を保持。PNG内状態マークなし。原寸と6倍実見。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/06-critical.png",
+      "sha256": "6bc5e52c7d5b0d551b868ba9902aa4a643f7fb12c635e407824daeb3e8e90b0f",
+      "stage": "06",
+      "state": "critical",
+      "verdict": "ACCEPT",
+      "note": "苦痛に閉じる目と大きい下向き開口。長い頭頂の尾、垂れたひげ・手・裾、青火玉3個と左下小光を保持。PNG内状態マークなし。原寸と6倍実見。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/06-sleeping.png",
+      "sha256": "0db000fbc75a6f850e882f0c739bc2f03e0e156147959a726f7851e63eb42fab",
+      "stage": "06",
+      "state": "sleeping",
+      "verdict": "ACCEPT",
+      "note": "穏やかな閉じ目と小さな緩い口。元通常と同じ閉じ目系だが口の緊張が解けて休息へ変化。長い頭頂の尾、垂れたひげ・手・裾、青火玉3個と左下小光を保持。PNG内状態マークなし。原寸と6倍実見。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/06-wantsPlay.png",
+      "sha256": "a970b5566f075802bdd24aa16cf555a34a0cbb03e68f7aa974c4960745675e5c",
+      "stage": "06",
+      "state": "wantsPlay",
+      "verdict": "ACCEPT",
+      "note": "局所修正版を原寸と6倍で再実見。明るい期待目と笑開口。青白光が暗い瞳輪郭内へ収まり、下端の涙状突起が除去された。単一身体、垂れたひげ・手・裾と頭頂尾、火玉3・左下光を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/07-happy.png",
+      "sha256": "d95980c46ca972d5158d7e100f329aae9ff14488b95b7a4d739565c0a0b45a32",
+      "stage": "07",
+      "state": "happy",
+      "verdict": "ACCEPT",
+      "note": "上向き喜び目と舌の見える笑口。単一身体・胸前の両手・尾、光輪1個と顔なし火玉4個を保持。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/07-strained.png",
+      "sha256": "081099240e23aa60d2af6525c1d187d0d95861bd9213b9a65bf9b573d301b91d",
+      "stage": "07",
+      "state": "strained",
+      "verdict": "ACCEPT",
+      "note": "困り眉と閉じ目、小さな引きつり笑い。単一身体・合わせた手・尾・光輪1・火玉4保持、焼込マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/07-hungry.png",
+      "sha256": "2bccf7269bb1e0f7830b2e6f037f9cb3f24e0c326e4144b889569a7f3f84b985",
+      "stage": "07",
+      "state": "hungry",
+      "verdict": "ACCEPT",
+      "note": "潤んだ期待目、困り眉と小開口で要求。手・尾・光輪1・火玉4保持、焼込マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/07-sick.png",
+      "sha256": "4d8ff5fe0e783074319c816dbcf307afbd664c9e6da33f8eb9ad5611f4cce20a",
+      "stage": "07",
+      "state": "sick",
+      "verdict": "ACCEPT",
+      "note": "左右で力の入り方が異なる苦痛目と下向き開口。手・尾・光輪1・火玉4保持、汗等焼込なし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/07-tired.png",
+      "sha256": "e7191926c5c349d51e779891460fd9dc746f5ec73d0ad90be8f205464305b06e",
+      "stage": "07",
+      "state": "tired",
+      "verdict": "ACCEPT",
+      "note": "重い半閉じ目とあくび口。手・尾・光輪1・火玉4保持、焼込マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/07-sulky.png",
+      "sha256": "60f32935a5963695f385cf361ae9237cf2ef5cd99286db2bc89b43b324c658e3",
+      "stage": "07",
+      "state": "sulky",
+      "verdict": "ACCEPT",
+      "note": "内向きの不満眉、狭い目と尖った口で拗ね。手・尾・光輪1・火玉4保持、焼込マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/07-weak.png",
+      "sha256": "9f6f42a12c139f8275a6f0ab0f2433d039f74c875bb4f5ec0fbf7d46d026dfbd",
+      "stage": "07",
+      "state": "weak",
+      "verdict": "ACCEPT",
+      "note": "細い困り眉、力のない目、小さな下向き口。手・尾・光輪1・火玉4保持、焼込マークなし。criticalとの強度差は原寸で控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/07-critical.png",
+      "sha256": "f2e9dfcbcd8b51411326c9ebdddb677fd2609d8e0d3e8d71e882f61b6fca7de1",
+      "stage": "07",
+      "state": "critical",
+      "verdict": "ACCEPT",
+      "note": "強めの苦痛眉・細い目・幅広い下向き口。手・尾・光輪1・火玉4保持、焼込マークなし。weakとの差は原寸で控えめだが眉の強さと口幅が異なる。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/07-wantsPlay.png",
+      "sha256": "4a7dcdfeaaf11f202eb499e6680e21602e143508e40c0ed887e708852bb670f6",
+      "stage": "07",
+      "state": "wantsPlay",
+      "verdict": "ACCEPT",
+      "note": "大きく開いた期待目と明るい開口。手・尾・光輪1・火玉4保持、焼込マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/07-sleeping.png",
+      "sha256": "1884b53cf6a6f6e9c8f000caab99a4f595a062cf59736a8c97849105b8723af5",
+      "stage": "07",
+      "state": "sleeping",
+      "verdict": "ACCEPT",
+      "note": "長い穏やかな閉じ目と小さな休息口。手・尾・光輪1・火玉4保持、焼込マークなし。通常も閉じ目の段階なので通常との差は控えめ。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/08-happy.png",
+      "sha256": "8da86f7935b26075c6c7ac39619ba19abe7df026bafed6ba95d863733619e27e",
+      "stage": "08",
+      "state": "happy",
+      "verdict": "ACCEPT",
+      "note": "上向き喜び目と明るい笑開口。単一の細身発光身体、両側の突起、胸元線、長い尾と下方遊離光、光輪1個・星8個を保持。顔は主身体のみ。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/08-strained.png",
+      "sha256": "98b4a5776d4f47111f57ea3f01b31403d9b5b15a401cc68c0ac74f90605ef55a",
+      "stage": "08",
+      "state": "strained",
+      "verdict": "ACCEPT",
+      "note": "困り眉と細い目、引きつり笑いの口。単一の細身発光身体、両側の突起、胸元線、長い尾と下方遊離光、光輪1個・星8個を保持。顔は主身体のみ。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/08-hungry.png",
+      "sha256": "83b55a8c5fd05e47067b62361acaa887fc8c53ac8e7124832cb897d2a704f29b",
+      "stage": "08",
+      "state": "hungry",
+      "verdict": "ACCEPT",
+      "note": "求める潤んだ目と困り眉、小開口。単一の細身発光身体、両側の突起、胸元線、長い尾と下方遊離光、光輪1個・星8個を保持。顔は主身体のみ。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/08-sick.png",
+      "sha256": "71f74782a84633c399a1f4e88b23d2fb11eff06a275dd4cf58cbede6247363af",
+      "stage": "08",
+      "state": "sick",
+      "verdict": "ACCEPT",
+      "note": "細い苦痛目と困り眉、小さく曲がる不調口。単一の細身発光身体、両側の突起、胸元線、長い尾と下方遊離光、光輪1個・星8個を保持。顔は主身体のみ。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/08-tired.png",
+      "sha256": "5cfe654e10153d0c37672b9cfb0b352129957ed967de85a65104435b07ace161",
+      "stage": "08",
+      "state": "tired",
+      "verdict": "ACCEPT",
+      "note": "重い半閉じ瞼とあくび口。単一の細身発光身体、両側の突起、胸元線、長い尾と下方遊離光、光輪1個・星8個を保持。顔は主身体のみ。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/08-sulky.png",
+      "sha256": "84b4ecb4e2ad8cddb93da5cf9c5da7051377673fed7a111e242bc2c81d02d888",
+      "stage": "08",
+      "state": "sulky",
+      "verdict": "ACCEPT",
+      "note": "鋭い不満の目と小さくすぼめた口。単一の細身発光身体、両側の突起、胸元線、長い尾と下方遊離光、光輪1個・星8個を保持。顔は主身体のみ。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/08-weak.png",
+      "sha256": "2e9d741d2fb57ab4ffd087e60f40dbf314dc93215d5184142caefa83d6ba7ee3",
+      "stage": "08",
+      "state": "weak",
+      "verdict": "ACCEPT",
+      "note": "力のない目と下向き小口。criticalとの差は原寸で控えめ。単一の細身発光身体、両側の突起、胸元線、長い尾と下方遊離光、光輪1個・星8個を保持。顔は主身体のみ。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/08-critical.png",
+      "sha256": "365a9d79bfd1f2ef6f005c05ef465a33773f79f4c0f6ad1c953daba8bf9ceb66",
+      "stage": "08",
+      "state": "critical",
+      "verdict": "ACCEPT",
+      "note": "強めの困り眉、細い苦痛目と波打つ口。weakとの強度差は原寸で控えめだが眉と口形が異なる。単一の細身発光身体、両側の突起、胸元線、長い尾と下方遊離光、光輪1個・星8個を保持。顔は主身体のみ。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/08-wantsPlay.png",
+      "sha256": "c38129226a46be040155a1f565f4ab8cbc4771f565ec37da2e8a44f1ef4118b5",
+      "stage": "08",
+      "state": "wantsPlay",
+      "verdict": "ACCEPT",
+      "note": "見開いた期待目と明るい大きな笑開口。単一の細身発光身体、両側の突起、胸元線、長い尾と下方遊離光、光輪1個・星8個を保持。顔は主身体のみ。PNG内状態マークなし。"
+    },
+    {
+      "path": "assets/characters/expressions/ghost/08-sleeping.png",
+      "sha256": "645956c2a36829daef9d60e871b6260ae4af91e6288e891471d6a53f469040a8",
+      "stage": "08",
+      "state": "sleeping",
+      "verdict": "ACCEPT",
+      "note": "緩い閉じ目と小さな休息口。元通常も閉じ目なので差は控えめ。単一の細身発光身体、両側の突起、胸元線、長い尾と下方遊離光、光輪1個・星8個を保持。顔は主身体のみ。PNG内状態マークなし。"
+    }
+  ],
+  "accepted_count": 80
+}

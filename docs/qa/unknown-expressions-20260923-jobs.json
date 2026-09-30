@@ -1,0 +1,1922 @@
+[
+  {
+    "stage": "01",
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 is original edit target, image2 its exact nearest-neighbor enlargement. Preserve the tiny dark purple dot creature, round silhouette, placement, purple rim glow, blue upper-left glint and both original detached particles exactly. Change ONLY existing white glowing eyes and tiny mouth to joyful: eyes form uplifted small smiling arcs, mouth a small open happy smile. Keep face small and positioned exactly as original, same white/pale purple face colors. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution pixel art with square pixels; genuinely transparent PNG. Keep original geometry, scale, hues and brightness; no soft vector contours. One sprite only.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f2fa1739-012f-4f8f-9368-faeffe07cf43.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/01-happy.png",
+    "original": "assets/characters/unknown/01.png",
+    "final": "assets/characters/expressions/unknown/01-happy.png",
+    "repair_history": [],
+    "original_sha256": "2a9469c6c20af6b85ca8d3dcf2dd3f587c07cee988438e79e4253c64103bda19",
+    "source_sha256": "1af3a19a67d809d4c90cfa87cfd716f41a7a3bcf9b583380431e7f0db4a19899",
+    "final_sha256": "bab4e2073f217d5c8c002b28e869ae212fa1becaa1ff15e989fbfe8e01bb3b33",
+    "bounds": [
+      45,
+      47,
+      83,
+      80
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 its exact nearest-neighbor enlargement. Preserve tiny dark purple dot creature, round silhouette, placement, purple rim glow, blue upper-left glint and original detached particles. Change ONLY existing white glowing eyes and tiny mouth to strained effort: eyes tightly squeezed into inward angled chevrons, mouth a short tense line. Same tiny face position and white/pale purple colors. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues, brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1723528b-f75e-4b6a-927c-f39dc314ae28.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/01-strained.png",
+    "original": "assets/characters/unknown/01.png",
+    "final": "assets/characters/expressions/unknown/01-strained.png",
+    "repair_history": [],
+    "original_sha256": "2a9469c6c20af6b85ca8d3dcf2dd3f587c07cee988438e79e4253c64103bda19",
+    "source_sha256": "49b73fb3e676ed5ca7f9e81ed1259d857c9d5adc24306526ed4da9cb069af056",
+    "final_sha256": "b75e9455eabadd8d4b674d8e5b7acf376f1c992e9ae216ac85f4d584fb350494",
+    "bounds": [
+      45,
+      47,
+      83,
+      80
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 its exact nearest-neighbor enlargement. Preserve tiny dark purple dot creature, round silhouette, placement, purple rim glow, blue upper-left glint and original detached particles. Change ONLY existing white glowing eyes and tiny mouth to hungry: eyes open pleading and slightly drooping, mouth small open oval. Same tiny face position and white/pale purple colors. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues, brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f5285571-2c76-490f-9bc9-cd0d099bdd96.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/01-hungry.png",
+    "original": "assets/characters/unknown/01.png",
+    "final": "assets/characters/expressions/unknown/01-hungry.png",
+    "repair_history": [],
+    "original_sha256": "2a9469c6c20af6b85ca8d3dcf2dd3f587c07cee988438e79e4253c64103bda19",
+    "source_sha256": "01e9b6fef67eca6cf69b7f146a6e99f84fb125da1455bf60c8f70e3a10092fb1",
+    "final_sha256": "81d07a82fd7f88394777ab381fb57ccf5466dccf8492db20396beced461645a9",
+    "bounds": [
+      45,
+      47,
+      83,
+      80
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 its exact nearest-neighbor enlargement. Preserve tiny dark purple dot creature, round silhouette, placement, purple rim glow, blue upper-left glint and original detached particles. Change ONLY existing white glowing eyes and tiny mouth to ill and uncomfortable: asymmetric heavy half-lidded eyes, small wavering mouth. Same tiny face position and white/pale purple colors. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues, brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-8c758a1d-172e-4ce2-98eb-a0c0352f5929.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/01-sick.png",
+    "original": "assets/characters/unknown/01.png",
+    "final": "assets/characters/expressions/unknown/01-sick.png",
+    "repair_history": [],
+    "original_sha256": "2a9469c6c20af6b85ca8d3dcf2dd3f587c07cee988438e79e4253c64103bda19",
+    "source_sha256": "cec8fc380895542b6d523e9bfba342a4e28aba0d330ccafe01b9675bd2130b39",
+    "final_sha256": "c3b3489126ce82cd14f6c6d10acb00700a90e63eff60c06d830574606c2885f4",
+    "bounds": [
+      45,
+      47,
+      83,
+      80
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 its exact nearest-neighbor enlargement. Preserve tiny dark purple dot creature, round silhouette, placement, purple rim glow, blue upper-left glint and original detached particles. Change ONLY existing white glowing eyes and tiny mouth to sleepy but awake: lowered half-open eyelids and tiny yawning mouth. Same tiny face position and white/pale purple colors. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues, brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f7f95f20-782f-4575-8d70-c339dd68ec5f.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/01-tired.png",
+    "original": "assets/characters/unknown/01.png",
+    "final": "assets/characters/expressions/unknown/01-tired.png",
+    "repair_history": [],
+    "original_sha256": "2a9469c6c20af6b85ca8d3dcf2dd3f587c07cee988438e79e4253c64103bda19",
+    "source_sha256": "2812ee334bd64d41235256b50fadfcc6228296e1555c80a4a80ff24c9dd19b36",
+    "final_sha256": "b526cc9966ac8f2aebaf006dd038133fe70d5c3f0ee048a7b9db555ba24cdae0",
+    "bounds": [
+      45,
+      47,
+      83,
+      80
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 its exact nearest-neighbor enlargement. Preserve tiny dark purple dot creature, round silhouette, placement, purple rim glow, blue upper-left glint and original detached particles. Change ONLY existing white glowing eyes and tiny mouth to sulky: inward-slanted narrowed eyes with a short downturned pout. Same tiny face position and white/pale purple colors. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues, brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b43de8b4-f30a-460b-a52f-2d9797c91e39.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/01-sulky.png",
+    "original": "assets/characters/unknown/01.png",
+    "final": "assets/characters/expressions/unknown/01-sulky.png",
+    "repair_history": [],
+    "original_sha256": "2a9469c6c20af6b85ca8d3dcf2dd3f587c07cee988438e79e4253c64103bda19",
+    "source_sha256": "4a77c315dcad97670ccf6f65d415a933e24f7b26bdda11714370ac88080273be",
+    "final_sha256": "92fb076a65de7f7ec9b6e57591e8fb6fb7596998cebccd46d86e75a48bf79cd3",
+    "bounds": [
+      45,
+      47,
+      83,
+      80
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 its exact nearest-neighbor enlargement. Preserve tiny dark purple dot creature, round silhouette, placement, purple rim glow, blue upper-left glint and original detached particles. Change ONLY existing white glowing eyes and tiny mouth to weak: low heavy drooping eyes and a small shallow downturned mouth. Same tiny face position and white/pale purple colors. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues, brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f2d376d7-d646-4422-91d0-cacb468ab2c6.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/01-weak.png",
+    "original": "assets/characters/unknown/01.png",
+    "final": "assets/characters/expressions/unknown/01-weak.png",
+    "repair_history": [],
+    "original_sha256": "2a9469c6c20af6b85ca8d3dcf2dd3f587c07cee988438e79e4253c64103bda19",
+    "source_sha256": "49a9942218728f2047b094ac584b1da9386bbcf601cd13f64539f579b8a136aa",
+    "final_sha256": "4b4ab10b3e65cda53c60f37c53e551f50f6d935eefa04dee0f12c456d8aa5ab1",
+    "bounds": [
+      45,
+      47,
+      83,
+      80
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 its exact nearest-neighbor enlargement. Preserve tiny dark purple dot creature, round silhouette, placement, purple rim glow, blue upper-left glint and original detached particles. Change ONLY existing white glowing eyes and tiny mouth to very unwell: almost shut uneven downturned eyes and tiny slack mouth. Same tiny face position and white/pale purple colors. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues, brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-fa8255c1-00f6-4729-b0bc-7e0b3f4d2325.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/01-critical.png",
+    "original": "assets/characters/unknown/01.png",
+    "final": "assets/characters/expressions/unknown/01-critical.png",
+    "repair_history": [],
+    "original_sha256": "2a9469c6c20af6b85ca8d3dcf2dd3f587c07cee988438e79e4253c64103bda19",
+    "source_sha256": "5e9d84c1f988974f0e68a96d76faa730e7dff9a1fd6c4e00b6de58916f28cc67",
+    "final_sha256": "7f5ce4258cbb2f4d7bfff75fd119d6d9565809a8eb426261f4f9af51b01939dd",
+    "bounds": [
+      45,
+      47,
+      83,
+      80
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 its exact nearest-neighbor enlargement. Preserve tiny dark purple dot creature, round silhouette, placement, purple rim glow, blue upper-left glint and original detached particles. Change ONLY existing white glowing eyes and tiny mouth to eager to play: bright alert wide eyes and broader excited open smile. Same tiny face position and white/pale purple colors. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues, brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ff236fc8-7ecd-452a-816d-cdc455d8d665.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/01-wantsPlay.png",
+    "original": "assets/characters/unknown/01.png",
+    "final": "assets/characters/expressions/unknown/01-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "2a9469c6c20af6b85ca8d3dcf2dd3f587c07cee988438e79e4253c64103bda19",
+    "source_sha256": "37865e6f124d6c8201fae721a7169ee472e5e8a4e6a09a25f70f39ed232868db",
+    "final_sha256": "6bbf98e000747ddac1bad0a2c746e7ed8a9e91c654bb2ef8c7511892c19282e6",
+    "bounds": [
+      45,
+      47,
+      83,
+      80
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "01",
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 its exact nearest-neighbor enlargement. Preserve tiny dark purple dot creature, round silhouette, placement, purple rim glow, blue upper-left glint and original detached particles. Change ONLY existing white glowing eyes and tiny mouth to peaceful sleep: both eyes completely closed as gentle horizontal arcs, mouth small relaxed closed line. Same tiny face position and white/pale purple colors. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues, brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-48c53a81-27d0-4164-9a59-997d82a20754.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/01-sleeping.png",
+    "original": "assets/characters/unknown/01.png",
+    "final": "assets/characters/expressions/unknown/01-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "2a9469c6c20af6b85ca8d3dcf2dd3f587c07cee988438e79e4253c64103bda19",
+    "source_sha256": "123acfae66e843cb5918f824ec3de5a582aa81d7bd63e243c273ab46b4162b37",
+    "final_sha256": "54793e838e88cd775eb7f8f33de669ce403e30980ae72a3645b0f45bbb2b79b8",
+    "bounds": [
+      45,
+      47,
+      83,
+      80
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 exact nearest-neighbor enlargement. Preserve blue jelly creature precisely: rounded dome, flat soft base, electric blue translucent-looking gel, purple edge, white-cyan rim and upper-left oval shine, existing lilac cheeks. Change ONLY existing white eyes and purple mouth to joyful: eyes form uplifted small smiling arcs, mouth a small open happy smile. Same small face position and original face colors, white eyes without new black pupils. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues and brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-df08f53d-2eee-4f2d-a93e-33fbdb40f9f4.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/02-happy.png",
+    "original": "assets/characters/unknown/02.png",
+    "final": "assets/characters/expressions/unknown/02-happy.png",
+    "repair_history": [],
+    "original_sha256": "33958349e9004a749b39000b7644e5599b8b0791c645d6a6280841f447289d80",
+    "source_sha256": "ce068cb66883909c6b3fc8a70007ebca99fd3a03bdfb382a7b754093e6b027bb",
+    "final_sha256": "42d31300996a7dbcac1e0e2578c4ef5908886a441335bf959f1e54358e112b8a",
+    "bounds": [
+      33,
+      39,
+      95,
+      89
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 exact nearest-neighbor enlargement. Preserve blue jelly creature precisely: rounded dome, flat soft base, electric blue translucent-looking gel, purple edge, white-cyan rim and upper-left oval shine, existing lilac cheeks. Change ONLY existing white eyes and purple mouth to strained effort: eyes tightly squeezed into inward angled chevrons, mouth a short tense line. Same small face position and original face colors, white eyes without new black pupils. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues and brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-912ac949-9c4e-484d-89d6-c7b3b6407dee.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/02-strained.png",
+    "original": "assets/characters/unknown/02.png",
+    "final": "assets/characters/expressions/unknown/02-strained.png",
+    "repair_history": [],
+    "original_sha256": "33958349e9004a749b39000b7644e5599b8b0791c645d6a6280841f447289d80",
+    "source_sha256": "b8ea4d7c88567366af7e8c181ab26939a6573e68905a800c3e07201628b7d566",
+    "final_sha256": "38e230a2a8e29f989fcc6a7b8f67ebe57f4490d9e1b2f77ca285ab557a8aaceb",
+    "bounds": [
+      33,
+      39,
+      95,
+      89
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 exact nearest-neighbor enlargement. Preserve blue jelly creature precisely: rounded dome, flat soft base, electric blue translucent-looking gel, purple edge, white-cyan rim and upper-left oval shine, existing lilac cheeks. Change ONLY existing white eyes and purple mouth to hungry: eyes open pleading and slightly drooping, mouth small open oval. Same small face position and original face colors, white eyes without new black pupils. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues and brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-6d9ca90e-f95b-4513-9677-4a44cfaa32af.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/02-hungry.png",
+    "original": "assets/characters/unknown/02.png",
+    "final": "assets/characters/expressions/unknown/02-hungry.png",
+    "repair_history": [],
+    "original_sha256": "33958349e9004a749b39000b7644e5599b8b0791c645d6a6280841f447289d80",
+    "source_sha256": "3b09482737c6998737eed51e2dd3e83d513507a1b6de18178de2b808e20fc930",
+    "final_sha256": "e674ae2f855b992102c0d932c358f2ff24a4a4678db9876e30bca59d0c7f9f92",
+    "bounds": [
+      33,
+      39,
+      95,
+      89
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 exact nearest-neighbor enlargement. Preserve blue jelly creature precisely: rounded dome, flat soft base, electric blue translucent-looking gel, purple edge, white-cyan rim and upper-left oval shine, existing lilac cheeks. Change ONLY existing white eyes and purple mouth to ill and uncomfortable: asymmetric heavy half-lidded eyes, small wavering mouth. Same small face position and original face colors, white eyes without new black pupils. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues and brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-53137f41-1a93-459f-b879-26643efc89ef.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/02-sick.png",
+    "original": "assets/characters/unknown/02.png",
+    "final": "assets/characters/expressions/unknown/02-sick.png",
+    "repair_history": [],
+    "original_sha256": "33958349e9004a749b39000b7644e5599b8b0791c645d6a6280841f447289d80",
+    "source_sha256": "f29e465fb6992f7c828d567bd3af2da4a3d856ac9af24bb9825fa4063cbe80de",
+    "final_sha256": "86a47207ca7adf77957538cbc2e35532e273eb2790520130ca3ecbaa9d912baf",
+    "bounds": [
+      33,
+      39,
+      95,
+      89
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 exact nearest-neighbor enlargement. Preserve blue jelly creature precisely: rounded dome, flat soft base, electric blue translucent-looking gel, purple edge, white-cyan rim and upper-left oval shine, existing lilac cheeks. Change ONLY existing white eyes and purple mouth to sleepy but awake: lowered half-open eyelids and tiny yawning mouth. Same small face position and original face colors, white eyes without new black pupils. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues and brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ac121861-4b86-4fa6-b3be-2a16f6c3028e.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/02-tired.png",
+    "original": "assets/characters/unknown/02.png",
+    "final": "assets/characters/expressions/unknown/02-tired.png",
+    "repair_history": [],
+    "original_sha256": "33958349e9004a749b39000b7644e5599b8b0791c645d6a6280841f447289d80",
+    "source_sha256": "9a56c2a102d1a5ae9c1fb1f13bd84802f3dde213ce11bf77d202c937168192d7",
+    "final_sha256": "28900178963cf347f1dcf1a43f2bd54b30fbc2ee2d58ce153c3276634a526eec",
+    "bounds": [
+      33,
+      39,
+      95,
+      89
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 exact nearest-neighbor enlargement. Preserve blue jelly creature precisely: rounded dome, flat soft base, electric blue translucent-looking gel, purple edge, white-cyan rim and upper-left oval shine, existing lilac cheeks. Change ONLY existing white eyes and purple mouth to sulky: inward-slanted narrowed eyes with a short downturned pout. Same small face position and original face colors, white eyes without new black pupils. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues and brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d2e80329-3d09-425e-9d14-4d70500865f4.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/02-sulky.png",
+    "original": "assets/characters/unknown/02.png",
+    "final": "assets/characters/expressions/unknown/02-sulky.png",
+    "repair_history": [],
+    "original_sha256": "33958349e9004a749b39000b7644e5599b8b0791c645d6a6280841f447289d80",
+    "source_sha256": "ad4c9e4d7e8142c3a6a499f1d57d593f9f8ff47876ff7c26af5a17d3ba87c7eb",
+    "final_sha256": "09b70906386b9f591ea43d8d83f33829fe50f341cce6f29efc66ee3261314e23",
+    "bounds": [
+      33,
+      39,
+      95,
+      89
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 exact nearest-neighbor enlargement. Preserve blue jelly creature precisely: rounded dome, flat soft base, electric blue translucent-looking gel, purple edge, white-cyan rim and upper-left oval shine, existing lilac cheeks. Change ONLY existing white eyes and purple mouth to weak: low heavy drooping eyes and a small shallow downturned mouth. Same small face position and original face colors, white eyes without new black pupils. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues and brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-29fb6a38-ff7b-40cd-88e3-13eb7e4837fd.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/02-weak.png",
+    "original": "assets/characters/unknown/02.png",
+    "final": "assets/characters/expressions/unknown/02-weak.png",
+    "repair_history": [],
+    "original_sha256": "33958349e9004a749b39000b7644e5599b8b0791c645d6a6280841f447289d80",
+    "source_sha256": "dcd554d4797320a78c647992d7bcc4b1f9d2e606a7345af7d2386f09afd1679e",
+    "final_sha256": "4d96c64423ad9a787458871e1b34d96fca168ab053dce1bebd77377db5116874",
+    "bounds": [
+      33,
+      39,
+      95,
+      89
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 exact nearest-neighbor enlargement. Preserve blue jelly creature precisely: rounded dome, flat soft base, electric blue translucent-looking gel, purple edge, white-cyan rim and upper-left oval shine, existing lilac cheeks. Change ONLY existing white eyes and purple mouth to very unwell: almost shut uneven downturned eyes and tiny slack mouth. Same small face position and original face colors, white eyes without new black pupils. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues and brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f88f0061-56c6-4dcf-b46a-4d286099b471.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/02-critical.png",
+    "original": "assets/characters/unknown/02.png",
+    "final": "assets/characters/expressions/unknown/02-critical.png",
+    "repair_history": [],
+    "original_sha256": "33958349e9004a749b39000b7644e5599b8b0791c645d6a6280841f447289d80",
+    "source_sha256": "7667b55db1b615d59c3832431d7a4f7bded0ca45c85e5319d497b6e4f8617b0c",
+    "final_sha256": "c83f6ab5212df83a7f7386f5655f6e9c66ebd3f84835a39849f40da8815f6488",
+    "bounds": [
+      33,
+      39,
+      95,
+      89
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 exact nearest-neighbor enlargement. Preserve blue jelly creature precisely: rounded dome, flat soft base, electric blue translucent-looking gel, purple edge, white-cyan rim and upper-left oval shine, existing lilac cheeks. Change ONLY existing white eyes and purple mouth to eager to play: bright alert wide eyes and broader excited open smile. Same small face position and original face colors, white eyes without new black pupils. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues and brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-369aa855-c38e-4c23-a812-c949486ee12c.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/02-wantsPlay.png",
+    "original": "assets/characters/unknown/02.png",
+    "final": "assets/characters/expressions/unknown/02-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "33958349e9004a749b39000b7644e5599b8b0791c645d6a6280841f447289d80",
+    "source_sha256": "62377c69033fda42d643208aa564da2b64e6af51f6eab68ef374c7a373389dca",
+    "final_sha256": "aff6a8dcc79286cbdb462a72cb5811b4ea104fdf69482dfd51dd5dcecc0360ef",
+    "bounds": [
+      33,
+      39,
+      95,
+      89
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "02",
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Game sprite expression edit. Image1 original target, image2 exact nearest-neighbor enlargement. Preserve blue jelly creature precisely: rounded dome, flat soft base, electric blue translucent-looking gel, purple edge, white-cyan rim and upper-left oval shine, existing lilac cheeks. Change ONLY existing white eyes and purple mouth to peaceful sleep: both eyes completely closed as gentle horizontal arcs, mouth small relaxed closed line. Same small face position and original face colors, white eyes without new black pupils. No new anatomy, eyebrows, marks, sweat, tears, props, symbols, text or background. Crisp low-resolution square pixel art; genuinely transparent PNG. Keep original geometry, scale, hues and brightness; no soft contours. One sprite.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f53600c9-f38a-4697-be91-6ba3e4ac37ca.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/02-sleeping.png",
+    "original": "assets/characters/unknown/02.png",
+    "final": "assets/characters/expressions/unknown/02-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "33958349e9004a749b39000b7644e5599b8b0791c645d6a6280841f447289d80",
+    "source_sha256": "ccd70f6be0200a79267a16a3bedcb094a2e14cbd6ebc00718f5e66c6347ff644",
+    "final_sha256": "1962b5bbc67102e93fddd22f211ea4ea040b082487070050833fdf86db4db37f",
+    "bounds": [
+      33,
+      39,
+      95,
+      89
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for happy: soft cheerful curved white eyes and a clear small upturned smiling mouth. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ff85283e-1f1b-4afa-b77c-847bd2c792ff.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/03-happy.png",
+    "original": "assets/characters/unknown/03.png",
+    "final": "assets/characters/expressions/unknown/03-happy.png",
+    "repair_history": [],
+    "original_sha256": "fddc90308de042b2a0c5d12edb8c3c9ad090de171ca6a013bc016cbca85e51d6",
+    "source_sha256": "0e03c28c2f5e09b5458961eb8745ab25559bca70b6d9197b6d37742acf00bc48",
+    "final_sha256": "3d117c89a762f2fad535c1dde37edd1fc4c85c6e8ce8dd4239f2fec9b7fa4097",
+    "bounds": [
+      25,
+      29,
+      103,
+      99
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for strained: tense narrowed white eyes and small tightly compressed wavy mouth. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-cd9ded05-1fb0-4f24-9775-a32ba7b0be4a.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/03-strained.png",
+    "original": "assets/characters/unknown/03.png",
+    "final": "assets/characters/expressions/unknown/03-strained.png",
+    "repair_history": [],
+    "original_sha256": "fddc90308de042b2a0c5d12edb8c3c9ad090de171ca6a013bc016cbca85e51d6",
+    "source_sha256": "360e38b6cd8e20b64270d53833397530d232841a45cd3c76fc57363e859c4c90",
+    "final_sha256": "f868d4417ed7e06dd076f32f7d18bf118d7e1e0e053e884d898f9a39bd5459cf",
+    "bounds": [
+      25,
+      29,
+      103,
+      99
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for hungry: pleading droopy open white eyes and a small open round mouth. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-8ffcc63b-de00-4248-abb1-f821f3a1ecff.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/03-hungry.png",
+    "original": "assets/characters/unknown/03.png",
+    "final": "assets/characters/expressions/unknown/03-hungry.png",
+    "repair_history": [],
+    "original_sha256": "fddc90308de042b2a0c5d12edb8c3c9ad090de171ca6a013bc016cbca85e51d6",
+    "source_sha256": "6da8acf181a75b2238f8c2e60ced7f994e73fd60af00c3780df5cb375af72da5",
+    "final_sha256": "848a7a94b16928578686674f7c26d865215c2fc42761ca5be594b97345485112",
+    "bounds": [
+      25,
+      29,
+      103,
+      99
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for sick: downcast squinting eyes and a small asymmetrically wavy unhappy mouth. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-939a638a-8fe5-4b9c-acd3-9ae3df0bd1b0.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/03-sick.png",
+    "original": "assets/characters/unknown/03.png",
+    "final": "assets/characters/expressions/unknown/03-sick.png",
+    "repair_history": [],
+    "original_sha256": "fddc90308de042b2a0c5d12edb8c3c9ad090de171ca6a013bc016cbca85e51d6",
+    "source_sha256": "f30f2ecfe76c4fde2b5ef418650aad3a8c58462637734254fe35c22b42723aaf",
+    "final_sha256": "f67b07ea544f00a84767f1a28ac8f998232d7c1a4c58bfff671b4395beabbecf",
+    "bounds": [
+      25,
+      29,
+      103,
+      99
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for tired: heavy half-lidded white eyes and a small flat slack mouth. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-bee6be0c-5fe6-4d30-8ec2-d4105e99f1d6.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/03-tired.png",
+    "original": "assets/characters/unknown/03.png",
+    "final": "assets/characters/expressions/unknown/03-tired.png",
+    "repair_history": [],
+    "original_sha256": "fddc90308de042b2a0c5d12edb8c3c9ad090de171ca6a013bc016cbca85e51d6",
+    "source_sha256": "cb636923ed46de1dde5b9d4dba84c49356d602f5c3349d4915bb6ffe3a74af30",
+    "final_sha256": "4686746624e3cdfa494afc439276347a7cc51e0d3d8315f2e407781a2a71ca4e",
+    "bounds": [
+      25,
+      29,
+      103,
+      99
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for sulky: inward-angled narrowed white eyes and a small strongly downturned pout. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d854be8b-71fb-4cd4-98a6-f4ffa6b9a422.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/03-sulky.png",
+    "original": "assets/characters/unknown/03.png",
+    "final": "assets/characters/expressions/unknown/03-sulky.png",
+    "repair_history": [],
+    "original_sha256": "fddc90308de042b2a0c5d12edb8c3c9ad090de171ca6a013bc016cbca85e51d6",
+    "source_sha256": "85fc947cfc5d41d37067b888cfac7dd1cfc3ab2726694e311d58b990e4dd0b05",
+    "final_sha256": "9ec7106f9b91ef595a3d57cd0dc6f09b3793f2b63f6724440d40b405da46cbd4",
+    "bounds": [
+      25,
+      29,
+      103,
+      99
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for weak: extremely droopy tiny white eye slits and a small limp downturned mouth. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f16a7cd4-50b6-442f-9c34-0985b3f0a646.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/03-weak.png",
+    "original": "assets/characters/unknown/03.png",
+    "final": "assets/characters/expressions/unknown/03-weak.png",
+    "repair_history": [],
+    "original_sha256": "fddc90308de042b2a0c5d12edb8c3c9ad090de171ca6a013bc016cbca85e51d6",
+    "source_sha256": "3428a5a04e2f6cb4fad5867097d46fd8391ae784f2d03ffd77af4927d3283e10",
+    "final_sha256": "354245c36c0ac72eb21f01aa70087770cf5f8f511ac634dadba52701561a5d95",
+    "bounds": [
+      25,
+      29,
+      103,
+      99
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for critical: eyes nearly shut as short downward white slits and a tiny weak open mouth; critically exhausted. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-c275f3f9-4c18-4f98-9d9a-4fa16612e27f.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/03-critical.png",
+    "original": "assets/characters/unknown/03.png",
+    "final": "assets/characters/expressions/unknown/03-critical.png",
+    "repair_history": [],
+    "original_sha256": "fddc90308de042b2a0c5d12edb8c3c9ad090de171ca6a013bc016cbca85e51d6",
+    "source_sha256": "3ad21dad25f20d3b4dee5bbe7eb897663595acc28e4d4ad6abed6ed8f5d83d6d",
+    "final_sha256": "164e3cb53acd22aecb89d951df5166e9d6ffd1b68545f3fc0ca35afcb9b2a137",
+    "bounds": [
+      25,
+      29,
+      103,
+      99
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for wantsPlay: bright eager tall white eyes and a wide playful open upward smile. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-cbe71b28-73e0-4a62-94a7-b477481d3396.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/03-wantsPlay.png",
+    "original": "assets/characters/unknown/03.png",
+    "final": "assets/characters/expressions/unknown/03-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "fddc90308de042b2a0c5d12edb8c3c9ad090de171ca6a013bc016cbca85e51d6",
+    "source_sha256": "96f066131b66adc356de1f40fd4f192c13ff1a8f72eb715435a6710441717eac",
+    "final_sha256": "2f64dec1667de811c862f4c870063c984b1e865a3431b2c41c500059c937da8c",
+    "bounds": [
+      25,
+      29,
+      103,
+      99
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "03",
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for sleeping: both existing body eyes fully shut as thin calm curves and a very small relaxed mouth. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-76006db6-6731-44bb-9688-1c1365f8c46f.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/03-sleeping.png",
+    "original": "assets/characters/unknown/03.png",
+    "final": "assets/characters/expressions/unknown/03-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "fddc90308de042b2a0c5d12edb8c3c9ad090de171ca6a013bc016cbca85e51d6",
+    "source_sha256": "f6b95ff4ddbdf0a8337b1714e7258fdd2865bf56f209084657f6d8bbc9664ceb",
+    "final_sha256": "938b4a3970f485dd12ae8dbb3c942ce940d11ad596dcf311f8b3487d0d67a5c9",
+    "bounds": [
+      25,
+      29,
+      103,
+      99
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for happy: soft cheerful curved white eyes and a clear small upturned smiling mouth. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body. CRITICAL STAGE04 PRESERVATION: The two round structures above the head are intentionally UNIDENTIFIED ORGANS, not confirmed eyes, antennae, or sensory organs. Their exact shape, dark internal patterns, violet/cyan rims and highlights MUST stay as the original in every state. Exclude both upper balls from ALL expression synchronization. Never give them pupils, eyelids, mouths or closed-eye lines. Keep both stalk connections, two balls at original positions, their original internal dark areas and glows entirely unchanged. Only the single EXISTING FACE ON THE LOWER BODY may be edited. Do not rename, reinterpret or simplify the upper organs.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-12257cc6-9865-4104-bc0a-d72bb4bcc821.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/04-happy.png",
+    "original": "assets/characters/unknown/04.png",
+    "final": "assets/characters/expressions/unknown/04-happy.png",
+    "repair_history": [],
+    "original_sha256": "ad0c9e9d9e5a8e4300c6e7402c5e8228a85a61e5a0f0d244a72e8344cd6ba455",
+    "source_sha256": "eb6be432fd59aae9034c2bbc3e15a9e84be202f896a0c5bd4db8bc7cca621771",
+    "final_sha256": "415e92d82cf8b2f80368b1142f415c7f6567bf9421ab2291d9510fb7d1217efb",
+    "bounds": [
+      34,
+      19,
+      94,
+      109
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for strained: tense narrowed white eyes and small tightly compressed wavy mouth. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body. CRITICAL STAGE04 PRESERVATION: The two round structures above the head are intentionally UNIDENTIFIED ORGANS, not confirmed eyes, antennae, or sensory organs. Their exact shape, dark internal patterns, violet/cyan rims and highlights MUST stay as the original in every state. Exclude both upper balls from ALL expression synchronization. Never give them pupils, eyelids, mouths or closed-eye lines. Keep both stalk connections, two balls at original positions, their original internal dark areas and glows entirely unchanged. Only the single EXISTING FACE ON THE LOWER BODY may be edited. Do not rename, reinterpret or simplify the upper organs.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ae14c2af-2c60-4eb2-aac1-17ed906145be.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/04-strained.png",
+    "original": "assets/characters/unknown/04.png",
+    "final": "assets/characters/expressions/unknown/04-strained.png",
+    "repair_history": [],
+    "original_sha256": "ad0c9e9d9e5a8e4300c6e7402c5e8228a85a61e5a0f0d244a72e8344cd6ba455",
+    "source_sha256": "a32bcd3ba466f1c8193c1c19726296e70fae00cc510da42dd8274f46a60c9001",
+    "final_sha256": "29a1359c24a5c581286abe4551ed28b5ba085c632da13966b8e1ca89c132f8a4",
+    "bounds": [
+      34,
+      19,
+      94,
+      109
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for hungry: pleading droopy open white eyes and a small open round mouth. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body. CRITICAL STAGE04 PRESERVATION: The two round structures above the head are intentionally UNIDENTIFIED ORGANS, not confirmed eyes, antennae, or sensory organs. Their exact shape, dark internal patterns, violet/cyan rims and highlights MUST stay as the original in every state. Exclude both upper balls from ALL expression synchronization. Never give them pupils, eyelids, mouths or closed-eye lines. Keep both stalk connections, two balls at original positions, their original internal dark areas and glows entirely unchanged. Only the single EXISTING FACE ON THE LOWER BODY may be edited. Do not rename, reinterpret or simplify the upper organs.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-c5805333-2135-443d-a58b-49e4e98a8f4b.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/04-hungry.png",
+    "original": "assets/characters/unknown/04.png",
+    "final": "assets/characters/expressions/unknown/04-hungry.png",
+    "repair_history": [],
+    "original_sha256": "ad0c9e9d9e5a8e4300c6e7402c5e8228a85a61e5a0f0d244a72e8344cd6ba455",
+    "source_sha256": "d0ac8733806b4cff9cb8f874e4bf3195ca4f2de029dc28c2bab4bdd9f3b3eec2",
+    "final_sha256": "38af22b35afd0afa426b370df529e6eb10d71912a6b8ff1fec5a23ce22f5f9dc",
+    "bounds": [
+      34,
+      19,
+      94,
+      109
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for sick: downcast squinting eyes and a small asymmetrically wavy unhappy mouth. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body. CRITICAL STAGE04 PRESERVATION: The two round structures above the head are intentionally UNIDENTIFIED ORGANS, not confirmed eyes, antennae, or sensory organs. Their exact shape, dark internal patterns, violet/cyan rims and highlights MUST stay as the original in every state. Exclude both upper balls from ALL expression synchronization. Never give them pupils, eyelids, mouths or closed-eye lines. Keep both stalk connections, two balls at original positions, their original internal dark areas and glows entirely unchanged. Only the single EXISTING FACE ON THE LOWER BODY may be edited. Do not rename, reinterpret or simplify the upper organs.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-2e1a7ee4-5ec4-415a-989d-fa74da0ee060.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/04-sick.png",
+    "original": "assets/characters/unknown/04.png",
+    "final": "assets/characters/expressions/unknown/04-sick.png",
+    "repair_history": [],
+    "original_sha256": "ad0c9e9d9e5a8e4300c6e7402c5e8228a85a61e5a0f0d244a72e8344cd6ba455",
+    "source_sha256": "477dcb8a91c5c7c6ee0f518c8c776c253c2ebce87aec7520a519aedc1d1833b6",
+    "final_sha256": "48d10de07eedbc8c0e65e88018b88d99333bd56a4c9f5a21099300fc857d7bb3",
+    "bounds": [
+      34,
+      19,
+      94,
+      109
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for tired: heavy half-lidded white eyes and a small flat slack mouth. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body. CRITICAL STAGE04 PRESERVATION: The two round structures above the head are intentionally UNIDENTIFIED ORGANS, not confirmed eyes, antennae, or sensory organs. Their exact shape, dark internal patterns, violet/cyan rims and highlights MUST stay as the original in every state. Exclude both upper balls from ALL expression synchronization. Never give them pupils, eyelids, mouths or closed-eye lines. Keep both stalk connections, two balls at original positions, their original internal dark areas and glows entirely unchanged. Only the single EXISTING FACE ON THE LOWER BODY may be edited. Do not rename, reinterpret or simplify the upper organs.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-17cee836-118b-4a08-8901-f5669a337e21.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/04-tired.png",
+    "original": "assets/characters/unknown/04.png",
+    "final": "assets/characters/expressions/unknown/04-tired.png",
+    "repair_history": [],
+    "original_sha256": "ad0c9e9d9e5a8e4300c6e7402c5e8228a85a61e5a0f0d244a72e8344cd6ba455",
+    "source_sha256": "0ef73f70cfe6dc970c116ef13a7722dbea343bc609c46bdca4652e7d205e1a86",
+    "final_sha256": "2a1cc4fe0df62745356e6f6800e9ef52fa60dadfeef9bb22aaf2ae0af7c76109",
+    "bounds": [
+      34,
+      19,
+      94,
+      109
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for sulky: inward-angled narrowed white eyes and a small strongly downturned pout. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body. CRITICAL STAGE04 PRESERVATION: The two round structures above the head are intentionally UNIDENTIFIED ORGANS, not confirmed eyes, antennae, or sensory organs. Their exact shape, dark internal patterns, violet/cyan rims and highlights MUST stay as the original in every state. Exclude both upper balls from ALL expression synchronization. Never give them pupils, eyelids, mouths or closed-eye lines. Keep both stalk connections, two balls at original positions, their original internal dark areas and glows entirely unchanged. Only the single EXISTING FACE ON THE LOWER BODY may be edited. Do not rename, reinterpret or simplify the upper organs.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-8d255951-16cf-4151-989b-1fd18dd5b480.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/04-sulky.png",
+    "original": "assets/characters/unknown/04.png",
+    "final": "assets/characters/expressions/unknown/04-sulky.png",
+    "repair_history": [],
+    "original_sha256": "ad0c9e9d9e5a8e4300c6e7402c5e8228a85a61e5a0f0d244a72e8344cd6ba455",
+    "source_sha256": "6b2361491a9681ab03bb19c9fc0d50a6bc0a236c1909aa4a3c3b9436ca0d23b3",
+    "final_sha256": "fb5776bf5f7bdec1759b51c2e27051df047a0b008c9a4a26aaa2e72c3522bb67",
+    "bounds": [
+      34,
+      19,
+      94,
+      109
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for weak: extremely droopy tiny white eye slits and a small limp downturned mouth. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body. CRITICAL STAGE04 PRESERVATION: The two round structures above the head are intentionally UNIDENTIFIED ORGANS, not confirmed eyes, antennae, or sensory organs. Their exact shape, dark internal patterns, violet/cyan rims and highlights MUST stay as the original in every state. Exclude both upper balls from ALL expression synchronization. Never give them pupils, eyelids, mouths or closed-eye lines. Keep both stalk connections, two balls at original positions, their original internal dark areas and glows entirely unchanged. Only the single EXISTING FACE ON THE LOWER BODY may be edited. Do not rename, reinterpret or simplify the upper organs.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-da589f43-282e-450a-9cdf-bbc659906cc8.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/04-weak.png",
+    "original": "assets/characters/unknown/04.png",
+    "final": "assets/characters/expressions/unknown/04-weak.png",
+    "repair_history": [],
+    "original_sha256": "ad0c9e9d9e5a8e4300c6e7402c5e8228a85a61e5a0f0d244a72e8344cd6ba455",
+    "source_sha256": "903b364c458e402826c5758ad8e42bd661d985819b2efdb24b4c59a311d4d776",
+    "final_sha256": "fdf96ddf6ceefb643bc6fc2e6d35c470e6dc0b8093c17c7eb033670d8e4a2cd6",
+    "bounds": [
+      34,
+      19,
+      94,
+      109
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for critical: eyes nearly shut as short downward white slits and a tiny weak open mouth; critically exhausted. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body. CRITICAL STAGE04 PRESERVATION: The two round structures above the head are intentionally UNIDENTIFIED ORGANS, not confirmed eyes, antennae, or sensory organs. Their exact shape, dark internal patterns, violet/cyan rims and highlights MUST stay as the original in every state. Exclude both upper balls from ALL expression synchronization. Never give them pupils, eyelids, mouths or closed-eye lines. Keep both stalk connections, two balls at original positions, their original internal dark areas and glows entirely unchanged. Only the single EXISTING FACE ON THE LOWER BODY may be edited. Do not rename, reinterpret or simplify the upper organs.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-fdf9ecf3-7bc2-499a-a2d8-b91e786da482.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/04-critical.png",
+    "original": "assets/characters/unknown/04.png",
+    "final": "assets/characters/expressions/unknown/04-critical.png",
+    "repair_history": [],
+    "original_sha256": "ad0c9e9d9e5a8e4300c6e7402c5e8228a85a61e5a0f0d244a72e8344cd6ba455",
+    "source_sha256": "61a1335576bc7bf98a1e98568020dfd7b21b0c8ba1401500f705da86a21f4e2c",
+    "final_sha256": "38b18f25d657bffa8f0fd223caffcb01e7e1d082324f59ed29e712a3ee2b74be",
+    "bounds": [
+      34,
+      19,
+      94,
+      109
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for wantsPlay: bright eager tall white eyes and a wide playful open upward smile. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body. CRITICAL STAGE04 PRESERVATION: The two round structures above the head are intentionally UNIDENTIFIED ORGANS, not confirmed eyes, antennae, or sensory organs. Their exact shape, dark internal patterns, violet/cyan rims and highlights MUST stay as the original in every state. Exclude both upper balls from ALL expression synchronization. Never give them pupils, eyelids, mouths or closed-eye lines. Keep both stalk connections, two balls at original positions, their original internal dark areas and glows entirely unchanged. Only the single EXISTING FACE ON THE LOWER BODY may be edited. Do not rename, reinterpret or simplify the upper organs.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3aae6ef8-ee1c-460d-801f-0cce67b7c5fc.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/04-wantsPlay.png",
+    "original": "assets/characters/unknown/04.png",
+    "final": "assets/characters/expressions/unknown/04-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "ad0c9e9d9e5a8e4300c6e7402c5e8228a85a61e5a0f0d244a72e8344cd6ba455",
+    "source_sha256": "ee593d23c87ca5357bea32c86f90d351291d90d7c82a7de1ccaab18217dfb6bc",
+    "final_sha256": "a4b5e5bb4b16862e0054f6b337c60c6ff22df2b83af427dd0166a44ab2189ace",
+    "bounds": [
+      34,
+      19,
+      94,
+      109
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "04",
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Create ONE expression sprite. Image 1 is the original 128x128 edit target; image 2 is exactly the same original enlarged 6x, for precise pixel details only. Edit ONLY the original existing face's eyes and mouth for sleeping: both existing body eyes fully shut as thin calm curves and a very small relaxed mouth. Preserve the original creature identity, complete silhouette, proportions, pose, placement, all body coloring, cyan blue purple glow, highlights, two feet and all projections. White luminous eyes stay white where open. Crisp low-resolution square pixel art with hard pixel edges. Actual transparent alpha background, no background pixels, no text, no props, no status symbols, no sweat, tears, particles or new marks. Full creature centered exactly like reference with original margin. Do not upscale invent details or redraw body. CRITICAL STAGE04 PRESERVATION: The two round structures above the head are intentionally UNIDENTIFIED ORGANS, not confirmed eyes, antennae, or sensory organs. Their exact shape, dark internal patterns, violet/cyan rims and highlights MUST stay as the original in every state. Exclude both upper balls from ALL expression synchronization. Never give them pupils, eyelids, mouths or closed-eye lines. Keep both stalk connections, two balls at original positions, their original internal dark areas and glows entirely unchanged. Only the single EXISTING FACE ON THE LOWER BODY may be edited. Do not rename, reinterpret or simplify the upper organs.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-43943c73-bee5-4214-a862-1bc819bb8a20.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/04-sleeping.png",
+    "original": "assets/characters/unknown/04.png",
+    "final": "assets/characters/expressions/unknown/04-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "ad0c9e9d9e5a8e4300c6e7402c5e8228a85a61e5a0f0d244a72e8344cd6ba455",
+    "source_sha256": "464ac39364f455333f0b64d40eed33d872a3479c04de0a92890a397e33015c76",
+    "final_sha256": "53132a85fc68ff43baad2916437dabbc5d33e36a9cb95b23080920a6c4c784cb",
+    "bounds": [
+      34,
+      19,
+      94,
+      109
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 05 pixel sprite to express happy delighted face: two curved upward smiling white eyes and small joyful lavender smile. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference of same target. Preserve the entire original blue gelatinous round body, existing purple cheeks, two feet, paired pale blue wings, all glow highlights, starry specks, palette, pixel structure, silhouette, pose and proportions exactly. Existing wink can change. Keep exactly one face. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, additional sparkles, text, shadows or background. Do not redraw body or wings.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e2f3d267-8cf7-47f8-8503-734fbad4fafc.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/05-happy.png",
+    "original": "assets/characters/unknown/05.png",
+    "final": "assets/characters/expressions/unknown/05-happy.png",
+    "repair_history": [],
+    "original_sha256": "60d471b79a3b4a8b51f757c17df5389482eaab5aec3c72a3116b58ce89652a1f",
+    "source_sha256": "e15c28d0e6c1e1b575f4a4793d1c9a7a9f1afe3294da9da9a945badb6c557e68",
+    "final_sha256": "ef31158ab6de3cd63180665c436fe0a1c2cb70d54eb066c4becff330f3b4ff37",
+    "bounds": [
+      12,
+      23,
+      116,
+      105
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 05 pixel sprite to express strained effort face: two tightly squeezed white eyes and tight short lavender grimace mouth. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original blue gelatinous round body, existing purple cheeks, two feet, paired pale blue wings, glow highlights, specks, palette, pixel structure, silhouette, pose and proportions exactly. Existing wink can change. Exactly one face. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw body or wings.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-7ec57774-58e2-4f6b-a8f4-2eb82f9ceea8.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/05-strained.png",
+    "original": "assets/characters/unknown/05.png",
+    "final": "assets/characters/expressions/unknown/05-strained.png",
+    "repair_history": [],
+    "original_sha256": "60d471b79a3b4a8b51f757c17df5389482eaab5aec3c72a3116b58ce89652a1f",
+    "source_sha256": "a56b48de520f6e020c42b6ffd27508111dc033f61eb2d4d394e2d9f221b87052",
+    "final_sha256": "8a53caef36a2ef9c81348314e60c2d5ca7f19a6ddba88a0a690162c4b3c87a7a",
+    "bounds": [
+      12,
+      23,
+      116,
+      105
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 05 pixel sprite to express hungry pleading face: white open eyes with raised inner lavender brows and small open lavender round mouth. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original blue gelatinous round body, existing purple cheeks, two feet, paired pale blue wings, glow highlights, specks, palette, pixel structure, silhouette, pose and proportions exactly. Existing wink can change. Exactly one face. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw body or wings.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-9a93ea58-9366-4cd2-9509-1b1270ec3e93.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/05-hungry.png",
+    "original": "assets/characters/unknown/05.png",
+    "final": "assets/characters/expressions/unknown/05-hungry.png",
+    "repair_history": [],
+    "original_sha256": "60d471b79a3b4a8b51f757c17df5389482eaab5aec3c72a3116b58ce89652a1f",
+    "source_sha256": "291aacec1e0c34d37822ad34fb0b5e96886f6602b1321f791f6d19b0ae7057c8",
+    "final_sha256": "17d5849a3fff5a58a20ebbb363d5d259875036ea10125269c5e7b73ca6639b88",
+    "bounds": [
+      12,
+      23,
+      116,
+      105
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 05 pixel sprite to express sick unwell face: drooping half-open white eyes, worried lavender brows and small wavering lavender mouth. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original blue gelatinous round body, existing purple cheeks, two feet, paired pale blue wings, glow highlights, specks, palette, pixel structure, silhouette, pose and proportions exactly. Existing wink can change. Exactly one face. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw body or wings.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-636aff28-41b6-409d-aea5-a34dd00a9abb.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/05-sick.png",
+    "original": "assets/characters/unknown/05.png",
+    "final": "assets/characters/expressions/unknown/05-sick.png",
+    "repair_history": [],
+    "original_sha256": "60d471b79a3b4a8b51f757c17df5389482eaab5aec3c72a3116b58ce89652a1f",
+    "source_sha256": "d3efca4af9c63b6a3140a94d5863685190974397f438d8f517d3502f34649ec1",
+    "final_sha256": "ab36d23890dfe270230707a5996275b0a78b281af1ea17aa446abd682f97b141",
+    "bounds": [
+      12,
+      23,
+      116,
+      105
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 05 pixel sprite to express tired drowsy face: very low half-lidded white eyes and a small gentle lavender yawn mouth. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original blue gelatinous round body, existing purple cheeks, two feet, paired pale blue wings, glow highlights, specks, palette, pixel structure, silhouette, pose and proportions exactly. Existing wink can change. Exactly one face. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw body or wings.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-34b8ce77-55dd-4593-982a-c2eea0896a6e.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/05-tired.png",
+    "original": "assets/characters/unknown/05.png",
+    "final": "assets/characters/expressions/unknown/05-tired.png",
+    "repair_history": [],
+    "original_sha256": "60d471b79a3b4a8b51f757c17df5389482eaab5aec3c72a3116b58ce89652a1f",
+    "source_sha256": "51d49ebec3170dd03a0698509ec6d33faad819e7053cb0e48996b73efb74b34d",
+    "final_sha256": "aa9e3312ef3974cc0d9648a3d8dfb7f927125be6fcb98da5278f6655904d71e8",
+    "bounds": [
+      12,
+      23,
+      116,
+      105
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 05 pixel sprite to express sulky displeased face: narrowed white eyes with inward-sloping lavender brows and a short pout mouth. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original blue gelatinous round body, existing purple cheeks, two feet, paired pale blue wings, glow highlights, specks, palette, pixel structure, silhouette, pose and proportions exactly. Existing wink can change. Exactly one face. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw body or wings.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-2a7ce111-4540-4771-ad2e-c0b6680a2568.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/05-sulky.png",
+    "original": "assets/characters/unknown/05.png",
+    "final": "assets/characters/expressions/unknown/05-sulky.png",
+    "repair_history": [],
+    "original_sha256": "60d471b79a3b4a8b51f757c17df5389482eaab5aec3c72a3116b58ce89652a1f",
+    "source_sha256": "411bd8e8aea5a346db7265c118dd5dd9b8c90bdc5b43ca2532b8a49db5af5fb8",
+    "final_sha256": "b0dfb0f6085fc1809edf6eb49e28a851d9f38d5797c42b9ef9b305f0a8b32921",
+    "bounds": [
+      12,
+      23,
+      116,
+      105
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 05 pixel sprite to express weak low-energy face: tiny drooped white eyes, slack brows and a small lowered lavender mouth. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original blue gelatinous round body, existing purple cheeks, two feet, paired pale blue wings, glow highlights, specks, palette, pixel structure, silhouette, pose and proportions exactly. Existing wink can change. Exactly one face. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw body or wings.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-18cac9e3-ab76-43dc-9d4f-e8d8ddf2723c.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/05-weak.png",
+    "original": "assets/characters/unknown/05.png",
+    "final": "assets/characters/expressions/unknown/05-weak.png",
+    "repair_history": [],
+    "original_sha256": "60d471b79a3b4a8b51f757c17df5389482eaab5aec3c72a3116b58ce89652a1f",
+    "source_sha256": "c5df03f2aadcc1129273f428aa2511961e5f68c55ae9cef1ca5b67b1ac8a74b8",
+    "final_sha256": "8e03cab17f58d0114423236a77869a584f0928f96186faa0bf9b1e939760bc6a",
+    "bounds": [
+      12,
+      23,
+      116,
+      105
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 05 pixel sprite to express critical near-exhausted face: both white eyelids closed downward and small slack lavender mouth, strongly distressed but no death symbols. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original blue gelatinous round body, existing purple cheeks, two feet, paired pale blue wings, glow highlights, specks, palette, pixel structure, silhouette, pose and proportions exactly. Existing wink can change. Exactly one face. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw body or wings.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-86c48ab5-d8f8-4631-9a17-bec5a60a6ae1.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/05-critical.png",
+    "original": "assets/characters/unknown/05.png",
+    "final": "assets/characters/expressions/unknown/05-critical.png",
+    "repair_history": [],
+    "original_sha256": "60d471b79a3b4a8b51f757c17df5389482eaab5aec3c72a3116b58ce89652a1f",
+    "source_sha256": "93ec74dd4f06a4ee6c8a28bccf616d1cfacb592668b87301bf98cf7ec10932d5",
+    "final_sha256": "8954296e4082f4074b312f7b82e52ce85a47d46ee5f35e3060eb4bbca9447c21",
+    "bounds": [
+      12,
+      23,
+      116,
+      105
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 05 pixel sprite to express wantsPlay eager playful face: bright widely open original white eyes and a broad upward lavender grin. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original blue gelatinous round body, existing purple cheeks, two feet, paired pale blue wings, glow highlights, specks, palette, pixel structure, silhouette, pose and proportions exactly. Existing wink can change. Exactly one face. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw body or wings.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-e3335435-dc77-423d-a37c-1fed84ee30d0.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/05-wantsPlay.png",
+    "original": "assets/characters/unknown/05.png",
+    "final": "assets/characters/expressions/unknown/05-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "60d471b79a3b4a8b51f757c17df5389482eaab5aec3c72a3116b58ce89652a1f",
+    "source_sha256": "eb29ededd9cf62cf7b86585330ca44a57dbfb3db7a946e0aab85627c7fe80a26",
+    "final_sha256": "3c4a054c0d85796238e8feb216d49b177bc56752b6abf93c65e861c91f174969",
+    "bounds": [
+      12,
+      23,
+      116,
+      105
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "05",
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 05 pixel sprite to express sleeping peaceful face: two closed white horizontal curved eyelids and a tiny relaxed lavender mouth. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original blue gelatinous round body, existing purple cheeks, two feet, paired pale blue wings, glow highlights, specks, palette, pixel structure, silhouette, pose and proportions exactly. Existing wink can change. Exactly one face. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw body or wings.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-58009f08-1138-431b-8917-f182aad075e3.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/05-sleeping.png",
+    "original": "assets/characters/unknown/05.png",
+    "final": "assets/characters/expressions/unknown/05-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "60d471b79a3b4a8b51f757c17df5389482eaab5aec3c72a3116b58ce89652a1f",
+    "source_sha256": "45fc70e6e04a6f58874306ad3d0732091ba3891b2ee06a9ce2b378addef6ff39",
+    "final_sha256": "704831084c24380361178e69a232ba5da4c377b0e8722e24fd424fcf7b224fb3",
+    "bounds": [
+      12,
+      23,
+      116,
+      105
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 06 pixel sprite to express happy delighted face: two curved upward smiling white eyes and small joyful lavender smile. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original large asymmetric blue gelatinous teardrop body, two feet, bright cyan perimeter glow, blue purple interior starry glowing specks and highlights, palette, pixel structure, silhouette, pose and proportions exactly. Keep full body size and luminosity even for unwell expressions. Exactly one face, white eyes with lavender brows and mouth in their original location and scale. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw the body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3f7e3470-0e1e-4a7f-9dd4-201d17f9114a.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/06-happy.png",
+    "original": "assets/characters/unknown/06.png",
+    "final": "assets/characters/expressions/unknown/06-happy.png",
+    "repair_history": [],
+    "original_sha256": "0addb89db856ec2a936899bddf2e59042276dc47cdaf7fd11f1277fc9ec2b4f3",
+    "source_sha256": "e4bd7765b5f28a013d407399b55ee76d5d6aa25146d1f632c32593af1d4a66a2",
+    "final_sha256": "c535c3be541c4582ae365ee0bece5c573db20db5109a3d225db55fc4b1528bd6",
+    "bounds": [
+      8,
+      13,
+      120,
+      115
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 06 pixel sprite to express strained effort face: two tightly squeezed white eyes and tight short lavender grimace mouth. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original large asymmetric blue gelatinous teardrop body, two feet, bright cyan perimeter glow, blue purple interior starry glowing specks and highlights, palette, pixel structure, silhouette, pose and proportions exactly. Keep full body size and luminosity even for unwell expressions. Exactly one face, white eyes with lavender brows and mouth in their original location and scale. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw the body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1644a331-adea-4974-ad18-ed28b67ecf89.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/06-strained.png",
+    "original": "assets/characters/unknown/06.png",
+    "final": "assets/characters/expressions/unknown/06-strained.png",
+    "repair_history": [],
+    "original_sha256": "0addb89db856ec2a936899bddf2e59042276dc47cdaf7fd11f1277fc9ec2b4f3",
+    "source_sha256": "1d9ebbcbd61682a5eff7e6e713ecd8e41718da5b5e29c3e372044e9bcdbbec1e",
+    "final_sha256": "81213023a877e1fe677b2d12c6591831505467ecba1d2115fcc2a162fdfef4ae",
+    "bounds": [
+      8,
+      13,
+      120,
+      115
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 06 pixel sprite to express hungry pleading face: white open eyes with raised inner lavender brows and small open lavender round mouth. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original large asymmetric blue gelatinous teardrop body, two feet, bright cyan perimeter glow, blue purple interior starry glowing specks and highlights, palette, pixel structure, silhouette, pose and proportions exactly. Keep full body size and luminosity even for unwell expressions. Exactly one face, white eyes with lavender brows and mouth in their original location and scale. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw the body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-f68daf67-cfd2-4559-bc54-1ad02542db21.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/06-hungry.png",
+    "original": "assets/characters/unknown/06.png",
+    "final": "assets/characters/expressions/unknown/06-hungry.png",
+    "repair_history": [],
+    "original_sha256": "0addb89db856ec2a936899bddf2e59042276dc47cdaf7fd11f1277fc9ec2b4f3",
+    "source_sha256": "69b14fcf15927cd199e40cb145aabcc02d634330130aaf11ce0169ee1207e54d",
+    "final_sha256": "a1e0abef21e8ef5b8593694064c8df8d1122c725fb54b202906ce756e790daa4",
+    "bounds": [
+      8,
+      13,
+      120,
+      115
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 06 pixel sprite to express sick unwell face: drooping half-open white eyes, worried lavender brows and small wavering lavender mouth. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original large asymmetric blue gelatinous teardrop body, two feet, bright cyan perimeter glow, blue purple interior starry glowing specks and highlights, palette, pixel structure, silhouette, pose and proportions exactly. Keep full body size and luminosity even for unwell expressions. Exactly one face, white eyes with lavender brows and mouth in their original location and scale. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw the body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-31b65f32-9436-473e-a677-56fb6abaf197.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/06-sick.png",
+    "original": "assets/characters/unknown/06.png",
+    "final": "assets/characters/expressions/unknown/06-sick.png",
+    "repair_history": [],
+    "original_sha256": "0addb89db856ec2a936899bddf2e59042276dc47cdaf7fd11f1277fc9ec2b4f3",
+    "source_sha256": "b392434065d565f32593488ec71c9b973dec86400d16163bbae20affea03ed64",
+    "final_sha256": "ecf77d1c86e437e0f24cf81ba7706294fe7cfe777c79774470b9dac4218e957a",
+    "bounds": [
+      8,
+      13,
+      120,
+      115
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 06 pixel sprite to express tired drowsy face: very low half-lidded white eyes and a small gentle lavender yawn mouth. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original large asymmetric blue gelatinous teardrop body, two feet, bright cyan perimeter glow, blue purple interior starry glowing specks and highlights, palette, pixel structure, silhouette, pose and proportions exactly. Keep full body size and luminosity even for unwell expressions. Exactly one face, white eyes with lavender brows and mouth in their original location and scale. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw the body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-4376bc83-1a73-4dba-a7ce-d900d240e691.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/06-tired.png",
+    "original": "assets/characters/unknown/06.png",
+    "final": "assets/characters/expressions/unknown/06-tired.png",
+    "repair_history": [],
+    "original_sha256": "0addb89db856ec2a936899bddf2e59042276dc47cdaf7fd11f1277fc9ec2b4f3",
+    "source_sha256": "d571521e8cacec20bffe621cb5c63318896a6369ddde69c023447f84483cec6a",
+    "final_sha256": "907dd2601755fd2da79290d28e69b8f3ceae607257fc6722c141724477399193",
+    "bounds": [
+      8,
+      13,
+      120,
+      115
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 06 pixel sprite to express sulky displeased face: narrowed white eyes with inward-sloping lavender brows and a short pout mouth. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original large asymmetric blue gelatinous teardrop body, two feet, bright cyan perimeter glow, blue purple interior starry glowing specks and highlights, palette, pixel structure, silhouette, pose and proportions exactly. Keep full body size and luminosity even for unwell expressions. Exactly one face, white eyes with lavender brows and mouth in their original location and scale. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw the body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d3da3f3c-ef30-4022-80aa-f26efa2e1a54.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/06-sulky.png",
+    "original": "assets/characters/unknown/06.png",
+    "final": "assets/characters/expressions/unknown/06-sulky.png",
+    "repair_history": [],
+    "original_sha256": "0addb89db856ec2a936899bddf2e59042276dc47cdaf7fd11f1277fc9ec2b4f3",
+    "source_sha256": "257444fead62a78e766bd645ef039332f8e83686cba1eeace835512562b4a035",
+    "final_sha256": "d9a50340bbc399f19d3b2ffb3cf7d1cee2c5477a602c39aa9958b72fb5c52d78",
+    "bounds": [
+      8,
+      13,
+      120,
+      115
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 06 pixel sprite to express weak low-energy face: tiny drooped white eyes, slack brows and a small lowered lavender mouth. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original large asymmetric blue gelatinous teardrop body, two feet, bright cyan perimeter glow, blue purple interior starry glowing specks and highlights, palette, pixel structure, silhouette, pose and proportions exactly. Keep full body size and luminosity even for unwell expressions. Exactly one face, white eyes with lavender brows and mouth in their original location and scale. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw the body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-79da37f9-5d29-477f-bae5-d9efaf97521e.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/06-weak.png",
+    "original": "assets/characters/unknown/06.png",
+    "final": "assets/characters/expressions/unknown/06-weak.png",
+    "repair_history": [],
+    "original_sha256": "0addb89db856ec2a936899bddf2e59042276dc47cdaf7fd11f1277fc9ec2b4f3",
+    "source_sha256": "be57cedf2a6e7d76be4eba05bd3f541696871f3d8a718d77ac5ad05cd1017751",
+    "final_sha256": "847ae3c127199379de1e2149b572ed9f5c922b65ea7751968398fb007a6aba90",
+    "bounds": [
+      8,
+      13,
+      120,
+      115
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 06 pixel sprite to express critical near-exhausted face: both white eyelids closed downward and small slack lavender mouth, strongly distressed but no death symbols. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original large asymmetric blue gelatinous teardrop body, two feet, bright cyan perimeter glow, blue purple interior starry glowing specks and highlights, palette, pixel structure, silhouette, pose and proportions exactly. Keep full body size and luminosity even for unwell expressions. Exactly one face, white eyes with lavender brows and mouth in their original location and scale. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw the body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b5fe0d9b-ef18-4b2e-985d-f879dd7c95ac.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/06-critical.png",
+    "original": "assets/characters/unknown/06.png",
+    "final": "assets/characters/expressions/unknown/06-critical.png",
+    "repair_history": [],
+    "original_sha256": "0addb89db856ec2a936899bddf2e59042276dc47cdaf7fd11f1277fc9ec2b4f3",
+    "source_sha256": "fcf2bfbc7be74757c4de3f7cdb5196e663783a0914d18bbb9c250d4f8857b025",
+    "final_sha256": "4a258b2eed807477bc79945c8812455957bf79d2f100158ab52ad86300ba4010",
+    "bounds": [
+      8,
+      13,
+      120,
+      115
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 06 pixel sprite to express wantsPlay eager playful face: bright widely open original white eyes and a broad upward lavender grin. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original large asymmetric blue gelatinous teardrop body, two feet, bright cyan perimeter glow, blue purple interior starry glowing specks and highlights, palette, pixel structure, silhouette, pose and proportions exactly. Keep full body size and luminosity even for unwell expressions. Exactly one face, white eyes with lavender brows and mouth in their original location and scale. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw the body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-448bf573-b5c5-43c6-a3fa-9f01c7ae0151.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/06-wantsPlay.png",
+    "original": "assets/characters/unknown/06.png",
+    "final": "assets/characters/expressions/unknown/06-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "0addb89db856ec2a936899bddf2e59042276dc47cdaf7fd11f1277fc9ec2b4f3",
+    "source_sha256": "9b64b321939457af4a8de111a1d1d2ed03b2ecc03dddfab15c155869cbfb77ab",
+    "final_sha256": "59ce3580f1c7b5173ae594163e15a5a5a9568f1e2fca1fc2468c6ee73395b35d",
+    "bounds": [
+      8,
+      13,
+      120,
+      115
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "06",
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Edit ONLY the existing eyes, brows and mouth of the supplied unknown stage 06 pixel sprite to express sleeping peaceful face: two closed white horizontal curved eyelids and a tiny relaxed lavender mouth. Image 1 is original edit target; image 2 is exact nearest-neighbor enlarged reference. Preserve original large asymmetric blue gelatinous teardrop body, two feet, bright cyan perimeter glow, blue purple interior starry glowing specks and highlights, palette, pixel structure, silhouette, pose and proportions exactly. Keep full body size and luminosity even for unwell expressions. Exactly one face, white eyes with lavender brows and mouth in their original location and scale. Crisp low-resolution pixel art, hard square pixels. Genuine transparent alpha background. No new marks, sweat, tears, symbols, props, sparkles, text, shadows or background. Do not redraw the body.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-0447bb5a-cc22-4777-9208-1e7728fca044.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/06-sleeping.png",
+    "original": "assets/characters/unknown/06.png",
+    "final": "assets/characters/expressions/unknown/06-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "0addb89db856ec2a936899bddf2e59042276dc47cdaf7fd11f1277fc9ec2b4f3",
+    "source_sha256": "a46ae2155e6649996b5c914bc5574da4a0867ce7c58cb488b416c932c48d82eb",
+    "final_sha256": "a29d164ef2129f999f88252bfce29362c6a4f0e6138fa45f33e3fb55ded592e1",
+    "bounds": [
+      8,
+      13,
+      120,
+      115
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage07: tiny round cobalt-blue glowing ball with cyan rim, white upper-left highlight and EXACTLY THREE pre-existing orange/yellow rays above it. Preserve all three rays and their original positions and shape, even for sleeping or illness. Preserve the full bright body glow. HAPPY: warmly joyful upcurved glowing eyes and a small open smiling mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3d015919-380a-4595-8189-951db7135dde.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/07-happy.png",
+    "original": "assets/characters/unknown/07.png",
+    "final": "assets/characters/expressions/unknown/07-happy.png",
+    "repair_history": [],
+    "original_sha256": "4a4e9057e7eeff1cb7d881025db87f90a03f631dd2e86c7608e53373df35720e",
+    "source_sha256": "b05c5b7ae4af674909da3f340519cc676d09298768eb6adfb6aced19441f8014",
+    "final_sha256": "bb9e147d9a4e473ca8e596a0c31a750bf97348ef01a59924349cca6f6d7bceb7",
+    "bounds": [
+      47,
+      43,
+      80,
+      86
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage07: tiny round cobalt-blue glowing ball with cyan rim, white upper-left highlight and EXACTLY THREE pre-existing orange/yellow rays above it. Preserve all three rays and their original positions and shape, even for sleeping or illness. Preserve the full bright body glow. STRAINED: tense squeezed luminous eyes angled inward, pinched brows, clenched short wavy mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1316a9b6-428a-495f-8497-29d530b08051.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/07-strained.png",
+    "original": "assets/characters/unknown/07.png",
+    "final": "assets/characters/expressions/unknown/07-strained.png",
+    "repair_history": [],
+    "original_sha256": "4a4e9057e7eeff1cb7d881025db87f90a03f631dd2e86c7608e53373df35720e",
+    "source_sha256": "36b286a06f290d2269eb689bbaa5418a775479b7698f43f408dd3af9162bbc8f",
+    "final_sha256": "dadcc02614431262eb5236ee5d0e08da3cd685da8b3cf11955bdffb7d57f056a",
+    "bounds": [
+      47,
+      43,
+      80,
+      86
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage07: tiny round cobalt-blue glowing ball with cyan rim, white upper-left highlight and EXACTLY THREE pre-existing orange/yellow rays above it. Preserve all three rays and their original positions and shape, even for sleeping or illness. Preserve the full bright body glow. HUNGRY: pleading wide luminous eyes with raised inner brows and small round open mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-61f0ba09-3516-4fff-8191-bc727e7917fd.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/07-hungry.png",
+    "original": "assets/characters/unknown/07.png",
+    "final": "assets/characters/expressions/unknown/07-hungry.png",
+    "repair_history": [],
+    "original_sha256": "4a4e9057e7eeff1cb7d881025db87f90a03f631dd2e86c7608e53373df35720e",
+    "source_sha256": "d5551e5d4abf9f25afbd426c639ccc35dbae04f3da52b55517c1fe49f3819a3b",
+    "final_sha256": "7f27d3e289d2375fa05246518dad514b02a2d249fefbb16ef089a329ea1b459d",
+    "bounds": [
+      47,
+      43,
+      80,
+      86
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage07: tiny round cobalt-blue glowing ball with cyan rim, white upper-left highlight and EXACTLY THREE pre-existing orange/yellow rays above it. Preserve all three rays and their original positions and shape, even for sleeping or illness. Preserve the full bright body glow. SICK: uneven heavy half closed luminous eyes, distressed raised inner brows, small nauseous wavy mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-07c210ef-00c1-4377-bf4c-19a03fb8d64a.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/07-sick.png",
+    "original": "assets/characters/unknown/07.png",
+    "final": "assets/characters/expressions/unknown/07-sick.png",
+    "repair_history": [],
+    "original_sha256": "4a4e9057e7eeff1cb7d881025db87f90a03f631dd2e86c7608e53373df35720e",
+    "source_sha256": "7d8747d386cd9f18dc8092e0bb8873d8eca89da3d4d566c0a4958743f91e2cb5",
+    "final_sha256": "9bdac919d7bb8890c532c3dced8a8099c2229f310d55b6f82687d48bd8f1993e",
+    "bounds": [
+      47,
+      43,
+      80,
+      86
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage07: tiny round cobalt-blue glowing ball with cyan rim, white upper-left highlight and EXACTLY THREE pre-existing orange/yellow rays above it. Preserve all three rays and their original positions and shape, even for sleeping or illness. Preserve the full bright body glow. TIRED: heavy symmetric half lidded luminous eyes and small sleepy yawning oval mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-955ac6e6-8d2e-409c-933a-6dafe088a403.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/07-tired.png",
+    "original": "assets/characters/unknown/07.png",
+    "final": "assets/characters/expressions/unknown/07-tired.png",
+    "repair_history": [],
+    "original_sha256": "4a4e9057e7eeff1cb7d881025db87f90a03f631dd2e86c7608e53373df35720e",
+    "source_sha256": "ad1ff875b1cf59dce64cac3f6af780b7ef23bff5895ed8bfcb214ac42c5e7918",
+    "final_sha256": "7dc7e6c92b2dad1327b81f0c3226f61b44bc5c8b1438f06874b3c217de6f4204",
+    "bounds": [
+      47,
+      43,
+      80,
+      86
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage07: tiny round cobalt-blue glowing ball with cyan rim, white upper-left highlight and EXACTLY THREE pre-existing orange/yellow rays above it. Preserve all three rays and their original positions and shape, even for sleeping or illness. Preserve the full bright body glow. SULKY: sideways narrowed luminous eyes under inward lowered brows and a tiny pout.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-c931b51a-999e-4360-8d50-b2fb4080a626.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/07-sulky.png",
+    "original": "assets/characters/unknown/07.png",
+    "final": "assets/characters/expressions/unknown/07-sulky.png",
+    "repair_history": [],
+    "original_sha256": "4a4e9057e7eeff1cb7d881025db87f90a03f631dd2e86c7608e53373df35720e",
+    "source_sha256": "f7ff3fda8495c3b305aaa5a452aeee050598b298377e0254695d772a6029cce2",
+    "final_sha256": "a0663b12133ffa22546980b1c1985af52403811190b669d2471d48890caea397",
+    "bounds": [
+      47,
+      43,
+      80,
+      86
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage07: tiny round cobalt-blue glowing ball with cyan rim, white upper-left highlight and EXACTLY THREE pre-existing orange/yellow rays above it. Preserve all three rays and their original positions and shape, even for sleeping or illness. Preserve the full bright body glow. WEAK: drooping low luminous eyes, sad raised inner brows, tiny downturned slack mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-73f29ccd-3ecb-49d3-b623-1a16a94be20c.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/07-weak.png",
+    "original": "assets/characters/unknown/07.png",
+    "final": "assets/characters/expressions/unknown/07-weak.png",
+    "repair_history": [],
+    "original_sha256": "4a4e9057e7eeff1cb7d881025db87f90a03f631dd2e86c7608e53373df35720e",
+    "source_sha256": "d99c5b92c1ca104392ae85db03bdbf242838112a3882d2e2503c201aba1d4cd9",
+    "final_sha256": "2534fed3acdc019726b4ab31bfe941dd0b418b20177172a6c2d49680a8cf88ad",
+    "bounds": [
+      47,
+      43,
+      80,
+      86
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage07: tiny round cobalt-blue glowing ball with cyan rim, white upper-left highlight and EXACTLY THREE pre-existing orange/yellow rays above it. Preserve all three rays and their original positions and shape, even for sleeping or illness. Preserve the full bright body glow. CRITICAL: barely open narrow luminous eye slits, deeply drooped brows, very small slack open mouth; facial exhaustion only.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-b27fbff2-161d-4524-8bc5-0e2860847e73.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/07-critical.png",
+    "original": "assets/characters/unknown/07.png",
+    "final": "assets/characters/expressions/unknown/07-critical.png",
+    "repair_history": [],
+    "original_sha256": "4a4e9057e7eeff1cb7d881025db87f90a03f631dd2e86c7608e53373df35720e",
+    "source_sha256": "6b32b2038b87ea9583f98729520e6325e37fb8a1dd6d9f4b2008c3b5962fe554",
+    "final_sha256": "b5ed962bc7e04e7be2a7cac5f9766ddcd99a6ae00cf3acdaf167f5c3ff3bb216",
+    "bounds": [
+      47,
+      43,
+      80,
+      86
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage07: tiny round cobalt-blue glowing ball with cyan rim, white upper-left highlight and EXACTLY THREE pre-existing orange/yellow rays above it. Preserve all three rays and their original positions and shape, even for sleeping or illness. Preserve the full bright body glow. WANTS PLAY: eager wide luminous eyes, raised alert brows, broad playful open grin.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-5a4324d0-15c0-436a-a87e-b73c7d9f2ecf.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/07-wantsPlay.png",
+    "original": "assets/characters/unknown/07.png",
+    "final": "assets/characters/expressions/unknown/07-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "4a4e9057e7eeff1cb7d881025db87f90a03f631dd2e86c7608e53373df35720e",
+    "source_sha256": "f67574aa6a47d0a307b71bbfce10f655d3412467bcac82a516dbb29056554486",
+    "final_sha256": "b8678b73133b007349b326f0981a3c77c11ef2b92f81c0c581c61050216fd9c0",
+    "bounds": [
+      47,
+      43,
+      80,
+      86
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "07",
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage07: tiny round cobalt-blue glowing ball with cyan rim, white upper-left highlight and EXACTLY THREE pre-existing orange/yellow rays above it. Preserve all three rays and their original positions and shape, even for sleeping or illness. Preserve the full bright body glow. SLEEPING: both eyes fully closed as relaxed luminous curves, relaxed brows and tiny peaceful closed smile; unequivocally asleep.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-32161853-8fd0-44e0-ab7f-4921e81ba650.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/07-sleeping.png",
+    "original": "assets/characters/unknown/07.png",
+    "final": "assets/characters/expressions/unknown/07-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "4a4e9057e7eeff1cb7d881025db87f90a03f631dd2e86c7608e53373df35720e",
+    "source_sha256": "ea9960d3fd7b7d8bd876c8ebf49e894ceffc419e9c27435dc66607baedfe4216",
+    "final_sha256": "72a914a9b4803d51edb22b418bad0be8bfbfa6b63246e165e730b749bcd4274f",
+    "bounds": [
+      47,
+      43,
+      80,
+      86
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "happy",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage08: tiny dark purple point-like spirit with purple glowing rounded teardrop rim, dark navy interior, pre-existing curling tail at upper right and scattered tiny peripheral violet/cyan glints. Retain exact curling top, glints and bright purple rim in every state. No new body. HAPPY: warmly joyful upcurved glowing eyes and a small open smiling mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-1bb47404-fe72-48dc-bdd5-8ea76aab15db.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/08-happy.png",
+    "original": "assets/characters/unknown/08.png",
+    "final": "assets/characters/expressions/unknown/08-happy.png",
+    "repair_history": [],
+    "original_sha256": "62dcf5edf3520c7c8bc40d87432c0f3b04638be9f52cbf608416f045d5cbc2e0",
+    "source_sha256": "c7811a99996da43f2c728a277af4fb0a083218c5b1e6fdbc92b50f6297a7b8a4",
+    "final_sha256": "9b5f1f4642f22fc23a503a43665c17d572b3a6df7d8b3d7480cea79e22c6dea9",
+    "bounds": [
+      46,
+      44,
+      81,
+      84
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "strained",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage08: tiny dark purple point-like spirit with purple glowing rounded teardrop rim, dark navy interior, pre-existing curling tail at upper right and scattered tiny peripheral violet/cyan glints. Retain exact curling top, glints and bright purple rim in every state. No new body. STRAINED: tense squeezed luminous eyes angled inward, pinched brows, clenched short wavy mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-4fd4615c-ec51-4d58-9be6-fe8be2b8b308.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/08-strained.png",
+    "original": "assets/characters/unknown/08.png",
+    "final": "assets/characters/expressions/unknown/08-strained.png",
+    "repair_history": [],
+    "original_sha256": "62dcf5edf3520c7c8bc40d87432c0f3b04638be9f52cbf608416f045d5cbc2e0",
+    "source_sha256": "c1fbffe0f12f39376dfa7c8eeb3ade41394d37d299c6b8c1950bf2ed68a8636f",
+    "final_sha256": "1fddbd816f03fa8a0720333db394b305445e029bafa70ae8010075ecac3df95e",
+    "bounds": [
+      46,
+      44,
+      81,
+      84
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "hungry",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage08: tiny dark purple point-like spirit with purple glowing rounded teardrop rim, dark navy interior, pre-existing curling tail at upper right and scattered tiny peripheral violet/cyan glints. Retain exact curling top, glints and bright purple rim in every state. No new body. HUNGRY: pleading wide luminous eyes with raised inner brows and small round open mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-3feebff4-85e5-4417-b137-ccbc590449be.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/08-hungry.png",
+    "original": "assets/characters/unknown/08.png",
+    "final": "assets/characters/expressions/unknown/08-hungry.png",
+    "repair_history": [],
+    "original_sha256": "62dcf5edf3520c7c8bc40d87432c0f3b04638be9f52cbf608416f045d5cbc2e0",
+    "source_sha256": "f5184a12f8bd045f1fb5a3376f1342e29d451f855856979844e308991d098793",
+    "final_sha256": "75d468957c64d33ebd6d912b52cbec66db7e5e14912b31d959e44a7824d54360",
+    "bounds": [
+      46,
+      44,
+      81,
+      84
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "sick",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage08: tiny dark purple point-like spirit with purple glowing rounded teardrop rim, dark navy interior, pre-existing curling tail at upper right and scattered tiny peripheral violet/cyan glints. Retain exact curling top, glints and bright purple rim in every state. No new body. SICK: uneven heavy half closed luminous eyes, distressed raised inner brows, small nauseous wavy mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-d2fd8464-30c5-4f32-b34b-d8f51d69c04a.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/08-sick.png",
+    "original": "assets/characters/unknown/08.png",
+    "final": "assets/characters/expressions/unknown/08-sick.png",
+    "repair_history": [],
+    "original_sha256": "62dcf5edf3520c7c8bc40d87432c0f3b04638be9f52cbf608416f045d5cbc2e0",
+    "source_sha256": "a73ef20375c0eb9ed27909d6daca6ad8a3ee26c73f5d5062d5c3e84a84ed3cd4",
+    "final_sha256": "c83cb4a671c9e37b9679f5382a2ed752e3d2495684acbfad0d15b7726c85c516",
+    "bounds": [
+      46,
+      44,
+      81,
+      84
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "tired",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage08: tiny dark purple point-like spirit with purple glowing rounded teardrop rim, dark navy interior, pre-existing curling tail at upper right and scattered tiny peripheral violet/cyan glints. Retain exact curling top, glints and bright purple rim in every state. No new body. TIRED: heavy symmetric half lidded luminous eyes and small sleepy yawning oval mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-143129d8-2350-43fe-8223-173b18f1d6ac.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/08-tired.png",
+    "original": "assets/characters/unknown/08.png",
+    "final": "assets/characters/expressions/unknown/08-tired.png",
+    "repair_history": [],
+    "original_sha256": "62dcf5edf3520c7c8bc40d87432c0f3b04638be9f52cbf608416f045d5cbc2e0",
+    "source_sha256": "86d6b80eb04bc5a2f9d9e641a63c9cde77ce52c399ad06fee8fba43345b08b74",
+    "final_sha256": "67630b71e731f881d9c2c58357599a4780ce16d97044d1c0b18f07d9d908b694",
+    "bounds": [
+      46,
+      44,
+      81,
+      84
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "sulky",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage08: tiny dark purple point-like spirit with purple glowing rounded teardrop rim, dark navy interior, pre-existing curling tail at upper right and scattered tiny peripheral violet/cyan glints. Retain exact curling top, glints and bright purple rim in every state. No new body. SULKY: sideways narrowed luminous eyes under inward lowered brows and a tiny pout.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-7064204c-e2e9-4fd8-8beb-cd155fadd9f2.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/08-sulky.png",
+    "original": "assets/characters/unknown/08.png",
+    "final": "assets/characters/expressions/unknown/08-sulky.png",
+    "repair_history": [],
+    "original_sha256": "62dcf5edf3520c7c8bc40d87432c0f3b04638be9f52cbf608416f045d5cbc2e0",
+    "source_sha256": "870ebda2c17199cad128dad6cbc080b4712bc057fc4ba8f1a30ac3d3c7b5b9c9",
+    "final_sha256": "ff5e373398809ad064481ffa5be4a5e537051c00976ec456edc5f1a0297e89c8",
+    "bounds": [
+      46,
+      44,
+      81,
+      84
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "weak",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage08: tiny dark purple point-like spirit with purple glowing rounded teardrop rim, dark navy interior, pre-existing curling tail at upper right and scattered tiny peripheral violet/cyan glints. Retain exact curling top, glints and bright purple rim in every state. No new body. WEAK: drooping low luminous eyes, sad raised inner brows, tiny downturned slack mouth.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-903fab0e-04f1-40d7-94da-1d351e4cad74.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/08-weak.png",
+    "original": "assets/characters/unknown/08.png",
+    "final": "assets/characters/expressions/unknown/08-weak.png",
+    "repair_history": [],
+    "original_sha256": "62dcf5edf3520c7c8bc40d87432c0f3b04638be9f52cbf608416f045d5cbc2e0",
+    "source_sha256": "362160065cc3f76d473c5a985d3d03875948b6171db86c00dc2ffc0a2d23d8b7",
+    "final_sha256": "949beccea321da1aad6872e65f20e7be14e4e47b8c363940a57516d81fd77633",
+    "bounds": [
+      46,
+      44,
+      81,
+      84
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "critical",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage08: tiny dark purple point-like spirit with purple glowing rounded teardrop rim, dark navy interior, pre-existing curling tail at upper right and scattered tiny peripheral violet/cyan glints. Retain exact curling top, glints and bright purple rim in every state. No new body. CRITICAL: barely open narrow luminous eye slits, deeply drooped brows, very small slack open mouth; facial exhaustion only.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-ed778cc6-c1ef-41f8-ada7-a4563a217784.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/08-critical.png",
+    "original": "assets/characters/unknown/08.png",
+    "final": "assets/characters/expressions/unknown/08-critical.png",
+    "repair_history": [],
+    "original_sha256": "62dcf5edf3520c7c8bc40d87432c0f3b04638be9f52cbf608416f045d5cbc2e0",
+    "source_sha256": "cd3e32e5b6c0a9df11bf85f7be7054395cd9a66dfe6861da8d46d310d62c5e3d",
+    "final_sha256": "3c1f87e25f1a76154f41c5c70d71c7c9daca8e305b59886c6d9181317b327fab",
+    "bounds": [
+      46,
+      44,
+      81,
+      84
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "wantsPlay",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage08: tiny dark purple point-like spirit with purple glowing rounded teardrop rim, dark navy interior, pre-existing curling tail at upper right and scattered tiny peripheral violet/cyan glints. Retain exact curling top, glints and bright purple rim in every state. No new body. WANTS PLAY: eager wide luminous eyes, raised alert brows, broad playful open grin.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-4652a6e8-c709-42c7-ae2d-d35f1df91b53.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/08-wantsPlay.png",
+    "original": "assets/characters/unknown/08.png",
+    "final": "assets/characters/expressions/unknown/08-wantsPlay.png",
+    "repair_history": [],
+    "original_sha256": "62dcf5edf3520c7c8bc40d87432c0f3b04638be9f52cbf608416f045d5cbc2e0",
+    "source_sha256": "691217fcd053924d91319a9e881021e9f0d8917d00cd67e08007fcab19b340a3",
+    "final_sha256": "1722b1f72f2aa244495e5535f6131157850437b758eb0e0d898c141b51951b6d",
+    "bounds": [
+      46,
+      44,
+      81,
+      84
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "stage": "08",
+    "state": "sleeping",
+    "prompt": "Use case: precise-object-edit. Edit target image 1 original game sprite; image 2 is exact 6x nearest-neighbor reference only. Produce ONE isolated character PNG, true transparent background. Preserve the original composition, small scale, precise crisp low-resolution pixel-art and blocky pixel grid, silhouette, colors, glow and highlights. Change ONLY existing eyes, eyebrows and mouth. Keep luminous white/cyan eyes, never generic black eyes. No new objects, no tears, sweat, blush, symbols, text or status marks. No human body, limbs or accessories. This is stage08: tiny dark purple point-like spirit with purple glowing rounded teardrop rim, dark navy interior, pre-existing curling tail at upper right and scattered tiny peripheral violet/cyan glints. Retain exact curling top, glints and bright purple rim in every state. No new body. SLEEPING: both eyes fully closed as relaxed luminous curves, relaxed brows and tiny peaceful closed smile; unequivocally asleep.",
+    "generatedSource": "/workspace/scratch/0e1d599677f2/generated_images/exec-eb83dd4d-4024-45fd-b7c9-76a5a5cefdd0.png",
+    "line": "unknown",
+    "source": "/workspace/scratch/0e1d599677f2/unknown-generated/08-sleeping.png",
+    "original": "assets/characters/unknown/08.png",
+    "final": "assets/characters/expressions/unknown/08-sleeping.png",
+    "repair_history": [],
+    "original_sha256": "62dcf5edf3520c7c8bc40d87432c0f3b04638be9f52cbf608416f045d5cbc2e0",
+    "source_sha256": "5c75e50b662b1d358607fe0c78cb115b87a2f5be1722d364acf7196bb33ccd3a",
+    "final_sha256": "60c7c527fbaea9d89bec0a043dd0e679677c1979eaba1881aef209e686d8e061",
+    "bounds": [
+      46,
+      44,
+      81,
+      84
+    ],
+    "alpha_values": [
+      0,
+      255
+    ]
+  }
+]

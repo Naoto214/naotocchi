@@ -202,5 +202,3 @@ MEDIUM 3 本 × 行き / 帰り を 2 セット(各 方向 6 回、合計 36 回
 - HIGH 2 本(`countryside|forest`・`city|countryside`)・`countryside|forest` の はやさの 上限
 - party が 障害物に ひっかかる いまの バグ(わるく なって いない ことだけ たしかめた)
 - global collision・住民の 地域間 移動・セーブの 形の 変更・Three.js
-
-

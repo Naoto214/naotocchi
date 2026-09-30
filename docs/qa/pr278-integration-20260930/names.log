@@ -1,0 +1,16 @@
+✔ starfish preview exposes every stage and never accesses real saves (423.496661ms)
+✔ sakura preview exposes every stage and never accesses real saves (376.697769ms)
+✔ world_tree preview exposes every stage and never accesses real saves (304.401485ms)
+✔ unknown preview exposes every stage and never accesses real saves (294.916125ms)
+✔ starfish preview uses all eight canonical stage names (74.032291ms)
+✔ sakura preview uses all eight canonical stage names (64.564143ms)
+✔ world_tree preview uses all eight canonical stage names (102.634848ms)
+✔ unknown preview uses canonical punctuation and suppresses disposable rare achievement flashes (74.589007ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1839.450198

@@ -1,0 +1,1083 @@
+{
+  "source_head": "9a0ff51d5da45e65b6b21db63320c807350c048d",
+  "candidate_count": 2,
+  "strained": {
+    "original_sha256": "55e9e083b2118bf47b3fbd26b55373831c0d5b05047619c2ff73458d681d86cc",
+    "candidate_sha256": "e29a94b1177350cdb7c43eb0d197f6fe565477ab3b989655fdeba681e025afe8",
+    "donor_box": {
+      "left": 982,
+      "top": 626,
+      "width": 28,
+      "height": 14
+    },
+    "target_box": {
+      "left": 100,
+      "top": 63,
+      "width": 5,
+      "height": 3
+    },
+    "palette": "nearest RGB tuple sampled from existing strained face only",
+    "changed_pixels": 15,
+    "changes": [
+      {
+        "xy": [
+          100,
+          63
+        ],
+        "before": [
+          230,
+          144,
+          72,
+          255
+        ],
+        "after": [
+          215,
+          131,
+          65,
+          255
+        ]
+      },
+      {
+        "xy": [
+          101,
+          63
+        ],
+        "before": [
+          243,
+          161,
+          83,
+          255
+        ],
+        "after": [
+          39,
+          12,
+          0,
+          255
+        ]
+      },
+      {
+        "xy": [
+          102,
+          63
+        ],
+        "before": [
+          236,
+          156,
+          82,
+          255
+        ],
+        "after": [
+          17,
+          7,
+          2,
+          255
+        ]
+      },
+      {
+        "xy": [
+          103,
+          63
+        ],
+        "before": [
+          244,
+          157,
+          81,
+          255
+        ],
+        "after": [
+          49,
+          17,
+          2,
+          255
+        ]
+      },
+      {
+        "xy": [
+          104,
+          63
+        ],
+        "before": [
+          215,
+          131,
+          65,
+          255
+        ],
+        "after": [
+          230,
+          154,
+          82,
+          255
+        ]
+      },
+      {
+        "xy": [
+          100,
+          64
+        ],
+        "before": [
+          198,
+          117,
+          52,
+          255
+        ],
+        "after": [
+          12,
+          2,
+          1,
+          255
+        ]
+      },
+      {
+        "xy": [
+          101,
+          64
+        ],
+        "before": [
+          6,
+          4,
+          2,
+          255
+        ],
+        "after": [
+          33,
+          12,
+          1,
+          255
+        ]
+      },
+      {
+        "xy": [
+          102,
+          64
+        ],
+        "before": [
+          18,
+          7,
+          2,
+          255
+        ],
+        "after": [
+          87,
+          37,
+          12,
+          255
+        ]
+      },
+      {
+        "xy": [
+          103,
+          64
+        ],
+        "before": [
+          207,
+          119,
+          53,
+          255
+        ],
+        "after": [
+          18,
+          7,
+          2,
+          255
+        ]
+      },
+      {
+        "xy": [
+          104,
+          64
+        ],
+        "before": [
+          162,
+          86,
+          31,
+          255
+        ],
+        "after": [
+          49,
+          17,
+          2,
+          255
+        ]
+      },
+      {
+        "xy": [
+          100,
+          65
+        ],
+        "before": [
+          169,
+          96,
+          43,
+          255
+        ],
+        "after": [
+          145,
+          74,
+          31,
+          255
+        ]
+      },
+      {
+        "xy": [
+          101,
+          65
+        ],
+        "before": [
+          203,
+          120,
+          56,
+          255
+        ],
+        "after": [
+          198,
+          117,
+          52,
+          255
+        ]
+      },
+      {
+        "xy": [
+          102,
+          65
+        ],
+        "before": [
+          188,
+          107,
+          43,
+          255
+        ],
+        "after": [
+          207,
+          124,
+          57,
+          255
+        ]
+      },
+      {
+        "xy": [
+          103,
+          65
+        ],
+        "before": [
+          54,
+          16,
+          2,
+          255
+        ],
+        "after": [
+          169,
+          96,
+          43,
+          255
+        ]
+      },
+      {
+        "xy": [
+          104,
+          65
+        ],
+        "before": [
+          39,
+          12,
+          0,
+          255
+        ],
+        "after": [
+          121,
+          61,
+          24,
+          255
+        ]
+      }
+    ],
+    "outside_face_changed": 0,
+    "alpha_changed": 0,
+    "generated_full_sprite_adopted": false
+  },
+  "critical": {
+    "original_sha256": "dd79d2fbf0624ab9ea78f4ddfaa66e7805ec2baf65773a01a1964475c7137a49",
+    "candidate_sha256": "2d4f8ed516ed377bf46c990875d120d1aeb9c9cd220e0a4f309efb5d45c828f3",
+    "removed_components": 18,
+    "removed_pixels": 30,
+    "removal": [
+      {
+        "component": 26,
+        "pixels": [
+          [
+            19,
+            67
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 33,
+        "pixels": [
+          [
+            26,
+            72
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 38,
+        "pixels": [
+          [
+            20,
+            78
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 43,
+        "pixels": [
+          [
+            21,
+            81
+          ],
+          [
+            22,
+            81
+          ],
+          [
+            22,
+            82
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 45,
+        "pixels": [
+          [
+            37,
+            81
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 47,
+        "pixels": [
+          [
+            39,
+            82
+          ],
+          [
+            38,
+            83
+          ],
+          [
+            39,
+            83
+          ],
+          [
+            40,
+            83
+          ],
+          [
+            39,
+            84
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 51,
+        "pixels": [
+          [
+            36,
+            84
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 55,
+        "pixels": [
+          [
+            38,
+            86
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 58,
+        "pixels": [
+          [
+            30,
+            87
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 60,
+        "pixels": [
+          [
+            31,
+            91
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 64,
+        "pixels": [
+          [
+            25,
+            94
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 65,
+        "pixels": [
+          [
+            30,
+            94
+          ],
+          [
+            29,
+            95
+          ],
+          [
+            30,
+            95
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 72,
+        "pixels": [
+          [
+            27,
+            99
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 75,
+        "pixels": [
+          [
+            15,
+            102
+          ],
+          [
+            15,
+            103
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 81,
+        "pixels": [
+          [
+            26,
+            108
+          ],
+          [
+            26,
+            109
+          ],
+          [
+            27,
+            109
+          ],
+          [
+            26,
+            110
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 83,
+        "pixels": [
+          [
+            37,
+            108
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 89,
+        "pixels": [
+          [
+            14,
+            111
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      },
+      {
+        "component": 94,
+        "pixels": [
+          [
+            52,
+            112
+          ]
+        ],
+        "reason": "reviewed secondary speck beside retained larger flecks / exterior trail; preserve irregular gaps"
+      }
+    ],
+    "changes": [
+      {
+        "xy": [
+          19,
+          67
+        ],
+        "before": [
+          165,
+          100,
+          46,
+          255
+        ],
+        "after": [
+          165,
+          100,
+          46,
+          0
+        ]
+      },
+      {
+        "xy": [
+          26,
+          72
+        ],
+        "before": [
+          185,
+          119,
+          59,
+          255
+        ],
+        "after": [
+          185,
+          119,
+          59,
+          0
+        ]
+      },
+      {
+        "xy": [
+          20,
+          78
+        ],
+        "before": [
+          185,
+          119,
+          59,
+          255
+        ],
+        "after": [
+          185,
+          119,
+          59,
+          0
+        ]
+      },
+      {
+        "xy": [
+          21,
+          81
+        ],
+        "before": [
+          185,
+          119,
+          59,
+          255
+        ],
+        "after": [
+          185,
+          119,
+          59,
+          0
+        ]
+      },
+      {
+        "xy": [
+          22,
+          81
+        ],
+        "before": [
+          200,
+          129,
+          61,
+          255
+        ],
+        "after": [
+          200,
+          129,
+          61,
+          0
+        ]
+      },
+      {
+        "xy": [
+          37,
+          81
+        ],
+        "before": [
+          165,
+          100,
+          46,
+          255
+        ],
+        "after": [
+          165,
+          100,
+          46,
+          0
+        ]
+      },
+      {
+        "xy": [
+          22,
+          82
+        ],
+        "before": [
+          165,
+          100,
+          46,
+          255
+        ],
+        "after": [
+          165,
+          100,
+          46,
+          0
+        ]
+      },
+      {
+        "xy": [
+          39,
+          82
+        ],
+        "before": [
+          179,
+          108,
+          48,
+          255
+        ],
+        "after": [
+          179,
+          108,
+          48,
+          0
+        ]
+      },
+      {
+        "xy": [
+          38,
+          83
+        ],
+        "before": [
+          185,
+          119,
+          59,
+          255
+        ],
+        "after": [
+          185,
+          119,
+          59,
+          0
+        ]
+      },
+      {
+        "xy": [
+          39,
+          83
+        ],
+        "before": [
+          216,
+          143,
+          69,
+          255
+        ],
+        "after": [
+          216,
+          143,
+          69,
+          0
+        ]
+      },
+      {
+        "xy": [
+          40,
+          83
+        ],
+        "before": [
+          179,
+          108,
+          48,
+          255
+        ],
+        "after": [
+          179,
+          108,
+          48,
+          0
+        ]
+      },
+      {
+        "xy": [
+          36,
+          84
+        ],
+        "before": [
+          179,
+          108,
+          48,
+          255
+        ],
+        "after": [
+          179,
+          108,
+          48,
+          0
+        ]
+      },
+      {
+        "xy": [
+          39,
+          84
+        ],
+        "before": [
+          185,
+          119,
+          59,
+          255
+        ],
+        "after": [
+          185,
+          119,
+          59,
+          0
+        ]
+      },
+      {
+        "xy": [
+          38,
+          86
+        ],
+        "before": [
+          179,
+          108,
+          48,
+          255
+        ],
+        "after": [
+          179,
+          108,
+          48,
+          0
+        ]
+      },
+      {
+        "xy": [
+          30,
+          87
+        ],
+        "before": [
+          185,
+          119,
+          59,
+          255
+        ],
+        "after": [
+          185,
+          119,
+          59,
+          0
+        ]
+      },
+      {
+        "xy": [
+          31,
+          91
+        ],
+        "before": [
+          185,
+          119,
+          59,
+          255
+        ],
+        "after": [
+          185,
+          119,
+          59,
+          0
+        ]
+      },
+      {
+        "xy": [
+          25,
+          94
+        ],
+        "before": [
+          185,
+          119,
+          59,
+          255
+        ],
+        "after": [
+          185,
+          119,
+          59,
+          0
+        ]
+      },
+      {
+        "xy": [
+          30,
+          94
+        ],
+        "before": [
+          185,
+          119,
+          59,
+          255
+        ],
+        "after": [
+          185,
+          119,
+          59,
+          0
+        ]
+      },
+      {
+        "xy": [
+          29,
+          95
+        ],
+        "before": [
+          165,
+          100,
+          46,
+          255
+        ],
+        "after": [
+          165,
+          100,
+          46,
+          0
+        ]
+      },
+      {
+        "xy": [
+          30,
+          95
+        ],
+        "before": [
+          191,
+          133,
+          84,
+          255
+        ],
+        "after": [
+          191,
+          133,
+          84,
+          0
+        ]
+      },
+      {
+        "xy": [
+          27,
+          99
+        ],
+        "before": [
+          179,
+          108,
+          48,
+          255
+        ],
+        "after": [
+          179,
+          108,
+          48,
+          0
+        ]
+      },
+      {
+        "xy": [
+          15,
+          102
+        ],
+        "before": [
+          185,
+          119,
+          59,
+          255
+        ],
+        "after": [
+          185,
+          119,
+          59,
+          0
+        ]
+      },
+      {
+        "xy": [
+          15,
+          103
+        ],
+        "before": [
+          185,
+          119,
+          59,
+          255
+        ],
+        "after": [
+          185,
+          119,
+          59,
+          0
+        ]
+      },
+      {
+        "xy": [
+          26,
+          108
+        ],
+        "before": [
+          200,
+          129,
+          61,
+          255
+        ],
+        "after": [
+          200,
+          129,
+          61,
+          0
+        ]
+      },
+      {
+        "xy": [
+          37,
+          108
+        ],
+        "before": [
+          148,
+          90,
+          47,
+          255
+        ],
+        "after": [
+          148,
+          90,
+          47,
+          0
+        ]
+      },
+      {
+        "xy": [
+          26,
+          109
+        ],
+        "before": [
+          200,
+          129,
+          61,
+          255
+        ],
+        "after": [
+          200,
+          129,
+          61,
+          0
+        ]
+      },
+      {
+        "xy": [
+          27,
+          109
+        ],
+        "before": [
+          200,
+          129,
+          61,
+          255
+        ],
+        "after": [
+          200,
+          129,
+          61,
+          0
+        ]
+      },
+      {
+        "xy": [
+          26,
+          110
+        ],
+        "before": [
+          185,
+          119,
+          59,
+          255
+        ],
+        "after": [
+          185,
+          119,
+          59,
+          0
+        ]
+      },
+      {
+        "xy": [
+          14,
+          111
+        ],
+        "before": [
+          185,
+          119,
+          59,
+          255
+        ],
+        "after": [
+          185,
+          119,
+          59,
+          0
+        ]
+      },
+      {
+        "xy": [
+          52,
+          112
+        ],
+        "before": [
+          185,
+          119,
+          59,
+          255
+        ],
+        "after": [
+          185,
+          119,
+          59,
+          0
+        ]
+      }
+    ],
+    "nonselected_pixels_changed": 0,
+    "body_connected_component_changed": 0,
+    "surviving_particle_rgb_changed": 0,
+    "trail_changed": 0,
+    "generated_pixels_used": 0,
+    "method": "manual visual selection of existing detached fragments; generated full-sprite proposal rejected for invariant drift"
+  },
+  "production_replacement": false,
+  "human_approval": false
+}

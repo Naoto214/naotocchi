@@ -1,0 +1,528 @@
+{
+  "record": "starfish-growth-design-only; proposal pending approval",
+  "checked_at_utc": "2026-09-25T13:23:09.045478+00:00",
+  "github_baseline_head": "69e47fa0881aa4b462afbb6d7a735702ac8a167d",
+  "github_baseline_tree": "387bf8aa8ae13a6875f3a38551b8ce23c15cc12d",
+  "observed_main": "01801726fb070b1a97eaaef873045ef99ded1488",
+  "local_snapshot_commit": "88d4af259363984e999aa8147c34db980ef9da05",
+  "preservation": {
+    "all_existing_tracked_blob_matches": 3603,
+    "mismatches": 0,
+    "missing": 0,
+    "ordered_manifest_sha256": "0c4a501e1794b4536ec9b842ed0e58c23e78c0ec7e6cc6909a03b14343fb05b1",
+    "normal_count": 8,
+    "expression_count": 80,
+    "expression_ids_per_stage": 10,
+    "embedded_originals_byte_identical": 8
+  },
+  "audit_scope": {
+    "normal_images_individually_viewed": 8,
+    "growth_names_read": 8,
+    "growth_descriptions_read": 8,
+    "new_global_expression_visual_audit": false,
+    "expression_visual_reaudit": false,
+    "source_figures_viewed": false
+  },
+  "changes": {
+    "image_generation": 0,
+    "image_editing": 0,
+    "expression_regeneration": 0,
+    "new_svg": 0,
+    "game_code_css_placement_hunger": 0,
+    "existing_tracked_files": 0,
+    "allowed_new_document_paths": [
+      "docs/qa/starfish-growth-design-20260925.md",
+      "docs/qa/starfish-growth-design-20260925.html",
+      "docs/qa/starfish-growth-design-20260925-verification.json"
+    ]
+  },
+  "checks": {
+    "stage_coverage": "PASS 8/8",
+    "relative_markdown_links": "PASS",
+    "embedded_images": "PASS 8/8",
+    "github_baseline_tree_matches_local": "PASS",
+    "all_existing_git_blobs": "PASS",
+    "git_diff_check": "PASS; also run staged diff check before upload",
+    "game_related_tests": "NOT RUN (documents only)",
+    "full_npm_test": "NOT RUN (documents only)",
+    "latest_head_ci": "recorded in PR receipt after commit; no prior-head success reused",
+    "html_browser_render": "BLOCKED: Playwright Chromium executable not installed; no layout screenshot claim"
+  },
+  "unresolved_quick_mode": {
+    "test": "tests/quick-mode-test.cjs:57 / solving dodge counts",
+    "expected": "✔ 1／20",
+    "actual": "✔ 0／20",
+    "cause": "unresolved; random-game/obstacle/autosolver dependency is a hypothesis",
+    "reproduced_same_conditions": false,
+    "proven_flaky": false,
+    "zorder_relation": "CSS/HTML not read by harness; direct relationship not identified",
+    "past_observations_only": "standalone 10/10 before and after; subsequent full 1839/1839 pass",
+    "required_before_final_green": "fresh full suite and continued failure tracking; not resolved by standalone success"
+  },
+  "other_pending": [
+    "dog03 wantsPlay pose",
+    "antlion07/08 trails/particles/thin branch",
+    "naoto not started",
+    "hunger audit; starfish deferred",
+    "starfish08 tiny bubble absent in 10 expressions, prior F04/D1"
+  ],
+  "baseline_ci": {
+    "actions": 0,
+    "check_runs": 0,
+    "status_contexts": 0,
+    "combined_state": "pending",
+    "success_claimed": false
+  },
+  "artifacts": [
+    {
+      "path": "docs/qa/starfish-growth-design-20260925.md",
+      "sha256": "ca00bc247aa9f80532a01e26c54e5ef74e336a86b240daf457d84bef8beecdb9"
+    },
+    {
+      "path": "docs/qa/starfish-growth-design-20260925.html",
+      "sha256": "093a98f84c89b3c3d721b382132b77b1e0f2fd5109cd486a08093f0a889e89ce"
+    }
+  ],
+  "starfish_baseline_files": [
+    {
+      "path": "assets/characters/starfish/01.png",
+      "git_blob": "cb526cc981ce620b96e71054ca02d1030e00dafd",
+      "sha256": "dcbd67f8016518b3492842ccccded235137b81fb7584cbd6fd422632a98183d7"
+    },
+    {
+      "path": "assets/characters/starfish/02.png",
+      "git_blob": "68deb4b9546c8aaa402a30ce7abb524aab5b5d76",
+      "sha256": "c96b74fd84f18ab534b46f7c21289a3ec151b5beca47df726c0e2a0ef756f28f"
+    },
+    {
+      "path": "assets/characters/starfish/03.png",
+      "git_blob": "d4aa66cdf64cda3b51ac3532cbac78c4a064ea3c",
+      "sha256": "b7224acbc062e564eede8d8b7588a7da15c0f20b1b82f54f56d64aa51e6b5ac9"
+    },
+    {
+      "path": "assets/characters/starfish/04.png",
+      "git_blob": "68fc30bf963714a577dec3d3889a2bc66b9e6bb9",
+      "sha256": "67cc700986fea3bf4584744a8f58a10978d1dce0eec173ea4666b73c82bc9863"
+    },
+    {
+      "path": "assets/characters/starfish/05.png",
+      "git_blob": "2dc900c69b34fc50724ebf0b6868c22fd2074e91",
+      "sha256": "5075539019147a587ab984f058edabdb3ea994ab91067108f48e4c3cb9afa462"
+    },
+    {
+      "path": "assets/characters/starfish/06.png",
+      "git_blob": "0697fa923c0bb532e0f4031e248601699bce1f87",
+      "sha256": "9530edaae3061ba58e55e460d1ee72f67dfc33c74841d0f1cc30eb05a8ed32d8"
+    },
+    {
+      "path": "assets/characters/starfish/07.png",
+      "git_blob": "e25bda3a8cd8073ac83875c3cf6943a2c82eaa17",
+      "sha256": "c806f9b9fb0d489db9c253f5caed5a1773c953cd6db756084feef49db6c9f6fa"
+    },
+    {
+      "path": "assets/characters/starfish/08.png",
+      "git_blob": "465c567afb68c43a31bf7a7f426a64813ef80f24",
+      "sha256": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/01-critical.png",
+      "git_blob": "72946a840c0273cd211c480ab14b8eb7ff58f4ef",
+      "sha256": "45d379ded2459f53a120cfc55cb051234f6093e53e2ad9ca231bf8e8a3a4d3c4"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/01-happy.png",
+      "git_blob": "fdde3e997998b5903a2dbc794798d95ee688ab0e",
+      "sha256": "1e093ecf437c336b870a2f7555861862017bd00a30556e40c76ee7d21c8d88b5"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/01-hungry.png",
+      "git_blob": "1f42e3d57757cbd00c97591a89b43b1e483acf6b",
+      "sha256": "cab115e2b5035e5add3e5b65b62d29d1b13f9cc6780ffd0a3dd7dec33964dbb1"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/01-sick.png",
+      "git_blob": "629668e5464c2d925948660e58c0838dce7ca622",
+      "sha256": "211c5689b70e6e32f02b92401d07415f4ddcd75f8dcc482a2dadd51d5589ef28"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/01-sleeping.png",
+      "git_blob": "2e13618d3cedbe79322b2be0fae504cdd3aca8e0",
+      "sha256": "4850e8b80bc6a3ccfd3ccdaac70eff564b4a3db59e0f4613f8cb8f63cf772b9f"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/01-strained.png",
+      "git_blob": "98e35cca838d7974e6b2e7769f91bbcffefdceb2",
+      "sha256": "b92a40817f3ce623473334369d8d443a1d6529cff0f312c957ed65a8c4a7afdc"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/01-sulky.png",
+      "git_blob": "b87a6353cb91e03505d33fedee3705a5d9bf0772",
+      "sha256": "effc2e430e863b194c3b9f61a05425e7ca2117c564aa0d44c58ac47182f5e69d"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/01-tired.png",
+      "git_blob": "2a06bc491a560be11a6ac9f26588a2a2ddae85f2",
+      "sha256": "60c1a8f54b7203d0a4075370750a23b01125ed611c9e161b60fd18fb034f9969"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/01-wantsPlay.png",
+      "git_blob": "46a273be073878023d0e8e665ecd8133492ed594",
+      "sha256": "7558925ed0b38dc31bb7da0f5a447660dad7ba1bcd9abe57ddbcfe54f4e3fa94"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/01-weak.png",
+      "git_blob": "bca0c8aa1cab2cf00cff17be531b2c5c961c14c4",
+      "sha256": "1a7c1cad1521a01d6a607483e7c259b7e6dc5e43202dece84bb42c44bd0516b2"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/02-critical.png",
+      "git_blob": "6dfd1ca5e5056a38adbbb72f006efea567b8e5c3",
+      "sha256": "50659056c4a30c78dd4e40615795374e098fbb5cd5423490498051e6e5f03066"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/02-happy.png",
+      "git_blob": "bdf985d29d8a256ca5fb83d778067cbfa565d211",
+      "sha256": "0dc99565efe65c33e8fc85800dfa271522f9beab656d2487ca37057d79c69dc0"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/02-hungry.png",
+      "git_blob": "0f1e30a97ddb5f6620c0f9e09e044b0c43c37f32",
+      "sha256": "75bf8ab28711df6f614152532f1ba3a7834239d65e1bc44155d5dc0be4d4d7b5"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/02-sick.png",
+      "git_blob": "4d966eecf5b1e1b30fb79f9c331a504524127698",
+      "sha256": "7c81bee1b9c3c84f597ed77bafa1f729d606d24f1c89b3343c417749fcbdc97f"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/02-sleeping.png",
+      "git_blob": "b197530b401121c1714e23a96dd0cac3ca2b9dd0",
+      "sha256": "cade743594525fec5cbdd64731a37c895aa663387ab543e727d78aa45465f3c2"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/02-strained.png",
+      "git_blob": "fe0d7dcb853ecb4a34691d1d559bd7c712e46b45",
+      "sha256": "a5e693ccd606aa383baa1e04a0eb8ff0b3a52ac10b6db6f7d3d4f4b44cf5a7e3"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/02-sulky.png",
+      "git_blob": "8226d8d094a79eca601bd635d9bd1f8fe06c92db",
+      "sha256": "8b0a2c961cf289510931822f32c0a015c4ff106107443a6b976981ca77e7b040"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/02-tired.png",
+      "git_blob": "f0b6a08a8fb7fa9f0f56a8b133ff168dff63d6af",
+      "sha256": "1e9864d015a41cc1c46c90eb3f22408f48c63560b0928da7b378cb92a771a545"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/02-wantsPlay.png",
+      "git_blob": "35d7f81299d1d517af50cd2e76c0fba967e2a2e6",
+      "sha256": "abe540202cb520af92e93bb786cbee1f4829a5b20a9fdc5ce8bf0e656bded58f"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/02-weak.png",
+      "git_blob": "6d9d38ca67bbd4a2dc36ba80140923c63f0d11fe",
+      "sha256": "c29182bb9ff5d97331fb65f491ffb77ee2409c8bcbe5c6e796b95d75756e15e8"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/03-critical.png",
+      "git_blob": "c120c7e388964a317fd2fb1dd7ac09fa28e77a19",
+      "sha256": "6b9ed3d4ee47d1fab4e3d7806133e934a58a27a6ed665659295bdc9a24d1f945"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/03-happy.png",
+      "git_blob": "6857bbb1c6eb056dc79e8d8c9600af1cf5203d7b",
+      "sha256": "67d732c5f851dd45a304c0019d302deed6c68b8ea455357584e5ddbbf8b67b6f"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/03-hungry.png",
+      "git_blob": "e1a43a9dce7b851b45a088faac49ac372821f5d7",
+      "sha256": "a112c1818249213d2839c527a48bf7f2d3cda8c7fe06a8664f8b45422ede49d8"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/03-sick.png",
+      "git_blob": "7a2ce75669b6737c8e8cad7dd3b652a686d3ff69",
+      "sha256": "b97023927039698b1c09c14358cbe4337dcd3bb3e70ab1ee6415ae2ea9c9cef6"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/03-sleeping.png",
+      "git_blob": "33010895ff4d6030527fa07c7fc08e27394ea49a",
+      "sha256": "3a0852223511e28b07e4cf5dab0878f0f181fd79e3454f2a099b541de109e474"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/03-strained.png",
+      "git_blob": "675058fad5b4921cfb124382b5254e1639c02a24",
+      "sha256": "e9657081484083017f06d00e1b3b0cc2feac7b638be645076aef32f2b536e27f"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/03-sulky.png",
+      "git_blob": "33088cd9dbaaf95904311136fc7585f2ca7f790d",
+      "sha256": "b65709febb587865bb247846257128fa2899f929a6f909d18316fe9504eff48b"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/03-tired.png",
+      "git_blob": "f0ce319749b11613308061d4bb9b171e174baca7",
+      "sha256": "12a1c705cca2f0727b1e142a44c9ed6f98ba16c0777466a9e8eb2beccb41ce37"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/03-wantsPlay.png",
+      "git_blob": "40fa182551d9fa37823c0c9926dbf522d5eeb162",
+      "sha256": "84332edca10c28c0c4b1d2d27c468a0eea29dfb5a6a3db926988fc3af9f11c8c"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/03-weak.png",
+      "git_blob": "e36cf11d32f177fc040b414f56f6936fc2154b22",
+      "sha256": "87726e655b788705d12a9765aab3b2dcb8de62e3b1cad1669636f99a5be6af04"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/04-critical.png",
+      "git_blob": "94767c8c7d782a5cc525b5331da35cd784b61e9a",
+      "sha256": "3f7af2d4da428e4fbd7e25a17223fcccb3f491e0026976610fad63db5bb29a38"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/04-happy.png",
+      "git_blob": "11b6357599c7121a89bd60186653886410521095",
+      "sha256": "10fa4a0ef7f7f88aa9162c2e94595bb455454a752cb01e0711251612dd6d51c0"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/04-hungry.png",
+      "git_blob": "2bd04eb72fe523c99aaac9475d2568efd05fb555",
+      "sha256": "254f91c7a76caa57879a5e0a626149819860ffbee99d2bc4c2987ebebd5a1723"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/04-sick.png",
+      "git_blob": "ec34e7defd2c4126f75a50875ac53e0956479ecb",
+      "sha256": "871788d79fbde8ac8a04269e899807ff6ac92531251b6356d425d13306999542"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/04-sleeping.png",
+      "git_blob": "54063dd5830caf7eb366067ec5ea2bb8c27fe9e7",
+      "sha256": "8145a3935380ccc69dcc82835b30d47c86994d64fbae67f67f437b58b8abed57"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/04-strained.png",
+      "git_blob": "4a75a27739c5bae0742b0e25acfccafd99528893",
+      "sha256": "3fd702bbb0c275259e57db04a85c057a4380ef1ac2340ef9c6c55fc4c8c590e1"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/04-sulky.png",
+      "git_blob": "5355409e3b82d128259fe2811f493bfe27fa44da",
+      "sha256": "d49469491fb6929ef9369f3c553d8b6f0848ba9cc8954cb821c2d062a025cb1f"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/04-tired.png",
+      "git_blob": "9b3d08f5a19a88db6c9c5f3436b5ede308312637",
+      "sha256": "faf1fa9eb2fd32e5300a1e3b8e0a0b9526cbcb611b27dd47bc4b8b807661e5ee"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/04-wantsPlay.png",
+      "git_blob": "fcff64a25be958011d00afa9eac03a5060339ba0",
+      "sha256": "70f3eeb3fa7f1e18de8dbefe499cc395e6cd7008dc9572c7d526d80b518b016f"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/04-weak.png",
+      "git_blob": "3850bd8fdd36e9600a651801bd1101b7265338b5",
+      "sha256": "70229e63146df3999084a00a02a16c12f0e7e0a8637e42cdeec9c9c919b34c04"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/05-critical.png",
+      "git_blob": "a63a8783e616ed984e2a7b49a7750d0e1dc48885",
+      "sha256": "b24733df0d8073b7cc631606ce2c8c2e097a7de744162136a0bf4343fe35f9d7"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/05-happy.png",
+      "git_blob": "1f0a7955f79a09d793c1ce7d639b9be24704214f",
+      "sha256": "ba63b15ce0bff6d3d12d539c26c518984f20097701451aab89447fb853414ba4"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/05-hungry.png",
+      "git_blob": "4d21f9187c504d8d339391d11134bd63ce935cc5",
+      "sha256": "6617c39d3b23175788f6ce1d6ff0bf77ac6d40e8239d9184f4dc883748525df8"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/05-sick.png",
+      "git_blob": "0a76dd599092a230fdb1d926d9910e3b4f6843ad",
+      "sha256": "f57a164d78290acad43b30dc62b27192fb46275fa48713533cd1e0e953af6fb4"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/05-sleeping.png",
+      "git_blob": "61180d627f0eacf1ea16c29306c5ba3bb5a75e7d",
+      "sha256": "e5fef6e9caaa781c1b61fcec97afc1d589037369718ffd5b6585e4b939210891"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/05-strained.png",
+      "git_blob": "10f30178eb330a2c2b15dac9b1f8200a69d39bd4",
+      "sha256": "780c54aff1a11098b6045df03d8f1aa185415dd94f617b8af9c5a6d0a45b7522"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/05-sulky.png",
+      "git_blob": "210a5bdb3a368c9821be766bba56e6eb6574008c",
+      "sha256": "fbd722b99bb14ca4a3de3961b44862c66ce4260533df428375f86ba408dbbe76"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/05-tired.png",
+      "git_blob": "30587fbfb86ab46ba852b415bf3c2ec6a522a37b",
+      "sha256": "92868b05edc2bbc9e79668b815741ef15450e98a5d56a60d4d7f3b24aaa4ebf0"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/05-wantsPlay.png",
+      "git_blob": "693cf9ae26447abcfc67dd6e964d695a85f42a75",
+      "sha256": "3c45f1195f1eac544ba8e0397cb5f2eb0c66789fa8223b0652635d202e046ca3"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/05-weak.png",
+      "git_blob": "bced0ce6f428f2639f770aec725e4c0ee7a95363",
+      "sha256": "9334c86d31301676d428cb273f39b638fff8eb8677acba18d05d791a89f5eb92"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/06-critical.png",
+      "git_blob": "a3e58f8e06ba3d662970e2a6beeb2c5cc12d513f",
+      "sha256": "cb03fca6463f811192cae00b02a56554d4ca5648c05cbb0b912735cff96a28b0"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/06-happy.png",
+      "git_blob": "59d68c1938be318c11294f60799f732fd46fd258",
+      "sha256": "6f25f1c979485a8789935f851dafd271d95a695d6fc92026c8355e3c429d5ec0"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/06-hungry.png",
+      "git_blob": "415c6bff117b53ea8bdb69fdf601face23cfb2df",
+      "sha256": "8ebad2a1ef6de17207f2a2b1efc8121d931d31c30177fa033dfd186e4a0e2664"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/06-sick.png",
+      "git_blob": "e1af6caec910f1e86be796dc9b846a1f2870533a",
+      "sha256": "f9da2bcc26ace0cdf9cfda4d57fa95e8e9a68f95c308d383ffb8a676713145af"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/06-sleeping.png",
+      "git_blob": "8d1001ea78ee304e66e9c10c5ccb783ec78ad027",
+      "sha256": "244064545a14f063ad5750626c3099f4f6e5fd98132c9e0736bd2d5aa0ce9ef2"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/06-strained.png",
+      "git_blob": "680338eabe2505855154fec2fbcd0a5e5604fead",
+      "sha256": "2a1a14b462f66461864aa456acccd521ef4f5cb9673e7343c3fe7a709782da46"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/06-sulky.png",
+      "git_blob": "2dd108b935a8aaa1d0e40a57ce2382388a291bd7",
+      "sha256": "b4416ba3ac460992a7945e9e0e799b9e5e477802b52a1800fda8c790bb6491c6"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/06-tired.png",
+      "git_blob": "0239ca1af458b766da8f4203ac7f79830f09d50c",
+      "sha256": "2305c4f67209d028189e5f0bb4c6b44141a18d00947606ec971f05c73d86ee12"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/06-wantsPlay.png",
+      "git_blob": "c751b98a7d5bae2466f4959c2ea35ad3379dea9b",
+      "sha256": "1744fa3780595462010ac35af4149b27a67c790c6cb24e733e6bc7d164bd32f2"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/06-weak.png",
+      "git_blob": "fcd2054dd988694930097a0eb388f1ea2b0f3a38",
+      "sha256": "4ee5e147834724920d1233a92c2c0415268d50b4e42c564d7e68b6b130f8d832"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/07-critical.png",
+      "git_blob": "e024a38226a8290a077e0d34a6ceb57d44519335",
+      "sha256": "0d3d2249244bff65a811f3fc474a218c7bee755410326fd180a3bef5cdb6f235"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/07-happy.png",
+      "git_blob": "0bb66fbabde47cab5aa9956ab4f2325c50030a0f",
+      "sha256": "46349ca0e05212e0ca338a12a40abe5719aac99da4727b0a35c38e2346f001bf"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/07-hungry.png",
+      "git_blob": "0f71d735c43bdf030bdc4edc8412c49a3c1405e9",
+      "sha256": "89d3ece7ff60c5d8df49e5814504578e26ce29c169af0c8bfc3167b49a8dc375"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/07-sick.png",
+      "git_blob": "3b46b2f9e98e1e0ffbda50eaae5f626c35c0715b",
+      "sha256": "bcda48f5a4696bf99d7c2734755226ae8032f30d89b03a9b41726fc3441df7ff"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/07-sleeping.png",
+      "git_blob": "a92722f5b0217ea4f53066059c26adb0f2edd9d8",
+      "sha256": "17ff52c39aab3cb1ddb7533bcab5392d033dfe6bfc7787d7f957b46bd246649d"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/07-strained.png",
+      "git_blob": "119fcad7bf8777c3d6c980a88bc45ce38e8aec3b",
+      "sha256": "673edb019c368d64013304e469fd7ee157a8a4efbe6a7b0680b5c1cde531ea2f"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/07-sulky.png",
+      "git_blob": "0c638f03367d74cda12ac03604f48b28f73f7a33",
+      "sha256": "2519379c1ecc97cda75355618e614081471e54190f7f137e8054455c099c1a6f"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/07-tired.png",
+      "git_blob": "3589dcdb51db3a1ded7faf774ec827568d0e5c16",
+      "sha256": "4b13d13a8ea70deb00d0d4e868b9b90647e7108100ce82aa7252751f0622d827"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/07-wantsPlay.png",
+      "git_blob": "d18807ca76b828346e856ae0c083bedfbfe3c497",
+      "sha256": "0465c2c44903f91b67f23558e0e29ef73b7affdb4c1da5a1e98ef69a019bb004"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/07-weak.png",
+      "git_blob": "4f72190b20ec22279d7cc8c53ae8f053ddab41aa",
+      "sha256": "48158e006a39d89679a6935e8199b0404f538e2457380f7f4e4529fdf5dfc5ed"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-critical.png",
+      "git_blob": "e9926906cf1120e997a0df454b964f88e8d13f84",
+      "sha256": "8fbfd9dd42a3b3f7bf01b5f7e82e435c85f4e9a8954c2e985014329e00b5313e"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-happy.png",
+      "git_blob": "d6436da60e67e77f557be10035e46ae1d0305e24",
+      "sha256": "12b0f356978fa07c29156057ef4076d969205176f25b7995d3f2712ecbe5be98"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-hungry.png",
+      "git_blob": "0f0fbcf6e2d16c377b34a3422250d360efc0b555",
+      "sha256": "f5024a7f6f235e44618078ce77b09b08cb2c022dfab5c060845dbdcb84320452"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-sick.png",
+      "git_blob": "994ff0ce30fdd273674072bb9c4d63a2f077b662",
+      "sha256": "5347a0ee296fa4458fc0273386a9f743882cc727d7f2dd31fc2a9e12cadcaa2e"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-sleeping.png",
+      "git_blob": "a8d822a343f2a8ca5a8d382d0d7e760b5f10f625",
+      "sha256": "757d4d0eba59eafbaf31a6b50bd883374b7c74bc1f25429704e53b39c84da768"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-strained.png",
+      "git_blob": "a6778ef6917f5f98e9270fa8332041785940e772",
+      "sha256": "5898ebaee16fa2a5e8f25c4236c4f16180f437cd5fd16370807baa6145887524"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-sulky.png",
+      "git_blob": "f2a43760cf280d50953fc248d09f926cd5042632",
+      "sha256": "0fca46b69f95c67bab2b1cfff2414358bf7400303211d24334bb6aec0d1966b0"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-tired.png",
+      "git_blob": "b759610dc5be8b50c0b7ab996ce9e81bc2c73f37",
+      "sha256": "882489220568bc1a09e3108021dd53ef7436f66b1a23978bed15ecfca87ea9d1"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-wantsPlay.png",
+      "git_blob": "0eef054a0b8690f142db7f8982be97dcdf62c659",
+      "sha256": "b37ceff37448ece01886526efa42722b92c6596421a2a18ec28ddb37f0288921"
+    },
+    {
+      "path": "assets/characters/expressions/starfish/08-weak.png",
+      "git_blob": "7f0be5d247bc6a5a3d43b2cb7ef362300aaa19d1",
+      "sha256": "b784efd5b848129025881db321263b4d4aea68eb86b9d365cbdcc61bc2ad1f13"
+    }
+  ]
+}

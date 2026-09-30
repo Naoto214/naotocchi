@@ -1,0 +1,71 @@
+{
+  "source_head": "7c878f86c08557970387e42f7f69a186ef505cd9",
+  "inputs": {
+    "normal08": {
+      "path": "assets/characters/antlion/08.png",
+      "sha256": "2f6879f36f91bf27b7f4be12a74ca5684d969a067977ec552787ea70d2e23dbe",
+      "candidate_id": "normal08",
+      "status": "reference"
+    },
+    "happy": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/happy.png",
+      "sha256": "a57e0c5ff540258da43414fc2dd215ea6c110dbf5f25706fcadb5ff48ff22df9",
+      "candidate_id": "happy.png",
+      "status": "pending human final selection"
+    },
+    "strained": {
+      "path": "docs/qa/antlion08-limited-candidates-20260928/candidates/strained-face.png",
+      "sha256": "e29a94b1177350cdb7c43eb0d197f6fe565477ab3b989655fdeba681e025afe8",
+      "candidate_id": "strained-face.png",
+      "status": "pending human final selection"
+    },
+    "hungry": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/hungry.png",
+      "sha256": "2780c3124a1e93e4f6c8f86f298170deedc4a861e3a9f5243c5c713be581d66c",
+      "candidate_id": "hungry.png",
+      "status": "B / retain QA image"
+    },
+    "sick": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sick.png",
+      "sha256": "b7d99326718c8830137f83b001d4e99acbd018bd2083f573e51c73b57f760b5f",
+      "candidate_id": "sick.png",
+      "status": "pending human final selection"
+    },
+    "tired": {
+      "path": "assets/characters/expressions/antlion/08-tired.png",
+      "sha256": "ec6466cc95cd475282449d6a7f666e369976e97f58e8686cbf75d3f2bf499161",
+      "candidate_id": "D4 tired (approved)",
+      "status": "approved production"
+    },
+    "sulky": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sulky.png",
+      "sha256": "4c702c641f299446af142c5595a3ec7f796122bc241ed7f80316feca598b56f9",
+      "candidate_id": "sulky.png",
+      "status": "pending human final selection"
+    },
+    "weak": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/weak.png",
+      "sha256": "5a76b0f8b3c6fd3b4b2b4f1927ad0b55f8ff8c7ff0a3e404fb80788b04b513a7",
+      "candidate_id": "weak.png",
+      "status": "pending human final selection"
+    },
+    "critical": {
+      "path": "docs/qa/antlion08-limited-candidates-20260928/candidates/critical-particles.png",
+      "sha256": "2d4f8ed516ed377bf46c990875d120d1aeb9c9cd220e0a4f309efb5d45c828f3",
+      "candidate_id": "critical-particles.png",
+      "status": "pending human final selection"
+    },
+    "wantsPlay": {
+      "path": "assets/characters/expressions/antlion/08-wantsPlay.png",
+      "sha256": "3eb3149d55224531a287eec6eb1965c9702b444ddbd4181f669e34bf99fc7a10",
+      "candidate_id": "WP-CL1 / APPROVED",
+      "status": "approved production"
+    },
+    "sleeping": {
+      "path": "docs/qa/antlion08-method-d-nine-20260928/candidates/sleeping.png",
+      "sha256": "010d2b3253687af436dfea1e964dcee72fbcea6717e6db8244549e1230ee7490",
+      "candidate_id": "sleeping.png",
+      "status": "pending human final selection"
+    }
+  }
+}

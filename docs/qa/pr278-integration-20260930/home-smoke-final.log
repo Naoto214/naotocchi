@@ -1,0 +1,20 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  {
+    dead: true,
+    guarded: true,
+    hatched: true,
++   rescued: false,
+-   rescued: true,
+    stale: false
+  }
+
+    at /workspace/scratch/1f1446e31ed3/integration-repo/docs/qa/pr278-integration-20260930/home-smoke.cjs:18:688 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [Object],
+  expected: [Object],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}

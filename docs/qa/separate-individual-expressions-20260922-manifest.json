@@ -1,0 +1,287 @@
+{
+  "baseline": "94affc26450971c8f3532af83e2e20ac91884b07",
+  "lines": 21,
+  "activeExpressions": 1680,
+  "unchangedNonDocsFiles": 2180,
+  "normalCharacterPNG": 297,
+  "repairedPNG": 0,
+  "allSiteExpressionHashesMatch": true,
+  "runtimeCache": "20260922-6348f2d6",
+  "siteChanged": [
+    "dist/mark-review/index.html",
+    "dist/mark-review/review.js",
+    "dist/mark-review/revised.js"
+  ],
+  "records": [
+    {
+      "line": "woman",
+      "stage": "08",
+      "state": "happy",
+      "asset": "assets/characters/expressions/woman/08-happy.png",
+      "sha256": "d7420ff6c9a7022767afc36875a6c4ff98e33a03645aaf92d595cbcaa88cdbd0",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "woman",
+      "stage": "08",
+      "state": "strained",
+      "asset": "assets/characters/expressions/woman/08-strained.png",
+      "sha256": "33b9a10ed9a80ccedf3a95b88fde21a32eaaf3207a87a1d7aa119d84e7a465b0",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "woman",
+      "stage": "08",
+      "state": "hungry",
+      "asset": "assets/characters/expressions/woman/08-hungry.png",
+      "sha256": "4f607ab74f8bc4243f01556ae8acdd2091d2874579e6816810f6592fbbdbea90",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "woman",
+      "stage": "08",
+      "state": "sick",
+      "asset": "assets/characters/expressions/woman/08-sick.png",
+      "sha256": "8e12b8c059b76feadc608d4c111c0f763f97d4e8de8d38529905c24161478807",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "woman",
+      "stage": "08",
+      "state": "tired",
+      "asset": "assets/characters/expressions/woman/08-tired.png",
+      "sha256": "5bf54f257b7e3b722bc796db40bca3036eca779a203561201509b0c2b25d4e63",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "woman",
+      "stage": "08",
+      "state": "sulky",
+      "asset": "assets/characters/expressions/woman/08-sulky.png",
+      "sha256": "0f9ca54c6fc70e2140de5b4ba487f4a416a835fb237c1c02af9b39abe4bf13dc",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "woman",
+      "stage": "08",
+      "state": "weak",
+      "asset": "assets/characters/expressions/woman/08-weak.png",
+      "sha256": "6eb000eb77bb0f3c9d00a53c5893d13a0eb68237857280bf339df71bcc4a7cd3",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "woman",
+      "stage": "08",
+      "state": "critical",
+      "asset": "assets/characters/expressions/woman/08-critical.png",
+      "sha256": "20556d7da82915ee2c16d32d271919bafd24f23c2198c18d10275114d4f07ed8",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "woman",
+      "stage": "08",
+      "state": "wantsPlay",
+      "asset": "assets/characters/expressions/woman/08-wantsPlay.png",
+      "sha256": "46e649042b61e5b5eaf5bffc34fe9230fd9d63118ea7a74511c6a67889bbe8dd",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "woman",
+      "stage": "08",
+      "state": "sleeping",
+      "asset": "assets/characters/expressions/woman/08-sleeping.png",
+      "sha256": "c6dee4fe8dedecb861fa273b4ec9ea35cd39e5b0723e7e14f672252db9d96120",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "clownfish",
+      "stage": "05",
+      "state": "happy",
+      "asset": "assets/characters/expressions/clownfish/05-happy.png",
+      "sha256": "380ffd1265716d0ba0afcf381bfd739f58cfc26a89dbb290f6d2fbc372a57fb9",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "clownfish",
+      "stage": "05",
+      "state": "strained",
+      "asset": "assets/characters/expressions/clownfish/05-strained.png",
+      "sha256": "5014f5ff2d3c92350c8d6d8c9d4a55242082c533d849862a3c79208c169bef87",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "clownfish",
+      "stage": "05",
+      "state": "hungry",
+      "asset": "assets/characters/expressions/clownfish/05-hungry.png",
+      "sha256": "5f2b702921b55bc4389b248c978fe657d5b063c8e94f53c54cd2005aaff57aff",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "clownfish",
+      "stage": "05",
+      "state": "sick",
+      "asset": "assets/characters/expressions/clownfish/05-sick.png",
+      "sha256": "de88c1cb05270177fd78cfcd4b68712d1d4dce468cfa145464afe32359efc6a2",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "clownfish",
+      "stage": "05",
+      "state": "tired",
+      "asset": "assets/characters/expressions/clownfish/05-tired.png",
+      "sha256": "e35d6219ce0fda844a0944ce9f287af9c6f09d7a5d15c97e2ab2d1e7dd203037",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "clownfish",
+      "stage": "05",
+      "state": "sulky",
+      "asset": "assets/characters/expressions/clownfish/05-sulky.png",
+      "sha256": "4bc6daf791087d472d574409240502cb2a2bf458b540be31e2c54c18f15af2e7",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "clownfish",
+      "stage": "05",
+      "state": "weak",
+      "asset": "assets/characters/expressions/clownfish/05-weak.png",
+      "sha256": "9f3f17f318f8ec58719c2d1d51391a38c3eb3c96fd5702c0ff8740f3e628c0ba",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "clownfish",
+      "stage": "05",
+      "state": "critical",
+      "asset": "assets/characters/expressions/clownfish/05-critical.png",
+      "sha256": "4248306c988f0dce6d4860818314d1f14e1f8cb86b258a0805d9b63c7b62ec27",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "clownfish",
+      "stage": "05",
+      "state": "wantsPlay",
+      "asset": "assets/characters/expressions/clownfish/05-wantsPlay.png",
+      "sha256": "95bb7bab2058b5c0425c5627843631615a987a1d59e9768e7ef3185c2c355d33",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "clownfish",
+      "stage": "05",
+      "state": "sleeping",
+      "asset": "assets/characters/expressions/clownfish/05-sleeping.png",
+      "sha256": "3cf3cc1a8d8911ecd139d948f668620c640950be9d60b22a459804b1ffb7ce45",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "dandelion",
+      "stage": "08",
+      "state": "happy",
+      "asset": "assets/characters/expressions/dandelion/08-happy.png",
+      "sha256": "d60a7ba22a7c441fd5ef881594eafc9bde6f490391d9b8ef88af95a8d20ea01e",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "dandelion",
+      "stage": "08",
+      "state": "strained",
+      "asset": "assets/characters/expressions/dandelion/08-strained.png",
+      "sha256": "6d67b8896748f2425a0fd12ce0d632ce1dbcce2dddbc53e7964da927cd8044a8",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "dandelion",
+      "stage": "08",
+      "state": "hungry",
+      "asset": "assets/characters/expressions/dandelion/08-hungry.png",
+      "sha256": "77176dd5d409d9f14a684fcb4ef42dbd8845915acc173154bb824a9ec4846c2e",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "dandelion",
+      "stage": "08",
+      "state": "sick",
+      "asset": "assets/characters/expressions/dandelion/08-sick.png",
+      "sha256": "fbee4ec11cd6098b6de23bd5b05e00d20d364dd400ac042cf9f3dade5df8a330",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "dandelion",
+      "stage": "08",
+      "state": "tired",
+      "asset": "assets/characters/expressions/dandelion/08-tired.png",
+      "sha256": "62256af240ec8d9a3c0465faa5e8a2580682f73a9f49850d503245501eda6407",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "dandelion",
+      "stage": "08",
+      "state": "sulky",
+      "asset": "assets/characters/expressions/dandelion/08-sulky.png",
+      "sha256": "88b985076d826ebe01628a6df31263f68df9defb779e5994a7e397c741233dbe",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "dandelion",
+      "stage": "08",
+      "state": "weak",
+      "asset": "assets/characters/expressions/dandelion/08-weak.png",
+      "sha256": "4745f513b9ce119818e7381a35a6fc4aa56a7968f4fe1c59a4c15647a15809ae",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "dandelion",
+      "stage": "08",
+      "state": "critical",
+      "asset": "assets/characters/expressions/dandelion/08-critical.png",
+      "sha256": "9c6b4e0cd70346e7196044adae352eadb051f94e6fa339e8c3a8e9e217091eff",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "dandelion",
+      "stage": "08",
+      "state": "wantsPlay",
+      "asset": "assets/characters/expressions/dandelion/08-wantsPlay.png",
+      "sha256": "5f7b6115cc428ec1d0e5478955f301289f2aeb801552765eaf8a41daa1c30a5b",
+      "decision": "keep",
+      "repair": false
+    },
+    {
+      "line": "dandelion",
+      "stage": "08",
+      "state": "sleeping",
+      "asset": "assets/characters/expressions/dandelion/08-sleeping.png",
+      "sha256": "5e5992facca5aef22a57df14ea08425821fe0f0a21520530af26945694b99964",
+      "decision": "keep",
+      "repair": false
+    }
+  ]
+}

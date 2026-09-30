@@ -1,0 +1,46 @@
+{
+  "npm_test": {
+    "tests": 2780,
+    "pass": 2780,
+    "fail": 0,
+    "skipped": 0,
+    "environment": "NODE_PATH empty"
+  },
+  "focused": {
+    "tests": 1306,
+    "pass": 1306,
+    "fail": 0,
+    "skipped": 0,
+    "environment": "NODE_PATH empty"
+  },
+  "main_regression": {
+    "tests": 211,
+    "pass": 211,
+    "fail": 0,
+    "skipped": 0
+  },
+  "images": 3289,
+  "png": 2932,
+  "approved26": 26,
+  "antlion08": 10,
+  "normal": 248,
+  "hunger": 248,
+  "hunger_categories": 19,
+  "food_icons": 15,
+  "save_schema5": 248,
+  "names_known_regressions": 8,
+  "z_order": "PASS",
+  "home": "Chromium 153 PASS; 10 states and conflict routes",
+  "site": "248 sheets / 42 references / missing0",
+  "independent_review": "source safe; fixture finding resolved; no unresolved source blocker",
+  "local_webkit": "unavailable, not a pass",
+  "github_ci": "must be freshly checked after authorized fast-forward",
+  "main": "05b31dfd4c2c2ebecc5890ffc2a23efbcfd1d032",
+  "feature_parent": "544c585a11efc383643d292a313042660fe14264",
+  "ci_attempt1": {
+    "head": "ba4800db81714cca72c8af5d72f3aea415cf602a",
+    "runtime": "2779 PASS / 1 FAIL: temporary helper sharp resolution",
+    "home": "existing RH-6 CSS route ECONNRESET; fresh run required"
+  },
+  "ci_followup_scope": "Only child test dependency lookup; production runtime and all image bytes unchanged"
+}

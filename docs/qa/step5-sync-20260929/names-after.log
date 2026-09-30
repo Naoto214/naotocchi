@@ -1,0 +1,58 @@
+TAP version 13
+# Subtest: starfish preview exposes every stage and never accesses real saves
+ok 1 - starfish preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 3871.214742
+  type: 'test'
+  ...
+# Subtest: sakura preview exposes every stage and never accesses real saves
+ok 2 - sakura preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 3815.989516
+  type: 'test'
+  ...
+# Subtest: world_tree preview exposes every stage and never accesses real saves
+ok 3 - world_tree preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 3590.019155
+  type: 'test'
+  ...
+# Subtest: unknown preview exposes every stage and never accesses real saves
+ok 4 - unknown preview exposes every stage and never accesses real saves
+  ---
+  duration_ms: 3454.602635
+  type: 'test'
+  ...
+# Subtest: starfish preview uses all eight canonical stage names
+ok 5 - starfish preview uses all eight canonical stage names
+  ---
+  duration_ms: 3081.437298
+  type: 'test'
+  ...
+# Subtest: sakura preview uses all eight canonical stage names
+ok 6 - sakura preview uses all eight canonical stage names
+  ---
+  duration_ms: 2956.252601
+  type: 'test'
+  ...
+# Subtest: world_tree preview uses all eight canonical stage names
+ok 7 - world_tree preview uses all eight canonical stage names
+  ---
+  duration_ms: 2868.980407
+  type: 'test'
+  ...
+# Subtest: unknown preview uses canonical punctuation and suppresses disposable rare achievement flashes
+ok 8 - unknown preview uses canonical punctuation and suppresses disposable rare achievement flashes
+  ---
+  duration_ms: 3108.165401
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 26951.920661
