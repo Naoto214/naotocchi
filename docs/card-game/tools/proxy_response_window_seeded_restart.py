@@ -541,7 +541,8 @@ def apply_response_pass(
 
 
 def activate_response_candidate(
-    continuation: dict[str, object], decision: dict[str, object], target_validator=None
+    continuation: dict[str, object], decision: dict[str, object], target_validator=None,
+    transition_handler=None
 ) -> tuple[dict[str, object], dict[str, object]]:
     """Pay for and place one validated response candidate on the chain."""
     before = copy.deepcopy(continuation)
@@ -598,9 +599,12 @@ def activate_response_candidate(
     after["activation_zone"].append(link)
     transition_before = _response_transition_context(before)
     transition_action = {"kind": "activate", "actor": actor, "link_id": link_id}
-    transitioned = response_119.transition_response_window(
-        transition_before, transition_action
-    )
+    transitioned = (transition_handler(before, transition_action) if transition_handler
+                    else response_119.transition_response_window(transition_before, transition_action))
+    if transition_handler:
+        # A scoped handler validates its original window and supplies a proven
+        # projection into 119's transition domain; retain all priority checks.
+        transition_before['window_kind'] = transitioned['window_kind']
     transition_errors = response_119.validate_response_transition(
         transition_before, transition_action, transitioned
     )

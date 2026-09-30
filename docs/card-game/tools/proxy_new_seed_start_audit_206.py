@@ -49,6 +49,10 @@ def source_section(filename,card_id):
 def extra_hand_exclusion(card_id,entry,game,actor):
     actions=entry['actions'];owner=game['players'][actor]
     if len(actions)>1:
+        if card_id=='C-cat_friend' and entry['card_type']=='companion' and {a['action_type'] for a in actions}=={'place_companion','activate_companion_ability'}:
+            text=source_section('72-companion-26-card-text-draft.md',card_id)
+            if 'なかま枠から山札の一番下に置き' not in text:raise ValueError('206 companion board ability source differs')
+            return {'card_id':card_id,'reason_code':'not_hand_quick_use','source_reference':'72-companion-26-card-text-draft.md#C-cat_friend'}
         hand=[a for a in actions if not a.get('prerequisites','').startswith('prepared;')]
         prepared=[a for a in actions if a.get('prerequisites','').startswith('prepared;')]
         if len(hand)!=1 or len(prepared)!=1 or \

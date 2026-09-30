@@ -109,8 +109,8 @@ def verify_activation_history(prior, prior_seq, event, shot):
         raise ValueError('406 activation history does not reproduce its event/snapshot')
 
 
-def final_time_inventory(row, baseline, history, actor, normal=False):
-    verify_history(row, baseline, history)
+def final_time_inventory(row, baseline, history, actor, normal=False, history_validator=None):
+    (history_validator or verify_history)(row, baseline, history)
     game = row['final_continuation_state']['game_state']
     owner = game['players'][actor]
     entry = contracts.start.load_candidate_rows()['E-final-time']
@@ -169,10 +169,10 @@ def projection(row, actor):
     return projected
 
 
-def response_opportunity(row, base, inventory):
+def response_opportunity(row, base, inventory, projected_row=None):
     state = contracts.current(row)
     ctx = state['response_context']; actor = ctx['priority_actor']
-    projected = copy.deepcopy(projection(row, actor)['final_continuation_state'])
+    projected = copy.deepcopy((projected_row or projection(row, actor))['final_continuation_state'])
     owner = projected['game_state']['players'][actor]
     for exclusion in base['hand_exclusions']:
         owner['hand'].remove(exclusion['source_instance_id'])
@@ -289,7 +289,7 @@ def hand_bottom_decision(row, actor, hand, game):
     order = next(x for x in contracts.start.load_source()['results'] if x['path_id'] == row['path_id'])['order_id']
     context = {'contract_version': fallback.CONTRACT_VERSION, 'order_id': order,
                'actor': actor, 'actor_turn_index': game['round'], 'round': game['round'],
-               'phase': 'turn_end_response', 'decision_kind': 'mandatory_choice',
+               'phase': row['final_continuation_state']['game_state']['phase'], 'decision_kind': 'mandatory_choice',
                'choice_kind': 'final_time_hand_bottom'}
     details = sorted([{'candidate_id': game['cards'][i]['card_copy_id'], 'kind': 'card_copy', 'card_id': game['cards'][i]['card_id'], 'initial_instance_id': i} for i in hand], key=lambda x: x['candidate_id'])
     ids = [d['candidate_id'] for d in details]
@@ -315,14 +315,24 @@ def verify_transition(row, after, event):
     result = contracts.result_from_state(row, after, event)
     contracts.validate_chain(row, result)
     shot = result['new_snapshots'][0]
+    shot = copy.deepcopy(shot)
+    for link in list(shot['continuation_state']['activation_zone']):
+        if link.get('source_zone') == 'board':
+            game=shot['game_state'];owner=game['players'][link['actor']]
+            if link['card_id']!='C-chicken' or link['action_type']!='activate_board_ability' or link['source_instance_id'] not in owner['board']['companions'] or game['cards'][link['source_instance_id']]['card_id']!=link['card_id']:
+                raise ValueError('406 active board source identity differs')
+            # Board-source abilities retain the card on board (190); only
+            # hand-card activations count as an additional physical zone.
+            shot['continuation_state']['activation_zone'].remove(link)
     errors = contracts.response._snapshot_instance_errors(shot)
     if errors:
         raise ValueError('406 instance zones differ: ' + '; '.join(errors))
 
 
-def resolve_final_time(row):
+def resolve_final_time(row, return_phase='turn_end'):
     before = contracts.current(row); ctx = before['response_context']; links = before['activation_zone']
-    if before['game_state']['phase'] != 'turn_end_response' or ctx['chain_status'] != 'resolving' or not links or ctx['chain_links'] != [x['link_id'] for x in links] or before['pending_triggers']:
+    allowed_phase='response_window' if return_phase=='normal_action' else 'turn_end_response'
+    if return_phase not in ('normal_action','turn_end') or before['game_state']['phase'] != allowed_phase or ctx['chain_status'] != 'resolving' or not links or ctx['chain_links'] != [x['link_id'] for x in links] or before['pending_triggers']:
         raise ValueError('406 final-time reverse resolution boundary differs')
     link = links[-1]
     if link['action_type'] != 'use_event' or link['card_id'] != 'E-final-time' or link['payment'] != {'time': 2} or len(link['target_instance_ids']) != 1:
@@ -345,7 +355,9 @@ def resolve_final_time(row):
         # The two passes already closed this end-response window. Resolving
         # its last link returns to the requested end without opening a new one.
         after['response_context'].update(chain_status='empty')
-        after['game_state']['phase'] = 'turn_end'; after['return_target'] = 'turn_end'
+        after['game_state']['phase'] = return_phase
+        after['return_target'] = 'normal_action_opportunity' if return_phase=='normal_action' else 'turn_end'
+        if return_phase=='normal_action':after['response_context']['consecutive_passes']=0
     after['last_event_seq'] += 1; after['continuation_state_sha256'] = contracts.start._hash(after)
     event = {'seq': after['last_event_seq'], 'action_type': 'resolve_event', 'actor': actor,
              'source_instance_id': link['source_instance_id'], 'chain_link_id': link['link_id'],

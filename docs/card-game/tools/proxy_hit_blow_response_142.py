@@ -90,10 +90,14 @@ def _turn_start_transition(before, action):
     return transitioned
 
 
-def activate(before, decision):
+def activate(before, decision, candidate_validator=None, transition_handler=None, allow_building=False):
     action=decision['selected_action'];ctx=before['response_context'];actor=ctx['priority_actor']
-    rows=start.load_candidate_rows();opportunity=start.enumerate_opportunity(before,actor,rows)
-    if not opportunity['candidate_set_complete'] or action not in opportunity['legal_candidate_details'] or \
+    rows=start.load_candidate_rows()
+    if candidate_validator is None:
+        opportunity=start.enumerate_opportunity(before,actor,rows)
+        admitted=opportunity['candidate_set_complete'] and action in opportunity['legal_candidate_details']
+    else:admitted=candidate_validator(before,action)
+    if not admitted or \
             action['candidate_id']!=decision['selected_candidate'] or action['action_type']!='use_play' or \
             action['card_id']!='G-hit-blow' or action['target_instance_ids']!=[]:
         raise ValueError('selected quick-use candidate identity differs')
@@ -107,7 +111,7 @@ def activate(before, decision):
             'initial_instance_id':source} or not player['deck']:
         raise ValueError('source hand/card or nonempty deck proof differs')
     cost=action['base_time_cost']
-    if type(cost)!=int or cost!=1 or player['time']<cost or ctx['chain_links'] or before['activation_zone']:
+    if type(cost)!=int or cost!=1 or player['time']<cost or ((ctx['chain_links'] or before['activation_zone']) and not allow_building):
         raise ValueError('activation cost or chain status differs')
     after=copy.deepcopy(before);owner=after['game_state']['players'][actor]
     owner['time']-=cost;owner['hand'].remove(source)
@@ -119,7 +123,7 @@ def activate(before, decision):
           'source_references':copy.deepcopy(action['source_references'])}
     after['activation_zone'].append(link)
     action_transition={'kind':'activate','actor':actor,'link_id':link_id}
-    transitioned=_turn_start_transition(before,action_transition)
+    transitioned=(transition_handler or _turn_start_transition)(before,action_transition)
     seeded._apply_transition_result(after,transitioned)
     after['last_event_seq']=seq;after['continuation_state_sha256']=start._hash(after)
     event={'seq':seq,'action_type':'activate_response','actor':actor,
@@ -168,21 +172,22 @@ def _snapshot(state):
             'continuation_state_sha256':state['continuation_state_sha256']}
 
 
-def resolve_link(before):
+def resolve_link(before, allow_outer_links=False):
     if before['response_context']['chain_status']!='resolving' or \
-            len(before['response_context']['chain_links'])!=1 or len(before['activation_zone'])!=1 or \
+            not before['activation_zone'] or (len(before['activation_zone'])!=1 and not allow_outer_links) or \
             before['pending_triggers']:
         raise ValueError('unproved chain resolution shape')
-    link=copy.deepcopy(before['activation_zone'][0]);link_id=link['link_id']
-    if before['response_context']['chain_links']!=[link_id]:
+    link=copy.deepcopy(before['activation_zone'][-1]);link_id=link['link_id']
+    if before['response_context']['chain_links']!=[x['link_id'] for x in before['activation_zone']]:
         raise ValueError('reverse chain resolution order differs')
     after=copy.deepcopy(before)
     result=apply_hit_blow_effect(after,link)
     after['response_context']['chain_links'].remove(link_id)
-    after['response_context']['chain_status']='empty'
-    after['response_context']['consecutive_passes']=0
-    after['return_target']='normal_action_opportunity'
-    after['game_state']['phase']='normal_action'
+    if not after['response_context']['chain_links']:
+        after['response_context']['chain_status']='empty'
+        after['response_context']['consecutive_passes']=0
+        after['return_target']='normal_action_opportunity'
+        after['game_state']['phase']='normal_action'
     after['last_event_seq']+=1
     after['continuation_state_sha256']=start._hash(after)
     event={'seq':after['last_event_seq'],'action_type':'resolve_play','actor':link['actor'],

@@ -224,13 +224,16 @@ def extend_end_proof(row,baseline,history,audit_handler=None):
     if not baseline['turn_end_set_complete'] or baseline['contract_stop_codes']:raise ValueError('reached inherited end proof incomplete')
     seq,g,c=baseline['source_last_valid_event_seq'],baseline['source_game_state_sha256'],baseline['source_continuation_state_sha256']
     events=copy.deepcopy(baseline['classified_events']);growth=copy.deepcopy(baseline['growth_trace'])
-    refs={**references.SOURCE_REFS,'resolve_event':'91-event-21-card-text-draft.md#E-first-date'}
+    refs={**references.SOURCE_REFS,'resolve_event':'91-event-21-card-text-draft.md#E-first-date',
+          'resolve_play':'87-play-batch-5-card-text-draft.md#G-hit-blow'}
     for event,shot in history:
         if event['action_type'] not in refs or event['seq']!=seq+1 or shot['event_seq']!=event['seq'] or (event['game_state_before_sha256'],event['continuation_state_before_sha256'])!=(g,c) or (event['game_state_after_sha256'],event['continuation_state_after_sha256'])!=(shot['game_state_sha256'],shot['continuation_state_sha256']) or start.opening._stop_state_sha256(shot['game_state'])!=shot['game_state_sha256'] or start.canonical_sha256(shot['continuation_state'])!=shot['continuation_state_sha256']:raise ValueError('reached history hash chain differs')
         observed={a:shot['game_state']['players'][a]['growth'] for a in 'AB'}
         delta={a:observed[a]-growth[-1]['growth'][a] for a in 'AB'}
         if any(delta.values()) or shot['continuation_state']['pending_triggers']:raise ValueError('reached history growth/trigger requires separate proof')
         reference=refs[event['action_type']]
+        if event['action_type']=='resolve_play' and shot['game_state']['cards'].get(event.get('source_instance_id'),{}).get('card_id')!='G-hit-blow':
+            raise ValueError('reached play resolution source differs')
         if event['action_type']=='resolve_event' and shot['game_state']['cards'].get(event.get('source_instance_id'),{}).get('card_id')=='E-final-time':
             reference='91-event-21-card-text-draft.md#E-final-time'
         events.append({'seq':event['seq'],'action_type':event['action_type'],'source_reference':reference,'growth_delta':delta});growth.append({'event_seq':event['seq'],'growth':observed})

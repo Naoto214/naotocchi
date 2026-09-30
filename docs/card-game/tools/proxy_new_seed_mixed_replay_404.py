@@ -25,17 +25,20 @@ canonical_bytes=contracts.canonical_bytes
 
 start=contracts.start;boundary=contracts.boundary;hand=contracts.hand;conditional=contracts.conditional;board_reason=contracts.board_reason
 
-def audit_response(row,origin_event=None):
+def audit_response(row,origin_event=None,allowed_hand_cards=None,active_link_validator=None):
     base=boundary(row);state=row['final_continuation_state'];game=state['game_state'];ctx=state['response_context'];actor=ctx['priority_actor']
     if game['phase'] not in ('response_window','post_placement_response','turn_end_response') or ctx['window_kind'] not in ('turn_start','after_normal_action') or state['pending_triggers'] or game.get('challenge') is not None:
         raise ValueError('reached response boundary needs separate proof')
     active=[]
     if state['activation_zone']:
-        if ctx['window_kind']!='turn_start' or ctx['chain_status']!='building' or len(state['activation_zone']) not in (1,2):raise ValueError('404 reached response chain differs')
-        links=state['activation_zone'];link=links[0]
-        if ctx['chain_links']!=[x['link_id'] for x in links] or not (link['card_id']=='C-chicken' and link.get('source_zone')=='board' or len(links)==1 and link['action_type']=='use_item' and link['card_id']=='I-c_coin2' and link['payment']=={'time':1}):raise ValueError('404 reached active link differs')
-        if len(links)==2 and (links[1]['action_type'],links[1]['card_id'],links[1]['payment'])!=('use_item','I-c_coin2',{'time':1}):raise ValueError('404 reached coin link differs')
-        active=[link['source_instance_id']]
+        if active_link_validator is not None:
+            active=active_link_validator(state)
+        else:
+            if ctx['window_kind']!='turn_start' or ctx['chain_status']!='building' or len(state['activation_zone']) not in (1,2):raise ValueError('404 reached response chain differs')
+            links=state['activation_zone'];link=links[0]
+            if ctx['chain_links']!=[x['link_id'] for x in links] or not (link['card_id']=='C-chicken' and link.get('source_zone')=='board' or len(links)==1 and link['action_type']=='use_item' and link['card_id']=='I-c_coin2' and link['payment']=={'time':1}):raise ValueError('404 reached active link differs')
+            if len(links)==2 and (links[1]['action_type'],links[1]['card_id'],links[1]['payment'])!=('use_item','I-c_coin2',{'time':1}):raise ValueError('404 reached coin link differs')
+            active=[link['source_instance_id']]
     elif ctx['chain_status']!='empty':raise ValueError('reached empty response chain differs')
     owner=game['players'][actor];board=owner['board'];projected=copy.deepcopy(state);entries=start.load_candidate_rows();removed=[];excluded=[];abilities=[]
     if board['main'] is not None or board['prepared'] or board['world'] is not None:raise ValueError('reached response board needs separate proof')
@@ -72,7 +75,8 @@ def audit_response(row,origin_event=None):
     projected['game_state']['phase']='response_window';projected['response_context'].update(phase='response_window',window_kind='turn_start')
     chance=start.enumerate_opportunity(projected,actor,entries)
     ids=sorted(chance['legal_candidate_ids']+[x['candidate_id'] for x in abilities])
-    if any(x not in ('response-pass','response-use-item-A-033#1') for x in chance['legal_candidate_ids']) or not chance['candidate_set_complete'] or len(ids)!=len(set(ids)):raise ValueError('reached response hand requires separate proof')
+    unsupported=any(x not in ('response-pass','response-use-item-A-033#1') for x in chance['legal_candidate_ids']) if allowed_hand_cards is None else any(x['action_type']!='response_pass' and x['card_id'] not in allowed_hand_cards for x in chance['legal_candidate_details'])
+    if unsupported or not chance['candidate_set_complete'] or len(ids)!=len(set(ids)):raise ValueError('reached response hand requires separate proof')
     return {**base,'actor':actor,'next_opportunity':game['phase'],'source_window_kind':ctx['window_kind'],'candidate_ids':ids,'candidate_set_complete':True,'hand_candidate_ids':chance['legal_candidate_ids'],'hand_exclusions':removed,'hand_other_exclusions':chance['excluded_candidates'],'board_exclusions':excluded,'board_candidate_details':abilities}
 
 def choose_response(row,proof):
