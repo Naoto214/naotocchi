@@ -108,3 +108,13 @@ test('transition assets preload before readiness; missing image blocks QA',async
  class Broken{set src(s){this.url=s;}decode(){return Promise.reject(Error('missing'));}}
  await assert.rejects(()=>bootstrap.preloadImages({Image:Broken},cases[0]),/画像/);
 });
+test('fixed positive renews its timer without rebuilding Home each second',()=>{
+ let renders=0,starts=0,tick;const api={state:()=>({partner:{id:'forest_bear'}}),startRelationshipPositive:()=>starts++,render:()=>renders++};
+ install(api,{mode:'held'},{setInterval:fn=>{tick=fn;return 1;},clearInterval(){}});
+ tick();tick();assert.equal(starts,3);assert.equal(renders,1);
+});
+test('static dense case preloads only each actor current expression',async()=>{
+ const loaded=[];class Img{set src(s){loaded.push(s);}decode(){return Promise.resolve();}}
+ await bootstrap.preloadImages({Image:Img},cases.find(c=>c.id==='dense'));
+ assert.equal(loaded.length,27);assert.equal(loaded.filter(s=>s.endsWith('/positive.png')).length,0);
+});

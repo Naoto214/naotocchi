@@ -19,15 +19,28 @@
   return activate();
  }
  async function preloadImages(w,config){
-  const actors=config.save.companions.map(c=>({id:c.id,folder:'companions'}));
-  if(config.save.partner)actors.push({id:config.save.partner.id,folder:'partners'});
-  await Promise.all(actors.flatMap(({id,folder})=>[
-   `assets/characters/${folder}/${id}.png`,
-   `assets/characters/relationship/${id}/positive.png`,
-   `assets/characters/relationship/${id}/lonely.png`,
-  ]).map(async src=>{const img=new w.Image();img.src=src;try{await img.decode();}catch{throw Error('画像の読み込み失敗: '+src);}}));
+  const urls=new Set();
+  const add=(actor,folder,value)=>{
+   const normal=`assets/characters/${folder}/${actor.id}.png`;
+   const expression=name=>`assets/characters/relationship/${actor.id}/${name}.png`;
+   urls.add(value<30?expression('lonely'):normal);
+   if(folder==='partners'&&['held','return'].includes(config.mode))urls.add(expression('positive'));
+   if(folder==='companions'&&config.mode==='play'){
+    // Real play adds 30; the QA draw selects the first companion.
+    if(actor===config.save.companions[0]||value<30&&value+30>=30)urls.add(expression('positive'));
+    urls.add(value+30<30?expression('lonely'):normal);
+   }
+  };
+  config.save.companions.forEach(c=>add(c,'companions',c.bond));
+  if(config.save.partner)add(config.save.partner,'partners',config.save.partner.affection);
+  await Promise.all([...urls].map(async src=>{const img=new w.Image();img.src=src;try{await img.decode();}catch{throw Error('画像の読み込み失敗: '+src);}}));
  }
  async function activateScripts(doc){
+  // Fetch dependencies concurrently, but execute in unchanged production order
+  // only after storage isolation has succeeded.
+  for(const old of doc.querySelectorAll('script[type="application/x-relationship-qa"][src]')){
+   const link=doc.createElement('link');link.rel='preload';link.as='script';link.href=old.getAttribute('src');doc.head.appendChild(link);
+  }
   for(const old of doc.querySelectorAll('script[type="application/x-relationship-qa"]')){
    const script=doc.createElement('script');
    for(const a of old.attributes)if(a.name!=='type')script.setAttribute(a.name,a.value);

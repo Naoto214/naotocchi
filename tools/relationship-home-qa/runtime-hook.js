@@ -5,8 +5,9 @@
  'use strict';
  env=env||window;
  let ran=false,running=false,heldTimer;
- const positive=()=>{api.startRelationshipPositive('partner',api.state().partner);api.render();};
- if(config.mode==='held'){positive();heldTimer=env.setInterval(positive,1000);}
+ const renew=()=>api.startRelationshipPositive('partner',api.state().partner);
+ const positive=()=>{renew();api.render();};
+ if(config.mode==='held'){positive();heldTimer=env.setInterval(renew,1000);}
  const qa={
   run(){
    if(ran||!['play','return'].includes(config.mode))return false;
