@@ -16,9 +16,11 @@
    else {
     // QA-only deterministic draw: representative is the first companion.
     // Both low-bond companions still react through the ORIGINAL rescue rule.
-    const random=env.Math.random;env.Math.random=()=>0;
+    const resolver=env.NaotocchiRelationshipExpression;
+    const original=resolver.companionPositiveIds;
+    resolver.companionPositiveIds=(before,after)=>original(before,after,()=>0);
     running=true;
-    try {api.play();} finally {running=false;env.Math.random=random;}
+    try {api.play();} finally {running=false;resolver.companionPositiveIds=original;}
    }
    return true;
   },

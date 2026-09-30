@@ -7,7 +7,7 @@
  function size(){frame.style.height=window.innerHeight+'px';get('dimensions').textContent=`実機Home領域：${window.innerWidth} × ${window.innerHeight} CSS px`;}
  function load(){
   clearTimeout(pendingTimer);ready=false;const c=cases[index];select.value=c.id;
-  get('hint').textContent=c.hint;
+  get('hint').textContent=c.hint;get('timing').textContent='';
   get('mode').textContent=c.mode==='held'?'固定表示（確認用にReactionを保持）':c.mode==='play'||c.mode==='return'?'遷移確認（正式な2.5秒）':'固定の初期条件（通常操作も可能）';
   get('status').textContent='Homeを読み込み中…';get('run').disabled=true;get('show').disabled=true;
   frame.src='game.html?case='+encodeURIComponent(c.id);size();
@@ -31,6 +31,9 @@
  };
  window.addEventListener('message',e=>{
   if(e.origin!==location.origin||e.source!==frame.contentWindow)return;
+  if(e.data?.type==='relationship-qa-timing'&&e.data.id===cases[index].id){
+   get('timing').textContent=`直前の操作→次の描画機会：約${e.data.ms}ms（端末内計測・通信時間は含みません）`;return;
+  }
   if(e.data?.type==='relationship-qa-ready'&&e.data.id===cases[index].id){
    clearTimeout(pendingTimer);ready=true;get('show').disabled=false;
    get('run').disabled=!['play','return'].includes(cases[index].mode);get('status').textContent='Homeの準備ができました。';

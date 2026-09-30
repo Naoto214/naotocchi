@@ -50,6 +50,18 @@
    }else {script.textContent=old.textContent;doc.body.appendChild(script);}
   }
  }
+ function observeInteractions(w,doc,config){
+  let pending=false;
+  const onClick=e=>{
+   if(pending||!e.target.closest?.('button'))return;
+   pending=true;const started=w.performance.now();
+   w.requestAnimationFrame(()=>w.requestAnimationFrame(()=>{
+    pending=false;
+    w.parent.postMessage({type:'relationship-qa-timing',id:config.id,ms:Math.round(w.performance.now()-started)},w.location.origin);
+   }));
+  };
+  doc.addEventListener('click',onClick,true);
+ }
  async function boot(w,doc){
   try{
    const cases=JSON.parse(doc.getElementById('qa-cases').textContent),requested=new URLSearchParams(w.location.search).get('case');
@@ -61,6 +73,7 @@
     await preloadImages(w,config);
     await activateScripts(doc);
     if(!w.__relationshipQaBridge||!w.__naotocchiBooted)throw Error('Home起動を確認できません');
+    observeInteractions(w,doc,config);
     w.relationshipQa=w.installRelationshipQa(w.__relationshipQaBridge,config,w);
     // Direct Home play uses the same controlled QA draw as the outside button.
     // Only transition cases are intercepted; normal Home remains interactive.
@@ -78,5 +91,5 @@
    w.parent.postMessage({type:'relationship-qa-error',message:e.message},w.location.origin);
   }
  }
- return {memoryStorage,installStorage,start,preloadImages,activateScripts,boot};
+ return {memoryStorage,installStorage,start,preloadImages,activateScripts,observeInteractions,boot};
 });

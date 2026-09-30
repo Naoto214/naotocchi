@@ -54,11 +54,7 @@ function scene(id){
  for(const name of ['storyFlash','lifeCardOverlay','speechBubble'])h.get(name).classList.add('hidden');
  h.get('playWithBtn').click=()=>h.dispatch(h.get('playWithBtn'),'click');
  const env={setTimeout:h.sandbox.setTimeout,clearTimeout:h.sandbox.clearTimeout,setInterval:()=>0,clearInterval:()=>{},Math:vm.runInContext('Math',h.sandbox)};
- // Harness imports Relationship resolver in the host realm; align its random draw
- // with browser's single realm for this QA-only deterministic test.
- const rule=h.window.NaotocchiRelationshipExpression;
-
- h.window.NaotocchiRelationshipExpression.companionPositiveIds=(before,after)=>productionPositiveIds(before,after,env.Math.random);
+ env.NaotocchiRelationshipExpression=h.window.NaotocchiRelationshipExpression;
  const qa=install(h.window.__relationshipQaBridge,c,env);h.api.render();return {h,qa};
 }
 const markup=h=>h.get('companionLeft').innerHTML+h.get('companionRight').innerHTML;
@@ -117,4 +113,20 @@ test('static dense case preloads only each actor current expression',async()=>{
  const loaded=[];class Img{set src(s){loaded.push(s);}decode(){return Promise.resolve();}}
  await bootstrap.preloadImages({Image:Img},cases.find(c=>c.id==='dense'));
  assert.equal(loaded.length,27);assert.equal(loaded.filter(s=>s.endsWith('/positive.png')).length,0);
+});
+test('QA representative draw never forces unrelated event randomness and restores resolver',()=>{
+ const random=()=>0.99,env={Math:{random},NaotocchiRelationshipExpression:{companionPositiveIds:productionPositiveIds}};
+ const original=env.NaotocchiRelationshipExpression.companionPositiveIds;
+ const api={play(){assert.equal(env.Math.random,random);assert.deepEqual(env.NaotocchiRelationshipExpression.companionPositiveIds([],[{id:'a'},{id:'b'}]),['a']);throw Error('click failed');}};
+ const qa=install(api,{mode:'play'},env);assert.throws(()=>qa.run(),/click failed/);
+ assert.equal(env.Math.random,random);assert.equal(env.NaotocchiRelationshipExpression.companionPositiveIds,original);assert.equal(qa.running,false);
+});
+test('QA timing reports double-frame latency outside Home and deduplicates nested clicks',()=>{
+ let listener,now=10;const frames=[],messages=[];
+ const w={performance:{now:()=>now},requestAnimationFrame:fn=>frames.push(fn),parent:{postMessage:(m,o)=>messages.push([m,o])},location:{origin:'https://qa.example'}};
+ bootstrap.observeInteractions(w,{addEventListener:(name,fn,capture)=>{assert.equal(name,'click');assert.equal(capture,true);listener=fn;}},{id:'multi-rescue'});
+ const e={target:{closest:()=>({})}};listener(e);listener(e);assert.equal(frames.length,1);
+ now=30;frames.shift()();now=50;frames.shift()();
+ assert.deepEqual(messages,[[{type:'relationship-qa-timing',id:'multi-rescue',ms:40},'https://qa.example']]);
+ listener(e);assert.equal(frames.length,1);
 });
