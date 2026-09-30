@@ -4,6 +4,7 @@
   const ITEM_SYSTEM = window.NaotocchiItems;
   const SAVE_KEY = 'naotocchi-save-v1';
   const WORLD_MASTER = window.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 || null;
+  const LIFE_STAGE_RULES = window.NaotocchiLifeStages || null;
   const CARE_STATUS = window.NaotocchiCareStatus || null;
   const EMOTION_STATE = window.NaotocchiEmotionState || null;
   const PET_EXPRESSION = window.NaotocchiPetExpression || null;
@@ -2022,7 +2023,7 @@
         merged.ageTicks = displayedAge * AGE_TICKS_PER_YEAR;
         // stageIndex は すてて ねんれいから ひきなおす(そのぶん 見た目が
         // かわる ことは あるが、きろくは 1つも うしなわれない)
-        merged.stageIndex = stageForAge(displayedAge);
+        merged.stageIndex = stageForAge(displayedAge, merged.speciesLine);
         // メーターは いみが かわる ので 0 から
         merged.growth = 0;
         merged.decline = 0;
@@ -2042,7 +2043,7 @@
         if (parsed.stage === 'clear') {
           merged.stage = STAGE.FAREWELL;
           merged.ageTicks = GOAL_AGE * AGE_TICKS_PER_YEAR;
-          merged.stageIndex = stageForAge(GOAL_AGE);
+          merged.stageIndex = stageForAge(GOAL_AGE, merged.speciesLine);
         }
         merged.declineBaseline = merged.lifetime.devolutions || 0;
         merged.schemaVersion = 3;
@@ -3863,7 +3864,7 @@
     const line = record.line || Object.keys(SPECIES_DISPLAY_NAMES).find(key => SPECIES_DISPLAY_NAMES[key] === record.species);
     const stages = SPECIES[line]?.stages || [];
     const normalize=mark => String(mark || '').replace(/[\uFE0E\uFE0F]/g,'');
-    const byAge = stages[stageForAge(Number(record.age) || 0)];
+    const byAge = stages[stageForAge(Number(record.age) || 0, line)];
     const stage = Number.isInteger(record.visualStage) && record.visualStage >= 0 && record.visualStage < stages.length
       ? stages[record.visualStage]
       : !record.emoji || normalize(byAge?.emoji)===normalize(record.emoji) ? byAge
@@ -3881,7 +3882,7 @@
     const candidates=stages.filter(s => s.asset && (isGrowth || normalize(s.emoji)===normalize(icon)));
     const named=candidates.filter(s => text.includes(compactJapaneseText(s.label)))
       .sort((a,b) => compactJapaneseText(b.label).length - compactJapaneseText(a.label).length)[0];
-    const final=/てんごく|おわかれ/.test(text) ? SPECIES[line]?.stages[stageForAge(Number(entry.age)||0)] : null;
+    const final=/てんごく|おわかれ/.test(text) ? SPECIES[line]?.stages[stageForAge(Number(entry.age)||0, line)] : null;
     const character=named || (final && normalize(final.emoji)===normalize(icon) ? final : null);
     if(character) return commentPictureHTML(character.asset,icon,character.label);
     const actor=[...COMPANIONS,...RARE_COMPANIONS,...ALL_PARTNER_CANDIDATES].find(c => text.includes(c.name || c.label) && normalize(c.emoji)===normalize(icon));
@@ -7126,7 +7127,7 @@
     // 以前のランダム決定ですでにメスだった個体を、オスへ巻き戻さない。
     if (subject.gender === 'female') subject.clownfishFemaleReached = true;
     const index = subject.infinite && subject.infiniteForm
-      ? subject.infiniteForm.stageIndex : stageForAge(Math.floor(subject.ageTicks / AGE_TICKS_PER_YEAR));
+      ? subject.infiniteForm.stageIndex : stageForAge(Math.floor(subject.ageTicks / AGE_TICKS_PER_YEAR), subject.speciesLine);
     const notice = updateClownfishSex(subject, index);
     if (notice) subject.pendingClownfishTransition = notice;
     if (savedCompatibilityVersion < 2) {
@@ -9915,7 +9916,8 @@
     return Math.min(GOAL_AGE, Math.floor(state.ageTicks / AGE_TICKS_PER_YEAR));
   }
 
-  function stageForAge(age) {
+  function stageForAge(age, line) {
+    if (LIFE_STAGE_RULES) return LIFE_STAGE_RULES.stageForAge(age, line);
     for (let i = LIFE_STAGES.length - 1; i >= 0; i -= 1) {
       if (age >= LIFE_STAGES[i].min) return i;
     }
@@ -9964,8 +9966,8 @@
   function onAgeChanged(prevAge) {
     const age = currentAge();
     if (age === prevAge) return;
-    const before = stageForAge(prevAge);
-    const after = stageForAge(age);
+    const before = stageForAge(prevAge, state.speciesLine);
+    const after = stageForAge(age, state.speciesLine);
     if (after !== before) clearTemporaryForm();
     state.stageIndex = after;
     state.lifetime.maxAgeReached = Math.max(state.lifetime.maxAgeReached, age);
@@ -10698,7 +10700,7 @@
         checkMarriageMilestones(prevAge, currentAge());
       }
       if (currentAge() >= GOAL_AGE) {
-        state.stageIndex = stageForAge(GOAL_AGE);
+        state.stageIndex = stageForAge(GOAL_AGE, state.speciesLine);
         state.lifetime.maxAgeReached = GOAL_AGE;
         enterFarewell();
         return;
@@ -11246,7 +11248,7 @@
   // これが ♾️ の とくてん「ねんれいと みためを きりはなす」の 実体
   function currentFormStageIndex() {
     if (state.infinite && state.infiniteForm) return state.infiniteForm.stageIndex;
-    return stageForAge(currentAge());
+    return stageForAge(currentAge(), state.speciesLine);
   }
 
   const TEMPORARY_FORM_MS = 5 * 60 * 1000;
@@ -13313,7 +13315,7 @@
       el.pickerHint.textContent = 'へんしんする姿を1つ選んでね。決めるまで使わない';
       el.pickerGrid.className = 'theme-grid';
       const options = item.picker === 'transform-ticket' ? ticketTransformOptions : state.transformOptions;
-      html = (options || []).map(line => `<button type="button" data-picker-value="${line}">${isHiddenTransformLine(line) ? '？？？' : SPECIES[line].stages[stageForAge(currentAge())].label}</button>`).join('');
+      html = (options || []).map(line => `<button type="button" data-picker-value="${line}">${isHiddenTransformLine(line) ? '？？？' : SPECIES[line].stages[stageForAge(currentAge(), line)].label}</button>`).join('');
     } else if (item.picker === 'dex' || item.picker === 'dex-form') {
       el.pickerGrid.className = 'theme-grid';
       el.pickerHint.textContent = '図鑑の枠を1つ選んでね。？？？は選んだあとに登録され、5分だけその姿になります。決めるまで使いません。';
@@ -14247,7 +14249,7 @@
             </button>
           `;
         }
-        const stage = SPECIES[line].stages[stageForAge(currentAge())];
+        const stage = SPECIES[line].stages[stageForAge(currentAge(), line)];
         return `
           <button class="transform-choice-btn" data-line="${line}">
             <span class="transform-choice-emoji">${stageVisualHTML(stage, 'thumb')}</span>
@@ -14289,18 +14291,24 @@
   function chooseTransform(line) {
     if (!state.transformOptions || !state.transformOptions.includes(line)) return;
     clearPetExpression();
-    // ★ ねんれいは ぜったいに かえない。すがたは stageForAge() から きまるので
-    // ここで かえるのは しゅぞくの ラインだけ(35さいのいぬ → 35さいのねこ)
+    // ねんれいは ぜったいに かえない。変身先では「同じ年齢が、その生き物の
+    // どの時期か」を専用プロフィールから引きなおす。
+    const beforeStageIndex = currentFormStageIndex();
     state.speciesLine = line;
+    const afterStageIndex = stageForAge(currentAge(), line);
+    state.stageIndex = afterStageIndex;
     clearTemporaryForm();
     state.transformOptions = null;
     state.lifetime.transforms += 1;
     state.transformsThisLife += 1;
     if (!state.lifetime.raisedSpecies.includes(line)) state.lifetime.raisedSpecies.push(line);
-    if (!state.transformStageDone.includes(String(state.stageIndex))) {
-      state.transformStageDone.push(String(state.stageIndex));
+    // へんしん抽選が起きた「変身前の段階」を消化済みにする。変身先で段階番号が
+    // 前後しても、同じ抽選をその場でもう一度引けないようにする。
+    if (!state.transformStageDone.includes(String(beforeStageIndex))) {
+      state.transformStageDone.push(String(beforeStageIndex));
     }
-    const stage = SPECIES[line].stages[stageForAge(currentAge())];
+    const stage = SPECIES[line].stages[afterStageIndex];
+    const lifeStageAside = LIFE_STAGE_RULES?.transformAside(line, beforeStageIndex, afterStageIndex) || '';
     const wasHiddenRen = line === SECRET_LINE && hiddenRenRevealPending;
     hiddenRenRevealPending = false;
     const breakupMessage = rerollIdentityAndBreakupIfNeeded(line);
@@ -14309,9 +14317,10 @@
       // 隠しキャラを ひきあてた しゅんかんだけの、せんようの ひとこと
       showStoryEvent({ emoji: '🕯️', message: 'なんで人間がいるの?と思ったが、なぜかだれも気にしていない' });
     }
-    setMessage(wasHiddenRen
+    const transformMessage = wasHiddenRen
       ? `？？？のしょうたいは「${stage.label}」だった…!${breakupMessage}`
-      : `${stage.label}にへんしんした!${breakupMessage}`);
+      : `${stage.label}にへんしんした!${breakupMessage}`;
+    setMessage(lifeStageAside ? `${transformMessage} ${lifeStageAside}` : transformMessage);
     checkStoryEvents('transform');
     speakEvent('transform', { partnerChance: 0.65, companionChance: 0.65 });
     emotePet(breakupMessage ? 'sad' : 'fun');
@@ -18156,7 +18165,7 @@
       const s = JSON.parse(raw);
       if (!s || typeof s !== 'object' || !s.lifetime || typeof s.stage !== 'string') return null;
       const age = Math.max(0, Math.floor((s.ageTicks || 0) / AGE_TICKS_PER_YEAR));
-      const stage = s.stage === STAGE.EGG ? 'たまご' : s.stage === STAGE.DEAD ? 'おわり' : LIFE_STAGES[stageForAge(age)].name;
+      const stage = s.stage === STAGE.EGG ? 'たまご' : s.stage === STAGE.DEAD ? 'おわり' : LIFE_STAGES[stageForAge(age, s.speciesLine)].name;
       const species = s.stage === STAGE.EGG ? '' : (SPECIES_DISPLAY_NAMES[s.speciesLine] || '');
       return { species, stage, age, money: Math.max(0, Math.round(s.lifetime.money || 0)) };
     } catch (e) { return null; }
