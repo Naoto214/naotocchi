@@ -15,7 +15,7 @@ on:
       - '**.mjs'
       - '.github/workflows/home-layout.yml'
   push:
-    branches: [main]
+    branches: [main, integration/pr278-home-ci-20260930]
     paths:
       - '**.css'
       - '**.html'
@@ -48,7 +48,7 @@ jobs:
       - run: node tests/boot-rescue-browser.cjs
       - run: node tests/back-navigation-browser.cjs
       - run: node tests/home-layout-regressions-browser.cjs
-      - run: node tests/home-layout-browser.cjs
+      - run: node --require ./tests/helpers/route-transport-diagnostics.cjs tests/home-layout-browser.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
