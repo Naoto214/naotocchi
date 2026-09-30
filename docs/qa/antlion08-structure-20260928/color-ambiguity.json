@@ -1,0 +1,11 @@
+{
+  "distal_region": "mask-distal-trail-study.png",
+  "protected_sample_roi": [
+    94,
+    69,
+    108,
+    83
+  ],
+  "common_rgba": [],
+  "meaning": "No exact common RGBA in these samples. Similar brown appearance is not an anatomical label; this does not identify the historical failed algorithm."
+}

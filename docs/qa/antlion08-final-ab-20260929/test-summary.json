@@ -1,0 +1,9 @@
+{
+  "command": "node --test tests/pet-expression-test.cjs tests/pet-expression-assets-test.cjs tests/pet-expression-integration-test.cjs",
+  "exit_code": 0,
+  "tests": 1120,
+  "pass": 1120,
+  "fail": 0,
+  "comparison_and_measurements_reproducible": true,
+  "prior_RGB_scope_error": "documented in report; corrected to existing explicit mask; no image changes"
+}

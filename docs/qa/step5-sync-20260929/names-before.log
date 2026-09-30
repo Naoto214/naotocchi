@@ -1,0 +1,151 @@
+✔ starfish preview exposes every stage and never accesses real saves (3042.456305ms)
+✔ sakura preview exposes every stage and never accesses real saves (3045.518509ms)
+✔ world_tree preview exposes every stage and never accesses real saves (2990.940011ms)
+✔ unknown preview exposes every stage and never accesses real saves (3289.807258ms)
+✖ starfish preview uses all eight canonical stage names (3.29662ms)
+✖ sakura preview uses all eight canonical stage names (1.180821ms)
+✖ world_tree preview uses all eight canonical stage names (1.878387ms)
+✖ unknown preview uses canonical punctuation and suppresses disposable rare achievement flashes (0.774469ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 4
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12544.988553
+
+✖ failing tests:
+
+test at tests/cat-expression-preview-test.cjs:418:1
+✖ starfish preview uses all eight canonical stage names (3.29662ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+  +   '丸いあかちゃん',
+  +   '透けた小さな星',
+  +   '色づく小さな星',
+  +   'ふっくらした星',
+  +   '金色の子ヒトデ',
+  +   'ぶつぶつ子ヒトデ',
+  +   '大人のヒトデ',
+  +   '大きなヒトデ'
+  -   '浮遊幼生',
+  -   '後期浮遊幼生',
+  -   '着底・変態期',
+  -   '変態後の稚ヒトデ',
+  -   '小型の稚ヒトデ',
+  -   '若いヒトデ',
+  -   '成熟したヒトデ',
+  -   '長生きしたヒトデ'
+    ]
+
+      at TestContext.<anonymous> (/workspace/scratch/3c8dd573b96b/antlion08-final-selection/tests/cat-expression-preview-test.cjs:422:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at node:internal/test_runner/test:1285:31
+      at node:internal/process/task_queues:151:7
+      at AsyncResource.runInAsyncScope (node:async_hooks:227:14)
+      at AsyncResource.runMicrotask (node:internal/process/task_queues:148:8) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '丸いあかちゃん', '透けた小さな星', '色づく小さな星', 'ふっくらした星', '金色の子ヒトデ', 'ぶつぶつ子ヒトデ', '大人のヒトデ', '大きなヒトデ' ],
+    expected: [ '浮遊幼生', '後期浮遊幼生', '着底・変態期', '変態後の稚ヒトデ', '小型の稚ヒトデ', '若いヒトデ', '成熟したヒトデ', '長生きしたヒトデ' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/cat-expression-preview-test.cjs:530:1
+✖ sakura preview uses all eight canonical stage names (1.180821ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+  +   '芽ぶきのたね',
+  -   '芽ぶきのサクラ',
+      'ふたばのサクラ',
+      '小さなサクラ',
+      '育ったサクラ',
+      'サクラのつぼみ',
+      'サクラの花',
+
+      at TestContext.<anonymous> (/workspace/scratch/3c8dd573b96b/antlion08-final-selection/tests/cat-expression-preview-test.cjs:534:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '芽ぶきのたね', 'ふたばのサクラ', '小さなサクラ', '育ったサクラ', 'サクラのつぼみ', 'サクラの花', 'サクラの実', '年を重ねたサクラ' ],
+    expected: [ '芽ぶきのサクラ', 'ふたばのサクラ', '小さなサクラ', '育ったサクラ', 'サクラのつぼみ', 'サクラの花', 'サクラの実', '年を重ねたサクラ' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/cat-expression-preview-test.cjs:614:1
+✖ world_tree preview uses all eight canonical stage names (1.878387ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+  +   '光る芽',
+  -   '光るたね',
+      'ふしぎな苗',
+  +   '小さな木',
+  -   '若い木',
+      '精霊の木',
+      '大樹',
+      '巨大な木',
+  +   '雲をこえる木',
+  -   '天にのびる木',
+      '世界樹'
+    ]
+
+      at TestContext.<anonymous> (/workspace/scratch/3c8dd573b96b/antlion08-final-selection/tests/cat-expression-preview-test.cjs:618:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '光る芽', 'ふしぎな苗', '小さな木', '精霊の木', '大樹', '巨大な木', '雲をこえる木', '世界樹' ],
+    expected: [ '光るたね', 'ふしぎな苗', '若い木', '精霊の木', '大樹', '巨大な木', '天にのびる木', '世界樹' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/cat-expression-preview-test.cjs:670:2
+✖ unknown preview uses canonical punctuation and suppresses disposable rare achievement flashes (0.774469ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+
+    [
+      '点',
+  +   'ぷるたま',
+  +   'あしつきたま',
+  +   'ふたつぶたま',
+  +   'はねつきたま',
+  +   'おおたま',
+  +   'ちいさなたま',
+  +   'もどりの点'
+  -   'ぷる',
+  -   '足？',
+  -   '目？',
+  -   '羽？',
+  -   'でっかい？',
+  -   'ちっちゃい？',
+  -   '点……？'
+    ]
+
+      at TestContext.<anonymous> (/workspace/scratch/3c8dd573b96b/antlion08-final-selection/tests/cat-expression-preview-test.cjs:674:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '点', 'ぷるたま', 'あしつきたま', 'ふたつぶたま', 'はねつきたま', 'おおたま', 'ちいさなたま', 'もどりの点' ],
+    expected: [ '点', 'ぷる', '足？', '目？', '羽？', 'でっかい？', 'ちっちゃい？', '点……？' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

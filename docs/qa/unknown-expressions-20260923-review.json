@@ -1,0 +1,1435 @@
+{
+  "complete": true,
+  "count": 80,
+  "accepted_count": 80,
+  "records": [
+    {
+      "stage": "01",
+      "state": "happy",
+      "path": "assets/characters/expressions/unknown/01-happy.png",
+      "sha256": "bab4e2073f217d5c8c002b28e869ae212fa1becaa1ff15e989fbfe8e01bb3b33",
+      "verdict": "ACCEPT",
+      "notes": "上向き弧の目と開いた笑口。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "strained",
+      "path": "assets/characters/expressions/unknown/01-strained.png",
+      "sha256": "b75e9455eabadd8d4b674d8e5b7acf376f1c992e9ae216ac85f4d584fb350494",
+      "verdict": "ACCEPT",
+      "notes": "絞った山形の目と短い平口で嫌さ・つらさ。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "hungry",
+      "path": "assets/characters/expressions/unknown/01-hungry.png",
+      "sha256": "81d07a82fd7f88394777ab381fb57ccf5466dccf8492db20396beced461645a9",
+      "verdict": "ACCEPT",
+      "notes": "開いた目と小さな開口で訴え。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "sick",
+      "path": "assets/characters/expressions/unknown/01-sick.png",
+      "sha256": "c3b3489126ce82cd14f6c6d10acb00700a90e63eff60c06d830574606c2885f4",
+      "verdict": "ACCEPT",
+      "notes": "低い瞼と波形に歪む口で不調。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "tired",
+      "path": "assets/characters/expressions/unknown/01-tired.png",
+      "sha256": "b526cc9966ac8f2aebaf006dd038133fe70d5c3f0ee048a7b9db555ba24cdae0",
+      "verdict": "ACCEPT",
+      "notes": "低く平たい瞼と丸い開口で眠気・疲れ。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "sulky",
+      "path": "assets/characters/expressions/unknown/01-sulky.png",
+      "sha256": "92fb076a65de7f7ec9b6e57591e8fb6fb7596998cebccd46d86e75a48bf79cd3",
+      "verdict": "ACCEPT",
+      "notes": "小さい目とへの字口で不満。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "weak",
+      "path": "assets/characters/expressions/unknown/01-weak.png",
+      "sha256": "4b4ab10b3e65cda53c60f37c53e551f50f6d935eefa04dee0f12c456d8aa5ab1",
+      "verdict": "ACCEPT",
+      "notes": "細く伏せた目と下がる口で弱り。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "critical",
+      "path": "assets/characters/expressions/unknown/01-critical.png",
+      "sha256": "7f5ce4258cbb2f4d7bfff75fd119d6d9565809a8eb426261f4f9af51b01939dd",
+      "verdict": "ACCEPT",
+      "notes": "力の落ちた斜めの目と歪んだ口で衰弱。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/unknown/01-wantsPlay.png",
+      "sha256": "6bbf98e000747ddac1bad0a2c746e7ed8a9e91c654bb2ef8c7511892c19282e6",
+      "verdict": "ACCEPT",
+      "notes": "明るい開眼と大きめの笑う開口で遊びたい。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+    },
+    {
+      "stage": "01",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/unknown/01-sleeping.png",
+      "sha256": "54793e838e88cd775eb7f8f33de669ce403e30980ae72a3645b0f45bbb2b79b8",
+      "verdict": "ACCEPT",
+      "notes": "水平の閉じ目と小さな安らかな口。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+    },
+    {
+      "stage": "02",
+      "state": "happy",
+      "path": "assets/characters/expressions/unknown/02-happy.png",
+      "sha256": "42d31300996a7dbcac1e0e2578c4ef5908886a441335bf959f1e54358e112b8a",
+      "verdict": "ACCEPT",
+      "notes": "上向き弧の白い目と明るい紫の開口で喜び。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+    },
+    {
+      "stage": "02",
+      "state": "strained",
+      "path": "assets/characters/expressions/unknown/02-strained.png",
+      "sha256": "38e230a2a8e29f989fcc6a7b8f67ebe57f4490d9e1b2f77ca285ab557a8aaceb",
+      "verdict": "ACCEPT",
+      "notes": "絞った山形の目と平口で嫌さ・つらさ。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+    },
+    {
+      "stage": "02",
+      "state": "hungry",
+      "path": "assets/characters/expressions/unknown/02-hungry.png",
+      "sha256": "e674ae2f855b992102c0d932c358f2ff24a4a4678db9876e30bca59d0c7f9f92",
+      "verdict": "ACCEPT",
+      "notes": "内側の上がった開眼と丸い口で訴え。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+    },
+    {
+      "stage": "02",
+      "state": "sick",
+      "path": "assets/characters/expressions/unknown/02-sick.png",
+      "sha256": "86a47207ca7adf77957538cbc2e35532e273eb2790520130ca3ecbaa9d912baf",
+      "verdict": "ACCEPT",
+      "notes": "垂れる白い目と波口で不調。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+    },
+    {
+      "stage": "02",
+      "state": "tired",
+      "path": "assets/characters/expressions/unknown/02-tired.png",
+      "sha256": "28900178963cf347f1dcf1a43f2bd54b30fbc2ee2d58ce153c3276634a526eec",
+      "verdict": "ACCEPT",
+      "notes": "水平の半眼と縦開口で疲れ・眠気。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+    },
+    {
+      "stage": "02",
+      "state": "sulky",
+      "path": "assets/characters/expressions/unknown/02-sulky.png",
+      "sha256": "09b70906386b9f591ea43d8d83f33829fe50f341cce6f29efc66ee3261314e23",
+      "verdict": "ACCEPT",
+      "notes": "内側へ下がる目とへの字口で不満。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+    },
+    {
+      "stage": "02",
+      "state": "weak",
+      "path": "assets/characters/expressions/unknown/02-weak.png",
+      "sha256": "4d96c64423ad9a787458871e1b34d96fca168ab053dce1bebd77377db5116874",
+      "verdict": "ACCEPT",
+      "notes": "重い瞼と下がる口で弱り。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+    },
+    {
+      "stage": "02",
+      "state": "critical",
+      "path": "assets/characters/expressions/unknown/02-critical.png",
+      "sha256": "c83f6ab5212df83a7f7386f5655f6e9c66ebd3f84835a39849f40da8815f6488",
+      "verdict": "ACCEPT",
+      "notes": "閉じかけた細い目と下がる口で強い衰弱。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+    },
+    {
+      "stage": "02",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/unknown/02-wantsPlay.png",
+      "sha256": "aff6a8dcc79286cbdb462a72cb5811b4ea104fdf69482dfd51dd5dcecc0360ef",
+      "verdict": "ACCEPT",
+      "notes": "大きい白い開眼と笑う開口で遊びたい。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+    },
+    {
+      "stage": "02",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/unknown/02-sleeping.png",
+      "sha256": "1962b5bbc67102e93fddd22f211ea4ea040b082487070050833fdf86db4db37f",
+      "verdict": "ACCEPT",
+      "notes": "緩い弧の閉じ目と小平口で安らかな睡眠。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+    },
+    {
+      "stage": "03",
+      "state": "happy",
+      "path": "assets/characters/expressions/unknown/03-happy.png",
+      "sha256": "3d117c89a762f2fad535c1dde37edd1fc4c85c6e8ce8dd4239f2fec9b7fa4097",
+      "verdict": "ACCEPT",
+      "notes": "上向き弧の白い目と上がる紫の口で喜び。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "strained",
+      "path": "assets/characters/expressions/unknown/03-strained.png",
+      "sha256": "f868d4417ed7e06dd076f32f7d18bf118d7e1e0e053e884d898f9a39bd5459cf",
+      "verdict": "ACCEPT",
+      "notes": "内側へ絞る目と歪んだ波口で嫌さ・つらさ。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "hungry",
+      "path": "assets/characters/expressions/unknown/03-hungry.png",
+      "sha256": "848a7a94b16928578686674f7c26d865215c2fc42761ca5be594b97345485112",
+      "verdict": "ACCEPT",
+      "notes": "訴える白い開眼と丸い開口で空腹。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "sick",
+      "path": "assets/characters/expressions/unknown/03-sick.png",
+      "sha256": "f67b07ea544f00a84767f1a28ac8f998232d7c1a4c58bfff671b4395beabbecf",
+      "verdict": "ACCEPT",
+      "notes": "低い瞼と波状の口で不調。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "tired",
+      "path": "assets/characters/expressions/unknown/03-tired.png",
+      "sha256": "4686746624e3cdfa494afc439276347a7cc51e0d3d8315f2e407781a2a71ca4e",
+      "verdict": "ACCEPT",
+      "notes": "半閉じ目と平たい口で低活力。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "sulky",
+      "path": "assets/characters/expressions/unknown/03-sulky.png",
+      "sha256": "9ec7106f9b91ef595a3d57cd0dc6f09b3793f2b63f6724440d40b405da46cbd4",
+      "verdict": "ACCEPT",
+      "notes": "内へ下がる目とへの字口で不満。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "weak",
+      "path": "assets/characters/expressions/unknown/03-weak.png",
+      "sha256": "354245c36c0ac72eb21f01aa70087770cf5f8f511ac634dadba52701561a5d95",
+      "verdict": "ACCEPT",
+      "notes": "狭く伏せた目と小さく下がる口で弱り。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "critical",
+      "path": "assets/characters/expressions/unknown/03-critical.png",
+      "sha256": "164e3cb53acd22aecb89d951df5166e9d6ffd1b68545f3fc0ca35afcb9b2a137",
+      "verdict": "ACCEPT",
+      "notes": "伏せた目と小さな歪んだ開口で強い衰弱。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/unknown/03-wantsPlay.png",
+      "sha256": "2f64dec1667de811c862f4c870063c984b1e865a3431b2c41c500059c937da8c",
+      "verdict": "ACCEPT",
+      "notes": "開いた白い目と明るい開口で遊びの誘い。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+    },
+    {
+      "stage": "03",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/unknown/03-sleeping.png",
+      "sha256": "938b4a3970f485dd12ae8dbb3c942ce940d11ad596dcf311f8b3487d0d67a5c9",
+      "verdict": "ACCEPT",
+      "notes": "緩い閉じ目と小さな平口で睡眠。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+    },
+    {
+      "stage": "04",
+      "state": "happy",
+      "path": "assets/characters/expressions/unknown/04-happy.png",
+      "sha256": "415e92d82cf8b2f80368b1142f415c7f6567bf9421ab2291d9510fb7d1217efb",
+      "verdict": "ACCEPT",
+      "notes": "胴の上向き弧の目と明るい開口で喜び。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+    },
+    {
+      "stage": "04",
+      "state": "strained",
+      "path": "assets/characters/expressions/unknown/04-strained.png",
+      "sha256": "29a1359c24a5c581286abe4551ed28b5ba085c632da13966b8e1ca89c132f8a4",
+      "verdict": "ACCEPT",
+      "notes": "胴の絞る目と波口で嫌さ・つらさ。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+    },
+    {
+      "stage": "04",
+      "state": "hungry",
+      "path": "assets/characters/expressions/unknown/04-hungry.png",
+      "sha256": "38af22b35afd0afa426b370df529e6eb10d71912a6b8ff1fec5a23ce22f5f9dc",
+      "verdict": "ACCEPT",
+      "notes": "胴の訴える開眼と丸い口で空腹。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+    },
+    {
+      "stage": "04",
+      "state": "sick",
+      "path": "assets/characters/expressions/unknown/04-sick.png",
+      "sha256": "48d10de07eedbc8c0e65e88018b88d99333bd56a4c9f5a21099300fc857d7bb3",
+      "verdict": "ACCEPT",
+      "notes": "胴の垂れた目と歪む波口で不調。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+    },
+    {
+      "stage": "04",
+      "state": "tired",
+      "path": "assets/characters/expressions/unknown/04-tired.png",
+      "sha256": "2a1cc4fe0df62745356e6f6800e9ef52fa60dadfeef9bb22aaf2ae0af7c76109",
+      "verdict": "ACCEPT",
+      "notes": "胴の低い半眼と平口で疲れ。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+    },
+    {
+      "stage": "04",
+      "state": "sulky",
+      "path": "assets/characters/expressions/unknown/04-sulky.png",
+      "sha256": "fb5776bf5f7bdec1759b51c2e27051df047a0b008c9a4a26aaa2e72c3522bb67",
+      "verdict": "ACCEPT",
+      "notes": "胴の内側へ下がる目とへの字口で不満。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+    },
+    {
+      "stage": "04",
+      "state": "weak",
+      "path": "assets/characters/expressions/unknown/04-weak.png",
+      "sha256": "fdf96ddf6ceefb643bc6fc2e6d35c470e6dc0b8093c17c7eb033670d8e4a2cd6",
+      "verdict": "ACCEPT",
+      "notes": "胴の細い伏せ目と下がる口で弱り。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+    },
+    {
+      "stage": "04",
+      "state": "critical",
+      "path": "assets/characters/expressions/unknown/04-critical.png",
+      "sha256": "38b18f25d657bffa8f0fd223caffcb01e7e1d082324f59ed29e712a3ee2b74be",
+      "verdict": "ACCEPT",
+      "notes": "胴の閉じかけた目と小さい力のない口で衰弱。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+    },
+    {
+      "stage": "04",
+      "state": "wantsPlay",
+      "path": "assets/characters/expressions/unknown/04-wantsPlay.png",
+      "sha256": "a4b5e5bb4b16862e0054f6b337c60c6ff22df2b83af427dd0166a44ab2189ace",
+      "verdict": "ACCEPT",
+      "notes": "胴の大きく開いた白い目と笑う開口で遊びたい。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+    },
+    {
+      "stage": "04",
+      "state": "sleeping",
+      "path": "assets/characters/expressions/unknown/04-sleeping.png",
+      "sha256": "53132a85fc68ff43baad2916437dabbc5d33e36a9cb95b23080920a6c4c784cb",
+      "verdict": "ACCEPT",
+      "notes": "胴の緩い弧の閉じ目と小さな安らかな口で睡眠。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+    },
+    {
+      "path": "assets/characters/expressions/unknown/05-happy.png",
+      "sha256": "ef31158ab6de3cd63180665c436fe0a1c2cb70d54eb066c4becff330f3b4ff37",
+      "verdict": "ACCEPT",
+      "state": "happy",
+      "stage": "05",
+      "observation": "Two upturned white eye arcs and open lavender smile read delight. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/05-strained.png",
+      "sha256": "8a53caef36a2ef9c81348314e60c2d5ca7f19a6ddba88a0a690162c4b3c87a7a",
+      "verdict": "ACCEPT",
+      "state": "strained",
+      "stage": "05",
+      "observation": "Tightly squeezed angular eyes and a flat toothlike lavender grimace read effort. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/05-hungry.png",
+      "sha256": "17d5849a3fff5a58a20ebbb363d5d259875036ea10125269c5e7b73ca6639b88",
+      "verdict": "ACCEPT",
+      "state": "hungry",
+      "stage": "05",
+      "observation": "Raised inner brows, wide white eyes and round lavender open mouth read pleading hunger. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/05-sick.png",
+      "sha256": "ab36d23890dfe270230707a5996275b0a78b281af1ea17aa446abd682f97b141",
+      "verdict": "ACCEPT",
+      "state": "sick",
+      "stage": "05",
+      "observation": "Worried asymmetric brows, heavy lids and wavy frown read illness. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/05-tired.png",
+      "sha256": "aa9e3312ef3974cc0d9648a3d8dfb7f927125be6fcb98da5278f6655904d71e8",
+      "verdict": "ACCEPT",
+      "state": "tired",
+      "stage": "05",
+      "observation": "Low flat eyelids and an open yawn read fatigue. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/05-sulky.png",
+      "sha256": "b0dfb0f6085fc1809edf6eb49e28a851d9f38d5797c42b9ef9b305f0a8b32921",
+      "verdict": "ACCEPT",
+      "state": "sulky",
+      "stage": "05",
+      "observation": "Sharply inward-slanted lids and small pout read displeasure. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/05-weak.png",
+      "sha256": "8e03cab17f58d0114423236a77869a584f0928f96186faa0bf9b1e939760bc6a",
+      "verdict": "ACCEPT",
+      "state": "weak",
+      "stage": "05",
+      "observation": "Uneven drooping eyelids and small slack mouth read depletion. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/05-critical.png",
+      "sha256": "8954296e4082f4074b312f7b82e52ce85a47d46ee5f35e3060eb4bbca9447c21",
+      "verdict": "ACCEPT",
+      "state": "critical",
+      "stage": "05",
+      "observation": "Deeply sagging shut eyelids and slightly parted downturned mouth read severe depletion. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/05-wantsPlay.png",
+      "sha256": "3c4a054c0d85796238e8feb216d49b177bc56752b6abf93c65e861c91f174969",
+      "verdict": "ACCEPT",
+      "state": "wantsPlay",
+      "stage": "05",
+      "observation": "Large eager oval eyes and broad lavender smile read playful invitation. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/05-sleeping.png",
+      "sha256": "704831084c24380361178e69a232ba5da4c377b0e8722e24fd424fcf7b224fb3",
+      "verdict": "ACCEPT",
+      "state": "sleeping",
+      "stage": "05",
+      "observation": "Both white eye arcs close fully and a short relaxed lavender mouth read sleep. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/06-happy.png",
+      "sha256": "c535c3be541c4582ae365ee0bece5c573db20db5109a3d225db55fc4b1528bd6",
+      "verdict": "ACCEPT",
+      "state": "happy",
+      "stage": "06",
+      "observation": "Bright closed upward eye arcs and a lavender smile read joy. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/06-strained.png",
+      "sha256": "81213023a877e1fe677b2d12c6591831505467ecba1d2115fcc2a162fdfef4ae",
+      "verdict": "ACCEPT",
+      "state": "strained",
+      "stage": "06",
+      "observation": "Squeezed angled white eyes, lowered brows and wavering mouth read strain. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/06-hungry.png",
+      "sha256": "a1e0abef21e8ef5b8593694064c8df8d1122c725fb54b202906ce756e790daa4",
+      "verdict": "ACCEPT",
+      "state": "hungry",
+      "stage": "06",
+      "observation": "Wide white eyes, lifted inner brows and a round open mouth read hunger. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/06-sick.png",
+      "sha256": "ecf77d1c86e437e0f24cf81ba7706294fe7cfe777c79774470b9dac4218e957a",
+      "verdict": "ACCEPT",
+      "state": "sick",
+      "stage": "06",
+      "observation": "Heavy uneven lids, worried brows and jagged frown read illness. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/06-tired.png",
+      "sha256": "907dd2601755fd2da79290d28e69b8f3ceae607257fc6722c141724477399193",
+      "verdict": "ACCEPT",
+      "state": "tired",
+      "stage": "06",
+      "observation": "Flat half-closed white lids and small open yawn read fatigue; brighter cyan rim still preserves the original glowing material. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/06-sulky.png",
+      "sha256": "d9a50340bbc399f19d3b2ffb3cf7d1cee2c5477a602c39aa9958b72fb5c52d78",
+      "verdict": "ACCEPT",
+      "state": "sulky",
+      "stage": "06",
+      "observation": "Inward brows, wide narrowed eyes and short frown read displeasure. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/06-weak.png",
+      "sha256": "847ae3c127199379de1e2149b572ed9f5c922b65ea7751968398fb007a6aba90",
+      "verdict": "ACCEPT",
+      "state": "weak",
+      "stage": "06",
+      "observation": "Lowered narrow lids, worried brows and small sagging mouth read depletion. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/06-critical.png",
+      "sha256": "4a258b2eed807477bc79945c8812455957bf79d2f100158ab52ad86300ba4010",
+      "verdict": "ACCEPT",
+      "state": "critical",
+      "stage": "06",
+      "observation": "Deeply sagging lids, steep worried brows and larger downturned parted mouth read greater distress than weak. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/06-wantsPlay.png",
+      "sha256": "59ce3580f1c7b5173ae594163e15a5a5a9568f1e2fca1fc2468c6ee73395b35d",
+      "verdict": "ACCEPT",
+      "state": "wantsPlay",
+      "stage": "06",
+      "observation": "Large open eyes, high brows and broad lavender smile read eager invitation. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/06-sleeping.png",
+      "sha256": "a29d164ef2129f999f88252bfce29362c6a4f0e6138fa45f33e3fb55ded592e1",
+      "verdict": "ACCEPT",
+      "state": "sleeping",
+      "stage": "06",
+      "observation": "Both white eyes fully close in downward arcs with a short relaxed mouth. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/07-happy.png",
+      "sha256": "bb9e147d9a4e473ca8e596a0c31a750bf97348ef01a59924349cca6f6d7bceb7",
+      "verdict": "ACCEPT",
+      "state": "happy",
+      "stage": "07",
+      "observation": "White upturned eye arcs and open bright smile read joy. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/07-strained.png",
+      "sha256": "dadcc02614431262eb5236ee5d0e08da3cd685da8b3cf11955bdffb7d57f056a",
+      "verdict": "ACCEPT",
+      "state": "strained",
+      "stage": "07",
+      "observation": "Squeezed angular eyes and a clenched zigzag mouth read effort/discomfort. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/07-hungry.png",
+      "sha256": "7f27d3e289d2375fa05246518dad514b02a2d249fefbb16ef089a329ea1b459d",
+      "verdict": "ACCEPT",
+      "state": "hungry",
+      "stage": "07",
+      "observation": "Raised brows, pleading open eyes and a small round mouth read wanting food. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/07-sick.png",
+      "sha256": "9bdac919d7bb8890c532c3dced8a8099c2229f310d55b6f82687d48bd8f1993e",
+      "verdict": "ACCEPT",
+      "state": "sick",
+      "stage": "07",
+      "observation": "Uneven heavy lids, worried brows and crooked downturned mouth read illness. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/07-tired.png",
+      "sha256": "7dc7e6c92b2dad1327b81f0c3226f61b44bc5c8b1438f06874b3c217de6f4204",
+      "verdict": "ACCEPT",
+      "state": "tired",
+      "stage": "07",
+      "observation": "Flat half-lowered eyelids and vertical yawn mouth read drowsiness. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/07-sulky.png",
+      "sha256": "a0663b12133ffa22546980b1c1985af52403811190b669d2471d48890caea397",
+      "verdict": "ACCEPT",
+      "state": "sulky",
+      "stage": "07",
+      "observation": "Inward angled brows and small pout read displeasure. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/07-weak.png",
+      "sha256": "2534fed3acdc019726b4ab31bfe941dd0b418b20177172a6c2d49680a8cf88ad",
+      "verdict": "ACCEPT",
+      "state": "weak",
+      "stage": "07",
+      "observation": "Drooping eyes and brows with a small sagging mouth read depleted energy. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/07-critical.png",
+      "sha256": "b5ed962bc7e04e7be2a7cac5f9766ddcd99a6ae00cf3acdaf167f5c3ff3bb216",
+      "verdict": "ACCEPT",
+      "state": "critical",
+      "stage": "07",
+      "observation": "Very narrow dim eyelids and tiny parted mouth read more depleted than weak. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/07-wantsPlay.png",
+      "sha256": "b8678b73133b007349b326f0981a3c77c11ef2b92f81c0c581c61050216fd9c0",
+      "verdict": "ACCEPT",
+      "state": "wantsPlay",
+      "stage": "07",
+      "observation": "High brows, large bright eyes and wide eager mouth read alert invitation. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/07-sleeping.png",
+      "sha256": "72a914a9b4803d51edb22b418bad0be8bfbfa6b63246e165e730b749bcd4274f",
+      "verdict": "ACCEPT",
+      "state": "sleeping",
+      "stage": "07",
+      "observation": "Both eyes fully closed in lower arcs and a tiny relaxed mouth read sleep. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/08-happy.png",
+      "sha256": "9b5f1f4642f22fc23a503a43665c17d572b3a6df7d8b3d7480cea79e22c6dea9",
+      "verdict": "ACCEPT",
+      "state": "happy",
+      "stage": "08",
+      "observation": "Bright cyan smiling eye arcs and a small open lavender smile read joy. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/08-strained.png",
+      "sha256": "1fddbd816f03fa8a0720333db394b305445e029bafa70ae8010075ecac3df95e",
+      "verdict": "ACCEPT",
+      "state": "strained",
+      "stage": "08",
+      "observation": "Oblique tightened eyes, lowered brows and clenched jagged mouth read strain. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/08-hungry.png",
+      "sha256": "75d468957c64d33ebd6d912b52cbec66db7e5e14912b31d959e44a7824d54360",
+      "verdict": "ACCEPT",
+      "state": "hungry",
+      "stage": "08",
+      "observation": "Raised brows, larger pleading cyan eyes and round parted mouth read wanting food. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/08-sick.png",
+      "sha256": "c83cb4a671c9e37b9679f5382a2ed752e3d2495684acbfad0d15b7726c85c516",
+      "verdict": "ACCEPT",
+      "state": "sick",
+      "stage": "08",
+      "observation": "Asymmetric worried brows, heavy eye shapes and a crooked frown read illness. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/08-tired.png",
+      "sha256": "67630b71e731f881d9c2c58357599a4780ce16d97044d1c0b18f07d9d908b694",
+      "verdict": "ACCEPT",
+      "state": "tired",
+      "stage": "08",
+      "observation": "Flat lowered eyelids and tiny slack mouth read fatigue. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/08-sulky.png",
+      "sha256": "ff5e373398809ad064481ffa5be4a5e537051c00976ec456edc5f1a0297e89c8",
+      "verdict": "ACCEPT",
+      "state": "sulky",
+      "stage": "08",
+      "observation": "Angled brows, sideways lowered gaze and tiny pout read displeasure. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/08-weak.png",
+      "sha256": "949beccea321da1aad6872e65f20e7be14e4e47b8c363940a57516d81fd77633",
+      "verdict": "ACCEPT",
+      "state": "weak",
+      "stage": "08",
+      "observation": "Downward-slanted brows, drooping eyes and small sagging mouth read weakness. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/08-critical.png",
+      "sha256": "3c1f87e25f1a76154f41c5c70d71c7c9daca8e305b59886c6d9181317b327fab",
+      "verdict": "ACCEPT",
+      "state": "critical",
+      "stage": "08",
+      "observation": "Very thin low cyan eyelids and tiny parted mouth read severe depletion, distinct from brighter weak eyes. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/08-wantsPlay.png",
+      "sha256": "1722b1f72f2aa244495e5535f6131157850437b758eb0e0d898c141b51951b6d",
+      "verdict": "ACCEPT",
+      "state": "wantsPlay",
+      "stage": "08",
+      "observation": "Raised eyebrows, wide bright eyes and open smiling mouth read eager invitation. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+    },
+    {
+      "path": "assets/characters/expressions/unknown/08-sleeping.png",
+      "sha256": "60c7c527fbaea9d89bec0a043dd0e679677c1979eaba1881aef209e686d8e061",
+      "verdict": "ACCEPT",
+      "state": "sleeping",
+      "stage": "08",
+      "observation": "Closed cyan lower arcs and a tiny relaxed mouth read sleep. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+    }
+  ],
+  "stage_reviews": [
+    {
+      "stage": "01",
+      "review": {
+        "stage": "01",
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "records": [
+          {
+            "stage": "01",
+            "state": "happy",
+            "path": "assets/characters/expressions/unknown/01-happy.png",
+            "sha256": "bab4e2073f217d5c8c002b28e869ae212fa1becaa1ff15e989fbfe8e01bb3b33",
+            "verdict": "ACCEPT",
+            "notes": "上向き弧の目と開いた笑口。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "strained",
+            "path": "assets/characters/expressions/unknown/01-strained.png",
+            "sha256": "b75e9455eabadd8d4b674d8e5b7acf376f1c992e9ae216ac85f4d584fb350494",
+            "verdict": "ACCEPT",
+            "notes": "絞った山形の目と短い平口で嫌さ・つらさ。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "hungry",
+            "path": "assets/characters/expressions/unknown/01-hungry.png",
+            "sha256": "81d07a82fd7f88394777ab381fb57ccf5466dccf8492db20396beced461645a9",
+            "verdict": "ACCEPT",
+            "notes": "開いた目と小さな開口で訴え。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "sick",
+            "path": "assets/characters/expressions/unknown/01-sick.png",
+            "sha256": "c3b3489126ce82cd14f6c6d10acb00700a90e63eff60c06d830574606c2885f4",
+            "verdict": "ACCEPT",
+            "notes": "低い瞼と波形に歪む口で不調。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "tired",
+            "path": "assets/characters/expressions/unknown/01-tired.png",
+            "sha256": "b526cc9966ac8f2aebaf006dd038133fe70d5c3f0ee048a7b9db555ba24cdae0",
+            "verdict": "ACCEPT",
+            "notes": "低く平たい瞼と丸い開口で眠気・疲れ。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "sulky",
+            "path": "assets/characters/expressions/unknown/01-sulky.png",
+            "sha256": "92fb076a65de7f7ec9b6e57591e8fb6fb7596998cebccd46d86e75a48bf79cd3",
+            "verdict": "ACCEPT",
+            "notes": "小さい目とへの字口で不満。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "weak",
+            "path": "assets/characters/expressions/unknown/01-weak.png",
+            "sha256": "4b4ab10b3e65cda53c60f37c53e551f50f6d935eefa04dee0f12c456d8aa5ab1",
+            "verdict": "ACCEPT",
+            "notes": "細く伏せた目と下がる口で弱り。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "critical",
+            "path": "assets/characters/expressions/unknown/01-critical.png",
+            "sha256": "7f5ce4258cbb2f4d7bfff75fd119d6d9565809a8eb426261f4f9af51b01939dd",
+            "verdict": "ACCEPT",
+            "notes": "力の落ちた斜めの目と歪んだ口で衰弱。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/unknown/01-wantsPlay.png",
+            "sha256": "6bbf98e000747ddac1bad0a2c746e7ed8a9e91c654bb2ef8c7511892c19282e6",
+            "verdict": "ACCEPT",
+            "notes": "明るい開眼と大きめの笑う開口で遊びたい。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+          },
+          {
+            "stage": "01",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/unknown/01-sleeping.png",
+            "sha256": "54793e838e88cd775eb7f8f33de669ce403e30980ae72a3645b0f45bbb2b79b8",
+            "verdict": "ACCEPT",
+            "notes": "水平の閉じ目と小さな安らかな口。 原寸と個別6倍で通常元画像と比較。小さい紫の単一身体/単一顔、外周光、元の左右小粒を保持。非顔の発光pixel等に生成微差はあるが、身体追加・新状態マークなし。"
+          }
+        ],
+        "reviewer": "/root/plush_original_review",
+        "method": "All ten final PNGs viewed in native128 comparison and individually at nearest-neighbor6x, with original native/6x",
+        "classification": "Single body / single face; no additional A/B/C case",
+        "readabilitylimits": [
+          "顔が非常に小さく目口は数ピクセル。原寸ではsick/weak/criticalの強さやhungryの具体的意味を顔だけで確実には判別できず、既存別レイヤーマークとの併読が必要。",
+          "sleeping/tiredは低い瞼が近いが口の開きで差。顔を大きくする再生成は原デザイン保持に反するため要求しない。",
+          "strainedは控えめ笑いより目を絞った嫌さ・つらさの方向で、既存ラベル意味に適合。"
+        ],
+        "unresolved": {
+          "critical": 0,
+          "important": 0,
+          "minor": 0
+        }
+      }
+    },
+    {
+      "stage": "02",
+      "review": {
+        "stage": "02",
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "records": [
+          {
+            "stage": "02",
+            "state": "happy",
+            "path": "assets/characters/expressions/unknown/02-happy.png",
+            "sha256": "42d31300996a7dbcac1e0e2578c4ef5908886a441335bf959f1e54358e112b8a",
+            "verdict": "ACCEPT",
+            "notes": "上向き弧の白い目と明るい紫の開口で喜び。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+          },
+          {
+            "stage": "02",
+            "state": "strained",
+            "path": "assets/characters/expressions/unknown/02-strained.png",
+            "sha256": "38e230a2a8e29f989fcc6a7b8f67ebe57f4490d9e1b2f77ca285ab557a8aaceb",
+            "verdict": "ACCEPT",
+            "notes": "絞った山形の目と平口で嫌さ・つらさ。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+          },
+          {
+            "stage": "02",
+            "state": "hungry",
+            "path": "assets/characters/expressions/unknown/02-hungry.png",
+            "sha256": "e674ae2f855b992102c0d932c358f2ff24a4a4678db9876e30bca59d0c7f9f92",
+            "verdict": "ACCEPT",
+            "notes": "内側の上がった開眼と丸い口で訴え。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+          },
+          {
+            "stage": "02",
+            "state": "sick",
+            "path": "assets/characters/expressions/unknown/02-sick.png",
+            "sha256": "86a47207ca7adf77957538cbc2e35532e273eb2790520130ca3ecbaa9d912baf",
+            "verdict": "ACCEPT",
+            "notes": "垂れる白い目と波口で不調。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+          },
+          {
+            "stage": "02",
+            "state": "tired",
+            "path": "assets/characters/expressions/unknown/02-tired.png",
+            "sha256": "28900178963cf347f1dcf1a43f2bd54b30fbc2ee2d58ce153c3276634a526eec",
+            "verdict": "ACCEPT",
+            "notes": "水平の半眼と縦開口で疲れ・眠気。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+          },
+          {
+            "stage": "02",
+            "state": "sulky",
+            "path": "assets/characters/expressions/unknown/02-sulky.png",
+            "sha256": "09b70906386b9f591ea43d8d83f33829fe50f341cce6f29efc66ee3261314e23",
+            "verdict": "ACCEPT",
+            "notes": "内側へ下がる目とへの字口で不満。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+          },
+          {
+            "stage": "02",
+            "state": "weak",
+            "path": "assets/characters/expressions/unknown/02-weak.png",
+            "sha256": "4d96c64423ad9a787458871e1b34d96fca168ab053dce1bebd77377db5116874",
+            "verdict": "ACCEPT",
+            "notes": "重い瞼と下がる口で弱り。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+          },
+          {
+            "stage": "02",
+            "state": "critical",
+            "path": "assets/characters/expressions/unknown/02-critical.png",
+            "sha256": "c83f6ab5212df83a7f7386f5655f6e9c66ebd3f84835a39849f40da8815f6488",
+            "verdict": "ACCEPT",
+            "notes": "閉じかけた細い目と下がる口で強い衰弱。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+          },
+          {
+            "stage": "02",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/unknown/02-wantsPlay.png",
+            "sha256": "aff6a8dcc79286cbdb462a72cb5811b4ea104fdf69482dfd51dd5dcecc0360ef",
+            "verdict": "ACCEPT",
+            "notes": "大きい白い開眼と笑う開口で遊びたい。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+          },
+          {
+            "stage": "02",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/unknown/02-sleeping.png",
+            "sha256": "1962b5bbc67102e93fddd22f211ea4ea040b082487070050833fdf86db4db37f",
+            "verdict": "ACCEPT",
+            "notes": "緩い弧の閉じ目と小平口で安らかな睡眠。 原寸・個別6倍で通常元画像と対照。単一身体/単一顔、青いゼリー状身体、外周光、左上ハイライト、紫の頬を保持。非顔pixel生成微差あり、足や新マークは追加なし。"
+          }
+        ],
+        "reviewer": "/root/plush_original_review",
+        "method": "All ten final PNGs viewed in native128 comparison and individually at nearest-neighbor6x, with original native/6x",
+        "classification": "Single body / single face; no additional A/B/C case",
+        "readabilitylimits": [
+          "weak/criticalは低い瞼と下がる口が共通し、原寸の強度差は小さい。既存生命低下/危険マークと併読する。",
+          "hungryは一般的な訴え顔にも見えるため空腹マークとの組合せで判別する。"
+        ],
+        "unresolved": {
+          "critical": 0,
+          "important": 0,
+          "minor": 0
+        }
+      }
+    },
+    {
+      "stage": "03",
+      "review": {
+        "stage": "03",
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "records": [
+          {
+            "stage": "03",
+            "state": "happy",
+            "path": "assets/characters/expressions/unknown/03-happy.png",
+            "sha256": "3d117c89a762f2fad535c1dde37edd1fc4c85c6e8ce8dd4239f2fec9b7fa4097",
+            "verdict": "ACCEPT",
+            "notes": "上向き弧の白い目と上がる紫の口で喜び。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "strained",
+            "path": "assets/characters/expressions/unknown/03-strained.png",
+            "sha256": "f868d4417ed7e06dd076f32f7d18bf118d7e1e0e053e884d898f9a39bd5459cf",
+            "verdict": "ACCEPT",
+            "notes": "内側へ絞る目と歪んだ波口で嫌さ・つらさ。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "hungry",
+            "path": "assets/characters/expressions/unknown/03-hungry.png",
+            "sha256": "848a7a94b16928578686674f7c26d865215c2fc42761ca5be594b97345485112",
+            "verdict": "ACCEPT",
+            "notes": "訴える白い開眼と丸い開口で空腹。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "sick",
+            "path": "assets/characters/expressions/unknown/03-sick.png",
+            "sha256": "f67b07ea544f00a84767f1a28ac8f998232d7c1a4c58bfff671b4395beabbecf",
+            "verdict": "ACCEPT",
+            "notes": "低い瞼と波状の口で不調。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "tired",
+            "path": "assets/characters/expressions/unknown/03-tired.png",
+            "sha256": "4686746624e3cdfa494afc439276347a7cc51e0d3d8315f2e407781a2a71ca4e",
+            "verdict": "ACCEPT",
+            "notes": "半閉じ目と平たい口で低活力。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "sulky",
+            "path": "assets/characters/expressions/unknown/03-sulky.png",
+            "sha256": "9ec7106f9b91ef595a3d57cd0dc6f09b3793f2b63f6724440d40b405da46cbd4",
+            "verdict": "ACCEPT",
+            "notes": "内へ下がる目とへの字口で不満。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "weak",
+            "path": "assets/characters/expressions/unknown/03-weak.png",
+            "sha256": "354245c36c0ac72eb21f01aa70087770cf5f8f511ac634dadba52701561a5d95",
+            "verdict": "ACCEPT",
+            "notes": "狭く伏せた目と小さく下がる口で弱り。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "critical",
+            "path": "assets/characters/expressions/unknown/03-critical.png",
+            "sha256": "164e3cb53acd22aecb89d951df5166e9d6ffd1b68545f3fc0ca35afcb9b2a137",
+            "verdict": "ACCEPT",
+            "notes": "伏せた目と小さな歪んだ開口で強い衰弱。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/unknown/03-wantsPlay.png",
+            "sha256": "2f64dec1667de811c862f4c870063c984b1e865a3431b2c41c500059c937da8c",
+            "verdict": "ACCEPT",
+            "notes": "開いた白い目と明るい開口で遊びの誘い。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+          },
+          {
+            "stage": "03",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/unknown/03-sleeping.png",
+            "sha256": "938b4a3970f485dd12ae8dbb3c942ce940d11ad596dcf311f8b3487d0d67a5c9",
+            "verdict": "ACCEPT",
+            "notes": "緩い閉じ目と小さな平口で睡眠。 原寸・個別6倍で元画像と比較。青紫の単一身体と単一顔、左右突起/足2つ/光の構造保持。非顔のハイライトや輪郭pixelに生成微差あり、追加身体・新マークなし。"
+          }
+        ],
+        "reviewer": "/root/plush_original_review",
+        "method": "All ten final PNGs viewed in native128 comparison and individually at nearest-neighbor6x, with original native/6x",
+        "classification": "Single body / single face; no additional A/B/C case",
+        "readabilitylimits": [
+          "weak/criticalは共に細い伏せ目で、口の開閉差は原寸で控えめ。既存生命低下/危険マークと併読する。",
+          "strained/sulkyは似た絞り目だが波口/への字口で区別、既存マークを合わせて状態を読む。"
+        ],
+        "unresolved": {
+          "critical": 0,
+          "important": 0,
+          "minor": 0
+        }
+      }
+    },
+    {
+      "stage": "04",
+      "review": {
+        "stage": "04",
+        "complete": true,
+        "count": 10,
+        "accepted_count": 10,
+        "records": [
+          {
+            "stage": "04",
+            "state": "happy",
+            "path": "assets/characters/expressions/unknown/04-happy.png",
+            "sha256": "415e92d82cf8b2f80368b1142f415c7f6567bf9421ab2291d9510fb7d1217efb",
+            "verdict": "ACCEPT",
+            "notes": "胴の上向き弧の目と明るい開口で喜び。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+          },
+          {
+            "stage": "04",
+            "state": "strained",
+            "path": "assets/characters/expressions/unknown/04-strained.png",
+            "sha256": "29a1359c24a5c581286abe4551ed28b5ba085c632da13966b8e1ca89c132f8a4",
+            "verdict": "ACCEPT",
+            "notes": "胴の絞る目と波口で嫌さ・つらさ。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+          },
+          {
+            "stage": "04",
+            "state": "hungry",
+            "path": "assets/characters/expressions/unknown/04-hungry.png",
+            "sha256": "38af22b35afd0afa426b370df529e6eb10d71912a6b8ff1fec5a23ce22f5f9dc",
+            "verdict": "ACCEPT",
+            "notes": "胴の訴える開眼と丸い口で空腹。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+          },
+          {
+            "stage": "04",
+            "state": "sick",
+            "path": "assets/characters/expressions/unknown/04-sick.png",
+            "sha256": "48d10de07eedbc8c0e65e88018b88d99333bd56a4c9f5a21099300fc857d7bb3",
+            "verdict": "ACCEPT",
+            "notes": "胴の垂れた目と歪む波口で不調。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+          },
+          {
+            "stage": "04",
+            "state": "tired",
+            "path": "assets/characters/expressions/unknown/04-tired.png",
+            "sha256": "2a1cc4fe0df62745356e6f6800e9ef52fa60dadfeef9bb22aaf2ae0af7c76109",
+            "verdict": "ACCEPT",
+            "notes": "胴の低い半眼と平口で疲れ。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+          },
+          {
+            "stage": "04",
+            "state": "sulky",
+            "path": "assets/characters/expressions/unknown/04-sulky.png",
+            "sha256": "fb5776bf5f7bdec1759b51c2e27051df047a0b008c9a4a26aaa2e72c3522bb67",
+            "verdict": "ACCEPT",
+            "notes": "胴の内側へ下がる目とへの字口で不満。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+          },
+          {
+            "stage": "04",
+            "state": "weak",
+            "path": "assets/characters/expressions/unknown/04-weak.png",
+            "sha256": "fdf96ddf6ceefb643bc6fc2e6d35c470e6dc0b8093c17c7eb033670d8e4a2cd6",
+            "verdict": "ACCEPT",
+            "notes": "胴の細い伏せ目と下がる口で弱り。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+          },
+          {
+            "stage": "04",
+            "state": "critical",
+            "path": "assets/characters/expressions/unknown/04-critical.png",
+            "sha256": "38b18f25d657bffa8f0fd223caffcb01e7e1d082324f59ed29e712a3ee2b74be",
+            "verdict": "ACCEPT",
+            "notes": "胴の閉じかけた目と小さい力のない口で衰弱。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+          },
+          {
+            "stage": "04",
+            "state": "wantsPlay",
+            "path": "assets/characters/expressions/unknown/04-wantsPlay.png",
+            "sha256": "a4b5e5bb4b16862e0054f6b337c60c6ff22df2b83af427dd0166a44ab2189ace",
+            "verdict": "ACCEPT",
+            "notes": "胴の大きく開いた白い目と笑う開口で遊びたい。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+          },
+          {
+            "stage": "04",
+            "state": "sleeping",
+            "path": "assets/characters/expressions/unknown/04-sleeping.png",
+            "sha256": "53132a85fc68ff43baad2916437dabbc5d33e36a9cb95b23080920a6c4c784cb",
+            "verdict": "ACCEPT",
+            "notes": "胴の緩い弧の閉じ目と小さな安らかな口で睡眠。 原寸・個別6倍で元画像と対照。上2球は暗い内部/紫内周/青外周/上方ハイライトと接続を保持し、瞼・目・表情を付与せず状態同期対象外。身体/足2つ/光保持。輪郭・光pixelには生成微差がありpixel完全一致ではないが、器官解釈を確定する変更なし。"
+          }
+        ],
+        "reviewer": "/root/plush_original_review",
+        "method": "All ten final PNGs viewed in native128 comparison and individually at nearest-neighbor6x, with original native/6x",
+        "classification": "Single connected body / one existing body face. Upper two intentionally unidentified organs excluded from expression synchronization per user decision; no fourth A/B/C category.",
+        "readabilitylimits": [
+          "critical/weakは共に細い伏せ目で顔だけの強度差は控えめ。既存生命低下/危険マークとの併読が必要。",
+          "上2球の内部パターン保持は見た目の構造・暗部・内外周・ハイライトの保持であり、非顔pixel完全一致を意味しない。全10で眼/触角等への確定描写なし。",
+          "上2球が明るいままでもユーザー確定の状態同期対象外なので、胴の不調や睡眠との矛盾としない。"
+        ],
+        "unresolved": {
+          "critical": 0,
+          "important": 0,
+          "minor": 0
+        }
+      }
+    },
+    {
+      "stage": "05",
+      "review": {
+        "reviewer": "unknown_integration (not PNG creator)",
+        "scope": "PNG expressions only; generated placement reviewed separately",
+        "view_sizes": [
+          128,
+          768
+        ],
+        "records": [
+          {
+            "path": "assets/characters/expressions/unknown/05-happy.png",
+            "sha256": "ef31158ab6de3cd63180665c436fe0a1c2cb70d54eb066c4becff330f3b4ff37",
+            "verdict": "ACCEPT",
+            "state": "happy",
+            "stage": "05",
+            "observation": "Two upturned white eye arcs and open lavender smile read delight. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/05-strained.png",
+            "sha256": "8a53caef36a2ef9c81348314e60c2d5ca7f19a6ddba88a0a690162c4b3c87a7a",
+            "verdict": "ACCEPT",
+            "state": "strained",
+            "stage": "05",
+            "observation": "Tightly squeezed angular eyes and a flat toothlike lavender grimace read effort. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/05-hungry.png",
+            "sha256": "17d5849a3fff5a58a20ebbb363d5d259875036ea10125269c5e7b73ca6639b88",
+            "verdict": "ACCEPT",
+            "state": "hungry",
+            "stage": "05",
+            "observation": "Raised inner brows, wide white eyes and round lavender open mouth read pleading hunger. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/05-sick.png",
+            "sha256": "ab36d23890dfe270230707a5996275b0a78b281af1ea17aa446abd682f97b141",
+            "verdict": "ACCEPT",
+            "state": "sick",
+            "stage": "05",
+            "observation": "Worried asymmetric brows, heavy lids and wavy frown read illness. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/05-tired.png",
+            "sha256": "aa9e3312ef3974cc0d9648a3d8dfb7f927125be6fcb98da5278f6655904d71e8",
+            "verdict": "ACCEPT",
+            "state": "tired",
+            "stage": "05",
+            "observation": "Low flat eyelids and an open yawn read fatigue. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/05-sulky.png",
+            "sha256": "b0dfb0f6085fc1809edf6eb49e28a851d9f38d5797c42b9ef9b305f0a8b32921",
+            "verdict": "ACCEPT",
+            "state": "sulky",
+            "stage": "05",
+            "observation": "Sharply inward-slanted lids and small pout read displeasure. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/05-weak.png",
+            "sha256": "8e03cab17f58d0114423236a77869a584f0928f96186faa0bf9b1e939760bc6a",
+            "verdict": "ACCEPT",
+            "state": "weak",
+            "stage": "05",
+            "observation": "Uneven drooping eyelids and small slack mouth read depletion. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/05-critical.png",
+            "sha256": "8954296e4082f4074b312f7b82e52ce85a47d46ee5f35e3060eb4bbca9447c21",
+            "verdict": "ACCEPT",
+            "state": "critical",
+            "stage": "05",
+            "observation": "Deeply sagging shut eyelids and slightly parted downturned mouth read severe depletion. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/05-wantsPlay.png",
+            "sha256": "3c4a054c0d85796238e8feb216d49b177bc56752b6abf93c65e861c91f174969",
+            "verdict": "ACCEPT",
+            "state": "wantsPlay",
+            "stage": "05",
+            "observation": "Large eager oval eyes and broad lavender smile read playful invitation. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/05-sleeping.png",
+            "sha256": "704831084c24380361178e69a232ba5da4c377b0e8722e24fd424fcf7b224fb3",
+            "verdict": "ACCEPT",
+            "state": "sleeping",
+            "stage": "05",
+            "observation": "Both white eye arcs close fully and a short relaxed lavender mouth read sleep. Independently compared final native and nearest-neighbor 6x with original: single blue glowing body/face, paired pale blue wings, two feet, purple cheeks and original highlights remain. Existing wink changes as needed; no new separate faces or baked state marks."
+          }
+        ]
+      }
+    },
+    {
+      "stage": "06",
+      "review": {
+        "reviewer": "unknown_integration (not PNG creator)",
+        "scope": "PNG expressions only; generated placement reviewed separately",
+        "view_sizes": [
+          128,
+          768
+        ],
+        "records": [
+          {
+            "path": "assets/characters/expressions/unknown/06-happy.png",
+            "sha256": "c535c3be541c4582ae365ee0bece5c573db20db5109a3d225db55fc4b1528bd6",
+            "verdict": "ACCEPT",
+            "state": "happy",
+            "stage": "06",
+            "observation": "Bright closed upward eye arcs and a lavender smile read joy. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/06-strained.png",
+            "sha256": "81213023a877e1fe677b2d12c6591831505467ecba1d2115fcc2a162fdfef4ae",
+            "verdict": "ACCEPT",
+            "state": "strained",
+            "stage": "06",
+            "observation": "Squeezed angled white eyes, lowered brows and wavering mouth read strain. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/06-hungry.png",
+            "sha256": "a1e0abef21e8ef5b8593694064c8df8d1122c725fb54b202906ce756e790daa4",
+            "verdict": "ACCEPT",
+            "state": "hungry",
+            "stage": "06",
+            "observation": "Wide white eyes, lifted inner brows and a round open mouth read hunger. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/06-sick.png",
+            "sha256": "ecf77d1c86e437e0f24cf81ba7706294fe7cfe777c79774470b9dac4218e957a",
+            "verdict": "ACCEPT",
+            "state": "sick",
+            "stage": "06",
+            "observation": "Heavy uneven lids, worried brows and jagged frown read illness. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/06-tired.png",
+            "sha256": "907dd2601755fd2da79290d28e69b8f3ceae607257fc6722c141724477399193",
+            "verdict": "ACCEPT",
+            "state": "tired",
+            "stage": "06",
+            "observation": "Flat half-closed white lids and small open yawn read fatigue; brighter cyan rim still preserves the original glowing material. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/06-sulky.png",
+            "sha256": "d9a50340bbc399f19d3b2ffb3cf7d1cee2c5477a602c39aa9958b72fb5c52d78",
+            "verdict": "ACCEPT",
+            "state": "sulky",
+            "stage": "06",
+            "observation": "Inward brows, wide narrowed eyes and short frown read displeasure. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/06-weak.png",
+            "sha256": "847ae3c127199379de1e2149b572ed9f5c922b65ea7751968398fb007a6aba90",
+            "verdict": "ACCEPT",
+            "state": "weak",
+            "stage": "06",
+            "observation": "Lowered narrow lids, worried brows and small sagging mouth read depletion. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/06-critical.png",
+            "sha256": "4a258b2eed807477bc79945c8812455957bf79d2f100158ab52ad86300ba4010",
+            "verdict": "ACCEPT",
+            "state": "critical",
+            "stage": "06",
+            "observation": "Deeply sagging lids, steep worried brows and larger downturned parted mouth read greater distress than weak. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/06-wantsPlay.png",
+            "sha256": "59ce3580f1c7b5173ae594163e15a5a5a9568f1e2fca1fc2468c6ee73395b35d",
+            "verdict": "ACCEPT",
+            "state": "wantsPlay",
+            "stage": "06",
+            "observation": "Large open eyes, high brows and broad lavender smile read eager invitation. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/06-sleeping.png",
+            "sha256": "a29d164ef2129f999f88252bfce29362c6a4f0e6138fa45f33e3fb55ded592e1",
+            "verdict": "ACCEPT",
+            "state": "sleeping",
+            "stage": "06",
+            "observation": "Both white eyes fully close in downward arcs with a short relaxed mouth. Independently compared native and nearest-neighbor 6x final to original: single enlarged asymmetric blue gelatinous body, two feet, cyan/violet glow and internal specks retained. No shrinking, darkening, extra faces, tears or baked state marks."
+          }
+        ]
+      }
+    },
+    {
+      "stage": "07",
+      "review": {
+        "reviewer": "unknown_integration (not PNG creator)",
+        "scope": "PNG expressions only; generated placement reviewed separately",
+        "view_sizes": [
+          128,
+          768
+        ],
+        "records": [
+          {
+            "path": "assets/characters/expressions/unknown/07-happy.png",
+            "sha256": "bb9e147d9a4e473ca8e596a0c31a750bf97348ef01a59924349cca6f6d7bceb7",
+            "verdict": "ACCEPT",
+            "state": "happy",
+            "stage": "07",
+            "observation": "White upturned eye arcs and open bright smile read joy. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/07-strained.png",
+            "sha256": "dadcc02614431262eb5236ee5d0e08da3cd685da8b3cf11955bdffb7d57f056a",
+            "verdict": "ACCEPT",
+            "state": "strained",
+            "stage": "07",
+            "observation": "Squeezed angular eyes and a clenched zigzag mouth read effort/discomfort. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/07-hungry.png",
+            "sha256": "7f27d3e289d2375fa05246518dad514b02a2d249fefbb16ef089a329ea1b459d",
+            "verdict": "ACCEPT",
+            "state": "hungry",
+            "stage": "07",
+            "observation": "Raised brows, pleading open eyes and a small round mouth read wanting food. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/07-sick.png",
+            "sha256": "9bdac919d7bb8890c532c3dced8a8099c2229f310d55b6f82687d48bd8f1993e",
+            "verdict": "ACCEPT",
+            "state": "sick",
+            "stage": "07",
+            "observation": "Uneven heavy lids, worried brows and crooked downturned mouth read illness. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/07-tired.png",
+            "sha256": "7dc7e6c92b2dad1327b81f0c3226f61b44bc5c8b1438f06874b3c217de6f4204",
+            "verdict": "ACCEPT",
+            "state": "tired",
+            "stage": "07",
+            "observation": "Flat half-lowered eyelids and vertical yawn mouth read drowsiness. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/07-sulky.png",
+            "sha256": "a0663b12133ffa22546980b1c1985af52403811190b669d2471d48890caea397",
+            "verdict": "ACCEPT",
+            "state": "sulky",
+            "stage": "07",
+            "observation": "Inward angled brows and small pout read displeasure. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/07-weak.png",
+            "sha256": "2534fed3acdc019726b4ab31bfe941dd0b418b20177172a6c2d49680a8cf88ad",
+            "verdict": "ACCEPT",
+            "state": "weak",
+            "stage": "07",
+            "observation": "Drooping eyes and brows with a small sagging mouth read depleted energy. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/07-critical.png",
+            "sha256": "b5ed962bc7e04e7be2a7cac5f9766ddcd99a6ae00cf3acdaf167f5c3ff3bb216",
+            "verdict": "ACCEPT",
+            "state": "critical",
+            "stage": "07",
+            "observation": "Very narrow dim eyelids and tiny parted mouth read more depleted than weak. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/07-wantsPlay.png",
+            "sha256": "b8678b73133b007349b326f0981a3c77c11ef2b92f81c0c581c61050216fd9c0",
+            "verdict": "ACCEPT",
+            "state": "wantsPlay",
+            "stage": "07",
+            "observation": "High brows, large bright eyes and wide eager mouth read alert invitation. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/07-sleeping.png",
+            "sha256": "72a914a9b4803d51edb22b418bad0be8bfbfa6b63246e165e730b749bcd4274f",
+            "verdict": "ACCEPT",
+            "state": "sleeping",
+            "stage": "07",
+            "observation": "Both eyes fully closed in lower arcs and a tiny relaxed mouth read sleep. Independently compared native and nearest-neighbor 6x final to original: small cyan-blue single body, glow and all three original orange rays remain, including sleeping/unwell states; no new baked emotion marks. Native face is tiny, so close unwell meanings also rely on the shared separate mark layer."
+          }
+        ]
+      }
+    },
+    {
+      "stage": "08",
+      "review": {
+        "reviewer": "unknown_integration (not PNG creator)",
+        "scope": "PNG expressions only; generated placement reviewed separately",
+        "view_sizes": [
+          128,
+          768
+        ],
+        "records": [
+          {
+            "path": "assets/characters/expressions/unknown/08-happy.png",
+            "sha256": "9b5f1f4642f22fc23a503a43665c17d572b3a6df7d8b3d7480cea79e22c6dea9",
+            "verdict": "ACCEPT",
+            "state": "happy",
+            "stage": "08",
+            "observation": "Bright cyan smiling eye arcs and a small open lavender smile read joy. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/08-strained.png",
+            "sha256": "1fddbd816f03fa8a0720333db394b305445e029bafa70ae8010075ecac3df95e",
+            "verdict": "ACCEPT",
+            "state": "strained",
+            "stage": "08",
+            "observation": "Oblique tightened eyes, lowered brows and clenched jagged mouth read strain. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/08-hungry.png",
+            "sha256": "75d468957c64d33ebd6d912b52cbec66db7e5e14912b31d959e44a7824d54360",
+            "verdict": "ACCEPT",
+            "state": "hungry",
+            "stage": "08",
+            "observation": "Raised brows, larger pleading cyan eyes and round parted mouth read wanting food. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/08-sick.png",
+            "sha256": "c83cb4a671c9e37b9679f5382a2ed752e3d2495684acbfad0d15b7726c85c516",
+            "verdict": "ACCEPT",
+            "state": "sick",
+            "stage": "08",
+            "observation": "Asymmetric worried brows, heavy eye shapes and a crooked frown read illness. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/08-tired.png",
+            "sha256": "67630b71e731f881d9c2c58357599a4780ce16d97044d1c0b18f07d9d908b694",
+            "verdict": "ACCEPT",
+            "state": "tired",
+            "stage": "08",
+            "observation": "Flat lowered eyelids and tiny slack mouth read fatigue. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/08-sulky.png",
+            "sha256": "ff5e373398809ad064481ffa5be4a5e537051c00976ec456edc5f1a0297e89c8",
+            "verdict": "ACCEPT",
+            "state": "sulky",
+            "stage": "08",
+            "observation": "Angled brows, sideways lowered gaze and tiny pout read displeasure. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/08-weak.png",
+            "sha256": "949beccea321da1aad6872e65f20e7be14e4e47b8c363940a57516d81fd77633",
+            "verdict": "ACCEPT",
+            "state": "weak",
+            "stage": "08",
+            "observation": "Downward-slanted brows, drooping eyes and small sagging mouth read weakness. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/08-critical.png",
+            "sha256": "3c1f87e25f1a76154f41c5c70d71c7c9daca8e305b59886c6d9181317b327fab",
+            "verdict": "ACCEPT",
+            "state": "critical",
+            "stage": "08",
+            "observation": "Very thin low cyan eyelids and tiny parted mouth read severe depletion, distinct from brighter weak eyes. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/08-wantsPlay.png",
+            "sha256": "1722b1f72f2aa244495e5535f6131157850437b758eb0e0d898c141b51951b6d",
+            "verdict": "ACCEPT",
+            "state": "wantsPlay",
+            "stage": "08",
+            "observation": "Raised eyebrows, wide bright eyes and open smiling mouth read eager invitation. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+          },
+          {
+            "path": "assets/characters/expressions/unknown/08-sleeping.png",
+            "sha256": "60c7c527fbaea9d89bec0a043dd0e679677c1979eaba1881aef209e686d8e061",
+            "verdict": "ACCEPT",
+            "state": "sleeping",
+            "stage": "08",
+            "observation": "Closed cyan lower arcs and a tiny relaxed mouth read sleep. Independently compared final native and nearest-neighbor 6x with original: tiny dark-purple single body, upper-right curled feature, violet rim and surrounding glints retained; cyan/lavender face remains in the original visual style, with no generic animal face, extra face or baked state mark. Native subdued-state differences are small and rely partly on the separate shared marks."
+          }
+        ]
+      }
+    }
+  ]
+}

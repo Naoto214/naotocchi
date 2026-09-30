@@ -1,0 +1,29 @@
+{
+  "before_tests": true,
+  "manual_files": [
+    "index.html",
+    "package.json",
+    "script.js"
+  ],
+  "audit_diff3_ranges": 9,
+  "git_ort_conflict_blocks": 7,
+  "explanation": "ort coalesces 4 index ranges into 2; same changes",
+  "auto_files": {
+    "DEVELOPMENT_CHECKPOINT_2026-09-07.md": "PR growth interpretation + main history preserved",
+    "tests/dialog-layout-probe.js": "fallback bounds + main start-button checks",
+    "tests/helpers/runtime-harness.cjs": "Expression modules/api + main environment/clock/seed/registry hooks",
+    "tests/home-conversation-browser.cjs": "fallback bounds + V2 fixture/auto-clean/guardedRoute"
+  },
+  "runtime_order": [
+    "hatch infinite guard before clear",
+    "life charm rescue early return before death-only invalidation/clear",
+    "gameActive then renderPetVisual/cancelEmotionCue + history sync",
+    "offline once then environment/emotion sync; hidden clear + timestamp/save retained"
+  ],
+  "test_registration_union": 123,
+  "sharp_and_lock": "main preserved; npm ci exit0",
+  "expected_main_item_image_changes": [],
+  "unexpected_image_changes": [],
+  "save": "main schema5/saveRevision/pendingGrandGoal/migration/recovery code retained; fresh tests next",
+  "post_smoke_refinement": "Visible handler applies offline once, syncs Home emotion, then renders pet visual even when short absence has no offline delta."
+}

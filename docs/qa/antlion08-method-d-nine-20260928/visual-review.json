@@ -1,0 +1,92 @@
+{
+  "date": "2026-09-28",
+  "method": "assistant visual inspection of normalized128/104/80/64 sheets and part crops; human approval pending",
+  "states": {
+    "happy": {
+      "observation": "笑い目と小さな笑顔。脚経路・触角の検査は接続。64pxでは喜びマークが読み分けを補助。",
+      "human_approved": false,
+      "production_adopted": false
+    },
+    "strained": {
+      "observation": "困ったまぶた・小口。固定座標の脚経路1だけ不一致。拡大では脚経路／先端位置の差があり、直ちに断裂とは判定しない。人間確認。",
+      "human_approved": false,
+      "production_adopted": false
+    },
+    "hungry": {
+      "observation": "期待する開いた目と小さな開口。wantsPlayとの差は口の強さと空腹マークも併せて確認。粒子がD4より多い。",
+      "human_approved": false,
+      "production_adopted": false
+    },
+    "sick": {
+      "observation": "重い目と下がった口。主な脚経路は拡大でもつながっているが、脚脇に独立した金茶色の小成分がある。脚の破片とは確定できない。見え方を要確認。",
+      "human_approved": false,
+      "production_adopted": false
+    },
+    "sulky": {
+      "observation": "下がった眉と不満そうな口。身体の傾きで不機嫌を演じていない。",
+      "human_approved": false,
+      "production_adopted": false
+    },
+    "weak": {
+      "observation": "元気のない目と小口。tired／sickとの顔単独の読み分けは64pxで弱まり、正式マークが補助。",
+      "human_approved": false,
+      "production_adopted": false
+    },
+    "critical": {
+      "observation": "強く閉じかけた目と小口。sleepingとの顔単独の差は小表示で弱い。独立成分95・265画素で今回最多、触角／脚付近にも小粒があり密度感を要確認。",
+      "human_approved": false,
+      "production_adopted": false
+    },
+    "wantsPlay": {
+      "observation": "大きな開いた目と期待する口。hungryより明るい口。顔以外の粒子を喜び用に増光していない。",
+      "human_approved": false,
+      "production_adopted": false
+    },
+    "sleeping": {
+      "observation": "穏やかな閉じ目と休んだ口。触角・翅・脚を睡眠用に垂らしていない。",
+      "human_approved": false,
+      "production_adopted": false
+    }
+  },
+  "sick_detail": {
+    "detached_component28_pixels": [
+      [
+        77,
+        95
+      ],
+      [
+        77,
+        96
+      ],
+      [
+        78,
+        96
+      ],
+      [
+        77,
+        97
+      ]
+    ],
+    "detached_component30_pixels": [
+      [
+        73,
+        102
+      ],
+      [
+        72,
+        103
+      ],
+      [
+        73,
+        103
+      ],
+      [
+        73,
+        104
+      ]
+    ],
+    "interpretation": "adjacent gold-colored components; main leg route appears continuous; component attribution uncertain, not deleted or recolored",
+    "color_mask_excludes_both": true
+  },
+  "global": "No obvious reappearance of old thick brown branch under abdomen; gold trail thickness/density still varies naturally; no automated visual PASS."
+}

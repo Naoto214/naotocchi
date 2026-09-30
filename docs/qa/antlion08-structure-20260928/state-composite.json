@@ -1,0 +1,51 @@
+{
+  "asset": "assets/characters/expressions/antlion/08-tired.png",
+  "asset_sha256": "add7d80535d38dd47c29685f1d2436cc91428461f783e06d3c30c70d80876c72",
+  "records": [
+    {
+      "size": 64,
+      "artOffsetY": 6,
+      "sweat": {
+        "left": 0.3887221902403759,
+        "right": 0.46564526716345433,
+        "top": 29.46,
+        "travel": 4.48
+      },
+      "accent_sha256": "6d19ddd1fdb894c71c880d554603f17f457563074252c2312d2b981f5a0d7b4f"
+    },
+    {
+      "size": 80,
+      "artOffsetY": 7.5,
+      "sweat": {
+        "left": 0.9859027378004717,
+        "right": 1.0820565839543148,
+        "top": 36.825,
+        "travel": 5.6000000000000005
+      },
+      "accent_sha256": "6d19ddd1fdb894c71c880d554603f17f457563074252c2312d2b981f5a0d7b4f"
+    },
+    {
+      "size": 104,
+      "artOffsetY": 9.75,
+      "sweat": {
+        "left": 1.8816735591406113,
+        "right": 2.0066735591406113,
+        "top": 48.0125,
+        "travel": 7
+      },
+      "accent_sha256": "6d19ddd1fdb894c71c880d554603f17f457563074252c2312d2b981f5a0d7b4f"
+    }
+  ],
+  "layer_order": [
+    "body",
+    "sweat",
+    "selected_mark"
+  ],
+  "limitations": [
+    "offline static composite; not Home browser screenshot",
+    "sweat outline approximated from CSS; shadow and temporal phase differences not guaranteed",
+    "no candidate exists; assesses original only"
+  ],
+  "css_sha256": "3e6a9bc6262bfe485c691839931c940c0746180ca5d7d31c067180abe75040e0",
+  "care_css_sha256": "356834a1a0c582cc1ae6204ec6f271da104ec779a909b63dd0a6e2dae32aa5ad"
+}

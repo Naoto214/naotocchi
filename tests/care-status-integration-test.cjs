@@ -227,3 +227,12 @@ test('illness care is readable before an arbitrarily long saved disease name', (
     assert.equal(h.api.state().sicknessType,disease);
   }
 });
+
+test('running cat sweat brackets its head rather than the distant tail',()=>{
+  const h=harness({worldScene:true});
+  Object.assign(h.api.state(),{speciesLine:'cat',stage:'growing',ageTicks:12*20,stageIndex:3,isSick:true,health:90});
+  h.api.render();
+  const style=h.get('petSprite').style,width=parseFloat(style.width),height=parseFloat(style.height);
+  assert.ok(parseFloat(style['--care-sweat-right'])>width*.25,'right drop remains by the head');
+  assert.ok(parseFloat(style['--care-sweat-top'])<height*.6,'drops flank the head above the body');
+});

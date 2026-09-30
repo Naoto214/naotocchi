@@ -32,8 +32,63 @@ test('static script exposes the pure assessment interface on window', () => {
   vm.runInNewContext(fs.readFileSync(require.resolve('../care-status.js'), 'utf8'), context);
   assert.deepEqual(
     Object.keys(context.window.NaotocchiCareStatus).sort(),
-    ['assess', 'changes', 'snapshot'],
+    ['assess', 'changes', 'signals', 'snapshot'],
   );
+});
+
+test('signals exposes canonical mild and strong display bands without changing assess', () => {
+  assert.equal(careStatus.signals(growing({ hunger: 50 })).hunger, 'mild');
+  assert.equal(careStatus.signals(growing({ hunger: 25 })).hunger, 'strong');
+  assert.equal(careStatus.signals(growing({ hunger: 50.1 })).hunger, 'none');
+  assert.equal(careStatus.signals(growing({ energy: 50 })).energy, 'mild');
+  assert.equal(careStatus.signals(growing({ energy: 25 })).energy, 'strong');
+  assert.equal(careStatus.signals(growing({ happiness: 50 })).happiness, 'mild');
+  assert.equal(careStatus.signals(growing({ happiness: 25 })).happiness, 'strong');
+  assert.equal(
+    careStatus.assess(growing({ hunger: 50 })),
+    null,
+    'mild display must not create a new warning notice',
+  );
+});
+
+test('signals keeps life and stage semantics identical to current care rules', () => {
+  assert.equal(careStatus.signals(growing({ deathMeter: 60 })).life, 'warning');
+  assert.equal(careStatus.signals(growing({ deathMeter: 80 })).life, 'critical');
+  assert.equal(careStatus.signals(growing({ health: 0 })).life, 'critical');
+  assert.equal(careStatus.signals(growing({ health: 19, lowHealthStreak: 1 })).life, 'critical');
+  assert.equal(careStatus.signals(growing({ deathMeter: 90, infinite: true })).life, 'none');
+  assert.equal(careStatus.signals(growing({ deathMeter: 90 }), { immortal: true }).life, 'none');
+  assert.equal(careStatus.signals(growing({ deathMeter: 90, infinite: true }), { immortal: false }).life, 'critical');
+
+  for (const stage of ['egg', 'dead', 'farewell']) {
+    const signals = careStatus.signals(growing({ stage, deathMeter: 90, health: 0, isSick: true }));
+    assert.equal(signals.playable, false, stage);
+    assert.equal(signals.life, 'none', stage);
+    assert.equal(signals.health, 'none', stage);
+    assert.equal(signals.sick, false, stage);
+    assert.equal(signals.hunger, 'none', stage);
+    assert.equal(signals.energy, 'none', stage);
+    assert.equal(signals.happiness, 'none', stage);
+    assert.equal(signals.sleeping, false, stage);
+  }
+});
+
+test('signals exposes health, sickness, sleep, and pet availability without mutating state', () => {
+  const state = growing({ health: 25, isSick: true, isSleeping: true, energy: 10 });
+  const before = structuredClone(state);
+  assert.deepEqual(careStatus.signals(state, { petAvailable: false }), {
+    playable: true,
+    life: 'none',
+    health: 'strong',
+    sick: true,
+    hunger: 'none',
+    energy: 'none',
+    happiness: 'none',
+    sleeping: true,
+    petAvailable: false,
+  });
+  assert.deepEqual(state, before);
+  assert.equal(careStatus.signals(growing()).petAvailable, true);
 });
 
 test('assess leaves healthy and non-playable life stages quiet without mutating state', () => {

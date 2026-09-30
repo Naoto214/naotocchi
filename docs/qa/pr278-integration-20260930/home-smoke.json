@@ -1,0 +1,72 @@
+{
+  "browser": "153.0.8010.0",
+  "rows": [
+    {
+      "preset": "normal",
+      "actual": "normal",
+      "missing": []
+    },
+    {
+      "lifecycle": {
+        "guarded": true,
+        "hatched": true,
+        "rescued": true,
+        "dead": true,
+        "stale": false
+      }
+    },
+    {
+      "preset": "hungry",
+      "actual": "hungry",
+      "missing": []
+    },
+    {
+      "tabReturn": {
+        "expression": "hungry",
+        "schema": 5
+      }
+    },
+    {
+      "preset": "sick",
+      "actual": "sick",
+      "missing": []
+    },
+    {
+      "preset": "tired",
+      "actual": "tired",
+      "missing": []
+    },
+    {
+      "preset": "sulky",
+      "actual": "sulky",
+      "missing": []
+    },
+    {
+      "preset": "weak",
+      "actual": "weak",
+      "missing": []
+    },
+    {
+      "preset": "critical",
+      "actual": "critical",
+      "missing": []
+    },
+    {
+      "preset": "wantsPlay",
+      "actual": "wantsPlay",
+      "missing": []
+    },
+    {
+      "preset": "sleeping",
+      "actual": "sleeping",
+      "missing": []
+    },
+    {
+      "preset": "happy",
+      "actual": "happy",
+      "missing": []
+    }
+  ],
+  "errors": [],
+  "scope": "real index runtime; disposable memory save; no aesthetic evaluation; back/minigame covered by official back-navigation browser"
+}

@@ -1,0 +1,3074 @@
+{
+  "source_head": "0620f3048e1a3e83e2d0c1c55854e2d44aa0f53c",
+  "source_tree": "81968c383b035ed49902344eca9ed54b24f9397b",
+  "scope": "8 normal + 80 expression images; bubbles only",
+  "definition": "external bubbles only; body lobes, remnant larval body, highlights, markings, sweat and state accents excluded",
+  "blue_anchor_rois": {
+    "B1 左上": [
+      22,
+      23,
+      46,
+      46
+    ],
+    "B2 右上": [
+      93,
+      23,
+      123,
+      53
+    ],
+    "B3 左下": [
+      4,
+      63,
+      33,
+      94
+    ],
+    "B4 右下大泡": [
+      103,
+      71,
+      123,
+      90
+    ],
+    "B5 右下極小泡": [
+      102,
+      90,
+      111,
+      97
+    ]
+  },
+  "records": [
+    {
+      "stage": "01",
+      "key": "normal",
+      "path": "assets/characters/starfish/01.png",
+      "sha256": "bab2be337b112e256b5991bc3c90ce802f67e60638cb30f15a8436c5688eac39",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 422565,
+          "box": [
+            292,
+            177,
+            963,
+            1078
+          ]
+        },
+        {
+          "area": 8,
+          "box": [
+            766,
+            261,
+            767,
+            269
+          ]
+        },
+        {
+          "area": 1,
+          "box": [
+            776,
+            280,
+            777,
+            281
+          ]
+        },
+        {
+          "area": 1,
+          "box": [
+            468,
+            294,
+            469,
+            295
+          ]
+        },
+        {
+          "area": 1,
+          "box": [
+            724,
+            1032,
+            725,
+            1033
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "01",
+      "key": "happy",
+      "path": "assets/characters/expressions/starfish/01-happy.png",
+      "sha256": "6d155030e4a1fbfcf1b8afd82d55350dbe241b6b26d216ebe45f9c6719035305",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 4439,
+          "box": [
+            30,
+            18,
+            99,
+            110
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "01",
+      "key": "strained",
+      "path": "assets/characters/expressions/starfish/01-strained.png",
+      "sha256": "8d42385199ecf91e8f8959a9d909eb2fdfec389e72b05c92c8a07454cde1a0b9",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 4453,
+          "box": [
+            30,
+            18,
+            99,
+            110
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "01",
+      "key": "hungry",
+      "path": "assets/characters/expressions/starfish/01-hungry.png",
+      "sha256": "c726f85570dcacc802724e0ec9befd790ed937442dfb3c52d08d9771618ac0f8",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 4456,
+          "box": [
+            30,
+            18,
+            99,
+            110
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "01",
+      "key": "sick",
+      "path": "assets/characters/expressions/starfish/01-sick.png",
+      "sha256": "c266bca730ab1d70d09cb90d0690f7cb4634984d2444fc9d897d8ba575c3d5a1",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 4441,
+          "box": [
+            30,
+            18,
+            99,
+            110
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "01",
+      "key": "tired",
+      "path": "assets/characters/expressions/starfish/01-tired.png",
+      "sha256": "4ba73b031caecf274b9fdc0e50b8d48b3e3078868dbfa837dd1775969a23448e",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 4464,
+          "box": [
+            30,
+            18,
+            99,
+            110
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "01",
+      "key": "sulky",
+      "path": "assets/characters/expressions/starfish/01-sulky.png",
+      "sha256": "ad10c6d0889ea020c531f94152ea5817155201b6013881b6fbf5dc6c136e1a71",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 4438,
+          "box": [
+            30,
+            18,
+            99,
+            110
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "01",
+      "key": "weak",
+      "path": "assets/characters/expressions/starfish/01-weak.png",
+      "sha256": "ea62645cf1bae736063c2c7c190c7c58944062b290ee5a1e592c8e48b5e63851",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 4427,
+          "box": [
+            30,
+            18,
+            99,
+            110
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "01",
+      "key": "critical",
+      "path": "assets/characters/expressions/starfish/01-critical.png",
+      "sha256": "c7f8d197a941bc9217c488a6176225108e067f0394daeeb490c389b40e737d37",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 4460,
+          "box": [
+            30,
+            18,
+            99,
+            110
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "01",
+      "key": "wantsPlay",
+      "path": "assets/characters/expressions/starfish/01-wantsPlay.png",
+      "sha256": "0412e63fc4397067aeb076b0cbba16d68ff769eb41f8c8cb6626841e456d0baa",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 4431,
+          "box": [
+            30,
+            18,
+            99,
+            110
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "01",
+      "key": "sleeping",
+      "path": "assets/characters/expressions/starfish/01-sleeping.png",
+      "sha256": "600510b92d09dd4c48d2bd31543a1ef2a324ed875d7fc68b19552f61ee3728c6",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 4467,
+          "box": [
+            30,
+            18,
+            99,
+            110
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "02",
+      "key": "normal",
+      "path": "assets/characters/starfish/02.png",
+      "sha256": "d2bea1405df2b329785fadbd13e12f69887c8701c0653894ba989b8d5bfa225d",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 372620,
+          "box": [
+            255,
+            170,
+            958,
+            1118
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "02",
+      "key": "happy",
+      "path": "assets/characters/expressions/starfish/02-happy.png",
+      "sha256": "0505233776ee5adbab473709ee860e16115d7bee4a9bfb19dfd35f7968a4ed78",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 3871,
+          "box": [
+            26,
+            18,
+            98,
+            114
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "02",
+      "key": "strained",
+      "path": "assets/characters/expressions/starfish/02-strained.png",
+      "sha256": "c0b01ebfeeccab2ac0ce5346c3ea86c60b762fb42df2d04114c8899986be494f",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 3835,
+          "box": [
+            26,
+            18,
+            98,
+            114
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "02",
+      "key": "hungry",
+      "path": "assets/characters/expressions/starfish/02-hungry.png",
+      "sha256": "e24989e84d8d83b7acaf6597793a11134002d87391e681315eac86c7042ccdd0",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 3874,
+          "box": [
+            26,
+            18,
+            98,
+            114
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "02",
+      "key": "sick",
+      "path": "assets/characters/expressions/starfish/02-sick.png",
+      "sha256": "d1fbd5854b5dc45bf4c63583779118d9d7e0530f22eb67733d7d4ff4d6912b12",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 3840,
+          "box": [
+            26,
+            18,
+            98,
+            114
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "02",
+      "key": "tired",
+      "path": "assets/characters/expressions/starfish/02-tired.png",
+      "sha256": "3963b47e5c57758614aaaefa79794751be84241451d9e1a9761fae8ae89eb802",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 3858,
+          "box": [
+            26,
+            18,
+            98,
+            114
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "02",
+      "key": "sulky",
+      "path": "assets/characters/expressions/starfish/02-sulky.png",
+      "sha256": "39f61b1137e58fe431e5a769acc259c2d10e61ccadea3548d63bdc3102eb9c42",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 3823,
+          "box": [
+            26,
+            18,
+            98,
+            114
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "02",
+      "key": "weak",
+      "path": "assets/characters/expressions/starfish/02-weak.png",
+      "sha256": "bbc4e6cc98061eb3738ff6a4def2309a4b307b7445b0f2bde9c9ef39d5a63e39",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 3849,
+          "box": [
+            26,
+            18,
+            98,
+            114
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "02",
+      "key": "critical",
+      "path": "assets/characters/expressions/starfish/02-critical.png",
+      "sha256": "ec6a20fb4bd1825f93fac1102772bfd2bd3446f962441a54f6235d92410f0ba9",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 3844,
+          "box": [
+            26,
+            18,
+            98,
+            114
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "02",
+      "key": "wantsPlay",
+      "path": "assets/characters/expressions/starfish/02-wantsPlay.png",
+      "sha256": "5a559fcc803109a7ae92003fb328988b2c4b75bfbac52f12119a1723537a9db7",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 3838,
+          "box": [
+            26,
+            18,
+            98,
+            114
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "02",
+      "key": "sleeping",
+      "path": "assets/characters/expressions/starfish/02-sleeping.png",
+      "sha256": "4c8781075a4c71da12de1ac2e1d916f18d5e37eea07c78280d8c903b689ed794",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 3817,
+          "box": [
+            26,
+            18,
+            98,
+            114
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "03",
+      "key": "normal",
+      "path": "assets/characters/starfish/03.png",
+      "sha256": "220666ce63326a72b2125d4621bb587f3edbc01271faefe38671162947c06bb0",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 284023,
+          "box": [
+            304,
+            260,
+            985,
+            996
+          ]
+        },
+        {
+          "area": 9,
+          "box": [
+            797,
+            617,
+            798,
+            626
+          ]
+        },
+        {
+          "area": 1,
+          "box": [
+            588,
+            506,
+            589,
+            507
+          ]
+        },
+        {
+          "area": 1,
+          "box": [
+            624,
+            508,
+            625,
+            509
+          ]
+        },
+        {
+          "area": 1,
+          "box": [
+            764,
+            541,
+            765,
+            542
+          ]
+        },
+        {
+          "area": 1,
+          "box": [
+            318,
+            567,
+            319,
+            568
+          ]
+        },
+        {
+          "area": 1,
+          "box": [
+            969,
+            656,
+            970,
+            657
+          ]
+        },
+        {
+          "area": 1,
+          "box": [
+            356,
+            716,
+            357,
+            717
+          ]
+        },
+        {
+          "area": 1,
+          "box": [
+            961,
+            731,
+            962,
+            732
+          ]
+        },
+        {
+          "area": 1,
+          "box": [
+            437,
+            937,
+            438,
+            938
+          ]
+        },
+        {
+          "area": 1,
+          "box": [
+            702,
+            944,
+            703,
+            945
+          ]
+        },
+        {
+          "area": 1,
+          "box": [
+            576,
+            953,
+            577,
+            954
+          ]
+        },
+        {
+          "area": 1,
+          "box": [
+            532,
+            972,
+            533,
+            973
+          ]
+        },
+        {
+          "area": 1,
+          "box": [
+            472,
+            973,
+            473,
+            974
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "03",
+      "key": "happy",
+      "path": "assets/characters/expressions/starfish/03-happy.png",
+      "sha256": "51bb7c9ff4258225a7ab49c1121557d560dbb6337606a2cbb43b3312c5a69d19",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 2944,
+          "box": [
+            32,
+            27,
+            101,
+            102
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "03",
+      "key": "strained",
+      "path": "assets/characters/expressions/starfish/03-strained.png",
+      "sha256": "6b26dd3b43757390db272b6222724ee16091de177918fb1ead1e665e9741710d",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 2907,
+          "box": [
+            32,
+            27,
+            101,
+            102
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "03",
+      "key": "hungry",
+      "path": "assets/characters/expressions/starfish/03-hungry.png",
+      "sha256": "77b57ba47e1bf21b3f2143fcfd0e6842faf59bda8a5fb5bc2f2002463dd3b70f",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 2950,
+          "box": [
+            32,
+            27,
+            101,
+            102
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "03",
+      "key": "sick",
+      "path": "assets/characters/expressions/starfish/03-sick.png",
+      "sha256": "47edd5c7394f1e4513c8c787ca4325d4e041df9abe1b7f0847a15d2bb12a59c1",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 2917,
+          "box": [
+            32,
+            27,
+            101,
+            102
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "03",
+      "key": "tired",
+      "path": "assets/characters/expressions/starfish/03-tired.png",
+      "sha256": "70e6780fc341c62872636423469f68a5fcc09fcdc6d72245652d27b8489b38de",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 2909,
+          "box": [
+            32,
+            27,
+            101,
+            102
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "03",
+      "key": "sulky",
+      "path": "assets/characters/expressions/starfish/03-sulky.png",
+      "sha256": "ab91acd03f37d42c931663cf1807e643d8abe8ff370abf81a3234955b56b9ce1",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 2924,
+          "box": [
+            32,
+            27,
+            101,
+            102
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "03",
+      "key": "weak",
+      "path": "assets/characters/expressions/starfish/03-weak.png",
+      "sha256": "7b59b97fda5dac2f64ff6c28567e4472ed02fbbf2d20cb1759b008b03c3b45fe",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 2950,
+          "box": [
+            32,
+            27,
+            101,
+            102
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "03",
+      "key": "critical",
+      "path": "assets/characters/expressions/starfish/03-critical.png",
+      "sha256": "bd3c2d60307f668756d20b663b9c1d8c0125e3cc16792763d7e0eedadddd9f6a",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 2916,
+          "box": [
+            32,
+            27,
+            101,
+            102
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "03",
+      "key": "wantsPlay",
+      "path": "assets/characters/expressions/starfish/03-wantsPlay.png",
+      "sha256": "20d37d9a1c3c464e2395269f1c58e885db13b9518bbfb554587d5c51f6ec5856",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 2917,
+          "box": [
+            32,
+            27,
+            101,
+            102
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "03",
+      "key": "sleeping",
+      "path": "assets/characters/expressions/starfish/03-sleeping.png",
+      "sha256": "feb5cdf9a3c16016b3ef5f8c8636c7fe1d0ff2d8b67b3d248be8c78778183ce7",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 2936,
+          "box": [
+            32,
+            27,
+            101,
+            102
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "04",
+      "key": "normal",
+      "path": "assets/characters/starfish/04.png",
+      "sha256": "67cc700986fea3bf4584744a8f58a10978d1dce0eec173ea4666b73c82bc9863",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 7085,
+          "box": [
+            8,
+            8,
+            120,
+            120
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "04",
+      "key": "happy",
+      "path": "assets/characters/expressions/starfish/04-happy.png",
+      "sha256": "10fa4a0ef7f7f88aa9162c2e94595bb455454a752cb01e0711251612dd6d51c0",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 7008,
+          "box": [
+            8,
+            8,
+            120,
+            120
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "04",
+      "key": "strained",
+      "path": "assets/characters/expressions/starfish/04-strained.png",
+      "sha256": "3fd702bbb0c275259e57db04a85c057a4380ef1ac2340ef9c6c55fc4c8c590e1",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 7183,
+          "box": [
+            8,
+            8,
+            120,
+            120
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "04",
+      "key": "hungry",
+      "path": "assets/characters/expressions/starfish/04-hungry.png",
+      "sha256": "254f91c7a76caa57879a5e0a626149819860ffbee99d2bc4c2987ebebd5a1723",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 7284,
+          "box": [
+            8,
+            8,
+            120,
+            120
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "04",
+      "key": "sick",
+      "path": "assets/characters/expressions/starfish/04-sick.png",
+      "sha256": "871788d79fbde8ac8a04269e899807ff6ac92531251b6356d425d13306999542",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 7071,
+          "box": [
+            8,
+            8,
+            120,
+            120
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "04",
+      "key": "tired",
+      "path": "assets/characters/expressions/starfish/04-tired.png",
+      "sha256": "faf1fa9eb2fd32e5300a1e3b8e0a0b9526cbcb611b27dd47bc4b8b807661e5ee",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 7277,
+          "box": [
+            8,
+            8,
+            120,
+            120
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "04",
+      "key": "sulky",
+      "path": "assets/characters/expressions/starfish/04-sulky.png",
+      "sha256": "d49469491fb6929ef9369f3c553d8b6f0848ba9cc8954cb821c2d062a025cb1f",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 7118,
+          "box": [
+            8,
+            8,
+            120,
+            120
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "04",
+      "key": "weak",
+      "path": "assets/characters/expressions/starfish/04-weak.png",
+      "sha256": "70229e63146df3999084a00a02a16c12f0e7e0a8637e42cdeec9c9c919b34c04",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6956,
+          "box": [
+            8,
+            8,
+            120,
+            120
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "04",
+      "key": "critical",
+      "path": "assets/characters/expressions/starfish/04-critical.png",
+      "sha256": "3f7af2d4da428e4fbd7e25a17223fcccb3f491e0026976610fad63db5bb29a38",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 7075,
+          "box": [
+            8,
+            8,
+            120,
+            120
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "04",
+      "key": "wantsPlay",
+      "path": "assets/characters/expressions/starfish/04-wantsPlay.png",
+      "sha256": "70f3eeb3fa7f1e18de8dbefe499cc395e6cd7008dc9572c7d526d80b518b016f",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 7169,
+          "box": [
+            8,
+            8,
+            120,
+            120
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "04",
+      "key": "sleeping",
+      "path": "assets/characters/expressions/starfish/04-sleeping.png",
+      "sha256": "8145a3935380ccc69dcc82835b30d47c86994d64fbae67f67f437b58b8abed57",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 7091,
+          "box": [
+            8,
+            8,
+            120,
+            120
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "05",
+      "key": "normal",
+      "path": "assets/characters/starfish/05.png",
+      "sha256": "5075539019147a587ab984f058edabdb3ea994ab91067108f48e4c3cb9afa462",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6363,
+          "box": [
+            8,
+            11,
+            120,
+            117
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "05",
+      "key": "happy",
+      "path": "assets/characters/expressions/starfish/05-happy.png",
+      "sha256": "ba63b15ce0bff6d3d12d539c26c518984f20097701451aab89447fb853414ba4",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6294,
+          "box": [
+            8,
+            11,
+            120,
+            117
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "05",
+      "key": "strained",
+      "path": "assets/characters/expressions/starfish/05-strained.png",
+      "sha256": "780c54aff1a11098b6045df03d8f1aa185415dd94f617b8af9c5a6d0a45b7522",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6320,
+          "box": [
+            8,
+            11,
+            120,
+            117
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "05",
+      "key": "hungry",
+      "path": "assets/characters/expressions/starfish/05-hungry.png",
+      "sha256": "6617c39d3b23175788f6ce1d6ff0bf77ac6d40e8239d9184f4dc883748525df8",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6162,
+          "box": [
+            8,
+            11,
+            120,
+            117
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "05",
+      "key": "sick",
+      "path": "assets/characters/expressions/starfish/05-sick.png",
+      "sha256": "f57a164d78290acad43b30dc62b27192fb46275fa48713533cd1e0e953af6fb4",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6211,
+          "box": [
+            8,
+            11,
+            120,
+            117
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "05",
+      "key": "tired",
+      "path": "assets/characters/expressions/starfish/05-tired.png",
+      "sha256": "92868b05edc2bbc9e79668b815741ef15450e98a5d56a60d4d7f3b24aaa4ebf0",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6270,
+          "box": [
+            8,
+            11,
+            120,
+            117
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "05",
+      "key": "sulky",
+      "path": "assets/characters/expressions/starfish/05-sulky.png",
+      "sha256": "fbd722b99bb14ca4a3de3961b44862c66ce4260533df428375f86ba408dbbe76",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6063,
+          "box": [
+            8,
+            11,
+            120,
+            117
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "05",
+      "key": "weak",
+      "path": "assets/characters/expressions/starfish/05-weak.png",
+      "sha256": "9334c86d31301676d428cb273f39b638fff8eb8677acba18d05d791a89f5eb92",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6109,
+          "box": [
+            8,
+            11,
+            120,
+            117
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "05",
+      "key": "critical",
+      "path": "assets/characters/expressions/starfish/05-critical.png",
+      "sha256": "b24733df0d8073b7cc631606ce2c8c2e097a7de744162136a0bf4343fe35f9d7",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6202,
+          "box": [
+            8,
+            11,
+            120,
+            117
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "05",
+      "key": "wantsPlay",
+      "path": "assets/characters/expressions/starfish/05-wantsPlay.png",
+      "sha256": "3c45f1195f1eac544ba8e0397cb5f2eb0c66789fa8223b0652635d202e046ca3",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6137,
+          "box": [
+            8,
+            11,
+            120,
+            117
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "05",
+      "key": "sleeping",
+      "path": "assets/characters/expressions/starfish/05-sleeping.png",
+      "sha256": "e5fef6e9caaa781c1b61fcec97afc1d589037369718ffd5b6585e4b939210891",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6229,
+          "box": [
+            8,
+            11,
+            120,
+            117
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "06",
+      "key": "normal",
+      "path": "assets/characters/starfish/06.png",
+      "sha256": "9530edaae3061ba58e55e460d1ee72f67dfc33c74841d0f1cc30eb05a8ed32d8",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6498,
+          "box": [
+            8,
+            14,
+            120,
+            113
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "06",
+      "key": "happy",
+      "path": "assets/characters/expressions/starfish/06-happy.png",
+      "sha256": "6f25f1c979485a8789935f851dafd271d95a695d6fc92026c8355e3c429d5ec0",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6275,
+          "box": [
+            8,
+            14,
+            120,
+            113
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "06",
+      "key": "strained",
+      "path": "assets/characters/expressions/starfish/06-strained.png",
+      "sha256": "2a1a14b462f66461864aa456acccd521ef4f5cb9673e7343c3fe7a709782da46",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6320,
+          "box": [
+            8,
+            14,
+            120,
+            113
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "06",
+      "key": "hungry",
+      "path": "assets/characters/expressions/starfish/06-hungry.png",
+      "sha256": "8ebad2a1ef6de17207f2a2b1efc8121d931d31c30177fa033dfd186e4a0e2664",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6175,
+          "box": [
+            8,
+            14,
+            120,
+            113
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "06",
+      "key": "sick",
+      "path": "assets/characters/expressions/starfish/06-sick.png",
+      "sha256": "f9da2bcc26ace0cdf9cfda4d57fa95e8e9a68f95c308d383ffb8a676713145af",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6207,
+          "box": [
+            8,
+            14,
+            120,
+            113
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "06",
+      "key": "tired",
+      "path": "assets/characters/expressions/starfish/06-tired.png",
+      "sha256": "2305c4f67209d028189e5f0bb4c6b44141a18d00947606ec971f05c73d86ee12",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6338,
+          "box": [
+            8,
+            14,
+            120,
+            113
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "06",
+      "key": "sulky",
+      "path": "assets/characters/expressions/starfish/06-sulky.png",
+      "sha256": "b4416ba3ac460992a7945e9e0e799b9e5e477802b52a1800fda8c790bb6491c6",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6241,
+          "box": [
+            8,
+            14,
+            120,
+            113
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "06",
+      "key": "weak",
+      "path": "assets/characters/expressions/starfish/06-weak.png",
+      "sha256": "4ee5e147834724920d1233a92c2c0415268d50b4e42c564d7e68b6b130f8d832",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6309,
+          "box": [
+            8,
+            14,
+            120,
+            113
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "06",
+      "key": "critical",
+      "path": "assets/characters/expressions/starfish/06-critical.png",
+      "sha256": "cb03fca6463f811192cae00b02a56554d4ca5648c05cbb0b912735cff96a28b0",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6150,
+          "box": [
+            8,
+            14,
+            120,
+            113
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "06",
+      "key": "wantsPlay",
+      "path": "assets/characters/expressions/starfish/06-wantsPlay.png",
+      "sha256": "1744fa3780595462010ac35af4149b27a67c790c6cb24e733e6bc7d164bd32f2",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6314,
+          "box": [
+            8,
+            14,
+            120,
+            113
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "06",
+      "key": "sleeping",
+      "path": "assets/characters/expressions/starfish/06-sleeping.png",
+      "sha256": "244064545a14f063ad5750626c3099f4f6e5fd98132c9e0736bd2d5aa0ce9ef2",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6185,
+          "box": [
+            8,
+            14,
+            120,
+            113
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "07",
+      "key": "normal",
+      "path": "assets/characters/starfish/07.png",
+      "sha256": "c806f9b9fb0d489db9c253f5caed5a1773c953cd6db756084feef49db6c9f6fa",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5090,
+          "box": [
+            8,
+            15,
+            120,
+            112
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "07",
+      "key": "happy",
+      "path": "assets/characters/expressions/starfish/07-happy.png",
+      "sha256": "46349ca0e05212e0ca338a12a40abe5719aac99da4727b0a35c38e2346f001bf",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5180,
+          "box": [
+            8,
+            15,
+            120,
+            112
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "07",
+      "key": "strained",
+      "path": "assets/characters/expressions/starfish/07-strained.png",
+      "sha256": "673edb019c368d64013304e469fd7ee157a8a4efbe6a7b0680b5c1cde531ea2f",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5166,
+          "box": [
+            8,
+            15,
+            120,
+            112
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "07",
+      "key": "hungry",
+      "path": "assets/characters/expressions/starfish/07-hungry.png",
+      "sha256": "89d3ece7ff60c5d8df49e5814504578e26ce29c169af0c8bfc3167b49a8dc375",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5131,
+          "box": [
+            8,
+            15,
+            120,
+            112
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "07",
+      "key": "sick",
+      "path": "assets/characters/expressions/starfish/07-sick.png",
+      "sha256": "bcda48f5a4696bf99d7c2734755226ae8032f30d89b03a9b41726fc3441df7ff",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 4981,
+          "box": [
+            8,
+            15,
+            120,
+            112
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "07",
+      "key": "tired",
+      "path": "assets/characters/expressions/starfish/07-tired.png",
+      "sha256": "4b13d13a8ea70deb00d0d4e868b9b90647e7108100ce82aa7252751f0622d827",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5228,
+          "box": [
+            8,
+            15,
+            120,
+            112
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "07",
+      "key": "sulky",
+      "path": "assets/characters/expressions/starfish/07-sulky.png",
+      "sha256": "2519379c1ecc97cda75355618e614081471e54190f7f137e8054455c099c1a6f",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5165,
+          "box": [
+            8,
+            15,
+            120,
+            112
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "07",
+      "key": "weak",
+      "path": "assets/characters/expressions/starfish/07-weak.png",
+      "sha256": "48158e006a39d89679a6935e8199b0404f538e2457380f7f4e4529fdf5dfc5ed",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5124,
+          "box": [
+            8,
+            15,
+            120,
+            112
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "07",
+      "key": "critical",
+      "path": "assets/characters/expressions/starfish/07-critical.png",
+      "sha256": "0d3d2249244bff65a811f3fc474a218c7bee755410326fd180a3bef5cdb6f235",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5177,
+          "box": [
+            8,
+            15,
+            120,
+            112
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "07",
+      "key": "wantsPlay",
+      "path": "assets/characters/expressions/starfish/07-wantsPlay.png",
+      "sha256": "0465c2c44903f91b67f23558e0e29ef73b7affdb4c1da5a1e98ef69a019bb004",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5139,
+          "box": [
+            8,
+            15,
+            120,
+            112
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "07",
+      "key": "sleeping",
+      "path": "assets/characters/expressions/starfish/07-sleeping.png",
+      "sha256": "17ff52c39aab3cb1ddb7533bcab5392d033dfe6bfc7787d7f957b46bd246649d",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5099,
+          "box": [
+            8,
+            15,
+            120,
+            112
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 0,
+      "visual_identity_ids": [],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count"
+    },
+    {
+      "stage": "08",
+      "key": "normal",
+      "path": "assets/characters/starfish/08.png",
+      "sha256": "36a836ac587a111176e781fc05b8cf05e2efc4271cbe1905dd5bb6360ee2b3b4",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5450,
+          "box": [
+            8,
+            14,
+            120,
+            113
+          ]
+        },
+        {
+          "area": 322,
+          "box": [
+            8,
+            69,
+            28,
+            89
+          ]
+        },
+        {
+          "area": 236,
+          "box": [
+            100,
+            29,
+            117,
+            46
+          ]
+        },
+        {
+          "area": 167,
+          "box": [
+            105,
+            75,
+            119,
+            90
+          ]
+        },
+        {
+          "area": 151,
+          "box": [
+            25,
+            27,
+            40,
+            40
+          ]
+        },
+        {
+          "area": 45,
+          "box": [
+            102,
+            90,
+            111,
+            97
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 5,
+      "visual_identity_ids": [
+        "B1 左上",
+        "B2 右上",
+        "B3 左下",
+        "B4 右下大泡",
+        "B5 右下極小泡"
+      ],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count",
+      "blue_core_pixels_in_anchor_rois": {
+        "B1 左上": 65,
+        "B2 右上": 104,
+        "B3 左下": 169,
+        "B4 右下大泡": 68,
+        "B5 右下極小泡": 18
+      }
+    },
+    {
+      "stage": "08",
+      "key": "happy",
+      "path": "assets/characters/expressions/starfish/08-happy.png",
+      "sha256": "d5fb3908d5a4ab09f30c56784ae3299499b74fcb7e8b989171f023e743431c19",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5318,
+          "box": [
+            10,
+            14,
+            120,
+            113
+          ]
+        },
+        {
+          "area": 365,
+          "box": [
+            8,
+            69,
+            31,
+            90
+          ]
+        },
+        {
+          "area": 267,
+          "box": [
+            100,
+            31,
+            119,
+            48
+          ]
+        },
+        {
+          "area": 211,
+          "box": [
+            25,
+            27,
+            42,
+            43
+          ]
+        },
+        {
+          "area": 178,
+          "box": [
+            105,
+            75,
+            120,
+            90
+          ]
+        },
+        {
+          "area": 45,
+          "box": [
+            102,
+            90,
+            111,
+            97
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 5,
+      "visual_identity_ids": [
+        "B1 左上",
+        "B2 右上",
+        "B3 左下",
+        "B4 右下大泡",
+        "B5 右下極小泡"
+      ],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count",
+      "blue_core_pixels_in_anchor_rois": {
+        "B1 左上": 100,
+        "B2 右上": 155,
+        "B3 左下": 227,
+        "B4 右下大泡": 96,
+        "B5 右下極小泡": 18
+      },
+      "tiny_bubble_reference_pixel_matches": 45
+    },
+    {
+      "stage": "08",
+      "key": "strained",
+      "path": "assets/characters/expressions/starfish/08-strained.png",
+      "sha256": "b16cae6b7aa7bfbe1048c2c023f9cc82e622b47e8af7e9a8d3feb2fa27d558f0",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5715,
+          "box": [
+            8,
+            14,
+            120,
+            113
+          ]
+        },
+        {
+          "area": 361,
+          "box": [
+            8,
+            69,
+            30,
+            90
+          ]
+        },
+        {
+          "area": 258,
+          "box": [
+            102,
+            75,
+            120,
+            97
+          ]
+        },
+        {
+          "area": 203,
+          "box": [
+            25,
+            27,
+            41,
+            43
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 5,
+      "visual_identity_ids": [
+        "B1 左上",
+        "B2 右上",
+        "B3 左下",
+        "B4 右下大泡",
+        "B5 右下極小泡"
+      ],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count",
+      "blue_core_pixels_in_anchor_rois": {
+        "B1 左上": 102,
+        "B2 右上": 150,
+        "B3 左下": 204,
+        "B4 右下大泡": 103,
+        "B5 右下極小泡": 18
+      },
+      "tiny_bubble_reference_pixel_matches": 44
+    },
+    {
+      "stage": "08",
+      "key": "hungry",
+      "path": "assets/characters/expressions/starfish/08-hungry.png",
+      "sha256": "a9621df6e19c4e3039c5be4e1aba58ef9372c402c8f29554c2b45de6b041ffe7",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5922,
+          "box": [
+            10,
+            14,
+            120,
+            113
+          ]
+        },
+        {
+          "area": 356,
+          "box": [
+            8,
+            70,
+            30,
+            91
+          ]
+        },
+        {
+          "area": 202,
+          "box": [
+            25,
+            27,
+            41,
+            44
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 5,
+      "visual_identity_ids": [
+        "B1 左上",
+        "B2 右上",
+        "B3 左下",
+        "B4 右下大泡",
+        "B5 右下極小泡"
+      ],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count",
+      "blue_core_pixels_in_anchor_rois": {
+        "B1 左上": 102,
+        "B2 右上": 177,
+        "B3 左下": 205,
+        "B4 右下大泡": 101,
+        "B5 右下極小泡": 18
+      },
+      "tiny_bubble_reference_pixel_matches": 44
+    },
+    {
+      "stage": "08",
+      "key": "sick",
+      "path": "assets/characters/expressions/starfish/08-sick.png",
+      "sha256": "4852f6b4cee0b8a5e7ff5ae5061c0c25c9f9b279e042cf7478a5b646c9a6e4a4",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 6092,
+          "box": [
+            9,
+            14,
+            120,
+            113
+          ]
+        },
+        {
+          "area": 380,
+          "box": [
+            8,
+            67,
+            30,
+            89
+          ]
+        },
+        {
+          "area": 226,
+          "box": [
+            25,
+            27,
+            43,
+            43
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 5,
+      "visual_identity_ids": [
+        "B1 左上",
+        "B2 右上",
+        "B3 左下",
+        "B4 右下大泡",
+        "B5 右下極小泡"
+      ],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count",
+      "blue_core_pixels_in_anchor_rois": {
+        "B1 左上": 124,
+        "B2 右上": 174,
+        "B3 左下": 214,
+        "B4 右下大泡": 117,
+        "B5 右下極小泡": 18
+      },
+      "tiny_bubble_reference_pixel_matches": 45
+    },
+    {
+      "stage": "08",
+      "key": "tired",
+      "path": "assets/characters/expressions/starfish/08-tired.png",
+      "sha256": "407c3ba7846fcf0a58058c5054b2fc94606a5ad868583eaafa3f181a5a57e0d8",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5761,
+          "box": [
+            10,
+            14,
+            120,
+            113
+          ]
+        },
+        {
+          "area": 358,
+          "box": [
+            8,
+            69,
+            31,
+            90
+          ]
+        },
+        {
+          "area": 211,
+          "box": [
+            25,
+            27,
+            42,
+            43
+          ]
+        },
+        {
+          "area": 174,
+          "box": [
+            105,
+            76,
+            120,
+            91
+          ]
+        },
+        {
+          "area": 45,
+          "box": [
+            102,
+            90,
+            111,
+            97
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 5,
+      "visual_identity_ids": [
+        "B1 左上",
+        "B2 右上",
+        "B3 左下",
+        "B4 右下大泡",
+        "B5 右下極小泡"
+      ],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count",
+      "blue_core_pixels_in_anchor_rois": {
+        "B1 左上": 122,
+        "B2 右上": 168,
+        "B3 左下": 213,
+        "B4 右下大泡": 103,
+        "B5 右下極小泡": 18
+      },
+      "tiny_bubble_reference_pixel_matches": 45
+    },
+    {
+      "stage": "08",
+      "key": "sulky",
+      "path": "assets/characters/expressions/starfish/08-sulky.png",
+      "sha256": "e2e041c014eba37e26bafc78a63ef48043831f8e251829acb412a7a1f6a35ff9",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5215,
+          "box": [
+            10,
+            14,
+            120,
+            113
+          ]
+        },
+        {
+          "area": 368,
+          "box": [
+            8,
+            69,
+            31,
+            90
+          ]
+        },
+        {
+          "area": 276,
+          "box": [
+            100,
+            29,
+            119,
+            47
+          ]
+        },
+        {
+          "area": 205,
+          "box": [
+            25,
+            27,
+            42,
+            43
+          ]
+        },
+        {
+          "area": 185,
+          "box": [
+            105,
+            76,
+            120,
+            91
+          ]
+        },
+        {
+          "area": 45,
+          "box": [
+            102,
+            90,
+            111,
+            97
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 5,
+      "visual_identity_ids": [
+        "B1 左上",
+        "B2 右上",
+        "B3 左下",
+        "B4 右下大泡",
+        "B5 右下極小泡"
+      ],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count",
+      "blue_core_pixels_in_anchor_rois": {
+        "B1 左上": 106,
+        "B2 右上": 163,
+        "B3 左下": 219,
+        "B4 右下大泡": 102,
+        "B5 右下極小泡": 18
+      },
+      "tiny_bubble_reference_pixel_matches": 45
+    },
+    {
+      "stage": "08",
+      "key": "weak",
+      "path": "assets/characters/expressions/starfish/08-weak.png",
+      "sha256": "67bdda126378e439bc97bfe6e37682527573880d11d87372290c1158fd291d52",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5608,
+          "box": [
+            9,
+            14,
+            120,
+            113
+          ]
+        },
+        {
+          "area": 378,
+          "box": [
+            8,
+            68,
+            30,
+            90
+          ]
+        },
+        {
+          "area": 202,
+          "box": [
+            26,
+            27,
+            42,
+            43
+          ]
+        },
+        {
+          "area": 183,
+          "box": [
+            104,
+            75,
+            119,
+            90
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 5,
+      "visual_identity_ids": [
+        "B1 左上",
+        "B2 右上",
+        "B3 左下",
+        "B4 右下大泡",
+        "B5 右下極小泡"
+      ],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count",
+      "blue_core_pixels_in_anchor_rois": {
+        "B1 左上": 102,
+        "B2 右上": 138,
+        "B3 左下": 197,
+        "B4 右下大泡": 88,
+        "B5 右下極小泡": 18
+      },
+      "tiny_bubble_reference_pixel_matches": 45
+    },
+    {
+      "stage": "08",
+      "key": "critical",
+      "path": "assets/characters/expressions/starfish/08-critical.png",
+      "sha256": "67fe4ed67069735926dafc0f7f1a9fdb3dfb59deab38a5c36d9fca62829d0529",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5598,
+          "box": [
+            9,
+            14,
+            120,
+            113
+          ]
+        },
+        {
+          "area": 399,
+          "box": [
+            8,
+            69,
+            31,
+            91
+          ]
+        },
+        {
+          "area": 247,
+          "box": [
+            102,
+            75,
+            119,
+            97
+          ]
+        },
+        {
+          "area": 231,
+          "box": [
+            25,
+            27,
+            44,
+            44
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 5,
+      "visual_identity_ids": [
+        "B1 左上",
+        "B2 右上",
+        "B3 左下",
+        "B4 右下大泡",
+        "B5 右下極小泡"
+      ],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count",
+      "blue_core_pixels_in_anchor_rois": {
+        "B1 左上": 115,
+        "B2 右上": 176,
+        "B3 左下": 239,
+        "B4 右下大泡": 115,
+        "B5 右下極小泡": 18
+      },
+      "tiny_bubble_reference_pixel_matches": 44
+    },
+    {
+      "stage": "08",
+      "key": "wantsPlay",
+      "path": "assets/characters/expressions/starfish/08-wantsPlay.png",
+      "sha256": "baeea72ba6b5cc5f4fd14631df82231103a314b539b3b969e52f142cd5bd9a56",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5711,
+          "box": [
+            9,
+            14,
+            120,
+            113
+          ]
+        },
+        {
+          "area": 384,
+          "box": [
+            8,
+            68,
+            31,
+            90
+          ]
+        },
+        {
+          "area": 210,
+          "box": [
+            25,
+            27,
+            42,
+            43
+          ]
+        },
+        {
+          "area": 186,
+          "box": [
+            104,
+            75,
+            120,
+            90
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 5,
+      "visual_identity_ids": [
+        "B1 左上",
+        "B2 右上",
+        "B3 左下",
+        "B4 右下大泡",
+        "B5 右下極小泡"
+      ],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count",
+      "blue_core_pixels_in_anchor_rois": {
+        "B1 左上": 104,
+        "B2 右上": 150,
+        "B3 左下": 220,
+        "B4 右下大泡": 87,
+        "B5 右下極小泡": 18
+      },
+      "tiny_bubble_reference_pixel_matches": 45
+    },
+    {
+      "stage": "08",
+      "key": "sleeping",
+      "path": "assets/characters/expressions/starfish/08-sleeping.png",
+      "sha256": "51160b6f31dd8da5d3081764f38d937a99c8e884583f481a404f437cbb4ab0c6",
+      "dimensions": [
+        128,
+        128
+      ],
+      "alpha_threshold": 16,
+      "components_4_connected": [
+        {
+          "area": 5729,
+          "box": [
+            10,
+            14,
+            120,
+            113
+          ]
+        },
+        {
+          "area": 384,
+          "box": [
+            8,
+            68,
+            30,
+            90
+          ]
+        },
+        {
+          "area": 266,
+          "box": [
+            102,
+            74,
+            120,
+            97
+          ]
+        },
+        {
+          "area": 226,
+          "box": [
+            25,
+            26,
+            42,
+            43
+          ]
+        }
+      ],
+      "visual_external_bubble_count": 5,
+      "visual_identity_ids": [
+        "B1 左上",
+        "B2 右上",
+        "B3 左下",
+        "B4 右下大泡",
+        "B5 右下極小泡"
+      ],
+      "missing": [],
+      "added": [],
+      "review": "individual image compared with same-stage normal; count assigned by visual review, not component count",
+      "blue_core_pixels_in_anchor_rois": {
+        "B1 左上": 119,
+        "B2 右上": 168,
+        "B3 左下": 237,
+        "B4 右下大泡": 114,
+        "B5 右下極小泡": 18
+      },
+      "tiny_bubble_reference_pixel_matches": 45
+    }
+  ],
+  "character_asset_files_verified_unchanged": 2781,
+  "character_asset_manifest_sha256": "b8a2dab355bbf3613a41eb026247157dfdb920b02f41248fa6d25e03f5913baa",
+  "image_asset_changes": 0,
+  "new_repair_candidates": 0,
+  "notes": [
+    "01 normal: isolated 1x8 native-pixel fringe at x766 y261; not a bubble",
+    "03 normal: isolated 1x9 native-pixel fringe at x797 y617; not a bubble",
+    "08 four large bubbles vary in size/shape by expression; identity and relative region preserved, not byte-identical",
+    "08 tiny bubble 45/45 reference pixels in seven; 44/45 in strained/hungry/critical due protected pre-existing contour; human-approved"
+  ]
+}

@@ -1,0 +1,5 @@
+frame.waitForFunction: Timeout 30000ms exceeded.
+    at /workspace/scratch/1f1446e31ed3/integration-repo/docs/qa/pr278-integration-20260930/home-smoke.cjs:13:178 {
+  log: [],
+  name: 'TimeoutError'
+}

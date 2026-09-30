@@ -1,0 +1,1056 @@
+{
+  "head": "81e9fafd896f8cb3a8d01d589beb15a9d49e5a09",
+  "scope": "31 playable lines; read-only targeted hunger audit; all 8 stages map identically within each current line",
+  "limitations": [
+    "No source establishing fish as canonical diet found in scoped master, stage lore, expression spec/plans and selected QA; absence is bounded by search, not proof across unseen chats/history.",
+    "Specific icon choices recorded in a spec/QA are not equivalent to a user-authorized diet setting.",
+    "Proposals below are display categories, not claims of zoological taxonomy or established fictional diet.",
+    "This agent did not retrieve older git objects or remote conversation history."
+  ],
+  "rows": [
+    {
+      "id": "cat",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "個別の魚アイコン指定",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "猫の全8人生段階。魚が主食という成長文はない。",
+      "stages": [
+        "あかちゃんねこ",
+        "よちよちこねこ",
+        "こねこ",
+        "おてんばねこ",
+        "若いねこ",
+        "大人のねこ",
+        "落ちついたねこ",
+        "おとしよりのねこ"
+      ],
+      "recommendation": "魚を残す",
+      "shared_category": "魚",
+      "reuse": "既存SVG",
+      "dedicated_worth": "不要",
+      "reason": "承認済み猫の記号として最も根拠が強い。実装上はfallbackでも、意図まで未定ではない。",
+      "options": [],
+      "decision_needed": false,
+      "evidence": [
+        "character-world-master.v1.js:25",
+        "docs/qa/emotion-visual-approved-baseline-20260915.md:15",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "ねこ"
+    },
+    {
+      "id": "dog",
+      "current_mark": "フード皿",
+      "current_route": "explicit override",
+      "decision_evidence": "個別指定・保全対象",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "子犬から老犬の8段階。",
+      "stages": [
+        "あかちゃんいぬ",
+        "よちよちこいぬ",
+        "こいぬ",
+        "わんぱくいぬ",
+        "若いいぬ",
+        "大人のいぬ",
+        "落ちついたいぬ",
+        "おとしよりのいぬ"
+      ],
+      "recommendation": "フード皿を残す",
+      "shared_category": "皿",
+      "reuse": "既存SVG",
+      "dedicated_worth": "不要",
+      "reason": "ユーザーが残す指定済み。中身を新たに肉等へ限定しない。",
+      "options": [],
+      "decision_needed": false,
+      "evidence": [
+        "character-world-master.v1.js:24",
+        "docs/superpowers/specs/2026-09-15-cat-expression-pilot-design.md:23",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "いぬ"
+    },
+    {
+      "id": "man",
+      "current_mark": "ごはん茶碗",
+      "current_route": "explicit override",
+      "decision_evidence": "個別指定・保全対象",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "人間の男の一生。",
+      "stages": [
+        "あかちゃん（男）",
+        "よちよち（男）",
+        "子ども（男）",
+        "少年",
+        "若者（男）",
+        "大人（男）",
+        "落ちついた大人（男）",
+        "おじいさん"
+      ],
+      "recommendation": "ごはん茶碗を残す",
+      "shared_category": "米飯",
+      "reuse": "既存SVG",
+      "dedicated_worth": "不要",
+      "reason": "既存共用人間アイコンが意図と合う。",
+      "options": [],
+      "decision_needed": false,
+      "evidence": [
+        "character-world-master.v1.js:22",
+        "docs/superpowers/specs/2026-09-15-cat-expression-pilot-design.md:51",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "おとこのひと"
+    },
+    {
+      "id": "woman",
+      "current_mark": "ごはん茶碗",
+      "current_route": "explicit override",
+      "decision_evidence": "個別指定・保全対象",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "人間の女の一生。",
+      "stages": [
+        "あかちゃん（女）",
+        "よちよち（女）",
+        "子ども（女）",
+        "少女",
+        "若者（女）",
+        "大人（女）",
+        "落ちついた大人（女）",
+        "おばあさん"
+      ],
+      "recommendation": "ごはん茶碗を残す",
+      "shared_category": "米飯",
+      "reuse": "既存SVG",
+      "dedicated_worth": "不要",
+      "reason": "既存共用人間アイコンが意図と合う。抱え猫はこの食物の主語ではない。",
+      "options": [],
+      "decision_needed": false,
+      "evidence": [
+        "character-world-master.v1.js:23",
+        "docs/superpowers/specs/2026-09-15-cat-expression-pilot-design.md:51",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "おんなのひと"
+    },
+    {
+      "id": "penguin",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "個別の魚アイコン指定（制作QA記録）",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "ひな→換羽→老ペンギン。よく食べるとは書くが食材は未指定。",
+      "stages": [
+        "小さなひな",
+        "ふわふわのひな",
+        "大きなひな",
+        "羽の衣替え中",
+        "若いペンギン",
+        "大人のペンギン",
+        "ベテランペンギン",
+        "おとしよりペンギン"
+      ],
+      "recommendation": "魚を残す",
+      "shared_category": "魚",
+      "reuse": "既存SVG",
+      "dedicated_worth": "不要",
+      "reason": "魚という個別表示選択の記録がある。ただしユーザーによる食性設定ではない。",
+      "options": [],
+      "decision_needed": false,
+      "evidence": [
+        "character-world-master.v1.js:26",
+        "docs/qa/penguin-turtle-expressions-20260916.md:14",
+        "script.js:664-673",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "ペンギン"
+    },
+    {
+      "id": "turtle",
+      "current_mark": "フード皿",
+      "current_route": "explicit override",
+      "decision_evidence": "個別指定・保全対象",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "甲羅を背負うかめの8段階。",
+      "stages": [
+        "うまれたてのかめ",
+        "ちびがめ",
+        "子がめ",
+        "若いかめ",
+        "大人のかめ",
+        "大きなかめ",
+        "古いかめ",
+        "長生きのかめ"
+      ],
+      "recommendation": "フード皿を残す",
+      "shared_category": "皿",
+      "reuse": "既存SVG",
+      "dedicated_worth": "不要",
+      "reason": "種類や草食性等を勝手に限定せず既存皿を保つ。",
+      "options": [],
+      "decision_needed": false,
+      "evidence": [
+        "character-world-master.v1.js:27",
+        "docs/qa/penguin-turtle-expressions-20260916.md:14",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "かめ"
+    },
+    {
+      "id": "frog",
+      "current_mark": "虫",
+      "current_route": "explicit override",
+      "decision_evidence": "個別指定・保全対象",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "おたまじゃくし→しっぽ付き→陸上のかえる。",
+      "stages": [
+        "ちびおたま",
+        "おたまじゃくし",
+        "後ろ足が出たおたま",
+        "しっぽつきかえる",
+        "陸に上がったかえる",
+        "子がえる",
+        "大人のかえる",
+        "おとしよりのかえる"
+      ],
+      "recommendation": "虫を残す",
+      "shared_category": "虫",
+      "reuse": "既存SVG",
+      "dedicated_worth": "不要",
+      "reason": "8段階共通の象徴として維持。全段階が現実に同じ食事という主張はしない。",
+      "options": [],
+      "decision_needed": false,
+      "evidence": [
+        "character-world-master.v1.js:28",
+        "docs/qa/frog-clownfish-expressions-20260916.md:15",
+        "script.js:684-693",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "かえる"
+    },
+    {
+      "id": "clownfish",
+      "current_mark": "餌粒",
+      "current_route": "explicit override",
+      "decision_evidence": "個別指定・保全対象",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "群れ・卵を守るオス・メスへの変化の人生。",
+      "stages": [
+        "透けたあかちゃん",
+        "しまが出た子",
+        "かくれんぼの子",
+        "若いクマノミ",
+        "群れのクマノミ",
+        "卵を守るオス",
+        "メスへ変わる途中",
+        "群れのリーダーのメス"
+      ],
+      "recommendation": "餌粒を残す",
+      "shared_category": "小さな餌",
+      "reuse": "既存SVG",
+      "dedicated_worth": "不要",
+      "reason": "共有の水中の餌記号の基点にできるが他種への展開は表示上の提案。",
+      "options": [],
+      "decision_needed": false,
+      "evidence": [
+        "character-world-master.v1.js:30",
+        "docs/qa/frog-clownfish-expressions-20260916.md:15",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "カクレクマノミ"
+    },
+    {
+      "id": "salmon",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "個別の魚アイコン再使用指定",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "川→海→遡上、銀色から赤色へ。よく食べるが食材未指定。",
+      "stages": [
+        "うまれたてのさけ",
+        "小さなさけ",
+        "しま模様のさけ",
+        "銀色のさけ",
+        "海の若いさけ",
+        "大人のさけ",
+        "川をのぼるさけ",
+        "赤く色づくさけ"
+      ],
+      "recommendation": "魚を残す（餌粒への統一も選択肢）",
+      "shared_category": "魚",
+      "reuse": "既存SVG",
+      "dedicated_worth": "不要",
+      "reason": "正本に魚の再使用指定あり。魚食の物語設定として扱わない。",
+      "options": [
+        "他の水中系と餌粒へ共通化"
+      ],
+      "decision_needed": false,
+      "evidence": [
+        "character-world-master.v1.js:29",
+        "docs/superpowers/specs/2026-09-15-cat-expression-pilot-design.md:86",
+        "docs/superpowers/plans/2026-09-16-salmon-expressions.md:30",
+        "script.js:694-703",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "さけ"
+    },
+    {
+      "id": "hermit_crab",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "default継承を明記（食性根拠なし）",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "貝殻の家を選び、引越しながら成長。水棲/陸棲や餌は未指定。",
+      "stages": [
+        "ちびヤドカリ",
+        "小さな貝の家",
+        "引っ越し中",
+        "若いヤドカリ",
+        "ゆったり貝の家",
+        "大きな貝の家",
+        "ごうかな貝の家",
+        "ベテランヤドカリ"
+      ],
+      "recommendation": "共通フード皿へ",
+      "shared_category": "皿",
+      "reuse": "既存SVG",
+      "dedicated_worth": "不要",
+      "reason": "魚を選び直した根拠ではなくdefault継承。汎用の食事皿なら特定の食性を新設しない。",
+      "options": [
+        "水中餌粒へ共通化"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:36",
+        "docs/superpowers/plans/2026-09-16-hermit-crab-expressions.md:12",
+        "script.js:744-753",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "ヤドカリ"
+    },
+    {
+      "id": "jellyfish",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "岩のポリプ風→重なり→星形→かさ。食材未指定。",
+      "stages": [
+        "岩ぐらしの子",
+        "重なった子",
+        "星形の子",
+        "小さなかさ",
+        "若いクラゲ",
+        "大人のクラゲ",
+        "大きなクラゲ",
+        "年を重ねたクラゲ"
+      ],
+      "recommendation": "水中の小さな餌粒（表示の抽象化）",
+      "shared_category": "小さな餌",
+      "reuse": "既存SVG",
+      "dedicated_worth": "不要",
+      "reason": "既存餌粒を海の小さな餌の記号として再使用できる。全段階の実際の餌を断定しない。",
+      "options": [
+        "餌の微粒子専用形状は、水中3系統で共用価値を確認してから"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:37",
+        "script.js:754-763",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "クラゲ"
+    },
+    {
+      "id": "starfish",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "丸い幼体→星形→海底の大きな星。貝を食べる設定はない。",
+      "stages": [
+        "丸いあかちゃん",
+        "透けた小さな星",
+        "色づく小さな星",
+        "ふっくらした星",
+        "金色の子ヒトデ",
+        "ぶつぶつ子ヒトデ",
+        "大人のヒトデ",
+        "大きなヒトデ"
+      ],
+      "recommendation": "水中の小さな餌粒を第一案",
+      "shared_category": "小さな餌",
+      "reuse": "既存SVG",
+      "dedicated_worth": "低い",
+      "reason": "魚の必然性がなく、共通水中餌で制作を抑えられる。",
+      "options": [
+        "貝の餌記号：種別食性を決めた場合のみ。専用化は現時点では低優先"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:38",
+        "script.js:764-773",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "ヒトデ"
+    },
+    {
+      "id": "coral",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "その場で増え広がる群体。枝間を魚が通る。",
+      "stages": [
+        "住みついた子",
+        "ひとつのサンゴ",
+        "枝分かれサンゴ",
+        "小さなサンゴの森",
+        "若いサンゴの森",
+        "色とりどりのサンゴ",
+        "大きなサンゴの森",
+        "広がるサンゴの海"
+      ],
+      "recommendation": "水中の小さな餌粒（表示の抽象化）",
+      "shared_category": "小さな餌",
+      "reuse": "既存SVG",
+      "dedicated_worth": "不要",
+      "reason": "魚が通る物語を魚を食べる設定に読み替えない。既存粒を共用可能。",
+      "options": [
+        "養分の抽象記号：水中系でまとめて設計する場合"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:39",
+        "script.js:774-783",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "サンゴ"
+    },
+    {
+      "id": "butterfly",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "幼虫は葉に食べ跡を残す。さなぎを経て成虫は花を巡る。",
+      "stages": [
+        "うまれたてのいもむし",
+        "育ちざかりのいもむし",
+        "大きないもむし",
+        "さなぎの準備中",
+        "さなぎ",
+        "羽を広げたちょう",
+        "花めぐりのちょう",
+        "年を重ねたちょう"
+      ],
+      "recommendation": "幼虫は葉、成虫は花蜜/樹液共用のしずくを候補",
+      "shared_category": "植物由来の餌",
+      "reuse": "候補ごとに既存SVG再使用または共用新作。未決定",
+      "dedicated_worth": "中（系統専用でなく葉＋汁の共用）",
+      "reason": "葉食は明示。成虫の花巡りは明示だが花蜜を飲むとは未記載。全8段階を1食物へ無理に固定しない。",
+      "options": [
+        "系統共通で葉のまま：生活史の代表記号と明記",
+        "さなぎ04/05は中立の栄養記号または系統共通記号。食べる生態だと説明しない"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:31",
+        "script.js:714-723",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "ちょう"
+    },
+    {
+      "id": "beetle",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "幼虫→さなぎ→成虫。06は夜の樹液に一番乗り。",
+      "stages": [
+        "うまれたての幼虫",
+        "育ちざかりの幼虫",
+        "まるまる幼虫",
+        "さなぎ",
+        "出たてのカブトムシ",
+        "若いカブトムシ",
+        "りっぱなカブトムシ",
+        "長生きカブトムシ"
+      ],
+      "recommendation": "樹液のしずく（植物由来の餌）",
+      "shared_category": "植物由来の餌",
+      "reuse": "候補ごとに既存SVG再使用または共用新作。未決定",
+      "dedicated_worth": "不要（汁記号を共用）",
+      "reason": "魚より樹液の物語根拠が明瞭。ただし幼虫/さなぎまで樹液食とする根拠はない。",
+      "options": [
+        "段階別にするなら幼虫/さなぎは中立栄養記号"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:32",
+        "script.js:504-513",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "カブトムシ"
+    },
+    {
+      "id": "stagbeetle",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "土の幼虫→さなぎ→成虫。あごの個性と夜の姿。",
+      "stages": [
+        "うまれたての幼虫",
+        "育ちざかりの幼虫",
+        "大きな幼虫",
+        "さなぎ",
+        "出たてのクワガタ",
+        "若いクワガタ",
+        "りっぱなクワガタ",
+        "長生きクワガタ"
+      ],
+      "recommendation": "樹液系のしずくを共用候補",
+      "shared_category": "植物由来の餌",
+      "reuse": "候補ごとに既存SVG再使用または共用新作。未決定",
+      "dedicated_worth": "不要",
+      "reason": "カブトとの共用案で、現行文に樹液食の明示はない。承認後の表示解釈として扱う。",
+      "options": [
+        "汎用フード皿なら食材の新設不要",
+        "幼虫/さなぎの段階差を設けるか確認"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:33",
+        "script.js:514-523",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "クワガタムシ"
+    },
+    {
+      "id": "cicada",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "幼虫は根のそばで暮らし、成虫は枝で鳴く。",
+      "stages": [
+        "小さな幼虫",
+        "土ぐらしの幼虫",
+        "旅立ち前の幼虫",
+        "地上に出たセミ",
+        "ぬけがらをぬぐセミ",
+        "若いセミ",
+        "よく鳴くセミ",
+        "年を重ねたセミ"
+      ],
+      "recommendation": "植物の汁を表すしずくを共用候補",
+      "shared_category": "植物由来の餌",
+      "reuse": "候補ごとに既存SVG再使用または共用新作。未決定",
+      "dedicated_worth": "不要",
+      "reason": "根や枝は明示、吸汁の明示ではない。植物由来の餌という表示意図を決める必要あり。",
+      "options": [
+        "汎用栄養記号"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:34",
+        "script.js:724-733",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "セミ"
+    },
+    {
+      "id": "antlion",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "砂のすり鉢の穴→まゆ/さなぎ→羽のあるウスバカゲロウ。",
+      "stages": [
+        "ちびアリジゴク",
+        "巣作りアリジゴク",
+        "大きなアリジゴク",
+        "砂のまゆ",
+        "まゆの中のさなぎ",
+        "出たてのウスバカゲロウ",
+        "飛び回るウスバカゲロウ",
+        "羽休めのウスバカゲロウ"
+      ],
+      "recommendation": "虫を共用する案（まず幼虫）",
+      "shared_category": "虫",
+      "reuse": "既存SVG",
+      "dedicated_worth": "不要",
+      "reason": "幼虫・成虫で姿が大きく違う。全段階で虫食と新設定しない。",
+      "options": [
+        "全段階を系統の代表として虫",
+        "幼虫は虫、まゆ/成虫は中立の餌・汁記号。成虫食性は未決定"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:35",
+        "script.js:734-743",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "アリジゴク"
+    },
+    {
+      "id": "dandelion",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "葉が光を浴び、花→綿毛→旅立つ種。",
+      "stages": [
+        "芽ぶきのたね",
+        "ふたば",
+        "地面に広がる葉",
+        "葉がしげるタンポポ",
+        "つぼみ",
+        "花咲くタンポポ",
+        "わたげ",
+        "旅立つたね"
+      ],
+      "recommendation": "植物の養分：日光＋水の組合せを候補",
+      "shared_category": "植物の養分",
+      "reuse": "候補ごとに既存SVG再使用または共用新作。未決定",
+      "dedicated_worth": "中（植物共用なら価値あり）",
+      "reason": "食べる葉ではなく植物を養う記号へ。水単独は喉の渇き、太陽単独は天候と混同しやすい。",
+      "options": [
+        "土/養分の小袋",
+        "ゲーム共通の養分皿。種段階を含め代表記号として扱う"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:40",
+        "script.js:784-793",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "タンポポ"
+    },
+    {
+      "id": "sakura",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "芽→枝→つぼみ→花→実→古木。",
+      "stages": [
+        "芽ぶきのたね",
+        "ふたばのサクラ",
+        "小さなサクラ",
+        "育ったサクラ",
+        "サクラのつぼみ",
+        "サクラの花",
+        "サクラの実",
+        "年を重ねたサクラ"
+      ],
+      "recommendation": "植物の養分：タンポポと共用",
+      "shared_category": "植物の養分",
+      "reuse": "候補ごとに既存SVG再使用または共用新作。未決定",
+      "dedicated_worth": "不要（共用）",
+      "reason": "自分の葉や実を食べるという意図はない。木を養う表示へ。",
+      "options": [
+        "日光＋水",
+        "土/養分の記号"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:41",
+        "script.js:794-803",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "サクラ"
+    },
+    {
+      "id": "venus_flytrap",
+      "current_mark": "虫",
+      "current_route": "explicit override",
+      "decision_evidence": "個別指定・保全対象",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "捕虫葉を持ち、08は高い花と食事の場所が別。",
+      "stages": [
+        "目覚めるたね",
+        "小さな口の芽",
+        "若葉のハエトリグサ",
+        "口を広げた葉",
+        "育ちざかりの葉",
+        "大きな口の葉",
+        "口がいっぱい",
+        "花咲くハエトリグサ"
+      ],
+      "recommendation": "虫を残す",
+      "shared_category": "虫",
+      "reuse": "既存SVG",
+      "dedicated_worth": "不要",
+      "reason": "frogの虫SVGを意図的に共有。今回保全対象。",
+      "options": [],
+      "decision_needed": false,
+      "evidence": [
+        "character-world-master.v1.js:42",
+        "docs/qa/venus-flytrap-expressions-20260922.md:35",
+        "script.js:804-813",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "ハエトリグサ"
+    },
+    {
+      "id": "mushroom",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "粒→糸→子実体→胞子→老いたかさ。特定の栄養様式は未設定。",
+      "stages": [
+        "キノコの小さな粒",
+        "広がるキノコの糸",
+        "小さなキノコの芽",
+        "のびる子キノコ",
+        "育ちざかりのキノコ",
+        "かさを広げたキノコ",
+        "粉を飛ばすキノコ",
+        "年を重ねたキノコ"
+      ],
+      "recommendation": "未確定：中立の養分を第一案",
+      "shared_category": "菌類の養分（要選択）",
+      "reuse": "候補ごとに既存SVG再使用または共用新作。未決定",
+      "dedicated_worth": "条件付き（菌類という誤解防止に価値）",
+      "reason": "植物と同じ日光を機械適用しない。腐葉土・朽木も既定の食性とは言えない。",
+      "options": [
+        "養分の皿：食材未指定のゲーム記号として既存皿を再使用",
+        "土/朽木：この菌がそこから養分を得る設定にする場合のみ新共用記号"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:43",
+        "script.js:814-823",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "キノコ"
+    },
+    {
+      "id": "dragon",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "煙・翼・宝物集め・大きな体。肉食/魚食設定なし。",
+      "stages": [
+        "ちびりゅう",
+        "子りゅう",
+        "つのの生えたりゅう",
+        "小さなつばさのりゅう",
+        "つばさの育ったりゅう",
+        "火をふくりゅう",
+        "大きなりゅう",
+        "いにしえのりゅう"
+      ],
+      "recommendation": "汎用フード皿を第一案",
+      "shared_category": "皿",
+      "reuse": "既存SVG",
+      "dedicated_worth": "低い",
+      "reason": "ファンタジーだから肉と断定しない。皿なら既存を使い食材を決めずに済む。",
+      "options": [
+        "肉を明示したいなら肉記号（新しい設定選択）",
+        "魚好きに決めるなら既存魚継続"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:46",
+        "script.js:544-553",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "りゅう"
+    },
+    {
+      "id": "phoenix",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "火の鳥、燃え尽きて戻る。火を食べる設定なし。",
+      "stages": [
+        "火のひな",
+        "よちよち火の鳥",
+        "若い火の鳥",
+        "空を飛ぶ火の鳥",
+        "燃えさかる火の鳥",
+        "金色の火の鳥",
+        "年を重ねた火の鳥",
+        "灰からよみがえる鳥"
+      ],
+      "recommendation": "未確定：普通の鳥として小さな餌、または幻想の養分",
+      "shared_category": "小さな餌／幻想の養分（要選択）",
+      "reuse": "候補ごとに既存SVG再使用または共用新作。未決定",
+      "dedicated_worth": "低～条件付き",
+      "reason": "火の姿・再生と火食を分ける。普通の食事なら既存粒/皿を使える。",
+      "options": [
+        "普通の鳥として種/餌粒",
+        "炎や光の養分：作者が設定を選ぶ場合のみ"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:47",
+        "script.js:654-663",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "フェニックス"
+    },
+    {
+      "id": "god",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "光の粒→精霊→かみさま→光そのもの。祈りが届くが食べるとはない。",
+      "stages": [
+        "光の粒",
+        "光の子",
+        "小さな精霊",
+        "見習いかみさま",
+        "かみさま",
+        "大いなるかみさま",
+        "神々しい光",
+        "光そのもの"
+      ],
+      "recommendation": "未確定：象徴的なごはんを第一案",
+      "shared_category": "米飯／幻想の養分（要選択）",
+      "reuse": "候補ごとに既存SVG再使用または共用新作。未決定",
+      "dedicated_worth": "低～条件付き",
+      "reason": "祈りや信仰を食料と断定しない。人型だけを根拠に人間と同一食性にしない。",
+      "options": [
+        "供えたごはん：既存米飯を使う、供物の解釈は要決定",
+        "光の養分：新設定になるため要確認",
+        "ゲーム共通の食事皿：実際の消化を意味しない抽象化"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:48",
+        "script.js:614-623",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "かみさま"
+    },
+    {
+      "id": "world_tree",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "光る芽、声のする枝、雲を越え、世界を支える木。",
+      "stages": [
+        "光る芽",
+        "ふしぎな苗",
+        "小さな木",
+        "精霊の木",
+        "大樹",
+        "巨大な木",
+        "雲をこえる木",
+        "世界樹"
+      ],
+      "recommendation": "未確定：植物の養分を第一案",
+      "shared_category": "植物の養分／幻想の養分（要選択）",
+      "reuse": "候補ごとに既存SVG再使用または共用新作。未決定",
+      "dedicated_worth": "不要～条件付き",
+      "reason": "光る木であることは光を食べる設定ではない。普通の樹木性と幻想性どちらを使うか決める。",
+      "options": [
+        "日光＋水：普通の植物としての代表記号を共有",
+        "土/養分：植物用記号を共有",
+        "特別な光/魔力の養分：物語追加を選ぶ場合のみ"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:49",
+        "script.js:824-833",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "世界樹"
+    },
+    {
+      "id": "ghost",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "たましい→いたずら→壁を通る→最後に薄くなる。",
+      "stages": [
+        "小さなたましい",
+        "ちびおばけ",
+        "いたずらおばけ",
+        "おばけ",
+        "大きなおばけ",
+        "昔からいるおばけ",
+        "おだやかなおばけ",
+        "旅立ち前のおばけ"
+      ],
+      "recommendation": "未確定：象徴的なごはんを第一案",
+      "shared_category": "米飯／皿／幻想の養分（要選択）",
+      "reuse": "候補ごとに既存SVG再使用または共用新作。未決定",
+      "dedicated_worth": "低い",
+      "reason": "魂・人の生命を食べる設定はない。一般のおばけ伝承をこのキャラの正本にしない。",
+      "options": [
+        "お供えごはん：米飯再使用、供物という意図は要決定",
+        "おやつ/ごはんの気分：皿を再使用",
+        "光の養分：採用時にだけ設定を定義"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:50",
+        "script.js:834-843",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "おばけ"
+    },
+    {
+      "id": "star",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "雲→集まる→光る→膨らむ→はじける→なごり。",
+      "stages": [
+        "星のもとの雲",
+        "集まる星の雲",
+        "うまれかけの星",
+        "若い星",
+        "輝く星",
+        "ふくらんだ星",
+        "はじける星",
+        "星のなごり"
+      ],
+      "recommendation": "未確定：物質/エネルギーの抽象的補給を候補",
+      "shared_category": "幻想の養分（要選択）",
+      "reuse": "候補ごとに既存SVG再使用または共用新作。未決定",
+      "dedicated_worth": "条件付き（他特殊系と共用優先）",
+      "reason": "光っているから光を食べるとしない。科学的恒星の燃料や実際の摂食を勝手に追加しない。",
+      "options": [
+        "抽象的な養分粒/核：既存餌粒の意味変更を選択",
+        "ごはんを想像する擬人化：既存皿",
+        "光/星屑専用記号：物語追加とhappyの輝き混同を検討"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:51",
+        "script.js:844-853",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "ほし"
+    },
+    {
+      "id": "plush",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "新品→遊び相手→汚れ→ほつれ→つぎはぎ→宝物。",
+      "stages": [
+        "新品のぬいぐるみ",
+        "遊び相手",
+        "お気に入り",
+        "よごれたぬいぐるみ",
+        "ほつれたぬいぐるみ",
+        "つぎはぎ",
+        "くたくた",
+        "大切な宝物"
+      ],
+      "recommendation": "未確定：ごはんごっこの皿を第一案",
+      "shared_category": "皿（ごっこ遊びの食事）",
+      "reuse": "候補ごとに既存SVG再使用または共用新作。未決定",
+      "dedicated_worth": "低い",
+      "reason": "綿や糸を食料にしない。修理と空腹、かまってを混同しない。",
+      "options": [
+        "ごはんごっこの皿：既存共用",
+        "魔法で食べるぬいぐるみ：米飯/小さなお菓子。新しい物語選択",
+        "愛情で満たす：空腹とwantsPlayの意味が変わるため別の設計判断が必要"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:52",
+        "script.js:854-863",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "ぬいぐるみ"
+    },
+    {
+      "id": "unknown",
+      "current_mark": "魚",
+      "current_route": "ACCENTS.hungry fallback",
+      "decision_evidence": "fallback・個別食物意図未確認",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "点→ぷる→足？目？羽？→大小→点。正体を決めない設計。",
+      "stages": [
+        "点",
+        "ぷる",
+        "足？",
+        "目？",
+        "羽？",
+        "でっかい？",
+        "ちっちゃい？",
+        "点……？"
+      ],
+      "recommendation": "未確定：食材を特定しないごはん記号",
+      "shared_category": "皿／幻想の養分（要選択）",
+      "reuse": "候補ごとに既存SVG再使用または共用新作。未決定",
+      "dedicated_worth": "低い",
+      "reason": "形状から植物・動物・神的存在に固定しない。？単独では空腹が読めない。",
+      "options": [
+        "共通ごはん皿：ゲーム上の抽象的食事",
+        "正体不明の養分粒：既存粒を抽象化",
+        "段階ごと変化：不明性を保つが31種専用化より工数増、低優先"
+      ],
+      "decision_needed": true,
+      "evidence": [
+        "character-world-master.v1.js:53",
+        "script.js:864-873",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "？？？"
+    },
+    {
+      "id": "ren",
+      "current_mark": "ごはん茶碗",
+      "current_route": "explicit override",
+      "decision_evidence": "個別指定・保全対象",
+      "explicit_fish_diet_setting": false,
+      "canonical_lore": "実在参照の同じ一人の人間、幼少から老年。",
+      "stages": [
+        "ちびれん",
+        "げんきれん",
+        "子どもれん",
+        "少年れん",
+        "若者れん",
+        "大人れん",
+        "年を重ねたれん",
+        "おじいちゃんれん"
+      ],
+      "recommendation": "ごはん茶碗を残す",
+      "shared_category": "米飯",
+      "reuse": "既存SVG",
+      "dedicated_worth": "不要",
+      "reason": "人間という明示的理由で米飯を共用している。",
+      "options": [],
+      "decision_needed": false,
+      "evidence": [
+        "character-world-master.v1.js:56",
+        "docs/qa/ren-expressions-20260923.md:13",
+        "script.js:624-633",
+        "pet-expression.js:336,373-387"
+      ],
+      "label": "れんくん"
+    }
+  ],
+  "history_confirmation": [
+    {
+      "sha": "d8952c54179dccf737410c489741887d81577c62",
+      "fact": "ペンギン魚・カメ皿を当時の制作QAに記載。食性の設定とは別。"
+    },
+    {
+      "sha": "7c7f2c90298813ced153a04a7f7451ff4287c38d",
+      "fact": "サケの既存魚マーク再使用を当時計画とQAに記載。"
+    },
+    {
+      "sha": "b7d969e5c43c63fad46c0665d68642c84cfc01b4",
+      "fact": "ヤドカリdefault魚継承を当時計画とQAに明記。"
+    }
+  ]
+}
