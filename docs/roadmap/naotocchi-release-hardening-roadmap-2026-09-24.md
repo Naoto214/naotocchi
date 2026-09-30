@@ -880,6 +880,11 @@ harness({
   > - corridor の 端の 石は chart 座標で 判定し、party は 石を 見ない
   >
   > collision の 全面改修は まだ しない。
+  >
+  > **2026-09-30 追記(2D の 最小修正: `docs/qa/meguru-party-player-collision-2026-09-30.md`)**
+  > - なかまは player・住人と おなじ `moveWithCollision` / `corridorBody` で あるく(region 2980〜3536 → 0 frame、corridor 1709 → 0 frame)。
+  > - fore の かたい 3 種・ちいさな 切り株 / 丸太 / 岩・道ばたの 絵文字を solid、道の そばの かたい 物は あたりを 消さずに ずらす(絵の 中心に 立てる 数 64 / 145 / 184 → 22 / 64 / 53)。
+  > - のこり: 道の 面の うえに ねもとが ある 物(136 / 76 / 106。配置の 判断が いる)、たて看板の 見る むき 依存、半径 22 / 17.6 の 統一 → 3D。
 - 本格的な多言語化(文言を正規表現で照合している箇所の解消から)
 - card-game の実装(#259 の設計を正本にする。identity だけ master と共有し、ルールは分ける)
 - 高度な複数タブ対応(Web Locks、読みとり専用の閲覧)
