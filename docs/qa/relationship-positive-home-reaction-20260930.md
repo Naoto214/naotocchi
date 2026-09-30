@@ -46,7 +46,7 @@ Required mapping: A/B ordinary before/positive; C/D/E single rescue before/posit
 
 ## Validation
 
-Home/Relationship related command: 124 PASS / 0 FAIL. QA page tests: 18 PASS / 0 FAIL. Additional partner geometry probe: 18 partners × 2 stage regions = 36 cases, missing hearts 0. Full repository npm test is still running at this code checkpoint; its result must be appended before the final handoff. Earlier interrupted runs are not PASS evidence.
+Home/Relationship related command: 124 PASS / 0 FAIL. QA page tests: 18 PASS / 0 FAIL. Additional partner geometry probe: 18 partners × 2 stage regions = 36 cases, missing hearts 0. Final full repository `npm test` completed with exit 0: 2,789 repository tests + 69 Relationship tests = 2,858 PASS / 0 FAIL; cancelled 0, skipped 0. The 124 related checks overlap this total; the 18 QA page tests are separate. Validation used the exact published code checkpoint; the final follow-up commit changes this report only. Earlier interrupted runs are not PASS evidence.
 
 Independent review initially found ordinary representatives with no safe heart; the anchor was revised and all 26 choices tested. Follow-up review independently exercised all 26 at 288×180 with a married partner: no missing hearts. No Critical/Important findings remained. Accessory clearance and batched expiry received a further review without Critical/Important findings.
 
@@ -55,3 +55,7 @@ Image SHA256 audit: all 3,430 baseline images unchanged, including Relationship8
 ## Human check
 
 Reload the same URL. First use ordinary play, single rescue and multiple rescue in live mode. Look for which individual reacts, whether faces remain visible and whether other companions avoid the same strong reaction. Use fixed immediately-after to inspect briefly displayed cues. Compare A/B on multiple rescue and 26-rescue; then check bear, octopus and normal Home. Report: clear / too busy / still unclear / layout issue. No console or long gameplay required.
+
+## Published QA provenance
+
+Publication succeeded on the existing owner-private Site. GitHub code checkpoint: `38ee69b924c5fa9d669275287de805e0e79e0e33`, tree `b72a15f58fb7e89a6f990f8ac83bde98b1b3d633`. Site source commit: `987506b08a9d583537c9c2e892a6b04a551622f7`. Deployment: `appgdep_6abd28fd0d188191a79eb031c921bf87`, status `succeeded`. Saved Site version: `appgprj_6abd0706d5fc8191ba0292d2e91922f3~appgver_7c6a7e1473208191a5c2ef3eef303ea2`. Build manifest checks cover 3,032 source entries. Publication is not evidence of visual acceptance or browser performance.
