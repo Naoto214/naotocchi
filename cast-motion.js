@@ -97,7 +97,7 @@
     };
   }
 
-  function createController({getActors, getGroup = () => null, canAnimate = () => true, isResting = () => false, getMotionRadius = () => MOTION_RADIUS, env = root}) {
+  function createController({getActors, getGroup = () => null, canAnimate = () => true, isResting = () => false, getMotionRadius = () => MOTION_RADIUS, getRelationshipTargets = () => [], env = root}) {
     const active = new Map();
     const media = typeof env.matchMedia === 'function' ? env.matchMedia('(prefers-reduced-motion: reduce)') : null;
     let speaking = null, idleTurn = 0;
@@ -157,6 +157,7 @@
     function clear(immediate = true) {
       clearSpeaker();
       for (const node of [...active.keys()]) {
+        if(!immediate && node.dataset.reaction==='positive' && getRelationshipTargets().some(t=>find(t)?.node===node))continue;
         const from = !immediate && allowed() ? currentTransform(node) : null;
         stop(node);
         if (from && from !== 'none') {
@@ -172,24 +173,29 @@
       speaking = actor.node;
       speaking.classList.add('cast-speaking');
       const mood = reactionFor(event, text, speaker.kind);
-      play(actor, mood);
-      if (event !== 'idle') playGroup(mood);
+      const relationshipEvent=['play_with','court','partner_new','marriage'].includes(event);
+      if (!relationshipEvent || actor.kind==='pet') play(actor, mood);
+      if (event !== 'idle' && !relationshipEvent && !getRelationshipTargets().length) playGroup(mood);
       // A quiet listening gesture precedes the next character's spoken reply.
       // All motion is bounded, and all responses use the existing speech clock.
       const friend = find(listener);
-      if (friend && friend.node !== actor.node) {
+      if (!relationshipEvent && friend && friend.node !== actor.node) {
         const quietEvent = ['court_fail','breakup','devolve','minigame_bad','medicine_wrong','overfeed','play_with_annoyed','sleep'].includes(event);
         const response = quietEvent || ['settle','droop','doze','shake','nod','curious'].includes(mood)
           ? 'nod' : mood === 'love' || mood === 'shy' ? 'shy' : 'bounce';
         play(friend, response, {delay:220, gentle:true});
       }
-      // A group invitation is the only trigger for everyone joining the wave.
-      if (event === 'play_with' && /全員|みんな/.test(text)) {
-        getActors().filter(a=>a.kind === 'companion' && a.node !== actor.node && a.node !== friend?.node)
-          .forEach((a,i)=>play(a,'bounce',{delay:100+Math.min(i,25)*22,gentle:true}));
-      }
+
     }
-    function emote(mood) { if (allowed()) { play(find({kind:'pet'}),mood); playGroup(mood); } }
+    function relationship(speaker, elapsed=0) {
+      const actor=find(speaker);if(!actor || elapsed>=900)return 0;
+      const group=getGroup();if(group)stop(group);
+      const lift=Math.min(2,getMotionRadius());
+      const motion={duration:900,frames:[{transform:'scale(1)'},{transform:'scale(.84)'},
+        {transform:`translateY(${-lift}px) scale(1)`},{transform:'scale(.94)'},{transform:'scale(1)'}]};
+      return run(actor.node,motion,'positive',-elapsed)?900:0;
+    }
+    function emote(mood) { if (allowed()) { play(find({kind:'pet'}),mood); if(!getRelationshipTargets().length) playGroup(mood); } }
     function pet(mood, options = {}) {
       if (!allowed()) return 0;
       return play(find({kind:'pet'}), mood, options) || 0;
@@ -208,7 +214,7 @@
     media?.addEventListener?.('change', () => {
       if (media.matches) for (const node of [...active.keys()]) stop(node);
     });
-    return {speak,emote,pet,isActive,idle,clear,clearSpeaker};
+    return {relationship,speak,emote,pet,isActive,idle,clear,clearSpeaker};
   }
   const api = {MOTION_RADIUS,motionRadiusFor,reactionFor,motionFrames,createController};
   if (typeof module === 'object' && module.exports) module.exports = api;

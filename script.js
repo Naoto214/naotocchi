@@ -9,9 +9,14 @@
   const EMOTION_STATE = window.NaotocchiEmotionState || null;
   const PET_EXPRESSION = window.NaotocchiPetExpression || null;
   const RELATIONSHIP_EXPRESSION = window.NaotocchiRelationshipExpression || null;
+  let relationshipRenderTimer = null;
   const relationshipReactions = RELATIONSHIP_EXPRESSION?.createReactions({
     now: () => Date.now(), schedule: (fn, ms) => setTimeout(fn, ms),
-    cancel: timer => clearTimeout(timer), onExpire: () => render(),
+    cancel: timer => clearTimeout(timer), onExpire: () => {
+      // Simultaneous rescue expiry needs one Home render, not up to 26.
+      if(relationshipRenderTimer!==null)return;
+      relationshipRenderTimer=setTimeout(()=>{relationshipRenderTimer=null;render();},0);
+    },
   });
   const WORLD_SCENE = window.NaotocchiWorldScene || null;
   let worldRenderer = null;
@@ -4037,6 +4042,7 @@
       && state.stage !== STAGE.DEAD && !state.transformOptions && !isAnyMenuOverlayOpen(),
     isResting: () => state.isSleeping || state.isSick || state.dying || state.stage === STAGE.FAREWELL,
     getMotionRadius: homeCastMotionRadius,
+    getRelationshipTargets: relationshipTargets,
     env: window,
   });
 
@@ -13648,6 +13654,7 @@
       return;
     }
     const expression = relationshipVisual('partner',p,null).expression;
+    el.partnerCompanion.dataset.relationshipPositive = String(expression === 'positive');
     const key = JSON.stringify([p.id,p.label,p.emoji,p.married,expression]);
     if (key === el.partnerCompanion.dataset.visualKey && el.partnerCompanion.innerHTML) return;
     el.partnerCompanion.dataset.visualKey = key;
@@ -14074,6 +14081,70 @@
     return actors;
   }
 
+  function relationshipTargets() {
+    return [...state.companions.map(entity=>({kind:'companion',id:entity.id,entity})),
+      ...(state.partner?[{kind:'partner',id:state.partner.id,entity:state.partner}]:[])]
+      .map(t=>({...t,reaction:relationshipReactions?.info(t.entity)})).filter(t=>t.reaction);
+  }
+  const relationshipMotionTokens = new WeakMap();
+  const relationshipHeartNodes = new Map();
+  let relationshipHeartMode = 'all';
+  let relationshipAnchorKey = '';
+  const relationshipAnchorCache = new Map();
+  let relationshipCastFrames = null;
+  function renderRelationshipReactions() {
+    if(!relationshipCastFrames)return;
+    const {layout,recruited,args}=relationshipCastFrames;
+    const actors=homeCastActors(),targets=relationshipTargets();
+    const visible=!gameActive && !meguruActive && !isAnyMenuOverlayOpen()
+      && state.stage!==STAGE.EGG && state.stage!==STAGE.DEAD && !state.transformOptions
+      && document.visibilityState!=='hidden' && !document.body.classList.contains('movie-active')
+      && !el.screenNormal.classList.contains('hidden');
+    const anchorKey=JSON.stringify([homeCastLayoutKey,visible,relationshipHeartMode,targets.map(t=>[t.kind,t.id,t.reaction.startedAt,t.reaction.until])]);
+    const refresh=anchorKey!==relationshipAnchorKey;
+    if(refresh){relationshipAnchorKey=anchorKey;relationshipAnchorCache.clear();}
+    const wanted=new Set(),placed=[];
+    const body=(f,path)=>{const id=path?.split('/').pop()?.replace('.png','');const b=RELATIONSHIP_EXPRESSION?.ART_BOUNDS[id]||window.NaotocchiCastBounds?.[path]?.box||[0,0,128,128];
+      return {x:f.x+f.w*b[0]/128,y:f.y+f.h*b[1]/128+(f.artOffsetY||0),w:f.w*(b[2]-b[0])/128,h:f.h*(b[3]-b[1])/128};};
+    const frames=[body(layout.main,args.mainAsset),...(layout.partner?[body(layout.partner,args.partnerAsset)]:[]),...layout.companions.map((f,i)=>body(f,args.companions[i]))];
+    for(const [i,t] of targets.entries()) {
+      const actor=actors.find(a=>a.kind===t.kind&&a.id===t.id);
+      if(!visible || !actor)continue;
+      const elapsed=Date.now()-t.reaction.startedAt;
+      if(relationshipMotionTokens.get(actor.node)!==t.reaction || elapsed<900 && !castMotion?.isActive(t)){
+        castMotion?.relationship(t,elapsed);relationshipMotionTokens.set(actor.node,t.reaction);
+      }
+      const f=t.kind==='partner'?layout.partner:layout.companions[recruited.findIndex(c=>c.id===t.id)];
+      if(!f || relationshipHeartMode==='representative'&&i>0)continue;
+      const key=t.kind+':'+t.id;
+      const targetFrame=body(f,t.kind==='partner'?args.partnerAsset:args.companions[recruited.findIndex(c=>c.id===t.id)]);
+      const box=refresh?RELATIONSHIP_EXPRESSION.heartAnchor(targetFrame,{width:layout.width,height:layout.height,
+        obstacles:[...frames,...placed,layout.conversation,...(layout.accessory?[layout.accessory]:[]),...(layout.ring?[layout.ring]:[]),
+          ...(targets.some(a=>a.kind==='partner')?[]:layout.hearts)]}):relationshipAnchorCache.get(key);
+      if(refresh)relationshipAnchorCache.set(key,box);
+      if(!box)continue;
+      placed.push(box);wanted.add(key);
+      let entry=relationshipHeartNodes.get(key);
+      if(!entry || entry.reaction!==t.reaction){
+        if(entry){el.castResponse.removeChild(entry.node);el.castResponse.removeChild(entry.link);}
+        const node=document.createElement('span');node.className='relationship-heart';node.textContent='♥';
+        node.setAttribute('aria-hidden','true');node.dataset.relationshipTarget=key;
+        node.style.animationDelay=(-elapsed)+'ms';
+        const link=document.createElement('span');link.className='relationship-heart-link';link.setAttribute('aria-hidden','true');
+        link.style.animationDelay=(-elapsed)+'ms';el.castResponse.appendChild(link);
+        el.castResponse.appendChild(node);entry={node,link,reaction:t.reaction};relationshipHeartNodes.set(key,entry);
+      }
+      const node=entry.node;node.style.left=box.x+'px';node.style.top=box.y+'px';
+      node.style.setProperty('--relationship-float',(-Math.min(4,box.y-2))+'px');
+      node.style.width=box.w+'px';node.style.height=box.h+'px';node.style.fontSize=box.w+'px';
+      const dx=targetFrame.x+targetFrame.w/2-(box.x+box.w/2),dy=targetFrame.y-2-(box.y+box.h-2);
+      entry.link.style.left=(box.x+box.w/2)+'px';entry.link.style.top=(box.y+box.h-2)+'px';
+      entry.link.style.width=Math.hypot(dx,dy)+'px';entry.link.style.transform=`rotate(${Math.atan2(dy,dx)}rad)`;
+    }
+    for(const [key,entry] of relationshipHeartNodes)if(!wanted.has(key)){
+      el.castResponse.removeChild(entry.node);el.castResponse.removeChild(entry.link);relationshipHeartNodes.delete(key);
+    }
+  }
   let homeSpeechAnchors = null;
   function pointHomeSpeech() {
     if (!homeSpeechAnchors || !el.speechBubble) return;
@@ -14114,10 +14185,12 @@
     const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const args = {width,height,conversationHeight,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,hasRing:hasPartner && !!p.married,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
     const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married]);
-    if (key === homeCastLayoutKey) { pointHomeSpeech(); return; }
+    if (key === homeCastLayoutKey) { pointHomeSpeech(); renderRelationshipReactions(); return; }
     homeCastLayoutKey = key;
     castMotion?.clear();
     const layout = window.NaotocchiCast.layoutHomeCast(args);
+    relationshipCastFrames={layout,recruited,args};
+    for(const actor of homeCastActors())relationshipMotionTokens.delete(actor.node);
     const area=layout.conversation;
     el.petArea.style.setProperty('--home-speech-x',area.x+'px');
     el.petArea.style.setProperty('--home-speech-y',area.y+'px');
@@ -14173,6 +14246,7 @@
       place(ring,{...frame,x:frame.x-layout.partner.x,y:frame.y-layout.partner.y});
       ring.style.fontSize=frame.w+'px';
     }
+    renderRelationshipReactions();
   }
 
   function renderEnvironmentChoices(grid,choices,mode,kind = '') {

@@ -7,7 +7,7 @@
  let ran=false,running=false,heldTimer;
  const renew=()=>api.startRelationshipPositive('partner',api.state().partner);
  const positive=()=>{renew();api.render();};
- if(config.mode==='held'){positive();heldTimer=env.setInterval(renew,1000);}
+ if(config.mode==='held')positive();
  const qa={
   run(){
    if(ran||!['play','return'].includes(config.mode))return false;
@@ -28,5 +28,12 @@
   get running(){return running;},
   stop(){if(heldTimer)env.clearInterval(heldTimer);}
  };
+ // Fixed comparisons use real production transitions and freeze their result.
+ // Animation snapshots pause the actual animations, never QA replacement CSS.
+ const freeze=()=>{for(const a of env.document?.getAnimations?.()||[]){a.pause();a.currentTime=450;}};
+ if(config.phase==='positive'||config.phase==='after')qa.run();
+ if(config.mode==='held'||config.phase==='positive'||config.phase==='after'){
+  api.snapshot?.(config.phase==='after'?'after':'positive');freeze();
+ }else if(config.phase==='before')ran=true;
  return qa;
 });

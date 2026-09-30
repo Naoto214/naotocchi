@@ -1,7 +1,7 @@
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 const ROOT=path.resolve(__dirname,'../..');
 const createCases=require('./cases.cjs');
-const BRIDGE='\n  window.__relationshipQaBridge = {state:()=>state,render,startRelationshipPositive,play:()=>el.playWithBtn.click()};\n';
+const BRIDGE='\n  window.__relationshipQaBridge = {state:()=>state,render,startRelationshipPositive,play:()=>el.playWithBtn.click(),heartMode:value=>{relationshipHeartMode=value;renderRelationshipReactions();},snapshot:phase=>{for(const t of relationshipTargets()){clearTimeout(t.reaction.timer);t.reaction.until=phase==="after"?0:Infinity;}render();}};\n';
 function instrument(source){
  const anchor=/\}\)\(\);\s*$/;if(!anchor.test(source))throw Error('QA bridge anchor missing');
  return source.replace(anchor,match=>BRIDGE+match);

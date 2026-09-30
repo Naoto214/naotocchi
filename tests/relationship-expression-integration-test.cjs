@@ -99,3 +99,51 @@ for(const success of [true,false])test(`new court ${success?'success':'failure'}
  if(success){assert.ok(s.partner);assert.ok(h.get('partnerCompanion').innerHTML.includes(asset(s.partner.id,'positive')));}
  else{assert.equal(s.partner,null);assert.ok(s.happiness<80,'failed chance roll reduces happiness');assert.ok(!h.get('partnerCompanion').innerHTML.includes('/positive.png'));}
 });
+test('annoyed during positive does not extend reaction or retain positive after original expiry',()=>{
+ const h=harness(),s=setup(h,{companions:[{id:'otter',bond:20}]});h.dispatch(h.get('playWithBtn'),'click');h.advance(1000);
+ s.affectionStreak=99;h.dispatch(h.get('playWithBtn'),'click');h.advance(1499);assert.ok(companionHTML(h).includes('/positive.png'));
+ h.advance(2);assert.ok(!companionHTML(h).includes('/positive.png'));
+});
+test('real play gives only positive individuals motion and head hearts; expiry removes cues',()=>{
+ const h=harness(),s=setup(h,{companions:[{id:'otter',bond:20},{id:'clock',bond:25},{id:'cat_friend',bond:60}]});
+ const R=h.window.NaotocchiRelationshipExpression,original=R.companionPositiveIds;
+ R.companionPositiveIds=(a,b)=>original(a,b,()=>0);
+ try{h.dispatch(h.get('playWithBtn'),'click');}finally{R.companionPositiveIds=original;}
+ h.advance(1);
+ const nodes=[...h.get('companionLeft').children,...h.get('companionRight').children];
+ for(const n of nodes)assert.equal(n.dataset.reaction,n.dataset.companionId==='cat_friend'?undefined:'positive');
+ assert.deepEqual(h.get('castResponse').children.filter(n=>n.dataset.relationshipTarget).map(n=>n.dataset.relationshipTarget).sort(),['companion:clock','companion:otter']);
+ assert.equal(h.get('castResponse').animations.length,0);
+ h.advance(2501);assert.equal(h.get('castResponse').children.filter(n=>n.dataset.relationshipTarget).length,0);
+});
+test('ordinary play and all-inviting dialogue do not animate non-target companions',()=>{
+ const h=harness(),s=setup(h,{companions:[{id:'otter',bond:60},{id:'clock',bond:60},{id:'cat_friend',bond:60}]});
+ h.dispatch(h.get('playWithBtn'),'click');h.advance(1);
+ const nodes=[...h.get('companionLeft').children,...h.get('companionRight').children];
+ assert.equal(nodes.filter(n=>n.dataset.reaction==='positive').length,1);
+ assert.equal(h.get('castResponse').children.filter(n=>n.dataset.relationshipTarget).length,1);
+ h.api.speakEvent('play_with',{petText:'みんな、全員はねよう！',companionChance:1,partnerChance:0});h.advance(1);
+ assert.equal(h.get('castResponse').animations.length,0);
+ assert.equal(nodes.filter(n=>n.dataset.reaction==='positive').length,1);
+ h.advance(2501);assert.ok([...h.get('companionLeft').children,...h.get('companionRight').children].every(n=>n.dataset.reaction!=='positive'));
+});
+test('every possible representative in a dense 26-companion Home receives one safe heart',()=>{
+ for(const [width,height] of [[288,180],[358,350]])for(const id of companionIds){
+  const h=harness();h.get('castStage').getBoundingClientRect=()=>({left:0,top:0,width,height});
+  const s=setup(h,{companions:companionIds.map(id=>({id,bond:60}))});
+  const R=h.window.NaotocchiRelationshipExpression,original=R.companionPositiveIds;
+  try{R.companionPositiveIds=()=>[id];h.dispatch(h.get('playWithBtn'),'click');}finally{R.companionPositiveIds=original;}
+  h.advance(1);
+  const hearts=h.get('castResponse').children.filter(n=>n.dataset.relationshipTarget);
+  assert.deepEqual(hearts.map(n=>n.dataset.relationshipTarget),['companion:'+id],id);
+ }
+});
+test('26 simultaneous expiries coalesce Home work while removing every transient',()=>{
+ const h=harness(),s=setup(h,{companions:companionIds.map(id=>({id,bond:20}))});
+ vm.runInContext('Math.random=()=>0.99',h.sandbox);h.dispatch(h.get('playWithBtn'),'click');h.advance(2499);
+ let measures=0;const node=h.get('castStage'),original=node.getBoundingClientRect;
+ node.getBoundingClientRect=()=>{measures++;return original();};h.advance(2);
+ assert.ok(measures<=3,'must not render once per rescued actor: '+measures);
+ assert.ok(!companionHTML(h).includes('/positive.png'));
+ assert.equal(h.get('castResponse').children.filter(n=>n.dataset.relationshipTarget).length,0);
+});

@@ -66,6 +66,7 @@
   try{
    const cases=JSON.parse(doc.getElementById('qa-cases').textContent),requested=new URLSearchParams(w.location.search).get('case');
    const config=cases.find(c=>c.id===requested)||cases[0];config.save.savedAt=0;
+   const params=new URLSearchParams(w.location.search);config.phase=['play','return'].includes(config.mode)?params.get('phase')||'live':'live';config.hearts=params.get('hearts')||'all';
    await start(w,config,async()=>{
     // Freeze only autonomous growth. Preserve Home animation, timeouts and the
     // production Reaction duration. No production source file is edited.
@@ -74,6 +75,7 @@
     await activateScripts(doc);
     if(!w.__relationshipQaBridge||!w.__naotocchiBooted)throw Error('Home起動を確認できません');
     observeInteractions(w,doc,config);
+    w.__relationshipQaBridge.heartMode(config.hearts==='representative'?'representative':'all');
     w.relationshipQa=w.installRelationshipQa(w.__relationshipQaBridge,config,w);
     // Direct Home play uses the same controlled QA draw as the outside button.
     // Only transition cases are intercepted; normal Home remains interactive.

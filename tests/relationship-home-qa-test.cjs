@@ -9,8 +9,8 @@ const bootstrap=require('../tools/relationship-home-qa/bootstrap.js');
 const install=require('../tools/relationship-home-qa/runtime-hook.js');
 const cases=builder.createCases();
 
-test('twelve cases reuse complete fixtures, exact partner/state and selective rescue',()=>{
- assert.equal(cases.length,12);assert.equal(new Set(cases.map(c=>c.id)).size,12);
+test('thirteen cases reuse complete fixtures, exact partner/state and selective rescue',()=>{
+ assert.equal(cases.length,13);assert.equal(new Set(cases.map(c=>c.id)).size,13);
  for(const id of ['forest_bear','rock_octopus'])for(const face of ['normal','positive','lonely']){
   const c=cases.find(c=>c.id===id+'-'+face);assert.equal(c.save.partner.id,id);assert.equal(c.save.partner.affection,face==='lonely'?20:50);
  }
@@ -48,8 +48,8 @@ try {fs.readFileSync=function(p,...args){const result=read.call(this,p,...args);
  delete require.cache[require.resolve('./helpers/runtime-harness.cjs')];harness=require('./helpers/runtime-harness.cjs').harness;
 } finally {fs.readFileSync=read;}
 const productionPositiveIds=require('../relationship-expression.js').companionPositiveIds;
-function scene(id){
- const c=cases.find(c=>c.id===id),h=harness();
+function scene(id,phase){
+ const c={...cases.find(c=>c.id===id),phase},h=harness();
  Object.assign(h.api.state(),JSON.parse(JSON.stringify(c.save)));
  for(const name of ['storyFlash','lifeCardOverlay','speechBubble'])h.get(name).classList.add('hidden');
  h.get('playWithBtn').click=()=>h.dispatch(h.get('playWithBtn'),'click');
@@ -104,10 +104,10 @@ test('transition assets preload before readiness; missing image blocks QA',async
  class Broken{set src(s){this.url=s;}decode(){return Promise.reject(Error('missing'));}}
  await assert.rejects(()=>bootstrap.preloadImages({Image:Broken},cases[0]),/画像/);
 });
-test('fixed positive renews its timer without rebuilding Home each second',()=>{
- let renders=0,starts=0,tick;const api={state:()=>({partner:{id:'forest_bear'}}),startRelationshipPositive:()=>starts++,render:()=>renders++};
- install(api,{mode:'held'},{setInterval:fn=>{tick=fn;return 1;},clearInterval(){}});
- tick();tick();assert.equal(starts,3);assert.equal(renders,1);
+test('fixed positive snapshots the real reaction without a repeating timer',()=>{
+ let renders=0,starts=0,snapshot;const api={state:()=>({partner:{id:'forest_bear'}}),startRelationshipPositive:()=>starts++,render:()=>renders++,snapshot:phase=>snapshot=phase};
+ install(api,{mode:'held'},{setInterval:()=>{throw Error('no repeating render');}});
+ assert.equal(starts,1);assert.equal(renders,1);assert.equal(snapshot,'positive');
 });
 test('static dense case preloads only each actor current expression',async()=>{
  const loaded=[];class Img{set src(s){loaded.push(s);}decode(){return Promise.resolve();}}
@@ -129,4 +129,15 @@ test('QA timing reports double-frame latency outside Home and deduplicates neste
  now=30;frames.shift()();now=50;frames.shift()();
  assert.deepEqual(messages,[[{type:'relationship-qa-timing',id:'multi-rescue',ms:40},'https://qa.example']]);
  listener(e);assert.equal(frames.length,1);
+});
+
+test('fixed before, positive and after reuse real rescue while live keeps its clock',()=>{
+ for(const [phase,face] of [['before','lonely'],['positive','positive'],['after','normal']]){
+  const {h,qa}=scene('multi-rescue',phase);
+  const html=markup(h);assert.equal((html.match(/\/positive.png/g)||[]).length,face==='positive'?2:0);
+  assert.equal((html.match(/\/lonely.png/g)||[]).length,face==='lonely'?2:0);
+  assert.deepEqual(Array.from(h.api.state().companions,c=>c.bond),phase==='before'?[20,25,60]:[50,55,90]);
+  h.advance(3000);if(phase==='positive')assert.equal((markup(h).match(/\/positive.png/g)||[]).length,2);
+  assert.equal(qa.run(),false);
+ }
 });

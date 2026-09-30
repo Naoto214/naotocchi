@@ -7,16 +7,17 @@
  function size(){frame.style.height=window.innerHeight+'px';get('dimensions').textContent=`実機Home領域：${window.innerWidth} × ${window.innerHeight} CSS px`;}
  function load(){
   clearTimeout(pendingTimer);ready=false;const c=cases[index];select.value=c.id;
-  get('hint').textContent=c.hint;get('timing').textContent='';
-  get('mode').textContent=c.mode==='held'?'固定表示（確認用にReactionを保持）':c.mode==='play'||c.mode==='return'?'遷移確認（正式な2.5秒）':'固定の初期条件（通常操作も可能）';
+  get('hint').textContent=c.hint;get('phase').disabled=!['play','return'].includes(c.mode);if(get('phase').disabled)get('phase').value='live';get('timing').textContent='';
+  get('mode').textContent=get('phase').value&&get('phase').value!=='live'&&['play','return'].includes(c.mode)?'固定比較（lifecycle確認は実遷移を使用）':c.mode==='held'?'固定表示（確認用にReactionを保持）':c.mode==='play'||c.mode==='return'?'遷移確認（正式な2.5秒）':'固定の初期条件（通常操作も可能）';
   get('status').textContent='Homeを読み込み中…';get('run').disabled=true;get('show').disabled=true;
-  frame.src='game.html?case='+encodeURIComponent(c.id);size();
+  frame.src='game.html?case='+encodeURIComponent(c.id)+'&phase='+encodeURIComponent(get('phase').value||'live')+'&hearts='+encodeURIComponent(get('hearts').value||'all');size();
   pendingTimer=setTimeout(()=>{if(!ready)get('status').textContent='読み込みが完了していません。通信状況を確認し「やり直す」を押してください。';},30000);
  }
  function show(){frame.scrollIntoView({block:'start',behavior:'instant'});get('quick-back').hidden=false;}
  function back(){get('controls').scrollIntoView({block:'start',behavior:'instant'});get('quick-back').hidden=true;}
  function syncReturn(){const r=frame.getBoundingClientRect();get('quick-back').hidden=!(r.top<=64&&r.bottom>44);}
  select.addEventListener('change',()=>{index=cases.findIndex(c=>c.id===select.value);load();});
+ get('phase').addEventListener('change',load);get('hearts').addEventListener('change',load);
  get('previous').onclick=()=>{index=(index+cases.length-1)%cases.length;load();};
  get('next').onclick=()=>{index=(index+1)%cases.length;load();};get('reset').onclick=load;
  get('show').onclick=show;get('back').onclick=back;get('quick-back').onclick=back;
@@ -36,7 +37,7 @@
   }
   if(e.data?.type==='relationship-qa-ready'&&e.data.id===cases[index].id){
    clearTimeout(pendingTimer);ready=true;get('show').disabled=false;
-   get('run').disabled=!['play','return'].includes(cases[index].mode);get('status').textContent='Homeの準備ができました。';
+   get('run').disabled=(get('phase').value||'live')!=='live'||!['play','return'].includes(cases[index].mode);get('status').textContent='Homeの準備ができました。';
   }else if(e.data?.type==='relationship-qa-error'){clearTimeout(pendingTimer);ready=false;get('show').disabled=true;get('run').disabled=true;get('status').textContent='QA停止：'+e.data.message;}
  });
  window.addEventListener('scroll',syncReturn,{passive:true});

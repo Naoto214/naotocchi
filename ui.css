@@ -234,3 +234,14 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 .design-collection-item {display:flex;flex-direction:column;align-items:center;gap:5px;padding:8px 2px;font-size:12px;text-align:center;color:#405044}
 .design-collection-item .theme-swatch-circle {width:48px;height:40px;border-radius:10px}
 .design-collection-lock {display:grid;place-items:center;width:48px;height:40px;color:#6b766b}
+
+/* Ephemeral Relationship cue, above the protected sprite frame. No layout space. */
+.relationship-heart{position:absolute;display:flex;align-items:center;justify-content:center;pointer-events:none;line-height:1;color:#e43d79;text-shadow:0 1px 0 #fff,1px 0 0 #fff,-1px 0 0 #fff;z-index:2;animation:relationship-heart-pop 2.5s ease-out both;transform-origin:center bottom}
+@keyframes relationship-heart-pop{0%{opacity:0;transform:scale(.55)}12%,60%{opacity:1;transform:scale(1)}85%{opacity:.85;transform:translateY(var(--relationship-float,-4px)) scale(.94)}100%{opacity:0;transform:translateY(var(--relationship-float,-4px)) scale(.8)}}
+#pet .partner-companion[data-relationship-positive="true"] .partner-heart{visibility:hidden}
+@media(prefers-reduced-motion:reduce){.relationship-heart{animation:none}}
+
+/* A fine temporary stem keeps a shifted heart attributable; behind all cast art. */
+.relationship-heart-link{position:absolute;height:1px;background:#e43d7980;transform-origin:left center;pointer-events:none;z-index:-1;animation:relationship-heart-link-fade 2.5s ease-out both}
+@keyframes relationship-heart-link-fade{0%,100%{opacity:0}12%,75%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.relationship-heart-link{animation:none}}
