@@ -63,15 +63,12 @@ function drawFrontOf(rid, sid) {
   h.advance(600);
   const pr = r.renderer.project(arch.x, arch.z);
   const onScreen = !!pr && pr.sx > -arch.size * pr.s && pr.sx < r.canvasSize.W + arch.size * pr.s;
-  log.length = 0;
-  h.advance(170);
-  const withArch = log.slice();
-  // おなじ ところ で アーチ だけ はずして えがく(アーチ の ぶん だけ を とりだす)
+  // おなじ frame(おなじ view・おなじ 時刻)を 10 かい えがいて、アーチ だけ はずして もう 10 かい。
+  // 時刻を すすめて くらべると 波・住人 など うごく ものの ぶれ(±500)が アーチの ぶん(~600)に まざる(2026-09-30)
+  const now = 5000, drawN = () => { log.length = 0; const v = r.sim.view(); for (let i = 0; i < 10; i++) r.renderer.draw(v, now); return log.slice(); };
+  const withArch = drawN();
   r.world.props = r.world.props.filter((p) => p !== arch);
-  h.advance(200);
-  log.length = 0;
-  h.advance(170);
-  const without = log.slice();
+  const without = drawN();
   h.api.stopMeguru();
   return { withArch, without, onScreen, arch };
 }

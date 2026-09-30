@@ -93,7 +93,7 @@ test('city: props・当たり判定 は そのまま(えがく とき だけ)', 
   const w = fixedWorld(M, 'city');
   assert.equal(w.props.length, 1013);
   // 2026-09-30 party / player collision fix: かたく 見える 物(建物・岩・木の みき・柵)に あたりを のこした ので 障害物・当たり は ふえた(props は そのまま)
-  assert.equal(M.buildObstacles(w).length, 576);
+  assert.equal(M.buildObstacles(w).length, 573);
   assert.equal(w.props.map((p) => M.colliderOf(p)).filter(Boolean).length, 703);
 });
 

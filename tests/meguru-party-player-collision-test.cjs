@@ -170,3 +170,27 @@ test('7. まわりこみ: 生け垣の むこうに 取り残されない(なら
   S.setPlayer(S.player.x + 30, S.player.z);
   assert.equal(S.trail.length, 0);
 });
+
+test('8. たて看板(建物・がけ)の あたりは もとの あたりの なかで 道がわを けずる だけ(見る むきで 見えない かべに ならない)', () => {
+  const { M } = setup(1);
+  const reg = M.buildRegistry();
+  let n = 0;
+  for (const regionId of ['city', 'mountain', 'sea', 'forest']) {
+    const w = M.buildWorld(regionId, reg, {});
+    for (const o of w.obstacles) {
+      if (o.pi == null) continue;
+      const p = w.props[o.pi];
+      if (!p.struct || !M.OCCLUDER_SHIFT[p.struct]) continue;
+      const c = M.colliderOf(p); n++;
+      const ex = Math.sin(c.ang), ez = Math.cos(c.ang);
+      const corners = o.shape === 'box'
+        ? [[1, 1], [1, -1], [-1, 1], [-1, -1]].map(([a, b]) => [o.x + a * o.hw * Math.sin(o.ang) + b * o.hd * Math.cos(o.ang), o.z + a * o.hw * Math.cos(o.ang) - b * o.hd * Math.sin(o.ang)])
+        : [[o.x + o.hw, o.z], [o.x - o.hw, o.z], [o.x, o.z + o.hw], [o.x, o.z - o.hw]];
+      for (const [x, z] of corners) {
+        const rx = x - p.x, rz = z - p.z, lx = rx * ex + rz * ez, lz = rx * ez - rz * ex;
+        assert.ok(Math.abs(lx) <= c.hw + 1 && Math.abs(lz) <= c.hd + 1, `${regionId}/${p.struct}: あたりが もとの そとへ 出ない`);
+      }
+    }
+  }
+  assert.ok(n > 50, 'たて看板の あたりを しらべた ' + n);
+});

@@ -873,12 +873,37 @@
       // 絵の そとがわの はし。たて看板(OCCLUDER_SHIFT: 建物・がけ)は 画面の みぎへ えがく ので、見る むきで 道の どちらがわに
       // 出るかが かわる。どちらの むきでも 見えない かべに ならない よう、もとの あたりの そとへは 出さない(道がわを けずるだけ)
       const far = sh > 0 ? worst.sup : Math.max(worst.sup, vh);
-      const r = Math.min(worst.sup, (far - worst.lo) / 2);
+      let r = Math.min(worst.sup, (far - worst.lo) / 2);
+      // たて看板の 箱: ずらした 箱が もとの 箱の そとへ 出ない ところまで ちぢめる(ななめの 箱は かどが よこへ 出る)
+      if (sh > 0 && o.shape === 'box') {
+        const a1 = Math.abs(worst.ux * Math.sin(o.ang) + worst.uz * Math.cos(o.ang)), a2 = Math.abs(worst.ux * Math.cos(o.ang) - worst.uz * Math.sin(o.ang));
+        const fits = (rr) => { const f = rr / worst.sup, s = Math.max(0, worst.lo + rr); return s * a1 <= o.hw * (1 - f) + 0.01 && s * a2 <= o.hd * (1 - f) + 0.01; };
+        while (r >= SOLID_MIN && !fits(r)) r *= 0.9;
+      }
       if (r < SOLID_MIN) return false;
       const f = r / worst.sup, shift = Math.max(0, worst.lo + r);
       o.hw *= f; o.hd *= f;
       o.x += worst.ux * shift; o.z += worst.uz * shift;
       return true;
+    }
+    // 道の 通行帯(half + SOLID_EDGE_CLEAR)に 箱の かどが かからないかを 道に そって じっさいに しらべる。
+    // clearCorridor は いちばん ちかい 点の むき だけ で みる ので、道の はしっこ で 箱の かどが のこる ことが ある
+    function bandClear(o, world) {
+      for (let tries = 0; tries < 8; tries++) {
+        let hit = false;
+        for (const s of world.segments || []) {
+          const need = s.half + SOLID_EDGE_CLEAR, dx = s.b.x - s.a.x, dz = s.b.z - s.a.z, L = Math.hypot(dx, dz) || 1;
+          const t = clamp(((o.x - s.a.x) * dx + (o.z - s.a.z) * dz) / (L * L), 0, 1);
+          if (Math.hypot(o.x - s.a.x - dx * t, o.z - s.a.z - dz * t) - Math.max(o.hw, o.hd) * 1.42 >= need) continue;
+          const n = Math.ceil(L / 10);
+          for (let i = 0; i <= n && !hit; i++) if (colliderPenetration(o, s.a.x + dx * i / n, s.a.z + dz * i / n, need) > 0) hit = true;
+          if (hit) break;
+        }
+        if (!hit) return true;
+        o.hw *= 0.85; o.hd *= 0.85;
+        if (Math.max(o.hw, o.hd) < SOLID_MIN) return false;
+      }
+      return false;
     }
     // せかいを つくる とき 1かいだけ: 絵の 大きさ から 接地の かたちを 出す
     function buildObstacles(world) {
@@ -895,7 +920,7 @@
         // 見た目が かたい もの: 道の 面に ねもとが なければ、ずらして のこす(縮めるのは さいご)
         const vh = (p.size || 160) * (p.struct && OCCLUDER_BOX[p.struct] ? OCCLUDER_BOX[p.struct][0] : OCCLUDER_BOX.glyph[0]);
         const sh = (p.size || 160) * (OCCLUDER_SHIFT[p.struct] || 0);
-        if (!fitOffRoad(o, world, vh, sh) || !clearCorridor(o, world, SOLID_EDGE_CLEAR, SOLID_MIN)) return null;
+        if (!fitOffRoad(o, world, vh, sh) || !clearCorridor(o, world, SOLID_EDGE_CLEAR, SOLID_MIN) || !bandClear(o, world)) return null;
         o.r = Math.max(o.hw, o.hd);
         return o;
       }
@@ -2422,8 +2447,8 @@
     const PARTY_RADIUS = RULES.bodyRadius * STAND_CLEAR;
     function partyFollowStep(world, a, tx, tz, k, dt) {
       const F = RULES.follow, dx = tx - a.x, dz = tz - a.z, d = Math.hypot(dx, dz);
-      const stuckIn = d > 0.001 && collidesAt(world, a.x, a.z, PARTY_RADIUS);
-      if (!(d > F.snap || stuckIn)) return null;
+      // めりこんで いる かは ならびの そばで とまる ときだけ しらべる(はなれて いれば どのみち あるく)
+      if (!(d > F.snap || (d > 0.001 && collidesAt(world, a.x, a.z, PARTY_RADIUS)))) return null;
       const spd = Math.max(40, Math.min(F.maxSpeed, d * FORMATION.gain)) * k, step = Math.min(d, spd * dt);
       return { x: dx / d * step, z: dz / d * step, d, len: step };
     }
@@ -2438,30 +2463,63 @@
       trail.push({ x: p.x, z: p.z });
       if (trail.length > TRAIL_MAX) { trail.shift(); for (const a of party) if (a.trail != null) a.trail = Math.max(0, a.trail - 1); }
     }
-    function clearLine(world, ax, az, bx, bz, r) {
+    // a → b を 12 ずつ しらべて、はじめて ぶつかる 点の 番号(i / n)。ぶつからなければ -1。
+    // collidesAt を 点ごとに よぶと ます目の 全員を まいかい 見る ので、線の ちかくに ある あたり だけ を さきに えらぶ(結果は おなじ)
+    const lineSeen = new Set(), lineNear = [];
+    function firstHit(world, ax, az, bx, bz, r) {
       const d = Math.hypot(bx - ax, bz - az), n = Math.ceil(d / 12);
-      for (let i = 1; i <= n; i++) if (collidesAt(world, ax + (bx - ax) * i / n, az + (bz - az) * i / n, r)) return false;
-      return true;
+      if (!n) return -1;
+      const g = world.collision;
+      lineNear.length = 0; lineSeen.clear();
+      const cands = [];
+      if (!g) cands.push(world.obstacles || EMPTY_CELL);
+      else {
+        const cx0 = Math.max(0, Math.floor((Math.min(ax, bx) - g.minX) / g.cell)), cx1 = Math.min(g.cols - 1, Math.floor((Math.max(ax, bx) - g.minX) / g.cell));
+        const cz0 = Math.max(0, Math.floor((Math.min(az, bz) - g.minZ) / g.cell)), cz1 = Math.min(g.rows - 1, Math.floor((Math.max(az, bz) - g.minZ) / g.cell));
+        for (let cz = cz0; cz <= cz1; cz++) for (let cx = cx0; cx <= cx1; cx++) { const c = g.cells[cz * g.cols + cx]; if (c) cands.push(c); }
+      }
+      const dx = bx - ax, dz = bz - az, L2 = dx * dx + dz * dz || 1;
+      const x0 = Math.min(ax, bx) - r, x1 = Math.max(ax, bx) + r, z0 = Math.min(az, bz) - r, z1 = Math.max(az, bz) + r;
+      for (const list of cands) for (let k = 0; k < list.length; k++) {
+        const o = list[k];
+        if (o.x + o.r < x0 || o.x - o.r > x1 || o.z + o.r < z0 || o.z - o.r > z1 || lineSeen.has(o)) continue;
+        lineSeen.add(o);
+        const t = Math.max(0, Math.min(1, ((o.x - ax) * dx + (o.z - az) * dz) / L2));
+        if (Math.hypot(o.x - ax - dx * t, o.z - az - dz * t) < o.r + r) lineNear.push(o);
+      }
+      if (!lineNear.length) return -1;
+      for (let i = 1; i <= n; i++) {
+        const x = ax + dx * i / n, z = az + dz * i / n;
+        for (let k = 0; k < lineNear.length; k++) if (colliderPenetration(lineNear[k], x, z, r) > 0) return i / n;
+      }
+      return -1;
     }
+    function clearLine(world, ax, az, bx, bz, r) { return firstHit(world, ax, az, bx, bz, r) < 0; }
     // ならびの ばしょ が player から まっすぐ 行けない(生け垣・木の むこう)ときは、とちゅうの 行ける ところまで ひきよせる。
     // player の いちは かならず 立てる ので、ここは かならず 行ける
     function reachFrom(world, from, t, r) {
-      const d = Math.hypot(t.x - from.x, t.z - from.z), n = Math.ceil(d / 12);
-      for (let i = 1; i <= n; i++) {
-        if (!collidesAt(world, from.x + (t.x - from.x) * i / n, from.z + (t.z - from.z) * i / n, r)) continue;
-        const f = Math.max(0, (i - 1) / n - 8 / (d || 1));
-        return { x: from.x + (t.x - from.x) * f, z: from.z + (t.z - from.z) * f, k: t.k };
-      }
-      return t;
+      const d = Math.hypot(t.x - from.x, t.z - from.z), n = Math.ceil(d / 12), hit = firstHit(world, from.x, from.z, t.x, t.z, r);
+      if (hit < 0) return t;
+      const f = Math.max(0, hit - 1 / n - 8 / (d || 1));
+      return { x: from.x + (t.x - from.x) * f, z: from.z + (t.z - from.z) * f, k: t.k };
     }
     // よこへ だけ ちぢめる: その 段の まんなか(player の まうしろ・おなじ おくゆき)から よこへ しらべる。
     // 段の まんなかへ 行けない ときだけ player から まっすぐ(おくゆきも ちぢむ)
-    function reachSlot(world, player, yaw, t) {
+    // どこまで ちぢめるか(のびちぢみの わりあい)だけ を かえす。まいかいの 形に あてなおせる ので 数 frame に 1 かい しらべれば よい
+    function reachClip(world, player, yaw, t) {
       const sx = Math.sin(yaw), sz = Math.cos(yaw), back = (t.x - player.x) * sx + (t.z - player.z) * sz;
       const mid = { x: player.x + sx * back, z: player.z + sz * back };
-      if (reachFrom(world, player, mid, PARTY_RADIUS) === mid) { const q = reachFrom(world, mid, t, PARTY_RADIUS); return q === t ? t : q; }
-      return reachFrom(world, player, t, PARTY_RADIUS);
+      const frac = (from, to) => { const q = reachFrom(world, from, to, PARTY_RADIUS); if (q === to) return 1; const d = Math.hypot(to.x - from.x, to.z - from.z) || 1; return Math.hypot(q.x - from.x, q.z - from.z) / d; };
+      if (frac(player, mid) === 1) return { side: true, f: frac(mid, t) };
+      return { side: false, f: frac(player, t) };
     }
+    function applyClip(player, yaw, t, c) {
+      if (c.f >= 1) return t;
+      const sx = Math.sin(yaw), sz = Math.cos(yaw), back = (t.x - player.x) * sx + (t.z - player.z) * sz;
+      const o = c.side ? { x: player.x + sx * back, z: player.z + sz * back } : player;
+      return { x: o.x + (t.x - o.x) * c.f, z: o.z + (t.z - o.z) * c.f, k: t.k };
+    }
+    function reachSlot(world, player, yaw, t) { return applyClip(player, yaw, t, reachClip(world, player, yaw, t)); }
     // ならびの めあて(tx, tz)→ いま むかう ところ。あしあとを たどって いる ときは その 点
     function partyGoal(world, a, trail, tx, tz, player) {
       if (a.trail == null) return { x: tx, z: tz };
@@ -2760,7 +2818,12 @@
         recordTrail(trail, player, party);
         party.forEach((a, i) => {
           // RH-7: とまって いる ときは ならびの ばしょを しょうがいぶつの そとへ ずらして から よる(あるいて いる ときは いままでどおり)
-          const t = formationPoint(a, i, slots, player.x, player.z, camera.yaw), c = reachSlot(world, player, camera.yaw, player.moving ? t : clearSlot(a, t));
+          const t = formationPoint(a, i, slots, player.x, player.z, camera.yaw), s0 = player.moving ? t : clearSlot(a, t);
+          // ちぢめる わりあいは 4 frame に 1 かい(なかまごとに ずらす)。あいだは おなじ わりあいを いまの 形に あてる
+          // player も ならびの 点も うごいて いなければ しらべなおさない
+          const cm = a.clipAt, still = cm && Math.abs(cm[0] - player.x) + Math.abs(cm[1] - player.z) + Math.abs(cm[2] - s0.x) + Math.abs(cm[3] - s0.z) < 4;
+          if (!a.clip || a.clipW !== world || ((frame + i) % 4 === 0 && !still)) { a.clip = reachClip(world, player, camera.yaw, s0); a.clipW = world; a.clipAt = [player.x, player.z, s0.x, s0.z]; }
+          const c = applyClip(player, camera.yaw, s0, a.clip);
           // あるいて いる ときも あたりを とおす(player・住人と おなじ moveWithCollision。以前は 位置を 直接 たして いた)
           const g = partyGoal(world, a, trail, c.x, c.z, player);
           const want = partyFollowStep(world, a, g.x, g.z, t.k, dt);
