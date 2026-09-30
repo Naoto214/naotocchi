@@ -14,7 +14,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output) {
     const page=await context.newPage(),errors=[];
     page.on('pageerror',error=>errors.push(error.message));
     const save=JSON.parse(JSON.stringify(fixtures.phone_dog));
-    Object.assign(save,{speciesLine:'clownfish',ageTicks:1319,stageIndex:5,
+    Object.assign(save,{speciesLine:'clownfish',ageTicks:1679,stageIndex:6,
       gender,orientationId,attractedTo:targets,clownfishFemaleReached:false,pendingClownfishTransition:null,
       partner:null,health:100,hunger:100,energy:100,happiness:100,poopCount:0,transformMeter:0});
     if (name==='gay') save.partner={...fixtures.equipped.partner,gender:'male',orientationId:'gay',attractedTo:['male'],mismatched:false};
