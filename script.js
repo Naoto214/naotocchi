@@ -9916,6 +9916,10 @@
     return Math.min(GOAL_AGE, Math.floor(state.ageTicks / AGE_TICKS_PER_YEAR));
   }
 
+  function stageMinsForLine(line) {
+    return LIFE_STAGE_RULES?.minsForLine(line) || LIFE_STAGES.map((stage) => stage.min);
+  }
+
   function stageForAge(age, line) {
     if (LIFE_STAGE_RULES) return LIFE_STAGE_RULES.stageForAge(age, line);
     for (let i = LIFE_STAGES.length - 1; i >= 0; i -= 1) {
@@ -13463,7 +13467,8 @@
     el.dexDetailOverlay.classList.toggle('rare', isRare);
     setStageVisual(el.dexDetailEmoji, stage, 'detail');
     el.dexDetailLabel.textContent = stage.label;
-    el.dexDetailMeta.textContent = `${isRare ? '✨レア' : ''}${SPECIES_DISPLAY_NAMES[line] || line} ／ ${LIFE_STAGES[stageIndex].name}(${LIFE_STAGES[stageIndex].min}さい〜)`;
+    const stageMin = stageMinsForLine(line)[stageIndex];
+    el.dexDetailMeta.textContent = `${isRare ? '✨レア' : ''}${SPECIES_DISPLAY_NAMES[line] || line} ／ 第${stageIndex + 1}段階(${stageMin}さい〜)`;
     el.dexDetailDesc.textContent = stageDesc(line, stageIndex);
     el.dexDetailTransformBtn.classList.toggle('hidden', !state.infinite);
   }
@@ -13515,8 +13520,10 @@
     let next = '';
     if (state.stage === STAGE.GROWING && state.speciesLine && SPECIES[state.speciesLine]) {
       const stages = SPECIES[state.speciesLine].stages;
-      const idx = stages.findIndex((_, i) => i > (state.stageIndex || 0) && !known.has(`${state.speciesLine}:${i}`));
-      if (idx > 0 && LIFE_STAGES[idx]) next = `今の子のつぎの姿は${LIFE_STAGES[idx].min}さい（あと${Math.max(0, LIFE_STAGES[idx].min - currentAge())}年）`;
+      const currentIndex = currentFormStageIndex();
+      const idx = stages.findIndex((_, i) => i > currentIndex && !known.has(`${state.speciesLine}:${i}`));
+      const stageMins = stageMinsForLine(state.speciesLine);
+      if (idx > 0 && Number.isFinite(stageMins[idx])) next = `今の子のつぎの姿は${stageMins[idx]}さい（あと${Math.max(0, stageMins[idx] - currentAge())}年）`;
       else if (idx < 0) next = '今の子の姿は全部見た';
     }
     const bar = (v, t, cls) => `<span class="records-bar"><span class="records-bar-fill ${cls}" style="width:${(t ? v / t * 100 : 0).toFixed(1)}%"></span></span>`;
@@ -18165,7 +18172,9 @@
       const s = JSON.parse(raw);
       if (!s || typeof s !== 'object' || !s.lifetime || typeof s.stage !== 'string') return null;
       const age = Math.max(0, Math.floor((s.ageTicks || 0) / AGE_TICKS_PER_YEAR));
-      const stage = s.stage === STAGE.EGG ? 'たまご' : s.stage === STAGE.DEAD ? 'おわり' : LIFE_STAGES[stageForAge(age, s.speciesLine)].name;
+      const stageIndex = stageForAge(age, s.speciesLine);
+      const stage = s.stage === STAGE.EGG ? 'たまご' : s.stage === STAGE.DEAD ? 'おわり'
+        : (SPECIES[s.speciesLine]?.stages?.[stageIndex]?.label || LIFE_STAGES[stageIndex]?.name || '');
       const species = s.stage === STAGE.EGG ? '' : (SPECIES_DISPLAY_NAMES[s.speciesLine] || '');
       return { species, stage, age, money: Math.max(0, Math.round(s.lifetime.money || 0)) };
     } catch (e) { return null; }
