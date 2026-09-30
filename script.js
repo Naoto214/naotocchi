@@ -14432,6 +14432,15 @@
     meguruSaveQueued = true;
     queueMicro(() => { meguruSaveQueued = false; saveState(); });
   }
+  // めぐる 3D prototype の フラグ(URL の ?meguru3d=1 だけ。セーブにも localStorage にも のこさない)。
+  // WebGL2 が つかえない 端末では はじめから 2D(forest の world も 2D の まま)
+  const MEGURU3D_ON = (() => {
+    try {
+      if (typeof location === 'undefined' || !/(?:^|[?&])meguru3d=1(?:&|$)/.test(String(location.search || '').replace(/^\?/, ''))) return false;
+      const c = document.createElement('canvas');
+      return !!(c.getContext && c.getContext('webgl2'));
+    } catch (_) { return false; }
+  })();
   const meguruBridge = {
     clamp, lerp, escapeHtml, sfx: (name) => audio.play(name), createMgCanvas, createTouchPad, createPadRow,
     getState: () => state,
@@ -14471,6 +14480,8 @@
     isAuthorUnlocked: () => isAuthorUnlocked(),
     authorAsset: WORLD_MASTER?.playerSpecies?.author?.asset || null,
     perfTier: () => mgPerfTier,
+    // 3D prototype(forest だけ)。?meguru3d=1 と WebGL2 が そろった ときだけ。セーブには のこさない
+    meguru3d: MEGURU3D_ON,
     onExit: () => stopMeguru(),
     // めぐるの なかから「たび」を ひらく。openExclusiveMenu は めぐる中だと
     // はじかれる(それが「おしても 何も おきない」の げんいん)ので、
@@ -14558,6 +14569,14 @@
   };
   // めぐるの がわへ わたす まど口。テストからも この まま しらべられる ように 名まえを つける
   const meguruMod = typeof installNaotocchiMeguru === 'function' ? installNaotocchiMeguru(meguruBridge) : null;
+  // 3D prototype の レンダラーは フラグの ある ときだけ あとから よみこむ(2D の ひとは 1 バイトも ふえない)。
+  // よみこめなければ ずっと 2D(forest の world は 3D モードの まま = 見た目と あたりは そろって いる)
+  let meguru3dRenderer = null;
+  if (MEGURU3D_ON && meguruMod) {
+    const src = document.getElementById('meguru3dModule')?.dataset.src;
+    if (src) import('./' + src).then((m) => { meguru3dRenderer = m.createMeguru3D(meguruMod, { onFallback: (err) => console.warn('meguru 3D → 2D', err && err.message) }); })
+      .catch((err) => console.warn('meguru 3D module', err && err.message));
+  }
   function meguruStats() {
     const m = state.lifetime.meguru || (state.lifetime.meguru = { visits: 0, talkCount: 0, met: {}, talks: {} });
     if (!m.met || typeof m.met !== 'object') m.met = {};
@@ -14587,7 +14606,7 @@
     el.meguruOverlay.classList.remove('hidden');
     el.meguruOverlay.innerHTML = '';
     meguruStats().visits += 1;
-    meguruRun = meguruMod.start(el.meguruOverlay);
+    meguruRun = meguruMod.start(el.meguruOverlay, meguru3dRenderer ? { renderer: meguru3dRenderer } : undefined);
     // 実機の しらべ もの(Playwright)から めぐるの なかを さわる ための まど。
     // ゲームの うごきには つかわない
     globalThis.__meguruRun = meguruRun;

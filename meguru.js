@@ -928,6 +928,148 @@
       o.r = Math.max(o.hw, o.hd); // かこみ円(ます目わけ と ざっくり しらべ に つかう)
       return o;
     }
+
+    // ================= 3D prototype の せかいがわ(forest だけ・?meguru3d=1 の ときだけ) =================
+    // 2D の world・見た目・あたりは かえない(world3dOn が false なら ここは 1 つも はしらない)。
+    // 3D では「見えて いる かたい 物 = あたりの ある 物」に する ため、道の うえで あたりを 外された かたい 物を
+    // 見た目と あたりを 一体の まま 道の そとへ うごかす。約 1.5 × 大きさ(絵の はば)の なかに おける 場所が なければ 3D では おかない
+    const WORLD3D_REGIONS = new Set(['forest']);
+    const RELOCATE3D_REACH = 1.5;
+    const world3dOn = (regionId, opts) => (opts && opts.world3d != null ? !!opts.world3d : !!S.meguru3d && WORLD3D_REGIONS.has(regionId));
+    function propVisualHalf(p) { return (p.size || 160) * (p.struct && OCCLUDER_BOX[p.struct] ? OCCLUDER_BOX[p.struct][0] : OCCLUDER_BOX.glyph[0]); }
+    function solidLookingProp(p) { const c = colliderOf(p); return !!c && solidLooking({ kind: c.kind, role: COLLIDER_ROLE[c.kind] || 'solid' }); }
+    // 道の 通行帯(half + clear)と spot の まんなかから はなれて いるか(かるい しらべ)
+    function farFromRoads(world, x, z, clear) {
+      for (const sg of world.segments || []) {
+        const dx = sg.b.x - sg.a.x, dz = sg.b.z - sg.a.z, L2 = dx * dx + dz * dz || 1, t = clamp(((x - sg.a.x) * dx + (z - sg.a.z) * dz) / L2, 0, 1);
+        if (Math.hypot(x - sg.a.x - dx * t, z - sg.a.z - dz * t) < sg.half + clear) return false;
+      }
+      for (const sp of world.spots || []) if (Math.hypot(x - sp.x, z - sp.z) < SPOT_CLEAR + clear) return false;
+      return true;
+    }
+    // ほかの 物の みきと ほぼ おなじ ところ(中心が あたりの 半分 より ちかい)には おかない。はしが ふれるのは よい(森は みっしり)
+    function trunkAt(probe, placed, x, z, r) {
+      for (const q of collidersAt(probe, x, z)) if (Math.hypot(q.x - x, q.z - z) < (q.r + r) * 0.5) return true;
+      for (const q of placed) if (Math.hypot(q.x - x, q.z - z) < (q.r + r) * 0.5) return true;
+      return false;
+    }
+    // くぎり(yield)つき。corridor の まえもって 組む(buildWorldSteps)を 1 frame で とめない
+    function* relocateRoadSolids3dSteps(world) {
+      const stats = { candidates: 0, solidified: {}, moved: {}, dropped: {}, moves: [] };
+      // ながめの かざり(spot の view)の 岩・木は 2D では あたりが ない。3D では かたい 物 として あつかう
+      for (const p of world.props) {
+        if (p.solid || !p.view || !SOLID3D_TYPES.has(objectType3d(p))) continue;
+        p.solid = true; const k = p.struct || p.emoji; stats.solidified[k] = (stats.solidified[k] || 0) + 1;
+      }
+      // 2D では 見た目だけ あって あたりが ない かたい 物(ランドマークの 大きな木・たき も 3D では かたい)が 候補。
+      // のこりの 物の あたりは うごかす さきが ほかの みきの 上に ならない ための もの
+      const cands = [], fixed = [];
+      for (let i = 0; i < world.props.length; i++) {
+        const p = world.props[i], o = obstacleOf(p, world, i);
+        if (o) fixed.push(o);
+        else if (solidLookingProp(p) || (p.landmark && colliderOf(p))) cands.push(p);
+        if (i % 200 === 199) yield;
+      }
+      stats.candidates = cands.length;
+      const probe = { obstacles: fixed, collision: buildCollisionGrid(fixed) };
+      const placed = [];
+      const lo = world.minX != null ? world.minX : -world.halfW, hi = world.maxX != null ? world.maxX : world.halfW;
+      for (let ci = 0; ci < cands.length; ci++) {
+        if (ci > 0) yield;
+        const p = cands[ci];
+        const kind = p.struct || p.emoji, full = colliderOf(p), fr = Math.max(full.hw, full.hd), limit = RELOCATE3D_REACH * 2 * propVisualHalf(p);
+        let best = null;
+        for (let a = 0; a < 16; a++) {
+          const ux = Math.sin(a * Math.PI / 8), uz = Math.cos(a * Math.PI / 8);
+          for (let d = 12; d <= limit && (!best || d < best.d); d += 12) {
+            const x = p.x + ux * d, z = p.z + uz * d;
+            // さきに かるい しらべ(道の 通行帯・spot・世界の はし・ほかの みきの 上)。とおった 点だけ obstacleOf で たしかめる
+            if (x - fr < lo + 20 || x + fr > hi - 20 || z - fr < 80 || z + fr > world.len - 80) continue;
+            if (!farFromRoads(world, x, z, fr + SOLID_EDGE_CLEAR) || trunkAt(probe, placed, x, z, fr)) continue;
+            const o = obstacleOf(Object.assign({}, p, { x, z }), world, null);
+            if (!o || Math.max(o.hw, o.hd) < fr * 0.9 || Math.hypot(o.x - x, o.z - z) > 4) continue;
+            best = { d, x, z, o };
+            break;
+          }
+        }
+        if (best) {
+          stats.moves.push({ kind, d: Math.round(best.d) });
+          stats.moved[kind] = (stats.moved[kind] || 0) + 1;
+          p.x = best.x; p.z = best.z; p.moved3d = true;
+          placed.push(best.o);
+        } else { stats.dropped[kind] = (stats.dropped[kind] || 0) + 1; p.drop3d = true; }
+      }
+      world.props = world.props.filter((p) => !p.drop3d);
+      world.world3d = stats;
+      return stats;
+    }
+    function relocateRoadSolids3d(world) { const it = relocateRoadSolids3dSteps(world); let r = it.next(); while (!r.done) r = it.next(); return r.value; }
+    // world object(3D の 最小の かたち)。forest の props + あたり(#360 の o.pi)から 作る adapter。
+    // かたい 物の 見た目は あたりから つくる(みき の 太さ = あたりの 半径、岩の 大きさ = あたりの 大きさ)。
+    // あたまより 下(OBJ3D_HEAD)で あたりより 太い 見た目は つくらない(見えない かべ も 見える のに とおれる 物 も ない)
+    const OBJ3D_HEAD = 125;
+    const OBJ3D_TYPE = { '🌲': 'conifer', '🌳': 'broadleaf', mistwood: 'broadleaf', riverwood: 'broadleaf', parktree: 'broadleaf', bluetree: 'broadleaf',
+      bigtrunk: 'bigtree', bigrock: 'rock', '🪨': 'rock', ledgerock: 'rock', stonestack: 'rock', cairn: 'rock', riverrock: 'rock',
+      log: 'log', driftwood: 'log', stump: 'stump', springpool: 'water', woodbridge: 'bridge', branch: 'skip' };
+    const OBJ3D_BILLBOARD = { fern: '🌿', mushroomcluster: '🍄', mushroomgrove: '🍄', glowglade: '✨', oldpost: '🪧' };
+    const WALKABLE3D = new Set(['billboard', 'water', 'bridge', 'pebble']);
+    const SOLID3D_TYPES = new Set(['conifer', 'broadleaf', 'bigtree', 'rock', 'log', 'stump', 'mushroom', 'waterfall']);   // あたりが なくて よい(ふんで とおれる / ひらたい / 草花)
+    function objectType3d(p) {
+      if (p.landmark === 'bigtree') return 'bigtree';
+      if (p.landmark === 'glowmushroom') return 'mushroom';
+      if (p.landmark === 'waterfall') return 'waterfall';
+      const k = p.struct || p.emoji;
+      if (k === '🪨' && !p.solid) return 'pebble';   // 2D でも あたりの ない 小石(道ばた)は ひらたい 石(ふんで とおれる)
+      if (OBJ3D_TYPE[k]) return OBJ3D_TYPE[k];
+      if (p.struct && !OBJ3D_BILLBOARD[p.struct]) return 'skip';
+      return p.emoji || OBJ3D_BILLBOARD[p.struct] ? 'billboard' : 'skip';
+    }
+    function parts3d(type, o, H, halfW, size) {
+      const r = o ? Math.max(o.hw, o.hd) : halfW * 0.3;
+      const below = (rad, y) => (y < OBJ3D_HEAD ? Math.min(rad, r + 10) : rad);   // あたまより 下は あたり + 10 まで
+      switch (type) {
+        case 'conifer': {
+          const out = [{ shape: 'trunk', r: r * 0.5, h: H * 0.3, y: 0 }];
+          for (let i = 0; i < 3; i++) { const y = H * (0.16 + 0.24 * i); out.push({ shape: 'cone', r: below(halfW * (1.05 - 0.24 * i), y), h: H * 0.42, y }); }
+          return out;
+        }
+        case 'broadleaf': {
+          const R = halfW * 0.95, cy = Math.max(H - R * 0.8, OBJ3D_HEAD + R * 0.8);
+          return [{ shape: 'trunk', r: r * 0.7, h: cy, y: 0 }, { shape: 'crown', r: R, sy: 0.8, y: cy }];
+        }
+        case 'bigtree': {
+          const top = Math.max(H, OBJ3D_HEAD * 3), R = Math.max(size * 0.42, r * 2.4);
+          return [{ shape: 'trunk', r, h: top, y: 0, taper: 0.6 }, { shape: 'crown', r: R, sy: 0.7, y: top + R * 0.3 }, { shape: 'crown', r: R * 0.75, sy: 0.7, y: top - R * 0.1, dx: R * 0.6 }, { shape: 'crown', r: R * 0.7, sy: 0.7, y: top, dx: -R * 0.55, dz: R * 0.3 }];
+        }
+        case 'mushroom': return [{ shape: 'trunk', r, h: size * 0.5, y: 0, taper: 1 }, { shape: 'cap', r: Math.max(r * 2.2, size * 0.3), sy: 0.55, y: size * 0.5 }];
+        case 'waterfall': return [{ shape: 'cliff', rx: r, rz: r, h: size * 0.6, y: 0 }, { shape: 'fall', w: r * 1.3, h: size * 0.58, y: 0, dz: -r - 2 }];   // がけの 足もと = あたり
+        case 'rock': return [{ shape: 'rock', rx: o ? o.hw : r, rz: o ? o.hd : r, h: Math.min(H, (o ? Math.max(o.hw, o.hd) : r) * 1.1), y: 0 }];
+        case 'log': return [{ shape: 'log', len: o ? o.hw * 2 : halfW * 2, r: o ? Math.min(o.hd, 34) : 20, y: 0 }];
+        case 'stump': return [{ shape: 'stump', r, h: Math.min(size * 0.35, 60), y: 0 }];
+        case 'water': return [{ shape: 'pool', r: halfW, y: 0 }];
+        case 'pebble': return [{ shape: 'rock', rx: halfW * 0.6, rz: halfW * 0.45, h: Math.min(14, halfW * 0.25), y: 0 }];
+        case 'bridge': return [{ shape: 'plank', len: size * 0.9, w: size * 0.3, y: 0 }];
+        default: return [{ shape: 'billboard', w: size * 1.3, h: size * 1.25, y: 0 }];
+      }
+    }
+    function worldObjects3d(world) {
+      const byPi = new Map();
+      for (const o of world.obstacles || []) if (o.pi != null) byPi.set(o.pi, o);
+      const out = [], skipped = {}, unresolved = [];
+      world.props.forEach((p, i) => {
+        const type = objectType3d(p), kind = p.landmark ? 'LM:' + p.landmark : p.struct || p.emoji;
+        if (type === 'skip') { skipped[kind] = (skipped[kind] || 0) + 1; return; }
+        const o = byPi.get(i) || null;
+        const solid = !!o && o.role === 'solid';
+        if (!o && !WALKABLE3D.has(type)) { unresolved.push(kind); return; }   // かたい 見た目で あたりが ない 物は おかない
+        const size = p.size || 160, box = (p.struct && OCCLUDER_BOX[p.struct]) || (p.landmark ? OCCLUDER_BOX.landmark : OCCLUDER_BOX.glyph);
+        const H = size * box[1], halfW = size * box[0];
+        out.push({ id: world.regionId + ':' + i, pi: i, type, kind, region: world.regionId, layer: p.layer || null, role: o ? o.role : null,
+          x: o ? o.x : p.x, z: o ? o.z : p.z, rot: o ? o.ang || 0 : p.ang || 0, height: H, halfW, size, emoji: type === 'billboard' ? (p.emoji || OBJ3D_BILLBOARD[p.struct]) : null,
+          solid, walkable: !o, collision: o ? { shape: o.shape, x: o.x, z: o.z, hw: o.hw, hd: o.hd, ang: o.ang || 0 } : null, moved3d: !!p.moved3d, parts: parts3d(type, o, H, halfW, size) });
+      });
+      return { objects: out, skipped, unresolved };
+    }
     // ます目(spatial grid)。まわりの ます目 1つ だけ 見れば よい ように、
     // 入れる ときに からだの 大きさ ぶん ひろげて おく。
     // せかいが ひろく なっても 1フレームの しごとは ふえない
@@ -1601,6 +1743,8 @@
         world.residents.push(makeActor(registry.naoto, { x: spot.x, z: spot.z, spot, fixed: true, heading: Math.PI }));
       }
       yield;
+      // 3D prototype(forest・?meguru3d=1 だけ): 道の うえの かたい 物を 見た目ごと 道の そとへ(2D では はしらない)
+      if (world3dOn(regionId, opts)) { yield* relocateRoadSolids3dSteps(world); yield; }
       // あたりはんてい: 「絵の 四角」では なく 地面に ついて いる ところ(COLLIDER)。
       // みちの 通行帯に 食いこむ ものは 自動で 縮める/外す ので、道は ぜったいに ふさがらない
       { const obs = []; for (let i = 0; i < world.props.length; i++) { const o = obstacleOf(world.props[i], world, i); if (o) obs.push(o); if (i % 120 === 119) yield; } world.obstacles = obs; }
@@ -2741,7 +2885,7 @@
       let lifeDebug = false;
       function enterRegion(regionId, opts = {}) {
         if (opts.registry) registry = opts.registry;
-        world = buildWorld(regionId, registry, { locality: opts.locality != null ? opts.locality : init.locality });
+        world = buildWorld(regionId, registry, { locality: opts.locality != null ? opts.locality : init.locality, world3d: init.world3d });   // world3d: テストだけ(ふだんは フラグ)
         party = companionsOf(registry);
         // となりから 入って きた ときは、その connection の 入口 spot から はじめる。
         // 「たび」や はじめて ひらいた ときは これまでどおり world.entry
@@ -6170,7 +6314,7 @@
     function corridorWorldKey(regionId, registry, opts) {
       const e = env(), day = typeof S.dailyKey === 'function' ? S.dailyKey() : '';
       const loc = opts && opts.locality ? opts.locality.profileId || opts.locality.name || '' : '';
-      return JSON.stringify([regionId, loc, e.time, e.weather, e.season, day, registry ? registry.residents : null, registry ? registry.naoto : null]);
+      return JSON.stringify([regionId, loc, e.time, e.weather, e.season, day, registry ? registry.residents : null, registry ? registry.naoto : null, world3dOn(regionId, opts)]);
     }
     function offerCorridorWorld(regionId, registry, opts, world, key) { corridorHandoff = { regionId, key: key || corridorWorldKey(regionId, registry, opts), world }; CORRIDOR_HANDOFF_STATS.offers++; }
     function dropCorridorWorld() { if (corridorHandoff) CORRIDOR_HANDOFF_STATS.drops++; corridorHandoff = null; }
@@ -8707,6 +8851,8 @@
       return { stop, layoutInfo, foundInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; }, get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, EMOJI_VARY, emojiVary, RIVERMIST_STOPS, NIGHT_LIFT, LEAF_NIGHT, HORIZON_HAZE, LANDMARK_NEAR, landmarkNearAlpha, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_SHIFT, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK, WORLD_THEME, WORLD_MOTION, WORLD_SPACE, REGION_LINE, SKY_OVERRIDE, GEO_AREA, GEO_ASPECT };
+    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, EMOJI_VARY, emojiVary, RIVERMIST_STOPS, NIGHT_LIFT, LEAF_NIGHT, HORIZON_HAZE, LANDMARK_NEAR, landmarkNearAlpha, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_SHIFT, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK, WORLD_THEME, WORLD_MOTION, WORLD_SPACE, REGION_LINE, SKY_OVERRIDE, GEO_AREA, GEO_ASPECT,
+      // 3D prototype(meguru-3d.mjs が つかう。2D では つかわない)
+      WORLD3D_REGIONS, world3dOn, relocateRoadSolids3d, worldObjects3d, objectType3d, OBJ3D_HEAD, ACTOR_SIZE, glyphSprite, imageFor, TIME_LIGHT, WEATHER_LIGHT, VERBS };
   };
 })();

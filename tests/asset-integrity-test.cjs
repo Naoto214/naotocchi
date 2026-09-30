@@ -34,10 +34,11 @@ function checkRefs(refs, files) {
 function checkTokens(html, hashOf) {
   const missingToken = [], stale = [];
   let checked = 0;
-  for (const [tag] of html.matchAll(/<(?:script|link)\b[^>]*>/g)) {
-    const isScript = /^<script/.test(tag);
-    if (!isScript && !/\brel="stylesheet"/.test(tag)) continue;
-    const url = (tag.match(isScript ? /\bsrc="([^"]+)"/ : /\bhref="([^"]+)"/) || [])[1];
+  // <template data-src> は あとから import() する module(めぐる 3D prototype)。おなじ token の きまり
+  for (const [tag] of html.matchAll(/<(?:script|link|template)\b[^>]*>/g)) {
+    const isScript = /^<script/.test(tag), isLazy = /^<template/.test(tag);
+    if (isLazy ? !/\bdata-src="/.test(tag) : !isScript && !/\brel="stylesheet"/.test(tag)) continue;
+    const url = (tag.match(isLazy ? /\bdata-src="([^"]+)"/ : isScript ? /\bsrc="([^"]+)"/ : /\bhref="([^"]+)"/) || [])[1];
     if (!url || /^(?:https?:)?\/\//.test(url)) continue;
     checked++;
     const [file, query = ''] = url.split('?');
@@ -109,6 +110,9 @@ test('the checks catch a missing file, a case mismatch, a stale token, a missing
   assert.deepEqual(checkTokens('<link rel="stylesheet" href="app.css">', hashOf).missingToken, ['app.css']);
   assert.deepEqual(checkTokens('<script src="app.js?v=1"></script>', hashOf).stale.map((s) => s.file), ['app.js'], 'a token without the hash part is stale');
   assert.deepEqual(checkTokens('<script src="gone.js?v=20260101-aaaaaaaa"></script>', hashOf).stale.map((s) => s.file), ['gone.js']);
+  // あとから import() する module(<template data-src>)も おなじ きまり
+  assert.deepEqual(checkTokens('<template id="m" data-src="app.js?v=20260101-cccccccc"></template>', hashOf).stale.map((s) => s.file), ['app.js']);
+  assert.deepEqual(checkTokens('<template id="m" data-src="app.js"></template>', hashOf).missingToken, ['app.js']);
   assert.deepEqual(missingPaths(['assets/characters/dog/09.png', 'assets/a/dog.png'], files), ['assets/characters/dog/09.png']);
 });
 
