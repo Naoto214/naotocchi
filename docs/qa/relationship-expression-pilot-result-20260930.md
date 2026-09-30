@@ -8,7 +8,7 @@
 - 画像単体QA: **8/8 GREEN**（AIによる比較確認。人間最終承認ではない）
 - 専用resolver / runtimeテスト: **14 PASS / 0 FAIL**
 - asset検証: **8 PASS / 0 FAIL**
-- 全npm回帰: 実行中。完了扱いにしない。
+- 全npm回帰: **2,802 PASS / 0 FAIL**（既存suite 2,788 + 専用14、終了コード0）
 - actual Home / 既存Homeブラウザー回帰: **未完了**
 - forest_bear / rock_octopus本人の実Home: **必須・未完了**
 - pilot全体: **未GREEN、人間最終目視承認待ちへもまだ移行しない**
@@ -63,7 +63,7 @@ built-in image_genを使用し、各normalを編集対象として各2枚生成�
 
 runtime harnessはDOM/clock代替であり、実ブラウザーの配置・見え方を検証したという意味ではない。
 
-初回全npm実行では新規JSをgit indexへ登録前だったため、`asset-integrity-test.cjs` のtoken検証2件が失敗。検証はgit ls-filesを基準にするため未追跡ファイルのhashをnullとして扱った。新規ファイル登録後、asset検証8/8通過。初回全体runを中止し、最終状態で全npmを取り直している。
+初回全npm実行では新規JSをgit indexへ登録前だったため、`asset-integrity-test.cjs` のtoken検証2件が失敗。検証はgit ls-filesを基準にするため未追跡ファイルのhashをnullとして扱った。新規ファイル登録後、asset検証8/8通過。初回全体runを中止し、最終状態で全npmを取り直した。`npm test` は既存suite 2,788 PASS / 0 FAIL（881,469ms）、専用suite 14 PASS / 0 FAIL（2,384ms）、終了コード0。キャンセル・skip・todoはいずれも0。通常31系統を含む既存runtime回帰の失敗0。実Homeブラウザー回帰は別ゲートとして未完了。
 
 独立コードレビュー: Critical 0 / Important 0。minorとして、新規恋人成立・仲直り・結婚・デートの各UI経路を個別に通る追加テストは未実施（接続はコード確認、共通reinforceRelationship経路は実行確認）。誤解を避けテスト名はshared court reinforcementへ修正。現時点では追加テストを保留し、実Homeゲートで通常求愛も確認する。
 
