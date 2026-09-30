@@ -150,6 +150,9 @@ test('7. レンダラー: WebGL が ない ところでは すぐ 2D(こわれ�
   const r2 = mod.createMeguru3D(fakeM)({ canvas: {}, W: 300, H: 500 });
   r2.draw(Object.assign({}, view, { world: w2 }), 0);
   assert.equal(r2.failed, false, '2D の world では 3D を ためさない');
+  r2.draw(Object.assign({}, view, { world: Object.assign({}, w3, { corridor: 'home|forest' }) }), 0);
+  assert.equal(r2.failed, false, 'corridor の world は 2D のまま(3D を ためさない)');
+  assert.equal(r2.is3D, false);
 });
 
 test('8. フラグは URL だけ・セーブに のこさない。Three.js は version 固定で repo の なか。ふだんは よみこまない', () => {
