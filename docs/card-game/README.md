@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [404](404-new-seed-mixed-replay.md) | Aの4ターンを36 eventで保存。C-chicken＋コインの2連鎖を既存142/154/155/196で検証。B交換（先手AはR9、先手BはR10）へ |
+
 | [403](403-new-seed-mixed-replay.md) | Bの4ターンを31 eventで保存。C-chameleon無料配置の全合法候補・安全条件・有料比較を検証。全経路R9のA交換へ |
 
 | [402](402-new-seed-mixed-replay.md) | Aの4ターンの交換・開始時応答/連鎖・通常pass・六段階終了・Bドローを30 eventで保存 |
