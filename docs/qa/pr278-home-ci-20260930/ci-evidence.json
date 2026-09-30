@@ -1,0 +1,51 @@
+{
+  "canonicalHead": "a34661525fef83852d6925c2941ba199b8779ac6",
+  "canonicalTree": "5eb222e80a15b49db93524176246ca2af4d20ce3",
+  "main": "05b31dfd4c2c2ebecc5890ffc2a23efbcfd1d032",
+  "diagnostic": {
+    "run": 36659988776,
+    "commit": "30dec206b103c8718fb7496430902e2452ae5b2b",
+    "conclusion": "success",
+    "passLines": 214,
+    "failLines": 0
+  },
+  "control": {
+    "run": 36644035334,
+    "attempt": 2,
+    "job": 109713255248,
+    "conclusion": "success",
+    "passLines": 214,
+    "failLines": 0
+  },
+  "runtime": {
+    "run": 36644035343,
+    "conclusion": "success",
+    "tests": 2780,
+    "pass": 2780,
+    "fail": 0,
+    "skip": 0
+  },
+  "rootCause": "unresolved; failures did not reproduce",
+  "productChanges": 0,
+  "imagesChanged": 0,
+  "pr": {
+    "draft": true,
+    "state": "open",
+    "merged": false,
+    "mergeable": true,
+    "mergeableState": "clean"
+  },
+  "priorFailures": [
+    {
+      "run": 36641517795,
+      "case": "chromium-landscape-safe-area",
+      "error": "route.fetch ECONNRESET"
+    },
+    {
+      "run": 36644035334,
+      "attempt": 1,
+      "case": "chromium-phone-badges-safe-area",
+      "error": "route.fetch ECONNRESET"
+    }
+  ]
+}
