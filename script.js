@@ -8864,7 +8864,7 @@
   }
 
   function startRelationshipPositive(kind, entity) {
-    if (RELATIONSHIP_EXPRESSION?.PILOT[kind]?.includes(relationshipId(kind,entity))) relationshipReactions.start(entity);
+    if (RELATIONSHIP_EXPRESSION?.SUPPORTED[kind]?.includes(relationshipId(kind,entity))) relationshipReactions.start(entity);
   }
 
   function companionVisualHTML(companion, size = 'thumb') {

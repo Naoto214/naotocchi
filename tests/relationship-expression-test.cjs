@@ -3,11 +3,11 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const file='relationship-expression.js';
 function moduleUnderTest(){assert.ok(fs.existsSync(file),'Relationship resolver must exist after image GREEN');return require('../'+file);}
-test('pilot resolver prioritizes positive, then lonely below 30, then normal without mutating input',()=>{
+test('full resolver prioritizes positive, then lonely below 30, then normal without mutating input',()=>{
  const R=moduleUnderTest();
- for(const [kind,id] of [['companion','otter'],['companion','clock'],['partner','forest_bear'],['partner','rock_octopus']]){
+ for(const [kind,id] of Object.entries(R.SUPPORTED).flatMap(([kind,ids])=>ids.map(id=>[kind,id]))){
   const normal=`normal/${id}.png`;
-  for(const [value,positive,state] of [[50,false,'normal'],[20,false,'lonely'],[29.99,false,'lonely'],[30,false,'normal'],[20,true,'positive'],[50,true,'positive'],[undefined,false,'normal']]){
+  for(const [value,positive,state] of [[50,false,'normal'],[20,false,'lonely'],[29,false,'lonely'],[29.999,false,'lonely'],[31,false,'normal'],[30,false,'normal'],[20,true,'positive'],[50,true,'positive'],[undefined,false,'normal']]){
    const r=R.resolve({kind,id,value,positive,normal});assert.equal(r.expression,state);assert.equal(r.asset,state==='normal'?normal:`assets/characters/relationship/${id}/${state}.png`);
   }
  }
@@ -30,8 +30,8 @@ test('temporary reaction expiry, refresh, object identity and JSON non-persisten
  now=100;reactions.start(a);assert.equal(timers.size,1);now=100+R.REACTION_MS;assert.equal(reactions.active(a),false);[...timers.values()][0]();assert.equal(changed,1);
  const fresh=R.createReactions();assert.equal(fresh.active(a),false);
 });
-test('every registered pilot image is a new 128px transparent PNG',()=>{
- const R=moduleUnderTest();for(const [kind,ids] of Object.entries(R.PILOT))for(const id of ids)for(const expression of ['positive','lonely']){
+test('every registered relationship image is a new 128px transparent PNG',()=>{
+ const R=moduleUnderTest();for(const [kind,ids] of Object.entries(R.SUPPORTED))for(const id of ids)for(const expression of ['positive','lonely']){
   const b=fs.readFileSync(R.resolve({kind,id,value:expression==='lonely'?20:50,positive:expression==='positive',normal:'base'}).asset);
   assert.equal(b.readUInt32BE(16),128);assert.equal(b.readUInt32BE(20),128);assert.equal(b[25],6);
  }

@@ -41,13 +41,17 @@ async function measure(page){
        await page.screenshot({path:path.join(output,`${label}-${phase}.png`)});results.push({label,phase,...m});return m;
       }
       const initial=await capture('initial');
-      for(const target of ['otter','clock',id])assert.ok(initial.actors.some(a=>a.src.includes(value<30?`relationship/${target}/lonely.png`:`/${target}.png`)),label+': initial '+target);
+      const ids=save.companions.map(c=>c.id);
+      assert.equal(initial.actors.length,ids.length+1,label+': cast count');
+      for(const target of [...ids,id])assert.ok(initial.actors.some(a=>a.src.includes(value<30?`relationship/${target}/lonely.png`:`/${target}.png`)),label+': initial '+target);
       await page.locator('#playWithBtn').click();await page.clock.runFor(1);const playful=await capture('play-positive');
-      const positives=playful.actors.filter(a=>/relationship\/(otter|clock)\/positive.png/.test(a.src)).length;
-      assert.equal(value<30?positives===2:density==='pair'?positives===1:positives<=1,true,label+': companion reactions');
-      await page.clock.runFor(2501);const ended=await capture('play-ended');assert.ok(!ended.actors.some(a=>/relationship\/(otter|clock)\/positive.png/.test(a.src)));
+      const positives=playful.actors.filter(a=>ids.some(cid=>a.src.includes(`relationship/${cid}/positive.png`))).length;
+      assert.equal(positives,value<30?ids.length:1,label+': all rescues or one representative');
+      await page.clock.runFor(2501);const ended=await capture('play-ended');
+      for(const target of ids)assert.ok(ended.actors.some(a=>a.src.includes(`companions/${target}.png`)),label+': rescue settles normal '+target);
       await page.locator('#courtBtn').click();await page.clock.runFor(1);const courted=await capture('court-positive');assert.ok(courted.actors.some(a=>a.src.includes(`relationship/${id}/positive.png`)));
       await page.clock.runFor(2501);const settled=await capture('court-ended');assert.ok(!settled.actors.some(a=>a.src.includes('/positive.png')));
+      assert.ok(settled.actors.some(a=>a.src.includes(`partners/${id}.png`)),label+': court settles normal');
       // Reload resolution is covered by the runtime save test.
       const raw=await page.evaluate(()=>localStorage.getItem('naotocchi-save-v1'));assert.doesNotMatch(raw,/relationshipExpression|reactionUntil/);
      }catch(e){failures.push({label,error:String(e)});}finally{await page.close();}

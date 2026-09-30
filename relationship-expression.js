@@ -1,13 +1,17 @@
 (function(root) {
   'use strict';
-  // Extend only this allowlist when a later image batch is approved.
-  const PILOT = Object.freeze({companion:Object.freeze(['otter','clock']),partner:Object.freeze(['forest_bear','rock_octopus'])});
+  // Add an existing character ID here only when both relationship assets exist.
+  // The runtime catalogs and asset completeness tests guard this explicit registry.
+  const SUPPORTED = Object.freeze({
+    companion: Object.freeze(["cat_friend","rabbit_friend","tanuki","squirrel","owl","otter","hamster","panda","monkey","parrot","sheep","seal","bat","chicken","penguin_friend","hedgehog","shiba","snail","punyu","sekizou","chameleon","clock","unicorn","many_tail_fox","watcher","box"]),
+    partner: Object.freeze(["cat_ceo","robot_neighbor","field_cow","sunflower_partner","forest_bear","grove_deer","cliff_goat","high_eagle","snow_spirit","snowman","rock_octopus","sea_mermaid","anglerfish","swamp_croc","gentle_gorilla","knitting_spider","desert_scorpion","oasis_cactus"])
+  });
   const REACTION_MS = 2500;
   function resolve({kind,id,value,positive=false,normal}) {
-    const expression = !PILOT[kind]?.includes(id) ? 'normal' : positive ? 'positive' : (value ?? 100) < 30 ? 'lonely' : 'normal';
+    const expression = !SUPPORTED[kind]?.includes(id) ? 'normal' : positive ? 'positive' : (value ?? 100) < 30 ? 'lonely' : 'normal';
     return {expression,asset:expression === 'normal' ? normal : `assets/characters/relationship/${id}/${expression}.png`};
   }
-  // Sample from the whole recruited group, not only the illustrated pilot.
+  // One representative from the whole group, plus every threshold rescue.
   function companionPositiveIds(before,after,random=Math.random) {
     if (!after.length) return [];
     const ids = new Set([after[Math.min(after.length-1,Math.max(0,Math.floor(random()*after.length)))].id]);
@@ -33,7 +37,7 @@
       },
     };
   }
-  const api={PILOT,REACTION_MS,resolve,companionPositiveIds,createReactions};
+  const api={SUPPORTED,REACTION_MS,resolve,companionPositiveIds,createReactions};
   if (typeof module==='object' && module.exports) module.exports=api;
   else root.NaotocchiRelationshipExpression=api;
 })(typeof window!=='undefined'?window:globalThis);
