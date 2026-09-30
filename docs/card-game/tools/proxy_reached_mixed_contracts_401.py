@@ -230,7 +230,10 @@ def extend_end_proof(row,baseline,history,audit_handler=None):
         observed={a:shot['game_state']['players'][a]['growth'] for a in 'AB'}
         delta={a:observed[a]-growth[-1]['growth'][a] for a in 'AB'}
         if any(delta.values()) or shot['continuation_state']['pending_triggers']:raise ValueError('reached history growth/trigger requires separate proof')
-        events.append({'seq':event['seq'],'action_type':event['action_type'],'source_reference':refs[event['action_type']],'growth_delta':delta});growth.append({'event_seq':event['seq'],'growth':observed})
+        reference=refs[event['action_type']]
+        if event['action_type']=='resolve_event' and shot['game_state']['cards'].get(event.get('source_instance_id'),{}).get('card_id')=='E-final-time':
+            reference='91-event-21-card-text-draft.md#E-final-time'
+        events.append({'seq':event['seq'],'action_type':event['action_type'],'source_reference':reference,'growth_delta':delta});growth.append({'event_seq':event['seq'],'growth':observed})
         seq,g,c=event['seq'],shot['game_state_sha256'],shot['continuation_state_sha256']
     if (seq,g,c)!=(row['last_valid_event_seq'],row['final_game_state_sha256'],row['final_continuation_state_sha256']):raise ValueError('reached history boundary differs')
     proof={'classified_events':events,'growth_trace':growth,'growth_reach_100':[],'active_expiring_effects':[],'unresolved_codes':[],'source_event_seq':seq}

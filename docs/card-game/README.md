@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [406](406-new-seed-mixed-replay.md) | 既存の対象付き候補・合法性・選択・解決契約で停止2経路を再開。17 event/snapshot、4経路ともR10のA交換へ。completed0、独立balance0 |
+
 | [405](405-new-seed-mixed-replay.md) | B側20 event。01-A/02-AはR10のA交換、01-B/02-BはE-final-time対象別応答候補不完全でstate保持。completed0 |
 
 | [404](404-new-seed-mixed-replay.md) | Aの4ターンを36 eventで保存。C-chicken＋コインの2連鎖を既存142/154/155/196で検証。B交換（先手AはR9、先手BはR10）へ |

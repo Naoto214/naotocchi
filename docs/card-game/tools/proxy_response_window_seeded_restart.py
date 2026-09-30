@@ -541,7 +541,7 @@ def apply_response_pass(
 
 
 def activate_response_candidate(
-    continuation: dict[str, object], decision: dict[str, object]
+    continuation: dict[str, object], decision: dict[str, object], target_validator=None
 ) -> tuple[dict[str, object], dict[str, object]]:
     """Pay for and place one validated response candidate on the chain."""
     before = copy.deepcopy(continuation)
@@ -570,7 +570,9 @@ def activate_response_candidate(
     }:
         raise ValueError("response activation source identity differs")
     target_id = targets[0]
-    if player.get("board", {}).get("partner") != target_id:
+    if target_validator is not None:
+        target_validator(before, action)
+    elif player.get("board", {}).get("partner") != target_id:
         raise ValueError("response activation target is not current partner")
     cost = action.get("base_time_cost")
     if type(cost) is not int or cost < 0 or player.get("time", -1) < cost:
