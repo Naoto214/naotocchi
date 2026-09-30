@@ -18,6 +18,15 @@
   installStorage(w,config.save);
   return activate();
  }
+ async function preloadImages(w,config){
+  const actors=config.save.companions.map(c=>({id:c.id,folder:'companions'}));
+  if(config.save.partner)actors.push({id:config.save.partner.id,folder:'partners'});
+  await Promise.all(actors.flatMap(({id,folder})=>[
+   `assets/characters/${folder}/${id}.png`,
+   `assets/characters/relationship/${id}/positive.png`,
+   `assets/characters/relationship/${id}/lonely.png`,
+  ]).map(async src=>{const img=new w.Image();img.src=src;try{await img.decode();}catch{throw Error('画像の読み込み失敗: '+src);}}));
+ }
  async function activateScripts(doc){
   for(const old of doc.querySelectorAll('script[type="application/x-relationship-qa"]')){
    const script=doc.createElement('script');
@@ -31,11 +40,12 @@
  async function boot(w,doc){
   try{
    const cases=JSON.parse(doc.getElementById('qa-cases').textContent),requested=new URLSearchParams(w.location.search).get('case');
-   const config=cases.find(c=>c.id===requested)||cases[0];config.save.savedAt=Date.now();
+   const config=cases.find(c=>c.id===requested)||cases[0];config.save.savedAt=0;
    await start(w,config,async()=>{
     // Freeze only autonomous growth. Preserve Home animation, timeouts and the
     // production Reaction duration. No production source file is edited.
     const interval=w.setInterval.bind(w);w.setInterval=(fn,ms,...args)=>fn.name==='loop'&&ms===3000?0:interval(fn,ms,...args);
+    await preloadImages(w,config);
     await activateScripts(doc);
     if(!w.__relationshipQaBridge||!w.__naotocchiBooted)throw Error('Home起動を確認できません');
     w.relationshipQa=w.installRelationshipQa(w.__relationshipQaBridge,config,w);
@@ -46,12 +56,14 @@
      button.addEventListener('click',e=>{if(w.relationshipQa.running)return;e.stopImmediatePropagation();e.preventDefault();w.relationshipQa.run();},true);
     }
     w.addEventListener('pagehide',()=>w.relationshipQa.stop(),{once:true});
+    await Promise.all([...doc.querySelectorAll('#castStage img.character-asset')].map(img=>img.decode()));
     w.parent.postMessage({type:'relationship-qa-ready',id:config.id},w.location.origin);
    });
   }catch(e){
+   w.relationshipQa?.stop();
    doc.body.replaceChildren();const p=doc.createElement('p');p.textContent='QAを停止しました。'+e.message+' 通常saveは使用しません。';doc.body.appendChild(p);
    w.parent.postMessage({type:'relationship-qa-error',message:e.message},w.location.origin);
   }
  }
- return {memoryStorage,installStorage,start,activateScripts,boot};
+ return {memoryStorage,installStorage,start,preloadImages,activateScripts,boot};
 });

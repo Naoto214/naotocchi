@@ -100,3 +100,11 @@ test('packaging refuses a nonempty output so unrelated files cannot be published
  try{fs.writeFileSync(path.join(dir,'unrelated.txt'),'not a QA asset');assert.throws(()=>builder.build(dir),/empty output/);}
  finally{fs.rmSync(dir,{recursive:true,force:true});}
 });
+test('transition assets preload before readiness; missing image blocks QA',async()=>{
+ const loaded=[];class Img{set src(s){loaded.push(s);}decode(){return Promise.resolve();}}
+ await bootstrap.preloadImages({Image:Img},cases.find(c=>c.id==='multi-rescue'));
+ assert.ok(loaded.includes('assets/characters/relationship/otter/positive.png'));assert.ok(loaded.includes('assets/characters/relationship/clock/lonely.png'));
+ assert.ok(loaded.includes('assets/characters/partners/forest_bear.png'));
+ class Broken{set src(s){this.url=s;}decode(){return Promise.reject(Error('missing'));}}
+ await assert.rejects(()=>bootstrap.preloadImages({Image:Broken},cases[0]),/画像/);
+});
