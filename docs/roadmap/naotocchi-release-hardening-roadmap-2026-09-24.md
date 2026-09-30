@@ -895,6 +895,12 @@ harness({
   > - corridor C5(chart の きざみ・ひずみ)
   > - world object の collision model の 全体
   > - なかまの もどり(4 秒 はさまったら ならびの そばへ)を 正式な navigation / 障害物 回避へ おきかえる
+  >
+  > **2026-09-30 追記(forest 3D prototype: `docs/qa/meguru-forest-3d-prototype-2026-09-30.md`、branch `claude/naotocchi-forest-3d-prototype`)**
+  > - `?meguru3d=1` の ときだけ forest を Three.js 0.170.0(repo の なか)で。corridor・transition・ほかの 地域・save は 2D の まま。WebGL 不可 / context lost は すぐ 2D。
+  > - 道の うえの かたい 物(M-1 = 1): 3D モードだけ 見た目と あたりを 一体で 道の そとへ 89、おかない 39。固定地点の 木 + 岩の みつど は 1200 いない で −13% いない。
+  > - 達成: 貫通なし・道 あき・save 互換・region / travel / corridor 不変・即 2D・world logic 再利用。**オーナー判断**: 立体感・ペラペラ感・pop-in・そこに ある 感・キャラが 馴染むか。**実機待ち**: 27 にんの 性能(`&perf=1` / `&m3d2d=1`)。
+  > - 判定が おわるまで 全面 3D 化・city 3D 化 は しない。
 - 本格的な多言語化(文言を正規表現で照合している箇所の解消から)
 - card-game の実装(#259 の設計を正本にする。identity だけ master と共有し、ルールは分ける)
 - 高度な複数タブ対応(Web Locks、読みとり専用の閲覧)
