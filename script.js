@@ -7,6 +7,11 @@
   const CARE_STATUS = window.NaotocchiCareStatus || null;
   const EMOTION_STATE = window.NaotocchiEmotionState || null;
   const PET_EXPRESSION = window.NaotocchiPetExpression || null;
+  const RELATIONSHIP_EXPRESSION = window.NaotocchiRelationshipExpression || null;
+  const relationshipReactions = RELATIONSHIP_EXPRESSION?.createReactions({
+    now: () => Date.now(), schedule: (fn, ms) => setTimeout(fn, ms),
+    cancel: timer => clearTimeout(timer), onExpire: () => render(),
+  });
   const WORLD_SCENE = window.NaotocchiWorldScene || null;
   let worldRenderer = null;
   const SAVE_BACKUP_KEY = 'naotocchi-save-v1-backup';
@@ -8189,6 +8194,7 @@
   function reinforceRelationship() {
     const p = state.partner;
     p.affection = clamp((p.affection ?? 100) + PARTNER_FLIRT_AFFECTION_BOOST, 0, 100);
+    startRelationshipPositive('partner',p);
     if (p.married) return false;
     p.bondCount = (p.bondCount || 0) + 1;
     if (p.bondCount < marriageBondThreshold()) return false;
@@ -8845,16 +8851,32 @@
     return RARE_COMPANIONS;
   }
 
+  function relationshipId(kind, entity) {
+    return kind === 'companion' ? canonicalCompanionId(entity?.id) : canonicalPartnerId(entity?.id);
+  }
+
+  function relationshipVisual(kind, entity, normal) {
+    return RELATIONSHIP_EXPRESSION?.resolve({kind, id:relationshipId(kind,entity),
+      value:kind === 'companion' ? entity?.bond : entity?.affection,
+      positive:relationshipReactions?.active(entity), normal,
+    }) || {expression:'normal',asset:normal};
+  }
+
+  function startRelationshipPositive(kind, entity) {
+    if (RELATIONSHIP_EXPRESSION?.PILOT[kind]?.includes(relationshipId(kind,entity))) relationshipReactions.start(entity);
+  }
+
   function companionVisualHTML(companion, size = 'thumb') {
     return companion.asset ? stageVisualHTML(companion, size) : escapeHtml(companion.emoji);
   }
 
   // 保存済みの恋人も現在の専用PNGを使う。セーブの関係性や通信相手は書き換えない。
-  function partnerVisualHTML(partner, size = 'thumb') {
+  function partnerVisualHTML(partner, size = 'thumb', relationship = false) {
     const id = WORLD_MASTER?.compatibility?.partnerAliases?.[partner?.id] || partner?.id;
     const def = WORLD_MASTER?.partners?.find((p) => p.id === id);
     const emoji = partner?.emoji || PARTNER_RUNTIME_PROFILE[id]?.emoji || '💞';
-    return def?.asset ? stageVisualHTML({ asset:def.asset, emoji }, size) : escapeHtml(emoji);
+    const asset = relationship ? relationshipVisual('partner',partner,def?.asset).asset : def?.asset;
+    return asset ? stageVisualHTML({ asset, emoji }, size) : escapeHtml(emoji);
   }
 
   // 作者は育成・なかま・恋人の枠に入れず、④以降のシークレットとして会える。
@@ -9526,6 +9548,7 @@
     state.lifetime.datesEnjoyed += 1;
     state.affectionStreak = 0;
     partner.affection = clamp((partner.affection ?? 100) + DATE_AFFECTION_BOOST, 0, 100);
+    startRelationshipPositive('partner',partner);
     state.happiness = clamp(state.happiness + 12, 0, 100);
     state.energy = clamp(state.energy - 6, 0, 100);
     state.hunger = clamp(state.hunger - 4, 0, 100);
@@ -13590,7 +13613,10 @@
   // ひだり/みぎに こうごに ふりわけて、ふえるほど りょうがわ バランスよく そだつ
   function renderCompanionRow() {
     const recruited = state.companions
-      .map((sc) => allCompanionsById(sc.id))
+      .map((sc) => {
+        const def = allCompanionsById(sc.id);
+        return def ? {...def, ...relationshipVisual('companion',sc,def.asset)} : null;
+      })
       .filter(Boolean);
     const left = recruited.filter((c, i) => i % 2 === 0);
     const right = recruited.filter((c, i) => i % 2 === 1);
@@ -13612,12 +13638,13 @@
       el.partnerCompanion.innerHTML = '';
       return;
     }
-    const key = JSON.stringify([p.id,p.label,p.emoji,p.married]);
+    const expression = relationshipVisual('partner',p,null).expression;
+    const key = JSON.stringify([p.id,p.label,p.emoji,p.married,expression]);
     if (key === el.partnerCompanion.dataset.visualKey && el.partnerCompanion.innerHTML) return;
     el.partnerCompanion.dataset.visualKey = key;
     const ring = p.married ? '<span class="partner-ring">💍</span>' : '';
     el.partnerCompanion.innerHTML =
-      `<span class="partner-heart">💕</span><span class="partner-emoji" title="${escapeHtml(compactJapaneseText(p.label))}">${partnerVisualHTML(p, 'companion')}</span>${ring}<span class="partner-heart">💕</span>`;
+      `<span class="partner-heart">💕</span><span class="partner-emoji" title="${escapeHtml(compactJapaneseText(p.label))}">${partnerVisualHTML(p, 'companion', true)}</span>${ring}<span class="partner-heart">💕</span>`;
   }
 
   let companionRenderKey = null;
@@ -17107,9 +17134,12 @@
       applyGrowth(1.5); applyDecline(-2);
       // じゃれるは、そばに いる なかま ぜんいんの bond も まとめて かいふく
       // する(なかまが はなれて いかないよう、ここで つなぎとめる)
+      const beforeBonds = state.companions.map(c => ({id:c.id,bond:c.bond}));
       state.companions.forEach((c) => {
         c.bond = clamp((c.bond ?? 100) + COMPANION_PLAYWITH_BOND_BOOST + (hasPerk(40) ? state.sodachi / 5 : 0), 0, 100);
       });
+      const positiveIds = RELATIONSHIP_EXPRESSION?.companionPositiveIds(beforeBonds,state.companions) || [];
+      for (const c of state.companions) if (positiveIds.includes(c.id)) startRelationshipPositive('companion',c);
     }
     const hasCompanions = state.companions.length > 0;
     const reaction = spammed
@@ -17201,6 +17231,7 @@
       // かさねれば、れんあいタイプが ちがっても いっしょに いる ことに きめられる
       const p = state.partner;
       p.affection = clamp((p.affection ?? 100) + PARTNER_FLIRT_AFFECTION_BOOST, 0, 100);
+      startRelationshipPositive('partner',p);
       p.repair = (p.repair || 0) + 1;
       state.happiness = clamp(state.happiness + 2, 0, 100);
       if (p.repair >= MISMATCH_REPAIR_NEEDED) {
@@ -17332,6 +17363,7 @@
         married: false,
         bondCount: 0,
       };
+      startRelationshipPositive('partner',state.partner);
       state.calledMatch = null;
       rememberPartnerLetter('court');
       state.happiness = clamp(state.happiness + 8, 0, 100);
