@@ -6,6 +6,8 @@
 //   ... --seconds 20          … あるいて はかる 秒数(きほん 20)
 //   ... --modes 3d            … 3D だけ
 //   ... --json out.json       … けっかを JSON にも
+//   ... --poses '[{"name":"fork-hidden","spot":"fork","x":0,"z":2900,"yaw":0.4,"fade":false}]' … 固定の いち を ふやす
+//   ... --seconds 0           … あるく 計測を しない(しゃしん だけ)
 // セーブは tests の harness で つくる(forest・なかま 26 + こいびと 1 = 27 にん)。ゲームの セーブは かえない。
 // playwright が ひつよう。headless の WebGL は ソフトウェア(SwiftShader)なので GPU の 時間は 実機と ちがう(CPU がわ・draw call は くらべられる)。
 const http = require('http');
@@ -22,7 +24,9 @@ const THROTTLE = Number(opt('--throttle', 1));
 const SECONDS = Number(opt('--seconds', 20));
 const MODES = String(opt('--modes', '2d,3d')).split(',');
 const JSON_OUT = opt('--json', null);
-const SPOTS = String(opt('--spots', 'entry,bright2,fork,great,falls')).split(',');
+const SPOTS = String(opt('--spots', 'entry,bright2,fork,great,falls')).split(',').filter(Boolean);
+// そのほかの 固定の いち(JSON: [{ name, spot, x, z, yaw, fade }])。すかし あり / なし の くらべ など
+const EXTRA = JSON.parse(opt('--poses', '[]'));
 fs.mkdirSync(OUT, { recursive: true });
 
 function makeSave() {
@@ -78,16 +82,23 @@ async function hold(page, dx, dy) {
   await page.mouse.move(cx + dx * 40, cy + dy * 40, { steps: 4 });
 }
 
-async function capture(page, mode, spot) {
-  await page.evaluate((id) => {
-    const r = globalThis.__meguruRun, s = r.world.spots.find((q) => q.id === id);
-    r.setPlayer(s.x, s.z - 140); r.sim.placeParty && r.sim.placeParty();
-  }, spot);
-  await hold(page, 0, -1); await page.waitForTimeout(900); await hold(page, 0, 0); await page.waitForTimeout(1200);
+// 固定の いち・むき(あるかない)。2D と 3D で おなじ player の いち・カメラの むき・なかまの ならび・時間 / 天気
+async function capture(page, mode, spot, pose = {}) {
+  const at = await page.evaluate(({ id, pose }) => {
+    const r = globalThis.__meguruRun, sim = r.sim, s = r.world.spots.find((q) => q.id === id);
+    sim.setCameraMotion(false);
+    sim.setPlayer(pose.x != null ? pose.x : s.x, pose.z != null ? pose.z : s.z - 100);
+    sim.camera.yaw = pose.yaw || 0; sim.player.heading = pose.yaw || 0;
+    sim.placeParty();
+    if (r.renderer.setOccluderFade) r.renderer.setOccluderFade(pose.fade !== false);
+    const e = sim.view().env || {};
+    return { x: Math.round(sim.player.x), z: Math.round(sim.player.z), yaw: +sim.camera.yaw.toFixed(3), time: e.time, weather: e.weather, season: e.season };
+  }, { id: spot, pose });
+  await page.waitForTimeout(1500);
   const box = await page.locator('#mgrCanvas').boundingBox();
-  const file = path.join(OUT, `${spot}-${mode}.png`);
+  const file = path.join(OUT, `${pose.name || spot}-${mode}.png`);
   await page.screenshot({ path: file, clip: box });
-  return file;
+  return { file, at };
 }
 
 async function measure(page) {
@@ -124,9 +135,10 @@ async function measure(page) {
       const { ctx, page, errors, enterMs } = await openMeguru(browser, base, mode, save);
       const shots = [];
       for (const spot of SPOTS) shots.push(await capture(page, mode, spot));
-      const perf = await measure(page);
+      for (const pose of EXTRA) shots.push(await capture(page, mode, pose.spot, pose));
+      const perf = SECONDS > 0 ? await measure(page) : null;
       result.modes[mode] = { enterMs, perf, shots, errors };
-      console.log(mode, JSON.stringify({ enterMs, ...perf, errors }));
+      console.log(mode, JSON.stringify({ enterMs, ...(perf || {}), shots: shots.map((x) => x.at), errors }));
       await ctx.close();
     }
   } finally { await browser.close(); srv.close(); }

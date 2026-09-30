@@ -14576,9 +14576,20 @@
     const src = document.getElementById('meguru3dModule')?.dataset.src;
     // 実機の 計測: &perf=1(フレームの 間かく・draw call)/ &m3d2d=1(おなじ ページで 2D の くらべ)
     const q = String(location.search || '');
-    if (src) import('./' + src).then((m) => { meguru3dRenderer = m.createMeguru3D(meguruMod, { perf: /[?&]perf=1(?:&|$)/.test(q), force2d: /[?&]m3d2d=1(?:&|$)/.test(q), onFallback: (err) => console.warn('meguru 3D → 2D', err && err.message) }); })
-      .catch((err) => console.warn('meguru 3D module', err && err.message));
+    // <script type="module"> で よむ(classic の script.js に 動的 import を かくと vite の dev server が こわす)。
+    // module は window.NaotocchiMeguru3D に じぶんを おく
+    if (src) {
+      const tag = document.createElement('script');
+      tag.type = 'module'; tag.src = src;
+      tag.onload = () => {
+        const m = window.NaotocchiMeguru3D;
+        if (m) meguru3dRenderer = m.createMeguru3D(meguruMod, { perf: /[?&]perf=1(?:&|$)/.test(q), force2d: /[?&]m3d2d=1(?:&|$)/.test(q), onFallback: (err) => console.warn('meguru 3D → 2D', err && err.message) });
+      };
+      tag.onerror = () => console.warn('meguru 3D module: load failed');
+      document.head.appendChild(tag);
+    }
   }
+
   function meguruStats() {
     const m = state.lifetime.meguru || (state.lifetime.meguru = { visits: 0, talkCount: 0, met: {}, talks: {} });
     if (!m.met || typeof m.met !== 'object') m.met = {};

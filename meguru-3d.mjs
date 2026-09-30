@@ -16,6 +16,9 @@ export function webgl2Available(doc = typeof document !== 'undefined' ? document
   try { const c = doc && doc.createElement('canvas'); return !!(c && c.getContext && c.getContext('webgl2')); } catch (_) { return false; }
 }
 
+// script.js は <script type="module"> で よむ ので、ここで window に のせる(Node の テストは import で つかう)
+if (typeof window !== 'undefined') window.NaotocchiMeguru3D = { createMeguru3D: (M, opts) => createMeguru3D(M, opts), webgl2Available, THREE_REVISION };
+
 // start(container, { renderer }) に わたす factory
 export function createMeguru3D(M, opts = {}) {
   return (o) => createHybridRenderer(M, o, opts);
@@ -23,7 +26,7 @@ export function createMeguru3D(M, opts = {}) {
 
 function createHybridRenderer(M, o, opts) {
   const r2d = M.createCanvasRenderer(o);
-  let r3d = null, failed = false, active = false;
+  let r3d = null, failed = false, active = false, fadeOn = true;
   let ctx = o.ctx, W = o.W, H = o.H;
   const want = (view) => {
     const w = view && view.world;
@@ -59,7 +62,7 @@ function createHybridRenderer(M, o, opts) {
     draw(view, now) {
       if (want(view)) {
         try {
-          if (!r3d) r3d = create3DRenderer(M, Object.assign({}, o, { ctx, W, H }), () => fail(new Error('webgl context lost')));
+          if (!r3d) { r3d = create3DRenderer(M, Object.assign({}, o, { ctx, W, H }), () => fail(new Error('webgl context lost'))); r3d.setOccluderFade(fadeOn); }
           setActive(true);
           r3d.draw(view, now);
           if (opts.perf) perfText(now);
@@ -80,6 +83,7 @@ function createHybridRenderer(M, o, opts) {
     get failed() { return failed; },
     stats3d() { return r3d ? r3d.stats() : null; },
     loseContext() { if (r3d) r3d.loseContext(); },   // QA: context lost の ためし
+    setOccluderFade(on) { fadeOn = !!on; if (r3d) r3d.setOccluderFade(fadeOn); },   // QA: すかし あり / なし の くらべ
   };
   return api;
 }
@@ -371,7 +375,7 @@ function create3DRenderer(M, o, onLost) {
     const pg = typeof o.playerGlyph === 'function' ? o.playerGlyph() : '🐣';
     placeActor(built, actorMesh(built, player), player, 0, c.yaw, charLight, glyphTexture(pg, o.wrapCtx || null, 'p'));
     built.shadows.instanceMatrix.needsUpdate = true;
-    fadeOccluders(built, camera.position.x, -camera.position.z, player);
+    fadeOccluders(built, camera.position.x, -camera.position.z, fade ? player : null);
     renderer.render(scene, camera);
     drawOverlay(view, camera);
     if (t0) { frameMs.push(performance.now() - t0); if (frameMs.length > 240) frameMs.shift(); }
@@ -380,9 +384,10 @@ function create3DRenderer(M, o, onLost) {
   // カメラと player の あいだの かたい 物は すかす(2D の「てまえの 物は すける」と おなじ やくわり)。
   // InstancedMesh の その 物だけ 大きさ 0 に して、半透明の ghost を かわりに おく
   const ZERO = new THREE.Matrix4().makeScale(0, 0, 0);
+  let fade = true;
   function fadeOccluders(b, ex, ez, player) {
-    const vx = player.x - ex, vz = player.z - ez, L2 = vx * vx + vz * vz || 1, want = new Set();
-    for (const oc of b.occluders) {
+    const vx = player ? player.x - ex : 0, vz = player ? player.z - ez : 0, L2 = vx * vx + vz * vz || 1, want = new Set();
+    if (player) for (const oc of b.occluders) {
       const c = oc.ob.collision, t = ((c.x - ex) * vx + (c.z - ez) * vz) / L2;
       if (t < 0 || t > 1) continue;
       const d = Math.hypot(c.x - ex - vx * t, c.z - ez - vz * t);
@@ -448,6 +453,7 @@ function create3DRenderer(M, o, onLost) {
         objects: built ? built.objects : 0, actors: built ? built.actors.size : 0, drawMsAvg: xs.length ? xs.reduce((s, v) => s + v, 0) / xs.length : 0, drawMsP95: pick(0.95), pixelRatio: renderer.getPixelRatio() };
     },
     loseContext() { const ext = renderer.getContext().getExtension('WEBGL_lose_context'); if (ext) ext.loseContext(); },
+    setOccluderFade(on) { fade = !!on; },
     destroy() {
       if (built) disposeScene(built);
       for (const t of texCache.values()) if (t && t.tex) t.tex.dispose();

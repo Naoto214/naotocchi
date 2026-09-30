@@ -955,7 +955,7 @@
     }
     // くぎり(yield)つき。corridor の まえもって 組む(buildWorldSteps)を 1 frame で とめない
     function* relocateRoadSolids3dSteps(world) {
-      const stats = { candidates: 0, solidified: {}, moved: {}, dropped: {}, moves: [] };
+      const stats = { candidates: 0, solidified: {}, moved: {}, dropped: {}, moves: [], drops: [] };
       // ながめの かざり(spot の view)の 岩・木は 2D では あたりが ない。3D では かたい 物 として あつかう
       for (const p of world.props) {
         if (p.solid || !p.view || !SOLID3D_TYPES.has(objectType3d(p))) continue;
@@ -993,11 +993,11 @@
           }
         }
         if (best) {
-          stats.moves.push({ kind, d: Math.round(best.d) });
+          stats.moves.push({ kind, d: Math.round(best.d), from: { x: Math.round(p.x), z: Math.round(p.z) }, to: { x: Math.round(best.x), z: Math.round(best.z) }, r: Math.round(fr), landmark: p.landmark || null });
           stats.moved[kind] = (stats.moved[kind] || 0) + 1;
           p.x = best.x; p.z = best.z; p.moved3d = true;
           placed.push(best.o);
-        } else { stats.dropped[kind] = (stats.dropped[kind] || 0) + 1; p.drop3d = true; }
+        } else { stats.dropped[kind] = (stats.dropped[kind] || 0) + 1; p.drop3d = true; stats.drops.push({ kind, at: { x: Math.round(p.x), z: Math.round(p.z) }, r: Math.round(fr), limit: Math.round(limit) }); }
       }
       world.props = world.props.filter((p) => !p.drop3d);
       world.world3d = stats;

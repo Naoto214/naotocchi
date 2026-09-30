@@ -160,6 +160,10 @@ test('8. フラグは URL だけ・セーブに のこさない。Three.js は v
   assert.match(script, /meguru3d=1/);
   assert.equal((script.match(/meguru3d/gi) || []).filter(() => true).length > 0, true);
   assert.ok(!/localStorage\.setItem\([^)]*meguru3d/i.test(script) && !/state\.meguru3d|lifetime\.meguru3d/.test(script), 'セーブにも localStorage にも かかない');
+  // classic の script.js に 動的 import を かくと vite の dev server(npm run dev)が こわす。module は <script type="module"> で よむ
+  assert.ok(!/\bimport\(/.test(script), 'script.js に import( が ない');
+  assert.match(script, /tag\.type = 'module'/);
+  assert.match(fs.readFileSync(path.join(ROOT, 'meguru-3d.mjs'), 'utf8'), /window\.NaotocchiMeguru3D = /);
   const mod = fs.readFileSync(path.join(ROOT, 'meguru-3d.mjs'), 'utf8');
   const imp = mod.match(/from '\.\/(vendor\/three-(\d+\.\d+\.\d+)\/three\.module\.min\.js)'/);
   assert.ok(imp, 'three は version の ついた フォルダ から');

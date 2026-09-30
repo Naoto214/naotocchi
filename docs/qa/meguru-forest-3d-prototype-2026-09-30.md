@@ -1,5 +1,7 @@
 # めぐる forest 3D prototype — QA 記録(2026-09-30)
 
+**人の目で みる 比較資料(iPhone でも)**: [meguru-forest-3d-prototype-2026-09-30/README.md](meguru-forest-3d-prototype-2026-09-30/README.md)
+
 基準: `main` `6b675919`(Merge PR #360)
 branch: `claude/naotocchi-forest-3d-prototype`
 事前確認と オーナー決定: M-1 = 1(3D モードだけ、道の うえの かたい 物は 見た目と あたりを 一体で 道の そとへ。約 1.5 × 大きさ の なかに おけなければ 3D では おかない)、`?meguru3d=1`・セーブに のこさない・Three.js は version 固定で repo の なか・3D は forest だけ・corridor / transition / city は 2D・WebGL 不可 / context lost は すぐ 2D。
@@ -10,7 +12,7 @@ branch: `claude/naotocchi-forest-3d-prototype`
 
 | | 中身 |
 |---|---|
-| フラグ | `?meguru3d=1` かつ WebGL2 の とき だけ(`script.js`)。セーブ・localStorage には かかない。ない ときは 1 バイトも ふえない(module は `import()` で あとから) |
+| フラグ | `?meguru3d=1` かつ WebGL2 の とき だけ(`script.js`)。セーブ・localStorage には かかない。ない ときは 1 バイトも ふえない(module は あとから `<script type="module">` で。classic の script.js に 動的 import を かくと `npm run dev` の vite が こわす ため) |
 | レンダラー | `meguru-3d.mjs`(Three.js 0.170.0 を `vendor/three-0.170.0/` に 固定、MIT LICENSE つき)。hybrid: forest の 3D モードの world だけ 3D、corridor・transition・ほかの 地域は いまの `createCanvasRenderer` |
 | 境界 | いまの レンダラーの やくそく(`draw(view, now)` / `resize` / `destroy` / `setAnimLevel` / `setDistant`)と `start(container, { renderer })` を そのまま つかう。WebGL は 2D の canvas の したの べつの canvas、2D の canvas は うえで 名まえ・ふきだし だけ |
 | カメラ | 2D と おなじ ピンホール(焦点 0.95W・地平線 30%・水平・目の たかさ camH)を `setViewOffset` で。player・なかまの 画面の いちは 2D と おなじ |
