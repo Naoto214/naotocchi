@@ -29,6 +29,11 @@ function measureConversation() {
     bubble:shown(bubble)?rect(bubble):null,slot:rect(document.getElementById('speechSlot')),
     kind:bubble.dataset.kind,speakerId:bubble.dataset.speakerId,speakerLabel:speaker.dataset.label,
     nameContent:getComputedStyle(speaker,'::after').content,
+    nameFits:(()=>{
+      const style=getComputedStyle(speaker,'::after'),canvas=document.createElement('canvas');
+      const context=canvas.getContext('2d');context.font=style.font;
+      return context.measureText(speaker.dataset.label || '').width<=speaker.getBoundingClientRect().width+.6;
+    })(),
     nameVisible:shown(document.querySelector('.cast-names')),
     tail:getComputedStyle(bubble,'::before').left,
     tailTip:getComputedStyle(bubble,'::before').clipPath,
@@ -193,6 +198,7 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
         assert.ok(gap>=rowHeight+5.5 && gap<=30.6,label+': permanent floor strip is too small or detached, gap='+gap);
         assert.ok(Math.abs(m.bubble.x+m.bubble.w/2-m.main.x-m.main.w/2)<.6,label+': bubble is not centered on the main character');
         assert.ok(m.speakerLabel && m.nameContent.includes(m.speakerLabel),label+': speaker name missing');
+        assert.ok(m.nameFits,label+': speaker name is clipped: '+m.speakerLabel);
         assert.ok(m.bubble.y+m.bubble.h<=m.meters.y+1,label+': dialogue covers meters');
         for(const a of m.actors) assert.ok(separated(a,m.bubble,2),label+': dialogue covers '+a.id);
         for(const p of m.poops) {
@@ -270,6 +276,14 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
       }
       await page.locator('#speechText').evaluate(e=>e.textContent='おはよう!');
       const short=await check('short');
+      // Exercise names wider than the former 52px portrait column, including
+      // the screenshot report and the longest partner label, on every viewport.
+      const originalName=await page.locator('#speechSpeaker').getAttribute('data-label');
+      for(const name of ['フェニックス','ハシビロコウ','ひかるチョウチンアンコウ']) {
+        await page.locator('#speechSpeaker').evaluate((e,name)=>e.dataset.label=name,name);
+        await check('full-name-'+name);
+      }
+      await page.locator('#speechSpeaker').evaluate((e,name)=>e.dataset.label=name,originalName);
       await page.locator('#speechText').evaluate(e=>e.textContent='いっしょにいろんなところへ出かけよう。'.repeat(15));
       const long=await check('long');
       assert.ok(samePosition(short.slot,long.slot) && samePosition(short.main,long.main),label+': long text moves layout');

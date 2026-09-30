@@ -156,8 +156,10 @@ body.world-mode:has(.device[data-home-fixed="true"]) {height:var(--app-height);o
 .world-mode .speech-slot {position:absolute;left:var(--home-speech-x,32px);top:var(--home-speech-y,100%);width:var(--home-speech-width,calc(100% - 64px));height:44px;font-size:14px;padding:0;align-items:flex-start;z-index:4}
 .world-mode .speech-slot .speech-bubble {width:100%;max-width:100%;font-size:14px;border:0;background:rgb(250 253 250 / .82);box-shadow:0 3px 10px #133d4e18;padding:2px 8px;color:#142e36;text-shadow:none;border-radius:13px;cursor:default}
 .world-mode .speech-slot .speech-bubble::before {left:var(--speech-tail-x,50%);width:14px;height:6px;top:-5px;background:rgb(250 253 250 / .82);border:0;transform:translateX(-50%);clip-path:polygon(var(--speech-tail-tip,50%) 0,100% 100%,0 100%)}
-.world-mode #speechSpeaker {display:flex;flex-direction:column;align-items:center;justify-content:center;align-self:center;width:52px;flex:0 0 52px;gap:1px;font-size:18px}
-.world-mode #speechSpeaker::after {content:attr(data-label);display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px;line-height:1.2;font-weight:600}
+/* Keep the portrait size, but let the column fit the complete speaker name.
+   The adjacent scrollable dialogue owns the remaining width. */
+.world-mode #speechSpeaker {display:flex;flex-direction:column;align-items:center;justify-content:center;align-self:center;width:max-content;min-width:52px;flex:0 0 auto;gap:1px;font-size:18px}
+.world-mode #speechSpeaker::after {content:attr(data-label);display:block;white-space:nowrap;font-size:10px;line-height:1.2;font-weight:600}
 .world-mode #poopRow {inset:0;height:auto;text-align:left}
 .world-mode #poopRow > .care-icon {position:absolute;left:calc(var(--home-poop-x) + var(--poop-column,0)*var(--home-poop-step,14px));top:var(--home-poop-top);width:var(--home-poop-size,12px);height:var(--home-poop-size,12px);margin:0;font-size:var(--home-poop-size,12px);line-height:1}
 .world-mode #poopRow > .care-icon:nth-child(2) {--poop-column:1}
