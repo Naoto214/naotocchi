@@ -14574,7 +14574,9 @@
   let meguru3dRenderer = null;
   if (MEGURU3D_ON && meguruMod) {
     const src = document.getElementById('meguru3dModule')?.dataset.src;
-    if (src) import('./' + src).then((m) => { meguru3dRenderer = m.createMeguru3D(meguruMod, { onFallback: (err) => console.warn('meguru 3D → 2D', err && err.message) }); })
+    // 実機の 計測: &perf=1(フレームの 間かく・draw call)/ &m3d2d=1(おなじ ページで 2D の くらべ)
+    const q = String(location.search || '');
+    if (src) import('./' + src).then((m) => { meguru3dRenderer = m.createMeguru3D(meguruMod, { perf: /[?&]perf=1(?:&|$)/.test(q), force2d: /[?&]m3d2d=1(?:&|$)/.test(q), onFallback: (err) => console.warn('meguru 3D → 2D', err && err.message) }); })
       .catch((err) => console.warn('meguru 3D module', err && err.message));
   }
   function meguruStats() {

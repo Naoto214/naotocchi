@@ -27,8 +27,22 @@ function createHybridRenderer(M, o, opts) {
   let ctx = o.ctx, W = o.W, H = o.H;
   const want = (view) => {
     const w = view && view.world;
-    return !failed && !!w && !w.corridor && !!w.world3d && M.WORLD3D_REGIONS.has(w.regionId);
+    return !opts.force2d && !failed && !!w && !w.corridor && !!w.world3d && M.WORLD3D_REGIONS.has(w.regionId);
   };
+  // 実機の 計測(&perf=1): フレームの 間かく(avg / p95 / p99 / 60ms 超)と 3D の draw call・三角形を 画面の 左上に
+  const gaps = []; let lastNow = 0;
+  function perfText(now) {
+    if (lastNow) { gaps.push(now - lastNow); if (gaps.length > 600) gaps.shift(); }
+    lastNow = now;
+    if (!ctx || gaps.length < 10) return;
+    const xs = gaps.slice().sort((a, b) => a - b), q = (k) => xs[Math.min(xs.length - 1, Math.floor(xs.length * k))];
+    const avg = xs.reduce((a, b) => a + b, 0) / xs.length, st = r3d && active ? r3d.stats() : null;
+    const lines = [(active ? '3D' : '2D') + ' avg ' + avg.toFixed(1) + ' p95 ' + q(0.95).toFixed(0) + ' p99 ' + q(0.99).toFixed(0) + ' >60 ' + xs.filter((v) => v > 60).length + '/' + xs.length];
+    if (st) lines.push('calls ' + st.calls + ' tris ' + (st.triangles / 1000).toFixed(0) + 'k tex ' + st.textures + ' js ' + st.drawMsAvg.toFixed(1) + 'ms dpr ' + st.pixelRatio);
+    ctx.save(); ctx.font = '11px monospace'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+    lines.forEach((t, i) => { ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.fillRect(4, 40 + i * 14, ctx.measureText(t).width + 6, 14); ctx.fillStyle = '#fff'; ctx.fillText(t, 7, 41 + i * 14); });
+    ctx.restore();
+  }
   function fail(err) {
     failed = true;
     if (r3d) { try { r3d.destroy(); } catch (_) { /* もう こわれて いる */ } r3d = null; }
@@ -48,11 +62,13 @@ function createHybridRenderer(M, o, opts) {
           if (!r3d) r3d = create3DRenderer(M, Object.assign({}, o, { ctx, W, H }), () => fail(new Error('webgl context lost')));
           setActive(true);
           r3d.draw(view, now);
+          if (opts.perf) perfText(now);
           return;
         } catch (err) { fail(err); }
       }
       setActive(false);
       r2d.draw(view, now);
+      if (opts.perf) perfText(now);
     },
     resize(n) { ctx = n.ctx || ctx; W = n.W || W; H = n.H || H; r2d.resize(n); if (r3d) r3d.resize({ ctx, W, H }); },
     destroy() { if (r3d) r3d.destroy(); r3d = null; r2d.destroy(); },
@@ -204,10 +220,14 @@ function create3DRenderer(M, o, onLost) {
       pool: keep(new THREE.MeshLambertMaterial({ color: '#6fb6d8', transparent: true, opacity: 0.85 })), cliff: flat('#7d7f78'), plank: flat('#9a7550'), fall: keep(new THREE.MeshLambertMaterial({ color: '#cfe8f7', transparent: true, opacity: 0.8, side: THREE.DoubleSide })) };
     const inst = {};   // shape → [{ x, y, z, sx, sy, sz, ry, tint }]
     const board = new Map();   // emoji → [{ x, z, w, h }]
-    const push = (shape, it) => { (inst[shape] || (inst[shape] = [])).push(it); };
+    const occluders = [];   // かたい 物(カメラと player の あいだに 入ったら すかす)
+    let cur = null;
+    const push = (shape, it) => { const l = inst[shape] || (inst[shape] = []); if (cur) cur.refs.push({ shape, i: l.length, it }); l.push(it); };
     let count = 0;
     for (const ob of objects) {
       count++;
+      cur = ob.collision && ob.solid ? { ob, r: Math.max(ob.collision.hw, ob.collision.hd), refs: [] } : null;
+      if (cur) occluders.push(cur);
       // あたりの 箱の hw 軸(せかい (sin a, cos a))を ローカル x へ: three では θ = π/2 − a
       const t = hash01(ob.id), ry = Math.PI / 2 - (ob.rot || 0);
       for (const pt of ob.parts) {
@@ -271,7 +291,11 @@ function create3DRenderer(M, o, onLost) {
     const actorGeo = up(new THREE.PlaneGeometry(1, 1));
     const shadows = new THREE.InstancedMesh(keep(new THREE.CircleGeometry(1, 16).rotateX(-Math.PI / 2).translate(0, 1.5, 0)), keep(new THREE.MeshBasicMaterial({ color: '#000000', transparent: true, opacity: 0.22, depthWrite: false })), 256);
     shadows.count = 0; sc.add(shadows);
-    return { sc, hemi, sun, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null };
+    // すかす ための ghost(半透明の おなじ かたち)。いちどに 8 つ まで
+    const ghostMat = {}; for (const k of Object.keys(MAT)) { ghostMat[k] = keep(MAT[k].clone()); ghostMat[k].transparent = true; ghostMat[k].opacity = 0.28; ghostMat[k].depthWrite = false; }
+    const ghostGeo = (shape) => GEO[shape === 'crownBig' ? 'crown' : shape];
+    return { sc, hemi, sun, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null,
+      occluders, hidden: new Set(), ghosts: [], ghostMat, ghostGeo, inst };
   }
 
   function actorMesh(b, a) {
@@ -347,9 +371,37 @@ function create3DRenderer(M, o, onLost) {
     const pg = typeof o.playerGlyph === 'function' ? o.playerGlyph() : '🐣';
     placeActor(built, actorMesh(built, player), player, 0, c.yaw, charLight, glyphTexture(pg, o.wrapCtx || null, 'p'));
     built.shadows.instanceMatrix.needsUpdate = true;
+    fadeOccluders(built, camera.position.x, -camera.position.z, player);
     renderer.render(scene, camera);
     drawOverlay(view, camera);
     if (t0) { frameMs.push(performance.now() - t0); if (frameMs.length > 240) frameMs.shift(); }
+  }
+
+  // カメラと player の あいだの かたい 物は すかす(2D の「てまえの 物は すける」と おなじ やくわり)。
+  // InstancedMesh の その 物だけ 大きさ 0 に して、半透明の ghost を かわりに おく
+  const ZERO = new THREE.Matrix4().makeScale(0, 0, 0);
+  function fadeOccluders(b, ex, ez, player) {
+    const vx = player.x - ex, vz = player.z - ez, L2 = vx * vx + vz * vz || 1, want = new Set();
+    for (const oc of b.occluders) {
+      const c = oc.ob.collision, t = ((c.x - ex) * vx + (c.z - ez) * vz) / L2;
+      if (t < 0 || t > 1) continue;
+      const d = Math.hypot(c.x - ex - vx * t, c.z - ez - vz * t);
+      if (d < oc.r + M.ACTOR_SIZE * 0.45) want.add(oc);
+      if (want.size >= 8) break;
+    }
+    let dirty = new Set();
+    for (const oc of b.hidden) if (!want.has(oc)) { for (const rf of oc.refs) { const m = b.meshes[rf.shape]; tmp.position.set(rf.it.x, rf.it.y, rf.it.z); tmp.rotation.set(0, rf.it.ry, 0); tmp.scale.set(rf.it.sx, rf.it.sy, rf.it.sz); tmp.updateMatrix(); m.setMatrixAt(rf.i, tmp.matrix); dirty.add(m); } b.hidden.delete(oc); }
+    for (const oc of want) if (!b.hidden.has(oc)) { for (const rf of oc.refs) { const m = b.meshes[rf.shape]; m.setMatrixAt(rf.i, ZERO); dirty.add(m); } b.hidden.add(oc); }
+    for (const m of dirty) m.instanceMatrix.needsUpdate = true;
+    // ghost
+    for (const g of b.ghosts) g.visible = false;
+    let gi = 0;
+    for (const oc of b.hidden) for (const rf of oc.refs) {
+      let g = b.ghosts[gi];
+      if (!g) { g = new THREE.Mesh(b.ghostGeo(rf.shape), b.ghostMat[rf.shape]); b.ghosts.push(g); b.sc.add(g); }
+      g.geometry = b.ghostGeo(rf.shape); g.material = b.ghostMat[rf.shape];
+      g.position.set(rf.it.x, rf.it.y, rf.it.z); g.rotation.set(0, rf.it.ry, 0); g.scale.set(rf.it.sx, rf.it.sy, rf.it.sz); g.renderOrder = 2; g.visible = true; gi++;
+    }
   }
 
   // うえの 2D canvas: 名まえ と ふきだし だけ(3D の いちを 画面に うつして えがく)
