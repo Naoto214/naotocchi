@@ -49,5 +49,8 @@ assert.match(script, /stageForAge\(currentAge\(\), line\)/, 'transform candidate
 assert.match(script, /const beforeStageIndex = currentFormStageIndex\(\)/, 'transform captures origin stage');
 assert.match(script, /const afterStageIndex = stageForAge\(currentAge\(\), line\)/, 'transform derives destination stage at same age');
 assert.match(script, /transformAside\(line, beforeStageIndex, afterStageIndex\)/, 'transform adds life-stage aside');
+assert.match(script, /const stageMin = stageMinsForLine\(line\)\[stageIndex\]/, 'dex detail uses species-specific boundary');
+assert.match(script, /const stageMins = stageMinsForLine\(state\.speciesLine\)/, 'dex next-age hint uses species-specific boundary');
+assert.match(script, /SPECIES\[s\.speciesLine\]\?\.stages\?\.\[stageIndex\]\?\.label/, 'save description uses species-specific stage label');
 
 console.log('life-stage profiles: ok');
