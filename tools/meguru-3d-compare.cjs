@@ -98,7 +98,9 @@ async function capture(page, mode, spot, pose = {}) {
   const box = await page.locator('#mgrCanvas').boundingBox();
   const file = path.join(OUT, `${pose.name || spot}-${mode}.png`);
   await page.screenshot({ path: file, clip: box });
-  return { file, at };
+  // その いちで 3D の draw call・三角形・JS の 1 frame(さいごの 240 frame の へいきん)
+  const stats3d = await page.evaluate(() => { const r = globalThis.__meguruRun; return r.renderer.stats3d ? r.renderer.stats3d() : null; });
+  return { file, at, stats3d };
 }
 
 async function measure(page) {

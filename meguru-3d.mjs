@@ -33,7 +33,7 @@ function createHybridRenderer(M, o, opts) {
     return !opts.force2d && !failed && !!w && !w.corridor && !!w.world3d && M.WORLD3D_REGIONS.has(w.regionId);
   };
   // 実機の 計測(&perf=1): フレームの 間かく(avg / p95 / p99 / 60ms 超)と 3D の draw call・三角形を 画面の 左上に
-  const gaps = []; let lastNow = 0;
+  const gaps = []; let lastNow = 0, animLv = 2;
   function perfText(now) {
     if (lastNow) { gaps.push(now - lastNow); if (gaps.length > 600) gaps.shift(); }
     lastNow = now;
@@ -62,7 +62,7 @@ function createHybridRenderer(M, o, opts) {
     draw(view, now) {
       if (want(view)) {
         try {
-          if (!r3d) { r3d = create3DRenderer(M, Object.assign({}, o, { ctx, W, H }), () => fail(new Error('webgl context lost'))); r3d.setOccluderFade(fadeOn); }
+          if (!r3d) { r3d = create3DRenderer(M, Object.assign({}, o, { ctx, W, H }), () => fail(new Error('webgl context lost'))); r3d.setOccluderFade(fadeOn); r3d.setAnimLevel(animLv); }
           setActive(true);
           r3d.draw(view, now);
           if (opts.perf) perfText(now);
@@ -75,7 +75,7 @@ function createHybridRenderer(M, o, opts) {
     },
     resize(n) { ctx = n.ctx || ctx; W = n.W || W; H = n.H || H; r2d.resize(n); if (r3d) r3d.resize({ ctx, W, H }); },
     destroy() { if (r3d) r3d.destroy(); r3d = null; r2d.destroy(); },
-    setAnimLevel(v) { if (r2d.setAnimLevel) r2d.setAnimLevel(v); },
+    setAnimLevel(v) { animLv = v; if (r2d.setAnimLevel) r2d.setAnimLevel(v); if (r3d) r3d.setAnimLevel(v); },
     setDistant(v) { if (r2d.setDistant) r2d.setDistant(v); },
     project: (x, z) => (r2d.project ? r2d.project(x, z) : null),
     get spriteStats() { return r2d.spriteStats; },
@@ -164,6 +164,36 @@ function create3DRenderer(M, o, onLost) {
     g.fillStyle = gr; g.fillRect(0, 0, 2, 128);
     return canvasTexture(c);
   }
+  // 水の 面: まんなか ふかく(こい)・ふち あさく(うすい)+ うすい 波の すじ。池・たきつぼ で 1 まい
+  function waterTexture() {
+    const c = doc.createElement('canvas'); c.width = c.height = 128;
+    const g = c.getContext('2d'), gr = g.createRadialGradient(64, 64, 6, 64, 64, 64);
+    gr.addColorStop(0, '#2f6f98'); gr.addColorStop(0.6, '#4a93bb'); gr.addColorStop(0.9, '#79bcd6'); gr.addColorStop(1, '#a9d8e4');
+    g.fillStyle = gr; g.fillRect(0, 0, 128, 128);
+    g.strokeStyle = 'rgba(255,255,255,0.22)'; g.lineWidth = 1.5;
+    for (let i = 0; i < 9; i++) { const r = 14 + hash01('wr' + i) * 40, a0 = hash01('wa' + i) * TAU; g.beginPath(); g.arc(64, 64, r, a0, a0 + 0.5 + hash01('wl' + i) * 0.7); g.stroke(); }
+    return canvasTexture(c);
+  }
+  // おちる 水: たての すじ(うすい / こい)。v を ずらして ながれて 見せる
+  function fallTexture() {
+    const c = doc.createElement('canvas'); c.width = 64; c.height = 128;
+    const g = c.getContext('2d'); g.fillStyle = 'rgba(214,236,248,0.78)'; g.fillRect(0, 0, 64, 128);
+    for (let i = 0; i < 26; i++) { const x = hash01('fx' + i) * 64, y = hash01('fy' + i) * 128; g.fillStyle = i % 3 ? 'rgba(255,255,255,0.75)' : 'rgba(150,196,222,0.55)'; g.fillRect(x, y, 1.5 + hash01('fw' + i) * 3, 20 + hash01('fh' + i) * 50); g.fillRect(x, y - 128, 1.5 + hash01('fw' + i) * 3, 20 + hash01('fh' + i) * 50); }
+    const edge = g.createLinearGradient(0, 0, 64, 0); edge.addColorStop(0, 'rgba(0,0,0,0)'); edge.addColorStop(0.12, 'rgba(0,0,0,1)'); edge.addColorStop(0.88, 'rgba(0,0,0,1)'); edge.addColorStop(1, 'rgba(0,0,0,0)');
+    g.globalCompositeOperation = 'destination-in'; g.fillStyle = edge; g.fillRect(0, 0, 64, 128);
+    const t = canvasTexture(c); t.wrapT = THREE.RepeatWrapping; t.repeat.set(1, 2);
+    return t;
+  }
+  // がけ: 箱の 頂点を 内がわへ だけ すこし ずらす(ごつごつ。あたりの 箱の そとへは 出ない)。y は かえない(上に こけ、下は 地面)
+  function ruggedBox() {
+    const g = new THREE.BoxGeometry(2, 1, 2, 6, 5, 2), pos = g.attributes.position;
+    for (let i = 0; i < pos.count; i++) {
+      const x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i), k = 1 - 0.1 * hash01(Math.round(x * 1000) + ',' + Math.round(y * 1000) + ',' + Math.round(z * 1000));
+      pos.setXYZ(i, x * k, y, z * k);
+    }
+    g.computeVertexNormals();
+    return g;
+  }
   // ---------------- せかい(1 world に 1 かい だけ 組む)
   function buildWorldScene(world) {
     const sc = new THREE.Scene();
@@ -192,14 +222,12 @@ function create3DRenderer(M, o, onLost) {
     road.count = segs.length; sc.add(road);
     // スポット: 2D の worldLayers と おなじ わけかた(water の spot は 池、ほかは 道の 面)
     const disc = keep(new THREE.CylinderGeometry(1, 1, 1, 28));
-    const land = (world.spots || []).filter((q) => q.kind !== 'water'), ponds = (world.spots || []).filter((q) => q.kind === 'water');
+    // たき(ランドマーク)が たきつぼ を もつ spot は、spot の 池の かわりに その たきつぼ を つかう
+    const ownPool = new Set(objects.filter((ob) => ob.spot && ob.parts.some((pt) => pt.shape === 'pool')).map((ob) => ob.spot));
+    const land = (world.spots || []).filter((q) => q.kind !== 'water'), ponds = (world.spots || []).filter((q) => q.kind === 'water' && !ownPool.has(q.id));
     const pads = new THREE.InstancedMesh(disc, pathMat, Math.max(1, land.length));
     land.forEach((q, i) => { tmp.position.set(q.x, 0.7, -q.z); tmp.rotation.set(0, 0, 0); tmp.scale.set(q.r * 0.85, 1.4, q.r * 0.85); tmp.updateMatrix(); pads.setMatrixAt(i, tmp.matrix); });
     pads.count = land.length; sc.add(pads);
-    const waterMat = keep(new THREE.MeshLambertMaterial({ color: '#5aa6c8', transparent: true, opacity: 0.88 }));
-    const pond = new THREE.InstancedMesh(disc, waterMat, Math.max(1, ponds.length));
-    ponds.forEach((q, i) => { tmp.position.set(q.x, 1.1, -q.z); tmp.rotation.set(0, 0, 0); tmp.scale.set(q.r * 0.95, 1, q.r * 0.8); tmp.updateMatrix(); pond.setMatrixAt(i, tmp.matrix); });
-    pond.count = ponds.length; sc.add(pond);
     // 地面の まだら(areas: したくさ など)と 草の たば(marks)。2D と おなじ データ
     const areas = world.areas || [];
     const patch = new THREE.InstancedMesh(keep(new THREE.CircleGeometry(1, 20).rotateX(-Math.PI / 2)), keep(new THREE.MeshLambertMaterial({ color: world.ground[1], transparent: true, opacity: 0.55, depthWrite: false })), Math.max(1, areas.length));
@@ -216,17 +244,23 @@ function create3DRenderer(M, o, onLost) {
       trunk: up(new THREE.CylinderGeometry(0.72, 1, 1, 7)), cone: up(new THREE.ConeGeometry(1, 1, 8)), crown: keep(new THREE.IcosahedronGeometry(1, 1)),
       cap: keep(new THREE.SphereGeometry(1, 12, 6, 0, TAU, 0, Math.PI / 2)), rock: (() => { const g = new THREE.DodecahedronGeometry(1, 0); g.scale(1, 1, 1); g.translate(0, 0.35, 0); return keep(g); })(),
       log: (() => { const g = new THREE.CylinderGeometry(1, 1, 1, 8); g.rotateZ(Math.PI / 2); g.translate(0, 1, 0); return keep(g); })(), stump: up(new THREE.CylinderGeometry(0.9, 1, 1, 9)),
-      pool: (() => { const g = new THREE.CircleGeometry(1, 24); g.rotateX(-Math.PI / 2); g.translate(0, 1.2, 0); return keep(g); })(), plank: up(new THREE.BoxGeometry(1, 1, 1)), fall: up(new THREE.PlaneGeometry(1, 1)),
-      cliff: up(new THREE.BoxGeometry(2, 1, 2)), litter: keep(new THREE.PlaneGeometry(1, 1).rotateX(-Math.PI / 2).translate(0, 1.6, 0)),
+      pool: (() => { const g = new THREE.CircleGeometry(1, 24); g.rotateX(-Math.PI / 2); g.translate(0, 2.4, 0); return keep(g); })(), plank: up(new THREE.BoxGeometry(1, 1, 1)), fall: up(new THREE.PlaneGeometry(1, 1)),
+      cliff: up(ruggedBox()), moss: up(new THREE.BoxGeometry(2, 1, 2)), shore: keep(new THREE.CircleGeometry(1, 24).rotateX(-Math.PI / 2).translate(0, 1.8, 0)),
+      foam: keep(new THREE.CircleGeometry(1, 16).rotateX(-Math.PI / 2).translate(0, 3.2, 0)), mist: keep(new THREE.IcosahedronGeometry(1, 1)), litter: keep(new THREE.PlaneGeometry(1, 1).rotateX(-Math.PI / 2).translate(0, 1.6, 0)),
     };
     const flat = (color) => keep(new THREE.MeshLambertMaterial({ color, flatShading: true }));
     const MAT = { trunk: flat('#6b4b32'), cone: flat('#2f6b3f'), crown: flat('#4f9a47'), cap: flat('#d8a6d8'), rock: flat('#8c8f8a'), log: flat('#7a5436'), stump: flat('#8a6440'),
-      pool: keep(new THREE.MeshLambertMaterial({ color: '#6fb6d8', transparent: true, opacity: 0.85 })), cliff: flat('#7d7f78'), plank: flat('#9a7550'), fall: keep(new THREE.MeshLambertMaterial({ color: '#cfe8f7', transparent: true, opacity: 0.8, side: THREE.DoubleSide })) };
+      pool: keep(new THREE.MeshPhongMaterial({ map: keep(waterTexture()), transparent: true, opacity: 0.92, shininess: 70, specular: '#d8ecff' })), shore: keep(new THREE.MeshLambertMaterial({ color: new THREE.Color(world.ground[1]).multiplyScalar(0.62) })),
+      cliff: flat('#7b7b72'), moss: flat('#5f8c46'), plank: flat('#9a7550'),
+      fall: keep(new THREE.MeshLambertMaterial({ map: keep(fallTexture()), transparent: true, opacity: 0.9, side: THREE.DoubleSide, depthWrite: false })),
+      foam: keep(new THREE.MeshBasicMaterial({ color: '#f4fbff', transparent: true, opacity: 0.66, depthWrite: false })), mist: keep(new THREE.MeshBasicMaterial({ color: '#f2f8fb', transparent: true, opacity: 0.24, depthWrite: false })) };
     const inst = {};   // shape → [{ x, y, z, sx, sy, sz, ry, tint }]
     const board = new Map();   // emoji → [{ x, z, w, h }]
     const occluders = [];   // かたい 物(カメラと player の あいだに 入ったら すかす)
     let cur = null;
-    const push = (shape, it) => { const l = inst[shape] || (inst[shape] = []); if (cur) cur.refs.push({ shape, i: l.length, it }); l.push(it); };
+    // 水・あわ・しぶき・ひらたい 石は すかさない(かたい 物では ない)
+    const NO_FADE = new Set(['pool', 'shore', 'foam', 'mist', 'fall']);
+    const push = (shape, it) => { const l = inst[shape] || (inst[shape] = []); if (cur && !NO_FADE.has(shape)) cur.refs.push({ shape, i: l.length, it }); l.push(it); };
     let count = 0;
     for (const ob of objects) {
       count++;
@@ -244,10 +278,18 @@ function create3DRenderer(M, o, onLost) {
           case 'rock': push('rock', { x: px, y: 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: ry + t, tint: t }); break;
           case 'log': push('log', { x: px, y: 0, z: pz, sx: pt.len, sy: pt.r, sz: pt.r, ry, tint: t }); break;
           case 'stump': push('stump', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t }); break;
-          case 'pool': push('pool', { x: px, y: 0, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: 0, tint: 0 }); break;
+          case 'pool': {
+            const rx = pt.rx || pt.r, rz = pt.rz || pt.r, pr = pt.ang != null ? Math.PI / 2 - pt.ang : 0;
+            push('shore', { x: px, y: 0, z: pz, sx: rx * 1.07 + 10, sy: 1, sz: rz * 1.07 + 10, ry: pr, tint: 0.5 }); push('pool', { x: px, y: 0, z: pz, sx: rx, sy: 1, sz: rz, ry: pr, tint: 0.5 }); break;
+          }
           case 'plank': push('plank', { x: px, y: 0, z: pz, sx: pt.len, sy: 8, sz: pt.w, ry, tint: t }); break;
-          case 'fall': push('fall', { x: px, y: 0, z: pz, sx: pt.w, sy: pt.h, sz: 1, ry: 0, tint: 0 }); break;
-          case 'cliff': push('cliff', { x: px, y: 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: 0, tint: t }); break;
+          // 面の むき f(せかい)→ three の y 回転 θ = atan2(fx, −fz)
+          case 'fall': push('fall', { x: px, y: 0, z: pz, sx: pt.w, sy: pt.h, sz: 1, ry: pt.fx != null ? Math.atan2(pt.fx, -pt.fz) : 0, tint: 0.5 }); break;
+          case 'cliff': push('cliff', { x: px, y: pt.y || 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: pt.ang != null ? Math.PI / 2 - pt.ang : 0, tint: t }); break;
+          case 'moss': push('moss', { x: px, y: pt.y, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: Math.PI / 2 - pt.ang, tint: t }); break;
+          case 'foam': push('foam', { x: px, y: 0, z: pz, sx: pt.rx, sy: 1, sz: pt.rz, ry: Math.PI / 2 - pt.ang, tint: 0.5 }); break;
+          case 'mist': push('mist', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r * pt.sy, sz: pt.r * 0.6, ry: Math.atan2(pt.fx, -pt.fz), tint: 0.5 }); break;
+          case 'stone': push('rock', { x: px, y: 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: t * TAU, tint: t }); break;
           case 'billboard': {
             // 地面に おちて いる もの(はっぱ・どんぐり・め)は 地面に ねかせる。草花・きのこ・かんばんは 立てる
             const flatKey = LITTER.has(ob.emoji) ? 'flat:' + ob.emoji : ob.emoji;
@@ -257,6 +299,8 @@ function create3DRenderer(M, o, onLost) {
         }
       }
     }
+    cur = null;
+    for (const q of ponds) { push('shore', { x: q.x, y: 0, z: -q.z, sx: q.r * 1.02 + 10, sy: 1, sz: q.r * 0.86 + 10, ry: 0, tint: 0.5 }); push('pool', { x: q.x, y: 0, z: -q.z, sx: q.r * 0.95, sy: 1, sz: q.r * 0.8, ry: 0, tint: 0.5 }); }
     const meshes = {};
     MAT.crownBig = flat('#3f7f3c');
     for (const shape of Object.keys(inst)) {
@@ -299,7 +343,7 @@ function create3DRenderer(M, o, onLost) {
     const ghostMat = {}; for (const k of Object.keys(MAT)) { ghostMat[k] = keep(MAT[k].clone()); ghostMat[k].transparent = true; ghostMat[k].opacity = 0.28; ghostMat[k].depthWrite = false; }
     const ghostGeo = (shape) => GEO[shape === 'crownBig' ? 'crown' : shape];
     return { sc, hemi, sun, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null,
-      occluders, hidden: new Set(), ghosts: [], ghostMat, ghostGeo, inst };
+      occluders, hidden: new Set(), ghosts: [], ghostMat, ghostGeo, inst, anim: { fall: MAT.fall.map, foam: MAT.foam, mist: MAT.mist } };
   }
 
   function actorMesh(b, a) {
@@ -364,6 +408,8 @@ function create3DRenderer(M, o, onLost) {
         m.instanceMatrix.needsUpdate = true; m.computeBoundingSphere();
       }
     }
+    // たきの 水: ながれ・あわ・しぶき(うごきを へらす 設定では とめる)
+    if (animLv > 0) { const s = (now || 0) / 1000; built.anim.fall.offset.y = (s * 0.9) % 1; built.anim.foam.opacity = 0.6 + 0.1 * Math.sin(s * 3.1); built.anim.mist.opacity = 0.22 + 0.06 * Math.sin(s * 1.7); }
     // キャラ
     for (const m of built.actors.values()) m.visible = false;
     built.shadows.count = 0;
@@ -384,7 +430,7 @@ function create3DRenderer(M, o, onLost) {
   // カメラと player の あいだの かたい 物は すかす(2D の「てまえの 物は すける」と おなじ やくわり)。
   // InstancedMesh の その 物だけ 大きさ 0 に して、半透明の ghost を かわりに おく
   const ZERO = new THREE.Matrix4().makeScale(0, 0, 0);
-  let fade = true;
+  let fade = true, animLv = 2;
   function fadeOccluders(b, ex, ez, player) {
     const vx = player ? player.x - ex : 0, vz = player ? player.z - ez : 0, L2 = vx * vx + vz * vz || 1, want = new Set();
     if (player) for (const oc of b.occluders) {
@@ -454,6 +500,7 @@ function create3DRenderer(M, o, onLost) {
     },
     loseContext() { const ext = renderer.getContext().getExtension('WEBGL_lose_context'); if (ext) ext.loseContext(); },
     setOccluderFade(on) { fade = !!on; },
+    setAnimLevel(v) { animLv = v; },
     destroy() {
       if (built) disposeScene(built);
       for (const t of texCache.values()) if (t && t.tex) t.tex.dispose();

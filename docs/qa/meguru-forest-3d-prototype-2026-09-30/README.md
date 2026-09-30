@@ -15,8 +15,17 @@ branch `claude/naotocchi-forest-3d-prototype`。記録の 正本は [../meguru-f
 | [entrance](entry-2d-vs-3d.jpg)(もりのいりぐち) | (0, 150) むき 0 | 道の 読みやすさ・木の 存在感 |
 | [bright2](bright2-2d-vs-3d.jpg)(ひだまり) | (−700, 1050) | 大木の 体積・キャラの うしろの 木 |
 | [fork](fork-2d-vs-3d.jpg)(みつまた) | (0, 2900) | 木の 密度・霧の 奥行き |
-| [big tree](great-2d-vs-3d.jpg)(おおきなき) | (0, 5500) | ランドマーク(3D では 道を あける ため 216 うごいた)|
-| [waterfall](falls-2d-vs-3d.jpg)(たき) | (−1500, 5600) | 池・がけ・手前の 物 |
+| [big tree](great-2d-vs-3d.jpg)(おおきなき) | (0, 5500) | ランドマーク(レビュー後に 直した。下の 1b)|
+| [waterfall](falls-2d-vs-3d.jpg)(たき) | (−1500, 5600) | がけ・おちる 水・たきつぼ(レビュー後に 直した。下の 1b)|
+
+big tree と waterfall の 2 まいは レビュー後の 3D(昼 / 晴れ / 秋。左右は おなじ 条件)。ほかの 3 地点と billboard・occlusion の しゃしんは レビュー まえ の まま。
+
+## 1b. レビュー後: 大きな木 と たき だけ 直した
+
+- [big tree 3D まえ / いま](great-3d-before-after.jpg) — 道を あけつつ spot の 正面に ちかく(spot から 432 → 384・むき +11 → +15 度)。えだはりを ひとまわり 大きく ひくめに(みき = あたり の まま)。
+- [waterfall 3D まえ / いま](falls-3d-before-after.jpg) — がけ = あたりの 箱(面が spot へ)・ながれる 水の まく・がけの 足もと から spot まで の たきつぼ(つや・岸の ふち)・あわ・しぶき・ふちの 石。いっしょに うごく。
+- 上から 見た 図: [大きな木](relocation-bigtree-landmark.jpg) / [たき](relocation-waterfall-landmark.jpg)
+- ルール と 計測: [QA §8](../meguru-forest-3d-prototype-2026-09-30.md#8-ランドマーク大きな木たきの-直し--人の目の-レビューの-あと)
 
 ## 2. billboard(なかま・player の まわりを 2 倍)
 
@@ -29,9 +38,9 @@ branch `claude/naotocchi-forest-3d-prototype`。記録の 正本は [../meguru-f
 
 ## 4. 道の うえの かたい 物の 移動(M-1、3D モードだけ)
 
-うごかした 89・おかない 39(ぜんぶで 128)。代表 5 つ(上 = 北。オレンジ点線 = 2D の 絵の はば、オレンジの 輪 = もとの 足もと(2D では あたり なし)、みどり = 3D の あと(見た目 = あたり)、茶色 = ほかの 物の あたり、ベージュ = 道・spot):
+うごかした 89・おかない 39(ぜんぶで 128)。ランドマーク 2 つは レビュー後の ランドマークの ルール(1b)。代表 5 つ(上 = 北。オレンジ点線 = 2D の 絵の はば、オレンジの 輪 = もとの 足もと(2D では あたり なし)、みどり = 3D の あと(見た目 = あたり)、茶色 = ほかの 物の あたり、ベージュ = 道・spot):
 
-[大きな木(ランドマーク)216](relocation-bigtree-landmark.jpg) / [たき(ランドマーク)96](relocation-waterfall-landmark.jpg) / [大木 2 本 108・120](relocation-bigtrunk-pair.jpg) / [広葉樹 144](relocation-broadleaf.jpg) / [おかない 針葉樹(さがす はんい 167)](relocation-dropped-conifer.jpg)
+[大きな木(ランドマーク)184](relocation-bigtree-landmark.jpg) / [たき(ランドマーク)180](relocation-waterfall-landmark.jpg) / [大木 2 本 108・120](relocation-bigtrunk-pair.jpg) / [広葉樹 144](relocation-broadleaf.jpg) / [おかない 針葉樹(さがす はんい 167)](relocation-dropped-conifer.jpg)
 
 ## 5. context lost
 
