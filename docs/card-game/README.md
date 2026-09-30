@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [409](409-proxy-verification.md) | 119/120の歴史的テスト対象を固定し件数エラーを解消。歴史的263/263、専用3/3、catalog errors0。全proxyは900秒で25PASS後未完了。408の4経路完了状態を保持 |
+
 | [408](408-new-seed-mixed-replay.md) | 残るR10のB2ターンを17 event/snapshotで保存。4経路すべてcompleted、A25/B20のA勝利。既存completed2経路は完全保持、独立balance0 |
 
 | [407](407-new-seed-mixed-replay.md) | R10のA4ターンを45 event/snapshotで保存。01-B/02-BはA25/B20のA勝利でcompleted、01-A/02-AはBの最後の交換へ。独立balance0 |

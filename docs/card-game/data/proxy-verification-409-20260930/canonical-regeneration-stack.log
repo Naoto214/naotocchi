@@ -1,0 +1,68 @@
+test_general_single_board_ability_response_namespace (test_proxy_board_ability_id_167.BoardAbilityID167Test.test_general_single_board_ability_response_namespace) ... ok
+test_saved_start_opportunities_are_independently_verified (test_proxy_board_ability_id_167.BoardAbilityID167Test.test_saved_start_opportunities_are_independently_verified) ... Timeout (0:00:25)!
+Thread 0x00007f9909a83740 (most recent call first):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/decoder.py", line 338 in decode
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 346 in loads
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_new_seed_turn_end_audit_163.py", line 69 in audit_route
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_new_seed_turn_end_audit_163.py", line 107 in build_report
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_new_seed_turn_end_restart_164.py", line 75 in run_route
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_new_seed_turn_end_restart_164.py", line 158 in build_report
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_new_seed_start_audit_166.py", line 47 in previous_board_states
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_new_seed_start_audit_166.py", line 100 in audit_route
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_new_seed_start_audit_166.py", line 144 in build_report
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_board_ability_id_167.py", line 34 in load_source
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_board_ability_id_167.py", line 79 in build_report
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/test_proxy_board_ability_id_167.py", line 18 in test_saved_start_opportunities_are_independently_verified
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/case.py", line 589 in _callTestMethod
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/case.py", line 634 in run
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/case.py", line 690 in __call__
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py", line 122 in run
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py", line 84 in __call__
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py", line 122 in run
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py", line 84 in __call__
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py", line 122 in run
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py", line 84 in __call__
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/runner.py", line 240 in run
+  File "<stdin>", line 4 in <module>
+ok
+test_board_single_target_id_follows_127_when_usage_proved (test_proxy_board_active_132.BoardActive132Tests.test_board_single_target_id_follows_127_when_usage_proved) ... ok
+test_forged_audit_rejected (test_proxy_board_active_132.BoardActive132Tests.test_forged_audit_rejected) ... ok
+test_four_canonical_outputs (test_proxy_board_active_132.BoardActive132Tests.test_four_canonical_outputs) ... Timeout (0:00:25)!
+Thread 0x00007f9909a83740 (most recent call first):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/decoder.py", line 354 in raw_decode
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/decoder.py", line 338 in decode
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 346 in loads
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_normal_decision_seeded_restart.py", line 60 in load_inputs
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_normal_decision_seeded_restart.py", line 123 in _fixed_manifest_cards
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_normal_decision_seeded_restart.py", line 417 in make_stop_artifact
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_normal_decision_seeded_restart.py", line 946 in _replay_route
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_normal_decision_seeded_restart.py", line 998 in build_seeded_restart_suite
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_turn_end_provenance_restart.py", line 78 in validated_history
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_turn_end_provenance_restart.py", line 296 in run_route
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_turn_end_provenance_restart.py", line 392 in run_all
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_turn_end_provenance_restart.py", line 453 in expected_outputs
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_turn_end_provenance_restart.py", line 470 in check_outputs
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_normal_action_extension.py", line 27 in load_sources
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_current_turn_end_correction.py", line 26 in load_sources
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_current_turn_end_correction.py", line 321 in expected_outputs
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_current_turn_end_correction.py", line 339 in check_outputs
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_r2_candidate_extension_127.py", line 31 in load_sources
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_r2_candidate_extension_127.py", line 568 in expected_outputs
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_r2_candidate_extension_127.py", line 585 in check_outputs
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_r2_candidate_extension_128.py", line 49 in load_sources
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_conditional_growth_129.py", line 36 in load_sources
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_board_source_world_130.py", line 36 in load_sources
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_safe_placement_mixed_131.py", line 40 in load_sources
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/proxy_board_active_132.py", line 41 in load_sources
+  File "/workspace/scratch/5f7bf863e4f6/card-work/docs/card-game/tools/test_proxy_board_active_132.py", line 69 in test_four_canonical_outputs
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/case.py", line 589 in _callTestMethod
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/case.py", line 634 in run
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/case.py", line 690 in __call__
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py", line 122 in run
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py", line 84 in __call__
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py", line 122 in run
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py", line 84 in __call__
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py", line 122 in run
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py", line 84 in __call__
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/runner.py", line 240 in run
+  File "<stdin>", line 4 in <module>

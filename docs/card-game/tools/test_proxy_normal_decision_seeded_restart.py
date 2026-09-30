@@ -193,7 +193,7 @@ class SeededRestartTests(unittest.TestCase):
         checked = subprocess.run([sys.executable, str(TOOLS / "check-design-data.py"), "--catalog"],
                                  capture_output=True, text=True, check=False)
         self.assertEqual(checked.returncode, 0, checked.stdout + checked.stderr)
-        self.assertEqual(json.loads(checked.stdout).get("proxy_test_count"), 190)
+        self.assertEqual(json.loads(checked.stdout)["historical_proxy_test_counts"]["117"], 190)
 
     def test_replay_links_each_decision_to_one_event_and_contiguous_snapshots(self):
         _, suite = self._real_suite()
