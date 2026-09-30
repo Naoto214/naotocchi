@@ -166,9 +166,10 @@ def choose_normal(row,proof):
         return source.source.choose_normal(row,proof)
     finally:contracts.paid.cost_and_effect=original
 
-def run_route(initial):
+def run_route(initial, history_loader=None):
     row=copy.deepcopy(initial);events=[];shots=[];decisions=[];steps=[]
-    baseline,history,digest=saved_history(row['path_id'])
+    baseline,history,digest=(history_loader or saved_history)(row['path_id'])
+    verify_history(row,baseline,history)
     for _ in range(32):
         state=row['final_continuation_state'];phase=state['game_state']['phase'];ctx=state['response_context'];current_history=history+list(zip(events,shots))
         if row.get('completed') or (phase=='egg_exchange_choice' and events):break

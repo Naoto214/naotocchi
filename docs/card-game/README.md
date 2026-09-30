@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [408](408-new-seed-mixed-replay.md) | 残るR10のB2ターンを17 event/snapshotで保存。4経路すべてcompleted、A25/B20のA勝利。既存completed2経路は完全保持、独立balance0 |
+
 | [407](407-new-seed-mixed-replay.md) | R10のA4ターンを45 event/snapshotで保存。01-B/02-BはA25/B20のA勝利でcompleted、01-A/02-AはBの最後の交換へ。独立balance0 |
 
 | [406](406-new-seed-mixed-replay.md) | 既存の対象付き候補・合法性・選択・解決契約で停止2経路を再開。17 event/snapshot、4経路ともR10のA交換へ。completed0、独立balance0 |
