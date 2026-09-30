@@ -135,7 +135,9 @@ test('6. まち: 山ごえ(おおどおりのはし) / 河口(ふなつきば) /
   const r = sweep(M, 'city', [2000, 2600, 3000, 3400, 3650, 3900, 4200, 4550, 4900, 5200, 5600],
     [-1200, -600, 0, 600, 1200, 1800, 2050]);
   const flat = (o) => Object.keys(o).sort().map((k) => k + '=' + JSON.stringify(o[k], Object.keys(o[k]).sort())).join(' ');
-  assert.equal(flat(r.perSpot), flat({ stalls: { desert: 5 }, boatpier: { sea: 6 }, cross4: { countryside: 9 } }),
+  // 2026-09-30 party / player collision fix: めくら うちの 山ごえ 3 本(オフィスがいの 建物の あいだ から)は 建物の あたりで
+  // とまる ように なった(まえは その 絵の なかを とおって いた)。出口 そのもの・ほかの spot から 出ない ことは かわらない
+  assert.equal(flat(r.perSpot), flat({ stalls: { desert: 5 }, boatpier: { sea: 6 }, cross4: { countryside: 6 } }),
     'それぞれの spot からしか 出ない');
 });
 

@@ -626,6 +626,10 @@
     };
     // たてもの・のりもの など「もの」の イラストは スポットの めじるしの おおきさ(230)の まま
     const SPOT_PROP_BIG = new Set(['🏠', '🏚️', '🛖', '⛲', '🚉', '🏪', '🏬', '☕', '🛝', '⛺', '🚏', '⛩️', '🌉', '⛵', '🌳', '🏕️', '🎡']);
+    // てまえを よこぎる もの(fore)の うち、見た目が かたい もの(岩・柱・柵)。えだ・いなほ は 通れる まま
+    const FORE_SOLID = new Set(['ledgerock', 'guardpost', 'fencerail']);
+    // ちいさくても(size ≤ 120)見た目が かたい もの。切り株・丸太・岩は こものでも 足を とめる
+    const SMALL_SOLID = new Set(['stump', 'log', 'driftwood', 'bigrock', 'riverrock', 'hayroll']);
     // ねている もの: むきを ばらす(倒木が よこ一列に ならばない)
     const ANGLED_STRUCTS = new Set(['log', 'driftwood', 'bigrock', 'riverrock', 'ledgerock', 'stump', 'hayroll']);
 
@@ -810,11 +814,11 @@
     }
     // みち と スポットの 通行帯に 食いこむ ぶんを 縮める。むりなら false(おかない)。
     // 「道を ふさがない」を データの がわで まもる ので、あとから 迷路に ならない
-    function clearCorridor(o, world) {
+    function clearCorridor(o, world, clear = COLL_CLEAR, minSize = COLL_MIN) {
       const reach = Math.max(o.hw, o.hd);
       let k = 1;
       for (const s of world.segments || []) {
-        const need = s.half + COLL_CLEAR;
+        const need = s.half + clear;
         const dx = s.b.x - s.a.x, dz = s.b.z - s.a.z, L2 = dx * dx + dz * dz || 1;
         const t = clamp(((o.x - s.a.x) * dx + (o.z - s.a.z) * dz) / L2, 0, 1);
         const px = s.a.x + dx * t, pz = s.a.z + dz * t;
@@ -833,18 +837,93 @@
       }
       if (k >= 1) return true;
       o.hw *= k; o.hd *= k;
-      return Math.max(o.hw, o.hd) >= COLL_MIN;
+      return Math.max(o.hw, o.hd) >= minSize;
+    }
+    // 見た目が かたい もの(建物・岩・崖・木の みき・柵)。これらは 道の そばで あたり だけ 消えると
+    // 「見えて いる 物の 中を あるく」ことに なる ので、消す まえに 道と 反対がわへ ずらす
+    const SOLID_LOOK_ROLE = new Set(['building', 'terrain', 'vegetation', 'obstacle']);
+    const SOLID_LOOK_EMOJI = new Set([...SOLID_EMOJI_BUILD, ...SOLID_EMOJI_TREE]);
+    function solidLooking(o) {
+      if (o.role !== 'solid' || String(o.kind).startsWith('LM:')) return false;   // 水・世界の ふち(boundary)は いままでどおり
+      return SOLID_LOOK_ROLE.has(STRUCT_ROLE[o.kind]) || SOLID_LOOK_EMOJI.has(o.kind);
+    }
+    // 道の 面の はし まで からだの 中心が 行ける すきま(= bodyRadius)。道の はばは かえない
+    const SOLID_EDGE_CLEAR = COLL_CLEAR;
+    const SOLID_MIN = 8;
+    // 道の 面に かかる ぶんを、道と 反対がわへ ずらして おさめる。いちばん 食いこむ 道 1 本に たいして、
+    //   ちかい はし ≥ 道の 面 + SOLID_EDGE_CLEAR(道の はばは かえない)
+    //   とおい はし ≤ 描いた 物の はし(vh = 見た目の よこ半分)。見た目の そとへ はみ出さない
+    // の なかで いちばん 大きく する(もとの 大きさ より 大きく しない)。ねもとが 道の 面の うえ に ある もの・
+    // おさまらない もの は false(これまで どおり 外す)。ほかの 道・spot は このあとの clearCorridor が みる
+    function fitOffRoad(o, world, vh, sh = 0) {
+      let worst = null;
+      for (const s of world.segments || []) {
+        const dx = s.b.x - s.a.x, dz = s.b.z - s.a.z, L2 = dx * dx + dz * dz || 1;
+        const t = clamp(((o.x - s.a.x) * dx + (o.z - s.a.z) * dz) / L2, 0, 1);
+        const px = s.a.x + dx * t, pz = s.a.z + dz * t, d = Math.hypot(o.x - px, o.z - pz);
+        // ねもとが 道の 面の うえ: たて看板(OCCLUDER_SHIFT)だけ、もとの あたりの うち 道の そとに 出る ぶんを のこす
+        if (d <= s.half && !(sh > 0 && d > 1)) return false;
+        const ux = (o.x - px) / d, uz = (o.z - pz) / d, sup = colliderReach(o, -ux, -uz);
+        const lo = s.half + SOLID_EDGE_CLEAR - d;          // ちかい はしの さいしょうの いち(ねもと から 外むき)
+        const cut = sup + lo;                                // 道がわへ はみでる ぶん(あたりの 内がわの はしは -sup)
+        if (cut <= 0.5) continue;                            // もともと かからない
+        if (!worst || cut > worst.cut) worst = { lo, sup, ux, uz, cut };
+      }
+      if (!worst) return true;
+      // 絵の そとがわの はし。たて看板(OCCLUDER_SHIFT: 建物・がけ)は 画面の みぎへ えがく ので、見る むきで 道の どちらがわに
+      // 出るかが かわる。どちらの むきでも 見えない かべに ならない よう、もとの あたりの そとへは 出さない(道がわを けずるだけ)
+      const far = sh > 0 ? worst.sup : Math.max(worst.sup, vh);
+      let r = Math.min(worst.sup, (far - worst.lo) / 2);
+      // たて看板の 箱: ずらした 箱が もとの 箱の そとへ 出ない ところまで ちぢめる(ななめの 箱は かどが よこへ 出る)
+      if (sh > 0 && o.shape === 'box') {
+        const a1 = Math.abs(worst.ux * Math.sin(o.ang) + worst.uz * Math.cos(o.ang)), a2 = Math.abs(worst.ux * Math.cos(o.ang) - worst.uz * Math.sin(o.ang));
+        const fits = (rr) => { const f = rr / worst.sup, s = Math.max(0, worst.lo + rr); return s * a1 <= o.hw * (1 - f) + 0.01 && s * a2 <= o.hd * (1 - f) + 0.01; };
+        while (r >= SOLID_MIN && !fits(r)) r *= 0.9;
+      }
+      if (r < SOLID_MIN) return false;
+      const f = r / worst.sup, shift = Math.max(0, worst.lo + r);
+      o.hw *= f; o.hd *= f;
+      o.x += worst.ux * shift; o.z += worst.uz * shift;
+      return true;
+    }
+    // 道の 通行帯(half + SOLID_EDGE_CLEAR)に 箱の かどが かからないかを 道に そって じっさいに しらべる。
+    // clearCorridor は いちばん ちかい 点の むき だけ で みる ので、道の はしっこ で 箱の かどが のこる ことが ある
+    function bandClear(o, world) {
+      for (let tries = 0; tries < 8; tries++) {
+        let hit = false;
+        for (const s of world.segments || []) {
+          const need = s.half + SOLID_EDGE_CLEAR, dx = s.b.x - s.a.x, dz = s.b.z - s.a.z, L = Math.hypot(dx, dz) || 1;
+          const t = clamp(((o.x - s.a.x) * dx + (o.z - s.a.z) * dz) / (L * L), 0, 1);
+          if (Math.hypot(o.x - s.a.x - dx * t, o.z - s.a.z - dz * t) - Math.max(o.hw, o.hd) * 1.42 >= need) continue;
+          const n = Math.ceil(L / 10);
+          for (let i = 0; i <= n && !hit; i++) if (colliderPenetration(o, s.a.x + dx * i / n, s.a.z + dz * i / n, need) > 0) hit = true;
+          if (hit) break;
+        }
+        if (!hit) return true;
+        o.hw *= 0.85; o.hd *= 0.85;
+        if (Math.max(o.hw, o.hd) < SOLID_MIN) return false;
+      }
+      return false;
     }
     // せかいを つくる とき 1かいだけ: 絵の 大きさ から 接地の かたちを 出す
     function buildObstacles(world) {
       const out = [];
-      for (const p of world.props) { const o = obstacleOf(p, world); if (o) out.push(o); }
+      world.props.forEach((p, i) => { const o = obstacleOf(p, world, i); if (o) out.push(o); });
       return out;
     }
-    // 1 つ ぶん(buildWorldSteps が くぎりながら つかう)
-    function obstacleOf(p, world) {
+    // 1 つ ぶん(buildWorldSteps が くぎりながら つかう)。pi = world.props の 番号(この あたりが どの 物の ものか)
+    function obstacleOf(p, world, pi) {
       const c = colliderOf(p); if (!c) return null;
       const o = { kind: c.kind, shape: c.shape, x: p.x, z: p.z, hw: c.hw, hd: c.hd, ang: c.ang, role: COLLIDER_ROLE[c.kind] || 'solid' };
+      if (pi != null) o.pi = pi;
+      if (solidLooking(o)) {
+        // 見た目が かたい もの: 道の 面に ねもとが なければ、ずらして のこす(縮めるのは さいご)
+        const vh = (p.size || 160) * (p.struct && OCCLUDER_BOX[p.struct] ? OCCLUDER_BOX[p.struct][0] : OCCLUDER_BOX.glyph[0]);
+        const sh = (p.size || 160) * (OCCLUDER_SHIFT[p.struct] || 0);
+        if (!fitOffRoad(o, world, vh, sh) || !clearCorridor(o, world, SOLID_EDGE_CLEAR, SOLID_MIN) || !bandClear(o, world)) return null;
+        o.r = Math.max(o.hw, o.hd);
+        return o;
+      }
       if (!clearCorridor(o, world)) return null;
       o.r = Math.max(o.hw, o.hd); // かこみ円(ます目わけ と ざっくり しらべ に つかう)
       return o;
@@ -1114,7 +1193,7 @@
         // 3つに 2つは canvas の 造形(岩・木・たてもの)。絵文字の 素材は 3つに 1つ まで
         if (edgeKinds.length && i % 3 !== 1) { const kind = edgeKinds[hash(seed + 'e') % edgeKinds.length]; world.props.push({ struct: kind, x, z, size: 220 + hrand(seed + 'k') * 160, ang: 0, side, region: regionId, layer: 'side', solid: true }); continue; }
         if (!sidePool.length) continue;
-        world.props.push({ emoji: sidePool[hash(seed) % sidePool.length], x, z, size: 140 + hrand(seed + 'k') * 90, layer: 'side' });
+        world.props.push({ emoji: sidePool[hash(seed) % sidePool.length], x, z, size: 140 + hrand(seed + 'k') * 90, layer: 'side', solid: true });
       }
       yield;
       // しゃへいぶつ: みちの りょうわきに ならぶ おおきな もの。あいだが あいていて、さきは みえたり みえなかったり
@@ -1255,10 +1334,10 @@
           const sc = 0.82 + hrand(seed + 'k') * 0.42;
           // ねている もの(倒木・ながれぎ・岩)は むきを ばらす。しぜんの ものは よこ一列に ならばない
           if (ANGLED_STRUCTS.has(kind)) ang = (hrand(seed + 'r') - 0.5) * 1.6;
-          world.props.push({ struct: kind, x, z, size: size * sc, ang, side, region: regionId, layer: 'struct', solid: size * sc > 120 });
+          world.props.push({ struct: kind, x, z, size: size * sc, ang, side, region: regionId, layer: 'struct', solid: size * sc > 120 || SMALL_SOLID.has(kind) });
           if (kind === 'log' && hrand(seed + 'c') < 0.5) { // 2ほん かさなる
             const a2 = hrand(seed + 'a2') * TAU, d2 = 40 + hrand(seed + 'd2') * 50, x2 = x + Math.sin(a2) * d2, z2 = z + Math.cos(a2) * d2;
-            if (onLand(x2, z2) && !inSpotCore(x2, z2)) world.props.push({ struct: 'log', x: x2, z: z2, size: size * sc * 0.75, ang: ang + 0.9 + hrand(seed + 'r2') * 0.8, side, region: regionId, layer: 'struct', solid: false });
+            if (onLand(x2, z2) && !inSpotCore(x2, z2)) world.props.push({ struct: 'log', x: x2, z: z2, size: size * sc * 0.75, ang: ang + 0.9 + hrand(seed + 'r2') * 0.8, side, region: regionId, layer: 'struct', solid: true });
           }
         }
       }
@@ -1354,7 +1433,7 @@
             const t = (i + 0.2 + hrand(seed + 't') * 0.6) / n, off = sg.half + 20 + hrand(seed + 'o') * 46;
             const x = sg.a.x + (sg.b.x - sg.a.x) * t + nx * off * side, z = sg.a.z + (sg.b.z - sg.a.z) * t + nz * off * side;
             if (!onLand(x, z)) continue;
-            world.props.push({ struct: okind, x, z, size: osize * (0.75 + hrand(seed + 'k') * 0.6), ang: Math.atan2(dx, dz), side, region: regionId, layer: 'fore' });
+            world.props.push({ struct: okind, x, z, size: osize * (0.75 + hrand(seed + 'k') * 0.6), ang: Math.atan2(dx, dz), side, region: regionId, layer: 'fore', solid: FORE_SOLID.has(okind) });
           }
         }
       }
@@ -1380,7 +1459,7 @@
           const np = nearestPath({ x, z }, world); if (np && np.dist < 300) continue; // みちの すぐ よこは frame の しごと
           if (world.edgeKinds.length && hash(seed + 'm') % 3 !== 1) { const kind = world.edgeKinds[hash(seed + 'e') % world.edgeKinds.length]; world.props.push({ struct: kind, x, z, size: 210 + hrand(seed + 'k') * 170, ang: 0, side, region: regionId, layer: 'side', solid: true }); continue; }
           if (!sidePool.length) continue;
-          world.props.push({ emoji: sidePool[hash(seed) % sidePool.length], x, z, size: 130 + hrand(seed + 'k') * 90, layer: 'side' });
+          world.props.push({ emoji: sidePool[hash(seed) % sidePool.length], x, z, size: 130 + hrand(seed + 'k') * 90, layer: 'side', solid: true });
         }
       }
       yield;
@@ -1524,7 +1603,7 @@
       yield;
       // あたりはんてい: 「絵の 四角」では なく 地面に ついて いる ところ(COLLIDER)。
       // みちの 通行帯に 食いこむ ものは 自動で 縮める/外す ので、道は ぜったいに ふさがらない
-      { const obs = []; for (let i = 0; i < world.props.length; i++) { const o = obstacleOf(world.props[i], world); if (o) obs.push(o); if (i % 120 === 119) yield; } world.obstacles = obs; }
+      { const obs = []; for (let i = 0; i < world.props.length; i++) { const o = obstacleOf(world.props[i], world, i); if (o) obs.push(o); if (i % 120 === 119) yield; } world.obstacles = obs; }
       yield;
       world.collision = buildCollisionGrid(world.obstacles);
       world.moodSpots = world.spots.filter((q) => q.mood);   // ばしょ ごとの きぶん(ふつうは 0〜3 こ)
@@ -2359,6 +2438,87 @@
       return pt;
     }
 
+    // ---- なかま(party)の うごき。3 つに わける ----
+    //  1) ならび(formation)に ついていく: partyFollowStep … どこへ どれだけ すすみたいか だけ を きめる
+    //  2) あたりの 解決: moveWithCollision … player・住人と おなじ 関数(半径は PARTY_RADIUS)
+    //  3) 障害物の まわりこみ: reachSlot … ならびの 点を player から 行ける ところへ。partyAvoid … かどに はさまった ときだけ もどす
+    // 半径: player は bodyRadius(22)、住人と なかまは その 0.8(17.6。RH-7 の clearSlot と おなじ)。
+    // なかまを 17.6 の まま に するのは、ならびの すきま(spacing 30)と 住人の 立ちいち と そろえる ため(全面の 統一は 3D で)
+    const PARTY_RADIUS = RULES.bodyRadius * STAND_CLEAR;
+    function partyFollowStep(world, a, tx, tz, k, dt) {
+      const F = RULES.follow, dx = tx - a.x, dz = tz - a.z, d = Math.hypot(dx, dz);
+      // めりこんで いる かは ならびの そばで とまる ときだけ しらべる(はなれて いれば どのみち あるく)
+      if (!(d > F.snap || (d > 0.001 && collidesAt(world, a.x, a.z, PARTY_RADIUS)))) return null;
+      const spd = Math.max(40, Math.min(F.maxSpeed, d * FORMATION.gain)) * k, step = Math.min(d, spd * dt);
+      return { x: dx / d * step, z: dz / d * step, d, len: step };
+    }
+    // a → b を 12 ずつ しらべて、はじめて ぶつかる 点の 番号(i / n)。ぶつからなければ -1。
+    // collidesAt を 点ごとに よぶと ます目の 全員を まいかい 見る ので、線の ちかくに ある あたり だけ を さきに えらぶ(結果は おなじ)
+    const lineSeen = new Set(), lineNear = [];
+    function firstHit(world, ax, az, bx, bz, r) {
+      const d = Math.hypot(bx - ax, bz - az), n = Math.ceil(d / 12);
+      if (!n) return -1;
+      const g = world.collision;
+      lineNear.length = 0; lineSeen.clear();
+      const cands = [];
+      if (!g) cands.push(world.obstacles || EMPTY_CELL);
+      else {
+        const cx0 = Math.max(0, Math.floor((Math.min(ax, bx) - g.minX) / g.cell)), cx1 = Math.min(g.cols - 1, Math.floor((Math.max(ax, bx) - g.minX) / g.cell));
+        const cz0 = Math.max(0, Math.floor((Math.min(az, bz) - g.minZ) / g.cell)), cz1 = Math.min(g.rows - 1, Math.floor((Math.max(az, bz) - g.minZ) / g.cell));
+        for (let cz = cz0; cz <= cz1; cz++) for (let cx = cx0; cx <= cx1; cx++) { const c = g.cells[cz * g.cols + cx]; if (c) cands.push(c); }
+      }
+      const dx = bx - ax, dz = bz - az, L2 = dx * dx + dz * dz || 1;
+      const x0 = Math.min(ax, bx) - r, x1 = Math.max(ax, bx) + r, z0 = Math.min(az, bz) - r, z1 = Math.max(az, bz) + r;
+      for (const list of cands) for (let k = 0; k < list.length; k++) {
+        const o = list[k];
+        if (o.x + o.r < x0 || o.x - o.r > x1 || o.z + o.r < z0 || o.z - o.r > z1 || lineSeen.has(o)) continue;
+        lineSeen.add(o);
+        const t = Math.max(0, Math.min(1, ((o.x - ax) * dx + (o.z - az) * dz) / L2));
+        if (Math.hypot(o.x - ax - dx * t, o.z - az - dz * t) < o.r + r) lineNear.push(o);
+      }
+      if (!lineNear.length) return -1;
+      for (let i = 1; i <= n; i++) {
+        const x = ax + dx * i / n, z = az + dz * i / n;
+        for (let k = 0; k < lineNear.length; k++) if (colliderPenetration(lineNear[k], x, z, r) > 0) return i / n;
+      }
+      return -1;
+    }
+    // ならびの ばしょ が player から まっすぐ 行けない(生け垣・木の むこう)ときは、とちゅうの 行ける ところまで ひきよせる。
+    // player の いちは かならず 立てる ので、ここは かならず 行ける
+    function reachFrom(world, from, t, r) {
+      const d = Math.hypot(t.x - from.x, t.z - from.z), n = Math.ceil(d / 12), hit = firstHit(world, from.x, from.z, t.x, t.z, r);
+      if (hit < 0) return t;
+      const f = Math.max(0, hit - 1 / n - 8 / (d || 1));
+      return { x: from.x + (t.x - from.x) * f, z: from.z + (t.z - from.z) * f, k: t.k };
+    }
+    // よこへ だけ ちぢめる: その 段の まんなか(player の まうしろ・おなじ おくゆき)から よこへ しらべる。
+    // 段の まんなかへ 行けない ときだけ player から まっすぐ(おくゆきも ちぢむ)
+    // どこまで ちぢめるか(のびちぢみの わりあい)だけ を かえす。まいかいの 形に あてなおせる ので 数 frame に 1 かい しらべれば よい
+    function reachClip(world, player, yaw, t) {
+      const sx = Math.sin(yaw), sz = Math.cos(yaw), back = (t.x - player.x) * sx + (t.z - player.z) * sz;
+      const mid = { x: player.x + sx * back, z: player.z + sz * back };
+      const frac = (from, to) => { const q = reachFrom(world, from, to, PARTY_RADIUS); if (q === to) return 1; const d = Math.hypot(to.x - from.x, to.z - from.z) || 1; return Math.hypot(q.x - from.x, q.z - from.z) / d; };
+      if (frac(player, mid) === 1) return { side: true, f: frac(mid, t) };
+      return { side: false, f: frac(player, t) };
+    }
+    function applyClip(player, yaw, t, c) {
+      if (c.f >= 1) return t;
+      const sx = Math.sin(yaw), sz = Math.cos(yaw), back = (t.x - player.x) * sx + (t.z - player.z) * sz;
+      const o = c.side ? { x: player.x + sx * back, z: player.z + sz * back } : player;
+      return { x: o.x + (t.x - o.x) * c.f, z: o.z + (t.z - o.z) * c.f, k: t.k };
+    }
+    function reachSlot(world, player, yaw, t) { return applyClip(player, yaw, t, reachClip(world, player, yaw, t)); }
+    // すすめない なかま: ならびの 点は player から 行ける ところ(reachSlot)なので、ふつうは すべって まわりこむ。
+    // それでも しばらく すすめない(かどに はさまった)ときだけ、ならびの そばへ もどす(まれ)
+    const PARTY_GIVEUP = 4;
+    function partyAvoid(a, want, bx, bz, dt, rejoin) {
+      // すすみたい むきへ どれだけ すすめたか(すべって 横へ 行くだけ・いったり きたり は すすんで いない)
+      const prog = ((a.x - bx) * want.x + (a.z - bz) * want.z) / (want.len || 1);
+      if (prog >= want.len * 0.35) { a.blocked = Math.max(0, (a.blocked || 0) - dt); return; }
+      a.blocked = (a.blocked || 0) + dt;
+      if (a.blocked > PARTY_GIVEUP && rejoin) { const p = rejoin(); a.x = p.x; a.z = p.z; a.blocked = 0; }
+    }
+
     // 旧セーブ(スポットしか きろくが ない)から ちずの きろくを あんぜんに 組みなおす。
     // 見つけた スポットの 地区は 通った、りょうはしを 見つけた みちは 通った、
     // その スポットの めじるしと 通った 地区の 主役は 見た、と みなす
@@ -2624,13 +2784,24 @@
       const gatesAt = (spotId) => gates.filter((g) => g.spot.id === spotId);
       // いっしょに あるく なかま・こいびと: じぶんの すこし うしろ(カメラから みて おく)と よこ
       function followParty(dt) {
-        const F = RULES.follow, slots = formationFor(party.length);
+        const slots = formationFor(party.length);
         party.forEach((a, i) => {
           // RH-7: とまって いる ときは ならびの ばしょを しょうがいぶつの そとへ ずらして から よる(あるいて いる ときは いままでどおり)
-          const t = formationPoint(a, i, slots, player.x, player.z, camera.yaw), c = player.moving ? t : clearSlot(a, t), tx = c.x, tz = c.z;
-          const dx = tx - a.x, dz = tz - a.z, d = Math.hypot(dx, dz);
-          if (d > F.snap || (d > 0.001 && collidesAt(world, a.x, a.z, RULES.bodyRadius * STAND_CLEAR))) { const spd = Math.max(40, Math.min(F.maxSpeed, d * FORMATION.gain)) * t.k; a.x += dx / d * Math.min(d, spd * dt); a.z += dz / d * Math.min(d, spd * dt); a.behavior = 'walk'; a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1; a.bob += dt; }
-          else if (a.behavior !== 'idle') { a.behavior = 'idle'; a.heading = player.heading; }
+          const t = formationPoint(a, i, slots, player.x, player.z, camera.yaw), s0 = player.moving ? t : clearSlot(a, t);
+          // ちぢめる わりあいは 4 frame に 1 かい(なかまごとに ずらす)。あいだは おなじ わりあいを いまの 形に あてる
+          // player も ならびの 点も うごいて いなければ しらべなおさない
+          const cm = a.clipAt, still = cm && Math.abs(cm[0] - player.x) + Math.abs(cm[1] - player.z) + Math.abs(cm[2] - s0.x) + Math.abs(cm[3] - s0.z) < 4;
+          if (!a.clip || a.clipW !== world || ((frame + i) % 4 === 0 && !still)) { a.clip = reachClip(world, player, camera.yaw, s0); a.clipW = world; a.clipAt = [player.x, player.z, s0.x, s0.z]; }
+          const c = applyClip(player, camera.yaw, s0, a.clip);
+          // あるいて いる ときも あたりを とおす(player・住人と おなじ moveWithCollision。以前は 位置を 直接 たして いた)
+          const want = partyFollowStep(world, a, c.x, c.z, t.k, dt);
+          if (want) {
+            const bx = a.x, bz = a.z;
+            moveWithCollision(a, a.x + want.x, a.z + want.z, world, PARTY_RADIUS);
+            partyAvoid(a, want, bx, bz, dt, () => clearSlot(a, t));
+            a.behavior = 'walk'; a.heading = Math.atan2(want.x, want.z); a.face = want.x < 0 ? -1 : 1; a.bob += dt;
+          }
+          else if (a.behavior !== 'idle') { a.behavior = 'idle'; a.heading = player.heading; a.blocked = 0; }
           if (a.sayFor > 0) { a.sayFor -= dt; if (a.sayFor <= 0) { a.sayFor = 0; a.say = null; } }
         });
       }
@@ -2643,10 +2814,11 @@
         return p;
       }
       // なかまを いまの ならびの ばしょへ そのまま おく(地域に はいった とき。とおくから かけよって こない)。
-      // RH-7: しょうがいぶつに めりこむ ばしょは 立てる ばしょへ ずらす(standClear が 世界の はしも おさえる)
+      // RH-7: しょうがいぶつに めりこむ ばしょは 立てる ばしょへ ずらす(standClear が 世界の はしも おさえる)。
+      // 生け垣・木の れつの むこう(player から まっすぐ 行けない)には おかない(reachSlot)
       function placeParty() {
         const slots = formationFor(party.length);
-        party.forEach((a, i) => { const t = clearSlot(a, formationPoint(a, i, slots, player.x, player.z, camera.yaw)); a.x = t.x; a.z = t.z; a.heading = player.heading; a.behavior = 'idle'; });
+        party.forEach((a, i) => { const t = reachSlot(world, player, camera.yaw, clearSlot(a, formationPoint(a, i, slots, player.x, player.z, camera.yaw))); a.x = t.x; a.z = t.z; a.heading = player.heading; a.behavior = 'idle'; });
       }
       // 1 フレームぶん すすめる。input: { x: -1..1(よこ), y: -1..1(てまえ +) } は カメラから みた むき。もどりち: おきた できごと
       function step(dt, input) {
@@ -6210,19 +6382,43 @@
       const envNow = opts.env || ENV_FALLBACK;
       const mood = Object.assign({}, MOOD_DEFAULT);
       let inputActive = false, inputDir = 1, frame = 0;
+      // corridor の あたりの 解決(player と なかまで 共通)。帯の はし(左右の さかい)と はしの いし を、chart の (s, u) で みる
+      function corridorBody(s, u, rad) {
+        const lim = corridorStageAt(spec, from, Math.max(0, Math.min(L, s))).uMax;
+        if (u > lim) u = lim; else if (u < -lim) u = -lim;
+        // はしの いし: 横へ すべらせる(前へは すすめる)
+        for (const o of blockers) {
+          const os = o.s, ou = o.u, rr = o.r + rad;   // いしは この むきの chart で おいて ある
+          const ds = s - os, du = u - ou, d = Math.hypot(ds, du);
+          if (d >= rr) continue;
+          const ru = d < 1e-6 ? ou - Math.sign(ou || 1) * rr : ou + du / d * rr;
+          // いしは 帯の はしから からだ 1 つ ぶん より ちかい(uMax − 16)。そとへ おすと 帯で もどされて すりぬける ので、うちがわを まわる
+          if (Math.abs(ru) > lim) { u = ou - Math.sign(ou || 1) * Math.sqrt(Math.max(0, rr * rr - ds * ds)); }
+          else if (d < 1e-6) u = ru; else { s = os + ds / d * rr; u = ru; }
+        }
+        if (u > lim) u = lim; else if (u < -lim) u = -lim;   // いしに おされても 帯の そとへは 出ない
+        return { s, u };
+      }
       function followParty(dt) {
         // ならびは region と おなじ partyFormationSlots。はばは いまの 段の 帯(4E-1 の widthClass → uMax)から。せまい 段では ほそく なる
         const Fo = RULES.follow, slots = formationFor(party.length, corridorStageAt(spec, from, Math.max(0, Math.min(L, state.s))).uMax * 0.9);
         party.forEach((a, i) => {
-          const t = formationPoint(a, i, slots, player.x, player.z, camera.yaw);
+          const t = formationPoint(a, i, slots, player.x, player.z, camera.yaw), bx = a.x, bz = a.z;
           let tx = t.x, tz = t.z;
           // 帯の そとへ 出ない
-          const su = chartSU(ch, tx, tz, state.s), lim = corridorStageAt(spec, from, su.s).uMax;
-          if (Math.abs(su.u) > lim) { const q = chartPose(ch, su.s, Math.sign(su.u) * lim); tx = q.x; tz = q.z; }
+          // 帯の そとへ 出ない・はしの いしの 中に ならばない(player と おなじ corridorBody。半径は PARTY_RADIUS)
+          const su = chartSU(ch, tx, tz, state.s), tg = corridorBody(su.s, su.u, PARTY_RADIUS);
+          if (tg.s !== su.s || tg.u !== su.u) { const q = chartPose(ch, tg.s, tg.u); tx = q.x; tz = q.z; }
           const dx = tx - a.x, dz = tz - a.z, d = Math.hypot(dx, dz);
           // 2 かいめ の はやあし(speedMultiplier)でも おいつける
           if (d > Fo.snap) { const spd = Math.min(Fo.maxSpeed * 1.4 * state.speedMultiplier, d * FORMATION.gain) * t.k; a.x += dx / d * Math.min(d, spd * dt); a.z += dz / d * Math.min(d, spd * dt); a.behavior = 'walk'; a.heading = Math.atan2(dx, dz); a.face = dx < 0 ? -1 : 1; a.bob += dt; }
           else if (a.behavior !== 'idle') { a.behavior = 'idle'; a.heading = player.heading; }
+          // うごいた あとの 位置も 帯と いしで 解決する(以前は 帯の はばだけ で、いしは すりぬけて いた)
+          // うごき + おしもどし の 合計は 1 frame の ふつうの 歩幅 まで(いしを まわりきった とき・帯の そとから もどる とき に とばない)
+          const at = chartSU(ch, a.x, a.z, state.s), ok = corridorBody(at.s, at.u, PARTY_RADIUS);
+          if (ok.s !== at.s || ok.u !== at.u) { const q = chartPose(ch, ok.s, ok.u); a.x = q.x; a.z = q.z; }
+          const mx = a.x - bx, mz = a.z - bz, ml = Math.hypot(mx, mz), cap = Fo.maxSpeed * 1.4 * state.speedMultiplier * dt;
+          if (ml > cap) { a.x = bx + mx * cap / ml; a.z = bz + mz * cap / ml; }
         });
       }
       function step(dt, v) {
@@ -6242,16 +6438,7 @@
           let s = state.s + fwd * spd * dt;
           let u = state.u + side * spd * dt;
           const mx = Math.sin(h) * fwd + Math.cos(h) * side, mz = Math.cos(h) * fwd - Math.sin(h) * side;
-          // 帯の はし(左右の さかい)
-          const lim = corridorStageAt(spec, from, Math.max(0, Math.min(L, s))).uMax;
-          if (u > lim) u = lim; else if (u < -lim) u = -lim;
-          // はしの いし: 横へ すべらせる(前へは すすめる)
-          for (const o of blockers) {
-            const os = o.s, ou = o.u, rr = o.r + RULES.bodyRadius;   // いしは この むきの chart で おいて ある
-            const ds = s - os, du = u - ou, d = Math.hypot(ds, du);
-            if (d < rr) { if (d < 1e-6) { u = ou - Math.sign(ou || 1) * rr; } else { s = os + ds / d * rr; u = ou + du / d * rr; } }
-          }
-          if (u > lim) u = lim; else if (u < -lim) u = -lim;   // いしに おされても 帯の そとへは 出ない
+          ({ s, u } = corridorBody(s, u, RULES.bodyRadius));
           state.s = s; state.u = u;
           player.heading = Math.atan2(mx, mz);
           const scr = Math.cos(camera.yaw) * mx - Math.sin(camera.yaw) * mz; player.face = scr < -0.2 ? -1 : scr > 0.2 ? 1 : player.face;

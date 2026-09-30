@@ -586,6 +586,10 @@ harness({
 > - 1・2(描画の 重さ): 見た目は へらさず、(a) 描画の よびだしを なまの ctx へ(Proxy は 絵文字 → イラストの 文字だけ)、(b) 地面の もようを world・マスごとに おぼえる。CPU 4× の replay で city 66.8→52.7 ms、forest 36.5→27.9 ms、mountain 51.9→38.1 ms。もようは 1.25→0.06 ms(forest)。
 > - 3(corridor の 60 ms こえ): Node では 再現しない ので 未完了の backlog。提案: 描画が 16 ms を こえた frame では 先読み・warm を 次の frame へ。Playwright CPU 4× の frame 時間の 分布で 前後を 比べる。
 > - meguru.js の 分割・`buildWorld` の hash seed・`nearestPath` の 格子・`foreignMap` は 今回の 4 件の 範囲外(手を つけていない)。
+> - **2026-09-29 追記(collision 監査)**: 4(なかまの めりこみ)の 修正は、着いた とき・止まって いる ときだけ。
+>   - 歩行中の party は、今も 当たり判定を 通らない(`followParty`)。
+>   - region で 全フレームの 73〜88%、corridor の 端の 石でも めりこむ。
+>   - 同じ 原因の 1 件として 扱う(`docs/audit/meguru-collision-audit-2026-09-29.md` の C1)。
 
 ---
 
@@ -860,6 +864,37 @@ harness({
 
 - トップ階層の state machine(`mode` の表)と、Home の動詞の data 化
 - Three.js の PoC(条件: props が倍になる、本物の 3D カメラが要る、GPU で streaming する必要が出る。監査 §19)
+  > **2026-09-29 追記(collision 監査: `docs/audit/meguru-collision-audit-2026-09-29.md`)**
+  >
+  > forest 3D prototype の 成功条件に 次を 加える。
+  > - 到達できる 木・岩・建物・柵 で「見た目 あり・当たり なし」が 0 件。
+  > - 当たりの 形が 見た目と ± 20% で 一致(木は 幹)。道の そばで 縮める 物は 見た目も 縮める。
+  > - 27 にんの party が 歩行中・停止中とも 障害物に めりこまない(> 2 の フレームが 0)。
+  >   - 「leader は 止まるが 仲間が 突き抜ける」は 失敗。
+  > - player と party は 同じ 当たり判定の 関数・同じ 半径を 使う。
+  >
+  > 現行 2D の すり抜けの 原因:
+  > - party の 歩行に 当たり判定が ない(RH-7 の party obstacle バグと 同じ 原因。RH-7 の 修正は 着いた / 止まった ときだけの 部分的な もの)
+  > - `clearCorridor` が 当たりだけを 消す / 縮める
+  > - `fore` 層・小さい struct・一部の 絵文字に `solid` が ない
+  > - corridor の 端の 石は chart 座標で 判定し、party は 石を 見ない
+  >
+  > collision の 全面改修は まだ しない。
+  >
+  > **2026-09-30 追記(2D の 最小修正: `docs/qa/meguru-party-player-collision-2026-09-30.md`)**
+  > - なかまは player・住人と おなじ `moveWithCollision` / `corridorBody` で あるく(region 2980〜3536 → 0 frame、corridor 1709 → 0 frame)。
+  > - fore の かたい 3 種・ちいさな 切り株 / 丸太 / 岩・道ばたの 絵文字を solid、道の そばの かたい 物は あたりを 消さずに ずらす(絵の 中心に 立てる 数 64 / 145 / 184 → 22 / 64 / 53)。
+  > - オーナー決定(Option 3): 道の 面の うえに ねもとが ある 物(136 / 76 / 106)は 2D では けさない・ふさがない・配置を かえない。forest 3D prototype で 見た目と あたりを 同じ world object に まとめる ときに あつかう。
+  > - 速さの baseline(27 にん step、3D まえ): forest 0.45 / mountain 0.48 / city 0.67 ms(main 0.19 / 0.19 / 0.21)。軽く する ためだけに なかまの あたりを よわめない。
+  >
+  > forest 3D prototype の backlog / 成功条件へ 引き継ぐ collision の のこり:
+  > - 道の 面の うえの かたく 見える 物
+  > - 見た目 と あたりの 完全な 統合、物の 高さ
+  > - 半径 player 22 / なかま 17.6 の ちがい
+  > - たて看板の anchor と 見る むきで かわる 絵の いち
+  > - corridor C5(chart の きざみ・ひずみ)
+  > - world object の collision model の 全体
+  > - なかまの もどり(4 秒 はさまったら ならびの そばへ)を 正式な navigation / 障害物 回避へ おきかえる
 - 本格的な多言語化(文言を正規表現で照合している箇所の解消から)
 - card-game の実装(#259 の設計を正本にする。identity だけ master と共有し、ルールは分ける)
 - 高度な複数タブ対応(Web Locks、読みとり専用の閲覧)
