@@ -4,7 +4,7 @@
 //   ・なかまは player・住人と おなじ あたり(moveWithCollision)で あるく。27 にんでも 障害物に めりこまない(あるく とき・とまる とき)
 //   ・かたく 見える 物(大きな 建物・岩・崖・木の みき・柵・切り株・丸太)は 道の そばでも あたりが のこる(道の 面は ふさがない)
 //   ・corridor の はしの いし: なかまも player と おなじ corridorBody で よける
-//   ・ならびは くずれない・はなれすぎない(あしあとを たどって まわりこむ)。セーブに あしあとは のこらない
+//   ・ならびは くずれない・はなれすぎない(ならびの 点は player から 行ける ところまで よこに ちぢめる)
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const { harness } = require('./helpers/runtime-harness.cjs');
@@ -152,7 +152,7 @@ test('6. corridor: なかまも player と おなじ corridorBody で はしの 
   }
 });
 
-test('7. まわりこみ: 生け垣の むこうに 取り残されない(ならびへ もどる)。あしあとは セーブに のこらない', () => {
+test('7. まわりこみ: 生け垣の むこうに 取り残されない(ならびの 点は player から 行ける ところ)。つまりの きろくは セーブに のこらない', () => {
   const { h, M } = setup(16, 'home'), S = sim(M, 'home');
   for (let i = 0; i < 360; i++) S.step(1 / 60, { x: 0, y: -1 });
   for (let i = 0; i < 180; i++) S.step(1 / 60, { x: 0, y: 0 });
@@ -162,13 +162,9 @@ test('7. まわりこみ: 生け垣の むこうに 取り残されない(なら
     assert.ok(back > -25 && Math.hypot(dx, dz) < 420, `${a.key || a.id}: ならびに もどった ${back.toFixed(0)}`);
     assert.equal(a.behavior, 'idle', 'みんな とまって いる');
   }
-  assert.ok(S.trail.length > 0, 'あしあとは メモリ だけ');
   h.api.saveState();
   const saved = JSON.stringify(h.api.state());
-  assert.ok(!/"trail"|"blocked"|"lost"/.test(saved), 'セーブに あしあと・つまり の きろくは ない');
-  // ワープ(setPlayer)で あしあとは けす(かべを こえた あしあとを たどらない)
-  S.setPlayer(S.player.x + 30, S.player.z);
-  assert.equal(S.trail.length, 0);
+  assert.ok(!/"blocked"|"clip"/.test(saved), 'セーブに つまり・ちぢめの きろくは ない');
 });
 
 test('8. たて看板(建物・がけ)の あたりは もとの あたりの なかで 道がわを けずる だけ(見る むきで 見えない かべに ならない)', () => {

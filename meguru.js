@@ -2441,7 +2441,7 @@
     // ---- なかま(party)の うごき。3 つに わける ----
     //  1) ならび(formation)に ついていく: partyFollowStep … どこへ どれだけ すすみたいか だけ を きめる
     //  2) あたりの 解決: moveWithCollision … player・住人と おなじ 関数(半径は PARTY_RADIUS)
-    //  3) 障害物の まわりこみ: partyAvoid / partyGoal … ぶつかって すすめない ときだけ player の あしあとを たどる
+    //  3) 障害物の まわりこみ: reachSlot … ならびの 点を player から 行ける ところへ。partyAvoid … かどに はさまった ときだけ もどす
     // 半径: player は bodyRadius(22)、住人と なかまは その 0.8(17.6。RH-7 の clearSlot と おなじ)。
     // なかまを 17.6 の まま に するのは、ならびの すきま(spacing 30)と 住人の 立ちいち と そろえる ため(全面の 統一は 3D で)
     const PARTY_RADIUS = RULES.bodyRadius * STAND_CLEAR;
@@ -2451,17 +2451,6 @@
       if (!(d > F.snap || (d > 0.001 && collidesAt(world, a.x, a.z, PARTY_RADIUS)))) return null;
       const spd = Math.max(40, Math.min(F.maxSpeed, d * FORMATION.gain)) * k, step = Math.min(d, spd * dt);
       return { x: dx / d * step, z: dz / d * step, d, len: step };
-    }
-    // 障害物の まわりこみ: player の あしあと(trail)を たどる。player は 半径 22 で とおれた ので、
-    // 17.6 の なかまも かならず とおれる。まっすぐ ならびへ 行ける(clearLine)ように なったら ならびへ もどる
-    const TRAIL_STEP = 24, TRAIL_MAX = 80, TRAIL_ENTER = 0.3, TRAIL_GIVEUP = 5, TRAIL_MARGIN = 8;
-    function recordTrail(trail, p, party) {
-      const last = trail[trail.length - 1];
-      if (last && Math.hypot(p.x - last.x, p.z - last.z) > 240) { trail.length = 0; for (const a of party) a.trail = null; }   // ワープ(setPlayer・地域の 入りなおし)
-      const end = trail[trail.length - 1];
-      if (end && Math.hypot(p.x - end.x, p.z - end.z) < TRAIL_STEP) return;
-      trail.push({ x: p.x, z: p.z });
-      if (trail.length > TRAIL_MAX) { trail.shift(); for (const a of party) if (a.trail != null) a.trail = Math.max(0, a.trail - 1); }
     }
     // a → b を 12 ずつ しらべて、はじめて ぶつかる 点の 番号(i / n)。ぶつからなければ -1。
     // collidesAt を 点ごとに よぶと ます目の 全員を まいかい 見る ので、線の ちかくに ある あたり だけ を さきに えらぶ(結果は おなじ)
@@ -2494,7 +2483,6 @@
       }
       return -1;
     }
-    function clearLine(world, ax, az, bx, bz, r) { return firstHit(world, ax, az, bx, bz, r) < 0; }
     // ならびの ばしょ が player から まっすぐ 行けない(生け垣・木の むこう)ときは、とちゅうの 行ける ところまで ひきよせる。
     // player の いちは かならず 立てる ので、ここは かならず 行ける
     function reachFrom(world, from, t, r) {
@@ -2520,32 +2508,15 @@
       return { x: o.x + (t.x - o.x) * c.f, z: o.z + (t.z - o.z) * c.f, k: t.k };
     }
     function reachSlot(world, player, yaw, t) { return applyClip(player, yaw, t, reachClip(world, player, yaw, t)); }
-    // ならびの めあて(tx, tz)→ いま むかう ところ。あしあとを たどって いる ときは その 点
-    function partyGoal(world, a, trail, tx, tz, player) {
-      if (a.trail == null) return { x: tx, z: tz };
-      if (clearLine(world, a.x, a.z, tx, tz, PARTY_RADIUS)) { a.trail = null; return { x: tx, z: tz }; }
-      while (a.trail < trail.length - 1 && Math.hypot(trail[a.trail].x - a.x, trail[a.trail].z - a.z) < 16) a.trail++;
-      const p = trail[a.trail] || player;
-      if (a.trail >= trail.length - 1 && Math.hypot(p.x - a.x, p.z - a.z) < 16) { a.trail = null; return { x: tx, z: tz }; }
-      return { x: p.x, z: p.z };
-    }
-    function partyAvoid(world, a, want, bx, bz, dt, trail, rejoin) {
+    // すすめない なかま: ならびの 点は player から 行ける ところ(reachSlot)なので、ふつうは すべって まわりこむ。
+    // それでも しばらく すすめない(かどに はさまった)ときだけ、ならびの そばへ もどす(まれ)
+    const PARTY_GIVEUP = 4;
+    function partyAvoid(a, want, bx, bz, dt, rejoin) {
       // すすみたい むきへ どれだけ すすめたか(すべって 横へ 行くだけ・いったり きたり は すすんで いない)
       const prog = ((a.x - bx) * want.x + (a.z - bz) * want.z) / (want.len || 1);
-      if (prog >= want.len * 0.35) { a.blocked = Math.max(0, (a.blocked || 0) - dt * 2); a.lost = a.trail == null ? 0 : Math.max(0, (a.lost || 0) - dt); return; }
-      a.blocked = (a.blocked || 0) + dt; a.lost = (a.lost || 0) + dt;
-      if (a.blocked > TRAIL_ENTER && trail.length) {
-        // まっすぐ 行ける あしあとの うち、そこから player まで の みちのり が いちばん みじかい 点から たどる
-        // (たどって いて つまった ときも えらびなおす)。すこし よゆうを みる(すれすれ だと ふちで とまる)
-        let best = -1, bd = Infinity;
-        for (let i = trail.length - 1; i >= 0; i--) {
-          const cost = Math.hypot(trail[i].x - a.x, trail[i].z - a.z) + (trail.length - 1 - i) * TRAIL_STEP;
-          if (cost < bd && i !== a.trail && clearLine(world, a.x, a.z, trail[i].x, trail[i].z, PARTY_RADIUS + TRAIL_MARGIN)) { bd = cost; best = i; }
-        }
-        if (best >= 0) { a.trail = best; a.blocked = 0; }
-      }
-      // それでも ずっと すすめない(あしあとが ない・とおい): ならびの そばへ もどす(まれ)
-      if (a.lost > TRAIL_GIVEUP && rejoin) { const p = rejoin(); a.x = p.x; a.z = p.z; a.blocked = 0; a.lost = 0; a.trail = null; }
+      if (prog >= want.len * 0.35) { a.blocked = Math.max(0, (a.blocked || 0) - dt); return; }
+      a.blocked = (a.blocked || 0) + dt;
+      if (a.blocked > PARTY_GIVEUP && rejoin) { const p = rejoin(); a.x = p.x; a.z = p.z; a.blocked = 0; }
     }
 
     // 旧セーブ(スポットしか きろくが ない)から ちずの きろくを あんぜんに 組みなおす。
@@ -2766,13 +2737,12 @@
       let foundMarks = new Set(init.foundMarks || []);
       let curZoneId = null;
       let gates = [], gateLock = null;
-      const trail = [];   // player の あしあと(なかまの まわりこみ 用。セーブ しない)
       // せいかつAI の かくにん用。ふだんの あそびでは 出さない(§50)
       let lifeDebug = false;
       function enterRegion(regionId, opts = {}) {
         if (opts.registry) registry = opts.registry;
         world = buildWorld(regionId, registry, { locality: opts.locality != null ? opts.locality : init.locality });
-        party = companionsOf(registry); trail.length = 0;
+        party = companionsOf(registry);
         // となりから 入って きた ときは、その connection の 入口 spot から はじめる。
         // 「たび」や はじめて ひらいた ときは これまでどおり world.entry
         const at = opts.at ? (world.spots || []).find((q) => q.id === opts.at) : null;
@@ -2815,7 +2785,6 @@
       // いっしょに あるく なかま・こいびと: じぶんの すこし うしろ(カメラから みて おく)と よこ
       function followParty(dt) {
         const slots = formationFor(party.length);
-        recordTrail(trail, player, party);
         party.forEach((a, i) => {
           // RH-7: とまって いる ときは ならびの ばしょを しょうがいぶつの そとへ ずらして から よる(あるいて いる ときは いままでどおり)
           const t = formationPoint(a, i, slots, player.x, player.z, camera.yaw), s0 = player.moving ? t : clearSlot(a, t);
@@ -2825,15 +2794,14 @@
           if (!a.clip || a.clipW !== world || ((frame + i) % 4 === 0 && !still)) { a.clip = reachClip(world, player, camera.yaw, s0); a.clipW = world; a.clipAt = [player.x, player.z, s0.x, s0.z]; }
           const c = applyClip(player, camera.yaw, s0, a.clip);
           // あるいて いる ときも あたりを とおす(player・住人と おなじ moveWithCollision。以前は 位置を 直接 たして いた)
-          const g = partyGoal(world, a, trail, c.x, c.z, player);
-          const want = partyFollowStep(world, a, g.x, g.z, t.k, dt);
+          const want = partyFollowStep(world, a, c.x, c.z, t.k, dt);
           if (want) {
             const bx = a.x, bz = a.z;
             moveWithCollision(a, a.x + want.x, a.z + want.z, world, PARTY_RADIUS);
-            partyAvoid(world, a, want, bx, bz, dt, trail, () => clearSlot(a, t));
+            partyAvoid(a, want, bx, bz, dt, () => clearSlot(a, t));
             a.behavior = 'walk'; a.heading = Math.atan2(want.x, want.z); a.face = want.x < 0 ? -1 : 1; a.bob += dt;
           }
-          else if (a.behavior !== 'idle') { a.behavior = 'idle'; a.heading = player.heading; a.blocked = 0; a.lost = 0; a.trail = null; }
+          else if (a.behavior !== 'idle') { a.behavior = 'idle'; a.heading = player.heading; a.blocked = 0; }
           if (a.sayFor > 0) { a.sayFor -= dt; if (a.sayFor <= 0) { a.sayFor = 0; a.say = null; } }
         });
       }
@@ -3070,9 +3038,9 @@
         life: lifeOf, get meets() { return world.meets; },
         // よいやすい ひとの ための スイッチ(prefers-reduced-motion)。せかいは かわらない
         setCameraMotion(on) { camFxOn = !!on; }, get cameraMotion() { return camFxOn; },
-        setPlayer(x, z) { player.x = x; player.z = z; trail.length = 0; for (const a of party) a.trail = null; clampToWorld(player, world); resolveObstacles(player, world); camera.x = player.x; camera.z = player.z; },
+        setPlayer(x, z) { player.x = x; player.z = z; clampToWorld(player, world); resolveObstacles(player, world); camera.x = player.x; camera.z = player.z; },
         placeParty,
-        get world() { return world; }, get party() { return party; }, get trail() { return trail; }, get player() { return player; }, get camera() { return camera; }, get nearest() { return nearest; }, get registry() { return registry; }, get spot() { return curSpot; }, get zone() { return mood.zone || null; }, get mood() { return mood; }, get discovered() { return discovered; }, get visitedZones() { return visitedZones; }, get walkedPaths() { return walkedPaths; }, get foundMarks() { return foundMarks; },
+        get world() { return world; }, get party() { return party; }, get player() { return player; }, get camera() { return camera; }, get nearest() { return nearest; }, get registry() { return registry; }, get spot() { return curSpot; }, get zone() { return mood.zone || null; }, get mood() { return mood; }, get discovered() { return discovered; }, get visitedZones() { return visitedZones; }, get walkedPaths() { return walkedPaths; }, get foundMarks() { return foundMarks; },
         loadMapRecords(rec) { if (!rec) return; if (rec.zones) visitedZones = new Set(rec.zones); if (rec.paths) walkedPaths = new Set(rec.paths); if (rec.marks) foundMarks = new Set(rec.marks); },
         metCount,
       };
