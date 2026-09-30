@@ -92,8 +92,9 @@ test('city: props・当たり判定 は そのまま(えがく とき だけ)', 
   const { M } = setup();
   const w = fixedWorld(M, 'city');
   assert.equal(w.props.length, 1013);
-  assert.equal(M.buildObstacles(w).length, 390);
-  assert.equal(w.props.map((p) => M.colliderOf(p)).filter(Boolean).length, 565);
+  // 2026-09-30 party / player collision fix: かたく 見える 物(建物・岩・木の みき・柵)に あたりを のこした ので 障害物・当たり は ふえた(props は そのまま)
+  assert.equal(M.buildObstacles(w).length, 576);
+  assert.equal(w.props.map((p) => M.colliderOf(p)).filter(Boolean).length, 703);
 });
 
 // ────────────────────────────── river_lake: かわ の もや
@@ -163,8 +164,9 @@ test('river_lake: props・当たり判定 は そのまま', () => {
   const { M } = setup();
   const w = fixedWorld(M, 'river_lake');
   assert.equal(w.props.length, 677);
-  assert.equal(M.buildObstacles(w).length, 294);
-  assert.equal(w.props.map((p) => M.colliderOf(p)).filter(Boolean).length, 368);
+  // 2026-09-30 party / player collision fix: かたく 見える 物(建物・岩・木の みき・柵)に あたりを のこした ので 障害物・当たり は ふえた(props は そのまま)
+  assert.equal(M.buildObstacles(w).length, 325);
+  assert.equal(w.props.map((p) => M.colliderOf(p)).filter(Boolean).length, 376);
 });
 
 test('save: 形 は かわらない(ばらつき・もや は セーブ しない)', () => {

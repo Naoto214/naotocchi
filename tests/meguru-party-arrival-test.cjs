@@ -22,9 +22,10 @@ function setup() {
 }
 const idle = (S, frames) => { for (let i = 0; i < frames; i++) S.step(1 / 60, { x: 0, y: 0 }); };
 const walk = (S, frames) => { for (let i = 0; i < frames; i++) S.step(1 / 60, { x: 0.3, y: -1 }); };
+// めりこみ = 0.5 world 以上。あるいて いる なかまは 障害物に そって すべる ので、ふれて いる(0.00x)ことは ある
 function overlapping(M, S) {
   const r = 22 * M.STAND_CLEAR;
-  return S.party.filter((a) => M.penetrationAt(S.world, a.x, a.z, r) > 0).map((a) => a.key);
+  return S.party.filter((a) => M.penetrationAt(S.world, a.x, a.z, r) > 0.5).map((a) => a.key);
 }
 // 20 とおりの 着きかた(from → to)。mode: 'transition' は 出口の gate から、'corridor' は 着いた がわの 出口の spot から
 function arrivals(M) {

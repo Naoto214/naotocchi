@@ -205,7 +205,9 @@ test('counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル �
 
 test('collision: forest / jungle の 障害物 は main と おなじ かず(deco は solid で ない)', () => {
   const { M } = setup();
-  for (const [rid, nObs, nCol] of [['forest', 469, 637], ['jungle', 552, 688]]) {
+  // 2026-09-30 party / player collision fix: 切り株・丸太・道ばたの 木に あたりを のこした(まえは forest 469/637・jungle 552/688)。
+  // deco(corridor の 道ばた)は いまも solid で ない
+  for (const [rid, nObs, nCol] of [['forest', 531, 660], ['jungle', 593, 693]]) {
     const w = fixedWorld(M, rid);
     assert.equal(M.buildObstacles(w).length, nObs, `${rid} 障害物`);
     assert.equal(w.props.map((p) => M.colliderOf(p)).filter(Boolean).length, nCol, `${rid} collider`);

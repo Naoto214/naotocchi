@@ -190,8 +190,9 @@ test('counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル �
 
 test('snow / star_stop / memory_lake: props・当たり判定 は そのまま(いろ と 霞 と 霧 だけ)', () => {
   const { M } = setup();
-  // main(第1段階 マージ 後)と おなじ かず
-  const want = { snow: [474, 230, 280], star_stop: [471, 133, 155], memory_lake: [317, 141, 202] };
+  // main(第1段階 マージ 後)と おなじ かず。
+  // 2026-09-30 party / player collision fix で 障害物・当たり だけ ふえた(まえは snow 230/280・star_stop 133/155・memory_lake 141/202。props は そのまま)
+  const want = { snow: [474, 249, 285], star_stop: [471, 134, 157], memory_lake: [317, 162, 205] };
   for (const [rid, [np, nObs, nCol]] of Object.entries(want)) {
     const w = fixedWorld(M, rid);
     assert.equal(w.props.length, np, `${rid} props`);
