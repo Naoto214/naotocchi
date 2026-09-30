@@ -120,7 +120,7 @@ const STAGE = { EGG: 'egg', GROWING: 'growing', FAREWELL: 'farewell', DEAD: 'dea
 
 - 唯一の真実は `state.ageTicks`
 - `currentAge()` = `Math.min(100, Math.floor(ageTicks / 20))`
-- `state.stageIndex` は**キャッシュ**であり、`stageForAge(currentAge())` から再導出されます
+- `state.stageIndex` は**キャッシュ**であり、`stageForAge(currentAge(), state.speciesLine)` から再導出されます
 - `ageTicks` を減らすコードは存在しません（不可逆）
 - `tick()` は `!isLiveLife()`（`egg` / `farewell` / `dead`）と `state.infinite` で進みません。またメニューを開いている間も止まります（`isAnyMenuOverlayOpen()`）
 
@@ -214,24 +214,35 @@ isSick          → -(2 + min(3, floor(totalSicknessCount / 3)))
 - `pickRandomLine()` は `NORMAL_LINES` からのみ選びます。**たまごからレア種は生まれません**（`lifetime.nextEggLine` が指定されている場合を除く）
 - 各形態は `{ emoji, label, message? }`。`SPECIES_STAGE_DESCS` に 168 件の説明文（すべて相異なる）
 
-### C-2. 8 ライフステージと年齢境界
+### C-2. 8 ライフステージと種族別の年齢境界
 
-```js
-LIFE_STAGES = [
-  { min: 0,  name: 'あかちゃん' },
-  { min: 3,  name: 'よちよち' },
-  { min: 7,  name: 'こども' },
-  { min: 12, name: 'しょうねん・しょうじょ' },
-  { min: 16, name: 'せいしゅん' },
-  { min: 22, name: 'わかもの' },
-  { min: 40, name: 'おとな' },
-  { min: 70, name: 'ろうねん' },
-];
-```
+年齢そのものは全種で共通の 0〜100 さいです。ただし、**同じ年齢が①〜⑧のどの時期に当たるかは種族ごとに異なります**。正本は `life-stage-profiles.js` です。
 
-`stageForAge(age)` は配列を後ろから走査して最初に `age >= min` となるインデックスを返します。**1 つの人生でステージ変化は 7 回**（3/7/12/16/22/40/70さい）。
+共有プロファイルの開始年齢:
 
-`currentFormStageIndex()` は `state.infinite && state.infiniteForm` のときだけ `infiniteForm.stageIndex` を優先し、それ以外は `stageForAge(currentAge())`。
+| プロファイル | ① | ② | ③ | ④ | ⑤ | ⑥ | ⑦ | ⑧ |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| human | 0 | 3 | 7 | 12 | 16 | 22 | 40 | 70 |
+| earlyAnimal | 0 | 2 | 5 | 9 | 14 | 22 | 45 | 75 |
+| longLivedAnimal | 0 | 4 | 10 | 18 | 28 | 42 | 62 | 82 |
+| aquaticMetamorphosis | 0 | 5 | 12 | 22 | 34 | 48 | 66 | 84 |
+| butterfly | 0 | 8 | 20 | 38 | 48 | 60 | 78 | 94 |
+| beetle | 0 | 16 | 34 | 60 | 69 | 78 | 88 | 96 |
+| stagBeetle | 0 | 14 | 30 | 54 | 63 | 73 | 84 | 94 |
+| longLarval | 0 | 18 | 40 | 70 | 80 | 87 | 94 | 98 |
+| herbaceousPlant | 0 | 6 | 14 | 26 | 40 | 55 | 72 | 88 |
+| woodyPlant | 0 | 5 | 13 | 24 | 38 | 54 | 72 | 90 |
+| colonyGrowth | 0 | 8 | 18 | 31 | 45 | 60 | 77 | 92 |
+| jellyfish | 0 | 14 | 29 | 44 | 58 | 71 | 84 | 95 |
+| fungus | 0 | 12 | 29 | 44 | 57 | 69 | 82 | 94 |
+
+フェニックス・かみさま・おばけ・ほし・ぬいぐるみ・？？？は、生物学上の成長より現在の8段階の物語を優先するため `LINE_OVERRIDES` で専用境界を持ちます。未知の旧種族IDは従来の human 境界へ安全にフォールバックします。
+
+`stageForAge(age, line)` はその種族の境界を後ろから走査して、最初に `age >= min` となる段階を返します。全プロファイルは100さいより前に⑧へ到達します。
+
+`currentFormStageIndex()` は `state.infinite && state.infiniteForm` のときだけ `infiniteForm.stageIndex` を優先し、それ以外は `stageForAge(currentAge(), state.speciesLine)`。
+
+例: 50さいでは、人間は⑦、セミは③、チョウは⑤です。同じ50さいでも、その生き物にとっての人生時期が変わります。
 
 ### C-3. へんしん
 
@@ -251,7 +262,9 @@ if (Math.random() >= chance) return;
 - `transformMeter` はミニゲーム完了ごとに `+(15 + hatBonus) × (hasPerk(60) ? 1.2 : 1)`
 
 `chooseTransform(line)`:
-- **`state.speciesLine` だけを変更し、`ageTicks` は一切変更しません**
+- **`ageTicks` は一切変更しません**。変身先の `speciesLine` に切り替えたあと、同じ現在年齢を `stageForAge(currentAge(), line)` へ通して新しい段階を導出します
+- そのため、人間で中年でもセミへ変身すると幼虫段階へ移ることがあります。年齢は若返らず、100さいへ向かうにつれて変身先の後半段階へ進みます
+- 変身前後で段階番号が変わった場合は、説明調にせず短い一言（例: 「まだ ちじょうには でないみたい。」）を変身メッセージへ添えます
 - `lifetime.transforms += 1`, `transformsThisLife += 1`
 - `rerollIdentityAndBreakupIfNeeded(line)` で `gender` / `orientationId` / `attractedTo` を再ロールし、`traitCounts` を**半減**（`Math.floor(v / 2)`）
 
@@ -1037,11 +1050,11 @@ merged.lifetime = { ...freshState().lifetime, ...(parsed.lifetime || {}) };
 ```js
 displayedAge = clamp(floor((parsed.age || 0) / 20), 0, 100)
 merged.ageTicks   = displayedAge * 20        // 表示年齢を変えない
-merged.stageIndex = stageForAge(displayedAge)
+merged.stageIndex = stageForAge(displayedAge, merged.speciesLine)
 merged.growth = 0; merged.decline = 0
 merged.sodachi = 50; merged.maxSodachi = 50  // 途中から始まる子は中間値
 if (parsed.freePlay) { lifetime.perfectCleared = true; merged.infinite = true; }
-if (parsed.stage === 'clear') { stage = FAREWELL; ageTicks = 100*20; stageIndex = stageForAge(100); }
+if (parsed.stage === 'clear') { stage = FAREWELL; ageTicks = 100*20; stageIndex = stageForAge(100, merged.speciesLine); }
 merged.declineBaseline = lifetime.devolutions || 0
 merged.schemaVersion = 3
 pendingMigrationQuiet = true   // 移行時は演出を抑止
