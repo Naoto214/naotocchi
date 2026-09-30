@@ -218,7 +218,7 @@ def end_board_scope():
             if value is None:registry.pop(card,None)
             else:registry[card]=value
 
-def extend_end_proof(row,baseline,history):
+def extend_end_proof(row,baseline,history,audit_handler=None):
     base=boundary(row);state=row['final_continuation_state']
     if state['game_state']['phase']!='turn_end' or state['return_target']!='turn_end' or state['activation_zone'] or state['pending_triggers']:raise ValueError('reached end boundary differs')
     if not baseline['turn_end_set_complete'] or baseline['contract_stop_codes']:raise ValueError('reached inherited end proof incomplete')
@@ -238,7 +238,7 @@ def extend_end_proof(row,baseline,history):
     # is a classified zero-growth action and must keep all current growth <100.
     if any(x>=100 for x in growth[-1]['growth'].values()):raise ValueError('reached victory needs separate proof')
     stop={'path_id':row['path_id'],'last_valid_event_seq':seq,'game_state_sha256':g,'continuation_state_sha256':c,'game_state':state['game_state'],'continuation_state':state}
-    with end_board_scope():result=provenance.audit_current_turn_end(stop,proof)
+    with end_board_scope():result=(audit_handler or provenance.audit_current_turn_end)(stop,proof)
     if not result['turn_end_set_complete'] or result['contract_stop_codes'] or not all(result['completeness_checks'].values()):raise ValueError('reached six-stage end incomplete: '+repr(result['contract_stop_codes']))
     return {**base,'next_opportunity':'turn_end','turn_end_set_complete':True,'stage_inventory':result['stage_inventory'],'completeness_checks':result['completeness_checks'],'contract_stop_codes':[],'classified_events':events,'growth_trace':growth}
 

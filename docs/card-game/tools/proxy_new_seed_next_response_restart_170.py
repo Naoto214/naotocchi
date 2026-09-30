@@ -55,7 +55,7 @@ def snapshot(state):
             'continuation_state_sha256':state['continuation_state_sha256']}
 
 
-def activate_quick_item(before,decision):
+def activate_quick_item(before,decision,allow_prior_pass=False):
     action=decision['selected_action'];ctx=before['response_context'];actor=ctx['priority_actor']
     if action['candidate_family']!='hand_quick_use' or action['action_type']!='use_item' or \
             action['card_id']!='I-c_coin2' or action['base_time_cost']!=1 or \
@@ -63,7 +63,7 @@ def activate_quick_item(before,decision):
             action['candidate_id']!=decision['selected_candidate'] or \
             start.response_id('use_item',action['source_instance_id'])!=action['candidate_id'] or \
             ctx['window_kind']!='turn_start' or ctx['chain_status']!='empty' or \
-            ctx['chain_links'] or ctx['consecutive_passes']!=0 or \
+            ctx['chain_links'] or ctx['consecutive_passes'] not in ((0,1) if allow_prior_pass else (0,)) or \
             before['pending_triggers'] or before['activation_zone']:
         raise ValueError('170 empty-chain item activation boundary differs')
     section=(ROOT/'77-current-items-card-text-draft.md').read_text().split(

@@ -25,7 +25,7 @@ canonical_bytes=contracts.canonical_bytes
 
 start=contracts.start;boundary=contracts.boundary;hand=contracts.hand;conditional=contracts.conditional;board_reason=contracts.board_reason
 
-def audit_response(row):
+def audit_response(row,origin_event=None):
     base=boundary(row);state=row['final_continuation_state'];game=state['game_state'];ctx=state['response_context'];actor=ctx['priority_actor']
     if game['phase'] not in ('response_window','post_placement_response','turn_end_response') or ctx['window_kind'] not in ('turn_start','after_normal_action') or state['pending_triggers'] or game.get('challenge') is not None:
         raise ValueError('reached response boundary needs separate proof')
@@ -33,7 +33,7 @@ def audit_response(row):
     if state['activation_zone']:
         if ctx['window_kind']!='turn_start' or ctx['chain_status']!='building' or len(state['activation_zone']) not in (1,2):raise ValueError('404 reached response chain differs')
         links=state['activation_zone'];link=links[0]
-        if link['source_zone']!='board' or link['card_id']!='C-chicken' or ctx['chain_links']!=[x['link_id'] for x in links]:raise ValueError('404 reached active board link differs')
+        if ctx['chain_links']!=[x['link_id'] for x in links] or not (link['card_id']=='C-chicken' and link.get('source_zone')=='board' or len(links)==1 and link['action_type']=='use_item' and link['card_id']=='I-c_coin2' and link['payment']=={'time':1}):raise ValueError('404 reached active link differs')
         if len(links)==2 and (links[1]['action_type'],links[1]['card_id'],links[1]['payment'])!=('use_item','I-c_coin2',{'time':1}):raise ValueError('404 reached coin link differs')
         active=[link['source_instance_id']]
     elif ctx['chain_status']!='empty':raise ValueError('reached empty response chain differs')
@@ -62,7 +62,8 @@ def audit_response(row):
     for instance in board['companions']:
         reason=board_reason(game,actor,instance,ctx,active)
         if reason is None:
-            if ctx['origin_event_seq']!=row['last_valid_event_seq'] or not row['new_events'] or row['new_events'][-1]['action_type']!='egg_exchange_bottom':raise ValueError('reached start ability trigger provenance differs')
+            origin=origin_event or (row.get('new_events') or [{}])[-1]
+            if origin.get('seq')!=ctx['origin_event_seq'] or origin.get('action_type')!='egg_exchange_bottom' or origin.get('actor')!=actor:raise ValueError('reached start ability trigger provenance differs')
             abilities.append({'candidate_id':'response-activate-ability-'+instance,'candidate_family':'triggered_ability','action_type':'activate_board_ability','source_instance_id':instance,'card_id':game['cards'][instance]['card_id'],'source_references':['72-companion-26-card-text-draft.md#C-chicken']})
         else:excluded.append(reason)
         projected['game_state']['players'][actor]['board']['companions'].remove(instance)
