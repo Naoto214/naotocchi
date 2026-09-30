@@ -4,6 +4,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
 const { guardedRoute } = require('./helpers/browser-route.cjs');
+const { minsForLine } = require('../life-stage-profiles.js');
 
 function measureConversation() {
   const rect=e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height};};
@@ -154,7 +155,8 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
     const line=species || ((name==='full' || name==='desktop')?'man':save.speciesLine);
     const index=stage ?? ((name==='full' || name==='desktop')?4:0);
     // Appearance is derived from age on load; stageIndex alone is overwritten.
-    Object.assign(save,{speciesLine:line,stageIndex:index,ageTicks:[2,4,8,13,17,23,41,71][index]*20});
+    const stageMins=minsForLine(line);
+    Object.assign(save,{speciesLine:line,stageIndex:index,ageTicks:stageMins[index]*20});
     if(name.endsWith('-snow'))save.ageTicks=38*20;
     if(name==='balanced-cat') {
       Object.assign(save,{regionId:'jungle',ageTicks:51*20});
