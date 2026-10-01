@@ -71,4 +71,24 @@ REDログも上の証跡ディレクトリに保存。
 - 人間による回復motionの可愛さ・大きさの確認は未実施。
 - 独立レビューでwoman/06＋既婚クマの指輪と、主役の上昇時の矩形交差リスクを指摘。
   可視ピクセルの衝突は未確認。ring所有関係を変えず、実画面の頂点を確認する。
-- 次に専用QAシーンと操作手順を用意する。人間目視承認前の横展開・main mergeは禁止。
+- 人間目視承認前の横展開・main mergeは禁止。
+
+## 実画面QAの準備
+
+Runtimeの全回帰結果は `c3df2188988c375951bcc6497cf5bf31f1963866` に保存。
+直接git pushは認証情報がなく失敗したため接続済みGitHub APIを使用し、
+生成treeがローカル検証済みtree `7b02533c59aa1a3f2c9a60d75a080027adc5f16c` と完全一致することを確認した。
+
+その後、開発用 `/__qa` に回復専用8シーンを追加。
+production runtime/CSS/画像はこのQA準備では変更していない。
+既存の `node tests/visual-qa-test.cjs` を拡張し、シーン未作成のREDから、
+8シーンのロード・人数・主役系統/段階・既婚恋人・装備・実medicine操作によるrecover・
+装備同期までGREENを確認。全npm testは上記runtime commitに対する結果であり、
+QA-only follow-upについて全体の再実行はしていない。
+Viteを同一プロセスで起動したHTTP smokeでも `/__qa` の8選択肢と
+実Homeのmedicineボタンを確認（HTTP 200）。これは描画検証ではない。
+QA準備後も検証済みruntimeのSHA-256は上記manifestと全件一致。
+
+操作・起動・iPhone接続・確認項目は
+[回復pilot実画面チェック](motion-system-v2-recovery-human-check-20261001.md) を参照。
+公開URLの発行、実ブラウザの描画確認、人間の美観承認は含まない。
