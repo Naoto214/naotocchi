@@ -25,12 +25,32 @@ class ShadowTests(unittest.TestCase):
         row=copy.deepcopy(next(r for r in self.rows if r['decision']['legal_candidates']==['pass']))
         row['decision']['selected_candidate']='forged'
         self.assertEqual(shadow.compare_boundary(row)['status'],'legacy_reproduction_failure')
+    def test_all_legacy_traces_reproduce(self):
+        for row in self.rows:
+            problem=shadow._inputs(row)[0]
+            old=shadow.legacy_select(row,problem)
+            self.assertEqual(old,{k:row['decision'].get(k) for k in old})
+
+    def test_initial_seed_proof_is_recomputed(self):
+        seeded=[r for r in self.rows if r['decision'].get('seed_proof') and r['event_seq']==4]
+        self.assertTrue(seeded)
+        for row in seeded:
+            result=shadow.compare_boundary(row)
+            self.assertEqual(result['legacy_status'],'reproduced')
+            self.assertEqual(result['legacy']['seed_proof'],row['decision']['seed_proof'])
+
     def test_unsupported_boundary_is_retained_in_manifest(self):
         row=copy.deepcopy(self.rows[0]);row['decision'].pop('legal_candidate_details')
         result=shadow.compare_boundary(row)
         self.assertEqual(result['shadow_id'],row['shadow_id'])
         self.assertNotEqual(result['status'],'compared')
         self.assertTrue(result['reason'])
+    def test_fresh_candidate_enumeration_does_not_trust_saved_boolean(self):
+        row=copy.deepcopy(next(r for r in self.rows if r['event_seq']==4))
+        row['decision']['legal_candidates']=['pass']
+        row['decision']['legal_candidate_details']=[x for x in row['decision']['legal_candidate_details'] if x['candidate_id']=='pass']
+        with self.assertRaises(ValueError):shadow._verify_legal_inventory(row)
+
     def test_shadow_does_not_emit_match_events(self):
         before=shadow.canonical_sha256(self.rows)
         for row in self.rows:

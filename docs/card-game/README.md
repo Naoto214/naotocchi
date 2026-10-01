@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+420: [shadow fresh検証](420-resource-value-shadow-verification.md)。全110旧互換性一致、新比較93・scope不足17、比較可能内の選択差56。対戦/event/decision0、114正本化なし。paired／全proxy／独立レビューは未完了。
+
 419 checkpoint: [shadow adapter](419-resource-value-shadow-checkpoint.md)。110予定局面を保持、比較86・unsupported24・再現不一致0、選択差58は限定観測。Task4継続中、paired／全proxy／独立レビュー未完了。114正本化なし。
 
 最終更新: 2026-09-24

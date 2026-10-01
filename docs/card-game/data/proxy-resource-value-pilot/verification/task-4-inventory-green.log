@@ -1,0 +1,14 @@
+test_all_legacy_traces_reproduce (test_proxy_resource_value_shadow.ShadowTests.test_all_legacy_traces_reproduce) ... ok
+test_fresh_candidate_enumeration_does_not_trust_saved_boolean (test_proxy_resource_value_shadow.ShadowTests.test_fresh_candidate_enumeration_does_not_trust_saved_boolean) ... ok
+test_initial_seed_proof_is_recomputed (test_proxy_resource_value_shadow.ShadowTests.test_initial_seed_proof_is_recomputed) ... ok
+test_legacy_choice_reason_and_seed_match_saved_trace (test_proxy_resource_value_shadow.ShadowTests.test_legacy_choice_reason_and_seed_match_saved_trace) ... ok
+test_planned_110_ids_exact_and_unique (test_proxy_resource_value_shadow.ShadowTests.test_planned_110_ids_exact_and_unique) ... ok
+test_shadow_does_not_emit_match_events (test_proxy_resource_value_shadow.ShadowTests.test_shadow_does_not_emit_match_events) ... ok
+test_superseded_history_and_seq2_handover (test_proxy_resource_value_shadow.ShadowTests.test_superseded_history_and_seq2_handover) ... ok
+test_unsupported_boundary_is_retained_in_manifest (test_proxy_resource_value_shadow.ShadowTests.test_unsupported_boundary_is_retained_in_manifest) ... ok
+test_write_exact_coverage_and_source_immutability (test_proxy_resource_value_shadow.ShadowTests.test_write_exact_coverage_and_source_immutability) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 6.508s
+
+OK
