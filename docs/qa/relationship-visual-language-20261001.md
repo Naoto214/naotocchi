@@ -42,7 +42,7 @@ Default viewport is actual device. Optional reference iframe sizes390x844 and320
 
 ## Validation checkpoint
 
-Ring cache regression and positive-over-idle stacking assertion each verified RED→GREEN. Final related bundle149 PASS/0 FAIL = Relationship74 + QA22 + Home53. Home comprises cast-layout, cast-motion, home-touch and viewport-design. Final full npm test, started after the stacking change, remains in progress until the final result below is appended.
+Ring cache regression and positive-over-idle stacking assertion each verified RED→GREEN. Final related bundle149 PASS/0 FAIL = Relationship74 + QA22 + Home53. Home comprises cast-layout, cast-motion, home-touch and viewport-design. Final full npm test after the cache-token correction completed successfully: baseline2789 + Relationship74 =2863 PASS/0 FAIL; exit0. QA22 and Home53 also PASS/0 FAIL (overlap with the related bundle, not additive to full-repo counts).
 
 Image SHA256 audit compares all3430 tracked images to starting HEAD; result3430/3430 unchanged (SHA256), including Relationship88, companion/partner normal, normal31, Naoto and allothers. No image generation, rewriting or added raster assets.
 
@@ -69,4 +69,16 @@ Representative original browser screenshots (not production assets) are attached
 
 Human steps: open the same QA URL, retain “この端末”, choose case then “Homeを見る”. Use fixed before/just-after/after-expiry for comparison and “実遷移（2.5秒）” for lifecycle. Focus on owner attribution, visible face, cold subtlety, ring coexistence and touch response. Images88/88 remain approved; do not repeat art approval.
 
-Full-suite attempt after stacking:2787 PASS/2 FAIL in asset-integrity (ui.css token used12 hash characters instead of required8). Corrected index token only; targeted asset-integrity11 PASS/0 FAIL (verify actual count in final result). Production logic/CSS and representative screenshots unchanged. Full npm verification restarted after token correction.
+Full-suite attempt after stacking:2787 PASS/2 FAIL in asset-integrity (ui.css token used12 hash characters instead of required8). Corrected index token only; targeted asset-integrity6 PASS/0 FAIL. Production logic/CSS and representative screenshots unchanged. Full npm verification restarted after token correction.
+
+Final QA publication after token correction: production checkpoint `32f778e24a6c4a0f832e0f1f66f8e7d6128b9643`; Site source `d341112d927a33ac4fad4f165b85d35a66d8438a`, deployment `appgdep_6abdfa2661508191a8382498440b170d`, succeeded at2026-10-01T06:14:16Z. This token-only update does not change captured rendering.
+
+
+## Final verification / main divergence
+
+- Final `npm test`: exit0;2789 PASS/0 FAIL then74 PASS/0 FAIL, total2863. Smoke/dialogue/visual fixture commands preceding Node suites also completed successfully. Corrected token-specific suite6/6 PASS.
+- Related bundle149/149 PASS; dedicated Relationship74; QA page22; Home layout/motion/touch/viewport53. No skips/cancellations.
+- All3430 starting-branch images SHA256 unchanged, including approved Relationship88. No production asset added/deleted/renamed. Screenshot evidence is separate from the repository assets.
+- Main advanced during this task to `31edb95ee0e4470669d220dfcf87600281128e5a` (PR362, experimental meguru3d),10 commits beyond originalmain. GitHub compare confirms branch ahead21/behind10 before this final documentation commit. No integration performed.
+- Read-only patch audit: main script changes are confined to the meguru3d flag, bridge and renderer startup; no Relationship Home hunk. Shared index script token area and package test list will need both branches preserved during a future integration. This is not a tested combined tree; no merge-conflict-free claim. Current branch tests cover this branch only.
+- Final branch retains runtime checkpoint32f778e; this final commit changes documentation only. No PR created/Ready changed/main merge. Full saved automated Home runner suite remains unexecuted; representative cloud Chrome checks performed, iPhone human acceptance pending.
