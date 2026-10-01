@@ -252,10 +252,11 @@ test('isActive tracks pet motion and idle can exclude the pet', () => {
   assert.equal(partner.animations.length+companion.animations.length,1);
 });
 
-test('medicine cure uses recovery motion unless the text describes rejection', () => {
+test('successful medicine cure keeps recovery semantics even when the line mentions bitterness', () => {
   const {reactionFor}=require('../cast-motion.js');
   assert.equal(reactionFor('medicine_cure','げんきになったよ'),'recover');
-  assert.equal(reactionFor('medicine_cure','にがい！'),'shake');
+  assert.equal(reactionFor('medicine_cure','まずっ!!でもなおった!'),'recover');
+  assert.equal(reactionFor('medicine_wrong','にがい！'),'shake');
 });
 
 test('pet care semantics win over randomized line tone without changing social tone', () => {
@@ -280,4 +281,19 @@ test('recovery pilot has one large relieved peak and returns exactly to rest', (
   const ys=motion.poses.map(p=>p.y);
   assert.ok(Math.min(...ys)<=-10,'recovery should read larger than an ordinary reaction');
   assert.equal(ys.filter(y=>y<=-10).length,1,'recovery has one primary celebration peak');
+});
+
+
+test('focused recovery keeps a readable 16px budget even when ambient cast motion is only 1px', () => {
+  const {createController}=require('../cast-motion.js');
+  const pet=motionNode(), accessory=motionNode(), group=motionNode();
+  const controller=createController({
+    getActors:()=>[{kind:'pet',id:'pet',node:pet,size:104},{kind:'accessory',id:'ribbon',node:accessory,size:104}],
+    getGroup:()=>group,getMotionRadius:()=>1,
+    env:{matchMedia:()=>({matches:false,addEventListener(){}}),getComputedStyle:()=>({transform:'none'})},
+  });
+  controller.pet('recover');
+  const ys=pet.animations.at(-1).frames.map(frame=>Number(frame.transform.match(/translate\\([^,]+, ([-.\\d]+)px\\)/)?.[1]));
+  assert.ok(Math.min(...ys)<=-10);
+  assert.deepEqual(accessory.animations.at(-1).frames,pet.animations.at(-1).frames);
 });
