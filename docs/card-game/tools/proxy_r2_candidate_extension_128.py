@@ -46,9 +46,9 @@ PAID_ACTION_CERTAIN_EFFECTS={
 
 
 def load_sources(data_dir: Path = DATA) -> dict:
-    if extension_127.check_outputs(data_dir):
-        raise ValueError('127 canonical outputs differ')
     inputs=extension_127.load_sources(data_dir)
+    if extension_127.check_outputs(data_dir,inputs):
+        raise ValueError('127 canonical outputs differ')
     stops={}
     for path,sha in SOURCE_SHA.items():
         raw=(data_dir/'proxy-r2-candidate-stops-127'/f'stop-127-{path}.json').read_bytes()

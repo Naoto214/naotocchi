@@ -483,7 +483,12 @@ def build_evaluation(plan: dict) -> dict:
 
 
 def expected_outputs(inputs: dict | None = None) -> dict[str,bytes]:
-    inputs=inputs or load_sources()
+    inputs=inputs if inputs is not None else load_sources()
+    if set(inputs['stops'])!=set(SOURCE_SHA):
+        raise ValueError('124 source route set differs')
+    for path,sha in SOURCE_SHA.items():
+        if hashlib.sha256(restart_124.canonical_bytes(inputs['stops'][path])).hexdigest()!=sha:
+            raise ValueError('124 protected source canonical SHA differs: '+path)
     outcomes=run_all(inputs)
     plan=build_plan(inputs,outcomes)
     result={PLAN_FILE:canonical_bytes(plan),
@@ -500,8 +505,8 @@ def write_outputs(data_dir: Path = DATA) -> None:
         target.write_bytes(raw)
 
 
-def check_outputs(data_dir: Path = DATA) -> list[str]:
-    return [f'canonical bytes differ: {name}' for name,raw in expected_outputs().items()
+def check_outputs(data_dir: Path = DATA, inputs: dict | None = None) -> list[str]:
+    return [f'canonical bytes differ: {name}' for name,raw in expected_outputs(inputs).items()
             if not (data_dir/name).is_file() or (data_dir/name).read_bytes()!=raw]
 
 

@@ -28,9 +28,9 @@ SOURCE_SHA={
 
 
 def load_sources(data_dir: Path = DATA) -> dict:
-    if current_126.check_outputs(data_dir):
-        raise ValueError('126 canonical outputs differ')
     source=current_126.load_sources(data_dir)
+    if current_126.check_outputs(data_dir,source):
+        raise ValueError('126 canonical outputs differ')
     stops={}
     for path,digest in SOURCE_SHA.items():
         raw=(data_dir/current_126.STOP_FOLDER/f'stop-126-{path}.json').read_bytes()

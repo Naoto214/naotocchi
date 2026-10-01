@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [410](410-proxy-regeneration-verification.md) | 409から未保存410を復元。独立再生成を保持して重複入力読込を削減、専用9/9 PASS。既存JSON505不変。全proxy回帰前checkpoint、全回帰未完了 |
+
 | [409](409-proxy-verification.md) | 119/120の歴史的テスト対象を固定し件数エラーを解消。歴史的263/263、専用3/3、catalog errors0。全proxyは900秒で25PASS後未完了。408の4経路完了状態を保持 |
 
 | [408](408-new-seed-mixed-replay.md) | 残るR10のB2ターンを17 event/snapshotで保存。4経路すべてcompleted、A25/B20のA勝利。既存completed2経路は完全保持、独立balance0 |

@@ -21,9 +21,9 @@ SOURCE_SHA={
 
 
 def load_sources(data_dir: Path = DATA) -> dict:
-    if extension_125.check_outputs(data_dir):
-        raise ValueError('125 canonical outputs differ')
     prior=extension_125.load_sources(data_dir)
+    if extension_125.check_outputs(data_dir,prior):
+        raise ValueError('125 canonical outputs differ')
     built=extension_125.run_all(prior)
     raw_stops={};stops={}
     for path in extension_125.SOURCE_SHA:
@@ -335,8 +335,8 @@ def write_outputs(data_dir: Path = DATA) -> None:
         target.write_bytes(raw)
 
 
-def check_outputs(data_dir: Path = DATA) -> list[str]:
-    return [f'canonical bytes differ: {name}' for name,raw in expected_outputs().items()
+def check_outputs(data_dir: Path = DATA, inputs: dict | None = None) -> list[str]:
+    return [f'canonical bytes differ: {name}' for name,raw in expected_outputs(inputs).items()
             if not (data_dir/name).is_file() or (data_dir/name).read_bytes()!=raw]
 
 

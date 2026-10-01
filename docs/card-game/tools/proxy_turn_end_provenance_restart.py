@@ -408,8 +408,8 @@ def _summary(route: dict) -> dict:
         'seeded_fallback_used','counts_as_independent_balance_sample')}
 
 
-def build_plan(inputs: dict) -> dict:
-    outcomes=run_all(inputs)
+def build_plan(inputs: dict, outcomes: dict | None = None) -> dict:
+    outcomes=run_all(inputs) if outcomes is None else outcomes
     errors=validate_outcomes(outcomes,inputs)
     if errors:
         raise ValueError('; '.join(errors))
@@ -451,7 +451,7 @@ def canonical_bytes(value: dict) -> bytes:
 def expected_outputs(inputs: dict | None = None) -> dict[str,bytes]:
     inputs=inputs or load_sources()
     outcomes=run_all(inputs)
-    plan=build_plan(inputs)
+    plan=build_plan(inputs,outcomes)
     output={PLAN_FILE:canonical_bytes(plan),
             EVALUATION_FILE:canonical_bytes(build_evaluation(plan))}
     output.update({f'{STOP_FOLDER}/stop-124-{path}.json':canonical_bytes(route)
@@ -466,8 +466,8 @@ def write_outputs(data_dir: Path = DATA) -> None:
         target.write_bytes(raw)
 
 
-def check_outputs(data_dir: Path = DATA) -> list[str]:
-    return [f'canonical bytes differ: {name}' for name,raw in expected_outputs().items()
+def check_outputs(data_dir: Path = DATA, inputs: dict | None = None) -> list[str]:
+    return [f'canonical bytes differ: {name}' for name,raw in expected_outputs(inputs).items()
             if not (data_dir/name).is_file() or (data_dir/name).read_bytes()!=raw]
 
 

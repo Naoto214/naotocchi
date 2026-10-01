@@ -1,0 +1,77 @@
+test_124_two_replays_and_saved_bytes (test_proxy_regeneration_410.Regeneration410Tests.test_124_two_replays_and_saved_bytes) ... FAIL
+test_125_explicit_source_rejects_forged_past_event (test_proxy_regeneration_410.Regeneration410Tests.test_125_explicit_source_rejects_forged_past_event) ... FAIL
+test_126_loads_prior_once (test_proxy_regeneration_410.Regeneration410Tests.test_126_loads_prior_once) ... FAIL
+test_127_loads_prior_once (test_proxy_regeneration_410.Regeneration410Tests.test_127_loads_prior_once) ... FAIL
+test_128_loads_prior_once (test_proxy_regeneration_410.Regeneration410Tests.test_128_loads_prior_once) ... FAIL
+test_fresh_disk_and_returned_object_isolation (test_proxy_regeneration_410.Regeneration410Tests.test_fresh_disk_and_returned_object_isolation) ... ok
+test_registry_scope_revalidated_after_change_and_restoration (test_proxy_regeneration_410.Regeneration410Tests.test_registry_scope_revalidated_after_change_and_restoration) ... ERROR
+test_supplied_inputs_unchanged_and_raw117_tampering_rejected (test_proxy_regeneration_410.Regeneration410Tests.test_supplied_inputs_unchanged_and_raw117_tampering_rejected) ... ok
+test_supplied_outcomes_cannot_bypass_independent_replay (test_proxy_regeneration_410.Regeneration410Tests.test_supplied_outcomes_cannot_bypass_independent_replay) ... ERROR
+
+======================================================================
+ERROR: test_registry_scope_revalidated_after_change_and_restoration (test_proxy_regeneration_410.Regeneration410Tests.test_registry_scope_revalidated_after_change_and_restoration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi/docs/card-game/tools/test_proxy_regeneration_410.py", line 63, in test_registry_scope_revalidated_after_change_and_restoration
+    p124.build_plan(inputs, outcomes)
+TypeError: build_plan() takes 1 positional argument but 2 were given
+
+======================================================================
+ERROR: test_supplied_outcomes_cannot_bypass_independent_replay (test_proxy_regeneration_410.Regeneration410Tests.test_supplied_outcomes_cannot_bypass_independent_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi/docs/card-game/tools/test_proxy_regeneration_410.py", line 45, in test_supplied_outcomes_cannot_bypass_independent_replay
+    p124.build_plan(inputs, outcomes)
+TypeError: build_plan() takes 1 positional argument but 2 were given
+
+======================================================================
+FAIL: test_124_two_replays_and_saved_bytes (test_proxy_regeneration_410.Regeneration410Tests.test_124_two_replays_and_saved_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi/docs/card-game/tools/test_proxy_regeneration_410.py", line 21, in test_124_two_replays_and_saved_bytes
+    self.assertEqual(replay.call_count, 2)
+AssertionError: 3 != 2
+
+======================================================================
+FAIL: test_125_explicit_source_rejects_forged_past_event (test_proxy_regeneration_410.Regeneration410Tests.test_125_explicit_source_rejects_forged_past_event)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi/docs/card-game/tools/test_proxy_regeneration_410.py", line 83, in test_125_explicit_source_rejects_forged_past_event
+    with self.assertRaises(ValueError):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_126_loads_prior_once (test_proxy_regeneration_410.Regeneration410Tests.test_126_loads_prior_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi/docs/card-game/tools/test_proxy_regeneration_410.py", line 32, in test_126_loads_prior_once
+    self.assert_single_prior_load(p126, p125)
+  File "/workspace/scratch/ce189a57ff8f/naotocchi/docs/card-game/tools/test_proxy_regeneration_410.py", line 28, in assert_single_prior_load
+    self.assertEqual(load.call_count, 1)
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_127_loads_prior_once (test_proxy_regeneration_410.Regeneration410Tests.test_127_loads_prior_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi/docs/card-game/tools/test_proxy_regeneration_410.py", line 35, in test_127_loads_prior_once
+    self.assert_single_prior_load(p127, p126)
+  File "/workspace/scratch/ce189a57ff8f/naotocchi/docs/card-game/tools/test_proxy_regeneration_410.py", line 28, in assert_single_prior_load
+    self.assertEqual(load.call_count, 1)
+AssertionError: 2 != 1
+
+======================================================================
+FAIL: test_128_loads_prior_once (test_proxy_regeneration_410.Regeneration410Tests.test_128_loads_prior_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi/docs/card-game/tools/test_proxy_regeneration_410.py", line 38, in test_128_loads_prior_once
+    self.assert_single_prior_load(p128, p127)
+  File "/workspace/scratch/ce189a57ff8f/naotocchi/docs/card-game/tools/test_proxy_regeneration_410.py", line 28, in assert_single_prior_load
+    self.assertEqual(load.call_count, 1)
+AssertionError: 2 != 1
+
+----------------------------------------------------------------------
+Ran 9 tests in 210.118s
+
+FAILED (failures=5, errors=2)

@@ -1,0 +1,14 @@
+test_124_two_replays_and_saved_bytes (test_proxy_regeneration_410.Regeneration410Tests.test_124_two_replays_and_saved_bytes) ... ok
+test_125_explicit_source_rejects_forged_past_event (test_proxy_regeneration_410.Regeneration410Tests.test_125_explicit_source_rejects_forged_past_event) ... ok
+test_126_loads_prior_once (test_proxy_regeneration_410.Regeneration410Tests.test_126_loads_prior_once) ... ok
+test_127_loads_prior_once (test_proxy_regeneration_410.Regeneration410Tests.test_127_loads_prior_once) ... ok
+test_128_loads_prior_once (test_proxy_regeneration_410.Regeneration410Tests.test_128_loads_prior_once) ... ok
+test_fresh_disk_and_returned_object_isolation (test_proxy_regeneration_410.Regeneration410Tests.test_fresh_disk_and_returned_object_isolation) ... ok
+test_registry_scope_revalidated_after_change_and_restoration (test_proxy_regeneration_410.Regeneration410Tests.test_registry_scope_revalidated_after_change_and_restoration) ... ok
+test_supplied_inputs_unchanged_and_raw117_tampering_rejected (test_proxy_regeneration_410.Regeneration410Tests.test_supplied_inputs_unchanged_and_raw117_tampering_rejected) ... ok
+test_supplied_outcomes_cannot_bypass_independent_replay (test_proxy_regeneration_410.Regeneration410Tests.test_supplied_outcomes_cannot_bypass_independent_replay) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 90.137s
+
+OK
