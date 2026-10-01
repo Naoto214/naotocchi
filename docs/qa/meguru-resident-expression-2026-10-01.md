@@ -282,3 +282,64 @@ PR #368 の 実機 QA で「`mgexprforce` は いまの 住民の 顔を 固定�
 ### テスト
 - Node: `tests/meguru-resident-expression-test.cjs` 18 件目(台帳・forest 固定・6 体の 位置・全 emotion の mapping / asset / decode・auto の talk・save 不変・ふだんの URL で 無効)。
 - 既存: `asset-versions` / `meguru-test` / `meguru-explore-ux` / `meguru-life` / `meguru-3d-prototype` / `meguru-discovery` / `release-hygiene` / `meguru-phase4e3` / `meguru-transition` 122 / 122。
+
+## U. iPhone 実機 QA の 2 件(2026-10-01 追記)
+
+### U-1. 2D: 「1 体だけ 表情が かわらない」
+
+6 体の 表情 PNG を base と 画素で くらべた(RGBA の 差 > 60 の 画素の 割合)。**解決失敗(fallback)は 1 件も ない。**
+
+| actor | family | positive | dislike | sick | tired | sleeping |
+|---|---|---|---|---|---|---|
+| 大人のねこ cat/06 | stage | 21.3% | 22.1% | 13.8% | 17.1% | 27.6% |
+| こいぬ dog/03 | stage | 10.4% | 12.2% | 13.1% | 17.3% | 14.4% |
+| かえる frog/05 | stage | 8.2% | 9.8% | 14.0% | 8.8% | 8.8% |
+| いもむし butterfly/02 | stage | 7.0% | 6.4% | 6.0% | 6.4% | 7.0% |
+| たぬき | relationship | 15.2% | 仕様 base | 仕様 base | 仕様 base | 仕様 base |
+| ねこ社長 | relationship | 9.6% | 仕様 base | 仕様 base | 仕様 base | 仕様 base |
+
+- **normal → positive では 6 体とも 別の PNG に かわる**(ゼロの 体は ない)。positive で かわらない 体が あれば 実バグだが、それは おきて いない。
+- dislike / sick / tired / sleeping / strained / wantsPlay で かわらないのは **たぬき・ねこ社長(relationship family)の 2 体**で、これは 契約どおり(Home の relationship 資産が normal / lonely / positive だけ)。
+- 「1 体だけ」に いちばん 近いのは **いもむし(butterfly/02)**: すべての 表情で 差が 5〜7% と 最小(顔が 小さい 絵)。解決は 正しく、画像も ちがうが、iPhone の 縮尺では かわった ように 見えにくい。画像の 再制作には 戻らない。必要なら 代表住民の 差しかえ(例: butterfly の 後の 段)で 対応できる。
+- これを 人が その場で 見わけられる ように、QA パネルの 1 体ごとの 行を 拡張した:
+  `ラベル[family] requested→canonical→expression basis ✓` と `asset … / base …`。
+  basis は `variant`(表情の PNG)/ `normal` / `spec-base`(仕様どおり base: その family に その 表情の 画像が ない)/ `FALLBACK!<理由>`(解決失敗)。「詳細」ボタンで asset 行を たたむ。
+
+### U-2. 3D: iPhone Safari で `?meguru3d=1&mgexprqa=1` の QA 住民が 見えない(2D では 見える)
+
+**監査(3D presentation 側)**
+
+| 経路 | 旧コードの 状態 | 判定 |
+|---|---|---|
+| actorTexture → PNG | `imageFor()` の `<img>`(`decoding='async'`)が `complete` に なった 瞬間に `new THREE.Texture(im)` を 1 回だけ つくり、`texCache` に 永久に 保存。再アップロード なし | **主因の 候補** |
+| PNG decode | WebKit は decode 前の async 画像を texImage2D / texSubImage2D に わたすと 透明な 画素を GPU に あげる ことが ある。Chromium は upload で 同期 decode する ので headless では 再現しない | 主因の 候補 |
+| THREE.Texture / material.map | `placeActor` は `m.userData.tex !== tx` の ときだけ map を さしかえる。透明 texture が 一度 入ると ずっと その まま | 主因を 固定化する |
+| alphaTest 0.5 | 透明な 画素は ぜんぶ discard。メッシュは visible でも 何も 描かれない(影だけ 出る) | 症状 そのもの |
+| visibility / placeActor | QA actor も ふつうの 住民と おなじ `view.residents` → `actorMesh` → `placeActor`。farCull 2600 に 対し 距離 ~700 | 問題なし |
+| depth / fog | fog near 500 / far ~3500、actor は カメラから ~700。MeshBasicMaterial・depthWrite 既定 | 問題なし |
+| camera / frustum | 2D と おなじ ピンホール。headless で 6/6 が 視錐台の なか | 問題なし(実機は 診断で 確認) |
+| プレイヤー | 絵文字 → canvas → CanvasTexture(canvas は 同期 upload)で 見える | 症状と 一致 |
+
+**Chromium での 再現**: browser smoke に「WebKit の 未 decode upload」の エミュレーション(decode() が おわるまで、キャラ PNG の texImage2D / texSubImage2D を 透明な canvas に すりかえる)を 足した。旧コードでは **住民 6 体が きえ、影と プレイヤーだけ 残る**(iPhone の 症状と 一致)。新コードでは 6 体とも 表示(`qa/3d-webkit-emu-old-vs-new.jpg`: 左 旧・エミュなし / 中 旧・エミュあり / 右 新・エミュあり)。
+
+**修正(`meguru-3d.mjs`)**
+- `pngTexture(asset)`: `img.decode()` が おわってから 画像を canvas に うつし、アルファの 合計(px)が 0 で ない ことを たしかめてから CanvasTexture に する(canvas の upload は 同期で 確実)。px が 0 なら 次の frame で 再試行(6 回まで、その あとは `blank`)。
+- fallback の 順: 表情の PNG(ready)→ base の PNG(ready)→ 絵文字 glyph(canvas)→ 色の まる(solid)。**どの 時点でも 何かが 描かれる**(エミュレーションで 6/6 visible を frame ごとに 確認、`none` は 一度も 出ない)。
+- 2D と おなじ `spriteFor` の `asset / base` だけを 読む 契約は そのまま(きもちの 語彙は 3D に ない)。
+
+**診断(`?mgexprqa=1` の ときだけ。ふだんの URL では 計測しない)**
+- hybrid renderer に `setDiag3d(on)` / `diag3d()`。QA パネルに 表示:
+  - 1 行目: `3D mesh N 住民 6 visible V 視錐台 F tex-ready T/6 tex X webgl2 1 dpr 2 fog near-far gl w,h,left,top 2d w,h,left,top`
+  - `GPU …`(WEBGL_debug_renderer_info)
+  - 3D の 失敗時: `3D active 0 failed 1 (理由) webgl2 0|1`
+  - 1 体ごと: `3D use=asset|base|glyph|solid|none png=wait|decoding|ready|blank|error(px) base=… tex=✓|× map=✓|× vis=✓|× fr=✓|× d=距離 err=…`
+- iPhone で 読みかた:
+  - `use=glyph` の まま `png=decoding` → decode() が おわらない(画像の 取得 / decode の 問題)
+  - `png=blank(0)` → decode 後も 画素が 入らない(canvas 経由でも だめ。別の WebKit 問題)
+  - `use=asset tex=✓ vis=✓ fr=✓` なのに 見えない → 描画順 / canvas の 重なり(`gl` と `2d` の rect を くらべる)
+  - `fr=×` → カメラ / 視錐台
+  - `3D active 0` → 3D に なって いない(`failed` の 理由)
+
+**browser smoke(`node tests/meguru-resident-expression-qa-browser.cjs`)**: plain / 2D / 3D / 3D WebKit エミュの 4 ケース。3D は 5 emotion すべてで `visible 6 / 視錐台 6 / tex-ready 6`・6 体とも `use=asset png=ready px>0`、basis が `variant` / `normal` / `spec-base` の 期待どおり。エミュでは decode 中 `glyph` → decode 後 `asset`。page error 0。
+
+**未確認**: これは Chromium 上の エミュレーションでの 確認。iPhone 実機で 直ったかは 下の preview の 診断行で 確定する(PC / headless の GREEN だけでは 解決扱いに しない)。

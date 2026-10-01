@@ -7932,7 +7932,7 @@
       if (container.classList) container.classList.add('meguru-overlay');
       container.innerHTML = `
         <div class="mg-header mg-meguru-header"><span id="mgrPlace"></span><span id="mgrCount"></span><span id="mgrFound"></span></div>
-        ${exprQaOn ? '<div id="mgrExprQa" style="display:flex;flex-wrap:wrap;gap:4px;align-items:center;padding:4px 6px;font-size:11px;line-height:1.3;background:rgba(255,255,255,.72);border-radius:8px;margin:2px 0;"><span id="mgrExprQaStatus" style="flex:1 1 100%;white-space:pre-wrap;font-family:ui-monospace,monospace;font-size:10px;"></span></div>' : ''}
+        ${exprQaOn ? '<div id="mgrExprQa" style="display:flex;flex-wrap:wrap;gap:4px;align-items:center;padding:4px 6px;font-size:11px;line-height:1.3;background:rgba(255,255,255,.72);border-radius:8px;margin:2px 0;"><span id="mgrExprQaStatus" style="display:block;flex:1 1 100%;white-space:pre-wrap;word-break:break-all;font-family:ui-monospace,monospace;font-size:10px;line-height:1.25;max-height:34vh;overflow:auto;-webkit-overflow-scrolling:touch;"></span></div>' : ''}
         <div class="mg-canvas-wrap mgr-wrap"><canvas class="mg-canvas" id="mgrCanvas"></canvas><div class="mgr-banner hidden" id="mgrBanner"></div><div class="mgr-spot hidden" id="mgrSpot"></div><div class="mgr-found hidden" id="mgrFoundToast"><div class="mgr-found-card"><span class="mgr-found-icon" id="mgrFoundIcon"></span><span class="mgr-found-text"><span class="mgr-found-title" id="mgrFoundTitle"></span><span class="mgr-found-sub" id="mgrFoundSub"></span></span></div></div><button type="button" class="mgr-map-btn" id="mgrMap">🗺 ちず</button></div>
         <div class="mg-hint mgr-hint" id="mgrHint">${HINT_DEFAULT}</div>
       `;
@@ -8058,25 +8058,53 @@
         const buttons = [];   // [button, emotion]
         const X = residentExpression();
         let rendererRef = null;   // renderer は この あとで つくられる。できたら attach() で わたす
+        // basis: その 顔が なぜ その 画像か。人が「仕様どおりの base」と「解決失敗」を 見わける ため
+        //   variant   … 表情の 画像(base と ちがう PNG)
+        //   normal    … きもちが normal なので base
+        //   spec-base … きもちは ある が、この family には その 表情の 画像が ない(mapping が normal)。仕様どおり
+        //   FALLBACK  … 解決に 失敗して base に もどした(unknown-emotion / missing-variant / unsupported-id / no-resolver)
+        const basisOf = (a) => !a.expr ? 'off' : a.expr.fallback ? 'FALLBACK' : a.expr.expression !== 'normal' ? 'variant' : X && X.canonicalEmotion(a.emotion) !== 'normal' ? 'spec-base' : 'normal';
+        const short = (p) => (p ? String(p).replace(/^assets\/characters\//, '').replace(/^expressions\//, '') : '-');
         function status() {
           const list = actors().map((a) => {
             const im = a.expr ? imageFor(a.expr.asset) : null;
-            return { key: a.key, kind: a.kind, label: a.label, emotion: a.emotion, persistent: a.emotionPersistent, expression: a.expr ? a.expr.expression : null, asset: a.expr ? a.expr.asset : null, base: a.asset, fallback: a.expr ? a.expr.fallback : null,
+            return { key: a.key, kind: a.kind, label: a.label, family: X ? X.familyOf(a) : null, requested: choice, emotion: a.emotion, canonical: X ? X.canonicalEmotion(a.emotion) : null, persistent: a.emotionPersistent,
+              expression: a.expr ? a.expr.expression : null, asset: a.expr ? a.expr.asset : null, base: a.asset, fallback: a.expr ? a.expr.fallback : null, basis: basisOf(a),
               loaded: !!im, drawn: a.expr ? !!imageFor(a.expr.asset) : false, x: Math.round(a.x), z: Math.round(a.z), dist: Math.round(Math.hypot(a.x - sim.player.x, a.z - sim.player.z)), say: a.say || null };
           });
-          return { on: true, choice, force: sim.expressionConfig.force, count: list.length, expected: keys.length, keys, residents: list, is3D: !!(rendererRef && rendererRef.is3D), failed3d: !!(rendererRef && rendererRef.failed), region: sim.world.regionId, module: !!X };
+          const d3 = rendererRef && typeof rendererRef.diag3d === 'function' ? rendererRef.diag3d() : null;
+          return { on: true, choice, force: sim.expressionConfig.force, count: list.length, expected: keys.length, keys, residents: list, is3D: !!(rendererRef && rendererRef.is3D), failed3d: !!(rendererRef && rendererRef.failed), region: sim.world.regionId, module: !!X, diag3d: d3 };
         }
+        let detail = true;
         function render() {
           const st = status();
-          const rows = st.residents.map((r) => `${r.label}(${r.kind}) ${r.emotion}→${r.expression || '-'} ${r.loaded ? '✓' : '…'}${r.fallback ? ' !' + r.fallback : ''}`);
-          if (statusEl) statusEl.textContent = `表情QA ${st.is3D ? '3D' : '2D'} ${st.region} 住民 ${st.count}/${st.expected} きもち=${st.choice}` + (rows.length ? '\n' + rows.join('\n') : '');
+          const lines = [`表情QA ${st.is3D ? '3D' : '2D'} ${st.region} 住民 ${st.count}/${st.expected} きもち=${st.choice}`];
+          const d = st.diag3d && st.diag3d.detail;
+          if (st.diag3d && (st.diag3d.active || st.diag3d.failed || /meguru3d=1/.test(q))) {
+            lines.push(d ? `3D mesh ${d.meshes} 住民 ${d.residents} visible ${d.visible} 視錐台 ${d.inFrustum} tex-ready ${d.textureReady}/${d.residents} tex ${d.textures} webgl2 ${d.gl.webgl2 ? 1 : 0} dpr ${d.gl.dpr} fog ${d.fog.join('-')} gl ${d.layout.gl ? d.layout.gl.join(',') : '-'} 2d ${d.layout.c2d ? d.layout.c2d.join(',') : '-'}${d.glDisplay ? ' disp=' + d.glDisplay : ''}`
+              : `3D active ${st.diag3d.active ? 1 : 0} failed ${st.diag3d.failed ? 1 : 0}${st.diag3d.failReason ? ' (' + st.diag3d.failReason + ')' : ''} webgl2 ${st.diag3d.webgl2 ? 1 : 0}`);
+            if (d && d.gl.gpu) lines.push('GPU ' + d.gl.gpu);
+          }
+          const rowOf = d ? new Map(d.rows.map((r) => [r.key, r])) : null;
+          for (const r of st.residents) {
+            lines.push(`${r.label}[${r.family}] ${r.requested}→${r.canonical}→${r.expression || '-'} ${r.basis}${r.fallback ? '!' + r.fallback : ''} ${r.loaded ? '✓' : '…'}`);
+            if (detail) lines.push(`  asset ${short(r.asset)} / base ${short(r.base)}`);
+            const g = rowOf && rowOf.get(r.key);
+            if (g) lines.push(`  3D use=${g.using} png=${g.assetState}${g.px != null ? '(' + g.px + ')' : ''} base=${g.baseState} tex=${g.textureReady ? '✓' : '×'} map=${g.map ? '✓' : '×'} vis=${g.visible ? '✓' : '×'} fr=${g.inFrustum ? '✓' : '×'} d=${g.dist}${g.err ? ' err=' + g.err : ''}`);
+          }
+          if (statusEl) statusEl.textContent = lines.join('\n');
         }
         // ボタン(ブラウザだけ。Node の harness では DOM が ないので つくらない)
         if (panel && typeof document !== 'undefined' && document.createElement && typeof panel.insertBefore === 'function') {
           for (const em of CHOICES) { const b = document.createElement('button'); b.type = 'button'; b.className = 'mg-tap-btn'; if (b.setAttribute) b.setAttribute('data-em', em); b.textContent = em; if (b.style) b.style.cssText = 'min-height:24px;padding:2px 7px;font-size:11px;'; b.addEventListener('click', () => { apply(em); render(); }); panel.insertBefore(b, statusEl); buttons.push([b, em]); }
         }
+        if (panel && typeof document !== 'undefined' && document.createElement && typeof panel.insertBefore === 'function') {
+          const b = document.createElement('button'); b.type = 'button'; b.className = 'mg-tap-btn'; b.textContent = '詳細'; if (b.style) b.style.cssText = 'min-height:24px;padding:2px 7px;font-size:11px;';
+          b.addEventListener('click', () => { detail = !detail; render(); }); panel.insertBefore(b, statusEl);
+        }
         place(true); apply(choice);
-        return { keys, actors, place, hold, apply, status, render, attach(r) { rendererRef = r; render(); }, get choice() { return choice; } };
+        // 3D の しらべ もの を たのむ(?mgexprqa=1 の ときだけ。ふだんの URL では よばれない)
+        return { keys, actors, place, hold, apply, status, render, attach(r) { rendererRef = r; if (r && typeof r.setDiag3d === 'function') r.setDiag3d(true); render(); }, get choice() { return choice; } };
       })() : null;
       // いまの context action。null なら ボタンは 出さない(からの ボタンを のこさない)
       //   talk  ちかくに 住民が いる

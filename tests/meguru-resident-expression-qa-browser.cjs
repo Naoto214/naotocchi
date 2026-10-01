@@ -44,12 +44,34 @@ function serve() {
   });
 }
 
-async function open(browser, base, query) {
+// iPhone Safari(WebKit)の ふるまいを Chromium で まねる: decoding='async' の キャラ PNG は、img.decode() が おわるまで
+//   texImage2D / texSubImage2D に わたすと 透明な 画素が GPU に あがる(three r170 の WebGL2 は texStorage2D + texSubImage2D)。
+// 2D の drawImage は 実機でも 2D 表示が 正常 なので まねない。
+// (Chromium は upload で 同期 decode する ので、ふつうの headless では この 実機 RED が 見えない)
+function emulateWebKitAsyncDecode(delayMs) {
+  const decoded = new WeakSet();
+  const isChar = (im) => typeof HTMLImageElement !== 'undefined' && im instanceof HTMLImageElement && /\/characters\//.test(im.src || '');
+  const od = HTMLImageElement.prototype.decode;
+  HTMLImageElement.prototype.decode = function () { const im = this; return new Promise((res, rej) => setTimeout(() => od.call(im).then(() => { decoded.add(im); res(); }, rej), delayMs)); };
+  const blank = (im) => { const c = document.createElement('canvas'); c.width = im.naturalWidth || 1; c.height = im.naturalHeight || 1; return c; };
+  let blanked = 0;
+  for (const P of [window.WebGL2RenderingContext && WebGL2RenderingContext.prototype, window.WebGLRenderingContext && WebGLRenderingContext.prototype]) {
+    if (!P) continue;
+    for (const fn of ['texImage2D', 'texSubImage2D']) {
+      const t = P[fn];
+      P[fn] = function (...a) { const i = a.findIndex(isChar); if (i >= 0 && !decoded.has(a[i])) { a[i] = blank(a[i]); blanked++; } return t.apply(this, a); };
+    }
+  }
+  window.__webkitEmu = { delayMs, get blanked() { return blanked; } };
+}
+
+async function open(browser, base, query, opts = {}) {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, reducedMotion: 'reduce' });
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', (e) => errors.push(String(e.message || e)));
   page.on('console', (m) => { if (m.type() === 'error') errors.push('console: ' + m.text().slice(0, 200)); });
+  if (opts.webkitEmu) await page.addInitScript(emulateWebKitAsyncDecode, opts.webkitEmu);
   await page.addInitScript((s) => localStorage.setItem('naotocchi-save-v1', JSON.stringify(s)), emptySave());
   await page.goto(`${base}/index.html${query}`);
   await page.locator('.device.ui-home-active').waitFor({ timeout: 30000 });
@@ -96,7 +118,19 @@ async function checkMode(browser, base, label, query, want3d) {
         const http200 = await page.evaluate(async (u) => { const res = await fetch(u, { cache: 'no-store' }); return res.status; }, r.asset);
         assert.equal(http200, 200, `${label}/${em}: ${r.asset} is served`);
         assert.ok(r.loaded, `${label}/${em}: ${r.asset} is decoded in the renderer image cache`);
-        rows.push({ key: r.key, kind: r.kind, emotion: r.emotion, expression: r.expression, asset: r.asset, loaded: r.loaded, dist: r.dist });
+        // basis: 仕様どおりの base(spec-base)と 解決失敗(FALLBACK)を 見わける
+        const wantBasis = em === 'normal' ? 'normal' : expected === 'normal' ? 'spec-base' : 'variant';
+        assert.equal(r.basis, wantBasis, `${label}/${em}: ${r.key} basis`);
+        assert.equal(r.family, family); assert.equal(r.requested, em);
+        rows.push({ key: r.key, kind: r.kind, family: r.family, emotion: r.emotion, expression: r.expression, basis: r.basis, asset: r.asset, loaded: r.loaded, dist: r.dist });
+      }
+      if (want3d) {
+        const d = st.diag3d && st.diag3d.detail;
+        assert.ok(d, `${label}/${em}: 3D diagnostics are reported`);
+        assert.equal(d.residents, 6); assert.equal(d.visible, 6, `${label}/${em}: 6 meshes visible`); assert.equal(d.inFrustum, 6, `${label}/${em}: 6 meshes in the view frustum`);
+        assert.equal(d.textureReady, 6, `${label}/${em}: 6 textures uploaded`);
+        for (const g of d.rows) { assert.equal(g.using, 'asset', `${label}/${em}: ${g.key} uses its own picture (not a fallback)`); assert.equal(g.assetState, 'ready'); assert.ok(g.px > 0, `${label}/${em}: ${g.key} copied pixels`); assert.ok(g.map && g.visible); }
+        report.diag3d = report.diag3d || {}; report.diag3d[em] = { visible: d.visible, inFrustum: d.inFrustum, textureReady: d.textureReady, gl: d.gl, rows: d.rows.map((g) => ({ key: g.key, using: g.using, assetState: g.assetState, px: g.px, dist: g.dist })) };
       }
       report.emotions[em] = rows;
       await shot(page, `${label}-${em}`);
@@ -133,6 +167,33 @@ async function checkMode(browser, base, label, query, want3d) {
   return report;
 }
 
+// iPhone の 3D RED の 再現: WebKit の 未 decode upload を まねても、住民が きえない(base → 絵文字 → 自分の え の 順で かならず 出る)
+async function checkWebKitEmu(browser, base) {
+  const delay = 1500;
+  const { context, page, errors } = await open(browser, base, '?meguru3d=1&mgexprqa=1&mgexprforce=positive', { webkitEmu: delay });
+  try {
+    const seen = new Set(), timeline = [];
+    for (let i = 0; i < 40; i++) {
+      await frames(page, 6);
+      const st = await status(page);
+      const d = st && st.diag3d && st.diag3d.detail;
+      if (!d) continue;
+      for (const g of d.rows) { seen.add(g.using); assert.notEqual(g.using, 'none', 'never an actor without a texture'); }
+      assert.equal(d.visible, 6, 'all six meshes are visible at every moment (fallback included)');
+      timeline.push(d.rows.map((g) => g.using).join(','));
+      if (d.rows.every((g) => g.using === 'asset' && g.textureReady)) break;
+    }
+    const st = await status(page); const d = st.diag3d.detail;
+    assert.equal(await page.evaluate(() => !!window.__webkitEmu), true);
+    assert.ok(d.rows.every((g) => g.using === 'asset' && g.assetState === 'ready' && g.px > 0 && g.textureReady), 'after decode every resident uses its own expression picture: ' + JSON.stringify(d.rows.map((g) => [g.key, g.using, g.assetState, g.px])));
+    assert.ok(seen.has('glyph') || seen.has('base'), `a fallback was shown while the PNG was not decoded (${[...seen].join('/')})`);
+    await shot(page, '3d-webkit-emu');
+    assert.deepEqual(errors, []);
+    console.log(`PASS 3d-webkit-emu (fallbacks seen: ${[...seen].join('/')})`);
+    return { delayMs: delay, seen: [...seen], timeline: timeline.slice(0, 12), final: d.rows.map((g) => ({ key: g.key, using: g.using, px: g.px })) };
+  } finally { await context.close(); }
+}
+
 async function checkPlain(browser, base) {
   const { context, page, errors } = await open(browser, base, '');
   try {
@@ -155,6 +216,7 @@ async function checkPlain(browser, base) {
     report.plain = await checkPlain(browser, base);
     report['2d'] = await checkMode(browser, base, '2d', '?mgexprqa=1', false);
     report['3d'] = await checkMode(browser, base, '3d', '?meguru3d=1&mgexprqa=1', true);
+    report['3d-webkit-emu'] = await checkWebKitEmu(browser, base);
     // 2D と 3D で おなじ 住民・おなじ 顔
     for (const em of EMOTIONS) assert.deepEqual(report['2d'].emotions[em].map((r) => [r.key, r.expression, r.asset]), report['3d'].emotions[em].map((r) => [r.key, r.expression, r.asset]), `${em}: 2D and 3D resolve the same pictures for the same residents`);
     console.log('PASS 2D == 3D for all emotions');
