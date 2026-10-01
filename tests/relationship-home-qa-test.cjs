@@ -9,8 +9,8 @@ const bootstrap=require('../tools/relationship-home-qa/bootstrap.js');
 const install=require('../tools/relationship-home-qa/runtime-hook.js');
 const cases=builder.createCases();
 
-test('thirteen cases reuse complete fixtures, exact partner/state and selective rescue',()=>{
- assert.equal(cases.length,13);assert.equal(new Set(cases.map(c=>c.id)).size,13);
+test('twenty cases reuse complete fixtures, exact partner/state and selective rescue',()=>{
+ assert.equal(cases.length,20);assert.equal(new Set(cases.map(c=>c.id)).size,20);
  for(const id of ['forest_bear','rock_octopus'])for(const face of ['normal','positive','lonely']){
   const c=cases.find(c=>c.id===id+'-'+face);assert.equal(c.save.partner.id,id);assert.equal(c.save.partner.affection,face==='lonely'?20:50);
  }
@@ -140,4 +140,15 @@ test('fixed before, positive and after reuse real rescue while live keeps its cl
   h.advance(3000);if(phase==='positive')assert.equal((markup(h).match(/\/positive.png/g)||[]).length,2);
   assert.equal(qa.run(),false);
  }
+});
+
+for(const face of ['normal','lonely','positive'])test('married QA retains the ring while showing '+face,()=>{
+ const {h}=scene('married-'+face);assert.equal(h.api.state().partner.married,true);
+ assert.ok(h.get('partnerCompanion').innerHTML.includes('partner-ring'));
+ assert.equal(h.get('partnerCompanion').querySelector('.partner-emoji').dataset.relationshipState,face);
+});
+test('companion fixed positive stimulates only selected companion; dense lonely has 26 low values',()=>{
+ const {h}=scene('companion-positive');assert.equal((markup(h).match(/positive.png/g)||[]).length,1);
+ assert.ok(!h.get('partnerCompanion').innerHTML.includes('positive.png'));
+ assert.equal(cases.find(c=>c.id==='dense-lonely').save.companions.filter(c=>c.bond<30).length,26);
 });

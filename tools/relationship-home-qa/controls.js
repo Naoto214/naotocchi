@@ -4,7 +4,7 @@
  const get=id=>document.getElementById(id),frame=get('game'),select=get('case');
  let index=0,ready=false,pendingTimer=null;
  for(const c of cases){const o=document.createElement('option');o.value=c.id;o.textContent=c.label;select.appendChild(o);}
- function size(){frame.style.height=window.innerHeight+'px';get('dimensions').textContent=`実機Home領域：${window.innerWidth} × ${window.innerHeight} CSS px`;}
+ function size(){const mode=get('viewport').value;const w=mode==='390'?390:mode==='320'?320:window.innerWidth,h=mode==='390'?844:mode==='320'?568:window.innerHeight;frame.style.width=mode==='390'||mode==='320'?w+'px':'100%';frame.style.maxWidth='100%';frame.style.height=h+'px';get('dimensions').textContent=`Home領域：${Math.min(w,window.innerWidth)} × ${h} CSS px（${mode==='device'||!mode?'実機':'基準サイズ'}）`;}
  function load(){
   clearTimeout(pendingTimer);ready=false;const c=cases[index];select.value=c.id;
   get('hint').textContent=c.hint;get('phase').disabled=!['play','return'].includes(c.mode);if(get('phase').disabled)get('phase').value='live';get('timing').textContent='';
@@ -17,7 +17,7 @@
  function back(){get('controls').scrollIntoView({block:'start',behavior:'instant'});get('quick-back').hidden=true;}
  function syncReturn(){const r=frame.getBoundingClientRect();get('quick-back').hidden=!(r.top<=64&&r.bottom>44);}
  select.addEventListener('change',()=>{index=cases.findIndex(c=>c.id===select.value);load();});
- get('phase').addEventListener('change',load);get('hearts').addEventListener('change',load);
+ get('viewport').addEventListener('change',()=>{size();});get('phase').addEventListener('change',load);get('hearts').addEventListener('change',load);
  get('previous').onclick=()=>{index=(index+cases.length-1)%cases.length;load();};
  get('next').onclick=()=>{index=(index+1)%cases.length;load();};get('reset').onclick=load;
  get('show').onclick=show;get('back').onclick=back;get('quick-back').onclick=back;

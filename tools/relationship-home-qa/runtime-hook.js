@@ -5,7 +5,7 @@
  'use strict';
  env=env||window;
  let ran=false,running=false,heldTimer;
- const renew=()=>api.startRelationshipPositive('partner',api.state().partner);
+ const renew=()=>api.startRelationshipPositive(config.targetKind||'partner',config.targetKind==='companion'?api.state().companions[0]:api.state().partner);
  const positive=()=>{renew();api.render();};
  if(config.mode==='held')positive();
  const qa={

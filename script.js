@@ -13644,7 +13644,7 @@
   }
 
   // こいびと/けっこんあいてを、なかまとは くべつして 本体キャラの ひだりうえに
-  // ハートで囲み、中央セルの左上に表示する。けっこんずみの ときは
+  // 状態別のハートを添える。けっこんずみの ときは
   // ゆびわを そえる。たまご/しぼう/クリアの あいだは 表示しない
   function renderPartnerCompanion(hide) {
     const p = !hide && state.partner;
@@ -13660,7 +13660,7 @@
     el.partnerCompanion.dataset.visualKey = key;
     const ring = p.married ? '<span class="partner-ring">💍</span>' : '';
     el.partnerCompanion.innerHTML =
-      `<span class="partner-heart">💕</span><span class="partner-emoji" title="${escapeHtml(compactJapaneseText(p.label))}">${partnerVisualHTML(p, 'companion', true)}</span>${ring}<span class="partner-heart">💕</span>`;
+      `<span class="partner-emoji" title="${escapeHtml(compactJapaneseText(p.label))}">${partnerVisualHTML(p, 'companion', true)}</span>${ring}`;
   }
 
   let companionRenderKey = null;
@@ -14087,62 +14087,67 @@
       .map(t=>({...t,reaction:relationshipReactions?.info(t.entity)})).filter(t=>t.reaction);
   }
   const relationshipMotionTokens = new WeakMap();
-  const relationshipHeartNodes = new Map();
+  // Every cue is a child of its actor: local motion and idle carry it together.
+  // Ephemeral DOM metadata never enters state/save. Layout still reserves its
+  // original partner-heart/ring space; the cast solver is untouched.
+  const relationshipCueNodes = new Map();
   let relationshipHeartMode = 'all';
-  let relationshipAnchorKey = '';
-  const relationshipAnchorCache = new Map();
   let relationshipCastFrames = null;
   function renderRelationshipReactions() {
     if(!relationshipCastFrames)return;
-    const {layout,recruited,args}=relationshipCastFrames;
+    const {layout,recruited}=relationshipCastFrames;
+    // Partner expression replaces its subtree even when cast layout is cached.
+    // Restore the existing solver's ring coordinates; never relocate the ring.
+    if(state.partner?.married && layout.partner && layout.ring){
+      const ring=el.partnerCompanion.querySelector('.partner-ring'),frame=layout.ring;
+      if(ring){ring.style.left=(frame.x-layout.partner.x)+'px';ring.style.top=(frame.y-layout.partner.y)+'px';
+        ring.style.width=frame.w+'px';ring.style.height=frame.h+'px';ring.style.fontSize=frame.w+'px';}
+    }
+    if(!RELATIONSHIP_EXPRESSION)return;
     const actors=homeCastActors(),targets=relationshipTargets();
     const visible=!gameActive && !meguruActive && !isAnyMenuOverlayOpen()
       && state.stage!==STAGE.EGG && state.stage!==STAGE.DEAD && !state.transformOptions
       && document.visibilityState!=='hidden' && !document.body.classList.contains('movie-active')
       && !el.screenNormal.classList.contains('hidden');
-    const anchorKey=JSON.stringify([homeCastLayoutKey,visible,relationshipHeartMode,targets.map(t=>[t.kind,t.id,t.reaction.startedAt,t.reaction.until])]);
-    const refresh=anchorKey!==relationshipAnchorKey;
-    if(refresh){relationshipAnchorKey=anchorKey;relationshipAnchorCache.clear();}
-    const wanted=new Set(),placed=[];
-    const body=(f,path)=>{const id=path?.split('/').pop()?.replace('.png','');const b=RELATIONSHIP_EXPRESSION?.ART_BOUNDS[id]||window.NaotocchiCastBounds?.[path]?.box||[0,0,128,128];
-      return {x:f.x+f.w*b[0]/128,y:f.y+f.h*b[1]/128+(f.artOffsetY||0),w:f.w*(b[2]-b[0])/128,h:f.h*(b[3]-b[1])/128};};
-    const frames=[body(layout.main,args.mainAsset),...(layout.partner?[body(layout.partner,args.partnerAsset)]:[]),...layout.companions.map((f,i)=>body(f,args.companions[i]))];
-    for(const [i,t] of targets.entries()) {
-      const actor=actors.find(a=>a.kind===t.kind&&a.id===t.id);
-      if(!visible || !actor)continue;
-      const elapsed=Date.now()-t.reaction.startedAt;
-      if(relationshipMotionTokens.get(actor.node)!==t.reaction || elapsed<900 && !castMotion?.isActive(t)){
-        castMotion?.relationship(t,elapsed);relationshipMotionTokens.set(actor.node,t.reaction);
+    const wanted=new Set();
+    for(const actor of actors) {
+      if(!['companion','partner'].includes(actor.kind))continue;
+      const entity=actor.kind==='partner'?state.partner:state.companions.find(c=>allCompanionsById(c.id)?.id===actor.id);
+      if(!entity)continue;
+      const expression=relationshipVisual(actor.kind,entity,null).expression;
+      actor.node.dataset.relationshipState=expression;
+      const target=targets.find(t=>t.kind===actor.kind && t.entity===entity),reaction=target?.reaction;
+      const elapsed=reaction?Date.now()-reaction.startedAt:0;
+      if(visible && reaction && (relationshipMotionTokens.get(actor.node)!==reaction || elapsed<900 && !castMotion?.isActive(target))){
+        castMotion?.relationship({...target,id:actor.id},elapsed);relationshipMotionTokens.set(actor.node,reaction);
       }
-      const f=t.kind==='partner'?layout.partner:layout.companions[recruited.findIndex(c=>c.id===t.id)];
-      if(!f || relationshipHeartMode==='representative'&&i>0)continue;
-      const key=t.kind+':'+t.id;
-      const targetFrame=body(f,t.kind==='partner'?args.partnerAsset:args.companions[recruited.findIndex(c=>c.id===t.id)]);
-      const box=refresh?RELATIONSHIP_EXPRESSION.heartAnchor(targetFrame,{width:layout.width,height:layout.height,
-        obstacles:[...frames,...placed,layout.conversation,...(layout.accessory?[layout.accessory]:[]),...(layout.ring?[layout.ring]:[]),
-          ...(targets.some(a=>a.kind==='partner')?[]:layout.hearts)]}):relationshipAnchorCache.get(key);
-      if(refresh)relationshipAnchorCache.set(key,box);
-      if(!box)continue;
-      placed.push(box);wanted.add(key);
-      let entry=relationshipHeartNodes.get(key);
-      if(!entry || entry.reaction!==t.reaction){
-        if(entry){el.castResponse.removeChild(entry.node);el.castResponse.removeChild(entry.link);}
-        const node=document.createElement('span');node.className='relationship-heart';node.textContent='♥';
-        node.setAttribute('aria-hidden','true');node.dataset.relationshipTarget=key;
-        node.style.animationDelay=(-elapsed)+'ms';
-        const link=document.createElement('span');link.className='relationship-heart-link';link.setAttribute('aria-hidden','true');
-        link.style.animationDelay=(-elapsed)+'ms';el.castResponse.appendChild(link);
-        el.castResponse.appendChild(node);entry={node,link,reaction:t.reaction};relationshipHeartNodes.set(key,entry);
+      const f=actor.kind==='partner'?layout.partner:layout.companions[recruited.findIndex(c=>c.id===actor.id)];
+      const showHeart=actor.kind==='partner'||expression==='positive'&&(relationshipHeartMode!=='representative'||target===targets[0]);
+      const showAura=expression!=='normal';
+      if(!visible || !f || (!showHeart&&!showAura))continue;
+      const key=actor.kind+':'+actor.id;wanted.add(key);
+      let entry=relationshipCueNodes.get(key);
+      if(!entry || entry.owner!==actor.node || entry.expression!==expression || entry.reaction!==reaction || entry.showHeart!==showHeart){
+        if(entry)for(const node of [entry.heart,entry.aura])if(node?.parentNode)node.parentNode.removeChild(node);
+        entry={owner:actor.node,expression,reaction,showHeart};
+        if(showAura){const node=document.createElement('span');node.className='relationship-aura';node.dataset.relationshipState=expression;
+          node.setAttribute('aria-hidden','true');if(reaction)node.style.animationDelay=(-elapsed)+'ms';actor.node.appendChild(node);entry.aura=node;}
+        if(showHeart){const node=document.createElement('span');node.className='relationship-heart';node.dataset.relationshipState=expression;
+          node.dataset.relationshipTarget=key;node.setAttribute('aria-hidden','true');node.innerHTML=RELATIONSHIP_EXPRESSION.heartMarkup(expression);
+          if(reaction)node.style.animationDelay=(-elapsed)+'ms';actor.node.appendChild(node);entry.heart=node;}
+        relationshipCueNodes.set(key,entry);
       }
-      const node=entry.node;node.style.left=box.x+'px';node.style.top=box.y+'px';
-      node.style.setProperty('--relationship-float',(-Math.min(4,box.y-2))+'px');
-      node.style.width=box.w+'px';node.style.height=box.h+'px';node.style.fontSize=box.w+'px';
-      const dx=targetFrame.x+targetFrame.w/2-(box.x+box.w/2),dy=targetFrame.y-2-(box.y+box.h-2);
-      entry.link.style.left=(box.x+box.w/2)+'px';entry.link.style.top=(box.y+box.h-2)+'px';
-      entry.link.style.width=Math.hypot(dx,dy)+'px';entry.link.style.transform=`rotate(${Math.atan2(dy,dx)}rad)`;
+      const bounds=RELATIONSHIP_EXPRESSION.ART_BOUNDS[actor.id]||[0,0,128,128];
+      const body={x:f.x+f.w*bounds[0]/128,y:f.y+f.h*bounds[1]/128,w:f.w*(bounds[2]-bounds[0])/128,h:f.h*(bounds[3]-bounds[1])/128};
+      if(entry.aura){const node=entry.aura;node.style.left=(body.x-f.x-2)+'px';node.style.top=(body.y-f.y-2)+'px';node.style.width=(body.w+4)+'px';node.style.height=(body.h+4)+'px';}
+      if(entry.heart){const size=expression==='positive'?clamp(f.w*.4,16,26):clamp(f.w*.22,10,15);
+        const box=RELATIONSHIP_EXPRESSION.heartAnchor(body,{width:layout.width,height:layout.height,size});
+        const node=entry.heart;node.style.left=(box.x-f.x)+'px';node.style.top=(box.y-f.y)+'px';
+        node.style.width=box.w+'px';node.style.height=box.h+'px';node.style.setProperty('--relationship-float',(-Math.min(3,box.y))+'px');}
     }
-    for(const [key,entry] of relationshipHeartNodes)if(!wanted.has(key)){
-      el.castResponse.removeChild(entry.node);el.castResponse.removeChild(entry.link);relationshipHeartNodes.delete(key);
+    for(const [key,entry] of relationshipCueNodes)if(!wanted.has(key)){
+      for(const node of [entry.heart,entry.aura])if(node?.parentNode)node.parentNode.removeChild(node);
+      relationshipCueNodes.delete(key);
     }
   }
   let homeSpeechAnchors = null;
@@ -14240,12 +14245,6 @@
       const frame=layout.hearts[i];
       place(node,{...frame,x:frame.x-layout.partner.x,y:frame.y-layout.partner.y});
     });
-    const ring=el.partnerCompanion.querySelector('.partner-ring');
-    if(ring && layout.ring) {
-      const frame=layout.ring;
-      place(ring,{...frame,x:frame.x-layout.partner.x,y:frame.y-layout.partner.y});
-      ring.style.fontSize=frame.w+'px';
-    }
     renderRelationshipReactions();
   }
 

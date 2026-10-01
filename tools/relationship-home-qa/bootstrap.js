@@ -24,7 +24,7 @@
    const normal=`assets/characters/${folder}/${actor.id}.png`;
    const expression=name=>`assets/characters/relationship/${actor.id}/${name}.png`;
    urls.add(value<30?expression('lonely'):normal);
-   if(folder==='partners'&&['held','return'].includes(config.mode))urls.add(expression('positive'));
+   if((folder==='partners'&&config.targetKind!=='companion'||folder==='companions'&&config.targetKind==='companion'&&actor===config.save.companions[0])&&['held','return'].includes(config.mode))urls.add(expression('positive'));
    if(folder==='companions'&&config.mode==='play'){
     // Real play adds 30; the QA draw selects the first companion.
     if(actor===config.save.companions[0]||value<30&&value+30>=30)urls.add(expression('positive'));

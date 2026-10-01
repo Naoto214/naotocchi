@@ -20,6 +20,14 @@ module.exports=function createCases(){
  cases.push({id:'home',label:'通常Home',mode:'static',save:copy('forest_bear',50,'dense'),hint:'メイン・恋人・26体のなかま・会話・ボタンを確認してください。通常操作は、このページ内の使い捨てデータだけに作用します。'});
  const rescueAll=copy('forest_bear',50,'dense');rescueAll.companions.forEach(c=>c.bond=20);
  cases.push({id:'dense-rescue',label:'じゃれる：26体救済比較',mode:'play',save:rescueAll,hint:'26体全員が救済されます。ハート「各対象／代表のみ」を切り替え、動きと情報密度を比較してください。'});
+ for(const [face,label] of [['normal','ふつう'],['lonely','さみしい'],['positive','うれしい']]){
+  const save=copy();save.companions=[{id:'otter',bond:face==='lonely'?20:60},{id:'clock',bond:60},{id:'cat_friend',bond:60}];
+  cases.push({id:'companion-'+face,label:'なかま：'+label,mode:face==='positive'?'held':'static',targetKind:'companion',save,hint:'カワウソを確認。ふつうは記号なし、さみしいは薄い寒色、うれしいは暖色＋すぐ頭上のハート。'});
+  const married=copy('forest_bear',face==='lonely'?20:50);married.partner.married=true;
+  cases.push({id:'married-'+face,label:'けっこん：'+label,mode:face==='positive'?'held':'static',save:married,hint:'指輪が残ること、クマのハート・顔・会話と重ならないことを確認してください。'});
+ }
+ const lonelyAll=copy('forest_bear',50,'dense');lonelyAll.companions.forEach(c=>c.bond=20);
+ cases.push({id:'dense-lonely',label:'なかま：26体さみしい',mode:'static',save:lonelyAll,hint:'26体が静かな寒色。Home全体が青い霧にならず、各個体だけに霞が付くことを確認してください。'});
  for(const c of cases){c.save.savedAt=0;Object.assign(c.save.lifetime,{timeMode:'day',weatherMode:'sunny',seasonMode:'summer'});}
  return cases;
 };

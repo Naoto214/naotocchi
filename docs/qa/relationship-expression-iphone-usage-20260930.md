@@ -1,3 +1,5 @@
+> Updated visual contract and 20-case inventory: [2026-10-01 report](relationship-visual-language-20261001.md). Older shifted-heart/stem descriptions below are historical and superseded. Current hearts stay immediately above their owner; normal/lonely/positive partner hearts replace each other. Optional 390×844 / 320×568 reference frames are available; default remains the current device.
+
 # Relationship Home iPhone QA — usage and boundaries
 
 ## Human steps

@@ -112,16 +112,16 @@ test('real play gives only positive individuals motion and head hearts; expiry r
  h.advance(1);
  const nodes=[...h.get('companionLeft').children,...h.get('companionRight').children];
  for(const n of nodes)assert.equal(n.dataset.reaction,n.dataset.companionId==='cat_friend'?undefined:'positive');
- assert.deepEqual(h.get('castResponse').children.filter(n=>n.dataset.relationshipTarget).map(n=>n.dataset.relationshipTarget).sort(),['companion:clock','companion:otter']);
+ assert.deepEqual(positiveHearts(h).map(n=>n.dataset.relationshipTarget).sort(),['companion:clock','companion:otter']);
  assert.equal(h.get('castResponse').animations.length,0);
- h.advance(2501);assert.equal(h.get('castResponse').children.filter(n=>n.dataset.relationshipTarget).length,0);
+ h.advance(2501);assert.equal(positiveHearts(h).length,0);
 });
 test('ordinary play and all-inviting dialogue do not animate non-target companions',()=>{
  const h=harness(),s=setup(h,{companions:[{id:'otter',bond:60},{id:'clock',bond:60},{id:'cat_friend',bond:60}]});
  h.dispatch(h.get('playWithBtn'),'click');h.advance(1);
  const nodes=[...h.get('companionLeft').children,...h.get('companionRight').children];
  assert.equal(nodes.filter(n=>n.dataset.reaction==='positive').length,1);
- assert.equal(h.get('castResponse').children.filter(n=>n.dataset.relationshipTarget).length,1);
+ assert.equal(positiveHearts(h).length,1);
  h.api.speakEvent('play_with',{petText:'みんな、全員はねよう！',companionChance:1,partnerChance:0});h.advance(1);
  assert.equal(h.get('castResponse').animations.length,0);
  assert.equal(nodes.filter(n=>n.dataset.reaction==='positive').length,1);
@@ -134,7 +134,7 @@ test('every possible representative in a dense 26-companion Home receives one sa
   const R=h.window.NaotocchiRelationshipExpression,original=R.companionPositiveIds;
   try{R.companionPositiveIds=()=>[id];h.dispatch(h.get('playWithBtn'),'click');}finally{R.companionPositiveIds=original;}
   h.advance(1);
-  const hearts=h.get('castResponse').children.filter(n=>n.dataset.relationshipTarget);
+  const hearts=positiveHearts(h);
   assert.deepEqual(hearts.map(n=>n.dataset.relationshipTarget),['companion:'+id],id);
  }
 });
@@ -145,5 +145,43 @@ test('26 simultaneous expiries coalesce Home work while removing every transient
  node.getBoundingClientRect=()=>{measures++;return original();};h.advance(2);
  assert.ok(measures<=3,'must not render once per rescued actor: '+measures);
  assert.ok(!companionHTML(h).includes('/positive.png'));
- assert.equal(h.get('castResponse').children.filter(n=>n.dataset.relationshipTarget).length,0);
+ assert.equal(positiveHearts(h).length,0);
+});
+
+const child=(node,cls)=>node.children.find(n=>n.className===cls)||null;
+const positiveHearts=h=>cues(h).flatMap(n=>n.children).filter(n=>n.className==='relationship-heart'&&n.dataset.relationshipState==='positive');
+const cues=h=>[...h.get('companionLeft').children,...h.get('companionRight').children,h.get('partnerCompanion').querySelector('.partner-emoji')].filter(Boolean);
+for(const married of [false,true])test(`partner three visual states retain marriage ring=${married} and replace one heart`,()=>{
+ const h=harness(),p=partner(h);p.married=married;setup(h,{partner:p});
+ const check=(face)=>{const node=h.get('partnerCompanion').querySelector('.partner-emoji');assert.equal(node.dataset.relationshipState,face);
+  const heart=child(node,'relationship-heart');assert.ok(heart);assert.equal(heart.dataset.relationshipState,face);
+  assert.equal(!!child(node,'relationship-aura'),face!=='normal');
+  assert.equal(heart.innerHTML.includes('relationship-heart-crack'),face==='lonely');
+  assert.equal(h.get('partnerCompanion').innerHTML.includes('partner-ring'),married);
+  assert.equal(h.get('partnerCompanion').innerHTML.includes('class="partner-heart"'),false);
+ };
+ check('normal');p.affection=20;h.api.render();check('lonely');
+ h.api.reinforceRelationship();h.api.render();check('positive');p.affection=20;h.advance(2501);check('lonely');
+ p.affection=50;h.api.render();check('normal');
+});
+test('companion aura and heart belong to the actor; positive replaces cold and expires back to current value',()=>{
+ const h=harness(),s=setup(h,{companions:[{id:'otter',bond:20},{id:'clock',bond:60}]});
+ const find=id=>cues(h).find(n=>n.dataset.companionId===id);
+ assert.equal(find('otter').dataset.relationshipState,'lonely');assert.ok(child(find('otter'),'relationship-aura'));
+ assert.equal(child(find('otter'),'relationship-heart'),null);
+ assert.equal(child(find('clock'),'relationship-aura'),null);
+ const R=h.window.NaotocchiRelationshipExpression,orig=R.companionPositiveIds;R.companionPositiveIds=(a,b)=>orig(a,b,()=>0);
+ h.dispatch(h.get('playWithBtn'),'click');h.advance(1);R.companionPositiveIds=orig;
+ assert.equal(find('otter').dataset.relationshipState,'positive');assert.ok(child(find('otter'),'relationship-heart'));
+ assert.equal(find('clock').dataset.relationshipState,'normal');assert.equal(child(find('clock'),'relationship-heart'),null);
+ s.companions[0].bond=20;h.advance(2501);assert.equal(find('otter').dataset.relationshipState,'lonely');assert.equal(child(find('otter'),'relationship-heart'),null);
+ assert.equal(h.get('castResponse').children.filter(n=>n.className==='relationship-heart-link').length,0);
+});
+test('married ring preserves exact layout coordinates through every partner expression rebuild',()=>{
+ const h=harness(),p=partner(h);p.married=true;setup(h,{partner:p});
+ const position=()=>{const n=h.get('partnerCompanion').querySelector('.partner-ring');return ['left','top','width','height','fontSize'].map(k=>n.style[k]);};
+ const before=position();assert.ok(before.every(v=>typeof v==='string'));
+ p.affection=20;h.api.render();assert.deepEqual(position(),before);
+ h.api.reinforceRelationship();h.api.render();assert.deepEqual(position(),before);
+ p.affection=20;h.advance(2501);assert.deepEqual(position(),before);
 });

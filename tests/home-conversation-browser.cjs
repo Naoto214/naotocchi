@@ -26,7 +26,7 @@ function measureConversation() {
   return {width:innerWidth,height:innerHeight,visibleHeight:visualViewport?.height || innerHeight,actors,main:actors.find(a=>a.id==='pet'),
     fieldScale:parseFloat(getComputedStyle(document.getElementById('petSprite')).width)/104,
     ring:ring && shown(ring)?{...rect(ring),fontSize:parseFloat(getComputedStyle(ring).fontSize)}:null,
-    hearts:[...document.querySelectorAll('#pet .partner-heart')].filter(shown).map(rect),
+    hearts:[...document.querySelectorAll('#pet .partner-heart,#pet .partner-emoji .relationship-heart')].filter(shown).map(rect),
     bubble:shown(bubble)?rect(bubble):null,slot:rect(document.getElementById('speechSlot')),
     kind:bubble.dataset.kind,speakerId:bubble.dataset.speakerId,speakerLabel:speaker.dataset.label,
     nameContent:getComputedStyle(speaker,'::after').content,

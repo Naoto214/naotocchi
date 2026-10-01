@@ -235,13 +235,16 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 .design-collection-item .theme-swatch-circle {width:48px;height:40px;border-radius:10px}
 .design-collection-lock {display:grid;place-items:center;width:48px;height:40px;color:#6b766b}
 
-/* Ephemeral Relationship cue, above the protected sprite frame. No layout space. */
-.relationship-heart{position:absolute;display:flex;align-items:center;justify-content:center;pointer-events:none;line-height:1;color:#e43d79;text-shadow:0 1px 0 #fff,1px 0 0 #fff,-1px 0 0 #fff;z-index:2;animation:relationship-heart-pop 2.5s ease-out both;transform-origin:center bottom}
-@keyframes relationship-heart-pop{0%{opacity:0;transform:scale(.55)}12%,60%{opacity:1;transform:scale(1)}85%{opacity:.85;transform:translateY(var(--relationship-float,-4px)) scale(.94)}100%{opacity:0;transform:translateY(var(--relationship-float,-4px)) scale(.8)}}
-#pet .partner-companion[data-relationship-positive="true"] .partner-heart{visibility:hidden}
-@media(prefers-reduced-motion:reduce){.relationship-heart{animation:none}}
-
-/* A fine temporary stem keeps a shifted heart attributable; behind all cast art. */
-.relationship-heart-link{position:absolute;height:1px;background:#e43d7980;transform-origin:left center;pointer-events:none;z-index:-1;animation:relationship-heart-link-fade 2.5s ease-out both}
-@keyframes relationship-heart-link-fade{0%,100%{opacity:0}12%,75%{opacity:1}}
-@media(prefers-reduced-motion:reduce){.relationship-heart-link{animation:none}}
+/* Relationship cues belong to their actor. Images retain their original color.
+   No layout size, global fog, filter on artwork, particles or perpetual timers. */
+#pet .companion-chip-small,#pet .partner-emoji{isolation:isolate}
+#pet .partner-emoji{position:relative}
+.relationship-aura{position:absolute;pointer-events:none;border-radius:50%;z-index:-1;background:radial-gradient(ellipse,transparent 25%,rgba(145,166,222,.21) 53%,rgba(155,196,235,.12) 70%,transparent 76%)}
+.relationship-aura[data-relationship-state="positive"]{background:radial-gradient(ellipse,rgba(255,224,170,.12) 20%,rgba(255,187,107,.5) 55%,rgba(255,211,128,.22) 69%,transparent 78%);animation:relationship-warm 2.5s ease-out both}
+.relationship-heart{position:absolute;display:flex;pointer-events:none;line-height:1;color:#e5a0b6;z-index:2;transform-origin:center bottom}
+.relationship-heart svg{width:100%;height:100%;overflow:visible}
+.relationship-heart[data-relationship-state="lonely"]{color:#a9b5dd}
+.relationship-heart[data-relationship-state="positive"]{color:#f16a83;animation:relationship-heart-pop 2.5s ease-out both}
+@keyframes relationship-heart-pop{0%{opacity:0;transform:scale(.55)}12%,65%{opacity:1;transform:scale(1)}85%{opacity:.85;transform:translateY(var(--relationship-float,-3px)) scale(.94)}100%{opacity:0;transform:translateY(var(--relationship-float,-3px)) scale(.8)}}
+@keyframes relationship-warm{0%{opacity:0;transform:scale(.88)}15%,60%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.04)}}
+@media(prefers-reduced-motion:reduce){.relationship-heart[data-relationship-state="positive"],.relationship-aura[data-relationship-state="positive"]{animation:none}}
