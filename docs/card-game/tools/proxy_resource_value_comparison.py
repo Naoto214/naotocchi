@@ -43,7 +43,7 @@ def validate_problem(problem: dict) -> list[str]:
         if not isinstance(c,dict) or set(c)!=CANDIDATE_KEYS:
             errors.append('candidate keys differ');continue
         seen.append(c['candidate_id'])
-        if not _text(c['candidate_id']) or not _text(c['card_copy_id']):errors.append('invalid candidate identifier')
+        if not _text(c['candidate_id']) or (not _text(c['card_copy_id']) and not (c['candidate_id']=='pass' and c['card_copy_id']=='')):errors.append('invalid candidate identifier')
         for key in (*UPPER_KEYS,'time_after_certain_resolution','payment_time','consumed_card_count'):
             if not _number(c[key]):errors.append('invalid numeric '+key)
         for key in ('time_after_certain_resolution','payment_time','consumed_card_count'):

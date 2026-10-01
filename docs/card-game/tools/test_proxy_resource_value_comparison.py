@@ -116,3 +116,8 @@ class ResourceComparisonTests(unittest.TestCase):
         pair=p['pairs'][0];pair['kind']='certified_safe_free_development'
         pair['safe_placement']={'candidate_id': []}
         self.assertTrue(comparison.validate_problem(p))
+
+    def test_pass_empty_copy_id_preserves_legacy_tie_break(self):
+        p=rename(problem_for([5,5]), 'a','pass')
+        p['candidates'][0]['card_copy_id']=''
+        self.assertEqual(comparison.compare_problem(p)['selected_candidate'],'pass')

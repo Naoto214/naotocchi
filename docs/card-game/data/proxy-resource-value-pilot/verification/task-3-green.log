@@ -1,0 +1,12 @@
+test_candidate_details_must_bind_full_legal_set (test_proxy_resource_value_inputs.ResourceInputsTests.test_candidate_details_must_bind_full_legal_set) ... ok
+test_evidence_missing_is_not_incomparable (test_proxy_resource_value_inputs.ResourceInputsTests.test_evidence_missing_is_not_incomparable) ... ok
+test_fresh_source_hash_and_return_mutation (test_proxy_resource_value_inputs.ResourceInputsTests.test_fresh_source_hash_and_return_mutation) ... ok
+test_hidden_information_does_not_change_view_or_choice (test_proxy_resource_value_inputs.ResourceInputsTests.test_hidden_information_does_not_change_view_or_choice) ... ok
+test_known_hand_and_public_cost_are_retained (test_proxy_resource_value_inputs.ResourceInputsTests.test_known_hand_and_public_cost_are_retained) ... ok
+test_source_escape_and_unbound_pair_reference_rejected (test_proxy_resource_value_inputs.ResourceInputsTests.test_source_escape_and_unbound_pair_reference_rejected) ... ok
+test_unknown_reservation_data_cannot_leak_into_view (test_proxy_resource_value_inputs.ResourceInputsTests.test_unknown_reservation_data_cannot_leak_into_view) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.043s
+
+OK

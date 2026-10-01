@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [418](418-resource-value-visible-inputs.md) | 可視情報adapter専用7/7、全新規29/29 PASS。秘密情報投影防止・fresh source hash・pass互換性。shadow・paired・全回帰・最終reviewは未完了 |
+
 | [417](417-resource-value-selection.md) | 新比較wrapperから116へ接続、専用8/8・既存116の36/36 PASS。原本保持。可視情報adapter・shadow・paired・全回帰は未完了 |
 
 | [416](416-resource-value-comparison.md) | 別版比較器を実装、専用13/13 PASS。4成分frontier・循環拒否・限定無料配置証明を検証。116接続とパイロット未実施、114正本化なし |
