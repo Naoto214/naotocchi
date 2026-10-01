@@ -219,20 +219,54 @@ def _audit_opportunity(continuation,public_history):
         if not all(checks.values()):raise ValueError('extended twelve legality checks incomplete')
         return dict(fresh,candidate_set_complete=True,completeness_checks=checks,contract_stop_codes=[])
 
+def _public_proof_key(state,actor,history):
+    """Bind public comparison evidence without hidden identities or order.
+
+    Full hashes remain the execution/replay identity. This separate key only
+    establishes whether a previously verified *public* score proof applies.
+    Fresh complete legality is checked again before reusing that proof.
+    """
+    game=state['game_state']
+    return canonical_sha256(dict(view=project_visible(state,actor),actor=actor,
+        round=game['round'],turn_player=game['turn_player'],phase=game['phase'],challenge=game.get('challenge'),
+        flags={p:{k:v[k] for k in ('challenge_used','person_placed','relationship_progressed')} for p,v in game['players'].items()},
+        public_counts={p:dict(hand=len(v['hand']),deck=len(v['deck'])) for p,v in game['players'].items()},
+        context={k:v for k,v in start._payload(state).items() if k!='game_state'},last_event_seq=state['last_event_seq'],
+        history={k:v for k,v in history.items() if k!='source_refs'}))
+
+def _normal_evidence_boundary(state,inputs,history):
+    exact=find_boundary(state,inputs['boundaries'])
+    if exact is not None:
+        if _public_proof_key(state,exact['actor'],history)!=_public_proof_key(_current(exact['continuation'],exact['event_seq']),exact['actor'],exact['public_history']):
+            raise ValueError('exact comparison public history differs')
+        shadow._verify_legal_inventory(exact)
+        return exact
+    audit=audit_opportunity(state,history);game=state['game_state'];actor=game['turn_player']
+    key=_public_proof_key(state,actor,history)
+    matches=[b for b in inputs['boundaries'] if b['path_id']==inputs['path_id'] and b['event_seq']==state['last_event_seq'] and b['actor']==actor
+        and _public_proof_key(_current(b['continuation'],b['event_seq']),actor,b['public_history'])==key]
+    if len(matches)>1:raise ValueError('ambiguous public comparison evidence')
+    if matches:
+        boundary=copy.deepcopy(matches[0]);shadow._verify_legal_inventory(boundary)
+        # Older serializers omit enumeration metadata, but source/action/
+        # variant/targets must bind to the independently regenerated action.
+        fields=('candidate_id','action_type','candidate_variant','card_id','source_instance_id','target_instance_ids')
+        def actions(details):return sorted(({k:d[k] for k in fields} for d in details),key=lambda d:d['candidate_id'])
+        if actions(boundary['decision']['legal_candidate_details'])!=actions(audit['legal_candidate_details']):raise ValueError('public comparison evidence legal details differ')
+        errors=validate_sources(boundary['source_raw_sha256'],Path(inputs['source_root']))
+        if errors:raise ValueError('public comparison source evidence differs: '+str(errors))
+        # Only publicly bound proof metadata is borrowed. Execution state and
+        # hidden decks always remain the actual continuation supplied here.
+        boundary['continuation']=start._payload(state);boundary['public_history']=copy.deepcopy(history)
+        return boundary
+    d=dict(legal_candidates=audit['legal_candidate_ids'],legal_candidate_details=audit['legal_candidate_details'],candidate_set_complete=True)
+    return dict(path_id=inputs['path_id'],event_seq=state['last_event_seq'],actor=actor,continuation=start._payload(state),
+        public_history=history,decision=d,decision_sha256=canonical_sha256(d),source_refs=history['source_refs'],
+        source_raw_sha256=inputs['source_raw_sha256'],score_evidence=[])
+
 def _normal_selection(state,initial,policy,history):
-    boundary=find_boundary(state,initial['inputs']['boundaries'])
-    if boundary is not None:
-        shadow._verify_legal_inventory(boundary)
-        problem=shadow._inputs(boundary)[0]
-    else:
-        audit=audit_opportunity(state,history)
-        game=state['game_state'];actor=game['turn_player'];ids=audit['legal_candidate_ids']
-        # Reuse the same public proof builder, with no saved selection to imitate.
-        d=dict(legal_candidates=ids,legal_candidate_details=audit['legal_candidate_details'],candidate_set_complete=True)
-        boundary=dict(path_id=initial['path_id'],event_seq=state['last_event_seq'],actor=actor,continuation=start._payload(state),
-            public_history=history,decision=d,decision_sha256=canonical_sha256(d),source_refs=history['source_refs'],
-            source_raw_sha256=initial['inputs']['source_raw_sha256'],score_evidence=[])
-        problem=shadow._inputs(boundary)[0]
+    boundary=_normal_evidence_boundary(state,initial['inputs'],history)
+    problem=shadow._inputs(boundary)[0]
     details=boundary['decision']['legal_candidate_details']
     if policy==POLICIES[0]:
         old=shadow.legacy_select(boundary,problem)
@@ -345,14 +379,12 @@ def apply_selected(continuation,selection,inputs):
     action=record['selected_action'];kind=action['action_type']
     if action['candidate_id']!=record['selected_candidate']:raise ValueError('selected action differs')
     if continuation['game_state']['phase']=='normal_action' and kind in ('pass','play_main','place_companion','place_partner','place_world','attach_item','set_item','use_play','use_item','use_event'):
-        boundary=find_boundary(continuation,inputs['boundaries'])
-        if boundary is not None:
-            shadow._verify_legal_inventory(boundary)
-            inventory=boundary['decision']['legal_candidate_details']
-            if 'selection' in record and record['problem']!=shadow._inputs(boundary)[0]:raise ValueError('pilot proof differs from exact source reconstruction')
-        else:
-            if 'public_history' not in inputs:raise normal.RulesStop('legality_not_confirmed',dict(stage='execution_public_history'))
-            audit=audit_opportunity(continuation,inputs['public_history']);inventory=audit['legal_candidate_details']
+        exact=find_boundary(continuation,inputs['boundaries'])
+        history=inputs.get('public_history',exact['public_history'] if exact is not None else None)
+        if history is None:raise normal.RulesStop('legality_not_confirmed',dict(stage='execution_public_history'))
+        boundary=_normal_evidence_boundary(continuation,inputs,history)
+        inventory=boundary['decision']['legal_candidate_details']
+        if 'selection' in record and record['problem']!=shadow._inputs(boundary)[0]:raise ValueError('pilot proof differs from public source reconstruction')
         if action not in inventory:raise ValueError('selected execution action not in independently regenerated inventory')
         if 'selection' in record and record['problem']['legal_candidate_ids']!=sorted(x['candidate_id'] for x in inventory):raise ValueError('pilot legal inventory differs at execution')
     try:

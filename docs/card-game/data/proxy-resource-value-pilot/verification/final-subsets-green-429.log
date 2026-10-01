@@ -1,0 +1,18 @@
+test_activation_resolution_not_double_play (test_proxy_resource_value_evaluation.EvaluationTests.test_activation_resolution_not_double_play) ... ok
+test_counts_and_denominators_are_separate (test_proxy_resource_value_evaluation.EvaluationTests.test_counts_and_denominators_are_separate) ... ok
+test_direct_frontier_selection_counts_as_valid_without_fallback (test_proxy_resource_value_evaluation.EvaluationTests.test_direct_frontier_selection_counts_as_valid_without_fallback) ... ok
+test_equal_tie_break_success_is_not_unresolved (test_proxy_resource_value_evaluation.EvaluationTests.test_equal_tie_break_success_is_not_unresolved) ... ok
+test_missing_inventory_comparison_is_missing_not_equal (test_proxy_resource_value_evaluation.EvaluationTests.test_missing_inventory_comparison_is_missing_not_equal) ... ok
+test_missing_or_duplicate_planned_ids_are_rejected (test_proxy_resource_value_evaluation.EvaluationTests.test_missing_or_duplicate_planned_ids_are_rejected) ... ok
+test_newly_seeded_decisions_are_separate_from_both_seeded_context_changes (test_proxy_resource_value_evaluation.EvaluationTests.test_newly_seeded_decisions_are_separate_from_both_seeded_context_changes) ... ok
+test_one_side_stopped_is_missing_not_zero (test_proxy_resource_value_evaluation.EvaluationTests.test_one_side_stopped_is_missing_not_zero) ... ok
+test_response_activation_uses_public_source_zone_and_hand_movement (test_proxy_resource_value_evaluation.EvaluationTests.test_response_activation_uses_public_source_zone_and_hand_movement) ... ok
+test_same_legal_universe_different_lottery_subsets_are_reported (test_proxy_resource_value_evaluation.EvaluationTests.test_same_legal_universe_different_lottery_subsets_are_reported) ... ok
+test_seed_context_and_candidate_changes_are_separate (test_proxy_resource_value_evaluation.EvaluationTests.test_seed_context_and_candidate_changes_are_separate) ... ok
+test_seeded_routes_excluded_from_balance (test_proxy_resource_value_evaluation.EvaluationTests.test_seeded_routes_excluded_from_balance) ... ok
+test_shadow_not_counted_as_matches (test_proxy_resource_value_evaluation.EvaluationTests.test_shadow_not_counted_as_matches) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.002s
+
+OK

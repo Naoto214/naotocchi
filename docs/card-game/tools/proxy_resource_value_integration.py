@@ -9,7 +9,7 @@ from proxy_resource_value_selection import validate_selection
 
 ROOT=Path(__file__).resolve().parents[3]
 PILOT=ROOT/'docs/card-game/data/proxy-resource-value-pilot'
-MANIFEST='evaluation-checkpoint-428/manifest.json'
+MANIFEST='evaluation-checkpoint-429/manifest.json'
 
 def sha(raw):return hashlib.sha256(raw).hexdigest()
 def canonical(value):return (json.dumps(value,ensure_ascii=False,sort_keys=True,indent=2)+'\n').encode()

@@ -28,6 +28,17 @@ def _seed_context(record):
     proof=row.get('seed_proof') or {}
     return proof.get('seed_material',[])[:8] or None
 
+def _lottery(record):
+    row=_decision(record)
+    if row.get('resolution_mode')!='seeded_fallback':return None
+    proof=row.get('seed_proof') or {}
+    values=row.get('seeded_fallback_candidates',proof.get('canonical_candidate_ids'))
+    return sorted(values) if values is not None else None
+
+def _selection_pool(record):
+    row=_decision(record)
+    return _lottery(record) if row.get('resolution_mode')=='seeded_fallback' else [row['selected_candidate']]
+
 def _decision_counts(records, stop=0):
     rows=[_decision(r) for r in records]
     fallback=sum(r.get('resolution_mode')=='seeded_fallback' and len(r.get('legal_candidates',(r.get('seed_proof') or {}).get('canonical_candidate_ids',[])))>1 for r in rows)
@@ -43,6 +54,9 @@ def evaluate_shadow(manifest, results):
         decisions=[dict(selection=r[key]) if key=='pilot' else r[key] for r in compared]
         policies[key]=_decision_counts(decisions,len(results)-len(compared))
     seed_changes=sum(_seed_context(r['legacy'])!=_seed_context(dict(selection=r['pilot'])) for r in compared)
+    both_seeded=[r for r in compared if _decision(r['legacy']).get('resolution_mode')=='seeded_fallback' and _decision(dict(selection=r['pilot'])).get('resolution_mode')=='seeded_fallback']
+    subset_evidence=[r for r in both_seeded if _lottery(r['legacy']) is not None and _lottery(dict(selection=r['pilot'])) is not None]
+    pool_evidence=[r for r in compared if _selection_pool(r['legacy']) is not None and _selection_pool(dict(selection=r['pilot'])) is not None]
     candidate_evidence=[r for r in compared if 'fresh_inventory' in r]
     candidate_changes=sum(sorted(r['problem']['legal_candidate_ids'])!=sorted(r['fresh_inventory']['candidate_ids']) for r in candidate_evidence)
     return dict(planned_ids=sorted(manifest['planned_ids']),planned=len(results),compared=len(compared),
@@ -51,6 +65,14 @@ def evaluate_shadow(manifest, results):
         reasons=dict(Counter(r.get('reason') for r in results if r['status']!='compared')),
         choice_changes=rate(sum(r['choice_changed'] is True for r in compared),len(compared)),
         seed_context_changes=rate(seed_changes,len(compared)),candidate_set_changes=rate(candidate_changes,len(candidate_evidence)),candidate_comparison_missing=len(compared)-len(candidate_evidence),
+        legal_inventory_compatibility_changes=rate(candidate_changes,len(candidate_evidence)),
+        lottery_subset_changes=rate(sum(_lottery(r['legacy'])!=_lottery(dict(selection=r['pilot'])) for r in subset_evidence),len(subset_evidence)),
+        lottery_subset_comparison_missing=len(both_seeded)-len(subset_evidence),
+        policy_selection_pool_changes=rate(sum(_selection_pool(r['legacy'])!=_selection_pool(dict(selection=r['pilot'])) for r in pool_evidence),len(pool_evidence)),
+        policy_selection_pool_comparison_missing=len(compared)-len(pool_evidence),
+        seed_transitions=dict(newly_seeded=rate(sum(_decision(r['legacy']).get('resolution_mode')!='seeded_fallback' and _decision(dict(selection=r['pilot'])).get('resolution_mode')=='seeded_fallback' for r in compared),len(compared)),
+            no_longer_seeded=rate(sum(_decision(r['legacy']).get('resolution_mode')=='seeded_fallback' and _decision(dict(selection=r['pilot'])).get('resolution_mode')!='seeded_fallback' for r in compared),len(compared)),
+            both_seeded_context_changes=rate(sum(_seed_context(r['legacy'])!=_seed_context(dict(selection=r['pilot'])) for r in both_seeded),len(both_seeded))),
         policies=policies,paths={p:dict(planned=len(rs),compared=sum(r['status']=='compared' for r in rs),
             choice_changes=rate(sum(r.get('choice_changed') is True for r in rs),sum(r['status']=='compared' for r in rs)),
             status_counts=dict(Counter(r['status'] for r in rs))) for p,rs in groups.items()},

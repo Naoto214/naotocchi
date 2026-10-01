@@ -3644,7 +3644,7 @@ check(not broken_links, f"Broken local links: {broken_links}")
 sys.path.insert(0, str(DOCS / 'tools'))
 from proxy_resource_value_integration import validate_saved as validate_resource_value_pilot
 pilot_errors = validate_resource_value_pilot()
-check(not pilot_errors, f"428 resource value pilot artifacts: {pilot_errors}")
+check(not pilot_errors, f"429 resource value pilot artifacts: {pilot_errors}")
 
 checkpoint_121_test = DOCS / "tools/test_proxy_normal_action_candidate_completeness.py"
 checkpoint_121_tool = DOCS / "tools/proxy_normal_action_candidate_completeness.py"

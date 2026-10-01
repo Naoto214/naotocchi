@@ -45,6 +45,22 @@ class EvaluationTests(unittest.TestCase):
         r['pilot']['decision_record']['seed_context']=dict(contract_version='v1',order_id='o',actor='A',actor_turn_index=1,round=1,phase='normal_action',decision_kind='normal_action',choice_kind='normal_action_resource_frontier')
         out=e.evaluate_shadow(dict(planned_ids=['s']),[r])
         self.assertEqual(out['seed_context_changes']['count'],1);self.assertEqual(out['candidate_set_changes']['count'],0)
+    def test_same_legal_universe_different_lottery_subsets_are_reported(self):
+        old=decision(mode='seeded_fallback',unresolved=True);new=copy.deepcopy(old)
+        old['seeded_fallback_candidates']=['a','b'];new['seeded_fallback_candidates']=['b','c']
+        old['seed_context']=new['seed_context']=dict(contract_version='v1',order_id='o',actor='A',actor_turn_index=1,round=1,phase='normal_action',decision_kind='normal_action',choice_kind='normal_action')
+        r=dict(shadow_id='s',path_id='p',status='compared',reason=None,choice_changed=False,legacy=old,pilot=dict(decision_record=new),problem=dict(legal_candidate_ids=['a','b','c']),fresh_inventory=dict(candidate_ids=['a','b','c']))
+        out=e.evaluate_shadow(dict(planned_ids=['s']),[r])
+        self.assertEqual(out['candidate_set_changes']['count'],0);self.assertEqual(out['seed_context_changes']['count'],0)
+        self.assertEqual(out['lottery_subset_changes'],dict(count=1,denominator=1,rate=1))
+        self.assertEqual(out['policy_selection_pool_changes'],dict(count=1,denominator=1,rate=1))
+        self.assertEqual(out['seed_transitions']['both_seeded_context_changes']['count'],0)
+    def test_newly_seeded_decisions_are_separate_from_both_seeded_context_changes(self):
+        old=decision();new=decision(mode='seeded_fallback',unresolved=True)
+        r=dict(shadow_id='s',path_id='p',status='compared',reason=None,choice_changed=False,legacy=old,pilot=dict(decision_record=new),problem=dict(legal_candidate_ids=['a','b']),fresh_inventory=dict(candidate_ids=['a','b']))
+        out=e.evaluate_shadow(dict(planned_ids=['s']),[r])['seed_transitions']
+        self.assertEqual(out['newly_seeded'],dict(count=1,denominator=1,rate=1))
+        self.assertEqual(out['both_seeded_context_changes'],dict(count=0,denominator=0,rate=None))
     def test_shadow_not_counted_as_matches(self):
         r=dict(shadow_id='s',path_id='p',status='unsupported',reason='missing proof')
         out=e.evaluate_shadow(dict(planned_ids=['s']),[r])

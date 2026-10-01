@@ -1,0 +1,9 @@
+{
+  "evaluation_file": "evaluation-checkpoint-429/evaluation.json",
+  "paired_manifest": "trajectory-checkpoint-427/manifest.json",
+  "paired_reconstructed_raw_sha256": "da96502819911c579bd5895116192524398a6b7b5db4a673b29319d3dee39d71",
+  "schema": "naotocchi.card_game.resource_value_evaluation_sources.v1",
+  "shadow_file": "shadow-checkpoint-428/shadow.json.gz",
+  "shadow_gzip_sha256": "9c2501789555e1249fe056214229be91bf0116bb0b1fb2a9736de201e74c0ccf",
+  "shadow_raw_sha256": "79cf443a32f9ffc643aa7742472decdcc9d6739d7ca91206834abd2c133d3222"
+}
