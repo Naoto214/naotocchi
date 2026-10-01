@@ -302,6 +302,11 @@ test('9. an expression belongs to one actor: another resident, a new world and a
   assert.equal(a2.expr, null); assert.equal(M.spriteFor(a2, 'front').asset, a2.asset);
   sim.step(1 / 60, { x: 0, y: 0 }); assert.equal(a2.expr, null, 'stays off');
   sim.setResidentExpression(true); sim.step(1 / 60, { x: 0, y: 0 }); assert.equal(a2.expr.expression, 'happy');
+  // 設定だけを 直接 きった ときも、つぎの 生活更新で expr が 消える(sync 側の 防御。stale な expr を 描かせない)
+  sim.expressionConfig.on = false; sim.step(1 / 60, { x: 0, y: 0 });
+  assert.equal(a2.expr, null, 'sync clears a stale expression when the config is off');
+  assert.equal(M.spriteFor(a2, 'front').asset, a2.asset);
+  sim.expressionConfig.on = true;
 }));
 
 // ───────────────────────────── 10. 2D renderer で うごく
