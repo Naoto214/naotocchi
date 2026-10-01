@@ -130,11 +130,11 @@
       animation.onfinish = () => { if (active.get(node) === animation) stop(node); };
       return true;
     }
-    function play(actor, mood, {delay = 0, gentle = false} = {}) {
+    function play(actor, mood, {delay = 0, gentle = false, maxDisplacement = null} = {}) {
       if (!actor?.node) return 0;
       const size = parseFloat(actor.node.style.width) || actor.size || 104;
       const motion = motionFrames(mood, size, {id:actor.id, direction:actor.direction || 1,
-        gentle:gentle || isResting(), maxDisplacement:getMotionRadius()});
+        gentle:gentle || isResting(), maxDisplacement:maxDisplacement ?? (mood === 'recover' ? 16 : getMotionRadius())});
       const from = active.has(actor.node) ? currentTransform(actor.node) : null;
       const started = run(actor.node, motion, mood, delay, from);
       // The equipment shares the exact frames, timing and current pose of its pet.
