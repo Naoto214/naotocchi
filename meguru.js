@@ -664,12 +664,17 @@
       return 2;
     }
     // しらせの 文(つよさ ごと)。null = しらせ なし。きろく とは べつ
+    // 2026-10-01 3D v2(Human QA v1 F4 / F5): 通常歩行の spot の toast は なし。
+    //   ・ふつうの spot(ものが ある spot も)= しらせ なし(左上の 名まえが 静かに かわる だけ)
+    //   ・ランドマーク = toast なし。左上の 名まえを ほんの すこし 強調する だけ(quiet)
+    //   ・ひみつ = これまで どおり toast(gameplay の reward)
+    //   きろく(recordSpot / ちず / save)は 1 つも かわらない(しらせない ≠ 見つけて いない)
     function discoveryNotice(s) {
       const lv = spotDiscoveryLevel(s);
       if (lv < 2) return null;
       if (s.secret) return { kind: 'secret', icon: '🔍', title: 'ひみつのばしょを みつけた！' };
-      if (s.landmark) return { kind: 'landmark', icon: '✨', title: `${s.label}を みつけた！` };
-      return { kind: 'spot', icon: '', title: `${s.label}が ある` };   // かるく(「みつけた」は ランドマーク だけ)
+      if (s.landmark) return { kind: 'landmark', icon: '✨', title: `${s.label}を みつけた！`, quiet: true };
+      return null;
     }
     // ---- Three.js の レンダラーから よむ ための「いみ」 ----
     // canvas は いろと かたちで えがくが、3D では「これは 地形か・たてものか・木か・水か・光か」で
@@ -1422,17 +1427,31 @@
         default: return [];
       }
     }
+    // corridor(地域の あいだの 道)の 飾りの 3D の しゅるい(v2・F3)。corridor の 飾りは 帯の そと(あるける 幅の 外)に あって あたりは もたない
+    // (あたりは 帯の 左右と はしの いし だけ)ので、2D で あたりの ない 木を ひざ丈に する SOFT3D の 置きかえは しない:
+    // 木は 木・家は 家の まま(見た目 だけ)。はしの いし(blocker)だけ かたい 岩(あたり = corridorBody の まる r 24)
+    function corridorObjectType3d(p) {
+      if (p.blocker) return 'rock';
+      const k = p.struct || p.emoji;
+      if (HIDDEN3D.has(k)) return 'skip';
+      if (SEM3D[k]) return SEM3D[k].t;
+      if (k === '🪨') return 'pebble';
+      if (k === '🪵') return 'smalllog';
+      if (OBJ3D_TYPE[k]) return OBJ3D_TYPE[k];
+      return k ? 'unknown' : 'skip';
+    }
     function worldObjects3d(world) {
       const byPi = new Map();
       for (const o of world.obstacles || []) if (o.pi != null) byPi.set(o.pi, o);
       const out = [], skipped = {}, unresolved = [];
+      const corridor = !!world.corridor;
       world.props.forEach((p, i) => {
-        const type = objectType3d(p), kind = p.landmark ? 'LM:' + p.landmark : p.struct || p.emoji;
+        const type = corridor ? corridorObjectType3d(p) : objectType3d(p), kind = p.landmark ? 'LM:' + p.landmark : p.struct || p.emoji;
         if (type === 'skip') { skipped[kind] = (skipped[kind] || 0) + 1; return; }
         if (type === 'unknown') { unresolved.push(kind); return; }   // production では 出さない(あたりも 3D では つけない: 下の 3D のおきなおしで solid を 外す)
-        const o = byPi.get(i) || null;
+        const o = corridor ? (p.blocker ? { shape: 'circle', x: p.x, z: p.z, hw: 24, hd: 24, ang: 0, role: 'solid' } : null) : (byPi.get(i) || null);
         const solid = !!o && o.role === 'solid';
-        if (!o && !WALKABLE3D.has(type)) { unresolved.push(kind); return; }   // かたい 見た目で あたりが ない 物は おかない
+        if (!corridor && !o && !WALKABLE3D.has(type)) { unresolved.push(kind); return; }   // かたい 見た目で あたりが ない 物は おかない(corridor の 飾りは 帯の そと なので 可)
         const size = p.size || 160, box = (p.struct && OCCLUDER_BOX[p.struct]) || (p.landmark ? OCCLUDER_BOX.landmark : OCCLUDER_BOX.glyph);
         const H = size * box[1], halfW = size * box[0];
         // ランドマークは もちぬしの spot(むき・きょり)を しって いる。たきは たきつぼ を spot の 池 の かわりに もつ
@@ -1561,6 +1580,20 @@
     // ちずの もと。「あるいた けっか」だけを かえす 純すいな かんすう。
     // いまの 地域は sim.mapData() が、ほかの 地域は セーブの きろくから これを よぶ。
     // え には いっさい さわらない ので、Three.js に かわっても この データの まま つかえる
+    // ちずの 表示 filter(2026-10-01 3D v2・Human QA v1 F6「ちずに ふつうの spot が 多く ノイズ」)。
+    // 出す: いまの ばしょ・地域の つながり(connection の mouth)・gate / のりば・ランドマーク(spot)・ひみつ・hub / ひろば・みせ。
+    // 出さない: ふつうの 池・休憩所・小さな 橋・ふつうの 木立・通過点・みはらし(ランドマークで ない)。
+    // これは 表示 だけ。rec(きろく)・セーブ・探索率の 分母・spotDiscoveryLevel は 1 つも かえない
+    const MAP_SHOW_KIND = new Set(['plaza', 'shop']);
+    function mapSpotShown(world, q, rec) {
+      if (!q) return false;
+      if (rec && q.id === rec.hereSpot) return true;
+      if (q.secret || q.landmark || q.hub) return true;
+      if (MAP_SHOW_KIND.has(q.kind)) return true;
+      const rid = world.regionId;
+      if (WORLD_GEOGRAPHY.connections.some((c) => c.mouths && c.mouths[rid] === q.id)) return true;   // 地域の つながり / gate / のりば
+      return false;
+    }
     function computeMapData(world, rec) {
       const L = worldLayers(world);
       const zoneById = new Map(L.zone.map((z) => [z.id, z]));
@@ -1589,9 +1622,13 @@
           visited: seen, hinted: !seen && hinted.has(z.id),
           spots: seen ? own.map((q) => q.id) : [] };
       });
-      const spots = world.spots.filter((q) => rec.discovered.has(q.id)).map((q) => ({
+      // 2026-10-01 3D v2(Human QA v1 F6): ちずに 出す spot は 表示 filter(mapSpotShown)を 通った ものだけ。
+      // 内部の きろく(rec.discovered / セーブ / 探索率の 分母)は かわらない。かくした 数は spotsHidden に
+      const found = world.spots.filter((q) => rec.discovered.has(q.id));
+      const spots = found.filter((q) => mapSpotShown(world, q, rec)).map((q) => ({
         id: q.id, label: q.label, x: q.x, z: q.z, kind: q.kind, zone: q.zone || null,
         secret: !!q.secret, hub: !!q.hub, current: q.id === rec.hereSpot }));
+      const spotsHidden = found.length - spots.length;
       // みちは りょうはしを 見つけて いる ときだけ かく。そうしないと、
       // ふつうの みちで つながった ひみつの ばしょの いちが ちずから わかって しまう
       const paths = world.segments.filter((sg) => rec.walkedPaths.has(segKey(sg))
@@ -1619,7 +1656,7 @@
       return {
         regionId: world.regionId, len: world.len, halfW: world.halfW,
         ground: world.ground, terrain: world.terrain || null, streaming: L.streaming,
-        zones, spots, paths, landmarks,
+        zones, spots, spotsHidden, paths, landmarks,
         here: rec.here || null,
         progress: {
           percent: denom ? Math.round(((foundOpen + foundSecrets) / denom) * 100) : 0,
@@ -6838,6 +6875,8 @@
         detail: A.detail || [], canopy: null, density: 0.8, view: 1, terrain: null, wind: A.wind || [0.5, 1], motion: A.motion || [],
         areas: [], shore: [], edge: A.edge || '#8a7a5a', backdrop: A.backdrop || 'hills', sky: A.sky || null, floor: null,
         markStyle: A.marks || { color: '#88aa66', kind: 'tuft' }, blockers,
+        // 3D v2(F3): corridor も 3D レンダラーで 描く ための しるし(え の がわ だけが よむ。gameplay は かわらない)
+        corridorTo: ch.to, progress: 0,
       };
       // 森の 屋根(canopy)は 森の 段の おく(森で ない 段から 2 段 いじょう はなれた ところ)だけ
       const deep = looks.map((lk, i) => lk.terrain === 'forest' && looks.every((o, j) => o.terrain === 'forest' || Math.abs(i - j) >= 2));
@@ -6847,6 +6886,7 @@
       world.setProgress = (t) => {
         const s = Math.max(0, Math.min(1, t)) * ch.L, le = lean(s), a = looks[le.i], b = looks[le.j], k = smooth01(le.w * 2) / 2;
         const tq = Math.max(0, Math.min(1, t)), key = le.i + ':' + le.j + ':' + Math.round(k * 64) + ':' + Math.round(tq * 120);
+        world.progress = tq;   // 3D v2: きり(from → to の profile)を まぜる ための すすみぐあい
         if (key === lastKey) return;
         lastKey = key;
         world.regionId = t < 0.5 ? ch.from : ch.to;
@@ -8264,7 +8304,8 @@
         mapAdded = true;                                   // きろくは どの spot でも これまで どおり
         // 目じるしの ない 通過点では しらせない。どこに いるかは 左上の チップが 出しつづける
         const dn = discoveryNotice(s);
-        if (dn) {
+        if (dn && dn.quiet) quietSpotMark(s);   // ランドマーク: toast では なく 左上の 名まえの 静かな 強調(v2 F4)
+        else if (dn) {
           const note = mapNote();
           queueFound({ key: `spot:${rid}:${s.id}`, kind: dn.kind, region: rid, icon: dn.icon, title: dn.title,
             sub: s.secret ? [s.label, note].filter(Boolean).join('・') : note });   // ひみつは なまえを その した に そえる
@@ -8287,12 +8328,17 @@
         return n <= FOUND_TUTORIAL ? 'ちずに きろくした' : '';
       }
       // はじめて 入った 地区。ちずの ぬりが ひろがる ので、いみが わかる なまえで 出す(§8)
+      // 2026-10-01 3D v2(F5): 地区に 入った toast は 出さない(左上の 名まえが 地区名に かわる だけ)。きろく(ちず)は これまで どおり
       function noteZoneFound(zn) {
-        const rid = sim.world.regionId;
         saveMapBits('zones', zn.id); mapAdded = true;
-        queueFound({ key: `zone:${rid}:${zn.id}`, kind: 'zone', region: rid, icon: '🗺',
-          title: `${zn.label}に きた`, sub: mapNote() ? 'ちずが すこし ひろがった' : '' });
       }
+      // ランドマークを はじめて 見つけた とき: 左上の 名まえを 1.6 秒 だけ 静かに 強調(toast・音 なし。v2 F4)
+      let quietMarkUntil = 0, quietMarkId = null;
+      function quietSpotMark(s) {
+        quietMarkId = s.id; quietMarkUntil = (typeof performance !== 'undefined' && performance.now ? performance.now() : Date.now()) + 1600;
+        if (spotEl && spotEl.classList) { spotEl.classList.remove('mgr-spot-found'); void spotEl.offsetWidth; spotEl.classList.add('mgr-spot-found'); }
+      }
+      const quietMarkInfo = () => ({ id: quietMarkId, until: quietMarkUntil });
       // めじるしは しらせない が、ちずには のせる。**こえて いる あいだ も のこす**
       // (まえは ここで すてて いた ので、ちずに 出ない のに ボタンだけ ひかって いた)
       const flushMarks = () => { if (newMarks.length) { saveMapBits('marks', newMarks); newMarks.length = 0; mapAdded = true; } };
@@ -9229,10 +9275,10 @@
       const foundInfo = () => ({ now: foundNow ? { ...foundNow } : null, queue: foundQueue.map((q) => ({ ...q })), banner });
       // その ばしょを 見つけた とき しらせるか(しらべ もの よう)。え には つかわない
       const spotLevel = (id) => { const q = sim.world.spots.find((x) => x.id === id); return q ? spotDiscoveryLevel(q) : 0; };
-      return { stop, layoutInfo, foundInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; }, get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; } };
+      return { stop, layoutInfo, foundInfo, quietMark: quietMarkInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; }, get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, EMOJI_VARY, emojiVary, RIVERMIST_STOPS, NIGHT_LIFT, LEAF_NIGHT, HORIZON_HAZE, LANDMARK_NEAR, landmarkNearAlpha, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_SHIFT, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK, WORLD_THEME, WORLD_MOTION, WORLD_SPACE, REGION_LINE, SKY_OVERRIDE, GEO_AREA, GEO_ASPECT,
+    return { computeMapData, mapSpotShown, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, EMOJI_VARY, emojiVary, RIVERMIST_STOPS, NIGHT_LIFT, LEAF_NIGHT, HORIZON_HAZE, LANDMARK_NEAR, landmarkNearAlpha, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_SHIFT, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK, WORLD_THEME, WORLD_MOTION, WORLD_SPACE, REGION_LINE, SKY_OVERRIDE, GEO_AREA, GEO_ASPECT,
       // 3D prototype(meguru-3d.mjs が つかう。2D では つかわない)
       WORLD3D_REGIONS, REGION3D, SEM3D, HIDDEN3D, LANDMARK3D_TYPE, discoveryNotice, world3dOn, relocateRoadSolids3d, worldObjects3d, objectType3d, OBJ3D_HEAD, ACTOR_SIZE, glyphSprite, imageFor, TIME_LIGHT, WEATHER_LIGHT, VERBS };
   };

@@ -86,35 +86,34 @@ function settle(h, u, max = 24) {
 
 // 2026-10-01 仕様変更(All Regions 3D v0): 「みつけた！」は ランドマーク / ひみつ だけ。その ばしょ だけの もの が ある spot(level 2)は
 // かるく「○○が ある」、ふつうの 池・通過点(level ≤ 1)は しらせ なし(きろくは いままで どおり)。discoveryNotice() が きめる
-test('①-1 ふつうの ばしょ: なまえ(「が ある」)と「ちずに きろくした」を 小さく 出す', () => {
-  const { h } = setup('forest');
+// 2026-10-01 3D v2(Human QA v1 F4 / F5、docs/qa/meguru-3d-foundation-v2-human-qa-v1.md): 通常歩行の spot の toast は なし。
+//   ふつうの spot(ものが ある spot も)= toast なし・左上の 名まえ だけ。ランドマーク = toast なし・左上の 名まえを 静かに 強調(quietMark)。
+//   ひみつ = これまで どおり toast(gameplay の reward)。きろく(ちず / save)は かわらない
+test('①-1 ふつうの ばしょ: toast は 出さない。左上の 名まえが かわり、ちず と セーブには きろくされる', () => {
+  const { h, s } = setup('forest');
   const u = open(h);
   settle(h, u);                                     // はじまりの しらせを 出しきる
-  stand(h, u.run, 'bright2');                       // ひだまり(ふつうの ばしょ・すでに 見た 地区)
-  const t = shown(u);
-  assert.ok(t, 'はじめて 見つけたら しらせが 出る');
-  assert.equal(t.title, 'ひだまりが ある', 'なにを 見つけたか が なまえで わかる');
-  // この 2行目は **はじめの うちだけ**(⑦-4 / ⑦-5)。ここは まっさらな セーブなので 出る
-  assert.equal(t.sub, 'ちずに きろくした', 'はじめの うちは それが どういう いみか も 出す');
-  assert.ok(/mgr-found-spot/.test(t.cls), 'ふつうの ばしょ の 見た目');
-  assert.ok(!/mgr-found-strong/.test(t.cls), 'ふつうの ばしょ は つよい えんしゅつに しない');
-  // ほんとうに その とき ちずに ある(しらせと ちずが ずれない)
+  stand(h, u.run, 'bright2');                       // ひだまり(ふつうの ばしょ・🪵 が ある)
+  assert.equal(shown(u), null, 'ふつうの ばしょ に toast は 出ない');
+  assert.equal(u.run.foundInfo().queue.length, 0, 'ためても いない');
+  assert.equal(u.ov.querySelector('#mgrSpot').textContent, 'ひだまり', '左上の 名まえが どこに いるかを 出す');
+  // きろくは これまで どおり(しらせない ≠ 見つけて いない)
   assert.ok(u.run.sim.mapData().spots.some((q) => q.id === 'bright2'), 'ちずに もう のって いる');
+  assert.ok(s.lifetime.meguru.spots.forest.includes('bright2'), 'セーブにも のこる');
   h.api.stopMeguru();
 });
 
-test('①-2 おおきな めじるし(landmark)は すこし つよく、ふつうと おなじ おもさに しない', () => {
-  const { h } = setup('forest');
+test('①-2 おおきな めじるし(landmark)は toast では なく 左上の 名まえの 静かな 強調。きろくは のこる', () => {
+  const { h, s } = setup('forest');
   const u = open(h);
   settle(h, u);
   stand(h, u.run, 'great');                         // おおきなき(lmTier 1)
   const seen = settle(h, u);
-  const lm = seen.find((v) => v.kind === 'landmark');
-  assert.ok(lm, 'おおきな めじるし せんようの しらせが 出る');
-  assert.equal(lm.title, 'おおきなきを みつけた！');
-  assert.equal(lm.sub, 'ちずに きろくした');
-  assert.ok(/mgr-found-strong/.test(lm.cls), 'ふつうの ばしょ より つよい');
-  assert.ok(/mgr-found-landmark/.test(lm.cls), 'せんようの 見た目');
+  assert.ok(!seen.some((v) => v.kind === 'landmark'), 'ランドマークの toast は 出さない');
+  assert.equal(u.run.quietMark().id, 'great', '左上の 名まえを 静かに 強調した');
+  assert.ok(u.ov.querySelector('#mgrSpot').classList.contains('mgr-spot-found'), '強調の class');
+  assert.equal(u.ov.querySelector('#mgrSpot').textContent, 'おおきなき');
+  assert.ok(u.run.sim.mapData().spots.some((q) => q.id === 'great') && s.lifetime.meguru.spots.forest.includes('great'), 'ちず と セーブに のこる');
   h.api.stopMeguru();
 });
 
@@ -135,16 +134,16 @@ test('①-3 ひみつは せんようの しらせ。なまえは 見つけた �
   h.api.stopMeguru();
 });
 
-test('①-4 地区(zone)は わかる なまえで 出す。中の id は 出さない', () => {
-  const { h } = setup('forest');
+test('①-4 地区(zone)に 入っても toast は 出さない(2026-10-01 v2)。ちずの 地区は ひろがり、中の id は どこにも 出ない', () => {
+  const { h, s } = setup('forest');
   const u = open(h);
   u.run.setPlayer(0, 250); h.advance(120);         // もりの いりぐち(zone: bright)
   const seen = settle(h, u);
-  const zn = seen.find((v) => v.kind === 'zone');
-  assert.ok(zn, '地区の しらせが 出る');
-  assert.equal(zn.title, 'あかるいもりに きた', 'ユーザーが わかる なまえ');
-  assert.equal(zn.sub, 'ちずが すこし ひろがった', 'それが どういう いみか');
+  assert.ok(!seen.some((v) => v.kind === 'zone'), '地区の toast は 出さない');
+  assert.ok(u.run.sim.mapData().zones.some((z) => z.id === 'bright' && z.visited), 'ちずの 地区は これまで どおり ひろがる');
+  assert.ok((s.lifetime.meguru.zones.forest || []).includes('bright'), 'セーブにも のこる');
   for (const v of seen) assert.ok(!/\bbright\b|\bdeep\b|\bthicket\b/.test(v.title + v.sub), '中の id は 出さない: ' + v.title);
+  assert.ok(!/\bbright\b/.test(u.ov.querySelector('#mgrSpot').textContent), '左上の 名まえにも 中の id は 出ない');
   h.api.stopMeguru();
 });
 
@@ -154,13 +153,13 @@ test('②-1 おなじ ばしょへ もどっても もう「みつけた」と �
   const { h } = setup('forest');
   const u = open(h);
   settle(h, u);
-  stand(h, u.run, 'bright2');
+  stand(h, u.run, 'hiddenpond');                    // 2026-10-01 v2: toast が 出るのは ひみつ だけ なので ひみつで みる
   assert.ok(shown(u), '1かいめは 出る');
   settle(h, u);
   u.run.setPlayer(u.run.world.halfW * 0.95, u.run.world.len * 0.9); h.advance(300);  // はなれる
   settle(h, u);
   assert.equal(shown(u), null, 'はなれたら しらせは きえる');
-  stand(h, u.run, 'bright2');                       // もういちど 立つ
+  stand(h, u.run, 'hiddenpond');                    // もういちど 立つ
   h.advance(400);
   assert.equal(shown(u), null, '2かいめ は 出ない');
   assert.equal(u.run.foundInfo().queue.length, 0, 'ためても いない');
@@ -206,13 +205,14 @@ test('③-1 1フレームに いくつ 見つけても 出すのは 1つ。つ�
   const { h } = setup('forest');
   const u = open(h);
   settle(h, u);
-  // おおきなき は「はじめての ばしょ」と「はじめての 地区」が おなじ フレームで おきる
-  stand(h, u.run, 'great');
+  // ひかりのすきま(ひみつ)は「はじめての ばしょ」と「はじめての 地区(heart)」が おなじ フレームで おきる。
+  // 2026-10-01 v2: toast は ひみつ だけ。地区・ふつうの spot・ランドマークは ならばない
+  stand(h, u.run, 'hearthidden');
   const info = u.run.foundInfo();
   const live = [info.now, ...info.queue].filter(Boolean);
-  assert.ok(live.length >= 2, 'ふたつ いじょう 見つけて いる');
-  assert.equal(info.now.kind, 'landmark', 'つよい ものから 出す(landmark が さき)');
-  assert.ok(info.queue.some((q) => q.kind === 'zone'), '地区は うしろに ならぶ');
+  assert.ok(live.length >= 1, 'ひみつを 見つけて いる');
+  assert.equal(info.now.kind, 'secret', 'ひみつの toast が 出る');
+  assert.ok(!info.queue.some((q) => q.kind === 'zone' || q.kind === 'spot' || q.kind === 'landmark'), '地区 / ふつうの spot / ランドマークは ならばない');
   // え の うえに 出て いる しらせは いつも 1つ(しらせの わくは 1つ しか ない)
   assert.equal(u.ov.querySelector('#mgrFoundToast'), u.toast, 'しらせの わくは 1つ');
   for (let i = 0; i < 10; i++) { h.advance(400); assert.ok(u.run.foundInfo().now === null || typeof u.run.foundInfo().now.kind === 'string', 'いつも 1つ'); }
@@ -224,12 +224,14 @@ test('③-2 じゅんばんは region → secret → landmark → みち → zon
   const u = open(h);
   const run = u.run;
   settle(h, u);
-  // いちどに いくつも 見つけた じょうたいを つくる(ひみつ・おおきなき・ふつうの ばしょ)
-  for (const id of ['hearthidden', 'great', 'bright2']) { const q = spotOf(run, id); run.setPlayer(q.x, q.z); h.advance(20); }
+  // いちどに いくつも 見つけた じょうたいを つくる(ひみつ 3 つ・おおきなき・ふつうの ばしょ)。
+  // 2026-10-01 v2: toast に ならぶのは ひみつ(と みち)だけ。ランドマーク / ふつうの spot / 地区は ならばない
+  for (const id of ['hearthidden', 'hiddenpond', 'nook', 'great', 'bright2']) { const q = spotOf(run, id); run.setPlayer(q.x, q.z); h.advance(20); }
   const info = run.foundInfo();
   const order = info.queue.map((e) => e.kind);
   const rank = { secret: 1, landmark: 2, link: 3, zone: 4, spot: 5 };
   assert.ok(order.length >= 2, 'いくつか たまって いる: ' + order.join(','));
+  assert.ok([info.now.kind, ...order].every((k) => k === 'secret' || k === 'link'), 'ならぶのは ひみつ と みち だけ: ' + order.join(','));
   for (let i = 1; i < order.length; i++) assert.ok(rank[order[i - 1]] <= rank[order[i]], 'つよい ものから: ' + order.join(','));
   if (info.now) assert.ok(rank[info.now.kind] <= rank[order[0]], 'いま 出して いるのが いちばん つよい');
   // つぎに 出るのは いちばん つよい もの
@@ -336,7 +338,7 @@ test('④-2 しらせは あるくのを とめない(ボタンも おおいも 
   const { h } = setup('forest');
   const u = open(h);
   settle(h, u);
-  stand(h, u.run, 'great');
+  stand(h, u.run, 'hiddenpond');                    // 2026-10-01 v2: toast は ひみつ だけ
   assert.ok(shown(u), 'しらせが 出て いる');
   assert.equal(u.toast.querySelectorAll('button').length, 0, 'OK ボタンを 出さない');
   const css = require('node:fs').readFileSync('style.css', 'utf8');
@@ -355,7 +357,7 @@ test('④-3 しらせの あいだ、した の そうさ せつめいは よわ
   const u = open(h);
   settle(h, u);
   assert.equal(u.hint.classList.contains('mgr-hint-quiet'), false, 'ふだんは そのまま');
-  stand(h, u.run, 'bright2');
+  stand(h, u.run, 'hiddenpond');                    // 2026-10-01 v2: toast は ひみつ だけ
   assert.ok(shown(u));
   assert.equal(u.hint.classList.contains('mgr-hint-quiet'), true, 'しらせの あいだ は よわめる');
   assert.ok(u.hint.textContent.length > 0, 'けしはしない(なぞりかたを わすれた ひとが こまる)');
@@ -466,8 +468,8 @@ test('⑥-1 travelToRegion() と その ばの ボタンは 1つも かえて �
   u.run.setPlayer(u.run.world.halfW * 0.95, 40); h.advance(200);
   assert.equal(u.ov.querySelector('#mgrTalk').classList.contains('hidden'), true);
   for (const id of ['mgrTravel', 'mgrHome', 'mgrMap']) assert.ok(u.ov.querySelector('#' + id), id + ' は そのまま ある');
-  // しらせが 出て いる あいだ も その ばの ボタンの きまりは かわらない
-  stand(h, u.run, 'bright2');
+  // しらせが 出て いる あいだ も その ばの ボタンの きまりは かわらない(2026-10-01 v2: toast は ひみつ だけ)
+  stand(h, u.run, 'hiddenpond');
   assert.ok(shown(u));
   assert.equal(u.ov.querySelector('#mgrTalk').classList.contains('hidden'), true, 'だれも いなければ「はなす」は 出ない');
   h.api.stopMeguru();
@@ -477,7 +479,7 @@ test('⑥-2 たんさくを とじると しらせも のこらない', () => {
   const { h } = setup('forest');
   const u = open(h);
   settle(h, u);
-  stand(h, u.run, 'great');
+  stand(h, u.run, 'hiddenpond');                    // 2026-10-01 v2: toast は ひみつ だけ
   assert.ok(shown(u));
   h.api.stopMeguru();
   assert.equal(u.toast.classList.contains('hidden'), true, 'とじたら しらせも きえる');
@@ -535,14 +537,16 @@ test('⑦-2 目じるしの ない 通過点では しらせない。でも き�
   h.api.stopMeguru();
 });
 
-test('⑦-3 目じるしの ある ばしょは これまで どおり しらせる', () => {
-  const { h } = setup('forest');
+test('⑦-3 目じるしの ある ばしょ(L2)も toast は 出さない(2026-10-01 v2)。左上の 名まえ と きろく だけ', () => {
+  const { h, M } = setup('forest');
   const u = open(h);
   settle(h, u);
-  stand(h, u.run, 'bright2');
-  const t = shown(u);
-  assert.ok(t, '🪵 が 立つ ばしょは しらせる');
-  assert.equal(t.title, 'ひだまりが ある');
+  const q = stand(h, u.run, 'bright2');
+  assert.equal(M.spotDiscoveryLevel(q), 2, '🪵 が 立つ ばしょは L2 の まま(ちず / 監査の レベルは かえない)');
+  assert.equal(shown(u), null, 'それでも toast は 出さない');
+  assert.equal(M.discoveryNotice(q), null);
+  assert.equal(u.ov.querySelector('#mgrSpot').textContent, 'ひだまり');
+  assert.ok(u.run.sim.mapData().spots.some((x) => x.id === 'bright2'), 'ちずには のる');
   h.api.stopMeguru();
 });
 
@@ -552,11 +556,11 @@ test('⑦-4「ちずに きろくした」は はじめの うちだけ(なん�
   s.lifetime.meguru.spots = { forest: ['entry', 'bright1', 'bright3', 'sunspot', 'creek1'] };
   const u = open(h);
   settle(h, u);
-  stand(h, u.run, 'bright2');
+  stand(h, u.run, 'hiddenpond');                    // 2026-10-01 v2: toast は ひみつ だけ
   const t = shown(u);
   assert.ok(t, 'しらせ じたいは 出る');
-  assert.equal(t.title, 'ひだまりが ある');
-  assert.equal(t.sub, '', 'なれた ひとには「ちずに きろくした」を くりかえさない');
+  assert.equal(t.title, 'ひみつのばしょを みつけた！');
+  assert.equal(t.sub, 'かくれたいけ', 'なれた ひとには「ちずに きろくした」を くりかえさない(なまえ だけ)');
   h.api.stopMeguru();
 });
 
@@ -564,11 +568,11 @@ test('⑦-5 はじめて あそぶ ひとには「ちずに きろくした」�
   const { h } = setup('forest');
   const u = open(h);                                 // まっさら(spots は から)
   settle(h, u);
-  stand(h, u.run, 'bright2');
+  stand(h, u.run, 'hiddenpond');                    // 2026-10-01 v2: toast は ひみつ だけ
   const seen = [shown(u), ...settle(h, u)].filter(Boolean);
-  const first = seen.find((v) => v.title === 'ひだまりが ある');
+  const first = seen.find((v) => v.kind === 'secret');
   assert.ok(first, 'はじめの はっけん');
-  assert.equal(first.sub, 'ちずに きろくした', 'はじめの うちは しくみを おしえる');
+  assert.equal(first.sub, 'かくれたいけ・ちずに きろくした', 'はじめの うちは しくみを おしえる');
   h.api.stopMeguru();
 });
 
@@ -580,9 +584,11 @@ test('⑦-6 レベルは セーブに 何も 足さない(旧セーブでも そ
   settle(h, u);
   stand(h, u.run, 'bright2');
   assert.equal(shown(u), null, 'もう 見つけて いる ので 出さない');
-  stand(h, u.run, 'great');   // おおきなき(ランドマーク)。creek2 は ふつうの 池 で しらせ なし に なった(2026-10-01)
-  const t = [shown(u), ...settle(h, u)].filter(Boolean).find((v) => /おおきなき/.test(v.title));
+  stand(h, u.run, 'hiddenpond');   // ひみつ。2026-10-01 v2: toast は ひみつ だけ(ランドマークは 左上の 静かな 強調)
+  const t = [shown(u), ...settle(h, u)].filter(Boolean).find((v) => v.kind === 'secret');
   assert.ok(t, '旧セーブでも あたらしい はっけんは 出る');
+  stand(h, u.run, 'great');
+  assert.equal(u.run.quietMark().id, 'great', '旧セーブでも ランドマークの 静かな 強調は 出る');
   assert.deepEqual([...Object.keys(s.lifetime.meguru)].sort(),
     ['marks', 'met', 'paths', 'spots', 'talkCount', 'talks', 'visits', 'world', 'zones'].sort(),
     'キーは これまでと おなじ(レベル用の 新しい きろくを 足さない)');
@@ -703,21 +709,20 @@ test('⑧-4 gate の 発火は 1つも かわらない(connection に さわっ�
   }
 });
 
-test('⑧-5 4つとも L2。「みつけた」だけで「ちずに きろくした」は くりかえさない', () => {
+test('⑧-5 4つとも L2。toast は 出さず(2026-10-01 v2)、左上の 名まえ と きろく だけ', () => {
   const { h, M, s } = setup('forest');
   for (const [rid, id] of VIEW_SPOTS) {
     const sp = M.WORLDS[rid].spots.find((q) => q.id === id);
     assert.equal(M.spotDiscoveryLevel(sp), 2, rid + '/' + id + ': L2');
+    assert.equal(M.discoveryNotice(sp), null, rid + '/' + id + ': toast なし');
   }
-  // もう なれた ひと には 2行目を 出さない(#318 の きまりを たもつ)
   s.lifetime.meguru.spots = { forest: ['entry', 'bright1', 'bright3', 'sunspot', 'creek1'] };
   const u = open(h);
   settle(h, u);
   stand(h, u.run, 'stonelook');
-  const t = [shown(u), ...settle(h, u)].filter(Boolean).find((v) => /いわばのみはらし/.test(v.title));
-  assert.ok(t, 'いわばのみはらしが ある が 出る');
-  assert.equal(t.title, 'いわばのみはらしが ある');
-  assert.equal(t.sub, '', '「ちずに きろくした」を くりかえさない');
+  assert.equal([shown(u), ...settle(h, u)].filter(Boolean).find((v) => /いわばのみはらし/.test(v.title)), undefined, 'toast は 出ない');
+  assert.equal(u.ov.querySelector('#mgrSpot').textContent, 'いわばのみはらし', '左上の 名まえ');
+  assert.ok(s.lifetime.meguru.spots.forest.includes('stonelook'), 'セーブに のこる');
   h.api.stopMeguru();
 });
 

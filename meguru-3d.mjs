@@ -28,9 +28,12 @@ function createHybridRenderer(M, o, opts) {
   const r2d = M.createCanvasRenderer(o);
   let r3d = null, failed = false, active = false, fadeOn = true;
   let ctx = o.ctx, W = o.W, H = o.H;
+  // v2(F3): corridor(地域の あいだの 道)も 3D。3D の 地域 どうしを むすぶ 道は 3D 世界 → 3D の 道 → 3D 世界 と つづく
   const want = (view) => {
     const w = view && view.world;
-    return !opts.force2d && !failed && !!w && !w.corridor && !!w.world3d && M.WORLD3D_REGIONS.has(w.regionId);
+    if (!w || opts.force2d || failed) return false;
+    if (w.corridor) return !!w.chartFrom && !!w.corridorTo && M.WORLD3D_REGIONS.has(w.chartFrom) && M.WORLD3D_REGIONS.has(w.corridorTo);
+    return !!w.world3d && M.WORLD3D_REGIONS.has(w.regionId);
   };
   // 実機の 計測(&perf=1): フレームの 間かく(avg / p95 / p99 / 60ms 超)と 3D の draw call・三角形を 画面の 左上に
   const gaps = []; let lastNow = 0, animLv = 2;
@@ -295,16 +298,22 @@ function create3DRenderer(M, o, onLost) {
     const lo = world.minX != null ? world.minX : -world.halfW, hi = world.maxX != null ? world.maxX : world.halfW;
     const disposables = [];
     const keep = (x) => { disposables.push(x); return x; };
-    // 地面: ground の 2 色で まだらに(のっぺり しない。1 まいの 小さな texture を くりかえす)
+    // 地面: ground の 2 色で まだらに(のっぺり しない。1 まいの 小さな texture を くりかえす)。
+    // corridor では 地面の いろが すすみぐあいで かわる(world.setProgress)ので、いろの 鍵が かわった frame で 描きなおす(refreshGround)
     const gc = doc.createElement('canvas'); gc.width = gc.height = 128;
-    const gg = gc.getContext('2d'); gg.fillStyle = world.ground[0]; gg.fillRect(0, 0, 128, 128);
-    for (let i = 0; i < 90; i++) { gg.fillStyle = i % 3 ? world.ground[1] : world.ground[0]; gg.globalAlpha = 0.18; gg.beginPath(); gg.arc(hash01('gx' + i) * 128, hash01('gz' + i) * 128, 6 + hash01('gr' + i) * 14, 0, TAU); gg.fill(); }
+    const paintGround = () => {
+      const gg = gc.getContext('2d'); gg.globalAlpha = 1; gg.fillStyle = world.ground[0]; gg.fillRect(0, 0, 128, 128);
+      for (let i = 0; i < 90; i++) { gg.fillStyle = i % 3 ? world.ground[1] : world.ground[0]; gg.globalAlpha = 0.18; gg.beginPath(); gg.arc(hash01('gx' + i) * 128, hash01('gz' + i) * 128, 6 + hash01('gr' + i) * 14, 0, TAU); gg.fill(); }
+    };
+    paintGround();
     const gt = keep(canvasTexture(gc)); gt.wrapS = gt.wrapT = THREE.RepeatWrapping; gt.repeat.set((hi - lo + 4000) / 420, (world.len + 4000) / 420);
     const ground = new THREE.Mesh(keep(new THREE.PlaneGeometry(hi - lo + 4000, world.len + 4000)), keep(new THREE.MeshLambertMaterial({ map: gt })));
     ground.rotation.x = -Math.PI / 2; ground.position.set((lo + hi) / 2, 0, -world.len / 2);
     sc.add(ground);
     // みち と スポット(道の 面)
     const pathMat = keep(new THREE.MeshLambertMaterial({ color: world.path }));
+    let groundKey = world.ground[0] + world.ground[1] + world.path;
+    const refreshGround = () => { const k = world.ground[0] + world.ground[1] + world.path; if (k === groundKey) return; groundKey = k; paintGround(); gt.needsUpdate = true; pathMat.color.set(world.path); };
     const segs = world.segments || [];
     const road = new THREE.InstancedMesh(keep(new THREE.BoxGeometry(1, 1, 1)), pathMat, Math.max(1, segs.length));
     segs.forEach((sg, i) => {
@@ -495,7 +504,7 @@ function create3DRenderer(M, o, onLost) {
     const ghostMat = {}; for (const k of Object.keys(MAT)) { ghostMat[k] = keep(MAT[k].clone()); ghostMat[k].transparent = true; ghostMat[k].opacity = 0.28; ghostMat[k].depthWrite = false; }
     const ghostGeo = (shape) => GEO[GEO_ALIAS[shape] || shape];
     for (const k of Object.keys(MAT_ALIAS)) ghostMat[k] = ghostMat[MAT_ALIAS[k]];
-    return { sc, hemi, sun, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null,
+    return { sc, hemi, sun, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null, refreshGround,
       occluders, hidden: new Set(), ghostPool: [], ghostStat: { visible: 0, attached: 0, total: 0 }, ghostMat, ghostGeo, inst, anim: { fall: MAT.fall.map, foam: MAT.foam, mist: MAT.mist, spark: MAT.spark }, prof };
   }
 
@@ -552,7 +561,15 @@ function create3DRenderer(M, o, onLost) {
     built.sc.fog.color.copy(fogC);
     const fogK = env.weather === 'rain' || env.weather === 'snow' ? 0.6 : 1;
     // きり = 遠近感(いろが 地平の いろに ちかづく)。ちかくは かけない(1400 まで)。かたい 物の 透明度は きょりで かえない
-    const pf = built.prof || {}, fr = pf.fog || [1400, 3800 + 1400 * (world.view || 1)];
+    // corridor(v2 F3): きりは 出発 → 到着 の profile を すすみぐあい(world.progress)で まぜる。地面の いろは world.setProgress の もの
+    let pf = built.prof || {}, fr = pf.fog || [1400, 3800 + 1400 * (world.view || 1)];
+    if (world.corridor) {
+      built.refreshGround();
+      const A = (M.REGION3D && M.REGION3D[world.chartFrom]) || {}, B = (M.REGION3D && M.REGION3D[world.corridorTo]) || {}, t = world.progress || 0;
+      const fa = A.fog || fr, fb = B.fog || fr;
+      fr = [fa[0] + (fb[0] - fa[0]) * t, fa[1] + (fb[1] - fa[1]) * t];
+      pf = t < 0.5 ? A : B;
+    }
     if (pf.fogColor) fogC.lerp(new THREE.Color(pf.fogColor), pf.underwater ? 0.85 : 0.5);
     built.sc.fog.color.copy(fogC);
     // v2(F1): きりの 遠端は かならず player までの きょり + 900 より 遠く(雨 × 地区の mood.fog で 遠端が player の 手前に 来て、

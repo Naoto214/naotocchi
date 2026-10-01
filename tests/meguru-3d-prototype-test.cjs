@@ -345,7 +345,9 @@ test('9. 全地域: 3D profile が あり、意味の 表で ぜんぶ 解決し
 
 test('10. はっけんの しらせ(全地域): ランドマーク / ひみつ だけ「みつけた！」、その ばしょ だけの もの は かるく「が ある」、ふつうの 池・通過点は しずか。きろく は かわらない', () => {
   for (const rid of Object.keys(M.WORLDS)) {
+    // 2026-10-01 3D v2(Human QA v1 F4 / F5): toast は ひみつ だけ。ランドマークは quiet(左上の 静かな 強調)、その ほかは null
     const w = M.buildWorld(rid, reg, {}); let strong = 0, light = 0, quiet = 0;
+    for (const s of w.spots) { const n = M.discoveryNotice(s); if (n && !n.quiet) assert.ok(s.secret, rid + ' toast は ひみつ だけ: ' + s.id); if (n && n.quiet) assert.ok(s.landmark, rid + ' quiet は ランドマーク だけ: ' + s.id); if (!n) assert.ok(!s.secret, rid + ' ひみつは toast: ' + s.id); }
     for (const s of w.spots) { const n = M.discoveryNotice(s); if (!n) quiet++; else if (n.kind === 'landmark' || n.kind === 'secret') { strong++; assert.match(n.title, /みつけた！$/); assert.ok(s.landmark || s.secret); } else { light++; assert.match(n.title, /が ある$/); assert.ok(!s.landmark && !s.secret); } }
     assert.ok(strong <= Math.max(3, Math.ceil(w.spots.length * 0.3)), rid + ' つよい しらせ ' + strong + ' / ' + w.spots.length);
     assert.ok(quiet >= 1, rid + ' しずかな spot が ある');
