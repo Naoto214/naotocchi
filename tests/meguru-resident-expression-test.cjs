@@ -493,3 +493,80 @@ test('17. the canonical mapping lives in one place and keeps the unused states o
   assert.equal(RX.familyOf(RESIDENTS.find((r) => r.kind === 'companion')), 'relationship');
   assert.equal(RX.familyOf({ kind: 'naoto' }), 'none');
 });
+
+// ───────────────────────────── 18. 表情 QA(?mgexprqa=1): セーブに よらず 代表住民が forest に ならび、ふだんの URL では 完全に 無効
+test('18. ?mgexprqa=1 lines up the representative residents in forest regardless of the save, lets QA switch every emotion, and is fully inert on a normal URL', () => {
+  // 代表住民の 台帳は repo の 正本(SPECIES / companions / partners)から 組む。画像は ふだんの 住民と 同じ
+  // せかい(vm realm)の 配列は Array.from で こちらの realm に うつして くらべる
+  const reg = M.expressionQaRegistry();
+  const QA_KEYS = Array.from(M.EXPRESSION_QA_RESIDENTS);
+  assert.deepEqual(Array.from(reg.residents, (r) => r.key), QA_KEYS);
+  assert.deepEqual(Array.from(reg.residents, (r) => RX.familyOf(r)), ['stage', 'stage', 'stage', 'stage', 'relationship', 'relationship']);
+  for (const r of reg.residents) { assert.ok(exists(r.asset), r.key); assert.equal(r.region, 'forest'); }
+  assert.deepEqual(RX.audit(reg.residents).gaps, [], 'every representative resolves every emotion');
+  // ふつうの セーブ(ずかんは ほぼ 空・regionId は sea)で ?mgexprqa=1 → forest に 6 体
+  const scenario = (search) => withSeed(181, () => {
+    const h = harness({ fullDisplay: true, pinDate: true, clockNow: 1000, imageClass: LoadedImage });
+    const s = h.api.state();
+    Object.assign(s.lifetime, FIXED_ENV);
+    Object.assign(s, { stage: 'growing', isSleeping: false, energy: 100, health: 100, hunger: 80, regionId: 'sea' });
+    h.api.render();
+    const before = JSON.stringify(s), keysBefore = Object.keys(s).sort().join(',');
+    const meguruBefore = JSON.stringify(Object.assign({}, s.lifetime.meguru, { visits: 0 }));
+    if (search) h.window.location.search = search;
+    assert.equal(h.api.startMeguru(), true);
+    const run = h.api.meguruRun();
+    return { h, s, run, before, keysBefore, meguruBefore };
+  });
+  const qa = scenario('?mgexprqa=1');
+  assert.ok(qa.run.exprQa, 'the QA controller exists');
+  assert.equal(qa.run.world.regionId, 'forest', 'QA always starts in forest (2D and 3D share the same world)');
+  qa.h.advance(200);
+  let st = qa.run.exprQa.status();
+  assert.equal(st.count, 6); assert.deepEqual(Array.from(st.residents, (r) => r.key), QA_KEYS);
+  assert.ok(st.residents.every((r) => r.dist < 320 && r.dist > 100), `all six stand in front of the player (${st.residents.map((r) => r.dist).join('/')})`);
+  assert.equal(qa.run.world.regionId, 'forest', 'the save regionId (sea) does not pull the QA world away');
+  for (const em of ['positive', 'dislike', 'sick', 'tired', 'sleeping', 'strained', 'wantsPlay', 'normal']) {
+    qa.run.exprQa.apply(em); qa.h.advance(60);
+    st = qa.run.exprQa.status();
+    assert.equal(st.choice, em);
+    for (const r of st.residents) {
+      assert.equal(r.emotion, em, `${r.key}: forced ${em}`);
+      const res = reg.residents.find((q) => q.key === r.key);
+      assert.equal(r.expression, RX.expressionFor(RX.familyOf(res), em), `${r.key}/${em}: expression from the one mapping`);
+      assert.equal(r.asset, RX.resolve(res, em).asset); assert.ok(exists(r.asset)); assert.equal(r.fallback, null);
+      assert.ok(r.loaded, `${r.key}/${em}: the picture is loaded (sandbox Image)`);
+    }
+    // 6 体が ばらけない(はなし あるきに 行かない)
+    assert.ok(st.residents.every((r) => r.dist < 320), 'they keep standing in the line-up');
+  }
+  // auto(固定なし)では はなしかけた 1 体だけ うれしい(ふだんの 経路)
+  qa.run.exprQa.apply('auto'); qa.h.advance(30);
+  const dog = qa.run.world.residents.find((a) => a.key === 'form:dog:2');
+  qa.run.setPlayer(dog.x, dog.z - 50); qa.h.advance(40);
+  assert.equal(qa.run.nearest, dog);
+  const t = qa.run.sim.talk();
+  assert.equal(t.event, 'talk'); assert.equal(t.expression, 'happy'); assert.equal(RX.dialogueEmotion(t.line), 'positive');
+  qa.h.advance(60);
+  st = qa.run.exprQa.status();
+  assert.deepEqual(Array.from(st.residents, (r) => r.expression), ['normal', 'happy', 'normal', 'normal', 'normal', 'normal']);
+  qa.h.api.stopMeguru();
+  // セーブ: regionId も かたちも かわらない。QA の 語は 入らない
+  assert.equal(qa.s.regionId, 'sea'); assert.equal(qa.s.schemaVersion, 5);
+  assert.equal(Object.keys(qa.s).sort().join(','), qa.keysBefore);
+  for (const word of ['mgexprqa', 'exprQa', '"qa"', 'form:cat:5', 'companion:tanuki', 'EXPRESSION_QA']) assert.ok(!JSON.stringify(qa.s).includes(word), word);
+  // であった・はなした・spot / ちずの きろく は QA では 1 つも 増えない(visits だけは 本体が めぐるを ひらいた 回数として 数える)
+  // (本体は めぐるを ひらく ときに 空の 入れ物 zones / paths / marks / world を そろえる。中身が 空の まま で ある ことを 見る)
+  const mg = qa.s.lifetime.meguru;
+  assert.equal(mg.talkCount, 0);
+  for (const k of ['met', 'talks', 'spots', 'zones', 'paths', 'marks']) assert.deepEqual(Object.keys(mg[k] || {}), [], `lifetime.meguru.${k} stays empty`);
+  assert.deepEqual(Array.from((mg.world || {}).regions || []), []); assert.deepEqual(Array.from((mg.world || {}).links || []), []);
+  assert.ok(qa.meguruBefore.includes('"talkCount":0'));
+  // ふつうの URL: パネルも 台帳も なく、セーブの regionId(sea)の せかいに 入る
+  const plain = scenario('');
+  assert.equal(plain.run.exprQa, null);
+  assert.equal(plain.run.world.regionId, 'sea');
+  assert.ok(!plain.run.world.residents.some((a) => a.qa), 'no representative resident is injected');
+  assert.ok(!String(plain.h.get('meguruOverlay').innerHTML || '').includes('mgrExprQa'), 'no QA panel markup on a normal URL');
+  plain.h.api.stopMeguru();
+});
