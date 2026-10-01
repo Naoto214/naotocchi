@@ -1,0 +1,30 @@
+test_activation_resolution_not_double_play (test_proxy_resource_value_evaluation.EvaluationTests.test_activation_resolution_not_double_play) ... ok
+test_counts_and_denominators_are_separate (test_proxy_resource_value_evaluation.EvaluationTests.test_counts_and_denominators_are_separate) ... ok
+test_direct_frontier_selection_counts_as_valid_without_fallback (test_proxy_resource_value_evaluation.EvaluationTests.test_direct_frontier_selection_counts_as_valid_without_fallback) ... ok
+test_equal_tie_break_success_is_not_unresolved (test_proxy_resource_value_evaluation.EvaluationTests.test_equal_tie_break_success_is_not_unresolved) ... ok
+test_missing_inventory_comparison_is_missing_not_equal (test_proxy_resource_value_evaluation.EvaluationTests.test_missing_inventory_comparison_is_missing_not_equal) ... ok
+test_missing_or_duplicate_planned_ids_are_rejected (test_proxy_resource_value_evaluation.EvaluationTests.test_missing_or_duplicate_planned_ids_are_rejected) ... ok
+test_one_side_stopped_is_missing_not_zero (test_proxy_resource_value_evaluation.EvaluationTests.test_one_side_stopped_is_missing_not_zero) ... ok
+test_response_activation_uses_public_source_zone_and_hand_movement (test_proxy_resource_value_evaluation.EvaluationTests.test_response_activation_uses_public_source_zone_and_hand_movement) ... ok
+test_seed_context_and_candidate_changes_are_separate (test_proxy_resource_value_evaluation.EvaluationTests.test_seed_context_and_candidate_changes_are_separate) ... ok
+test_seeded_routes_excluded_from_balance (test_proxy_resource_value_evaluation.EvaluationTests.test_seeded_routes_excluded_from_balance) ... ok
+test_shadow_not_counted_as_matches (test_proxy_resource_value_evaluation.EvaluationTests.test_shadow_not_counted_as_matches) ... FAIL
+
+======================================================================
+FAIL: test_shadow_not_counted_as_matches (test_proxy_resource_value_evaluation.EvaluationTests.test_shadow_not_counted_as_matches)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_evaluation.py", line 53, in test_shadow_not_counted_as_matches
+    self.assertEqual(out['policies']['pilot']['true_stop'],dict(count=1,denominator=1,rate=1))
+AssertionError: {'count': 0, 'denominator': 0, 'rate': None} != {'count': 1, 'denominator': 1, 'rate': 1}
+- {'count': 0, 'denominator': 0, 'rate': None}
+?           ^                 ^          ^^^^
+
++ {'count': 1, 'denominator': 1, 'rate': 1}
+?           ^                 ^          ^
+
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.001s
+
+FAILED (failures=1)

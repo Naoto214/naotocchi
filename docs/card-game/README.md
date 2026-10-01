@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+428: [資源価値pilot実測評価・統合検査](428-resource-value-evaluation-checkpoint.md)。fresh shadow 93/110比較、選択差56/93、新fallback88/93。fresh8 run/独立再実行は427完全再現、全停止の欠測を保持。Task5/6完了、全proxy・最終reviewは未完了。
+
 427: [通常coin・砂漠サソリの接続](427-resource-value-normal-chain-checkpoint.md)。専用37件PASS、8fresh軌跡・各独立再実行、旧4到達prefix一致。新02-A seq25、新02-B seq30へ到達。完了0/停止8、Task5／評価／全proxy／最終review未完了。
 
 425: [開始イベント／候補scope不一致調査](425-resource-value-trigger-scope-investigation.md)。remote424から再開。01-B seq84はたまご交換直後で、318のrawイベント名判定と166／206／401の開始分類が不一致。停止証跡を拡張、choice/event/state変更0。8fresh軌跡は完了0・停止8。Task5／評価／全proxy／最終review未完了。
