@@ -298,3 +298,70 @@ test('v2-13. 水の 見た目は あたり(walkability)を かえない: 岸の 
   // レンダラーの 水の mesh は あたりの ある 物(occluders)に 入らない: 水の 面は すかしの 対象では ない
   assert.match(SRC, /const stripMesh = \(data, mat, name\) => \{/, '水は stripMesh(instanced の occluder とは べつ)');
 });
+
+// ──────────────────────────────── CP4 / CP5: Environment Kit v2 と Region Profile v2(F7 / F8 / F9 / F11)
+
+test('v2-14. Kit v2 の 原型: 昆布は 曲がった は(木 / 柱では ない)、遺跡は くずれた かべ、はしは いみ ごと、たてものは body + 屋根 + 入口 + まど', () => {
+  const reg = M.buildRegistry();
+  const objsOf = (rid) => M.worldObjects3d(M.buildWorld(rid, reg, { world3d: true })).objects;
+  // 昆布(deepsea)
+  const deep = objsOf('deepsea'), kelp = deep.filter((o) => o.type === 'kelp' || o.type === 'kelprow');
+  assert.ok(kelp.length >= 20, 'kelp ' + kelp.length);
+  for (const o of kelp) { assert.ok(o.parts.length >= 3 && o.parts.every((pt) => pt.shape === 'kelp'), o.kind + ' は kelp の は だけ'); assert.ok(new Set(o.parts.map((pt) => Math.round(pt.h))).size >= 2, '高さ ばらばら'); }
+  for (const o of deep) assert.ok(!(o.type === 'kelp' || o.type === 'kelprow') || !o.parts.some((pt) => pt.shape === 'trunk' || pt.shape === 'wblade' || pt.shape === 'wpost'), '昆布に 木 / 柱の かたち');
+  // 遺跡(desert / jungle)
+  const ruins = [...objsOf('desert'), ...objsOf('jungle')].filter((o) => o.kind === 'ruinwall');
+  assert.ok(ruins.length >= 10, 'ruinwall ' + ruins.length);
+  for (const o of ruins) {
+    assert.equal(o.type, 'ruin'); assert.ok(o.solid, 'くずれた かべも かたい');
+    const walls = o.parts.filter((pt) => pt.shape === 'box');
+    assert.ok(walls.length >= 2 && new Set(walls.map((pt) => Math.round(pt.h))).size >= 2, '高さの ちがう かべ 2 まい いじょう');
+    assert.ok(o.parts.some((pt) => pt.shape === 'wpost') && o.parts.some((pt) => pt.shape === 'pebble'), '柱 と 倒れた 石');
+  }
+  const pillars = [...objsOf('desert'), ...objsOf('jungle')].filter((o) => o.kind === 'ruinpillar');
+  assert.ok(pillars.some((o) => o.parts.some((pt) => pt.shape === 'box')) && pillars.some((o) => o.parts.some((pt) => pt.shape === 'pebble')), '柱頭の ある 柱 と 折れた 柱');
+  // はし(forest: まるた / いし、jungle / star_stop: ロープ / 光)
+  const f = objsOf('forest'), log = f.find((o) => o.kind === '🌉' && o.spot === 'bridge1'), stone = f.find((o) => o.kind === '🌉' && o.spot === 'bridge2');
+  assert.ok(log && log.parts.filter((pt) => pt.shape === 'log').length === 3 && log.parts.filter((pt) => pt.shape === 'wpost').length >= 4, 'まるたの はし = 丸太 3 本 + 支柱');
+  assert.ok(stone && stone.parts.some((pt) => pt.shape === 'slab') && stone.parts.filter((pt) => pt.shape === 'box').length === 2, 'いしの はし = 石の いた + 両わきの 石');
+  const rope = [...objsOf('jungle'), ...objsOf('mountain')].find((o) => o.kind === 'ropebridge'), light = objsOf('star_stop').find((o) => o.kind === 'lightbridge');
+  if (rope) assert.ok(rope.parts.some((pt) => pt.shape === 'plank') && rope.parts.filter((pt) => pt.shape === 'rail').length === 2 && rope.parts.filter((pt) => pt.shape === 'wpost').length >= 6, 'ロープの はし');
+  if (light) assert.ok(light.parts.some((pt) => pt.shape === 'wslab') && light.parts.some((pt) => pt.shape === 'glowdisc'), '光の はし');
+  // たてもの(home / countryside / city)
+  for (const rid of ['home', 'countryside']) for (const o of objsOf(rid).filter((q) => q.type === 'house')) {
+    assert.ok(o.parts.some((pt) => pt.shape === 'roof' || (pt.shape === 'box' && pt.y > 0)), rid + ' ' + o.kind + ' 屋根');
+    const fronts = o.parts.filter((pt) => pt.shape === 'box' && pt.dx != null);
+    assert.ok(fronts.some((pt) => pt.color === '#4a3a2c') && fronts.some((pt) => pt.color === '#cfe6f2'), rid + ' ' + o.kind + ' 入口 と まど');
+  }
+  const towers = objsOf('city').filter((o) => o.type === 'tower');
+  for (const o of towers) assert.ok(o.parts.filter((pt) => pt.shape === 'box' && pt.dx != null && pt.rz === 1.5).length >= 2 && o.parts.some((pt) => pt.color === '#3c4048'), 'ビルに まど と 入口 ' + o.kind);
+  // 木: えだはりは かたまり 2 つ いじょう・幹は ほそる
+  const trees = f.filter((o) => o.type === 'broadleaf');
+  assert.ok(trees.every((o) => o.parts.filter((pt) => pt.shape === 'crown').length >= 2 && o.parts[0].shape === 'trunk' && o.parts[0].taper < 0.8), '木 = ほそる 幹 + かたまり 2 つ いじょう');
+  assert.ok(new Set(trees.map((o) => o.parts.filter((pt) => pt.shape === 'crown').length)).size >= 2, 'かたまりの 数は 木ごと');
+  const palms = objsOf('sea').filter((o) => o.type === 'palm');
+  assert.ok(palms.length && palms.every((o) => o.parts.filter((pt) => pt.shape === 'wblade' && pt.lean != null).length >= 6), 'ヤシの は は たおれる');
+});
+
+test('v2-15. Region Profile v2: 13 地域 ぜんぶに family(terrain / veg / arch / water / density / landmark / sky)。まちは palette で ビルの いろ と 階数が ばらつき、電柱が ある', () => {
+  for (const rid of Object.keys(M.WORLDS)) {
+    const p = M.REGION3D[rid];
+    assert.ok(p && p.fog && p.water && p.terrain && p.veg && p.arch && p.arch.kind && p.density != null && p.landmark && p.sky, rid + ' の profile v2: ' + JSON.stringify(p));
+  }
+  const reg = M.buildRegistry();
+  const city = M.worldObjects3d(M.buildWorld('city', reg, { world3d: true })).objects;
+  const towers = city.filter((o) => o.type === 'tower' && o.kind === '🏢');
+  const colors = new Set(towers.map((o) => o.parts[0].color)), heights = new Set(towers.map((o) => Math.round(o.parts[0].h / 20)));
+  assert.ok(colors.size >= 4, 'ビルの いろ ' + colors.size); assert.ok(heights.size >= 3, 'ビルの 高さ ' + heights.size);
+  assert.ok(towers.some((o) => o.parts.some((pt) => pt.shape === 'wstem' && pt.y > 100)), '屋上の タンク');
+  const poles = city.filter((o) => o.type === 'lamp' && o.parts.some((pt) => pt.shape === 'wslab'));
+  assert.ok(poles.length >= 10, '電柱 ' + poles.length);
+  const forest = M.worldObjects3d(M.buildWorld('forest', reg, { world3d: true })).objects;
+  assert.ok(!forest.some((o) => o.type === 'lamp' && o.parts.some((pt) => pt.shape === 'wslab')), 'もりに 電柱は ない');
+  // jungle は 半分の 木を 20 三角形の かんむりに
+  const jungle = M.worldObjects3d(M.buildWorld('jungle', reg, { world3d: true })).objects.filter((o) => o.type === 'broadleaf');
+  const smallMain = jungle.filter((o) => o.parts[1].small).length;
+  assert.ok(smallMain > jungle.length * 0.3 && smallMain < jungle.length * 0.7, 'jungle の かるい かんむり ' + smallMain + ' / ' + jungle.length);
+  // 地面の 起伏は renderer が areas から つくる(あたり なし)
+  assert.match(SRC, /const BUMP = \{ dunefield: 22, snowfield: 14, seabed: 12/, '起伏の 表');
+});

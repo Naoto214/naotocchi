@@ -416,6 +416,15 @@ function create3DRenderer(M, o, onLost) {
     const patch = new THREE.InstancedMesh(keep(new THREE.CircleGeometry(1, 20).rotateX(-Math.PI / 2)), keep(new THREE.MeshLambertMaterial({ color: world.ground[1], transparent: true, opacity: 0.55, depthWrite: false })), Math.max(1, areas.length));
     areas.forEach((a, i) => { tmp.position.set(a.x, 0.3, -a.z); tmp.rotation.set(0, a.ang || 0, 0); tmp.scale.set(a.w / 2, 1, a.h / 2); tmp.updateMatrix(); patch.setMatrixAt(i, tmp.matrix); });
     patch.count = areas.length; sc.add(patch);
+    // Region Profile v2(F7): 地面の 起伏。areas(砂丘・雪原・海底・砂利 など)の まんなかに ひくい 盛りあがり(mound)を おく。
+    // あたりは かえない(areas に あたりは ない)。道を またいでも 高さ 6〜22 なので あるける 見た目の まま
+    const BUMP = { dunefield: 22, snowfield: 14, seabed: 12, gravelbar: 8, mudflat: 6, rootmat: 8, snowwood: 10, wetstone: 8, reefflat: 10, wetgrass: 6, undergrowth: 5, fissure: 4 };
+    const bumps = areas.filter((a) => BUMP[a.kind]);
+    if (bumps.length) {
+      const bm = new THREE.InstancedMesh(keep(ruggedMound()), keep(new THREE.MeshLambertMaterial({ color: world.ground[1] })), bumps.length);
+      bumps.forEach((a, i) => { tmp.position.set(a.x, 0, -a.z); tmp.rotation.set(0, a.ang || 0, 0); tmp.scale.set(a.w * 0.48, BUMP[a.kind], a.h * 0.48); tmp.updateMatrix(); bm.setMatrixAt(i, tmp.matrix); });
+      bm.count = bumps.length; sc.add(bm);
+    }
     const marks = world.marks || [];
     const tuft = new THREE.InstancedMesh(keep(new THREE.ConeGeometry(1, 1, 3).translate(0, 0.5, 0)), keep(new THREE.MeshLambertMaterial({ color: (world.markStyle && world.markStyle.color) || world.ground[1], flatShading: true })), Math.max(1, marks.length));
     marks.forEach((mk, i) => { const r = mk.size * 0.45; tmp.position.set(mk.x, 0, -mk.z); tmp.rotation.set(0, hash01('m' + i) * TAU, 0); tmp.scale.set(r, mk.size * 1.4, r); tmp.updateMatrix(); tuft.setMatrixAt(i, tmp.matrix); });
