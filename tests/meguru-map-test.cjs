@@ -168,7 +168,11 @@ test('an old save that only knows spots is turned into a map without losing anyt
   sim.loadMapRecords(seeded);
   for (const id of old) sim.discovered.add(id);
   const md = sim.mapData();
-  for (const id of old) assert.ok(md.spots.some((q) => q.id === id), `${id} stays discovered`);
+  // 2026-10-01 3D v2(Human QA v1 F6): ちずに 出すのは 表示 filter(mapSpotShown)を 通った spot だけ(通過点の thicket1 は 出さない)。
+  // 見つけた きろく じたいは 1 つも へらない(discovered に のこり、かくした 数は spotsHidden に 出る)
+  for (const id of old) assert.ok(sim.discovered.has(id), `${id} stays discovered`);
+  for (const id of old) assert.equal(md.spots.some((q) => q.id === id), M.mapSpotShown(w, w.spots.find((q) => q.id === id), null), `${id}: ちずは filter の とおり`);
+  assert.equal(md.spots.length + md.spotsHidden, old.length, 'みつけた spot = ちずに 出す + かくす');
 });
 
 test('the map save stays small: ids only, no coordinates, and it fits in the existing save shape', () => {

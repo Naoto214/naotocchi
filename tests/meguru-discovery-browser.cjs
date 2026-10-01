@@ -126,33 +126,25 @@ module.exports = async function (browser, engine, fixtures, baseURL, output, onl
       };
 
       // ① ふつうの ばしょ
-      assert.equal(await goTo(page, 'bright2'), true, label + ': ふつうの ばしょの しらせが 出ない');
+      // 2026-10-01 3D v2(Human QA v1 F4 / F5): ふつうの spot(🪵 が ある ひだまり も)は toast を 出さない。
+      // 左上の 名まえが かわり、ちずには のる(meguru-discovery-test ① と 同じ 契約)
+      assert.equal(await goTo(page, 'bright2'), false, label + ': ふつうの ばしょ に toast が 出た');
       let m = await measure2(page);
-      check(m, 'ふつうの spot');
-      // 2026-10-01 しらせの 段階づけ: その ばしょ だけの もの(ここは 🪵)が ある ふつうの spot は
-      // 「○○が ある」と かるく しらせる。「みつけた！」は ランドマーク / ひみつ だけ(meguru-discovery-test ⑦ と 同じ 契約)
-      assert.equal(m.title, 'ひだまりが ある', label + ': ' + m.title);
-      assert.equal(m.sub, 'ちずに きろくした');
-      assert.ok(/mgr-found-spot/.test(m.cls) && !/mgr-found-strong/.test(m.cls), label + ': ふつうは つよい えんしゅつに しない');
+      assert.equal(m.shown, false, label + ': ふつうの ばしょ に toast が 出た');
+      const chip = await page.evaluate(() => ({ text: document.getElementById('mgrSpot').textContent, onMap: window.__meguruRun.sim.mapData().spots.some((q) => q.id === 'bright2') }));
+      assert.equal(chip.text, 'ひだまり', label + ': 左上の 名まえ');
+      assert.equal(chip.onMap, true, label + ': ちずには のる');
       await page.screenshot({ path: path.join(output, label + '-1-spot.png') });
       await drain(page);
 
-      // ② おおきな めじるし(landmark)+ いちどに いくつも
-      assert.equal(await goTo(page, 'great'), true, label + ': landmark の しらせが 出ない');
-      const info = await page.evaluate(() => window.__meguruRun.foundInfo());
-      assert.ok(info.now && info.queue.length >= 1, label + ': いちどに いくつも 見つけた ばめんに なって いない');
-      assert.equal(info.now.kind, 'landmark', label + ': つよい ものから 出す(いまは ' + info.now.kind + ')');
-      m = await measure2(page);
-      check(m, '同時発見/landmark');
-      assert.equal(m.title, 'おおきなきを みつけた！');
-      assert.ok(/mgr-found-strong/.test(m.cls), label + ': landmark は すこし つよく');
+      // ② おおきな めじるし(landmark): toast では なく 左上の 名まえの 静かな 強調
+      assert.equal(await goTo(page, 'great'), false, label + ': landmark に toast が 出た');
+      const qm = await page.evaluate(() => ({ mark: window.__meguruRun.quietMark(), cls: document.getElementById('mgrSpot').className, text: document.getElementById('mgrSpot').textContent, toasts: document.querySelectorAll('#meguruOverlay .mgr-found:not(.hidden)').length }));
+      assert.equal(qm.mark.id, 'great', label + ': 左上の 名まえを 静かに 強調');
+      assert.ok(/mgr-spot-found/.test(qm.cls), label + ': 強調の class ' + qm.cls);
+      assert.equal(qm.text, 'おおきなき');
+      assert.equal(qm.toasts, 0, label + ': toast は 0');
       await page.screenshot({ path: path.join(output, label + '-2-landmark.png') });
-      // かさならない: つぎの しらせに かわっても 出て いるのは いつも 1つ
-      for (let i = 0; i < 6; i++) {
-        await page.waitForTimeout(400);
-        const k = await page.evaluate(() => document.querySelectorAll('#meguruOverlay .mgr-found:not(.hidden)').length);
-        assert.ok(k <= 1, label + ': しらせが 2つ かさなった');
-      }
       await drain(page);
 
       // ③ ひみつ
@@ -185,10 +177,9 @@ module.exports = async function (browser, engine, fixtures, baseURL, output, onl
         // はかる あいだ に 見つけた ぶんは ぜんぶ 出しきって から はじめる
         for (let i = 0; i < 900; i++) { const inf = run.foundInfo(); if (!inf.now && !inf.queue.length && !inf.banner) break; await frame(); }
         // まだ 見つけて いない ばしょの てまえに 立ち、そこへ むかって あるく。
-        // **しらせる ばしょ(レベル 2 いじょう)を えらぶ**。目じるしの ない 通過点は
-        // 見つけても しずかな ままが 正しい ので、それを えらぶと この しらべは いみを なくす
+        // **しらせる ばしょを えらぶ**。2026-10-01 v2: toast が 出るのは ひみつ だけ なので ひみつを えらぶ
         const seen = new Set(run.sim.mapData().spots.map((s) => s.id));
-        const q = run.world.spots.find((s) => !seen.has(s.id) && !s.secret && run.spotLevel(s.id) >= 2
+        const q = run.world.spots.find((s) => !seen.has(s.id) && s.secret
           && Math.abs(s.x - u.x * 300) < run.world.halfW * 0.9 && s.z > 400 && s.z < run.world.len - 400);
         if (!q) return { sawToast: false, moved: 0, why: 'しらせる つぎの ばしょが ない' };
         run.setPlayer(q.x - u.x * 300, q.z - u.z * 300);
@@ -237,7 +228,7 @@ module.exports = async function (browser, engine, fixtures, baseURL, output, onl
         // さらに **まだ 見つけて いない** ばしょに する。すでに 見つけて いる ところでは
         // しらせが 出ず、この ばめん(しらせ + はなす ボタン)を しらべられない
         const seen = new Set(run.sim.mapData().spots.map((s) => s.id));
-        const q = run.world.spots.find((s) => run.spotLevel(s.id) >= 2 && !seen.has(s.id) && !s.secret);
+        const q = run.world.spots.find((s) => s.secret && !seen.has(s.id));   // 2026-10-01 v2: toast は ひみつ だけ
         if (!q) return { act: false, why: 'しらせる ばしょが もう のこって いない' };
         run.setPlayer(q.x, q.z);
         a.x = q.x; a.z = q.z + 20;

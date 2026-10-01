@@ -664,12 +664,17 @@
       return 2;
     }
     // しらせの 文(つよさ ごと)。null = しらせ なし。きろく とは べつ
+    // 2026-10-01 3D v2(Human QA v1 F4 / F5): 通常歩行の spot の toast は なし。
+    //   ・ふつうの spot(ものが ある spot も)= しらせ なし(左上の 名まえが 静かに かわる だけ)
+    //   ・ランドマーク = toast なし。左上の 名まえを ほんの すこし 強調する だけ(quiet)
+    //   ・ひみつ = これまで どおり toast(gameplay の reward)
+    //   きろく(recordSpot / ちず / save)は 1 つも かわらない(しらせない ≠ 見つけて いない)
     function discoveryNotice(s) {
       const lv = spotDiscoveryLevel(s);
       if (lv < 2) return null;
       if (s.secret) return { kind: 'secret', icon: '🔍', title: 'ひみつのばしょを みつけた！' };
-      if (s.landmark) return { kind: 'landmark', icon: '✨', title: `${s.label}を みつけた！` };
-      return { kind: 'spot', icon: '', title: `${s.label}が ある` };   // かるく(「みつけた」は ランドマーク だけ)
+      if (s.landmark) return { kind: 'landmark', icon: '✨', title: `${s.label}を みつけた！`, quiet: true };
+      return null;
     }
     // ---- Three.js の レンダラーから よむ ための「いみ」 ----
     // canvas は いろと かたちで えがくが、3D では「これは 地形か・たてものか・木か・水か・光か」で
@@ -1134,7 +1139,7 @@
       '🏬': { t: 'tower', c: '#cfd3d8', fl: 3 }, '🏢': { t: 'tower', c: '#b9c2cc', fl: 5 }, building: { t: 'tower', c: '#c4c8ce', fl: 4 }, shopblock: { t: 'tower', c: '#d8d2c4', fl: 2, sign: true }, '🚉': { t: 'tower', c: '#d6d9dc', fl: 2, wide: true },
       alleywall: { t: 'wall', c: '#9a9a94' }, '🏛️': { t: 'temple', c: '#e6e2d6' }, '⛩️': { t: 'torii', c: '#c8402e' }, '🎡': { t: 'ferris', c: '#d94f4f' }, '⛲': { t: 'fountain', c: '#d8d8d2' },
       igloo: { t: 'dome', c: '#f2f6fb' }, tent: { t: 'tent', c: '#c9a24a' }, '⛺': { t: 'tent', c: '#d8a040' }, '🏕️': { t: 'tent', c: '#4f8a5f' }, wreck: { t: 'hull', c: '#5a4636' },
-      ruinwall: { t: 'wall', c: '#9f9a8c', ruin: true }, ruingate: { t: 'gate', c: '#9f9a8c' }, arch: { t: 'gate', c: '#c9b48a' }, ruinpillar: { t: 'pillar', c: '#a8a39a' }, obelisk: { t: 'obelisk', c: '#6b6a66' }, statue: { t: 'statue', c: '#8f8f8a' },
+      ruinwall: { t: 'ruin', c: '#9f9a8c' }, ruingate: { t: 'gate', c: '#9f9a8c' }, arch: { t: 'gate', c: '#c9b48a' }, ruinpillar: { t: 'pillar', c: '#a8a39a' }, obelisk: { t: 'obelisk', c: '#6b6a66' }, statue: { t: 'statue', c: '#8f8f8a' },
       vending: { t: 'boxprop', c: '#d94040', h: 1.0 }, guardpost: { t: 'boxprop', c: '#8a7a5a', h: 0.8 }, '🚦': { t: 'signal' }, '🚧': { t: 'conep', c: '#f08a2a' }, '🗑️': { t: 'binp', c: '#6a6f72' }, '💡': { t: 'lamp', c: '#ffe9a8', h: 0.8 },
       streetlight: { t: 'lamp', c: '#fff2c8', h: 1.5 }, lantern: { t: 'lamp', c: '#ffb766', h: 0.7 }, '🏮': { t: 'lamp', c: '#ff7a5a', h: 0.9 }, lanternpost: { t: 'lamp', c: '#ffd59a', h: 1.2 }, '🕯️': { t: 'lamp', c: '#ffe2a0', h: 0.4 },
       stoplamp: { t: 'lamp', c: '#bfe3ff', h: 1.2 }, moonlamp: { t: 'lamp', c: '#9fc8ff', h: 1.1 }, '🚏': { t: 'signpost', c: '#4d6fb0' }, neonsign: { t: 'neon', c: '#ff5fa8' },
@@ -1151,14 +1156,26 @@
       '🪸': { t: 'coral', c: '#e07a8a' }, coralfan: { t: 'coralfan', c: '#d86a7a' }, glowcoral: { t: 'coral', c: '#7fe3d2', glow: true }, kelp: { t: 'kelp', c: '#3f7a3a' }, vent: { t: 'vent' }, glowgarden: { t: 'glowdecal' }, '🐚': { t: 'pebble', c: '#f0d8d0' }, shellpile: { t: 'pebbles', c: '#f0e0d0' }, '⚓': { t: 'pebble', c: '#3a3f44', big: true },
       reed: { t: 'reeds', c: '#7fa858', h: 0.9 }, reedclump: { t: 'reeds', c: '#7fa858', h: 0.8, n: 5 }, '🪷': { t: 'lotus', c: '#f2a6c0' }, '🌺': { t: 'flower', c: '#e8456a' }, '🌻': { t: 'flower', c: '#f2c230', h: 1.6 }, '🌷': { t: 'flower', c: '#e85a7a' }, '🌸': { t: 'flower', c: '#f5b7c8' },
       rockpool: { t: 'water' }, oasispool: { t: 'water' }, '♨️': { t: 'hotspring' }, '🕳️': { t: 'hole' }, icepillar: { t: 'crystal', c: '#cfe8ff' }, crystal: { t: 'crystal', c: '#b9a8ff', glow: true }, crystalgarden: { t: 'crystal', c: '#b9a8ff', glow: true, n: 3 },
-      '⭐': { t: 'sparkle', c: '#fff0a0' }, '⛱️': { t: 'parasol', c: '#e85a5a' }, parasol: { t: 'parasol', c: '#4f9ad8' }, '🌟': { t: 'sparkle', c: '#ffe070' }, lightbridge: { t: 'bridge', light: true }, ropebridge: { t: 'bridge' },
+      '⭐': { t: 'sparkle', c: '#fff0a0' }, '⛱️': { t: 'parasol', c: '#e85a5a' }, parasol: { t: 'parasol', c: '#4f9ad8' }, '🌟': { t: 'sparkle', c: '#ffe070' }, lightbridge: { t: 'bridge', light: true }, ropebridge: { t: 'bridge', rope: true }, woodbridge: { t: 'bridge', wood: true }, '🌉': { t: 'bridge', wood: true },
     };
     // 地域の 3D profile: きり・そら・水・雰囲気 だけ(かたち は SEM3D と 共通の adapter)。ここに ある 地域だけ 3D に なる
     const REGION3D = {
-      home: { fog: [1400, 5200], label: 'いえのまわり' }, city: { fog: [1600, 6000], label: 'まち' }, countryside: { fog: [1800, 7000], label: 'いなか' }, forest: { fog: [1400, 5200] },
-      mountain: { fog: [1800, 7500], label: 'やま' }, snow: { fog: [1000, 4200], fogColor: '#dde8f4', label: 'ゆき' }, sea: { fog: [1600, 6500], sea: true, label: 'うみ' },
-      deepsea: { fog: [250, 1900], fogColor: '#0f2f4e', underwater: true, label: 'しんかい' }, river_lake: { fog: [1500, 6000], label: 'かわ と みずうみ' }, jungle: { fog: [900, 3800], fogColor: '#9fc29a', label: 'ジャングル' },
-      desert: { fog: [1800, 7500], fogColor: '#f0dcb0', label: 'さばく' }, star_stop: { fog: [1200, 5000], fogColor: '#2b2460', stars: true, label: 'ほしの えき' }, memory_lake: { fog: [500, 2600], fogColor: '#9aa3c0', mist: true, label: 'おもいでの みずうみ' },
+      // water(Water v2・F10): deep = 沖 / 中心、shallow = 岸 / ふち、bank = 岸の 地面(なければ ground[1] を くらく)、foam = 岸の あわ
+      // Region Profile v2(F7 / F9): 地域 = きり・水 だけで なく、地形 / 植生 / 建築 / 水 / 密度 / ランドマーク / 空 の family を もつ。
+      // レンダラーに 地域ごとの switch は ふやさず、原型が ctx.prof(この 表)を よむ。arch.palette = たてものの いろ(v で えらぶ)、arch.heights = 階数の ばらつき
+      home: { fog: [1400, 5200], label: 'いえのまわり', water: { deep: '#3b7aa6', shallow: '#8ccbe0' }, terrain: 'suburb', veg: 'garden', arch: { kind: 'residential', palette: ['#e9dfcc', '#f1e8d8', '#d9c9a8', '#e6d6c0'], roofs: ['#8a4b3c', '#6c8a4a', '#5a6a8a'] }, density: 0.8, landmark: 'bigtree', sky: 'clear' },
+      city: { fog: [1600, 6000], label: 'まち', water: { deep: '#3f6f8a', shallow: '#8fb8c8' }, terrain: 'flat-urban', veg: 'street-trees', arch: { kind: 'jp-city', palette: ['#d9d6cf', '#c9cfd6', '#e6e1d6', '#b8bec6', '#d3c7b8', '#cfd8dc', '#e8e4dc'], glass: ['#bcd4e6', '#d6e6f0', '#9fb8cc'], heights: [-2, -2, -1, -1, 0, 0, 1], roofTank: true, poles: true }, density: 1.4, landmark: 'tower', sky: 'skyline' },
+      countryside: { fog: [1800, 7000], label: 'いなか', water: { deep: '#3f7f98', shallow: '#9fd0d8' }, terrain: 'fields', veg: 'scattered-broadleaf', arch: { kind: 'farm', palette: ['#e0d2b4', '#d8c8a0', '#c9b890'], roofs: ['#5f4a3a', '#6d3a2c', '#7a5a3a'] }, density: 1.0, landmark: 'windmill', sky: 'clear' },
+      forest: { fog: [1400, 5200], water: { deep: '#2f6f98', shallow: '#79bcd6' }, terrain: 'woodland', veg: 'dense-mixed', arch: { kind: 'none' }, density: 1.2, landmark: 'bigtree', sky: 'canopy' },
+      mountain: { fog: [1800, 7500], label: 'やま', water: { deep: '#2f6f9a', shallow: '#9fd8e8' }, terrain: 'rock-shelf', veg: 'conifer-sparse', arch: { kind: 'mountain-hut', palette: ['#d9c9a8', '#b9a88a'], roofs: ['#5a4a3a'] }, density: 0.9, landmark: 'peak', sky: 'high' },
+      snow: { fog: [1000, 4200], fogColor: '#dde8f4', label: 'ゆき', water: { deep: '#6fa0c8', shallow: '#d8ecf8', foam: '#ffffff' }, terrain: 'snow-banks', veg: 'conifer-narrow', arch: { kind: 'lodge', palette: ['#e8e0d0', '#d8ccb8'], roofs: ['#8a3a2c', '#4a4a4a'] }, density: 0.7, landmark: 'lodge', sky: 'cold' },
+      sea: { fog: [1600, 6500], sea: true, label: 'うみ', water: { deep: '#1f6a9c', shallow: '#8fd8de', bank: '#cdb98a', foam: '#f8fdff' }, terrain: 'beach', veg: 'palms', arch: { kind: 'coastal', palette: ['#f2efe4', '#e8e0cc'], roofs: ['#3c6fb0', '#c8403a'] }, density: 0.75, landmark: 'lighthouse', sky: 'horizon' },
+      deepsea: { fog: [250, 1900], fogColor: '#0f2f4e', underwater: true, label: 'しんかい', water: { deep: '#0a2a48', shallow: '#17496e' }, terrain: 'seabed', veg: 'kelp-coral', arch: { kind: 'ruin', palette: ['#5a6a8a'], ruin: '#5a6a8a' }, density: 1.3, landmark: 'coral', sky: 'underwater' },
+      river_lake: { fog: [1500, 6000], label: 'かわ と みずうみ', water: { deep: '#2a6f98', shallow: '#8fd0da', bank: '#6f8a5a' }, terrain: 'river-valley', veg: 'riverwood', arch: { kind: 'wood', palette: ['#d9c9a8'], roofs: ['#6c8a4a'] }, density: 1.0, landmark: 'bridge', sky: 'clear' },
+      jungle: { fog: [900, 3800], fogColor: '#9fc29a', label: 'ジャングル', water: { deep: '#2f6a5a', shallow: '#7fb8a0' }, terrain: 'wet-ground', veg: 'canopy-dense', arch: { kind: 'ruin', palette: ['#8f9a84'], ruin: '#8f9a84' }, density: 1.5, lowPoly: true, landmark: 'temple', sky: 'humid' },
+      desert: { fog: [1800, 7500], fogColor: '#f0dcb0', label: 'さばく', water: { deep: '#2f8fa8', shallow: '#9fe0e8' }, terrain: 'dunes', veg: 'sparse-dry', arch: { kind: 'adobe', palette: ['#e2c585', '#d8b878', '#c9a46a'], roofs: ['#b08a5a'], ruin: '#cdb48c' }, density: 0.6, landmark: 'pyramid', sky: 'haze' },
+      star_stop: { fog: [1200, 5000], fogColor: '#2b2460', stars: true, label: 'ほしの えき', water: { deep: '#2a3a7a', shallow: '#7a8ad0' }, terrain: 'isles', veg: 'crystal', arch: { kind: 'stop', palette: ['#9d8ff0'] }, density: 0.7, landmark: 'bigstop', sky: 'stars' },
+      memory_lake: { fog: [500, 2600], fogColor: '#9aa3c0', mist: true, lake: true, label: 'おもいでの みずうみ', water: { deep: '#2e3d6e', shallow: '#8a97c4', bank: '#4e5574', foam: '#c8d0ea' }, terrain: 'misty-shore', veg: 'bare-broadleaf', arch: { kind: 'none' }, density: 0.5, landmark: 'lantern', sky: 'mist' },
     };
     // 3D の 見た目の しゅるい。「せかいは 3D・キャラだけ 2D」: けしきの 物は 3D の かたち か、3D では 出さない(skip)。立て看板(billboard)は のこさない
     //   いみを かえない: きのこ は きのこ、はし は はし。3D に できない 雰囲気の しるし(💧・手前の えだ・光の もや)は 出さない
@@ -1171,7 +1188,7 @@
     // あたりが なくて よい(ふんで とおれる ひくい もの・水・はし・地面の しるし)
     const WALKABLE3D = new Set(['water', 'bridge', 'pebble', 'pebbles', 'mushrooms', 'grass', 'fern', 'sprout', 'leaf', 'nut', 'sparkle', 'flower', 'signpost', 'glowdecal', 'smalllog',
       'lamp', 'neon', 'decal', 'bush', 'parasol', 'lotus', 'reeds', 'croprow', 'lowmound', 'hole', 'hotspring', 'conep', 'binp', 'signal', 'bench', 'slide', 'pot', 'nest', 'logs', 'crystal', 'kelp', 'coral', 'coralfan', 'cactus', 'leafclump', 'vine', 'fence', 'pier', 'telescope', 'statue', 'pillar', 'obelisk', 'orrery', 'wheel', 'tent', 'car', 'boat', 'boxprop', 'hay', 'palm', 'torii', 'fountain', 'gate']);
-    const SOLID3D_TYPES = new Set(['conifer', 'broadleaf', 'bigtree', 'rock', 'log', 'stump', 'glowmushroom', 'mushroomgrove', 'waterfall', 'ledge', 'mound', 'house', 'tower', 'wall', 'rockwall', 'reef', 'sandwall', 'hedge', 'pinerow', 'kelprow', 'buttress', 'temple', 'dome', 'hull', 'ferris', 'lm_tower', 'lm_windmill', 'lm_peak', 'lm_lighthouse', 'lm_bigstop']);
+    const SOLID3D_TYPES = new Set(['conifer', 'broadleaf', 'bigtree', 'rock', 'log', 'stump', 'glowmushroom', 'mushroomgrove', 'waterfall', 'ledge', 'mound', 'house', 'tower', 'wall', 'ruin', 'rockwall', 'reef', 'sandwall', 'hedge', 'pinerow', 'kelprow', 'buttress', 'temple', 'dome', 'hull', 'ferris', 'lm_tower', 'lm_windmill', 'lm_peak', 'lm_lighthouse', 'lm_bigstop']);
     function objectType3d(p) {
       if (p.part3d) return p.part3d;   // ランドマークの まわりの 岩(3D だけ)
       if (p.landmark) return LANDMARK3D_TYPE[p.landmark] || 'unknown';
@@ -1263,19 +1280,31 @@
       const r = o ? Math.max(o.hw, o.hd) : halfW * 0.3;
       const below = (rad, y) => (y < OBJ3D_HEAD ? Math.min(rad, r + 10) : rad);   // あたまより 下は あたり + 10 まで
       switch (type) {
+        // Kit v2(Tree v2・F8): 幹は ほそり(taper)・高さの ばらつき、えだはりは 1 つの 塊では なく 2〜4 の かたまり(main + 小さな cluster)。
+        // 木の 種類(ctx.kind)で かたちを かえる: riverwood = たれる、parktree = まるい、mistwood / bluetree = うすい いろ、jungle(buttress)= 根もとが はる
         case 'conifer': {
-          const out = [{ shape: 'trunk', r: r * 0.5, h: H * 0.3, y: 0 }];
-          for (let i = 0; i < 3; i++) { const y = H * (0.16 + 0.24 * i); out.push({ shape: 'cone', r: below(halfW * (1.05 - 0.24 * i), y), h: H * 0.42, y }); }
+          const v = (ctx && ctx.v) || 0, tiers = 3 + (v > 0.6 ? 1 : 0), top = H * (0.95 + v * 0.12);
+          const out = [{ shape: 'trunk', r: r * 0.5, h: top * 0.42, y: 0, taper: 0.6 }];
+          for (let i = 0; i < tiers; i++) { const y = top * (0.14 + 0.2 * i), k = 1 - i / tiers; out.push({ shape: 'cone', r: below(halfW * (0.55 + 0.5 * k) * (0.92 + v * 0.16), y), h: top * (tiers === 4 ? 0.34 : 0.42), y }); }
           return out;
         }
         case 'broadleaf': {
-          const R = halfW * 0.95, cy = Math.max(H - R * 0.8, OBJ3D_HEAD + R * 0.8);
-          return [{ shape: 'trunk', r: r * 0.7, h: cy, y: 0 }, { shape: 'crown', r: R, sy: 0.8, y: cy }];
+          const v = (ctx && ctx.v) || 0, kind = (ctx && ctx.kind) || '🌳';
+          const droop = kind === 'riverwood' ? 0.12 : 0, round = kind === 'parktree' ? 1.1 : 1;
+          const R = halfW * (0.82 + v * 0.22) * round, cy = Math.max(H * (0.82 + v * 0.2) - R * (0.7 + droop), OBJ3D_HEAD + R * 0.75);
+          const color = kind === 'bluetree' ? '#7a93d8' : kind === 'mistwood' ? '#b9c7b4' : undefined;
+          const lowPoly = ctx && ctx.prof && ctx.prof.lowPoly && v < 0.5;   // 密な 地域(jungle)は 半分の 木を 20 三角形の かんむりに(三角形の 数を おさえる)
+          const out = [{ shape: 'trunk', r: r * 0.7, h: cy, y: 0, taper: 0.55 + v * 0.2 }, { shape: 'crown', small: lowPoly, r: R, sy: 0.78 + droop, y: cy, color }];
+          // 小さな cluster(20 三角形)を 1〜3。むきは 木ごとに
+          const n = 1 + Math.round(v * 2), a0 = v * 6.28;
+          for (let i = 0; i < n; i++) { const a = a0 + i * 2.2, rr = R * (0.5 + 0.15 * ((i + 1) % 2)); out.push({ shape: 'crown', small: true, r: rr, sy: 0.9, y: cy + R * (0.15 - droop * 2 - 0.25 * (i % 2)), dx: Math.sin(a) * R * 0.75, dz: Math.cos(a) * R * 0.75, color }); }
+          return out;
         }
         case 'bigtree': {
-          if (!ctx || !ctx.front) {   // ふつうの 大木(bigtrunk)
-            const top = Math.max(H, OBJ3D_HEAD * 3), R = Math.max(size * 0.42, r * 2.4);
-            return [{ shape: 'trunk', r, h: top, y: 0, taper: 0.6 }, { shape: 'crown', r: R, sy: 0.7, y: top + R * 0.3 }, { shape: 'crown', r: R * 0.75, sy: 0.7, y: top - R * 0.1, dx: R * 0.6 }, { shape: 'crown', r: R * 0.7, sy: 0.7, y: top, dx: -R * 0.55, dz: R * 0.3 }];
+          if (!ctx || !ctx.front) {   // ふつうの 大木(bigtrunk)。Kit v2: 側の かたまりは 小さな cluster、根もとに 根の はり
+            const top = Math.max(H, OBJ3D_HEAD * 3), R = Math.max(size * 0.42, r * 2.4), v = (ctx && ctx.v) || 0;
+            return [{ shape: 'trunk', r, h: top, y: 0, taper: 0.6 }, { shape: 'crown', r: R, sy: 0.7, y: top + R * 0.3 }, { shape: 'crown', small: true, r: R * 0.7, sy: 0.75, y: top - R * 0.05, dx: R * 0.65 }, { shape: 'crown', small: true, r: R * 0.62, sy: 0.75, y: top + R * 0.05, dx: -R * 0.55, dz: R * 0.35 },
+              { shape: 'mound', r: r * 0.95, h: r * 0.45, y: 0, color: '#6b4b32', dx: Math.sin(v * 6.28) * r * 0.05, dz: Math.cos(v * 6.28) * r * 0.05 }];   // 根の はり(あたりの なか)
           }
           // ランドマークの 大きな木: みき = あたり の まま。えだはり(あたまより 上)を ひとまわり 大きく ひくめに ひろげて、spot の 空を おおう
           const top = Math.max(size * 1.15, OBJ3D_HEAD * 3), R = Math.max(size * 0.6, r * 3);
@@ -1318,7 +1347,11 @@
         }
         case 'waterfall': return waterfallParts3d(o, r, size, ctx);
         default: return archetypeParts3d(type, o, r, H, halfW, size, ctx);
-        case 'rock': return [{ shape: 'rock', rx: o ? o.hw : r, rz: o ? o.hd : r, h: Math.min(H, (o ? Math.max(o.hw, o.hd) : r) * 1.1), y: 0 }];
+        case 'rock': {   // Kit v2(Rock v2): ごつごつの かたまり(mound)+ 小さな ともの 石。あたりの まる = 足もと
+          const rx = o ? o.hw : r, rz = o ? o.hd : r, v = (ctx && ctx.v) || 0, h = Math.min(H, Math.max(rx, rz) * (1.0 + v * 0.3));
+          const sm = ctx && ctx.sem, c = sm && sm.c;
+          return [{ shape: 'mound', r: Math.max(rx, rz), h, y: 0, color: c }, { shape: 'pebble', r: Math.min(14, rx * 0.35), y: 0, dx: Math.sin(v * 6.28) * (rx + 8), dz: Math.cos(v * 6.28) * (rz + 8), color: c }];
+        }
         case 'ledge': {   // いわだな = あたりの 箱 + 上に こけ(ctx.h = たかさ)
           const h = Math.max(40, (ctx && ctx.h) || 0), a = o ? o.ang : 0;
           return [{ shape: 'cliff', rx: o ? o.hw : r, rz: o ? o.hd : r, h, y: 0, ang: a }, { shape: 'moss', rx: (o ? o.hw : r) * 0.95, rz: (o ? o.hd : r) * 0.95, h: 18, y: h - 9, ang: a }];
@@ -1327,10 +1360,22 @@
         case 'stump': return [{ shape: 'stump', r, h: Math.min(size * 0.35, 60), y: 0 }];
         case 'water': return [{ shape: 'pool', r: halfW, y: 0 }];
         case 'pebble': { const sm = ctx && ctx.sem; return [{ shape: 'pebble', r: sm && sm.big ? Math.min(24, halfW * 0.4) : Math.min(16, halfW * 0.3), y: 0, color: sm && sm.c }]; }
-        case 'bridge': {   // はし: 丸太の はし(いた + てすり)/ いしの はし(石の いた)。spot の 道に そって
-          const stone = ctx && ctx.spot && /stone|ishi|bridge2/.test(ctx.spot.id), ang = ctx && ctx.ang != null ? ctx.ang : 0, len = size * 0.95, w = size * 0.34;
-          if (stone) return [{ shape: 'slab', len, w, y: 0, ang }];
-          return [{ shape: 'plank', len, w, y: 0, ang }, { shape: 'rail', len, r: 4, y: 30, ang, side: w * 0.5 }, { shape: 'rail', len, r: 4, y: 30, ang, side: -w * 0.5 }];
+        case 'bridge': {   // Kit v2(Bridge v2): いみ ごとに。丸太の はし = 丸太 3 本 + 支え、木の はし = いた + てすり + 支柱、いしの はし = 石の いた + 両わきの 石 + した の かげ、
+          // ロープの はし = いた + 太い ロープ + 支柱、光の はし = ひかる いた + 光の まる。横 / 下から 見ても はし
+          const sm = (ctx && ctx.sem) || {}, sid = ctx && ctx.spot ? ctx.spot.id : '';
+          const kind = /stone|ishi|bridge2/.test(sid) ? 'stone' : /log|maruta|bridge1/.test(sid) ? 'log' : sm.light ? 'light' : sm.rope ? 'rope' : 'wood';   // spot の なまえ(まるた / いし)が さき
+          const ang = ctx && ctx.ang != null ? ctx.ang : 0, len = size * 0.95, w = size * 0.34, sx = Math.sin(ang), sz = Math.cos(ang), px = Math.cos(ang), pz = -Math.sin(ang);
+          const post = (t, side, h, c) => ({ shape: 'wpost', r: 4, h, y: 0, dx: sx * t + px * side, dz: sz * t + pz * side, color: c });
+          const out = [];
+          if (kind === 'log') { for (const sd of [-1, 0, 1]) out.push({ shape: 'log', len, r: Math.min(11, w * 0.17), y: 0, ang, dx: px * sd * w * 0.34, dz: pz * sd * w * 0.34 }); for (const t of [-len * 0.42, len * 0.42]) for (const sd of [-1, 1]) out.push(post(t, sd * w * 0.5, 16, '#6b4a32')); out.push({ shape: 'decal', r: w * 0.5, y: 0, color: '#2a2622' }); return out; }
+          if (kind === 'stone') { out.push({ shape: 'slab', len, w, y: 0, ang }); for (const sd of [-1, 1]) out.push({ shape: 'box', rx: len * 0.5, rz: 5, h: 14, y: 0, ang, color: '#8c8c84', dx: px * sd * (w * 0.5 + 4), dz: pz * sd * (w * 0.5 + 4) }); out.push({ shape: 'decal', r: w * 0.55, y: 0, color: '#3a3a34' }); return out; }
+          if (kind === 'light') { out.push({ shape: 'wslab', len, w, h: 6, y: 2, ang, color: '#bfe3ff' }, { shape: 'glowdisc', r: w * 0.8, y: 0, color: '#9fc8ff' }); for (const t of [-len * 0.45, 0, len * 0.45]) out.push({ shape: 'spark', r: 6, y: 14, dx: sx * t, dz: sz * t, color: '#dff0ff' }); return out; }
+          out.push({ shape: 'plank', len, w, y: 0, ang });
+          const railH = kind === 'rope' ? 34 : 30, rr = kind === 'rope' ? 3 : 4;
+          for (const sd of [-1, 1]) out.push({ shape: 'rail', len, r: rr, y: railH, ang, side: sd * w * 0.5, color: kind === 'rope' ? '#b89a6a' : undefined });
+          for (const t of [-len * 0.44, 0, len * 0.44]) for (const sd of [-1, 1]) out.push(post(t, sd * w * 0.5, railH + 4, kind === 'rope' ? '#7a5a3a' : '#8a6a44'));
+          for (const t of [-len * 0.3, len * 0.3]) for (const sd of [-1, 1]) out.push(post(t, sd * w * 0.42, 14, '#6b4a32'));   // 下の 支え
+          return out;
         }
       }
     }
@@ -1339,24 +1384,63 @@
       const sm = (ctx && ctx.sem) || {}, c = sm.c, bw = o && o.shape === 'box' ? o.hw : r, bd = o && o.shape === 'box' ? o.hd : r, ang = o ? o.ang || 0 : (ctx && ctx.ang) || 0;
       const lo = (v) => Math.min(v, r + 10);   // あたまより 下の はば
       switch (type) {
+        // Kit v2(Building v2・F8 / F9): 箱 だけに しない。body + 屋根 + 正面の 入口 + まど(手前に すこし 出る 小さな 箱)+ ひさし / 煙突 / 看板。
+        // 正面 = あたりの 箱の 奥ゆき の じく の 手前がわ(cos ang, −sin ang)
         case 'house': {
-          const w = o ? bw : halfW * 0.6, d = o ? bd : halfW * 0.45, h = Math.max(OBJ3D_HEAD + 20, size * 0.5);
-          const out = [{ shape: 'box', rx: w, rz: d, h, y: 0, ang, color: c || '#d9c9a8' }];
+          const v = (ctx && ctx.v) || 0, w = o ? bw : halfW * 0.6, d = o ? bd : halfW * 0.45, h = Math.max(OBJ3D_HEAD + 20, size * (0.46 + v * 0.1));
+          const fx = Math.cos(ang), fz = -Math.sin(ang), sx = Math.sin(ang), sz = Math.cos(ang);   // 正面 / よこ の 向き
+          const front = (t, side, y, rx, rz, hh, color) => ({ shape: 'box', rx, rz, h: hh, y, ang, color, dx: fx * (d + 1.5) + sx * side, dz: fz * (d + 1.5) + sz * side, _t: t });
+          const A = (ctx && ctx.prof && ctx.prof.arch) || {}, pick = (arr, k) => (arr && arr.length ? arr[Math.floor(k * arr.length) % arr.length] : null);
+          const bodyC = (!sm.sign && A.palette && A.kind !== 'jp-city' ? pick(A.palette, v) : null) || c || '#d9c9a8', roofC = (!sm.sign && A.roofs ? pick(A.roofs, (v * 5.3) % 1) : null) || sm.rc;
+          const out = [{ shape: 'box', rx: w, rz: d, h, y: 0, ang, color: bodyC }];
           if (sm.roof === 'cone') out.push({ shape: 'roof', r: Math.max(w, d) * 1.25, h: size * 0.3, y: h, ang, color: sm.rc || '#6f5436', seg: 6 });
           else if (sm.roof === 'flat') out.push({ shape: 'box', rx: w * 1.06, rz: d * 1.06, h: 10, y: h, ang, color: sm.rc || '#5a5a5a' });
-          else out.push({ shape: 'roof', r: Math.max(w, d) * 1.3, h: size * 0.26, y: h, ang, color: sm.rc || '#8a4b3c', seg: 4 });
-          if (sm.sign) out.push({ shape: 'board', w: w * 1.2, h: 22, y: h - 30, ang: ang + Math.PI / 2, color: sm.rc || '#b04a4a', dx: Math.cos(ang) * (d + 2), dz: -Math.sin(ang) * (d + 2) });
+          else out.push({ shape: 'roof', r: Math.max(w, d) * 1.3, h: size * 0.26, y: h, ang, color: roofC || '#8a4b3c', seg: 4 });
+          // 入口(くらい 箱)と まど(明るい ガラス)。ひろい 家は まど 2〜3
+          const doorW = Math.min(14, w * 0.3), winW = Math.min(12, w * 0.22), winY = h * 0.5, nWin = w > 40 ? 2 : 1;
+          out.push(front(0, -w * 0.45, 0, doorW, 2, Math.min(h * 0.6, 44), '#4a3a2c'));
+          for (let i = 0; i < nWin; i++) out.push(front(0, w * (0.1 + i * 0.4), winY, winW, 1.5, 14, '#cfe6f2'));
+          if (sm.sign) out.push({ shape: 'board', w: w * 1.2, h: 22, y: h - 30, ang: ang + Math.PI / 2, color: sm.rc || '#b04a4a', dx: fx * (d + 2), dz: fz * (d + 2) });
+          else if (v > 0.5) out.push({ shape: 'box', rx: 6, rz: 6, h: size * 0.14, y: h + size * 0.1, ang, color: '#6a5a4a', dx: sx * w * 0.5, dz: sz * w * 0.5 });   // 煙突
+          if (sm.awning || (sm.sign && v > 0.3)) out.push({ shape: 'wslab', len: w * 1.3, w: 16, h: 4, y: Math.min(h * 0.62, 50), ang, color: sm.rc || '#b04a4a', dx: fx * (d + 8), dz: fz * (d + 8) });   // ひさし
           return out;
         }
         case 'tower': {
-          const w = o ? bw : halfW * 0.5, d = o ? bd : halfW * 0.4, h = Math.max(OBJ3D_HEAD + 40, size * (0.45 + 0.22 * (sm.fl || 3)));
-          const out = [{ shape: 'box', rx: w, rz: d, h, y: 0, ang, color: c || '#c4c8ce' }, { shape: 'box', rx: w * 0.6, rz: d * 0.6, h: 14, y: h, ang, color: '#8a8f96' }];
-          for (let f = 1; f < (sm.fl || 3); f++) out.push({ shape: 'box', rx: w * 1.03, rz: d * 1.03, h: 4, y: h * f / (sm.fl || 3), ang, color: '#6f7680' });   // かいの すじ
-          if (sm.sign) out.push({ shape: 'board', w: w, h: 20, y: h * 0.45, ang: ang + Math.PI / 2, color: '#ff5fa8', dx: Math.cos(ang) * (d + 2), dz: -Math.sin(ang) * (d + 2) });
+          // Region Profile v2: まちの ビルは 地域の palette から いろを えらび(v)、階数も ばらつく(heights)。屋上に 給水タンク / 小屋(roofTank)
+          const v = (ctx && ctx.v) || 0, A = (ctx && ctx.prof && ctx.prof.arch) || {}, pick = (arr, k) => (arr && arr.length ? arr[Math.floor(k * arr.length) % arr.length] : null);
+          const fl = Math.max(1, (sm.fl || 3) + (A.heights ? pick(A.heights, (v * 7.31) % 1) : 0)), w = o ? bw : halfW * 0.5, d = o ? bd : halfW * 0.4, h = Math.max(OBJ3D_HEAD + 40, size * (0.45 + 0.22 * fl) * (0.9 + v * 0.2));
+          const fx = Math.cos(ang), fz = -Math.sin(ang), sx = Math.sin(ang), sz = Math.cos(ang);
+          const bodyC = (A.palette && !sm.sign ? pick(A.palette, v) : null) || c || '#c4c8ce';
+          const out = [{ shape: 'box', rx: w, rz: d, h, y: 0, ang, color: bodyC }, { shape: 'box', rx: w * 0.6, rz: d * 0.6, h: 14, y: h, ang, color: '#8a8f96' }];
+          if (A.roofTank && v > 0.62) out.push({ shape: 'wstem', r: Math.min(9, w * 0.2), h: 18, y: h + 14, color: '#9aa0a8', dx: sx * w * 0.4, dz: sz * w * 0.4 });
+          for (let f = 1; f < fl; f++) out.push({ shape: 'box', rx: w * 1.03, rz: d * 1.03, h: 4, y: h * f / fl, ang, color: '#6f7680' });   // かいの すじ
+          // まどの れつ(正面): かいごとに 2〜3。ひろい ビルは 3。入口は 1 かいの まんなか
+          const cols = w > 46 ? 3 : 2, rows = Math.min(4, fl), winW = Math.min(10, w * 0.16), glass = (A.glass ? pick(A.glass, (v * 3.7) % 1) : null) || (v > 0.5 ? '#bcd4e6' : '#d6e6f0');
+          for (let r0 = 0; r0 < rows; r0++) for (let cc = 0; cc < cols; cc++) { const side = (cc - (cols - 1) / 2) * w * 0.5, y = h * ((r0 + 0.55) / rows); out.push({ shape: 'box', rx: winW, rz: 1.5, h: Math.min(16, h / rows * 0.4), y, ang, color: glass, dx: fx * (d + 1.5) + sx * side, dz: fz * (d + 1.5) + sz * side }); }
+          out.push({ shape: 'box', rx: Math.min(16, w * 0.3), rz: 2.5, h: Math.min(h * 0.22, 46), y: 0, ang, color: '#3c4048', dx: fx * (d + 2), dz: fz * (d + 2) });
+          if (sm.sign) out.push({ shape: 'board', w: w, h: 20, y: h * 0.45, ang: ang + Math.PI / 2, color: '#ff5fa8', dx: fx * (d + 2), dz: fz * (d + 2) });
           return out;
         }
-        case 'wall': return [{ shape: 'box', rx: bw, rz: bd, h: sm.ruin ? Math.max(40, size * 0.3) : Math.max(OBJ3D_HEAD, size * 0.6), y: 0, ang, color: c || '#9a9a94' }];
-        case 'rockwall': return [{ shape: 'cliff', rx: bw, rz: bd, h: Math.max(OBJ3D_HEAD + 10, size * 0.55), y: 0, ang, color: c }, { shape: 'moss', rx: bw * 0.6, rz: bd * 0.9, h: 16, y: Math.max(OBJ3D_HEAD + 10, size * 0.55) - 8, ang, color: c ? '#b8a07a' : undefined }];
+        case 'wall': return [{ shape: 'box', rx: bw, rz: bd, h: Math.max(OBJ3D_HEAD, size * 0.6), y: 0, ang, color: c || '#9a9a94' }];
+        // Kit v2(Ruin v2・F8): くずれた 構造物。高さの ちがう かべ 2〜3 まい(すきま あり)+ 柱 + 倒れた 石 + まぐさ(ひろい とき)。「建物」では なく「くずれた もの」
+        case 'ruin': {
+          const v = (ctx && ctx.v) || 0, sx = Math.sin(ang), sz = Math.cos(ang), top = Math.max(40, size * 0.32), out = [];
+          const c = (ctx && ctx.prof && ctx.prof.arch && ctx.prof.arch.ruin) || sm.c;   // 遺跡の 石の いろは 地域の もの(さばく = 砂色、jungle = こけ色)
+          const segs = bw > 60 ? 3 : 2;
+          for (let i = 0; i < segs; i++) { const t = (i / (segs - 1) - 0.5) * 2 * (bw - bw / segs), hh = top * (0.45 + ((i * 7 + Math.round(v * 10)) % 4) * 0.2); out.push({ shape: 'box', rx: bw / segs - 4, rz: bd, h: hh, y: 0, ang, color: c || '#9f9a8c', dx: sx * t, dz: sz * t }); }
+          out.push({ shape: 'wpost', r: Math.min(bd, 9), h: top * (1.1 + v * 0.3), y: 0, color: c || '#a8a39a', dx: sx * (bw - 8) * (v > 0.5 ? 1 : -1), dz: sz * (bw - 8) * (v > 0.5 ? 1 : -1) });
+          if (bw > 60) out.push({ shape: 'wslab', len: bw * 0.8, w: bd * 1.6, h: 8, y: top * 0.9, ang, color: c || '#9f9a8c', dx: sx * bw * 0.1, dz: sz * bw * 0.1 });
+          for (let i = 0; i < 3; i++) { const a = v * 6.28 + i * 2.1; out.push({ shape: 'pebble', r: 8 + (i % 2) * 5, y: 0, dx: Math.sin(a) * (bd + 16 + i * 6), dz: Math.cos(a) * (bd + 16 + i * 6), color: c || '#9f9a8c' }); }
+          return out;
+        }
+        // Kit v2(Rock / Cliff v2・F8): がけ = ごつごつの 箱 + 両はしの かた(mound)+ 足もとの 落石。横 / 後ろからも 成立
+        case 'rockwall': {
+          const v = (ctx && ctx.v) || 0, h = Math.max(OBJ3D_HEAD + 10, size * (0.5 + v * 0.1)), sx = Math.sin(ang), sz = Math.cos(ang);
+          const out = [{ shape: 'cliff', rx: bw, rz: bd, h, y: 0, ang, color: c }, { shape: 'moss', rx: bw * 0.6, rz: bd * 0.9, h: 16, y: h - 8, ang, color: c ? '#b8a07a' : undefined }];
+          for (const sd of [-1, 1]) out.push({ shape: 'mound', r: Math.min(bd, 40) * (0.9 + v * 0.3), h: h * (0.45 + v * 0.2), y: 0, color: c, dx: sx * sd * (bw - 6), dz: sz * sd * (bw - 6) });   // かた
+          for (let i = 0; i < 2; i++) out.push({ shape: 'pebble', r: 9 + i * 4, y: 0, color: c, dx: sx * (v - 0.5) * bw + Math.cos(ang) * (bd + 14 + i * 10), dz: sz * (v - 0.5) * bw - Math.sin(ang) * (bd + 14 + i * 10) });   // 落石
+          return out;
+        }
         case 'reef': return [{ shape: 'mound', r: Math.min(bw, bd), h: Math.max(60, size * 0.35), y: 0, color: c }, { shape: 'mound', r: Math.min(bw, bd) * 0.7, h: size * 0.28, y: 0, color: c, dx: Math.sin(ang) * bw * 0.55, dz: Math.cos(ang) * bw * 0.55 }, { shape: 'mound', r: Math.min(bw, bd) * 0.7, h: size * 0.3, y: 0, color: c, dx: -Math.sin(ang) * bw * 0.55, dz: -Math.cos(ang) * bw * 0.55 }];
         case 'sandwall': return [{ shape: 'mound', r: Math.min(bw, bd), h: Math.max(50, size * 0.28), y: 0, color: c }, { shape: 'mound', r: Math.min(bw, bd) * 0.8, h: size * 0.22, y: 0, color: c, dx: Math.sin(ang) * bw * 0.6, dz: Math.cos(ang) * bw * 0.6 }, { shape: 'mound', r: Math.min(bw, bd) * 0.8, h: size * 0.24, y: 0, color: c, dx: -Math.sin(ang) * bw * 0.6, dz: -Math.cos(ang) * bw * 0.6 }];
         case 'lowmound': return [{ shape: 'mound', r: Math.min(halfW * 0.5, 60), h: 14, y: 0, color: c }];
@@ -1364,17 +1448,24 @@
         case 'parasol': return [{ shape: 'wpost', r: 3, h: 60, y: 0, color: '#e8e8e4' }, { shape: 'dome', r: Math.min(34, halfW * 0.5), sy: 0.35, y: 56, color: c }];
         case 'hedge': return [{ shape: 'box', rx: bw, rz: bd, h: Math.min(OBJ3D_HEAD - 5, size * 0.45), y: 0, ang, color: c }];
         case 'pinerow': { const n = Math.max(2, Math.round(bw / 55)), out = []; for (let i = 0; i < n; i++) { const t = (i / (n - 1) - 0.5) * 2 * (bw - 20), dx = Math.sin(ang) * t, dz = Math.cos(ang) * t; out.push({ shape: 'trunk', r: Math.min(bd, 12), h: 40, y: 0, dx, dz }, { shape: 'cone', r: lo(Math.min(bd + 10, 46)), h: size * 0.4, y: 30, dx, dz }, { shape: 'cone', r: Math.min(bd + 10, 40) * 0.8, h: size * 0.3, y: 30 + size * 0.2, dx, dz }); } return out; }
-        case 'kelprow': { const n = Math.max(3, Math.round(bw / 30)), out = []; for (let i = 0; i < n; i++) { const t = (i / (n - 1) - 0.5) * 2 * (bw - 10); out.push({ shape: 'wblade', r: 8, h: size * (0.5 + 0.2 * (i % 3)), y: 0, dx: Math.sin(ang) * t, dz: Math.cos(ang) * t, color: c }); } return out; }
+        // Kit v2(Underwater Vegetation v2・F8): 昆布 = 曲がった 帯の は(kelp)を 1 かぶ 3〜5 まい・高さ ばらばら。木 / 柱の かたちは つかわない
+        case 'kelprow': { const v = (ctx && ctx.v) || 0, n = Math.max(3, Math.round(bw / 30)), out = []; for (let i = 0; i < n; i++) { const t = (i / (n - 1) - 0.5) * 2 * (bw - 10); for (let k = 0; k < 2; k++) out.push({ shape: 'kelp', w: 14 + (k ? 4 : 0), h: size * (0.45 + 0.22 * ((i + k) % 3)) * (0.9 + v * 0.2), y: 0, dx: Math.sin(ang) * t + (k ? 7 : -5), dz: Math.cos(ang) * t + (k ? -4 : 6), spin: (i * 1.3 + k * 2.1 + v * 6.28), color: c }); } return out; }
         case 'croprow': { const n = Math.max(3, Math.round((o ? bw : halfW) / 24)), out = []; for (let i = 0; i < n; i++) { const t = (i / (n - 1) - 0.5) * 2 * ((o ? bw : halfW) - 8); out.push({ shape: 'wblade', r: 7, h: 22, y: 0, dx: Math.sin(ang) * t, dz: Math.cos(ang) * t, color: c }); } return out; }
         case 'fence': { const n = Math.max(2, Math.round(bw / 50)), h = sm.low ? 24 : Math.min(60, size * 0.35), out = [{ shape: 'rail', len: bw * 2, r: 3, y: h - 6, ang, side: 0, color: c }]; if (!sm.low) out.push({ shape: 'rail', len: bw * 2, r: 3, y: h * 0.5, ang, side: 0, color: c }); for (let i = 0; i < n; i++) { const t = (i / (n - 1) - 0.5) * 2 * (bw - 4); out.push({ shape: 'wpost', r: 4, h, y: 0, dx: Math.sin(ang) * t, dz: Math.cos(ang) * t, color: c }); } return out; }
-        case 'palm': { const h = Math.max(OBJ3D_HEAD + 30, size * (sm.big ? 0.9 : 0.75)), out = [{ shape: 'trunk', r: Math.min(r, 12), h, y: 0, taper: 0.8 }]; for (let i = 0; i < 6; i++) { const a = i * Math.PI / 3; out.push({ shape: 'wblade', r: 9, h: size * 0.28, y: h - 6, dx: Math.sin(a) * 22, dz: Math.cos(a) * 22, color: '#3f8a46', lean: a }); } out.push({ shape: 'crown', r: 20, sy: 0.6, y: h + 2 }); return out; }
+        case 'palm': {   // Kit v2: は は 外へ たおれて たれる(lean / tilt)。幹は ほそく すこし 高さ ばらつき
+          const v = (ctx && ctx.v) || 0, h = Math.max(OBJ3D_HEAD + 30, size * (sm.big ? 0.9 : 0.75) * (0.9 + v * 0.2)), out = [{ shape: 'trunk', r: Math.min(r, 12), h, y: 0, taper: 0.6 }];
+          for (let i = 0; i < 7; i++) { const a = i * Math.PI * 2 / 7 + v * 6.28; out.push({ shape: 'wblade', r: 7, h: size * (0.3 + 0.06 * (i % 2)), y: h - 4, dx: Math.sin(a) * 10, dz: Math.cos(a) * 10, color: i % 2 ? '#3f8a46' : '#4f9a52', lean: a, tilt: 1.05 + (i % 2) * 0.2 }); }
+          out.push({ shape: 'crown', small: true, r: 16, sy: 0.6, y: h + 2, color: '#4f8a46' }); return out; }
         case 'cactus': { const h = Math.min(OBJ3D_HEAD + 20, size * 0.6); return [{ shape: 'wstem', r: Math.min(r || 10, 12), h, y: 0, color: c }, { shape: 'wstem', r: 7, h: h * 0.4, y: h * 0.45, dx: 14, color: c }, { shape: 'wstem', r: 6, h: h * 0.3, y: h * 0.55, dx: -13, dz: 4, color: c }]; }
-        case 'buttress': { const top = Math.max(OBJ3D_HEAD * 2.4, size * 0.9), R = Math.max(size * 0.45, r * 2); return [{ shape: 'trunk', r, h: top, y: 0, taper: 0.5 }, { shape: 'crown', r: R, sy: 0.6, y: top + R * 0.1 }, { shape: 'crown', r: R * 0.7, sy: 0.6, y: top - R * 0.2, dx: R * 0.6 }, { shape: 'crown', r: R * 0.65, sy: 0.6, y: top - R * 0.25, dx: -R * 0.55, dz: R * 0.3 }]; }
+        case 'buttress': {   // Kit v2(jungle): 根もとが はる(板根 = 3 つの ひくい mound)+ 高い 幹 + ひろい かんむり(小さな cluster つき)
+          const v = (ctx && ctx.v) || 0, top = Math.max(OBJ3D_HEAD * 2.4, size * 0.9), R = Math.max(size * 0.45, r * 2), out = [{ shape: 'trunk', r, h: top, y: 0, taper: 0.5 }, { shape: 'crown', r: R, sy: 0.6, y: top + R * 0.1 }, { shape: 'crown', small: true, r: R * 0.7, sy: 0.65, y: top - R * 0.1, dx: R * 0.6 }, { shape: 'crown', small: true, r: R * 0.62, sy: 0.65, y: top - R * 0.15, dx: -R * 0.55, dz: R * 0.3 }];
+          for (let i = 0; i < 3; i++) { const a = v * 6.28 + i * 2.1; out.push({ shape: 'mound', r: r * 0.9, h: r * 0.9, y: 0, color: '#5a3f2a', dx: Math.sin(a) * r * 0.9, dz: Math.cos(a) * r * 0.9 }); }
+          return out; }
         case 'vine': return [{ shape: 'wpost', r: Math.min(r || 6, 8), h: Math.max(OBJ3D_HEAD, size * 0.7), y: 0, color: c }, { shape: 'wblade', r: 10, h: 40, y: Math.max(OBJ3D_HEAD, size * 0.7) - 20, color: c }];
         case 'leafclump': { const out = []; for (let i = 0; i < (sm.big ? 5 : 3); i++) { const a = i * 1.9 + 0.3, d = i ? 12 + i * 4 : 0; out.push({ shape: 'wblade', r: lo(sm.big ? 22 : 16), h: sm.big ? 70 : 50, y: 0, dx: Math.sin(a) * d, dz: Math.cos(a) * d, color: c }); } return out; }
         case 'coral': { const out = []; for (let i = 0; i < 3; i++) { const a = i * 2.1, d = i ? 14 : 0; out.push({ shape: 'wcone', r: lo(10 + i * 3), h: Math.min(90, size * (0.35 + 0.1 * i)), y: 0, dx: Math.sin(a) * d, dz: Math.cos(a) * d, color: c, glow: sm.glow }); } return out; }
         case 'coralfan': return [{ shape: 'dome', r: lo(halfW * 0.5), sy: 1.2, y: 0, color: c }];
-        case 'kelp': return [0, 1, 2].map((i) => ({ shape: 'wblade', r: 7, h: size * (0.5 + 0.15 * i), y: 0, dx: Math.sin(i * 2.1) * 10, dz: Math.cos(i * 2.1) * 10, color: c }));
+        case 'kelp': { const v = (ctx && ctx.v) || 0, n = 3 + (v > 0.5 ? 2 : 0), out = []; for (let i = 0; i < n; i++) out.push({ shape: 'kelp', w: 12 + (i % 2) * 5, h: size * (0.45 + 0.14 * (i % 3)) * (0.85 + v * 0.3), y: 0, dx: Math.sin(i * 2.1 + v) * 11, dz: Math.cos(i * 2.1 + v) * 11, spin: i * 1.7 + v * 6.28, color: c }); return out; }
         case 'vent': return [{ shape: 'rock', rx: r, rz: r, h: r * 0.9, y: 0 }, { shape: 'mist', r: r * 0.8, sy: 1.4, y: r * 0.9, fx: 0, fz: -1 }];
         case 'reeds': { const n = sm.n || 3, out = []; for (let i = 0; i < n; i++) { const a = i * 1.7, d = i ? 8 + i * 3 : 0; out.push({ shape: 'wblade', r: 4, h: 30 + 40 * (sm.h || 0.6), y: 0, dx: Math.sin(a) * d, dz: Math.cos(a) * d, color: c }); } return out; }
         case 'lotus': return [{ shape: 'petal', r: 12, y: 2.8, color: '#4f8a3a' }, { shape: 'petal', r: 6, y: 4, color: c }];
@@ -1384,7 +1475,13 @@
         case 'hole': return [{ shape: 'decal', r: halfW * 0.5, y: 0, color: '#2a2622' }];
         case 'decal': return [{ shape: 'decal', r: halfW * 0.6, y: 0, color: c }];
         case 'crystal': { const n = sm.n || 1, out = []; for (let i = 0; i < n; i++) { const a = i * 2.1, d = i ? 18 : 0; out.push({ shape: 'wcone', r: lo(Math.max(8, r * (i ? 0.6 : 1))), h: Math.min(OBJ3D_HEAD + 30, size * 0.6) * (i ? 0.6 : 1), y: 0, dx: Math.sin(a) * d, dz: Math.cos(a) * d, color: c, glow: sm.glow, seg: 6 }); } return out; }
-        case 'lamp': { const h = Math.min(OBJ3D_HEAD + 20, size * (sm.h || 1)); return [{ shape: 'wpost', r: Math.min(r || 4, 5), h, y: 0, color: '#4a4a48' }, { shape: 'spark', r: 9, y: h + 6, color: c }, { shape: 'glowdisc', r: Math.min(60, h * 0.5), y: 0, color: c }]; }
+        case 'lamp': {
+          const h = Math.min(OBJ3D_HEAD + 20, size * (sm.h || 1)), out = [{ shape: 'wpost', r: Math.min(r || 4, 5), h, y: 0, color: '#4a4a48' }, { shape: 'spark', r: 9, y: h + 6, color: c }, { shape: 'glowdisc', r: Math.min(60, h * 0.5), y: 0, color: c }];
+          // Region Profile v2(F9): まちの 街灯は 電柱に(高い 柱 + 横木 + 変圧器の 箱)。日本の 都市の 情報量
+          const A = ctx && ctx.prof && ctx.prof.arch;
+          if (A && A.poles && (ctx.kind === 'streetlight' || ctx.kind === '💡')) { const ph = Math.max(h + 40, OBJ3D_HEAD + 60); out[0] = { shape: 'wpost', r: 4.5, h: ph, y: 0, color: '#8a857a' }; out.push({ shape: 'wslab', len: 36, w: 4, h: 4, y: ph - 10, ang: ang + Math.PI / 2, color: '#8a857a' }, { shape: 'box', rx: 5, rz: 5, h: 14, y: ph - 30, ang: 0, color: '#6a6a66', dx: 8 }); }
+          return out;
+        }
         case 'neon': return [{ shape: 'wpost', r: 4, h: 70, y: 0, color: '#3a3a3a' }, { shape: 'board', w: 40, h: 18, y: 56, ang: ang + Math.PI / 2, color: c, glow: true }];
         case 'signal': return [{ shape: 'wpost', r: 4, h: 110, y: 0, color: '#4a4a48' }, { shape: 'box', rx: 6, rz: 5, h: 26, y: 96, ang: 0, color: '#3a3a3a' }, { shape: 'spark', r: 4, y: 116, color: '#ff4040', dx: 0, dz: -6 }];
         case 'conep': return [{ shape: 'wcone', r: 8, h: 22, y: 0, color: c }];
@@ -1396,7 +1493,13 @@
         case 'pier': return [{ shape: 'plank', len: size * 0.9, w: size * 0.22, y: 0, ang }, { shape: 'wpost', r: 4, h: 14, y: 0, dx: Math.sin(ang) * size * 0.4, dz: Math.cos(ang) * size * 0.4, color: '#6b4a32' }, { shape: 'wpost', r: 4, h: 14, y: 0, dx: -Math.sin(ang) * size * 0.4, dz: -Math.cos(ang) * size * 0.4, color: '#6b4a32' }];
         case 'telescope': return [{ shape: 'wpost', r: Math.min(r || 5, 6), h: 50, y: 0, color: c }, { shape: 'box', rx: 18, rz: 5, h: 10, y: 50, ang: ang + 0.5, color: c }];
         case 'statue': return [{ shape: 'wpost', r: Math.min(r || 10, 12), h: 40, y: 0, color: c }, { shape: 'nut', r: 14, y: 40, color: c }, { shape: 'nut', r: 9, y: 66, color: c }];
-        case 'pillar': return [{ shape: 'wpost', r: Math.min(r || 10, 14), h: Math.max(OBJ3D_HEAD, size * 0.6), y: 0, color: c }];
+        case 'pillar': {   // Kit v2(Ruin v2): 柱 + 柱頭(箱)。半分は 折れて ひくい。足もとに かけら
+          const v = (ctx && ctx.v) || 0, broken = v > 0.55, h = Math.max(OBJ3D_HEAD, size * 0.6) * (broken ? 0.55 : 1), pr = Math.min(r || 10, 14);
+          const out = [{ shape: 'wpost', r: pr, h, y: 0, color: c }];
+          if (!broken) out.push({ shape: 'box', rx: pr * 1.5, rz: pr * 1.5, h: 8, y: h, ang: 0, color: c });
+          else out.push({ shape: 'pebble', r: pr * 0.8, y: 0, dx: pr * 2.2, dz: pr * 1.2, color: c });
+          return out;
+        }
         case 'obelisk': return [{ shape: 'wcone', r: Math.min(r || 10, 14), h: Math.max(OBJ3D_HEAD + 40, size * 0.9), y: 0, color: c, seg: 4 }];
         case 'orrery': return [{ shape: 'wpost', r: 4, h: 60, y: 0, color: c }, { shape: 'spark', r: 8, y: 66, color: '#ffe070' }, { shape: 'spark', r: 4, y: 72, dx: 18, color: '#9fc8ff' }, { shape: 'spark', r: 3, y: 60, dx: -22, dz: 8, color: '#ffb766' }];
         case 'wheel': return [{ shape: 'ring', r: Math.min(bw, 40), tube: 4, y: Math.min(bw, 40) + 4, ang, color: c }, { shape: 'wpost', r: 4, h: Math.min(bw, 40) + 4, y: 0, color: c }];
@@ -1422,17 +1525,31 @@
         default: return [];
       }
     }
+    // corridor(地域の あいだの 道)の 飾りの 3D の しゅるい(v2・F3)。corridor の 飾りは 帯の そと(あるける 幅の 外)に あって あたりは もたない
+    // (あたりは 帯の 左右と はしの いし だけ)ので、2D で あたりの ない 木を ひざ丈に する SOFT3D の 置きかえは しない:
+    // 木は 木・家は 家の まま(見た目 だけ)。はしの いし(blocker)だけ かたい 岩(あたり = corridorBody の まる r 24)
+    function corridorObjectType3d(p) {
+      if (p.blocker) return 'rock';
+      const k = p.struct || p.emoji;
+      if (HIDDEN3D.has(k)) return 'skip';
+      if (SEM3D[k]) return SEM3D[k].t;
+      if (k === '🪨') return 'pebble';
+      if (k === '🪵') return 'smalllog';
+      if (OBJ3D_TYPE[k]) return OBJ3D_TYPE[k];
+      return k ? 'unknown' : 'skip';
+    }
     function worldObjects3d(world) {
       const byPi = new Map();
       for (const o of world.obstacles || []) if (o.pi != null) byPi.set(o.pi, o);
       const out = [], skipped = {}, unresolved = [];
+      const corridor = !!world.corridor;
       world.props.forEach((p, i) => {
-        const type = objectType3d(p), kind = p.landmark ? 'LM:' + p.landmark : p.struct || p.emoji;
+        const type = corridor ? corridorObjectType3d(p) : objectType3d(p), kind = p.landmark ? 'LM:' + p.landmark : p.struct || p.emoji;
         if (type === 'skip') { skipped[kind] = (skipped[kind] || 0) + 1; return; }
         if (type === 'unknown') { unresolved.push(kind); return; }   // production では 出さない(あたりも 3D では つけない: 下の 3D のおきなおしで solid を 外す)
-        const o = byPi.get(i) || null;
+        const o = corridor ? (p.blocker ? { shape: 'circle', x: p.x, z: p.z, hw: 24, hd: 24, ang: 0, role: 'solid' } : null) : (byPi.get(i) || null);
         const solid = !!o && o.role === 'solid';
-        if (!o && !WALKABLE3D.has(type)) { unresolved.push(kind); return; }   // かたい 見た目で あたりが ない 物は おかない
+        if (!corridor && !o && !WALKABLE3D.has(type)) { unresolved.push(kind); return; }   // かたい 見た目で あたりが ない 物は おかない(corridor の 飾りは 帯の そと なので 可)
         const size = p.size || 160, box = (p.struct && OCCLUDER_BOX[p.struct]) || (p.landmark ? OCCLUDER_BOX.landmark : OCCLUDER_BOX.glyph);
         const H = size * box[1], halfW = size * box[0];
         // ランドマークは もちぬしの spot(むき・きょり)を しって いる。たきは たきつぼ を spot の 池 の かわりに もつ
@@ -1448,6 +1565,8 @@
         const sem = SEM3D[p.struct || p.emoji] || null;
         if (sem) ctx = Object.assign(ctx || {}, { sem });
         if (!ctx && p.ang) ctx = { ang: p.ang };
+        // Kit v2: 物ごとの ばらつき v(0〜1・決定的)と kind(木の 種類 など)を 原型に わたす
+        ctx = Object.assign(ctx || {}, { v: (hash(world.regionId + ':v:' + i) % 1000) / 1000, kind: p.struct || p.emoji, prof: REGION3D[world.regionId] || null });
         out.push({ id: world.regionId + ':' + i, pi: i, type, kind, region: world.regionId, layer: p.layer || null, role: o ? o.role : null, spot: sp ? sp.id : null,
           x: o ? o.x : p.x, z: o ? o.z : p.z, rot: o ? o.ang || 0 : p.ang || 0, height: H, halfW, size, emoji: type === 'billboard' ? (p.emoji || OBJ3D_BILLBOARD[p.struct]) : null,
           solid, walkable: !o, collision: o ? { shape: o.shape, x: o.x, z: o.z, hw: o.hw, hd: o.hd, ang: o.ang || 0 } : null, moved3d: !!p.moved3d, parts: parts3d(type, o, H, halfW, size, ctx) });
@@ -1561,6 +1680,20 @@
     // ちずの もと。「あるいた けっか」だけを かえす 純すいな かんすう。
     // いまの 地域は sim.mapData() が、ほかの 地域は セーブの きろくから これを よぶ。
     // え には いっさい さわらない ので、Three.js に かわっても この データの まま つかえる
+    // ちずの 表示 filter(2026-10-01 3D v2・Human QA v1 F6「ちずに ふつうの spot が 多く ノイズ」)。
+    // 出す: いまの ばしょ・地域の つながり(connection の mouth)・gate / のりば・ランドマーク(spot)・ひみつ・hub / ひろば・みせ。
+    // 出さない: ふつうの 池・休憩所・小さな 橋・ふつうの 木立・通過点・みはらし(ランドマークで ない)。
+    // これは 表示 だけ。rec(きろく)・セーブ・探索率の 分母・spotDiscoveryLevel は 1 つも かえない
+    const MAP_SHOW_KIND = new Set(['plaza', 'shop']);
+    function mapSpotShown(world, q, rec) {
+      if (!q) return false;
+      if (rec && q.id === rec.hereSpot) return true;
+      if (q.secret || q.landmark || q.hub) return true;
+      if (MAP_SHOW_KIND.has(q.kind)) return true;
+      const rid = world.regionId;
+      if (WORLD_GEOGRAPHY.connections.some((c) => c.mouths && c.mouths[rid] === q.id)) return true;   // 地域の つながり / gate / のりば
+      return false;
+    }
     function computeMapData(world, rec) {
       const L = worldLayers(world);
       const zoneById = new Map(L.zone.map((z) => [z.id, z]));
@@ -1589,9 +1722,13 @@
           visited: seen, hinted: !seen && hinted.has(z.id),
           spots: seen ? own.map((q) => q.id) : [] };
       });
-      const spots = world.spots.filter((q) => rec.discovered.has(q.id)).map((q) => ({
+      // 2026-10-01 3D v2(Human QA v1 F6): ちずに 出す spot は 表示 filter(mapSpotShown)を 通った ものだけ。
+      // 内部の きろく(rec.discovered / セーブ / 探索率の 分母)は かわらない。かくした 数は spotsHidden に
+      const found = world.spots.filter((q) => rec.discovered.has(q.id));
+      const spots = found.filter((q) => mapSpotShown(world, q, rec)).map((q) => ({
         id: q.id, label: q.label, x: q.x, z: q.z, kind: q.kind, zone: q.zone || null,
         secret: !!q.secret, hub: !!q.hub, current: q.id === rec.hereSpot }));
+      const spotsHidden = found.length - spots.length;
       // みちは りょうはしを 見つけて いる ときだけ かく。そうしないと、
       // ふつうの みちで つながった ひみつの ばしょの いちが ちずから わかって しまう
       const paths = world.segments.filter((sg) => rec.walkedPaths.has(segKey(sg))
@@ -1619,7 +1756,7 @@
       return {
         regionId: world.regionId, len: world.len, halfW: world.halfW,
         ground: world.ground, terrain: world.terrain || null, streaming: L.streaming,
-        zones, spots, paths, landmarks,
+        zones, spots, spotsHidden, paths, landmarks,
         here: rec.here || null,
         progress: {
           percent: denom ? Math.round(((foundOpen + foundSecrets) / denom) * 100) : 0,
@@ -6838,6 +6975,8 @@
         detail: A.detail || [], canopy: null, density: 0.8, view: 1, terrain: null, wind: A.wind || [0.5, 1], motion: A.motion || [],
         areas: [], shore: [], edge: A.edge || '#8a7a5a', backdrop: A.backdrop || 'hills', sky: A.sky || null, floor: null,
         markStyle: A.marks || { color: '#88aa66', kind: 'tuft' }, blockers,
+        // 3D v2(F3): corridor も 3D レンダラーで 描く ための しるし(え の がわ だけが よむ。gameplay は かわらない)
+        corridorTo: ch.to, progress: 0,
       };
       // 森の 屋根(canopy)は 森の 段の おく(森で ない 段から 2 段 いじょう はなれた ところ)だけ
       const deep = looks.map((lk, i) => lk.terrain === 'forest' && looks.every((o, j) => o.terrain === 'forest' || Math.abs(i - j) >= 2));
@@ -6847,6 +6986,7 @@
       world.setProgress = (t) => {
         const s = Math.max(0, Math.min(1, t)) * ch.L, le = lean(s), a = looks[le.i], b = looks[le.j], k = smooth01(le.w * 2) / 2;
         const tq = Math.max(0, Math.min(1, t)), key = le.i + ':' + le.j + ':' + Math.round(k * 64) + ':' + Math.round(tq * 120);
+        world.progress = tq;   // 3D v2: きり(from → to の profile)を まぜる ための すすみぐあい
         if (key === lastKey) return;
         lastKey = key;
         world.regionId = t < 0.5 ? ch.from : ch.to;
@@ -8264,7 +8404,8 @@
         mapAdded = true;                                   // きろくは どの spot でも これまで どおり
         // 目じるしの ない 通過点では しらせない。どこに いるかは 左上の チップが 出しつづける
         const dn = discoveryNotice(s);
-        if (dn) {
+        if (dn && dn.quiet) quietSpotMark(s);   // ランドマーク: toast では なく 左上の 名まえの 静かな 強調(v2 F4)
+        else if (dn) {
           const note = mapNote();
           queueFound({ key: `spot:${rid}:${s.id}`, kind: dn.kind, region: rid, icon: dn.icon, title: dn.title,
             sub: s.secret ? [s.label, note].filter(Boolean).join('・') : note });   // ひみつは なまえを その した に そえる
@@ -8287,12 +8428,17 @@
         return n <= FOUND_TUTORIAL ? 'ちずに きろくした' : '';
       }
       // はじめて 入った 地区。ちずの ぬりが ひろがる ので、いみが わかる なまえで 出す(§8)
+      // 2026-10-01 3D v2(F5): 地区に 入った toast は 出さない(左上の 名まえが 地区名に かわる だけ)。きろく(ちず)は これまで どおり
       function noteZoneFound(zn) {
-        const rid = sim.world.regionId;
         saveMapBits('zones', zn.id); mapAdded = true;
-        queueFound({ key: `zone:${rid}:${zn.id}`, kind: 'zone', region: rid, icon: '🗺',
-          title: `${zn.label}に きた`, sub: mapNote() ? 'ちずが すこし ひろがった' : '' });
       }
+      // ランドマークを はじめて 見つけた とき: 左上の 名まえを 1.6 秒 だけ 静かに 強調(toast・音 なし。v2 F4)
+      let quietMarkUntil = 0, quietMarkId = null;
+      function quietSpotMark(s) {
+        quietMarkId = s.id; quietMarkUntil = (typeof performance !== 'undefined' && performance.now ? performance.now() : Date.now()) + 1600;
+        if (spotEl && spotEl.classList) { spotEl.classList.remove('mgr-spot-found'); void spotEl.offsetWidth; spotEl.classList.add('mgr-spot-found'); }
+      }
+      const quietMarkInfo = () => ({ id: quietMarkId, until: quietMarkUntil });
       // めじるしは しらせない が、ちずには のせる。**こえて いる あいだ も のこす**
       // (まえは ここで すてて いた ので、ちずに 出ない のに ボタンだけ ひかって いた)
       const flushMarks = () => { if (newMarks.length) { saveMapBits('marks', newMarks); newMarks.length = 0; mapAdded = true; } };
@@ -9229,10 +9375,10 @@
       const foundInfo = () => ({ now: foundNow ? { ...foundNow } : null, queue: foundQueue.map((q) => ({ ...q })), banner });
       // その ばしょを 見つけた とき しらせるか(しらべ もの よう)。え には つかわない
       const spotLevel = (id) => { const q = sim.world.spots.find((x) => x.id === id); return q ? spotDiscoveryLevel(q) : 0; };
-      return { stop, layoutInfo, foundInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; }, get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; } };
+      return { stop, layoutInfo, foundInfo, quietMark: quietMarkInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; }, get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, EMOJI_VARY, emojiVary, RIVERMIST_STOPS, NIGHT_LIFT, LEAF_NIGHT, HORIZON_HAZE, LANDMARK_NEAR, landmarkNearAlpha, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_SHIFT, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK, WORLD_THEME, WORLD_MOTION, WORLD_SPACE, REGION_LINE, SKY_OVERRIDE, GEO_AREA, GEO_ASPECT,
+    return { computeMapData, mapSpotShown, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, EMOJI_VARY, emojiVary, RIVERMIST_STOPS, NIGHT_LIFT, LEAF_NIGHT, HORIZON_HAZE, LANDMARK_NEAR, landmarkNearAlpha, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_SHIFT, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK, WORLD_THEME, WORLD_MOTION, WORLD_SPACE, REGION_LINE, SKY_OVERRIDE, GEO_AREA, GEO_ASPECT,
       // 3D prototype(meguru-3d.mjs が つかう。2D では つかわない)
       WORLD3D_REGIONS, REGION3D, SEM3D, HIDDEN3D, LANDMARK3D_TYPE, discoveryNotice, world3dOn, relocateRoadSolids3d, worldObjects3d, objectType3d, OBJ3D_HEAD, ACTOR_SIZE, glyphSprite, imageFor, TIME_LIGHT, WEATHER_LIGHT, VERBS };
   };
