@@ -252,10 +252,28 @@ test('isActive tracks pet motion and idle can exclude the pet', () => {
   assert.equal(partner.animations.length+companion.animations.length,1);
 });
 
-test('medicine cure settles first unless the text describes rejection', () => {
+test('successful medicine cure keeps recovery semantics even when the line mentions bitterness', () => {
   const {reactionFor}=require('../cast-motion.js');
-  assert.equal(reactionFor('medicine_cure','げんきになったよ'),'settle');
-  assert.equal(reactionFor('medicine_cure','にがい！'),'shake');
+  assert.equal(reactionFor('medicine_cure','げんきになったよ'),'recover');
+  assert.equal(reactionFor('medicine_cure','まずっ!!でもなおった!'),'recover');
+  assert.equal(reactionFor('medicine_wrong','にがい！'),'shake');
+});
+
+test('a resting partner reply after cure cannot lift the surrounding cast', () => {
+  const h=harness(); const s=cast(h);
+  const source=require('node:fs').readFileSync('character-world-master.v1.js','utf8');
+  const world=new Function(source+';return NAOTOCCHI_CHARACTER_WORLD_MASTER_V1')();
+  s.companions=[...world.companions.normal,...world.companions.rare].map(c=>({id:c.id,bond:100}));
+  h.api.render();
+  // Use the actual Home conversation path; secondary tone may remain gentle.
+  h.api.speakEvent('clean',{petText:'きれいになった',partnerChance:0,companionChance:0});
+  h.advance(1);
+  const prior=h.get('castResponse').animations.at(-1);
+  const count=h.get('castResponse').animations.length;
+  h.api.setSpeechBubble('今日はちょっとゆっくりしよ',
+    {kind:'partner',id:s.partner.id,label:s.partner.label},{event:'medicine_cure'});
+  assert.equal(h.get('castResponse').animations.length,count,'a cure reply must not start a group lift');
+  assert.equal(prior.playState,'idle','the cure reply also cancels a stale group lift');
 });
 
 test('pet care semantics win over randomized line tone without changing social tone', () => {
@@ -269,4 +287,34 @@ test('pet care semantics win over randomized line tone without changing social t
   assert.equal(reactionFor('wake','おはよ。まだねむい','companion'),'settle');
   assert.equal(reactionFor('play_with','なんかねむくなってきた','partner'),'settle');
   assert.equal(reactionFor('play_with','もう少しだけ置き物にして','companion'),'settle');
+});
+
+
+test('recovery pilot has one large relieved peak and returns exactly to rest', () => {
+  const {motionFrames}=require('../cast-motion.js');
+  const motion=motionFrames('recover',104,{maxDisplacement:18});
+  assert.equal(motion.duration,1450);
+  assert.deepEqual(motion.poses.at(-1),{x:0,y:0,angle:0,scale:1});
+  const ys=motion.poses.map(p=>p.y);
+  assert.ok(Math.min(...ys)<=-10,'recovery should read larger than an ordinary reaction');
+  assert.equal(ys.filter(y=>y<=-10).length,1,'recovery has one primary celebration peak');
+});
+
+
+test('focused recovery keeps a readable 16px budget even when ambient cast motion is only 1px', () => {
+  const {createController}=require('../cast-motion.js');
+  const pet=motionNode(), accessory=motionNode(), group=motionNode();
+  const controller=createController({
+    getActors:()=>[{kind:'pet',id:'pet',node:pet,size:104},{kind:'accessory',id:'ribbon',node:accessory,size:104}],
+    getGroup:()=>group,getMotionRadius:()=>1,
+    env:{matchMedia:()=>({matches:false,addEventListener(){}}),getComputedStyle:()=>({transform:'none'})},
+  });
+  controller.pet('recover');
+  const ys=pet.animations.at(-1).frames.map(frame=>Number(frame.transform.match(/translate\([^,]+, ([-.\d]+)px\)/)?.[1]));
+  assert.ok(ys.every(Number.isFinite),'every recovery frame has a readable vertical displacement');
+  assert.ok(Math.min(...ys)<=-10);
+  assert.ok(ys.every(y=>Math.abs(y)<=16));
+  assert.equal(ys.at(-1),0);
+  assert.equal(group.animations.length,0,'focused recovery never lifts the surrounding cast');
+  assert.deepEqual(accessory.animations.at(-1).frames,pet.animations.at(-1).frames);
 });

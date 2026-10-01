@@ -4126,9 +4126,9 @@
         careAfterglowTimer = setTimeout(tryRun,120);
         return;
       }
-      const duration = castMotion?.pet(motion,{gentle:true}) || 0;
+      const duration = motion ? castMotion?.pet(motion,{gentle:true}) || 0 : 0;
       if (duration) petBusyUntil = Math.max(petBusyUntil,Date.now()+duration);
-      const expressionDuration = duration || (window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ? 1000 : 0);
+      const expressionDuration = duration || (!motion || window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ? 1000 : 0);
       if (expressionDuration) startPetExpression('happy',expressionDuration);
     };
     careAfterglowTimer = setTimeout(tryRun,delayMs);
@@ -6421,7 +6421,7 @@
         ? (event === 'play_with' ? visibleBeats.find(b=>b.speaker.kind === 'companion')?.speaker
           : ['court','partner_new','marriage'].includes(event) ? visibleBeats.find(b=>b.speaker.kind === 'partner')?.speaker : null)
         : petSpeaker();
-      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener}), delayMs + i * SPEECH_DURATION_MS));
+      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener,primaryBeat:i===0}), delayMs + i * SPEECH_DURATION_MS));
     });
   }
 
@@ -17204,7 +17204,9 @@
       return {cured:false};
     }
   }, (result,reactionSerial) => {
-    if (result?.cured && result.reacted) scheduleCareAfterglow(reactionSerial,1200,'bounce',signals => !signals.sick);
+    // Recovery is now the immediate medicine_cure L3 motion; do not add a delayed second bounce.
+    // Keep the approved happy face after care, independently of movement.
+    if (result?.cured && result.reacted) scheduleCareAfterglow(reactionSerial,1000,null,signals => !signals.sick);
   }));
 
   // じゃれる(もとの なでる/はなしかけるを ひとつに まとめたボタン)は

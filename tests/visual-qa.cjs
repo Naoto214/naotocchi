@@ -98,6 +98,22 @@ function createFixtures() {
       make('legend',26,{sodachi:95,maxSodachi:95});
       make('sleeping',26,{isSleeping:true,energy:20});
       make('sick',26,{isSick:true,sicknessType:'かぜ'});
+      // Recovery pilot only: real Home and the real medicine button, no motion hooks.
+      for (const [name,line,years,count,paired] of [
+        ['alone','cat',25,0,false],['pair','cat',25,0,true],['dense26','woman',25,26,true],
+        ['small','dog',2,0,false],['large','dragon',85,26,true],['float','ghost',25,26,true],
+        ['rigid','turtle',25,26,true],['plant','mushroom',25,26,true],
+      ]) {
+        const save=make('recovery_'+name,count,{
+          speciesLine:line,ageTicks:years*api.AGE_TICKS_PER_YEAR,stageIndex:api.stageForAge(years),
+          partner:paired?partner('forest_bear',{married:true}):null,
+          isSick:true,sicknessType:'かぜ',isSleeping:false,health:70,energy:90,hunger:90,happiness:90,
+          decline:0,deathMeter:0,dying:false,affectionStreak:0,transformMeter:0,
+        });
+        save.savedAt=0;
+        Object.assign(save.lifetime,{ownedShopItems:['ribbon'],equippedItemId:'ribbon',
+          timeMode:'day',weatherMode:'sunny',seasonMode:'summer'});
+      }
       // Status fixtures use the same production save format and life rules.
       // Critical scenes have a short real lifetime; load again to observe care.
       make('care_health_zero',26,{health:0,hunger:0,happiness:0,energy:0,
