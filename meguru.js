@@ -1139,7 +1139,7 @@
       '🏬': { t: 'tower', c: '#cfd3d8', fl: 3 }, '🏢': { t: 'tower', c: '#b9c2cc', fl: 5 }, building: { t: 'tower', c: '#c4c8ce', fl: 4 }, shopblock: { t: 'tower', c: '#d8d2c4', fl: 2, sign: true }, '🚉': { t: 'tower', c: '#d6d9dc', fl: 2, wide: true },
       alleywall: { t: 'wall', c: '#9a9a94' }, '🏛️': { t: 'temple', c: '#e6e2d6' }, '⛩️': { t: 'torii', c: '#c8402e' }, '🎡': { t: 'ferris', c: '#d94f4f' }, '⛲': { t: 'fountain', c: '#d8d8d2' },
       igloo: { t: 'dome', c: '#f2f6fb' }, tent: { t: 'tent', c: '#c9a24a' }, '⛺': { t: 'tent', c: '#d8a040' }, '🏕️': { t: 'tent', c: '#4f8a5f' }, wreck: { t: 'hull', c: '#5a4636' },
-      ruinwall: { t: 'ruin', c: '#9f9a8c' }, ruingate: { t: 'gate', c: '#9f9a8c' }, arch: { t: 'gate', c: '#c9b48a' }, ruinpillar: { t: 'pillar', c: '#a8a39a' }, obelisk: { t: 'obelisk', c: '#6b6a66' }, statue: { t: 'statue', c: '#8f8f8a' },
+      ruinwall: { t: 'ruin', c: '#9f9a8c' }, ruingate: { t: 'gate', c: '#9f9a8c' }, arch: { t: 'gate', c: '#c9b48a' }, ruinpillar: { t: 'pillar', c: '#a8a39a' }, obelisk: { t: 'obelisk', c: '#a89a80' }, statue: { t: 'statue', c: '#8f8f8a' },
       vending: { t: 'boxprop', c: '#d94040', h: 1.0, vend: true }, guardpost: { t: 'boxprop', c: '#8a7a5a', h: 0.8 }, '🚲': { t: 'bike', c: '#3f6fb0' }, '🚦': { t: 'signal' }, '🚧': { t: 'conep', c: '#f08a2a' }, '🗑️': { t: 'binp', c: '#6a6f72' }, '💡': { t: 'lamp', c: '#ffe9a8', h: 0.8 },
       streetlight: { t: 'lamp', c: '#fff2c8', h: 1.5 }, lantern: { t: 'lamp', c: '#ffb766', h: 0.7 }, '🏮': { t: 'lamp', c: '#ff7a5a', h: 0.9 }, lanternpost: { t: 'lamp', c: '#ffd59a', h: 1.2 }, '🕯️': { t: 'lamp', c: '#ffe2a0', h: 0.4 },
       stoplamp: { t: 'lamp', c: '#bfe3ff', h: 1.2 }, moonlamp: { t: 'lamp', c: '#9fc8ff', h: 1.1 }, '🚏': { t: 'signpost', c: '#4d6fb0' }, neonsign: { t: 'neon', c: '#ff5fa8' },
@@ -1474,7 +1474,10 @@
           const v = (ctx && ctx.v) || 0, sx = Math.sin(ang), sz = Math.cos(ang), top = Math.max(40, size * 0.32), out = [];
           const c = (ctx && ctx.prof && ctx.prof.arch && ctx.prof.arch.ruin) || sm.c;   // 遺跡の 石の いろは 地域の もの(さばく = 砂色、jungle = こけ色)
           const segs = bw > 60 ? 3 : 2;
-          for (let i = 0; i < segs; i++) { const t = (i / (segs - 1) - 0.5) * 2 * (bw - bw / segs), hh = top * (0.45 + ((i * 7 + Math.round(v * 10)) % 4) * 0.2); out.push({ shape: 'box', rx: bw / segs - 4, rz: bd, h: hh, y: 0, ang, color: c || '#9f9a8c', dx: sx * t, dz: sz * t }); }
+          // Art Direction v1: かべは 平らな 箱に しない。くずれた 上(せまい 2 段め・高さ ちがい)+ 足もとの 砂 / 土の もりあがり + かべの すじ(くらい 細い 箱)
+          for (let i = 0; i < segs; i++) { const t = (i / (segs - 1) - 0.5) * 2 * (bw - bw / segs), hh = top * (0.45 + ((i * 7 + Math.round(v * 10)) % 4) * 0.2), rw = bw / segs - 4, k = ((i + Math.round(v * 3)) % 2) ? 1 : -1;
+            out.push({ shape: 'box', rx: rw, rz: bd, h: hh * 0.62, y: 0, ang, color: c || '#9f9a8c', dx: sx * t, dz: sz * t }, { shape: 'box', rx: rw * 0.55, rz: bd * 0.9, h: hh * 0.38, y: hh * 0.62, ang, color: c || '#9f9a8c', dx: sx * (t + k * rw * 0.42), dz: sz * (t + k * rw * 0.42) });
+            out.push({ shape: 'box', rx: 1.5, rz: bd * 1.02, h: hh * 0.4, y: hh * 0.1, ang, color: '#6f6a5e', dx: sx * (t - k * rw * 0.5), dz: sz * (t - k * rw * 0.5) }, { shape: 'mound', r: Math.min(rw, bd + 14), h: 10, y: 0, color: c || '#9f9a8c', dx: sx * t + Math.cos(ang) * (bd + 6), dz: sz * t - Math.sin(ang) * (bd + 6) }); }
           out.push({ shape: 'wpost', r: Math.min(bd, 9), h: top * (1.1 + v * 0.3), y: 0, color: c || '#a8a39a', dx: sx * (bw - 8) * (v > 0.5 ? 1 : -1), dz: sz * (bw - 8) * (v > 0.5 ? 1 : -1) });
           if (bw > 60) out.push({ shape: 'wslab', len: bw * 0.8, w: bd * 1.6, h: 8, y: top * 0.9, ang, color: c || '#9f9a8c', dx: sx * bw * 0.1, dz: sz * bw * 0.1 });
           for (let i = 0; i < 3; i++) { const a = v * 6.28 + i * 2.1; out.push({ shape: 'pebble', r: 8 + (i % 2) * 5, y: 0, dx: Math.sin(a) * (bd + 16 + i * 6), dz: Math.cos(a) * (bd + 16 + i * 6), color: c || '#9f9a8c' }); }
