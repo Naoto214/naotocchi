@@ -17204,7 +17204,7 @@
       return {cured:false};
     }
   }, (result,reactionSerial) => {
-    if (result?.cured && result.reacted) scheduleCareAfterglow(reactionSerial,1200,'bounce',signals => !signals.sick);
+    // Recovery is now the immediate medicine_cure L3 motion; do not add a delayed second bounce.
   }));
 
   // じゃれる(もとの なでる/はなしかけるを ひとつに まとめたボタン)は
