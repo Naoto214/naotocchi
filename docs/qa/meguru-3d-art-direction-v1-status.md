@@ -79,7 +79,7 @@ corridor QA(3D の まま 歩きとおす): home → forest(95 sample)・forest 
 
 - `tests/meguru-3d-art-direction-test.cjs` AD-1〜AD-18(npm test に 追加): 群生の 契約 / 群生 + 余白 / remove-it / 地域の 花 / Tree v3 / forest-vs-jungle gate / Building v3 / city scene / 小物 / いけがき / 水の 統合 / Bridge v3 / サボテン / 光 / 比率 / density gate / Human QA 記録 / 固有名 禁止
 - 再仕様化(日付つき): v2-14(入口 / まど は しるしで・家の まわりの 植物・Bridge v3 の 橋脚 / だん)
-- 3D テスト 3 file: prototype 15 / v2 15 / AD 18 → pass。full `npm test`: FULL_TEST
+- 3D テスト 3 file: prototype 15 / v2 15 / AD 18 → pass。full `npm test`: `41c98bf8` 時点で 2837 + 80 pass / 0 fail(EXIT 0)。Home layout browser(chromium のみ・local): illustrations の glyph box(★ / ♡)1 件だけ 失敗 = この container の font 環境で base でも 同じ(既知)、ほかは 通過
 
 ## 画像 / sheet / preview
 
