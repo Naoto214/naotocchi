@@ -148,14 +148,32 @@ export function billboardVisible(m, fogFar, dist) {
 }
 // ---------------------------------------------------------------- Water v2(Human QA v1 F10): 水は いみ ごとに べつの geometry。池を ならべて 川や 海に 見せない
 // 折れ線の frame: 点ごとの いち と 単位 法線(せかいの x/z。法線は 進行方向の 右)
-export function polylineFrames(pts) {
+export function polylineFrames(pts, ks) {
   const n = pts.length, out = [];
   for (let i = 0; i < n; i++) {
     const a = pts[Math.max(0, i - 1)], b = pts[Math.min(n - 1, i + 1)];
     let tx = b[0] - a[0], tz = b[1] - a[1]; const L = Math.hypot(tx, tz) || 1; tx /= L; tz /= L;
-    out.push({ x: pts[i][0], z: pts[i][1], nx: tz, nz: -tx, s: i ? out[i - 1].s + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]) : 0 });
+    out.push({ x: pts[i][0], z: pts[i][1], nx: tz, nz: -tx, s: i ? out[i - 1].s + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]) : 0, k: ks ? ks[i] : 1 });
   }
   return out;
+}
+// Art Direction v1(水の 統合): 川の 折れ線を なめらかに(Catmull-Rom を 直線と まぜる・区間 sub 分割)し、はばの ゆらぎ k(0.62〜0.9)を つける(pure)。
+// あたり(2D の 岸の clamp)は 元の 直線の 帯(half)の まま。見た目の 水は つねに その 内がわ(k ≤ 0.9・曲線の ふくらみは 直線 40% まぜで 小さい)なので 水の 上を あるかない
+export function riverCurve(pts, opts = {}) {
+  const sub = opts.sub || 3, mix = opts.mix != null ? opts.mix : 0.6, n = pts.length, out = [], k = [];
+  const P = (i) => pts[Math.max(0, Math.min(n - 1, i))];
+  for (let i = 0; i < n - 1; i++) {
+    const p0 = P(i - 1), p1 = P(i), p2 = P(i + 1), p3 = P(i + 2);
+    for (let j = 0; j < sub; j++) {
+      const t = j / sub, t2 = t * t, t3 = t2 * t;
+      const cr = (a, b, c, d) => 0.5 * (2 * b + (-a + c) * t + (2 * a - 5 * b + 4 * c - d) * t2 + (-a + 3 * b - 3 * c + d) * t3);
+      const sx = p1[0] + (p2[0] - p1[0]) * t, sz = p1[1] + (p2[1] - p1[1]) * t;
+      out.push([sx + (cr(p0[0], p1[0], p2[0], p3[0]) - sx) * mix, sz + (cr(p0[1], p1[1], p2[1], p3[1]) - sz) * mix]);
+      const u = i + t; k.push(Math.max(0.62, Math.min(0.9, 0.76 + 0.11 * Math.sin(u * 2.1 + 0.7) + 0.05 * Math.sin(u * 5.3 + 1.9))));
+    }
+  }
+  out.push([pts[n - 1][0], pts[n - 1][1]]); k.push(0.78);
+  return { pts: out, k };
 }
 // 帯(strip)の データ: frame × lane の 頂点を 1 まいに。lane = { o: 法線方向の ずれ, y: 高さ, c: [r,g,b], a?: alpha }。
 // となりの frame / lane と 頂点を 共有する ので「途切れない 1 まいの 面」に なる(池の ならび では ない)。
@@ -166,7 +184,7 @@ export function stripGeometryData(frames, lanes, opts = {}) {
   for (let i = 0; i < F; i++) {
     const f = frames[i];
     for (let j = 0; j < Ln; j++) {
-      const ln = lanes[j], ox = along ? along[0] * ln.o : f.nx * ln.o, oz = along ? along[1] * ln.o : f.nz * ln.o;
+      const kk = opts.vary ? (f.k || 1) : 1, ln = lanes[j], ox = along ? along[0] * ln.o : f.nx * ln.o * kk, oz = along ? along[1] * ln.o : f.nz * ln.o * kk;   // vary: frame ごとの はばの ゆらぎ(川)
       pos.push(f.x + ox, ln.y, -(f.z + oz)); col.push(ln.c[0], ln.c[1], ln.c[2]); uv.push(j / Math.max(1, Ln - 1), f.s / 400);
     }
   }
@@ -464,7 +482,7 @@ function create3DRenderer(M, o, onLost) {
     const flat = (color) => keep(new THREE.MeshLambertMaterial({ color, flatShading: true }));
     const MAT = { trunk: flat('#7a5536'), cone: flat('#ffffff'), crown: flat('#ffffff'), rock: flat('#8c8f8a'), log: flat('#7a5436'), stump: flat('#8a6440'),
       pool: keep(new THREE.MeshPhongMaterial({ map: keep(waterTexture()), transparent: true, opacity: 0.92, shininess: 70, specular: '#d8ecff' })), shore: keep(new THREE.MeshLambertMaterial({ color: new THREE.Color(world.ground[1]).multiplyScalar(0.62) })),
-      cliff: keep(new THREE.MeshLambertMaterial({ map: keep(cliffTexture()), color: '#a9a8a0' })), moss: flat('#5f8c46'), plank: flat('#9a7550'),
+      cliff: keep(new THREE.MeshLambertMaterial({ map: keep(cliffTexture()), color: '#c4c1b8' })), moss: flat('#5f8c46'), plank: flat('#9a7550'),   // AD v1: 岩 / がけは くらく つぶさない(明るめ)
       fall: keep(new THREE.MeshLambertMaterial({ map: keep(fallTexture()), transparent: true, opacity: 0.9, side: THREE.DoubleSide, depthWrite: false })),
       foam: keep(new THREE.MeshBasicMaterial({ color: '#f4fbff', transparent: true, opacity: 0.66, depthWrite: false })),
       wet: keep(new THREE.MeshLambertMaterial({ map: keep(wetTexture(world.ground[1])), transparent: true, depthWrite: false })),
@@ -473,7 +491,7 @@ function create3DRenderer(M, o, onLost) {
       glowdisc: keep(new THREE.MeshBasicMaterial({ color: '#9ff3e4', transparent: true, opacity: 0.3, depthWrite: false })), blade: flat('#5aa34c'), petal: keep(new THREE.MeshBasicMaterial({ color: '#f3d14e', side: THREE.DoubleSide })),
       leaf: keep(new THREE.MeshLambertMaterial({ color: '#b8743c', side: THREE.DoubleSide })), nut: flat('#7a4f2a'), spark: keep(new THREE.MeshBasicMaterial({ color: '#fff3a6', transparent: true, opacity: 0.9 })),
       post: flat('#7a5a3a'), board: flat('#c9a46a'), wbox: flat('#ffffff'), wroof: flat('#ffffff'), wdome: flat('#ffffff'), wblade: flat('#ffffff'), wcone: flat('#ffffff'), wpost: flat('#ffffff'), wslab: flat('#ffffff'), wstem: flat('#ffffff'), wring: flat('#ffffff'),
-      glowcone: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 0.45 })), glowboard: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 0.6 })), decal: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', transparent: true, opacity: 0.8, depthWrite: false })), kelp: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', side: THREE.DoubleSide })), slab: flat('#9c9c94'), rail: flat('#8a6a44'), pebble: flat('#8d8a80'), mound: keep(new THREE.MeshLambertMaterial({ map: keep(cliffTexture()), color: '#a9a8a0' })), mist: keep(new THREE.MeshBasicMaterial({ color: '#f2f8fb', transparent: true, opacity: 0.24, depthWrite: false })) };
+      glowcone: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 0.45 })), glowboard: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 0.6 })), decal: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', transparent: true, opacity: 0.8, depthWrite: false })), kelp: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', side: THREE.DoubleSide })), slab: flat('#9c9c94'), rail: flat('#8a6a44'), pebble: flat('#8d8a80'), mound: keep(new THREE.MeshLambertMaterial({ map: keep(cliffTexture()), color: '#c4c1b8' })), mist: keep(new THREE.MeshBasicMaterial({ color: '#f2f8fb', transparent: true, opacity: 0.24, depthWrite: false })) };
     const GEO_ALIAS = { crownBig: 'crown', kelp: 'kelpblade', frond: 'frond', glowcap: 'cap', slab: 'plank', rail: 'log', leaf: 'litter', spark: 'nut', wbox: 'box', wdome: 'cap', wblade: 'blade', wcone: 'blade', wpost: 'post', wslab: 'plank', wstem: 'stem', wring: 'ring', glowcone: 'blade', glowboard: 'board', wroof: 'roof4', wcone4: 'wcone4', wcone6: 'wcone6', roof6: 'roof6', roof8: 'roof8' };
     const MAT_ALIAS = { trunk2: 'trunk', crownSmall: 'crown', frond: 'kelp', wcone4: 'wcone', wcone6: 'wcone', roof6: 'wroof', roof8: 'wroof', roof4: 'wroof', glowcone6: 'glowcone', glowcone4: 'glowcone' };
     const inst = {};   // shape → [{ x, y, z, sx, sy, sz, ry, tint, color }]
@@ -517,7 +535,7 @@ function create3DRenderer(M, o, onLost) {
           }
           case 'deep': push('shore', { x: px, y: 0.4, z: pz, sx: pt.rx, sy: 1, sz: pt.rz, ry: Math.PI / 2 - pt.ang, tint: 0.5 }); break;   // たきつぼの 下の くらい まる(水を とおして ふかく 見える)
           case 'wet': push('wet', { x: px, y: 0, z: pz, sx: pt.rx, sy: 1, sz: pt.rz, ry: Math.PI / 2 - pt.ang, tint: 0.5 }); break;
-          case 'plank': push('plank', { x: px, y: 0, z: pz, sx: pt.len, sy: 8, sz: pt.w, ry: pt.ang != null ? Math.PI / 2 - pt.ang : ry, tint: t }); break;
+          case 'plank': push('plank', { x: px, y: pt.y || 0, z: pz, sx: pt.len, sy: 8, sz: pt.w, ry: pt.ang != null ? Math.PI / 2 - pt.ang : ry, tint: t }); break;
           // 面の むき f(せかい)→ three の y 回転 θ = atan2(fx, −fz)
           case 'fall': push('fall', { x: px, y: 0, z: pz, sx: pt.w, sy: pt.h, sz: 1, ry: pt.fx != null ? Math.atan2(pt.fx, -pt.fz) : 0, tint: 0.5 }); break;
           case 'cliff': push('cliff', { x: px, y: pt.y || 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: pt.ang != null ? Math.PI / 2 - pt.ang : 0, tint: t, color: pt.color }); break;
@@ -536,7 +554,7 @@ function create3DRenderer(M, o, onLost) {
           case 'petal': push('petal', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); break;
           case 'post': push('post', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t }); break;
           case 'board': push(pt.glow ? 'glowboard' : 'board', { x: px, y: pt.y, z: pz, sx: pt.w, sy: pt.h, sz: 1, ry: pt.spin != null ? pt.spin : Math.PI - pt.ang, tint: t, color: pt.color, rz: pt.spin != null ? pt.spin : 0 }); break;   // いたは 道の むきを 向く
-          case 'slab': push('slab', { x: px, y: 0, z: pz, sx: pt.len, sy: 10, sz: pt.w, ry: Math.PI / 2 - pt.ang, tint: t }); break;
+          case 'slab': push('slab', { x: px, y: pt.y || 0, z: pz, sx: pt.len, sy: 10, sz: pt.w, ry: Math.PI / 2 - pt.ang, tint: t }); break;
           case 'rail': { const sdx = Math.cos(pt.ang) * pt.side, sdz = -Math.sin(pt.ang) * pt.side; push('rail', { x: px + sdx, y: pt.y, z: pz - sdz, sx: pt.len, sy: pt.r, sz: pt.r, ry: Math.PI / 2 - pt.ang, tint: t, color: pt.color }); break; }
           case 'pebble': push('pebble', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.r * 0.7, sz: pt.r * 0.85, ry: t * TAU, tint: t }); break;
           case 'mound': push('mound', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
@@ -586,11 +604,11 @@ function create3DRenderer(M, o, onLost) {
     const water = { kind: null, meshes: [] };
     const T = world.terrain;
     if (T && (T.kind === 'river' || T.kind === 'chasm') && T.pts && T.pts.length >= 2) {
-      const half = T.half || 200, fr = polylineFrames(T.pts), chasm = T.kind === 'chasm';
+      const half = T.half || 200, chasm = T.kind === 'chasm', rc = chasm ? { pts: T.pts, k: null } : riverCurve(T.pts), fr = polylineFrames(rc.pts, rc.k), vary = !chasm;   // AD v1: 川は なめらかに 曲がり・はばが ゆれる(谷は そのまま)
       const dark = chasm ? rgbOf('#07182b') : deepC, mid = chasm ? rgbOf('#0e2a45') : shallowC, bk = chasm ? rgbOf(new THREE.Color(world.ground[1]).multiplyScalar(0.7)) : bankC;
       water.kind = T.kind;
-      water.meshes.push(stripMesh(stripGeometryData(fr, [{ o: -half - 48, y: 1.2, c: bk }, { o: -half + 2, y: 1.2, c: bk }, { o: half - 2, y: 1.2, c: bk }, { o: half + 48, y: 1.2, c: bk }]), bankMat, 'water:bank'));
-      water.meshes.push(stripMesh(stripGeometryData(fr, [{ o: -half, y: chasm ? 0.9 : 2.4, c: mid }, { o: -half * 0.45, y: chasm ? 0.9 : 2.4, c: dark }, { o: half * 0.45, y: chasm ? 0.9 : 2.4, c: dark }, { o: half, y: chasm ? 0.9 : 2.4, c: mid }]), chasm ? keep(new THREE.MeshLambertMaterial({ vertexColors: true, transparent: true, opacity: 0.92, depthWrite: false, side: THREE.DoubleSide })) : waterMat, 'water:' + T.kind));
+      water.meshes.push(stripMesh(stripGeometryData(fr, [{ o: -half - 48, y: 1.2, c: bk }, { o: -half + 2, y: 1.2, c: bk }, { o: half - 2, y: 1.2, c: bk }, { o: half + 48, y: 1.2, c: bk }], { vary }), bankMat, 'water:bank'));
+      water.meshes.push(stripMesh(stripGeometryData(fr, [{ o: -half, y: chasm ? 0.9 : 2.4, c: mid }, { o: -half * 0.45, y: chasm ? 0.9 : 2.4, c: dark }, { o: half * 0.45, y: chasm ? 0.9 : 2.4, c: dark }, { o: half, y: chasm ? 0.9 : 2.4, c: mid }], { vary }), chasm ? keep(new THREE.MeshLambertMaterial({ vertexColors: true, transparent: true, opacity: 0.92, depthWrite: false, side: THREE.DoubleSide })) : waterMat, 'water:' + T.kind));
       if (!chasm) waterAnim.push({ map: waveTex, dx: 0, dy: 0.12 });
     } else if (T && T.kind === 'coast' && T.pts && T.pts.length >= 2) {
       const side = T.side || -1, pts = T.pts.slice();

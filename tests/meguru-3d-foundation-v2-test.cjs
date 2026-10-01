@@ -323,7 +323,9 @@ test('v2-14. Kit v2 の 原型: 昆布は 曲がった は(木 / 柱では な�
   // はし(forest: まるた / いし、jungle / star_stop: ロープ / 光)
   const f = objsOf('forest'), log = f.find((o) => o.kind === '🌉' && o.spot === 'bridge1'), stone = f.find((o) => o.kind === '🌉' && o.spot === 'bridge2');
   assert.ok(log && log.parts.filter((pt) => pt.shape === 'log').length === 3 && log.parts.filter((pt) => pt.shape === 'wpost').length >= 4, 'まるたの はし = 丸太 3 本 + 支柱');
-  assert.ok(stone && stone.parts.some((pt) => pt.shape === 'slab') && stone.parts.filter((pt) => pt.shape === 'box').length === 2, 'いしの はし = 石の いた + 両わきの 石');
+  // 2026-10-01 Art Direction v1(Bridge v3): 床は 水面より 上・両はしの だん(ramp)・橋脚 が ふえた ので、両わきの 石 = 床の 上(y = 床)の 箱 2 つ で 見る
+  assert.ok(stone && stone.parts.some((pt) => pt.shape === 'slab') && stone.parts.filter((pt) => pt.shape === 'box' && pt.h === 14).length === 2, 'いしの はし = 石の いた + 両わきの 石');
+  assert.ok(stone.parts.find((pt) => pt.shape === 'slab').y + 10 > 2.4 && stone.parts.filter((pt) => pt.shape === 'box' && pt.h < 14).length >= 4, 'いしの はし: 床は 水面より 上・橋脚 と だん');   // AD v1
   const rope = [...objsOf('jungle'), ...objsOf('mountain')].find((o) => o.kind === 'ropebridge'), light = objsOf('star_stop').find((o) => o.kind === 'lightbridge');
   if (rope) assert.ok(rope.parts.some((pt) => pt.shape === 'plank') && rope.parts.filter((pt) => pt.shape === 'rail').length === 2 && rope.parts.filter((pt) => pt.shape === 'wpost').length >= 6, 'ロープの はし');
   if (light) assert.ok(light.parts.some((pt) => pt.shape === 'wslab') && light.parts.some((pt) => pt.shape === 'glowdisc'), '光の はし');
