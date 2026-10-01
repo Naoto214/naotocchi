@@ -91,6 +91,10 @@ corridor QA(3D の まま 歩きとおす): home → forest(95 sample)・forest 
   - 2D くらべ(3D 地域で 2D): `https://rawcdn.githack.com/Naoto214/naotocchi/8ee4cdf8/index.html?meguru3d=1&m3d2d=1`
   - ふつうの 2D: `https://rawcdn.githack.com/Naoto214/naotocchi/8ee4cdf8/index.html`
 
+## PR
+
+PR #371(Draft・base = `feat/meguru-3d-foundation-v2`)。main へ merge しない・Ready に しない。
+
 ## 次の Human QA(iPhone)
 
 compare.html の 重点ルート: home(いけがき / 家の 正面)→ forest → jungle(1 まいで 見わけ)→ city(駅前 → 商店街 → 市場)→ river_lake(川 / 岸 / はし)→ desert(サボテン / オアシス)→ のこり。
