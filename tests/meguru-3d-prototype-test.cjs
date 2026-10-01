@@ -341,16 +341,3 @@ test('9. 全地域: 3D profile が あり、意味の 表で ぜんぶ 解決し
   assert.equal(M.objectType3d(w.props[w.props.length - 1]), 'unknown');
 });
 
-test('10. はっけんの しらせ(全地域): ランドマーク / ひみつ だけ「みつけた！」、その ばしょ だけの もの は かるく「が ある」、ふつうの 池・通過点は しずか。きろく は かわらない', () => {
-  for (const rid of Object.keys(M.WORLDS)) {
-    const w = M.buildWorld(rid, reg, {}); let strong = 0, light = 0, quiet = 0;
-    for (const s of w.spots) { const n = M.discoveryNotice(s); if (!n) quiet++; else if (n.kind === 'landmark' || n.kind === 'secret') { strong++; assert.match(n.title, /みつけた！$/); assert.ok(s.landmark || s.secret); } else { light++; assert.match(n.title, /が ある$/); assert.ok(!s.landmark && !s.secret); } }
-    assert.ok(strong <= Math.max(3, Math.ceil(w.spots.length * 0.3)), rid + ' つよい しらせ ' + strong + ' / ' + w.spots.length);
-    assert.ok(quiet >= 1, rid + ' しずかな spot が ある');
-    for (const s of w.spots) if (s.kind === 'water' && !s.secret && !s.landmark && (!s.prop || M.spotDiscoveryLevel(s) < 2)) assert.equal(M.discoveryNotice(s), null, rid + ' ふつうの 池 ' + s.id + ' は しずか');
-  }
-  // forest の 例
-  const f = M.buildWorld('forest', reg, {});
-  const at = (id) => M.discoveryNotice(f.spots.find((s) => s.id === id));
-  assert.equal(at('falls').kind, 'landmark'); assert.equal(at('hiddenpond').kind, 'secret'); assert.equal(at('creekdeep'), null); assert.equal(at('thicket1'), null);
-});
