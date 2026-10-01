@@ -1160,10 +1160,11 @@
     };
     // 地域の 3D profile: きり・そら・水・雰囲気 だけ(かたち は SEM3D と 共通の adapter)。ここに ある 地域だけ 3D に なる
     const REGION3D = {
-      home: { fog: [1400, 5200], label: 'いえのまわり' }, city: { fog: [1600, 6000], label: 'まち' }, countryside: { fog: [1800, 7000], label: 'いなか' }, forest: { fog: [1400, 5200] },
-      mountain: { fog: [1800, 7500], label: 'やま' }, snow: { fog: [1000, 4200], fogColor: '#dde8f4', label: 'ゆき' }, sea: { fog: [1600, 6500], sea: true, label: 'うみ' },
-      deepsea: { fog: [250, 1900], fogColor: '#0f2f4e', underwater: true, label: 'しんかい' }, river_lake: { fog: [1500, 6000], label: 'かわ と みずうみ' }, jungle: { fog: [900, 3800], fogColor: '#9fc29a', label: 'ジャングル' },
-      desert: { fog: [1800, 7500], fogColor: '#f0dcb0', label: 'さばく' }, star_stop: { fog: [1200, 5000], fogColor: '#2b2460', stars: true, label: 'ほしの えき' }, memory_lake: { fog: [500, 2600], fogColor: '#9aa3c0', mist: true, label: 'おもいでの みずうみ' },
+      // water(Water v2・F10): deep = 沖 / 中心、shallow = 岸 / ふち、bank = 岸の 地面(なければ ground[1] を くらく)、foam = 岸の あわ
+      home: { fog: [1400, 5200], label: 'いえのまわり', water: { deep: '#3b7aa6', shallow: '#8ccbe0' } }, city: { fog: [1600, 6000], label: 'まち', water: { deep: '#3f6f8a', shallow: '#8fb8c8' } }, countryside: { fog: [1800, 7000], label: 'いなか', water: { deep: '#3f7f98', shallow: '#9fd0d8' } }, forest: { fog: [1400, 5200] },
+      mountain: { fog: [1800, 7500], label: 'やま', water: { deep: '#2f6f9a', shallow: '#9fd8e8' } }, snow: { fog: [1000, 4200], fogColor: '#dde8f4', label: 'ゆき', water: { deep: '#6fa0c8', shallow: '#d8ecf8', foam: '#ffffff' } }, sea: { fog: [1600, 6500], sea: true, label: 'うみ', water: { deep: '#1f6a9c', shallow: '#8fd8de', bank: '#cdb98a', foam: '#f8fdff' } },
+      deepsea: { fog: [250, 1900], fogColor: '#0f2f4e', underwater: true, label: 'しんかい', water: { deep: '#0a2a48', shallow: '#17496e' } }, river_lake: { fog: [1500, 6000], label: 'かわ と みずうみ', water: { deep: '#2a6f98', shallow: '#8fd0da', bank: '#6f8a5a' } }, jungle: { fog: [900, 3800], fogColor: '#9fc29a', label: 'ジャングル', water: { deep: '#2f6a5a', shallow: '#7fb8a0' } },
+      desert: { fog: [1800, 7500], fogColor: '#f0dcb0', label: 'さばく', water: { deep: '#2f8fa8', shallow: '#9fe0e8' } }, star_stop: { fog: [1200, 5000], fogColor: '#2b2460', stars: true, label: 'ほしの えき', water: { deep: '#2a3a7a', shallow: '#7a8ad0' } }, memory_lake: { fog: [500, 2600], fogColor: '#9aa3c0', mist: true, lake: true, label: 'おもいでの みずうみ', water: { deep: '#2e3d6e', shallow: '#8a97c4', bank: '#4e5574', foam: '#c8d0ea' } },
     };
     // 3D の 見た目の しゅるい。「せかいは 3D・キャラだけ 2D」: けしきの 物は 3D の かたち か、3D では 出さない(skip)。立て看板(billboard)は のこさない
     //   いみを かえない: きのこ は きのこ、はし は はし。3D に できない 雰囲気の しるし(💧・手前の えだ・光の もや)は 出さない

@@ -212,3 +212,89 @@ test('v2-9. ちずの 表示 filter: ふつうの 池・休憩所・小さな �
   const src = fs.readFileSync(path.join(ROOT, 'meguru.js'), 'utf8');
   assert.match(src, /const spots = found\.filter\(\(q\) => mapSpotShown\(world, q, rec\)\)/, 'computeMapData は filter を 通す');
 });
+
+// ──────────────────────────────── CP3: Water v2(F10)— 水は いみ ごとに べつの geometry。池の ならびで 川 / 海を 見せない
+
+test('v2-10. 帯(strip)の geometry は 1 まいに つながる: frame × lane の 頂点を 共有し、となりの frame と 面で つながる(池の ならび では ない)', async () => {
+  const { polylineFrames, stripGeometryData, discFanData, distToPolyline } = await mod3d();
+  const pts = [[0, 0], [0, 400], [120, 800], [120, 1200]];
+  const fr = polylineFrames(pts);
+  assert.equal(fr.length, 4);
+  for (const f of fr) assert.ok(Math.abs(Math.hypot(f.nx, f.nz) - 1) < 1e-9, '法線は 単位');
+  assert.ok(fr[3].s > fr[2].s && fr[2].s > fr[1].s, '道のりは ふえる');
+  const d = stripGeometryData(fr, [{ o: -100, y: 2, c: [0, 0, 1] }, { o: 0, y: 2, c: [0, 0, 0.5] }, { o: 100, y: 2, c: [0, 0, 1] }]);
+  assert.equal(d.positions.length / 3, 4 * 3, '頂点 = frame × lane(共有)');
+  assert.equal(d.index.length, (4 - 1) * (3 - 1) * 6, '面 = (frame − 1) × (lane − 1) × 2 三角形');
+  // となりの frame の 面は 同じ 頂点を つかう(つぎめ なし)
+  const tri = (i) => d.index.slice(i * 3, i * 3 + 3);
+  const firstQuad = new Set([...tri(0), ...tri(1)]), secondQuad = new Set([...tri(4), ...tri(5)]);
+  assert.ok([...firstQuad].some((v) => secondQuad.has(v)), 'つぎの frame の 面と 頂点を 共有');
+  // 法線方向に 固定の 向き(うみ: 岸から 沖へ)
+  const sea = stripGeometryData(fr, [{ o: 0, y: 2, c: [0, 0, 1] }, { o: 9000, y: 2, c: [0, 0, 1] }], { along: [-1, 0] });
+  assert.equal(sea.positions[3], -9000, '沖の 頂点は x − 9000');
+  // 池: でこぼこの 閉じた かたち(seed で きまる)・中心 ふかく / ふち あさく
+  const fan = discFanData([{ x: 0, z: 0, y: 2, rx: 100, rz: 80, seed: 'a', amp: 0.12, deep: [0, 0, 1], edge: [0.5, 0.8, 1] }], 16);
+  assert.equal(fan.positions.length / 3, 17); assert.equal(fan.index.length, 16 * 3);
+  const radii = []; for (let k = 1; k <= 16; k++) radii.push(Math.hypot(fan.positions[k * 3], fan.positions[k * 3 + 2]));
+  assert.ok(Math.max(...radii) - Math.min(...radii) > 8, 'まる では なく でこぼこ');
+  assert.deepEqual([...fan.colors.slice(0, 3)], [0, 0, 1]); assert.ok(Math.abs(fan.colors[3] - 0.5) < 1e-6 && Math.abs(fan.colors[4] - 0.8) < 1e-6 && fan.colors[5] === 1, 'ふちの いろ');
+  assert.equal(distToPolyline(pts, 60, 200), 60); assert.ok(Math.abs(distToPolyline(pts, 0, 1500) - 300 - 0) < 130);
+});
+
+test('v2-11. 川(river_lake)= terrain.pts からの 1 本の 帯(岸つき)。帯に かくれる 池は おかない。しんかいの 谷も 1 本の 帯', async () => {
+  const { pondCovered } = await mod3d();
+  const reg = M.buildRegistry();
+  const w = M.buildWorld('river_lake', reg, { world3d: true });
+  assert.equal(w.terrain.kind, 'river'); assert.ok(w.terrain.pts.length >= 10 && w.terrain.half >= 150);
+  const ponds = w.spots.filter((q) => q.kind === 'water');
+  const covered = ponds.filter((q) => pondCovered(w, q, M.shoreX)), kept = ponds.filter((q) => !pondCovered(w, q, M.shoreX));
+  assert.ok(covered.some((q) => q.id === 'river1') && covered.some((q) => q.id === 'rapids'), '川の 上の 池は 帯に かくれる: ' + covered.map((q) => q.id));
+  assert.ok(kept.some((q) => q.id === 'lake'), '湖は のこる: ' + kept.map((q) => q.id));
+  assert.ok(kept.every((q) => q.r >= 100), 'のこる 池は 川から はなれて いる');
+  const d = M.buildWorld('deepsea', reg, { world3d: true });
+  assert.equal(d.terrain.kind, 'chasm'); assert.ok(d.spots.filter((q) => q.kind === 'water').some((q) => pondCovered(d, q, M.shoreX)));
+  // レンダラー: 川 / 谷は stripGeometryData の 帯(bank + water)。旧「うみ = shore / pool の 帯を ならべる」は のこって いない
+  assert.match(SRC, /T\.kind === 'river' \|\| T\.kind === 'chasm'/, '川 / 谷の 帯');
+  assert.match(SRC, /'water:' \+ T\.kind/, '川の mesh');
+  assert.match(SRC, /'water:bank'/, '岸');
+  assert.ok(!/if \(prof\.sea && world\.terrain && world\.terrain\.kind === 'coast'\)/.test(SRC), 'うみの 帯ならべ(pond chain)が のこって いない');
+  assert.ok(!/for \(const q of ponds\) \{ push\('shore'/.test(SRC), '池の instanced disc ならべが のこって いない');
+});
+
+test('v2-12. 海(sea)/ 湖(memory_lake)= 岸線から 水平線まで 1 まいの 面(ぬれた 砂 → 浅瀬 → 沖)+ 岸の あわ。岸の むこうの 池は おかない', async () => {
+  const { pondCovered } = await mod3d();
+  const reg = M.buildRegistry();
+  for (const [rid, kind] of [['sea', 'sea'], ['memory_lake', 'lake']]) {
+    const w = M.buildWorld(rid, reg, { world3d: true });
+    assert.equal(w.terrain.kind, 'coast'); assert.ok(w.terrain.pts.length >= 8);
+    const prof = M.REGION3D[rid];
+    assert.ok(prof.water && prof.water.deep && prof.water.shallow, rid + ' の 水の いろ');
+    if (kind === 'lake') assert.ok(prof.lake, 'memory_lake は 湖');
+    // 岸線の 水の がわに ある 池は 面に かくれる、陸の がわは のこる
+    const side = w.terrain.side || -1, sx = M.shoreX(w, 1000);
+    assert.ok(pondCovered(w, { x: sx + side * 400, z: 1000, r: 120 }, M.shoreX), rid + ' 水の がわは かくれる');
+    assert.ok(!pondCovered(w, { x: sx - side * 400, z: 1000, r: 120 }, M.shoreX), rid + ' 陸の がわは のこる');
+  }
+  assert.match(SRC, /T\.kind === 'coast' && T\.pts && T\.pts\.length >= 2/, '岸線からの 面');
+  assert.match(SRC, /\{ o: 0, y: 2\.2, c: shallowC \}, \{ o: 150, y: 2\.2, c: shallowC \}, \{ o: 520, y: 2\.2, c: midC \}, \{ o: 1400, y: 2\.2, c: deepC \}, \{ o: 9000, y: 2\.2, c: deepC \}/, '浅瀬 → 沖 → 水平線 の lane');
+  assert.match(SRC, /'water:wetsand'/, 'ぬれた 砂'); assert.match(SRC, /'water:foam'/, '岸の あわ');
+  assert.match(SRC, /water\.kind = prof\.lake \? 'lake' : 'sea'/, '湖 / 海の 区別');
+  assert.match(SRC, /PerspectiveCamera\(50, 1, 20, 12000\)/, 'カメラの 遠は 水平線まで');
+  // 波: 頂点の simulation では なく material の アニメ(map.offset / あわの 明滅)
+  assert.match(SRC, /for \(const a of built\.waterAnim\) \{ if \(a\.map\) \{ a\.map\.offset\.x = \(s \* a\.dx\) % 1; a\.map\.offset\.y = \(s \* a\.dy\) % 1; \} if \(a\.foam\) a\.foam\.opacity/, '波の アニメ');
+});
+
+test('v2-13. 水の 見た目は あたり(walkability)を かえない: 岸の clamp・池の あたり・橋は 2D と 同じ。水の 面は あたりを もたない', () => {
+  const reg = M.buildRegistry();
+  for (const rid of ['sea', 'river_lake', 'memory_lake', 'deepsea']) {
+    const a = M.buildWorld(rid, reg, {}), b = M.buildWorld(rid, reg, { world3d: true });
+    assert.deepEqual(a.terrain, b.terrain, rid + ' terrain は 2D と 同じ');
+    assert.equal(a.minX, b.minX); assert.equal(a.maxX, b.maxX);
+    const roles = (w) => w.obstacles.filter((o) => o.role === 'water').length;
+    assert.equal(roles(a), roles(b), rid + ' 水の あたり(role water)の 数は 同じ');
+    // 岸の むこうへは 出られない(clampToWorld は shoreX を 見る)
+    if (b.terrain.kind === 'coast') { const sx = M.shoreX(b, 2000), side = b.terrain.side || -1; const p = M.clampToWorld({ x: sx + side * 800, z: 2000 }, b); assert.ok(side < 0 ? p.x >= sx + 30 - 0.01 : p.x <= sx - 30 + 0.01, rid + ' 岸で とまる'); }
+  }
+  // レンダラーの 水の mesh は あたりの ある 物(occluders)に 入らない: 水の 面は すかしの 対象では ない
+  assert.match(SRC, /const stripMesh = \(data, mat, name\) => \{/, '水は stripMesh(instanced の occluder とは べつ)');
+});

@@ -9,7 +9,7 @@ branch `feat/meguru-3d-foundation-v2`(#367 `feat/meguru-all-regions-3d-v0` @ `32
 |---|---|---|---|
 | CP1 | player 消失(F1)・persistent ghost(F2) | done | `0e412450` |
 | CP2 | corridor 3D(F3)・しらせ(F4 / F5)・ちず filter(F6) | done | (この commit) |
-| CP3 | Water v2(F10): river 帯・sea 面・lake・pond・deepsea | todo | |
+| CP3 | Water v2(F10): river 帯・sea 面・lake・pond・deepsea | done | (この commit) |
 | CP4 | Environment Kit v2(F7 / F8 / F11): Tree / Building / Rock / Bridge / Ruin / Underwater vegetation / street | todo | |
 | CP5 | Region Profile v2 + 13 地域 再適用(F9 city) | todo | |
 | CP6 | cross-region browser QA・画像・comparison sheet・preview・PR | todo | |
@@ -27,5 +27,14 @@ branch `feat/meguru-3d-foundation-v2`(#367 `feat/meguru-all-regions-3d-v0` @ `32
 - しらせ: ふつうの spot / 地区 = toast なし。ランドマーク = 左上の 名まえの 静かな 強調(`quietSpotMark`・`.mgr-spot-found` 1.6 秒・音 なし)。ひみつ / みち = toast。きろく(recordSpot / ちず / save / 探索率)は かわらない(v2-8)。既存 `meguru-discovery-test`(15 件)・`meguru-discovery-browser`・3D テスト 10 を 日付つきで 再仕様化
 - ちず: `mapSpotShown`(現在地・つながり / gate・ランドマーク・ひみつ・hub / ひろば / みせ だけ)。13 地域 471 → 151 spot。`mapData().spotsHidden`。きろく・分母 不変(v2-9)
 
+## CP3 Water v2(F10)
+- 水は いみ ごとに べつの geometry(`stripGeometryData` / `discFanData`、pure・export)。「池を ならべて 川 / 海に 見せる」code は 削除
+  - 川(river_lake)/ しんかいの 谷(deepsea): `terrain.pts` からの 1 本の 帯(左岸 → 水 → 右岸、頂点を 共有)。ながれは map.offset
+  - 海(sea)/ 湖(memory_lake `lake: true`): 岸線 → ぬれた 砂(−90〜4)→ 浅瀬(0〜150)→ 沖(520〜1400)→ 水平線(9000)の 1 まいの 面 + 岸の あわ(明滅)。カメラの 遠 5200 → 12000
+  - 池 / 湖(water の spot): でこぼこの 閉じた かたち(seed)・中心 ふかく / ふち あさく(vertex color)・ふちの 岸。全部 まとめて 2 draw call。川の 帯 / 海の 面に かくれる 池は おかない(`pondCovered`)。r ≥ 280 の 湖は 川の 上に のる
+  - いろは `REGION3D[rid].water`(deep / shallow / bank / foam)。material は 両面
+- あたり(岸の clamp・水の role・橋)は 2D と 同じ(v2-13)。テスト v2-10〜v2-13
+- browser: sea / river_lake / memory_lake / deepsea / snow 3D 起動・errors 0。しゃしん: 海 = 水平線まで 1 枚、川 = 岸つきの 帯、氷の 池 = でこぼこ + 深さの 色
+
 ## 次
-CP3 Water v2 → CP4 Kit v2 → CP5 再適用 → CP6 QA
+CP4 Kit v2 → CP5 再適用 → CP6 QA

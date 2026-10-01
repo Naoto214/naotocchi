@@ -146,6 +146,70 @@ export function billboardVisible(m, fogFar, dist) {
   if (m.material.fog && fogFar != null && dist != null && dist >= fogFar) return { ok: false, why: 'fog' };
   return { ok: true, why: '' };
 }
+// ---------------------------------------------------------------- Water v2(Human QA v1 F10): 水は いみ ごとに べつの geometry。池を ならべて 川や 海に 見せない
+// 折れ線の frame: 点ごとの いち と 単位 法線(せかいの x/z。法線は 進行方向の 右)
+export function polylineFrames(pts) {
+  const n = pts.length, out = [];
+  for (let i = 0; i < n; i++) {
+    const a = pts[Math.max(0, i - 1)], b = pts[Math.min(n - 1, i + 1)];
+    let tx = b[0] - a[0], tz = b[1] - a[1]; const L = Math.hypot(tx, tz) || 1; tx /= L; tz /= L;
+    out.push({ x: pts[i][0], z: pts[i][1], nx: tz, nz: -tx, s: i ? out[i - 1].s + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]) : 0 });
+  }
+  return out;
+}
+// 帯(strip)の データ: frame × lane の 頂点を 1 まいに。lane = { o: 法線方向の ずれ, y: 高さ, c: [r,g,b], a?: alpha }。
+// となりの frame / lane と 頂点を 共有する ので「途切れない 1 まいの 面」に なる(池の ならび では ない)。
+// uv: u = lane の わりあい、v = 道のり / 400(ながれの アニメ 用)。せかい (x, z) → three (x, y, -z)
+export function stripGeometryData(frames, lanes, opts = {}) {
+  const F = frames.length, Ln = lanes.length, pos = [], col = [], uv = [], idx = [];
+  const along = opts.along || null;   // lane の ずれを 法線 では なく 固定の 向き(うみ: 岸から 沖へ x 方向)に する
+  for (let i = 0; i < F; i++) {
+    const f = frames[i];
+    for (let j = 0; j < Ln; j++) {
+      const ln = lanes[j], ox = along ? along[0] * ln.o : f.nx * ln.o, oz = along ? along[1] * ln.o : f.nz * ln.o;
+      pos.push(f.x + ox, ln.y, -(f.z + oz)); col.push(ln.c[0], ln.c[1], ln.c[2]); uv.push(j / Math.max(1, Ln - 1), f.s / 400);
+    }
+  }
+  for (let i = 0; i < F - 1; i++) for (let j = 0; j < Ln - 1; j++) {
+    const a = i * Ln + j, b = a + 1, c = a + Ln, d = c + 1;
+    idx.push(a, c, b, b, c, d);
+  }
+  return { positions: new Float32Array(pos), colors: new Float32Array(col), uvs: new Float32Array(uv), index: idx, frames: F, lanes: Ln };
+}
+// 池 / 湖: でこぼこの 閉じた かたち(seed で きまる)。中心 = ふかい いろ、ふち = あさい いろ(vertex color)。まとめて 1 まいに
+export function discFanData(discs, segs = 28) {
+  const pos = [], col = [], idx = [];
+  for (const d of discs) {
+    const base = pos.length / 3, amp = d.amp == null ? 0.12 : d.amp;
+    pos.push(d.x, d.y, -d.z); col.push(d.deep[0], d.deep[1], d.deep[2]);
+    for (let k = 0; k < segs; k++) {
+      const a = k / segs * TAU + (d.rot || 0), w = 1 + amp * (hash01(d.seed + ':' + k) - 0.5) * 2 + amp * 0.5 * (hash01(d.seed + ':w' + (k >> 1)) - 0.5);
+      pos.push(d.x + Math.cos(a) * d.rx * w, d.y, -(d.z + Math.sin(a) * d.rz * w)); col.push(d.edge[0], d.edge[1], d.edge[2]);
+    }
+    for (let k = 0; k < segs; k++) idx.push(base, base + 1 + ((k + 1) % segs), base + 1 + k);
+  }
+  return { positions: new Float32Array(pos), colors: new Float32Array(col), index: idx, count: discs.length };
+}
+// 点から 折れ線 までの きょり(川の 帯に かくれる 池を おかない)
+export function distToPolyline(pts, x, z) {
+  let best = Infinity;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [ax, az] = pts[i], [bx, bz] = pts[i + 1], dx = bx - ax, dz = bz - az, L2 = dx * dx + dz * dz || 1;
+    const t = Math.max(0, Math.min(1, ((x - ax) * dx + (z - az) * dz) / L2));
+    best = Math.min(best, Math.hypot(x - ax - dx * t, z - az - dz * t));
+  }
+  return best;
+}
+// この 池(water の spot)は 大きな 水(川の 帯 / 海・湖の 面)に かくれるか。かくれる 池は おかない(池の ならび 禁止)
+export function pondCovered(world, q, shoreXAt) {
+  const t = world.terrain; if (!t) return false;
+  if (q.r >= 280) return false;   // 湖(大きな 水)は 川が そそいで いても じぶんの 面を もつ(川の 帯の 上に のる)
+  if ((t.kind === 'river' || t.kind === 'chasm') && t.pts) return distToPolyline(t.pts, q.x, q.z) < (t.half || 200) + q.r * 0.6;
+  if (t.kind === 'coast' && shoreXAt) { const sx = shoreXAt(world, q.z); if (sx == null) return false; return (t.side || -1) < 0 ? q.x - q.r * 0.3 < sx : q.x + q.r * 0.3 > sx; }
+  return false;
+}
+const WATER_DEFAULT = { deep: '#2f6f98', shallow: '#79bcd6', bank: null, foam: '#f4fbff' };
+function rgbOf(hex) { const c = hex instanceof THREE.Color ? hex : new THREE.Color(hex); return [c.r, c.g, c.b]; }
 // ---------------------------------------------------------------- 3D レンダラー
 function hash01(s) { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return ((h >>> 0) % 10000) / 10000; }
 const LITTER = new Set(['🍂', '🍃', '🍁', '🌰', '🌱']);
@@ -176,7 +240,7 @@ function create3DRenderer(M, o, onLost) {
   renderer.setSize(W, H, false);
   place();
 
-  const camera = new THREE.PerspectiveCamera(50, 1, 20, 5200);
+  const camera = new THREE.PerspectiveCamera(50, 1, 20, 12000);   // 遠 12000: 海の 面は 水平線(きりの むこう)まで。きりが 遠い 地域でも 面の はしが 見えない
   camera.rotation.order = 'YXZ';
   const texCache = new Map();
   let sceneOf = null, scene = null, built = null;
@@ -234,6 +298,14 @@ function create3DRenderer(M, o, onLost) {
     g.strokeStyle = 'rgba(255,255,255,0.22)'; g.lineWidth = 1.5;
     for (let i = 0; i < 9; i++) { const r = 14 + hash01('wr' + i) * 40, a0 = hash01('wa' + i) * TAU; g.beginPath(); g.arc(64, 64, r, a0, a0 + 0.5 + hash01('wl' + i) * 0.7); g.stroke(); }
     return canvasTexture(c);
+  }
+  // 波の すじ(Water v2): 白地に うすい すじ。vertex color(あさい / ふかい)に かける。くりかえし・ずらして ながす
+  function waveTexture() {
+    const c = doc.createElement('canvas'); c.width = c.height = 128;
+    const g = c.getContext('2d'); g.fillStyle = '#f4f8fb'; g.fillRect(0, 0, 128, 128);
+    for (let i = 0; i < 18; i++) { const y = hash01('wy' + i) * 128, x = hash01('wx' + i) * 128, L = 20 + hash01('wl' + i) * 50; g.strokeStyle = i % 3 ? 'rgba(255,255,255,0.9)' : 'rgba(120,160,190,0.35)'; g.lineWidth = 1.5 + hash01('ww' + i) * 2; g.beginPath(); g.moveTo(x - L / 2, y); g.quadraticCurveTo(x, y - 6 + hash01('wc' + i) * 12, x + L / 2, y); g.stroke(); }
+    const t = canvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    return t;
   }
   // キノコの かさ: 地の いろ + 白い てん
   function capTexture(base) {
@@ -455,13 +527,58 @@ function create3DRenderer(M, o, onLost) {
     }
     cur = null;
     const prof = (M.REGION3D && M.REGION3D[world.regionId]) || {};
-    // うみ: きしの むこうは 水の 面(shoreX に そって 帯で)。ほし の えき: 空に 小さな 光
-    if (prof.sea && world.terrain && world.terrain.kind === 'coast') {
-      for (let z = 0; z < world.len; z += 300) { const sx = M.shoreX(world, z + 150); if (sx == null) continue; const side = world.terrain.side || 1, far = side > 0 ? hi + 2500 : lo - 2500, cx = (sx + far) / 2, w = Math.abs(far - sx) / 2;
-        push('shore', { x: cx, y: 0, z: -(z + 150), sx: w + 60, sy: 1, sz: 190, ry: 0, tint: 0.5 }); push('pool', { x: cx, y: 0, z: -(z + 150), sx: w, sy: 1, sz: 160, ry: 0, tint: 0.5 }); }
-    }
     if (prof.stars) for (let i = 0; i < 90; i++) push('spark', { x: lo - 1500 + hash01('sx' + i) * (hi - lo + 3000), y: 900 + hash01('sy' + i) * 1600, z: -(hash01('sz' + i) * (world.len + 2000) - 1000), sx: 6 + hash01('sr' + i) * 10, sy: 6 + hash01('sr' + i) * 10, sz: 6 + hash01('sr' + i) * 10, ry: 0, tint: 0.5, color: i % 4 ? '#fff6c8' : '#bfe3ff' });
-    for (const q of ponds) { push('shore', { x: q.x, y: 0, z: -q.z, sx: q.r * 1.02 + 10, sy: 1, sz: q.r * 0.86 + 10, ry: 0, tint: 0.5 }); push('pool', { x: q.x, y: 0, z: -q.z, sx: q.r * 0.95, sy: 1, sz: q.r * 0.8, ry: 0, tint: 0.5 }); }
+    // ---- Water v2(F10): 川 = 1 本の 帯(岸つき)、海 / 湖 = 岸 → ぬれた 砂 → 浅瀬 → 沖 → 水平線 まで 1 まいの 面、しんかいの 谷 = くらい 帯、
+    //      池 / 湖(water の spot)= でこぼこの 閉じた かたち(中心 ふかく・ふち あさく)を まとめて 1 まい。川や 海に かくれる 池は おかない
+    const WC = Object.assign({}, WATER_DEFAULT, prof.water || {});
+    const deepC = rgbOf(WC.deep), shallowC = rgbOf(WC.shallow), bankC = WC.bank ? rgbOf(WC.bank) : rgbOf(new THREE.Color(world.ground[1]).multiplyScalar(0.62));
+    const waterAnim = [];
+    const stripMesh = (data, mat, name) => {
+      const g = keep(new THREE.BufferGeometry());
+      g.setAttribute('position', new THREE.BufferAttribute(data.positions, 3)); g.setAttribute('color', new THREE.BufferAttribute(data.colors, 3));
+      if (data.uvs) g.setAttribute('uv', new THREE.BufferAttribute(data.uvs, 2));
+      g.setIndex(data.index); g.computeVertexNormals();
+      const m = new THREE.Mesh(g, mat); m.name = name; m.frustumCulled = false; sc.add(m); return m;
+    };
+    const waveTex = keep(waveTexture()); waveTex.repeat.set(3, 1);
+    // 帯の 向き(折れ線の 進む 向き・岸の side)で 面の 表裏が かわる ので、水の material は 両面(DoubleSide)
+    const waterMat = keep(new THREE.MeshPhongMaterial({ vertexColors: true, map: waveTex, transparent: true, opacity: 0.94, shininess: 60, specular: '#cfe6ff', depthWrite: false, side: THREE.DoubleSide }));
+    const bankMat = keep(new THREE.MeshLambertMaterial({ vertexColors: true, side: THREE.DoubleSide }));
+    const foamMat = keep(new THREE.MeshBasicMaterial({ color: WC.foam, transparent: true, opacity: 0.55, depthWrite: false, side: THREE.DoubleSide }));
+    const water = { kind: null, meshes: [] };
+    const T = world.terrain;
+    if (T && (T.kind === 'river' || T.kind === 'chasm') && T.pts && T.pts.length >= 2) {
+      const half = T.half || 200, fr = polylineFrames(T.pts), chasm = T.kind === 'chasm';
+      const dark = chasm ? rgbOf('#07182b') : deepC, mid = chasm ? rgbOf('#0e2a45') : shallowC, bk = chasm ? rgbOf(new THREE.Color(world.ground[1]).multiplyScalar(0.7)) : bankC;
+      water.kind = T.kind;
+      water.meshes.push(stripMesh(stripGeometryData(fr, [{ o: -half - 48, y: 1.2, c: bk }, { o: -half + 2, y: 1.2, c: bk }, { o: half - 2, y: 1.2, c: bk }, { o: half + 48, y: 1.2, c: bk }]), bankMat, 'water:bank'));
+      water.meshes.push(stripMesh(stripGeometryData(fr, [{ o: -half, y: chasm ? 0.9 : 2.4, c: mid }, { o: -half * 0.45, y: chasm ? 0.9 : 2.4, c: dark }, { o: half * 0.45, y: chasm ? 0.9 : 2.4, c: dark }, { o: half, y: chasm ? 0.9 : 2.4, c: mid }]), chasm ? keep(new THREE.MeshLambertMaterial({ vertexColors: true, transparent: true, opacity: 0.92, depthWrite: false, side: THREE.DoubleSide })) : waterMat, 'water:' + T.kind));
+      if (!chasm) waterAnim.push({ map: waveTex, dx: 0, dy: 0.12 });
+    } else if (T && T.kind === 'coast' && T.pts && T.pts.length >= 2) {
+      const side = T.side || -1, pts = T.pts.slice();
+      pts.unshift([pts[0][0], pts[0][1] - 2500]); pts.push([pts[pts.length - 1][0], pts[pts.length - 1][1] + 2500]);
+      const fr = polylineFrames(pts), along = [side, 0], wet = rgbOf(new THREE.Color(world.ground[1]).multiplyScalar(0.78));
+      const midC = [(deepC[0] + shallowC[0]) / 2, (deepC[1] + shallowC[1]) / 2, (deepC[2] + shallowC[2]) / 2];
+      water.kind = prof.lake ? 'lake' : 'sea';
+      water.meshes.push(stripMesh(stripGeometryData(fr, [{ o: -90, y: 1.0, c: wet }, { o: 4, y: 1.0, c: wet }], { along }), bankMat, 'water:wetsand'));
+      water.meshes.push(stripMesh(stripGeometryData(fr, [{ o: 0, y: 2.2, c: shallowC }, { o: 150, y: 2.2, c: shallowC }, { o: 520, y: 2.2, c: midC }, { o: 1400, y: 2.2, c: deepC }, { o: 9000, y: 2.2, c: deepC }], { along }), waterMat, 'water:' + water.kind));
+      water.meshes.push(stripMesh(stripGeometryData(fr, [{ o: -4, y: 3.0, c: [1, 1, 1] }, { o: 22, y: 3.0, c: [1, 1, 1] }], { along }), foamMat, 'water:foam'));
+      waterAnim.push({ map: waveTex, dx: -side * 0.04, dy: 0 }, { foam: foamMat });
+    }
+    // 池 / 湖(water の spot)。川や 海に かくれる ものは おかない。r >= 280 は 湖(大きく・でこぼこ 大きめ・ふちに 浅瀬)
+    const discs = [], rims = [], shoreXAt = (w, z) => M.shoreX(w, z);
+    for (const q of ponds) {
+      if (pondCovered(world, q, shoreXAt)) continue;
+      const lake = q.r >= 280, seed = world.regionId + ':' + q.id, rot = hash01(seed) * TAU, amp = lake ? 0.16 : 0.11;
+      rims.push({ x: q.x, z: q.z, y: 1.8, rx: q.r * 1.0 + 12, rz: q.r * 0.86 + 12, rot, amp, seed, deep: bankC, edge: bankC });
+      discs.push({ x: q.x, z: q.z, y: lake ? 2.7 : 2.4, rx: q.r * 0.95, rz: q.r * 0.8, rot, amp, seed, deep: deepC, edge: shallowC });   // 湖は 川の 帯(2.4)より 上
+    }
+    if (discs.length) {
+      const rm = discFanData(rims, 28), dm = discFanData(discs, 28);
+      water.meshes.push(stripMesh({ positions: rm.positions, colors: rm.colors, index: rm.index }, bankMat, 'water:rim'));
+      water.meshes.push(stripMesh({ positions: dm.positions, colors: dm.colors, index: dm.index }, keep(new THREE.MeshPhongMaterial({ vertexColors: true, transparent: true, opacity: 0.92, shininess: 70, specular: '#d8ecff', depthWrite: false, side: THREE.DoubleSide })), 'water:pond'));
+      water.ponds = discs.length;
+    }
     const meshes = {};
     MAT.crownBig = flat('#3f7f3c');
     for (const shape of Object.keys(inst)) {
@@ -504,7 +621,7 @@ function create3DRenderer(M, o, onLost) {
     const ghostMat = {}; for (const k of Object.keys(MAT)) { ghostMat[k] = keep(MAT[k].clone()); ghostMat[k].transparent = true; ghostMat[k].opacity = 0.28; ghostMat[k].depthWrite = false; }
     const ghostGeo = (shape) => GEO[GEO_ALIAS[shape] || shape];
     for (const k of Object.keys(MAT_ALIAS)) ghostMat[k] = ghostMat[MAT_ALIAS[k]];
-    return { sc, hemi, sun, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null, refreshGround,
+    return { sc, hemi, sun, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null, refreshGround, water, waterAnim,
       occluders, hidden: new Set(), ghostPool: [], ghostStat: { visible: 0, attached: 0, total: 0 }, ghostMat, ghostGeo, inst, anim: { fall: MAT.fall.map, foam: MAT.foam, mist: MAT.mist, spark: MAT.spark }, prof };
   }
 
@@ -589,7 +706,11 @@ function create3DRenderer(M, o, onLost) {
       }
     }
     // たきの 水: ながれ・あわ・しぶき(うごきを へらす 設定では とめる)
-    if (animLv > 0) { const s = (now || 0) / 1000; built.anim.fall.offset.y = (s * 0.9) % 1; built.anim.foam.opacity = 0.6 + 0.1 * Math.sin(s * 3.1); built.anim.mist.opacity = 0.22 + 0.06 * Math.sin(s * 1.7); built.anim.spark.opacity = 0.7 + 0.25 * Math.sin(s * 2.6); }
+    if (animLv > 0) {
+      const s = (now || 0) / 1000; built.anim.fall.offset.y = (s * 0.9) % 1; built.anim.foam.opacity = 0.6 + 0.1 * Math.sin(s * 3.1); built.anim.mist.opacity = 0.22 + 0.06 * Math.sin(s * 1.7); built.anim.spark.opacity = 0.7 + 0.25 * Math.sin(s * 2.6);
+      // Water v2: 川は ながれ(v を ずらす)、海は 岸へ よせる 波(u を ずらす)+ 岸の あわの 明滅。頂点の simulation は しない(かるい material の アニメ だけ)
+      for (const a of built.waterAnim) { if (a.map) { a.map.offset.x = (s * a.dx) % 1; a.map.offset.y = (s * a.dy) % 1; } if (a.foam) a.foam.opacity = 0.42 + 0.2 * Math.sin(s * 1.9); }
+    }
     // キャラ
     for (const m of built.actors.values()) m.visible = false;
     built.shadows.count = 0;
@@ -665,6 +786,7 @@ function create3DRenderer(M, o, onLost) {
     b.ghostPool.length = 0; b.hidden.clear();
     for (const m of Object.values(b.meshes)) m.dispose();
     for (const m of b.boards) m.dispose();
+    for (const m of b.water.meshes) b.sc.remove(m);
     b.shadows.dispose();
     if (b.skyTex) b.skyTex.dispose();
     for (const x of b.disposables) if (x && x.dispose) x.dispose();
@@ -679,6 +801,7 @@ function create3DRenderer(M, o, onLost) {
       return { calls: info.render.calls, triangles: info.render.triangles, textures: info.memory.textures, geometries: info.memory.geometries,
         objects: built ? built.objects : 0, actors: built ? built.actors.size : 0, drawMsAvg: xs.length ? xs.reduce((s, v) => s + v, 0) / xs.length : 0, drawMsP95: pick(0.95), pixelRatio: renderer.getPixelRatio(),
         ghosts: built ? Object.assign({ hiddenObjects: built.hidden.size, owners: [...built.hidden].map((oc) => oc.ob.id) }, built.ghostStat) : null,
+        water: built ? { kind: built.water.kind, meshes: built.water.meshes.map((m) => m.name), ponds: built.water.ponds || 0 } : null,
         player: Object.assign({ missFrames: playerMiss }, playerVis) };
     },
     loseContext() { const ext = renderer.getContext().getExtension('WEBGL_lose_context'); if (ext) ext.loseContext(); },
