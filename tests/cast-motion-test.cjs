@@ -252,9 +252,9 @@ test('isActive tracks pet motion and idle can exclude the pet', () => {
   assert.equal(partner.animations.length+companion.animations.length,1);
 });
 
-test('medicine cure settles first unless the text describes rejection', () => {
+test('medicine cure uses recovery motion unless the text describes rejection', () => {
   const {reactionFor}=require('../cast-motion.js');
-  assert.equal(reactionFor('medicine_cure','げんきになったよ'),'settle');
+  assert.equal(reactionFor('medicine_cure','げんきになったよ'),'recover');
   assert.equal(reactionFor('medicine_cure','にがい！'),'shake');
 });
 
@@ -269,4 +269,15 @@ test('pet care semantics win over randomized line tone without changing social t
   assert.equal(reactionFor('wake','おはよ。まだねむい','companion'),'settle');
   assert.equal(reactionFor('play_with','なんかねむくなってきた','partner'),'settle');
   assert.equal(reactionFor('play_with','もう少しだけ置き物にして','companion'),'settle');
+});
+
+
+test('recovery pilot has one large relieved peak and returns exactly to rest', () => {
+  const {motionFrames}=require('../cast-motion.js');
+  const motion=motionFrames('recover',104,{maxDisplacement:18});
+  assert.equal(motion.duration,1450);
+  assert.deepEqual(motion.poses.at(-1),{x:0,y:0,angle:0,scale:1});
+  const ys=motion.poses.map(p=>p.y);
+  assert.ok(Math.min(...ys)<=-10,'recovery should read larger than an ordinary reaction');
+  assert.equal(ys.filter(y=>y<=-10).length,1,'recovery has one primary celebration peak');
 });
