@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [417](417-resource-value-selection.md) | 新比較wrapperから116へ接続、専用8/8・既存116の36/36 PASS。原本保持。可視情報adapter・shadow・paired・全回帰は未完了 |
+
 | [416](416-resource-value-comparison.md) | 別版比較器を実装、専用13/13 PASS。4成分frontier・循環拒否・限定無料配置証明を検証。116接続とパイロット未実施、114正本化なし |
 
 | [415](415-normal-decision-resource-pilot-plan.md) | 承認済み414から7工程の実装計画を保存。比較器→116接続→110局面shadow→同一入力8軌跡→指標→全回帰。未実装、114正本化は結果確認まで保留 |
