@@ -161,3 +161,13 @@ test('approved QA has no retired size selector, URL parameter or sizing override
  assert.doesNotMatch(read('bootstrap.js'),/applyHeartComparison|applyRingComparison|api\.heartSize\s*=/);
  assert.match(read('page.html'),/人間承認済み/);
 });
+
+ test('QA ignores documented module tags but still rejects executable typed scripts',()=>{
+ const original=fs.readFileSync;
+ try {
+  fs.readFileSync=function(p,...args){if(p===path.join(root,'index.html'))return '<head><!-- <script type="module"> example </script> --></head><script src="script.js?v=test"></script>';return original.call(this,p,...args);};
+  assert.match(builder.gameDocument(cases),/src="qa-runtime.js"/);
+  fs.readFileSync=function(p,...args){if(p===path.join(root,'index.html'))return '<head></head><script type="module" src="new.mjs"></script>';return original.call(this,p,...args);};
+  assert.throws(()=>builder.gameDocument(cases),/Review new script type/);
+ } finally {fs.readFileSync=original;}
+ });

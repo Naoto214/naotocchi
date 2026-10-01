@@ -8,7 +8,8 @@ function instrument(source){
 }
 const json=value=>JSON.stringify(value).replace(/</g,'\\u003c');
 function gameDocument(cases){
- let html=fs.readFileSync(path.join(ROOT,'index.html'),'utf8');
+ // Documentation may mention script tags; only executable markup participates in isolation.
+ let html=fs.readFileSync(path.join(ROOT,'index.html'),'utf8').replace(/<!--[\s\S]*?-->/g,'');
  if(/<script\b[^>]*\btype=/i.test(html))throw Error('Review new script type before QA generation');
  html=html.replace(/<script\b/g,'<script type="application/x-relationship-qa"');
  html=html.replace(/src="script\.js\?[^\"]*"/,'src="qa-runtime.js"');
