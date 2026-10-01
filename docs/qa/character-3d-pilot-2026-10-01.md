@@ -126,7 +126,7 @@ occlusion: World の 既存の すかし(木の ghost)が そのまま はたら
 ## 10. full regression
 
 - `npm test`: smoke / dialogue / visual-qa の script は OK。`node --test` 2840 件 中 **2839 PASS / 1 FAIL**。
-  FAIL = `tests/illustration-catalog-test.cjs`「every shipped UI/game emoji has an illustrated display definition — unmapped symbols: ★ ♡」。**未変更の origin/main でも 同じく FAIL**(この branch の 原因では ない。直さない)。
+  FAIL = `tests/illustration-catalog-test.cjs`「every shipped UI/game emoji has an illustrated display definition — unmapped symbols: ★ ♡」。**この 作業 container(Node v22.22.0)では 未変更の origin/main でも 同じく FAIL**、GitHub CI の main(`ebffaad`)は success → container の Node / Unicode の ちがい(★ ♡ は main の `games.js`・`script.js`・`style.css` に ある)。この branch の 原因では ない。PR の CI 結果で 確認する。
 - そのため `npm test` の 最後の 段(relationship 3 file)は `&&` で はしらない → 別に 実行して **80 / 80 PASS**。
 - World 3D(`meguru-3d-prototype-test`)・Home Expression(`pet-expression*`・`emotion-*`)・Relationship・save(`save-*`・`migration`)・asset gate(`asset-versions`・`asset-integrity`)は 上の 2839 に ふくまれ PASS。
 
