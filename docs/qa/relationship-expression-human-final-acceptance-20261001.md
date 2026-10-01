@@ -37,3 +37,22 @@ Updated sizing test and ring fixed-value test failed against comparison-enabled 
 Full repository completion, image hash audit and publication are recorded below after execution. Human acceptance is complete regardless of historical browser automation limitations. The saved local automated Home full runner remains unexecuted; do not relabel it as passed. No additional human size/colour/position review is requested.
 
 SHA256 audit against fresh startHEAD: all3430 tracked images unchanged, changed0. Relationship88, normal31, companion/partner normal, Naoto and other images all unchanged. Ring uses existing atlas with CSS-only approved presentation; ring asset changes0.
+
+## Published formal-value QA
+
+Implementation checkpoint92de288eb4185c39edcfa4f1168727fc2ae49ab7, tree08280e8436a9d63a7b36721172300de42bc35674. Independent scoped review found no important issue.
+
+Existing owner-private QA Site updated with unchanged audience/main-game isolation:
+https://naotocchi-relationship-home-qa.kerzion214.chatgpt.site/
+
+Site source837d9e097db3d00543c1d9126e4b1d4d4556749c, deployment appgdep_6abe1feb82708191aa34baad03ed1d8e, succeeded2026-10-01T08:55:24Z. Manifest identifies implementation checkpoint above; following branch change only completes this record.
+
+Cloud Chrome verified the size selector is absent and formal human-approval text is present. Married positive390x844 uses approved ring and heart, visually unchanged. Actual representative screenshot relationship-approved-married-positive-20261001.jpg saved separately from assets. This is a publication smoke check, not an additional aesthetic review or substitute for the user's completed iPhone acceptance.
+
+No remaining ring/heart size, colour or position approval. Future main integration and its regression gate are a separate step, not started here.
+
+## Final automated result
+
+`npm test` completed exit0 on the saved implementation: baseline2789 + Relationship78 = **2867 PASS /0 FAIL**. Smoke, dialogue and visual-fixture stages also completed successfully. Relationship78, Home53 and QA23 all pass; Home tests overlap the full suite and QA23 are separate. No skipped/cancelled tests. Full run took about12 minutes, dominated by existing meguru simulation tests, not QA page/runtime latency.
+
+All3430 images remain hash-identical to startHEAD; Expression88変更0. Final changes after the implementation checkpoint are documentation only. No Ready/PR creation/main merge. Human iPhone size/colour/position acceptance complete; no further comparison remains. Latest-main integration and its regression verification are deliberately left for the separately authorized landing step.
