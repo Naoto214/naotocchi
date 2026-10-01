@@ -58,17 +58,18 @@ class TrajectoryTests(unittest.TestCase):
         kinds=[e["action_type"] for e in result["events"]]
         self.assertIn("resolve_board_ability",kinds)
 
-    def test_historical_trigger_scope_conflict_has_public_event_evidence(self):
-        result=next(r for r in self.runs if r['run_id']==trajectory.POLICIES[0]+':probe-01-b-first')
-        self.assertEqual(result['last_valid_event_seq'],84)
-        self.assertEqual(result['stop_evidence']['stage'],'historical_response_inventory_scope')
-        self.assertEqual(result['stop_evidence']['trigger_event'],dict(seq=84,action_type='egg_exchange_bottom',actor='A'))
-        self.assertEqual(result['stop_evidence']['window_kind'],'turn_start')
-        self.assertEqual(result['stop_evidence']['response_opportunity_index'],1)
-        self.assertIn('144-board-trigger-response-audit.md',result['stop_evidence']['source_contract_refs'])
-        self.assertEqual(result['stop_evidence']['fresh_candidate_ids'],['response-activate-ability-A-015#1','response-pass'])
-        self.assertEqual(result['events'][-1]['action_type'],'egg_exchange_bottom')
-        self.assertIsNone(result['result']['winner'])
+    def test_historical_trigger_scope_difference_is_reenumerated(self):
+        initial=next(x for x in self.initials if x['path_id']=='probe-01-b-first')
+        result=next(r for r in self.runs if r['run_id']==trajectory.POLICIES[0]+':'+initial['path_id'])
+        shot=next(s for s in result['snapshots'] if s['event_seq']==84)
+        state=trajectory._current(shot['continuation_state'],84)
+        events=[e for e in result['events'] if e['seq']<=84]
+        generic=trajectory._generic_response_opportunity(state,initial,events)
+        profiled=trajectory._historical_response_opportunity(state,initial,events)
+        self.assertEqual(generic['legal_candidate_ids'],['response-activate-ability-A-015#1','response-pass'])
+        self.assertEqual(profiled['legal_candidate_ids'],['response-pass'])
+        self.assertEqual(events[-1]['action_type'],'egg_exchange_bottom')
+        self.assertGreater(result['last_valid_event_seq'],84)
 
     def test_known_hit_effect_provenance_continues_turn_end(self):
         result=next(r for r in self.runs if r["path_id"]=="probe-02-a-first" and r["policy_id"]==trajectory.POLICIES[0])

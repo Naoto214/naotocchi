@@ -1,0 +1,17 @@
+test_first_date_activation_reuses_existing_chain_transition (test_proxy_resource_value_response.ResponseTests.test_first_date_activation_reuses_existing_chain_transition) ... ERROR
+
+======================================================================
+ERROR: test_first_date_activation_reuses_existing_chain_transition (test_proxy_resource_value_response.ResponseTests.test_first_date_activation_reuses_existing_chain_transition)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_response.py", line 54, in test_first_date_activation_reuses_existing_chain_transition
+    after,generated=t.apply_selected(state,record,dict(public_events=events))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_resource_value_trajectory.py", line 328, in apply_selected
+    raise normal.RulesStop('unsupported_resolution_adapter',dict(action_type=kind,source_references=action.get('source_references',[])))
+proxy_normal_action_seeded_restart.RulesStop: unsupported_resolution_adapter
+
+----------------------------------------------------------------------
+Ran 1 test in 0.438s
+
+FAILED (errors=1)

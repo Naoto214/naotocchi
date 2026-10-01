@@ -1,0 +1,45 @@
+test_profile_does_not_apply_by_round_or_actor_only (test_proxy_resource_value_response_profiles.ResponseProfileTests.test_profile_does_not_apply_by_round_or_actor_only) ... ERROR
+test_profile_reenumerates_original_contract_at_exact_boundary (test_proxy_resource_value_response_profiles.ResponseProfileTests.test_profile_reenumerates_original_contract_at_exact_boundary) ... ERROR
+test_profile_rejects_missing_or_tampered_public_origin (test_proxy_resource_value_response_profiles.ResponseProfileTests.test_profile_rejects_missing_or_tampered_public_origin) ... ERROR
+test_profile_rejects_tampered_inventory_instead_of_copying_it (test_proxy_resource_value_response_profiles.ResponseProfileTests.test_profile_rejects_tampered_inventory_instead_of_copying_it) ... ERROR
+
+======================================================================
+ERROR: test_profile_does_not_apply_by_round_or_actor_only (test_proxy_resource_value_response_profiles.ResponseProfileTests.test_profile_does_not_apply_by_round_or_actor_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_response_profiles.py", line 23, in test_profile_does_not_apply_by_round_or_actor_only
+    self.assertIsNone(trajectory._historical_response_opportunity(altered,self.initial,self.events))
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_resource_value_trajectory' has no attribute '_historical_response_opportunity'
+
+======================================================================
+ERROR: test_profile_reenumerates_original_contract_at_exact_boundary (test_proxy_resource_value_response_profiles.ResponseProfileTests.test_profile_reenumerates_original_contract_at_exact_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_response_profiles.py", line 15, in test_profile_reenumerates_original_contract_at_exact_boundary
+    chance=trajectory._historical_response_opportunity(self.state,self.initial,self.events)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_resource_value_trajectory' has no attribute '_historical_response_opportunity'
+
+======================================================================
+ERROR: test_profile_rejects_missing_or_tampered_public_origin (test_proxy_resource_value_response_profiles.ResponseProfileTests.test_profile_rejects_missing_or_tampered_public_origin)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_response_profiles.py", line 34, in test_profile_rejects_missing_or_tampered_public_origin
+    with self.assertRaises(ValueError):trajectory._historical_response_opportunity(self.state,self.initial,bad)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_resource_value_trajectory' has no attribute '_historical_response_opportunity'
+
+======================================================================
+ERROR: test_profile_rejects_tampered_inventory_instead_of_copying_it (test_proxy_resource_value_response_profiles.ResponseProfileTests.test_profile_rejects_tampered_inventory_instead_of_copying_it)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_response_profiles.py", line 30, in test_profile_rejects_tampered_inventory_instead_of_copying_it
+    with self.assertRaises(ValueError):trajectory._historical_response_opportunity(self.state,initial,self.events)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_resource_value_trajectory' has no attribute '_historical_response_opportunity'
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.878s
+
+FAILED (errors=4)
