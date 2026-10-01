@@ -23,9 +23,9 @@ big tree と waterfall の 2 まいは レビュー後の 3D(昼 / 晴れ / 秋�
 ## 1b. レビュー後: 大きな木 と たき だけ 直した
 
 - [big tree 3D まえ / いま](great-3d-before-after.jpg) — 道を あけつつ spot の 正面に ちかく(spot から 432 → 384・むき +11 → +15 度)。えだはりを ひとまわり 大きく ひくめに(みき = あたり の まま)。
-- [waterfall 3D まえ / いま](falls-3d-before-after.jpg) — がけ = あたりの 箱(面が spot へ)・ながれる 水の まく・がけの 足もと から spot まで の たきつぼ(つや・岸の ふち)・あわ・しぶき・ふちの 石。いっしょに うごく。
+- [waterfall 3D まえ / いま](falls-3d-before-after.jpg) — 2 回めの レビュー後(10-01)。まえ = 1 回めの 直し(がけ = あたりの 箱・水の まく・たきつぼ)、いま = 風景に なじませた もの: まわりの いわだな・岩(あたり つき)・地層の がけ面・こけの もりあがり・がけの 上の ながれ・ガレ・ふかい たきつぼ・ぬれた 地面・ふくらみ・ながれだし。[ちかく・西から](falls-views-before-after.jpg)。
 - 上から 見た 図: [大きな木](relocation-bigtree-landmark.jpg) / [たき](relocation-waterfall-landmark.jpg)
-- ルール と 計測: [QA §8](../meguru-forest-3d-prototype-2026-09-30.md#8-ランドマーク大きな木たきの-直し--人の目の-レビューの-あと)
+- ルール と 計測: [QA §9(たき 2 回め)](../meguru-forest-3d-prototype-2026-09-30.md#9-たき-を-風景に-なじませる--2-回めの-レビューの-あと2026-10-01) / [QA §8](../meguru-forest-3d-prototype-2026-09-30.md#8-ランドマーク大きな木たきの-直し--人の目の-レビューの-あと)
 
 ## 2. billboard(なかま・player の まわりを 2 倍)
 

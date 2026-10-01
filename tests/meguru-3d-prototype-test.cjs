@@ -50,7 +50,9 @@ test('2. 3D モード: 道の うえの かたい 物は 見た目ごと 道の 
   assert.equal(moved + dropped, st.candidates);
   assert.ok(moved > dropped, `うごかした ${moved} > おかない ${dropped}`);
   assert.ok(dropped <= 45, 'おかない ものは すくない ' + dropped);
-  assert.equal(w3.props.length, w2.props.length - dropped);
+  const added = Object.values(st.added || {}).reduce((a, b) => a + b, 0);   // ランドマークの まわりの 岩・いわだな(3D だけ)
+  assert.equal(w3.props.length, w2.props.length - dropped + added);
+  assert.ok(added >= 3 && added <= 7, 'たきの まわりの 岩・いわだな ' + added);
   for (const m of st.moves) assert.ok(m.d > 0, m.kind);
   // うごかした 物は それぞれ 1.5 × 絵の はば の なか
   const byKey = new Map(w2.props.map((p, i) => [(p.struct || p.emoji) + ':' + i, p]));
@@ -68,7 +70,7 @@ test('2. 3D モード: 道の うえの かたい 物は 見た目ごと 道の 
 
 test('3. 3D の かたい 物は かならず あたりが あり、あたまより 下の 見た目は あたり + 10 まで(とおれる 木・見えない かべ なし)', () => {
   assert.equal(objs.unresolved.length, 0, 'あたりの ない かたい 見た目は ない ' + Array.from(objs.unresolved).join(','));
-  const SOLID = new Set(['conifer', 'broadleaf', 'bigtree', 'rock', 'log', 'stump', 'mushroom', 'waterfall']), WET = new Set(['pool', 'foam', 'mist', 'fall']);
+  const SOLID = new Set(['conifer', 'broadleaf', 'bigtree', 'rock', 'log', 'stump', 'mushroom', 'waterfall', 'ledge']), WET = new Set(['pool', 'foam', 'mist', 'fall', 'wet', 'deep', 'moss']);
   let n = 0;
   for (const ob of objs.objects) {
     if (!SOLID.has(ob.type)) continue;
@@ -124,12 +126,25 @@ test('3b. ランドマーク(3D だけ): spot から 見た むきを たもっ�
   const cliff = wf.parts.find((pt) => pt.shape === 'cliff');
   assert.equal(cliff.rx, wf.collision.hw); assert.equal(cliff.rz, wf.collision.hd); assert.equal(cliff.ang, wf.collision.ang);
   for (const shape of ['fall', 'pool', 'foam', 'mist']) {
-    const pt = wf.parts.find((q) => q.shape === shape);
+    const pt = wf.parts.find((q) => q.shape === shape && !q.bare && (q.y || 0) >= 0);   // がけの 上の ながれ(bare)・ふくらみ(y < 0)は べつ
     assert.ok(pt, shape);
     assert.ok((pt.dx * tx + pt.dz * tz) / L > wf.collision.hd - 20, shape + ' は がけの まえ(spot がわ)');
   }
-  const pool = wf.parts.find((q) => q.shape === 'pool');
+  const pool = wf.parts.find((q) => q.shape === 'pool' && !q.bare && (q.y || 0) >= 0);
   assert.ok(Math.abs(Math.hypot(wf.x + pool.dx - falls.x, wf.z + pool.dz - falls.z) + pool.rz - L) < L * 0.6, 'たきつぼは がけ から spot まで');
+  // がけの 上の ながれ(上流の けはい)は がけの 上に。ぬれた 地面・ふかい ところ・ガレ も ある
+  const top = wf.parts.find((q) => q.shape === 'pool' && q.bare);
+  assert.ok(top && top.y > M.OBJ3D_HEAD, 'がけの 上の ながれ');
+  for (const shape of ['wet', 'deep']) assert.ok(wf.parts.some((q) => q.shape === shape), shape);
+  assert.ok(wf.parts.filter((q) => q.shape === 'stone').length >= 8, 'ガレ・ふちの 石');
+  // まわりの 岩・いわだな: たきと おなじ ランドマークの もの。それぞれ あたり = 見た目(いわだな = 箱、岩 = まる)。道の 3/4・spot は 4 で みる
+  const sats = objs.objects.filter((o) => o.collision && String(o.collision.kind || w3.obstacles.find((ob) => ob.pi === o.pi).kind).startsWith('LM:waterfall:'));
+  assert.ok(sats.length >= 3, 'まわりの 岩・いわだな ' + sats.length);
+  for (const o of sats) {
+    assert.ok(Math.hypot(o.x - wf.x, o.z - wf.z) < 560 * 0.8, 'たきの そば');
+    if (o.type === 'ledge') { assert.equal(o.collision.shape, 'box'); assert.equal(o.parts[0].rx, o.collision.hw); assert.equal(o.parts[0].rz, o.collision.hd); assert.ok(o.parts[0].h <= 560 * 0.75, 'がけより ひくい'); }
+    else assert.equal(o.type, 'rock');
+  }
   // 2D は かわらない: ランドマークの あたりは まるい ねもと のまま
   for (const p of w2.props.filter((q) => q.landmark)) { assert.equal(p.collider3d, undefined); assert.equal(M.colliderOf(p).shape, 'circle'); }
 });

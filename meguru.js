@@ -782,6 +782,8 @@
         if (c3 && c3.shape === 'box') return { shape: 'box', hw: size * c3.w * k, hd: size * c3.d * k, ang: c3.ang, kind: 'LM:' + p.landmark };
         return { shape: 'circle', hw: size * LANDMARK_COLLIDER.w * k, hd: size * LANDMARK_COLLIDER.w * k, ang: 0, kind: 'LM:' + p.landmark };
       }
+      // ランドマークの まわりの 岩・だな(3D モードだけ world に ふえる)。あたりは おきなおしが きめた かたち
+      if (p.collider3d && p.part3d) { const c3 = p.collider3d; return { shape: c3.shape, hw: size * c3.w, hd: size * (c3.d != null ? c3.d : c3.w), ang: c3.ang || 0, kind: 'LM:' + p.landmarkOf + ':' + p.part3d }; }
       if (p.struct) {
         const c = Object.prototype.hasOwnProperty.call(COLLIDER, p.struct)
           ? COLLIDER[p.struct]
@@ -963,7 +965,17 @@
     //   それでも おけなければ ねもと(あたり = 見た目の みき・がけ)を minScale まで ほそく する。
     //   えらぶ じゅん = うごいた きょり(100 ごと 1)+ むきの ずれ(20 度 ごと 1)+ ほそく した ぶん(0.1 ごと 0.4)が すくない もの。どこにも おけなければ ふつうの ルールへ
     // しゅるいで かわるのは あたりの かたち と ほそく できる はんい だけ(がけ は spot へ むいた 横ながの 箱)
-    const LANDMARK3D = { waterfall: { shape: 'box', w: 0.3, d: 0.14, minScale: 0.8 }, bigtree: { minScale: 0.6 } };
+    // satellites = ランドマークに ついて まわる 岩・いわだな(3D だけ の prop。それぞれ あたり つき = 見た目)。fd = spot へ の むき・sd = よこ(ランドマークの 大きさ 1 = size)。
+    //   おけない ところ(道・spot・ほかの みき)なら その 1 つ だけ おかない(かざり なので)
+    const LANDMARK3D = {
+      waterfall: { shape: 'box', w: 0.3, d: 0.14, minScale: 0.8, satellites: [
+        { part: 'ledge', fd: -0.02, sd: 0.43, w: 0.13, d: 0.11, h: 0.44, turn: 14 },      // 左右の かた(ひくい いわだな)
+        { part: 'ledge', fd: -0.04, sd: -0.42, w: 0.12, d: 0.11, h: 0.38, turn: -18 },
+        { part: 'ledge', fd: -0.3, sd: 0.14, w: 0.17, d: 0.12, h: 0.86, turn: 6 },        // うしろの だん(がけの 上に のぞく。まんなかの すきまから 水が くる)
+        { part: 'ledge', fd: -0.32, sd: -0.17, w: 0.15, d: 0.12, h: 0.8, turn: -8 },
+        { part: 'rock', fd: 0.05, sd: 0.62, r: 0.085 }, { part: 'rock', fd: 0.1, sd: -0.6, r: 0.075 },   // そとがわの 岩(ひざ くらい)
+        { part: 'rock', fd: -0.18, sd: 0.66, r: 0.06 } ] },
+      bigtree: { minScale: 0.6 } };
     const LANDMARK3D_DEFAULT = { minScale: 0.8 };
     const LANDMARK3D_TURN = 30;
     function* placeLandmark3dSteps(p, world, probe, placed, lo, hi) {
@@ -994,9 +1006,39 @@
       }
       return best;
     }
+    // ランドマークの まわりの 岩・いわだな を おく(3D だけ)。ランドマークと おなじ むき(spot へ)の 座標で ならべ、
+    // あたりは ちぢめず そのまま おける ところ だけ(道・spot・ほかの みき に かかる 1 つ は おかない)
+    function placeSatellites3d(p, lm, world, probe, placed, lo, hi) {
+      const rule = LANDMARK3D[p.landmark], out = [];
+      if (!rule || !rule.satellites) return out;
+      const sp = (world.spots || []).find((s) => p.mid === 'lm:' + s.id), size = p.size || 160;
+      const L = Math.hypot(sp.x - p.x, sp.z - p.z) || 1, fx = (sp.x - p.x) / L, fz = (sp.z - p.z) / L;
+      const a0 = Math.atan2(-fz, fx), sx = Math.sin(a0), sz = Math.cos(a0);   // がけの 箱と おなじ じく
+      // おけなければ がけの ほうへ すこし よせる(0.05 × size ずつ)・まえうしろに すこし ずらす・ちいさく する(0.55 まで)の じゅんに ためす
+      const fits = (st, sd, fd, k) => {
+        const x = p.x + fx * fd * size + sx * sd * size, z = p.z + fz * fd * size + sz * sd * size;
+        const c3 = st.part === 'ledge' ? { shape: 'box', w: st.w * k, d: st.d * k, ang: a0 + (st.turn || 0) * Math.PI / 180 } : { shape: 'circle', w: st.r * k };
+        const prop = { struct: st.part === 'ledge' ? 'ledgerock' : 'bigrock', part3d: st.part, landmarkOf: p.landmark, collider3d: c3, h3d: (st.h || 0) * (0.7 + 0.3 * k), x, z, size, solid: true, layer: 'landmark', satellite3d: true };
+        const full = colliderOf(prop), fr = Math.max(full.hw, full.hd), sr = Math.min(full.hw, full.hd);
+        if (x - fr < lo + 20 || x + fr > hi - 20 || z - fr < 80 || z + fr > world.len - 80) return null;
+        if (!farFromRoads(world, x, z, sr) || trunkAt(probe, placed.concat(out.map((q) => q.o)), x, z, sr)) return null;
+        const o = obstacleOf(prop, world, null);
+        if (!o || Math.max(o.hw, o.hd) < fr - 0.01 || Math.hypot(o.x - x, o.z - z) > 0.5) return null;
+        return { prop, o };
+      };
+      for (const st of rule.satellites) {
+        let got = null;
+        for (let sh = 0; sh <= 0.1 && !got; sh += 0.05) for (const df of [0, -0.06, 0.06]) {
+          for (const k of [1, 0.85, 0.7, 0.55]) { got = fits(st, st.sd - Math.sign(st.sd) * sh, st.fd + df, k); if (got) break; }
+          if (got) break;
+        }
+        if (got) out.push(got);
+      }
+      return out;
+    }
     // くぎり(yield)つき。corridor の まえもって 組む(buildWorldSteps)を 1 frame で とめない
     function* relocateRoadSolids3dSteps(world) {
-      const stats = { candidates: 0, solidified: {}, moved: {}, dropped: {}, moves: [], drops: [] };
+      const stats = { candidates: 0, solidified: {}, moved: {}, dropped: {}, added: {}, moves: [], drops: [] };
       // ながめの かざり(spot の view)の 岩・木は 2D では あたりが ない。3D では かたい 物 として あつかう
       for (const p of world.props) {
         if (p.solid || !p.view || !SOLID3D_TYPES.has(objectType3d(p))) continue;
@@ -1030,6 +1072,7 @@
           stats.moved[kind] = (stats.moved[kind] || 0) + 1;
           p.x = lm.x; p.z = lm.z; p.collider3d = lm.c3; p.moved3d = true;
           placed.push(lm.o);
+          for (const sat of placeSatellites3d(p, lm, world, probe, placed, lo, hi)) { world.props.push(sat.prop); placed.push(sat.o); stats.added[sat.prop.part3d] = (stats.added[sat.prop.part3d] || 0) + 1; }
           continue;
         }
         let best = null;
@@ -1067,8 +1110,9 @@
       log: 'log', driftwood: 'log', stump: 'stump', springpool: 'water', woodbridge: 'bridge', branch: 'skip' };
     const OBJ3D_BILLBOARD = { fern: '🌿', mushroomcluster: '🍄', mushroomgrove: '🍄', glowglade: '✨', oldpost: '🪧' };
     const WALKABLE3D = new Set(['billboard', 'water', 'bridge', 'pebble']);
-    const SOLID3D_TYPES = new Set(['conifer', 'broadleaf', 'bigtree', 'rock', 'log', 'stump', 'mushroom', 'waterfall']);   // あたりが なくて よい(ふんで とおれる / ひらたい / 草花)
+    const SOLID3D_TYPES = new Set(['conifer', 'broadleaf', 'bigtree', 'rock', 'log', 'stump', 'mushroom', 'waterfall', 'ledge']);   // あたりが なくて よい(ふんで とおれる / ひらたい / 草花)
     function objectType3d(p) {
+      if (p.part3d) return p.part3d;   // ランドマークの まわりの 岩・いわだな(3D だけ)
       if (p.landmark === 'bigtree') return 'bigtree';
       if (p.landmark === 'glowmushroom') return 'mushroom';
       if (p.landmark === 'waterfall') return 'waterfall';
@@ -1090,21 +1134,59 @@
       // よこはばは 道の 面に かからない ところまで(spot の まんなか ちかくの 道の はしっこ は 2D の 池と おなじく 水ぎわ)
       const far = hd - 16, near = Math.max(far + 120, ctx && ctx.dist ? ctx.dist : hd + 200), along = (near - far) / 2;
       let across = Math.max(hw * 1.25, along);
-      if (ctx && ctx.world && ctx.spot && o) {
-        const cx = o.x + f.x * (far + along), cz = o.z + f.z * (far + along), keep = ctx.spot.r * 0.75;
-        const wet = (k) => { for (let i = 0; i < 24; i++) { const u = Math.cos(i * Math.PI / 12), v = Math.sin(i * Math.PI / 12), x = cx + f.x * along * u + sx * k * v, z = cz + f.z * along * u + sz * k * v;
-          if (Math.hypot(x - ctx.spot.x, z - ctx.spot.z) > keep && !farFromRoads({ segments: ctx.world.segments }, x, z, 0)) return true; } return false; };
+      const world = ctx && ctx.world, spot = ctx && ctx.spot;
+      const dry = (x, z, pad) => (!world || !spot) ? true : (Math.hypot(x - spot.x, z - spot.z) <= spot.r * 0.75 || farFromRoads({ segments: world.segments }, x, z, pad));
+      if (world && spot && o) {
+        const cx = o.x + f.x * (far + along), cz = o.z + f.z * (far + along);
+        const wet = (k) => { for (let i = 0; i < 24; i++) { const u = Math.cos(i * Math.PI / 12), v = Math.sin(i * Math.PI / 12); if (!dry(cx + f.x * along * u + sx * k * v, cz + f.z * along * u + sz * k * v, 0)) return true; } return false; };
         while (across > hw * 0.8 && wet(across)) across *= 0.92;
       }
-      const out = [{ shape: 'cliff', rx: hw, rz: hd, h, y: 0, ang: a }, { shape: 'moss', rx: hw + 8, rz: hd + 8, h: 16, y: h, ang: a },
-        Object.assign({ shape: 'fall', w: hw * 0.62, h: h - 2, y: 0, fx: f.x, fz: f.z }, at(hd + 3, 0)),
+      // よこの ふくらみ(たきつぼ を まるい 記号に しない): がけに ちかい がわ の 左右 どちらか、道に かからない ほう
+      let lobe = null;
+      for (const sd of [1, -1]) {
+        const lx = at(far + along * 0.75, sd * across * 0.55), rx = across * 0.6, rz = along * 0.55, ok = [];
+        for (let i = 0; i < 12; i++) { const u = Math.cos(i * Math.PI / 6), v = Math.sin(i * Math.PI / 6); ok.push(dry(o.x + lx.dx + f.x * rz * u + sx * rx * v, o.z + lx.dz + f.z * rz * u + sz * rx * v, 0)); }
+        if (ok.every(Boolean)) { lobe = Object.assign({ shape: 'pool', rx, rz, y: -0.2, ang: a }, lx); break; }
+      }
+      // ながれだし: たきつぼの よこ から 森へ ほそく。道に かからない がわ が あれば
+      let flow = null;
+      for (const sd of (lobe && lobe.dx * sx + lobe.dz * sz > 0 ? [1, -1] : [-1, 1])) {
+        const x0 = o.x + f.x * (far + along * 0.6) + sx * sd * across * 0.9, z0 = o.z + f.z * (far + along * 0.6) + sz * sd * across * 0.9, len = 230, ux = sx * sd, uz = sz * sd;
+        let ok = true;
+        for (let t = 0; t <= len && ok; t += 30) ok = dry(x0 + ux * t, z0 + uz * t, 34) && (!world || Math.abs(x0 + ux * t) < (world.halfW || 1e9) - 60);
+        if (ok) { flow = { x: x0 + ux * len / 2, z: z0 + uz * len / 2, sd, len }; break; }
+      }
+      // こけ = がけの 上の もりあがり(左右に わかれ、まんなかは ながれ)。半分 がけに うまる ので 上の ふちが やわらかく なる
+      const moss = (fd, sd, rx, rz, hh) => Object.assign({ shape: 'moss', rx, rz, h: hh, y: h - hh * 0.45, ang: a }, at(fd, sd));
+      const out = [{ shape: 'cliff', rx: hw, rz: hd, h, y: 0, ang: a },
+        moss(-hd * 0.2, hw * 0.55, hw * 0.42, hd * 0.9, 26), moss(-hd * 0.1, -hw * 0.56, hw * 0.4, hd * 0.85, 24), moss(hd * 0.5, hw * 0.88, hw * 0.2, hd * 0.5, 18), moss(hd * 0.55, -hw * 0.9, hw * 0.18, hd * 0.45, 16),
+        // がけの 上の ながれ(うしろの だんの すきま から 手前の ふち へ)
+        Object.assign({ shape: 'pool', rx: hw * 0.17, rz: hd * 1.1, y: h - 0.6, ang: a, bare: true }, at(4, 0)),
+        Object.assign({ shape: 'fall', w: hw * 0.62, h: h + 2, y: 0, fx: f.x, fz: f.z }, at(hd + 3, 0)),
+        // ぬれた 地面(たきつぼ より ひとまわり 大きく。ふちは すける)
+        Object.assign({ shape: 'wet', rx: across * 1.4, rz: along * 1.3 + 30, y: 0, ang: a }, at(far + along - 10, 0)),
         Object.assign({ shape: 'pool', rx: across, rz: along, y: 0, ang: a }, at(far + along, 0)),
+        // 落ちた ところは ふかい(たきつぼの 下に くらい まる)
+        Object.assign({ shape: 'deep', rx: hw * 0.45, rz: 60, y: 0, ang: a }, at(hd + 40, 0)),
         Object.assign({ shape: 'foam', rx: hw * 0.36, rz: 30, y: 0, ang: a }, at(hd + 26, 0)),
         Object.assign({ shape: 'mist', r: hw * 0.3, sy: 0.5, y: 24, fx: f.x, fz: f.z }, at(hd + 34, 0))];
-      // たきつぼの ふちの ひらたい 石(がけの 両わき と てまえの 左右)
-      for (const [fd, sd, k] of [[hd + 16, hw * 0.8, 1], [hd + 22, -hw * 0.78, 0.8], [far + along * 1.6, across * 0.72, 0.7], [far + along * 1.5, -across * 0.78, 0.9]]) {
+      if (lobe) out.push(lobe);
+      if (flow) {
+        out.push({ shape: 'pool', rx: 22, rz: flow.len / 2, y: -0.2, ang: a - Math.PI / 2, dx: flow.x - o.x, dz: flow.z - o.z });
+        out.push({ shape: 'wet', rx: 46, rz: flow.len / 2 + 20, y: 0, ang: a - Math.PI / 2, dx: flow.x - o.x, dz: flow.z - o.z });
+        for (const [t, side, k] of [[0.25, 1, 0.6], [0.6, -1, 0.5], [0.85, 1, 0.45]]) out.push({ shape: 'stone', rx: 20 * k + 8, rz: 14 * k + 6, h: 8 + 6 * k, y: 0,
+          dx: flow.x - o.x + sx * flow.sd * (t - 0.5) * flow.len + f.x * side * 32, dz: flow.z - o.z + sz * flow.sd * (t - 0.5) * flow.len + f.z * side * 32 });
+      }
+      // がけの 足もとの ガレ(ひらたい・ふんで とおれる): がけの かど から 水ぎわ へ、両わき へ
+      for (const [fd, sd, rx, rz, hh] of [[hd + 18, hw * 0.78, 64, 36, 14], [hd + 14, -hw * 0.8, 58, 34, 13], [hd - 30, hw + 44, 52, 60, 16], [hd - 36, -hw - 42, 48, 56, 15], [hd + 40, hw * 0.98, 40, 30, 10], [hd + 44, -hw * 1.0, 36, 28, 9]]) {
+        out.push(Object.assign({ shape: 'stone', rx, rz, h: hh, y: 0 }, at(fd, sd)));
+      }
+      // たきつぼの ふちの 石(てまえの 左右・ふくらみ の まわり)
+      for (const [fd, sd, k] of [[far + along * 1.6, across * 0.74, 0.7], [far + along * 1.5, -across * 0.8, 0.9], [far + along * 1.15, across * 1.02, 0.55], [far + along * 0.5, -across * 1.04, 0.6]]) {
         out.push(Object.assign({ shape: 'stone', rx: 26 * k + 8, rz: 18 * k + 6, h: 10 + 6 * k, y: 0 }, at(fd, sd)));
       }
+      if (lobe) for (const [u, v, k] of [[0.9, 0.5, 0.5], [0.3, 1.05, 0.6], [-0.6, 0.95, 0.45]]) out.push({ shape: 'stone', rx: 22 * k + 8, rz: 16 * k + 6, h: 8 + 6 * k, y: 0,
+        dx: lobe.dx + f.x * lobe.rz * u + sx * lobe.rx * v * Math.sign(lobe.dx * sx + lobe.dz * sz), dz: lobe.dz + f.z * lobe.rz * u + sz * lobe.rx * v * Math.sign(lobe.dx * sx + lobe.dz * sz) });
       return out;
     }
     function parts3d(type, o, H, halfW, size, ctx) {
@@ -1134,6 +1216,10 @@
         case 'mushroom': return [{ shape: 'trunk', r, h: size * 0.5, y: 0, taper: 1 }, { shape: 'cap', r: Math.max(r * 2.2, size * 0.3), sy: 0.55, y: size * 0.5 }];
         case 'waterfall': return waterfallParts3d(o, r, size, ctx);
         case 'rock': return [{ shape: 'rock', rx: o ? o.hw : r, rz: o ? o.hd : r, h: Math.min(H, (o ? Math.max(o.hw, o.hd) : r) * 1.1), y: 0 }];
+        case 'ledge': {   // いわだな = あたりの 箱 + 上に こけ(ctx.h = たかさ)
+          const h = Math.max(40, (ctx && ctx.h) || 0), a = o ? o.ang : 0;
+          return [{ shape: 'cliff', rx: o ? o.hw : r, rz: o ? o.hd : r, h, y: 0, ang: a }, { shape: 'moss', rx: (o ? o.hw : r) * 0.95, rz: (o ? o.hd : r) * 0.95, h: 18, y: h - 9, ang: a }];
+        }
         case 'log': return [{ shape: 'log', len: o ? o.hw * 2 : halfW * 2, r: o ? Math.min(o.hd, 34) : 20, y: 0 }];
         case 'stump': return [{ shape: 'stump', r, h: Math.min(size * 0.35, 60), y: 0 }];
         case 'water': return [{ shape: 'pool', r: halfW, y: 0 }];
@@ -1157,7 +1243,7 @@
         // ランドマークは もちぬしの spot(むき・きょり)を しって いる。たきは たきつぼ を spot の 池 の かわりに もつ
         const sp = p.landmark ? (world.spots || []).find((s) => p.mid === 'lm:' + s.id) : null;
         const ox = o ? o.x : p.x, oz = o ? o.z : p.z, dist = sp ? Math.hypot(sp.x - ox, sp.z - oz) : 0;
-        const ctx = sp && dist > 1 ? { front: { x: (sp.x - ox) / dist, z: (sp.z - oz) / dist }, dist, spot: sp, world } : null;
+        const ctx = sp && dist > 1 ? { front: { x: (sp.x - ox) / dist, z: (sp.z - oz) / dist }, dist, spot: sp, world } : p.part3d ? { h: size * 0.75 * (p.h3d || 0) } : null;
         out.push({ id: world.regionId + ':' + i, pi: i, type, kind, region: world.regionId, layer: p.layer || null, role: o ? o.role : null, spot: sp ? sp.id : null,
           x: o ? o.x : p.x, z: o ? o.z : p.z, rot: o ? o.ang || 0 : p.ang || 0, height: H, halfW, size, emoji: type === 'billboard' ? (p.emoji || OBJ3D_BILLBOARD[p.struct]) : null,
           solid, walkable: !o, collision: o ? { shape: o.shape, x: o.x, z: o.z, hw: o.hw, hd: o.hd, ang: o.ang || 0 } : null, moved3d: !!p.moved3d, parts: parts3d(type, o, H, halfW, size, ctx) });

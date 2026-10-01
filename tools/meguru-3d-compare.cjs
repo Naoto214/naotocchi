@@ -8,6 +8,7 @@
 //   ... --json out.json       … けっかを JSON にも
 //   ... --poses '[{"name":"fork-hidden","spot":"fork","x":0,"z":2900,"yaw":0.4,"fade":false}]' … 固定の いち を ふやす
 //   ... --seconds 0           … あるく 計測を しない(しゃしん だけ)
+//   ... --env day,sunny,autumn … 時間 / 天気 / 季節を 固定(まえ / あと を おなじ 条件で)
 // セーブは tests の harness で つくる(forest・なかま 26 + こいびと 1 = 27 にん)。ゲームの セーブは かえない。
 // playwright が ひつよう。headless の WebGL は ソフトウェア(SwiftShader)なので GPU の 時間は 実機と ちがう(CPU がわ・draw call は くらべられる)。
 const http = require('http');
@@ -27,6 +28,8 @@ const JSON_OUT = opt('--json', null);
 const SPOTS = String(opt('--spots', 'entry,bright2,fork,great,falls')).split(',').filter(Boolean);
 // そのほかの 固定の いち(JSON: [{ name, spot, x, z, yaw, fade }])。すかし あり / なし の くらべ など
 const EXTRA = JSON.parse(opt('--poses', '[]'));
+// 時間 / 天気 / 季節を 固定(--env day,sunny,autumn)。まえ / あと の しゃしんを おなじ 条件に する。ない ときは いまの 時刻
+const ENV = (() => { const v = opt('--env', ''); if (!v) return null; const [time, weather, season] = v.split(','); return { time, weather, season }; })();
 fs.mkdirSync(OUT, { recursive: true });
 
 function makeSave() {
@@ -84,8 +87,10 @@ async function hold(page, dx, dy) {
 
 // 固定の いち・むき(あるかない)。2D と 3D で おなじ player の いち・カメラの むき・なかまの ならび・時間 / 天気
 async function capture(page, mode, spot, pose = {}) {
-  const at = await page.evaluate(({ id, pose }) => {
+  const at = await page.evaluate(({ id, pose, env }) => {
     const r = globalThis.__meguruRun, sim = r.sim, s = r.world.spots.find((q) => q.id === id);
+    if (env && !sim.__envFixed) { const orig = sim.setEnv.bind(sim); sim.setEnv = (e) => orig(Object.assign({}, e, env)); sim.__envFixed = true; }
+    if (env) sim.setEnv(sim.env || {});
     sim.setCameraMotion(false);
     sim.setPlayer(pose.x != null ? pose.x : s.x, pose.z != null ? pose.z : s.z - 100);
     sim.camera.yaw = pose.yaw || 0; sim.player.heading = pose.yaw || 0;
@@ -93,7 +98,7 @@ async function capture(page, mode, spot, pose = {}) {
     if (r.renderer.setOccluderFade) r.renderer.setOccluderFade(pose.fade !== false);
     const e = sim.view().env || {};
     return { x: Math.round(sim.player.x), z: Math.round(sim.player.z), yaw: +sim.camera.yaw.toFixed(3), time: e.time, weather: e.weather, season: e.season };
-  }, { id: spot, pose });
+  }, { id: spot, pose, env: ENV });
   await page.waitForTimeout(1500);
   const box = await page.locator('#mgrCanvas').boundingBox();
   const file = path.join(OUT, `${pose.name || spot}-${mode}.png`);
