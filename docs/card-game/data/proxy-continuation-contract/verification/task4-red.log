@@ -1,0 +1,55 @@
+test_every_event_binds_complete_runtime_and_contiguous_snapshots (test_proxy_continuation_runner.RunnerTests.test_every_event_binds_complete_runtime_and_contiguous_snapshots) ... FAIL
+test_four_same_inputs_two_policies_and_no_balance_promotion (test_proxy_continuation_runner.RunnerTests.test_four_same_inputs_two_policies_and_no_balance_promotion) ... FAIL
+test_independent_replay_rejects_event_or_relation_tampering (test_proxy_continuation_runner.RunnerTests.test_independent_replay_rejects_event_or_relation_tampering) ... FAIL
+test_legacy_scope_difference_is_not_policy_effect (test_proxy_continuation_runner.RunnerTests.test_legacy_scope_difference_is_not_policy_effect) ... FAIL
+test_main_and_attachment_boundaries_progress_without_overwriting_old_runs (test_proxy_continuation_runner.RunnerTests.test_main_and_attachment_boundaries_progress_without_overwriting_old_runs) ... FAIL
+
+======================================================================
+FAIL: test_every_event_binds_complete_runtime_and_contiguous_snapshots (test_proxy_continuation_runner.RunnerTests.test_every_event_binds_complete_runtime_and_contiguous_snapshots)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_runner.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(runner,'versioned eight-route runner not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : versioned eight-route runner not implemented
+
+======================================================================
+FAIL: test_four_same_inputs_two_policies_and_no_balance_promotion (test_proxy_continuation_runner.RunnerTests.test_four_same_inputs_two_policies_and_no_balance_promotion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_runner.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(runner,'versioned eight-route runner not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : versioned eight-route runner not implemented
+
+======================================================================
+FAIL: test_independent_replay_rejects_event_or_relation_tampering (test_proxy_continuation_runner.RunnerTests.test_independent_replay_rejects_event_or_relation_tampering)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_runner.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(runner,'versioned eight-route runner not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : versioned eight-route runner not implemented
+
+======================================================================
+FAIL: test_legacy_scope_difference_is_not_policy_effect (test_proxy_continuation_runner.RunnerTests.test_legacy_scope_difference_is_not_policy_effect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_runner.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(runner,'versioned eight-route runner not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : versioned eight-route runner not implemented
+
+======================================================================
+FAIL: test_main_and_attachment_boundaries_progress_without_overwriting_old_runs (test_proxy_continuation_runner.RunnerTests.test_main_and_attachment_boundaries_progress_without_overwriting_old_runs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_runner.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(runner,'versioned eight-route runner not implemented')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : versioned eight-route runner not implemented
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.860s
+
+FAILED (failures=5)

@@ -1,0 +1,77 @@
+test_attachment_targets_use_full_actual_board (test_proxy_continuation_rules.RulesTests.test_attachment_targets_use_full_actual_board) ... FAIL
+test_classification_binds_text_and_does_not_invent_unknown_effects (test_proxy_continuation_rules.RulesTests.test_classification_binds_text_and_does_not_invent_unknown_effects) ... FAIL
+test_cost_modifier_is_optional_per_instance_per_turn (test_proxy_continuation_rules.RulesTests.test_cost_modifier_is_optional_per_instance_per_turn) ... FAIL
+test_hidden_order_does_not_change_inventory_or_comparison (test_proxy_continuation_rules.RulesTests.test_hidden_order_does_not_change_inventory_or_comparison) ... FAIL
+test_inventory_tampering_rejected_before_scoring (test_proxy_continuation_rules.RulesTests.test_inventory_tampering_rejected_before_scoring) ... FAIL
+test_lineage_forward_same_species_and_transform_cost (test_proxy_continuation_rules.RulesTests.test_lineage_forward_same_species_and_transform_cost) ... FAIL
+test_main_present_time_zero_proves_pass_without_lineage_stop (test_proxy_continuation_rules.RulesTests.test_main_present_time_zero_proves_pass_without_lineage_stop) ... FAIL
+test_unknown_certain_effect_is_not_zero_scored (test_proxy_continuation_rules.RulesTests.test_unknown_certain_effect_is_not_zero_scored) ... FAIL
+
+======================================================================
+FAIL: test_attachment_targets_use_full_actual_board (test_proxy_continuation_rules.RulesTests.test_attachment_targets_use_full_actual_board)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_rules.py", line 18, in setUp
+    self.assertIsNotNone(rules, 'shared classification/lineage not implemented')
+AssertionError: unexpectedly None : shared classification/lineage not implemented
+
+======================================================================
+FAIL: test_classification_binds_text_and_does_not_invent_unknown_effects (test_proxy_continuation_rules.RulesTests.test_classification_binds_text_and_does_not_invent_unknown_effects)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_rules.py", line 18, in setUp
+    self.assertIsNotNone(rules, 'shared classification/lineage not implemented')
+AssertionError: unexpectedly None : shared classification/lineage not implemented
+
+======================================================================
+FAIL: test_cost_modifier_is_optional_per_instance_per_turn (test_proxy_continuation_rules.RulesTests.test_cost_modifier_is_optional_per_instance_per_turn)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_rules.py", line 18, in setUp
+    self.assertIsNotNone(rules, 'shared classification/lineage not implemented')
+AssertionError: unexpectedly None : shared classification/lineage not implemented
+
+======================================================================
+FAIL: test_hidden_order_does_not_change_inventory_or_comparison (test_proxy_continuation_rules.RulesTests.test_hidden_order_does_not_change_inventory_or_comparison)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_rules.py", line 18, in setUp
+    self.assertIsNotNone(rules, 'shared classification/lineage not implemented')
+AssertionError: unexpectedly None : shared classification/lineage not implemented
+
+======================================================================
+FAIL: test_inventory_tampering_rejected_before_scoring (test_proxy_continuation_rules.RulesTests.test_inventory_tampering_rejected_before_scoring)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_rules.py", line 18, in setUp
+    self.assertIsNotNone(rules, 'shared classification/lineage not implemented')
+AssertionError: unexpectedly None : shared classification/lineage not implemented
+
+======================================================================
+FAIL: test_lineage_forward_same_species_and_transform_cost (test_proxy_continuation_rules.RulesTests.test_lineage_forward_same_species_and_transform_cost)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_rules.py", line 18, in setUp
+    self.assertIsNotNone(rules, 'shared classification/lineage not implemented')
+AssertionError: unexpectedly None : shared classification/lineage not implemented
+
+======================================================================
+FAIL: test_main_present_time_zero_proves_pass_without_lineage_stop (test_proxy_continuation_rules.RulesTests.test_main_present_time_zero_proves_pass_without_lineage_stop)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_rules.py", line 18, in setUp
+    self.assertIsNotNone(rules, 'shared classification/lineage not implemented')
+AssertionError: unexpectedly None : shared classification/lineage not implemented
+
+======================================================================
+FAIL: test_unknown_certain_effect_is_not_zero_scored (test_proxy_continuation_rules.RulesTests.test_unknown_certain_effect_is_not_zero_scored)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_rules.py", line 18, in setUp
+    self.assertIsNotNone(rules, 'shared classification/lineage not implemented')
+AssertionError: unexpectedly None : shared classification/lineage not implemented
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.000s
+
+FAILED (failures=8)

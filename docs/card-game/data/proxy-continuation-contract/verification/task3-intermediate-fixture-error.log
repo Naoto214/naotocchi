@@ -1,0 +1,63 @@
+test_all_person_target_kinds_are_accepted_from_full_inventory (test_proxy_continuation_actions.ActionTests.test_all_person_target_kinds_are_accepted_from_full_inventory) ... ERROR
+test_attachment_is_atomic_payment_and_relation_with_response_window (test_proxy_continuation_actions.ActionTests.test_attachment_is_atomic_payment_and_relation_with_response_window) ... ok
+test_bad_target_or_payment_rejected_without_mutation (test_proxy_continuation_actions.ActionTests.test_bad_target_or_payment_rejected_without_mutation) ... ok
+test_equipment_does_not_become_response_activation_after_placement (test_proxy_continuation_actions.ActionTests.test_equipment_does_not_become_response_activation_after_placement) ... ok
+test_full_prepared_slots_exclude_all_additional_equipment (test_proxy_continuation_actions.ActionTests.test_full_prepared_slots_exclude_all_additional_equipment) ... ok
+test_start_attachment_trigger_is_optional_usage_bound_and_egg_enabled (test_proxy_continuation_actions.ActionTests.test_start_attachment_trigger_is_optional_usage_bound_and_egg_enabled) ... ok
+
+======================================================================
+ERROR: test_all_person_target_kinds_are_accepted_from_full_inventory (test_proxy_continuation_actions.ActionTests.test_all_person_target_kinds_are_accepted_from_full_inventory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/proxy_r2_candidate_extension_127.py", line 103, in adjudicate_units
+    results.extend(extension_125.adjudicate_units(view,[original]))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/proxy_normal_action_extension.py", line 91, in adjudicate_units
+    result=candidate_121.adjudicate_units(view,[original],candidate_121.build_contract())[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/proxy_normal_action_candidate_completeness.py", line 334, in adjudicate_units
+    raise ValueError('missing_candidate_id_grammar: legal action')
+ValueError: missing_candidate_id_grammar: legal action
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/proxy_r2_candidate_extension_128.py", line 118, in adjudicate_units
+    result.extend(extension_127.adjudicate_units(view,[original]))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/proxy_r2_candidate_extension_127.py", line 107, in adjudicate_units
+    candidate_id=_single_target_id(view,original)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/proxy_r2_candidate_extension_127.py", line 92, in _single_target_id
+    raise ValueError('missing_candidate_id_grammar: not a proven single target')
+ValueError: missing_candidate_id_grammar: not a proven single target
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_actions.py", line 59, in test_all_person_target_kinds_are_accepted_from_full_inventory
+    action=next(d for d in candidates.audit(e,[])['legal_candidate_details'] if d['action_type']=='attach_item' and d['target_instance_ids']==[source] and d['card_id']=='I-bowtie')
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/proxy_continuation_candidates.py", line 76, in audit
+    try: result.extend(old.normal_audit.board.adjudicate_units(view,[unit]))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/proxy_board_response_134.py", line 139, in adjudicate
+    delegated = old_adjudicate(view, [row for row in baseline if not _is_response_unit(row)])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/proxy_board_active_132.py", line 164, in adjudicate_units
+    delegated=prior_130.adjudicate_units(view,[x for x in baseline if not active(x)])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/proxy_board_source_world_130.py", line 72, in adjudicate_units
+    delegated=extension_128.adjudicate_units(view,[x for x in baseline if not board_only(x)])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/proxy_r2_candidate_extension_128.py", line 122, in adjudicate_units
+    identifier=targetless_id(view,original)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/proxy_r2_candidate_extension_128.py", line 110, in targetless_id
+    raise ValueError('missing_candidate_id_grammar: not a proven targetless hand action')
+ValueError: missing_candidate_id_grammar: not a proven targetless hand action
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.093s
+
+FAILED (errors=1)

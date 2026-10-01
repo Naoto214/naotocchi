@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+433: [432承認設計の共通継続契約実装](433-continuation-contract-implementation.md)。版付きstate/hash/replay、分類・系譜、main後の限定比較証拠、装着先を含む配置・応答を接続。同じ135入力から旧/new8軌跡を再実行し全停止、完走・勝敗・強さは未確認。旧結果との処理coverage差をpolicy差へ混ぜない。505/114/414・過去結果維持、112未実行、balance0、採用保留、PR259 Draft/open/unmerged。
+
 432: [継続処理調査と設計案](432-continuation-contract-audit.md)。fresh8再現は431保存結果と全一致、全停止・新継続run0。盤面分類/系譜に加え、mainあり比較証拠・装着関係/hash/公開view・装着後応答の不足を確認。[共通契約設計案](plans/2026-10-02-continuation-contract-design.md)はレビュー前・未実装。505不変、112未実行、balance0、114未採用・PR259 Draft/open/unmerged。
 
 431: [資源価値pilot最終報告](431-resource-value-pilot-final-report.md)。7Task完了、全proxy913/913 PASS、専用97 PASS、505原本不変。shadow93/110比較・選択差56/93、新fallback88/93。検証済み8軌跡は全停止で最終勝敗欠測。最終独立レビュー指摘修正済み、114採用保留・PR259 Draft/open/未マージ。

@@ -1,0 +1,59 @@
+test_all_person_target_kinds_are_accepted_from_full_inventory (test_proxy_continuation_actions.ActionTests.test_all_person_target_kinds_are_accepted_from_full_inventory) ... FAIL
+test_attachment_is_atomic_payment_and_relation_with_response_window (test_proxy_continuation_actions.ActionTests.test_attachment_is_atomic_payment_and_relation_with_response_window) ... FAIL
+test_bad_target_or_payment_rejected_without_mutation (test_proxy_continuation_actions.ActionTests.test_bad_target_or_payment_rejected_without_mutation) ... FAIL
+test_equipment_does_not_become_response_activation_after_placement (test_proxy_continuation_actions.ActionTests.test_equipment_does_not_become_response_activation_after_placement) ... FAIL
+test_full_prepared_slots_exclude_all_additional_equipment (test_proxy_continuation_actions.ActionTests.test_full_prepared_slots_exclude_all_additional_equipment) ... FAIL
+test_start_attachment_trigger_is_optional_usage_bound_and_egg_enabled (test_proxy_continuation_actions.ActionTests.test_start_attachment_trigger_is_optional_usage_bound_and_egg_enabled) ... FAIL
+
+======================================================================
+FAIL: test_all_person_target_kinds_are_accepted_from_full_inventory (test_proxy_continuation_actions.ActionTests.test_all_person_target_kinds_are_accepted_from_full_inventory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_actions.py", line 16, in setUp
+    self.assertIsNotNone(actions,'shared attachment execution not implemented')
+AssertionError: unexpectedly None : shared attachment execution not implemented
+
+======================================================================
+FAIL: test_attachment_is_atomic_payment_and_relation_with_response_window (test_proxy_continuation_actions.ActionTests.test_attachment_is_atomic_payment_and_relation_with_response_window)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_actions.py", line 16, in setUp
+    self.assertIsNotNone(actions,'shared attachment execution not implemented')
+AssertionError: unexpectedly None : shared attachment execution not implemented
+
+======================================================================
+FAIL: test_bad_target_or_payment_rejected_without_mutation (test_proxy_continuation_actions.ActionTests.test_bad_target_or_payment_rejected_without_mutation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_actions.py", line 16, in setUp
+    self.assertIsNotNone(actions,'shared attachment execution not implemented')
+AssertionError: unexpectedly None : shared attachment execution not implemented
+
+======================================================================
+FAIL: test_equipment_does_not_become_response_activation_after_placement (test_proxy_continuation_actions.ActionTests.test_equipment_does_not_become_response_activation_after_placement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_actions.py", line 16, in setUp
+    self.assertIsNotNone(actions,'shared attachment execution not implemented')
+AssertionError: unexpectedly None : shared attachment execution not implemented
+
+======================================================================
+FAIL: test_full_prepared_slots_exclude_all_additional_equipment (test_proxy_continuation_actions.ActionTests.test_full_prepared_slots_exclude_all_additional_equipment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_actions.py", line 16, in setUp
+    self.assertIsNotNone(actions,'shared attachment execution not implemented')
+AssertionError: unexpectedly None : shared attachment execution not implemented
+
+======================================================================
+FAIL: test_start_attachment_trigger_is_optional_usage_bound_and_egg_enabled (test_proxy_continuation_actions.ActionTests.test_start_attachment_trigger_is_optional_usage_bound_and_egg_enabled)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_actions.py", line 16, in setUp
+    self.assertIsNotNone(actions,'shared attachment execution not implemented')
+AssertionError: unexpectedly None : shared attachment execution not implemented
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.032s
+
+FAILED (failures=6)
