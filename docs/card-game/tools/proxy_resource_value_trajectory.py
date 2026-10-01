@@ -1,0 +1,308 @@
+"""Opt-in paired executions from 135, with explicit unsupported boundaries.
+
+Historical states are looked up by both hashes, never by round or route label.
+A missing adapter stops before payment; it never becomes a policy lottery.
+"""
+import argparse
+import copy
+import json
+from pathlib import Path
+import proxy_independent_seed_probe as probe
+import proxy_start_response_138 as start
+import proxy_normal_action_candidate_completeness as candidates
+import proxy_normal_action_seeded_restart as normal
+import proxy_normal_action_extension as extension
+import proxy_new_seed_normal_restart_147 as placements
+import proxy_new_seed_normal_audit_140 as normal_audit
+import proxy_new_seed_normal_audit_156 as partner
+import proxy_new_seed_board_partner_audit_179 as goat
+import proxy_new_seed_normal_trigger_audit_146 as triggered
+import proxy_hit_blow_response_142 as hit
+import proxy_reached_mixed_contracts_401 as reached
+import proxy_resource_value_shadow as shadow
+from proxy_resource_value_inputs import project_visible, validate_sources
+from proxy_resource_value_selection import select_problem, validate_selection, canonical_sha256
+
+DATA=shadow.DATA
+INITIAL_SHA=start.SOURCE_RAW_SHA256
+POLICIES=('legacy_107_114_116','resource_value_pilot_v1')
+
+def load_initial_routes(data_dir=DATA):
+    data_dir=Path(data_dir);raw=(data_dir/start.SOURCE.name).read_bytes()
+    import hashlib
+    if hashlib.sha256(raw).hexdigest()!=INITIAL_SHA:raise ValueError('135 initial raw differs')
+    source=json.loads(raw)
+    manifest=probe.build_manifest(probe.load_source(data_dir))
+    if manifest!=source['manifest']:raise ValueError('135 initial manifest differs')
+    rows=shadow.load_observed_boundaries(data_dir)
+    source_manifest={k:v for row in rows for k,v in row['source_raw_sha256'].items()}
+    inputs=dict(candidate_table=json.loads((data_dir/'proxy-normal-decision-candidate-table-114-20260918.json').read_text()),
+        boundaries=rows,source_raw_sha256=source_manifest,source_root=str(data_dir.parents[2].resolve()))
+    saved_events={}
+    for name in source_manifest:
+        if not name.endswith('.json') or Path(name).parent!=Path('docs/card-game/data'):continue
+        for row in json.loads((data_dir.parents[2]/name).read_text()).get('results',[]):
+            es=row.get('new_events',row.get('events',[]))
+            for event in es if isinstance(es,list) else []:
+                key=(row.get('path_id'),event['seq'])
+                if key in saved_events and saved_events[key]!=event:raise ValueError('saved event alias differs')
+                saved_events[key]=event
+    results=[]
+    for route in manifest['routes']:
+        fresh=probe.run_route(route);saved=next(r for r in source['results'] if r['path_id']==route['path_id'])
+        if fresh!=saved:raise ValueError('135 prefix differs from independent replay')
+        start.verify_source_route(fresh)
+        results.append(dict(path_id=route['path_id'],order_id=route['order_id'],first_player=route['first_player'],
+            manifest=copy.deepcopy(route),initial_raw_sha256=INITIAL_SHA,initial_manifest_sha256=canonical_sha256(route),
+            source_route=fresh,inputs=dict(inputs,path_id=route['path_id'],saved_events={seq:copy.deepcopy(e) for (path,seq),e in saved_events.items() if path==route['path_id']})))
+    if len(results)!=4 or len({r['path_id'] for r in results})!=4:raise ValueError('four initial routes required')
+    return results
+
+def _current(payload,seq):
+    state=copy.deepcopy(payload);state.update(source_event_seq=seq,last_event_seq=seq,
+        source_game_state_sha256=start.opening._stop_state_sha256(state['game_state']))
+    state['continuation_state_sha256']=start._hash(state)
+    return state
+
+def find_boundary(continuation,boundaries):
+    gh=start.opening._stop_state_sha256(continuation['game_state']);ch=start._hash(continuation)
+    matches=[b for b in boundaries if b['decision'].get('pre_game_state_sha256',b['decision'].get('source_game_state_sha256'))==gh and
+        b['decision'].get('pre_continuation_state_sha256',b['decision'].get('source_continuation_state_sha256'))==ch]
+    if len(matches)>1:raise ValueError('ambiguous exact source boundary')
+    return copy.deepcopy(matches[0]) if matches else None
+
+def audit_opportunity(continuation,public_history):
+    table=json.loads((DATA/'proxy-normal-decision-candidate-table-114-20260918.json').read_text())
+    game=continuation['game_state']
+    audit=candidates.audit_current_normal_action(game,continuation,public_history,table)
+    errors=candidates.validate_current_normal_action(audit,game,continuation,public_history,table)
+    if errors:raise ValueError('fresh normal candidate validation differs: '+str(errors))
+    if audit['candidate_set_complete']:return audit
+    if any(p['board']['prepared'] for p in game['players'].values()):raise ValueError('hidden prepared legality adapter absent')
+    view=candidates.project_normal_action_information(dict(game_state=game,actor=game['turn_player']),public_history)
+    view['_verified_ability_uses']={}
+    with partner.partner_response_scope(table),goat.partner_response_scope(table),triggered.trigger_scope(table):
+        inventory,units,ids,details=normal_audit.board._expected(view,table)
+        fresh=dict(opportunity_context=dict(round=game['round'],turn_player=game['turn_player'],actor=game['turn_player'],phase='normal_action',decision_kind='normal_action',choice_kind='normal_action'),
+            owner_state=view['players'][game['turn_player']],public_information={p:v for p,v in view['players'].items() if p!=game['turn_player']},
+            information_policy='public_and_owner_known_only',forbidden_information_used=[],source_inventory=inventory,enumeration_units=units,
+            legal_candidate_ids=ids,legal_candidate_details=details)
+        checks=normal_audit.board._checks(fresh,view,table)
+        if not all(checks.values()):raise ValueError('extended twelve legality checks incomplete')
+        return dict(fresh,candidate_set_complete=True,completeness_checks=checks,contract_stop_codes=[])
+
+def _normal_selection(state,initial,policy,history):
+    boundary=find_boundary(state,initial['inputs']['boundaries'])
+    if boundary is not None:
+        shadow._verify_legal_inventory(boundary)
+        problem=shadow._inputs(boundary)[0]
+    else:
+        audit=audit_opportunity(state,history)
+        game=state['game_state'];actor=game['turn_player'];ids=audit['legal_candidate_ids']
+        # Reuse the same public proof builder, with no saved selection to imitate.
+        d=dict(legal_candidates=ids,legal_candidate_details=audit['legal_candidate_details'],candidate_set_complete=True)
+        boundary=dict(path_id=initial['path_id'],event_seq=state['last_event_seq'],actor=actor,continuation=start._payload(state),
+            public_history=history,decision=d,decision_sha256=canonical_sha256(d),source_refs=history['source_refs'],
+            source_raw_sha256=initial['inputs']['source_raw_sha256'],score_evidence=[])
+        problem=shadow._inputs(boundary)[0]
+    details=boundary['decision']['legal_candidate_details']
+    if policy==POLICIES[0]:
+        old=shadow.legacy_select(boundary,problem)
+        if boundary['decision'].get('selected_candidate') is not None:
+            if any(old[k]!=boundary['decision'].get(k) for k in old):raise ValueError('legacy source reproduction differs')
+            record=copy.deepcopy(boundary['decision'])
+        else:
+            record=dict(old,decision_kind='normal_action',candidate_set_complete=True,legal_candidates=problem['legal_candidate_ids'],
+                legal_candidate_details=details,strategic_unresolved=old['seed_proof'] is not None)
+        record['selected_action']=copy.deepcopy(next(x for x in details if x['candidate_id']==old['selected_candidate']))
+    else:
+        wrapper=select_problem(problem)
+        record=dict(decision_kind='normal_action',policy_id=policy,selection=wrapper,problem=problem,
+            selected_candidate=wrapper['selected_candidate'],candidate_set_complete=True,
+            selected_action=copy.deepcopy(next(x for x in details if x['candidate_id']==wrapper['selected_candidate'])))
+    return record
+
+def _response_opportunity(state,initial,events):
+    actor=state['response_context']['priority_actor'];ctx=state['response_context']
+    if ctx['window_kind']=='turn_start' and all(not p['board']['companions'] and p['board']['partner'] is None and
+            not p['board']['prepared'] and p['board']['main'] is None for p in state['game_state']['players'].values()):
+        return start.enumerate_opportunity(state,actor,start.load_candidate_rows())
+    row=dict(path_id=initial['path_id'],last_valid_event_seq=state['last_event_seq'],final_game_state_sha256=start.opening._stop_state_sha256(state['game_state']),
+        final_continuation_state_sha256=start._hash(state),final_continuation_state=start._payload(state),new_events=events)
+    proof=reached.audit_response(row)
+    if proof['candidate_ids']==['response-pass']:
+        details=[start.response.build_response_pass_detail()]
+        return dict(actor=actor,response_context=copy.deepcopy(ctx),legal_candidate_ids=proof['candidate_ids'],
+            legal_candidate_details=details,candidate_set_complete=True,forbidden_information_used=[],
+            inspected_information=start.response._information_snapshot(state['game_state'],actor),
+            excluded_candidates=proof['hand_exclusions']+proof['hand_other_exclusions']+proof['board_exclusions'],source_references=['119-response-window-contract.md'])
+    adapted=dict(proof,hand_conditional_exclusions=proof['hand_exclusions'],hand_candidate_ids=['response-pass'])
+    return reached.board_choice.opportunity(state,adapted)
+
+def apply_selected(continuation,selection,inputs):
+    record=copy.deepcopy(selection)
+    if 'selection' in record:
+        errors=validate_selection(record['selection'],record['problem'])
+        if errors or record['selection']['view_sha256']!=canonical_sha256(project_visible(continuation,continuation['game_state']['turn_player'])):
+            raise ValueError('pilot wrapper/current visible boundary differs: '+str(errors))
+        if record['selected_candidate']!=record['selection']['selected_candidate']:raise ValueError('pilot execution selection differs')
+    action=record['selected_action'];kind=action['action_type']
+    if action['candidate_id']!=record['selected_candidate']:raise ValueError('selected action differs')
+    if continuation['game_state']['phase']=='normal_action' and kind in ('pass','play_main','place_companion','place_partner','place_world','attach_item','set_item','use_play','use_item','use_event'):
+        boundary=find_boundary(continuation,inputs['boundaries'])
+        if boundary is not None:
+            shadow._verify_legal_inventory(boundary)
+            inventory=boundary['decision']['legal_candidate_details']
+            if 'selection' in record and record['problem']!=shadow._inputs(boundary)[0]:raise ValueError('pilot proof differs from exact source reconstruction')
+        else:
+            if 'public_history' not in inputs:raise normal.RulesStop('legality_not_confirmed',dict(stage='execution_public_history'))
+            audit=audit_opportunity(continuation,inputs['public_history']);inventory=audit['legal_candidate_details']
+        if action not in inventory:raise ValueError('selected execution action not in independently regenerated inventory')
+        if 'selection' in record and record['problem']['legal_candidate_ids']!=sorted(x['candidate_id'] for x in inventory):raise ValueError('pilot legal inventory differs at execution')
+    try:
+        if kind in ('pass','play_main'):return normal.transition(continuation,record,inputs)
+        if kind in ('place_companion','place_partner'):
+            with placements.partner_placement_scope():return extension._apply_placement(continuation,record)
+        if kind=='response_pass':
+            if continuation['return_target']=='turn_end' and continuation['response_context']['consecutive_passes']==1:
+                row=dict(path_id=inputs['path_id'],last_valid_event_seq=continuation['last_event_seq'],
+                    final_game_state_sha256=start.opening._stop_state_sha256(continuation['game_state']),
+                    final_continuation_state_sha256=start._hash(continuation),final_continuation_state=start._payload(continuation))
+                bound=reached.boundary(row)
+                proof=dict(bound,next_opportunity='turn_end_response',candidate_ids=record['legal_candidate_ids'],candidate_set_complete=True)
+                selected=dict(bound,candidate_ids=record['legal_candidate_ids'],selected_candidate=record['selected_candidate'],resolution_mode=record['resolution_mode'])
+                result=reached.normal_pass.run_route(row,selected,proof)
+                return _current(result['final_continuation_state'],result['last_valid_event_seq']),result['new_events']
+            if continuation['response_context']['window_kind']=='turn_start':
+                if continuation['activation_zone']:after,event=hit.pass_start_chain(continuation,record)
+                else:
+                    after,event,_=start._pass(continuation,record['actor'])
+            else:after,event=normal.response_120.apply_response_pass(continuation,record)
+            return after,[event]
+        if kind=='use_play' and action['card_id']=='G-hit-blow':
+            after,event=hit.activate(continuation,record);return after,[event]
+    except normal.RulesStop as error:
+        code='unsupported_resolution_adapter' if error.code=='effect_resolution_not_defined' else error.code
+        raise normal.RulesStop(code,error.evidence) from error
+    raise normal.RulesStop('unsupported_resolution_adapter',dict(action_type=kind,source_references=action.get('source_references',[])))
+
+def _snapshot(state):
+    return dict(event_seq=state['last_event_seq'],game_state=copy.deepcopy(state['game_state']),game_state_sha256=start.opening._stop_state_sha256(state['game_state']),
+        continuation_state=start._payload(state),continuation_state_sha256=start._hash(state))
+
+def _verify_generated(before,after,events):
+    extension._verify_extended_step(before,after,events)
+    for event in events:event.pop('_snapshot_after',None)
+
+def _source_event_shape(event,after,initial,policy):
+    """119 result metadata is optional in historical stage serializers."""
+    if policy!=POLICIES[0] or event['action_type']!='response_pass':return event
+    # Only identical state hashes permit the historical serializer projection.
+    source=initial['inputs'].get('saved_events',{}).get(event['seq'])
+    if source and event['game_state_after_sha256']==source.get('game_state_after_sha256') and event['continuation_state_after_sha256']==source.get('continuation_state_after_sha256'):
+        if 'result' not in source:event.pop('result',None)
+        elif 'result' not in event:
+            ctx=after['response_context'];event['result']={k:copy.deepcopy(ctx[k]) for k in ('priority_actor','consecutive_passes','chain_status')}
+            event['result']['return_target']=after['return_target']
+    return event
+
+def run_route(initial,policy_id):
+    if policy_id not in POLICIES:raise ValueError('unknown opt-in policy')
+    if initial['initial_raw_sha256']!=INITIAL_SHA or canonical_sha256(initial['manifest'])!=initial['initial_manifest_sha256']:
+        raise ValueError('initial identity differs')
+    errors=validate_sources(initial['inputs']['source_raw_sha256'],Path(initial['inputs']['source_root']))
+    if errors:raise ValueError('; '.join(errors))
+    source_root=Path(initial['inputs']['source_root'])
+    import hashlib
+    initial_raw=(source_root/'docs/card-game/data'/start.SOURCE.name).read_bytes()
+    if hashlib.sha256(initial_raw).hexdigest()!=INITIAL_SHA:raise ValueError('fresh initial raw differs')
+    manifest_routes=json.loads(initial_raw)['manifest']['routes']
+    official=next((r for r in manifest_routes if r['path_id']==initial['path_id']),None)
+    if official!=initial['manifest'] or initial['first_player']!=official['first_player'] or initial['order_id']!=official['order_id']:
+        raise ValueError('initial manifest is not one of the signed 135 routes')
+    prefix=probe.run_route(initial['manifest'])
+    if prefix!=initial['source_route']:raise ValueError('initial prefix differs from independent replay')
+    state=start.build_resume_state(prefix);events=copy.deepcopy(prefix['events']);decisions=copy.deepcopy(prefix['decisions'])
+    shots=[]
+    for shot in prefix['snapshots']:
+        game=copy.deepcopy(shot['state']);game['cards']=copy.deepcopy(prefix['final_state']['cards'])
+        shots.append(dict(event_seq=shot['seq'],game_state=game,game_state_sha256=shot['state_sha256'],continuation_state=None,continuation_state_sha256=None))
+    shots[-1]=_snapshot(state);reason=None;stop_evidence=None
+    for _ in range(512):
+        game=state['game_state'];phase=game['phase'];context=state['response_context']
+        if game['round']>10:raise ValueError('R11 forbidden')
+        try:
+            if context['chain_status']=='resolving':
+                if len(state['activation_zone'])!=1 or state['activation_zone'][0]['card_id']!='G-hit-blow':
+                    raise normal.RulesStop('unsupported_resolution_adapter',dict(stage='chain_resolution'))
+                after,event=hit.resolve_link(state);generated=[event];record=None
+            elif phase=='normal_action':
+                history=dict(normal_challenge_losses_by_actor=[],last_valid_event_seq=state['last_event_seq'],source_refs=sorted(initial['inputs']['source_raw_sha256']))
+                if any('challenge' in e['action_type'] for e in events):raise normal.RulesStop('legality_not_confirmed',dict(stage='challenge_history_adapter'))
+                try:record=_normal_selection(state,initial,policy_id,history)
+                except (ValueError,KeyError,TypeError) as error:raise normal.RulesStop('legality_not_confirmed',dict(stage='normal_candidate_or_comparison_proof',detail=str(error))) from error
+                after,generated=apply_selected(state,record,dict(initial['inputs'],public_history=history))
+            elif phase in ('response_window','post_placement_response','turn_end_response'):
+                try:opportunity=_response_opportunity(state,initial,events)
+                except (ValueError,KeyError,TypeError) as error:raise normal.RulesStop('legality_not_confirmed',dict(stage='response_inventory',detail=str(error))) from error
+                record=start.seeded.resolve_response_choice(dict(order_id=initial['order_id'],actor_turn_index=game['round'],round=game['round']),opportunity)
+                record.update(event_seq=state['last_event_seq'],pre_game_state_sha256=start.opening._stop_state_sha256(game),pre_continuation_state_sha256=start._hash(state))
+                after,generated=apply_selected(state,record,initial['inputs'])
+            else:
+                raise normal.RulesStop('unsupported_resolution_adapter',dict(stage=phase,source_references=['123-turn-end-source-inventory.md','124-turn-end-provenance-restart.md']))
+            _verify_generated(state,after,generated)
+            if len(generated)!=1:raise ValueError('multi-event handler needs snapshots for each event')
+            if record is not None:decisions.append(copy.deepcopy(record))
+            events.extend(_source_event_shape(copy.deepcopy(e),after,initial,policy_id) for e in generated);shots.append(_snapshot(after));state=after
+        except normal.RulesStop as error:
+            reason=error.code;stop_evidence=copy.deepcopy(error.evidence);break
+    else:raise ValueError('finite route bound exceeded')
+    return dict(schema='naotocchi.card_game.resource_value_trajectory.v1',run_id=policy_id+':'+initial['path_id'],policy_id=policy_id,path_id=initial['path_id'],
+        initial_raw_sha256=INITIAL_SHA,initial_manifest_sha256=initial['initial_manifest_sha256'],completed=False,status='stopped',
+        result=dict(winner=None,growth={p:state['game_state']['players'][p]['growth'] for p in 'AB'}),stop_reason_code=reason,stop_evidence=stop_evidence,
+        last_valid_event_seq=state['last_event_seq'],final_game_state_sha256=start.opening._stop_state_sha256(state['game_state']),final_continuation_state_sha256=start._hash(state),
+        final_continuation_state=start._payload(state),events=events,snapshots=shots,decisions=decisions,independent_balance_sample_count=0)
+
+def validate_route(result,initial,policy_id):
+    try:
+        replay=run_route(initial,policy_id)
+        return [] if replay==result else ['route differs from independent initial/choice/transition replay']
+    except (ValueError,KeyError,TypeError,normal.RulesStop) as error:return [str(error)]
+
+def compare_legacy_prefix(result,initial):
+    """Compare reached canonical events/states; stopped suffixes remain missing."""
+    decisions,shots=shadow.load_history(DATA,shadow.source_manifest(DATA));saved_events={}
+    for name in shadow.source_manifest(DATA):
+        for row in json.loads((shadow.ROOT/name).read_text()).get('results',[]):
+            if row.get('path_id')!=initial['path_id']:continue
+            es=row.get('new_events',row.get('events',[]))
+            for event in es if isinstance(es,list) else []:saved_events[event['seq']]=event
+    errors=[]
+    for event in result['events']:
+        if event!=saved_events[event['seq']]:errors.append('historical event differs: '+str(event['seq']))
+    for shot in result['snapshots']:
+        prior=shots[initial['path_id']][shot['event_seq']]
+        if shot['game_state_sha256']!=prior['game_state_sha256'] or (shot['continuation_state'] is not None and shot['continuation_state']!=prior['continuation_state']):errors.append('historical snapshot differs: '+str(shot['event_seq']))
+    saved_decisions=decisions[initial['path_id']]
+    for d in result['decisions']:
+        if canonical_sha256(d) not in saved_decisions and d.get('decision_kind')=='normal_action':errors.append('historical normal decision differs')
+    return errors
+
+def run_paired(data_dir,output_dir):
+    initials=load_initial_routes(data_dir);results=[]
+    for initial in initials:
+        for policy in POLICIES:
+            result=run_route(initial,policy);errors=validate_route(result,initial,policy)
+            if errors:raise ValueError('; '.join(errors))
+            result['legacy_prefix_validation']=compare_legacy_prefix(result,initial) if policy==POLICIES[0] else None
+            results.append(result)
+    report=dict(schema='naotocchi.card_game.resource_value_paired.v1',planned=8,planned_ids=sorted(r['run_id'] for r in results),results=results,
+        completed=sum(r['completed'] for r in results),stopped=sum(not r['completed'] for r in results),not_executed=0,policy_promoted=False,independent_balance_sample_count=0)
+    output_dir=Path(output_dir);output_dir.mkdir(parents=True,exist_ok=True)
+    (output_dir/'paired.json').write_text(json.dumps(report,ensure_ascii=False,sort_keys=True,indent=2)+'\n')
+    return report
+
+def main():
+    parser=argparse.ArgumentParser();parser.add_argument('--data-dir',type=Path,default=DATA);parser.add_argument('--output',type=Path,required=True)
+    args=parser.parse_args();report=run_paired(args.data_dir,args.output);print(json.dumps({k:report[k] for k in ('planned','completed','stopped','not_executed')}))
+if __name__=='__main__':main()

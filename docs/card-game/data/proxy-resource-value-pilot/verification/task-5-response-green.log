@@ -1,0 +1,14 @@
+test_diverged_states_are_not_matched_by_round_only (test_proxy_resource_value_trajectory.TrajectoryTests.test_diverged_states_are_not_matched_by_round_only) ... ok
+test_existing_response_adapter_continues_after_placement (test_proxy_resource_value_trajectory.TrajectoryTests.test_existing_response_adapter_continues_after_placement) ... ok
+test_fresh_paired_exact_coverage (test_proxy_resource_value_trajectory.TrajectoryTests.test_fresh_paired_exact_coverage) ... ok
+test_independent_replay_rejects_event_snapshot_hash_tampering (test_proxy_resource_value_trajectory.TrajectoryTests.test_independent_replay_rejects_event_snapshot_hash_tampering) ... ok
+test_legacy_replay_matches_saved_results (test_proxy_resource_value_trajectory.TrajectoryTests.test_legacy_replay_matches_saved_results) ... ok
+test_mandatory_response_context_preserved (test_proxy_resource_value_trajectory.TrajectoryTests.test_mandatory_response_context_preserved) ... ok
+test_no_r11_after_terminal (test_proxy_resource_value_trajectory.TrajectoryTests.test_no_r11_after_terminal) ... ok
+test_same_initial_manifest_two_policies_four_routes (test_proxy_resource_value_trajectory.TrajectoryTests.test_same_initial_manifest_two_policies_four_routes) ... ok
+test_unsupported_new_action_is_structural_stop (test_proxy_resource_value_trajectory.TrajectoryTests.test_unsupported_new_action_is_structural_stop) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 13.855s
+
+OK
