@@ -1,6 +1,6 @@
 # めぐる All Regions 3D v0 — status(正本・2026-10-01)
 
-branch `feat/meguru-all-regions-3d-v0`。土台 = forest cleanup `8cb6b8f1`(PR #364、人間確認まで 未 merge)。base main `31edb95e`。**main へは merge しない。3D は `?meguru3d=1` の ときだけ(default 2D)。**
+branch `feat/meguru-all-regions-3d-v0`。土台 = forest cleanup `8cb6b8f1`(PR #364、人間確認まで 未 merge)。base main `31edb95e` → `591b9def`(PR #366 を ふつうの merge で とりこみ 済み・衝突 なし)。**main へは merge しない。3D は `?meguru3d=1` の ときだけ(default 2D)。**
 
 ## 共通 architecture(forest から ひろげた もの)
 - `SEM3D`(meguru.js): kind → 原型 + いろ の 1 つの 表(全地域 193 kind)。forest の きまり(きのこ は きのこ・はし は はし・立て看板 なし)を そのまま。意味の 表に ない kind は `unknown` = 出さない・あたりも つけない・テスト 赤
@@ -18,21 +18,21 @@ branch `feat/meguru-all-regions-3d-v0`。土台 = forest cleanup `8cb6b8f1`(PR #
 | Region | 3D | Semantic | Placeholder | Collision | Reachability | Discovery | Perf(headless) | Visual review | status |
 |---|---|---|---|---|---|---|---|---|---|
 | forest | GREEN | GREEN | GREEN | GREEN(50 spot・27 にん テスト) | GREEN | GREEN | GREEN | 人間承認済(cleanup) | completed_v0 |
-| home | GREEN | GREEN | GREEN | GREEN(walk 0 / 0) | PARTIAL(道 3/4 テストは forest だけ) | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
-| city | GREEN | GREEN | GREEN | GREEN | PARTIAL | GREEN | GREEN | NOT_RUN(日本の 都市感 は これから) | completed_v0_needs_polish |
-| countryside | GREEN | GREEN | GREEN | GREEN | PARTIAL | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
-| mountain | GREEN | GREEN | GREEN | GREEN | PARTIAL | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
-| snow | GREEN | GREEN | GREEN | GREEN | PARTIAL | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
-| sea | GREEN | GREEN | GREEN | GREEN | PARTIAL | GREEN | GREEN | NOT_RUN(うみの 面は 帯) | completed_v0_needs_polish |
-| deepsea | GREEN | GREEN | GREEN | GREEN | PARTIAL | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
-| river_lake | GREEN | GREEN | GREEN | GREEN | PARTIAL | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
-| jungle | GREEN | GREEN | GREEN | GREEN | PARTIAL | GREEN | NEEDS_POLISH(tris 148k) | NOT_RUN | completed_v0_needs_polish |
-| desert | GREEN | GREEN | GREEN | GREEN | PARTIAL | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
-| star_stop | GREEN | GREEN | GREEN | GREEN | PARTIAL | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
-| memory_lake | GREEN | GREEN | GREEN | GREEN | PARTIAL | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
+| home | GREEN | GREEN | GREEN | GREEN(walk 0 / 0) | GREEN(テスト 11) | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
+| city | GREEN | GREEN | GREEN | GREEN | GREEN(テスト 11) | GREEN | GREEN | NOT_RUN(日本の 都市感 は これから) | completed_v0_needs_polish |
+| countryside | GREEN | GREEN | GREEN | GREEN | GREEN(テスト 11) | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
+| mountain | GREEN | GREEN | GREEN | GREEN | GREEN(テスト 11) | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
+| snow | GREEN | GREEN | GREEN | GREEN | GREEN(テスト 11) | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
+| sea | GREEN | GREEN | GREEN | GREEN | GREEN(テスト 11) | GREEN | GREEN | NOT_RUN(うみの 面は 帯) | completed_v0_needs_polish |
+| deepsea | GREEN | GREEN | GREEN | GREEN | GREEN(テスト 11) | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
+| river_lake | GREEN | GREEN | GREEN | GREEN | GREEN(テスト 11) | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
+| jungle | GREEN | GREEN | GREEN | GREEN | GREEN(テスト 11) | GREEN | NEEDS_POLISH(tris 148k) | NOT_RUN | completed_v0_needs_polish |
+| desert | GREEN | GREEN | GREEN | GREEN | GREEN(テスト 11) | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
+| star_stop | GREEN | GREEN | GREEN | GREEN | GREEN(テスト 11) | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
+| memory_lake | GREEN | GREEN | GREEN | GREEN | GREEN(テスト 11) | GREEN | GREEN | NOT_RUN | completed_v0_needs_polish |
 
 完了率: 13 / 13 が v0 gate を 通過(1 completed_v0 + 12 completed_v0_needs_polish)。blocked 0・not_started 0。
-Reachability の PARTIAL = 「道の 3/4 が あく・50 spot に あるいて 行ける」の テストは forest だけ。ほかの 地域は browser で 4 方向 あるけた こと と めりこみ 0 だけ(§次作業)。
+Reachability = テスト 11(registry-driven・全 13 地域): 3D で 道の segment を spots[0] から BFS して 全 spot に つながり、各 spot へ BFS の 親から じっさいに あるいて(sim.step)つき、regionGates の spot は body 半径で あたらない。forest は 旧 3/4 テストも そのまま。
 
 ## browser smoke(headless Chromium・`?meguru3d=1&perf=1`・27 にん)
 
@@ -78,16 +78,18 @@ JS p95 の 大きい 値は しゃしんの ため teleport した 直後の sha
 - レンダラー: canvas 不透明(alpha:false)・preserveDrawingBuffer:false・autoClear(いろ・depth)を 明示。すかしの ghost は frame ごとに visible を 入れなおし、hidden は 線分から はずれた frame で もとに もどす(pickOccluders のテスト)。opacity を かえる material は 水・あわ・しぶき・ぬれた 地面・光・まだら・かげ・ghost だけ(テスト 3d)
 - headless では 再現せず。Safari 固有の 可能性(compositor)。実機で 見る 条件: 木の よこを 通る → すかし → はなれる / カメラ 回転 / corridor → 3D もどり。再現したら その 場面の しゃしん を
 
-## テスト(`tests/meguru-3d-prototype-test.cjs` 15)
+## テスト(`tests/meguru-3d-prototype-test.cjs` 16)
 - 9(全地域の 契約): profile = registry、unresolved 0、立て看板 0、かくす ものは きまった しるし だけ、あたりの ある 物は ぜんぶ 見える、きのこ / はし / たてもの の 意味、ランドマークの 見た目 と あたり、2D に 3D の しるし なし、意味の 表に ない kind は unknown
 - 10(はっけん・全地域): つよい しらせ は ランドマーク / ひみつ だけ・かるい 文・ふつうの 池 は しずか・forest の 例
+- 11(reachability・全地域 registry): 全 spot・全 gate に 道に そって あるいて 行ける(とじこめ なし)
+- はっけんの 段階づけ で 再仕様化した 既存 テスト(日付つき コメント): `meguru-discovery-test`(⑦ ほか)、`meguru-discovery-browser`(bright2 = 「ひだまりが ある」)、scenery-final-qa / scenery-polish / scenery-polish2 / visual-completion の 発見レベル 集計(L0 184 / L1 17 / L2 199 / L3 71)
 - 1〜8・3b〜3e(forest): そのまま 緑(退行 なし)
 
 ## 既知の gap / 次作業
-1. 全地域の reachability テスト(道 3/4・全 spot・gate)を registry-driven に(いまは forest だけ)
+1. ~~全地域の reachability テスト~~ → テスト 11 で 完了(2026-10-01)
 2. city の 日本の 都市感(駅前・路地・街灯・電柱・自販機 は 原型 あり。配置 と 比率 は これから)
 3. sea の うみの 面(帯 を shoreX に そって ならべて いる。波打ち際 の つながり)
 4. jungle の 三角形(148k)。bigleaf / hugeleaf の 数
 5. 残像 の 実機 再現
 6. 2D 比較・before / after 画像(今回は 3D 代表 1 まい ずつ)
-7. full npm test: 51fd90de で 完走(結果は PR #367 本文)。最終 commit は discovery テスト 1 件の 直し だけ(その file は 単体で 緑)
+7. full npm test: `f163f031`(main 591b9def merge 後)で 2804 + 80 pass / 0 fail(EXIT 0)。browser: 13 地域 3D smoke(27 にん・めりこみ 0・errors 0・fallback 0)と discovery scene(chromium)緑。CI は PR #367 の checks を 見る
