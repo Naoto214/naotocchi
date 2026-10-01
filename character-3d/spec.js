@@ -152,7 +152,7 @@
         1: { archetype: Q, idlePose: 'lie', body: { len: 0.95, r: 0.42, chest: 1.0, hip: 0.95 }, head: { r: 0.46, squash: 0.92, snout: 0.16, snoutR: 0.17 }, legs: { len: 0.22, r: 0.11 }, neck: 0.08,
           ears: { type: 'floppy', len: 0.34, w: 0.2, tilt: 0.25 }, tail: { type: 'short', len: 0.2, r: 0.07 },
           colors: { base: '#f0a458', belly: '#f6c27e', muzzle: '#f6c27e', ear: '#8a4c26', nose: '#3a1a10', paw: '#e8964a' } },
-        4: { archetype: Q, idlePose: 'stand', body: { len: 1.25, r: 0.27, chest: 1.08, hip: 0.86 }, head: { r: 0.33, squash: 0.95, snout: 0.26, snoutR: 0.14 }, legs: { len: 0.62, r: 0.085 }, neck: 0.2,
+        4: { archetype: Q, idlePose: 'stand', body: { len: 1.25, r: 0.27, chest: 1.08, hip: 0.86 }, head: { r: 0.37, squash: 0.95, snout: 0.26, snoutR: 0.14 }, legs: { len: 0.62, r: 0.085 }, neck: 0.2,
           ears: { type: 'pointy', len: 0.34, w: 0.17, tilt: -0.1 }, tail: { type: 'curl', len: 0.48, r: 0.065 },
           colors: { base: '#f0a458', belly: '#f8b868', muzzle: '#f8c88a', ear: '#c87838', nose: '#2a1010', paw: '#d88848' } },
         8: { archetype: Q, idlePose: 'sit', body: { len: 1.1, r: 0.37, chest: 1.22, hip: 1.0 }, head: { r: 0.38, squash: 0.9, snout: 0.22, snoutR: 0.17 }, legs: { len: 0.42, r: 0.11 }, neck: 0.12,

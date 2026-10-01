@@ -85,7 +85,7 @@ export function quadruped(sp, key) {
   const tailR = T.type === 'plume' ? (t) => tr * (0.9 + Math.sin(Math.PI * t) * 0.9) : (t) => tr * lerp(1.1, 0.55, t);
   rig.add('tail', 'body', [0, B.r * 0.35, -B.len / 2 * 0.9], [paint(sweep(tailPath, tailR, 8, { steps: 12 }), (x, y, z) => (T.type === 'curl' && y > tl * 0.6 ? c.belly : sp.patches ? c.patch : c.base))]);
   rig.meta = { idlePose: sp.idlePose, hover: 0, bodyY, legTop, bodyR: B.r, bodyLen: B.len, earType: E.type };
-  rig.faceSpec = { bone: 'head', target: headGeo, center: [0, hr * 0.02, hr * 0.92], fwd: [0, 0.08, 1], half: hr * 0.62, eyeSize: 0.25,
+  rig.faceSpec = { bone: 'head', target: headGeo, center: [0, hr * 0.0, hr * 0.92], fwd: [0, 0.08, 1], half: hr * 0.74, eyeSize: 0.25,
     layout: { eyeX: 25, eyeY: 54, mouthY: 104, browY: 34, cheekX: 38, cheekY: 80, mouthW: 9 }, style: { mouth: '#9a2a24', blush: '#f08a7a' } };
   return rig;
 }

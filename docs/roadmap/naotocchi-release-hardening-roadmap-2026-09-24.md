@@ -1046,3 +1046,20 @@ save の配列要素の型が壊れていても、起動不能にならないよ
 ---
 
 *この文書は read-only の計画です。コード・既存の文書・PR には手を入れていません。*
+
+---
+
+## 15. Character 3D System(2026-10-01 追記。独立 lane・Draft PR・main merge なし)
+
+(§14 は #368 Resident Expression が 追記予定の 番号。この 節は 15 番)
+
+正本: [`docs/character-3d/architecture.md`](../character-3d/architecture.md)・QA: [`docs/qa/character-3d-pilot-2026-10-01.md`](../qa/character-3d-pilot-2026-10-01.md)。
+
+**順番(この 順を まもる)**
+
+1. **Character 3D Pilot** — 形の 差が 大きい 8 系統(いぬ・ペンギン・カクレクマノミ・おとこのひと・ちょう・タンポポ・キノコ・ヒトデ)× 01 / 04 / 08 等 × 5 表情。`?meguru3d=1&char3d=1` の ときだけ。← いま ここ
+2. **Human QA**(iPhone)— 同じ 子に 見えるか・side / back・成長・表情・うごき・箱庭に なじむか・2D より よいか・27 体・全量展開したいか。
+3. **architecture 確定** — 採用 / 条件付き採用(archetype・顔・うごき を なおして pilot 再確認)/ 不採用(2D billboard を 維持し、pilot は 研究成果として のこす)。
+4. **full rollout**(後日)— 残り 5 archetype(arthropod / tentacled / tree / object / celestial)と 全 species × 8 段 の 数字。
+
+**Human QA の 前に 全量化しない。** 実装側から「採用」を きめない。save / schema・2D 画像・Expression System の 正本は かえない。

@@ -28,7 +28,7 @@ async function shots(list, opts = {}) {
       await page.goto(`${base}/character-3d/gallery.html?${s.q}`);
       await page.waitForFunction(() => window.__c3d && window.__c3d.items.length > 0, null, { timeout: 30000 });
       await page.waitForTimeout(s.wait || 600);
-      const el = await page.$(s.full ? 'body' : '#stage');
+      const el = await page.$(s.full || /bare=1/.test(s.q) ? 'body' : '#stage');
       await el.screenshot({ path: s.out });
       out.push({ out: s.out, errors: errs });
       await page.close();

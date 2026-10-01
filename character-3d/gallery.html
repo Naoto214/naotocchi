@@ -30,6 +30,10 @@
   button, select { font: inherit; font-size: 13px; padding: 7px 11px; min-height: 36px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
   button[aria-pressed="true"] { background: var(--on); color: var(--on-ink); border-color: var(--on); }
   .note { font-size: 12px; color: var(--muted); padding: 0 16px 24px; }
+  /* 比較シートの 撮影用(?bare=1): 3D だけ 画面いっぱい */
+  body.bare header, body.bare #ref, body.bare .controls, body.bare .note, body.bare #badge { display: none; }
+  body.bare main { display: block; padding: 0; }
+  body.bare #stage { width: 100vw; height: 100vh; aspect-ratio: auto; border-radius: 0; border: 0; }
 </style>
 </head>
 <body>
@@ -64,6 +68,7 @@ import { getTemplate, instantiate, fitScale, SPEC } from './runtime.mjs';
 import { animate, setEmotion, react } from './animate.mjs';
 
 const q = new URLSearchParams(location.search);
+if (q.get('bare') === '1') document.body.classList.add('bare');
 const ALL = [...Object.keys(SPEC.PILOT), ...Object.keys(SPEC.ARCHETYPE_REUSE)];
 const st = {
   id: ALL.includes(q.get('id')) ? q.get('id') : 'dog',
@@ -76,7 +81,8 @@ const st = {
 const stagesOf = (id) => (SPEC.STAGE_KEYS[id] || [0]);
 if (!st.stage || !stagesOf(st.id).includes(st.stage)) st.stage = stagesOf(st.id)[Math.min(1, stagesOf(st.id).length - 1)];
 const VIEWS = { front: 0, '34': 0.62, side: Math.PI / 2, back: Math.PI, '34back': Math.PI - 0.62 };
-let az = VIEWS[st.view] != null ? VIEWS[st.view] : 0.62, el = 0.32;
+let az = VIEWS[st.view] != null ? VIEWS[st.view] : 0.62, el = q.has('el') ? Number(q.get('el')) : 0.32;
+const ORTHO = q.get('ortho') === '1';   // 比較シート用: 列の はばを そろえる
 
 // ---- three
 const host = document.getElementById('stage');
@@ -84,7 +90,8 @@ const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserv
 renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
 host.prepend(renderer.domElement);
 const scene = new THREE.Scene();
-const cam = new THREE.PerspectiveCamera(30, 4 / 3, 0.05, 100);
+const pcam = new THREE.PerspectiveCamera(30, 4 / 3, 0.05, 100), ocam = new THREE.OrthographicCamera(-1, 1, 1, -1, -50, 100);
+let cam = ORTHO ? ocam : pcam;
 scene.add(new THREE.HemisphereLight('#e6f2ff', '#8a7a5a', 1.25));
 const sun = new THREE.DirectionalLight('#fff6e8', 1.45); sun.position.set(-1.2, 2.2, 1.6); scene.add(sun);
 const ground = new THREE.Mesh(new THREE.CircleGeometry(30, 48).rotateX(-Math.PI / 2), new THREE.MeshLambertMaterial({ color: '#d9cfb4' }));
@@ -94,6 +101,7 @@ const shadowGeo = new THREE.CircleGeometry(1, 24).rotateX(-Math.PI / 2).translat
 
 let items = [];
 function clear() { for (const it of items) { scene.remove(it.inst.holder); scene.remove(it.shadow); } items = []; }
+let spacing = 2, slots = 1;
 function add(id, stage, emotion, mode, x, label) {
   const tpl = getTemplate(id, stage, mode);
   if (tpl.status !== 'ok') { console.warn(tpl.error); return null; }
@@ -112,8 +120,10 @@ function add(id, stage, emotion, mode, x, label) {
 function rebuild() {
   clear();
   const { id, stage, emotion, mode } = st;
+  const lay = { single: [2.3, 1], stages: [2.4, stagesOf(id).length], emotions: [1.75, 5], modes: [1.9, 3], views: [1.9, 4], lineup: [1.7, Object.keys(SPEC.PILOT).length] }[st.layout] || [2, 1];
+  spacing = lay[0]; slots = lay[1];
   if (st.layout === 'single') add(id, stage, emotion, mode, 0);
-  else if (st.layout === 'stages') stagesOf(id).forEach((s, i, a) => add(id, s, emotion, mode, (i - (a.length - 1) / 2) * 1.9, '0' + s));
+  else if (st.layout === 'stages') stagesOf(id).forEach((s, i, a) => add(id, s, emotion, mode, (i - (a.length - 1) / 2) * 2.4, '0' + s));
   else if (st.layout === 'emotions') SPEC.PILOT_EMOTIONS.forEach((e, i) => add(id, stage, e, mode, (i - 2) * 1.75, e));
   else if (st.layout === 'modes') ['A', 'B', 'C'].forEach((m, i) => add(id, stage, emotion, m, (i - 1) * 1.9, m));
   else if (st.layout === 'views') [0, 1, 2, 3].forEach((k, i) => { const it = add(id, stage, emotion, mode, (i - 1.5) * 1.9, ['front', '3/4', 'side', 'back'][k]); if (it) it.fixedYaw = [0, -0.62, -Math.PI / 2, Math.PI][k]; });
@@ -121,17 +131,23 @@ function rebuild() {
   frameCamera(); syncUi();
 }
 function frameCamera() {
-  const n = items.length, w = n > 1 ? (items[n - 1].inst.holder.position.x - items[0].inst.holder.position.x) + 2.2 : 2.3;
+  const cam = pcam, n = items.length, w = n > 1 ? (items[n - 1].inst.holder.position.x - items[0].inst.holder.position.x) + 2.2 : 2.3;
   const h = Math.max(...items.map((it) => it.inst.tpl.size.y * it.inst.scale + (it.inst.meta.hover || 0) * it.inst.scale), 1.2);
   const d = Math.max(w * 1.25 / (2 * Math.tan(15 * Math.PI / 180) * cam.aspect), h * 1.5 / (2 * Math.tan(15 * Math.PI / 180)));
   cam.userData.d = d * 0.62; cam.userData.ty = h * 0.48;
 }
 function place() {
-  const d = cam.userData.d || 6, ty = cam.userData.ty || 0.7;
+  const d = pcam.userData.d || 6, ty = pcam.userData.ty || 0.7;
+  if (ORTHO) {
+    const r = host.getBoundingClientRect(), W = spacing * slots, Hh = W * r.height / r.width;
+    ocam.left = -W / 2; ocam.right = W / 2; ocam.top = Hh / 2; ocam.bottom = -Hh / 2; ocam.updateProjectionMatrix();
+    ocam.position.set(Math.sin(az) * Math.cos(el) * 20, ty + Math.sin(el) * 20, Math.cos(az) * Math.cos(el) * 20); ocam.lookAt(0, ty, 0);
+    return;
+  }
   cam.position.set(Math.sin(az) * Math.cos(el) * d, ty + Math.sin(el) * d, Math.cos(az) * Math.cos(el) * d);
   cam.lookAt(0, ty, 0);
 }
-function resize() { const r = host.getBoundingClientRect(); renderer.setSize(r.width, r.height, false); cam.aspect = r.width / r.height; cam.updateProjectionMatrix(); frameCamera(); }
+function resize() { const r = host.getBoundingClientRect(); renderer.setSize(r.width, r.height, false); pcam.aspect = r.width / r.height; pcam.updateProjectionMatrix(); frameCamera(); }
 addEventListener('resize', resize);
 
 // ---- drag で 360°

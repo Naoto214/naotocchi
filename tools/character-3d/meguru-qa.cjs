@@ -163,6 +163,20 @@ async function walk(page, seconds) {
     R.errors = errors;
     await page.context().close();
 
+    // ---------- pilot ごと: その species を player に して forest で(こちらを むく / うしろ)
+    const SPEC = require(path.join(ROOT, 'character-3d/spec.js'));
+    R.perSpecies = {};
+    for (const id of Object.keys(SPEC.PILOT)) {
+      const ks = SPEC.STAGE_KEYS[id], st = ks[Math.min(1, ks.length - 1)];
+      const { save: sv, stage } = makeSave({ line: id, stageIndex: st - 1, party: ['shiba', 'cat_friend'] });
+      const { page: pg, errors: er } = await open(browser, base, sv);
+      await pose(pg, { spot: 'entry', yaw: 0, heading: Math.PI - 0.5, faceCam: true, env });
+      const front = await snap(pg, 'player-' + id + '-front');
+      await pose(pg, { spot: 'entry', yaw: 0, env });
+      const back = await snap(pg, 'player-' + id + '-back');
+      R.perSpecies[id] = { stageIndex: stage, expected: st - 1, front, back, live: (await c3d(pg)).live, errors: er };
+      await pg.context().close();
+    }
     // ---------- perf: 1 / 5 / 27 体(3D)。pilot に ない なかまは 代役(pilot の model)で 3D に して はかる。2D baseline も おなじ 条件
     const all = ['shiba', 'cat_friend', 'tanuki', 'penguin_friend', 'rabbit_friend', 'squirrel', 'owl', 'otter', 'hamster', 'panda', 'monkey', 'parrot', 'sheep', 'seal', 'bat', 'chicken', 'hedgehog', 'snail', 'punyu', 'sekizou', 'chameleon', 'clock', 'unicorn', 'many_tail_fox', 'watcher', 'box'];
     for (const n of [1, 5, 27]) {
@@ -179,6 +193,21 @@ async function walk(page, seconds) {
       }
     }
   } finally { await browser.close(); srv.close(); }
+  // ---- ブラウザでの 合否(この tool は browser test を かねる)
+  const C = R.checks, fails = [];
+  const must = (ok, msg) => { if (!ok) fails.push(msg); };
+  must(C.forest3d.is3D && !C.forest3d.failed && C.forest3d.live.live >= 3, 'forest: world 3D + キャラ 3D(player + しば + ねこ 以上)');
+  must(C.after3dOff.live.live === 0 && C.after3dOff.is3D, '3D → 2D: キャラの 3D が のこらない・world は 3D の まま');
+  must(C.after3dOn.live.live === C.forest3d.live.live, '2D → 3D: おなじ 数に もどる');
+  must(C.playerVisible.drawn3d === C.playerVisible.frames, 'player は 120 frame ずっと 3D で えがかれる');
+  must(C.fallback.worldIs3D && !C.fallback.rendererFailed && C.fallback.shibaBroken && !C.fallback.shiba3d && C.fallback.cat3d && C.fallback.player3d, 'actor 単位 fallback(しば だけ 2D)');
+  must(C.regionSwitch.inCity.live === 0 && !C.regionSwitch.inCity.is3D, 'city(main では 2D の world): 3D キャラを のこさない');
+  must(C.regionSwitch.backInForest.is3D && C.regionSwitch.backInForest.live > 0 && C.regionSwitch.backInForest.holdersInScene === C.regionSwitch.backInForest.live, 'forest に もどる: scene の 3D = live(ghost なし)');
+  for (const [id, v] of Object.entries(R.perSpecies || {})) must(v.stageIndex === v.expected && v.live && v.live.live >= 1 && !v.errors.some((e) => /pageerror|Error/.test(e)), 'player ' + id + ' を 3D で');
+  must(!(R.errors || []).some((e) => !/forced update failure \(QA\)/.test(e)), 'page の error なし: ' + (R.errors || []).join(' / '));
+  R.verdict = fails.length ? { pass: false, fails } : { pass: true };
   fs.writeFileSync(path.join(OUT, 'meguru-qa.json'), JSON.stringify(R, null, 2));
+  console.log('VERDICT', JSON.stringify(R.verdict));
+  if (fails.length) process.exitCode = 1;
   console.log(JSON.stringify({ checks: R.checks, perf: R.perf, errors: R.errors }, null, 1));
 })();
