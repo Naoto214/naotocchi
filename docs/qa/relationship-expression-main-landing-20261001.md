@@ -47,3 +47,13 @@ Use merge-commit history, preserving the completed pilot and main integration. F
 ## Only remaining Relationship follow-up
 
 After publication, comprehensive iPhone QA in the real game: motion strength, responsiveness, 26 companions, ordinary play, multiple rescues, partner/married three states, heart anchors and effect intensity. Any issue should be addressed by a small follow-up PR. This is not a new size/color/position comparison, nor a blocking motion aesthetic gate. Bond25/30/35, marriage3/3/4/70 and date0.5-year work remain separate branches/PRs and are not started here.
+
+## First CI findings and test-contract correction
+
+PR #366 head8faefdcccdf4656fe2b38ae3fbf71561f876eeed: Runtime smoke test succeeded (run36842793727, 2,876 PASS /0 FAIL). Home layout run36842793732 failed only the conversation runner's obsolete ring assertions in both Chromium/WebKit; background/boot/back-navigation/focused-layout gates passed.
+
+The old runner measured the transformed transparent square but still required15–23px. Approved1.2x presentation is18–27.6px, with the unchanged solver frame15–23px. Its old2px empty-square margin also reported ring covering the partner/pet despite clear painted separation. Artifact11152054386 was downloaded and actual full-cast/world-tree screenshots inspected. Independent calculations across5,907 actor comparisons per engine found no painted intersections; minimum painted gap1.300px to an accessory (next1.316px). Heart/floor/dialogue minimum gaps6.516/20.298/30.298px.
+
+Test-only correction: derive the actual atlas frame through the production illustration catalog and calculate conservative alpha>0 bounds (including every faint edge), measure the real glyph child, assert exact1.2 scale/center origin/base and rendered dimensions. Actors must not intersect the painted glyph (0.01px numerical tolerance); hearts/floor/dialogue retain the2px gap. Stage bounds and center/placement checks stay. Atlas decode failure blocks the fixture. Both static and animated samples use the same checks. Negative tests reject incorrect scale/size/origin, missing glyph, and deliberately moving painted ring onto partner/pet/accessory. This changes no production image, CSS, position, motion or gameplay.
+
+Two test cases added; dedicated Relationship suite is now80. The failed browser scenarios previously stopped at their initial sample, so all subsequent phases must pass in the next full CI run. Prior CI failure is not relabeled as success. Final latest-head CI and full-suite totals will be recorded in the PR completion comment.

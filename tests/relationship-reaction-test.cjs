@@ -41,3 +41,24 @@ test('approved marriage ring uses fixed scale and tone without comparison overri
  assert.match(rule,/transform-origin:center/);
  assert.doesNotMatch(rule,/var\(/);
 });
+
+
+test('browser ring geometry checks approved scale and rejects obsolete or oversized values',()=>{
+ const {assertApprovedRing}=require('./helpers/marriage-ring-bounds.cjs');
+ const r={x:181.8,y:297.9875,w:20.4,h:20.4,baseW:17,baseH:17,scaleX:1.2,scaleY:1.2,originX:8.5,originY:8.5,glyph:{x:181.8,y:297.9875,w:20.4,h:20.4}};
+ assert.doesNotThrow(()=>assertApprovedRing(r,'approved'));
+ for(const patch of [{scaleX:1},{scaleY:1.15},{w:25},{originX:0},{baseW:24},{glyph:null},{glyph:{x:0,y:0,w:0,h:0}}])assert.throws(()=>assertApprovedRing({...r,...patch},'invalid'));
+});
+test('painted ring excludes transparent atlas margin without allowing actual character overlap',async()=>{
+ const {loadRingBounds,paintedRing,noIntersection}=require('./helpers/marriage-ring-bounds.cjs');
+ const b=await loadRingBounds();assert.deepEqual(b.box,[3,16,194,179]); // all alpha >0 pixels, including faint edges
+ // Real failed CI full-cast specimen: old square/gap test fails; painted art is clear.
+ const square={x:181.8,y:297.9875,w:20.4,h:20.4},paint=paintedRing(square,b);
+ const partner={x:153.41015625,y:278.609375,w:27.08984375,h:40.078125};
+ const pet={x:171.9921875,y:319.6953125,w:46.015625,h:82.3828125};
+ const item={x:203.5,y:284.796875,w:32.875,h:32.875};
+ for(const actor of [partner,pet,item])assert.ok(noIntersection(paint,actor));
+ assert.ok(!noIntersection({...paint,x:170},partner),'moving visible ring onto partner must fail');
+ assert.ok(!noIntersection({...paint,y:325},pet),'moving visible ring onto pet must fail');
+ assert.ok(!noIntersection({...paint,x:205},item),'moving visible ring onto accessory must fail');
+});
