@@ -1,0 +1,13 @@
+.F.........
+======================================================================
+FAIL: test_existing_end_adapter_advances_to_next_egg_choice (test_proxy_resource_value_trajectory.TrajectoryTests.test_existing_end_adapter_advances_to_next_egg_choice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_trajectory.py", line 38, in test_existing_end_adapter_advances_to_next_egg_choice
+    self.assertIn("turn_end_completed",kinds)
+AssertionError: 'turn_end_completed' not found in ['turn_start_and_egg_draw', 'egg_exchange_bottom', 'response_pass', 'response_pass', 'place_companion', 'response_pass', 'response_pass', 'normal_pass_end_request', 'response_pass']
+
+----------------------------------------------------------------------
+Ran 11 tests in 14.213s
+
+FAILED (failures=1)

@@ -32,6 +32,12 @@ class TrajectoryTests(unittest.TestCase):
         result=next(r for r in self.runs if r['path_id']=='probe-01-a-first' and r['policy_id']==trajectory.POLICIES[0])
         self.assertGreaterEqual(result['last_valid_event_seq'],8)
 
+    def test_existing_end_adapter_advances_to_next_egg_choice(self):
+        result=self.runs[0]
+        kinds=[e["action_type"] for e in result["events"]]
+        self.assertIn("turn_end_completed",kinds)
+        self.assertGreaterEqual(kinds.count("egg_exchange_bottom"),3)
+
     def test_independent_replay_rejects_event_snapshot_hash_tampering(self):
         initial=self.initials[0];result=self.runs[0]
         self.assertEqual(trajectory.validate_route(result,initial,result['policy_id']),[])
@@ -46,6 +52,10 @@ class TrajectoryTests(unittest.TestCase):
         record=trajectory._normal_selection(state,initial,trajectory.POLICIES[1],boundary['public_history'])
         forged=copy.deepcopy(record);forged['selected_action']['action_type']='pass'
         with self.assertRaises(ValueError):trajectory.apply_selected(state,forged,initial['inputs'])
+
+    def test_mandatory_seed_profile_tampering_rejected(self):
+        bad=copy.deepcopy(self.initials[0]);bad["inputs"]["mandatory_seed_profiles"]["2:A"]=2
+        with self.assertRaises(ValueError):trajectory.run_route(bad,trajectory.POLICIES[0])
 
     def test_diverged_states_are_not_matched_by_round_only(self):
         initial=self.initials[0];boundary=initial['inputs']['boundaries'][0]

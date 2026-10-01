@@ -1,0 +1,14 @@
+.......F....
+======================================================================
+FAIL: test_mandatory_seed_profile_tampering_rejected (test_proxy_resource_value_trajectory.TrajectoryTests.test_mandatory_seed_profile_tampering_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_trajectory.py", line 58, in test_mandatory_seed_profile_tampering_rejected
+    with self.assertRaises(ValueError):trajectory.run_route(bad,trajectory.POLICIES[0])
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 12 tests in 15.814s
+
+FAILED (failures=1)
