@@ -1130,7 +1130,7 @@
     const OBJ3D_HEAD = 125;
     // ===== 全地域の 意味の 表(semantic → 3D の かたち)。forest の きまり を そのまま ひろげる =====
     // t = かたちの 原型(parts3d の case)。c = いろ。3D で 出さない もの は HIDDEN3D(雰囲気の しるし・2D の 額縁)。意味の ちがう 置きかえ は しない
-    const HIDDEN3D = new Set(['branch', '💧', '🫧', '🐾', '🚲', '🏄', '🏖️', '🎣', '🥾', '🧣', '❄️', '🌨️', '🍡', 'cloudwisp', 'palmfrond', 'snowdrift', 'sandcrest', '☁️', 'coralarm', '🏚️']);
+    const HIDDEN3D = new Set(['branch', '💧', '🫧', '🐾', '🏄', '🏖️', '🎣', '🥾', '🧣', '❄️', '🌨️', '🍡', 'cloudwisp', 'palmfrond', 'snowdrift', 'sandcrest', '☁️', 'coralarm', '🏚️']);
     const SEM3D = {
       // たてもの
       '🏠': { t: 'house', c: '#d9c9a8', rc: '#8a4b3c' }, '🏡': { t: 'house', c: '#e3d2b0', rc: '#6c8a4a' }, '🛖': { t: 'house', c: '#a88a5c', rc: '#6f5436', roof: 'cone' },
@@ -1139,15 +1139,15 @@
       '🏬': { t: 'tower', c: '#cfd3d8', fl: 3 }, '🏢': { t: 'tower', c: '#b9c2cc', fl: 5 }, building: { t: 'tower', c: '#c4c8ce', fl: 4 }, shopblock: { t: 'tower', c: '#d8d2c4', fl: 2, sign: true }, '🚉': { t: 'tower', c: '#d6d9dc', fl: 2, wide: true },
       alleywall: { t: 'wall', c: '#9a9a94' }, '🏛️': { t: 'temple', c: '#e6e2d6' }, '⛩️': { t: 'torii', c: '#c8402e' }, '🎡': { t: 'ferris', c: '#d94f4f' }, '⛲': { t: 'fountain', c: '#d8d8d2' },
       igloo: { t: 'dome', c: '#f2f6fb' }, tent: { t: 'tent', c: '#c9a24a' }, '⛺': { t: 'tent', c: '#d8a040' }, '🏕️': { t: 'tent', c: '#4f8a5f' }, wreck: { t: 'hull', c: '#5a4636' },
-      ruinwall: { t: 'ruin', c: '#9f9a8c' }, ruingate: { t: 'gate', c: '#9f9a8c' }, arch: { t: 'gate', c: '#c9b48a' }, ruinpillar: { t: 'pillar', c: '#a8a39a' }, obelisk: { t: 'obelisk', c: '#6b6a66' }, statue: { t: 'statue', c: '#8f8f8a' },
-      vending: { t: 'boxprop', c: '#d94040', h: 1.0 }, guardpost: { t: 'boxprop', c: '#8a7a5a', h: 0.8 }, '🚦': { t: 'signal' }, '🚧': { t: 'conep', c: '#f08a2a' }, '🗑️': { t: 'binp', c: '#6a6f72' }, '💡': { t: 'lamp', c: '#ffe9a8', h: 0.8 },
+      ruinwall: { t: 'ruin', c: '#9f9a8c' }, ruingate: { t: 'gate', c: '#9f9a8c' }, arch: { t: 'gate', c: '#c9b48a' }, ruinpillar: { t: 'pillar', c: '#a8a39a' }, obelisk: { t: 'obelisk', c: '#a89a80' }, statue: { t: 'statue', c: '#8f8f8a' },
+      vending: { t: 'boxprop', c: '#d94040', h: 1.0, vend: true }, guardpost: { t: 'boxprop', c: '#8a7a5a', h: 0.8 }, '🚲': { t: 'bike', c: '#3f6fb0' }, '🚦': { t: 'signal' }, '🚧': { t: 'conep', c: '#f08a2a' }, '🗑️': { t: 'binp', c: '#6a6f72' }, '💡': { t: 'lamp', c: '#ffe9a8', h: 0.8 },
       streetlight: { t: 'lamp', c: '#fff2c8', h: 1.5 }, lantern: { t: 'lamp', c: '#ffb766', h: 0.7 }, '🏮': { t: 'lamp', c: '#ff7a5a', h: 0.9 }, lanternpost: { t: 'lamp', c: '#ffd59a', h: 1.2 }, '🕯️': { t: 'lamp', c: '#ffe2a0', h: 0.4 },
       stoplamp: { t: 'lamp', c: '#bfe3ff', h: 1.2 }, moonlamp: { t: 'lamp', c: '#9fc8ff', h: 1.1 }, '🚏': { t: 'signpost', c: '#4d6fb0' }, neonsign: { t: 'neon', c: '#ff5fa8' },
       '🪑': { t: 'bench', c: '#8a6a44' }, '🛝': { t: 'slide', c: '#4f9ad8' }, '🚕': { t: 'car', c: '#f2c230' }, '🚜': { t: 'car', c: '#d94a3a', big: true }, '⛵': { t: 'boat', c: '#f4f1e6' }, pier: { t: 'pier', c: '#9a7550' }, crosswalk: { t: 'decal', c: '#e8e8e4' },
       telescope: { t: 'telescope', c: '#5a5f66' }, '🔭': { t: 'telescope', c: '#5a5f66' }, orrery: { t: 'orrery', c: '#c9a44a' }, waterwheel: { t: 'wheel', c: '#7a5436' }, '🛷': { t: 'bench', c: '#b0402a' }, '🎿': { t: 'bench', c: '#3a7fd0' },
       firewood: { t: 'logs', c: '#7a5436' }, hayroll: { t: 'hay', c: '#d9b85a' }, '🪺': { t: 'nest', c: '#8a6a44' }, '🏺': { t: 'pot', c: '#b5744a' }, pot: { t: 'pot', c: '#b5744a' }, planter: { t: 'pot', c: '#8a6a4a', plant: true }, '🪴': { t: 'pot', c: '#9a7a5a', plant: true },
       // かべ・地形
-      cliffwall: { t: 'rockwall' }, seacliff: { t: 'rockwall', c: '#9a8f7a' }, cliff: { t: 'rockwall' }, mesa: { t: 'rockwall', c: '#c08a5a' }, reefwall: { t: 'reef', c: '#d07a7a' }, kelpwall: { t: 'kelprow', c: '#3f7a3a' },
+      cliffwall: { t: 'rockwall' }, seacliff: { t: 'rockwall', c: '#9a8f7a' }, cliff: { t: 'rockwall' }, mesa: { t: 'rockwall', c: '#d6a470' }, reefwall: { t: 'reef', c: '#d07a7a' }, kelpwall: { t: 'kelprow', c: '#3f7a3a' },
       dunewall: { t: 'sandwall', c: '#e2c585' }, duneridge: { t: 'sandwall', c: '#e6cd92' }, dune: { t: 'lowmound', c: '#e6cd92' }, snowbank: { t: 'sandwall', c: '#eef3fa' }, islandedge: { t: 'sandwall', c: '#5a4f9a' },
       hedge: { t: 'hedge', c: '#4f8a3a' }, pinewall: { t: 'pinerow' }, cropline: { t: 'croprow', c: '#8ab85a' }, crop: { t: 'croprow', c: '#9ac060' }, ricestalk: { t: 'reeds', c: '#a8c860', h: 0.5 }, '🌾': { t: 'reeds', c: '#d8c060', h: 0.6 },
       woodfence: { t: 'fence', c: '#9a7a50' }, fence: { t: 'fence', c: '#8a8a84' }, fencerail: { t: 'fence', c: '#9a7a50' }, snowfence: { t: 'fence', c: '#8a6a44' }, guardrail: { t: 'fence', c: '#d8d8d4', low: true },
@@ -1163,19 +1163,19 @@
       // water(Water v2・F10): deep = 沖 / 中心、shallow = 岸 / ふち、bank = 岸の 地面(なければ ground[1] を くらく)、foam = 岸の あわ
       // Region Profile v2(F7 / F9): 地域 = きり・水 だけで なく、地形 / 植生 / 建築 / 水 / 密度 / ランドマーク / 空 の family を もつ。
       // レンダラーに 地域ごとの switch は ふやさず、原型が ctx.prof(この 表)を よむ。arch.palette = たてものの いろ(v で えらぶ)、arch.heights = 階数の ばらつき
-      home: { fog: [1400, 5200], label: 'いえのまわり', water: { deep: '#3b7aa6', shallow: '#8ccbe0' }, terrain: 'suburb', veg: 'garden', arch: { kind: 'residential', palette: ['#e9dfcc', '#f1e8d8', '#d9c9a8', '#e6d6c0'], roofs: ['#8a4b3c', '#6c8a4a', '#5a6a8a'] }, density: 0.8, landmark: 'bigtree', sky: 'clear' },
-      city: { fog: [1600, 6000], label: 'まち', water: { deep: '#3f6f8a', shallow: '#8fb8c8' }, terrain: 'flat-urban', veg: 'street-trees', arch: { kind: 'jp-city', palette: ['#d9d6cf', '#c9cfd6', '#e6e1d6', '#b8bec6', '#d3c7b8', '#cfd8dc', '#e8e4dc'], glass: ['#bcd4e6', '#d6e6f0', '#9fb8cc'], heights: [-2, -2, -1, -1, 0, 0, 1], roofTank: true, poles: true }, density: 1.4, landmark: 'tower', sky: 'skyline' },
-      countryside: { fog: [1800, 7000], label: 'いなか', water: { deep: '#3f7f98', shallow: '#9fd0d8' }, terrain: 'fields', veg: 'scattered-broadleaf', arch: { kind: 'farm', palette: ['#e0d2b4', '#d8c8a0', '#c9b890'], roofs: ['#5f4a3a', '#6d3a2c', '#7a5a3a'] }, density: 1.0, landmark: 'windmill', sky: 'clear' },
-      forest: { fog: [1400, 5200], water: { deep: '#2f6f98', shallow: '#79bcd6' }, terrain: 'woodland', veg: 'dense-mixed', arch: { kind: 'none' }, density: 1.2, landmark: 'bigtree', sky: 'canopy' },
-      mountain: { fog: [1800, 7500], label: 'やま', water: { deep: '#2f6f9a', shallow: '#9fd8e8' }, terrain: 'rock-shelf', veg: 'conifer-sparse', arch: { kind: 'mountain-hut', palette: ['#d9c9a8', '#b9a88a'], roofs: ['#5a4a3a'] }, density: 0.9, landmark: 'peak', sky: 'high' },
-      snow: { fog: [1000, 4200], fogColor: '#dde8f4', label: 'ゆき', water: { deep: '#6fa0c8', shallow: '#d8ecf8', foam: '#ffffff' }, terrain: 'snow-banks', veg: 'conifer-narrow', arch: { kind: 'lodge', palette: ['#e8e0d0', '#d8ccb8'], roofs: ['#8a3a2c', '#4a4a4a'] }, density: 0.7, landmark: 'lodge', sky: 'cold' },
-      sea: { fog: [1600, 6500], sea: true, label: 'うみ', water: { deep: '#1f6a9c', shallow: '#8fd8de', bank: '#cdb98a', foam: '#f8fdff' }, terrain: 'beach', veg: 'palms', arch: { kind: 'coastal', palette: ['#f2efe4', '#e8e0cc'], roofs: ['#3c6fb0', '#c8403a'] }, density: 0.75, landmark: 'lighthouse', sky: 'horizon' },
-      deepsea: { fog: [250, 1900], fogColor: '#0f2f4e', underwater: true, label: 'しんかい', water: { deep: '#0a2a48', shallow: '#17496e' }, terrain: 'seabed', veg: 'kelp-coral', arch: { kind: 'ruin', palette: ['#5a6a8a'], ruin: '#5a6a8a' }, density: 1.3, landmark: 'coral', sky: 'underwater' },
-      river_lake: { fog: [1500, 6000], label: 'かわ と みずうみ', water: { deep: '#2a6f98', shallow: '#8fd0da', bank: '#6f8a5a' }, terrain: 'river-valley', veg: 'riverwood', arch: { kind: 'wood', palette: ['#d9c9a8'], roofs: ['#6c8a4a'] }, density: 1.0, landmark: 'bridge', sky: 'clear' },
-      jungle: { fog: [900, 3800], fogColor: '#9fc29a', label: 'ジャングル', water: { deep: '#2f6a5a', shallow: '#7fb8a0' }, terrain: 'wet-ground', veg: 'canopy-dense', arch: { kind: 'ruin', palette: ['#8f9a84'], ruin: '#8f9a84' }, density: 1.5, lowPoly: true, landmark: 'temple', sky: 'humid' },
-      desert: { fog: [1800, 7500], fogColor: '#f0dcb0', label: 'さばく', water: { deep: '#2f8fa8', shallow: '#9fe0e8' }, terrain: 'dunes', veg: 'sparse-dry', arch: { kind: 'adobe', palette: ['#e2c585', '#d8b878', '#c9a46a'], roofs: ['#b08a5a'], ruin: '#cdb48c' }, density: 0.6, landmark: 'pyramid', sky: 'haze' },
-      star_stop: { fog: [1200, 5000], fogColor: '#2b2460', stars: true, label: 'ほしの えき', water: { deep: '#2a3a7a', shallow: '#7a8ad0' }, terrain: 'isles', veg: 'crystal', arch: { kind: 'stop', palette: ['#9d8ff0'] }, density: 0.7, landmark: 'bigstop', sky: 'stars' },
-      memory_lake: { fog: [500, 2600], fogColor: '#9aa3c0', mist: true, lake: true, label: 'おもいでの みずうみ', water: { deep: '#2e3d6e', shallow: '#8a97c4', bank: '#4e5574', foam: '#c8d0ea' }, terrain: 'misty-shore', veg: 'bare-broadleaf', arch: { kind: 'none' }, density: 0.5, landmark: 'lantern', sky: 'mist' },
+      home: { fog: [1400, 5200], label: 'いえのまわり', cover: { flowers: ['#f2a6c0', '#f7d94c', '#ffffff', '#f08a5a'], grass: 1, bushes: 0.7, pebbles: 0.3, mushrooms: 0, leaves: 0.2, empty: 0.3, tries: 3 }, foliage: { crown: ['#58a84a', '#6fbf5a', '#90d872'], conifer: ['#2f7044', '#3f8a52', '#55a066'] }, water: { deep: '#3b7aa6', shallow: '#8ccbe0' }, terrain: 'suburb', veg: 'garden', arch: { kind: 'residential', palette: ['#e9dfcc', '#f1e8d8', '#d9c9a8', '#e6d6c0'], roofs: ['#8a4b3c', '#6c8a4a', '#5a6a8a'] }, density: 0.8, landmark: 'bigtree', sky: 'clear' },
+      city: { fog: [1600, 6000], label: 'まち', ground3d: ['#8a8d96', '#767983'], cover: { flowers: ['#f2a6c0', '#f7d94c', '#ffffff'], flowerW: 0.7, grass: 0.4, bushes: 0.6, pebbles: 0, mushrooms: 0, leaves: 0.2, empty: 0.5, tries: 2 }, foliage: { crown: ['#55a24a', '#6ab85b', '#8ad06c'], conifer: ['#2f7044', '#3f8a52', '#55a066'] }, water: { deep: '#3f6f8a', shallow: '#8fb8c8' }, terrain: 'flat-urban', veg: 'street-trees', arch: { kind: 'jp-city', palette: ['#e9e2d4', '#d9d6cf', '#f1ebe0', '#c9d4c6', '#e2cfc0', '#cfd8dc', '#e8d8c8', '#b8c4d0'], lowPalette: ['#f6efe2', '#e8c9a0', '#d8c0c8', '#c9d9c0', '#f2e2c4', '#e2b89a', '#b9cfe0'], glass: ['#bcd4e6', '#d6e6f0', '#9fb8cc'], heights: [-2, -2, -1, -1, 0, 0, 1], roofTank: true, poles: true }, density: 1.4, landmark: 'tower', sky: 'skyline' },
+      countryside: { fog: [1800, 7000], label: 'いなか', cover: { flowers: ['#f7d94c', '#ffffff', '#f2a6c0', '#ff9a3c'], grass: 1.2, bushes: 0.5, pebbles: 0.3, mushrooms: 0.1, leaves: 0.2, empty: 0.35 }, foliage: { crown: ['#5fae4c', '#7cc45e', '#9ad874'], conifer: ['#2f7044', '#3f8a52', '#55a066'] }, water: { deep: '#3f7f98', shallow: '#9fd0d8' }, terrain: 'fields', veg: 'scattered-broadleaf', arch: { kind: 'farm', palette: ['#e0d2b4', '#d8c8a0', '#c9b890'], roofs: ['#5f4a3a', '#6d3a2c', '#7a5a3a'] }, density: 1.0, landmark: 'windmill', sky: 'clear' },
+      forest: { fog: [1400, 5200], cover: { flowers: ['#ffffff', '#f2a6c0', '#b58cf0', '#f7d94c'], grass: 1, bushes: 0.8, pebbles: 0.4, mushrooms: 0.7, leaves: 0.8, moss: 0.5, empty: 0.3 }, foliage: { crown: ['#44964a', '#5fb353', '#86d06a'], conifer: ['#2f6b3f', '#3b7f4a', '#58a860'] }, water: { deep: '#2f6f98', shallow: '#79bcd6' }, terrain: 'woodland', veg: 'dense-mixed', arch: { kind: 'none' }, density: 1.2, landmark: 'bigtree', sky: 'canopy' },
+      mountain: { fog: [1800, 7500], label: 'やま', cover: { flowers: ['#f7d94c', '#ffffff', '#b58cf0'], grass: 0.7, bushes: 0.5, pebbles: 1.0, mushrooms: 0.1, leaves: 0.1, empty: 0.45 }, foliage: { crown: ['#4f9a4a', '#6cae55', '#8cc46a'], conifer: ['#2a5c3d', '#35704a', '#4e8c5c'] }, water: { deep: '#2f6f9a', shallow: '#9fd8e8' }, terrain: 'rock-shelf', veg: 'conifer-sparse', arch: { kind: 'mountain-hut', palette: ['#d9c9a8', '#b9a88a', '#e6dcc4'], roofs: ['#5a4a3a', '#6b5a48'] }, density: 0.9, landmark: 'peak', sky: 'high' },
+      snow: { fog: [1000, 4200], fogColor: '#dde8f4', label: 'ゆき', cover: { flowers: [], grass: 0.3, bushes: 0.3, pebbles: 0.8, mushrooms: 0, leaves: 0, empty: 0.6 }, foliage: { crown: ['#7fa88a', '#9abfa0', '#b8d4bc'], conifer: ['#2f5a46', '#3d6a52', '#557c64'] }, water: { deep: '#6fa0c8', shallow: '#d8ecf8', foam: '#ffffff' }, terrain: 'snow-banks', veg: 'conifer-narrow', arch: { kind: 'lodge', palette: ['#e8e0d0', '#d8ccb8'], roofs: ['#8a3a2c', '#4a4a4a'] }, density: 0.7, landmark: 'lodge', sky: 'cold' },
+      sea: { fog: [1600, 6500], sea: true, label: 'うみ', cover: { flowers: ['#ff6f91', '#f7d94c', '#ffffff'], flowerW: 0.8, grass: 0.7, bushes: 0.6, pebbles: 0.8, shells: 0.6, mushrooms: 0, leaves: 0, empty: 0.4, tries: 2 }, foliage: { crown: ['#5fae4c', '#7fcc66', '#a4dd80'], conifer: ['#3f8a52', '#55a066', '#6fb47a'] }, water: { deep: '#1f6a9c', shallow: '#8fd8de', bank: '#cdb98a', foam: '#f8fdff' }, terrain: 'beach', veg: 'palms', arch: { kind: 'coastal', palette: ['#f2efe4', '#e8e0cc'], roofs: ['#3c6fb0', '#c8403a'] }, density: 0.75, landmark: 'lighthouse', sky: 'horizon' },
+      deepsea: { fog: [250, 1900], fogColor: '#0f2f4e', underwater: true, label: 'しんかい', cover: { flowers: [], grass: 0, bushes: 0, pebbles: 0.9, kelp: 0.9, mushrooms: 0, leaves: 0, empty: 0.45 }, foliage: { crown: ['#2f7a6a', '#3f9a80', '#5fb898'], conifer: ['#2f6a5a', '#3f8070', '#4f9a84'] }, water: { deep: '#0a2a48', shallow: '#17496e' }, terrain: 'seabed', veg: 'kelp-coral', arch: { kind: 'ruin', palette: ['#5a6a8a'], ruin: '#5a6a8a' }, density: 1.3, landmark: 'coral', sky: 'underwater' },
+      river_lake: { fog: [1500, 6000], label: 'かわ と みずうみ', cover: { flowers: ['#f7d94c', '#ffffff', '#f2a6c0', '#8fc0ff'], grass: 1.1, bushes: 0.6, pebbles: 0.6, reeds: 0.6, mushrooms: 0.1, leaves: 0.2, empty: 0.35 }, foliage: { crown: ['#4f9f4a', '#66b85a', '#8ad06c'], conifer: ['#2f7044', '#3f8a52', '#55a066'] }, water: { deep: '#2a6f98', shallow: '#8fd0da', bank: '#6f8a5a' }, terrain: 'river-valley', veg: 'riverwood', arch: { kind: 'wood', palette: ['#d9c9a8'], roofs: ['#6c8a4a'] }, density: 1.0, landmark: 'bridge', sky: 'clear' },
+      jungle: { fog: [900, 3800], fogColor: '#9fc29a', label: 'ジャングル', cover: { flowers: ['#ff5a8a', '#ff9a3c', '#f7d94c', '#d85cff'], grass: 0.9, bushes: 1.2, ferns: 1.2, pebbles: 0.2, mushrooms: 0.3, leaves: 0.6, empty: 0.2 }, foliage: { crown: ['#1f6e34', '#2f8a3f', '#9fd43a'], conifer: ['#1f5e34', '#2f7a44', '#4f9a4a'] }, water: { deep: '#2f6a5a', shallow: '#7fb8a0' }, terrain: 'wet-ground', veg: 'canopy-dense', arch: { kind: 'ruin', palette: ['#8f9a84'], ruin: '#8f9a84' }, density: 1.5, lowPoly: true, landmark: 'temple', sky: 'humid' },
+      desert: { fog: [1800, 7500], fogColor: '#f0dcb0', label: 'さばく', cover: { flowers: [], grass: 0.35, dry: true, bushes: 0.2, pebbles: 1.0, mushrooms: 0, leaves: 0, empty: 0.6, oasisFlowers: ['#f7d94c', '#ff9a3c', '#f2a6c0'] }, foliage: { crown: ['#86a35a', '#9fb86a', '#b8c878'], conifer: ['#6a8a4a', '#7fa05a', '#94b06a'] }, water: { deep: '#2f8fa8', shallow: '#9fe0e8' }, terrain: 'dunes', veg: 'sparse-dry', arch: { kind: 'adobe', palette: ['#e2c585', '#d8b878', '#c9a46a'], roofs: ['#b08a5a'], ruin: '#cdb48c' }, density: 0.6, landmark: 'pyramid', sky: 'haze' },
+      star_stop: { fog: [1200, 5000], fogColor: '#2b2460', stars: true, label: 'ほしの えき', cover: { flowers: ['#bfe3ff', '#fff0a0'], flowerW: 0.25, grass: 0.3, bushes: 0.2, pebbles: 0.6, sparkles: 0.6, mushrooms: 0, leaves: 0, empty: 0.6 }, foliage: { crown: ['#6a7ac0', '#7a8ad0', '#9aaae8'], conifer: ['#4f5fa8', '#5f6fb8', '#7f8fd0'] }, water: { deep: '#2a3a7a', shallow: '#7a8ad0' }, terrain: 'isles', veg: 'crystal', arch: { kind: 'stop', palette: ['#9d8ff0'] }, density: 0.7, landmark: 'bigstop', sky: 'stars' },
+      memory_lake: { fog: [500, 2600], fogColor: '#9aa3c0', mist: true, lake: true, label: 'おもいでの みずうみ', cover: { flowers: ['#d8d0f0', '#ffffff'], flowerW: 0.4, grass: 0.5, bushes: 0.3, pebbles: 0.5, reeds: 0.5, mushrooms: 0, leaves: 0.3, empty: 0.45, tries: 2 }, foliage: { crown: ['#8aa090', '#a9bba8', '#c4d2c0'], conifer: ['#5f7a6a', '#6f8a7a', '#8aa090'] }, water: { deep: '#2e3d6e', shallow: '#8a97c4', bank: '#4e5574', foam: '#c8d0ea' }, terrain: 'misty-shore', veg: 'bare-broadleaf', arch: { kind: 'none' }, density: 0.5, landmark: 'lantern', sky: 'mist' },
     };
     // 3D の 見た目の しゅるい。「せかいは 3D・キャラだけ 2D」: けしきの 物は 3D の かたち か、3D では 出さない(skip)。立て看板(billboard)は のこさない
     //   いみを かえない: きのこ は きのこ、はし は はし。3D に できない 雰囲気の しるし(💧・手前の えだ・光の もや)は 出さない
@@ -1187,7 +1187,7 @@
       '🪵': 'log', branch: 'skip', '💧': 'skip' };
     // あたりが なくて よい(ふんで とおれる ひくい もの・水・はし・地面の しるし)
     const WALKABLE3D = new Set(['water', 'bridge', 'pebble', 'pebbles', 'mushrooms', 'grass', 'fern', 'sprout', 'leaf', 'nut', 'sparkle', 'flower', 'signpost', 'glowdecal', 'smalllog',
-      'lamp', 'neon', 'decal', 'bush', 'parasol', 'lotus', 'reeds', 'croprow', 'lowmound', 'hole', 'hotspring', 'conep', 'binp', 'signal', 'bench', 'slide', 'pot', 'nest', 'logs', 'crystal', 'kelp', 'coral', 'coralfan', 'cactus', 'leafclump', 'vine', 'fence', 'pier', 'telescope', 'statue', 'pillar', 'obelisk', 'orrery', 'wheel', 'tent', 'car', 'boat', 'boxprop', 'hay', 'palm', 'torii', 'fountain', 'gate']);
+      'lamp', 'neon', 'decal', 'bush', 'parasol', 'lotus', 'reeds', 'croprow', 'lowmound', 'hole', 'hotspring', 'conep', 'binp', 'signal', 'bench', 'slide', 'pot', 'nest', 'logs', 'crystal', 'kelp', 'coral', 'coralfan', 'cactus', 'leafclump', 'vine', 'fence', 'pier', 'telescope', 'statue', 'pillar', 'obelisk', 'orrery', 'wheel', 'tent', 'car', 'boat', 'boxprop', 'hay', 'palm', 'torii', 'fountain', 'gate', 'bike']);
     const SOLID3D_TYPES = new Set(['conifer', 'broadleaf', 'bigtree', 'rock', 'log', 'stump', 'glowmushroom', 'mushroomgrove', 'waterfall', 'ledge', 'mound', 'house', 'tower', 'wall', 'ruin', 'rockwall', 'reef', 'sandwall', 'hedge', 'pinerow', 'kelprow', 'buttress', 'temple', 'dome', 'hull', 'ferris', 'lm_tower', 'lm_windmill', 'lm_peak', 'lm_lighthouse', 'lm_bigstop']);
     function objectType3d(p) {
       if (p.part3d) return p.part3d;   // ランドマークの まわりの 岩(3D だけ)
@@ -1282,29 +1282,42 @@
       switch (type) {
         // Kit v2(Tree v2・F8): 幹は ほそり(taper)・高さの ばらつき、えだはりは 1 つの 塊では なく 2〜4 の かたまり(main + 小さな cluster)。
         // 木の 種類(ctx.kind)で かたちを かえる: riverwood = たれる、parktree = まるい、mistwood / bluetree = うすい いろ、jungle(buttress)= 根もとが はる
+        // Art Direction v1(Tree v3): 針葉樹 = 4〜5 段。下ほど ひろく・先は ほそく・段ごとに 明暗・個体差(高さ・ひろがり・わずかな ずれ)
         case 'conifer': {
-          const v = (ctx && ctx.v) || 0, tiers = 3 + (v > 0.6 ? 1 : 0), top = H * (0.95 + v * 0.12);
-          const out = [{ shape: 'trunk', r: r * 0.5, h: top * 0.42, y: 0, taper: 0.6 }];
-          for (let i = 0; i < tiers; i++) { const y = top * (0.14 + 0.2 * i), k = 1 - i / tiers; out.push({ shape: 'cone', r: below(halfW * (0.55 + 0.5 * k) * (0.92 + v * 0.16), y), h: top * (tiers === 4 ? 0.34 : 0.42), y }); }
+          const v = (ctx && ctx.v) || 0, tiers = 4 + (v > 0.55 ? 1 : 0), top = H * (0.9 + v * 0.2), w0 = halfW * (0.9 + v * 0.2);
+          const out = [{ shape: 'trunk', r: r * 0.5, h: top * 0.3, y: 0, taper: 0.6 }];
+          for (let i = 0; i < tiers; i++) {
+            const k = i / (tiers - 1), y = top * (0.1 + 0.19 * i), rr = w0 * (1.05 - 0.78 * k), ox = Math.sin(v * 9 + i) * rr * 0.08, oz = Math.cos(v * 7 + i) * rr * 0.08;
+            out.push({ shape: 'cone', r: below(rr, y), h: top * (0.3 + 0.06 * (1 - k)), y, dx: ox, dz: oz, shade: i % 2 ? 2 : (i === tiers - 1 ? 2 : 0) });
+          }
           return out;
         }
+        // Art Direction v1(Tree v3): 広葉樹 = ふとめで ほそる 幹 + かんむりの かたまり 2〜5(左右 非対称・高さ差・明 / 中 / 暗 の 葉)。
+        // jungle(veg canopy-dense)は 高い canopy + 大きな は + つる。riverwood は たれる、parktree は まるい
         case 'broadleaf': {
-          const v = (ctx && ctx.v) || 0, kind = (ctx && ctx.kind) || '🌳';
-          const droop = kind === 'riverwood' ? 0.12 : 0, round = kind === 'parktree' ? 1.1 : 1;
-          const R = halfW * (0.82 + v * 0.22) * round, cy = Math.max(H * (0.82 + v * 0.2) - R * (0.7 + droop), OBJ3D_HEAD + R * 0.75);
+          const v = (ctx && ctx.v) || 0, kind = (ctx && ctx.kind) || '🌳', veg = (ctx && ctx.prof && ctx.prof.veg) || '', jungle = veg === 'canopy-dense';
+          const droop = kind === 'riverwood' ? 0.12 : 0, round = kind === 'parktree' ? 1.12 : 1;
+          const R = halfW * (0.8 + v * 0.25) * round, cy = Math.max(H * (jungle ? 1.05 : 0.82 + v * 0.2) - R * (0.65 + droop), OBJ3D_HEAD + R * 0.75);
           const color = kind === 'bluetree' ? '#7a93d8' : kind === 'mistwood' ? '#b9c7b4' : undefined;
-          const lowPoly = ctx && ctx.prof && ctx.prof.lowPoly && v < 0.5;   // 密な 地域(jungle)は 半分の 木を 20 三角形の かんむりに(三角形の 数を おさえる)
-          const out = [{ shape: 'trunk', r: r * 0.7, h: cy, y: 0, taper: 0.55 + v * 0.2 }, { shape: 'crown', small: lowPoly, r: R, sy: 0.78 + droop, y: cy, color }];
-          // 小さな cluster(20 三角形)を 1〜3。むきは 木ごとに
-          const n = 1 + Math.round(v * 2), a0 = v * 6.28;
-          for (let i = 0; i < n; i++) { const a = a0 + i * 2.2, rr = R * (0.5 + 0.15 * ((i + 1) % 2)); out.push({ shape: 'crown', small: true, r: rr, sy: 0.9, y: cy + R * (0.15 - droop * 2 - 0.25 * (i % 2)), dx: Math.sin(a) * R * 0.75, dz: Math.cos(a) * R * 0.75, color }); }
+          const lowPoly = ctx && ctx.prof && ctx.prof.lowPoly && v < 0.5;
+          const out = [{ shape: 'trunk', r: r * (jungle ? 0.85 : 0.75), h: cy, y: 0, taper: 0.5 + v * 0.2 }, { shape: 'crown', small: lowPoly, r: R, sy: 0.74 + droop, y: cy, color, shade: 1 }];
+          // かたまり 1〜4(合計 2〜5)。上 / 手前は 明るく、下 / 奥は 暗く。むき・大きさ・高さは 木ごと
+          const n = 1 + Math.round(v * 3), a0 = v * 6.28;
+          for (let i = 0; i < n; i++) { const a = a0 + i * 1.9 + (i % 2) * 0.4, k = 0.42 + 0.2 * ((i * 3 + Math.round(v * 5)) % 3) / 2, up = i % 2 === 0; out.push({ shape: 'crown', small: true, r: R * k, sy: 0.9, y: cy + R * (up ? 0.3 : -0.25) - droop * R, dx: Math.sin(a) * R * (0.55 + 0.25 * (i % 2)), dz: Math.cos(a) * R * (0.55 + 0.25 * ((i + 1) % 2)), color, shade: up ? 2 : 0 }); }
+          if (jungle) {   // 大きな は(canopy の 下)と つる
+            for (let i = 0; i < 2; i++) { const a = v * 6.28 + i * 2.6; out.push({ shape: 'wblade', r: 9, h: size * 0.3, y: cy * 0.55, dx: Math.sin(a) * r * 1.4, dz: Math.cos(a) * r * 1.4, color: i ? '#3f9a46' : '#9fd43a', lean: a, tilt: 1.2 }); }
+            if (v > 0.45) out.push({ shape: 'wpost', r: 2.2, h: cy * 0.85, y: cy * 0.1, dx: Math.sin(v * 4) * r * 1.1, dz: Math.cos(v * 4) * r * 1.1, color: '#4f7a3a' });
+          }
           return out;
         }
         case 'bigtree': {
           if (!ctx || !ctx.front) {   // ふつうの 大木(bigtrunk)。Kit v2: 側の かたまりは 小さな cluster、根もとに 根の はり
-            const top = Math.max(H, OBJ3D_HEAD * 3), R = Math.max(size * 0.42, r * 2.4), v = (ctx && ctx.v) || 0;
-            return [{ shape: 'trunk', r, h: top, y: 0, taper: 0.6 }, { shape: 'crown', r: R, sy: 0.7, y: top + R * 0.3 }, { shape: 'crown', small: true, r: R * 0.7, sy: 0.75, y: top - R * 0.05, dx: R * 0.65 }, { shape: 'crown', small: true, r: R * 0.62, sy: 0.75, y: top + R * 0.05, dx: -R * 0.55, dz: R * 0.35 },
+            const top = Math.max(H, OBJ3D_HEAD * 3), R = Math.max(size * 0.42, r * 2.4), v = (ctx && ctx.v) || 0, jungle = ctx && ctx.prof && ctx.prof.veg === 'canopy-dense';
+            // Art Direction v1(箱庭の 比率): 幹は あたりより ほそく(0.82)・根もとの はりで 地面に つなぐ。jungle は 根もとに 大きな は(下草)
+            const out = [{ shape: 'trunk', r: r * 0.82, h: top, y: 0, taper: 0.6 }, { shape: 'crown', r: R, sy: 0.7, y: top + R * 0.3, shade: 1 }, { shape: 'crown', small: true, r: R * 0.7, sy: 0.75, y: top - R * 0.05, dx: R * 0.65, shade: 2 }, { shape: 'crown', small: true, r: R * 0.62, sy: 0.75, y: top + R * 0.05, dx: -R * 0.55, dz: R * 0.35, shade: 0 },
               { shape: 'mound', r: r * 0.95, h: r * 0.45, y: 0, color: '#6b4b32', dx: Math.sin(v * 6.28) * r * 0.05, dz: Math.cos(v * 6.28) * r * 0.05 }];   // 根の はり(あたりの なか)
+            if (jungle) for (let i = 0; i < 3; i++) { const a = v * 6.28 + i * 2.1; out.push({ shape: 'frond', len: 44 + (i % 2) * 14, w: 20, y: 3, dx: Math.sin(a) * r * 0.9, dz: Math.cos(a) * r * 0.9, dir: a, droop: 0.4, color: i ? '#2f8a3f' : '#9fd43a' }); }
+            return out;
           }
           // ランドマークの 大きな木: みき = あたり の まま。えだはり(あたまより 上)を ひとまわり 大きく ひくめに ひろげて、spot の 空を おおう
           const top = Math.max(size * 1.15, OBJ3D_HEAD * 3), R = Math.max(size * 0.6, r * 3);
@@ -1367,14 +1380,19 @@
           const ang = ctx && ctx.ang != null ? ctx.ang : 0, len = size * 0.95, w = size * 0.34, sx = Math.sin(ang), sz = Math.cos(ang), px = Math.cos(ang), pz = -Math.sin(ang);
           const post = (t, side, h, c) => ({ shape: 'wpost', r: 4, h, y: 0, dx: sx * t + px * side, dz: sz * t + pz * side, color: c });
           const out = [];
-          if (kind === 'log') { for (const sd of [-1, 0, 1]) out.push({ shape: 'log', len, r: Math.min(11, w * 0.17), y: 0, ang, dx: px * sd * w * 0.34, dz: pz * sd * w * 0.34 }); for (const t of [-len * 0.42, len * 0.42]) for (const sd of [-1, 1]) out.push(post(t, sd * w * 0.5, 16, '#6b4a32')); out.push({ shape: 'decal', r: w * 0.5, y: 0, color: '#2a2622' }); return out; }
-          if (kind === 'stone') { out.push({ shape: 'slab', len, w, y: 0, ang }); for (const sd of [-1, 1]) out.push({ shape: 'box', rx: len * 0.5, rz: 5, h: 14, y: 0, ang, color: '#8c8c84', dx: px * sd * (w * 0.5 + 4), dz: pz * sd * (w * 0.5 + 4) }); out.push({ shape: 'decal', r: w * 0.55, y: 0, color: '#3a3a34' }); return out; }
-          if (kind === 'light') { out.push({ shape: 'wslab', len, w, h: 6, y: 2, ang, color: '#bfe3ff' }, { shape: 'glowdisc', r: w * 0.8, y: 0, color: '#9fc8ff' }); for (const t of [-len * 0.45, 0, len * 0.45]) out.push({ shape: 'spark', r: 6, y: 14, dx: sx * t, dz: sz * t, color: '#dff0ff' }); return out; }
-          out.push({ shape: 'plank', len, w, y: 0, ang });
-          const railH = kind === 'rope' ? 34 : 30, rr = kind === 'rope' ? 3 : 4;
+          // Art Direction v1(Bridge v3): 床は 水面(2.4)より 上(deck)・両はしに ゆるい だん(ramp)・床を ささえる 支柱 / 橋脚 が 地面まで・よこから 見ても はし
+          const deck = kind === 'stone' ? 5 : 6, ramp = (t) => ({ shape: 'box', rx: w * 0.5, rz: 16, h: deck * 0.55, y: 0, ang: ang + Math.PI / 2, color: kind === 'stone' ? '#9c9c94' : '#8a6a44', dx: sx * t, dz: sz * t });
+          const pier = (t, side, c) => ({ shape: 'box', rx: 5, rz: Math.max(6, w * 0.42), h: deck, y: 0, ang: ang + Math.PI / 2, color: c, dx: sx * t + px * side, dz: sz * t + pz * side });
+          if (kind === 'log') { for (const sd of [-1, 0, 1]) out.push({ shape: 'log', len, r: Math.min(11, w * 0.17), y: deck - 6, ang, dx: px * sd * w * 0.34, dz: pz * sd * w * 0.34 }); for (const t of [-len * 0.42, len * 0.42]) for (const sd of [-1, 1]) out.push(post(t, sd * w * 0.5, deck + 10, '#6b4a32')); out.push(pier(-len * 0.3, 0, '#6b4a32'), pier(len * 0.3, 0, '#6b4a32'), ramp(-len * 0.5 - 10), ramp(len * 0.5 + 10), { shape: 'decal', r: w * 0.5, y: 0, color: '#2a2622' }); return out; }
+          if (kind === 'stone') { out.push({ shape: 'slab', len, w, y: deck - 10, ang }); for (const sd of [-1, 1]) out.push({ shape: 'box', rx: len * 0.5, rz: 5, h: 14, y: deck, ang, color: '#8c8c84', dx: px * sd * (w * 0.5 + 4), dz: pz * sd * (w * 0.5 + 4) }); for (const t of [-len * 0.32, len * 0.32]) out.push(pier(t, 0, '#8c8c84')); out.push(ramp(-len * 0.5 - 10), ramp(len * 0.5 + 10), { shape: 'decal', r: w * 0.55, y: 0, color: '#3a3a34' }); return out; }
+          if (kind === 'light') { out.push({ shape: 'wslab', len, w, h: 6, y: deck, ang, color: '#bfe3ff' }, { shape: 'glowdisc', r: w * 0.8, y: 0, color: '#9fc8ff' }); for (const t of [-len * 0.45, 0, len * 0.45]) out.push({ shape: 'spark', r: 6, y: deck + 12, dx: sx * t, dz: sz * t, color: '#dff0ff' }); for (const t of [-len * 0.4, len * 0.4]) out.push({ shape: 'wpost', r: 3, h: deck, y: 0, color: '#9fc8ff', dx: sx * t, dz: sz * t }); return out; }
+          out.push({ shape: 'plank', len, w, y: deck - 8 + 0.01, ang });   // 床(plank は 高さ 8 → 上面 = deck)
+          const railH = (kind === 'rope' ? 34 : 30) + deck, rr = kind === 'rope' ? 3 : 4;
           for (const sd of [-1, 1]) out.push({ shape: 'rail', len, r: rr, y: railH, ang, side: sd * w * 0.5, color: kind === 'rope' ? '#b89a6a' : undefined });
+          if (kind !== 'rope') for (const sd of [-1, 1]) out.push({ shape: 'rail', len, r: 2.5, y: deck + 14, ang, side: sd * w * 0.5 });   // 中段の よこ木
           for (const t of [-len * 0.44, 0, len * 0.44]) for (const sd of [-1, 1]) out.push(post(t, sd * w * 0.5, railH + 4, kind === 'rope' ? '#7a5a3a' : '#8a6a44'));
-          for (const t of [-len * 0.3, len * 0.3]) for (const sd of [-1, 1]) out.push(post(t, sd * w * 0.42, 14, '#6b4a32'));   // 下の 支え
+          for (const t of [-len * 0.3, len * 0.3]) for (const sd of [-1, 1]) out.push(post(t, sd * w * 0.42, deck, '#6b4a32'));   // 床の 下の 支柱(地面 → 床)
+          out.push(ramp(-len * 0.5 - 10), ramp(len * 0.5 + 10));
           return out;
         }
       }
@@ -1392,42 +1410,74 @@
           const front = (t, side, y, rx, rz, hh, color) => ({ shape: 'box', rx, rz, h: hh, y, ang, color, dx: fx * (d + 1.5) + sx * side, dz: fz * (d + 1.5) + sz * side, _t: t });
           const A = (ctx && ctx.prof && ctx.prof.arch) || {}, pick = (arr, k) => (arr && arr.length ? arr[Math.floor(k * arr.length) % arr.length] : null);
           const bodyC = (!sm.sign && A.palette && A.kind !== 'jp-city' ? pick(A.palette, v) : null) || c || '#d9c9a8', roofC = (!sm.sign && A.roofs ? pick(A.roofs, (v * 5.3) % 1) : null) || sm.rc;
-          const out = [{ shape: 'box', rx: w, rz: d, h, y: 0, ang, color: bodyC }];
-          if (sm.roof === 'cone') out.push({ shape: 'roof', r: Math.max(w, d) * 1.25, h: size * 0.3, y: h, ang, color: sm.rc || '#6f5436', seg: 6 });
-          else if (sm.roof === 'flat') out.push({ shape: 'box', rx: w * 1.06, rz: d * 1.06, h: 10, y: h, ang, color: sm.rc || '#5a5a5a' });
-          else out.push({ shape: 'roof', r: Math.max(w, d) * 1.3, h: size * 0.26, y: h, ang, color: roofC || '#8a4b3c', seg: 4 });
-          // 入口(くらい 箱)と まど(明るい ガラス)。ひろい 家は まど 2〜3
-          const doorW = Math.min(14, w * 0.3), winW = Math.min(12, w * 0.22), winY = h * 0.5, nWin = w > 40 ? 2 : 1;
-          out.push(front(0, -w * 0.45, 0, doorW, 2, Math.min(h * 0.6, 44), '#4a3a2c'));
-          for (let i = 0; i < nWin; i++) out.push(front(0, w * (0.1 + i * 0.4), winY, winW, 1.5, 14, '#cfe6f2'));
-          if (sm.sign) out.push({ shape: 'board', w: w * 1.2, h: 22, y: h - 30, ang: ang + Math.PI / 2, color: sm.rc || '#b04a4a', dx: fx * (d + 2), dz: fz * (d + 2) });
-          else if (v > 0.5) out.push({ shape: 'box', rx: 6, rz: 6, h: size * 0.14, y: h + size * 0.1, ang, color: '#6a5a4a', dx: sx * w * 0.5, dz: sz * w * 0.5 });   // 煙突
-          if (sm.awning || (sm.sign && v > 0.3)) out.push({ shape: 'wslab', len: w * 1.3, w: 16, h: 4, y: Math.min(h * 0.62, 50), ang, color: sm.rc || '#b04a4a', dx: fx * (d + 8), dz: fz * (d + 8) });   // ひさし
+          // Art Direction v1(Building v3): 箱 + 屋根 だけに しない。屋根の はりだし(ひさしの 帯)・土台の ふち・わく つきの 入口 と まど・まどの だい・
+          // 煙突 / 看板 / ひさし の うち 1〜2・家の まわりの 植物(しげみ + 花)。家ごとに いろ / わく / 屋根の かたち / 小物が ちがう(v)
+          const trimC = v < 0.33 ? '#ffffff' : v < 0.66 ? '#f4e8d0' : '#6b4a32', baseC = '#9a8a76', accent = sm.rc || roofC || '#b04a4a';
+          const out = [{ shape: 'box', rx: w, rz: d, h, y: 0, ang, color: bodyC }, { shape: 'box', rx: w * 1.03, rz: d * 1.03, h: 7, y: 0, ang, color: baseC }];
+          if (sm.roof === 'cone') out.push({ shape: 'box', rx: w * 1.14, rz: d * 1.14, h: 5, y: h - 3, ang, color: trimC }, { shape: 'roof', r: Math.max(w, d) * 1.4, h: size * 0.3, y: h, ang, color: sm.rc || '#6f5436', seg: 6 });
+          else if (sm.roof === 'flat') out.push({ shape: 'box', rx: w * 1.1, rz: d * 1.1, h: 8, y: h, ang, color: trimC }, { shape: 'box', rx: w * 1.02, rz: d * 1.02, h: 10, y: h + 8, ang, color: sm.rc || '#5a5a5a' });
+          else { out.push({ shape: 'box', rx: w * 1.14, rz: d * 1.14, h: 5, y: h - 3, ang, color: trimC }, { shape: 'roof', r: Math.max(w, d) * 1.42, h: size * 0.26, y: h, ang, color: roofC || '#8a4b3c', seg: 4 }); if (v > 0.72 && w > 30) out.push({ shape: 'box', rx: 9, rz: 7, h: 12, y: h + size * 0.06, ang, color: bodyC, dx: fx * d * 0.5 + sx * w * 0.3, dz: fz * d * 0.5 + sz * w * 0.3 }); }   // はりだし + 屋根 + 屋根まど
+          // 入口(わく + とびら)と まど(わく + ガラス + だい)。ひろい 家は まど 2
+          const doorW = Math.min(14, w * 0.3), winW = Math.min(12, w * 0.22), winY = h * 0.5, nWin = w > 40 ? 2 : 1, doorH = Math.min(h * 0.6, 44);
+          out.push(front(0, -w * 0.45, 0, doorW + 3, 1.2, doorH + 3, trimC), Object.assign(front(0, -w * 0.45, 0, doorW, 2.2, doorH, v > 0.5 ? '#4a3a2c' : '#7a4a3a'), { door: true }), front(0, -w * 0.45 + doorW * 0.55, doorH * 0.5, 1.5, 3, 2, '#ffe066'));   // とって
+          for (let i = 0; i < nWin; i++) { const side = w * (0.1 + i * 0.4); out.push(front(0, side, winY - 2, winW + 2.5, 1.2, 18, trimC), Object.assign(front(0, side, winY, winW, 2.2, 14, '#cfe6f2'), { win: true }), front(0, side, winY - 3, winW + 3.5, 3, 2.5, trimC)); if (v < 0.4) out.push(front(0, side, winY - 9, winW + 1, 4, 6, '#8a5a3a'), { shape: 'flower', r: 7, h: 2, y: winY - 3, dx: fx * (d + 6) + sx * side, dz: fz * (d + 6) + sz * side, color: v < 0.2 ? '#f2a6c0' : '#f7d94c' }); }   // 花の 箱
+          if (sm.sign) out.push({ shape: 'board', w: w * 1.2, h: 22, y: h - 30, ang: ang + Math.PI / 2, color: accent, dx: fx * (d + 2), dz: fz * (d + 2) });
+          else if (v > 0.5) out.push({ shape: 'box', rx: 6, rz: 6, h: size * 0.16, y: h + size * 0.08, ang, color: '#6a5a4a', dx: sx * w * 0.5, dz: sz * w * 0.5 }, { shape: 'box', rx: 7.5, rz: 7.5, h: 3, y: h + size * 0.24, ang, color: '#4a3a30', dx: sx * w * 0.5, dz: sz * w * 0.5 });   // 煙突 + かさ
+          if (sm.awning || (sm.sign && v > 0.3) || (!sm.sign && v <= 0.5)) out.push({ shape: 'wslab', len: sm.sign ? w * 1.3 : doorW * 2.6, w: 16, h: 4, y: Math.min(h * 0.62, 50), ang, color: accent, dx: fx * (d + 8) + (sm.sign ? 0 : sx * -w * 0.45), dz: fz * (d + 8) + (sm.sign ? 0 : sz * -w * 0.45) });   // ひさし
+          // 家の まわり: 正面の 両かどに しげみ、入口の わきに 花。地域の 花の いろ(cover.flowers)
+          const fl = (ctx && ctx.prof && ctx.prof.cover && ctx.prof.cover.flowers) || [], fc = fl.length ? fl[Math.floor(v * fl.length)] : '#f2a6c0';
+          for (const sd of [-1, 1]) out.push({ shape: 'crown', small: true, r: 11 + ((sd + 1) * v * 3), sy: 0.85, y: 0, dx: fx * (d + 14) + sx * sd * w * 0.95, dz: fz * (d + 14) + sz * sd * w * 0.95, shade: sd > 0 ? 2 : 1 });
+          if (fl.length) for (let i = 0; i < 3; i++) { const side = w * (0.15 + i * 0.3) + 4; out.push({ shape: 'flower', r: 11 + (i % 2) * 3, h: 18 + (i % 2) * 6, y: 0, dx: fx * (d + 15 + (i % 2) * 5) + sx * side, dz: fz * (d + 15 + (i % 2) * 5) + sz * side, color: i === 1 ? '#ffffff' : fc }); }
           return out;
         }
         case 'tower': {
           // Region Profile v2: まちの ビルは 地域の palette から いろを えらび(v)、階数も ばらつく(heights)。屋上に 給水タンク / 小屋(roofTank)
           const v = (ctx && ctx.v) || 0, A = (ctx && ctx.prof && ctx.prof.arch) || {}, pick = (arr, k) => (arr && arr.length ? arr[Math.floor(k * arr.length) % arr.length] : null);
-          const fl = Math.max(1, (sm.fl || 3) + (A.heights ? pick(A.heights, (v * 7.31) % 1) : 0)), w = o ? bw : halfW * 0.5, d = o ? bd : halfW * 0.4, h = Math.max(OBJ3D_HEAD + 40, size * (0.45 + 0.22 * fl) * (0.9 + v * 0.2));
+          const fl = Math.max(1, (sm.fl || 3) + (A.heights ? pick(A.heights, (v * 7.31) % 1) : 0)), w = o ? bw : halfW * 0.5, d = o ? bd : halfW * 0.4, h = Math.min(Math.max(w, d) * 5.5, Math.max(OBJ3D_HEAD + 40, size * (0.36 + 0.17 * fl) * (0.9 + v * 0.2)));   // AD v1(箱庭の 比率): 高さは 床の 5.5 倍まで(ほそい 煙突に しない)
           const fx = Math.cos(ang), fz = -Math.sin(ang), sx = Math.sin(ang), sz = Math.cos(ang);
-          const bodyC = (A.palette && !sm.sign ? pick(A.palette, v) : null) || c || '#c4c8ce';
-          const out = [{ shape: 'box', rx: w, rz: d, h, y: 0, ang, color: bodyC }, { shape: 'box', rx: w * 0.6, rz: d * 0.6, h: 14, y: h, ang, color: '#8a8f96' }];
-          if (A.roofTank && v > 0.62) out.push({ shape: 'wstem', r: Math.min(9, w * 0.2), h: 18, y: h + 14, color: '#9aa0a8', dx: sx * w * 0.4, dz: sz * w * 0.4 });
-          for (let f = 1; f < fl; f++) out.push({ shape: 'box', rx: w * 1.03, rz: d * 1.03, h: 4, y: h * f / fl, ang, color: '#6f7680' });   // かいの すじ
-          // まどの れつ(正面): かいごとに 2〜3。ひろい ビルは 3。入口は 1 かいの まんなか
+          // Art Direction v1(city scene): 低層(fl ≤ 3)は みせ = 1 かいの ひろい ガラス + ひさし + 看板 + たて看板、中層は ベランダ、高層は 屋上の 給水タンク。
+          // いろは 灰 だけに しない(palette の 白 / ベージュ / 茶 / パステル、低層は accent)。パラペット・エアコンの 室外機・かいの すじ で 情報量
+          const low = fl <= 3, acc = ['#e2554f', '#3f7fc8', '#f2b63a', '#4fb56a', '#f28ab0', '#f07a3a'][Math.floor(((v * 11.7) % 1) * 6)];
+          const bodyC = (A.lowPalette && low && !sm.sign ? pick(A.lowPalette, (v * 2.3) % 1) : A.palette && !sm.sign ? pick(A.palette, v) : null) || c || '#c4c8ce';
+          const out = [{ shape: 'box', rx: w, rz: d, h, y: 0, ang, color: bodyC, low, fl }, { shape: 'box', rx: w * 1.04, rz: d * 1.04, h: 6, y: h, ang, color: v > 0.5 ? '#8a8f96' : '#d8d2c8' }, { shape: 'box', rx: w * 0.6, rz: d * 0.6, h: 12, y: h + 6, ang, color: '#8a8f96' }];
+          if (A.roofTank && v > 0.62 && !low) out.push({ shape: 'wstem', r: Math.min(9, w * 0.2), h: 18, y: h + 18, color: '#9aa0a8', dx: sx * w * 0.4, dz: sz * w * 0.4 });
+          for (let f = 1; f < fl; f++) out.push({ shape: 'box', rx: w * 1.03, rz: d * 1.03, h: 4, y: h * f / fl, ang, color: low ? '#a89a88' : '#6f7680' });   // かいの すじ
+          if (!low && fl <= 5 && v > 0.45) for (let f = 1; f < fl; f++) out.push({ shape: 'box', rx: w * 0.9, rz: 6, h: 3, y: h * f / fl, ang, color: '#e8e4dc', dx: fx * (d + 6), dz: fz * (d + 6) }, { shape: 'box', rx: w * 0.9, rz: 1.2, h: 12, y: h * f / fl + 3, ang, color: '#b8bcc4', dx: fx * (d + 11), dz: fz * (d + 11) });   // ベランダ + てすり
+          // まどの れつ(正面): かいごとに 2〜3。ひろい ビルは 3。1 かいは 入口(低層は みせの ガラス)
           const cols = w > 46 ? 3 : 2, rows = Math.min(4, fl), winW = Math.min(10, w * 0.16), glass = (A.glass ? pick(A.glass, (v * 3.7) % 1) : null) || (v > 0.5 ? '#bcd4e6' : '#d6e6f0');
-          for (let r0 = 0; r0 < rows; r0++) for (let cc = 0; cc < cols; cc++) { const side = (cc - (cols - 1) / 2) * w * 0.5, y = h * ((r0 + 0.55) / rows); out.push({ shape: 'box', rx: winW, rz: 1.5, h: Math.min(16, h / rows * 0.4), y, ang, color: glass, dx: fx * (d + 1.5) + sx * side, dz: fz * (d + 1.5) + sz * side }); }
-          out.push({ shape: 'box', rx: Math.min(16, w * 0.3), rz: 2.5, h: Math.min(h * 0.22, 46), y: 0, ang, color: '#3c4048', dx: fx * (d + 2), dz: fz * (d + 2) });
-          if (sm.sign) out.push({ shape: 'board', w: w, h: 20, y: h * 0.45, ang: ang + Math.PI / 2, color: '#ff5fa8', dx: fx * (d + 2), dz: fz * (d + 2) });
+          for (let r0 = (low ? 1 : 0); r0 < rows; r0++) for (let cc = 0; cc < cols; cc++) { const side = (cc - (cols - 1) / 2) * w * 0.5, y = h * ((r0 + 0.55) / rows); out.push({ shape: 'box', rx: winW + 1.5, rz: 1.2, h: Math.min(16, h / rows * 0.4) + 3, y: y - 1.5, ang, color: '#ffffff', dx: fx * (d + 1.2) + sx * side, dz: fz * (d + 1.2) + sz * side }, { shape: 'box', rx: winW, rz: 2, h: Math.min(16, h / rows * 0.4), y, ang, color: glass, dx: fx * (d + 1.5) + sx * side, dz: fz * (d + 1.5) + sz * side, win: true }); }
+          if (low) {   // みせ: ひろい ガラス + 入口 + ひさし + 看板 + たて看板(よこの かべ)
+            const gh = Math.min(h / rows * 0.7, 40);
+            const dw = Math.min(12, w * 0.22), pw = (w * 0.9 - dw) * 0.5 - 2;   // 入口は まんなか・左右に ガラス 2 まい
+            for (const sd of [-1, 1]) out.push({ shape: 'box', rx: pw, rz: 2, h: gh, y: 4, ang, color: glass, dx: fx * (d + 1.5) + sx * sd * (dw + 2 + pw), dz: fz * (d + 1.5) + sz * sd * (dw + 2 + pw), win: true });
+            out.push({ shape: 'box', rx: dw, rz: 2.6, h: gh * 0.9, y: 0, ang, color: '#3c4048', dx: fx * (d + 2), dz: fz * (d + 2), door: true });
+            out.push({ shape: 'wslab', len: w * 1.8, w: 18, h: 4, y: gh + 6, ang, color: acc, dx: fx * (d + 9), dz: fz * (d + 9) }, { shape: 'board', w: w * 1.5, h: 16, y: gh + 14, ang: ang + Math.PI / 2, color: v > 0.5 ? '#ffffff' : acc, dx: fx * (d + 2), dz: fz * (d + 2) });
+            out.push({ shape: 'box', rx: 4, rz: 12, h: Math.min(h * 0.45, 70), y: h * 0.4, ang, color: acc, dx: fx * (d - 10) + sx * (w + 4) * (v > 0.5 ? 1 : -1), dz: fz * (d - 10) + sz * (w + 4) * (v > 0.5 ? 1 : -1) });   // たて看板
+          } else out.push({ shape: 'box', rx: Math.min(16, w * 0.3), rz: 2.5, h: Math.min(h * 0.22, 46), y: 0, ang, color: '#3c4048', dx: fx * (d + 2), dz: fz * (d + 2), door: true }, { shape: 'wslab', len: Math.min(40, w * 0.8), w: 12, h: 3, y: Math.min(h * 0.22, 46) + 2, ang, color: '#5a5f66', dx: fx * (d + 6), dz: fz * (d + 6) });
+          if (v > 0.35) for (let i = 0; i < 2; i++) out.push({ shape: 'box', rx: 4, rz: 5, h: 5, y: h * (0.3 + i * 0.3), ang, color: '#c8ccd0', dx: sx * (w + 5) * (v > 0.5 ? -1 : 1) + fx * d * (0.2 - i * 0.5), dz: sz * (w + 5) * (v > 0.5 ? -1 : 1) + fz * d * (0.2 - i * 0.5) });   // 室外機
+          if (sm.sign && !low) out.push({ shape: 'board', w: w, h: 20, y: h * 0.45, ang: ang + Math.PI / 2, color: '#ff5fa8', dx: fx * (d + 2), dz: fz * (d + 2) });
           return out;
         }
-        case 'wall': return [{ shape: 'box', rx: bw, rz: bd, h: Math.max(OBJ3D_HEAD, size * 0.6), y: 0, ang, color: c || '#9a9a94' }];
+        case 'wall': {   // Art Direction v1(city scene): 路地の かべは ただの 箱に しない。低層の 正面(パラペット・まど 1 れつ・入口・室外機・たて看板)。いろは palette(v)
+          const v = (ctx && ctx.v) || 0, A = (ctx && ctx.prof && ctx.prof.arch) || {}, pick = (arr, k) => (arr && arr.length ? arr[Math.floor(k * arr.length) % arr.length] : null);
+          const h = Math.max(OBJ3D_HEAD, size * 0.6), fx = Math.cos(ang), fz = -Math.sin(ang), sx = Math.sin(ang), sz = Math.cos(ang), bodyC = pick(A.lowPalette || A.palette, (v * 3.1) % 1) || c || '#9a9a94';
+          const acc = ['#e2554f', '#3f7fc8', '#f2b63a', '#4fb56a'][Math.floor(((v * 7.3) % 1) * 4)], out = [{ shape: 'box', rx: bw, rz: bd, h, y: 0, ang, color: bodyC }, { shape: 'box', rx: bw * 1.03, rz: bd * 1.03, h: 5, y: h, ang, color: '#d8d2c8' }];
+          const n = Math.max(1, Math.round(bw / 40)), winW = Math.min(9, bw / n * 0.3);
+          for (let i = 0; i < n; i++) { const side = (i - (n - 1) / 2) * (bw * 2 / n); out.push({ shape: 'box', rx: winW + 1.5, rz: 1.2, h: 17, y: h * 0.55, ang, color: '#ffffff', dx: fx * (bd + 1.2) + sx * side, dz: fz * (bd + 1.2) + sz * side }, { shape: 'box', rx: winW, rz: 2, h: 14, y: h * 0.56, ang, color: '#bcd4e6', dx: fx * (bd + 1.5) + sx * side, dz: fz * (bd + 1.5) + sz * side, win: true }); }
+          out.push({ shape: 'box', rx: 9, rz: 2.2, h: Math.min(40, h * 0.4), y: 0, ang, color: '#3c4048', dx: fx * (bd + 2) + sx * bw * 0.4 * (v > 0.5 ? 1 : -1), dz: fz * (bd + 2) + sz * bw * 0.4 * (v > 0.5 ? 1 : -1), door: true });
+          if (v > 0.3) out.push({ shape: 'box', rx: 4, rz: 4, h: 4, y: h * 0.3, ang, color: '#c8ccd0', dx: fx * (bd + 4) + sx * bw * 0.1, dz: fz * (bd + 4) + sz * bw * 0.1 });   // 室外機
+          if (v > 0.55) out.push({ shape: 'box', rx: 3, rz: 9, h: Math.min(h * 0.4, 50), y: h * 0.45, ang, color: acc, dx: fx * (bd + 4) + sx * bw * 0.7 * (v > 0.8 ? -1 : 1), dz: fz * (bd + 4) + sz * bw * 0.7 * (v > 0.8 ? -1 : 1) });   // たて看板
+          return out;
+        }
         // Kit v2(Ruin v2・F8): くずれた 構造物。高さの ちがう かべ 2〜3 まい(すきま あり)+ 柱 + 倒れた 石 + まぐさ(ひろい とき)。「建物」では なく「くずれた もの」
         case 'ruin': {
           const v = (ctx && ctx.v) || 0, sx = Math.sin(ang), sz = Math.cos(ang), top = Math.max(40, size * 0.32), out = [];
           const c = (ctx && ctx.prof && ctx.prof.arch && ctx.prof.arch.ruin) || sm.c;   // 遺跡の 石の いろは 地域の もの(さばく = 砂色、jungle = こけ色)
           const segs = bw > 60 ? 3 : 2;
-          for (let i = 0; i < segs; i++) { const t = (i / (segs - 1) - 0.5) * 2 * (bw - bw / segs), hh = top * (0.45 + ((i * 7 + Math.round(v * 10)) % 4) * 0.2); out.push({ shape: 'box', rx: bw / segs - 4, rz: bd, h: hh, y: 0, ang, color: c || '#9f9a8c', dx: sx * t, dz: sz * t }); }
+          // Art Direction v1: かべは 平らな 箱に しない。くずれた 上(せまい 2 段め・高さ ちがい)+ 足もとの 砂 / 土の もりあがり + かべの すじ(くらい 細い 箱)
+          for (let i = 0; i < segs; i++) { const t = (i / (segs - 1) - 0.5) * 2 * (bw - bw / segs), hh = top * (0.45 + ((i * 7 + Math.round(v * 10)) % 4) * 0.2), rw = bw / segs - 4, k = ((i + Math.round(v * 3)) % 2) ? 1 : -1;
+            out.push({ shape: 'box', rx: rw, rz: bd, h: hh * 0.62, y: 0, ang, color: c || '#9f9a8c', dx: sx * t, dz: sz * t }, { shape: 'box', rx: rw * 0.55, rz: bd * 0.9, h: hh * 0.38, y: hh * 0.62, ang, color: c || '#9f9a8c', dx: sx * (t + k * rw * 0.42), dz: sz * (t + k * rw * 0.42) });
+            out.push({ shape: 'box', rx: 1.5, rz: bd * 1.02, h: hh * 0.4, y: hh * 0.1, ang, color: '#6f6a5e', dx: sx * (t - k * rw * 0.5), dz: sz * (t - k * rw * 0.5) }, { shape: 'mound', r: Math.min(rw, bd + 14), h: 10, y: 0, color: c || '#9f9a8c', dx: sx * t + Math.cos(ang) * (bd + 6), dz: sz * t - Math.sin(ang) * (bd + 6) }); }
           out.push({ shape: 'wpost', r: Math.min(bd, 9), h: top * (1.1 + v * 0.3), y: 0, color: c || '#a8a39a', dx: sx * (bw - 8) * (v > 0.5 ? 1 : -1), dz: sz * (bw - 8) * (v > 0.5 ? 1 : -1) });
           if (bw > 60) out.push({ shape: 'wslab', len: bw * 0.8, w: bd * 1.6, h: 8, y: top * 0.9, ang, color: c || '#9f9a8c', dx: sx * bw * 0.1, dz: sz * bw * 0.1 });
           for (let i = 0; i < 3; i++) { const a = v * 6.28 + i * 2.1; out.push({ shape: 'pebble', r: 8 + (i % 2) * 5, y: 0, dx: Math.sin(a) * (bd + 16 + i * 6), dz: Math.cos(a) * (bd + 16 + i * 6), color: c || '#9f9a8c' }); }
@@ -1444,19 +1494,33 @@
         case 'reef': return [{ shape: 'mound', r: Math.min(bw, bd), h: Math.max(60, size * 0.35), y: 0, color: c }, { shape: 'mound', r: Math.min(bw, bd) * 0.7, h: size * 0.28, y: 0, color: c, dx: Math.sin(ang) * bw * 0.55, dz: Math.cos(ang) * bw * 0.55 }, { shape: 'mound', r: Math.min(bw, bd) * 0.7, h: size * 0.3, y: 0, color: c, dx: -Math.sin(ang) * bw * 0.55, dz: -Math.cos(ang) * bw * 0.55 }];
         case 'sandwall': return [{ shape: 'mound', r: Math.min(bw, bd), h: Math.max(50, size * 0.28), y: 0, color: c }, { shape: 'mound', r: Math.min(bw, bd) * 0.8, h: size * 0.22, y: 0, color: c, dx: Math.sin(ang) * bw * 0.6, dz: Math.cos(ang) * bw * 0.6 }, { shape: 'mound', r: Math.min(bw, bd) * 0.8, h: size * 0.24, y: 0, color: c, dx: -Math.sin(ang) * bw * 0.6, dz: -Math.cos(ang) * bw * 0.6 }];
         case 'lowmound': return [{ shape: 'mound', r: Math.min(halfW * 0.5, 60), h: 14, y: 0, color: c }];
-        case 'bush': return [{ shape: 'crown', r: Math.min(22, halfW * 0.35), sy: 0.8, y: 0 }, { shape: 'crown', r: Math.min(16, halfW * 0.25), sy: 0.8, y: 4, dx: 14, dz: 6 }];
+        case 'bush': { const v = (ctx && ctx.v) || 0, R = Math.min(24, halfW * 0.38); return [{ shape: 'crown', small: true, r: R, sy: 0.8, y: 0, shade: 1 }, { shape: 'crown', small: true, r: R * 0.7, sy: 0.8, y: 4, dx: Math.sin(v * 6.28) * R * 0.8, dz: Math.cos(v * 6.28) * R * 0.8, shade: 2 }, { shape: 'crown', small: true, r: R * 0.6, sy: 0.7, y: 2, dx: -Math.sin(v * 6.28) * R * 0.7, dz: -Math.cos(v * 6.28) * R * 0.6, shade: 0 }]; }
         case 'parasol': return [{ shape: 'wpost', r: 3, h: 60, y: 0, color: '#e8e8e4' }, { shape: 'dome', r: Math.min(34, halfW * 0.5), sy: 0.35, y: 56, color: c }];
-        case 'hedge': return [{ shape: 'box', rx: bw, rz: bd, h: Math.min(OBJ3D_HEAD - 5, size * 0.45), y: 0, ang, color: c }];
+        case 'hedge': {   // Art Direction v1: いけがきは 箱では なく まるい しげみの れつ(ひくい 土台 + かたまり 3〜6・明暗)。あたりの 箱の なか
+          const v = (ctx && ctx.v) || 0, hh = Math.min(OBJ3D_HEAD - 5, size * 0.45), rr = Math.min(bd + 8, hh * 0.62), n = Math.max(2, Math.round(bw / (rr * 0.95)));
+          const out = [{ shape: 'box', rx: bw, rz: bd, h: hh * 0.5, y: 0, ang, color: c }];
+          for (let i = 0; i < n; i++) { const t = (i / (n - 1) - 0.5) * 2 * Math.max(0, bw - rr * 0.7); out.push({ shape: 'crown', small: true, r: rr * (0.9 + ((i + Math.round(v * 3)) % 2) * 0.12), sy: 0.9, y: hh * 0.5 - rr * 0.35, dx: Math.sin(ang) * t, dz: Math.cos(ang) * t, shade: (i + Math.round(v * 2)) % 3 }); }
+          return out;
+        }
         case 'pinerow': { const n = Math.max(2, Math.round(bw / 55)), out = []; for (let i = 0; i < n; i++) { const t = (i / (n - 1) - 0.5) * 2 * (bw - 20), dx = Math.sin(ang) * t, dz = Math.cos(ang) * t; out.push({ shape: 'trunk', r: Math.min(bd, 12), h: 40, y: 0, dx, dz }, { shape: 'cone', r: lo(Math.min(bd + 10, 46)), h: size * 0.4, y: 30, dx, dz }, { shape: 'cone', r: Math.min(bd + 10, 40) * 0.8, h: size * 0.3, y: 30 + size * 0.2, dx, dz }); } return out; }
         // Kit v2(Underwater Vegetation v2・F8): 昆布 = 曲がった 帯の は(kelp)を 1 かぶ 3〜5 まい・高さ ばらばら。木 / 柱の かたちは つかわない
         case 'kelprow': { const v = (ctx && ctx.v) || 0, n = Math.max(3, Math.round(bw / 30)), out = []; for (let i = 0; i < n; i++) { const t = (i / (n - 1) - 0.5) * 2 * (bw - 10); for (let k = 0; k < 2; k++) out.push({ shape: 'kelp', w: 14 + (k ? 4 : 0), h: size * (0.45 + 0.22 * ((i + k) % 3)) * (0.9 + v * 0.2), y: 0, dx: Math.sin(ang) * t + (k ? 7 : -5), dz: Math.cos(ang) * t + (k ? -4 : 6), spin: (i * 1.3 + k * 2.1 + v * 6.28), color: c }); } return out; }
         case 'croprow': { const n = Math.max(3, Math.round((o ? bw : halfW) / 24)), out = []; for (let i = 0; i < n; i++) { const t = (i / (n - 1) - 0.5) * 2 * ((o ? bw : halfW) - 8); out.push({ shape: 'wblade', r: 7, h: 22, y: 0, dx: Math.sin(ang) * t, dz: Math.cos(ang) * t, color: c }); } return out; }
         case 'fence': { const n = Math.max(2, Math.round(bw / 50)), h = sm.low ? 24 : Math.min(60, size * 0.35), out = [{ shape: 'rail', len: bw * 2, r: 3, y: h - 6, ang, side: 0, color: c }]; if (!sm.low) out.push({ shape: 'rail', len: bw * 2, r: 3, y: h * 0.5, ang, side: 0, color: c }); for (let i = 0; i < n; i++) { const t = (i / (n - 1) - 0.5) * 2 * (bw - 4); out.push({ shape: 'wpost', r: 4, h, y: 0, dx: Math.sin(ang) * t, dz: Math.cos(ang) * t, color: c }); } return out; }
-        case 'palm': {   // Kit v2: は は 外へ たおれて たれる(lean / tilt)。幹は ほそく すこし 高さ ばらつき
-          const v = (ctx && ctx.v) || 0, h = Math.max(OBJ3D_HEAD + 30, size * (sm.big ? 0.9 : 0.75) * (0.9 + v * 0.2)), out = [{ shape: 'trunk', r: Math.min(r, 12), h, y: 0, taper: 0.6 }];
-          for (let i = 0; i < 7; i++) { const a = i * Math.PI * 2 / 7 + v * 6.28; out.push({ shape: 'wblade', r: 7, h: size * (0.3 + 0.06 * (i % 2)), y: h - 4, dx: Math.sin(a) * 10, dz: Math.cos(a) * 10, color: i % 2 ? '#3f8a46' : '#4f9a52', lean: a, tilt: 1.05 + (i % 2) * 0.2 }); }
-          out.push({ shape: 'crown', small: true, r: 16, sy: 0.6, y: h + 2, color: '#4f8a46' }); return out; }
-        case 'cactus': { const h = Math.min(OBJ3D_HEAD + 20, size * 0.6); return [{ shape: 'wstem', r: Math.min(r || 10, 12), h, y: 0, color: c }, { shape: 'wstem', r: 7, h: h * 0.4, y: h * 0.45, dx: 14, color: c }, { shape: 'wstem', r: 6, h: h * 0.3, y: h * 0.55, dx: -13, dz: 4, color: c }]; }
+        case 'palm': {   // Art Direction v1: 明るい 黄緑の 大きな は 5〜8 まい(放射状・たれる)、ふとめで すこし 曲がった 幹(2 段)、高さ ばらつき。海岸 / さばくの 目じるし
+          const v = (ctx && ctx.v) || 0, h = Math.max(OBJ3D_HEAD + 40, size * (sm.big ? 0.95 : 0.8) * (0.9 + v * 0.25)), pr = Math.min(Math.max(r, 10), 15), bend = 0.18 + v * 0.2, bx = Math.sin(v * 6.28) * pr * 2.2 * bend * 4, bz = Math.cos(v * 6.28) * pr * 2.2 * bend * 4;
+          const out = [{ shape: 'trunk', r: pr, h: h * 0.55, y: 0, taper: 0.7 }, { shape: 'trunk', r: pr * 0.85, h: h * 0.5, y: h * 0.5, taper: 0.6, dx: bx, dz: bz }];
+          const n = 5 + Math.round(v * 3);
+          for (let i = 0; i < n; i++) { const a = i * Math.PI * 2 / n + v * 6.28, len = Math.min(size * (0.5 + 0.08 * (i % 2)), 170); out.push({ shape: 'frond', len, w: Math.max(26, len * 0.3) + (i % 2) * 6, y: h - 4, dx: bx, dz: bz, dir: a, droop: 0.45 + (i % 2) * 0.2, color: i % 3 === 0 ? '#9fd84a' : i % 3 === 1 ? '#7fc63f' : '#b4e35a' }); }   // は の はばは 長さに 比例(ほそい すじに しない)・長さは 170 まで
+          out.push({ shape: 'crown', small: true, r: Math.min(26, pr * 1.8), sy: 0.55, y: h + 2, dx: bx, dz: bz, color: '#8fd14f' }); return out; }
+        // Art Direction v1: サボテン 4 種(柱・枝分かれ・まる・小さな むれ)。大きく・太く、遠くからも さばくと わかる
+        case 'cactus': {
+          const v = (ctx && ctx.v) || 0, kind = Math.floor(v * 4), cc = v > 0.5 ? '#5aa35a' : '#4f9a4a', pr = Math.min(Math.max(r || 12, 15), 22), sz = Math.max(size, 150);
+          if (kind === 0) return [{ shape: 'wstem', r: pr, h: Math.max(OBJ3D_HEAD + 40, sz * 0.95), y: 0, color: cc }, { shape: 'dome', r: pr, sy: 0.5, y: Math.max(OBJ3D_HEAD + 40, sz * 0.95) - 2, color: cc }];
+          if (kind === 1) { const h = Math.max(OBJ3D_HEAD + 30, sz * 0.85); return [{ shape: 'wstem', r: pr, h, y: 0, color: cc }, { shape: 'wstem', r: pr * 0.6, h: pr * 2.2, y: h * 0.45, dx: pr * 1.4, color: cc }, { shape: 'wstem', r: pr * 0.6, h: h * 0.4, y: h * 0.45 + pr * 1.8, dx: pr * 1.4, color: cc }, { shape: 'wstem', r: pr * 0.55, h: pr * 2, y: h * 0.6, dx: -pr * 1.3, dz: 3, color: cc }, { shape: 'wstem', r: pr * 0.55, h: h * 0.3, y: h * 0.6 + pr * 1.6, dx: -pr * 1.3, dz: 3, color: cc }]; }
+          if (kind === 2) return [{ shape: 'dome', r: Math.min(pr * 2, 26), sy: 1.0, y: 0, color: cc }, { shape: 'dome', r: Math.min(pr * 1.3, 18), sy: 1.0, y: 0, dx: pr * 2.2, dz: pr * 0.8, color: '#6fb05f' }];
+          return [0, 1, 2].map((i) => ({ shape: 'wstem', r: pr * (0.82 - i * 0.1), h: sz * (0.45 - i * 0.08), y: 0, dx: Math.sin(i * 2.1) * pr * 1.6, dz: Math.cos(i * 2.1) * pr * 1.6, color: i ? '#6fb05f' : cc }));
+        }
         case 'buttress': {   // Kit v2(jungle): 根もとが はる(板根 = 3 つの ひくい mound)+ 高い 幹 + ひろい かんむり(小さな cluster つき)
           const v = (ctx && ctx.v) || 0, top = Math.max(OBJ3D_HEAD * 2.4, size * 0.9), R = Math.max(size * 0.45, r * 2), out = [{ shape: 'trunk', r, h: top, y: 0, taper: 0.5 }, { shape: 'crown', r: R, sy: 0.6, y: top + R * 0.1 }, { shape: 'crown', small: true, r: R * 0.7, sy: 0.65, y: top - R * 0.1, dx: R * 0.6 }, { shape: 'crown', small: true, r: R * 0.62, sy: 0.65, y: top - R * 0.15, dx: -R * 0.55, dz: R * 0.3 }];
           for (let i = 0; i < 3; i++) { const a = v * 6.28 + i * 2.1; out.push({ shape: 'mound', r: r * 0.9, h: r * 0.9, y: 0, color: '#5a3f2a', dx: Math.sin(a) * r * 0.9, dz: Math.cos(a) * r * 0.9 }); }
@@ -1511,7 +1575,20 @@
         case 'dome': return [{ shape: 'dome', r: r, sy: 0.9, y: 0, color: c }];
         case 'tent': return [{ shape: 'wcone', r: r, h: Math.min(OBJ3D_HEAD + 10, size * 0.5), y: 0, color: c, seg: 4 }];
         case 'hull': return [{ shape: 'box', rx: r, rz: r * 0.45, h: Math.max(40, r * 0.6), y: 0, ang, color: c }, { shape: 'wpost', r: 4, h: Math.max(OBJ3D_HEAD, r), y: 0, color: c }];
-        case 'boxprop': return [{ shape: 'box', rx: o ? Math.min(r, 16) : 10, rz: o ? Math.min(r, 12) : 8, h: o ? Math.min(OBJ3D_HEAD - 10, size * (sm.h || 0.8)) : 24, y: 0, ang, color: c }];
+        case 'boxprop': {
+          const bx = o ? Math.min(r, 16) : 10, bz = o ? Math.min(r, 12) : 8, bh = o ? Math.min(OBJ3D_HEAD - 10, size * (sm.h || 0.8)) : 24, out = [{ shape: 'box', rx: bx, rz: bz, h: bh, y: 0, ang, color: c }];
+          if (sm.vend) {   // Art Direction v1(city): 自販機らしさ = 明るい 前面の パネル + 取り出し口 + 足もとの ふち。正面 = (cos ang, −sin ang)
+            const fx = Math.cos(ang), fz = -Math.sin(ang), v = (ctx && ctx.v) || 0;
+            out.push({ shape: 'box', rx: bx * 0.8, rz: 1.2, h: bh * 0.45, y: bh * 0.45, ang, color: '#f8f4ec', dx: fx * (bz + 0.6), dz: fz * (bz + 0.6) }, { shape: 'box', rx: bx * 0.6, rz: 1.2, h: bh * 0.12, y: bh * 0.14, ang, color: '#2a2a2e', dx: fx * (bz + 0.6), dz: fz * (bz + 0.6) }, { shape: 'box', rx: bx * 1.04, rz: bz * 1.04, h: 3, y: 0, ang, color: '#5a5a5e' });
+            out[0].color = v > 0.5 ? c : '#3f7fc8';
+          }
+          return out;
+        }
+        case 'bike': {   // Art Direction v1(city): 自転車の しるし(わ 2 つ + フレーム + サドル)。ふんで とおれる
+          const fx = Math.cos(ang), fz = -Math.sin(ang), R = 9;
+          return [{ shape: 'ring', r: R, tube: 1, y: R, ang: ang + Math.PI / 2, color: '#3a3a3e', dx: fx * 13, dz: fz * 13 }, { shape: 'ring', r: R, tube: 1, y: R, ang: ang + Math.PI / 2, color: '#3a3a3e', dx: -fx * 13, dz: -fz * 13 },
+            { shape: 'wslab', len: 26, w: 2.5, h: 2.5, y: R + 4, ang: ang + Math.PI / 2, color: c }, { shape: 'wpost', r: 1.4, h: 12, y: R + 4, color: c, dx: -fx * 5, dz: -fz * 5 }, { shape: 'box', rx: 4, rz: 2, h: 2.5, y: R + 16, ang, color: '#4a3a2c', dx: -fx * 5, dz: -fz * 5 }];
+        }
         case 'logs': return [{ shape: 'log', len: 40, r: 6, y: 0, ang }, { shape: 'log', len: 36, r: 6, y: 0, ang, dx: Math.cos(ang) * 12, dz: -Math.sin(ang) * 12 }, { shape: 'log', len: 36, r: 6, y: 11, ang, dx: Math.cos(ang) * 6, dz: -Math.sin(ang) * 6 }];
         case 'hay': return [{ shape: 'log', len: Math.min(r * 1.6, 50), r: Math.min(r, 28), y: 0, ang, color: c }];
         case 'nest': return [{ shape: 'dome', r: 14, sy: 0.5, y: 0, color: c }, { shape: 'nut', r: 5, y: 8, color: '#f0f0e8' }];
@@ -1537,6 +1614,107 @@
       if (k === '🪵') return 'smalllog';
       if (OBJ3D_TYPE[k]) return OBJ3D_TYPE[k];
       return k ? 'unknown' : 'skip';
+    }
+    // ===== Art Direction v1: scene dressing(けしきの 地面の 植生)=====
+    // 「空いた ところに 物を おく」のでは なく、群生(2〜7 の cluster)と 意図した 余白で 景色を つくる。3D だけ・あたり なし・ふんで とおれる 高さ。
+    // 道(通行帯 + 40)・spot の まんなか・かたい 物・水(岸の むこう / 川の 帯)には おかない。地域の cover(REGION3D)で 種類と いろが かわる
+    const DRESS_CELL = 300;
+    function sceneDressing3d(world) {
+      const prof = REGION3D[world.regionId], cv = prof && prof.cover; if (!cv || world.corridor) return [];
+      const rid = world.regionId, fol = (prof.foliage && prof.foliage.crown) || ['#4a9a44', '#5fb353', '#82cc62'];
+      const lo = world.minX != null ? world.minX : -world.halfW, hi = world.maxX != null ? world.maxX : world.halfW;
+      const h01 = (k) => (hash(rid + ':cov:' + k) % 10000) / 10000;
+      const T = world.terrain;
+      const riverDist = (x, z) => { let best = Infinity; if (T && (T.kind === 'river' || T.kind === 'chasm') && T.pts) for (let i = 0; i < T.pts.length - 1; i++) { const [ax, az] = T.pts[i], [bx, bz] = T.pts[i + 1], dx = bx - ax, dz = bz - az, L2 = dx * dx + dz * dz || 1, t = Math.max(0, Math.min(1, ((x - ax) * dx + (z - az) * dz) / L2)); best = Math.min(best, Math.hypot(x - ax - dx * t, z - az - dz * t)); } return best; };
+      const free = (x, z, pad, bank) => {
+        if (x < lo + 60 || x > hi - 60 || z < 120 || z > world.len - 120) return false;
+        const np = nearestPath({ x, z }, world); if (np && np.dist < np.half + 40 + pad) return false;
+        for (const q of world.spots) if (Math.hypot(q.x - x, q.z - z) < q.r + 20) return false;
+        if (collidesAt(world, x, z, 18 + pad)) return false;
+        if (T && T.kind === 'coast') { const sx = shoreX(world, z); if (sx != null && ((T.side || -1) < 0 ? x < sx + 70 : x > sx - 70)) return false; }
+        if (T && riverDist(x, z) < (T.half || 200) + (bank ? 6 : 50)) return false;   // 岸の 帯(bank)は 水ぎわ まで
+        return true;
+      };
+      // 水辺(池 / 川 / 湖 の そば)か: あし(reeds)・水辺の 花の ため
+      const nearWater = (x, z) => {
+        for (const q of world.spots) if (q.kind === 'water' && Math.hypot(q.x - x, q.z - z) < q.r + 160) return true;
+        if (T && T.kind === 'river' && T.pts) { for (let i = 0; i < T.pts.length - 1; i++) { const [ax, az] = T.pts[i], [bx, bz] = T.pts[i + 1], dx = bx - ax, dz = bz - az, L2 = dx * dx + dz * dz || 1, t = Math.max(0, Math.min(1, ((x - ax) * dx + (z - az) * dz) / L2)); if (Math.hypot(x - ax - dx * t, z - az - dz * t) < (T.half || 200) + 220) return true; } }
+        if (T && T.kind === 'coast') { const sx = shoreX(world, z); if (sx != null && Math.abs(x - sx) < 260) return true; }
+        return false;
+      };
+      const kinds = [['flowers', cv.flowers && cv.flowers.length ? (cv.flowerW != null ? cv.flowerW : 1.0) : 0], ['grass', cv.grass || 0], ['bushes', cv.bushes || 0], ['pebbles', cv.pebbles || 0], ['mushrooms', cv.mushrooms || 0], ['leaves', cv.leaves || 0], ['ferns', cv.ferns || 0], ['kelp', cv.kelp || 0], ['reeds', cv.reeds || 0], ['shells', cv.shells || 0], ['sparkles', cv.sparkles || 0], ['moss', cv.moss || 0]].filter((k) => k[1] > 0);
+      const total = kinds.reduce((a, k) => a + k[1], 0); if (!total) return [];
+      const pickKind = (u) => { let acc = 0; for (const k of kinds) { acc += k[1] / total; if (u <= acc) return k[0]; } return kinds[kinds.length - 1][0]; };
+      const out = [];
+      // 1 つの 群生(2〜8)。kind は 地域の cover の 重み(水辺は あし / オアシスの 花)。roadside = 道ばたの 帯(花 / 草 / しげみ に よせる・小さめの R)
+      const cluster = (key, cx, cz, roadside, bank) => {
+        let kind = bank ? ['pebbles', 'pebbles', 'reeds', 'grass', 'flowers', 'bushes'][Math.floor(h01(key + ':kb') * 6)] : roadside && cv.flowers && cv.flowers.length && !cv.dry && h01(key + ':k0') < 0.45 ? 'flowers' : pickKind(h01(key + ':k'));
+        if (bank && kind === 'reeds' && !cv.reeds) kind = 'grass';
+        if (bank && kind === 'flowers' && !(cv.flowers && cv.flowers.length)) kind = 'pebbles';
+        const water = nearWater(cx, cz);
+        if (water && cv.reeds && h01(key + ':w') < 0.5) kind = 'reeds';
+        if (kind === 'flowers' && cv.dry) kind = 'pebbles';
+        let flowers = cv.flowers;
+        if (cv.oasisFlowers && water) { flowers = cv.oasisFlowers; if (h01(key + ':o') < 0.6) kind = 'flowers'; }   // さばくの オアシスの まわり だけ 花
+        const n = 3 + Math.floor(h01(key + ':n') * 6), R = (roadside ? 28 : 34) + h01(key + ':r') * (roadside ? 34 : 50), parts = [];
+        const c1 = flowers && flowers.length ? flowers[Math.floor(h01(key + ':c1') * flowers.length)] : '#ffffff', c2 = flowers && flowers.length ? flowers[Math.floor(h01(key + ':c2') * flowers.length)] : '#ffffff';
+        for (let i = 0; i < n; i++) {
+          const a = h01(key + ':a' + i) * 6.283, d = Math.sqrt(h01(key + ':d' + i)) * R, x = cx + Math.sin(a) * d, z = cz + Math.cos(a) * d;
+          if (!free(x, z, -8, bank)) continue;
+          const dx = x - cx, dz = z - cz, u = h01(key + ':u' + i);
+          switch (kind) {
+            case 'flowers': parts.push({ shape: 'flower', r: 16 + u * 8, h: 24 + u * 14, y: 0, dx, dz, color: i % 2 ? c1 : c2 }); if (u > 0.35) parts.push({ shape: 'blade', r: 10, h: 26 + u * 12, y: 0, dx: dx + 10, dz: dz - 7, color: fol[2] }); break;
+            case 'grass': parts.push({ shape: 'blade', r: 12 + u * 5, h: (cv.dry ? 20 : 30) + u * 20, y: 0, dx, dz, color: cv.dry ? '#c9b86a' : fol[i % 2 ? 2 : 1] }); break;
+            case 'bushes': parts.push({ shape: 'crown', small: true, r: 20 + u * 16, sy: 0.8, y: 0, dx, dz, shade: i % 3 }); if (i % 3 === 0 && flowers && flowers.length && !cv.dry) parts.push({ shape: 'flower', r: 14, h: 26, y: 0, dx: dx + 24, dz: dz + 10, color: c1 }); break;
+            case 'pebbles': parts.push({ shape: 'pebble', r: 7 + u * 9, y: 0, dx, dz }); break;
+            case 'shells': parts.push({ shape: 'pebble', r: 4 + u * 4, y: 0, dx, dz, color: i % 2 ? '#f6e4dc' : '#f0d0c8' }); break;
+            case 'mushrooms': parts.push(...smallMushroom(dx, dz, 9 + u * 6, 13 + u * 9, 'cap')); break;
+            case 'leaves': parts.push({ shape: 'leaf', w: 20 + u * 10, y: 0, dx, dz }); break;
+            case 'ferns': for (let k = 0; k < 5; k++) parts.push({ shape: 'frond', len: 42 + u * 20, w: 18, y: 4, dx, dz, dir: k * 1.26 + u * 3, droop: 0.55, color: k % 2 ? fol[0] : fol[1] }); break;
+            case 'kelp': parts.push({ shape: 'kelp', w: 10 + u * 6, h: 36 + u * 40, y: 0, dx, dz, spin: u * 6.28, color: i % 2 ? '#3f8a6a' : '#4f9a78' }); break;
+            case 'reeds': for (let k = 0; k < 3; k++) parts.push({ shape: 'wblade', r: 3.5, h: 40 + u * 24, y: 0, dx: dx + Math.sin(k * 2.1) * 6, dz: dz + Math.cos(k * 2.1) * 6, color: k ? '#8fbf5a' : '#a8c860' }); break;
+            case 'sparkles': parts.push({ shape: 'spark', r: 4 + u * 3, y: 20 + u * 30, dx, dz, color: i % 2 ? '#fff0a0' : '#bfe3ff' }); break;
+            case 'moss': parts.push({ shape: 'decal', r: 26 + u * 18, y: 0, dx, dz, color: '#5f9a46' }); break;
+            default: break;
+          }
+        }
+        if (parts.length >= 2) out.push({ id: rid + ':dress:' + key, type: 'dressing', kind: 'cover:' + kind, region: rid, layer: 'ground', role: null, spot: null, x: cx, z: cz, rot: 0, height: 40, halfW: R, size: R * 2, emoji: null, solid: false, walkable: true, collision: null, moved3d: false, dressing: true, parts, roadside: !!roadside, bank: !!bank });
+      };
+      const tries = cv.tries || 1;   // 小さな 地域(home)や 岸の せまい 地域(sea)は ます目 ごとに 2 かい ためす
+      // 中景 / 遠景: ます目(DRESS_CELL)ごとに 1 群生(余白 あり)
+      for (let gz = 140; gz < world.len - 140; gz += DRESS_CELL) for (let gx = lo + 80; gx < hi - 80; gx += DRESS_CELL) for (let tr = 0; tr < tries; tr++) {
+        const key = Math.round(gx / DRESS_CELL) + ',' + Math.round(gz / DRESS_CELL) + (tr ? ':' + tr : '');
+        if (h01(key + ':e') < (cv.empty != null ? cv.empty : 0.4)) continue;   // 意図した 余白
+        const cx = gx + h01(key + ':x') * DRESS_CELL, cz = gz + h01(key + ':z') * DRESS_CELL;
+        if (!free(cx, cz, 0)) continue;
+        cluster(key, cx, cz, false);
+      }
+      // 前景: 道ばたの 帯(通行帯の そと 36〜106)。歩きながら 目に 入る ところに 花 / 草 / しげみ。道に そって 一定の 間かく・左右 交互・余白 3 割
+      for (const s of world.segments || []) {
+        const dx = s.b.x - s.a.x, dz = s.b.z - s.a.z, L = Math.hypot(dx, dz); if (L < 160) continue;
+        const ux = dx / L, uz = dz / L, sid = (s.a.id || Math.round(s.a.x)) + '>' + (s.b.id || Math.round(s.b.x));
+        for (let t = 90; t < L - 90; t += 210) {
+          const key = 'rd:' + sid + ':' + Math.round(t);
+          if (h01(key + ':e') < (cv.roadEmpty != null ? cv.roadEmpty : 0.3)) continue;
+          const sd = h01(key + ':s') < 0.5 ? -1 : 1, off = (s.half || 60) + 36 + h01(key + ':o') * 70;
+          const cx = s.a.x + ux * t + uz * sd * off, cz = s.a.z + uz * t - ux * sd * off;
+          if (!free(cx, cz, -30)) continue;
+          cluster(key, cx, cz, true);
+        }
+      }
+      // 川岸(AD v1・水の 統合): 川の 帯に そって 両岸(水ぎわ 8〜70)に 石 / あし / 草 / 花。水 → 岸の 石 → 草 の つながり
+      if (T && T.kind === 'river' && T.pts) for (let i = 0; i < T.pts.length - 1; i++) {
+        const [ax, az] = T.pts[i], [bx, bz] = T.pts[i + 1], dx = bx - ax, dz = bz - az, L = Math.hypot(dx, dz); if (L < 60) continue;
+        const ux = dx / L, uz = dz / L;
+        for (let t = 60; t < L - 40; t += 190) for (const sd of [-1, 1]) {
+          const key = 'bk:' + i + ':' + Math.round(t) + ':' + sd;
+          if (h01(key + ':e') < 0.35) continue;
+          const off = (T.half || 200) + 8 + h01(key + ':o') * 62, cx = ax + ux * t + uz * sd * off, cz = az + uz * t - ux * sd * off;
+          if (!free(cx, cz, -30, true)) continue;
+          cluster(key, cx, cz, false, true);
+        }
+      }
+      return out;
     }
     function worldObjects3d(world) {
       const byPi = new Map();
@@ -1571,6 +1749,7 @@
           x: o ? o.x : p.x, z: o ? o.z : p.z, rot: o ? o.ang || 0 : p.ang || 0, height: H, halfW, size, emoji: type === 'billboard' ? (p.emoji || OBJ3D_BILLBOARD[p.struct]) : null,
           solid, walkable: !o, collision: o ? { shape: o.shape, x: o.x, z: o.z, hw: o.hw, hd: o.hd, ang: o.ang || 0 } : null, moved3d: !!p.moved3d, parts: parts3d(type, o, H, halfW, size, ctx) });
       });
+      if (world.world3d && !world.corridor) for (const d of sceneDressing3d(world)) out.push(d);   // Art Direction v1: 群生の 植生(3D だけ・あたり なし)
       return { objects: out, skipped, unresolved };
     }
     // ます目(spatial grid)。まわりの ます目 1つ だけ 見れば よい ように、
@@ -9380,6 +9559,6 @@
 
     return { computeMapData, mapSpotShown, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, EMOJI_VARY, emojiVary, RIVERMIST_STOPS, NIGHT_LIFT, LEAF_NIGHT, HORIZON_HAZE, LANDMARK_NEAR, landmarkNearAlpha, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_SHIFT, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK, WORLD_THEME, WORLD_MOTION, WORLD_SPACE, REGION_LINE, SKY_OVERRIDE, GEO_AREA, GEO_ASPECT,
       // 3D prototype(meguru-3d.mjs が つかう。2D では つかわない)
-      WORLD3D_REGIONS, REGION3D, SEM3D, HIDDEN3D, LANDMARK3D_TYPE, discoveryNotice, world3dOn, relocateRoadSolids3d, worldObjects3d, objectType3d, OBJ3D_HEAD, ACTOR_SIZE, glyphSprite, imageFor, TIME_LIGHT, WEATHER_LIGHT, VERBS };
+      WORLD3D_REGIONS, REGION3D, SEM3D, HIDDEN3D, LANDMARK3D_TYPE, discoveryNotice, world3dOn, relocateRoadSolids3d, worldObjects3d, objectType3d, sceneDressing3d, nearestPath, OBJ3D_HEAD, ACTOR_SIZE, glyphSprite, imageFor, TIME_LIGHT, WEATHER_LIGHT, VERBS };
   };
 })();

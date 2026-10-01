@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>めぐる 3D v2 → Art Direction v1 くらべ</title>
+<style>
+  :root { --bg: #f6f3ec; --ink: #2a2622; --sub: #6a645c; --card: #fff; --line: #e2dccf; --ok: #2f7d4a; --warn: #b26a1a; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #16151a; --ink: #ece8e0; --sub: #a39d93; --card: #222128; --line: #35333c; } }
+  :root[data-theme="dark"] { --bg: #16151a; --ink: #ece8e0; --sub: #a39d93; --card: #222128; --line: #35333c; }
+  body { margin: 0; padding: 16px; background: var(--bg); color: var(--ink); font: 15px/1.6 system-ui, -apple-system, "Hiragino Sans", sans-serif; }
+  h1 { font-size: 20px; margin: 0 0 4px; } h2 { font-size: 17px; margin: 28px 0 8px; }
+  p.lead { color: var(--sub); margin: 0 0 14px; font-size: 13px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin: 12px 0; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .pair figure { margin: 0; } .pair img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); display: block; }
+  figcaption { font-size: 12px; color: var(--sub); text-align: center; margin-top: 4px; }
+  .meta { font-size: 13px; margin-top: 8px; } .meta b { display: inline-block; min-width: 5em; }
+  .st { font-weight: 700; } .st.ok { color: var(--ok); } .st.warn { color: var(--warn); }
+  .extra { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+  table { border-collapse: collapse; font-size: 12px; margin-top: 8px; } td, th { border: 1px solid var(--line); padding: 2px 6px; text-align: center; } th { font-weight: 600; }
+  ul { margin: 6px 0 0 1.2em; padding: 0; } li { margin: 2px 0; }
+  .route ol { margin: 6px 0 0 1.2em; }
+</style>
+</head>
+<body>
+<h1>めぐる 3D — v2(Foundation v2)→ Art Direction v1</h1>
+<p class="lead">左 = v2 before(feat/meguru-3d-foundation-v2 @ cbafd678)。右 = Art Direction v1 after(feat/meguru-3d-art-direction-v1)。headless Chromium の しゃしん(iPhone 390 幅・昼 / 晴れ / 夏 に 固定)。実機の 最終判断は 人間(Human QA)。</p>
+
+<div class="card">
+  <h2 style="margin-top:0">Art Direction v1 で かえた こと(原則だけ。固有の asset / 配置は コピーしない)</h2>
+  <ul>
+    <li><b>光 と いろ</b>: 昼は 明るく(hemisphere 1.7 / ambient 0.3)、岩 / がけは くらく つぶさない。葉は 地域ごとの palette 3 段(明 / 中 / 暗)</li>
+    <li><b>Tree v3</b>: 広葉樹 = ふとめで ほそる 幹 + かたまり 2〜5(非対称・高さ差・明暗)。針葉樹 = 4〜5 段(下ほど ひろく・先 ほそく・個体差)。ジャングル = 高い canopy + 大きな は + つる + 根もとの 下草 + lowPoly。ヤシ = 黄緑の 大きな は 5〜8(放射状・はばは 長さに 比例)+ 曲がる 幹</li>
+    <li><b>scene dressing</b>: 「空いた ところに 置く」のでは なく 群生(2〜8)と 意図した 余白。道ばたの 帯(前景)+ ます目(中景 / 遠景)+ 川岸の 帯。花 / 草 / しげみ / 小石 / きのこ / おちば / しだ / 昆布 / あし / 貝 / 光。地域の cover で 種類 と いろ(さばくは オアシス だけ 花・しんかい / ゆき は 花 なし)</li>
+    <li><b>Building v3</b>: 屋根の はりだし・土台の ふち・わく つき 入口(とって)と まど(だい・花の 箱)・煙突 / 看板 / ひさし の 1〜2・家の まわりの しげみ と 花・家ごとの いろ / わく / 小物の ちがい</li>
+    <li><b>city scene</b>: 低層 / 中層 / 高層の まざり(高さは 床の 5.5 倍まで)・みせ(ガラス 2 まい + 入口 + ひさし + 看板 + たて看板)・中層の ベランダ・パラペット・室外機・路地の かべも 正面を もつ・灰 だけで ない palette(白 / ベージュ / 茶 / パステル + accent)・自販機の パネル・自転車・明るめの アスファルト(3D だけ)</li>
+    <li><b>水の 統合</b>: 川は なめらかに 曲がり はばが ゆれる(見た目の 水は あたりの 帯の 内がわ)。川岸に 石 / あし / 草 / 花。Bridge v3 = 床は 水面より 上・両はしの だん・橋脚 / 支柱 が 地面まで・てすり / 両わきの 石(よこから 見ても はし)</li>
+    <li><b>比率</b>: サボテン 4 種を 大きく、大木の 幹は あたりより ほそく、ビルは 煙突に しない、いけがきは まるい しげみの れつ</li>
+  </ul>
+</div>
+
+<div id="regions"></div>
+
+<div class="card route">
+  <h2 style="margin-top:0">実機 確認の 重点ルート</h2>
+  <ol>
+    <li>home: いけがき(まるい)・家の 入口 / まど / ひさし / まわりの 花・道ばたの 花</li>
+    <li>forest → jungle: 1 まいの 絵で 見わけ(葉の いろ・きり・大きな は・下草・ヤシ)</li>
+    <li>city: 駅前 → 商店街 → 市場。低層の みせ・たて看板・ベランダ・自販機・自転車・いろ</li>
+    <li>river_lake: 川の 曲がり と はば・岸の 石 / あし・丸太 / 石の はし(よこから)</li>
+    <li>desert: サボテン 4 種・オアシスの 花 と ヤシ</li>
+    <li>sea / deepsea / snow / mountain / countryside / star_stop / memory_lake: 地域の いろ と 道ばたの 群生</li>
+  </ol>
+  <p class="lead">perf 表示: URL に <code>&amp;perf=1</code>。群生で tris は ふえる(forest 114k → 145k・jungle 147k → 210k・city 96k → 182k)。実機の frame 間かくで 判断。</p>
+</div>
+
+<script>
+const R = [
+  ['home', 'いえのまわり', 'ok', 'まるい いけがき・家の 入口 / まど / ひさし / 煙突・まわりの しげみ と 花・道ばたの 花 / 草', 'ひろばの まんなかは 意図して 空ける(道の 方向)'],
+  ['forest', 'もり', 'ok', '明るい かんむり 2〜5・針葉樹 4〜5 段・花 / きのこ / おちば の 群生・大木の 幹 ほそく', '—'],
+  ['jungle', 'ジャングル', 'ok', '深い みどり + 黄緑の は・大きな は / つる / 根もとの 下草・ヤシ・花(ピンク / だいだい)・みどりの きり', 'tris 210k(重い 側)。実機で 判断'],
+  ['city', 'まち', 'ok', '低層の みせ(ガラス / ひさし / 看板 / たて看板)・中層の ベランダ・いろの まざり・自販機 / 自転車・明るい アスファルト', '「どことなく 名古屋」は 雰囲気 だけ(固有物 なし)。日本らしさの 裁定は 人間'],
+  ['countryside', 'いなか', 'ok', '農家 v3(ひさし / 花の 箱)・はたけ・道ばたの 花 / 草・木の かたまり', '—'],
+  ['mountain', 'やま', 'ok', '針葉樹 4〜5 段・がけ 明るめ・小屋 v3・石 / 花の 群生', '—'],
+  ['snow', 'ゆき', 'ok', '針葉樹・小屋 v3(花 なし・しげみ)・小石 / 草の 群生', 'ゆきの 群生は ひかえめ(余白 0.6)'],
+  ['sea', 'うみ', 'ok', 'ヤシ v3(大きな は)・貝 / 花 / 草の 群生・海の 面', '—'],
+  ['deepsea', 'しんかい', 'ok', '昆布 / 小石の 群生(花 なし)・岩 明るめ', '—'],
+  ['river_lake', 'かわ と みずうみ', 'ok', '川の 曲がり と はばの ゆらぎ・川岸の 石 / あし / 草 / 花・Bridge v3', '—'],
+  ['desert', 'さばく', 'ok', 'サボテン 4 種(大きく)・メサ 明るめ・オアシスの 花 と ヤシ・乾いた 草 / 小石', '—'],
+  ['star_stop', 'ほしの えき', 'ok', '光 / 花(青白)の 群生・光の はし v3', '—'],
+  ['memory_lake', 'おもいでの みずうみ', 'ok', 'うすい 花 / あし の 群生・きりの いろ', 'きりの 中で ひかえめ(意図)'],
+];
+const EXTRA = { home: ['home-house-ad'], city: ['city-arcade-ad', 'city-market-ad'], river_lake: ['river-bridge-ad'], desert: ['oasis-ad'], jungle: [], forest: [] };
+const host = document.getElementById('regions');
+for (const [id, label, st, changed, rest] of R) {
+  const card = document.createElement('div'); card.className = 'card';
+  const ex = (EXTRA[id] || []).map((n) => `<figure><img loading="lazy" src="${n}.jpg" alt="${n}"><figcaption>AD ${n.replace(/-ad$/, '')}</figcaption></figure>`).join('');
+  card.innerHTML = `<h2 style="margin-top:0">${label} <span style="color:var(--sub);font-weight:400;font-size:13px">${id}</span></h2>
+    <div class="pair"><figure><img loading="lazy" src="../meguru-3d-foundation-v2/${id}-3d-v2.jpg" alt="${id} v2"><figcaption>v2 before</figcaption></figure><figure><img loading="lazy" src="${id}-ad.jpg" alt="${id} AD"><figcaption>Art Direction v1 after</figcaption></figure></div>
+    ${ex ? `<div class="extra">${ex}</div>` : ''}
+    <div class="meta"><b>status</b> <span class="st ${st}">${st === 'ok' ? 'AD gate 通過・Human QA 待ち' : 'needs_human_review'}</span><br><b>主な 変更</b> ${changed}<br><b>のこる こと</b> ${rest}</div>`;
+  host.appendChild(card);
+}
+</script>
+</body>
+</html>

@@ -323,24 +323,28 @@ test('v2-14. Kit v2 の 原型: 昆布は 曲がった は(木 / 柱では な�
   // はし(forest: まるた / いし、jungle / star_stop: ロープ / 光)
   const f = objsOf('forest'), log = f.find((o) => o.kind === '🌉' && o.spot === 'bridge1'), stone = f.find((o) => o.kind === '🌉' && o.spot === 'bridge2');
   assert.ok(log && log.parts.filter((pt) => pt.shape === 'log').length === 3 && log.parts.filter((pt) => pt.shape === 'wpost').length >= 4, 'まるたの はし = 丸太 3 本 + 支柱');
-  assert.ok(stone && stone.parts.some((pt) => pt.shape === 'slab') && stone.parts.filter((pt) => pt.shape === 'box').length === 2, 'いしの はし = 石の いた + 両わきの 石');
+  // 2026-10-01 Art Direction v1(Bridge v3): 床は 水面より 上・両はしの だん(ramp)・橋脚 が ふえた ので、両わきの 石 = 床の 上(y = 床)の 箱 2 つ で 見る
+  assert.ok(stone && stone.parts.some((pt) => pt.shape === 'slab') && stone.parts.filter((pt) => pt.shape === 'box' && pt.h === 14).length === 2, 'いしの はし = 石の いた + 両わきの 石');
+  assert.ok(stone.parts.find((pt) => pt.shape === 'slab').y + 10 > 2.4 && stone.parts.filter((pt) => pt.shape === 'box' && pt.h < 14).length >= 4, 'いしの はし: 床は 水面より 上・橋脚 と だん');   // AD v1
   const rope = [...objsOf('jungle'), ...objsOf('mountain')].find((o) => o.kind === 'ropebridge'), light = objsOf('star_stop').find((o) => o.kind === 'lightbridge');
   if (rope) assert.ok(rope.parts.some((pt) => pt.shape === 'plank') && rope.parts.filter((pt) => pt.shape === 'rail').length === 2 && rope.parts.filter((pt) => pt.shape === 'wpost').length >= 6, 'ロープの はし');
   if (light) assert.ok(light.parts.some((pt) => pt.shape === 'wslab') && light.parts.some((pt) => pt.shape === 'glowdisc'), '光の はし');
   // たてもの(home / countryside / city)
   for (const rid of ['home', 'countryside']) for (const o of objsOf(rid).filter((q) => q.type === 'house')) {
     assert.ok(o.parts.some((pt) => pt.shape === 'roof' || (pt.shape === 'box' && pt.y > 0)), rid + ' ' + o.kind + ' 屋根');
+    // 2026-10-01 Art Direction v1(Building v3): とびらの いろ / まどの わく は 家ごとに かわる ので、入口 = door、まど = win の しるしで 見る(いろ 固定 では なく)
     const fronts = o.parts.filter((pt) => pt.shape === 'box' && pt.dx != null);
-    assert.ok(fronts.some((pt) => pt.color === '#4a3a2c') && fronts.some((pt) => pt.color === '#cfe6f2'), rid + ' ' + o.kind + ' 入口 と まど');
+    assert.ok(fronts.some((pt) => pt.door) && fronts.some((pt) => pt.win && pt.color === '#cfe6f2'), rid + ' ' + o.kind + ' 入口 と まど');
+    assert.ok(o.parts.some((pt) => pt.shape === 'crown' && pt.small) && o.parts.filter((pt) => pt.shape === 'flower').length >= 2, rid + ' ' + o.kind + ' 家の まわりの しげみ と 花');   // AD v1: 家の まわりの 植物
   }
   const towers = objsOf('city').filter((o) => o.type === 'tower');
-  for (const o of towers) assert.ok(o.parts.filter((pt) => pt.shape === 'box' && pt.dx != null && pt.rz === 1.5).length >= 2 && o.parts.some((pt) => pt.color === '#3c4048'), 'ビルに まど と 入口 ' + o.kind);
+  for (const o of towers) assert.ok(o.parts.filter((pt) => pt.shape === 'box' && pt.dx != null && pt.win).length >= 2 && o.parts.some((pt) => pt.door && pt.color === '#3c4048'), 'ビルに まど と 入口 ' + o.kind);
   // 木: えだはりは かたまり 2 つ いじょう・幹は ほそる
   const trees = f.filter((o) => o.type === 'broadleaf');
   assert.ok(trees.every((o) => o.parts.filter((pt) => pt.shape === 'crown').length >= 2 && o.parts[0].shape === 'trunk' && o.parts[0].taper < 0.8), '木 = ほそる 幹 + かたまり 2 つ いじょう');
   assert.ok(new Set(trees.map((o) => o.parts.filter((pt) => pt.shape === 'crown').length)).size >= 2, 'かたまりの 数は 木ごと');
   const palms = objsOf('sea').filter((o) => o.type === 'palm');
-  assert.ok(palms.length && palms.every((o) => o.parts.filter((pt) => pt.shape === 'wblade' && pt.lean != null).length >= 6), 'ヤシの は は たおれる');
+  assert.ok(palms.length && palms.every((o) => o.parts.filter((pt) => pt.shape === 'frond' && pt.dir != null).length >= 5), 'ヤシの は は 放射状の 平らな は 5〜8 まい(2026-10-01 AD v1: frond)');
 });
 
 test('v2-15. Region Profile v2: 13 地域 ぜんぶに family(terrain / veg / arch / water / density / landmark / sky)。まちは palette で ビルの いろ と 階数が ばらつき、電柱が ある', () => {

@@ -1,4 +1,4 @@
-// しゃしん: node shot.cjs <root> <outDir> <json: [{region, spot|x,z, yaw(deg), name, env?}]>
+// しゃしん: node shot.cjs <root> <outDir> <json: [{region, spot|x,z, yaw(deg), name, env?, jpg?}]>
 const pw = require('playwright'); const fs = require('fs'); const path = require('path'); const http = require('http');
 const ROOT = process.argv[2], OUT = process.argv[3]; const SHOTS = JSON.parse(process.argv[4]); fs.mkdirSync(OUT, { recursive: true });
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.json': 'application/json', '.woff2': 'font/woff2', '.mp3': 'audio/mpeg' };
@@ -24,7 +24,7 @@ function makeSave(region, env) { const arr = (x) => Array.from(x || []); const h
       const st = await page.evaluate((sh) => { const r = globalThis.__meguruRun; let x = sh.x, z = sh.z; if (sh.spot) { const q = r.world.spots.find((s) => s.id === sh.spot); x = q.x + (sh.dx || 0); z = q.z + (sh.dz || 0); }
         r.sim.setCameraMotion && r.sim.setCameraMotion(false); r.setPlayer(x, z); r.sim.camera.yaw = (sh.yaw || 0) * Math.PI / 180; if (sh.dist) r.sim.camera.dist = sh.dist; r.sim.placeParty(); return { x, z, is3D: r.renderer.is3D }; }, sh);
       await page.waitForTimeout(1600);
-      const box = await page.locator('#mgrCanvas').boundingBox(); await page.screenshot({ path: path.join(OUT, sh.name + '.png'), clip: box });
+      const box = await page.locator('#mgrCanvas').boundingBox(); await page.screenshot(sh.jpg ? { path: path.join(OUT, sh.name + '.jpg'), clip: box, type: 'jpeg', quality: 82 } : { path: path.join(OUT, sh.name + '.png'), clip: box });   // jpg: docs 用(小さく)
       const stats = await page.evaluate(() => { const r = globalThis.__meguruRun; const s = r.renderer.stats3d ? r.renderer.stats3d() : null; return s && { calls: s.calls, tris: s.triangles, js: +s.drawMsAvg.toFixed(1), water: s.water, player: s.player, ghosts: s.ghosts && s.ghosts.visible }; });
       console.log(sh.name.padEnd(28), JSON.stringify(st), JSON.stringify(stats), 'err', errors.length);
       await ctx.close();
