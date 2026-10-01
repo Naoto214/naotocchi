@@ -124,7 +124,10 @@ function create3DRenderer(M, o, onLost) {
   };
   let lost = false;
   gl.addEventListener('webglcontextlost', (e) => { e.preventDefault(); lost = true; onLost(); }, false);
-  const renderer = new THREE.WebGLRenderer({ canvas: gl, antialias: true, alpha: false, powerPreference: 'high-performance' });
+  const renderer = new THREE.WebGLRenderer({ canvas: gl, antialias: true, alpha: false, powerPreference: 'high-performance', preserveDrawingBuffer: false });
+  // 残像(まえの frame が のこる)を ふせぐ きまり: canvas は 不透明(alpha: false)・drawing buffer は のこさない・まい frame いろ と depth を けす。
+  // すかしの ghost は frame ごとに visible を 入れなおし、hidden の 物は 線分から はずれた frame で もとに もどす(fadeOccluders)
+  renderer.autoClear = true; renderer.autoClearColor = true; renderer.autoClearDepth = true; renderer.setClearColor(0x000000, 1);
   renderer.setPixelRatio(Math.min(typeof devicePixelRatio === 'number' ? devicePixelRatio : 1, 2));
   let ctx = o.ctx, W = o.W, H = o.H;
   renderer.setSize(W, H, false);

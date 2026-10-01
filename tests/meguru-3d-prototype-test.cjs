@@ -309,3 +309,48 @@ test('8. フラグは URL だけ・セーブに のこさない。Three.js は v
   assert.ok(!/<script[^>]+meguru-3d/.test(html) && !/modulepreload[^>]+meguru-3d|three\.module/.test(html), 'index.html は 3D を よみこまない(template の data-src だけ)');
   assert.match(html, /<template id="meguru3dModule" data-src="meguru-3d\.mjs\?v=\d{8}-[0-9a-f]{8}"><\/template>/);
 });
+
+// ===== 全地域 3D v0(共通の 契約 × 地域の profile)。地域の 数は registry(WORLDS)から =====
+test('9. 全地域: 3D profile が あり、意味の 表で ぜんぶ 解決し(unresolved 0・立て看板 0)、かくす ものは きまった しるし だけ、2D(フラグなし)は かわらない', () => {
+  const regions = Object.keys(M.WORLDS);
+  assert.ok(regions.length >= 13, '地域 ' + regions.length);
+  for (const rid of regions) {
+    assert.ok(M.REGION3D[rid], rid + ' の 3D profile');
+    assert.ok(M.WORLD3D_REGIONS.has(rid), rid + ' は 3D に なる');
+    const w = M.buildWorld(rid, reg, { world3d: true }), o = M.worldObjects3d(w);
+    assert.equal(o.unresolved.length, 0, rid + ' unresolved: ' + o.unresolved.slice(0, 5).join(','));
+    for (const k of Object.keys(o.skipped)) assert.ok(k === 'undefined' || M.HIDDEN3D.has(k) || k === 'fern' || k === 'branch', rid + ' かくして いる ' + k);
+    const shown = new Set(o.objects.filter((ob) => ob.collision).map((ob) => ob.pi));
+    for (const ob of w.obstacles) if (ob.role === 'solid' || ob.role === 'boundary') assert.ok(shown.has(ob.pi), rid + ': あたり ' + ob.kind + ' は 見える(見えない かべ なし)');
+    for (const ob of o.objects) { assert.ok(ob.parts.length > 0, rid + ' ' + ob.kind + ' に かたち'); for (const pt of ob.parts) assert.notEqual(pt.shape, 'billboard', rid + ' ' + ob.kind); }
+    // きのこ は きのこ・はし は はし・たてもの は たてもの(意味の ちがう 置きかえ なし)
+    for (const ob of o.objects) {
+      const k = ob.kind;
+      if (k === '🍄' || k === 'mushroomcluster' || k === 'mushroomgrove') assert.ok(!ob.parts.some((pt) => pt.shape === 'trunk' || pt.shape === 'crown'), rid + ' きのこ が 木');
+      if (k === '🌉' || k === 'woodbridge' || k === 'ropebridge') assert.ok(ob.parts.some((pt) => pt.shape === 'plank' || pt.shape === 'slab'), rid + ' はし');
+      if (['🏠', '🏡', '🏪', 'house', 'farmhouse', 'barn', 'building', '🏢', '🏬'].includes(k)) assert.ok(ob.parts.some((pt) => pt.shape === 'box') && ob.parts.some((pt) => pt.shape === 'roof' || pt.shape === 'box'), rid + ' たてもの ' + k);
+    }
+    // ランドマークは ぜんぶ 見た目が あり、あたり = いち
+    for (const ob of o.objects.filter((q) => w.props[q.pi].landmark)) { assert.ok(ob.parts.length >= 1, rid + ' ランドマーク ' + ob.kind); assert.ok(ob.collision && ob.x === ob.collision.x, rid + ' ランドマークの あたり ' + ob.kind); }
+    // 2D は かわらない: 3D モードで ふえた / へった props は 3D だけ
+    const w2d = M.buildWorld(rid, reg, {});
+    assert.ok(!w2d.world3d && !w2d.props.some((p) => p.moved3d || p.drop3d || p.satellite3d || p.collider3d), rid + ' 2D に 3D の しるし なし');
+  }
+  // 意味の 表に ない 新しい しるし は unresolved に なる(赤)。production では 出さず あたりも つけない
+  const w = M.buildWorld('forest', reg, { world3d: true }); w.props.push({ emoji: '🛸', x: 0, z: 400, size: 120, solid: true });
+  assert.equal(M.objectType3d(w.props[w.props.length - 1]), 'unknown');
+});
+
+test('10. はっけんの しらせ(全地域): ランドマーク / ひみつ だけ「みつけた！」、その ばしょ だけの もの は かるく「が ある」、ふつうの 池・通過点は しずか。きろく は かわらない', () => {
+  for (const rid of Object.keys(M.WORLDS)) {
+    const w = M.buildWorld(rid, reg, {}); let strong = 0, light = 0, quiet = 0;
+    for (const s of w.spots) { const n = M.discoveryNotice(s); if (!n) quiet++; else if (n.kind === 'landmark' || n.kind === 'secret') { strong++; assert.match(n.title, /みつけた！$/); assert.ok(s.landmark || s.secret); } else { light++; assert.match(n.title, /が ある$/); assert.ok(!s.landmark && !s.secret); } }
+    assert.ok(strong <= Math.max(3, Math.ceil(w.spots.length * 0.3)), rid + ' つよい しらせ ' + strong + ' / ' + w.spots.length);
+    assert.ok(quiet >= 1, rid + ' しずかな spot が ある');
+    for (const s of w.spots) if (s.kind === 'water' && !s.secret && !s.landmark && (!s.prop || M.spotDiscoveryLevel(s) < 2)) assert.equal(M.discoveryNotice(s), null, rid + ' ふつうの 池 ' + s.id + ' は しずか');
+  }
+  // forest の 例
+  const f = M.buildWorld('forest', reg, {});
+  const at = (id) => M.discoveryNotice(f.spots.find((s) => s.id === id));
+  assert.equal(at('falls').kind, 'landmark'); assert.equal(at('hiddenpond').kind, 'secret'); assert.equal(at('creekdeep'), null); assert.equal(at('thicket1'), null);
+});
