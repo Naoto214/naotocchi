@@ -33,7 +33,7 @@ test AD-16: 各地域の 代表 spot(最初の ひろば)から 前景(〜250)�
 
 ## Human QA gate(7 条件・headless の しゃしんで 仮判定。実機の 裁定は 人間)
 
-○ = headless で 満たす / △ = 実機で 要確認 / 条件: ①ひと目で 地域が わかる ②さびしく ない ③箱っぽく ない ④いろが ゆたか ⑤歩きたく なる ⑥ランドマーク 以外の 見どころ ⑦前景 / 中景 / 遠景 が ある
+○ = headless で 満たす / △ = 実機で 要確認 / 条件: ①ひと目で 地域が わかる ②さびしく ない ③箱っぽく ない ④いろが ゆたか ⑤歩きたい(歩きたく なる) ⑥ランドマーク 以外の 見どころ ⑦前景 / 中景 / 遠景 が ある
 
 | region | ① | ② | ③ | ④ | ⑤ | ⑥ | ⑦ | 代表 spot | 備考 |
 |---|---|---|---|---|---|---|---|---|---|
@@ -55,7 +55,23 @@ test AD-16: 各地域の 代表 spot(最初の ひろば)から 前景(〜250)�
 
 (smoke-ad の 表。tools/meguru-3d-qa/regions-smoke.cjs)
 
-SMOKE_TABLE
+| Region | 3D | walk | pen player / party | calls | tris(v2 → AD) | JS avg ms | enter ms | player ok | errors / fallback |
+|---|---|---|---|---|---|---|---|---|---|
+| home | ✓ | 440 | 0.0 / 0.0 | 59 | 17k → 33k | 5.7 | 523 | 100% | 0 / 0 |
+| city | ✓ | 312 | 0.0 / 0.0 | 72 | 96k → 183k | 6.3 | 611 | 100% | 0 / 0 |
+| countryside | ✓ | 355 | 0.0 / 0.0 | 62 | 57k → 105k | 5.9 | 502 | 100% | 0 / 0 |
+| forest | ✓ | 307 | 0.0 / 0.0 | 76 | 114k → 145k | 8.4 | 1505 | 100% | 0 / 0 |
+| mountain | ✓ | 356 | 0.0 / 0.0 | 72 | 100k → 118k | 6.4 | 1117 | 100% | 0 / 0 |
+| snow | ✓ | 452 | 0.0 / 0.0 | 64 | 48k → 59k | 7.8 | 1362 | 100% | 0 / 0 |
+| sea | ✓ | 339 | 0.0 / 0.0 | 69 | 48k → 79k | 12.1 | 1602 | 100% | 0 / 0 |
+| deepsea | ✓ | 453 | 0.0 / 0.0 | 57 | 58k → 72k | 7.2 | 739 | 100% | 0 / 0 |
+| river_lake | ✓ | 362 | 0.0 / 0.0 | 76 | 80k → 102k | 8.7 | 1052 | 100% | 0 / 0 |
+| jungle | ✓ | 337 | 0.0 / 0.0 | 75 | 147k → 215k | 8.6 | 865 | 100% | 0 / 0 |
+| desert | ✓ | 448 | 0.0 / 0.0 | 61 | 62k → 83k | 9.4 | 1171 | 100% | 0 / 0 |
+| star_stop | ✓ | 445 | 0.0 / 0.0 | 49 | 37k → 61k | 4.7 | 594 | 100% | 0 / 0 |
+| memory_lake | ✓ | 489 | 0.0 / 0.0 | 57 | 38k → 44k | 6.9 | 684 | 100% | 0 / 0 |
+
+corridor QA(3D の まま 歩きとおす): home → forest(95 sample)・forest → mountain(75)・city → sea(83)・countryside → forest(53): ぜんぶ corridor 3D・player ok・errors 0・fallback 0・到着も 3D(ghost は 意図した すかし)
 
 群生で tris は ふえる(forest 114k → 145k・jungle 147k → 210k・city 96k → 182k)。headless の GPU 時間は 目安に ならない → 実機の frame 間かくで 判断(重い 側: jungle / city / mountain)。
 
@@ -69,7 +85,11 @@ SMOKE_TABLE
 
 - 画像: `docs/qa/meguru-3d-art-direction-v1/*-ad.jpg`(13 地域 + home-house / city-arcade / city-market / river-bridge / oasis)。v2 before は `docs/qa/meguru-3d-foundation-v2/` を そのまま のこす
 - comparison sheet: `docs/qa/meguru-3d-art-direction-v1/compare.html`(地域ごと v2 before / AD after・主な 変更・のこる こと・重点ルート)
-- preview(commit 固定): PREVIEW_URLS
+- preview(commit 固定): commit `8ee4cdf8`(code + 画像。docs の commit は 描画に 影響 なし)
+  - 3D + perf(iPhone): `https://rawcdn.githack.com/Naoto214/naotocchi/8ee4cdf8/index.html?meguru3d=1&perf=1`
+  - 3D: `https://rawcdn.githack.com/Naoto214/naotocchi/8ee4cdf8/index.html?meguru3d=1`
+  - 2D くらべ(3D 地域で 2D): `https://rawcdn.githack.com/Naoto214/naotocchi/8ee4cdf8/index.html?meguru3d=1&m3d2d=1`
+  - ふつうの 2D: `https://rawcdn.githack.com/Naoto214/naotocchi/8ee4cdf8/index.html`
 
 ## 次の Human QA(iPhone)
 
