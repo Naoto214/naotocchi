@@ -186,7 +186,7 @@ test('deco: くぼちのみはらし に しだ、つりばし に つりばし�
 test('counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル は かわらない', () => {
   const { M } = setup();
   let spots = 0, paths = 0, zones = 0, secretSpots = 0, secretPaths = 0;
-  const lv = { 0: 0, 2: 0, 3: 0 };
+  const lv = { 0: 0, 1: 0, 2: 0, 3: 0 };
   for (const rid of Object.keys(M.WORLDS)) {
     const b = M.WORLDS[rid];
     spots += b.spots.length; zones += b.zones.length; paths += (b.paths || []).length;
@@ -198,7 +198,9 @@ test('counts: spot / path / zone / secret / 分母 / 遠景 / 発見レベル �
   assert.equal(secretSpots + secretPaths, 107);
   const C = M.worldCountable();
   assert.equal(C.tier1, 17); assert.equal(C.links.length, 12);
-  assert.deepEqual(lv, { 0: 184, 2: 216, 3: 71 });
+  // 2026-10-01 はっけんの しらせの 段階づけ(meguru-discovery-test ⑦-7 と 同じ 表): 目じるしの ない 水辺は L1(しらせ なし・きろく だけ)。
+  // spot / path / zone / secret / 分母 / 遠景 は かわらない。L0 184 / L1 17 / L2 199 / L3 71(合計 471)
+  assert.deepEqual(lv, { 0: 184, 1: 17, 2: 199, 3: 71 });
   const df = Object.values(M.distantRegistry()).reduce((a, v) => a + (Array.isArray(v) ? v.length : Object.keys(v).length), 0);
   assert.equal(df, 37);
 });
