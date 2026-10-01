@@ -42,10 +42,31 @@ Default viewport is actual device. Optional reference iframe sizes390x844 and320
 
 ## Validation checkpoint
 
-Related initial run149 PASS/0 FAIL; ring cache regression subsequently added and verified RED→GREEN. Dedicated Relationship plus QA after ringfix95 PASS/0 FAIL. Final related and full repo runs in progress at this checkpoint; not yet full-suite GREEN. Final results and publication/screenshot evidence will be appended before handoff.
+Ring cache regression and positive-over-idle stacking assertion each verified RED→GREEN. Final related bundle149 PASS/0 FAIL = Relationship74 + QA22 + Home53. Home comprises cast-layout, cast-motion, home-touch and viewport-design. Final full npm test, started after the stacking change, remains in progress until the final result below is appended.
 
-Image SHA256 audit compares all3430 tracked images to starting HEAD; expected unchanged including Relationship88, companion/partner normal, normal31, Naoto and allothers. No image generation, rewriting or added raster assets.
+Image SHA256 audit compares all3430 tracked images to starting HEAD; result3430/3430 unchanged (SHA256), including Relationship88, companion/partner normal, normal31, Naoto and allothers. No image generation, rewriting or added raster assets.
 
 ## Human acceptance
 
 Representative screenshots accompany reports from now on. Browser screenshots prove captured layout only, not iPhone Safari performance or complete lifecycle. Human iPhone check remains pending: owner attribution, face visibility, cold subtlety with26, warm strength, normal vs lonely vs positive partner hearts, ring coexistence and touch responsiveness. This implementation checkpoint is not Relationship final GREEN.
+
+
+## Published representative browser check
+
+Production code checkpoint `a97c18a782b735c2bf899e9bb4367e543e93a3da` is published to the existing owner-private QA Site (source commit `47929381c0fbcdf464abf3375f764706f0aef1c7`, deployment `appgdep_6abdf72b79808191b117e1902cf1f69d`, succeeded). Main game publication and audience were not changed.
+
+Cloud Chrome was available for UI-driven representative checks; local Work Chromium runners were not retried. This is partial browser observation, not the complete saved automated browser suite and not iPhone Safari acceptance.
+
+- 390x844 ordinary fixed-positive: DOM identifies only `cat_friend` as positive; its attached heart points to `companion:cat_friend`. Initial screenshot exposed a neighbour painting over that locally anchored heart. A scoped positive companion z-index1 fixes positive-versus-idle occlusion without moving cast; a second screenshot confirms the heart is visible. No normal31 stacking changes.
+- 390x844 married normal/lonely/positive: one corresponding heart, ring remains at original solver placement; screenshots show separation from face and ring. Lonely DOM has crack, cold aura; positive larger warm heart.
+- 390x844 multi-rescue fixed-positive: otter and clock have positive aura/heart; cat remains normal without aura/heart. Real Home play interaction also executed; post-expiry all3 normal was observed. The brief live positive interval was not conclusively captured by that tool sequence; use Node lifecycle evidence plus human live QA, not fixed snapshots as lifecycle proof.
+- 320x568 all26 lonely: 26 lonely actors,0 companion hearts; faint separate cold halos, no full-screen blue wash. Existing compact buttons/cast remain visible.
+- 390x844 all26 rescue:26 positive actors and26 hearts. Visually dense by definition; A(all)/B(representative-only) comparison remains available. Positive-versus-positive neighbours may still overlap (same z-index); no claim of universal heart non-overlap. Human judgement on acceptable amount remains pending; rescued expression/motion/aura are never reduced.
+- 320x568 octopus positive: overhead warm heart, face/body visible, conversation and compact buttons remain separate in representative screenshot.
+- Return-lonely fixed-after: partner DOM resolves lonely + lonely aura + cracked heart, with no warm cue.
+
+Representative original browser screenshots (not production assets) are attached to the user report: ordinary-verified, married-normal/lonely/positive, dense-lonely-320, multi-rescue and dense-rescue, dated20261001. They are captured from the production-rendered QA page, not generated illustrations. Screenshot crop requests timed out in the browser service, so full viewport screenshots were retained. This does not establish Safari speed; observed action timing was variable, and iPhone touch performance remains a human check.
+
+Human steps: open the same QA URL, retain “この端末”, choose case then “Homeを見る”. Use fixed before/just-after/after-expiry for comparison and “実遷移（2.5秒）” for lifecycle. Focus on owner attribution, visible face, cold subtlety, ring coexistence and touch response. Images88/88 remain approved; do not repeat art approval.
+
+Full-suite attempt after stacking:2787 PASS/2 FAIL in asset-integrity (ui.css token used12 hash characters instead of required8). Corrected index token only; targeted asset-integrity11 PASS/0 FAIL (verify actual count in final result). Production logic/CSS and representative screenshots unchanged. Full npm verification restarted after token correction.
