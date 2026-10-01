@@ -238,18 +238,20 @@ test('feed afterglow rechecks raw pet availability at callback time', () => {
   }
 });
 
-test('cured medicine settles first and then adds one pet-only bounce', () => {
+test('cured medicine uses one focused recovery motion without a delayed bounce', () => {
   const h=harness();
   renderEmotion(h,{isSick:true,health:70,energy:80});
   avoidRoutineAchievementStory(h);
   vm.runInContext('Math.random=(()=>{const values=[0.55,0.1,0.2];let i=0;return()=>values[i++]??0.55})()',h.sandbox);
   h.dispatch(h.get('medicineBtn'),'click');
   h.advance(1);
-  assert.equal(h.get('petSprite').dataset.reaction,'settle');
+  assert.equal(h.get('petSprite').dataset.reaction,'recover');
   const groupCount=h.get('castResponse').animations.length;
+  const recovery=h.get('petSprite').animations.at(-1);
+  const ys=recovery.frames.map(frame=>Number(frame.transform.match(/translate\([^,]+, ([-.\d]+)px\)/)?.[1]));
+  assert.ok(Math.min(...ys)<=-10,'successful cure gets a visibly large focused lift');
   h.advance(2700);
-  assert.equal(h.get('petSprite').dataset.reaction,'bounce');
-  assert.deepEqual(motionDurations(h),[1200,960]);
+  assert.deepEqual(motionDurations(h),[1450]);
   assert.equal(h.get('castResponse').animations.length,groupCount);
 });
 
