@@ -580,8 +580,8 @@ test('⑦-6 レベルは セーブに 何も 足さない(旧セーブでも そ
   settle(h, u);
   stand(h, u.run, 'bright2');
   assert.equal(shown(u), null, 'もう 見つけて いる ので 出さない');
-  stand(h, u.run, 'rest');   // きゅうけいばしょ(🪵 の しるし・level 2)。creek2 は ふつうの 池 で しらせ なし(2026-10-01)
-  const t = [shown(u), ...settle(h, u)].filter(Boolean).find((v) => /おがわのふち/.test(v.title));
+  stand(h, u.run, 'great');   // おおきなき(ランドマーク)。creek2 は ふつうの 池 で しらせ なし に なった(2026-10-01)
+  const t = [shown(u), ...settle(h, u)].filter(Boolean).find((v) => /おおきなき/.test(v.title));
   assert.ok(t, '旧セーブでも あたらしい はっけんは 出る');
   assert.deepEqual([...Object.keys(s.lifetime.meguru)].sort(),
     ['marks', 'met', 'paths', 'spots', 'talkCount', 'talks', 'visits', 'world', 'zones'].sort(),
