@@ -54,7 +54,7 @@
       if (event === 'feed') return 'munch';
       if (event === 'play_with') return /くすぐ|笑いすぎ|わらいすぎ/.test(text) ? 'wiggle' : 'bounce';
       if (event === 'play_with_annoyed') return 'settle';
-      if (event === 'medicine_cure') return /まず|苦|にが/.test(text) ? 'shake' : 'recover';
+      if (event === 'medicine_cure') return 'recover';
       if (event === 'medicine_wrong') return 'shake';
       if (event === 'sleep') return 'doze';
       if (event === 'wake') return 'stretch';
@@ -69,8 +69,7 @@
     if (event === 'court' || event === 'partner_new' || event === 'marriage') return kind === 'companion' ? 'bounce' : 'love';
     if (event === 'feed') return kind === 'pet' ? 'munch' : 'nod';
     if (event === 'wake') return 'stretch';
-    if (event === 'medicine_cure' && /まず|苦|にが/.test(text)) return 'shake';
-    if (event === 'medicine_cure') return 'settle';
+    if (event === 'medicine_cure') return 'recover';
     if (['play_with','clean','minigame_great','age','evolve','transform','companion_new'].includes(event)) return 'bounce';
     if (/はね|跳ね|ぴょこ|拍手|うれしい|嬉しい/.test(text)) return 'bounce';
     if (/[?？]/.test(text)) return 'curious';
