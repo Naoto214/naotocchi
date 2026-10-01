@@ -31,11 +31,13 @@
     sulk: [REST,[.4,.7,1.1,.35],[.6,.9,1.4,.45],[.3,.6,.8,.25],REST],
     doze: [REST,[0,.8,-.6,.5],[0,.8,-.6,.5],[0,.4,-.3,.3],REST],
     stretch: [REST,[0,.7,0,.65],[0,-2,0,0],[0,-2,.5,0],[0,-.7,.2,0],REST],
+    // L3 recovery pilot: one anticipation, one relieved lift, then a soft landing.
+    recover: [REST,[0,1.8,0,.9],[0,-14,.45,0],[0,1.2,-.2,.35],[0,-3,.15,0],REST],
     nod: [REST,[0,.8,.5,.25],[0,-.4,0,0],[0,.5,.3,.2],REST],
     curious: [REST,[0,0,1.8,0],[0,0,1.8,0],[0,-.5,-.6,0],REST],
     tick: [REST,[0,-.8,-1,0],[0,0,0,0],[0,-.8,1,0],REST],
   };
-  const DURATION = {wiggle:820,bounce:960,shy:1200,love:1150,droop:1300,settle:1200,shake:740,munch:1000,hungry:1250,sulk:1500,doze:1600,stretch:1400,nod:850,curious:1300,tick:1000};
+  const DURATION = {wiggle:820,bounce:960,shy:1200,love:1150,droop:1300,settle:1200,shake:740,munch:1000,hungry:1250,sulk:1500,doze:1600,stretch:1400,recover:1450,nod:850,curious:1300,tick:1000};
   const PERSONALITY = {
     snail: [.8, 1], clock: [1, .85], koala: [1.25, .65],
     sekizou: [1.3, .4], watcher: [1.2, .5], box: [1.15, .6],
@@ -52,7 +54,7 @@
       if (event === 'feed') return 'munch';
       if (event === 'play_with') return /くすぐ|笑いすぎ|わらいすぎ/.test(text) ? 'wiggle' : 'bounce';
       if (event === 'play_with_annoyed') return 'settle';
-      if (event === 'medicine_cure') return /まず|苦|にが/.test(text) ? 'shake' : 'settle';
+      if (event === 'medicine_cure') return /まず|苦|にが/.test(text) ? 'shake' : 'recover';
       if (event === 'medicine_wrong') return 'shake';
       if (event === 'sleep') return 'doze';
       if (event === 'wake') return 'stretch';
