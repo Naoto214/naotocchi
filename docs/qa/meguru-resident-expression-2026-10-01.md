@@ -151,11 +151,22 @@ resident life / event → canonical emotion → expression mapping → Expressio
 
 ## M. full npm test
 
-NPM_TEST_RESULT
+`npm test`(2026-10-01、この container・Node 22.22):
+
+- 前段(`smoke-test.js` / `dialogue-test.js` / `visual-qa-test.cjs`): PASS
+- 本体 `node --test`(136 file): **2815 tests / 2814 pass / 1 fail**。fail は `tests/illustration-catalog-test.cjs`「every shipped UI/game emoji has an illustrated display definition」(`★ ♡` unmapped)で、**origin/main の 純粋な worktree でも 同じ 1 件が 赤**(この container の 環境依存。CI の main は GREEN)。この lane の 変更とは 無関係。
+- その 1 件で `&&` の 連結が 止まる ので、後段の relationship 群は 別に 実行: `relationship-expression-test` / `relationship-expression-integration-test` / `relationship-reaction-test` **80 / 80 pass**。
+- Home expression 群を 単独でも 再実行: `emotion-state-test` / `pet-expression-test` / `pet-expression-assets-test` / `cat-expression-preview-test` / `emotion-integration-test` / `pet-expression-integration-test` **1253 / 1253 pass**。
+- 専用 `meguru-resident-expression-test` **17 / 17**。merge 前の 既存 meguru 群(`meguru-life` / `meguru-3d-prototype` / `meguru-test` / `asset-versions` / `release-hygiene` / `meguru-audit` / `meguru-render-cost`)も GREEN。
 
 ## N. CI
 
-CI_RESULT
+PR #368(Draft)・head `436ec0a9`:
+
+| workflow | 結果 |
+|---|---|
+| Runtime smoke test(`npm test` 全体。`illustration-catalog-test` も ふくむ) | **success**(run 36853631646。M. の 1 件は CI では GREEN = この container の 環境依存) |
+| Home layout(Playwright Chromium / WebKit) | run 36853631620。この文書を 書いた 時点では in_progress(あとの commit で 更新) |
 
 ## O. Home Expression regression
 
@@ -182,7 +193,19 @@ CI_RESULT
 
 ## Q. preview URL(iPhone)
 
-PREVIEW_URLS
+この lane の commit に 固定した URL(PR #365 `tools/preview-url.sh` と 同じ 方式: 公開 repo の commit を GitHub の ファイルを そのまま くばる CDN から ひらく。production の GitHub Pages・Actions・deploy 設定は さわらない。セーブは その origin の localStorage に 入る ので ためしの セーブ として あつかう)。
+
+commit `436ec0a9926431523d9240dd123391083efbc679`(最終 commit は 下の N. の あとで 1 つ 増える。中身は 文書だけ):
+
+- 2D(ふだんの めぐる): `https://cdn.jsdelivr.net/gh/naoto214/naotocchi@436ec0a9926431523d9240dd123391083efbc679/index.html`
+- 2D・表情を とめる: `…/index.html?mgexpr=0`
+- 2D・QA 固定(例 sick): `…/index.html?mgexprforce=sick`(`positive` / `dislike` / `tired` / `sleeping` / `strained` / `wantsPlay` も)
+- forest 3D billboard: `…/index.html?meguru3d=1&mgexprforce=positive`
+- 予備(おなじ commit): `https://rawcdn.githack.com/naoto214/naotocchi/436ec0a9926431523d9240dd123391083efbc679/index.html`、`https://cdn.statically.io/gh/naoto214/naotocchi/436ec0a9926431523d9240dd123391083efbc679/index.html`
+
+ひらく 手順: たび → めぐる → 住民の まえで「はなす」。自然な 状態では はなしかけた 住民だけが うれしい 顔(10〜26 秒)、20 秒いないに もう一度 はなすと いやがる 顔(6〜12 秒)に なる。
+
+注: この作業 container の ネットワーク方針では これらの CDN host への CONNECT が 403 で 拒否される ため、URL が 実際に 200 を 返す ことは ここからは 確認できて いない(PR #365 の 文書と 同じ 方式・同じ host)。
 
 ## R. representative images(`docs/qa/meguru-resident-expression-2026-10-01/`)
 
