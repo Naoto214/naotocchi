@@ -865,7 +865,7 @@ for (const def of master.partners) {
     assert.ok(getElement(id).innerHTML.includes(`src="${def.asset}"`), `${def.id}: ${id}`);
     assert.match(getElement(id).innerHTML, /💍/);
   }
-  assert.match(getElement('partnerCompanion').innerHTML, /partner-heart/);
+  assert.match(getElement('partnerCompanion').innerHTML, /partner-emoji/); // State-specific hearts are exercised by Relationship integration tests.
   assert.match(getElement('partnerCompanion').innerHTML, /character-companion/);
   assert.equal(getElement('partnerDexProgress').textContent, '1 / 18');
   assert.equal(JSON.stringify(api.getState().partner), beforePartnerRender, 'rendering changed relationship');

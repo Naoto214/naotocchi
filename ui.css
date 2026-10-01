@@ -85,7 +85,10 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 #pet .partner-emoji {width:100%;height:100%;font-size:inherit;filter:none;display:flex;align-items:center;justify-content:center}
 #pet .partner-heart {position:absolute;font-size:24px;line-height:1;z-index:1;filter:none;display:flex;align-items:center;justify-content:center}
 /* The cast solver reserves the complete ring and its movement clearance. */
-#pet .partner-ring {font-size:15px;right:auto;bottom:auto;display:flex;align-items:center;justify-content:center}
+/* Keep the solver frame/centre unchanged. Only the existing marriage glyph
+   grows (1.5–2.3px per edge); its silver stays bright and blue becomes pale.
+   Human-approved presentation; no comparison overrides or saved state. */
+#pet .partner-ring {font-size:15px;right:auto;bottom:auto;display:flex;align-items:center;justify-content:center;transform:scale(1.2);transform-origin:center;filter:saturate(.25) brightness(1.18);pointer-events:none}
 #pet .pet-accessory {width:36px;height:36px;top:0;left:calc(50% + 24px);font-size:32px}
 #pet .hidden {display:none}
 /* Local gestures keep their safe gaps. A separate shared lift adds 10–16px of
@@ -234,3 +237,19 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 .design-collection-item {display:flex;flex-direction:column;align-items:center;gap:5px;padding:8px 2px;font-size:12px;text-align:center;color:#405044}
 .design-collection-item .theme-swatch-circle {width:48px;height:40px;border-radius:10px}
 .design-collection-lock {display:grid;place-items:center;width:48px;height:40px;color:#6b766b}
+
+/* Relationship cues belong to their actor. Images retain their original color.
+   No layout size, global fog, filter on artwork, particles or perpetual timers. */
+#pet .companion-chip-small,#pet .partner-emoji{isolation:isolate}
+#pet .partner-emoji{position:relative}
+/* Keep a positive companion and its attached cue above neighbouring idle cast. */
+#pet .companion-chip-small[data-relationship-state="positive"]{z-index:1}
+.relationship-aura{position:absolute;pointer-events:none;border-radius:50%;z-index:-1;background:radial-gradient(ellipse,transparent 25%,rgba(145,166,222,.21) 53%,rgba(155,196,235,.12) 70%,transparent 76%)}
+.relationship-aura[data-relationship-state="positive"]{background:radial-gradient(ellipse,rgba(255,224,170,.12) 20%,rgba(255,187,107,.5) 55%,rgba(255,211,128,.22) 69%,transparent 78%);animation:relationship-warm 2.5s ease-out both}
+.relationship-heart{position:absolute;display:flex;pointer-events:none;line-height:1;color:#e5a0b6;z-index:2;transform-origin:center bottom}
+.relationship-heart svg{width:100%;height:100%;overflow:visible}
+.relationship-heart[data-relationship-state="lonely"]{color:#a9b5dd}
+.relationship-heart[data-relationship-state="positive"]{color:#f16a83;animation:relationship-heart-pop 2.5s ease-out both}
+@keyframes relationship-heart-pop{0%{opacity:0;transform:scale(.55)}12%,65%{opacity:1;transform:scale(1)}85%{opacity:.85;transform:translateY(var(--relationship-float,-3px)) scale(.94)}100%{opacity:0;transform:translateY(var(--relationship-float,-3px)) scale(.8)}}
+@keyframes relationship-warm{0%{opacity:0;transform:scale(.88)}15%,60%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.04)}}
+@media(prefers-reduced-motion:reduce){.relationship-heart[data-relationship-state="positive"],.relationship-aura[data-relationship-state="positive"]{animation:none}}

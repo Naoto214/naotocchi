@@ -4,6 +4,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
 const { guardedRoute } = require('./helpers/browser-route.cjs');
+const {loadRingBounds,paintedRing,noIntersection,assertApprovedRing}=require('./helpers/marriage-ring-bounds.cjs');
 const { minsForLine } = require('../life-stage-profiles.js');
 
 function measureConversation() {
@@ -22,11 +23,12 @@ function measureConversation() {
   const accessory=document.getElementById('petAccessory');
   if(shown(accessory)) actors.push({id:'item',...rect(accessory)});
   const ring=document.querySelector('#pet .partner-ring');
+  const ringInfo=ring && shown(ring)?(()=>{const style=getComputedStyle(ring),matrix=new DOMMatrixReadOnly(style.transform),origin=style.transformOrigin.split(' ').map(parseFloat),glyph=ring.querySelector('[data-ui-icon="ring"]');return {...rect(ring),baseW:parseFloat(style.width),baseH:parseFloat(style.height),scaleX:matrix.a,scaleY:matrix.d,originX:origin[0],originY:origin[1],glyph:glyph?rect(glyph):null};})():null;
   const bubble=document.getElementById('speechBubble'), speaker=document.getElementById('speechSpeaker');
   return {width:innerWidth,height:innerHeight,visibleHeight:visualViewport?.height || innerHeight,actors,main:actors.find(a=>a.id==='pet'),
     fieldScale:parseFloat(getComputedStyle(document.getElementById('petSprite')).width)/104,
-    ring:ring && shown(ring)?{...rect(ring),fontSize:parseFloat(getComputedStyle(ring).fontSize)}:null,
-    hearts:[...document.querySelectorAll('#pet .partner-heart')].filter(shown).map(rect),
+    ring:ringInfo,
+    hearts:[...document.querySelectorAll('#pet .partner-heart,#pet .partner-emoji .relationship-heart')].filter(shown).map(rect),
     bubble:shown(bubble)?rect(bubble):null,slot:rect(document.getElementById('speechSlot')),
     kind:bubble.dataset.kind,speakerId:bubble.dataset.speakerId,speakerLabel:speaker.dataset.label,
     nameContent:getComputedStyle(speaker,'::after').content,
@@ -48,7 +50,7 @@ function measureConversation() {
 }
 
 module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) {
-  const results=[],failures=[];
+  const results=[],failures=[],ringBounds=await loadRingBounds();
   const scenarios=[
     ['alone',390,760,0,false,false,0],['partner',390,760,0,true,false,0],
     ['one-friend',390,760,1,false,false,0],['friends',390,760,6,false,false,0],
@@ -232,15 +234,18 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
       assert.deepEqual(routeErrors,[],label+': CSS substitution fetch failed');
       assert.equal(!!m.ring,!!save.partner?.married,label+': marriage ring visibility');
       if(m.ring) {
-        assert.ok(m.ring.w>=15 && m.ring.w<=23 && Math.abs(m.ring.h-m.ring.w)<.1,label+': ring size');
+        assertApprovedRing(m.ring,label);
         assert.ok(ringBetween(m),label+': ring leaves the space between the couple');
-        for(const a of [...m.actors,...m.hearts,...m.poops,m.slot]) assert.ok(separated(m.ring,a,2),label+': ring covers '+(a.id||'heart or floor'));
+        const paint=paintedRing(m.ring.glyph,ringBounds);
+        for(const a of m.actors) assert.ok(noIntersection(paint,a),label+': painted ring covers '+a.id);
+        for(const a of [...m.hearts,...m.poops,m.slot]) assert.ok(separated(paint,a,2),label+': painted ring covers heart or floor');
         assert.ok(m.ring.x>=m.stage.x && m.ring.x+m.ring.w<=m.stage.x+m.stage.w && m.ring.y>=m.stage.y,label+': ring leaves the stage');
       }
       return m;
     };
     try {
       await page.goto(baseURL);await page.locator('.device.ui-home-active').waitFor();
+      if(save.partner?.married)await page.evaluate(async src=>{const img=new Image();img.src=src;await img.decode();},ringBounds.image);
       await page.evaluate(()=>Promise.all([document.fonts.ready,...[...document.querySelectorAll('#pet img')].map(img=>img.decode().catch(()=>{}))]));
       await page.clock.runFor(100);
       // Font/image layout can resize the stage after the paused game clock
@@ -314,7 +319,10 @@ module.exports=async function(browser,engine,fixtures,baseURL,output,onlyNames) 
           for(const p of m.poops) for(const a of m.actors) assert.ok(separated(p,a,1),label+': moving '+a.id+' covers poop');
           if(m.ring) {
             assert.ok(ringBetween(m),label+': animated ring leaves the space between the couple');
-            for(const a of [...m.actors,...m.hearts,...m.poops,m.slot]) assert.ok(separated(m.ring,a,2),label+': animated ring covers '+(a.id||'heart or floor'));
+            assertApprovedRing(m.ring,label);
+            const paint=paintedRing(m.ring.glyph,ringBounds);
+            for(const a of m.actors) assert.ok(noIntersection(paint,a),label+': animated painted ring covers '+a.id);
+            for(const a of [...m.hearts,...m.poops,m.slot]) assert.ok(separated(paint,a,2),label+': animated painted ring covers heart or floor');
           }
         }
         assert.ok(Math.max(...positions)-Math.min(...positions)>4,label+': cast did not actually sway');
