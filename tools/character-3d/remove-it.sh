@@ -50,5 +50,5 @@ run "K 立て看板を かくさない(2D と 3D が かさなる)" meguru-3d.mj
       const fp = cp.footprint(a);" "      const fp = cp.footprint(a);"
 run "L #368 の canonical を 無視(住人の きもちを 自前で)" meguru-3d.mjs \
   "(a.expr && a.expr.emotion) || " ""
-run "M stage 差を 一様 scale に(犬 08 = 犬 01 の 数字)" character-3d/spec.js \
-  "        8: { archetype: Q, idlePose: 'sit', body: { len: 1.1, r: 0.37, chest: 1.22, hip: 1.0 }, head: { r: 0.38, squash: 0.9, snout: 0.22, snoutR: 0.17 }, legs: { len: 0.42, r: 0.11 }, neck: 0.12," "        8: { archetype: Q, idlePose: 'lie', body: { len: 0.95, r: 0.42, chest: 1.0, hip: 0.95 }, head: { r: 0.46, squash: 0.92, snout: 0.16, snoutR: 0.17 }, legs: { len: 0.22, r: 0.11 }, neck: 0.08,"
+run "M 成長を 一様 scale だけに(どの 段も 01 の 形を 大きく する だけ)" character-3d/archetypes.mjs \
+  "  return fn(sp, \`\${id}:\${stage}\`);" "  { const r = fn(SPEC.stageSpec(id, (SPEC.STAGE_KEYS[id] || [stage])[0]), \`\${id}:\${stage}\`); r.root.scale.setScalar(1 + (stage - 1) * 0.12); return r; }"

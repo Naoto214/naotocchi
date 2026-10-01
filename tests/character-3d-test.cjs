@@ -270,6 +270,10 @@ test('21. 表情の きりかえで texture / material を つくりなおさな
   assert.equal(rig.atlasCount(), atl); assert.equal(rig.materialCount(), mats);
   assert.ok(rig.stats.eyeGeos <= eyeGeo + 6, '目の 形は 形ごとに 1 つ');
   assert.equal(decalMats.size, 5, '表情 5 つ = 共有 material 5 つ(毎回 つくらない)');
+  // おなじ 顔 style の template は 1 まいの atlas を 共有(species / stage ごとに canvas を ふやさない)
+  const { rt } = await mods();
+  const t1 = rt.getTemplate('dog', 1, 'C'), t8 = rt.getTemplate('dog', 8, 'C');
+  assert.equal(t1.rig.face.decal.userData.atlas, t8.rig.face.decal.userData.atlas, 'dog 01 と 08 は おなじ atlas');
 });
 test('22. actor が いなくなったら 3D を 片づける(住人の despawn・パーティ離脱)', async () => {
   const { p, scene } = await presenter();

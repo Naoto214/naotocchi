@@ -168,7 +168,7 @@ export function createCharacterPresenter(opts = {}) {
       animate(inst, { moving: info.moving, dt: info.dt, animLv });
       inst.accent.visible = !!inst.anim.expr.accent && info.accent !== false;
       inst.accent.position.set(0, inst.tpl.size.y * 1.08 + 0.12 + (inst.meta.hover || 0), 0);
-      inst.accent.scale.setScalar(0.42);
+      inst.accent.scale.setScalar(actorSize * 0.3 / inst.scale);   // しるしは species の 大きさに よらず ゲーム画面で 読める 大きさ
       return true;
     } catch (err) {
       // この actor だけ 2D へ(world renderer は そのまま)
