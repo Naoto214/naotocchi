@@ -153,12 +153,13 @@ test('companion fixed positive stimulates only selected companion; dense lonely 
  assert.equal(cases.find(c=>c.id==='dense-lonely').save.companions.filter(c=>c.bond<30).length,26);
 });
 
-test('ring comparison restores production defaults and only changes ring presentation tokens',()=>{
- const values=new Map([['--unrelated','keep']]);
- const doc={documentElement:{style:{setProperty:(k,v)=>values.set(k,v),removeProperty:k=>values.delete(k)}}};
- bootstrap.applyRingComparison(doc,'legacy');
- assert.equal(values.get('--married-ring-scale'),'1');assert.equal(values.get('--married-ring-tone'),'none');
- for(const size of ['1.15','1.25']){bootstrap.applyRingComparison(doc,size);assert.equal(values.get('--married-ring-scale'),size);assert.equal(values.has('--married-ring-tone'),false);}
- for(const input of ['1.2','invalid','9']){bootstrap.applyRingComparison(doc,input);assert.equal(values.has('--married-ring-scale'),false);assert.equal(values.has('--married-ring-tone'),false);}
- assert.deepEqual([...values],[['--unrelated','keep']]);
+test('heart comparison uses production sizing; ring and other states remain untouched',()=>{
+ const R=require('../relationship-expression.js');
+ for(const variant of ['legacy','1.2','invalid']){
+  const api={...R};bootstrap.applyHeartComparison(api,variant);
+  for(const kind of ['partner','companion'])for(const state of ['normal','lonely','positive']){
+   const expected=R.heartSize(kind,state,52,variant==='legacy'?1:1.2);
+   assert.equal(api.heartSize(kind,state,52),expected);
+  }
+ }
 });

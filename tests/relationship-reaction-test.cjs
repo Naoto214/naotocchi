@@ -18,3 +18,17 @@ test('positive companion layer is raised locally so neighbours cannot hide its o
  assert.match(css,/#pet \.companion-chip-small\[data-relationship-state="positive"\]\s*\{\s*z-index:1\s*\}/);
  assert.doesNotMatch(css,/#pet \.companion-chip-small\[data-relationship-state="(?:normal|lonely)"\]\s*\{\s*z-index:/);
 });
+test('only partner positive heart grows 1.2 times; anchor keeps face gap and stage bounds',()=>{
+ for(const width of [32,52,64,90])for(const kind of ['partner','companion'])for(const state of ['normal','lonely','positive']){
+  const before=state==='positive'?Math.max(16,Math.min(26,width*.4)):Math.max(10,Math.min(15,width*.22));
+  const size=R.heartSize(kind,state,width);
+  assert.equal(size,before*(kind==='partner'&&state==='positive'?1.2:1));
+  assert.equal(R.heartSize(kind,state,width,1),before);
+  for(const x of [0,140,280]){
+   const box=R.heartAnchor({x,y:60,w:width,h:width},{width:320,height:160,size});
+   assert.equal(box.y+box.h,57);assert.ok(box.x>=0&&box.x+box.w<=320);
+  }
+  const top=R.heartAnchor({x:5,y:18,w:width,h:width},{width:320,height:160,size});
+  assert.ok(top.y>=0&&top.y+top.h<=15);
+ }
+});

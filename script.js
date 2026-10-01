@@ -14140,7 +14140,7 @@
       const bounds=RELATIONSHIP_EXPRESSION.ART_BOUNDS[actor.id]||[0,0,128,128];
       const body={x:f.x+f.w*bounds[0]/128,y:f.y+f.h*bounds[1]/128,w:f.w*(bounds[2]-bounds[0])/128,h:f.h*(bounds[3]-bounds[1])/128};
       if(entry.aura){const node=entry.aura;node.style.left=(body.x-f.x-2)+'px';node.style.top=(body.y-f.y-2)+'px';node.style.width=(body.w+4)+'px';node.style.height=(body.h+4)+'px';}
-      if(entry.heart){const size=expression==='positive'?clamp(f.w*.4,16,26):clamp(f.w*.22,10,15);
+      if(entry.heart){const size=RELATIONSHIP_EXPRESSION.heartSize(actor.kind,expression,f.w);
         const box=RELATIONSHIP_EXPRESSION.heartAnchor(body,{width:layout.width,height:layout.height,size});
         const node=entry.heart;node.style.left=(box.x-f.x)+'px';node.style.top=(box.y-f.y)+'px';
         node.style.width=box.w+'px';node.style.height=box.h+'px';node.style.setProperty('--relationship-float',(-Math.min(3,box.y))+'px');}

@@ -62,19 +62,19 @@
   };
   doc.addEventListener('click',onClick,true);
  }
- function applyRingComparison(doc,variant){
-  const style=doc.documentElement.style;
-  style.removeProperty('--married-ring-scale');style.removeProperty('--married-ring-tone');
-  if(variant==='legacy'){style.setProperty('--married-ring-scale','1');style.setProperty('--married-ring-tone','none');}
-  else if(variant==='1.15'||variant==='1.25')style.setProperty('--married-ring-scale',variant);
-  // 1.2 and unknown values use the actual production default, not a QA copy.
+ function applyHeartComparison(api,variant){
+  // A invokes the same production sizing function with its previous multiplier.
+  // B uses the untouched production default. This wrapper exists only in QA.
+  if(variant==='legacy'){
+   const size=api.heartSize;
+   api.heartSize=(kind,expression,width)=>size(kind,expression,width,1);
+  }
  }
  async function boot(w,doc){
   try{
    const cases=JSON.parse(doc.getElementById('qa-cases').textContent),requested=new URLSearchParams(w.location.search).get('case');
    const config=cases.find(c=>c.id===requested)||cases[0];config.save.savedAt=0;
    const params=new URLSearchParams(w.location.search);config.phase=['play','return'].includes(config.mode)?params.get('phase')||'live':'live';config.hearts=params.get('hearts')||'all';
-   applyRingComparison(doc,params.get('ring'));
    await start(w,config,async()=>{
     // Freeze only autonomous growth. Preserve Home animation, timeouts and the
     // production Reaction duration. No production source file is edited.
@@ -82,6 +82,7 @@
     await preloadImages(w,config);
     await activateScripts(doc);
     if(!w.__relationshipQaBridge||!w.__naotocchiBooted)throw Error('Home起動を確認できません');
+    applyHeartComparison(w.NaotocchiRelationshipExpression,params.get('partnerHeart'));
     observeInteractions(w,doc,config);
     w.__relationshipQaBridge.heartMode(config.hearts==='representative'?'representative':'all');
     w.relationshipQa=w.installRelationshipQa(w.__relationshipQaBridge,config,w);
@@ -101,5 +102,5 @@
    w.parent.postMessage({type:'relationship-qa-error',message:e.message},w.location.origin);
   }
  }
- return {memoryStorage,installStorage,start,preloadImages,activateScripts,observeInteractions,applyRingComparison,boot};
+ return {memoryStorage,installStorage,start,preloadImages,activateScripts,observeInteractions,applyHeartComparison,boot};
 });

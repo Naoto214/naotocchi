@@ -44,6 +44,10 @@
   }
   // Owner proximity wins over empty-space searching. Neighbouring cast never
   // pushes a heart sideways; only the stage edges clamp this local anchor.
+  function heartSize(kind,expression,width,partnerPositiveScale=1.2) {
+    const base=expression==='positive'?Math.max(16,Math.min(26,width*.4)):Math.max(10,Math.min(15,width*.22));
+    return base*(kind==='partner'&&expression==='positive'?partnerPositiveScale:1);
+  }
   function heartAnchor(frame,{width,height,size:requested}={}) {
     const size=Math.min(requested || Math.max(16,Math.min(24,frame.w*.38)),Math.max(8,frame.y-3));
     const x=Math.max(0,Math.min(width-size,frame.x+frame.w/2-size/2));
@@ -53,7 +57,7 @@
     return '<svg viewBox="0 0 32 30" aria-hidden="true"><path d="M16 27C12 23 2 17 2 9C2 1 12 0 16 7C20 0 30 1 30 9C30 17 20 23 16 27Z" fill="currentColor" stroke="white" stroke-width="1.4"/>'+
       (expression==='lonely'?'<path class="relationship-heart-crack" d="M17 5L14 11L18 14L15 19" fill="none" stroke="#f6f8ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>':'')+'</svg>';
   }
-  const api={ART_BOUNDS,heartAnchor,heartMarkup,SUPPORTED,REACTION_MS,resolve,companionPositiveIds,createReactions};
+  const api={ART_BOUNDS,heartSize,heartAnchor,heartMarkup,SUPPORTED,REACTION_MS,resolve,companionPositiveIds,createReactions};
   if (typeof module==='object' && module.exports) module.exports=api;
   else root.NaotocchiRelationshipExpression=api;
 })(typeof window!=='undefined'?window:globalThis);

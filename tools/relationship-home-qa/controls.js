@@ -7,17 +7,17 @@
  function size(){const mode=get('viewport').value;const w=mode==='390'?390:mode==='320'?320:window.innerWidth,h=mode==='390'?844:mode==='320'?568:window.innerHeight;frame.style.width=mode==='390'||mode==='320'?w+'px':'100%';frame.style.maxWidth='100%';frame.style.height=h+'px';get('dimensions').textContent=`Home領域：${Math.min(w,window.innerWidth)} × ${h} CSS px（${mode==='device'||!mode?'実機':'基準サイズ'}）`;}
  function load(){
   clearTimeout(pendingTimer);ready=false;const c=cases[index];select.value=c.id;
-  get('hint').textContent=c.hint;get('ring').disabled=!c.id.startsWith('married-');get('phase').disabled=!['play','return'].includes(c.mode);if(get('phase').disabled)get('phase').value='live';get('timing').textContent='';
+  get('hint').textContent=c.hint;get('partner-heart').disabled=!(c.id==='married-positive'||c.id==='forest_bear-positive'||c.id==='rock_octopus-positive');get('phase').disabled=!['play','return'].includes(c.mode);if(get('phase').disabled)get('phase').value='live';get('timing').textContent='';
   get('mode').textContent=get('phase').value&&get('phase').value!=='live'&&['play','return'].includes(c.mode)?'固定比較（lifecycle確認は実遷移を使用）':c.mode==='held'?'固定表示（確認用にReactionを保持）':c.mode==='play'||c.mode==='return'?'遷移確認（正式な2.5秒）':'固定の初期条件（通常操作も可能）';
   get('status').textContent='Homeを読み込み中…';get('run').disabled=true;get('show').disabled=true;
-  frame.src='game.html?case='+encodeURIComponent(c.id)+'&phase='+encodeURIComponent(get('phase').value||'live')+'&hearts='+encodeURIComponent(get('hearts').value||'all')+'&ring='+encodeURIComponent(get('ring').value||'1.2');size();
+  frame.src='game.html?case='+encodeURIComponent(c.id)+'&phase='+encodeURIComponent(get('phase').value||'live')+'&hearts='+encodeURIComponent(get('hearts').value||'all')+'&partnerHeart='+encodeURIComponent(get('partner-heart').value||'1.2');size();
   pendingTimer=setTimeout(()=>{if(!ready)get('status').textContent='読み込みが完了していません。通信状況を確認し「やり直す」を押してください。';},30000);
  }
  function show(){frame.scrollIntoView({block:'start',behavior:'instant'});get('quick-back').hidden=false;}
  function back(){get('controls').scrollIntoView({block:'start',behavior:'instant'});get('quick-back').hidden=true;}
  function syncReturn(){const r=frame.getBoundingClientRect();get('quick-back').hidden=!(r.top<=64&&r.bottom>44);}
  select.addEventListener('change',()=>{index=cases.findIndex(c=>c.id===select.value);load();});
- get('viewport').addEventListener('change',()=>{size();});get('phase').addEventListener('change',load);get('hearts').addEventListener('change',load);get('ring').addEventListener('change',load);
+ get('viewport').addEventListener('change',()=>{size();});get('phase').addEventListener('change',load);get('hearts').addEventListener('change',load);get('partner-heart').addEventListener('change',load);
  get('previous').onclick=()=>{index=(index+cases.length-1)%cases.length;load();};
  get('next').onclick=()=>{index=(index+1)%cases.length;load();};get('reset').onclick=load;
  get('show').onclick=show;get('back').onclick=back;get('quick-back').onclick=back;
