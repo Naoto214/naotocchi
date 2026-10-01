@@ -173,7 +173,8 @@ test('3c. せかいは 3D・キャラだけ 2D: けしきの 物に 立て看板
   assert.ok(glow.parts.some((pt) => pt.shape === 'glowcap' && pt.dx == null) && glow.parts.some((pt) => pt.shape === 'glowdisc'), 'ひかる きのこ は ひかる かさ と 足もとの 光');
   assert.ok(glow.parts.filter((pt) => pt.shape === 'glowcap').length >= 4, 'まわりにも ひかる 小さな きのこ');
   // event の 対象(spot の しるし・ランドマーク)は 名まえ どおりの かたち
-  const spotObjs = objs.objects.filter((ob) => w3.props[ob.pi].spot || w3.props[ob.pi].landmark);
+  // 2026-10-01 AD v1: 群生の 植生(dressing)は props に ない 3D だけの 物(pi なし)なので ここでは 見ない
+  const spotObjs = objs.objects.filter((ob) => !ob.dressing && (w3.props[ob.pi].spot || w3.props[ob.pi].landmark));
   assert.ok(spotObjs.length >= 15, 'spot の しるし ' + spotObjs.length);
   const WANT = { '🌉': ['plank', 'slab', 'log'], '🪧': ['post'], '🪵': ['log'], '🍄': ['stem'], mushroomcluster: ['stem'], '🌳': ['trunk'], '🪨': ['mound', 'rock'], bigrock: ['mound', 'rock'],   /* 2026-10-01 Kit v2(Rock v2): 岩は ごつごつの かたまり(mound) */ log: ['log'], springpool: ['pool'], '🌼': ['flower'], 'LM:bigtree': ['trunk'], 'LM:waterfall': ['cliff'], 'LM:glowmushroom': ['glowcap'] };
   for (const ob of spotObjs) { const want = WANT[ob.kind]; assert.ok(want, 'spot の しるし ' + ob.kind + ' の きまり'); assert.ok(ob.parts.some((pt) => want.includes(pt.shape)), ob.kind + ' → ' + want.join('/')); }
@@ -335,7 +336,8 @@ test('9. 全地域: 3D profile が あり、意味の 表で ぜんぶ 解決し
       if (['🏠', '🏡', '🏪', 'house', 'farmhouse', 'barn', 'building', '🏢', '🏬'].includes(k)) assert.ok(ob.parts.some((pt) => pt.shape === 'box') && ob.parts.some((pt) => pt.shape === 'roof' || pt.shape === 'box'), rid + ' たてもの ' + k);
     }
     // ランドマークは ぜんぶ 見た目が あり、あたり = いち
-    for (const ob of o.objects.filter((q) => w.props[q.pi].landmark)) { assert.ok(ob.parts.length >= 1, rid + ' ランドマーク ' + ob.kind); assert.ok(ob.collision && ob.x === ob.collision.x, rid + ' ランドマークの あたり ' + ob.kind); }
+    // 2026-10-01 AD v1: 群生の 植生(dressing)は props に ない 3D だけの 物(pi なし)
+    for (const ob of o.objects.filter((q) => !q.dressing && w.props[q.pi].landmark)) { assert.ok(ob.parts.length >= 1, rid + ' ランドマーク ' + ob.kind); assert.ok(ob.collision && ob.x === ob.collision.x, rid + ' ランドマークの あたり ' + ob.kind); }
     // 2D は かわらない: 3D モードで ふえた / へった props は 3D だけ
     const w2d = M.buildWorld(rid, reg, {});
     assert.ok(!w2d.world3d && !w2d.props.some((p) => p.moved3d || p.drop3d || p.satellite3d || p.collider3d), rid + ' 2D に 3D の しるし なし');

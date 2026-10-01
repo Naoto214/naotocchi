@@ -213,8 +213,11 @@ function rgbOf(hex) { const c = hex instanceof THREE.Color ? hex : new THREE.Col
 // ---------------------------------------------------------------- 3D レンダラー
 function hash01(s) { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return ((h >>> 0) % 10000) / 10000; }
 const LITTER = new Set(['🍂', '🍃', '🍁', '🌰', '🌱']);
-const SEASON_CROWN = { spring: '#6fae55', summer: '#3f8a3c', autumn: '#c7843a', winter: '#8aa39a' };
-const SEASON_CONIFER = { spring: '#2f6b3f', summer: '#27603a', autumn: '#2f5e3c', winter: '#3d5f52' };
+// Art Direction v1: 葉の いろ = 地域の palette(instance color・明 / 中 / 暗 の 3 段)× 季節の tint(material。夏 = そのまま)
+const SEASON_CROWN = { spring: '#e6ffd6', summer: '#ffffff', autumn: '#f6c47c', winter: '#cfdcd2' };
+const SEASON_CONIFER = { spring: '#dcf2e0', summer: '#ffffff', autumn: '#e6f0e2', winter: '#d2dedb' };
+const FOLIAGE_DEFAULT = { crown: ['#4a9a44', '#5fb353', '#82cc62'], conifer: ['#2f6b3f', '#3b7f4a', '#4f9a5a'] };
+const shadeOf = (list, k) => list[Math.max(0, Math.min(list.length - 1, k == null ? 1 : k))];
 
 function create3DRenderer(M, o, onLost) {
   const canvas2d = o.canvas;
@@ -307,6 +310,14 @@ function create3DRenderer(M, o, onLost) {
     const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2)); g.setIndex(idx); g.computeVertexNormals(); g.translate(0, -0.5, 0);
     return g;
   }
+  // ヤシ / シダの は(Art Direction v1): 根もとから 先へ のびる 平らな は。先へ ほそり、たれる(y が さがる)。両面。x 方向に 長さ 1・幅 1 を scale する
+  function frondGeometry() {
+    const N = 6, pos = [], idx = [];
+    for (let i = 0; i <= N; i++) { const t = i / N, w = 0.5 * Math.sin(Math.min(1, t * 1.25) * Math.PI) * 0.9 + 0.05, y = -t * t; pos.push(t, y, -w, t, y, w); }
+    for (let i = 0; i < N; i++) { const a = i * 2; idx.push(a, a + 2, a + 1, a + 1, a + 2, a + 3); }
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx); g.computeVertexNormals();
+    return g;
+  }
   // 波の すじ(Water v2): 白地に うすい すじ。vertex color(あさい / ふかい)に かける。くりかえし・ずらして ながす
   function waveTexture() {
     const c = doc.createElement('canvas'); c.width = c.height = 128;
@@ -375,6 +386,7 @@ function create3DRenderer(M, o, onLost) {
   function buildWorldScene(world) {
     const sc = new THREE.Scene();
     const { objects } = M.worldObjects3d(world);
+    const prof0 = (M.REGION3D && M.REGION3D[world.corridor ? world.chartFrom : world.regionId]) || null;
     const lo = world.minX != null ? world.minX : -world.halfW, hi = world.maxX != null ? world.maxX : world.halfW;
     const disposables = [];
     const keep = (x) => { disposables.push(x); return x; };
@@ -435,7 +447,7 @@ function create3DRenderer(M, o, onLost) {
     const GEO = {
       trunk: up(new THREE.CylinderGeometry(0.72, 1, 1, 7)), cone: up(new THREE.ConeGeometry(1, 1, 8)), crown: keep(new THREE.IcosahedronGeometry(1, 1)),
       // Kit v2: ほそる 幹(taper 0.5)・えだはりの 小さな かたまり(20 三角形)・曲がった 昆布の は(帯)
-      trunk2: up(new THREE.CylinderGeometry(0.5, 1, 1, 7)), crownSmall: keep(new THREE.IcosahedronGeometry(1, 0)), kelpblade: up(kelpBladeGeometry()),
+      trunk2: up(new THREE.CylinderGeometry(0.5, 1, 1, 7)), crownSmall: keep(new THREE.IcosahedronGeometry(1, 0)), kelpblade: up(kelpBladeGeometry()), frond: keep(frondGeometry()),
       cap: keep(new THREE.SphereGeometry(1, 6, 3, 0, TAU, 0, Math.PI / 2)), rock: (() => { const g = new THREE.DodecahedronGeometry(1, 0); g.scale(1, 1, 1); g.translate(0, 0.35, 0); return keep(g); })(),
       log: (() => { const g = new THREE.CylinderGeometry(1, 1, 1, 8); g.rotateZ(Math.PI / 2); g.translate(0, 1, 0); return keep(g); })(), stump: up(new THREE.CylinderGeometry(0.9, 1, 1, 9)),
       pool: (() => { const g = new THREE.CircleGeometry(1, 24); g.rotateX(-Math.PI / 2); g.translate(0, 2.4, 0); return keep(g); })(), plank: up(new THREE.BoxGeometry(1, 1, 1)), fall: up(new THREE.PlaneGeometry(1, 1)),
@@ -448,7 +460,7 @@ function create3DRenderer(M, o, onLost) {
       foam: keep(new THREE.CircleGeometry(1, 16).rotateX(-Math.PI / 2).translate(0, 3.2, 0)), wet: keep(new THREE.CircleGeometry(1, 24).rotateX(-Math.PI / 2).translate(0, 1.0, 0)), mist: keep(new THREE.IcosahedronGeometry(1, 1)), litter: keep(new THREE.PlaneGeometry(1, 1).rotateX(-Math.PI / 2).translate(0, 1.6, 0)),
     };
     const flat = (color) => keep(new THREE.MeshLambertMaterial({ color, flatShading: true }));
-    const MAT = { trunk: flat('#6b4b32'), cone: flat('#2f6b3f'), crown: flat('#4f9a47'), rock: flat('#8c8f8a'), log: flat('#7a5436'), stump: flat('#8a6440'),
+    const MAT = { trunk: flat('#7a5536'), cone: flat('#ffffff'), crown: flat('#ffffff'), rock: flat('#8c8f8a'), log: flat('#7a5436'), stump: flat('#8a6440'),
       pool: keep(new THREE.MeshPhongMaterial({ map: keep(waterTexture()), transparent: true, opacity: 0.92, shininess: 70, specular: '#d8ecff' })), shore: keep(new THREE.MeshLambertMaterial({ color: new THREE.Color(world.ground[1]).multiplyScalar(0.62) })),
       cliff: keep(new THREE.MeshLambertMaterial({ map: keep(cliffTexture()), color: '#a9a8a0' })), moss: flat('#5f8c46'), plank: flat('#9a7550'),
       fall: keep(new THREE.MeshLambertMaterial({ map: keep(fallTexture()), transparent: true, opacity: 0.9, side: THREE.DoubleSide, depthWrite: false })),
@@ -460,12 +472,13 @@ function create3DRenderer(M, o, onLost) {
       leaf: keep(new THREE.MeshLambertMaterial({ color: '#b8743c', side: THREE.DoubleSide })), nut: flat('#7a4f2a'), spark: keep(new THREE.MeshBasicMaterial({ color: '#fff3a6', transparent: true, opacity: 0.9 })),
       post: flat('#7a5a3a'), board: flat('#c9a46a'), wbox: flat('#ffffff'), wroof: flat('#ffffff'), wdome: flat('#ffffff'), wblade: flat('#ffffff'), wcone: flat('#ffffff'), wpost: flat('#ffffff'), wslab: flat('#ffffff'), wstem: flat('#ffffff'), wring: flat('#ffffff'),
       glowcone: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 0.45 })), glowboard: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 0.6 })), decal: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', transparent: true, opacity: 0.8, depthWrite: false })), kelp: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', side: THREE.DoubleSide })), slab: flat('#9c9c94'), rail: flat('#8a6a44'), pebble: flat('#8d8a80'), mound: keep(new THREE.MeshLambertMaterial({ map: keep(cliffTexture()), color: '#a9a8a0' })), mist: keep(new THREE.MeshBasicMaterial({ color: '#f2f8fb', transparent: true, opacity: 0.24, depthWrite: false })) };
-    const GEO_ALIAS = { crownBig: 'crown', kelp: 'kelpblade', glowcap: 'cap', slab: 'plank', rail: 'log', leaf: 'litter', spark: 'nut', wbox: 'box', wdome: 'cap', wblade: 'blade', wcone: 'blade', wpost: 'post', wslab: 'plank', wstem: 'stem', wring: 'ring', glowcone: 'blade', glowboard: 'board', wroof: 'roof4', wcone4: 'wcone4', wcone6: 'wcone6', roof6: 'roof6', roof8: 'roof8' };
-    const MAT_ALIAS = { trunk2: 'trunk', crownSmall: 'crown', wcone4: 'wcone', wcone6: 'wcone', roof6: 'wroof', roof8: 'wroof', roof4: 'wroof', glowcone6: 'glowcone', glowcone4: 'glowcone' };
+    const GEO_ALIAS = { crownBig: 'crown', kelp: 'kelpblade', frond: 'frond', glowcap: 'cap', slab: 'plank', rail: 'log', leaf: 'litter', spark: 'nut', wbox: 'box', wdome: 'cap', wblade: 'blade', wcone: 'blade', wpost: 'post', wslab: 'plank', wstem: 'stem', wring: 'ring', glowcone: 'blade', glowboard: 'board', wroof: 'roof4', wcone4: 'wcone4', wcone6: 'wcone6', roof6: 'roof6', roof8: 'roof8' };
+    const MAT_ALIAS = { trunk2: 'trunk', crownSmall: 'crown', frond: 'kelp', wcone4: 'wcone', wcone6: 'wcone', roof6: 'wroof', roof8: 'wroof', roof4: 'wroof', glowcone6: 'glowcone', glowcone4: 'glowcone' };
     const inst = {};   // shape → [{ x, y, z, sx, sy, sz, ry, tint, color }]
     const board = new Map();   // emoji → [{ x, z, w, h }]
     const occluders = [];   // かたい 物(カメラと player の あいだに 入ったら すかす)
     let cur = null;
+    const FOL = Object.assign({}, FOLIAGE_DEFAULT, (prof0 && prof0.foliage) || {});   // 地域の 葉の palette(Art Direction v1)
     // 水・あわ・しぶき・ひらたい 石は すかさない(かたい 物では ない)
     const NO_FADE = new Set(['pool', 'shore', 'foam', 'mist', 'fall', 'wet', 'glowdisc', 'spark', 'decal']);
     const push = (shape, it) => {
@@ -489,8 +502,8 @@ function create3DRenderer(M, o, onLost) {
         const px = ob.x + (pt.dx || 0), pz = -(ob.z + (pt.dz || 0));
         switch (pt.shape) {
           case 'trunk': push(pt.taper != null && pt.taper < 0.65 ? 'trunk2' : 'trunk', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
-          case 'cone': push('cone', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t }); break;
-          case 'crown': push(pt.small ? 'crownSmall' : ob.type === 'bigtree' ? 'crownBig' : 'crown', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r * pt.sy, sz: pt.r, ry: t * TAU + (pt.spin || 0), tint: t, color: pt.color }); break;
+          case 'cone': push('cone', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color || shadeOf(FOL.conifer, pt.shade) }); break;
+          case 'crown': push(pt.small ? 'crownSmall' : ob.type === 'bigtree' ? 'crownBig' : 'crown', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r * pt.sy, sz: pt.r, ry: t * TAU + (pt.spin || 0), tint: t, color: pt.color || shadeOf(FOL.crown, pt.shade) }); break;
           case 'cap': push('cap', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r * pt.sy, sz: pt.r, ry: 0, tint: t }); break;
           case 'rock': push('rock', { x: px, y: 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: ry + t, tint: t }); break;
           case 'log': push('log', { x: px, y: pt.y || 0, z: pz, sx: pt.len, sy: pt.r, sz: pt.r, ry: pt.ang != null ? Math.PI / 2 - pt.ang : ry, tint: t, color: pt.color }); break;
@@ -513,11 +526,11 @@ function create3DRenderer(M, o, onLost) {
           case 'stem': push('stem', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t }); break;
           case 'glowcap': push('glowcap', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r * pt.sy, sz: pt.r, ry: t * TAU, tint: 0.5 }); break;
           case 'glowdisc': push('glowdisc', { x: px, y: 0, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: 0, tint: 0.5, color: pt.color }); break;
-          case 'blade': push('blade', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t }); break;
+          case 'blade': push('blade', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
           case 'leaf': push('leaf', { x: px, y: 0, z: pz, sx: pt.w * 0.5, sy: 1, sz: pt.w * 0.3, ry: t * TAU, tint: t }); break;
           case 'nut': push('nut', { x: px, y: pt.r * 0.5, z: pz, sx: pt.r, sy: pt.r * 0.8, sz: pt.r, ry: t * TAU, tint: t }); break;
           case 'spark': push('spark', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); break;
-          case 'flower': push('blade', { x: px, y: 0, z: pz, sx: 2.5, sy: pt.h, sz: 2.5, ry: 0, tint: t }); push('petal', { x: px, y: pt.h, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); break;
+          case 'flower': push('blade', { x: px, y: 0, z: pz, sx: 3, sy: pt.h, sz: 3, ry: 0, tint: t, color: '#5fae4c' }); push('petal', { x: px, y: pt.h, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); push('nut', { x: px, y: pt.h + 1.5, z: pz, sx: pt.r * 0.28, sy: pt.r * 0.2, sz: pt.r * 0.28, ry: 0, tint: 0.5, color: '#ffe066' }); break;
           case 'petal': push('petal', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); break;
           case 'post': push('post', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t }); break;
           case 'board': push(pt.glow ? 'glowboard' : 'board', { x: px, y: pt.y, z: pz, sx: pt.w, sy: pt.h, sz: 1, ry: pt.spin != null ? pt.spin : Math.PI - pt.ang, tint: t, color: pt.color, rz: pt.spin != null ? pt.spin : 0 }); break;   // いたは 道の むきを 向く
@@ -531,6 +544,8 @@ function create3DRenderer(M, o, onLost) {
           // lean: その 向き(せかいの 角度 a)へ たおす(ヤシの は)。three の y 回転 θ は cosθ = −sin a・sinθ = −cos a、傾きは z 回転
           case 'wblade': push('wblade', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: pt.lean != null ? Math.atan2(-Math.cos(pt.lean), -Math.sin(pt.lean)) : t * TAU, rz: pt.lean != null ? (pt.tilt || 0.95) : 0, tint: t, color: pt.color }); break;
           case 'kelp': push('kelp', { x: px, y: pt.y || 0, z: pz, sx: pt.w, sy: pt.h, sz: 1, ry: pt.spin != null ? pt.spin : t * TAU, rz: 0, tint: t, color: pt.color }); break;
+          // frond: 根もと (px, pz) から せかいの 向き dir へ len だけ のびる は。y 回転 θ: x 軸を (sin dir, cos dir) へ → θ = atan2(-cos dir, sin dir)... three の z は −z なので θ = dir − π/2 を x 軸基準に
+          case 'frond': push('frond', { x: px, y: pt.y || 0, z: pz, sx: pt.len, sy: pt.len * (pt.droop || 0.5), sz: pt.w, ry: Math.PI / 2 - pt.dir, rz: 0, tint: t, color: pt.color }); break;
           case 'wcone': push(pt.glow ? 'glowcone' : pt.seg === 4 ? 'wcone4' : pt.seg === 6 ? 'wcone6' : 'wcone', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
           case 'wpost': push('wpost', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: 0, tint: t, color: pt.color }); break;
           case 'wstem': push('wstem', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: 0, tint: t, color: pt.color }); break;
@@ -601,13 +616,13 @@ function create3DRenderer(M, o, onLost) {
       water.ponds = discs.length;
     }
     const meshes = {};
-    MAT.crownBig = flat('#3f7f3c');
+    MAT.crownBig = flat('#ffffff');
     for (const shape of Object.keys(inst)) {
       const list = inst[shape], geo = GEO[GEO_ALIAS[shape] || shape], matKey = MAT_ALIAS[shape] || shape;
       const m = new THREE.InstancedMesh(geo, MAT[matKey], list.length);
       list.forEach((it, i) => {
         tmp.position.set(it.x, it.y, it.z); tmp.rotation.set(it.rx || 0, it.ry, it.rz || 0); tmp.scale.set(it.sx, it.sy, it.sz); tmp.updateMatrix(); m.setMatrixAt(i, tmp.matrix);
-        if (it.color) m.setColorAt(i, col.set(it.color).multiplyScalar(0.9 + it.tint * 0.2)); else m.setColorAt(i, col.setScalar(0.86 + it.tint * 0.28));
+        if (it.color) m.setColorAt(i, col.set(it.color).multiplyScalar(0.94 + it.tint * 0.12)); else m.setColorAt(i, col.setScalar(0.9 + it.tint * 0.2));
       });
       m.computeBoundingSphere();
       sc.add(m); meshes[shape] = m;
@@ -631,8 +646,9 @@ function create3DRenderer(M, o, onLost) {
       boards.push(m); sc.add(m);
     }
     // ひかり・そら・きり(env と mood で まいフレーム かえる)
-    const hemi = new THREE.HemisphereLight('#dff0ff', world.ground[1], 1.2), sun = new THREE.DirectionalLight('#ffffff', 1.4);
-    sun.position.set(-0.5, 1, 0.35); sc.add(hemi); sc.add(sun);
+    // Art Direction v1: 明るく やわらかい ひかり。半球光(空 / 地面)+ 環境光 を つよめ、太陽の コントラストは よわめる(木陰でも かたちが 読める・黒く つぶれない)
+    const hemi = new THREE.HemisphereLight('#eaf4ff', new THREE.Color(world.ground[0]).lerp(new THREE.Color('#ffffff'), 0.35), 1.7), sun = new THREE.DirectionalLight('#fff6e8', 1.0), amb = new THREE.AmbientLight('#ffffff', 0.3);
+    sun.position.set(-0.45, 1, 0.5); sc.add(hemi); sc.add(sun); sc.add(amb);
     sc.fog = new THREE.Fog('#dff0ff', 700, 3200);
     // キャラ(player・なかま・住人)と かげ
     const actorGeo = up(new THREE.PlaneGeometry(1, 1));
@@ -642,7 +658,7 @@ function create3DRenderer(M, o, onLost) {
     const ghostMat = {}; for (const k of Object.keys(MAT)) { ghostMat[k] = keep(MAT[k].clone()); ghostMat[k].transparent = true; ghostMat[k].opacity = 0.28; ghostMat[k].depthWrite = false; }
     const ghostGeo = (shape) => GEO[GEO_ALIAS[shape] || shape];
     for (const k of Object.keys(MAT_ALIAS)) ghostMat[k] = ghostMat[MAT_ALIAS[k]];
-    return { sc, hemi, sun, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null, refreshGround, water, waterAnim,
+    return { sc, hemi, sun, amb, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null, refreshGround, water, waterAnim,
       occluders, hidden: new Set(), ghostPool: [], ghostStat: { visible: 0, attached: 0, total: 0 }, ghostMat, ghostGeo, inst, anim: { fall: MAT.fall.map, foam: MAT.foam, mist: MAT.mist, spark: MAT.spark }, prof };
   }
 
@@ -688,7 +704,7 @@ function create3DRenderer(M, o, onLost) {
     // ひかり(時間・天気・場所の きぶん)。2D の TIME_LIGHT / WEATHER_LIGHT を そのまま つかう
     const TL = M.TIME_LIGHT[env.time] || M.TIME_LIGHT.day, wl = M.WEATHER_LIGHT[env.weather] || 1;
     const light = Math.max(0.35, TL.light * wl * (mood.light || 1));
-    built.hemi.intensity = 1.25 * light; built.sun.intensity = 1.5 * light * (env.weather === 'sunny' ? 1 : 0.55);
+    built.hemi.intensity = 1.7 * light; built.sun.intensity = 1.0 * light * (env.weather === 'sunny' ? 1 : 0.6); built.amb.intensity = 0.3 * light;
     built.hemi.color.set(TL.sky[1]); built.sun.color.set(TL.tint);
     // そら: 2D と おなじ 2 色の たてグラデーション。きり: 地平の いろに 場所の きぶんの いろ(mood.tint)を まぜる
     const skyKey = TL.sky[0] + TL.sky[1];
@@ -714,7 +730,7 @@ function create3DRenderer(M, o, onLost) {
     // player の まわりが きりの いろ 1 色に なって いた)。近端も player より 手前には しない
     const playerDist = Math.hypot(camera.position.x - view.player.x, camera.position.y, camera.position.z + view.player.z);
     built.sc.fog.near = Math.max(fr[0] * fogK, playerDist * 0.9); built.sc.fog.far = Math.max(fr[1] * fogK / (1 + (mood.fog || 0) * 3), playerDist + 900);
-    if (pf.underwater) { built.sc.background = fogC.clone(); built.hemi.intensity *= 0.6; built.sun.intensity *= 0.4; }
+    if (pf.underwater) { built.sc.background = fogC.clone(); built.hemi.intensity *= 0.7; built.sun.intensity *= 0.4; built.amb.intensity *= 0.6; }
     // 季節: 広葉樹の 葉の いろ
     const sk = env.season || 'summer';
     if (built.seasonKey !== sk) { built.seasonKey = sk; if (built.meshes.crown) built.meshes.crown.material.color.set(SEASON_CROWN[sk] || SEASON_CROWN.summer); if (built.meshes.cone) built.meshes.cone.material.color.set(SEASON_CONIFER[sk] || SEASON_CONIFER.summer); }

@@ -340,7 +340,7 @@ test('v2-14. Kit v2 の 原型: 昆布は 曲がった は(木 / 柱では な�
   assert.ok(trees.every((o) => o.parts.filter((pt) => pt.shape === 'crown').length >= 2 && o.parts[0].shape === 'trunk' && o.parts[0].taper < 0.8), '木 = ほそる 幹 + かたまり 2 つ いじょう');
   assert.ok(new Set(trees.map((o) => o.parts.filter((pt) => pt.shape === 'crown').length)).size >= 2, 'かたまりの 数は 木ごと');
   const palms = objsOf('sea').filter((o) => o.type === 'palm');
-  assert.ok(palms.length && palms.every((o) => o.parts.filter((pt) => pt.shape === 'wblade' && pt.lean != null).length >= 6), 'ヤシの は は たおれる');
+  assert.ok(palms.length && palms.every((o) => o.parts.filter((pt) => pt.shape === 'frond' && pt.dir != null).length >= 5), 'ヤシの は は 放射状の 平らな は 5〜8 まい(2026-10-01 AD v1: frond)');
 });
 
 test('v2-15. Region Profile v2: 13 地域 ぜんぶに family(terrain / veg / arch / water / density / landmark / sky)。まちは palette で ビルの いろ と 階数が ばらつき、電柱が ある', () => {
