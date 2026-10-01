@@ -185,3 +185,15 @@ test('married ring preserves exact layout coordinates through every partner expr
  h.api.reinforceRelationship();h.api.render();assert.deepEqual(position(),before);
  p.affection=20;h.advance(2501);assert.deepEqual(position(),before);
 });
+
+for(const affection of [20,50])test(`reload reconstructs marriage ring from existing married flag at affection ${affection}`,()=>{
+ const data=new Map(),storage={getItem:k=>data.get(k)||null,setItem:(k,v)=>data.set(k,v),removeItem:k=>data.delete(k)};
+ const h=harness({storage}),p=partner(h,'forest_bear',affection);p.married=true;
+ setup(h,{partner:p});h.api.reinforceRelationship();p.affection=affection;h.api.saveState();
+ const saved=JSON.parse(data.get('naotocchi-save-v1'));assert.equal(saved.partner.married,true);
+ assert.doesNotMatch(JSON.stringify(saved),/married-ring|ringScale|ringTone/);
+ const fresh=harness({storage,resume:true});fresh.api.render();
+ assert.match(fresh.get('partnerCompanion').innerHTML,/class="partner-ring"/);
+ assert.equal(fresh.get('partnerCompanion').querySelector('.partner-emoji').dataset.relationshipState,affection<30?'lonely':'normal');
+ fresh.api.state().partner.married=false;fresh.api.render();assert.doesNotMatch(fresh.get('partnerCompanion').innerHTML,/class="partner-ring"/);
+});
