@@ -650,16 +650,26 @@
     // **きろくは レベルに かかわらず これまで どおり** 全部の spot で とる。
     // かえるのは「しらせるか どうか」だけ。探索率・地図・セーブは 1つも かわらない
     const FOUND_PLAIN_PROP = new Set(['🪧', '🚦']);   // どの みちにも ある 道しるべ・信号
+    // はっけんの つよさ(全地域 共通の きまり): 3 = ランドマーク / ひみつ(「みつけた！」)、2 = その ばしょ だけの もの が ある(「○○が ある」と かるく)、
+    // 1 = ふつうの 水べ・通過点(しらせ なし。左上の なまえ だけ)、0 = なにも ない。きろく(recordSpot)は つよさに よらず いままで どおり
     function spotDiscoveryLevel(s) {
       if (!s) return 0;
       if (s.secret || s.landmark) return 3;
-      if (s.kind === 'water') return 2;                 // 半径いっぱいの みずたまりが えがかれる
+      if (s.kind === 'water') return s.prop && !FOUND_PLAIN_PROP.has(s.prop) ? 2 : 1;   // ふつうの 池 は しずかに(しるしの ある 水べ だけ かるく)
       // view: その ばしょ だけの けしきを もつ(みはらし など)。画面を 見て わかる
       if (s.view && s.view.length) return 2;
       if (!s.prop || FOUND_PLAIN_PROP.has(s.prop)) return 0;
       // SPOT_PROP_STRUCT が null の もの(🌊 / 🌫️)は **なにも おかれない**(地域の 主役に まかせる)
       if (Object.prototype.hasOwnProperty.call(SPOT_PROP_STRUCT, s.prop) && !SPOT_PROP_STRUCT[s.prop]) return 0;
       return 2;
+    }
+    // しらせの 文(つよさ ごと)。null = しらせ なし。きろく とは べつ
+    function discoveryNotice(s) {
+      const lv = spotDiscoveryLevel(s);
+      if (lv < 2) return null;
+      if (s.secret) return { kind: 'secret', icon: '🔍', title: 'ひみつのばしょを みつけた！' };
+      if (s.landmark) return { kind: 'landmark', icon: '✨', title: `${s.label}を みつけた！` };
+      return { kind: 'spot', icon: '', title: `${s.label}が ある` };   // かるく(「みつけた」は ランドマーク だけ)
     }
     // ---- Three.js の レンダラーから よむ ための「いみ」 ----
     // canvas は いろと かたちで えがくが、3D では「これは 地形か・たてものか・木か・水か・光か」で
@@ -8191,7 +8201,7 @@
       // 住民に ちかづいた ことは はっけん では ない(下の「はなす」だけ)。
       // めじるし(mark)は かずが 多く、ちずに のる だけ なので しらせない。
       const FOUND_RANK = { secret: 1, landmark: 2, link: 3, zone: 4, spot: 5 };
-      const FOUND_MS = { secret: 2400, landmark: 2000, link: 1800, zone: 1600, spot: 1500 };
+      const FOUND_MS = { secret: 2400, landmark: 2000, link: 1800, zone: 1600, spot: 1100 };   // ふつうの spot の かるい しらせは みじかく
       const FOUND_STRONG = { secret: true, landmark: true };   // すこし つよい えんしゅつ に する もの
       const FOUND_GAP = 180;          // つぎの しらせ までの あいだ(かさならない ように)
       const FOUND_MAX = 4;            // ためこむ かず。これ いじょうは よわい ものから すてる
@@ -8253,14 +8263,11 @@
         if (typeof S.recordSpot === 'function') S.recordSpot(rid, s.id);
         mapAdded = true;                                   // きろくは どの spot でも これまで どおり
         // 目じるしの ない 通過点では しらせない。どこに いるかは 左上の チップが 出しつづける
-        if (spotDiscoveryLevel(s) > 0) {
-          const kind = s.secret ? 'secret' : s.landmark ? 'landmark' : 'spot';
+        const dn = discoveryNotice(s);
+        if (dn) {
           const note = mapNote();
-          queueFound({ key: `spot:${rid}:${s.id}`, kind, region: rid,
-            icon: s.secret ? '🔍' : s.landmark ? '✨' : '',
-            // ひみつは 「ひみつを みつけた」かんじ を さきに。なまえは その した に そえる
-            title: s.secret ? 'ひみつのばしょを みつけた！' : `${s.label}を みつけた${s.landmark ? '！' : ''}`,
-            sub: s.secret ? [s.label, note].filter(Boolean).join('・') : note });
+          queueFound({ key: `spot:${rid}:${s.id}`, kind: dn.kind, region: rid, icon: dn.icon, title: dn.title,
+            sub: s.secret ? [s.label, note].filter(Boolean).join('・') : note });   // ひみつは なまえを その した に そえる
         }
         for (const id of newLinksFor(s.id)) {
           const c = WORLD_GEOGRAPHY.connections.find((q) => q.id === id); if (!c) continue;
@@ -9227,6 +9234,6 @@
 
     return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, EMOJI_VARY, emojiVary, RIVERMIST_STOPS, NIGHT_LIFT, LEAF_NIGHT, HORIZON_HAZE, LANDMARK_NEAR, landmarkNearAlpha, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_SHIFT, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK, WORLD_THEME, WORLD_MOTION, WORLD_SPACE, REGION_LINE, SKY_OVERRIDE, GEO_AREA, GEO_ASPECT,
       // 3D prototype(meguru-3d.mjs が つかう。2D では つかわない)
-      WORLD3D_REGIONS, REGION3D, SEM3D, HIDDEN3D, LANDMARK3D_TYPE, world3dOn, relocateRoadSolids3d, worldObjects3d, objectType3d, OBJ3D_HEAD, ACTOR_SIZE, glyphSprite, imageFor, TIME_LIGHT, WEATHER_LIGHT, VERBS };
+      WORLD3D_REGIONS, REGION3D, SEM3D, HIDDEN3D, LANDMARK3D_TYPE, discoveryNotice, world3dOn, relocateRoadSolids3d, worldObjects3d, objectType3d, OBJ3D_HEAD, ACTOR_SIZE, glyphSprite, imageFor, TIME_LIGHT, WEATHER_LIGHT, VERBS };
   };
 })();
