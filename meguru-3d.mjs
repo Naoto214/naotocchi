@@ -144,11 +144,13 @@ function create3DRenderer(M, o, onLost) {
       if (c && c !== t.src) { t.src = c; t.tex.image = c; t.tex.needsUpdate = true; }
     }
   }
-  // キャラの PNG(読みこみ前は 絵文字で まつ。読めたら さしかえる)
+  // キャラの PNG(読みこみ前は 絵文字で まつ。読めたら さしかえる)。
+  // 表情(sprite.asset)は 2D と おなじ spriteFor から くる(きもちの 名まえは ここに ない)。表情の えが まだ よめない あいだは base(ふつう)の
+  // texture。texture は asset ごとに 1 まい だけ つくって つかいまわす(表情が かわっても decode しなおさず、map を さしかえる だけ)
   function actorTexture(a) {
     const s = M.spriteFor(a, 'front');
-    const asset = s && s.asset;
-    if (asset) {
+    for (const asset of [s && s.asset, s && s.base]) {
+      if (!asset) continue;
       const key = 'a:' + asset;
       if (texCache.has(key)) return texCache.get(key);
       const im = M.imageFor(asset);

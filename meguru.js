@@ -37,6 +37,9 @@
     // 本体が ない(めぐるだけの テスト)ときは これまでどおり。save の regionId は ここでは 書きかえない
     const regionOf = (id, site) => (typeof S.resolveRegionId === 'function' ? S.resolveRegionId(id, site) : (id || 'home'));
     const canonicalRegion = (id) => (typeof S.canonicalRegionId === 'function' ? S.canonicalRegionId(id) : id);
+    // Resident Expression System(resident-expression.js)。住民の きもち → 表情 の 正本は あちら。
+    // ここ(せかい / レンダラー)は emotion の 名まえを 知らない。モジュールが ない / フラグ off なら 表情は つかわず base の 絵
+    const residentExpression = () => root.NaotocchiResidentExpression || null;
     // らんすう。ふだんは Math.random そのもの。テストだけ たねを 入れかえて、
     // おなじ ながれを なんども ためせる ように する(ほんばんは これまでどおり)
     let RANDOM = Math.random;
@@ -2083,6 +2086,8 @@
         emotion: 'normal',
         joy: 0, sulk: 0, cool: hrand((res.key || '') + ':c') * 14, wish: 0,
         route: null, partner: null, reservedBy: null, meet: null,
+        // 表情(resident-expression.js の sync が つける。emotion が かわった とき だけ 入れかわる)。talkedAt: さいごに はなしかけられた せかい時計
+        expr: null, emotionPersistent: 'normal', talkedAt: null,
         tier: 0, nextAt: 0, noticeCool: 0 });
     }
 
@@ -2333,15 +2338,41 @@
       if (a.joy > 0) a.joy -= dt;
       if (a.sulk > 0) a.sulk -= dt;
       if (a.cool > 0) a.cool -= dt;
-      let em = 'normal';
-      if (a.plant || a.fixed) { a.emotion = 'normal'; return; }
-      if (a.behavior === 'sleep') em = 'sleeping';
-      else if (a.sulk > 0) em = 'unhappy';
-      else if (a.joy > 0) em = 'happy';
-      else if (a.energy < 0.22) em = 'tired';
-      else if (a.wish > 2 && a.cool <= 0) em = 'wantsPlay';
-      else if ((e.weather === 'rain' || e.weather === 'snow') && a.spot && !a.spot.shelter && a.energy < 0.55 && a.traits.calm < 1.1) em = 'strained';
-      a.emotion = em;
+      // persistent = いまの 生活の 状態(ねむり・つかれ・あそびたい・てんきが つらい)。reaction = 一瞬の 出来事(joy / sulk)。
+      // reaction が きれたら その時点の persistent へ もどる(normal に 固定 では ない)。ならびは 住民生活 v1 と おなじ
+      let persistent = 'normal', reaction = null;
+      if (!(a.plant || a.fixed)) {
+        if (a.behavior === 'sleep') persistent = 'sleeping';
+        else if (a.energy < 0.22) persistent = 'tired';
+        else if (a.wish > 2 && a.cool <= 0) persistent = 'wantsPlay';
+        else if ((e.weather === 'rain' || e.weather === 'snow') && a.spot && !a.spot.shelter && a.energy < 0.55 && a.traits.calm < 1.1) persistent = 'strained';
+        if (a.sulk > 0) reaction = 'unhappy';
+        else if (a.joy > 0) reaction = 'happy';
+      }
+      a.emotionPersistent = persistent;
+      a.emotion = persistent === 'sleeping' ? 'sleeping' : (reaction || persistent);
+      // QA だけ: ?mgexprforce=<emotion> で ぜんいんの きもちを 固定(セーブには のこらない。顔・台詞は おなじ emotion から 出る)
+      if (world && world.expr && world.expr.force) a.emotion = world.expr.force;
+      syncExpression(a, world);
+    }
+    // ---- きもち → 表情。emotion が かわった とき だけ resolve する(毎 frame 再解決しない)。え の よみこみも ここで はじめる ----
+    function syncExpression(a, world) {
+      const cfg = world && world.expr;
+      const X = cfg && cfg.on ? residentExpression() : null;
+      if (!X) { if (a.expr) a.expr = null; return null; }
+      const prev = a.expr;
+      const r = X.sync(a, a.emotion, cfg.strict ? { strict: true } : undefined);
+      if (r !== prev && r && r.asset !== r.base) imageFor(r.asset);   // renderer は よめるまで base(ふつう)を 出す
+      return r;
+    }
+    // ---- 出来事 → reaction(joy / sulk)。ながさは resident-expression.js の REACTION が 正本 ----
+    function applyReaction(a, kind) {
+      const X = residentExpression();
+      const R = X && X.REACTION ? X.REACTION[kind] : null;
+      if (!R || !a || a.plant || a.fixed) return false;
+      if (kind === 'positive') { a.joy = rnd(R.min, R.max); a.sulk = 0; return true; }
+      if (kind === 'dislike') { a.sulk = rnd(R.min, R.max); a.joy = 0; return true; }
+      return false;
     }
     // ---- 1人ぶんの せいかつ。くわしい そう(detail)でも 近い そう(near)でも おなじ かんすう ----
     function updateActor(a, dt, e, world, others) {
@@ -2613,6 +2644,9 @@
         if ((L.regionsVisited || []).length >= 8) pool.push(...NAOTO_LINES.travel);
         return pick(pool);
       }
+      // きもちが ある ときは その きもちの 台詞(resident-expression.js)。表情と おなじ emotion から 出る
+      const X = residentExpression();
+      if (X && a.emotion && a.emotion !== 'normal') { const line = X.dialogueFor(X.canonicalEmotion(a.emotion), pick); if (line) return line; }
       const r = rand();
       if (a.withPlayer) return a.kind === 'partner' ? pick(['いっしょに あるけて うれしい', 'つぎは どこへ いく？', a.hook || 'ずっと そばに いるよ']) : pick(['いっしょに いこう！', 'ここ、きに いった？', 'つぎは あっちへ いってみよう']);
       if (a.spot && a.spot.secret && r < 0.6) return pick(SECRET_LINE);
@@ -3052,6 +3086,8 @@
       // ここで つくった さ を 足した ものを え に わたす。3D でも おなじ さ を つかえる
       const camFx = { bob: 0, dist: 0, height: 0, yaw: 0, phase: 0, carry: 0 };
       let envNow = init.env || env();
+      // 表情の 設定(セーブには のこさない): on = Resident Expression を つかう、force = QA の 固定、strict = dev / test で 欠けを throw
+      const exprCfg = { on: init.residentExpression !== false, force: init.forceEmotion || null, strict: !!init.strictExpression };
       let discovered = new Set(init.discovered || []);
       // ちず の「あるいた きろく」。spot の はっけん と おなじ ように、
       // 地区(zone)・とおった みち(path)・見つけた めじるし(landmark) を おぼえる。
@@ -3066,6 +3102,7 @@
       function enterRegion(regionId, opts = {}) {
         if (opts.registry) registry = opts.registry;
         world = buildWorld(regionId, registry, { locality: opts.locality != null ? opts.locality : init.locality, world3d: init.world3d });   // world3d: テストだけ(ふだんは フラグ)
+        world.expr = exprCfg;   // 新しい せかいの 住民は expr なし から はじまる(まえの 地域の 表情は もちこまない)
         party = companionsOf(registry);
         // となりから 入って きた ときは、その connection の 入口 spot から はじめる。
         // 「たび」や はじめて ひらいた ときは これまでどおり world.entry
@@ -3309,10 +3346,21 @@
       }
       function talk() {
         if (!nearest) return null;
-        const a = nearest; a.say = talkLine(a); a.sayFor = RULES.bubbleSec; faceTo(a, player.x, player.z);
+        const a = nearest;
+        // 出来事 → きもち: ねむって いた ところを おこした / しつこく はなしかけた なら いやがる、それ いがいは うれしい。
+        // 台詞は その あとの きもち(a.emotion)から えらぶ ので、顔と 台詞が くいちがわない
+        const X = world.expr && world.expr.on ? residentExpression() : null;
+        let event = null;
+        if (X && lifeFree(a)) {
+          event = X.talkEvent({ sleeping: a.behavior === 'sleep', sinceLastTalk: a.talkedAt != null ? world.clock - a.talkedAt : Infinity });
+          applyReaction(a, X.reactionFor(event));
+        }
+        a.talkedAt = world.clock;
         releaseInteraction(a);            // はなしかけられたら いまの さそいあいは いったん おわり
         a.behavior = 'idle'; a.act = 'idle'; a.route = null; a.until = 3.5; a.chaseOf = null;
-        return { actor: a, line: a.say };
+        updateEmotion(a, envNow, world, 0);   // おきた / reaction を いま 反映(dt 0 なので energy は かわらない)
+        a.say = talkLine(a); a.sayFor = RULES.bubbleSec; faceTo(a, player.x, player.z);
+        return { actor: a, line: a.say, event, emotion: a.emotion, expression: a.expr ? a.expr.expression : null };
       }
       const metCount = () => world.residents.filter((r) => r.met).length;
       // ちずの データ(UI は あとで): はっけんずみ の スポットと みち。かくし ばしょは みつけるまで のらない
@@ -3338,7 +3386,7 @@
       let camFxOn = true;
       // 住民の せいかつを えの がわへ わたす 口。ここが かわらない かぎり、
       // 表情の えが できた あとも 生活AI を なおす ひつようは ない
-      const lifeOf = (a) => (a ? { key: a.key, label: a.label, behavior: a.behavior, emotion: a.emotion,
+      const lifeOf = (a) => (a ? { key: a.key, label: a.label, behavior: a.behavior, emotion: a.emotion, persistent: a.emotionPersistent || null, expression: a.expr ? a.expr.expression : null,
         activity: a.act || null, spot: a.spot ? a.spot.id : null, goal: a.route && a.route.length ? a.route[a.route.length - 1].id : null,
         partner: a.partner ? a.partner.key : null, meet: a.meet ? a.meet.kind : null, tier: a.tier, energy: Math.round(a.energy * 100) / 100 } : null);
       const view = () => ({ regionId: world.regionId, world, residents: world.residents, party, player, camera: camFor(camFxOn), rig: camera, camFx, nearest, spot: curSpot, zone: mood.zone || null, mood, env: envNow, frame, lifeDebug, lifeOf });
@@ -3360,6 +3408,8 @@
         setEnv(e) { envNow = e; }, get env() { return envNow; },
         get lifeDebug() { return lifeDebug; }, set lifeDebug(v) { lifeDebug = !!v; },
         life: lifeOf, get meets() { return world.meets; },
+        // 表情の 設定(QA / テスト)。force は すぐ 反映される(つぎの updateEmotion)。セーブには のこらない
+        get expressionConfig() { return exprCfg; }, setForceEmotion(v) { exprCfg.force = v || null; }, setResidentExpression(on) { exprCfg.on = !!on; if (!exprCfg.on) for (const a of world.residents) a.expr = null; },
         // よいやすい ひとの ための スイッチ(prefers-reduced-motion)。せかいは かわらない
         setCameraMotion(on) { camFxOn = !!on; }, get cameraMotion() { return camFxOn; },
         setPlayer(x, z) { player.x = x; player.z = z; clampToWorld(player, world); resolveObstacles(player, world); camera.x = player.x; camera.z = player.z; },
@@ -3447,7 +3497,8 @@
     }
     // カメラの むきに たいする キャラの むき: front(こちら) back(むこう) left/right(よこ)。しょうらい ほうこう べつの えに さしかえる ときは ここを つかう
     function facingOf(heading, yaw) { const rel = wrapAngle(heading - yaw); const c = Math.cos(rel); if (c > 0.45) return 'back'; if (c < -0.45) return 'front'; return Math.sin(rel) < 0 ? 'left' : 'right'; }
-    function spriteFor(a, facing) { const s = a.sprites || {}; if ((facing === 'left' || facing === 'right') && s.side) return { asset: s.side, flip: facing === 'left' }; if (facing === 'back' && s.back) return { asset: s.back, flip: false }; return { asset: s.front || a.asset, flip: facing === 'left' || (facing === 'front' && a.face < 0) }; }
+    // asset: いま えがく え(表情が あれば その え)。base: ふつうの え(表情の えが まだ よめない / ない ときは こちら)
+    function spriteFor(a, facing) { const s = a.sprites || {}; const base = s.front || a.asset; if ((facing === 'left' || facing === 'right') && s.side) return { asset: s.side, base, flip: facing === 'left' }; if (facing === 'back' && s.back) return { asset: s.back, base, flip: false }; return { asset: a.expr && a.expr.asset ? a.expr.asset : base, base, flip: facing === 'left' || (facing === 'front' && a.face < 0) }; }
 
     // 絵文字/イラストの 立て看板を オフスクリーンに いちど えがいて つかいまわす(fillText は とても おもい)
     const glyphCache = new Map();
@@ -4053,7 +4104,8 @@
         const facing = facingOf(a.heading, yaw); const sprite = spriteFor(a, facing);
         // とおい ひとは かんたんに(シルエット)。そんざいは わかる
         if (px < 22) { ctx.globalAlpha = alpha != null ? alpha * 0.9 : 0.9; ctx.fillStyle = KIND_COLOR[a.kind] || KIND_COLOR.form; const bob = MOVING.has(a.behavior) ? Math.abs(Math.sin(a.bob * 4)) * px * 0.1 : 0; ctx.beginPath(); ctx.ellipse(p.sx, p.sy - px * 0.45 - bob, px * 0.28, px * 0.45, 0, 0, TAU); ctx.fill(); ctx.globalAlpha = 1; return; }
-        const im = imageFor(sprite.asset);
+        // 表情の えが まだ よめて いない あいだは base(ふつう)。絵文字へ 落ちたり ちがう 顔を 出したり しない
+        const im = imageFor(sprite.asset) || (sprite.base && sprite.base !== sprite.asset ? imageFor(sprite.base) : null);
         const dark = facing === 'back' && !(a.sprites && a.sprites.back);
         // しせい: あるく(おくへ は ゆれ ひかえめ、てまえへ は つよめ)、すわる、ねる、はなす(あいてへ かたむく)
         const toward = facing === 'back' ? 0.7 : facing === 'front' ? 1.3 : 1;
@@ -7798,7 +7850,11 @@
       const locality = typeof S.selectedLocality === 'function' ? S.selectedLocality() : null;
       const tier = typeof S.perfTier === 'function' ? S.perfTier() : 0;
       const regionId0 = regionOf(state.regionId, 'meguru:start');
-      const sim = createSimulation({ regionId: regionId0, locality, discovered: typeof S.discoveredSpots === 'function' ? S.discoveredSpots(regionId0) : [] });
+      // 表情の フラグ(URL だけ。セーブにも localStorage にも のこさない): ?mgexpr=0 で 表情を とめる、?mgexprforce=<emotion> は QA の 固定
+      const q = (() => { try { return String((root.location && root.location.search) || ''); } catch (_) { return ''; } })();
+      const forceM = /[?&]mgexprforce=([A-Za-z]+)(?:&|$)/.exec(q);
+      const sim = createSimulation({ regionId: regionId0, locality, discovered: typeof S.discoveredSpots === 'function' ? S.discoveredSpots(regionId0) : [],
+        residentExpression: !/[?&]mgexpr=0(?:&|$)/.test(q), forceEmotion: forceM ? forceM[1] : null });
       let running = true, rafId = null, last = null, frame = 0, banner = null, bannerUntil = 0, lastHint = null;
       // おもい ときは えを 2フレームに 1かい(せかいの けいさんは まいフレーム)。フレームの ながさの へいきんで じどう
       let frameEma = 0.016, halfRate = tier >= 2;
@@ -9031,7 +9087,7 @@
       return { stop, layoutInfo, foundInfo, spotLevel, openMap, closeMap: () => { if (mapScreen) mapScreen.close(); }, get mapOpen() { return !!mapScreen; }, get mapScreen() { return mapScreen; }, get running() { return running; }, sim, renderer, get world() { return sim.world; }, get party() { return sim.party; }, get player() { return sim.player; }, talk, enterWorld, get nearest() { return sim.nearest; }, setPlayer(x, z) { sim.setPlayer(x, z); }, get canvasSize() { return { W, H }; }, get corridor() { return corridorInfo(); }, get corridorStats() { return corrStats; } };
     }
 
-    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, EMOJI_VARY, emojiVary, RIVERMIST_STOPS, NIGHT_LIFT, LEAF_NIGHT, HORIZON_HAZE, LANDMARK_NEAR, landmarkNearAlpha, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_SHIFT, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK, WORLD_THEME, WORLD_MOTION, WORLD_SPACE, REGION_LINE, SKY_OVERRIDE, GEO_AREA, GEO_ASPECT,
+    return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, EMOJI_VARY, emojiVary, RIVERMIST_STOPS, NIGHT_LIFT, LEAF_NIGHT, HORIZON_HAZE, LANDMARK_NEAR, landmarkNearAlpha, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_SHIFT, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, applyReaction, syncExpression, residentExpression, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK, WORLD_THEME, WORLD_MOTION, WORLD_SPACE, REGION_LINE, SKY_OVERRIDE, GEO_AREA, GEO_ASPECT,
       // 3D prototype(meguru-3d.mjs が つかう。2D では つかわない)
       WORLD3D_REGIONS, world3dOn, relocateRoadSolids3d, worldObjects3d, objectType3d, OBJ3D_HEAD, ACTOR_SIZE, glyphSprite, imageFor, TIME_LIGHT, WEATHER_LIGHT, VERBS };
   };
