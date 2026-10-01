@@ -234,3 +234,51 @@ commit `436ec0a9926431523d9240dd123391083efbc679`(最終 commit は 下の N. �
 4. **detail / near 層だけ 更新**: 遠い 住民(tier 2)の 顔は 近づいて 更新されるまで 前の まま(見た目は 22 px 未満の シルエット なので 見えない)。
 5. **`illustration-catalog-test`(`★ ♡` unmapped)は この container では main でも 赤**(CI の main は GREEN)。環境依存。この lane の 変更とは 無関係(root の js/css/html を 走査する テストで、`resident-expression.js` に 記号は ない)。
 6. iPhone 実機での 人間確認は 未実施(Q. の URL と R. の 画像で 確認して もらう)。
+
+## T. 表情 QA モード `?mgexprqa=1`(2026-10-01 追記・commit `4c19e6e7`)
+
+PR #368 の 実機 QA で「`mgexprforce` は いまの 住民の 顔を 固定する だけ なので、住民の いない save / 地点では 人間確認できない」と わかった。save / schema と ふだんの ゲームは 変えずに、QA 専用の URL flag を 足した。
+
+- **ふだんの URL では 完全に 無効**: flag は `start()` で `location.search` を 読むだけ。パネルも 台帳も つくらず、`run.exprQa` は `null`(Node テスト 18・browser smoke `plain`)。
+- **代表住民 6 体を かならず 出す**: `expressionQaRegistry()` が repo の 正本(`S.SPECIES` / `allCompanionsById` / `partnerAsset`)から `form:cat:5`(大人のねこ)・`form:dog:2`(こいぬ)・`form:frog:4`・`form:butterfly:1`・`companion:tanuki`・`partner:cat_ceo` を 組み、`createSimulation({ registry })` に わたす。save の ずかん・なかま・こいびとの 記録に よらない。stage family(Home の 11 表情)と relationship family(positive だけ)の 両方が 1 画面に 入る。
+- **forest 固定**: 2D でも `?meguru3d=1` でも おなじ forest・おなじ 6 体・おなじ 位置(プレイヤーの まえ +190、横 70 間隔)。save の `regionId` には したがわず、書きもしない(frame ごとの region 同期を QA では 止める)。
+- **パネル**: `auto`(固定なし = ふだんの 経路)/ `normal` / `positive` / `dislike` / `sick` / `tired` / `sleeping` / `strained` / `wantsPlay`。押すと `sim.setForceEmotion` だけが かわり、顔は ふだんと おなじ `updateEmotion → syncExpression → spriteFor → renderer`、台詞も おなじ emotion から 出る。status 行に `住民 6/6・2D|3D・emotion→expression・✓(decode ずみ)` を 出す。
+- **とどめる**: 6 体は 散歩に 出ず、はなした あとも 列に もどる(`hold`)。`auto` で 近づいて「はなす」と その 1 体だけ うれしい 顔 + うれしい 台詞(ふだんの reaction)。
+- **save に なにも 書かない**: QA の あいだは `recordMet` / `recordTalk` / `recordSpot` / ちずの bits / world links を 止める。browser smoke と Node テストで `regionId = sea` の まま・`lifetime.meguru` が 空の まま・save 文字列に QA の 語が ない ことを 見る。
+
+### browser smoke(`node tests/meguru-resident-expression-qa-browser.cjs`)
+
+ずかんが ほぼ 空・regionId = sea の セーブ(= ふつうの URL なら めぐるに 住民 0 体)で、ほんものの `index.html` を Chromium(swiftshader)で:
+
+| ケース | 結果 |
+|---|---|
+| plain(`index.html`) | sea・住民 0・QA なし・save に QA の 語なし → PASS |
+| 2D(`?mgexprqa=1`) | forest・住民 6/6・normal / positive / dislike / sick / tired の 全組で emotion = 固定値、expression = `EXPRESSION_FOR[family][emotion]`、asset HTTP 200 かつ renderer の cache で decode ずみ、fallback なし。auto で はなした こいぬ だけ happy(「はなしかけてくれて うれしい！」)。save: regionId sea・talkCount 0 → PASS |
+| 3D(`?meguru3d=1&mgexprqa=1`) | `is3D = true`。おなじ 6 体・おなじ 5 emotion で おなじ asset(2D == 3D を 配列ごと 比較)。auto で こいぬ だけ happy(「きょうは いいことが あったんだ」)→ PASS |
+| page error | 0 |
+
+結果の 正本: `docs/qa/meguru-resident-expression-2026-10-01/qa/qa-smoke.json`。
+
+### 画像(`docs/qa/meguru-resident-expression-2026-10-01/qa/`、390×844・DPR 2)
+
+| 2D | 3D | 見える もの |
+|---|---|---|
+| `2d-normal.jpg` | `3d-normal.jpg` | 6 体とも base |
+| `2d-positive.jpg` | `3d-positive.jpg` | すがた 4 体 happy、たぬき・ねこ社長 positive |
+| `2d-dislike.jpg` | `3d-dislike.jpg` | すがた 4 体 sulky、たぬき・ねこ社長 は base(lonely を あてない) |
+| `2d-sick.jpg` | `3d-sick.jpg` | すがた 4 体 sick(語彙と 資産だけ。生活からは 出ない) |
+| `2d-tired.jpg` | `3d-tired.jpg` | すがた 4 体 tired |
+| `2d-auto-talk.jpg` | `3d-auto-talk.jpg` | auto で こいぬ に はなした 直後。こいぬ だけ happy + うれしい 台詞 |
+
+### iPhone で ひらく(commit 固定・githack)
+
+- 2D: `https://rawcdn.githack.com/naoto214/naotocchi/4c19e6e7/index.html?mgexprqa=1`
+- 3D billboard: `https://rawcdn.githack.com/naoto214/naotocchi/4c19e6e7/index.html?meguru3d=1&mgexprqa=1`
+- ふだんの 2D(QA なし): `https://rawcdn.githack.com/naoto214/naotocchi/4c19e6e7/index.html`
+- 予備: `https://cdn.jsdelivr.net/gh/naoto214/naotocchi@4c19e6e7/index.html?mgexprqa=1`
+
+手順: ひらく → たび → めぐる(どんな save でも forest に 6 体が ならぶ)→ 上の ボタンで きもちを 切りかえる → `auto` に して こいぬ の まえで「はなす」。この container の ネットワーク方針では CDN host への CONNECT が 403 の ため、URL の 200 応答は ここからは 未確認(方式は PR #365 と 同じ)。
+
+### テスト
+- Node: `tests/meguru-resident-expression-test.cjs` 18 件目(台帳・forest 固定・6 体の 位置・全 emotion の mapping / asset / decode・auto の talk・save 不変・ふだんの URL で 無効)。
+- 既存: `asset-versions` / `meguru-test` / `meguru-explore-ux` / `meguru-life` / `meguru-3d-prototype` / `meguru-discovery` / `release-hygiene` / `meguru-phase4e3` / `meguru-transition` 122 / 122。

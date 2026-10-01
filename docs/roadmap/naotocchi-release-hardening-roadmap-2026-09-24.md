@@ -1057,6 +1057,6 @@ save の配列要素の型が壊れていても、起動不能にならないよ
 - **mapping**(1 か所): normal→normal、happy→positive→happy / positive、unhappy→dislike→sulky(なかま・こいびとは normal)、tired / sleeping / strained / wantsPlay は 同名(なかま・こいびとは normal)、sick は 語彙だけ(住民生活に 病気の 信号が ない)。未使用: hungry / weak / critical / lonely。
 - **寿命**: persistent(sleeping / tired / wantsPlay / strained / normal)と temporary reaction(joy 10〜26 秒 / sulk 6〜12 秒)を 分け、reaction が きれたら その時点の persistent へ もどる。
 - **fallback**: production は base(ふつう)、dev / test は strict で throw。だまって ちがう 顔を 出す 経路は ない。
-- **save**: なにも 書かない。`schemaVersion 5` の まま。URL flag(`?mgexpr=0` / `?mgexprforce=<emotion>`)も セーブ・localStorage に のこさない。
+- **save**: なにも 書かない。`schemaVersion 5` の まま。URL flag(`?mgexpr=0` / `?mgexprforce=<emotion>` / `?mgexprqa=1`)も セーブ・localStorage に のこさない。`?mgexprqa=1` は save に よらず 代表住民 6 体を forest に ならべる QA 専用モード(ふだんの URL では 完全に 無効。QA の あいだは met / talk / spot の 記録も 止める)。
 - **3D**: 現在の PNG billboard(`?meguru3d=1`)に 完成ずみ Expression PNG が そのまま のる。将来 3D character model へ うつる ときは `resolve` を Blend Shape / animation の 解決に 差しかえる(emotion → expression は そのまま)。
 - **残り**: sick / wantsPlay の 自然発火(住民生活 v2 の 信号待ち)、なかま・こいびとの positive 以外、3D texture の LRU、iPhone 実機確認。#367(All Regions 3D v0)とは `index.html` の token 1 か所だけ 機械的に 衝突し、semantic conflict は ない。
