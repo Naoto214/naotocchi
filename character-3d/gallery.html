@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Character 3D QA</title>
+<!-- QA 専用。ゲームの セーブ(localStorage)には さわらない。script.js も よまない -->
+<style>
+  :root { --bg: #f3efe6; --panel: #fffaf0; --ink: #3a2e26; --muted: #8a7a6a; --line: #e2d8c6; --on: #e88a3a; --on-ink: #fff; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #22201d; --panel: #2c2925; --ink: #f1e8dc; --muted: #b4a594; --line: #44403a; --on: #e88a3a; --on-ink: #1d1a17; } }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.45 system-ui, -apple-system, "Hiragino Sans", sans-serif; }
+  header { padding: 10px 16px 4px; }
+  h1 { font-size: 16px; margin: 0; }
+  .sub { color: var(--muted); font-size: 12px; }
+  main { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 10px; padding: 8px 16px 16px; }
+  @media (max-width: 760px) { main { grid-template-columns: 1fr; } }
+  #stage { position: relative; background: linear-gradient(#cfe6f4, #eef6f2 62%, #e6ddc8 62%); border-radius: 14px; overflow: hidden; aspect-ratio: 4 / 3; touch-action: none; border: 1px solid var(--line); }
+  #stage canvas { width: 100%; height: 100%; display: block; }
+  #badge { position: absolute; left: 8px; top: 8px; background: rgba(0,0,0,.5); color: #fff; font: 11px/1.3 ui-monospace, monospace; padding: 4px 6px; border-radius: 6px; white-space: pre; pointer-events: none; }
+  #ref { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 10px; }
+  #ref h2 { font-size: 13px; margin: 0 0 6px; }
+  .refimgs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .refimgs figure { margin: 0; background: #e9e4da; border-radius: 10px; padding: 4px; text-align: center; }
+  .refimgs img { width: 100%; image-rendering: pixelated; }
+  .refimgs figcaption { font-size: 11px; color: #6a5a4a; }
+  .controls { display: grid; gap: 6px; padding: 0 16px 20px; }
+  .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .row > b { min-width: 64px; font-size: 12px; color: var(--muted); font-weight: 600; }
+  button, select { font: inherit; font-size: 13px; padding: 7px 11px; min-height: 36px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+  button[aria-pressed="true"] { background: var(--on); color: var(--on-ink); border-color: var(--on); }
+  .note { font-size: 12px; color: var(--muted); padding: 0 16px 24px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Character 3D Pilot — QA gallery</h1>
+  <div class="sub">2D の 正本(右)と 3D(左)を おなじ 条件で くらべる。ドラッグで 360° / ボタンで 正面・3/4・横・後ろ。セーブは つかわない</div>
+</header>
+<main>
+  <div id="stage"><div id="badge"></div></div>
+  <aside id="ref">
+    <h2 id="refTitle">2D 正本</h2>
+    <div class="refimgs"><figure><img id="refBase" alt=""><figcaption>ふつう(正本)</figcaption></figure><figure><img id="refExpr" alt=""><figcaption id="refExprCap">表情 PNG</figcaption></figure></div>
+    <p class="sub" id="why"></p>
+    <p class="sub" id="fill"></p>
+  </aside>
+</main>
+<section class="controls">
+  <div class="row"><b>species</b><select id="species"></select></div>
+  <div class="row" id="stages"><b>stage</b></div>
+  <div class="row" id="emotions"><b>表情</b></div>
+  <div class="row" id="views"><b>むき</b></div>
+  <div class="row" id="motion"><b>うごき</b></div>
+  <div class="row" id="react"><b>reaction</b></div>
+  <div class="row" id="modes"><b>顔の方式</b></div>
+  <div class="row" id="layouts"><b>ならべる</b></div>
+</section>
+<p class="note">URL で 固定できる: ?id=dog&amp;stage=4&amp;emotion=positive&amp;view=34&amp;mode=C&amp;layout=single|stages|emotions|lineup|modes|views&amp;walk=1&amp;reduced=1&amp;t=1.2(時間を とめる)</p>
+<script src="../cast-bounds.js"></script>
+<script type="module">
+import { THREE } from './geometry.mjs';
+import { getTemplate, instantiate, fitScale, SPEC } from './runtime.mjs';
+import { animate, setEmotion, react } from './animate.mjs';
+
+const q = new URLSearchParams(location.search);
+const ALL = [...Object.keys(SPEC.PILOT), ...Object.keys(SPEC.ARCHETYPE_REUSE)];
+const st = {
+  id: ALL.includes(q.get('id')) ? q.get('id') : 'dog',
+  stage: Number(q.get('stage')) || null,
+  emotion: SPEC.CANONICAL_EMOTIONS.includes(q.get('emotion')) ? q.get('emotion') : 'normal',
+  view: q.get('view') || '34', mode: ['A', 'B', 'C'].includes(q.get('mode')) ? q.get('mode') : 'C',
+  layout: q.get('layout') || 'single', walk: q.get('walk') === '1', reduced: q.get('reduced') === '1', auto: q.get('auto') === '1',
+  freeze: q.has('t') ? Number(q.get('t')) : null,
+};
+const stagesOf = (id) => (SPEC.STAGE_KEYS[id] || [0]);
+if (!st.stage || !stagesOf(st.id).includes(st.stage)) st.stage = stagesOf(st.id)[Math.min(1, stagesOf(st.id).length - 1)];
+const VIEWS = { front: 0, '34': 0.62, side: Math.PI / 2, back: Math.PI, '34back': Math.PI - 0.62 };
+let az = VIEWS[st.view] != null ? VIEWS[st.view] : 0.62, el = 0.32;
+
+// ---- three
+const host = document.getElementById('stage');
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+host.prepend(renderer.domElement);
+const scene = new THREE.Scene();
+const cam = new THREE.PerspectiveCamera(30, 4 / 3, 0.05, 100);
+scene.add(new THREE.HemisphereLight('#e6f2ff', '#8a7a5a', 1.25));
+const sun = new THREE.DirectionalLight('#fff6e8', 1.45); sun.position.set(-1.2, 2.2, 1.6); scene.add(sun);
+const ground = new THREE.Mesh(new THREE.CircleGeometry(30, 48).rotateX(-Math.PI / 2), new THREE.MeshLambertMaterial({ color: '#d9cfb4' }));
+scene.add(ground);
+const shadowMat = new THREE.MeshBasicMaterial({ color: '#000', transparent: true, opacity: 0.2, depthWrite: false });
+const shadowGeo = new THREE.CircleGeometry(1, 24).rotateX(-Math.PI / 2).translate(0, 0.004, 0);
+
+let items = [];
+function clear() { for (const it of items) { scene.remove(it.inst.holder); scene.remove(it.shadow); } items = []; }
+function add(id, stage, emotion, mode, x, label) {
+  const tpl = getTemplate(id, stage, mode);
+  if (tpl.status !== 'ok') { console.warn(tpl.error); return null; }
+  const inst = instantiate(tpl, items.length * 7);
+  const art = (window.NaotocchiCastBounds || {})[SPEC.referenceAsset(id, stage)];
+  inst.scale = fitScale(tpl, art && art.box, 1.6);
+  inst.holder.scale.setScalar(inst.scale); inst.holder.position.x = x;
+  setEmotion(inst, emotion);
+  scene.add(inst.holder);
+  const sh = new THREE.Mesh(shadowGeo, shadowMat); sh.position.x = x;
+  const fp = Math.max(tpl.size.x, tpl.size.z) * inst.scale * 0.42; sh.scale.set(fp, 1, fp * 0.8);
+  scene.add(sh);
+  const it = { inst, shadow: sh, label, id, stage, emotion };
+  items.push(it); return it;
+}
+function rebuild() {
+  clear();
+  const { id, stage, emotion, mode } = st;
+  if (st.layout === 'single') add(id, stage, emotion, mode, 0);
+  else if (st.layout === 'stages') stagesOf(id).forEach((s, i, a) => add(id, s, emotion, mode, (i - (a.length - 1) / 2) * 1.9, '0' + s));
+  else if (st.layout === 'emotions') SPEC.PILOT_EMOTIONS.forEach((e, i) => add(id, stage, e, mode, (i - 2) * 1.75, e));
+  else if (st.layout === 'modes') ['A', 'B', 'C'].forEach((m, i) => add(id, stage, emotion, m, (i - 1) * 1.9, m));
+  else if (st.layout === 'views') [0, 1, 2, 3].forEach((k, i) => { const it = add(id, stage, emotion, mode, (i - 1.5) * 1.9, ['front', '3/4', 'side', 'back'][k]); if (it) it.fixedYaw = [0, -0.62, -Math.PI / 2, Math.PI][k]; });
+  else if (st.layout === 'lineup') Object.keys(SPEC.PILOT).forEach((p, i, a) => { const ks = stagesOf(p); add(p, ks[Math.min(1, ks.length - 1)], emotion, mode, (i - (a.length - 1) / 2) * 1.7, p); });
+  frameCamera(); syncUi();
+}
+function frameCamera() {
+  const n = items.length, w = n > 1 ? (items[n - 1].inst.holder.position.x - items[0].inst.holder.position.x) + 2.2 : 2.3;
+  const h = Math.max(...items.map((it) => it.inst.tpl.size.y * it.inst.scale + (it.inst.meta.hover || 0) * it.inst.scale), 1.2);
+  const d = Math.max(w * 1.25 / (2 * Math.tan(15 * Math.PI / 180) * cam.aspect), h * 1.5 / (2 * Math.tan(15 * Math.PI / 180)));
+  cam.userData.d = d * 0.62; cam.userData.ty = h * 0.48;
+}
+function place() {
+  const d = cam.userData.d || 6, ty = cam.userData.ty || 0.7;
+  cam.position.set(Math.sin(az) * Math.cos(el) * d, ty + Math.sin(el) * d, Math.cos(az) * Math.cos(el) * d);
+  cam.lookAt(0, ty, 0);
+}
+function resize() { const r = host.getBoundingClientRect(); renderer.setSize(r.width, r.height, false); cam.aspect = r.width / r.height; cam.updateProjectionMatrix(); frameCamera(); }
+addEventListener('resize', resize);
+
+// ---- drag で 360°
+let drag = null;
+host.addEventListener('pointerdown', (e) => { drag = { x: e.clientX, y: e.clientY, az, el }; host.setPointerCapture(e.pointerId); st.auto = false; syncUi(); });
+host.addEventListener('pointermove', (e) => { if (!drag) return; az = drag.az - (e.clientX - drag.x) * 0.01; el = Math.max(-0.1, Math.min(1.2, drag.el + (e.clientY - drag.y) * 0.006)); });
+host.addEventListener('pointerup', () => { drag = null; });
+
+// ---- UI
+const $ = (id) => document.getElementById(id);
+function btn(row, label, pressed, fn) { const b = document.createElement('button'); b.textContent = label; b.setAttribute('aria-pressed', pressed ? 'true' : 'false'); b.onclick = fn; $(row).appendChild(b); return b; }
+function clearRow(row) { const el = $(row); [...el.querySelectorAll('button')].forEach((b) => b.remove()); }
+const sel = $('species');
+for (const id of ALL) { const o = document.createElement('option'); o.value = id; o.textContent = id + (SPEC.PILOT[id] ? '' : '(archetype 再利用)'); sel.appendChild(o); }
+sel.onchange = () => { st.id = sel.value; const ks = stagesOf(st.id); st.stage = ks[Math.min(1, ks.length - 1)]; rebuild(); };
+function syncUi() {
+  sel.value = st.id;
+  clearRow('stages'); for (const s of stagesOf(st.id)) btn('stages', s ? '0' + s : '—', s === st.stage, () => { st.stage = s; rebuild(); });
+  clearRow('emotions'); for (const e of SPEC.CANONICAL_EMOTIONS) btn('emotions', e, e === st.emotion, () => { st.emotion = e; for (const it of items) if (st.layout !== 'emotions') setEmotion(it.inst, e); syncUi(); });
+  clearRow('views'); for (const [k, v] of [['正面', 'front'], ['3/4', '34'], ['横', 'side'], ['後ろ', 'back'], ['後ろ3/4', '34back']]) btn('views', k, Math.abs(az - VIEWS[v]) < 0.01, () => { az = VIEWS[v]; st.auto = false; syncUi(); });
+  btn('views', '360° まわす', st.auto, () => { st.auto = !st.auto; syncUi(); });
+  clearRow('motion'); btn('motion', 'idle', !st.walk, () => { st.walk = false; syncUi(); }); btn('motion', 'あるく / およぐ', st.walk, () => { st.walk = true; syncUi(); }); btn('motion', 'reduced motion', st.reduced, () => { st.reduced = !st.reduced; syncUi(); });
+  clearRow('react'); for (const k of ['hop', 'huff', 'yawn', 'wobble']) btn('react', k, false, () => { for (const it of items) react(it.inst, k); });
+  clearRow('modes'); for (const m of ['A', 'B', 'C']) btn('modes', { A: 'A texture', B: 'B geometry', C: 'C hybrid' }[m], m === st.mode, () => { st.mode = m; rebuild(); });
+  clearRow('layouts'); for (const [k, v] of [['1 体', 'single'], ['stage 比較', 'stages'], ['表情 比較', 'emotions'], ['顔方式 比較', 'modes'], ['4 方向', 'views'], ['全 pilot', 'lineup']]) btn('layouts', k, st.layout === v, () => { st.layout = v; rebuild(); });
+  const p = SPEC.PILOT[st.id];
+  $('refTitle').textContent = '2D 正本: ' + st.id + (st.stage ? ' 0' + st.stage : '');
+  $('refBase').src = '../' + SPEC.referenceAsset(st.id, st.stage);
+  const ex = SPEC.REFERENCE_EXPRESSION[st.emotion];
+  $('refExpr').src = '../' + SPEC.referenceAsset(st.id, st.stage, p ? st.emotion : null);
+  $('refExprCap').textContent = p ? '表情 PNG: ' + ex + '(= ' + st.emotion + ')' : '(なかまは 表情 PNG なし)';
+  $('why').textContent = p ? p.why : 'archetype 再利用(' + SPEC.ARCHETYPE_REUSE[st.id].basedOn + ' と おなじ builder + 数字)';
+  $('fill').textContent = p ? '補完(side/back): ' + p.designFill : '';
+  const url = new URL(location.href); for (const [k, v] of Object.entries({ id: st.id, stage: st.stage, emotion: st.emotion, mode: st.mode, layout: st.layout })) url.searchParams.set(k, v); history.replaceState(null, '', url);
+}
+
+// ---- まわす
+let last = performance.now(), frames = 0, acc = 0;
+function tick(now) {
+  const dt = st.freeze != null ? 0 : Math.min(0.1, (now - last) / 1000); last = now;
+  if (st.auto) az += dt * 0.6;
+  for (const it of items) {
+    if (st.freeze != null && !it.frozen) { it.inst.anim.t = st.freeze; it.frozen = true; }
+    animate(it.inst, { moving: st.walk, dt: st.freeze != null ? 0.0001 : dt, animLv: st.reduced ? 0 : 2 });
+    it.inst.holder.rotation.y = it.fixedYaw != null ? it.fixedYaw : 0;
+  }
+  place();
+  const t0 = performance.now();
+  renderer.render(scene, cam);
+  acc += performance.now() - t0; frames++;
+  const info = renderer.info.render;
+  if (frames % 15 === 0 || st.freeze != null) $('badge').textContent = `${st.id} ${st.stage ? '0' + st.stage : ''} ${st.emotion} · face ${st.mode}\ncalls ${info.calls} tris ${info.triangles} · js ${(acc / frames).toFixed(2)}ms`;
+  requestAnimationFrame(tick);
+}
+resize(); rebuild(); requestAnimationFrame(tick);
+window.__c3d = { st, items, rebuild, setView(v) { az = VIEWS[v] != null ? VIEWS[v] : v; }, renderer, SPEC };
+</script>
+</body>
+</html>

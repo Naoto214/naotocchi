@@ -2,7 +2,9 @@
 //
 // ・せかい / シミュレーション(meguru.js)は そのまま。ここは sim.view() を うけとって えがく だけ(view は かきかえない)。
 // ・hybrid: forest の world(3D モードで 組んだ もの)だけ 3D。corridor・transition・ほかの 地域は いまの 2D レンダラー。
-// ・キャラは いまの 2D の 絵(PNG / 絵文字イラスト)の 立て看板(y 軸だけ まわる)。3D モデルは つくらない。
+// ・キャラは いまの 2D の 絵(PNG / 絵文字イラスト)の 立て看板(y 軸だけ まわる)。
+//   Character 3D Pilot(&char3d=1 の ときだけ): pilot の species だけ character-3d/runtime.mjs の 3D で えがく。
+//   actor の 状態は おなじ もの を つかう(見た目だけ さしかえ)。3D が だめな actor は その actor だけ 立て看板
 // ・かたい 物の 見た目は あたり(world.obstacles)から つくる(meguru.js の worldObjects3d)。見えない かべ も、とおれる 木 も つくらない。
 // ・WebGL が つかえない / context lost のときは すぐ 2D に もどる(その あとは この あそびの あいだ ずっと 2D)。
 // ・座標: せかいの (x, z) → three の (x, y, -z)。カメラは 2D と おなじ ピンホール(焦点 0.95W・地平線 30%・水平)。
@@ -34,6 +36,8 @@ function createHybridRenderer(M, o, opts) {
   };
   // 実機の 計測(&perf=1): フレームの 間かく(avg / p95 / p99 / 60ms 超)と 3D の draw call・三角形を 画面の 左上に
   const gaps = []; let lastNow = 0, animLv = 2;
+  // Character 3D Pilot(QA: &char3d=1)。セーブには のこさない。r3d を つくりなおしても おなじ 設定
+  const char3dOpts = { on: !!opts.char3d, playerKey: opts.playerKey || null, faceMode: opts.char3dFace || 'C', emotion: null, hooks: {} };
   function perfText(now) {
     if (lastNow) { gaps.push(now - lastNow); if (gaps.length > 600) gaps.shift(); }
     lastNow = now;
@@ -42,6 +46,7 @@ function createHybridRenderer(M, o, opts) {
     const avg = xs.reduce((a, b) => a + b, 0) / xs.length, st = r3d && active ? r3d.stats() : null;
     const lines = [(active ? '3D' : '2D') + ' avg ' + avg.toFixed(1) + ' p95 ' + q(0.95).toFixed(0) + ' p99 ' + q(0.99).toFixed(0) + ' >60 ' + xs.filter((v) => v > 60).length + '/' + xs.length];
     if (st) lines.push('calls ' + st.calls + ' tris ' + (st.triangles / 1000).toFixed(0) + 'k tex ' + st.textures + ' js ' + st.drawMsAvg.toFixed(1) + 'ms dpr ' + st.pixelRatio);
+    if (st && st.char3d) lines.push('c3d ' + st.char3d.live + ' actors · ' + st.char3d.templates + ' tpl · ' + (st.char3d.tris / 1000).toFixed(0) + 'k tris · mat ' + st.char3d.materials + ' · fb ' + st.char3d.fallbacks);
     ctx.save(); ctx.font = '11px monospace'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
     lines.forEach((t, i) => { ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.fillRect(4, 40 + i * 14, ctx.measureText(t).width + 6, 14); ctx.fillStyle = '#fff'; ctx.fillText(t, 7, 41 + i * 14); });
     ctx.restore();
@@ -62,7 +67,7 @@ function createHybridRenderer(M, o, opts) {
     draw(view, now) {
       if (want(view)) {
         try {
-          if (!r3d) { r3d = create3DRenderer(M, Object.assign({}, o, { ctx, W, H }), () => fail(new Error('webgl context lost'))); r3d.setOccluderFade(fadeOn); r3d.setAnimLevel(animLv); }
+          if (!r3d) { r3d = create3DRenderer(M, Object.assign({}, o, { ctx, W, H, char3d: char3dOpts }), () => fail(new Error('webgl context lost'))); r3d.setOccluderFade(fadeOn); r3d.setAnimLevel(animLv); }
           setActive(true);
           r3d.draw(view, now);
           if (opts.perf) perfText(now);
@@ -84,6 +89,14 @@ function createHybridRenderer(M, o, opts) {
     stats3d() { return r3d ? r3d.stats() : null; },
     loseContext() { if (r3d) r3d.loseContext(); },   // QA: context lost の ためし
     setOccluderFade(on) { fadeOn = !!on; if (r3d) r3d.setOccluderFade(fadeOn); },   // QA: すかし あり / なし の くらべ
+    // ---- Character 3D Pilot の QA まど(セーブに のこさない)
+    setChar3D(on) { char3dOpts.on = !!on; if (r3d) r3d.char3dChanged(); },
+    get char3d() { return char3dOpts.on; },
+    setChar3DEmotion(e) { char3dOpts.emotion = e || null; },          // 表情を 強制(通常の カメラ距離で 読めるか の QA)
+    setChar3DFace(m) { char3dOpts.faceMode = m; if (r3d) r3d.char3dChanged(); },
+    char3dHooks(h) { char3dOpts.hooks = h || {}; if (r3d) r3d.char3dChanged(); },   // QA: 1 actor だけ こわす(actor 単位 fallback)
+    char3dReact(kind) { return r3d ? r3d.char3dReact(kind) : 0; },
+    get char3dPresenter() { return r3d ? r3d.charPresenter : null; },
   };
   return api;
 }
@@ -115,6 +128,36 @@ function create3DRenderer(M, o, onLost) {
   renderer.setSize(W, H, false);
   place();
 
+  // ---- Character 3D Pilot: &char3d=1 の ときだけ module を よむ(よみおわるまでは 立て看板)
+  const C3 = o.char3d || { on: false };
+  let charMod = null, charPresenter = null, charLoading = false, actorFrame = 0;
+  function loadChar3d() {
+    if (charMod || charLoading || !C3.on) return;
+    charLoading = true;
+    const q = (() => { try { return new URL(import.meta.url).search; } catch (_) { return ''; } })();
+    import('./character-3d/runtime.mjs' + q).then((m) => { charMod = m; }).catch((err) => { console.warn('character 3D: load failed → 2D', err && err.message); C3.on = false; });
+  }
+  function ensurePresenter(sc) {
+    if (!C3.on || !charMod) { if (charPresenter) charPresenter.reset(); return null; }
+    if (!charPresenter) charPresenter = charMod.createCharacterPresenter({ scene: sc, actorSize: M.ACTOR_SIZE, faceMode: C3.faceMode, animLevel: animLv, hooks: C3.hooks, bounds: (typeof window !== 'undefined' && window.NaotocchiCastBounds) || {}, onActorFallback: (a, err) => console.warn('character 3D: actor → 2D', a && a.key, err && err.message) });
+    charPresenter.setScene(sc); charPresenter.setAnimLevel(animLv);
+    return charPresenter;
+  }
+  // actor → 3D の spec(pilot に ない ものは null = 立て看板のまま)
+  function charInfo(a, isPlayer, dt) {
+    const S = charMod.SPEC;
+    let ref;
+    if (isPlayer) { const k = typeof C3.playerKey === 'function' ? C3.playerKey() : null; if (!k) return null; const [line, idx] = String(k).split(':'); ref = { line, stage: Number(idx) }; }
+    else ref = a.kind === 'form' ? { line: a.line, stage: a.stage } : { kind: a.kind, id: a.id };
+    let specKey = S.specKeyFor(ref);
+    // QA だけ: 計測の ための 代役(pilot に ない actor を pilot の model で えがいて 27 体を はかる)
+    if (!specKey && C3.hooks && typeof C3.hooks.standIn === 'function') specKey = C3.hooks.standIn(a, isPlayer);
+    if (!specKey) return null;
+    // きもち: #368(Resident Expression)が つけた canonical が あれば それ、なければ 住民生活の きもち を canonical へ
+    const R368 = typeof window !== 'undefined' ? window.NaotocchiResidentExpression : null;
+    const emotion = C3.emotion || (a.expr && a.expr.emotion) || (isPlayer ? 'normal' : S.canonicalEmotion(a.emotion, R368));
+    return { specKey, emotion, isPlayer, dt, moving: isPlayer ? !!a.moving : undefined };
+  }
   const camera = new THREE.PerspectiveCamera(50, 1, 20, 5200);
   camera.rotation.order = 'YXZ';
   const texCache = new Map();
@@ -376,7 +419,15 @@ function create3DRenderer(M, o, onLost) {
     if (!m) { m = new THREE.Mesh(b.actorGeo, new THREE.MeshBasicMaterial({ alphaTest: 0.5, side: THREE.DoubleSide })); m.userData.tex = null; b.actors.set(a, m); b.sc.add(m); }
     return m;
   }
-  function placeActor(b, m, a, t, yaw, light, glyph) {
+  function placeActor(b, m, a, t, yaw, light, glyph, cp, ci) {
+    m.userData.seen = actorFrame;
+    // Character 3D: えがけたら 立て看板は かくす(おなじ actor を 2D / 3D の どちらか 1 つ だけで)
+    if (cp && ci && cp.present(a, ci)) {
+      m.visible = false;
+      const fp = cp.footprint(a);
+      if (fp) { tmp.position.set(a.x, 0, -a.z); tmp.rotation.set(0, 0, 0); const k = fp.hover > 0 ? 0.7 : 1; tmp.scale.set(Math.max(fp.w, fp.d) * 0.42 * k, 1, Math.min(fp.w, fp.d) * 0.42 * k + M.ACTOR_SIZE * 0.04); tmp.updateMatrix(); if (b.shadows.count < 256) b.shadows.setMatrixAt(b.shadows.count++, tmp.matrix); }
+      return t;
+    }
     const tx = glyph || actorTexture(a);
     if (tx && m.userData.tex !== tx) { m.material.map = tx.tex; m.material.needsUpdate = true; m.userData.tex = tx; }
     const size = M.ACTOR_SIZE, facing = M.facingOf(a.heading || 0, yaw);
@@ -392,12 +443,15 @@ function create3DRenderer(M, o, onLost) {
 
   // ---------------- まいフレーム
   const frameMs = [];
+  let lastView = null;
   function draw(view, now) {
     if (lost) throw new Error('webgl context lost');
+    lastView = view;
     const world = view.world;
     if (sceneOf !== world) { if (built) disposeScene(built); built = buildWorldScene(world); scene = built.sc; sceneOf = world; }
     const t0 = typeof performance !== 'undefined' ? performance.now() : 0;
     if ((view.frame || 0) % 30 === 0) refreshGlyphs();
+    if (charPresenter && charPresenter.scene !== built.sc) charPresenter.setScene(built.sc);
     const c = view.camera, env = view.env || {}, mood = view.mood || {};
     // カメラ: 2D と おなじ ピンホール
     const F = W * 0.95, HOR = Math.round(H * (HOR_BASE + 0.07 * ((c.height || 1) - 1)));
@@ -441,10 +495,20 @@ function create3DRenderer(M, o, onLost) {
     const charLight = Math.min(1, 0.45 + light * 0.6);
     const player = view.player;
     const farCull = 2600;
-    for (const a of view.party || []) placeActor(built, actorMesh(built, a), a, 0, c.yaw, charLight);
-    for (const a of view.residents || []) { if (Math.hypot(a.x - player.x, a.z - player.z) < farCull) placeActor(built, actorMesh(built, a), a, 0, c.yaw, charLight); }
+    actorFrame++;
+    if (C3.on) loadChar3d();
+    const cp = ensurePresenter(scene);
+    const dt = cp ? cp.beginFrame(now || 0) : 0;
+    // 3D は ちかくだけ(とおくは 立て看板 = LOD)。player と パーティは いつも
+    const near3d = 1500;
+    const ci = (a, isP) => { if (!cp) return null; try { return charInfo(a, isP, dt); } catch (_) { return null; } };
+    for (const a of view.party || []) placeActor(built, actorMesh(built, a), a, 0, c.yaw, charLight, null, cp, ci(a, false));
+    for (const a of view.residents || []) { const d = Math.hypot(a.x - player.x, a.z - player.z); if (d < farCull) placeActor(built, actorMesh(built, a), a, 0, c.yaw, charLight, null, cp, d < near3d ? ci(a, false) : null); }
     const pg = typeof o.playerGlyph === 'function' ? o.playerGlyph() : '🐣';
-    placeActor(built, actorMesh(built, player), player, 0, c.yaw, charLight, glyphTexture(pg, o.wrapCtx || null, 'p'));
+    placeActor(built, actorMesh(built, player), player, 0, c.yaw, charLight, glyphTexture(pg, o.wrapCtx || null, 'p'), cp, ci(player, true));
+    if (cp) cp.endFrame();
+    // その frame に 出なかった actor の 立て看板は 片づける(住人の despawn・パーティ離脱。ghost を のこさない)
+    for (const [a, m] of built.actors) if (m.userData.seen !== actorFrame) { built.sc.remove(m); m.material.dispose(); built.actors.delete(a); }
     built.shadows.instanceMatrix.needsUpdate = true;
     fadeOccluders(built, camera.position.x, -camera.position.z, fade ? player : null);
     renderer.render(scene, camera);
@@ -507,6 +571,7 @@ function create3DRenderer(M, o, onLost) {
   }
 
   function disposeScene(b) {
+    if (charPresenter) charPresenter.reset();   // 地域が かわる: 3D の キャラも のこさない
     for (const m of b.actors.values()) m.material.dispose();
     for (const m of Object.values(b.meshes)) m.dispose();
     for (const m of b.boards) m.dispose();
@@ -521,13 +586,18 @@ function create3DRenderer(M, o, onLost) {
     stats() {
       const info = renderer.info, xs = frameMs.slice().sort((a, b) => a - b), pick = (q) => (xs.length ? xs[Math.min(xs.length - 1, Math.floor(xs.length * q))] : 0);
       return { calls: info.render.calls, triangles: info.render.triangles, textures: info.memory.textures, geometries: info.memory.geometries,
-        objects: built ? built.objects : 0, actors: built ? built.actors.size : 0, drawMsAvg: xs.length ? xs.reduce((s, v) => s + v, 0) / xs.length : 0, drawMsP95: pick(0.95), pixelRatio: renderer.getPixelRatio() };
+        objects: built ? built.objects : 0, actors: built ? built.actors.size : 0, drawMsAvg: xs.length ? xs.reduce((s, v) => s + v, 0) / xs.length : 0, drawMsP95: pick(0.95), pixelRatio: renderer.getPixelRatio(),
+        char3d: charPresenter && C3.on ? charPresenter.stats() : null };
     },
+    char3dChanged() { if (charPresenter) { charPresenter.reset(); charPresenter.setFaceMode(C3.faceMode); charPresenter.setHooks(C3.hooks); } },
+    char3dReact(kind) { let n = 0; if (charPresenter) for (const a of [...(lastView ? [lastView.player] : []), ...((lastView && lastView.party) || [])]) if (charPresenter.react(a, kind)) n++; return n; },
+    get charPresenter() { return charPresenter; },
     loseContext() { const ext = renderer.getContext().getExtension('WEBGL_lose_context'); if (ext) ext.loseContext(); },
     setOccluderFade(on) { fade = !!on; },
-    setAnimLevel(v) { animLv = v; },
+    setAnimLevel(v) { animLv = v; if (charPresenter) charPresenter.setAnimLevel(v); },
     destroy() {
       if (built) disposeScene(built);
+      charPresenter = null;
       for (const t of texCache.values()) if (t && t.tex) t.tex.dispose();
       texCache.clear(); renderer.dispose();
       if (gl.parentNode) gl.parentNode.removeChild(gl);

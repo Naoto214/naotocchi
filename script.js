@@ -14699,7 +14699,9 @@
       tag.type = 'module'; tag.src = src;
       tag.onload = () => {
         const m = window.NaotocchiMeguru3D;
-        if (m) meguru3dRenderer = m.createMeguru3D(meguruMod, { perf: /[?&]perf=1(?:&|$)/.test(q), force2d: /[?&]m3d2d=1(?:&|$)/.test(q), onFallback: (err) => console.warn('meguru 3D → 2D', err && err.message) });
+        // Character 3D Pilot(QA): &char3d=1 の ときだけ pilot の キャラを 3D で。&c3dface=A|B|C は 顔の 方式。URL だけ(セーブしない)
+        const faceQ = (q.match(/[?&]c3dface=([ABC])(?:&|$)/) || [])[1];
+        if (m) meguru3dRenderer = m.createMeguru3D(meguruMod, { perf: /[?&]perf=1(?:&|$)/.test(q), force2d: /[?&]m3d2d=1(?:&|$)/.test(q), char3d: /[?&]char3d=1(?:&|$)/.test(q), char3dFace: faceQ || 'C', playerKey: () => meguruBridge.currentPetKey(), onFallback: (err) => console.warn('meguru 3D → 2D', err && err.message) });
       };
       tag.onerror = () => console.warn('meguru 3D module: load failed');
       document.head.appendChild(tag);
