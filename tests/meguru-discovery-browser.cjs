@@ -129,7 +129,9 @@ module.exports = async function (browser, engine, fixtures, baseURL, output, onl
       assert.equal(await goTo(page, 'bright2'), true, label + ': ふつうの ばしょの しらせが 出ない');
       let m = await measure2(page);
       check(m, 'ふつうの spot');
-      assert.equal(m.title, 'ひだまりを みつけた', label + ': ' + m.title);
+      // 2026-10-01 しらせの 段階づけ: その ばしょ だけの もの(ここは 🪵)が ある ふつうの spot は
+      // 「○○が ある」と かるく しらせる。「みつけた！」は ランドマーク / ひみつ だけ(meguru-discovery-test ⑦ と 同じ 契約)
+      assert.equal(m.title, 'ひだまりが ある', label + ': ' + m.title);
       assert.equal(m.sub, 'ちずに きろくした');
       assert.ok(/mgr-found-spot/.test(m.cls) && !/mgr-found-strong/.test(m.cls), label + ': ふつうは つよい えんしゅつに しない');
       await page.screenshot({ path: path.join(output, label + '-1-spot.png') });
