@@ -15,3 +15,5 @@ GitHub409 HEAD `246f63a4f7520ef80439b4aeb4b68cc663be10e4`、tree `9449eaae685e20
 全proxy回帰はこのcheckpoint保存時点で未実行・未完了。回帰前に復旧可能なコード・計画・実測ログを保存する。次にrun_proxy_regression_410.pyで既存モジュール／CLIを変更せず6独立processへ分割する。予定／開始／終了IDの完全一致、重複／欠落／skipなし、全worker exit0・全件PASS、テストsource不変が揃った場合だけ全体成功とする。前タブ逐次204／並列196の部分数は加算も再利用もしない。
 
 記録: `data/proxy-verification-410-20261001/`。CI成功は未確認。Ready化・main mergeなし。保存直前remote HEAD409・PR状態不変を再確認した。
+
+全回帰の最終結果は[411](411-full-proxy-regression.md)へ保存。816/816 PASS、完全coverage確認済み。上記の未完了記述は410保存時点の状態。
