@@ -6421,7 +6421,7 @@
         ? (event === 'play_with' ? visibleBeats.find(b=>b.speaker.kind === 'companion')?.speaker
           : ['court','partner_new','marriage'].includes(event) ? visibleBeats.find(b=>b.speaker.kind === 'partner')?.speaker : null)
         : petSpeaker();
-      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener}), delayMs + i * SPEECH_DURATION_MS));
+      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener,primaryBeat:i===0}), delayMs + i * SPEECH_DURATION_MS));
     });
   }
 

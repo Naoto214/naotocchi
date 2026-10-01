@@ -167,13 +167,15 @@
         }
       }
     }
-    function speak({event = 'idle', text, speaker, listener}) {
+    function speak({event = 'idle', text, speaker, listener, primaryBeat = true}) {
       clearSpeaker();
       const actor = find(speaker);
       if (!actor || !canAnimate()) return;
       speaking = actor.node;
       speaking.classList.add('cast-speaking');
-      const mood = reactionFor(event, text, speaker.kind);
+      // A cure is one physical recovery, not one recovery per conversation line.
+      const cure = event === 'medicine_cure';
+      const mood = cure && (!primaryBeat || actor.kind !== 'pet') ? 'nod' : reactionFor(event, text, speaker.kind);
       const relationshipEvent=['play_with','court','partner_new','marriage'].includes(event);
       if (!relationshipEvent || actor.kind==='pet') play(actor, mood);
       // Recovery belongs to the cured pet throughout the conversation, even
@@ -185,7 +187,7 @@
       // All motion is bounded, and all responses use the existing speech clock.
       const friend = find(listener);
       if (!relationshipEvent && friend && friend.node !== actor.node) {
-        const quietEvent = ['court_fail','breakup','devolve','minigame_bad','medicine_wrong','overfeed','play_with_annoyed','sleep'].includes(event);
+        const quietEvent = cure || ['court_fail','breakup','devolve','minigame_bad','medicine_wrong','overfeed','play_with_annoyed','sleep'].includes(event);
         const response = quietEvent || ['settle','droop','doze','shake','nod','curious'].includes(mood)
           ? 'nod' : mood === 'love' || mood === 'shy' ? 'shy' : 'bounce';
         play(friend, response, {delay:220, gentle:true});

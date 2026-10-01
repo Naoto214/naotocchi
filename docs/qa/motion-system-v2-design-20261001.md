@@ -9,7 +9,28 @@
 - This checkpoint is design only. No production runtime, image, save, progression, expression, relationship, layout, or game-balance change is authorized by this document.
 - Approved Expression assets and Relationship Expression visual language remain authoritative and unchanged.
 
-## Goal
+## 2026-10-02 approved landing scope and future order
+
+The user formally approved the recovery pilot after viewing all eight real-Home
+scenes, including the jump peak. Recovery amplitude, cuteness and overlaps are
+human-approved; further aesthetic review is not a merge gate. This approval
+supersedes the earlier design-only / human-review-pending status for this pilot.
+The current landing includes recovery only; the remaining design is future work.
+
+Future event ownership uses three scopes:
+- SELF: the subject reacts (feeding, medicine/recovery, waking).
+- RELATIONSHIP: the subject and an explicit relationship target react.
+- GROUP: a shared Home event. Preserve the cute shared hop of partners and
+  companions after cleaning; do not remove shared reactions indiscriminately.
+
+Implementation order: scopes and large readable base event motions first,
+then motion personality (soft/bouncy/heavy/float/quick/slow/rigid). No new
+personality implementation or 168-character tuning belongs to this landing.
+After recovery lands, start L2 on a separate branch: feeding, play-with,
+cleaning (GROUP pilot), waking. Evolution, transformation, companion joining,
+partner formation and marriage follow as separate L3 work.
+
+## Goal (original design)
 
 Make Home characters feel larger, cuter, and more alive without turning dense Home scenes into constant noise. Motion should communicate *what happened*, *who reacted*, and *how important the moment is*. The system must remain reusable as characters/events are added.
 

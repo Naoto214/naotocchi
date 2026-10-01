@@ -1,0 +1,75 @@
+✖ cure conversation has one primary recovery through the final reply (0 companions, reduced: false) (275.273776ms)
+✔ cure conversation has one primary recovery through the final reply (0 companions, reduced: true) (157.652374ms)
+✖ cure conversation has one primary recovery through the final reply (26 companions, reduced: false) (58.576184ms)
+✖ cure conversation has one primary recovery through the final reply (26 companions, reduced: true) (32.719854ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 1
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 632.614933
+
+✖ failing tests:
+
+test at tests/emotion-integration-test.cjs:258:71
+✖ cure conversation has one primary recovery through the final reply (0 companions, reduced: false) (275.273776ms)
+  AssertionError [ERR_ASSERTION]: one recover for the entire successful cure
+  
+  2 !== 1
+  
+      at TestContext.<anonymous> (/workspace/scratch/e8f4b0b43170/naotocchi/tests/emotion-integration-test.cjs:275:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/emotion-integration-test.cjs:258:71
+✖ cure conversation has one primary recovery through the final reply (26 companions, reduced: false) (58.576184ms)
+  AssertionError [ERR_ASSERTION]: one recover for the entire successful cure
+  
+  2 !== 1
+  
+      at TestContext.<anonymous> (/workspace/scratch/e8f4b0b43170/naotocchi/tests/emotion-integration-test.cjs:275:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/emotion-integration-test.cjs:258:71
+✖ cure conversation has one primary recovery through the final reply (26 companions, reduced: true) (32.719854ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'normal' !== 'happy'
+  
+      at TestContext.<anonymous> (/workspace/scratch/e8f4b0b43170/naotocchi/tests/emotion-integration-test.cjs:281:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'normal',
+    expected: 'happy',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

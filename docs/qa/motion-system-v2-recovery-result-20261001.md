@@ -64,7 +64,7 @@ REDログも上の証跡ディレクトリに保存。
 判断: 回復後のhappy表情は既存契約として残し、motionをnull指定して分離する。
 誤った判断だった場合の影響は約1秒の表情表示であり、進行・報酬・セーブには作用しない。
 
-## 未実施・次のgate
+## 初回保存時の未実施・次のgate（履歴）
 
 - 実ブラウザ自動runnerは未実施。Playwrightブラウザ本体の取得が失敗した。
   上のHome/Relationship GREENはNode runtime/geometry検証であり、browser GREENではない。
@@ -92,3 +92,11 @@ QA準備後も検証済みruntimeのSHA-256は上記manifestと全件一致。
 操作・起動・iPhone接続・確認項目は
 [回復pilot実画面チェック](motion-system-v2-recovery-human-check-20261001.md) を参照。
 公開URLの発行、実ブラウザの描画確認、人間の美観承認は含まない。
+
+## 2026-10-02 JST 更新
+
+上記は初回保存時点の履歴。ユーザーが実Homeの8シーンとジャンプ頂点を確認し、
+回復motionの大きさ・可愛さ・表示を正式承認した。
+人間目視待ちと指輪重なりの人間確認gateは完了。追加美的調整は不要。
+main着地を正式に許可された。L2/L3横展開・motion personalityは今回の対象外。
+最新の着地検証は `motion-system-v2-recovery-landing-20261002.md` に記録する。

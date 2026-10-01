@@ -255,6 +255,41 @@ test('cured medicine uses one focused recovery motion without a delayed bounce',
   assert.equal(h.get('castResponse').animations.length,groupCount);
 });
 
+for (const count of [0,26]) for (const reducedMotion of [false,true]) test(`cure conversation has one primary recovery through the final reply (${count} companions, reduced: ${reducedMotion})`, () => {
+  const h=harness({reducedMotion}),s=h.api.state();
+  s.partner={id:'forest_bear',label:'もりのくまさん',emoji:'🐻',affection:100,married:true};
+  s.companions=allCompanionIds(h).slice(0,count).map(id=>({id,bond:100}));
+  s.lifetime.equippedItemId='ribbon';
+  renderEmotion(h,{speciesLine:'cat',ageTicks:25*20,stageIndex:5,isSick:true,health:70,energy:80});
+  avoidRoutineAchievementStory(h);
+  vm.runInContext(`Math.random=()=>${count?0.2:0.55}`,h.sandbox);
+  h.dispatch(h.get('medicineBtn'),'click');
+  h.advance(1);
+  assert.equal(s.isSick,false);
+  h.advance(2500);
+  assert.equal(h.get('speechBubble').dataset.kind,'partner');
+  assert.equal(h.get('partnerCompanion').querySelector('.partner-emoji').dataset.reaction,reducedMotion?undefined:'nod');
+  h.advance(2500);
+  if (count) {
+    assert.equal(h.get('speechBubble').dataset.kind,'companion');
+    h.advance(2500);
+  }
+  assert.equal(h.get('speechBubble').dataset.kind,'pet','exercise the final pet reply');
+  h.advance(2800);
+  const durations=motionDurations(h);
+  assert.equal(durations.filter(d=>d===1450).length,reducedMotion?0:1,'one recover for the entire successful cure');
+  assert.equal(durations.filter(d=>d===960).length,0,'listening must not add a delayed bounce');
+  assert.equal(h.get('castResponse').animations.length,0);
+  const partner=h.get('partnerCompanion').querySelector('.partner-emoji');
+  for (const animation of partner.animations) for (const frame of animation.frames) {
+    const y=Number(frame.transform.match(/translate\([^,]+, ([-.\d]+)px\)/)?.[1]);
+    assert.ok(Number.isFinite(y) && Math.abs(y)<3,'the partner only acknowledges quietly');
+  }
+  assert.deepEqual(h.get('petAccessory').animations.map(a=>a.frames),h.get('petSprite').animations.map(a=>a.frames));
+  // Dense fixtures can unlock companion achievements, which correctly suppress afterglow.
+  if (!count) assert.equal(h.get('petSprite').dataset.expression,'happy');
+});
+
 test('a newer care action invalidates the old feed afterglow', () => {
   const h=harness();
   vm.runInContext('Math.random=()=>0.55',h.sandbox);

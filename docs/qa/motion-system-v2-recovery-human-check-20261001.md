@@ -1,7 +1,14 @@
 # Motion System v2 — 回復pilotの実画面確認
 
-対象branch: `design/motion-system-v2-20261001`。mainへは未統合。
+対象branch: `design/motion-system-v2-20261001`。
 設計正本: `motion-system-v2-design-20261001.md`。
+
+## 人間承認（2026-10-02 JST）
+
+ユーザーが実Homeの8シーンを確認し、回復motionの大きさ・可愛さ、
+ジャンプ頂点を含む表示を正式承認。回復pilotは人間目視承認済み。
+追加の美的調整はmerge gateにしない。以下は再現用の確認手順として保持する。
+この承認を、未実行の自動browser runnerや特定の実機検証の成功へ読み替えない。
 
 ## 起動
 
