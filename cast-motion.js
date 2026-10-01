@@ -176,7 +176,11 @@
       const mood = reactionFor(event, text, speaker.kind);
       const relationshipEvent=['play_with','court','partner_new','marriage'].includes(event);
       if (!relationshipEvent || actor.kind==='pet') play(actor, mood);
-      if (event !== 'idle' && !relationshipEvent && !getRelationshipTargets().length) playGroup(mood);
+      // Recovery belongs to the cured pet throughout the conversation, even
+      // when a later reply's wording resolves to a group-capable mood.
+      if (event === 'medicine_cure') {
+        const group=getGroup(); if (group) stop(group);
+      } else if (event !== 'idle' && !relationshipEvent && !getRelationshipTargets().length) playGroup(mood);
       // A quiet listening gesture precedes the next character's spoken reply.
       // All motion is bounded, and all responses use the existing speech clock.
       const friend = find(listener);

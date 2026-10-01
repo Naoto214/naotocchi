@@ -131,13 +131,16 @@ test('feed afterglow starts happy only after the validated result and expires to
   assert.deepEqual(face(h),['hungry',variant('hungry')]);
 });
 
-test('a real cure receives the same validated happy afterglow', () => {
-  const h=harness(); adultCat(h,{isSick:true,health:70,energy:80}); avoidRoutineStories(h);
+for (const reducedMotion of [false,true]) test(`a real cure retains a static happy afterglow (reduced motion: ${reducedMotion})`, () => {
+  const h=harness({reducedMotion}); adultCat(h,{isSick:true,health:70,energy:80}); avoidRoutineStories(h);
   vm.runInContext('Math.random=()=>0.55',h.sandbox);
   h.dispatch(h.get('medicineBtn'),'click'); h.advance(1);
   assert.deepEqual(face(h),['normal',BASE]);
+  const count=h.get('petSprite').animations.length;
+  assert.equal(count,reducedMotion?0:1);
   h.advance(2699);
   assert.deepEqual(face(h),['happy',HAPPY]);
+  assert.equal(h.get('petSprite').animations.length,count,'the happy face must not start a second motion');
   h.advance(1200);
   assert.deepEqual(face(h),['normal',BASE]);
 });

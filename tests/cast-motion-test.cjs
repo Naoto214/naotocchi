@@ -259,6 +259,23 @@ test('successful medicine cure keeps recovery semantics even when the line menti
   assert.equal(reactionFor('medicine_wrong','にがい！'),'shake');
 });
 
+test('a resting partner reply after cure cannot lift the surrounding cast', () => {
+  const h=harness(); const s=cast(h);
+  const source=require('node:fs').readFileSync('character-world-master.v1.js','utf8');
+  const world=new Function(source+';return NAOTOCCHI_CHARACTER_WORLD_MASTER_V1')();
+  s.companions=[...world.companions.normal,...world.companions.rare].map(c=>({id:c.id,bond:100}));
+  h.api.render();
+  // Use the actual Home conversation path; secondary tone may remain gentle.
+  h.api.speakEvent('clean',{petText:'きれいになった',partnerChance:0,companionChance:0});
+  h.advance(1);
+  const prior=h.get('castResponse').animations.at(-1);
+  const count=h.get('castResponse').animations.length;
+  h.api.setSpeechBubble('今日はちょっとゆっくりしよ',
+    {kind:'partner',id:s.partner.id,label:s.partner.label},{event:'medicine_cure'});
+  assert.equal(h.get('castResponse').animations.length,count,'a cure reply must not start a group lift');
+  assert.equal(prior.playState,'idle','the cure reply also cancels a stale group lift');
+});
+
 test('pet care semantics win over randomized line tone without changing social tone', () => {
   const {reactionFor}=require('../cast-motion.js');
   assert.equal(reactionFor('feed','食べ終わったら休もう','pet'),'munch');
@@ -293,7 +310,11 @@ test('focused recovery keeps a readable 16px budget even when ambient cast motio
     env:{matchMedia:()=>({matches:false,addEventListener(){}}),getComputedStyle:()=>({transform:'none'})},
   });
   controller.pet('recover');
-  const ys=pet.animations.at(-1).frames.map(frame=>Number(frame.transform.match(/translate\\([^,]+, ([-.\\d]+)px\\)/)?.[1]));
+  const ys=pet.animations.at(-1).frames.map(frame=>Number(frame.transform.match(/translate\([^,]+, ([-.\d]+)px\)/)?.[1]));
+  assert.ok(ys.every(Number.isFinite),'every recovery frame has a readable vertical displacement');
   assert.ok(Math.min(...ys)<=-10);
+  assert.ok(ys.every(y=>Math.abs(y)<=16));
+  assert.equal(ys.at(-1),0);
+  assert.equal(group.animations.length,0,'focused recovery never lifts the surrounding cast');
   assert.deepEqual(accessory.animations.at(-1).frames,pet.animations.at(-1).frames);
 });

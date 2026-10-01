@@ -4126,9 +4126,9 @@
         careAfterglowTimer = setTimeout(tryRun,120);
         return;
       }
-      const duration = castMotion?.pet(motion,{gentle:true}) || 0;
+      const duration = motion ? castMotion?.pet(motion,{gentle:true}) || 0 : 0;
       if (duration) petBusyUntil = Math.max(petBusyUntil,Date.now()+duration);
-      const expressionDuration = duration || (window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ? 1000 : 0);
+      const expressionDuration = duration || (!motion || window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ? 1000 : 0);
       if (expressionDuration) startPetExpression('happy',expressionDuration);
     };
     careAfterglowTimer = setTimeout(tryRun,delayMs);
@@ -17205,6 +17205,8 @@
     }
   }, (result,reactionSerial) => {
     // Recovery is now the immediate medicine_cure L3 motion; do not add a delayed second bounce.
+    // Keep the approved happy face after care, independently of movement.
+    if (result?.cured && result.reacted) scheduleCareAfterglow(reactionSerial,1000,null,signals => !signals.sick);
   }));
 
   // じゃれる(もとの なでる/はなしかけるを ひとつに まとめたボタン)は
