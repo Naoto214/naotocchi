@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [414](414-normal-decision-resource-pilot-design.md) | 承認された別版パイロットの詳細仕様を保存。110通常局面shadowと同一初期入力8軌跡の比較を設計（未実施）。114正本置換は結果確認まで保留 |
+
 | [413](413-decision-policy-investigation.md) | 判断順位の原因を照合。時と手札・盤面・予約を同段階で比較する別版パイロットを提案（未承認）。実装・対戦進行0、112未実施・balance0 |
 
 | [412](412-completed-batch-evaluation.md) | 完了4経路717event／721snapshotを観測評価。誕生合法61機会・選択0、メイン未配置・通常ちょうせん0。独立balance0、112未実施維持、判断方針の将来価値を次に検討 |
