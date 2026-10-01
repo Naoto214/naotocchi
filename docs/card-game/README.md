@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+425: [開始イベント／候補scope不一致調査](425-resource-value-trigger-scope-investigation.md)。remote424から再開。01-B seq84はたまご交換直後で、318のrawイベント名判定と166／206／401の開始分類が不一致。停止証跡を拡張、choice/event/state変更0。8fresh軌跡は完了0・停止8。Task5／評価／全proxy／最終review未完了。
+
 420: [shadow fresh検証](420-resource-value-shadow-verification.md)。全110旧互換性一致、新比較93・scope不足17、比較可能内の選択差56。対戦/event/decision0、114正本化なし。paired／全proxy／独立レビューは未完了。
 
 419 checkpoint: [shadow adapter](419-resource-value-shadow-checkpoint.md)。110予定局面を保持、比較86・unsupported24・再現不一致0、選択差58は限定観測。Task4継続中、paired／全proxy／独立レビュー未完了。114正本化なし。

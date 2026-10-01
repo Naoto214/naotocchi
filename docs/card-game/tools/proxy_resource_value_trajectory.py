@@ -439,7 +439,13 @@ def run_route(initial,policy_id):
                 gh=start.opening._stop_state_sha256(game);ch=start._hash(state)
                 saved_inventories=[p for p in response_inventories if p['path_id']==initial['path_id'] and p['game_state_sha256']==gh and p['continuation_state_sha256']==ch]
                 if any(p['candidate_ids']!=sorted(opportunity['legal_candidate_ids']) for p in saved_inventories):
-                    raise normal.RulesStop('legality_not_confirmed',dict(stage='historical_response_inventory_scope',fresh_candidate_ids=opportunity['legal_candidate_ids'],historical_inventories=saved_inventories))
+                    trigger_event=next((e for e in events if e['seq']==context['origin_event_seq']),None)
+                    if trigger_event is None:raise ValueError('response origin event absent from executed history')
+                    raise normal.RulesStop('legality_not_confirmed',dict(stage='historical_response_inventory_scope',
+                        fresh_candidate_ids=opportunity['legal_candidate_ids'],historical_inventories=saved_inventories,
+                        trigger_event={k:trigger_event[k] for k in ('seq','action_type','actor')},
+                        window_kind=context['window_kind'],response_opportunity_index=context['response_opportunity_index'],
+                        source_contract_refs=['144-board-trigger-response-audit.md','318-new-seed-mixed-audit.md']))
                 profiles=[p['seed_context'] for p in initial['inputs']['response_seed_profiles'] if p['game_state_sha256']==gh and p['continuation_state_sha256']==ch]
                 if len(profiles)>1:raise ValueError('response seed source boundary ambiguous')
                 index=profiles[0]['actor_turn_index'] if profiles else game['round']

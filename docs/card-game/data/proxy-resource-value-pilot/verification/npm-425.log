@@ -1,0 +1,20 @@
+{
+  "command": "npm test",
+  "exit_code": 0,
+  "final_output": [
+    "✔ city switches to actual neon artwork at night without returning to old seasonal streets (0.203687ms)",
+    "✔ current location has outdoor municipal profiles without adding gameplay regions (0.303148ms)",
+    "✔ shared temperate branches do not turn a jungle or farm back into the same clearing (0.254274ms)",
+    "✔ renderer updates the scenery when the municipality changes on the same gameplay region (12.462762ms)",
+    "ℹ tests 406",
+    "ℹ suites 0",
+    "ℹ pass 406",
+    "ℹ fail 0",
+    "ℹ cancelled 0",
+    "ℹ skipped 0",
+    "ℹ todo 0",
+    "ℹ duration_ms 10024.615935"
+  ],
+  "full_output_sha256": "655a891fb6f936578d1b351ce0c25f04285a8293380167750f51deae052caa8d",
+  "log_representation": "summary with final output; not a full transcript"
+}

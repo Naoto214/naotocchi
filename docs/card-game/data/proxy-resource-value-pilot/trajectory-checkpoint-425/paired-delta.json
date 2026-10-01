@@ -1,0 +1,48 @@
+{
+  "base_file": "trajectory-checkpoint-424/paired.json.gz",
+  "base_raw_sha256": "79a048e1e4ec87672a605a0689dd6ca79884e57020131786596d8739a8e6e62b",
+  "completed": 0,
+  "independent_replay_performed": true,
+  "not_executed": 0,
+  "planned": 8,
+  "policy_promoted": false,
+  "reconstructed_raw_sha256": "c3502194e3d8305d9c362788ef400e92ad60641ea8f5ce87ecfc26cc94a6e1de",
+  "replacement_fields": [
+    {
+      "field": "stop_evidence",
+      "result_index": 2,
+      "run_id": "legacy_107_114_116:probe-01-b-first",
+      "value": {
+        "fresh_candidate_ids": [
+          "response-activate-ability-A-015#1",
+          "response-pass"
+        ],
+        "historical_inventories": [
+          {
+            "candidate_ids": [
+              "response-pass"
+            ],
+            "continuation_state_sha256": "4f0b3b5671468d2ee2c32346de1b3f8e277d484aac2bbb395b88fc9e47288e57",
+            "game_state_sha256": "b8c2b29bd518420f456a1e803b15ed4d23e8cf944fa4be709a7d576ca18ebdd3",
+            "path_id": "probe-01-b-first",
+            "source_ref": "docs/card-game/data/proxy-new-seed-mixed-audit-318-20260927.json"
+          }
+        ],
+        "response_opportunity_index": 1,
+        "source_contract_refs": [
+          "144-board-trigger-response-audit.md",
+          "318-new-seed-mixed-audit.md"
+        ],
+        "stage": "historical_response_inventory_scope",
+        "trigger_event": {
+          "action_type": "egg_exchange_bottom",
+          "actor": "A",
+          "seq": 84
+        },
+        "window_kind": "turn_start"
+      }
+    }
+  ],
+  "schema": "naotocchi.card_game.resource_value_checkpoint_delta.v1",
+  "stopped": 8
+}
