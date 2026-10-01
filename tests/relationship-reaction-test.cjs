@@ -13,3 +13,8 @@ test('heart remains immediately above its owner even if a neighbour occupies tha
  assert.ok(f.y-(p.y+p.h)>=2 && f.y-(p.y+p.h)<=4);
  for(const x of [0,270]){const a=R.heartAnchor({...f,x},{width:310,height:160});assert.ok(a.x>=0&&a.x+a.w<=310);}
 });
+test('positive companion layer is raised locally so neighbours cannot hide its owner-attached heart',()=>{
+ const css=require('node:fs').readFileSync(require('node:path').join(__dirname,'../ui.css'),'utf8');
+ assert.match(css,/#pet \.companion-chip-small\[data-relationship-state="positive"\]\s*\{\s*z-index:1\s*\}/);
+ assert.doesNotMatch(css,/#pet \.companion-chip-small\[data-relationship-state="(?:normal|lonely)"\]\s*\{\s*z-index:/);
+});

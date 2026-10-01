@@ -239,6 +239,8 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
    No layout size, global fog, filter on artwork, particles or perpetual timers. */
 #pet .companion-chip-small,#pet .partner-emoji{isolation:isolate}
 #pet .partner-emoji{position:relative}
+/* Keep a positive companion and its attached cue above neighbouring idle cast. */
+#pet .companion-chip-small[data-relationship-state="positive"]{z-index:1}
 .relationship-aura{position:absolute;pointer-events:none;border-radius:50%;z-index:-1;background:radial-gradient(ellipse,transparent 25%,rgba(145,166,222,.21) 53%,rgba(155,196,235,.12) 70%,transparent 76%)}
 .relationship-aura[data-relationship-state="positive"]{background:radial-gradient(ellipse,rgba(255,224,170,.12) 20%,rgba(255,187,107,.5) 55%,rgba(255,211,128,.22) 69%,transparent 78%);animation:relationship-warm 2.5s ease-out both}
 .relationship-heart{position:absolute;display:flex;pointer-events:none;line-height:1;color:#e5a0b6;z-index:2;transform-origin:center bottom}
