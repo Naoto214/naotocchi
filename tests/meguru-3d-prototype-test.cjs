@@ -354,3 +354,25 @@ test('10. はっけんの しらせ(全地域): ランドマーク / ひみつ �
   const at = (id) => M.discoveryNotice(f.spots.find((s) => s.id === id));
   assert.equal(at('falls').kind, 'landmark'); assert.equal(at('hiddenpond').kind, 'secret'); assert.equal(at('creekdeep'), null); assert.equal(at('thicket1'), null);
 });
+
+test('11. 全地域(registry から): 3D モードで ぜんぶの spot と gate に 道に そって あるいて 行ける(とじこめ なし)', () => {
+  const regions = Object.keys(M.WORLDS), summary = [];
+  for (const rid of regions) {
+    const sim = M.createSimulation({ regionId: rid, discovered: [], world3d: true });
+    const w = sim.world;
+    assert.ok(w.world3d, rid + ' は 3D モードの world');
+    const adj = new Map(w.spots.map((s) => [s.id, []]));
+    for (const sg of w.segments) { if (adj.has(sg.a.id) && adj.has(sg.b.id)) { adj.get(sg.a.id).push(sg.b); adj.get(sg.b.id).push(sg.a); } }
+    const start = w.spots[0], seen = new Set([start.id]), order = [], q = [start], from = new Map();
+    while (q.length) { const c = q.shift(); order.push(c); for (const nb of adj.get(c.id)) if (!seen.has(nb.id)) { seen.add(nb.id); from.set(nb.id, c); q.push(nb); } }
+    assert.equal(order.length, w.spots.length, rid + ': 道の グラフで ぜんぶ つながって いる(' + order.length + ' / ' + w.spots.length + ')');
+    const walkTo = (t) => { for (let i = 0; i < 4000; i++) { const dx = t.x - sim.player.x, dz = t.z - sim.player.z, d = Math.hypot(dx, dz) || 1; if (d < Math.max(40, (t.r || 60) * 0.5)) return true; sim.step(1 / 60, { x: dx / d, y: -dz / d }); } return false; };
+    let fails = [];
+    for (const sp of order.slice(1)) { const par = from.get(sp.id); sim.setPlayer(par.x, par.z); if (!walkTo(sp)) fails.push(par.id + '→' + sp.id); }
+    assert.equal(fails.length, 0, rid + ': あるいて 行けない: ' + fails.join(', '));
+    // gate(ほかの 地域への 出入口)の spot にも 立てる
+    for (const g of M.regionGates(rid, w)) if (g.spot) assert.ok(!M.collidesAt(w, g.spot.x, g.spot.z, M.RULES.bodyRadius), rid + ' gate ' + g.id + ' に 立てる');
+    summary.push(rid + ':' + w.spots.length);
+  }
+  assert.ok(summary.length >= 13, summary.join(' '));
+});
