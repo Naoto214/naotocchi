@@ -1,0 +1,21 @@
+{
+  "catalog_errors": [],
+  "current_proxy_test_count_AST": 816,
+  "default_design_errors": [],
+  "existing_tests_changed": false,
+  "full_proxy_rerun_in_412": false,
+  "observation_raw_sha256": "8c85dfdc8a21348810a1a120f6b5a3a6b1fb3a9b69781e61755c89f21096cfb4",
+  "original_protected_JSON_unchanged_count": 505,
+  "prior_full_proxy_evidence": "docs/card-game/data/proxy-verification-410-20261001/full/summary.json",
+  "production_code_changed": false,
+  "repeat_observation_bytes_identical": true,
+  "review": {
+    "critical": 0,
+    "important": 0,
+    "minor": 0
+  },
+  "source_head": "1fef866bfa7ed46c528f1c0d2fef5d8f45abfa4b",
+  "source_raw_SHA256_match_count": 223,
+  "source_tree": "4b9019d1c85592a9c22a1ba0963d45cb6b35c04f",
+  "unplayed_112_fixtures_unchanged_count": 6
+}

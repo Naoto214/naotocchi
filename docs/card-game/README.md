@@ -6,6 +6,8 @@
 
 ## 現在フェーズと再開地点
 
+| [412](412-completed-batch-evaluation.md) | 完了4経路717event／721snapshotを観測評価。誕生合法61機会・選択0、メイン未配置・通常ちょうせん0。独立balance0、112未実施維持、判断方針の将来価値を次に検討 |
+
 | [411](411-full-proxy-regression.md) | 全proxy310モジュール816/816 PASS。6worker exit0、全予定／開始／終了ID一致、欠落・重複・skip0。既存JSON505／408hash不変。独立balance0 |
 
 | [410](410-proxy-regeneration-verification.md) | 409から未保存410を復元。独立再生成を保持して重複入力読込を削減、専用9/9 PASS。既存JSON505不変。全proxy回帰前checkpoint、全回帰未完了 |
