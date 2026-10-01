@@ -1,0 +1,28 @@
+E.
+======================================================================
+ERROR: test_end_trigger_is_not_a_normal_action_and_registry_is_restored (test_proxy_resource_value_normal_board.NormalBoardTests.test_end_trigger_is_not_a_normal_action_and_registry_is_restored)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_normal_board.py", line 14, in test_end_trigger_is_not_a_normal_action_and_registry_is_restored
+    proof=t.audit_opportunity(self.state,self.history)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_resource_value_trajectory.py", line 195, in audit_opportunity
+    inventory,units,ids,details=normal_audit.board._expected(view,table)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_board_active_132.py", line 174, in _expected
+    units=adjudicate_units(view,expand_units(view,table))
+                                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_board_response_134.py", line 125, in expand
+    rows = old_expand(view, table)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_board_active_132.py", line 79, in expand_units
+    for x in other_extras:extension_128._classify_board(x,view)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_r2_candidate_extension_128.py", line 69, in _classify_board
+    raise ValueError('unresolved_canonical_predicate: board ability classification')
+ValueError: unresolved_canonical_predicate: board ability classification
+
+----------------------------------------------------------------------
+Ran 2 tests in 2.536s
+
+FAILED (errors=1)

@@ -7,6 +7,7 @@ import argparse
 import copy
 import json
 from pathlib import Path
+from contextlib import contextmanager
 import proxy_independent_seed_probe as probe
 import proxy_start_response_138 as start
 import proxy_normal_action_candidate_completeness as candidates
@@ -181,7 +182,24 @@ def find_boundary(continuation,boundaries):
     if len(matches)>1:raise ValueError('ambiguous exact source boundary')
     return copy.deepcopy(matches[0]) if matches else None
 
+@contextmanager
+def normal_board_scope(table):
+    """133 already proves this source is an end trigger, not a normal action."""
+    import proxy_cross_restart_133 as end_trigger
+    registry=candidates.BOARD_ABILITY_REGISTRY;card='P-desert_scorpion'
+    classified=end_trigger.classify_end_trigger(card,table);previous=registry.get(card)
+    if previous is not None and previous!=classified:raise ValueError('normal board classification conflict')
+    registry[card]=classified
+    try:yield
+    finally:
+        if previous is None:registry.pop(card,None)
+        else:registry[card]=previous
+
 def audit_opportunity(continuation,public_history):
+    table=json.loads((DATA/'proxy-normal-decision-candidate-table-114-20260918.json').read_text())
+    with normal_board_scope(table):return _audit_opportunity(continuation,public_history)
+
+def _audit_opportunity(continuation,public_history):
     table=json.loads((DATA/'proxy-normal-decision-candidate-table-114-20260918.json').read_text())
     game=continuation['game_state']
     audit=candidates.audit_current_normal_action(game,continuation,public_history,table)
@@ -284,6 +302,39 @@ def _generic_response_opportunity(state,initial,events):
         return start.enumerate_opportunity(state,actor,start.load_candidate_rows())
     return reached_response.enumerate_opportunity(state,events)
 
+def _activate_normal_coin(before,record):
+    """06 normal declaration, reusing 170's payment/link implementation.
+
+    Timing projection is internal to the execution adapter. The original
+    normal selection, IDs and wrapper remain intact. Unknown board triggers
+    stop before any payment; no hidden deck content is inspected.
+    """
+    game=before['game_state'];actor=game['turn_player'];action=record['selected_action']
+    if game['phase']!='normal_action' or before['activation_zone'] or before['pending_triggers'] or game.get('challenge') is not None:
+        raise ValueError('normal coin declaration boundary differs')
+    for player in game['players'].values():
+        board=player['board']
+        if any(board[k] for k in ('main','companions','partner','world','prepared')) or player['reservations']:
+            raise normal.RulesStop('legality_not_confirmed',dict(stage='normal_activation_trigger_or_cost_sources'))
+    section=(DATA.parent/'06-action-chain-checkpoint.md').read_text()
+    if 'すぐつかうは手札から発動領域へ置いて発動し、効果は後で解決する' not in section or '発動したプレイヤーがまず追加発動するか選べる' not in section:
+        raise ValueError('normal quick-use declaration contract differs')
+    source=action['source_instance_id'];entry=start.load_candidate_rows()[action['card_id']]
+    template=next(x for x in entry['actions'] if x['action_type']=='use_item')
+    detail=start._hand_detail(game,actor,source,entry,template)
+    projected=copy.deepcopy(before);projected['game_state']['phase']='response_window'
+    projected['response_context']=dict(source_phase='response_window',phase='response_window',window_kind='turn_start',
+        origin_event_seq=before['last_event_seq']+1,turn_player=actor,priority_actor=actor,chain_status='empty',chain_links=[],
+        consecutive_passes=0,response_opportunity_index=1,decision_kind='response_action',choice_kind='reaction_or_pass')
+    projected['return_target']='normal_action_opportunity';projected['continuation_state_sha256']=start._hash(projected)
+    after,event=coin_activation.activate_quick_item(projected,dict(selected_candidate=detail['candidate_id'],selected_action=detail))
+    after['response_context'].update(source_phase='normal_action',window_kind='after_normal_action',response_opportunity_index=1)
+    after['continuation_state_sha256']=start._hash(after)
+    event.update(action_type='use_item',selected_candidate=record['selected_candidate'],
+        game_state_before_sha256=start.opening._stop_state_sha256(game),continuation_state_before_sha256=start._hash(before),
+        game_state_after_sha256=start.opening._stop_state_sha256(after['game_state']),continuation_state_after_sha256=start._hash(after))
+    return after,[event]
+
 def apply_selected(continuation,selection,inputs):
     record=copy.deepcopy(selection)
     if 'selection' in record:
@@ -305,6 +356,8 @@ def apply_selected(continuation,selection,inputs):
         if action not in inventory:raise ValueError('selected execution action not in independently regenerated inventory')
         if 'selection' in record and record['problem']['legal_candidate_ids']!=sorted(x['candidate_id'] for x in inventory):raise ValueError('pilot legal inventory differs at execution')
     try:
+        if kind=='use_item' and action['card_id']=='I-c_coin2' and continuation['game_state']['phase']=='normal_action':
+            return _activate_normal_coin(continuation,record)
         if kind in ('pass','play_main'):return normal.transition(continuation,record,inputs)
         if kind in ('place_companion','place_partner'):
             with placements.partner_placement_scope():return extension._apply_placement(continuation,record)
@@ -389,6 +442,45 @@ def _row(state,path_id):
         final_game_state_sha256=start.opening._stop_state_sha256(state['game_state']),
         final_continuation_state_sha256=start._hash(state),final_continuation_state=start._payload(state))
 
+@contextmanager
+def egg_partner_end_scope(state):
+    """93 blocks new partner abilities while the owner has no main."""
+    registry=reached.board_end.board.turn_end.BOARD_REGISTRY;card='P-desert_scorpion'
+    owners=[actor for actor,player in state['game_state']['players'].items()
+        if player['board']['partner'] is not None and state['game_state']['cards'][player['board']['partner']]['card_id']==card]
+    if not owners:yield;return
+    if any(state['game_state']['players'][actor]['board']['main'] is not None for actor in owners):
+        raise ValueError('active scorpion end trigger requires separate proof')
+    import proxy_cross_restart_133 as end_trigger
+    end_trigger.classify_end_trigger(card,json.loads((DATA/'proxy-normal-decision-candidate-table-114-20260918.json').read_text()))
+    text=(DATA.parent/'93-cross-type-boundary-audit.md').read_text()
+    if 'たまご中は新規発動・継続効果・発動しない修正を止める' not in text:raise ValueError('egg partner suppression contract differs')
+    addition=('partner_ability_blocked_while_egg','93-cross-type-boundary-audit.md#V02')
+    old=registry.get(card)
+    if old is not None and old!=addition:raise ValueError('egg partner end registry conflict')
+    registry[card]=addition
+    try:yield
+    finally:
+        if old is None:registry.pop(card,None)
+        else:registry[card]=old
+
+@contextmanager
+def end_only_partner_start_scope():
+    """Keep the actual partner; exclude only its nonexistent start trigger."""
+    original=reached.ORIGINAL_CLASSIFY
+    def classify(game,actor):
+        board=game['players'][actor]['board'];instance=board['partner']
+        if instance is None or game['cards'][instance]['card_id']!='P-desert_scorpion':return original(game,actor)
+        import proxy_cross_restart_133 as end_trigger
+        end_trigger.classify_end_trigger('P-desert_scorpion',json.loads((DATA/'proxy-normal-decision-candidate-table-114-20260918.json').read_text()))
+        text=reached.hand.source_section('74-partner-18-card-text-draft.md','P-desert_scorpion')
+        if '自分のターン終了時' not in text or '自分のターン開始時' in text:raise ValueError('scorpion start timing differs')
+        projected=copy.deepcopy(game);projected['players'][actor]['board'].update(partner=None,partner_stage=None)
+        return original(projected,actor)+[dict(source_instance_id=instance,card_id='P-desert_scorpion',trigger_kind='own_turn_end_not_turn_start',source_reference='74-partner-18-card-text-draft.md#P-desert_scorpion')]
+    reached.ORIGINAL_CLASSIFY=classify
+    try:yield
+    finally:reached.ORIGINAL_CLASSIFY=original
+
 def _end_transition(state,path_id,events,shots):
     """Reclassify executed history through 124, then use the existing end adapter."""
     row=_row(state,path_id)
@@ -397,7 +489,7 @@ def _end_transition(state,path_id,events,shots):
         game_state=state['game_state'],continuation_state=start._payload(state))
     registry=copy.deepcopy(reached.provenance.TEXT_REGISTRY)
     registry['turn_end_completed']=dict(growth_delta=0,duration='none',reference='64-turn-boundaries-and-victory-timing.md')
-    with placements.partner_placement_scope(),reached.end_board_scope():
+    with placements.partner_placement_scope(),reached.end_board_scope(),egg_partner_end_scope(state),end_only_partner_start_scope():
         for event in events:
             if event['action_type'] in ('place_companion','place_partner'):
                 card=state['game_state']['cards'][event['source_instance_id']]['card_id']
@@ -415,7 +507,7 @@ def _end_transition(state,path_id,events,shots):
             rules=copy.deepcopy(registry);kind=event['action_type'];instance=event.get('source_instance_id')
             card=state['game_state']['cards'][instance]['card_id'] if instance is not None else None
             refs={'G-hit-blow':'87-play-batch-5-card-text-draft.md#G-hit-blow','I-c_coin2':'77-current-items-card-text-draft.md#I-c_coin2','C-chicken':'72-companion-26-card-text-draft.md#C-chicken'}
-            if kind=='activate_response' and card in refs:
+            if (kind=='activate_response' and card in refs) or (kind=='use_item' and card=='I-c_coin2'):
                 rules.setdefault(kind,{})[card]=dict(growth_delta=0,duration='activation_until_resolution',reference=refs[card])
             elif (kind,card) in (('resolve_play','G-hit-blow'),('resolve_item','I-c_coin2')):
                 result=event['result'];delta=result['growth_added']
@@ -434,6 +526,11 @@ def _end_transition(state,path_id,events,shots):
         audit=terminal.audit_current_turn_end(stop,proof)
         if not audit['turn_end_set_complete'] or audit['contract_stop_codes']:
             raise ValueError('fresh six-stage end proof incomplete: '+repr(dict(codes=audit['contract_stop_codes'],unresolved=proof['unresolved_codes'])))
+        for stage in audit['stage_inventory']:
+            for unit in stage.get('units',[]):
+                if unit.get('card_id')=='P-desert_scorpion':
+                    unit['evidence']['predicate']='partner_ability_blocked_while_egg'
+                    unit['evidence']['owner.board.main']=None
         bound=dict(reached.boundary(row),next_opportunity='turn_end',turn_end_set_complete=True,
             stage_inventory=audit['stage_inventory'],completeness_checks=audit['completeness_checks'],contract_stop_codes=[],
             classified_events=proof['classified_events'],growth_trace=proof['growth_trace'])

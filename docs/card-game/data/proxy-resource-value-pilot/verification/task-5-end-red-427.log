@@ -1,0 +1,16 @@
+.E.
+======================================================================
+ERROR: test_partner_end_ability_is_blocked_while_owner_is_egg (test_proxy_resource_value_normal_board.NormalBoardTests.test_partner_end_ability_is_blocked_while_owner_is_egg)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_normal_board.py", line 24, in test_partner_end_ability_is_blocked_while_owner_is_egg
+    outcome=t._end_transition(state,self.initial['path_id'],events,shots)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_resource_value_trajectory.py", line 489, in _end_transition
+    raise ValueError('fresh six-stage end proof incomplete: '+repr(dict(codes=audit['contract_stop_codes'],unresolved=proof['unresolved_codes'])))
+ValueError: fresh six-stage end proof incomplete: {'codes': ['missing_turn_end_source_classification', 'unresolved_end_trigger', 'unresolved_expiration', 'missing_growth_reach_history'], 'unresolved': ['unresolved_effect_provenance']}
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.222s
+
+FAILED (errors=1)

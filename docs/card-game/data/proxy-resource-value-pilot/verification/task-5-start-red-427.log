@@ -1,0 +1,31 @@
+E....
+======================================================================
+ERROR: test_end_only_partner_is_retained_across_next_start_draw (test_proxy_resource_value_normal_board.NormalBoardTests.test_end_only_partner_is_retained_across_next_start_draw)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_normal_board.py", line 32, in test_end_only_partner_is_retained_across_next_start_draw
+    outcome=t._end_transition(state,self.initial['path_id'],[e for e in result['events'] if e['seq']<=20],[s for s in result['snapshots'] if s['event_seq']<=20])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_resource_value_trajectory.py", line 520, in _end_transition
+    return terminal.replay_end(row,bound)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_reached_round_ten_405.py", line 49, in replay_end
+    if game['round']<10:return contracts.replay_end(row,proof)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_reached_mixed_contracts_401.py", line 266, in replay_end
+    return end.run_route(row,proof)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_new_seed_turn_end_replay_204.py", line 99, in run_route
+    board_inventory=classify_next_board(state['game_state'],next_actor)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_reached_mixed_contracts_401.py", line 260, in classify_next_board
+    return ORIGINAL_CLASSIFY(projected,actor)+extra
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_new_seed_turn_end_replay_204.py", line 56, in classify_next_board
+    raise ValueError('204 partner event-only timing unclassified')
+ValueError: 204 partner event-only timing unclassified
+
+----------------------------------------------------------------------
+Ran 5 tests in 4.537s
+
+FAILED (errors=1)

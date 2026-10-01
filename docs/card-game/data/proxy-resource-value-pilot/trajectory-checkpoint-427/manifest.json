@@ -1,0 +1,10 @@
+{
+  "base_file": "trajectory-checkpoint-424/paired.json.gz",
+  "base_raw_sha256": "79a048e1e4ec87672a605a0689dd6ca79884e57020131786596d8739a8e6e62b",
+  "delta_gzip_bytes": 855866,
+  "delta_gzip_sha256": "1e3ad8aa1112d772d45f80a09db61bcce1807c9e7197227956a098cfac6adbb3",
+  "delta_raw_sha256": "009e0b940f10bf345c0030639e3de0f998f94235f338bcf3da4f49e2ef0f5ff6",
+  "operation_count": 69,
+  "reconstructed_raw_sha256": "da96502819911c579bd5895116192524398a6b7b5db4a673b29319d3dee39d71",
+  "schema": "naotocchi.card_game.resource_value_paired_delta.v2"
+}

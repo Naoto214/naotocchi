@@ -1,0 +1,33 @@
+E.E
+======================================================================
+ERROR: test_effect_waits_for_both_passes_and_reuses_resolution (test_proxy_resource_value_normal_chain.NormalChainTests.test_effect_waits_for_both_passes_and_reuses_resolution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_normal_chain.py", line 31, in test_effect_waits_for_both_passes_and_reuses_resolution
+    after,_=self.activate();actor=self.state['game_state']['turn_player']
+            ^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_normal_chain.py", line 13, in activate
+    return t.apply_selected(state or self.state,record or self.record,dict(self.initial['inputs'],public_history=self.history))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_resource_value_trajectory.py", line 357, in apply_selected
+    raise normal.RulesStop('unsupported_resolution_adapter',dict(action_type=kind,source_references=action.get('source_references',[])))
+proxy_normal_action_seeded_restart.RulesStop: unsupported_resolution_adapter
+
+======================================================================
+ERROR: test_normal_quick_item_pays_once_and_opens_chain (test_proxy_resource_value_normal_chain.NormalChainTests.test_normal_quick_item_pays_once_and_opens_chain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_normal_chain.py", line 17, in test_normal_quick_item_pays_once_and_opens_chain
+    after,events=self.activate()
+                 ^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/test_proxy_resource_value_normal_chain.py", line 13, in activate
+    return t.apply_selected(state or self.state,record or self.record,dict(self.initial['inputs'],public_history=self.history))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/ce189a57ff8f/naotocchi-pilot/docs/card-game/tools/proxy_resource_value_trajectory.py", line 357, in apply_selected
+    raise normal.RulesStop('unsupported_resolution_adapter',dict(action_type=kind,source_references=action.get('source_references',[])))
+proxy_normal_action_seeded_restart.RulesStop: unsupported_resolution_adapter
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.773s
+
+FAILED (errors=2)
