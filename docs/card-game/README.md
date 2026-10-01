@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+430: [反応専用fallback率の修正](430-resource-value-response-rate-fix.md)。response seeded25/257を別母数へ正しく集計、normal指標は不変。旧全proxy912は中断を明記し、新913件全回帰は次工程。
+
 429: [独立レビュー修正](429-resource-value-final-review-fixes.md)。非公開山札順による比較証拠の欠落と、seed/subset差の評価を修正。選択pool差84/93、新規seeded84/93、両seeded context差4/4・抽選集合差0/4。旧全proxy中断は未完了、新manifest全回帰は次工程。
 
 428: [資源価値pilot実測評価・統合検査](428-resource-value-evaluation-checkpoint.md)。fresh shadow 93/110比較、選択差56/93、新fallback88/93。fresh8 run/独立再実行は427完全再現、全停止の欠測を保持。Task5/6完了、全proxy・最終reviewは未完了。

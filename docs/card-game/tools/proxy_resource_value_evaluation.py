@@ -41,9 +41,9 @@ def _selection_pool(record):
 
 def _decision_counts(records, stop=0):
     rows=[_decision(r) for r in records]
-    fallback=sum(r.get('resolution_mode')=='seeded_fallback' and len(r.get('legal_candidates',(r.get('seed_proof') or {}).get('canonical_candidate_ids',[])))>1 for r in rows)
+    fallback=sum(r.get('resolution_mode') in ('seeded_fallback','response_seeded_fallback') and len(r.get('legal_candidates',r.get('legal_candidate_ids',(r.get('seed_proof') or {}).get('canonical_candidate_ids',[]))))>1 for r in rows)
     return dict(valid=len(rows),reached=len(rows)+stop,true_stop=rate(stop,len(rows)+stop),
-        strategic_unresolved=rate(sum(r.get('strategic_unresolved',r.get('reason_code')=='strategic_unresolved_seeded_fallback') is True for r in rows),len(rows)),fallback=rate(fallback,len(rows)))
+        strategic_unresolved=rate(sum(r.get('strategic_unresolved',r.get('reason_code') in ('strategic_unresolved_seeded_fallback','strategic_unresolved_response_seeded_fallback')) is True for r in rows),len(rows)),fallback=rate(fallback,len(rows)))
 
 def evaluate_shadow(manifest, results):
     _coverage(manifest,results,'shadow_id')

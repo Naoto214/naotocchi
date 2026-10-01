@@ -22,6 +22,12 @@ class EvaluationTests(unittest.TestCase):
         self.assertEqual(out['normal']['strategic_unresolved'],dict(count=1,denominator=2,rate=.5))
         self.assertEqual(out['normal']['fallback'],dict(count=1,denominator=2,rate=.5))
         self.assertEqual(out['response']['fallback']['denominator'],1)
+    def test_canonical_response_seed_mode_counts_in_response_denominator(self):
+        r=route();r['decisions']=[dict(decision_kind='response_action',resolution_mode='response_seeded_fallback',reason_code='strategic_unresolved_response_seeded_fallback',legal_candidate_ids=['a','b'],seed_proof=dict(canonical_candidate_ids=['a','b']))]
+        out=e.evaluate_trajectories(dict(planned_ids=['old:p']),[r])['routes'][0]
+        self.assertEqual(out['response']['fallback'],dict(count=1,denominator=1,rate=1))
+        self.assertEqual(out['response']['strategic_unresolved']['count'],1)
+        self.assertEqual(out['normal']['fallback']['count'],0)
     def test_equal_tie_break_success_is_not_unresolved(self):
         r=route(completed=True);r['decisions']=[decision(mode='priority_tie_break')]
         out=e.evaluate_trajectories(dict(planned_ids=['old:p']),[r])['routes'][0]
