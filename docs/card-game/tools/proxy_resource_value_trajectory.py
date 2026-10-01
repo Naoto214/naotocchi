@@ -23,6 +23,10 @@ import proxy_resource_value_shadow as shadow
 import proxy_reached_round_ten_405 as terminal
 import proxy_new_seed_egg_replay_205 as egg
 import proxy_new_seed_egg_restart_165 as first_r2_egg
+import proxy_new_seed_next_response_restart_170 as coin_activation
+import proxy_new_seed_current_restart_176 as coin_resolution
+import proxy_new_seed_chain_resolution_155 as coin_outer_resolution
+import proxy_new_seed_mixed_replay_404 as coin_chain_activation
 from proxy_resource_value_inputs import project_visible, validate_sources
 from proxy_resource_value_selection import select_problem, validate_selection, canonical_sha256
 
@@ -41,13 +45,21 @@ def load_initial_routes(data_dir=DATA):
     source_manifest={k:v for row in rows for k,v in row['source_raw_sha256'].items()}
     inputs=dict(candidate_table=json.loads((data_dir/'proxy-normal-decision-candidate-table-114-20260918.json').read_text()),
         boundaries=rows,source_raw_sha256=source_manifest,source_root=str(data_dir.parents[2].resolve()))
-    saved_events={};mandatory_seed_profiles={}
+    historical_response_inventories,audit_manifest=_fresh_response_inventories(data_dir)
+    inputs['historical_response_inventories']=historical_response_inventories
+    inputs['response_audit_raw_sha256']=audit_manifest
+    saved_events={};mandatory_seed_profiles={};response_seed_profiles={}
     for name in source_manifest:
         if not name.endswith('.json') or Path(name).parent!=Path('docs/card-game/data'):continue
         for row in json.loads((data_dir.parents[2]/name).read_text()).get('results',[]):
             ds=row.get('new_decisions',row.get('decisions',[]))
             for decision in ds if isinstance(ds,list) else []:
                 ctx=decision.get('seed_context',{})
+                if decision.get('decision_kind')=='response_action' and ctx:
+                    key=(row['path_id'],decision.get('pre_game_state_sha256',decision.get('source_game_state_sha256')),decision.get('pre_continuation_state_sha256',decision.get('source_continuation_state_sha256')))
+                    if key[1] is not None and key[2] is not None:
+                        if key in response_seed_profiles and response_seed_profiles[key]!=ctx:raise ValueError('response seed profile alias differs')
+                        response_seed_profiles[key]=copy.deepcopy(ctx)
                 if decision.get('decision_kind')=='mandatory_choice' and ctx.get('choice_kind')=='egg_exchange_bottom':
                     key=(row['path_id'],ctx['actor'],ctx['round'])
                     index=ctx['actor_turn_index']
@@ -65,9 +77,39 @@ def load_initial_routes(data_dir=DATA):
         start.verify_source_route(fresh)
         results.append(dict(path_id=route['path_id'],order_id=route['order_id'],first_player=route['first_player'],
             manifest=copy.deepcopy(route),initial_raw_sha256=INITIAL_SHA,initial_manifest_sha256=canonical_sha256(route),
-            source_route=fresh,inputs=dict(inputs,path_id=route['path_id'],mandatory_seed_profiles={str(round_)+':'+actor:index for (path,actor,round_),index in mandatory_seed_profiles.items() if path==route['path_id']},saved_events={seq:copy.deepcopy(e) for (path,seq),e in saved_events.items() if path==route['path_id']})))
+            source_route=fresh,inputs=dict(inputs,path_id=route['path_id'],response_seed_profiles=[dict(game_state_sha256=gh,continuation_state_sha256=ch,seed_context=ctx) for (path,gh,ch),ctx in response_seed_profiles.items() if path==route['path_id']],mandatory_seed_profiles={str(round_)+':'+actor:index for (path,actor,round_),index in mandatory_seed_profiles.items() if path==route['path_id']},saved_events={seq:copy.deepcopy(e) for (path,seq),e in saved_events.items() if path==route['path_id']})))
     if len(results)!=4 or len({r['path_id'] for r in results})!=4:raise ValueError('four initial routes required')
     return results
+
+# These four immutable stages used 120's pass transition. Subsequent
+# saved stages use 138's empty-window adapter. This is a source-contract
+# compatibility profile, shared by both policies, rather than a round rule.
+LEGACY_PASS_SOURCES={
+    'proxy-new-seed-response-restart-145-20260925.json',
+    'proxy-new-seed-response-restart-148-20260925.json',
+    'proxy-new-seed-response-restart-158-20260925.json',
+    'proxy-new-seed-current-restart-176-20260925.json',
+}
+
+def _fresh_response_profiles(inputs,path_id):
+    seeds={};legacy_passes=set();root=Path(inputs['source_root'])
+    for name in inputs['source_raw_sha256']:
+        if not name.endswith('.json') or Path(name).parent!=Path('docs/card-game/data'):continue
+        for row in json.loads((root/name).read_text()).get('results',[]):
+            if row.get('path_id')!=path_id:continue
+            decisions=row.get('new_decisions',row.get('decisions',[]))
+            for decision in decisions if isinstance(decisions,list) else []:
+                ctx=decision.get('seed_context',{})
+                if decision.get('decision_kind')!='response_action' or not ctx:continue
+                key=(decision.get('pre_game_state_sha256',decision.get('source_game_state_sha256')),decision.get('pre_continuation_state_sha256',decision.get('source_continuation_state_sha256')))
+                if None in key:continue
+                if key in seeds and seeds[key]!=ctx:raise ValueError('response seed profile alias differs')
+                seeds[key]=copy.deepcopy(ctx)
+            if Path(name).name in LEGACY_PASS_SOURCES:
+                events=row.get('new_events',row.get('events',[]))
+                for event in events if isinstance(events,list) else []:
+                    if event['action_type']=='response_pass':legacy_passes.add((event['game_state_before_sha256'],event['continuation_state_before_sha256']))
+    return seeds,legacy_passes
 
 def _fresh_mandatory_seed_profiles(initial):
     profiles={};inputs=initial['inputs'];root=Path(inputs['source_root'])
@@ -83,6 +125,28 @@ def _fresh_mandatory_seed_profiles(initial):
                 if key in profiles and profiles[key]!=index:raise ValueError('mandatory seed profile alias differs')
                 profiles[key]=index
     return profiles
+
+def _fresh_response_inventories(data_dir):
+    """Bind historical response inventories without reusing their choices."""
+    import hashlib
+    data_dir=Path(data_dir);root=data_dir.parents[2]
+    raw=(data_dir/'proxy-verification-410-20261001/protected-data-baseline.json').read_bytes()
+    if hashlib.sha256(raw).hexdigest()!='917de46a9babf5cdd717618bcef64b2af63c3f3f16a19c296a709da72f519e3a':raise ValueError('protected baseline manifest differs')
+    proofs=[];manifest={}
+    for name,digest in json.loads(raw).items():
+        if 'audit' not in Path(name).name:continue
+        source=(root/name).read_bytes()
+        if hashlib.sha256(source).hexdigest()!=digest:raise ValueError('response audit raw differs: '+name)
+        rows=json.loads(source).get('results',[])
+        if not isinstance(rows,list):continue
+        for row in rows:
+            if not isinstance(row,dict) or row.get('next_opportunity') not in ('response_window','post_placement_response','turn_end_response'):continue
+            if row.get('candidate_set_complete') is not True or not isinstance(row.get('candidate_ids'),list):continue
+            if not all(row.get(k) for k in ('path_id','source_game_state_sha256','source_continuation_state_sha256')):continue
+            proofs.append(dict(path_id=row['path_id'],game_state_sha256=row['source_game_state_sha256'],
+                continuation_state_sha256=row['source_continuation_state_sha256'],candidate_ids=sorted(row['candidate_ids']),source_ref=name))
+            manifest[name]=digest
+    return proofs,manifest
 
 def _current(payload,seq):
     state=copy.deepcopy(payload);state.update(source_event_seq=seq,last_event_seq=seq,
@@ -203,10 +267,21 @@ def apply_selected(continuation,selection,inputs):
                 if continuation['activation_zone']:after,event=hit.pass_start_chain(continuation,record)
                 else:
                     after,event,_=start._pass(continuation,record['actor'])
+            elif continuation['game_state']['phase']=='post_placement_response':
+                boundary=(start.opening._stop_state_sha256(continuation['game_state']),start._hash(continuation))
+                if continuation['return_target'] is None or boundary in inputs.get('legacy_pass_boundaries',set()):after,event=normal.response_120.apply_response_pass(continuation,record)
+                else:after,event,_=start._pass(continuation,record['actor'])
             else:after,event=normal.response_120.apply_response_pass(continuation,record)
             return after,[event]
-        if kind=='use_play' and action['card_id']=='G-hit-blow':
-            after,event=hit.activate(continuation,record);return after,[event]
+        if kind=='activate_board_ability' and action['card_id']=='C-chicken':
+            after,event=reached.activation.activate_board_ability(continuation,record,dict(candidate_ids=[action['candidate_id']],source_instance_id=action['source_instance_id']))
+            return after,[event]
+        if kind=='use_item' and action['card_id']=='I-c_coin2' and continuation['response_context']['window_kind']=='turn_start' and continuation['game_state']['phase']=='response_window':
+            if continuation['activation_zone']:after,event=coin_chain_activation.activate_quick_item(continuation,record)
+            else:after,event=coin_activation.activate_quick_item(continuation,record,allow_prior_pass=True)
+            return after,[event]
+        if kind=='use_play' and action['card_id']=='G-hit-blow' and continuation['game_state']['phase']=='response_window':
+            after,event=hit.activate(continuation,record,allow_building=True);return after,[event]
     except normal.RulesStop as error:
         code='unsupported_resolution_adapter' if error.code=='effect_resolution_not_defined' else error.code
         raise normal.RulesStop(code,error.evidence) from error
@@ -222,7 +297,14 @@ def _verify_generated(before,after,events):
 
 def _source_event_shape(event,after,initial,policy):
     """119 result metadata is optional in historical stage serializers."""
-    if policy!=POLICIES[0] or event['action_type']!='response_pass':return event
+    if policy!=POLICIES[0]:return event
+    source=initial['inputs'].get('saved_events',{}).get(event['seq'])
+    if event['action_type']=='place_companion' and source and event.get('source_reference')=='72-companion-26-card-text-draft.md#C-cat_friend':
+        aliases={'optional_board_ability_no_placement_effect','own_turn_activated_ability_not_placement'}
+        if event.get('effect_classification') in aliases and source.get('effect_classification') in aliases and (event['game_state_after_sha256'],event['continuation_state_after_sha256'])==(source['game_state_after_sha256'],source['continuation_state_after_sha256']):
+            event['effect_classification']=source['effect_classification']
+        return event
+    if event['action_type']!='response_pass':return event
     # Only identical state hashes permit the historical serializer projection.
     source=initial['inputs'].get('saved_events',{}).get(event['seq'])
     if source and event['game_state_after_sha256']==source.get('game_state_after_sha256') and event['continuation_state_after_sha256']==source.get('continuation_state_after_sha256'):
@@ -250,11 +332,35 @@ def _end_transition(state,path_id,events,shots):
             if event['action_type'] in ('place_companion','place_partner'):
                 card=state['game_state']['cards'][event['source_instance_id']]['card_id']
                 known=extension.PLACEMENT_TEXT.get(card)
-                if known is None or (event.get('source_reference'),event.get('effect_classification'))!=known:
+                classification=event.get('effect_classification')
+                if card=='C-cat_friend' and classification=='own_turn_activated_ability_not_placement':classification='optional_board_ability_no_placement_effect'
+                if known is None or (event.get('source_reference'),classification)!=known:
                     raise ValueError('executed placement provenance differs')
                 registry.setdefault(event['action_type'],{})[card]=dict(growth_delta=0,duration='none',reference=known[0])
-        history=dict(events=events,snapshots=[dict(seq=x['event_seq'],state=x['game_state']) for x in shots],stop=stop)
-        proof=reached.provenance.derive_provenance(history,registry)
+        if len(shots)!=len(events)+1 or [e['seq'] for e in events]!=list(range(1,state['last_event_seq']+1)):
+            raise ValueError('executed provenance event/snapshot coverage differs')
+        proof=dict(classified_events=[],growth_trace=[dict(event_seq=0,growth={p:shots[0]['game_state']['players'][p]['growth'] for p in 'AB'})],
+            growth_reach_100=[],active_expiring_effects=[],unresolved_codes=[],source_event_seq=state['last_event_seq'])
+        for event,before,after in zip(events,shots,shots[1:]):
+            rules=copy.deepcopy(registry);kind=event['action_type'];instance=event.get('source_instance_id')
+            card=state['game_state']['cards'][instance]['card_id'] if instance is not None else None
+            refs={'G-hit-blow':'87-play-batch-5-card-text-draft.md#G-hit-blow','I-c_coin2':'77-current-items-card-text-draft.md#I-c_coin2','C-chicken':'72-companion-26-card-text-draft.md#C-chicken'}
+            if kind=='activate_response' and card in refs:
+                rules.setdefault(kind,{})[card]=dict(growth_delta=0,duration='activation_until_resolution',reference=refs[card])
+            elif (kind,card) in (('resolve_play','G-hit-blow'),('resolve_item','I-c_coin2')):
+                result=event['result'];delta=result['growth_added']
+                if type(delta) is not int or delta not in (0,5):raise ValueError('known public resolution growth invalid')
+                matched=result['declaration_matched'] if kind=='resolve_play' else result['revealed_card_type']=='main'
+                if delta!=(5 if matched else 0):raise ValueError('known public resolution category/growth differs')
+                rules.setdefault(kind,{})[card]=dict(growth_delta=delta,duration='none',reference=refs[card])
+            elif kind=='resolve_board_ability' and card=='C-chicken':
+                rules.setdefault(kind,{})[card]=dict(growth_delta=0,duration='none',reference=refs[card])
+            segment=dict(events=[event],snapshots=[dict(seq=x['event_seq'],state=x['game_state']) for x in (before,after)],
+                stop=dict(game_state=after['game_state'],last_valid_event_seq=event['seq']))
+            derived=reached.provenance.derive_provenance(segment,rules)
+            proof['classified_events'].extend(derived['classified_events']);proof['growth_trace'].extend(derived['growth_trace'][1:])
+            for key in ('growth_reach_100','active_expiring_effects','unresolved_codes'):proof[key].extend(derived[key])
+        proof['unresolved_codes']=sorted(set(proof['unresolved_codes']))
         audit=terminal.audit_current_turn_end(stop,proof)
         if not audit['turn_end_set_complete'] or audit['contract_stop_codes']:
             raise ValueError('fresh six-stage end proof incomplete: '+repr(dict(codes=audit['contract_stop_codes'],unresolved=proof['unresolved_codes'])))
@@ -270,6 +376,12 @@ def run_route(initial,policy_id):
     errors=validate_sources(initial['inputs']['source_raw_sha256'],Path(initial['inputs']['source_root']))
     if errors:raise ValueError('; '.join(errors))
     if initial['inputs']['mandatory_seed_profiles']!=_fresh_mandatory_seed_profiles(initial):raise ValueError('mandatory seed profiles differ from fresh sources')
+    seeds,legacy_passes=_fresh_response_profiles(initial['inputs'],initial['path_id'])
+    expected_profiles=[dict(game_state_sha256=g,continuation_state_sha256=c,seed_context=ctx) for (g,c),ctx in seeds.items()]
+    if sorted(initial['inputs']['response_seed_profiles'],key=canonical_sha256)!=sorted(expected_profiles,key=canonical_sha256):raise ValueError('response seed profiles differ from fresh sources')
+    response_inventories,audit_manifest=_fresh_response_inventories(DATA)
+    if initial['inputs']['historical_response_inventories']!=response_inventories or initial['inputs']['response_audit_raw_sha256']!=audit_manifest:raise ValueError('response inventories differ from fresh protected sources')
+    execution_inputs=dict(initial['inputs'],legacy_pass_boundaries=legacy_passes)
     source_root=Path(initial['inputs']['source_root'])
     import hashlib
     initial_raw=(source_root/'docs/card-game/data'/start.SOURCE.name).read_bytes()
@@ -305,21 +417,35 @@ def run_route(initial,policy_id):
                 after=_current(handler_result['final_continuation_state'],handler_result['last_valid_event_seq'])
                 generated=handler_result['new_events'];record=None
             elif context['chain_status']=='resolving':
-                if len(state['activation_zone'])!=1 or state['activation_zone'][0]['card_id']!='G-hit-blow':
-                    raise normal.RulesStop('unsupported_resolution_adapter',dict(stage='chain_resolution'))
-                after,event=hit.resolve_link(state);generated=[event];record=None
+                if not state['activation_zone']:raise normal.RulesStop('unsupported_resolution_adapter',dict(stage='chain_resolution'))
+                link=state['activation_zone'][-1];card=link['card_id']
+                if card=='G-hit-blow':after,event=hit.resolve_link(state,allow_outer_links=True)
+                elif card=='C-chicken' and len(state['activation_zone'])==1:after,event=reached.resolution.resolve_board_ability(state)
+                elif card=='I-c_coin2':
+                    if len(state['activation_zone'])==2:after,event=coin_outer_resolution.resolve_item(state)
+                    elif len(state['activation_zone'])==1:after,event=coin_resolution.resolve_item(state,dict(chain_link_id=link['link_id'],source_instance_id=link['source_instance_id']))
+                    else:raise normal.RulesStop('unsupported_resolution_adapter',dict(stage='coin_resolution_outer_links'))
+                else:raise normal.RulesStop('unsupported_resolution_adapter',dict(stage='chain_resolution',card_id=card))
+                generated=[event];record=None
             elif phase=='normal_action':
                 history=dict(normal_challenge_losses_by_actor=[],last_valid_event_seq=state['last_event_seq'],source_refs=sorted(initial['inputs']['source_raw_sha256']))
                 if any('challenge' in e['action_type'] for e in events):raise normal.RulesStop('legality_not_confirmed',dict(stage='challenge_history_adapter'))
                 try:record=_normal_selection(state,initial,policy_id,history)
                 except (ValueError,KeyError,TypeError) as error:raise normal.RulesStop('legality_not_confirmed',dict(stage='normal_candidate_or_comparison_proof',detail=str(error))) from error
-                after,generated=apply_selected(state,record,dict(initial['inputs'],public_history=history))
+                after,generated=apply_selected(state,record,dict(execution_inputs,public_history=history))
             elif phase in ('response_window','post_placement_response','turn_end_response'):
                 try:opportunity=_response_opportunity(state,initial,events)
                 except (ValueError,KeyError,TypeError) as error:raise normal.RulesStop('legality_not_confirmed',dict(stage='response_inventory',detail=str(error))) from error
-                record=start.seeded.resolve_response_choice(dict(order_id=initial['order_id'],actor_turn_index=game['round'],round=game['round']),opportunity)
+                gh=start.opening._stop_state_sha256(game);ch=start._hash(state)
+                saved_inventories=[p for p in response_inventories if p['path_id']==initial['path_id'] and p['game_state_sha256']==gh and p['continuation_state_sha256']==ch]
+                if any(p['candidate_ids']!=sorted(opportunity['legal_candidate_ids']) for p in saved_inventories):
+                    raise normal.RulesStop('legality_not_confirmed',dict(stage='historical_response_inventory_scope',fresh_candidate_ids=opportunity['legal_candidate_ids'],historical_inventories=saved_inventories))
+                profiles=[p['seed_context'] for p in initial['inputs']['response_seed_profiles'] if p['game_state_sha256']==gh and p['continuation_state_sha256']==ch]
+                if len(profiles)>1:raise ValueError('response seed source boundary ambiguous')
+                index=profiles[0]['actor_turn_index'] if profiles else game['round']
+                record=start.seeded.resolve_response_choice(dict(order_id=initial['order_id'],actor_turn_index=index,round=game['round']),opportunity)
                 record.update(event_seq=state['last_event_seq'],pre_game_state_sha256=start.opening._stop_state_sha256(game),pre_continuation_state_sha256=start._hash(state))
-                after,generated=apply_selected(state,record,initial['inputs'])
+                after,generated=apply_selected(state,record,execution_inputs)
             else:
                 raise normal.RulesStop('unsupported_resolution_adapter',dict(stage=phase,source_references=['123-turn-end-source-inventory.md','124-turn-end-provenance-restart.md']))
             if handler_result is not None:

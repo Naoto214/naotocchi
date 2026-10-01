@@ -1,0 +1,9 @@
+{
+  "compressed_bytes": 872058,
+  "compressed_sha256": "fc4d55845353b52ec5b35474a74023e9afe3abdf40fd564cc66cde18e220c821",
+  "compression": "gzip",
+  "file": "paired.json.gz",
+  "raw_bytes": 12970370,
+  "raw_sha256": "79a048e1e4ec87672a605a0689dd6ca79884e57020131786596d8739a8e6e62b",
+  "schema": "naotocchi.card_game.resource_value_compressed_checkpoint.v1"
+}

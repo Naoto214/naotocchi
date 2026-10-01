@@ -53,6 +53,19 @@ class TrajectoryTests(unittest.TestCase):
         forged=copy.deepcopy(record);forged['selected_action']['action_type']='pass'
         with self.assertRaises(ValueError):trajectory.apply_selected(state,forged,initial['inputs'])
 
+    def test_existing_chicken_ability_activation_and_resolution(self):
+        result=next(r for r in self.runs if r["path_id"]=="probe-01-b-first" and r["policy_id"]==trajectory.POLICIES[0])
+        kinds=[e["action_type"] for e in result["events"]]
+        self.assertIn("resolve_board_ability",kinds)
+
+    def test_known_hit_effect_provenance_continues_turn_end(self):
+        result=next(r for r in self.runs if r["path_id"]=="probe-02-a-first" and r["policy_id"]==trajectory.POLICIES[0])
+        self.assertIn("turn_end_completed",[e["action_type"] for e in result["events"]])
+
+    def test_known_coin_activation_and_resolution(self):
+        result=next(r for r in self.runs if r["path_id"]=="probe-02-b-first" and r["policy_id"]==trajectory.POLICIES[0])
+        self.assertIn("resolve_item",[e["action_type"] for e in result["events"]])
+
     def test_mandatory_seed_profile_tampering_rejected(self):
         bad=copy.deepcopy(self.initials[0]);bad["inputs"]["mandatory_seed_profiles"]["2:A"]=2
         with self.assertRaises(ValueError):trajectory.run_route(bad,trajectory.POLICIES[0])
