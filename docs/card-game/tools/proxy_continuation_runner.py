@@ -47,7 +47,7 @@ def _forced(current,initial,events,shots):
     raise ValueError('unsupported forced phase: '+phase)
 
 
-def run_route(initial,policy):
+def run_route(initial,policy,forced_adapter=None):
     if policy not in old.POLICIES:raise ValueError('unknown policy')
     # Use the same signed source loader and independent initial reconstruction.
     if initial['initial_raw_sha256']!=old.INITIAL_SHA or state.canonical_sha256(initial['manifest'])!=initial['initial_manifest_sha256']:
@@ -78,7 +78,7 @@ def run_route(initial,policy):
         legacy_shots.append(dict(event_seq=shot['seq'],game_state=game,game_state_sha256=shot['state_sha256'],
             continuation_state=None,continuation_state_sha256=None))
     legacy_shots[-1]=old._snapshot(current)
-    events=[];shots=[copy.deepcopy(envelope)];decisions=[];completion=None;reason=None
+    events=[];shots=[copy.deepcopy(envelope)];decisions=[];completion=None;reason=None;end_evidence=[]
     inputs=_legacy_inputs(initial)
     for _ in range(512):
         current=state.current(envelope);game=current['game_state'];phase=game['phase'];ctx=current['response_context']
@@ -86,8 +86,11 @@ def run_route(initial,policy):
         try:
             forced=None;record=None
             if phase in ('turn_end','egg_exchange_choice') or ctx['chain_status']=='resolving':
-                if any(envelope['runtime'].values()):raise ValueError('runtime-aware forced boundary adapter unavailable: '+phase)
-                forced=_forced(current,initial,legacy_events,legacy_shots)
+                if forced_adapter is None:
+                    if any(envelope['runtime'].values()):raise ValueError('runtime-aware forced boundary adapter unavailable: '+phase)
+                    forced=_forced(current,initial,legacy_events,legacy_shots)
+                else:
+                    forced=forced_adapter(envelope,initial,legacy_events,legacy_shots,shots)
                 generated=forced['new_events'];raw_shots=forced.get('new_snapshots',[])
                 if len(raw_shots)!=len(generated):raise ValueError('forced snapshot coverage differs')
                 steps=[];previous=envelope
@@ -123,18 +126,21 @@ def run_route(initial,policy):
                 decisions.append(record)
             if forced:
                 decisions.extend(copy.deepcopy(forced.get('new_decisions',[])))
+                if 'end_evidence' in forced:end_evidence.append(copy.deepcopy(forced['end_evidence']))
                 if forced.get('completed'):completion=copy.deepcopy(forced['result']);break
         except old.normal.RulesStop as error:
             reason=dict(code=error.code,stage=phase,evidence=error.evidence);break
         except ValueError as error:
             reason=dict(code='unsupported_contract_boundary',stage=phase,detail=str(error));break
     else:raise ValueError('finite route bound exceeded')
-    return dict(schema='naotocchi.card_game.continuation_run.v1',execution_contract_id=state.CONTRACT,
+    result=dict(schema='naotocchi.card_game.continuation_run.v1',execution_contract_id=state.CONTRACT,
         run_id=state.CONTRACT+':'+policy+':'+initial['path_id'],path_id=initial['path_id'],policy_id=policy,
         initial_raw_sha256=initial['initial_raw_sha256'],initial_manifest_sha256=initial['initial_manifest_sha256'],
         initial_envelope=first,events=events,snapshots=shots,decisions=decisions,final_envelope=envelope,
         last_valid_event_seq=envelope['event_seq'],completed=completion is not None,stop=reason,
         result=completion or dict(winner=None,final_growth=None),independent_balance_sample_count=0,policy_promoted=False)
+    if forced_adapter is not None:result['end_evidence']=end_evidence
+    return result
 
 
 def validate_route(result,initial,policy):

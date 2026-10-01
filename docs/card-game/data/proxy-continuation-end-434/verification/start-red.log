@@ -1,0 +1,25 @@
+test_main_start_draws_one_without_egg_exchange (test_proxy_continuation_end.EndTests.test_main_start_draws_one_without_egg_exchange) ... ERROR
+test_main_start_empty_deck_does_not_lose_or_enter_exchange (test_proxy_continuation_end.EndTests.test_main_start_empty_deck_does_not_lose_or_enter_exchange) ... ERROR
+
+======================================================================
+ERROR: test_main_start_draws_one_without_egg_exchange (test_proxy_continuation_end.EndTests.test_main_start_draws_one_without_egg_exchange)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_end.py", line 92, in test_main_start_draws_one_without_egg_exchange
+    before=copy.deepcopy(c);after,event,inventory=end.start_regular(c)
+                                                  ^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_continuation_end' has no attribute 'start_regular'
+
+======================================================================
+ERROR: test_main_start_empty_deck_does_not_lose_or_enter_exchange (test_proxy_continuation_end.EndTests.test_main_start_empty_deck_does_not_lose_or_enter_exchange)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_end.py", line 104, in test_main_start_empty_deck_does_not_lose_or_enter_exchange
+    with end.end_scope(r['final_envelope'],[],[],r['snapshots']):after,event,_=end.start_regular(c)
+                                                                               ^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_continuation_end' has no attribute 'start_regular'
+
+----------------------------------------------------------------------
+Ran 2 tests in 2.350s
+
+FAILED (errors=2)

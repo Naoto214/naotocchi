@@ -1,0 +1,19 @@
+test_unknown_main_or_concealed_preparation_still_stops (test_proxy_continuation_end.EndTests.test_unknown_main_or_concealed_preparation_still_stops) ... FAIL
+
+======================================================================
+FAIL: test_unknown_main_or_concealed_preparation_still_stops (test_proxy_continuation_end.EndTests.test_unknown_main_or_concealed_preparation_still_stops)
+----------------------------------------------------------------------
+ValueError: current runtime history boundary differs
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/f182080fd472/naotocchi/docs/card-game/tools/test_proxy_continuation_end.py", line 81, in test_unknown_main_or_concealed_preparation_still_stops
+    with self.assertRaisesRegex(ValueError,'unproved ability capability'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "unproved ability capability" does not match "current runtime history boundary differs"
+
+----------------------------------------------------------------------
+Ran 1 test in 2.001s
+
+FAILED (failures=1)
