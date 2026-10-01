@@ -41,7 +41,9 @@ test('1. フラグなし: forest の world は いまの 2D の まま(props・�
   // ?meguru3d=1 が なければ world3dOn は false(ほかの 地域は フラグが あっても 2D)
   assert.equal(M.world3dOn('forest', {}), false);
   assert.equal(M.world3dOn('city', { world3d: undefined }), false);
-  assert.deepEqual([...M.WORLD3D_REGIONS], ['forest']);
+  // 3D の 地域 = REGION3D の profile が ある 地域 = 登録 されて いる 地域 ぜんぶ(新しい 地域に profile を 書き忘れたら ここが 赤)
+  assert.equal([...M.WORLD3D_REGIONS].sort().join(','), Object.keys(M.REGION3D).sort().join(','));
+  assert.equal(Object.keys(M.WORLDS).sort().join(','), Object.keys(M.REGION3D).sort().join(','), 'profile の ない 地域');
 });
 
 test('2. 3D モード: 道の うえの かたい 物は 見た目ごと 道の そとへ(約 1.5 × 大きさ まで)。おけない ものは 3D では おかない', () => {
@@ -205,7 +207,8 @@ test('3d. すかし(occlusion)は カメラ → player の あいだに ある �
   const src = fs.readFileSync(path.join(ROOT, 'meguru-3d.mjs'), 'utf8');
   for (const line of src.split('\n').filter((l) => /transparent: true/.test(l))) assert.match(line, /pool|fall|foam|wet|mist|glowdisc|spark|patch|shadows|ghostMat|'#000000'/, '透明の material: ' + line.trim().slice(0, 80));
   assert.ok(!/opacity\s*=\s*[^;]*(dist|Math\.hypot)/.test(src), 'きょりで opacity を かえない');
-  assert.match(src, /fog\.near = 1400/, 'きり は 1400 から');
+  assert.match(src, /fog\.near = fr\[0\] \* fogK/, 'きり は 地域の profile から(きょりの 透明化 では ない)');
+  assert.equal(M.REGION3D.forest.fog[0], 1400, 'forest の きり は 1400 から');
 });
 
 test('3e. たき は うしろ・よこ からも 岩の おか: がけの うしろに 岩の かたまり(あたり つき)が あり、見た目 = あたり', () => {

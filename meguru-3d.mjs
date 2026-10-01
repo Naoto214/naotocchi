@@ -300,7 +300,8 @@ function create3DRenderer(M, o, onLost) {
       // 小物は 三角形を けちる(そこ なし・かど すくなめ): くき 12・草 4・かさ 36・はしら 10
       stem: up(new THREE.CylinderGeometry(0.8, 1, 1, 6, 1, true)), blade: up(new THREE.ConeGeometry(1, 1, 4, 1, true)), petal: keep(new THREE.CircleGeometry(1, 6).rotateX(-Math.PI / 2)),
       nut: keep(new THREE.IcosahedronGeometry(1, 0)), pebble: keep(new THREE.IcosahedronGeometry(1, 0).translate(0, 0.25, 0)), post: up(new THREE.CylinderGeometry(0.9, 1, 1, 5, 1, true)),
-      board: up(new THREE.BoxGeometry(1, 1, 0.12)), mound: keep(ruggedMound()), glowdisc: keep(new THREE.CircleGeometry(1, 20).rotateX(-Math.PI / 2).translate(0, 0.9, 0)),
+      board: up(new THREE.BoxGeometry(1, 1, 0.12)), mound: keep(ruggedMound()), box: up(new THREE.BoxGeometry(2, 1, 2)), roof4: up(new THREE.ConeGeometry(1, 1, 4)), roof6: up(new THREE.ConeGeometry(1, 1, 6)), roof8: up(new THREE.ConeGeometry(1, 1, 8)),
+      wcone4: up(new THREE.ConeGeometry(1, 1, 4, 1, true)), wcone6: up(new THREE.ConeGeometry(1, 1, 6, 1, true)), ring: keep(new THREE.TorusGeometry(1, 0.08, 6, 16)), decal: keep(new THREE.CircleGeometry(1, 16).rotateX(-Math.PI / 2).translate(0, 1.4, 0)), glowdisc: keep(new THREE.CircleGeometry(1, 20).rotateX(-Math.PI / 2).translate(0, 0.9, 0)),
       foam: keep(new THREE.CircleGeometry(1, 16).rotateX(-Math.PI / 2).translate(0, 3.2, 0)), wet: keep(new THREE.CircleGeometry(1, 24).rotateX(-Math.PI / 2).translate(0, 1.0, 0)), mist: keep(new THREE.IcosahedronGeometry(1, 1)), litter: keep(new THREE.PlaneGeometry(1, 1).rotateX(-Math.PI / 2).translate(0, 1.6, 0)),
     };
     const flat = (color) => keep(new THREE.MeshLambertMaterial({ color, flatShading: true }));
@@ -314,14 +315,16 @@ function create3DRenderer(M, o, onLost) {
       stem: flat('#e9dfc8'), cap: keep(new THREE.MeshLambertMaterial({ map: keep(capTexture('#c6473b')) })), glowcap: keep(new THREE.MeshLambertMaterial({ map: keep(capTexture('#7fe3d2')), emissive: '#3fcbb6', emissiveIntensity: 0.55 })),
       glowdisc: keep(new THREE.MeshBasicMaterial({ color: '#9ff3e4', transparent: true, opacity: 0.3, depthWrite: false })), blade: flat('#5aa34c'), petal: keep(new THREE.MeshBasicMaterial({ color: '#f3d14e', side: THREE.DoubleSide })),
       leaf: keep(new THREE.MeshLambertMaterial({ color: '#b8743c', side: THREE.DoubleSide })), nut: flat('#7a4f2a'), spark: keep(new THREE.MeshBasicMaterial({ color: '#fff3a6', transparent: true, opacity: 0.9 })),
-      post: flat('#7a5a3a'), board: flat('#c9a46a'), slab: flat('#9c9c94'), rail: flat('#8a6a44'), pebble: flat('#8d8a80'), mound: keep(new THREE.MeshLambertMaterial({ map: keep(cliffTexture()), color: '#a9a8a0' })), mist: keep(new THREE.MeshBasicMaterial({ color: '#f2f8fb', transparent: true, opacity: 0.24, depthWrite: false })) };
-    const GEO_ALIAS = { crownBig: 'crown', glowcap: 'cap', slab: 'plank', rail: 'log', leaf: 'litter', spark: 'nut' };
-    const inst = {};   // shape → [{ x, y, z, sx, sy, sz, ry, tint }]
+      post: flat('#7a5a3a'), board: flat('#c9a46a'), wbox: flat('#ffffff'), wroof: flat('#ffffff'), wdome: flat('#ffffff'), wblade: flat('#ffffff'), wcone: flat('#ffffff'), wpost: flat('#ffffff'), wslab: flat('#ffffff'), wstem: flat('#ffffff'), wring: flat('#ffffff'),
+      glowcone: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 0.45 })), glowboard: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 0.6 })), decal: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', transparent: true, opacity: 0.8, depthWrite: false })), slab: flat('#9c9c94'), rail: flat('#8a6a44'), pebble: flat('#8d8a80'), mound: keep(new THREE.MeshLambertMaterial({ map: keep(cliffTexture()), color: '#a9a8a0' })), mist: keep(new THREE.MeshBasicMaterial({ color: '#f2f8fb', transparent: true, opacity: 0.24, depthWrite: false })) };
+    const GEO_ALIAS = { crownBig: 'crown', glowcap: 'cap', slab: 'plank', rail: 'log', leaf: 'litter', spark: 'nut', wbox: 'box', wdome: 'cap', wblade: 'blade', wcone: 'blade', wpost: 'post', wslab: 'plank', wstem: 'stem', wring: 'ring', glowcone: 'blade', glowboard: 'board', wroof: 'roof4', wcone4: 'wcone4', wcone6: 'wcone6', roof6: 'roof6', roof8: 'roof8' };
+    const MAT_ALIAS = { wcone4: 'wcone', wcone6: 'wcone', roof6: 'wroof', roof8: 'wroof', roof4: 'wroof', glowcone6: 'glowcone', glowcone4: 'glowcone' };
+    const inst = {};   // shape → [{ x, y, z, sx, sy, sz, ry, tint, color }]
     const board = new Map();   // emoji → [{ x, z, w, h }]
     const occluders = [];   // かたい 物(カメラと player の あいだに 入ったら すかす)
     let cur = null;
     // 水・あわ・しぶき・ひらたい 石は すかさない(かたい 物では ない)
-    const NO_FADE = new Set(['pool', 'shore', 'foam', 'mist', 'fall', 'wet', 'glowdisc', 'spark']);
+    const NO_FADE = new Set(['pool', 'shore', 'foam', 'mist', 'fall', 'wet', 'glowdisc', 'spark', 'decal']);
     const push = (shape, it) => { const l = inst[shape] || (inst[shape] = []); if (cur && !NO_FADE.has(shape)) cur.refs.push({ shape, i: l.length, it }); l.push(it); };
     let count = 0;
     for (const ob of objects) {
@@ -338,7 +341,7 @@ function create3DRenderer(M, o, onLost) {
           case 'crown': push(ob.type === 'bigtree' ? 'crownBig' : 'crown', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r * pt.sy, sz: pt.r, ry: t * TAU, tint: t }); break;
           case 'cap': push('cap', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r * pt.sy, sz: pt.r, ry: 0, tint: t }); break;
           case 'rock': push('rock', { x: px, y: 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: ry + t, tint: t }); break;
-          case 'log': push('log', { x: px, y: pt.y || 0, z: pz, sx: pt.len, sy: pt.r, sz: pt.r, ry: o ? ry : t * TAU, tint: t }); break;
+          case 'log': push('log', { x: px, y: pt.y || 0, z: pz, sx: pt.len, sy: pt.r, sz: pt.r, ry: pt.ang != null ? Math.PI / 2 - pt.ang : ry, tint: t, color: pt.color }); break;
           case 'stump': push('stump', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t }); break;
           case 'pool': {
             const rx = pt.rx || pt.r, rz = pt.rz || pt.r, pr = pt.ang != null ? Math.PI / 2 - pt.ang : 0, py = pt.y || 0;
@@ -350,25 +353,36 @@ function create3DRenderer(M, o, onLost) {
           case 'plank': push('plank', { x: px, y: 0, z: pz, sx: pt.len, sy: 8, sz: pt.w, ry: pt.ang != null ? Math.PI / 2 - pt.ang : ry, tint: t }); break;
           // 面の むき f(せかい)→ three の y 回転 θ = atan2(fx, −fz)
           case 'fall': push('fall', { x: px, y: 0, z: pz, sx: pt.w, sy: pt.h, sz: 1, ry: pt.fx != null ? Math.atan2(pt.fx, -pt.fz) : 0, tint: 0.5 }); break;
-          case 'cliff': push('cliff', { x: px, y: pt.y || 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: pt.ang != null ? Math.PI / 2 - pt.ang : 0, tint: t }); break;
-          case 'moss': push('moss', { x: px, y: pt.y, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: Math.PI / 2 - pt.ang, tint: t }); break;   // こけの もりあがり(半分 うまる)
+          case 'cliff': push('cliff', { x: px, y: pt.y || 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: pt.ang != null ? Math.PI / 2 - pt.ang : 0, tint: t, color: pt.color }); break;
+          case 'moss': push('moss', { x: px, y: pt.y, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: Math.PI / 2 - pt.ang, tint: t, color: pt.color }); break;   // こけの もりあがり(半分 うまる)
           case 'foam': push('foam', { x: px, y: 0, z: pz, sx: pt.rx, sy: 1, sz: pt.rz, ry: Math.PI / 2 - pt.ang, tint: 0.5 }); break;
           case 'mist': push('mist', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r * pt.sy, sz: pt.r * 0.6, ry: Math.atan2(pt.fx, -pt.fz), tint: 0.5 }); break;
           case 'stone': push('rock', { x: px, y: 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: t * TAU, tint: t }); break;
           case 'stem': push('stem', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t }); break;
           case 'glowcap': push('glowcap', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r * pt.sy, sz: pt.r, ry: t * TAU, tint: 0.5 }); break;
-          case 'glowdisc': push('glowdisc', { x: px, y: 0, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: 0, tint: 0.5 }); break;
+          case 'glowdisc': push('glowdisc', { x: px, y: 0, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: 0, tint: 0.5, color: pt.color }); break;
           case 'blade': push('blade', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t }); break;
           case 'leaf': push('leaf', { x: px, y: 0, z: pz, sx: pt.w * 0.5, sy: 1, sz: pt.w * 0.3, ry: t * TAU, tint: t }); break;
           case 'nut': push('nut', { x: px, y: pt.r * 0.5, z: pz, sx: pt.r, sy: pt.r * 0.8, sz: pt.r, ry: t * TAU, tint: t }); break;
-          case 'spark': push('spark', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r, sz: pt.r, ry: t * TAU, tint: 0.5 }); break;
-          case 'flower': push('blade', { x: px, y: 0, z: pz, sx: 2.5, sy: pt.h, sz: 2.5, ry: 0, tint: t }); push('petal', { x: px, y: pt.h, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5 }); break;
+          case 'spark': push('spark', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); break;
+          case 'flower': push('blade', { x: px, y: 0, z: pz, sx: 2.5, sy: pt.h, sz: 2.5, ry: 0, tint: t }); push('petal', { x: px, y: pt.h, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); break;
+          case 'petal': push('petal', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); break;
           case 'post': push('post', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t }); break;
-          case 'board': push('board', { x: px, y: pt.y, z: pz, sx: pt.w, sy: pt.h, sz: 1, ry: Math.PI - pt.ang, tint: t }); break;   // いたは 道の むきを 向く
+          case 'board': push(pt.glow ? 'glowboard' : 'board', { x: px, y: pt.y, z: pz, sx: pt.w, sy: pt.h, sz: 1, ry: pt.spin != null ? pt.spin : Math.PI - pt.ang, tint: t, color: pt.color, rz: pt.spin != null ? pt.spin : 0 }); break;   // いたは 道の むきを 向く
           case 'slab': push('slab', { x: px, y: 0, z: pz, sx: pt.len, sy: 10, sz: pt.w, ry: Math.PI / 2 - pt.ang, tint: t }); break;
-          case 'rail': { const sdx = Math.cos(pt.ang) * pt.side, sdz = -Math.sin(pt.ang) * pt.side; push('rail', { x: px + sdx, y: pt.y, z: pz - sdz, sx: pt.len, sy: pt.r, sz: pt.r, ry: Math.PI / 2 - pt.ang, tint: t }); break; }
+          case 'rail': { const sdx = Math.cos(pt.ang) * pt.side, sdz = -Math.sin(pt.ang) * pt.side; push('rail', { x: px + sdx, y: pt.y, z: pz - sdz, sx: pt.len, sy: pt.r, sz: pt.r, ry: Math.PI / 2 - pt.ang, tint: t, color: pt.color }); break; }
           case 'pebble': push('pebble', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.r * 0.7, sz: pt.r * 0.85, ry: t * TAU, tint: t }); break;
-          case 'mound': push('mound', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t }); break;
+          case 'mound': push('mound', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
+          case 'box': push('wbox', { x: px, y: pt.y || 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: Math.PI / 2 - (pt.ang || 0), tint: t, color: pt.color }); break;
+          case 'roof': push(pt.seg === 6 ? 'roof6' : pt.seg === 8 ? 'roof8' : 'roof4', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: Math.PI / 4 - (pt.ang || 0), tint: t, color: pt.color }); break;
+          case 'dome': push('wdome', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.r * (pt.sy || 1), sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
+          case 'wblade': push('wblade', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
+          case 'wcone': push(pt.glow ? 'glowcone' : pt.seg === 4 ? 'wcone4' : pt.seg === 6 ? 'wcone6' : 'wcone', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
+          case 'wpost': push('wpost', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: 0, tint: t, color: pt.color }); break;
+          case 'wstem': push('wstem', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: 0, tint: t, color: pt.color }); break;
+          case 'wslab': push('wslab', { x: px, y: pt.y || 0, z: pz, sx: pt.len, sy: pt.h || 8, sz: pt.w, ry: Math.PI / 2 - (pt.ang || 0), tint: t, color: pt.color }); break;
+          case 'ring': push('wring', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r, sz: pt.r, ry: Math.PI / 2 - (pt.ang || 0), tint: t, color: pt.color, rx: Math.PI / 2 }); break;
+          case 'decal': push('decal', { x: px, y: 0, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); break;
           case 'billboard': {
             // 地面に おちて いる もの(はっぱ・どんぐり・め)は 地面に ねかせる。草花・きのこ・かんばんは 立てる
             const flatKey = LITTER.has(ob.emoji) ? 'flat:' + ob.emoji : ob.emoji;
@@ -379,15 +393,22 @@ function create3DRenderer(M, o, onLost) {
       }
     }
     cur = null;
+    const prof = (M.REGION3D && M.REGION3D[world.regionId]) || {};
+    // うみ: きしの むこうは 水の 面(shoreX に そって 帯で)。ほし の えき: 空に 小さな 光
+    if (prof.sea && world.terrain && world.terrain.kind === 'coast') {
+      for (let z = 0; z < world.len; z += 300) { const sx = M.shoreX(world, z + 150); if (sx == null) continue; const side = world.terrain.side || 1, far = side > 0 ? hi + 2500 : lo - 2500, cx = (sx + far) / 2, w = Math.abs(far - sx) / 2;
+        push('shore', { x: cx, y: 0, z: -(z + 150), sx: w + 60, sy: 1, sz: 190, ry: 0, tint: 0.5 }); push('pool', { x: cx, y: 0, z: -(z + 150), sx: w, sy: 1, sz: 160, ry: 0, tint: 0.5 }); }
+    }
+    if (prof.stars) for (let i = 0; i < 90; i++) push('spark', { x: lo - 1500 + hash01('sx' + i) * (hi - lo + 3000), y: 900 + hash01('sy' + i) * 1600, z: -(hash01('sz' + i) * (world.len + 2000) - 1000), sx: 6 + hash01('sr' + i) * 10, sy: 6 + hash01('sr' + i) * 10, sz: 6 + hash01('sr' + i) * 10, ry: 0, tint: 0.5, color: i % 4 ? '#fff6c8' : '#bfe3ff' });
     for (const q of ponds) { push('shore', { x: q.x, y: 0, z: -q.z, sx: q.r * 1.02 + 10, sy: 1, sz: q.r * 0.86 + 10, ry: 0, tint: 0.5 }); push('pool', { x: q.x, y: 0, z: -q.z, sx: q.r * 0.95, sy: 1, sz: q.r * 0.8, ry: 0, tint: 0.5 }); }
     const meshes = {};
     MAT.crownBig = flat('#3f7f3c');
     for (const shape of Object.keys(inst)) {
-      const list = inst[shape], geo = GEO[GEO_ALIAS[shape] || shape];
-      const m = new THREE.InstancedMesh(geo, MAT[shape], list.length);
+      const list = inst[shape], geo = GEO[GEO_ALIAS[shape] || shape], matKey = MAT_ALIAS[shape] || shape;
+      const m = new THREE.InstancedMesh(geo, MAT[matKey], list.length);
       list.forEach((it, i) => {
-        tmp.position.set(it.x, it.y, it.z); tmp.rotation.set(0, it.ry, 0); tmp.scale.set(it.sx, it.sy, it.sz); tmp.updateMatrix(); m.setMatrixAt(i, tmp.matrix);
-        m.setColorAt(i, col.setScalar(0.86 + it.tint * 0.28));
+        tmp.position.set(it.x, it.y, it.z); tmp.rotation.set(it.rx || 0, it.ry, it.rz || 0); tmp.scale.set(it.sx, it.sy, it.sz); tmp.updateMatrix(); m.setMatrixAt(i, tmp.matrix);
+        if (it.color) m.setColorAt(i, col.set(it.color).multiplyScalar(0.9 + it.tint * 0.2)); else m.setColorAt(i, col.setScalar(0.86 + it.tint * 0.28));
       });
       m.computeBoundingSphere();
       sc.add(m); meshes[shape] = m;
@@ -421,8 +442,9 @@ function create3DRenderer(M, o, onLost) {
     // すかす ための ghost(半透明の おなじ かたち)。いちどに 8 つ まで
     const ghostMat = {}; for (const k of Object.keys(MAT)) { ghostMat[k] = keep(MAT[k].clone()); ghostMat[k].transparent = true; ghostMat[k].opacity = 0.28; ghostMat[k].depthWrite = false; }
     const ghostGeo = (shape) => GEO[GEO_ALIAS[shape] || shape];
+    for (const k of Object.keys(MAT_ALIAS)) ghostMat[k] = ghostMat[MAT_ALIAS[k]];
     return { sc, hemi, sun, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null,
-      occluders, hidden: new Set(), ghosts: [], ghostMat, ghostGeo, inst, anim: { fall: MAT.fall.map, foam: MAT.foam, mist: MAT.mist, spark: MAT.spark } };
+      occluders, hidden: new Set(), ghosts: [], ghostMat, ghostGeo, inst, anim: { fall: MAT.fall.map, foam: MAT.foam, mist: MAT.mist, spark: MAT.spark }, prof };
   }
 
   function actorMesh(b, a) {
@@ -469,14 +491,18 @@ function create3DRenderer(M, o, onLost) {
     built.hemi.color.set(TL.sky[1]); built.sun.color.set(TL.tint);
     // そら: 2D と おなじ 2 色の たてグラデーション。きり: 地平の いろに 場所の きぶんの いろ(mood.tint)を まぜる
     const skyKey = TL.sky[0] + TL.sky[1];
-    if (built.skyKey !== skyKey) { built.skyKey = skyKey; if (built.skyTex) built.skyTex.dispose(); built.skyTex = skyTexture(TL.sky[0], TL.sky[1]); built.sc.background = built.skyTex; }
+    if (built.skyKey !== skyKey && !(built.prof && built.prof.underwater)) { built.skyKey = skyKey; if (built.skyTex) built.skyTex.dispose(); built.skyTex = skyTexture(TL.sky[0], TL.sky[1]); built.sc.background = built.skyTex; }
     const fogC = new THREE.Color(TL.sky[1]);
     if (mood.tint) fogC.lerp(new THREE.Color(mood.tint[0] / 255, mood.tint[1] / 255, mood.tint[2] / 255), 0.35 + (mood.tintAmt || 0));
     fogC.multiplyScalar(Math.min(1, 0.6 + light * 0.4));
     built.sc.fog.color.copy(fogC);
     const fogK = env.weather === 'rain' || env.weather === 'snow' ? 0.6 : 1;
     // きり = 遠近感(いろが 地平の いろに ちかづく)。ちかくは かけない(1400 まで)。かたい 物の 透明度は きょりで かえない
-    built.sc.fog.near = 1400 * fogK; built.sc.fog.far = (3800 + 1400 * (world.view || 1)) * fogK / (1 + (mood.fog || 0) * 3);
+    const pf = built.prof || {}, fr = pf.fog || [1400, 3800 + 1400 * (world.view || 1)];
+    if (pf.fogColor) fogC.lerp(new THREE.Color(pf.fogColor), pf.underwater ? 0.85 : 0.5);
+    built.sc.fog.color.copy(fogC);
+    built.sc.fog.near = fr[0] * fogK; built.sc.fog.far = fr[1] * fogK / (1 + (mood.fog || 0) * 3);
+    if (pf.underwater) { built.sc.background = fogC.clone(); built.hemi.intensity *= 0.6; built.sun.intensity *= 0.4; }
     // 季節: 広葉樹の 葉の いろ
     const sk = env.season || 'summer';
     if (built.seasonKey !== sk) { built.seasonKey = sk; if (built.meshes.crown) built.meshes.crown.material.color.set(SEASON_CROWN[sk] || SEASON_CROWN.summer); if (built.meshes.cone) built.meshes.cone.material.color.set(SEASON_CONIFER[sk] || SEASON_CONIFER.summer); }
@@ -514,7 +540,7 @@ function create3DRenderer(M, o, onLost) {
   function fadeOccluders(b, ex, ez, player) {
     const want = pickOccluders(b.occluders, ex, ez, player, M.ACTOR_SIZE);
     let dirty = new Set();
-    for (const oc of b.hidden) if (!want.has(oc)) { for (const rf of oc.refs) { const m = b.meshes[rf.shape]; tmp.position.set(rf.it.x, rf.it.y, rf.it.z); tmp.rotation.set(0, rf.it.ry, 0); tmp.scale.set(rf.it.sx, rf.it.sy, rf.it.sz); tmp.updateMatrix(); m.setMatrixAt(rf.i, tmp.matrix); dirty.add(m); } b.hidden.delete(oc); }
+    for (const oc of b.hidden) if (!want.has(oc)) { for (const rf of oc.refs) { const m = b.meshes[rf.shape]; tmp.position.set(rf.it.x, rf.it.y, rf.it.z); tmp.rotation.set(rf.it.rx || 0, rf.it.ry, rf.it.rz || 0); tmp.scale.set(rf.it.sx, rf.it.sy, rf.it.sz); tmp.updateMatrix(); m.setMatrixAt(rf.i, tmp.matrix); dirty.add(m); } b.hidden.delete(oc); }
     for (const oc of want) if (!b.hidden.has(oc)) { for (const rf of oc.refs) { const m = b.meshes[rf.shape]; m.setMatrixAt(rf.i, ZERO); dirty.add(m); } b.hidden.add(oc); }
     for (const m of dirty) m.instanceMatrix.needsUpdate = true;
     // ghost
@@ -524,7 +550,7 @@ function create3DRenderer(M, o, onLost) {
       let g = b.ghosts[gi];
       if (!g) { g = new THREE.Mesh(b.ghostGeo(rf.shape), b.ghostMat[rf.shape]); b.ghosts.push(g); b.sc.add(g); }
       g.geometry = b.ghostGeo(rf.shape); g.material = b.ghostMat[rf.shape];
-      g.position.set(rf.it.x, rf.it.y, rf.it.z); g.rotation.set(0, rf.it.ry, 0); g.scale.set(rf.it.sx, rf.it.sy, rf.it.sz); g.renderOrder = 2; g.visible = true; gi++;
+      g.position.set(rf.it.x, rf.it.y, rf.it.z); g.rotation.set(rf.it.rx || 0, rf.it.ry, rf.it.rz || 0); g.scale.set(rf.it.sx, rf.it.sy, rf.it.sz); g.renderOrder = 2; g.visible = true; gi++;
     }
   }
 
