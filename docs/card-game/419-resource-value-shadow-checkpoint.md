@@ -1,0 +1,9 @@
+# 419 — shadow adapter checkpoint（Task4継続中）
+
+415 Task4の読み取り専用adapterと専用6テストを追加した。RED→GREEN、旧理由の互換性RED→GREENを保存。412の全予定110局面（27/27/28/28）を復元し、241除外・242採用・seq2の完全continuationを保持する。
+
+初回checkpointの実測は比較86、unsupported24、旧選択・mode・理由・seedの再現不一致0。比較86のうち選択差58。これは全110成功や対戦結果ではなく、adapter整備中の限定観測である。unsupported22は全候補の確定結果score証拠の不足、2は安全配置certificateとscoreの識別子相違。根拠なしでscoreや同値関係を補わず、予定母数に残した。
+
+shadowは新規対戦/event/decision0、独立balance標本0。新方式を114正本化していない。原本505 JSON・414仕様・既存結果を保持する。Task4の候補再列挙と証拠coverageの仕上げ、paired trajectory、評価、全proxy回帰、最後の独立レビューは未完了。選択差58だけを方針の効果として確定しない。
+
+既存114 compare_candidatesと116 resolverを呼び、保存された選択IDをそのまま旧出力として返さない。単独passの歴史的理由は、専用「唯一の合法行動」と一般比較器の空比較列の違いを保持する。安全配置のなかま枠は既存117 helperの3枠定義、パートナーvariantは既存start_relationship_stage_zeroを用いる。

@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+419 checkpoint: [shadow adapter](419-resource-value-shadow-checkpoint.md)。110予定局面を保持、比較86・unsupported24・再現不一致0、選択差58は限定観測。Task4継続中、paired／全proxy／独立レビュー未完了。114正本化なし。
+
 最終更新: 2026-09-24
 
 このディレクトリをカードゲーム設計の **Single Source of Truth** とする。再開時はGitHubの最新main・作業ブランチ・関連PRを確認し、記憶だけで既決定事項を再設計しない。
