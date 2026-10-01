@@ -23,7 +23,7 @@ test('only partner positive heart grows 1.2 times; anchor keeps face gap and sta
   const before=state==='positive'?Math.max(16,Math.min(26,width*.4)):Math.max(10,Math.min(15,width*.22));
   const size=R.heartSize(kind,state,width);
   assert.equal(size,before*(kind==='partner'&&state==='positive'?1.2:1));
-  assert.equal(R.heartSize(kind,state,width,1),before);
+  assert.equal(R.heartSize(kind,state,width,1),size,'retired comparison argument cannot change approved size');
   for(const x of [0,140,280]){
    const box=R.heartAnchor({x,y:60,w:width,h:width},{width:320,height:160,size});
    assert.equal(box.y+box.h,57);assert.ok(box.x>=0&&box.x+box.w<=320);
@@ -31,4 +31,13 @@ test('only partner positive heart grows 1.2 times; anchor keeps face gap and sta
   const top=R.heartAnchor({x:5,y:18,w:width,h:width},{width:320,height:160,size});
   assert.ok(top.y>=0&&top.y+top.h<=15);
  }
+});
+
+test('approved marriage ring uses fixed scale and tone without comparison overrides',()=>{
+ const css=require('node:fs').readFileSync(require('node:path').join(__dirname,'../ui.css'),'utf8');
+ const rule=css.match(/#pet \.partner-ring \{([^}]+)\}/)[1];
+ assert.match(rule,/transform:scale\(1\.2\)/);
+ assert.match(rule,/filter:saturate\(\.25\) brightness\(1\.18\)/);
+ assert.match(rule,/transform-origin:center/);
+ assert.doesNotMatch(rule,/var\(/);
 });

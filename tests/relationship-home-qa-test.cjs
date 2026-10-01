@@ -153,13 +153,11 @@ test('companion fixed positive stimulates only selected companion; dense lonely 
  assert.equal(cases.find(c=>c.id==='dense-lonely').save.companions.filter(c=>c.bond<30).length,26);
 });
 
-test('heart comparison uses production sizing; ring and other states remain untouched',()=>{
- const R=require('../relationship-expression.js');
- for(const variant of ['legacy','1.2','invalid']){
-  const api={...R};bootstrap.applyHeartComparison(api,variant);
-  for(const kind of ['partner','companion'])for(const state of ['normal','lonely','positive']){
-   const expected=R.heartSize(kind,state,52,variant==='legacy'?1:1.2);
-   assert.equal(api.heartSize(kind,state,52),expected);
-  }
- }
+test('approved QA has no retired size selector, URL parameter or sizing override',()=>{
+ const fs=require('node:fs'),path=require('node:path');
+ const read=file=>fs.readFileSync(path.join(__dirname,'../tools/relationship-home-qa',file),'utf8');
+ assert.doesNotMatch(read('page.html'),/id="partner-heart"|id="ring"|1\.15|1\.25/);
+ assert.doesNotMatch(read('controls.js'),/partnerHeart|partner-heart|[&]ring=/);
+ assert.doesNotMatch(read('bootstrap.js'),/applyHeartComparison|applyRingComparison|api\.heartSize\s*=/);
+ assert.match(read('page.html'),/人間承認済み/);
 });

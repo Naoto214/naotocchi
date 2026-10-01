@@ -1,5 +1,7 @@
 # Married ring visibility comparison — 2026-10-01
 
+> Final decision: iPhone human approval completed on 2026-10-01. Ring and partner positive heart are formally adopted at1.2x; all size/colour/position comparisons are closed. See [final acceptance](relationship-expression-human-final-acceptance-20261001.md). Pending/comparison statements below are historical, not remaining work.
+
 ## Scope / source
 
 User reports Relationship Home mostly satisfactory on iPhone. This change only improves the existing married ring; approved88 Expression images and completed heart/aura/motion rules remain unchanged. No main merge, PR creation/Ready, game progression, save schema, migration or new permanent state.

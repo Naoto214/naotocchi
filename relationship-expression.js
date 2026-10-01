@@ -44,9 +44,9 @@
   }
   // Owner proximity wins over empty-space searching. Neighbouring cast never
   // pushes a heart sideways; only the stage edges clamp this local anchor.
-  function heartSize(kind,expression,width,partnerPositiveScale=1.2) {
+  function heartSize(kind,expression,width) {
     const base=expression==='positive'?Math.max(16,Math.min(26,width*.4)):Math.max(10,Math.min(15,width*.22));
-    return base*(kind==='partner'&&expression==='positive'?partnerPositiveScale:1);
+    return base*(kind==='partner'&&expression==='positive'?1.2:1);
   }
   function heartAnchor(frame,{width,height,size:requested}={}) {
     const size=Math.min(requested || Math.max(16,Math.min(24,frame.w*.38)),Math.max(8,frame.y-3));

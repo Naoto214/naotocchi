@@ -1,5 +1,7 @@
 # Approved ring and partner positive heart size — 2026-10-01
 
+> Final decision: iPhone human approval completed on 2026-10-01. Ring and partner positive heart are formally adopted at1.2x; all size/colour/position comparisons are closed. See [final acceptance](relationship-expression-human-final-acceptance-20261001.md). Pending/comparison statements below are historical, not remaining work.
+
 ## Authority and scope
 
 Fresh branch `feat/relationship-expression-pilot-20260930` started at `920acdf31d5a7496adf3216c98a4dddc378483f3`, tree `522dc51ec876c48e9739528c295e6e7741dbfc4b`. Latest main `31edb95ee0e4470669d220dfcf87600281128e5a`; ahead24 / behind10; no open PR; clean isolated worktree matched remote. No main integration. This record supersedes the ring acceptance pending note in married-ring-visibility-20261001.md: the user has now approved the 1.2x ring, bright silver/pale silver-blue and existing lower-right position.

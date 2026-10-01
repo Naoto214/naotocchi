@@ -87,8 +87,8 @@ button:focus-visible, select:focus-visible, a:focus-visible {outline:3px solid #
 /* The cast solver reserves the complete ring and its movement clearance. */
 /* Keep the solver frame/centre unchanged. Only the existing marriage glyph
    grows (1.5–2.3px per edge); its silver stays bright and blue becomes pale.
-   QA may compare these two presentation tokens, never game/save state. */
-#pet .partner-ring {font-size:15px;right:auto;bottom:auto;display:flex;align-items:center;justify-content:center;transform:scale(var(--married-ring-scale,1.2));transform-origin:center;filter:var(--married-ring-tone,saturate(.25) brightness(1.18));pointer-events:none}
+   Human-approved presentation; no comparison overrides or saved state. */
+#pet .partner-ring {font-size:15px;right:auto;bottom:auto;display:flex;align-items:center;justify-content:center;transform:scale(1.2);transform-origin:center;filter:saturate(.25) brightness(1.18);pointer-events:none}
 #pet .pet-accessory {width:36px;height:36px;top:0;left:calc(50% + 24px);font-size:32px}
 #pet .hidden {display:none}
 /* Local gestures keep their safe gaps. A separate shared lift adds 10–16px of

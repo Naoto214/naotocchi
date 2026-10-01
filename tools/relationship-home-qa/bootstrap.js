@@ -62,14 +62,6 @@
   };
   doc.addEventListener('click',onClick,true);
  }
- function applyHeartComparison(api,variant){
-  // A invokes the same production sizing function with its previous multiplier.
-  // B uses the untouched production default. This wrapper exists only in QA.
-  if(variant==='legacy'){
-   const size=api.heartSize;
-   api.heartSize=(kind,expression,width)=>size(kind,expression,width,1);
-  }
- }
  async function boot(w,doc){
   try{
    const cases=JSON.parse(doc.getElementById('qa-cases').textContent),requested=new URLSearchParams(w.location.search).get('case');
@@ -82,7 +74,6 @@
     await preloadImages(w,config);
     await activateScripts(doc);
     if(!w.__relationshipQaBridge||!w.__naotocchiBooted)throw Error('Home起動を確認できません');
-    applyHeartComparison(w.NaotocchiRelationshipExpression,params.get('partnerHeart'));
     observeInteractions(w,doc,config);
     w.__relationshipQaBridge.heartMode(config.hearts==='representative'?'representative':'all');
     w.relationshipQa=w.installRelationshipQa(w.__relationshipQaBridge,config,w);
@@ -102,5 +93,5 @@
    w.parent.postMessage({type:'relationship-qa-error',message:e.message},w.location.origin);
   }
  }
- return {memoryStorage,installStorage,start,preloadImages,activateScripts,observeInteractions,applyHeartComparison,boot};
+ return {memoryStorage,installStorage,start,preloadImages,activateScripts,observeInteractions,boot};
 });
