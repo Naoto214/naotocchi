@@ -12,7 +12,7 @@ branch `feat/meguru-3d-foundation-v2`(#367 `feat/meguru-all-regions-3d-v0` @ `32
 | CP3 | Water v2(F10): river 帯・sea 面・lake・pond・deepsea | done | (この commit) |
 | CP4 | Environment Kit v2(F7 / F8 / F11): Tree / Building / Rock / Bridge / Ruin / Underwater vegetation / street | done | `45e40d83` |
 | CP5 | Region Profile v2 + 13 地域 再適用(F9 city) | done | (この commit) |
-| CP6 | cross-region browser QA・画像・comparison sheet・preview・PR | todo | |
+| CP6 | cross-region browser QA・画像・comparison sheet・preview・PR | done | (この commit) |
 
 ## CP1(P0)
 - キャラの 立て看板: `fog: false`・frustum culling なし・aspect 有限。きりの 遠端 ≥ player までの きょり + 900(雨 × mood.fog で player が きりの いろ 1 色に なって いた)
@@ -73,5 +73,13 @@ branch `feat/meguru-3d-foundation-v2`(#367 `feat/meguru-all-regions-3d-v0` @ `32
 
 三角形は まど・かたまり・岸・起伏の ぶん ふえた(city 96k・mountain 100k・jungle 147k が 重い 側)。draw call は +5〜17(水の 面 2〜5・起伏 1・昆布 1・ほそる 幹 1)。実機の 数字は iPhone で(headless の GPU 時間は 目安に ならない)。
 
-## 次
-CP6 QA
+## CP6 QA / 画像 / preview / PR
+- browser QA tool: `tools/meguru-3d-qa/`(regions-smoke / corridor-qa / shot)。13 地域 smoke = 上の 表(player ok 100%・ghost は 意図した すかし だけ・errors 0・fallback 0)
+- corridor QA(3D の まま 歩きとおす): home → forest(51 sample)、forest → mountain(60)、city → sea(61)、countryside → forest(33): ぜんぶ corridor 3D・player ok・errors 0・fallback 0・到着も 3D。home|river_lake は QA script の 向きの えらびかたで forest 側へ 入った(同じ spot に gate が 2 つ。corridor 自体は 3D)
+- 画像: `docs/qa/meguru-3d-foundation-v2/`(13 地域 v2・corridor 4 まい・city / 川 / 湖 / 海 / 深海 / jungle / 遺跡)。v1 は `docs/qa/meguru-all-regions-3d-v0/` を そのまま のこす
+- comparison sheet: `docs/qa/meguru-3d-foundation-v2/compare.html`(地域ごと v1 / v2 / status / 主な 変更 / のこる こと / 実機の 重点ルート)
+- full `npm test`: `8d8642ac` で 2819 + 80 pass / 0 fail(EXIT 0)
+- PR #369(Draft・base = `feat/meguru-all-regions-3d-v0`)。main へ merge しない・Ready に しない
+
+## 次の Human QA
+compare.html の 重点ルート(home → forest → city → mountain / snow → river_lake → sea → deepsea → jungle → desert → star_stop / memory_lake)を iPhone で。`&perf=1` の `player NG` / `miss` と `ghost` の 値、重い 地域(jungle / city / mountain)の frame 間かく、city の 日本らしさ・ランドマークの 位置・雰囲気を 裁定
