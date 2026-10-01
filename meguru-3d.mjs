@@ -42,6 +42,8 @@ function createHybridRenderer(M, o, opts) {
     const avg = xs.reduce((a, b) => a + b, 0) / xs.length, st = r3d && active ? r3d.stats() : null;
     const lines = [(active ? '3D' : '2D') + ' avg ' + avg.toFixed(1) + ' p95 ' + q(0.95).toFixed(0) + ' p99 ' + q(0.99).toFixed(0) + ' >60 ' + xs.filter((v) => v > 60).length + '/' + xs.length];
     if (st) lines.push('calls ' + st.calls + ' tris ' + (st.triangles / 1000).toFixed(0) + 'k tex ' + st.textures + ' js ' + st.drawMsAvg.toFixed(1) + 'ms dpr ' + st.pixelRatio);
+    // v2(F1 / F2): ghost の pool(visible / attached / pool)と すかして いる 物の 数、player の 絵が 見えて いるか(見えない frame の 数)
+    if (st && st.ghosts) lines.push('ghost ' + st.ghosts.visible + '/' + st.ghosts.attached + '/' + st.ghosts.total + ' hid ' + st.ghosts.hiddenObjects + ' player ' + (st.player.ok ? 'ok' : 'NG:' + st.player.why) + ' miss ' + st.player.missFrames);
     ctx.save(); ctx.font = '11px monospace'; ctx.textAlign = 'left'; ctx.textBaseline = 'top';
     lines.forEach((t, i) => { ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.fillRect(4, 40 + i * 14, ctx.measureText(t).width + 6, 14); ctx.fillStyle = '#fff'; ctx.fillText(t, 7, 41 + i * 14); });
     ctx.restore();
@@ -84,13 +86,16 @@ function createHybridRenderer(M, o, opts) {
     stats3d() { return r3d ? r3d.stats() : null; },
     loseContext() { if (r3d) r3d.loseContext(); },   // QA: context lost の ためし
     setOccluderFade(on) { fadeOn = !!on; if (r3d) r3d.setOccluderFade(fadeOn); },   // QA: すかし あり / なし の くらべ
+    get playerVisible() { const st = r3d && active ? r3d.stats() : null; return st ? st.player : { ok: true, why: '2d', missFrames: 0 }; },   // QA(v2 F1)
   };
   return api;
 }
 
 // すかす 物を えらぶ: カメラ (ex, ez) → player の 線分に、あたりの まる(+ キャラの はば)が かかる かたい 物 だけ(8 つ まで)。
 // きょり・むき・大きさ では えらばない(とおい から すける こと は ない)。線分から はずれたら すぐ もとに もどる
-export function pickOccluders(occluders, ex, ez, player, actorSize) {
+// v2(Human QA v1 F1): 判定の 半径は あたり(幹)では なく **見た目の 半径**(oc.vr: えだはり・ひさし まで)。幹が 線分から 外れて いても
+// えだはりが player を 隠す ことが ある。高さ(oc.top)が 線分の その 位置の 高さ(camH → 0)に とどかない 低い 物は すかさない
+export function pickOccluders(occluders, ex, ez, player, actorSize, camH) {
   const want = new Set();
   if (!player) return want;
   const vx = player.x - ex, vz = player.z - ez, L2 = vx * vx + vz * vz || 1;
@@ -98,10 +103,45 @@ export function pickOccluders(occluders, ex, ez, player, actorSize) {
     const c = oc.ob.collision, t = ((c.x - ex) * vx + (c.z - ez) * vz) / L2;
     if (t < 0 || t > 1) continue;
     const d = Math.hypot(c.x - ex - vx * t, c.z - ez - vz * t);
-    if (d < oc.r + actorSize * 0.45) want.add(oc);
+    if (d >= Math.max(oc.r, oc.vr || 0) + actorSize * 0.45) continue;
+    if (camH > 0 && oc.top != null && oc.top < camH * (1 - t) * 0.5) continue;   // 線分より ずっと 低い 物(小石・切り株)は player を 隠さない
+    want.add(oc);
     if (want.size >= 8) break;
   }
   return want;
+}
+// ghost(すかしの 半透明の かたち)の pool の 契約(v2・Human QA v1 F2)。pure: three に よらない ので Node の テストで しばる。
+//   wanted: この frame に ほしい ghost の 鍵(owner:ref)の 配列。make(key) で 新しい ghost を つくる。
+//   ・使う ものだけ visible。使わなかった ものは その frame で hidden。
+//   ・1 frame 使われなければ scene から はずす(detach)。pool には のこして つかいまわす(上限 GHOST_POOL_MAX、こえた ぶんは dispose)
+//   ・ghost ごとに owner / createdFrame / lastUsed を もつ(perf 表示 と stats3d().ghosts)
+export const GHOST_POOL_MAX = 16;
+export function ghostPoolStep(pool, wanted, frame, hooks) {
+  const byKey = new Map(); for (const g of pool) byKey.set(g.key, g);
+  const used = new Set();
+  for (const key of wanted) {
+    let g = byKey.get(key);
+    if (!g) { g = pool.find((q) => !used.has(q) && !wanted.includes(q.key)) || null; if (g) { byKey.delete(g.key); g.key = key; byKey.set(key, g); } }
+    if (!g) { g = { key, createdFrame: frame, lastUsed: frame, visible: false, attached: false }; pool.push(g); byKey.set(key, g); }
+    g.lastUsed = frame; g.visible = true; used.add(g);
+    if (!g.attached) { g.attached = true; if (hooks && hooks.attach) hooks.attach(g); }
+    if (hooks && hooks.place) hooks.place(g, key);
+  }
+  for (const g of pool) {
+    if (used.has(g)) continue;
+    g.visible = false;
+    if (g.attached && frame - g.lastUsed >= 1) { g.attached = false; if (hooks && hooks.detach) hooks.detach(g); }
+  }
+  while (pool.length > GHOST_POOL_MAX) { const i = pool.findIndex((q) => !used.has(q)); if (i < 0) break; const [g] = pool.splice(i, 1); if (g.attached && hooks && hooks.detach) hooks.detach(g); if (hooks && hooks.dispose) hooks.dispose(g); }
+  return { visible: used.size, attached: pool.filter((g) => g.attached).length, total: pool.length };
+}
+// player の 絵が この frame で ほんとうに 見えるか(v2・F1)。座標に いる のに 描かれない 状態を 1 つの 判定に まとめる
+export function billboardVisible(m, fogFar, dist) {
+  if (!m || !m.visible) return { ok: false, why: 'hidden' };
+  const s = m.scale; if (!(Number.isFinite(s.x) && Number.isFinite(s.y) && Math.abs(s.x) > 1 && s.y > 1)) return { ok: false, why: 'scale' };
+  if (!m.material || !m.material.map) return { ok: false, why: 'texture' };
+  if (m.material.fog && fogFar != null && dist != null && dist >= fogFar) return { ok: false, why: 'fog' };
+  return { ok: true, why: '' };
 }
 // ---------------------------------------------------------------- 3D レンダラー
 function hash01(s) { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return ((h >>> 0) % 10000) / 10000; }
@@ -328,11 +368,20 @@ function create3DRenderer(M, o, onLost) {
     let cur = null;
     // 水・あわ・しぶき・ひらたい 石は すかさない(かたい 物では ない)
     const NO_FADE = new Set(['pool', 'shore', 'foam', 'mist', 'fall', 'wet', 'glowdisc', 'spark', 'decal']);
-    const push = (shape, it) => { const l = inst[shape] || (inst[shape] = []); if (cur && !NO_FADE.has(shape)) cur.refs.push({ shape, i: l.length, it }); l.push(it); };
+    const push = (shape, it) => {
+      const l = inst[shape] || (inst[shape] = []);
+      if (cur && !NO_FADE.has(shape)) {
+        cur.refs.push({ shape, i: l.length, it });
+        // 見た目の 半径・高さ(すかしの 判定 用。v2 F1): parts の 中心の ずれ + 大きさ
+        cur.vr = Math.max(cur.vr, Math.hypot(it.x - cur.ob.x, it.z + cur.ob.z) + Math.max(Math.abs(it.sx), Math.abs(it.sz)));
+        cur.top = Math.max(cur.top, (it.y || 0) + Math.abs(it.sy));
+      }
+      l.push(it);
+    };
     let count = 0;
     for (const ob of objects) {
       count++;
-      cur = ob.collision && ob.solid ? { ob, r: Math.max(ob.collision.hw, ob.collision.hd), refs: [] } : null;
+      cur = ob.collision && ob.solid ? { ob, r: Math.max(ob.collision.hw, ob.collision.hd), vr: 0, top: 0, refs: [] } : null;
       if (cur) occluders.push(cur);
       // あたりの 箱の hw 軸(せかい (sin a, cos a))を ローカル x へ: three では θ = π/2 − a
       const t = hash01(ob.id), ry = Math.PI / 2 - (ob.rot || 0);
@@ -442,17 +491,19 @@ function create3DRenderer(M, o, onLost) {
     const actorGeo = up(new THREE.PlaneGeometry(1, 1));
     const shadows = new THREE.InstancedMesh(keep(new THREE.CircleGeometry(1, 16).rotateX(-Math.PI / 2).translate(0, 1.5, 0)), keep(new THREE.MeshBasicMaterial({ color: '#000000', transparent: true, opacity: 0.22, depthWrite: false })), 256);
     shadows.count = 0; sc.add(shadows);
-    // すかす ための ghost(半透明の おなじ かたち)。いちどに 8 つ まで
+    // すかす ための ghost(半透明の おなじ かたち)。いちどに 8 つ まで。pool の 契約は ghostPoolStep(使った ものだけ visible・使わなければ はずす)
     const ghostMat = {}; for (const k of Object.keys(MAT)) { ghostMat[k] = keep(MAT[k].clone()); ghostMat[k].transparent = true; ghostMat[k].opacity = 0.28; ghostMat[k].depthWrite = false; }
     const ghostGeo = (shape) => GEO[GEO_ALIAS[shape] || shape];
     for (const k of Object.keys(MAT_ALIAS)) ghostMat[k] = ghostMat[MAT_ALIAS[k]];
     return { sc, hemi, sun, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null,
-      occluders, hidden: new Set(), ghosts: [], ghostMat, ghostGeo, inst, anim: { fall: MAT.fall.map, foam: MAT.foam, mist: MAT.mist, spark: MAT.spark }, prof };
+      occluders, hidden: new Set(), ghostPool: [], ghostStat: { visible: 0, attached: 0, total: 0 }, ghostMat, ghostGeo, inst, anim: { fall: MAT.fall.map, foam: MAT.foam, mist: MAT.mist, spark: MAT.spark }, prof };
   }
 
+  // キャラの 立て看板(v2・F1): きりを かけない(fog: false。きりは けしきの 遠近感 であって、player を 消す ものでは ない)。
+  // frustum culling も しない(scale で かわる plane の bounding が ずれて 消える ことが ない)
   function actorMesh(b, a) {
     let m = b.actors.get(a);
-    if (!m) { m = new THREE.Mesh(b.actorGeo, new THREE.MeshBasicMaterial({ alphaTest: 0.5, side: THREE.DoubleSide })); m.userData.tex = null; b.actors.set(a, m); b.sc.add(m); }
+    if (!m) { m = new THREE.Mesh(b.actorGeo, new THREE.MeshBasicMaterial({ alphaTest: 0.5, side: THREE.DoubleSide, fog: false })); m.frustumCulled = false; m.userData.tex = null; b.actors.set(a, m); b.sc.add(m); }
     return m;
   }
   function placeActor(b, m, a, t, yaw, light, glyph) {
@@ -460,7 +511,7 @@ function create3DRenderer(M, o, onLost) {
     if (tx && m.userData.tex !== tx) { m.material.map = tx.tex; m.material.needsUpdate = true; m.userData.tex = tx; }
     const size = M.ACTOR_SIZE, facing = M.facingOf(a.heading || 0, yaw);
     const lift = a.moving || a.behavior === 'walk' ? Math.abs(Math.sin((a.bob || 0) * 5)) * size * 0.08 : 0;
-    const w = size * (tx ? tx.aspect : 1);
+    const w = size * (tx && Number.isFinite(tx.aspect) && tx.aspect > 0 ? tx.aspect : 1);
     m.position.set(a.x, lift - (tx ? tx.pad * size : 0), -a.z); m.rotation.set(0, -yaw, 0);
     m.scale.set(facing === 'left' ? -w : w, size * (facing === 'back' ? 0.95 : 1), 1);
     m.material.color.setScalar(light); m.visible = true;
@@ -474,7 +525,7 @@ function create3DRenderer(M, o, onLost) {
   function draw(view, now) {
     if (lost) throw new Error('webgl context lost');
     const world = view.world;
-    if (sceneOf !== world) { if (built) disposeScene(built); built = buildWorldScene(world); scene = built.sc; sceneOf = world; renderer.compile(scene, camera); }   // shader は 入る ときに ぜんぶ 組む(あるいて いる とちゅうで つまずかない)
+    if (sceneOf !== world) { if (built) disposeScene(built); renderer.renderLists.dispose(); built = buildWorldScene(world); scene = built.sc; sceneOf = world; renderer.compile(scene, camera); }   // shader は 入る ときに ぜんぶ 組む(あるいて いる とちゅうで つまずかない)。古い scene の ghost・キャラも ここで すてる(v2 F2)
     const t0 = typeof performance !== 'undefined' ? performance.now() : 0;
     if ((view.frame || 0) % 30 === 0) refreshGlyphs();
     const c = view.camera, env = view.env || {}, mood = view.mood || {};
@@ -504,7 +555,10 @@ function create3DRenderer(M, o, onLost) {
     const pf = built.prof || {}, fr = pf.fog || [1400, 3800 + 1400 * (world.view || 1)];
     if (pf.fogColor) fogC.lerp(new THREE.Color(pf.fogColor), pf.underwater ? 0.85 : 0.5);
     built.sc.fog.color.copy(fogC);
-    built.sc.fog.near = fr[0] * fogK; built.sc.fog.far = fr[1] * fogK / (1 + (mood.fog || 0) * 3);
+    // v2(F1): きりの 遠端は かならず player までの きょり + 900 より 遠く(雨 × 地区の mood.fog で 遠端が player の 手前に 来て、
+    // player の まわりが きりの いろ 1 色に なって いた)。近端も player より 手前には しない
+    const playerDist = Math.hypot(camera.position.x - view.player.x, camera.position.y, camera.position.z + view.player.z);
+    built.sc.fog.near = Math.max(fr[0] * fogK, playerDist * 0.9); built.sc.fog.far = Math.max(fr[1] * fogK / (1 + (mood.fog || 0) * 3), playerDist + 900);
     if (pf.underwater) { built.sc.background = fogC.clone(); built.hemi.intensity *= 0.6; built.sun.intensity *= 0.4; }
     // 季節: 広葉樹の 葉の いろ
     const sk = env.season || 'summer';
@@ -528,9 +582,13 @@ function create3DRenderer(M, o, onLost) {
     for (const a of view.party || []) placeActor(built, actorMesh(built, a), a, 0, c.yaw, charLight);
     for (const a of view.residents || []) { if (Math.hypot(a.x - player.x, a.z - player.z) < farCull) placeActor(built, actorMesh(built, a), a, 0, c.yaw, charLight); }
     const pg = typeof o.playerGlyph === 'function' ? o.playerGlyph() : '🐣';
-    placeActor(built, actorMesh(built, player), player, 0, c.yaw, charLight, glyphTexture(pg, o.wrapCtx || null, 'p'));
+    const pm = actorMesh(built, player);
+    placeActor(built, pm, player, 0, c.yaw, charLight, glyphTexture(pg, o.wrapCtx || null, 'p'));
     built.shadows.instanceMatrix.needsUpdate = true;
-    fadeOccluders(built, camera.position.x, -camera.position.z, fade ? player : null);
+    fadeOccluders(built, camera.position.x, -camera.position.z, fade ? player : null, camH, view.frame || 0);
+    // player の 絵が この frame で 見えるか(F1)。座標に いる のに 描かれない なら perf 表示 と stats に 出る(frame ごとに 判定)
+    playerVis = billboardVisible(pm, built.sc.fog.far, playerDist);
+    if (!playerVis.ok) playerMiss++;
     renderer.render(scene, camera);
     drawOverlay(view, camera);
     if (t0) { frameMs.push(performance.now() - t0); if (frameMs.length > 240) frameMs.shift(); }
@@ -539,22 +597,23 @@ function create3DRenderer(M, o, onLost) {
   // カメラと player の あいだの かたい 物は すかす(2D の「てまえの 物は すける」と おなじ やくわり)。
   // InstancedMesh の その 物だけ 大きさ 0 に して、半透明の ghost を かわりに おく
   const ZERO = new THREE.Matrix4().makeScale(0, 0, 0);
-  let fade = true, animLv = 2;
-  function fadeOccluders(b, ex, ez, player) {
-    const want = pickOccluders(b.occluders, ex, ez, player, M.ACTOR_SIZE);
+  let fade = true, animLv = 2, playerVis = { ok: true, why: '' }, playerMiss = 0;
+  function fadeOccluders(b, ex, ez, player, camH, frame) {
+    const want = pickOccluders(b.occluders, ex, ez, player, M.ACTOR_SIZE, camH);
     let dirty = new Set();
     for (const oc of b.hidden) if (!want.has(oc)) { for (const rf of oc.refs) { const m = b.meshes[rf.shape]; tmp.position.set(rf.it.x, rf.it.y, rf.it.z); tmp.rotation.set(rf.it.rx || 0, rf.it.ry, rf.it.rz || 0); tmp.scale.set(rf.it.sx, rf.it.sy, rf.it.sz); tmp.updateMatrix(); m.setMatrixAt(rf.i, tmp.matrix); dirty.add(m); } b.hidden.delete(oc); }
     for (const oc of want) if (!b.hidden.has(oc)) { for (const rf of oc.refs) { const m = b.meshes[rf.shape]; m.setMatrixAt(rf.i, ZERO); dirty.add(m); } b.hidden.add(oc); }
     for (const m of dirty) m.instanceMatrix.needsUpdate = true;
-    // ghost
-    for (const g of b.ghosts) g.visible = false;
-    let gi = 0;
-    for (const oc of b.hidden) for (const rf of oc.refs) {
-      let g = b.ghosts[gi];
-      if (!g) { g = new THREE.Mesh(b.ghostGeo(rf.shape), b.ghostMat[rf.shape]); b.ghosts.push(g); b.sc.add(g); }
-      g.geometry = b.ghostGeo(rf.shape); g.material = b.ghostMat[rf.shape];
-      g.position.set(rf.it.x, rf.it.y, rf.it.z); g.rotation.set(rf.it.rx || 0, rf.it.ry, rf.it.rz || 0); g.scale.set(rf.it.sx, rf.it.sy, rf.it.sz); g.renderOrder = 2; g.visible = true; gi++;
-    }
+    // ghost: pool の 契約は ghostPoolStep(使った ものだけ visible・1 frame 使わなければ scene から はずす)
+    const wanted = [], refOf = new Map();
+    for (const oc of b.hidden) for (const rf of oc.refs) { const key = oc.ob.id + ':' + rf.shape + ':' + rf.i; wanted.push(key); refOf.set(key, rf); }
+    b.ghostStat = ghostPoolStep(b.ghostPool, wanted, frame, {
+      attach: (g) => { if (!g.mesh) { g.mesh = new THREE.Mesh(b.ghostGeo('box'), b.ghostMat.wbox); g.mesh.renderOrder = 2; } b.sc.add(g.mesh); },
+      detach: (g) => { if (g.mesh) b.sc.remove(g.mesh); },
+      dispose: (g) => { g.mesh = null; },
+      place: (g, key) => { const rf = refOf.get(key), m = g.mesh; m.geometry = b.ghostGeo(rf.shape); m.material = b.ghostMat[rf.shape]; m.position.set(rf.it.x, rf.it.y, rf.it.z); m.rotation.set(rf.it.rx || 0, rf.it.ry, rf.it.rz || 0); m.scale.set(rf.it.sx, rf.it.sy, rf.it.sz); },
+    });
+    for (const g of b.ghostPool) if (g.mesh) g.mesh.visible = g.visible;
   }
 
   // うえの 2D canvas: 名まえ と ふきだし だけ(3D の いちを 画面に うつして えがく)
@@ -584,7 +643,9 @@ function create3DRenderer(M, o, onLost) {
   }
 
   function disposeScene(b) {
-    for (const m of b.actors.values()) m.material.dispose();
+    for (const m of b.actors.values()) { b.sc.remove(m); m.material.dispose(); }
+    for (const g of b.ghostPool) if (g.mesh) b.sc.remove(g.mesh);
+    b.ghostPool.length = 0; b.hidden.clear();
     for (const m of Object.values(b.meshes)) m.dispose();
     for (const m of b.boards) m.dispose();
     b.shadows.dispose();
@@ -593,12 +654,15 @@ function create3DRenderer(M, o, onLost) {
   }
   return {
     draw,
-    show(on) { gl.style.display = on ? '' : 'none'; if (on) place(); },
+    // 隠す まえに 1 かい 全面を けす(隠れた canvas に まえの frame を のこさない。v2 F2)
+    show(on) { if (!on && !lost) { try { renderer.clear(true, true, true); } catch (_) { /* context が ない */ } } gl.style.display = on ? '' : 'none'; if (on) place(); },
     resize(n) { ctx = n.ctx || ctx; W = n.W || W; H = n.H || H; renderer.setSize(W, H, false); place(); },
     stats() {
       const info = renderer.info, xs = frameMs.slice().sort((a, b) => a - b), pick = (q) => (xs.length ? xs[Math.min(xs.length - 1, Math.floor(xs.length * q))] : 0);
       return { calls: info.render.calls, triangles: info.render.triangles, textures: info.memory.textures, geometries: info.memory.geometries,
-        objects: built ? built.objects : 0, actors: built ? built.actors.size : 0, drawMsAvg: xs.length ? xs.reduce((s, v) => s + v, 0) / xs.length : 0, drawMsP95: pick(0.95), pixelRatio: renderer.getPixelRatio() };
+        objects: built ? built.objects : 0, actors: built ? built.actors.size : 0, drawMsAvg: xs.length ? xs.reduce((s, v) => s + v, 0) / xs.length : 0, drawMsP95: pick(0.95), pixelRatio: renderer.getPixelRatio(),
+        ghosts: built ? Object.assign({ hiddenObjects: built.hidden.size, owners: [...built.hidden].map((oc) => oc.ob.id) }, built.ghostStat) : null,
+        player: Object.assign({ missFrames: playerMiss }, playerVis) };
     },
     loseContext() { const ext = renderer.getContext().getExtension('WEBGL_lose_context'); if (ext) ext.loseContext(); },
     setOccluderFade(on) { fade = !!on; },

@@ -207,7 +207,9 @@ test('3d. すかし(occlusion)は カメラ → player の あいだに ある �
   const src = fs.readFileSync(path.join(ROOT, 'meguru-3d.mjs'), 'utf8');
   for (const line of src.split('\n').filter((l) => /transparent: true/.test(l))) assert.match(line, /pool|fall|foam|wet|mist|glowdisc|spark|patch|shadows|ghostMat|'#000000'/, '透明の material: ' + line.trim().slice(0, 80));
   assert.ok(!/opacity\s*=\s*[^;]*(dist|Math\.hypot)/.test(src), 'きょりで opacity を かえない');
-  assert.match(src, /fog\.near = fr\[0\] \* fogK/, 'きり は 地域の profile から(きょりの 透明化 では ない)');
+  // 2026-10-01 v2(Human QA v1 F1): きりは 地域の profile から だが、遠端は player までの きょり + 900 より 手前には 来ない(player を きりで 消さない)
+  assert.match(src, /fog\.near = Math\.max\(fr\[0\] \* fogK, playerDist \* 0\.9\)/, 'きり は 地域の profile から(きょりの 透明化 では ない)');
+  assert.match(src, /fog\.far = Math\.max\([^;]*playerDist \+ 900\)/, 'きりの 遠端は player の むこう');
   assert.equal(M.REGION3D.forest.fog[0], 1400, 'forest の きり は 1400 から');
 });
 
