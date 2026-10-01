@@ -11,7 +11,7 @@ function cast(h) {
   return s;
 }
 
-test('a ticklish line moves the pet and equipment together, then the speaking friend answers', () => {
+test('a ticklish line moves the pet and equipment together, then the speaking friend is identified without a second celebration', () => {
   const h = harness(); cast(h);
   h.api.speakEvent('play_with', {petText:'くすぐったいよ〜！',partnerChance:0,companionChance:1});
   h.advance(1);
@@ -23,7 +23,7 @@ test('a ticklish line moves the pet and equipment together, then the speaking fr
   assert.equal(h.get('speechBubble').dataset.kind, 'companion');
   const speaking = [...h.get('companionLeft').children,...h.get('companionRight').children].filter(n=>n.classList.contains('cast-speaking'));
   assert.equal(speaking.length,1);
-  assert.ok(speaking[0].animations.length);
+  assert.equal(speaking[0].animations.length,0);
   assert.ok(!h.get('petSprite').classList.contains('cast-speaking'));
 });
 
@@ -40,7 +40,7 @@ test('courtship follows the actual partner, while a failed courtship never celeb
   assert.ok(!h.get('partnerCompanion').querySelector('.partner-emoji').classList.contains('cast-speaking'));
 });
 
-test('play and courtship visibly lift a crowded cast, while negative outcomes settle once', () => {
+test('non-Relationship group responses remain visible, while negative outcomes settle once', () => {
   const h = harness(); const s = cast(h);
   const master = require('node:fs').readFileSync('character-world-master.v1.js','utf8');
   const world = new Function(master+';return NAOTOCCHI_CHARACTER_WORLD_MASTER_V1')();
@@ -48,7 +48,7 @@ test('play and courtship visibly lift a crowded cast, while negative outcomes se
   h.api.render();
   const sizes = [h.get('petSprite'),h.get('petAccessory'),h.get('partnerCompanion'),
     ...h.get('companionLeft').children,...h.get('companionRight').children].map(n=>n.style.width);
-  for (const [event,text] of [['play_with','くすぐったいよ！'],['court','だいすきだよ！']]) {
+  for (const [event,text] of [['clean','きれいになった！'],['minigame_great','やったね！']]) {
     h.api.speakEvent(event,{petText:text,partnerChance:1,companionChance:1}); h.advance(1);
     const animation = h.get('castResponse').animations.at(-1);
     assert.ok(animation, 'an action should visibly move even a full cast');
@@ -84,7 +84,7 @@ test('poop updates preserve every placed actor and do not interrupt a reaction',
     ...h.get('companionLeft').children,...h.get('companionRight').children];
   const placement=()=>actors.map(n=>[n.style.width,n.style.height,n.style.left,n.style.top]);
   const before=placement();
-  h.api.speakEvent('play_with',{petText:'くすぐったい！',partnerChance:0,companionChance:1}); h.advance(1);
+  h.api.speakEvent('clean',{petText:'くすぐったい！',partnerChance:0,companionChance:1}); h.advance(1);
   const response=h.get('castResponse').animations.at(-1);
   // DOM sizing is covered by stylesheet review; this checks the real render
   // path does not mutate cast placement or cancel motion on a poop update.

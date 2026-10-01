@@ -224,6 +224,15 @@ function createFixtures() {
         first.lifetime.partnersMarried = [];
         first.lifetime.partnerEncounters = [];
       }
+      // Relationship pilot: no player needs to acquire these partners to QA them.
+      for (const id of ['forest_bear','rock_octopus']) for (const value of [20,50]) for (const density of ['pair','dense']) {
+        make('relationship_' + id + '_' + value + '_' + density, density === 'dense' ? 26 : 2, {
+          partner:partner(id,{married:false,affection:value,bondCount:0}),
+          companions:(density === 'dense' ? ids : ['otter','clock']).map(id=>({id,bond:value})),
+          sodachi:30,maxSodachi:30,affectionStreak:0,ageTicks:500,stageIndex:5,
+          hunger:90,health:90,energy:90,happiness:90,
+        });
+      }
       return fixtures;
     })()
   `, { require:fixtureRequire, console:{log() {}} });

@@ -15,7 +15,7 @@
         const b=win.NaotocchiCastBounds?.[asset]?.box || [0,0,128,128];
         return {x:r.x+r.width*b[0]/128,y:r.y+r.height*b[1]/128,right:r.x+r.width*b[2]/128,bottom:r.y+r.height*b[3]/128};
       });
-      const extra=[...doc.querySelectorAll('#petAccessory:not(.hidden),.partner-heart')].filter(visible).map(rect);
+      const extra=[...doc.querySelectorAll('#petAccessory:not(.hidden),.partner-heart,.partner-emoji .relationship-heart')].filter(visible).map(rect);
       const bodies=[...frames,...extra];
       const r=rect(bubble), top=Math.min(...bodies.map(b=>b.y)), bottom=Math.max(...bodies.map(b=>b.bottom));
       const gap=r.bottom<=top?top-r.bottom:r.y>=bottom?r.y-bottom:-1;

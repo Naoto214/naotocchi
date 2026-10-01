@@ -8,6 +8,16 @@
   const CARE_STATUS = window.NaotocchiCareStatus || null;
   const EMOTION_STATE = window.NaotocchiEmotionState || null;
   const PET_EXPRESSION = window.NaotocchiPetExpression || null;
+  const RELATIONSHIP_EXPRESSION = window.NaotocchiRelationshipExpression || null;
+  let relationshipRenderTimer = null;
+  const relationshipReactions = RELATIONSHIP_EXPRESSION?.createReactions({
+    now: () => Date.now(), schedule: (fn, ms) => setTimeout(fn, ms),
+    cancel: timer => clearTimeout(timer), onExpire: () => {
+      // Simultaneous rescue expiry needs one Home render, not up to 26.
+      if(relationshipRenderTimer!==null)return;
+      relationshipRenderTimer=setTimeout(()=>{relationshipRenderTimer=null;render();},0);
+    },
+  });
   const WORLD_SCENE = window.NaotocchiWorldScene || null;
   let worldRenderer = null;
   const SAVE_BACKUP_KEY = 'naotocchi-save-v1-backup';
@@ -4032,6 +4042,7 @@
       && state.stage !== STAGE.DEAD && !state.transformOptions && !isAnyMenuOverlayOpen(),
     isResting: () => state.isSleeping || state.isSick || state.dying || state.stage === STAGE.FAREWELL,
     getMotionRadius: homeCastMotionRadius,
+    getRelationshipTargets: relationshipTargets,
     env: window,
   });
 
@@ -8190,6 +8201,7 @@
   function reinforceRelationship() {
     const p = state.partner;
     p.affection = clamp((p.affection ?? 100) + PARTNER_FLIRT_AFFECTION_BOOST, 0, 100);
+    startRelationshipPositive('partner',p);
     if (p.married) return false;
     p.bondCount = (p.bondCount || 0) + 1;
     if (p.bondCount < marriageBondThreshold()) return false;
@@ -8846,16 +8858,32 @@
     return RARE_COMPANIONS;
   }
 
+  function relationshipId(kind, entity) {
+    return kind === 'companion' ? canonicalCompanionId(entity?.id) : canonicalPartnerId(entity?.id);
+  }
+
+  function relationshipVisual(kind, entity, normal) {
+    return RELATIONSHIP_EXPRESSION?.resolve({kind, id:relationshipId(kind,entity),
+      value:kind === 'companion' ? entity?.bond : entity?.affection,
+      positive:relationshipReactions?.active(entity), normal,
+    }) || {expression:'normal',asset:normal};
+  }
+
+  function startRelationshipPositive(kind, entity) {
+    if (RELATIONSHIP_EXPRESSION?.SUPPORTED[kind]?.includes(relationshipId(kind,entity))) relationshipReactions.start(entity);
+  }
+
   function companionVisualHTML(companion, size = 'thumb') {
     return companion.asset ? stageVisualHTML(companion, size) : escapeHtml(companion.emoji);
   }
 
   // 保存済みの恋人も現在の専用PNGを使う。セーブの関係性や通信相手は書き換えない。
-  function partnerVisualHTML(partner, size = 'thumb') {
+  function partnerVisualHTML(partner, size = 'thumb', relationship = false) {
     const id = WORLD_MASTER?.compatibility?.partnerAliases?.[partner?.id] || partner?.id;
     const def = WORLD_MASTER?.partners?.find((p) => p.id === id);
     const emoji = partner?.emoji || PARTNER_RUNTIME_PROFILE[id]?.emoji || '💞';
-    return def?.asset ? stageVisualHTML({ asset:def.asset, emoji }, size) : escapeHtml(emoji);
+    const asset = relationship ? relationshipVisual('partner',partner,def?.asset).asset : def?.asset;
+    return asset ? stageVisualHTML({ asset, emoji }, size) : escapeHtml(emoji);
   }
 
   // 作者は育成・なかま・恋人の枠に入れず、④以降のシークレットとして会える。
@@ -9527,6 +9555,7 @@
     state.lifetime.datesEnjoyed += 1;
     state.affectionStreak = 0;
     partner.affection = clamp((partner.affection ?? 100) + DATE_AFFECTION_BOOST, 0, 100);
+    startRelationshipPositive('partner',partner);
     state.happiness = clamp(state.happiness + 12, 0, 100);
     state.energy = clamp(state.energy - 6, 0, 100);
     state.hunger = clamp(state.hunger - 4, 0, 100);
@@ -13599,7 +13628,10 @@
   // ひだり/みぎに こうごに ふりわけて、ふえるほど りょうがわ バランスよく そだつ
   function renderCompanionRow() {
     const recruited = state.companions
-      .map((sc) => allCompanionsById(sc.id))
+      .map((sc) => {
+        const def = allCompanionsById(sc.id);
+        return def ? {...def, ...relationshipVisual('companion',sc,def.asset)} : null;
+      })
       .filter(Boolean);
     const left = recruited.filter((c, i) => i % 2 === 0);
     const right = recruited.filter((c, i) => i % 2 === 1);
@@ -13612,7 +13644,7 @@
   }
 
   // こいびと/けっこんあいてを、なかまとは くべつして 本体キャラの ひだりうえに
-  // ハートで囲み、中央セルの左上に表示する。けっこんずみの ときは
+  // 状態別のハートを添える。けっこんずみの ときは
   // ゆびわを そえる。たまご/しぼう/クリアの あいだは 表示しない
   function renderPartnerCompanion(hide) {
     const p = !hide && state.partner;
@@ -13621,12 +13653,14 @@
       el.partnerCompanion.innerHTML = '';
       return;
     }
-    const key = JSON.stringify([p.id,p.label,p.emoji,p.married]);
+    const expression = relationshipVisual('partner',p,null).expression;
+    el.partnerCompanion.dataset.relationshipPositive = String(expression === 'positive');
+    const key = JSON.stringify([p.id,p.label,p.emoji,p.married,expression]);
     if (key === el.partnerCompanion.dataset.visualKey && el.partnerCompanion.innerHTML) return;
     el.partnerCompanion.dataset.visualKey = key;
     const ring = p.married ? '<span class="partner-ring">💍</span>' : '';
     el.partnerCompanion.innerHTML =
-      `<span class="partner-heart">💕</span><span class="partner-emoji" title="${escapeHtml(compactJapaneseText(p.label))}">${partnerVisualHTML(p, 'companion')}</span>${ring}<span class="partner-heart">💕</span>`;
+      `<span class="partner-emoji" title="${escapeHtml(compactJapaneseText(p.label))}">${partnerVisualHTML(p, 'companion', true)}</span>${ring}`;
   }
 
   let companionRenderKey = null;
@@ -14047,6 +14081,75 @@
     return actors;
   }
 
+  function relationshipTargets() {
+    return [...state.companions.map(entity=>({kind:'companion',id:entity.id,entity})),
+      ...(state.partner?[{kind:'partner',id:state.partner.id,entity:state.partner}]:[])]
+      .map(t=>({...t,reaction:relationshipReactions?.info(t.entity)})).filter(t=>t.reaction);
+  }
+  const relationshipMotionTokens = new WeakMap();
+  // Every cue is a child of its actor: local motion and idle carry it together.
+  // Ephemeral DOM metadata never enters state/save. Layout still reserves its
+  // original partner-heart/ring space; the cast solver is untouched.
+  const relationshipCueNodes = new Map();
+  let relationshipHeartMode = 'all';
+  let relationshipCastFrames = null;
+  function renderRelationshipReactions() {
+    if(!relationshipCastFrames)return;
+    const {layout,recruited}=relationshipCastFrames;
+    // Partner expression replaces its subtree even when cast layout is cached.
+    // Restore the existing solver's ring coordinates; never relocate the ring.
+    if(state.partner?.married && layout.partner && layout.ring){
+      const ring=el.partnerCompanion.querySelector('.partner-ring'),frame=layout.ring;
+      if(ring){ring.style.left=(frame.x-layout.partner.x)+'px';ring.style.top=(frame.y-layout.partner.y)+'px';
+        ring.style.width=frame.w+'px';ring.style.height=frame.h+'px';ring.style.fontSize=frame.w+'px';}
+    }
+    if(!RELATIONSHIP_EXPRESSION)return;
+    const actors=homeCastActors(),targets=relationshipTargets();
+    const visible=!gameActive && !meguruActive && !isAnyMenuOverlayOpen()
+      && state.stage!==STAGE.EGG && state.stage!==STAGE.DEAD && !state.transformOptions
+      && document.visibilityState!=='hidden' && !document.body.classList.contains('movie-active')
+      && !el.screenNormal.classList.contains('hidden');
+    const wanted=new Set();
+    for(const actor of actors) {
+      if(!['companion','partner'].includes(actor.kind))continue;
+      const entity=actor.kind==='partner'?state.partner:state.companions.find(c=>allCompanionsById(c.id)?.id===actor.id);
+      if(!entity)continue;
+      const expression=relationshipVisual(actor.kind,entity,null).expression;
+      actor.node.dataset.relationshipState=expression;
+      const target=targets.find(t=>t.kind===actor.kind && t.entity===entity),reaction=target?.reaction;
+      const elapsed=reaction?Date.now()-reaction.startedAt:0;
+      if(visible && reaction && (relationshipMotionTokens.get(actor.node)!==reaction || elapsed<900 && !castMotion?.isActive(target))){
+        castMotion?.relationship({...target,id:actor.id},elapsed);relationshipMotionTokens.set(actor.node,reaction);
+      }
+      const f=actor.kind==='partner'?layout.partner:layout.companions[recruited.findIndex(c=>c.id===actor.id)];
+      const showHeart=actor.kind==='partner'||expression==='positive'&&(relationshipHeartMode!=='representative'||target===targets[0]);
+      const showAura=expression!=='normal';
+      if(!visible || !f || (!showHeart&&!showAura))continue;
+      const key=actor.kind+':'+actor.id;wanted.add(key);
+      let entry=relationshipCueNodes.get(key);
+      if(!entry || entry.owner!==actor.node || entry.expression!==expression || entry.reaction!==reaction || entry.showHeart!==showHeart){
+        if(entry)for(const node of [entry.heart,entry.aura])if(node?.parentNode)node.parentNode.removeChild(node);
+        entry={owner:actor.node,expression,reaction,showHeart};
+        if(showAura){const node=document.createElement('span');node.className='relationship-aura';node.dataset.relationshipState=expression;
+          node.setAttribute('aria-hidden','true');if(reaction)node.style.animationDelay=(-elapsed)+'ms';actor.node.appendChild(node);entry.aura=node;}
+        if(showHeart){const node=document.createElement('span');node.className='relationship-heart';node.dataset.relationshipState=expression;
+          node.dataset.relationshipTarget=key;node.setAttribute('aria-hidden','true');node.innerHTML=RELATIONSHIP_EXPRESSION.heartMarkup(expression);
+          if(reaction)node.style.animationDelay=(-elapsed)+'ms';actor.node.appendChild(node);entry.heart=node;}
+        relationshipCueNodes.set(key,entry);
+      }
+      const bounds=RELATIONSHIP_EXPRESSION.ART_BOUNDS[actor.id]||[0,0,128,128];
+      const body={x:f.x+f.w*bounds[0]/128,y:f.y+f.h*bounds[1]/128,w:f.w*(bounds[2]-bounds[0])/128,h:f.h*(bounds[3]-bounds[1])/128};
+      if(entry.aura){const node=entry.aura;node.style.left=(body.x-f.x-2)+'px';node.style.top=(body.y-f.y-2)+'px';node.style.width=(body.w+4)+'px';node.style.height=(body.h+4)+'px';}
+      if(entry.heart){const size=RELATIONSHIP_EXPRESSION.heartSize(actor.kind,expression,f.w);
+        const box=RELATIONSHIP_EXPRESSION.heartAnchor(body,{width:layout.width,height:layout.height,size});
+        const node=entry.heart;node.style.left=(box.x-f.x)+'px';node.style.top=(box.y-f.y)+'px';
+        node.style.width=box.w+'px';node.style.height=box.h+'px';node.style.setProperty('--relationship-float',(-Math.min(3,box.y))+'px');}
+    }
+    for(const [key,entry] of relationshipCueNodes)if(!wanted.has(key)){
+      for(const node of [entry.heart,entry.aura])if(node?.parentNode)node.parentNode.removeChild(node);
+      relationshipCueNodes.delete(key);
+    }
+  }
   let homeSpeechAnchors = null;
   function pointHomeSpeech() {
     if (!homeSpeechAnchors || !el.speechBubble) return;
@@ -14087,10 +14190,12 @@
     const hasAccessory = !!state.lifetime.equippedItemId && state.stage !== STAGE.EGG && state.stage !== STAGE.DEAD;
     const args = {width,height,conversationHeight,mainAsset:asset(main.asset),partnerAsset:asset(partnerAsset),hasPartner,hasAccessory,hasRing:hasPartner && !!p.married,companions:recruited.map(c=>asset(c.asset)),motionRadius:homeCastMotionRadius()};
     const key = JSON.stringify([args, companionRenderKey, p?.id, p?.married]);
-    if (key === homeCastLayoutKey) { pointHomeSpeech(); return; }
+    if (key === homeCastLayoutKey) { pointHomeSpeech(); renderRelationshipReactions(); return; }
     homeCastLayoutKey = key;
     castMotion?.clear();
     const layout = window.NaotocchiCast.layoutHomeCast(args);
+    relationshipCastFrames={layout,recruited,args};
+    for(const actor of homeCastActors())relationshipMotionTokens.delete(actor.node);
     const area=layout.conversation;
     el.petArea.style.setProperty('--home-speech-x',area.x+'px');
     el.petArea.style.setProperty('--home-speech-y',area.y+'px');
@@ -14140,12 +14245,7 @@
       const frame=layout.hearts[i];
       place(node,{...frame,x:frame.x-layout.partner.x,y:frame.y-layout.partner.y});
     });
-    const ring=el.partnerCompanion.querySelector('.partner-ring');
-    if(ring && layout.ring) {
-      const frame=layout.ring;
-      place(ring,{...frame,x:frame.x-layout.partner.x,y:frame.y-layout.partner.y});
-      ring.style.fontSize=frame.w+'px';
-    }
+    renderRelationshipReactions();
   }
 
   function renderEnvironmentChoices(grid,choices,mode,kind = '') {
@@ -17155,9 +17255,12 @@
       applyGrowth(1.5); applyDecline(-2);
       // じゃれるは、そばに いる なかま ぜんいんの bond も まとめて かいふく
       // する(なかまが はなれて いかないよう、ここで つなぎとめる)
+      const beforeBonds = state.companions.map(c => ({id:c.id,bond:c.bond}));
       state.companions.forEach((c) => {
         c.bond = clamp((c.bond ?? 100) + COMPANION_PLAYWITH_BOND_BOOST + (hasPerk(40) ? state.sodachi / 5 : 0), 0, 100);
       });
+      const positiveIds = RELATIONSHIP_EXPRESSION?.companionPositiveIds(beforeBonds,state.companions) || [];
+      for (const c of state.companions) if (positiveIds.includes(c.id)) startRelationshipPositive('companion',c);
     }
     const hasCompanions = state.companions.length > 0;
     const reaction = spammed
@@ -17249,6 +17352,7 @@
       // かさねれば、れんあいタイプが ちがっても いっしょに いる ことに きめられる
       const p = state.partner;
       p.affection = clamp((p.affection ?? 100) + PARTNER_FLIRT_AFFECTION_BOOST, 0, 100);
+      startRelationshipPositive('partner',p);
       p.repair = (p.repair || 0) + 1;
       state.happiness = clamp(state.happiness + 2, 0, 100);
       if (p.repair >= MISMATCH_REPAIR_NEEDED) {
@@ -17380,6 +17484,7 @@
         married: false,
         bondCount: 0,
       };
+      startRelationshipPositive('partner',state.partner);
       state.calledMatch = null;
       rememberPartnerLetter('court');
       state.happiness = clamp(state.happiness + 8, 0, 100);

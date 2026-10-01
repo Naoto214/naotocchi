@@ -1,0 +1,2106 @@
+{
+  "base_head": "a8b7e9894b2124946983a4dfa92870a6c20d6af6",
+  "protected_count": 3350,
+  "protected_changes": 0,
+  "new_count": 80,
+  "errors": [],
+  "images": [
+    {
+      "id": "bat",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/bat/positive.png",
+      "normal": "assets/characters/companions/bat.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        17,
+        8,
+        105,
+        121
+      ],
+      "visible_bbox_alpha10": [
+        25,
+        10,
+        103,
+        117
+      ],
+      "sha256": "ec1f9ddd97e036c203903804c0894d98dbb902074d3b0a688b85ba5ebf51f2c0",
+      "source": "exec-479d95ce-28c9-40a4-a254-dd6c8234cf0c.png"
+    },
+    {
+      "id": "bat",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/bat/lonely.png",
+      "normal": "assets/characters/companions/bat.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        17,
+        9,
+        106,
+        120
+      ],
+      "visible_bbox_alpha10": [
+        24,
+        11,
+        104,
+        118
+      ],
+      "sha256": "b068f9847a5987f1d5caaf043457880b5141f519918bac4ff872b5ee5322ef92",
+      "source": "exec-d25b2440-9cd5-41f5-8462-fb3a472f5f4e.png"
+    },
+    {
+      "id": "box",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/box/positive.png",
+      "normal": "assets/characters/companions/box.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        14,
+        27,
+        120,
+        127
+      ],
+      "visible_bbox_alpha10": [
+        17,
+        29,
+        118,
+        125
+      ],
+      "sha256": "e0b3be9a2f39153671ed53242625819b71ae36de3b34a7b74f70797ebd98bcc2",
+      "source": "exec-1db65f4f-fc0c-4641-b0b0-16ab0dc18a45.png"
+    },
+    {
+      "id": "box",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/box/lonely.png",
+      "normal": "assets/characters/companions/box.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        15,
+        27,
+        115,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        17,
+        29,
+        113,
+        121
+      ],
+      "sha256": "8985dc240e4f17d50eebd6aeab95e128391ac12942f2d932e97fe4f45db2a598",
+      "source": "exec-b1780682-f778-4975-8a16-168b425d7f0e.png"
+    },
+    {
+      "id": "cat_friend",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/cat_friend/positive.png",
+      "normal": "assets/characters/companions/cat_friend.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        30,
+        124,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        8,
+        32,
+        122,
+        122
+      ],
+      "sha256": "3115366487881d658c73760bd5a002a5b554acc28327551fa49a2110e3e33110",
+      "source": "exec-6e77f3c6-41dd-4cff-b286-3ea7335ed384.png"
+    },
+    {
+      "id": "cat_friend",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/cat_friend/lonely.png",
+      "normal": "assets/characters/companions/cat_friend.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        7,
+        31,
+        126,
+        128
+      ],
+      "visible_bbox_alpha10": [
+        9,
+        33,
+        124,
+        126
+      ],
+      "sha256": "565d32d539723ac3ccb27f21024b4d20e2ae04216d79c1bebb17bc4f234c3685",
+      "source": "exec-0ec3c72d-bc82-4bfb-b4a4-f74967604ba2.png"
+    },
+    {
+      "id": "chameleon",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/chameleon/positive.png",
+      "normal": "assets/characters/companions/chameleon.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        26,
+        122,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        8,
+        28,
+        120,
+        117
+      ],
+      "sha256": "5dfebe1201053f43948ca8f120c631a252dae5d9932f4b54e73b47f2ec2212cf",
+      "source": "exec-8089db07-8a4f-48d1-995a-2f609ee665c6.png"
+    },
+    {
+      "id": "chameleon",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/chameleon/lonely.png",
+      "normal": "assets/characters/companions/chameleon.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        3,
+        23,
+        123,
+        126
+      ],
+      "visible_bbox_alpha10": [
+        9,
+        29,
+        120,
+        117
+      ],
+      "sha256": "fdb4df323b6520299126327154aa8daafe86f783b563f6535ec5e053c91c994e",
+      "source": "exec-91d64a06-1016-43ea-814f-54fdae9f9699.png"
+    },
+    {
+      "id": "chicken",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/chicken/positive.png",
+      "normal": "assets/characters/companions/chicken.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        12,
+        11,
+        118,
+        122
+      ],
+      "visible_bbox_alpha10": [
+        14,
+        13,
+        116,
+        120
+      ],
+      "sha256": "79c83e36c589f82edeb1941b40ede85ce700cbcedb89f12305282b59396f6b87",
+      "source": "exec-87d19309-5e8c-45db-bd5f-cb9071a832ff.png"
+    },
+    {
+      "id": "chicken",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/chicken/lonely.png",
+      "normal": "assets/characters/companions/chicken.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        12,
+        12,
+        118,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        14,
+        14,
+        116,
+        122
+      ],
+      "sha256": "d6d43c636d868f2fec4800252c64813cd38f791c9ec5d59f5dea171a3b6c75f3",
+      "source": "exec-dda33a2e-0e34-4f0f-9cac-4b217afd6a55.png"
+    },
+    {
+      "id": "hamster",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/hamster/positive.png",
+      "normal": "assets/characters/companions/hamster.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        18,
+        115,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        15,
+        20,
+        113,
+        121
+      ],
+      "sha256": "aec60e868d99e64fcf94bf6a4ba2edcff58c83a5da4b85d1e18df86d92a1c4e9",
+      "source": "exec-9f8f8b3f-1623-4334-adc5-f2c11bfb7bd2.png"
+    },
+    {
+      "id": "hamster",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/hamster/lonely.png",
+      "normal": "assets/characters/companions/hamster.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        14,
+        19,
+        115,
+        122
+      ],
+      "visible_bbox_alpha10": [
+        16,
+        21,
+        113,
+        120
+      ],
+      "sha256": "52e9280a79ef0aa825be652c753c5f9ac2f9a9c3f9f7247fe723d4e1ef34c3db",
+      "source": "exec-65ae782a-e7c6-4839-a664-955261f14bc7.png"
+    },
+    {
+      "id": "hedgehog",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/hedgehog/positive.png",
+      "normal": "assets/characters/companions/hedgehog.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        11,
+        16,
+        117,
+        118
+      ],
+      "visible_bbox_alpha10": [
+        13,
+        18,
+        114,
+        116
+      ],
+      "sha256": "78a275ad27bdb52495f9f8196d05e15632302efbab7fce7b62ebd97dc9a30d85",
+      "source": "exec-e0428c91-0852-4c20-892b-4a539fa4a3ce.png"
+    },
+    {
+      "id": "hedgehog",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/hedgehog/lonely.png",
+      "normal": "assets/characters/companions/hedgehog.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        11,
+        18,
+        116,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        13,
+        20,
+        114,
+        121
+      ],
+      "sha256": "110655b705fb3824b1ca898977a94c56516d15313fb0d97d60bd8d266f63ee78",
+      "source": "exec-e8aaec0d-3a55-4c05-b659-a6aedddc2dfb.png"
+    },
+    {
+      "id": "many_tail_fox",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/many_tail_fox/positive.png",
+      "normal": "assets/characters/companions/many_tail_fox.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        10,
+        124,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        8,
+        12,
+        122,
+        122
+      ],
+      "sha256": "cf4a1bc53c9dff7a5f6eff5e6306631ce450531770f9ab347d25823a77ac2bd2",
+      "source": "exec-73172e12-a3c8-45a4-bd8c-b7be2d73a2a0.png"
+    },
+    {
+      "id": "many_tail_fox",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/many_tail_fox/lonely.png",
+      "normal": "assets/characters/companions/many_tail_fox.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        5,
+        11,
+        123,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        7,
+        14,
+        121,
+        121
+      ],
+      "sha256": "38e2da88178b9f66cc9dc2d906c177c2b02022e6eca408dc1519de2e3cdae17d",
+      "source": "exec-c8651d3a-2de6-4f85-8a11-a592b2dad7be.png"
+    },
+    {
+      "id": "monkey",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/monkey/positive.png",
+      "normal": "assets/characters/companions/monkey.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        12,
+        5,
+        114,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        14,
+        13,
+        112,
+        121
+      ],
+      "sha256": "6642bfaf8543ed22d5eb45b189fbbbf023234bb293b3d62949b9ad3688680890",
+      "source": "exec-c12dd16d-d562-4d45-a929-2cd224fe00da.png"
+    },
+    {
+      "id": "monkey",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/monkey/lonely.png",
+      "normal": "assets/characters/companions/monkey.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        12,
+        9,
+        115,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        14,
+        12,
+        113,
+        122
+      ],
+      "sha256": "362541e104fffb8f1bd3d20aea1a6d17b9a86fe7c4358228b6e62e2bd397afa3",
+      "source": "exec-bee91ae8-0363-4ef6-ac33-da719006b3a9.png"
+    },
+    {
+      "id": "owl",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/owl/positive.png",
+      "normal": "assets/characters/companions/owl.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        23,
+        12,
+        107,
+        120
+      ],
+      "visible_bbox_alpha10": [
+        26,
+        14,
+        105,
+        118
+      ],
+      "sha256": "eb23932210414f34b46fa6bfe16f0ca3d5adaa1de8bc9adb53d5cb0c4d8e2960",
+      "source": "exec-f4325e4f-a3f7-42da-b069-7e73486dcaf3.png"
+    },
+    {
+      "id": "owl",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/owl/lonely.png",
+      "normal": "assets/characters/companions/owl.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        22,
+        10,
+        107,
+        120
+      ],
+      "visible_bbox_alpha10": [
+        27,
+        12,
+        104,
+        118
+      ],
+      "sha256": "2f6e7bc55b06e441fb07f45ad443e974b8fbf237f9306ad7a3c8f339505061ab",
+      "source": "exec-ff2ca06e-350e-4f3e-89de-c1030f4c79c1.png"
+    },
+    {
+      "id": "panda",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/panda/positive.png",
+      "normal": "assets/characters/companions/panda.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        8,
+        8,
+        121,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        10,
+        10,
+        119,
+        122
+      ],
+      "sha256": "b13bf73802e431214c971081c14b188f858046c351d57c2615af5f6ccc3eb30d",
+      "source": "exec-6ddf332b-6c7c-44d6-bae0-443cb473c39d.png"
+    },
+    {
+      "id": "panda",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/panda/lonely.png",
+      "normal": "assets/characters/companions/panda.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        7,
+        8,
+        121,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        9,
+        10,
+        119,
+        121
+      ],
+      "sha256": "8dbd35b38efd914eb4f2b7c50aa0fba57e7ecdfee24c3e9e95acbc78cc11ac23",
+      "source": "exec-89d66ac9-351d-4112-bd89-dad9be963424.png"
+    },
+    {
+      "id": "parrot",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/parrot/positive.png",
+      "normal": "assets/characters/companions/parrot.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        12,
+        4,
+        117,
+        122
+      ],
+      "visible_bbox_alpha10": [
+        15,
+        12,
+        114,
+        121
+      ],
+      "sha256": "ee8fdafe3d1095a6be68ef4f8ad68674377c263ae63c8a7d9f3581970e7332a2",
+      "source": "exec-16a5e531-6b55-403c-a7e4-333cebe64630.png"
+    },
+    {
+      "id": "parrot",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/parrot/lonely.png",
+      "normal": "assets/characters/companions/parrot.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        8,
+        117,
+        125
+      ],
+      "visible_bbox_alpha10": [
+        16,
+        13,
+        115,
+        122
+      ],
+      "sha256": "845753231af2df099541ce8ca0f04821962a61902c7a9b92dc71177d268ab477",
+      "source": "exec-8e1a0af4-4d42-4636-87f4-5ed4a052618d.png"
+    },
+    {
+      "id": "penguin_friend",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/penguin_friend/positive.png",
+      "normal": "assets/characters/companions/penguin_friend.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        60,
+        124,
+        122
+      ],
+      "visible_bbox_alpha10": [
+        8,
+        68,
+        122,
+        120
+      ],
+      "sha256": "2ae3fff99f9e5dc6e7a844120f6cc1d6ea62b47c2c0b6e95a8a11e3fafe456a6",
+      "source": "exec-e09ed1d9-5c4a-42ac-b54c-f3ea51df7376.png"
+    },
+    {
+      "id": "penguin_friend",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/penguin_friend/lonely.png",
+      "normal": "assets/characters/companions/penguin_friend.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        5,
+        67,
+        123,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        7,
+        69,
+        121,
+        121
+      ],
+      "sha256": "8c270b22db860dee16a4d90a5de4fce00caef12ea32ec6deb0e1176b5378f041",
+      "source": "exec-44ad3142-795f-4ca7-8e3e-3b0510557453.png"
+    },
+    {
+      "id": "punyu",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/punyu/positive.png",
+      "normal": "assets/characters/companions/punyu.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        5,
+        40,
+        124,
+        128
+      ],
+      "visible_bbox_alpha10": [
+        7,
+        42,
+        122,
+        126
+      ],
+      "sha256": "5a357aa2813ce5f2329018725fb199781dabecc3674d79ce1dd720bf09d3376f",
+      "source": "exec-e4ffacdf-d50a-411e-9b30-4d3f978135ab.png"
+    },
+    {
+      "id": "punyu",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/punyu/lonely.png",
+      "normal": "assets/characters/companions/punyu.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        5,
+        35,
+        122,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        8,
+        37,
+        120,
+        122
+      ],
+      "sha256": "152ff023a3a4602462bf904446450b28d423701ea805d29a65c51d6403c74a71",
+      "source": "exec-b398024b-e49d-4e0f-a712-5396a564b74c.png"
+    },
+    {
+      "id": "rabbit_friend",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/rabbit_friend/positive.png",
+      "normal": "assets/characters/companions/rabbit_friend.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        20,
+        10,
+        105,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        22,
+        12,
+        103,
+        121
+      ],
+      "sha256": "2879b99951525018a6e18a4f7a70bfe3a0eeae22d40a3030bbfa37579125f379",
+      "source": "exec-a684fc8a-dfd4-441b-b584-59390037fe16.png"
+    },
+    {
+      "id": "rabbit_friend",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/rabbit_friend/lonely.png",
+      "normal": "assets/characters/companions/rabbit_friend.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        23,
+        9,
+        109,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        26,
+        11,
+        107,
+        121
+      ],
+      "sha256": "24b7a07a50b06e13410e4ff5ab3feeb0a25c06539e576585941a45e183747b75",
+      "source": "exec-eea360ed-3a54-4176-9194-6b7861c82d05.png"
+    },
+    {
+      "id": "seal",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/seal/positive.png",
+      "normal": "assets/characters/companions/seal.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        5,
+        18,
+        128,
+        128
+      ],
+      "visible_bbox_alpha10": [
+        7,
+        20,
+        126,
+        126
+      ],
+      "sha256": "1bad98b733ac57ea874d37565e7c96959555f73060e3093ccba62ee32e3fd218",
+      "source": "exec-48ab9c9a-3780-4618-93d4-7f58aeccc8d2.png"
+    },
+    {
+      "id": "seal",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/seal/lonely.png",
+      "normal": "assets/characters/companions/seal.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        16,
+        122,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        8,
+        18,
+        120,
+        122
+      ],
+      "sha256": "48e17150a04754e95848f285140697d9bf6baeccd836404f4c3bb21c54a02ace",
+      "source": "exec-7ef9cdcf-b1fa-4160-a1af-8fe0170423eb.png"
+    },
+    {
+      "id": "sekizou",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/sekizou/positive.png",
+      "normal": "assets/characters/companions/sekizou.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        34,
+        13,
+        93,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        36,
+        15,
+        91,
+        121
+      ],
+      "sha256": "111bfe338c3ab8b9d397c71e8f18f6126586eb5ca0142f6fb5692e7fe8b650ba",
+      "source": "exec-a21efda4-8b5a-4096-8f21-f9f9defddfd7.png"
+    },
+    {
+      "id": "sekizou",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/sekizou/lonely.png",
+      "normal": "assets/characters/companions/sekizou.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        35,
+        10,
+        93,
+        120
+      ],
+      "visible_bbox_alpha10": [
+        37,
+        12,
+        91,
+        118
+      ],
+      "sha256": "b519ec5eec34afafaa6bafe406da67c216edc6a573cdc504a48cd99e343bb38c",
+      "source": "exec-499178c0-928f-4c21-b25b-837b2bfcfc34.png"
+    },
+    {
+      "id": "sheep",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/sheep/positive.png",
+      "normal": "assets/characters/companions/sheep.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        16,
+        123,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        8,
+        18,
+        121,
+        122
+      ],
+      "sha256": "5b02bdf303d2acdf40797111606943c7e15044c2400df795267cf5a8c6131856",
+      "source": "exec-9179dd85-091b-46b8-9448-61305b2b5f3c.png"
+    },
+    {
+      "id": "sheep",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/sheep/lonely.png",
+      "normal": "assets/characters/companions/sheep.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        17,
+        122,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        8,
+        19,
+        120,
+        122
+      ],
+      "sha256": "ab895cf977175ea3fb41836c1a7ea76e12eeb46baa31be680e71847e74d91a30",
+      "source": "exec-4748e701-1b36-4a2c-9eff-61906299deea.png"
+    },
+    {
+      "id": "shiba",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/shiba/positive.png",
+      "normal": "assets/characters/companions/shiba.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        10,
+        18,
+        127,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        12,
+        21,
+        125,
+        121
+      ],
+      "sha256": "5e2aaab6ed38be2dadc781b55b89ca5ddf04f8606804aa625aa1a9fac9b29885",
+      "source": "exec-2bfced6b-44b1-4097-8f9a-003eb4a894a1.png"
+    },
+    {
+      "id": "shiba",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/shiba/lonely.png",
+      "normal": "assets/characters/companions/shiba.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        7,
+        21,
+        122,
+        125
+      ],
+      "visible_bbox_alpha10": [
+        9,
+        23,
+        120,
+        123
+      ],
+      "sha256": "93475b34310099b98d26d876f42f90f0607cebaf0b963e49e4a94f098501d5a3",
+      "source": "exec-fa5b682a-f7a6-43e2-85ab-06ad9d58feeb.png"
+    },
+    {
+      "id": "snail",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/snail/positive.png",
+      "normal": "assets/characters/companions/snail.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        42,
+        124,
+        99
+      ],
+      "visible_bbox_alpha10": [
+        8,
+        44,
+        122,
+        97
+      ],
+      "sha256": "01e0127228f10a9303da9f21926482be7b9a15db1fc4040b096c3357458314c1",
+      "source": "exec-e167caae-f905-4c32-8f74-a4e93606f0b6.png"
+    },
+    {
+      "id": "snail",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/snail/lonely.png",
+      "normal": "assets/characters/companions/snail.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        5,
+        43,
+        126,
+        115
+      ],
+      "visible_bbox_alpha10": [
+        8,
+        45,
+        124,
+        99
+      ],
+      "sha256": "e10f9e08922a74611aa44ede7257de317098e34278f6a33b44b9fc711ccfd442",
+      "source": "exec-178913f0-545d-4c5f-8a09-346eccb5f393.png"
+    },
+    {
+      "id": "squirrel",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/squirrel/positive.png",
+      "normal": "assets/characters/companions/squirrel.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        15,
+        12,
+        121,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        17,
+        14,
+        119,
+        122
+      ],
+      "sha256": "5c8534fc2a2c5f55217cc491bc038356e92a2e3461dd8d1ad0d95b1df35f06f7",
+      "source": "exec-8bdf7dd5-f980-435a-a5a0-94aa1adf5a98.png"
+    },
+    {
+      "id": "squirrel",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/squirrel/lonely.png",
+      "normal": "assets/characters/companions/squirrel.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        15,
+        9,
+        121,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        17,
+        11,
+        119,
+        121
+      ],
+      "sha256": "6bd25cd7ff63d121659409976d08e9ac25283191a9deade8dde74f3e16508145",
+      "source": "exec-dd5c6f67-0f45-498e-8c59-fe4c75aa142e.png"
+    },
+    {
+      "id": "tanuki",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/tanuki/positive.png",
+      "normal": "assets/characters/companions/tanuki.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        11,
+        13,
+        117,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        13,
+        14,
+        115,
+        121
+      ],
+      "sha256": "4493c0fd9e1f32fd84f2f63434e789a0de7f84122377b4a40dc70a6ae517da78",
+      "source": "exec-852dbb29-b4f5-44c1-bab5-6749f2beb833.png"
+    },
+    {
+      "id": "tanuki",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/tanuki/lonely.png",
+      "normal": "assets/characters/companions/tanuki.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        13,
+        12,
+        117,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        15,
+        14,
+        115,
+        122
+      ],
+      "sha256": "3236bb499473c3455997e3cb15f591e9867c9c31f9e4eaf5974954fcb83c2695",
+      "source": "exec-6ed42b68-27d2-488b-a325-b16026445edf.png"
+    },
+    {
+      "id": "unicorn",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/unicorn/positive.png",
+      "normal": "assets/characters/companions/unicorn.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        9,
+        7,
+        119,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        11,
+        9,
+        117,
+        122
+      ],
+      "sha256": "2ab35b4d644ac32faf3d6243d845e58dc30cfd209f7ff13682d89cfdc0799a51",
+      "source": "exec-27ebce46-cc5e-4f63-9429-2f48c526c0f2.png"
+    },
+    {
+      "id": "unicorn",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/unicorn/lonely.png",
+      "normal": "assets/characters/companions/unicorn.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        10,
+        7,
+        121,
+        125
+      ],
+      "visible_bbox_alpha10": [
+        12,
+        9,
+        119,
+        123
+      ],
+      "sha256": "90afbbe7384c045ca4e09c8c6f77dea94153236a2cee36c0d2be949079a57157",
+      "source": "exec-7cb8a907-6651-4772-97c6-c905a8748740.png"
+    },
+    {
+      "id": "watcher",
+      "kind": "companions",
+      "state": "positive",
+      "path": "assets/characters/relationship/watcher/positive.png",
+      "normal": "assets/characters/companions/watcher.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        46,
+        9,
+        90,
+        122
+      ],
+      "visible_bbox_alpha10": [
+        48,
+        11,
+        88,
+        120
+      ],
+      "sha256": "e23144199ee26fac7c56de30314a5b4c13348c230a8e23eee9b8ac3e933d6a43",
+      "source": "exec-6edcaad3-25aa-4468-a75a-1969fd080e2c.png"
+    },
+    {
+      "id": "watcher",
+      "kind": "companions",
+      "state": "lonely",
+      "path": "assets/characters/relationship/watcher/lonely.png",
+      "normal": "assets/characters/companions/watcher.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        46,
+        10,
+        89,
+        120
+      ],
+      "visible_bbox_alpha10": [
+        49,
+        12,
+        86,
+        118
+      ],
+      "sha256": "01270b521784c9bde423e6a12b707d81033ee7332c4f1d09a1f4220581681f58",
+      "source": "exec-d975a555-5b2b-4e86-9dcc-88e08a1e7929.png"
+    },
+    {
+      "id": "anglerfish",
+      "kind": "partners",
+      "state": "positive",
+      "path": "assets/characters/relationship/anglerfish/positive.png",
+      "normal": "assets/characters/partners/anglerfish.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        8,
+        29,
+        122,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        11,
+        31,
+        120,
+        122
+      ],
+      "sha256": "78bb61cc6de9d789c60781a2a1d798bb43c4535e0a96849abc823d837c73c1bd",
+      "source": "exec-27d97e4b-072d-4f57-9fe6-bc0b712c5c1b.png"
+    },
+    {
+      "id": "anglerfish",
+      "kind": "partners",
+      "state": "lonely",
+      "path": "assets/characters/relationship/anglerfish/lonely.png",
+      "normal": "assets/characters/partners/anglerfish.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        7,
+        30,
+        120,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        9,
+        32,
+        118,
+        121
+      ],
+      "sha256": "e3e9d54dd4d01abc0a9e94f3564213b927d2136530fb12c0bc014688944cb521",
+      "source": "exec-d4662772-f398-4575-858f-bc7044349acd.png"
+    },
+    {
+      "id": "cat_ceo",
+      "kind": "partners",
+      "state": "positive",
+      "path": "assets/characters/relationship/cat_ceo/positive.png",
+      "normal": "assets/characters/partners/cat_ceo.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        36,
+        9,
+        95,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        38,
+        11,
+        93,
+        122
+      ],
+      "sha256": "c1805816e17aab80f49ab366b6ddf287aec87ddb2b20bc50b05ab63a6ae7a745",
+      "source": "exec-fdd3b5a7-52e9-4896-a242-c881782c86a0.png"
+    },
+    {
+      "id": "cat_ceo",
+      "kind": "partners",
+      "state": "lonely",
+      "path": "assets/characters/relationship/cat_ceo/lonely.png",
+      "normal": "assets/characters/partners/cat_ceo.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        38,
+        11,
+        95,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        40,
+        13,
+        93,
+        121
+      ],
+      "sha256": "3f4d7457911f5a278f3d27200eff8254a94bb593b77c6837712f458b0fe6fc70",
+      "source": "exec-266b025a-21c8-4153-a5cb-2513134d35f3.png"
+    },
+    {
+      "id": "cliff_goat",
+      "kind": "partners",
+      "state": "positive",
+      "path": "assets/characters/relationship/cliff_goat/positive.png",
+      "normal": "assets/characters/partners/cliff_goat.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        33,
+        9,
+        103,
+        126
+      ],
+      "visible_bbox_alpha10": [
+        35,
+        11,
+        101,
+        124
+      ],
+      "sha256": "48f9bb8e1ff47534f99c9db258311a2671636a02834c860d300af1edc3f3bc99",
+      "source": "exec-15c527a5-3555-409c-a530-1cfb152b832e.png"
+    },
+    {
+      "id": "cliff_goat",
+      "kind": "partners",
+      "state": "lonely",
+      "path": "assets/characters/relationship/cliff_goat/lonely.png",
+      "normal": "assets/characters/partners/cliff_goat.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        33,
+        13,
+        100,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        35,
+        14,
+        98,
+        122
+      ],
+      "sha256": "25a41c133fdc72c95f1190e0c8ab5f0470dffdab5538cf9f40755a4729a95fe0",
+      "source": "exec-5f39e6ac-d37d-4dd6-aadf-7e5ba8521c18.png"
+    },
+    {
+      "id": "desert_scorpion",
+      "kind": "partners",
+      "state": "positive",
+      "path": "assets/characters/relationship/desert_scorpion/positive.png",
+      "normal": "assets/characters/partners/desert_scorpion.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        19,
+        5,
+        109,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        21,
+        7,
+        107,
+        121
+      ],
+      "sha256": "59dec85bfa329662850de28e2ccc470829962b76182dde5533eec948758b569a",
+      "source": "exec-891c97e7-0e0b-48be-80fd-4a030c42f9cc.png"
+    },
+    {
+      "id": "desert_scorpion",
+      "kind": "partners",
+      "state": "lonely",
+      "path": "assets/characters/relationship/desert_scorpion/lonely.png",
+      "normal": "assets/characters/partners/desert_scorpion.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        19,
+        5,
+        109,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        21,
+        7,
+        107,
+        121
+      ],
+      "sha256": "9c2d1fd5426da80a4974e90bd1dff16c86a448569bd18a42a0d0ef4af066c1e5",
+      "source": "exec-c26303dd-a2d9-4d04-adb1-b3ba9e332ef0.png"
+    },
+    {
+      "id": "field_cow",
+      "kind": "partners",
+      "state": "positive",
+      "path": "assets/characters/relationship/field_cow/positive.png",
+      "normal": "assets/characters/partners/field_cow.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        12,
+        127,
+        127
+      ],
+      "visible_bbox_alpha10": [
+        9,
+        14,
+        125,
+        125
+      ],
+      "sha256": "e2af6c093683e1afcfb4bbc2976904bdc5184126526340de0808d56982f591cd",
+      "source": "exec-550ce901-324f-4bba-a940-5ba0c1ffcb19.png"
+    },
+    {
+      "id": "field_cow",
+      "kind": "partners",
+      "state": "lonely",
+      "path": "assets/characters/relationship/field_cow/lonely.png",
+      "normal": "assets/characters/partners/field_cow.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        8,
+        12,
+        126,
+        126
+      ],
+      "visible_bbox_alpha10": [
+        11,
+        14,
+        124,
+        124
+      ],
+      "sha256": "61c8c1744ed74dc1df819a615ae92aaea80b511d3098d136945d0c97585328ff",
+      "source": "exec-5b36c3b3-230c-4508-aa41-1b593ae704ce.png"
+    },
+    {
+      "id": "gentle_gorilla",
+      "kind": "partners",
+      "state": "positive",
+      "path": "assets/characters/relationship/gentle_gorilla/positive.png",
+      "normal": "assets/characters/partners/gentle_gorilla.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        18,
+        10,
+        112,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        20,
+        12,
+        110,
+        120
+      ],
+      "sha256": "700a310fbae9bc81345ebe053ee88eac65c4cd031845780abb649a37c03ff29c",
+      "source": "exec-c707546c-26e5-46a9-b7cf-feaeb26642c1.png"
+    },
+    {
+      "id": "gentle_gorilla",
+      "kind": "partners",
+      "state": "lonely",
+      "path": "assets/characters/relationship/gentle_gorilla/lonely.png",
+      "normal": "assets/characters/partners/gentle_gorilla.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        18,
+        10,
+        112,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        20,
+        12,
+        110,
+        122
+      ],
+      "sha256": "a4509b1f79b031f30ad902ef34e41cd6e0d87b7a82ec13064ff29a493f2f2896",
+      "source": "exec-cb16a31a-e461-4ecc-8654-cbf46e1a4017.png"
+    },
+    {
+      "id": "grove_deer",
+      "kind": "partners",
+      "state": "positive",
+      "path": "assets/characters/relationship/grove_deer/positive.png",
+      "normal": "assets/characters/partners/grove_deer.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        33,
+        10,
+        101,
+        126
+      ],
+      "visible_bbox_alpha10": [
+        35,
+        13,
+        99,
+        124
+      ],
+      "sha256": "8501b7174ecaf9571f134cc13f73ce88ddecddf77f8ae88873693c20bbdb6388",
+      "source": "exec-147868cd-074b-445a-bb98-b63da5fb3960.png"
+    },
+    {
+      "id": "grove_deer",
+      "kind": "partners",
+      "state": "lonely",
+      "path": "assets/characters/relationship/grove_deer/lonely.png",
+      "normal": "assets/characters/partners/grove_deer.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        31,
+        11,
+        100,
+        125
+      ],
+      "visible_bbox_alpha10": [
+        33,
+        13,
+        98,
+        123
+      ],
+      "sha256": "3fff1ebcbc7be81ae95690e3edc838901922bdb05a7a6a77e4679b42f60919a4",
+      "source": "exec-cdd2a760-f4fc-48f7-b50d-41cf001f629c.png"
+    },
+    {
+      "id": "high_eagle",
+      "kind": "partners",
+      "state": "positive",
+      "path": "assets/characters/relationship/high_eagle/positive.png",
+      "normal": "assets/characters/partners/high_eagle.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        7,
+        9,
+        122,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        9,
+        11,
+        120,
+        121
+      ],
+      "sha256": "7184df1cda370dbc89824695bb736452c35648e7f79480185e9776d3d636ecf1",
+      "source": "exec-588949e9-19f3-4b95-a3bd-6990dfc4f0b6.png"
+    },
+    {
+      "id": "high_eagle",
+      "kind": "partners",
+      "state": "lonely",
+      "path": "assets/characters/relationship/high_eagle/lonely.png",
+      "normal": "assets/characters/partners/high_eagle.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        6,
+        10,
+        122,
+        122
+      ],
+      "visible_bbox_alpha10": [
+        8,
+        12,
+        120,
+        120
+      ],
+      "sha256": "5e72bdce00ee7994d7c9c9eaa0d9af6efc7849d86f4c7f4ac982de16ea36c6c0",
+      "source": "exec-a366ddb4-43e9-404c-90d4-287b0cabb0a2.png"
+    },
+    {
+      "id": "knitting_spider",
+      "kind": "partners",
+      "state": "positive",
+      "path": "assets/characters/relationship/knitting_spider/positive.png",
+      "normal": "assets/characters/partners/knitting_spider.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        5,
+        20,
+        123,
+        122
+      ],
+      "visible_bbox_alpha10": [
+        7,
+        22,
+        121,
+        120
+      ],
+      "sha256": "c8f8c6c64e3781a713e54998d6db91d0f4f49a83890cf473fe6d919e46790b83",
+      "source": "exec-0c14e8a7-ed8c-45be-b9e5-3e081129ec1e.png"
+    },
+    {
+      "id": "knitting_spider",
+      "kind": "partners",
+      "state": "lonely",
+      "path": "assets/characters/relationship/knitting_spider/lonely.png",
+      "normal": "assets/characters/partners/knitting_spider.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        4,
+        20,
+        124,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        6,
+        22,
+        122,
+        122
+      ],
+      "sha256": "6061068ce074db8cc1aa9c757d0f0a4357bd58ffe2dd9794d5498e2b91d9eceb",
+      "source": "exec-0d3bd96c-9af0-4ad0-b024-fa3de2511167.png"
+    },
+    {
+      "id": "oasis_cactus",
+      "kind": "partners",
+      "state": "positive",
+      "path": "assets/characters/relationship/oasis_cactus/positive.png",
+      "normal": "assets/characters/partners/oasis_cactus.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        27,
+        12,
+        104,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        29,
+        14,
+        102,
+        121
+      ],
+      "sha256": "fd767d890bcf900a7e2533be40c4e0be6813aaddf7c845184624df60dcbefc16",
+      "source": "exec-90a03ad8-7324-4353-98b9-9faae0ce73c0.png"
+    },
+    {
+      "id": "oasis_cactus",
+      "kind": "partners",
+      "state": "lonely",
+      "path": "assets/characters/relationship/oasis_cactus/lonely.png",
+      "normal": "assets/characters/partners/oasis_cactus.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        27,
+        9,
+        103,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        29,
+        12,
+        101,
+        122
+      ],
+      "sha256": "34591c125e7c87aa5a78d1318346fbd944c59ca32adf61575e05c869ae0e6e6c",
+      "source": "exec-e6a82660-d19c-42fb-b41a-11b553c4b660.png"
+    },
+    {
+      "id": "robot_neighbor",
+      "kind": "partners",
+      "state": "positive",
+      "path": "assets/characters/relationship/robot_neighbor/positive.png",
+      "normal": "assets/characters/partners/robot_neighbor.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        26,
+        11,
+        105,
+        122
+      ],
+      "visible_bbox_alpha10": [
+        28,
+        13,
+        103,
+        120
+      ],
+      "sha256": "20a3a06c5a7f8a0815cbdda8095e5ace6e327f14d81890db793f9c4cb997e923",
+      "source": "exec-dd27f167-a600-4aa8-9013-146240372f8d.png"
+    },
+    {
+      "id": "robot_neighbor",
+      "kind": "partners",
+      "state": "lonely",
+      "path": "assets/characters/relationship/robot_neighbor/lonely.png",
+      "normal": "assets/characters/partners/robot_neighbor.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        28,
+        11,
+        108,
+        125
+      ],
+      "visible_bbox_alpha10": [
+        30,
+        13,
+        105,
+        123
+      ],
+      "sha256": "5ceb4f52b1cddc832301f4342573815275dfca46f78f42a357c5add8a2e6a2c3",
+      "source": "exec-a4c46d1d-fbda-43f2-b471-29da51975d0d.png"
+    },
+    {
+      "id": "sea_mermaid",
+      "kind": "partners",
+      "state": "positive",
+      "path": "assets/characters/relationship/sea_mermaid/positive.png",
+      "normal": "assets/characters/partners/sea_mermaid.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        24,
+        10,
+        113,
+        126
+      ],
+      "visible_bbox_alpha10": [
+        27,
+        12,
+        111,
+        124
+      ],
+      "sha256": "04d8ffc8c0e58c58fab619db25d3daf4f3156af8ba4e7acd33af00e100a1c124",
+      "source": "exec-68842ef0-f31e-401b-a1b4-d6f26b4213eb.png"
+    },
+    {
+      "id": "sea_mermaid",
+      "kind": "partners",
+      "state": "lonely",
+      "path": "assets/characters/relationship/sea_mermaid/lonely.png",
+      "normal": "assets/characters/partners/sea_mermaid.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        23,
+        11,
+        110,
+        125
+      ],
+      "visible_bbox_alpha10": [
+        25,
+        13,
+        108,
+        123
+      ],
+      "sha256": "57e54fab86bb2c9cc521315f25112d45b41467c9a0650cc2893f0fe120fbca2c",
+      "source": "exec-8c9ea2d7-4ae4-42b1-b103-5e18c85c0260.png"
+    },
+    {
+      "id": "snow_spirit",
+      "kind": "partners",
+      "state": "positive",
+      "path": "assets/characters/relationship/snow_spirit/positive.png",
+      "normal": "assets/characters/partners/snow_spirit.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        39,
+        13,
+        90,
+        118
+      ],
+      "visible_bbox_alpha10": [
+        41,
+        15,
+        88,
+        116
+      ],
+      "sha256": "70b20a630271dad9e2245bb1c7a1f7ce3ead03d9677f67a989dcf309ef9ec4f1",
+      "source": "exec-76aba700-0ee5-4324-b143-cf3c3a98f90d.png"
+    },
+    {
+      "id": "snow_spirit",
+      "kind": "partners",
+      "state": "lonely",
+      "path": "assets/characters/relationship/snow_spirit/lonely.png",
+      "normal": "assets/characters/partners/snow_spirit.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        37,
+        4,
+        92,
+        122
+      ],
+      "visible_bbox_alpha10": [
+        39,
+        11,
+        90,
+        120
+      ],
+      "sha256": "65ae16a9b1df272156b54fe041536817cf638cf3b55278752222a1bca570bc5e",
+      "source": "exec-e1c71878-5ff7-4960-be84-e71ad741829c.png"
+    },
+    {
+      "id": "snowman",
+      "kind": "partners",
+      "state": "positive",
+      "path": "assets/characters/relationship/snowman/positive.png",
+      "normal": "assets/characters/partners/snowman.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        10,
+        7,
+        120,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        12,
+        11,
+        118,
+        122
+      ],
+      "sha256": "aff87b1e7df0b5b3c6b2ccc3fab1d3c86104c6ec1c83821d7768367955202ac5",
+      "source": "exec-b10b4c19-b04b-4f07-bd50-7c8931d82a1f.png"
+    },
+    {
+      "id": "snowman",
+      "kind": "partners",
+      "state": "lonely",
+      "path": "assets/characters/relationship/snowman/lonely.png",
+      "normal": "assets/characters/partners/snowman.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        10,
+        9,
+        119,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        13,
+        11,
+        116,
+        121
+      ],
+      "sha256": "c5a0bfd04f961ed201b56122be17a769c8b85e2f2d42121e9e1e286413486a06",
+      "source": "exec-4ee661da-b561-4a81-a8ba-31002c4dea33.png"
+    },
+    {
+      "id": "sunflower_partner",
+      "kind": "partners",
+      "state": "positive",
+      "path": "assets/characters/relationship/sunflower_partner/positive.png",
+      "normal": "assets/characters/partners/sunflower_partner.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        31,
+        9,
+        98,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        34,
+        11,
+        96,
+        122
+      ],
+      "sha256": "be93d68b67f9be3bbdb6c4b6c796dbff168160f4d635f42141e2e303fa5f0711",
+      "source": "exec-21e5c401-b7e6-4620-b17a-9ce7d3f9b432.png"
+    },
+    {
+      "id": "sunflower_partner",
+      "kind": "partners",
+      "state": "lonely",
+      "path": "assets/characters/relationship/sunflower_partner/lonely.png",
+      "normal": "assets/characters/partners/sunflower_partner.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        33,
+        5,
+        108,
+        122
+      ],
+      "visible_bbox_alpha10": [
+        35,
+        12,
+        96,
+        120
+      ],
+      "sha256": "0dbc41856781cebe43ef7df0a41c3915f2d2309f78563ab2c3e64925f4f8d0d8",
+      "source": "exec-ece3f215-4eb8-43d1-9e09-cd860f7bf177.png"
+    },
+    {
+      "id": "swamp_croc",
+      "kind": "partners",
+      "state": "positive",
+      "path": "assets/characters/relationship/swamp_croc/positive.png",
+      "normal": "assets/characters/partners/swamp_croc.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        12,
+        10,
+        118,
+        124
+      ],
+      "visible_bbox_alpha10": [
+        14,
+        12,
+        116,
+        122
+      ],
+      "sha256": "f90e866ec7f8e80bc0dfc8601aced2d4abc01ff47363eb30513bdc6b61cf6726",
+      "source": "exec-b8d7dcd5-b6d2-495a-887c-52091a8eedb6.png"
+    },
+    {
+      "id": "swamp_croc",
+      "kind": "partners",
+      "state": "lonely",
+      "path": "assets/characters/relationship/swamp_croc/lonely.png",
+      "normal": "assets/characters/partners/swamp_croc.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "bbox": [
+        14,
+        11,
+        121,
+        123
+      ],
+      "visible_bbox_alpha10": [
+        16,
+        13,
+        119,
+        121
+      ],
+      "sha256": "19eca0b21d4122d2f66018c5e9e8c8186ddfd85dd9f45a8fca0ff29b00791388",
+      "source": "exec-67554730-04cd-46c5-b6aa-37202bf5dcf1.png"
+    }
+  ],
+  "visual_qa": {
+    "reviewer": "assistant",
+    "new_images": 80,
+    "sizes": [
+      128,
+      104,
+      80,
+      64
+    ],
+    "result": "GREEN for standalone image QA; actual Home readability pending",
+    "human_approval": "pilot8 only; remaining80 not yet human approved",
+    "limitations": [
+      "Small facial detail in tall/non-animal sprites is subtle at 80px; actual Home QA required.",
+      "64px checked for fatal breakage, not complete detail retention.",
+      "Alpha <10 Lanczos ringing can reach edge in cat_friend/lonely, punyu/positive, seal/positive; visible body retains margin; no asset alteration."
+    ]
+  }
+}

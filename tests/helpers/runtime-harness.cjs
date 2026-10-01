@@ -222,6 +222,7 @@ function createHarness({storage, resume = false, geolocation, fetcher, reducedMo
     NaotocchiCareStatus: require('../../care-status.js'),
     NaotocchiEmotionState: require('../../emotion-state.js'),
     NaotocchiPetExpression: require('../../pet-expression.js'),
+    NaotocchiRelationshipExpression: require('../../relationship-expression.js'),
     matchMedia: () => motionPreference,
     getComputedStyle: el => ({transform: el.style.transform || 'none'}),
     performance: {now: () => now}, innerWidth: 390, innerHeight: 844,
