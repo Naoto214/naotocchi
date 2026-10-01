@@ -166,7 +166,9 @@ PR #368(Draft)・head `436ec0a9`:
 | workflow | 結果 |
 |---|---|
 | Runtime smoke test(`npm test` 全体。`illustration-catalog-test` も ふくむ) | **success**(run 36853631646。M. の 1 件は CI では GREEN = この container の 環境依存) |
-| Home layout(Playwright Chromium / WebKit) | run 36853631620。この文書を 書いた 時点では in_progress(あとの commit で 更新) |
+| Home layout(Playwright Chromium / WebKit) | **success**(run 36853631620) |
+
+文書だけの commit(`1170dafc` 以降)でも 両 workflow が 再実行される(内容は 同じ code)。
 
 ## O. Home Expression regression
 
