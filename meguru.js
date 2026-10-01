@@ -783,7 +783,7 @@
         return { shape: 'circle', hw: size * LANDMARK_COLLIDER.w * k, hd: size * LANDMARK_COLLIDER.w * k, ang: 0, kind: 'LM:' + p.landmark };
       }
       // ランドマークの まわりの 岩・だな(3D モードだけ world に ふえる)。あたりは おきなおしが きめた かたち
-      if (p.collider3d && p.part3d) { const c3 = p.collider3d; return { shape: c3.shape, hw: size * c3.w, hd: size * (c3.d != null ? c3.d : c3.w), ang: c3.ang || 0, kind: 'LM:' + p.landmarkOf + ':' + p.part3d }; }
+      if (p.collider3d) { const c3 = p.collider3d; return { shape: c3.shape, hw: size * c3.w, hd: size * (c3.d != null ? c3.d : c3.w), ang: c3.ang || 0, kind: p.part3d ? 'LM:' + p.landmarkOf + ':' + p.part3d : p.struct || p.emoji }; }
       if (p.struct) {
         const c = Object.prototype.hasOwnProperty.call(COLLIDER, p.struct)
           ? COLLIDER[p.struct]
@@ -968,11 +968,14 @@
     // satellites = ランドマークに ついて まわる 岩・いわだな(3D だけ の prop。それぞれ あたり つき = 見た目)。fd = spot へ の むき・sd = よこ(ランドマークの 大きさ 1 = size)。
     //   おけない ところ(道・spot・ほかの みき)なら その 1 つ だけ おかない(かざり なので)
     const LANDMARK3D = {
+      // がけ(箱)の まわりは まるい 岩の かたまり(mound: 半分 うまった だ円。足もと = あたり)で 地形に つなぐ。板や 箱を ならべない
       waterfall: { shape: 'box', w: 0.3, d: 0.14, minScale: 0.8, satellites: [
-        { part: 'ledge', fd: -0.02, sd: 0.43, w: 0.13, d: 0.11, h: 0.44, turn: 14 },      // 左右の かた(ひくい いわだな)
-        { part: 'ledge', fd: -0.04, sd: -0.42, w: 0.12, d: 0.11, h: 0.38, turn: -18 },
-        { part: 'ledge', fd: -0.3, sd: 0.14, w: 0.17, d: 0.12, h: 0.86, turn: 6 },        // うしろの だん(がけの 上に のぞく。まんなかの すきまから 水が くる)
-        { part: 'ledge', fd: -0.32, sd: -0.17, w: 0.15, d: 0.12, h: 0.8, turn: -8 },
+        { part: 'mound', fd: -0.04, sd: 0.4, r: 0.15, h: 0.5 },      // 左右の かた(がけの よこに もたれる 岩)
+        { part: 'mound', fd: -0.06, sd: -0.39, r: 0.13, h: 0.42 },
+        { part: 'mound', fd: -0.3, sd: 0.1, r: 0.2, h: 0.92 },       // うしろの だん(がけの 上に のぞく。すきまから 水が くる)
+        { part: 'mound', fd: -0.32, sd: -0.2, r: 0.17, h: 0.84 },
+        { part: 'mound', fd: -0.56, sd: -0.04, r: 0.27, h: 0.62 },   // うしろの 岩の おか(背面を 地形に)
+        { part: 'mound', fd: -0.28, sd: 0.4, r: 0.14, h: 0.34 }, { part: 'mound', fd: -0.3, sd: -0.42, r: 0.13, h: 0.3 },   // よこの ゆるい 斜面
         { part: 'rock', fd: 0.05, sd: 0.62, r: 0.085 }, { part: 'rock', fd: 0.1, sd: -0.6, r: 0.075 },   // そとがわの 岩(ひざ くらい)
         { part: 'rock', fd: -0.18, sd: 0.66, r: 0.06 } ] },
       bigtree: { minScale: 0.6 } };
@@ -1041,6 +1044,9 @@
       const stats = { candidates: 0, solidified: {}, moved: {}, dropped: {}, added: {}, moves: [], drops: [] };
       // ながめの かざり(spot の view)の 岩・木は 2D では あたりが ない。3D では かたい 物 として あつかう
       for (const p of world.props) {
+        // 3D だけの あたりの 直し: ひかりの ひろば(glowglade)は 光の しるし なので あたりを もたない。大きな 丸太(🪵・かたい)は 丸太の 箱の あたり
+        if (p.struct === 'glowglade') { p.solid = false; continue; }
+        if (p.emoji === '🪵' && p.solid && (p.size || 160) >= 150 && !p.collider3d) p.collider3d = { shape: 'box', w: 0.34, d: 0.08, ang: p.ang || 0 };
         if (p.solid || !p.view || !SOLID3D_TYPES.has(objectType3d(p))) continue;
         p.solid = true; const k = p.struct || p.emoji; stats.solidified[k] = (stats.solidified[k] || 0) + 1;
       }
@@ -1105,22 +1111,28 @@
     // かたい 物の 見た目は あたりから つくる(みき の 太さ = あたりの 半径、岩の 大きさ = あたりの 大きさ)。
     // あたまより 下(OBJ3D_HEAD)で あたりより 太い 見た目は つくらない(見えない かべ も 見える のに とおれる 物 も ない)
     const OBJ3D_HEAD = 125;
+    // 3D の 見た目の しゅるい。「せかいは 3D・キャラだけ 2D」: けしきの 物は 3D の かたち か、3D では 出さない(skip)。立て看板(billboard)は のこさない
+    //   いみを かえない: きのこ は きのこ、はし は はし。3D に できない 雰囲気の しるし(💧・手前の えだ・光の もや)は 出さない
     const OBJ3D_TYPE = { '🌲': 'conifer', '🌳': 'broadleaf', mistwood: 'broadleaf', riverwood: 'broadleaf', parktree: 'broadleaf', bluetree: 'broadleaf',
       bigtrunk: 'bigtree', bigrock: 'rock', '🪨': 'rock', ledgerock: 'rock', stonestack: 'rock', cairn: 'rock', riverrock: 'rock',
-      log: 'log', driftwood: 'log', stump: 'stump', springpool: 'water', woodbridge: 'bridge', branch: 'skip' };
-    const OBJ3D_BILLBOARD = { fern: '🌿', mushroomcluster: '🍄', mushroomgrove: '🍄', glowglade: '✨', oldpost: '🪧' };
-    const WALKABLE3D = new Set(['billboard', 'water', 'bridge', 'pebble']);
-    const SOLID3D_TYPES = new Set(['conifer', 'broadleaf', 'bigtree', 'rock', 'log', 'stump', 'mushroom', 'waterfall', 'ledge']);   // あたりが なくて よい(ふんで とおれる / ひらたい / 草花)
+      log: 'log', driftwood: 'log', stump: 'stump', springpool: 'water', woodbridge: 'bridge', '🌉': 'bridge',
+      '🍄': 'mushrooms', mushroomcluster: 'mushrooms', mushroomgrove: 'mushroomgrove',
+      '🌿': 'grass', fern: 'fern', '🌱': 'sprout', '🍂': 'leaf', '🍃': 'leaf', '🍁': 'leaf', '🌰': 'nut', '✨': 'sparkle', '🌼': 'flower', '🪧': 'signpost', oldpost: 'signpost', glowglade: 'glowdecal',
+      '🪵': 'log', branch: 'skip', '💧': 'skip' };
+    // あたりが なくて よい(ふんで とおれる ひくい もの・水・はし・地面の しるし)
+    const WALKABLE3D = new Set(['water', 'bridge', 'pebble', 'mushrooms', 'grass', 'fern', 'sprout', 'leaf', 'nut', 'sparkle', 'flower', 'signpost', 'glowdecal', 'smalllog']);
+    const SOLID3D_TYPES = new Set(['conifer', 'broadleaf', 'bigtree', 'rock', 'log', 'stump', 'glowmushroom', 'mushroomgrove', 'waterfall', 'ledge', 'mound']);
     function objectType3d(p) {
-      if (p.part3d) return p.part3d;   // ランドマークの まわりの 岩・いわだな(3D だけ)
+      if (p.part3d) return p.part3d;   // ランドマークの まわりの 岩(3D だけ)
       if (p.landmark === 'bigtree') return 'bigtree';
-      if (p.landmark === 'glowmushroom') return 'mushroom';
+      if (p.landmark === 'glowmushroom') return 'glowmushroom';
       if (p.landmark === 'waterfall') return 'waterfall';
       const k = p.struct || p.emoji;
-      if (k === '🪨' && !p.solid) return 'pebble';   // 2D でも あたりの ない 小石(道ばた)は ひらたい 石(ふんで とおれる)
+      if (k === '🪨' && !p.solid) return 'pebble';   // 2D でも あたりの ない 小石(道ばた)は ひくい 石(ふんで とおれる)
+      if (k === '🪵' && !p.collider3d) return 'smalllog';   // あたりの ない 丸太は 半分 うまった 小さな 丸太
+      if (p.struct === 'fern' && p.view) return 'skip';   // ながめの かざりの 巨大な しだ(2D の 額縁)は 3D では 出さない
       if (OBJ3D_TYPE[k]) return OBJ3D_TYPE[k];
-      if (p.struct && !OBJ3D_BILLBOARD[p.struct]) return 'skip';
-      return p.emoji || OBJ3D_BILLBOARD[p.struct] ? 'billboard' : 'skip';
+      return 'skip';
     }
     // たき = がけ(あたり = がけの 箱)+ おちる 水の まく + たきつぼ + あわ・しぶき + ふちの ひらたい 石。ひとつの ランドマークとして いっしょに うごく。
     // ctx.front = たき から spot への むき、ctx.dist = spot までの きょり。水・あわ・しぶき・ひらたい 石(たかさ 16 まで)は とおれる
@@ -1189,6 +1201,8 @@
         dx: lobe.dx + f.x * lobe.rz * u + sx * lobe.rx * v * Math.sign(lobe.dx * sx + lobe.dz * sz), dz: lobe.dz + f.z * lobe.rz * u + sz * lobe.rx * v * Math.sign(lobe.dx * sx + lobe.dz * sz) });
       return out;
     }
+    // 小さな キノコ 1 本(くき + かさ)。ふんで とおれる 大きさ(たかさ 26 まで)
+    function smallMushroom(dx, dz, capR, h, capShape) { return [{ shape: 'stem', r: capR * 0.42, h, y: 0, dx, dz }, { shape: capShape, r: capR, sy: 0.6, y: h, dx, dz }]; }
     function parts3d(type, o, H, halfW, size, ctx) {
       const r = o ? Math.max(o.hw, o.hd) : halfW * 0.3;
       const below = (rad, y) => (y < OBJ3D_HEAD ? Math.min(rad, r + 10) : rad);   // あたまより 下は あたり + 10 まで
@@ -1213,7 +1227,39 @@
             { shape: 'crown', r: R * 0.72, sy: 0.6, y: top - R * 0.25, dx: R * 0.75 }, { shape: 'crown', r: R * 0.7, sy: 0.6, y: top - R * 0.3, dx: -R * 0.7, dz: R * 0.25 },
             { shape: 'crown', r: R * 0.62, sy: 0.6, y: top - R * 0.2, dz: -R * 0.6 }, { shape: 'crown', r: R * 0.6, sy: 0.6, y: top - R * 0.28, dx: R * 0.2, dz: R * 0.7 }];
         }
-        case 'mushroom': return [{ shape: 'trunk', r, h: size * 0.5, y: 0, taper: 1 }, { shape: 'cap', r: Math.max(r * 2.2, size * 0.3), sy: 0.55, y: size * 0.5 }];
+        case 'glowmushroom': {   // ひかる キノコ(ランドマーク): ふとい くき = あたり。かさは あたまより 上。足もとに 光・まわりに 小さな ひかる キノコ
+          const h = Math.max(OBJ3D_HEAD + 5, size * 0.3), R = Math.max(r * 2.6, size * 0.34);
+          const out = [{ shape: 'stem', r, h, y: 0 }, { shape: 'glowcap', r: R, sy: 0.5, y: h }, { shape: 'glowdisc', r: R * 1.25, y: 0 }];
+          for (let i = 0; i < 6; i++) { const a = i * Math.PI / 3 + 0.4, d = r + 40 + (i % 2) * 36, k = 0.6 + (i % 3) * 0.2; out.push(...smallMushroom(Math.sin(a) * d, Math.cos(a) * d, 14 * k, 22 * k, 'glowcap')); }
+          return out;
+        }
+        case 'mushroomgrove': {   // キノコの もり(かたい): 大きな キノコ 1 本(くき = あたり)+ まわりに 小さな キノコ
+          const h = Math.max(OBJ3D_HEAD + 5, size * 0.42), R = Math.max(r * 1.7, size * 0.3);
+          const out = [{ shape: 'stem', r, h, y: 0 }, { shape: 'cap', r: R, sy: 0.55, y: h }];
+          for (let i = 0; i < 4; i++) { const a = i * Math.PI / 2 + 0.9, d = r + 30 + (i % 2) * 28, k = 0.7 + (i % 2) * 0.3; out.push(...smallMushroom(Math.sin(a) * d, Math.cos(a) * d, 12 * k, 20 * k, 'cap')); }
+          return out;
+        }
+        case 'mushrooms': {   // 小さな キノコ(1〜3 本・ふんで とおれる)
+          const n = size >= 110 ? 3 : size >= 70 ? 2 : 1, out = [];
+          for (let i = 0; i < n; i++) { const a = i * 2.1 + 0.5, d = i ? 12 + i * 7 : 0, k = i ? 0.65 : 1; out.push(...smallMushroom(Math.sin(a) * d, Math.cos(a) * d, Math.min(16, size * 0.13) * k, Math.min(26, size * 0.2) * k, 'cap')); }
+          return out;
+        }
+        case 'grass': return [0, 1, 2].map((i) => ({ shape: 'blade', r: 9, h: 24 + i * 5, y: 0, dx: Math.sin(i * 2.1) * 10, dz: Math.cos(i * 2.1) * 10 }));
+        case 'fern': return [0, 1, 2, 3, 4].map((i) => ({ shape: 'blade', r: 7, h: i === 4 ? 46 : 36, y: 0, dx: i === 4 ? 0 : Math.sin(i * Math.PI / 2 + 0.6) * 14, dz: i === 4 ? 0 : Math.cos(i * Math.PI / 2 + 0.6) * 14 }));
+        case 'sprout': return [{ shape: 'blade', r: 5, h: 16, y: 0, dx: -4 }, { shape: 'blade', r: 5, h: 13, y: 0, dx: 5, dz: 3 }];
+        case 'leaf': return [{ shape: 'leaf', w: Math.min(30, 18 + size * 0.1), y: 0 }];   // おちば: 地面の 小さな は(大きさは そろえる)
+        case 'nut': return [{ shape: 'nut', r: 7, y: 0 }, { shape: 'nut', r: 5, y: 0, dx: 11, dz: 4 }];
+        case 'sparkle': return [{ shape: 'spark', r: 7, y: 54 }, { shape: 'spark', r: 4, y: 72, dx: 14, dz: -6 }, { shape: 'spark', r: 4, y: 40, dx: -12, dz: 8 }];
+        case 'flower': return [0, 1, 2].map((i) => ({ shape: 'flower', r: 8, h: 20 + i * 3, y: 0, dx: Math.sin(i * 2.2) * 12, dz: Math.cos(i * 2.2) * 12 }));
+        case 'signpost': {   // かんばん: はしら + いた。かたい ふるい ひょうしき(oldpost)は はしら = あたり・いたは あたまより 上
+          const pr = o ? r : Math.min(5, size * 0.06), h = o ? Math.max(OBJ3D_HEAD + 10, size * 0.5) : Math.min(70, size * 0.85);
+          return [{ shape: 'post', r: pr, h, y: 0 }, { shape: 'board', w: o ? size * 0.36 : Math.min(48, size * 0.56), h: o ? size * 0.14 : Math.min(26, size * 0.3), y: h - (o ? 0 : 22), ang: ctx && ctx.ang != null ? ctx.ang : 0 }];
+        }
+        case 'glowdecal': return [{ shape: 'glowdisc', r: halfW * 0.8, y: 0 }];
+        case 'smalllog': { const lr = Math.min(10, size * 0.1); return [{ shape: 'log', len: size * 0.7, r: lr, y: -lr * 0.5 }]; }
+        case 'mound': {   // 岩の かたまり: 半分 うまった だ円。足もと = あたり(まる)。ctx.h = たかさ
+          return [{ shape: 'mound', r: o ? o.hw : r, h: Math.max(30, (ctx && ctx.h) || 0), y: 0 }];
+        }
         case 'waterfall': return waterfallParts3d(o, r, size, ctx);
         case 'rock': return [{ shape: 'rock', rx: o ? o.hw : r, rz: o ? o.hd : r, h: Math.min(H, (o ? Math.max(o.hw, o.hd) : r) * 1.1), y: 0 }];
         case 'ledge': {   // いわだな = あたりの 箱 + 上に こけ(ctx.h = たかさ)
@@ -1223,9 +1269,13 @@
         case 'log': return [{ shape: 'log', len: o ? o.hw * 2 : halfW * 2, r: o ? Math.min(o.hd, 34) : 20, y: 0 }];
         case 'stump': return [{ shape: 'stump', r, h: Math.min(size * 0.35, 60), y: 0 }];
         case 'water': return [{ shape: 'pool', r: halfW, y: 0 }];
-        case 'pebble': return [{ shape: 'rock', rx: halfW * 0.6, rz: halfW * 0.45, h: Math.min(14, halfW * 0.25), y: 0 }];
-        case 'bridge': return [{ shape: 'plank', len: size * 0.9, w: size * 0.3, y: 0 }];
-        default: return [{ shape: 'billboard', w: size * 1.3, h: size * 1.25, y: 0 }];
+        case 'pebble': return [{ shape: 'pebble', r: Math.min(16, halfW * 0.3), y: 0 }];   // まるい 小石(半分 うまる)
+        case 'bridge': {   // はし: 丸太の はし(いた + てすり)/ いしの はし(石の いた)。spot の 道に そって
+          const stone = ctx && ctx.spot && /stone|ishi|bridge2/.test(ctx.spot.id), ang = ctx && ctx.ang != null ? ctx.ang : 0, len = size * 0.95, w = size * 0.34;
+          if (stone) return [{ shape: 'slab', len, w, y: 0, ang }];
+          return [{ shape: 'plank', len, w, y: 0, ang }, { shape: 'rail', len, r: 4, y: 30, ang, side: w * 0.5 }, { shape: 'rail', len, r: 4, y: 30, ang, side: -w * 0.5 }];
+        }
+        default: return [];
       }
     }
     function worldObjects3d(world) {
@@ -1241,9 +1291,15 @@
         const size = p.size || 160, box = (p.struct && OCCLUDER_BOX[p.struct]) || (p.landmark ? OCCLUDER_BOX.landmark : OCCLUDER_BOX.glyph);
         const H = size * box[1], halfW = size * box[0];
         // ランドマークは もちぬしの spot(むき・きょり)を しって いる。たきは たきつぼ を spot の 池 の かわりに もつ
-        const sp = p.landmark ? (world.spots || []).find((s) => p.mid === 'lm:' + s.id) : null;
+        const sp = p.landmark ? (world.spots || []).find((s) => p.mid === 'lm:' + s.id) : p.spot ? (world.spots || []).find((s) => Math.hypot(s.x - p.x, s.z - p.z) <= s.r * 1.5) : null;
         const ox = o ? o.x : p.x, oz = o ? o.z : p.z, dist = sp ? Math.hypot(sp.x - ox, sp.z - oz) : 0;
-        const ctx = sp && dist > 1 ? { front: { x: (sp.x - ox) / dist, z: (sp.z - oz) / dist }, dist, spot: sp, world } : p.part3d ? { h: size * 0.75 * (p.h3d || 0) } : null;
+        let ctx = null;
+        if (p.landmark && sp && dist > 1) ctx = { front: { x: (sp.x - ox) / dist, z: (sp.z - oz) / dist }, dist, spot: sp, world };
+        else if (p.part3d) ctx = { h: size * 0.75 * (p.h3d || 0) };
+        else if (p.spot && sp) {   // spot の しるし(はし・かんばん): spot を とおる 道の むきに そろえる
+          const sg = (world.segments || []).find((q) => q.a.id === sp.id || q.b.id === sp.id);
+          ctx = { spot: sp, ang: sg ? Math.atan2(sg.b.x - sg.a.x, sg.b.z - sg.a.z) : 0 };
+        }
         out.push({ id: world.regionId + ':' + i, pi: i, type, kind, region: world.regionId, layer: p.layer || null, role: o ? o.role : null, spot: sp ? sp.id : null,
           x: o ? o.x : p.x, z: o ? o.z : p.z, rot: o ? o.ang || 0 : p.ang || 0, height: H, halfW, size, emoji: type === 'billboard' ? (p.emoji || OBJ3D_BILLBOARD[p.struct]) : null,
           solid, walkable: !o, collision: o ? { shape: o.shape, x: o.x, z: o.z, hw: o.hw, hd: o.hd, ang: o.ang || 0 } : null, moved3d: !!p.moved3d, parts: parts3d(type, o, H, halfW, size, ctx) });
