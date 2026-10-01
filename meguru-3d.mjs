@@ -394,8 +394,10 @@ function create3DRenderer(M, o, onLost) {
     // corridor では 地面の いろが すすみぐあいで かわる(world.setProgress)ので、いろの 鍵が かわった frame で 描きなおす(refreshGround)
     const gc = doc.createElement('canvas'); gc.width = gc.height = 128;
     const paintGround = () => {
-      const gg = gc.getContext('2d'); gg.globalAlpha = 1; gg.fillStyle = world.ground[0]; gg.fillRect(0, 0, 128, 128);
-      for (let i = 0; i < 90; i++) { gg.fillStyle = i % 3 ? world.ground[1] : world.ground[0]; gg.globalAlpha = 0.18; gg.beginPath(); gg.arc(hash01('gx' + i) * 128, hash01('gz' + i) * 128, 6 + hash01('gr' + i) * 14, 0, TAU); gg.fill(); }
+      // Art Direction v1: 3D だけ 地面の いろを 地域の profile(ground3d)で さしかえられる(まちの アスファルトを 明るい 灰に。2D は かわらない)
+      const g3 = (!world.corridor && prof0 && prof0.ground3d) || world.ground;
+      const gg = gc.getContext('2d'); gg.globalAlpha = 1; gg.fillStyle = g3[0]; gg.fillRect(0, 0, 128, 128);
+      for (let i = 0; i < 90; i++) { gg.fillStyle = i % 3 ? g3[1] : g3[0]; gg.globalAlpha = 0.18; gg.beginPath(); gg.arc(hash01('gx' + i) * 128, hash01('gz' + i) * 128, 6 + hash01('gr' + i) * 14, 0, TAU); gg.fill(); }
     };
     paintGround();
     const gt = keep(canvasTexture(gc)); gt.wrapS = gt.wrapT = THREE.RepeatWrapping; gt.repeat.set((hi - lo + 4000) / 420, (world.len + 4000) / 420);
