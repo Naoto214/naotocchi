@@ -18,7 +18,7 @@ Human QA の 正本: `docs/qa/meguru-3d-art-direction-v1-human-qa.md`(Art Direct
 | 家 / 木 / 地域 | Building v4・Tree v4・いえ / いなか・もり / ジャングル・props gate・grammar | `bd37e652` |
 | 季節 / 天気 | 山の 夏 / 冬・大木の 季節・3D の 雨 / 雪 | `587f65eb` |
 | テスト | GT-1〜13・用水路の 板の はし | `e3216c32` |
-| QA / 画像 / PR | browser QA・比較 sheet・preview・Draft PR | (この commit) |
+| QA / 画像 / PR | browser QA・比較 sheet・preview・Draft PR #374 | `623363f8`(preview 固定) |
 
 ## 課題ごと(HQ-1〜15)
 
