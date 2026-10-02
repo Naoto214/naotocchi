@@ -98,3 +98,18 @@ test('bow paw contact stays on the ground for both canine proportions',async()=>
     }
   }
 });
+
+test('child mushroom eyes and mouth are visible below the cap from gallery front and three-quarter',async()=>{
+  const {buildRig}=await mod('archetypes.mjs'),g=await mod('geometry.mjs');
+  const rig=buildRig('mushroom',8),spec=rig.faceSpec.find(f=>f.bone==='child');
+  const target=new g.THREE.Mesh(spec.target,new g.THREE.MeshBasicMaterial({side:g.THREE.DoubleSide}));target.updateMatrixWorld(true);
+  const fr=g.faceFrame(spec.center,spec.fwd,[0,1,0]);
+  for(const [px,py] of [[40,56],[88,56],[64,82]]){
+    const hit=g.projectPoint(target,fr,(px-64)*spec.half/64,(64-py)*spec.half/64,spec.half*.02);assert.ok(hit);
+    for(const az of [0,Math.PI/4]){
+      const dir=new g.THREE.Vector3(Math.sin(az),.32,Math.cos(az)).normalize();
+      const obstruction=new g.THREE.Raycaster(hit.p.clone().addScaledVector(dir,.002),dir,.001,3).intersectObject(target);
+      assert.equal(obstruction.length,0,`child feature ${px},${py} occluded at ${az}`);
+    }
+  }
+});

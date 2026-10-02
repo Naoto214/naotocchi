@@ -455,7 +455,7 @@ export function fungus(sp, key) {
     const small = mushroomParts({ r: sp.cap.r * 0.5, h: sp.cap.h * 1.1, shape: 'flat' }, { h: sp.stem.h * 0.55, r: sp.stem.r * 0.45 }, c, 'cap');
     const cg = merge([small.stemGeo, small.capGeo.translate(0, sp.stem.h * 0.5, 0)]);
     rig.add('child', 'root', [sp.cap.r * 0.95, 0.03, 0.12], [cg], 'opaque', [0, -0.4, 0.12]);
-    childFace = { bone: 'child', target: cg, center: [0, sp.stem.h * .39, sp.stem.r * .45], fwd: [0,0,1], half: sp.stem.r * .48, eyeSize: .26, forceMode: 'A', normalEye: 'content', layout: {eyeX:24,eyeY:56,mouthY:82,browY:36,cheekX:38,cheekY:72,mouthW:8}, style: {blush:'#f4a090'} };
+    childFace = { bone: 'child', target: cg, center: [0, sp.stem.h * .24, sp.stem.r * .45], fwd: [0,0,1], half: sp.stem.r * .48, eyeSize: .26, forceMode: 'A', normalEye: 'content', layout: {eyeX:24,eyeY:56,mouthY:82,browY:36,cheekX:38,cheekY:72,mouthW:8}, style: {blush:'#f4a090'} };
   }
   let target, center, half, bone;
   if (sp.faceOn === 'cap') { target = capGeo; bone = 'cap'; center = [0, sp.cap.h * 0.3, sp.cap.r * 0.8]; half = sp.cap.r * 0.6; }
