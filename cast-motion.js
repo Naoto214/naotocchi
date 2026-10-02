@@ -36,6 +36,10 @@
     recover: [REST,[0,1.8,0,.9],[0,-14,.45,0],[0,1.2,-.2,.35],[0,-3,.15,0],REST],
     nod: [REST,[0,.8,.5,.25],[0,-.4,0,0],[0,.5,.3,.2],REST],
     curious: [REST,[0,0,1.8,0],[0,0,1.8,0],[0,-.5,-.6,0],REST],
+    breathe: [REST,[0,-.35,0,.3],[0,-.6,0,.4],[0,-.2,0,.1],REST],
+    sway: [REST,[-.3,0,-.5,0],[.35,0,.6,0],[.1,0,.2,0],REST],
+    look: [REST,[.25,-.2,.9,0],[.25,-.2,.9,0],[0,0,-.2,0],REST],
+    posture: [REST,[0,.3,0,.25],[0,-.8,.25,0],[0,-.25,0,0],REST],
     tick: [REST,[0,-.8,-1,0],[0,0,0,0],[0,-.8,1,0],REST],
   };
   // L2 recipes are event-owned. Legacy moods remain ambient/compatibility aliases.
@@ -45,6 +49,14 @@
     wake: {duration:1400, poses:[REST,[0,.8,0,.7],[0,-7,0,0],[0,-7,0,0],[0,-2,0,0],REST]},
     meal: {duration:1000, poses:[REST,[0,.8,0,.8],[0,-1.2,0,0],[0,.6,0,.6],[0,-6.5,0,0],[0,-1,0,.2],REST]},
   };
+  const SPECIAL = {evolve:['SELF','evolve'],transform:['SELF','transform'],companion_new:['SELF','welcome'],partner_new:['RELATIONSHIP','union'],marriage:['RELATIONSHIP','marriage']};
+  Object.assign(RECIPES, {
+    evolve:{duration:1550,poses:[REST,[0,1,0,.8],[0,1,0,.8],[0,-13,.4,0],[0,-2,-.2,.3],REST]},
+    transform:{duration:1700,poses:[REST,[0,.8,-.5,.8],[0,.8,-.5,.8],[0,-14,.5,0],[0,-2,0,.25],REST]},
+    welcome:{duration:1350,poses:[REST,[0,.7,0,.5],[0,.7,0,.5],[0,-11,.4,0],[0,-1,0,.2],REST]},
+    union:{duration:1550,poses:[REST,[0,.6,-.4,.5],[0,.6,-.4,.5],[0,-11,.4,0],[0,-2,0,.2],REST]},
+    marriage:{duration:1800,poses:[REST,[0,.7,-.4,.7],[0,.7,-.4,.7],[0,-14,.4,0],[0,-2,0,.3],REST]},
+  });
   const EVENT_SCOPE = {
     feed:'SELF',overfeed:'SELF',play_with:'SELF',play_with_annoyed:'SELF',wake:'SELF',
     clean:'GROUP',court:'RELATIONSHIP',partner_new:'RELATIONSHIP',marriage:'RELATIONSHIP',
@@ -52,19 +64,38 @@
   const EVENT_RECIPES = {feed:{munch:'meal'},play_with:{bounce:'play',wiggle:'ticklish'},wake:{stretch:'wake'}};
   const L2_BUDGET = 10;
   function reactionPlan(event, text, kind, primaryBeat) {
-    const scope = EVENT_SCOPE[event];
+    const scope = SPECIAL[event]?.[0] || EVENT_SCOPE[event];
     const primary = primaryBeat && kind === 'pet';
     const mood = scope === 'SELF' && !primary ? 'nod' : reactionFor(event,text,kind);
     const recipe = primary ? EVENT_RECIPES[event]?.[mood] : null;
     return {scope,mood,recipe,budget:L2_BUDGET};
   }
-  const DURATION = {clean:1100,wiggle:820,bounce:960,shy:1200,love:1150,droop:1300,settle:1200,shake:740,munch:1000,hungry:1250,sulk:1500,doze:1600,stretch:1400,recover:1450,nod:850,curious:1300,tick:1000};
+  const IDLE_FAMILIES = ['breathe','sway','look','posture'];
+  const actorPhase = id => [...(id || '')].reduce((n,c)=>(n*31+c.charCodeAt(0))>>>0,0);
+  const DURATION = {breathe:2400,sway:2200,look:1900,posture:2300,clean:1100,wiggle:820,bounce:960,shy:1200,love:1150,droop:1300,settle:1200,shake:740,munch:1000,hungry:1250,sulk:1500,doze:1600,stretch:1400,recover:1450,nod:850,curious:1300,tick:1000};
   const PERSONALITY = {
     snail: [.8, 1], clock: [1, .85], koala: [1.25, .65],
     sekizou: [1.3, .4], watcher: [1.2, .5], box: [1.15, .6],
     forest_bear: [1.15, .9], grove_deer: [1.05, .8],
     robot_neighbor: [1, .8], cat_ceo: [.95, .8],
   };
+
+  // tempo, lift, turn and inward squash; final corner budget always wins.
+  const PERSONALITIES = Object.freeze({
+    soft:{tempo:1,lift:1,turn:1,squash:1,idle:'breathe'},
+    bouncy:{tempo:.95,lift:1.08,turn:1,squash:1.15,idle:'posture'},
+    heavy:{tempo:1.2,lift:.72,turn:.45,squash:.4,idle:'posture'},
+    float:{tempo:1.18,lift:1,turn:.45,squash:.15,idle:'sway'},
+    quick:{tempo:.8,lift:.9,turn:.8,squash:.8,idle:'look'},
+    slow:{tempo:1.3,lift:.8,turn:.65,squash:.7,idle:'breathe'},
+    rigid:{tempo:1.05,lift:.85,turn:.35,squash:0,idle:'look'},
+  });
+  function personalityFor(id, stage=0, metadata=root.NAOTOCCHI_CHARACTER_WORLD_MASTER_V1?.motionPersonality) {
+    const stageClass=metadata?.stageOverrides?.[id]?.[stage];
+    if(PERSONALITIES[stageClass])return stageClass;
+    for(const [name,ids] of Object.entries(metadata?.families || {}))if(ids.includes(id))return name;
+    return metadata?.default || 'soft';
+  }
 
   function reactionFor(event, text = '', kind = 'pet') {
     // Outcome wins over happy words in a consolation or an exhausted reply.
@@ -100,14 +131,16 @@
     return 'nod';
   }
 
-  function motionFrames(mood, size = 104, {id = '', direction = 1, gentle = false, maxDisplacement = MOTION_RADIUS, recipe = null} = {}) {
+  function motionFrames(mood, size = 104, {id = '', direction = 1, gentle = false, maxDisplacement = MOTION_RADIUS, recipe = null, personality = null} = {}) {
     size = Math.max(1, Number(size) || 104);
     const selected = RECIPES[recipe];
-    const [tempo, energy] = selected ? [1,1] : PERSONALITY[id] || [1, 1];
-    const move = !selected && mood === 'bounce' && ['clock','robot_neighbor'].includes(id) ? 'tick' : mood;
+    // Recovery retains its exact approved legacy shape, including per-id tuning.
+    const profile=mood==='recover' ? null : PERSONALITIES[personality];
+    const [tempo, energy] = profile ? [profile.tempo,1] : selected ? [1,1] : PERSONALITY[id] || [1, 1];
+    const move = !selected && !profile && mood === 'bounce' && ['clock','robot_neighbor'].includes(id) ? 'tick' : mood;
     const poses = (selected?.poses || MOVES[move] || MOVES.nod).map(([x,y,turn,squash]) => {
       const strength = energy * (gentle ? .55 : 1);
-      x *= strength * direction; y *= strength; turn *= strength * direction; squash *= strength;
+      x *= strength * direction; y *= strength * (profile?.lift ?? 1); turn *= strength * direction * (profile?.turn ?? 1); squash *= strength * (profile?.squash ?? 1);
       const radius = size / Math.SQRT2;
       let angle = turn / radius, scale = 1 - squash / size;
       // Triangle inequality also bounds interpolated frames, not only the keys.
@@ -123,8 +156,9 @@
     };
   }
 
-  function createController({getActors, getGroup = () => null, canAnimate = () => true, isResting = () => false, getMotionRadius = () => MOTION_RADIUS, getRelationshipTargets = () => [], env = root}) {
+  function createController({getActors, getGroup = () => null, canAnimate = () => true, isResting = () => false, getMotionRadius = () => MOTION_RADIUS, getRelationshipTargets = () => [], canSpecial = () => true, env = root}) {
     const active = new Map();
+    const baseTransforms = new WeakMap();
     const media = typeof env.matchMedia === 'function' ? env.matchMedia('(prefers-reduced-motion: reduce)') : null;
     let speaking = null, idleTurn = 0;
     const allowed = () => !media?.matches && canAnimate();
@@ -158,7 +192,7 @@
       if (!actor?.node) return 0;
       const size = parseFloat(actor.node.style.width) || actor.size || 104;
       const motion = motionFrames(mood, size, {id:actor.id, direction:actor.direction || 1,
-        recipe, gentle:gentle || isResting(), maxDisplacement:maxDisplacement ?? (mood === 'recover' ? 16 : getMotionRadius())});
+        recipe, personality:actor.personality, gentle:gentle || isResting(), maxDisplacement:maxDisplacement ?? (mood === 'recover' ? 16 : getMotionRadius())});
       const from = active.has(actor.node) ? currentTransform(actor.node) : null;
       const started = run(actor.node, motion, mood, delay, from);
       // The equipment shares the exact frames, timing and current pose of its pet.
@@ -166,6 +200,14 @@
         const accessory = getActors().find(a=>a.kind === 'accessory');
         if (accessory) run(accessory.node, motion, mood, delay, from);
       }
+      // Ring layout remains owned by the cast solver; only carry its owner's translation.
+      if(started && actor.attachment) {
+        const node=actor.attachment;
+        if(!active.has(node))baseTransforms.set(node,currentTransform(node));
+        const base=baseTransforms.get(node);
+        run(node,{duration:motion.duration,frames:motion.poses.map(p=>({transform:`translate(${p.x}px, ${p.y}px)${base && base!=='none' ? ' '+base : ''}`}))},mood,delay);
+      }
+      if(started && mood==='recover')active.get(actor.node).motionLevel=3;
       return started ? motion.duration + delay : 0;
     }
     function playGroup(mood) {
@@ -187,17 +229,21 @@
         const from = !immediate && allowed() ? currentTransform(node) : null;
         stop(node);
         if (from && from !== 'none') {
-          run(node, {frames:[{transform:from},{transform:'translate(0px, 0px) rotate(0rad) scale(1)'}],duration:140}, '', 0, from);
+          run(node, {frames:[{transform:from},{transform:baseTransforms.get(node) || 'translate(0px, 0px) rotate(0rad) scale(1)'}],duration:140}, '', 0, from);
           delete node.dataset.reaction;
         }
       }
     }
-    function speak({event = 'idle', text, speaker, listener, primaryBeat = true}) {
+    function speak({event = 'idle', text, speaker, listener, target, primaryBeat = true}) {
       clearSpeaker();
       const actor = find(speaker);
       if (!actor || !canAnimate()) return;
       speaking = actor.node;
       speaking.classList.add('cast-speaking');
+      if (SPECIAL[event]) {
+        if (primaryBeat) special(event,target);
+        return; // The same conversation cannot replay the event on later lines.
+      }
       // A cure is one physical recovery, not one recovery per conversation line.
       const cure = event === 'medicine_cure';
       const plan = reactionPlan(event,text,speaker.kind,primaryBeat);
@@ -233,8 +279,25 @@
       }
 
     }
+    function special(event,target) {
+      const spec=SPECIAL[event];
+      if (!spec || !allowed() || !canSpecial()) return 0;
+      const owners=event==='companion_new' ? [find(target)]
+        : spec[0]==='RELATIONSHIP' ? [find({kind:'pet'}),find({kind:'partner'})] : [find({kind:'pet'})];
+      if (!owners.some(Boolean)) return 0;
+      const speakerNode=speaking;
+      clear(false);
+      speaking=speakerNode;
+      speaking?.classList.add('cast-speaking');
+      let duration=0;
+      for(const actor of owners.filter(Boolean)) {
+        duration=Math.max(duration,play(actor,event,{recipe:spec[1],maxDisplacement:16}));
+        const a=active.get(actor.node);if(a)a.motionLevel=3;
+      }
+      return duration;
+    }
     function relationship(speaker, elapsed=0) {
-      const actor=find(speaker);if(!actor || elapsed>=900)return 0;
+      const actor=find(speaker);if(!actor || elapsed>=900 || active.get(actor.node)?.motionLevel===3)return 0;
       const group=getGroup();if(group && group.dataset.reaction !== 'clean')stop(group);
       const lift=Math.min(2,getMotionRadius());
       const motion={duration:900,frames:[{transform:'scale(1)'},{transform:'scale(.84)'},
@@ -244,25 +307,29 @@
     function emote(mood) { if (allowed()) { play(find({kind:'pet'}),mood); if(!getRelationshipTargets().length) playGroup(mood); } }
     function pet(mood, options = {}) {
       if (!allowed()) return 0;
-      return play(find({kind:'pet'}), mood, options) || 0;
+      const actor=find({kind:'pet'});
+      if(active.get(actor?.node)?.motionLevel===3)return 0;
+      return play(actor, mood, options) || 0;
     }
     function isActive(speaker = {kind:'pet'}) {
       const actor = find(speaker);
       return !!actor && active.has(actor.node);
     }
     function idle({excludePet = false} = {}) {
-      if (!allowed() || active.size || speaking) return 0;
+      if (!allowed() || isResting() || active.size || speaking) return 0;
       const actors = getActors().filter(a=>a.kind !== 'accessory' && !(excludePet && a.kind === 'pet'));
       if (!actors.length) return 0;
-      const actor = actors[idleTurn++ % actors.length];
-      return play(actor, idleTurn % 2 ? 'curious' : 'nod', {gentle:true}) || 0;
+      const turn=idleTurn++, actor=actors[turn % actors.length];
+      const phase=(actorPhase(actor.id)+Math.floor(turn/actors.length)) % IDLE_FAMILIES.length;
+      const family=phase===0 && actor.personality ? PERSONALITIES[actor.personality]?.idle || 'breathe' : IDLE_FAMILIES[phase];
+      return play(actor, family, {gentle:true}) || 0;
     }
     media?.addEventListener?.('change', () => {
       if (media.matches) for (const node of [...active.keys()]) stop(node);
     });
-    return {relationship,speak,emote,pet,isActive,idle,clear,clearSpeaker};
+    return {special,relationship,speak,emote,pet,isActive,idle,clear,clearSpeaker};
   }
-  const api = {MOTION_RADIUS,motionRadiusFor,reactionFor,motionFrames,createController};
+  const api = {PERSONALITIES,personalityFor,MOTION_RADIUS,motionRadiusFor,reactionPlan,reactionFor,motionFrames,createController};
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.NaotocchiCastMotion = api;
 })(typeof window !== 'undefined' ? window : globalThis);

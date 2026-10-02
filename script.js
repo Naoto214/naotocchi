@@ -4043,6 +4043,7 @@
     isResting: () => state.isSleeping || state.isSick || state.dying || state.stage === STAGE.FAREWELL,
     getMotionRadius: homeCastMotionRadius,
     getRelationshipTargets: relationshipTargets,
+    canSpecial: () => !state.isSleeping && currentCareSignals()?.life !== 'critical',
     env: window,
   });
 
@@ -6212,7 +6213,8 @@
   }
 
   function speakEvent(eventKey, ctx = {}) {
-    const pool = CONVERSATION_POOLS[eventKey];
+    const dialogueKey = eventKey === 'evolve' ? 'age' : eventKey === 'companion_new' ? 'minigame_great' : eventKey;
+    const pool = CONVERSATION_POOLS[dialogueKey];
     if (!pool) return;
     if (careAfterglowTimer) invalidateCareAfterglow();
     clearPetExpression(true);
@@ -6231,12 +6233,12 @@
       // 成立・結婚の固有セリフは、必ず恋人の吹き出しへ。
       const relationshipKey = eventKey === 'partner_new' ? 'court' : eventKey === 'marriage' ? 'marriage' : null;
       const relationshipLine = PARTNER_RELATIONSHIP_LINES[state.partner.id]?.[relationshipKey];
-      const line = relationshipLine || partnerDailyLine(eventKey, ctx);
+      const line = relationshipLine || partnerDailyLine(dialogueKey, ctx);
       if (ps && line) beats.push({ speaker: ps, text: line });
     }
     if (state.companions.length && pool.companion && Math.random() < (ctx.companionChance ?? 0.55)) {
       const cs = companionSpeaker();
-      const line = pickCharacterConversationLine(COMPANION_DAILY_REACTIONS[cs?.id]?.[eventKey], pool.companion, ctx);
+      const line = pickCharacterConversationLine(COMPANION_DAILY_REACTIONS[cs?.id]?.[dialogueKey], pool.companion, ctx);
       if (cs && line) beats.push({ speaker: cs, text: line });
     }
     // いるキャラが次々しゃべるテンポを優先。本人→恋人→仲間だけで終わらず、
@@ -6404,13 +6406,13 @@
           "負けた分だけ次の話が長い"
         ]
       };
-      const line = pickConversationLine(followUps[eventKey], ctx);
+      const line = pickConversationLine(followUps[dialogueKey], ctx);
       if (line) beats.push({ speaker: petSpeaker(), text: line });
     }
-    playConversationBeats(beats, eventKey, ctx.delayMs || 0);
+    playConversationBeats(beats, eventKey, ctx.delayMs || 0, ctx.motionTarget);
   }
 
-  function playConversationBeats(beats, event = 'idle', delayMs = 0) {
+  function playConversationBeats(beats, event = 'idle', delayMs = 0, target = null) {
     clearConversationTimers();
     hideSpeechBubble();
     const visibleBeats = beats.filter((beat) => beat.speaker && beat.text).slice(0, 4);
@@ -6421,7 +6423,7 @@
         ? (event === 'play_with' ? visibleBeats.find(b=>b.speaker.kind === 'companion')?.speaker
           : ['court','partner_new','marriage'].includes(event) ? visibleBeats.find(b=>b.speaker.kind === 'partner')?.speaker : null)
         : petSpeaker();
-      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener,primaryBeat:i===0}), delayMs + i * SPEECH_DURATION_MS));
+      conversationTimers.push(setTimeout(() => setSpeechBubble(beat.text, beat.speaker, {event,listener,target,primaryBeat:i===0}), delayMs + i * SPEECH_DURATION_MS));
     });
   }
 
@@ -10019,7 +10021,7 @@
     emotePet('fun');
     pushLifeLog(stage.emoji, `${age}さい${stage.label}になった`);
     showStoryEvent({ emoji: stage.emoji, petReaction:true, message: `${age}さいになった！\n${stage.label}` });
-    celebrateAgeSpeech(age, stage.label);
+    speakEvent('evolve', {age,stageLabel:stage.label,partnerChance:0.8,companionChance:0.75});
     checkStoryEvents('evolve');
     // すがたが かわった しゅんかんだけ、へんしんの ちゅうせんを おこなう
     rollTransformChance();
@@ -14070,7 +14072,7 @@
     if (state.stage === STAGE.EGG || state.stage === STAGE.DEAD) return actors;
     if (state.partner && !el.partnerCompanion.classList.contains('hidden')) {
       const node = el.partnerCompanion.querySelector('.partner-emoji');
-      if (node) actors.push({kind:'partner',id:state.partner.id,node,size:parseFloat(el.partnerCompanion.style.width) || 52});
+      if (node) actors.push({kind:'partner',id:state.partner.id,node,attachment:el.partnerCompanion.querySelector('.partner-ring'),size:parseFloat(el.partnerCompanion.style.width) || 52});
     }
     if (!el.petAccessory.classList.contains('hidden')) actors.push({kind:'accessory',node:el.petAccessory});
     for (const [side,direction] of [[el.companionLeft,1],[el.companionRight,-1]]) {
@@ -14078,6 +14080,8 @@
         actors.push({kind:'companion',id:node.dataset.companionId,node,direction});
       }
     }
+    const visualForm=currentVisualForm();
+    for(const actor of actors)actor.personality=window.NaotocchiCastMotion?.personalityFor(actor.kind==='pet'?visualForm.line:actor.id,actor.kind==='pet'?visualForm.index:0,WORLD_MASTER?.motionPersonality);
     return actors;
   }
 
@@ -16404,6 +16408,7 @@
       }
     }
     let recruitedNow = false;
+    let recruitedMotionTarget = null;
 
     // なかまイベントの さいちゅうだった プレイなら、つうじょうの けっか
     // メッセージを なかまに なれたか どうかの けっかに おきかえる(ステータス
@@ -16428,6 +16433,7 @@
           }
           pushLifeLog(companion.emoji, `${companion.name}がなかまになった`);
           recruitedNow = true;
+          recruitedMotionTarget = {kind:'companion',id:companion.id};
           resultMessage = isRare
             ? `${companion.emoji} ${companion.joined}`
             : `${companion.emoji} ${companion.name}がなかまになった!`;
@@ -16444,7 +16450,8 @@
     closeMinigameScreen();
     const resultDuration = showMinigameResultToast(record) || 0;
     // 成績を読んでから感想を出す。別のお世話や再プレイで会話は取り消せる。
-    if (isGreat) speakEvent('minigame_great', { delayMs: resultDuration, partnerChance: 0.5, companionChance: 0.6 });
+    if (recruitedMotionTarget) speakEvent('companion_new', {delayMs:resultDuration,motionTarget:recruitedMotionTarget,partnerChance:0.5,companionChance:0.6});
+    else if (isGreat) speakEvent('minigame_great', { delayMs: resultDuration, partnerChance: 0.5, companionChance: 0.6 });
     else if (isBad) speakEvent('minigame_bad', { delayMs: resultDuration, partnerChance: 0.45, companionChance: 0.5 });
     audio.play(record && (record.rank === 'S' || record.rank === 'A') ? 'fanfare' : record && record.rank === 'D' ? 'fail' : 'clear');
 

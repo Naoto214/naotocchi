@@ -1,5 +1,5 @@
 {
- "base": "ebffaad921da29bf2b8b42e1bdccc97c922db280",
+ "base": "cc4dce9eae9c6cd6997606213271d63540413ad8",
  "note": "Character 3D Pilot は これらを 1 バイトも かえない(tests/character-3d-test.cjs)",
  "groups": {
   "assets/characters/expressions": {
@@ -36,7 +36,7 @@
   },
   "character-world-master.v1.js": {
    "count": 1,
-   "sha1": "5268ccca63064e3ef9af0a820fb67b54ef9c3a08"
+   "sha1": "12e308e0962074b0b2bedae01cfbcd144647b1cc"
   },
   "life-stage-profiles.js": {
    "count": 1,
