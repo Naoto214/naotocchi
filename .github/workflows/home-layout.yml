@@ -47,6 +47,7 @@ jobs:
       - run: node tests/sticker-background-browser.cjs
       - run: node tests/boot-rescue-browser.cjs
       - run: node tests/back-navigation-browser.cjs
+      - run: node tests/motion-v2-browser.cjs
       - run: node tests/home-layout-regressions-browser.cjs
       - run: node tests/home-layout-browser.cjs
       - uses: actions/upload-artifact@v4
