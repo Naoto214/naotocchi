@@ -145,7 +145,31 @@ PR #374 は Art Direction v1 の 上に 積んだ Draft なので main は 取�
 
 ## 5. browser QA(この 監査の あと)
 
-SMOKE_GA
+commit `55c8dc14`(この 監査の さいごの JS)で、headless Chromium(iPhone 390 幅)。
+
+- full `npm test`: pass 2857 / fail 0 + pass 80 / fail 0(exit 0)。3D の テスト: prototype 15・v2 15・AD 18・GT 13・GA 7
+- smoke(13 地域): すべて 3D ✓・めりこみ 0・err / fb 0
+
+| region | calls | tris(GT pass → いま) |
+|---|---|---|
+| home | 59 | 38k → 37k |
+| city | 59 | 132k → 127k |
+| countryside | 75 | 120k → 119k |
+| forest | 81 | 148k → 148k |
+| mountain | 76 | 107k → 107k |
+| snow | 69 | 65k → 70k(針葉樹の 雪の ぼうし = ゆき の 地域は いつも) |
+| sea | 68 | 70k → 70k |
+| deepsea | 59 | 74k → 74k |
+| river_lake | 94 | 114k → 114k |
+| jungle | 87 | 174k → 173k |
+| desert | 65 | 91k → 91k |
+| star_stop | 53 | 66k → 66k |
+| memory_lake | 60 | 52k → 52k |
+
+- corridor: home ⇄ forest・forest ⇄ mountain・city ⇄ sea・countryside ⇄ forest = 4 / 4 で started / arrived / corridor3D / playerOK、maxGhost 0〜6、err / fb 0
+- player の 見え かた(道を あるいて 4 方向の カメラ・足 / むね / あたま の ray): **13 地域 hidden 0**。partial(3 本 の うち 1〜2 本 だけ 見える)は city 5・jungle 3・countryside / mountain / sea / river_lake 1。平均 ghost: city 17.8・memory_lake 8.5・jungle 7.4・ほか 0.1〜5.5。
+  ※ この 回は 道の 上の 点を 前回(GT pass の 表)より こまかく とった(city 252 → 852 点)ので 平均 ghost / partial は 前回の 表と 1 対 1 では くらべられない。**headless の 数字は 実機の 確認の かわり には ならない**(Human QA の 正本: 実機の perf で `player ok miss 0` でも 消えて 見えた)
+- 画像: `docs/qa/meguru-3d-geometry-audit-v1/*-ga.jpg`(13 地域 + 近く + 季節 + この 監査の 場所)・比較 sheet `docs/qa/meguru-3d-geometry-audit-v1/compare.html`
 
 ## 6. Human QA へ わたす もの / 未承認の まま
 
