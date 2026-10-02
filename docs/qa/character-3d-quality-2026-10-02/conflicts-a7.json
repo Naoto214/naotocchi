@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-02T15:34:26.312693+00:00",
+  "character": "81a7d981a6cee7f7930ec297e79692c44eb382c2",
+  "lanes": {
+    "main": {
+      "head": "0b0a6b30e8e098472b2fa965604f4901874942e3",
+      "tree": "aceec6a5ea4a5c94922b60ea90e1b08ea02e42b0",
+      "mechanicalConflict": false,
+      "returncode": 0,
+      "output": "2a299ec133fe460c4e08f912035be79d705cc1f4\n",
+      "stderr": ""
+    },
+    "#368": {
+      "head": "f50bd6528614d2ca8512730f4b12042c0d529407",
+      "tree": "aceec6a5ea4a5c94922b60ea90e1b08ea02e42b0",
+      "mechanicalConflict": false,
+      "returncode": 0,
+      "output": "2a299ec133fe460c4e08f912035be79d705cc1f4\n",
+      "stderr": ""
+    },
+    "#367": {
+      "head": "32e3320466d57899c474b38e1d00c2854411ac7d",
+      "tree": "2f9bef56e87287a75e0dc1209cbd025d20f4bf07",
+      "mechanicalConflict": true,
+      "returncode": 1,
+      "output": "397a11f84fe73935594cb19759adb4424ff96a9a\nindex.html\n\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\nAuto-merging meguru.js\n",
+      "stderr": ""
+    },
+    "#369": {
+      "head": "cbafd678875997ba754b5abe6bbb006db135731c",
+      "tree": "77e3d037b6c14a06aa634f0ffdd71f1b544a5260",
+      "mechanicalConflict": true,
+      "returncode": 1,
+      "output": "13096c982a3e83cbdd372aa785de415f40f62a6b\nindex.html\nmeguru-3d.mjs\nmeguru.js\npackage.json\n\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\nCONFLICT (content): Merge conflict in meguru-3d.mjs\nAuto-merging meguru.js\nCONFLICT (content): Merge conflict in meguru.js\nAuto-merging package.json\nCONFLICT (content): Merge conflict in package.json\n",
+      "stderr": ""
+    },
+    "#371": {
+      "head": "69a8857bacfa597fa65dcb433536b2f603f26b7d",
+      "tree": "a9fbd6c942e372e39f55cccb61b5233d0b01ea43",
+      "mechanicalConflict": true,
+      "returncode": 1,
+      "output": "a49a623c30d90b8f1bcd69154faed1d27f2b9314\nindex.html\nmeguru-3d.mjs\nmeguru.js\npackage.json\n\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\nCONFLICT (content): Merge conflict in meguru-3d.mjs\nAuto-merging meguru.js\nCONFLICT (content): Merge conflict in meguru.js\nAuto-merging package.json\nCONFLICT (content): Merge conflict in package.json\n",
+      "stderr": ""
+    },
+    "Geometry/Terrain": {
+      "head": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+      "tree": "4133ecbc785c955faf2770a4589709a718176454",
+      "mechanicalConflict": true,
+      "returncode": 1,
+      "output": "164f28c1ce57aa78ea69fb6a3748ad220dbc44e2\nindex.html\nmeguru-3d.mjs\nmeguru.js\npackage.json\n\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\nCONFLICT (content): Merge conflict in meguru-3d.mjs\nAuto-merging meguru.js\nCONFLICT (content): Merge conflict in meguru.js\nAuto-merging package.json\nCONFLICT (content): Merge conflict in package.json\n",
+      "stderr": ""
+    }
+  }
+}

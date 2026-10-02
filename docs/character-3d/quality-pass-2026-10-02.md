@@ -1,10 +1,12 @@
-# Character 3D Quality Pass — A1 (2026-10-02)
+# Character 3D Quality Pass — A1–A7 (2026-10-02)
 
-Status: **A1 source/issue audit complete; visual implementation NOT_STARTED.**
+Current status: **Quality pass and automated verification complete; Human QA pending.**
+
+This document preserves chronological checkpoint notes. Earlier PENDING/NOT_STARTED statements describe those checkpoints. Final evidence: `../qa/character-3d-quality-2026-10-02.md`.
 Human verdict on Claude pilot: architecture promising, visual quality requires revision.
 Do not merge main, mark Ready, expand the pilot, or merge another lane.
 
-## Source and scope
+## Initial source snapshot and scope (A1)
 
 Fresh remote, not an old local copy:
 
@@ -14,7 +16,7 @@ Fresh remote, not an old local copy:
 - Preserve this commit as the immutable **Claude before** implementation. Existing saved QA images belong to the earlier pilot run; they are evidence, not newly rendered results.
 - Architecture: `architecture.md`; earlier QA: `../qa/character-3d-pilot-2026-10-01.md`.
 - Design authority: `assets/characters/{species}/{01,04,08}.png`, butterfly 05, dandelion 06, companions/shiba.png and companions/cat_friend.png. All 26 pilot stage originals visually inspected. Stage and four-view sheets for all eight pilots inspected. No external character designs.
-- A separate all-stage four-view Claude rerender is still required: existing four-view sheets cover 04, not all 26 stages.
+- All-stage rerender was pending at A1. A7 now saves all 26 stage comparisons and both reuse templates.
 - There are **26 player templates plus 2 reuse templates = 28**, not 26 total.
 
 Preserve spec → shared archetype → parameters/attachments/markings → Group rig → locomotion + emotion posture + temporary reaction → presentation. Keep all eight canonical emotions and actor/save/fallback ownership.
@@ -31,7 +33,7 @@ A = required identity; B = may simplify at gameplay scale; C = unseen surface to
 | dog 01 | Golden curled sleeping puppy, dark broad droopy ears, head low on paws, short legs, closed normal eyes | Fur grain, toe lines | Compact back/hip, short tail | Existing normal eyes open and ears/snout too generic; stage normal-face setting and compact lie pose |
 | dog 04 | Play bow: chest down/front paws forward, rear high; long upright ears, dark tips/paws, rising curved tail, compact cheerful muzzle | Exact wink can be a normal-face variant; individual hairs | Narrower active back, continuous tail | Generic standing stick legs; reusable playBow pose blended into quadWalk; uncurled raised tail distinct from shiba |
 | dog 08 | Broad seated chest, bent haunches, dark droopy ears, cream muzzle/brows, smiling closed eyes, low thick tail | Small fur strokes | Seated hip mass and tail root | Current legs remain straight and cream region oversized; parameterized haunch/cheek/brow markings, seated pose |
-| shiba companion | Compact seated orange dog, triangular ears, broad cream cheeks/chest, short muzzle, thick curled tail over back, short paws | Fine coat edge | Dense hips, curled tail depth/cream underside | Same standing geometry proportions as dog04; reuse quadruped with genuinely different silhouette, markings and pose |
+| shiba companion | Compact play-bowing orange dog, triangular ears, broad cream cheeks/chest, short muzzle, thick curled tail over back, short paws (A1 seated interpretation corrected after PNG reinspection) | Fine coat edge | Dense hips, curled tail depth/cream underside | Same standing geometry proportions as dog04; reuse quadruped with genuinely different silhouette, markings and pose |
 | penguin 01 | Gray fluffy teardrop chick, pale two-lobe face/belly, closed eyes, stubby wings and broad orange feet | Individual down hairs | Gray back continuous with crown | Snowman-like head/body seam; integrated head/body profile, mask colour fields, localized tufts |
 | penguin 04 | Irregular retained gray down on crown/side/wing, dark juvenile body, white face/belly, one flipper raised | Number of feathers | Irregular but coherent rear down | Sinusoidal patches look like checkerboard; bounded organic colour regions + sparse contour tufts; stage flipper pose |
 | penguin 08 | Broad dark pear body, two white face lobes, cream belly, closed eyes, cane held under flipper | Feather glints | Dark rounded back, flipper thickness | Generic white horizontal face band and open eyes; mask profile and normal-face choice; cane/flipper contact |
@@ -60,7 +62,7 @@ A requires the face to occupy the original's relative area, not merely exist. Cl
 ### Negative space and four-view acceptance
 
 - Man: gaps between jacket and shirt, legs, arm and torso, backpack and shoulder; hair must stay closed around crown/nape from side/back.
-- Dog/shiba: foreleg reach and bow gap versus seated haunch; tail curl must remain open and legible from back, not a recoloured thin dog tail.
+- Dog/shiba: foreleg reach and bow gap, breed-specific body/cheek proportions and tail curl; tail curl must remain open and legible from back, not a recoloured thin dog tail.
 - Penguin: flipper/body separation and cane contact; mask must not turn into a stripe at 3/4.
 - Fish: fin silhouettes and tail notch readable from side/3/4; front will be narrower naturally but should retain cheeks/eyes.
 - Butterfly: fore/hindwing separation, symmetric thorax roots, wing/body clearance through full cycle; profile thickness intentionally thin.
@@ -185,3 +187,12 @@ Fresh remote advanced again to `d6f5a51cc86daacf70d5ccb8d99c2db1c7cae21c`, tree 
 The immutable Claude presenter predates that export. The QA-only baseline HTTP server now appends a re-export of the exact current host adapter (read verbatim from the current runtime); geometry, template builder, presenter and animation remain immutable Claude. No production file or snapshot file is rewritten for this compatibility step. Dedicated HTTP assertions prove unchanged baseline presenter prefix, exact adapter identity, and absence of the virtual endpoint on the normal server. Test first RED, now original 34 + quality 10 = 44 PASS, and 11/11 intended quality mutations detected. Final browser/performance must use this latest World context.
 
 The 54 saved comparison JPGs were rendered from `754e2fa` (after the child-face occlusion correction); all geometry/rig/animation/gallery sources are byte-identical in the new remote. Final World screenshots and paired measurements will be separately pinned to the new integrated source. Split Meguru and measurement artifacts were added to avoid the 32MiB local download ceiling; these are packaging only.
+
+
+## A7 final evidence (2026-10-03 JST)
+
+Code source `81a7d981a6cee7f7930ec297e79692c44eb382c2`, tree `2a299ec133fe460c4e08f912035be79d705cc1f4`. Actions run `37018225289`: evidence and full regression SUCCESS. Original 34 + quality 10 = 44 PASS; original remove-it 13/13 RED; quality mutations 11/11 intended RED. npm test completed (TAP groups 2907 + 80 PASS, zero failures). Home layout and Runtime smoke also succeeded.
+
+All 26 requested stage fixtures assert exact stage/spec and live 3D in Meguru. All 1/5/27 actor measurements assert exact live count with zero unintended errors/fallbacks. The final-source rerender of 54 comparison JPGs is byte-identical to the previously saved 754e2fa images (including the corrected child mushroom face). Full results, metric limits, original/Claude/revised four-view images, emotion/motion matrices, 52 in-world shots and representative sheets are in the final QA package.
+
+Final read-only conflict audit: main/#368 have no mechanical conflict (externally integrated); #367 has index.html; #369/#371/Terrain have index.html, meguru-3d.mjs, meguru.js, package.json conflicts. No conflict was resolved or branch merged by this session. Draft/merge/rollout restrictions remain. CDN delivery and physical iPhone performance remain unverified. Human decides visual adoption.
