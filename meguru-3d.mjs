@@ -668,6 +668,8 @@ function create3DRenderer(M, o, onLost) {
 
     // かたい 物・草花: かたち ごとに InstancedMesh(draw call を ふやさない)
     const up = (g) => { g.translate(0, 0.5, 0); return keep(g); };
+    // 箱の 下の 面は 地面 / 下を むく(上から 見る カメラでは 見えない)= 三角形 12 → 10(2026-10-02 予算 監査: まち の 箱 3400 で 約 7k)
+    const noBottom = (g) => { const ny = g.groups[3], idx = Array.from(g.index.array); idx.splice(ny.start, ny.count); g.setIndex(idx); g.clearGroups(); return g; };
     const GEO = {
       // Geometry pass(予算): 幹は ふたなし(上は かんむり、下は 地面 → 見えない面を つくらない。28 → 14 三角形)
       trunk: up(new THREE.CylinderGeometry(0.72, 1, 1, 7, 1, true)), cone: up(new THREE.ConeGeometry(1, 1, 8)), crown: keep(new THREE.IcosahedronGeometry(1, 1)),
@@ -680,7 +682,7 @@ function create3DRenderer(M, o, onLost) {
       // 小物は 三角形を けちる(そこ なし・かど すくなめ): くき 12・草 4・かさ 36・はしら 10
       stem: up(new THREE.CylinderGeometry(0.8, 1, 1, 6, 1, true)), blade: up(new THREE.ConeGeometry(1, 1, 4, 1, true)), petal: keep(new THREE.CircleGeometry(1, 6).rotateX(-Math.PI / 2)),
       nut: keep(new THREE.IcosahedronGeometry(1, 0)), pebble: keep(new THREE.IcosahedronGeometry(1, 0).translate(0, 0.25, 0)), post: up(new THREE.CylinderGeometry(0.9, 1, 1, 5, 1, true)),
-      board: up(new THREE.BoxGeometry(1, 1, 0.12)), mound: keep(ruggedMound()), box: up(new THREE.BoxGeometry(2, 1, 2)), roof4: up(new THREE.ConeGeometry(1, 1, 4)), roof6: up(new THREE.ConeGeometry(1, 1, 6)), roof8: up(new THREE.ConeGeometry(1, 1, 8)),
+      board: up(new THREE.BoxGeometry(1, 1, 0.12)), mound: keep(ruggedMound()), box: up(noBottom(new THREE.BoxGeometry(2, 1, 2))), roof4: up(new THREE.ConeGeometry(1, 1, 4)), roof6: up(new THREE.ConeGeometry(1, 1, 6)), roof8: up(new THREE.ConeGeometry(1, 1, 8)),
       wcone4: up(new THREE.ConeGeometry(1, 1, 4, 1, true)), wcone6: up(new THREE.ConeGeometry(1, 1, 6, 1, true)), ring: keep(new THREE.TorusGeometry(1, 0.08, 4, 12)),
       // Geometry pass(予算): かべの 前の うすい 板(まど・わく・入口・看板の 面)は 正面 1 まい(2 三角形)。箱(12)の 見えない 5 面を つくらない。
       // 原型の parts は 箱(rx / h / rz)の まま。rz が うすい(≤ 2.6)ものだけ ここで 板に する。正面 = ローカル +z(箱の 前の 面と おなじ いち)

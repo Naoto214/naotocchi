@@ -99,3 +99,16 @@ test('GA-6. 季節 / 天気 は 2D の 正本に あわせる: 針葉樹の 雪 
   const script = fs.readFileSync(path.join(ROOT, 'script.js'), 'utf8');
   assert.match(script, /function hasSurfaceSeasons\(regionId\) \{\s*return regionId !== 'deepsea' && regionId !== 'star_stop';/);
 });
+
+test('GA-7. 地域の 識別性(数で): いえ ≠ いなか(いなかは ひらけ +0.1 いじょう・構成の cosine < 0.75)、もり ≠ ジャングル(ジャングルは 見とおし せまく・高い 層・cosine < 0.6)', () => {
+  const { fingerprint, cosine } = require('../tools/meguru-3d-qa/geometry-audit.cjs');
+  const F = {}; for (const rid of ['home', 'countryside', 'forest', 'jungle']) F[rid] = fingerprint(M, reg, rid);
+  // 2026-10-02 監査: home 0.524 / countryside 0.713、forest 0.658 / jungle 0.582、medianTop forest 127 / jungle 193、cosine 0.66 / 0.50
+  assert.ok(F.countryside.openness > F.home.openness + 0.1, JSON.stringify([F.home.openness, F.countryside.openness]));
+  assert.ok(F.jungle.openness < F.forest.openness, JSON.stringify([F.forest.openness, F.jungle.openness]));
+  assert.ok(F.jungle.medianTop > F.forest.medianTop * 1.2, JSON.stringify([F.forest.medianTop, F.jungle.medianTop]));
+  assert.ok(cosine(F.home.comp, F.countryside.comp) < 0.75);
+  assert.ok(cosine(F.forest.comp, F.jungle.comp) < 0.6);
+  // 種類: もり だけ 針葉樹、ジャングル だけ ヤシ / 大きな は
+  assert.ok(F.forest.comp.conifer > 0 && !F.jungle.comp.conifer && F.jungle.comp.palm > 0 && !F.forest.comp.palm);
+});

@@ -79,7 +79,26 @@ function auditRegion(M, m3, reg, rid) {
     }
     return R;
 }
-module.exports = { auditRegion, FLOAT_TOL, BURY_TOL };
+// 地域の 指紋(識別性の 監査): 物 / 群生の 種類の 割合・高さ(verticality)・ひらけ(openness)。cosine で 地域どうしを くらべる
+function fingerprint(M, reg, rid) {
+  const world = M.buildWorld(rid, reg, { world3d: true }), objects = M.worldObjects3d(world).objects, comp = {};
+  let tall = 0, solid = 0, top = [];
+  for (const ob of objects) {
+    const k = ob.dressing ? 'd:' + (ob.kind || ob.type) : ob.type;
+    comp[k] = (comp[k] || 0) + 1;
+    let hmax = 0; for (const pt of ob.parts || []) hmax = Math.max(hmax, (pt.y || 0) + (pt.h || pt.r || 0));
+    if (!ob.dressing) { solid++; if (hmax > 200) tall++; top.push(hmax); }
+  }
+  // ひらけ: 道 / spot から 300 いじょう はなれた 点の うち、まわり 150 に 物が ない 割合
+  const lo = world.minX != null ? world.minX : -world.halfW, hi = world.maxX != null ? world.maxX : world.halfW;
+  const cells = new Set(); for (const ob of objects) if (!ob.dressing) cells.add(Math.floor(ob.x / 150) + ',' + Math.floor(ob.z / 150));
+  let open = 0, n = 0;
+  for (let x = lo + 150; x < hi - 150; x += 150) for (let z = 150; z < world.len - 150; z += 150) { n++; if (!cells.has(Math.floor(x / 150) + ',' + Math.floor(z / 150))) open++; }
+  top.sort((a, b) => a - b);
+  return { comp, verticality: +(tall / Math.max(1, solid)).toFixed(3), openness: +(open / Math.max(1, n)).toFixed(3), medianTop: Math.round(top[Math.floor(top.length / 2)] || 0) };
+}
+function cosine(a, b) { const keys = new Set([...Object.keys(a), ...Object.keys(b)]); let ab = 0, aa = 0, bb = 0; for (const k of keys) { const x = a[k] || 0, y = b[k] || 0; ab += x * y; aa += x * x; bb += y * y; } return ab / Math.sqrt(aa * bb || 1); }
+module.exports = { auditRegion, fingerprint, cosine, FLOAT_TOL, BURY_TOL };
 if (require.main !== module) return;
 
 (async () => {
@@ -97,6 +116,15 @@ if (require.main !== module) return;
     const badX = R.crossings.filter((c) => !c.ok);
     console.log(`${rid.padEnd(12)} obj ${String(R.objects).padStart(5)}  ground ${R.ground.parts} float ${R.ground.float} bury ${R.ground.bury}  houses ${nb.length} sil>1.6 ${tall.length} max ${nb.length ? Math.max(...nb.map((b) => b.sil)) : '-'}  crossings ${R.crossings.length} bad ${badX.length}  pond-on-stream ${R.ponds.length}`);
     if (Object.keys(R.ground.worstByType).length) console.log('   worst by type', JSON.stringify(R.ground.worstByType));
+  }
+  if (args.includes('--identity')) {
+    const F = {}; for (const rid of regions) F[rid] = fingerprint(M, reg, rid);
+    for (const rid of regions) console.log('id', rid.padEnd(12), 'vert', F[rid].verticality, 'open', F[rid].openness, 'medTop', F[rid].medianTop);
+    const pairs = []; for (let i = 0; i < regions.length; i++) for (let j = i + 1; j < regions.length; j++) pairs.push([regions[i], regions[j], cosine(F[regions[i]].comp, F[regions[j]].comp)]);
+    pairs.sort((a, b) => b[2] - a[2]);
+    console.log('most similar', pairs.slice(0, 8).map((p) => p[0] + '~' + p[1] + ' ' + p[2].toFixed(2)).join('  '));
+    for (const [a, b] of [['home', 'countryside'], ['forest', 'jungle']]) { const p = pairs.find((q) => (q[0] === a && q[1] === b) || (q[0] === b && q[1] === a)); if (p) console.log('pair', a, b, p[2].toFixed(3)); }
+    report._identity = F;
   }
   if (jsonOut) fs.writeFileSync(jsonOut, JSON.stringify(report, null, 1));
   process.exit(0);
