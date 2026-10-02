@@ -538,7 +538,11 @@ function create3DRenderer(M, o, onLost) {
     const pm = built.actors.get(view.player), ptx = pm ? pm.userData.tex : null;
     const pup = !!(ptx && ptx.tex && renderer.properties.get(ptx.tex).__webglTexture);
     const pvis = !!(pm && pm.visible), pfr = pvis && frustum.intersectsObject(pm);
+    const playerAsset = typeof M.playerAsset === 'function' ? M.playerAsset() : null;
+    const playerState = playerAsset ? pngState.get(playerAsset) : null;
     const playerDiag = { using: !ptx ? 'none' : ptx.solid ? 'solid' : ptx.asset ? 'asset' : ptx.emoji ? 'glyph' : 'other',
+      asset: playerAsset, assetState: playerState ? playerState.state : (playerAsset ? 'none' : 'no-asset'),
+      assetErr: playerState && playerState.err ? playerState.err : null,
       textureReady: pup, map: !!(pm && pm.material.map), visible: pvis, inFrustum: pfr,
       dist: pm ? Math.round(pm.position.distanceTo(camera.position)) : null };
     const rect = (el) => { try { const r = el.getBoundingClientRect(); return [Math.round(r.width), Math.round(r.height), Math.round(r.left), Math.round(r.top)]; } catch (_) { return null; } };
