@@ -1,0 +1,28 @@
+{
+  "base_commit": "d49dd20b3ade9ba941aaa14bbb98324442e9c3fe",
+  "canonical_114_414_unchanged": {
+    "docs/card-game/114-normal-decision-protocol-hardening.md": true,
+    "docs/card-game/414-normal-decision-resource-pilot-design.md": true,
+    "docs/card-game/data/proxy-continuation-conditions-435/verification/114-414-protected.json": true
+  },
+  "completed": 8,
+  "end_evidence": 160,
+  "events": 1917,
+  "fixtures_112_executed": 0,
+  "independent_balance_sample_count": 0,
+  "independent_replay_verified": 8,
+  "independent_review_count": 1,
+  "normal_outcome_evidence": 609,
+  "npm_tests": 406,
+  "past_data_changes": [],
+  "past_data_verified": 833,
+  "policy_promoted": false,
+  "protected_count": 505,
+  "protected_errors": [],
+  "related_regression_tests": 339,
+  "review_critical": 0,
+  "review_important_fixed": 2,
+  "snapshots": 1925,
+  "source_sha256_count": 350,
+  "stopped": 0
+}

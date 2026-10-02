@@ -25,16 +25,25 @@ def _placement_window(after, actor):
         decision_kind='response_action',choice_kind='reaction_or_pass')
 
 
-def attach(envelope, action):
-    inventory=candidates.audit(envelope,[])
+PLACEMENT_CAPABILITY_VALIDATOR=None
+PREPARED_REACTION_CLASSIFIER=None
+RESOLUTION_RESULT_ADAPTER=None
+
+def normalize_resolution_result(envelope,result):
+    return RESOLUTION_RESULT_ADAPTER(envelope,result) if RESOLUTION_RESULT_ADAPTER else result
+
+
+def attach(envelope, action, history=None):
+    inventory=candidates.audit(envelope,history or [])
     if action not in inventory['legal_candidate_details'] or action['action_type']!='attach_item':
         raise ValueError('attachment action differs from current legal inventory')
     game=envelope['legacy_continuation']['game_state'];actor=game['turn_player'];p=game['players'][actor]
     # A world may react to card plays. Do not erase it to manufacture a proof.
-    if any(player['board']['world'] for player in game['players'].values()):
+    if PLACEMENT_CAPABILITY_VALIDATOR is None and any(player['board']['world'] for player in game['players'].values()):
         raise ValueError('equipment placement world triggers not certified')
     capability=rules.classification(action['card_id'])
-    if capability['timing'] not in ('own_turn_start','companion_departure'):
+    if PLACEMENT_CAPABILITY_VALIDATOR is not None:PLACEMENT_CAPABILITY_VALIDATOR(envelope,action,capability)
+    elif capability['timing'] not in ('own_turn_start','companion_departure'):
         raise ValueError('equipment placement trigger classification unavailable')
     if envelope['legacy_continuation']['activation_zone'] or envelope['legacy_continuation']['pending_triggers']:
         raise ValueError('pending effects forbid placement')
@@ -78,7 +87,11 @@ def response_inventory(envelope, initial, events):
             metadata=envelope['runtime']['public_prepared'][source]
             if not metadata['face_up']:raise ValueError('concealed prepared response adapter unavailable')
             cap=rules.classification(projected['game_state']['cards'][source]['card_id'])
-            if cap['timing']=='companion_departure':raise ValueError('replacement response boundary not certified')
+            if cap['timing']=='companion_departure':
+                if PREPARED_REACTION_CLASSIFIER is None:raise ValueError('replacement response boundary not certified')
+                excluded.append(PREPARED_REACTION_CLASSIFIER(envelope,owner,source,events));continue
+            if cap['timing']=='own_turn_end':
+                excluded.append(dict(source_instance_id=source,source_reference=cap['reference'],reason='prepared_end_inventory_supplied_separately'));continue
             if ctx['window_kind']=='turn_start' and start_attachments(envelope,owner):
                 raise ValueError('equipment start activation/resolution adapter unavailable')
             excluded.append(dict(source_instance_id=source,source_reference=cap['reference'],reason='trigger_condition_not_met'))
@@ -98,7 +111,7 @@ def apply(envelope, record, inputs):
         rebuilt=candidates.select(envelope,record['inventory'],record['context'],record['policy_id'],inputs)
         if rebuilt!=record:raise ValueError('normal decision changed before execution')
         action=record['selected_action'];kind=action['action_type']
-        if kind=='attach_item':return attach(envelope,action)
+        if kind=='attach_item':return attach(envelope,action,inputs.get('public_events'))
         c=state.current(envelope)
         if kind in ('pass','play_main'):
             after,events=old.normal.transition(c,record,inputs)

@@ -9,6 +9,13 @@ import proxy_resource_value_shadow as shadow
 from proxy_resource_value_comparison import validate_problem
 from proxy_resource_value_selection import select_problem, canonical_sha256
 
+UNIT_ADJUDICATOR=None
+ADMITTED_ID_ADAPTER=None
+NORMAL_PROJECTION=None
+MAIN_TRANSITION_ADAPTER=None
+HISTORY_ADAPTER=None
+PUBLIC_HISTORY_PROJECTION=None
+
 
 @contextmanager
 def classification_scope(envelope, table):
@@ -23,6 +30,10 @@ def classification_scope(envelope, table):
                 for source in [p['board']['main'],*p['board']['prepared']]:
                     if not source: continue
                     card=game['cards'][source]['card_id']; cap=rules.classification(card)
+                    registry[card]=dict(kind=cap['kind'],source_text_reference=cap['reference'])
+                world=p['board']['world']
+                if world and game['cards'][world]['card_id'] in rules.CAPABILITIES:
+                    card=game['cards'][world]['card_id'];cap=rules.classification(card)
                     registry[card]=dict(kind=cap['kind'],source_text_reference=cap['reference'])
             yield
     finally:
@@ -40,25 +51,31 @@ def _detail(unit, reasons, identifier, **extra):
 def audit(envelope, history):
     state.validate(envelope);game=envelope['legacy_continuation']['game_state'];actor=game['turn_player']
     if game['phase']!='normal_action': raise ValueError('not a normal opportunity')
-    if any('challenge' in e.get('action_type','') for e in history): raise ValueError('challenge history not certified')
+    if HISTORY_ADAPTER is None and any('challenge' in e.get('action_type','') for e in history): raise ValueError('challenge history not certified')
     # Current candidate adapters cannot inspect concealed preparation. Equipment
     # is fully public and has a source-bound independent-action classification.
-    if any(not r['face_up'] for r in envelope['runtime']['public_prepared'].values()):
+    if NORMAL_PROJECTION is None and any(not r['face_up'] for r in envelope['runtime']['public_prepared'].values()):
         raise ValueError('concealed preparation candidate adapter unavailable')
+    projected=NORMAL_PROJECTION(envelope) if NORMAL_PROJECTION is not None else envelope
+    game=projected['legacy_continuation']['game_state']
     table=rules.table();player=game['players'][actor];board=player['board']
-    public_history=dict(normal_challenge_losses_by_actor=[],last_valid_event_seq=envelope['event_seq'],source_refs=['01-core-rules.md'])
+    public_history=dict(normal_challenge_losses_by_actor=HISTORY_ADAPTER(game,history) if HISTORY_ADAPTER else [],last_valid_event_seq=envelope['event_seq'],source_refs=['01-core-rules.md'])
     view=old.candidates.project_normal_action_information(dict(game_state=game,actor=actor),public_history)
     view['_candidate_table']=table
     view['_verified_ability_uses']={s:[1] if rules.used(envelope,s,'activated_normal_action') else [] for s in board['companions']}
     allowed={r['card_id'] for r in table['cards'] if r['card_type']=='main'}
-    with classification_scope(envelope,table):
+    with classification_scope(projected,table):
         units=old.normal_audit.board.expand_units(view,table)
         result=[]
         for unit in units:
+            if UNIT_ADJUDICATOR is not None:
+                admitted=UNIT_ADJUDICATOR(envelope,unit)
+                if admitted is not None:result.extend(admitted);continue
             kind=unit['action_type'];variant=unit['candidate_variant'];source=unit['source_instance_id']
             if kind=='play_main':
                 current=game['cards'][board['main']]['card_id'] if board['main'] else None
                 proof=rules.main_transition(current,unit['card_id'],variant,player['time'],allowed)
+                if MAIN_TRANSITION_ADAPTER is not None:proof=MAIN_TRANSITION_ADAPTER(envelope,unit,proof)
                 result.append(_detail(unit,proof['reason_codes'],f'candidate-play-main-{source}-{variant}',**proof))
             elif kind in ('attach_item','set_item'):
                 targets=unit['target_instance_ids'];template=unit['template']
@@ -84,11 +101,12 @@ def audit(envelope, history):
                     # when its certain-result/execution proof is unsupported.
                     if str(error)!='missing_candidate_id_grammar: legal action' or kind not in ('challenge','relationship'): raise
                     result.append(_detail(unit,[],f'candidate-{kind}-{actor}-{variant}'))
+    if ADMITTED_ID_ADAPTER is not None:result=ADMITTED_ID_ADAPTER(envelope,result,history)
     details=sorted((r for r in result if r['disposition']=='admitted'),key=lambda r:r['candidate_id'])
     ids=[r['candidate_id'] for r in details]
     if len(ids)!=len(set(ids)) or ids.count('pass')!=1: raise ValueError('candidate identity collision')
     return dict(candidate_set_complete=True,legal_candidate_ids=ids,legal_candidate_details=details,
-        enumeration_units=result,public_history=[{k:e[k] for k in ('seq','action_type','actor') if k in e} for e in history],
+        enumeration_units=result,public_history=[PUBLIC_HISTORY_PROJECTION(e,actor) if PUBLIC_HISTORY_PROJECTION else {k:e[k] for k in ('seq','action_type','actor') if k in e} for e in history],
         view_sha256=canonical_sha256(state.visible(envelope,actor)))
 
 
@@ -147,6 +165,7 @@ def _borrow_problem(envelope, inventory, inputs):
     if inputs is None or any(envelope['runtime'].values()):return None
     game=envelope['legacy_continuation']['game_state']
     if game['players'][game['turn_player']]['board']['main'] is not None:return None
+    if any(p['board']['world'] for p in game['players'].values()):return None
     history=dict(normal_challenge_losses_by_actor=[],last_valid_event_seq=envelope['event_seq'],
         source_refs=sorted(inputs['source_raw_sha256']))
     try:
@@ -175,7 +194,10 @@ def problem(envelope,inventory,context,inputs=None):
         result['candidate_set_evidence']['state_ref']=result['view_sha256']
         return result
     scores,certs=_scores(envelope,inventory);vh=inventory['view_sha256'];pairs=[]
-    for left,right in itertools.combinations(inventory['legal_candidate_ids'],2):
+    upper_keys=('avoid_loss_or_abort','maintain_or_prevent_100','certain_growth_difference')
+    best=max(tuple(s[k] for k in upper_keys) for s in scores)
+    upper=sorted(s['candidate_id'] for s in scores if tuple(s[k] for k in upper_keys)==best)
+    for left,right in itertools.combinations(upper,2):
         row=dict(left_id=left,right_id=right,view_sha256=vh,kind='ordinary',
             relations=dict(hand='incomparable',board='incomparable',reservations='incomparable'),
             reason='source-bound action effects; future resource advantage not ordered',source_refs=['01-core-rules.md','02-main-system.md'])
@@ -184,7 +206,7 @@ def problem(envelope,inventory,context,inputs=None):
         pairs.append(row)
     result=dict(view_sha256=vh,legal_candidate_ids=inventory['legal_candidate_ids'],
         candidate_set_evidence=dict(candidate_set_complete=True,source_ref='01-core-rules.md',state_ref=vh,
-            enumeration_rule='continuation_contract_v1 complete source units from current public view'),
+            enumeration_rule=state.CONTRACT+' complete source units from current public view'),
         candidates=scores,pairs=pairs,seed_context=copy.deepcopy(context))
     errors=validate_problem(result)
     if errors:raise ValueError('; '.join(errors))

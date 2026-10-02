@@ -85,7 +85,7 @@ def run_route(initial,policy,forced_adapter=None):
         if game['round']>10:raise ValueError('R11 forbidden')
         try:
             forced=None;record=None
-            if phase in ('turn_end','egg_exchange_choice') or ctx['chain_status']=='resolving':
+            if phase in ('turn_end','egg_exchange_choice','challenge_comparison','challenge_end') or ctx['chain_status']=='resolving' or (current['pending_triggers'] and forced_adapter is not None):
                 if forced_adapter is None:
                     if any(envelope['runtime'].values()):raise ValueError('runtime-aware forced boundary adapter unavailable: '+phase)
                     forced=_forced(current,initial,legacy_events,legacy_shots)
@@ -93,9 +93,14 @@ def run_route(initial,policy,forced_adapter=None):
                     forced=forced_adapter(envelope,initial,legacy_events,legacy_shots,shots)
                 generated=forced['new_events'];raw_shots=forced.get('new_snapshots',[])
                 if len(raw_shots)!=len(generated):raise ValueError('forced snapshot coverage differs')
+                full_envelopes=forced.get('new_envelopes')
+                if full_envelopes is not None and len(full_envelopes)!=len(generated):raise ValueError('forced full envelope coverage differs')
                 steps=[];previous=envelope
-                for event,shot in zip(generated,raw_shots):
-                    next_envelope=state.advance(previous,shot['continuation_state'],shot['event_seq'])
+                for index,(event,shot) in enumerate(zip(generated,raw_shots)):
+                    if full_envelopes is None:next_envelope=state.advance(previous,shot['continuation_state'],shot['event_seq'])
+                    else:
+                        next_envelope=copy.deepcopy(full_envelopes[index]);state.validate(next_envelope)
+                        if next_envelope['event_seq']!=shot['event_seq'] or next_envelope['legacy_continuation']!=shot['continuation_state']:raise ValueError('forced full envelope/legacy snapshot differs')
                     steps.append((next_envelope,actions.bind_event(previous,next_envelope,event)));previous=next_envelope
             elif phase=='normal_action':
                 inventory=candidates.audit(envelope,legacy_events)
@@ -103,7 +108,7 @@ def run_route(initial,policy,forced_adapter=None):
                     actor=game['turn_player'],actor_turn_index=game['round'],round=game['round'],phase='normal_action',
                     decision_kind='normal_action',choice_kind='normal_action_resource_frontier')
                 record=candidates.select(envelope,inventory,context,policy,inputs)
-                next_envelope,generated=actions.apply(envelope,record,inputs)
+                next_envelope,generated=actions.apply(envelope,record,dict(inputs,public_events=legacy_events))
                 steps=[(next_envelope,generated[0])]
             elif phase in ('response_window','post_placement_response','turn_end_response'):
                 opportunity=actions.response_inventory(envelope,initial,legacy_events)

@@ -122,6 +122,9 @@ def validated_history(path: str, inputs: dict) -> dict:
     return {'path_id':path,'events':events,'snapshots':snapshots,'stop':stop}
 
 
+RUNTIME_DURATION_VERIFIER=None
+EVENT_PROVENANCE_ADAPTER=None
+
 def derive_provenance(history: dict, text_registry: dict) -> dict:
     """Classify every historical event; an unclassified effect remains unknown."""
     first = history['snapshots'][0]['state']
@@ -147,6 +150,9 @@ def derive_provenance(history: dict, text_registry: dict) -> dict:
                 card_id = card_mapping[instance]['card_id']
         if isinstance(rule,dict) and 'growth_delta' not in rule:
             rule = rule.get(card_id)
+        if EVENT_PROVENANCE_ADAPTER is not None:
+            verified_rule = EVENT_PROVENANCE_ADAPTER(event)
+            if verified_rule is not None:rule = verified_rule
         if rule is None:
             unresolved.add('unresolved_effect_provenance')
             classified.append({'seq':event['seq'],'action_type':kind,'card_id':card_id,
@@ -154,7 +160,7 @@ def derive_provenance(history: dict, text_registry: dict) -> dict:
             continue
         classified.append({'seq':event['seq'],'action_type':kind,'card_id':card_id,
                            'classification':rule['duration'], 'source_reference':rule['reference']})
-        if rule['duration'] not in ('none','continuous_not_expiring','activation_until_resolution'):
+        if rule['duration'] not in ('none','continuous_not_expiring','activation_until_resolution') and (RUNTIME_DURATION_VERIFIER is None or not RUNTIME_DURATION_VERIFIER(event,rule)):
             unresolved.add('unresolved_effect_provenance')
         if kind in ('place_partner','place_companion') and rule['duration']=='none':
             board_registry = contract_123.BOARD_REGISTRY.get(card_id)

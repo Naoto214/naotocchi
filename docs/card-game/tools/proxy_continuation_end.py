@@ -9,6 +9,9 @@ import proxy_continuation_runner as runner
 import proxy_resource_value_trajectory as old
 
 COVERAGE='continuation_end_bridge_v1'
+RUNTIME_TRANSITION_VERIFIER=None
+CONCEALED_PREPARATION_CLASSIFIER=None
+END_INVENTORY_CANONICALIZER=None
 BIND_KEYS={'execution_contract_id','envelope_before_sha256','envelope_after_sha256'}
 
 
@@ -79,7 +82,8 @@ def verify_new_events(events, shots, runtime_shots):
                 state.validate(point)
                 if point['legacy_continuation']!=legacy['continuation_state']:raise ValueError('runtime/legacy history differs')
             if event['action_type']!='attach_item' and envelopes[seq-1]['runtime']!=envelopes[seq]['runtime']:
-                raise ValueError('unclassified runtime change in history')
+                if RUNTIME_TRANSITION_VERIFIER is None or not RUNTIME_TRANSITION_VERIFIER(envelopes[seq-1],envelopes[seq],event,[e for e in events if e['seq']<seq]):
+                    raise ValueError('unclassified runtime change in history')
         if event['action_type']=='turn_start_and_normal_draw':
             continuation,generated,_=start_regular(state.current(envelopes[seq-1]))
             if state.advance(envelopes[seq-1],continuation,seq)!=envelopes[seq] or generated!=event:
@@ -89,11 +93,12 @@ def verify_new_events(events, shots, runtime_shots):
         prior=envelopes[seq-1];actual=envelopes[seq];state.validate(prior);state.validate(actual)
         if prior['legacy_continuation']!=before['continuation_state'] or actual['legacy_continuation']!=after['continuation_state']:
             raise ValueError('runtime/legacy history differs')
-        inventory=candidates.audit(prior,[])
+        history=[e for e in events if e['seq']<seq]
+        inventory=candidates.audit(prior,history)
         action=next((a for a in inventory['legal_candidate_details'] if a['candidate_id']==event['selected_candidate']),None)
         if action is None:raise ValueError('history action not in full legal inventory')
-        cap=end_classification(action['card_id'])
-        if event['action_type']=='attach_item':expected,generated=actions.attach(prior,action)
+        cap=rules.classification(action['card_id']) if event['action_type']=='attach_item' else end_classification(action['card_id'])
+        if event['action_type']=='attach_item':expected,generated=actions.attach(prior,action,history)
         else:
             if cap['kind']!='cost_modifier':raise ValueError('birth arrival capability unproved')
             continuation,generated=old.normal.transition(state.current(prior),dict(selected_action=action,selected_candidate=action['candidate_id'],candidate_set_complete=True),{})
@@ -106,44 +111,83 @@ def verify_new_events(events, shots, runtime_shots):
     return proofs
 
 
+def canonical_end_inventory(row,audit,provenance):
+    """Preserve the independently enumerated six-stage inventory verbatim.
+
+    Earlier execution editions annotate suppressed partner abilities after
+    their audit. Current source-bound classifications already prove the actual
+    board condition; a legacy annotation must not replace that evidence.
+    """
+    current=row['final_continuation_state']
+    stop=dict(path_id=row['path_id'],last_valid_event_seq=row['last_valid_event_seq'],
+              game_state_sha256=row['final_game_state_sha256'],
+              continuation_state_sha256=row['final_continuation_state_sha256'],
+              game_state=current['game_state'],continuation_state=current)
+    fresh=old.terminal.audit_current_turn_end(stop,provenance)
+    if fresh!=audit:raise ValueError('canonical end inventory differs from fresh six-stage audit')
+    return copy.deepcopy(fresh)
+
+
 @contextmanager
 def end_scope(envelope, events, shots, runtime_shots):
     """Add only independently classified sources, then restore all legacy registries."""
     state.validate(envelope);game=envelope['legacy_continuation']['game_state']
     board=old.reached.provenance.contract_123.BOARD_REGISTRY;registry=old.reached.provenance.TEXT_REGISTRY
-    originals=(copy.deepcopy(board),copy.deepcopy(registry),old.reached.ORIGINAL_CLASSIFY)
+    originals=(copy.deepcopy(board),copy.deepcopy(registry),old.reached.ORIGINAL_CLASSIFY,old.reached.provenance.EVENT_PROVENANCE_ADAPTER,old.END_STAGE_INVENTORY_ADAPTER)
     try:
+        if END_INVENTORY_CANONICALIZER is not None:
+            old.END_STAGE_INVENTORY_ADAPTER=END_INVENTORY_CANONICALIZER
         for p in game['players'].values():
-            for source in [p['board']['main'],*p['board']['prepared']]:
+            for source in [p['board']['main'],*p['board']['prepared'],p['board']['world'],p['board']['partner']]:
                 if not source:continue
                 if source in p['board']['prepared'] and not envelope['runtime']['public_prepared'][source]['face_up']:
-                    raise ValueError('concealed preparation end proof unavailable')
-                card=game['cards'][source]['card_id'];cap=end_classification(card)
-                board[card]=('not_end_trigger',cap['reference'])
+                    if CONCEALED_PREPARATION_CLASSIFIER is None:raise ValueError('concealed preparation end proof unavailable')
+                    CONCEALED_PREPARATION_CLASSIFIER(envelope,source)
+                card=game['cards'][source]['card_id']
+                if source==p['board']['partner'] and card not in rules.CAPABILITIES:continue
+                cap=end_classification(card)
+                board[card]=('event_trigger_not_turn_end' if card in ('P-cliff_goat','P-anglerfish') else 'not_end_trigger',cap['reference'])
 
         def classify_next(game, actor):
             projected=copy.deepcopy(game);b=projected['players'][actor]['board'];extra=[]
-            sources=[b['main'],*b['prepared']]
+            sources=[b['main'],*b['prepared'],b['world'],b['partner']]
             for source in sources:
                 if not source:continue
-                card=game['cards'][source]['card_id'];cap=end_classification(card)
+                card=game['cards'][source]['card_id']
+                if source==b['partner'] and card not in rules.CAPABILITIES:continue
+                cap=rules.classification(card)
                 if source==b['main']:
-                    if cap['kind']!='cost_modifier':raise ValueError('next main start trigger unavailable')
+                    if cap['kind']!='cost_modifier' and not cap.get('no_start_trigger',False):raise ValueError('next main start trigger unavailable')
                     b['main']=None;kind='not_turn_start_trigger'
+                elif source==b['world']:
+                    if not cap.get('no_start_trigger',False):raise ValueError('next world start trigger unavailable')
+                    b['world']=None;kind='not_turn_start_trigger'
+                elif source==b['partner']:
+                    if not cap.get('no_start_trigger'):raise ValueError('next partner start trigger unavailable')
+                    b['partner']=None;b['partner_stage']=None;kind='not_turn_start_trigger'
                 else:
-                    if source not in envelope['runtime']['attachments']:raise ValueError('unproved start equipment relation')
-                    b['prepared'].remove(source);kind='own_turn_start_after_draw_and_egg'
+                    if source not in envelope['runtime']['attachments'] and cap['timing']!='own_turn_start' and not cap.get('no_start_trigger'):raise ValueError('unproved start preparation capability')
+                    b['prepared'].remove(source);kind='not_turn_start_trigger' if cap.get('no_start_trigger') else 'own_turn_start_after_draw_and_egg'
                 extra.append(dict(source_instance_id=source,card_id=card,trigger_kind=kind,source_reference=cap['reference']))
             return originals[2](projected,actor)+extra
         old.reached.ORIGINAL_CLASSIFY=classify_next
         registry['turn_start_and_normal_draw']=dict(growth_delta=0,duration='none',reference='01-core-rules.md')
-        for proof in verify_new_events(events,shots,runtime_shots) if events else []:
-            registry.setdefault(proof['kind'],{})[proof['card_id']]=dict(growth_delta=0,duration='none',reference=proof['source_reference'])
+        verified_proofs=verify_new_events(events,shots,runtime_shots) if events else []
+        event_map={e['seq']:e for e in events}
+        event_rules={}
+        for proof in verified_proofs:
+            bound=event_map[proof['event_seq']]
+            event_rules[state.canonical_sha256(bound)]=dict(growth_delta=proof.get('certain_growth_difference',0),duration=proof.get('duration','none'),reference=proof['source_reference'])
+        old.reached.provenance.EVENT_PROVENANCE_ADAPTER=lambda event:event_rules.get(state.canonical_sha256(event))
+        for proof in verified_proofs:
+            registry.setdefault(proof['kind'],{})[proof['card_id']]=dict(growth_delta=proof.get('certain_growth_difference',0),duration=proof.get('duration','none'),reference=proof['source_reference'])
 
-        yield
+        yield verified_proofs
     finally:
         board.clear();board.update(originals[0]);registry.clear();registry.update(originals[1])
         old.reached.ORIGINAL_CLASSIFY=originals[2]
+        old.reached.provenance.EVENT_PROVENANCE_ADAPTER=originals[3]
+        old.END_STAGE_INVENTORY_ADAPTER=originals[4]
 
 
 def forced(envelope, initial, events, shots, runtime_shots):
@@ -157,7 +201,7 @@ def forced(envelope, initial, events, shots, runtime_shots):
             result=replay_regular_start(row,proof,initial)
         else:result=original(row,proof)
         capture.update(copy.deepcopy(proof));return result
-    with end_scope(envelope,events,shots,runtime_shots):
+    with end_scope(envelope,events,shots,runtime_shots) as verified_proofs:
         try:
             if phase=='turn_end':old.terminal.replay_end=replay
             # Standard end, draw, mandatory choice and existing resolutions.
@@ -168,6 +212,6 @@ def forced(envelope, initial, events, shots, runtime_shots):
                 previous=state.advance(previous,shot['continuation_state'],shot['event_seq'])
             if phase=='turn_end':
                 result['end_evidence']=dict(capture,envelope_sha256=state.state_hash(envelope),
-                    new_event_proofs=verify_new_events(events,shots,runtime_shots))
+                    new_event_proofs=copy.deepcopy(verified_proofs))
             return result
         finally:old.terminal.replay_end=original

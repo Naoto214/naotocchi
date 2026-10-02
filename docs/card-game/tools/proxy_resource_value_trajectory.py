@@ -513,6 +513,8 @@ def end_only_partner_start_scope():
     try:yield
     finally:reached.ORIGINAL_CLASSIFY=original
 
+END_STAGE_INVENTORY_ADAPTER=None
+
 def _end_transition(state,path_id,events,shots):
     """Reclassify executed history through 124, then use the existing end adapter."""
     row=_row(state,path_id)
@@ -558,11 +560,13 @@ def _end_transition(state,path_id,events,shots):
         audit=terminal.audit_current_turn_end(stop,proof)
         if not audit['turn_end_set_complete'] or audit['contract_stop_codes']:
             raise ValueError('fresh six-stage end proof incomplete: '+repr(dict(codes=audit['contract_stop_codes'],unresolved=proof['unresolved_codes'])))
-        for stage in audit['stage_inventory']:
-            for unit in stage.get('units',[]):
-                if unit.get('card_id')=='P-desert_scorpion':
-                    unit['evidence']['predicate']='partner_ability_blocked_while_egg'
-                    unit['evidence']['owner.board.main']=None
+        if END_STAGE_INVENTORY_ADAPTER is None:
+            for stage in audit['stage_inventory']:
+                for unit in stage.get('units',[]):
+                    if unit.get('card_id')=='P-desert_scorpion':
+                        unit['evidence']['predicate']='partner_ability_blocked_while_egg'
+                        unit['evidence']['owner.board.main']=None
+        else:audit=END_STAGE_INVENTORY_ADAPTER(row,audit,proof)
         bound=dict(reached.boundary(row),next_opportunity='turn_end',turn_end_set_complete=True,
             stage_inventory=audit['stage_inventory'],completeness_checks=audit['completeness_checks'],contract_stop_codes=[],
             classified_events=proof['classified_events'],growth_trace=proof['growth_trace'])

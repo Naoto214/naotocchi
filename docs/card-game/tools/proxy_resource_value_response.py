@@ -8,13 +8,13 @@ import proxy_reached_mixed_contracts_401 as reached
 import proxy_start_response_138 as start
 
 
-def enumerate_opportunity(state,events):
+def enumerate_opportunity(state,events,capability_classifier=None,hand_classifier=None):
     game=state['game_state'];ctx=state['response_context'];actor=ctx['priority_actor'];owner=game['players'][actor];board=owner['board']
     if game['phase'] not in ('response_window','post_placement_response','turn_end_response') or ctx['window_kind'] not in ('turn_start','after_normal_action') or state['pending_triggers'] or game.get('challenge') is not None:
         raise ValueError('reached response phase requires separate proof')
     if not events or (events[-1]['seq'],events[-1]['game_state_after_sha256'],events[-1]['continuation_state_after_sha256'])!=(state['last_event_seq'],start.opening._stop_state_sha256(game),start._hash(state)):
         raise ValueError('reached response executed history differs')
-    if board['prepared'] or board['world'] is not None:
+    if board['prepared'] or (board['world'] is not None and capability_classifier is None):
         raise ValueError('prepared/world response source requires separate proof')
     active=[x['source_instance_id'] for x in state['activation_zone']]
     if ctx['chain_status'] not in ('empty','building') or ctx['chain_links']!=[x['link_id'] for x in state['activation_zone']] or (ctx['chain_status']=='empty' and active):
@@ -24,7 +24,12 @@ def enumerate_opportunity(state,events):
         card=game['cards'][instance]['card_id'];entry=entries.get(card)
         if entry is None:raise ValueError('reached response hand source absent')
         action=next((x for x in entry['actions'] if x['action_type'] in ('use_play','use_item','use_event')),None)
-        reason=reached.hand.extra_hand_exclusion(card,entry,game,actor)
+        reason=None
+        if hand_classifier is not None:
+            extra,classified=hand_classifier(state,events,actor,instance,entry)
+            if classified is not None:
+                additions.extend(extra);reason=classified
+        if reason is None:reason=reached.hand.extra_hand_exclusion(card,entry,game,actor)
         affordable=action is not None and owner['time']>=action['base_time_cost']
         if reason is None and affordable and card=='E-first-date':
             section=reached.hand.source_section('91-event-21-card-text-draft.md',card)
@@ -55,11 +60,21 @@ def enumerate_opportunity(state,events):
             projected['game_state']['players'][actor]['hand'].remove(instance);excluded.append(dict(source_zone='hand',source_instance_id=instance,**reason))
     if board['main'] is not None:
         instance=board['main'];card=game['cards'][instance]['card_id']
-        section=(start.ROOT/'55-insect-three-lines-card-text-draft.md').read_text().split('## M-antlion-01 ',1)[1].split('\n## ',1)[0]
-        if card!='M-antlion-01' or '支払い手順の途中に別の能力発動を割り込ませる処理ではない' not in section:
-            raise ValueError('main response timing requires separate proof')
-        excluded.append(dict(source_zone='board',source_instance_id=instance,card_id=card,reason_code='cost_adjustment_not_response',source_reference='55-insect-three-lines-card-text-draft.md#M-antlion-01'))
+        if capability_classifier is not None and card!='M-antlion-01':
+            classified=capability_classifier(state,events,instance,'main')
+            additions.extend(classified.pop('legal_candidate_details',[]))
+            excluded.append(dict(source_zone='board',**classified))
+        else:
+            section=(start.ROOT/'55-insect-three-lines-card-text-draft.md').read_text().split('## M-antlion-01 ',1)[1].split('\n## ',1)[0]
+            if card!='M-antlion-01' or '支払い手順の途中に別の能力発動を割り込ませる処理ではない' not in section:
+                raise ValueError('main response timing requires separate proof')
+            excluded.append(dict(source_zone='board',source_instance_id=instance,card_id=card,reason_code='cost_adjustment_not_response',source_reference='55-insect-three-lines-card-text-draft.md#M-antlion-01'))
         projected['game_state']['players'][actor]['board']['main']=None
+    if board['world'] is not None:
+        classified=capability_classifier(state,events,board['world'],'world')
+        additions.extend(classified.pop('legal_candidate_details',[]))
+        excluded.append(dict(source_zone='board',**classified))
+        projected['game_state']['players'][actor]['board']['world']=None
     for instance in board['companions']:
         card=game['cards'][instance]['card_id']
         reason=None
@@ -79,7 +94,10 @@ def enumerate_opportunity(state,events):
         projected['game_state']['players'][actor]['board']['companions'].remove(instance)
     if board['partner']:
         instance=board['partner'];card=game['cards'][instance]['card_id']
-        if card=='P-desert_scorpion':
+        if capability_classifier is not None:
+            classified=capability_classifier(state,events,instance,'partner')
+            additions.extend(classified.pop('legal_candidate_details',[]));reason=classified
+        elif card=='P-desert_scorpion':
             section=reached.hand.source_section('74-partner-18-card-text-draft.md',card)
             if '自分のターン終了時' not in section or '「あそび」と「あいてむ」' not in section:raise ValueError('partner end timing source differs')
             reason=dict(source_instance_id=instance,card_id=card,reason_code='turn_end_not_current_response',source_reference='74-partner-18-card-text-draft.md#'+card)

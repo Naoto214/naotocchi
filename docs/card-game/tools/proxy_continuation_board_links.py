@@ -21,7 +21,8 @@ def validate_board_references(envelope):
         if link.get('action_type')!='activate_board_ability' or actor not in game['players']:
             raise ValueError('invalid or duplicate board ability reference')
         board=game['players'][actor]['board']
-        if source not in [board['main'],*board['companions'],board['partner']] or source is None:
+        public_prepared=source in board['prepared'] and source in envelope['runtime']['attachments'] and envelope['runtime']['public_prepared'].get(source,{}).get('face_up') is True
+        if (source not in [board['main'],*board['companions'],board['partner'],board['world']] and not public_prepared) or source is None:
             raise ValueError('board ability source is not on owner board')
         card=game['cards'][source]
         if link.get('card_id')!=card['card_id'] or link.get('card_copy_id')!=card['card_copy_id']:

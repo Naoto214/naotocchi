@@ -130,4 +130,43 @@ class EndTests(unittest.TestCase):
             with end.end_scope(r['final_envelope'],[],[],r['snapshots']):raise RuntimeError('test')
         self.assertEqual((board,registry,old.reached.ORIGINAL_CLASSIFY),before)
 
+
+    def test_opt_in_end_inventory_adapter_preserves_fresh_audit_and_restores(self):
+        from unittest.mock import patch
+        r,initial,events,shots=self.run_row('probe-01-a-first')
+        audit=dict(stage_inventory=[dict(units=[dict(evidence=dict(predicate='source_verified_end_condition'))])])
+        row=old._row(state.current(r['final_envelope']),r['path_id'])
+        with patch.object(old.terminal,'audit_current_turn_end',return_value=copy.deepcopy(audit)):
+            self.assertEqual(end.canonical_end_inventory(row,audit,{}),audit)
+        before=old.END_STAGE_INVENTORY_ADAPTER
+        with end.end_scope(r['final_envelope'],events,shots,r['snapshots']):
+            self.assertIs(old.END_STAGE_INVENTORY_ADAPTER,before)
+        with patch.object(end,'END_INVENTORY_CANONICALIZER',end.canonical_end_inventory):
+            with end.end_scope(r['final_envelope'],events,shots,r['snapshots']):
+                self.assertIs(old.END_STAGE_INVENTORY_ADAPTER,end.canonical_end_inventory)
+        self.assertIs(old.END_STAGE_INVENTORY_ADAPTER,before)
+
+    def test_same_end_boundary_reuses_its_verified_event_proofs(self):
+        from unittest.mock import patch
+        original=end.verify_new_events
+        with patch.object(end,'verify_new_events',wraps=original) as verify:
+            result=self.force('probe-01-a-first')
+        self.assertEqual(verify.call_count,1)
+        self.assertTrue(result['end_evidence']['new_event_proofs'])
+
+class EventProvenanceTests(unittest.TestCase):
+    def test_different_results_with_same_kind_are_bound_to_each_event(self):
+        from unittest.mock import patch
+        # The adapter is populated only after an independent event replay.
+        provenance=old.reached.provenance
+        before=dict(cards={},players={a:dict(growth=0,reservations=[]) for a in 'AB'})
+        after=copy.deepcopy(before);after['players']['A']['growth']=5
+        events=[dict(seq=1,action_type='comparison',actor='A'),dict(seq=2,action_type='comparison',actor='A')]
+        history=dict(events=events,snapshots=[dict(state=before),dict(state=before),dict(state=after)],stop=dict(game_state=after,last_valid_event_seq=2))
+        adapter=lambda e:dict(growth_delta=0 if e['seq']==1 else 5,duration='none',reference='65-challenge-participants-and-resolution.md')
+        with patch.object(provenance,'EVENT_PROVENANCE_ADAPTER',adapter):
+            result=provenance.derive_provenance(history,{})
+        self.assertEqual(result['unresolved_codes'],[])
+        self.assertEqual(result['growth_trace'][-1]['growth'],dict(A=5,B=0))
+
 if __name__=='__main__':unittest.main()
