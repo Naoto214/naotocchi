@@ -64,27 +64,64 @@ family: cottage(切妻・入口の ひさし / ポーチ)/ single(寄棟・ポ�
 
 | region | AD v1(Human QA 時) | この pass |
 |---|---|---|
-| city | 183k | SMOKE_CITY |
-| jungle | 214k | SMOKE_JUNGLE |
-| forest | 145k | SMOKE_FOREST |
+| city | 183k | 132k |
+| jungle | 214k | 174k |
+| forest | 145k | 148k(地形 + 小川 + 丸太 を 足して ほぼ 同じ) |
 
-SMOKE_TABLE
+browser smoke(`tools/meguru-3d-qa/regions-smoke.cjs`・13 地域・headless Chromium):
+
+| region | 3D | pen | calls | tris | js ms | enter ms | err / fb |
+|---|---|---|---|---|---|---|---|
+| home | ✓ | 0 / 0 | 59 | 38k | 5.9 | 805 | 0 / 0 |
+| city | ✓ | 0 / 0 | 59 | 132k | 9.9 | 2734 | 0 / 0 |
+| countryside | ✓ | 0 / 0 | 75 | 120k | 9.8 | 1620 | 0 / 0 |
+| forest | ✓ | 0 / 0 | 81 | 148k | 12.1 | 24 | 0 / 0 |
+| mountain | ✓ | 0 / 0 | 77 | 107k | 13.4 | 806 | 0 / 0 |
+| snow | ✓ | 0 / 0 | 67 | 65k | 7.9 | 503 | 0 / 0 |
+| sea | ✓ | 0 / 0 | 68 | 70k | 13.1 | 27 | 0 / 0 |
+| deepsea | ✓ | 0 / 0 | 59 | 74k | 8.7 | 29 | 0 / 0 |
+| river_lake | ✓ | 0 / 0 | 94 | 114k | 10.3 | 39 | 0 / 0 |
+| jungle | ✓ | 0 / 0 | 87 | 174k | 13.9 | 28 | 0 / 0 |
+| desert | ✓ | 0 / 0 | 65 | 91k | 9.6 | 798 | 0 / 0 |
+| star_stop | ✓ | 0 / 0 | 52 | 66k | 6.4 | 599 | 0 / 0 |
+| memory_lake | ✓ | 0 / 0 | 60 | 52k | 10.0 | 28 | 0 / 0 |
+
+corridor(`corridor-qa.cjs`): home ⇄ forest・forest ⇄ mountain・city ⇄ sea・countryside ⇄ forest = 4 / 4 で started / arrived / corridor3D / playerOK、maxGhost 0〜6、err / fb 0。
+(headless の 数字。iPhone の 実機の fps / カクつき は Human QA で みる)
 
 ## player の 見え かた(ray の walk audit・headless)
 
-VIS_TABLE
+道を あるいて 4 方向の カメラ(yaw 0 / 1.2 / −1.2 / 3.14)で、player の 足 / むね / あたま へ ray を とばし、すかして いない 物に あたるか を しらべた。
+
+| region | samples | hidden | partial | 平均 ghost | tris |
+|---|---|---|---|---|---|
+| home | 76 | 0 | 0 | 0.2 | 37k |
+| city | 252 | 0 | 0 | 9.7 | 133k |
+| countryside | 272 | 0 | 0 | 1.5 | 118k |
+| forest | 296 | 0 | 0 | 1.3 | 148k |
+| mountain | 232 | 0 | 0 | 2.1 | 105k |
+| snow | 192 | 0 | 0 | 0.2 | 64k |
+| sea | 200 | 0 | 0 | 1.8 | 69k |
+| deepsea | 212 | 0 | 0 | 0.2 | 71k |
+| river_lake | 216 | 0 | 0 | 4.4 | 113k |
+| jungle | 240 | 0 | 0 | 3.9 | 173k |
+| desert | 240 | 0 | 0 | 1.1 | 91k |
+| star_stop | 196 | 0 | 0 | 0.0 | 66k |
+| memory_lake | 120 | 0 | 0 | 6.8 | 51k |
+
+headless では 13 地域 とも hidden 0。AD v1 の Human QA で 実機の perf が `player ok miss 0` でも 消えて 見えた ので、この 表は 実機の 確認の かわり には ならない(Human QA で みる)。
 
 ## テスト
 
 - `tests/meguru-3d-geometry-terrain-test.cjs` GT-1〜13(npm test に 追加)
 - 再仕様化(日付つき 2026-10-02): prototype 3c / 3d / 9(3D だけの 物・小川の 水面)、v2-11(川 = ながれの 系)、v2-14(石の はし v4)、v2-15(主の かんむり)、AD-6(きりの いろ)、AD-7(Building v4 + シルエット)、AD-9(立った 自転車)、AD-12(Bridge v4)
-- full `npm test`: FULL_TEST
+- full `npm test`: pass 2850 / fail 0 + pass 80 / fail 0(exit 0)
 
 ## 画像 / sheet / preview
 
 - 画像: `docs/qa/meguru-3d-geometry-terrain-v1/*-gt.jpg`(13 地域 + 近く + 山の 夏 / 冬)。BEFORE は `docs/qa/meguru-3d-art-direction-v1/*-ad.jpg`
 - BEFORE / AFTER sheet: `docs/qa/meguru-3d-geometry-terrain-v1/compare.html`
-- preview(commit 固定): PREVIEW_URLS
+- preview(commit 固定): PR の 本文(この doc の commit の 1 つ あとの sha は かけない ため)
 
 ## 次の Human QA(iPhone・`&perf=1`)
 
