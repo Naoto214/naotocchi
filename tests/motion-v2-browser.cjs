@@ -20,6 +20,9 @@ const {chromium,webkit}=require('playwright');
      const actors=[{kind:'pet',id:'cat',node:$('petSprite')},{kind:'accessory',node:$('petAccessory')}];
      const partner=$('partnerCompanion').querySelector('.partner-emoji');if(partner)actors.push({kind:'partner',id:'forest_bear',node:partner,attachment:$('partnerCompanion').querySelector('.partner-ring')});
      for(const node of document.querySelectorAll('[data-companion-id]'))if(node.closest('#companionLeft,#companionRight'))actors.push({kind:'companion',id:node.dataset.companionId,node});
+     // This controller owns only its own WAAPI instances; real Home may already
+     // own a care cue or CSS animation. Never count those as leaked test motion.
+     const baseline=new Set(actors.flatMap(a=>a.node.getAnimations()));
      const c=m.createController({getActors:()=>actors,getGroup:()=>$('castResponse'),getMotionRadius:()=>m.motionRadiusFor(actors.length-2)});
      const initial=actors.map(a=>[a.node.style.left,a.node.style.top,a.node.style.width,a.node.style.height]);
      const ring=actors.find(a=>a.kind==='partner')?.attachment;
@@ -32,7 +35,7 @@ const {chromium,webkit}=require('playwright');
        if(ring){for(const a of ring.getAnimations()){a.pause();a.currentTime=a.effect.getTiming().duration*.6;}
         if(Math.abs(new DOMMatrix(getComputedStyle(ring).transform).a-ringScale)>.001)throw Error('ring base scale changed');
        }
-       for(const a of actors){for(const animation of a.node.getAnimations()){
+       for(const a of actors){for(const animation of a.node.getAnimations().filter(animation=>!baseline.has(animation))){
         animation.pause();animation.currentTime=animation.effect.getTiming().duration*.6;
         const matrix=new DOMMatrix(getComputedStyle(a.node).transform);
         if(!Number.isFinite(matrix.m42)||Math.abs(matrix.m42)>16)throw Error('unsafe displacement');
@@ -43,8 +46,9 @@ const {chromium,webkit}=require('playwright');
       }
       c.idle();c.clear();
      }
-     return {samples,unchanged:JSON.stringify(initial)===JSON.stringify(actors.map(a=>[a.node.style.left,a.node.style.top,a.node.style.width,a.node.style.height])),leftover:actors.reduce((n,a)=>n+a.node.getAnimations().length,0),overflow:document.documentElement.scrollWidth>innerWidth+1};
+     return {samples,unchanged:JSON.stringify(initial)===JSON.stringify(actors.map(a=>[a.node.style.left,a.node.style.top,a.node.style.width,a.node.style.height])),baseline:baseline.size,leftover:actors.reduce((n,a)=>n+a.node.getAnimations().filter(animation=>!baseline.has(animation)).length,0),remaining:actors.flatMap(a=>a.node.getAnimations().filter(animation=>!baseline.has(animation)).map(animation=>({id:a.id,state:animation.playState,frames:animation.effect.getKeyframes().map(f=>f.transform)}))),overflow:document.documentElement.scrollWidth>innerWidth+1};
     },{reduced});
+    console.log(JSON.stringify({engine:engine.name(),width,height,scene,reduced,...data}));
     assert.equal(data.unchanged,true);assert.equal(data.leftover,0);assert.equal(data.overflow,false);assert.equal(data.samples===0,reduced);
     results.push({engine:engine.name(),width,height,scene,reduced,...data});
    }finally{await context.close();}
