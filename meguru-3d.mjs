@@ -135,12 +135,8 @@ function create3DRenderer(M, o, onLost) {
   function glyphTexture(emoji, wrap, ns) {
     const key = 'g:' + ns + ':' + emoji;
     if (texCache.has(key)) return texCache.get(key);
-    // player は wrapCtx が Home の character illustration を canvas へ描く。
-    // iOS Safari ではその canvas を WebGL texture にすると mesh/map/upload が成功扱いでも透明になることがある。
-    // player だけは native glyph の origin-clean canvas を正本にする。住民は pngTexture(ImageBitmap)なので影響しない。
-    const player = ns === 'p';
-    const c = M.glyphSprite(emoji, 128, player ? null : wrap, player ? 'pn' : ns);
-    const t = c ? { tex: canvasTexture(c), aspect: c.width / c.height, pad: 2 / c.height, src: c, emoji, wrap: player ? null : wrap, ns: player ? 'pn' : ns, playerNative: player } : null;
+    const c = M.glyphSprite(emoji, 128, wrap, ns);
+    const t = c ? { tex: canvasTexture(c), aspect: c.width / c.height, pad: 2 / c.height, src: c, emoji, wrap, ns } : null;
     texCache.set(key, t);
     if (t) glyphs.push(t);
     return t;
@@ -497,10 +493,7 @@ function create3DRenderer(M, o, onLost) {
     for (const a of view.party || []) placeActor(built, actorMesh(built, a), a, 0, c.yaw, charLight);
     for (const a of view.residents || []) { if (Math.hypot(a.x - player.x, a.z - player.z) < farCull) placeActor(built, actorMesh(built, a), a, 0, c.yaw, charLight); }
     const pg = typeof o.playerGlyph === 'function' ? o.playerGlyph() : '🐣';
-    // Home の現在の子の原画を住民と同じ origin-clean ImageBitmap 経路へ。canvas 専用 U+E000 を WebGL に描かない。
-    const pa = typeof M.playerAsset === 'function' ? M.playerAsset() : null;
-    const ptx = pa ? pngTexture(pa) : null;
-    placeActor(built, actorMesh(built, player), player, 0, c.yaw, charLight, ptx || glyphTexture(pg === '\uE000' ? '🐣' : pg, null, 'p'));
+    placeActor(built, actorMesh(built, player), player, 0, c.yaw, charLight, glyphTexture(pg, o.wrapCtx || null, 'p'));
     built.shadows.instanceMatrix.needsUpdate = true;
     fadeOccluders(built, camera.position.x, -camera.position.z, fade ? player : null);
     renderer.render(scene, camera);
@@ -538,11 +531,7 @@ function create3DRenderer(M, o, onLost) {
     const pm = built.actors.get(view.player), ptx = pm ? pm.userData.tex : null;
     const pup = !!(ptx && ptx.tex && renderer.properties.get(ptx.tex).__webglTexture);
     const pvis = !!(pm && pm.visible), pfr = pvis && frustum.intersectsObject(pm);
-    const playerAsset = typeof M.playerAsset === 'function' ? M.playerAsset() : null;
-    const playerState = playerAsset ? pngState.get(playerAsset) : null;
-    const playerDiag = { using: !ptx ? 'none' : ptx.solid ? 'solid' : ptx.asset ? 'asset' : ptx.emoji ? 'glyph' : 'other',
-      asset: playerAsset, assetState: playerState ? playerState.state : (playerAsset ? 'none' : 'no-asset'),
-      assetErr: playerState && playerState.err ? playerState.err : null,
+    const playerDiag = { using: !ptx ? 'none' : ptx.solid ? 'solid' : ptx.emoji ? 'glyph' : ptx.asset ? 'asset' : 'other',
       textureReady: pup, map: !!(pm && pm.material.map), visible: pvis, inFrustum: pfr,
       dist: pm ? Math.round(pm.position.distanceTo(camera.position)) : null };
     const rect = (el) => { try { const r = el.getBoundingClientRect(); return [Math.round(r.width), Math.round(r.height), Math.round(r.left), Math.round(r.top)]; } catch (_) { return null; } };
