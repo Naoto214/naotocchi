@@ -116,3 +116,47 @@ Next visual unit: composition at road edges / mid-height tree silhouettes, then
 water edges and actual prop closeups. In particular, dedicated building-family
 and prop comparison images are still outstanding; the existing Claude shot list
 is not sufficient to declare the user's final deliverable set complete.
+
+## Contact-depth checkpoint image result
+
+Code saved remotely at `036c1d5be2375055543afdabf13acd5ecd8d2956`, tree
+`33c9222093758caaa5f7ec46224c190ae8f62794`. 31 AFTER images generated, 31
+BEFORE references verified. The comparison sheet labels this first unit as
+incomplete. All 13 representative views were visually inspected after rendering.
+Closeup review and broader V1–V9 work remain open.
+
+Fresh representative triangles: home 36,998; forest 147,752; jungle 172,854;
+city 127,740. Calls in the four-companion fixture: 41 / 60 / 61 / 48 respectively.
+Do not compare these calls directly to the historical 27-actor smoke figures.
+
+The grouped capture exited nonzero for a jungle entry-click timeout; a same-code
+jungle-only retry exited 0, 3D active, page/shader errors 0, player visible.
+The first forest capture also timed out during screenshot readback. Screenshot
+QA now pauses RAF scheduling after a completed frame and restores queued
+callbacks afterwards. This is excluded from performance claims and is not a
+change to product runtime. Historical failure logs are retained.
+
+Full-suite observation: `meguru-party-formation-test.cjs` test 4 failed its
+`Date.now() - t0 < 300` wall-clock assertion under concurrent load (test duration
+579ms; assertion's measured value must be read from final failure report).
+`meguru.js` and that test are byte-identical to the Claude checkpoint. This is
+not yet resolved or waived; isolated verification is pending. No threshold was
+changed. Full regression is NOT GREEN.
+
+## Final result for this first bounded checkpoint
+
+- Full `npm test` exited 1: **2858 PASS / 1 FAIL** (2859 tests), 1641.7 seconds.
+  Failure: party-formation test 4, measured 463ms against <300ms. The remaining
+  Relationship group was not reached by npm's `&&` chain.
+- Same-code isolated formation rerun: **8 PASS / 0 FAIL**, exit 0. No threshold,
+  formation code or test was changed. This supports load sensitivity; it does not
+  erase the failed full invocation or establish an iPhone performance result.
+- Separately completed remaining Relationship group: **80 PASS / 0 FAIL**, exit 0.
+- All 31 AFTER images inspected (13 representative + 18 closeups/season views).
+  Improvements remain modest: better plane separation and grounding. The long
+  flat road, repeated large trunks and blank city walls remain major next work.
+- iPhone Human QA, fresh 27-actor browser smoke, corridor round trips and full
+  ray-walk visibility audit have NOT been rerun in this bounded unit. Existing
+  tools/contracts are preserved; rerun them before the overall VQ handoff gate.
+- No Ready, merge, production Pages, main import, save/schema, Expression or
+  Character 3D changes. Product diff is World renderer + its cache token only.
