@@ -105,6 +105,22 @@ export function scalpCap(radius, { front = 1.05, side = 1.65, back = 2.05, volum
   g.setAttribute('position', new THREE.Float32BufferAttribute(pos,3)); g.setIndex(indices);
   return smoothNormals(g);
 }
+
+// Smooth front outline with a shallow rounded back. Shared by soft larvae,
+// lobed bodies and future irregular silhouettes; not a species-specific mesh.
+export function outlineLoft(outline, depth, segments = 48, rings = 6) {
+  const curve = new THREE.CatmullRomCurve3(outline.map(([x,y])=>new THREE.Vector3(x,y,0)),true,'centripetal');
+  const cx=outline.reduce((s,p)=>s+p[0],0)/outline.length,cy=outline.reduce((s,p)=>s+p[1],0)/outline.length;
+  const pos=[],idx=[],sideSize=(rings+1)*(segments+1);
+  for(const side of [1,-1])for(let r=0;r<=rings;r++)for(let i=0;i<=segments;i++){
+    const p=curve.getPoint(i/segments),t=r/rings;
+    pos.push(lerp(cx,p.x,t),lerp(cy,p.y,t),side*depth*Math.sqrt(1-t*t));
+    if(r<rings&&i<segments){const a=(side===1?0:sideSize)+r*(segments+1)+i,b=a+segments+1;
+      if(side===1)idx.push(a,a+1,b,a+1,b+1,b);else idx.push(a,b,a+1,a+1,b,b+1);
+    }
+  }
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setIndex(idx);return smoothNormals(g);
+}
 // ---------------- 回転体(profile = [[半径, 高さ], …] 下から上)
 export function lathe(profile, seg = 16) {
   const g = new THREE.LatheGeometry(profile.map(([r, y]) => new THREE.Vector2(Math.max(r, 1e-4), y)), seg);

@@ -65,3 +65,24 @@ test('all six dandelion seed-puff faces remain independently bound within the ex
   assert.ok(t.meshes<=14);
   assert.ok(t.tris<6500);
 });
+
+test('outline loft preserves side notches and lower lobes with a finite closed thickness',async()=>{
+  const g=await mod('geometry.mjs');assert.equal(typeof g.outlineLoft,'function');
+  const outline=[[0,1],[-.22,.82],[-.2,.62],[-.4,.5],[-.2,.4],[-.36,.15],[-.18,0],[0,.1],[.18,0],[.36,.15],[.2,.4],[.4,.5],[.2,.62],[.22,.82]];
+  const geo=g.outlineLoft(outline,.15);geo.computeBoundingBox();
+  assert.ok(geo.boundingBox.min.z<-.14&&geo.boundingBox.max.z>.14);
+  assert.ok(geo.attributes.position.array.every(Number.isFinite));
+  const mesh=new g.THREE.Mesh(geo,new g.THREE.MeshBasicMaterial({side:g.THREE.DoubleSide}));mesh.updateMatrixWorld(true);
+  const hit=(x,y)=>new g.THREE.Raycaster(new g.THREE.Vector3(x,y,2),new g.THREE.Vector3(0,0,-1)).intersectObject(mesh).length>0;
+  assert.ok(hit(.33,.5),'side protrusion');assert.ok(!hit(.33,.36),'notch below protrusion');
+  assert.ok(hit(-.19,.09)&&hit(.19,.09),'two lower lobes');
+});
+
+test('butterfly abdomen points below its head and wing roots stay attached during reduced idle',async()=>{
+  const rt=await mod('runtime.mjs'),anim=await mod('animate.mjs');const t=rt.getTemplate('butterfly',8),i=rt.instantiate(t);
+  const body=t.rig.bones.body.children[0].geometry;body.computeBoundingBox();
+  assert.ok(body.boundingBox.min.y<-.35,'upright abdomen below thorax');
+  assert.ok(body.boundingBox.min.z>-.25,'not a rearward horizontal abdomen');
+  anim.animate(i,{dt:.1,moving:false,animLv:0});const angle=i.bones.wingL.rotation.y;
+  anim.animate(i,{dt:.1,moving:false,animLv:0});assert.equal(i.bones.wingL.rotation.y,angle,'reduced idle holds rest angle');
+});

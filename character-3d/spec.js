@@ -222,8 +222,8 @@
       why: 'fungus の 代表。胞子の むれ(cluster)→ わかい キノコ(顔が かさ)→ 大きな かさ(顔が え)+ 子キノコ',
       stages: {
         1: { archetype: C, unit: 'spore', count: 6, spread: 0.6, colors: { base: '#f8f4dc', blush: '#f8b898', face: '#f8f4dc' } },
-        4: { archetype: FU, cap: { r: 0.5, h: 0.62, shape: 'cone' }, stem: { h: 0.42, r: 0.18 }, faceOn: 'cap', colors: { cap: '#f8f4cc', capDark: '#e8c898', stem: '#fbf8e8', gill: '#e8d8b0', dirt: '#6a4420', pebble: '#a07850' }, attachments: ['dirt'] },
-        8: { archetype: FU, cap: { r: 0.8, h: 0.36, shape: 'flat' }, stem: { h: 0.74, r: 0.32 }, faceOn: 'stem', colors: { cap: '#f88828', capDark: '#f8b848', stem: '#f8f2dc', gill: '#e8b888', dirt: '#482808', pebble: '#a07850' }, attachments: ['dirt', 'child'] },
+        4: { archetype: FU, cap: { r: 0.43, h: 0.78, shape: 'cone' }, stem: { h: 0.42, r: 0.18 }, faceOn: 'cap', colors: { cap: '#f8f4cc', capDark: '#e8c898', stem: '#fbf8e8', gill: '#e8d8b0', dirt: '#6a4420', pebble: '#a07850' }, attachments: ['dirt'] },
+        8: { archetype: FU, cap: { r: 0.8, h: 0.36, shape: 'flat', tilt: -.32, roll: -.10 }, stem: { h: 0.74, r: 0.32 }, faceOn: 'stem', colors: { cap: '#f88828', capDark: '#f8b848', stem: '#f8f2dc', gill: '#e8b888', dirt: '#482808', pebble: '#a07850' }, attachments: ['dirt', 'child'] },
       },
       designFill: 'かさの うら(ひだ)は 2D の 08 から。04 の うらは 補完',
     },
@@ -232,7 +232,7 @@
       stages: {
         1: { archetype: B, shape: 'larva', h: 0.9, r: 0.38, translucent: 0.6, glow: '#2898f8', colors: { base: '#58b8f8', light: '#c8e8f8', edge: '#0838f8' } },
         4: { archetype: R, arms: 5, r: 0.62, armR: 0.36, thick: 0.32, curl: 0.18, colors: { base: '#f88898', light: '#f8b898', dark: '#d84878' } },
-        8: { archetype: R, arms: 5, r: 0.66, armR: 0.3, thick: 0.28, curl: 0.12, dots: true, colors: { base: '#f06818', light: '#f8a028', dark: '#d81828', dot: '#fff4d8' }, attachments: ['bubbles'] },
+        8: { archetype: R, arms: 5, r: 0.72, armR: 0.23, thick: 0.19, curl: 0.07, dots: true, colors: { base: '#f06818', light: '#f8a028', dark: '#d81828', dot: '#fff4d8' }, attachments: ['bubbles'] },
       },
       designFill: 'うらがわ(管足の 面)は 色を こく した 無地。2D に ない',
     },

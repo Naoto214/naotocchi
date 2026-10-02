@@ -3,7 +3,7 @@
 // builder は archetype ごとに 1 つ。species / stage の ちがいは spec.js の 数字と 色だけ(1 species 専用の 関数は つくらない)。
 // 座標: 前 = +z、うえ = +y、足もと = y 0。大きさは だいたい 高さ 1 前後(あとで 2D の 絵の 大きさに あわせる: runtime の fit)
 // どの builder も: rig(bone)・顔の 場所(face spec)・locomotion・idlePose・hover を かえす
-import { THREE, blob, lathe, sweep, sheet, fan, ellipsoid, paint, solid, mix, shade, xform, merge, clamp, lerp, smooth, rng, noise3, scalpCap } from './geometry.mjs';
+import { THREE, blob, lathe, sweep, sheet, fan, ellipsoid, paint, solid, mix, shade, xform, merge, clamp, lerp, smooth, rng, noise3, scalpCap, outlineLoft } from './geometry.mjs';
 import { Rig } from './rig.mjs';
 import SPEC from './spec-esm.mjs';
 
@@ -23,17 +23,17 @@ function dirtGeo(r, colors, seed) {
   const R = rng(seed);
   const mound = paint(blob((x, y, z) => { const n = 1 + 0.09 * (noise3(x * 3, y * 3, z * 3) - 0.5); return [x * r * n, Math.max(-0.02, y) * r * 0.22 * n, z * r * 0.85 * n]; }, 16, 8), (x, y, z, nx, ny) => mix(colors.dirt, shade(colors.dirt, 1.25), ny));
   const stones = [];
-  for (let i = 0; i < 9; i++) { const a = R() * TAU, d = r * (0.6 + R() * 0.35), s = 0.05 + R() * 0.05; stones.push(paint(xform(new THREE.DodecahedronGeometry(s, 0), { pos: [Math.cos(a) * d, r * 0.06, Math.sin(a) * d * 0.85], rot: [R(), R(), R()] }), () => mix(colors.pebble, '#d8b890', R() * 0.6))); }
+  for (let i = 0; i < 9; i++) { const a = i / 9 * TAU + (R()-.5)*.2, d = r * (0.78 + R() * 0.18), s = 0.05 + R() * 0.05; stones.push(paint(xform(ellipsoid(s,s*.72,s*.9,7,5), { pos: [Math.cos(a) * d, r * 0.06, Math.sin(a) * d * 0.85], rot: [R(), R(), R()] }), () => mix(colors.pebble, '#d8b890', R() * 0.6))); }
   const grass = [];
   for (let i = 0; i < 3; i++) { const a = -0.8 + i * 0.9 + R() * 0.3, d = r * 0.8; grass.push(solid(sweep([[Math.cos(a) * d, 0.02, Math.sin(a) * d * 0.8], [Math.cos(a) * d * 1.04, 0.1, Math.sin(a) * d * 0.82]], (t) => 0.025 * (1 - t), 4, { steps: 3 }), '#5aa83a')); }
   return merge([mound, ...stones.map((g) => { g.computeVertexNormals(); return g; }), ...grass]);
 }
-function pappusGeo(r, color, n = 22, seed = 'p') {
+function pappusGeo(r, color, n = 22, seed = 'p', fluffy = false) {
   const R = rng(seed), parts = [];
   for (let i = 0; i < n; i++) {
     const a = R() * TAU, b = Math.acos(1 - R() * 1.3), d = V(Math.sin(b) * Math.cos(a), Math.cos(b), Math.sin(b) * Math.sin(a));
-    parts.push(solid(sweep([[0, 0, 0], [d.x * r, d.y * r, d.z * r]], () => 0.008, 3, { steps: 2, cap: false }), color));
-    parts.push(solid(xform(ellipsoid(0.028, 0.028, 0.028, 5, 4), { pos: [d.x * r, d.y * r, d.z * r] }), color));
+    parts.push(solid(sweep([[0, 0, 0], [d.x * r, d.y * r, d.z * r]], () => fluffy ? r*.008 : .008, 3, { steps: 2, cap: false }), color));
+    if (!fluffy) parts.push(solid(xform(ellipsoid(0.028, 0.028, 0.028, 5, 4), { pos: [d.x * r, d.y * r, d.z * r] }), color));
   }
   return merge(parts);
 }
@@ -301,13 +301,16 @@ export function pod(sp, key) {
   if (sp.shape === 'chrysalis') {
     const h = sp.h, r = sp.r, top = h * 1.02;
     // とがった 下・ふくらんだ まんなか・ほそい くび
-    const prof = [[0.001, 0], [r * 0.25, h * 0.08], [r * 0.7, h * 0.28], [r * 1.0, h * 0.5], [r * 0.92, h * 0.68], [r * 0.55, h * 0.84], [r * 0.25, h * 0.94], [0.001, top]];
+    const prof = [[.001,0],[r*.25,h*.08],[r*.46,h*.19],[r*.39,h*.22],[r*.72,h*.34],[r*.61,h*.38],[r*.94,h*.5],[r*.88,h*.55],[r,h*.66],[r*.76,h*.73],[r*.62,h*.82],[r*.35,h*.93],[.001,top]];
     const g = lathe(prof, 18), p = g.attributes.position;
     for (let i = 0; i < p.count; i++) { const x = p.getX(i), z = p.getZ(i), y = p.getY(i), a = Math.atan2(x, z), k = 1 + 0.07 * Math.cos(a * 5) * Math.sin(Math.PI * y / top); p.setXYZ(i, x * k * 1.05, y, z * k * 0.88); }
     g.computeVertexNormals();
     bodyGeo = paint(g, (x, y, z, nx, ny, nz) => mix(mix(c.base, c.dark, smooth(0.2, -0.8, nz) * 0.6), c.light, smooth(0.5, 0.95, nz) * smooth(0.25, 0.6, y / top) * 0.7));
     const thread = solid(sweep([[0, top - 0.02, 0], [0, top + 0.12, 0]], () => 0.025, 5, { steps: 2 }), shade(c.dark, 0.9));
-    bodyGeo = merge([bodyGeo, thread]);
+    const folds = [];
+    for(const side of [-1,1])folds.push(solid(sweep([[side*r*.12,h*.12,r*.25],[side*r*.32,h*.34,r*.64],[side*r*.22,h*.5,r*.85],[side*r*.66,h*.64,r*.57]],()=>.008,3,{steps:9,cap:false}),c.dark));
+    folds.push(solid(sweep([[0,h*.15,r*.3],[0,h*.35,r*.72],[0,h*.48,r*.87]],()=>.009,3,{steps:6,cap:false}),c.light));
+    bodyGeo = merge([bodyGeo, thread, ...folds]);
     faceCenter = [0, h * 0.55, r * 0.85]; half = r * 0.8; hangY = top + 0.14;
     rig.add('body', 'root', [0, 0, 0], [bodyGeo.clone()]);
     rig.add('branch', 'root', [0, 0, 0], [branchGeo(1.1, hangY)]);
@@ -334,19 +337,19 @@ export function wingedInsect(sp, key) {
   const c = sp.colors, B = sp.body, Wg = sp.wings;
   const rig = new Rig(key, 'winged_insect', 'flutter');
   const thorax = solid(ellipsoid(B.r * 1.2, B.r * 1.25, B.r * 1.5, 10, 8), c.body);
-  const abdomen = paint(sweep([[0, 0, -B.r], [0, -0.03, -B.len * 0.55], [0, -0.02, -B.len]], (t) => B.r * lerp(1.0, 0.45, t), 8, { steps: 8 }), (x, y, z) => (Math.sin(z * 40) > 0.6 ? shade(c.body, 1.4) : c.body));
+  const abdomen = paint(sweep([[0,-B.r,0],[0,-B.len*.55,-.01],[0,-B.len,-.02]], (t) => B.r * lerp(1.0, 0.45, t), 8, { steps: 8 }), (x, y, z) => (Math.sin(y * 45) > 0.6 ? shade(c.body, 1.4) : c.body));
   rig.add('body', 'root', [0, 0, 0], [thorax, abdomen]);
   const hr = sp.head.r;
   const headGeo = solid(blob((x, y, z) => [x * hr * 1.06, y * hr, z * hr * 0.95], 18, 12), c.face);
   const ant = [-1, 1].map((s) => merge([solid(sweep([[s * hr * 0.3, hr * 0.8, 0], [s * hr * 0.6, hr * 0.8 + sp.antenna * 0.6, -0.02], [s * hr * 0.9, hr * 0.8 + sp.antenna, 0.02]], () => 0.016, 4, { steps: 8 }), c.body), solid(xform(ellipsoid(0.045, 0.045, 0.045, 6, 5), { pos: [s * hr * 0.9, hr * 0.8 + sp.antenna, 0.02] }), c.wing)]));
-  rig.add('head', 'body', [0, B.r * 0.6, B.r * 1.2 + hr * 0.7], null);
+  rig.add('head', 'body', [0, B.r * 1.6, B.r * 1.1], null);
   rig.mesh('head', [headGeo.clone(), ...ant]);
   // はね: 扇の 面(根もと = 体)。色は 中心 → ふち(こい 青 + 白い 点)
   const wingCol = (lo, hi) => (x, y, z, nx, ny, nz, i) => { const rr = Math.hypot(x, y); const t = (rr - lo) / (hi - lo); return t > 0.86 ? c.wingDark : t > 0.78 ? (Math.sin(Math.atan2(y, x) * 26) > 0.55 ? c.dots : c.wingDark) : mix(c.wingLight, c.wing, smooth(0.0, 0.6, t)); };
   for (const s of [-1, 1]) {
     const fR = (a) => Wg.span * 0.55 * (0.62 + 0.38 * Math.sin((a - 0.05) * 1.6)) * (1 + 0.035 * Math.cos(a * 14));
     const hR = (a) => Wg.span * 0.36 * (0.7 + 0.3 * Math.cos(a + 0.6)) * (1 + 0.06 * Math.cos(a * 10));
-    const tone = (Rf) => (x, y) => { const t = Math.hypot(x, y) / Rf(Math.atan2(y, x)); return t > 0.8 ? c.wingDark : mix(c.wingLight, c.wing, smooth(0.1, 0.62, t)); };
+    const tone = (Rf) => (x, y) => { const a=Math.atan2(y,x), t = Math.hypot(x, y) / Rf(a); const vein=Math.abs(Math.sin(a*9)); return t > 0.84 || (vein<.16 && t>.12) ? c.wingDark : mix(c.wingLight, c.wing, smooth(0.05, 0.82, t)*.7); };
     const fw = paint(fan(fR, 0.05, 1.55, { na: 20, nr: 7 }), tone(fR));
     const hw = paint(fan(hR, -1.35, 0.05, { na: 16, nr: 6 }), tone(hR));
     // ふちの 白い 点(2D の とおり)
@@ -354,7 +357,9 @@ export function wingedInsect(sp, key) {
     for (let i = 0; i < 9; i++) { const a = lerp(0.12, 1.48, i / 8), R = fR(a) * 0.9; dots.push(solid(xform(ellipsoid(0.028, 0.028, 0.01, 6, 4), { pos: [Math.cos(a) * R, Math.sin(a) * R, 0.006] }), c.dots)); }
     for (let i = 0; i < 6; i++) { const a = lerp(-1.25, -0.1, i / 5), R = hR(a) * 0.88; dots.push(solid(xform(ellipsoid(0.026, 0.026, 0.01, 6, 4), { pos: [Math.cos(a) * R, Math.sin(a) * R, 0.006] }), c.dots)); }
     // 扇は xy 面(x = 外へ)。s で 左右、すこし 後ろへ ねかせる
-    const wing = merge([fw, hw, ...dots]);
+    const veins = [];
+    for(const [lo,hi,Rf,n]of [[.1,1.5,fR,5],[-1.3,-.06,hR,4]])for(let i=1;i<n;i++){const a=lerp(lo,hi,i/n),r=Rf(a);veins.push(solid(sweep([[Math.cos(a)*r*.08,Math.sin(a)*r*.08,.012],[Math.cos(a+.09)*r*.5,Math.sin(a+.09)*r*.5,.015],[Math.cos(a)*r*.84,Math.sin(a)*r*.84,.012]],()=>.008,3,{steps:4,cap:false}),c.wingDark));}
+    const wing = merge([fw, hw, ...dots, ...veins]);
     wing.scale(s, 1, 1); wing.rotateY(-s * 0.12);
     rig.add(s < 0 ? 'wingL' : 'wingR', 'body', [s * B.r * 0.6, B.r * 0.4, -B.r * 0.2], [wing]);
   }
@@ -379,11 +384,12 @@ export function plant(sp, key) {
   for (let i = 0; i < sp.leaves; i++) {
     const a = (i / sp.leaves) * TAU + 0.3, l = sp.leafLen * (0.85 + 0.25 * ((i * 7) % 3) / 2);
     // 顔の まえ(+z)の 葉は ひくく、うしろ・よこ の 葉は 立てて 顔の まわりを かこむ(2D の ロゼット)
-    const front = Math.max(0, Math.cos(a)), lift = sp.form === 'flower' ? 0.55 : 0.38 - front * 0.3;
-    const g = leafGeo(l, l * 0.24, c, sp.form === 'flower' ? 0.5 : 0.35);
+    const front = Math.max(0, Math.cos(a)), lift = sp.form === 'flower' ? 0.55 : 0.55 - front * 0.48;
+    const g = leafGeo(l, l * .34, c, sp.form === 'flower' ? .35 : .12);
     // 葉は +y に のびる → ねかせて 外へ(a の むき)
     g.rotateX(-Math.PI / 2 + lift); g.rotateY(a + Math.PI);
-    g.translate(0, 0.03, 0);
+    const origin = sp.form === 'rosette' ? sp.bulb * .82 : .08;
+    g.translate(Math.sin(a)*origin, .028+(i%2)*.018, Math.cos(a)*origin);
     groups[i % 2].push(g);
   }
   rig.add('leavesA', 'root', [0, 0, 0], groups[0]);
@@ -402,7 +408,7 @@ export function plant(sp, key) {
     const petals = [];
     for (let layer = 0; layer < 2; layer++) for (let i = 0; i < sp.petals / 2; i++) {
       const a = (i / (sp.petals / 2)) * TAU + layer * (Math.PI / (sp.petals / 2)), L = hr * (layer ? 0.78 : 0.95);
-      const p = paint(sheet(L, (u) => hr * 0.2 * Math.pow(Math.sin(Math.PI * Math.pow(u, 0.55)), 0.7), { nu: 6, nv: 2, warp: (x, y, z, u) => [x, y, -layer * 0.03 - u * u * 0.06] }), (x, y) => mix(c.petalDark, c.petal, smooth(0.0, 0.5, y / L)));
+      const p = paint(blob((x,y,z)=>[x*hr*.22,(y+1)*L*.5,z*hr*.14-layer*.03],8,6),(x,y)=>mix(c.petalDark,c.petal,smooth(0,.5,y/L)));
       p.translate(0, hr * 0.55, 0); p.rotateZ(a); petals.push(p);
     }
     const calyx = solid(xform(ellipsoid(hr * 0.55, hr * 0.55, hr * 0.2, 12, 6), { pos: [0, 0, -hr * 0.3] }), c.leafDark);
@@ -419,7 +425,7 @@ export function plant(sp, key) {
 // ================= fungus(キノコ) =================
 function mushroomParts(cap, stem, c, faceOn) {
   const sh = stem.h, sr = stem.r;
-  const stemGeo = lathe([[sr * 1.15, 0], [sr * 1.25, sh * 0.08], [sr * 1.0, sh * 0.35], [sr * 0.88, sh * 0.75], [sr * 0.85, sh], [0.001, sh]], 16);
+  const stemGeo = lathe([[sr*1.18,0],[sr*1.3,sh*.08],[sr*1.18,sh*.24],[sr*.91,sh*.55],[sr*.77,sh*.84],[sr*.81,sh],[.001,sh]],20);
   const sp2 = stemGeo.attributes.position;
   if (faceOn === 'stem') for (let i = 0; i < sp2.count; i++) { const x = sp2.getX(i), z = sp2.getZ(i), a = Math.atan2(x, z); const k = 1 + 0.035 * Math.cos(a * 14); sp2.setX(i, x * k); sp2.setZ(i, z * k); }
   stemGeo.computeVertexNormals();
@@ -433,16 +439,18 @@ function mushroomParts(cap, stem, c, faceOn) {
   for (let i = 0; i < cp.count; i++) { const y = cp.getY(i); if (y < 0.001) { const x = cp.getX(i), z = cp.getZ(i), a = Math.atan2(x, z), k = 1 + 0.06 * Math.cos(a * 20) * Math.hypot(x, z) / cr; cp.setY(i, y * k - 0.01 * Math.cos(a * 20)); } }
   capGeo.computeVertexNormals();
   paint(capGeo, (x, y, z, nx, ny, nz) => (y < 0.005 ? c.gill : mix(c.cap, c.capDark, cap.shape === 'flat' ? smooth(0.6, 0.0, ny) * 0.55 : smooth(0.4, -0.3, ny) * 0.4)));
-  return { stemGeo, capGeo };
+  const gills=[];
+  if(cap.shape==='flat')for(let i=0;i<20;i++){const a=i/20*TAU;gills.push(solid(sweep([[Math.sin(a)*cr*.25,-ch*.12,Math.cos(a)*cr*.25],[Math.sin(a)*cr*.63,-ch*.085,Math.cos(a)*cr*.63],[Math.sin(a)*cr*.97,-.008,Math.cos(a)*cr*.97]],()=>.007,3,{steps:4,cap:false}),shade(c.gill,.76)));}
+  return { stemGeo, capGeo: gills.length ? merge([capGeo,...gills]) : capGeo };
 }
 export function fungus(sp, key) {
   const c = sp.colors;
   const rig = new Rig(key, 'fungus', 'squashHop');
   const { stemGeo, capGeo } = mushroomParts(sp.cap, sp.stem, c, sp.faceOn);
   const atts = sp.attachments || [];
-  if (atts.includes('dirt')) rig.add('dirt', 'root', [0, 0, 0], [dirtGeo(sp.stem.r * 2.6 + 0.12, c, key)]);
+  if (atts.includes('dirt')) rig.add('dirt', 'root', [0, 0, 0], [dirtGeo(sp.stem.r * 2.0 + 0.12, c, key)]);
   rig.add('body', 'root', [0, 0.04, 0], [stemGeo.clone()]);
-  rig.add('cap', 'body', [0, sp.stem.h * 0.92, 0], [capGeo.clone()]);
+  rig.add('cap', 'body', [0, sp.stem.h * 0.92, 0], [capGeo.clone()], 'opaque', [sp.cap.tilt || 0,0,sp.cap.roll || 0]);
   let childFace = null;
   if (atts.includes('child')) {
     const small = mushroomParts({ r: sp.cap.r * 0.5, h: sp.cap.h * 1.1, shape: 'flat' }, { h: sp.stem.h * 0.55, r: sp.stem.r * 0.45 }, c, 'cap');
@@ -471,16 +479,17 @@ export function cluster(sp, key) {
     let geo, faceGeo, fc, half;
     if (sp.unit === 'spore') {
       const r = 0.24 * s;
-      geo = paint(blob((px, py, pz) => [px * r, py * r * 0.96, pz * r], 16, 10), (px, py, pz, nx, ny, nz) => mix(c.base, shade(c.base, 0.9), smooth(0.2, -0.8, nz)));
+      geo = paint(blob((px, py, pz) => [px*r*(1+.07*Math.sin(py*3+i)),py*r*(.88+(i%3)*.09),pz*r*(.9+(i%2)*.1)], 16, 10), (px, py, pz, nx, ny, nz) => mix(c.base, shade(c.base, 0.9), smooth(0.2, -0.8, nz)));
       faceGeo = geo; fc = [0, -r * 0.05, r * 0.9]; half = r * 0.72;
-      rig.add('u' + i, 'root', [x * sp.spread / 0.6, y * sp.spread / 0.6 + 0.04, z], [geo.clone()]);
+      const shine=solid(xform(ellipsoid(r*.14,r*.21,r*.035,6,4),{pos:[-r*.4,r*.45,r*.72],rot:[0,0,-.35]}),'#ffffff');
+      rig.add('u' + i, 'root', [x * sp.spread / 0.6, y * sp.spread / 0.6 + 0.04, z], [geo.clone(),shine]);
     } else {
-      const r = 0.2 * s;
+      const r = 0.18 * s;
       const puff = paint(blob((px, py, pz) => { const n = 1 + 0.16 * Math.max(0, noise3(px * 7 + i, py * 7, pz * 7) - 0.35); return [px * r * n, py * r * n, pz * r * n]; }, 16, 10), () => c.pappus);
       const seed = solid(xform(blob((px, py, pz) => { const yy = py * 0.5 + 0.5; return [px * r * 0.3 * (1 - yy * 0.5), -yy * r * 1.3, pz * r * 0.3 * (1 - yy * 0.5)]; }, 8, 6), { pos: [0, -r * 0.95, 0] }), c.base);
       const beak = solid(sweep([[0, -r * 0.9, 0], [0, -r * 0.4, 0]], () => 0.012, 4, { steps: 2 }), c.base);
       geo = puff; faceGeo = puff; fc = [0, 0, r * 0.95]; half = r * 0.72;
-      rig.add('u' + i, 'root', [x * sp.spread / 0.6, y * sp.spread / 0.6 + 0.35, z], [puff.clone(), seed, beak], 'opaque', [0, 0, (R() - 0.5) * 0.4]);
+      rig.add('u' + i, 'root', [x * sp.spread / 0.6, y * sp.spread / 0.6 + 0.35, z], [puff.clone(), seed, beak, pappusGeo(r*1.42,c.pappus,28,key+':'+i,true)], 'opaque', [0, 0, (R() - 0.5) * 0.4]);
     }
     units.push({ bone: 'u' + i, target: faceGeo, center: fc, half });
   });
@@ -535,8 +544,9 @@ export function blobArchetype(sp, key) {
   const h = sp.h, r = sp.r;
   // ビピンナリア: たてながの 体に 左右 2 つずつの ふくらみ(うで の もと)
   const shape = (x, y, z) => { const ang = Math.atan2(x, y), lobes = 1 + 0.22 * Math.pow(Math.max(0, Math.cos(ang * 2 - 0.3)), 3) + 0.18 * Math.pow(Math.max(0, -Math.cos(ang * 2 + 0.4)), 4); return [x * r * lobes, (y * 0.5 + 0.5) * h * (1 + 0.04 * Math.sin(ang * 4)), z * r * 0.62]; };
-  const outer = paint(blob(shape, 24, 16), (x, y, z, nx, ny, nz) => mix(c.base, c.edge, smooth(0.4, 0.0, Math.abs(nz)) * 0.7));
-  const core = paint(blob((x, y, z) => [x * r * 0.55, (y * 0.5 + 0.5) * h * 0.7 + h * 0.12, z * r * 0.35], 14, 10), () => c.light);
+  const contour = [[0,h],[-r*.47,h*.87],[-r*.57,h*.66],[-r*.93,h*.53],[-r*.58,h*.4],[-r*.9,h*.17],[-r*.56,0],[-r*.27,h*.02],[0,h*.01],[r*.27,h*.02],[r*.56,0],[r*.9,h*.17],[r*.58,h*.4],[r*.93,h*.53],[r*.57,h*.66],[r*.47,h*.87]];
+  const outer = paint(outlineLoft(contour,r*.42), (x, y, z, nx, ny, nz) => mix(c.base, c.edge, smooth(0.4, 0.0, Math.abs(nz)) * 0.7));
+  const core = paint(blob((x, y, z) => [x * r * 0.55, (y * 0.5 + 0.5) * h * 0.7 + h * 0.12, z * r * 0.24], 14, 10), () => c.light);
   rig.add('body', 'root', [0, 0, 0], [outer.clone()], 'glow:' + sp.glow + ':' + sp.translucent);
   rig.mesh('body', [core], 'opaque');
   rig.meta = { idlePose: 'stand', hover: 0.12 };

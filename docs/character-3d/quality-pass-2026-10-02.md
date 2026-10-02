@@ -139,3 +139,11 @@ Initial candidates: continuous open scalp cap/overlapping hair locks; jacket/car
 QA additions: immutable Claude modules under the QA document directory, with original/relocated hashes; gallery `revision=claude` loads them only for QA; `compare.html` provides original/before/revised controls. The game imports no baseline code. Fixed-time gallery sampling now resets time/phase/moving state every frame and exposes a live items accessor.
 
 Validation at candidate checkpoint: 34 existing + 5 new Node tests PASS (39/39). New mechanisms first failed in the source baseline (5/5 RED); removal probes now detect all 5/5 and restore exact bytes. Source production 2D/Expression/Motion assets remain unchanged. Visual comparison of these candidates is PENDING; A2 is not complete, A3–A7 remain incomplete.
+
+## A3/A4 geometry candidate checkpoint (not visual approval)
+
+A1 Actions run 36962551871 succeeded including Chromium rendering and Meguru 1/5/27 actor measurement. A2 comparison rendering has succeeded; its final artifact is pending. These are software-GPU measurements, not iPhone measurements.
+
+Candidates now add a reusable closed outline loft for the larval starfish, vertical butterfly abdomen and attached wing roots, merged wing veins, chrysalis fold/seam geometry, layered rosette origins, rounded flower petals, varied spore outlines/highlights, six thin-filament seed halos, mushroom underside ribs and rounded ground stones. All use existing archetypes/bones and merged geometry. Dense endpoint spheres on fluffy halos exceeded the template budget and were removed before saving.
+
+Validation: original 34 plus 7 quality tests PASS (41/41); two new tests first failed before implementation. All 7 removal probes detect their intended failures and restore source bytes. Image review of these candidates remains pending. No iPhone performance or Human QA approval is claimed.

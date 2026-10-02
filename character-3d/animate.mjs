@@ -114,7 +114,7 @@ const LOCO = {
   },
   flutter(B, s, m, k, meta, R) {
     R.position.y += meta.hover + Math.sin(s.t * 2.6) * 0.06 * Math.max(k.idle, 0.3);
-    const hz = 7 * s.expr.body.tempo * (k.idle ? 1 : 0.35), f = 0.25 + 0.55 * (0.5 + 0.5 * Math.sin(s.t * hz * TAU / 3));
+    const hz = 7 * s.expr.body.tempo * (k.idle ? 1 : 0.35), f = .12 + (k.idle ? .42 : .2*m) * (0.5 + 0.5 * Math.sin(s.t * hz * TAU / 3));
     B.wingL.rotation.y -= f; B.wingR.rotation.y += f;
     B.body.rotation.x += 0.15 + Math.sin(s.phase * TAU) * 0.05 * m;
   },
