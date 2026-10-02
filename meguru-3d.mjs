@@ -135,8 +135,12 @@ function create3DRenderer(M, o, onLost) {
   function glyphTexture(emoji, wrap, ns) {
     const key = 'g:' + ns + ':' + emoji;
     if (texCache.has(key)) return texCache.get(key);
-    const c = M.glyphSprite(emoji, 128, wrap, ns);
-    const t = c ? { tex: canvasTexture(c), aspect: c.width / c.height, pad: 2 / c.height, src: c, emoji, wrap, ns } : null;
+    // player は wrapCtx が Home の character illustration を canvas へ描く。
+    // iOS Safari ではその canvas を WebGL texture にすると mesh/map/upload が成功扱いでも透明になることがある。
+    // player だけは native glyph の origin-clean canvas を正本にする。住民は pngTexture(ImageBitmap)なので影響しない。
+    const player = ns === 'p';
+    const c = M.glyphSprite(emoji, 128, player ? null : wrap, player ? 'pn' : ns);
+    const t = c ? { tex: canvasTexture(c), aspect: c.width / c.height, pad: 2 / c.height, src: c, emoji, wrap: player ? null : wrap, ns: player ? 'pn' : ns, playerNative: player } : null;
     texCache.set(key, t);
     if (t) glyphs.push(t);
     return t;
