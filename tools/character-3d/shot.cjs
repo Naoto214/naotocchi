@@ -3,16 +3,24 @@
 //   NODE_PATH=$(npm root -g) node tools/character-3d/shot.cjs <out.png> "<gallery の query>" [width] [height]
 // headless の WebGL は SwiftShader(ソフトウェア)。見た目の 確認 用で、iPhone の 速さとは ちがう
 const http = require('http'), fs = require('fs'), path = require('path');
-const pw = require('playwright');
 const ROOT = path.join(__dirname, '..', '..');
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.svg': 'image/svg+xml', '.json': 'application/json', '.woff2': 'font/woff2' };
 function serve(opts = {}) {
   return new Promise((resolve) => {
     const srv = http.createServer((req, res) => {
       let file = path.join(ROOT, decodeURIComponent(req.url.split('?')[0]).replace(/^\/+/, '') || 'index.html');
+      // The current World delegates its input boundary to actorInfo. Reuse that
+      // exact adapter for both measurements; keep old geometry/presenter immutable.
+      if(opts.claude && req.url.split('?')[0] === '/character-3d/qa-actor-info.mjs') {
+        const current=fs.readFileSync(path.join(ROOT,'character-3d/runtime.mjs'),'utf8');
+        const begin=current.indexOf('export function actorInfo('),end=current.indexOf('export function templateCount(');
+        if(begin<0 || end<=begin){res.writeHead(500);res.end('Missing current actor adapter');return;}
+        res.writeHead(200,{'content-type':'text/javascript'});res.end("import SPEC from './spec-esm.mjs';\n"+current.slice(begin,end));return;
+      }
       if(opts.claude && /^\/character-3d\/(spec\.js|spec-esm\.mjs|geometry\.mjs|rig\.mjs|archetypes\.mjs|animate\.mjs|runtime\.mjs)$/.test(req.url.split('?')[0])) {
         file=path.join(ROOT,'docs/qa/character-3d-quality-2026-10-02/claude',path.basename(file));
         let body=fs.readFileSync(file,'utf8').replaceAll('../../../../vendor/','../vendor/');
+        if(path.basename(file)==='runtime.mjs') body+="\nexport { actorInfo } from './qa-actor-info.mjs';\n";
         res.writeHead(200,{'content-type':'text/javascript'});res.end(body);return;
       }
       if (!file.startsWith(ROOT) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) { res.writeHead(404); res.end(); return; }
@@ -23,6 +31,7 @@ function serve(opts = {}) {
   });
 }
 async function shots(list, opts = {}) {
+  const pw = require('playwright');
   const srv = await serve(); const base = `http://127.0.0.1:${srv.address().port}`;
   const browser = await pw.chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
   const out = [];

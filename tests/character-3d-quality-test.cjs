@@ -113,3 +113,20 @@ test('child mushroom eyes and mouth are visible below the cap from gallery front
     }
   }
 });
+
+test('Claude QA uses the current actor input adapter while preserving immutable geometry and presenter',async()=>{
+  const fs=require('node:fs'),{serve}=require('../tools/character-3d/shot.cjs');
+  const server=await serve({claude:true});
+  try{
+    const base='http://127.0.0.1:'+server.address().port;
+    const baseline=fs.readFileSync(path.join(root,'docs/qa/character-3d-quality-2026-10-02/claude/runtime.mjs'),'utf8').replaceAll('../../../../vendor/','../vendor/');
+    const served=await (await fetch(base+'/character-3d/runtime.mjs')).text();
+    assert.ok(served.startsWith(baseline),'immutable presenter retained');
+    assert.match(served,/export \{ actorInfo \} from '\.\/qa-actor-info\.mjs'/,'new World calls the same adapter in both comparisons');
+    const adapter=await (await fetch(base+'/character-3d/qa-actor-info.mjs')).text();
+    const current=fs.readFileSync(path.join(root,'character-3d/runtime.mjs'),'utf8');
+    const exact=current.slice(current.indexOf('export function actorInfo('),current.indexOf('export function templateCount('));
+    assert.ok(adapter.endsWith(exact),'adapter is taken verbatim from current host contract');
+    const normal=await serve();try{assert.equal((await fetch('http://127.0.0.1:'+normal.address().port+'/character-3d/qa-actor-info.mjs')).status,404,'shim only exists on baseline QA server')}finally{normal.close()}
+  }finally{server.close()}
+});

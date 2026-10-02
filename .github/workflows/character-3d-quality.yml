@@ -62,6 +62,24 @@ jobs:
           path: test-results/character-3d-quality
           retention-days: 14
 
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: character-3d-meguru-${{ github.sha }}
+          path: test-results/character-3d-quality/meguru
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: character-3d-measurements-${{ github.sha }}
+          path: |
+            test-results/character-3d-quality/*.tap
+            test-results/character-3d-quality/*.txt
+            test-results/character-3d-quality/perf-claude
+            test-results/character-3d-quality/perf-revised
+          retention-days: 14
+
   regression:
     runs-on: ubuntu-latest
     timeout-minutes: 30
