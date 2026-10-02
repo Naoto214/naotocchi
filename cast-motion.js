@@ -9,6 +9,7 @@
   // together, so their existing collision gaps and image sizes stay intact.
   // layoutHomeCast reserves 16px above the entire cast for this response.
   const GROUP_LIFTS = {
+    clean:[0,-1,-10,-2,0],
     bounce:[0,-2,-16,-2,-10,0], wiggle:[0,-4,-13,-3,-11,0],
     love:[0,-2,-12,-4,-14,0], shy:[0,-1,-10,-2,-6,0],
     munch:[0,-2,-6,-1,-4,0], stretch:[0,-2,-12,-12,-4,0],
@@ -37,7 +38,27 @@
     curious: [REST,[0,0,1.8,0],[0,0,1.8,0],[0,-.5,-.6,0],REST],
     tick: [REST,[0,-.8,-1,0],[0,0,0,0],[0,-.8,1,0],REST],
   };
-  const DURATION = {wiggle:820,bounce:960,shy:1200,love:1150,droop:1300,settle:1200,shake:740,munch:1000,hungry:1250,sulk:1500,doze:1600,stretch:1400,recover:1450,nod:850,curious:1300,tick:1000};
+  // L2 recipes are event-owned. Legacy moods remain ambient/compatibility aliases.
+  const RECIPES = {
+    play: {duration:960, poses:[REST,[0,1,0,.8],[0,-8,.4,0],[0,.6,0,.5],[0,-1,0,0],REST]},
+    ticklish: {duration:820, poses:[REST,[0,.7,0,.6],[-1,-5.5,-.8,.2],[1,-4.5,.8,.2],[-.5,-1,-.4,.2],REST]},
+    wake: {duration:1400, poses:[REST,[0,.8,0,.7],[0,-7,0,0],[0,-7,0,0],[0,-2,0,0],REST]},
+    meal: {duration:1000, poses:[REST,[0,.8,0,.8],[0,-1.2,0,0],[0,.6,0,.6],[0,-6.5,0,0],[0,-1,0,.2],REST]},
+  };
+  const EVENT_SCOPE = {
+    feed:'SELF',overfeed:'SELF',play_with:'SELF',play_with_annoyed:'SELF',wake:'SELF',
+    clean:'GROUP',court:'RELATIONSHIP',partner_new:'RELATIONSHIP',marriage:'RELATIONSHIP',
+  };
+  const EVENT_RECIPES = {feed:{munch:'meal'},play_with:{bounce:'play',wiggle:'ticklish'},wake:{stretch:'wake'}};
+  const L2_BUDGET = 10;
+  function reactionPlan(event, text, kind, primaryBeat) {
+    const scope = EVENT_SCOPE[event];
+    const primary = primaryBeat && kind === 'pet';
+    const mood = scope === 'SELF' && !primary ? 'nod' : reactionFor(event,text,kind);
+    const recipe = primary ? EVENT_RECIPES[event]?.[mood] : null;
+    return {scope,mood,recipe,budget:L2_BUDGET};
+  }
+  const DURATION = {clean:1100,wiggle:820,bounce:960,shy:1200,love:1150,droop:1300,settle:1200,shake:740,munch:1000,hungry:1250,sulk:1500,doze:1600,stretch:1400,recover:1450,nod:850,curious:1300,tick:1000};
   const PERSONALITY = {
     snail: [.8, 1], clock: [1, .85], koala: [1.25, .65],
     sekizou: [1.3, .4], watcher: [1.2, .5], box: [1.15, .6],
@@ -52,7 +73,10 @@
     // still controls partner/companion delivery below.
     if (kind === 'pet') {
       if (event === 'feed') return 'munch';
-      if (event === 'play_with') return /くすぐ|笑いすぎ|わらいすぎ/.test(text) ? 'wiggle' : 'bounce';
+      if (event === 'play_with') {
+        if (/疲れ|つかれ|休憩|休み|休も|やすも|ねむ|眠|置き物|置物/.test(text)) return 'settle';
+        return /くすぐ|笑いすぎ|わらいすぎ/.test(text) ? 'wiggle' : 'bounce';
+      }
       if (event === 'play_with_annoyed') return 'settle';
       if (event === 'medicine_cure') return 'recover';
       if (event === 'medicine_wrong') return 'shake';
@@ -76,11 +100,12 @@
     return 'nod';
   }
 
-  function motionFrames(mood, size = 104, {id = '', direction = 1, gentle = false, maxDisplacement = MOTION_RADIUS} = {}) {
+  function motionFrames(mood, size = 104, {id = '', direction = 1, gentle = false, maxDisplacement = MOTION_RADIUS, recipe = null} = {}) {
     size = Math.max(1, Number(size) || 104);
-    const [tempo, energy] = PERSONALITY[id] || [1, 1];
-    const move = mood === 'bounce' && ['clock','robot_neighbor'].includes(id) ? 'tick' : mood;
-    const poses = (MOVES[move] || MOVES.nod).map(([x,y,turn,squash]) => {
+    const selected = RECIPES[recipe];
+    const [tempo, energy] = selected ? [1,1] : PERSONALITY[id] || [1, 1];
+    const move = !selected && mood === 'bounce' && ['clock','robot_neighbor'].includes(id) ? 'tick' : mood;
+    const poses = (selected?.poses || MOVES[move] || MOVES.nod).map(([x,y,turn,squash]) => {
       const strength = energy * (gentle ? .55 : 1);
       x *= strength * direction; y *= strength; turn *= strength * direction; squash *= strength;
       const radius = size / Math.SQRT2;
@@ -94,7 +119,7 @@
     return {
       poses,
       frames: poses.map(p => ({transform:`translate(${p.x}px, ${p.y}px) rotate(${p.angle}rad) scale(${p.scale})`})),
-      duration: Math.round((DURATION[move] || DURATION.nod) * tempo),
+      duration: Math.round((selected?.duration || DURATION[move] || DURATION.nod) * tempo),
     };
   }
 
@@ -129,11 +154,11 @@
       animation.onfinish = () => { if (active.get(node) === animation) stop(node); };
       return true;
     }
-    function play(actor, mood, {delay = 0, gentle = false, maxDisplacement = null} = {}) {
+    function play(actor, mood, {delay = 0, gentle = false, maxDisplacement = null, recipe = null} = {}) {
       if (!actor?.node) return 0;
       const size = parseFloat(actor.node.style.width) || actor.size || 104;
       const motion = motionFrames(mood, size, {id:actor.id, direction:actor.direction || 1,
-        gentle:gentle || isResting(), maxDisplacement:maxDisplacement ?? (mood === 'recover' ? 16 : getMotionRadius())});
+        recipe, gentle:gentle || isResting(), maxDisplacement:maxDisplacement ?? (mood === 'recover' ? 16 : getMotionRadius())});
       const from = active.has(actor.node) ? currentTransform(actor.node) : null;
       const started = run(actor.node, motion, mood, delay, from);
       // The equipment shares the exact frames, timing and current pose of its pet.
@@ -175,19 +200,33 @@
       speaking.classList.add('cast-speaking');
       // A cure is one physical recovery, not one recovery per conversation line.
       const cure = event === 'medicine_cure';
-      const mood = cure && (!primaryBeat || actor.kind !== 'pet') ? 'nod' : reactionFor(event, text, speaker.kind);
-      const relationshipEvent=['play_with','court','partner_new','marriage'].includes(event);
-      if (!relationshipEvent || actor.kind==='pet') play(actor, mood);
+      const plan = reactionPlan(event,text,speaker.kind,primaryBeat);
+      const mood = cure && (!primaryBeat || actor.kind !== 'pet') ? 'nod' : plan.mood;
+      const relationshipEvent=event === 'play_with' || plan.scope === 'RELATIONSHIP';
+      if (plan.scope !== 'GROUP' && (!relationshipEvent || actor.kind==='pet')) play(actor, mood, {recipe:plan.recipe,maxDisplacement:plan.recipe ? plan.budget : null});
       // Recovery belongs to the cured pet throughout the conversation, even
       // when a later reply's wording resolves to a group-capable mood.
       if (event === 'medicine_cure') {
         const group=getGroup(); if (group) stop(group);
+      } else if (plan.scope === 'SELF') {
+        // clear(false) already owns a short return on a new care action.
+        // Do not cancel that unnamed return and snap the entire cast to rest.
+        const group=getGroup();
+        if (group?.dataset.reaction) {
+          const from=currentTransform(group);
+          if (from !== 'none') {
+            run(group,{frames:[{transform:from},{transform:'translate(0px, 0px) rotate(0rad) scale(1)'}],duration:140},'',0,from);
+            delete group.dataset.reaction;
+          } else stop(group);
+        }
+      } else if (plan.scope === 'GROUP') {
+        if (primaryBeat) playGroup('clean');
       } else if (event !== 'idle' && !relationshipEvent && !getRelationshipTargets().length) playGroup(mood);
       // A quiet listening gesture precedes the next character's spoken reply.
       // All motion is bounded, and all responses use the existing speech clock.
       const friend = find(listener);
-      if (!relationshipEvent && friend && friend.node !== actor.node) {
-        const quietEvent = cure || ['court_fail','breakup','devolve','minigame_bad','medicine_wrong','overfeed','play_with_annoyed','sleep'].includes(event);
+      if (plan.scope !== 'GROUP' && !relationshipEvent && friend && friend.node !== actor.node) {
+        const quietEvent = cure || plan.scope === 'SELF' || ['court_fail','breakup','devolve','minigame_bad','medicine_wrong','overfeed','play_with_annoyed','sleep'].includes(event);
         const response = quietEvent || ['settle','droop','doze','shake','nod','curious'].includes(mood)
           ? 'nod' : mood === 'love' || mood === 'shy' ? 'shy' : 'bounce';
         play(friend, response, {delay:220, gentle:true});
@@ -196,7 +235,7 @@
     }
     function relationship(speaker, elapsed=0) {
       const actor=find(speaker);if(!actor || elapsed>=900)return 0;
-      const group=getGroup();if(group)stop(group);
+      const group=getGroup();if(group && group.dataset.reaction !== 'clean')stop(group);
       const lift=Math.min(2,getMotionRadius());
       const motion={duration:900,frames:[{transform:'scale(1)'},{transform:'scale(.84)'},
         {transform:`translateY(${-lift}px) scale(1)`},{transform:'scale(.94)'},{transform:'scale(1)'}]};
