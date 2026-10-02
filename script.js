@@ -14575,6 +14575,8 @@
     partners: (WORLD_MASTER?.partners || []).map((p) => ({ id: p.id, label: p.label, emoji: (PARTNER_RUNTIME_PROFILE[p.id] || {}).emoji || '💕', firstRegion: p.firstRegion, hook: p.hook || '', asset: p.asset })),
     partnerAsset: (id) => (WORLD_MASTER?.partners || []).find((p) => p.id === id)?.asset || null,
     currentPetKey: () => (state.speciesLine ? `${state.speciesLine}:${currentFormStageIndex()}` : null),
+    // 3D billboard は Home の現在の子と同じ原画を直接 texture 化する。U+E000 は canvas 専用の内部記号なので WebGL へ渡さない。
+    playerAsset: () => currentVisualStage()?.asset || null,
     playerGlyph: () => (CANVAS_ILLUSTRATIONS ? '\uE000' : currentSprite()),
     // イラストの さしかえを とおさない ところ(のりものの えなど)で つかう ふつうの 絵文字。
     // playerGlyph は イラスト よう の しるし(\uE000)を かえす ことが あるので、
