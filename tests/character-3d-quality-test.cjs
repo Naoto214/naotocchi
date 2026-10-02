@@ -76,6 +76,7 @@ test('outline loft preserves side notches and lower lobes with a finite closed t
   const hit=(x,y)=>new g.THREE.Raycaster(new g.THREE.Vector3(x,y,2),new g.THREE.Vector3(0,0,-1)).intersectObject(mesh).length>0;
   assert.ok(hit(.33,.5),'side protrusion');assert.ok(!hit(.33,.36),'notch below protrusion');
   assert.ok(hit(-.19,.09)&&hit(.19,.09),'two lower lobes');
+  for(const sign of [1,-1]){const h=new g.THREE.Raycaster(new g.THREE.Vector3(0,.5,sign*2),new g.THREE.Vector3(0,0,-sign)).intersectObject(mesh)[0];assert.ok(h.face.normal.z*sign>.5,'outward front/back winding');}
 });
 
 test('butterfly abdomen points below its head and wing roots stay attached during reduced idle',async()=>{
@@ -85,4 +86,15 @@ test('butterfly abdomen points below its head and wing roots stay attached durin
   assert.ok(body.boundingBox.min.z>-.25,'not a rearward horizontal abdomen');
   anim.animate(i,{dt:.1,moving:false,animLv:0});const angle=i.bones.wingL.rotation.y;
   anim.animate(i,{dt:.1,moving:false,animLv:0});assert.equal(i.bones.wingL.rotation.y,angle,'reduced idle holds rest angle');
+});
+
+test('bow paw contact stays on the ground for both canine proportions',async()=>{
+  const rt=await mod('runtime.mjs'),anim=await mod('animate.mjs'),{THREE}=await mod('geometry.mjs');
+  for(const [id,stage]of [['dog',4],['shiba',0]]){
+    const i=rt.instantiate(rt.getTemplate(id,stage));anim.animate(i,{dt:0,moving:false,animLv:0});i.root.updateMatrixWorld(true);
+    for(const name of ['legFL','legFR','legBL','legBR']){
+      let min=Infinity;i.bones[name].traverse(o=>{if(!o.isMesh)return;const p=o.geometry.attributes.position;for(let k=0;k<p.count;k++)min=Math.min(min,new THREE.Vector3().fromBufferAttribute(p,k).applyMatrix4(o.matrixWorld).y);});
+      assert.ok(min>=-.012 && min<=.025,`${id}/${name} contact ${min}`);
+    }
+  }
 });

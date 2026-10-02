@@ -35,7 +35,12 @@ async function open(browser, base, save, q = '?meguru3d=1&char3d=1&perf=1') {
   const errors = [];
   page.on('pageerror', (e) => errors.push(String(e.message || e)));
   page.on('console', (m) => { if (m.type() === 'error' || /character 3D/.test(m.text())) errors.push(m.type() + ': ' + m.text()); });
-  await page.addInitScript((s) => localStorage.setItem('naotocchi-save-v1', s), save);
+  await page.addInitScript((s) => {
+    localStorage.setItem('naotocchi-save-v1',s);
+    window.__c3dBoot={frames:[],longTasks:[]};let last=performance.now();
+    function frame(t){if(t<30000){window.__c3dBoot.frames.push(t-last);last=t;requestAnimationFrame(frame);}}requestAnimationFrame(frame);
+    if(typeof PerformanceObserver!=='undefined')try{new PerformanceObserver(list=>{for(const e of list.getEntries())window.__c3dBoot.longTasks.push(e.duration);}).observe({entryTypes:['longtask']});}catch(_){}
+  },save);
   if (THROTTLE > 1) { const cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: THROTTLE }); }
   await page.goto(base + '/index.html' + q);
   await page.locator('.device.ui-home-active').waitFor({ timeout: 60000 });
@@ -47,7 +52,8 @@ async function open(browser, base, save, q = '?meguru3d=1&char3d=1&perf=1') {
   await page.waitForFunction(() => { const r = globalThis.__meguruRun; return r && r.world && (r.renderer.is3D || r.renderer.failed); }, null, { timeout: 60000 });
   // character module の よみこみ と template を 組む ひま(1 frame に 1 つ)
   await page.waitForTimeout(2500);
-  return { ctx, page, errors };
+  const load=await page.evaluate(()=>{const b=window.__c3dBoot,n=performance.getEntriesByType('navigation')[0];return {domContentLoadedMs:n?.domContentLoadedEventEnd,maxFrameMs:Math.max(0,...b.frames.slice(1)),maxLongTaskMs:Math.max(0,...b.longTasks),longTasks:b.longTasks.length};});
+  return {ctx,page,errors,load};
 }
 async function pose(page, p) {
   return page.evaluate((p) => {
@@ -92,9 +98,9 @@ async function walk(page, seconds) {
 }
 
 (async () => {
-  const srv = await serve(); const base = 'http://127.0.0.1:' + srv.address().port;
+  const srv = await serve({claude:args.includes('--claude')}); const base = 'http://127.0.0.1:' + srv.address().port;
   const browser = await pw.chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
-  const R = { when: new Date().toISOString(), headless: 'chromium + SwiftShader(ソフトウェア GPU)', throttle: THROTTLE, shots: {}, checks: {}, perf: {} };
+  const R = { when: new Date().toISOString(), revision: args.includes('--claude') ? 'claude-e12f720' : 'revised', headless: 'chromium + SwiftShader(ソフトウェア GPU)', throttle: THROTTLE, shots: {}, checks: {}, perf: {} };
   const env = { time: 'day', weather: 'sunny', season: 'summer' };
   let prev = null;
   if (PERF_ONLY || SPECIES_ONLY) { try { prev = JSON.parse(fs.readFileSync(path.join(OUT, 'meguru-qa.json'), 'utf8')); Object.assign(R, { shots: prev.shots, checks: prev.checks, perSpecies: prev.perSpecies, errors: prev.errors }); } catch (_) { /* ない */ } }
@@ -194,13 +200,13 @@ async function walk(page, seconds) {
     for (const n of (NO_PERF ? [] : [1, 5, 27])) {
       const { save: sv } = makeSave({ line: 'dog', stageIndex: 3, party: all.slice(0, n - 1), residents: false });
       for (const mode of ['2d', '3d']) {
-        const { page: pg, errors: er } = await open(browser, base, sv, '?meguru3d=1&perf=1' + (mode === '3d' ? '&char3d=1' : ''));
+        const { page: pg, errors: er, load } = await open(browser, base, sv, '?meguru3d=1&perf=1' + (mode === '3d' ? '&char3d=1' : ''));
         if (mode === '3d') await pg.evaluate(() => { const ids = ['dog:4', 'penguin:8', 'clownfish:4', 'man:4', 'butterfly:8', 'dandelion:6', 'mushroom:8', 'starfish:4']; let i = 0; const memo = new WeakMap(); globalThis.__meguruRun.renderer.char3dHooks({ standIn: (a) => { if (!a.follow) return null; if (!memo.has(a)) { const [id, s] = ids[i++ % ids.length].split(':'); memo.set(a, { id, stage: Number(s), exact: false }); } return memo.get(a); } }); });
         await pg.waitForTimeout(mode === '3d' ? 9000 : 1500);   // template を 1 frame 1 つ ずつ
         await pose(pg, { spot: 'entry', yaw: 0, env });
         if (n === 27) R.shots['perf27-' + mode] = await snap(pg, 'perf-27-' + mode);
         R.perf[n + '-' + mode] = await walk(pg, SECONDS);
-        R.perf[n + '-' + mode].errors = er.length;
+        R.perf[n + '-' + mode].errors = er.length; R.perf[n + '-' + mode].load = load;
         await pg.context().close();
       }
     }
@@ -208,7 +214,7 @@ async function walk(page, seconds) {
   // ---- ブラウザでの 合否(この tool は browser test を かねる)
   const C = R.checks, fails = [];
   const must = (ok, msg) => { if (!ok) fails.push(msg); };
-  if (!C || !C.forest3d) { console.log('no checks'); return; }
+  if (!PERF_ONLY && !SPECIES_ONLY) {
   must(C.forest3d.is3D && !C.forest3d.failed && C.forest3d.live.live >= 3, 'forest: world 3D + キャラ 3D(player + しば + ねこ 以上)');
   must(C.after3dOff.live.live === 0 && C.after3dOff.is3D, '3D → 2D: キャラの 3D が のこらない・world は 3D の まま');
   must(C.after3dOn.live.live === C.forest3d.live.live, '2D → 3D: おなじ 数に もどる');
@@ -216,8 +222,10 @@ async function walk(page, seconds) {
   must(C.fallback.worldIs3D && !C.fallback.rendererFailed && C.fallback.shibaBroken && !C.fallback.shiba3d && C.fallback.cat3d && C.fallback.player3d, 'actor 単位 fallback(しば だけ 2D)');
   must(C.regionSwitch.inCity.live === 0 && !C.regionSwitch.inCity.is3D, 'city(main では 2D の world): 3D キャラを のこさない');
   must(C.regionSwitch.backInForest.is3D && C.regionSwitch.backInForest.live > 0 && C.regionSwitch.backInForest.holdersInScene === C.regionSwitch.backInForest.live, 'forest に もどる: scene の 3D = live(ghost なし)');
+  }
   for (const [id, v] of Object.entries(R.perSpecies || {})) must(v.player3d && v.specKey && v.specKey.exact && v.specKey.stage === v.requestedStage && !v.errors.some((e) => /pageerror|Error/.test(e)), 'player ' + id + ': spec が ある 段なら 3D・ない 段(未 pilot archetype)なら 2D');
   must(!(R.errors || []).some((e) => !/forced update failure \(QA\)/.test(e)), 'page の error なし: ' + (R.errors || []).join(' / '));
+  if(!NO_PERF) for(const n of [1,5,27]) { const p=R.perf[n+'-3d']; must(p && p.char3d && p.char3d.live===n && p.errors===0, 'exact 3D actor count '+n); }
   R.verdict = fails.length ? { pass: false, fails } : { pass: true };
   fs.writeFileSync(path.join(OUT, 'meguru-qa.json'), JSON.stringify(R, null, 2));
   console.log('VERDICT', JSON.stringify(R.verdict));

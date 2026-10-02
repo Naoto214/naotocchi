@@ -35,14 +35,18 @@ jobs:
       - name: Render pilot comparison sheets
         run: node tools/character-3d/sheets.cjs --out test-results/character-3d-quality/sheets
       - name: Same-condition Claude vs revised all-stage four-view sheets
-        run: node tools/character-3d/quality-sheets.cjs
+        run: node tools/character-3d/quality-sheets.cjs --matrix
       - uses: actions/upload-artifact@v4
         with:
           name: character-3d-images-${{ github.sha }}
           path: test-results/character-3d-quality/comparisons
           retention-days: 14
       - name: Meguru regression and 1 / 5 / 27 actor measurement
-        run: node tools/character-3d/meguru-qa.cjs --out test-results/character-3d-quality/meguru --seconds 8
+        run: node tools/character-3d/meguru-qa.cjs --out test-results/character-3d-quality/meguru --seconds 8 --no-perf
+      - name: Paired Claude and revised 1 / 5 / 27 actor measurement
+        run: |
+          node tools/character-3d/meguru-qa.cjs --perf-only --claude --out test-results/character-3d-quality/perf-claude --seconds 8
+          node tools/character-3d/meguru-qa.cjs --perf-only --out test-results/character-3d-quality/perf-revised --seconds 8
       - name: Record exact source and runtime
         if: always()
         run: |
@@ -56,4 +60,23 @@ jobs:
         with:
           name: character-3d-quality-${{ github.sha }}
           path: test-results/character-3d-quality
+          retention-days: 14
+
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm test > full-regression.txt 2>&1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: character-3d-regression-${{ github.sha }}
+          path: full-regression.txt
           retention-days: 14

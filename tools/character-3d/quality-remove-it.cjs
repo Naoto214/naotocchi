@@ -9,6 +9,8 @@ const cases=[
   ['bubble positions','character-3d/archetypes.mjs','{pos:[x,y,z]}','{pos:[0,0,0]}','radial bubbles'],
   ['outline depth','character-3d/geometry.mjs','side*depth*Math.sqrt','side*0*Math.sqrt','outline loft'],
   ['butterfly abdomen','character-3d/archetypes.mjs','[0,-B.len,-.02]','[0,0,-B.len]','butterfly abdomen'],
+  ['outward winding','character-3d/geometry.mjs','const winding = area >= 0 ? 1 : -1;','const winding = area >= 0 ? -1 : 1;','outline loft'],
+  ['bow contact','character-3d/animate.mjs','B.body.position.y=lerp(B.body.position.y,targetY,bw);','B.body.position.y=meta.bodyY;','bow paw contact'],
   ['six puffs','character-3d/spec.js',"unit: 'seedPuff', count: 6","unit: 'seedPuff', count: 5",'all six dandelion'],
 ];
 function run(){return cp.spawnSync(process.execPath,['--test','--test-reporter=tap',file],{cwd:root,encoding:'utf8'});}
@@ -23,9 +25,9 @@ try {
     const result=run();
     assert.equal(result.status,1,`${name}: mutation escaped or runner failed\n${result.stdout}${result.stderr}`);
     assert.ok(result.stdout.split('\n').some(l=>l.startsWith('not ok ')&&l.includes(expected)),`${name}: intended test did not fail\n${result.stdout}`);
-    assert.match(result.stdout,/# tests 7\b/,'complete suite must run');
+    assert.match(result.stdout,/# tests 8\b/,'complete suite must run');
     console.log(`${name}: RED (intended test detected removal)`);
     fs.writeFileSync(path.join(root,f),bytes.get(f));
   }
 } finally {restore();}
-console.log('7/7 mutations detected; originals restored');
+console.log('9/9 mutations detected; originals restored');

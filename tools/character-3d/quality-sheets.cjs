@@ -23,5 +23,18 @@ const label=(s,w)=>Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="$
     }
     await sharp({create:{width:cw*9,height:ch+28,channels:3,background:'#efe9dd'}}).composite(composite).jpeg({quality:92}).toFile(path.join(out,`${id}-${String(stage).padStart(2,'0')}-comparison.jpg`));
   }
-  fs.writeFileSync(path.join(out,'manifest.json'),JSON.stringify({baseline:'e12f7208427c2f1035849ab4319c78fc31305c65',sample:{emotion:'normal',moving:false,t:.4,elevation:.18},rows,results},null,2));
+  const emrows=rows.filter(r=>SPEC.PILOT[r.id]);
+  if(args.includes('--matrix')) {
+    const emos=emrows.flatMap(({id,stage})=>['claude','revised'].flatMap(revision=>[false,true].map(walk=>({out:path.join(raw,`${id}-${stage}-${revision}-${walk?'walk':'idle'}-emotions.png`),q:`id=${id}&stage=${stage}&revision=${revision}&layout=emotions&view=34&t=.4&walk=${walk?1:0}&ortho=1&bare=1&el=.18`,w:1400,h:400}))));
+    const er=await shots(emos);if(er.some(r=>r.errors.length))throw new Error(JSON.stringify(er.filter(r=>r.errors.length)));
+    for(const {id,stage}of emrows){
+      const layers=[];let y=0;
+      for(const revision of ['claude','revised'])for(const walk of [false,true]){
+        layers.push({input:label(`${id} ${stage} / ${revision} ${walk?'locomotion':'idle'} / normal positive dislike tired sick`,1400),left:0,top:y});y+=28;
+        layers.push({input:path.join(raw,`${id}-${stage}-${revision}-${walk?'walk':'idle'}-emotions.png`),left:0,top:y});y+=400;
+      }
+      await sharp({create:{width:1400,height:y,channels:3,background:'#efe9dd'}}).composite(layers).jpeg({quality:90}).toFile(path.join(out,`${id}-${String(stage).padStart(2,'0')}-emotions-motion.jpg`));
+    }
+  }
+  fs.writeFileSync(path.join(out,'manifest.json'),JSON.stringify({baseline:'e12f7208427c2f1035849ab4319c78fc31305c65',sample:{emotion:'normal',moving:false,t:.4,elevation:.18},rows,results,emotionMotionMatrix:args.includes('--matrix')},null,2));
 })().catch(e=>{console.error(e);process.exitCode=1;});

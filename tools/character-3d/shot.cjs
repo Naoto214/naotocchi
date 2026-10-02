@@ -6,10 +6,15 @@ const http = require('http'), fs = require('fs'), path = require('path');
 const pw = require('playwright');
 const ROOT = path.join(__dirname, '..', '..');
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.svg': 'image/svg+xml', '.json': 'application/json', '.woff2': 'font/woff2' };
-function serve() {
+function serve(opts = {}) {
   return new Promise((resolve) => {
     const srv = http.createServer((req, res) => {
-      const file = path.join(ROOT, decodeURIComponent(req.url.split('?')[0]).replace(/^\/+/, '') || 'index.html');
+      let file = path.join(ROOT, decodeURIComponent(req.url.split('?')[0]).replace(/^\/+/, '') || 'index.html');
+      if(opts.claude && /^\/character-3d\/(spec\.js|spec-esm\.mjs|geometry\.mjs|rig\.mjs|archetypes\.mjs|animate\.mjs|runtime\.mjs)$/.test(req.url.split('?')[0])) {
+        file=path.join(ROOT,'docs/qa/character-3d-quality-2026-10-02/claude',path.basename(file));
+        let body=fs.readFileSync(file,'utf8').replaceAll('../../../../vendor/','../vendor/');
+        res.writeHead(200,{'content-type':'text/javascript'});res.end(body);return;
+      }
       if (!file.startsWith(ROOT) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) { res.writeHead(404); res.end(); return; }
       res.writeHead(200, { 'content-type': TYPES[path.extname(file)] || 'application/octet-stream' });
       fs.createReadStream(file).pipe(res);

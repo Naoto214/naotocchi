@@ -48,11 +48,20 @@ const LOCO = {
       for (const n of ['legBL', 'legBR']) B[n].rotation.x += -1.25 * w;
       B.head.position.y -= meta.bodyR * 0.25 * w; B.head.rotation.x += 0.18 * w;
     } else if (pose === 'playBow' && w > 0) {
-      B.body.rotation.x += 0.55 * w;
-      B.body.position.y -= 0.13 * w;
-      B.head.rotation.x -= 0.45 * w;
-      for (const n of ['legFL', 'legFR']) { B[n].rotation.x -= 1.12 * w; B[n].position.z += 0.08 * w; }
-      for (const n of ['legBL', 'legBR']) B[n].rotation.x -= 0.12 * w;
+      const bw=w*w*w, bow=.55*bw, pr=meta.pawR, L=meta.legTop;
+      B.body.rotation.x += bow;
+      // Rear paws remain vertical; solve the foreleg angle against the same
+      // ground plane, including the ellipsoidal paw's projected support radius.
+      const targetY = L+pr*.02+meta.bodyR*.25*Math.cos(bow)-meta.bodyLen*.33*Math.sin(bow);
+      B.body.position.y=lerp(B.body.position.y,targetY,bw);
+      const frontY=B.body.position.y-meta.bodyR*.25*Math.cos(bow)-meta.bodyLen*.33*Math.sin(bow);
+      const sole=(a)=>frontY+(-L+pr*.6)*Math.cos(a)-pr*.35*Math.sin(a)-Math.hypot(pr*.62*Math.cos(a),pr*1.3*Math.sin(a));
+      let lo=-Math.PI/2,hi=0;
+      for(let i=0;i<12;i++){const mid=(lo+hi)/2;if(sole(mid)>0)lo=mid;else hi=mid;}
+      const reach=(lo+hi)/2;
+      B.head.rotation.x -= .45*bw;
+      for(const n of ['legFL','legFR']) B[n].rotation.x += reach-bow;
+      for(const n of ['legBL','legBR']) B[n].rotation.x -= bow;
     } else if (pose === 'sit' && w > 0) {
       B.body.rotation.x += -0.5 * w;
       B.body.position.y = lerp(B.body.position.y, meta.legTop * 0.62 + meta.bodyR * 0.35, w);

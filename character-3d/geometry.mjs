@@ -111,12 +111,14 @@ export function scalpCap(radius, { front = 1.05, side = 1.65, back = 2.05, volum
 export function outlineLoft(outline, depth, segments = 48, rings = 6) {
   const curve = new THREE.CatmullRomCurve3(outline.map(([x,y])=>new THREE.Vector3(x,y,0)),true,'centripetal');
   const cx=outline.reduce((s,p)=>s+p[0],0)/outline.length,cy=outline.reduce((s,p)=>s+p[1],0)/outline.length;
+  const area=outline.reduce((sum,p,i)=>{const q=outline[(i+1)%outline.length];return sum+p[0]*q[1]-q[0]*p[1];},0);
+  const winding = area >= 0 ? 1 : -1;
   const pos=[],idx=[],sideSize=(rings+1)*(segments+1);
   for(const side of [1,-1])for(let r=0;r<=rings;r++)for(let i=0;i<=segments;i++){
     const p=curve.getPoint(i/segments),t=r/rings;
     pos.push(lerp(cx,p.x,t),lerp(cy,p.y,t),side*depth*Math.sqrt(1-t*t));
     if(r<rings&&i<segments){const a=(side===1?0:sideSize)+r*(segments+1)+i,b=a+segments+1;
-      if(side===1)idx.push(a,a+1,b,a+1,b+1,b);else idx.push(a,b,a+1,a+1,b,b+1);
+      if(side*winding===1)idx.push(a,b,a+1,a+1,b,b+1);else idx.push(a,a+1,b,a+1,b+1,b);
     }
   }
   const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setIndex(idx);return smoothNormals(g);
