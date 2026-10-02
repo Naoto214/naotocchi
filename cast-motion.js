@@ -158,6 +158,7 @@
 
   function createController({getActors, getGroup = () => null, canAnimate = () => true, isResting = () => false, getMotionRadius = () => MOTION_RADIUS, getRelationshipTargets = () => [], canSpecial = () => true, env = root}) {
     const active = new Map();
+    const baseTransforms = new WeakMap();
     const media = typeof env.matchMedia === 'function' ? env.matchMedia('(prefers-reduced-motion: reduce)') : null;
     let speaking = null, idleTurn = 0;
     const allowed = () => !media?.matches && canAnimate();
@@ -200,7 +201,12 @@
         if (accessory) run(accessory.node, motion, mood, delay, from);
       }
       // Ring layout remains owned by the cast solver; only carry its owner's translation.
-      if(started && actor.attachment)run(actor.attachment,{duration:motion.duration,frames:motion.poses.map(p=>({transform:`translate(${p.x}px, ${p.y}px)`}))},mood,delay);
+      if(started && actor.attachment) {
+        const node=actor.attachment;
+        if(!active.has(node))baseTransforms.set(node,currentTransform(node));
+        const base=baseTransforms.get(node);
+        run(node,{duration:motion.duration,frames:motion.poses.map(p=>({transform:`translate(${p.x}px, ${p.y}px)${base && base!=='none' ? ' '+base : ''}`}))},mood,delay);
+      }
       if(started && mood==='recover')active.get(actor.node).motionLevel=3;
       return started ? motion.duration + delay : 0;
     }
@@ -223,7 +229,7 @@
         const from = !immediate && allowed() ? currentTransform(node) : null;
         stop(node);
         if (from && from !== 'none') {
-          run(node, {frames:[{transform:from},{transform:'translate(0px, 0px) rotate(0rad) scale(1)'}],duration:140}, '', 0, from);
+          run(node, {frames:[{transform:from},{transform:baseTransforms.get(node) || 'translate(0px, 0px) rotate(0rad) scale(1)'}],duration:140}, '', 0, from);
           delete node.dataset.reaction;
         }
       }

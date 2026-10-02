@@ -138,3 +138,18 @@ test('evolution retains the existing age dialogue while changing only physical e
  };
  assert.deepEqual(lines('evolve'),lines('age'));
 });
+test('ring motion and soft interruption preserve the CSS-owned base transform',()=>{
+ const h=harness(),s=h.api.state();s.partner={id:'forest_bear',label:'くま',affection:80,married:true};h.api.render();
+ const ring=h.get('partnerCompanion').querySelector('.partner-ring');ring.style.transform='scale(1.2)'; // CSS computed-style contract in the lightweight DOM.
+ h.api.speakEvent('marriage',{petText:'うれしい',partnerChance:0,companionChance:0});h.advance(1);
+ assert.ok(ring.animations.at(-1).frames.every(f=>f.transform.endsWith('scale(1.2)')));
+ ring.style.transform='matrix(1.2, 0, 0, 1.2, 0, -5)';h.api.clearConversationTimers();
+ assert.ok(ring.animations.at(-1).frames.at(-1).transform.endsWith('scale(1.2)'));
+});
+test('temporary pupa appearance uses rigid personality without changing pet identity or save',()=>{
+ const h=harness(),s=h.api.state();s.speciesLine='cat';s.itemLife.temporaryForm={line:'butterfly',index:4,originLine:'cat',originIndex:h.api.currentFormStageIndex(),expiresAt:h.api.now()+300000};h.api.render();
+ assert.equal(h.api.currentVisualForm().line,'butterfly');assert.equal(h.api.currentVisualForm().index,4);
+ const before=JSON.stringify(s.itemLife.temporaryForm);h.api.speakEvent('feed',{petText:'ごはん',partnerChance:0,companionChance:0});h.advance(1);
+ assert.ok(h.get('petSprite').animations.at(-1).frames.every(f=>/scale\(1\)/.test(f.transform)));
+ assert.equal(s.speciesLine,'cat');assert.equal(JSON.stringify(s.itemLife.temporaryForm),before);
+});

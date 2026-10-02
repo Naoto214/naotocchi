@@ -14080,7 +14080,8 @@
         actors.push({kind:'companion',id:node.dataset.companionId,node,direction});
       }
     }
-    for(const actor of actors)actor.personality=window.NaotocchiCastMotion?.personalityFor(actor.id,actor.kind==='pet'?currentFormStageIndex():0,WORLD_MASTER?.motionPersonality);
+    const visualForm=currentVisualForm();
+    for(const actor of actors)actor.personality=window.NaotocchiCastMotion?.personalityFor(actor.kind==='pet'?visualForm.line:actor.id,actor.kind==='pet'?visualForm.index:0,WORLD_MASTER?.motionPersonality);
     return actors;
   }
 

@@ -22,11 +22,16 @@ const {chromium,webkit}=require('playwright');
      for(const node of document.querySelectorAll('[data-companion-id]'))if(node.closest('#companionLeft,#companionRight'))actors.push({kind:'companion',id:node.dataset.companionId,node});
      const c=m.createController({getActors:()=>actors,getGroup:()=>$('castResponse'),getMotionRadius:()=>m.motionRadiusFor(actors.length-2)});
      const initial=actors.map(a=>[a.node.style.left,a.node.style.top,a.node.style.width,a.node.style.height]);
+     const ring=actors.find(a=>a.kind==='partner')?.attachment;
+     const ringScale=ring ? new DOMMatrix(getComputedStyle(ring).transform).a : null;
      let samples=0;
      for(const personality of Object.keys(m.PERSONALITIES)){
       for(const a of actors)a.personality=personality;
       for(const event of ['evolve','transform','companion_new','partner_new','marriage']){
        c.special(event,actors.find(a=>a.kind==='companion'));
+       if(ring){for(const a of ring.getAnimations()){a.pause();a.currentTime=a.effect.getTiming().duration*.6;}
+        if(Math.abs(new DOMMatrix(getComputedStyle(ring).transform).a-ringScale)>.001)throw Error('ring base scale changed');
+       }
        for(const a of actors){for(const animation of a.node.getAnimations()){
         animation.pause();animation.currentTime=animation.effect.getTiming().duration*.6;
         const matrix=new DOMMatrix(getComputedStyle(a.node).transform);

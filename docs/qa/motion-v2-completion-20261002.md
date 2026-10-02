@@ -60,3 +60,9 @@ Reduced motion produces no WAAPI movement; existing speaker/expression/relations
 ## Post-publication human QA
 
 Open the normal Pages game. Review idle, hunger/sickness/fatigue, feed/play/clean/wake/recover, stage evolution, transform, recruitment, partner formation/marriage, small/full casts, personalities and Expression/Relationship cues together. Small visual preferences become separate follow-up PRs. No artificial production QA controls or saved debug state are introduced.
+
+## Independent review and repairs
+
+One independent whole-branch review found two important presentation regressions: ring WAAPI replaced the approved CSS scale; temporary forms used the underlying species personality. Both were reproduced with failing assertions, repaired, then209 related motion/emotion/Relationship/form tests passed with0 failures. The ring now composes its CSS-owned base transform into motion and soft return, and personality uses currentVisualForm while actor identity/recover inputs remain unchanged. Browser CI additionally checks the real computed ring scale.
+
+Initial full npm run:2922 PASS/0 FAIL. A final full run was started after all review repairs; the initial result is not represented as final repaired-code verification. No new gameplay ruling or aesthetic adjustment was required. No review findings were deferred.
