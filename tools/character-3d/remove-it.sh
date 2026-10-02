@@ -67,7 +67,7 @@ run "J reduced motion 削除" character-3d/animate.mjs \
 run "K 立て看板を かくさない(2D と 3D が かさなる)" meguru-3d.mjs \
   "      m.visible = false;
       const fp = cp.footprint(a);" "      const fp = cp.footprint(a);"
-run "L #368 の canonical を 無視(住人の きもちを 自前で)" meguru-3d.mjs \
+run "L #368 の canonical を 無視(住人の きもちを 自前で)" character-3d/runtime.mjs \
   "(a.expr && a.expr.emotion) || " ""
 run "M 成長を 一様 scale だけに(どの 段も 01 の 形を 大きく する だけ)" character-3d/archetypes.mjs \
   "  return fn(sp, \`\${id}:\${stage}\`);" "  { const r = fn(SPEC.stageSpec(id, (SPEC.STAGE_KEYS[id] || [stage])[0]), \`\${id}:\${stage}\`); r.root.scale.setScalar(1 + (stage - 1) * 0.12); return r; }"

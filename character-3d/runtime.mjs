@@ -45,6 +45,21 @@ export function getTemplate(id, stage, mode = 'C', hooks = {}) {
   TEMPLATES.set(key, tpl);
   return tpl;
 }
+// めぐるの actor → presenter の 入力(meguru-3d.mjs は きもちの 語彙を もたない ので ここで きめる)
+//   ctx: { playerKey(): 'line:0はじまりの段', force: QA の 強制表情, hooks: { standIn } }
+//   きもち: #368(Resident Expression)が つけた canonical(a.expr.emotion)→ なければ 住民生活の きもち を #368 の canonicalEmotion で
+export function actorInfo(a, isPlayer, dt, ctx = {}) {
+  let ref;
+  if (isPlayer) { const k = typeof ctx.playerKey === 'function' ? ctx.playerKey() : null; if (!k) return null; const [line, idx] = String(k).split(':'); ref = { line, stage: Number(idx) }; }
+  else ref = a.kind === 'form' ? { line: a.line, stage: a.stage } : { kind: a.kind, id: a.id };
+  let specKey = SPEC.specKeyFor(ref);
+  // QA だけ: 計測の ための 代役(pilot に ない actor を pilot の model で えがいて 27 体を はかる)
+  if (!specKey && ctx.hooks && typeof ctx.hooks.standIn === 'function') specKey = ctx.hooks.standIn(a, isPlayer);
+  if (!specKey) return null;
+  const R368 = typeof globalThis !== 'undefined' ? globalThis.NaotocchiResidentExpression : null;
+  const emotion = ctx.force || (a.expr && a.expr.emotion) || (isPlayer ? 'normal' : SPEC.canonicalEmotion(a.emotion, R368));
+  return { specKey, emotion, isPlayer, dt, moving: isPlayer ? !!a.moving : undefined };
+}
 export function templateCount() { return TEMPLATES.size; }
 export function clearTemplates() { TEMPLATES.clear(); }
 

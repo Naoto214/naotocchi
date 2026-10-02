@@ -28,7 +28,7 @@ export function createMeguru3D(M, opts = {}) {
 
 function createHybridRenderer(M, o, opts) {
   const r2d = M.createCanvasRenderer(o);
-  let r3d = null, failed = false, active = false, fadeOn = true;
+  let r3d = null, failed = false, active = false, fadeOn = true, diagWant = false, failReason = null;
   let ctx = o.ctx, W = o.W, H = o.H;
   const want = (view) => {
     const w = view && view.world;
@@ -37,7 +37,7 @@ function createHybridRenderer(M, o, opts) {
   // 実機の 計測(&perf=1): フレームの 間かく(avg / p95 / p99 / 60ms 超)と 3D の draw call・三角形を 画面の 左上に
   const gaps = []; let lastNow = 0, animLv = 2;
   // Character 3D Pilot(QA: &char3d=1)。セーブには のこさない。r3d を つくりなおしても おなじ 設定
-  const char3dOpts = { on: !!opts.char3d, playerKey: opts.playerKey || null, faceMode: opts.char3dFace || 'C', emotion: null, hooks: {} };
+  const char3dOpts = { on: !!opts.char3d, playerKey: opts.playerKey || null, faceMode: opts.char3dFace || 'C', force: null, hooks: {} };
   function perfText(now) {
     if (lastNow) { gaps.push(now - lastNow); if (gaps.length > 600) gaps.shift(); }
     lastNow = now;
@@ -52,7 +52,7 @@ function createHybridRenderer(M, o, opts) {
     ctx.restore();
   }
   function fail(err) {
-    failed = true;
+    failed = true; failReason = String((err && err.message) || err || 'unknown');
     if (r3d) { try { r3d.destroy(); } catch (_) { /* もう こわれて いる */ } r3d = null; }
     setActive(false);
     if (opts.onFallback) opts.onFallback(err);
@@ -67,7 +67,7 @@ function createHybridRenderer(M, o, opts) {
     draw(view, now) {
       if (want(view)) {
         try {
-          if (!r3d) { r3d = create3DRenderer(M, Object.assign({}, o, { ctx, W, H, char3d: char3dOpts }), () => fail(new Error('webgl context lost'))); r3d.setOccluderFade(fadeOn); r3d.setAnimLevel(animLv); }
+          if (!r3d) { r3d = create3DRenderer(M, Object.assign({}, o, { ctx, W, H, char3d: char3dOpts }), () => fail(new Error('webgl context lost'))); r3d.setOccluderFade(fadeOn); r3d.setAnimLevel(animLv); r3d.setDiag(diagWant); }
           setActive(true);
           r3d.draw(view, now);
           if (opts.perf) perfText(now);
@@ -92,11 +92,14 @@ function createHybridRenderer(M, o, opts) {
     // ---- Character 3D Pilot の QA まど(セーブに のこさない)
     setChar3D(on) { char3dOpts.on = !!on; if (r3d) r3d.char3dChanged(); },
     get char3d() { return char3dOpts.on; },
-    setChar3DEmotion(e) { char3dOpts.emotion = e || null; },          // 表情を 強制(通常の カメラ距離で 読めるか の QA)
+    setChar3DForce(name) { char3dOpts.force = name || null; },          // QA: 3D の 表情を 強制(通常の カメラ距離で 読めるか)
     setChar3DFace(m) { char3dOpts.faceMode = m; if (r3d) r3d.char3dChanged(); },
     char3dHooks(h) { char3dOpts.hooks = h || {}; if (r3d) r3d.char3dChanged(); },   // QA: 1 actor だけ こわす(actor 単位 fallback)
     char3dReact(kind) { return r3d ? r3d.char3dReact(kind) : 0; },
     get char3dPresenter() { return r3d ? r3d.charPresenter : null; },
+    // QA: 3D の キャラの しらべ もの(表情 QA が つかう)。ふだんは off
+    setDiag3d(on) { diagWant = !!on; if (r3d) r3d.setDiag(diagWant); },
+    diag3d() { return { active, failed, failReason, webgl2: webgl2Available(), detail: r3d && active ? r3d.diag() : null }; },
   };
   return api;
 }
@@ -143,21 +146,9 @@ function create3DRenderer(M, o, onLost) {
     charPresenter.setScene(sc); charPresenter.setAnimLevel(animLv);
     return charPresenter;
   }
-  // actor → 3D の spec(pilot に ない ものは null = 立て看板のまま)
-  function charInfo(a, isPlayer, dt) {
-    const S = charMod.SPEC;
-    let ref;
-    if (isPlayer) { const k = typeof C3.playerKey === 'function' ? C3.playerKey() : null; if (!k) return null; const [line, idx] = String(k).split(':'); ref = { line, stage: Number(idx) }; }
-    else ref = a.kind === 'form' ? { line: a.line, stage: a.stage } : { kind: a.kind, id: a.id };
-    let specKey = S.specKeyFor(ref);
-    // QA だけ: 計測の ための 代役(pilot に ない actor を pilot の model で えがいて 27 体を はかる)
-    if (!specKey && C3.hooks && typeof C3.hooks.standIn === 'function') specKey = C3.hooks.standIn(a, isPlayer);
-    if (!specKey) return null;
-    // きもち: #368(Resident Expression)が つけた canonical が あれば それ、なければ 住民生活の きもち を canonical へ
-    const R368 = typeof window !== 'undefined' ? window.NaotocchiResidentExpression : null;
-    const emotion = C3.emotion || (a.expr && a.expr.emotion) || (isPlayer ? 'normal' : S.canonicalEmotion(a.emotion, R368));
-    return { specKey, emotion, isPlayer, dt, moving: isPlayer ? !!a.moving : undefined };
-  }
+  // actor → 3D の spec と 見た目の 入力(pilot に ない ものは null = 立て看板のまま)。
+  // きもち の 名まえ・#368 との つなぎ は character-3d/runtime.mjs の actorInfo だけが もつ(この renderer は もたない)
+  function charInfo(a, isPlayer, dt) { return charMod.actorInfo(a, isPlayer, dt, C3); }
   const camera = new THREE.PerspectiveCamera(50, 1, 20, 5200);
   camera.rotation.order = 'YXZ';
   const texCache = new Map();
@@ -187,17 +178,63 @@ function create3DRenderer(M, o, onLost) {
       if (c && c !== t.src) { t.src = c; t.tex.image = c; t.tex.needsUpdate = true; }
     }
   }
-  // キャラの PNG(読みこみ前は 絵文字で まつ。読めたら さしかえる)
+  // キャラの PNG(読みこみ前は 絵文字で まつ。読めたら さしかえる)。
+  // 表情(sprite.asset)は 2D と おなじ spriteFor から くる(きもちの 名まえは ここに ない)。表情の えが まだ よめない あいだは base(ふつう)の
+  // texture。texture は asset ごとに 1 まい だけ つくって つかいまわす(表情が かわっても decode しなおさず、map を さしかえる だけ)
+  //
+  // Safari(WebKit)対策: decoding='async' の <img> を そのまま texImage2D に わたすと、decode 前は 透明な 画素が
+  // GPU に あがる ことが ある(alphaTest で ぜんぶ すてられ、キャラだけ きえる。Chromium は upload で 同期 decode する ので おきない)。
+  // そこで img.decode() の あとで canvas に うつし、画素が 入って いる ことを たしかめてから CanvasTexture に する。
+  // それまでは base → 絵文字 → 色の まる の 順で、かならず なにかを 出す
   function actorTexture(a) {
     const s = M.spriteFor(a, 'front');
-    const asset = s && s.asset;
-    if (asset) {
+    for (const asset of [s && s.asset, s && s.base]) {
+      if (!asset) continue;
       const key = 'a:' + asset;
       if (texCache.has(key)) return texCache.get(key);
-      const im = M.imageFor(asset);
-      if (im) { const t = { tex: new THREE.Texture(im), aspect: im.naturalWidth / im.naturalHeight, pad: 0 }; t.tex.colorSpace = THREE.SRGBColorSpace; t.tex.needsUpdate = true; texCache.set(key, t); return t; }
+      const t = pngTexture(asset);
+      if (t) { texCache.set(key, t); return t; }
     }
-    return glyphTexture(a.emoji || '🐾', o.wrapCtx || null, 'c');
+    return glyphTexture(a.emoji || '🐾', o.wrapCtx || null, 'c') || solidTexture();
+  }
+  // asset → { state: 'wait' | 'fetching' | 'ready' | 'error', px, t }
+  // iOS Safari の CDN preview では <img> → canvas が origin-clean でない場合がある。
+  // その状態を px=-1 のまま ready 扱いすると CanvasTexture の GPU upload が失敗しても mesh/map は存在し、
+  // 「影だけ・住民本体なし」になる。actor PNG は fetch → Blob → ImageBitmap を正本経路にして canvas を通さない。
+  const pngState = new Map();
+  function pngTexture(asset) {
+    let st = pngState.get(asset);
+    if (!st) { st = { state: 'wait', tries: 0, px: null, t: null, err: null }; pngState.set(asset, st); }
+    if (st.state === 'ready') return st.t;
+    if (st.state !== 'wait') return null;
+    st.state = 'fetching';
+    const fail = (e) => { st.state = 'error'; st.err = String((e && e.message) || e); };
+    const fromBlob = async () => {
+      try {
+        const res = await fetch(asset, { cache: 'force-cache', credentials: 'same-origin' });
+        if (!res.ok) throw new Error('actor png HTTP ' + res.status);
+        const blob = await res.blob();
+        if (typeof createImageBitmap !== 'function') throw new Error('createImageBitmap unavailable');
+        const bm = await createImageBitmap(blob, { imageOrientation: 'flipY' });
+        if (!bm || !bm.width || !bm.height) throw new Error('empty ImageBitmap');
+        const tex = new THREE.Texture(bm);
+        tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 2; tex.needsUpdate = true;
+        st.px = 'bitmap';
+        st.t = { tex, aspect: bm.width / bm.height, pad: 0, src: bm, asset, bitmap: true };
+        st.state = 'ready';
+      } catch (e) { fail(e); }
+    };
+    fromBlob();
+    return null;
+  }
+  // さいごの 手: 絵文字も つくれない ときの 色の まる(きえる より まし)
+  let solidTex = null;
+  function solidTexture() {
+    if (solidTex) return solidTex;
+    const c = doc.createElement('canvas'); c.width = c.height = 64;
+    const g = c.getContext('2d'); g.fillStyle = '#f4a261'; g.beginPath(); g.arc(32, 36, 26, 0, TAU); g.fill(); g.lineWidth = 4; g.strokeStyle = '#7a4a1f'; g.stroke();
+    solidTex = { tex: canvasTexture(c), aspect: 1, pad: 0, src: c, solid: true };
+    return solidTex;
   }
 
   function skyTexture(top, bottom) {
@@ -512,8 +549,46 @@ function create3DRenderer(M, o, onLost) {
     built.shadows.instanceMatrix.needsUpdate = true;
     fadeOccluders(built, camera.position.x, -camera.position.z, fade ? player : null);
     renderer.render(scene, camera);
+    if (diagOn) collectDiag(view);
     drawOverlay(view, camera);
     if (t0) { frameMs.push(performance.now() - t0); if (frameMs.length > 240) frameMs.shift(); }
+  }
+
+  // ---- 実機の しらべ もの(表情 QA などが setDiag(true) した ときだけ。ふだんは なにも しない) ----
+  // 住民 1 体ごとに: どの え を たのんで いるか / decode / texture が GPU に あがったか / どの fallback か / material と visible / 視錐台の なかか
+  let diagOn = false, lastDiag = null;
+  const frustum = new THREE.Frustum(), pmat = new THREE.Matrix4();
+  let glInfo = null;
+  function glInfoOf() {
+    if (glInfo) return glInfo;
+    let gpu = '';
+    try { const g = renderer.getContext(), ext = g.getExtension('WEBGL_debug_renderer_info'); gpu = ext ? String(g.getParameter(ext.UNMASKED_RENDERER_WEBGL)) : String(g.getParameter(g.RENDERER)); } catch (_) { /* しらべられない */ }
+    glInfo = { webgl2: !!renderer.capabilities.isWebGL2, maxTex: renderer.capabilities.maxTextureSize, gpu: gpu.slice(0, 60), dpr: renderer.getPixelRatio() };
+    return glInfo;
+  }
+  function collectDiag(view) {
+    pmat.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse); frustum.setFromProjectionMatrix(pmat);
+    const rows = []; let visible = 0, inFrustum = 0, ready = 0;
+    for (const a of view.residents || []) {
+      const m = built.actors.get(a), s = M.spriteFor(a, 'front') || {}, tx = m ? m.userData.tex : null;
+      const using = !tx ? 'none' : tx.solid ? 'solid' : tx.emoji ? 'glyph' : tx.asset === s.asset ? 'asset' : tx.asset === s.base ? 'base' : 'other';
+      const sa = pngState.get(s.asset), sb = pngState.get(s.base);
+      const up = !!(tx && tx.tex && renderer.properties.get(tx.tex).__webglTexture);
+      const vis = !!(m && m.visible), fr = vis && frustum.intersectsObject(m);
+      if (vis) visible++; if (fr) inFrustum++; if (up) ready++;
+      rows.push({ key: a.key, asset: s.asset || null, base: s.base || null, using, assetState: sa ? sa.state : 'none', baseState: sb ? sb.state : 'none', px: sa ? sa.px : null,
+        err: (sa && sa.err) || (sb && sb.err) || null, textureReady: up, map: !!(m && m.material.map), visible: vis, inFrustum: fr,
+        dist: m ? Math.round(m.position.distanceTo(camera.position)) : null });
+    }
+    const pm = built.actors.get(view.player), ptx = pm ? pm.userData.tex : null;
+    const pup = !!(ptx && ptx.tex && renderer.properties.get(ptx.tex).__webglTexture);
+    const pvis = !!(pm && pm.visible), pfr = pvis && frustum.intersectsObject(pm);
+    const playerDiag = { using: !ptx ? 'none' : ptx.solid ? 'solid' : ptx.emoji ? 'glyph' : ptx.asset ? 'asset' : 'other',
+      textureReady: pup, map: !!(pm && pm.material.map), visible: pvis, inFrustum: pfr,
+      dist: pm ? Math.round(pm.position.distanceTo(camera.position)) : null };
+    const rect = (el) => { try { const r = el.getBoundingClientRect(); return [Math.round(r.width), Math.round(r.height), Math.round(r.left), Math.round(r.top)]; } catch (_) { return null; } };
+    lastDiag = { residents: rows.length, meshes: built.actors.size, visible, inFrustum, textureReady: ready, rows, player: playerDiag, gl: glInfoOf(),
+      fog: [Math.round(built.sc.fog.near), Math.round(built.sc.fog.far)], textures: renderer.info.memory.textures, layout: { gl: rect(gl), c2d: rect(canvas2d) }, glDisplay: gl.style.display || '' };
   }
 
   // カメラと player の あいだの かたい 物は すかす(2D の「てまえの 物は すける」と おなじ やくわり)。
@@ -595,10 +670,14 @@ function create3DRenderer(M, o, onLost) {
     loseContext() { const ext = renderer.getContext().getExtension('WEBGL_lose_context'); if (ext) ext.loseContext(); },
     setOccluderFade(on) { fade = !!on; },
     setAnimLevel(v) { animLv = v; if (charPresenter) charPresenter.setAnimLevel(v); },
+    setDiag(on) { diagOn = !!on; if (!diagOn) lastDiag = null; },
+    diag() { return lastDiag; },
     destroy() {
       if (built) disposeScene(built);
       charPresenter = null;
       for (const t of texCache.values()) if (t && t.tex) t.tex.dispose();
+      for (const st of pngState.values()) if (st.t && st.t.tex) st.t.tex.dispose();
+      pngState.clear(); if (solidTex) { solidTex.tex.dispose(); solidTex = null; }
       texCache.clear(); renderer.dispose();
       if (gl.parentNode) gl.parentNode.removeChild(gl);
       canvas2d.style.zIndex = ''; canvas2d.style.position = '';

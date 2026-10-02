@@ -1,0 +1,646 @@
+[
+  {
+    "name": "2d-normal",
+    "query": "",
+    "errors": [],
+    "spot": "bright1",
+    "count": 6,
+    "faces": [
+      {
+        "key": "form:butterfly:1",
+        "kind": "form",
+        "emotion": "normal",
+        "expression": "normal",
+        "asset": "assets/characters/butterfly/02.png",
+        "base": "assets/characters/butterfly/02.png",
+        "fallback": null
+      },
+      {
+        "key": "form:butterfly:3",
+        "kind": "form",
+        "emotion": "normal",
+        "expression": "normal",
+        "asset": "assets/characters/butterfly/04.png",
+        "base": "assets/characters/butterfly/04.png",
+        "fallback": null
+      },
+      {
+        "key": "form:butterfly:5",
+        "kind": "form",
+        "emotion": "normal",
+        "expression": "normal",
+        "asset": "assets/characters/butterfly/06.png",
+        "base": "assets/characters/butterfly/06.png",
+        "fallback": null
+      },
+      {
+        "key": "form:beetle:0",
+        "kind": "form",
+        "emotion": "normal",
+        "expression": "normal",
+        "asset": "assets/characters/beetle/01.png",
+        "base": "assets/characters/beetle/01.png",
+        "fallback": null
+      },
+      {
+        "key": "form:beetle:2",
+        "kind": "form",
+        "emotion": "happy",
+        "expression": "happy",
+        "asset": "assets/characters/expressions/beetle/03-happy.png",
+        "base": "assets/characters/beetle/03.png",
+        "fallback": null
+      },
+      {
+        "key": "form:stagbeetle:2",
+        "kind": "form",
+        "emotion": "normal",
+        "expression": "normal",
+        "asset": "assets/characters/stagbeetle/03.png",
+        "base": "assets/characters/stagbeetle/03.png",
+        "fallback": null
+      },
+      {
+        "key": "form:world_tree:5",
+        "kind": "form",
+        "emotion": "normal",
+        "expression": "normal",
+        "asset": "assets/characters/world_tree/06.png",
+        "base": "assets/characters/world_tree/06.png",
+        "fallback": null
+      }
+    ],
+    "talk": {
+      "line": "きみと いると たのしいな",
+      "event": "talk",
+      "emotion": "happy",
+      "expression": "happy",
+      "key": "form:beetle:2"
+    },
+    "is3D": false,
+    "failed3d": false,
+    "canvas": {
+      "x": 26,
+      "y": 97.78125,
+      "w": 338,
+      "h": 533
+    },
+    "expr": {
+      "on": true,
+      "force": null,
+      "strict": false
+    }
+  },
+  {
+    "name": "2d-positive",
+    "query": "?mgexprforce=positive",
+    "errors": [],
+    "spot": "bright1",
+    "count": 6,
+    "faces": [
+      {
+        "key": "form:butterfly:1",
+        "kind": "form",
+        "emotion": "positive",
+        "expression": "happy",
+        "asset": "assets/characters/expressions/butterfly/02-happy.png",
+        "base": "assets/characters/butterfly/02.png",
+        "fallback": null
+      },
+      {
+        "key": "form:butterfly:3",
+        "kind": "form",
+        "emotion": "positive",
+        "expression": "happy",
+        "asset": "assets/characters/expressions/butterfly/04-happy.png",
+        "base": "assets/characters/butterfly/04.png",
+        "fallback": null
+      },
+      {
+        "key": "form:butterfly:5",
+        "kind": "form",
+        "emotion": "positive",
+        "expression": "happy",
+        "asset": "assets/characters/expressions/butterfly/06-happy.png",
+        "base": "assets/characters/butterfly/06.png",
+        "fallback": null
+      },
+      {
+        "key": "form:beetle:0",
+        "kind": "form",
+        "emotion": "positive",
+        "expression": "happy",
+        "asset": "assets/characters/expressions/beetle/01-happy.png",
+        "base": "assets/characters/beetle/01.png",
+        "fallback": null
+      },
+      {
+        "key": "form:beetle:2",
+        "kind": "form",
+        "emotion": "positive",
+        "expression": "happy",
+        "asset": "assets/characters/expressions/beetle/03-happy.png",
+        "base": "assets/characters/beetle/03.png",
+        "fallback": null
+      },
+      {
+        "key": "form:stagbeetle:2",
+        "kind": "form",
+        "emotion": "positive",
+        "expression": "happy",
+        "asset": "assets/characters/expressions/stagbeetle/03-happy.png",
+        "base": "assets/characters/stagbeetle/03.png",
+        "fallback": null
+      },
+      {
+        "key": "form:world_tree:5",
+        "kind": "form",
+        "emotion": "positive",
+        "expression": "happy",
+        "asset": "assets/characters/expressions/world_tree/06-happy.png",
+        "base": "assets/characters/world_tree/06.png",
+        "fallback": null
+      }
+    ],
+    "talk": {
+      "line": "はなしかけてくれて うれしい！",
+      "event": "talk",
+      "emotion": "positive",
+      "expression": "happy",
+      "key": "form:beetle:2"
+    },
+    "is3D": false,
+    "failed3d": false,
+    "canvas": {
+      "x": 26,
+      "y": 97.78125,
+      "w": 338,
+      "h": 533
+    },
+    "expr": {
+      "on": true,
+      "force": "positive",
+      "strict": false
+    }
+  },
+  {
+    "name": "2d-dislike",
+    "query": "?mgexprforce=dislike",
+    "errors": [],
+    "spot": "bright1",
+    "count": 6,
+    "faces": [
+      {
+        "key": "form:butterfly:1",
+        "kind": "form",
+        "emotion": "dislike",
+        "expression": "sulky",
+        "asset": "assets/characters/expressions/butterfly/02-sulky.png",
+        "base": "assets/characters/butterfly/02.png",
+        "fallback": null
+      },
+      {
+        "key": "form:butterfly:3",
+        "kind": "form",
+        "emotion": "dislike",
+        "expression": "sulky",
+        "asset": "assets/characters/expressions/butterfly/04-sulky.png",
+        "base": "assets/characters/butterfly/04.png",
+        "fallback": null
+      },
+      {
+        "key": "form:butterfly:5",
+        "kind": "form",
+        "emotion": "dislike",
+        "expression": "sulky",
+        "asset": "assets/characters/expressions/butterfly/06-sulky.png",
+        "base": "assets/characters/butterfly/06.png",
+        "fallback": null
+      },
+      {
+        "key": "form:beetle:0",
+        "kind": "form",
+        "emotion": "dislike",
+        "expression": "sulky",
+        "asset": "assets/characters/expressions/beetle/01-sulky.png",
+        "base": "assets/characters/beetle/01.png",
+        "fallback": null
+      },
+      {
+        "key": "form:beetle:2",
+        "kind": "form",
+        "emotion": "dislike",
+        "expression": "sulky",
+        "asset": "assets/characters/expressions/beetle/03-sulky.png",
+        "base": "assets/characters/beetle/03.png",
+        "fallback": null
+      },
+      {
+        "key": "form:stagbeetle:2",
+        "kind": "form",
+        "emotion": "dislike",
+        "expression": "sulky",
+        "asset": "assets/characters/expressions/stagbeetle/03-sulky.png",
+        "base": "assets/characters/stagbeetle/03.png",
+        "fallback": null
+      },
+      {
+        "key": "form:world_tree:5",
+        "kind": "form",
+        "emotion": "dislike",
+        "expression": "sulky",
+        "asset": "assets/characters/expressions/world_tree/06-sulky.png",
+        "base": "assets/characters/world_tree/06.png",
+        "fallback": null
+      }
+    ],
+    "talk": {
+      "line": "ねむかったのに…",
+      "event": "talk",
+      "emotion": "dislike",
+      "expression": "sulky",
+      "key": "form:beetle:0"
+    },
+    "is3D": false,
+    "failed3d": false,
+    "canvas": {
+      "x": 26,
+      "y": 97.78125,
+      "w": 338,
+      "h": 533
+    },
+    "expr": {
+      "on": true,
+      "force": "dislike",
+      "strict": false
+    }
+  },
+  {
+    "name": "2d-sick",
+    "query": "?mgexprforce=sick",
+    "errors": [],
+    "spot": "bright1",
+    "count": 6,
+    "faces": [
+      {
+        "key": "form:butterfly:1",
+        "kind": "form",
+        "emotion": "sick",
+        "expression": "sick",
+        "asset": "assets/characters/expressions/butterfly/02-sick.png",
+        "base": "assets/characters/butterfly/02.png",
+        "fallback": null
+      },
+      {
+        "key": "form:butterfly:3",
+        "kind": "form",
+        "emotion": "sick",
+        "expression": "sick",
+        "asset": "assets/characters/expressions/butterfly/04-sick.png",
+        "base": "assets/characters/butterfly/04.png",
+        "fallback": null
+      },
+      {
+        "key": "form:butterfly:5",
+        "kind": "form",
+        "emotion": "sick",
+        "expression": "sick",
+        "asset": "assets/characters/expressions/butterfly/06-sick.png",
+        "base": "assets/characters/butterfly/06.png",
+        "fallback": null
+      },
+      {
+        "key": "form:beetle:0",
+        "kind": "form",
+        "emotion": "sick",
+        "expression": "sick",
+        "asset": "assets/characters/expressions/beetle/01-sick.png",
+        "base": "assets/characters/beetle/01.png",
+        "fallback": null
+      },
+      {
+        "key": "form:beetle:2",
+        "kind": "form",
+        "emotion": "sick",
+        "expression": "sick",
+        "asset": "assets/characters/expressions/beetle/03-sick.png",
+        "base": "assets/characters/beetle/03.png",
+        "fallback": null
+      },
+      {
+        "key": "form:stagbeetle:2",
+        "kind": "form",
+        "emotion": "sick",
+        "expression": "sick",
+        "asset": "assets/characters/expressions/stagbeetle/03-sick.png",
+        "base": "assets/characters/stagbeetle/03.png",
+        "fallback": null
+      },
+      {
+        "key": "form:world_tree:5",
+        "kind": "form",
+        "emotion": "sick",
+        "expression": "sick",
+        "asset": "assets/characters/expressions/world_tree/06-sick.png",
+        "base": "assets/characters/world_tree/06.png",
+        "fallback": null
+      }
+    ],
+    "talk": {
+      "line": "うう… ぐあいが わるい…",
+      "event": "talk",
+      "emotion": "sick",
+      "expression": "sick",
+      "key": "form:beetle:2"
+    },
+    "is3D": false,
+    "failed3d": false,
+    "canvas": {
+      "x": 26,
+      "y": 97.78125,
+      "w": 338,
+      "h": 533
+    },
+    "expr": {
+      "on": true,
+      "force": "sick",
+      "strict": false
+    }
+  },
+  {
+    "name": "2d-tired",
+    "query": "?mgexprforce=tired",
+    "errors": [],
+    "spot": "bright1",
+    "count": 6,
+    "faces": [
+      {
+        "key": "form:butterfly:1",
+        "kind": "form",
+        "emotion": "tired",
+        "expression": "tired",
+        "asset": "assets/characters/expressions/butterfly/02-tired.png",
+        "base": "assets/characters/butterfly/02.png",
+        "fallback": null
+      },
+      {
+        "key": "form:butterfly:3",
+        "kind": "form",
+        "emotion": "tired",
+        "expression": "tired",
+        "asset": "assets/characters/expressions/butterfly/04-tired.png",
+        "base": "assets/characters/butterfly/04.png",
+        "fallback": null
+      },
+      {
+        "key": "form:butterfly:5",
+        "kind": "form",
+        "emotion": "tired",
+        "expression": "tired",
+        "asset": "assets/characters/expressions/butterfly/06-tired.png",
+        "base": "assets/characters/butterfly/06.png",
+        "fallback": null
+      },
+      {
+        "key": "form:beetle:0",
+        "kind": "form",
+        "emotion": "tired",
+        "expression": "tired",
+        "asset": "assets/characters/expressions/beetle/01-tired.png",
+        "base": "assets/characters/beetle/01.png",
+        "fallback": null
+      },
+      {
+        "key": "form:beetle:2",
+        "kind": "form",
+        "emotion": "tired",
+        "expression": "tired",
+        "asset": "assets/characters/expressions/beetle/03-tired.png",
+        "base": "assets/characters/beetle/03.png",
+        "fallback": null
+      },
+      {
+        "key": "form:stagbeetle:2",
+        "kind": "form",
+        "emotion": "tired",
+        "expression": "tired",
+        "asset": "assets/characters/expressions/stagbeetle/03-tired.png",
+        "base": "assets/characters/stagbeetle/03.png",
+        "fallback": null
+      },
+      {
+        "key": "form:world_tree:5",
+        "kind": "form",
+        "emotion": "tired",
+        "expression": "tired",
+        "asset": "assets/characters/expressions/world_tree/06-tired.png",
+        "base": "assets/characters/world_tree/06.png",
+        "fallback": null
+      }
+    ],
+    "talk": {
+      "line": "ねむく なってきた…",
+      "event": "talk",
+      "emotion": "tired",
+      "expression": "tired",
+      "key": "form:beetle:2"
+    },
+    "is3D": false,
+    "failed3d": false,
+    "canvas": {
+      "x": 26,
+      "y": 97.78125,
+      "w": 338,
+      "h": 533
+    },
+    "expr": {
+      "on": true,
+      "force": "tired",
+      "strict": false
+    }
+  },
+  {
+    "name": "3d-positive",
+    "query": "?meguru3d=1&mgexprforce=positive",
+    "errors": [],
+    "spot": "bright1",
+    "count": 6,
+    "faces": [
+      {
+        "key": "form:butterfly:1",
+        "kind": "form",
+        "emotion": "positive",
+        "expression": "happy",
+        "asset": "assets/characters/expressions/butterfly/02-happy.png",
+        "base": "assets/characters/butterfly/02.png",
+        "fallback": null
+      },
+      {
+        "key": "form:butterfly:3",
+        "kind": "form",
+        "emotion": "positive",
+        "expression": "happy",
+        "asset": "assets/characters/expressions/butterfly/04-happy.png",
+        "base": "assets/characters/butterfly/04.png",
+        "fallback": null
+      },
+      {
+        "key": "form:butterfly:5",
+        "kind": "form",
+        "emotion": "positive",
+        "expression": "happy",
+        "asset": "assets/characters/expressions/butterfly/06-happy.png",
+        "base": "assets/characters/butterfly/06.png",
+        "fallback": null
+      },
+      {
+        "key": "form:beetle:0",
+        "kind": "form",
+        "emotion": "positive",
+        "expression": "happy",
+        "asset": "assets/characters/expressions/beetle/01-happy.png",
+        "base": "assets/characters/beetle/01.png",
+        "fallback": null
+      },
+      {
+        "key": "form:beetle:2",
+        "kind": "form",
+        "emotion": "positive",
+        "expression": "happy",
+        "asset": "assets/characters/expressions/beetle/03-happy.png",
+        "base": "assets/characters/beetle/03.png",
+        "fallback": null
+      },
+      {
+        "key": "form:stagbeetle:2",
+        "kind": "form",
+        "emotion": "positive",
+        "expression": "happy",
+        "asset": "assets/characters/expressions/stagbeetle/03-happy.png",
+        "base": "assets/characters/stagbeetle/03.png",
+        "fallback": null
+      },
+      {
+        "key": "form:world_tree:5",
+        "kind": "form",
+        "emotion": "positive",
+        "expression": "happy",
+        "asset": "assets/characters/expressions/world_tree/06-happy.png",
+        "base": "assets/characters/world_tree/06.png",
+        "fallback": null
+      }
+    ],
+    "talk": {
+      "line": "えへへ、なんだか うれしい",
+      "event": "talk",
+      "emotion": "positive",
+      "expression": "happy",
+      "key": "form:beetle:0"
+    },
+    "is3D": true,
+    "failed3d": false,
+    "canvas": {
+      "x": 26,
+      "y": 97.78125,
+      "w": 338,
+      "h": 533
+    },
+    "expr": {
+      "on": true,
+      "force": "positive",
+      "strict": false
+    }
+  },
+  {
+    "name": "3d-sick",
+    "query": "?meguru3d=1&mgexprforce=sick",
+    "errors": [],
+    "spot": "bright1",
+    "count": 6,
+    "faces": [
+      {
+        "key": "form:butterfly:1",
+        "kind": "form",
+        "emotion": "sick",
+        "expression": "sick",
+        "asset": "assets/characters/expressions/butterfly/02-sick.png",
+        "base": "assets/characters/butterfly/02.png",
+        "fallback": null
+      },
+      {
+        "key": "form:butterfly:3",
+        "kind": "form",
+        "emotion": "sick",
+        "expression": "sick",
+        "asset": "assets/characters/expressions/butterfly/04-sick.png",
+        "base": "assets/characters/butterfly/04.png",
+        "fallback": null
+      },
+      {
+        "key": "form:butterfly:5",
+        "kind": "form",
+        "emotion": "sick",
+        "expression": "sick",
+        "asset": "assets/characters/expressions/butterfly/06-sick.png",
+        "base": "assets/characters/butterfly/06.png",
+        "fallback": null
+      },
+      {
+        "key": "form:beetle:0",
+        "kind": "form",
+        "emotion": "sick",
+        "expression": "sick",
+        "asset": "assets/characters/expressions/beetle/01-sick.png",
+        "base": "assets/characters/beetle/01.png",
+        "fallback": null
+      },
+      {
+        "key": "form:beetle:2",
+        "kind": "form",
+        "emotion": "sick",
+        "expression": "sick",
+        "asset": "assets/characters/expressions/beetle/03-sick.png",
+        "base": "assets/characters/beetle/03.png",
+        "fallback": null
+      },
+      {
+        "key": "form:stagbeetle:2",
+        "kind": "form",
+        "emotion": "sick",
+        "expression": "sick",
+        "asset": "assets/characters/expressions/stagbeetle/03-sick.png",
+        "base": "assets/characters/stagbeetle/03.png",
+        "fallback": null
+      },
+      {
+        "key": "form:world_tree:5",
+        "kind": "form",
+        "emotion": "sick",
+        "expression": "sick",
+        "asset": "assets/characters/expressions/world_tree/06-sick.png",
+        "base": "assets/characters/world_tree/06.png",
+        "fallback": null
+      }
+    ],
+    "talk": {
+      "line": "ちょっと よこに なりたい…",
+      "event": "talk",
+      "emotion": "sick",
+      "expression": "sick",
+      "key": "form:beetle:2"
+    },
+    "is3D": true,
+    "failed3d": false,
+    "canvas": {
+      "x": 26,
+      "y": 97.78125,
+      "w": 338,
+      "h": 533
+    },
+    "expr": {
+      "on": true,
+      "force": "sick",
+      "strict": false
+    }
+  }
+]

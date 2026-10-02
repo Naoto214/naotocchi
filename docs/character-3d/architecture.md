@@ -146,7 +146,7 @@ cluster(胞子・わたげ)は 子の 数 × 目 の draw call を ふやさな�
 - あたり: 既存の actor collider の まま(visual mesh を physics に しない)。
 - LOD: 住人は player から 1500 まで 3D、それより 遠くは 立て看板。player と party は いつも 3D。
 - player: frustum culling しない・住人の あとで えがく。木の うしろ は World の 既存 occluder fade(すかし)と 協調(キャラ自身を 透明に しない)。
-- QA まど(セーブしない): `renderer.setChar3D(on)`・`setChar3DEmotion(e)`・`setChar3DFace(m)`・`char3dHooks({ failUpdate, failBuild, standIn })`・`char3dPresenter.stats()`。
+- QA まど(セーブしない): `renderer.setChar3D(on)`・`setChar3DForce(e)`・`setChar3DFace(m)`・`char3dHooks({ failUpdate, failBuild, standIn })`・`char3dPresenter.stats()`。
 
 ## 11. Fallback
 

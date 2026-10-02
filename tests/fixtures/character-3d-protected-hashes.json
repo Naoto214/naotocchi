@@ -1,5 +1,5 @@
 {
- "base": "cc4dce9eae9c6cd6997606213271d63540413ad8",
+ "base": "0b0a6b30e8e098472b2fa965604f4901874942e3",
  "note": "Character 3D Pilot は これらを 1 バイトも かえない(tests/character-3d-test.cjs)",
  "groups": {
   "assets/characters/expressions": {
@@ -44,7 +44,7 @@
   },
   "meguru.js": {
    "count": 1,
-   "sha1": "c6ce74a7cc82c4b5a6c7feb65f58932e2a0c09cc"
+   "sha1": "4241ceac38f64e518901cf976d794f4f0a49f8be"
   }
  }
 }

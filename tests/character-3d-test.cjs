@@ -164,13 +164,11 @@ test('11. sick: > < の 目・なみの 口・青い たて線・ふるえ・つ
   assert.ok(s.xRange > base.xRange + 0.005, 'ふるえる');
 });
 test('12. canonical emotion と 意味が 一致(#368 の 語彙・Home の Expression PNG の 対応)', () => {
-  // #368(feat/meguru-resident-expression)の resident-expression.js の 写し。#368 が merge されたら その module と くらべる
-  const R368_EMOTIONS = ['normal', 'positive', 'dislike', 'tired', 'sleeping', 'strained', 'wantsPlay', 'sick'];
-  const R368_STAGE = { normal: 'normal', positive: 'happy', dislike: 'sulky', tired: 'tired', sleeping: 'sleeping', strained: 'strained', wantsPlay: 'wantsPlay', sick: 'sick' };
-  const R368_LIFE = { normal: 'normal', happy: 'positive', unhappy: 'dislike', tired: 'tired', sleeping: 'sleeping', strained: 'strained', wantsPlay: 'wantsPlay', positive: 'positive', dislike: 'dislike', sick: 'sick' };
-  assert.deepEqual([...SPEC.CANONICAL_EMOTIONS], R368_EMOTIONS);
-  assert.deepEqual({ ...SPEC.REFERENCE_EXPRESSION }, R368_STAGE);
-  for (const [k, v] of Object.entries(R368_LIFE)) assert.equal(SPEC.canonicalEmotion(k), v, k);
+  // #368 は main に merge 済み: 写しでは なく 正本の resident-expression.js と くらべる
+  const R368 = require('../resident-expression.js');
+  assert.deepEqual([...SPEC.CANONICAL_EMOTIONS], [...R368.EMOTIONS]);
+  assert.deepEqual({ ...SPEC.REFERENCE_EXPRESSION }, { ...R368.EXPRESSION_FOR.stage });
+  for (const [k, v] of Object.entries(R368.LIFE_EMOTION)) { assert.equal(SPEC.canonicalEmotion(k), v, k); assert.equal(SPEC.canonicalEmotion(k, R368), v, k + '(#368 経由)'); }
   assert.equal(SPEC.canonicalEmotion('zzz'), 'normal');
   assert.equal(SPEC.canonicalEmotion('x', { canonicalEmotion: () => 'tired' }), 'tired', '#368 が あれば それに まかせる(複製しない)');
   for (const e of SPEC.CANONICAL_EMOTIONS) assert.ok(SPEC.EXPRESSION_3D[e], '3D の 数字: ' + e);
@@ -336,13 +334,25 @@ test('26. party の actor も 3D(archetype 再利用: しば・ねこ)。model �
   assert.deepEqual(frame(p, [[actor({ key: 'player' }), info('dog', 4, { isPlayer: true })], ...party], 0), [true, true, true]);
   assert.equal(p.instanceOf(party[0][0]).tpl.rig.archetype, 'quadruped');
 });
-test('27. 住人の presentation 境界: 住人の 生活の きもち → canonical → 3D。#368 の expr が あれば それを 優先', () => {
+test('27. 住人の presentation 境界: 住人の 生活の きもち → canonical → 3D。#368 の expr が あれば それを 優先', async () => {
   const src = M3D();
-  assert.match(src, /const emotion = C3\.emotion \|\| \(a\.expr && a\.expr\.emotion\) \|\| \(isPlayer \? 'normal' : S\.canonicalEmotion\(a\.emotion, R368\)\);/);
-  assert.match(src, /ref = a\.kind === 'form' \? \{ line: a\.line, stage: a\.stage \} : \{ kind: a\.kind, id: a\.id \};/);
+  const rt = fs.readFileSync(path.join(ROOT, 'character-3d/runtime.mjs'), 'utf8');
+  assert.match(rt, /const emotion = ctx\.force \|\| \(a\.expr && a\.expr\.emotion\) \|\| \(isPlayer \? 'normal' : SPEC\.canonicalEmotion\(a\.emotion, R368\)\);/);
+  assert.match(rt, /ref = a\.kind === 'form' \? \{ line: a\.line, stage: a\.stage \} : \{ kind: a\.kind, id: a\.id \};/);
+  assert.match(src, /function charInfo\(a, isPlayer, dt\) \{ return charMod\.actorInfo\(a, isPlayer, dt, C3\); \}/, 'meguru-3d.mjs は きもちを 解かず runtime に わたす だけ(#368 の 契約)');
+  // 実際に: #368 の expr が あれば それ、なければ 生活の きもち → canonical、player は normal、QA の force が 最優先
+  const { rt: RT } = await mods();
+  const k = () => 'dog:3';
+  assert.equal(RT.actorInfo({ kind: 'form', line: 'dog', stage: 3, emotion: 'happy' }, false, 0.016, {}).emotion, 'positive');
+  assert.equal(RT.actorInfo({ kind: 'form', line: 'dog', stage: 3, emotion: 'happy', expr: { emotion: 'tired' } }, false, 0.016, {}).emotion, 'tired');
+  assert.equal(RT.actorInfo({ moving: true }, true, 0.016, { playerKey: k }).emotion, 'normal');
+  assert.equal(RT.actorInfo({ moving: true }, true, 0.016, { playerKey: k, force: 'sick' }).emotion, 'sick');
+  assert.equal(RT.actorInfo({ kind: 'companion', id: 'tanuki' }, false, 0.016, {}), null);
   // 住人の 生活の きもち(meguru.js の RESIDENT_EMOTIONS)は ぜんぶ canonical へ
   for (const e of ['normal', 'happy', 'tired', 'sleeping', 'unhappy', 'wantsPlay', 'strained']) assert.ok(SPEC.CANONICAL_EMOTIONS.includes(SPEC.canonicalEmotion(e)), e);
-  assert.ok(!/resident-expression\.js/.test(src) && !fs.existsSync(path.join(ROOT, 'resident-expression.js')), '#368 の runtime を 複製 / 取りこみ しない');
+  // #368 の runtime は index.html が よむ 正本 だけ(window.NaotocchiResidentExpression)。3D 側は 複製 / 別に 読みこみ しない
+  assert.ok(!/resident-expression\.js/.test(src), 'meguru-3d.mjs は resident-expression.js を 読みこまない');
+  for (const f of fs.readdirSync(path.join(ROOT, 'character-3d'))) assert.ok(!/function canonicalEmotion\(lifeEmotion\)|EXPRESSION_FOR\s*=/.test(fs.readFileSync(path.join(ROOT, 'character-3d', f), 'utf8')), f + ' に #368 の runtime の 複製 が ない');
 });
 test('28. reduced motion: はねる・ゆれる・reaction を とめる。あるく 足は のこす(半分)', async () => {
   const { anim } = await mods();

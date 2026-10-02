@@ -124,11 +124,11 @@ async function walk(page, seconds) {
     R.shots.forestSide3d = await snap(page, 'forest-side-3d');
     // 表情(通常の カメラ距離)
     for (const e of ['normal', 'positive', 'dislike', 'tired', 'sick']) {
-      await page.evaluate((e) => globalThis.__meguruRun.renderer.setChar3DEmotion(e), e);
+      await page.evaluate((e) => globalThis.__meguruRun.renderer.setChar3DForce(e), e);
       await pose(page, { spot: 'entry', yaw: 0, heading: Math.PI, faceCam: true, env });   // こちらを むく(カメラは うしろの まま)
       R.shots['emotion-' + e] = await snap(page, 'gameplay-emotion-' + e);
     }
-    await page.evaluate(() => globalThis.__meguruRun.renderer.setChar3DEmotion(null));
+    await page.evaluate(() => globalThis.__meguruRun.renderer.setChar3DForce(null));
     // 森の 住人(キノコ・ちょう)の そば
     await pose(page, { near: { line: 'mushroom', stage: 7 }, yaw: 0, env });
     R.shots.residentMushroom = await snap(page, 'forest-resident-mushroom-3d');
