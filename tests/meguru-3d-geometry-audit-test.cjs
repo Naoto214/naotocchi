@@ -99,6 +99,9 @@ test('GA-6. 季節 / 天気 は 2D の 正本に あわせる: 針葉樹の 雪 
   assert.match(SRC, /const col = curEnv\.season === 'autumn' \? 'rgba\(226,150,70,1\)' : curEnv\.season === 'spring' \? 'rgba\(255,200,215,1\)'/);
   assert.match(SRC3D, /sk === 'autumn' \? 'rgba\(226,150,70,1\)' : sk === 'spring' \? 'rgba\(255,200,215,1\)' : sk === 'winter' \? 'rgba\(198,202,180,1\)' : 'rgba\(150,196,110,1\)'/);
   assert.match(SRC, /anim: \{ counts: \[7, 13, 21\]/); assert.match(SRC3D, /const LEAF_N = \[7, 13, 21\]/);
+  // こな雪(ゆき の 地区の 2D の ambLayer 'snow')も 3D に
+  assert.match(SRC, /\} else if \(kind === 'snow'\) \{ \/\/ こな雪/);
+  assert.match(SRC3D, /if \(!under && amb === 'snow'\) \{/);
   // 秋の かんむり: 2D の 大木 / leafyTree / bigtrunk(ジャングル のぞく)の 秋の いろ。ジャングル / 色つきの 木は そのまま
   assert.match(SRC, /const c0 = sh\(autumn \? '#c8843a' : '#3f7a3a'\), c1 = sh\(autumn \? '#9a5f28'/);
   assert.match(SRC, /sh\(autumn && !jungle \? '#c8843a'/);

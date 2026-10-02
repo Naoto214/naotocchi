@@ -1205,6 +1205,13 @@ function create3DRenderer(M, o, onLost) {
       }
       ctx.restore();
     }
+    // こな雪(2D の ambLayer 'snow': ゆき の 地区。かぜに ながされて よこへ すべる。かず = 2D の 2 倍の 組)
+    if (!under && amb === 'snow') {
+      const m2 = (LEAF_N[animLv] || 0) * 2, t = (now || 0) * 0.001, nw = now || 0, wrap = (v, sp) => ((v % sp) + sp) % sp;
+      ctx.save(); ctx.fillStyle = '#ffffff';
+      for (let i = 0; i < m2; i++) { const y = wrap(i * 89 + nw * (0.03 + (i % 5) * 0.012), H + 30) - 15, x = wrap(i * 173 + Math.sin(t * 0.6 + i) * 26 + nw * 0.012, W + 30) - 15; ctx.globalAlpha = 0.22 + 0.4 * ((i % 3) / 2); ctx.beginPath(); ctx.arc(x, y, 1.2 + (i % 3) * 0.7, 0, TAU); ctx.fill(); }
+      ctx.restore();
+    }
     const p0 = view.player;
     for (const a of [...(view.party || []), ...(view.residents || [])]) {
       const d = Math.hypot(a.x - p0.x, a.z - p0.z);
