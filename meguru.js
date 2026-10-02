@@ -8075,7 +8075,7 @@
           const d3 = rendererRef && typeof rendererRef.diag3d === 'function' ? rendererRef.diag3d() : null;
           return { on: true, choice, force: sim.expressionConfig.force, count: list.length, expected: keys.length, keys, residents: list, is3D: !!(rendererRef && rendererRef.is3D), failed3d: !!(rendererRef && rendererRef.failed), region: sim.world.regionId, module: !!X, diag3d: d3 };
         }
-        let detail = true;
+        let detail = false;
         function render() {
           const st = status();
           const lines = [`表情QA ${st.is3D ? '3D' : '2D'} ${st.region} 住民 ${st.count}/${st.expected} きもち=${st.choice}`];
@@ -8087,14 +8087,19 @@
           }
           const rowOf = d ? new Map(d.rows.map((r) => [r.key, r])) : null;
           for (const r of st.residents) {
-            lines.push(`${r.label}[${r.family}] ${r.requested}→${r.canonical}→${r.expression || '-'} ${r.basis}${r.fallback ? '!' + r.fallback : ''} ${r.loaded ? '✓' : '…'}`);
-            if (detail) lines.push(`  asset ${short(r.asset)} / base ${short(r.base)}`);
             const g = rowOf && rowOf.get(r.key);
+            if (!detail) {
+              lines.push(`${r.label} ${r.basis}${r.fallback ? '!' + r.fallback : ''}${g ? ' 3D:' + g.using + '/' + g.assetState + ' ' + (g.visible && g.inFrustum ? '✓' : '×') : ''}`);
+              continue;
+            }
+            lines.push(`${r.label}[${r.family}] ${r.requested}→${r.canonical}→${r.expression || '-'} ${r.basis}${r.fallback ? '!' + r.fallback : ''} ${r.loaded ? '✓' : '…'}`);
+            lines.push(`  asset ${short(r.asset)} / base ${short(r.base)}`);
             if (g) lines.push(`  3D use=${g.using} png=${g.assetState}${g.px != null ? '(' + g.px + ')' : ''} base=${g.baseState} tex=${g.textureReady ? '✓' : '×'} map=${g.map ? '✓' : '×'} vis=${g.visible ? '✓' : '×'} fr=${g.inFrustum ? '✓' : '×'} d=${g.dist}${g.err ? ' err=' + g.err : ''}`);
           }
           if (statusEl) statusEl.textContent = lines.join('\n');
         }
         // ボタン(ブラウザだけ。Node の harness では DOM が ないので つくらない)
+        if (panel && panel.style) { panel.style.maxHeight = '38vh'; panel.style.overflowY = 'auto'; panel.style.webkitOverflowScrolling = 'touch'; }
         if (panel && typeof document !== 'undefined' && document.createElement && typeof panel.insertBefore === 'function') {
           for (const em of CHOICES) { const b = document.createElement('button'); b.type = 'button'; b.className = 'mg-tap-btn'; if (b.setAttribute) b.setAttribute('data-em', em); b.textContent = em; if (b.style) b.style.cssText = 'min-height:24px;padding:2px 7px;font-size:11px;'; b.addEventListener('click', () => { apply(em); render(); }); panel.insertBefore(b, statusEl); buttons.push([b, em]); }
         }
