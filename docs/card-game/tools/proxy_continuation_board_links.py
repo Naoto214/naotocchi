@@ -12,9 +12,13 @@ import proxy_continuation_state as state
 def validate_board_references(envelope):
     payload=envelope['legacy_continuation'];game=payload['game_state'];references=[];seen=set()
     for link in payload['activation_zone']:
+        identifier=link.get('link_id')
+        if not isinstance(identifier,str) or not identifier or identifier in seen:
+            raise ValueError('invalid or duplicate activation link ID')
+        seen.add(identifier)
         if link.get('source_zone')!='board':continue
-        actor=link.get('actor');source=link.get('source_instance_id');identifier=link.get('link_id')
-        if link.get('action_type')!='activate_board_ability' or actor not in game['players'] or not isinstance(identifier,str) or not identifier or identifier in seen:
+        actor=link.get('actor');source=link.get('source_instance_id')
+        if link.get('action_type')!='activate_board_ability' or actor not in game['players']:
             raise ValueError('invalid or duplicate board ability reference')
         board=game['players'][actor]['board']
         if source not in [board['main'],*board['companions'],board['partner']] or source is None:
@@ -22,7 +26,7 @@ def validate_board_references(envelope):
         card=game['cards'][source]
         if link.get('card_id')!=card['card_id'] or link.get('card_copy_id')!=card['card_copy_id']:
             raise ValueError('board ability card identity differs')
-        seen.add(identifier);references.append(link)
+        references.append(link)
     return references
 
 

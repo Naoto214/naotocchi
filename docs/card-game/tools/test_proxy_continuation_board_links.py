@@ -39,5 +39,23 @@ class BoardLinkTests(unittest.TestCase):
             with links.scope():state.validate(self.e)
         self.assertIs(state.validate,original)
         with self.assertRaises(ValueError):state.validate(self.e)
+    def test_hand_and_board_link_ids_share_one_namespace(self):
+        for reverse in (False,True):
+            e=copy.deepcopy(self.e);payload=e['legacy_continuation'];game=payload['game_state']
+            source='A-033#1';game['players']['A']['deck'].remove(source)
+            card=game['cards'][source]
+            hand_link=dict(payload['activation_zone'][0],
+                action_type='use_item',source_instance_id=source,
+                card_id=card['card_id'],card_copy_id=card['card_copy_id'],
+                payment={'time':1},source_references=['77-current-items-card-text-draft.md#I-c_coin2'])
+            hand_link.pop('source_zone')
+            payload['activation_zone'].append(hand_link)
+            if reverse:payload['activation_zone'].reverse()
+            with self.subTest(reverse=reverse),links.scope():
+                with self.assertRaises(ValueError):state.validate(e)
+                with self.assertRaises(ValueError):state.state_hash(e)
+                hand_link['link_id']+='-distinct'
+                state.validate(e)
+                self.assertEqual(len(payload['activation_zone']),2)
 
 if __name__=='__main__':unittest.main()
