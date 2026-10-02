@@ -1,0 +1,325 @@
+{
+  "source_shadow_sha256": "6302b0ad28a2cde3b8344bd76acd934f4b7bf9e8f67d90ec0f9f2dda166f8714",
+  "planned": 313,
+  "grouped_by_path": {
+    "probe-01-a-first": {
+      "planned": 85,
+      "compared": 65,
+      "unsupported": 20,
+      "selection_difference": {
+        "count": 34,
+        "denominator": 65,
+        "rate": 0.5230769230769231
+      },
+      "supported_shadow_choices": {
+        "legacy_107_114_116": {
+          "valid": 65,
+          "reached": 65,
+          "true_stop": {
+            "count": 0,
+            "denominator": 65,
+            "rate": 0.0
+          },
+          "strategic_unresolved": {
+            "count": 2,
+            "denominator": 65,
+            "rate": 0.03076923076923077
+          },
+          "fallback": {
+            "count": 2,
+            "denominator": 65,
+            "rate": 0.03076923076923077
+          }
+        },
+        "resource_value_pilot_v1": {
+          "valid": 65,
+          "reached": 65,
+          "true_stop": {
+            "count": 0,
+            "denominator": 65,
+            "rate": 0.0
+          },
+          "strategic_unresolved": {
+            "count": 46,
+            "denominator": 65,
+            "rate": 0.7076923076923077
+          },
+          "fallback": {
+            "count": 46,
+            "denominator": 65,
+            "rate": 0.7076923076923077
+          }
+        }
+      }
+    },
+    "probe-01-b-first": {
+      "planned": 72,
+      "compared": 55,
+      "unsupported": 17,
+      "selection_difference": {
+        "count": 29,
+        "denominator": 55,
+        "rate": 0.5272727272727272
+      },
+      "supported_shadow_choices": {
+        "legacy_107_114_116": {
+          "valid": 55,
+          "reached": 55,
+          "true_stop": {
+            "count": 0,
+            "denominator": 55,
+            "rate": 0.0
+          },
+          "strategic_unresolved": {
+            "count": 2,
+            "denominator": 55,
+            "rate": 0.03636363636363636
+          },
+          "fallback": {
+            "count": 2,
+            "denominator": 55,
+            "rate": 0.03636363636363636
+          }
+        },
+        "resource_value_pilot_v1": {
+          "valid": 55,
+          "reached": 55,
+          "true_stop": {
+            "count": 0,
+            "denominator": 55,
+            "rate": 0.0
+          },
+          "strategic_unresolved": {
+            "count": 42,
+            "denominator": 55,
+            "rate": 0.7636363636363637
+          },
+          "fallback": {
+            "count": 42,
+            "denominator": 55,
+            "rate": 0.7636363636363637
+          }
+        }
+      }
+    },
+    "probe-02-a-first": {
+      "planned": 82,
+      "compared": 57,
+      "unsupported": 25,
+      "selection_difference": {
+        "count": 31,
+        "denominator": 57,
+        "rate": 0.543859649122807
+      },
+      "supported_shadow_choices": {
+        "legacy_107_114_116": {
+          "valid": 57,
+          "reached": 57,
+          "true_stop": {
+            "count": 0,
+            "denominator": 57,
+            "rate": 0.0
+          },
+          "strategic_unresolved": {
+            "count": 2,
+            "denominator": 57,
+            "rate": 0.03508771929824561
+          },
+          "fallback": {
+            "count": 2,
+            "denominator": 57,
+            "rate": 0.03508771929824561
+          }
+        },
+        "resource_value_pilot_v1": {
+          "valid": 57,
+          "reached": 57,
+          "true_stop": {
+            "count": 0,
+            "denominator": 57,
+            "rate": 0.0
+          },
+          "strategic_unresolved": {
+            "count": 40,
+            "denominator": 57,
+            "rate": 0.7017543859649122
+          },
+          "fallback": {
+            "count": 40,
+            "denominator": 57,
+            "rate": 0.7017543859649122
+          }
+        }
+      }
+    },
+    "probe-02-b-first": {
+      "planned": 74,
+      "compared": 64,
+      "unsupported": 10,
+      "selection_difference": {
+        "count": 30,
+        "denominator": 64,
+        "rate": 0.46875
+      },
+      "supported_shadow_choices": {
+        "legacy_107_114_116": {
+          "valid": 64,
+          "reached": 64,
+          "true_stop": {
+            "count": 0,
+            "denominator": 64,
+            "rate": 0.0
+          },
+          "strategic_unresolved": {
+            "count": 2,
+            "denominator": 64,
+            "rate": 0.03125
+          },
+          "fallback": {
+            "count": 2,
+            "denominator": 64,
+            "rate": 0.03125
+          }
+        },
+        "resource_value_pilot_v1": {
+          "valid": 64,
+          "reached": 64,
+          "true_stop": {
+            "count": 0,
+            "denominator": 64,
+            "rate": 0.0
+          },
+          "strategic_unresolved": {
+            "count": 54,
+            "denominator": 64,
+            "rate": 0.84375
+          },
+          "fallback": {
+            "count": 54,
+            "denominator": 64,
+            "rate": 0.84375
+          }
+        }
+      }
+    }
+  },
+  "all_supported_counterfactuals": {
+    "legacy_107_114_116": {
+      "valid": 241,
+      "reached": 241,
+      "true_stop": {
+        "count": 0,
+        "denominator": 241,
+        "rate": 0.0
+      },
+      "strategic_unresolved": {
+        "count": 8,
+        "denominator": 241,
+        "rate": 0.03319502074688797
+      },
+      "fallback": {
+        "count": 8,
+        "denominator": 241,
+        "rate": 0.03319502074688797
+      }
+    },
+    "resource_value_pilot_v1": {
+      "valid": 313,
+      "reached": 313,
+      "true_stop": {
+        "count": 0,
+        "denominator": 313,
+        "rate": 0.0
+      },
+      "strategic_unresolved": {
+        "count": 254,
+        "denominator": 313,
+        "rate": 0.8115015974440895
+      },
+      "fallback": {
+        "count": 254,
+        "denominator": 313,
+        "rate": 0.8115015974440895
+      }
+    }
+  },
+  "observed_trajectory_normal_choices": {
+    "legacy_107_114_116": {
+      "valid": 108,
+      "reached": 108,
+      "true_stop": {
+        "count": 0,
+        "denominator": 108,
+        "rate": 0.0
+      },
+      "strategic_unresolved": {
+        "count": 4,
+        "denominator": 108,
+        "rate": 0.037037037037037035
+      },
+      "fallback": {
+        "count": 4,
+        "denominator": 108,
+        "rate": 0.037037037037037035
+      }
+    },
+    "resource_value_pilot_v1": {
+      "valid": 205,
+      "reached": 205,
+      "true_stop": {
+        "count": 0,
+        "denominator": 205,
+        "rate": 0.0
+      },
+      "strategic_unresolved": {
+        "count": 151,
+        "denominator": 205,
+        "rate": 0.7365853658536585
+      },
+      "fallback": {
+        "count": 151,
+        "denominator": 205,
+        "rate": 0.7365853658536585
+      }
+    }
+  },
+  "seed_context_difference": {
+    "count": 182,
+    "denominator": 241,
+    "rate": 0.7551867219917012
+  },
+  "selection_pool_difference": {
+    "count": 174,
+    "denominator": 241,
+    "rate": 0.7219917012448133
+  },
+  "newly_seeded": {
+    "count": 174,
+    "denominator": 241,
+    "rate": 0.7219917012448133
+  },
+  "no_longer_seeded": {
+    "count": 0,
+    "denominator": 241,
+    "rate": 0.0
+  },
+  "both_seeded_context_difference": {
+    "count": 8,
+    "denominator": 8,
+    "rate": 1.0
+  },
+  "both_seeded_pool_difference": {
+    "count": 0,
+    "denominator": 8,
+    "rate": 0.0
+  },
+  "order_invariance_status": {
+    "passed": 626
+  },
+  "shadow_unsupported_is_not_observed_game_stop": true,
+  "new_game_events": 0,
+  "new_game_decisions": 0,
+  "new_matches": 0,
+  "independent_balance_sample_count": 0,
+  "policy_promoted": false
+}

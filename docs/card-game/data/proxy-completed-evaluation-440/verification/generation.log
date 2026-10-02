@@ -1,0 +1,80 @@
+continuation_batched_normal_v2:legacy_107_114_116:probe-01-a-first normal shadows 27
+continuation_batched_normal_v2:resource_value_pilot_v1:probe-01-a-first normal shadows 58
+continuation_batched_normal_v2:legacy_107_114_116:probe-01-b-first normal shadows 27
+continuation_batched_normal_v2:resource_value_pilot_v1:probe-01-b-first normal shadows 45
+continuation_batched_normal_v2:legacy_107_114_116:probe-02-a-first normal shadows 26
+continuation_batched_normal_v2:resource_value_pilot_v1:probe-02-a-first normal shadows 56
+continuation_batched_normal_v2:legacy_107_114_116:probe-02-b-first normal shadows 28
+continuation_batched_normal_v2:resource_value_pilot_v1:probe-02-b-first normal shadows 46
+{
+  "planned": 313,
+  "observed_selection_reproduced": 313,
+  "compared": 241,
+  "unsupported": 72,
+  "selected_difference": 124,
+  "new_game_decisions": 0,
+  "new_game_events": 0,
+  "new_matches": 0,
+  "independent_balance_sample_count": 0,
+  "policy_promoted": false,
+  "foundation_repairs_counted_as_adoption_evidence": false,
+  "unique_public_inputs": 303,
+  "by_observed_policy": {
+    "legacy_107_114_116": {
+      "planned": 108,
+      "compared": 108,
+      "unsupported": 0,
+      "selected_difference": 81
+    },
+    "resource_value_pilot_v1": {
+      "planned": 205,
+      "compared": 133,
+      "unsupported": 72,
+      "selected_difference": 43
+    }
+  },
+  "policies_on_compared_inputs": {
+    "legacy_107_114_116": {
+      "valid": 241,
+      "reached": 241,
+      "true_stop": {
+        "count": 0,
+        "denominator": 241,
+        "rate": 0.0
+      },
+      "strategic_unresolved": {
+        "count": 8,
+        "denominator": 241,
+        "rate": 0.03319502074688797
+      },
+      "fallback": {
+        "count": 8,
+        "denominator": 241,
+        "rate": 0.03319502074688797
+      }
+    },
+    "resource_value_pilot_v1": {
+      "valid": 241,
+      "reached": 241,
+      "true_stop": {
+        "count": 0,
+        "denominator": 241,
+        "rate": 0.0
+      },
+      "strategic_unresolved": {
+        "count": 182,
+        "denominator": 241,
+        "rate": 0.7551867219917012
+      },
+      "fallback": {
+        "count": 182,
+        "denominator": 241,
+        "rate": 0.7551867219917012
+      }
+    }
+  },
+  "unsupported_reasons": {
+    "legacy fallback contract not applicable": 51,
+    "legacy paid exclusion proof unavailable": 21
+  }
+}

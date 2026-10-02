@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+440: [完走後313通常局面の同一入力評価](440-completed-normal-evaluation.md)。313元選択再現、241比較・選択差124、不適用72を理由付き保持。旧fallback8/241／新182/241、秘密順626一致、別生成byte一致。全proxy1,126件・npm406件PASS、最終独立レビュー指摘0。source350・505原本・114/414・過去855 data不変。新ゲームevent/decision/対戦0、112未実行、balance0、採用保留、PR259 Draft/open/unmerged。
+
 439: [438からの横断バッチ継続・全8R10完走](439-continuation-batched-replay.md)。共通通常遷移・誘発・準備・支払/能力補正・挑戦・公開履歴を接続。8実行/各独立再生と2回全生成byte一致、継続関連339件・npm406件PASS。source350一致、505原本・114/414・過去833 data不変。独立レビュー1回の重要2件を共通履歴/解決後guardへTDD修正。固定4組の旧/新観測比較を保存し、基盤補修を採用根拠に数えない。112未実行、balance0、採用保留、PR259 Draft/open/unmerged。
 
 438: [世界配置の即時結果証拠を共通接続](438-continuation-world-outcomes.md)。W-deepseaの本文・支払・完全候補へ証拠を結合し、旧01-A seq60・01-B seq72へ進行。結合233件・npm406件PASS、8実行/独立再生と別再生成一致。世界5/main9/条件144証拠、実軌跡の世界配置0。505原本・過去818 data不変。独立レビュー重要指摘1修正済み。全8停止、112未実行、balance0、採用保留、PR259 Draft/open/unmerged。
