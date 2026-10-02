@@ -243,9 +243,13 @@ test('AD-13. さばくの サボテンは 大きく 4 種(柱・枝分かれ・�
   assert.ok(M.REGION3D.desert.cover.oasisFlowers.length >= 2 && (M.REGION3D.desert.cover.flowers || []).length === 0, 'さばくの 花は オアシス だけ');
 });
 
-test('AD-14. 光: 昼は 明るく(hemisphere 1.7・ambient 0.3)、岩 / がけは くらく つぶさない、葉の いろは 地域の palette から(白い material × instance color)', () => {
-  assert.match(SRC3D, /HemisphereLight\('#eaf4ff'.*?, 1\.7\)/, 'hemisphere 1.7');
-  assert.match(SRC3D, /AmbientLight\('#ffffff', 0\.3\)/, 'ambient 0.3');
+// 2026-10-02 VQ: old numeric contract flattened planes by favoring ambient fill.
+// New contract retains fill but transfers energy to the existing directional
+// light (1.2 hemi / 1.55 key / .22 ambient); same weather/season semantics.
+test('AD-14. 光: 明るい fill と 方向光で 面を 分ける・岩 / がけの 明るさ と 地域 palette を 保つ', () => {
+  assert.match(SRC3D, /HemisphereLight\('#eaf4ff'.*?, 1\.2\)/, 'hemisphere fill 1.2');
+  assert.match(SRC3D, /DirectionalLight\('#fff6e8', 1\.55\)/, 'key 1.55');
+  assert.match(SRC3D, /AmbientLight\('#ffffff', 0\.22\)/, 'ambient floor 0.22');
   assert.ok((SRC3D.match(/color: '#c4c1b8'/g) || []).length >= 2, '岩 / がけの material は 明るめ');
   assert.match(SRC3D, /shadeOf\(FOL\.crown, pt\.shade\)/, 'かんむりの いろは 地域の palette');
   for (const rid of REGIONS) { const f = M.REGION3D[rid].foliage; assert.ok(f && f.crown.length === 3 && f.conifer.length === 3, rid + ' の 葉の palette 3 段'); }

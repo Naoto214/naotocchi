@@ -12,6 +12,53 @@ export const THREE_REVISION = THREE.REVISION;
 const TAU = Math.PI * 2;
 const HOR_BASE = 0.30, FEET_FRAC = 0.80;   // 2D の createCanvasRenderer と おなじ
 
+// Visual Quality pass (2026-10-02): static ambient contact, not a new sun /
+// weather system. Only world silhouettes contribute. Reused by ground, paths
+// and banks; no shadow meshes, transparent layers or per-frame instance writes.
+export function contactFootprints(objects) {
+  const out = [], eligible = /^(broadleaf|bigtree|conifer|palm|buttress|house|tower|wall|temple|dome|rock|rockwall|ledge|ruin|pillar|statue|lm_)/;
+  for (const ob of objects) {
+    if (!eligible.test(ob.type)) continue;
+    let baseDone = false, crownDone = false;
+    for (const p of ob.parts || []) {
+      const crown = p.shape === 'crown' && !crownDone;
+      const base = !baseDone && (p.y || 0) <= 2 && /^(trunk|box|rock|cliff|wpost|mound|dome)$/.test(p.shape);
+      if (!crown && !base) continue;
+      let rx = p.r || p.rx || 12, rz = p.r || p.rz || rx;
+      if (base) { baseDone = true; rx = rx * 1.3 + 14; rz = rz * 1.3 + 14; }
+      if (crown) { crownDone = true; rx *= 1.15; rz *= 1.15; }
+      out.push({ x: ob.x + (p.dx || 0), z: ob.z + (p.dz || 0), rx: Math.min(240, rx), rz: Math.min(240, rz),
+        angle: p.ang || 0, strength: crown ? 0.16 : 0.26 });
+    }
+  }
+  return out;
+}
+
+// All receiving surfaces use world coordinates, including InstancedMesh roads.
+// The field is baked once per scene, sampled once per fragment and disposed with
+// the scene. Clamp accumulation so dense forests retain readable ground color.
+function contactMaterial(material, texture, bounds) {
+  material.onBeforeCompile = (shader) => {
+    shader.uniforms.worldContact = { value: texture };
+    shader.uniforms.worldContactBounds = { value: bounds };
+    shader.vertexShader = 'varying vec2 vWorldContact;\n' + shader.vertexShader;
+    shader.vertexShader = shader.vertexShader.replace('#include <project_vertex>', `
+      vec4 contactPosition = vec4(transformed, 1.0);
+      #ifdef USE_INSTANCING
+        contactPosition = instanceMatrix * contactPosition;
+      #endif
+      vWorldContact = (modelMatrix * contactPosition).xz;
+      #include <project_vertex>`);
+    shader.fragmentShader = 'uniform sampler2D worldContact;\nuniform vec4 worldContactBounds;\nvarying vec2 vWorldContact;\n' + shader.fragmentShader;
+    shader.fragmentShader = shader.fragmentShader.replace('#include <color_fragment>', `
+      #include <color_fragment>
+      vec2 contactUV = (vec2(vWorldContact.x, -vWorldContact.y) - worldContactBounds.xy) / worldContactBounds.zw;
+      diffuseColor.rgb *= max(0.64, texture2D(worldContact, contactUV).r);`);
+  };
+  material.customProgramCacheKey = () => 'world-contact-v1';
+  return material;
+}
+
 export function webgl2Available(doc = typeof document !== 'undefined' ? document : null) {
   try { const c = doc && doc.createElement('canvas'); return !!(c && c.getContext && c.getContext('webgl2')); } catch (_) { return false; }
 }
@@ -578,6 +625,21 @@ function create3DRenderer(M, o, onLost) {
     const lo = world.minX != null ? world.minX : -world.halfW, hi = world.maxX != null ? world.maxX : world.halfW;
     const disposables = [];
     const keep = (x) => { disposables.push(x); return x; };
+    const contactCanvas = doc.createElement('canvas'); contactCanvas.width = contactCanvas.height = 1024;
+    const contactCtx = contactCanvas.getContext('2d'), contactBounds = new THREE.Vector4(lo - 400, -400, hi - lo + 800, world.len + 800);
+    contactCtx.fillStyle = '#ffffff'; contactCtx.fillRect(0, 0, 1024, 1024);
+    contactCtx.scale(1024 / contactBounds.z, 1024 / contactBounds.w);
+    for (const p of contactFootprints(objects)) {
+      contactCtx.save(); contactCtx.translate(p.x - contactBounds.x, p.z - contactBounds.y);
+      contactCtx.rotate(Math.PI / 2 - p.angle); contactCtx.scale(p.rx, p.rz);
+      const fade = contactCtx.createRadialGradient(0, 0, 0.12, 0, 0, 1);
+      fade.addColorStop(0, 'rgba(0,0,0,' + p.strength + ')');
+      fade.addColorStop(0.4, 'rgba(0,0,0,' + p.strength * 0.65 + ')'); fade.addColorStop(1, 'rgba(0,0,0,0)');
+      contactCtx.fillStyle = fade; contactCtx.fillRect(-1, -1, 2, 2); contactCtx.restore();
+    }
+    const contactTex = keep(new THREE.CanvasTexture(contactCanvas)); contactTex.flipY = false;
+    contactTex.generateMipmaps = false; contactTex.minFilter = THREE.LinearFilter;
+    const groundedMaterial = (mat) => contactMaterial(mat, contactTex, contactBounds);
     // 地面: ground の 2 色で まだらに(のっぺり しない。1 まいの 小さな texture を くりかえす)。
     // corridor では 地面の いろが すすみぐあいで かわる(world.setProgress)ので、いろの 鍵が かわった frame で 描きなおす(refreshGround)
     const gc = doc.createElement('canvas'); gc.width = gc.height = 128;
@@ -592,7 +654,7 @@ function create3DRenderer(M, o, onLost) {
     const gt = keep(canvasTexture(gc)); gt.wrapS = gt.wrapT = THREE.RepeatWrapping; gt.repeat.set((hi - lo + 4000) / 420, (world.len + 4000) / 420);
     // Terrain v1(Geometry pass): 地域の なかは 起伏の ある 格子(頂点の いろ = 明暗・水辺の 土)。そとの ひろい 面は ひくく(−3)おいて 地平まで
     const terr = world.corridor ? null : terrainGrid(world, M, objects);
-    const groundMat = keep(new THREE.MeshLambertMaterial({ map: gt }));
+    const groundMat = keep(groundedMaterial(new THREE.MeshLambertMaterial({ map: gt })));
     if (!terr) {
       const ground = new THREE.Mesh(keep(new THREE.PlaneGeometry(hi - lo + 4000, world.len + 4000)), groundMat);
       ground.rotation.x = -Math.PI / 2; ground.position.set((lo + hi) / 2, 0, -world.len / 2);
@@ -617,10 +679,10 @@ function create3DRenderer(M, o, onLost) {
       }
       for (let j = 0; j < nz; j++) for (let i = 0; i < nx; i++) { const a = j * (nx + 1) + i, b = a + 1, c = a + nx + 1, d = c + 1; idx.push(a, b, c, b, d, c); }
       const gg = keep(new THREE.BufferGeometry()); gg.setAttribute('position', new THREE.BufferAttribute(pos, 3)); gg.setAttribute('color', new THREE.BufferAttribute(colA, 3)); gg.setAttribute('uv', new THREE.BufferAttribute(uvA, 2)); gg.setIndex(idx); gg.computeVertexNormals();
-      const tm = new THREE.Mesh(gg, keep(new THREE.MeshLambertMaterial({ map: gt2, vertexColors: true }))); tm.name = 'terrain'; tm.frustumCulled = false; sc.add(tm);
+      const tm = new THREE.Mesh(gg, keep(groundedMaterial(new THREE.MeshLambertMaterial({ map: gt2, vertexColors: true })))); tm.name = 'terrain'; tm.frustumCulled = false; sc.add(tm);
     }
     // みち と スポット(道の 面)
-    const pathMat = keep(new THREE.MeshLambertMaterial({ color: world.path }));
+    const pathMat = keep(groundedMaterial(new THREE.MeshLambertMaterial({ color: world.path })));
     let groundKey = world.ground[0] + world.ground[1] + world.path;
     const refreshGround = () => { const k = world.ground[0] + world.ground[1] + world.path; if (k === groundKey) return; groundKey = k; paintGround(); gt.needsUpdate = true; if (gt2) gt2.needsUpdate = true; pathMat.color.set(world.path); };
     const segs = world.segments || [];
@@ -830,7 +892,7 @@ function create3DRenderer(M, o, onLost) {
     const waveTex = keep(waveTexture()); waveTex.repeat.set(3, 1);
     // 帯の 向き(折れ線の 進む 向き・岸の side)で 面の 表裏が かわる ので、水の material は 両面(DoubleSide)
     const waterMat = keep(new THREE.MeshPhongMaterial({ vertexColors: true, map: waveTex, transparent: true, opacity: 0.94, shininess: 60, specular: '#cfe6ff', depthWrite: false, side: THREE.DoubleSide }));
-    const bankMat = keep(new THREE.MeshLambertMaterial({ vertexColors: true, side: THREE.DoubleSide }));
+    const bankMat = keep(groundedMaterial(new THREE.MeshLambertMaterial({ vertexColors: true, side: THREE.DoubleSide })));
     const foamMat = keep(new THREE.MeshBasicMaterial({ color: WC.foam, transparent: true, opacity: 0.55, depthWrite: false, side: THREE.DoubleSide }));
     const water = { kind: null, meshes: [] };
     const T = world.terrain;
@@ -924,8 +986,10 @@ function create3DRenderer(M, o, onLost) {
       boards.push(m); sc.add(m);
     }
     // ひかり・そら・きり(env と mood で まいフレーム かえる)
-    // Art Direction v1: 明るく やわらかい ひかり。半球光(空 / 地面)+ 環境光 を つよめ、太陽の コントラストは よわめる(木陰でも かたちが 読める・黒く つぶれない)
-    const hemi = new THREE.HemisphereLight('#eaf4ff', new THREE.Color(world.ground[0]).lerp(new THREE.Color('#ffffff'), 0.35), 1.7), sun = new THREE.DirectionalLight('#fff6e8', 1.0), amb = new THREE.AmbientLight('#ffffff', 0.3);
+    // 2026-10-02 VQ: retain bright fill, but move part of the flat ambient budget
+    // to the existing key light so roof slopes / trunks / cliff planes separate.
+    // Same lights, same weather multipliers; no shadow-map pass or new state.
+    const hemi = new THREE.HemisphereLight('#eaf4ff', new THREE.Color(world.ground[0]).lerp(new THREE.Color('#ffffff'), 0.35), 1.2), sun = new THREE.DirectionalLight('#fff6e8', 1.55), amb = new THREE.AmbientLight('#ffffff', 0.22);
     sun.position.set(-0.45, 1, 0.5); sc.add(hemi); sc.add(sun); sc.add(amb);
     sc.fog = new THREE.Fog('#dff0ff', 700, 3200);
     // キャラ(player・なかま・住人)と かげ
@@ -987,7 +1051,7 @@ function create3DRenderer(M, o, onLost) {
     // ひかり(時間・天気・場所の きぶん)。2D の TIME_LIGHT / WEATHER_LIGHT を そのまま つかう
     const TL = M.TIME_LIGHT[env.time] || M.TIME_LIGHT.day, wl = M.WEATHER_LIGHT[env.weather] || 1;
     const light = Math.max(0.35, TL.light * wl * (mood.light || 1));
-    built.hemi.intensity = 1.7 * light; built.sun.intensity = 1.0 * light * (env.weather === 'sunny' ? 1 : 0.6); built.amb.intensity = 0.3 * light;
+    built.hemi.intensity = 1.2 * light; built.sun.intensity = 1.55 * light * (env.weather === 'sunny' ? 1 : 0.6); built.amb.intensity = 0.22 * light;
     built.hemi.color.set(TL.sky[1]); built.sun.color.set(TL.tint);
     // そら: 2D と おなじ 2 色の たてグラデーション。きり: 地平の いろに 場所の きぶんの いろ(mood.tint)を まぜる
     const skyKey = TL.sky[0] + TL.sky[1];
