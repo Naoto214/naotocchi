@@ -8084,7 +8084,7 @@
             lines.push(d ? `3D mesh ${d.meshes} 住民 ${d.residents} visible ${d.visible} 視錐台 ${d.inFrustum} tex-ready ${d.textureReady}/${d.residents} tex ${d.textures} webgl2 ${d.gl.webgl2 ? 1 : 0} dpr ${d.gl.dpr} fog ${d.fog.join('-')} gl ${d.layout.gl ? d.layout.gl.join(',') : '-'} 2d ${d.layout.c2d ? d.layout.c2d.join(',') : '-'}${d.glDisplay ? ' disp=' + d.glDisplay : ''}`
               : `3D active ${st.diag3d.active ? 1 : 0} failed ${st.diag3d.failed ? 1 : 0}${st.diag3d.failReason ? ' (' + st.diag3d.failReason + ')' : ''} webgl2 ${st.diag3d.webgl2 ? 1 : 0}`);
             if (d && d.gl.gpu) lines.push('GPU ' + d.gl.gpu);
-            if (d && d.player) lines.push(`PLAYER ${d.player.using} tex=${d.player.textureReady ? '✓' : '×'} map=${d.player.map ? '✓' : '×'} vis=${d.player.visible ? '✓' : '×'} fr=${d.player.inFrustum ? '✓' : '×'} d=${d.player.dist}`);
+            if (d && d.player) lines.push(`PLAYER ${d.player.using} asset=${d.player.asset || '-'} state=${d.player.assetState}${d.player.assetErr ? ' err=' + d.player.assetErr : ''} tex=${d.player.textureReady ? '✓' : '×'} map=${d.player.map ? '✓' : '×'} vis=${d.player.visible ? '✓' : '×'} fr=${d.player.inFrustum ? '✓' : '×'} d=${d.player.dist}`);
           }
           const rowOf = d ? new Map(d.rows.map((r) => [r.key, r])) : null;
           for (const r of st.residents) {
