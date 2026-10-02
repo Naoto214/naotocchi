@@ -5,6 +5,25 @@
 // - 実装移行時は stable id を維持し、表示名変更でセーブ互換を壊さない。
 
 const NAOTOCCHI_CHARACTER_WORLD_MASTER_V1 = {
+  // Presentation only. Family defaults cover future additions without animation code.
+  motionPersonality: {
+    default: 'soft',
+    families: {
+      bouncy: ['frog','rabbit_friend','monkey','otter','punyu'],
+      heavy: ['dragon','sekizou','forest_bear','field_cow','gentle_gorilla','swamp_croc'],
+      float: ['salmon','clownfish','jellyfish','phoenix','god','ghost','star','unknown','bat','snow_spirit','sea_mermaid','anglerfish','high_eagle'],
+      quick: ['squirrel','hamster','chicken','parrot','knitting_spider','desert_scorpion'],
+      slow: ['turtle','hermit_crab','starfish','coral','dandelion','sakura','venus_flytrap','mushroom','world_tree','snail','koala','panda','owl','grove_deer','sunflower_partner','oasis_cactus','rock_octopus'],
+      rigid: ['clock','robot_neighbor','box','watcher','snowman'],
+    },
+    // Only life stages with a genuinely different body structure diverge.
+    stageOverrides: {
+      jellyfish: ['slow','slow'], starfish: ['float','float'],
+      butterfly: ['slow','slow','slow','rigid','rigid','float','float','float'],
+      beetle: ['slow','slow','slow','rigid'], stagbeetle: ['slow','slow','slow','rigid'],
+      cicada: ['slow','slow','slow'], antlion: ['slow','slow','slow','rigid','rigid','float','float','float'],
+    },
+  },
   principles: {
     playerSpecies: '8段階それぞれの見た目と人生が面白いことを最優先する',
     companion: '通常なかまは原則どの通常地域でも出会え、一人生で無理なく全員を集められる',
