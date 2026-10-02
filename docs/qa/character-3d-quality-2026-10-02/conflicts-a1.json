@@ -1,0 +1,37 @@
+[
+  {
+    "branch": "feat/meguru-resident-expression",
+    "head": "d239e20b42562dadb592234ffe4c7319807f9d93",
+    "tree": "88c5f7dcb7d0e4aac2453b67d3c595ecba64bb7c",
+    "mergeTreeExit": 1,
+    "mergeTreeOutput": "f2f5d3a80f19bcdb2fdff4e0bfd228363889c27c\ndocs/roadmap/naotocchi-release-hardening-roadmap-2026-09-24.md\nindex.html\nmeguru-3d.mjs\npackage.json\n\nAuto-merging docs/roadmap/naotocchi-release-hardening-roadmap-2026-09-24.md\nCONFLICT (content): Merge conflict in docs/roadmap/naotocchi-release-hardening-roadmap-2026-09-24.md\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\nCONFLICT (content): Merge conflict in meguru-3d.mjs\nAuto-merging package.json\nCONFLICT (content): Merge conflict in package.json\n"
+  },
+  {
+    "branch": "feat/meguru-all-regions-3d-v0",
+    "head": "32e3320466d57899c474b38e1d00c2854411ac7d",
+    "tree": "2f9bef56e87287a75e0dc1209cbd025d20f4bf07",
+    "mergeTreeExit": 1,
+    "mergeTreeOutput": "9c0674846a99f262e29329c0102455edc1af7b1e\nindex.html\n\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\n"
+  },
+  {
+    "branch": "feat/meguru-3d-foundation-v2",
+    "head": "cbafd678875997ba754b5abe6bbb006db135731c",
+    "tree": "77e3d037b6c14a06aa634f0ffdd71f1b544a5260",
+    "mergeTreeExit": 1,
+    "mergeTreeOutput": "6f5ab69e289188add2796ed97c5a19017f0ca545\nindex.html\nmeguru-3d.mjs\npackage.json\n\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\nCONFLICT (content): Merge conflict in meguru-3d.mjs\nAuto-merging package.json\nCONFLICT (content): Merge conflict in package.json\n"
+  },
+  {
+    "branch": "feat/meguru-3d-art-direction-v1",
+    "head": "69a8857bacfa597fa65dcb433536b2f603f26b7d",
+    "tree": "a9fbd6c942e372e39f55cccb61b5233d0b01ea43",
+    "mergeTreeExit": 1,
+    "mergeTreeOutput": "3cca185a033790baa0ad9ff7743001117f2e386f\nindex.html\nmeguru-3d.mjs\npackage.json\n\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\nCONFLICT (content): Merge conflict in meguru-3d.mjs\nAuto-merging package.json\nCONFLICT (content): Merge conflict in package.json\n"
+  },
+  {
+    "branch": "feat/meguru-3d-geometry-terrain-v1",
+    "head": "76106968ad5344400983981353797c51cb342020",
+    "tree": "93ae76b9827db52e9713e28ba3f0a701dbcc6ec3",
+    "mergeTreeExit": 1,
+    "mergeTreeOutput": "086b0afff300498f51848cbfc1d7c4e56da41e53\nindex.html\nmeguru-3d.mjs\npackage.json\n\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\nCONFLICT (content): Merge conflict in meguru-3d.mjs\nAuto-merging package.json\nCONFLICT (content): Merge conflict in package.json\n"
+  }
+]

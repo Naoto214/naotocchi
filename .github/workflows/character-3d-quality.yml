@@ -1,0 +1,51 @@
+name: Character 3D quality evidence
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'character-3d/**'
+      - 'tools/character-3d/**'
+      - '.github/workflows/character-3d-quality.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  evidence:
+    if: github.head_ref == 'feat/character-3d-pilot'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - name: Dedicated regression and mutation checks (sequential)
+        run: |
+          mkdir -p test-results/character-3d-quality
+          node --test --test-reporter=tap tests/character-3d-test.cjs > test-results/character-3d-quality/dedicated.tap
+          sh tools/character-3d/remove-it.sh > test-results/character-3d-quality/remove-it.txt
+      - name: Render pilot comparison sheets
+        run: node tools/character-3d/sheets.cjs --out test-results/character-3d-quality/sheets
+      - name: Meguru regression and 1 / 5 / 27 actor measurement
+        run: node tools/character-3d/meguru-qa.cjs --out test-results/character-3d-quality/meguru --seconds 8
+      - name: Record exact source and runtime
+        if: always()
+        run: |
+          mkdir -p test-results/character-3d-quality
+          git log -1 --format='%H %T' > test-results/character-3d-quality/source.txt
+          node --version >> test-results/character-3d-quality/source.txt
+          npx playwright --version >> test-results/character-3d-quality/source.txt
+          git status --short >> test-results/character-3d-quality/source.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: character-3d-quality-${{ github.event.pull_request.head.sha }}
+          path: test-results/character-3d-quality
+          retention-days: 14
