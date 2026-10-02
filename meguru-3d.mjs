@@ -364,7 +364,7 @@ function create3DRenderer(M, o, onLost) {
   }
   // ヤシ / シダの は(Art Direction v1): 根もとから 先へ のびる 平らな は。先へ ほそり、たれる(y が さがる)。両面。x 方向に 長さ 1・幅 1 を scale する
   function frondGeometry() {
-    const N = 6, pos = [], idx = [];
+    const N = 4, pos = [], idx = [];   // Geometry pass(予算): 6 → 4 だん(12 → 8 三角形)。シダ / ヤシの は は 数千まい
     for (let i = 0; i <= N; i++) { const t = i / N, w = 0.5 * Math.sin(Math.min(1, t * 1.25) * Math.PI) * 0.9 + 0.05, y = -t * t; pos.push(t, y, -w, t, y, w); }
     for (let i = 0; i < N; i++) { const a = i * 2; idx.push(a, a + 2, a + 1, a + 1, a + 2, a + 3); }
     const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx); g.computeVertexNormals();
@@ -388,9 +388,12 @@ function create3DRenderer(M, o, onLost) {
   }
   // 岩の かたまり(mound): 半分 うまった だ円。頂点を 内がわへ すこし ずらして ごつごつ(あたりの まる の そとへ 出ない)
   function ruggedMound() {
-    const g = new THREE.IcosahedronGeometry(1, 1), pos = g.attributes.position;
+    const g0 = new THREE.IcosahedronGeometry(1, 1), pos = g0.attributes.position;
     for (let i = 0; i < pos.count; i++) { const x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i), k = 1 - 0.12 * hash01(Math.round(x * 1000) + ',' + Math.round(y * 1000) + ',' + Math.round(z * 1000)); pos.setXYZ(i, x * k, y * k, z * k); }
-    g.computeVertexNormals();
+    // Geometry pass(予算): 地面の 下に うまる 三角形(3 頂点とも y < −0.15)は つくらない(80 → 約 45)
+    const keepTri = []; for (let f = 0; f < pos.count; f += 3) if (!(pos.getY(f) < -0.15 && pos.getY(f + 1) < -0.15 && pos.getY(f + 2) < -0.15)) for (let k = 0; k < 3; k++) keepTri.push(pos.getX(f + k), pos.getY(f + k), pos.getZ(f + k));
+    g0.dispose();
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(keepTri, 3)); g.computeVertexNormals();
     return g;
   }
   // ぬれた 地面: まんなか くらく、ふちへ すける(たきつぼ の まわり・ながれ の まわり)
@@ -424,7 +427,7 @@ function create3DRenderer(M, o, onLost) {
   }
   // がけ: 箱の 頂点を 内がわへ だけ すこし ずらす(ごつごつ。あたりの 箱の そとへは 出ない)。上の ふちは すこし でこぼこ(下は 地面の まま)
   function ruggedBox() {
-    const g = new THREE.BoxGeometry(2, 1, 2, 6, 5, 2), pos = g.attributes.position, uv = g.attributes.uv;
+    const g = new THREE.BoxGeometry(2, 1, 2, 4, 3, 2), pos = g.attributes.position, uv = g.attributes.uv;   // Geometry pass(予算): 208 → 104 三角形
     for (let i = 0; i < pos.count; i++) {
       const x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i), key = Math.round(x * 1000) + ',' + Math.round(y * 1000) + ',' + Math.round(z * 1000);
       const k = 1 - 0.1 * hash01(key), dy = y > 0.49 ? -0.06 * hash01('t' + Math.round(x * 1000) + ',' + Math.round(z * 1000)) : 0;
@@ -499,9 +502,10 @@ function create3DRenderer(M, o, onLost) {
     // かたい 物・草花: かたち ごとに InstancedMesh(draw call を ふやさない)
     const up = (g) => { g.translate(0, 0.5, 0); return keep(g); };
     const GEO = {
-      trunk: up(new THREE.CylinderGeometry(0.72, 1, 1, 7)), cone: up(new THREE.ConeGeometry(1, 1, 8)), crown: keep(new THREE.IcosahedronGeometry(1, 1)),
+      // Geometry pass(予算): 幹は ふたなし(上は かんむり、下は 地面 → 見えない面を つくらない。28 → 14 三角形)
+      trunk: up(new THREE.CylinderGeometry(0.72, 1, 1, 7, 1, true)), cone: up(new THREE.ConeGeometry(1, 1, 8)), crown: keep(new THREE.IcosahedronGeometry(1, 1)),
       // Kit v2: ほそる 幹(taper 0.5)・えだはりの 小さな かたまり(20 三角形)・曲がった 昆布の は(帯)
-      trunk2: up(new THREE.CylinderGeometry(0.5, 1, 1, 7)), crownSmall: keep(new THREE.IcosahedronGeometry(1, 0)), kelpblade: up(kelpBladeGeometry()), frond: keep(frondGeometry()),
+      trunk2: up(new THREE.CylinderGeometry(0.5, 1, 1, 7, 1, true)), crownSmall: keep(new THREE.IcosahedronGeometry(1, 0)), kelpblade: up(kelpBladeGeometry()), frond: keep(frondGeometry()),
       cap: keep(new THREE.SphereGeometry(1, 6, 3, 0, TAU, 0, Math.PI / 2)), rock: (() => { const g = new THREE.DodecahedronGeometry(1, 0); g.scale(1, 1, 1); g.translate(0, 0.35, 0); return keep(g); })(),
       log: (() => { const g = new THREE.CylinderGeometry(1, 1, 1, 8); g.rotateZ(Math.PI / 2); g.translate(0, 1, 0); return keep(g); })(), stump: up(new THREE.CylinderGeometry(0.9, 1, 1, 9)),
       pool: (() => { const g = new THREE.CircleGeometry(1, 24); g.rotateX(-Math.PI / 2); g.translate(0, 2.4, 0); return keep(g); })(), plank: up(new THREE.BoxGeometry(1, 1, 1)), fall: up(new THREE.PlaneGeometry(1, 1)),
@@ -510,7 +514,10 @@ function create3DRenderer(M, o, onLost) {
       stem: up(new THREE.CylinderGeometry(0.8, 1, 1, 6, 1, true)), blade: up(new THREE.ConeGeometry(1, 1, 4, 1, true)), petal: keep(new THREE.CircleGeometry(1, 6).rotateX(-Math.PI / 2)),
       nut: keep(new THREE.IcosahedronGeometry(1, 0)), pebble: keep(new THREE.IcosahedronGeometry(1, 0).translate(0, 0.25, 0)), post: up(new THREE.CylinderGeometry(0.9, 1, 1, 5, 1, true)),
       board: up(new THREE.BoxGeometry(1, 1, 0.12)), mound: keep(ruggedMound()), box: up(new THREE.BoxGeometry(2, 1, 2)), roof4: up(new THREE.ConeGeometry(1, 1, 4)), roof6: up(new THREE.ConeGeometry(1, 1, 6)), roof8: up(new THREE.ConeGeometry(1, 1, 8)),
-      wcone4: up(new THREE.ConeGeometry(1, 1, 4, 1, true)), wcone6: up(new THREE.ConeGeometry(1, 1, 6, 1, true)), ring: keep(new THREE.TorusGeometry(1, 0.08, 6, 16)), decal: keep(new THREE.CircleGeometry(1, 16).rotateX(-Math.PI / 2).translate(0, 1.4, 0)), glowdisc: keep(new THREE.CircleGeometry(1, 20).rotateX(-Math.PI / 2).translate(0, 0.9, 0)),
+      wcone4: up(new THREE.ConeGeometry(1, 1, 4, 1, true)), wcone6: up(new THREE.ConeGeometry(1, 1, 6, 1, true)), ring: keep(new THREE.TorusGeometry(1, 0.08, 4, 12)),
+      // Geometry pass(予算): かべの 前の うすい 板(まど・わく・入口・看板の 面)は 正面 1 まい(2 三角形)。箱(12)の 見えない 5 面を つくらない。
+      // 原型の parts は 箱(rx / h / rz)の まま。rz が うすい(≤ 2.6)ものだけ ここで 板に する。正面 = ローカル +z(箱の 前の 面と おなじ いち)
+      wpanel: keep(new THREE.PlaneGeometry(2, 1).translate(0, 0.5, 1)), nut8: keep(new THREE.OctahedronGeometry(1, 0)), decal: keep(new THREE.CircleGeometry(1, 16).rotateX(-Math.PI / 2).translate(0, 1.4, 0)), glowdisc: keep(new THREE.CircleGeometry(1, 20).rotateX(-Math.PI / 2).translate(0, 0.9, 0)),
       foam: keep(new THREE.CircleGeometry(1, 16).rotateX(-Math.PI / 2).translate(0, 3.2, 0)), wet: keep(new THREE.CircleGeometry(1, 24).rotateX(-Math.PI / 2).translate(0, 1.0, 0)), mist: keep(new THREE.IcosahedronGeometry(1, 1)), litter: keep(new THREE.PlaneGeometry(1, 1).rotateX(-Math.PI / 2).translate(0, 1.6, 0)),
     };
     const flat = (color) => keep(new THREE.MeshLambertMaterial({ color, flatShading: true }));
@@ -527,7 +534,7 @@ function create3DRenderer(M, o, onLost) {
       post: flat('#7a5a3a'), board: flat('#c9a46a'), wbox: flat('#ffffff'), wroof: flat('#ffffff'), wdome: flat('#ffffff'), wblade: flat('#ffffff'), wcone: flat('#ffffff'), wpost: flat('#ffffff'), wslab: flat('#ffffff'), wstem: flat('#ffffff'), wring: flat('#ffffff'),
       glowcone: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 0.45 })), glowboard: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 0.6 })), decal: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', transparent: true, opacity: 0.8, depthWrite: false })), kelp: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', side: THREE.DoubleSide })), slab: flat('#9c9c94'), rail: flat('#8a6a44'), pebble: flat('#8d8a80'), mound: keep(new THREE.MeshLambertMaterial({ map: keep(cliffTexture()), color: '#c4c1b8' })), mist: keep(new THREE.MeshBasicMaterial({ color: '#f2f8fb', transparent: true, opacity: 0.24, depthWrite: false })) };
     const GEO_ALIAS = { crownBig: 'crown', kelp: 'kelpblade', frond: 'frond', glowcap: 'cap', slab: 'plank', rail: 'log', leaf: 'litter', spark: 'nut', wbox: 'box', wdome: 'cap', wblade: 'blade', wcone: 'blade', wpost: 'post', wslab: 'plank', wstem: 'stem', wring: 'ring', glowcone: 'blade', glowboard: 'board', wroof: 'roof4', wcone4: 'wcone4', wcone6: 'wcone6', roof6: 'roof6', roof8: 'roof8' };
-    const MAT_ALIAS = { trunk2: 'trunk', crownSmall: 'crown', frond: 'kelp', wcone4: 'wcone', wcone6: 'wcone', roof6: 'wroof', roof8: 'wroof', roof4: 'wroof', glowcone6: 'glowcone', glowcone4: 'glowcone' };
+    const MAT_ALIAS = { trunk2: 'trunk', crownSmall: 'crown', frond: 'kelp', wpanel: 'wbox', nut8: 'nut', wcone4: 'wcone', wcone6: 'wcone', roof6: 'wroof', roof8: 'wroof', roof4: 'wroof', glowcone6: 'glowcone', glowcone4: 'glowcone' };
     const inst = {};   // shape → [{ x, y, z, sx, sy, sz, ry, tint, color }]
     const board = new Map();   // emoji → [{ x, z, w, h }]
     const occluders = [];   // かたい 物(カメラと player の あいだに 入ったら すかす)
@@ -587,7 +594,7 @@ function create3DRenderer(M, o, onLost) {
           case 'leaf': push('leaf', { x: px, y: 0, z: pz, sx: pt.w * 0.5, sy: 1, sz: pt.w * 0.3, ry: t * TAU, tint: t }); break;
           case 'nut': push('nut', { x: px, y: pt.r * 0.5, z: pz, sx: pt.r, sy: pt.r * 0.8, sz: pt.r, ry: t * TAU, tint: t }); break;
           case 'spark': push('spark', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); break;
-          case 'flower': push('blade', { x: px, y: 0, z: pz, sx: 3, sy: pt.h, sz: 3, ry: 0, tint: t, color: '#5fae4c' }); push('petal', { x: px, y: pt.h, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); push('nut', { x: px, y: pt.h + 1.5, z: pz, sx: pt.r * 0.28, sy: pt.r * 0.2, sz: pt.r * 0.28, ry: 0, tint: 0.5, color: '#ffe066' }); break;
+          case 'flower': push('blade', { x: px, y: 0, z: pz, sx: 3, sy: pt.h, sz: 3, ry: 0, tint: t, color: '#5fae4c' }); push('petal', { x: px, y: pt.h, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); push('nut8', { x: px, y: pt.h + 1.5, z: pz, sx: pt.r * 0.28, sy: pt.r * 0.2, sz: pt.r * 0.28, ry: 0, tint: 0.5, color: '#ffe066' }); break;   // 花の まんなか: 8 三角形(20 → 8)
           case 'petal': push('petal', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); break;
           case 'post': push('post', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t }); break;
           case 'board': push(pt.glow ? 'glowboard' : 'board', { x: px, y: pt.y, z: pz, sx: pt.w, sy: pt.h, sz: 1, ry: pt.spin != null ? pt.spin : Math.PI - pt.ang, tint: t, color: pt.color, rz: pt.spin != null ? pt.spin : 0 }); break;   // いたは 道の むきを 向く
@@ -595,7 +602,7 @@ function create3DRenderer(M, o, onLost) {
           case 'rail': { const sdx = Math.cos(pt.ang) * pt.side, sdz = -Math.sin(pt.ang) * pt.side; push('rail', { x: px + sdx, y: pt.y, z: pz - sdz, sx: pt.len, sy: pt.r, sz: pt.r, ry: Math.PI / 2 - pt.ang, tint: t, color: pt.color }); break; }
           case 'pebble': push('pebble', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.r * 0.7, sz: pt.r * 0.85, ry: t * TAU, tint: t }); break;
           case 'mound': push('mound', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
-          case 'box': push('wbox', { x: px, y: pt.y || 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: Math.PI / 2 - (pt.ang || 0), tint: t, color: pt.color }); break;
+          case 'box': push(pt.rz <= 2.6 && !pt.solidBox ? 'wpanel' : 'wbox', { x: px, y: pt.y || 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: Math.PI / 2 - (pt.ang || 0), tint: t, color: pt.color }); break;
           case 'roof': push(pt.seg === 6 ? 'roof6' : pt.seg === 8 ? 'roof8' : 'roof4', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: Math.PI / 4 - (pt.ang || 0), tint: t, color: pt.color }); break;
           case 'dome': push('wdome', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.r * (pt.sy || 1), sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
           // lean: その 向き(せかいの 角度 a)へ たおす(ヤシの は)。three の y 回転 θ は cosθ = −sin a・sinθ = −cos a、傾きは z 回転
