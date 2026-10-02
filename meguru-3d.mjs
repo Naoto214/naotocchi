@@ -237,15 +237,16 @@ export function terrainGrid(world, M, objects) {
     const x = x0 + i * cell, z = z0 + j * cell, k = j * (nx + 1) + i;
     const dp = segD(x, z); let ds = Infinity; for (const q of spots) if (q.kind !== 'water') ds = Math.min(ds, Math.hypot(q.x - x, q.z - z) - q.r);
     const walk = Math.min(dp, ds), edge = smoothT(-200, 300, Math.min(x - lo, hi - x, z, world.len - z));
-    let open = smoothT(30, 340, walk) * edge;
-    for (const f of flat) { const d = Math.hypot(f.x - x, f.z - z); if (d < f.r + 220) open *= smoothT(f.r + 30, f.r + 200, d); }
+    let plot = 1;   // 建物の 敷地は 平ら(丘 だけで なく 根の 起伏・土手・浜の もりあがり・がけの 足もと も。2026-10-02 監査: 浜の 家の はしが 18 浮いた)
+    for (const f of flat) { const d = Math.hypot(f.x - x, f.z - z); if (d < f.r + 220) plot *= smoothT(f.r + 30, f.r + 200, d); }
+    const open = smoothT(30, 340, walk) * edge * plot;
     let h = 0;
     if (R.hill) h += R.hill * (n1(x / (R.wave || 900), z / (R.wave || 900)) * 0.75 + n2(x / ((R.wave || 900) * 0.45), z / ((R.wave || 900) * 0.45)) * 0.25) * open;
-    if (R.root) h += R.root * n2(x / 110, z / 110) * smoothT(20, 120, walk) * edge;
+    if (R.root) h += R.root * n2(x / 110, z / 110) * smoothT(20, 120, walk) * edge * plot;
     if (R.dune) { const r = Math.abs(Math.sin((x * 0.8 + z * 0.6) / 420 + n1(x / 900, z / 900) * 2)); h += R.dune * (r * r - 0.3) * open; }
-    if (R.bank && dp > 0) h += R.bank * Math.exp(-((dp - 140) ** 2) / (2 * 50 * 50)) * edge;   // 道ばたの 土手(道の へりから すこし はなれて)
-    for (const c of cliffs) { const d = Math.hypot(c.x - x, c.z - z) - c.r; if (d < 260) h += R.cliffFoot * Math.exp(-((d - 30) ** 2) / (2 * 70 * 70)) * smoothT(0, 60, walk); }
-    if (T && T.kind === 'coast' && M.shoreX) { const sx = M.shoreX(world, z); if (sx != null) { const di = (T.side || -1) < 0 ? x - sx : sx - x; h = di < 0 ? -30 * Math.min(1, -di / 250) : h * smoothT(80, 600, di) + (R.beach ? 12 : 0) * smoothT(150, 900, di) * (0.7 + 0.3 * n1(x / 500, z / 500)) * edge; } }
+    if (R.bank && dp > 0) h += R.bank * Math.exp(-((dp - 140) ** 2) / (2 * 50 * 50)) * edge * plot;   // 道ばたの 土手(道の へりから すこし はなれて)
+    for (const c of cliffs) { const d = Math.hypot(c.x - x, c.z - z) - c.r; if (d < 260) h += R.cliffFoot * Math.exp(-((d - 30) ** 2) / (2 * 70 * 70)) * smoothT(0, 60, walk) * plot; }
+    if (T && T.kind === 'coast' && M.shoreX) { const sx = M.shoreX(world, z); if (sx != null) { const di = (T.side || -1) < 0 ? x - sx : sx - x; h = di < 0 ? -30 * Math.min(1, -di / 250) : h * smoothT(80, 600, di) + (R.beach ? 12 : 0) * smoothT(150, 900, di) * (0.7 + 0.3 * n1(x / 500, z / 500)) * edge * plot; } }
     let wv = 0;
     for (const q of ponds) { const d = Math.hypot(q.x - x, q.z - z) / q.r; if (d < 1.4) { h = Math.min(h * smoothT(0.9, 1.4, d), -14 * (1 - smoothT(0.5, 1.15, d))); wv = Math.max(wv, 1 - smoothT(0.9, 1.5, d)); } }
     const sd = sDist(x, z);
@@ -275,6 +276,40 @@ export function terrainGrid(world, M, objects) {
     return Math.max(surfaceY(x, z), -5);
   };
   return { x0, z0, cell, nx, nz, H, S, wet, AR, sample, surfaceY, walkY, segD, sDist, crossings, ponds, anchorIds, streams, wetSpots };
+}
+// 接地(2026-10-02・Geometry 監査): 物の 中心の 高さ だけで すわらせると、斜面で 岩 / 盛り土 / 大木の 根 / 岸の 花の はしが 浮く(山 95・砂漠 35)。
+//   構造物(家・遺跡・柵 …)= 足もとの いちばん ひくい 所まで 物ごと しずめる(30 まで。屋根と からだが ずれない)。
+//   それ以外 = 地面に つく parts(y ≤ 2)ごとに その 足もとの いちばん ひくい 所へ(厚みの 0.6 まで しずめる。坂の 上がわは 地面に うまる = 地面から 生えて 見える)。
+//   y > 2 の parts(かんむり・屋根)は 物の 高さの まま。橋 / 飛び石は 水面 と 道の 高さ が 基準(ここでは あつかわない)
+export const GROUND_SHAPES = new Set(['trunk', 'rock', 'stone', 'stump', 'box', 'mound', 'post', 'wpost', 'wstem', 'stem', 'blade', 'flower', 'pebble', 'cliff', 'log', 'wcone', 'wslab', 'slab', 'plank', 'dome', 'leaf', 'decal', 'nut', 'billboard', 'moss', 'wblade']);
+export const STRUCT_RE = /^(house|tower|temple|wall|dome|tent|lm_|hull|pier|ruin|bench|gate|torii|fountain|statue|obelisk|pillar|signal|lamp|signpost|ferris|wheel|slide|parasol|telescope|orrery|boat|car|bike|hotspring|fence|vent|neon|pot|boxprop)/;
+export const STRUCT_SINK_MAX = 30, PART_SINK_K = 0.6;
+export const LOOSE_SHAPES = new Set(['pebble', 'mound', 'flower', 'blade', 'stone', 'leaf', 'decal', 'nut', 'billboard', 'wblade']);
+export function partFootprint(pt) { return Math.min(120, Math.max(pt.r || 0, pt.rx || 0, pt.rz || 0, (pt.len || 0) / 2) * 0.8); }
+export function footprintMin(surfaceY, x, z, rr) {
+  let lo = surfaceY(x, z);
+  if (rr > 12) for (const [sx, sz] of [[rr, 0], [-rr, 0], [0, rr], [0, -rr]]) lo = Math.min(lo, surfaceY(x + sx, z + sz));
+  return lo;
+}
+export function objectGround(terr, ob) {
+  if (!terr || ob.type === 'bridge' || ob.type === 'ford') return { base: 0, part: null };
+  const sy = terr.surfaceY, base = sy(ob.x, ob.z), parts = ob.parts || [];
+  const grounded = (pt) => GROUND_SHAPES.has(pt.shape) && (pt.y || 0) <= 2;
+  const own = (pt) => {
+    const x = ob.x + (pt.dx || 0), z = ob.z + (pt.dz || 0), c = (pt.dx || pt.dz) ? sy(x, z) : base, thick = pt.h || (pt.r ? pt.r * 2 : 10);
+    return Math.max(c - thick * PART_SINK_K, footprintMin(sy, x, z, partFootprint(pt)));
+  };
+  if (STRUCT_RE.test(ob.type)) {
+    // 構造物の まわりの 石 / 盛り土 / 花(つみ上げない 物)は parts ごと(遺跡の がれきが 坂の 上で うまらない)
+    let lo = base;
+    for (const pt of parts) if (grounded(pt) && !LOOSE_SHAPES.has(pt.shape)) lo = Math.min(lo, footprintMin(sy, ob.x + (pt.dx || 0), ob.z + (pt.dz || 0), partFootprint(pt)));
+    const sb = Math.max(base - STRUCT_SINK_MAX, lo);
+    return { base: sb, part: (pt) => (grounded(pt) && LOOSE_SHAPES.has(pt.shape) ? own(pt) : sb) };
+  }
+  return { base, part: (pt) => {
+    if (!grounded(pt)) return base;
+    return own(pt);
+  } };
 }
 // 折れ線の frame: 点ごとの いち と 単位 法線(せかいの x/z。法線は 進行方向の 右)
 export function polylineFrames(pts, ks) {
@@ -668,7 +703,9 @@ function create3DRenderer(M, o, onLost) {
       post: flat('#7a5a3a'), board: flat('#c9a46a'), wbox: flat('#ffffff'), wroof: flat('#ffffff'), wdome: flat('#ffffff'), wblade: flat('#ffffff'), wcone: flat('#ffffff'), wpost: flat('#ffffff'), wslab: flat('#ffffff'), wstem: flat('#ffffff'), wring: flat('#ffffff'),
       glowcone: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 0.45 })), glowboard: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 0.6 })), decal: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', transparent: true, opacity: 0.8, depthWrite: false })), kelp: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', side: THREE.DoubleSide })), slab: flat('#9c9c94'), rail: flat('#8a6a44'), pebble: flat('#8d8a80'), mound: keep(new THREE.MeshLambertMaterial({ map: keep(cliffTexture()), color: '#c4c1b8' })), mist: keep(new THREE.MeshBasicMaterial({ color: '#f2f8fb', transparent: true, opacity: 0.24, depthWrite: false })) };
     const GEO_ALIAS = { crownBig: 'crown', kelp: 'kelpblade', frond: 'frond', glowcap: 'cap', slab: 'plank', rail: 'log', leaf: 'litter', spark: 'nut', wbox: 'box', wdome: 'cap', wblade: 'blade', wcone: 'blade', wpost: 'post', wslab: 'plank', wstem: 'stem', wring: 'ring', glowcone: 'blade', glowboard: 'board', wroof: 'roof4', wcone4: 'wcone4', wcone6: 'wcone6', roof6: 'roof6', roof8: 'roof8' };
-    const MAT_ALIAS = { trunk2: 'trunk', crownSmall: 'crown', frond: 'kelp', wpanel: 'wbox', nut8: 'nut', gable: 'wroof', wcone4: 'wcone', wcone6: 'wcone', roof6: 'wroof', roof8: 'wroof', roof4: 'wroof', glowcone6: 'glowcone', glowcone4: 'glowcone' };
+    // 季節(2026-10-02・2D の 正本に あわせる): 針葉樹の 段ごとの 雪の ぼうし(snowcone)と 山の 頂の 雪(snowcap)。ふだんは かくす
+    GEO_ALIAS.snowcone = 'wcone6'; GEO_ALIAS.snowcap = 'cap'; MAT.snowcone = flat('#f2f6fa');
+    const MAT_ALIAS = { snowcap: 'snowcone', trunk2: 'trunk', crownSmall: 'crown', frond: 'kelp', wpanel: 'wbox', nut8: 'nut', gable: 'wroof', wcone4: 'wcone', wcone6: 'wcone', roof6: 'wroof', roof8: 'wroof', roof4: 'wroof', glowcone6: 'glowcone', glowcone4: 'glowcone' };
     const inst = {};   // shape → [{ x, y, z, sx, sy, sz, ry, tint, color }]
     const board = new Map();   // emoji → [{ x, z, w, h }]
     const occluders = [];   // かたい 物(カメラと player の あいだに 入ったら すかす)
@@ -696,16 +733,19 @@ function create3DRenderer(M, o, onLost) {
       const solidOc = !!(ob.collision && ob.solid);
       cur = solidOc ? { ob, r: Math.max(ob.collision.hw, ob.collision.hd), vr: 0, top: 0, refs: [] } : (!ob.dressing ? { ob, c: { x: ob.x, z: ob.z }, r: 10, vr: 0, top: 0, refs: [], soft: true } : null);
       if (cur && solidOc) occluders.push(cur);
-      curOy = terr && ob.type !== 'bridge' && ob.type !== 'ford' ? terr.surfaceY(ob.x, ob.z) : 0;   // 橋 / 飛び石は 水面 と 道の 高さ が 基準
+      const gr = objectGround(terr, ob);   // 接地(構造物は 物ごと、それ以外は 地面に つく parts ごと)。橋 / 飛び石は 水面 と 道の 高さ が 基準
+      curOy = gr.base;
       // あたりの 箱の hw 軸(せかい (sin a, cos a))を ローカル x へ: three では θ = π/2 − a
       const t = hash01(ob.id), ry = Math.PI / 2 - (ob.rot || 0);
       for (const pt of ob.parts) {
         const px = ob.x + (pt.dx || 0), pz = -(ob.z + (pt.dz || 0));
+        if (gr.part) curOy = gr.part(pt);
         switch (pt.shape) {
           // Tree v4: 幹 / 枝の かたむき(tilt)。toward = 枝が むかう せかいの ずれ(dx, dz)
           case 'trunk': push(pt.taper != null && pt.taper < 0.65 ? 'trunk2' : 'trunk', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: pt.toward ? Math.atan2(-pt.toward[1], -pt.toward[0]) : t * TAU, rz: pt.tilt || 0, tint: t, color: pt.color }); break;
           case 'gable': push('gable', { x: px, y: pt.y || 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: Math.PI / 2 - (pt.ang || 0), tint: t, color: pt.color }); break;
-          case 'cone': push('cone', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color || shadeOf(FOL.conifer, pt.shade) }); break;
+          case 'cone': push('cone', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color || shadeOf(FOL.conifer, pt.shade) });
+            push('snowcone', { x: px, y: pt.y + pt.h * 0.45, z: pz, sx: pt.r * 0.6, sy: pt.h * 0.6, sz: pt.r * 0.6, ry: t * TAU, tint: 0.5 }); break;   // 段の 上 半分の 雪(2D の 雪の 針葉樹: みどりの 段 + 白い ぼうし)
           case 'crown': push(pt.small ? 'crownSmall' : ob.type === 'bigtree' ? 'crownBig' : 'crown', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r * pt.sy, sz: pt.r, ry: t * TAU + (pt.spin || 0), tint: t, color: pt.color || shadeOf(FOL.crown, pt.shade) }); break;
           case 'cap': push('cap', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r * pt.sy, sz: pt.r, ry: 0, tint: t }); break;
           case 'rock': push('rock', { x: px, y: 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: ry + t, tint: t }); break;
@@ -743,7 +783,7 @@ function create3DRenderer(M, o, onLost) {
           case 'mound': push('mound', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
           case 'box': push(pt.rz <= 2.6 && !pt.solidBox ? 'wpanel' : 'wbox', { x: px, y: pt.y || 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: Math.PI / 2 - (pt.ang || 0), tint: t, color: pt.color }); break;
           case 'roof': push(pt.seg === 6 ? 'roof6' : pt.seg === 8 ? 'roof8' : 'roof4', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: Math.PI / 4 - (pt.ang || 0), tint: t, color: pt.color }); break;
-          case 'dome': push('wdome', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.r * (pt.sy || 1), sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
+          case 'dome': push(pt.snow ? 'snowcap' : 'wdome', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.r * (pt.sy || 1), sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
           // lean: その 向き(せかいの 角度 a)へ たおす(ヤシの は)。three の y 回転 θ は cosθ = −sin a・sinθ = −cos a、傾きは z 回転
           case 'wblade': push('wblade', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: pt.lean != null ? Math.atan2(-Math.cos(pt.lean), -Math.sin(pt.lean)) : t * TAU, rz: pt.lean != null ? (pt.tilt || 0.95) : 0, tint: t, color: pt.color }); break;
           case 'kelp': push('kelp', { x: px, y: pt.y || 0, z: pz, sx: pt.w, sy: pt.h, sz: 1, ry: pt.spin != null ? pt.spin : t * TAU, rz: 0, tint: t, color: pt.color }); break;
@@ -759,7 +799,7 @@ function create3DRenderer(M, o, onLost) {
           case 'billboard': {
             // 地面に おちて いる もの(はっぱ・どんぐり・め)は 地面に ねかせる。草花・きのこ・かんばんは 立てる
             const flatKey = LITTER.has(ob.emoji) ? 'flat:' + ob.emoji : ob.emoji;
-            const list = board.get(flatKey) || []; list.push({ x: px, z: pz, w: pt.w, h: pt.h, ry: t * TAU }); board.set(flatKey, list); break;
+            const list = board.get(flatKey) || []; list.push({ x: px, y: curOy, z: pz, w: pt.w, h: pt.h, ry: t * TAU }); board.set(flatKey, list); break;
           }
           default: break;
         }
@@ -862,7 +902,7 @@ function create3DRenderer(M, o, onLost) {
       if (isFlat) {
         // ねかせた もの は むきを かえない(1 かい だけ おく)。大きさは 2D の 見た目の はば くらい
         const m = new THREE.InstancedMesh(GEO.litter, mat, list.length);
-        list.forEach((it, i) => { tmp.position.set(it.x, 0, it.z); tmp.rotation.set(0, it.ry, 0); tmp.scale.set(it.w * 0.55, 1, it.w * 0.55); tmp.updateMatrix(); m.setMatrixAt(i, tmp.matrix); });
+        list.forEach((it, i) => { tmp.position.set(it.x, it.y || 0, it.z); tmp.rotation.set(0, it.ry, 0); tmp.scale.set(it.w * 0.55, 1, it.w * 0.55); tmp.updateMatrix(); m.setMatrixAt(i, tmp.matrix); });
         m.computeBoundingSphere(); sc.add(m); meshes['litter:' + emoji] = m;
         continue;
       }
@@ -883,7 +923,7 @@ function create3DRenderer(M, o, onLost) {
     const ghostMat = {}; for (const k of Object.keys(MAT)) { ghostMat[k] = keep(MAT[k].clone()); ghostMat[k].transparent = true; ghostMat[k].opacity = GHOST_OPACITY; ghostMat[k].depthWrite = false; }
     const ghostGeo = (shape) => GEO[GEO_ALIAS[shape] || shape];
     for (const k of Object.keys(MAT_ALIAS)) ghostMat[k] = ghostMat[MAT_ALIAS[k]];
-    return { sc, hemi, sun, amb, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null, refreshGround, water, waterAnim,
+    return { rid: world.regionId, sc, hemi, sun, amb, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null, refreshGround, water, waterAnim,
       setGroundColors: (cols) => { const k = cols ? cols.join(',') : ''; if ((groundOverride ? groundOverride.join(',') : '') === k) return; groundOverride = cols; paintGround(); gt.needsUpdate = true; if (gt2) gt2.needsUpdate = true; },
       occluders, hidden: new Set(), ghostPool: [], ghostTint: new Map(), rayGrid: buildRayGrid(inst, NO_FADE), inst, terr, camY: null, ghostStat: { visible: 0, attached: 0, total: 0 }, ghostMat, ghostGeo, inst, anim: { fall: MAT.fall.map, foam: MAT.foam, mist: MAT.mist, spark: MAT.spark }, prof };
   }
@@ -963,26 +1003,32 @@ function create3DRenderer(M, o, onLost) {
     if (pf.underwater) { if (!(built.sc.background && built.sc.background.isColor)) built.sc.background = new THREE.Color(); built.sc.background.copy(fogC); built.hemi.intensity *= 0.7; built.sun.intensity *= 0.4; built.amb.intensity *= 0.6; }
     // 季節: 広葉樹の 葉の いろ(大木の かんむり も)。Geometry pass(季節の 監査): 地域の seasons3d が ある ところ(山)は 季節で 地面の いろ を かえ、
     // 冬 / 雪の 日は 雪(地面・がけの 上・こけ・屋根・針葉樹 が 白く、花は かくす)
-    const sk = env.season || 'summer', SS = built.prof && built.prof.seasons3d, snowy = !!(SS && (sk === 'winter' || env.weather === 'snow')), skey = sk + (snowy ? ':snow' : '');
+    // 2D の 正本(meguru.js の pinewall / peak): 針葉樹の 雪 = ゆき の 地域 か 冬、山の 頂の 雪 = ゆき の 地域 か 冬 か 雪の 日。
+    // deepsea / star_stop は 地表の 季節 なし(2D の hasSurfaceSeasons)= 季節で かえない
+    const rid = built.rid, surf = rid !== 'deepsea' && rid !== 'star_stop';
+    const sk = surf ? env.season || 'summer' : 'summer', SS = built.prof && built.prof.seasons3d, snowy = !!(SS && (sk === 'winter' || env.weather === 'snow'));
+    const coneSnow = rid === 'snow' || sk === 'winter', peakSnow = coneSnow || env.weather === 'snow';
+    const skey = sk + (snowy ? ':snow' : '') + (coneSnow ? ':c' : '') + (peakSnow ? ':p' : '');
     if (built.seasonKey !== skey) {
       built.seasonKey = skey;
+      if (built.meshes.snowcone) built.meshes.snowcone.visible = coneSnow;
+      if (built.meshes.snowcap) built.meshes.snowcap.visible = peakSnow;
       if (built.meshes.crown) built.meshes.crown.material.color.set(SEASON_CROWN[sk] || SEASON_CROWN.summer);
       if (built.meshes.crownBig) built.meshes.crownBig.material.color.set(SEASON_CROWN[sk] || SEASON_CROWN.summer);
-      if (built.meshes.cone) built.meshes.cone.material.color.set(snowy ? '#eef3f4' : SEASON_CONIFER[sk] || SEASON_CONIFER.summer);
+      if (built.meshes.cone) built.meshes.cone.material.color.set(SEASON_CONIFER[sk] || SEASON_CONIFER.summer);   // 雪は 段の ぼうし(snowcone)で。段 そのものは みどりの まま(2D と おなじ)
       if (SS) {
         built.setGroundColors(snowy ? SS.winter : SS[sk] || null);
         for (const k of ['cliff', 'mound']) if (built.meshes[k]) built.meshes[k].material.color.set(snowy ? '#eef2f6' : '#c4c1b8');
         if (built.meshes.moss) built.meshes.moss.material.color.set(snowy ? '#f6f9fc' : '#5f8c46');
         for (const k of ['roof4', 'roof6', 'gable']) if (built.meshes[k]) built.meshes[k].material.color.set(snowy ? '#f4f7fa' : '#ffffff');
         for (const k of ['petal', 'nut8', 'blade']) if (built.meshes[k]) built.meshes[k].visible = !snowy;   // 雪の 上の 花 / 草の ほ は かくす
-        if (built.meshes.cone && built.meshes.cone.material.emissive) built.meshes.cone.material.emissive.set(snowy ? '#7f8f96' : '#000000');   // 雪を かぶった 針葉樹(かけ算では 明るく できない ので 自己発光を すこし)
       }
     }
     // 立て看板は カメラの むきが かわった ときだけ むきなおす
     if (built.lastYaw === null || Math.abs(built.lastYaw - c.yaw) > 0.004) {
       built.lastYaw = c.yaw;
       for (const m of built.boards) {
-        m.userData.list.forEach((it, i) => { tmp.position.set(it.x, -0.02 * it.h, it.z); tmp.rotation.set(0, -c.yaw, 0); tmp.scale.set(it.w * m.userData.aspect / 1.04, it.h, 1); tmp.updateMatrix(); m.setMatrixAt(i, tmp.matrix); });
+        m.userData.list.forEach((it, i) => { tmp.position.set(it.x, (it.y || 0) - 0.02 * it.h, it.z); tmp.rotation.set(0, -c.yaw, 0); tmp.scale.set(it.w * m.userData.aspect / 1.04, it.h, 1); tmp.updateMatrix(); m.setMatrixAt(i, tmp.matrix); });
         m.instanceMatrix.needsUpdate = true; m.computeBoundingSphere();
       }
     }

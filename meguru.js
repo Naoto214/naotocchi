@@ -1626,11 +1626,17 @@
         case 'binp': return [{ shape: 'wstem', r: 8, h: 26, y: 0, color: c }];
         case 'bench': return [{ shape: 'wslab', len: Math.min(60, size * 0.6), w: 18, h: 6, y: 16, ang, color: c }, { shape: 'wpost', r: 3, h: 16, y: 0, dx: Math.sin(ang) * 20, dz: Math.cos(ang) * 20, color: c }, { shape: 'wpost', r: 3, h: 16, y: 0, dx: -Math.sin(ang) * 20, dz: -Math.cos(ang) * 20, color: c }];
         case 'slide': return [{ shape: 'wslab', len: 60, w: 16, h: 6, y: 26, ang, color: c }, { shape: 'box', rx: 8, rz: 8, h: 30, y: 0, ang, color: '#c9c9c0', dx: -Math.sin(ang) * 26, dz: -Math.cos(ang) * 26 }];
-        case 'car': { const L = sm.big ? 60 : 50, W = sm.big ? 26 : 20; return [{ shape: 'box', rx: L / 2, rz: W / 2, h: 18, y: 6, ang, color: c }, { shape: 'box', rx: L * 0.28, rz: W * 0.45, h: 14, y: 24, ang, color: sm.big ? c : '#e8e8e4' }]; }
+        // 2026-10-02 監査(props gate): 車 / トラクタ = からだ + 窓の 箱 + 前後の 車輪(よこに ねた 円柱 2 本 = 左右の わ)。箱 2 つ だけ では 読めない
+        case 'car': { const L = sm.big ? 60 : 50, W = sm.big ? 26 : 20, ux = Math.sin(ang), uz = Math.cos(ang), wr = sm.big ? 9 : 6.5;
+          return [{ shape: 'box', rx: L / 2, rz: W / 2, h: 18, y: 6, ang, color: c }, { shape: 'box', rx: L * 0.28, rz: W * 0.45, h: 14, y: 24, ang, color: sm.big ? c : '#e8e8e4' },
+            ...[-1, 1].map((sd) => ({ shape: 'log', len: W + 5, r: sd > 0 && sm.big ? wr * 1.3 : wr, y: 0, ang: ang + Math.PI / 2, color: '#2f3034', dx: ux * sd * L * 0.32, dz: uz * sd * L * 0.32 }))]; }
         case 'boat': return [{ shape: 'wslab', len: Math.min(90, size * 0.7), w: 26, h: 10, y: 0, ang, color: '#6b4a32' }, { shape: 'wpost', r: 2.5, h: 70, y: 10, color: '#6b4a32' }, { shape: 'board', w: 28, h: 40, y: 32, ang: ang + Math.PI / 2, color: c }];
         case 'pier': return [{ shape: 'plank', len: size * 0.9, w: size * 0.22, y: 0, ang }, { shape: 'wpost', r: 4, h: 14, y: 0, dx: Math.sin(ang) * size * 0.4, dz: Math.cos(ang) * size * 0.4, color: '#6b4a32' }, { shape: 'wpost', r: 4, h: 14, y: 0, dx: -Math.sin(ang) * size * 0.4, dz: -Math.cos(ang) * size * 0.4, color: '#6b4a32' }];
-        case 'telescope': return [{ shape: 'wpost', r: Math.min(r || 5, 6), h: 50, y: 0, color: c }, { shape: 'box', rx: 18, rz: 5, h: 10, y: 50, ang: ang + 0.5, color: c }];
-        case 'statue': return [{ shape: 'wpost', r: Math.min(r || 10, 12), h: 40, y: 0, color: c }, { shape: 'nut', r: 14, y: 40, color: c }, { shape: 'nut', r: 9, y: 66, color: c }];
+        // 2026-10-02 監査(props gate): 望遠鏡 = 3 本 足 + 空へ かたむいた 筒(柱 + 箱 では 読めない)
+        case 'telescope': return [0, 2.09, 4.19].map((a) => ({ shape: 'trunk', r: 2.2, h: 46, y: 0, taper: 0.8, tilt: 0.3, toward: [-Math.sin(ang + a), -Math.cos(ang + a)], color: '#c8c8d8', dx: Math.sin(ang + a) * 12, dz: Math.cos(ang + a) * 12 }))
+          .concat([{ shape: 'trunk', r: 6, h: 44, y: 38, taper: 0.75, tilt: 1.05, toward: [Math.sin(ang), Math.cos(ang)], color: c || '#d8d8f0', dx: -Math.sin(ang) * 10, dz: -Math.cos(ang) * 10 }]);
+        // 2026-10-02 監査(props gate): 像 = だい(ひくい 箱)+ からだ(せまい 箱)+ あたま(2D の 像と おなじ 組み立て)
+        case 'statue': return [{ shape: 'box', rx: 18, rz: 18, h: 22, y: 0, ang, color: '#a39f94', solidBox: true }, { shape: 'box', rx: 9, rz: 7, h: 34, y: 22, ang, color: c, solidBox: true }, { shape: 'nut', r: 9, y: 56, color: c }];
         case 'pillar': {   // Kit v2(Ruin v2): 柱 + 柱頭(箱)。半分は 折れて ひくい。足もとに かけら
           const v = (ctx && ctx.v) || 0, broken = v > 0.55, h = Math.max(OBJ3D_HEAD, size * 0.6) * (broken ? 0.55 : 1), pr = Math.min(r || 10, 14);
           const out = [{ shape: 'wpost', r: pr, h, y: 0, color: c }];
@@ -1648,11 +1654,15 @@
         case 'torii': { const w = Math.max(24, Math.min(bw || halfW * 0.5, 60)), h = Math.max(OBJ3D_HEAD + 10, size * 0.55); return [{ shape: 'wpost', r: 5, h, y: 0, dx: Math.sin(ang) * w, dz: Math.cos(ang) * w, color: c }, { shape: 'wpost', r: 5, h, y: 0, dx: -Math.sin(ang) * w, dz: -Math.cos(ang) * w, color: c }, { shape: 'wslab', len: w * 2.6, w: 8, h: 8, y: h, ang, color: c }, { shape: 'wslab', len: w * 2.2, w: 6, h: 6, y: h - 22, ang, color: c }]; }
         case 'temple': { const w = Math.max(60, bw), d = Math.max(50, bd), h = Math.max(OBJ3D_HEAD + 30, size * 0.5), out = [{ shape: 'wslab', len: w * 2.2, w: d * 2.2, h: 14, y: 0, ang, color: c || '#e6e2d6' }, { shape: 'box', rx: w, rz: d, h, y: 14, ang, color: c || '#e6e2d6' }, { shape: 'roof', r: Math.max(w, d) * 1.35, h: size * 0.22, y: h + 14, ang, color: '#6a5a4a', seg: 4 }]; for (const sx of [-1, 1]) for (const sz of [-1, 1]) out.push({ shape: 'wpost', r: 6, h: h, y: 14, dx: Math.sin(ang) * w * 1.15 * sx + Math.cos(ang) * d * 1.15 * sz, dz: Math.cos(ang) * w * 1.15 * sx - Math.sin(ang) * d * 1.15 * sz, color: '#d8d2c4' }); return out; }
         case 'gate': { const w = Math.max(30, bw), h = Math.max(OBJ3D_HEAD + 10, size * 0.5); return [{ shape: 'box', rx: 10, rz: Math.max(8, bd), h, y: 0, ang, color: c, dx: Math.sin(ang) * (w - 10), dz: Math.cos(ang) * (w - 10) }, { shape: 'box', rx: 10, rz: Math.max(8, bd), h, y: 0, ang, color: c, dx: -Math.sin(ang) * (w - 10), dz: -Math.cos(ang) * (w - 10) }, { shape: 'wslab', len: w * 2, w: Math.max(8, bd) * 2, h: 14, y: h, ang, color: c }]; }
-        case 'dome': return [{ shape: 'dome', r: r, sy: 0.9, y: 0, color: c }];
+        // 2026-10-02 監査(props gate): かまくら / ドーム = まるい 屋根 + 正面の いりぐち(小さな ドーム)+ くらい 口
+        case 'dome': return [{ shape: 'dome', r: r, sy: 0.9, y: 0, color: c }, { shape: 'dome', r: r * 0.36, sy: 1.1, y: 0, color: c, dx: Math.cos(ang) * r * 0.9, dz: -Math.sin(ang) * r * 0.9 },
+          { shape: 'box', rx: r * 0.18, rz: 1.2, h: r * 0.3, y: 0, ang, color: '#5a6a7a', dx: Math.cos(ang) * r * 1.24, dz: -Math.sin(ang) * r * 1.24 }];
         case 'tent': return [{ shape: 'wcone', r: r, h: Math.min(OBJ3D_HEAD + 10, size * 0.5), y: 0, color: c, seg: 4 }];
         case 'hull': return [{ shape: 'box', rx: r, rz: r * 0.45, h: Math.max(40, r * 0.6), y: 0, ang, color: c }, { shape: 'wpost', r: 4, h: Math.max(OBJ3D_HEAD, r), y: 0, color: c }];
         case 'boxprop': {
           const bx = o ? Math.min(r, 16) : 10, bz = o ? Math.min(r, 12) : 8, bh = o ? Math.min(OBJ3D_HEAD - 10, size * (sm.h || 0.8)) : 24, out = [{ shape: 'box', rx: bx, rz: bz, h: bh, y: 0, ang, color: c }];
+          // 2026-10-02 監査(props gate): 箱 1 つ では 何か わからない → 小屋 / 屋台(ひさしの 板 + 正面の 窓)。自販機は 下で 前面の パネル
+          if (!sm.vend && o) { const fx = Math.cos(ang), fz = -Math.sin(ang); out.push({ shape: 'wslab', len: bx * 2.5, w: bz * 2.5, h: 4, y: bh, ang, color: '#8a6a4a' }, { shape: 'box', rx: bx * 0.62, rz: 1.2, h: bh * 0.3, y: bh * 0.48, ang, color: '#cfe6f2', dx: fx * (bz + 0.6), dz: fz * (bz + 0.6) }); }
           if (sm.vend) {   // Art Direction v1(city): 自販機らしさ = 明るい 前面の パネル + 取り出し口 + 足もとの ふち。正面 = (cos ang, −sin ang)
             const fx = Math.cos(ang), fz = -Math.sin(ang), v = (ctx && ctx.v) || 0;
             out.push({ shape: 'box', rx: bx * 0.8, rz: 1.2, h: bh * 0.45, y: bh * 0.45, ang, color: '#f8f4ec', dx: fx * (bz + 0.6), dz: fz * (bz + 0.6) }, { shape: 'box', rx: bx * 0.6, rz: 1.2, h: bh * 0.12, y: bh * 0.14, ang, color: '#2a2a2e', dx: fx * (bz + 0.6), dz: fz * (bz + 0.6) }, { shape: 'box', rx: bx * 1.04, rz: bz * 1.04, h: 3, y: 0, ang, color: '#5a5a5e' });
@@ -1674,7 +1684,7 @@
         // ランドマーク
         case 'lm_tower': { const h = Math.max(size * 1.6, OBJ3D_HEAD * 4); return [{ shape: 'box', rx: r, rz: r, h, y: 0, ang: 0, color: '#c9ced6' }, { shape: 'box', rx: r * 1.3, rz: r * 1.3, h: 16, y: h * 0.62, ang: 0, color: '#8a8f96' }, { shape: 'wcone', r: r * 0.9, h: size * 0.3, y: h, color: '#8a8f96', seg: 4 }, { shape: 'spark', r: 10, y: h + size * 0.3 + 8, color: '#ff6060' }]; }
         case 'lm_windmill': { const h = Math.max(size * 0.7, OBJ3D_HEAD * 2), out = [{ shape: 'box', rx: r, rz: r * 0.8, h, y: 0, ang: 0, color: '#e8e2d2' }, { shape: 'roof', r: r * 1.3, h: size * 0.2, y: h, ang: 0, color: '#8a4b3c', seg: 4 }]; for (let i = 0; i < 4; i++) out.push({ shape: 'board', w: 16, h: size * 0.5, y: h - 10, ang: 0, color: '#d9c9a8', dx: Math.cos(i * Math.PI / 2) * size * 0.25, dz: -r - 6, spin: i * Math.PI / 2 }); return out; }
-        case 'lm_peak': { const out = [{ shape: 'mound', r, h: Math.max(size * 1.1, OBJ3D_HEAD * 3), y: 0, color: '#9a9585' }, { shape: 'mound', r: r * 0.7, h: size * 0.7, y: 0, color: '#9a9585', dx: r * 0.9 }, { shape: 'mound', r: r * 0.65, h: size * 0.6, y: 0, color: '#9a9585', dx: -r * 0.85, dz: r * 0.3 }, { shape: 'dome', r: r * 0.45, sy: 0.6, y: Math.max(size * 1.1, OBJ3D_HEAD * 3) * 0.86, color: '#f4f8fc' }]; return out; }
+        case 'lm_peak': { const out = [{ shape: 'mound', r, h: Math.max(size * 1.1, OBJ3D_HEAD * 3), y: 0, color: '#9a9585' }, { shape: 'mound', r: r * 0.7, h: size * 0.7, y: 0, color: '#9a9585', dx: r * 0.9 }, { shape: 'mound', r: r * 0.65, h: size * 0.6, y: 0, color: '#9a9585', dx: -r * 0.85, dz: r * 0.3 }, { shape: 'dome', r: r * 0.45, sy: 0.6, y: Math.max(size * 1.1, OBJ3D_HEAD * 3) * 0.86, color: '#f4f8fc', snow: true }]; return out; }   // 頂の 雪は 2D と おなじ: ゆき の 地域・冬・雪の 日 だけ
         case 'lm_lighthouse': { const h = Math.max(size * 1.4, OBJ3D_HEAD * 3); return [{ shape: 'wstem', r, h, y: 0, color: '#f2f2ee' }, { shape: 'box', rx: r * 0.9, rz: r * 0.9, h: 6, y: h * 0.5, ang: 0, color: '#c8403a' }, { shape: 'box', rx: r * 1.2, rz: r * 1.2, h: 30, y: h, ang: 0, color: '#4a4a48' }, { shape: 'spark', r: 16, y: h + 18, color: '#fff3a6' }, { shape: 'wcone', r: r * 1.1, h: 30, y: h + 30, color: '#c8403a', seg: 8 }]; }
         case 'lm_bigstop': { const h = Math.max(size * 0.7, OBJ3D_HEAD * 2); return [{ shape: 'wpost', r, h, y: 0, color: '#9d8ff0' }, { shape: 'board', w: size * 0.5, h: size * 0.22, y: h - size * 0.1, ang: ang + Math.PI / 2, color: '#4d6fb0' }, { shape: 'spark', r: 14, y: h + 20, color: '#fff0a0' }, { shape: 'glowdisc', r: size * 0.3, y: 0, color: '#9fc8ff' }]; }
         default: return [];
@@ -1793,7 +1803,7 @@
       let best = { d: Infinity, w: 0, s: null };
       for (const s of streams3d(world)) for (let i = 0; i < s.pts.length - 1; i++) {
         const a = s.pts[i], b = s.pts[i + 1], dx = b.x - a.x, dz = b.z - a.z, L2 = dx * dx + dz * dz || 1, t = Math.max(0, Math.min(1, ((x - a.x) * dx + (z - a.z) * dz) / L2)), d = Math.hypot(x - a.x - dx * t, z - a.z - dz * t);
-        if (d < best.d) best = { d, w: a.w + (b.w - a.w) * t, s };
+        if (d < best.d) best = { d, w: a.w + (b.w - a.w) * t, s, ang: Math.atan2(dx, dz) };
       }
       return best;
     }
@@ -2060,7 +2070,11 @@
           const all = []; for (const st of streams3d(world)) for (const c of st.crossings) if (c.kind === 'bridge' && !taken.has(c)) all.push([c, Math.hypot(c.x - b.x, c.z - b.z)]);
           const near = all.sort((a, z) => a[1] - z[1])[0], np = nearestPath({ x: b.x, z: b.z }, world);
           b.bridgeKind = bridgeKind3d(b);
-          if (near && near[1] < 420) { taken.add(near[0]); b.crossing = Object.assign({}, near[0], { x: b.x, z: b.z }); }
+          // 2026-10-02 監査: うけもつ のは 橋が その 交わりの 上に ある とき だけ(以前は 420 いない。river_lake で 395 はなれた 交わりを とり、
+          // 道が 川を わたる ところに 橋が なかった)。交わりから はなれて いても ながれの 上なら その いちの ながれの むき で かける
+          const sd = streamDist3d(world, b.x, b.z);
+          if (near && near[1] < Math.max(160, near[0].w + 80)) { taken.add(near[0]); b.crossing = Object.assign({}, near[0], { x: b.x, z: b.z }); }
+          else if (np && sd.s && sd.d < sd.w + 40) b.crossing = { x: b.x, z: b.z, w: sd.w, pathAng: sd.ang + Math.PI / 2, streamAng: sd.ang, kind: 'bridge', seg: np.seg };
           else if (np) { b.crossing = { x: b.x, z: b.z, w: 60, pathAng: np.dir, streamAng: np.dir + Math.PI / 2, kind: 'bridge', gully: true, seg: np.seg }; world._gullies3d.push(b.crossing); }
           if (b.crossing) b.parts = bridge4Parts(b.bridgeKind, b.crossing, np ? np.half : 60);
         }
@@ -2083,6 +2097,8 @@
           world._gullies3d.push(c);
           b.crossing = c; b.bridgeKind = k; b.moved3d = true; b.parts = bridge4Parts(k, c, np.half);
         }
+        // 2026-10-02 監査(HQ-6 / spec 9): ながれの 帯の 中の 池の 円盤(水の 小物)は 出さない(川の 水面が ある。小川の 上に 円盤を のこさない)
+        for (let i = out.length - 1; i >= 0; i--) { const o = out[i]; if (o.type !== 'water') continue; const sd = streamDist3d(world, o.x, o.z); if (sd.s && sd.d < sd.w + 20) out.splice(i, 1); }
       }
       if (world.world3d && !world.corridor) for (const d of sceneDressing3d(world)) out.push(d);   // Art Direction v1: 群生の 植生(3D だけ・あたり なし)
       if (world.world3d && !world.corridor && REGION3D[world.regionId] && REGION3D[world.regionId].gardens) for (const g of gardenDressing3d(world, out.filter((o) => o.type === 'house' && o.collision))) out.push(g);
