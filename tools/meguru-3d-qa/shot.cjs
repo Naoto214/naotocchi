@@ -20,7 +20,9 @@ function makeSave(region, env) { const arr = (x) => Array.from(x || []); const h
       await page.addInitScript((s) => localStorage.setItem('naotocchi-save-v1', s), makeSave(sh.region, sh.env));
       await page.goto(base + '/index.html?meguru3d=1' + (sh.perf ? '&perf=1' : '')); await page.locator('.device.ui-home-active').waitFor({ timeout: 60000 }); await page.waitForTimeout(800);
       await page.locator('#travelBtn').click(); await page.locator('#meguruEnterBtn').waitFor({ state: 'visible' }); await page.locator('#meguruEnterBtn').click(); await page.locator('#mgrCanvas').waitFor({ state: 'visible' });
-      await page.waitForFunction(() => { const r = globalThis.__meguruRun; return r && r.world && (r.renderer.is3D || r.renderer.failed); }, { timeout: 60000 }); await page.waitForTimeout(1200);
+      await page.waitForFunction(() => { const r = globalThis.__meguruRun; return r && r.world && (r.renderer.is3D || r.renderer.failed); }, { timeout: 60000 });
+      await page.evaluate(() => { const r = globalThis.__meguruRun; if (r.renderer.setAdaptiveDpr) r.renderer.setAdaptiveDpr(false); });   // しゃしんは 解像度を 固定(headless は おそい ので 自動調整が はたらく)
+      await page.waitForTimeout(1200);
       const st = await page.evaluate((sh) => { const r = globalThis.__meguruRun; let x = sh.x, z = sh.z; if (sh.spot) { const q = r.world.spots.find((s) => s.id === sh.spot); x = q.x + (sh.dx || 0); z = q.z + (sh.dz || 0); }
         r.sim.setCameraMotion && r.sim.setCameraMotion(false); r.setPlayer(x, z); r.sim.camera.yaw = (sh.yaw || 0) * Math.PI / 180; if (sh.dist) r.sim.camera.dist = sh.dist; r.sim.placeParty(); return { x, z, is3D: r.renderer.is3D }; }, sh);
       await page.waitForTimeout(1600);
