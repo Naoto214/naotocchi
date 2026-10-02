@@ -3,7 +3,7 @@
 // builder は archetype ごとに 1 つ。species / stage の ちがいは spec.js の 数字と 色だけ(1 species 専用の 関数は つくらない)。
 // 座標: 前 = +z、うえ = +y、足もと = y 0。大きさは だいたい 高さ 1 前後(あとで 2D の 絵の 大きさに あわせる: runtime の fit)
 // どの builder も: rig(bone)・顔の 場所(face spec)・locomotion・idlePose・hover を かえす
-import { THREE, blob, lathe, sweep, sheet, fan, ellipsoid, paint, solid, mix, shade, xform, merge, clamp, lerp, smooth, rng, noise3, scalpCap } from './geometry.mjs';
+import { THREE, blob, lathe, sweep, sheet, fan, ellipsoid, paint, solid, mix, shade, xform, merge, clamp, lerp, smooth, rng, noise3 } from './geometry.mjs';
 import { Rig } from './rig.mjs';
 import SPEC from './spec-esm.mjs';
 
@@ -38,7 +38,7 @@ function pappusGeo(r, color, n = 22, seed = 'p') {
   return merge(parts);
 }
 function bubblesGeo(list) {
-  return merge(list.map(([x, y, z, r]) => paint(xform(ellipsoid(r, r, r, 10, 8), {pos:[x,y,z]}), (px, py, pz, nx, ny) => (ny > 0.55 ? '#ffffff' : '#7ec8f8'))));
+  return merge(list.map(([x, y, z, r]) => paint(ellipsoid(r, r, r, 10, 8), (px, py, pz, nx, ny) => (ny > 0.55 ? '#ffffff' : '#7ec8f8'))));
 }
 
 // ================= quadruped(犬・柴・ねこ …) =================
@@ -55,8 +55,8 @@ export function quadruped(sp, key) {
   rig.add('body', 'root', [0, bodyY, 0], parts);
   // 頭
   const hr = Hd.r;
-  const headCol = (x, y, z, nx, ny, nz) => { const p = patch(x * 2, y * 2, z * 2 + 3); if (p && y > 0) return p; const muz = smooth(0.0, 0.5, nz) * smooth((sp.markings === 'urajiro' ? 0.36 : 0.12) * hr, -0.25 * hr, y); return mix(c.base, c.muzzle, muz * (sp.fluff ? 1 : 0.85)); };
-  const skull = paint(blob((x, y, z) => { const ch = y < 0 ? 1 + (Hd.cheek || 0.1) * -y : 1; return [x * hr * 1.04 * ch, y * hr * Hd.squash, z * hr * 0.95]; }, 18, 12), headCol);
+  const headCol = (x, y, z, nx, ny, nz) => { const p = patch(x * 2, y * 2, z * 2 + 3); if (p && y > 0) return p; const muz = smooth(0.0, 0.5, nz) * smooth(0.12 * hr, -0.25 * hr, y); return mix(c.base, c.muzzle, muz * (sp.fluff ? 1 : 0.85)); };
+  const skull = paint(blob((x, y, z) => { const ch = y < 0 ? 1 + 0.1 * -y : 1; return [x * hr * 1.04 * ch, y * hr * Hd.squash, z * hr * 0.95]; }, 18, 12), headCol);
   const snout = paint(xform(blob((x, y, z) => [x * Hd.snoutR * 1.2, y * Hd.snoutR * 0.85, z * (Hd.snout * 0.5 + Hd.snoutR * 0.55)], 12, 8), { pos: [0, -hr * 0.3, hr * 0.62 + Hd.snout * 0.35] }), () => c.muzzle);
   const nose = solid(xform(ellipsoid(Hd.snoutR * 0.42, Hd.snoutR * 0.3, Hd.snoutR * 0.26, 8, 6), { pos: [0, -hr * 0.3 + Hd.snoutR * 0.55, hr * 0.62 + Hd.snout * 0.35 + Hd.snout * 0.5 + Hd.snoutR * 0.4] }), c.nose);
   const headGeo = merge([skull, snout, nose]);
@@ -81,12 +81,12 @@ export function quadruped(sp, key) {
   }
   // しっぽ
   const T = sp.tail, tl = T.len, tr = T.r;
-  const tailPath = { raised: [[0,0,0],[0,tl*0.4,-tl*0.3],[0,tl*0.9,-tl*0.34],[0,tl*1.1,-tl*0.12]], curl: [[0, 0, 0], [0, tl * 0.45, -tl * 0.3], [0, tl * 0.85, -tl * 0.1], [0, tl * 0.82, tl * 0.22], [0,tl*0.56,tl*0.3]], plume: [[0, 0, 0], [0, tl * 0.15, -tl * 0.5], [0, tl * 0.35, -tl * 0.95]], short: [[0, 0, 0], [0, tl * 0.35, -tl * 0.6]], long: [[0, 0, 0], [0, -tl * 0.05, -tl * 0.45], [0, tl * 0.25, -tl * 0.8], [0, tl * 0.55, -tl * 0.85]] }[T.type];
+  const tailPath = { curl: [[0, 0, 0], [0, tl * 0.45, -tl * 0.3], [0, tl * 0.85, -tl * 0.1], [0, tl * 0.82, tl * 0.22]], plume: [[0, 0, 0], [0, tl * 0.15, -tl * 0.5], [0, tl * 0.35, -tl * 0.95]], short: [[0, 0, 0], [0, tl * 0.35, -tl * 0.6]], long: [[0, 0, 0], [0, -tl * 0.05, -tl * 0.45], [0, tl * 0.25, -tl * 0.8], [0, tl * 0.55, -tl * 0.85]] }[T.type];
   const tailR = T.type === 'plume' ? (t) => tr * (0.9 + Math.sin(Math.PI * t) * 0.9) : (t) => tr * lerp(1.1, 0.55, t);
   rig.add('tail', 'body', [0, B.r * 0.35, -B.len / 2 * 0.9], [paint(sweep(tailPath, tailR, 8, { steps: 12 }), (x, y, z) => (T.type === 'curl' && y > tl * 0.6 ? c.belly : sp.patches ? c.patch : c.base))]);
   rig.meta = { idlePose: sp.idlePose, hover: 0, bodyY, legTop, bodyR: B.r, bodyLen: B.len, earType: E.type };
   rig.faceSpec = { bone: 'head', target: headGeo, center: [0, hr * 0.0, hr * 0.92], fwd: [0, 0.08, 1], half: hr * 0.74, eyeSize: 0.25,
-    layout: { eyeX: 25, eyeY: 54, mouthY: 104, browY: 34, cheekX: 38, cheekY: 80, mouthW: 9 }, style: { mouth: '#9a2a24', blush: '#f08a7a' }, normalEye: sp.idlePose === 'lie' || sp.fluff === 'chest' ? 'content' : null };
+    layout: { eyeX: 25, eyeY: 54, mouthY: 104, browY: 34, cheekX: 38, cheekY: 80, mouthW: 9 }, style: { mouth: '#9a2a24', blush: '#f08a7a' } };
   return rig;
 }
 
@@ -180,26 +180,9 @@ export function humanoid(sp, key) {
   const c = sp.colors, Hd = sp.head, B = sp.body, Lg = sp.legs, Ar = sp.arms;
   const rig = new Rig(key, 'humanoid', sp.idlePose === 'crawl' ? 'crawl' : 'humanWalk');
   const hipY = Lg.len + 0.06;
-  const dressed = sp.clothing && sp.clothing !== 'romper';
-  const torso = dressed
-    ? paint(xform(lathe([[0.001,0],[B.r*.91,0],[B.r,B.h*.12],[B.r*.94,B.h*.65],[B.r*.78,B.h*.9],[B.r*.40,B.h],[0.001,B.h]],16),{scale:[1,1,.78]}),()=>c.top)
-    : solid(blob((x,y,z)=>[x*B.r,(y+1)*B.h/2,z*B.r*.78],16,10),c.top);
+  const torsoCol = (x, y, z, nx, ny, nz) => { const yy = y / B.h; const v = nz > 0.45 && Math.abs(x) < Math.max(0, (yy - 0.45)) * B.r * 0.9; return v ? c.accent : c.top; };
+  const torso = paint(blob((x, y, z) => { const yy = (y + 1) / 2; const k = 1 - 0.18 * yy; return [x * B.r * k, yy * B.h, z * B.r * 0.78 * k]; }, 16, 10), torsoCol);
   const parts = [torso];
-  const panel = (points, color) => {
-    const sh = new THREE.Shape(); points.forEach(([x,y],i)=>i?sh.lineTo(x,y):sh.moveTo(x,y)); sh.closePath();
-    const g = new THREE.ShapeGeometry(sh); g.translate(0,0,B.r*.79); return solid(g,color);
-  };
-  if (dressed) {
-    const jacket = sp.clothing === 'jacket';
-    parts.push(panel([[-B.r*.24,B.h*.06],[B.r*.24,B.h*.06],[B.r*.31,B.h*.84],[0,B.h*.97],[-B.r*.31,B.h*.84]],c.accent));
-    for(const side of [-1,1]) {
-      parts.push(panel([[side*B.r*.05,B.h*.92],[side*B.r*.28,B.h*1.02],[side*B.r*.38,B.h*.82],[side*B.r*.14,B.h*.73]],c.accent));
-      parts.push(panel([[side*B.r*.35,B.h*.91],[side*B.r*.64,B.h*.73],[side*B.r*.31,B.h*(jacket?.42:.61)],[side*B.r*.20,B.h*.77]],shade(c.top,1.13)));
-      parts.push(solid(sweep([[side*B.r*.28,B.h*.07,B.r*.8],[side*B.r*.30,B.h*.5,B.r*.8],[side*B.r*.33,B.h*.8,B.r*.72]],()=>.009,4,{steps:5}),shade(c.top,.7)));
-    }
-    for(let i=0;i<3;i++)parts.push(solid(xform(ellipsoid(.012,.012,.009,6,4),{pos:[jacket?0:B.r*.24,B.h*(.22+i*.2),B.r*.83]}),jacket?'#b0a8a0':'#805c36'));
-    parts.push(solid(xform(lathe([[B.r*.90,0],[B.r*.93,.025]],16),{scale:[1,1,.79]}),shade(c.top,.83)));
-  }
   if ((sp.attachments || []).includes('backpack')) {
     const bp = paint(blob((x, y, z) => { const sx = Math.sign(x) * Math.pow(Math.abs(x), 0.6), sy = Math.sign(y) * Math.pow(Math.abs(y), 0.6), sz = Math.sign(z) * Math.pow(Math.abs(z), 0.7); return [sx * B.r * 0.78, sy * B.h * 0.42 + B.h * 0.55, sz * B.r * 0.42 - B.r * 0.95]; }, 12, 10), (x, y, z, nx, ny, nz) => (nz < -0.6 && y < B.h * 0.5 ? '#3a3a4c' : '#26262f'));
     const straps = [-1, 1].map((s) => solid(sweep([[s * B.r * 0.45, B.h * 0.95, -B.r * 0.55], [s * B.r * 0.5, B.h * 1.0, B.r * 0.2], [s * B.r * 0.45, B.h * 0.5, B.r * 0.82]], () => 0.025, 5, { steps: 8 }), '#26262f'));
@@ -211,26 +194,21 @@ export function humanoid(sp, key) {
   const skull = paint(blob((x, y, z) => { const k = y < 0 ? 1 + y * 0.1 : 1; return [x * hr * 1.04 * k, y * hr * 0.98, z * hr * 0.96 * k]; }, 18, 14), () => c.skin);
   const ears = [-1, 1].map((s) => solid(xform(ellipsoid(hr * 0.12, hr * 0.17, hr * 0.08, 8, 6), { pos: [s * hr * 1.0, -hr * 0.05, -hr * 0.02] }), c.skin));
   const R = rng(key + 'hair'), style = sp.hair.style;
-  const hair = solid(scalpCap(hr * 1.085, {
-    front: style === 'soft' ? 0.92 : 1.12,
-    side: 1.72, back: 2.08, volume: style === 'soft' ? 0.03 : 0.065,
-  }), c.hair);
+  const hair = paint(blob((x, y, z) => {
+    // 顔の まえ(おでこ より した)は 頭の なかへ しまう = 生えぎわ
+    let r = hr * 1.07;
+    const face = z > 0.28 && y < (style === 'tuft' ? 0.55 : 0.32) + 0.1 * Math.abs(x);
+    const low = y < -0.25 && z > -0.35;
+    const nape = y < (style === 'soft' ? -0.45 : -0.55);
+    if (face || low || nape) r = hr * 0.8;
+    if (style === 'spiky' && y > -0.1) r *= 1 + 0.16 * Math.max(0, Math.sin(Math.atan2(x, z) * 7 + y * 3) * Math.cos(y * 4)) * sp.hair.vol;
+    if (style === 'soft' && y > -0.2) r *= 1 + 0.05 * Math.sin(Math.atan2(x, z) * 9);
+    if (style === 'tuft') r = y > 0.25 ? hr * (1.04 + 0.04 * Math.sin(Math.atan2(x, z) * 5)) : hr * 0.8;
+    return [x * r, y * r + (style === 'spiky' ? 0.02 : 0), z * r];
+  }, 24, 16), () => c.hair);
   const extra = [];
-  // Overlapping tapered locks follow the forehead instead of hiding whole
-  // triangles inside the head. All locks are merged with the head mesh.
-  const locks = style === 'soft' ? 5 : 7;
-  for (let i = 0; i < locks; i++) {
-    const u = i / (locks - 1), x = (u - 0.5) * hr * 1.65;
-    const y = hr * (style === 'soft' ? 0.60 + 0.14 * Math.sin(u * Math.PI) : 0.50);
-    const endY = style === 'soft' ? y - hr * 0.13 : hr * (0.08 + 0.16 * u + 0.12 * Math.sin(u * 8));
-    extra.push(solid(sweep([[x,y,hr*0.64],[x-hr*0.07,y-hr*0.12,hr*0.82],[x-hr*0.13,endY,hr*(0.91-0.20*Math.abs(u-0.5))]],
-      t => hr * (style === 'soft' ? 0.14 : 0.16) * (1-t*0.92), 5, {steps:4,flat:0.55}), c.hair));
-  }
-  if (style === 'baby') extra.push(solid(sweep([[0,hr,0],[0.08,hr*1.22,0],[0.03,hr*1.34,0],[-0.02,hr*1.3,0]],t=>hr*0.075*(1-t*0.8),5,{steps:6}),c.hair));
-  if (style === 'spiky' || style === 'baby') for (let i = 0; i < 7; i++) {
-    const a = i / 7 * TAU;
-    extra.push(solid(sweep([[Math.sin(a)*hr*.65,hr*.7,Math.cos(a)*hr*.65],[Math.sin(a)*hr*.94,hr*(.78+R()*.2),Math.cos(a)*hr*.94]],t=>hr*.12*(1-t*.98),5,{steps:3}),c.hair));
-  }
+  if (style === 'tuft') extra.push(solid(sweep([[0, hr * 0.95, 0.02], [0.03, hr * 1.18, 0.0], [0.09, hr * 1.22, -0.03]], (t) => 0.05 * (1 - t * 0.8), 6, { steps: 6 }), c.hair));
+  if (style === 'spiky') for (let i = 0; i < 5; i++) { const a = -0.9 + i * 0.45 + R() * 0.1; extra.push(solid(sweep([[Math.sin(a) * hr * 0.8, hr * 0.42, hr * 0.62], [Math.sin(a) * hr * 0.88, hr * 0.12, hr * 0.92]], (t) => hr * 0.13 * (1 - t), 5, { steps: 3 }), c.hair)); }
   const headGeo = merge([skull, ...ears]);
   rig.add('head', 'body', [0, B.h * 0.98, 0.01], null);
   const headCenter = [0, hr * 0.92, 0.02];
@@ -239,14 +217,14 @@ export function humanoid(sp, key) {
   for (const s of [-1, 1]) {
     const arm = paint(sweep([[0, 0, 0], [s * 0.03, -Ar.len * 0.5, 0.01], [s * 0.04, -Ar.len, 0.02]], (t) => Ar.r * lerp(1.15, 0.85, t), 8, { steps: 6 }), () => c.top);
     const hand = solid(xform(ellipsoid(Ar.r * 1.05, Ar.r * 1.1, Ar.r * 1.0, 8, 6), { pos: [s * 0.045, -Ar.len - Ar.r * 0.7, 0.02] }), c.skin);
-    rig.add(s < 0 ? 'armL' : 'armR', 'body', [s * B.r * 0.88, B.h * 0.82, 0], [arm, hand, solid(xform(lathe([[Ar.r*.91,0],[Ar.r*.96,.035]],8),{pos:[s*.04,-Ar.len,0.02]}),shade(c.top,.82))], 'opaque', [0, 0, s * 0.12]);
+    rig.add(s < 0 ? 'armL' : 'armR', 'body', [s * B.r * 0.88, B.h * 0.82, 0], [arm, hand], 'opaque', [0, 0, s * 0.12]);
   }
   // 足
   for (const s of [-1, 1]) {
     const L = hipY - 0.06;
     const leg = paint(sweep([[0, 0, 0], [0, -L * 0.5, 0], [0, -L + 0.02, 0]], (t) => Lg.r * lerp(1.15, 0.9, t), 8, { steps: 6 }), () => c.bottom);
     const shoe = solid(xform(blob((x, y, z) => [x * Lg.r * 1.15, (y * 0.5 + 0.5) * 0.09, z * Lg.r * 1.7 + Lg.r * 0.45], 10, 6), { pos: [0, -hipY, 0] }), c.shoe);
-    rig.add(s < 0 ? 'legL' : 'legR', 'body', [s * B.r * 0.42, 0.02, 0], [leg, shoe, solid(xform(ellipsoid(Lg.r*1.17,.025,Lg.r*1.72,10,4),{pos:[0,-hipY+.014,Lg.r*.45]}),shade(c.shoe,.65))]);
+    rig.add(s < 0 ? 'legL' : 'legR', 'body', [s * B.r * 0.42, 0.02, 0], [leg, shoe]);
   }
   if ((sp.attachments || []).includes('cane')) rig.add('cane', 'root', [B.r * 1.05, 0, B.r * 0.5], [caneGeo(hipY + B.h * 0.38)]);
   rig.meta = { idlePose: sp.idlePose, hover: 0, hipY, stoop: sp.stoop || 0 };
@@ -443,12 +421,11 @@ export function fungus(sp, key) {
   if (atts.includes('dirt')) rig.add('dirt', 'root', [0, 0, 0], [dirtGeo(sp.stem.r * 2.6 + 0.12, c, key)]);
   rig.add('body', 'root', [0, 0.04, 0], [stemGeo.clone()]);
   rig.add('cap', 'body', [0, sp.stem.h * 0.92, 0], [capGeo.clone()]);
-  let childFace = null;
   if (atts.includes('child')) {
-    const small = mushroomParts({ r: sp.cap.r * 0.5, h: sp.cap.h * 1.1, shape: 'flat' }, { h: sp.stem.h * 0.55, r: sp.stem.r * 0.45 }, c, 'cap');
+    const k = 0.38, small = mushroomParts({ r: sp.cap.r * 0.5, h: sp.cap.h * 1.1, shape: 'flat' }, { h: sp.stem.h * 0.55, r: sp.stem.r * 0.45 }, c, 'cap');
     const cg = merge([small.stemGeo, small.capGeo.translate(0, sp.stem.h * 0.5, 0)]);
     rig.add('child', 'root', [sp.cap.r * 0.95, 0.03, 0.12], [cg], 'opaque', [0, -0.4, 0.12]);
-    childFace = { bone: 'child', target: cg, center: [0, sp.stem.h * .5 + sp.cap.h * .35, sp.cap.r * .43], fwd: [0,0,1], half: sp.cap.r * .27, eyeSize: .26, forceMode: 'A', normalEye: 'content', layout: {eyeX:24,eyeY:56,mouthY:82,browY:36,cheekX:38,cheekY:72,mouthW:8}, style: {blush:'#f4a090'} };
+    void k;
   }
   let target, center, half, bone;
   if (sp.faceOn === 'cap') { target = capGeo; bone = 'cap'; center = [0, sp.cap.h * 0.3, sp.cap.r * 0.8]; half = sp.cap.r * 0.6; }
@@ -456,7 +433,6 @@ export function fungus(sp, key) {
   rig.meta = { idlePose: 'stand', hover: 0 };
   rig.faceSpec = { bone, target, center, fwd: [0, 0.05, 1], half, eyeSize: 0.26,
     layout: { eyeX: 24, eyeY: 56, mouthY: 82, browY: 36, cheekX: 38, cheekY: 72, mouthW: 8 }, style: { blush: '#f4a090' }, normalEye: sp.faceOn === 'stem' ? 'content' : null };
-  if (childFace) rig.faceSpec = [rig.faceSpec, childFace];
   return rig;
 }
 

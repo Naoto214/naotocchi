@@ -39,6 +39,7 @@
 <body>
 <header>
   <h1>Character 3D Pilot — QA gallery</h1>
+  <a href="compare.html">2D / Claude / revised 比較</a>
   <div class="sub">2D の 正本(右)と 3D(左)を おなじ 条件で くらべる。ドラッグで 360° / ボタンで 正面・3/4・横・後ろ。セーブは つかわない</div>
 </header>
 <main>
@@ -64,8 +65,10 @@
 <script src="../cast-bounds.js"></script>
 <script type="module">
 import { THREE } from './geometry.mjs';
-import { getTemplate, instantiate, fitScale, SPEC } from './runtime.mjs';
-import { animate, setEmotion, react } from './animate.mjs';
+const before = new URLSearchParams(location.search).get('revision') === 'claude';
+const prefix = before ? '../docs/qa/character-3d-quality-2026-10-02/claude/' : './';
+const { getTemplate, instantiate, fitScale, SPEC } = await import(prefix + 'runtime.mjs');
+const { animate, setEmotion, react, GAIT_HZ } = await import(prefix + 'animate.mjs');
 
 const q = new URLSearchParams(location.search);
 if (q.get('bare') === '1') document.body.classList.add('bare');
@@ -190,8 +193,12 @@ function tick(now) {
   const dt = st.freeze != null ? 0 : Math.min(0.1, (now - last) / 1000); last = now;
   if (st.auto) az += dt * 0.6;
   for (const it of items) {
-    if (st.freeze != null && !it.frozen) { it.inst.anim.t = st.freeze; it.frozen = true; }
-    animate(it.inst, { moving: st.walk, dt: st.freeze != null ? 0.0001 : dt, animLv: st.reduced ? 0 : 2 });
+    if (st.freeze != null) {
+      const a = it.inst.anim; a.t = st.freeze; a.move = st.walk ? 1 : 0;
+      a.phase = st.freeze * (GAIT_HZ[it.inst.locomotion] || 1.5) * (st.walk ? 1 : .25) * a.expr.body.tempo;
+      a.blinkIn = Infinity; a.blinkT = -1;
+    }
+    animate(it.inst, { moving: st.walk, dt: st.freeze != null ? 0 : dt, animLv: st.reduced ? 0 : 2 });
     it.inst.holder.rotation.y = it.fixedYaw != null ? it.fixedYaw : 0;
   }
   place();
@@ -203,7 +210,7 @@ function tick(now) {
   requestAnimationFrame(tick);
 }
 resize(); rebuild(); requestAnimationFrame(tick);
-window.__c3d = { st, items, rebuild, setView(v) { az = VIEWS[v] != null ? VIEWS[v] : v; }, renderer, SPEC };
+window.__c3d = { st, get items() { return items; }, rebuild, setView(v) { az = VIEWS[v] != null ? VIEWS[v] : v; }, renderer, SPEC };
 </script>
 </body>
 </html>

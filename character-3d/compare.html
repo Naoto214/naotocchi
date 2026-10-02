@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>なおとっち Character 3D 比較</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3efe6;color:#302e2b;font:15px/1.5 system-ui,sans-serif}header,nav,footer{padding:16px 22px}h1{font-size:20px;margin:0 0 8px}p{margin:5px 0;color:#64615b}nav{display:flex;gap:12px;flex-wrap:wrap;border-block:1px solid #d8d0c2}label{display:flex;align-items:center;gap:6px}select{font:inherit;padding:7px;border:1px solid #c7beae;border-radius:6px;background:#fffaf0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:16px}article{background:#fffaf0;border:1px solid #dfd6c8;border-radius:12px;overflow:hidden}h2{font-size:14px;margin:0;padding:12px}iframe,.original{width:100%;height:370px;border:0;display:block}.original{display:flex;align-items:center;justify-content:center;background:#eee8dc}.original img{width:70%;height:90%;object-fit:contain;image-rendering:pixelated}.caption{padding:10px;font-size:12px}a{color:#235675}@media(max-width:720px){.grid{grid-template-columns:1fr}.original,iframe{height:320px}header,nav{padding:12px}h1{font-size:18px}}
+</style>
+<header><h1>なおとっち — Character 3D Quality Pass</h1><p>2D原画を基準に、修正前と修正後を同じカメラ・照明・時刻で比較します。</p><p id="status">制作途中・Human QA未承認</p></header>
+<nav>
+<label>キャラ<select id="species"></select></label><label>段階<select id="stage"></select></label>
+<label>表情<select id="emotion"></select></label><label>向き<select id="view"><option value="front">正面</option><option value="34">3/4</option><option value="side">横</option><option value="back">後ろ</option></select></label>
+<label>動き<select id="motion"><option value="idle">idle</option><option value="walk">歩く・泳ぐ</option></select></label>
+<label>再生<select id="play"><option value="still">同時刻で静止</option><option value="live">アニメーション</option></select></label>
+<label><input id="reduced" type="checkbox">reduced motion</label>
+</nav>
+<main class="grid">
+<article><h2>Original 2D — デザイン正本</h2><div class="original"><img id="original" alt="既存の2D原画"></div><p class="caption">原画にない横・後ろ姿は補完対象です。</p></article>
+<article><h2>Claude 3D — 修正前 e12f720</h2><iframe id="before" title="Claude版3D"></iframe><p class="caption">造形・表情・動作を保存時点に固定。</p></article>
+<article><h2>Revised 3D — Quality Pass</h2><iframe id="after" title="修正版3D"></iframe><p class="caption">同じarchetype/runtimeを利用した修正候補。</p></article>
+</main>
+<footer><a href="gallery.html">詳細gallery</a> · <a href="../index.html?meguru3d=1&amp;char3d=1&amp;perf=1">Meguru 3D</a> · <a href="../index.html?meguru3d=1&amp;perf=1">同条件の2D</a><p>ライブ再生は独立した時計で動きます。厳密な比較は「同時刻で静止」を使用してください。</p></footer>
+<script type="module">
+import SPEC from './spec-esm.mjs';
+const $=id=>document.getElementById(id),q=new URLSearchParams(location.search);
+function options(id,values){$(id).replaceChildren(...values.map(([value,label])=>Object.assign(document.createElement('option'),{value,textContent:label})));}
+options('species',[...Object.keys(SPEC.PILOT),...Object.keys(SPEC.ARCHETYPE_REUSE)].map(id=>[id,id]));
+options('emotion',SPEC.CANONICAL_EMOTIONS.map(e=>[e,e]));
+if([...$('species').options].some(o=>o.value===q.get('id')))$('species').value=q.get('id');else $('species').value='man';
+function stages(){const id=$('species').value;options('stage',(SPEC.STAGE_KEYS[id]||[0]).map(s=>[String(s),s?String(s).padStart(2,'0'):'—']));$('stage').value=q.has('stage')&&(SPEC.STAGE_KEYS[id]||[0]).includes(Number(q.get('stage')))?q.get('stage'):String((SPEC.STAGE_KEYS[id]||[0])[1]||0);}
+stages();for(const k of ['emotion','view','motion','play'])if([...$(k).options].some(o=>o.value===q.get(k)))$(k).value=q.get(k);
+function update(){const id=$('species').value,s=Number($('stage').value),e=$('emotion').value;
+  $('original').src='../'+SPEC.referenceAsset(id,s,e);
+  const p=new URLSearchParams({id,stage:s,emotion:e,view:$('view').value,walk:$('motion').value==='walk'?'1':'0',reduced:$('reduced').checked?'1':'0',bare:'1',ortho:'1',el:'.18'});
+  if($('play').value==='still')p.set('t','.4');
+  $('before').src='gallery.html?'+p+'&revision=claude';$('after').src='gallery.html?'+p;
+  const u=new URL(location.href);for(const [k,v] of Object.entries({id,stage:s,emotion:e,view:$('view').value,motion:$('motion').value,play:$('play').value}))u.searchParams.set(k,v);history.replaceState(null,'',u);
+}
+$('species').onchange=()=>{stages();update();};for(const id of ['stage','emotion','view','motion','play','reduced'])$(id).onchange=update;update();
+</script></html>

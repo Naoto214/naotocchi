@@ -13,7 +13,7 @@
 (function (root, factory) {
   const api = factory();
   if (typeof module === 'object' && module.exports) module.exports = api;
-  if (root) root.NaotocchiCharacter3DSpec = api;
+  if (root) root.NaotocchiCharacter3DBaselineSpec = api;
 })(typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : null), function () {
   'use strict';
   const freeze = (o) => { if (o && typeof o === 'object' && !Object.isFrozen(o)) { Object.freeze(o); for (const v of Object.values(o)) freeze(v); } return o; };
@@ -152,8 +152,8 @@
         1: { archetype: Q, idlePose: 'lie', body: { len: 0.95, r: 0.42, chest: 1.0, hip: 0.95 }, head: { r: 0.46, squash: 0.92, snout: 0.16, snoutR: 0.17 }, legs: { len: 0.22, r: 0.11 }, neck: 0.08,
           ears: { type: 'floppy', len: 0.34, w: 0.2, tilt: 0.25 }, tail: { type: 'short', len: 0.2, r: 0.07 },
           colors: { base: '#f0a458', belly: '#f6c27e', muzzle: '#f6c27e', ear: '#8a4c26', nose: '#3a1a10', paw: '#e8964a' } },
-        4: { archetype: Q, idlePose: 'playBow', body: { len: 1.12, r: 0.30, chest: 1.12, hip: 0.92 }, head: { r: 0.40, squash: 0.95, snout: 0.17, snoutR: 0.16 }, legs: { len: 0.52, r: 0.095 }, neck: 0.2,
-          ears: { type: 'pointy', len: 0.38, w: 0.23, tilt: -0.05 }, tail: { type: 'raised', len: 0.54, r: 0.095 },
+        4: { archetype: Q, idlePose: 'stand', body: { len: 1.25, r: 0.27, chest: 1.08, hip: 0.86 }, head: { r: 0.37, squash: 0.95, snout: 0.26, snoutR: 0.14 }, legs: { len: 0.62, r: 0.085 }, neck: 0.2,
+          ears: { type: 'pointy', len: 0.34, w: 0.17, tilt: -0.1 }, tail: { type: 'curl', len: 0.48, r: 0.065 },
           colors: { base: '#f0a458', belly: '#f8b868', muzzle: '#f8c88a', ear: '#c87838', nose: '#2a1010', paw: '#d88848' } },
         8: { archetype: Q, idlePose: 'sit', body: { len: 1.1, r: 0.37, chest: 1.22, hip: 1.0 }, head: { r: 0.38, squash: 0.9, snout: 0.22, snoutR: 0.17 }, legs: { len: 0.42, r: 0.11 }, neck: 0.12,
           ears: { type: 'floppy', len: 0.46, w: 0.24, tilt: 0.15 }, tail: { type: 'plume', len: 0.4, r: 0.09 },
@@ -188,11 +188,11 @@
     man: {
       why: 'biped / 人型の 代表(man・woman・ren・なかま / こいびとの 人型が つかう)。01 はいはい → 04 学生 → 08 つえ',
       stages: {
-        1: { archetype: H, idlePose: 'crawl', head: { r: 0.5 }, body: { h: 0.42, r: 0.3 }, legs: { len: 0.22, r: 0.11 }, arms: { len: 0.26, r: 0.09 }, hair: { style: 'baby', vol: 0.9 }, clothing: 'romper',
+        1: { archetype: H, idlePose: 'crawl', head: { r: 0.5 }, body: { h: 0.42, r: 0.3 }, legs: { len: 0.22, r: 0.11 }, arms: { len: 0.26, r: 0.09 }, hair: { style: 'tuft', vol: 0.5 },
           colors: { skin: '#f8d8b0', hair: '#7a4a32', top: '#b8d8f8', bottom: '#b8d8f8', shoe: '#b8d8f8', accent: '#98c8e8' } },
-        4: { archetype: H, idlePose: 'stand', head: { r: 0.42 }, body: { h: 0.52, r: 0.25 }, legs: { len: 0.46, r: 0.1 }, arms: { len: 0.42, r: 0.08 }, hair: { style: 'spiky', vol: 1.0 }, clothing: 'jacket',
+        4: { archetype: H, idlePose: 'stand', head: { r: 0.42 }, body: { h: 0.52, r: 0.25 }, legs: { len: 0.46, r: 0.1 }, arms: { len: 0.42, r: 0.08 }, hair: { style: 'spiky', vol: 1.0 },
           colors: { skin: '#f8d8b4', hair: '#885848', top: '#384868', bottom: '#2c3a58', shoe: '#e8e8e8', accent: '#f4f4f4' }, attachments: ['backpack'] },
-        8: { archetype: H, idlePose: 'stand', head: { r: 0.42 }, body: { h: 0.5, r: 0.28 }, legs: { len: 0.4, r: 0.11 }, arms: { len: 0.4, r: 0.085 }, hair: { style: 'soft', vol: 0.9 }, clothing: 'cardigan', stoop: 0.12,
+        8: { archetype: H, idlePose: 'stand', head: { r: 0.42 }, body: { h: 0.5, r: 0.28 }, legs: { len: 0.4, r: 0.11 }, arms: { len: 0.4, r: 0.085 }, hair: { style: 'soft', vol: 0.9 }, stoop: 0.12,
           colors: { skin: '#f8d8a8', hair: '#c8bcbc', top: '#c89858', bottom: '#4c4444', shoe: '#5a3a28', accent: '#f6efe4' }, attachments: ['cane'] },
       },
       designFill: '後頭部の かみ・背中の 服・リュックの 背面は 2D の 色を のばして 補完',
@@ -214,7 +214,7 @@
         1: { archetype: P, shape: 'seed', h: 0.62, r: 0.36, colors: { base: '#a87a50', light: '#e89858', dark: '#783848', pappus: '#ffffff' }, attachments: ['pappus'] },
         4: { archetype: PL, form: 'rosette', leaves: 10, leafLen: 0.85, bulb: 0.27, colors: { leaf: '#38c010', leafDark: '#0c5a10', vein: '#a8f808', bulb: '#f6f2d4' } },
         6: { archetype: PL, form: 'flower', leaves: 6, leafLen: 0.55, stem: 0.6, head: 0.36, petals: 18, colors: { leaf: '#2a9a28', leafDark: '#0c4818', vein: '#68b828', stem: '#2a8a30', petal: '#f8e818', petalDark: '#f8a808', face: '#f8c808' } },
-        8: { archetype: C, unit: 'seedPuff', count: 6, spread: 0.62, colors: { base: '#c08a50', pappus: '#ffffff', face: '#f8eadc' } },
+        8: { archetype: C, unit: 'seedPuff', count: 5, spread: 0.62, colors: { base: '#c08a50', pappus: '#ffffff', face: '#f8eadc' } },
       },
       designFill: '葉の うらは おもてより こい 緑。花の うしろは がく(緑)を 補完',
     },
@@ -239,8 +239,8 @@
   });
   // archetype を つかいまわす ためしの なかま(形は builder + 数字だけ。pilot の 数には 入れない)
   const ARCHETYPE_REUSE = freeze({
-    shiba: { archetype: Q, basedOn: 'dog', kind: 'companion', idlePose: 'sit', markings: 'urajiro', body: { len: 0.84, r: 0.38, chest: 1.18, hip: 1.1 }, head: { r: 0.43, squash: 0.93, snout: 0.12, snoutR: 0.19, cheek: 0.22 }, legs: { len: 0.30, r: 0.115 }, neck: 0.12,
-      ears: { type: 'pointy', len: 0.26, w: 0.17, tilt: -0.05 }, tail: { type: 'curl', len: 0.66, r: 0.17 }, colors: { base: '#e89848', belly: '#f8e8d8', muzzle: '#f8e8d8', ear: '#d87838', nose: '#2a1010', paw: '#f8e8d8' } },
+    shiba: { archetype: Q, basedOn: 'dog', kind: 'companion', idlePose: 'stand', body: { len: 1.15, r: 0.3, chest: 1.1, hip: 0.9 }, head: { r: 0.36, squash: 0.94, snout: 0.22, snoutR: 0.15 }, legs: { len: 0.46, r: 0.09 }, neck: 0.16,
+      ears: { type: 'pointy', len: 0.26, w: 0.17, tilt: -0.05 }, tail: { type: 'curl', len: 0.42, r: 0.09 }, colors: { base: '#e89848', belly: '#f8e8d8', muzzle: '#f8e8d8', ear: '#d87838', nose: '#2a1010', paw: '#f8e8d8' } },
     cat_friend: { archetype: Q, basedOn: 'dog', kind: 'companion', idlePose: 'lie', body: { len: 1.15, r: 0.3, chest: 1.0, hip: 1.0 }, head: { r: 0.36, squash: 0.9, snout: 0.08, snoutR: 0.13 }, legs: { len: 0.36, r: 0.08 }, neck: 0.1,
       ears: { type: 'pointy', len: 0.24, w: 0.2, tilt: 0.1 }, tail: { type: 'long', len: 0.7, r: 0.06 }, colors: { base: '#f6e6d6', belly: '#fbf2e8', muzzle: '#fbf2e8', ear: '#e89848', nose: '#e88888', paw: '#f6e6d6', patch: '#684838', patch2: '#e89848' }, patches: true },
   });

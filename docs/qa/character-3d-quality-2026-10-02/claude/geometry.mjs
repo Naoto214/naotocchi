@@ -4,7 +4,7 @@
 //   太さが かわる すいーぷ(sweep)・格子の 面(sheet)で つくり、つなぎめの 法線を ならす(smooth)
 // ・色は 頂点色(vertex color)。material は ほぼ 1 つを みんなで つかう(draw call と material を ふやさない)
 // ・顔は 頭の 面へ 投影(projectGrid / projectPoint)。どんな 形の 頭(かさ・星・魚の 鼻先)でも おなじ 道具で のせる
-import * as THREE from '../vendor/three-0.170.0/three.module.min.js';
+import * as THREE from '../../../../vendor/three-0.170.0/three.module.min.js';
 export { THREE };
 
 const TAU = Math.PI * 2;
@@ -87,24 +87,6 @@ export function blob(shape, ws = 18, hs = 12) {
   return smoothNormals(g);
 }
 export const ellipsoid = (rx, ry, rz, ws = 14, hs = 10) => blob((x, y, z) => [x * rx, y * ry, z * rz], ws, hs);
-
-// A continuous open cap. The boundary follows the hairline instead of sinking
-// parts of a whole sphere through the skull (which exposes scalp triangles).
-// azimuth 0 faces +z; polar angle runs from crown to the lower hairline.
-export function scalpCap(radius, { front = 1.05, side = 1.65, back = 2.05, volume = 0.04 } = {}) {
-  const pos = [], indices = [], around = 32, rings = 10;
-  for (let j = 0; j <= rings; j++) for (let i = 0; i <= around; i++) {
-    const a = i / around * TAU, ca = Math.cos(a);
-    const boundary = ca >= 0 ? lerp(side, front, ca * ca) : lerp(side, back, ca * ca);
-    const t = j / rings, p = t * boundary;
-    const r = radius * (1 + volume * Math.sin(a * 7 + t * 1.7) ** 2 * Math.sin(p));
-    pos.push(Math.sin(a) * Math.sin(p) * r, Math.cos(p) * r, Math.cos(a) * Math.sin(p) * r);
-    if (j < rings && i < around) { const k = j * (around + 1) + i, n = k + around + 1; indices.push(k,n,k+1,n,n+1,k+1); }
-  }
-  const g = new THREE.BufferGeometry();
-  g.setAttribute('position', new THREE.Float32BufferAttribute(pos,3)); g.setIndex(indices);
-  return smoothNormals(g);
-}
 // ---------------- 回転体(profile = [[半径, 高さ], …] 下から上)
 export function lathe(profile, seg = 16) {
   const g = new THREE.LatheGeometry(profile.map(([r, y]) => new THREE.Vector2(Math.max(r, 1e-4), y)), seg);

@@ -128,3 +128,14 @@ Exact refs and merge-tree outputs: `../qa/character-3d-quality-2026-10-02/confli
 | Geometry/Terrain `7610696` | index.html, meguru-3d.mjs, package.json | Inherits billboard visibility issue; future terrain/ground placement and occlusion must use world contract rather than a Character-owned terrain copy. Not tested in combination. |
 
 This is an initial audit, not the required final post-revision audit. Fresh-read again at A6/A7. No branch was merged into Character.
+
+
+## A2 candidate checkpoint (not visual approval)
+
+The Actions route installed Chromium and successfully rendered the unchanged Claude sheets. Its Meguru run is pending at this checkpoint. Local browser remains unavailable.
+
+Initial candidates: continuous open scalp cap/overlapping hair locks; jacket/cardigan shirt, collar/lapel, placket/buttons, cuff/hem and sole geometry merged into existing bones; dog04 bow-to-walk blend and raised tail; compact seated shiba with broad cheeks and thicker curl. Three already-proven A3/A4 structural defects were fixed alongside test preparation: six puffs, child face registration through existing multiFace, and bubble translation.
+
+QA additions: immutable Claude modules under the QA document directory, with original/relocated hashes; gallery `revision=claude` loads them only for QA; `compare.html` provides original/before/revised controls. The game imports no baseline code. Fixed-time gallery sampling now resets time/phase/moving state every frame and exposes a live items accessor.
+
+Validation at candidate checkpoint: 34 existing + 5 new Node tests PASS (39/39). New mechanisms first failed in the source baseline (5/5 RED); removal probes now detect all 5/5 and restore exact bytes. Source production 2D/Expression/Motion assets remain unchanged. Visual comparison of these candidates is PENDING; A2 is not complete, A3–A7 remain incomplete.

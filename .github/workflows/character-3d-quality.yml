@@ -6,6 +6,8 @@ on:
     paths:
       - 'character-3d/**'
       - 'tools/character-3d/**'
+      - 'tests/character-3d*'
+      - 'docs/qa/character-3d-quality-2026-10-02/claude/**'
       - '.github/workflows/character-3d-quality.yml'
 
 permissions:
@@ -29,10 +31,13 @@ jobs:
       - name: Dedicated regression and mutation checks (sequential)
         run: |
           mkdir -p test-results/character-3d-quality
-          node --test --test-reporter=tap tests/character-3d-test.cjs > test-results/character-3d-quality/dedicated.tap
+          node --test --test-reporter=tap tests/character-3d-test.cjs tests/character-3d-quality-test.cjs > test-results/character-3d-quality/dedicated.tap
           sh tools/character-3d/remove-it.sh > test-results/character-3d-quality/remove-it.txt
+          node tools/character-3d/quality-remove-it.cjs > test-results/character-3d-quality/quality-remove-it.txt
       - name: Render pilot comparison sheets
         run: node tools/character-3d/sheets.cjs --out test-results/character-3d-quality/sheets
+      - name: Same-condition Claude vs revised all-stage four-view sheets
+        run: node tools/character-3d/quality-sheets.cjs
       - name: Meguru regression and 1 / 5 / 27 actor measurement
         run: node tools/character-3d/meguru-qa.cjs --out test-results/character-3d-quality/meguru --seconds 8
       - name: Record exact source and runtime

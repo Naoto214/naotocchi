@@ -47,12 +47,6 @@ const LOCO = {
       for (const n of ['legFL', 'legFR']) B[n].rotation.x += -1.38 * w;
       for (const n of ['legBL', 'legBR']) B[n].rotation.x += -1.25 * w;
       B.head.position.y -= meta.bodyR * 0.25 * w; B.head.rotation.x += 0.18 * w;
-    } else if (pose === 'playBow' && w > 0) {
-      B.body.rotation.x += 0.32 * w;
-      B.body.position.y -= 0.09 * w;
-      B.head.rotation.x -= 0.27 * w;
-      for (const n of ['legFL', 'legFR']) { B[n].rotation.x -= 0.72 * w; B[n].position.z += 0.08 * w; }
-      for (const n of ['legBL', 'legBR']) B[n].rotation.x -= 0.12 * w;
     } else if (pose === 'sit' && w > 0) {
       B.body.rotation.x += -0.5 * w;
       B.body.position.y = lerp(B.body.position.y, meta.legTop * 0.62 + meta.bodyR * 0.35, w);
