@@ -187,7 +187,7 @@ export function billboardVisible(m, fogFar, dist) {
 // 森 = 根の こまかい 起伏、砂丘 = 尾根、雪 = 道ばたの 土手、がけ = 足もとの もりあがり、海 / 湖 = 水へ むかって ひくく、池 = 浅い くぼ地、
 // 小川 / 川 = 谷(川底 + 岸)。ランダムな こぶを 全面に まかない(hill は ひらけた ところ だけ・道から 30〜340 で 0 → 1)
 export const TERRAIN_CELL = 80;
-export const STREAM_WATER_Y = { creek: -9, river: -11 }, BRIDGE_DECK_Y = 6;   // 橋の 床の 上面(meguru.js の BRIDGE_DECK と おなじ)
+export const STREAM_WATER_Y = { creek: -9, river: -11, ditch: -5 }, BRIDGE_DECK_Y = 6;   // 橋の 床の 上面(meguru.js の BRIDGE_DECK と おなじ)
 function vnoise(seed) {
   const hh = (ix, iz) => { let n = (ix * 374761393 + iz * 668265263 + seed * 1442695041) | 0; n = Math.imul(n ^ (n >>> 13), 1274126177); return ((n ^ (n >>> 16)) >>> 0) / 4294967295 * 2 - 1; };
   return (x, z) => { const ix = Math.floor(x), iz = Math.floor(z), fx = x - ix, fz = z - iz, sx = fx * fx * (3 - 2 * fx), sz = fz * fz * (3 - 2 * fz), a = hh(ix, iz), b = hh(ix + 1, iz), c = hh(ix, iz + 1), d = hh(ix + 1, iz + 1); return a + (b - a) * sx + (c - a) * sz + (a - b - c + d) * sx * sz; };
@@ -195,8 +195,8 @@ function vnoise(seed) {
 const smoothT = (a, b, x) => { const t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
 // 小川 / 川の 断面(中心からの きょり d、はば w): 岸の 上(地面)→ 岸の ふち → 土の 斜面 → 砂利 → 川底。null = 帯の そと
 export const STREAM_BED = [[1, 75, 'g'], [1, 35, 0.6], [1, 8, -6], [0.6, 0, -13], [0, 0, -17]];
-export function streamBedY(d, w, river) {
-  const k = river ? 1.35 : 1, pts = STREAM_BED.map(([a, b, y]) => [a * w + b, y === 'g' ? 0.3 : y * k]);
+export function streamBedY(d, w, river, ditch) {
+  const k = river ? 1.35 : ditch ? 0.55 : 1, pts = STREAM_BED.map(([a, b, y]) => [a * w + b, y === 'g' ? 0.3 : y * k]);
   if (d >= pts[0][0]) return null;
   for (let i = 0; i < pts.length - 1; i++) { const [d0, y0] = pts[i], [d1, y1] = pts[i + 1]; if (d <= d0 && d >= d1) return y1 + (y0 - y1) * (d - d1) / ((d0 - d1) || 1); }
   return pts[pts.length - 1][1];
@@ -229,7 +229,7 @@ export function terrainGrid(world, M, objects) {
   const flat = (objects || []).filter((o) => /^(house|tower|temple|wall|dome|tent|lm_)/.test(o.type)).map((o) => ({ x: o.x, z: o.z, r: o.collision ? Math.max(o.collision.hw, o.collision.hd) : o.halfW * 0.5 }));
   const cliffs = R.cliffFoot ? (objects || []).filter((o) => o.type === 'rockwall' || o.type === 'ledge').map((o) => ({ x: o.x, z: o.z, r: o.collision ? Math.max(o.collision.hw, o.collision.hd) : 60 })) : [];
   const segD = (x, z) => { let best = Infinity; for (const s of segs) { const dx = s.b.x - s.a.x, dz = s.b.z - s.a.z, L2 = dx * dx + dz * dz || 1, t = Math.max(0, Math.min(1, ((x - s.a.x) * dx + (z - s.a.z) * dz) / L2)), d = Math.hypot(x - s.a.x - dx * t, z - s.a.z - dz * t) - s.half; if (d < best) best = d; } return best; };
-  const sDist = (x, z) => { let best = { d: Infinity, w: 0, river: false }; for (const st of streams) for (let i = 0; i < st.pts.length - 1; i++) { const a = st.pts[i], b = st.pts[i + 1], dx = b.x - a.x, dz = b.z - a.z, L2 = dx * dx + dz * dz || 1, t = Math.max(0, Math.min(1, ((x - a.x) * dx + (z - a.z) * dz) / L2)), d = Math.hypot(x - a.x - dx * t, z - a.z - dz * t); if (d < best.d) best = { d, w: a.w + (b.w - a.w) * t, river: st.kind === 'river' }; } return best; };
+  const sDist = (x, z) => { let best = { d: Infinity, w: 0, river: false, ditch: false }; for (const st of streams) for (let i = 0; i < st.pts.length - 1; i++) { const a = st.pts[i], b = st.pts[i + 1], dx = b.x - a.x, dz = b.z - a.z, L2 = dx * dx + dz * dz || 1, t = Math.max(0, Math.min(1, ((x - a.x) * dx + (z - a.z) * dz) / L2)), d = Math.hypot(x - a.x - dx * t, z - a.z - dz * t); if (d < best.d) best = { d, w: a.w + (b.w - a.w) * t, river: st.kind === 'river', ditch: st.kind === 'ditch' }; } return best; };
   // 水の spot(小川 / 川の 上の よどみ・浅瀬)と 交わりの まわりは 道の 上でも 掘る(道は 水へ 入る / 橋・飛び石が わたす)
   const wetSpots = spots.filter((q) => q.kind === 'water' && sDist(q.x, q.z).d < q.r);
   const nearCross = (x, z) => crossings.some((c) => Math.hypot(c.x - x, c.z - z) < c.w * 2 + 120) || wetSpots.some((q) => Math.hypot(q.x - x, q.z - z) < q.r + 40);
@@ -250,7 +250,7 @@ export function terrainGrid(world, M, objects) {
     for (const q of ponds) { const d = Math.hypot(q.x - x, q.z - z) / q.r; if (d < 1.4) { h = Math.min(h * smoothT(0.9, 1.4, d), -14 * (1 - smoothT(0.5, 1.15, d))); wv = Math.max(wv, 1 - smoothT(0.9, 1.5, d)); } }
     const sd = sDist(x, z);
     if (sd.d < sd.w + 95) {
-      const depth = sd.river ? 32 : 24, kk = (1 - smoothT(sd.w + 20, sd.w + 95, sd.d)) * (nearCross(x, z) ? 1 : smoothT(-10, 40, dp));
+      const depth = sd.river ? 32 : sd.ditch ? 13 : 24, kk = (1 - smoothT(sd.w + 20, sd.w + 95, sd.d)) * (nearCross(x, z) ? 1 : smoothT(-10, 40, dp));
       h = h * (1 - kk) - depth * kk;
     }
     if (sd.d < sd.w + 160) wv = Math.max(wv, 1 - smoothT(sd.w + 40, sd.w + 160, sd.d));
@@ -262,13 +262,13 @@ export function terrainGrid(world, M, objects) {
     S[k] = 1 + Math.max(-0.22, Math.min(0.12, h / 70)) + n2(x / 60, z / 60) * 0.04;
   }
   const sample = (x, z) => { const fx = Math.max(0, Math.min(nx - 1e-6, (x - x0) / cell)), fz = Math.max(0, Math.min(nz - 1e-6, (z - z0) / cell)), i = Math.floor(fx), j = Math.floor(fz), u = fx - i, v = fz - j, k = j * (nx + 1) + i; return H[k] * (1 - u) * (1 - v) + H[k + 1] * u * (1 - v) + H[k + nx + 1] * (1 - u) * v + H[k + nx + 2] * u * v; };
-  const surfaceY = (x, z) => { const g = sample(x, z), sd = sDist(x, z), b = sd.d < sd.w + 75 ? streamBedY(sd.d, sd.w, sd.river) : null; return b == null ? g : Math.max(g, b); };
+  const surfaceY = (x, z) => { const g = sample(x, z), sd = sDist(x, z), b = sd.d < sd.w + 75 ? streamBedY(sd.d, sd.w, sd.river, sd.ditch) : null; return b == null ? g : Math.max(g, b); };
   // キャラの 足もと: 道 / spot の 上は 0(橋の 上は 床の 高さ)、そと は 地形(池 / 小川の 中では 水面 ちかく まで)
   const decks = crossings.filter((c) => c.kind === 'bridge').concat(gullies);
   const walkY = (x, z) => {
     if (segD(x, z) < 6 || spots.some((q) => q.kind !== 'water' && Math.hypot(q.x - x, q.z - z) < q.r)) {
       for (const c of decks) if (Math.hypot(c.x - x, c.z - z) < (c.w + 30) / Math.max(0.45, Math.abs(Math.sin(c.pathAng - c.streamAng))) + 20) return BRIDGE_DECK_Y;
-      const sd = sDist(x, z); if (sd.d < sd.w * 0.9) return STREAM_WATER_Y[sd.river ? 'river' : 'creek'] + 3;   // 水の 中の 道: 水面 ちかく(あさせを あるく)
+      const sd = sDist(x, z); if (sd.d < sd.w * 0.9) return STREAM_WATER_Y[sd.river ? 'river' : sd.ditch ? 'ditch' : 'creek'] + 3;   // 水の 中の 道: 水面 ちかく(あさせを あるく)
       for (const q of ponds) if (Math.hypot(q.x - x, q.z - z) < q.r * 0.85) return -2;   // 池の 中(2D で 水の spot へ 入る): 水面(−4)ちかく
       return 0;
     }
@@ -648,7 +648,9 @@ function create3DRenderer(M, o, onLost) {
       wcone4: up(new THREE.ConeGeometry(1, 1, 4, 1, true)), wcone6: up(new THREE.ConeGeometry(1, 1, 6, 1, true)), ring: keep(new THREE.TorusGeometry(1, 0.08, 4, 12)),
       // Geometry pass(予算): かべの 前の うすい 板(まど・わく・入口・看板の 面)は 正面 1 まい(2 三角形)。箱(12)の 見えない 5 面を つくらない。
       // 原型の parts は 箱(rx / h / rz)の まま。rz が うすい(≤ 2.6)ものだけ ここで 板に する。正面 = ローカル +z(箱の 前の 面と おなじ いち)
-      wpanel: keep(new THREE.PlaneGeometry(2, 1).translate(0, 0.5, 1)), nut8: keep(new THREE.OctahedronGeometry(1, 0)), decal: keep(new THREE.CircleGeometry(1, 16).rotateX(-Math.PI / 2).translate(0, 1.4, 0)), glowdisc: keep(new THREE.CircleGeometry(1, 20).rotateX(-Math.PI / 2).translate(0, 0.9, 0)),
+      wpanel: keep(new THREE.PlaneGeometry(2, 1).translate(0, 0.5, 1)), nut8: keep(new THREE.OctahedronGeometry(1, 0)),
+      // Building v4: 切妻屋根(三角の 柱。棟は ローカル x = 正面に そう。正面 = +z の 斜面)
+      gable: keep((() => { const v = [-1, 0, 1, 1, 0, 1, 1, 1, 0, -1, 0, 1, 1, 1, 0, -1, 1, 0, 1, 0, -1, -1, 0, -1, -1, 1, 0, 1, 0, -1, -1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, -1, 1, 1, 0, -1, 0, -1, -1, 0, 1, -1, 1, 0]; const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(v, 3)); g.computeVertexNormals(); return g; })()), decal: keep(new THREE.CircleGeometry(1, 16).rotateX(-Math.PI / 2).translate(0, 1.4, 0)), glowdisc: keep(new THREE.CircleGeometry(1, 20).rotateX(-Math.PI / 2).translate(0, 0.9, 0)),
       foam: keep(new THREE.CircleGeometry(1, 16).rotateX(-Math.PI / 2).translate(0, 3.2, 0)), wet: keep(new THREE.CircleGeometry(1, 24).rotateX(-Math.PI / 2).translate(0, 1.0, 0)), mist: keep(new THREE.IcosahedronGeometry(1, 1)), litter: keep(new THREE.PlaneGeometry(1, 1).rotateX(-Math.PI / 2).translate(0, 1.6, 0)),
     };
     const flat = (color) => keep(new THREE.MeshLambertMaterial({ color, flatShading: true }));
@@ -665,7 +667,7 @@ function create3DRenderer(M, o, onLost) {
       post: flat('#7a5a3a'), board: flat('#c9a46a'), wbox: flat('#ffffff'), wroof: flat('#ffffff'), wdome: flat('#ffffff'), wblade: flat('#ffffff'), wcone: flat('#ffffff'), wpost: flat('#ffffff'), wslab: flat('#ffffff'), wstem: flat('#ffffff'), wring: flat('#ffffff'),
       glowcone: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 0.45 })), glowboard: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 0.6 })), decal: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', transparent: true, opacity: 0.8, depthWrite: false })), kelp: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', side: THREE.DoubleSide })), slab: flat('#9c9c94'), rail: flat('#8a6a44'), pebble: flat('#8d8a80'), mound: keep(new THREE.MeshLambertMaterial({ map: keep(cliffTexture()), color: '#c4c1b8' })), mist: keep(new THREE.MeshBasicMaterial({ color: '#f2f8fb', transparent: true, opacity: 0.24, depthWrite: false })) };
     const GEO_ALIAS = { crownBig: 'crown', kelp: 'kelpblade', frond: 'frond', glowcap: 'cap', slab: 'plank', rail: 'log', leaf: 'litter', spark: 'nut', wbox: 'box', wdome: 'cap', wblade: 'blade', wcone: 'blade', wpost: 'post', wslab: 'plank', wstem: 'stem', wring: 'ring', glowcone: 'blade', glowboard: 'board', wroof: 'roof4', wcone4: 'wcone4', wcone6: 'wcone6', roof6: 'roof6', roof8: 'roof8' };
-    const MAT_ALIAS = { trunk2: 'trunk', crownSmall: 'crown', frond: 'kelp', wpanel: 'wbox', nut8: 'nut', wcone4: 'wcone', wcone6: 'wcone', roof6: 'wroof', roof8: 'wroof', roof4: 'wroof', glowcone6: 'glowcone', glowcone4: 'glowcone' };
+    const MAT_ALIAS = { trunk2: 'trunk', crownSmall: 'crown', frond: 'kelp', wpanel: 'wbox', nut8: 'nut', gable: 'wroof', wcone4: 'wcone', wcone6: 'wcone', roof6: 'wroof', roof8: 'wroof', roof4: 'wroof', glowcone6: 'glowcone', glowcone4: 'glowcone' };
     const inst = {};   // shape → [{ x, y, z, sx, sy, sz, ry, tint, color }]
     const board = new Map();   // emoji → [{ x, z, w, h }]
     const occluders = [];   // かたい 物(カメラと player の あいだに 入ったら すかす)
@@ -699,7 +701,9 @@ function create3DRenderer(M, o, onLost) {
       for (const pt of ob.parts) {
         const px = ob.x + (pt.dx || 0), pz = -(ob.z + (pt.dz || 0));
         switch (pt.shape) {
-          case 'trunk': push(pt.taper != null && pt.taper < 0.65 ? 'trunk2' : 'trunk', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
+          // Tree v4: 幹 / 枝の かたむき(tilt)。toward = 枝が むかう せかいの ずれ(dx, dz)
+          case 'trunk': push(pt.taper != null && pt.taper < 0.65 ? 'trunk2' : 'trunk', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: pt.toward ? Math.atan2(-pt.toward[1], -pt.toward[0]) : t * TAU, rz: pt.tilt || 0, tint: t, color: pt.color }); break;
+          case 'gable': push('gable', { x: px, y: pt.y || 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: Math.PI / 2 - (pt.ang || 0), tint: t, color: pt.color }); break;
           case 'cone': push('cone', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color || shadeOf(FOL.conifer, pt.shade) }); break;
           case 'crown': push(pt.small ? 'crownSmall' : ob.type === 'bigtree' ? 'crownBig' : 'crown', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r * pt.sy, sz: pt.r, ry: t * TAU + (pt.spin || 0), tint: t, color: pt.color || shadeOf(FOL.crown, pt.shade) }); break;
           case 'cap': push('cap', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r * pt.sy, sz: pt.r, ry: 0, tint: t }); break;
@@ -791,7 +795,7 @@ function create3DRenderer(M, o, onLost) {
       const streamTex = keep(waveTexture()); streamTex.repeat.set(1.5, 1);
       const streamMat = keep(new THREE.MeshPhongMaterial({ vertexColors: true, map: streamTex, transparent: true, opacity: 0.86, shininess: 60, specular: '#cfe6ff', depthWrite: false, side: THREE.DoubleSide }));
       for (const st of terr.streams) {
-        const river = st.kind === 'river', k = river ? 1.35 : 1, wy = STREAM_WATER_Y[river ? 'river' : 'creek'];
+        const river = st.kind === 'river', k = river ? 1.35 : st.kind === 'ditch' ? 0.55 : 1, wy = STREAM_WATER_Y[river ? 'river' : st.kind === 'ditch' ? 'ditch' : 'creek'];
         const L = (sgn, a, b, y, c) => ({ s: sgn, a, b, y, c });
         const bed = [L(-1, 1, 75, 'g', grassC), L(-1, 1, 35, 0.6, lipC), L(-1, 1, 8, -6 * k, soilC), L(-1, 0.6, 0, -13 * k, gravelC), L(1, 0, 0, -17 * k, bedC), L(1, 0.6, 0, -13 * k, gravelC), L(1, 1, 8, -6 * k, soilC), L(1, 1, 35, 0.6, lipC), L(1, 1, 75, 'g', grassC)];
         water.meshes.push(stripMesh(streamStripData(st.pts, bed, terr.sample), bankMat, river ? 'water:bank' : 'water:creekbed'));

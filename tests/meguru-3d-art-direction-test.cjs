@@ -97,7 +97,9 @@ test('AD-5. Tree v3: 針葉樹 4〜5 段(明暗・下ほど ひろい)、広葉�
 test('AD-6. gate: もり と ジャングルは 1 まいの 絵で 見わけが つく(葉の palette・きりの いろ・ジャングル だけ 大きな は / つる / 根もとの 下草 / lowPoly)', () => {
   const F = M.REGION3D.forest, J = M.REGION3D.jungle;
   assert.notDeepEqual(F.foliage.crown, J.foliage.crown, '葉の palette が ちがう');
-  assert.ok(J.fogColor && !F.fogColor, 'ジャングルの きりは みどり');
+  // 2026-10-02 Geometry pass(HQ-11): もりにも つめたい きりの いろ。ジャングルの きりは もりより みどり が つよく、ちかい(見とおし が みじかい)
+  const green = (c) => { const [r, g, b] = hex(c); return g - (r + b) / 2; };
+  assert.ok(J.fogColor && F.fogColor && green(J.fogColor) > green(F.fogColor) && J.fog[0] < F.fog[0] && J.fog[1] < F.fog[1], 'ジャングルの きりは みどり で ちかい');
   assert.ok(J.lowPoly && !F.lowPoly);
   const jb = objsOf('jungle').objects.filter((o) => o.type === 'broadleaf'), fb = objsOf('forest').objects.filter((o) => o.type === 'broadleaf');
   assert.ok(jb.every((o) => o.parts.some((p) => p.shape === 'wblade')), 'ジャングルの 木には 大きな は');
@@ -108,24 +110,34 @@ test('AD-6. gate: もり と ジャングルは 1 まいの 絵で 見わけが 
   assert.ok(objsOf('jungle').objects.some((o) => o.type === 'palm') && !objsOf('forest').objects.some((o) => o.type === 'palm'), 'ジャングルには ヤシ');
 });
 
-test('AD-7. Building v3: 家は 箱 + 屋根 だけに しない(屋根の はりだし・土台の ふち・わく つき 入口 と まど・煙突 / 看板 / ひさし の 1〜2・まわりの しげみ と 花・家ごとの ちがい)', () => {
-  for (const rid of ['home', 'countryside', 'snow', 'mountain', 'sea']) {
+// 2026-10-02 Geometry pass(Human QA AD v1 HQ-9「家が 細い / 四角い / 塔の よう」): Building v3 の 契約を Building v4 に 再仕様化。
+// 家の かたまりを family に わけ(切妻 / 寄棟 / 平ら・ポーチ・出窓・縁側・はなれ・ベランダ)、高さ / 床 の 比を しばる
+test('AD-7. Building v4: family ごとの かたまり・屋根の かたち(切妻 / 寄棟 / 平ら)・のき・土台・入口 と まど・かたまりの 足し(ポーチ / 出窓 / 縁側 / はなれ / ベランダ / 煙突 / ひさし)・シルエット 高さ / はば ≤ 1.5', () => {
+  const fams = new Set();
+  for (const rid of ['home', 'countryside', 'snow', 'mountain', 'sea', 'desert', 'river_lake', 'city']) {
     const hs = objsOf(rid).objects.filter((o) => o.type === 'house'); if (!hs.length) continue;
     const bodies = new Set();
     for (const o of hs) {
-      const body = o.parts[0], h = body.h; bodies.add(body.color);
+      const body = o.parts[0], h = body.h, fam = body.family; bodies.add(body.color); fams.add(fam);
+      assert.ok(fam, o.id + ' family');
       assert.ok(o.parts.length >= 12, o.id + ' parts ' + o.parts.length);
-      assert.ok(o.parts.some((p) => p.shape === 'roof' || (p.shape === 'box' && p.y >= h - 0.01)), o.id + ' 屋根');
-      assert.ok(o.parts.some((p) => p.shape === 'box' && p.y > h - 10 && p.y < h + 0.01 && p.rx > body.rx * 1.05), o.id + ' 屋根の はりだし / ふち');
+      assert.ok(o.parts.some((p) => p.shape === 'roof' || p.shape === 'gable' || (p.shape === 'box' && p.y >= h - 0.01)), o.id + ' 屋根');
+      assert.ok(o.parts.some((p) => p.shape === 'box' && p.y > h - 10 && p.y < h + 0.01 && p.rx > body.rx * 1.02), o.id + ' のき / ふち');
       assert.ok(o.parts.some((p) => p.shape === 'box' && p.y === 0 && p.h <= 8 && p.rx > body.rx), o.id + ' 土台の ふち');
       assert.ok(o.parts.some((p) => p.door) && o.parts.some((p) => p.win), o.id + ' 入口 と まど');
-      const extras = (o.parts.some((p) => p.color === '#6a5a4a') ? 1 : 0) + (o.parts.some((p) => p.shape === 'board') ? 1 : 0) + (o.parts.some((p) => p.shape === 'wslab') ? 1 : 0);
-      assert.ok(extras >= 1 && extras <= 2, o.id + ' 煙突 / 看板 / ひさし ' + extras);
-      const fl = (M.REGION3D[rid].cover.flowers || []).length;   // ゆき など 花の ない 地域は しげみ だけ
+      // シルエットの 比: (からだ + 屋根の 高さ)/ いちばん ひろい はば(屋根の のき・屋上の 看板 を ふくむ)。家 ≤ 1.5、みせ ≤ 1.6(塔の ような 家に しない)
+      const roof = o.parts.find((p) => p.shape === 'gable' || p.shape === 'roof'), sign = Math.max(0, ...o.parts.filter((p) => p.shape === 'board').map((p) => p.w));
+      const span = Math.max(roof ? (roof.shape === 'gable' ? 2 * Math.max(roof.rx, roof.rz) : 2 * roof.r * 0.71) : 2 * Math.max(body.rx, body.rz), sign), ratio = (h + (roof ? roof.h : 18)) / span;
+      assert.ok(ratio <= (fam === 'shop' ? 1.6 : 1.5) + 1e-6, o.id + ' ' + fam + ' シルエット 高さ / はば ' + ratio.toFixed(2) + '(塔の ような 家に しない)');
+      const extra = ['wslab', 'rail', 'board'].filter((s) => o.parts.some((p) => p.shape === s)).length + (o.parts.some((p) => p.color === '#6a5a4a') ? 1 : 0) + (o.parts.filter((p) => p.solidBox).length >= 2 ? 1 : 0) + (o.parts.some((p) => p.shape === 'gable' && p !== o.parts.find((q) => q.shape === 'gable')) ? 1 : 0);
+      assert.ok(extra >= 1, o.id + ' かたまりの 足し ' + extra);
+      const fl = (M.REGION3D[rid].cover.flowers || []).length;
       assert.ok(o.parts.filter((p) => p.shape === 'crown' && p.small).length >= 2 && o.parts.filter((p) => p.shape === 'flower').length >= (fl ? 2 : 0), o.id + ' まわりの 植物');
     }
     if (hs.length >= 5) assert.ok(bodies.size >= 2, rid + ' 家の いろは ばらつく');
   }
+  for (const f of ['cottage', 'single', 'twostorey', 'farmhouse', 'barn', 'shed']) assert.ok(fams.has(f), 'family ' + f + ' が ある: ' + [...fams].join(','));
+  assert.ok(objsOf('home').objects.filter((o) => o.type === 'house').some((o) => o.parts.some((p) => p.shape === 'gable')) && objsOf('home').objects.filter((o) => o.type === 'house').some((o) => o.parts.some((p) => p.shape === 'roof')), 'home は 切妻 と 寄棟 が まざる');
 });
 
 test('AD-8. city scene: 低層 / 中層 / 高層の まざり・灰 だけで ない いろ・みせ(ガラス + ひさし + 看板 + たて看板)・路地の かべも 正面を もつ・高さは 床の 5.5 倍まで', () => {
@@ -154,7 +166,8 @@ test('AD-9. city の 小物: 自転車・自販機は 3D の かたち(unresolve
   const r = objsOf('city');
   assert.equal(r.unresolved.length, 0, 'unresolved ' + r.unresolved.slice(0, 5).join(','));
   const bikes = r.objects.filter((o) => o.type === 'bike');
-  assert.ok(bikes.length >= 2 && bikes.every((o) => o.parts.filter((p) => p.shape === 'ring').length === 2 && o.walkable), '自転車 = わ 2 つ・ふんで とおれる');
+  // 2026-10-02 Geometry pass(props gate・HQ-13「横倒しの 輪と 棒」): わ は たての わ(arch)2 つ・地面に つく・ハンドル と サドル
+  assert.ok(bikes.length >= 2 && bikes.every((o) => o.parts.filter((p) => p.shape === 'arch' && Math.abs(p.y - p.r) < 0.01).length === 2 && o.parts.some((p) => p.shape === 'wslab' && p.w >= 12) && o.parts.some((p) => p.shape === 'box') && o.walkable), '自転車 = 立った わ 2 つ + ハンドル + サドル・ふんで とおれる');
   assert.ok(!M.HIDDEN3D.has('🚲'));
   const vend = r.objects.filter((o) => o.kind === 'vending');
   assert.ok(vend.length >= 1 && vend.every((o) => o.parts.length >= 4), '自販機 = 本体 + パネル + 取り出し口 + ふち');

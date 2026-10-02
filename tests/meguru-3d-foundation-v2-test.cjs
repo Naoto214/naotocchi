@@ -367,7 +367,8 @@ test('v2-15. Region Profile v2: 13 地域 ぜんぶに family(terrain / veg / ar
   assert.ok(!forest.some((o) => o.type === 'lamp' && o.parts.some((pt) => pt.shape === 'wslab')), 'もりに 電柱は ない');
   // jungle は 半分の 木を 20 三角形の かんむりに
   const jungle = M.worldObjects3d(M.buildWorld('jungle', reg, { world3d: true })).objects.filter((o) => o.type === 'broadleaf');
-  const smallMain = jungle.filter((o) => o.parts[1].small).length;
+  // 2026-10-02 Geometry pass(Tree v4): 根もとの はり + 幹 2 だん が さきに 入る ので、主の かんむり = はじめの crown
+  const smallMain = jungle.filter((o) => o.parts.find((pt) => pt.shape === 'crown').small).length;
   assert.ok(smallMain > jungle.length * 0.3 && smallMain < jungle.length * 0.7, 'jungle の かるい かんむり ' + smallMain + ' / ' + jungle.length);
   // 地面の 起伏は renderer が areas から つくる(あたり なし)
   assert.match(SRC, /const BUMP = \{ dunefield: 22, snowfield: 14, seabed: 12/, '起伏の 表');
