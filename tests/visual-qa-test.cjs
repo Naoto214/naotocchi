@@ -46,6 +46,29 @@ const sick = care.assess(fixtures.care_sick_only);
 assert.equal(sick.kind, 'sick');
 assert.equal(sick.action, 'medicineBtn');
 const {harness} = require('./helpers/runtime-harness.cjs');
+for (const [name,count,hasPartner] of [
+  ['recovery_alone',0,false],['recovery_pair',0,true],['recovery_dense26',26,true],
+  ['recovery_small',0,false],['recovery_large',26,true],['recovery_float',26,true],
+  ['recovery_rigid',26,true],['recovery_plant',26,true],
+]) {
+  const fixture=fixtures[name];
+  assert.ok(fixture,name+': recovery fixture exists');
+  assert.equal(care.assess(fixture).kind,'sick',name+': visible sickness before care');
+  const storage=new Map([['naotocchi-save-v1',JSON.stringify(fixture)]]);
+  const scene=harness({resume:true,storage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v),removeItem:k=>storage.delete(k)}});
+  const state=scene.api.state();
+  assert.equal(state.speciesLine,fixture.speciesLine,name+': representative art survives reload');
+  assert.equal(state.stageIndex,fixture.stageIndex,name+': representative stage survives reload');
+  assert.equal(state.companions.length,count,name+': exact density survives reload');
+  assert.equal(!!state.partner,hasPartner,name+': partner survives reload');
+  if(hasPartner)assert.equal(state.partner.married,true);
+  assert.equal(state.lifetime.equippedItemId,'ribbon');
+  scene.get('storyFlash').classList.add('hidden');
+  scene.dispatch(scene.get('medicineBtn'),'click');scene.advance(1);
+  assert.equal(state.isSick,false,name+': real medicine cures');
+  assert.equal(scene.get('petSprite').dataset.reaction,'recover',name+': real action starts recovery');
+  assert.deepEqual(scene.get('petAccessory').animations.at(-1).frames,scene.get('petSprite').animations.at(-1).frames);
+}
 const saved = new Map([['naotocchi-save-v1',JSON.stringify(fixtures.ui_illustrations)]]);
 const h = harness({resume:true,storage:{getItem:k=>saved.get(k)||null,setItem:(k,v)=>saved.set(k,v),removeItem:k=>saved.delete(k)}});
 assert.equal(h.api.state().companions.length,26);
