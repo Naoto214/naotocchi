@@ -1330,9 +1330,12 @@
         }
         case 'bigtree': {
           if (!ctx || !ctx.front) {   // ふつうの 大木(bigtrunk)。Kit v2: 側の かたまりは 小さな cluster、根もとに 根の はり
-            const top = Math.max(H, OBJ3D_HEAD * 3), R = Math.max(size * 0.42, r * 2.4), v = (ctx && ctx.v) || 0, jungle = ctx && ctx.prof && ctx.prof.veg === 'canopy-dense';
+            // VQ 2026-10-02: reuse the three crown masses at different canopy levels.
+            // Keep collider/root and landmark trees; forest has gaps, jungle a higher ceiling.
+            const v = (ctx && ctx.v) || 0, jungle = ctx && ctx.prof && ctx.prof.veg === 'canopy-dense';
+            const top = Math.max(H * (jungle ? 0.78 + v * 0.2 : 0.52 + v * 0.32), OBJ3D_HEAD * 3), R = Math.max(size * (jungle ? 0.46 : 0.42), r * 2.4);
             // Art Direction v1(箱庭の 比率): 幹は あたりより ほそく(0.82)・根もとの はりで 地面に つなぐ。jungle は 根もとに 大きな は(下草)
-            const out = [{ shape: 'trunk', r: r * 0.82, h: top, y: 0, taper: 0.6 }, { shape: 'crown', r: R, sy: 0.7, y: top + R * 0.3, shade: 1 }, { shape: 'crown', small: true, r: R * 0.7, sy: 0.75, y: top - R * 0.05, dx: R * 0.65, shade: 2 }, { shape: 'crown', small: true, r: R * 0.62, sy: 0.75, y: top + R * 0.05, dx: -R * 0.55, dz: R * 0.35, shade: 0 },
+            const out = [{ shape: 'trunk', r: r * 0.82, h: top, y: 0, taper: 0.6 }, { shape: 'crown', r: R, sy: 0.7, y: top + R * 0.3, shade: 1 }, { shape: 'crown', small: true, r: R * 0.7, sy: 0.75, y: Math.max(OBJ3D_HEAD + R * 0.6, top - R * (jungle ? 0.45 : 0.55)), dx: R * 0.65, shade: 2 }, { shape: 'crown', small: true, r: R * 0.62, sy: 0.75, y: top + R * (jungle ? 0.15 : -0.15), dx: -R * 0.55, dz: R * 0.35, shade: 0 },
               { shape: 'trunk', r: r * 0.95, h: r * 0.7, y: 0, taper: 0.5, color: '#6b4b32' }];   // 根の はり(あたりの なか・みじかく ひろい 幹 = 14 三角形)
             if (jungle) for (let i = 0; i < 3; i++) { const a = v * 6.28 + i * 2.1; out.push({ shape: 'frond', len: 44 + (i % 2) * 14, w: 20, y: 3, dx: Math.sin(a) * r * 0.9, dz: Math.cos(a) * r * 0.9, dir: a, droop: 0.4, color: i ? '#2f8a3f' : '#9fd43a' }); }
             if (jungle) for (let i = 0; i < 2; i++) { const a = v * 6.28 + 1 + i * 3.1, vh = top * (0.4 + 0.15 * i); out.push({ shape: 'wpost', r: 1.8, h: vh, y: top + R * 0.1 - vh, dx: Math.sin(a) * R * 0.55, dz: Math.cos(a) * R * 0.55, color: i ? '#3f7a3a' : '#5f9a3a' }); }   // canopy から たれる つる(ジャングル だけ)
@@ -1473,12 +1476,21 @@
             out.push(front(side, y - 2, winW + 2.5, 1.2, 18, trimC), front(side, y, winW, 2.2, 14, '#cfe6f2', { win: true }), front(side, y - 3, winW + 3.5, 3, 2.5, trimC, { solidBox: true }));
             if (v < 0.4 && r0 === 0) out.push(front(side, y - 9, winW + 1, 4, 6, '#8a5a3a', { solidBox: true }), Object.assign({ shape: 'flower', r: 7, h: 2, y: y - 3, color: v < 0.2 ? '#f2a6c0' : '#f7d94c' }, at(d + 6, side)));   // 花の 箱
           }
+          // VQ 2026-10-02: houses are read from the street and rear paths too.
+          // Three paired panels (12 triangles total), no new object/material.
+          if (family !== 'shed' && family !== 'barn') for (const face of [-1, 1, 0]) {
+            const rear = face === 0, a = rear ? ang + Math.PI : ang - face * Math.PI / 2;
+            const wy = h * (storeys === 2 ? 0.62 : 0.46), ww = Math.min(12, (rear ? w : d) * 0.28);
+            const loc = (depth) => rear ? at(-d - depth, 0) : at(0, face * (w + depth));
+            out.push(Object.assign({ shape: 'box', rx: ww + 2, rz: 1.2, h: 19, y: wy - 2, ang: a, color: trimC }, loc(1.2)),
+              Object.assign({ shape: 'box', rx: ww, rz: 2.2, h: 15, y: wy, ang: a, color: '#b8d8e5', win: true }, loc(1.5)));
+          }
           // family ごとの かたまり: ポーチ(屋根 + 柱 + 床)/ 出窓 / 縁側 / はなれ / 2 かいの ベランダ / 煙突
           const porchD = D - d;   // 本体の 前の のこり(敷地の なか)
           if (['cottage', 'single', 'cabin', 'twostorey', 'shed'].includes(family) && porchD <= 8) out.push(Object.assign({ shape: 'wslab', len: doorW * 3, w: 18, h: 4, y: doorH + 10, ang, color: accent }, at(d + 9, doorX)), Object.assign({ shape: 'box', rx: doorW * 1.4, rz: 6, h: 5, y: 0, ang, color: '#a39f94', solidBox: true }, at(d + 6, doorX)));   // 入口の 小さな ひさし + 石段
           if ((family === 'single' || family === 'cabin' || family === 'cottage') && porchD > 8) {
             const pw = family === 'cottage' ? doorW * 2 : w * 0.55, pc = family === 'cottage' ? doorX : -w * 0.25;
-            out.push(Object.assign({ shape: 'wslab', len: pw * 2, w: porchD * 1.6, h: 5, y: 66, ang, color: accent }, at(d + porchD * 0.8, pc)));   // ポーチの 屋根
+            out.push(Object.assign({ shape: 'gable', rx: pw, rz: porchD * 0.8, h: family === 'cabin' ? 18 : 12, y: 66, ang, color: accent }, at(d + porchD * 0.8, pc)));   // ポーチの 屋根
             for (const sd of [-1, 1]) out.push(Object.assign({ shape: 'wpost', r: 3.5, h: 66, y: 0, color: trimC }, at(d + porchD * 1.45, pc + sd * pw * 0.9)));
             out.push(Object.assign({ shape: 'box', rx: pw, rz: porchD * 0.8, h: 6, y: 0, ang, color: '#b89a72', solidBox: true }, at(d + porchD * 0.8, pc)));   // ポーチの 床
           }
@@ -1502,6 +1514,17 @@
           const fl = (ctx && ctx.prof && ctx.prof.cover && ctx.prof.cover.flowers) || [], fc = fl.length ? fl[Math.floor(v * fl.length)] : '#f2a6c0';
           for (const sd of [-1, 1]) out.push(Object.assign({ shape: 'crown', small: true, r: 11 + ((sd + 1) * v * 3), sy: 0.85, y: 0, shade: sd > 0 ? 2 : 1 }, at(D + 4, sd * W * 0.9 - cx)));
           if (fl.length) for (let i = 0; i < 3; i++) out.push(Object.assign({ shape: 'flower', r: 11 + (i % 2) * 3, h: 18 + (i % 2) * 6, y: 0, color: i === 1 ? '#ffffff' : fc }, at(D + 2 + (i % 2) * 4, w * (0.15 + i * 0.3) + 4)));
+          // VQ 2026-10-02: roof width alone hid slender wall proportions in
+          // the old silhouette gate. Compress the complete small-house assembly
+          // vertically, keeping every join, the footprint and all collision data.
+          if (['cottage', 'single', 'farmhouse', 'cabin'].includes(family)) {
+            const liftScale = Math.max(0.62, Math.min(1, 2 * Math.max(w, d) * 1.35 / h));
+            if (liftScale < 1) for (const p of out) {
+              p.y = (p.y || 0) * liftScale;
+              if (p.h != null) p.h *= liftScale;
+              if (p.sy != null) p.sy *= liftScale;
+            }
+          }
           return out;
         }
         case 'tower': {
@@ -1519,7 +1542,19 @@
           if (!low && fl <= 5 && v > 0.45) for (let f = 1; f < fl; f++) out.push({ shape: 'box', rx: w * 0.9, rz: 6, h: 3, y: h * f / fl, ang, color: '#e8e4dc', dx: fx * (d + 6), dz: fz * (d + 6) }, { shape: 'box', rx: w * 0.9, rz: 1.2, h: 12, y: h * f / fl + 3, ang, color: '#b8bcc4', dx: fx * (d + 11), dz: fz * (d + 11) });   // ベランダ + てすり
           // まどの れつ(正面): かいごとに 2〜3。ひろい ビルは 3。1 かいは 入口(低層は みせの ガラス)
           const cols = w > 46 ? 3 : 2, rows = Math.min(4, fl), winW = Math.min(10, w * 0.16), glass = (A.glass ? pick(A.glass, (v * 3.7) % 1) : null) || (v > 0.5 ? '#bcd4e6' : '#d6e6f0');
-          for (let r0 = (low ? 1 : 0); r0 < rows; r0++) for (let cc = 0; cc < cols; cc++) { const side = (cc - (cols - 1) / 2) * w * 0.5, y = h * ((r0 + 0.55) / rows); out.push({ shape: 'box', rx: winW + 1.5, rz: 1.2, h: Math.min(16, h / rows * 0.4) + 3, y: y - 1.5, ang, color: '#ffffff', dx: fx * (d + 1.2) + sx * side, dz: fz * (d + 1.2) + sz * side }, { shape: 'box', rx: winW, rz: 2, h: Math.min(16, h / rows * 0.4), y, ang, color: glass, dx: fx * (d + 1.5) + sx * side, dz: fz * (d + 1.5) + sz * side, win: true }); }
+          // VQ 2026-10-02: redistribute existing window pairs around the corner.
+          // Same part budget, but oblique street views no longer see an empty side wall.
+          for (let r0 = (low ? 1 : 0); r0 < rows; r0++) for (let cc = 0; cc < cols; cc++) {
+            const side = (cc - (cols - 1) / 2) * w * 0.5, y = h * ((r0 + 0.55) / rows);
+            const lateral = cc === cols - 1, sign = v > 0.5 ? 1 : -1;
+            const a = lateral ? ang - sign * Math.PI / 2 : ang;
+            const pos = (depth) => lateral
+              ? { dx: sx * (w + depth) * sign, dz: sz * (w + depth) * sign }
+              : { dx: fx * (d + depth) + sx * side, dz: fz * (d + depth) + sz * side };
+            const ww = lateral ? Math.min(winW, d * 0.32) : winW;
+            out.push(Object.assign({ shape: 'box', rx: ww + 1.5, rz: 1.2, h: Math.min(16, h / rows * 0.4) + 3, y: y - 1.5, ang: a, color: '#ffffff' }, pos(1.2)),
+              Object.assign({ shape: 'box', rx: ww, rz: 2, h: Math.min(16, h / rows * 0.4), y, ang: a, color: glass, win: true }, pos(1.5)));
+          }
           if (low) {   // みせ: ひろい ガラス + 入口 + ひさし + 看板 + たて看板(よこの かべ)
             const gh = Math.min(h / rows * 0.7, 40);
             const dw = Math.min(12, w * 0.22), pw = (w * 0.9 - dw) * 0.5 - 2;   // 入口は まんなか・左右に ガラス 2 まい
@@ -1628,7 +1663,7 @@
         case 'slide': return [{ shape: 'wslab', len: 60, w: 16, h: 6, y: 26, ang, color: c }, { shape: 'box', rx: 8, rz: 8, h: 30, y: 0, ang, color: '#c9c9c0', dx: -Math.sin(ang) * 26, dz: -Math.cos(ang) * 26 }];
         // 2026-10-02 監査(props gate): 車 / トラクタ = からだ + 窓の 箱 + 前後の 車輪(よこに ねた 円柱 2 本 = 左右の わ)。箱 2 つ だけ では 読めない
         case 'car': { const L = sm.big ? 60 : 50, W = sm.big ? 26 : 20, ux = Math.sin(ang), uz = Math.cos(ang), wr = sm.big ? 9 : 6.5;
-          return [{ shape: 'box', rx: L / 2, rz: W / 2, h: 18, y: 6, ang, color: c }, { shape: 'box', rx: L * 0.28, rz: W * 0.45, h: 14, y: 24, ang, color: sm.big ? c : '#e8e8e4' },
+          return [{ shape: 'box', rx: L / 2, rz: W / 2, h: 18, y: 6, ang, color: c }, { shape: 'box', rx: L * (sm.big ? 0.2 : 0.27), rz: W * 0.41, h: sm.big ? 20 : 12, y: 24, ang, color: '#7fa9b8', dx: ux * L * 0.12, dz: uz * L * 0.12 }, { shape: 'box', rx: L * (sm.big ? 0.23 : 0.29), rz: W * 0.46, h: 3, y: sm.big ? 44 : 36, ang, color: c || '#e8e8e4', dx: ux * L * 0.12, dz: uz * L * 0.12 },
             ...[-1, 1].map((sd) => ({ shape: 'log', len: W + 5, r: sd > 0 && sm.big ? wr * 1.3 : wr, y: 0, ang: ang + Math.PI / 2, color: '#2f3034', dx: ux * sd * L * 0.32, dz: uz * sd * L * 0.32 }))]; }
         case 'boat': return [{ shape: 'wslab', len: Math.min(90, size * 0.7), w: 26, h: 10, y: 0, ang, color: '#6b4a32' }, { shape: 'wpost', r: 2.5, h: 70, y: 10, color: '#6b4a32' }, { shape: 'board', w: 28, h: 40, y: 32, ang: ang + Math.PI / 2, color: c }];
         case 'pier': return [{ shape: 'plank', len: size * 0.9, w: size * 0.22, y: 0, ang }, { shape: 'wpost', r: 4, h: 14, y: 0, dx: Math.sin(ang) * size * 0.4, dz: Math.cos(ang) * size * 0.4, color: '#6b4a32' }, { shape: 'wpost', r: 4, h: 14, y: 0, dx: -Math.sin(ang) * size * 0.4, dz: -Math.cos(ang) * size * 0.4, color: '#6b4a32' }];
@@ -1646,8 +1681,23 @@
         }
         case 'obelisk': return [{ shape: 'wcone', r: Math.min(r || 10, 14), h: Math.max(OBJ3D_HEAD + 40, size * 0.9), y: 0, color: c, seg: 4 }];
         case 'orrery': return [{ shape: 'wpost', r: 4, h: 60, y: 0, color: c }, { shape: 'spark', r: 8, y: 66, color: '#ffe070' }, { shape: 'spark', r: 4, y: 72, dx: 18, color: '#9fc8ff' }, { shape: 'spark', r: 3, y: 60, dx: -22, dz: 8, color: '#ffb766' }];
-        case 'wheel': return [{ shape: 'arch', r: Math.min(bw, 40), y: Math.min(bw, 40) + 4, ang, color: c }, { shape: 'arch', r: Math.min(bw, 40) * 0.55, y: Math.min(bw, 40) + 4, ang, color: c }, { shape: 'wpost', r: 4, h: Math.min(bw, 40) + 4, y: 0, color: c }];   // たての 水車(わ が 地面に 寝ない)
-        case 'ferris': { const R = Math.max(size * 0.3, 90), out = [{ shape: 'wpost', r: Math.min(r, 14), h: R + 40, y: 0, color: '#8a8f96' }, { shape: 'arch', r: R, y: R + 40, ang, color: c }, { shape: 'arch', r: R * 0.5, y: R + 40, ang, color: '#e8e8e4' }];   // たての 観覧車 + ゴンドラ
+        case 'wheel': {
+          // VQ: replace the concentric inner ring with spokes and broad paddles.
+          const R = Math.min(bw, 40), cy = R + 4, ux = Math.sin(ang), uz = Math.cos(ang);
+          const out = [{ shape: 'arch', r: R, y: cy, ang, color: c },
+            { shape: 'wpost', r: 4, h: cy, y: 0, color: c }];
+          for (let i = 0; i < 6; i++) {
+            const a = i * Math.PI / 3;
+            out.push({ shape: 'trunk', r: 1.8, h: R, y: cy, taper: 1, tilt: a, toward: [ux, uz], color: c },
+              { shape: 'box', rx: 4, rz: 10, h: 6, y: cy + Math.cos(a) * R - 3, ang, color: c || '#9a764a', dx: ux * Math.sin(a) * R, dz: uz * Math.sin(a) * R, solidBox: true });
+          }
+          return out;
+        }
+        case 'ferris': { const R = Math.max(size * 0.3, 90), cy = R + 40, ux = Math.sin(ang), uz = Math.cos(ang);
+          // VQ: A-frame supports and radial spokes replace the floating inner ring.
+          const out = [{ shape: 'arch', r: R, y: cy, ang, color: c }];
+          for (const sd of [-1,1]) out.push({shape:'trunk',r:6,h:Math.hypot(cy,R*0.45),y:0,taper:0.8,tilt:Math.atan2(R*0.45,cy),toward:[-ux*sd,-uz*sd],dx:ux*sd*R*0.45,dz:uz*sd*R*0.45,color:'#8a8f96'});
+          for(let i=0;i<8;i++)out.push({shape:'trunk',r:2,h:R,y:cy,taper:1,tilt:i*Math.PI/4,toward:[ux,uz],color:'#e8e8e4'});
           for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4; out.push({ shape: 'box', rx: 9, rz: 9, h: 14, y: R + 40 + Math.cos(a) * R - 7, ang, color: ['#f2b63a', '#3f7fc8', '#e2554f', '#4fb56a'][i % 4], dx: Math.sin(ang) * Math.sin(a) * R, dz: Math.cos(ang) * Math.sin(a) * R }); }
           return out; }
         case 'fountain': return [{ shape: 'pool', r: Math.max(30, r), y: 0 }, { shape: 'wpost', r: 6, h: 40, y: 0, color: c }, { shape: 'mist', r: 14, sy: 1.2, y: 40, fx: 0, fz: -1 }];
@@ -1662,7 +1712,7 @@
         case 'boxprop': {
           const bx = o ? Math.min(r, 16) : 10, bz = o ? Math.min(r, 12) : 8, bh = o ? Math.min(OBJ3D_HEAD - 10, size * (sm.h || 0.8)) : 24, out = [{ shape: 'box', rx: bx, rz: bz, h: bh, y: 0, ang, color: c }];
           // 2026-10-02 監査(props gate): 箱 1 つ では 何か わからない → 小屋 / 屋台(ひさしの 板 + 正面の 窓)。自販機は 下で 前面の パネル
-          if (!sm.vend && o) { const fx = Math.cos(ang), fz = -Math.sin(ang); out.push({ shape: 'wslab', len: bx * 2.5, w: bz * 2.5, h: 4, y: bh, ang, color: '#8a6a4a' }, { shape: 'box', rx: bx * 0.62, rz: 1.2, h: bh * 0.3, y: bh * 0.48, ang, color: '#cfe6f2', dx: fx * (bz + 0.6), dz: fz * (bz + 0.6) }); }
+          if (!sm.vend && (o || ctx.kind === '🏪' || ctx.kind === '☕')) { const fx = Math.cos(ang), fz = -Math.sin(ang); out.push({ shape: 'wslab', len: bx * 2.5, w: bz * 2.5, h: 4, y: bh, ang, color: '#8a6a4a' }, { shape: 'box', rx: bx * 0.62, rz: 1.2, h: bh * 0.3, y: bh * 0.48, ang, color: '#cfe6f2', dx: fx * (bz + 0.6), dz: fz * (bz + 0.6) }); }
           if (sm.vend) {   // Art Direction v1(city): 自販機らしさ = 明るい 前面の パネル + 取り出し口 + 足もとの ふち。正面 = (cos ang, −sin ang)
             const fx = Math.cos(ang), fz = -Math.sin(ang), v = (ctx && ctx.v) || 0;
             out.push({ shape: 'box', rx: bx * 0.8, rz: 1.2, h: bh * 0.45, y: bh * 0.45, ang, color: '#f8f4ec', dx: fx * (bz + 0.6), dz: fz * (bz + 0.6) }, { shape: 'box', rx: bx * 0.6, rz: 1.2, h: bh * 0.12, y: bh * 0.14, ang, color: '#2a2a2e', dx: fx * (bz + 0.6), dz: fz * (bz + 0.6) }, { shape: 'box', rx: bx * 1.04, rz: bz * 1.04, h: 3, y: 0, ang, color: '#5a5a5e' });
@@ -1670,12 +1720,16 @@
           }
           return out;
         }
-        case 'bike': {   // Geometry pass(props gate・HQ-13): 立った 自転車。たての わ 2 つ(地面に つく)+ 上の パイプ + サドルの 柱 + ハンドルの 柱 + ハンドル + サドル
-          const ux = Math.sin(ang), uz = Math.cos(ang), px = Math.cos(ang), pz = -Math.sin(ang), R = 10, at = (t, sd) => ({ dx: ux * t + px * sd, dz: uz * t + pz * sd });
-          return [Object.assign({ shape: 'arch', r: R, y: R, ang, color: '#2f3034' }, at(-13, 0)), Object.assign({ shape: 'arch', r: R, y: R, ang, color: '#2f3034' }, at(13, 0)),
-            Object.assign({ shape: 'wslab', len: 22, w: 2.4, h: 2.4, y: R + 9, ang, color: c }, at(0, 0)), Object.assign({ shape: 'wpost', r: 1.4, h: 18, y: R, color: c }, at(-6, 0)),
-            Object.assign({ shape: 'wpost', r: 1.4, h: 20, y: R, color: c }, at(11, 0)), Object.assign({ shape: 'wslab', len: 2.4, w: 16, h: 2, y: R + 20, ang, color: '#3a3a3e' }, at(11, 0)),
-            Object.assign({ shape: 'box', rx: 2.5, rz: 5, h: 2.5, y: R + 18, ang, color: '#4a3a2c' }, at(-6, 0))];
+        case 'bike': {
+          // VQ: two connected frame triangles, fork, saddle and cross-handle.
+          const ux = Math.sin(ang), uz = Math.cos(ang), at = t => ({ dx: ux * t, dz: uz * t });
+          const tube = (a,b) => Object.assign({ shape:'trunk', r:1.2, h:Math.hypot(b[0]-a[0],b[1]-a[1]), y:a[1], taper:1,
+            tilt:Math.atan2(b[0]-a[0],b[1]-a[1]), toward:[ux,uz], color:c },at(a[0]));
+          const rear=[-13,10], crank=[0,8], seat=[-4,24], neck=[11,26], front=[13,10];
+          return [Object.assign({shape:'arch',r:10,y:10,ang,color:'#2f3034'},at(-13)), Object.assign({shape:'arch',r:10,y:10,ang,color:'#2f3034'},at(13)),
+            tube(rear,seat),tube(seat,crank),tube(crank,rear),tube(seat,neck),tube(neck,crank),tube(front,neck),
+            Object.assign({shape:'wslab',len:3,w:15,h:2,y:26,ang,color:'#3a3a3e'},at(11)),
+            Object.assign({shape:'box',rx:4,rz:3,h:2.5,y:24,ang,color:'#4a3a2c'},at(-4))];
         }
         case 'logs': return [{ shape: 'log', len: 40, r: 6, y: 0, ang }, { shape: 'log', len: 36, r: 6, y: 0, ang, dx: Math.cos(ang) * 12, dz: -Math.sin(ang) * 12 }, { shape: 'log', len: 36, r: 6, y: 11, ang, dx: Math.cos(ang) * 6, dz: -Math.sin(ang) * 6 }];
         case 'hay': return [{ shape: 'log', len: Math.min(r * 1.6, 50), r: Math.min(r, 28), y: 0, ang, color: c }];
@@ -1858,12 +1912,13 @@
       }
       const rope = kind === 'rope', postC = rope ? '#7a5a3a' : '#8a6a44';
       out.push({ shape: 'plank', len: L, w: W, y: D - 8 + 0.01, ang: pa });   // 床(plank の 高さ 8 → 上面 = D)
-      if (!rope) for (const sd of [-1, 1]) out.push(Object.assign({ shape: 'log', len: L - 20, r: 4, y: D - 16, ang: pa, color: '#5f4430' }, at(0, sd * W * 0.32)));   // 下の 梁(下から 見える)
+      if (!rope) for (const sd of [-1, 1]) out.push(Object.assign({ shape: 'log', len: L - 20, r: 6, y: D - 20, ang: pa, color: '#5f4430' }, at(0, sd * W * 0.32)));   // 下の 梁(下から 見える)
       const railH = D + (rope ? 32 : 28);
       for (const sd of [-1, 1]) out.push({ shape: 'rail', len: L, r: rope ? 3 : 3.5, y: railH, ang: pa, side: sd * W * 0.5, color: rope ? '#b89a6a' : undefined });
       if (!rope) for (const sd of [-1, 1]) out.push({ shape: 'rail', len: L, r: 2.2, y: D + 14, ang: pa, side: sd * W * 0.5 });
-      const nPost = Math.max(2, Math.round(L / 60));
-      for (let i = 0; i <= nPost; i++) { const t = -L / 2 + 8 + (L - 16) * i / nPost; for (const sd of [-1, 1]) out.push(Object.assign({ shape: 'wpost', r: rope && (i === 0 || i === nPost) ? 6 : 3.5, h: (rope && (i === 0 || i === nPost) ? railH + 16 : railH) - D, y: D, color: postC }, at(t, sd * W * 0.5))); }
+      // VQ: fewer thicker posts leave the river visible between structural supports.
+      const nPost = Math.max(2, Math.round(L / 95));
+      for (let i = 0; i <= nPost; i++) { const t = -L / 2 + 8 + (L - 16) * i / nPost; for (const sd of [-1, 1]) out.push(Object.assign({ shape: 'wpost', r: rope && (i === 0 || i === nPost) ? 6 : 4.5, h: (rope && (i === 0 || i === nPost) ? railH + 16 : railH) - D, y: D, color: postC }, at(t, sd * W * 0.5))); }
       if (!rope) for (const t of [-L * 0.22, L * 0.22]) for (const sd of [-1, 1]) out.push(Object.assign({ shape: 'wpost', r: 5, h: D - 8 + 18, y: -18, color: '#6b4a32' }, at(t, sd * W * 0.32)));   // 水の 中の 橋脚(川底 → 床の 下)
       for (const t of [-L / 2 + 18, L / 2 - 18]) out.push(abut(t, rope ? '#8f8a7e' : '#a8a294', rope ? 30 : 22));
       out.push(ramp(-L / 2 - 8, '#9a8f7a'), ramp(L / 2 + 8, '#9a8f7a'));
@@ -1948,7 +2003,7 @@
           switch (kind) {
             case 'flowers': parts.push({ shape: 'flower', r: 16 + u * 8, h: 24 + u * 14, y: 0, dx, dz, color: i % 2 ? c1 : c2 }); if (u > 0.35) parts.push({ shape: 'blade', r: 10, h: 26 + u * 12, y: 0, dx: dx + 10, dz: dz - 7, color: fol[2] }); break;
             case 'grass': parts.push({ shape: 'blade', r: 12 + u * 5, h: (cv.dry ? 20 : 30) + u * 20, y: 0, dx, dz, color: cv.dry ? '#c9b86a' : fol[i % 2 ? 2 : 1] }); break;
-            case 'bushes': parts.push({ shape: 'crown', small: true, r: 20 + u * 16, sy: 0.8, y: 0, dx, dz, shade: i % 3 }); if (i % 3 === 0 && flowers && flowers.length && !cv.dry) parts.push({ shape: 'flower', r: 14, h: 26, y: 0, dx: dx + 24, dz: dz + 10, color: c1 }); break;
+            case 'bushes': parts.push({ shape: 'crown', small: true, r: 20 + u * 16, sy: rid === 'jungle' ? 1.1 : rid === 'forest' ? 0.65 : 0.8, y: 0, dx, dz, shade: i % 3 }); if (i % 3 === 0 && flowers && flowers.length && !cv.dry) parts.push({ shape: 'flower', r: 14, h: 26, y: 0, dx: dx + 24, dz: dz + 10, color: c1 }); break;
             case 'pebbles': parts.push({ shape: 'pebble', r: 7 + u * 9, y: 0, dx, dz }); break;
             case 'shells': parts.push({ shape: 'pebble', r: 4 + u * 4, y: 0, dx, dz, color: i % 2 ? '#f6e4dc' : '#f0d0c8' }); break;
             case 'mushrooms': parts.push(...smallMushroom(dx, dz, 9 + u * 6, 13 + u * 9, 'cap')); break;

@@ -256,7 +256,7 @@ export function streamStripData(pts, lanes, groundAt) {
   const fr = polylineFrames(pts.map((p) => [p.x, p.z])), pos = [], col = [], uv = [], idx = [], Ln = lanes.length;
   fr.forEach((f, i) => {
     const w = pts[i].w;
-    lanes.forEach((ln, j) => { const o = ln.s * (ln.a * w + ln.b), x = f.x + f.nx * o, z = f.z + f.nz * o, y = ln.y === 'g' ? (groundAt ? groundAt(x, z) : 0) + 0.4 : ln.y; pos.push(x, y, -z); col.push(ln.c[0], ln.c[1], ln.c[2]); uv.push(j / Math.max(1, Ln - 1), f.s / 400); });
+    lanes.forEach((ln, j) => { const edge = (ln.edgeVariation || 0) * (Math.sin(f.x * 0.018 + f.z * 0.013 + ln.s) * 0.6 + Math.sin(f.s * 0.039 + ln.s * 2) * 0.4); const o = ln.s * (ln.a * w + ln.b + edge), x = f.x + f.nx * o, z = f.z + f.nz * o, y = ln.y === 'g' ? (groundAt ? groundAt(x, z) : 0) + 0.4 : ln.y; pos.push(x, y, -z); col.push(ln.c[0], ln.c[1], ln.c[2]); uv.push(j / Math.max(1, Ln - 1), f.s / 400); });
   });
   for (let i = 0; i < fr.length - 1; i++) for (let j = 0; j < Ln - 1; j++) { const a = i * Ln + j, b = a + 1, c = a + Ln, d = c + 1; idx.push(a, c, b, b, c, d); }
   return { positions: new Float32Array(pos), colors: new Float32Array(col), uvs: new Float32Array(uv), index: idx };
@@ -839,7 +839,8 @@ function create3DRenderer(M, o, onLost) {
           case 'glowdisc': push('glowdisc', { x: px, y: 0, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: 0, tint: 0.5, color: pt.color }); break;
           case 'blade': push('blade', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
           case 'leaf': push('leaf', { x: px, y: 0, z: pz, sx: pt.w * 0.5, sy: 1, sz: pt.w * 0.3, ry: t * TAU, tint: t }); break;
-          case 'nut': push('nut', { x: px, y: pt.r * 0.5, z: pz, sx: pt.r, sy: pt.r * 0.8, sz: pt.r, ry: t * TAU, tint: t }); break;
+          // VQ: elevated pieces (statue heads / nest eggs) must retain their part height and color.
+          case 'nut': push('nut', { x: px, y: (pt.y || 0) + pt.r * 0.5, z: pz, sx: pt.r, sy: pt.r * 0.8, sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
           case 'spark': push('spark', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); break;
           case 'flower': push('blade', { x: px, y: 0, z: pz, sx: 3, sy: pt.h, sz: 3, ry: 0, tint: t, color: '#5fae4c' }); push('petal', { x: px, y: pt.h, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); push('nut8', { x: px, y: pt.h + 1.5, z: pz, sx: pt.r * 0.28, sy: pt.r * 0.2, sz: pt.r * 0.28, ry: 0, tint: 0.5, color: '#ffe066' }); break;   // 花の まんなか: 8 三角形(20 → 8)
           case 'petal': push('petal', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); break;
@@ -907,6 +908,8 @@ function create3DRenderer(M, o, onLost) {
         const river = st.kind === 'river', k = river ? 1.35 : st.kind === 'ditch' ? 0.55 : 1, wy = STREAM_WATER_Y[river ? 'river' : st.kind === 'ditch' ? 'ditch' : 'creek'];
         const L = (sgn, a, b, y, c) => ({ s: sgn, a, b, y, c });
         const bed = [L(-1, 1, 75, 'g', grassC), L(-1, 1, 35, 0.6, lipC), L(-1, 1, 8, -6 * k, soilC), L(-1, 0.6, 0, -13 * k, gravelC), L(1, 0, 0, -17 * k, bedC), L(1, 0.6, 0, -13 * k, gravelC), L(1, 1, 8, -6 * k, soilC), L(1, 1, 35, 0.6, lipC), L(1, 1, 75, 'g', grassC)];
+        // VQ: only the dry outer bank changes contour. Water width, bed and crossing data stay canonical.
+        if (st.kind !== 'ditch') for (const ln of bed) if (ln.b >= 35) ln.edgeVariation = ln.b >= 75 ? 14 : 7;
         water.meshes.push(stripMesh(streamStripData(st.pts, bed, terr.sample), bankMat, river ? 'water:bank' : 'water:creekbed'));
         const wl = [L(-1, 0.88, 0, wy, shallowC), L(-1, 0.4, 0, wy, deepC), L(1, 0.4, 0, wy, deepC), L(1, 0.88, 0, wy, shallowC)];
         water.meshes.push(stripMesh(streamStripData(st.pts, wl), river ? waterMat : streamMat, river ? 'water:river' : 'water:creek'));

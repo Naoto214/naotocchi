@@ -27,3 +27,15 @@ test('VQ-2 contact field excludes actors, water, bridges and tiny dressing; fini
   const f = contactFootprints([{type:'bigtree',x:1,z:2,parts:[{shape:'trunk',r:300,h:1500,y:0},{shape:'crown',r:1500,y:1700}]}]);
   assert.ok(f.length > 0 && f.every(p => Number.isFinite(p.rx) && p.rx <= 240 && p.rz <= 240));
 });
+
+test('VQ-3 outer-bank variation leaves water lanes and triangle topology unchanged', async () => {
+  const { streamStripData } = await mod();
+  const pts = [0, 80, 160, 240].map(z => ({x:0,z,w:50}));
+  const lanes = [{s:-1,a:1,b:75,y:'g',c:[.4,.6,.3]}, {s:-1,a:.88,b:0,y:-9,c:[.3,.7,.8]}, {s:1,a:.88,b:0,y:-9,c:[.3,.7,.8]}];
+  const base = streamStripData(pts, lanes, () => 2);
+  const rough = streamStripData(pts, lanes.map((p,i)=>({...p,edgeVariation:i===0?10:0})), () => 2);
+  assert.deepEqual(rough.index,base.index);
+  assert.ok(rough.positions.some((n,i)=>n!==base.positions[i]), 'bank contour changes');
+  for(let i=0;i<pts.length;i++) for(let j=3;j<9;j++) assert.equal(rough.positions[i*9+j],base.positions[i*9+j], 'water unchanged');
+  for(let i=0;i<pts.length;i++) assert.ok(Math.abs(rough.positions[i*9]-base.positions[i*9])<=10);
+});

@@ -72,7 +72,8 @@ test('GA-5. 小物の 読みやすさ(props gate): 車 = 車輪・望遠鏡 = 3 
   assert.match(src('telescope'), /tilt: 0\.3[\s\S]*tilt: 1\.05/, '3 本 足 + 筒');
   assert.match(src('statue'), /rx: 18, rz: 18, h: 22[\s\S]*rx: 9, rz: 7, h: 34[\s\S]*shape: 'nut', r: 9/, 'だい + からだ + あたま');
   assert.match(src('dome'), /r: r \* 0\.36, sy: 1\.1/, 'いりぐち');
-  assert.match(src('boxprop'), /if \(!sm\.vend && o\)[\s\S]{0,200}shape: 'wslab'/, 'ひさし + 窓');
+  // 2026-10-02 VQ: decorative shop/cafe props also need canopy + window, even without a collider.
+  assert.match(src('boxprop'), /if \(!sm\.vend && \(o \|\| ctx\.kind === '🏪' \|\| ctx\.kind === '☕'\)\)[\s\S]{0,200}shape: 'wslab'/, 'ひさし + 窓');
   // 絵文字の 立て看板(2D の 記号を 3D に 立てた 物)は 13 地域 で 0
   for (const rid of REGIONS) {
     const w = M.buildWorld(rid, reg, { world3d: true });
