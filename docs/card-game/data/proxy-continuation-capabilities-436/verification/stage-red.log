@@ -1,0 +1,15 @@
+test_stage_mismatch_in_canonical_body_stops_classification (test_proxy_continuation_capabilities.CapabilityTests.test_stage_mismatch_in_canonical_body_stops_classification) ... FAIL
+
+======================================================================
+FAIL: test_stage_mismatch_in_canonical_body_stops_classification (test_proxy_continuation_capabilities.CapabilityTests.test_stage_mismatch_in_canonical_body_stops_classification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_capabilities.py", line 81, in test_stage_mismatch_in_canonical_body_stops_classification
+    with patch.object(rules,'ROOT',root),self.assertRaises(ValueError):caps.classification('M-beetle-02')
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.121s
+
+FAILED (failures=1)
