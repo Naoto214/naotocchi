@@ -497,7 +497,10 @@ function create3DRenderer(M, o, onLost) {
     for (const a of view.party || []) placeActor(built, actorMesh(built, a), a, 0, c.yaw, charLight);
     for (const a of view.residents || []) { if (Math.hypot(a.x - player.x, a.z - player.z) < farCull) placeActor(built, actorMesh(built, a), a, 0, c.yaw, charLight); }
     const pg = typeof o.playerGlyph === 'function' ? o.playerGlyph() : '🐣';
-    placeActor(built, actorMesh(built, player), player, 0, c.yaw, charLight, glyphTexture(pg, o.wrapCtx || null, 'p'));
+    // Home の現在の子の原画を住民と同じ origin-clean ImageBitmap 経路へ。canvas 専用 U+E000 を WebGL に描かない。
+    const pa = typeof M.playerAsset === 'function' ? M.playerAsset() : null;
+    const ptx = pa ? pngTexture(pa) : null;
+    placeActor(built, actorMesh(built, player), player, 0, c.yaw, charLight, ptx || glyphTexture(pg === '\uE000' ? '🐣' : pg, null, 'p'));
     built.shadows.instanceMatrix.needsUpdate = true;
     fadeOccluders(built, camera.position.x, -camera.position.z, fade ? player : null);
     renderer.render(scene, camera);
