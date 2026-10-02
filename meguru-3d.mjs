@@ -184,7 +184,7 @@ function create3DRenderer(M, o, onLost) {
         if (!res.ok) throw new Error('actor png HTTP ' + res.status);
         const blob = await res.blob();
         if (typeof createImageBitmap !== 'function') throw new Error('createImageBitmap unavailable');
-        const bm = await createImageBitmap(blob);
+        const bm = await createImageBitmap(blob, { imageOrientation: 'flipY' });
         if (!bm || !bm.width || !bm.height) throw new Error('empty ImageBitmap');
         const tex = new THREE.Texture(bm);
         tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 2; tex.needsUpdate = true;
@@ -528,8 +528,14 @@ function create3DRenderer(M, o, onLost) {
         err: (sa && sa.err) || (sb && sb.err) || null, textureReady: up, map: !!(m && m.material.map), visible: vis, inFrustum: fr,
         dist: m ? Math.round(m.position.distanceTo(camera.position)) : null });
     }
+    const pm = built.actors.get(view.player), ptx = pm ? pm.userData.tex : null;
+    const pup = !!(ptx && ptx.tex && renderer.properties.get(ptx.tex).__webglTexture);
+    const pvis = !!(pm && pm.visible), pfr = pvis && frustum.intersectsObject(pm);
+    const playerDiag = { using: !ptx ? 'none' : ptx.solid ? 'solid' : ptx.emoji ? 'glyph' : ptx.asset ? 'asset' : 'other',
+      textureReady: pup, map: !!(pm && pm.material.map), visible: pvis, inFrustum: pfr,
+      dist: pm ? Math.round(pm.position.distanceTo(camera.position)) : null };
     const rect = (el) => { try { const r = el.getBoundingClientRect(); return [Math.round(r.width), Math.round(r.height), Math.round(r.left), Math.round(r.top)]; } catch (_) { return null; } };
-    lastDiag = { residents: rows.length, meshes: built.actors.size, visible, inFrustum, textureReady: ready, rows, gl: glInfoOf(),
+    lastDiag = { residents: rows.length, meshes: built.actors.size, visible, inFrustum, textureReady: ready, rows, player: playerDiag, gl: glInfoOf(),
       fog: [Math.round(built.sc.fog.near), Math.round(built.sc.fog.far)], textures: renderer.info.memory.textures, layout: { gl: rect(gl), c2d: rect(canvas2d) }, glDisplay: gl.style.display || '' };
   }
 
