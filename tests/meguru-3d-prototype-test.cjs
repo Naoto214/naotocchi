@@ -41,7 +41,9 @@ test('1. フラグなし: forest の world は いまの 2D の まま(props・�
   // ?meguru3d=1 が なければ world3dOn は false(ほかの 地域は フラグが あっても 2D)
   assert.equal(M.world3dOn('forest', {}), false);
   assert.equal(M.world3dOn('city', { world3d: undefined }), false);
-  assert.deepEqual([...M.WORLD3D_REGIONS], ['forest']);
+  // 3D の 地域 = REGION3D の profile が ある 地域 = 登録 されて いる 地域 ぜんぶ(新しい 地域に profile を 書き忘れたら ここが 赤)
+  assert.equal([...M.WORLD3D_REGIONS].sort().join(','), Object.keys(M.REGION3D).sort().join(','));
+  assert.equal(Object.keys(M.WORLDS).sort().join(','), Object.keys(M.REGION3D).sort().join(','), 'profile の ない 地域');
 });
 
 test('2. 3D モード: 道の うえの かたい 物は 見た目ごと 道の そとへ(約 1.5 × 大きさ まで)。おけない ものは 3D では おかない', () => {
@@ -52,7 +54,7 @@ test('2. 3D モード: 道の うえの かたい 物は 見た目ごと 道の 
   assert.ok(dropped <= 45, 'おかない ものは すくない ' + dropped);
   const added = Object.values(st.added || {}).reduce((a, b) => a + b, 0);   // ランドマークの まわりの 岩・いわだな(3D だけ)
   assert.equal(w3.props.length, w2.props.length - dropped + added);
-  assert.ok(added >= 3 && added <= 7, 'たきの まわりの 岩・いわだな ' + added);
+  assert.ok(added >= 5 && added <= 10, 'たきの まわりの 岩 ' + added);
   for (const m of st.moves) assert.ok(m.d > 0, m.kind);
   // うごかした 物は それぞれ 1.5 × 絵の はば の なか
   const byKey = new Map(w2.props.map((p, i) => [(p.struct || p.emoji) + ':' + i, p]));
@@ -70,10 +72,10 @@ test('2. 3D モード: 道の うえの かたい 物は 見た目ごと 道の 
 
 test('3. 3D の かたい 物は かならず あたりが あり、あたまより 下の 見た目は あたり + 10 まで(とおれる 木・見えない かべ なし)', () => {
   assert.equal(objs.unresolved.length, 0, 'あたりの ない かたい 見た目は ない ' + Array.from(objs.unresolved).join(','));
-  const SOLID = new Set(['conifer', 'broadleaf', 'bigtree', 'rock', 'log', 'stump', 'mushroom', 'waterfall', 'ledge']), WET = new Set(['pool', 'foam', 'mist', 'fall', 'wet', 'deep', 'moss']);
+  const SOLID = new Set(['conifer', 'broadleaf', 'bigtree', 'rock', 'log', 'stump', 'glowmushroom', 'mushroomgrove', 'waterfall', 'ledge', 'mound', 'signpost']), WET = new Set(['pool', 'foam', 'mist', 'fall', 'wet', 'deep', 'moss', 'glowdisc', 'spark']);
   let n = 0;
   for (const ob of objs.objects) {
-    if (!SOLID.has(ob.type)) continue;
+    if (!SOLID.has(ob.type) || (ob.type === 'signpost' && !ob.collision)) continue;   // 小さな かんばん は あたり なし(ふつうの 草花と おなじ)
     n++;
     assert.ok(ob.collision, ob.id + ' あたりが ある');
     const r = Math.max(ob.collision.hw, ob.collision.hd);
@@ -83,8 +85,10 @@ test('3. 3D の かたい 物は かならず あたりが あり、あたまよ
       // 水(たきつぼ・あわ・おちる 水)と しぶきは かたく ない。ふちの ひらたい 石は 小石と おなじく ふんで とおれる たかさ
       if (WET.has(pt.shape)) continue;
       if (pt.shape === 'stone') { assert.ok(pt.h <= 16, ob.id + ' ひらたい 石 ' + pt.h); continue; }
-      const rad = pt.shape === 'rock' || pt.shape === 'cliff' ? Math.max(pt.rx, pt.rz) : pt.shape === 'log' ? pt.len / 2 : pt.r || 0;
-      const lim = pt.shape === 'rock' || pt.shape === 'cliff' ? r : pt.shape === 'log' ? ob.collision.hw : r + 10;
+      if (pt.shape === 'stem' && pt.dx != null) { assert.ok(pt.h <= 26, ob.id + ' まわりの 小さな キノコ ' + pt.h); continue; }   // 足もとの 小さな キノコ(ふんで とおれる)
+      if (pt.shape === 'cap' && pt.dx != null) continue;
+      const rad = pt.shape === 'rock' || pt.shape === 'cliff' ? Math.max(pt.rx, pt.rz) : pt.shape === 'log' ? pt.len / 2 : pt.shape === 'board' ? pt.w / 2 : pt.r || 0;
+      const lim = pt.shape === 'rock' || pt.shape === 'cliff' || pt.shape === 'mound' ? r : pt.shape === 'log' ? ob.collision.hw : r + 10;
       assert.ok(rad <= lim + 0.01, `${ob.id} ${ob.type}/${pt.shape}: あたまより 下の 見た目 ${rad.toFixed(1)} <= あたり ${lim.toFixed(1)}`);
     }
   }
@@ -143,10 +147,83 @@ test('3b. ランドマーク(3D だけ): spot から 見た むきを たもっ�
   for (const o of sats) {
     assert.ok(Math.hypot(o.x - wf.x, o.z - wf.z) < 560 * 0.8, 'たきの そば');
     if (o.type === 'ledge') { assert.equal(o.collision.shape, 'box'); assert.equal(o.parts[0].rx, o.collision.hw); assert.equal(o.parts[0].rz, o.collision.hd); assert.ok(o.parts[0].h <= 560 * 0.75, 'がけより ひくい'); }
+    else if (o.type === 'mound') { assert.equal(o.collision.shape, 'circle'); assert.equal(o.parts[0].r, o.collision.hw); assert.ok(o.parts[0].h <= 560 * 0.75, 'がけより ひくい'); }
     else assert.equal(o.type, 'rock');
   }
   // 2D は かわらない: ランドマークの あたりは まるい ねもと のまま
   for (const p of w2.props.filter((q) => q.landmark)) { assert.equal(p.collider3d, undefined); assert.equal(M.colliderOf(p).shape, 'circle'); }
+});
+
+test('3c. せかいは 3D・キャラだけ 2D: けしきの 物に 立て看板・意味の ちがう 置きかえ・なぞの placeholder は ない', () => {
+  const byType = {};
+  for (const ob of objs.objects) byType[ob.type] = (byType[ob.type] || 0) + 1;
+  assert.equal(byType.billboard, undefined, '立て看板 ' + byType.billboard);
+  for (const ob of objs.objects) { assert.ok(ob.parts.length > 0, ob.kind + ' に かたちが ある'); for (const pt of ob.parts) assert.notEqual(pt.shape, 'billboard', ob.kind); }
+  assert.equal(objs.unresolved.length, 0);
+  // きのこ は きのこ(木に しない): 🍄・mushroomcluster・mushroomgrove・ひかる きのこ は くき + かさ
+  const isMush = (ob) => ['mushrooms', 'mushroomgrove', 'glowmushroom'].includes(ob.type);
+  const mush = objs.objects.filter((ob) => ob.kind === '🍄' || ob.kind === 'mushroomcluster' || ob.kind === 'mushroomgrove' || ob.kind === 'LM:glowmushroom');
+  assert.ok(mush.length >= 60, 'きのこ ' + mush.length);
+  for (const ob of mush) {
+    assert.ok(isMush(ob), ob.kind + ' は きのこ(' + ob.type + ')');
+    assert.ok(ob.parts.some((pt) => pt.shape === 'stem') && ob.parts.some((pt) => pt.shape === 'cap' || pt.shape === 'glowcap'), ob.kind + ' くき + かさ');
+    assert.ok(!ob.parts.some((pt) => pt.shape === 'trunk' || pt.shape === 'crown' || pt.shape === 'cone'), ob.kind + ' は 木では ない');
+  }
+  const glow = objs.objects.find((ob) => ob.kind === 'LM:glowmushroom');
+  assert.ok(glow.parts.some((pt) => pt.shape === 'glowcap' && pt.dx == null) && glow.parts.some((pt) => pt.shape === 'glowdisc'), 'ひかる きのこ は ひかる かさ と 足もとの 光');
+  assert.ok(glow.parts.filter((pt) => pt.shape === 'glowcap').length >= 4, 'まわりにも ひかる 小さな きのこ');
+  // event の 対象(spot の しるし・ランドマーク)は 名まえ どおりの かたち
+  const spotObjs = objs.objects.filter((ob) => w3.props[ob.pi].spot || w3.props[ob.pi].landmark);
+  assert.ok(spotObjs.length >= 15, 'spot の しるし ' + spotObjs.length);
+  const WANT = { '🌉': ['plank', 'slab'], '🪧': ['post'], '🪵': ['log'], '🍄': ['stem'], mushroomcluster: ['stem'], '🌳': ['trunk'], '🪨': ['rock'], bigrock: ['rock'], log: ['log'], springpool: ['pool'], '🌼': ['flower'], 'LM:bigtree': ['trunk'], 'LM:waterfall': ['cliff'], 'LM:glowmushroom': ['glowcap'] };
+  for (const ob of spotObjs) { const want = WANT[ob.kind]; assert.ok(want, 'spot の しるし ' + ob.kind + ' の きまり'); assert.ok(ob.parts.some((pt) => want.includes(pt.shape)), ob.kind + ' → ' + want.join('/')); }
+  const b1 = spotObjs.find((ob) => ob.kind === '🌉' && ob.parts.some((pt) => pt.shape === 'plank')), b2 = spotObjs.find((ob) => ob.kind === '🌉' && ob.parts.some((pt) => pt.shape === 'slab'));
+  assert.ok(b1 && b2, 'まるたの はし / いしの はし');
+  // 3D では 出さない もの は きまった しるし だけ(手前の えだ・光の もや・巨大な しだ の ながめ・💧)
+  assert.equal(Object.keys(objs.skipped).sort().join(','), 'branch,fern,undefined,💧');
+  assert.equal(objs.skipped.fern, 3);
+  // 巨大な は・環境の 立て看板 は ない: おちば・木の実・草・小さな きのこ は 小さい
+  for (const ob of objs.objects) {
+    if (ob.type === 'leaf') for (const pt of ob.parts) assert.ok(pt.w <= 30, 'おちば ' + pt.w);
+    if (ob.type === 'nut') for (const pt of ob.parts) assert.ok(pt.r <= 8);
+    if (ob.type === 'grass' || ob.type === 'fern' || ob.type === 'sprout') for (const pt of ob.parts) assert.ok(pt.h <= 46 && pt.r <= 10, ob.type);
+    if (ob.type === 'mushrooms') for (const pt of ob.parts) assert.ok((pt.shape === 'stem' ? pt.h : pt.r) <= 26, '小さな きのこ');
+  }
+  assert.equal(w2.props.length, 1233); assert.equal(w2.obstacles.length, 531);
+});
+
+test('3d. すかし(occlusion)は カメラ → player の あいだに ある かたい 物 だけ。とおい から すける こと は ない', async () => {
+  const mod = await import(path.join(ROOT, 'meguru-3d.mjs'));
+  const oc = (x, z, r) => ({ ob: { collision: { x, z } }, r });
+  const player = { x: 0, z: 1000 }, ex = 0, ez = 0;   // カメラ (0,0)・player (0,1000)
+  const between = oc(0, 500, 40), beside = oc(140, 500, 40), far = oc(0, 2500, 40), behindCam = oc(0, -300, 40), huge = oc(0, 5000, 400);
+  const want = mod.pickOccluders([between, beside, far, behindCam, huge], ex, ez, player, M.ACTOR_SIZE);
+  assert.ok(want.has(between), 'あいだの 物は すける');
+  assert.ok(!want.has(beside), 'よこの 物は すけない');
+  assert.ok(!want.has(far) && !want.has(huge) && !want.has(behindCam), 'とおい / うしろの 物は すけない');
+  assert.equal(mod.pickOccluders([between], ex, ez, { x: 400, z: 1000 }, M.ACTOR_SIZE).size, 0, 'player が どいたら すぐ もどる');
+  assert.equal(mod.pickOccluders([between], ex, ez, null, M.ACTOR_SIZE).size, 0);
+  // レンダラーの 中に「きょりで 透明に する」みちは ない: 透明の material は 水・あわ・しぶき・ぬれた 地面・光・まだら・かげ・ghost だけ
+  const src = fs.readFileSync(path.join(ROOT, 'meguru-3d.mjs'), 'utf8');
+  for (const line of src.split('\n').filter((l) => /transparent: true/.test(l))) assert.match(line, /pool|fall|foam|wet|mist|glowdisc|spark|patch|shadows|ghostMat|'#000000'/, '透明の material: ' + line.trim().slice(0, 80));
+  assert.ok(!/opacity\s*=\s*[^;]*(dist|Math\.hypot)/.test(src), 'きょりで opacity を かえない');
+  assert.match(src, /fog\.near = fr\[0\] \* fogK/, 'きり は 地域の profile から(きょりの 透明化 では ない)');
+  assert.equal(M.REGION3D.forest.fog[0], 1400, 'forest の きり は 1400 から');
+});
+
+test('3e. たき は うしろ・よこ からも 岩の おか: がけの うしろに 岩の かたまり(あたり つき)が あり、見た目 = あたり', () => {
+  const wf = objs.objects.find((o) => o.kind === 'LM:waterfall'), falls = w3.spots.find((s) => s.id === 'falls');
+  const fx = (falls.x - wf.x), fz = (falls.z - wf.z), L = Math.hypot(fx, fz), ux = fx / L, uz = fz / L;
+  const sats = objs.objects.filter((o) => o.collision && w3.obstacles.find((ob) => ob.pi === o.pi).kind.startsWith('LM:waterfall:'));
+  const mounds = sats.filter((o) => o.type === 'mound');
+  assert.ok(mounds.length >= 5, '岩の かたまり ' + mounds.length);
+  const behind = mounds.filter((o) => (o.x - wf.x) * ux + (o.z - wf.z) * uz < -wf.collision.hd * 0.5);
+  assert.ok(behind.length >= 3, 'がけの うしろに ' + behind.length);
+  assert.ok(behind.some((o) => o.parts[0].h >= 560 * 0.75 * 0.7), 'がけの 上に のぞく 段');
+  assert.ok(behind.some((o) => (o.x - wf.x) * ux + (o.z - wf.z) * uz < -wf.collision.hd - 100), 'うしろの おか(がけ から はなれて 地面へ つながる)');
+  for (const o of mounds) { assert.equal(o.parts[0].shape, 'mound'); assert.equal(o.parts[0].r, o.collision.hw); assert.ok(o.solid); }
+  const cliff = wf.parts.find((pt) => pt.shape === 'cliff');
+  assert.equal(cliff.rx, wf.collision.hw); assert.equal(cliff.rz, wf.collision.hd);
 });
 
 test('4. 3D モードでも 道は ふさがない: 道はばの 3/4 の なか・spot の まんなか は あいて いる', () => {
@@ -231,4 +308,71 @@ test('8. フラグは URL だけ・セーブに のこさない。Three.js は v
   const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
   assert.ok(!/<script[^>]+meguru-3d/.test(html) && !/modulepreload[^>]+meguru-3d|three\.module/.test(html), 'index.html は 3D を よみこまない(template の data-src だけ)');
   assert.match(html, /<template id="meguru3dModule" data-src="meguru-3d\.mjs\?v=\d{8}-[0-9a-f]{8}"><\/template>/);
+});
+
+// ===== 全地域 3D v0(共通の 契約 × 地域の profile)。地域の 数は registry(WORLDS)から =====
+test('9. 全地域: 3D profile が あり、意味の 表で ぜんぶ 解決し(unresolved 0・立て看板 0)、かくす ものは きまった しるし だけ、2D(フラグなし)は かわらない', () => {
+  const regions = Object.keys(M.WORLDS);
+  assert.ok(regions.length >= 13, '地域 ' + regions.length);
+  for (const rid of regions) {
+    assert.ok(M.REGION3D[rid], rid + ' の 3D profile');
+    assert.ok(M.WORLD3D_REGIONS.has(rid), rid + ' は 3D に なる');
+    const w = M.buildWorld(rid, reg, { world3d: true }), o = M.worldObjects3d(w);
+    assert.equal(o.unresolved.length, 0, rid + ' unresolved: ' + o.unresolved.slice(0, 5).join(','));
+    for (const k of Object.keys(o.skipped)) assert.ok(k === 'undefined' || M.HIDDEN3D.has(k) || k === 'fern' || k === 'branch', rid + ' かくして いる ' + k);
+    const shown = new Set(o.objects.filter((ob) => ob.collision).map((ob) => ob.pi));
+    for (const ob of w.obstacles) if (ob.role === 'solid' || ob.role === 'boundary') assert.ok(shown.has(ob.pi), rid + ': あたり ' + ob.kind + ' は 見える(見えない かべ なし)');
+    for (const ob of o.objects) { assert.ok(ob.parts.length > 0, rid + ' ' + ob.kind + ' に かたち'); for (const pt of ob.parts) assert.notEqual(pt.shape, 'billboard', rid + ' ' + ob.kind); }
+    // きのこ は きのこ・はし は はし・たてもの は たてもの(意味の ちがう 置きかえ なし)
+    for (const ob of o.objects) {
+      const k = ob.kind;
+      if (k === '🍄' || k === 'mushroomcluster' || k === 'mushroomgrove') assert.ok(!ob.parts.some((pt) => pt.shape === 'trunk' || pt.shape === 'crown'), rid + ' きのこ が 木');
+      if (k === '🌉' || k === 'woodbridge' || k === 'ropebridge') assert.ok(ob.parts.some((pt) => pt.shape === 'plank' || pt.shape === 'slab'), rid + ' はし');
+      if (['🏠', '🏡', '🏪', 'house', 'farmhouse', 'barn', 'building', '🏢', '🏬'].includes(k)) assert.ok(ob.parts.some((pt) => pt.shape === 'box') && ob.parts.some((pt) => pt.shape === 'roof' || pt.shape === 'box'), rid + ' たてもの ' + k);
+    }
+    // ランドマークは ぜんぶ 見た目が あり、あたり = いち
+    for (const ob of o.objects.filter((q) => w.props[q.pi].landmark)) { assert.ok(ob.parts.length >= 1, rid + ' ランドマーク ' + ob.kind); assert.ok(ob.collision && ob.x === ob.collision.x, rid + ' ランドマークの あたり ' + ob.kind); }
+    // 2D は かわらない: 3D モードで ふえた / へった props は 3D だけ
+    const w2d = M.buildWorld(rid, reg, {});
+    assert.ok(!w2d.world3d && !w2d.props.some((p) => p.moved3d || p.drop3d || p.satellite3d || p.collider3d), rid + ' 2D に 3D の しるし なし');
+  }
+  // 意味の 表に ない 新しい しるし は unresolved に なる(赤)。production では 出さず あたりも つけない
+  const w = M.buildWorld('forest', reg, { world3d: true }); w.props.push({ emoji: '🛸', x: 0, z: 400, size: 120, solid: true });
+  assert.equal(M.objectType3d(w.props[w.props.length - 1]), 'unknown');
+});
+
+test('10. はっけんの しらせ(全地域): ランドマーク / ひみつ だけ「みつけた！」、その ばしょ だけの もの は かるく「が ある」、ふつうの 池・通過点は しずか。きろく は かわらない', () => {
+  for (const rid of Object.keys(M.WORLDS)) {
+    const w = M.buildWorld(rid, reg, {}); let strong = 0, light = 0, quiet = 0;
+    for (const s of w.spots) { const n = M.discoveryNotice(s); if (!n) quiet++; else if (n.kind === 'landmark' || n.kind === 'secret') { strong++; assert.match(n.title, /みつけた！$/); assert.ok(s.landmark || s.secret); } else { light++; assert.match(n.title, /が ある$/); assert.ok(!s.landmark && !s.secret); } }
+    assert.ok(strong <= Math.max(3, Math.ceil(w.spots.length * 0.3)), rid + ' つよい しらせ ' + strong + ' / ' + w.spots.length);
+    assert.ok(quiet >= 1, rid + ' しずかな spot が ある');
+    for (const s of w.spots) if (s.kind === 'water' && !s.secret && !s.landmark && (!s.prop || M.spotDiscoveryLevel(s) < 2)) assert.equal(M.discoveryNotice(s), null, rid + ' ふつうの 池 ' + s.id + ' は しずか');
+  }
+  // forest の 例
+  const f = M.buildWorld('forest', reg, {});
+  const at = (id) => M.discoveryNotice(f.spots.find((s) => s.id === id));
+  assert.equal(at('falls').kind, 'landmark'); assert.equal(at('hiddenpond').kind, 'secret'); assert.equal(at('creekdeep'), null); assert.equal(at('thicket1'), null);
+});
+
+test('11. 全地域(registry から): 3D モードで ぜんぶの spot と gate に 道に そって あるいて 行ける(とじこめ なし)', () => {
+  const regions = Object.keys(M.WORLDS), summary = [];
+  for (const rid of regions) {
+    const sim = M.createSimulation({ regionId: rid, discovered: [], world3d: true });
+    const w = sim.world;
+    assert.ok(w.world3d, rid + ' は 3D モードの world');
+    const adj = new Map(w.spots.map((s) => [s.id, []]));
+    for (const sg of w.segments) { if (adj.has(sg.a.id) && adj.has(sg.b.id)) { adj.get(sg.a.id).push(sg.b); adj.get(sg.b.id).push(sg.a); } }
+    const start = w.spots[0], seen = new Set([start.id]), order = [], q = [start], from = new Map();
+    while (q.length) { const c = q.shift(); order.push(c); for (const nb of adj.get(c.id)) if (!seen.has(nb.id)) { seen.add(nb.id); from.set(nb.id, c); q.push(nb); } }
+    assert.equal(order.length, w.spots.length, rid + ': 道の グラフで ぜんぶ つながって いる(' + order.length + ' / ' + w.spots.length + ')');
+    const walkTo = (t) => { for (let i = 0; i < 4000; i++) { const dx = t.x - sim.player.x, dz = t.z - sim.player.z, d = Math.hypot(dx, dz) || 1; if (d < Math.max(40, (t.r || 60) * 0.5)) return true; sim.step(1 / 60, { x: dx / d, y: -dz / d }); } return false; };
+    let fails = [];
+    for (const sp of order.slice(1)) { const par = from.get(sp.id); sim.setPlayer(par.x, par.z); if (!walkTo(sp)) fails.push(par.id + '→' + sp.id); }
+    assert.equal(fails.length, 0, rid + ': あるいて 行けない: ' + fails.join(', '));
+    // gate(ほかの 地域への 出入口)の spot にも 立てる
+    for (const g of M.regionGates(rid, w)) if (g.spot) assert.ok(!M.collidesAt(w, g.spot.x, g.spot.z, M.RULES.bodyRadius), rid + ' gate ' + g.id + ' に 立てる');
+    summary.push(rid + ':' + w.spots.length);
+  }
+  assert.ok(summary.length >= 13, summary.join(' '));
 });

@@ -84,14 +84,16 @@ function settle(h, u, max = 24) {
 
 // ────────────────────────────── ① なにを 見つけたのか わかる
 
-test('①-1 ふつうの ばしょ: なまえ と「ちずに きろくした」を 小さく 出す', () => {
+// 2026-10-01 仕様変更(All Regions 3D v0): 「みつけた！」は ランドマーク / ひみつ だけ。その ばしょ だけの もの が ある spot(level 2)は
+// かるく「○○が ある」、ふつうの 池・通過点(level ≤ 1)は しらせ なし(きろくは いままで どおり)。discoveryNotice() が きめる
+test('①-1 ふつうの ばしょ: なまえ(「が ある」)と「ちずに きろくした」を 小さく 出す', () => {
   const { h } = setup('forest');
   const u = open(h);
   settle(h, u);                                     // はじまりの しらせを 出しきる
   stand(h, u.run, 'bright2');                       // ひだまり(ふつうの ばしょ・すでに 見た 地区)
   const t = shown(u);
   assert.ok(t, 'はじめて 見つけたら しらせが 出る');
-  assert.equal(t.title, 'ひだまりを みつけた', 'なにを 見つけたか が なまえで わかる');
+  assert.equal(t.title, 'ひだまりが ある', 'なにを 見つけたか が なまえで わかる');
   // この 2行目は **はじめの うちだけ**(⑦-4 / ⑦-5)。ここは まっさらな セーブなので 出る
   assert.equal(t.sub, 'ちずに きろくした', 'はじめの うちは それが どういう いみか も 出す');
   assert.ok(/mgr-found-spot/.test(t.cls), 'ふつうの ばしょ の 見た目');
@@ -499,7 +501,8 @@ test('⑦-1 レベルは buildWorld() が ほんとうに おく ものから �
   assert.equal(lv('forest', 'hiddenpond'), 3, 'かくれたいけ は secret');
   // 2: 画面に その spot の ものが ある
   assert.equal(lv('forest', 'bright2'), 2, 'ひだまり は 🪵 が 立つ');
-  assert.equal(lv('forest', 'creek2'), 2, 'おがわのふち は みずたまりを えがく(kind:water)');
+  assert.equal(lv('forest', 'creek2'), 1, 'おがわのふち は ふつうの 池(しるし なし)→ しらせ なし(2026-10-01 仕様変更。きろくは する)');
+  assert.equal(lv('forest', 'creek1'), 2, 'おがわ は 💧 の しるしが ある 水べ → かるい しらせ');
   // 0: 目じるしが ない 通過点
   assert.equal(lv('forest', 'thicket1'), 0, 'にたようなこだち は 何も ない');
   assert.equal(lv('forest', 'anc4'), 0, 'しずかなくぼち は 何も ない');
@@ -539,7 +542,7 @@ test('⑦-3 目じるしの ある ばしょは これまで どおり しらせ
   stand(h, u.run, 'bright2');
   const t = shown(u);
   assert.ok(t, '🪵 が 立つ ばしょは しらせる');
-  assert.equal(t.title, 'ひだまりを みつけた');
+  assert.equal(t.title, 'ひだまりが ある');
   h.api.stopMeguru();
 });
 
@@ -552,7 +555,7 @@ test('⑦-4「ちずに きろくした」は はじめの うちだけ(なん�
   stand(h, u.run, 'bright2');
   const t = shown(u);
   assert.ok(t, 'しらせ じたいは 出る');
-  assert.equal(t.title, 'ひだまりを みつけた');
+  assert.equal(t.title, 'ひだまりが ある');
   assert.equal(t.sub, '', 'なれた ひとには「ちずに きろくした」を くりかえさない');
   h.api.stopMeguru();
 });
@@ -563,7 +566,7 @@ test('⑦-5 はじめて あそぶ ひとには「ちずに きろくした」�
   settle(h, u);
   stand(h, u.run, 'bright2');
   const seen = [shown(u), ...settle(h, u)].filter(Boolean);
-  const first = seen.find((v) => v.title === 'ひだまりを みつけた');
+  const first = seen.find((v) => v.title === 'ひだまりが ある');
   assert.ok(first, 'はじめの はっけん');
   assert.equal(first.sub, 'ちずに きろくした', 'はじめの うちは しくみを おしえる');
   h.api.stopMeguru();
@@ -577,8 +580,8 @@ test('⑦-6 レベルは セーブに 何も 足さない(旧セーブでも そ
   settle(h, u);
   stand(h, u.run, 'bright2');
   assert.equal(shown(u), null, 'もう 見つけて いる ので 出さない');
-  stand(h, u.run, 'creek2');
-  const t = [shown(u), ...settle(h, u)].filter(Boolean).find((v) => /おがわのふち/.test(v.title));
+  stand(h, u.run, 'great');   // おおきなき(ランドマーク)。creek2 は ふつうの 池 で しらせ なし に なった(2026-10-01)
+  const t = [shown(u), ...settle(h, u)].filter(Boolean).find((v) => /おおきなき/.test(v.title));
   assert.ok(t, '旧セーブでも あたらしい はっけんは 出る');
   assert.deepEqual([...Object.keys(s.lifetime.meguru)].sort(),
     ['marks', 'met', 'paths', 'spots', 'talkCount', 'talks', 'visits', 'world', 'zones'].sort(),
@@ -596,11 +599,13 @@ test('⑦-7 監査の けっかと 実装が そろって いる', () => {
     const want = Number(c[14].slice(1));             // 推奨通知レベル "L0" / "L2" / "L3"
     const sp = M.WORLDS[region].spots.find((q) => q.id === id);
     assert.ok(sp, region + '/' + id + ' が せかいに ない');
-    assert.equal(M.spotDiscoveryLevel(sp), want, region + '/' + id + '(' + c[2] + ')');
-    lv['L' + want] = (lv['L' + want] || 0) + 1; n++;
+    // 2026-10-01: ふつうの 池(kind water・しるし なし)は 2 → 1(しらせ なし)。表は そのまま、ここで よみかえる
+    const want2 = want === 2 && sp.kind === 'water' && (!sp.prop || M.spotDiscoveryLevel(sp) === 1) ? 1 : want;   // 水べ の しるしが ありふれた もの(FOUND_PLAIN_PROP)も 1
+    assert.equal(M.spotDiscoveryLevel(sp), want2, region + '/' + id + '(' + c[2] + ')');
+    lv['L' + want2] = (lv['L' + want2] || 0) + 1; n++;
   }
   assert.equal(n, 471, '監査表は 471 spot ぜんぶ');
-  assert.deepEqual(lv, { L0: 184, L2: 216, L3: 71 }, '監査の うちわけ(#319 で みはらし 4件が L0→L2)');
+  assert.deepEqual(lv, { L0: 184, L1: 17, L2: 199, L3: 71 }, '監査の うちわけ(2026-10-01: ふつうの 池 17 件が L2 → L1)');
 });
 
 // ────────────────────────────── ⑧ みはらしの spot に けしきを 足した(#319)
@@ -710,8 +715,8 @@ test('⑧-5 4つとも L2。「みつけた」だけで「ちずに きろくし
   settle(h, u);
   stand(h, u.run, 'stonelook');
   const t = [shown(u), ...settle(h, u)].filter(Boolean).find((v) => /いわばのみはらし/.test(v.title));
-  assert.ok(t, 'いわばのみはらしを みつけた が 出る');
-  assert.equal(t.title, 'いわばのみはらしを みつけた');
+  assert.ok(t, 'いわばのみはらしが ある が 出る');
+  assert.equal(t.title, 'いわばのみはらしが ある');
   assert.equal(t.sub, '', '「ちずに きろくした」を くりかえさない');
   h.api.stopMeguru();
 });

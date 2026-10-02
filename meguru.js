@@ -650,16 +650,26 @@
     // **きろくは レベルに かかわらず これまで どおり** 全部の spot で とる。
     // かえるのは「しらせるか どうか」だけ。探索率・地図・セーブは 1つも かわらない
     const FOUND_PLAIN_PROP = new Set(['🪧', '🚦']);   // どの みちにも ある 道しるべ・信号
+    // はっけんの つよさ(全地域 共通の きまり): 3 = ランドマーク / ひみつ(「みつけた！」)、2 = その ばしょ だけの もの が ある(「○○が ある」と かるく)、
+    // 1 = ふつうの 水べ・通過点(しらせ なし。左上の なまえ だけ)、0 = なにも ない。きろく(recordSpot)は つよさに よらず いままで どおり
     function spotDiscoveryLevel(s) {
       if (!s) return 0;
       if (s.secret || s.landmark) return 3;
-      if (s.kind === 'water') return 2;                 // 半径いっぱいの みずたまりが えがかれる
+      if (s.kind === 'water') return s.prop && !FOUND_PLAIN_PROP.has(s.prop) ? 2 : 1;   // ふつうの 池 は しずかに(しるしの ある 水べ だけ かるく)
       // view: その ばしょ だけの けしきを もつ(みはらし など)。画面を 見て わかる
       if (s.view && s.view.length) return 2;
       if (!s.prop || FOUND_PLAIN_PROP.has(s.prop)) return 0;
       // SPOT_PROP_STRUCT が null の もの(🌊 / 🌫️)は **なにも おかれない**(地域の 主役に まかせる)
       if (Object.prototype.hasOwnProperty.call(SPOT_PROP_STRUCT, s.prop) && !SPOT_PROP_STRUCT[s.prop]) return 0;
       return 2;
+    }
+    // しらせの 文(つよさ ごと)。null = しらせ なし。きろく とは べつ
+    function discoveryNotice(s) {
+      const lv = spotDiscoveryLevel(s);
+      if (lv < 2) return null;
+      if (s.secret) return { kind: 'secret', icon: '🔍', title: 'ひみつのばしょを みつけた！' };
+      if (s.landmark) return { kind: 'landmark', icon: '✨', title: `${s.label}を みつけた！` };
+      return { kind: 'spot', icon: '', title: `${s.label}が ある` };   // かるく(「みつけた」は ランドマーク だけ)
     }
     // ---- Three.js の レンダラーから よむ ための「いみ」 ----
     // canvas は いろと かたちで えがくが、3D では「これは 地形か・たてものか・木か・水か・光か」で
@@ -783,7 +793,7 @@
         return { shape: 'circle', hw: size * LANDMARK_COLLIDER.w * k, hd: size * LANDMARK_COLLIDER.w * k, ang: 0, kind: 'LM:' + p.landmark };
       }
       // ランドマークの まわりの 岩・だな(3D モードだけ world に ふえる)。あたりは おきなおしが きめた かたち
-      if (p.collider3d && p.part3d) { const c3 = p.collider3d; return { shape: c3.shape, hw: size * c3.w, hd: size * (c3.d != null ? c3.d : c3.w), ang: c3.ang || 0, kind: 'LM:' + p.landmarkOf + ':' + p.part3d }; }
+      if (p.collider3d) { const c3 = p.collider3d; return { shape: c3.shape, hw: size * c3.w, hd: size * (c3.d != null ? c3.d : c3.w), ang: c3.ang || 0, kind: p.part3d ? 'LM:' + p.landmarkOf + ':' + p.part3d : p.struct || p.emoji }; }
       if (p.struct) {
         const c = Object.prototype.hasOwnProperty.call(COLLIDER, p.struct)
           ? COLLIDER[p.struct]
@@ -940,11 +950,13 @@
     // 2D の world・見た目・あたりは かえない(world3dOn が false なら ここは 1 つも はしらない)。
     // 3D では「見えて いる かたい 物 = あたりの ある 物」に する ため、道の うえで あたりを 外された かたい 物を
     // 見た目と あたりを 一体の まま 道の そとへ うごかす。約 1.5 × 大きさ(絵の はば)の なかに おける 場所が なければ 3D では おかない
-    const WORLD3D_REGIONS = new Set(['forest']);
+    const WORLD3D_REGIONS = new Set(['home', 'city', 'countryside', 'forest', 'mountain', 'snow', 'sea', 'deepsea', 'river_lake', 'jungle', 'desert', 'star_stop', 'memory_lake']);   // = REGION3D の キー(下で たしかめる)
     const RELOCATE3D_REACH = 1.5;
     const world3dOn = (regionId, opts) => (opts && opts.world3d != null ? !!opts.world3d : !!S.meguru3d && WORLD3D_REGIONS.has(regionId));
     function propVisualHalf(p) { return (p.size || 160) * (p.struct && OCCLUDER_BOX[p.struct] ? OCCLUDER_BOX[p.struct][0] : OCCLUDER_BOX.glyph[0]); }
     function solidLookingProp(p) { const c = colliderOf(p); return !!c && solidLooking({ kind: c.kind, role: COLLIDER_ROLE[c.kind] || 'solid' }); }
+    // 3D では せかいの ふち(boundary: がけ・さんごの かべ・すなやま)と 大きな 丸太 も「見える = あたる」なので おきなおしの 候補
+    function solidLookingProp3d(p) { return !!colliderOf(p); }   // 3D では「あたりが ある はずの 物」は ぜんぶ 見える ので、道の 面に かかって あたりを 外された 物は ぜんぶ おきなおす(おけなければ 3D では おかない)
     // 道の 通行帯(half + clear)と spot の まんなかから はなれて いるか(かるい しらべ)
     function farFromRoads(world, x, z, clear) {
       for (const sg of world.segments || []) {
@@ -968,11 +980,14 @@
     // satellites = ランドマークに ついて まわる 岩・いわだな(3D だけ の prop。それぞれ あたり つき = 見た目)。fd = spot へ の むき・sd = よこ(ランドマークの 大きさ 1 = size)。
     //   おけない ところ(道・spot・ほかの みき)なら その 1 つ だけ おかない(かざり なので)
     const LANDMARK3D = {
+      // がけ(箱)の まわりは まるい 岩の かたまり(mound: 半分 うまった だ円。足もと = あたり)で 地形に つなぐ。板や 箱を ならべない
       waterfall: { shape: 'box', w: 0.3, d: 0.14, minScale: 0.8, satellites: [
-        { part: 'ledge', fd: -0.02, sd: 0.43, w: 0.13, d: 0.11, h: 0.44, turn: 14 },      // 左右の かた(ひくい いわだな)
-        { part: 'ledge', fd: -0.04, sd: -0.42, w: 0.12, d: 0.11, h: 0.38, turn: -18 },
-        { part: 'ledge', fd: -0.3, sd: 0.14, w: 0.17, d: 0.12, h: 0.86, turn: 6 },        // うしろの だん(がけの 上に のぞく。まんなかの すきまから 水が くる)
-        { part: 'ledge', fd: -0.32, sd: -0.17, w: 0.15, d: 0.12, h: 0.8, turn: -8 },
+        { part: 'mound', fd: -0.04, sd: 0.4, r: 0.15, h: 0.5 },      // 左右の かた(がけの よこに もたれる 岩)
+        { part: 'mound', fd: -0.06, sd: -0.39, r: 0.13, h: 0.42 },
+        { part: 'mound', fd: -0.3, sd: 0.1, r: 0.2, h: 0.92 },       // うしろの だん(がけの 上に のぞく。すきまから 水が くる)
+        { part: 'mound', fd: -0.32, sd: -0.2, r: 0.17, h: 0.84 },
+        { part: 'mound', fd: -0.56, sd: -0.04, r: 0.27, h: 0.62 },   // うしろの 岩の おか(背面を 地形に)
+        { part: 'mound', fd: -0.28, sd: 0.4, r: 0.14, h: 0.34 }, { part: 'mound', fd: -0.3, sd: -0.42, r: 0.13, h: 0.3 },   // よこの ゆるい 斜面
         { part: 'rock', fd: 0.05, sd: 0.62, r: 0.085 }, { part: 'rock', fd: 0.1, sd: -0.6, r: 0.075 },   // そとがわの 岩(ひざ くらい)
         { part: 'rock', fd: -0.18, sd: 0.66, r: 0.06 } ] },
       bigtree: { minScale: 0.6 } };
@@ -1041,6 +1056,9 @@
       const stats = { candidates: 0, solidified: {}, moved: {}, dropped: {}, added: {}, moves: [], drops: [] };
       // ながめの かざり(spot の view)の 岩・木は 2D では あたりが ない。3D では かたい 物 として あつかう
       for (const p of world.props) {
+        // 3D だけの あたりの 直し: ひかりの ひろば(glowglade)は 光の しるし なので あたりを もたない。大きな 丸太(🪵・かたい)は 丸太の 箱の あたり
+        if (p.struct === 'glowglade' || HIDDEN3D.has(p.struct || p.emoji) || objectType3d(p) === 'unknown') { p.solid = false; continue; }   // 3D で 出さない しるし・意味の 表に ない もの は あたりも もたない(見えない かべ に しない)
+        if (p.emoji === '🪵' && p.solid && (p.size || 160) >= 150 && !p.collider3d) p.collider3d = { shape: 'box', w: 0.34, d: 0.08, ang: p.ang || 0 };
         if (p.solid || !p.view || !SOLID3D_TYPES.has(objectType3d(p))) continue;
         p.solid = true; const k = p.struct || p.emoji; stats.solidified[k] = (stats.solidified[k] || 0) + 1;
       }
@@ -1053,7 +1071,7 @@
         if (p.landmark && colliderOf(p)) { cands.push(p); continue; }
         const o = obstacleOf(p, world, i);
         if (o) fixed.push(o);
-        else if (solidLookingProp(p)) cands.push(p);
+        else if (solidLookingProp3d(p)) cands.push(p);
         if (i % 200 === 199) yield;
       }
       stats.candidates = cands.length;
@@ -1105,23 +1123,73 @@
     // かたい 物の 見た目は あたりから つくる(みき の 太さ = あたりの 半径、岩の 大きさ = あたりの 大きさ)。
     // あたまより 下(OBJ3D_HEAD)で あたりより 太い 見た目は つくらない(見えない かべ も 見える のに とおれる 物 も ない)
     const OBJ3D_HEAD = 125;
+    // ===== 全地域の 意味の 表(semantic → 3D の かたち)。forest の きまり を そのまま ひろげる =====
+    // t = かたちの 原型(parts3d の case)。c = いろ。3D で 出さない もの は HIDDEN3D(雰囲気の しるし・2D の 額縁)。意味の ちがう 置きかえ は しない
+    const HIDDEN3D = new Set(['branch', '💧', '🫧', '🐾', '🚲', '🏄', '🏖️', '🎣', '🥾', '🧣', '❄️', '🌨️', '🍡', 'cloudwisp', 'palmfrond', 'snowdrift', 'sandcrest', '☁️', 'coralarm', '🏚️']);
+    const SEM3D = {
+      // たてもの
+      '🏠': { t: 'house', c: '#d9c9a8', rc: '#8a4b3c' }, '🏡': { t: 'house', c: '#e3d2b0', rc: '#6c8a4a' }, '🛖': { t: 'house', c: '#a88a5c', rc: '#6f5436', roof: 'cone' },
+      house: { t: 'house', c: '#d9c9a8', rc: '#8a4b3c' }, farmhouse: { t: 'house', c: '#e0d2b4', rc: '#5f4a3a' }, barn: { t: 'house', c: '#a94a3a', rc: '#6d3a2c' },
+      '🏪': { t: 'house', c: '#f0f0ea', rc: '#3c6fb0', roof: 'flat', sign: true }, '☕': { t: 'house', c: '#e9d9c3', rc: '#6b4a3a', roof: 'flat', sign: true }, shopfront: { t: 'house', c: '#e8e2d2', rc: '#b04a4a', roof: 'flat', sign: true },
+      '🏬': { t: 'tower', c: '#cfd3d8', fl: 3 }, '🏢': { t: 'tower', c: '#b9c2cc', fl: 5 }, building: { t: 'tower', c: '#c4c8ce', fl: 4 }, shopblock: { t: 'tower', c: '#d8d2c4', fl: 2, sign: true }, '🚉': { t: 'tower', c: '#d6d9dc', fl: 2, wide: true },
+      alleywall: { t: 'wall', c: '#9a9a94' }, '🏛️': { t: 'temple', c: '#e6e2d6' }, '⛩️': { t: 'torii', c: '#c8402e' }, '🎡': { t: 'ferris', c: '#d94f4f' }, '⛲': { t: 'fountain', c: '#d8d8d2' },
+      igloo: { t: 'dome', c: '#f2f6fb' }, tent: { t: 'tent', c: '#c9a24a' }, '⛺': { t: 'tent', c: '#d8a040' }, '🏕️': { t: 'tent', c: '#4f8a5f' }, wreck: { t: 'hull', c: '#5a4636' },
+      ruinwall: { t: 'wall', c: '#9f9a8c', ruin: true }, ruingate: { t: 'gate', c: '#9f9a8c' }, arch: { t: 'gate', c: '#c9b48a' }, ruinpillar: { t: 'pillar', c: '#a8a39a' }, obelisk: { t: 'obelisk', c: '#6b6a66' }, statue: { t: 'statue', c: '#8f8f8a' },
+      vending: { t: 'boxprop', c: '#d94040', h: 1.0 }, guardpost: { t: 'boxprop', c: '#8a7a5a', h: 0.8 }, '🚦': { t: 'signal' }, '🚧': { t: 'conep', c: '#f08a2a' }, '🗑️': { t: 'binp', c: '#6a6f72' }, '💡': { t: 'lamp', c: '#ffe9a8', h: 0.8 },
+      streetlight: { t: 'lamp', c: '#fff2c8', h: 1.5 }, lantern: { t: 'lamp', c: '#ffb766', h: 0.7 }, '🏮': { t: 'lamp', c: '#ff7a5a', h: 0.9 }, lanternpost: { t: 'lamp', c: '#ffd59a', h: 1.2 }, '🕯️': { t: 'lamp', c: '#ffe2a0', h: 0.4 },
+      stoplamp: { t: 'lamp', c: '#bfe3ff', h: 1.2 }, moonlamp: { t: 'lamp', c: '#9fc8ff', h: 1.1 }, '🚏': { t: 'signpost', c: '#4d6fb0' }, neonsign: { t: 'neon', c: '#ff5fa8' },
+      '🪑': { t: 'bench', c: '#8a6a44' }, '🛝': { t: 'slide', c: '#4f9ad8' }, '🚕': { t: 'car', c: '#f2c230' }, '🚜': { t: 'car', c: '#d94a3a', big: true }, '⛵': { t: 'boat', c: '#f4f1e6' }, pier: { t: 'pier', c: '#9a7550' }, crosswalk: { t: 'decal', c: '#e8e8e4' },
+      telescope: { t: 'telescope', c: '#5a5f66' }, '🔭': { t: 'telescope', c: '#5a5f66' }, orrery: { t: 'orrery', c: '#c9a44a' }, waterwheel: { t: 'wheel', c: '#7a5436' }, '🛷': { t: 'bench', c: '#b0402a' }, '🎿': { t: 'bench', c: '#3a7fd0' },
+      firewood: { t: 'logs', c: '#7a5436' }, hayroll: { t: 'hay', c: '#d9b85a' }, '🪺': { t: 'nest', c: '#8a6a44' }, '🏺': { t: 'pot', c: '#b5744a' }, pot: { t: 'pot', c: '#b5744a' }, planter: { t: 'pot', c: '#8a6a4a', plant: true }, '🪴': { t: 'pot', c: '#9a7a5a', plant: true },
+      // かべ・地形
+      cliffwall: { t: 'rockwall' }, seacliff: { t: 'rockwall', c: '#9a8f7a' }, cliff: { t: 'rockwall' }, mesa: { t: 'rockwall', c: '#c08a5a' }, reefwall: { t: 'reef', c: '#d07a7a' }, kelpwall: { t: 'kelprow', c: '#3f7a3a' },
+      dunewall: { t: 'sandwall', c: '#e2c585' }, duneridge: { t: 'sandwall', c: '#e6cd92' }, dune: { t: 'lowmound', c: '#e6cd92' }, snowbank: { t: 'sandwall', c: '#eef3fa' }, islandedge: { t: 'sandwall', c: '#5a4f9a' },
+      hedge: { t: 'hedge', c: '#4f8a3a' }, pinewall: { t: 'pinerow' }, cropline: { t: 'croprow', c: '#8ab85a' }, crop: { t: 'croprow', c: '#9ac060' }, ricestalk: { t: 'reeds', c: '#a8c860', h: 0.5 }, '🌾': { t: 'reeds', c: '#d8c060', h: 0.6 },
+      woodfence: { t: 'fence', c: '#9a7a50' }, fence: { t: 'fence', c: '#8a8a84' }, fencerail: { t: 'fence', c: '#9a7a50' }, snowfence: { t: 'fence', c: '#8a6a44' }, guardrail: { t: 'fence', c: '#d8d8d4', low: true },
+      searock: { t: 'rock' }, buttress: { t: 'buttress' }, vine: { t: 'vine', c: '#3f7a3a' }, bigleaf: { t: 'leafclump', c: '#3f8a46' }, hugeleaf: { t: 'leafclump', c: '#357a40', big: true },
+      '🌴': { t: 'palm' }, palmgrove: { t: 'palm', big: true }, '🌵': { t: 'cactus', c: '#4f8a4a' }, '🍌': { t: 'nut', c: '#f0d040' },
+      '🪸': { t: 'coral', c: '#e07a8a' }, coralfan: { t: 'coralfan', c: '#d86a7a' }, glowcoral: { t: 'coral', c: '#7fe3d2', glow: true }, kelp: { t: 'kelp', c: '#3f7a3a' }, vent: { t: 'vent' }, glowgarden: { t: 'glowdecal' }, '🐚': { t: 'pebble', c: '#f0d8d0' }, shellpile: { t: 'pebbles', c: '#f0e0d0' }, '⚓': { t: 'pebble', c: '#3a3f44', big: true },
+      reed: { t: 'reeds', c: '#7fa858', h: 0.9 }, reedclump: { t: 'reeds', c: '#7fa858', h: 0.8, n: 5 }, '🪷': { t: 'lotus', c: '#f2a6c0' }, '🌺': { t: 'flower', c: '#e8456a' }, '🌻': { t: 'flower', c: '#f2c230', h: 1.6 }, '🌷': { t: 'flower', c: '#e85a7a' }, '🌸': { t: 'flower', c: '#f5b7c8' },
+      rockpool: { t: 'water' }, oasispool: { t: 'water' }, '♨️': { t: 'hotspring' }, '🕳️': { t: 'hole' }, icepillar: { t: 'crystal', c: '#cfe8ff' }, crystal: { t: 'crystal', c: '#b9a8ff', glow: true }, crystalgarden: { t: 'crystal', c: '#b9a8ff', glow: true, n: 3 },
+      '⭐': { t: 'sparkle', c: '#fff0a0' }, '⛱️': { t: 'parasol', c: '#e85a5a' }, parasol: { t: 'parasol', c: '#4f9ad8' }, '🌟': { t: 'sparkle', c: '#ffe070' }, lightbridge: { t: 'bridge', light: true }, ropebridge: { t: 'bridge' },
+    };
+    // 地域の 3D profile: きり・そら・水・雰囲気 だけ(かたち は SEM3D と 共通の adapter)。ここに ある 地域だけ 3D に なる
+    const REGION3D = {
+      home: { fog: [1400, 5200], label: 'いえのまわり' }, city: { fog: [1600, 6000], label: 'まち' }, countryside: { fog: [1800, 7000], label: 'いなか' }, forest: { fog: [1400, 5200] },
+      mountain: { fog: [1800, 7500], label: 'やま' }, snow: { fog: [1000, 4200], fogColor: '#dde8f4', label: 'ゆき' }, sea: { fog: [1600, 6500], sea: true, label: 'うみ' },
+      deepsea: { fog: [250, 1900], fogColor: '#0f2f4e', underwater: true, label: 'しんかい' }, river_lake: { fog: [1500, 6000], label: 'かわ と みずうみ' }, jungle: { fog: [900, 3800], fogColor: '#9fc29a', label: 'ジャングル' },
+      desert: { fog: [1800, 7500], fogColor: '#f0dcb0', label: 'さばく' }, star_stop: { fog: [1200, 5000], fogColor: '#2b2460', stars: true, label: 'ほしの えき' }, memory_lake: { fog: [500, 2600], fogColor: '#9aa3c0', mist: true, label: 'おもいでの みずうみ' },
+    };
+    // 3D の 見た目の しゅるい。「せかいは 3D・キャラだけ 2D」: けしきの 物は 3D の かたち か、3D では 出さない(skip)。立て看板(billboard)は のこさない
+    //   いみを かえない: きのこ は きのこ、はし は はし。3D に できない 雰囲気の しるし(💧・手前の えだ・光の もや)は 出さない
     const OBJ3D_TYPE = { '🌲': 'conifer', '🌳': 'broadleaf', mistwood: 'broadleaf', riverwood: 'broadleaf', parktree: 'broadleaf', bluetree: 'broadleaf',
       bigtrunk: 'bigtree', bigrock: 'rock', '🪨': 'rock', ledgerock: 'rock', stonestack: 'rock', cairn: 'rock', riverrock: 'rock',
-      log: 'log', driftwood: 'log', stump: 'stump', springpool: 'water', woodbridge: 'bridge', branch: 'skip' };
-    const OBJ3D_BILLBOARD = { fern: '🌿', mushroomcluster: '🍄', mushroomgrove: '🍄', glowglade: '✨', oldpost: '🪧' };
-    const WALKABLE3D = new Set(['billboard', 'water', 'bridge', 'pebble']);
-    const SOLID3D_TYPES = new Set(['conifer', 'broadleaf', 'bigtree', 'rock', 'log', 'stump', 'mushroom', 'waterfall', 'ledge']);   // あたりが なくて よい(ふんで とおれる / ひらたい / 草花)
+      log: 'log', driftwood: 'log', stump: 'stump', springpool: 'water', woodbridge: 'bridge', '🌉': 'bridge',
+      '🍄': 'mushrooms', mushroomcluster: 'mushrooms', mushroomgrove: 'mushroomgrove',
+      '🌿': 'grass', fern: 'fern', '🌱': 'sprout', '🍂': 'leaf', '🍃': 'leaf', '🍁': 'leaf', '🌰': 'nut', '✨': 'sparkle', '🌼': 'flower', '🪧': 'signpost', oldpost: 'signpost', glowglade: 'glowdecal',
+      '🪵': 'log', branch: 'skip', '💧': 'skip' };
+    // あたりが なくて よい(ふんで とおれる ひくい もの・水・はし・地面の しるし)
+    const WALKABLE3D = new Set(['water', 'bridge', 'pebble', 'pebbles', 'mushrooms', 'grass', 'fern', 'sprout', 'leaf', 'nut', 'sparkle', 'flower', 'signpost', 'glowdecal', 'smalllog',
+      'lamp', 'neon', 'decal', 'bush', 'parasol', 'lotus', 'reeds', 'croprow', 'lowmound', 'hole', 'hotspring', 'conep', 'binp', 'signal', 'bench', 'slide', 'pot', 'nest', 'logs', 'crystal', 'kelp', 'coral', 'coralfan', 'cactus', 'leafclump', 'vine', 'fence', 'pier', 'telescope', 'statue', 'pillar', 'obelisk', 'orrery', 'wheel', 'tent', 'car', 'boat', 'boxprop', 'hay', 'palm', 'torii', 'fountain', 'gate']);
+    const SOLID3D_TYPES = new Set(['conifer', 'broadleaf', 'bigtree', 'rock', 'log', 'stump', 'glowmushroom', 'mushroomgrove', 'waterfall', 'ledge', 'mound', 'house', 'tower', 'wall', 'rockwall', 'reef', 'sandwall', 'hedge', 'pinerow', 'kelprow', 'buttress', 'temple', 'dome', 'hull', 'ferris', 'lm_tower', 'lm_windmill', 'lm_peak', 'lm_lighthouse', 'lm_bigstop']);
     function objectType3d(p) {
-      if (p.part3d) return p.part3d;   // ランドマークの まわりの 岩・いわだな(3D だけ)
-      if (p.landmark === 'bigtree') return 'bigtree';
-      if (p.landmark === 'glowmushroom') return 'mushroom';
-      if (p.landmark === 'waterfall') return 'waterfall';
+      if (p.part3d) return p.part3d;   // ランドマークの まわりの 岩(3D だけ)
+      if (p.landmark) return LANDMARK3D_TYPE[p.landmark] || 'unknown';
       const k = p.struct || p.emoji;
-      if (k === '🪨' && !p.solid) return 'pebble';   // 2D でも あたりの ない 小石(道ばた)は ひらたい 石(ふんで とおれる)
+      if (HIDDEN3D.has(k)) return 'skip';
+      if (SOFT3D[k] && !(p.solid && colliderOf(p))) return SOFT3D[k];
+      if (SEM3D[k] && !(k === '🪨' && !p.solid)) return SEM3D[k].t;
+      if (k === '🪨' && !p.solid) return 'pebble';   // 2D でも あたりの ない 小石(道ばた)は ひくい 石(ふんで とおれる)
+      if (k === '🪵' && !p.collider3d) return 'smalllog';   // あたりの ない 丸太は 半分 うまった 小さな 丸太
+      if (p.struct === 'fern' && p.view) return 'skip';   // ながめの かざりの 巨大な しだ(2D の 額縁)は 3D では 出さない
       if (OBJ3D_TYPE[k]) return OBJ3D_TYPE[k];
-      if (p.struct && !OBJ3D_BILLBOARD[p.struct]) return 'skip';
-      return p.emoji || OBJ3D_BILLBOARD[p.struct] ? 'billboard' : 'skip';
+      if (!k) return 'skip';   // 光の もや(glow layer)など なまえの ない 層
+      return 'unknown';   // 意味の 表に ない もの = dev / test で 赤(production では 出さない・あたりも もたない)
     }
+    // 2D でも あたりの ない 小さな しるし(道ばたの 木・いし・こわれた もの)は ふんで とおれる ひくい かたち に(かたい 見た目を あたり なしで 出さない)
+    const SOFT3D = { '🌳': 'bush', '🌲': 'bush', '🏛️': 'pebbles', '🏪': 'boxprop', '☕': 'boxprop', cairn: 'pebbles', stonestack: 'pebbles', vent: 'lowmound', snowbank: 'lowmound', cliffwall: 'lowmound', reefwall: 'lowmound', dunewall: 'lowmound', duneridge: 'lowmound', mesa: 'lowmound', islandedge: 'lowmound', seacliff: 'lowmound' };
+    const LANDMARK3D_TYPE = { bigtree: 'bigtree', glowmushroom: 'glowmushroom', waterfall: 'waterfall', tower: 'lm_tower', windmill: 'lm_windmill', lodge: 'house', peak: 'lm_peak', lighthouse: 'lm_lighthouse',
+      coral: 'coral', bridge: 'bridge', temple: 'temple', palms: 'palm', bigstop: 'lm_bigstop' };
     // たき = がけ(あたり = がけの 箱)+ おちる 水の まく + たきつぼ + あわ・しぶき + ふちの ひらたい 石。ひとつの ランドマークとして いっしょに うごく。
     // ctx.front = たき から spot への むき、ctx.dist = spot までの きょり。水・あわ・しぶき・ひらたい 石(たかさ 16 まで)は とおれる
     function waterfallParts3d(o, r, size, ctx) {
@@ -1189,6 +1257,8 @@
         dx: lobe.dx + f.x * lobe.rz * u + sx * lobe.rx * v * Math.sign(lobe.dx * sx + lobe.dz * sz), dz: lobe.dz + f.z * lobe.rz * u + sz * lobe.rx * v * Math.sign(lobe.dx * sx + lobe.dz * sz) });
       return out;
     }
+    // 小さな キノコ 1 本(くき + かさ)。ふんで とおれる 大きさ(たかさ 26 まで)
+    function smallMushroom(dx, dz, capR, h, capShape) { return [{ shape: 'stem', r: capR * 0.42, h, y: 0, dx, dz }, { shape: capShape, r: capR, sy: 0.6, y: h, dx, dz }]; }
     function parts3d(type, o, H, halfW, size, ctx) {
       const r = o ? Math.max(o.hw, o.hd) : halfW * 0.3;
       const below = (rad, y) => (y < OBJ3D_HEAD ? Math.min(rad, r + 10) : rad);   // あたまより 下は あたり + 10 まで
@@ -1203,7 +1273,7 @@
           return [{ shape: 'trunk', r: r * 0.7, h: cy, y: 0 }, { shape: 'crown', r: R, sy: 0.8, y: cy }];
         }
         case 'bigtree': {
-          if (!ctx) {   // ふつうの 大木(bigtrunk)
+          if (!ctx || !ctx.front) {   // ふつうの 大木(bigtrunk)
             const top = Math.max(H, OBJ3D_HEAD * 3), R = Math.max(size * 0.42, r * 2.4);
             return [{ shape: 'trunk', r, h: top, y: 0, taper: 0.6 }, { shape: 'crown', r: R, sy: 0.7, y: top + R * 0.3 }, { shape: 'crown', r: R * 0.75, sy: 0.7, y: top - R * 0.1, dx: R * 0.6 }, { shape: 'crown', r: R * 0.7, sy: 0.7, y: top, dx: -R * 0.55, dz: R * 0.3 }];
           }
@@ -1213,8 +1283,41 @@
             { shape: 'crown', r: R * 0.72, sy: 0.6, y: top - R * 0.25, dx: R * 0.75 }, { shape: 'crown', r: R * 0.7, sy: 0.6, y: top - R * 0.3, dx: -R * 0.7, dz: R * 0.25 },
             { shape: 'crown', r: R * 0.62, sy: 0.6, y: top - R * 0.2, dz: -R * 0.6 }, { shape: 'crown', r: R * 0.6, sy: 0.6, y: top - R * 0.28, dx: R * 0.2, dz: R * 0.7 }];
         }
-        case 'mushroom': return [{ shape: 'trunk', r, h: size * 0.5, y: 0, taper: 1 }, { shape: 'cap', r: Math.max(r * 2.2, size * 0.3), sy: 0.55, y: size * 0.5 }];
+        case 'glowmushroom': {   // ひかる キノコ(ランドマーク): ふとい くき = あたり。かさは あたまより 上。足もとに 光・まわりに 小さな ひかる キノコ
+          const h = Math.max(OBJ3D_HEAD + 5, size * 0.3), R = Math.max(r * 2.6, size * 0.34);
+          const out = [{ shape: 'stem', r, h, y: 0 }, { shape: 'glowcap', r: R, sy: 0.5, y: h }, { shape: 'glowdisc', r: R * 1.25, y: 0 }];
+          for (let i = 0; i < 6; i++) { const a = i * Math.PI / 3 + 0.4, d = r + 40 + (i % 2) * 36, k = 0.6 + (i % 3) * 0.2; out.push(...smallMushroom(Math.sin(a) * d, Math.cos(a) * d, 14 * k, 22 * k, 'glowcap')); }
+          return out;
+        }
+        case 'mushroomgrove': {   // キノコの もり(かたい): 大きな キノコ 1 本(くき = あたり)+ まわりに 小さな キノコ
+          const h = Math.max(OBJ3D_HEAD + 5, size * 0.42), R = Math.max(r * 1.7, size * 0.3);
+          const out = [{ shape: 'stem', r, h, y: 0 }, { shape: 'cap', r: R, sy: 0.55, y: h }];
+          for (let i = 0; i < 4; i++) { const a = i * Math.PI / 2 + 0.9, d = r + 30 + (i % 2) * 28, k = 0.7 + (i % 2) * 0.3; out.push(...smallMushroom(Math.sin(a) * d, Math.cos(a) * d, 12 * k, 20 * k, 'cap')); }
+          return out;
+        }
+        case 'mushrooms': {   // 小さな キノコ(1〜3 本・ふんで とおれる)
+          const n = size >= 110 ? 3 : size >= 70 ? 2 : 1, out = [];
+          for (let i = 0; i < n; i++) { const a = i * 2.1 + 0.5, d = i ? 12 + i * 7 : 0, k = i ? 0.65 : 1; out.push(...smallMushroom(Math.sin(a) * d, Math.cos(a) * d, Math.min(16, size * 0.13) * k, Math.min(26, size * 0.2) * k, 'cap')); }
+          return out;
+        }
+        case 'grass': return [0, 1, 2].map((i) => ({ shape: 'blade', r: 9, h: 24 + i * 5, y: 0, dx: Math.sin(i * 2.1) * 10, dz: Math.cos(i * 2.1) * 10 }));
+        case 'fern': return [0, 1, 2, 3, 4].map((i) => ({ shape: 'blade', r: 7, h: i === 4 ? 46 : 36, y: 0, dx: i === 4 ? 0 : Math.sin(i * Math.PI / 2 + 0.6) * 14, dz: i === 4 ? 0 : Math.cos(i * Math.PI / 2 + 0.6) * 14 }));
+        case 'sprout': return [{ shape: 'blade', r: 5, h: 16, y: 0, dx: -4 }, { shape: 'blade', r: 5, h: 13, y: 0, dx: 5, dz: 3 }];
+        case 'leaf': return [{ shape: 'leaf', w: Math.min(30, 18 + size * 0.1), y: 0 }];   // おちば: 地面の 小さな は(大きさは そろえる)
+        case 'nut': return [{ shape: 'nut', r: 7, y: 0 }, { shape: 'nut', r: 5, y: 0, dx: 11, dz: 4 }];
+        case 'sparkle': return [{ shape: 'spark', r: 7, y: 54 }, { shape: 'spark', r: 4, y: 72, dx: 14, dz: -6 }, { shape: 'spark', r: 4, y: 40, dx: -12, dz: 8 }];
+        case 'flower': return [0, 1, 2].map((i) => ({ shape: 'flower', r: 8, h: 20 + i * 3, y: 0, dx: Math.sin(i * 2.2) * 12, dz: Math.cos(i * 2.2) * 12 }));
+        case 'signpost': {   // かんばん: はしら + いた。かたい ふるい ひょうしき(oldpost)は はしら = あたり・いたは あたまより 上
+          const pr = o ? r : Math.min(5, size * 0.06), h = o ? Math.max(OBJ3D_HEAD + 10, size * 0.5) : Math.min(70, size * 0.85);
+          return [{ shape: 'post', r: pr, h, y: 0 }, { shape: 'board', w: o ? size * 0.36 : Math.min(48, size * 0.56), h: o ? size * 0.14 : Math.min(26, size * 0.3), y: h - (o ? 0 : 22), ang: ctx && ctx.ang != null ? ctx.ang : 0 }];
+        }
+        case 'glowdecal': return [{ shape: 'glowdisc', r: halfW * 0.8, y: 0 }];
+        case 'smalllog': { const lr = Math.min(10, size * 0.1); return [{ shape: 'log', len: size * 0.7, r: lr, y: -lr * 0.5 }]; }
+        case 'mound': {   // 岩の かたまり: 半分 うまった だ円。足もと = あたり(まる)。ctx.h = たかさ
+          return [{ shape: 'mound', r: o ? o.hw : r, h: Math.max(30, (ctx && ctx.h) || 0), y: 0 }];
+        }
         case 'waterfall': return waterfallParts3d(o, r, size, ctx);
+        default: return archetypeParts3d(type, o, r, H, halfW, size, ctx);
         case 'rock': return [{ shape: 'rock', rx: o ? o.hw : r, rz: o ? o.hd : r, h: Math.min(H, (o ? Math.max(o.hw, o.hd) : r) * 1.1), y: 0 }];
         case 'ledge': {   // いわだな = あたりの 箱 + 上に こけ(ctx.h = たかさ)
           const h = Math.max(40, (ctx && ctx.h) || 0), a = o ? o.ang : 0;
@@ -1223,9 +1326,100 @@
         case 'log': return [{ shape: 'log', len: o ? o.hw * 2 : halfW * 2, r: o ? Math.min(o.hd, 34) : 20, y: 0 }];
         case 'stump': return [{ shape: 'stump', r, h: Math.min(size * 0.35, 60), y: 0 }];
         case 'water': return [{ shape: 'pool', r: halfW, y: 0 }];
-        case 'pebble': return [{ shape: 'rock', rx: halfW * 0.6, rz: halfW * 0.45, h: Math.min(14, halfW * 0.25), y: 0 }];
-        case 'bridge': return [{ shape: 'plank', len: size * 0.9, w: size * 0.3, y: 0 }];
-        default: return [{ shape: 'billboard', w: size * 1.3, h: size * 1.25, y: 0 }];
+        case 'pebble': { const sm = ctx && ctx.sem; return [{ shape: 'pebble', r: sm && sm.big ? Math.min(24, halfW * 0.4) : Math.min(16, halfW * 0.3), y: 0, color: sm && sm.c }]; }
+        case 'bridge': {   // はし: 丸太の はし(いた + てすり)/ いしの はし(石の いた)。spot の 道に そって
+          const stone = ctx && ctx.spot && /stone|ishi|bridge2/.test(ctx.spot.id), ang = ctx && ctx.ang != null ? ctx.ang : 0, len = size * 0.95, w = size * 0.34;
+          if (stone) return [{ shape: 'slab', len, w, y: 0, ang }];
+          return [{ shape: 'plank', len, w, y: 0, ang }, { shape: 'rail', len, r: 4, y: 30, ang, side: w * 0.5 }, { shape: 'rail', len, r: 4, y: 30, ang, side: -w * 0.5 }];
+        }
+      }
+    }
+    // 共通の 原型(全地域)。あたまより 下は あたり + 10 まで(かたい もの)。ctx.sem = SEM3D の 項
+    function archetypeParts3d(type, o, r, H, halfW, size, ctx) {
+      const sm = (ctx && ctx.sem) || {}, c = sm.c, bw = o && o.shape === 'box' ? o.hw : r, bd = o && o.shape === 'box' ? o.hd : r, ang = o ? o.ang || 0 : (ctx && ctx.ang) || 0;
+      const lo = (v) => Math.min(v, r + 10);   // あたまより 下の はば
+      switch (type) {
+        case 'house': {
+          const w = o ? bw : halfW * 0.6, d = o ? bd : halfW * 0.45, h = Math.max(OBJ3D_HEAD + 20, size * 0.5);
+          const out = [{ shape: 'box', rx: w, rz: d, h, y: 0, ang, color: c || '#d9c9a8' }];
+          if (sm.roof === 'cone') out.push({ shape: 'roof', r: Math.max(w, d) * 1.25, h: size * 0.3, y: h, ang, color: sm.rc || '#6f5436', seg: 6 });
+          else if (sm.roof === 'flat') out.push({ shape: 'box', rx: w * 1.06, rz: d * 1.06, h: 10, y: h, ang, color: sm.rc || '#5a5a5a' });
+          else out.push({ shape: 'roof', r: Math.max(w, d) * 1.3, h: size * 0.26, y: h, ang, color: sm.rc || '#8a4b3c', seg: 4 });
+          if (sm.sign) out.push({ shape: 'board', w: w * 1.2, h: 22, y: h - 30, ang: ang + Math.PI / 2, color: sm.rc || '#b04a4a', dx: Math.cos(ang) * (d + 2), dz: -Math.sin(ang) * (d + 2) });
+          return out;
+        }
+        case 'tower': {
+          const w = o ? bw : halfW * 0.5, d = o ? bd : halfW * 0.4, h = Math.max(OBJ3D_HEAD + 40, size * (0.45 + 0.22 * (sm.fl || 3)));
+          const out = [{ shape: 'box', rx: w, rz: d, h, y: 0, ang, color: c || '#c4c8ce' }, { shape: 'box', rx: w * 0.6, rz: d * 0.6, h: 14, y: h, ang, color: '#8a8f96' }];
+          for (let f = 1; f < (sm.fl || 3); f++) out.push({ shape: 'box', rx: w * 1.03, rz: d * 1.03, h: 4, y: h * f / (sm.fl || 3), ang, color: '#6f7680' });   // かいの すじ
+          if (sm.sign) out.push({ shape: 'board', w: w, h: 20, y: h * 0.45, ang: ang + Math.PI / 2, color: '#ff5fa8', dx: Math.cos(ang) * (d + 2), dz: -Math.sin(ang) * (d + 2) });
+          return out;
+        }
+        case 'wall': return [{ shape: 'box', rx: bw, rz: bd, h: sm.ruin ? Math.max(40, size * 0.3) : Math.max(OBJ3D_HEAD, size * 0.6), y: 0, ang, color: c || '#9a9a94' }];
+        case 'rockwall': return [{ shape: 'cliff', rx: bw, rz: bd, h: Math.max(OBJ3D_HEAD + 10, size * 0.55), y: 0, ang, color: c }, { shape: 'moss', rx: bw * 0.6, rz: bd * 0.9, h: 16, y: Math.max(OBJ3D_HEAD + 10, size * 0.55) - 8, ang, color: c ? '#b8a07a' : undefined }];
+        case 'reef': return [{ shape: 'mound', r: Math.min(bw, bd), h: Math.max(60, size * 0.35), y: 0, color: c }, { shape: 'mound', r: Math.min(bw, bd) * 0.7, h: size * 0.28, y: 0, color: c, dx: Math.sin(ang) * bw * 0.55, dz: Math.cos(ang) * bw * 0.55 }, { shape: 'mound', r: Math.min(bw, bd) * 0.7, h: size * 0.3, y: 0, color: c, dx: -Math.sin(ang) * bw * 0.55, dz: -Math.cos(ang) * bw * 0.55 }];
+        case 'sandwall': return [{ shape: 'mound', r: Math.min(bw, bd), h: Math.max(50, size * 0.28), y: 0, color: c }, { shape: 'mound', r: Math.min(bw, bd) * 0.8, h: size * 0.22, y: 0, color: c, dx: Math.sin(ang) * bw * 0.6, dz: Math.cos(ang) * bw * 0.6 }, { shape: 'mound', r: Math.min(bw, bd) * 0.8, h: size * 0.24, y: 0, color: c, dx: -Math.sin(ang) * bw * 0.6, dz: -Math.cos(ang) * bw * 0.6 }];
+        case 'lowmound': return [{ shape: 'mound', r: Math.min(halfW * 0.5, 60), h: 14, y: 0, color: c }];
+        case 'bush': return [{ shape: 'crown', r: Math.min(22, halfW * 0.35), sy: 0.8, y: 0 }, { shape: 'crown', r: Math.min(16, halfW * 0.25), sy: 0.8, y: 4, dx: 14, dz: 6 }];
+        case 'parasol': return [{ shape: 'wpost', r: 3, h: 60, y: 0, color: '#e8e8e4' }, { shape: 'dome', r: Math.min(34, halfW * 0.5), sy: 0.35, y: 56, color: c }];
+        case 'hedge': return [{ shape: 'box', rx: bw, rz: bd, h: Math.min(OBJ3D_HEAD - 5, size * 0.45), y: 0, ang, color: c }];
+        case 'pinerow': { const n = Math.max(2, Math.round(bw / 55)), out = []; for (let i = 0; i < n; i++) { const t = (i / (n - 1) - 0.5) * 2 * (bw - 20), dx = Math.sin(ang) * t, dz = Math.cos(ang) * t; out.push({ shape: 'trunk', r: Math.min(bd, 12), h: 40, y: 0, dx, dz }, { shape: 'cone', r: lo(Math.min(bd + 10, 46)), h: size * 0.4, y: 30, dx, dz }, { shape: 'cone', r: Math.min(bd + 10, 40) * 0.8, h: size * 0.3, y: 30 + size * 0.2, dx, dz }); } return out; }
+        case 'kelprow': { const n = Math.max(3, Math.round(bw / 30)), out = []; for (let i = 0; i < n; i++) { const t = (i / (n - 1) - 0.5) * 2 * (bw - 10); out.push({ shape: 'wblade', r: 8, h: size * (0.5 + 0.2 * (i % 3)), y: 0, dx: Math.sin(ang) * t, dz: Math.cos(ang) * t, color: c }); } return out; }
+        case 'croprow': { const n = Math.max(3, Math.round((o ? bw : halfW) / 24)), out = []; for (let i = 0; i < n; i++) { const t = (i / (n - 1) - 0.5) * 2 * ((o ? bw : halfW) - 8); out.push({ shape: 'wblade', r: 7, h: 22, y: 0, dx: Math.sin(ang) * t, dz: Math.cos(ang) * t, color: c }); } return out; }
+        case 'fence': { const n = Math.max(2, Math.round(bw / 50)), h = sm.low ? 24 : Math.min(60, size * 0.35), out = [{ shape: 'rail', len: bw * 2, r: 3, y: h - 6, ang, side: 0, color: c }]; if (!sm.low) out.push({ shape: 'rail', len: bw * 2, r: 3, y: h * 0.5, ang, side: 0, color: c }); for (let i = 0; i < n; i++) { const t = (i / (n - 1) - 0.5) * 2 * (bw - 4); out.push({ shape: 'wpost', r: 4, h, y: 0, dx: Math.sin(ang) * t, dz: Math.cos(ang) * t, color: c }); } return out; }
+        case 'palm': { const h = Math.max(OBJ3D_HEAD + 30, size * (sm.big ? 0.9 : 0.75)), out = [{ shape: 'trunk', r: Math.min(r, 12), h, y: 0, taper: 0.8 }]; for (let i = 0; i < 6; i++) { const a = i * Math.PI / 3; out.push({ shape: 'wblade', r: 9, h: size * 0.28, y: h - 6, dx: Math.sin(a) * 22, dz: Math.cos(a) * 22, color: '#3f8a46', lean: a }); } out.push({ shape: 'crown', r: 20, sy: 0.6, y: h + 2 }); return out; }
+        case 'cactus': { const h = Math.min(OBJ3D_HEAD + 20, size * 0.6); return [{ shape: 'wstem', r: Math.min(r || 10, 12), h, y: 0, color: c }, { shape: 'wstem', r: 7, h: h * 0.4, y: h * 0.45, dx: 14, color: c }, { shape: 'wstem', r: 6, h: h * 0.3, y: h * 0.55, dx: -13, dz: 4, color: c }]; }
+        case 'buttress': { const top = Math.max(OBJ3D_HEAD * 2.4, size * 0.9), R = Math.max(size * 0.45, r * 2); return [{ shape: 'trunk', r, h: top, y: 0, taper: 0.5 }, { shape: 'crown', r: R, sy: 0.6, y: top + R * 0.1 }, { shape: 'crown', r: R * 0.7, sy: 0.6, y: top - R * 0.2, dx: R * 0.6 }, { shape: 'crown', r: R * 0.65, sy: 0.6, y: top - R * 0.25, dx: -R * 0.55, dz: R * 0.3 }]; }
+        case 'vine': return [{ shape: 'wpost', r: Math.min(r || 6, 8), h: Math.max(OBJ3D_HEAD, size * 0.7), y: 0, color: c }, { shape: 'wblade', r: 10, h: 40, y: Math.max(OBJ3D_HEAD, size * 0.7) - 20, color: c }];
+        case 'leafclump': { const out = []; for (let i = 0; i < (sm.big ? 5 : 3); i++) { const a = i * 1.9 + 0.3, d = i ? 12 + i * 4 : 0; out.push({ shape: 'wblade', r: lo(sm.big ? 22 : 16), h: sm.big ? 70 : 50, y: 0, dx: Math.sin(a) * d, dz: Math.cos(a) * d, color: c }); } return out; }
+        case 'coral': { const out = []; for (let i = 0; i < 3; i++) { const a = i * 2.1, d = i ? 14 : 0; out.push({ shape: 'wcone', r: lo(10 + i * 3), h: Math.min(90, size * (0.35 + 0.1 * i)), y: 0, dx: Math.sin(a) * d, dz: Math.cos(a) * d, color: c, glow: sm.glow }); } return out; }
+        case 'coralfan': return [{ shape: 'dome', r: lo(halfW * 0.5), sy: 1.2, y: 0, color: c }];
+        case 'kelp': return [0, 1, 2].map((i) => ({ shape: 'wblade', r: 7, h: size * (0.5 + 0.15 * i), y: 0, dx: Math.sin(i * 2.1) * 10, dz: Math.cos(i * 2.1) * 10, color: c }));
+        case 'vent': return [{ shape: 'rock', rx: r, rz: r, h: r * 0.9, y: 0 }, { shape: 'mist', r: r * 0.8, sy: 1.4, y: r * 0.9, fx: 0, fz: -1 }];
+        case 'reeds': { const n = sm.n || 3, out = []; for (let i = 0; i < n; i++) { const a = i * 1.7, d = i ? 8 + i * 3 : 0; out.push({ shape: 'wblade', r: 4, h: 30 + 40 * (sm.h || 0.6), y: 0, dx: Math.sin(a) * d, dz: Math.cos(a) * d, color: c }); } return out; }
+        case 'lotus': return [{ shape: 'petal', r: 12, y: 2.8, color: '#4f8a3a' }, { shape: 'petal', r: 6, y: 4, color: c }];
+        case 'pebbles': return [0, 1, 2, 3].map((i) => ({ shape: 'pebble', r: 8 + (i % 2) * 4, y: 0, dx: Math.sin(i * 1.6) * 14, dz: Math.cos(i * 1.6) * 14, color: c }));
+        case 'water': return [{ shape: 'pool', r: halfW * 0.9, y: 0 }];
+        case 'hotspring': return [{ shape: 'pool', r: halfW * 0.8, y: 0 }, { shape: 'mist', r: halfW * 0.5, sy: 0.5, y: 20, fx: 0, fz: -1 }];
+        case 'hole': return [{ shape: 'decal', r: halfW * 0.5, y: 0, color: '#2a2622' }];
+        case 'decal': return [{ shape: 'decal', r: halfW * 0.6, y: 0, color: c }];
+        case 'crystal': { const n = sm.n || 1, out = []; for (let i = 0; i < n; i++) { const a = i * 2.1, d = i ? 18 : 0; out.push({ shape: 'wcone', r: lo(Math.max(8, r * (i ? 0.6 : 1))), h: Math.min(OBJ3D_HEAD + 30, size * 0.6) * (i ? 0.6 : 1), y: 0, dx: Math.sin(a) * d, dz: Math.cos(a) * d, color: c, glow: sm.glow, seg: 6 }); } return out; }
+        case 'lamp': { const h = Math.min(OBJ3D_HEAD + 20, size * (sm.h || 1)); return [{ shape: 'wpost', r: Math.min(r || 4, 5), h, y: 0, color: '#4a4a48' }, { shape: 'spark', r: 9, y: h + 6, color: c }, { shape: 'glowdisc', r: Math.min(60, h * 0.5), y: 0, color: c }]; }
+        case 'neon': return [{ shape: 'wpost', r: 4, h: 70, y: 0, color: '#3a3a3a' }, { shape: 'board', w: 40, h: 18, y: 56, ang: ang + Math.PI / 2, color: c, glow: true }];
+        case 'signal': return [{ shape: 'wpost', r: 4, h: 110, y: 0, color: '#4a4a48' }, { shape: 'box', rx: 6, rz: 5, h: 26, y: 96, ang: 0, color: '#3a3a3a' }, { shape: 'spark', r: 4, y: 116, color: '#ff4040', dx: 0, dz: -6 }];
+        case 'conep': return [{ shape: 'wcone', r: 8, h: 22, y: 0, color: c }];
+        case 'binp': return [{ shape: 'wstem', r: 8, h: 26, y: 0, color: c }];
+        case 'bench': return [{ shape: 'wslab', len: Math.min(60, size * 0.6), w: 18, h: 6, y: 16, ang, color: c }, { shape: 'wpost', r: 3, h: 16, y: 0, dx: Math.sin(ang) * 20, dz: Math.cos(ang) * 20, color: c }, { shape: 'wpost', r: 3, h: 16, y: 0, dx: -Math.sin(ang) * 20, dz: -Math.cos(ang) * 20, color: c }];
+        case 'slide': return [{ shape: 'wslab', len: 60, w: 16, h: 6, y: 26, ang, color: c }, { shape: 'box', rx: 8, rz: 8, h: 30, y: 0, ang, color: '#c9c9c0', dx: -Math.sin(ang) * 26, dz: -Math.cos(ang) * 26 }];
+        case 'car': { const L = sm.big ? 60 : 50, W = sm.big ? 26 : 20; return [{ shape: 'box', rx: L / 2, rz: W / 2, h: 18, y: 6, ang, color: c }, { shape: 'box', rx: L * 0.28, rz: W * 0.45, h: 14, y: 24, ang, color: sm.big ? c : '#e8e8e4' }]; }
+        case 'boat': return [{ shape: 'wslab', len: Math.min(90, size * 0.7), w: 26, h: 10, y: 0, ang, color: '#6b4a32' }, { shape: 'wpost', r: 2.5, h: 70, y: 10, color: '#6b4a32' }, { shape: 'board', w: 28, h: 40, y: 32, ang: ang + Math.PI / 2, color: c }];
+        case 'pier': return [{ shape: 'plank', len: size * 0.9, w: size * 0.22, y: 0, ang }, { shape: 'wpost', r: 4, h: 14, y: 0, dx: Math.sin(ang) * size * 0.4, dz: Math.cos(ang) * size * 0.4, color: '#6b4a32' }, { shape: 'wpost', r: 4, h: 14, y: 0, dx: -Math.sin(ang) * size * 0.4, dz: -Math.cos(ang) * size * 0.4, color: '#6b4a32' }];
+        case 'telescope': return [{ shape: 'wpost', r: Math.min(r || 5, 6), h: 50, y: 0, color: c }, { shape: 'box', rx: 18, rz: 5, h: 10, y: 50, ang: ang + 0.5, color: c }];
+        case 'statue': return [{ shape: 'wpost', r: Math.min(r || 10, 12), h: 40, y: 0, color: c }, { shape: 'nut', r: 14, y: 40, color: c }, { shape: 'nut', r: 9, y: 66, color: c }];
+        case 'pillar': return [{ shape: 'wpost', r: Math.min(r || 10, 14), h: Math.max(OBJ3D_HEAD, size * 0.6), y: 0, color: c }];
+        case 'obelisk': return [{ shape: 'wcone', r: Math.min(r || 10, 14), h: Math.max(OBJ3D_HEAD + 40, size * 0.9), y: 0, color: c, seg: 4 }];
+        case 'orrery': return [{ shape: 'wpost', r: 4, h: 60, y: 0, color: c }, { shape: 'spark', r: 8, y: 66, color: '#ffe070' }, { shape: 'spark', r: 4, y: 72, dx: 18, color: '#9fc8ff' }, { shape: 'spark', r: 3, y: 60, dx: -22, dz: 8, color: '#ffb766' }];
+        case 'wheel': return [{ shape: 'ring', r: Math.min(bw, 40), tube: 4, y: Math.min(bw, 40) + 4, ang, color: c }, { shape: 'wpost', r: 4, h: Math.min(bw, 40) + 4, y: 0, color: c }];
+        case 'ferris': { const R = Math.max(size * 0.3, 90); return [{ shape: 'wpost', r: Math.min(r, 14), h: R + 40, y: 0, color: '#8a8f96' }, { shape: 'ring', r: R, tube: 6, y: R + 40, ang, color: c }, { shape: 'ring', r: R * 0.5, tube: 4, y: R + 40, ang, color: '#e8e8e4' }]; }
+        case 'fountain': return [{ shape: 'pool', r: Math.max(30, r), y: 0 }, { shape: 'wpost', r: 6, h: 40, y: 0, color: c }, { shape: 'mist', r: 14, sy: 1.2, y: 40, fx: 0, fz: -1 }];
+        case 'torii': { const w = Math.max(24, Math.min(bw || halfW * 0.5, 60)), h = Math.max(OBJ3D_HEAD + 10, size * 0.55); return [{ shape: 'wpost', r: 5, h, y: 0, dx: Math.sin(ang) * w, dz: Math.cos(ang) * w, color: c }, { shape: 'wpost', r: 5, h, y: 0, dx: -Math.sin(ang) * w, dz: -Math.cos(ang) * w, color: c }, { shape: 'wslab', len: w * 2.6, w: 8, h: 8, y: h, ang, color: c }, { shape: 'wslab', len: w * 2.2, w: 6, h: 6, y: h - 22, ang, color: c }]; }
+        case 'temple': { const w = Math.max(60, bw), d = Math.max(50, bd), h = Math.max(OBJ3D_HEAD + 30, size * 0.5), out = [{ shape: 'wslab', len: w * 2.2, w: d * 2.2, h: 14, y: 0, ang, color: c || '#e6e2d6' }, { shape: 'box', rx: w, rz: d, h, y: 14, ang, color: c || '#e6e2d6' }, { shape: 'roof', r: Math.max(w, d) * 1.35, h: size * 0.22, y: h + 14, ang, color: '#6a5a4a', seg: 4 }]; for (const sx of [-1, 1]) for (const sz of [-1, 1]) out.push({ shape: 'wpost', r: 6, h: h, y: 14, dx: Math.sin(ang) * w * 1.15 * sx + Math.cos(ang) * d * 1.15 * sz, dz: Math.cos(ang) * w * 1.15 * sx - Math.sin(ang) * d * 1.15 * sz, color: '#d8d2c4' }); return out; }
+        case 'gate': { const w = Math.max(30, bw), h = Math.max(OBJ3D_HEAD + 10, size * 0.5); return [{ shape: 'box', rx: 10, rz: Math.max(8, bd), h, y: 0, ang, color: c, dx: Math.sin(ang) * (w - 10), dz: Math.cos(ang) * (w - 10) }, { shape: 'box', rx: 10, rz: Math.max(8, bd), h, y: 0, ang, color: c, dx: -Math.sin(ang) * (w - 10), dz: -Math.cos(ang) * (w - 10) }, { shape: 'wslab', len: w * 2, w: Math.max(8, bd) * 2, h: 14, y: h, ang, color: c }]; }
+        case 'dome': return [{ shape: 'dome', r: r, sy: 0.9, y: 0, color: c }];
+        case 'tent': return [{ shape: 'wcone', r: r, h: Math.min(OBJ3D_HEAD + 10, size * 0.5), y: 0, color: c, seg: 4 }];
+        case 'hull': return [{ shape: 'box', rx: r, rz: r * 0.45, h: Math.max(40, r * 0.6), y: 0, ang, color: c }, { shape: 'wpost', r: 4, h: Math.max(OBJ3D_HEAD, r), y: 0, color: c }];
+        case 'boxprop': return [{ shape: 'box', rx: o ? Math.min(r, 16) : 10, rz: o ? Math.min(r, 12) : 8, h: o ? Math.min(OBJ3D_HEAD - 10, size * (sm.h || 0.8)) : 24, y: 0, ang, color: c }];
+        case 'logs': return [{ shape: 'log', len: 40, r: 6, y: 0, ang }, { shape: 'log', len: 36, r: 6, y: 0, ang, dx: Math.cos(ang) * 12, dz: -Math.sin(ang) * 12 }, { shape: 'log', len: 36, r: 6, y: 11, ang, dx: Math.cos(ang) * 6, dz: -Math.sin(ang) * 6 }];
+        case 'hay': return [{ shape: 'log', len: Math.min(r * 1.6, 50), r: Math.min(r, 28), y: 0, ang, color: c }];
+        case 'nest': return [{ shape: 'dome', r: 14, sy: 0.5, y: 0, color: c }, { shape: 'nut', r: 5, y: 8, color: '#f0f0e8' }];
+        case 'pot': { const out = [{ shape: 'wstem', r: Math.min(r || 10, 14), h: 24, y: 0, color: c }]; if (sm.plant) out.push({ shape: 'crown', r: 12, sy: 0.8, y: 30 }); return out; }
+        // ランドマーク
+        case 'lm_tower': { const h = Math.max(size * 1.6, OBJ3D_HEAD * 4); return [{ shape: 'box', rx: r, rz: r, h, y: 0, ang: 0, color: '#c9ced6' }, { shape: 'box', rx: r * 1.3, rz: r * 1.3, h: 16, y: h * 0.62, ang: 0, color: '#8a8f96' }, { shape: 'wcone', r: r * 0.9, h: size * 0.3, y: h, color: '#8a8f96', seg: 4 }, { shape: 'spark', r: 10, y: h + size * 0.3 + 8, color: '#ff6060' }]; }
+        case 'lm_windmill': { const h = Math.max(size * 0.7, OBJ3D_HEAD * 2), out = [{ shape: 'box', rx: r, rz: r * 0.8, h, y: 0, ang: 0, color: '#e8e2d2' }, { shape: 'roof', r: r * 1.3, h: size * 0.2, y: h, ang: 0, color: '#8a4b3c', seg: 4 }]; for (let i = 0; i < 4; i++) out.push({ shape: 'board', w: 16, h: size * 0.5, y: h - 10, ang: 0, color: '#d9c9a8', dx: Math.cos(i * Math.PI / 2) * size * 0.25, dz: -r - 6, spin: i * Math.PI / 2 }); return out; }
+        case 'lm_peak': { const out = [{ shape: 'mound', r, h: Math.max(size * 1.1, OBJ3D_HEAD * 3), y: 0, color: '#9a9585' }, { shape: 'mound', r: r * 0.7, h: size * 0.7, y: 0, color: '#9a9585', dx: r * 0.9 }, { shape: 'mound', r: r * 0.65, h: size * 0.6, y: 0, color: '#9a9585', dx: -r * 0.85, dz: r * 0.3 }, { shape: 'dome', r: r * 0.45, sy: 0.6, y: Math.max(size * 1.1, OBJ3D_HEAD * 3) * 0.86, color: '#f4f8fc' }]; return out; }
+        case 'lm_lighthouse': { const h = Math.max(size * 1.4, OBJ3D_HEAD * 3); return [{ shape: 'wstem', r, h, y: 0, color: '#f2f2ee' }, { shape: 'box', rx: r * 0.9, rz: r * 0.9, h: 6, y: h * 0.5, ang: 0, color: '#c8403a' }, { shape: 'box', rx: r * 1.2, rz: r * 1.2, h: 30, y: h, ang: 0, color: '#4a4a48' }, { shape: 'spark', r: 16, y: h + 18, color: '#fff3a6' }, { shape: 'wcone', r: r * 1.1, h: 30, y: h + 30, color: '#c8403a', seg: 8 }]; }
+        case 'lm_bigstop': { const h = Math.max(size * 0.7, OBJ3D_HEAD * 2); return [{ shape: 'wpost', r, h, y: 0, color: '#9d8ff0' }, { shape: 'board', w: size * 0.5, h: size * 0.22, y: h - size * 0.1, ang: ang + Math.PI / 2, color: '#4d6fb0' }, { shape: 'spark', r: 14, y: h + 20, color: '#fff0a0' }, { shape: 'glowdisc', r: size * 0.3, y: 0, color: '#9fc8ff' }]; }
+        default: return [];
       }
     }
     function worldObjects3d(world) {
@@ -1235,15 +1429,25 @@
       world.props.forEach((p, i) => {
         const type = objectType3d(p), kind = p.landmark ? 'LM:' + p.landmark : p.struct || p.emoji;
         if (type === 'skip') { skipped[kind] = (skipped[kind] || 0) + 1; return; }
+        if (type === 'unknown') { unresolved.push(kind); return; }   // production では 出さない(あたりも 3D では つけない: 下の 3D のおきなおしで solid を 外す)
         const o = byPi.get(i) || null;
         const solid = !!o && o.role === 'solid';
         if (!o && !WALKABLE3D.has(type)) { unresolved.push(kind); return; }   // かたい 見た目で あたりが ない 物は おかない
         const size = p.size || 160, box = (p.struct && OCCLUDER_BOX[p.struct]) || (p.landmark ? OCCLUDER_BOX.landmark : OCCLUDER_BOX.glyph);
         const H = size * box[1], halfW = size * box[0];
         // ランドマークは もちぬしの spot(むき・きょり)を しって いる。たきは たきつぼ を spot の 池 の かわりに もつ
-        const sp = p.landmark ? (world.spots || []).find((s) => p.mid === 'lm:' + s.id) : null;
+        const sp = p.landmark ? (world.spots || []).find((s) => p.mid === 'lm:' + s.id) : p.spot ? (world.spots || []).find((s) => Math.hypot(s.x - p.x, s.z - p.z) <= s.r * 1.5) : null;
         const ox = o ? o.x : p.x, oz = o ? o.z : p.z, dist = sp ? Math.hypot(sp.x - ox, sp.z - oz) : 0;
-        const ctx = sp && dist > 1 ? { front: { x: (sp.x - ox) / dist, z: (sp.z - oz) / dist }, dist, spot: sp, world } : p.part3d ? { h: size * 0.75 * (p.h3d || 0) } : null;
+        let ctx = null;
+        if (p.landmark && sp && dist > 1) ctx = { front: { x: (sp.x - ox) / dist, z: (sp.z - oz) / dist }, dist, spot: sp, world };
+        else if (p.part3d) ctx = { h: size * 0.75 * (p.h3d || 0) };
+        else if (p.spot && sp) {   // spot の しるし(はし・かんばん): spot を とおる 道の むきに そろえる
+          const sg = (world.segments || []).find((q) => q.a.id === sp.id || q.b.id === sp.id);
+          ctx = { spot: sp, ang: sg ? Math.atan2(sg.b.x - sg.a.x, sg.b.z - sg.a.z) : 0 };
+        }
+        const sem = SEM3D[p.struct || p.emoji] || null;
+        if (sem) ctx = Object.assign(ctx || {}, { sem });
+        if (!ctx && p.ang) ctx = { ang: p.ang };
         out.push({ id: world.regionId + ':' + i, pi: i, type, kind, region: world.regionId, layer: p.layer || null, role: o ? o.role : null, spot: sp ? sp.id : null,
           x: o ? o.x : p.x, z: o ? o.z : p.z, rot: o ? o.ang || 0 : p.ang || 0, height: H, halfW, size, emoji: type === 'billboard' ? (p.emoji || OBJ3D_BILLBOARD[p.struct]) : null,
           solid, walkable: !o, collision: o ? { shape: o.shape, x: o.x, z: o.z, hw: o.hw, hd: o.hd, ang: o.ang || 0 } : null, moved3d: !!p.moved3d, parts: parts3d(type, o, H, halfW, size, ctx) });
@@ -7997,7 +8201,7 @@
       // 住民に ちかづいた ことは はっけん では ない(下の「はなす」だけ)。
       // めじるし(mark)は かずが 多く、ちずに のる だけ なので しらせない。
       const FOUND_RANK = { secret: 1, landmark: 2, link: 3, zone: 4, spot: 5 };
-      const FOUND_MS = { secret: 2400, landmark: 2000, link: 1800, zone: 1600, spot: 1500 };
+      const FOUND_MS = { secret: 2400, landmark: 2000, link: 1800, zone: 1600, spot: 1100 };   // ふつうの spot の かるい しらせは みじかく
       const FOUND_STRONG = { secret: true, landmark: true };   // すこし つよい えんしゅつ に する もの
       const FOUND_GAP = 180;          // つぎの しらせ までの あいだ(かさならない ように)
       const FOUND_MAX = 4;            // ためこむ かず。これ いじょうは よわい ものから すてる
@@ -8059,14 +8263,11 @@
         if (typeof S.recordSpot === 'function') S.recordSpot(rid, s.id);
         mapAdded = true;                                   // きろくは どの spot でも これまで どおり
         // 目じるしの ない 通過点では しらせない。どこに いるかは 左上の チップが 出しつづける
-        if (spotDiscoveryLevel(s) > 0) {
-          const kind = s.secret ? 'secret' : s.landmark ? 'landmark' : 'spot';
+        const dn = discoveryNotice(s);
+        if (dn) {
           const note = mapNote();
-          queueFound({ key: `spot:${rid}:${s.id}`, kind, region: rid,
-            icon: s.secret ? '🔍' : s.landmark ? '✨' : '',
-            // ひみつは 「ひみつを みつけた」かんじ を さきに。なまえは その した に そえる
-            title: s.secret ? 'ひみつのばしょを みつけた！' : `${s.label}を みつけた${s.landmark ? '！' : ''}`,
-            sub: s.secret ? [s.label, note].filter(Boolean).join('・') : note });
+          queueFound({ key: `spot:${rid}:${s.id}`, kind: dn.kind, region: rid, icon: dn.icon, title: dn.title,
+            sub: s.secret ? [s.label, note].filter(Boolean).join('・') : note });   // ひみつは なまえを その した に そえる
         }
         for (const id of newLinksFor(s.id)) {
           const c = WORLD_GEOGRAPHY.connections.find((q) => q.id === id); if (!c) continue;
@@ -9033,6 +9234,6 @@
 
     return { computeMapData, WORLD_GEOGRAPHY, REGION_FRAME, REGION_LAYER_Y, FRAMED_REGIONS, hasFrame, regionFrame, toGlobal, toLocal, dirToGlobal, dirToLocal, yawToGlobal, yawToLocal, CORRIDOR_STAGE_LEN, CORRIDOR_WAY_FACTOR, worldCorridors, orientCorridor, corridorsFrom, corridorDirection, corridorGraph, findRegionRoute, compassLabel, DISTANT_KIND_OF, DISTANT_RULES, distantFeatures, distantRegistry, distantInView, visibleDistant, CORRIDOR_STAGE_WALK, CORRIDOR_TURN_SPREAD, corridorTurnSpread, CORRIDOR_WIDTH, CORRIDOR_TERRAIN_WIDTH, CORRIDOR_STATE_KEYS, walkCorridorSpecs, walkCorridorSpec, orientWalkCorridor, corridorHeadingAt, corridorStageAt, corridorMode, makeCorridorState, corridorEnterState, corridorExitPose, CONTINUOUS_WALK_ALLOWLIST, continuousWalkMode, corridorDistantBlend, CORRIDOR_COVER_SKIP, corridorCoverSkip, CORRIDOR_PRELOAD, CORRIDOR_PRELOAD_LEAD, CORRIDOR_PRELOAD_STATES, corridorPreloadAction, CORRIDOR_REGION_LOOK, CORRIDOR_REGION_TERRAIN, CORRIDOR_END_MIX, corridorStageLook, corridorSceneryEmojis, createCorridorWalk, worldMapPalette, worldMapLayout, drawWorldMap, WMAP_BOUNDS, worldMapSide, worldMapShape, worldTier1, worldCountable, worldMapData, seedWorldRegions, worldLinksFrom, WORLD_PROGRESS_WEIGHT, spotDiscoveryLevel, WORLDS, WORLD_STYLE, HABITAT, NORMAL_REGIONS, RULES, PATH_HALF, CAM_PROFILES, sampleGroundDetails, shoreX, SCENERY_FAUNA, isFaunaEmoji, sceneryPools, auditSceneryFauna, auditSceneryCharacters, characterEmojiMap, SCENERY_CHARACTER_ALLOW, SPOT_STATUE_ALLOW, SCENERY_LINES, moodAt, buildRegistry, auditRegistry, auditScenery, sceneryEmojis, EMOJI_MIST, emojiMistFactor, EMOJI_VARY, emojiVary, RIVERMIST_STOPS, NIGHT_LIFT, LEAF_NIGHT, HORIZON_HAZE, LANDMARK_NEAR, landmarkNearAlpha, buildWorld, buildWorldSteps, worldLayers, STRUCT_ROLE, AREA_ROLE, SPOT_PROP_STRUCT, RENDER_TUNING, OCCLUDER_BOX, OCCLUDER_SHIFT, OCCLUDER_LAYERS, SWAY_AMOUNT, companionsOf, partyFormationSlots, PARTY_LOD, partyLod, talkLine, updateActor, wantActivity, spotLife, routeTo, goalFor, stepDistant, lifeTraits, RESIDENT_EMOTIONS, LIFE, REGION_LIFE, SPOT_LIFE, TIME_LIFE, WEATHER_LIFE, createSimulation, createCanvasRenderer, start, pathKey, segKey, MARK_SIGHT, seedMapRecords, mapPalette, mapLayout, drawMap, openMapScreen, reachableSpots, pathSegments, nearestPath, onPath, facingOf, spriteFor, wrapAngle, COLLIDER, COLLIDER_ROLE, colliderOf, buildObstacles, buildCollisionGrid, collidersAt, resolveObstacles, collidesAt, penetrationAt, colliderPenetration, moveWithCollision, clampToWorld, standClear, STAND_CLEAR, setRandom, reenterDetail, TRANSITION, transitionPlan, transitionPhaseAt, transitionCover, wayBetween, regionGates, resolveGate, GATE_PICK, WORLD_THEME, WORLD_MOTION, WORLD_SPACE, REGION_LINE, SKY_OVERRIDE, GEO_AREA, GEO_ASPECT,
       // 3D prototype(meguru-3d.mjs が つかう。2D では つかわない)
-      WORLD3D_REGIONS, world3dOn, relocateRoadSolids3d, worldObjects3d, objectType3d, OBJ3D_HEAD, ACTOR_SIZE, glyphSprite, imageFor, TIME_LIGHT, WEATHER_LIGHT, VERBS };
+      WORLD3D_REGIONS, REGION3D, SEM3D, HIDDEN3D, LANDMARK3D_TYPE, discoveryNotice, world3dOn, relocateRoadSolids3d, worldObjects3d, objectType3d, OBJ3D_HEAD, ACTOR_SIZE, glyphSprite, imageFor, TIME_LIGHT, WEATHER_LIGHT, VERBS };
   };
 })();
