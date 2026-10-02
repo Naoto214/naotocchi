@@ -147,3 +147,17 @@ A1 Actions run 36962551871 succeeded including Chromium rendering and Meguru 1/5
 Candidates now add a reusable closed outline loft for the larval starfish, vertical butterfly abdomen and attached wing roots, merged wing veins, chrysalis fold/seam geometry, layered rosette origins, rounded flower petals, varied spore outlines/highlights, six thin-filament seed halos, mushroom underside ribs and rounded ground stones. All use existing archetypes/bones and merged geometry. Dense endpoint spheres on fluffy halos exceeded the template budget and were removed before saving.
 
 Validation: original 34 plus 7 quality tests PASS (41/41); two new tests first failed before implementation. All 7 removal probes detect their intended failures and restore source bytes. Image review of these candidates remains pending. No iPhone performance or Human QA approval is claimed.
+
+## A5 resume / image-led refinement candidate
+
+Fresh remote 2026-10-02: Character a1bccfa21167e67174322299013cb535c8380292, tree 3e8e04cb660191d0feee5a87c577f68accee2233. Another session merged Motion L2 main into this branch. This session did not perform that merge and preserves the fresh remote. PR remains open Draft, currently mergeable=false; no conflict resolution or further merge authorized here.
+
+Workspace maintenance removed the previous clone; restored fresh remote. Uncommitted edits were reconstructed from the visible session record, not treated as a new authority. A3 evidence run 36964144924 passed all three CI jobs (quality, Runtime, Home). Its images show remaining gaps: forewing/hindwing need distinct lobes; seed puffs still read as solid balls; front hair locks intersect skull.
+
+Correction: A1/A2 described the shiba reference pose as sitting. The actual companion PNG clearly bows. That earlier interpretation is withdrawn. Shiba now uses the shared play-bow posture, with its own compact body, cheek markings and thick curl. Dog04 retains its narrower body and raised tail. The dedicated test now checks the actual reference distinction instead of the mistaken seated expectation.
+
+Refinements: projected front hair locks and wider face layout; stronger bow and front-paw reach; avian bilobed facial mask, larger head, broader flippers and juvenile raised flipper; fuller fish body/fins; four distinct wing lobes; reduced seed-puff cores with thin spherical filaments. The first 48-filament candidate hit 6500 tris and failed the budget; reduced to 42, preserving the original limit. Existing original 34 plus quality 7 tests now PASS, seven mutation probes all RED and restored.
+
+QA correction: previous Meguru per-species fixtures used the harness fallback age table. Browser stage differed (mushroom was actually a non-pilot 2D fallback). Historical PASS is not all-stage 3D coverage. Fixture now uses existing life-stage-profiles.js and checks exact requested stage + live 3D for every pilot stage. Gameplay/save/schema unchanged by this correction.
+
+Quality workflow now listens only to pushes on this Character branch, so evidence can run despite unrelated main conflicts. Read-only contents permission remains; no deploy or merge step. Local Chromium official download still fails (invalid archive); render evidence continues in Actions. A5 visual approval, A6 final performance and A7 Human QA delivery remain pending.

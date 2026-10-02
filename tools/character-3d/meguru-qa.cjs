@@ -19,13 +19,14 @@ function makeSave({ line = 'dog', stageIndex = 3, party = [], residents = true }
   const { harness } = require(path.join(ROOT, 'tests/helpers/runtime-harness.cjs'));
   const h = harness({ deterministic: true, fullDisplay: true }); const s = h.api.state();
   Object.assign(s, { stage: 'growing', speciesLine: line, isSleeping: false, isSick: false, energy: 100, health: 100, hunger: 85, happiness: 90, regionId: 'forest' });
-  for (let t = 0; t < 400000; t += 25) { s.ageTicks = t; if (h.api.currentFormStageIndex() === stageIndex) break; }
+  const life = require(path.join(ROOT,'life-stage-profiles.js'));
+  s.ageTicks = (life.minsForLine(line)[stageIndex] + .5) * 20; s.stageIndex = stageIndex;
   const all = Array.from(h.api.normalCompanions).concat(Array.from(h.api.rareCompanions));
   const pick = party.map((id) => all.find((c) => c.id === id)).filter(Boolean);
   s.companions = pick.map((c) => ({ id: c.id, bond: 100 })); s.lifetime.companionsRecruited = pick.map((c) => c.id);
   // forest に すむ pilot の 住人(キノコ 全段・ちょう の 偶数段)
   if (residents) s.discoveredStages = Array.from(new Set([...(s.discoveredStages || []), ...[0, 1, 2, 3, 4, 5, 6, 7].map((i) => 'mushroom:' + i), 'butterfly:1', 'butterfly:3', 'butterfly:7']));
-  return { save: JSON.stringify(s), stage: h.api.currentFormStageIndex() };
+  return { save: JSON.stringify(s), stage: life.stageForAge(Math.floor(s.ageTicks/20),line) };
 }
 
 async function open(browser, base, save, q = '?meguru3d=1&char3d=1&perf=1') {
@@ -173,17 +174,18 @@ async function walk(page, seconds) {
     const SPEC = require(path.join(ROOT, 'character-3d/spec.js'));
     R.perSpecies = {};
     for (const id of Object.keys(SPEC.PILOT)) {
-      const ks = SPEC.STAGE_KEYS[id], st = ks[Math.min(1, ks.length - 1)];
+      for (const st of SPEC.STAGE_KEYS[id]) {
       const { save: sv, stage } = makeSave({ line: id, stageIndex: st - 1, party: ['shiba', 'cat_friend'] });
       const { page: pg, errors: er } = await open(browser, base, sv);
       await pose(pg, { spot: 'entry', yaw: 0, heading: Math.PI - 0.5, faceCam: true, env });
-      const front = await snap(pg, 'player-' + id + '-front');
+      const front = await snap(pg, 'player-' + id + '-' + st + '-front');
       await pose(pg, { spot: 'entry', yaw: 0, env });
-      const back = await snap(pg, 'player-' + id + '-back');
+      const back = await snap(pg, 'player-' + id + '-' + st + '-back');
       const playerKey = await pg.evaluate(() => globalThis.__meguruBridge.currentPetKey());
       const p3d = await pg.evaluate(() => { const r = globalThis.__meguruRun, p = r.renderer.char3dPresenter; return !!(p && p.has(r.sim.player)); });
-      R.perSpecies[id] = { harnessStageIndex: stage, playerKey, player3d: p3d, specKey: SPEC.specKeyFor({ line: playerKey.split(':')[0], stage: Number(playerKey.split(':')[1]) }), front, back, live: (await c3d(pg)).live, errors: er };
+      R.perSpecies[id+':'+st] = { requestedStage:st, harnessStageIndex: stage, playerKey, player3d: p3d, specKey: SPEC.specKeyFor({ line: playerKey.split(':')[0], stage: Number(playerKey.split(':')[1]) }), front, back, live: (await c3d(pg)).live, errors: er };
       await pg.context().close();
+    }
     }
     }
     // ---------- perf: 1 / 5 / 27 体(3D)。pilot に ない なかまは 代役(pilot の model)で 3D に して はかる。2D baseline も おなじ 条件
@@ -214,7 +216,7 @@ async function walk(page, seconds) {
   must(C.fallback.worldIs3D && !C.fallback.rendererFailed && C.fallback.shibaBroken && !C.fallback.shiba3d && C.fallback.cat3d && C.fallback.player3d, 'actor 単位 fallback(しば だけ 2D)');
   must(C.regionSwitch.inCity.live === 0 && !C.regionSwitch.inCity.is3D, 'city(main では 2D の world): 3D キャラを のこさない');
   must(C.regionSwitch.backInForest.is3D && C.regionSwitch.backInForest.live > 0 && C.regionSwitch.backInForest.holdersInScene === C.regionSwitch.backInForest.live, 'forest に もどる: scene の 3D = live(ghost なし)');
-  for (const [id, v] of Object.entries(R.perSpecies || {})) must(v.player3d === !!v.specKey && !v.errors.some((e) => /pageerror|Error/.test(e)), 'player ' + id + ': spec が ある 段なら 3D・ない 段(未 pilot archetype)なら 2D');
+  for (const [id, v] of Object.entries(R.perSpecies || {})) must(v.player3d && v.specKey && v.specKey.exact && v.specKey.stage === v.requestedStage && !v.errors.some((e) => /pageerror|Error/.test(e)), 'player ' + id + ': spec が ある 段なら 3D・ない 段(未 pilot archetype)なら 2D');
   must(!(R.errors || []).some((e) => !/forced update failure \(QA\)/.test(e)), 'page の error なし: ' + (R.errors || []).join(' / '));
   R.verdict = fails.length ? { pass: false, fails } : { pass: true };
   fs.writeFileSync(path.join(OUT, 'meguru-qa.json'), JSON.stringify(R, null, 2));

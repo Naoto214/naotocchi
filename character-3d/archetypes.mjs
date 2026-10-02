@@ -31,7 +31,7 @@ function dirtGeo(r, colors, seed) {
 function pappusGeo(r, color, n = 22, seed = 'p', fluffy = false) {
   const R = rng(seed), parts = [];
   for (let i = 0; i < n; i++) {
-    const a = R() * TAU, b = Math.acos(1 - R() * 1.3), d = V(Math.sin(b) * Math.cos(a), Math.cos(b), Math.sin(b) * Math.sin(a));
+    const a = R() * TAU, b = Math.acos(1 - R() * (fluffy ? 2 : 1.3)), d = V(Math.sin(b) * Math.cos(a), Math.cos(b), Math.sin(b) * Math.sin(a));
     parts.push(solid(sweep([[0, 0, 0], [d.x * r, d.y * r, d.z * r]], () => fluffy ? r*.008 : .008, 3, { steps: 2, cap: false }), color));
     if (!fluffy) parts.push(solid(xform(ellipsoid(0.028, 0.028, 0.028, 5, 4), { pos: [d.x * r, d.y * r, d.z * r] }), color));
   }
@@ -107,7 +107,7 @@ export function avian(sp, key) {
   const body = paint(blob((x, y, z) => { const f = fuzz(x, y, z), yy = y * 0.5 + 0.5, k = 1 - 0.36 * Math.pow(yy, 1.6) + (y < 0 ? 0.04 * y : 0); return [x * B.r * k * f, yy * B.h, z * B.r * 0.92 * k * f]; }, 20, 14), bodyCol);
   rig.add('body', 'root', [0, 0.02, 0], [body]);
   const hr = Hd.r, hy = B.h * 0.82 + hr * (0.42 - Hd.merge * 0.3);
-  const headCol = (x, y, z, nx, ny, nz) => { if (patchy(x + 3, y, z) && y > hr * 0.3) return c.fluff; const face = nz > 0.2 && y < hr * (fl > 0.5 ? 0.5 : 0.22) && Math.abs(x) < hr * 0.86; return face ? c.face : c.base; };
+  const headCol = (x, y, z, nx, ny, nz) => { if (patchy(x + 3, y, z) && y > hr * 0.3) return c.fluff; const lobe = Math.pow((Math.abs(x)-hr*.40)/(hr*.43),2)+Math.pow((y+hr*.18)/(hr*.66),2); const face = nz > .20 && (lobe < 1 || (Math.abs(x)<hr*.38 && y<0 && y>-hr*.83)); return face ? c.face : c.base; };
   const skull = paint(blob((x, y, z) => { const f = fuzz(x + 1, y, z); return [x * hr * 1.08 * f, y * hr * f, z * hr * f]; }, 18, 12), headCol);
   const tufts = [];
   if (fl > 0.3 || sp.patchy) for (let i = 0; i < 4; i++) { const a = -0.6 + i * 0.4 + R() * 0.2; tufts.push(solid(sweep([[Math.sin(a) * hr * 0.4, hr * 0.85, 0], [Math.sin(a) * hr * 0.7, hr * 1.18, -0.03]], (t) => 0.05 * (1 - t), 5, { steps: 3 }), sp.patchy ? c.fluff : c.base)); }
@@ -118,8 +118,8 @@ export function avian(sp, key) {
   // つばさ(ひれ)
   const W = sp.wing;
   for (const s of [-1, 1]) {
-    const g = paint(blob((x, y, z) => { const t = (1 - y) / 2; return [x * 0.05 + s * 0.02, -t * W.len, z * W.w * (1 - t * 0.6) * Math.sin(Math.PI * Math.min(1, t * 0.95 + 0.15))]; }, 10, 8), () => c.back);
-    rig.add(s < 0 ? 'wingL' : 'wingR', 'body', [s * B.r * 0.84, B.h * 0.72, -0.02], [g], 'opaque', [0, 0, s * 0.16]);
+    const g = paint(blob((x, y, z) => { const t = (1 - y) / 2; return [x * W.w * Math.sin(Math.PI * Math.min(1,t*.9+.08)) + s * .02, -t * W.len, z * .065 * (1 - t * 0.6) * Math.sin(Math.PI * Math.min(1, t * 0.95 + 0.15))]; }, 12, 8), (x,y,z) => sp.patchy && y > -W.len*.48 ? c.fluff : fl>.5 ? c.base : c.back);
+    rig.add(s < 0 ? 'wingL' : 'wingR', 'body', [s * B.r * 0.84, B.h * 0.72, -0.02], [g], 'opaque', [0, 0, sp.raisedWing && s>0 ? 2.25 : s * .20]);
   }
   // 足
   for (const s of [-1, 1]) {
@@ -129,7 +129,7 @@ export function avian(sp, key) {
   if ((sp.attachments || []).includes('cane')) rig.add('cane', 'root', [B.r * 1.05, 0, B.r * 0.55], [caneGeo(B.h * 0.55)]);
   rig.meta = { idlePose: sp.idlePose, hover: 0, bodyH: B.h };
   rig.faceSpec = { bone: 'head', target: headGeo, center: [0, hr * 0.05, hr * 0.9], fwd: [0, 0.05, 1], half: hr * 0.74, eyeSize: 0.25,
-    layout: { eyeX: 25, eyeY: 50, mouthY: 108, browY: 30, cheekX: 40, cheekY: 74, mouthW: 7 }, style: { blush: '#f4a0a0' }, normalEye: sp.idlePose === 'sit' ? 'content' : null };
+    layout: { eyeX: 25, eyeY: 50, mouthY: 108, browY: 30, cheekX: 40, cheekY: 74, mouthW: 7 }, style: { blush: '#f4a0a0' }, normalEye: sp.normalEye || (sp.idlePose === 'sit' ? 'content' : null) };
   return rig;
 }
 const Sbeak = (sp) => sp.beak;
@@ -140,7 +140,7 @@ export function fish(sp, key) {
   const rig = new Rig(key, 'fish', 'swimHover');
   const prof = (t) => (t >= -0.15 ? Math.pow(Math.max(0, 1 - Math.pow(Math.abs(t + 0.15) / 1.15, 2.6)), 1 / 2.6) : lerp(0.24, 1, Math.pow((t + 1) / 0.85, 1.3)));
   const along = (z) => (1 - z / (len / 2)) / 2;   // 0 = 頭 1 = 尾
-  const band = (s) => { for (const b of sp.bands || []) { const d = Math.abs(s - b), w = b > 0.8 ? 0.035 : 0.055; if (d < w) return 'band'; if (sp.bandEdge && d < w + 0.022) return 'edge'; } return null; };
+  const band = (s) => { for (const b of sp.bands || []) { const d = Math.abs(s - b), w = b > 0.8 ? .04 : .068; if (d < w) return 'band'; if (sp.bandEdge && d < w + 0.022) return 'edge'; } return null; };
   const bodyCol = (x, y, z, nx, ny) => { const b = band(along(z)); if (b === 'band') return c.band; if (b === 'edge') return c.edge; return mix(c.base, c.belly, smooth(-0.1, -0.7, ny)); };
   const g = new THREE.SphereGeometry(1, 18, 44); g.rotateX(Math.PI / 2);   // しまの ために 長さ方向の 輪を こまかく
   const p = g.attributes.position;
@@ -170,7 +170,7 @@ export function fish(sp, key) {
   // 顔は 頭の 先(からだの 前)
   rig.meta = { idlePose: 'swim', hover: sp.hover, len };
   rig.faceSpec = { bone: 'body', target: body, center: [0, B.h * 0.04, len * 0.4], fwd: [0, 0, 1], half: B.h * 0.66, eyeSize: 0.24,
-    layout: { eyeX: 36, eyeY: 54, mouthY: 96, browY: 34, cheekX: 42, cheekY: 78, mouthW: 8 }, style: { blush: '#ff9a7a' } };
+    layout: { eyeX: 36, eyeY: 54, mouthY: 96, browY: 34, cheekX: 42, cheekY: 78, mouthW: 8 }, style: { blush: '#ff9a7a' }, normalEye: sp.normalEye || null };
   return rig;
 }
 function await_smooth(g) { g.computeVertexNormals(); return g; }
@@ -218,13 +218,12 @@ export function humanoid(sp, key) {
   const extra = [];
   // Overlapping tapered locks follow the forehead instead of hiding whole
   // triangles inside the head. All locks are merged with the head mesh.
-  const locks = style === 'soft' ? 5 : 7;
-  for (let i = 0; i < locks; i++) {
-    const u = i / (locks - 1), x = (u - 0.5) * hr * 1.65;
-    const y = hr * (style === 'soft' ? 0.60 + 0.14 * Math.sin(u * Math.PI) : 0.50);
-    const endY = style === 'soft' ? y - hr * 0.13 : hr * (0.08 + 0.16 * u + 0.12 * Math.sin(u * 8));
-    extra.push(solid(sweep([[x,y,hr*0.64],[x-hr*0.07,y-hr*0.12,hr*0.82],[x-hr*0.13,endY,hr*(0.91-0.20*Math.abs(u-0.5))]],
-      t => hr * (style === 'soft' ? 0.14 : 0.16) * (1-t*0.92), 5, {steps:4,flat:0.55}), c.hair));
+  const locks = style === 'soft' ? 7 : 9;
+  const surface=(x,y)=>Math.sqrt(Math.max(.09,1-Math.pow(x/(hr*1.14),2)-Math.pow(y/(hr*1.14),2)))*hr*1.09+.018;
+  for (let i=0;i<locks;i++) {
+    const u=i/(locks-1),x=(u-.5)*hr*1.85,y=hr*(.68-.12*Math.abs(u-.5));
+    const endY=hr*(style==='soft' ? .08+.48*Math.exp(-Math.pow((u-.63)/.22,2)) : .04+.26*u+.12*Math.sin(u*9)),ex=x-hr*.10;
+    extra.push(solid(sweep([[x+hr*.10,y,surface(x+hr*.10,y)],[x,y-hr*.16,surface(x,y-hr*.16)],[ex,endY,surface(ex,endY)]],t=>hr*(style==='soft'?.16:.18)*(1-t*.94),6,{steps:5,flat:.65}),c.hair));
   }
   if (style === 'baby') extra.push(solid(sweep([[0,hr,0],[0.08,hr*1.22,0],[0.03,hr*1.34,0],[-0.02,hr*1.3,0]],t=>hr*0.075*(1-t*0.8),5,{steps:6}),c.hair));
   if (style === 'spiky' || style === 'baby') for (let i = 0; i < 7; i++) {
@@ -251,7 +250,7 @@ export function humanoid(sp, key) {
   if ((sp.attachments || []).includes('cane')) rig.add('cane', 'root', [B.r * 1.05, 0, B.r * 0.5], [caneGeo(hipY + B.h * 0.38)]);
   rig.meta = { idlePose: sp.idlePose, hover: 0, hipY, stoop: sp.stoop || 0 };
   const hc = headCenter;
-  rig.faceSpec = { bone: 'head', target: xform(headGeo.clone(), { pos: hc }), center: [0, hc[1] - hr * 0.12, hr * 0.9], fwd: [0, 0, 1], half: hr * 0.72, eyeSize: 0.26,
+  rig.faceSpec = { bone: 'head', target: xform(headGeo.clone(), { pos: hc }), center: [0, hc[1] - hr * 0.12, hr * 0.9], fwd: [0, 0, 1], half: hr * 0.80, eyeSize: 0.30,
     layout: { eyeX: 24, eyeY: 54, mouthY: 90, browY: 32, cheekX: 38, cheekY: 76, mouthW: 8 }, style: { blush: '#f6a0a0' }, normalEye: sp.hair.style === 'soft' ? 'content' : null };
   return rig;
 }
@@ -347,8 +346,8 @@ export function wingedInsect(sp, key) {
   // はね: 扇の 面(根もと = 体)。色は 中心 → ふち(こい 青 + 白い 点)
   const wingCol = (lo, hi) => (x, y, z, nx, ny, nz, i) => { const rr = Math.hypot(x, y); const t = (rr - lo) / (hi - lo); return t > 0.86 ? c.wingDark : t > 0.78 ? (Math.sin(Math.atan2(y, x) * 26) > 0.55 ? c.dots : c.wingDark) : mix(c.wingLight, c.wing, smooth(0.0, 0.6, t)); };
   for (const s of [-1, 1]) {
-    const fR = (a) => Wg.span * 0.55 * (0.62 + 0.38 * Math.sin((a - 0.05) * 1.6)) * (1 + 0.035 * Math.cos(a * 14));
-    const hR = (a) => Wg.span * 0.36 * (0.7 + 0.3 * Math.cos(a + 0.6)) * (1 + 0.06 * Math.cos(a * 10));
+    const fR = (a) => Wg.span * .73 * (.10 + .90 * Math.pow(Math.max(0,Math.sin(Math.PI*(a-.05)/1.50)),.55)) * (1+.018*Math.cos(a*14));
+    const hR = (a) => Wg.span * .48 * (.12 + .88 * Math.pow(Math.max(0,Math.sin(Math.PI*(a+1.35)/1.40)),.55)) * (1+.025*Math.cos(a*10));
     const tone = (Rf) => (x, y) => { const a=Math.atan2(y,x), t = Math.hypot(x, y) / Rf(a); const vein=Math.abs(Math.sin(a*9)); return t > 0.84 || (vein<.16 && t>.12) ? c.wingDark : mix(c.wingLight, c.wing, smooth(0.05, 0.82, t)*.7); };
     const fw = paint(fan(fR, 0.05, 1.55, { na: 20, nr: 7 }), tone(fR));
     const hw = paint(fan(hR, -1.35, 0.05, { na: 16, nr: 6 }), tone(hR));
@@ -485,11 +484,11 @@ export function cluster(sp, key) {
       rig.add('u' + i, 'root', [x * sp.spread / 0.6, y * sp.spread / 0.6 + 0.04, z], [geo.clone(),shine]);
     } else {
       const r = 0.18 * s;
-      const puff = paint(blob((px, py, pz) => { const n = 1 + 0.16 * Math.max(0, noise3(px * 7 + i, py * 7, pz * 7) - 0.35); return [px * r * n, py * r * n, pz * r * n]; }, 16, 10), () => c.pappus);
+      const puff = paint(blob((px, py, pz) => { const n = 1 + 0.16 * Math.max(0, noise3(px * 7 + i, py * 7, pz * 7) - 0.35); return [px * r * n * .72, py * r * n * .72, pz * r * n * .72]; }, 12, 8), () => c.pappus);
       const seed = solid(xform(blob((px, py, pz) => { const yy = py * 0.5 + 0.5; return [px * r * 0.3 * (1 - yy * 0.5), -yy * r * 1.3, pz * r * 0.3 * (1 - yy * 0.5)]; }, 8, 6), { pos: [0, -r * 0.95, 0] }), c.base);
       const beak = solid(sweep([[0, -r * 0.9, 0], [0, -r * 0.4, 0]], () => 0.012, 4, { steps: 2 }), c.base);
-      geo = puff; faceGeo = puff; fc = [0, 0, r * 0.95]; half = r * 0.72;
-      rig.add('u' + i, 'root', [x * sp.spread / 0.6, y * sp.spread / 0.6 + 0.35, z], [puff.clone(), seed, beak, pappusGeo(r*1.42,c.pappus,28,key+':'+i,true)], 'opaque', [0, 0, (R() - 0.5) * 0.4]);
+      geo = puff; faceGeo = puff; fc = [0, 0, r * .72]; half = r * .56;
+      rig.add('u' + i, 'root', [x * sp.spread / 0.6, y * sp.spread / 0.6 + 0.35, z], [puff.clone(), seed, beak, pappusGeo(r*1.5,c.pappus,42,key+':'+i,true)], 'opaque', [0, 0, (R() - 0.5) * 0.4]);
     }
     units.push({ bone: 'u' + i, target: faceGeo, center: fc, half });
   });
@@ -543,7 +542,6 @@ export function blobArchetype(sp, key) {
   const rig = new Rig(key, 'blob', 'blobFloat');
   const h = sp.h, r = sp.r;
   // ビピンナリア: たてながの 体に 左右 2 つずつの ふくらみ(うで の もと)
-  const shape = (x, y, z) => { const ang = Math.atan2(x, y), lobes = 1 + 0.22 * Math.pow(Math.max(0, Math.cos(ang * 2 - 0.3)), 3) + 0.18 * Math.pow(Math.max(0, -Math.cos(ang * 2 + 0.4)), 4); return [x * r * lobes, (y * 0.5 + 0.5) * h * (1 + 0.04 * Math.sin(ang * 4)), z * r * 0.62]; };
   const contour = [[0,h],[-r*.47,h*.87],[-r*.57,h*.66],[-r*.93,h*.53],[-r*.58,h*.4],[-r*.9,h*.17],[-r*.56,0],[-r*.27,h*.02],[0,h*.01],[r*.27,h*.02],[r*.56,0],[r*.9,h*.17],[r*.58,h*.4],[r*.93,h*.53],[r*.57,h*.66],[r*.47,h*.87]];
   const outer = paint(outlineLoft(contour,r*.42), (x, y, z, nx, ny, nz) => mix(c.base, c.edge, smooth(0.4, 0.0, Math.abs(nz)) * 0.7));
   const core = paint(blob((x, y, z) => [x * r * 0.55, (y * 0.5 + 0.5) * h * 0.7 + h * 0.12, z * r * 0.24], 14, 10), () => c.light);

@@ -19,7 +19,7 @@ test('hair cap covers crown, temples and nape without crossing the face opening'
   assert.ok(cap.attributes.position.array.every(Number.isFinite));
 });
 
-test('dog play bow lowers the chest at idle and blends back to locomotion; shiba stays seated', async () => {
+test('dog play bow lowers the chest at idle and blends back to locomotion; shiba preserves its compact bow', async () => {
   const rt = await mod('runtime.mjs'), anim = await mod('animate.mjs');
   const dog = rt.instantiate(rt.getTemplate('dog',4));
   anim.animate(dog,{dt:0,moving:false,animLv:0});
@@ -29,8 +29,8 @@ test('dog play bow lowers the chest at idle and blends back to locomotion; shiba
   assert.ok(Math.abs(dog.bones.body.rotation.x)<0.1, 'walking body returns to level');
   assert.ok(Math.abs(idle)>0.4, 'front paws reach forward');
   const shiba=rt.instantiate(rt.getTemplate('shiba',0));
-  assert.equal(shiba.meta.idlePose,'sit');
-  assert.notEqual(shiba.meta.idlePose,dog.meta.idlePose);
+  assert.equal(shiba.meta.idlePose,'playBow','the shiba original also bows');
+  assert.ok(shiba.meta.bodyR>dog.meta.bodyR && shiba.meta.bodyLen<dog.meta.bodyLen,'compact shiba silhouette');
 });
 
 test('both adult and child mushroom faces survive cloning and canonical expression changes', async () => {

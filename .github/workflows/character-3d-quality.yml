@@ -1,13 +1,12 @@
 name: Character 3D quality evidence
 
 on:
-  pull_request:
-    branches: [main]
+  push:
+    branches: [feat/character-3d-pilot]
     paths:
       - 'character-3d/**'
       - 'tools/character-3d/**'
       - 'tests/character-3d*'
-      - 'docs/qa/character-3d-quality-2026-10-02/claude/**'
       - '.github/workflows/character-3d-quality.yml'
 
 permissions:
@@ -15,13 +14,12 @@ permissions:
 
 jobs:
   evidence:
-    if: github.head_ref == 'feat/character-3d-pilot'
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -38,6 +36,11 @@ jobs:
         run: node tools/character-3d/sheets.cjs --out test-results/character-3d-quality/sheets
       - name: Same-condition Claude vs revised all-stage four-view sheets
         run: node tools/character-3d/quality-sheets.cjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: character-3d-images-${{ github.sha }}
+          path: test-results/character-3d-quality/comparisons
+          retention-days: 14
       - name: Meguru regression and 1 / 5 / 27 actor measurement
         run: node tools/character-3d/meguru-qa.cjs --out test-results/character-3d-quality/meguru --seconds 8
       - name: Record exact source and runtime
@@ -51,6 +54,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: character-3d-quality-${{ github.event.pull_request.head.sha }}
+          name: character-3d-quality-${{ github.sha }}
           path: test-results/character-3d-quality
           retention-days: 14

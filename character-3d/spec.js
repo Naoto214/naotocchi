@@ -164,11 +164,11 @@
     penguin: {
       why: 'bird / 2 足の 代表。ひなの ふわふわ → 換羽の まだら → 大人。08 は つえ(attachment)',
       stages: {
-        1: { archetype: A, idlePose: 'sit', body: { h: 0.78, r: 0.48, belly: 0.6 }, head: { r: 0.36, merge: 0.7 }, beak: { len: 0.09, r: 0.07 }, wing: { len: 0.32, w: 0.12 }, feet: { len: 0.16 }, fluff: 0.9,
+        1: { archetype: A, idlePose: 'sit', body: { h: 0.78, r: 0.48, belly: 0.6 }, head: { r: 0.42, merge: 0.7 }, beak: { len: 0.09, r: 0.07 }, wing: { len: 0.32, w: 0.12 }, feet: { len: 0.16 }, fluff: 0.9,
           colors: { base: '#c4bcae', back: '#b0a596', belly: '#f2ece0', face: '#f6eee4', beak: '#f0a030', feet: '#f0a030' } },
-        4: { archetype: A, idlePose: 'stand', body: { h: 1.05, r: 0.44, belly: 0.62 }, head: { r: 0.32, merge: 0.55 }, beak: { len: 0.11, r: 0.06 }, wing: { len: 0.5, w: 0.13 }, feet: { len: 0.17 }, fluff: 0.45, patchy: true,
+        4: { archetype: A, idlePose: 'stand', body: { h: 1.05, r: 0.44, belly: 0.62 }, head: { r: 0.40, merge: 0.60 }, beak: { len: 0.11, r: 0.06 }, wing: { len: 0.5, w: 0.13 }, feet: { len: 0.17 }, fluff: 0.45, patchy: true, raisedWing: true,
           colors: { base: '#5a5a50', back: '#4a4a44', belly: '#f6f4e4', face: '#f6f4e4', beak: '#f09828', feet: '#f09828', fluff: '#c8b8a8' } },
-        8: { archetype: A, idlePose: 'stand', body: { h: 1.25, r: 0.52, belly: 0.66 }, head: { r: 0.34, merge: 0.45 }, beak: { len: 0.13, r: 0.06 }, wing: { len: 0.66, w: 0.15 }, feet: { len: 0.19 }, fluff: 0,
+        8: { archetype: A, idlePose: 'stand', body: { h: 1.25, r: 0.52, belly: 0.66 }, head: { r: 0.44, merge: 0.55 }, beak: { len: 0.13, r: 0.06 }, wing: { len: 0.66, w: 0.15 }, feet: { len: 0.19 }, fluff: 0, normalEye: 'happy',
           colors: { base: '#363c48', back: '#2a303a', belly: '#f6f4e4', face: '#f6f4e4', beak: '#f09828', feet: '#f09828' }, attachments: ['cane'] },
       },
       designFill: '背中は 2D の 黒(04 は 灰の まだら)を そのまま 後ろへ。つえは 右の つばさで もつ',
@@ -176,11 +176,11 @@
     clownfish: {
       why: 'fish / aquatic の 代表。地面から うかんで およぐ。01 は すけた 仔魚 → しま → 大きな ひれ',
       stages: {
-        1: { archetype: F, body: { len: 1.15, h: 0.34, w: 0.2 }, tail: { len: 0.32, h: 0.34 }, fins: { dorsal: 0.12, pectoral: 0.13 }, bands: [], translucent: 0.72, hover: 0.42,
+        1: { archetype: F, body: { len: 1.02, h: 0.43, w: 0.24 }, tail: { len: 0.32, h: 0.34 }, fins: { dorsal: 0.12, pectoral: 0.13 }, bands: [], normalEye: 'content', translucent: 0.72, hover: 0.42,
           colors: { base: '#f8c898', belly: '#f8dcb8', fin: '#f8b888', band: '#ffffff', edge: '#f89868' } },
-        4: { archetype: F, body: { len: 1.25, h: 0.52, w: 0.3 }, tail: { len: 0.32, h: 0.46 }, fins: { dorsal: 0.24, pectoral: 0.2 }, bands: [0.4, 0.62, 0.9], bandEdge: true, hover: 0.48,
+        4: { archetype: F, body: { len: 1.15, h: 0.68, w: 0.34 }, tail: { len: 0.32, h: 0.46 }, fins: { dorsal: 0.35, pectoral: 0.27 }, bands: [0.29, 0.55, 0.87], bandEdge: true, hover: 0.48,
           colors: { base: '#f87818', belly: '#f89828', fin: '#f88818', band: '#fbf8ee', edge: '#1e1414' } },
-        8: { archetype: F, body: { len: 1.3, h: 0.66, w: 0.36 }, tail: { len: 0.38, h: 0.62 }, fins: { dorsal: 0.32, pectoral: 0.28 }, bands: [0.4, 0.62, 0.9], bandEdge: true, hover: 0.5,
+        8: { archetype: F, body: { len: 1.22, h: 0.80, w: 0.40 }, tail: { len: 0.38, h: 0.62 }, fins: { dorsal: 0.42, pectoral: 0.34 }, bands: [0.29, 0.55, 0.87], bandEdge: true, hover: 0.5,
           colors: { base: '#f87010', belly: '#f89828', fin: '#f88818', band: '#fbf8f4', edge: '#1e1414' } },
       },
       designFill: '反対がわの 面は 2D と 対称。ひれの うらは おもてと おなじ 色',
@@ -239,7 +239,7 @@
   });
   // archetype を つかいまわす ためしの なかま(形は builder + 数字だけ。pilot の 数には 入れない)
   const ARCHETYPE_REUSE = freeze({
-    shiba: { archetype: Q, basedOn: 'dog', kind: 'companion', idlePose: 'sit', markings: 'urajiro', body: { len: 0.84, r: 0.38, chest: 1.18, hip: 1.1 }, head: { r: 0.43, squash: 0.93, snout: 0.12, snoutR: 0.19, cheek: 0.22 }, legs: { len: 0.30, r: 0.115 }, neck: 0.12,
+    shiba: { archetype: Q, basedOn: 'dog', kind: 'companion', idlePose: 'playBow', markings: 'urajiro', body: { len: 0.84, r: 0.38, chest: 1.18, hip: 1.1 }, head: { r: 0.43, squash: 0.93, snout: 0.12, snoutR: 0.19, cheek: 0.22 }, legs: { len: 0.30, r: 0.115 }, neck: 0.12,
       ears: { type: 'pointy', len: 0.26, w: 0.17, tilt: -0.05 }, tail: { type: 'curl', len: 0.66, r: 0.17 }, colors: { base: '#e89848', belly: '#f8e8d8', muzzle: '#f8e8d8', ear: '#d87838', nose: '#2a1010', paw: '#f8e8d8' } },
     cat_friend: { archetype: Q, basedOn: 'dog', kind: 'companion', idlePose: 'lie', body: { len: 1.15, r: 0.3, chest: 1.0, hip: 1.0 }, head: { r: 0.36, squash: 0.9, snout: 0.08, snoutR: 0.13 }, legs: { len: 0.36, r: 0.08 }, neck: 0.1,
       ears: { type: 'pointy', len: 0.24, w: 0.2, tilt: 0.1 }, tail: { type: 'long', len: 0.7, r: 0.06 }, colors: { base: '#f6e6d6', belly: '#fbf2e8', muzzle: '#fbf2e8', ear: '#e89848', nose: '#e88888', paw: '#f6e6d6', patch: '#684838', patch2: '#e89848' }, patches: true },
