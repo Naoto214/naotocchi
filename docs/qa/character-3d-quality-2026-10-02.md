@@ -109,7 +109,7 @@ read-only reviewと実画像確認で、outlineの内向きnormal・犬の接地
 | #367 `32e3320` | index.html | All Regionsのgate・遷移とCharacter holderのcleanupを将来の統合時に再確認。今回未統合 |
 | #369 `cbafd67` | index.html, meguru-3d.mjs, meguru.js, package.json | hidden billboardを基準にしたplayer可視判定へ戻さず、3D holderを判定する。最新Expression責務も保持 |
 | #371 `69a8857` | 同上 | Foundationの可視性問題に加え、lighting/materialの印象を統合後に比較。今回未統合 |
-| Geometry/Terrain `17c1bdb` | 同上 | 現在もbillboardVisible(pm)を使用。3D holder可視性、terrain/ground接続、occlusionの共通World契約が必要。組合せ実行は未実施 |
+| Geometry/Terrain `b5f302e` | 同上 | 現在もbillboardVisible(pm)を使用。3D holder可視性、terrain/ground接続、occlusionの共通World契約が必要。組合せ実行は未実施 |
 
 
 ## 保存地点
