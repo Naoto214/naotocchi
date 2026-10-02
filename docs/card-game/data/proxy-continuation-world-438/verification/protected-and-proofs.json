@@ -1,0 +1,22 @@
+{
+  "base_commit": "08fe4b39263d19cda34aede10f69c4109d4f26cc",
+  "protected_count": 505,
+  "protected_errors": [],
+  "past_data_verified": 818,
+  "past_data_changes": [],
+  "execution_source_count": 29,
+  "execution_source_errors": [],
+  "proof_counts": {
+    "world": 5,
+    "main": 9,
+    "conditions": 144
+  },
+  "planned": 8,
+  "completed": 0,
+  "stopped": 8,
+  "independent_replay_verified": 8,
+  "policy_promoted": false,
+  "independent_balance_sample_count": 0,
+  "fixtures_112_executed": 0,
+  "world_placement_events": 0
+}

@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+438: [世界配置の即時結果証拠を共通接続](438-continuation-world-outcomes.md)。W-deepseaの本文・支払・完全候補へ証拠を結合し、旧01-A seq60・01-B seq72へ進行。結合233件・npm406件PASS、8実行/独立再生と別再生成一致。世界5/main9/条件144証拠、実軌跡の世界配置0。505原本・過去818 data不変。独立レビュー重要指摘1修正済み。全8停止、112未実行、balance0、採用保留、PR259 Draft/open/unmerged。
+
 437: [発動参照IDの共通一意性検査](437-continuation-activation-link-validation.md)。436の軽微残件を修正。結合218件・npm406件PASS、8実行/独立再生は436とbyte一致。505原本・過去810 data不変。全8停止、112未実行、balance0、採用保留、PR259 Draft/open/unmerged。
 
 436: [メイン能力の共通分類・即時結果証拠](436-continuation-main-capabilities.md)。本文・段階へ分類を結合し、盤上能力参照を物理所在と区別。旧3経路がseq53/43/103へ進行、他5件は停止点維持。結合217件・npm406件PASS、8実行/独立再生と別再生成一致。505原本・114/414・過去789 data不変。全8停止、独立レビュー1回（軽微残件1）、112未実行、balance0、採用保留、PR259 Draft/open/unmerged。

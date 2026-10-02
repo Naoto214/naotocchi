@@ -1,0 +1,95 @@
+test_actual_proof_does_not_certify_future_effects_or_free_development (test_proxy_continuation_worlds.WorldTests.test_actual_proof_does_not_certify_future_effects_or_free_development) ... FAIL
+test_atomic_placement_preserves_runtime_and_opens_response (test_proxy_continuation_worlds.WorldTests.test_atomic_placement_preserves_runtime_and_opens_response) ... FAIL
+test_complete_scoring_keeps_world_and_main_candidates (test_proxy_continuation_worlds.WorldTests.test_complete_scoring_keeps_world_and_main_candidates) ... FAIL
+test_continuous_classification_binds_text_and_cost (test_proxy_continuation_worlds.WorldTests.test_continuous_classification_binds_text_and_cost) ... FAIL
+test_existing_world_and_pending_effects_remain_unproved (test_proxy_continuation_worlds.WorldTests.test_existing_world_and_pending_effects_remain_unproved) ... FAIL
+test_forged_source_target_cost_or_reference_rejected (test_proxy_continuation_worlds.WorldTests.test_forged_source_target_cost_or_reference_rejected) ... FAIL
+test_hidden_orders_do_not_change_public_proof (test_proxy_continuation_worlds.WorldTests.test_hidden_orders_do_not_change_public_proof) ... FAIL
+test_source_cost_contradiction_rejected (test_proxy_continuation_worlds.WorldTests.test_source_cost_contradiction_rejected) ... FAIL
+test_unknown_city_trigger_is_not_zero_scored (test_proxy_continuation_worlds.WorldTests.test_unknown_city_trigger_is_not_zero_scored) ... FAIL
+test_upper_priority_and_scope_restoration (test_proxy_continuation_worlds.WorldTests.test_upper_priority_and_scope_restoration) ... FAIL
+
+======================================================================
+FAIL: test_actual_proof_does_not_certify_future_effects_or_free_development (test_proxy_continuation_worlds.WorldTests.test_actual_proof_does_not_certify_future_effects_or_free_development)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_worlds.py", line 23, in setUp
+    self.assertIsNotNone(worlds,'shared world placement proof absent')
+AssertionError: unexpectedly None : shared world placement proof absent
+
+======================================================================
+FAIL: test_atomic_placement_preserves_runtime_and_opens_response (test_proxy_continuation_worlds.WorldTests.test_atomic_placement_preserves_runtime_and_opens_response)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_worlds.py", line 23, in setUp
+    self.assertIsNotNone(worlds,'shared world placement proof absent')
+AssertionError: unexpectedly None : shared world placement proof absent
+
+======================================================================
+FAIL: test_complete_scoring_keeps_world_and_main_candidates (test_proxy_continuation_worlds.WorldTests.test_complete_scoring_keeps_world_and_main_candidates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_worlds.py", line 23, in setUp
+    self.assertIsNotNone(worlds,'shared world placement proof absent')
+AssertionError: unexpectedly None : shared world placement proof absent
+
+======================================================================
+FAIL: test_continuous_classification_binds_text_and_cost (test_proxy_continuation_worlds.WorldTests.test_continuous_classification_binds_text_and_cost)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_worlds.py", line 23, in setUp
+    self.assertIsNotNone(worlds,'shared world placement proof absent')
+AssertionError: unexpectedly None : shared world placement proof absent
+
+======================================================================
+FAIL: test_existing_world_and_pending_effects_remain_unproved (test_proxy_continuation_worlds.WorldTests.test_existing_world_and_pending_effects_remain_unproved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_worlds.py", line 23, in setUp
+    self.assertIsNotNone(worlds,'shared world placement proof absent')
+AssertionError: unexpectedly None : shared world placement proof absent
+
+======================================================================
+FAIL: test_forged_source_target_cost_or_reference_rejected (test_proxy_continuation_worlds.WorldTests.test_forged_source_target_cost_or_reference_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_worlds.py", line 23, in setUp
+    self.assertIsNotNone(worlds,'shared world placement proof absent')
+AssertionError: unexpectedly None : shared world placement proof absent
+
+======================================================================
+FAIL: test_hidden_orders_do_not_change_public_proof (test_proxy_continuation_worlds.WorldTests.test_hidden_orders_do_not_change_public_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_worlds.py", line 23, in setUp
+    self.assertIsNotNone(worlds,'shared world placement proof absent')
+AssertionError: unexpectedly None : shared world placement proof absent
+
+======================================================================
+FAIL: test_source_cost_contradiction_rejected (test_proxy_continuation_worlds.WorldTests.test_source_cost_contradiction_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_worlds.py", line 23, in setUp
+    self.assertIsNotNone(worlds,'shared world placement proof absent')
+AssertionError: unexpectedly None : shared world placement proof absent
+
+======================================================================
+FAIL: test_unknown_city_trigger_is_not_zero_scored (test_proxy_continuation_worlds.WorldTests.test_unknown_city_trigger_is_not_zero_scored)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_worlds.py", line 23, in setUp
+    self.assertIsNotNone(worlds,'shared world placement proof absent')
+AssertionError: unexpectedly None : shared world placement proof absent
+
+======================================================================
+FAIL: test_upper_priority_and_scope_restoration (test_proxy_continuation_worlds.WorldTests.test_upper_priority_and_scope_restoration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/08687acc6759/naotocchi/docs/card-game/tools/test_proxy_continuation_worlds.py", line 23, in setUp
+    self.assertIsNotNone(worlds,'shared world placement proof absent')
+AssertionError: unexpectedly None : shared world placement proof absent
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.150s
+
+FAILED (failures=10)
