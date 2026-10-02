@@ -123,6 +123,11 @@ headless では 13 地域 とも hidden 0。AD v1 の Human QA で 実機の per
 - BEFORE / AFTER sheet: `docs/qa/meguru-3d-geometry-terrain-v1/compare.html`
 - preview(commit 固定): PR の 本文(この doc の commit の 1 つ あとの sha は かけない ため)
 
+## その後: 未完了の 棚卸し と 静的監査(2026-10-02)
+
+Human QA を またずに すすめられる 範囲(接地・小川 / 橋の 交わり・池・家の シルエット・小物・予算・地域の 識別性・季節 / 天気の 2D 正本 と の 整合)は
+`docs/qa/meguru-3d-geometry-audit-v1.md` に まとめた(比較 sheet は `docs/qa/meguru-3d-geometry-audit-v1/compare.html`)。iPhone 実機の 残像 / 消失 / カクつき / 最終的な 美観は 未承認の まま。
+
 ## 次の Human QA(iPhone・`&perf=1`)
 
 1. 残像 / player が きえる / カクつき: city 駅前 → 商店街(すかしの 色 と 数)、ジャングルの どうくつ(がけ)、もり(木の あいだ)。perf の 4 行め `ray n/3 occl a/b long c up d dpr→…` と 目で 見た ものが あうか
