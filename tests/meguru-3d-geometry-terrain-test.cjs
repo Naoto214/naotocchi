@@ -187,7 +187,10 @@ test('GT-12. 季節 / 天気(HQ-15): 山は 夏(高原の みどり)と 冬(雪)
   assert.ok(parseInt(S3.summer[0].slice(3, 5), 16) > parseInt(S3.summer[0].slice(1, 3), 16), '夏は みどり');
   assert.match(SRC3D, /snowy = !!\(SS && \(sk === 'winter' \|\| env\.weather === 'snow'\)\)/);
   assert.match(SRC3D, /built\.setGroundColors\(snowy \? SS\.winter : SS\[sk\] \|\| null\)/);
-  assert.match(SRC3D, /built\.meshes\.crownBig\.material\.color\.set\(SEASON_CROWN\[sk\]/, '大木も 季節');
+  // 再仕様化(2026-10-02・静的監査 GA-6): 大木 / 広葉樹の 季節は 2D の 正本へ。秋は instance の いろ を 2D の 秋の 組(#9a5f28 / #c8843a / #e8a85a)と 入れかえ
+  // (以前の かけ算 tint では みどりが オリーブに なった)。春 / 冬は 葉の tint(crown / crownBig)
+  assert.match(SRC3D, /for \(const k of CROWN_SHAPES\) \{[\s\S]{0,300}m\.instanceColor\.array\.set\(aut \? cs\.autumn : cs\.base\)/, '大木も 季節');
+  assert.match(SRC3D, /AUT_DARK = new THREE\.Color\('#9a5f28'\), AUT_MID = new THREE\.Color\('#c8843a'\), AUT_LITE = new THREE\.Color\('#e8a85a'\)/);
   assert.match(SRC3D, /wx === 'rain' \|\| wx === 'snow'/, '3D の 雨 / 雪');
 });
 

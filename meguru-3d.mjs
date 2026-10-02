@@ -150,6 +150,9 @@ export function ghostPoolStep(pool, wanted, frame, hooks) {
   return { visible: used.size, attached: pool.filter((g) => g.attached).length, total: pool.length };
 }
 // すかしの ghost の 濃さ と、線分から はずれた あと すかした まま に する frame 数(Geometry pass・HQ-1)
+const LEAF_N = [7, 13, 21];
+const CROWN_SHAPES = new Set(['crown', 'crownBig', 'crownSmall']);
+const AUT_DARK = new THREE.Color('#9a5f28'), AUT_MID = new THREE.Color('#c8843a'), AUT_LITE = new THREE.Color('#e8a85a');   // 2D の 大木 / 公園 / 川の 木の 秋   // 2D の RENDER_TUNING.anim.counts(animLv 0 / 1 / 2。2D は どの 段でも えがく)
 export const GHOST_OPACITY = 0.34, GHOST_OPACITY_BIG = 0.16, FADE_HOLD = 6;
 // ray 診断の 格子(pure・three に よらない): instance の リスト(shape → [{ x, y, z, sx, sy, sz }]、three 座標)を xz の ます目に。
 // rayCandidates はカメラ → player の 線分が とおる ます目の instance(shape, index)を かえす。ray で「ほんとうに 見えて いるか」を しらべる 候補
@@ -716,6 +719,7 @@ function create3DRenderer(M, o, onLost) {
     // 水・あわ・しぶき・ひらたい 石は すかさない(かたい 物では ない)
     const NO_FADE = new Set(['pool', 'shore', 'foam', 'mist', 'fall', 'wet', 'glowdisc', 'spark', 'decal']);
     let curOy = 0;
+    const jungle3d = world.regionId === 'jungle';   // 2D: ジャングルの 木は 秋でも みどり
     const push = (shape, it) => {
       if (curOy) it.y = (it.y || 0) + curOy;   // Terrain v1: 物は 地形の 高さに すわる
       const l = inst[shape] || (inst[shape] = []);
@@ -748,7 +752,7 @@ function create3DRenderer(M, o, onLost) {
           case 'gable': push('gable', { x: px, y: pt.y || 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: Math.PI / 2 - (pt.ang || 0), tint: t, color: pt.color }); break;
           case 'cone': push('cone', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color || shadeOf(FOL.conifer, pt.shade) });
             push('snowcone', { x: px, y: pt.y + pt.h * 0.45, z: pz, sx: pt.r * 0.6, sy: pt.h * 0.6, sz: pt.r * 0.6, ry: t * TAU, tint: 0.5 }); break;   // 段の 上 半分の 雪(2D の 雪の 針葉樹: みどりの 段 + 白い ぼうし)
-          case 'crown': push(pt.small ? 'crownSmall' : ob.type === 'bigtree' ? 'crownBig' : 'crown', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r * pt.sy, sz: pt.r, ry: t * TAU + (pt.spin || 0), tint: t, color: pt.color || shadeOf(FOL.crown, pt.shade) }); break;
+          case 'crown': push(pt.small ? 'crownSmall' : ob.type === 'bigtree' ? 'crownBig' : 'crown', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r * pt.sy, sz: pt.r, ry: t * TAU + (pt.spin || 0), tint: t, color: pt.color || shadeOf(FOL.crown, pt.shade), leafy: !pt.color && !jungle3d && (ob.type === 'broadleaf' || ob.type === 'bigtree') }); break;
           case 'cap': push('cap', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r * pt.sy, sz: pt.r, ry: 0, tint: t }); break;
           case 'rock': push('rock', { x: px, y: 0, z: pz, sx: pt.rx, sy: pt.h, sz: pt.rz, ry: ry + t, tint: t }); break;
           case 'log': push('log', { x: px, y: pt.y || 0, z: pz, sx: pt.len, sy: pt.r, sz: pt.r, ry: pt.ang != null ? Math.PI / 2 - pt.ang : ry, tint: t, color: pt.color }); break;
@@ -892,6 +896,13 @@ function create3DRenderer(M, o, onLost) {
         if (it.color) m.setColorAt(i, col.set(it.color).multiplyScalar(0.94 + it.tint * 0.12)); else m.setColorAt(i, col.setScalar(0.9 + it.tint * 0.2));
       });
       m.computeBoundingSphere();
+      // 秋(2026-10-02・2D の 正本): 葉の palette の かんむり は 2D の 秋の いろ(#9a5f28 / #c8843a / #e8a85a)へ。明るさの 順は もとの まま。
+      // かけ算の tint では みどりが だいだいに ならない(オリーブ に なった)ので、instance の いろを 秋の 組と 入れかえる。ジャングル / 色つきの 木(青い 木・きりの 木)は そのまま
+      if (CROWN_SHAPES.has(shape) && list.some((it) => it.leafy)) {
+        const base = m.instanceColor.array.slice(), aut = m.instanceColor.array.slice(), c = new THREE.Color();
+        list.forEach((it, i) => { if (!it.leafy) return; c.fromArray(base, i * 3); const L = Math.max(0, Math.min(1, (c.r * 0.3 + c.g * 0.59 + c.b * 0.11 - 0.2) / 0.5)); c.copy(L < 0.5 ? AUT_DARK : AUT_MID).lerp(L < 0.5 ? AUT_MID : AUT_LITE, L < 0.5 ? L * 2 : L * 2 - 1); c.toArray(aut, i * 3); });
+        m.userData.colors = { base, autumn: aut };
+      }
       sc.add(m); meshes[shape] = m;
     }
     // 立て看板(草花・小物): 絵文字 ごとに 1 つの InstancedMesh。y 軸だけ カメラへ むける(まいフレーム むきだけ そろえる)
@@ -925,7 +936,7 @@ function create3DRenderer(M, o, onLost) {
     const ghostMat = {}; for (const k of Object.keys(MAT)) { ghostMat[k] = keep(MAT[k].clone()); ghostMat[k].transparent = true; ghostMat[k].opacity = GHOST_OPACITY; ghostMat[k].depthWrite = false; }
     const ghostGeo = (shape) => GEO[GEO_ALIAS[shape] || shape];
     for (const k of Object.keys(MAT_ALIAS)) ghostMat[k] = ghostMat[MAT_ALIAS[k]];
-    return { rid: world.regionId, sc, hemi, sun, amb, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null, refreshGround, water, waterAnim,
+    return { rid: world.regionId, motion: world.motion || null, sc, hemi, sun, amb, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null, refreshGround, water, waterAnim,
       setGroundColors: (cols) => { const k = cols ? cols.join(',') : ''; if ((groundOverride ? groundOverride.join(',') : '') === k) return; groundOverride = cols; paintGround(); gt.needsUpdate = true; if (gt2) gt2.needsUpdate = true; },
       occluders, hidden: new Set(), ghostPool: [], ghostTint: new Map(), rayGrid: buildRayGrid(inst, NO_FADE), inst, terr, camY: null, ghostStat: { visible: 0, attached: 0, total: 0 }, ghostMat, ghostGeo, inst, anim: { fall: MAT.fall.map, foam: MAT.foam, mist: MAT.mist, spark: MAT.spark }, prof };
   }
@@ -1015,8 +1026,13 @@ function create3DRenderer(M, o, onLost) {
       built.seasonKey = skey;
       if (built.meshes.snowcone) built.meshes.snowcone.visible = coneSnow;
       if (built.meshes.snowcap) built.meshes.snowcap.visible = peakSnow;
-      if (built.meshes.crown) built.meshes.crown.material.color.set(SEASON_CROWN[sk] || SEASON_CROWN.summer);
-      if (built.meshes.crownBig) built.meshes.crownBig.material.color.set(SEASON_CROWN[sk] || SEASON_CROWN.summer);
+      for (const k of CROWN_SHAPES) {
+        const m = built.meshes[k]; if (!m) continue;
+        const cs = m.userData.colors, aut = sk === 'autumn' && cs;
+        if (cs) { m.instanceColor.array.set(aut ? cs.autumn : cs.base); m.instanceColor.needsUpdate = true; }
+        // 秋は instance の いろ(葉の palette の かんむり)= tint は かけない(ジャングル / 色つきの 木は 秋も もとの いろ)。春 / 冬は 葉の tint。小さな かんむりは tint なし
+        m.material.color.set(sk === 'autumn' || k === 'crownSmall' ? SEASON_CROWN.summer : SEASON_CROWN[sk] || SEASON_CROWN.summer);
+      }
       if (built.meshes.cone) built.meshes.cone.material.color.set(SEASON_CONIFER[sk] || SEASON_CONIFER.summer);   // 雪は 段の ぼうし(snowcone)で。段 そのものは みどりの まま(2D と おなじ)
       if (SS) {
         built.setGroundColors(snowy ? SS.winter : SS[sk] || null);
@@ -1175,6 +1191,18 @@ function create3DRenderer(M, o, onLost) {
       ctx.save();
       if (wx === 'rain') { ctx.strokeStyle = 'rgba(210,225,245,.55)'; ctx.lineWidth = 1.2; ctx.beginPath(); for (let i = 0; i < n; i++) { const x = (hash01('rx' + i) * W + t * 60) % W, y = (hash01('ry' + i) * H + t * 900) % H; ctx.moveTo(x, y); ctx.lineTo(x - 4, y + 14); } ctx.stroke(); }
       else { ctx.fillStyle = 'rgba(255,255,255,.85)'; for (let i = 0; i < n; i++) { const x = (hash01('sx' + i) * W + Math.sin(t * 0.8 + i) * 14) % W, y = (hash01('sy' + i) * H + t * (40 + hash01('sv' + i) * 40)) % H, r = 1.4 + hash01('sr' + i) * 1.8; ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill(); } }
+      ctx.restore();
+    }
+    // 季節の はっぱ / はなびら(2026-10-02・2D の 正本 ambLayer 'leaves' と おなじ いろ と かず: 春 = もも、夏 = みどり、秋 = だいだい、冬 = かれ色)。
+    // 地区の mood.anim(なければ 地域の motion の 1 つめ)が leaves の とき だけ(2D と おなじ: 段で かず だけ かわる)
+    const amb = (view.mood && view.mood.anim) || (built && built.motion && built.motion[0]) || null;
+    if (!under && amb === 'leaves') {
+      const sk = view.env && view.env.season, n = LEAF_N[animLv] || 0, t = (now || 0) * 0.001, nw = now || 0;
+      ctx.save(); ctx.fillStyle = sk === 'autumn' ? 'rgba(226,150,70,1)' : sk === 'spring' ? 'rgba(255,200,215,1)' : sk === 'winter' ? 'rgba(198,202,180,1)' : 'rgba(150,196,110,1)';
+      for (let i = 0; i < n; i++) {
+        const y = ((i * 137 + nw * (0.10 + (i % 4) * 0.035) * 1.2) % (H + 60)) - 30, x = (((i * 211 + Math.sin(t * (0.7 + (i % 3) * 0.2) + i) * 34) % (W + 40)) + W + 40) % (W + 40) - 20, r = 3 + (i % 3);
+        ctx.globalAlpha = 0.26 + 0.3 * ((i % 4) / 3); ctx.beginPath(); ctx.ellipse(x, y, r, r * 0.5, Math.sin(t * 2 + i) * 1.2, 0, TAU); ctx.fill();
+      }
       ctx.restore();
     }
     const p0 = view.player;
