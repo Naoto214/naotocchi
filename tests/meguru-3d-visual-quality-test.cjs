@@ -39,3 +39,23 @@ test('VQ-3 outer-bank variation leaves water lanes and triangle topology unchang
   for(let i=0;i<pts.length;i++) for(let j=3;j<9;j++) assert.equal(rough.positions[i*9+j],base.positions[i*9+j], 'water unchanged');
   for(let i=0;i<pts.length;i++) assert.ok(Math.abs(rough.positions[i*9]-base.positions[i*9])<=10);
 });
+
+// 2026-10-03 review regression: collision hashes alone do not protect a player
+// walking beneath an oversized eave. Main roofs must keep the existing clearance.
+test('VQ-4 residential main roofs retain above-head clearance with canonical colliders', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const h = harness({ deterministic:true, fullDisplay:true, pinDate:true });
+  const M = h.api.meguruMod, reg = M.buildRegistry(); let checked = 0;
+  for (const rid of Object.keys(M.REGION3D)) {
+    const world = M.buildWorld(rid, reg, { world3d:true });
+    for (const ob of M.worldObjects3d(world).objects) {
+      if (ob.type !== 'house') continue;
+      const body = ob.parts.find(p => p.family);
+      if (!body || !['cottage','single','farmhouse','cabin'].includes(body.family)) continue;
+      const roof = ob.parts.find(p => p.shape === 'roof' || p.shape === 'gable');
+      assert.ok(roof && roof.y >= M.OBJ3D_HEAD, ob.id + ': oversized main roof below player head');
+      checked++;
+    }
+  }
+  assert.ok(checked > 50, 'covers generated residential houses across regions');
+});

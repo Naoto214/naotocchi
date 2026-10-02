@@ -1443,7 +1443,10 @@
           const trimC = v < 0.33 ? '#ffffff' : v < 0.66 ? '#f4e8d0' : '#6b4a32', baseC = '#9a8a76', accent = sm.rc || roofC || '#b04a4a';
           // 本体(敷地の なか)。正面に ポーチ / 縁側の はば を のこす
           const annex = family === 'farmhouse' && W > 70 && v > 0.35;
-          const w = W * (annex ? 0.66 : 0.9), d = D * (family === 'farmhouse' ? 0.7 : 0.78), cx = annex ? -W * 0.3 : 0;   // cx = 本体の よこ ずれ(はなれ の ぶん)
+          // VQ review 2026-10-03: broaden the wall mass inside the existing lot;
+          // never lower oversized eaves into the walkable head-height envelope.
+          const broader = ['cottage', 'single', 'cabin'].includes(family);
+          const w = W * (annex ? 0.66 : broader ? 0.96 : 0.9), d = D * (family === 'farmhouse' ? 0.7 : broader ? 0.86 : 0.78), cx = annex ? -W * 0.3 : 0;   // cx = 本体の よこ ずれ(はなれ の ぶん)
           // 高さ: 1 かいは あたまの すぐ 上(OBJ3D_HEAD + 2)まで。屋根は あたまより 上 なので 敷地の そとへ 大きく はりだせる(大きな 屋根の 小さな 家)。
           // 2 かい / 納屋は 床の はばに あわせる。物置は ひくい
           const storeys = family === 'twostorey' ? 2 : 1;
@@ -1514,17 +1517,6 @@
           const fl = (ctx && ctx.prof && ctx.prof.cover && ctx.prof.cover.flowers) || [], fc = fl.length ? fl[Math.floor(v * fl.length)] : '#f2a6c0';
           for (const sd of [-1, 1]) out.push(Object.assign({ shape: 'crown', small: true, r: 11 + ((sd + 1) * v * 3), sy: 0.85, y: 0, shade: sd > 0 ? 2 : 1 }, at(D + 4, sd * W * 0.9 - cx)));
           if (fl.length) for (let i = 0; i < 3; i++) out.push(Object.assign({ shape: 'flower', r: 11 + (i % 2) * 3, h: 18 + (i % 2) * 6, y: 0, color: i === 1 ? '#ffffff' : fc }, at(D + 2 + (i % 2) * 4, w * (0.15 + i * 0.3) + 4)));
-          // VQ 2026-10-02: roof width alone hid slender wall proportions in
-          // the old silhouette gate. Compress the complete small-house assembly
-          // vertically, keeping every join, the footprint and all collision data.
-          if (['cottage', 'single', 'farmhouse', 'cabin'].includes(family)) {
-            const liftScale = Math.max(0.62, Math.min(1, 2 * Math.max(w, d) * 1.35 / h));
-            if (liftScale < 1) for (const p of out) {
-              p.y = (p.y || 0) * liftScale;
-              if (p.h != null) p.h *= liftScale;
-              if (p.sy != null) p.sy *= liftScale;
-            }
-          }
           return out;
         }
         case 'tower': {
@@ -1696,8 +1688,8 @@
         case 'ferris': { const R = Math.max(size * 0.3, 90), cy = R + 40, ux = Math.sin(ang), uz = Math.cos(ang);
           // VQ: A-frame supports and radial spokes replace the floating inner ring.
           const out = [{ shape: 'arch', r: R, y: cy, ang, color: c }];
-          for (const sd of [-1,1]) out.push({shape:'trunk',r:6,h:Math.hypot(cy,R*0.45),y:0,taper:0.8,tilt:Math.atan2(R*0.45,cy),toward:[-ux*sd,-uz*sd],dx:ux*sd*R*0.45,dz:uz*sd*R*0.45,color:'#8a8f96'});
-          for(let i=0;i<8;i++)out.push({shape:'trunk',r:2,h:R,y:cy,taper:1,tilt:i*Math.PI/4,toward:[ux,uz],color:'#e8e8e4'});
+          for (const sd of [-1,1]) out.push({shape:'trunk', neutralColor:true,r:6,h:Math.hypot(cy,R*0.45),y:0,taper:0.8,tilt:Math.atan2(R*0.45,cy),toward:[-ux*sd,-uz*sd],dx:ux*sd*R*0.45,dz:uz*sd*R*0.45,color:'#8a8f96'});
+          for(let i=0;i<8;i++)out.push({shape:'trunk', neutralColor:true,r:2,h:R,y:cy,taper:1,tilt:i*Math.PI/4,toward:[ux,uz],color:'#e8e8e4'});
           for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4; out.push({ shape: 'box', rx: 9, rz: 9, h: 14, y: R + 40 + Math.cos(a) * R - 7, ang, color: ['#f2b63a', '#3f7fc8', '#e2554f', '#4fb56a'][i % 4], dx: Math.sin(ang) * Math.sin(a) * R, dz: Math.cos(ang) * Math.sin(a) * R }); }
           return out; }
         case 'fountain': return [{ shape: 'pool', r: Math.max(30, r), y: 0 }, { shape: 'wpost', r: 6, h: 40, y: 0, color: c }, { shape: 'mist', r: 14, sy: 1.2, y: 40, fx: 0, fz: -1 }];
@@ -1723,7 +1715,7 @@
         case 'bike': {
           // VQ: two connected frame triangles, fork, saddle and cross-handle.
           const ux = Math.sin(ang), uz = Math.cos(ang), at = t => ({ dx: ux * t, dz: uz * t });
-          const tube = (a,b) => Object.assign({ shape:'trunk', r:1.2, h:Math.hypot(b[0]-a[0],b[1]-a[1]), y:a[1], taper:1,
+          const tube = (a,b) => Object.assign({ shape:'trunk', neutralColor:true, r:1.2, h:Math.hypot(b[0]-a[0],b[1]-a[1]), y:a[1], taper:1,
             tilt:Math.atan2(b[0]-a[0],b[1]-a[1]), toward:[ux,uz], color:c },at(a[0]));
           const rear=[-13,10], crank=[0,8], seat=[-4,24], neck=[11,26], front=[13,10];
           return [Object.assign({shape:'arch',r:10,y:10,ang,color:'#2f3034'},at(-13)), Object.assign({shape:'arch',r:10,y:10,ang,color:'#2f3034'},at(13)),
