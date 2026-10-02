@@ -254,9 +254,11 @@ test('v2-11. 川(river_lake)= terrain.pts からの 1 本の 帯(岸つき)。�
   const d = M.buildWorld('deepsea', reg, { world3d: true });
   assert.equal(d.terrain.kind, 'chasm'); assert.ok(d.spots.filter((q) => q.kind === 'water').some((q) => pondCovered(d, q, M.shoreX)));
   // レンダラー: 川 / 谷は stripGeometryData の 帯(bank + water)。旧「うみ = shore / pool の 帯を ならべる」は のこって いない
-  assert.match(SRC, /T\.kind === 'river' \|\| T\.kind === 'chasm'/, '川 / 谷の 帯');
-  assert.match(SRC, /'water:' \+ T\.kind/, '川の mesh');
-  assert.match(SRC, /'water:bank'/, '岸');
+  // 2026-10-02 Geometry pass(Creek / River v3): 川は 小川と おなじ ながれ(streams3d)の 谷の 断面(water:bank)+ 水面(water:river)。谷(chasm)は いままでの 帯
+  assert.match(SRC, /T\.kind === 'chasm' \|\| \(T\.kind === 'river' && !terr\)/, '谷の 帯(地形の ない とき は 川も)');
+  assert.match(SRC, /'water:' \+ T\.kind/, '谷の mesh');
+  assert.match(SRC, /river \? 'water:bank' : 'water:creekbed'/, '川の 岸 / 谷の 断面');
+  assert.match(SRC, /river \? waterMat : streamMat, river \? 'water:river' : 'water:creek'/, '川の 水面');
   assert.ok(!/if \(prof\.sea && world\.terrain && world\.terrain\.kind === 'coast'\)/.test(SRC), 'うみの 帯ならべ(pond chain)が のこって いない');
   assert.ok(!/for \(const q of ponds\) \{ push\('shore'/.test(SRC), '池の instanced disc ならべが のこって いない');
 });
@@ -323,9 +325,10 @@ test('v2-14. Kit v2 の 原型: 昆布は 曲がった は(木 / 柱では な�
   // はし(forest: まるた / いし、jungle / star_stop: ロープ / 光)
   const f = objsOf('forest'), log = f.find((o) => o.kind === '🌉' && o.spot === 'bridge1'), stone = f.find((o) => o.kind === '🌉' && o.spot === 'bridge2');
   assert.ok(log && log.parts.filter((pt) => pt.shape === 'log').length === 3 && log.parts.filter((pt) => pt.shape === 'wpost').length >= 4, 'まるたの はし = 丸太 3 本 + 支柱');
-  // 2026-10-01 Art Direction v1(Bridge v3): 床は 水面より 上・両はしの だん(ramp)・橋脚 が ふえた ので、両わきの 石 = 床の 上(y = 床)の 箱 2 つ で 見る
-  assert.ok(stone && stone.parts.some((pt) => pt.shape === 'slab') && stone.parts.filter((pt) => pt.shape === 'box' && pt.h === 14).length === 2, 'いしの はし = 石の いた + 両わきの 石');
-  assert.ok(stone.parts.find((pt) => pt.shape === 'slab').y + 10 > 2.4 && stone.parts.filter((pt) => pt.shape === 'box' && pt.h < 14).length >= 4, 'いしの はし: 床は 水面より 上・橋脚 と だん');   // AD v1
+  // 2026-10-01 Art Direction v1(Bridge v3): 床は 水面より 上・両はしの だん(ramp)・橋脚 が ふえた
+  // 2026-10-02 Geometry pass(Bridge v4): いしの はし = あつい 石の 床(slab)+ 欄干 2 つ(h 16)+ アーチ 2 つ + 橋台 + だん。床の 上面は 小川の 水面(−9)より 上
+  assert.ok(stone && stone.parts.some((pt) => pt.shape === 'slab') && stone.parts.filter((pt) => pt.shape === 'box' && pt.h === 16).length === 2, 'いしの はし = 石の いた + 両わきの 欄干');
+  assert.ok(stone.parts.filter((pt) => pt.shape === 'arch').length === 2 && stone.parts.find((pt) => pt.shape === 'slab').y + 10 > -9 && stone.parts.filter((pt) => pt.shape === 'box' && pt.solidBox && pt.rz <= 20).length >= 4, 'いしの はし: アーチ・床は 水面より 上・橋台 と だん');
   const rope = [...objsOf('jungle'), ...objsOf('mountain')].find((o) => o.kind === 'ropebridge'), light = objsOf('star_stop').find((o) => o.kind === 'lightbridge');
   if (rope) assert.ok(rope.parts.some((pt) => pt.shape === 'plank') && rope.parts.filter((pt) => pt.shape === 'rail').length === 2 && rope.parts.filter((pt) => pt.shape === 'wpost').length >= 6, 'ロープの はし');
   if (light) assert.ok(light.parts.some((pt) => pt.shape === 'wslab') && light.parts.some((pt) => pt.shape === 'glowdisc'), '光の はし');

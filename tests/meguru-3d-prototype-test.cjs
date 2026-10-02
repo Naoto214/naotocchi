@@ -174,7 +174,8 @@ test('3c. せかいは 3D・キャラだけ 2D: けしきの 物に 立て看板
   assert.ok(glow.parts.filter((pt) => pt.shape === 'glowcap').length >= 4, 'まわりにも ひかる 小さな きのこ');
   // event の 対象(spot の しるし・ランドマーク)は 名まえ どおりの かたち
   // 2026-10-01 AD v1: 群生の 植生(dressing)は props に ない 3D だけの 物(pi なし)なので ここでは 見ない
-  const spotObjs = objs.objects.filter((ob) => !ob.dressing && (w3.props[ob.pi].spot || w3.props[ob.pi].landmark));
+  // 2026-10-02 Geometry pass: 飛び石(ford)・交わりに 足した 橋 も props に ない 3D だけの 物(pi なし)
+  const spotObjs = objs.objects.filter((ob) => ob.pi != null && !ob.dressing && (w3.props[ob.pi].spot || w3.props[ob.pi].landmark));
   assert.ok(spotObjs.length >= 15, 'spot の しるし ' + spotObjs.length);
   const WANT = { '🌉': ['plank', 'slab', 'log'], '🪧': ['post'], '🪵': ['log'], '🍄': ['stem'], mushroomcluster: ['stem'], '🌳': ['trunk'], '🪨': ['mound', 'rock'], bigrock: ['mound', 'rock'],   /* 2026-10-01 Kit v2(Rock v2): 岩は ごつごつの かたまり(mound) */ log: ['log'], springpool: ['pool'], '🌼': ['flower'], 'LM:bigtree': ['trunk'], 'LM:waterfall': ['cliff'], 'LM:glowmushroom': ['glowcap'] };
   for (const ob of spotObjs) { const want = WANT[ob.kind]; assert.ok(want, 'spot の しるし ' + ob.kind + ' の きまり'); assert.ok(ob.parts.some((pt) => want.includes(pt.shape)), ob.kind + ' → ' + want.join('/')); }
@@ -208,7 +209,8 @@ test('3d. すかし(occlusion)は カメラ → player の あいだに ある �
   // レンダラーの 中に「きょりで 透明に する」みちは ない: 透明の material は 水・あわ・しぶき・ぬれた 地面・光・まだら・かげ・ghost だけ
   const src = fs.readFileSync(path.join(ROOT, 'meguru-3d.mjs'), 'utf8');
   // 2026-10-01 v2 CP3: 水の 面(waterMat / chasm / pond)も 透明の ゆるし表に(Water v2。きょりで 透明に する ものでは ない)
-  for (const line of src.split('\n').filter((l) => /transparent: true/.test(l))) assert.match(line, /pool|fall|foam|wet|mist|glowdisc|spark|patch|shadows|ghostMat|'#000000'|waterMat|chasm|'water:pond'/, '透明の material: ' + line.trim().slice(0, 80));
+  // 2026-10-02 Geometry pass: 小川の 水面(streamMat)も 水の 面
+  for (const line of src.split('\n').filter((l) => /transparent: true/.test(l))) assert.match(line, /pool|fall|foam|wet|mist|glowdisc|spark|patch|shadows|ghostMat|'#000000'|waterMat|streamMat|chasm|'water:pond'/, '透明の material: ' + line.trim().slice(0, 80));
   assert.ok(!/opacity\s*=\s*[^;]*(dist|Math\.hypot)/.test(src), 'きょりで opacity を かえない');
   // 2026-10-01 v2(Human QA v1 F1): きりは 地域の profile から だが、遠端は player までの きょり + 900 より 手前には 来ない(player を きりで 消さない)
   assert.match(src, /fog\.near = Math\.max\(fr\[0\] \* fogK, playerDist \* 0\.9\)/, 'きり は 地域の profile から(きょりの 透明化 では ない)');
@@ -337,7 +339,8 @@ test('9. 全地域: 3D profile が あり、意味の 表で ぜんぶ 解決し
     }
     // ランドマークは ぜんぶ 見た目が あり、あたり = いち
     // 2026-10-01 AD v1: 群生の 植生(dressing)は props に ない 3D だけの 物(pi なし)
-    for (const ob of o.objects.filter((q) => !q.dressing && w.props[q.pi].landmark)) { assert.ok(ob.parts.length >= 1, rid + ' ランドマーク ' + ob.kind); assert.ok(ob.collision && ob.x === ob.collision.x, rid + ' ランドマークの あたり ' + ob.kind); }
+// 2026-10-02 Geometry pass: pi なし(3D だけの 飛び石 / 交わりに 足した 橋)は のぞく
+    for (const ob of o.objects.filter((q) => q.pi != null && !q.dressing && w.props[q.pi].landmark)) { assert.ok(ob.parts.length >= 1, rid + ' ランドマーク ' + ob.kind); assert.ok(ob.collision && ob.x === ob.collision.x, rid + ' ランドマークの あたり ' + ob.kind); }
     // 2D は かわらない: 3D モードで ふえた / へった props は 3D だけ
     const w2d = M.buildWorld(rid, reg, {});
     assert.ok(!w2d.world3d && !w2d.props.some((p) => p.moved3d || p.drop3d || p.satellite3d || p.collider3d), rid + ' 2D に 3D の しるし なし');

@@ -195,20 +195,28 @@ test('AD-11. 水の 統合: 川は なめらかに 曲がり はばが ゆれる
   assert.ok(new Set(bank.map((o) => o.kind)).size >= 3, '岸は 石 / あし / 草 / 花 の まざり');
 });
 
-test('AD-12. Bridge v3: 床は 水面(2.4)より 上・両はしの だん・床を ささえる 支柱 / 橋脚 が 地面から・てすり か 両わきの 石(よこから 見ても はし)', () => {
-  let n = 0;
+// 2026-10-02 Geometry pass(Human QA AD v1 HQ-8「橋は ベンチ / 板」): Bridge v3 の 契約を Bridge v4 に 再仕様化。
+// 橋は ながれの 交わり(小川 / 川 / 水の ない 谷)に すわり、ながさは 水の はば から。床の 上面は 水面(小川 −9・川 −11)より 13 いじょう 上
+test('AD-12. Bridge v4: 交わりに かかる(ながさ ≥ 水の はば)・床の 上面は 水面より 上・床より 下から ささえる 橋脚 / 橋台・種類で かたちが ちがう', () => {
+  let n = 0; const sig = {};
   for (const rid of ['forest', 'river_lake', 'jungle', 'mountain', 'countryside', 'star_stop']) for (const o of objsOf(rid).objects.filter((q) => q.type === 'bridge')) {
     n++;
     const deck = o.parts.find((p) => p.shape === 'plank' || p.shape === 'slab' || p.shape === 'log' || (p.shape === 'wslab' && p.len > 60));
     assert.ok(deck, o.id + ' 床');
     const top = deck.shape === 'plank' ? deck.y + 8 : deck.shape === 'slab' ? deck.y + 10 : deck.shape === 'log' ? deck.y + deck.r * 2 : deck.y + deck.h;
-    assert.ok(top > 2.4, o.id + ' 床の 上面 ' + top.toFixed(1) + ' > 水面 2.4');
-    const supports = o.parts.filter((p) => (p.shape === 'wpost' || p.shape === 'box') && p.y === 0 && p.h >= 5);
-    assert.ok(supports.length >= 2, o.id + ' 支柱 / 橋脚 ' + supports.length);
-    if (!/light/.test(o.kind)) assert.ok(o.parts.some((p) => p.shape === 'rail') || o.parts.filter((p) => p.shape === 'box' && p.h === 14).length === 2 || o.parts.filter((p) => p.shape === 'log').length === 3, o.id + ' てすり / 両わきの 石 / 丸太 3 本');
-    if (!/light/.test(o.kind)) assert.ok(o.parts.filter((p) => p.shape === 'box' && p.rz === 16).length === 2, o.id + ' 両はしの だん');
+    assert.ok(top >= 4, o.id + ' 床の 上面 ' + top.toFixed(1) + ' ≥ 4(水面 −9 / −11 より 上)');
+    if (o.bridgeKind === 'light') continue;
+    assert.ok(o.crossing, o.id + ' 交わり(小川 / 川 / 谷)に かかる');
+    assert.ok(deck.len >= o.crossing.w * 2, o.id + ' ながさ ' + Math.round(deck.len) + ' ≥ 水の はば ' + Math.round(o.crossing.w * 2));
+    const supports = o.parts.filter((p) => ['wpost', 'box', 'stone'].includes(p.shape) && (p.y || 0) < top - 4);
+    assert.ok(supports.length >= 2, o.id + ' 床より 下から ささえる 物 ' + supports.length);
+    if (o.bridgeKind === 'log') assert.ok(o.parts.filter((p) => p.shape === 'log').length === 3 && o.parts.some((p) => p.shape === 'rail'), o.id + ' 丸太 3 本 + ロープ');
+    if (o.bridgeKind === 'stone') assert.ok(o.parts.filter((p) => p.shape === 'arch').length === 2 && o.parts.filter((p) => p.shape === 'box' && p.h === 16).length === 2, o.id + ' アーチ + 欄干');
+    if (o.bridgeKind === 'wood' || o.bridgeKind === 'rope') assert.ok(o.parts.filter((p) => p.shape === 'rail').length >= 2, o.id + ' てすり');
+    sig[o.bridgeKind] = [...new Set(o.parts.map((p) => p.shape))].sort().join('/');
   }
   assert.ok(n >= 6, 'はし ' + n);
+  assert.ok(sig.log && sig.wood && sig.stone && new Set([sig.log, sig.wood, sig.stone]).size === 3, '丸太 / 木 / 石 は かたちの くみあわせが ちがう(色ちがい では ない)');
 });
 
 test('AD-13. さばくの サボテンは 大きく 4 種(柱・枝分かれ・まる・むれ)。オアシスの まわりは 花 で 対比', () => {
