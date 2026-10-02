@@ -543,9 +543,10 @@ function create3DRenderer(M, o, onLost) {
     // 地面: ground の 2 色で まだらに(のっぺり しない。1 まいの 小さな texture を くりかえす)。
     // corridor では 地面の いろが すすみぐあいで かわる(world.setProgress)ので、いろの 鍵が かわった frame で 描きなおす(refreshGround)
     const gc = doc.createElement('canvas'); gc.width = gc.height = 128;
+    let groundOverride = null;   // 季節の 地面の いろ(山: 夏は 高原の みどり、冬は 雪)
     const paintGround = () => {
       // Art Direction v1: 3D だけ 地面の いろを 地域の profile(ground3d)で さしかえられる(まちの アスファルトを 明るい 灰に。2D は かわらない)
-      const g3 = (!world.corridor && prof0 && prof0.ground3d) || world.ground;
+      const g3 = groundOverride || (!world.corridor && prof0 && prof0.ground3d) || world.ground;
       const gg = gc.getContext('2d'); gg.globalAlpha = 1; gg.fillStyle = g3[0]; gg.fillRect(0, 0, 128, 128);
       for (let i = 0; i < 90; i++) { gg.fillStyle = i % 3 ? g3[1] : g3[0]; gg.globalAlpha = 0.18; gg.beginPath(); gg.arc(hash01('gx' + i) * 128, hash01('gz' + i) * 128, 6 + hash01('gr' + i) * 14, 0, TAU); gg.fill(); }
     };
@@ -883,6 +884,7 @@ function create3DRenderer(M, o, onLost) {
     const ghostGeo = (shape) => GEO[GEO_ALIAS[shape] || shape];
     for (const k of Object.keys(MAT_ALIAS)) ghostMat[k] = ghostMat[MAT_ALIAS[k]];
     return { sc, hemi, sun, amb, meshes, boards, actorGeo, shadows, actors: new Map(), disposables, objects: count, lastYaw: null, seasonKey: null, refreshGround, water, waterAnim,
+      setGroundColors: (cols) => { const k = cols ? cols.join(',') : ''; if ((groundOverride ? groundOverride.join(',') : '') === k) return; groundOverride = cols; paintGround(); gt.needsUpdate = true; if (gt2) gt2.needsUpdate = true; },
       occluders, hidden: new Set(), ghostPool: [], ghostTint: new Map(), rayGrid: buildRayGrid(inst, NO_FADE), inst, terr, camY: null, ghostStat: { visible: 0, attached: 0, total: 0 }, ghostMat, ghostGeo, inst, anim: { fall: MAT.fall.map, foam: MAT.foam, mist: MAT.mist, spark: MAT.spark }, prof };
   }
 
@@ -959,9 +961,23 @@ function create3DRenderer(M, o, onLost) {
     const playerDist = Math.hypot(camera.position.x - view.player.x, camera.position.y, camera.position.z + view.player.z);
     built.sc.fog.near = Math.max(fr[0] * fogK, playerDist * 0.9); built.sc.fog.far = Math.max(fr[1] * fogK / (1 + (mood.fog || 0) * 3), playerDist + 900);
     if (pf.underwater) { if (!(built.sc.background && built.sc.background.isColor)) built.sc.background = new THREE.Color(); built.sc.background.copy(fogC); built.hemi.intensity *= 0.7; built.sun.intensity *= 0.4; built.amb.intensity *= 0.6; }
-    // 季節: 広葉樹の 葉の いろ
-    const sk = env.season || 'summer';
-    if (built.seasonKey !== sk) { built.seasonKey = sk; if (built.meshes.crown) built.meshes.crown.material.color.set(SEASON_CROWN[sk] || SEASON_CROWN.summer); if (built.meshes.cone) built.meshes.cone.material.color.set(SEASON_CONIFER[sk] || SEASON_CONIFER.summer); }
+    // 季節: 広葉樹の 葉の いろ(大木の かんむり も)。Geometry pass(季節の 監査): 地域の seasons3d が ある ところ(山)は 季節で 地面の いろ を かえ、
+    // 冬 / 雪の 日は 雪(地面・がけの 上・こけ・屋根・針葉樹 が 白く、花は かくす)
+    const sk = env.season || 'summer', SS = built.prof && built.prof.seasons3d, snowy = !!(SS && (sk === 'winter' || env.weather === 'snow')), skey = sk + (snowy ? ':snow' : '');
+    if (built.seasonKey !== skey) {
+      built.seasonKey = skey;
+      if (built.meshes.crown) built.meshes.crown.material.color.set(SEASON_CROWN[sk] || SEASON_CROWN.summer);
+      if (built.meshes.crownBig) built.meshes.crownBig.material.color.set(SEASON_CROWN[sk] || SEASON_CROWN.summer);
+      if (built.meshes.cone) built.meshes.cone.material.color.set(snowy ? '#eef3f4' : SEASON_CONIFER[sk] || SEASON_CONIFER.summer);
+      if (SS) {
+        built.setGroundColors(snowy ? SS.winter : SS[sk] || null);
+        for (const k of ['cliff', 'mound']) if (built.meshes[k]) built.meshes[k].material.color.set(snowy ? '#eef2f6' : '#c4c1b8');
+        if (built.meshes.moss) built.meshes.moss.material.color.set(snowy ? '#f6f9fc' : '#5f8c46');
+        for (const k of ['roof4', 'roof6', 'gable']) if (built.meshes[k]) built.meshes[k].material.color.set(snowy ? '#f4f7fa' : '#ffffff');
+        for (const k of ['petal', 'nut8', 'blade']) if (built.meshes[k]) built.meshes[k].visible = !snowy;   // 雪の 上の 花 / 草の ほ は かくす
+        if (built.meshes.cone && built.meshes.cone.material.emissive) built.meshes.cone.material.emissive.set(snowy ? '#7f8f96' : '#000000');   // 雪を かぶった 針葉樹(かけ算では 明るく できない ので 自己発光を すこし)
+      }
+    }
     // 立て看板は カメラの むきが かわった ときだけ むきなおす
     if (built.lastYaw === null || Math.abs(built.lastYaw - c.yaw) > 0.004) {
       built.lastYaw = c.yaw;
@@ -996,7 +1012,7 @@ function create3DRenderer(M, o, onLost) {
     adaptDpr(now || 0);
     diag.frames++; diag.lastPlayer = player;
     renderer.render(scene, camera);
-    drawOverlay(view, camera);
+    drawOverlay(view, now);
     if (t0) { frameMs.push(performance.now() - t0); if (frameMs.length > 240) frameMs.shift(); }
   }
 
@@ -1101,9 +1117,18 @@ function create3DRenderer(M, o, onLost) {
   // うえの 2D canvas: 名まえ と ふきだし だけ(3D の いちを 画面に うつして えがく)
   const v3 = new THREE.Vector3();
   function toScreen(x, y, z) { v3.set(x, y, -z).project(camera); return v3.z > 1 ? null : { sx: (v3.x + 1) / 2 * W, sy: (1 - v3.y) / 2 * H }; }
-  function drawOverlay(view) {
+  function drawOverlay(view, now) {
     if (!ctx) return;
     ctx.clearRect(0, 0, W, H);
+    // Geometry pass(天気の 監査): 3D でも 雨 / 雪 の つぶ を 画面に(2D では 2D の canvas が えがく。3D では なかった)。うごきを へらす 設定では 出さない
+    const wx = view.env && view.env.weather, under = built && built.prof && built.prof.underwater;
+    if (animLv > 0 && !under && (wx === 'rain' || wx === 'snow')) {
+      const t = (now || 0) / 1000, n = wx === 'rain' ? 70 : 55;
+      ctx.save();
+      if (wx === 'rain') { ctx.strokeStyle = 'rgba(210,225,245,.55)'; ctx.lineWidth = 1.2; ctx.beginPath(); for (let i = 0; i < n; i++) { const x = (hash01('rx' + i) * W + t * 60) % W, y = (hash01('ry' + i) * H + t * 900) % H; ctx.moveTo(x, y); ctx.lineTo(x - 4, y + 14); } ctx.stroke(); }
+      else { ctx.fillStyle = 'rgba(255,255,255,.85)'; for (let i = 0; i < n; i++) { const x = (hash01('sx' + i) * W + Math.sin(t * 0.8 + i) * 14) % W, y = (hash01('sy' + i) * H + t * (40 + hash01('sv' + i) * 40)) % H, r = 1.4 + hash01('sr' + i) * 1.8; ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill(); } }
+      ctx.restore();
+    }
     const p0 = view.player;
     for (const a of [...(view.party || []), ...(view.residents || [])]) {
       const d = Math.hypot(a.x - p0.x, a.z - p0.z);
