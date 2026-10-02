@@ -241,8 +241,9 @@ test('camera-relative input, a camera that turns toward the walk direction, spot
   assert.ok(sim.player.x > x0 + 40, 'forward on the pad follows the camera heading');
   // むきの はんてい(レンダラーが え を えらぶ ための やくそく)
   assert.equal(M.facingOf(0, 0), 'back'); assert.equal(M.facingOf(Math.PI, 0), 'front'); assert.equal(M.facingOf(Math.PI / 2, 0), 'right'); assert.equal(M.facingOf(-Math.PI / 2, 0), 'left');
-  assert.deepEqual(JSON.parse(JSON.stringify(M.spriteFor({ sprites: { front: 'a.png' }, asset: 'a.png', face: 1 }, 'left'))), { asset: 'a.png', flip: true });
-  assert.deepEqual(JSON.parse(JSON.stringify(M.spriteFor({ sprites: { front: 'a.png', side: 's.png' }, asset: 'a.png', face: 1 }, 'right'))), { asset: 's.png', flip: false });
+  // base = ふつうの え(表情の えが まだ よめない ときに レンダラーが もどる さき)。表情が なければ asset と おなじ
+  assert.deepEqual(JSON.parse(JSON.stringify(M.spriteFor({ sprites: { front: 'a.png' }, asset: 'a.png', face: 1 }, 'left'))), { asset: 'a.png', base: 'a.png', flip: true });
+  assert.deepEqual(JSON.parse(JSON.stringify(M.spriteFor({ sprites: { front: 'a.png', side: 's.png' }, asset: 'a.png', face: 1 }, 'right'))), { asset: 's.png', base: 'a.png', flip: false });
   // ちずの データ: かくし ばしょは みつけるまで のらない
   const map = sim.mapData();
   assert.ok(map.spots.every((s) => !s.secret), 'secret spots are hidden from the map until discovered');
