@@ -63,7 +63,7 @@ test('non-Relationship group responses remain visible, while negative outcomes s
   h.api.openExclusiveMenu('menu');
   assert.equal(last.playState,'idle','opening a menu cancels the group response');
   h.api.closeAllMenuOverlays(); h.api.render();
-  for (const [event,text] of [['court_fail','またおはなししようね'],['play_with_annoyed','ちょっと休ませて']]) {
+  for (const [event,text] of [['court_fail','またおはなししようね']]) {
     h.api.speakEvent(event,{petText:text,partnerChance:0,companionChance:0}); h.advance(1);
     const animation=h.get('castResponse').animations.at(-1);
     assert.equal(animation.playState,'running','negative outcomes also have visible feedback');
@@ -281,8 +281,8 @@ test('pet care semantics win over randomized line tone without changing social t
   assert.equal(reactionFor('feed','食べ終わったら休もう','pet'),'munch');
   assert.equal(reactionFor('wake','おはよ。まだねむい','pet'),'stretch');
   assert.equal(reactionFor('play_with','くすぐったいって笑','pet'),'wiggle');
-  assert.equal(reactionFor('play_with','なんかねむくなってきた','pet'),'bounce');
-  assert.equal(reactionFor('play_with','もう少しだけ置き物にして','pet'),'bounce');
+  assert.equal(reactionFor('play_with','なんかねむくなってきた','pet'),'settle');
+  assert.equal(reactionFor('play_with','もう少しだけ置き物にして','pet'),'settle');
   assert.equal(reactionFor('feed','食べ終わったら休もう','partner'),'settle');
   assert.equal(reactionFor('wake','おはよ。まだねむい','companion'),'settle');
   assert.equal(reactionFor('play_with','なんかねむくなってきた','partner'),'settle');

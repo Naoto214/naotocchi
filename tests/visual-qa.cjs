@@ -114,6 +114,25 @@ function createFixtures() {
         Object.assign(save.lifetime,{ownedShopItems:['ribbon'],equippedItemId:'ribbon',
           timeMode:'day',weatherMode:'sunny',seasonMode:'summer'});
       }
+      // L2: reload a complete save, then use the actual Home care buttons.
+      for (const action of ['feed','play','clean','wake']) {
+        for (const [scene,count,paired] of [['solo',0,false],['pair',0,true],['few',3,true],['dense26',26,true]]) {
+          const save=make('l2_'+action+'_'+scene,count,{
+            speciesLine:'cat',ageTicks:25*api.AGE_TICKS_PER_YEAR,stageIndex:api.stageForAge(25),
+            partner:paired?partner('forest_bear',{married:true,affection:80}):null,
+            isSick:false,isSleeping:action==='wake',health:90,energy:80,hunger:45,happiness:80,
+            poopCount:3,decline:0,deathMeter:0,dying:false,affectionStreak:0,transformMeter:0,
+          });
+          save.savedAt=0;
+          Object.assign(save.lifetime,{ownedShopItems:['ribbon'],equippedItemId:'ribbon',
+            timeMode:'day',weatherMode:'sunny',seasonMode:'summer'});
+        }
+      }
+      for(const action of ['play','clean']) {
+        const save=JSON.parse(JSON.stringify(fixtures['l2_'+action+'_dense26']));
+        save.companions.forEach(c=>c.bond=20);save.partner.affection=20;
+        fixtures['l2_'+action+'_'+(action==='play'?'rescue26':'lonely26')]=save;
+      }
       // Status fixtures use the same production save format and life rules.
       // Critical scenes have a short real lifetime; load again to observe care.
       make('care_health_zero',26,{health:0,hunger:0,happiness:0,energy:0,
