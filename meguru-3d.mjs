@@ -89,6 +89,9 @@ function createHybridRenderer(M, o, opts) {
     get is3D() { return active; },
     get failed() { return failed; },
     stats3d() { return r3d ? r3d.stats() : null; },
+    probeNow() { return r3d && active ? r3d.probeNow() : null; },   // QA(Geometry pass HQ-2)
+    frames3d() { return r3d ? r3d.frames() : 0; },
+    triBreakdown() { return r3d ? r3d.triBreakdown() : null; },
     loseContext() { if (r3d) r3d.loseContext(); },   // QA: context lost の ためし
     setOccluderFade(on) { fadeOn = !!on; if (r3d) r3d.setOccluderFade(fadeOn); },   // QA: すかし あり / なし の くらべ
     setAdaptiveDpr(on) { adaptiveOn = !!on; if (r3d) r3d.setAdaptiveDpr(adaptiveOn); },   // QA: headless の しゃしんは 解像度を 固定
@@ -821,6 +824,7 @@ function create3DRenderer(M, o, onLost) {
     if (!playerVis.ok) playerMiss++;
     if (diag.on && (view.frame || 0) % 4 === 0) { diag.ray = rayProbe(built, player); diag.rayChecks++; if (!diag.ray.seen) diag.occlFrames++; }
     adaptDpr(now || 0);
+    diag.frames++; diag.lastPlayer = player;
     renderer.render(scene, camera);
     drawOverlay(view, camera);
     if (t0) { frameMs.push(performance.now() - t0); if (frameMs.length > 240) frameMs.shift(); }
@@ -831,7 +835,7 @@ function create3DRenderer(M, o, onLost) {
   const ZERO = new THREE.Matrix4().makeScale(0, 0, 0);
   let fade = true, animLv = 2, playerVis = { ok: true, why: '' }, playerMiss = 0;
   // 実機 診断(&perf=1 の ときだけ。production の UI には 出さない): ray で player が ほんとうに 見えて いるか・長い frame・解像度
-  const diag = { on: false, ray: { seen: 3, of: 3, blk: '' }, occlFrames: 0, rayChecks: 0, uploads: 0, longFrames: 0, adaptive: true, dprSteps: [] };
+  const diag = { frames: 0, lastPlayer: null, on: false, ray: { seen: 3, of: 3, blk: '' }, occlFrames: 0, rayChecks: 0, uploads: 0, longFrames: 0, adaptive: true, dprSteps: [] };
   // Geometry pass(HQ-1 / HQ-3): ①かわった instance だけ GPU へ(addUpdateRange。以前は 形 ごとの instance 全部 = 数千 × 64 byte を
   // すかしが 出入り する たびに 送り なおして いた → iPhone で カクつき)②線分の ふちで 出たり 入ったり しない ように、
   // いちど すかした 物は 線分から はずれて FADE_HOLD frame(≒ 0.1 秒)は すかした まま(ちらつきが 残像に 見える の を ふせぐ)
@@ -977,6 +981,10 @@ function create3DRenderer(M, o, onLost) {
     setOccluderFade(on) { fade = !!on; },
     setAnimLevel(v) { animLv = v; },
     setDiag(on) { diag.on = !!on; },
+    // QA: いまの カメラ と player で すぐ ray を しらべる(headless の walk audit 用)。frames = 描いた frame の 数
+    probeNow() { return built && diag.lastPlayer ? Object.assign({ frames: diag.frames, ghosts: built.ghostStat.visible, hidden: built.hidden.size }, rayProbe(built, diag.lastPlayer)) : null; },
+    frames() { return diag.frames; },
+    triBreakdown() { if (!built) return null; const out = {}; for (const [k, m] of Object.entries(built.meshes)) { const g = m.geometry, n = (g.index ? g.index.count : g.attributes.position.count) / 3; out[k] = { inst: m.count, tri: n, total: n * m.count }; } return out; },
     setAdaptiveDpr(on) { diag.adaptive = !!on; },
     destroy() {
       if (built) disposeScene(built);
