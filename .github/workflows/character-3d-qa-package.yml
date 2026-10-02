@@ -1,0 +1,56 @@
+name: Character 3D QA artifact packaging
+
+on:
+  push:
+    branches: [feat/character-3d-pilot]
+    paths: ['.github/workflows/character-3d-qa-package.yml']
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Wait for the exact verified source run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in $(seq 1 90); do
+            gh api repos/Naoto214/naotocchi/actions/runs/37015588369 > run.json
+            test "$(jq -r .head_sha run.json)" = 754e2fad039d8d3f3264356ade057352af0dadcd
+            if test "$(jq -r .status run.json)" = completed; then
+              test "$(jq -r .conclusion run.json)" = success
+              exit $?
+            fi
+            sleep 20
+          done
+          exit 1
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          repository: Naoto214/naotocchi
+          run-id: 37015588369
+          name: character-3d-quality-754e2fad039d8d3f3264356ade057352af0dadcd
+          path: qa
+      - uses: actions/upload-artifact@v4
+        with:
+          name: character-3d-final-comparisons
+          path: qa/comparisons
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        with:
+          name: character-3d-final-meguru
+          path: qa/meguru
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        with:
+          name: character-3d-final-measurements
+          path: |
+            qa/*.tap
+            qa/*.txt
+            qa/perf-claude
+            qa/perf-revised
+          retention-days: 14
