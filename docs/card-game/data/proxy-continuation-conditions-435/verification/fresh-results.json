@@ -1,0 +1,94 @@
+{
+  "planned": 8,
+  "completed": 0,
+  "stopped": 8,
+  "not_executed": 0,
+  "independent_replay_verified": 8,
+  "full_snapshot_condition_proofs_verified": 82,
+  "historical_scope_planned": 21,
+  "historical_scope_audited": 21,
+  "comparable_normal_views": 10,
+  "selected_difference": 5,
+  "routes": [
+    {
+      "path_id": "probe-01-a-first",
+      "policy": "legacy_107_114_116",
+      "seq": 31,
+      "stop": {
+        "code": "unsupported_contract_boundary",
+        "detail": "unproved ability capability: M-beetle-02",
+        "stage": "normal_action"
+      }
+    },
+    {
+      "path_id": "probe-01-a-first",
+      "policy": "resource_value_pilot_v1",
+      "seq": 27,
+      "stop": {
+        "code": "unsupported_contract_boundary",
+        "detail": "normal resolution adapter unavailable: place_world",
+        "stage": "normal_action"
+      }
+    },
+    {
+      "path_id": "probe-01-b-first",
+      "policy": "legacy_107_114_116",
+      "seq": 24,
+      "stop": {
+        "code": "unsupported_contract_boundary",
+        "detail": "unproved ability capability: M-beetle-02",
+        "stage": "normal_action"
+      }
+    },
+    {
+      "path_id": "probe-01-b-first",
+      "policy": "resource_value_pilot_v1",
+      "seq": 26,
+      "stop": {
+        "code": "unsupported_contract_boundary",
+        "detail": "placement trigger requires non-egg resolution adapter",
+        "stage": "normal_action"
+      }
+    },
+    {
+      "path_id": "probe-02-a-first",
+      "policy": "legacy_107_114_116",
+      "seq": 51,
+      "stop": {
+        "code": "unsupported_contract_boundary",
+        "detail": "certain-result proof unavailable: place_world",
+        "stage": "normal_action"
+      }
+    },
+    {
+      "path_id": "probe-02-a-first",
+      "policy": "resource_value_pilot_v1",
+      "seq": 41,
+      "stop": {
+        "code": "unsupported_contract_boundary",
+        "detail": "certain-result proof unavailable: relationship",
+        "stage": "normal_action"
+      }
+    },
+    {
+      "path_id": "probe-02-b-first",
+      "policy": "legacy_107_114_116",
+      "seq": 79,
+      "stop": {
+        "code": "unsupported_contract_boundary",
+        "detail": "unproved ability capability: M-beetle-02",
+        "stage": "normal_action"
+      }
+    },
+    {
+      "path_id": "probe-02-b-first",
+      "policy": "resource_value_pilot_v1",
+      "seq": 33,
+      "stop": {
+        "code": "unsupported_contract_boundary",
+        "detail": "certain-result proof unavailable: relationship",
+        "stage": "normal_action"
+      }
+    }
+  ]
+}

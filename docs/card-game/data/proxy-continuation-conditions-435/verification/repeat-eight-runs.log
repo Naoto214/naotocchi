@@ -1,0 +1,8 @@
+continuation_public_prerequisites_v1:legacy_107_114_116:probe-01-a-first 31 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'unproved ability capability: M-beetle-02'}
+continuation_public_prerequisites_v1:resource_value_pilot_v1:probe-01-a-first 27 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'normal resolution adapter unavailable: place_world'}
+continuation_public_prerequisites_v1:legacy_107_114_116:probe-01-b-first 24 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'unproved ability capability: M-beetle-02'}
+continuation_public_prerequisites_v1:resource_value_pilot_v1:probe-01-b-first 26 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'placement trigger requires non-egg resolution adapter'}
+continuation_public_prerequisites_v1:legacy_107_114_116:probe-02-a-first 51 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'certain-result proof unavailable: place_world'}
+continuation_public_prerequisites_v1:resource_value_pilot_v1:probe-02-a-first 41 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'certain-result proof unavailable: relationship'}
+continuation_public_prerequisites_v1:legacy_107_114_116:probe-02-b-first 79 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'unproved ability capability: M-beetle-02'}
+continuation_public_prerequisites_v1:resource_value_pilot_v1:probe-02-b-first 33 {'code': 'unsupported_contract_boundary', 'stage': 'normal_action', 'detail': 'certain-result proof unavailable: relationship'}

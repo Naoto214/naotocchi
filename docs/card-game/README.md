@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+435: [公開前提条件の共通証明・最終検証完了](435-continuation-public-prerequisites.md)。途中保存remoteからfresh再開、同一入力8実行＋8再生と別再生成一致、82条件証拠を完全snapshotへ照合。結合197件・npm406件PASS、design/catalog errors0、505原本・114/414・過去775 data不変。完了0/停止8、112未実行、balance0、採用保留、PR259 Draft/open/unmerged。
+
 434: [共通継続契約の終了接続](434-continuation-end-bridge.md)。終了6段階の履歴証明、装着runtime維持、mainあり通常開始を正本から接続。同一入力8実行＋8再生一致、全停止。結合177件・npm406件PASS。最終独立レビュー1回の指摘修正済み。505/114/414・旧保存結果維持、112未実行、balance0、採用保留、PR259 Draft/open/unmerged。
 
 433: [432承認設計の共通継続契約実装](433-continuation-contract-implementation.md)。版付きstate/hash/replay、分類・系譜、main後の限定比較証拠、装着先を含む配置・応答を接続。同じ135入力から旧/new8軌跡を再実行し全停止、完走・勝敗・強さは未確認。旧結果との処理coverage差をpolicy差へ混ぜない。505/114/414・過去結果維持、112未実行、balance0、採用保留、PR259 Draft/open/unmerged。
