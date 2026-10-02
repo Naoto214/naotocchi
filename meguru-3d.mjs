@@ -166,30 +166,34 @@ function create3DRenderer(M, o, onLost) {
     }
     return glyphTexture(a.emoji || '🐾', o.wrapCtx || null, 'c') || solidTexture();
   }
-  // asset → { state: 'wait' | 'decoding' | 'ready' | 'blank' | 'error', tries, px(アルファの 合計), t }
+  // asset → { state: 'wait' | 'fetching' | 'ready' | 'error', px, t }
+  // iOS Safari の CDN preview では <img> → canvas が origin-clean でない場合がある。
+  // その状態を px=-1 のまま ready 扱いすると CanvasTexture の GPU upload が失敗しても mesh/map は存在し、
+  // 「影だけ・住民本体なし」になる。actor PNG は fetch → Blob → ImageBitmap を正本経路にして canvas を通さない。
   const pngState = new Map();
   function pngTexture(asset) {
     let st = pngState.get(asset);
     if (!st) { st = { state: 'wait', tries: 0, px: null, t: null, err: null }; pngState.set(asset, st); }
     if (st.state === 'ready') return st.t;
     if (st.state !== 'wait') return null;
-    const im = M.imageFor(asset);
-    if (!im) return null;   // まだ よみこみ中(imageFor が よみこみを はじめて いる)
-    st.state = 'decoding';
-    const copy = () => {
+    st.state = 'fetching';
+    const fail = (e) => { st.state = 'error'; st.err = String((e && e.message) || e); };
+    const fromBlob = async () => {
       try {
-        const w = im.naturalWidth || 128, h = im.naturalHeight || 128;
-        const c = doc.createElement('canvas'); c.width = w; c.height = h;
-        const g = c.getContext('2d'); g.clearRect(0, 0, w, h); g.drawImage(im, 0, 0, w, h);
-        let px = 0; try { const d = g.getImageData(0, 0, w, h).data; for (let i = 3; i < d.length; i += 16) px += d[i]; } catch (_) { px = -1; }
-        st.px = px;
-        // 画素が まだ ない: つぎの frame で もう いちど(6 回 まで)。それでも 空なら blank(base / 絵文字の まま)
-        if (px === 0) { st.tries++; st.state = st.tries < 6 ? 'wait' : 'blank'; return; }
-        st.t = { tex: canvasTexture(c), aspect: w / h, pad: 0, src: c, asset };
+        const res = await fetch(asset, { cache: 'force-cache', credentials: 'same-origin' });
+        if (!res.ok) throw new Error('actor png HTTP ' + res.status);
+        const blob = await res.blob();
+        if (typeof createImageBitmap !== 'function') throw new Error('createImageBitmap unavailable');
+        const bm = await createImageBitmap(blob);
+        if (!bm || !bm.width || !bm.height) throw new Error('empty ImageBitmap');
+        const tex = new THREE.Texture(bm);
+        tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 2; tex.needsUpdate = true;
+        st.px = 'bitmap';
+        st.t = { tex, aspect: bm.width / bm.height, pad: 0, src: bm, asset, bitmap: true };
         st.state = 'ready';
-      } catch (e) { st.state = 'error'; st.err = String((e && e.message) || e); }
+      } catch (e) { fail(e); }
     };
-    if (typeof im.decode === 'function') im.decode().then(copy, copy); else copy();
+    fromBlob();
     return null;
   }
   // さいごの 手: 絵文字も つくれない ときの 色の まる(きえる より まし)
