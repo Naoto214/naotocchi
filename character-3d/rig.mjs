@@ -191,7 +191,7 @@ export function atlasFor(style, withEyes) {
   em.forEach((e, i) => {
     let map = null;
     if (tex) { map = tex.clone(); map.repeat.set(1 / em.length, 1); map.offset.set(i / em.length, 0); map.needsUpdate = true; }
-    const m = new THREE.MeshLambertMaterial({ map, transparent: true, alphaTest: 0.08, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2, side: THREE.DoubleSide });
+    const m = new THREE.MeshLambertMaterial({ map, transparent: true, alphaTest: 0.08, forceSinglePass: true, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2, side: THREE.DoubleSide });
     m.name = 'c3d:face:' + e; mats[e] = m;
   });
   const out = { tex, mats, canvas: c, cells: em.length };

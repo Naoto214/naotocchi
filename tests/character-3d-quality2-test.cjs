@@ -21,8 +21,8 @@ test('hanging pod swings around its suspension rather than detaching from the br
  const rt=await mod('runtime.mjs'),an=await mod('animate.mjs'),{THREE}=await mod('geometry.mjs');const i=rt.instantiate(rt.getTemplate('butterfly',5));
  const larva=rt.instantiate(rt.getTemplate('butterfly',4));assert.doesNotThrow(()=>an.animate(larva,{dt:.1}), 'segmented hanging larva uses its existing chain rig');
  const top=new THREE.Vector3(0,i.meta.hangY,0);
- for(const emotion of ['normal','positive','dislike','tired','sick','hungry','lonely','sleeping']){
-  an.setEmotion(i,emotion);for(let n=0;n<20;n++){an.animate(i,{dt:.05,moving:n>10});i.root.updateMatrixWorld(true);const p=i.bones.body.localToWorld(top.clone()),anchor=i.bones.root.localToWorld(top.clone());assert.ok(p.distanceTo(anchor)<.002,emotion+' suspension remains joined');}
+ for(const emotion of rt.SPEC.CANONICAL_EMOTIONS){
+  an.setEmotion(i,emotion);for(const reaction of ['hop','huff','yawn','wobble']){an.react(i,reaction);for(let n=0;n<20;n++){an.animate(i,{dt:.05,moving:n>10});i.root.updateMatrixWorld(true);const p=i.bones.body.localToWorld(top.clone()),anchor=i.bones.root.localToWorld(top.clone());assert.ok(p.distanceTo(anchor)<.002,emotion+'/'+reaction+' suspension remains joined');}}
  }
 });
 test('humanoid held attachments stay at hand during locomotion and posture',async()=>{
@@ -33,4 +33,7 @@ test('humanoid held attachments stay at hand during locomotion and posture',asyn
 test('shared halo material has a soft tuft texture with transparent outside and opaque core',async()=>{
  const {material}=await mod('rig.mjs'),m=material('soft');assert.ok(m.map,'soft density texture');const t=m.map.image,w=t.width,d=t.data;
  assert.ok(d[((w/2|0)*w+(w/2|0))*4+3]>250);assert.equal(d[3],0);assert.ok(d.some((v,i)=>i%4===3&&v>10&&v<180));assert.ok(material('soft').map===m.map,'texture shared');
+});
+test('projected face decals render in one pass without changing canonical atlases',async()=>{
+ const rt=await mod('runtime.mjs');for(const [id,stage]of [['dandelion',8],['man',4],['cat_friend',0]]){const t=rt.getTemplate(id,stage);for(const f of t.rig.faces){assert.ok(f.decal.material.forceSinglePass,'flat decal needs one pass');for(const m of Object.values(f.decal.userData.atlas.mats))assert.ok(m.forceSinglePass);}}
 });
