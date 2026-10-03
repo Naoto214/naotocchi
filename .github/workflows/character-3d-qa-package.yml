@@ -1,4 +1,5 @@
 name: Character 3D QA artifact packaging
+# Pair sheets use front and three-quarter views; individual sheets include all four directions.
 on:
   push:
     branches: [feat/character-3d-pilot]
