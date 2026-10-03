@@ -1,26 +1,23 @@
 name: Character 3D QA artifact packaging
-
 on:
   push:
     branches: [feat/character-3d-pilot]
     paths: ['.github/workflows/character-3d-qa-package.yml']
-
 permissions:
-  contents: read
+  contents: write
   actions: read
-
 jobs:
   package:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 40
     steps:
       - name: Wait for the exact verified source run
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          for i in $(seq 1 90); do
-            gh api repos/Naoto214/naotocchi/actions/runs/37015588369 > run.json
-            test "$(jq -r .head_sha run.json)" = 754e2fad039d8d3f3264356ade057352af0dadcd
+          for i in $(seq 1 100); do
+            gh api repos/Naoto214/naotocchi/actions/runs/37112792845 > run.json
+            test "$(jq -r .head_sha run.json)" = d592a599d5598bd6af992071caaff2c23651dacf
             if test "$(jq -r .status run.json)" = completed; then
               test "$(jq -r .conclusion run.json)" = success
               exit $?
@@ -28,29 +25,41 @@ jobs:
             sleep 20
           done
           exit 1
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
       - uses: actions/download-artifact@v4
         with:
           github-token: ${{ github.token }}
           repository: Naoto214/naotocchi
-          run-id: 37015588369
-          name: character-3d-quality-754e2fad039d8d3f3264356ade057352af0dadcd
+          run-id: 37112792845
+          name: character-3d-quality-d592a599d5598bd6af992071caaff2c23651dacf
           path: qa
+      - name: Verify source and assemble immutable QA images
+        run: |
+          git diff --exit-code d592a599d5598bd6af992071caaff2c23651dacf -- character-3d meguru.js meguru-3d.mjs index.html
+          node docs/qa/character-3d-quality2-2026-10-03/package.cjs qa
+      - name: Save only QA evidence to the existing Draft branch
+        env:
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          git fetch origin feat/character-3d-pilot
+          test "$(git rev-parse origin/feat/character-3d-pilot)" = "$EXPECTED_HEAD"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/qa/character-3d-quality2-2026-10-03
+          git commit -m 'Save verified round-two Character 3D Human QA images and measurements'
+          git push origin HEAD:feat/character-3d-pilot
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: character-3d-final-comparisons
-          path: qa/comparisons
-          retention-days: 14
-      - uses: actions/upload-artifact@v4
-        with:
-          name: character-3d-final-meguru
-          path: qa/meguru
-          retention-days: 14
-      - uses: actions/upload-artifact@v4
-        with:
-          name: character-3d-final-measurements
-          path: |
-            qa/*.tap
-            qa/*.txt
-            qa/perf-claude
-            qa/perf-revised
+          name: character-3d-quality2-human-qa
+          path: docs/qa/character-3d-quality2-2026-10-03
           retention-days: 14
