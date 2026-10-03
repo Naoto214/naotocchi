@@ -1,0 +1,50 @@
+FFFFF
+======================================================================
+FAIL: test_shadow_and_boundary_ids_must_match_exactly (test_proxy_completed_comparison.CompletedComparisonTests.test_shadow_and_boundary_ids_must_match_exactly) (index=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_completed_comparison.py", line 56, in test_shadow_and_boundary_ids_must_match_exactly
+    with self.assertRaises(ValueError):c.summarize(paired,s,l)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_shadow_and_boundary_ids_must_match_exactly (test_proxy_completed_comparison.CompletedComparisonTests.test_shadow_and_boundary_ids_must_match_exactly) (index=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_completed_comparison.py", line 56, in test_shadow_and_boundary_ids_must_match_exactly
+    with self.assertRaises(ValueError):c.summarize(paired,s,l)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_shadow_and_boundary_ids_must_match_exactly (test_proxy_completed_comparison.CompletedComparisonTests.test_shadow_and_boundary_ids_must_match_exactly) (index=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_completed_comparison.py", line 56, in test_shadow_and_boundary_ids_must_match_exactly
+    with self.assertRaises(ValueError):c.summarize(paired,s,l)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_shadow_and_boundary_ids_must_match_exactly (test_proxy_completed_comparison.CompletedComparisonTests.test_shadow_and_boundary_ids_must_match_exactly) (index=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_completed_comparison.py", line 56, in test_shadow_and_boundary_ids_must_match_exactly
+    with self.assertRaises(ValueError):c.summarize(paired,s,l)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_shadow_and_boundary_ids_must_match_exactly (test_proxy_completed_comparison.CompletedComparisonTests.test_shadow_and_boundary_ids_must_match_exactly) (index=4)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_completed_comparison.py", line 56, in test_shadow_and_boundary_ids_must_match_exactly
+    with self.assertRaises(ValueError):c.summarize(paired,s,l)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 2.827s
+
+FAILED (failures=5)
