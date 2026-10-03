@@ -1,0 +1,24 @@
+{
+  "source": "d6608d393a76aa452c04eaa85253df2a21e5fe2d",
+  "workflowRun": 37114001769,
+  "job": 111177153295,
+  "artifact": 11270313150,
+  "logSHA256": "a891ff11f300d97439997e4b1cb3c3591028937a2b42c94a7cda59ea0b500c62",
+  "counts": [
+    "# tests 2914",
+    "# suites 0",
+    "# pass 2914",
+    "# fail 0",
+    "# cancelled 0",
+    "# skipped 0",
+    "# todo 0",
+    "# tests 80",
+    "# suites 0",
+    "# pass 80",
+    "# fail 0",
+    "# cancelled 0",
+    "# skipped 0",
+    "# todo 0"
+  ],
+  "note": "Full npm test downloaded from the exact final CI artifact; no failed cases. Earlier run failures are recorded in the QA report."
+}
