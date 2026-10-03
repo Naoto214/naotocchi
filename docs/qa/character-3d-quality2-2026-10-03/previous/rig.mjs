@@ -17,31 +17,11 @@ export const stats = { materials: 0, atlases: 0, eyeGeos: 0 };
 
 // ---------------- material(共有)
 const MATS = new Map();
-// Shared 128px density field: a translucent cushion plus curved, spreading
-// tufts. No per-actor canvas, no individual needle meshes.
-function haloTexture() {
-  const w=128,data=new Uint8Array(w*w*4);
-  for(let y=0;y<w;y++)for(let x=0;x<w;x++){
-    const px=(x+.5-w/2)/(w/2),py=(y+.5-w/2)/(w/2),r=Math.hypot(px,py),a=Math.atan2(py,px);
-    let density=Math.max(0,1-r)*.5;
-    if(r<.38)density=1;
-    else if(r<1)for(let k=0;k<28;k++){
-      const angle=k*Math.PI*2/28+.09*Math.sin(k*4.7)+.13*r*r*Math.sin(k*2.3);
-      const delta=Math.atan2(Math.sin(a-angle),Math.cos(a-angle));
-      const end=.79+.15*Math.sin(k*1.7),width=.03+.05*r;
-      const feather=Math.max(0,Math.min(1,(end-r)/.18));
-      density+=Math.exp(-delta*delta/(width*width))*.12*feather;
-    }
-    const off=(y*w+x)*4;data[off]=data[off+1]=data[off+2]=255;data[off+3]=Math.round(255*Math.min(1,r>=1?0:density));
-  }
-  const tex=new THREE.DataTexture(data,w,w);tex.magFilter=THREE.LinearFilter;tex.minFilter=THREE.LinearFilter;tex.needsUpdate=true;return tex;
-}
 export function material(key) {
   if (MATS.has(key)) return MATS.get(key);
   let m;
   const [kind, a, b] = key.split(':');
   if (kind === 'opaque') m = new THREE.MeshLambertMaterial({ vertexColors: true, side: THREE.DoubleSide });
-  else if (kind === 'soft') m = new THREE.MeshLambertMaterial({ vertexColors:true, map:haloTexture(), transparent:true, depthWrite:false, side:THREE.DoubleSide });
   else if (kind === 'translucent') m = new THREE.MeshLambertMaterial({ vertexColors: true, transparent: true, opacity: Number(a), depthWrite: false, side: THREE.DoubleSide });
   else if (kind === 'glow') m = new THREE.MeshLambertMaterial({ vertexColors: true, transparent: Number(b) < 1, opacity: Number(b), depthWrite: Number(b) >= 1, emissive: new THREE.Color(a), emissiveIntensity: 0.55, side: THREE.DoubleSide });
   else if (kind === 'shadow') m = new THREE.MeshBasicMaterial({ color: '#000000', transparent: true, opacity: 0.22, depthWrite: false });

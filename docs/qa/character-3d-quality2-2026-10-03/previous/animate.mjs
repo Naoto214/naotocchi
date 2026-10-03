@@ -5,8 +5,6 @@
 //         3) temporary reaction(イベントで 1 かい: hop / huff / yawn / wobble)
 // reduced motion(animLv 0): はねる・ゆれる・ふるえ・reaction の うごき を とめる。あるく 足の うごき は 半分 のこす(移動が わかる ため)
 import SPEC from './spec-esm.mjs';
-import { THREE } from './geometry.mjs';
-const hangingOffset = new THREE.Vector3();
 import { applyFaceExpression, blink } from './rig.mjs';
 
 const TAU = Math.PI * 2;
@@ -44,20 +42,13 @@ const LOCO = {
     if (B.tail) B.tail.rotation.y += Math.sin(s.t * (5 + 6 * s.expr.body.bounce)) * (0.25 + 0.45 * s.expr.body.bounce) * k.idle + Math.sin(ph) * 0.2 * m * k.amp;
     // idle の 姿勢(ふせ / おすわり)。あるくと 立つ
     const w = 1 - m, pose = meta.idlePose;
-    if (pose === 'recline' && w > 0) {
-      const p=meta.poseProfile;
-      B.body.position.y=lerp(B.body.position.y,meta.bodyR*.89,w);
-      B.body.rotation.y+=p.yaw*w;B.body.rotation.z+=p.roll*w;
-      B.head.rotation.y+=p.headYaw*w;B.head.rotation.z+=.08*w;B.head.position.y+=meta.bodyR*.25*w;
-      for(const [n,a,z,roll]of [['legFL',-1.42,.11,-.12],['legFR',-2.0,.12,.55],['legBL',-1.35,-.04,-.48],['legBR',-1.35,.01,.28]]){B[n].rotation.x+=a*w;B[n].rotation.z+=roll*w;B[n].position.z+=z*w;}
-      if(B.tail)B.tail.rotation.y-=.40*w;
-    } else if (pose === 'lie' && w > 0) {
+    if (pose === 'lie' && w > 0) {
       B.body.position.y = lerp(B.body.position.y, meta.bodyR * 0.82, w);
       for (const n of ['legFL', 'legFR']) B[n].rotation.x += -1.38 * w;
       for (const n of ['legBL', 'legBR']) B[n].rotation.x += -1.25 * w;
       B.head.position.y -= meta.bodyR * 0.25 * w; B.head.rotation.x += 0.18 * w;
     } else if (pose === 'playBow' && w > 0) {
-      const bw=w*w*w, bow=(meta.poseProfile?.bow || .55)*bw, pr=meta.pawR, L=meta.legTop;
+      const bw=w*w*w, bow=.55*bw, pr=meta.pawR, L=meta.legTop;
       B.body.rotation.x += bow;
       // Rear paws remain vertical; solve the foreleg angle against the same
       // ground plane, including the ellipsoidal paw's projected support radius.
@@ -98,11 +89,11 @@ const LOCO = {
   humanWalk(B, s, m, k, meta) {
     const ph = s.phase * TAU, sw = 0.55 * m * k.amp;
     B.legL.rotation.x += Math.sin(ph) * sw; B.legR.rotation.x -= Math.sin(ph) * sw;
-    if(meta.hold !== 'backpack')B.armL.rotation.x -= Math.sin(ph)*sw*.8; if(meta.hold !== 'cane')B.armR.rotation.x += Math.sin(ph)*sw*.8;
+    B.armL.rotation.x -= Math.sin(ph) * sw * 0.8; B.armR.rotation.x += Math.sin(ph) * sw * 0.8;
     B.body.position.y += Math.abs(Math.sin(ph)) * 0.025 * m * k.amp;
     B.body.scale.y *= 1 + Math.sin(s.t * 2.2) * 0.008 * k.idle;
     if (meta.stoop) { B.body.rotation.x += meta.stoop; B.head.rotation.x -= meta.stoop * 0.7; }
-    if (B.cane) B.armR.rotation.x += Math.sin(ph) * .10 * m * k.amp;
+    if (B.cane) B.cane.rotation.x += Math.sin(ph) * 0.15 * m * k.amp;
   },
   crawl(B, s, m, k, meta) {
     const ph = s.phase * TAU;
@@ -125,7 +116,7 @@ const LOCO = {
   },
   hopSway(B, s, m, k, meta, R) {
     const ph = s.phase * TAU, h = Math.abs(Math.sin(ph));
-    if (meta.idlePose === 'hang') { const a=Math.sin(s.t*1.1)*.06*k.idle+Math.sin(ph)*.12*m; B.body.rotation.z+=a; return; }
+    if (meta.idlePose === 'hang') { B.body.rotation.z += Math.sin(s.t * 1.1) * 0.06 * k.idle + Math.sin(ph) * 0.12 * m; return; }
     R.position.y += h * 0.13 * m * k.amp;
     B.body.scale.y *= 1 - (1 - h) * 0.08 * m * k.amp; B.body.rotation.z += Math.sin(s.t * 1.3) * 0.05 * k.idle;
     if (B.pappus) B.pappus.rotation.z += Math.sin(s.t * 1.7) * 0.08 * k.idle;
@@ -203,8 +194,6 @@ export function animate(inst, input) {
       }
     }
   }
-  // Preserve the suspension after locomotion, emotion posture and reactions.
-  if(meta.hangY != null && B.body){hangingOffset.set(0,meta.hangY,0).multiply(B.body.scale).applyQuaternion(B.body.quaternion);B.body.position.set(-hangingOffset.x,meta.hangY-hangingOffset.y,-hangingOffset.z);}
   // ---- まばたき
   if (inst.face && !reduced) {
     s.blinkIn -= dt;

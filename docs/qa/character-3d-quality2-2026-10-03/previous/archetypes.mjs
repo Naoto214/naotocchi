@@ -3,7 +3,7 @@
 // builder は archetype ごとに 1 つ。species / stage の ちがいは spec.js の 数字と 色だけ(1 species 専用の 関数は つくらない)。
 // 座標: 前 = +z、うえ = +y、足もと = y 0。大きさは だいたい 高さ 1 前後(あとで 2D の 絵の 大きさに あわせる: runtime の fit)
 // どの builder も: rig(bone)・顔の 場所(face spec)・locomotion・idlePose・hover を かえす
-import { THREE, blob, lathe, sweep, sheet, fan, ellipsoid, paint, solid, mix, shade, xform, merge, clamp, lerp, smooth, rng, noise3, scalpCap, outlineLoft, softHalo } from './geometry.mjs';
+import { THREE, blob, lathe, sweep, sheet, fan, ellipsoid, paint, solid, mix, shade, xform, merge, clamp, lerp, smooth, rng, noise3, scalpCap, outlineLoft } from './geometry.mjs';
 import { Rig } from './rig.mjs';
 import SPEC from './spec-esm.mjs';
 
@@ -46,18 +46,17 @@ export function quadruped(sp, key) {
   const c = sp.colors, B = sp.body, Hd = sp.head, Lg = sp.legs;
   const rig = new Rig(key, 'quadruped', 'quadWalk');
   const bodyY = Lg.len + B.r * 0.72;
-  const regionPaint=(regions,x,y,z)=>{for(const p of regions||[]){const d=((x-p.at[0])/p.size[0])**2+((y-p.at[1])/p.size[1])**2+((z-p.at[2])/p.size[2])**2;if(d<1+.08*Math.sin(y*12+z*8))return c[p.color];}return null;};
   const patch = (x, y, z) => sp.patches && (Math.sin(x * 7 + z * 3) + Math.cos(z * 5 - y * 4)) > 1.1 ? (z > 0 ? c.patch : c.patch2) : null;
-  const bodyCol = (x, y, z, nx, ny, nz) => { const p = sp.patchMap ? regionPaint(sp.patchMap.body,x/B.r,y/B.r,z/(B.len/2)) : patch(x, y, z); if (p) return p; const belly = smooth(-0.15, -0.6, ny) + (z > B.len * 0.28 ? smooth(0.3, -0.2, ny) * 0.9 : 0); return mix(mix(c.base, shade(c.base, 0.92), smooth(0.4, 0.95, ny) * 0.5), c.belly, belly); };
+  const bodyCol = (x, y, z, nx, ny, nz) => { const p = patch(x, y, z); if (p) return p; const belly = smooth(-0.15, -0.6, ny) + (z > B.len * 0.28 ? smooth(0.3, -0.2, ny) * 0.9 : 0); return mix(mix(c.base, shade(c.base, 0.92), smooth(0.4, 0.95, ny) * 0.5), c.belly, belly); };
   const body = paint(blob((x, y, z) => { const t = (z + 1) / 2, s = lerp(B.hip, B.chest, t), sag = y < 0 ? 0.94 : 1; return [x * B.r * s * 0.9, y * B.r * s * sag * 0.95, z * B.len / 2]; }, 20, 14), bodyCol);
   const neck = paint(sweep([[0, B.r * 0.1, B.len * 0.36], [0, B.r * 0.55 + sp.neck * 0.6, B.len * 0.5 + 0.02]], (t) => B.r * lerp(0.62, 0.5, t), 9, { steps: 4 }), bodyCol);
   const parts = [body, neck];
-  if (sp.fluff === 'chest' || sp.coat) parts.push(paint(blob((x, y, z) => { const n = 1 + 0.18 * Math.max(0, noise3(x * 4, y * 4, z * 4) - 0.4); return [x * B.r * (sp.coat?.width || .62) * n, y * B.r * (sp.coat?.height || .62) * n, z * B.r * (sp.coat?.depth || .5) * n + B.len * 0.42]; }, 12, 10), () => c.belly));
+  if (sp.fluff === 'chest') parts.push(paint(blob((x, y, z) => { const n = 1 + 0.18 * Math.max(0, noise3(x * 4, y * 4, z * 4) - 0.4); return [x * B.r * 0.62 * n, y * B.r * 0.62 * n, z * B.r * 0.5 * n + B.len * 0.42]; }, 12, 10), () => c.belly));
   rig.add('body', 'root', [0, bodyY, 0], parts);
   // 頭
   const hr = Hd.r;
-  const headCol = (x, y, z, nx, ny, nz) => { const p = sp.patchMap ? regionPaint(sp.patchMap.head,x/Hd.r,y/Hd.r,z/Hd.r) : patch(x * 2, y * 2, z * 2 + 3); if (p && (sp.patchMap || y>0)) return p; const muz = smooth(0.0, 0.5, nz) * smooth((sp.markings === 'urajiro' ? 0.36 : 0.12) * hr, -0.25 * hr, y); return mix(c.base, c.muzzle, muz * (sp.fluff ? 1 : 0.85)); };
-  const skull = paint(blob((x, y, z) => { const ch = y < 0 ? 1 + (Hd.cheek || 0.1) * -y : 1; return [x * hr * (Hd.width || 1.04) * ch, y * hr * Hd.squash, z * hr * 0.95]; }, 18, 12), headCol);
+  const headCol = (x, y, z, nx, ny, nz) => { const p = patch(x * 2, y * 2, z * 2 + 3); if (p && y > 0) return p; const muz = smooth(0.0, 0.5, nz) * smooth((sp.markings === 'urajiro' ? 0.36 : 0.12) * hr, -0.25 * hr, y); return mix(c.base, c.muzzle, muz * (sp.fluff ? 1 : 0.85)); };
+  const skull = paint(blob((x, y, z) => { const ch = y < 0 ? 1 + (Hd.cheek || 0.1) * -y : 1; return [x * hr * 1.04 * ch, y * hr * Hd.squash, z * hr * 0.95]; }, 18, 12), headCol);
   const snout = paint(xform(blob((x, y, z) => [x * Hd.snoutR * 1.2, y * Hd.snoutR * 0.85, z * (Hd.snout * 0.5 + Hd.snoutR * 0.55)], 12, 8), { pos: [0, -hr * 0.3, hr * 0.62 + Hd.snout * 0.35] }), () => c.muzzle);
   const nose = solid(xform(ellipsoid(Hd.snoutR * 0.42, Hd.snoutR * 0.3, Hd.snoutR * 0.26, 8, 6), { pos: [0, -hr * 0.3 + Hd.snoutR * 0.55, hr * 0.62 + Hd.snout * 0.35 + Hd.snout * 0.5 + Hd.snoutR * 0.4] }), c.nose);
   const headGeo = merge([skull, snout, nose]);
@@ -82,12 +81,12 @@ export function quadruped(sp, key) {
   }
   // しっぽ
   const T = sp.tail, tl = T.len, tr = T.r;
-  const tailPath = { hook: [[0,0,0],[tl*.32,tl*.12,-tl*.22],[tl*.55,tl*.6,-tl*.35],[tl*.37,tl*.96,-tl*.3],[tl*.04,tl*.96,-tl*.2],[-tl*.09,tl*.78,-tl*.14]], raised: [[0,0,0],[0,tl*0.4,-tl*0.3],[0,tl*0.9,-tl*0.34],[0,tl*1.1,-tl*0.12]], curl: [[0, 0, 0], [0, tl * 0.45, -tl * 0.3], [tl*.16, tl * .87, -tl * .1], [tl*.42, tl * .78, tl * .12], [tl*.39,tl*.52,tl*.2], [tl*.19,tl*.49,tl*.16]], plume: [[0, 0, 0], [0, tl * 0.15, -tl * 0.5], [0, tl * 0.35, -tl * 0.95]], short: [[0, 0, 0], [0, tl * 0.35, -tl * 0.6]], long: [[0, 0, 0], [0, -tl * 0.05, -tl * 0.45], [0, tl * 0.25, -tl * 0.8], [0, tl * 0.55, -tl * 0.85]] }[T.type];
+  const tailPath = { raised: [[0,0,0],[0,tl*0.4,-tl*0.3],[0,tl*0.9,-tl*0.34],[0,tl*1.1,-tl*0.12]], curl: [[0, 0, 0], [0, tl * 0.45, -tl * 0.3], [0, tl * 0.85, -tl * 0.1], [0, tl * 0.82, tl * 0.22], [0,tl*0.56,tl*0.3]], plume: [[0, 0, 0], [0, tl * 0.15, -tl * 0.5], [0, tl * 0.35, -tl * 0.95]], short: [[0, 0, 0], [0, tl * 0.35, -tl * 0.6]], long: [[0, 0, 0], [0, -tl * 0.05, -tl * 0.45], [0, tl * 0.25, -tl * 0.8], [0, tl * 0.55, -tl * 0.85]] }[T.type];
   const tailR = T.type === 'plume' ? (t) => tr * (0.9 + Math.sin(Math.PI * t) * 0.9) : (t) => tr * lerp(1.1, 0.55, t);
-  rig.add('tail', 'body', [0, B.r * 0.35, -B.len / 2 * 0.9], [paint(sweep(tailPath, tailR, 8, { steps: T.type==='hook'?20:12 }), (x, y, z) => (T.type === 'curl' && y > tl * 0.6 ? c.belly : sp.patches ? (y>tl*.91?c.base:y>tl*.66?c.patch2:c.patch) : c.base))]);
-  rig.meta = { idlePose: sp.idlePose, hover: 0, bodyY, legTop, bodyR: B.r, bodyLen: B.len, pawR: Lg.r*1.05, earType: E.type, poseProfile: sp.poseProfile || null };
-  rig.faceSpec = { bone: 'head', target: headGeo, center: [0, hr * 0.0, hr * 0.92], fwd: [0, 0.08, 1], half: hr * 0.74, eyeSize: Hd.eyeSize || 0.25,
-    layout: { eyeX: Hd.eyeX || 25, eyeY: 54, mouthY: 104, browY: 34, cheekX: 38, cheekY: 80, mouthW: 9 }, style: { mouth: '#9a2a24', blush: '#f08a7a' }, normalEye: sp.normalEye || (sp.idlePose === 'lie' || sp.fluff === 'chest' ? 'content' : null) };
+  rig.add('tail', 'body', [0, B.r * 0.35, -B.len / 2 * 0.9], [paint(sweep(tailPath, tailR, 8, { steps: 12 }), (x, y, z) => (T.type === 'curl' && y > tl * 0.6 ? c.belly : sp.patches ? c.patch : c.base))]);
+  rig.meta = { idlePose: sp.idlePose, hover: 0, bodyY, legTop, bodyR: B.r, bodyLen: B.len, pawR: Lg.r*1.05, earType: E.type };
+  rig.faceSpec = { bone: 'head', target: headGeo, center: [0, hr * 0.0, hr * 0.92], fwd: [0, 0.08, 1], half: hr * 0.74, eyeSize: 0.25,
+    layout: { eyeX: 25, eyeY: 54, mouthY: 104, browY: 34, cheekX: 38, cheekY: 80, mouthW: 9 }, style: { mouth: '#9a2a24', blush: '#f08a7a' }, normalEye: sp.idlePose === 'lie' || sp.fluff === 'chest' ? 'content' : null };
   return rig;
 }
 
@@ -235,19 +234,11 @@ export function humanoid(sp, key) {
   rig.add('head', 'body', [0, B.h * 0.98, 0.01], null);
   const headCenter = [0, hr * 0.92, 0.02];
   rig.mesh('head', [xform(headGeo.clone(), { pos: headCenter }), xform(merge([hair, ...extra]), { pos: headCenter })]);
-  // Bent arms end at the actual strap / handle. The prop shares the arm bone,
-  // so locomotion and emotion posture cannot pull it away from the grip.
-  const hold=(sp.attachments||[]).includes('backpack')?'backpack':(sp.attachments||[]).includes('cane')?'cane':null;
-  let caneGrip;
-  for (const s of [-1,1]) {
-    const holding=(hold==='backpack'&&s<0)||(hold==='cane'&&s>0);
-    const end=holding?(hold==='backpack'?[s*-B.r*.43,-B.h*.32,B.r*.87]:[s*.035,-Ar.len*.52,B.r*.70]):[s*.045,-Ar.len-Ar.r*.7,.02];
-    const elbow=holding?[s*.075,-Ar.len*.72,.055]:[s*.03,-Ar.len*.5,.01];
-    const arm=solid(sweep([[0,0,0],elbow,end],t=>Ar.r*lerp(1.15,.85,t),8,{steps:8}),c.top);
-    const hand=solid(xform(ellipsoid(Ar.r*1.10,Ar.r*.95,Ar.r,8,6),{pos:end}),c.skin);
-    const parts=[arm,hand];
-    rig.add(s<0?'armL':'armR','body',[s*B.r*.88,B.h*.82,0],parts,'opaque',[0,0,holding?0:s*.12]);
-    if(hold==='cane'&&s>0)caneGrip=end;
+  // 腕
+  for (const s of [-1, 1]) {
+    const arm = paint(sweep([[0, 0, 0], [s * 0.03, -Ar.len * 0.5, 0.01], [s * 0.04, -Ar.len, 0.02]], (t) => Ar.r * lerp(1.15, 0.85, t), 8, { steps: 6 }), () => c.top);
+    const hand = solid(xform(ellipsoid(Ar.r * 1.05, Ar.r * 1.1, Ar.r * 1.0, 8, 6), { pos: [s * 0.045, -Ar.len - Ar.r * 0.7, 0.02] }), c.skin);
+    rig.add(s < 0 ? 'armL' : 'armR', 'body', [s * B.r * 0.88, B.h * 0.82, 0], [arm, hand, solid(xform(lathe([[Ar.r*.91,0],[Ar.r*.96,.035]],8),{pos:[s*.04,-Ar.len,0.02]}),shade(c.top,.82))], 'opaque', [0, 0, s * 0.12]);
   }
   // 足
   for (const s of [-1, 1]) {
@@ -256,9 +247,8 @@ export function humanoid(sp, key) {
     const shoe = solid(xform(blob((x, y, z) => [x * Lg.r * 1.15, (y * 0.5 + 0.5) * 0.09, z * Lg.r * 1.7 + Lg.r * 0.45], 10, 6), { pos: [0, -hipY, 0] }), c.shoe);
     rig.add(s < 0 ? 'legL' : 'legR', 'body', [s * B.r * 0.42, 0.02, 0], [leg, shoe, solid(xform(ellipsoid(Lg.r*1.17,.025,Lg.r*1.72,10,4),{pos:[0,-hipY+.014,Lg.r*.45]}),shade(c.shoe,.65))]);
   }
-  if(caneGrip){const h=hipY+B.h*.82+caneGrip[1]-.04; const cg=caneGeo(h);cg.translate(0,-h-.04,-.06);rig.add('cane','armR',caneGrip,[cg]);}
-
-  rig.meta = { idlePose: sp.idlePose, hover: 0, hipY, hold, stoop: sp.stoop || 0 };
+  if ((sp.attachments || []).includes('cane')) rig.add('cane', 'root', [B.r * 1.05, 0, B.r * 0.5], [caneGeo(hipY + B.h * 0.38)]);
+  rig.meta = { idlePose: sp.idlePose, hover: 0, hipY, stoop: sp.stoop || 0 };
   const hc = headCenter;
   rig.faceSpec = { bone: 'head', target: xform(headGeo.clone(), { pos: hc }), center: [0, hc[1] - hr * 0.12, hr * 0.9], fwd: [0, 0, 1], half: hr * 0.80, eyeSize: 0.30,
     layout: { eyeX: 24, eyeY: 54, mouthY: 90, browY: 32, cheekX: 38, cheekY: 76, mouthW: 8 }, style: { blush: '#f6a0a0' }, normalEye: sp.hair.style === 'soft' ? 'content' : null };
@@ -310,22 +300,16 @@ export function pod(sp, key) {
   if (sp.shape === 'chrysalis') {
     const h = sp.h, r = sp.r, top = h * 1.02;
     // とがった 下・ふくらんだ まんなか・ほそい くび
-    // A continuous shell: broad wing cases, soft abdominal folds, slight bend.
-    // No detached seam tubes or dark lines on the front surface.
-    const profile=[[0,.02],[.1,.32],[.25,.61],[.45,.85],[.62,1],[.78,.78],[.9,.4],[1,.035]];
-    const radius=t=>{let j=0;while(j<profile.length-2&&profile[j+1][0]<t)j++;const [a,ra]=profile[j],[b,rb]=profile[j+1];return lerp(ra,rb,smooth(a,b,t));};
-    const prof=Array.from({length:33},(_,i)=>[r*radius(i/32),top*i/32]);
-    const g=lathe(prof,24),p=g.attributes.position;
-    for(let i=0;i<p.count;i++){
-      const x=p.getX(i),z=p.getZ(i),y=p.getY(i),t=y/top,a=Math.atan2(x,z);
-      const fold=1-.045*Math.cos(t*TAU*5+.25*Math.sin(a))*Math.pow(Math.sin(Math.PI*t),2);
-      const cases=1+.075*Math.cos(a*2+.25)*Math.exp(-Math.pow((t-.56)/.23,2));
-      p.setXYZ(i,x*fold*cases+.025*Math.sin(Math.PI*t)*Math.sin(t*4),y,z*fold*(.98+.045*Math.sin(a+t*3)));
-    }
+    const prof = [[.001,0],[r*.25,h*.08],[r*.46,h*.19],[r*.39,h*.22],[r*.72,h*.34],[r*.61,h*.38],[r*.94,h*.5],[r*.88,h*.55],[r,h*.66],[r*.76,h*.73],[r*.62,h*.82],[r*.35,h*.93],[.001,top]];
+    const g = lathe(prof, 18), p = g.attributes.position;
+    for (let i = 0; i < p.count; i++) { const x = p.getX(i), z = p.getZ(i), y = p.getY(i), a = Math.atan2(x, z), k = 1 + 0.07 * Math.cos(a * 5) * Math.sin(Math.PI * y / top); p.setXYZ(i, x * k * 1.05, y, z * k * 0.88); }
     g.computeVertexNormals();
-    bodyGeo=paint(g,(x,y,z,nx,ny,nz)=>mix(mix(c.base,c.dark,smooth(.2,-.9,nz)*.28),c.light,smooth(.15,.9,nz)*.30));
-    const thread=solid(sweep([[0,top-.02,0],[0,top+.12,0]],t=>.022*(1-.2*t),6,{steps:3}),c.base);
-    bodyGeo=merge([bodyGeo,thread]);
+    bodyGeo = paint(g, (x, y, z, nx, ny, nz) => mix(mix(c.base, c.dark, smooth(0.2, -0.8, nz) * 0.6), c.light, smooth(0.5, 0.95, nz) * smooth(0.25, 0.6, y / top) * 0.7));
+    const thread = solid(sweep([[0, top - 0.02, 0], [0, top + 0.12, 0]], () => 0.025, 5, { steps: 2 }), shade(c.dark, 0.9));
+    const folds = [];
+    for(const side of [-1,1])folds.push(solid(sweep([[side*r*.12,h*.12,r*.25],[side*r*.32,h*.34,r*.64],[side*r*.22,h*.5,r*.85],[side*r*.66,h*.64,r*.57]],()=>.008,3,{steps:9,cap:false}),c.dark));
+    folds.push(solid(sweep([[0,h*.15,r*.3],[0,h*.35,r*.72],[0,h*.48,r*.87]],()=>.009,3,{steps:6,cap:false}),c.light));
+    bodyGeo = merge([bodyGeo, thread, ...folds]);
     faceCenter = [0, h * 0.55, r * 0.85]; half = r * 0.8; hangY = top + 0.14;
     rig.add('body', 'root', [0, 0, 0], [bodyGeo.clone()]);
     rig.add('branch', 'root', [0, 0, 0], [branchGeo(1.1, hangY)]);
@@ -399,12 +383,12 @@ export function plant(sp, key) {
   for (let i = 0; i < sp.leaves; i++) {
     const a = (i / sp.leaves) * TAU + 0.3, l = sp.leafLen * (0.85 + 0.25 * ((i * 7) % 3) / 2);
     // 顔の まえ(+z)の 葉は ひくく、うしろ・よこ の 葉は 立てて 顔の まわりを かこむ(2D の ロゼット)
-    const front = Math.max(0, Math.cos(a)), lift = sp.form === 'flower' ? 0.55 : 0.58 - front * 0.56;
+    const front = Math.max(0, Math.cos(a)), lift = sp.form === 'flower' ? 0.55 : 0.55 - front * 0.48;
     const g = leafGeo(l, l * .34, c, sp.form === 'flower' ? .35 : .12);
     // 葉は +y に のびる → ねかせて 外へ(a の むき)
     g.rotateX(-Math.PI / 2 + lift); g.rotateY(a + Math.PI);
-    const origin = sp.form === 'rosette' ? sp.bulb * .72 : .05;
-    g.translate(Math.sin(a)*origin, .018+(i%3)*.008, Math.cos(a)*origin - (sp.form === 'rosette' ? sp.bulb*.18 : 0));
+    const origin = sp.form === 'rosette' ? sp.bulb * .82 : .08;
+    g.translate(Math.sin(a)*origin, .028+(i%2)*.018, Math.cos(a)*origin);
     groups[i % 2].push(g);
   }
   rig.add('leavesA', 'root', [0, 0, 0], groups[0]);
@@ -448,14 +432,15 @@ function mushroomParts(cap, stem, c, faceOn) {
   const cr = cap.r, ch = cap.h;
   const prof = cap.shape === 'cone'
     ? [[0.001, -ch * 0.05], [cr * 0.9, 0], [cr * 1.0, ch * 0.12], [cr * 0.92, ch * 0.4], [cr * 0.66, ch * 0.75], [cr * 0.3, ch * 0.96], [0.001, ch]]
-    : [[0.001, -ch * 0.12], [cr * 0.7, -ch * 0.19], [cr * 1.0, 0.0], [cr * 1.02, ch * 0.2], [cr * 0.85, ch * 0.62], [cr * 0.45, ch * 0.92], [0.001, ch]];
-  const profileCurve=new THREE.SplineCurve(prof.map(([r,y])=>new THREE.Vector2(r,y)));
-  const capGeo = lathe(profileCurve.getPoints(16).map(p=>[p.x,p.y]), 32);
+    : [[0.001, -ch * 0.12], [cr * 0.7, -ch * 0.08], [cr * 1.0, 0.0], [cr * 1.02, ch * 0.2], [cr * 0.85, ch * 0.62], [cr * 0.45, ch * 0.92], [0.001, ch]];
+  const capGeo = lathe(prof, 22);
   const cp = capGeo.attributes.position;
-  for (let i = 0; i < cp.count; i++) { const y = cp.getY(i); if (y < 0.001) { const x = cp.getX(i), z = cp.getZ(i), a = Math.atan2(x, z), k = 1 + 0.06 * Math.cos(a * 20) * Math.hypot(x, z) / cr; cp.setY(i, y * k - 0.009 * Math.cos(a * 16) * Math.sin(Math.PI*Math.hypot(x,z)/cr)); } }
+  for (let i = 0; i < cp.count; i++) { const y = cp.getY(i); if (y < 0.001) { const x = cp.getX(i), z = cp.getZ(i), a = Math.atan2(x, z), k = 1 + 0.06 * Math.cos(a * 20) * Math.hypot(x, z) / cr; cp.setY(i, y * k - 0.01 * Math.cos(a * 20)); } }
   capGeo.computeVertexNormals();
-  paint(capGeo, (x, y, z, nx, ny, nz) => (y < 0.005 ? shade(c.gill, .92 + .08*Math.cos(Math.atan2(x,z)*16)) : mix(c.cap, c.capDark, cap.shape === 'flat' ? smooth(0.6, 0.0, ny) * 0.55 : smooth(0.4, -0.3, ny) * 0.4)));
-  return { stemGeo, capGeo };
+  paint(capGeo, (x, y, z, nx, ny, nz) => (y < 0.005 ? c.gill : mix(c.cap, c.capDark, cap.shape === 'flat' ? smooth(0.6, 0.0, ny) * 0.55 : smooth(0.4, -0.3, ny) * 0.4)));
+  const gills=[];
+  if(cap.shape==='flat')for(let i=0;i<20;i++){const a=i/20*TAU;gills.push(solid(sweep([[Math.sin(a)*cr*.25,-ch*.12,Math.cos(a)*cr*.25],[Math.sin(a)*cr*.63,-ch*.085,Math.cos(a)*cr*.63],[Math.sin(a)*cr*.97,-.008,Math.cos(a)*cr*.97]],()=>.007,3,{steps:4,cap:false}),shade(c.gill,.76)));}
+  return { stemGeo, capGeo: gills.length ? merge([capGeo,...gills]) : capGeo };
 }
 export function fungus(sp, key) {
   const c = sp.colors;
@@ -469,7 +454,7 @@ export function fungus(sp, key) {
   if (atts.includes('child')) {
     const small = mushroomParts({ r: sp.cap.r * 0.5, h: sp.cap.h * 1.1, shape: 'flat' }, { h: sp.stem.h * 0.55, r: sp.stem.r * 0.45 }, c, 'cap');
     const cg = merge([small.stemGeo, small.capGeo.translate(0, sp.stem.h * 0.5, 0)]);
-    rig.add('child', 'root', [sp.cap.r * 0.82, 0.03, 0.16], [cg], 'opaque', [0, -0.4, 0.12]);
+    rig.add('child', 'root', [sp.cap.r * 0.95, 0.03, 0.12], [cg], 'opaque', [0, -0.4, 0.12]);
     childFace = { bone: 'child', target: cg, center: [0, sp.stem.h * .24, sp.stem.r * .45], fwd: [0,0,1], half: sp.stem.r * .48, eyeSize: .26, forceMode: 'A', normalEye: 'content', layout: {eyeX:24,eyeY:56,mouthY:82,browY:36,cheekX:38,cheekY:72,mouthW:8}, style: {blush:'#f4a090'} };
   }
   let target, center, half, bone;
@@ -493,24 +478,17 @@ export function cluster(sp, key) {
     let geo, faceGeo, fc, half;
     if (sp.unit === 'spore') {
       const r = 0.24 * s;
-      geo=paint(blob((px,py,pz)=>{
-        const w=1+.055*Math.sin(py*3.1+i*1.7)+.025*Math.sin(pz*4+i);
-        return [px*r*w*(1+(i%2)*.08),py*r*(.87+(i%3)*.085)+r*.018*px,pz*r*(.87+(i%2)*.09)];
-      },20,12),(px,py,pz,nx,ny,nz)=>{
-        const cheek=smooth(.01,-r*.72,py)*.38;
-        const shine=Math.exp(-Math.pow((px/r+.35)/.22,2)-Math.pow((py/r-.48)/.27,2))*Math.max(0,nz);
-        return mix(mix(c.base,c.blush,cheek), '#ffffff',shine*.85);
-      });
-      faceGeo=geo;fc=[0,-r*.05,r*.9];half=r*.72;
-      rig.add('u'+i,'root',[x*sp.spread/.6,y*sp.spread/.6+.04,z],[geo.clone()],'opaque',[0,(i%3-1)*.1,(i%2?1:-1)*.06]);
+      geo = paint(blob((px, py, pz) => [px*r*(1+.07*Math.sin(py*3+i)),py*r*(.88+(i%3)*.09),pz*r*(.9+(i%2)*.1)], 16, 10), (px, py, pz, nx, ny, nz) => mix(mix(c.base,c.blush,smooth(.02,-r*.75,py)*.68),shade(c.base,.9),smooth(.2,-.8,nz)*.25));
+      faceGeo = geo; fc = [0, -r * 0.05, r * 0.9]; half = r * 0.72;
+      const shine=solid(xform(ellipsoid(r*.14,r*.21,r*.035,6,4),{pos:[-r*.4,r*.45,r*.72],rot:[0,0,-.35]}),'#ffffff');
+      rig.add('u' + i, 'root', [x * sp.spread / 0.6, y * sp.spread / 0.6 + 0.04, z], [geo.clone(),shine]);
     } else {
       const r = 0.18 * s;
-      const puff = paint(blob((px, py, pz) => { const n = 1 + 0.16 * Math.max(0, noise3(px * 7 + i, py * 7, pz * 7) - 0.35); return [px * r * n * .65, py * r * n * .65, pz * r * n * .65]; }, 12, 8), () => c.pappus);
+      const puff = paint(blob((px, py, pz) => { const n = 1 + 0.16 * Math.max(0, noise3(px * 7 + i, py * 7, pz * 7) - 0.35); return [px * r * n * .72, py * r * n * .72, pz * r * n * .72]; }, 12, 8), () => c.pappus);
       const seed = solid(xform(blob((px, py, pz) => { const yy = py * 0.5 + 0.5; return [px * r * 0.3 * (1 - yy * 0.5), -yy * r * 1.3, pz * r * 0.3 * (1 - yy * 0.5)]; }, 8, 6), { pos: [0, -r * 0.95, 0] }), c.base);
       const beak = solid(sweep([[0, -r * 0.9, 0], [0, -r * 0.4, 0]], () => 0.012, 4, { steps: 2 }), c.base);
-      for(const g of [puff,seed,beak]){const uv=g.attributes.uv;if(uv)for(let j=0;j<uv.count;j++)uv.setXY(j,.5,.5);}
-      geo = puff; faceGeo = puff; fc = [0, 0, r * .65]; half = r * .54;
-      rig.add('u' + i, 'root', [x * sp.spread / 0.6, y * sp.spread / 0.6 + 0.35, z], [puff.clone(), seed, beak, softHalo(r*1.52,key+':'+i)], 'soft', [0, 0, (R() - 0.5) * 0.4]);
+      geo = puff; faceGeo = puff; fc = [0, 0, r * .72]; half = r * .56;
+      rig.add('u' + i, 'root', [x * sp.spread / 0.6, y * sp.spread / 0.6 + 0.35, z], [puff.clone(), seed, beak, pappusGeo(r*1.5,c.pappus,42,key+':'+i,true)], 'opaque', [0, 0, (R() - 0.5) * 0.4]);
     }
     units.push({ bone: 'u' + i, target: faceGeo, center: fc, half, normalEye:i%3===1 ? 'happy' : null });
   });
@@ -525,7 +503,7 @@ export function cluster(sp, key) {
 export function radial(sp, key) {
   const c = sp.colors, N = sp.arms;
   const rig = new Rig(key, 'radial', 'radialShuffle');
-  const g = new THREE.SphereGeometry(1, 60, 16); g.rotateX(Math.PI / 2);   // 極 = 前 / 後ろ
+  const g = new THREE.SphereGeometry(1, 50, 12); g.rotateX(Math.PI / 2);   // 極 = 前 / 後ろ
   const p = g.attributes.position;
   const star = (phi) => Math.pow((1 + Math.cos(N * phi)) / 2, 1.6);
   for (let i = 0; i < p.count; i++) {
@@ -545,7 +523,7 @@ export function radial(sp, key) {
     for (let k = 0; k < 36; k++) {
       const phi = Math.floor(k / 7) * (TAU / N) + (R() - 0.5) * 0.22, rho = 0.25 + (k % 7) / 7 * 0.6, s = star(phi), Rr = (sp.armR + (sp.r - sp.armR) * s) * rho;
       const zz = sp.thick * (1 - 0.55 * rho * rho * s) * Math.sqrt(Math.max(0, 1 - rho * rho)) + sp.curl * Math.pow(rho * s, 2);
-      parts.push(solid(xform(ellipsoid(0.016, 0.016, 0.004, 6, 4), { pos: [Math.sin(phi) * Rr, Math.cos(phi) * Rr, zz + 0.004] }), c.dot));
+      parts.push(solid(xform(ellipsoid(0.022, 0.022, 0.014, 6, 4), { pos: [Math.sin(phi) * Rr, Math.cos(phi) * Rr, zz + 0.004] }), c.dot));
     }
   }
   // 下の 2 本の うで(φ = ±144°)の 先で 地面に 立つ
@@ -564,8 +542,8 @@ export function blobArchetype(sp, key) {
   const rig = new Rig(key, 'blob', 'blobFloat');
   const h = sp.h, r = sp.r;
   // ビピンナリア: たてながの 体に 左右 2 つずつの ふくらみ(うで の もと)
-  const contour = [[0,h],[-r*.3,h*.96],[-r*.51,h*.8],[-r*.57,h*.66],[-r*.88,h*.59],[-r*.95,h*.49],[-r*.78,h*.42],[-r*.57,h*.35],[-r*.82,h*.25],[-r*.88,h*.12],[-r*.69,.0],[-r*.48,h*.01],[-r*.28,h*.11],[-r*.13,h*.015],[0,-h*.015],[r*.13,h*.015],[r*.28,h*.11],[r*.48,h*.01],[r*.69,0],[r*.88,h*.12],[r*.82,h*.25],[r*.57,h*.35],[r*.78,h*.42],[r*.95,h*.49],[r*.88,h*.59],[r*.57,h*.66],[r*.51,h*.8],[r*.3,h*.96]];
-  const outer = paint(outlineLoft(contour,r*.42,72,8), (x, y, z, nx, ny, nz) => mix(c.base, c.edge, smooth(0.4, 0.0, Math.abs(nz)) * 0.7));
+  const contour = [[0,h],[-r*.47,h*.87],[-r*.57,h*.66],[-r*.93,h*.53],[-r*.58,h*.4],[-r*.9,h*.17],[-r*.56,0],[-r*.27,h*.14],[0,-h*.015],[r*.27,h*.14],[r*.56,0],[r*.9,h*.17],[r*.58,h*.4],[r*.93,h*.53],[r*.57,h*.66],[r*.47,h*.87]];
+  const outer = paint(outlineLoft(contour,r*.42), (x, y, z, nx, ny, nz) => mix(c.base, c.edge, smooth(0.4, 0.0, Math.abs(nz)) * 0.7));
   const core = paint(blob((x, y, z) => [x * r * 0.55, (y * 0.5 + 0.5) * h * 0.7 + h * 0.12, z * r * 0.24], 14, 10), () => c.light);
   rig.add('body', 'root', [0, 0, 0], [outer.clone()], 'glow:' + sp.glow + ':' + sp.translucent);
   rig.mesh('body', [core], 'opaque');

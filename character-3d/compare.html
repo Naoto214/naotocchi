@@ -14,8 +14,8 @@
 </nav>
 <main class="grid">
 <article><h2>Original 2D — デザイン正本</h2><div class="original"><img id="original" alt="既存の2D原画"></div><p class="caption">原画にない横・後ろ姿は補完対象です。</p></article>
-<article><h2>Claude 3D — 修正前 e12f720</h2><iframe id="before" title="Claude版3D"></iframe><p class="caption">造形・表情・動作を保存時点に固定。</p></article>
-<article><h2>Revised 3D — Quality Pass</h2><iframe id="after" title="修正版3D"></iframe><p class="caption">同じarchetype/runtimeを利用した修正候補。</p></article>
+<article><h2>Current revised — 第1回修正版 8b19ecc</h2><iframe id="before" title="Claude版3D"></iframe><p class="caption">造形・表情・動作を保存時点に固定。</p></article>
+<article><h2>Second revised — 第2回修正版</h2><iframe id="after" title="修正版3D"></iframe><p class="caption">同じarchetype/runtimeを利用した修正候補。</p></article>
 </main>
 <footer><a href="gallery.html">詳細gallery</a> · <a href="../index.html?meguru3d=1&amp;char3d=1&amp;perf=1">Meguru 3D</a> · <a href="../index.html?meguru3d=1&amp;perf=1">同条件の2D</a><p>ライブ再生は独立した時計で動きます。厳密な比較は「同時刻で静止」を使用してください。</p></footer>
 <script type="module">
@@ -31,7 +31,7 @@ function update(){const id=$('species').value,s=Number($('stage').value),e=$('em
   $('original').src='../'+SPEC.referenceAsset(id,s,e);
   const p=new URLSearchParams({id,stage:s,emotion:e,view:$('view').value,walk:$('motion').value==='walk'?'1':'0',reduced:$('reduced').checked?'1':'0',bare:'1',ortho:'1',el:'.18'});
   if($('play').value==='still')p.set('t','.4');
-  $('before').src='gallery.html?'+p+'&revision=claude';$('after').src='gallery.html?'+p;
+  $('before').src='gallery.html?'+p+'&revision=previous';$('after').src='gallery.html?'+p;
   const u=new URL(location.href);for(const [k,v] of Object.entries({id,stage:s,emotion:e,view:$('view').value,motion:$('motion').value,play:$('play').value}))u.searchParams.set(k,v);history.replaceState(null,'',u);
 }
 $('species').onchange=()=>{stages();update();};for(const id of ['stage','emotion','view','motion','play','reduced'])$(id).onchange=update;update();

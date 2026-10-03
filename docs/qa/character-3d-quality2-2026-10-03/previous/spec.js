@@ -152,7 +152,7 @@
         1: { archetype: Q, idlePose: 'lie', body: { len: 0.95, r: 0.42, chest: 1.0, hip: 0.95 }, head: { r: 0.46, squash: 0.92, snout: 0.16, snoutR: 0.17 }, legs: { len: 0.22, r: 0.11 }, neck: 0.08,
           ears: { type: 'floppy', len: 0.34, w: 0.2, tilt: 0.25 }, tail: { type: 'short', len: 0.2, r: 0.07 },
           colors: { base: '#f0a458', belly: '#f6c27e', muzzle: '#f6c27e', ear: '#8a4c26', nose: '#3a1a10', paw: '#e8964a' } },
-        4: { archetype: Q, idlePose: 'playBow', body: { len: 1.12, r: 0.30, chest: 1.12, hip: 0.92 }, head: { r: 0.37, width: .96, squash: 1.0, snout: 0.20, snoutR: 0.14, eyeX:27, eyeSize:.24 }, legs: { len: 0.52, r: 0.095 }, neck: 0.2,
+        4: { archetype: Q, idlePose: 'playBow', body: { len: 1.12, r: 0.30, chest: 1.12, hip: 0.92 }, head: { r: 0.40, squash: 0.95, snout: 0.17, snoutR: 0.16 }, legs: { len: 0.52, r: 0.095 }, neck: 0.2,
           ears: { type: 'pointy', len: 0.38, w: 0.23, tilt: -0.05 }, tail: { type: 'raised', len: 0.54, r: 0.095 },
           colors: { base: '#f0a458', belly: '#f8b868', muzzle: '#f8c88a', ear: '#c87838', nose: '#2a1010', paw: '#d88848' } },
         8: { archetype: Q, idlePose: 'sit', body: { len: 1.1, r: 0.37, chest: 1.22, hip: 1.0 }, head: { r: 0.38, squash: 0.9, snout: 0.22, snoutR: 0.17 }, legs: { len: 0.42, r: 0.11 }, neck: 0.12,
@@ -239,10 +239,10 @@
   });
   // archetype を つかいまわす ためしの なかま(形は builder + 数字だけ。pilot の 数には 入れない)
   const ARCHETYPE_REUSE = freeze({
-    shiba: { archetype: Q, basedOn: 'dog', kind: 'companion', idlePose: 'playBow', markings: 'urajiro', body: { len: 0.81, r: 0.39, chest: 1.25, hip: 1.12 }, head: { r: 0.43, width:1.14, squash: 0.90, snout: 0.10, snoutR: 0.19, cheek: 0.32, eyeX:28, eyeSize:.23 }, coat: {width:.9,height:.92,depth:.55}, poseProfile:{bow:.38}, legs: { len: 0.30, r: 0.115 }, neck: 0.12,
-      ears: { type: 'pointy', len: 0.26, w: 0.17, tilt: -0.05 }, tail: { type: 'curl', len: 0.70, r: 0.20 }, colors: { base: '#e89848', belly: '#f8e8d8', muzzle: '#f8e8d8', ear: '#d87838', nose: '#2a1010', paw: '#f8e8d8' } },
-    cat_friend: { archetype: Q, basedOn: 'dog', kind: 'companion', idlePose: 'recline', normalEye:'droop', poseProfile:{yaw:-.85,roll:-.12,headYaw:.65}, patchMap:{head:[{at:[-.62,.28,.25],size:[.67,.92,1.1],color:'patch2'},{at:[.68,.5,0],size:[.7,.9,1.2],color:'patch'}],body:[{at:[-.5,.65,-.35],size:[1.0,.9,.6],color:'patch2'},{at:[.6,.4,-.6],size:[.8,1.0,.55],color:'patch'},{at:[-.7,.25,.50],size:[.65,.9,.36],color:'patch2'}]}, body: { len: 1.36, r: 0.27, chest: .91, hip: 1.1 }, head: { r: 0.32, width:1.08, squash: .87, snout: 0.035, snoutR: .095, eyeX:29,eyeSize:.25 }, legs: { len: .34, r: .072 }, neck: .08,
-      ears: { type: 'pointy', len: 0.24, w: 0.2, tilt: 0.1 }, tail: { type: 'hook', len: 0.87, r: 0.085 }, colors: { base: '#f6e6d6', belly: '#fbf2e8', muzzle: '#fbf2e8', ear: '#e89848', nose: '#e88888', paw: '#f6e6d6', patch: '#332a29', patch2: '#d89449' }, patches: true },
+    shiba: { archetype: Q, basedOn: 'dog', kind: 'companion', idlePose: 'playBow', markings: 'urajiro', body: { len: 0.84, r: 0.38, chest: 1.18, hip: 1.1 }, head: { r: 0.43, squash: 0.93, snout: 0.12, snoutR: 0.19, cheek: 0.22 }, legs: { len: 0.30, r: 0.115 }, neck: 0.12,
+      ears: { type: 'pointy', len: 0.26, w: 0.17, tilt: -0.05 }, tail: { type: 'curl', len: 0.66, r: 0.17 }, colors: { base: '#e89848', belly: '#f8e8d8', muzzle: '#f8e8d8', ear: '#d87838', nose: '#2a1010', paw: '#f8e8d8' } },
+    cat_friend: { archetype: Q, basedOn: 'dog', kind: 'companion', idlePose: 'lie', body: { len: 1.15, r: 0.3, chest: 1.0, hip: 1.0 }, head: { r: 0.36, squash: 0.9, snout: 0.08, snoutR: 0.13 }, legs: { len: 0.36, r: 0.08 }, neck: 0.1,
+      ears: { type: 'pointy', len: 0.24, w: 0.2, tilt: 0.1 }, tail: { type: 'long', len: 0.7, r: 0.06 }, colors: { base: '#f6e6d6', belly: '#fbf2e8', muzzle: '#fbf2e8', ear: '#e89848', nose: '#e88888', paw: '#f6e6d6', patch: '#684838', patch2: '#e89848' }, patches: true },
   });
 
   const STAGE_KEYS = freeze(Object.fromEntries(Object.entries(PILOT).map(([id, p]) => [id, Object.keys(p.stages).map(Number)])));

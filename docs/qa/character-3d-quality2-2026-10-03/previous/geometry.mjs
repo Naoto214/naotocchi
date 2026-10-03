@@ -4,7 +4,7 @@
 //   太さが かわる すいーぷ(sweep)・格子の 面(sheet)で つくり、つなぎめの 法線を ならす(smooth)
 // ・色は 頂点色(vertex color)。material は ほぼ 1 つを みんなで つかう(draw call と material を ふやさない)
 // ・顔は 頭の 面へ 投影(projectGrid / projectPoint)。どんな 形の 頭(かさ・星・魚の 鼻先)でも おなじ 道具で のせる
-import * as THREE from '../vendor/three-0.170.0/three.module.min.js';
+import * as THREE from '../../../../vendor/three-0.170.0/three.module.min.js';
 export { THREE };
 
 const TAU = Math.PI * 2;
@@ -56,15 +56,14 @@ export function xform(geo, { pos = [0, 0, 0], rot = [0, 0, 0], scale = [1, 1, 1]
 export function merge(geos) {
   const list = geos.filter(Boolean);
   let vc = 0, ic = 0;
-  const cs = list.some(g => g.attributes.color?.itemSize === 4) ? 4 : 3;
   for (const g of list) { vc += g.attributes.position.count; ic += g.index ? g.index.count : g.attributes.position.count; }
-  const P = new Float32Array(vc * 3), N = new Float32Array(vc * 3), C = new Float32Array(vc * cs), U = new Float32Array(vc * 2), I = new (vc > 65535 ? Uint32Array : Uint16Array)(ic);
+  const P = new Float32Array(vc * 3), N = new Float32Array(vc * 3), C = new Float32Array(vc * 3), U = new Float32Array(vc * 2), I = new (vc > 65535 ? Uint32Array : Uint16Array)(ic);
   let vo = 0, io = 0;
   for (const g of list) {
     const n = g.attributes.position.count;
     P.set(g.attributes.position.array.subarray(0, n * 3), vo * 3);
     if (g.attributes.normal) N.set(g.attributes.normal.array.subarray(0, n * 3), vo * 3);
-    for (let j=0;j<n;j++) { const c=g.attributes.color; C[(vo+j)*cs]=c?c.getX(j):1; C[(vo+j)*cs+1]=c?c.getY(j):1; C[(vo+j)*cs+2]=c?c.getZ(j):1; if(cs===4)C[(vo+j)*cs+3]=c?.itemSize===4?c.getW(j):1; }
+    if (g.attributes.color) C.set(g.attributes.color.array.subarray(0, n * 3), vo * 3); else C.fill(1, vo * 3, (vo + n) * 3);
     if (g.attributes.uv) U.set(g.attributes.uv.array.subarray(0, n * 2), vo * 2);
     if (g.index) { for (let i = 0; i < g.index.count; i++) I[io + i] = g.index.getX(i) + vo; io += g.index.count; } else { for (let i = 0; i < n; i++) I[io + i] = vo + i; io += n; }
     vo += n;
@@ -73,7 +72,7 @@ export function merge(geos) {
   const out = new THREE.BufferGeometry();
   out.setAttribute('position', new THREE.BufferAttribute(P, 3));
   out.setAttribute('normal', new THREE.BufferAttribute(N, 3));
-  out.setAttribute('color', new THREE.BufferAttribute(C, cs));
+  out.setAttribute('color', new THREE.BufferAttribute(C, 3));
   out.setAttribute('uv', new THREE.BufferAttribute(U, 2));
   out.setIndex(new THREE.BufferAttribute(I, 1));
   out.computeBoundingSphere(); out.computeBoundingBox();
@@ -242,22 +241,4 @@ export function projectGrid(target, fr, half, n = 10, lift = 0.006) {
   g.setIndex(idx);
   g.computeVertexNormals();
   return g;
-}
-
-// Soft volume from three crossed, scalloped veils. Vertex alpha fades the rim;
-// merged with the seed/core it costs no additional bone or filament draw call.
-export function softHalo(radius, seed='halo') {
-  const random=rng(seed), pos=[],colors=[],index=[],uv=[];
-  const rings=[0,.38,.65,.83,1], alpha=[.8,.85,.75,.55,0], count=20;
-  for(let plane=0;plane<3;plane++) {
-    const phase=random()*Math.PI*2, start=pos.length/3;
-    for(let j=0;j<rings.length;j++)for(let i=0;i<=count;i++) {
-      const a=i/count*Math.PI*2, r=radius*rings[j]*(1+.08*Math.sin(a*5+phase)+.04*Math.sin(a*9-phase));
-      const x=Math.cos(a)*r,y=Math.sin(a)*r,z=.035*radius*Math.sin(a*3)*rings[j];
-      const v=new THREE.Vector3(x,y,z).applyAxisAngle(new THREE.Vector3(0,1,0),plane*Math.PI/3);
-      pos.push(v.x,v.y,v.z);uv.push(.5+x/(radius*2.3),.5+y/(radius*2.3));colors.push(1,1,1,alpha[j]);
-    }
-    for(let j=0;j<rings.length-1;j++)for(let i=0;i<count;i++){const a=start+j*(count+1)+i,b=a+count+1;index.push(a,b,a+1,a+1,b,b+1);}
-  }
-  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('color',new THREE.Float32BufferAttribute(colors,4));g.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));g.setIndex(index);g.computeVertexNormals();return g;
 }

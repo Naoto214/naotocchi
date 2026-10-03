@@ -66,7 +66,7 @@
 <script type="module">
 import { THREE } from './geometry.mjs';
 const before = new URLSearchParams(location.search).get('revision') === 'claude';
-const prefix = before ? '../docs/qa/character-3d-quality-2026-10-02/claude/' : './';
+const prefix = before ? '../docs/qa/character-3d-quality-2026-10-02/claude/' : new URLSearchParams(location.search).get('revision') === 'previous' ? '../docs/qa/character-3d-quality2-2026-10-03/previous/' : './';
 const { getTemplate, instantiate, fitScale, SPEC } = await import(prefix + 'runtime.mjs');
 const { animate, setEmotion, react, GAIT_HZ } = await import(prefix + 'animate.mjs');
 
@@ -102,6 +102,7 @@ scene.add(ground);
 const shadowMat = new THREE.MeshBasicMaterial({ color: '#000', transparent: true, opacity: 0.2, depthWrite: false });
 const shadowGeo = new THREE.CircleGeometry(1, 24).rotateX(-Math.PI / 2).translate(0, 0.004, 0);
 
+const silhouetteMat=new THREE.MeshBasicMaterial({color:'#171717',side:THREE.DoubleSide});
 let items = [];
 function clear() { for (const it of items) { scene.remove(it.inst.holder); scene.remove(it.shadow); } items = []; }
 let spacing = 2, slots = 1;
@@ -113,6 +114,7 @@ function add(id, stage, emotion, mode, x, label) {
   inst.scale = fitScale(tpl, art && art.box, 1.6);
   inst.holder.scale.setScalar(inst.scale); inst.holder.position.x = x;
   setEmotion(inst, emotion);
+  if(q.get('silhouette')==='1')inst.root.traverse(o=>{if(o.isMesh){if(o.name.startsWith('face:'))o.visible=false;else o.material=silhouetteMat;}});
   scene.add(inst.holder);
   const sh = new THREE.Mesh(shadowGeo, shadowMat); sh.position.x = x;
   const fp = Math.max(tpl.size.x, tpl.size.z) * inst.scale * 0.42; sh.scale.set(fp, 1, fp * 0.8);
@@ -123,9 +125,10 @@ function add(id, stage, emotion, mode, x, label) {
 function rebuild() {
   clear();
   const { id, stage, emotion, mode } = st;
-  const lay = { single: [2.3, 1], stages: [2.4, stagesOf(id).length], emotions: [1.75, 5], modes: [1.9, 3], views: [1.9, 4], lineup: [1.7, Object.keys(SPEC.PILOT).length] }[st.layout] || [2, 1];
+  const lay = { canines: [2.3,2], single: [2.3, 1], stages: [2.4, stagesOf(id).length], emotions: [1.75, 5], modes: [1.9, 3], views: [1.9, 4], lineup: [1.7, Object.keys(SPEC.PILOT).length] }[st.layout] || [2, 1];
   spacing = lay[0]; slots = lay[1];
-  if (st.layout === 'single') add(id, stage, emotion, mode, 0);
+  if(st.layout === 'canines'){add('dog',4,emotion,mode,-1.15,'dog');add('shiba',0,emotion,mode,1.15,'shiba');}
+  else if (st.layout === 'single') add(id, stage, emotion, mode, 0);
   else if (st.layout === 'stages') stagesOf(id).forEach((s, i, a) => add(id, s, emotion, mode, (i - (a.length - 1) / 2) * 2.4, '0' + s));
   else if (st.layout === 'emotions') SPEC.PILOT_EMOTIONS.forEach((e, i) => add(id, stage, e, mode, (i - 2) * 1.75, e));
   else if (st.layout === 'modes') ['A', 'B', 'C'].forEach((m, i) => add(id, stage, emotion, m, (i - 1) * 1.9, m));
