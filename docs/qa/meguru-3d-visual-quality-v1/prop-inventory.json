@@ -1,0 +1,2253 @@
+{
+  "home": {
+    "objects": 287,
+    "types": {
+      "broadleaf": {
+        "objects": 35,
+        "parts": 259,
+        "kinds": [
+          "🌳"
+        ]
+      },
+      "pot": {
+        "objects": 23,
+        "parts": 46,
+        "kinds": [
+          "planter",
+          "🪴"
+        ]
+      },
+      "hedge": {
+        "objects": 39,
+        "parts": 119,
+        "kinds": [
+          "hedge"
+        ]
+      },
+      "house": {
+        "objects": 21,
+        "parts": 447,
+        "kinds": [
+          "🏠",
+          "🛖",
+          "house"
+        ]
+      },
+      "flower": {
+        "objects": 27,
+        "parts": 81,
+        "kinds": [
+          "🌷",
+          "🌼",
+          "🌸"
+        ]
+      },
+      "sparkle": {
+        "objects": 2,
+        "parts": 6,
+        "kinds": [
+          "✨"
+        ]
+      },
+      "signpost": {
+        "objects": 11,
+        "parts": 22,
+        "kinds": [
+          "🪧"
+        ]
+      },
+      "smalllog": {
+        "objects": 10,
+        "parts": 10,
+        "kinds": [
+          "🪵"
+        ]
+      },
+      "grass": {
+        "objects": 2,
+        "parts": 6,
+        "kinds": [
+          "🌿"
+        ]
+      },
+      "bike": {
+        "objects": 1,
+        "parts": 7,
+        "kinds": [
+          "🚲"
+        ]
+      },
+      "bench": {
+        "objects": 1,
+        "parts": 3,
+        "kinds": [
+          "🪑"
+        ]
+      },
+      "sprout": {
+        "objects": 1,
+        "parts": 2,
+        "kinds": [
+          "🌱"
+        ]
+      },
+      "slide": {
+        "objects": 2,
+        "parts": 4,
+        "kinds": [
+          "🛝"
+        ]
+      },
+      "water": {
+        "objects": 1,
+        "parts": 1,
+        "kinds": [
+          "springpool"
+        ]
+      },
+      "bigtree": {
+        "objects": 1,
+        "parts": 6,
+        "kinds": [
+          "LM:bigtree"
+        ]
+      },
+      "fence": {
+        "objects": 30,
+        "parts": 121,
+        "kinds": [
+          "fence",
+          "woodfence",
+          "fencerail"
+        ]
+      },
+      "lamp": {
+        "objects": 7,
+        "parts": 21,
+        "kinds": [
+          "lantern"
+        ]
+      },
+      "boxprop": {
+        "objects": 1,
+        "parts": 4,
+        "kinds": [
+          "vending"
+        ]
+      },
+      "dressing": {
+        "objects": 72,
+        "parts": 632,
+        "kinds": [
+          "cover:bushes",
+          "cover:flowers",
+          "cover:grass",
+          "cover:pebbles",
+          "cover:leaves",
+          "cover:garden"
+        ]
+      }
+    }
+  },
+  "city": {
+    "objects": 1096,
+    "types": {
+      "house": {
+        "objects": 42,
+        "parts": 1007,
+        "kinds": [
+          "shopfront",
+          "🏪",
+          "🏠",
+          "house"
+        ]
+      },
+      "tower": {
+        "objects": 349,
+        "parts": 7985,
+        "kinds": [
+          "building",
+          "🏬",
+          "🏢",
+          "🚉",
+          "shopblock"
+        ]
+      },
+      "signal": {
+        "objects": 30,
+        "parts": 90,
+        "kinds": [
+          "🚦"
+        ]
+      },
+      "broadleaf": {
+        "objects": 78,
+        "parts": 579,
+        "kinds": [
+          "🌳",
+          "parktree"
+        ]
+      },
+      "lamp": {
+        "objects": 62,
+        "parts": 278,
+        "kinds": [
+          "💡",
+          "🏮",
+          "streetlight",
+          "lantern"
+        ]
+      },
+      "flower": {
+        "objects": 10,
+        "parts": 30,
+        "kinds": [
+          "🌼",
+          "🌷"
+        ]
+      },
+      "signpost": {
+        "objects": 60,
+        "parts": 120,
+        "kinds": [
+          "🪧"
+        ]
+      },
+      "conep": {
+        "objects": 15,
+        "parts": 15,
+        "kinds": [
+          "🚧"
+        ]
+      },
+      "bike": {
+        "objects": 36,
+        "parts": 252,
+        "kinds": [
+          "🚲"
+        ]
+      },
+      "binp": {
+        "objects": 20,
+        "parts": 20,
+        "kinds": [
+          "🗑️"
+        ]
+      },
+      "boxprop": {
+        "objects": 133,
+        "parts": 401,
+        "kinds": [
+          "🏪",
+          "☕",
+          "vending",
+          "guardpost"
+        ]
+      },
+      "bush": {
+        "objects": 5,
+        "parts": 15,
+        "kinds": [
+          "🌳"
+        ]
+      },
+      "grass": {
+        "objects": 13,
+        "parts": 39,
+        "kinds": [
+          "🌿"
+        ]
+      },
+      "pot": {
+        "objects": 12,
+        "parts": 24,
+        "kinds": [
+          "🪴"
+        ]
+      },
+      "ferris": {
+        "objects": 3,
+        "parts": 33,
+        "kinds": [
+          "🎡"
+        ]
+      },
+      "bridge": {
+        "objects": 1,
+        "parts": 25,
+        "kinds": [
+          "🌉"
+        ]
+      },
+      "boat": {
+        "objects": 1,
+        "parts": 3,
+        "kinds": [
+          "⛵"
+        ]
+      },
+      "fountain": {
+        "objects": 1,
+        "parts": 3,
+        "kinds": [
+          "⛲"
+        ]
+      },
+      "torii": {
+        "objects": 1,
+        "parts": 4,
+        "kinds": [
+          "⛩️"
+        ]
+      },
+      "coral": {
+        "objects": 1,
+        "parts": 3,
+        "kinds": [
+          "glowcoral"
+        ]
+      },
+      "lm_tower": {
+        "objects": 1,
+        "parts": 4,
+        "kinds": [
+          "LM:tower"
+        ]
+      },
+      "neon": {
+        "objects": 21,
+        "parts": 42,
+        "kinds": [
+          "neonsign"
+        ]
+      },
+      "fence": {
+        "objects": 15,
+        "parts": 45,
+        "kinds": [
+          "guardrail"
+        ]
+      },
+      "decal": {
+        "objects": 5,
+        "parts": 5,
+        "kinds": [
+          "crosswalk"
+        ]
+      },
+      "wall": {
+        "objects": 22,
+        "parts": 218,
+        "kinds": [
+          "alleywall"
+        ]
+      },
+      "pier": {
+        "objects": 1,
+        "parts": 3,
+        "kinds": [
+          "pier"
+        ]
+      },
+      "water": {
+        "objects": 1,
+        "parts": 1,
+        "kinds": [
+          "springpool"
+        ]
+      },
+      "telescope": {
+        "objects": 1,
+        "parts": 4,
+        "kinds": [
+          "telescope"
+        ]
+      },
+      "car": {
+        "objects": 2,
+        "parts": 8,
+        "kinds": [
+          "🚕"
+        ]
+      },
+      "dressing": {
+        "objects": 154,
+        "parts": 1031,
+        "kinds": [
+          "cover:grass",
+          "cover:bushes",
+          "cover:flowers",
+          "cover:leaves"
+        ]
+      }
+    }
+  },
+  "countryside": {
+    "objects": 899,
+    "types": {
+      "house": {
+        "objects": 72,
+        "parts": 1773,
+        "kinds": [
+          "farmhouse",
+          "🏡",
+          "barn"
+        ]
+      },
+      "broadleaf": {
+        "objects": 185,
+        "parts": 1342,
+        "kinds": [
+          "🌳",
+          "parktree",
+          "riverwood"
+        ]
+      },
+      "hay": {
+        "objects": 20,
+        "parts": 20,
+        "kinds": [
+          "hayroll"
+        ]
+      },
+      "log": {
+        "objects": 8,
+        "parts": 8,
+        "kinds": [
+          "🪵",
+          "log"
+        ]
+      },
+      "flower": {
+        "objects": 34,
+        "parts": 102,
+        "kinds": [
+          "🌻",
+          "🌼",
+          "🌷"
+        ]
+      },
+      "car": {
+        "objects": 3,
+        "parts": 12,
+        "kinds": [
+          "🚜"
+        ]
+      },
+      "signpost": {
+        "objects": 36,
+        "parts": 72,
+        "kinds": [
+          "🪧",
+          "oldpost"
+        ]
+      },
+      "smalllog": {
+        "objects": 19,
+        "parts": 19,
+        "kinds": [
+          "🪵"
+        ]
+      },
+      "reeds": {
+        "objects": 112,
+        "parts": 336,
+        "kinds": [
+          "🌾",
+          "ricestalk"
+        ]
+      },
+      "bush": {
+        "objects": 12,
+        "parts": 36,
+        "kinds": [
+          "🌳"
+        ]
+      },
+      "sprout": {
+        "objects": 10,
+        "parts": 20,
+        "kinds": [
+          "🌱"
+        ]
+      },
+      "grass": {
+        "objects": 7,
+        "parts": 21,
+        "kinds": [
+          "🌿"
+        ]
+      },
+      "pebble": {
+        "objects": 4,
+        "parts": 4,
+        "kinds": [
+          "🪨"
+        ]
+      },
+      "pot": {
+        "objects": 6,
+        "parts": 10,
+        "kinds": [
+          "🪴",
+          "🏺"
+        ]
+      },
+      "leaf": {
+        "objects": 2,
+        "parts": 2,
+        "kinds": [
+          "🍂"
+        ]
+      },
+      "croprow": {
+        "objects": 27,
+        "parts": 152,
+        "kinds": [
+          "crop",
+          "cropline"
+        ]
+      },
+      "fern": {
+        "objects": 1,
+        "parts": 5,
+        "kinds": [
+          "fern"
+        ]
+      },
+      "rock": {
+        "objects": 3,
+        "parts": 6,
+        "kinds": [
+          "bigrock",
+          "stonestack"
+        ]
+      },
+      "lm_windmill": {
+        "objects": 2,
+        "parts": 12,
+        "kinds": [
+          "LM:windmill"
+        ]
+      },
+      "torii": {
+        "objects": 2,
+        "parts": 8,
+        "kinds": [
+          "⛩️"
+        ]
+      },
+      "bigtree": {
+        "objects": 1,
+        "parts": 6,
+        "kinds": [
+          "LM:bigtree"
+        ]
+      },
+      "fence": {
+        "objects": 38,
+        "parts": 160,
+        "kinds": [
+          "fence",
+          "woodfence",
+          "fencerail"
+        ]
+      },
+      "pinerow": {
+        "objects": 19,
+        "parts": 114,
+        "kinds": [
+          "pinewall"
+        ]
+      },
+      "wheel": {
+        "objects": 1,
+        "parts": 3,
+        "kinds": [
+          "waterwheel"
+        ]
+      },
+      "statue": {
+        "objects": 1,
+        "parts": 3,
+        "kinds": [
+          "statue"
+        ]
+      },
+      "lamp": {
+        "objects": 1,
+        "parts": 3,
+        "kinds": [
+          "lanternpost"
+        ]
+      },
+      "ford": {
+        "objects": 1,
+        "parts": 5,
+        "kinds": [
+          "ford"
+        ]
+      },
+      "bridge": {
+        "objects": 2,
+        "parts": 6,
+        "kinds": [
+          "woodbridge"
+        ]
+      },
+      "dressing": {
+        "objects": 270,
+        "parts": 1919,
+        "kinds": [
+          "cover:grass",
+          "cover:bushes",
+          "cover:leaves",
+          "cover:flowers",
+          "cover:pebbles",
+          "cover:mushrooms",
+          "cover:field"
+        ]
+      }
+    }
+  },
+  "forest": {
+    "objects": 1315,
+    "types": {
+      "bigtree": {
+        "objects": 184,
+        "parts": 921,
+        "kinds": [
+          "bigtrunk",
+          "LM:bigtree"
+        ]
+      },
+      "broadleaf": {
+        "objects": 132,
+        "parts": 973,
+        "kinds": [
+          "🌳",
+          "mistwood",
+          "riverwood"
+        ]
+      },
+      "rock": {
+        "objects": 55,
+        "parts": 110,
+        "kinds": [
+          "bigrock",
+          "cairn",
+          "stonestack",
+          "ledgerock"
+        ]
+      },
+      "conifer": {
+        "objects": 213,
+        "parts": 1162,
+        "kinds": [
+          "🌲"
+        ]
+      },
+      "log": {
+        "objects": 22,
+        "parts": 22,
+        "kinds": [
+          "🪵",
+          "log"
+        ]
+      },
+      "mushrooms": {
+        "objects": 76,
+        "parts": 304,
+        "kinds": [
+          "🍄",
+          "mushroomcluster"
+        ]
+      },
+      "grass": {
+        "objects": 100,
+        "parts": 300,
+        "kinds": [
+          "🌿"
+        ]
+      },
+      "leaf": {
+        "objects": 35,
+        "parts": 35,
+        "kinds": [
+          "🍂"
+        ]
+      },
+      "flower": {
+        "objects": 6,
+        "parts": 18,
+        "kinds": [
+          "🌼"
+        ]
+      },
+      "sparkle": {
+        "objects": 13,
+        "parts": 39,
+        "kinds": [
+          "✨"
+        ]
+      },
+      "signpost": {
+        "objects": 27,
+        "parts": 54,
+        "kinds": [
+          "🪧",
+          "oldpost"
+        ]
+      },
+      "sprout": {
+        "objects": 35,
+        "parts": 70,
+        "kinds": [
+          "🌱"
+        ]
+      },
+      "nut": {
+        "objects": 29,
+        "parts": 58,
+        "kinds": [
+          "🌰"
+        ]
+      },
+      "smalllog": {
+        "objects": 45,
+        "parts": 45,
+        "kinds": [
+          "🪵"
+        ]
+      },
+      "pebble": {
+        "objects": 27,
+        "parts": 27,
+        "kinds": [
+          "🪨"
+        ]
+      },
+      "bridge": {
+        "objects": 3,
+        "parts": 46,
+        "kinds": [
+          "🌉",
+          "woodbridge"
+        ]
+      },
+      "glowmushroom": {
+        "objects": 1,
+        "parts": 15,
+        "kinds": [
+          "LM:glowmushroom"
+        ]
+      },
+      "waterfall": {
+        "objects": 1,
+        "parts": 31,
+        "kinds": [
+          "LM:waterfall"
+        ]
+      },
+      "stump": {
+        "objects": 15,
+        "parts": 15,
+        "kinds": [
+          "stump"
+        ]
+      },
+      "fern": {
+        "objects": 21,
+        "parts": 105,
+        "kinds": [
+          "fern"
+        ]
+      },
+      "water": {
+        "objects": 1,
+        "parts": 1,
+        "kinds": [
+          "springpool"
+        ]
+      },
+      "mushroomgrove": {
+        "objects": 1,
+        "parts": 10,
+        "kinds": [
+          "mushroomgrove"
+        ]
+      },
+      "glowdecal": {
+        "objects": 1,
+        "parts": 1,
+        "kinds": [
+          "glowglade"
+        ]
+      },
+      "mound": {
+        "objects": 6,
+        "parts": 6,
+        "kinds": [
+          "bigrock"
+        ]
+      },
+      "ford": {
+        "objects": 2,
+        "parts": 6,
+        "kinds": [
+          "ford"
+        ]
+      },
+      "dressing": {
+        "objects": 264,
+        "parts": 1969,
+        "kinds": [
+          "cover:mushrooms",
+          "cover:leaves",
+          "cover:flowers",
+          "cover:grass",
+          "cover:bushes",
+          "cover:moss",
+          "cover:ferns",
+          "cover:logs",
+          "cover:pebbles"
+        ]
+      }
+    }
+  },
+  "mountain": {
+    "objects": 781,
+    "types": {
+      "pinerow": {
+        "objects": 54,
+        "parts": 324,
+        "kinds": [
+          "pinewall"
+        ]
+      },
+      "conifer": {
+        "objects": 195,
+        "parts": 1068,
+        "kinds": [
+          "🌲"
+        ]
+      },
+      "rockwall": {
+        "objects": 91,
+        "parts": 546,
+        "kinds": [
+          "cliff",
+          "cliffwall"
+        ]
+      },
+      "rock": {
+        "objects": 158,
+        "parts": 316,
+        "kinds": [
+          "bigrock",
+          "cairn",
+          "stonestack",
+          "ledgerock"
+        ]
+      },
+      "signpost": {
+        "objects": 46,
+        "parts": 92,
+        "kinds": [
+          "🪧",
+          "oldpost"
+        ]
+      },
+      "tent": {
+        "objects": 11,
+        "parts": 11,
+        "kinds": [
+          "🏕️",
+          "tent"
+        ]
+      },
+      "flower": {
+        "objects": 37,
+        "parts": 111,
+        "kinds": [
+          "🌼"
+        ]
+      },
+      "pebble": {
+        "objects": 13,
+        "parts": 13,
+        "kinds": [
+          "🪨"
+        ]
+      },
+      "sparkle": {
+        "objects": 4,
+        "parts": 12,
+        "kinds": [
+          "✨"
+        ]
+      },
+      "grass": {
+        "objects": 11,
+        "parts": 33,
+        "kinds": [
+          "🌿"
+        ]
+      },
+      "smalllog": {
+        "objects": 4,
+        "parts": 4,
+        "kinds": [
+          "🪵"
+        ]
+      },
+      "torii": {
+        "objects": 2,
+        "parts": 8,
+        "kinds": [
+          "⛩️"
+        ]
+      },
+      "house": {
+        "objects": 3,
+        "parts": 68,
+        "kinds": [
+          "🛖",
+          "house"
+        ]
+      },
+      "hotspring": {
+        "objects": 1,
+        "parts": 2,
+        "kinds": [
+          "♨️"
+        ]
+      },
+      "bridge": {
+        "objects": 5,
+        "parts": 85,
+        "kinds": [
+          "🌉",
+          "ropebridge"
+        ]
+      },
+      "log": {
+        "objects": 2,
+        "parts": 2,
+        "kinds": [
+          "log"
+        ]
+      },
+      "hole": {
+        "objects": 2,
+        "parts": 2,
+        "kinds": [
+          "🕳️"
+        ]
+      },
+      "waterfall": {
+        "objects": 1,
+        "parts": 22,
+        "kinds": [
+          "LM:waterfall"
+        ]
+      },
+      "lm_peak": {
+        "objects": 1,
+        "parts": 4,
+        "kinds": [
+          "LM:peak"
+        ]
+      },
+      "bush": {
+        "objects": 5,
+        "parts": 15,
+        "kinds": [
+          "🌲"
+        ]
+      },
+      "pebbles": {
+        "objects": 10,
+        "parts": 40,
+        "kinds": [
+          "cairn"
+        ]
+      },
+      "boxprop": {
+        "objects": 1,
+        "parts": 3,
+        "kinds": [
+          "guardpost"
+        ]
+      },
+      "telescope": {
+        "objects": 1,
+        "parts": 4,
+        "kinds": [
+          "telescope"
+        ]
+      },
+      "mound": {
+        "objects": 5,
+        "parts": 5,
+        "kinds": [
+          "bigrock"
+        ]
+      },
+      "ford": {
+        "objects": 2,
+        "parts": 10,
+        "kinds": [
+          "ford"
+        ]
+      },
+      "dressing": {
+        "objects": 116,
+        "parts": 661,
+        "kinds": [
+          "cover:grass",
+          "cover:flowers",
+          "cover:bushes",
+          "cover:leaves",
+          "cover:pebbles"
+        ]
+      }
+    }
+  },
+  "snow": {
+    "objects": 527,
+    "types": {
+      "sandwall": {
+        "objects": 53,
+        "parts": 159,
+        "kinds": [
+          "snowbank"
+        ]
+      },
+      "crystal": {
+        "objects": 26,
+        "parts": 26,
+        "kinds": [
+          "icepillar"
+        ]
+      },
+      "conifer": {
+        "objects": 122,
+        "parts": 661,
+        "kinds": [
+          "🌲"
+        ]
+      },
+      "pinerow": {
+        "objects": 63,
+        "parts": 378,
+        "kinds": [
+          "pinewall"
+        ]
+      },
+      "log": {
+        "objects": 6,
+        "parts": 6,
+        "kinds": [
+          "🪵",
+          "log"
+        ]
+      },
+      "sparkle": {
+        "objects": 4,
+        "parts": 12,
+        "kinds": [
+          "✨"
+        ]
+      },
+      "signpost": {
+        "objects": 20,
+        "parts": 40,
+        "kinds": [
+          "🪧",
+          "oldpost"
+        ]
+      },
+      "smalllog": {
+        "objects": 18,
+        "parts": 18,
+        "kinds": [
+          "🪵"
+        ]
+      },
+      "bench": {
+        "objects": 13,
+        "parts": 39,
+        "kinds": [
+          "🛷",
+          "🎿"
+        ]
+      },
+      "bush": {
+        "objects": 19,
+        "parts": 57,
+        "kinds": [
+          "🌲"
+        ]
+      },
+      "pebble": {
+        "objects": 5,
+        "parts": 5,
+        "kinds": [
+          "🪨"
+        ]
+      },
+      "house": {
+        "objects": 2,
+        "parts": 35,
+        "kinds": [
+          "LM:lodge",
+          "🛖"
+        ]
+      },
+      "hole": {
+        "objects": 2,
+        "parts": 2,
+        "kinds": [
+          "🕳️"
+        ]
+      },
+      "hotspring": {
+        "objects": 1,
+        "parts": 2,
+        "kinds": [
+          "♨️"
+        ]
+      },
+      "lm_peak": {
+        "objects": 1,
+        "parts": 4,
+        "kinds": [
+          "LM:peak"
+        ]
+      },
+      "dome": {
+        "objects": 4,
+        "parts": 12,
+        "kinds": [
+          "igloo"
+        ]
+      },
+      "logs": {
+        "objects": 7,
+        "parts": 21,
+        "kinds": [
+          "firewood"
+        ]
+      },
+      "fence": {
+        "objects": 9,
+        "parts": 37,
+        "kinds": [
+          "snowfence"
+        ]
+      },
+      "water": {
+        "objects": 1,
+        "parts": 1,
+        "kinds": [
+          "springpool"
+        ]
+      },
+      "boxprop": {
+        "objects": 1,
+        "parts": 3,
+        "kinds": [
+          "guardpost"
+        ]
+      },
+      "rock": {
+        "objects": 1,
+        "parts": 2,
+        "kinds": [
+          "cairn"
+        ]
+      },
+      "dressing": {
+        "objects": 149,
+        "parts": 701,
+        "kinds": [
+          "cover:bushes",
+          "cover:pebbles",
+          "cover:grass"
+        ]
+      }
+    }
+  },
+  "sea": {
+    "objects": 529,
+    "types": {
+      "sandwall": {
+        "objects": 30,
+        "parts": 90,
+        "kinds": [
+          "duneridge"
+        ]
+      },
+      "palm": {
+        "objects": 131,
+        "parts": 1254,
+        "kinds": [
+          "🌴",
+          "palmgrove"
+        ]
+      },
+      "rock": {
+        "objects": 48,
+        "parts": 96,
+        "kinds": [
+          "searock",
+          "bigrock"
+        ]
+      },
+      "pebble": {
+        "objects": 46,
+        "parts": 46,
+        "kinds": [
+          "🐚",
+          "⚓",
+          "🪨"
+        ]
+      },
+      "parasol": {
+        "objects": 20,
+        "parts": 40,
+        "kinds": [
+          "⛱️",
+          "parasol"
+        ]
+      },
+      "sparkle": {
+        "objects": 4,
+        "parts": 12,
+        "kinds": [
+          "✨"
+        ]
+      },
+      "signpost": {
+        "objects": 13,
+        "parts": 26,
+        "kinds": [
+          "🪧"
+        ]
+      },
+      "smalllog": {
+        "objects": 4,
+        "parts": 4,
+        "kinds": [
+          "🪵"
+        ]
+      },
+      "coral": {
+        "objects": 6,
+        "parts": 18,
+        "kinds": [
+          "🪸"
+        ]
+      },
+      "boat": {
+        "objects": 5,
+        "parts": 15,
+        "kinds": [
+          "⛵"
+        ]
+      },
+      "coralfan": {
+        "objects": 1,
+        "parts": 1,
+        "kinds": [
+          "coralfan"
+        ]
+      },
+      "pebbles": {
+        "objects": 3,
+        "parts": 12,
+        "kinds": [
+          "shellpile"
+        ]
+      },
+      "lm_lighthouse": {
+        "objects": 1,
+        "parts": 5,
+        "kinds": [
+          "LM:lighthouse"
+        ]
+      },
+      "log": {
+        "objects": 14,
+        "parts": 14,
+        "kinds": [
+          "log",
+          "driftwood"
+        ]
+      },
+      "pier": {
+        "objects": 3,
+        "parts": 9,
+        "kinds": [
+          "pier"
+        ]
+      },
+      "water": {
+        "objects": 9,
+        "parts": 9,
+        "kinds": [
+          "rockpool"
+        ]
+      },
+      "house": {
+        "objects": 15,
+        "parts": 415,
+        "kinds": [
+          "farmhouse"
+        ]
+      },
+      "rockwall": {
+        "objects": 25,
+        "parts": 150,
+        "kinds": [
+          "seacliff"
+        ]
+      },
+      "hull": {
+        "objects": 1,
+        "parts": 2,
+        "kinds": [
+          "wreck"
+        ]
+      },
+      "gate": {
+        "objects": 1,
+        "parts": 3,
+        "kinds": [
+          "arch"
+        ]
+      },
+      "dressing": {
+        "objects": 149,
+        "parts": 944,
+        "kinds": [
+          "cover:shells",
+          "cover:flowers",
+          "cover:bushes",
+          "cover:grass",
+          "cover:pebbles"
+        ]
+      }
+    }
+  },
+  "deepsea": {
+    "objects": 712,
+    "types": {
+      "reef": {
+        "objects": 122,
+        "parts": 366,
+        "kinds": [
+          "reefwall"
+        ]
+      },
+      "pebble": {
+        "objects": 55,
+        "parts": 55,
+        "kinds": [
+          "🐚",
+          "⚓",
+          "🪨"
+        ]
+      },
+      "coral": {
+        "objects": 180,
+        "parts": 540,
+        "kinds": [
+          "🪸",
+          "LM:coral",
+          "glowcoral"
+        ]
+      },
+      "kelprow": {
+        "objects": 57,
+        "parts": 592,
+        "kinds": [
+          "kelpwall"
+        ]
+      },
+      "grass": {
+        "objects": 95,
+        "parts": 285,
+        "kinds": [
+          "🌿"
+        ]
+      },
+      "sparkle": {
+        "objects": 15,
+        "parts": 45,
+        "kinds": [
+          "✨"
+        ]
+      },
+      "signpost": {
+        "objects": 9,
+        "parts": 18,
+        "kinds": [
+          "🪧"
+        ]
+      },
+      "pebbles": {
+        "objects": 8,
+        "parts": 32,
+        "kinds": [
+          "🏛️"
+        ]
+      },
+      "coralfan": {
+        "objects": 2,
+        "parts": 2,
+        "kinds": [
+          "coralfan"
+        ]
+      },
+      "kelp": {
+        "objects": 24,
+        "parts": 92,
+        "kinds": [
+          "kelp"
+        ]
+      },
+      "vent": {
+        "objects": 9,
+        "parts": 18,
+        "kinds": [
+          "vent"
+        ]
+      },
+      "gate": {
+        "objects": 2,
+        "parts": 6,
+        "kinds": [
+          "ruingate"
+        ]
+      },
+      "lowmound": {
+        "objects": 2,
+        "parts": 2,
+        "kinds": [
+          "vent"
+        ]
+      },
+      "hull": {
+        "objects": 3,
+        "parts": 6,
+        "kinds": [
+          "wreck"
+        ]
+      },
+      "pillar": {
+        "objects": 10,
+        "parts": 20,
+        "kinds": [
+          "ruinpillar"
+        ]
+      },
+      "ruin": {
+        "objects": 18,
+        "parts": 306,
+        "kinds": [
+          "ruinwall"
+        ]
+      },
+      "glowdecal": {
+        "objects": 1,
+        "parts": 1,
+        "kinds": [
+          "glowgarden"
+        ]
+      },
+      "dressing": {
+        "objects": 100,
+        "parts": 471,
+        "kinds": [
+          "cover:pebbles",
+          "cover:kelp"
+        ]
+      }
+    }
+  },
+  "river_lake": {
+    "objects": 831,
+    "types": {
+      "rock": {
+        "objects": 41,
+        "parts": 82,
+        "kinds": [
+          "riverrock",
+          "bigrock"
+        ]
+      },
+      "lotus": {
+        "objects": 27,
+        "parts": 54,
+        "kinds": [
+          "🪷"
+        ]
+      },
+      "broadleaf": {
+        "objects": 296,
+        "parts": 2182,
+        "kinds": [
+          "riverwood",
+          "🌳",
+          "parktree"
+        ]
+      },
+      "grass": {
+        "objects": 43,
+        "parts": 129,
+        "kinds": [
+          "🌿"
+        ]
+      },
+      "sparkle": {
+        "objects": 5,
+        "parts": 15,
+        "kinds": [
+          "✨"
+        ]
+      },
+      "signpost": {
+        "objects": 10,
+        "parts": 20,
+        "kinds": [
+          "🪧"
+        ]
+      },
+      "bush": {
+        "objects": 11,
+        "parts": 33,
+        "kinds": [
+          "🌳"
+        ]
+      },
+      "reeds": {
+        "objects": 125,
+        "parts": 561,
+        "kinds": [
+          "🌾",
+          "reed",
+          "reedclump"
+        ]
+      },
+      "pebble": {
+        "objects": 10,
+        "parts": 10,
+        "kinds": [
+          "🪨"
+        ]
+      },
+      "water": {
+        "objects": 3,
+        "parts": 3,
+        "kinds": [
+          "springpool",
+          "rockpool"
+        ]
+      },
+      "bridge": {
+        "objects": 7,
+        "parts": 117,
+        "kinds": [
+          "🌉",
+          "LM:bridge",
+          "woodbridge"
+        ]
+      },
+      "croprow": {
+        "objects": 1,
+        "parts": 3,
+        "kinds": [
+          "crop"
+        ]
+      },
+      "house": {
+        "objects": 3,
+        "parts": 58,
+        "kinds": [
+          "🛖"
+        ]
+      },
+      "fern": {
+        "objects": 1,
+        "parts": 5,
+        "kinds": [
+          "fern"
+        ]
+      },
+      "waterfall": {
+        "objects": 1,
+        "parts": 22,
+        "kinds": [
+          "LM:waterfall"
+        ]
+      },
+      "sprout": {
+        "objects": 1,
+        "parts": 2,
+        "kinds": [
+          "🌱"
+        ]
+      },
+      "wheel": {
+        "objects": 1,
+        "parts": 3,
+        "kinds": [
+          "waterwheel"
+        ]
+      },
+      "rockwall": {
+        "objects": 27,
+        "parts": 162,
+        "kinds": [
+          "cliffwall"
+        ]
+      },
+      "log": {
+        "objects": 3,
+        "parts": 3,
+        "kinds": [
+          "log",
+          "driftwood"
+        ]
+      },
+      "pier": {
+        "objects": 1,
+        "parts": 3,
+        "kinds": [
+          "pier"
+        ]
+      },
+      "mound": {
+        "objects": 7,
+        "parts": 7,
+        "kinds": [
+          "bigrock"
+        ]
+      },
+      "ford": {
+        "objects": 1,
+        "parts": 11,
+        "kinds": [
+          "ford"
+        ]
+      },
+      "dressing": {
+        "objects": 206,
+        "parts": 1657,
+        "kinds": [
+          "cover:reeds",
+          "cover:leaves",
+          "cover:flowers",
+          "cover:bushes",
+          "cover:grass",
+          "cover:pebbles",
+          "cover:mushrooms"
+        ]
+      }
+    }
+  },
+  "jungle": {
+    "objects": 1482,
+    "types": {
+      "bigtree": {
+        "objects": 189,
+        "parts": 1890,
+        "kinds": [
+          "bigtrunk"
+        ]
+      },
+      "broadleaf": {
+        "objects": 124,
+        "parts": 1193,
+        "kinds": [
+          "🌳",
+          "riverwood"
+        ]
+      },
+      "buttress": {
+        "objects": 39,
+        "parts": 273,
+        "kinds": [
+          "buttress"
+        ]
+      },
+      "sprout": {
+        "objects": 73,
+        "parts": 146,
+        "kinds": [
+          "🌱"
+        ]
+      },
+      "nut": {
+        "objects": 44,
+        "parts": 88,
+        "kinds": [
+          "🍌"
+        ]
+      },
+      "log": {
+        "objects": 7,
+        "parts": 7,
+        "kinds": [
+          "🪵",
+          "log"
+        ]
+      },
+      "palm": {
+        "objects": 247,
+        "parts": 2337,
+        "kinds": [
+          "🌴",
+          "palmgrove"
+        ]
+      },
+      "grass": {
+        "objects": 97,
+        "parts": 291,
+        "kinds": [
+          "🌿"
+        ]
+      },
+      "flower": {
+        "objects": 91,
+        "parts": 273,
+        "kinds": [
+          "🌺"
+        ]
+      },
+      "sparkle": {
+        "objects": 5,
+        "parts": 15,
+        "kinds": [
+          "✨"
+        ]
+      },
+      "signpost": {
+        "objects": 16,
+        "parts": 32,
+        "kinds": [
+          "🪧"
+        ]
+      },
+      "bush": {
+        "objects": 26,
+        "parts": 78,
+        "kinds": [
+          "🌳"
+        ]
+      },
+      "pebble": {
+        "objects": 15,
+        "parts": 15,
+        "kinds": [
+          "🪨"
+        ]
+      },
+      "smalllog": {
+        "objects": 26,
+        "parts": 26,
+        "kinds": [
+          "🪵"
+        ]
+      },
+      "fern": {
+        "objects": 1,
+        "parts": 5,
+        "kinds": [
+          "fern"
+        ]
+      },
+      "waterfall": {
+        "objects": 1,
+        "parts": 22,
+        "kinds": [
+          "LM:waterfall"
+        ]
+      },
+      "nest": {
+        "objects": 1,
+        "parts": 2,
+        "kinds": [
+          "🪺"
+        ]
+      },
+      "bridge": {
+        "objects": 4,
+        "parts": 58,
+        "kinds": [
+          "🌉",
+          "ropebridge",
+          "woodbridge"
+        ]
+      },
+      "statue": {
+        "objects": 1,
+        "parts": 3,
+        "kinds": [
+          "statue"
+        ]
+      },
+      "temple": {
+        "objects": 1,
+        "parts": 7,
+        "kinds": [
+          "LM:temple"
+        ]
+      },
+      "rock": {
+        "objects": 5,
+        "parts": 10,
+        "kinds": [
+          "bigrock",
+          "riverrock"
+        ]
+      },
+      "leafclump": {
+        "objects": 129,
+        "parts": 557,
+        "kinds": [
+          "bigleaf",
+          "hugeleaf"
+        ]
+      },
+      "vine": {
+        "objects": 34,
+        "parts": 68,
+        "kinds": [
+          "vine"
+        ]
+      },
+      "pillar": {
+        "objects": 18,
+        "parts": 36,
+        "kinds": [
+          "ruinpillar"
+        ]
+      },
+      "ruin": {
+        "objects": 13,
+        "parts": 206,
+        "kinds": [
+          "ruinwall"
+        ]
+      },
+      "rockwall": {
+        "objects": 48,
+        "parts": 288,
+        "kinds": [
+          "cliffwall"
+        ]
+      },
+      "water": {
+        "objects": 1,
+        "parts": 1,
+        "kinds": [
+          "rockpool"
+        ]
+      },
+      "stump": {
+        "objects": 1,
+        "parts": 1,
+        "kinds": [
+          "stump"
+        ]
+      },
+      "mound": {
+        "objects": 7,
+        "parts": 7,
+        "kinds": [
+          "bigrock"
+        ]
+      },
+      "ford": {
+        "objects": 2,
+        "parts": 11,
+        "kinds": [
+          "ford"
+        ]
+      },
+      "dressing": {
+        "objects": 216,
+        "parts": 1945,
+        "kinds": [
+          "cover:ferns",
+          "cover:bigleaves",
+          "cover:leaves",
+          "cover:flowers",
+          "cover:bushes",
+          "cover:mushrooms",
+          "cover:grass",
+          "cover:pebbles"
+        ]
+      }
+    }
+  },
+  "desert": {
+    "objects": 611,
+    "types": {
+      "sandwall": {
+        "objects": 60,
+        "parts": 180,
+        "kinds": [
+          "dunewall",
+          "duneridge"
+        ]
+      },
+      "pot": {
+        "objects": 44,
+        "parts": 44,
+        "kinds": [
+          "🏺",
+          "pot"
+        ]
+      },
+      "rockwall": {
+        "objects": 53,
+        "parts": 318,
+        "kinds": [
+          "mesa"
+        ]
+      },
+      "cactus": {
+        "objects": 157,
+        "parts": 461,
+        "kinds": [
+          "🌵"
+        ]
+      },
+      "rock": {
+        "objects": 21,
+        "parts": 42,
+        "kinds": [
+          "bigrock",
+          "cairn",
+          "stonestack"
+        ]
+      },
+      "palm": {
+        "objects": 15,
+        "parts": 145,
+        "kinds": [
+          "🌴",
+          "LM:palms",
+          "palmgrove"
+        ]
+      },
+      "sparkle": {
+        "objects": 4,
+        "parts": 12,
+        "kinds": [
+          "✨"
+        ]
+      },
+      "signpost": {
+        "objects": 15,
+        "parts": 30,
+        "kinds": [
+          "🪧"
+        ]
+      },
+      "tent": {
+        "objects": 20,
+        "parts": 20,
+        "kinds": [
+          "⛺",
+          "tent"
+        ]
+      },
+      "pebble": {
+        "objects": 4,
+        "parts": 4,
+        "kinds": [
+          "🪨"
+        ]
+      },
+      "gate": {
+        "objects": 2,
+        "parts": 6,
+        "kinds": [
+          "ruingate",
+          "arch"
+        ]
+      },
+      "temple": {
+        "objects": 1,
+        "parts": 7,
+        "kinds": [
+          "LM:temple"
+        ]
+      },
+      "lowmound": {
+        "objects": 7,
+        "parts": 7,
+        "kinds": [
+          "dune"
+        ]
+      },
+      "obelisk": {
+        "objects": 3,
+        "parts": 3,
+        "kinds": [
+          "obelisk"
+        ]
+      },
+      "ruin": {
+        "objects": 11,
+        "parts": 187,
+        "kinds": [
+          "ruinwall"
+        ]
+      },
+      "water": {
+        "objects": 1,
+        "parts": 1,
+        "kinds": [
+          "oasispool"
+        ]
+      },
+      "dressing": {
+        "objects": 193,
+        "parts": 921,
+        "kinds": [
+          "cover:bushes",
+          "cover:pebbles",
+          "cover:grass",
+          "cover:flowers"
+        ]
+      }
+    }
+  },
+  "star_stop": {
+    "objects": 463,
+    "types": {
+      "lamp": {
+        "objects": 51,
+        "parts": 153,
+        "kinds": [
+          "stoplamp",
+          "🏮",
+          "moonlamp"
+        ]
+      },
+      "crystal": {
+        "objects": 33,
+        "parts": 37,
+        "kinds": [
+          "crystal",
+          "crystalgarden"
+        ]
+      },
+      "telescope": {
+        "objects": 19,
+        "parts": 76,
+        "kinds": [
+          "🔭",
+          "telescope"
+        ]
+      },
+      "bench": {
+        "objects": 20,
+        "parts": 60,
+        "kinds": [
+          "🪑"
+        ]
+      },
+      "sparkle": {
+        "objects": 47,
+        "parts": 141,
+        "kinds": [
+          "✨",
+          "⭐",
+          "🌟"
+        ]
+      },
+      "sandwall": {
+        "objects": 67,
+        "parts": 201,
+        "kinds": [
+          "islandedge"
+        ]
+      },
+      "signpost": {
+        "objects": 23,
+        "parts": 46,
+        "kinds": [
+          "🪧",
+          "🚏"
+        ]
+      },
+      "pebble": {
+        "objects": 4,
+        "parts": 4,
+        "kinds": [
+          "🪨"
+        ]
+      },
+      "pebbles": {
+        "objects": 2,
+        "parts": 8,
+        "kinds": [
+          "🏛️"
+        ]
+      },
+      "lm_bigstop": {
+        "objects": 1,
+        "parts": 4,
+        "kinds": [
+          "LM:bigstop"
+        ]
+      },
+      "orrery": {
+        "objects": 2,
+        "parts": 8,
+        "kinds": [
+          "orrery"
+        ]
+      },
+      "bridge": {
+        "objects": 4,
+        "parts": 28,
+        "kinds": [
+          "lightbridge"
+        ]
+      },
+      "ruin": {
+        "objects": 23,
+        "parts": 391,
+        "kinds": [
+          "ruinwall"
+        ]
+      },
+      "gate": {
+        "objects": 1,
+        "parts": 3,
+        "kinds": [
+          "ruingate"
+        ]
+      },
+      "dressing": {
+        "objects": 166,
+        "parts": 1009,
+        "kinds": [
+          "cover:grass",
+          "cover:pebbles",
+          "cover:flowers",
+          "cover:bushes",
+          "cover:sparkles"
+        ]
+      }
+    }
+  },
+  "memory_lake": {
+    "objects": 352,
+    "types": {
+      "broadleaf": {
+        "objects": 177,
+        "parts": 1310,
+        "kinds": [
+          "bluetree",
+          "🌳",
+          "mistwood"
+        ]
+      },
+      "grass": {
+        "objects": 12,
+        "parts": 36,
+        "kinds": [
+          "🌿"
+        ]
+      },
+      "rock": {
+        "objects": 11,
+        "parts": 22,
+        "kinds": [
+          "stonestack",
+          "bigrock"
+        ]
+      },
+      "lamp": {
+        "objects": 55,
+        "parts": 165,
+        "kinds": [
+          "🕯️",
+          "lanternpost",
+          "lantern"
+        ]
+      },
+      "leaf": {
+        "objects": 16,
+        "parts": 16,
+        "kinds": [
+          "🍃"
+        ]
+      },
+      "sparkle": {
+        "objects": 7,
+        "parts": 21,
+        "kinds": [
+          "✨"
+        ]
+      },
+      "signpost": {
+        "objects": 12,
+        "parts": 24,
+        "kinds": [
+          "🪧",
+          "oldpost"
+        ]
+      },
+      "water": {
+        "objects": 1,
+        "parts": 1,
+        "kinds": [
+          "springpool"
+        ]
+      },
+      "fern": {
+        "objects": 1,
+        "parts": 5,
+        "kinds": [
+          "fern"
+        ]
+      },
+      "pebbles": {
+        "objects": 5,
+        "parts": 20,
+        "kinds": [
+          "stonestack"
+        ]
+      },
+      "reeds": {
+        "objects": 1,
+        "parts": 5,
+        "kinds": [
+          "reedclump"
+        ]
+      },
+      "dressing": {
+        "objects": 54,
+        "parts": 380,
+        "kinds": [
+          "cover:bushes",
+          "cover:grass",
+          "cover:flowers",
+          "cover:reeds",
+          "cover:pebbles",
+          "cover:leaves"
+        ]
+      }
+    }
+  }
+}

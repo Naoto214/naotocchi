@@ -1,0 +1,70 @@
+{
+  "codeCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+  "productSHA256": {
+    "meguru.js": "006019db5e2c7b5538d03d6b5aaf90c5ac5b09f29dc1bfb898ceb5534b8b6637",
+    "meguru-3d.mjs": "651e9933cc99e35e66a1b52b2e5b4553974a9b5f184aa2b712d0d2f3972df7d2",
+    "index.html": "8ca714ac89a3cd33ab8cc37d4b2c7691fec6a743d300e54a12b64f01fdced4b9"
+  },
+  "fullRegression": {
+    "origin": "preserved previous-session raw log, product hashes revalidated",
+    "pass": [
+      2861,
+      80
+    ],
+    "fail": 0,
+    "exit": 0,
+    "command": "all package.json test pipeline; replace node --test with node --test --test-concurrency=4",
+    "log": "history/full-reviewed.log.gz"
+  },
+  "recoveredBrowser": {
+    "worldShots": 31,
+    "galleryPairs": 20,
+    "smokeRegions": 13,
+    "corridorDirections": 8,
+    "visibility": {
+      "samples": 2832,
+      "hidden": 0,
+      "partial": 1,
+      "errors": 0,
+      "step": 1000,
+      "yaws": [
+        0,
+        1.2,
+        -1.2,
+        3.14
+      ]
+    },
+    "xzCircleOverlapMax": {
+      "player": 0,
+      "party": 0.002591405357044607
+    },
+    "terrainAudit": {
+      "floating": 4,
+      "buried": 18,
+      "crossings": 18,
+      "crossingsValid": true
+    }
+  },
+  "environment": {
+    "playwright": "1.51.1",
+    "chromium": "134 / build1161",
+    "renderer": "SwiftShader",
+    "viewport": [
+      390,
+      844
+    ],
+    "galleryViewport": [
+      600,
+      600
+    ],
+    "visibilityDPR": 1,
+    "worldShotDPR": 2,
+    "fontLimit": "some speech glyphs missing in headless system fonts"
+  },
+  "limits": [
+    "headless ray samples do not establish iPhone player visibility",
+    "ghost / afterimage / stutter / p95 / p99 / >60ms and final aesthetics unapproved",
+    "external githack previews not verified reachable; prior HTTP403",
+    "Not World/Art Direction complete or production ready"
+  ]
+}

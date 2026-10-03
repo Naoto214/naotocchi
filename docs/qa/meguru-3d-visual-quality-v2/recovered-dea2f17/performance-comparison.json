@@ -1,0 +1,281 @@
+[
+  {
+    "view": "home-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 36998,
+    "afterTris": 37106,
+    "beforeCalls": 41,
+    "afterCalls": 42
+  },
+  {
+    "view": "home-house-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 36562,
+    "afterTris": 36670,
+    "beforeCalls": 39,
+    "afterCalls": 40
+  },
+  {
+    "view": "forest-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 147752,
+    "afterTris": 147752,
+    "beforeCalls": 60,
+    "afterCalls": 60
+  },
+  {
+    "view": "jungle-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 172854,
+    "afterTris": 172794,
+    "beforeCalls": 61,
+    "afterCalls": 62
+  },
+  {
+    "view": "city-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 127740,
+    "afterTris": 130188,
+    "beforeCalls": 48,
+    "afterCalls": 50
+  },
+  {
+    "view": "city-arcade-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 127716,
+    "afterTris": 130164,
+    "beforeCalls": 47,
+    "afterCalls": 49
+  },
+  {
+    "view": "city-market-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 127468,
+    "afterTris": 129916,
+    "beforeCalls": 41,
+    "afterCalls": 43
+  },
+  {
+    "view": "countryside-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 118610,
+    "afterTris": 119480,
+    "beforeCalls": 54,
+    "afterCalls": 54
+  },
+  {
+    "view": "mountain-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 106498,
+    "afterTris": 106342,
+    "beforeCalls": 54,
+    "afterCalls": 54
+  },
+  {
+    "view": "snow-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 69396,
+    "afterTris": 69408,
+    "beforeCalls": 45,
+    "afterCalls": 45
+  },
+  {
+    "view": "sea-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 69952,
+    "afterTris": 70000,
+    "beforeCalls": 49,
+    "afterCalls": 50
+  },
+  {
+    "view": "deepsea-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 73332,
+    "afterTris": 73332,
+    "beforeCalls": 36,
+    "afterCalls": 36
+  },
+  {
+    "view": "river_lake-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 112270,
+    "afterTris": 112210,
+    "beforeCalls": 43,
+    "afterCalls": 43
+  },
+  {
+    "view": "river-bridge-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 113194,
+    "afterTris": 113074,
+    "beforeCalls": 55,
+    "afterCalls": 55
+  },
+  {
+    "view": "desert-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 90304,
+    "afterTris": 90304,
+    "beforeCalls": 41,
+    "afterCalls": 41
+  },
+  {
+    "view": "oasis-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 90544,
+    "afterTris": 90544,
+    "beforeCalls": 43,
+    "afterCalls": 43
+  },
+  {
+    "view": "star_stop-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 65984,
+    "afterTris": 65984,
+    "beforeCalls": 30,
+    "afterCalls": 30
+  },
+  {
+    "view": "memory_lake-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 51204,
+    "afterTris": 51204,
+    "beforeCalls": 35,
+    "afterCalls": 35
+  },
+  {
+    "view": "forest-creek-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 147900,
+    "afterTris": 147994,
+    "beforeCalls": 61,
+    "afterCalls": 65
+  },
+  {
+    "view": "forest-bridge-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 147074,
+    "afterTris": 147034,
+    "beforeCalls": 50,
+    "afterCalls": 50
+  },
+  {
+    "view": "river-stonebridge-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 113158,
+    "afterTris": 113038,
+    "beforeCalls": 56,
+    "afterCalls": 56
+  },
+  {
+    "view": "countryside-river-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 118958,
+    "afterTris": 119732,
+    "beforeCalls": 55,
+    "afterCalls": 55
+  },
+  {
+    "view": "mountain-summer-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 106504,
+    "afterTris": 106354,
+    "beforeCalls": 55,
+    "afterCalls": 55
+  },
+  {
+    "view": "mountain-winter-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 104296,
+    "afterTris": 104146,
+    "beforeCalls": 54,
+    "afterCalls": 54
+  },
+  {
+    "view": "river-bridge2-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 110462,
+    "afterTris": 110342,
+    "beforeCalls": 46,
+    "afterCalls": 46
+  },
+  {
+    "view": "mountain-slope-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 107080,
+    "afterTris": 106924,
+    "beforeCalls": 63,
+    "afterCalls": 63
+  },
+  {
+    "view": "desert-slope-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 89914,
+    "afterTris": 89914,
+    "beforeCalls": 34,
+    "afterCalls": 34
+  },
+  {
+    "view": "forest-autumn-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 147752,
+    "afterTris": 147752,
+    "beforeCalls": 60,
+    "afterCalls": 60
+  },
+  {
+    "view": "countryside-autumn-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 118610,
+    "afterTris": 119480,
+    "beforeCalls": 54,
+    "afterCalls": 54
+  },
+  {
+    "view": "forest-winter-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 152314,
+    "afterTris": 152314,
+    "beforeCalls": 46,
+    "afterCalls": 46
+  },
+  {
+    "view": "home-spring-vq",
+    "beforeCommit": "17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3",
+    "afterCommit": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "beforeTris": 36998,
+    "afterTris": 37106,
+    "beforeCalls": 41,
+    "afterCalls": 42
+  }
+]
