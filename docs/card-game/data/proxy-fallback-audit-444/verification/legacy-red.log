@@ -1,0 +1,14 @@
+F
+======================================================================
+FAIL: test_legacy_counterfactual_selection_tampering_rejected (test_proxy_fallback_audit.FallbackAuditTests.test_legacy_counterfactual_selection_tampering_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_fallback_audit.py", line 55, in test_legacy_counterfactual_selection_tampering_rejected
+    with self.assertRaises(ValueError):self.run_audit(p,s,l)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 3.593s
+
+FAILED (failures=1)

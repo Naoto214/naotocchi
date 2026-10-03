@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+444: [新方式fallback増加の横断監査](444-fallback-cause-audit.md)。182件を旧時優先128・安全配置46・既存seed8へ集約。frontier1,457pairで3資源成分が未知。手札/予約equalの診断でも182件不変。既存正本だけのseed削減は未立証、比較規則の設計判断へ。72適用限界・114/414・原本・過去結果維持、分析のみ、balance0、採用未実施。
+
 443: [旧／新8軌跡パイロット比較の最終整理](443-completed-pilot-comparison.md)。8独立再実行一致、440全313判断・秘密順626件再生成byte一致。共通eventの配置と期限付きruntime効果をsnapshotから補完集計。全8R10完走、通常shadow241比較/72適用境界維持、fallback旧8/241・新182/241。専用7/関連25件・npm/design成功、独立レビュー軽微1件修正。固定パイロット比較完了、114維持・採用判断未実施、balance0、PR259 Draft/open/unmerged。
 
 442: [対象fixtureの共通境界補修と追加経路](442-targeted-boundary-validation.md)。同名別現物支払い・対象追跡/予約失効・防御の選択後再評価を共通補修。16経路583event・保存再生16件・2回生成byte一致、441元6記録不変。専用34/結合111件・npm/design成功。独立レビュー重要1件を修正。旧72比較境界、114/414・原本・過去結果を維持。全旧proxy回帰の再実行なし、balance0、採用保留、PR259 Draft/open/unmerged。

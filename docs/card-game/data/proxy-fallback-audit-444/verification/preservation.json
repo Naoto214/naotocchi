@@ -1,0 +1,20 @@
+{
+  "base_commit": "f0c6f0da932a28f4ac610b008a1822a23d532631",
+  "preserved_tracked_files_excluding_readme": 2481,
+  "regeneration_byte_equal": {
+    "audit.json.gz": true,
+    "summary.json": true,
+    "manifest.json": true
+  },
+  "engine_policy_changed": false,
+  "independent_balance_sample_count": 0,
+  "policy_promoted": false,
+  "new_matches": 0,
+  "dedicated_tests": 9,
+  "related_tests": 42,
+  "review_count": 1,
+  "review_critical": 0,
+  "review_important": 2,
+  "review_important_fixed": 2,
+  "review_minor": 0
+}
