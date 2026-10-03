@@ -16,8 +16,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           for i in $(seq 1 100); do
-            gh api repos/Naoto214/naotocchi/actions/runs/37112792845 > run.json
-            test "$(jq -r .head_sha run.json)" = d592a599d5598bd6af992071caaff2c23651dacf
+            gh api repos/Naoto214/naotocchi/actions/runs/37114001769 > run.json
+            test "$(jq -r .head_sha run.json)" = d6608d393a76aa452c04eaa85253df2a21e5fe2d
             if test "$(jq -r .status run.json)" = completed; then
               test "$(jq -r .conclusion run.json)" = success
               exit $?
@@ -39,12 +39,12 @@ jobs:
         with:
           github-token: ${{ github.token }}
           repository: Naoto214/naotocchi
-          run-id: 37112792845
-          name: character-3d-quality-d592a599d5598bd6af992071caaff2c23651dacf
+          run-id: 37114001769
+          name: character-3d-quality-d6608d393a76aa452c04eaa85253df2a21e5fe2d
           path: qa
       - name: Verify source and assemble immutable QA images
         run: |
-          git diff --exit-code d592a599d5598bd6af992071caaff2c23651dacf -- character-3d meguru.js meguru-3d.mjs index.html
+          git diff --exit-code d6608d393a76aa452c04eaa85253df2a21e5fe2d -- character-3d meguru.js meguru-3d.mjs index.html
           node docs/qa/character-3d-quality2-2026-10-03/package.cjs qa
       - name: Save only QA evidence to the existing Draft branch
         env:
