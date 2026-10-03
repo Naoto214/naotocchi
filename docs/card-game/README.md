@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+442: [対象fixtureの共通境界補修と追加経路](442-targeted-boundary-validation.md)。同名別現物支払い・対象追跡/予約失効・防御の選択後再評価を共通補修。16経路583event・保存再生16件・2回生成byte一致、441元6記録不変。専用34/結合111件・npm/design成功。独立レビュー重要1件を修正。旧72比較境界、114/414・原本・過去結果を維持。全旧proxy回帰の再実行なし、balance0、採用保留、PR259 Draft/open/unmerged。
+
 441: [旧方式比較境界の横断監査と112対象fixture実施](441-legacy-limits-and-targeted-fixtures.md)。未対応72件を47/21/4へ分類し、旧方式の選択補完0。112の6対象を合法な明示手順で実行、201event・保存再生6件一致。全proxy1,147件PASS（復旧時の457記録＋690再実行を全ID照合）、結合79件・npm/design成功。独立レビュー重要2/軽微1を修正。505・114/414・過去結果維持、通常対戦追加0、balance0、採用保留、PR259 Draft/open/unmerged。
 
 440: [完走後313通常局面の同一入力評価](440-completed-normal-evaluation.md)。313元選択再現、241比較・選択差124、不適用72を理由付き保持。旧fallback8/241／新182/241、秘密順626一致、別生成byte一致。全proxy1,126件・npm406件PASS、最終独立レビュー指摘0。source350・505原本・114/414・過去855 data不変。新ゲームevent/decision/対戦0、112未実行、balance0、採用保留、PR259 Draft/open/unmerged。

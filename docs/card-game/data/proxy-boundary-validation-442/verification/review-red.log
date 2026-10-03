@@ -1,0 +1,27 @@
+FF
+======================================================================
+FAIL: test_explicit_selector_requires_nonempty_string_identity (test_proxy_targeted_boundaries.TargetedBoundaryContracts.test_explicit_selector_requires_nonempty_string_identity) (identity=None, role='target')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 61, in test_explicit_selector_requires_nonempty_string_identity
+    self.unchanged_rejection(r,lambda:r.activate('A','M-god-08',target_card=target,payment_cards=paid))
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 20, in unchanged_rejection
+    with self.assertRaises(ValueError):action()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_explicit_selector_requires_nonempty_string_identity (test_proxy_targeted_boundaries.TargetedBoundaryContracts.test_explicit_selector_requires_nonempty_string_identity) (identity=None, role='payment')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 61, in test_explicit_selector_requires_nonempty_string_identity
+    self.unchanged_rejection(r,lambda:r.activate('A','M-god-08',target_card=target,payment_cards=paid))
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_boundaries.py", line 20, in unchanged_rejection
+    with self.assertRaises(ValueError):action()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 1.580s
+
+FAILED (failures=2)

@@ -1,0 +1,18 @@
+E
+======================================================================
+ERROR: test_proxy_targeted_variants (unittest.loader._FailedTest.test_proxy_targeted_variants)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_proxy_targeted_variants
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 137, in loadTestsFromName
+    module = __import__(module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_variants.py", line 4, in <module>
+    import proxy_targeted_variants as v
+ModuleNotFoundError: No module named 'proxy_targeted_variants'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

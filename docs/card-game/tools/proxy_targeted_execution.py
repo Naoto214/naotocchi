@@ -109,10 +109,17 @@ class TargetedRunner:
         for equipment,target in s['attachments'].items():
             if not any(equipment in p['field']['prepared'] and target in p['field']['companions'] for p in s['players'].values()):raise ValueError('attachment target missing')
 
-    def find(self,actor,card,zone='hand',index=0):
+    def find(self,actor,card,zone='hand',index=0,exclude=()):
+        if type(index) is not int or index<0:raise ValueError('invalid copy index')
+        identity=None
+        if isinstance(card,dict):
+            if set(card)!={'card_id','instance_id'} or index!=0:raise ValueError('invalid explicit selector')
+            identity=card['instance_id'];card=card['card_id']
+            if not isinstance(identity,str) or not identity:raise ValueError('explicit identity must be a nonempty string')
+        if not isinstance(card,str):raise ValueError('invalid card selector')
         p=self.state['players'][actor]
         ids=p[zone] if zone in ('hand','deck','discard') else ([p['field'][zone]] if zone in ('main','world','partner') else p['field'][zone])
-        found=[i for i in ids if i and self.state['cards'][i]['card_id']==card]
+        found=[i for i in ids if i and i not in exclude and (identity is None or i==identity) and self.state['cards'][i]['card_id']==card]
         if index>=len(found):raise ValueError('card absent from '+zone+': '+card)
         return found[index]
 
@@ -126,6 +133,8 @@ class TargetedRunner:
 
     def moved(self,actor,source,destination):
         p=self.state['players'][actor];b=p['field']
+        if destination not in ('hand','deck','discard'):raise ValueError('unsupported destination')
+        if source in p[destination]:raise ValueError('not a zone transition')
         for z in ('hand','deck','discard'):
             if source in p[z]:p[z].remove(source);break
         else:
@@ -137,6 +146,12 @@ class TargetedRunner:
             for equip,target in list(self.state['attachments'].items()):
                 if target==source:b['prepared'].remove(equip);p['discard'].append(equip);del self.state['attachments'][equip]
         p[destination].append(source)
+        # Physical handles remain stable; references to the old game object do not.
+        link=self.state['activation']
+        if link and link['target']==source:link['target_departed']=True
+        for reservation in self.state['reservations'].values():
+            if reservation['target']==source and reservation['status']=='active':reservation['status']='invalidated'
+        self.state['uses']=[use for use in self.state['uses'] if use[0]!=source]
 
     @atomic
     def start_turn(self,actor,round_number,keep=()):
@@ -281,19 +296,22 @@ class TargetedRunner:
             if target_card is not None:raise ValueError('choice belongs to resolution')
             if not p['field']['companions']:raise ValueError('required companion absent')
         elif 'target' in spec:
+            target_name=target_card.get('card_id') if isinstance(target_card,dict) else target_card
+            if not isinstance(target_name,str) or not target_name:raise ValueError('invalid target selector')
             zone='discard' if spec['kind']=='recover' else 'main' if spec['target']=='own_main' else 'companions'
             owner=('B' if actor=='A' else 'A') if spec['target']=='opponent_main_companion' else actor
-            if spec['target']=='opponent_main_companion' and target_card and target_card.startswith('M-'):zone='main'
-            if spec['target']=='nonmain_board' and target_card and target_card.startswith('W-'):zone='world'
+            if spec['target']=='opponent_main_companion' and target_name and target_name.startswith('M-'):zone='main'
+            if spec['target']=='nonmain_board' and target_name:
+                if target_name.startswith('W-'):zone='world'
             target=self.find(owner,target_card,zone)
             if not self.eligible(actor,target,spec['target']):raise ValueError('invalid target')
         if condition=='same_name' and not self.same_name(actor,target):raise ValueError('same name absent')
         if len(payment_cards)!=spec.get('pay_count',0):raise ValueError('payment count differs')
         paid=[]
         for cid in payment_cards:
-            source_id=self.find(actor,cid,spec['pay_zone'])
+            source_id=self.find(actor,cid,spec['pay_zone'],exclude=paid)
             if source_id in paid or source_id==target:raise ValueError('duplicate/target payment')
-            if spec.get('pay_type')=='action' and not cid.startswith(('G-','I-','E-')):raise ValueError('action payment type')
+            if spec.get('pay_type')=='action' and not self.state['cards'][source_id]['card_id'].startswith(('G-','I-','E-')):raise ValueError('action payment type')
             paid.append(source_id)
         prepared=self.find(actor,prepared_card,'prepared') if prepared_card else None
         if bool(prepared)!=bool(spec.get('pay_prepared')):raise ValueError('prepared payment differs')
@@ -310,6 +328,17 @@ class TargetedRunner:
 
     @atomic
     def resolve(self,choice_card=None):
+        return self._resolve(choice_card)
+
+    @atomic
+    def resolve_defended(self,defender,reservation_order):
+        link=self.state['activation']
+        if not link or link['spec']['kind']!='remove' or defender!=('B' if link['actor']=='A' else 'A'):
+            raise ValueError('affected player must choose removal defenses')
+        if not isinstance(reservation_order,list) or not all(isinstance(key,str) for key in reservation_order):raise ValueError('invalid defense order')
+        return self._resolve(None,reservation_order)
+
+    def _resolve(self,choice_card,defense_order=None):
         s=self.state;link=s['activation']
         if not link or s['phase']!='chain':raise ValueError('no pending effect')
         actor=link['actor'];p=s['players'][actor];spec=link['spec'];target=link['target'];kind=spec['kind'];applied=False;details={}
@@ -318,7 +347,7 @@ class TargetedRunner:
                 target=self.find(actor,choice_card,'companions')
             elif choice_card is not None:raise ValueError('no legal resolution choice')
         elif choice_card is not None:raise ValueError('unexpected resolution choice')
-        valid='target' not in spec or self.eligible(actor,target,spec['target'])
+        valid=not link.get('target_departed',False) and ('target' not in spec or self.eligible(actor,target,spec['target']))
         if kind=='recover':
             if valid and (spec.get('condition')!='same_name' or self.same_name(actor,target)):
                 self.moved(actor,target,'hand');p['growth']=min(100,p['growth']+spec.get('reward',0));applied=True
@@ -330,11 +359,24 @@ class TargetedRunner:
         elif kind=='remove':
             if valid:
                 owner='B' if actor=='A' else 'A';destination='discard'
-                for key,r in s['reservations'].items():
-                    if r['status']=='active' and r['owner']==owner and r['target']==target and r['kind'] in ('prevent_departure','discard_to_hand'):
-                        r['status']='consumed';destination=None if r['kind']=='prevent_departure' else 'hand';details['consumed']=key;break
+                order=list(defense_order or []);consumed=[]
+                while destination is not None:
+                    available=[key for key,r in s['reservations'].items() if r['status']=='active' and r['owner']==owner and r['target']==target and
+                               (r['kind']=='prevent_departure' or r['kind']=='discard_to_hand' and destination=='discard')]
+                    if not available:break
+                    if order:
+                        key=order.pop(0)
+                        if key not in available:raise ValueError('inapplicable defense choice')
+                    elif len(available)==1:key=available[0]
+                    else:raise ValueError('affected player defense choice required')
+                    reservation=s['reservations'][key];reservation['status']='consumed';consumed.append(key)
+                    destination=None if reservation['kind']=='prevent_departure' else 'hand'
+                if order:raise ValueError('unused defense choice')
+                if consumed:details['consumed']=consumed[-1]
+                if defense_order is not None:details.update(defender=owner,consumed_reservations=consumed)
                 if destination:self.moved(owner,target,destination)
                 details['destination']=destination;applied=True
+            elif defense_order:raise ValueError('no valid removal for defense choice')
         elif kind=='draw_growth':
             p['growth']=min(100,p['growth']+spec['growth']);details['drawn']=[]
             for _ in range(spec['draw']):

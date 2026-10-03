@@ -1,0 +1,27 @@
+{
+  "baseline_441_identical": {
+    "G-jump-quest": true,
+    "M-dragon-08": true,
+    "M-god-08": true,
+    "M-mushroom-06": true,
+    "M-penguin-07": true,
+    "M-sakura-05": true
+  },
+  "cases": 16,
+  "events": 583,
+  "independent_balance_sample_count": 0,
+  "legacy_compared": 241,
+  "legacy_unsupported": 72,
+  "multiple_defense_and_target_return_scope": "isolated contract inputs; not legal match samples",
+  "new_completed_matches": 0,
+  "normal_policy_evaluation": false,
+  "policy_promoted": false,
+  "saved_replay_verified": 16,
+  "true_ruling_stops": 0,
+  "variants": {
+    "baseline": 6,
+    "decline": 6,
+    "expired": 2,
+    "explicit_defense": 2
+  }
+}
