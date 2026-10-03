@@ -1,0 +1,276 @@
+TAP version 13
+# (node:74219) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/28f942ba3f68/c3d-refine/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/28f942ba3f68/c3d-refine/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: hair cap covers crown, temples and nape without crossing the face opening
+ok 1 - hair cap covers crown, temples and nape without crossing the face opening
+  ---
+  duration_ms: 288.418069
+  type: 'test'
+  ...
+# Subtest: dog play bow lowers the chest at idle and blends back to locomotion; shiba preserves its compact bow
+ok 2 - dog play bow lowers the chest at idle and blends back to locomotion; shiba preserves its compact bow
+  ---
+  duration_ms: 613.180879
+  type: 'test'
+  ...
+# Subtest: both adult and child mushroom faces survive cloning and canonical expression changes
+ok 3 - both adult and child mushroom faces survive cloning and canonical expression changes
+  ---
+  duration_ms: 519.113429
+  type: 'test'
+  ...
+# Subtest: radial bubbles occupy the specified separated positions rather than the origin
+ok 4 - radial bubbles occupy the specified separated positions rather than the origin
+  ---
+  duration_ms: 23.051042
+  type: 'test'
+  ...
+# Subtest: all six dandelion seed-puff faces remain independently bound within the existing mesh budget
+ok 5 - all six dandelion seed-puff faces remain independently bound within the existing mesh budget
+  ---
+  duration_ms: 259.113219
+  type: 'test'
+  ...
+# Subtest: outline loft preserves side notches and lower lobes with a finite closed thickness
+ok 6 - outline loft preserves side notches and lower lobes with a finite closed thickness
+  ---
+  duration_ms: 12.197254
+  type: 'test'
+  ...
+# Subtest: butterfly abdomen points below its head and wing roots stay attached during reduced idle
+ok 7 - butterfly abdomen points below its head and wing roots stay attached during reduced idle
+  ---
+  duration_ms: 30.328673
+  type: 'test'
+  ...
+# Subtest: bow paw contact stays on the ground for both canine proportions
+ok 8 - bow paw contact stays on the ground for both canine proportions
+  ---
+  duration_ms: 5.409518
+  type: 'test'
+  ...
+# Subtest: child mushroom eyes and mouth are visible below the cap from gallery front and three-quarter
+ok 9 - child mushroom eyes and mouth are visible below the cap from gallery front and three-quarter
+  ---
+  duration_ms: 28.377697
+  type: 'test'
+  ...
+# (node:74220) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/28f942ba3f68/c3d-refine/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/28f942ba3f68/c3d-refine/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: 1. pilot species は master 由来(id・8 段の 画像が ある)。archetype 再利用の なかまも master 由来
+ok 10 - 1. pilot species は master 由来(id・8 段の 画像が ある)。archetype 再利用の なかまも master 由来
+  ---
+  duration_ms: 3.602715
+  type: 'test'
+  ...
+# Subtest: 2. 全 species inventory: master の 全 player line × 8 段・なかま・こいびと・作者 が ぜんぶ ある(画像も ある)
+ok 11 - 2. 全 species inventory: master の 全 player line × 8 段・なかま・こいびと・作者 が ぜんぶ ある(画像も ある)
+  ---
+  duration_ms: 4.943957
+  type: 'test'
+  ...
+# Subtest: 3. species → archetype の coverage: つかう archetype は 定義ずみ。pilot の archetype には builder が ある
+ok 12 - 3. species → archetype の coverage: つかう archetype は 定義ずみ。pilot の archetype には builder が ある
+  ---
+  duration_ms: 137.338182
+  type: 'test'
+  ...
+# Subtest: 4. pilot の 全 species / 全 stage に 正しい 3D spec(組める・顔が ある・予算の なか)
+ok 13 - 4. pilot の 全 species / 全 stage に 正しい 3D spec(組める・顔が ある・予算の なか)
+  ---
+  duration_ms: 2457.153117
+  type: 'test'
+  ...
+# Subtest: 5. stage 01 / 04 / 08 が 解決できる。めぐるの 0 はじまり の 段も おなじ
+ok 14 - 5. stage 01 / 04 / 08 が 解決できる。めぐるの 0 はじまり の 段も おなじ
+  ---
+  duration_ms: 7.206338
+  type: 'test'
+  ...
+# Subtest: 6. 段の ちがいは 一様な 拡大縮小 だけでは ない(体の 比率・部品・archetype が かわる)
+ok 15 - 6. 段の ちがいは 一様な 拡大縮小 だけでは ない(体の 比率・部品・archetype が かわる)
+  ---
+  duration_ms: 0.645193
+  type: 'test'
+  ...
+# Subtest: 7. normal: まるい 目(または 2D の おだやかな とじ目)・にこり・しるし なし・はねない
+ok 16 - 7. normal: まるい 目(または 2D の おだやかな とじ目)・にこり・しるし なし・はねない
+  ---
+  duration_ms: 25.754802
+  type: 'test'
+  ...
+# Subtest: 8. positive: ^ ^ の 目・ひらいた 口・ほお・はねる・きらきら
+ok 17 - 8. positive: ^ ^ の 目・ひらいた 口・ほお・はねる・きらきら
+  ---
+  duration_ms: 10.155217
+  type: 'test'
+  ...
+# Subtest: 9. dislike: まゆ(内がわ が さがる)・とがった 口・そっぽ・くも
+ok 18 - 9. dislike: まゆ(内がわ が さがる)・とがった 口・そっぽ・くも
+  ---
+  duration_ms: 40.13475
+  type: 'test'
+  ...
+# Subtest: 10. tired: 半目・あたまが さがる・ゆっくり・ねむい しるし
+ok 19 - 10. tired: 半目・あたまが さがる・ゆっくり・ねむい しるし
+  ---
+  duration_ms: 8.029746
+  type: 'test'
+  ...
+# Subtest: 11. sick: > < の 目・なみの 口・青い たて線・ふるえ・つめたい しるし
+ok 20 - 11. sick: > < の 目・なみの 口・青い たて線・ふるえ・つめたい しるし
+  ---
+  duration_ms: 5.194732
+  type: 'test'
+  ...
+# Subtest: 12. canonical emotion と 意味が 一致(\#368 の 語彙・Home の Expression PNG の 対応)
+ok 21 - 12. canonical emotion と 意味が 一致(\#368 の 語彙・Home の Expression PNG の 対応)
+  ---
+  duration_ms: 24.326523
+  type: 'test'
+  ...
+# Subtest: 13. flag なし: 2D billboard の まま(character module を よまない・立て看板の 経路は そのまま)
+ok 22 - 13. flag なし: 2D billboard の まま(character module を よまない・立て看板の 経路は そのまま)
+  ---
+  duration_ms: 2.129995
+  type: 'test'
+  ...
+# Subtest: 14. 3D presentation の flag: ?meguru3d=1&char3d=1(URL だけ)→ createMeguru3D へ
+ok 23 - 14. 3D presentation の flag: ?meguru3d=1&char3d=1(URL だけ)→ createMeguru3D へ
+  ---
+  duration_ms: 20.123958
+  type: 'test'
+  ...
+# Subtest: 15. flag・QA の 状態は セーブしない(schema も そのまま)
+ok 24 - 15. flag・QA の 状態は セーブしない(schema も そのまま)
+  ---
+  duration_ms: 340.140131
+  type: 'test'
+  ...
+# Subtest: 16. actor の 状態は 2D / 3D で 共通(presenter は actor を かきかえない)
+ok 25 - 16. actor の 状態は 2D / 3D で 共通(presenter は actor を かきかえない)
+  ---
+  duration_ms: 9.276568
+  type: 'test'
+  ...
+# Subtest: 17. movement logic(めぐるの シミュレーション)は かえない: meguru.js は main と 同一
+ok 26 - 17. movement logic(めぐるの シミュレーション)は かえない: meguru.js は main と 同一
+  ---
+  duration_ms: 5.838669
+  type: 'test'
+  ...
+# Subtest: 18. actor 単位の 2D fallback: 1 体だけ こわれても その 1 体だけ 2D
+ok 27 - 18. actor 単位の 2D fallback: 1 体だけ こわれても その 1 体だけ 2D
+  ---
+  duration_ms: 83.130402
+  type: 'test'
+  ...
+# Subtest: 19. 1 体の 失敗で world renderer 全体を 2D に おとさない(present は throw しない・hybrid の fail へ つながない)
+ok 28 - 19. 1 体の 失敗で world renderer 全体を 2D に おとさない(present は throw しない・hybrid の fail へ つながない)
+  ---
+  duration_ms: 60.148985
+  type: 'test'
+  ...
+# Subtest: 20. geometry / material / template を 共有(おなじ species の actor を ふやしても ふえない)
+ok 29 - 20. geometry / material / template を 共有(おなじ species の actor を ふやしても ふえない)
+  ---
+  duration_ms: 12.362031
+  type: 'test'
+  ...
+# Subtest: 21. 表情の きりかえで texture / material を つくりなおさない
+ok 30 - 21. 表情の きりかえで texture / material を つくりなおさない
+  ---
+  duration_ms: 146.077049
+  type: 'test'
+  ...
+# Subtest: 22. actor が いなくなったら 3D を 片づける(住人の despawn・パーティ離脱)
+ok 31 - 22. actor が いなくなったら 3D を 片づける(住人の despawn・パーティ離脱)
+  ---
+  duration_ms: 51.66717
+  type: 'test'
+  ...
+# Subtest: 23. 地域の きりかえ(scene の つくりなおし)で 3D を のこさない
+ok 32 - 23. 地域の きりかえ(scene の つくりなおし)で 3D を のこさない
+  ---
+  duration_ms: 164.373448
+  type: 'test'
+  ...
+# Subtest: 24. 2D → 3D → 2D: 古い model / 顔 / かげ を のこさない
+ok 33 - 24. 2D → 3D → 2D: 古い model / 顔 / かげ を のこさない
+  ---
+  duration_ms: 37.249718
+  type: 'test'
+  ...
+# Subtest: 25. player は いつも えがく(frustum culling で きえない・表情 / 段が かわっても 1 つ)
+ok 34 - 25. player は いつも えがく(frustum culling で きえない・表情 / 段が かわっても 1 つ)
+  ---
+  duration_ms: 50.289001
+  type: 'test'
+  ...
+# Subtest: 26. party の actor も 3D(archetype 再利用: しば・ねこ)。model の ない なかまは 2D
+ok 35 - 26. party の actor も 3D(archetype 再利用: しば・ねこ)。model の ない なかまは 2D
+  ---
+  duration_ms: 56.494798
+  type: 'test'
+  ...
+# Subtest: 27. 住人の presentation 境界: 住人の 生活の きもち → canonical → 3D。\#368 の expr が あれば それを 優先
+ok 36 - 27. 住人の presentation 境界: 住人の 生活の きもち → canonical → 3D。\#368 の expr が あれば それを 優先
+  ---
+  duration_ms: 0.719158
+  type: 'test'
+  ...
+# Subtest: 28. reduced motion: はねる・ゆれる・reaction を とめる。あるく 足は のこす(半分)
+ok 37 - 28. reduced motion: はねる・ゆれる・reaction を とめる。あるく 足は のこす(半分)
+  ---
+  duration_ms: 3.605131
+  type: 'test'
+  ...
+# Subtest: 29. asset integrity: 3D は コードで 組む(外部 3D asset なし)。module は そろって いる
+ok 38 - 29. asset integrity: 3D は コードで 組む(外部 3D asset なし)。module は そろって いる
+  ---
+  duration_ms: 4.383417
+  type: 'test'
+  ...
+# Subtest: 30. 既存の 2D キャラ PNG・Expression PNG・表情 / 感情 runtime は 1 バイトも かわらない
+ok 39 - 30. 既存の 2D キャラ PNG・Expression PNG・表情 / 感情 runtime は 1 バイトも かわらない
+  ---
+  duration_ms: 633.883384
+  type: 'test'
+  ...
+# Subtest: 31. save / schema は そのまま(schemaVersion 5・3D の ための キーなし)
+ok 40 - 31. save / schema は そのまま(schemaVersion 5・3D の ための キーなし)
+  ---
+  duration_ms: 101.606854
+  type: 'test'
+  ...
+# Subtest: 32. 既存の World 3D は かわらない(forest だけ・hybrid の fallback は そのまま)
+ok 41 - 32. 既存の World 3D は かわらない(forest だけ・hybrid の fallback は そのまま)
+  ---
+  duration_ms: 0.699725
+  type: 'test'
+  ...
+# Subtest: 33. Home Expression の 回帰: pet-expression.js の 解決は そのまま(3D adapter は Home を よまない)
+ok 42 - 33. Home Expression の 回帰: pet-expression.js の 解決は そのまま(3D adapter は Home を よまない)
+  ---
+  duration_ms: 0.985373
+  type: 'test'
+  ...
+# Subtest: 34. Relationship Expression の 回帰: relationship-expression.js は そのまま
+ok 43 - 34. Relationship Expression の 回帰: relationship-expression.js は そのまま
+  ---
+  duration_ms: 0.911338
+  type: 'test'
+  ...
+1..43
+# tests 43
+# suites 0
+# pass 43
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4801.95474
