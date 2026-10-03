@@ -1,0 +1,39 @@
+(node:12) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a73a007e273/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a73a007e273/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+home         obj   287  ground 937 float 0 bury 0  houses 21 sil>1.6 0 max 1.59  crossings 0 bad 0  pond-on-stream 0
+city         obj  1096  ground 2690 float 0 bury 0  houses 42 sil>1.6 0 max 1.52  crossings 0 bad 0  pond-on-stream 0
+countryside  obj   899  ground 3829 float 1 bury 2  houses 72 sil>1.6 0 max 1.56  crossings 3 bad 0  pond-on-stream 0
+   worst by type {"dressing:wslab":2}
+forest       obj  1315  ground 3152 float 1 bury 0  houses 0 sil>1.6 0 max -  crossings 4 bad 0  pond-on-stream 0
+   worst by type {"log:log":1}
+mountain     obj   781  ground 2011 float 1 bury 2  houses 3 sil>1.6 0 max 0.83  crossings 3 bad 0  pond-on-stream 0
+   worst by type {"rock:mound":2}
+snow         obj   527  ground 1065 float 0 bury 0  houses 2 sil>1.6 0 max 1.16  crossings 0 bad 0  pond-on-stream 0
+sea          obj   529  ground 1603 float 0 bury 0  houses 15 sil>1.6 0 max 0.76  crossings 0 bad 0  pond-on-stream 0
+deepsea      obj   712  ground 1778 float 0 bury 0  houses 0 sil>1.6 0 max -  crossings 0 bad 0  pond-on-stream 0
+river_lake   obj   831  ground 3176 float 0 bury 1  houses 3 sil>1.6 0 max 0.84  crossings 3 bad 0  pond-on-stream 0
+   worst by type {"pier:plank":1}
+jungle       obj  1482  ground 4323 float 0 bury 4  houses 0 sil>1.6 0 max -  crossings 5 bad 0  pond-on-stream 0
+   worst by type {"ruin:mound":4}
+desert       obj   611  ground 1742 float 1 bury 9  houses 0 sil>1.6 0 max -  crossings 0 bad 0  pond-on-stream 0
+   worst by type {"ruin:mound":9}
+star_stop    obj   463  ground 1493 float 0 bury 0  houses 0 sil>1.6 0 max -  crossings 0 bad 0  pond-on-stream 0
+memory_lake  obj   352  ground 871 float 0 bury 0  houses 0 sil>1.6 0 max -  crossings 0 bad 0  pond-on-stream 0
+id home         vert 0.126 open 0.524 medTop 66
+id city         vert 0.279 open 0.563 medTop 183
+id countryside  vert 0.266 open 0.713 medTop 73
+id forest       vert 0.288 open 0.658 medTop 127
+id mountain     vert 0.135 open 0.671 medTop 137
+id snow         vert 0.095 open 0.809 medTop 129
+id sea          vert 0.189 open 0.733 medTop 167
+id deepsea      vert 0.183 open 0.685 medTop 85
+id river_lake   vert 0.446 open 0.694 medTop 191
+id jungle       vert 0.325 open 0.582 medTop 193
+id desert       vert 0.182 open 0.854 medTop 129
+id star_stop    vert 0.034 open 0.849 medTop 94
+id memory_lake  vert 0.51 open 0.55 medTop 201
+most similar river_lake~memory_lake 0.86  countryside~river_lake 0.85  countryside~memory_lake 0.69  home~countryside 0.66  mountain~snow 0.60  forest~mountain 0.57  sea~jungle 0.57  forest~jungle 0.50
+pair home countryside 0.663
+pair forest jungle 0.504

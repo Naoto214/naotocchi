@@ -1,166 +1,54 @@
-# World Visual Quality v2 — composition and silhouettes, 2026-10-02
+# World Visual Quality v2 — evidence restored
 
-Work in progress on #374 (Draft). No main import, Ready, merge, production Pages,
-save/schema, Resident Expression or Character 3D changes. Baseline is remote
-17c1bdb6c108d97772b31f8ad37b1e6e764fc6c3. Fresh main was read only
-(0b0a6b30e8e098472b2fa965604f4901874942e3).
+Product commit: `dea2f17668958ee37dcd6e557e9b2243f34710dd`. Branch `feat/meguru-3d-geometry-terrain-v1`, PR #374 remains open / Draft, base `feat/meguru-3d-art-direction-v1`. No main import, Ready, merge or production Pages change. This is a documentation/QA checkpoint, not World completion or Human QA approval.
 
-## Visual changes
+[GitHub comparison: 31 World triples + 20 family/prop pairs](meguru-3d-visual-quality-v2/compare.md) · [HTML](meguru-3d-visual-quality-v2/compare.html) · [Machine ledger](meguru-3d-visual-quality-v2/verification.json) · [Continuation](meguru-3d-visual-quality-v2/continuation.md)
 
-- Temperate big trees reuse the existing three crown masses at different heights;
-  trunk height varies more and the sky opens between crowns. Jungle keeps a higher
-  ceiling and a lower side crown; existing shrub masses are taller in jungle and
-  flatter in forest. Landmark tree dimensions and object placements are retained.
-- Cottage/single/cabin wall masses broaden within the canonical lots. Main roofs
-  retain above-head clearance; whole-assembly vertical compression was removed
-  after review found reachable low eaves. Porch slabs become shallow gables.
-- Houses get three paired side/rear window panels (12 triangles per eligible
-  house). Urban towers redistribute existing front window pairs onto a side;
-  outward-facing normals are selected for either side. This is useful from alleys.
-- Wood bridge underslung beams thicken; fewer, thicker rail posts expose water
-  between supports. Crossing location, span, width, deck and abutments unchanged.
-- Bicycle: connected triangle frame and fork. Vehicles: offset glazing and roof
-  cap, taller tractor cabin. Waterwheel: spokes/paddles instead of an inner ring.
-  Ferris wheel: A-frame and spokes instead of the inner ring. Decorative cafe/shop
-  props get the canopy/window contract even when they have no collider.
-- Isolated renderer inspection found statue heads were being placed on the ground:
-  `nut` ignored `pt.y` and `pt.color`. Renderer now honors both (also nest eggs).
-- Creek/river dry outer banks get small deterministic contour variation. Water
-  width/level, stream placement, bed, crossings and irrigation geometry are intact.
-  No new seasonal or regional semantics.
+## Implemented source retained
 
-## Budget and protection
+- Forest lower/varied crowns and jungle upper/lower layers reuse existing crown counts and placements; shrub heights distinguish regions.
+- Cottage/single/cabin walls broaden inside existing lots; main roof heights retain player clearance. Whole-house vertical compression was withdrawn after review. Side/rear window rhythm, city side windows, shallow gable porches.
+- Wood bridge underslung beams thicker, fewer/thicker rail posts; deck/span/crossing semantics unchanged.
+- Bicycle frame/fork; car/tractor cabin/roof; waterwheel spokes/paddles; Ferris A-frame/spokes; decorative shop canopy/windows; statue nut height/color. White material aliases reuse existing geometry/materials.
+- Small deterministic contour variation on dry outer stream banks only. Water/bed/level/ditch/crossings retained.
 
-No world object count increase; no new production THREE geometry/material/texture allocation,
-transparency pass, per-frame allocation or instance-update system. Geometry is
-reused, but some prop parts and house panels increase triangles. Do not call this
-free or a GPU performance improvement. Exact final browser numbers follow in the
-evidence directory; initial latest city representative was about 130k, compared
-with 127.7k at v1, well below the old 183k Human QA baseline. Forest is about 147.8k,
-jungle 172.8k. Draw calls vary with view/fades; compare identical fixtures.
+## Provenance repair
 
-13-region baseline/new hashes for 2D worlds, world3D props/paths/spots/terrain,
-object IDs/positions/collisions and object count are saved as protection evidence.
-Parts are the intended variable. Formation implementation and its 300ms threshold
-are unchanged. Initial v1 failure (463ms) is not erased by later passes.
+The previous workspace survived and was copied intact before edits. Its old verification.json identified b5f302e (2860 + 80, visibility pending); old browser records/images could not reliably be attributed to the reviewed source. They were not relabeled or blindly committed.
 
-## Verification ledger (frozen code b5f302e)
+All 31 current World images and both sides of all 20 gallery pairs were recaptured. Current output lives in `recovered-dea2f17/`; before gallery uses 17c1bdb. Car uses camera distance 112 on both sides. Historic Claude and lighting images remain the original checked-in references. All 147 HTML image references resolve. Shot position/yaw/environment definitions are shared; animation instants differ. Gallery is an isolated production-renderer fixture, not gameplay/performance evidence. Some headless speech glyphs are missing; World geometry remains inspectable.
 
-- Intermediate complete World contract run: 71 PASS / 0 FAIL.
-- After house proportion pass, World + asset contracts: 77 PASS / 0 FAIL.
-- After Ferris/decorative-shop changes: AD/GA/assets 31 PASS / 0 FAIL.
-- Final statue correction: syntax + diff check, VQ tests 3 PASS; renderer close-up
-  verified. Frozen full pipeline completed: **2860 + 80 PASS, 0 FAIL, exit 0**.
-- VQ-3 added with observed RED then GREEN: bank contour changes are bounded,
-  water lanes and triangle topology unchanged.
-- GA-5 source contract updated with dated rationale: noncolliding decorative shops
-  also require canopy/window. Existing colliding-shop requirement is retained.
-- Initial full run began before cache-token update and recorded 2 asset failures;
-  interrupted log retained. Updated asset gate: 6 PASS. Another early full run
-  was interrupted for additional close-up findings, not counted as completed.
-- Concurrent browser/full-suite run: home passed, city/countryside timed out;
-  stopped current browser process trees. Retain these logs; later results must
-  not silently overwrite the failed attempt.
-- Isolated formation runs: 8 PASS each (one with background CPU load). This is
-  evidence of load sensitivity, not proof of a root cause or final full GREEN.
-- Final full package.json pipeline runs every test with Node test concurrency=4;
-  no test selection or threshold changes. Product SHA256 values logged at start.
+Only original raw historical logs are preserved under `history/` (lossless gzip). No raw log was reconstructed from conversation totals. The corrected full log's product hashes match all three current files.
 
-## Review artifacts and limits
+## Verification
 
-31 same-camera world comparisons include all 13 regions, creek/river/pond,
-bridges, mountain summer/winter and season views. 20 isolated family/prop pairs
-use the actual production renderer and exact part descriptors, translated to a
-plain stage, with a baseline-derived fixed camera distance. Actors/animation are
-absent only in that QA fixture; it is not gameplay/performance evidence.
+- Preserved corrected full package pipeline: **2861 + 80 PASS / 0 FAIL, PIPELINE_EXIT 0**. Only Node test concurrency was set to 4; this is **not an unmodified npm test invocation**. Revalidated existing completed log; not rerun this session.
+- Newly captured World: **31/31 3D active, errors 0**. Gallery: **20/20 pairs**, all active, both exits 0.
+- Newly rerun smoke: **13/13 regions**, party 27, errors/console errors/fallback 0.
+- Smoke `pen` is **x/z circular-obstacle overlap**, player max 0, party max 0.002591405357044607; it does not measure terrain-height penetration. This new run records a jungle party overlap about0.00259, above the previous handoff's floating-point-only value. The console rounds to one decimal and prints0.0; the raw JSON is authoritative. Cause not established; no party/collision change made.
+- Newly rerun corridor: **8 directions / 4 return pairs**, all arrived, 3D active, player visible, errors/fallback0; inspect raw per-direction result and samples in `recovered-dea2f17/corridor/corridor-qa.json`.
+- sea→city corridor max visible fade copies=41; this is not proof of real-device afterimage absence. Historical baseline reverse-run evidence also recorded41.
+- Newly rerun visibility: **2832 samples**, fully hidden **0**, partial **1**, errors **0**. step=1000, yaw=0/1.2/−1.2/3.14; not default step220. Four companions; ray test, not screen or iPhone visibility proof.
+- Recomputed protection: 13 regions preserve 2D world / canonical props-paths-spots-terrain / IDs-placement-collision / object counts against 17c1bdb.
+- Recomputed terrain audit: existing **4 floating / 18 buried** residuals; **18 crossings**, all valid=True. Do not call this zero terrain penetration.
 
-Source inventory covers all props in all 13 regions (v1 inventory). Isolated
-representatives are not proof that every placement is attractive. Some structures
-still read as deliberately simple low-poly props. Home/countryside openness and
-river_lake/memory_lake layouts are retained; stronger composition and path framing
-remain candidates for subsequent work. This checkpoint is not V1–V9 completion.
+## Same-camera budget: 17c1bdb → dea2f17
 
-No iPhone Human QA yet: ghosts, disappearance, stutter, p95/p99/>60ms and overall
-visual acceptance remain open. Headless screenshots are not substitute approval.
-
-## Final browser and budget evidence
-
-- `regions-smoke.json`: all 13 regions active in 3D, 27 companions, no page/console
-  errors or 2D fallback; player and party terrain penetration = 0. Exit 0.
-- `corridor-out.json` + `corridor-return.json`: four routes in both directions,
-  eight successful traversals, 3D throughout, player visible, errors/fallback 0.
-  The existing tool only traverses the specified direction; the earlier four-row
-  report must not by itself be called four round trips.
-- Reverse sea → city can have 41 visible fade copies. The exact same reverse
-  fixture on baseline 17c1bdb also reaches 41 (`baseline-city-return.json`). This
-  is not a new VQ2 increase, and neither result proves absence of real afterimages.
-- 31 frozen World captures: active 3D, errors 0. `compare.html` provides Claude,
-  lighting checkpoint and current views, six comparison groups and 20 fixed-camera
-  isolated family/prop pairs. HTML rendered with Japanese fonts; all 147 image
-  references resolve locally. World animation instants are not pixel-identical.
-- `protection-checks.json`: all 13 regions preserve 2D world, canonical props,
-  paths/spots/terrain, IDs/placement/collision and object counts. Geometry audit's
-  existing residuals (4 floating, 18 buried parts) are unchanged; these are not
-  player penetration. All 18 path-water crossings retain valid treatment.
-
-| Same-camera view | Triangles v1 → v2 | Calls v1 → v2 |
+| View | Triangles | Draw calls |
 |---|---:|---:|
-| home | 36,998 → 37,188 | 41 → 42 |
-| city | 127,740 → 130,180 (+1.91%) | 48 → 49 |
-| forest | 147,752 → 147,752 | 60 → 60 |
-| jungle | 172,854 → 172,794 | 61 → 61 |
+| home-vq | 36,998 → 37,106 | 41 → 42 |
+| forest-vq | 147,752 → 147,752 | 60 → 60 |
+| jungle-vq | 172,854 → 172,794 | 61 → 62 |
+| city-vq | 127,740 → 130,188 | 48 → 50 |
 
-All 31 pairs are in `performance-comparison.json`. No new material registry,
-texture, transparency pass, per-frame allocation or update path. Extra geometry
-is existing buckets/instances. Headless timings are not iPhone p95/p99 budgets.
+Full 31-view table in `recovered-dea2f17/performance-comparison.json`. Baseline values are preserved v1 capture data; latest values are from newly captured raw shots.log (named shots-retry.log). City triangles increase about 1.92%; not a performance improvement. No new THREE geometry/material registry, transparency pass, per-frame allocation or instance update method; some buckets/calls increase.
 
-## Formation timing investigation (separate from visual changes)
+## Historical failures and limits
 
-The previous v1 full failure used `Date.now()` around two 20,000-slot formation
-calls, with an unchanged <300ms threshold. That measures elapsed wall-clock time
-and includes scheduler delays. Both isolated runs passed (including one with
-background work); the frozen complete pipeline also passes at four workers.
-A load-sensitive/flaky explanation remains a hypothesis, not a proven root cause.
-No formation code, threshold, test skip or pass criterion was changed. The earlier
-failure and interrupted attempts remain in the evidence ledger.
+V1 at 17c1bdb: 2858 PASS / 1 FAIL, party formation wall-clock 463ms against unchanged <300ms gate. Isolated rerun passed; scheduler/concurrent-load sensitivity remains a hypothesis, not a resolved root cause. Original v1 full-regression.log.gz remains checked in. Intermediate asset failures and interrupted full/browser/visibility attempts are retained as historical logs, not successful completed final runs. Initial new screenshot launch hit local-server EPERM; its raw log is retained beside the successful retry. No product threshold weakened.
 
-## Reproduction
+No iPhone Human QA approval: ghost/afterimage, player disappearance, stutter, p95/p99/>60ms, final aesthetics remain open. Headless long-frame and ghost counters do not resolve them. External githack links previously returned HTTP403; listed links are not claims of verified reachability. Production Pages unchanged.
 
-Use the repository root as cwd (the runtime harness loads from cwd). The final
-full pipeline uses package.json's entire test command, replacing only
-`node --test ` with `node --test --test-concurrency=4 `; all leading smoke scripts
-and the final Relationship suite are included. Frozen SHA256 values are at the
-start of `full-frozen.log`.
+## Remaining visual work
 
-World shots use `shots-visual-quality-v1.json`; isolated shots use
-`shots-visual-quality-v2-gallery.json` and `object-gallery.cjs` at each revision.
-Playwright 1.51 / Chromium 134, SwiftShader, 390×844 World viewport. Local browser
-binary is supplied with PLAYWRIGHT_CHROMIUM; the visibility script's hard-coded
-binary path was replaced in a temporary copy only. No QA sampling logic changed.
-The exploratory step=220 visibility run was interrupted after home to use a
-1000-unit interval comparable to Claude's recorded sample density, keeping all
-four yaw offsets and the same hidden/partial ray criteria. Its partial log is
-retained; it is not a 13-region result. Final visibility results follow separately.
-
-## Review correction checkpoint — 2026-10-03
-
-The b5f302e implementation was saved before a second review found two defects:
-whole-assembly compression lowered oversized eaves into the reachable player
-head envelope, and brown base materials multiplied explicit gray/white colors.
-The current correction removes the compression, broadens the wall mass within
-existing lots and preserves the original roof base heights. VQ-4 fails before
-this correction (home:10) and passes afterward across residential families.
-
-Only new bicycle/Ferris tubes opt into `wtrunk`; colored nut parts use `wnut`.
-Both aliases reuse existing geometry and the existing white wbox material.
-Uncolored nuts, flower centers and all trees retain their old material paths.
-This can add instance buckets/draw calls even though no new geometry/material
-is allocated. Updated final budget must supersede the intermediate table above.
-
-Read-only re-review found both code-level blockers resolved, no new findings.
-Review does not approve merge, subjective visuals or iPhone behavior.
-Targeted prototype/geometry/VQ regression: **26 PASS, 0 FAIL, exit 0**; asset
-contract: **6 PASS, 0 FAIL**. The corrected full suite, refreshed images and
-browser audits are being rerun. All preceding b5f302e full/browser evidence is
-intermediate, not evidence for this corrected source. Visibility runs interrupted
-for sample-density alignment or this correction remain explicitly incomplete.
+Depth/composition, terrain framing, negative space, path/river perspective, house-yard-road connection, stronger home/countryside and forest/jungle separation, river_lake/memory_lake differentiation, water-bank-terrain integration, and still box-like stalls/signs. Preserve quiet desert/snow/deepsea/memory character. Prioritize silhouette/overlap/height/cluster/layering over object accumulation. Decoration placement is not universally frozen; protect 2D/collision/terrain/stream semantics. Use existing season/weather semantics only.
