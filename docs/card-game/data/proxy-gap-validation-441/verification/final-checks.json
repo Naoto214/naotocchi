@@ -1,0 +1,67 @@
+{
+  "full_proxy": {
+    "method": "Explicit PASS prefixes from interrupted unchanged-source run plus isolated remaining-test execution; original worker exits unavailable, not asserted.",
+    "checks": {
+      "all_resumed_exit_zero": true,
+      "all_resumed_workers_successful": true,
+      "exact_started_coverage": true,
+      "exact_finished_coverage": true,
+      "no_duplicates": true,
+      "all_pass_no_skip": true,
+      "source_unchanged": true,
+      "prior_logs_unchanged": true
+    },
+    "success": true,
+    "modules": 345,
+    "planned": 1147,
+    "prior_completed": 457,
+    "resumed": 690,
+    "started": 1147,
+    "finished": 1147,
+    "resumed_worker_exit_codes": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "non_pass": {}
+  },
+  "integration_tests": 79,
+  "integration_success": true,
+  "npm_exit_zero": true,
+  "npm_node_test_files": 38,
+  "design_errors": [],
+  "restored_replay_and_regeneration": {
+    "byte_equal": {
+      "targeted.json.gz": true,
+      "legacy-limits.json": true,
+      "summary.json": true,
+      "manifest.json": true
+    },
+    "saved_gzip_replay": {
+      "G-jump-quest": [],
+      "M-mushroom-06": [],
+      "M-sakura-05": [],
+      "M-dragon-08": [],
+      "M-penguin-07": [],
+      "M-god-08": []
+    },
+    "integration_log_sha256": "c3564e28cb430ca6945bba57e155a09e6f4b8ca2a7fed5fb314deda81266e0be"
+  },
+  "baseline_tracked_files": 2364,
+  "baseline_unchanged_before_index": true,
+  "preserved_tracked_files_excluding_readme": 2363,
+  "execution_input_canonical_manifests_match": true,
+  "policy_promoted": false,
+  "independent_balance_samples": 0,
+  "independent_review_count": 1,
+  "independent_review_findings_fixed": {
+    "critical": 0,
+    "important": 2,
+    "minor": 1
+  }
+}

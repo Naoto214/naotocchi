@@ -1,0 +1,28 @@
+{
+  "events": 201,
+  "focus_verified": 6,
+  "independent_balance_sample_count": 0,
+  "independent_replay_verified": 6,
+  "legacy_boundary_groups": {
+    "challenge_and_pass": 47,
+    "safe_development_and_challenge": 21,
+    "uncertified_partner_arrival": 4
+  },
+  "legacy_compared": 241,
+  "legacy_unsupported": 72,
+  "new_completed_matches": 0,
+  "normal_policy_evaluation": false,
+  "original_112_unmodified": true,
+  "policy_promoted": false,
+  "prior_439_focus_coverage": {
+    "G-jump-quest": 0,
+    "M-dragon-08": 0,
+    "M-god-08": 0,
+    "M-mushroom-06": 0,
+    "M-penguin-07": 0,
+    "M-sakura-05": 0
+  },
+  "targeted_executed": 6,
+  "targeted_planned": 6,
+  "true_ruling_stops": 0
+}

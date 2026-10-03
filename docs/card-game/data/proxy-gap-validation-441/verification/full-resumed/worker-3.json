@@ -1,0 +1,480 @@
+{
+  "planned_ids": [
+    "test_proxy_new_seed_mixed_replay_218.MixedReplay218Test.test_hash_mutation_rejected",
+    "test_proxy_new_seed_mixed_replay_218.MixedReplay218Test.test_two_events_and_two_held_end_states",
+    "test_proxy_new_seed_mixed_replay_380.Replay380Tests.test_safe_free_chicken_and_three_passes",
+    "test_proxy_new_seed_opportunity_audit_171.OpportunityAudit171Test.test_mutated_source_hash_is_rejected",
+    "test_proxy_new_seed_opportunity_audit_171.OpportunityAudit171Test.test_saved_four_states_are_independently_audited",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_all_components_dominance_selects_a",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_all_equal_uses_existing_tie_break",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_candidate_order_invariance",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_dominance_cycle_rejected",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_equal_copy_ids_do_not_invent_target_tie_break",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_input_and_return_objects_are_isolated",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_invalid_pair_and_numeric_types_rejected",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_malformed_json_values_return_validation_errors",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_malformed_safe_certificate_reports_errors",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_paid_board_tradeoff_preserves_both_candidates",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_partial_equality_does_not_shrink_incomparable_frontier",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_pass_empty_copy_id_preserves_legacy_tie_break",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_safe_free_dominance_is_only_against_pass",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_upper_three_priorities_unchanged",
+    "test_proxy_new_seed_mixed_replay_262.MixedReplay262Tests.test_one_proved_turn_end_and_three_held_normals",
+    "test_proxy_new_seed_mixed_replay_388.Replay388Tests.test_four_canonical_decisions",
+    "test_proxy_new_seed_response_restart_148.NewSeedResponseRestart148Tests.test_canonical_chain",
+    "test_proxy_new_seed_response_restart_148.NewSeedResponseRestart148Tests.test_current_windows",
+    "test_proxy_normal_action_candidate_completeness.ContractRegistryDetailTests.test_machine_readable_contract_has_source_and_unit_schema",
+    "test_proxy_normal_action_candidate_completeness.MaterializationTests.test_canonical_bytes_and_mutation",
+    "test_proxy_normal_action_candidate_completeness.MaterializationTests.test_protocol_only_json_shapes",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_accepts_reentry_as_a_new_instance_without_migrating_reservation",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_accepts_the_split_copy_and_instance_fixture",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_canonical_state_hash_is_key_order_independent",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_broken_event_references_and_hashes",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_duplicate_instances_and_a_deck_missing_a_card_type",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_initial_hand_that_is_not_the_deck_top",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_later_event_reference_to_retired_instance",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_malformed_design_identity",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_missing_seat_without_crashing",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_nonsequential_or_untyped_transition_without_retiring_source",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_transition_to_an_instance_of_another_card_copy",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_unknown_card_ids",
+    "test_proxy_new_seed_mixed_replay_264.MixedReplay264Tests.test_two_passes_companion_placement_and_egg",
+    "test_proxy_new_seed_mixed_replay_389.Replay389Tests.test_start_chicken_and_three_other_responses",
+    "test_proxy_new_seed_response_restart_158.NewSeedResponseRestart158Tests.test_four_response_windows",
+    "test_proxy_new_seed_response_restart_158.NewSeedResponseRestart158Tests.test_saved_canonical_chain",
+    "test_proxy_resource_value_response_profiles.LegacyEmptyPassTests.test_227_empty_pass_reproduces_exact_source_transition",
+    "test_proxy_new_seed_mixed_replay_267.MixedReplay267Tests.test_selected_responses_link_to_four_new_snapshots",
+    "test_proxy_new_seed_mixed_replay_390.Replay390Tests.test_chain_end_and_responses",
+    "test_proxy_new_seed_start_audit_166.StartAudit166Test.test_changed_proof_fails",
+    "test_proxy_new_seed_start_audit_166.StartAudit166Test.test_four_current_start_opportunities",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_choice_kind_difference_is_recorded",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_context_and_evidence_must_be_valid_even_for_unique_choice",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_general_frontier_not_safe_context",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_seeded_frontier_delegates_to_116",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_structural_error_cannot_produce_seeded_choice",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_unique_selection_has_no_seed_record",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_wrapper_input_and_output_isolation",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_wrapper_recomputes_frontier_before_accepting_selection",
+    "test_proxy_new_seed_mixed_replay_287.MixedReplay287Tests.test_four_passes_and_hash_chains",
+    "test_proxy_new_seed_mixed_replay_397.Replay397Tests.test_four_routes",
+    "test_proxy_new_seed_turn_end_audit_149.NewSeedTurnEndAudit149Tests.test_saved_canonical_bytes",
+    "test_proxy_new_seed_turn_end_audit_149.NewSeedTurnEndAudit149Tests.test_three_turn_end_inventories",
+    "test_proxy_start_response_138.StartResponse138Tests.test_four_opening_candidate_sets_are_complete",
+    "test_proxy_start_response_138.StartResponse138Tests.test_normal_action_stop_uses_current_121_completeness_proof",
+    "test_proxy_start_response_138.StartResponse138Tests.test_response_id_namespace_is_generic_and_disjoint",
+    "test_proxy_start_response_138.StartResponse138Tests.test_saved_resumes_keep_balance_zero_and_hash_chains",
+    "test_proxy_start_response_138.StartResponse138Tests.test_source_gate_rejects_event_and_hash_tampering",
+    "test_proxy_start_response_138.StartResponse138Tests.test_unknown_affordable_quick_use_stops_instead_of_excluding",
+    "test_proxy_new_seed_mixed_choice_322.MixedChoice322Tests.test_two_seeded_eggs_unique_response_and_normal_pass",
+    "test_proxy_new_seed_mixed_replay_326.MixedReplay326Tests.test_three_response_passes_and_normal_pass",
+    "test_proxy_new_seed_next_audit_173.NextAudit173Test.test_corrupted_source_is_rejected",
+    "test_proxy_new_seed_next_audit_173.NextAudit173Test.test_two_safe_partner_decisions_and_chain_response",
+    "test_proxy_new_seed_turn_end_restart_151.NewSeedTurnEndRestart151Tests.test_saved_hash_chain",
+    "test_proxy_new_seed_turn_end_restart_151.NewSeedTurnEndRestart151Tests.test_three_turn_end_and_next_turn_draws",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_all_six_execute_from_unmodified_initial_fixtures",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_duplicate_physical_location_rejected",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_fails_closed_on_high_stage_shortcut_wrong_lineage_and_unaffordable_move",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_one_multistage_move_is_not_two_skips",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_person_limit_and_no_free_discard",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_replay_rejects_forged_hash_and_paid_cost",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_source_drift_rejected"
+  ],
+  "started_ids": [
+    "test_proxy_new_seed_mixed_replay_218.MixedReplay218Test.test_hash_mutation_rejected",
+    "test_proxy_new_seed_mixed_replay_218.MixedReplay218Test.test_two_events_and_two_held_end_states",
+    "test_proxy_new_seed_mixed_replay_380.Replay380Tests.test_safe_free_chicken_and_three_passes",
+    "test_proxy_new_seed_opportunity_audit_171.OpportunityAudit171Test.test_mutated_source_hash_is_rejected",
+    "test_proxy_new_seed_opportunity_audit_171.OpportunityAudit171Test.test_saved_four_states_are_independently_audited",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_all_components_dominance_selects_a",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_all_equal_uses_existing_tie_break",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_candidate_order_invariance",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_dominance_cycle_rejected",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_equal_copy_ids_do_not_invent_target_tie_break",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_input_and_return_objects_are_isolated",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_invalid_pair_and_numeric_types_rejected",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_malformed_json_values_return_validation_errors",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_malformed_safe_certificate_reports_errors",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_paid_board_tradeoff_preserves_both_candidates",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_partial_equality_does_not_shrink_incomparable_frontier",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_pass_empty_copy_id_preserves_legacy_tie_break",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_safe_free_dominance_is_only_against_pass",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_upper_three_priorities_unchanged",
+    "test_proxy_new_seed_mixed_replay_262.MixedReplay262Tests.test_one_proved_turn_end_and_three_held_normals",
+    "test_proxy_new_seed_mixed_replay_388.Replay388Tests.test_four_canonical_decisions",
+    "test_proxy_new_seed_response_restart_148.NewSeedResponseRestart148Tests.test_canonical_chain",
+    "test_proxy_new_seed_response_restart_148.NewSeedResponseRestart148Tests.test_current_windows",
+    "test_proxy_normal_action_candidate_completeness.ContractRegistryDetailTests.test_machine_readable_contract_has_source_and_unit_schema",
+    "test_proxy_normal_action_candidate_completeness.MaterializationTests.test_canonical_bytes_and_mutation",
+    "test_proxy_normal_action_candidate_completeness.MaterializationTests.test_protocol_only_json_shapes",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_accepts_reentry_as_a_new_instance_without_migrating_reservation",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_accepts_the_split_copy_and_instance_fixture",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_canonical_state_hash_is_key_order_independent",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_broken_event_references_and_hashes",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_duplicate_instances_and_a_deck_missing_a_card_type",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_initial_hand_that_is_not_the_deck_top",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_later_event_reference_to_retired_instance",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_malformed_design_identity",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_missing_seat_without_crashing",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_nonsequential_or_untyped_transition_without_retiring_source",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_transition_to_an_instance_of_another_card_copy",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_unknown_card_ids",
+    "test_proxy_new_seed_mixed_replay_264.MixedReplay264Tests.test_two_passes_companion_placement_and_egg",
+    "test_proxy_new_seed_mixed_replay_389.Replay389Tests.test_start_chicken_and_three_other_responses",
+    "test_proxy_new_seed_response_restart_158.NewSeedResponseRestart158Tests.test_four_response_windows",
+    "test_proxy_new_seed_response_restart_158.NewSeedResponseRestart158Tests.test_saved_canonical_chain",
+    "test_proxy_resource_value_response_profiles.LegacyEmptyPassTests.test_227_empty_pass_reproduces_exact_source_transition",
+    "test_proxy_new_seed_mixed_replay_267.MixedReplay267Tests.test_selected_responses_link_to_four_new_snapshots",
+    "test_proxy_new_seed_mixed_replay_390.Replay390Tests.test_chain_end_and_responses",
+    "test_proxy_new_seed_start_audit_166.StartAudit166Test.test_changed_proof_fails",
+    "test_proxy_new_seed_start_audit_166.StartAudit166Test.test_four_current_start_opportunities",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_choice_kind_difference_is_recorded",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_context_and_evidence_must_be_valid_even_for_unique_choice",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_general_frontier_not_safe_context",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_seeded_frontier_delegates_to_116",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_structural_error_cannot_produce_seeded_choice",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_unique_selection_has_no_seed_record",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_wrapper_input_and_output_isolation",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_wrapper_recomputes_frontier_before_accepting_selection",
+    "test_proxy_new_seed_mixed_replay_287.MixedReplay287Tests.test_four_passes_and_hash_chains",
+    "test_proxy_new_seed_mixed_replay_397.Replay397Tests.test_four_routes",
+    "test_proxy_new_seed_turn_end_audit_149.NewSeedTurnEndAudit149Tests.test_saved_canonical_bytes",
+    "test_proxy_new_seed_turn_end_audit_149.NewSeedTurnEndAudit149Tests.test_three_turn_end_inventories",
+    "test_proxy_start_response_138.StartResponse138Tests.test_four_opening_candidate_sets_are_complete",
+    "test_proxy_start_response_138.StartResponse138Tests.test_normal_action_stop_uses_current_121_completeness_proof",
+    "test_proxy_start_response_138.StartResponse138Tests.test_response_id_namespace_is_generic_and_disjoint",
+    "test_proxy_start_response_138.StartResponse138Tests.test_saved_resumes_keep_balance_zero_and_hash_chains",
+    "test_proxy_start_response_138.StartResponse138Tests.test_source_gate_rejects_event_and_hash_tampering",
+    "test_proxy_start_response_138.StartResponse138Tests.test_unknown_affordable_quick_use_stops_instead_of_excluding",
+    "test_proxy_new_seed_mixed_choice_322.MixedChoice322Tests.test_two_seeded_eggs_unique_response_and_normal_pass",
+    "test_proxy_new_seed_mixed_replay_326.MixedReplay326Tests.test_three_response_passes_and_normal_pass",
+    "test_proxy_new_seed_next_audit_173.NextAudit173Test.test_corrupted_source_is_rejected",
+    "test_proxy_new_seed_next_audit_173.NextAudit173Test.test_two_safe_partner_decisions_and_chain_response",
+    "test_proxy_new_seed_turn_end_restart_151.NewSeedTurnEndRestart151Tests.test_saved_hash_chain",
+    "test_proxy_new_seed_turn_end_restart_151.NewSeedTurnEndRestart151Tests.test_three_turn_end_and_next_turn_draws",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_all_six_execute_from_unmodified_initial_fixtures",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_duplicate_physical_location_rejected",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_fails_closed_on_high_stage_shortcut_wrong_lineage_and_unaffordable_move",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_one_multistage_move_is_not_two_skips",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_person_limit_and_no_free_discard",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_replay_rejects_forged_hash_and_paid_cost",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_source_drift_rejected"
+  ],
+  "finished_ids": [
+    "test_proxy_new_seed_mixed_replay_218.MixedReplay218Test.test_hash_mutation_rejected",
+    "test_proxy_new_seed_mixed_replay_218.MixedReplay218Test.test_two_events_and_two_held_end_states",
+    "test_proxy_new_seed_mixed_replay_380.Replay380Tests.test_safe_free_chicken_and_three_passes",
+    "test_proxy_new_seed_opportunity_audit_171.OpportunityAudit171Test.test_mutated_source_hash_is_rejected",
+    "test_proxy_new_seed_opportunity_audit_171.OpportunityAudit171Test.test_saved_four_states_are_independently_audited",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_all_components_dominance_selects_a",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_all_equal_uses_existing_tie_break",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_candidate_order_invariance",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_dominance_cycle_rejected",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_equal_copy_ids_do_not_invent_target_tie_break",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_input_and_return_objects_are_isolated",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_invalid_pair_and_numeric_types_rejected",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_malformed_json_values_return_validation_errors",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_malformed_safe_certificate_reports_errors",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_paid_board_tradeoff_preserves_both_candidates",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_partial_equality_does_not_shrink_incomparable_frontier",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_pass_empty_copy_id_preserves_legacy_tie_break",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_safe_free_dominance_is_only_against_pass",
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_upper_three_priorities_unchanged",
+    "test_proxy_new_seed_mixed_replay_262.MixedReplay262Tests.test_one_proved_turn_end_and_three_held_normals",
+    "test_proxy_new_seed_mixed_replay_388.Replay388Tests.test_four_canonical_decisions",
+    "test_proxy_new_seed_response_restart_148.NewSeedResponseRestart148Tests.test_canonical_chain",
+    "test_proxy_new_seed_response_restart_148.NewSeedResponseRestart148Tests.test_current_windows",
+    "test_proxy_normal_action_candidate_completeness.ContractRegistryDetailTests.test_machine_readable_contract_has_source_and_unit_schema",
+    "test_proxy_normal_action_candidate_completeness.MaterializationTests.test_canonical_bytes_and_mutation",
+    "test_proxy_normal_action_candidate_completeness.MaterializationTests.test_protocol_only_json_shapes",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_accepts_reentry_as_a_new_instance_without_migrating_reservation",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_accepts_the_split_copy_and_instance_fixture",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_canonical_state_hash_is_key_order_independent",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_broken_event_references_and_hashes",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_duplicate_instances_and_a_deck_missing_a_card_type",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_initial_hand_that_is_not_the_deck_top",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_later_event_reference_to_retired_instance",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_malformed_design_identity",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_missing_seat_without_crashing",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_nonsequential_or_untyped_transition_without_retiring_source",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_transition_to_an_instance_of_another_card_copy",
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_unknown_card_ids",
+    "test_proxy_new_seed_mixed_replay_264.MixedReplay264Tests.test_two_passes_companion_placement_and_egg",
+    "test_proxy_new_seed_mixed_replay_389.Replay389Tests.test_start_chicken_and_three_other_responses",
+    "test_proxy_new_seed_response_restart_158.NewSeedResponseRestart158Tests.test_four_response_windows",
+    "test_proxy_new_seed_response_restart_158.NewSeedResponseRestart158Tests.test_saved_canonical_chain",
+    "test_proxy_resource_value_response_profiles.LegacyEmptyPassTests.test_227_empty_pass_reproduces_exact_source_transition",
+    "test_proxy_new_seed_mixed_replay_267.MixedReplay267Tests.test_selected_responses_link_to_four_new_snapshots",
+    "test_proxy_new_seed_mixed_replay_390.Replay390Tests.test_chain_end_and_responses",
+    "test_proxy_new_seed_start_audit_166.StartAudit166Test.test_changed_proof_fails",
+    "test_proxy_new_seed_start_audit_166.StartAudit166Test.test_four_current_start_opportunities",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_choice_kind_difference_is_recorded",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_context_and_evidence_must_be_valid_even_for_unique_choice",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_general_frontier_not_safe_context",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_seeded_frontier_delegates_to_116",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_structural_error_cannot_produce_seeded_choice",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_unique_selection_has_no_seed_record",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_wrapper_input_and_output_isolation",
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_wrapper_recomputes_frontier_before_accepting_selection",
+    "test_proxy_new_seed_mixed_replay_287.MixedReplay287Tests.test_four_passes_and_hash_chains",
+    "test_proxy_new_seed_mixed_replay_397.Replay397Tests.test_four_routes",
+    "test_proxy_new_seed_turn_end_audit_149.NewSeedTurnEndAudit149Tests.test_saved_canonical_bytes",
+    "test_proxy_new_seed_turn_end_audit_149.NewSeedTurnEndAudit149Tests.test_three_turn_end_inventories",
+    "test_proxy_start_response_138.StartResponse138Tests.test_four_opening_candidate_sets_are_complete",
+    "test_proxy_start_response_138.StartResponse138Tests.test_normal_action_stop_uses_current_121_completeness_proof",
+    "test_proxy_start_response_138.StartResponse138Tests.test_response_id_namespace_is_generic_and_disjoint",
+    "test_proxy_start_response_138.StartResponse138Tests.test_saved_resumes_keep_balance_zero_and_hash_chains",
+    "test_proxy_start_response_138.StartResponse138Tests.test_source_gate_rejects_event_and_hash_tampering",
+    "test_proxy_start_response_138.StartResponse138Tests.test_unknown_affordable_quick_use_stops_instead_of_excluding",
+    "test_proxy_new_seed_mixed_choice_322.MixedChoice322Tests.test_two_seeded_eggs_unique_response_and_normal_pass",
+    "test_proxy_new_seed_mixed_replay_326.MixedReplay326Tests.test_three_response_passes_and_normal_pass",
+    "test_proxy_new_seed_next_audit_173.NextAudit173Test.test_corrupted_source_is_rejected",
+    "test_proxy_new_seed_next_audit_173.NextAudit173Test.test_two_safe_partner_decisions_and_chain_response",
+    "test_proxy_new_seed_turn_end_restart_151.NewSeedTurnEndRestart151Tests.test_saved_hash_chain",
+    "test_proxy_new_seed_turn_end_restart_151.NewSeedTurnEndRestart151Tests.test_three_turn_end_and_next_turn_draws",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_all_six_execute_from_unmodified_initial_fixtures",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_duplicate_physical_location_rejected",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_fails_closed_on_high_stage_shortcut_wrong_lineage_and_unaffordable_move",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_one_multistage_move_is_not_two_skips",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_person_limit_and_no_free_discard",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_replay_rejects_forged_hash_and_paid_cost",
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_source_drift_rejected"
+  ],
+  "status": {
+    "test_proxy_new_seed_mixed_replay_218.MixedReplay218Test.test_hash_mutation_rejected": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_218.MixedReplay218Test.test_two_events_and_two_held_end_states": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_380.Replay380Tests.test_safe_free_chicken_and_three_passes": [
+      "pass"
+    ],
+    "test_proxy_new_seed_opportunity_audit_171.OpportunityAudit171Test.test_mutated_source_hash_is_rejected": [
+      "pass"
+    ],
+    "test_proxy_new_seed_opportunity_audit_171.OpportunityAudit171Test.test_saved_four_states_are_independently_audited": [
+      "pass"
+    ],
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_all_components_dominance_selects_a": [
+      "pass"
+    ],
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_all_equal_uses_existing_tie_break": [
+      "pass"
+    ],
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_candidate_order_invariance": [
+      "pass"
+    ],
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_dominance_cycle_rejected": [
+      "pass"
+    ],
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_equal_copy_ids_do_not_invent_target_tie_break": [
+      "pass"
+    ],
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_input_and_return_objects_are_isolated": [
+      "pass"
+    ],
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_invalid_pair_and_numeric_types_rejected": [
+      "pass"
+    ],
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_malformed_json_values_return_validation_errors": [
+      "pass"
+    ],
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_malformed_safe_certificate_reports_errors": [
+      "pass"
+    ],
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_paid_board_tradeoff_preserves_both_candidates": [
+      "pass"
+    ],
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_partial_equality_does_not_shrink_incomparable_frontier": [
+      "pass"
+    ],
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_pass_empty_copy_id_preserves_legacy_tie_break": [
+      "pass"
+    ],
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_safe_free_dominance_is_only_against_pass": [
+      "pass"
+    ],
+    "test_proxy_resource_value_comparison.ResourceComparisonTests.test_upper_three_priorities_unchanged": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_262.MixedReplay262Tests.test_one_proved_turn_end_and_three_held_normals": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_388.Replay388Tests.test_four_canonical_decisions": [
+      "pass"
+    ],
+    "test_proxy_new_seed_response_restart_148.NewSeedResponseRestart148Tests.test_canonical_chain": [
+      "pass"
+    ],
+    "test_proxy_new_seed_response_restart_148.NewSeedResponseRestart148Tests.test_current_windows": [
+      "pass"
+    ],
+    "test_proxy_normal_action_candidate_completeness.ContractRegistryDetailTests.test_machine_readable_contract_has_source_and_unit_schema": [
+      "pass"
+    ],
+    "test_proxy_normal_action_candidate_completeness.MaterializationTests.test_canonical_bytes_and_mutation": [
+      "pass"
+    ],
+    "test_proxy_normal_action_candidate_completeness.MaterializationTests.test_protocol_only_json_shapes": [
+      "pass"
+    ],
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_accepts_reentry_as_a_new_instance_without_migrating_reservation": [
+      "pass"
+    ],
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_accepts_the_split_copy_and_instance_fixture": [
+      "pass"
+    ],
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_canonical_state_hash_is_key_order_independent": [
+      "pass"
+    ],
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_broken_event_references_and_hashes": [
+      "pass"
+    ],
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_duplicate_instances_and_a_deck_missing_a_card_type": [
+      "pass"
+    ],
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_initial_hand_that_is_not_the_deck_top": [
+      "pass"
+    ],
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_later_event_reference_to_retired_instance": [
+      "pass"
+    ],
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_malformed_design_identity": [
+      "pass"
+    ],
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_missing_seat_without_crashing": [
+      "pass"
+    ],
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_nonsequential_or_untyped_transition_without_retiring_source": [
+      "pass"
+    ],
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_transition_to_an_instance_of_another_card_copy": [
+      "pass"
+    ],
+    "test_proxy_record_validator.ProxyRecordValidatorTest.test_rejects_unknown_card_ids": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_264.MixedReplay264Tests.test_two_passes_companion_placement_and_egg": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_389.Replay389Tests.test_start_chicken_and_three_other_responses": [
+      "pass"
+    ],
+    "test_proxy_new_seed_response_restart_158.NewSeedResponseRestart158Tests.test_four_response_windows": [
+      "pass"
+    ],
+    "test_proxy_new_seed_response_restart_158.NewSeedResponseRestart158Tests.test_saved_canonical_chain": [
+      "pass"
+    ],
+    "test_proxy_resource_value_response_profiles.LegacyEmptyPassTests.test_227_empty_pass_reproduces_exact_source_transition": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_267.MixedReplay267Tests.test_selected_responses_link_to_four_new_snapshots": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_390.Replay390Tests.test_chain_end_and_responses": [
+      "pass"
+    ],
+    "test_proxy_new_seed_start_audit_166.StartAudit166Test.test_changed_proof_fails": [
+      "pass"
+    ],
+    "test_proxy_new_seed_start_audit_166.StartAudit166Test.test_four_current_start_opportunities": [
+      "pass"
+    ],
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_choice_kind_difference_is_recorded": [
+      "pass"
+    ],
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_context_and_evidence_must_be_valid_even_for_unique_choice": [
+      "pass"
+    ],
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_general_frontier_not_safe_context": [
+      "pass"
+    ],
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_seeded_frontier_delegates_to_116": [
+      "pass"
+    ],
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_structural_error_cannot_produce_seeded_choice": [
+      "pass"
+    ],
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_unique_selection_has_no_seed_record": [
+      "pass"
+    ],
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_wrapper_input_and_output_isolation": [
+      "pass"
+    ],
+    "test_proxy_resource_value_selection.ResourceSelectionTests.test_wrapper_recomputes_frontier_before_accepting_selection": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_287.MixedReplay287Tests.test_four_passes_and_hash_chains": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_397.Replay397Tests.test_four_routes": [
+      "pass"
+    ],
+    "test_proxy_new_seed_turn_end_audit_149.NewSeedTurnEndAudit149Tests.test_saved_canonical_bytes": [
+      "pass"
+    ],
+    "test_proxy_new_seed_turn_end_audit_149.NewSeedTurnEndAudit149Tests.test_three_turn_end_inventories": [
+      "pass"
+    ],
+    "test_proxy_start_response_138.StartResponse138Tests.test_four_opening_candidate_sets_are_complete": [
+      "pass"
+    ],
+    "test_proxy_start_response_138.StartResponse138Tests.test_normal_action_stop_uses_current_121_completeness_proof": [
+      "pass"
+    ],
+    "test_proxy_start_response_138.StartResponse138Tests.test_response_id_namespace_is_generic_and_disjoint": [
+      "pass"
+    ],
+    "test_proxy_start_response_138.StartResponse138Tests.test_saved_resumes_keep_balance_zero_and_hash_chains": [
+      "pass"
+    ],
+    "test_proxy_start_response_138.StartResponse138Tests.test_source_gate_rejects_event_and_hash_tampering": [
+      "pass"
+    ],
+    "test_proxy_start_response_138.StartResponse138Tests.test_unknown_affordable_quick_use_stops_instead_of_excluding": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_choice_322.MixedChoice322Tests.test_two_seeded_eggs_unique_response_and_normal_pass": [
+      "pass"
+    ],
+    "test_proxy_new_seed_mixed_replay_326.MixedReplay326Tests.test_three_response_passes_and_normal_pass": [
+      "pass"
+    ],
+    "test_proxy_new_seed_next_audit_173.NextAudit173Test.test_corrupted_source_is_rejected": [
+      "pass"
+    ],
+    "test_proxy_new_seed_next_audit_173.NextAudit173Test.test_two_safe_partner_decisions_and_chain_response": [
+      "pass"
+    ],
+    "test_proxy_new_seed_turn_end_restart_151.NewSeedTurnEndRestart151Tests.test_saved_hash_chain": [
+      "pass"
+    ],
+    "test_proxy_new_seed_turn_end_restart_151.NewSeedTurnEndRestart151Tests.test_three_turn_end_and_next_turn_draws": [
+      "pass"
+    ],
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_all_six_execute_from_unmodified_initial_fixtures": [
+      "pass"
+    ],
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_duplicate_physical_location_rejected": [
+      "pass"
+    ],
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_fails_closed_on_high_stage_shortcut_wrong_lineage_and_unaffordable_move": [
+      "pass"
+    ],
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_one_multistage_move_is_not_two_skips": [
+      "pass"
+    ],
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_person_limit_and_no_free_discard": [
+      "pass"
+    ],
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_replay_rejects_forged_hash_and_paid_cost": [
+      "pass"
+    ],
+    "test_proxy_targeted_execution.TargetedExecutionTests.test_source_drift_rejected": [
+      "pass"
+    ]
+  },
+  "successful": true,
+  "seconds": 611.2376961769999
+}

@@ -1,0 +1,29 @@
+E......
+======================================================================
+ERROR: test_all_six_execute_from_unmodified_initial_fixtures (test_proxy_targeted_execution.TargetedExecutionTests.test_all_six_execute_from_unmodified_initial_fixtures) (focus='M-dragon-08')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_targeted_execution.py", line 12, in test_all_six_execute_from_unmodified_initial_fixtures
+    result=x.execute_scenario(focus)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/proxy_targeted_execution.py", line 359, in execute_scenario
+    r=load_scenario(focus);run(r,focus)
+                           ^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/proxy_targeted_scenarios.py", line 79, in run
+    else:getattr(r,method)(actor,**args)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/proxy_targeted_execution.py", line 71, in call
+    proof=fn(self,*args,**kwargs) or {}
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/proxy_targeted_execution.py", line 183, in person
+    p=self.own(actor);source=self.find(actor,card,index=index);b=p['field']
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/proxy_targeted_execution.py", line 113, in find
+    if index>=len(found):raise ValueError('card absent from '+zone+': '+card)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: card absent from hand: C-cat_friend
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.144s
+
+FAILED (errors=1)

@@ -1,0 +1,17 @@
+{
+  "saved_gzip_replay": {
+    "G-jump-quest": [],
+    "M-mushroom-06": [],
+    "M-sakura-05": [],
+    "M-dragon-08": [],
+    "M-penguin-07": [],
+    "M-god-08": []
+  },
+  "byte_equal": {
+    "targeted.json.gz": true,
+    "legacy-limits.json": true,
+    "summary.json": true,
+    "manifest.json": true
+  },
+  "events": 201
+}

@@ -1,0 +1,79 @@
+{
+  "byte_equal": {
+    "shadow.json.gz": true,
+    "manifest.json": true,
+    "summary.json": true
+  },
+  "summary": {
+    "by_observed_policy": {
+      "legacy_107_114_116": {
+        "compared": 108,
+        "planned": 108,
+        "selected_difference": 81,
+        "unsupported": 0
+      },
+      "resource_value_pilot_v1": {
+        "compared": 133,
+        "planned": 205,
+        "selected_difference": 43,
+        "unsupported": 72
+      }
+    },
+    "compared": 241,
+    "foundation_repairs_counted_as_adoption_evidence": false,
+    "independent_balance_sample_count": 0,
+    "new_game_decisions": 0,
+    "new_game_events": 0,
+    "new_matches": 0,
+    "observed_selection_reproduced": 313,
+    "planned": 313,
+    "policies_on_compared_inputs": {
+      "legacy_107_114_116": {
+        "fallback": {
+          "count": 8,
+          "denominator": 241,
+          "rate": 0.03319502074688797
+        },
+        "reached": 241,
+        "strategic_unresolved": {
+          "count": 8,
+          "denominator": 241,
+          "rate": 0.03319502074688797
+        },
+        "true_stop": {
+          "count": 0,
+          "denominator": 241,
+          "rate": 0.0
+        },
+        "valid": 241
+      },
+      "resource_value_pilot_v1": {
+        "fallback": {
+          "count": 182,
+          "denominator": 241,
+          "rate": 0.7551867219917012
+        },
+        "reached": 241,
+        "strategic_unresolved": {
+          "count": 182,
+          "denominator": 241,
+          "rate": 0.7551867219917012
+        },
+        "true_stop": {
+          "count": 0,
+          "denominator": 241,
+          "rate": 0.0
+        },
+        "valid": 241
+      }
+    },
+    "policy_promoted": false,
+    "selected_difference": 124,
+    "unique_public_inputs": 303,
+    "unsupported": 72,
+    "unsupported_reasons": {
+      "legacy fallback contract not applicable": 51,
+      "legacy paid exclusion proof unavailable": 21
+    }
+  }
+}
