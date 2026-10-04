@@ -1,0 +1,77 @@
+FFFFFFFF
+======================================================================
+FAIL: test_all_run_fields_not_just_decisions_compared (test_proxy_replay_evidence_audit.ReplayTests.test_all_run_fields_not_just_decisions_compared)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_replay_evidence_audit.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'replay evidence module absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : replay evidence module absent
+
+======================================================================
+FAIL: test_bool_integer_difference_not_equal (test_proxy_replay_evidence_audit.ReplayTests.test_bool_integer_difference_not_equal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_replay_evidence_audit.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'replay evidence module absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : replay evidence module absent
+
+======================================================================
+FAIL: test_equal_replay_is_bounded_not_admission (test_proxy_replay_evidence_audit.ReplayTests.test_equal_replay_is_bounded_not_admission)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_replay_evidence_audit.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'replay evidence module absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : replay evidence module absent
+
+======================================================================
+FAIL: test_invalid_or_stopped_runs_not_verified (test_proxy_replay_evidence_audit.ReplayTests.test_invalid_or_stopped_runs_not_verified)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_replay_evidence_audit.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'replay evidence module absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : replay evidence module absent
+
+======================================================================
+FAIL: test_omitted_extra_or_modified_decision_rejected (test_proxy_replay_evidence_audit.ReplayTests.test_omitted_extra_or_modified_decision_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_replay_evidence_audit.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'replay evidence module absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : replay evidence module absent
+
+======================================================================
+FAIL: test_reordered_decisions_rejected (test_proxy_replay_evidence_audit.ReplayTests.test_reordered_decisions_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_replay_evidence_audit.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'replay evidence module absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : replay evidence module absent
+
+======================================================================
+FAIL: test_saved_inventory_loader (test_proxy_replay_evidence_audit.ReplayTests.test_saved_inventory_loader)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_replay_evidence_audit.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'replay evidence module absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : replay evidence module absent
+
+======================================================================
+FAIL: test_saved_manifest_revision_rejected (test_proxy_replay_evidence_audit.ReplayTests.test_saved_manifest_revision_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game/docs/card-game/tools/test_proxy_replay_evidence_audit.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'replay evidence module absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : replay evidence module absent
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+FAILED (failures=8)

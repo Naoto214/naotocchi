@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+- [456 保存対戦の独立再生証拠](456-saved-replay-evidence.md)：初期入力から候補・選択・event/snapshotを再計算する監査adapter。既存実行契約内の証拠とbalance審査を分離。114/A/116維持、新対戦0。
+
 - [455 全判断の記録監査契約・validator](455-judgment-evidence-contract.md)：保存12run・2378判断をsource結合して投影。非算入契約、未検証層を明示、過去flag不変。専用TDD、対戦追加0。
 
 - [454 全判断種別の別版評価方針・設計](454-all-judgment-evaluation-design.md)：合法性・選択根拠・標本審査を分離。唯一候補/既存優越/同値/seededの証拠範囲を整理。設計のみ、114/A/116維持、実装・対戦・算入0。

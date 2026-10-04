@@ -1,0 +1,24 @@
+{
+  "balance_admitted": null,
+  "base_checkpoint": 455,
+  "can_admit_balance": false,
+  "can_select": false,
+  "global_legality_certified": false,
+  "independent_balance_sample_count": 0,
+  "legacy_72": "separate",
+  "method": "Replay from existing source-bound initial loader and policy ID, without saved decisions/actions as input; require full canonical run equality.",
+  "new_matches": 0,
+  "opportunity_scope": "existing_executor_only",
+  "policy_promoted": false,
+  "preserve": [
+    "114",
+    "A-first",
+    "116",
+    "505",
+    "past results"
+  ],
+  "schema": "saved_replay_evidence_contract_456.v1",
+  "source_checkpoint": 447,
+  "strategy_optimality_certified": false,
+  "unknown_values": "never assumed zero or equivalent"
+}
