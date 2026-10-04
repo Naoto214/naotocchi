@@ -117,7 +117,8 @@ const LOCO = {
     if(meta.poseProfile?.seated){
       const rest=1-m;B.body.position.y=lerp(B.body.position.y,meta.sittingHip,rest);
       B.legL.rotation.x-=1.4*rest;B.legR.rotation.x-=1.4*rest;B.kneeL.rotation.x+=1.4*rest;B.kneeR.rotation.x+=1.4*rest;
-      if(B.skirt){B.skirt.rotation.x-=.65*rest;B.skirt.scale.y*=1-.30*rest;}
+      if(B.skirt)B.skirt.scale.multiplyScalar(Math.max(.001,m));
+      if(B.seatedSkirt)B.seatedSkirt.scale.multiplyScalar(Math.max(.001,rest));
       if(B.chair)B.chair.scale.multiplyScalar(Math.max(.001,rest));
     }
     if(meta.poseProfile?.stride){B.legL.rotation.x+=meta.poseProfile.stride[0]*(1-m);B.legR.rotation.x+=meta.poseProfile.stride[1]*(1-m);}

@@ -1,0 +1,86 @@
+{
+  "when": "2026-10-04T09:16:58.580Z",
+  "revision": "quality3",
+  "sourceCommit": "f5260cd7be85c35612258bfb7c032de0f61db6a8",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "man:2": {
+      "requestedStage": 2,
+      "harnessStageIndex": 1,
+      "playerKey": "man:1",
+      "player3d": true,
+      "specKey": {
+        "id": "man",
+        "stage": 2,
+        "exact": true
+      },
+      "front": "test-results/human-candidates/man/player-man-2-front.png",
+      "back": "test-results/human-candidates/man/player-man-2-back.png",
+      "live": {
+        "live": 6,
+        "templates": 6,
+        "built": 6,
+        "tris": 25408,
+        "meshes": 61,
+        "bones": 43,
+        "materials": 1,
+        "atlases": 6,
+        "eyeGeos": 8,
+        "cpuMsAvg": 1.162,
+        "cpuMsP95": 9.7,
+        "buildMsTotal": 99.5,
+        "buildMsMax": 28.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 6,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "man:6": {
+      "requestedStage": 6,
+      "harnessStageIndex": 5,
+      "playerKey": "man:5",
+      "player3d": true,
+      "specKey": {
+        "id": "man",
+        "stage": 6,
+        "exact": true
+      },
+      "front": "test-results/human-candidates/man/player-man-6-front.png",
+      "back": "test-results/human-candidates/man/player-man-6-back.png",
+      "live": {
+        "live": 6,
+        "templates": 6,
+        "built": 6,
+        "tris": 25439,
+        "meshes": 62,
+        "bones": 44,
+        "materials": 1,
+        "atlases": 6,
+        "eyeGeos": 10,
+        "cpuMsAvg": 1.353,
+        "cpuMsP95": 11.4,
+        "buildMsTotal": 129.2,
+        "buildMsMax": 40.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 6,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}
