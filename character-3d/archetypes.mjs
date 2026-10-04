@@ -228,14 +228,22 @@ export function humanoid(sp, key) {
   const hipY = Lg.len + 0.06;
   const dressed = sp.clothing && sp.clothing !== 'romper';
   const torso = dressed
-    ? paint(xform(lathe([[0.001,0],[B.r*.91,0],[B.r,B.h*.12],[B.r*.94,B.h*.65],[B.r*.78,B.h*.9],[B.r*.40,B.h],[0.001,B.h]],16),{scale:[1,1,.78]}),()=>c.top)
+    ? paint(xform(lathe([[0.001,0],[B.r*.91,0],[B.r,B.h*.12],[B.r*.94,B.h*.65],[B.r*.78,B.h*.9],[B.r*.40,B.h],[0.001,B.h]],16),{scale:[1,1,.78]}),(x,y)=>sp.clothing==='overalls'&&y>B.h*.40?c.sleeve||c.accent:c.top)
     : solid(blob((x,y,z)=>[x*B.r,(y+1)*B.h/2,z*B.r*.78],16,10),c.top);
   const parts = [torso];
   const panel = (points, color) => {
     const sh = new THREE.Shape(); points.forEach(([x,y],i)=>i?sh.lineTo(x,y):sh.moveTo(x,y)); sh.closePath();
     const g = new THREE.ShapeGeometry(sh); g.translate(0,0,B.r*.79); return solid(g,color);
   };
-  if (dressed) {
+  if (dressed && sp.clothing === 'overalls') {
+    // A bib and shoulder straps overlap the shirt volume; the shirt is not an
+    // open jacket with a recoloured panel. Shared across toddler lines.
+    parts.push(panel([[-B.r*.65,B.h*.16],[B.r*.65,B.h*.16],[B.r*.57,B.h*.70],[-B.r*.57,B.h*.70]],c.top));
+    for(const side of [-1,1]){
+      parts.push(solid(sweep([[side*B.r*.48,B.h*.66,B.r*.8],[side*B.r*.51,B.h*.98,B.r*.27],[side*B.r*.48,B.h*.70,-B.r*.70]],()=>B.r*.11,6,{steps:8,flat:.4}),c.top));
+      parts.push(solid(xform(ellipsoid(.015,.015,.01,6,4),{pos:[side*B.r*.48,B.h*.68,B.r*.84]}),'#ddb45e'));
+    }
+  } else if (dressed) {
     const jacket = sp.clothing === 'jacket';
     parts.push(panel([[-B.r*.24,B.h*.06],[B.r*.24,B.h*.06],[B.r*.31,B.h*.84],[0,B.h*.97],[-B.r*.31,B.h*.84]],c.accent));
     for(const side of [-1,1]) {
@@ -245,6 +253,11 @@ export function humanoid(sp, key) {
     }
     for(let i=0;i<3;i++)parts.push(solid(xform(ellipsoid(.012,.012,.009,6,4),{pos:[jacket?0:B.r*.24,B.h*(.22+i*.2),B.r*.83]}),jacket?'#b0a8a0':'#805c36'));
     parts.push(solid(xform(lathe([[B.r*.90,0],[B.r*.93,.025]],16),{scale:[1,1,.79]}),shade(c.top,.83)));
+  }
+  if((sp.attachments||[]).includes('tie')){const tie=panel([[-.025,B.h*.85],[0,B.h*.90],[.025,B.h*.85],[.016,B.h*.72],[.042,B.h*.40],[0,B.h*.33],[-.042,B.h*.40],[-.016,B.h*.72]],c.tie);tie.translate(0,0,.004);parts.push(tie);}
+  if((sp.attachments||[]).includes('chestBadge')){
+    const badge=solid(xform(ellipsoid(.049,.038,.012,10,6),{pos:[0,B.h*.48,B.r*.83]}),c.badge);
+    parts.push(badge,...[-1,1].map(s=>solid(xform(ellipsoid(.018,.019,.012,6,4),{pos:[s*.038,B.h*.51,B.r*.84]}),c.badge)));
   }
   if ((sp.attachments || []).includes('backpack')) {
     const bp = paint(blob((x, y, z) => { const sx = Math.sign(x) * Math.pow(Math.abs(x), 0.6), sy = Math.sign(y) * Math.pow(Math.abs(y), 0.6), sz = Math.sign(z) * Math.pow(Math.abs(z), 0.7); return [sx * B.r * 0.78, sy * B.h * 0.42 + B.h * 0.55, sz * B.r * 0.42 - B.r * 0.95]; }, 12, 10), (x, y, z, nx, ny, nz) => (nz < -0.6 && y < B.h * 0.5 ? '#3a3a4c' : '#26262f'));
@@ -282,31 +295,39 @@ export function humanoid(sp, key) {
   rig.mesh('head', [xform(headGeo.clone(), { pos: headCenter }), xform(merge([hair, ...extra]), { pos: headCenter })]);
   // Bent arms end at the actual strap / handle. The prop shares the arm bone,
   // so locomotion and emotion posture cannot pull it away from the grip.
-  const hold=(sp.attachments||[]).includes('backpack')?'backpack':(sp.attachments||[]).includes('cane')?'cane':null;
-  let caneGrip;
+  const hold=(sp.attachments||[]).includes('backpack')?'backpack':(sp.attachments||[]).includes('cane')?'cane':(sp.attachments||[]).includes('briefcase')?'briefcase':null;
+  let caneGrip;const handEnds={};
   for (const s of [-1,1]) {
     const holding=(hold==='backpack'&&s<0)||(hold==='cane'&&s>0);
     const end=holding?(hold==='backpack'?[s*-B.r*.43,-B.h*.32,B.r*.87]:[s*.035,-Ar.len*.52,B.r*.70]):[s*.045,-Ar.len-Ar.r*.7,.02];
     const elbow=holding?[s*.075,-Ar.len*.72,.055]:[s*.03,-Ar.len*.5,.01];
-    const arm=solid(sweep([[0,0,0],elbow,end],t=>Ar.r*lerp(1.15,.85,t),8,{steps:8}),c.top);
+    const arm=paint(sweep([[0,0,0],elbow,end],t=>Ar.r*lerp(1.15,.85,t),8,{steps:8}),(x,y)=>sp.wardrobe?.sleeve && y < -Ar.len*sp.wardrobe.sleeve?c.skin:c.sleeve||c.top);
     const hand=solid(xform(ellipsoid(Ar.r*1.10,Ar.r*.95,Ar.r,8,6),{pos:end}),c.skin);
     const parts=[arm,hand];
     rig.add(s<0?'armL':'armR','body',[s*B.r*.88,B.h*.82,0],parts,'opaque',[0,0,holding?0:s*.12]);
+    handEnds[s<0?'left':'right']=end;
+    if(hold==='briefcase'&&s<0){
+      const h=.24,w=.18,d=.07;
+      const handle=solid(sweep([[-w*.4,-.07,0],[-w*.35,.006,0],[w*.35,.006,0],[w*.4,-.07,0]],()=>.017,6,{steps:8}),c.bag);
+      const bag=solid(blob((x,y,z)=>[Math.sign(x)*Math.pow(Math.abs(x),.45)*w,-.07-h/2+Math.sign(y)*Math.pow(Math.abs(y),.45)*h/2,Math.sign(z)*Math.pow(Math.abs(z),.45)*d],12,8),c.bag);
+      const clasp=solid(xform(ellipsoid(.018,.025,.01,6,4),{pos:[0,-.11,d]}),'#b39a7a');
+      rig.add('heldCase','armL',end,[bag,handle,clasp]);
+    }
     if(hold==='cane'&&s>0)caneGrip=end;
   }
   // 足
   for (const s of [-1, 1]) {
     const L = hipY - 0.06;
-    const leg = paint(sweep([[0, 0, 0], [0, -L * 0.5, 0], [0, -L + 0.02, 0]], (t) => Lg.r * lerp(1.15, 0.9, t), 8, { steps: 6 }), () => c.bottom);
+    const leg = paint(sweep([[0, 0, 0], [0, -L * 0.5, 0], [0, -L + 0.02, 0]], (t) => Lg.r * lerp(1.15, 0.9, t), 8, { steps: 6 }), (x,y) => sp.wardrobe?.shorts && y < -L*sp.wardrobe.shorts ? (y < -L*(1-(sp.wardrobe.socks||0)) ? c.socks||c.skin : c.skin) : c.bottom);
     const shoe = solid(xform(blob((x, y, z) => [x * Lg.r * 1.15, (y * 0.5 + 0.5) * 0.09, z * Lg.r * 1.7 + Lg.r * 0.45], 10, 6), { pos: [0, -hipY, 0] }), c.shoe);
     rig.add(s < 0 ? 'legL' : 'legR', 'body', [s * B.r * 0.42, 0.02, 0], [leg, shoe, solid(xform(ellipsoid(Lg.r*1.17,.025,Lg.r*1.72,10,4),{pos:[0,-hipY+.014,Lg.r*.45]}),shade(c.shoe,.65))]);
   }
   if(caneGrip){const h=hipY+B.h*.82+caneGrip[1]-.04; const cg=caneGeo(h);cg.translate(0,-h-.04,-.06);rig.add('cane','armR',caneGrip,[cg]);}
 
-  rig.meta = { idlePose: sp.idlePose, hover: 0, hipY, hold, stoop: sp.stoop || 0 };
+  rig.meta = { idlePose: sp.idlePose, hover: 0, hipY, hold, stoop: sp.stoop || 0,handEnds,poseProfile:sp.poseProfile||null };
   const hc = headCenter;
   rig.faceSpec = { bone: 'head', target: xform(headGeo.clone(), { pos: hc }), center: [0, hc[1] - hr * 0.12, hr * 0.9], fwd: [0, 0, 1], half: hr * 0.80, eyeSize: 0.30,
-    layout: { eyeX: 24, eyeY: 54, mouthY: 90, browY: 32, cheekX: 38, cheekY: 76, mouthW: 8 }, style: { blush: '#f6a0a0' }, normalEye: sp.hair.style === 'soft' ? 'content' : null };
+    layout: { eyeX: 24, eyeY: 54, mouthY: 90, browY: 32, cheekX: 38, cheekY: 76, mouthW: 8 }, style: { blush: '#f6a0a0' }, normalEye: sp.normalEye || (sp.hair.style === 'soft' ? 'content' : null) };
   return rig;
 }
 

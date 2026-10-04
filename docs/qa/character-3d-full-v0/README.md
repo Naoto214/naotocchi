@@ -67,7 +67,7 @@ The local exec server became unavailable during evidence upload. All 99 four-vie
 
 ## Fish integration checkpoint
 
-- `fr1-fish/`: 64 four-view images +2 original comparison sheets, source88888c0d7c53eff82dadca3651ea398e7f8ce503 (CI37186326551, artifact11296838939). Both species/all8stages visually inspected. Geometry unchanged during runtime promotion.
+- `fr1-fish/`: 64 four-view images +2 original comparison sheets, source048ebfd5771da7e9080d37a1a99dda859769e886 (CI37187842663, artifact11297826213); recaptured after the school articulation fix. Both species/all8stages visually inspected. Geometry unchanged during runtime promotion.
 - Added yolk volume, rounded-head option, fork tail, local dorsal span, outward pectoral connections, head/back/tail colour regions, parr bars and bounded merged surface spots. Schooling is one gameplay actor with three face rigs; canonical semantics unchanged.
 - Corrected pointed nose, oversized yolk, long dorsal, smeared spots and buried fins during representative review. Remaining candidate outliers: mature salmon07/08 facial/jaw character and silver-stage gill/fin detail; keep for full v0 Human QA, not automatic adoption.
 - Local dedicated66 PASS/0FAIL; rollout7/7 RED and fish7/7 RED. A parr-band mutation initially survived because unrelated spots masked it; split assertions now detect both independently. Pilot28 geometry/pose hashes unchanged.
@@ -82,3 +82,22 @@ The fish-mix job37186931724 initially passed, but its template evidence contains
 One concrete fish-wave issue was found and fixed: school tails/fins now reuse the actor's swim appendage motion with fixed phase offsets. RED reproduction showed six frozen bones; focused reviewer recheck11/11 PASS. Local dedicated68PASS and fish/QA10/10 removal cases detected. Latest articulation-source CI and school recapture pending.
 
 `fr1-fish/checkpoints/performance-4990f62.json` is the corrected-composition **pre-articulation** sample (1/5/27 exact/live, fallback0); it must not be silently relabeled as the later source or compared as if identical to the Pilot cast. Actual iPhone and full-native mix remain unverified.
+
+### Fish articulation evidence (048ebfd)
+- Re-captured all64 views and two sheets; school appendages move and the three-face group silhouette remains intact. Normal-distance27-actor screenshot inspected. Fish performance artifact11298276441 saved under `fr1-fish/performance-048ebfd/`.
+- Exact composition checks pass for1/5/27 actors, fallback0. This is the explicit fish-family **QA stand-in mix**, not full-native coverage.
+
+| actors | Character tris | World calls | presenter avg ms | heap MB | templates | build total / max ms |
+|---|---:|---:|---:|---:|---:|---:|
+| 1 | 2816 | 38 | .698 | 19.3 | 1 | 61.1 / 61.1 |
+| 5 | 16792 | 73 | 3.016 | 20.5 | 5 | 223.3 / 59.1 |
+| 27 | 108316 | 322 | 5.219 | 23.1 | 7 | 489.8 / 155.1 |
+
+One Character material; World textures17/29/74. Geometry and heap for27 remain unchanged from pre-articulation4990f62; CPU4.954→5.219ms and World calls289→322 are separate CI samples, with moving actors/World visibility. No statistically controlled performance improvement or iPhone acceptance is claimed. Separate animation CPU/first-appearance hitch remain NOT_MEASURED.
+
+- Source048 dedicated/wave-review/fish-performance/conflict-audit CI jobs succeeded; full Runtime/Home and all40-stage Meguru job still pending at08:17UTC.
+- Home37186935255(source374) failed at `chromium-landscape-safe-area`: CSS route.fetch ECONNRESET for movie.css/home-care-colors.css/pet-expression.css. Later Home37187432209(source4990) succeeded without Home/CSS changes. Do not rewrite the earlier failure or claim a base reproduction.
+- Fresh read-only audit source048: main0b0a6b3 mechanically clean; #367/369/371/374 conflicts retained, semantic integration unverified.
+
+### Human representative work (not promoted)
+Original-derived man02/06 candidates exercise shared overalls/short sleeves/short trousers/socks, idle arm spread that releases into walk, tie, and a briefcase parented at the actual hand. Local dedicated70PASS and unchanged Pilot28 numerical hashes. Candidate visual CI pending; no additional coverage. Remaining woman/ren representatives and other stages must pass original/four-view and normal-distance review before promotion. Ground toy-car detail in man02 is not yet represented.

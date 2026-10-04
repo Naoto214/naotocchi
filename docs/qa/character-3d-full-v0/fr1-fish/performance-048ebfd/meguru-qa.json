@@ -1,0 +1,252 @@
+{
+  "when": "2026-10-04T08:07:03.327Z",
+  "revision": "quality3",
+  "sourceCommit": "048ebfd5771da7e9080d37a1a99dda859769e886",
+  "rolloutWave": false,
+  "performanceMix": "fish-family QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {
+    "perf27-2d": "test-results/full-rollout/fish-performance/perf-27-2d.png",
+    "perf27-3d": "test-results/full-rollout/fish-performance/perf-27-3d.png"
+  },
+  "checks": {},
+  "perf": {
+    "1-2d": {
+      "frames": 68,
+      "avgMs": 107.1,
+      "p95Ms": 316.7,
+      "over60": 22,
+      "calls": 30,
+      "tris": 97878,
+      "textures": 16,
+      "geometries": 23,
+      "jsDrawMs": 24.05,
+      "jsDrawP95": 29.3,
+      "char3d": null,
+      "heapMB": 21.7,
+      "party": 0,
+      "templatesByActor": {},
+      "errors": 0,
+      "load": {
+        "domContentLoadedMs": 470.20000000001164,
+        "maxFrameMs": 1750.0000000000002,
+        "maxLongTaskMs": 647,
+        "longTasks": 5
+      }
+    },
+    "1-3d": {
+      "frames": 55,
+      "avgMs": 139.99,
+      "p95Ms": 466.7,
+      "over60": 27,
+      "calls": 38,
+      "tris": 101380,
+      "textures": 17,
+      "geometries": 30,
+      "jsDrawMs": 17.39,
+      "jsDrawP95": 12,
+      "char3d": {
+        "live": 1,
+        "templates": 1,
+        "built": 1,
+        "tris": 2816,
+        "meshes": 8,
+        "bones": 5,
+        "materials": 1,
+        "atlases": 1,
+        "eyeGeos": 2,
+        "cpuMsAvg": 0.698,
+        "cpuMsP95": 0.1,
+        "buildMsTotal": 61.1,
+        "buildMsMax": 61.1,
+        "fallbacks": 0,
+        "removed": 1,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "heapMB": 19.3,
+      "party": 0,
+      "templatesByActor": {
+        "salmon:6": 1
+      },
+      "expectedTemplates": {
+        "salmon:6": 1
+      },
+      "compositionMatches": true,
+      "errors": 0,
+      "load": {
+        "domContentLoadedMs": 295.5,
+        "maxFrameMs": 1233.3,
+        "maxLongTaskMs": 299,
+        "longTasks": 5
+      }
+    },
+    "5-2d": {
+      "frames": 68,
+      "avgMs": 113.23,
+      "p95Ms": 483.2,
+      "over60": 24,
+      "calls": 39,
+      "tris": 98658,
+      "textures": 25,
+      "geometries": 23,
+      "jsDrawMs": 32.53,
+      "jsDrawP95": 260.6,
+      "char3d": null,
+      "heapMB": 18.2,
+      "party": 4,
+      "templatesByActor": {},
+      "errors": 0,
+      "load": {
+        "domContentLoadedMs": 327.5,
+        "maxFrameMs": 1033.3000000000002,
+        "maxLongTaskMs": 330,
+        "longTasks": 4
+      }
+    },
+    "5-3d": {
+      "frames": 40,
+      "avgMs": 164.58,
+      "p95Ms": 766.7,
+      "over60": 18,
+      "calls": 73,
+      "tris": 113548,
+      "textures": 29,
+      "geometries": 65,
+      "jsDrawMs": 25.51,
+      "jsDrawP95": 47.3,
+      "char3d": {
+        "live": 5,
+        "templates": 5,
+        "built": 5,
+        "tris": 16792,
+        "meshes": 51,
+        "bones": 36,
+        "materials": 1,
+        "atlases": 5,
+        "eyeGeos": 10,
+        "cpuMsAvg": 3.016,
+        "cpuMsP95": 41.5,
+        "buildMsTotal": 223.3,
+        "buildMsMax": 59.1,
+        "fallbacks": 0,
+        "removed": 3,
+        "created": 8,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "heapMB": 20.5,
+      "party": 4,
+      "templatesByActor": {
+        "salmon:6": 1,
+        "shiba:0": 1,
+        "cat_friend:0": 1,
+        "salmon:1": 1,
+        "salmon:3": 1
+      },
+      "expectedTemplates": {
+        "salmon:6": 1,
+        "shiba:0": 1,
+        "cat_friend:0": 1,
+        "salmon:1": 1,
+        "salmon:3": 1
+      },
+      "compositionMatches": true,
+      "errors": 0,
+      "load": {
+        "domContentLoadedMs": 286.3999999999651,
+        "maxFrameMs": 1300,
+        "maxLongTaskMs": 300,
+        "longTasks": 5
+      }
+    },
+    "27-2d": {
+      "frames": 59,
+      "avgMs": 133.33,
+      "p95Ms": 333.3,
+      "over60": 28,
+      "calls": 60,
+      "tris": 99052,
+      "textures": 69,
+      "geometries": 23,
+      "jsDrawMs": 17.28,
+      "jsDrawP95": 8.5,
+      "char3d": null,
+      "heapMB": 19.3,
+      "party": 26,
+      "templatesByActor": {},
+      "errors": 0,
+      "load": {
+        "domContentLoadedMs": 355.9000000000233,
+        "maxFrameMs": 1016.7,
+        "maxLongTaskMs": 702,
+        "longTasks": 4
+      }
+    },
+    "27-3d": {
+      "frames": 42,
+      "avgMs": 146.82,
+      "p95Ms": 350,
+      "over60": 21,
+      "calls": 322,
+      "tris": 204064,
+      "textures": 74,
+      "geometries": 87,
+      "jsDrawMs": 19.35,
+      "jsDrawP95": 69,
+      "char3d": {
+        "live": 27,
+        "templates": 7,
+        "built": 7,
+        "tris": 108316,
+        "meshes": 322,
+        "bones": 217,
+        "materials": 1,
+        "atlases": 7,
+        "eyeGeos": 12,
+        "cpuMsAvg": 5.219,
+        "cpuMsP95": 48.3,
+        "buildMsTotal": 489.8,
+        "buildMsMax": 155.1,
+        "fallbacks": 0,
+        "removed": 3,
+        "created": 30,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "heapMB": 23.1,
+      "party": 26,
+      "templatesByActor": {
+        "salmon:6": 1,
+        "shiba:0": 1,
+        "cat_friend:0": 1,
+        "salmon:1": 6,
+        "salmon:3": 6,
+        "salmon:7": 6,
+        "clownfish:5": 6
+      },
+      "expectedTemplates": {
+        "salmon:6": 1,
+        "shiba:0": 1,
+        "cat_friend:0": 1,
+        "salmon:1": 6,
+        "salmon:3": 6,
+        "salmon:7": 6,
+        "clownfish:5": 6
+      },
+      "compositionMatches": true,
+      "errors": 0,
+      "load": {
+        "domContentLoadedMs": 320.3999999999651,
+        "maxFrameMs": 1150,
+        "maxLongTaskMs": 672,
+        "longTasks": 7
+      }
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

@@ -74,6 +74,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: node tools/character-3d/wave-review.cjs
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/fish --fish
+      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/humanoid --human
       - run: node tools/character-3d/gallery-smoke.cjs
       - uses: actions/upload-artifact@v4
         if: always()
@@ -82,6 +83,7 @@ jobs:
           path: |
             test-results/full-rollout/wave1
             test-results/full-rollout/fish
+            test-results/full-rollout/humanoid
             test-results/full-rollout/gallery
   dedicated:
     runs-on: ubuntu-latest
@@ -105,6 +107,7 @@ jobs:
           node tools/character-3d/quality3-remove-it.cjs > test-results/full-rollout/quality3-remove-it.txt
           node tools/character-3d/rollout-remove-it.cjs > test-results/full-rollout/rollout-remove-it.txt
           node tools/character-3d/fish-remove-it.cjs > test-results/full-rollout/fish-remove-it.txt
+          node tools/character-3d/humanoid-remove-it.cjs > test-results/full-rollout/humanoid-remove-it.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:

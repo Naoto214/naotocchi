@@ -4,6 +4,7 @@
 <div id="label"></div>
 <script type="module">
 import './fish-spec.js';
+import './humanoid-spec.js';
 import './rollout-spec.js';
 import SPEC from './spec-esm.mjs';
 import {THREE} from './geometry.mjs';
@@ -12,7 +13,7 @@ import {attachFace} from './rig.mjs';
 import {instantiate} from './runtime.mjs';
 import {animate,setEmotion} from './animate.mjs';
 const q=new URLSearchParams(location.search),id=q.get('id')||'cat',stage=Number(q.get('stage')||3),view=q.get('view')||'34';
-const row=(globalThis.NaotocchiCharacter3DRollout(SPEC.PILOT)[id]||globalThis.NaotocchiFishWave(SPEC.PILOT)[id]),sp=row?.stages[stage];
+const row=(globalThis.NaotocchiHumanoidWave(SPEC.PILOT)[id]||globalThis.NaotocchiCharacter3DRollout(SPEC.PILOT)[id]||globalThis.NaotocchiFishWave(SPEC.PILOT)[id]),sp=row?.stages[stage];
 if(!sp)throw Error('No exact candidate '+id+'/'+stage);
 const rig=builders[sp.archetype](sp,id+':'+stage);
 rig.faces=(Array.isArray(rig.faceSpec)?rig.faceSpec:[rig.faceSpec]).map(f=>attachFace(rig,f,'C')); rig.face=rig.faces[0];

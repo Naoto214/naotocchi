@@ -113,6 +113,7 @@ const LOCO = {
   },
   humanWalk(B, s, m, k, meta) {
     const ph = s.phase * TAU, sw = 0.55 * m * k.amp;
+    if(meta.poseProfile?.armSpread){const a=meta.poseProfile.armSpread*(1-m);B.armL.rotation.z-=a;B.armR.rotation.z+=a;}
     B.legL.rotation.x += Math.sin(ph) * sw; B.legR.rotation.x -= Math.sin(ph) * sw;
     if(meta.hold !== 'backpack')B.armL.rotation.x -= Math.sin(ph)*sw*.8; if(meta.hold !== 'cane')B.armR.rotation.x += Math.sin(ph)*sw*.8;
     B.body.position.y += Math.abs(Math.sin(ph)) * 0.025 * m * k.amp;

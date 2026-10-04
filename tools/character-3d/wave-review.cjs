@@ -9,9 +9,11 @@ const sharp=require('sharp');
  const page=await browser.newPage({viewport:{width:320,height:320},deviceScaleFactor:1});const errors=[];page.on('pageerror',e=>errors.push(String(e)));
  const evidence=[];
  try{
-  for(const id of (process.argv.includes('--fish')?['salmon','clownfish']:['dog','cat','penguin'])){
+  const family=process.argv.includes('--human')?'humanoid':process.argv.includes('--fish')?'fish':'rollout';
+  const candidates=require('../../character-3d/'+family+'-spec.js')(require('../../character-3d/spec.js').PILOT);
+  for(const id of (family==='humanoid'?Object.keys(candidates):family==='fish'?['salmon','clownfish']:['dog','cat','penguin'])){
    const tiles=[];
-   const row=process.argv.includes('--fish')?require('../../character-3d/fish-spec.js')(require('../../character-3d/spec.js').PILOT)[id]:require('../../character-3d/rollout-spec.js')(require('../../character-3d/spec.js').PILOT)[id];
+   const row=candidates[id];
    for(const stage of Object.keys(row.stages).map(Number)){
     const source=await sharp(path.join('assets/characters',id,'0'+stage+'.png')).trim().resize(256,256,{fit:'contain',background:'#eee9dd'}).extend({top:32,bottom:32,left:32,right:32,background:'#eee9dd'}).png().toBuffer();tiles.push({input:source,left:0,top:(stage-1)*320});
     for(const [v,view]of ['front','34','side','back'].entries()){

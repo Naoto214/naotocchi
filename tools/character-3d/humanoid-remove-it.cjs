@@ -1,0 +1,12 @@
+const fs=require('fs'),path=require('path'),cp=require('child_process'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'../..'),test='tests/character-3d-humanoid-wave-test.cjs';
+const cases=[
+ ['short sleeve','character-3d/archetypes.mjs','sp.wardrobe?.sleeve &&','false &&'],
+ ['short trousers','character-3d/archetypes.mjs','sp.wardrobe?.shorts &&','false &&'],
+ ['held case grip','character-3d/archetypes.mjs',"rig.add('heldCase','armL',end","rig.add('heldCase','body',end"],
+ ['signature pose','character-3d/animate.mjs','if(meta.poseProfile?.armSpread)','if(false)'],
+];
+const run=()=>cp.spawnSync(process.execPath,['--test',test],{cwd:root,encoding:'utf8'});
+const baseline=run();assert.equal(baseline.status,0,baseline.stdout+baseline.stderr);
+for(const[name,file,old,replacement]of cases){const p=path.join(root,file),source=fs.readFileSync(p);try{assert.equal(source.toString().split(old).length,2);fs.writeFileSync(p,source.toString().replace(old,replacement));const r=run();assert.equal(r.status,1,r.stdout+r.stderr);assert.ok(r.stdout.includes('AssertionError'),r.stdout);console.log(name+': RED');}finally{fs.writeFileSync(p,source);}}
+console.log(cases.length+'/'+cases.length+' human mutations detected; original bytes restored');
