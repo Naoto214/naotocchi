@@ -1471,8 +1471,8 @@
           }
           if (storeys === 2) out.push(Object.assign({ shape: 'box', rx: w * 1.04, rz: d * 1.04, h: 5, y: h * 0.5, ang, color: trimC }, at(0, 0)));   // 2 かいの 床の 帯
           // 入口: くぼみ(くらい 板の 奥)+ わく + とびら + とって。窓: わく + ガラス + だい
-          const doorW = Math.min(16, w * 0.28), doorH = Math.min(family === 'barn' ? 110 : 52, h * 0.55), doorX = family === 'barn' || family === 'shed' ? 0 : -w * 0.45;
-          out.push(front(doorX, 0, doorW + 4, 1.2, doorH + 4, trimC), front(doorX, 0, doorW, 2.2, doorH, family === 'barn' ? '#7a3a2c' : v > 0.5 ? '#4a3a2c' : '#7a4a3a', { door: true }), front(doorX + doorW * 0.55, doorH * 0.5, 1.5, 3, 2, '#ffe066'));
+          const doorW = family === 'barn' ? w * 0.55 : Math.min(16, w * 0.28), doorH = Math.min(family === 'barn' ? 110 : 52, h * 0.55), doorX = family === 'barn' || family === 'shed' ? 0 : -w * 0.45;
+          out.push(front(doorX, 0, doorW + 4, 1.2, doorH + 4, trimC), front(doorX, 0, doorW, 2.2, doorH, family === 'barn' ? '#7a3a2c' : v > 0.5 ? '#4a3a2c' : '#7a4a3a', { door: true }), family === 'barn' ? front(0, 0, 1.2, 3, doorH, trimC) : front(doorX + doorW * 0.55, doorH * 0.5, 1.5, 3, 2, '#ffe066'));
           const winW = Math.min(12, w * 0.2), rows = storeys, nWin = family === 'barn' || family === 'shed' ? 1 : w > 40 ? 2 : 1;
           for (let r0 = 0; r0 < rows; r0++) for (let i = 0; i < nWin; i++) {
             const side = family === 'barn' ? 0 : family === 'shed' ? w * 0.55 : w * (0.1 + i * 0.4), y = family === 'barn' ? h * 0.8 : h * (storeys === 2 ? (r0 === 0 ? 0.22 : 0.68) : 0.5);   // 納屋は 上の 小窓(屋根裏)
@@ -1493,8 +1493,11 @@
           if (['cottage', 'single', 'cabin', 'twostorey', 'shed'].includes(family) && porchD <= 8) out.push(Object.assign({ shape: 'wslab', len: doorW * 3, w: 18, h: 4, y: doorH + 10, ang, color: accent }, at(d + 9, doorX)), Object.assign({ shape: 'box', rx: doorW * 1.4, rz: 6, h: 5, y: 0, ang, color: '#a39f94', solidBox: true }, at(d + 6, doorX)));   // 入口の 小さな ひさし + 石段
           if ((family === 'single' || family === 'cabin' || family === 'cottage') && porchD > 8) {
             const pw = family === 'cottage' ? Math.min(doorW * 2, w + doorX) : w * 0.55, pc = family === 'cottage' ? doorX : -w * 0.25;
-            out.push(Object.assign({ shape: 'gable', rx: pw, rz: porchD * 0.8, h: family === 'cabin' ? 18 : 12, y: 66, ang, color: accent }, at(d + porchD * 0.8, pc)));   // ポーチの 屋根
-            for (const sd of [-1, 1]) out.push(Object.assign({ shape: 'wpost', r: 3.5, h: 66, y: 0, color: trimC }, at(d + porchD * 1.45, pc + sd * pw * 0.9)));
+            // Keep the low canopy inside the canonical lot; the outer deck is a step.
+            // Gable geometry has no underside, so each post meets its actual slope.
+            const roofD = porchD * 0.5, rise = family === 'cabin' ? 18 : 12, postR = Math.min(3.5, roofD * 0.8, pw * 0.2);
+            out.push(Object.assign({ shape: 'gable', rx: pw, rz: roofD, h: rise, y: 66, ang, color: accent }, at(d + roofD, pc)));   // ポーチの 屋根
+            for (const sd of [-1, 1]) out.push(Object.assign({ shape: 'wpost', r: postR, h: 66 + rise * postR / roofD, y: 0, color: trimC }, at(D - postR, pc + sd * (pw - postR))));
             out.push(Object.assign({ shape: 'box', rx: pw, rz: porchD * 0.8, h: 6, y: 0, ang, color: '#b89a72', solidBox: true }, at(d + porchD * 0.8, pc)));   // ポーチの 床
           }
           if (family === 'single' && w > 36) out.push(Object.assign({ shape: 'box', rx: w * 0.2, rz: 9, h: 54, y: 22, ang, color: bodyC, solidBox: true }, at(d + 9, w * 0.5)), Object.assign({ shape: 'box', rx: w * 0.23, rz: 11, h: 5, y: 76, ang, color: roofC, solidBox: true }, at(d + 9, w * 0.5)), Object.assign({ shape: 'box', rx: w * 0.15, rz: 1.2, h: 30, y: 34, ang, color: '#cfe6f2', win: true }, at(d + 18.5, w * 0.5)));   // 出窓

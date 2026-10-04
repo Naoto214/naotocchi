@@ -1,0 +1,34 @@
+{
+  "base": "c312aba0e392ab84ee67e10b465dd1c1263ba88d",
+  "productBase": "7fda83250518b172a2c1025ac9f87ef1ca1a5052",
+  "sourceSha256": {
+    "meguru.js": "33a3c15b4f2bb931a53884be905909d4bbf7759c7d1c22df6dd0210e6edf728f",
+    "meguru-3d.mjs": "651e9933cc99e35e66a1b52b2e5b4553974a9b5f184aa2b712d0d2f3972df7d2",
+    "index.html": "f2b1446d328786c34a02d72658df5074759ce02111c766325afc6c9db6af6211",
+    "tests/meguru-3d-visual-quality-test.cjs": "09d20ccf4288f05f273c0c087ce878b5522905a4ed8b89a69bb273450bc5022d"
+  },
+  "targeted": {
+    "pass": 69,
+    "fail": 0,
+    "exit": 0,
+    "concurrency": 4
+  },
+  "static": {
+    "float": 4,
+    "bury": 18,
+    "canonicalRegionsUnchanged": 13,
+    "objectAndPartCountsUnchanged": 13,
+    "changedRenderedRegions": [
+      "home",
+      "city",
+      "countryside",
+      "sea",
+      "mountain",
+      "snow"
+    ]
+  },
+  "review": "Initial fixed-width barn limit rejected; removed; re-review no blockers",
+  "fullRegression": "pending",
+  "browser": "pending new source CI",
+  "humanQA": "not approved"
+}

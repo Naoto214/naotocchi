@@ -3,6 +3,35 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const mod = () => import('../meguru-3d.mjs');
+// Catch disconnected porch supports and below-head roofs outside canonical lots.
+test('VQ-9 residential porch supports meet roof slopes within canonical lots', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const reg=M.buildRegistry(), count={};
+  for (const rid of ['home','city','countryside','forest','jungle','sea','river_lake','mountain','snow','desert','memory_lake','deepsea','star_stop']) {
+    for (const ob of M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects) {
+      const body=ob.parts.find(p=>['cottage','single','cabin'].includes(p.family));
+      if (!body || !ob.collision) continue;
+      const roof=ob.parts.find(p=>p.shape==='gable' && p.y===66);
+      if (!roof) continue;
+      const posts=ob.parts.filter(p=>p.shape==='wpost'), a=roof.ang||0;
+      assert.equal(posts.length,2,ob.id+': two supports');
+      for (const p of posts) {
+        const f=(p.dx-roof.dx)*Math.cos(a)-(p.dz-roof.dz)*Math.sin(a);
+        const side=(p.dx-roof.dx)*Math.sin(a)+(p.dz-roof.dz)*Math.cos(a);
+        assert.ok(Math.abs(f)+p.r<=roof.rz+1e-8 && Math.abs(side)+p.r<=roof.rx+1e-8,ob.id+': post footprint under roof');
+        const y=roof.y+roof.h*(1-Math.abs(f)/roof.rz);
+        assert.ok(Math.abs((p.y||0)+p.h-y)<1e-8,ob.id+': support meets slope');
+      }
+      for (const f of [-roof.rz,roof.rz]) for (const s of [-roof.rx,roof.rx]) {
+        const x=roof.dx+Math.cos(a)*f+Math.sin(a)*s, z=roof.dz-Math.sin(a)*f+Math.cos(a)*s;
+        assert.ok(Math.abs(x*Math.cos(a)-z*Math.sin(a))<=ob.collision.hd+1e-8 && Math.abs(x*Math.sin(a)+z*Math.cos(a))<=ob.collision.hw+1e-8,ob.id+': low roof within collider');
+      }
+      count[body.family]=(count[body.family]||0)+1;
+    }
+  }
+  for (const f of ['cottage','single','cabin']) assert.ok(count[f]>0,f+' coverage');
+});
 // 2026-10-04: freestanding veranda posts read as poles, not a sheltered entrance.
 // A supported canopy must stay over the existing deck, without expanding its footprint.
 test('VQ-8 farmhouse veranda posts meet a canopy contained over the existing deck', () => {
@@ -158,4 +187,22 @@ test('VQ-7 garden beds retain their planting group outside canonical road and ob
     const garden = objects.find(o => o.id === 'home:garden:' + id);
     assert.ok(garden && garden.parts.some(p => p.shape === 'box' && p.h === 8),id + ': affected garden must retain a complete bed');
   }
+});
+
+// A narrow ordinary-house door on a barn loses its agricultural silhouette.
+test('VQ-10 barn entrances read as broad paired doors within the wall', () => {
+  const {harness}=require('./helpers/runtime-harness.cjs');
+  const M=harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  let n=0;
+  for (const o of M.worldObjects3d(M.buildWorld('countryside',M.buildRegistry(),{world3d:true})).objects) {
+    const wall=o.parts.find(p=>p.family==='barn'); if(!wall) continue;
+    const door=o.parts.find(p=>p.door);
+    assert.ok(door.rx>=wall.rx*0.45,o.id+': broad agricultural doorway');
+    assert.ok(door.rx+4<=wall.rx,o.id+': frame within wall');
+    const a=wall.ang||0;
+    const seam=o.parts.find(p=>p.shape==='box' && p.h===door.h && p.rx<=1.5 && p.y===0 && Math.abs((p.dx-door.dx)*Math.sin(a)+(p.dz-door.dz)*Math.cos(a))<1e-8);
+    assert.ok(seam,o.id+': visible centre meeting of two leaves');
+    n++;
+  }
+  assert.ok(n>0,'generated barn coverage');
 });
