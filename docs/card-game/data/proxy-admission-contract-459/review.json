@@ -1,0 +1,29 @@
+{
+  "fix_verification": "author checked both corrections; no second independent review",
+  "independent_review_count": 1,
+  "initial_findings": {
+    "critical": 0,
+    "important": 1,
+    "minor": 1
+  },
+  "not_certified": [
+    "runtime_implementation",
+    "eligibility_feasibility",
+    "execution_approval"
+  ],
+  "packaging_note": "verification and review JSON packaged after independent review",
+  "resolutions": [
+    {
+      "finding": "deck reference path contradicted docs/card-game root convention",
+      "resolution": "changed to data/proxy-admission-design-458/deck-reference.json; added path test to plan; file and root containment verified",
+      "severity": "important"
+    },
+    {
+      "finding": "ValueError versus valid=false for schema mismatch",
+      "resolution": "loader syntax/invalid call raises; loaded protocol/manifest dict mismatch returns valid=false/errors; unsupported evidence schema stays unproved",
+      "severity": "minor"
+    }
+  ],
+  "scope": "459_contract_validator_spec_TDD_plan_design_only",
+  "unresolved_findings": 0
+}

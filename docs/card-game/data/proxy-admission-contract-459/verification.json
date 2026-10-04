@@ -1,0 +1,17 @@
+{
+  "allowed_existing_change": "docs/card-game/README.md",
+  "base_head": "c43f908f8b31c16a6f400495e354a8df3fe7bab5",
+  "design_data_errors": [],
+  "new_input_orders": 0,
+  "new_matches": 0,
+  "new_replays": 0,
+  "new_seeds": 0,
+  "planned_groups": 200,
+  "planned_matches": 400,
+  "protected_existing_blobs_unchanged": 3584,
+  "runtime_tests_run": 0,
+  "schema": "design_verification_459.v1",
+  "scope": "design_consistency_not_validator_test_execution",
+  "source_hashes_checked": 21,
+  "validator_implemented": false
+}
