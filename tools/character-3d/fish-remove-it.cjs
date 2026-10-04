@@ -4,6 +4,7 @@ const root=path.resolve(__dirname,'../..'),test='tests/character-3d-fish-wave-te
 const cases=[
  ['yolk volume','character-3d/archetypes.mjs','if(sp.yolk)','if(false)','fish wave identity'],
  ['parr markings','character-3d/archetypes.mjs','const marks=sp.sideMarks;','const marks=null;','fish wave identity'],
+ ['small surface spots','character-3d/archetypes.mjs','if(sp.sideMarks?.spots)','if(false)','fish wave identity'],
  ['fork silhouette','character-3d/archetypes.mjs','sp.tail.fork ?','false ?','fish wave identity'],
  ['jaw volume','character-3d/archetypes.mjs','if(sp.jaw)','if(false)','fish wave identity'],
  ['school faces','character-3d/archetypes.mjs','if(sp.school?.length)','if(false)','schooling attachment'],

@@ -6,9 +6,12 @@ test('fish wave identity mechanisms produce yolk volume, lateral parr marks, for
  const build=n=>fish(rows.salmon.stages[n],'salmon:'+n);
  const yolk=build(1).parts.find(p=>p.bone==='yolk');assert.ok(yolk,'01 visible yolk volume');
  yolk.mesh.geometry.computeBoundingBox();assert.ok(yolk.mesh.geometry.boundingBox.getSize(new (await import('../character-3d/geometry.mjs')).THREE.Vector3()).y>.15);
- const marked=build(3).parts[0].mesh.geometry.attributes.color.array;
- const plainSpec=JSON.parse(JSON.stringify(rows.salmon.stages[3]));delete plainSpec.sideMarks;
- assert.notDeepEqual(marked,fish(plainSpec,'plain').parts[0].mesh.geometry.attributes.color.array,'parr marks change surface colour');
+ const barsOnly=JSON.parse(JSON.stringify(rows.salmon.stages[3]));barsOnly.sideMarks.spots=0;
+ const marked=fish(barsOnly,'bars').parts[0].mesh.geometry.attributes.color.array;
+ const plainSpec=JSON.parse(JSON.stringify(barsOnly));delete plainSpec.sideMarks;
+ assert.notDeepEqual(marked,fish(plainSpec,'bars').parts[0].mesh.geometry.attributes.color.array,'parr marks change surface colour independently of spots');
+ const mature=build(7).parts[0].mesh.geometry,withoutSpots=JSON.parse(JSON.stringify(rows.salmon.stages[7]));withoutSpots.sideMarks.spots=0;
+ assert.equal((mature.index.count-fish(withoutSpots,'salmon:7').parts[0].mesh.geometry.index.count)/3,32*6,'small surface spots stay merged into body with bounded geometry');
  const fork=build(3).parts.find(p=>p.bone==='tail').mesh.geometry.attributes.position;
  const center=[],rim=[];for(let i=0;i<fork.count;i++){if(Math.abs(fork.getY(i))<.005)center.push(fork.getZ(i));if(Math.abs(fork.getY(i))>.08)rim.push(fork.getZ(i));}
  assert.ok(Math.min(...rim)<Math.min(...center)-.05,'fork lobes extend behind the central notch');

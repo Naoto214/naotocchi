@@ -140,6 +140,7 @@ export function fish(sp, key) {
   const c = sp.colors, B = sp.body, len = B.len;
   const rig = new Rig(key, 'fish', 'swimHover');
   const prof = (t) => (t >= -0.15 ? Math.pow(Math.max(0, 1 - Math.pow(Math.abs(t + 0.15) / 1.15, 2.6)), 1 / 2.6) : lerp(0.24, 1, Math.pow((t + 1) / 0.85, 1.3)));
+  const profile=t=>B.roundHead && t>-.15 ? 1 : prof(t);
   const along = (z) => (1 - z / (len / 2)) / 2;   // 0 = 頭 1 = 尾
   const band = (s) => { for (const b of sp.bands || []) { const d = Math.abs(s - b), w = b > 0.8 ? .04 : .068; if (d < w) return 'band'; if (sp.bandEdge && d < w + 0.022) return 'edge'; } return null; };
   const bodyCol = (x, y, z, nx, ny) => {
@@ -151,27 +152,37 @@ export function fish(sp, key) {
     if(marks){
       const s=along(z),flank=Math.abs(x)/B.w;
       if(marks.bars && s>.25 && s<.86 && flank>.48 && Math.abs(y)<B.h*.28 && Math.cos((s-.28)*marks.bars*Math.PI*2/.63)>.38)color=mix(color,marks.color,marks.strength??.7);
-      if(marks.spots && s>.22 && s<.86 && y>-B.h*.10 && noise3(x*83,y*79,z*71)>.80)color=mix(color,c.spot||c.back,marks.strength??.5);
     }
     return color;
   };
   const g = new THREE.SphereGeometry(1, 18, 44); g.rotateX(Math.PI / 2);   // しまの ために 長さ方向の 輪を こまかく
   const p = g.attributes.position;
-  for (let i = 0; i < p.count; i++) { const x = p.getX(i), y = p.getY(i), z = p.getZ(i), rho = Math.hypot(x, y) || 1, k = prof(z) * Math.sqrt(Math.max(0, 1 - z * z)) / rho; p.setXYZ(i, x * k * B.w, y * k * B.h / 2 * (y > 0 ? 1 : 0.92), z * len / 2); }
+  for (let i = 0; i < p.count; i++) { const x = p.getX(i), y = p.getY(i), z = p.getZ(i), rho = Math.hypot(x, y) || 1, k = profile(z) * Math.sqrt(Math.max(0, 1 - z * z)) / rho; p.setXYZ(i, x * k * B.w, y * k * B.h / 2 * (y > 0 ? 1 : 0.92), z * len / 2); }
   const body = paint((await_smooth(g)), bodyCol);
   const finCol = (edgeT) => (u, rim) => (rim > edgeT ? c.edge : c.fin);
   // 背びれ・しりびれ(体の 線に そって たてる)
   const strip = (z0, z1, top, height) => {
     const pos = [], col = [], idx = [], nu = 12, nv = 3;
-    for (let i = 0; i <= nu; i++) { const u = i / nu, z = lerp(z0, z1, u), base = prof(z / (len / 2)) * B.h / 2 * (top ? 0.9 : -0.85), hgt = height(u) * (top ? 1 : -1);
+    for (let i = 0; i <= nu; i++) { const u = i / nu, z = lerp(z0, z1, u), base = profile(z / (len / 2)) * B.h / 2 * (top ? 0.9 : -0.85), hgt = height(u) * (top ? 1 : -1);
       for (let j = 0; j <= nv; j++) { const v = j / nv; pos.push(0, base + hgt * v, z - v * 0.06); const cc = new THREE.Color(v > 0.9 && sp.bandEdge ? c.edge : band(along(z)) === 'band' && v < 0.5 ? c.band : c.fin); col.push(cc.r, cc.g, cc.b); } }
     for (let i = 0; i < nu; i++) for (let j = 0; j < nv; j++) { const a = i * (nv + 1) + j, b2 = a + nv + 1; idx.push(a, b2, a + 1, b2, b2 + 1, a + 1); }
     const gg = new THREE.BufferGeometry(); gg.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); gg.setAttribute('color', new THREE.Float32BufferAttribute(col, 3)); gg.setIndex(idx); gg.computeVertexNormals(); return gg;
   };
-  const dorsal = strip(len * 0.16, -len * 0.4, true, (u) => sp.fins.dorsal * 0.62 * (u < 0.45 ? 0.8 : 1.05) * Math.pow(Math.sin(Math.PI * Math.min(1, u * 1.05)), 0.7) * (u < 0.45 ? 0.85 + 0.15 * Math.abs(Math.sin(u * 28)) : 1));
+  const dorsal = strip(len * (sp.fins.dorsalRange?.[0] ?? .16), len * (sp.fins.dorsalRange?.[1] ?? -.4), true, (u) => sp.fins.dorsal * 0.62 * (u < 0.45 ? 0.8 : 1.05) * Math.pow(Math.sin(Math.PI * Math.min(1, u * 1.05)), 0.7) * (u < 0.45 ? 0.85 + 0.15 * Math.abs(Math.sin(u * 28)) : 1));
   const anal = strip(-len * 0.12, -len * 0.38, false, (u) => sp.fins.dorsal * 0.5 * Math.pow(Math.sin(Math.PI * u), 0.6));
   const matKey = sp.translucent ? 'translucent:' + sp.translucent : 'opaque';
-  rig.add('body', 'root', [0, 0, 0], [body, dorsal, anal], matKey);
+  const spots=[];
+  if(sp.sideMarks?.spots){
+    const random=rng(key+':spots');
+    for(let i=0;i<sp.sideMarks.spots;i++){
+      const t=-.65+random()*1.1,a=.06+random()*1.05,side=i%2?-1:1,r=profile(t)*Math.sqrt(1-t*t),radius=.009+random()*.009;
+      const x=side*Math.cos(a)*r*B.w,y=Math.sin(a)*r*B.h/2,z=t*len/2;
+      const normal=V(x/(B.w*B.w),y/(B.h*B.h/4),z/(len*len/4)).normalize();
+      const dot=new THREE.CircleGeometry(radius,6);dot.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(V(0,0,1),normal));dot.translate(x+normal.x*.002,y+normal.y*.002,z+normal.z*.002);
+      spots.push(solid(dot,mix(bodyCol(x,y,z,normal.x,normal.y),c.spot||c.back,sp.sideMarks.strength??.5)));
+    }
+  }
+  rig.add('body', 'root', [0, 0, 0], [body, dorsal, anal, ...spots], matKey);
   if(sp.yolk)rig.add('yolk','body',sp.yolk.at,[solid(ellipsoid(sp.yolk.r*.85,sp.yolk.r,sp.yolk.r*1.04,12,8),sp.yolk.color)]);
   if(sp.jaw){
     const J=sp.jaw;
@@ -193,7 +204,7 @@ export function fish(sp, key) {
   if(sp.school?.length){
     const faces=[rig.faceSpec];
     for(const [i,unit] of sp.school.entries()){
-      const child=fish({...sp,school:null,body:{...B},sideMarks:sp.sideMarks},key+':school'+i),prefix='school'+i+':';
+      const child=fish({...sp,school:null,normalEye:unit.normalEye||'round',body:{...B},sideMarks:sp.sideMarks},key+':school'+i),prefix='school'+i+':';
       const group=rig.add(prefix+'root','body',unit.at,null,'opaque',[0,unit.heading||0,0]);
       group.scale.setScalar(unit.scale);group.userData.rest.s.copy(group.scale);
       for(const [name,bone]of Object.entries(child.bones))if(name!=='root'){
