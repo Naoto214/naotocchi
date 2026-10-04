@@ -1,0 +1,8 @@
+home|forest|home         started=true arrived=true samples=59 corridor3D=true playerOK=true maxGhost=0 err=0/0 fb=0 miss=undefined
+forest|mountain|forest   started=true arrived=true samples=47 corridor3D=true playerOK=true maxGhost=6 err=0/0 fb=0 miss=undefined
+city|sea|city            started=true arrived=true samples=47 corridor3D=true playerOK=true maxGhost=0 err=0/0 fb=0 miss=undefined
+countryside|forest|countryside started=true arrived=true samples=37 corridor3D=true playerOK=true maxGhost=0 err=0/0 fb=0 miss=undefined
+home|forest|forest       started=true arrived=true samples=48 corridor3D=true playerOK=true maxGhost=0 err=0/0 fb=0 miss=undefined
+forest|mountain|mountain started=true arrived=true samples=48 corridor3D=true playerOK=true maxGhost=0 err=0/0 fb=0 miss=undefined
+city|sea|sea             started=true arrived=true samples=48 corridor3D=true playerOK=true maxGhost=41 err=0/0 fb=0 miss=undefined
+countryside|forest|forest started=true arrived=true samples=38 corridor3D=true playerOK=true maxGhost=0 err=0/0 fb=0 miss=undefined

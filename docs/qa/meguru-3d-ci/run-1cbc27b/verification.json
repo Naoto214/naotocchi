@@ -1,0 +1,42 @@
+{
+  "source": "1cbc27bb1e76c29696ed033dec20e116c03023f6",
+  "baseline": "c312aba0e392ab84ee67e10b465dd1c1263ba88d",
+  "run": 37197964997,
+  "artifactDigestsVerified": true,
+  "sourceHashesVerified": true,
+  "allRunnerExitCodes": 0,
+  "worldPairs": 35,
+  "galleryPairs": 20,
+  "summaries": {
+    "smoke": {
+      "kind": "smoke",
+      "coverage": 13,
+      "issues": [],
+      "samples": 0,
+      "hidden": 0,
+      "partial": 0,
+      "maxPartyObstacleOverlap": 7.105427357601002e-14,
+      "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+    },
+    "corridor": {
+      "kind": "corridor",
+      "coverage": 8,
+      "issues": [],
+      "samples": 0,
+      "hidden": 0,
+      "partial": 0,
+      "maxPartyObstacleOverlap": 0,
+      "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+    },
+    "visibility": {
+      "kind": "visibility",
+      "coverage": 13,
+      "issues": [],
+      "samples": 2832,
+      "hidden": 0,
+      "partial": 1,
+      "maxPartyObstacleOverlap": 0,
+      "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+    }
+  }
+}
