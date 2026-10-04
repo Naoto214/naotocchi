@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+- [455 全判断の記録監査契約・validator](455-judgment-evidence-contract.md)：保存12run・2378判断をsource結合して投影。非算入契約、未検証層を明示、過去flag不変。専用TDD、対戦追加0。
+
 - [454 全判断種別の別版評価方針・設計](454-all-judgment-evaluation-design.md)：合法性・選択根拠・標本審査を分離。唯一候補/既存優越/同値/seededの証拠範囲を整理。設計のみ、114/A/116維持、実装・対戦・算入0。
 
 - [453 次期実験計画の共通部分と判断分岐](453-experiment-design-decision.md)：非実行draftを保存。全判断の別版評価方針設計か、現行policy固定の診断計画かを確認。114/A/116維持、対戦追加0。

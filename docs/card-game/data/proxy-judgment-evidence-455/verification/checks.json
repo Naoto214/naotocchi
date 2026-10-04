@@ -1,0 +1,18 @@
+{
+  "base_head": "85adc2f67703fa5c412712041a2fad6f75bf2ca1",
+  "independent_generations": 2,
+  "byte_equal": true,
+  "sha256": {
+    "audit.json.gz": "1aed57cb20b4ede65c767288456b92a45b0b2163320814a92f8d6ed3de6604a2",
+    "contract.json": "acb527ca871bd5f36c5584dff28f7ca279619e037458e99b4695df8d235e40fb",
+    "summary.json": "b2e964be3431d2b774ffaf94200fc1cef62d0eacc1c14280780a201b9d3b246d"
+  },
+  "existing_files": 2691,
+  "changed_existing": [
+    "docs/card-game/README.md"
+  ],
+  "dedicated_pass": 15,
+  "related116_pass": 36,
+  "related119_pass": 31,
+  "npm_pass": 406
+}

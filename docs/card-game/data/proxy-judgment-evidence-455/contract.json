@@ -1,0 +1,23 @@
+{
+  "can_admit_balance": false,
+  "can_select_candidates": false,
+  "judgment_kinds": [
+    "normal_action",
+    "mandatory_choice",
+    "response_action"
+  ],
+  "schema": "judgment_evidence_audit.v1",
+  "source_pins": {
+    "114-normal-decision-protocol-hardening.md": "aa161063e4fa9e056818d00e3fe799448107b3b51f00c05e67c2c89c3a50e59a",
+    "116-normal-decision-fallback-contract.md": "577dccec67343ead75aa813b464b432679927c2f4b71ed960be5058aaa3ef393",
+    "119-response-window-contract.md": "c79e89709c687211ae5ca4a2ba3328e285ffafcf9b7790f913ae5ceb953cba45",
+    "454-all-judgment-evaluation-design.md": "37b2441ca93a55a12773b975a6388b8151f08b0ba9bf23022b71e5c57e425220"
+  },
+  "unreverified_layers": [
+    "legality_evidence",
+    "selection_evidence",
+    "opportunity_coverage",
+    "experiment_design"
+  ],
+  "validation_meaning": "exact_projection_of_supplied_source_not_game_or_strategy_validation"
+}
