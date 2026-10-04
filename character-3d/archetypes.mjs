@@ -202,7 +202,7 @@ export function fish(sp, key) {
   rig.faceSpec = { bone: 'body', target: body, center: [0, B.h * 0.04, len * 0.4], fwd: [0, 0, 1], half: sp.face?.half ?? B.h * 0.66, eyeSize: sp.face?.eyeSize ?? 0.24,
     layout: { eyeX: 36, eyeY: 54, mouthY: 96, browY: 34, cheekX: 42, cheekY: 78, mouthW: 8 }, style: { blush: '#ff9a7a' }, normalEye: sp.normalEye || null };
   if(sp.school?.length){
-    const faces=[rig.faceSpec];
+    const faces=[rig.faceSpec];rig.meta.swimSubrigs=[];
     for(const [i,unit] of sp.school.entries()){
       const child=fish({...sp,school:null,normalEye:unit.normalEye||'round',body:{...B},sideMarks:sp.sideMarks},key+':school'+i),prefix='school'+i+':';
       const group=rig.add(prefix+'root','body',unit.at,null,'opaque',[0,unit.heading||0,0]);
@@ -213,6 +213,7 @@ export function fish(sp, key) {
         b.scale.copy(bone.scale);b.userData.rest.s.copy(b.scale);
       }
       faces.push({...child.faceSpec,bone:prefix+child.faceSpec.bone});
+      rig.meta.swimSubrigs.push({prefix,phase:.65*(i+1)});
     }
     rig.faceSpec=faces;
   }

@@ -15,6 +15,14 @@ const lerp = (a, b, t) => a + (b - a) * t;
 export const REACTION_MS = { hop: 700, huff: 800, yawn: 1400, wobble: 1100 };
 export const GAIT_HZ = { quadWalk: 2.1, waddle: 2.4, swimHover: 1.6, humanWalk: 1.9, crawl: 1.5, inchCrawl: 1.3, hangSway: 0.6, hopSway: 1.8, flutter: 1.0, plantSway: 1.6, squashHop: 1.7, clusterBob: 1.6, radialShuffle: 1.7, blobFloat: 1.2 };
 
+// Grafted fish reuse the owning actor's gait phase; only their appendages move.
+// No extra actor state, root hover, emotion vocabulary or gameplay events.
+function swimAppendages(B,s,m,k,prefix='',offset=0){
+  const ph=s.phase*TAU+offset,tail=B[prefix+'tail'],left=B[prefix+'finL'],right=B[prefix+'finR'];
+  if(tail)tail.rotation.y+=Math.sin(ph+.9)*(.3+.25*m)*Math.max(k.amp,.4);
+  if(left&&right){left.rotation.y+=Math.sin(s.t*7+offset)*.35*Math.max(k.idle,.3);right.rotation.y-=Math.sin(s.t*7+offset)*.35*Math.max(k.idle,.3);}
+}
+
 export function createAnimState(seed = 0) {
   return { t: (seed % 97) * 0.37, phase: 0, move: 0, blinkIn: 1.5 + (seed % 7) * 0.4, blinkT: -1, reaction: null, emotion: null, expr: SPEC.expressionParams('normal') };
 }
@@ -100,8 +108,8 @@ const LOCO = {
     R.position.y += meta.hover + Math.sin(s.t * 2.1) * 0.035 * k.idle;
     const ph = s.phase * TAU;
     B.body.rotation.y += Math.sin(ph) * (0.06 + 0.06 * m) * k.amp;
-    if (B.tail) B.tail.rotation.y += Math.sin(ph + 0.9) * (0.3 + 0.25 * m) * Math.max(k.amp, 0.4);
-    if (B.finL) { B.finL.rotation.y += Math.sin(s.t * 7) * 0.35 * Math.max(k.idle, 0.3); B.finR.rotation.y -= Math.sin(s.t * 7) * 0.35 * Math.max(k.idle, 0.3); }
+    swimAppendages(B,s,m,k);
+    if(meta.swimSubrigs)for(const sub of meta.swimSubrigs)swimAppendages(B,s,m,k,sub.prefix,sub.phase);
   },
   humanWalk(B, s, m, k, meta) {
     const ph = s.phase * TAU, sw = 0.55 * m * k.amp;

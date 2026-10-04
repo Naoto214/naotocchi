@@ -77,3 +77,8 @@ The local exec server became unavailable during evidence upload. All 99 four-vie
 
 ### Rejected performance run — source374e12d
 The fish-mix job37186931724 initially passed, but its template evidence contains dandelion08 stand-ins rather than the intended fish. Both new mix labels on that source are invalid due to QA boolean/string selection. Raw fish JSON is retained in `rejected/fish-mix-374e12d.json`; its embedded pass flag is the old insufficient verdict, **not accepted evidence**. An explicit setup/expected composition module and exact browser composition verdict replace that path. Corrected rerun is pending. This does not relabel the source81 baseline or change gameplay.
+
+### Independent review
+One concrete fish-wave issue was found and fixed: school tails/fins now reuse the actor's swim appendage motion with fixed phase offsets. RED reproduction showed six frozen bones; focused reviewer recheck11/11 PASS. Local dedicated68PASS and fish/QA10/10 removal cases detected. Latest articulation-source CI and school recapture pending.
+
+`fr1-fish/checkpoints/performance-4990f62.json` is the corrected-composition **pre-articulation** sample (1/5/27 exact/live, fallback0); it must not be silently relabeled as the later source or compared as if identical to the Pilot cast. Actual iPhone and full-native mix remain unverified.

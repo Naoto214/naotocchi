@@ -2,6 +2,7 @@
 const fs=require('fs'),path=require('path'),cp=require('child_process'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'../..'),test='tests/character-3d-fish-wave-test.cjs';
 const cases=[
+ ['school articulation','character-3d/animate.mjs','if(meta.swimSubrigs)','if(false)','school subrig tails'],
  ['QA composition','tools/character-3d/performance-mix.cjs',"standIns:['salmon:1','salmon:3','salmon:7','clownfish:5']","standIns:['dandelion:8']",'QA performance mix'],
  ['composition assertion','tools/character-3d/performance-mix.cjs','return JSON.stringify(Object.entries(actual||{}).sort())===JSON.stringify(Object.entries(expected).sort());','return true;','QA performance mix'],
  ['yolk volume','character-3d/archetypes.mjs','if(sp.yolk)','if(false)','fish wave identity'],

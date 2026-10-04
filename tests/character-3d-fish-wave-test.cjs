@@ -54,3 +54,15 @@ test('reviewed fish stages resolve exact runtime templates, remain visible and r
  }
  p.endFrame();assert.equal(p.stats().live,16);assert.equal(p.stats().fallbacks,0);p.setScene(new THREE.Scene());assert.equal(p.stats().live,0);p.dispose();
 });
+
+test('school subrig tails and fins articulate from the same actor swim state, including reduced motion',async()=>{
+ const {getTemplate,instantiate}=await import('../character-3d/runtime.mjs'),{animate}=await import('../character-3d/animate.mjs');
+ const tpl=getTemplate('clownfish',5,'B');assert.equal(tpl.status,'ok');
+ for(const animLv of [0,2]){
+  const inst=instantiate(tpl,1),names=['school0:tail','school0:finL','school0:finR','school1:tail','school1:finL','school1:finR'];
+  const deltas=Object.fromEntries(names.map(n=>[n,0]));
+  for(let frame=0;frame<90;frame++){animate(inst,{dt:1/30,moving:true,animLv});for(const n of names){const b=inst.bones[n];deltas[n]=Math.max(deltas[n],Math.abs(b.rotation.y-b.userData.rest.r.y));}}
+  assert.ok(Object.values(deltas).every(d=>d>.05),JSON.stringify({animLv,deltas}));
+  assert.equal(inst.bones['school0:root'].position.y,tpl.rig.bones['school0:root'].position.y,'subrig does not duplicate root hover');
+ }
+});
