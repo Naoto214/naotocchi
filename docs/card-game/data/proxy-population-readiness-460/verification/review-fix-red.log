@@ -1,0 +1,30 @@
+test_executor_bridge_change_revokes_static_proof (test_proxy_population_readiness.ReadinessTests.test_executor_bridge_change_revokes_static_proof) ... 
+  test_executor_bridge_change_revokes_static_proof (test_proxy_population_readiness.ReadinessTests.test_executor_bridge_change_revokes_static_proof) (relative='tools/proxy_resource_value_trajectory.py') ... FAIL
+  test_executor_bridge_change_revokes_static_proof (test_proxy_population_readiness.ReadinessTests.test_executor_bridge_change_revokes_static_proof) (relative='tools/proxy_continuation_batch_runner.py') ... FAIL
+
+======================================================================
+FAIL: test_executor_bridge_change_revokes_static_proof (test_proxy_population_readiness.ReadinessTests.test_executor_bridge_change_revokes_static_proof) (relative='tools/proxy_resource_value_trajectory.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_readiness.py", line 66, in test_executor_bridge_change_revokes_static_proof
+    self.assertEqual(result['status'], 'unproved')
+AssertionError: 'proven_unavoidable_116_for_current_executor' != 'unproved'
+- proven_unavoidable_116_for_current_executor
++ unproved
+
+
+======================================================================
+FAIL: test_executor_bridge_change_revokes_static_proof (test_proxy_population_readiness.ReadinessTests.test_executor_bridge_change_revokes_static_proof) (relative='tools/proxy_continuation_batch_runner.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_readiness.py", line 66, in test_executor_bridge_change_revokes_static_proof
+    self.assertEqual(result['status'], 'unproved')
+AssertionError: 'proven_unavoidable_116_for_current_executor' != 'unproved'
+- proven_unavoidable_116_for_current_executor
++ unproved
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.014s
+
+FAILED (failures=2)

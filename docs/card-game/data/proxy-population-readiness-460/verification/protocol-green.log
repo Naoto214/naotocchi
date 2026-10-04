@@ -1,0 +1,10 @@
+test_approved_protocol_is_non_executable_and_nonmutating (test_proxy_population_contract.ProtocolTests.test_approved_protocol_is_non_executable_and_nonmutating) ... ok
+test_duplicate_keys_and_nonfinite_json_are_rejected (test_proxy_population_contract.ProtocolTests.test_duplicate_keys_and_nonfinite_json_are_rejected) ... ok
+test_protocol_mutations_cannot_self_authorize (test_proxy_population_contract.ProtocolTests.test_protocol_mutations_cannot_self_authorize) ... ok
+test_source_paths_cannot_escape_root (test_proxy_population_contract.ProtocolTests.test_source_paths_cannot_escape_root) ... ok
+test_untrusted_anchor_and_missing_source_fail_closed (test_proxy_population_contract.ProtocolTests.test_untrusted_anchor_and_missing_source_fail_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.053s
+
+OK

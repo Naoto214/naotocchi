@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+- [460 400戦preflightと初回必須選択の適格性境界](460-population-preflight-and-opening-boundary.md)：459構造検査・非実行入口をTDD実装。現行たまご交換の不可避116除外を静的確認し停止。全算入validator未完、seed/対戦0。
+
 - [459 承認済み200群・400戦の機械契約とvalidator計画](459-approved-population-contract-and-validator-plan.md)：458推奨を設計固定。validator仕様・inline逐次TDD計画まで。実装・seed生成・入力固定・対戦開始0、最終実行確認は別途。
 
 - [458 予定対戦集合全体の算入契約・標本計画（設計案）](458-planned-population-admission-design.md)：A方針を継承。判断/対戦/鏡像群の適格・除外・未証明、全体結論gate、200群×2戦等の選択肢を設計。未承認draft、新入力・対戦・実装0。

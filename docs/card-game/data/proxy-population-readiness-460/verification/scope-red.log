@@ -1,0 +1,23 @@
+test_complete_shape_is_not_generation_or_lock_authentication (test_proxy_population_contract.ManifestTests.test_complete_shape_is_not_generation_or_lock_authentication) ... FAIL
+test_exact_membership_accepts_only_mirrored_metadata (test_proxy_population_contract.ManifestTests.test_exact_membership_accepts_only_mirrored_metadata) ... ok
+test_manifest_cannot_be_approved_by_receipt_booleans (test_proxy_population_contract.ManifestTests.test_manifest_cannot_be_approved_by_receipt_booleans) ... ok
+test_missing_real_inputs_remains_unproved_after_topology_passes (test_proxy_population_contract.ManifestTests.test_missing_real_inputs_remains_unproved_after_topology_passes) ... ok
+test_saved_order_validation_preserves_physical_multiplicity (test_proxy_population_contract.ManifestTests.test_saved_order_validation_preserves_physical_multiplicity) ... ok
+test_approved_protocol_is_non_executable_and_nonmutating (test_proxy_population_contract.ProtocolTests.test_approved_protocol_is_non_executable_and_nonmutating) ... ok
+test_duplicate_keys_and_nonfinite_json_are_rejected (test_proxy_population_contract.ProtocolTests.test_duplicate_keys_and_nonfinite_json_are_rejected) ... ok
+test_protocol_mutations_cannot_self_authorize (test_proxy_population_contract.ProtocolTests.test_protocol_mutations_cannot_self_authorize) ... ok
+test_source_paths_cannot_escape_root (test_proxy_population_contract.ProtocolTests.test_source_paths_cannot_escape_root) ... ok
+test_untrusted_anchor_and_missing_source_fail_closed (test_proxy_population_contract.ProtocolTests.test_untrusted_anchor_and_missing_source_fail_closed) ... ok
+
+======================================================================
+FAIL: test_complete_shape_is_not_generation_or_lock_authentication (test_proxy_population_contract.ManifestTests.test_complete_shape_is_not_generation_or_lock_authentication)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_contract.py", line 171, in test_complete_shape_is_not_generation_or_lock_authentication
+    self.assertEqual(result.get('checks_scope'), 'implemented_structure_only_not_full_manifest_certification')
+AssertionError: None != 'implemented_structure_only_not_full_manifest_certification'
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.866s
+
+FAILED (failures=1)
