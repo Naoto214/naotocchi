@@ -13,7 +13,7 @@ function makeSave(region) { const arr = (x) => Array.from(x || []); const h = ha
 const REG = ONLY.length ? ONLY : ['home', 'city', 'countryside', 'forest', 'mountain', 'snow', 'sea', 'deepsea', 'river_lake', 'jungle', 'desert', 'star_stop', 'memory_lake'];
 (async () => {
   const srv = await serve(); const base = 'http://127.0.0.1:' + srv.address().port; const out = {};
-  const browser = await pw.chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--use-gl=angle', '--enable-unsafe-swiftshader'] });
+  const browser = await pw.chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM || '/opt/pw-browsers/chromium', args: ['--use-gl=angle', '--enable-unsafe-swiftshader'] });
   for (const region of REG) {
     const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 }); const page = await ctx.newPage(); const errors = [];
     page.on('pageerror', (e) => errors.push(String(e.message || e)));
@@ -31,7 +31,7 @@ const REG = ONLY.length ? ONLY : ['home', 'city', 'countryside', 'forest', 'moun
       const f0 = await page.evaluate(() => globalThis.__meguruRun.renderer.frames3d());
       await page.waitForFunction((f0) => globalThis.__meguruRun.renderer.frames3d() >= f0 + 2, f0, { timeout: 20000 });
       const d = await page.evaluate(() => globalThis.__meguruRun.renderer.probeNow());
-      if (!d) continue;
+      if (!d) throw new Error('Missing visibility probe: ' + region + ' sample ' + i);
       gh += d.ghosts; if (d.seen === 0) { hidden++; bad.push(Object.assign({ i, blk: d.blk }, p)); blk[d.blk] = (blk[d.blk] || 0) + 1; } else if (d.seen < 3) partial++;
     }
     for (const b of bad.slice(0, 3)) { await page.evaluate((p) => { const r = globalThis.__meguruRun; r.setPlayer(p.x, p.z); r.sim.camera.yaw = p.yaw; r.sim.placeParty(); }, b); await page.waitForTimeout(500); const box = await page.locator('#mgrCanvas').boundingBox(); await page.screenshot({ path: path.join(OUT, region + '-hidden-' + b.i + '.png'), clip: box }); }
