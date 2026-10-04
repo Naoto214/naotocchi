@@ -12,4 +12,13 @@ function loadHumanCandidates(createCandidates){
  vm.runInNewContext(humanCandidateSource(fs.readFileSync(specPath,'utf8'),createCandidates),context);
  return context.module.exports;
 }
-module.exports={humanCandidateSource,loadHumanCandidates};
+function candidateConfig(args){
+ const kinds=['human','topology'].filter(k=>args.includes('--candidate-'+k));
+ if(!kinds.length)return null;
+ if(kinds.length!==1)throw Error('Choose one candidate wave');
+ const kind=kinds[0],factory=require('../../character-3d/'+(kind==='human'?'humanoid':'topology')+'-spec.js');
+ const line=args[args.indexOf('--line')+1],rows=factory(require('../../character-3d/spec.js').PILOT);
+ if(!args.includes('--rollout')||!args.includes('--species-only')||!args.includes('--line')||!rows[line])throw Error('Candidate QA requires --rollout --species-only --line with an exact candidate family');
+ return {kind,factory,spec:loadHumanCandidates(factory)};
+}
+module.exports={humanCandidateSource,loadHumanCandidates,candidateConfig};

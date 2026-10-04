@@ -1,0 +1,259 @@
+{
+  "when": "2026-10-04T11:08:10.161Z",
+  "revision": "quality3",
+  "sourceCommit": "296cea03fb2232286d0a684e4ab4d482e5e96f72",
+  "rolloutWave": false,
+  "candidateOnly": false,
+  "performanceMix": "human-family QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {
+    "perf27-2d": "test-results/full-rollout/human-performance/perf-27-2d.png",
+    "perf27-3d": "test-results/full-rollout/human-performance/perf-27-3d.png"
+  },
+  "checks": {},
+  "perf": {
+    "1-2d": {
+      "frames": 71,
+      "avgMs": 117.37,
+      "p95Ms": 433.3,
+      "over60": 29,
+      "calls": 34,
+      "tris": 98570,
+      "textures": 17,
+      "geometries": 23,
+      "jsDrawMs": 27.41,
+      "jsDrawP95": 279.5,
+      "char3d": null,
+      "heapMB": 20.5,
+      "party": 0,
+      "templatesByActor": {},
+      "errors": 0,
+      "load": {
+        "domContentLoadedMs": 391.3999999999942,
+        "maxFrameMs": 1483.3,
+        "maxLongTaskMs": 379,
+        "longTasks": 5
+      }
+    },
+    "1-3d": {
+      "frames": 70,
+      "avgMs": 108.8,
+      "p95Ms": 350,
+      "over60": 33,
+      "calls": 46,
+      "tris": 107985,
+      "textures": 19,
+      "geometries": 41,
+      "jsDrawMs": 14.16,
+      "jsDrawP95": 22.4,
+      "char3d": {
+        "live": 1,
+        "templates": 1,
+        "built": 1,
+        "tris": 10297,
+        "meshes": 19,
+        "bones": 14,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 4,
+        "cpuMsAvg": 0.819,
+        "cpuMsP95": 0.1,
+        "buildMsTotal": 86.4,
+        "buildMsMax": 86.4,
+        "fallbacks": 0,
+        "removed": 1,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "heapMB": 19.3,
+      "party": 0,
+      "templatesByActor": {
+        "woman:8": 1
+      },
+      "expectedTemplates": {
+        "woman:8": 1
+      },
+      "compositionMatches": true,
+      "errors": 0,
+      "load": {
+        "domContentLoadedMs": 230.90000000002328,
+        "maxFrameMs": 383.3000000000002,
+        "maxLongTaskMs": 240,
+        "longTasks": 5
+      }
+    },
+    "5-2d": {
+      "frames": 89,
+      "avgMs": 96.81,
+      "p95Ms": 366.8,
+      "over60": 37,
+      "calls": 32,
+      "tris": 96766,
+      "textures": 25,
+      "geometries": 25,
+      "jsDrawMs": 28.89,
+      "jsDrawP95": 202,
+      "char3d": null,
+      "heapMB": 20.5,
+      "party": 4,
+      "templatesByActor": {},
+      "errors": 0,
+      "load": {
+        "domContentLoadedMs": 234.69999999998254,
+        "maxFrameMs": 1100,
+        "maxLongTaskMs": 271,
+        "longTasks": 4
+      }
+    },
+    "5-3d": {
+      "frames": 60,
+      "avgMs": 124.16,
+      "p95Ms": 416.6,
+      "over60": 31,
+      "calls": 90,
+      "tris": 127676,
+      "textures": 29,
+      "geometries": 79,
+      "jsDrawMs": 12.17,
+      "jsDrawP95": 45.5,
+      "char3d": {
+        "live": 5,
+        "templates": 5,
+        "built": 5,
+        "tris": 31012,
+        "meshes": 67,
+        "bones": 50,
+        "materials": 1,
+        "atlases": 5,
+        "eyeGeos": 8,
+        "cpuMsAvg": 2.1,
+        "cpuMsP95": 3.2,
+        "buildMsTotal": 204.2,
+        "buildMsMax": 54.4,
+        "fallbacks": 0,
+        "removed": 3,
+        "created": 8,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "heapMB": 21.7,
+      "party": 4,
+      "templatesByActor": {
+        "woman:8": 1,
+        "shiba:0": 1,
+        "cat_friend:0": 1,
+        "man:2": 1,
+        "man:6": 1
+      },
+      "expectedTemplates": {
+        "woman:8": 1,
+        "shiba:0": 1,
+        "cat_friend:0": 1,
+        "man:2": 1,
+        "man:6": 1
+      },
+      "compositionMatches": true,
+      "errors": 0,
+      "load": {
+        "domContentLoadedMs": 264.80000000001746,
+        "maxFrameMs": 833.3000000000002,
+        "maxLongTaskMs": 249,
+        "longTasks": 5
+      }
+    },
+    "27-2d": {
+      "frames": 77,
+      "avgMs": 104.97,
+      "p95Ms": 250,
+      "over60": 40,
+      "calls": 51,
+      "tris": 97156,
+      "textures": 69,
+      "geometries": 25,
+      "jsDrawMs": 19.71,
+      "jsDrawP95": 196.6,
+      "char3d": null,
+      "heapMB": 20.5,
+      "party": 26,
+      "templatesByActor": {},
+      "errors": 0,
+      "load": {
+        "domContentLoadedMs": 300.5,
+        "maxFrameMs": 766.5999999999999,
+        "maxLongTaskMs": 559,
+        "longTasks": 3
+      }
+    },
+    "27-3d": {
+      "frames": 60,
+      "avgMs": 136.38,
+      "p95Ms": 366.6,
+      "over60": 30,
+      "calls": 320,
+      "tris": 258848,
+      "textures": 75,
+      "geometries": 121,
+      "jsDrawMs": 19.97,
+      "jsDrawP95": 54.6,
+      "char3d": {
+        "live": 27,
+        "templates": 10,
+        "built": 10,
+        "tris": 167889,
+        "meshes": 328,
+        "bones": 237,
+        "materials": 1,
+        "atlases": 7,
+        "eyeGeos": 8,
+        "cpuMsAvg": 3.632,
+        "cpuMsP95": 39.9,
+        "buildMsTotal": 377.1,
+        "buildMsMax": 75.4,
+        "fallbacks": 0,
+        "removed": 3,
+        "created": 30,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "heapMB": 26,
+      "party": 26,
+      "templatesByActor": {
+        "woman:8": 1,
+        "shiba:0": 1,
+        "cat_friend:0": 1,
+        "man:2": 4,
+        "man:6": 4,
+        "woman:2": 4,
+        "woman:4": 3,
+        "ren:3": 3,
+        "ren:5": 3,
+        "ren:8": 3
+      },
+      "expectedTemplates": {
+        "woman:8": 1,
+        "shiba:0": 1,
+        "cat_friend:0": 1,
+        "man:2": 4,
+        "man:6": 4,
+        "woman:2": 4,
+        "woman:4": 3,
+        "ren:3": 3,
+        "ren:5": 3,
+        "ren:8": 3
+      },
+      "compositionMatches": true,
+      "errors": 0,
+      "load": {
+        "domContentLoadedMs": 279.9000000000233,
+        "maxFrameMs": 749.8999999999999,
+        "maxLongTaskMs": 587,
+        "longTasks": 5
+      }
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

@@ -7,3 +7,10 @@ test('human QA overlay exposes exact candidates only in served QA source, leavin
  const context={NaotocchiCharacter3DRollout:require('../character-3d/rollout-spec.js')};vm.runInNewContext(humanCandidateSource(source,factory),context);assert.equal(context.NaotocchiCharacter3DSpec.ROLLOUT.qaHumanFixture.stages[8].clothing,'cardigan');
  assert.equal(fs.readFileSync(path.join(__dirname,'../character-3d/spec.js'),'utf8'),source);assert.deepEqual(Object.keys(runtime.ROLLOUT),keys);assert.equal(runtime.ROLLOUT.qaHumanFixture,undefined);assert.throws(()=>humanCandidateSource('bad source'),/boundary/);
 });
+test('topology QA selection is isolated, explicit and rejects unknown lines or mixed modes',()=>{
+ const {candidateConfig}=require('../tools/character-3d/candidate-spec.cjs');assert.equal(typeof candidateConfig,'function');
+ const args=['--candidate-topology','--rollout','--species-only','--line','dandelion'],c=candidateConfig(args);
+ assert.equal(c.kind,'topology');assert.deepEqual(Object.keys(c.spec.ROLLOUT.dandelion.stages),['5','7']);
+ assert.equal(require('../character-3d/spec.js').ROLLOUT.dandelion,undefined);
+ for(const a of [['--candidate-topology'],[...args,'--candidate-human'],['--candidate-topology','--rollout','--species-only','--line','man']])assert.throws(()=>candidateConfig(a));
+});

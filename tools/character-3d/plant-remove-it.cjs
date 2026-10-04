@@ -1,0 +1,6 @@
+const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
+const file='character-3d/archetypes.mjs',source=fs.readFileSync(file),run=()=>cp.spawnSync(process.execPath,['--test','tests/character-3d-plant-wave-test.cjs'],{encoding:'utf8'});
+assert.equal(run().status,0);
+const cases=[['bud volume',"sp.form === 'bud' || sp.form === 'seedHead'","sp.form === 'seedHead'"],['seed head volume',"sp.form === 'bud' || sp.form === 'seedHead'","sp.form === 'bud'"],['soft peripheral lobes','i<sp.seedHead.lobes','i<0'],['sepals','i<sp.bud.sepals','i<0']];
+for(const[name,old,replacement]of cases){try{assert.equal(source.toString().split(old).length,2);fs.writeFileSync(file,source.toString().replace(old,replacement));const r=run();assert.equal(r.status,1,r.stdout+r.stderr);assert.ok(r.stdout.includes('AssertionError'));console.log(name+': RED');}finally{fs.writeFileSync(file,source);}}
+console.log(cases.length+'/'+cases.length+' plant mutations detected; original bytes restored');

@@ -97,6 +97,23 @@ jobs:
         with:
           name: full-rollout-human-performance-${{ github.sha }}
           path: test-results/full-rollout/human-performance
+  topology-candidate-distance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tools/character-3d/meguru-qa.cjs --candidate-topology --rollout --species-only --line dandelion --out test-results/full-rollout/topology-distance
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-topology-distance-${{ github.sha }}
+          path: test-results/full-rollout/topology-distance
   fish-performance:
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -149,6 +166,7 @@ jobs:
       - run: node tools/character-3d/wave-review.cjs
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/fish --fish
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/humanoid --human
+      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/topology --topology
       - run: node tools/character-3d/gallery-smoke.cjs
       - uses: actions/upload-artifact@v4
         if: always()
@@ -159,6 +177,7 @@ jobs:
             test-results/full-rollout/fish
             test-results/full-rollout/humanoid
             test-results/full-rollout/gallery
+            test-results/full-rollout/topology
   dedicated:
     runs-on: ubuntu-latest
     timeout-minutes: 25
@@ -182,6 +201,7 @@ jobs:
           node tools/character-3d/rollout-remove-it.cjs > test-results/full-rollout/rollout-remove-it.txt
           node tools/character-3d/fish-remove-it.cjs > test-results/full-rollout/fish-remove-it.txt
           node tools/character-3d/humanoid-remove-it.cjs > test-results/full-rollout/humanoid-remove-it.txt
+          node tools/character-3d/plant-remove-it.cjs > test-results/full-rollout/plant-remove-it.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:

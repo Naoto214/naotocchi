@@ -571,6 +571,37 @@ export function plant(sp, key) {
   } else {
     const sh = sp.stem, hr = sp.head;
     rig.add('stem', 'root', [0, 0, 0], [solid(sweep([[0, 0, 0], [0.02, sh * 0.5, 0.01], [0, sh, 0.03]], (t) => 0.05 * (1 - t * 0.3), 7, { steps: 8 }), c.stem)]);
+    if (sp.form === 'bud' || sp.form === 'seedHead') {
+      const bud = sp.form === 'bud', height = bud ? sp.bud.height : hr * 2;
+      const depth = bud ? sp.bud.depth : sp.seedHead.depth;
+      const core = paint(blob((x,y,z)=>{
+        const taper = bud ? 1 - .42 * Math.max(0,y) : 1;
+        return [x*hr*taper,y*height*.5,z*depth*taper];
+      },24,16),(x,y,z,nx,ny,nz)=>mix(c.face,bud?c.petalDark:'#eadfcf',smooth(.4,-.8,nz)*.23));
+      const ornaments=[];
+      if (bud) {
+        for(let i=0;i<sp.bud.sepals;i++) {
+          const a=i/sp.bud.sepals*TAU;
+          const sepal=paint(blob((x,y,z)=>{
+            const t=(y+1)/2,w=Math.sin(Math.PI*t)*hr*.42;
+            return [x*w,-height*.47+t*height*.58,z*.028-depth*.62+Math.sin(Math.PI*t)*depth*.25];
+          },10,8),()=>c.leaf);
+          sepal.rotateY(a);ornaments.push(sepal);
+        }
+      } else {
+        // Rounded peripheral seed lobes, with depth continuing behind the face.
+        // One merged head draw; no needles or detached gameplay bodies.
+        for(let i=0;i<sp.seedHead.lobes;i++) {
+          const a=i/sp.seedHead.lobes*TAU,r=hr*.96;
+          const lobe=solid(ellipsoid(hr*.20,hr*.31,depth*.60,10,8),c.pappus);
+          lobe.rotateZ(-a);lobe.translate(Math.sin(a)*r,Math.cos(a)*r,-depth*.12);
+          ornaments.push(lobe);
+        }
+      }
+      const headY=sh+height*.43;
+      rig.add('head','stem',[0,headY,.03],[core.clone(),...ornaments]);
+      target=core;faceCenter=[0,-height*.04,depth*.97];half=hr*.65;faceBone='head';
+    } else {
     const disc = paint(blob((x, y, z) => [x * hr * 0.8, y * hr * 0.8, z * hr * 0.3 + (z > 0 ? 0 : -0.02)], 18, 12), (x, y, z, nx, ny, nz) => (nz < -0.3 ? c.leafDark : mix(c.face, c.petalDark, smooth(0.6, 1.0, Math.hypot(x, y) / hr) * 0.4)));
     const petals = [];
     for (let layer = 0; layer < 2; layer++) for (let i = 0; i < sp.petals / 2; i++) {
@@ -582,6 +613,7 @@ export function plant(sp, key) {
     rig.add('head', 'stem', [0, sh + hr * 0.62, 0.05], null, 'opaque', [-0.12, 0, 0]);
     rig.mesh('head', [disc.clone(), ...petals, calyx]);
     target = disc; faceCenter = [0, -hr * 0.02, hr * 0.28]; half = hr * 0.58; faceBone = 'head';
+    }
   }
   rig.meta = { idlePose: 'stand', hover: 0, form: sp.form };
   rig.faceSpec = { bone: faceBone, target, center: faceCenter, fwd: [0, 0, 1], half, eyeSize: 0.25,
