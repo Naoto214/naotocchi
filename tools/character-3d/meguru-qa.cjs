@@ -8,6 +8,7 @@ const pw = require('playwright');
 const { serve } = require('./shot.cjs');
 const ROOT = path.join(__dirname, '..', '..');
 const args = process.argv.slice(2);
+const {performanceMix,expectedTemplates,matchesComposition}=require('./performance-mix.cjs'),MIX=performanceMix(args);
 const opt = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : d; };
 const OUT = opt('--out', path.join(require('os').tmpdir(), 'c3d-meguru'));
 const SECONDS = Number(opt('--seconds', 8));
@@ -100,7 +101,7 @@ async function walk(page, seconds) {
 (async () => {
   const srv = await serve({second:args.includes('--second'),claude:args.includes('--claude'),previous:args.includes('--previous')}); const base = 'http://127.0.0.1:' + srv.address().port;
   const browser = await pw.chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
-  const R = { when: new Date().toISOString(), revision: args.includes('--second') ? 'quality2-31fe18f' : args.includes('--claude') ? 'claude-e12f720' : args.includes('--previous') ? 'quality1-8b19ecc' : 'quality3', sourceCommit: process.env.GITHUB_SHA || null, rolloutWave: args.includes('--rollout'), performanceMix:args.includes('--fish-mix')?'fish-family QA stand-ins':'fixed Pilot QA stand-ins', headless: 'chromium + SwiftShader(ソフトウェア GPU)', throttle: THROTTLE, shots: {}, checks: {}, perf: {} };
+  const R = { when: new Date().toISOString(), revision: args.includes('--second') ? 'quality2-31fe18f' : args.includes('--claude') ? 'claude-e12f720' : args.includes('--previous') ? 'quality1-8b19ecc' : 'quality3', sourceCommit: process.env.GITHUB_SHA || null, rolloutWave: args.includes('--rollout'), performanceMix:MIX.name, headless: 'chromium + SwiftShader(ソフトウェア GPU)', throttle: THROTTLE, shots: {}, checks: {}, perf: {} };
   const env = { time: 'day', weather: 'sunny', season: 'summer' };
   let prev = null;
   if (PERF_ONLY || SPECIES_ONLY) { try { prev = JSON.parse(fs.readFileSync(path.join(OUT, 'meguru-qa.json'), 'utf8')); Object.assign(R, { shots: prev.shots, checks: prev.checks, perSpecies: prev.perSpecies, errors: prev.errors }); } catch (_) { /* ない */ } }
@@ -199,15 +200,16 @@ async function walk(page, seconds) {
     const all = ['shiba', 'cat_friend', 'tanuki', 'penguin_friend', 'rabbit_friend', 'squirrel', 'owl', 'otter', 'hamster', 'panda', 'monkey', 'parrot', 'sheep', 'seal', 'bat', 'chicken', 'hedgehog', 'snail', 'punyu', 'sekizou', 'chameleon', 'clock', 'unicorn', 'many_tail_fox', 'watcher', 'box'];
     if (NO_PERF) { try { R.perf = JSON.parse(fs.readFileSync(path.join(OUT, 'meguru-qa.json'), 'utf8')).perf; } catch (_) { /* ない */ } }
     for (const n of (NO_PERF ? [] : args.includes('--puff-stress') ? [27] : [1, 5, 27])) {
-      const { save: sv } = makeSave({ line: args.includes('--puff-stress')?'dandelion':args.includes('--fish-mix')?'salmon':'dog', stageIndex: args.includes('--puff-stress')?7:args.includes('--fish-mix')?5:3, party: all.slice(0, n - 1), residents: false });
+      const { save: sv } = makeSave({ ...MIX.player, party: all.slice(0, n - 1), residents: false });
       for (const mode of (args.includes('--puff-stress') ? ['3d'] : ['2d', '3d'])) {
         const { page: pg, errors: er, load } = await open(browser, base, sv, '?meguru3d=1&perf=1' + (mode === '3d' ? '&char3d=1' : ''));
-        if (mode === '3d') await pg.evaluate((puffs) => { const ids = puffs ? ['dandelion:8'] : ['dog:4', 'penguin:8', 'clownfish:4', 'man:4', 'butterfly:8', 'dandelion:6', 'mushroom:8', 'starfish:4']; let i = 0; const memo = new WeakMap(); globalThis.__meguruRun.renderer.char3dHooks({ standIn: (a) => { if (!a.follow) return null; if (!memo.has(a)) { const [id, s] = ids[i++ % ids.length].split(':'); memo.set(a, { id, stage: Number(s), exact: false }); } return memo.get(a); } }); }, args.includes('--puff-stress')?'puffs':args.includes('--fish-mix')?'fish':'pilot');
+        if (mode === '3d') await pg.evaluate((ids) => { let i = 0; const memo = new WeakMap(); globalThis.__meguruRun.renderer.char3dHooks({ standIn: (a) => { if (!a.follow) return null; if (!memo.has(a)) { const [id, s] = ids[i++ % ids.length].split(':'); memo.set(a, { id, stage: Number(s), exact: false }); } return memo.get(a); } }); }, MIX.standIns);
         await pg.waitForTimeout(mode === '3d' ? 9000 : 1500);   // template を 1 frame 1 つ ずつ
         await pose(pg, { spot: 'entry', yaw: 0, env });
         if (n === 27) R.shots['perf27-' + mode] = await snap(pg, 'perf-27-' + mode);
         R.perf[n + '-' + mode] = await walk(pg, SECONDS);
         R.perf[n + '-' + mode].templatesByActor = await pg.evaluate(()=>{const r=globalThis.__meguruRun,p=r.renderer.char3dPresenter,out={};if(p)for(const a of [r.sim.player,...r.party]){const t=p.instanceOf(a)?.tpl;if(t){const k=t.id+':'+t.stage;out[k]=(out[k]||0)+1;}}return out;});
+        if(mode==='3d'){const row=R.perf[n+'-'+mode];row.expectedTemplates=expectedTemplates(MIX,n,require(path.join(ROOT,'character-3d/spec.js')),all);row.compositionMatches=matchesComposition(row.templatesByActor,row.expectedTemplates);}
         R.perf[n + '-' + mode].errors = er.length; R.perf[n + '-' + mode].load = load;
         await pg.context().close();
       }
@@ -228,7 +230,7 @@ async function walk(page, seconds) {
   for (const [id, v] of Object.entries(R.perSpecies || {})) must(v.player3d && v.specKey && v.specKey.exact && v.specKey.stage === v.requestedStage && !v.errors.some((e) => /pageerror|Error/.test(e)), 'player ' + id + ': spec が ある 段なら 3D・ない 段(未 pilot archetype)なら 2D');
   must(!(R.errors || []).some((e) => !/forced update failure \(QA\)/.test(e)), 'page の error なし: ' + (R.errors || []).join(' / '));
   if(args.includes('--puff-stress'))must(R.perf['27-3d']?.templatesByActor['dandelion:8']===25,'stress has 25 puffs plus two native companions');
-  if(!NO_PERF) for(const n of (args.includes('--puff-stress')?[27]:[1,5,27])) { const p=R.perf[n+'-3d']; must(p && p.char3d && p.char3d.live===n && p.errors===0, 'exact 3D actor count '+n); }
+  if(!NO_PERF) for(const n of (args.includes('--puff-stress')?[27]:[1,5,27])) { const p=R.perf[n+'-3d']; must(p && p.char3d && p.char3d.live===n && p.errors===0, 'exact 3D actor count '+n); must(p?.compositionMatches===true,'actual templates match intended '+MIX.name+' '+n); }
   R.verdict = fails.length ? { pass: false, fails } : { pass: true };
   fs.writeFileSync(path.join(OUT, 'meguru-qa.json'), JSON.stringify(R, null, 2));
   console.log('VERDICT', JSON.stringify(R.verdict));

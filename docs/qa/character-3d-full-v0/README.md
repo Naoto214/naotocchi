@@ -73,3 +73,7 @@ The local exec server became unavailable during evidence upload. All 99 four-vie
 - Local dedicated66 PASS/0FAIL; rollout7/7 RED and fish7/7 RED. A parr-band mutation initially survived because unrelated spots masked it; split assertions now detect both independently. Pilot28 geometry/pose hashes unchanged.
 - Full npm/Runtime/Home, all40 exact Meguru stages, fixed-Pilot1/5/27 and additional fish-family1/5/27 CI are pending on the promoted source. New results must not inherit source81's PASS. Interrupted local npm is not evidence.
 - All fish four-view body+face captures range recorded in fr1-fish/evidence.json. Schooling costs more than one fish and is included in the additional mixed-cast performance job. QA stand-ins are explicit; no full-native/iPhone claim.
+
+
+### Rejected performance run — source374e12d
+The fish-mix job37186931724 initially passed, but its template evidence contains dandelion08 stand-ins rather than the intended fish. Both new mix labels on that source are invalid due to QA boolean/string selection. Raw fish JSON is retained in `rejected/fish-mix-374e12d.json`; its embedded pass flag is the old insufficient verdict, **not accepted evidence**. An explicit setup/expected composition module and exact browser composition verdict replace that path. Corrected rerun is pending. This does not relabel the source81 baseline or change gameplay.

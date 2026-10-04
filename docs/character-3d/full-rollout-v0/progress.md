@@ -78,3 +78,8 @@ Local exec-server stopped accepting commands with `No such file or directory`. G
 - Runtime exact-template test first RED for missing salmon, then dedicated66 PASS. All40 promoted stages tested across canonical emotions, idle/walk and reduced motion; all faces in a school checked individually. Rollout7/7 and fish7/7 mutation RED.
 - Added separate fish-family1/5/27 QA mix to avoid presenting unchanged Pilot composition as new-family performance. Fish mix uses explicit QA stand-ins for unbuilt companion roles; not full-native or iPhone acceptance. CI normal-distance/all40stage integration and both performance mixes still pending.
 - Next after CI evidence: finish remaining existing Pilot stage gaps (human/plant/insect/fungus/radial), then new family responsibilities and relationship/author coverage according to plan. Continue ordinary authorized work; this is not the final Human QA stop.
+
+### Performance composition defect (QA only; results rejected)
+- Source374e12d fish-performance CI reported success, but raw templatesByActor proved that all unbuilt companion stand-ins were dandelion08 (a truthy string was passed to the old puff boolean selector). This also invalidates the fixed-Pilot composition results from this source. Do not use either as fish/fixed-Pilot performance.
+- Replaced boolean/string interpretation with an explicit QA composition module shared by setup and expected template counts. Added RED→GREEN dedicated test rejecting the exact mislabeled result; browser verdict now requires exact actual/expected template composition, not actor count alone. Re-measure both mixes before publishing numbers.
+- Original actor/game state and presentation code are unchanged by this QA fix.
