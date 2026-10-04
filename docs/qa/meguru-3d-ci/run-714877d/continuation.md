@@ -1,0 +1,15 @@
+# Continuation after garden repair browser QA
+
+Repo Naoto214/naotocchi, branch feat/meguru-3d-geometry-terrain-v1, PR374 Draft/open, base feat/meguru-3d-art-direction-v1. Fresh-check remote HEAD/tree/PR before every restart; newer remote is authority.
+
+This evidence covers product a41dd08, tested at QA commit714877d via run37181442283. Full2864+80PASS/0FAIL/exit0 with Node concurrency4; all4browser jobs succeeded. Compare.md contains all31World+4entrance matched pairs and20gallery pairs.13region smoke27companions,8corridor directions,2832visibility samples/hidden0/partial1. Step1000 and four yaws; ray-only. Raw logs/JSON/recipes/sourceSHA256 and checksums are retained.
+
+Home beds now remain atomic box+fiveflowers groups under road/obstacle/entrance clearance.14gardens/17beds, home garden parts160→171;2D/collision/world semantics unchanged13regions. Same-camera home triangles35082→35272/calls42 unchanged; other12regions unchanged descriptors, city/forest/jungle matched counts unchanged. Main roof head clearance remains protected.
+
+Images show complete bed groups but still narrow house silhouettes, partly obscured entrances under normal party sprites, and farmhouse veranda posts disconnected from a roof. The next bounded unit is farmhouse veranda support/canopy: replace central post with shallow gable, keep2outerposts and current deck footprint/mainroof/part count. Any later working-tree/code commit is NOT covered by this evidence; must receive its own checks and browser run. Continue house-ground-road integration, regionalcomposition, vegetationlayers, bridges/banks/props/city13region work using source-derived grammar; do not grow object count as primary solution.
+
+Existing GitHub workflow runs regression and fourbrowser lanes on relevant branch pushes; docs-only saves don't trigger it. Artifacts expire30days: save to repo before expiry. Local Chromium launch still blocked by AF_UNIX restriction; no local browser success claimed. Do not repeatedly rerun locally. Use the authorized Actions path. PRbody should point to this completed evidence and distinctly label subsequent QA pending until actual results are inspected.
+
+Preserve VQ2 ray2832/hidden0/partial1mountain, x/z party obstacleoverlap0.002591405357044607, staticfloat4/bury18/18validcrossings,17c1bdb full2858PASS1FAIL formation463ms vs<300ms and isolatedPASS/unconfirmedcause. New overlap~4.97e-14 does not erase previous observation. Garden-clusters local full log is incomplete;704faac recovered full2863+80PASS and dea2f17full2861+80PASS are separate historical results.
+
+No main import/merge, Ready, productionPages, save/schema, 2D/collision/terrain/crossingsemantic changes, Resident Expression or Character3D edits. Existing decorative placement is not foreverfrozen. No new3Dseason semantics. Human QA alone can approve iPhone ghosts/afterimages/playerdisappearance/stutter/p95/p99/>60ms/finalbeauty. No World/ArtDirectioncomplete or productionready judgment. User authorizes continued bounded visual work without fine-grained approvals; checkpoint before heavy work/context turnover.

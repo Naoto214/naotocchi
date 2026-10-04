@@ -1,5 +1,7 @@
 # Durable World QA execution
 
+Completed run: [714877d evidence and comparison](run-714877d/README.md). All five jobs completed successfully; full2864+80PASS/0FAIL/exit0 and browser raw evidence are saved there. This result covers product a41dd08 only.
+
 The product checkpoint is a41dd089c5f71809974b62b7c1ec8f7b213fad81. Its full regression was interrupted without exit metadata, and local AF_UNIX socket restrictions prevent Chromium launch. Existing workflows only target main, while PR374 targets feat/meguru-3d-art-direction-v1. This branch-only workflow provides a durable authorized execution environment for the existing QA runners. It does not deploy or change production.
 
 `world-visual-quality.yml` runs on relevant pushes to feat/meguru-3d-geometry-terrain-v1 only. Contents permission is read-only. Full regression uses the package.json pipeline with only Node test concurrency4. Independent browser jobs capture31World views plus4entrances and20gallery objects on both the current commit and pinned baseline1e2caad, smoke13regions with27companions, the historical4corridor pairs/eightdirections, and13region visibility at step1000/yaws0,1.2,-1.2,3.14. Playwright1.51.1 matches the previously installed QA version. Visibility now honors PLAYWRIGHT_CHROMIUM, consistent with the other runners. A missing ray probe throws an explicit error instead of silently counting an unprobed point; sampling locations, density, yaws and ray criteria are unchanged. This does not retroactively prove probe availability in historical runs.
