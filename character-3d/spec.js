@@ -108,7 +108,7 @@
     dandelion: { stages: [P, PL, PL, PL, PL, PL, PL, C], attachments: ['pappus(01,07-08)'] },
     sakura: { stages: [P, P, T, T, C, C, C, T], attachments: ['dirt(02)'] },
     venus_flytrap: { stages: [P, PL, PL, PL, PL, PL, PL, PL], attachments: ['traps(02-08)', 'flowers(08)'] },
-    mushroom: { stages: [C, TE, FU, FU, FU, FU, FU, FU], attachments: ['dirt(03-08)', 'spores(07)', 'child(08)'] },
+    mushroom: { stages: [C, FU, FU, FU, FU, FU, FU, FU], attachments: ['dirt(03-08)', 'spores(07)', 'child(08)'] },
     dragon: { stages: [Q, Q, Q, Q, Q, Q, Q, Q], attachments: ['horns(03-08)', 'wings(04-08)', 'fire(06)'] },
     phoenix: { stages: [A, A, A, A, A, A, A, CE], attachments: ['flame'] },
     god: { stages: [B, H, H, H, H, H, H, CE], attachments: ['halo', 'wings', 'staff'] },

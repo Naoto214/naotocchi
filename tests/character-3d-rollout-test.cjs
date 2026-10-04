@@ -116,3 +116,7 @@ test('reviewed dandelion batch has eight exact runtime stages including rooted s
 test('reviewed butterfly batch has all eight exact metamorphosis templates',async()=>{
  const rt=await import('../character-3d/runtime.mjs');for(let stage=1;stage<=8;stage++){assert.deepEqual(SPEC.specKeyFor({line:'butterfly',stage:stage-1}),{id:'butterfly',stage,exact:true});assert.equal(rt.getTemplate('butterfly',stage).status,'ok');}assert.equal(SPEC.ROLLOUT.butterfly.stages[4].hang,true);assert.ok(SPEC.ROLLOUT.butterfly.stages[6].emergence);
 });
+test('reviewed fungus and starfish batches preserve all16 exact topology stages in runtime',async()=>{
+ const rt=await import('../character-3d/runtime.mjs');for(const id of ['mushroom','starfish'])for(let stage=1;stage<=8;stage++){assert.deepEqual(SPEC.specKeyFor({line:id,stage:stage-1}),{id,stage,exact:true});assert.equal(rt.getTemplate(id,stage).status,'ok');}
+ assert.equal(SPEC.ROLLOUT.mushroom.stages[2].form,'mycelium');assert.ok(SPEC.ROLLOUT.mushroom.stages[7].sporeCluster);assert.ok(SPEC.ROLLOUT.starfish.stages[3].larvalAttachment);
+});

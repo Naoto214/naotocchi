@@ -36,5 +36,7 @@
   7:{...PILOT.starfish.stages[4],r:.71,armR:.22,thick:.17,curl:.23,normalEye:{left:'round',right:'squeeze'},colors:{base:'#ee6b80',light:'#f9a8a4',dark:'#ce455e',tip:'#ffe1be'}},
   2:{...PILOT.starfish.stages[1],h:1.05,r:.37,coreProfile:{center:[-.05,.53],radii:[.34,.24,.18],tilt:.28},face:{center:[-.12,.56,.6],half:.68},contour:[[-.32,1.02],[-.58,1],[-.60,.94],[-.52,.89],[-.72,.90],[-.88,.86],[-.92,.78],[-.78,.71],[-.64,.72],[-.60,.62],[-.70,.51],[-.75,.38],[-.62,.28],[-.56,.15],[-.37,.13],[-.20,.20],[.22,.05],[.82,-.05],[1.08,0],[1.05,.10],[.70,.30],[.50,.42],[.78,.43],[.83,.52],[.63,.61],[.47,.63],[.32,.72],[.12,.84],[.32,.88],[.33,.96],[.20,1],[.08,.96],[-.10,.90],[-.16,.99]]},
   3:{...PILOT.starfish.stages[4],r:.50,armR:.28,thick:.21,curl:.08,colors:{base:'#f7c578',light:'#ffe3a2',dark:'#ed7098'},larvalAttachment:{spec:{...PILOT.starfish.stages[1],h:.65,r:.28},at:[-.16,.11,-.12],scale:.85,roll:.22}}
+ }},turtle:{why:'Original05 high olive scuted dome, small forward head and four short splayed feet; no mammalian ears or nose.',stages:{
+  5:{archetype:'quadruped',idlePose:'stand',body:{len:.85,r:.30,hip:1,chest:1},neck:.06,head:{r:.27,squash:.96,width:1.05,flatFace:true},ears:{type:'none'},legs:{len:.12,r:.105,splay:.15},tail:{type:'short',len:.18,r:.035},shell:{width:.47,length:.55,height:.45,cell:.30},colors:{base:'#a2bc55',belly:'#d7d98e',muzzle:'#bfd17d',paw:'#a0b454',ear:'#a2bc55',nose:'#879b42',shell:'#73872d',seam:'#465820',scute:'#acb052'}}
  }}};
 });

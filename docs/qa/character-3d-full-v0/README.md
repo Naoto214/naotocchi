@@ -5,7 +5,7 @@ This is a wave checkpoint, **not the completed Full Rollout Human QA package**.
 ## Current review surfaces
 
 - `character-3d/full-gallery.html`: master inventory, exact/pending status, paged lazy original/four-view records. Species, kind, archetype and stage filters. Full emotion/motion evidence filters remain pending.
-- `character-3d/gallery.html`: live reviewed Pilot + dog/cat/penguin/salmon/clownfish/man/woman/ren/dandelion/butterfly exact stages, canonical expressions and motion.
+- `character-3d/gallery.html`: live reviewed Pilot + dog/cat/penguin/salmon/clownfish/man/woman/ren/dandelion/butterfly/mushroom/starfish exact stages, canonical expressions and motion.
 - `fr1/dog-stages.jpg`, `fr1/cat-stages.jpg`, `fr1/penguin-stages.jpg`: original + front / 3/4 / side / back, all eight stages. Originals are alpha-trimmed for comparable art footprints; PNGs themselves are unchanged.
 - `fr1/evidence.json`: immutable renderer source `81b04e0758bca7018f39607bbcc8fb9cb8b280f9`, 96 views, triangles/draw calls. Three sheets plus 96 views = 99 saved images.
 
@@ -13,7 +13,7 @@ This is a wave checkpoint, **not the completed Full Rollout Human QA package**.
 
 Fresh master: 31 player species / 248 stages, 26 companions, 18 partners, author 1 = 293 active designs. Supplemental Home eggs (3) and retired kinoko (1) remain inventoried, not revived as gameplay actors.
 
-Current exact specs: **88/293** (86 player stages and 2 companions); **205 pending**. Added60 exact stages: dog +5, penguin +5, player cat +8, salmon +8, clownfish +5, man +5, woman +8, ren +8, dandelion +4, butterfly +4. Reused quadruped/avian/fish/humanoid/plant/larva/pod/winged_insect, no new archetype.80 current four-view records; historical Pilot images remain in the Pilot QA packages. `coverage.json` distinguishes spec availability from saved visual evidence.
+Current exact specs: **98/293** (96 player stages and 2 companions); **195 pending**. Added70 exact stages: dog +5, penguin +5, player cat +8, salmon +8, clownfish +5, man +5, woman +8, ren +8, dandelion +4, butterfly +4, mushroom +5, starfish +5. Reused quadruped/avian/fish/humanoid/plant/larva/pod/winged_insect, no new archetype.96 current four-view records; historical Pilot images remain in the Pilot QA packages. `coverage.json` distinguishes spec availability from saved visual evidence.
 
 ## What changed in this batch
 
@@ -130,3 +130,11 @@ Known visual candidates: mature age impression, woman06 hair softness, held plus
 - `fr1-topology/d8e3b76/butterfly/` contains the current all8 butterfly32views and original comparison. Raw normal-distance8 exact/live/fallback0 +16World images saved alongside. Added4 exact stages; runtime88/293,80saved four-view records. Next promoted80-stage aggregate is pending.
 - Fungus02/03/06 historical images in the same source folder exposed cap-face/underside issues, now fixed for recapture. Starfish02/03 representatives are unpromoted and image/distance QA pending. No increase in coverage for those candidates.
 - Local dedicated104PASS/0FAIL; rollout12RED, fungus8RED, starfish4RED; Pilot28 numerical geometry/pose hashes identical. Source203 Runtime/Home/Character allSUCCESS. Latest source CI remains separate.
+
+## Latest topology promotion / shell representative
+
+- Mushroom/starfish all16 original/four-view/ordinary-distance gate at source3ce6f6e; exact/live/fallback0 for every requested stage. Saved evidence `fr1-topology/3ce6f6e/`; all10 non-Pilot stages now promoted,96-stage promoted matrix pending on next CI source.
+- Shared branching fungus/cap profiles/crown/spore subrig, asymmetric larval core/composite remnant and radial markings preserve existing emotion/motion ownership. Pilot28 numerical geometry/pose unchanged.
+- Turtle05 is unpromoted, with optional scuted shell/earless flat face/splayed quadruped feet; dedicated and mutations pass but close/distance captures pending. Source analysis includes all16 turtle/frog originals; frog has no implementation yet.
+- Image outliers: mycelial softness/flatness, mushroom cap/underside and face proportions, golden starfish arm sharpness, existing squeeze-eye direction and neutral mouth versus original. Not final Human A/B/C/D classification.
+- Latest full npm/Runtime/Home/96-stage aggregate, full293 role/cache/performance/gallery package and actual iPhone remain incomplete; do not infer them from dedicated tests or earlier-source CI.

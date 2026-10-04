@@ -54,19 +54,31 @@ export function quadruped(sp, key) {
   const parts = [body, neck];
   if (sp.fluff === 'chest' || sp.coat) parts.push(paint(blob((x, y, z) => { const n = 1 + 0.18 * Math.max(0, noise3(x * 4, y * 4, z * 4) - 0.4); return [x * B.r * (sp.coat?.width || .62) * n, y * B.r * (sp.coat?.height || .62) * n, z * B.r * (sp.coat?.depth || .5) * n + B.len * 0.42]; }, 12, 10), () => c.belly));
   rig.add('body', 'root', [0, bodyY, 0], parts);
+  if(sp.shell){
+    const sh=sp.shell;
+    const dome=paint(blob((x,y,z)=>[x*sh.width,y*(y>0?sh.height:.07),z*sh.length],32,20),(x,y,z,nx,ny)=>{
+      if(y<.012)return c.belly;
+      const u=x/sh.width,v=z/sh.length,cell=sh.cell||.3;let first=Infinity,second=Infinity;
+      const row=Math.round(v/(cell*1.5)),col=Math.round(u/(cell*Math.sqrt(3)));
+      for(let j=row-2;j<=row+2;j++)for(let i=col-2;i<=col+2;i++){const dx=u-(i+(Math.abs(j)%2)*.5)*cell*Math.sqrt(3),dz=v-j*cell*1.5,d=dx*dx+dz*dz;if(d<first){second=first;first=d;}else if(d<second)second=d;}
+      return mix(c.seam,mix(c.shell,c.scute,Math.max(0,1-first/(cell*cell))*.5),smooth(.002,.027,second-first));
+    });
+    rig.add('shell','body',[0,.02,-.025],[dome]);
+  }
   // 頭
   const hr = Hd.r;
   const headCol = (x, y, z, nx, ny, nz) => { const p = sp.patchMap ? regionPaint(sp.patchMap.head,x/Hd.r,y/Hd.r,z/Hd.r) : patch(x * 2, y * 2, z * 2 + 3); if (p && (sp.patchMap || y>0)) return p; const muz = smooth(0.0, 0.5, nz) * smooth((sp.markings === 'urajiro' ? 0.36 : 0.12) * hr, -0.25 * hr, y); return mix(c.base, c.muzzle, muz * (sp.fluff ? 1 : 0.85)); };
   const skull = paint(blob((x, y, z) => { const ch = y < 0 ? 1 + (Hd.cheek || 0.1) * -y : 1; return [x * hr * (Hd.width || 1.04) * ch, y * hr * Hd.squash, z * hr * 0.95]; }, 18, 12), headCol);
-  const snout = paint(xform(blob((x, y, z) => [x * Hd.snoutR * 1.2, y * Hd.snoutR * 0.85, z * (Hd.snout * 0.5 + Hd.snoutR * 0.55)], 12, 8), { pos: [0, -hr * 0.3, hr * 0.62 + Hd.snout * 0.35] }), () => c.muzzle);
-  const nose = solid(xform(ellipsoid(Hd.snoutR * 0.42, Hd.snoutR * 0.3, Hd.snoutR * 0.26, 8, 6), { pos: [0, -hr * 0.3 + Hd.snoutR * 0.55, hr * 0.62 + Hd.snout * 0.35 + Hd.snout * 0.5 + Hd.snoutR * 0.4] }), c.nose);
-  const headGeo = merge([skull, snout, nose]);
+  const snout = Hd.flatFace ? null : paint(xform(blob((x, y, z) => [x * Hd.snoutR * 1.2, y * Hd.snoutR * 0.85, z * (Hd.snout * 0.5 + Hd.snoutR * 0.55)], 12, 8), { pos: [0, -hr * 0.3, hr * 0.62 + Hd.snout * 0.35] }), () => c.muzzle);
+  const nose = Hd.flatFace ? null : solid(xform(ellipsoid(Hd.snoutR * 0.42, Hd.snoutR * 0.3, Hd.snoutR * 0.26, 8, 6), { pos: [0, -hr * 0.3 + Hd.snoutR * 0.55, hr * 0.62 + Hd.snout * 0.35 + Hd.snout * 0.5 + Hd.snoutR * 0.4] }), c.nose);
+  const headGeo = merge(Hd.flatFace ? [skull] : [skull, snout, nose]);
   const headPos = [0, B.r * 0.55 + sp.neck, B.len / 2 + hr * 0.25];
   rig.add('head', 'body', headPos, null);
   rig.mesh('head', [headGeo.clone()]);
   // 耳
   for (const s of [-1, 1]) {
     const E = {...sp.ears, ...sp.ears.sides?.[s < 0 ? "left" : "right"]};
+    if(E.type==='none'){rig.add(s<0?'earL':'earR','head',[s*hr*.6,hr*.55,-hr*.08],null);continue;}
     let g;
     if (E.type === 'floppy') g = paint(blob((x, y, z) => { const t = (1 - y) / 2; return [x * E.w * (0.55 + 0.6 * Math.sin(Math.PI * Math.min(1, t * 1.1))), -t * E.len, z * 0.06 + 0.02]; }, 10, 8), () => c.ear);
     else g = paint(blob((x, y, z) => { const t = (y + 1) / 2; return [x * E.w * (1 - t) * 0.95, t * E.len, z * 0.07 * (1 - t * 0.6)]; }, 10, 8), (x, y, z, nx, ny, nz) => (nz > 0.3 ? mix(c.ear, '#f0b0a0', 0.35) : c.base));
@@ -76,8 +88,8 @@ export function quadruped(sp, key) {
   const legTop = bodyY - B.r * 0.25;
   for (const [nm, x, z] of [['legFL', -1, 1], ['legFR', 1, 1], ['legBL', -1, -1], ['legBR', 1, -1]]) {
     const L = legTop, pr = Lg.r * 1.05;
-    const leg = paint(sweep([[0, 0, 0], [0, -L * 0.5, (z < 0 ? -0.02 : 0.01)], [0, -L + pr * 0.8, 0.0]], (t) => Lg.r * lerp(z < 0 ? 1.45 : 1.25, 0.85, t), 8, { steps: 8 }), (px, py, pz, nx, ny) => (py < -L * 0.75 ? c.paw : sp.patches && z < 0 ? c.patch2 || c.base : c.base));
-    const paw = solid(xform(ellipsoid(pr, pr * 0.62, pr * 1.3, 10, 6), { pos: [0, -L + pr * 0.6, pr * 0.35] }), c.paw);
+    const leg = paint(sweep([[0, 0, 0], [x*(Lg.splay||0)*.7, -L * 0.5, (z < 0 ? -0.02 : 0.01)], [x*(Lg.splay||0), -L + pr * 0.8, 0.0]], (t) => Lg.r * lerp(z < 0 ? 1.45 : 1.25, 0.85, t), 8, { steps: 8 }), (px, py, pz, nx, ny) => (py < -L * 0.75 ? c.paw : sp.patches && z < 0 ? c.patch2 || c.base : c.base));
+    const paw = solid(xform(ellipsoid(pr, pr * 0.62, pr * 1.3, 10, 6), { pos: [x*(Lg.splay||0), -L + pr * 0.6, pr * 0.35] }), c.paw);
     rig.add(nm, 'body', [x * B.r * 0.52, -B.r * 0.25, z * B.len * 0.33], [leg, paw]);
   }
   // しっぽ

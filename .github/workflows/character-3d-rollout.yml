@@ -101,7 +101,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        line: [mushroom, starfish]
+        line: [turtle]
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -212,6 +212,7 @@ jobs:
           node tools/character-3d/emergence-remove-it.cjs > test-results/full-rollout/emergence-remove-it.txt
           node tools/character-3d/fungus-remove-it.cjs > test-results/full-rollout/fungus-remove-it.txt
           node tools/character-3d/starfish-remove-it.cjs > test-results/full-rollout/starfish-remove-it.txt
+          node tools/character-3d/shell-remove-it.cjs > test-results/full-rollout/shell-remove-it.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:

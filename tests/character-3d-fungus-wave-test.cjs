@@ -20,7 +20,7 @@ test('mycelium young cap and upturned cap candidates retain source face placemen
  const row=require('../character-3d/topology-spec.js')(SPEC.PILOT).mushroom;assert.ok(row,'explicit representative candidates');
  const {fungus}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
  for(const [s,bone]of [[2,'body'],[3,'cap'],[6,'body']]){const r=fungus(row.stages[s],'mushroom:'+s);assert.equal(r.faceSpec.bone,bone);r.faces=[attachFace(r,r.faceSpec,'C')];assert.equal(r.faces[0].eyes.length,2);for(const p of r.parts)assert.ok([...p.mesh.geometry.attributes.position.array].every(Number.isFinite));for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'mushroom:'+s});setEmotion(a,em);for(let n=0;n<10;n++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces[0].emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.scale.toArray(),b.rotation.x,b.rotation.y,b.rotation.z].every(Number.isFinite));}}
- assert.equal(SPEC.ROLLOUT.mushroom,undefined,'representatives require image/distance review');
+ assert.deepEqual(SPEC.ROLLOUT.mushroom.stages,require('../character-3d/topology-spec.js')(SPEC.PILOT).mushroom.stages);
 });
 test('young cap face is above the lower rim and upturned underside keeps pale gills',async()=>{
  const {fungus}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs');const rows=require('../character-3d/topology-spec.js')(SPEC.PILOT).mushroom.stages;
@@ -35,12 +35,12 @@ test('leaning fungus keeps spore faces and bounded secondary bob under its own a
  const p=fungus({...sp,sporeCluster:undefined},'plain');p.faces=[attachFace(p,p.faceSpec,'C')];const b=instantiate({rig:p,key:'plain'});setEmotion(b,'tired');animate(b,{dt:.1,moving:true,animLv:2});assert.equal(a.root.position.y,b.root.position.y,'no second root hop');
  const reduced=instantiate({rig:r,key:'reduced'});animate(reduced,{dt:.1,moving:false,animLv:0});assert.equal(reduced.bones['spores:u0'].position.y,rest);
 });
-test('spore-release stage keeps source lean, secondary faces and finite canonical motion as an unpromoted candidate',async()=>{
+test('spore-release stage keeps source lean, secondary faces and finite canonical motion as a reviewed stage',async()=>{
  const sp=require('../character-3d/topology-spec.js')(SPEC.PILOT).mushroom.stages[7];assert.ok(sp,'explicit original-derived release stage');
  const {fungus}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
  const r=fungus(sp,'mushroom:7');assert.equal(r.faceSpec.length,4);assert.ok(r.bones.body.rotation.z>.1);r.faces=r.faceSpec.map(f=>attachFace(r,f,'C'));
  for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'mushroom:7'});setEmotion(a,em);for(let n=0;n<10;n++)animate(a,{dt:.05,moving,animLv});for(const f of a.faces)assert.equal(f.emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.scale.toArray()].every(Number.isFinite));}
- assert.equal(SPEC.ROLLOUT.mushroom,undefined);
+ assert.deepEqual(SPEC.ROLLOUT.mushroom.stages,require('../character-3d/topology-spec.js')(SPEC.PILOT).mushroom.stages);
 });
 test('mature red cap keeps original raised crown inside upturned rim rather than an empty bowl',async()=>{
  const {fungus}=await import('../character-3d/archetypes.mjs'),sp=require('../character-3d/topology-spec.js')(SPEC.PILOT).mushroom.stages[6],r=fungus(sp,'crowned-cap'),p=r.parts.find(x=>x.bone==='cap').mesh.geometry.attributes.position;
@@ -50,7 +50,7 @@ test('all fungus stages preserve Pilot and separate red dome, open rim and leani
  const rows=require('../character-3d/topology-spec.js')(SPEC.PILOT).mushroom.stages;assert.deepEqual(Object.keys(rows).map(Number).sort((a,b)=>a-b),[1,2,3,4,5,6,7,8]);for(const s of [1,4,8])assert.equal(rows[s],SPEC.PILOT.mushroom.stages[s]);
  const {fungus}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
  const r=fungus(rows[5],'mushroom:5');assert.equal(r.faceSpec.bone,'body');assert.equal(r.bones.child,undefined);r.faces=[attachFace(r,r.faceSpec,'C')];assert.equal(r.faces[0].eyes.length,2);for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'mushroom:5'});setEmotion(a,em);for(let n=0;n<10;n++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces[0].emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.scale.toArray()].every(Number.isFinite));}
- assert.ok(rows[5].cap.h/rows[5].cap.r>rows[6].cap.h/rows[6].cap.r,'young red dome is taller than opened rim');assert.equal(SPEC.ROLLOUT.mushroom,undefined);
+ assert.ok(rows[5].cap.h/rows[5].cap.r>rows[6].cap.h/rows[6].cap.r,'young red dome is taller than opened rim');assert.deepEqual(SPEC.ROLLOUT.mushroom.stages,require('../character-3d/topology-spec.js')(SPEC.PILOT).mushroom.stages);
 });
 test('released spore cluster follows original rising path instead of symmetric horizontal grouping',async()=>{
  const {fungus}=await import('../character-3d/archetypes.mjs'),sp=require('../character-3d/topology-spec.js')(SPEC.PILOT).mushroom.stages[7],r=fungus(sp,'release-path');const p=[0,1,2].map(i=>r.bones['spores:u'+i].position);assert.ok(p[1].y>p[0].y+.2&&p[2].y>p[1].y+.2,'ascending separate units');const width=Math.max(...p.map(v=>v.x))-Math.min(...p.map(v=>v.x));assert.ok(p[2].y-p[0].y>width*2,'vertical source gesture');
