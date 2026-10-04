@@ -61,5 +61,5 @@ Separate animation CPU and isolated first-appearance hitch are **not measured ye
 
 ## Executor recovery
 
-[RECOVERY_PENDING]
+[RECOVERY_COMPLETE: all 61 World JPEGs and raw performance JSON saved from verified CI artifact]
 The local exec server became unavailable during evidence upload. All 99 four-view/sheet images and the verified source are saved. CI recovery is copying the remaining World images and raw performance JSON from artifact 11296655081 into this Draft branch only. The implementation remains 46/293 exact specs; full rollout is unfinished.

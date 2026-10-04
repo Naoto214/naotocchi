@@ -50,5 +50,5 @@ Local dedicated now 61 PASS / 0 FAIL including every candidate × eight canonica
 
 ## Execution environment interruption
 
-[RECOVERY_PENDING]
+[RECOVERY_COMPLETE: all 61 World JPEGs and raw performance JSON saved from verified CI artifact]
 Local exec-server stopped accepting commands with `No such file or directory`. GitHub remained available. Dedicated source 81b04e0 and all CI checks are complete. Recovery workflow saves all verified World evidence to this Draft branch; it does not change models, main, #372, or adoption status. Resume ordinary FR-1 fish/existing-family work from fresh remote after a working executor is available. Full v0 is not complete; this is an infrastructure checkpoint, not the final Human QA stop.

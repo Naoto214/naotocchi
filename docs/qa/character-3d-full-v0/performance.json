@@ -1,6 +1,14 @@
 {
+  "when": "2026-10-04T06:46:38.498Z",
+  "revision": "quality3",
   "sourceCommit": "81b04e0758bca7018f39607bbcc8fb9cb8b280f9",
-  "provenance": "Extracted emitted performance JSON from successful CI job 111379588353; complete raw JSON in artifact 11296655081.",
+  "rolloutWave": false,
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {
+    "perf27-2d": "test-results/full-rollout/performance/perf-27-2d.png",
+    "perf27-3d": "test-results/full-rollout/performance/perf-27-3d.png"
+  },
   "checks": {},
   "perf": {
     "1-2d": {
@@ -216,5 +224,8 @@
         "longTasks": 6
       }
     }
+  },
+  "verdict": {
+    "pass": true
   }
 }
