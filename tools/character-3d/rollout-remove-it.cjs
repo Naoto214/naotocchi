@@ -4,6 +4,8 @@ const root=path.resolve(__dirname,'../..'),test='tests/character-3d-rollout-test
 const cases=[
  ['exact age','character-3d/rollout-spec.js','return {dog,cat,penguin};','delete dog.stages[2]; return {dog,cat,penguin};','FR-1 exact'],
  ['signature paw','character-3d/animate.mjs','if (lifted && B[lifted])','if (false && B[lifted])','signature lifted'],
+ ['stretch play','character-3d/animate.mjs',"pose === 'stretchPlay'","pose === 'removedStretch'",'signature lifted'],
+ ['runtime exact dispatch','character-3d/spec.js','if (Object.hasOwn(ROLLOUT,id)) return ROLLOUT[id].stages[n] ? {id,stage:n,exact:true} : null;','if (Object.hasOwn(ROLLOUT,id)) return null;','reviewed exact stages'],
  ['ear asymmetry','character-3d/archetypes.mjs','...sp.ears.sides?.[s < 0 ? "left" : "right"]','...{}','asymmetric ears'],
  ['both wings','character-3d/archetypes.mjs',"sp.wingPose?.[s < 0 ? 'left' : 'right'] ??",'', 'asymmetric ears'],
  ['wrapped tail','character-3d/archetypes.mjs','wrap: [[0,0,0],[-tl*.32,-tr,-tl*.12],[-B.r*1.08,-B.r*.55,tl*.30],[-B.r*.92,-B.r*.62,tl*.68],[-B.r*.30,-B.r*.64,tl*.82],[B.r*.30,-B.r*.61,tl*.78]]','wrap: [[0,0,0],[0,0,-tl]]','FR-1 exact'],

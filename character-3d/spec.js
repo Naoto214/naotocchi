@@ -9,12 +9,13 @@
 // ・トポロジーが ほんとうに かわる 段(いもむし → さなぎ → ちょう など)だけ archetype を かえる(mesh variant)
 // ・表情は 新しい 3D 専用の 体系を つくらない。canonical emotion(#368 Resident Expression と おなじ 8 語)を
 //   そのまま うけて、3D の 顔 / からだ の 数字へ かえる adapter だけ ここに おく
-// ・pilot。Human QA の まえに 全 species へ ひろげない(docs/character-3d/architecture.md)
+// ・Pilot Human QA 承認後の Full Rollout v0。確認済み family から展開。Draft / main merge gate は維持。
 (function (root, factory) {
-  const api = factory();
+  const rollout = typeof module === 'object' && module.exports ? require('./rollout-spec.js') : root.NaotocchiCharacter3DRollout;
+  const api = factory(rollout);
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (root) root.NaotocchiCharacter3DSpec = api;
-})(typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : null), function () {
+})(typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : null), function (createRollout) {
   'use strict';
   const freeze = (o) => { if (o && typeof o === 'object' && !Object.isFrozen(o)) { Object.freeze(o); for (const v of Object.values(o)) freeze(v); } return o; };
 
@@ -246,6 +247,9 @@
   });
 
   const STAGE_KEYS = freeze(Object.fromEntries(Object.entries(PILOT).map(([id, p]) => [id, Object.keys(p.stages).map(Number)])));
+  // Only visually reviewed family waves are included here. Pilot remains an immutable reference.
+  const ROLLOUT = freeze(typeof createRollout === 'function' ? createRollout(PILOT, ARCHETYPE_REUSE) : {});
+  const ROLLOUT_STAGE_KEYS = freeze(Object.fromEntries(Object.entries(ROLLOUT).map(([id,p])=>[id,Object.keys(p.stages).map(Number)])));
   // 1〜8 の どの 段も、pilot で つくった いちばん ちかい 段(おなじ archetype の なかで)へ。ない ときは null(→ 2D)
   function pilotStageFor(id, stage) {
     const p = PILOT[id];
@@ -261,14 +265,17 @@
   //   stage: めぐるの form は 0 はじまり(0〜7)。ここでは 1〜8
   function specKeyFor(ref) {
     if (!ref) return null;
-    if (ref.kind === 'companion' || ref.kind === 'partner') return Object.hasOwn(ARCHETYPE_REUSE, ref.id) ? { id: ref.id, stage: 0, exact: true } : null;
+    if (ref.kind && ref.kind !== 'form') return Object.hasOwn(ARCHETYPE_REUSE, ref.id) && ARCHETYPE_REUSE[ref.id].kind === ref.kind ? { id: ref.id, stage: 0, exact: true } : null;
     const id = ref.line || ref.id, n = ref.stage != null ? Number(ref.stage) + (ref.zeroBased === false ? 0 : 1) : null;
+    if (!Number.isInteger(n) || n < 1 || n > 8) return null;
+    if (Object.hasOwn(ROLLOUT,id)) return ROLLOUT[id].stages[n] ? {id,stage:n,exact:true} : null;
     if (!Object.hasOwn(PILOT, id) || !Number.isInteger(n) || n < 1 || n > 8) return null;
     const s = pilotStageFor(id, n);
     return s == null ? null : { id, stage: s, exact: s === n };
   }
   function stageSpec(id, stage) {
     if (Object.hasOwn(ARCHETYPE_REUSE, id)) return ARCHETYPE_REUSE[id];
+    if (Object.hasOwn(ROLLOUT,id)) return ROLLOUT[id].stages[stage] || null;
     const p = PILOT[id];
     return p && p.stages[stage] ? p.stages[stage] : null;
   }
@@ -283,6 +290,6 @@
     CANONICAL_EMOTIONS, PILOT_EMOTIONS, REFERENCE_EXPRESSION, PRE368_LIFE_EMOTION, canonicalEmotion,
     EXPRESSION_3D, expressionParams,
     ARCHETYPES, PLAYER_LINES, COMPANIONS, PARTNERS, AUTHOR, inventory, archetypeCoverage,
-    PILOT, ARCHETYPE_REUSE, STAGE_KEYS, pilotStageFor, specKeyFor, stageSpec, referenceAsset,
+    PILOT, ARCHETYPE_REUSE, STAGE_KEYS, ROLLOUT, ROLLOUT_STAGE_KEYS, pilotStageFor, specKeyFor, stageSpec, referenceAsset,
   });
 });

@@ -21,7 +21,7 @@ test('FR-1 exact quadruped/avian stages build without substituting a neighbourin
   }
   assert.equal(rows.dog.stages[3].poseProfile.pawLift, 'legFL');
   assert.equal(rows.cat.stages[3].poseProfile.pawLift, 'legFL');
-  assert.equal(rows.cat.stages[4].idlePose, 'playBow');
+  assert.equal(rows.cat.stages[4].idlePose, 'stretchPlay');
   assert.equal(rows.cat.stages[8].idlePose, 'lie');
   assert.equal(rows.penguin.stages[3].raisedWing, true);
   assert.equal(rows.penguin.stages[5].fluff, 0);
@@ -44,6 +44,10 @@ test('signature lifted paw stays readable with reduced motion and releases into 
     for(let n=0;n<30;n++) animate(instance,{dt:1/30,moving:true,animLv:0});
     assert.ok(Math.abs(instance.bones.legFL.rotation.x) < .4, 'signature pose releases for locomotion');
   }
+  const rig = quadruped(rows.cat.stages[4],'cat:4');rig.faces=[attachFace(rig,rig.faceSpec,'B')];
+  const playful=instantiate({rig,key:'cat:4'});animate(playful,{dt:0,animLv:0});
+  assert.ok(playful.bones.legFL.rotation.x < -.8 && playful.bones.legBL.rotation.x > .5,'extended play has opposing front/rear legs');
+  assert.ok(Math.abs(playful.bones.body.rotation.x)<.1,'cat plays with a stretched level torso, not a canine bow');
 });
 
 test('every candidate preserves canonical expression and finite idle/walk under reduced motion', async () => {
@@ -80,4 +84,26 @@ test('asymmetric ears and bilateral raised wings keep the original signature sil
   assert.ok(ears[1].min.y < -.2, 'other ear folds down');
   const bird = avian(rows.penguin.stages[3],'penguin:3');
   assert.ok(bird.bones.wingL.rotation.z < -1.5 && bird.bones.wingR.rotation.z > 1.5,'both raised flippers');
+});
+
+test('reviewed exact stages reach the real presenter without role aliases or nearest-age substitution', async () => {
+  const rt = await import('../character-3d/runtime.mjs');
+  const {THREE} = await import('../character-3d/geometry.mjs');
+  const presenter = rt.createCharacterPresenter({scene:new THREE.Scene(),buildBudget:30});
+  presenter.beginFrame(0);
+  for (const id of ['dog','cat','penguin']) for(let stage=1;stage<=8;stage++) {
+    const key = SPEC.specKeyFor({line:id,stage:stage-1});
+    assert.deepEqual(key,{id,stage,exact:true});
+    const template = rt.getTemplate(id,stage);
+    assert.equal(template.status,'ok',id+'/'+stage);
+    assert.equal(rt.getTemplate(id,stage),template,'template reuse');
+    const actor=Object.freeze({x:0,z:0,heading:0});
+    assert.equal(presenter.present(actor,{specKey:key,emotion:'normal',dt:1/60,isPlayer:id==='cat'}),true);
+  }
+  presenter.endFrame();assert.equal(presenter.stats().live,24);assert.equal(presenter.stats().fallbacks,0);
+  assert.equal(SPEC.specKeyFor({kind:'partner',id:'cat_friend'}),null,'a companion cannot be presented as a partner');
+  assert.equal(SPEC.specKeyFor({kind:'companion',id:'cat'}),null,'player cat is not cat_friend');
+  for(const stage of [-1,8,NaN,.5])assert.equal(SPEC.specKeyFor({line:'cat',stage}),null);
+  presenter.setScene(new THREE.Scene());assert.equal(presenter.stats().live,0);
+  presenter.dispose();
 });

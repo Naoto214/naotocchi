@@ -47,7 +47,7 @@
   cat.stages[1] = extend(catBase,{idlePose:'lie',body:{len:.70,r:.30,chest:.97,hip:1.1},head:{r:.34,squash:.86},legs:{len:.20,r:.078},neck:.045,ears:{len:.24,w:.24},tail:{type:'wrap',len:.86,r:.10},normalEye:'happy'});
   cat.stages[2] = extend(catBase,{idlePose:'sit',body:{len:.77,r:.29,chest:1.0,hip:1.12},head:{r:.41,squash:.97,eyeSize:.30},legs:{len:.29,r:.09},neck:.08,ears:{len:.40,w:.31},tail:{type:'hook',len:.58,r:.075}});
   cat.stages[3] = extend(catBase,{body:{len:.91,r:.28},head:{r:.39,squash:.95},legs:{len:.34,r:.08},neck:.10,tail:{type:'hook',len:.71,r:.072},poseProfile:{pawLift:'legFL',pawLiftAngle:-1.0}});
-  cat.stages[4] = extend(catBase,{idlePose:'playBow',body:{len:1.23,r:.245,chest:.92,hip:1.08},head:{r:.34,squash:.91},legs:{len:.45,r:.07},tail:{type:'hook',len:.78,r:.07},poseProfile:{bow:.32},normalEye:'happy'});
+  cat.stages[4] = extend(catBase,{idlePose:'stretchPlay',body:{len:1.23,r:.245,chest:.92,hip:1.08},head:{r:.34,squash:.91},legs:{len:.45,r:.07},tail:{type:'hook',len:.78,r:.07},poseProfile:{stretch:.95},normalEye:'happy'});
   cat.stages[5] = copy(catBase);
   cat.stages[6] = extend(catBase,{idlePose:'sit',body:{len:1.03,r:.33,chest:1.09,hip:1.11},head:{r:.39,squash:.97},legs:{len:.40,r:.09},tail:{type:'hook',len:.76,r:.085}});
   cat.stages[7] = extend(catBase,{idlePose:'sit',body:{len:1.04,r:.34,chest:1.08,hip:1.16},head:{r:.38,squash:.93,eyeSize:.28},legs:{len:.37,r:.095},tail:{type:'long',len:.76,r:.09},normalEye:'droop',colors:{base:'#817b86',muzzle:'#ddd6de',paw:'#cfc7d1'}});

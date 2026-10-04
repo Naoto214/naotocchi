@@ -58,6 +58,12 @@ const LOCO = {
       for (const n of ['legFL', 'legFR']) B[n].rotation.x += -1.38 * w;
       for (const n of ['legBL', 'legBR']) B[n].rotation.x += -1.25 * w;
       B.head.position.y -= meta.bodyR * 0.25 * w; B.head.rotation.x += 0.18 * w;
+    } else if (pose === 'stretchPlay' && w > 0) {
+      const stretch=(meta.poseProfile?.stretch ?? 1)*w;
+      B.body.position.y -= meta.bodyR*.12*w;
+      B.legFL.rotation.x -= 1.10*stretch; B.legFR.rotation.x -= 1.30*stretch;
+      B.legBL.rotation.x += .72*stretch; B.legBR.rotation.x += 1.10*stretch;
+      B.head.rotation.x -= .08*w;
     } else if (pose === 'playBow' && w > 0) {
       const bw=w*w*w, bow=(meta.poseProfile?.bow || .55)*bw, pr=meta.pawR, L=meta.legTop;
       B.body.rotation.x += bow;

@@ -97,7 +97,7 @@ test('5. stage 01 / 04 / 08 が 解決できる。めぐるの 0 はじまり �
     assert.deepEqual(SPEC.specKeyFor({ line: id, stage: 7 }), { id, stage: 8, exact: true });
     for (let i = 0; i < 8; i++) { const k = SPEC.specKeyFor({ line: id, stage: i }); if (k) assert.equal(SPEC.stageSpec(id, k.stage).archetype, SPEC.PLAYER_LINES[id].stages[i], `${id} 0${i + 1} → 0${k.stage} は おなじ archetype`); }
   }
-  assert.equal(SPEC.specKeyFor({ line: 'cat', stage: 3 }), null, 'pilot に ない species は null(2D のまま)');
+  assert.equal(SPEC.specKeyFor({ line: 'turtle', stage: 3 }), null, '未展開の species は null(2D のまま)');
   assert.equal(SPEC.specKeyFor({ line: 'dog', stage: 9 }), null);
 });
 
