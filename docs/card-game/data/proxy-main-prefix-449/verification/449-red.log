@@ -1,0 +1,59 @@
+FFFFFF
+======================================================================
+FAIL: test_ambiguous_multi_equipment_order_keeps_unsupported (test_proxy_public_main_prefix.MainPrefixTests.test_ambiguous_multi_equipment_order_keeps_unsupported)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-449/docs/card-game/tools/test_proxy_public_main_prefix.py", line 11, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'public main prefix absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : public main prefix absent
+
+======================================================================
+FAIL: test_bad_payment_evidence_is_error (test_proxy_public_main_prefix.MainPrefixTests.test_bad_payment_evidence_is_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-449/docs/card-game/tools/test_proxy_public_main_prefix.py", line 11, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'public main prefix absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : public main prefix absent
+
+======================================================================
+FAIL: test_effect_departure_is_target_bound_not_source_bound (test_proxy_public_main_prefix.MainPrefixTests.test_effect_departure_is_target_bound_not_source_bound)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-449/docs/card-game/tools/test_proxy_public_main_prefix.py", line 11, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'public main prefix absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : public main prefix absent
+
+======================================================================
+FAIL: test_non_main_candidates_unchanged (test_proxy_public_main_prefix.MainPrefixTests.test_non_main_candidates_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-449/docs/card-game/tools/test_proxy_public_main_prefix.py", line 11, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'public main prefix absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : public main prefix absent
+
+======================================================================
+FAIL: test_payment_consumption_exact_ids (test_proxy_public_main_prefix.MainPrefixTests.test_payment_consumption_exact_ids)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-449/docs/card-game/tools/test_proxy_public_main_prefix.py", line 11, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'public main prefix absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : public main prefix absent
+
+======================================================================
+FAIL: test_replacements_preserve_physical_cards_and_unresolved_tails (test_proxy_public_main_prefix.MainPrefixTests.test_replacements_preserve_physical_cards_and_unresolved_tails)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-449/docs/card-game/tools/test_proxy_public_main_prefix.py", line 11, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'public main prefix absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : public main prefix absent
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.246s
+
+FAILED (failures=6)
