@@ -5,6 +5,7 @@
 // どの builder も: rig(bone)・顔の 場所(face spec)・locomotion・idlePose・hover を かえす
 import { THREE, blob, lathe, sweep, sheet, fan, ellipsoid, paint, solid, mix, shade, xform, merge, clamp, lerp, smooth, rng, noise3, scalpCap, outlineLoft, softHalo } from './geometry.mjs';
 import { Rig } from './rig.mjs';
+import { crouchedQuadruped } from './crouched-quadruped.mjs';
 import SPEC from './spec-esm.mjs';
 
 const TAU = Math.PI * 2;
@@ -64,6 +65,7 @@ function shellSeams(sh,color){
 
 // ================= quadruped(犬・柴・ねこ …) =================
 export function quadruped(sp, key) {
+  if(sp.crouch)return crouchedQuadruped(sp,key);
   const c = sp.colors, B = sp.body, Hd = sp.head, Lg = sp.legs;
   const rig = new Rig(key, 'quadruped', 'quadWalk');
   const bodyY = Lg.len + B.r * 0.72;
@@ -84,7 +86,13 @@ export function quadruped(sp, key) {
       for(let j=row-2;j<=row+2;j++)for(let i=col-2;i<=col+2;i++){const dx=u-(i+(Math.abs(j)%2)*.5)*cell*Math.sqrt(3),dz=v-j*cell*1.5,d=dx*dx+dz*dz;if(d<first){second=first;first=d;}else if(d<second)second=d;}
       return mix(c.shell,c.scute,Math.max(0,1-first/(cell*cell))*.5);
     });
-    rig.add('shell','body',[0,.02,-.025],[dome,shellSeams(sh,c.seam)]);
+    const moss=[];
+    for(const patch of sh.moss||[])for(let i=0;i<5;i++){
+      const a=i*TAU/5,u=patch.u+Math.cos(a)*patch.r*.55/sh.width,v=patch.v+Math.sin(a)*patch.r*.55/sh.length;
+      const y=sh.height*Math.sqrt(Math.max(0,1-u*u-v*v));
+      moss.push(paint(xform(blob((x,yy,z)=>{const bump=1+.12*Math.sin(x*8+z*9);return [x*patch.r*.60*bump,yy*patch.h,z*patch.r*.60*bump];},8,6),{pos:[u*sh.width,y+patch.h*.40,v*sh.length]}),(x,y,z,nx,ny)=>mix(c.moss,shade(c.moss,1.18),ny*.5+.5)));
+    }
+    rig.add('shell','body',[0,.02,-.025],[dome,shellSeams(sh,c.seam),...moss]);
   }
   // 頭
   const hr = Hd.r;
@@ -93,7 +101,7 @@ export function quadruped(sp, key) {
   const snout = Hd.flatFace ? null : paint(xform(blob((x, y, z) => [x * Hd.snoutR * 1.2, y * Hd.snoutR * 0.85, z * (Hd.snout * 0.5 + Hd.snoutR * 0.55)], 12, 8), { pos: [0, -hr * 0.3, hr * 0.62 + Hd.snout * 0.35] }), () => c.muzzle);
   const nose = Hd.flatFace ? null : solid(xform(ellipsoid(Hd.snoutR * 0.42, Hd.snoutR * 0.3, Hd.snoutR * 0.26, 8, 6), { pos: [0, -hr * 0.3 + Hd.snoutR * 0.55, hr * 0.62 + Hd.snout * 0.35 + Hd.snout * 0.5 + Hd.snoutR * 0.4] }), c.nose);
   const headGeo = merge(Hd.flatFace ? [skull] : [skull, snout, nose]);
-  const headPos = [0, B.r * 0.55 + sp.neck, B.len / 2 + hr * 0.25];
+  const headPos = [0, B.r * 0.55 + sp.neck, B.len / 2 + hr * 0.25 + (Hd.forward||0)];
   rig.add('head', 'body', headPos, null);
   rig.mesh('head', [headGeo.clone()]);
   // 耳

@@ -21,3 +21,11 @@ Authority: the16 original turtle/frog PNGs in inventory. No new gameplay states 
 ## Gates
 
 Finite geometry/rig and all canonical emotions × idle/walk × normal/reduced; mutations for new shared options; Pilot28 numerical hashes unchanged; original/four-view and ordinary-distance exact/live/fallback0. New candidates never add to runtime coverage before those image gates.
+
+## Implemented candidate mechanisms after representative gate
+
+Turtle05 source273fe84 now has continuous surface-following scute seams visible in close and ordinary-distance captures. Seams and optional moss volumes are merged into one shell draw. Stages01–08 explicitly vary shell height/length, head ratio/withdrawal, neck, feet, normal eyes and lifted paw;07 sparse moss versus08 broad irregular attached patches. Full-eight image gate remains required.
+
+Frog03/05/07 use an optional **crouched quadruped** profile: continuous broad head plus optional eye-bearing lobes, independently specified folded hindlimb/forearm paths, three splayed digits and a tapering membrane tail. One existing quadruped rig/gait/canonical face. Hind-only stages retain empty fore anchors for the existing four-limb gait contract; no visible phantom arms. No new archetype or actor state. The optional morphology is implemented separately for readability and reusable by other squat/long-armed quadrupeds; it is not a per-species registry builder. Representative image gates pending.
+
+Ruling: retain the existing quadruped locomotion for this first crouched morphology candidate, rather than add a new gait before visual evidence. The original establishes resting anatomy; animation should be judged in motion evidence. Cost if insufficient: an explicit crouched gait may be needed before promotion; no gameplay movement semantics change.

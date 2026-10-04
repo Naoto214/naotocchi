@@ -5,10 +5,10 @@ test('shelled quadruped uses a connected dome and splayed feet without mammalian
  const shell=r.parts.find(p=>p.bone==='shell').mesh.geometry;shell.computeBoundingBox();assert.ok(shell.boundingBox.max.y>.38);assert.ok(shell.boundingBox.max.x-shell.boundingBox.min.x>.90);assert.ok(new Set(Array.from(shell.attributes.color.array).map(x=>x.toFixed(3))).size>10,'scute fields are geometry colours');
  const head=r.parts.find(p=>p.bone==='head').mesh.geometry;head.computeBoundingBox();assert.ok(head.boundingBox.max.z<.30,'no projecting mammalian snout/nose');const foot=r.parts.find(p=>p.bone==='legFR').mesh.geometry;foot.computeBoundingBox();assert.ok(foot.boundingBox.max.x>.23,'short feet splay outside shell');
 });
-test('original turtle05 representative has one canonical actor and finite shared quadruped motion',async()=>{
- const sp=require('../character-3d/topology-spec.js')(SPEC.PILOT).turtle?.stages[5];assert.ok(sp,'explicit shell representative');const {quadruped}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
+test('all candidate turtle stages have one canonical actor and finite shared quadruped motion',async()=>{
+ for(const sp of Object.values(require('../character-3d/topology-spec.js')(SPEC.PILOT).turtle.stages)){assert.ok(sp,'explicit shell candidate');const {quadruped}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
  const r=quadruped(sp,'turtle:5');r.faces=[attachFace(r,r.faceSpec,'C')];assert.equal(r.faces[0].eyes.length,2);for(const p of r.parts)assert.ok([...p.mesh.geometry.attributes.position.array].every(Number.isFinite));for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'turtle:5'});setEmotion(a,em);for(let n=0;n<10;n++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces[0].emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.scale.toArray(),b.rotation.x,b.rotation.y,b.rotation.z].every(Number.isFinite));}
- assert.equal(SPEC.ROLLOUT.turtle,undefined,'representative is not exact runtime coverage');
+ assert.equal(SPEC.ROLLOUT.turtle,undefined,'candidate is not exact runtime coverage');}
 });
 test('shell scute seams remain narrow continuous lines instead of interpolated dark spots',async()=>{
  const {quadruped}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs');const sp=fixture(),r=quadruped(sp,'seam'),g=r.parts.find(p=>p.bone==='shell').mesh.geometry;
@@ -17,4 +17,10 @@ test('shell scute seams remain narrow continuous lines instead of interpolated d
  const seam=new THREE.Color(sp.colors.seam),target=new THREE.Vector3(seam.r,seam.g,seam.b);
  // Three points along one hex edge, away from vertices: this catches disconnected dashes.
  for(const u of [.04,.09,.14]){const v=.30-u/Math.sqrt(3);assert.ok(sample(u,v).distanceTo(target)<.025,'seam line follows full edge');assert.ok(sample(u,v-.045).distanceTo(target)>.08,'interior is not a wide dark blur');}
+});
+test('full turtle ages use infant proportions, lifted paw, withdrawn head and attached old-shell moss',async()=>{
+ const rows=require('../character-3d/topology-spec.js')(SPEC.PILOT).turtle.stages;assert.equal(Object.keys(rows).length,8,'all eight explicit candidates');const {quadruped}=await import('../character-3d/archetypes.mjs');
+ assert.ok(rows[1].head.r/rows[1].shell.width>rows[5].head.r/rows[5].shell.width);assert.ok(rows[4].neck>rows[8].neck);assert.equal(rows[3].poseProfile.pawLift,'legFL');assert.equal(rows[3].normalEye.right,'happy');assert.ok(rows[8].shell.moss.length>rows[7].shell.moss.length);
+ for(let st=1;st<=8;st++){const sp=rows[st],r=quadruped(sp,'turtle:'+st);for(const p of r.parts)assert.ok([...p.mesh.geometry.attributes.position.array].every(Number.isFinite));if(st>1)assert.notDeepEqual(sp,rows[st-1]);}
+ const sp=rows[8],withMoss=quadruped(sp,'old'),without=quadruped({...sp,shell:{...sp.shell,moss:[]}},'old'),geo=r=>r.parts.find(p=>p.bone==='shell').mesh.geometry;assert.ok(withMoss.bones.head.position.z<sp.body.len/2+sp.head.r*.25-.02,'old head is withdrawn');assert.ok(geo(withMoss).attributes.position.count>geo(without).attributes.position.count,'moss has attached volume');assert.equal(withMoss.parts.length,without.parts.length,'moss merged into shell draw');geo(withMoss).computeBoundingBox();assert.ok(geo(withMoss).boundingBox.max.y>sp.shell.height+.025,'moss protrudes above shell surface');
 });
