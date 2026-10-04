@@ -31,3 +31,15 @@ test('original bud and rooted-puff candidates retain all canonical expressions a
  }
  assert.equal(SPEC.ROLLOUT.dandelion,undefined,'unreviewed candidates stay outside promoted runtime');
 });
+test('bud sepals remain exposed over the lower head surface and rooted leaves stay low',async()=>{
+ const {plant}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ const rows=require('../character-3d/topology-spec.js')(SPEC.PILOT).dandelion.stages,sp=rows[5],rig=plant(sp,'dandelion:5');
+ const g=rig.parts.find(p=>p.bone==='head').mesh.geometry,p=g.attributes.position,c=g.attributes.color,want=new THREE.Color(sp.colors.leaf).toArray();let exposed=0;
+ for(let i=0;i<p.count;i++)if(p.getY(i)>-sp.bud.height*.35&&p.getY(i)<-sp.bud.height*.1&&Math.hypot(p.getX(i),p.getZ(i))>sp.head*.9&&[c.getX(i),c.getY(i),c.getZ(i)].every((v,k)=>Math.abs(v-want[k])<.001))exposed++;
+ assert.ok(exposed>10,'green sepals must emerge outside yellow core, not merely add hidden triangles');
+ for(const stage of [5,7]){const r=plant(rows[stage],'dandelion:'+stage);const leaf=r.parts.find(p=>p.bone==='leavesA').mesh.geometry;leaf.computeBoundingBox();assert.ok(leaf.boundingBox.max.y<.25,'low original rosette');}
+});
+test('plant signature neutral eyes use existing canonical face resolution',async()=>{
+ const {plant}=await import('../character-3d/archetypes.mjs'),{attachFace,applyFaceExpression}=await import('../character-3d/rig.mjs');const rows=require('../character-3d/topology-spec.js')(SPEC.PILOT).dandelion.stages;
+ for(const [stage,want]of [[5,['happy','happy']],[7,['happy','round']]]){const r=plant(rows[stage],'dandelion:'+stage),f=attachFace(r,r.faceSpec,'C');applyFaceExpression(f,'normal');assert.deepEqual(f.eyes.map(e=>e.userData.shape),want);for(const em of SPEC.CANONICAL_EMOTIONS.filter(e=>e!=='normal')){applyFaceExpression(f,em);assert.ok(f.eyes.every(e=>e.userData.shape===SPEC.expressionParams(em).eye.shape));}}
+});

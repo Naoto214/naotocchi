@@ -551,7 +551,7 @@ export function plant(sp, key) {
   for (let i = 0; i < sp.leaves; i++) {
     const a = (i / sp.leaves) * TAU + 0.3, l = sp.leafLen * (0.85 + 0.25 * ((i * 7) % 3) / 2);
     // 顔の まえ(+z)の 葉は ひくく、うしろ・よこ の 葉は 立てて 顔の まわりを かこむ(2D の ロゼット)
-    const front = Math.max(0, Math.cos(a)), lift = sp.form === 'flower' ? 0.55 : 0.58 - front * 0.56;
+    const front = Math.max(0, Math.cos(a)), lift = sp.leafLift ?? (sp.form === 'flower' ? 0.55 : 0.58 - front * 0.56);
     const g = leafGeo(l, l * .34, c, sp.form === 'flower' ? .35 : .12);
     // 葉は +y に のびる → ねかせて 外へ(a の むき)
     g.rotateX(-Math.PI / 2 + lift); g.rotateY(a + Math.PI);
@@ -583,8 +583,9 @@ export function plant(sp, key) {
         for(let i=0;i<sp.bud.sepals;i++) {
           const a=i/sp.bud.sepals*TAU;
           const sepal=paint(blob((x,y,z)=>{
-            const t=(y+1)/2,w=Math.sin(Math.PI*t)*hr*.42;
-            return [x*w,-height*.47+t*height*.58,z*.028-depth*.62+Math.sin(Math.PI*t)*depth*.25];
+            const t=(y+1)/2,w=Math.sin(Math.PI*t)*hr*.42,yy=-height*.49+t*height*.43;
+            const surface=depth*Math.sqrt(Math.max(0,1-(yy/(height*.5))**2));
+            return [x*w,yy,z*.018-surface-.014];
           },10,8),()=>c.leaf);
           sepal.rotateY(a);ornaments.push(sepal);
         }
@@ -616,7 +617,7 @@ export function plant(sp, key) {
     }
   }
   rig.meta = { idlePose: 'stand', hover: 0, form: sp.form };
-  rig.faceSpec = { bone: faceBone, target, center: faceCenter, fwd: [0, 0, 1], half, eyeSize: 0.25,
+  rig.faceSpec = { bone: faceBone, target, center: faceCenter, fwd: [0, 0, 1], half, eyeSize: 0.25, normalEye:sp.normalEye,
     layout: { eyeX: 24, eyeY: 56, mouthY: 84, browY: 36, cheekX: 38, cheekY: 74, mouthW: 9 }, style: { blush: '#f8a0a0', mouth: '#c0302a' } };
   return rig;
 }
