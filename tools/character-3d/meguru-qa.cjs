@@ -8,6 +8,7 @@ const pw = require('playwright');
 const { serve } = require('./shot.cjs');
 const ROOT = path.join(__dirname, '..', '..');
 const args = process.argv.slice(2);
+const {stageTargets,validateStages}=require('./stage-evidence.cjs'),EXPECTED_STAGES=stageTargets(require('../../character-3d/spec.js'),args);
 const {performanceMix,expectedTemplates,matchesComposition}=require('./performance-mix.cjs'),MIX=performanceMix(args);
 const opt = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : d; };
 const OUT = opt('--out', path.join(require('os').tmpdir(), 'c3d-meguru'));
@@ -176,16 +177,20 @@ async function walk(page, seconds) {
     await page.context().close();
 
     }
-    if (!PERF_ONLY) {
+    if (!PERF_ONLY && !args.includes('--no-species')) {
     // ---------- pilot ごと: その species を player に して forest で(こちらを むく / うしろ)
     const SPEC = require(path.join(ROOT, 'character-3d/spec.js'));
     R.perSpecies = {};
     for (const id of Object.keys(args.includes('--rollout') ? SPEC.ROLLOUT : SPEC.PILOT)) {
       for (const st of (args.includes('--rollout') ? SPEC.ROLLOUT_STAGE_KEYS[id] : SPEC.STAGE_KEYS[id])) {
+      if(!EXPECTED_STAGES.includes(id+':'+st))continue;
       if(args.includes('--focus') && !['dandelion:8','butterfly:8'].includes(id+':'+st))continue;
       const { save: sv, stage } = makeSave({ line: id, stageIndex: st - 1, party: args.includes('--solo')?[]:['shiba', 'cat_friend'], residents: !args.includes('--solo') });
       const { page: pg, errors: er } = await open(browser, base, sv);
       await pose(pg, { spot: 'entry', yaw: 0, heading: Math.PI - 0.5, faceCam: true, env });
+      // Wait for the real discovery queue to finish, rather than masking World UI.
+      // A single hidden frame may only be the gap between two notices.
+      await pg.waitForFunction(()=>{const visible=!document.querySelector('#mgrFoundToast')?.classList.contains('hidden');if(visible){window.__c3dNoticeClearAt=null;return false;}window.__c3dNoticeClearAt??=performance.now();return performance.now()-window.__c3dNoticeClearAt>1500;},null,{timeout:60000});
       const front = await snap(pg, 'player-' + id + '-' + st + '-front');
       await pose(pg, { spot: 'entry', yaw: 0, env });
       const back = await snap(pg, 'player-' + id + '-' + st + '-back');
@@ -228,6 +233,7 @@ async function walk(page, seconds) {
   must(C.regionSwitch.backInForest.is3D && C.regionSwitch.backInForest.live > 0 && C.regionSwitch.backInForest.holdersInScene === C.regionSwitch.backInForest.live, 'forest に もどる: scene の 3D = live(ghost なし)');
   }
   for (const [id, v] of Object.entries(R.perSpecies || {})) must(v.player3d && v.specKey && v.specKey.exact && v.specKey.stage === v.requestedStage && !v.errors.some((e) => /pageerror|Error/.test(e)), 'player ' + id + ': spec が ある 段なら 3D・ない 段(未 pilot archetype)なら 2D');
+  if(!PERF_ONLY&&!args.includes('--no-species'))must(validateStages(EXPECTED_STAGES,R.perSpecies),'exact inventory stage coverage, no omitted stages or fallback');
   must(!(R.errors || []).some((e) => !/forced update failure \(QA\)/.test(e)), 'page の error なし: ' + (R.errors || []).join(' / '));
   if(args.includes('--puff-stress'))must(R.perf['27-3d']?.templatesByActor['dandelion:8']===25,'stress has 25 puffs plus two native companions');
   if(!NO_PERF) for(const n of (args.includes('--puff-stress')?[27]:[1,5,27])) { const p=R.perf[n+'-3d']; must(p && p.char3d && p.char3d.live===n && p.errors===0, 'exact 3D actor count '+n); must(p?.compositionMatches===true,'actual templates match intended '+MIX.name+' '+n); }

@@ -6,6 +6,62 @@ on:
 permissions:
   contents: read
 jobs:
+  stage-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      lines: ${{ steps.inventory.outputs.lines }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: inventory
+        run: node -e "console.log('lines='+JSON.stringify(Object.keys(require('./character-3d/spec.js').ROLLOUT)))" >> "$GITHUB_OUTPUT"
+  stage-evidence:
+    needs: stage-matrix
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        line: ${{ fromJSON(needs.stage-matrix.outputs.lines) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - name: Exact family stages in real Meguru
+        env:
+          QA_LINE: ${{ matrix.line }}
+        run: node tools/character-3d/meguru-qa.cjs --rollout --species-only --line "$QA_LINE" --out "test-results/full-rollout/stages/$QA_LINE"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-stages-${{ matrix.line }}-${{ github.sha }}
+          path: test-results/full-rollout/stages/${{ matrix.line }}
+  stage-coverage:
+    needs: stage-evidence
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: full-rollout-stages-*-${{ github.sha }}
+          path: test-results/stage-shards
+      - name: Require complete non-duplicated same-source inventory evidence and captures
+        run: node tools/character-3d/stage-evidence.cjs test-results/stage-shards test-results/stage-coverage.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: full-rollout-stage-coverage-${{ github.sha }}
+          path: test-results/stage-coverage.json
   conflict-audit:
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -52,8 +108,8 @@ jobs:
       - run: npm ci
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps chromium
-      - name: Exact wave stages in Meguru and presentation lifecycle
-        run: node tools/character-3d/meguru-qa.cjs --rollout --no-perf --out test-results/full-rollout/meguru
+      - name: Presentation lifecycle and isolated actor fallback (stage matrix runs separately)
+        run: node tools/character-3d/meguru-qa.cjs --rollout --no-species --no-perf --out test-results/full-rollout/meguru
       - name: Comparable fixed Pilot mix 1 5 27 actors
         run: node tools/character-3d/meguru-qa.cjs --perf-only --seconds 8 --out test-results/full-rollout/performance
       - uses: actions/upload-artifact@v4
