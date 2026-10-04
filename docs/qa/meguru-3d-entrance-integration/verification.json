@@ -28,7 +28,24 @@
     ]
   },
   "review": "Initial fixed-width barn limit rejected; removed; re-review no blockers",
-  "fullRegression": "pending",
-  "browser": "pending new source CI",
+  "fullRegression": {
+    "command": "npm test",
+    "modified": false,
+    "mainPass": 2867,
+    "relationshipPass": 80,
+    "fail": 0,
+    "exit": 0,
+    "sourceCommit": "1cbc27bb1e76c29696ed033dec20e116c03023f6",
+    "note": "Started at c312aba checkout with current product working tree; SHA256 verifies exact1cbc27b product code. Completed local log saved without rerun."
+  },
+  "browser": {
+    "ciRun": 37197964997,
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": 5,
+    "rawArtifactsDownloaded": false,
+    "newImagesInspected": false,
+    "note": "Job success freshly verified. New raw samples/performance/images not yet inspected or saved; do not inherit old measurements."
+  },
   "humanQA": "not approved"
 }
