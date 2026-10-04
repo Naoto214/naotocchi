@@ -1,0 +1,68 @@
+TAP version 13
+# (node:37233) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/d968f37837fb/character-quality2/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/d968f37837fb/character-quality2/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: merged soft geometry keeps per-vertex opacity and opaque components remain opaque
+ok 1 - merged soft geometry keeps per-vertex opacity and opaque components remain opaque
+  ---
+  duration_ms: 60.255202
+  type: 'test'
+  ...
+# Subtest: seed halo has fading edges without adding a draw per filament or losing six faces
+ok 2 - seed halo has fading edges without adding a draw per filament or losing six faces
+  ---
+  duration_ms: 115.19805
+  type: 'test'
+  ...
+# Subtest: reclining feline keeps a low asymmetric rest pose and half-open normal eyes, then rises to walk
+ok 3 - reclining feline keeps a low asymmetric rest pose and half-open normal eyes, then rises to walk
+  ---
+  duration_ms: 33.306616
+  type: 'test'
+  ...
+# Subtest: hanging pod swings around its suspension rather than detaching from the branch
+ok 4 - hanging pod swings around its suspension rather than detaching from the branch
+  ---
+  duration_ms: 52.687245
+  type: 'test'
+  ...
+# Subtest: humanoid held attachments stay at hand during locomotion and posture
+ok 5 - humanoid held attachments stay at hand during locomotion and posture
+  ---
+  duration_ms: 22.076197
+  type: 'test'
+  ...
+# Subtest: shared halo material has a soft tuft texture with transparent outside and opaque core
+ok 6 - shared halo material has a soft tuft texture with transparent outside and opaque core
+  ---
+  duration_ms: 0.9715
+  type: 'test'
+  ...
+# Subtest: projected face decals render in one pass without changing canonical atlases
+not ok 7 - projected face decals render in one pass without changing canonical atlases
+  ---
+  duration_ms: 1.222241
+  type: 'test'
+  location: '/workspace/scratch/d968f37837fb/character-quality2/tests/character-3d-quality2-test.cjs:37:1'
+  failureType: 'testCodeFailure'
+  error: 'flat decal needs one pass'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/workspace/scratch/d968f37837fb/character-quality2/tests/character-3d-quality2-test.cjs:38:173)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 6
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 380.052645

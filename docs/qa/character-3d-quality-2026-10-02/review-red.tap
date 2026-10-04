@@ -1,0 +1,86 @@
+TAP version 13
+# (node:64495) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/28f942ba3f68/c3d-refine/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/28f942ba3f68/c3d-refine/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: hair cap covers crown, temples and nape without crossing the face opening
+ok 1 - hair cap covers crown, temples and nape without crossing the face opening
+  ---
+  duration_ms: 255.157347
+  type: 'test'
+  ...
+# Subtest: dog play bow lowers the chest at idle and blends back to locomotion; shiba preserves its compact bow
+ok 2 - dog play bow lowers the chest at idle and blends back to locomotion; shiba preserves its compact bow
+  ---
+  duration_ms: 471.173947
+  type: 'test'
+  ...
+# Subtest: both adult and child mushroom faces survive cloning and canonical expression changes
+ok 3 - both adult and child mushroom faces survive cloning and canonical expression changes
+  ---
+  duration_ms: 253.885167
+  type: 'test'
+  ...
+# Subtest: radial bubbles occupy the specified separated positions rather than the origin
+ok 4 - radial bubbles occupy the specified separated positions rather than the origin
+  ---
+  duration_ms: 33.32112
+  type: 'test'
+  ...
+# Subtest: all six dandelion seed-puff faces remain independently bound within the existing mesh budget
+ok 5 - all six dandelion seed-puff faces remain independently bound within the existing mesh budget
+  ---
+  duration_ms: 170.580243
+  type: 'test'
+  ...
+# Subtest: outline loft preserves side notches and lower lobes with a finite closed thickness
+not ok 6 - outline loft preserves side notches and lower lobes with a finite closed thickness
+  ---
+  duration_ms: 25.989257
+  type: 'test'
+  location: '/workspace/scratch/28f942ba3f68/c3d-refine/tests/character-3d-quality-test.cjs:69:1'
+  failureType: 'testCodeFailure'
+  error: 'outward front/back winding'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/workspace/scratch/28f942ba3f68/c3d-refine/tests/character-3d-quality-test.cjs:79:156)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: butterfly abdomen points below its head and wing roots stay attached during reduced idle
+ok 7 - butterfly abdomen points below its head and wing roots stay attached during reduced idle
+  ---
+  duration_ms: 80.524452
+  type: 'test'
+  ...
+# Subtest: bow paw contact stays on the ground for both canine proportions
+not ok 8 - bow paw contact stays on the ground for both canine proportions
+  ---
+  duration_ms: 6.132451
+  type: 'test'
+  location: '/workspace/scratch/28f942ba3f68/c3d-refine/tests/character-3d-quality-test.cjs:91:1'
+  failureType: 'testCodeFailure'
+  error: 'dog/legFL contact -0.2638776925556088'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/workspace/scratch/28f942ba3f68/c3d-refine/tests/character-3d-quality-test.cjs:97:14)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 6
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1706.004467

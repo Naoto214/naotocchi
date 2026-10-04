@@ -1,0 +1,37 @@
+[
+  {
+    "file": "animate.mjs",
+    "originalSHA256": "0e7186a7f0b94b95bf4091390eb376c08988d61579e694387fea83ff2ee1ef2b",
+    "identicalAfterVendorPathNormalization": true
+  },
+  {
+    "file": "archetypes.mjs",
+    "originalSHA256": "6a0895773b3822839789f79ba8eebbb720416940a185ad77cf09d17101c9dd03",
+    "identicalAfterVendorPathNormalization": true
+  },
+  {
+    "file": "geometry.mjs",
+    "originalSHA256": "50f71c5535d0cc6f9b63e4c0a8181b4d97b21178407d8502329c5856a50bfdcc",
+    "identicalAfterVendorPathNormalization": true
+  },
+  {
+    "file": "rig.mjs",
+    "originalSHA256": "3bbd44ffa6bed442972656f74aa32e45963b444210c4ed7d0c3d61d5d7304cb5",
+    "identicalAfterVendorPathNormalization": true
+  },
+  {
+    "file": "runtime.mjs",
+    "originalSHA256": "f84780ea075d9d1577d83adea1eb3254c8edabaeb0f70969a1f71f864a5e8844",
+    "identicalAfterVendorPathNormalization": true
+  },
+  {
+    "file": "spec-esm.mjs",
+    "originalSHA256": "43e0b0b3a578e0f94907f6a6a0038476539777e8739cd07189b1cc50572ba597",
+    "identicalAfterVendorPathNormalization": true
+  },
+  {
+    "file": "spec.js",
+    "originalSHA256": "bc2a456e89928fa7db4786516641cbfd52a1c4e225b78be178f9f0c8cdfdeb0a",
+    "identicalAfterVendorPathNormalization": true
+  }
+]

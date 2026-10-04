@@ -1,0 +1,154 @@
+name: Character 3D quality evidence
+
+on:
+  push:
+    branches: [feat/character-3d-pilot]
+    paths:
+      - 'character-3d/**'
+      - 'tools/character-3d/**'
+      - 'tests/character-3d*'
+      - '.github/workflows/character-3d-quality.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - name: Dedicated regression and mutation checks (sequential)
+        run: |
+          mkdir -p test-results/character-3d-quality
+          node --test --test-reporter=tap tests/character-3d-test.cjs tests/character-3d-quality-test.cjs tests/character-3d-quality2-test.cjs tests/character-3d-quality3-test.cjs > test-results/character-3d-quality/dedicated.tap
+          sh tools/character-3d/remove-it.sh > test-results/character-3d-quality/remove-it.txt
+          node tools/character-3d/quality-remove-it.cjs > test-results/character-3d-quality/quality-remove-it.txt
+          node tools/character-3d/quality2-remove-it.cjs > test-results/character-3d-quality/quality2-remove-it.txt
+          node tools/character-3d/quality3-remove-it.cjs > test-results/character-3d-quality/quality3-remove-it.txt
+      - name: Render pilot comparison sheets
+        run: node tools/character-3d/sheets.cjs --out test-results/character-3d-quality/sheets
+      - name: Same-condition quality2 vs quality3 all-stage four-view sheets
+        run: node tools/character-3d/quality-sheets.cjs --matrix --second
+      - uses: actions/upload-artifact@v4
+        with:
+          name: character-3d-images-${{ github.sha }}
+          path: test-results/character-3d-quality/comparisons
+          retention-days: 14
+      - name: Meguru regression and 1 / 5 / 27 actor measurement
+        run: node tools/character-3d/meguru-qa.cjs --out test-results/character-3d-quality/meguru --seconds 8 --no-perf
+      - name: Same-condition solo focus at normal Meguru distance
+        run: |
+          node tools/character-3d/meguru-qa.cjs --species-only --focus --solo --second --out test-results/character-3d-quality/focus-second
+          node tools/character-3d/meguru-qa.cjs --species-only --focus --solo --out test-results/character-3d-quality/focus-revised
+      - name: Paired quality2 and quality3 1 / 5 / 27 actor measurement
+        run: |
+          node tools/character-3d/meguru-qa.cjs --perf-only --second --out test-results/character-3d-quality/perf-previous --seconds 8
+          node tools/character-3d/meguru-qa.cjs --perf-only --out test-results/character-3d-quality/perf-revised --seconds 8
+      - name: Twenty-five puffs plus two companions stress check
+        run: node tools/character-3d/meguru-qa.cjs --perf-only --puff-stress --out test-results/character-3d-quality/perf-puffs --seconds 8
+      - name: Record exact source and runtime
+        if: always()
+        run: |
+          mkdir -p test-results/character-3d-quality
+          git log -1 --format='%H %T' > test-results/character-3d-quality/source.txt
+          node --version >> test-results/character-3d-quality/source.txt
+          npx playwright --version >> test-results/character-3d-quality/source.txt
+          git status --short >> test-results/character-3d-quality/source.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: character-3d-quality-${{ github.sha }}
+          path: test-results/character-3d-quality
+          retention-days: 14
+
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: character-3d-meguru-${{ github.sha }}
+          path: test-results/character-3d-quality/meguru
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: character-3d-measurements-${{ github.sha }}
+          path: |
+            test-results/character-3d-quality/*.tap
+            test-results/character-3d-quality/*.txt
+            test-results/character-3d-quality/perf-previous
+            test-results/character-3d-quality/perf-revised
+          retention-days: 14
+
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm test > full-regression.txt 2>&1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: character-3d-regression-${{ github.sha }}
+          path: full-regression.txt
+          retention-days: 14
+
+  human-qa-package:
+    needs: [evidence, regression]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - uses: actions/download-artifact@v4
+        with:
+          name: character-3d-quality-${{ github.sha }}
+          path: qa
+      - uses: actions/download-artifact@v4
+        with:
+          name: character-3d-regression-${{ github.sha }}
+          path: qa/regression
+      - name: Assemble Human QA round-three images
+        run: node docs/qa/character-3d-quality3-2026-10-03/package.cjs qa
+      - name: Save QA evidence only to the existing Draft branch
+        env:
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          git fetch origin feat/character-3d-pilot
+          test "$(git rev-parse origin/feat/character-3d-pilot)" = "$EXPECTED_HEAD"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/qa/character-3d-quality3-2026-10-03
+          git commit -m 'Save Character 3D round-three Human QA images and measurements'
+          git push origin HEAD:feat/character-3d-pilot
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: character-3d-quality3-human-qa
+          path: docs/qa/character-3d-quality3-2026-10-03
+          retention-days: 14
