@@ -1,0 +1,16 @@
+..F
+======================================================================
+FAIL: test_source_bound_stages_payment_rights_and_response (test_proxy_public_relationship_prefix.RelationshipPrefixTests.test_source_bound_stages_payment_rights_and_response)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_public_relationship_prefix.py", line 24, in test_source_bound_stages_payment_rights_and_response
+    self.assertEqual(next(z for z in atoms if z['zone']=='history')['value'][-1]['action_type'],'relationship_marriage' if stage==3 else 'relationship_progress')
+AssertionError: 'relationship' != 'relationship_progress'
+- relationship
++ relationship_progress
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.042s
+
+FAILED (failures=1)

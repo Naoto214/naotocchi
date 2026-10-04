@@ -1,0 +1,12 @@
+{
+  "base_head": "95273cf98ddb0f0051f601c838eb57f3f017c9a0",
+  "protected_existing_card_game_files": 2594,
+  "changed_existing_card_game_files": [
+    "docs/card-game/README.md"
+  ],
+  "policy_or_engine_changes": 0,
+  "old_447_sources_and_artifacts_unchanged": true,
+  "outside_workspace_delta_excluded": [
+    "assets/world/forest-v1.webp"
+  ]
+}

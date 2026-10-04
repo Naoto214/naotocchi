@@ -1,0 +1,10 @@
+{
+  "independent_process_generations": 2,
+  "byte_equal": true,
+  "stage": "after independent review fixes",
+  "files": {
+    "audit.json.gz": "1395fb3b0907dff7e083b7204f9abe9a349024f9f2ddb8b69d8daf7c2d0d2041",
+    "summary.json": "b82622b4e54f7b69fba772d72487ce2896e6e04bc6bb624d23945777568d6121",
+    "manifest.json": "e070c17991dbe0cbd25b53df788ee14b40b59db37ba497b03c6a48bb6191377e"
+  }
+}
