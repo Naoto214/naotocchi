@@ -96,3 +96,33 @@ test('VQ-4 residential main roofs retain above-head clearance with canonical col
   }
   assert.ok(checked > 50, 'covers generated residential houses across regions');
 });
+
+// 2026-10-04: clipping individual flowers leaves incomplete boxes at road edges.
+// A bed must move as one group or be omitted as one group, never lose its contents.
+test('VQ-7 garden beds retain their planting group outside canonical road and obstacle footprints', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const world = M.buildWorld('home',M.buildRegistry(),{world3d:true});
+  const objects = M.worldObjects3d(world).objects;
+  let beds = 0;
+  for (const garden of objects.filter(o => o.garden)) {
+    for (const bed of garden.parts.filter(p => p.shape === 'box' && p.h === 8 && p.y === 0)) {
+      const flowers = garden.parts.filter(p => p.shape === 'flower' && Math.hypot(p.dx-bed.dx,p.dz-bed.dz) < 30);
+      assert.equal(flowers.length,5,garden.id + ': incomplete planting group');
+      const a = bed.ang || 0;
+      for (const f of [-bed.rz,0,bed.rz]) for (const s of [-bed.rx,0,bed.rx]) {
+        const x = garden.x+bed.dx+Math.cos(a)*f+Math.sin(a)*s;
+        const z = garden.z+bed.dz-Math.sin(a)*f+Math.cos(a)*s;
+        const np = M.nearestPath({x,z},world);
+        assert.ok(!np || np.dist >= np.half+10,garden.id + ': bed footprint enters road');
+        assert.ok(!M.collidesAt(world,x,z,10),garden.id + ': bed footprint enters obstacle');
+      }
+      beds++;
+    }
+  }
+  assert.ok(beds > 0,'real generated flower beds remain');
+  for (const id of ['home:15','home:45','home:64']) {
+    const garden = objects.find(o => o.id === 'home:garden:' + id);
+    assert.ok(garden && garden.parts.some(p => p.shape === 'box' && p.h === 8),id + ': affected garden must retain a complete bed');
+  }
+});

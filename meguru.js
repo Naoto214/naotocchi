@@ -1980,9 +1980,24 @@
         // Offset the two beds in depth: foreground flowers frame, not fill, the entrance.
         for (const sd of [-1, 1]) {
           const bx = D + (sd < 0 ? 38 : 56), by = laneSide(bx) + sd * Math.max(52, W * 0.62);
-          if (Math.abs(by) > W + 65) continue;
-          if (put({ shape: 'box', rx: 26, rz: 12, h: 8, y: 0, ang: a, color: '#8a6a4a', solidBox: true }, bx, by))
-            for (let i = 0; i < 5; i++) put({ shape: 'flower', r: 11 + (i % 2) * 3, h: 18 + (i % 3) * 5, y: 7, color: fl[(i + Math.round(v * 4)) % fl.length] }, bx + ((i % 2) - 0.5) * 10, by + (i - 2) * 9);
+          // VQ3: preserve each existing bed as a whole planting group. A small,
+          // deterministic relocation fits the yard edge without clipping flowers
+          // individually or adding another bed. These candidates run at build time.
+          for (const [df, ds] of [[0, 0], [-14, 0], [14, 0], [0, 14], [-14, 14], [14, 14], [-28, 0], [28, 0], [0, 28], [-14, 28], [14, 28]]) {
+            const fd = bx + df, side = by + sd * ds;
+            if (Math.abs(side) > W + 65) continue;
+            let clear = true;
+            for (const f of [-12, 0, 12]) for (const s of [-26, 0, 26]) {
+              const q = at(fd + f, side + s);
+              if (!okAt(q.x, q.z)) clear = false;
+            }
+            if (!clear) continue;
+            const start = parts.length;
+            clear = put({ shape: 'box', rx: 26, rz: 12, h: 8, y: 0, ang: a, color: '#8a6a4a', solidBox: true }, fd, side);
+            for (let i = 0; clear && i < 5; i++) clear = put({ shape: 'flower', r: 11 + (i % 2) * 3, h: 18 + (i % 3) * 5, y: 7, color: fl[(i + Math.round(v * 4)) % fl.length] }, fd + ((i % 2) - 0.5) * 10, side + (i - 2) * 9);
+            if (clear) break;
+            parts.length = start;   // never leave an empty box or partial group
+          }
         }
         const gate = Math.max(-W * 0.65, Math.min(W * 0.65, laneSide(D + 96)));
         const mailbox = gate + 30;
