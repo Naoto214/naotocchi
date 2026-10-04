@@ -1,4 +1,4 @@
-// Original-only human representatives; not registered for gameplay yet.
+// Original-derived human stages, promoted after four-view and ordinary-distance wave QA.
 (function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory;if(root)root.NaotocchiHumanoidWave=factory;})(typeof globalThis!=='undefined'?globalThis:this,function(PILOT){
  const copy=o=>JSON.parse(JSON.stringify(o)),man={why:'Original age-specific clothes, proportions, pose and hand-held props.',stages:{}};
  man.stages[2]={archetype:'humanoid',idlePose:'stand',head:{r:.46},body:{h:.40,r:.24},legs:{len:.27,r:.10,spread:.58},arms:{len:.29,r:.082},hair:{style:'spiky'},clothing:'overalls',wardrobe:{sleeve:.38,shorts:.48,socks:.2},poseProfile:{armSpread:1.68},

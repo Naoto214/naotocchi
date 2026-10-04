@@ -6,30 +6,6 @@ on:
 permissions:
   contents: read
 jobs:
-  human-candidate-distance:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    strategy:
-      fail-fast: false
-      matrix:
-        line: [man, woman, ren]
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - run: npm ci
-      - run: npm install --no-save --package-lock=false playwright@1.62.1
-      - run: npx playwright install --with-deps chromium
-      - name: Unpromoted human candidates at real Meguru distance (QA HTTP overlay only)
-        env:
-          QA_LINE: ${{ matrix.line }}
-        run: node tools/character-3d/meguru-qa.cjs --candidate-human --rollout --species-only --line "$QA_LINE" --out "test-results/human-candidates/$QA_LINE"
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: human-candidate-distance-${{ matrix.line }}-${{ github.sha }}
-          path: test-results/human-candidates/${{ matrix.line }}
   stage-matrix:
     runs-on: ubuntu-latest
     outputs:
@@ -103,6 +79,24 @@ jobs:
         with:
           name: full-rollout-conflicts-${{ github.sha }}
           path: test-results/full-rollout/conflicts.json
+  human-performance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - name: Human-family QA mixed cast at 1 5 27 (not full-native or iPhone)
+        run: node tools/character-3d/meguru-qa.cjs --perf-only --human-mix --seconds 8 --out test-results/full-rollout/human-performance
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-human-performance-${{ github.sha }}
+          path: test-results/full-rollout/human-performance
   fish-performance:
     runs-on: ubuntu-latest
     timeout-minutes: 20

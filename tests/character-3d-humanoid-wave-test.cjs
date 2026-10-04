@@ -22,7 +22,7 @@ test('human candidates have short clothing volume and a case joined to the movin
  assert.ok(adult.parts.find(p=>p.bone==='heldCase'),'visible bag and handle volume');
  for(const rig of [toddler,adult]){rig.root.updateMatrixWorld(true);const l=new THREE.Box3().setFromObject(rig.bones.legL),r=new THREE.Box3().setFromObject(rig.bones.legR);assert.ok(r.min.x-l.max.x>.01,'original standing feet have a readable gap');}
  for(const rig of [toddler,adult])for(const part of rig.parts)assert.ok([...part.mesh.geometry.attributes.position.array].every(Number.isFinite));
- assert.equal(SPEC.ROLLOUT.man,undefined,'candidates do not silently promote before visual review');
+ assert.deepEqual(SPEC.ROLLOUT.man.stages[2],rows.man.stages[2],'reviewed runtime uses the exact source-derived spec');
 });
 test('spread-arm identity releases into existing locomotion without changing canonical emotions',async()=>{
  const row=require('../character-3d/humanoid-spec.js')(SPEC.PILOT).man,{humanoid}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');

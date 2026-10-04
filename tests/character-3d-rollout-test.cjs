@@ -107,3 +107,6 @@ test('reviewed exact stages reach the real presenter without role aliases or nea
   presenter.setScene(new THREE.Scene());assert.equal(presenter.stats().live,0);
   presenter.dispose();
 });
+test('reviewed human batch has all24 exact runtime templates without nearest-age substitution',async()=>{
+ const rt=await import('../character-3d/runtime.mjs');for(const id of ['man','woman','ren'])for(let stage=1;stage<=8;stage++){assert.deepEqual(SPEC.specKeyFor({line:id,stage:stage-1}),{id,stage,exact:true});assert.equal(rt.getTemplate(id,stage).status,'ok');}assert.equal(SPEC.ROLLOUT.woman.stages[8].poseProfile.seated,true);
+});

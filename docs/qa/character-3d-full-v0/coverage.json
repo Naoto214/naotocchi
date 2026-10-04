@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 59,
-    "pending": 234,
-    "fourViewRecords": 40
+    "exactSpecs": 80,
+    "pending": 213,
+    "fourViewRecords": 64
   },
   "rows": [
     {
@@ -21,10 +21,10 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-1-back.jpg"
       }
     },
     {
@@ -36,15 +36,15 @@
       "group": "normal",
       "asset": "assets/characters/man/02.png",
       "sha256": "54d2b1509ad758f83bc008231eaf99dc5e49432057ae3493bf295e72a63fa121",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-2-back.jpg"
       }
     },
     {
@@ -56,15 +56,15 @@
       "group": "normal",
       "asset": "assets/characters/man/03.png",
       "sha256": "4e2646c8482191ac430f7740b66ff2e54bec1cc6b97861ab06ace11ff29f0277",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-3-back.jpg"
       }
     },
     {
@@ -81,10 +81,10 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-4-back.jpg"
       }
     },
     {
@@ -96,15 +96,15 @@
       "group": "normal",
       "asset": "assets/characters/man/05.png",
       "sha256": "414e3e473a825f7837334a5aabd60dfaf7d4e716e1e41c3eabe82e8a68296d81",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-5-back.jpg"
       }
     },
     {
@@ -116,15 +116,15 @@
       "group": "normal",
       "asset": "assets/characters/man/06.png",
       "sha256": "83dcbf8b0be537112d4c86f71113f9fc81578c2659555df202bdc1798bec3e59",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-6-back.jpg"
       }
     },
     {
@@ -136,15 +136,15 @@
       "group": "normal",
       "asset": "assets/characters/man/07.png",
       "sha256": "ac451c5693ede5cbc69ad1d4ee58329120b8f2cab8021b8436fc93136ca70ec5",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-7-back.jpg"
       }
     },
     {
@@ -161,10 +161,10 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/man-8-back.jpg"
       }
     },
     {
@@ -176,15 +176,15 @@
       "group": "normal",
       "asset": "assets/characters/woman/01.png",
       "sha256": "08362d7f1508e95e5bc371d4dc9d01a583af2981616842cc2d62eb7858745ac3",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-1-back.jpg"
       }
     },
     {
@@ -196,15 +196,15 @@
       "group": "normal",
       "asset": "assets/characters/woman/02.png",
       "sha256": "c11490fb1f5db05d604503506e5c65de164da8fa87bbe0891d4d8aadc072615f",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-2-back.jpg"
       }
     },
     {
@@ -216,15 +216,15 @@
       "group": "normal",
       "asset": "assets/characters/woman/03.png",
       "sha256": "2127890fc5fda655cf00db5702c9065c8a94e93288650f344fb8a9161f849d8e",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-3-back.jpg"
       }
     },
     {
@@ -236,15 +236,15 @@
       "group": "normal",
       "asset": "assets/characters/woman/04.png",
       "sha256": "5b33aca28da3c2d434ca031c200f4c623c3703961ed2e84a767d0c80f3c6f657",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-4-back.jpg"
       }
     },
     {
@@ -256,15 +256,15 @@
       "group": "normal",
       "asset": "assets/characters/woman/05.png",
       "sha256": "e7999dfd5674b1beeee7d8ad2516b9f79a5182f69c9afbe4c4f7579607ba5679",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-5-back.jpg"
       }
     },
     {
@@ -276,15 +276,15 @@
       "group": "normal",
       "asset": "assets/characters/woman/06.png",
       "sha256": "e9818c6520b8c098df7ef717503903b94ced2cd5cc7b4bfb8cde4372c9a522e4",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-6-back.jpg"
       }
     },
     {
@@ -296,15 +296,15 @@
       "group": "normal",
       "asset": "assets/characters/woman/07.png",
       "sha256": "5fe2bc3efe9ff3c9b12cbd617054cbf7ae97cfff5b96bb646a3717463dbb7555",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-7-back.jpg"
       }
     },
     {
@@ -316,15 +316,15 @@
       "group": "normal",
       "asset": "assets/characters/woman/08.png",
       "sha256": "460fd71e624e0ecca396bb4ad95dfb8ceea341973ec020f623952377cd204185",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/woman-8-back.jpg"
       }
     },
     {
@@ -4816,15 +4816,15 @@
       "group": "secret",
       "asset": "assets/characters/ren/01.png",
       "sha256": "e07a378e94a9585b5c78a851d404d4f3696c94fa5e2caa3ab6e9cbca01b7f4a3",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-1-back.jpg"
       }
     },
     {
@@ -4836,15 +4836,15 @@
       "group": "secret",
       "asset": "assets/characters/ren/02.png",
       "sha256": "740acd3acb83f1b14fac9b7d44d42c7df9b7c0c96a8551cd26f634264b717f32",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-2-back.jpg"
       }
     },
     {
@@ -4856,15 +4856,15 @@
       "group": "secret",
       "asset": "assets/characters/ren/03.png",
       "sha256": "acd8296c2d73645ba6c53b106169ecc6dea7e0b66aa09d96d0a033faec84437d",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-3-back.jpg"
       }
     },
     {
@@ -4876,15 +4876,15 @@
       "group": "secret",
       "asset": "assets/characters/ren/04.png",
       "sha256": "213482e4ec64158680e40e3e23887dcf16a56931bad5b8d232bb2e2c97632ced",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-4-back.jpg"
       }
     },
     {
@@ -4896,15 +4896,15 @@
       "group": "secret",
       "asset": "assets/characters/ren/05.png",
       "sha256": "4973f31b725f6accb93392c18bd72bc61462a0c061905379f60d744406fa82a5",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-5-back.jpg"
       }
     },
     {
@@ -4916,15 +4916,15 @@
       "group": "secret",
       "asset": "assets/characters/ren/06.png",
       "sha256": "d6e1ea3964be21f3d3aac74dace8fd7b7b65131d1842cdb3753249aa2b95c06d",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-6-back.jpg"
       }
     },
     {
@@ -4936,15 +4936,15 @@
       "group": "secret",
       "asset": "assets/characters/ren/07.png",
       "sha256": "230c5ea34abc1fc59539fe2cbabf82baaf4fc83da25c317b8c04d544a0125f9e",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-7-back.jpg"
       }
     },
     {
@@ -4956,15 +4956,15 @@
       "group": "secret",
       "asset": "assets/characters/ren/08.png",
       "sha256": "1ecc32b88c19a55a02c3f8d59aa750f57dcdd49e70290a94aa79f29fd83c39b2",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-human/2befff5/ren-8-back.jpg"
       }
     },
     {

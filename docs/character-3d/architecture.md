@@ -189,3 +189,10 @@ Pilot Human QAによる全量展開開始承認済み。Full Rollout v0完成後
 - 新しい共通parameter: quadrupedの左右ear profile、持ち上げた前足、水平に伸びた遊び姿勢、身体を回り込むtail family、avianの左右wing pose。既存parameterがない場合のPilot挙動を保持する。
 - canonical emotion / actor state / Motion意味論 / save / Worldは変更しない。新poseはpresentation内でidle→locomotionへblendする。
 - memory/cacheの全量上限判断、未実装family、新archetype、最終実機QAは未完了。現在のcheckpointを全量完成と扱わない。
+
+### Humanoid rollout presentation parameters
+
+- `humanoid-spec.js` supplies all24 exact man/woman/ren stages. Optional wardrobe/skirt/hood/number, long/swept/tied hair, hat/hand-prop and per-arm pose profiles reuse the builder; Pilot man01/04/08 data stays unchanged.
+- A neutral per-eye shape may differ left/right; non-normal canonical expressions still use the shared emotion parameters. No new emotion vocabulary.
+- Optional articulated knees and seated cloth/support blend from signature resting pose to existing human locomotion. Chair is presentation support only, not World furniture/state. Held animals build via shared quadruped geometry, merge nonwalking secondary meshes, and retain a projected canonical face in the same actor.
+- QA candidate specs are overlaid only in the QA HTTP/Node harness before promotion; production spec files and saves are never rewritten by that harness.

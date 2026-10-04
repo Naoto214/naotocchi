@@ -11,3 +11,8 @@ test('QA performance mix uses explicit keys, never truthy strings as puff flags'
  assert.equal(matchesComposition(many,many),true);
  for(const mix of [pilot,fish,puff])for(const n of [1,5,27])assert.equal(Object.values(expectedTemplates(mix,n,spec,companions)).reduce((a,b)=>a+b),n);
 });
+test('human-family performance names the seated high-cost player and its real QA template composition',()=>{
+ const {performanceMix,expectedTemplates,matchesComposition}=require('../tools/character-3d/performance-mix.cjs'),spec=require('../character-3d/spec.js'),mix=performanceMix(['--human-mix']);
+ assert.deepEqual(mix.player,{line:'woman',stageIndex:7});assert.deepEqual(mix.standIns,['man:2','man:6','woman:2','woman:4','ren:3','ren:5','ren:8']);
+ const companions=['shiba','cat_friend',...Array.from({length:24},(_,i)=>'unbuilt-'+i)],counts=expectedTemplates(mix,27,spec,companions);assert.equal(counts['woman:8'],1);assert.equal(counts['woman:2'],4);assert.equal(counts['ren:8'],3);assert.equal(Object.values(counts).reduce((a,b)=>a+b),27);assert.equal(matchesComposition({'woman:8':1,'shiba:0':1,'cat_friend:0':1,'dandelion:8':24},counts),false);
+});
