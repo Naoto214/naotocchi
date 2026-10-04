@@ -1,6 +1,11 @@
 const fs=require('fs'),path=require('path'),cp=require('child_process'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'../..'),test='tests/character-3d-humanoid-wave-test.cjs';
 const cases=[
+ ['skirt silhouette','character-3d/archetypes.mjs','if(sp.wardrobe?.skirt)','if(false)'],
+ ['long hair volume','character-3d/archetypes.mjs','if(sp.hair.length)','if(false)'],
+ ['shoulder bag grip','character-3d/archetypes.mjs',"rig.add('heldBag','armL',end","rig.add('heldBag','body',end"],
+ ['hood volume','character-3d/archetypes.mjs',"if((sp.attachments||[]).includes('hood'))","if(false)"],
+ ['sports prop','character-3d/archetypes.mjs',"if((sp.attachments||[]).includes('playBall'))","if(false)"],
  ['standing silhouette','character-3d/archetypes.mjs','(Lg.spread??0.42)','0.42'],
  ['short sleeve','character-3d/archetypes.mjs','sp.wardrobe?.sleeve &&','false &&'],
  ['short trousers','character-3d/archetypes.mjs','sp.wardrobe?.shorts &&','false &&'],

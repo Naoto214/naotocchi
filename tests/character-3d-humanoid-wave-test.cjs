@@ -1,5 +1,15 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const SPEC=require('../character-3d/spec.js');
+test('school and sports human representatives retain hair length, flared skirt, held bag and layered hood volumes',async()=>{
+ const rows=require('../character-3d/humanoid-spec.js')(SPEC.PILOT);assert.ok(rows.woman?.stages[4]&&rows.ren?.stages[3]&&rows.ren?.stages[5],'original-derived representatives exist');
+ const {humanoid}=await import('../character-3d/archetypes.mjs');
+ const school=humanoid(rows.woman.stages[4],'woman:4'),sport=humanoid(rows.ren.stages[3],'ren:3'),hood=humanoid(rows.ren.stages[5],'ren:5');
+ assert.ok(school.bones.skirt,'skirt is volume');const skirt=school.parts.find(p=>p.bone==='skirt').mesh.geometry;skirt.computeBoundingBox();assert.ok(skirt.boundingBox.max.x>rows.woman.stages[4].body.r*1.25);
+ const head=school.parts.find(p=>p.bone==='head').mesh.geometry;head.computeBoundingBox();assert.ok(head.boundingBox.min.y<-.08,'long hair falls below head origin toward shoulders');
+ assert.ok(school.bones.heldBag.parent===school.bones.armL,'strap and bag share hand pose');assert.deepEqual(school.bones.heldBag.position.toArray(),school.meta.handEnds.left);
+ assert.ok(hood.bones.hood,'hood has rear volume rather than painted collar');assert.ok(sport.bones.playBall,'sports identity keeps the ball');
+ for(const rig of [school,sport,hood])for(const p of rig.parts)assert.ok([...p.mesh.geometry.attributes.position.array].every(Number.isFinite));
+});
 test('human candidates have short clothing volume and a case joined to the moving hand',async()=>{
  const rows=require('../character-3d/humanoid-spec.js')(SPEC.PILOT),{humanoid}=await import('../character-3d/archetypes.mjs');
  const toddler=humanoid(rows.man.stages[2],'man:2'),adult=humanoid(rows.man.stages[6],'man:6');

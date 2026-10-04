@@ -243,7 +243,7 @@ export function humanoid(sp, key) {
       parts.push(solid(sweep([[side*B.r*.48,B.h*.66,B.r*.8],[side*B.r*.51,B.h*.98,B.r*.27],[side*B.r*.48,B.h*.88,-B.r*.52],[side*B.r*.48,B.h*.68,-B.r*.72],[side*B.r*.48,B.h*.35,-B.r*.75]],()=>B.r*.11,6,{steps:12,flat:.4}),c.top));
       parts.push(solid(xform(ellipsoid(.015,.015,.01,6,4),{pos:[side*B.r*.48,B.h*.68,B.r*.84]}),'#ddb45e'));
     }
-  } else if (dressed) {
+  } else if (dressed && sp.clothing !== 'shirt') {
     const jacket = sp.clothing === 'jacket';
     parts.push(panel([[-B.r*.24,B.h*.06],[B.r*.24,B.h*.06],[B.r*.31,B.h*.84],[0,B.h*.97],[-B.r*.31,B.h*.84]],c.accent));
     for(const side of [-1,1]) {
@@ -264,7 +264,20 @@ export function humanoid(sp, key) {
     const straps = [-1, 1].map((s) => solid(sweep([[s * B.r * 0.45, B.h * 0.95, -B.r * 0.55], [s * B.r * 0.5, B.h * 1.0, B.r * 0.2], [s * B.r * 0.45, B.h * 0.5, B.r * 0.82]], () => 0.025, 5, { steps: 8 }), '#26262f'));
     parts.push(bp, ...straps);
   }
+  if((sp.attachments||[]).includes('bow')){
+    for(const side of [-1,1])parts.push(solid(xform(ellipsoid(.065,.044,.026,10,6),{pos:[side*.055,B.h*.84,B.r*.82],rot:[0,0,side*.25]}),c.bow));
+    parts.push(solid(xform(ellipsoid(.025,.03,.03,8,6),{pos:[0,B.h*.84,B.r*.85]}),c.bow));
+  }
   rig.add('body', 'root', [0, hipY, 0], parts);
+  if(sp.wardrobe?.skirt){
+    const sk=sp.wardrobe.skirt,g=lathe([[B.r*.89,.06],[B.r,.0],[B.r*sk.flare,-sk.length],[B.r*sk.flare*.95,-sk.length-.015]],32),p=g.attributes.position;
+    for(let i=0;i<p.count;i++){const a=Math.atan2(p.getX(i),p.getZ(i)),k=1+.035*Math.cos(a*(sk.pleats||10));p.setXYZ(i,p.getX(i)*k,p.getY(i),p.getZ(i)*k*.82);}g.computeVertexNormals();
+    rig.add('skirt','body',[0,0,0],[solid(g,c.bottom)]);
+  }
+  if((sp.attachments||[]).includes('hood'))rig.add('hood','body',[0,B.h*.88,-B.r*.60],[solid(xform(ellipsoid(B.r*.85,B.h*.25,B.r*.65,14,8),{rot:[-.3,0,0]}),c.accent)]);
+  if((sp.attachments||[]).includes('playBall')){
+    const r=.16;rig.add('playBall','root',[B.r+.23,r,.20],[paint(ellipsoid(r,r,r,16,12),(x,y,z)=>Math.cos(Math.atan2(x,z)*5+Math.floor((y/r+1)*2)*1.7)>.5&&Math.cos(y/r*8)>.05?'#253a50':'#eeede5')]);
+  }
   // 頭 と かみ
   const hr = Hd.r;
   const skull = paint(blob((x, y, z) => { const k = y < 0 ? 1 + y * 0.1 : 1; return [x * hr * 1.04 * k, y * hr * 0.98, z * hr * 0.96 * k]; }, 18, 14), () => c.skin);
@@ -281,7 +294,7 @@ export function humanoid(sp, key) {
   const surface=(x,y)=>Math.sqrt(Math.max(.09,1-Math.pow(x/(hr*1.14),2)-Math.pow(y/(hr*1.14),2)))*hr*1.09+.018;
   for (let i=0;i<locks;i++) {
     const u=i/(locks-1),x=(u-.5)*hr*1.85,y=hr*(.68-.12*Math.abs(u-.5));
-    const endY=hr*(style==='soft' ? .08+.48*Math.exp(-Math.pow((u-.63)/.22,2)) : .04+.26*u+.12*Math.sin(u*9)),ex=x-hr*.10;
+    const endY=hr*(style==='swept' ? .02+.58*u : style==='soft' ? .08+.48*Math.exp(-Math.pow((u-.63)/.22,2)) : .04+.26*u+.12*Math.sin(u*9)),ex=x-hr*.10;
     extra.push(solid(sweep([[x+hr*.10,y,surface(x+hr*.10,y)],[x,y-hr*.16,surface(x,y-hr*.16)],[ex,endY,surface(ex,endY)]],t=>hr*(style==='soft'?.23:.24)*(1-t*.94),6,{steps:5,flat:.30}),c.hair));
   }
   if (style === 'baby') extra.push(solid(sweep([[0,hr,0],[0.08,hr*1.22,0],[0.03,hr*1.34,0],[-0.02,hr*1.3,0]],t=>hr*0.075*(1-t*0.8),5,{steps:6}),c.hair));
@@ -289,23 +302,34 @@ export function humanoid(sp, key) {
     const a = i / 7 * TAU;
     extra.push(solid(sweep([[Math.sin(a)*hr*.65,hr*.7,Math.cos(a)*hr*.65],[Math.sin(a)*hr*.94,hr*(.78+R()*.2),Math.cos(a)*hr*.94]],t=>hr*.12*(1-t*.98),5,{steps:3}),c.hair));
   }
+  if(sp.hair.length){
+    const length=hr*sp.hair.length;
+    extra.push(solid(blob((x,y,z)=>[x*hr*.96,y*(length+hr*.40)/2+(hr*.40-length)/2,z*hr*.32-hr*.67],18,12),c.hair));
+    for(const side of [-1,1])extra.push(solid(sweep([[side*hr*.87,hr*.27,0],[side*hr*1.03,-hr*.42,.03],[side*hr*1.05,-length*.76,.08],[side*hr*.92,-length,.13]],t=>hr*.23*(1-t*.35),8,{steps:9,flat:.70}),c.hair));
+  }
   const headGeo = merge([skull, ...ears]);
   rig.add('head', 'body', [0, B.h * 0.98, 0.01], null);
   const headCenter = [0, hr * 0.92, 0.02];
   rig.mesh('head', [xform(headGeo.clone(), { pos: headCenter }), xform(merge([hair, ...extra]), { pos: headCenter })]);
   // Bent arms end at the actual strap / handle. The prop shares the arm bone,
   // so locomotion and emotion posture cannot pull it away from the grip.
-  const hold=(sp.attachments||[]).includes('backpack')?'backpack':(sp.attachments||[]).includes('cane')?'cane':(sp.attachments||[]).includes('briefcase')?'briefcase':null;
+  const hold=(sp.attachments||[]).includes('backpack')?'backpack':(sp.attachments||[]).includes('cane')?'cane':(sp.attachments||[]).includes('briefcase')?'briefcase':(sp.attachments||[]).includes('shoulderBag')?'shoulderBag':null;
   let caneGrip;const handEnds={};
   for (const s of [-1,1]) {
-    const holding=(hold==='backpack'&&s<0)||(hold==='cane'&&s>0);
-    const end=holding?(hold==='backpack'?[s*-B.r*.43,-B.h*.32,B.r*.87]:[s*.035,-Ar.len*.52,B.r*.70]):[s*.045,-Ar.len-Ar.r*.7,.02];
+    const holding=((hold==='backpack'||hold==='shoulderBag')&&s<0)||(hold==='cane'&&s>0);
+    const end=holding?((hold==='backpack'||hold==='shoulderBag')?[s*-B.r*.43,-B.h*.32,B.r*.87]:[s*.035,-Ar.len*.52,B.r*.70]):[s*.045,-Ar.len-Ar.r*.7,.02];
     const elbow=holding?[s*.075,-Ar.len*.72,.055]:[s*.03,-Ar.len*.5,.01];
     const arm=paint(sweep([[0,0,0],elbow,end],t=>Ar.r*lerp(1.15,.85,t),8,{steps:8}),(x,y)=>sp.wardrobe?.sleeve && y < -Ar.len*sp.wardrobe.sleeve?c.skin:c.sleeve||c.top);
     const hand=solid(xform(ellipsoid(Ar.r*1.10,Ar.r*.95,Ar.r,8,6),{pos:end}),c.skin);
     const parts=[arm,hand];
     rig.add(s<0?'armL':'armR','body',[s*B.r*.88,B.h*.82,0],parts,'opaque',[0,0,holding?0:s*.12]);
     handEnds[s<0?'left':'right']=end;
+    if(hold==='shoulderBag'&&s<0){
+      const low=-B.h*.62;
+      const strap=solid(sweep([[0,0,0],[-.07,B.h*.29,-.03],[-.14,B.h*.24,-.17],[-.20,low,-.12]],()=>.023,6,{steps:12,flat:.55}),c.bag);
+      const bag=solid(blob((x,y,z)=>[Math.sign(x)*Math.pow(Math.abs(x),.55)*.15-.13,Math.sign(y)*Math.pow(Math.abs(y),.65)*.105+low,Math.sign(z)*Math.pow(Math.abs(z),.55)*.075],12,8),c.bag);
+      rig.add('heldBag','armL',end,[strap,bag]);
+    }
     if(hold==='briefcase'&&s<0){
       const h=.24,w=.18,d=.07;
       const handle=solid(sweep([[-w*.4,-.07,0],[-w*.35,.006,0],[w*.35,.006,0],[w*.4,-.07,0]],()=>.017,6,{steps:8}),c.bag);
