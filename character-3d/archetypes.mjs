@@ -662,7 +662,9 @@ function mushroomParts(cap, stem, c, faceOn) {
   stemGeo.computeVertexNormals();
   paint(stemGeo, (x, y, z, nx, ny, nz) => mix(c.stem, shade(c.stem, 0.88), smooth(0.2, -0.9, nz) * 0.6));
   const cr = cap.r, ch = cap.h;
-  const prof = cap.shape === 'cone'
+  const prof = cap.shape === 'upturned'
+    ? [[.001,-ch*.18],[cr*.35,-ch*.15],[cr*.72,ch*.06],[cr,ch*.45],[cr*.99,ch*.73],[cr*.75,ch*.47],[cr*.4,ch*.2],[.001,ch*.10]]
+    : cap.shape === 'cone'
     ? [[0.001, -ch * 0.05], [cr * 0.9, 0], [cr * 1.0, ch * 0.12], [cr * 0.92, ch * 0.4], [cr * 0.66, ch * 0.75], [cr * 0.3, ch * 0.96], [0.001, ch]]
     : [[0.001, -ch * 0.12], [cr * 0.7, -ch * 0.19], [cr * 1.0, 0.0], [cr * 1.02, ch * 0.2], [cr * 0.85, ch * 0.62], [cr * 0.45, ch * 0.92], [0.001, ch]];
   const profileCurve=new THREE.SplineCurve(prof.map(([r,y])=>new THREE.Vector2(r,y)));
@@ -670,17 +672,43 @@ function mushroomParts(cap, stem, c, faceOn) {
   const cp = capGeo.attributes.position;
   for (let i = 0; i < cp.count; i++) { const y = cp.getY(i); if (y < 0.001) { const x = cp.getX(i), z = cp.getZ(i), a = Math.atan2(x, z), k = 1 + 0.06 * Math.cos(a * 20) * Math.hypot(x, z) / cr; cp.setY(i, y * k - 0.009 * Math.cos(a * 16) * Math.sin(Math.PI*Math.hypot(x,z)/cr)); } }
   capGeo.computeVertexNormals();
-  paint(capGeo, (x, y, z, nx, ny, nz) => (y < 0.005 ? shade(c.gill, .92 + .08*Math.cos(Math.atan2(x,z)*16)) : mix(c.cap, c.capDark, cap.shape === 'flat' ? smooth(0.6, 0.0, ny) * 0.55 : smooth(0.4, -0.3, ny) * 0.4)));
+  paint(capGeo, (x,y,z,nx,ny,nz) => {
+    if(y<.005)return shade(c.gill,.92+.08*Math.cos(Math.atan2(x,z)*16));
+    if(cap.spots&&ny>.05&&cap.spots.some(([sx,sz,r])=>Math.hypot(x/cr-sx,z/cr-sz)<r*(1+.1*Math.sin(Math.atan2(z/cr-sz,x/cr-sx)*5))))return c.spot;
+    const tone=mix(c.cap,c.capDark,cap.shape==='flat'?smooth(.6,0,ny)*.55:smooth(.4,-.3,ny)*.4);
+    return c.capFace?mix(tone,c.capFace,smooth(ch*.7,ch*.2,y)*.95):tone;
+  });
   return { stemGeo, capGeo };
 }
 export function fungus(sp, key) {
   const c = sp.colors;
   const rig = new Rig(key, 'fungus', 'squashHop');
+  if (sp.form === 'mycelium') {
+    const core=sp.core,b=sp.branches;
+    const target=paint(blob((x,y,z)=>[x*core.r*(1+.05*Math.sin(y*4)),y*core.h,z*core.depth],20,14),(x,y,z,nx,ny)=>mix(c.stem,c.branch,Math.max(0,-ny)*.3));
+    const arms=[];
+    for(let i=0;i<b.count;i++){
+      const a=TAU*i/b.count+.08*Math.sin(i*2.7),reach=b.reach*(.88+.12*Math.sin(i*1.8)**2),depth=.09*Math.sin(i*2.4);
+      const point=(t,turn=0)=>{const r=core.r*.7+(reach-core.r*.7)*t,angle=a+turn+.10*Math.sin(t*Math.PI+i);return [Math.cos(angle)*r,Math.sin(angle)*r,depth*t];};
+      arms.push(solid(sweep([point(0),point(.35),point(.7),point(1)],t=>b.r*(1-.72*t),6,{steps:10}),c.branch));
+      for(const [t,side]of [[.5,-1],[.72,1]]){const at=point(t),tip=point(Math.min(1,t+.25),side*.24);arms.push(solid(sweep([at,[(at[0]+tip[0])*.5,(at[1]+tip[1])*.5,depth*t+side*.025],tip],u=>b.r*.65*(1-.72*u),5,{steps:5}),c.branch));}
+    }
+    rig.add('body','root',[0,b.reach+.04,0],[target.clone(),...arms]);
+    rig.meta={idlePose:'stand',hover:0};
+    rig.faceSpec={bone:'body',target,center:[0,0,core.depth*.9],fwd:[0,0,1],half:core.r*.8,eyeSize:.27,normalEye:sp.normalEye||null,layout:{eyeX:24,eyeY:56,mouthY:82,browY:36,cheekX:38,cheekY:72,mouthW:8},style:{blush:'#f4a090'}};
+    return rig;
+  }
   const { stemGeo, capGeo } = mushroomParts(sp.cap, sp.stem, c, sp.faceOn);
   const atts = sp.attachments || [];
   if (atts.includes('dirt')) rig.add('dirt', 'root', [0, 0, 0], [dirtGeo(sp.stem.r * 2.0 + 0.12, c, key)]);
   rig.add('body', 'root', [0, 0.04, 0], [stemGeo.clone()]);
   rig.add('cap', 'body', [0, sp.stem.h * 0.92, 0], [capGeo.clone()], 'opaque', [sp.cap.tilt || 0,0,sp.cap.roll || 0]);
+  if (sp.collar) {
+    const co=sp.collar;
+    const g=lathe([[sp.stem.r*.78,co.h*.4],[co.r*.72,co.h*.12],[co.r,-co.h*.25],[co.r*.94,-co.h*.45],[sp.stem.r*.80,co.h*.16]],40),p=g.attributes.position;
+    for(let i=0;i<p.count;i++){const a=Math.atan2(p.getX(i),p.getZ(i)),k=1+.06*Math.cos(a*12);p.setXYZ(i,p.getX(i)*k,p.getY(i)+.025*Math.cos(a*12),p.getZ(i)*k);}g.computeVertexNormals();
+    rig.add('collar','body',[0,co.at,0],[solid(g,c.stem)]);
+  }
   let childFace = null;
   if (atts.includes('child')) {
     const small = mushroomParts({ r: sp.cap.r * 0.5, h: sp.cap.h * 1.1, shape: 'flat' }, { h: sp.stem.h * 0.55, r: sp.stem.r * 0.45 }, c, 'cap');
@@ -693,7 +721,7 @@ export function fungus(sp, key) {
   else { target = stemGeo; bone = 'body'; center = [0, sp.stem.h * 0.5, sp.stem.r * 0.9]; half = sp.stem.r * 0.85; }
   rig.meta = { idlePose: 'stand', hover: 0 };
   rig.faceSpec = { bone, target, center, fwd: [0, 0.05, 1], half, eyeSize: 0.26,
-    layout: { eyeX: 24, eyeY: 56, mouthY: 82, browY: 36, cheekX: 38, cheekY: 72, mouthW: 8 }, style: { blush: '#f4a090' }, normalEye: sp.faceOn === 'stem' ? 'content' : null };
+    layout: { eyeX: 24, eyeY: 56, mouthY: 82, browY: 36, cheekX: 38, cheekY: 72, mouthW: 8 }, style: { blush: '#f4a090' }, normalEye: sp.normalEye ?? (sp.faceOn === 'stem' ? 'content' : null) };
   if (childFace) rig.faceSpec = [rig.faceSpec, childFace];
   return rig;
 }
