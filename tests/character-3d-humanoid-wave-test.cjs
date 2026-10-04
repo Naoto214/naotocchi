@@ -71,3 +71,9 @@ test('every human candidate keeps canonical faces and finite idle/walk/reduced p
   for(const animLv of [0,2])for(const moving of [false,true]){const actor=instantiate({rig,key:id+':'+stage});for(const emotion of SPEC.CANONICAL_EMOTIONS){setEmotion(actor,emotion);animate(actor,{dt:.1,moving,animLv});assert.ok(actor.faces.every(f=>f.emotion===emotion));for(const b of Object.values(actor.bones))assert.ok([...b.position.toArray(),...b.scale.toArray(),b.rotation.x,b.rotation.y,b.rotation.z].every(Number.isFinite));}}
  }
 });
+test('school hair stays inside its hat and held-toy idle retains a free raised arm',async()=>{
+ const rows=require('../character-3d/humanoid-spec.js')(SPEC.PILOT),{humanoid}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate}=await import('../character-3d/animate.mjs');
+ for(const id of ['man','woman']){const sp=rows[id].stages[3],rig=humanoid(sp,id+':3'),g=rig.parts.find(p=>p.bone==='head').mesh.geometry,p=g.attributes.position,c=g.attributes.color,color=new THREE.Color(sp.colors.hair).toArray();for(let i=0;i<p.count;i++)if(p.getY(i)>sp.head.r*1.49&&[c.getX(i),c.getY(i),c.getZ(i)].every((v,k)=>Math.abs(v-color[k])<.001))assert.ok(Math.hypot(p.getX(i),p.getZ(i)-.02)<sp.head.r*.97,'hair must stay within the crown above the brim');}
+ const sp=rows.woman.stages[2],r=humanoid(sp,'woman:2');r.faces=r.faceSpec.map(s=>attachFace(r,s,'C'));const a=instantiate({rig:r,key:'woman:2'});animate(a,{dt:.1,moving:false,animLv:0});assert.ok(a.bones.armR.rotation.z>1,'free arm raised');assert.ok(Math.abs(a.bones.armL.rotation.z)<.2,'held plush arm stays at grip');
+ assert.equal(rows.woman.stages[1].colors.shoe,'#d99aaa');assert.ok(rows.woman.stages[5].hair.bun.at[0]<-.7,'original bun sits to the side');
+});

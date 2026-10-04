@@ -328,8 +328,11 @@ export function humanoid(sp, key) {
     extra.push(solid(xform(ellipsoid(hr*.31,hr*.46,hr*.30,12,8),{pos:[side*hr*1.03,-hr*.12,-hr*.14],rot:[0,0,side*.25]}),c.hair));
     extra.push(solid(xform(ellipsoid(hr*.10,hr*.10,hr*.23,8,6),{pos:[side*hr*.94,hr*.15,-hr*.03]}),c.top));
   }
+  if((sp.attachments||[]).includes('schoolHat')){
+    for(const g of [hair,...extra]){const p=g.attributes.position;for(let i=0;i<p.count;i++)if(p.getY(i)>hr*.56){const r=Math.hypot(p.getX(i),p.getZ(i));if(r>hr*.93){const k=hr*.93/r;p.setXYZ(i,p.getX(i)*k,p.getY(i),p.getZ(i)*k);}}g.computeVertexNormals();}
+  }
   if((sp.attachments||[]).includes('schoolHat'))extra.push(solid(lathe([[.001,hr*1.29],[hr*.65,hr*1.23],[hr*1.03,hr*.96],[hr*1.05,hr*.68],[hr*1.24,hr*.65],[hr*1.25,hr*.59],[hr*.99,hr*.60]],24),c.hat));
-  if(sp.hair.bun)extra.push(solid(xform(ellipsoid(hr*.39,hr*.38,hr*.38,12,8),{pos:[-hr*.18,hr*.96,-hr*.42]}),c.hair));
+  if(sp.hair.bun){const b=sp.hair.bun,r=b.r||[.39,.38,.38],at=b.at||[-.18,.96,-.42];extra.push(solid(xform(ellipsoid(...r.map(v=>v*hr),12,8),{pos:at.map(v=>v*hr)}),c.hair));}
   const headGeo = merge([skull, ...ears]);
   rig.add('head', 'body', [0, B.h * 0.98, 0.01], null);
   const headCenter = [0, hr * 0.92, 0.02];

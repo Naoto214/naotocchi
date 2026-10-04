@@ -1,6 +1,8 @@
 const fs=require('fs'),path=require('path'),cp=require('child_process'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'../..'),test='tests/character-3d-humanoid-wave-test.cjs';
 const cases=[
+ ['hat hair boundary','character-3d/archetypes.mjs','if(p.getY(i)>hr*.56)','if(false)'],
+ ['held toy arm independence','character-3d/animate.mjs','meta.poseProfile.armSpreadSides?.[0]??1','1'],
  ['candidate QA overlay','tools/character-3d/candidate-spec.cjs','...(${factory})(pilot)','...{}'],
  ['school hat volume','character-3d/archetypes.mjs',"if((sp.attachments||[]).includes('schoolHat'))extra.push","if(false)extra.push"],
  ['pacifier','character-3d/archetypes.mjs',"if((sp.attachments||[]).includes('pacifier'))","if(false)"],

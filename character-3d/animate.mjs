@@ -113,7 +113,7 @@ const LOCO = {
   },
   humanWalk(B, s, m, k, meta) {
     const ph = s.phase * TAU, sw = 0.55 * m * k.amp;
-    if(meta.poseProfile?.armSpread){const a=meta.poseProfile.armSpread*(1-m);B.armL.rotation.z-=a;B.armR.rotation.z+=a;}
+    if(meta.poseProfile?.armSpread){const a=meta.poseProfile.armSpread*(1-m);B.armL.rotation.z-=a*(meta.poseProfile.armSpreadSides?.[0]??1);B.armR.rotation.z+=a*(meta.poseProfile.armSpreadSides?.[1]??1);}
     if(meta.poseProfile?.seated){
       const rest=1-m;B.body.position.y=lerp(B.body.position.y,meta.sittingHip,rest);
       B.legL.rotation.x-=1.4*rest;B.legR.rotation.x-=1.4*rest;B.kneeL.rotation.x+=1.4*rest;B.kneeR.rotation.x+=1.4*rest;
