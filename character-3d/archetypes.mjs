@@ -548,6 +548,17 @@ export function plant(sp, key) {
   const rig = new Rig(key, 'plant', 'plantSway');
   // 葉(2 つの むれ = 2 bone に わけて ゆらす)
   const groups = [[], []];
+  if (sp.form === 'sprout') {
+    const cp=sp.cotyledons,br=sp.bulb;
+    for(let side=0;side<2;side++) {
+      const sign=side?1:-1;
+      const blade=paint(blob((x,y,z)=>[x*cp.width,(y+1)*cp.len*.5,z*cp.width*.22],16,10),
+        (x,y,z,nx,ny,nz)=>Math.abs(x)<cp.width*.075?c.vein:mix(c.leaf,c.leafDark,smooth(.5,-.8,nz)*.45));
+      blade.rotateZ(-sign*cp.lift);blade.translate(sign*.025,br*1.37,-.01);
+      const stalk=solid(sweep([[sign*.015,br*1.24,0],[sign*.045,br*1.47,-.01]],()=>.025,6,{steps:3}),c.leaf);
+      groups[side].push(blade,stalk);
+    }
+  } else {
   for (let i = 0; i < sp.leaves; i++) {
     const a = (i / sp.leaves) * TAU + 0.3, l = sp.leafLen * (0.85 + 0.25 * ((i * 7) % 3) / 2);
     // 顔の まえ(+z)の 葉は ひくく、うしろ・よこ の 葉は 立てて 顔の まわりを かこむ(2D の ロゼット)
@@ -559,14 +570,20 @@ export function plant(sp, key) {
     g.translate(Math.sin(a)*origin, .018+(i%3)*.008, Math.cos(a)*origin - (sp.form === 'rosette' ? sp.bulb*.18 : 0));
     groups[i % 2].push(g);
   }
+  }
   rig.add('leavesA', 'root', [0, 0, 0], groups[0]);
   rig.add('leavesB', 'root', [0, 0, 0], groups[1]);
   let target, faceCenter, half, faceBone;
-  if (sp.form === 'rosette') {
+  if (sp.form === 'rosette' || sp.form === 'sprout') {
     const br = sp.bulb;
     const bulb = paint(blob((x, y, z) => { const yy = y * 0.5 + 0.5; const k = 1 + 0.1 * (1 - yy); return [x * br * k, yy * br * 1.45, z * br * k * 0.95]; }, 18, 12), (x, y, z, nx, ny, nz) => mix(c.bulb, shade(c.bulb, 0.86), smooth(0.2, -0.8, nz)));
     const sprout = solid(sweep([[0, br * 1.4, 0], [0.03, br * 1.62, -0.02]], (t) => 0.04 * (1 - t * 0.6), 5, { steps: 3 }), c.leaf);
-    rig.add('body', 'root', [0, 0, 0], [bulb.clone(), sprout]);
+    const extras=[];
+    if(sp.form==='sprout') {
+      for(const side of [-1,1])extras.push(solid(xform(ellipsoid(br*.25,br*.12,br*.23,10,6),{pos:[side*br*.65,br*.06,br*.22]}),c.foot));
+      const shoot=leafGeo(br*.60,br*.12,c,.10);shoot.translate(0,br*1.43,-.04);extras.push(shoot);
+    }
+    rig.add('body', 'root', [0, 0, 0], [bulb.clone(), sprout,...extras]);
     target = bulb; faceCenter = [0, br * 0.72, br * 0.85]; half = br * 0.68; faceBone = 'body';
   } else {
     const sh = sp.stem, hr = sp.head;
