@@ -55,3 +55,7 @@ test('all fungus stages preserve Pilot and separate red dome, open rim and leani
 test('released spore cluster follows original rising path instead of symmetric horizontal grouping',async()=>{
  const {fungus}=await import('../character-3d/archetypes.mjs'),sp=require('../character-3d/topology-spec.js')(SPEC.PILOT).mushroom.stages[7],r=fungus(sp,'release-path');const p=[0,1,2].map(i=>r.bones['spores:u'+i].position);assert.ok(p[1].y>p[0].y+.2&&p[2].y>p[1].y+.2,'ascending separate units');const width=Math.max(...p.map(v=>v.x))-Math.min(...p.map(v=>v.x));assert.ok(p[2].y-p[0].y>width*2,'vertical source gesture');
 });
+test('mycelium and opened cap retain source squeezed neutral eyes without changing positive emotion',async()=>{
+ const {fungus}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{setEmotion}=await import('../character-3d/animate.mjs'),rows=require('../character-3d/topology-spec.js')(SPEC.PILOT).mushroom.stages;
+ for(const s of [2,6]){const r=fungus(rows[s],'source-eyes:'+s);r.faces=[attachFace(r,r.faceSpec,'C')];const a=instantiate({rig:r,key:'source-eyes:'+s});setEmotion(a,'normal');assert.deepEqual(a.faces[0].eyes.map(e=>e.userData.shape),['squeeze','squeeze']);setEmotion(a,'positive');assert.deepEqual(a.faces[0].eyes.map(e=>e.userData.shape),['happy','happy']);}
+});

@@ -213,3 +213,8 @@ Local exec-server stopped accepting commands with `No such file or directory`. G
 - Local112 dedicatedPASS/0FAIL, fungus13/13 and starfish8/8mutationsRED; Pilot28 geometry/pose numerical hashes unchanged. Strengthened spot-radius test after a mutation exposed that comparing allXYZ also detected height alone; XY coverage now detects lost radius.
 - Ruling: prepare remaining simple dome/radial candidate data while bounded02/06 correction recaptures run; sourcef01 recapture subsequently verifies those corrected representative mechanisms. All remain outside runtime until full-family gate; cost is candidate rework if full images reveal a problem.
 - Source27 Character37208278911 all20jobsSUCCESS. Saved aggregate independently verifies80/80 exact/live/fallback0 across10families. Latest full Runtime/Home and sourcef01 full CI still separate gates. Exact88/293,205pending; full v0 unfinished; no Ready/main merge/v1.
+
+### Full16 visual eye correction
+- Source4b9 wave-review all16 original/four-view rows inspected. Rising mushroom07 spores now separated vertically. Fixed four explicit original-eye data mismatches after RED tests: mushroom02/06 and starfish06 squeeze; starfish07 single wink. Existing canonical normal override only; tests prove positive returns happy eyes. Dedicated114PASS/0FAIL. No runtime promotion until corrected captures/distance.
+- Saved historical full16 sheets, source geometry, numerical model costs and fresh mechanical conflict audit (World#3745f240973; main clean, same conflict paths, no lane integration).
+- Local full npm on4b9 cancelled after partial execution as redundant with immutable Runtime CI; do not report a local full PASS. CI remains authoritative and pending. Exact88/293; Full v0 unfinished.
