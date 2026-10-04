@@ -23,3 +23,15 @@ test('asymmetric larval core stays within its source outer silhouette',async()=>
  const c=sp.contour.map(([x,y])=>[x*sp.r,y*sp.h]);const inside=(x,y)=>{let hit=false;for(let i=0,j=c.length-1;i<c.length;j=i++){const[a,b]=c[i],[d,e]=c[j];if((b>y)!==(e>y)&&x<(d-a)*(y-b)/(e-b)+a)hit=!hit;}return hit;};
  const p=r.parts[1].mesh.geometry.attributes.position;let outside=0;for(let i=0;i<p.count;i++)if(!inside(p.getX(i),p.getY(i)))outside++;assert.equal(outside,0,'opaque inner core must not protrude through transparent outer volume');
 });
+test('radial stage markings keep pale tips, raised large spots and source neutral eye shape',async()=>{
+ const {radial}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs');const base=SPEC.PILOT.starfish.stages[8],r=radial({...base,normalEye:{left:'round',right:'happy'},dotRadius:.04,colors:{...base.colors,tip:'#fff1d1'}},'radial-marking-fixture');
+ assert.deepEqual(r.faceSpec.normalEye,{left:'round',right:'happy'});const g=r.parts[0].mesh.geometry,p=g.attributes.position,c=g.attributes.color;let tips=0;for(let i=0;i<p.count;i++)if(Math.hypot(p.getX(i),p.getY(i))>base.r*.85&&p.getZ(i)>0&&c.getY(i)>.6)tips++;assert.ok(tips>10,'outer arm tips lighten');
+ const a=radial({...base,dotRadius:.04},'same-seed'),b=radial({...base,dotRadius:.01},'same-seed');assert.notDeepEqual(Array.from(a.parts[0].mesh.geometry.attributes.position.array).filter((v,i)=>i%3!==2),Array.from(b.parts[0].mesh.geometry.attributes.position.array).filter((v,i)=>i%3!==2),'spot geometry uses source radius');
+});
+test('all eight starfish candidates are exact original-derived shapes with preserved Pilot stages',async()=>{
+ const rows=require('../character-3d/topology-spec.js')(SPEC.PILOT).starfish.stages;assert.deepEqual(Object.keys(rows).map(Number).sort((a,b)=>a-b),[1,2,3,4,5,6,7,8]);
+ for(const s of [1,4,8])assert.equal(rows[s],SPEC.PILOT.starfish.stages[s]);
+ const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
+ for(const s of [5,6,7]){const sp=rows[s],r=BUILDERS[sp.archetype](sp,'starfish:'+s);r.faces=[attachFace(r,r.faceSpec,'C')];for(const p of r.parts)assert.ok([...p.mesh.geometry.attributes.position.array].every(Number.isFinite));for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'starfish:'+s});setEmotion(a,em);for(let n=0;n<10;n++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces[0].emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.scale.toArray()].every(Number.isFinite));}}
+ assert.ok(rows[6].armR/rows[6].r>rows[7].armR/rows[7].r,'broad orange centre versus slender pink arms');assert.equal(SPEC.ROLLOUT.starfish,undefined);
+});

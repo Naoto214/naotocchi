@@ -733,7 +733,7 @@ export function cluster(sp, key) {
   const c = sp.colors, R = rng(key);
   const rig = new Rig(key, 'cluster', 'clusterBob');
   const units = [];
-  const layout = [[0, 0.32, 0.05, 1.0], [-0.42, 0.62, -0.05, 0.8], [0.4, 0.66, 0.0, 0.85], [-0.5, 0.18, 0.1, 0.62], [0.52, 0.2, 0.08, 0.6], [0.0, 0.92, -0.08, 0.66]].slice(0, sp.count);
+  const layout = (sp.layout || [[0, 0.32, 0.05, 1.0], [-0.42, 0.62, -0.05, 0.8], [0.4, 0.66, 0.0, 0.85], [-0.5, 0.18, 0.1, 0.62], [0.52, 0.2, 0.08, 0.6], [0.0, 0.92, -0.08, 0.66]]).slice(0, sp.count);
   layout.forEach(([x, y, z, s], i) => {
     let geo, faceGeo, fc, half;
     if (sp.unit === 'spore') {
@@ -798,7 +798,7 @@ export function radial(sp, key) {
     p.setXYZ(i, (x / (rho || 1)) * rr, (y / (rho || 1)) * rr, z * thick + bend);
   }
   g.computeVertexNormals();
-  const col = (x, y, z, nx, ny, nz) => { const rr = Math.hypot(x, y) / sp.r; if (nz < -0.4) return shade(c.dark, 0.9); return mix(c.light, mix(c.base, c.dark, smooth(0.75, 1.0, rr)), smooth(0.15, 0.6, rr)); };
+  const col = (x, y, z, nx, ny, nz) => { const rr = Math.hypot(x, y) / sp.r; if (nz < -0.4) return shade(c.dark, 0.9); const body=mix(c.light,mix(c.base,c.dark,smooth(.75,1,rr)),smooth(.15,.6,rr));return c.tip?mix(body,c.tip,smooth(.65,.94,rr)):body; };
   const body = paint(g, col);
   const parts = [body];
   if (sp.dots) {
@@ -806,7 +806,7 @@ export function radial(sp, key) {
     for (let k = 0; k < 36; k++) {
       const phi = Math.floor(k / 7) * (TAU / N) + (R() - 0.5) * 0.22, rho = 0.25 + (k % 7) / 7 * 0.6, s = star(phi), Rr = (sp.armR + (sp.r - sp.armR) * s) * rho;
       const zz = sp.thick * (1 - 0.55 * rho * rho * s) * Math.sqrt(Math.max(0, 1 - rho * rho)) + sp.curl * Math.pow(rho * s, 2);
-      parts.push(solid(xform(ellipsoid(0.016, 0.016, 0.004, 6, 4), { pos: [Math.sin(phi) * Rr, Math.cos(phi) * Rr, zz + 0.004] }), c.dot));
+      parts.push(solid(xform(ellipsoid(sp.dotRadius??.016, sp.dotRadius??.016, sp.dotRadius ? sp.dotRadius*.25 : .004, 6, 4), { pos: [Math.sin(phi) * Rr, Math.cos(phi) * Rr, zz + 0.004] }), c.dot));
     }
   }
   // 下の 2 本の うで(φ = ±144°)の 先で 地面に 立つ
@@ -814,7 +814,7 @@ export function radial(sp, key) {
   rig.add('body', 'root', [0, footY, 0], parts);
   if ((sp.attachments || []).includes('bubbles')) rig.add('bubbles', 'root', [0, 0, 0], [bubblesGeo([[-0.75, 0.95, 0.1, 0.07], [-0.85, 0.75, 0.15, 0.045], [0.78, 0.5, 0.1, 0.06], [0.7, 1.1, 0.0, 0.05], [0.88, 0.3, 0.12, 0.035]])], 'translucent:0.55');
   rig.meta = { idlePose: 'stand', hover: 0 };
-  rig.faceSpec = { bone: 'body', target: body, center: [0, 0.02, sp.thick], fwd: [0, 0, 1], half: sp.armR * 0.95, eyeSize: 0.25,
+  rig.faceSpec = { bone: 'body', target: body, center: [0, 0.02, sp.thick], fwd: [0, 0, 1], half: sp.armR * 0.95, eyeSize: 0.25, normalEye:sp.normalEye||null,
     layout: { eyeX: 25, eyeY: 56, mouthY: 82, browY: 36, cheekX: 40, cheekY: 74, mouthW: 9 }, style: { blush: '#ff8a9a' } };
   if(sp.larvalAttachment){
     const u=sp.larvalAttachment,child=blobArchetype(u.spec,key+':larva');

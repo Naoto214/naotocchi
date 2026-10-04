@@ -46,3 +46,12 @@ test('mature red cap keeps original raised crown inside upturned rim rather than
  const {fungus}=await import('../character-3d/archetypes.mjs'),sp=require('../character-3d/topology-spec.js')(SPEC.PILOT).mushroom.stages[6],r=fungus(sp,'crowned-cap'),p=r.parts.find(x=>x.bone==='cap').mesh.geometry.attributes.position;
  let peak=-Infinity;for(let i=0;i<p.count;i++)if(Math.hypot(p.getX(i),p.getZ(i))<.12)peak=Math.max(peak,p.getY(i));assert.ok(peak>sp.cap.h*.75,'red centre has source dome volume');
 });
+test('all fungus stages preserve Pilot and separate red dome, open rim and leaning release shapes',async()=>{
+ const rows=require('../character-3d/topology-spec.js')(SPEC.PILOT).mushroom.stages;assert.deepEqual(Object.keys(rows).map(Number).sort((a,b)=>a-b),[1,2,3,4,5,6,7,8]);for(const s of [1,4,8])assert.equal(rows[s],SPEC.PILOT.mushroom.stages[s]);
+ const {fungus}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
+ const r=fungus(rows[5],'mushroom:5');assert.equal(r.faceSpec.bone,'body');assert.equal(r.bones.child,undefined);r.faces=[attachFace(r,r.faceSpec,'C')];assert.equal(r.faces[0].eyes.length,2);for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'mushroom:5'});setEmotion(a,em);for(let n=0;n<10;n++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces[0].emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.scale.toArray()].every(Number.isFinite));}
+ assert.ok(rows[5].cap.h/rows[5].cap.r>rows[6].cap.h/rows[6].cap.r,'young red dome is taller than opened rim');assert.equal(SPEC.ROLLOUT.mushroom,undefined);
+});
+test('released spore cluster follows original rising path instead of symmetric horizontal grouping',async()=>{
+ const {fungus}=await import('../character-3d/archetypes.mjs'),sp=require('../character-3d/topology-spec.js')(SPEC.PILOT).mushroom.stages[7],r=fungus(sp,'release-path');const p=[0,1,2].map(i=>r.bones['spores:u'+i].position);assert.ok(p[1].y>p[0].y+.2&&p[2].y>p[1].y+.2,'ascending separate units');const width=Math.max(...p.map(v=>v.x))-Math.min(...p.map(v=>v.x));assert.ok(p[2].y-p[0].y>width*2,'vertical source gesture');
+});
