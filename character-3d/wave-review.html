@@ -32,5 +32,5 @@ camera.position.set(center.x+Math.sin(az)*8,center.y+1.4,center.z+Math.cos(az)*8
 const renderer=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});renderer.setPixelRatio(1);renderer.setSize(innerWidth,innerHeight);document.body.append(renderer.domElement);renderer.render(scene,camera);
 let triangles=0,meshes=0;instance.root.traverse(o=>{if(o.isMesh){meshes++;triangles+=(o.geometry.index?.count||o.geometry.attributes.position.count)/3;}});
 document.querySelector('#label').textContent=id+' '+String(stage).padStart(2,'0')+' · '+view+' · '+(q.get('emotion')||'normal')+' / '+(q.get('walk')==='1'?'walk':'idle')+' / '+(q.get('reduced')==='1'?'reduced':'normal')+' · 未承認候補';
-window.__wave={ready:true,id,stage,view,emotion:q.get('emotion')||'normal',moving:q.get('walk')==='1',reduced:q.get('reduced')==='1',triangles,meshes,drawCalls:renderer.info.render.calls,box:box.toArray?.()||[box.min.toArray(),box.max.toArray()]};
+window.__wave={ready:true,id,stage,view,emotion:instance.face.emotion,moving:instance.anim.move>.99,reduced:q.get('reduced')==='1',triangles,meshes,drawCalls:renderer.info.render.calls,box:box.toArray?.()||[box.min.toArray(),box.max.toArray()]};
 </script></html>

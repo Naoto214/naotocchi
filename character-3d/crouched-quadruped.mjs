@@ -1,6 +1,6 @@
 // Optional quadruped morphology: folded haunches, long forearms, eye-bearing
 // lobes and a tapering membrane tail. Same rig/gait/emotion owner as quadruped.
-import {THREE,blob,ellipsoid,sweep,paint,solid,mix,smooth,xform,merge} from './geometry.mjs';
+import {THREE,blob,ellipsoid,sweep,paint,solid,mix,smooth,noise3,xform,merge} from './geometry.mjs';
 import {Rig} from './rig.mjs';
 
 function digits(at,side,r,color){
@@ -23,9 +23,10 @@ function membraneTail(T,c){
 }
 export function crouchedQuadruped(sp,key){
  const c=sp.colors,B=sp.body,H=sp.head,rig=new Rig(key,'quadruped','quadWalk');
- const body=paint(ellipsoid(B.width,B.height,B.depth,18,14),(x,y,z,nx,ny,nz)=>mix(c.base,c.belly,smooth(.05,.6,nz)*smooth(.2,-.2,y)));
+ const mark=(base,x,y,z)=>sp.mottle&&y>-.02&&noise3(x*sp.mottle.scale,y*sp.mottle.scale,z*sp.mottle.scale)>sp.mottle.threshold?mix(base,sp.mottle.color,.68):base;
+ const body=paint(ellipsoid(B.width,B.height,B.depth,18,14),(x,y,z,nx,ny,nz)=>mark(mix(c.base,c.belly,smooth(.05,.6,nz)*smooth(.2,-.2,y)),x,y,z));
  rig.add('body','root',[0,B.y,0],[body]);
- const skull=paint(ellipsoid(H.width,H.height,H.depth,22,16),(x,y,z,nx,ny,nz)=>mix(c.base,c.belly,smooth(.15,.7,nz)*smooth(.02,-H.height*.7,y)));
+ const skull=paint(ellipsoid(H.width,H.height,H.depth,22,16),(x,y,z,nx,ny,nz)=>mark(mix(c.base,c.belly,smooth(.15,.7,nz)*smooth(.02,-H.height*.7,y)),x,y,z));
  const headParts=[skull];
  if(H.lobes)for(const side of [-1,1]){const E=H.lobes;headParts.push(paint(xform(ellipsoid(E.r,E.r*1.08,E.r*.92,14,10),{pos:[side*E.x,E.y,E.z]}),(x,y,z,nx,ny,nz)=>mix(c.base,c.eyeRing,smooth(.45,.80,nz))));}
  const head=merge(headParts);rig.add('head','body',H.at,[head.clone()]);
