@@ -30,3 +30,16 @@ test('schooling attachment carries three distinct faces without gameplay actors'
  }
  assert.ok(rig.parts.reduce((n,p)=>n+(p.mesh.geometry.index?.count||p.mesh.geometry.attributes.position.count)/3,0)<8500,'bounded secondary fish');
 });
+
+
+test('fish wave all original stages build finite templates and outward pectoral silhouettes',async()=>{
+ const rows=require('../character-3d/fish-spec.js')(SPEC.PILOT),{fish}=await import('../character-3d/archetypes.mjs');
+ for(const[id,row]of Object.entries(rows))for(let stage=1;stage<=8;stage++){
+  const sp=row.stages[stage];assert.ok(sp,id+'/'+stage);
+  const rig=fish(sp,id+':'+stage);assert.equal(rig.locomotion,'swimHover');
+  for(const part of rig.parts)assert.ok([...part.mesh.geometry.attributes.position.array].every(Number.isFinite));
+  if(sp.fins.spread){const fin=rig.parts.find(p=>p.bone==='finR').mesh.geometry;fin.computeBoundingBox();assert.ok(fin.boundingBox.max.x>.05,'pectoral fin spreads outside flank rather than folding into body');}
+  if(stage>1)assert.notDeepEqual(sp.body,row.stages[stage-1].body,'explicit volume/proportion growth, not uniform scale');
+ }
+ for(const stage of [1,4,8])assert.deepEqual(rows.clownfish.stages[stage],SPEC.PILOT.clownfish.stages[stage]);
+});

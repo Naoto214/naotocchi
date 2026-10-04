@@ -7,6 +7,7 @@ const cases=[
  ['small surface spots','character-3d/archetypes.mjs','if(sp.sideMarks?.spots)','if(false)','fish wave identity'],
  ['fork silhouette','character-3d/archetypes.mjs','sp.tail.fork ?','false ?','fish wave identity'],
  ['jaw volume','character-3d/archetypes.mjs','if(sp.jaw)','if(false)','fish wave identity'],
+ ['pectoral connection','character-3d/archetypes.mjs','sp.fins.spread ? -sp.fins.spread : .5','.5','fish wave all original stages'],
  ['school faces','character-3d/archetypes.mjs','if(sp.school?.length)','if(false)','schooling attachment'],
 ];
 const run=()=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap',test],{cwd:root,encoding:'utf8'});
