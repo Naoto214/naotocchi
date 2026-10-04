@@ -1,0 +1,37 @@
+name: Recover Character wave evidence
+on:
+  push:
+    branches: [feat/character-3d-full-rollout-v0]
+    paths: [.github/workflows/character-3d-recover-evidence.yml]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  recover:
+    if: github.ref == 'refs/heads/feat/character-3d-full-rollout-v0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - uses: actions/download-artifact@v4
+        with:
+          name: full-rollout-meguru-81b04e0758bca7018f39607bbcc8fb9cb8b280f9
+          run-id: 37183152163
+          github-token: ${{ github.token }}
+          path: .ci-recovery
+      - run: git fetch --no-tags --depth=1 origin d12ad70550b29c125f44ac2b32d7195905fb15f0
+      - run: node tools/character-3d/recover-evidence.cjs
+      - name: Save recovered evidence on the authorized Draft branch
+        run: |
+          test "$GITHUB_REF_NAME" = "feat/character-3d-full-rollout-v0"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/qa/character-3d-full-v0 docs/character-3d/full-rollout-v0/progress.md
+          if ! git diff --cached --quiet; then
+            git commit -m "FR-1: recover all immutable Meguru evidence after executor loss"
+            git push origin HEAD:feat/character-3d-full-rollout-v0
+          fi

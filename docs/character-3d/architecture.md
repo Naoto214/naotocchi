@@ -1,6 +1,7 @@
-# Character 3D System — architecture(Pilot・Human QA 前)
+# Character 3D System — architecture / Full Rollout v0
 
-状態: **pilot / needs_human_review**。Human QA の 前に 全 species へ ひろげない。main へ merge しない。
+状態: **Full Rollout v0 制作中**。2026-10-04のHuman QAでPilotから全量展開へ進むことを承認。全量採用・Ready・main mergeの承認ではない。Pilot正本 `d12ad70550b29c125f44ac2b32d7195905fb15f0` / #372を保持し、#376（Draft、base=Pilot）で展開する。
+現在の正本: [Full Rollout設計](full-rollout-v0/design.md)・[Visual Translation Rules](full-rollout-v0/visual-translation-rules.md)・[checkpoint](full-rollout-v0/progress.md)。以下のPilot仕様・測定はreference implementationの記録であり、Full Rollout完了値ではない。
 QA 記録: [`docs/qa/character-3d-pilot-2026-10-01.md`](../qa/character-3d-pilot-2026-10-01.md)
 
 ## 1. Goals / Non-goals
@@ -12,8 +13,8 @@ QA 記録: [`docs/qa/character-3d-pilot-2026-10-01.md`](../qa/character-3d-pilot
 - 既存の Expression System(canonical emotion)を そのまま 入力に する(3D 専用の 感情体系を つくらない)。
 - めぐる の 同じ actor state を 2D billboard / 3D model の どちらでも presentation できる(状態は 複製しない)。
 
-**Non-goals(今回 やらない)**
-- 全 species の 3D 化(pilot 8 系統だけ)。
+**Non-goals(Pilot時点。全量展開の開始承認は上記へ更新)**
+- Pilotは8系統に限定した。現在はarchetype wave方式で全speciesへ展開する。
 - セーブ / schema / 2D 画像 / Expression PNG / Home・Relationship の runtime の 変更。
 - World 3D の Art Direction(ひかり・きり・カメラ)の 変更。未 merge の World lane(#367 / #369)・#368 の 取りこみ。
 - 外部の 3D asset(ライセンス 不明の model)。Blender 前提の 制作(この 環境に Blender は ない → `NOT_RUN`)。
@@ -177,4 +178,14 @@ headless は SwiftShader(ソフトウェア GPU)なので **GPU 時間は iPhone
 ## 15. Rollout strategy
 
 1. **Character 3D Pilot**(この branch)→ 2. **Human QA**(iPhone)→ 3. **architecture 確定**(採用 / 条件付き / 不採用)→ 4. 後日 **full rollout**。
-Human QA の 前に 全量化しない。full rollout の 見積もりは QA doc。
+Pilot Human QAによる全量展開開始承認済み。Full Rollout v0完成後は全量Human QAで停止し、Ready/main merge/Quality Pass v1へ自動で進まない。
+
+## Full Rollout v0追加契約
+
+- `tools/character-3d/inventory.cjs`がlatest masterと全PNGを交差監査する。current masterは293 active designs。旧routing表の数字をcoverageの証拠にしない。
+- `rollout-spec.js`に原画分析済みのexact stageを追加し、`spec.js`が展開済みfamilyを優先する。`PILOT` / `STAGE_KEYS`は歴史的referenceとして不変。live galleryは`ROLLOUT_STAGE_KEYS`を参照する。
+- 展開済みfamilyに欠けたstageがあればnull。近い年齢へ置換してexact成功としない。未展開Pilot familyの旧動作は段階的移行中のみ保持し、全量coverageは`exact`のみ数える。
+- `tools/character-3d/coverage.cjs --require-full`はexact stageまたは保存4方向が欠けている限り失敗する。spec-readyはHuman QA採用済みを意味しない。
+- 新しい共通parameter: quadrupedの左右ear profile、持ち上げた前足、水平に伸びた遊び姿勢、身体を回り込むtail family、avianの左右wing pose。既存parameterがない場合のPilot挙動を保持する。
+- canonical emotion / actor state / Motion意味論 / save / Worldは変更しない。新poseはpresentation内でidle→locomotionへblendする。
+- memory/cacheの全量上限判断、未実装family、新archetype、最終実機QAは未完了。現在のcheckpointを全量完成と扱わない。

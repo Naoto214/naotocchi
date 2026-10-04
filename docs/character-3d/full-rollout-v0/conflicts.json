@@ -4,7 +4,8 @@
     "head": "0b0a6b30e8e098472b2fa965604f4901874942e3",
     "mechanicalConflict": false,
     "conflicts": [],
-    "semantic": "No branch merged; review Character holder visibility, terrain contact, occlusion, lifecycle and canonical Motion/Expression ownership at integration."
+    "semantic": "No branch merged; review Character holder visibility, terrain contact, occlusion, lifecycle and canonical Motion/Expression ownership at integration.",
+    "auditedCharacterHead": "81b04e0758bca7018f39607bbcc8fb9cb8b280f9"
   },
   {
     "lane": "#367",
@@ -13,7 +14,8 @@
     "conflicts": [
       "CONFLICT (content): Merge conflict in index.html"
     ],
-    "semantic": "No branch merged; review Character holder visibility, terrain contact, occlusion, lifecycle and canonical Motion/Expression ownership at integration."
+    "semantic": "No branch merged; review Character holder visibility, terrain contact, occlusion, lifecycle and canonical Motion/Expression ownership at integration.",
+    "auditedCharacterHead": "81b04e0758bca7018f39607bbcc8fb9cb8b280f9"
   },
   {
     "lane": "#369",
@@ -25,7 +27,8 @@
       "CONFLICT (content): Merge conflict in meguru.js",
       "CONFLICT (content): Merge conflict in package.json"
     ],
-    "semantic": "No branch merged; review Character holder visibility, terrain contact, occlusion, lifecycle and canonical Motion/Expression ownership at integration."
+    "semantic": "No branch merged; review Character holder visibility, terrain contact, occlusion, lifecycle and canonical Motion/Expression ownership at integration.",
+    "auditedCharacterHead": "81b04e0758bca7018f39607bbcc8fb9cb8b280f9"
   },
   {
     "lane": "#371",
@@ -37,11 +40,12 @@
       "CONFLICT (content): Merge conflict in meguru.js",
       "CONFLICT (content): Merge conflict in package.json"
     ],
-    "semantic": "No branch merged; review Character holder visibility, terrain contact, occlusion, lifecycle and canonical Motion/Expression ownership at integration."
+    "semantic": "No branch merged; review Character holder visibility, terrain contact, occlusion, lifecycle and canonical Motion/Expression ownership at integration.",
+    "auditedCharacterHead": "81b04e0758bca7018f39607bbcc8fb9cb8b280f9"
   },
   {
     "lane": "#374",
-    "head": "a41dd089c5f71809974b62b7c1ec8f7b213fad81",
+    "head": "7fda83250518b172a2c1025ac9f87ef1ca1a5052",
     "mechanicalConflict": true,
     "conflicts": [
       "CONFLICT (content): Merge conflict in index.html",
@@ -49,6 +53,7 @@
       "CONFLICT (content): Merge conflict in meguru.js",
       "CONFLICT (content): Merge conflict in package.json"
     ],
-    "semantic": "No branch merged; review Character holder visibility, terrain contact, occlusion, lifecycle and canonical Motion/Expression ownership at integration."
+    "semantic": "Terrain advanced with farmhouse veranda roof/support presentation and stricter visibility probe. Not integrated. Existing Character holder visibility / ground contact / occlusion / lifecycle boundary still requires combined read-only QA. No Character-side change to World design or gameplay.",
+    "auditedCharacterHead": "81b04e0758bca7018f39607bbcc8fb9cb8b280f9"
   }
 ]

@@ -38,3 +38,17 @@ Local dedicated now 61 PASS / 0 FAIL including every candidate × eight canonica
 - Local dedicated 62 PASS; rollout mutation 7/7 RED. Added CI Meguru wave traversal (24 exact player stages) plus existing lifecycle/fallback and fixed Pilot-composition 1/5/27 measurements. Performance uses explicit QA stand-ins until all relationship characters exist; never claim that as full native coverage.
 - FR-0 Runtime CI 37182066777 success. Home CI 37182066807 FAILED: chromium-landscape-safe-area route.fetch ECONNRESET fetching item-memories.css, movie.css, home-care-colors.css at 144 ms. FR-0 changed no app/Home/CSS code; transport failure is suspected, base reproduction not yet executed. Later Home runs still pending. Do not call this GREEN.
 - No Home/World production fix made to hide the failure. iPhone remains NOT_RUN.
+
+### FR-1 first family batch validated (source 81b04e0)
+- 24 exact stages (dog/cat/penguin), 18 newly added; total exact availability 46/293. Remaining 247. No new archetype; 3 visual outlier candidates (cat01/08 curl compactness, cat04 wink fidelity), no adoption rating.
+- 99 original/four-view image records + 61 Meguru JPEG captures; complete source and raw evidence under docs/qa/character-3d-full-v0/. Pilot 28-target geometry/pose hashes unchanged.
+- Dedicated 62 PASS, old mutation groups 13/13 + 11/11 + 7/7 + 6/6 RED, rollout 7/7 RED. CI 37183152163 all jobs success. Runtime 37183155273 (2925+80 PASS/0 FAIL) and Home 37183155268 success. Earlier CSS ECONNRESET retained in history, no Home/CSS changes used to obtain success.
+- Meguru 24 exact/live stages; unintentional fallback 0. 1/5/27 live counts correct, fallback 0. Fixed old-Pilot mix tris 4062/19144/106403 unchanged; CPU .957/2.701/5.555 ms; heap 19.3/19.3/23.1 MB. Separate-run comparison, not full-native/iPhone acceptance. Separate animation CPU and isolated appearance hitch still missing.
+- Fresh main remains 0b0a6b3. #372 remains d12ad70 open Draft. Terrain progressed to 7fda832: four mechanical conflict files retained; new veranda presentation was read-only audited. No other lane merged.
+- Remaining within FR-1: man/clownfish/butterfly/dandelion/mushroom/starfish exact gaps, then original-derived existing-family relatives. Next exact step: salmon and missing clownfish source strips → representative yolk/slender fish/jaw/marking/schooling mechanisms → visual QA → batch remaining fish stages; do not fill stages by interpolation or clone/recolour. New topology stays assigned to later family waves.
+- Continue ordinary work without new Human approval. This checkpoint is not full v0 completion and not the final Human QA stop. No Ready/main merge/v1.
+
+## Execution environment interruption
+
+[RECOVERY_PENDING]
+Local exec-server stopped accepting commands with `No such file or directory`. GitHub remained available. Dedicated source 81b04e0 and all CI checks are complete. Recovery workflow saves all verified World evidence to this Draft branch; it does not change models, main, #372, or adoption status. Resume ordinary FR-1 fish/existing-family work from fresh remote after a working executor is available. Full v0 is not complete; this is an infrastructure checkpoint, not the final Human QA stop.
