@@ -1,0 +1,35 @@
+{
+  "baseProduct": "a41dd08",
+  "baseCheckout": "714877dd8121e24c3f5d08ab627ca013ef24ae79",
+  "sourceSha256": {
+    "meguru.js": "f7873557449a2054f69651d3aad6bdc718a51ad5910126f7fae8e1740c891c4a",
+    "meguru-3d.mjs": "651e9933cc99e35e66a1b52b2e5b4553974a9b5f184aa2b712d0d2f3972df7d2",
+    "index.html": "6d372393d0f533238057b45e1bbaf85e842180eae8dd8c403a38c1979dfa0d56",
+    "tests/meguru-3d-visual-quality-test.cjs": "d6ee1df4514c7f5dafc19927ac90291e583300611644a579ece0ba78b1366e61"
+  },
+  "targeted": {
+    "pass": 67,
+    "fail": 0,
+    "exit": 0,
+    "nodeTestConcurrency": 4
+  },
+  "static": {
+    "float": 4,
+    "bury": 18,
+    "crossings": 18,
+    "crossingsValid": true
+  },
+  "fullRegression": "pending new source run",
+  "browser": "pending new source run",
+  "review": "two initial findings fixed; re-review no blockers",
+  "humanQa": "not approved",
+  "countrysideParts": {
+    "objectsBefore": 899,
+    "objectsAfter": 899,
+    "partsBefore": 6541,
+    "partsAfter": 6541,
+    "wpostDelta": -58,
+    "gableDelta": 58
+  },
+  "previousEvidenceCheckpoint": "966f59af8dcf83a7d3fd0d31a9594ddb5baaa040"
+}

@@ -1506,7 +1506,12 @@
           }
           if (family === 'farmhouse') {
             out.push(Object.assign({ shape: 'box', rx: w * 0.95, rz: porchD * 0.7, h: 16, y: 0, ang, color: '#a88a62', solidBox: true }, at(d + porchD * 0.7, 0)));   // 縁側
-            for (let i = 0; i < 3; i++) out.push(Object.assign({ shape: 'wpost', r: 3.5, h: h * 0.82, y: 0, color: '#6b4a32' }, at(d + porchD * 1.35, (i - 1) * w * 0.9)));
+            // VQ 2026-10-04: reuse the central post as a shallow veranda roof.
+            // Keep this low roof inside the collider; the outer deck remains a step.
+            // Gable has no underside: supports reach the actual sloped surface.
+            const verandaD = porchD * 0.5, verandaY = h * 0.82;
+            out.push(Object.assign({ shape: 'gable', rx: w * 0.95, rz: verandaD, h: 8, y: verandaY, ang, color: roofC }, at(d + verandaD, 0)));
+            for (const sd of [-1, 1]) out.push(Object.assign({ shape: 'wpost', r: 3.5, h: verandaY + 8 * 3.5 / verandaD, y: 0, color: '#6b4a32' }, at(D - 3.5, sd * (w * 0.95 - 3.5))));
             if (annex) { const aw = W * 0.26, ah = h * 0.62, ax = W * 0.66; out.push(Object.assign({ shape: 'box', rx: aw, rz: d * 0.85, h: ah, y: 0, ang, color: '#a88a62' }, at(0, ax)), Object.assign({ shape: 'gable', rx: aw * 1.15, rz: d, h: d * 0.5, y: ah, ang, color: '#6d5a48' }, at(0, ax)), Object.assign({ shape: 'box', rx: aw * 0.5, rz: 1.6, h: ah * 0.62, y: 0, ang, color: '#4a3a2c', door: true }, at(d * 0.85 + 1.6, ax))); }   // はなれ(物置)
           }
           const chimney = !sm.sign && family !== 'hut' && family !== 'adobe' && family !== 'barn' && (v > 0.5 || family === 'cabin');

@@ -3,6 +3,39 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const mod = () => import('../meguru-3d.mjs');
+// 2026-10-04: freestanding veranda posts read as poles, not a sheltered entrance.
+// A supported canopy must stay over the existing deck, without expanding its footprint.
+test('VQ-8 farmhouse veranda posts meet a canopy contained over the existing deck', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const objects = M.worldObjects3d(M.buildWorld('countryside',M.buildRegistry(),{world3d:true})).objects;
+  let checked = 0;
+  for (const ob of objects.filter(o => o.parts.some(p => p.family === 'farmhouse'))) {
+    const deck = ob.parts.find(p => p.shape === 'box' && p.solidBox && p.y === 0 && p.h === 16);
+    assert.ok(deck, ob.id + ': veranda deck');
+    const posts = ob.parts.filter(p => p.shape === 'wpost');
+    const a = deck.ang || 0, local = p => ({f:(p.dx-deck.dx)*Math.cos(a)-(p.dz-deck.dz)*Math.sin(a),s:(p.dx-deck.dx)*Math.sin(a)+(p.dz-deck.dz)*Math.cos(a)});
+    const roof = ob.parts.find(p => p.shape === 'gable' && p.y > deck.h && p.y < M.OBJ3D_HEAD && Math.abs(local(p).f) <= deck.rz && Math.abs(local(p).s) <= deck.rx);
+    assert.ok(roof, ob.id + ': veranda posts have no canopy');
+    const c = local(roof);
+    assert.ok(Math.abs(c.f)+roof.rz <= deck.rz+1e-8 && Math.abs(c.s)+roof.rx <= deck.rx+1e-8,ob.id + ': canopy expands deck footprint');
+    // This low roof must remain entirely inside the canonical lot, unlike a low step.
+    for (const f of [-roof.rz,roof.rz]) for (const s of [-roof.rx,roof.rx]) {
+      const x = roof.dx+Math.cos(a)*f+Math.sin(a)*s, z = roof.dz-Math.sin(a)*f+Math.cos(a)*s;
+      assert.ok(Math.abs(x*Math.cos(a)-z*Math.sin(a)) <= ob.collision.hd+1e-8 && Math.abs(x*Math.sin(a)+z*Math.cos(a)) <= ob.collision.hw+1e-8,ob.id + ': low roof beyond collider');
+    }
+    assert.ok(posts.length >= 2,ob.id + ': supported at both ends');
+    for (const post of posts) {
+      const p = local(post);
+      // Gable has no underside: its slope, not its base plane, must meet the post.
+      const surfaceY = roof.y+roof.h*(1-Math.abs(p.f-c.f)/roof.rz);
+      assert.ok(Math.abs((post.y||0)+post.h-surfaceY) < 1e-8,ob.id + ': disconnected post top');
+      assert.ok(Math.abs(p.f-c.f)+post.r <= roof.rz+1e-8 && Math.abs(p.s-c.s)+post.r <= roof.rx+1e-8,ob.id + ': post outside canopy');
+    }
+    checked++;
+  }
+  assert.ok(checked > 20,'covers generated farmhouses across the countryside');
+});
 test('VQ-6 cottage rooflines include both gable orientations within the residential family', () => {
   const { harness } = require('./helpers/runtime-harness.cjs');
   const M = harness({deterministic:true, fullDisplay:true}).api.meguruMod;
