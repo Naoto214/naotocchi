@@ -39,7 +39,18 @@ test('fish wave all original stages build finite templates and outward pectoral 
   const rig=fish(sp,id+':'+stage);assert.equal(rig.locomotion,'swimHover');
   for(const part of rig.parts)assert.ok([...part.mesh.geometry.attributes.position.array].every(Number.isFinite));
   if(sp.fins.spread){const fin=rig.parts.find(p=>p.bone==='finR').mesh.geometry;fin.computeBoundingBox();assert.ok(fin.boundingBox.max.x>.05,'pectoral fin spreads outside flank rather than folding into body');}
-  if(stage>1)assert.notDeepEqual(sp.body,row.stages[stage-1].body,'explicit volume/proportion growth, not uniform scale');
+  if(stage>1){const prior=row.stages[stage-1].body;assert.ok(Math.abs(sp.body.len/sp.body.h-prior.len/prior.h)>.001||Math.abs(sp.body.w/sp.body.h-prior.w/prior.h)>.001,'volume ratios change, not uniform scale');}
  }
  for(const stage of [1,4,8])assert.deepEqual(rows.clownfish.stages[stage],SPEC.PILOT.clownfish.stages[stage]);
+});
+
+test('reviewed fish stages resolve exact runtime templates, remain visible and reuse cache',async()=>{
+ const rt=await import('../character-3d/runtime.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ const p=rt.createCharacterPresenter({scene:new THREE.Scene(),buildBudget:20});p.beginFrame(0);
+ for(const id of ['salmon','clownfish'])for(let stage=1;stage<=8;stage++){
+  const key=SPEC.specKeyFor({line:id,stage:stage-1});assert.deepEqual(key,{id,stage,exact:true});
+  const t=rt.getTemplate(id,stage);assert.equal(t.status,'ok',t.error);assert.equal(rt.getTemplate(id,stage),t);
+  assert.equal(p.present(Object.freeze({x:stage,z:0,heading:0}),{specKey:key,isPlayer:true,emotion:'normal',dt:1/60}),true);
+ }
+ p.endFrame();assert.equal(p.stats().live,16);assert.equal(p.stats().fallbacks,0);p.setScene(new THREE.Scene());assert.equal(p.stats().live,0);p.dispose();
 });

@@ -6,6 +6,24 @@ on:
 permissions:
   contents: read
 jobs:
+  fish-performance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - name: Fish-family QA mixed cast at 1 5 27 (not full-native or iPhone)
+        run: node tools/character-3d/meguru-qa.cjs --perf-only --fish-mix --seconds 8 --out test-results/full-rollout/fish-performance
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-fish-performance-${{ github.sha }}
+          path: test-results/full-rollout/fish-performance
   meguru-wave:
     runs-on: ubuntu-latest
     timeout-minutes: 30

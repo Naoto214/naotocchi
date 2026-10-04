@@ -36,7 +36,7 @@ test('signature lifted paw stays readable with reduced motion and releases into 
   const {animate} = await import('../character-3d/animate.mjs');
   for (const id of ['dog','cat']) {
     const rig = quadruped(rows[id].stages[3], id);
-    rig.faces = [attachFace(rig,rig.faceSpec,'B')];
+    rig.faces = (Array.isArray(rig.faceSpec)?rig.faceSpec:[rig.faceSpec]).map(f=>attachFace(rig,f,'B'));
     const instance = instantiate({rig,key:id});
     animate(instance,{dt:0,animLv:0});
     assert.ok(instance.bones.legFL.rotation.x < -.8, 'raised paw must not become a generic four-legged idle');
@@ -58,11 +58,11 @@ test('every candidate preserves canonical expression and finite idle/walk under 
   const {animate,setEmotion,react} = await import('../character-3d/animate.mjs');
   for (const [id,row] of Object.entries(rows)) for (const [stage,sp] of Object.entries(row.stages)) {
     const rig = builders[sp.archetype](sp, id+':'+stage);
-    rig.faces = [attachFace(rig,rig.faceSpec,'B')];
+    rig.faces = (Array.isArray(rig.faceSpec)?rig.faceSpec:[rig.faceSpec]).map(f=>attachFace(rig,f,'B'));
     const instance = instantiate({rig,key:id+':'+stage});
     for(const emotion of ['normal','positive','dislike','tired','sleeping','strained','wantsPlay','sick']) {
       setEmotion(instance,emotion);assert.equal(instance.anim.emotion,emotion);
-      assert.equal(instance.face.emotion,emotion);
+      assert.ok(instance.faces.every(f=>f.emotion===emotion));
       for(const reduced of [0,2]) for(const moving of [false,true]) {
         react(instance,'hop');
         for(let frame=0;frame<8;frame++)animate(instance,{dt:.05,moving,animLv:reduced});
@@ -91,7 +91,7 @@ test('reviewed exact stages reach the real presenter without role aliases or nea
   const {THREE} = await import('../character-3d/geometry.mjs');
   const presenter = rt.createCharacterPresenter({scene:new THREE.Scene(),buildBudget:30});
   presenter.beginFrame(0);
-  for (const id of ['dog','cat','penguin']) for(let stage=1;stage<=8;stage++) {
+  for (const id of Object.keys(SPEC.ROLLOUT)) for(let stage=1;stage<=8;stage++) {
     const key = SPEC.specKeyFor({line:id,stage:stage-1});
     assert.deepEqual(key,{id,stage,exact:true});
     const template = rt.getTemplate(id,stage);
@@ -100,7 +100,7 @@ test('reviewed exact stages reach the real presenter without role aliases or nea
     const actor=Object.freeze({x:0,z:0,heading:0});
     assert.equal(presenter.present(actor,{specKey:key,emotion:'normal',dt:1/60,isPlayer:id==='cat'}),true);
   }
-  presenter.endFrame();assert.equal(presenter.stats().live,24);assert.equal(presenter.stats().fallbacks,0);
+  presenter.endFrame();assert.equal(presenter.stats().live,Object.keys(SPEC.ROLLOUT).length*8);assert.equal(presenter.stats().fallbacks,0);
   assert.equal(SPEC.specKeyFor({kind:'partner',id:'cat_friend'}),null,'a companion cannot be presented as a partner');
   assert.equal(SPEC.specKeyFor({kind:'companion',id:'cat'}),null,'player cat is not cat_friend');
   for(const stage of [-1,8,NaN,.5])assert.equal(SPEC.specKeyFor({line:'cat',stage}),null);

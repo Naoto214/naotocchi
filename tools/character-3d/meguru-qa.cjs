@@ -100,7 +100,7 @@ async function walk(page, seconds) {
 (async () => {
   const srv = await serve({second:args.includes('--second'),claude:args.includes('--claude'),previous:args.includes('--previous')}); const base = 'http://127.0.0.1:' + srv.address().port;
   const browser = await pw.chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
-  const R = { when: new Date().toISOString(), revision: args.includes('--second') ? 'quality2-31fe18f' : args.includes('--claude') ? 'claude-e12f720' : args.includes('--previous') ? 'quality1-8b19ecc' : 'quality3', sourceCommit: process.env.GITHUB_SHA || null, rolloutWave: args.includes('--rollout'), headless: 'chromium + SwiftShader(ソフトウェア GPU)', throttle: THROTTLE, shots: {}, checks: {}, perf: {} };
+  const R = { when: new Date().toISOString(), revision: args.includes('--second') ? 'quality2-31fe18f' : args.includes('--claude') ? 'claude-e12f720' : args.includes('--previous') ? 'quality1-8b19ecc' : 'quality3', sourceCommit: process.env.GITHUB_SHA || null, rolloutWave: args.includes('--rollout'), performanceMix:args.includes('--fish-mix')?'fish-family QA stand-ins':'fixed Pilot QA stand-ins', headless: 'chromium + SwiftShader(ソフトウェア GPU)', throttle: THROTTLE, shots: {}, checks: {}, perf: {} };
   const env = { time: 'day', weather: 'sunny', season: 'summer' };
   let prev = null;
   if (PERF_ONLY || SPECIES_ONLY) { try { prev = JSON.parse(fs.readFileSync(path.join(OUT, 'meguru-qa.json'), 'utf8')); Object.assign(R, { shots: prev.shots, checks: prev.checks, perSpecies: prev.perSpecies, errors: prev.errors }); } catch (_) { /* ない */ } }
@@ -199,10 +199,10 @@ async function walk(page, seconds) {
     const all = ['shiba', 'cat_friend', 'tanuki', 'penguin_friend', 'rabbit_friend', 'squirrel', 'owl', 'otter', 'hamster', 'panda', 'monkey', 'parrot', 'sheep', 'seal', 'bat', 'chicken', 'hedgehog', 'snail', 'punyu', 'sekizou', 'chameleon', 'clock', 'unicorn', 'many_tail_fox', 'watcher', 'box'];
     if (NO_PERF) { try { R.perf = JSON.parse(fs.readFileSync(path.join(OUT, 'meguru-qa.json'), 'utf8')).perf; } catch (_) { /* ない */ } }
     for (const n of (NO_PERF ? [] : args.includes('--puff-stress') ? [27] : [1, 5, 27])) {
-      const { save: sv } = makeSave({ line: args.includes('--puff-stress')?'dandelion':'dog', stageIndex: args.includes('--puff-stress')?7:3, party: all.slice(0, n - 1), residents: false });
+      const { save: sv } = makeSave({ line: args.includes('--puff-stress')?'dandelion':args.includes('--fish-mix')?'salmon':'dog', stageIndex: args.includes('--puff-stress')?7:args.includes('--fish-mix')?5:3, party: all.slice(0, n - 1), residents: false });
       for (const mode of (args.includes('--puff-stress') ? ['3d'] : ['2d', '3d'])) {
         const { page: pg, errors: er, load } = await open(browser, base, sv, '?meguru3d=1&perf=1' + (mode === '3d' ? '&char3d=1' : ''));
-        if (mode === '3d') await pg.evaluate((puffs) => { const ids = puffs ? ['dandelion:8'] : ['dog:4', 'penguin:8', 'clownfish:4', 'man:4', 'butterfly:8', 'dandelion:6', 'mushroom:8', 'starfish:4']; let i = 0; const memo = new WeakMap(); globalThis.__meguruRun.renderer.char3dHooks({ standIn: (a) => { if (!a.follow) return null; if (!memo.has(a)) { const [id, s] = ids[i++ % ids.length].split(':'); memo.set(a, { id, stage: Number(s), exact: false }); } return memo.get(a); } }); }, args.includes('--puff-stress'));
+        if (mode === '3d') await pg.evaluate((puffs) => { const ids = puffs ? ['dandelion:8'] : ['dog:4', 'penguin:8', 'clownfish:4', 'man:4', 'butterfly:8', 'dandelion:6', 'mushroom:8', 'starfish:4']; let i = 0; const memo = new WeakMap(); globalThis.__meguruRun.renderer.char3dHooks({ standIn: (a) => { if (!a.follow) return null; if (!memo.has(a)) { const [id, s] = ids[i++ % ids.length].split(':'); memo.set(a, { id, stage: Number(s), exact: false }); } return memo.get(a); } }); }, args.includes('--puff-stress')?'puffs':args.includes('--fish-mix')?'fish':'pilot');
         await pg.waitForTimeout(mode === '3d' ? 9000 : 1500);   // template を 1 frame 1 つ ずつ
         await pose(pg, { spot: 'entry', yaw: 0, env });
         if (n === 27) R.shots['perf27-' + mode] = await snap(pg, 'perf-27-' + mode);

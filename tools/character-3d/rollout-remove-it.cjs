@@ -2,7 +2,7 @@
 const fs=require('fs'),path=require('path'),cp=require('child_process'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'../..'),test='tests/character-3d-rollout-test.cjs';
 const cases=[
- ['exact age','character-3d/rollout-spec.js','return {dog,cat,penguin};','delete dog.stages[2]; return {dog,cat,penguin};','FR-1 exact'],
+ ['exact age','character-3d/rollout-spec.js','return {dog,cat,penguin,...fishFactory(PILOT)};','delete dog.stages[2]; return {dog,cat,penguin,...fishFactory(PILOT)};','FR-1 exact'],
  ['signature paw','character-3d/animate.mjs','if (lifted && B[lifted])','if (false && B[lifted])','signature lifted'],
  ['stretch play','character-3d/animate.mjs',"pose === 'stretchPlay'","pose === 'removedStretch'",'signature lifted'],
  ['runtime exact dispatch','character-3d/spec.js','if (Object.hasOwn(ROLLOUT,id)) return ROLLOUT[id].stages[n] ? {id,stage:n,exact:true} : null;','if (Object.hasOwn(ROLLOUT,id)) return null;','reviewed exact stages'],

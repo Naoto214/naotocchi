@@ -59,5 +59,6 @@
   penguin.stages[5] = extend(grown,{body:{h:1.12,r:.43,belly:.68},head:{r:.41,merge:.62},wing:{len:.56,w:.135},feet:{len:.18},attachments:[],normalEye:'round'});
   penguin.stages[6] = extend(grown,{body:{h:1.25,r:.47,belly:.68},head:{r:.42,merge:.58},wing:{len:.63,w:.14},feet:{len:.20},attachments:[],normalEye:'round',colors:{base:'#303946',back:'#272f3a'}});
   penguin.stages[7] = extend(grown,{body:{h:1.22,r:.49,belly:.69},head:{r:.43,merge:.58},wing:{len:.64,w:.15},feet:{len:.20},attachments:[],normalEye:'round'});
-  return {dog,cat,penguin};
+  const fishFactory=typeof module==='object'&&module.exports?require('./fish-spec.js'):globalThis.NaotocchiFishWave;
+  return {dog,cat,penguin,...fishFactory(PILOT)};
 });

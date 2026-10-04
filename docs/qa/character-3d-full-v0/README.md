@@ -5,7 +5,7 @@ This is a wave checkpoint, **not the completed Full Rollout Human QA package**.
 ## Current review surfaces
 
 - `character-3d/full-gallery.html`: master inventory, exact/pending status, paged lazy original/four-view records. Species, kind, archetype and stage filters. Full emotion/motion evidence filters remain pending.
-- `character-3d/gallery.html`: live reviewed Pilot + dog/cat/penguin exact stages, canonical expressions and motion.
+- `character-3d/gallery.html`: live reviewed Pilot + dog/cat/penguin/salmon/clownfish exact stages, canonical expressions and motion.
 - `fr1/dog-stages.jpg`, `fr1/cat-stages.jpg`, `fr1/penguin-stages.jpg`: original + front / 3/4 / side / back, all eight stages. Originals are alpha-trimmed for comparable art footprints; PNGs themselves are unchanged.
 - `fr1/evidence.json`: immutable renderer source `81b04e0758bca7018f39607bbcc8fb9cb8b280f9`, 96 views, triangles/draw calls. Three sheets plus 96 views = 99 saved images.
 
@@ -13,7 +13,7 @@ This is a wave checkpoint, **not the completed Full Rollout Human QA package**.
 
 Fresh master: 31 player species / 248 stages, 26 companions, 18 partners, author 1 = 293 active designs. Supplemental Home eggs (3) and retired kinoko (1) remain inventoried, not revived as gameplay actors.
 
-Current exact specs: **46/293** (44 player stages and 2 companions); **247 pending**. Added 18 exact stages: dog +5, penguin +5, player cat +8. Reused quadruped/avian, no new archetype. 24 current four-view records; historical Pilot images remain in the Pilot QA packages. `coverage.json` distinguishes spec availability from saved visual evidence.
+Current exact specs: **59/293** (57 player stages and 2 companions); **234 pending**. Added 31 exact stages: dog +5, penguin +5, player cat +8, salmon +8, clownfish +5. Reused quadruped/avian/fish, no new archetype. 40 current four-view records; historical Pilot images remain in the Pilot QA packages. `coverage.json` distinguishes spec availability from saved visual evidence.
 
 ## What changed in this batch
 
@@ -29,7 +29,7 @@ Four-view review found and corrected weak feline ears/mask, missing asymmetric d
 
 Remaining visual outlier candidates for full v0 Human QA: cat01/cat08 resting volumes are less tightly curled than the source; cat04 normal face uses the shared happy eyes rather than the source wink. These are not adoption decisions or Human A/B/C/D ratings. Pilot stages are preserved as reference rather than repeatedly redesigned.
 
-## Verification and limitations
+## First family verification (source81b04e0) and limitations
 
 - Local dedicated **62 PASS / 0 FAIL**, including 24 stages × eight canonical emotions × idle/walk × normal/reduced motion and real presenter reuse/cleanup.
 - Rollout mutations **7/7 RED**. Existing 13+11+7+6 mechanisms remain in dedicated CI.
@@ -38,7 +38,7 @@ Remaining visual outlier candidates for full v0 Human QA: cat01/cat08 resting vo
 - `meguru/` contains 61 JPEG format conversions of CI PNG screenshots and unchanged raw QA JSON (its paths refer to the original CI artifact). The 24 stages have front/back World captures; normal-distance cat04 was visually inspected.
 - `pilot-regression.json` confirms 28 reference targets have identical geometry attributes/index and bone transforms for all eight emotions × idle/walk × normal/reduced motion. This is Node numerical evidence, not a pixel comparison.
 - FR-0 Home CI 37182066807 failed due to local CSS `route.fetch` ECONNRESET; later 37182460604 passed without Home/CSS changes. Preserve the failed run rather than relabel it green.
-- Gallery UI and rawcdn host verification pending until this checkpoint is published.
+- Mobile gallery filters/navigation passed CI37184732914 on a 390×844 Chromium viewport. Public rawcdn host and actual iPhone checks remain unverified.
 - Chromium / SwiftShader is **not iPhone Safari approval**. No iPhone performance, temperature, 27-actor interaction or long-play acceptance is claimed.
 
 ## Remaining work
@@ -62,4 +62,14 @@ Separate animation CPU and isolated first-appearance hitch are **not measured ye
 ## Executor recovery
 
 [RECOVERY_COMPLETE: all 61 World JPEGs and raw performance JSON saved from verified CI artifact]
-The local exec server became unavailable during evidence upload. All 99 four-view/sheet images and the verified source are saved. CI recovery is copying the remaining World images and raw performance JSON from artifact 11296655081 into this Draft branch only. The implementation remains 46/293 exact specs; full rollout is unfinished.
+The local exec server became unavailable during evidence upload. All 99 four-view/sheet images and the verified source are saved. CI recovery is copying the remaining World images and raw performance JSON from artifact 11296655081 into this Draft branch only. Recovery completed at c2bb41d. Working files were later restored by matching the latest remote blob/tree hashes; full rollout is unfinished.
+
+
+## Fish integration checkpoint
+
+- `fr1-fish/`: 64 four-view images +2 original comparison sheets, source88888c0d7c53eff82dadca3651ea398e7f8ce503 (CI37186326551, artifact11296838939). Both species/all8stages visually inspected. Geometry unchanged during runtime promotion.
+- Added yolk volume, rounded-head option, fork tail, local dorsal span, outward pectoral connections, head/back/tail colour regions, parr bars and bounded merged surface spots. Schooling is one gameplay actor with three face rigs; canonical semantics unchanged.
+- Corrected pointed nose, oversized yolk, long dorsal, smeared spots and buried fins during representative review. Remaining candidate outliers: mature salmon07/08 facial/jaw character and silver-stage gill/fin detail; keep for full v0 Human QA, not automatic adoption.
+- Local dedicated66 PASS/0FAIL; rollout7/7 RED and fish7/7 RED. A parr-band mutation initially survived because unrelated spots masked it; split assertions now detect both independently. Pilot28 geometry/pose hashes unchanged.
+- Full npm/Runtime/Home, all40 exact Meguru stages, fixed-Pilot1/5/27 and additional fish-family1/5/27 CI are pending on the promoted source. New results must not inherit source81's PASS. Interrupted local npm is not evidence.
+- All fish four-view body+face captures range recorded in fr1-fish/evidence.json. Schooling costs more than one fish and is included in the additional mixed-cast performance job. QA stand-ins are explicit; no full-native/iPhone claim.

@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 46,
-    "pending": 247,
-    "fourViewRecords": 24
+    "exactSpecs": 59,
+    "pending": 234,
+    "fourViewRecords": 40
   },
   "rows": [
     {
@@ -1136,15 +1136,15 @@
       "group": "normal",
       "asset": "assets/characters/salmon/01.png",
       "sha256": "681a2d0ef8e946d0f1a02abdf0c9e76f54202645e21b44b6a2b1e27fa58042aa",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "fish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-fish/salmon-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-fish/salmon-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-fish/salmon-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-fish/salmon-1-back.jpg"
       }
     },
     {
@@ -1156,15 +1156,15 @@
       "group": "normal",
       "asset": "assets/characters/salmon/02.png",
       "sha256": "10598560ff0c23ca57f8a7ba6b5124417ed1864c0713d83d3edd97e95cd5724c",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "fish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-fish/salmon-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-fish/salmon-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-fish/salmon-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-fish/salmon-2-back.jpg"
       }
     },
     {
@@ -1176,15 +1176,15 @@
       "group": "normal",
       "asset": "assets/characters/salmon/03.png",
       "sha256": "e0bbe35b13c99c05e4e4f1646f3fa69557997eeb5db20a92093b5711ada0bcbe",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "fish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-fish/salmon-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-fish/salmon-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-fish/salmon-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-fish/salmon-3-back.jpg"
       }
     },
     {
@@ -1196,15 +1196,15 @@
       "group": "normal",
       "asset": "assets/characters/salmon/04.png",
       "sha256": "ff1f735aac2a5f67432864aebf9ae2668e8265f56e128ee77f316e0d9362c3b5",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "fish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-fish/salmon-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-fish/salmon-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-fish/salmon-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-fish/salmon-4-back.jpg"
       }
     },
     {
@@ -1216,15 +1216,15 @@
       "group": "normal",
       "asset": "assets/characters/salmon/05.png",
       "sha256": "0a9dbd9534b3a9c81548753eb4efee7e1d7c298a72bddfbceeb10d0ac030d6c4",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "fish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-fish/salmon-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-fish/salmon-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-fish/salmon-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-fish/salmon-5-back.jpg"
       }
     },
     {
@@ -1236,15 +1236,15 @@
       "group": "normal",
       "asset": "assets/characters/salmon/06.png",
       "sha256": "d5d3f119c556617761a3acfb5dfa3ffe39679e9c311d2b58c029cb10d560f012",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "fish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-fish/salmon-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-fish/salmon-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-fish/salmon-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-fish/salmon-6-back.jpg"
       }
     },
     {
@@ -1256,15 +1256,15 @@
       "group": "normal",
       "asset": "assets/characters/salmon/07.png",
       "sha256": "65a7d33acdbab4575be2332b9609889a37f263275632748aaa9e529afca881c0",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "fish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-fish/salmon-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-fish/salmon-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-fish/salmon-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-fish/salmon-7-back.jpg"
       }
     },
     {
@@ -1276,15 +1276,15 @@
       "group": "normal",
       "asset": "assets/characters/salmon/08.png",
       "sha256": "165add62ab980440643104cde64538fda49ae715fc34e7d6d2fe01ac440face7",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "fish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-fish/salmon-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-fish/salmon-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-fish/salmon-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-fish/salmon-8-back.jpg"
       }
     },
     {
@@ -1301,10 +1301,10 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-1-back.jpg"
       }
     },
     {
@@ -1316,15 +1316,15 @@
       "group": "normal",
       "asset": "assets/characters/clownfish/02.png",
       "sha256": "3c05811dac91954f3a2e7946c698f8b8c4a0a67395aa559deca916551fdf3c28",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "fish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-2-back.jpg"
       }
     },
     {
@@ -1336,15 +1336,15 @@
       "group": "normal",
       "asset": "assets/characters/clownfish/03.png",
       "sha256": "b8fadf6e358928f8dbf46753bf53d0b421334dcf45d322873d24cc262de10641",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "fish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-3-back.jpg"
       }
     },
     {
@@ -1361,10 +1361,10 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-4-back.jpg"
       }
     },
     {
@@ -1376,15 +1376,15 @@
       "group": "normal",
       "asset": "assets/characters/clownfish/05.png",
       "sha256": "dcdfc0da83f513c105799088b9bf5ca47170a5d9dc2e0b9f6acb76a43fb3a5d8",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "fish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-5-back.jpg"
       }
     },
     {
@@ -1396,15 +1396,15 @@
       "group": "normal",
       "asset": "assets/characters/clownfish/06.png",
       "sha256": "1219ced10749edb37c456e334d55fe931ce47e8232b141407599f3dda75ac75f",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "fish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-6-back.jpg"
       }
     },
     {
@@ -1416,15 +1416,15 @@
       "group": "normal",
       "asset": "assets/characters/clownfish/07.png",
       "sha256": "222fbe861cbb11c44fe2119b9888d3ad3b020e0c0a1767f12335c9aa88179e7c",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "fish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-7-back.jpg"
       }
     },
     {
@@ -1441,10 +1441,10 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-8-back.jpg"
       }
     },
     {
