@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+- [452 独立balance標本への条件整理](452-independent-balance-readiness.md)：保存12runはNORMAL以外にもfallbackがあり116除外。全判断種別の条件と未確定の実験仕様を分離。A初版・114維持、新方式未採用。
+
 - [451 公開宣言prefixの補完](451-public-declaration-prefix.md)：残る152候補の宣言を記述。生成器未対応0、未解決義務・72件別扱いを保持。fallback182/241不変、新方式未採用。
 
 - [450 残差証跡と判断境界](450-residual-evidence-audit.md)：449補完後1,457組を横断監査。時以外の残差が全組に残り、fallback182/241・選択変更0。114維持、新方式未採用。

@@ -1,0 +1,1338 @@
+{
+  "by_policy": {
+    "legacy_107_114_116": {
+      "mandatory": {
+        "fallback": 80,
+        "strategic_unresolved": 80,
+        "valid": 80
+      },
+      "normal": {
+        "fallback": 4,
+        "strategic_unresolved": 4,
+        "valid": 108
+      },
+      "response": {
+        "fallback": 51,
+        "strategic_unresolved": 51,
+        "valid": 334
+      }
+    },
+    "public_result_equivalence_pilot_v1": {
+      "mandatory": {
+        "fallback": 48,
+        "strategic_unresolved": 48,
+        "valid": 48
+      },
+      "normal": {
+        "fallback": 151,
+        "strategic_unresolved": 151,
+        "valid": 205
+      },
+      "response": {
+        "fallback": 87,
+        "strategic_unresolved": 87,
+        "valid": 675
+      }
+    },
+    "resource_value_pilot_v1": {
+      "mandatory": {
+        "fallback": 48,
+        "strategic_unresolved": 48,
+        "valid": 48
+      },
+      "normal": {
+        "fallback": 151,
+        "strategic_unresolved": 151,
+        "valid": 205
+      },
+      "response": {
+        "fallback": 87,
+        "strategic_unresolved": 87,
+        "valid": 675
+      }
+    }
+  },
+  "independent_balance_sample_count": 0,
+  "new_runs": 0,
+  "policy_promoted": false,
+  "purpose": "exclusion_evidence_only_not_admission_certification",
+  "runs": [
+    {
+      "completed": true,
+      "counts": {
+        "mandatory": {
+          "fallback": {
+            "count": 20,
+            "denominator": 20,
+            "rate": 1.0
+          },
+          "reached": 20,
+          "strategic_unresolved": {
+            "count": 20,
+            "denominator": 20,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 20,
+            "rate": 0.0
+          },
+          "valid": 20
+        },
+        "normal": {
+          "fallback": {
+            "count": 1,
+            "denominator": 27,
+            "rate": 0.037037037037037035
+          },
+          "reached": 27,
+          "strategic_unresolved": {
+            "count": 1,
+            "denominator": 27,
+            "rate": 0.037037037037037035
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 27,
+            "rate": 0.0
+          },
+          "valid": 27
+        },
+        "response": {
+          "fallback": {
+            "count": 15,
+            "denominator": 85,
+            "rate": 0.17647058823529413
+          },
+          "reached": 85,
+          "strategic_unresolved": {
+            "count": 15,
+            "denominator": 85,
+            "rate": 0.17647058823529413
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 85,
+            "rate": 0.0
+          },
+          "valid": 85
+        }
+      },
+      "excluded_by_116": true,
+      "independent_balance_sample_count": 0,
+      "path_id": "probe-01-a-first",
+      "policy_id": "legacy_107_114_116",
+      "run_id": "continuation_batched_normal_v2:legacy_107_114_116:probe-01-a-first",
+      "saved_independent_replay_verified": true,
+      "seeded_choice_kinds": [
+        {
+          "choice_kind": "egg_exchange_bottom",
+          "count": 19,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "final_time_hand_bottom",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "zero_cost_person_placement",
+          "count": 1,
+          "decision_kind": "normal_action"
+        },
+        {
+          "choice_kind": "reaction_or_pass",
+          "count": 15,
+          "decision_kind": "response_action"
+        }
+      ]
+    },
+    {
+      "completed": true,
+      "counts": {
+        "mandatory": {
+          "fallback": {
+            "count": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "reached": 12,
+          "strategic_unresolved": {
+            "count": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 12,
+            "rate": 0.0
+          },
+          "valid": 12
+        },
+        "normal": {
+          "fallback": {
+            "count": 40,
+            "denominator": 58,
+            "rate": 0.6896551724137931
+          },
+          "reached": 58,
+          "strategic_unresolved": {
+            "count": 40,
+            "denominator": 58,
+            "rate": 0.6896551724137931
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 58,
+            "rate": 0.0
+          },
+          "valid": 58
+        },
+        "response": {
+          "fallback": {
+            "count": 20,
+            "denominator": 192,
+            "rate": 0.10416666666666667
+          },
+          "reached": 192,
+          "strategic_unresolved": {
+            "count": 20,
+            "denominator": 192,
+            "rate": 0.10416666666666667
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 192,
+            "rate": 0.0
+          },
+          "valid": 192
+        }
+      },
+      "excluded_by_116": true,
+      "independent_balance_sample_count": 0,
+      "path_id": "probe-01-a-first",
+      "policy_id": "resource_value_pilot_v1",
+      "run_id": "continuation_batched_normal_v2:resource_value_pilot_v1:probe-01-a-first",
+      "saved_independent_replay_verified": true,
+      "seeded_choice_kinds": [
+        {
+          "choice_kind": "ability_hand_bottom",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-113-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-162-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-202-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-226-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-303-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "egg_exchange_bottom",
+          "count": 4,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "final_time_hand_bottom",
+          "count": 2,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "normal_action_resource_frontier",
+          "count": 40,
+          "decision_kind": "normal_action"
+        },
+        {
+          "choice_kind": "reaction_or_pass",
+          "count": 20,
+          "decision_kind": "response_action"
+        }
+      ]
+    },
+    {
+      "completed": true,
+      "counts": {
+        "mandatory": {
+          "fallback": {
+            "count": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "reached": 12,
+          "strategic_unresolved": {
+            "count": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 12,
+            "rate": 0.0
+          },
+          "valid": 12
+        },
+        "normal": {
+          "fallback": {
+            "count": 40,
+            "denominator": 58,
+            "rate": 0.6896551724137931
+          },
+          "reached": 58,
+          "strategic_unresolved": {
+            "count": 40,
+            "denominator": 58,
+            "rate": 0.6896551724137931
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 58,
+            "rate": 0.0
+          },
+          "valid": 58
+        },
+        "response": {
+          "fallback": {
+            "count": 20,
+            "denominator": 192,
+            "rate": 0.10416666666666667
+          },
+          "reached": 192,
+          "strategic_unresolved": {
+            "count": 20,
+            "denominator": 192,
+            "rate": 0.10416666666666667
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 192,
+            "rate": 0.0
+          },
+          "valid": 192
+        }
+      },
+      "excluded_by_116": true,
+      "independent_balance_sample_count": 0,
+      "path_id": "probe-01-a-first",
+      "policy_id": "public_result_equivalence_pilot_v1",
+      "run_id": "continuation_batched_normal_v2:public_result_equivalence_pilot_v1:probe-01-a-first",
+      "saved_independent_replay_verified": true,
+      "seeded_choice_kinds": [
+        {
+          "choice_kind": "ability_hand_bottom",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-113-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-162-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-202-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-226-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-303-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "egg_exchange_bottom",
+          "count": 4,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "final_time_hand_bottom",
+          "count": 2,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "normal_action_resource_frontier",
+          "count": 40,
+          "decision_kind": "normal_action"
+        },
+        {
+          "choice_kind": "reaction_or_pass",
+          "count": 20,
+          "decision_kind": "response_action"
+        }
+      ]
+    },
+    {
+      "completed": true,
+      "counts": {
+        "mandatory": {
+          "fallback": {
+            "count": 20,
+            "denominator": 20,
+            "rate": 1.0
+          },
+          "reached": 20,
+          "strategic_unresolved": {
+            "count": 20,
+            "denominator": 20,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 20,
+            "rate": 0.0
+          },
+          "valid": 20
+        },
+        "normal": {
+          "fallback": {
+            "count": 1,
+            "denominator": 27,
+            "rate": 0.037037037037037035
+          },
+          "reached": 27,
+          "strategic_unresolved": {
+            "count": 1,
+            "denominator": 27,
+            "rate": 0.037037037037037035
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 27,
+            "rate": 0.0
+          },
+          "valid": 27
+        },
+        "response": {
+          "fallback": {
+            "count": 13,
+            "denominator": 85,
+            "rate": 0.15294117647058825
+          },
+          "reached": 85,
+          "strategic_unresolved": {
+            "count": 13,
+            "denominator": 85,
+            "rate": 0.15294117647058825
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 85,
+            "rate": 0.0
+          },
+          "valid": 85
+        }
+      },
+      "excluded_by_116": true,
+      "independent_balance_sample_count": 0,
+      "path_id": "probe-01-b-first",
+      "policy_id": "legacy_107_114_116",
+      "run_id": "continuation_batched_normal_v2:legacy_107_114_116:probe-01-b-first",
+      "saved_independent_replay_verified": true,
+      "seeded_choice_kinds": [
+        {
+          "choice_kind": "egg_exchange_bottom",
+          "count": 19,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "final_time_hand_bottom",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "zero_cost_person_placement",
+          "count": 1,
+          "decision_kind": "normal_action"
+        },
+        {
+          "choice_kind": "reaction_or_pass",
+          "count": 13,
+          "decision_kind": "response_action"
+        }
+      ]
+    },
+    {
+      "completed": true,
+      "counts": {
+        "mandatory": {
+          "fallback": {
+            "count": 13,
+            "denominator": 13,
+            "rate": 1.0
+          },
+          "reached": 13,
+          "strategic_unresolved": {
+            "count": 13,
+            "denominator": 13,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 13,
+            "rate": 0.0
+          },
+          "valid": 13
+        },
+        "normal": {
+          "fallback": {
+            "count": 33,
+            "denominator": 45,
+            "rate": 0.7333333333333333
+          },
+          "reached": 45,
+          "strategic_unresolved": {
+            "count": 33,
+            "denominator": 45,
+            "rate": 0.7333333333333333
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 45,
+            "rate": 0.0
+          },
+          "valid": 45
+        },
+        "response": {
+          "fallback": {
+            "count": 25,
+            "denominator": 157,
+            "rate": 0.1592356687898089
+          },
+          "reached": 157,
+          "strategic_unresolved": {
+            "count": 25,
+            "denominator": 157,
+            "rate": 0.1592356687898089
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 157,
+            "rate": 0.0
+          },
+          "valid": 157
+        }
+      },
+      "excluded_by_116": true,
+      "independent_balance_sample_count": 0,
+      "path_id": "probe-01-b-first",
+      "policy_id": "resource_value_pilot_v1",
+      "run_id": "continuation_batched_normal_v2:resource_value_pilot_v1:probe-01-b-first",
+      "saved_independent_replay_verified": true,
+      "seeded_choice_kinds": [
+        {
+          "choice_kind": "ability_hand_bottom",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-114-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-160-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-38-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-75-A-020#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-91-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "egg_exchange_bottom",
+          "count": 5,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "final_time_hand_bottom",
+          "count": 2,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "normal_action_resource_frontier",
+          "count": 33,
+          "decision_kind": "normal_action"
+        },
+        {
+          "choice_kind": "reaction_or_pass",
+          "count": 25,
+          "decision_kind": "response_action"
+        }
+      ]
+    },
+    {
+      "completed": true,
+      "counts": {
+        "mandatory": {
+          "fallback": {
+            "count": 13,
+            "denominator": 13,
+            "rate": 1.0
+          },
+          "reached": 13,
+          "strategic_unresolved": {
+            "count": 13,
+            "denominator": 13,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 13,
+            "rate": 0.0
+          },
+          "valid": 13
+        },
+        "normal": {
+          "fallback": {
+            "count": 33,
+            "denominator": 45,
+            "rate": 0.7333333333333333
+          },
+          "reached": 45,
+          "strategic_unresolved": {
+            "count": 33,
+            "denominator": 45,
+            "rate": 0.7333333333333333
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 45,
+            "rate": 0.0
+          },
+          "valid": 45
+        },
+        "response": {
+          "fallback": {
+            "count": 25,
+            "denominator": 157,
+            "rate": 0.1592356687898089
+          },
+          "reached": 157,
+          "strategic_unresolved": {
+            "count": 25,
+            "denominator": 157,
+            "rate": 0.1592356687898089
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 157,
+            "rate": 0.0
+          },
+          "valid": 157
+        }
+      },
+      "excluded_by_116": true,
+      "independent_balance_sample_count": 0,
+      "path_id": "probe-01-b-first",
+      "policy_id": "public_result_equivalence_pilot_v1",
+      "run_id": "continuation_batched_normal_v2:public_result_equivalence_pilot_v1:probe-01-b-first",
+      "saved_independent_replay_verified": true,
+      "seeded_choice_kinds": [
+        {
+          "choice_kind": "ability_hand_bottom",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-114-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-160-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-38-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-75-A-020#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-91-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "egg_exchange_bottom",
+          "count": 5,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "final_time_hand_bottom",
+          "count": 2,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "normal_action_resource_frontier",
+          "count": 33,
+          "decision_kind": "normal_action"
+        },
+        {
+          "choice_kind": "reaction_or_pass",
+          "count": 25,
+          "decision_kind": "response_action"
+        }
+      ]
+    },
+    {
+      "completed": true,
+      "counts": {
+        "mandatory": {
+          "fallback": {
+            "count": 19,
+            "denominator": 19,
+            "rate": 1.0
+          },
+          "reached": 19,
+          "strategic_unresolved": {
+            "count": 19,
+            "denominator": 19,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 19,
+            "rate": 0.0
+          },
+          "valid": 19
+        },
+        "normal": {
+          "fallback": {
+            "count": 1,
+            "denominator": 26,
+            "rate": 0.038461538461538464
+          },
+          "reached": 26,
+          "strategic_unresolved": {
+            "count": 1,
+            "denominator": 26,
+            "rate": 0.038461538461538464
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 26,
+            "rate": 0.0
+          },
+          "valid": 26
+        },
+        "response": {
+          "fallback": {
+            "count": 11,
+            "denominator": 78,
+            "rate": 0.14102564102564102
+          },
+          "reached": 78,
+          "strategic_unresolved": {
+            "count": 11,
+            "denominator": 78,
+            "rate": 0.14102564102564102
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 78,
+            "rate": 0.0
+          },
+          "valid": 78
+        }
+      },
+      "excluded_by_116": true,
+      "independent_balance_sample_count": 0,
+      "path_id": "probe-02-a-first",
+      "policy_id": "legacy_107_114_116",
+      "run_id": "continuation_batched_normal_v2:legacy_107_114_116:probe-02-a-first",
+      "saved_independent_replay_verified": true,
+      "seeded_choice_kinds": [
+        {
+          "choice_kind": "egg_exchange_bottom",
+          "count": 19,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "zero_cost_person_placement",
+          "count": 1,
+          "decision_kind": "normal_action"
+        },
+        {
+          "choice_kind": "reaction_or_pass",
+          "count": 11,
+          "decision_kind": "response_action"
+        }
+      ]
+    },
+    {
+      "completed": true,
+      "counts": {
+        "mandatory": {
+          "fallback": {
+            "count": 11,
+            "denominator": 11,
+            "rate": 1.0
+          },
+          "reached": 11,
+          "strategic_unresolved": {
+            "count": 11,
+            "denominator": 11,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 11,
+            "rate": 0.0
+          },
+          "valid": 11
+        },
+        "normal": {
+          "fallback": {
+            "count": 41,
+            "denominator": 56,
+            "rate": 0.7321428571428571
+          },
+          "reached": 56,
+          "strategic_unresolved": {
+            "count": 41,
+            "denominator": 56,
+            "rate": 0.7321428571428571
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 56,
+            "rate": 0.0
+          },
+          "valid": 56
+        },
+        "response": {
+          "fallback": {
+            "count": 20,
+            "denominator": 174,
+            "rate": 0.11494252873563218
+          },
+          "reached": 174,
+          "strategic_unresolved": {
+            "count": 20,
+            "denominator": 174,
+            "rate": 0.11494252873563218
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 174,
+            "rate": 0.0
+          },
+          "valid": 174
+        }
+      },
+      "excluded_by_116": true,
+      "independent_balance_sample_count": 0,
+      "path_id": "probe-02-a-first",
+      "policy_id": "resource_value_pilot_v1",
+      "run_id": "continuation_batched_normal_v2:resource_value_pilot_v1:probe-02-a-first",
+      "saved_independent_replay_verified": true,
+      "seeded_choice_kinds": [
+        {
+          "choice_kind": "ability_hand_bottom",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-246-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-260-A-020#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-308-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "egg_exchange_bottom",
+          "count": 5,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "final_time_hand_bottom",
+          "count": 2,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "normal_action_resource_frontier",
+          "count": 41,
+          "decision_kind": "normal_action"
+        },
+        {
+          "choice_kind": "reaction_or_pass",
+          "count": 20,
+          "decision_kind": "response_action"
+        }
+      ]
+    },
+    {
+      "completed": true,
+      "counts": {
+        "mandatory": {
+          "fallback": {
+            "count": 11,
+            "denominator": 11,
+            "rate": 1.0
+          },
+          "reached": 11,
+          "strategic_unresolved": {
+            "count": 11,
+            "denominator": 11,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 11,
+            "rate": 0.0
+          },
+          "valid": 11
+        },
+        "normal": {
+          "fallback": {
+            "count": 41,
+            "denominator": 56,
+            "rate": 0.7321428571428571
+          },
+          "reached": 56,
+          "strategic_unresolved": {
+            "count": 41,
+            "denominator": 56,
+            "rate": 0.7321428571428571
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 56,
+            "rate": 0.0
+          },
+          "valid": 56
+        },
+        "response": {
+          "fallback": {
+            "count": 20,
+            "denominator": 174,
+            "rate": 0.11494252873563218
+          },
+          "reached": 174,
+          "strategic_unresolved": {
+            "count": 20,
+            "denominator": 174,
+            "rate": 0.11494252873563218
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 174,
+            "rate": 0.0
+          },
+          "valid": 174
+        }
+      },
+      "excluded_by_116": true,
+      "independent_balance_sample_count": 0,
+      "path_id": "probe-02-a-first",
+      "policy_id": "public_result_equivalence_pilot_v1",
+      "run_id": "continuation_batched_normal_v2:public_result_equivalence_pilot_v1:probe-02-a-first",
+      "saved_independent_replay_verified": true,
+      "seeded_choice_kinds": [
+        {
+          "choice_kind": "ability_hand_bottom",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-246-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-260-A-020#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-308-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "egg_exchange_bottom",
+          "count": 5,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "final_time_hand_bottom",
+          "count": 2,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "normal_action_resource_frontier",
+          "count": 41,
+          "decision_kind": "normal_action"
+        },
+        {
+          "choice_kind": "reaction_or_pass",
+          "count": 20,
+          "decision_kind": "response_action"
+        }
+      ]
+    },
+    {
+      "completed": true,
+      "counts": {
+        "mandatory": {
+          "fallback": {
+            "count": 21,
+            "denominator": 21,
+            "rate": 1.0
+          },
+          "reached": 21,
+          "strategic_unresolved": {
+            "count": 21,
+            "denominator": 21,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 21,
+            "rate": 0.0
+          },
+          "valid": 21
+        },
+        "normal": {
+          "fallback": {
+            "count": 1,
+            "denominator": 28,
+            "rate": 0.03571428571428571
+          },
+          "reached": 28,
+          "strategic_unresolved": {
+            "count": 1,
+            "denominator": 28,
+            "rate": 0.03571428571428571
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 28,
+            "rate": 0.0
+          },
+          "valid": 28
+        },
+        "response": {
+          "fallback": {
+            "count": 12,
+            "denominator": 86,
+            "rate": 0.13953488372093023
+          },
+          "reached": 86,
+          "strategic_unresolved": {
+            "count": 12,
+            "denominator": 86,
+            "rate": 0.13953488372093023
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 86,
+            "rate": 0.0
+          },
+          "valid": 86
+        }
+      },
+      "excluded_by_116": true,
+      "independent_balance_sample_count": 0,
+      "path_id": "probe-02-b-first",
+      "policy_id": "legacy_107_114_116",
+      "run_id": "continuation_batched_normal_v2:legacy_107_114_116:probe-02-b-first",
+      "saved_independent_replay_verified": true,
+      "seeded_choice_kinds": [
+        {
+          "choice_kind": "egg_exchange_bottom",
+          "count": 19,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "final_time_hand_bottom",
+          "count": 2,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "zero_cost_person_placement",
+          "count": 1,
+          "decision_kind": "normal_action"
+        },
+        {
+          "choice_kind": "reaction_or_pass",
+          "count": 12,
+          "decision_kind": "response_action"
+        }
+      ]
+    },
+    {
+      "completed": true,
+      "counts": {
+        "mandatory": {
+          "fallback": {
+            "count": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "reached": 12,
+          "strategic_unresolved": {
+            "count": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 12,
+            "rate": 0.0
+          },
+          "valid": 12
+        },
+        "normal": {
+          "fallback": {
+            "count": 37,
+            "denominator": 46,
+            "rate": 0.8043478260869565
+          },
+          "reached": 46,
+          "strategic_unresolved": {
+            "count": 37,
+            "denominator": 46,
+            "rate": 0.8043478260869565
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 46,
+            "rate": 0.0
+          },
+          "valid": 46
+        },
+        "response": {
+          "fallback": {
+            "count": 22,
+            "denominator": 152,
+            "rate": 0.14473684210526316
+          },
+          "reached": 152,
+          "strategic_unresolved": {
+            "count": 22,
+            "denominator": 152,
+            "rate": 0.14473684210526316
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 152,
+            "rate": 0.0
+          },
+          "valid": 152
+        }
+      },
+      "excluded_by_116": true,
+      "independent_balance_sample_count": 0,
+      "path_id": "probe-02-b-first",
+      "policy_id": "resource_value_pilot_v1",
+      "run_id": "continuation_batched_normal_v2:resource_value_pilot_v1:probe-02-b-first",
+      "saved_independent_replay_verified": true,
+      "seeded_choice_kinds": [
+        {
+          "choice_kind": "ability_draw_then_hand_bottom",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-214-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "egg_exchange_bottom",
+          "count": 8,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "final_time_hand_bottom",
+          "count": 2,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "normal_action_resource_frontier",
+          "count": 37,
+          "decision_kind": "normal_action"
+        },
+        {
+          "choice_kind": "reaction_or_pass",
+          "count": 22,
+          "decision_kind": "response_action"
+        }
+      ]
+    },
+    {
+      "completed": true,
+      "counts": {
+        "mandatory": {
+          "fallback": {
+            "count": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "reached": 12,
+          "strategic_unresolved": {
+            "count": 12,
+            "denominator": 12,
+            "rate": 1.0
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 12,
+            "rate": 0.0
+          },
+          "valid": 12
+        },
+        "normal": {
+          "fallback": {
+            "count": 37,
+            "denominator": 46,
+            "rate": 0.8043478260869565
+          },
+          "reached": 46,
+          "strategic_unresolved": {
+            "count": 37,
+            "denominator": 46,
+            "rate": 0.8043478260869565
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 46,
+            "rate": 0.0
+          },
+          "valid": 46
+        },
+        "response": {
+          "fallback": {
+            "count": 22,
+            "denominator": 152,
+            "rate": 0.14473684210526316
+          },
+          "reached": 152,
+          "strategic_unresolved": {
+            "count": 22,
+            "denominator": 152,
+            "rate": 0.14473684210526316
+          },
+          "true_stop": {
+            "count": 0,
+            "denominator": 152,
+            "rate": 0.0
+          },
+          "valid": 152
+        }
+      },
+      "excluded_by_116": true,
+      "independent_balance_sample_count": 0,
+      "path_id": "probe-02-b-first",
+      "policy_id": "public_result_equivalence_pilot_v1",
+      "run_id": "continuation_batched_normal_v2:public_result_equivalence_pilot_v1:probe-02-b-first",
+      "saved_independent_replay_verified": true,
+      "seeded_choice_kinds": [
+        {
+          "choice_kind": "ability_draw_then_hand_bottom",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "ability_topdeck_order:response-link-214-B-010#1",
+          "count": 1,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "egg_exchange_bottom",
+          "count": 8,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "final_time_hand_bottom",
+          "count": 2,
+          "decision_kind": "mandatory_choice"
+        },
+        {
+          "choice_kind": "normal_action_resource_frontier",
+          "count": 37,
+          "decision_kind": "normal_action"
+        },
+        {
+          "choice_kind": "reaction_or_pass",
+          "count": 22,
+          "decision_kind": "response_action"
+        }
+      ]
+    }
+  ],
+  "saved_runs": 12,
+  "schema": "balance_readiness_saved_census.v1",
+  "sources_sha256": {
+    "111-structural-gap-disposition-and-repetition-scope.md": "47e646900efb8e30714382e179dff42413b92719e603dfe72196baaac0adce26",
+    "114-normal-decision-protocol-hardening.md": "aa161063e4fa9e056818d00e3fe799448107b3b51f00c05e67c2c89c3a50e59a",
+    "116-normal-decision-fallback-contract.md": "577dccec67343ead75aa813b464b432679927c2f4b71ed960be5058aaa3ef393",
+    "119-response-window-contract.md": "c79e89709c687211ae5ca4a2ba3328e285ffafcf9b7790f913ae5ceb953cba45",
+    "414-normal-decision-resource-pilot-design.md": "f2663994080406e7a6cbfe777f1b16103606a31e1956c22f8a8af964c4fc327e",
+    "443-completed-pilot-comparison.md": "469bf788bab87973e2cb678dea1b6699bf710e10709dbe1c2ec961d3c587b116",
+    "445-public-result-equivalence-design.md": "a7a2e3199c8e0ee536d2bb2345dcfcf19a21b5137efa220acddb3d40f490d667",
+    "450-residual-evidence-audit.md": "1d96cb7b73d82517081bdd5f37272371b05fdefae675a96e46060fba48c43a6a",
+    "451-public-declaration-prefix.md": "107984be2058d83e0e18fd0c6318dc0c7108af081d4ee3210e3a6cbdfc3db783",
+    "data/proxy-balance-readiness-452/reproduce.py": "ca2eaedec4ffaf40f0e3087cd97ec36589a03d271f06b0d5e03962aa1d6ac4da",
+    "data/proxy-equivalence-pilot-447/trajectories/manifest.json": "083486cb4c8b155897cb5d6719b152c3dc3e2de499cecffd6acd474266028cd6",
+    "data/proxy-equivalence-pilot-447/trajectories/probe-01-a-first.json.gz": "8ad43ea149c5f2a18133962ddec913515224e309fb040994c49a7cb4eb2cf00b",
+    "data/proxy-equivalence-pilot-447/trajectories/probe-01-b-first.json.gz": "e411ca98f7a69a9c192a1ea1fad1e271f6c5451eb3b68736698deed313cb6425",
+    "data/proxy-equivalence-pilot-447/trajectories/probe-02-a-first.json.gz": "1aad107710a061268efdfd1b8f54401efe5492bb6245c82f50135289f6bd83d0",
+    "data/proxy-equivalence-pilot-447/trajectories/probe-02-b-first.json.gz": "1adc84c3ced755bde615c4ec4413629a5cf8a2b7d4cab20eadbfa7bc41f5d5b0",
+    "data/proxy-normal-decision-fallback-contract-116-20260918.json": "8a7f41847339816d786d6c6055e290454cf8d5d84d6ccc22d6a32eb287cbfb6f",
+    "tools/proxy_continuation_batch_runner.py": "164fa89ca8503a7a59351b6625df2ba57952caddb6be131239767273d7bc7184",
+    "tools/proxy_resource_value_evaluation.py": "f5377c17a1c41a1b6131618f2b5438d5ea28c97d4f57eb00648a0fba8ed58e2d"
+  }
+}
