@@ -3,6 +3,43 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const mod = () => import('../meguru-3d.mjs');
+test('VQ-6 cottage rooflines include both gable orientations within the residential family', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({deterministic:true, fullDisplay:true}).api.meguruMod;
+  const objects = M.worldObjects3d(M.buildWorld('home',M.buildRegistry(),{world3d:true})).objects;
+  const directions = new Set();
+  for (const o of objects.filter(o => o.parts.some(p => p.family === 'cottage'))) {
+    const roof = o.parts.find(p => p.shape === 'gable');
+    directions.add(Math.round((roof.ang - (o.collision.ang || 0)) / (Math.PI/2)));
+  }
+  assert.ok(directions.has(0) && directions.has(1), 'both rooflines must actually occur in generated cottages');
+});
+test('VQ-5 garden stepping stones connect the actual front door to its finite road segment', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({ deterministic:true, fullDisplay:true, pinDate:true }).api.meguruMod;
+  const world = M.buildWorld('home', M.buildRegistry(), {world3d:true});
+  const objects = M.worldObjects3d(world).objects; let routes = 0;
+  for (const garden of objects.filter(o => o.garden)) {
+    const house = objects.find(o => garden.id === 'home:garden:' + o.id);
+    const door = house.parts.find(p => p.door);
+    const origin = {x:house.x + door.dx, z:house.z + door.dz};
+    const np = M.nearestPath(origin, world), a = house.collision.ang || 0;
+    for (const stone of garden.parts.filter(p => p.shape === 'stone')) {
+      const dx = garden.x + stone.dx - origin.x, dz = garden.z + stone.dz - origin.z;
+      assert.ok(dx * Math.cos(a) - dz * Math.sin(a) > 0, house.id + ': route goes behind front door');
+      const vx = np.seg.b.x - np.seg.a.x, vz = np.seg.b.z - np.seg.a.z;
+      const t = Math.max(0, Math.min(1, ((origin.x-np.seg.a.x)*vx+(origin.z-np.seg.a.z)*vz)/(vx*vx+vz*vz)));
+      const tx = np.seg.a.x + vx*t - origin.x, tz = np.seg.a.z + vz*t - origin.z;
+      assert.ok(Math.abs(dx*tz-dz*tx)/Math.hypot(tx,tz) < 0.001, house.id + ': stones drift from actual door');
+      assert.ok(!M.collidesAt(world,garden.x+stone.dx,garden.z+stone.dz,10));
+      for (const plant of [...garden.parts,...house.parts].filter(p => (p.y || 0) <= 7 && (p.shape === 'flower' || (p.shape === 'crown' && p.small)))) {
+        assert.ok(Math.hypot(plant.dx-stone.dx,plant.dz-stone.dz) >= plant.r+12, house.id + ': planting covers entrance stones');
+      }
+      routes++;
+    }
+  }
+  assert.ok(routes >= 8, 'retains useful entrance routes');
+});
 test('VQ-1 contact footprints follow trunks and foundations without mutating objects', async () => {
   const { contactFootprints } = await mod();
   assert.equal(typeof contactFootprints, 'function');

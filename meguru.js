@@ -1446,7 +1446,7 @@
           // VQ review 2026-10-03: broaden the wall mass inside the existing lot;
           // never lower oversized eaves into the walkable head-height envelope.
           const broader = ['cottage', 'single', 'cabin'].includes(family);
-          const w = W * (annex ? 0.66 : broader ? 0.96 : 0.9), d = D * (family === 'farmhouse' ? 0.7 : broader ? 0.86 : 0.78), cx = annex ? -W * 0.3 : 0;   // cx = 本体の よこ ずれ(はなれ の ぶん)
+          const w = W * (annex ? 0.66 : broader ? 0.96 : 0.9), d = D * (family === 'farmhouse' ? 0.7 : family === 'cottage' ? 0.76 : broader ? 0.86 : 0.78), cx = annex ? -W * 0.3 : 0;   // cx = 本体の よこ ずれ(はなれ の ぶん)
           // 高さ: 1 かいは あたまの すぐ 上(OBJ3D_HEAD + 2)まで。屋根は あたまより 上 なので 敷地の そとへ 大きく はりだせる(大きな 屋根の 小さな 家)。
           // 2 かい / 納屋は 床の はばに あわせる。物置は ひくい
           const storeys = family === 'twostorey' ? 2 : 1;
@@ -1465,7 +1465,7 @@
           } else if (family === 'single') {
             out.push(Object.assign({ shape: 'box', rx: w * 1.06, rz: d * 1.06, h: 5, y: h - 3, ang, color: trimC }, at(0, 0)), Object.assign({ shape: 'roof', r: Math.max(w, d) * eave * 1.4, h: Math.max(26, Math.max(w, d) * eave * 0.5), y: h, ang, color: roofC, seg: 4 }, at(0, 0)));
           } else {
-            const turn = family === 'cottage' && v > 0.5;   // 妻(三角)を 正面に むける 家も ある
+            const turn = family === 'cottage' && v > 0.25;   // cottage は v < .5。既存の family 内で 妻の 向きを 分ける
             out.push(Object.assign({ shape: 'box', rx: w * 1.06, rz: d * 1.06, h: 5, y: h - 3, ang, color: trimC }, at(0, 0)));
             out.push(Object.assign(turn ? { shape: 'gable', rx: d * eave, rz: w * eave, h: roofH, y: h, ang: ang + Math.PI / 2, color: roofC } : { shape: 'gable', rx: w * eave, rz: d * eave, h: roofH, y: h, ang, color: roofC }, at(0, 0)));
           }
@@ -1492,7 +1492,7 @@
           const porchD = D - d;   // 本体の 前の のこり(敷地の なか)
           if (['cottage', 'single', 'cabin', 'twostorey', 'shed'].includes(family) && porchD <= 8) out.push(Object.assign({ shape: 'wslab', len: doorW * 3, w: 18, h: 4, y: doorH + 10, ang, color: accent }, at(d + 9, doorX)), Object.assign({ shape: 'box', rx: doorW * 1.4, rz: 6, h: 5, y: 0, ang, color: '#a39f94', solidBox: true }, at(d + 6, doorX)));   // 入口の 小さな ひさし + 石段
           if ((family === 'single' || family === 'cabin' || family === 'cottage') && porchD > 8) {
-            const pw = family === 'cottage' ? doorW * 2 : w * 0.55, pc = family === 'cottage' ? doorX : -w * 0.25;
+            const pw = family === 'cottage' ? Math.min(doorW * 2, w + doorX) : w * 0.55, pc = family === 'cottage' ? doorX : -w * 0.25;
             out.push(Object.assign({ shape: 'gable', rx: pw, rz: porchD * 0.8, h: family === 'cabin' ? 18 : 12, y: 66, ang, color: accent }, at(d + porchD * 0.8, pc)));   // ポーチの 屋根
             for (const sd of [-1, 1]) out.push(Object.assign({ shape: 'wpost', r: 3.5, h: 66, y: 0, color: trimC }, at(d + porchD * 1.45, pc + sd * pw * 0.9)));
             out.push(Object.assign({ shape: 'box', rx: pw, rz: porchD * 0.8, h: 6, y: 0, ang, color: '#b89a72', solidBox: true }, at(d + porchD * 0.8, pc)));   // ポーチの 床
@@ -1931,13 +1931,79 @@
       for (const h of houses) {
         const c = h.collision, a = c.ang || 0, fx = Math.cos(a), fz = -Math.sin(a), sx = Math.sin(a), sz = Math.cos(a), W = c.hw, D = c.hd, v = (hash(h.id) % 1000) / 1000, parts = [];
         const at = (fd, sd) => ({ x: h.x + fx * fd + sx * sd, z: h.z + fz * fd + sz * sd });
-        const put = (p, fd, sd) => { const q = at(fd, sd); if (!okAt(q.x, q.z)) return false; parts.push(Object.assign(p, { dx: q.x - h.x, dz: q.z - h.z })); return true; };
+        const put = (p, fd, sd) => {
+          const q = at(fd, sd); if (!okAt(q.x, q.z)) return false;
+          if (route && p.shape !== 'rail') {
+            const t = Math.max(route.start, Math.min(route.end, (q.x - door.x) * route.ux + (q.z - door.z) * route.uz));
+            const radius = p.r || Math.hypot(p.rx || 0, p.rz || 0);
+            if (Math.hypot(q.x - door.x - route.ux * t, q.z - door.z - route.uz * t) < radius + 14) return false;
+          }
+          parts.push(Object.assign(p, { dx: q.x - h.x, dz: q.z - h.z })); return true;
+        };
+        // VQ3: one actual entrance anchors the planting, gate and road approach.
+        // nearestPath.t is clamped to the canonical segment (never its extension).
+        const entry = h.parts.find((p) => p.door);
+        if (!entry) continue;
+        const door = { x: h.x + (entry.dx || 0), z: h.z + (entry.dz || 0) }, np = nearestPath(door, world);
+        const entrySide = (door.x - h.x) * sx + (door.z - h.z) * sz;
+        let route = null;
+        if (np && np.dist - np.half < 320) {
+          const qx = np.seg.a.x + (np.seg.b.x - np.seg.a.x) * np.t, qz = np.seg.a.z + (np.seg.b.z - np.seg.a.z) * np.t;
+          const L = Math.hypot(qx - door.x, qz - door.z), ux = (qx - door.x) / L, uz = (qz - door.z) / L, forward = ux * fx + uz * fz;
+          const doorDepth = (door.x - h.x) * fx + (door.z - h.z) * fz;
+          const start = forward > 0.15 ? Math.max(0, (D + 14 - doorDepth) / forward) : Infinity, end = L - np.half - 22;
+          if (end > start && end - start < 280) {
+            let clear = true;
+            for (let t = start; t <= end; t += 8) if (!okAt(door.x + ux * t, door.z + uz * t)) { clear = false; break; }
+            if (clear && okAt(door.x + ux * end, door.z + uz * end)) route = { ux, uz, start, end, doorDepth, forward };
+          }
+        }
+        if (route) {
+          // Reuse the house's existing ground planting as the entrance's flanks.
+          // Stage all moves first; an unsafe flank cancels this visual route.
+          const moves = [];
+          for (const p of h.parts.filter((p) => (p.y || 0) <= 7 && (p.shape === 'flower' || (p.shape === 'crown' && p.small)))) {
+            const x = h.x + (p.dx || 0), z = h.z + (p.dz || 0);
+            const t = Math.max(route.start, Math.min(route.end, (x - door.x) * route.ux + (z - door.z) * route.uz));
+            const qx = door.x + route.ux * t, qz = door.z + route.uz * t;
+            if (Math.hypot(x - qx, z - qz) >= p.r + 14) continue;
+            const side = (x - qx) * route.uz - (z - qz) * route.ux < 0 ? -1 : 1;
+            const candidates = [side, -side].map((s) => ({ x: qx + route.uz * s * (p.r + 18), z: qz - route.ux * s * (p.r + 18) }));
+            const q = candidates.find((q) => Math.hypot(q.x - x, q.z - z) <= 60 && okAt(q.x, q.z));
+            if (!q) { route = null; break; }
+            moves.push({ p, dx: q.x - h.x, dz: q.z - h.z });
+          }
+          if (route) for (const m of moves) Object.assign(m.p, { dx: m.dx, dz: m.dz });
+        }
+        const laneSide = (fd) => route ? entrySide + (fd - route.doorDepth) / route.forward * (route.ux * sx + route.uz * sz) : entrySide;
         const fl = ['#f2a6c0', '#f7d94c', '#ffffff', '#f08a5a', '#b58cf0'];
-        for (const sd of [-1, 1]) { const bx = D + 42, by = sd * W * 0.62; if (put({ shape: 'box', rx: 26, rz: 12, h: 8, y: 0, ang: a, color: '#8a6a4a', solidBox: true }, bx, by)) for (let i = 0; i < 5; i++) put({ shape: 'flower', r: 11 + (i % 2) * 3, h: 18 + (i % 3) * 5, y: 7, color: fl[(i + Math.round(v * 4)) % fl.length] }, bx + ((i % 2) - 0.5) * 10, by + (i - 2) * 9); }   // 花だん
-        if (put({ shape: 'wpost', r: 2, h: 34, y: 0, color: '#6b4a32' }, D + 70, W * 0.92)) put({ shape: 'box', rx: 6, rz: 4.5, h: 9, y: 34, ang: a, color: v > 0.5 ? '#d94040' : '#3f7fc8', solidBox: true }, D + 70, W * 0.92);   // ポスト
-        for (const sd of [-1, 1]) { const from = W * 0.32, to = W * 1.02, n = Math.max(2, Math.round((to - from) / 14)); let ok = 0; for (let i = 0; i <= n; i++) ok += put({ shape: 'wpost', r: 1.6, h: 22, y: 0, color: '#f4f0e6' }, D + 96, sd * (from + (to - from) * i / n)) ? 1 : 0; if (ok > n * 0.8) { const q = at(D + 96, sd * (from + to) / 2); parts.push({ shape: 'rail', len: to - from, r: 1.6, y: 16, ang: a, side: 0, color: '#f4f0e6', dx: q.x - h.x, dz: q.z - h.z }); } }   // ひくい さく
-        const door = at(D + 14, -W * 0.45 * 0.9), np = nearestPath(door, world);
-        if (np && np.dist - np.half < 320) { const tx = Math.sin(np.dir), tz = Math.cos(np.dir), proj = (door.x - np.seg.a.x) * tx + (door.z - np.seg.a.z) * tz, qx = np.seg.a.x + tx * proj, qz = np.seg.a.z + tz * proj, L = Math.hypot(qx - door.x, qz - door.z), n = Math.min(8, Math.floor((L - np.half) / 30)); for (let i = 1; i <= n; i++) { const x = door.x + (qx - door.x) * i * 30 / L, z = door.z + (qz - door.z) * i * 30 / L; if (okAt(x, z)) parts.push({ shape: 'stone', rx: 12, rz: 9, h: 3, y: 0, dx: x - h.x, dz: z - h.z }); } }   // 飛び石
+        // Offset the two beds in depth: foreground flowers frame, not fill, the entrance.
+        for (const sd of [-1, 1]) {
+          const bx = D + (sd < 0 ? 38 : 56), by = laneSide(bx) + sd * Math.max(52, W * 0.62);
+          if (Math.abs(by) > W + 65) continue;
+          if (put({ shape: 'box', rx: 26, rz: 12, h: 8, y: 0, ang: a, color: '#8a6a4a', solidBox: true }, bx, by))
+            for (let i = 0; i < 5; i++) put({ shape: 'flower', r: 11 + (i % 2) * 3, h: 18 + (i % 3) * 5, y: 7, color: fl[(i + Math.round(v * 4)) % fl.length] }, bx + ((i % 2) - 0.5) * 10, by + (i - 2) * 9);
+        }
+        const gate = Math.max(-W * 0.65, Math.min(W * 0.65, laneSide(D + 96)));
+        const mailbox = gate + 30;
+        if (put({ shape: 'wpost', r: 2, h: 34, y: 0, color: '#6b4a32' }, D + 78, mailbox)) put({ shape: 'box', rx: 6, rz: 4.5, h: 9, y: 34, ang: a, color: v > 0.5 ? '#d94040' : '#3f7fc8', solidBox: true }, D + 78, mailbox);
+        for (const sd of [-1, 1]) {
+          const from = gate + sd * 24, to = sd * W * 1.02, len = Math.abs(to - from), n = Math.max(2, Math.round(len / 18));
+          if ((to - from) * sd <= 0) continue;
+          // Never draw a rail across a rejected post or the reserved approach.
+          const positions = Array.from({ length: n + 1 }, (_, i) => from + (to - from) * i / n);
+          if (!positions.every((side) => { const q = at(D + 96, side); return okAt(q.x, q.z) && Math.abs(side - laneSide(D + 96)) >= 22; })) continue;
+          let placed = 0;
+          for (const side of positions) placed += put({ shape: 'wpost', r: 1.6, h: 22, y: 0, color: '#f4f0e6' }, D + 96, side) ? 1 : 0;
+          if (placed === positions.length) put({ shape: 'rail', len, r: 1.6, y: 16, ang: a, side: 0, color: '#f4f0e6' }, D + 96, (from + to) / 2);
+        }
+        if (route) {
+          const n = Math.min(8, Math.max(2, Math.ceil((route.end - route.start) / 30) + 1));
+          for (let i = 0; i < n; i++) {
+            const t = route.start + (route.end - route.start) * i / (n - 1);
+            parts.push({ shape: 'stone', rx: 12, rz: 9, h: 3, y: 0, dx: door.x + route.ux * t - h.x, dz: door.z + route.uz * t - h.z });
+          }
+        }
         if (parts.length >= 4) out.push({ id: world.regionId + ':garden:' + h.id, type: 'dressing', kind: 'cover:garden', region: world.regionId, layer: 'ground', role: null, spot: null, x: h.x, z: h.z, rot: 0, height: 40, halfW: W + 100, size: (W + 100) * 2, emoji: null, solid: false, walkable: true, collision: null, moved3d: false, dressing: true, garden: true, parts });
       }
       return out;
