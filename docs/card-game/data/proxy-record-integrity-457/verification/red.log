@@ -1,0 +1,95 @@
+test_dangling_or_changed_explicit_anchor_rejected (test_proxy_record_integrity_audit.RecordIntegrityTests.test_dangling_or_changed_explicit_anchor_rejected) ... FAIL
+test_each_edge_hash_must_match_even_if_replayed_copy_identical (test_proxy_record_integrity_audit.RecordIntegrityTests.test_each_edge_hash_must_match_even_if_replayed_copy_identical) ... FAIL
+test_endpoint_and_contract_mismatch_rejected (test_proxy_record_integrity_audit.RecordIntegrityTests.test_endpoint_and_contract_mismatch_rejected) ... FAIL
+test_malformed_collections_rejected (test_proxy_record_integrity_audit.RecordIntegrityTests.test_malformed_collections_rejected) ... FAIL
+test_missing_explicit_anchor_is_reported_not_invented (test_proxy_record_integrity_audit.RecordIntegrityTests.test_missing_explicit_anchor_is_reported_not_invented) ... FAIL
+test_missing_extra_or_reordered_chain_is_rejected (test_proxy_record_integrity_audit.RecordIntegrityTests.test_missing_extra_or_reordered_chain_is_rejected) ... FAIL
+test_nonconsecutive_or_bool_sequences_rejected (test_proxy_record_integrity_audit.RecordIntegrityTests.test_nonconsecutive_or_bool_sequences_rejected) ... FAIL
+test_runtime_and_card_lookup_remain_hash_bound (test_proxy_record_integrity_audit.RecordIntegrityTests.test_runtime_and_card_lookup_remain_hash_bound) ... FAIL
+test_sequence_only_and_partial_hash_anchors_are_distinct (test_proxy_record_integrity_audit.RecordIntegrityTests.test_sequence_only_and_partial_hash_anchors_are_distinct) ... FAIL
+test_valid_record_is_structural_only_and_nonmutating (test_proxy_record_integrity_audit.RecordIntegrityTests.test_valid_record_is_structural_only_and_nonmutating) ... FAIL
+
+======================================================================
+FAIL: test_dangling_or_changed_explicit_anchor_rejected (test_proxy_record_integrity_audit.RecordIntegrityTests.test_dangling_or_changed_explicit_anchor_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_record_integrity_audit.py", line 22, in setUp
+    self.assertIsNotNone(subject, 'record integrity auditor absent')
+AssertionError: unexpectedly None : record integrity auditor absent
+
+======================================================================
+FAIL: test_each_edge_hash_must_match_even_if_replayed_copy_identical (test_proxy_record_integrity_audit.RecordIntegrityTests.test_each_edge_hash_must_match_even_if_replayed_copy_identical)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_record_integrity_audit.py", line 22, in setUp
+    self.assertIsNotNone(subject, 'record integrity auditor absent')
+AssertionError: unexpectedly None : record integrity auditor absent
+
+======================================================================
+FAIL: test_endpoint_and_contract_mismatch_rejected (test_proxy_record_integrity_audit.RecordIntegrityTests.test_endpoint_and_contract_mismatch_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_record_integrity_audit.py", line 22, in setUp
+    self.assertIsNotNone(subject, 'record integrity auditor absent')
+AssertionError: unexpectedly None : record integrity auditor absent
+
+======================================================================
+FAIL: test_malformed_collections_rejected (test_proxy_record_integrity_audit.RecordIntegrityTests.test_malformed_collections_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_record_integrity_audit.py", line 22, in setUp
+    self.assertIsNotNone(subject, 'record integrity auditor absent')
+AssertionError: unexpectedly None : record integrity auditor absent
+
+======================================================================
+FAIL: test_missing_explicit_anchor_is_reported_not_invented (test_proxy_record_integrity_audit.RecordIntegrityTests.test_missing_explicit_anchor_is_reported_not_invented)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_record_integrity_audit.py", line 22, in setUp
+    self.assertIsNotNone(subject, 'record integrity auditor absent')
+AssertionError: unexpectedly None : record integrity auditor absent
+
+======================================================================
+FAIL: test_missing_extra_or_reordered_chain_is_rejected (test_proxy_record_integrity_audit.RecordIntegrityTests.test_missing_extra_or_reordered_chain_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_record_integrity_audit.py", line 22, in setUp
+    self.assertIsNotNone(subject, 'record integrity auditor absent')
+AssertionError: unexpectedly None : record integrity auditor absent
+
+======================================================================
+FAIL: test_nonconsecutive_or_bool_sequences_rejected (test_proxy_record_integrity_audit.RecordIntegrityTests.test_nonconsecutive_or_bool_sequences_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_record_integrity_audit.py", line 22, in setUp
+    self.assertIsNotNone(subject, 'record integrity auditor absent')
+AssertionError: unexpectedly None : record integrity auditor absent
+
+======================================================================
+FAIL: test_runtime_and_card_lookup_remain_hash_bound (test_proxy_record_integrity_audit.RecordIntegrityTests.test_runtime_and_card_lookup_remain_hash_bound)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_record_integrity_audit.py", line 22, in setUp
+    self.assertIsNotNone(subject, 'record integrity auditor absent')
+AssertionError: unexpectedly None : record integrity auditor absent
+
+======================================================================
+FAIL: test_sequence_only_and_partial_hash_anchors_are_distinct (test_proxy_record_integrity_audit.RecordIntegrityTests.test_sequence_only_and_partial_hash_anchors_are_distinct)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_record_integrity_audit.py", line 22, in setUp
+    self.assertIsNotNone(subject, 'record integrity auditor absent')
+AssertionError: unexpectedly None : record integrity auditor absent
+
+======================================================================
+FAIL: test_valid_record_is_structural_only_and_nonmutating (test_proxy_record_integrity_audit.RecordIntegrityTests.test_valid_record_is_structural_only_and_nonmutating)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_record_integrity_audit.py", line 22, in setUp
+    self.assertIsNotNone(subject, 'record integrity auditor absent')
+AssertionError: unexpectedly None : record integrity auditor absent
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.113s
+
+FAILED (failures=10)

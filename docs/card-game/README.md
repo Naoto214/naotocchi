@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+- [457 保存記録の直接整合監査・算入条件の判断境界](457-record-integrity-and-admission-boundary.md)：再実行なしでevent/snapshot連鎖を検査。判断参照を1804/518/56へ分離し、未証明と算入方針の承認事項を明示。新対戦・replay・balance算入0。
+
 - [456 保存対戦の独立再生証拠](456-saved-replay-evidence.md)：初期入力から候補・選択・event/snapshotを再計算する監査adapter。既存実行契約内の証拠とbalance審査を分離。114/A/116維持、新対戦0。
 
 - [455 全判断の記録監査契約・validator](455-judgment-evidence-contract.md)：保存12run・2378判断をsource結合して投影。非算入契約、未検証層を明示、過去flag不変。専用TDD、対戦追加0。

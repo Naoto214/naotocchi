@@ -1,0 +1,14 @@
+{
+  "review_count": 1,
+  "reviewer": "independent read-only agent review457",
+  "critical": 0,
+  "important": 0,
+  "minor": 0,
+  "verdict": "ready_to_save_not_merge",
+  "scope": ["auditor", "dedicated tests", "fixed-source reproducer", "generated JSON", "plan", "report", "README"],
+  "independent_checks": {"dedicated_tests_passed": 10, "pinned_runs_audited_without_replay": 12, "output_packets_canonical_equal": 4, "source_hashes_equal": 18, "aggregate_counts_equal": true},
+  "declined_to_judge": ["global rule semantics", "missing opportunity completeness", "strategic resolution", "A/B selection or statistical adequacy", "future experimental authorization", "live remote PR state"],
+  "disposition": "All declined semantic/strategy/statistical items remain uncertified or unapproved as explicitly reported. No inference or authorization was added. Root verifies live remote PR state separately after save. This review does not authorize merge.",
+  "reviewer_mutations": 0,
+  "review_record_packaged_after_review": true
+}
