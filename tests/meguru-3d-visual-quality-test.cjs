@@ -206,3 +206,52 @@ test('VQ-10 barn entrances read as broad paired doors within the wall', () => {
   }
   assert.ok(n>0,'generated barn coverage');
 });
+
+// Exercise the production descriptor-to-instance branch without requiring WebGL.
+// Losing part.y in any of stem / petals / centre must fail independently.
+test('VQ-11 flower instances retain planter and window-box elevation', () => {
+  const src = require('node:fs').readFileSync(require('node:path').join(__dirname,'../meguru-3d.mjs'),'utf8');
+  const branch = src.match(/case 'flower':([\s\S]*?)break;/)[1];
+  const emit = new Function('pt','push','px','pz','t','TAU',branch);
+  for (const [part, want] of [
+    [{shape:'flower',y:7,h:18,r:11,color:'#ffffff'},[7,25,26.5]],
+    [{shape:'flower',y:54,h:2,r:7,color:'#f2a6c0'},[54,56,57.5]],
+    [{shape:'flower',h:24,r:14,color:'#ffffff'},[0,24,25.5]]
+  ]) {
+    const got=[], before=JSON.stringify(part);
+    emit(part,(shape,instance)=>got.push({shape,...instance}),20,-30,0.5,Math.PI*2);
+    assert.deepEqual(got.map(p=>p.y),want,'all flower components share the declared base');
+    assert.deepEqual(got.map(p=>p.shape),['blade','petal','nut8']);
+    assert.ok(got.every(p=>p.x===20 && p.z===-30));
+    assert.equal(got[0].sy,part.h);
+    assert.equal(got[1].sx,part.r);
+    const ground=[];
+    emit({...part,y:0},(shape,instance)=>ground.push({shape,...instance}),20,-30,0.5,Math.PI*2);
+    assert.deepEqual(got.map(({y,...p})=>p),ground.map(({y,...p})=>p),'elevation must not alter scale, rotation, material or count');
+    assert.equal(JSON.stringify(part),before,'descriptor remains immutable');
+  }
+});
+
+// Reduced shop/cafe props must have a readable open counter, not a solid shed.
+test('VQ-12 walkable market stalls have open counters and connected canopy supports', () => {
+  const M=require('./helpers/runtime-harness.cjs').harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const reg=M.buildRegistry(); let checked=0;
+  for (const rid of Object.keys(M.WORLDS)) for (const o of M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects) {
+    if (o.type!=='boxprop' || o.collision || !['🏪','☕'].includes(o.kind)) continue;
+    const roof=o.parts.find(p=>p.shape==='wslab');
+    assert.ok(roof,o.id+': canopy');
+    const counter=o.parts.find(p=>p.shape==='box' && p.y===0);
+    assert.ok(counter && counter.h < roof.y*0.6,o.id+': counter leaves an open serving space');
+    const posts=o.parts.filter(p=>p.shape==='wpost');
+    assert.equal(posts.length,4,o.id+': four canopy corners supported');
+    const a=roof.ang||0;
+    for(const p of posts) {
+      assert.ok(Math.abs(p.y+p.h-roof.y)<1e-8,o.id+': support reaches canopy');
+      const f=p.dx*Math.cos(a)-p.dz*Math.sin(a), s=p.dx*Math.sin(a)+p.dz*Math.cos(a);
+      assert.ok(Math.abs(f)+p.r<=counter.rz+1e-8 && Math.abs(s)+p.r<=counter.rx+1e-8,o.id+': support remains in original footprint');
+    }
+    assert.ok(o.walkable && !o.solid,o.id+': existing soft-prop role');
+    checked++;
+  }
+  assert.equal(checked,6,'all six canonical city stalls covered');
+});

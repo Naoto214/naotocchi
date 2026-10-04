@@ -1713,6 +1713,14 @@
           const bx = o ? Math.min(r, 16) : 10, bz = o ? Math.min(r, 12) : 8, bh = o ? Math.min(OBJ3D_HEAD - 10, size * (sm.h || 0.8)) : 24, out = [{ shape: 'box', rx: bx, rz: bz, h: bh, y: 0, ang, color: c }];
           // 2026-10-02 監査(props gate): 箱 1 つ では 何か わからない → 小屋 / 屋台(ひさしの 板 + 正面の 窓)。自販機は 下で 前面の パネル
           if (!sm.vend && (o || ctx.kind === '🏪' || ctx.kind === '☕')) { const fx = Math.cos(ang), fz = -Math.sin(ang); out.push({ shape: 'wslab', len: bx * 2.5, w: bz * 2.5, h: 4, y: bh, ang, color: '#8a6a4a' }, { shape: 'box', rx: bx * 0.62, rz: 1.2, h: bh * 0.3, y: bh * 0.48, ang, color: '#cfe6f2', dx: fx * (bz + 0.6), dz: fz * (bz + 0.6) }); }
+          // Soft shop/cafe props keep their canonical footprint and low height.
+          // Replace the solid kiosk with an open counter; reuse canopy and box geometry.
+          if (!o && !sm.vend && ['🏪', '☕'].includes(ctx.kind)) {
+            out[0].h = bh * 0.42;
+            const top = out[0].h, fx = Math.cos(ang), fz = -Math.sin(ang), sx = Math.sin(ang), sz = Math.cos(ang), pr = 1;
+            out[2] = { shape: 'box', rx: bx, rz: bz, h: 2, y: top, ang, color: '#8a6a4a', solidBox: true };
+            for (const f of [-1, 1]) for (const side of [-1, 1]) out.push({ shape: 'wpost', r: pr, h: bh, y: 0, color: '#8a6a4a', dx: fx * f * (bz-pr) + sx * side * (bx-pr), dz: fz * f * (bz-pr) + sz * side * (bx-pr) });
+          }
           if (sm.vend) {   // Art Direction v1(city): 自販機らしさ = 明るい 前面の パネル + 取り出し口 + 足もとの ふち。正面 = (cos ang, −sin ang)
             const fx = Math.cos(ang), fz = -Math.sin(ang), v = (ctx && ctx.v) || 0;
             out.push({ shape: 'box', rx: bx * 0.8, rz: 1.2, h: bh * 0.45, y: bh * 0.45, ang, color: '#f8f4ec', dx: fx * (bz + 0.6), dz: fz * (bz + 0.6) }, { shape: 'box', rx: bx * 0.6, rz: 1.2, h: bh * 0.12, y: bh * 0.14, ang, color: '#2a2a2e', dx: fx * (bz + 0.6), dz: fz * (bz + 0.6) }, { shape: 'box', rx: bx * 1.04, rz: bz * 1.04, h: 3, y: 0, ang, color: '#5a5a5e' });
