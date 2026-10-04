@@ -244,15 +244,25 @@ export function humanoid(sp, key) {
       parts.push(solid(xform(ellipsoid(.015,.015,.01,6,4),{pos:[side*B.r*.48,B.h*.68,B.r*.84]}),'#ddb45e'));
     }
   } else if (dressed && sp.clothing !== 'shirt') {
-    const jacket = sp.clothing === 'jacket';
+    const hoodie=sp.clothing==='layeredHoodie';
+    const jacket = sp.clothing === 'jacket' || hoodie;
     parts.push(panel([[-B.r*.24,B.h*.06],[B.r*.24,B.h*.06],[B.r*.31,B.h*.84],[0,B.h*.97],[-B.r*.31,B.h*.84]],c.accent));
     for(const side of [-1,1]) {
-      parts.push(panel([[side*B.r*.05,B.h*.92],[side*B.r*.28,B.h*1.02],[side*B.r*.38,B.h*.82],[side*B.r*.14,B.h*.73]],c.accent));
+      if(!hoodie)parts.push(panel([[side*B.r*.05,B.h*.92],[side*B.r*.28,B.h*1.02],[side*B.r*.38,B.h*.82],[side*B.r*.14,B.h*.73]],c.accent));
       parts.push(panel([[side*B.r*.35,B.h*.91],[side*B.r*.64,B.h*.73],[side*B.r*.31,B.h*(jacket?.42:.61)],[side*B.r*.20,B.h*.77]],shade(c.top,1.13)));
       parts.push(solid(sweep([[side*B.r*.28,B.h*.07,B.r*.8],[side*B.r*.30,B.h*.5,B.r*.8],[side*B.r*.33,B.h*.8,B.r*.72]],()=>.009,4,{steps:5}),shade(c.top,.7)));
     }
-    for(let i=0;i<3;i++)parts.push(solid(xform(ellipsoid(.012,.012,.009,6,4),{pos:[jacket?0:B.r*.24,B.h*(.22+i*.2),B.r*.83]}),jacket?'#b0a8a0':'#805c36'));
+    if(!hoodie)for(let i=0;i<3;i++)parts.push(solid(xform(ellipsoid(.012,.012,.009,6,4),{pos:[jacket?0:B.r*.24,B.h*(.22+i*.2),B.r*.83]}),jacket?'#b0a8a0':'#805c36'));
     parts.push(solid(xform(lathe([[B.r*.90,0],[B.r*.93,.025]],16),{scale:[1,1,.79]}),shade(c.top,.83)));
+  }
+  if(sp.wardrobe?.number){
+    // Tiny shared digit grid, merged into clothing: no canvas/texture per outfit.
+    const digits=['111101101101111','010110010010111','111001111100111','111001111001111','101101111001001','111100111001111','111100111101111','111001010010010','111101111101111','111101111001111'];
+    const value=String(sp.wardrobe.number),cell=.022,width=(value.length*4-1)*cell;
+    for(let n=0;n<value.length;n++){const glyph=digits[Number(value[n])];if(!glyph)continue;for(let i=0;i<15;i++)if(glyph[i]==='1'){
+      const x=-width/2+(n*4+i%3)*cell,y=B.h*.65-Math.floor(i/3)*cell;
+      const g=panel([[x,y],[x+cell*.87,y],[x+cell*.87,y-cell*.87],[x,y-cell*.87]],c.accent);g.translate(0,0,.008);parts.push(g);
+    }}
   }
   if((sp.attachments||[]).includes('tie')){const tie=panel([[-.025,B.h*.85],[0,B.h*.90],[.025,B.h*.85],[.016,B.h*.72],[.042,B.h*.40],[0,B.h*.33],[-.042,B.h*.40],[-.016,B.h*.72]],c.tie);tie.translate(0,0,.004);parts.push(tie);}
   if((sp.attachments||[]).includes('chestBadge')){
@@ -293,7 +303,8 @@ export function humanoid(sp, key) {
   const locks = style === 'soft' ? 5 : 6;
   const surface=(x,y)=>Math.sqrt(Math.max(.09,1-Math.pow(x/(hr*1.14),2)-Math.pow(y/(hr*1.14),2)))*hr*1.09+.018;
   for (let i=0;i<locks;i++) {
-    const u=i/(locks-1),x=(u-.5)*hr*1.85,y=hr*(.68-.12*Math.abs(u-.5));
+    const shaped=style==='swept'||!!sp.hair.length;
+    const u=i/(locks-1),x=(u-.5)*hr*(shaped?1.62:1.85),y=hr*(.68-.12*Math.abs(u-.5));
     const endY=hr*(style==='swept' ? .02+.58*u : style==='soft' ? .08+.48*Math.exp(-Math.pow((u-.63)/.22,2)) : .04+.26*u+.12*Math.sin(u*9)),ex=x-hr*.10;
     extra.push(solid(sweep([[x+hr*.10,y,surface(x+hr*.10,y)],[x,y-hr*.16,surface(x,y-hr*.16)],[ex,endY,surface(ex,endY)]],t=>hr*(style==='soft'?.23:.24)*(1-t*.94),6,{steps:5,flat:.30}),c.hair));
   }
@@ -304,20 +315,21 @@ export function humanoid(sp, key) {
   }
   if(sp.hair.length){
     const length=hr*sp.hair.length;
-    extra.push(solid(blob((x,y,z)=>[x*hr*.96,y*(length+hr*.40)/2+(hr*.40-length)/2,z*hr*.32-hr*.67],18,12),c.hair));
-    for(const side of [-1,1])extra.push(solid(sweep([[side*hr*.87,hr*.27,0],[side*hr*1.03,-hr*.42,.03],[side*hr*1.05,-length*.76,.08],[side*hr*.92,-length,.13]],t=>hr*.23*(1-t*.35),8,{steps:9,flat:.70}),c.hair));
+    extra.push(solid(blob((x,y,z)=>[x*hr*.96,y*(length+hr*.40)/2+(hr*.40-length)/2,z*hr*.53-hr*.45],18,12),c.hair));
+    for(const side of [-1,1])extra.push(solid(sweep([[side*hr*.87,hr*.27,0],[side*hr*1.03,-hr*.42,.03],[side*hr*1.05,-length*.76,.08],[side*hr*.92,-length,.13]],t=>hr*.36*(1-t*.40),8,{steps:9,flat:.80}),c.hair));
   }
+  if(sp.hair.bun)extra.push(solid(xform(ellipsoid(hr*.39,hr*.38,hr*.38,12,8),{pos:[-hr*.18,hr*.96,-hr*.42]}),c.hair));
   const headGeo = merge([skull, ...ears]);
   rig.add('head', 'body', [0, B.h * 0.98, 0.01], null);
   const headCenter = [0, hr * 0.92, 0.02];
   rig.mesh('head', [xform(headGeo.clone(), { pos: headCenter }), xform(merge([hair, ...extra]), { pos: headCenter })]);
   // Bent arms end at the actual strap / handle. The prop shares the arm bone,
   // so locomotion and emotion posture cannot pull it away from the grip.
-  const hold=(sp.attachments||[]).includes('backpack')?'backpack':(sp.attachments||[]).includes('cane')?'cane':(sp.attachments||[]).includes('briefcase')?'briefcase':(sp.attachments||[]).includes('shoulderBag')?'shoulderBag':null;
+  const hold=(sp.attachments||[]).includes('backpack')?'backpack':(sp.attachments||[]).includes('cane')?'cane':(sp.attachments||[]).includes('briefcase')?'briefcase':(sp.attachments||[]).includes('shoulderBag')?'shoulderBag':(sp.attachments||[]).includes('heldPet')?'heldPet':null;
   let caneGrip;const handEnds={};
   for (const s of [-1,1]) {
-    const holding=((hold==='backpack'||hold==='shoulderBag')&&s<0)||(hold==='cane'&&s>0);
-    const end=holding?((hold==='backpack'||hold==='shoulderBag')?[s*-B.r*.43,-B.h*.32,B.r*.87]:[s*.035,-Ar.len*.52,B.r*.70]):[s*.045,-Ar.len-Ar.r*.7,.02];
+    const holding=hold==='heldPet'||((hold==='backpack'||hold==='shoulderBag')&&s<0)||(hold==='cane'&&s>0);
+    const end=hold==='heldPet'?[-s*B.r*.25,-B.h*.50,B.r*1.05]:holding?((hold==='backpack'||hold==='shoulderBag')?[s*-B.r*.43,-B.h*.32,B.r*.87]:[s*.035,-Ar.len*.52,B.r*.70]):[s*.045,-Ar.len-Ar.r*.7,.02];
     const elbow=holding?[s*.075,-Ar.len*.72,.055]:[s*.03,-Ar.len*.5,.01];
     const arm=paint(sweep([[0,0,0],elbow,end],t=>Ar.r*lerp(1.15,.85,t),8,{steps:8}),(x,y)=>sp.wardrobe?.sleeve && y < -Ar.len*sp.wardrobe.sleeve?c.skin:c.sleeve||c.top);
     const hand=solid(xform(ellipsoid(Ar.r*1.10,Ar.r*.95,Ar.r,8,6),{pos:end}),c.skin);
@@ -341,6 +353,13 @@ export function humanoid(sp, key) {
   }
   // 足
   for (const s of [-1, 1]) {
+    if(Lg.articulated){
+      const half=Lg.len*.5,upper=solid(sweep([[0,0,0],[0,-half,0]],t=>Lg.r*(1.15-.1*t),8,{steps:4}),c.bottom);
+      rig.add(s<0?'legL':'legR','body',[s*B.r*(Lg.spread??.42),.02,0],[upper]);
+      const lower=solid(sweep([[0,0,0],[0,-half,0]],t=>Lg.r*(1.05-.15*t),8,{steps:4}),c.bottom);
+      const shoe=solid(xform(ellipsoid(Lg.r*1.15,.05,Lg.r*1.7,10,6),{pos:[0,-half-.015,Lg.r*.45]}),c.shoe);
+      rig.add(s<0?'kneeL':'kneeR',s<0?'legL':'legR',[0,-half,0],[lower,shoe]);continue;
+    }
     const L = hipY - 0.06;
     const leg = paint(sweep([[0, 0, 0], [0, -L * 0.5, 0], [0, -L + 0.02, 0]], (t) => Lg.r * lerp(1.15, 0.9, t), 8, { steps: 6 }), (x,y) => sp.wardrobe?.shorts && y < -L*sp.wardrobe.shorts ? (y < -L*(1-(sp.wardrobe.socks||0)) ? c.socks||c.skin : c.skin) : c.bottom);
     const shoe = solid(xform(blob((x, y, z) => [x * Lg.r * 1.15, (y * 0.5 + 0.5) * 0.09, z * Lg.r * 1.7 + Lg.r * 0.45], 10, 6), { pos: [0, -hipY, 0] }), c.shoe);
@@ -348,10 +367,24 @@ export function humanoid(sp, key) {
   }
   if(caneGrip){const h=hipY+B.h*.82+caneGrip[1]-.04; const cg=caneGeo(h);cg.translate(0,-h-.04,-.06);rig.add('cane','armR',caneGrip,[cg]);}
 
-  rig.meta = { idlePose: sp.idlePose, hover: 0, hipY, hold, stoop: sp.stoop || 0,handEnds,poseProfile:sp.poseProfile||null };
+  const sittingHip=Lg.len*.5+.06+Lg.len*.5*Math.cos(1.4)-.02;
+  if((sp.attachments||[]).includes('chair')){
+    const seatY=sittingHip-.025,chair=[solid(xform(ellipsoid(B.r*1.17,.045,B.r,14,6),{pos:[0,seatY,-.015]}),c.chair),solid(xform(ellipsoid(B.r*1.12,B.h*.62,.04,14,8),{pos:[0,seatY+B.h*.6,-B.r*.86]}),c.chair)];
+    for(const x of [-1,1])for(const z of [-1,1])chair.push(solid(sweep([[x*B.r*.86,.025,z*B.r*.72],[x*B.r*.86,seatY,z*B.r*.72]],()=>.027,6,{steps:3}),c.chair));
+    rig.add('chair','root',[0,0,0],chair);
+  }
+  rig.meta = { idlePose: sp.idlePose, hover: 0, hipY, hold, stoop: sp.stoop || 0,handEnds,sittingHip,poseProfile:sp.poseProfile||null };
   const hc = headCenter;
   rig.faceSpec = { bone: 'head', target: xform(headGeo.clone(), { pos: hc }), center: [0, hc[1] - hr * 0.12, hr * 0.9], fwd: [0, 0, 1], half: hr * 0.80, eyeSize: 0.30,
     layout: { eyeX: 24, eyeY: 54, mouthY: 90, browY: 32, cheekX: 38, cheekY: 76, mouthW: 8 }, style: { blush: '#f6a0a0' }, normalEye: sp.normalEye || (sp.hair.style === 'soft' ? 'content' : null) };
+  if(sp.heldPet){
+    const child=quadruped(sp.heldPet,key+':heldPet'),prefix='heldPet:';
+    const group=rig.add(prefix+'root','body',[0,B.h*.08,B.r*.98],null);group.scale.setScalar(sp.heldPet.scale||.6);group.userData.rest.s.copy(group.scale);
+    for(const [name,bone]of Object.entries(child.bones))if(name!=='root'){
+      const b=rig.add(prefix+name,prefix+(bone.parent===child.root?'root':bone.parent.name),bone.position.toArray(),child.parts.filter(p=>p.bone===name).map(p=>p.mesh.geometry),'opaque',bone.rotation.toArray());b.scale.copy(bone.scale);b.userData.rest.s.copy(b.scale);
+    }
+    rig.faceSpec=[rig.faceSpec,{...child.faceSpec,bone:prefix+child.faceSpec.bone}];
+  }
   return rig;
 }
 

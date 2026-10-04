@@ -114,8 +114,15 @@ const LOCO = {
   humanWalk(B, s, m, k, meta) {
     const ph = s.phase * TAU, sw = 0.55 * m * k.amp;
     if(meta.poseProfile?.armSpread){const a=meta.poseProfile.armSpread*(1-m);B.armL.rotation.z-=a;B.armR.rotation.z+=a;}
+    if(meta.poseProfile?.seated){
+      const rest=1-m;B.body.position.y=lerp(B.body.position.y,meta.sittingHip,rest);
+      B.legL.rotation.x-=1.4*rest;B.legR.rotation.x-=1.4*rest;B.kneeL.rotation.x+=1.4*rest;B.kneeR.rotation.x+=1.4*rest;
+      if(B.skirt){B.skirt.rotation.x-=.65*rest;B.skirt.scale.y*=1-.30*rest;}
+      if(B.chair)B.chair.scale.multiplyScalar(Math.max(.001,rest));
+    }
+    if(meta.poseProfile?.stride){B.legL.rotation.x+=meta.poseProfile.stride[0]*(1-m);B.legR.rotation.x+=meta.poseProfile.stride[1]*(1-m);}
     B.legL.rotation.x += Math.sin(ph) * sw; B.legR.rotation.x -= Math.sin(ph) * sw;
-    if(meta.hold !== 'backpack' && meta.hold !== 'shoulderBag')B.armL.rotation.x -= Math.sin(ph)*sw*.8; if(meta.hold !== 'cane')B.armR.rotation.x += Math.sin(ph)*sw*.8;
+    if(meta.hold !== 'backpack' && meta.hold !== 'shoulderBag' && meta.hold !== 'heldPet')B.armL.rotation.x -= Math.sin(ph)*sw*.8; if(meta.hold !== 'cane' && meta.hold !== 'heldPet')B.armR.rotation.x += Math.sin(ph)*sw*.8;
     B.body.position.y += Math.abs(Math.sin(ph)) * 0.025 * m * k.amp;
     B.body.scale.y *= 1 + Math.sin(s.t * 2.2) * 0.008 * k.idle;
     if (meta.stoop) { B.body.rotation.x += meta.stoop; B.head.rotation.x -= meta.stoop * 0.7; }

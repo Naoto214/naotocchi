@@ -154,7 +154,7 @@ function drawFace(g, ox, emotion, style, withEyes) {
   if (withEyes) {
     g.fillStyle = style.ink; g.strokeStyle = style.ink; g.lineWidth = 4.6;
     for (const s of [-1, 1]) {
-      const cx = 64 + s * L.eyeX, cy = L.eyeY, sh = e.eye.shape === 'round' && style.normalEye && emotion === 'normal' ? style.normalEye : e.eye.shape;
+      const cx = 64 + s * L.eyeX, cy = L.eyeY, sh = e.eye.shape === 'round' && style.normalEye && emotion === 'normal' ? (typeof style.normalEye==='object'?style.normalEye[s<0?'left':'right']:style.normalEye) : e.eye.shape;
       g.save();
       if(style.eyeProfile){g.translate(cx,cy);g.transform(style.eyeScale*(style.eyeProfile.width||1),-s*(style.eyeProfile.tilt||0)*style.eyeScale,0,style.eyeScale,0,0);g.translate(-cx,-cy);}
       g.beginPath();
@@ -287,8 +287,8 @@ export function applyFaceExpression(face, emotion) {
   if (face.multi) { for (const f of face.multi) applyFaceExpression(f, emotion); face.emotion = emotion; return; }
   const e = SPEC.expressionParams(emotion);
   if (face.decal) face.decal.material = face.decal.userData.atlas.mats[SPEC.CANONICAL_EMOTIONS.includes(emotion) ? emotion : 'normal'];
-  const shape = emotion === 'normal' && face.normalEye ? face.normalEye : e.eye.shape;
   for (const m of face.eyes) {
+    const shape = emotion === 'normal' && face.normalEye ? (typeof face.normalEye==='object'?face.normalEye[m.userData.side<0?'left':'right']:face.normalEye) : e.eye.shape;
     if (m.userData.shape !== shape) { m.geometry = eyeGeometry(shape, m.userData.side, m.userData.eyeProfile); m.userData.shape = shape; }
     const k = shape === 'round' ? Math.max(0.6, e.eye.open) : 1;
     m.userData.open = k;

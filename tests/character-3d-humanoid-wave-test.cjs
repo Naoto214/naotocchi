@@ -34,3 +34,23 @@ test('spread-arm identity releases into existing locomotion without changing can
   for(const emotion of ['normal','positive','dislike','tired','sleeping','strained','wantsPlay','sick']){setEmotion(moving,emotion);animate(moving,{dt:.1,moving:true,animLv});assert.equal(moving.faces[0].emotion,emotion);}
  }
 });
+test('sports signature stride releases into locomotion and jersey number stays a shared marking',async()=>{
+ const rows=require('../character-3d/humanoid-spec.js')(SPEC.PILOT),sp=rows.ren.stages[3],{humanoid}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate}=await import('../character-3d/animate.mjs');
+ assert.equal(sp.wardrobe.number,'26');
+ function make(){const rig=humanoid(sp,'ren:3');rig.faces=[attachFace(rig,rig.faceSpec,'C')];return instantiate({rig,key:'ren:3'});}
+ for(const animLv of [0,2]){const idle=make(),walk=make();for(let i=0;i<40;i++){animate(idle,{dt:1/30,moving:false,animLv});animate(walk,{dt:1/30,moving:true,animLv});}assert.ok(idle.bones.legR.rotation.x-idle.bones.legL.rotation.x>.7,'sports original has an asymmetric play stride');assert.ok(Math.abs(walk.bones.legR.rotation.x+walk.bones.legL.rotation.x)<.05,'signature offset releases into shared gait');}
+ const withNumber=humanoid(sp,'ren:3'),without=humanoid({...sp,wardrobe:{...sp.wardrobe,number:null}},'ren:3');
+ const tris=rig=>rig.parts.reduce((n,p)=>n+p.mesh.geometry.index.count/3,0);assert.ok(tris(withNumber)>tris(without));assert.ok(tris(withNumber)-tris(without)<100,'number is a bounded shared vertex-colour marking');assert.equal(withNumber.parts.length,without.parts.length,'no extra draw per numeral');
+});
+test('original neutral wink is per-eye and releases for every canonical emotion',async()=>{
+ const sp=require('../character-3d/humanoid-spec.js')(SPEC.PILOT).woman.stages[4],{humanoid}=await import('../character-3d/archetypes.mjs'),{attachFace,applyFaceExpression}=await import('../character-3d/rig.mjs');
+ const rig=humanoid(sp,'woman:4'),face=attachFace(rig,rig.faceSpec,'C');applyFaceExpression(face,'normal');assert.deepEqual(face.eyes.map(e=>e.userData.shape),['happy','round']);
+ for(const em of SPEC.CANONICAL_EMOTIONS.filter(e=>e!=='normal')){applyFaceExpression(face,em);assert.ok(face.eyes.every(e=>e.userData.shape===SPEC.expressionParams(em).eye.shape));}
+ assert.ok(sp.legs.len-sp.wardrobe.skirt.length>.17,'school skirt leaves calves visible');
+});
+test('seated held-pet profile preserves two faces and releases chair and bent knees into walking',async()=>{
+ const sp=require('../character-3d/humanoid-spec.js')(SPEC.PILOT).woman.stages[8];assert.ok(sp,'seated original has an explicit candidate');
+ const {humanoid}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
+ function make(){const rig=humanoid(sp,'woman:8');assert.equal(rig.faceSpec.length,2,'held pet has its own face, same actor');rig.faces=rig.faceSpec.map(f=>attachFace(rig,f,'C'));return instantiate({rig,key:'woman:8'});}
+ for(const animLv of [0,2]){const rest=make(),walk=make();for(let i=0;i<40;i++){animate(rest,{dt:1/30,moving:false,animLv});animate(walk,{dt:1/30,moving:true,animLv});}assert.ok(rest.bones.kneeL.rotation.x>1,'sitting bends at the knee');assert.ok(Math.abs(walk.bones.kneeL.rotation.x)<.01,'walk releases knee');assert.ok(rest.bones.chair.scale.x>.9);assert.ok(walk.bones.chair.scale.x<.01,'support prop is not dragged as a chair-walk');assert.ok(rest.bones.body.position.y<walk.bones.body.position.y-.1);assert.ok(walk.bones['heldPet:root'].parent===walk.bones.body);for(const emotion of SPEC.CANONICAL_EMOTIONS){setEmotion(walk,emotion);animate(walk,{dt:.1,moving:true,animLv});assert.ok(walk.faces.every(f=>f.emotion===emotion));}}
+});

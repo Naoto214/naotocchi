@@ -8,7 +8,10 @@ const pw = require('playwright');
 const { serve } = require('./shot.cjs');
 const ROOT = path.join(__dirname, '..', '..');
 const args = process.argv.slice(2);
-const {stageTargets,validateStages}=require('./stage-evidence.cjs'),EXPECTED_STAGES=stageTargets(require('../../character-3d/spec.js'),args);
+const CANDIDATE_HUMAN=args.includes('--candidate-human');
+if(CANDIDATE_HUMAN&&(!args.includes('--rollout')||!args.includes('--species-only')||!['man','woman','ren'].includes(args[args.indexOf('--line')+1])))throw Error('Human candidate QA requires --rollout --species-only --line man|woman|ren');
+const QA_SPEC=CANDIDATE_HUMAN?require('./candidate-spec.cjs').loadHumanCandidates():require('../../character-3d/spec.js');
+const {stageTargets,validateStages}=require('./stage-evidence.cjs'),EXPECTED_STAGES=stageTargets(QA_SPEC,args);
 const {performanceMix,expectedTemplates,matchesComposition}=require('./performance-mix.cjs'),MIX=performanceMix(args);
 const opt = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : d; };
 const OUT = opt('--out', path.join(require('os').tmpdir(), 'c3d-meguru'));
@@ -100,9 +103,9 @@ async function walk(page, seconds) {
 }
 
 (async () => {
-  const srv = await serve({second:args.includes('--second'),claude:args.includes('--claude'),previous:args.includes('--previous')}); const base = 'http://127.0.0.1:' + srv.address().port;
+  const srv = await serve({candidateHuman:CANDIDATE_HUMAN,second:args.includes('--second'),claude:args.includes('--claude'),previous:args.includes('--previous')}); const base = 'http://127.0.0.1:' + srv.address().port;
   const browser = await pw.chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
-  const R = { when: new Date().toISOString(), revision: args.includes('--second') ? 'quality2-31fe18f' : args.includes('--claude') ? 'claude-e12f720' : args.includes('--previous') ? 'quality1-8b19ecc' : 'quality3', sourceCommit: process.env.GITHUB_SHA || null, rolloutWave: args.includes('--rollout'), performanceMix:MIX.name, headless: 'chromium + SwiftShader(ソフトウェア GPU)', throttle: THROTTLE, shots: {}, checks: {}, perf: {} };
+  const R = { when: new Date().toISOString(), revision: args.includes('--second') ? 'quality2-31fe18f' : args.includes('--claude') ? 'claude-e12f720' : args.includes('--previous') ? 'quality1-8b19ecc' : 'quality3', sourceCommit: process.env.GITHUB_SHA || null, rolloutWave: args.includes('--rollout'), candidateOnly:CANDIDATE_HUMAN, performanceMix:MIX.name, headless: 'chromium + SwiftShader(ソフトウェア GPU)', throttle: THROTTLE, shots: {}, checks: {}, perf: {} };
   const env = { time: 'day', weather: 'sunny', season: 'summer' };
   let prev = null;
   if (PERF_ONLY || SPECIES_ONLY) { try { prev = JSON.parse(fs.readFileSync(path.join(OUT, 'meguru-qa.json'), 'utf8')); Object.assign(R, { shots: prev.shots, checks: prev.checks, perSpecies: prev.perSpecies, errors: prev.errors }); } catch (_) { /* ない */ } }
@@ -179,7 +182,7 @@ async function walk(page, seconds) {
     }
     if (!PERF_ONLY && !args.includes('--no-species')) {
     // ---------- pilot ごと: その species を player に して forest で(こちらを むく / うしろ)
-    const SPEC = require(path.join(ROOT, 'character-3d/spec.js'));
+    const SPEC = QA_SPEC;
     R.perSpecies = {};
     for (const id of Object.keys(args.includes('--rollout') ? SPEC.ROLLOUT : SPEC.PILOT)) {
       for (const st of (args.includes('--rollout') ? SPEC.ROLLOUT_STAGE_KEYS[id] : SPEC.STAGE_KEYS[id])) {

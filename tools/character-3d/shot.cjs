@@ -9,6 +9,10 @@ function serve(opts = {}) {
   return new Promise((resolve) => {
     const srv = http.createServer((req, res) => {
       let file = path.join(ROOT, decodeURIComponent(req.url.split('?')[0]).replace(/^\/+/, '') || 'index.html');
+      if(opts.candidateHuman && req.url.split('?')[0] === '/character-3d/spec.js'){
+        const body=require('./candidate-spec.cjs').humanCandidateSource(fs.readFileSync(file,'utf8'));
+        res.writeHead(200,{'content-type':'text/javascript'});res.end(body);return;
+      }
       // The current World delegates its input boundary to actorInfo. Reuse that
       // exact adapter for both measurements; keep old geometry/presenter immutable.
       if(opts.claude && req.url.split('?')[0] === '/character-3d/qa-actor-info.mjs') {
