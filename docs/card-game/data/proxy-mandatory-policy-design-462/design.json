@@ -1,0 +1,160 @@
+{
+  "admission": {
+    "all_400_eligibility_guaranteed": false,
+    "balance_admitted": null,
+    "current_116_454_458_459_unchanged": true,
+    "independent_balance_samples": 0,
+    "new_contract_adopted": false,
+    "old_runs_reclassified": false,
+    "omission_replacement_addition_after_outcomes_allowed": false,
+    "whole_planned_set_required": true
+  },
+  "authorization": {
+    "adoption": false,
+    "design_comparison": true,
+    "execution": false,
+    "implementation": false,
+    "input_lock": false,
+    "seed_generation": false
+  },
+  "base_head": "9bf4d533ce4cb874581c8553b411a2c524846f8b",
+  "execution": {
+    "new_initial_orders": 0,
+    "new_matches": 0,
+    "new_policy_implementations": 0,
+    "new_replays": 0,
+    "new_seed_values": 0,
+    "new_validators": 0
+  },
+  "external_references": [
+    {
+      "url": "https://arxiv.org/abs/1809.09561v3",
+      "use": "example_of_stochastic_strategy_evaluation_not_game_specific_validation"
+    },
+    {
+      "url": "https://www.itl.nist.gov/div898/handbook/prc/section3/prc311.htm",
+      "use": "paired_observation_concept_no_test_or_interval_adopted"
+    }
+  ],
+  "mirror_randomness": {
+    "alternative": "shared_owner_corresponding_opportunity_randomness",
+    "first_design_candidate": "separate_group_owner_mirror_streams",
+    "selected": null,
+    "variance_reduction_guaranteed": false
+  },
+  "options": [
+    {
+      "bias": "complete_case_selection_if_unproved_runs_dropped",
+      "existing_basis": "legal_set_information_transition_and_scoped_existing_comparison",
+      "fallback_boundary": "116_unchanged_exclusion",
+      "id": "proof_only",
+      "information": "public_and_owner_known_only",
+      "new_assumptions": "future_evidence_record_connection_only",
+      "opening_resolution": "unproved",
+      "reproducibility": "pinned_proof_and_sources",
+      "reuse": "common_evidence_without_automatic_equivalence",
+      "selected": false
+    },
+    {
+      "bias": "objective_and_opponent_model_dependence",
+      "existing_basis": "rules_transitions_terminal_result_definition",
+      "fallback_boundary": "no_proof_retains_116_exclusion",
+      "id": "robust_continuation_dominance",
+      "information": "all_allowed_information_consistent_hidden_states_not_actual_hidden_state",
+      "new_assumptions": "objective_order_continuation_quantification_correspondence",
+      "opening_resolution": "not_demonstrated",
+      "reproducibility": "pinned_proof_model_and_quantifier_scope",
+      "reuse": "new_card_transition_models_require_revalidation",
+      "selected": false
+    },
+    {
+      "bias": "policy_deck_interaction_candidate_representation",
+      "existing_basis": "legal_set_information_transition_116_reproduction_structure",
+      "fallback_boundary": "old_116_excluded_new_contract_required_uncertainty_retained",
+      "id": "precommitted_random_policy",
+      "information": "allowed_view_and_separate_policy_randomness_only",
+      "new_assumptions": "distribution_randomness_coupling_policy_separate_admission_contract",
+      "opening_resolution": "procedural_policy_possible_not_strategic_proof",
+      "reproducibility": "pinned_randomness_context_candidates_transition",
+      "reuse": "physical_legal_choice_distribution_no_card_rank_table",
+      "selected": false
+    }
+  ],
+  "plan": {
+    "actual_manifest": null,
+    "existing_459_plan_changed": false,
+    "independent_units_not_400": true,
+    "planned_groups": 200,
+    "planned_matches": 400,
+    "precision_guaranteed": false
+  },
+  "policy_promoted": false,
+  "proposed_separate_axes": [
+    "strategic_comparison",
+    "policy_conformance"
+  ],
+  "randomness_variants": [
+    {
+      "algorithm": "unchanged_116_hash_modulo",
+      "id": "R0",
+      "independent_uniform_claim": false,
+      "selected": false
+    },
+    {
+      "actual_seeds": null,
+      "algorithm": null,
+      "id": "R1",
+      "ideal_uniformity_requires_unbiased_mapping": true,
+      "prng_independence_proved": false,
+      "proposed_distribution": "uniform_over_complete_physical_legal_alternatives",
+      "selected": false
+    }
+  ],
+  "recommendation": {
+    "adopted": false,
+    "condition": "user_accepts_policy_conditional_evaluation_and_new_contract_design",
+    "conditional_option": "precommitted_random_policy",
+    "randomness_variant": "R1_separate_policy_randomness"
+  },
+  "runtime_tests_run": false,
+  "schema": "mandatory_policy_options_design_462.v1",
+  "scope": {
+    "mandatory_kinds": [
+      "egg_hand_bottom",
+      "reached_ability_hand_bottom",
+      "reached_draw_then_hand_bottom",
+      "reached_final_time_hand_bottom",
+      "reached_top_or_bottom_position_choice"
+    ],
+    "normal_and_response_changed": false,
+    "unreached_k_selection_auto_authorized": false
+  },
+  "sources_sha256": {
+    "01-core-rules.md": "d95ee407ec1fb853a8da1102bf933a5e972e3bc6ecc0b78cfb20831e8c45ec71",
+    "02-main-system.md": "6a0d04606f066f9078e88422394d3d0c5f5c6d927806bb0be99366f503af5127",
+    "07-advanced-rules-checkpoint.md": "f346005f5f803f725d294e2fdc9f7fe98fac8a016609612c3d4fe9ab76b6874a",
+    "107-normal-decision-match-protocol.md": "32f40f9edaadd5aead8d424eac3c33618ccc1ec212837a9672a30ff22e62f2e9",
+    "114-normal-decision-protocol-hardening.md": "aa161063e4fa9e056818d00e3fe799448107b3b51f00c05e67c2c89c3a50e59a",
+    "116-normal-decision-fallback-contract.md": "577dccec67343ead75aa813b464b432679927c2f4b71ed960be5058aaa3ef393",
+    "119-response-window-contract.md": "c79e89709c687211ae5ca4a2ba3328e285ffafcf9b7790f913ae5ceb953cba45",
+    "445-public-result-equivalence-design.md": "a7a2e3199c8e0ee536d2bb2345dcfcf19a21b5137efa220acddb3d40f490d667",
+    "454-all-judgment-evaluation-design.md": "37b2441ca93a55a12773b975a6388b8151f08b0ba9bf23022b71e5c57e425220",
+    "455-judgment-evidence-contract.md": "b26a7c117b805d58f3df5a337ea58afdabcf5f78a30af0ec1a23471124254822",
+    "456-saved-replay-evidence.md": "0521ae57c528976f87ac45bd8ce8bdce99b4ddb063e788f0a288393577158e34",
+    "457-record-integrity-and-admission-boundary.md": "a724a5b9a54b69350aa53ae75ec952e516517baf6bbca3664007598973be2932",
+    "458-planned-population-admission-design.md": "604d8a79c613aa5e35045efb3dc5bf876a9cdb4b2865c33c582266cbded3cc30",
+    "459-approved-population-contract-and-validator-plan.md": "81331a62a2efd4d8ce3c3afcfdc69047c0a6644ab6ac14ec152d88e684ce9234",
+    "460-population-preflight-and-opening-boundary.md": "63494fe7660ef45bdde62bd97e399e18517523bf78485265556e2a0171f1c883",
+    "461-mandatory-choice-proof-design.md": "041e18a91b0125c6a205e0a1b38712af7833529ab6fe238773ff33362b4d1d44",
+    "98-proxy-pool-layers-and-replay-schema.md": "90036bf6e3caef2e45413ed2d6f84ca56ad9821b37a6fc36e0bc1e5eb0f0480d",
+    "data/proxy-admission-contract-459/contract.json": "165af27159ccdf4d8fc3ec5ede988075edbc3d8fd331daa994d872fb162a679a",
+    "data/proxy-mandatory-choice-design-461/design.json": "723acac0d5536c57cb1d80e2260086ca0e221b9249d0d4e7d8a36d5442bde1d0",
+    "data/proxy-normal-decision-fallback-contract-116-20260918.json": "8a7f41847339816d786d6c6055e290454cf8d5d84d6ccc22d6a32eb287cbfb6f"
+  },
+  "status": "design_comparison_only_awaiting_policy_direction",
+  "strategy": {
+    "opening_comparison": "unproved",
+    "random_selection_proves_equivalence": false,
+    "unique_optimum_absence_proved": false
+  }
+}

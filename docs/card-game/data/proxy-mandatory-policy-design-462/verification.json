@@ -1,0 +1,17 @@
+{
+  "all_options_unadopted": true,
+  "base_head": "9bf4d533ce4cb874581c8553b411a2c524846f8b",
+  "design_data_errors": [],
+  "draft_check_initial_failure": "Referenced draft JSON not yet created after source-path formatting error; completed packaging and reran check successfully. No runtime code changed.",
+  "existing_blobs_unchanged_except_readme": 3619,
+  "new_initial_orders": 0,
+  "new_matches": 0,
+  "new_replays": 0,
+  "new_seed_values": 0,
+  "npm_tests_run": false,
+  "options_checked": 3,
+  "runtime_tests_run": false,
+  "scope": "Document/data consistency, source hashes, authorization/null invariants and protected blobs; not gameplay, policy independence, optimality or admission proof.",
+  "source_hashes_verified": 20,
+  "status": "passed"
+}
