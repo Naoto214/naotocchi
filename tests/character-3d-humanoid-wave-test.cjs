@@ -10,6 +10,7 @@ test('human candidates have short clothing volume and a case joined to the movin
  assert.ok(adult.bones.heldCase.parent===adult.bones.armL,'prop shares the hand motion');
  assert.deepEqual(adult.bones.heldCase.position.toArray(),adult.meta.handEnds.left);
  assert.ok(adult.parts.find(p=>p.bone==='heldCase'),'visible bag and handle volume');
+ for(const rig of [toddler,adult]){rig.root.updateMatrixWorld(true);const l=new THREE.Box3().setFromObject(rig.bones.legL),r=new THREE.Box3().setFromObject(rig.bones.legR);assert.ok(r.min.x-l.max.x>.01,'original standing feet have a readable gap');}
  for(const rig of [toddler,adult])for(const part of rig.parts)assert.ok([...part.mesh.geometry.attributes.position.array].every(Number.isFinite));
  assert.equal(SPEC.ROLLOUT.man,undefined,'candidates do not silently promote before visual review');
 });

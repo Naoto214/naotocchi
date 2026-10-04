@@ -240,7 +240,7 @@ export function humanoid(sp, key) {
     // open jacket with a recoloured panel. Shared across toddler lines.
     parts.push(panel([[-B.r*.65,B.h*.16],[B.r*.65,B.h*.16],[B.r*.57,B.h*.70],[-B.r*.57,B.h*.70]],c.top));
     for(const side of [-1,1]){
-      parts.push(solid(sweep([[side*B.r*.48,B.h*.66,B.r*.8],[side*B.r*.51,B.h*.98,B.r*.27],[side*B.r*.48,B.h*.70,-B.r*.70]],()=>B.r*.11,6,{steps:8,flat:.4}),c.top));
+      parts.push(solid(sweep([[side*B.r*.48,B.h*.66,B.r*.8],[side*B.r*.51,B.h*.98,B.r*.27],[side*B.r*.48,B.h*.88,-B.r*.52],[side*B.r*.48,B.h*.68,-B.r*.72],[side*B.r*.48,B.h*.35,-B.r*.75]],()=>B.r*.11,6,{steps:12,flat:.4}),c.top));
       parts.push(solid(xform(ellipsoid(.015,.015,.01,6,4),{pos:[side*B.r*.48,B.h*.68,B.r*.84]}),'#ddb45e'));
     }
   } else if (dressed) {
@@ -320,7 +320,7 @@ export function humanoid(sp, key) {
     const L = hipY - 0.06;
     const leg = paint(sweep([[0, 0, 0], [0, -L * 0.5, 0], [0, -L + 0.02, 0]], (t) => Lg.r * lerp(1.15, 0.9, t), 8, { steps: 6 }), (x,y) => sp.wardrobe?.shorts && y < -L*sp.wardrobe.shorts ? (y < -L*(1-(sp.wardrobe.socks||0)) ? c.socks||c.skin : c.skin) : c.bottom);
     const shoe = solid(xform(blob((x, y, z) => [x * Lg.r * 1.15, (y * 0.5 + 0.5) * 0.09, z * Lg.r * 1.7 + Lg.r * 0.45], 10, 6), { pos: [0, -hipY, 0] }), c.shoe);
-    rig.add(s < 0 ? 'legL' : 'legR', 'body', [s * B.r * 0.42, 0.02, 0], [leg, shoe, solid(xform(ellipsoid(Lg.r*1.17,.025,Lg.r*1.72,10,4),{pos:[0,-hipY+.014,Lg.r*.45]}),shade(c.shoe,.65))]);
+    rig.add(s < 0 ? 'legL' : 'legR', 'body', [s * B.r * (Lg.spread??0.42), 0.02, 0], [leg, shoe, solid(xform(ellipsoid(Lg.r*1.17,.025,Lg.r*1.72,10,4),{pos:[0,-hipY+.014,Lg.r*.45]}),shade(c.shoe,.65))]);
   }
   if(caneGrip){const h=hipY+B.h*.82+caneGrip[1]-.04; const cg=caneGeo(h);cg.translate(0,-h-.04,-.06);rig.add('cane','armR',caneGrip,[cg]);}
 

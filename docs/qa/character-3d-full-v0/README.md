@@ -101,3 +101,5 @@ One Character material; World textures17/29/74. Geometry and heap for27 remain u
 
 ### Human representative work (not promoted)
 Original-derived man02/06 candidates exercise shared overalls/short sleeves/short trousers/socks, idle arm spread that releases into walk, tie, and a briefcase parented at the actual hand. Local dedicated70PASS and unchanged Pilot28 numerical hashes. Candidate visual CI pending; no additional coverage. Remaining woman/ren representatives and other stages must pass original/four-view and normal-distance review before promotion. Ground toy-car detail in man02 is not yet represented.
+
+Human initial representative captures: `fr1-human/`, source7e0b104 / CI37188558261. Review found interrupted rear straps and closed foot stance; latest candidate corrects those shared parameters and raises toddler arms. Images here precede those corrections until re-capture; no visual-complete or runtime-coverage claim. Human mechanism mutations now5/5RED. Source048 Home CI37187846343 succeeded; full Runtime/Meguru still pending.
