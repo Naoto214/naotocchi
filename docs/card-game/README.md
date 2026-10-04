@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+- [461 必須選択の根拠を保持する別版設計](461-mandatory-choice-proof-design.md)：初回7現物の非fallback根拠は既存契約だけでは得られない。公開量一致と現物残差を分離し、同種必須選択の証拠契約を設計。実装・採用・seed/対戦0。
+
 - [460 400戦preflightと初回必須選択の適格性境界](460-population-preflight-and-opening-boundary.md)：459構造検査・非実行入口をTDD実装。現行たまご交換の不可避116除外を静的確認し停止。全算入validator未完、seed/対戦0。
 
 - [459 承認済み200群・400戦の機械契約とvalidator計画](459-approved-population-contract-and-validator-plan.md)：458推奨を設計固定。validator仕様・inline逐次TDD計画まで。実装・seed生成・入力固定・対戦開始0、最終実行確認は別途。

@@ -1,0 +1,170 @@
+{
+  "acceptance_examples_executed": false,
+  "actual_manifest": null,
+  "actual_seeds": null,
+  "approved_goal": "whole_planned_population_eligible",
+  "balance_admitted": null,
+  "base_head": "ccb6ed153108ee9647db29b4e0155e508d30504e",
+  "basis_applicability": [
+    {
+      "applies_to_opening": false,
+      "basis": "complete_singleton",
+      "reason": "seven_distinct_physical_candidates"
+    },
+    {
+      "applies_to_opening": false,
+      "basis": "canonical_rule_forces_one_target",
+      "reason": "02_specifies_one_card_not_which_one"
+    },
+    {
+      "applies_to_opening": false,
+      "basis": "114_normal_priority",
+      "reason": "no_mandatory_scope_extension"
+    },
+    {
+      "applies_to_opening": false,
+      "basis": "116_safe_free_development",
+      "reason": "not_normal_person_placement_vs_pass"
+    },
+    {
+      "applies_to_opening": false,
+      "basis": "existing_full_equivalence_tie_break",
+      "reason": "no_applicable_mandatory_tie_break_or_full_equivalence_proof"
+    },
+    {
+      "applies_to_opening": false,
+      "basis": "445A_identity_dependency_evidence",
+      "reason": "distinct_physical_residuals_and_mandatory_connection_unapproved"
+    },
+    {
+      "applies_to_opening": true,
+      "basis": "116_seeded",
+      "reason": "existing_conditional_diagnostic_continuation_not_nonfallback_or_admission"
+    }
+  ],
+  "current_action": "hold_without_changing_plan_or_semantics",
+  "decision_options": [
+    {
+      "id": "A",
+      "meaning": "retain_constraints_and_hold_400_match_plan",
+      "selected": false
+    },
+    {
+      "id": "B",
+      "meaning": "seek_explicit_permission_to_design_new_mandatory_comparison_semantics",
+      "selected": false
+    },
+    {
+      "id": "C",
+      "meaning": "seek_separate_evaluation_contract_change_not_current_goal",
+      "selected": false
+    }
+  ],
+  "exclusions_from_design": [
+    "new_card_scores",
+    "future_expected_value",
+    "birth_preference",
+    "arbitrary_ID_or_type_or_cost_priority",
+    "same_name_distinct_copy_equivalence",
+    "finite_lookahead",
+    "hidden_deck_access",
+    "candidate_quotienting",
+    "whole_engine_generalization"
+  ],
+  "execution": {
+    "new_cards": 0,
+    "new_decisions": 0,
+    "new_initial_orders": 0,
+    "new_matches": 0,
+    "new_policy_implementations": 0,
+    "new_replays": 0,
+    "new_seed_values": 0
+  },
+  "execution_authorized": false,
+  "historical_reclassification_allowed": false,
+  "independent_balance_sample_count": 0,
+  "input_generation_authorized": false,
+  "opening": {
+    "all_candidates_equal": null,
+    "current_460_blocker_resolved": false,
+    "legal_physical_candidates": 7,
+    "nonfallback_basis": "not_justified_under_existing_contracts",
+    "pair_count_meaning": "combinatorial_description_not_executed_comparisons",
+    "residuals": [
+      "retained_hand_physical_identity",
+      "bottomed_physical_identity_and_opaque_deck_operation",
+      "lineage_and_dependencies",
+      "remaining_start_response_and_action_obligations"
+    ],
+    "selected_candidate": null,
+    "strategic_superiority_absent_proved": false,
+    "symbolic_unordered_pair_count": 21,
+    "value_relation": null
+  },
+  "planned_groups": 200,
+  "planned_matches": 400,
+  "policy_promoted": false,
+  "proposed_evidence_interface": {
+    "initial_egg_applicable_strict_preference_contracts": [],
+    "initial_egg_applicable_tie_break_contracts": [],
+    "inputs": [
+      "origin_rule_and_exact_position",
+      "allowed_public_and_owner_known_view",
+      "complete_physical_candidate_set",
+      "certain_transition_and_residual_obligations",
+      "applicable_existing_selection_basis"
+    ],
+    "mandatory_comparison_hook_is_not_authorization": true,
+    "no_registered_new_runtime_mode": true,
+    "outputs": [
+      "evidence_invalid_stop",
+      "singleton_or_rule_forced_certificate_proposal",
+      "applicable_existing_unique_comparison_certificate_proposal",
+      "multiple_legal_unresolved"
+    ]
+  },
+  "purpose_changed": false,
+  "reuse_scope": [
+    "egg_hand_bottom",
+    "reached_ability_hand_bottom",
+    "reached_draw_then_hand_bottom",
+    "reached_final_time_hand_bottom",
+    "reached_top_or_bottom_position_choice"
+  ],
+  "runtime_implemented": false,
+  "runtime_replacement_authorized": false,
+  "schema": "mandatory_choice_basis_design_461.v1",
+  "sources_sha256": {
+    "01-core-rules.md": "d95ee407ec1fb853a8da1102bf933a5e972e3bc6ecc0b78cfb20831e8c45ec71",
+    "02-main-system.md": "6a0d04606f066f9078e88422394d3d0c5f5c6d927806bb0be99366f503af5127",
+    "07-advanced-rules-checkpoint.md": "f346005f5f803f725d294e2fdc9f7fe98fac8a016609612c3d4fe9ab76b6874a",
+    "107-normal-decision-match-protocol.md": "32f40f9edaadd5aead8d424eac3c33618ccc1ec212837a9672a30ff22e62f2e9",
+    "114-normal-decision-protocol-hardening.md": "aa161063e4fa9e056818d00e3fe799448107b3b51f00c05e67c2c89c3a50e59a",
+    "115-normal-decision-first-choice-audit.md": "1744396cb771160bb74d88196151fe8e35992e46ed5606f26ffbb9673959fc5c",
+    "116-normal-decision-fallback-contract.md": "577dccec67343ead75aa813b464b432679927c2f4b71ed960be5058aaa3ef393",
+    "31-beetle-stagbeetle-card-master-migration.md": "575535cfcbcb60343f7947b0542350ce9027368664baec021609af9a53519a47",
+    "445-public-result-equivalence-design.md": "a7a2e3199c8e0ee536d2bb2345dcfcf19a21b5137efa220acddb3d40f490d667",
+    "454-all-judgment-evaluation-design.md": "37b2441ca93a55a12773b975a6388b8151f08b0ba9bf23022b71e5c57e425220",
+    "455-judgment-evidence-contract.md": "b26a7c117b805d58f3df5a337ea58afdabcf5f78a30af0ec1a23471124254822",
+    "456-saved-replay-evidence.md": "0521ae57c528976f87ac45bd8ce8bdce99b4ddb063e788f0a288393577158e34",
+    "457-record-integrity-and-admission-boundary.md": "a724a5b9a54b69350aa53ae75ec952e516517baf6bbca3664007598973be2932",
+    "458-planned-population-admission-design.md": "604d8a79c613aa5e35045efb3dc5bf876a9cdb4b2865c33c582266cbded3cc30",
+    "459-approved-population-contract-and-validator-plan.md": "81331a62a2efd4d8ce3c3afcfdc69047c0a6644ab6ac14ec152d88e684ce9234",
+    "460-population-preflight-and-opening-boundary.md": "63494fe7660ef45bdde62bd97e399e18517523bf78485265556e2a0171f1c883",
+    "55-insect-three-lines-card-text-draft.md": "8108f781d2e02b45139fdf7d1d573c7ac839f14cd2b8361983ecb891320f8c28",
+    "74-partner-18-card-text-draft.md": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0",
+    "83-play-batch-3-card-text-draft.md": "09a12201ebdd0ed7e8079dc59eec283a1afc84c66fbbbc008cbf7d9317abff27",
+    "91-event-21-card-text-draft.md": "46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8",
+    "98-proxy-pool-layers-and-replay-schema.md": "90036bf6e3caef2e45413ed2d6f84ca56ad9821b37a6fc36e0bc1e5eb0f0480d",
+    "data/proxy-admission-contract-459/contract.json": "165af27159ccdf4d8fc3ec5ede988075edbc3d8fd331daa994d872fb162a679a",
+    "data/proxy-fixtures-107/fixture-107-normal-decision-a-first.json": "e790d17c0555ba4a7d57a0b70291a851b132b416122f7bb340f36d0df601559e",
+    "data/proxy-normal-decision-candidate-table-114-20260918.json": "7e1df8fbedb74413c407497fff6f285f77f72907d7e544095e8bb34b348ed737",
+    "data/proxy-normal-decision-first-choice-plan-115-20260918.json": "a29942878e74eaea0e7211f84e6d34e314d949b3f7853f5ccf7fa8650fad0f4a",
+    "plans/2026-10-03-public-result-equivalence-design-445.md": "70478084f8903429e20f4dab8d180a28ec966eaf3d7c243ef91ffaf6e59fdc4f",
+    "tools/proxy_continuation_choices.py": "e2152db6a78a45b8d145d96b725eda81196ef0481c2f27c1a1415dfd046112e4",
+    "tools/proxy_continuation_quick.py": "b568179ad70167aaf7029b372f343984a408863fead48d50ab64c8146f774f21",
+    "tools/proxy_continuation_triggers.py": "a30bbf14e34697206209926c941ffdf8a4cbd41e84bdadb235f42f748353fcda",
+    "tools/proxy_normal_decision_seeded_restart.py": "57a43474658ea99f1dc362882ad291fae77116762ce567a26ec21835b9977c3d"
+  },
+  "status": "design_only_stopped_at_missing_comparison_semantics"
+}

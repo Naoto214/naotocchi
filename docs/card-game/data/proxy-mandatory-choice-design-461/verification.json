@@ -1,0 +1,17 @@
+{
+  "acceptance_examples_executed": false,
+  "base_head": "ccb6ed153108ee9647db29b4e0155e508d30504e",
+  "design_data_errors": [],
+  "design_only": true,
+  "existing_blobs_unchanged_except_readme": 3613,
+  "historical_reference_cards_verified": 7,
+  "new_initial_orders": 0,
+  "new_matches": 0,
+  "new_replays": 0,
+  "new_seed_values": 0,
+  "npm_tests_run": false,
+  "runtime_tests_run": false,
+  "scope": "Source hashes, exact historical excerpt, design invariants and existing blob preservation; not semantic proof or gameplay verification.",
+  "source_hashes_verified": 30,
+  "status": "passed"
+}
