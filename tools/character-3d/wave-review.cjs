@@ -12,7 +12,7 @@ const sharp=require('sharp');
   for(const id of ['dog','cat','penguin']){
    const tiles=[];
    for(let stage=1;stage<=8;stage++){
-    const source=await sharp(path.join('assets/characters',id,'0'+stage+'.png')).resize(300,300,{fit:'contain',background:'#eee9dd'}).extend({top:10,bottom:10,left:10,right:10,background:'#eee9dd'}).png().toBuffer();tiles.push({input:source,left:0,top:(stage-1)*320});
+    const source=await sharp(path.join('assets/characters',id,'0'+stage+'.png')).resize(256,256,{fit:'contain',background:'#eee9dd'}).extend({top:32,bottom:32,left:32,right:32,background:'#eee9dd'}).png().toBuffer();tiles.push({input:source,left:0,top:(stage-1)*320});
     for(const [v,view]of ['front','34','side','back'].entries()){
      await page.goto(`${base}/character-3d/wave-review.html?id=${id}&stage=${stage}&view=${view}`);await page.waitForFunction(()=>window.__wave?.ready);
      const result=await page.evaluate(()=>window.__wave);assert.ok(result.triangles>0);evidence.push(result);

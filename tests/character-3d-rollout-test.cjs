@@ -45,3 +45,39 @@ test('signature lifted paw stays readable with reduced motion and releases into 
     assert.ok(Math.abs(instance.bones.legFL.rotation.x) < .4, 'signature pose releases for locomotion');
   }
 });
+
+test('every candidate preserves canonical expression and finite idle/walk under reduced motion', async () => {
+  const rows = require('../character-3d/rollout-spec.js')(SPEC.PILOT);
+  const builders = await import('../character-3d/archetypes.mjs');
+  const {attachFace} = await import('../character-3d/rig.mjs');
+  const {instantiate} = await import('../character-3d/runtime.mjs');
+  const {animate,setEmotion,react} = await import('../character-3d/animate.mjs');
+  for (const [id,row] of Object.entries(rows)) for (const [stage,sp] of Object.entries(row.stages)) {
+    const rig = builders[sp.archetype](sp, id+':'+stage);
+    rig.faces = [attachFace(rig,rig.faceSpec,'B')];
+    const instance = instantiate({rig,key:id+':'+stage});
+    for(const emotion of ['normal','positive','dislike','tired','sleeping','strained','wantsPlay','sick']) {
+      setEmotion(instance,emotion);assert.equal(instance.anim.emotion,emotion);
+      assert.equal(instance.face.emotion,emotion);
+      for(const reduced of [0,2]) for(const moving of [false,true]) {
+        react(instance,'hop');
+        for(let frame=0;frame<8;frame++)animate(instance,{dt:.05,moving,animLv:reduced});
+        instance.root.updateMatrixWorld(true);
+        assert.ok(instance.root.visible);
+        for(const bone of Object.values(instance.bones))assert.ok(bone.matrixWorld.elements.every(Number.isFinite),id+'/'+stage+'/'+emotion);
+        assert.ok(instance.root.scale.x>0 && instance.root.scale.y>0 && instance.root.scale.z>0);
+      }
+    }
+  }
+});
+
+test('asymmetric ears and bilateral raised wings keep the original signature silhouette', async () => {
+  const rows = require('../character-3d/rollout-spec.js')(SPEC.PILOT);
+  const {quadruped,avian} = await import('../character-3d/archetypes.mjs');
+  const dog = quadruped(rows.dog.stages[7],'dog:7');
+  const ears = ['earL','earR'].map(n=>{const g=dog.parts.find(p=>p.bone===n).mesh.geometry;g.computeBoundingBox();return g.boundingBox;});
+  assert.ok(ears[0].max.y > .2 && ears[0].min.y > -.01, 'one ear points up');
+  assert.ok(ears[1].min.y < -.2, 'other ear folds down');
+  const bird = avian(rows.penguin.stages[3],'penguin:3');
+  assert.ok(bird.bones.wingL.rotation.z < -1.5 && bird.bones.wingR.rotation.z > 1.5,'both raised flippers');
+});

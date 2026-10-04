@@ -22,7 +22,7 @@ const scene=new THREE.Scene();scene.background=new THREE.Color('#eee9dd');scene.
 scene.add(new THREE.HemisphereLight('#e6f2ff','#8a7a5a',1.25));const sun=new THREE.DirectionalLight('#fff6e8',1.45);sun.position.set(-1.2,2.2,1.6);scene.add(sun);
 instance.root.updateMatrixWorld(true);
 const box=new THREE.Box3().setFromObject(instance.root),size=box.getSize(new THREE.Vector3()),center=box.getCenter(new THREE.Vector3());
-const radius=Math.max(size.x,size.y,size.z)*.74;
+const radius=Math.max(size.x,size.y,size.z)*.62;
 const camera=new THREE.OrthographicCamera(-radius,radius,radius,-radius,.01,100);
 const az={front:0,'34':.62,side:Math.PI/2,back:Math.PI}[view]??.62;
 camera.position.set(center.x+Math.sin(az)*8,center.y+1.4,center.z+Math.cos(az)*8);camera.lookAt(center);
