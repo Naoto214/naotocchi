@@ -1940,6 +1940,57 @@
       return out;
     }
 
+    // VQ: existing ground planting frames the house, never grows through a deck.
+    // Build-time only; keep flower groups intact and retain an unsafe group in place.
+    function clearHousePlanting3d(world, objects) {
+      const steps = [];
+      for (let f = 0; f <= 56; f += 8) for (let s = -56; s <= 56; s += 8) {
+        const distance = Math.hypot(f, s);
+        if (distance > 0 && distance <= 60) steps.push({ f, s, distance });
+      }
+      steps.sort((a, b) => a.distance - b.distance || Math.abs(a.s) - Math.abs(b.s) || a.s - b.s);
+      for (const h of objects.filter((o) => o.type === 'house' && o.collision)) {
+        const a = h.collision.ang || 0, fx = Math.cos(a), fz = -Math.sin(a), sx = Math.sin(a), sz = Math.cos(a);
+        const plants = h.parts.filter((p) => !p.y && (p.shape === 'flower' || (p.shape === 'crown' && p.small)));
+        const garden = objects.find((o) => o.garden && o.id === world.regionId + ':garden:' + h.id);
+        const boxes = h.parts.filter((p) => p.shape === 'box' && (p.y || 0) < 30);
+        const gardenBoxes = garden ? garden.parts.filter((p) => p.shape === 'box' && (p.y || 0) < 30) : [];
+        const hitsBox = (p, dx, dz, list = boxes) => list.some((b) => {
+          if ((b.y || 0) >= (p.h || p.r * 2)) return false;
+          const x = dx - (b.dx || 0), z = dz - (b.dz || 0), ba = b.ang || 0;
+          const f = x * Math.cos(ba) - z * Math.sin(ba), s = x * Math.sin(ba) + z * Math.cos(ba);
+          return Math.hypot(Math.max(0, Math.abs(f) - b.rz), Math.max(0, Math.abs(s) - b.rx)) < p.r + 2;
+        });
+        const entry = h.parts.find((p) => p.door), door = entry && { x: h.x + entry.dx, z: h.z + entry.dz };
+        const np = door && nearestPath(door, world);
+        let approach = null;
+        if (np) {
+          const x = np.seg.a.x + (np.seg.b.x - np.seg.a.x) * np.t - door.x;
+          const z = np.seg.a.z + (np.seg.b.z - np.seg.a.z) * np.t - door.z, len = Math.hypot(x, z);
+          if (len > np.half && len - np.half < 320 && (x * fx + z * fz) / len > 0.15) approach = { ux: x / len, uz: z / len, len: len - np.half };
+        }
+        const stones = garden ? garden.parts.filter((p) => p.shape === 'stone') : [];
+        const safe = (p, dx, dz) => {
+          const x = h.x + dx, z = h.z + dz, r = p.r;
+          if (hitsBox(p, dx, dz) || hitsBox(p, dx, dz, gardenBoxes) || collidesAt(world, x, z, r)) return false;
+          const path = nearestPath({ x, z }, world);
+          if (path && path.dist < path.half + r + 4) return false;
+          if (world.spots.some((q) => Math.hypot(q.x - x, q.z - z) < q.r * 0.6 + r)) return false;
+          if (approach) {
+            const t = Math.max(0, Math.min(approach.len, (x - door.x) * approach.ux + (z - door.z) * approach.uz));
+            if (Math.hypot(x - door.x - approach.ux * t, z - door.z - approach.uz * t) < r + 14) return false;
+          }
+          return !stones.some((q) => Math.hypot(dx - q.dx, dz - q.dz) < r + Math.max(q.rx, q.rz) + 2);
+        };
+        const groups = [plants.filter((p) => p.shape === 'flower'), ...plants.filter((p) => p.shape === 'crown').map((p) => [p])];
+        for (const group of groups) {
+          if (!group.some((p) => hitsBox(p, p.dx || 0, p.dz || 0))) continue;
+          const move = steps.find((q) => group.every((p) => safe(p, (p.dx || 0) + fx * q.f + sx * q.s, (p.dz || 0) + fz * q.f + sz * q.s)));
+          if (move) for (const p of group) { p.dx = (p.dx || 0) + fx * move.f + sx * move.s; p.dz = (p.dz || 0) + fz * move.f + sz * move.s; }
+        }
+      }
+    }
+
     // Geometry pass(home / countryside の 分離・HQ-10): いえの まわり = くらしの 庭。家の 正面に 花だん 2 つ・ポスト・ひくい さく・入口から 道への 飛び石。
     // 3D だけ・あたり なし(ふんで とおれる 高さ)。道 / spot / かたい 物 の 上には おかない。いなか には つくらない(ひらけた 畑 と 用水路)
     function gardenDressing3d(world, houses) {
@@ -2246,6 +2297,7 @@
       }
       if (world.world3d && !world.corridor) for (const d of sceneDressing3d(world)) out.push(d);   // Art Direction v1: 群生の 植生(3D だけ・あたり なし)
       if (world.world3d && !world.corridor && REGION3D[world.regionId] && REGION3D[world.regionId].gardens) for (const g of gardenDressing3d(world, out.filter((o) => o.type === 'house' && o.collision))) out.push(g);
+      if (world.world3d && !world.corridor) clearHousePlanting3d(world, out);
       return { objects: out, skipped, unresolved };
     }
     // ます目(spatial grid)。まわりの ます目 1つ だけ 見れば よい ように、

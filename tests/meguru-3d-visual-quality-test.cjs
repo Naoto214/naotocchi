@@ -255,3 +255,47 @@ test('VQ-12 walkable market stalls have open counters and connected canopy suppo
   }
   assert.equal(checked,6,'all six canonical city stalls covered');
 });
+
+// Ground planting must frame the veranda rather than grow through its floor.
+test('VQ-13 representative farmhouse flowers clear the veranda as one planting group', () => {
+  const M = require('./helpers/runtime-harness.cjs').harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const w = M.buildWorld('countryside',M.buildRegistry(),{world3d:true});
+  const ob = M.worldObjects3d(w).objects.find(o=>o.id==='countryside:0');
+  const deck = ob.parts.find(p=>p.shape==='box' && p.solidBox && p.y===0 && p.h===16);
+  const flowers = ob.parts.filter(p=>p.shape==='flower' && !p.y);
+  assert.equal(flowers.length,3);
+  for (const p of flowers) {
+    const x=p.dx-deck.dx,z=p.dz-deck.dz,a=deck.ang||0;
+    const f=x*Math.cos(a)-z*Math.sin(a),s=x*Math.sin(a)+z*Math.cos(a);
+    assert.ok(Math.hypot(Math.max(0,Math.abs(f)-deck.rz),Math.max(0,Math.abs(s)-deck.rx)) >= p.r+2-1e-8,'flower footprint clears deck');
+    assert.ok(!M.collidesAt(w,ob.x+p.dx,ob.z+p.dz,p.r),'planting stays outside canonical collision');
+    const np=M.nearestPath({x:ob.x+p.dx,z:ob.z+p.dz},w);
+    assert.ok(!np || np.dist>=np.half+p.r+4,'road remains clear');
+  }
+});
+
+test('VQ-14 planting clearance preserves groups, rotations and blocked plots', () => {
+  const src=require('node:fs').readFileSync('meguru.js','utf8');
+  const body=src.slice(src.indexOf('    function clearHousePlanting3d('),src.indexOf('    // Geometry pass(home / countryside'));
+  const build=(blocked=false)=>new Function('nearestPath','collidesAt',body+'; return clearHousePlanting3d;')(()=>null,()=>blocked);
+  for(const a of [0,Math.PI/2,0.73]) {
+    const at=(f,s)=>({dx:f*Math.cos(a)+s*Math.sin(a),dz:-f*Math.sin(a)+s*Math.cos(a)});
+    const house={id:'test:house',type:'house',x:0,z:0,collision:{ang:a},parts:[
+      {shape:'box',rx:30,rz:20,h:16,y:0,ang:a,dx:0,dz:0},
+      ...[-12,0,12].map(s=>({shape:'flower',r:5,h:20,y:0,...at(18,s)})),
+      {shape:'flower',r:5,h:2,y:40,...at(18,0)}
+    ]};
+    const before=JSON.parse(JSON.stringify(house)),world={regionId:'test',spots:[]};
+    build(true)(world,[house]);assert.deepEqual(house,before,'blocked plot retains whole group');
+    build()(world,[house]);assert.deepEqual(house.parts[0],before.parts[0]);assert.deepEqual(house.parts[4],before.parts[4],'raised flowers retained');
+    const mx=house.parts[1].dx-before.parts[1].dx,mz=house.parts[1].dz-before.parts[1].dz;
+    assert.ok(Math.hypot(mx,mz)>0&&Math.hypot(mx,mz)<=60);
+    for(let i=1;i<=3;i++) {
+      const p=house.parts[i],q=before.parts[i];
+      assert.ok(Math.abs(p.dx-q.dx-mx)<1e-8&&Math.abs(p.dz-q.dz-mz)<1e-8,'one rigid translation');
+      const f=p.dx*Math.cos(a)-p.dz*Math.sin(a),s=p.dx*Math.sin(a)+p.dz*Math.cos(a);
+      assert.ok(Math.hypot(Math.max(0,Math.abs(f)-20),Math.max(0,Math.abs(s)-30))>=7-1e-8);
+    }
+    const once=JSON.stringify(house);build()(world,[house]);assert.equal(JSON.stringify(house),once,'second pass stable');
+  }
+});
