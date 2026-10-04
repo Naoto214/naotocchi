@@ -6,7 +6,7 @@ const args=process.argv.slice(2), oi=args.indexOf('--out');
 const out=oi<0?'test-results/character-3d-quality/comparisons':args[oi+1];
 fs.mkdirSync(out,{recursive:true});
 const raw=path.join(out,'raw');fs.mkdirSync(raw,{recursive:true});
-const revisions=args.includes('--previous')?['previous','revised']:['claude','revised'];
+const revisions=args.includes('--second')?['second','revised']:args.includes('--previous')?['previous','revised']:['claude','revised'];
 const rows=[];
 for(const id of [...Object.keys(SPEC.PILOT),...Object.keys(SPEC.ARCHETYPE_REUSE)])for(const stage of SPEC.STAGE_KEYS[id]||[0])rows.push({id,stage});
 const label=(s,w)=>Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="28"><rect width="100%" height="100%" fill="#efe9dd"/><text x="8" y="20" fill="#302e2b" font-size="15" font-family="sans-serif">${s}</text></svg>`);
@@ -37,5 +37,5 @@ const label=(s,w)=>Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="$
       await sharp({create:{width:1400,height:y,channels:3,background:'#efe9dd'}}).composite(layers).jpeg({quality:90}).toFile(path.join(out,`${id}-${String(stage).padStart(2,'0')}-emotions-motion.jpg`));
     }
   }
-  fs.writeFileSync(path.join(out,'manifest.json'),JSON.stringify({baseline:args.includes('--previous')?'8b19ecc44c162455f3a2f1077ef659bddcc186ca':'e12f7208427c2f1035849ab4319c78fc31305c65',sample:{emotion:'normal',moving:false,t:.4,elevation:.18},rows,results,emotionMotionMatrix:args.includes('--matrix')},null,2));
+  fs.writeFileSync(path.join(out,'manifest.json'),JSON.stringify({baseline:args.includes('--second')?'31fe18f1dd6e5aa4ca85f49fa7c363a5f32ac54f':args.includes('--previous')?'8b19ecc44c162455f3a2f1077ef659bddcc186ca':'e12f7208427c2f1035849ab4319c78fc31305c65',sample:{emotion:'normal',moving:false,t:.4,elevation:.18},rows,results,emotionMotionMatrix:args.includes('--matrix')},null,2));
 })().catch(e=>{console.error(e);process.exitCode=1;});

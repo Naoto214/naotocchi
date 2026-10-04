@@ -98,9 +98,9 @@ async function walk(page, seconds) {
 }
 
 (async () => {
-  const srv = await serve({claude:args.includes('--claude'),previous:args.includes('--previous')}); const base = 'http://127.0.0.1:' + srv.address().port;
+  const srv = await serve({second:args.includes('--second'),claude:args.includes('--claude'),previous:args.includes('--previous')}); const base = 'http://127.0.0.1:' + srv.address().port;
   const browser = await pw.chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
-  const R = { when: new Date().toISOString(), revision: args.includes('--claude') ? 'claude-e12f720' : args.includes('--previous') ? 'quality1-8b19ecc' : 'quality2', headless: 'chromium + SwiftShader(ソフトウェア GPU)', throttle: THROTTLE, shots: {}, checks: {}, perf: {} };
+  const R = { when: new Date().toISOString(), revision: args.includes('--second') ? 'quality2-31fe18f' : args.includes('--claude') ? 'claude-e12f720' : args.includes('--previous') ? 'quality1-8b19ecc' : 'quality3', headless: 'chromium + SwiftShader(ソフトウェア GPU)', throttle: THROTTLE, shots: {}, checks: {}, perf: {} };
   const env = { time: 'day', weather: 'sunny', season: 'summer' };
   let prev = null;
   if (PERF_ONLY || SPECIES_ONLY) { try { prev = JSON.parse(fs.readFileSync(path.join(OUT, 'meguru-qa.json'), 'utf8')); Object.assign(R, { shots: prev.shots, checks: prev.checks, perSpecies: prev.perSpecies, errors: prev.errors }); } catch (_) { /* ない */ } }
@@ -181,7 +181,8 @@ async function walk(page, seconds) {
     R.perSpecies = {};
     for (const id of Object.keys(SPEC.PILOT)) {
       for (const st of SPEC.STAGE_KEYS[id]) {
-      const { save: sv, stage } = makeSave({ line: id, stageIndex: st - 1, party: ['shiba', 'cat_friend'] });
+      if(args.includes('--focus') && !['dandelion:8','butterfly:8'].includes(id+':'+st))continue;
+      const { save: sv, stage } = makeSave({ line: id, stageIndex: st - 1, party: args.includes('--solo')?[]:['shiba', 'cat_friend'], residents: !args.includes('--solo') });
       const { page: pg, errors: er } = await open(browser, base, sv);
       await pose(pg, { spot: 'entry', yaw: 0, heading: Math.PI - 0.5, faceCam: true, env });
       const front = await snap(pg, 'player-' + id + '-' + st + '-front');

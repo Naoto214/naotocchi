@@ -203,7 +203,7 @@
         1: { archetype: L, segments: 6, len: 1.2, r: 0.2, head: { r: 0.27 }, colors: { base: '#bce83a', belly: '#f4f6c4', spot: '#88c838', head: '#c8ec46', foot: '#78b838' } },
         4: { archetype: L, segments: 7, len: 1.2, r: 0.24, head: { r: 0.34 }, hang: true, colors: { base: '#a8d828', belly: '#f8e8b8', spot: '#68a828', head: '#b8dc38', foot: '#68b828' }, attachments: ['branch'] },
         5: { archetype: P, shape: 'chrysalis', h: 1.0, r: 0.3, colors: { base: '#a8e028', light: '#e8f828', dark: '#58a828' }, attachments: ['branch'] },
-        8: { archetype: W, body: { len: 0.6, r: 0.09 }, head: { r: 0.2 }, wings: { span: 1.45, h: 0.8 }, antenna: 0.36, legs: { radius: .018, pairs: [[.02,.19,-.10,.14,-.18],[-.10,.21,-.23,.22,-.31],[-.21,.19,-.35,.16,-.44]] },
+        8: { archetype: W, body: { len: 0.6, r: 0.09 }, head: { r: 0.2 }, wings: { span: 1.45, h: 0.8 }, antenna: 0.36,
           colors: { wing: '#6898d8', wingDark: '#183878', wingLight: '#a8d8f8', dots: '#f8f8e0', body: '#1a2a58', face: '#f6f4e0' } },
       },
       designFill: 'はねの うらは おもてより うすい 青(2D に うらは ない)。いもむしの 背中の 斑点は 2D の 横から のばした',
@@ -214,7 +214,7 @@
         1: { archetype: P, shape: 'seed', h: 0.62, r: 0.36, colors: { base: '#a87a50', light: '#e89858', dark: '#783848', pappus: '#ffffff' }, attachments: ['pappus'] },
         4: { archetype: PL, form: 'rosette', leaves: 10, leafLen: 0.85, bulb: 0.27, colors: { leaf: '#38c010', leafDark: '#0c5a10', vein: '#a8f808', bulb: '#f6f2d4' } },
         6: { archetype: PL, form: 'flower', leaves: 6, leafLen: 0.55, stem: 0.6, head: 0.36, petals: 18, colors: { leaf: '#2a9a28', leafDark: '#0c4818', vein: '#68b828', stem: '#2a8a30', petal: '#f8e818', petalDark: '#f8a808', face: '#f8c808' } },
-        8: { archetype: C, unit: 'seedPuff', count: 6, spread: 0.62, connector: { radiusRatio: .025, opacity: .22, color: '#f8f5e8' }, colors: { base: '#c08a50', pappus: '#ffffff', face: '#f8eadc' } },
+        8: { archetype: C, unit: 'seedPuff', count: 6, spread: 0.62, colors: { base: '#c08a50', pappus: '#ffffff', face: '#f8eadc' } },
       },
       designFill: '葉の うらは おもてより こい 緑。花の うしろは がく(緑)を 補完',
     },
@@ -241,7 +241,7 @@
   const ARCHETYPE_REUSE = freeze({
     shiba: { archetype: Q, basedOn: 'dog', kind: 'companion', idlePose: 'playBow', markings: 'urajiro', body: { len: 0.81, r: 0.39, chest: 1.25, hip: 1.12 }, head: { r: 0.43, width:1.14, squash: 0.90, snout: 0.10, snoutR: 0.19, cheek: 0.32, eyeX:28, eyeSize:.23 }, coat: {width:.9,height:.92,depth:.55}, poseProfile:{bow:.38}, legs: { len: 0.30, r: 0.115 }, neck: 0.12,
       ears: { type: 'pointy', len: 0.26, w: 0.17, tilt: -0.05 }, tail: { type: 'curl', len: 0.70, r: 0.20 }, colors: { base: '#e89848', belly: '#f8e8d8', muzzle: '#f8e8d8', ear: '#d87838', nose: '#2a1010', paw: '#f8e8d8' } },
-    cat_friend: { archetype: Q, basedOn: 'dog', kind: 'companion', idlePose: 'recline', normalEye:'droop', poseProfile:{yaw:-.85,roll:-.12,headYaw:.65}, patchMap:{head:[{at:[-.62,.28,.25],size:[.67,.92,1.1],color:'patch2'},{at:[.68,.5,0],size:[.7,.9,1.2],color:'patch'}],body:[{at:[-.5,.65,-.35],size:[1.0,.9,.6],color:'patch2'},{at:[.6,.4,-.6],size:[.8,1.0,.55],color:'patch'},{at:[-.7,.25,.50],size:[.65,.9,.36],color:'patch2'}]}, body: { len: 1.36, r: 0.27, chest: .91, hip: 1.1 }, head: { r: 0.32, width:1.08, squash: .87, snout: 0.035, snoutR: .095, eyeX:29,eyeSize:.33, eyeProfile:{width:1.25,tilt:.08} }, legs: { len: .34, r: .072 }, neck: .08,
+    cat_friend: { archetype: Q, basedOn: 'dog', kind: 'companion', idlePose: 'recline', normalEye:'droop', poseProfile:{yaw:-.85,roll:-.12,headYaw:.65}, patchMap:{head:[{at:[-.62,.28,.25],size:[.67,.92,1.1],color:'patch2'},{at:[.68,.5,0],size:[.7,.9,1.2],color:'patch'}],body:[{at:[-.5,.65,-.35],size:[1.0,.9,.6],color:'patch2'},{at:[.6,.4,-.6],size:[.8,1.0,.55],color:'patch'},{at:[-.7,.25,.50],size:[.65,.9,.36],color:'patch2'}]}, body: { len: 1.36, r: 0.27, chest: .91, hip: 1.1 }, head: { r: 0.32, width:1.08, squash: .87, snout: 0.035, snoutR: .095, eyeX:29,eyeSize:.25 }, legs: { len: .34, r: .072 }, neck: .08,
       ears: { type: 'pointy', len: 0.24, w: 0.2, tilt: 0.1 }, tail: { type: 'hook', len: 0.87, r: 0.085 }, colors: { base: '#f6e6d6', belly: '#fbf2e8', muzzle: '#fbf2e8', ear: '#e89848', nose: '#e88888', paw: '#f6e6d6', patch: '#332a29', patch2: '#d89449' }, patches: true },
   });
 

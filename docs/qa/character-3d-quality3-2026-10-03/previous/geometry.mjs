@@ -4,7 +4,7 @@
 //   太さが かわる すいーぷ(sweep)・格子の 面(sheet)で つくり、つなぎめの 法線を ならす(smooth)
 // ・色は 頂点色(vertex color)。material は ほぼ 1 つを みんなで つかう(draw call と material を ふやさない)
 // ・顔は 頭の 面へ 投影(projectGrid / projectPoint)。どんな 形の 頭(かさ・星・魚の 鼻先)でも おなじ 道具で のせる
-import * as THREE from '../vendor/three-0.170.0/three.module.min.js';
+import * as THREE from '../../../../vendor/three-0.170.0/three.module.min.js';
 export { THREE };
 
 const TAU = Math.PI * 2;
@@ -248,7 +248,7 @@ export function projectGrid(target, fr, half, n = 10, lift = 0.006) {
 // merged with the seed/core it costs no additional bone or filament draw call.
 export function softHalo(radius, seed='halo') {
   const random=rng(seed), pos=[],colors=[],index=[],uv=[];
-  const rings=[0,.38,.65,.83,1], alpha=[0,0,.75,.55,0], count=20;
+  const rings=[0,.38,.65,.83,1], alpha=[.8,.85,.75,.55,0], count=20;
   for(let plane=0;plane<3;plane++) {
     const phase=random()*Math.PI*2, start=pos.length/3;
     for(let j=0;j<rings.length;j++)for(let i=0;i<=count;i++) {

@@ -86,7 +86,7 @@ export function quadruped(sp, key) {
   const tailR = T.type === 'plume' ? (t) => tr * (0.9 + Math.sin(Math.PI * t) * 0.9) : (t) => tr * lerp(1.1, 0.55, t);
   rig.add('tail', 'body', [0, B.r * 0.35, -B.len / 2 * 0.9], [paint(sweep(tailPath, tailR, 8, { steps: T.type==='hook'?20:12 }), (x, y, z) => (T.type === 'curl' && y > tl * 0.6 ? c.belly : sp.patches ? (y>tl*.91?c.base:y>tl*.66?c.patch2:c.patch) : c.base))]);
   rig.meta = { idlePose: sp.idlePose, hover: 0, bodyY, legTop, bodyR: B.r, bodyLen: B.len, pawR: Lg.r*1.05, earType: E.type, poseProfile: sp.poseProfile || null };
-  rig.faceSpec = { bone: 'head', target: headGeo, center: [0, hr * 0.0, hr * 0.92], fwd: [0, 0.08, 1], half: hr * 0.74, eyeSize: Hd.eyeSize || 0.25, eyeProfile: Hd.eyeProfile,
+  rig.faceSpec = { bone: 'head', target: headGeo, center: [0, hr * 0.0, hr * 0.92], fwd: [0, 0.08, 1], half: hr * 0.74, eyeSize: Hd.eyeSize || 0.25,
     layout: { eyeX: Hd.eyeX || 25, eyeY: 54, mouthY: 104, browY: 34, cheekX: 38, cheekY: 80, mouthW: 9 }, style: { mouth: '#9a2a24', blush: '#f08a7a' }, normalEye: sp.normalEye || (sp.idlePose === 'lie' || sp.fluff === 'chest' ? 'content' : null) };
   return rig;
 }
@@ -353,12 +353,7 @@ export function wingedInsect(sp, key) {
   const rig = new Rig(key, 'winged_insect', 'flutter');
   const thorax = solid(ellipsoid(B.r * 1.2, B.r * 1.25, B.r * 1.5, 10, 8), c.body);
   const abdomen = paint(sweep([[0,-B.r,0],[0,-B.len*.55,-.01],[0,-B.len,-.02]], (t) => B.r * lerp(1.0, 0.45, t), 8, { steps: 8 }), (x, y, z) => (Math.sin(y * 45) > 0.6 ? shade(c.body, 1.4) : c.body));
-  // Rounded bent limbs share the thorax mesh and existing flutter transform.
-  const limbs = [];
-  if (sp.legs) for (const side of [-1,1]) for (const [originY,elbowX,elbowY,tipX,tipY] of sp.legs.pairs) {
-    limbs.push(solid(sweep([[side*B.r*.35,originY,B.r*.45],[side*elbowX,elbowY,B.r*1.6],[side*tipX,tipY,B.r*1.9]], t=>sp.legs.radius*(1-.18*t),6,{steps:6}),shade(c.body,1.55)));
-  }
-  rig.add('body', 'root', [0, 0, 0], [thorax, abdomen, ...limbs]);
+  rig.add('body', 'root', [0, 0, 0], [thorax, abdomen]);
   const hr = sp.head.r;
   const headGeo = solid(blob((x, y, z) => [x * hr * 1.06, y * hr, z * hr * 0.95], 18, 12), c.face);
   const ant = [-1, 1].map((s) => merge([solid(sweep([[s * hr * 0.3, hr * 0.8, 0], [s * hr * 0.6, hr * 0.8 + sp.antenna * 0.6, -0.02], [s * hr * 0.9, hr * 0.8 + sp.antenna, 0.02]], () => 0.016, 4, { steps: 8 }), c.body), solid(xform(ellipsoid(0.045, 0.045, 0.045, 6, 5), { pos: [s * hr * 0.9, hr * 0.8 + sp.antenna, 0.02] }), c.wing)]));
@@ -512,11 +507,7 @@ export function cluster(sp, key) {
       const r = 0.18 * s;
       const puff = paint(blob((px, py, pz) => { const n = 1 + 0.16 * Math.max(0, noise3(px * 7 + i, py * 7, pz * 7) - 0.35); return [px * r * n * .65, py * r * n * .65, pz * r * n * .65]; }, 12, 8), () => c.pappus);
       const seed = solid(xform(blob((px, py, pz) => { const yy = py * 0.5 + 0.5; return [px * r * 0.3 * (1 - yy * 0.5), -yy * r * 1.3, pz * r * 0.3 * (1 - yy * 0.5)]; }, 8, 6), { pos: [0, -r * 0.95, 0] }), c.base);
-      const connection = sp.connector || { radiusRatio: .067, opacity: 1, color: c.base };
-      const beak = solid(sweep([[0,-r*.96,0],[r*.025,-r*.72,0],[0,-r*.48,0]], () => r*connection.radiusRatio, 4, { steps: 2 }), connection.color);
-      const bc=beak.attributes.color, rgba=new Float32Array(bc.count*4);
-      for(let j=0;j<bc.count;j++)rgba.set([bc.getX(j),bc.getY(j),bc.getZ(j),connection.opacity],j*4);
-      beak.setAttribute('color',new THREE.BufferAttribute(rgba,4));
+      const beak = solid(sweep([[0, -r * 0.9, 0], [0, -r * 0.4, 0]], () => 0.012, 4, { steps: 2 }), c.base);
       for(const g of [puff,seed,beak]){const uv=g.attributes.uv;if(uv)for(let j=0;j<uv.count;j++)uv.setXY(j,.5,.5);}
       geo = puff; faceGeo = puff; fc = [0, 0, r * .65]; half = r * .54;
       rig.add('u' + i, 'root', [x * sp.spread / 0.6, y * sp.spread / 0.6 + 0.35, z], [puff.clone(), seed, beak, softHalo(r*1.52,key+':'+i)], 'soft', [0, 0, (R() - 0.5) * 0.4]);

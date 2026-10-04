@@ -17,8 +17,8 @@ function serve(opts = {}) {
         if(begin<0 || end<=begin){res.writeHead(500);res.end('Missing current actor adapter');return;}
         res.writeHead(200,{'content-type':'text/javascript'});res.end("import SPEC from './spec-esm.mjs';\n"+current.slice(begin,end));return;
       }
-      if((opts.claude || opts.previous) && /^\/character-3d\/(spec\.js|spec-esm\.mjs|geometry\.mjs|rig\.mjs|archetypes\.mjs|animate\.mjs|runtime\.mjs)$/.test(req.url.split('?')[0])) {
-        file=path.join(ROOT,opts.previous?'docs/qa/character-3d-quality2-2026-10-03/previous':'docs/qa/character-3d-quality-2026-10-02/claude',path.basename(file));
+      if((opts.claude || opts.previous || opts.second) && /^\/character-3d\/(spec\.js|spec-esm\.mjs|geometry\.mjs|rig\.mjs|archetypes\.mjs|animate\.mjs|runtime\.mjs)$/.test(req.url.split('?')[0])) {
+        file=path.join(ROOT,opts.second?'docs/qa/character-3d-quality3-2026-10-03/previous':opts.previous?'docs/qa/character-3d-quality2-2026-10-03/previous':'docs/qa/character-3d-quality-2026-10-02/claude',path.basename(file));
         let body=fs.readFileSync(file,'utf8').replaceAll('../../../../vendor/','../vendor/');
         if(opts.claude && path.basename(file)==='runtime.mjs') body+="\nexport { actorInfo } from './qa-actor-info.mjs';\n";
         res.writeHead(200,{'content-type':'text/javascript'});res.end(body);return;

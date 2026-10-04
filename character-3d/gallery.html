@@ -66,7 +66,7 @@
 <script type="module">
 import { THREE } from './geometry.mjs';
 const before = new URLSearchParams(location.search).get('revision') === 'claude';
-const prefix = before ? '../docs/qa/character-3d-quality-2026-10-02/claude/' : new URLSearchParams(location.search).get('revision') === 'previous' ? '../docs/qa/character-3d-quality2-2026-10-03/previous/' : './';
+const prefix = new URLSearchParams(location.search).get('revision') === 'second' ? '../docs/qa/character-3d-quality3-2026-10-03/previous/' : before ? '../docs/qa/character-3d-quality-2026-10-02/claude/' : new URLSearchParams(location.search).get('revision') === 'previous' ? '../docs/qa/character-3d-quality2-2026-10-03/previous/' : './';
 const { getTemplate, instantiate, fitScale, SPEC } = await import(prefix + 'runtime.mjs');
 const { animate, setEmotion, react, GAIT_HZ } = await import(prefix + 'animate.mjs');
 
