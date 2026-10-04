@@ -1,4 +1,4 @@
-# Planting contact and open market counters — in-progress Draft checkpoint
+# Planting contact and open market counters — automated Draft checkpoint
 
 Baseline product 1cbc27b (docs-only HEAD04c2a82); recovered CI evidence39d6cc5. This bounded World pass continues after the successful entrance integration evidence, without changing the renderer architecture, terrain/grounding, game/season/collision/save semantics or character lanes.
 
@@ -18,9 +18,9 @@ Baseline product 1cbc27b (docs-only HEAD04c2a82); recovered CI evidence39d6cc5. 
 
 ## Full regression and browser status
 
-Full unmodified npm test on final source is in progress at this product checkpoint; do not claim full GREEN until its exit/log is saved. The earlier preliminary run was interrupted with Ctrl-C (exit130), after detecting stale cache-token failures while development was still in progress; it is not a completed full run and is preserved separately. Cache tokens now match both changed source files. No thresholds or tests were relaxed.
+Full unmodified npm test completed on the final source: **2869 + 80 PASS / 0 FAIL**, exit0. SourceSHA256 was rechecked after completion. The run started before the product commit while these exact source bytes were present; later commits did not change the tested source. The earlier preliminary run was interrupted with Ctrl-C (exit130), after detecting stale cache-token failures while development was still in progress; it is not a completed full run and is preserved separately. Cache tokens now match both changed source files. No thresholds or tests were relaxed.
 
-Local AF_UNIX remains denied (errno1), so fresh browser evidence must come from the authorized existing GitHub QA workflow. Its BEFORE ref is04c2a82, with existing identical recipes for both sides. New product smoke/corridor/visibility/triangles/drawcalls/images are pending; previous1cbc27b measurements are NOT new-code measurements.
+Local AF_UNIX remains denied (errno1), so fresh browser evidence must come from the authorized existing GitHub QA workflow. Its BEFORE ref is04c2a82, with existing identical recipes for both sides. New raw browser evidence is now verified at `../meguru-3d-ci/run-5f24097`: smoke13regions,8corridors,2832rays/hidden0/partial1,35World/entrance+20gallery pairs. City representative130188→130476triangles,50calls unchanged; other representative budgets unchanged. All five CI jobs and raw artifacts are now verified; CI full2869+80PASS/0FAIL/exit0 (package pipeline concurrency4, separate from unmodified npm test); previous1cbc27b measurements remain source-bound.
 
 ## Remaining scope / next action
 

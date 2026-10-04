@@ -1,0 +1,188 @@
+{
+  "home-vq": {
+    "beforeTriangles": 35272,
+    "afterTriangles": 35272,
+    "beforeCalls": 42,
+    "afterCalls": 42
+  },
+  "home-house-vq": {
+    "beforeTriangles": 34836,
+    "afterTriangles": 34836,
+    "beforeCalls": 40,
+    "afterCalls": 40
+  },
+  "forest-vq": {
+    "beforeTriangles": 147752,
+    "afterTriangles": 147752,
+    "beforeCalls": 60,
+    "afterCalls": 60
+  },
+  "jungle-vq": {
+    "beforeTriangles": 172794,
+    "afterTriangles": 172794,
+    "beforeCalls": 62,
+    "afterCalls": 62
+  },
+  "city-vq": {
+    "beforeTriangles": 130188,
+    "afterTriangles": 130476,
+    "beforeCalls": 50,
+    "afterCalls": 50
+  },
+  "city-arcade-vq": {
+    "beforeTriangles": 130164,
+    "afterTriangles": 130452,
+    "beforeCalls": 49,
+    "afterCalls": 49
+  },
+  "city-market-vq": {
+    "beforeTriangles": 129916,
+    "afterTriangles": 130204,
+    "beforeCalls": 43,
+    "afterCalls": 43
+  },
+  "countryside-vq": {
+    "beforeTriangles": 119248,
+    "afterTriangles": 119248,
+    "beforeCalls": 54,
+    "afterCalls": 54
+  },
+  "mountain-vq": {
+    "beforeTriangles": 106342,
+    "afterTriangles": 106342,
+    "beforeCalls": 54,
+    "afterCalls": 54
+  },
+  "snow-vq": {
+    "beforeTriangles": 69408,
+    "afterTriangles": 69408,
+    "beforeCalls": 45,
+    "afterCalls": 45
+  },
+  "sea-vq": {
+    "beforeTriangles": 70000,
+    "afterTriangles": 70000,
+    "beforeCalls": 50,
+    "afterCalls": 50
+  },
+  "deepsea-vq": {
+    "beforeTriangles": 73332,
+    "afterTriangles": 73332,
+    "beforeCalls": 36,
+    "afterCalls": 36
+  },
+  "river_lake-vq": {
+    "beforeTriangles": 112210,
+    "afterTriangles": 112210,
+    "beforeCalls": 43,
+    "afterCalls": 43
+  },
+  "river-bridge-vq": {
+    "beforeTriangles": 113074,
+    "afterTriangles": 113074,
+    "beforeCalls": 55,
+    "afterCalls": 55
+  },
+  "desert-vq": {
+    "beforeTriangles": 90304,
+    "afterTriangles": 90304,
+    "beforeCalls": 41,
+    "afterCalls": 41
+  },
+  "oasis-vq": {
+    "beforeTriangles": 90544,
+    "afterTriangles": 90544,
+    "beforeCalls": 43,
+    "afterCalls": 43
+  },
+  "star_stop-vq": {
+    "beforeTriangles": 65984,
+    "afterTriangles": 65984,
+    "beforeCalls": 30,
+    "afterCalls": 30
+  },
+  "memory_lake-vq": {
+    "beforeTriangles": 51204,
+    "afterTriangles": 51204,
+    "beforeCalls": 35,
+    "afterCalls": 35
+  },
+  "forest-creek-vq": {
+    "beforeTriangles": 147994,
+    "afterTriangles": 147994,
+    "beforeCalls": 65,
+    "afterCalls": 65
+  },
+  "forest-bridge-vq": {
+    "beforeTriangles": 147034,
+    "afterTriangles": 147034,
+    "beforeCalls": 50,
+    "afterCalls": 50
+  },
+  "river-stonebridge-vq": {
+    "beforeTriangles": 113038,
+    "afterTriangles": 113038,
+    "beforeCalls": 56,
+    "afterCalls": 56
+  },
+  "countryside-river-vq": {
+    "beforeTriangles": 119500,
+    "afterTriangles": 119500,
+    "beforeCalls": 55,
+    "afterCalls": 55
+  },
+  "mountain-summer-vq": {
+    "beforeTriangles": 106354,
+    "afterTriangles": 106354,
+    "beforeCalls": 55,
+    "afterCalls": 55
+  },
+  "mountain-winter-vq": {
+    "beforeTriangles": 104146,
+    "afterTriangles": 104146,
+    "beforeCalls": 54,
+    "afterCalls": 54
+  },
+  "river-bridge2-vq": {
+    "beforeTriangles": 110342,
+    "afterTriangles": 110342,
+    "beforeCalls": 46,
+    "afterCalls": 46
+  },
+  "mountain-slope-vq": {
+    "beforeTriangles": 106924,
+    "afterTriangles": 106924,
+    "beforeCalls": 63,
+    "afterCalls": 63
+  },
+  "desert-slope-vq": {
+    "beforeTriangles": 89914,
+    "afterTriangles": 89914,
+    "beforeCalls": 34,
+    "afterCalls": 34
+  },
+  "forest-autumn-vq": {
+    "beforeTriangles": 147752,
+    "afterTriangles": 147752,
+    "beforeCalls": 60,
+    "afterCalls": 60
+  },
+  "countryside-autumn-vq": {
+    "beforeTriangles": 119248,
+    "afterTriangles": 119248,
+    "beforeCalls": 54,
+    "afterCalls": 54
+  },
+  "forest-winter-vq": {
+    "beforeTriangles": 152314,
+    "afterTriangles": 152314,
+    "beforeCalls": 46,
+    "afterCalls": 46
+  },
+  "home-spring-vq": {
+    "beforeTriangles": 35272,
+    "afterTriangles": 35272,
+    "beforeCalls": 42,
+    "afterCalls": 42
+  }
+}
