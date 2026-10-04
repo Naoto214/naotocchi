@@ -1,0 +1,54 @@
+[
+  {
+    "lane": "main",
+    "head": "0b0a6b30e8e098472b2fa965604f4901874942e3",
+    "mechanicalConflict": false,
+    "conflicts": [],
+    "semantic": "No branch merged; review Character holder visibility, terrain contact, occlusion, lifecycle and canonical Motion/Expression ownership at integration."
+  },
+  {
+    "lane": "#367",
+    "head": "32e3320466d57899c474b38e1d00c2854411ac7d",
+    "mechanicalConflict": true,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in index.html"
+    ],
+    "semantic": "No branch merged; review Character holder visibility, terrain contact, occlusion, lifecycle and canonical Motion/Expression ownership at integration."
+  },
+  {
+    "lane": "#369",
+    "head": "cbafd678875997ba754b5abe6bbb006db135731c",
+    "mechanicalConflict": true,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in index.html",
+      "CONFLICT (content): Merge conflict in meguru-3d.mjs",
+      "CONFLICT (content): Merge conflict in meguru.js",
+      "CONFLICT (content): Merge conflict in package.json"
+    ],
+    "semantic": "No branch merged; review Character holder visibility, terrain contact, occlusion, lifecycle and canonical Motion/Expression ownership at integration."
+  },
+  {
+    "lane": "#371",
+    "head": "69a8857bacfa597fa65dcb433536b2f603f26b7d",
+    "mechanicalConflict": true,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in index.html",
+      "CONFLICT (content): Merge conflict in meguru-3d.mjs",
+      "CONFLICT (content): Merge conflict in meguru.js",
+      "CONFLICT (content): Merge conflict in package.json"
+    ],
+    "semantic": "No branch merged; review Character holder visibility, terrain contact, occlusion, lifecycle and canonical Motion/Expression ownership at integration."
+  },
+  {
+    "lane": "#374",
+    "head": "a41dd089c5f71809974b62b7c1ec8f7b213fad81",
+    "mechanicalConflict": true,
+    "conflicts": [
+      "CONFLICT (content): Merge conflict in index.html",
+      "CONFLICT (content): Merge conflict in meguru-3d.mjs",
+      "CONFLICT (content): Merge conflict in meguru.js",
+      "CONFLICT (content): Merge conflict in package.json"
+    ],
+    "semantic": "No branch merged; review Character holder visibility, terrain contact, occlusion, lifecycle and canonical Motion/Expression ownership at integration."
+  }
+]

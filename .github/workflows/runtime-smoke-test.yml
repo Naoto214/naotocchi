@@ -2,7 +2,7 @@ name: Runtime smoke test
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, feat/character-3d-pilot]
   push:
     branches: [main]
 

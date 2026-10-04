@@ -1,0 +1,33 @@
+name: Character 3D Full Rollout
+on:
+  push:
+    branches: [feat/character-3d-full-rollout-v0]
+    paths: ['character-3d/**', 'tools/character-3d/**', 'tests/character-3d*', 'docs/character-3d/full-rollout-v0/**', '.github/workflows/character-3d-rollout.yml']
+permissions:
+  contents: read
+jobs:
+  dedicated:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - name: Fresh inventory and dedicated regression
+        run: |
+          mkdir -p test-results/full-rollout
+          node tools/character-3d/inventory.cjs test-results/full-rollout/inventory.json
+          node --test --test-reporter=tap tests/character-3d*-test.cjs > test-results/full-rollout/dedicated.tap
+      - name: Existing mechanism mutations
+        run: |
+          sh tools/character-3d/remove-it.sh > test-results/full-rollout/remove-it.txt
+          node tools/character-3d/quality-remove-it.cjs > test-results/full-rollout/quality-remove-it.txt
+          node tools/character-3d/quality2-remove-it.cjs > test-results/full-rollout/quality2-remove-it.txt
+          node tools/character-3d/quality3-remove-it.cjs > test-results/full-rollout/quality3-remove-it.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-dedicated-${{ github.sha }}
+          path: test-results/full-rollout
