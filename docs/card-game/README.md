@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+- [463 事前固定mandatoryランダムpolicy詳細設計](463-precommitted-mandatory-policy-detail.md)：初期順/選択seed分離、鏡像側別導出、完全候補1/N、116と別record、policy条件付き算入契約案。詳細設計のみ、未採用・未実装・seed/対戦0。
+
 - [462 必須複数選択の比較方針とランダムpolicy設計](462-mandatory-policy-options-design.md)：証明限定・全継続優越・事前固定ランダムの3案。戦略根拠とpolicy適合を分離し、別版算入条件の承認境界を整理。設計のみ、全案未採用、seed/対戦0。
 
 - [461 必須選択の根拠を保持する別版設計](461-mandatory-choice-proof-design.md)：初回7現物の非fallback根拠は既存契約だけでは得られない。公開量一致と現物残差を分離し、同種必須選択の証拠契約を設計。実装・採用・seed/対戦0。
