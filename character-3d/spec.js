@@ -105,7 +105,7 @@
     jellyfish: { stages: [TE, TE, R, TE, TE, TE, TE, TE], attachments: ['rock(01-02)', 'bubbles'] },
     starfish: { stages: [B, B, R, R, R, R, R, R], attachments: ['bubbles(08)'] },
     coral: { stages: [B, TE, TE, TE, TE, C, C, C], attachments: ['rock-base(02-08)'] },
-    dandelion: { stages: [P, P, PL, PL, PL, PL, PL, C], attachments: ['pappus(01,07-08)'] },
+    dandelion: { stages: [P, PL, PL, PL, PL, PL, PL, C], attachments: ['pappus(01,07-08)'] },
     sakura: { stages: [P, P, T, T, C, C, C, T], attachments: ['dirt(02)'] },
     venus_flytrap: { stages: [P, PL, PL, PL, PL, PL, PL, PL], attachments: ['traps(02-08)', 'flowers(08)'] },
     mushroom: { stages: [C, TE, FU, FU, FU, FU, FU, FU], attachments: ['dirt(03-08)', 'spores(07)', 'child(08)'] },

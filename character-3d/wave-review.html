@@ -16,7 +16,7 @@ import {animate,setEmotion} from './animate.mjs';
 const q=new URLSearchParams(location.search),id=q.get('id')||'cat',stage=Number(q.get('stage')||3),view=q.get('view')||'34';
 const row=(globalThis.NaotocchiTopologyWave(SPEC.PILOT)[id]||globalThis.NaotocchiHumanoidWave(SPEC.PILOT)[id]||globalThis.NaotocchiCharacter3DRollout(SPEC.PILOT)[id]||globalThis.NaotocchiFishWave(SPEC.PILOT)[id]),sp=row?.stages[stage];
 if(!sp)throw Error('No exact candidate '+id+'/'+stage);
-const rig=builders[sp.archetype](sp,id+':'+stage);
+const rig=builders.BUILDERS[sp.archetype](sp,id+':'+stage);
 rig.faces=(Array.isArray(rig.faceSpec)?rig.faceSpec:[rig.faceSpec]).map(f=>attachFace(rig,f,'C')); rig.face=rig.faces[0];
 const instance=instantiate({rig,key:id+':'+stage});
 setEmotion(instance,q.get('emotion')||'normal');

@@ -57,7 +57,7 @@ test('every candidate preserves canonical expression and finite idle/walk under 
   const {instantiate} = await import('../character-3d/runtime.mjs');
   const {animate,setEmotion,react} = await import('../character-3d/animate.mjs');
   for (const [id,row] of Object.entries(rows)) for (const [stage,sp] of Object.entries(row.stages)) {
-    const rig = builders[sp.archetype](sp, id+':'+stage);
+    const rig = builders.BUILDERS[sp.archetype](sp, id+':'+stage);
     rig.faces = (Array.isArray(rig.faceSpec)?rig.faceSpec:[rig.faceSpec]).map(f=>attachFace(rig,f,'B'));
     const instance = instantiate({rig,key:id+':'+stage});
     for(const emotion of ['normal','positive','dislike','tired','sleeping','strained','wantsPlay','sick']) {
@@ -109,4 +109,7 @@ test('reviewed exact stages reach the real presenter without role aliases or nea
 });
 test('reviewed human batch has all24 exact runtime templates without nearest-age substitution',async()=>{
  const rt=await import('../character-3d/runtime.mjs');for(const id of ['man','woman','ren'])for(let stage=1;stage<=8;stage++){assert.deepEqual(SPEC.specKeyFor({line:id,stage:stage-1}),{id,stage,exact:true});assert.equal(rt.getTemplate(id,stage).status,'ok');}assert.equal(SPEC.ROLLOUT.woman.stages[8].poseProfile.seated,true);
+});
+test('reviewed dandelion batch has eight exact runtime stages including rooted seed head',async()=>{
+ const rt=await import('../character-3d/runtime.mjs');for(let stage=1;stage<=8;stage++){assert.deepEqual(SPEC.specKeyFor({line:'dandelion',stage:stage-1}),{id:'dandelion',stage,exact:true});assert.equal(rt.getTemplate('dandelion',stage).status,'ok');}assert.equal(SPEC.ROLLOUT.dandelion.stages[7].form,'seedHead');assert.equal(SPEC.ROLLOUT.dandelion.stages[8].archetype,'cluster');
 });

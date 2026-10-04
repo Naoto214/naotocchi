@@ -29,7 +29,7 @@ test('original bud and rooted-puff candidates retain all canonical expressions a
   for(const part of rig.parts)assert.ok([...part.mesh.geometry.attributes.position.array].every(Number.isFinite));
   for(const moving of [false,true])for(const animLv of [0,2]){const actor=instantiate({rig,key:'dandelion:'+stage});for(const emotion of SPEC.CANONICAL_EMOTIONS){setEmotion(actor,emotion);animate(actor,{dt:.1,moving,animLv});assert.equal(actor.faces[0].emotion,emotion);for(const b of Object.values(actor.bones))assert.ok([...b.position.toArray(),...b.scale.toArray(),b.rotation.x,b.rotation.y,b.rotation.z].every(Number.isFinite));}}
  }
- assert.equal(SPEC.ROLLOUT.dandelion,undefined,'unreviewed candidates stay outside promoted runtime');
+ assert.deepEqual(SPEC.ROLLOUT.dandelion,row,'reviewed plant batch promoted unchanged');
 });
 test('bud sepals remain exposed over the lower head surface and rooted leaves stay low',async()=>{
  const {plant}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs');

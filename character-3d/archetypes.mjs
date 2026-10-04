@@ -505,7 +505,7 @@ export function wingedInsect(sp, key) {
   if (sp.legs) for (const side of [-1,1]) for (const [originY,elbowX,elbowY,tipX,tipY] of sp.legs.pairs) {
     limbs.push(solid(sweep([[side*B.r*.35,originY,B.r*.45],[side*elbowX,elbowY,B.r*1.6],[side*tipX,tipY,B.r*1.9]], t=>sp.legs.radius*(1-.18*t),6,{steps:6}),shade(c.body,1.55)));
   }
-  rig.add('body', 'root', [0, 0, 0], [thorax, abdomen, ...limbs]);
+  rig.add('body', 'root', sp.bodyOffset || [0, 0, 0], [thorax, abdomen, ...limbs]);
   const hr = sp.head.r;
   const headGeo = solid(blob((x, y, z) => [x * hr * 1.06, y * hr, z * hr * 0.95], 18, 12), c.face);
   const ant = [-1, 1].map((s) => merge([solid(sweep([[s * hr * 0.3, hr * 0.8, 0], [s * hr * 0.6, hr * 0.8 + sp.antenna * 0.6, -0.02], [s * hr * 0.9, hr * 0.8 + sp.antenna, 0.02]], () => 0.016, 4, { steps: 8 }), c.body), solid(xform(ellipsoid(0.045, 0.045, 0.045, 6, 5), { pos: [s * hr * 0.9, hr * 0.8 + sp.antenna, 0.02] }), c.wing)]));
@@ -514,8 +514,8 @@ export function wingedInsect(sp, key) {
   // はね: 扇の 面(根もと = 体)。色は 中心 → ふち(こい 青 + 白い 点)
   const wingCol = (lo, hi) => (x, y, z, nx, ny, nz, i) => { const rr = Math.hypot(x, y); const t = (rr - lo) / (hi - lo); return t > 0.86 ? c.wingDark : t > 0.78 ? (Math.sin(Math.atan2(y, x) * 26) > 0.55 ? c.dots : c.wingDark) : mix(c.wingLight, c.wing, smooth(0.0, 0.6, t)); };
   for (const s of [-1, 1]) {
-    const fR = (a) => Wg.span * .73 * (.10 + .90 * Math.pow(Math.max(0,Math.sin(Math.PI*(a-.05)/1.50)),.55)) * (1+.018*Math.cos(a*14));
-    const hR = (a) => Wg.span * .48 * (.12 + .88 * Math.pow(Math.max(0,Math.sin(Math.PI*(a+1.35)/1.40)),.55)) * (1+.025*Math.cos(a*10));
+    const fR = (a) => Wg.span * .73 * (Wg.foreScale ?? 1) * (.10 + .90 * Math.pow(Math.max(0,Math.sin(Math.PI*(a-.05)/1.50)),.55)) * (1+.018*Math.cos(a*14));
+    const hR = (a) => Wg.span * .48 * (Wg.hindScale ?? 1) * (.12 + .88 * Math.pow(Math.max(0,Math.sin(Math.PI*(a+1.35)/1.40)),.55)) * (1+.025*Math.cos(a*10));
     const tone = (Rf) => (x, y) => { const a=Math.atan2(y,x), t = Math.hypot(x, y) / Rf(a); const vein=Math.abs(Math.sin(a*9)); return t > 0.84 || (vein<.16 && t>.12) ? c.wingDark : mix(c.wingLight, c.wing, smooth(0.05, 0.82, t)*.7); };
     const fw = paint(fan(fR, 0.05, 1.55, { na: 20, nr: 7 }), tone(fR));
     const hw = paint(fan(hR, -1.35, 0.05, { na: 16, nr: 6 }), tone(hR));
@@ -527,12 +527,26 @@ export function wingedInsect(sp, key) {
     const veins = [];
     for(const [lo,hi,Rf,n]of [[.1,1.5,fR,5],[-1.3,-.06,hR,4]])for(let i=1;i<n;i++){const a=lerp(lo,hi,i/n),r=Rf(a);veins.push(solid(sweep([[Math.cos(a)*r*.08,Math.sin(a)*r*.08,.012],[Math.cos(a+.09)*r*.5,Math.sin(a+.09)*r*.5,.015],[Math.cos(a)*r*.84,Math.sin(a)*r*.84,.012]],()=>.008,3,{steps:4,cap:false}),c.wingDark));}
     const wing = merge([fw, hw, ...dots, ...veins]);
-    wing.scale(s, 1, 1); wing.rotateY(-s * 0.12);
+    wing.scale(s, Wg.vertical ?? 1, 1); wing.rotateY(-s * 0.12);
     rig.add(s < 0 ? 'wingL' : 'wingR', 'body', [s * B.r * 0.6, B.r * 0.4, -B.r * 0.2], [wing]);
+  }
+  if (sp.emergence) {
+    const e=sp.emergence,h=e.h,r=e.r;
+    const profile=[[.01,0],[r*.45,h*.12],[r*.92,h*.35],[r,h*.58],[r*.65,h*.84],[.014,h]];
+    // The front sector is absent, exposing a continuous inner/back surface.
+    // Optional shell attachment: no second actor, face or locomotion state.
+    const outer=new THREE.LatheGeometry(profile.map(([x,y])=>new THREE.Vector2(x,y)),28,.78,TAU-1.56);
+    const inner=new THREE.LatheGeometry(profile.map(([x,y])=>new THREE.Vector2(Math.max(.004,x-.016),y)),28,.78,TAU-1.56);
+    const index=inner.index;for(let i=0;i<index.count;i+=3){const a=index.getX(i);index.setX(i,index.getX(i+2));index.setX(i+2,a);}inner.computeVertexNormals();
+    const edge=[];for(const a of [.78,TAU-.78])edge.push(solid(sweep(profile.map(([rad,y])=>[Math.sin(a)*rad,y,Math.cos(a)*rad]),()=>.009,5,{steps:14}),e.colors.inside));
+    rig.add('emptyShell','root',e.at,[solid(outer,e.colors.base),solid(inner,e.colors.inside),...edge]);
+    const top=e.at[1]+h;
+    const thread=solid(sweep([[e.at[0],top,e.at[2]],[e.at[0],e.branchY,0]],()=>.015,5,{steps:3}),e.colors.dark);
+    rig.add('branch','root',[0,0,0],[branchGeo(1.20,e.branchY),thread]);
   }
   rig.meta = { idlePose: 'hover', hover: sp.hover || 0.55 };
   rig.faceSpec = { bone: 'head', target: headGeo, center: [0, -hr * 0.05, hr * 0.9], fwd: [0, 0, 1], half: hr * 0.72, eyeSize: 0.25,
-    layout: { eyeX: 24, eyeY: 56, mouthY: 86, browY: 36, cheekX: 38, cheekY: 74, mouthW: 7 }, style: { blush: '#f4a0b0' }, normalEye: 'content' };
+    layout: { eyeX: 24, eyeY: 56, mouthY: 86, browY: 36, cheekX: 38, cheekY: 74, mouthW: 7 }, style: { blush: '#f4a0b0' }, normalEye: sp.normalEye ?? 'content' };
   return rig;
 }
 

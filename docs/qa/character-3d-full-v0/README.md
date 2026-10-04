@@ -5,7 +5,7 @@ This is a wave checkpoint, **not the completed Full Rollout Human QA package**.
 ## Current review surfaces
 
 - `character-3d/full-gallery.html`: master inventory, exact/pending status, paged lazy original/four-view records. Species, kind, archetype and stage filters. Full emotion/motion evidence filters remain pending.
-- `character-3d/gallery.html`: live reviewed Pilot + dog/cat/penguin/salmon/clownfish/man/woman/ren exact stages, canonical expressions and motion.
+- `character-3d/gallery.html`: live reviewed Pilot + dog/cat/penguin/salmon/clownfish/man/woman/ren/dandelion exact stages, canonical expressions and motion.
 - `fr1/dog-stages.jpg`, `fr1/cat-stages.jpg`, `fr1/penguin-stages.jpg`: original + front / 3/4 / side / back, all eight stages. Originals are alpha-trimmed for comparable art footprints; PNGs themselves are unchanged.
 - `fr1/evidence.json`: immutable renderer source `81b04e0758bca7018f39607bbcc8fb9cb8b280f9`, 96 views, triangles/draw calls. Three sheets plus 96 views = 99 saved images.
 
@@ -13,7 +13,7 @@ This is a wave checkpoint, **not the completed Full Rollout Human QA package**.
 
 Fresh master: 31 player species / 248 stages, 26 companions, 18 partners, author 1 = 293 active designs. Supplemental Home eggs (3) and retired kinoko (1) remain inventoried, not revived as gameplay actors.
 
-Current exact specs: **80/293** (78 player stages and 2 companions); **213 pending**. Added52 exact stages: dog +5, penguin +5, player cat +8, salmon +8, clownfish +5, man +5, woman +8, ren +8. Reused quadruped/avian/fish/humanoid, no new archetype.64 current four-view records; historical Pilot images remain in the Pilot QA packages. `coverage.json` distinguishes spec availability from saved visual evidence.
+Current exact specs: **84/293** (82 player stages and 2 companions); **209 pending**. Added56 exact stages: dog +5, penguin +5, player cat +8, salmon +8, clownfish +5, man +5, woman +8, ren +8, dandelion +4. Reused quadruped/avian/fish/humanoid/plant, no new archetype.72 current four-view records; historical Pilot images remain in the Pilot QA packages. `coverage.json` distinguishes spec availability from saved visual evidence.
 
 ## What changed in this batch
 
@@ -120,3 +120,8 @@ Stage QA is now inventory-driven per-family CI with same-source aggregation requ
 Shared wardrobe, hair, hat boundary, one/both-hand secondary attachments, neutral per-eye profile, articulated seated pose and support geometry. The chair is presentation-only, scales out as existing locomotion blends in. Held pet uses one merged secondary body draw and the same canonical emotion adapter.
 
 Known visual candidates: mature age impression, woman06 hair softness, held plush likeness and woman02 free-arm angle. Known model-cost outliers: woman08 (seated figure/chair/cat)10137tri/18draws, woman02 (plush)9050/14 at close view. Human-family1/5/27 mix is required; existing fish/Pilot numbers do not stand in for these models. iPhone NOT_RUN.
+
+### Dandelion promotion / butterfly emergence candidate
+- `fr1-topology/99268a8/`: all8 dandelion original/four-view comparison,32 views,16 normal-distance images and raw exact/live/fallback0 JSON. New02/03/05/07 promote unchanged after image review; runtime84/293,72 saved four-view records. Promoted-source72-stage matrix remains pending.
+- Butterfly06 now has an optional open empty pupa shell beside the emerging butterfly, bounded separate fore/hind wing proportions and one canonical face. Casing/branch is a presentation attachment, not a second gameplay actor or World item. Unpromoted pending four-view and normal-distance images.
+- Local dedicated93PASS/0FAIL, Pilot28 numerical geometry/pose hashes unchanged. Emergence4/4RED; latest promotion mutation result in progress log. Final full v0 and iPhone not complete.

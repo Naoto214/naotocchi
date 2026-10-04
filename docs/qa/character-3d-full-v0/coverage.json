@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 80,
-    "pending": 213,
-    "fourViewRecords": 64
+    "exactSpecs": 84,
+    "pending": 209,
+    "fourViewRecords": 72
   },
   "rows": [
     {
@@ -2901,10 +2901,10 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-1-back.jpg"
       }
     },
     {
@@ -2916,15 +2916,15 @@
       "group": "normal",
       "asset": "assets/characters/dandelion/02.png",
       "sha256": "209e9734d5ba1ba78b0c9f47d0a2dac80ea3ca1c3d74a4f94c46da183c4c3126",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "plant",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-2-back.jpg"
       }
     },
     {
@@ -2936,15 +2936,15 @@
       "group": "normal",
       "asset": "assets/characters/dandelion/03.png",
       "sha256": "6db34567124680686c80917faf264e68abaa9402596b2cefcb38598af598191a",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "plant",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-3-back.jpg"
       }
     },
     {
@@ -2961,10 +2961,10 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-4-back.jpg"
       }
     },
     {
@@ -2976,15 +2976,15 @@
       "group": "normal",
       "asset": "assets/characters/dandelion/05.png",
       "sha256": "95c4d3a9b50e5e7fededfbab75f84d2e4be154d1a278bc0cab58271d9f0e1d60",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "plant",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-5-back.jpg"
       }
     },
     {
@@ -3001,10 +3001,10 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-6-back.jpg"
       }
     },
     {
@@ -3016,15 +3016,15 @@
       "group": "normal",
       "asset": "assets/characters/dandelion/07.png",
       "sha256": "82b93af4cfb010ce48e9fef6cb1028f696a7fd2da60b72647e29dc64fb4c6115",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "plant",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-7-back.jpg"
       }
     },
     {
@@ -3041,10 +3041,10 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-topology/99268a8/topology/dandelion-8-back.jpg"
       }
     },
     {

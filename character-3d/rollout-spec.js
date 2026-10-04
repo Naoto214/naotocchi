@@ -61,5 +61,6 @@
   penguin.stages[7] = extend(grown,{body:{h:1.22,r:.49,belly:.69},head:{r:.43,merge:.58},wing:{len:.64,w:.15},feet:{len:.20},attachments:[],normalEye:'round'});
   const fishFactory=typeof module==='object'&&module.exports?require('./fish-spec.js'):globalThis.NaotocchiFishWave;
   const humanFactory=typeof module==='object'&&module.exports?require('./humanoid-spec.js'):globalThis.NaotocchiHumanoidWave;
-  return {dog,cat,penguin,...fishFactory(PILOT),...humanFactory(PILOT)};
+  const topologyFactory=typeof module==='object'&&module.exports?require('./topology-spec.js'):globalThis.NaotocchiTopologyWave;
+  return {dog,cat,penguin,...fishFactory(PILOT),...humanFactory(PILOT),dandelion:topologyFactory(PILOT).dandelion};
 });
