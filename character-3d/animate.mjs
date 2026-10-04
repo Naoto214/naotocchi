@@ -44,6 +44,8 @@ const LOCO = {
     if (B.tail) B.tail.rotation.y += Math.sin(s.t * (5 + 6 * s.expr.body.bounce)) * (0.25 + 0.45 * s.expr.body.bounce) * k.idle + Math.sin(ph) * 0.2 * m * k.amp;
     // idle の 姿勢(ふせ / おすわり)。あるくと 立つ
     const w = 1 - m, pose = meta.idlePose;
+    const lifted = meta.poseProfile?.pawLift;
+    if (lifted && B[lifted]) B[lifted].rotation.x += (meta.poseProfile.pawLiftAngle ?? -1) * w;
     if (pose === 'recline' && w > 0) {
       const p=meta.poseProfile;
       B.body.position.y=lerp(B.body.position.y,meta.bodyR*.89,w);
