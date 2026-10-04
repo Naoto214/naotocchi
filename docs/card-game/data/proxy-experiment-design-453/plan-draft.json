@@ -1,0 +1,64 @@
+{
+  "approval_status": "not_requested_for_execution",
+  "base_head": "d4f493c5356d86dd6b4bc12f83760e2ddc205a69",
+  "executable": false,
+  "execution": {
+    "new_matches": 0,
+    "new_replays": 0,
+    "new_shadow_comparisons": 0
+  },
+  "inherited_constraints": {
+    "balance_exclude_if_any_positive": [
+      "seeded_fallback_count",
+      "strategic_unresolved_count"
+    ],
+    "canonical_policy_114_unchanged": true,
+    "independent_balance_sample_count": 0,
+    "judgment_kinds": [
+      "normal_action",
+      "mandatory_choice",
+      "response_action"
+    ],
+    "legacy_72_separate": true,
+    "past_results_unchanged": true,
+    "pilot_A_first_edition_frozen": true,
+    "policy_promoted": false
+  },
+  "proposed_directions": [
+    "design_separate_all_judgment_evaluation_policy",
+    "design_fixed_policy_diagnostic_batch"
+  ],
+  "schema": "experiment_design_draft_453.v1",
+  "selected_direction": null,
+  "sources_sha256": {
+    "107-normal-decision-match-protocol.md": "32f40f9edaadd5aead8d424eac3c33618ccc1ec212837a9672a30ff22e62f2e9",
+    "111-structural-gap-disposition-and-repetition-scope.md": "47e646900efb8e30714382e179dff42413b92719e603dfe72196baaac0adce26",
+    "114-normal-decision-protocol-hardening.md": "aa161063e4fa9e056818d00e3fe799448107b3b51f00c05e67c2c89c3a50e59a",
+    "116-normal-decision-fallback-contract.md": "577dccec67343ead75aa813b464b432679927c2f4b71ed960be5058aaa3ef393",
+    "119-response-window-contract.md": "c79e89709c687211ae5ca4a2ba3328e285ffafcf9b7790f913ae5ceb953cba45",
+    "414-normal-decision-resource-pilot-design.md": "f2663994080406e7a6cbfe777f1b16103606a31e1956c22f8a8af964c4fc327e",
+    "445-public-result-equivalence-design.md": "a7a2e3199c8e0ee536d2bb2345dcfcf19a21b5137efa220acddb3d40f490d667",
+    "450-residual-evidence-audit.md": "1d96cb7b73d82517081bdd5f37272371b05fdefae675a96e46060fba48c43a6a",
+    "451-public-declaration-prefix.md": "107984be2058d83e0e18fd0c6318dc0c7108af081d4ee3210e3a6cbdfc3db783",
+    "452-independent-balance-readiness.md": "4735e0568f2b40698e7f4dbdf5c1f25cbbbd0848b13e51d55340d95671cdafd5",
+    "98-proxy-pool-layers-and-replay-schema.md": "90036bf6e3caef2e45413ed2d6f84ca56ad9821b37a6fc36e0bc1e5eb0f0480d",
+    "data/proxy-balance-readiness-452/census.json": "e8b6eedc1fe2c6ac0a0ec4c1e409cf9f912929cede0d96770afe71475daf92fd",
+    "data/proxy-normal-decision-fallback-contract-116-20260918.json": "8a7f41847339816d786d6c6055e290454cf8d5d84d6ccc22d6a32eb287cbfb6f"
+  },
+  "status": "draft_requires_direction_decision",
+  "undecided": {
+    "analysis_plan": null,
+    "comparison_unit": null,
+    "deck_manifests": null,
+    "evaluation_objective": null,
+    "inference_scope": null,
+    "input_generation": null,
+    "mandatory_policy": null,
+    "normal_policy": null,
+    "response_policy": null,
+    "sample_size_or_precision": null,
+    "seat_policy_assignment": null,
+    "seeds": null,
+    "stopping_conditions": null
+  }
+}
