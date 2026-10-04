@@ -1,0 +1,38 @@
+[
+  {
+    "branch": "main",
+    "head": "0b0a6b30e8e098472b2fa965604f4901874942e3",
+    "exit": 0,
+    "result": "a70017e91114baf78968c8c09d7d628812cea5e5\n"
+  },
+  {
+    "branch": "feat/meguru-all-regions-3d-v0",
+    "head": "32e3320466d57899c474b38e1d00c2854411ac7d",
+    "exit": 1,
+    "result": "47cf60d05980af253a932a32e80ab8bd00409445\nindex.html\n\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\nAuto-merging meguru.js\n"
+  },
+  {
+    "branch": "feat/meguru-resident-expression",
+    "head": "f50bd6528614d2ca8512730f4b12042c0d529407",
+    "exit": 0,
+    "result": "a70017e91114baf78968c8c09d7d628812cea5e5\n"
+  },
+  {
+    "branch": "feat/meguru-3d-foundation-v2",
+    "head": "cbafd678875997ba754b5abe6bbb006db135731c",
+    "exit": 1,
+    "result": "6f454fd714674e113a8cdcf82507cb18a3302601\nindex.html\nmeguru-3d.mjs\nmeguru.js\npackage.json\n\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\nCONFLICT (content): Merge conflict in meguru-3d.mjs\nAuto-merging meguru.js\nCONFLICT (content): Merge conflict in meguru.js\nAuto-merging package.json\nCONFLICT (content): Merge conflict in package.json\n"
+  },
+  {
+    "branch": "feat/meguru-3d-art-direction-v1",
+    "head": "69a8857bacfa597fa65dcb433536b2f603f26b7d",
+    "exit": 1,
+    "result": "ab948c3cc3e0dfd2d0e9aec08b07d5b40f7f62fb\nindex.html\nmeguru-3d.mjs\nmeguru.js\npackage.json\n\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\nCONFLICT (content): Merge conflict in meguru-3d.mjs\nAuto-merging meguru.js\nCONFLICT (content): Merge conflict in meguru.js\nAuto-merging package.json\nCONFLICT (content): Merge conflict in package.json\n"
+  },
+  {
+    "branch": "feat/meguru-3d-geometry-terrain-v1",
+    "head": "704faac1e62690d9c4dff5e862a0d8d424cefff9",
+    "exit": 1,
+    "result": "a78bba6ad2454ebb67ea397a91b09d0d7ceaf342\nindex.html\nmeguru-3d.mjs\nmeguru.js\npackage.json\n\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\nCONFLICT (content): Merge conflict in meguru-3d.mjs\nAuto-merging meguru.js\nCONFLICT (content): Merge conflict in meguru.js\nAuto-merging package.json\nCONFLICT (content): Merge conflict in package.json\n"
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "source": "cf7b787d1ca422a358216ff36c6c29d06a571dd4",
+  "evidenceCommit": "bca3ca2467ce0493b2a6782a26c3f46c8a93ada3",
+  "runs": [
+    {
+      "id": 37167010916,
+      "name": "Character 3D quality evidence",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "cf7b787d1ca422a358216ff36c6c29d06a571dd4",
+      "html_url": "https://github.com/Naoto214/naotocchi/actions/runs/37167010916",
+      "updated_at": "2026-10-04T01:42:31Z"
+    },
+    {
+      "id": 37167013312,
+      "name": "Runtime smoke test",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "cf7b787d1ca422a358216ff36c6c29d06a571dd4",
+      "html_url": "https://github.com/Naoto214/naotocchi/actions/runs/37167013312",
+      "updated_at": "2026-10-04T01:16:39Z"
+    },
+    {
+      "id": 37167013283,
+      "name": "Home layout",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "cf7b787d1ca422a358216ff36c6c29d06a571dd4",
+      "html_url": "https://github.com/Naoto214/naotocchi/actions/runs/37167013283",
+      "updated_at": "2026-10-04T01:23:12Z"
+    }
+  ],
+  "dedicated": {
+    "pass": 54,
+    "fail": 0
+  },
+  "mutations": {
+    "original": 13,
+    "quality": 11,
+    "quality2": 7,
+    "quality3": 6,
+    "allDetected": true
+  },
+  "full": {
+    "tap": 2917,
+    "relationship": 80,
+    "fail": 0
+  },
+  "imageCount": 132,
+  "iPhone": "NOT_RUN"
+}
