@@ -142,7 +142,19 @@ export function fish(sp, key) {
   const prof = (t) => (t >= -0.15 ? Math.pow(Math.max(0, 1 - Math.pow(Math.abs(t + 0.15) / 1.15, 2.6)), 1 / 2.6) : lerp(0.24, 1, Math.pow((t + 1) / 0.85, 1.3)));
   const along = (z) => (1 - z / (len / 2)) / 2;   // 0 = 頭 1 = 尾
   const band = (s) => { for (const b of sp.bands || []) { const d = Math.abs(s - b), w = b > 0.8 ? .04 : .068; if (d < w) return 'band'; if (sp.bandEdge && d < w + 0.022) return 'edge'; } return null; };
-  const bodyCol = (x, y, z, nx, ny) => { const b = band(along(z)); if (b === 'band') return c.band; if (b === 'edge') return c.edge; return mix(c.base, c.belly, smooth(-0.1, -0.7, ny)); };
+  const bodyCol = (x, y, z, nx, ny) => {
+    const b=band(along(z));if(b==='band')return c.band;if(b==='edge')return c.edge;
+    let color=mix(c.base,c.belly,smooth(-.1,-.7,ny));
+    if(c.back)color=mix(color,c.back,smooth(.05,.8,ny));
+    if(c.head)color=mix(color,c.head,smooth(.19,.36,z/len));
+    const marks=sp.sideMarks;
+    if(marks){
+      const s=along(z),flank=Math.abs(x)/B.w;
+      if(marks.bars && s>.25 && s<.86 && flank>.48 && Math.abs(y)<B.h*.28 && Math.cos((s-.28)*marks.bars*Math.PI*2/.63)>.38)color=mix(color,marks.color,marks.strength??.7);
+      if(marks.spots && s>.22 && s<.86 && y>-B.h*.10 && noise3(x*83,y*79,z*71)>.80)color=mix(color,c.spot||c.back,marks.strength??.5);
+    }
+    return color;
+  };
   const g = new THREE.SphereGeometry(1, 18, 44); g.rotateX(Math.PI / 2);   // しまの ために 長さ方向の 輪を こまかく
   const p = g.attributes.position;
   for (let i = 0; i < p.count; i++) { const x = p.getX(i), y = p.getY(i), z = p.getZ(i), rho = Math.hypot(x, y) || 1, k = prof(z) * Math.sqrt(Math.max(0, 1 - z * z)) / rho; p.setXYZ(i, x * k * B.w, y * k * B.h / 2 * (y > 0 ? 1 : 0.92), z * len / 2); }
@@ -160,8 +172,14 @@ export function fish(sp, key) {
   const anal = strip(-len * 0.12, -len * 0.38, false, (u) => sp.fins.dorsal * 0.5 * Math.pow(Math.sin(Math.PI * u), 0.6));
   const matKey = sp.translucent ? 'translucent:' + sp.translucent : 'opaque';
   rig.add('body', 'root', [0, 0, 0], [body, dorsal, anal], matKey);
-  // 尾びれ(まるい 扇)
-  const tail = paint(xform(fan((a) => sp.tail.len * 0.85 * (0.9 + 0.12 * Math.cos(a * 3.2)), -0.9, 0.9, { na: 14, nr: 5, warp: (x, y) => [x, y * sp.tail.h / sp.tail.len * 0.9, 0] }), { rot: [0, Math.PI / 2, 0] }), (x, y, z) => (Math.hypot(z, y) > sp.tail.len * 0.74 && sp.bandEdge ? c.edge : c.fin));
+  if(sp.yolk)rig.add('yolk','body',sp.yolk.at,[solid(ellipsoid(sp.yolk.r*.85,sp.yolk.r,sp.yolk.r*1.04,12,8),sp.yolk.color)]);
+  if(sp.jaw){
+    const J=sp.jaw;
+    rig.add('jaw','body',[0,-B.h*.18,len*.38],[solid(sweep([[0,0,-J.length*.6],[0,-J.depth*.2,J.length*.45],[0,J.depth*.75,J.length]],t=>J.depth*(.78-.46*t),8,{steps:8}),c.head||c.belly)]);
+  }
+  // 尾びれ(まるい 扇 / forked silhouette)
+
+  const tail = paint(xform(fan((a) => sp.tail.len * 0.85 * (sp.tail.fork ? .40+sp.tail.fork*Math.pow(Math.abs(a)/.9,.7) : 0.9 + 0.12 * Math.cos(a * 3.2)), -0.9, 0.9, { na: 14, nr: 5, warp: (x, y) => [x, y * sp.tail.h / sp.tail.len * 0.9, 0] }), { rot: [0, Math.PI / 2, 0] }), (x, y, z) => (Math.hypot(z, y) > sp.tail.len * 0.74 && sp.bandEdge ? c.edge : c.fin));
   rig.add('tail', 'body', [0, 0, -len / 2 + 0.04], [tail], matKey);
   // 胸びれ
   for (const s of [-1, 1]) {
@@ -170,8 +188,23 @@ export function fish(sp, key) {
   }
   // 顔は 頭の 先(からだの 前)
   rig.meta = { idlePose: 'swim', hover: sp.hover, len };
-  rig.faceSpec = { bone: 'body', target: body, center: [0, B.h * 0.04, len * 0.4], fwd: [0, 0, 1], half: B.h * 0.66, eyeSize: 0.24,
+  rig.faceSpec = { bone: 'body', target: body, center: [0, B.h * 0.04, len * 0.4], fwd: [0, 0, 1], half: sp.face?.half ?? B.h * 0.66, eyeSize: sp.face?.eyeSize ?? 0.24,
     layout: { eyeX: 36, eyeY: 54, mouthY: 96, browY: 34, cheekX: 42, cheekY: 78, mouthW: 8 }, style: { blush: '#ff9a7a' }, normalEye: sp.normalEye || null };
+  if(sp.school?.length){
+    const faces=[rig.faceSpec];
+    for(const [i,unit] of sp.school.entries()){
+      const child=fish({...sp,school:null,body:{...B},sideMarks:sp.sideMarks},key+':school'+i),prefix='school'+i+':';
+      const group=rig.add(prefix+'root','body',unit.at,null,'opaque',[0,unit.heading||0,0]);
+      group.scale.setScalar(unit.scale);group.userData.rest.s.copy(group.scale);
+      for(const [name,bone]of Object.entries(child.bones))if(name!=='root'){
+        const geos=child.parts.filter(p=>p.bone===name).map(p=>p.mesh.geometry);
+        const b=rig.add(prefix+name,prefix+(bone.parent===child.root?'root':bone.parent.name),bone.position.toArray(),geos,matKey,bone.rotation.toArray());
+        b.scale.copy(bone.scale);b.userData.rest.s.copy(b.scale);
+      }
+      faces.push({...child.faceSpec,bone:prefix+child.faceSpec.bone});
+    }
+    rig.faceSpec=faces;
+  }
   return rig;
 }
 function await_smooth(g) { g.computeVertexNormals(); return g; }

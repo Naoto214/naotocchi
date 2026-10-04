@@ -4,6 +4,7 @@
 <div id="label"></div>
 <script type="module">
 import './rollout-spec.js';
+import './fish-spec.js';
 import SPEC from './spec-esm.mjs';
 import {THREE} from './geometry.mjs';
 import * as builders from './archetypes.mjs';
@@ -11,10 +12,10 @@ import {attachFace} from './rig.mjs';
 import {instantiate} from './runtime.mjs';
 import {animate,setEmotion} from './animate.mjs';
 const q=new URLSearchParams(location.search),id=q.get('id')||'cat',stage=Number(q.get('stage')||3),view=q.get('view')||'34';
-const row=globalThis.NaotocchiCharacter3DRollout(SPEC.PILOT)[id],sp=row?.stages[stage];
+const row=(globalThis.NaotocchiCharacter3DRollout(SPEC.PILOT)[id]||globalThis.NaotocchiFishWave(SPEC.PILOT)[id]),sp=row?.stages[stage];
 if(!sp)throw Error('No exact candidate '+id+'/'+stage);
 const rig=builders[sp.archetype](sp,id+':'+stage);
-rig.faces=[attachFace(rig,rig.faceSpec,'C')];rig.face=rig.faces[0];
+rig.faces=(Array.isArray(rig.faceSpec)?rig.faceSpec:[rig.faceSpec]).map(f=>attachFace(rig,f,'C')); rig.face=rig.faces[0];
 const instance=instantiate({rig,key:id+':'+stage});
 setEmotion(instance,q.get('emotion')||'normal');
 for(let n=0;n<30;n++)animate(instance,{dt:1/30,moving:q.get('walk')==='1',animLv:q.get('reduced')==='1'?0:2});

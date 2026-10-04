@@ -52,3 +52,11 @@ Local dedicated now 61 PASS / 0 FAIL including every candidate × eight canonica
 
 [RECOVERY_COMPLETE: all 61 World JPEGs and raw performance JSON saved from verified CI artifact]
 Local exec-server stopped accepting commands with `No such file or directory`. GitHub remained available. Dedicated source 81b04e0 and all CI checks are complete. Recovery workflow saves all verified World evidence to this Draft branch; it does not change models, main, #372, or adoption status. Resume ordinary FR-1 fish/existing-family work from fresh remote after a working executor is available. Full v0 is not complete; this is an infrastructure checkpoint, not the final Human QA stop.
+
+### FR-1 fish representative checkpoint (not promoted)
+- Recovered working tree from exact remote c2bb41d/tree46d5e04; local existing object reuse was hash-verified. Original assets match remote. Historical QA images are sparse locally and remain saved on GitHub.
+- Next family originals inspected: salmon01 yolk /03 parr bars /07 red body, olive head and hooked jaw; clownfish05 parent and two small school members. Implemented these representatives in a separate fish-spec candidate module; no new runtime coverage claimed.
+- Shared fish parameters add yolk volume, lateral markings/back/head colour fields, forked tail contour, softly curved jaw volume and a school attachment with independently addressable faces. No new archetype, textures, actor state, gameplay or emotion semantics.
+- Representative tests first RED (missing candidate module), then 2 PASS; removal mutations 5/5 RED. Pilot 28-target numeric geometry/pose hashes still identical to the saved Pilot baseline. Dedicated suite 64 PASS/0 FAIL after restoring the missing historical Claude source fixture (initial sparse-checkout run failed only because that fixture was absent).
+- Local Chromium render failed before page load: socket() Operation not permitted. This is an execution-environment limitation, not a visual pass. CI renders the seven available fish candidate/reference stages in four views; inspect those artifacts before filling remaining fish stages or promoting them.
+- Exact runtime availability remains46/293;247 pending. Full npm / candidate CI pending at this checkpoint. iPhone NOT_RUN. No Ready/merge/v1.
