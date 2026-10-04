@@ -1,0 +1,15 @@
+test_changed_origin_intermediate_draw_omission_lookup_or_chain_is_rejected (test_proxy_population_opening.AuditTests.test_changed_origin_intermediate_draw_omission_lookup_or_chain_is_rejected) ... ok
+test_reconstruction_verified_but_following_response_and_match_unproved (test_proxy_population_opening.AuditTests.test_reconstruction_verified_but_following_response_and_match_unproved) ... ok
+test_saved_choice_is_not_used_as_an_input_or_legacy_reclassified (test_proxy_population_opening.AuditTests.test_saved_choice_is_not_used_as_an_input_or_legacy_reclassified) ... ok
+test_read_only_cli_pending_and_malformed_exit (test_proxy_population_opening.CliTests.test_read_only_cli_pending_and_malformed_exit) ... ok
+test_changed_initial_order_unknown_match_and_forged_source_fail (test_proxy_population_opening.LoaderTests.test_changed_initial_order_unknown_match_and_forged_source_fail) ... ok
+test_initial_state_retains_owner_decks_and_five_card_hands (test_proxy_population_opening.LoaderTests.test_initial_state_retains_owner_decks_and_five_card_hands) ... ok
+test_mirror_changes_first_player_without_swapping_owner_identities (test_proxy_population_opening.LoaderTests.test_mirror_changes_first_player_without_swapping_owner_identities) ... ok
+test_mirror_uses_other_first_owner_and_side_but_same_initial_state (test_proxy_population_opening.OpeningTests.test_mirror_uses_other_first_owner_and_side_but_same_initial_state) ... ok
+test_snapshot_and_continuation_hashes_bind_states_without_mutation (test_proxy_population_opening.OpeningTests.test_snapshot_and_continuation_hashes_bind_states_without_mutation) ... ok
+test_two_draws_seven_physical_candidates_and_rule_derived_address (test_proxy_population_opening.OpeningTests.test_two_draws_seven_physical_candidates_and_rule_derived_address) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 48.591s
+
+OK

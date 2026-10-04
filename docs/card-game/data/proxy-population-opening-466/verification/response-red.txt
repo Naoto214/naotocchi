@@ -1,0 +1,55 @@
+test_inventory_is_rederived_from_bundle_not_supplied_claim (test_proxy_population_first_response.IntegrationTests.test_inventory_is_rederived_from_bundle_not_supplied_claim) ... FAIL
+test_all_41_cards_have_a_hand_source_disposition_without_value_scores (test_proxy_population_first_response.InventoryTests.test_all_41_cards_have_a_hand_source_disposition_without_value_scores) ... FAIL
+test_boundary_cannot_be_used_for_later_windows_or_changed_resources (test_proxy_population_first_response.InventoryTests.test_boundary_cannot_be_used_for_later_windows_or_changed_resources) ... FAIL
+test_hidden_deck_contents_are_not_part_of_the_candidate_view (test_proxy_population_first_response.InventoryTests.test_hidden_deck_contents_are_not_part_of_the_candidate_view) ... FAIL
+test_same_named_physical_cards_each_supply_their_own_candidates (test_proxy_population_first_response.InventoryTests.test_same_named_physical_cards_each_supply_their_own_candidates) ... FAIL
+
+======================================================================
+FAIL: test_inventory_is_rederived_from_bundle_not_supplied_claim (test_proxy_population_first_response.IntegrationTests.test_inventory_is_rederived_from_bundle_not_supplied_claim)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_first_response.py", line 71, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'audit_first_response'),'prefix-to-response adapter missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : prefix-to-response adapter missing
+
+======================================================================
+FAIL: test_all_41_cards_have_a_hand_source_disposition_without_value_scores (test_proxy_population_first_response.InventoryTests.test_all_41_cards_have_a_hand_source_disposition_without_value_scores)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_first_response.py", line 26, in setUp
+    def setUp(self):self.assertIsNotNone(api,'source-bound first response inventory missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : source-bound first response inventory missing
+
+======================================================================
+FAIL: test_boundary_cannot_be_used_for_later_windows_or_changed_resources (test_proxy_population_first_response.InventoryTests.test_boundary_cannot_be_used_for_later_windows_or_changed_resources)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_first_response.py", line 26, in setUp
+    def setUp(self):self.assertIsNotNone(api,'source-bound first response inventory missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : source-bound first response inventory missing
+
+======================================================================
+FAIL: test_hidden_deck_contents_are_not_part_of_the_candidate_view (test_proxy_population_first_response.InventoryTests.test_hidden_deck_contents_are_not_part_of_the_candidate_view)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_first_response.py", line 26, in setUp
+    def setUp(self):self.assertIsNotNone(api,'source-bound first response inventory missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : source-bound first response inventory missing
+
+======================================================================
+FAIL: test_same_named_physical_cards_each_supply_their_own_candidates (test_proxy_population_first_response.InventoryTests.test_same_named_physical_cards_each_supply_their_own_candidates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_first_response.py", line 26, in setUp
+    def setUp(self):self.assertIsNotNone(api,'source-bound first response inventory missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : source-bound first response inventory missing
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+FAILED (failures=5)

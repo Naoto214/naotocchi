@@ -1,0 +1,35 @@
+test_changed_initial_order_unknown_match_and_forged_source_fail (test_proxy_population_opening.LoaderTests.test_changed_initial_order_unknown_match_and_forged_source_fail) ... FAIL
+test_initial_state_retains_owner_decks_and_five_card_hands (test_proxy_population_opening.LoaderTests.test_initial_state_retains_owner_decks_and_five_card_hands) ... FAIL
+test_mirror_changes_first_player_without_swapping_owner_identities (test_proxy_population_opening.LoaderTests.test_mirror_changes_first_player_without_swapping_owner_identities) ... FAIL
+
+======================================================================
+FAIL: test_changed_initial_order_unknown_match_and_forged_source_fail (test_proxy_population_opening.LoaderTests.test_changed_initial_order_unknown_match_and_forged_source_fail)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_opening.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(api,'source-bound planned initial loader missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : source-bound planned initial loader missing
+
+======================================================================
+FAIL: test_initial_state_retains_owner_decks_and_five_card_hands (test_proxy_population_opening.LoaderTests.test_initial_state_retains_owner_decks_and_five_card_hands)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_opening.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(api,'source-bound planned initial loader missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : source-bound planned initial loader missing
+
+======================================================================
+FAIL: test_mirror_changes_first_player_without_swapping_owner_identities (test_proxy_population_opening.LoaderTests.test_mirror_changes_first_player_without_swapping_owner_identities)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_opening.py", line 12, in setUp
+    def setUp(self):self.assertIsNotNone(api,'source-bound planned initial loader missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : source-bound planned initial loader missing
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)
