@@ -18,3 +18,8 @@ test('starfish transition candidates preserve one source face and canonical fini
  for(const s of [2,3]){const sp=rows[s],r=BUILDERS[sp.archetype](sp,'starfish:'+s);r.faces=[attachFace(r,r.faceSpec,'C')];assert.equal(r.faces[0].eyes.length,2);for(const p of r.parts)assert.ok([...p.mesh.geometry.attributes.position.array].every(Number.isFinite));for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'starfish:'+s});setEmotion(a,em);for(let n=0;n<10;n++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,1);assert.equal(a.faces[0].emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.scale.toArray(),b.rotation.x,b.rotation.y,b.rotation.z].every(Number.isFinite));}}
  assert.equal(SPEC.ROLLOUT.starfish,undefined);
 });
+test('asymmetric larval core stays within its source outer silhouette',async()=>{
+ const {blobArchetype}=await import('../character-3d/archetypes.mjs'),sp=require('../character-3d/topology-spec.js')(SPEC.PILOT).starfish.stages[2],r=blobArchetype(sp,'contained-core');
+ const c=sp.contour.map(([x,y])=>[x*sp.r,y*sp.h]);const inside=(x,y)=>{let hit=false;for(let i=0,j=c.length-1;i<c.length;j=i++){const[a,b]=c[i],[d,e]=c[j];if((b>y)!==(e>y)&&x<(d-a)*(y-b)/(e-b)+a)hit=!hit;}return hit;};
+ const p=r.parts[1].mesh.geometry.attributes.position;let outside=0;for(let i=0;i<p.count;i++)if(!inside(p.getX(i),p.getY(i)))outside++;assert.equal(outside,0,'opaque inner core must not protrude through transparent outer volume');
+});

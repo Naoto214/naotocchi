@@ -29,6 +29,10 @@ function blobPulse(body,s,m,k){
   body.rotation.z+=Math.sin(s.phase*TAU)*.08*m;
 }
 
+function clusterPulse(B,s,k,units,prefix=''){
+  for(let i=0;i<units;i++){const b=B[prefix+'u'+i];b.position.y+=Math.sin(s.t*2+i*1.3)*.035*k.idle;b.rotation.z+=Math.sin(s.t*1.3+i)*.07*k.idle;}
+}
+
 export function createAnimState(seed = 0) {
   return { t: (seed % 97) * 0.37, phase: 0, move: 0, blinkIn: 1.5 + (seed % 7) * 0.4, blinkT: -1, reaction: null, emotion: null, expr: SPEC.expressionParams('normal') };
 }
@@ -183,7 +187,7 @@ const LOCO = {
   },
   clusterBob(B, s, m, k, meta, R) {
     R.position.y += meta.hover + Math.abs(Math.sin(s.phase * TAU)) * 0.08 * m * k.amp;
-    for (let i = 0; i < meta.units; i++) { const b = B['u' + i]; b.position.y += Math.sin(s.t * 2 + i * 1.3) * 0.035 * k.idle; b.rotation.z += Math.sin(s.t * 1.3 + i) * 0.07 * k.idle; }
+    clusterPulse(B,s,k,meta.units);
   },
   radialShuffle(B, s, m, k, meta, R) {
     const ph = s.phase * TAU;
@@ -209,6 +213,7 @@ export function animate(inst, input) {
   restore(B);
   (LOCO[inst.locomotion] || LOCO.hopSway)(B, s, s.move, k, meta, R);
   for(const name of meta.blobSubrigs||[])blobPulse(B[name],s,s.move,k);
+  for(const sub of meta.clusterSubrigs||[])clusterPulse(B,s,k,sub.units,sub.prefix);
   // ---- emotion posture
   const head = B.head || B.cap || B.body;
   if (head && head !== R) { head.rotation.x += e.droop * 0.32; head.rotation.y += e.turn; }

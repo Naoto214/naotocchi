@@ -663,7 +663,7 @@ function mushroomParts(cap, stem, c, faceOn) {
   paint(stemGeo, (x, y, z, nx, ny, nz) => mix(c.stem, shade(c.stem, 0.88), smooth(0.2, -0.9, nz) * 0.6));
   const cr = cap.r, ch = cap.h;
   const prof = cap.shape === 'upturned'
-    ? [[.001,-ch*.45],[cr*.35,-ch*.35],[cr*.72,-ch*.10],[cr,ch*.45],[cr*.99,ch*.73],[cr*.75,ch*.47],[cr*.4,ch*.2],[.001,ch*.10]]
+    ? [[.001,-ch*.45],[cr*.35,-ch*.35],[cr*.72,-ch*.10],[cr,ch*.45],[cr*.99,ch*.73],[cr*.75,ch*.47],[cr*.4,ch*(cap.crown ? cap.crown*.62 : .2)],[.001,ch*(cap.crown ?? .10)]]
     : cap.shape === 'cone'
     ? [[0.001, -ch * 0.05], [cr * 0.9, 0], [cr * 1.0, ch * 0.12], [cr * 0.92, ch * 0.4], [cr * 0.66, ch * 0.75], [cr * 0.3, ch * 0.96], [0.001, ch]]
     : [[0.001, -ch * 0.12], [cr * 0.7, -ch * 0.19], [cr * 1.0, 0.0], [cr * 1.02, ch * 0.2], [cr * 0.85, ch * 0.62], [cr * 0.45, ch * 0.92], [0.001, ch]];
@@ -701,7 +701,7 @@ export function fungus(sp, key) {
   const { stemGeo, capGeo } = mushroomParts(sp.cap, sp.stem, c, sp.faceOn);
   const atts = sp.attachments || [];
   if (atts.includes('dirt')) rig.add('dirt', 'root', [0, 0, 0], [dirtGeo(sp.stem.r * 2.0 + 0.12, c, key)]);
-  rig.add('body', 'root', [0, 0.04, 0], [stemGeo.clone()]);
+  rig.add('body', 'root', [0, 0.04, 0], [stemGeo.clone()], 'opaque', [0,0,sp.stem.lean||0]);
   rig.add('cap', 'body', [0, sp.stem.h * 0.92, 0], [capGeo.clone()], 'opaque', [sp.cap.tilt || 0,0,sp.cap.roll || 0]);
   if (sp.collar) {
     const co=sp.collar;
@@ -723,6 +723,7 @@ export function fungus(sp, key) {
   rig.faceSpec = { bone, target, center, fwd: [0, 0.05, 1], half, eyeSize: 0.26,
     layout: { eyeX: 24, eyeY: 56, mouthY: 82, browY: 36, cheekX: 38, cheekY: 72, mouthW: 8 }, style: { blush: '#f4a090' }, normalEye: sp.normalEye ?? (sp.faceOn === 'stem' ? 'content' : null) };
   if (childFace) rig.faceSpec = [rig.faceSpec, childFace];
+  if(sp.sporeCluster)attachCluster(rig,sp.sporeCluster,'spores',key);
   return rig;
 }
 
@@ -766,6 +767,18 @@ export function cluster(sp, key) {
   rig.faceSpec = units.map((u) => ({ bone: u.bone, target: u.target, center: u.center, fwd: [0, 0, 1], half: u.half, eyeSize: 0.26, forceMode: 'A', normalEye:u.normalEye,
     layout: { eyeX: 24, eyeY: 58, mouthY: 84, browY: 36, cheekX: 38, cheekY: 74, mouthW: 9 }, style: { blush: '#f8a090' } }));
   return rig;
+}
+
+// Graft a presentation cluster; each unit keeps its face/rig, but uses its owner's clock.
+function attachCluster(rig,attachment,prefix,key){
+  const child=cluster(attachment.spec,key+':'+prefix),anchor=rig.add(prefix+':anchor','root',attachment.at,null);
+  anchor.scale.setScalar(attachment.scale);anchor.userData.rest.s.copy(anchor.scale);
+  for(let i=0;i<child.meta.units;i++){
+    const name='u'+i,b=child.bones[name];rig.add(prefix+':'+name,prefix+':anchor',b.position.toArray(),null,'opaque',[b.rotation.x,b.rotation.y,b.rotation.z]);
+    for(const part of child.parts.filter(p=>p.bone===name))rig.mesh(prefix+':'+name,[part.mesh.geometry.clone()],part.mesh.material.name.slice(4));
+  }
+  rig.faceSpec=[...(Array.isArray(rig.faceSpec)?rig.faceSpec:[rig.faceSpec]),...child.faceSpec.map(f=>({...f,bone:prefix+':'+f.bone}))];
+  rig.meta.clusterSubrigs=[...(rig.meta.clusterSubrigs||[]),{prefix:prefix+':',units:child.meta.units}];
 }
 
 // ================= radial(ヒトデ) =================
@@ -821,8 +834,10 @@ export function blobArchetype(sp, key) {
   // ビピンナリア: たてながの 体に 左右 2 つずつの ふくらみ(うで の もと)
   const contour = sp.contour ? sp.contour.map(([x,y])=>[x*r,y*h]) : [[0,h],[-r*.3,h*.96],[-r*.51,h*.8],[-r*.57,h*.66],[-r*.88,h*.59],[-r*.95,h*.49],[-r*.78,h*.42],[-r*.57,h*.35],[-r*.82,h*.25],[-r*.88,h*.12],[-r*.69,.0],[-r*.48,h*.01],[-r*.28,h*.11],[-r*.13,h*.015],[0,-h*.015],[r*.13,h*.015],[r*.28,h*.11],[r*.48,h*.01],[r*.69,0],[r*.88,h*.12],[r*.82,h*.25],[r*.57,h*.35],[r*.78,h*.42],[r*.95,h*.49],[r*.88,h*.59],[r*.57,h*.66],[r*.51,h*.8],[r*.3,h*.96]];
   const outer = paint(outlineLoft(contour,r*.42,72,8), (x, y, z, nx, ny, nz) => mix(c.base, c.edge, smooth(0.4, 0.0, Math.abs(nz)) * 0.7));
-  const core = paint(blob((x, y, z) => [x * r * 0.55, (y * 0.5 + 0.5) * h * 0.7 + h * 0.12, z * r * 0.24], 14, 10), () => c.light);
-  if(sp.coreTilt)core.rotateZ(sp.coreTilt);
+  const core = paint(blob((x, y, z) => {
+    if(sp.coreProfile){const q=sp.coreProfile,a=q.tilt||0,xx=x*r*q.radii[0],yy=y*h*q.radii[1];return [xx*Math.cos(a)-yy*Math.sin(a)+q.center[0]*r,xx*Math.sin(a)+yy*Math.cos(a)+q.center[1]*h,z*r*q.radii[2]];}
+    return [x*r*.55,(y*.5+.5)*h*.7+h*.12,z*r*.24];
+  }, 14, 10), () => c.light);
   rig.add('body', 'root', [0, 0, 0], [outer.clone()], 'glow:' + sp.glow + ':' + sp.translucent);
   rig.mesh('body', [core], 'opaque');
   rig.meta = { idlePose: 'stand', hover: 0.12 };
