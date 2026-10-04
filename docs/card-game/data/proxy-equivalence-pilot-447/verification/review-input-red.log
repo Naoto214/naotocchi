@@ -1,0 +1,38 @@
+test_build_binds_complete_inventory (test_proxy_equivalence_inputs.InputsTests.test_build_binds_complete_inventory) ... ok
+test_discard_egg_runtime_control_preserved (test_proxy_equivalence_inputs.InputsTests.test_discard_egg_runtime_control_preserved) ... ok
+test_hidden_permutation_invariant (test_proxy_equivalence_inputs.InputsTests.test_hidden_permutation_invariant) ... ok
+test_hidden_preparation_identity_not_copied (test_proxy_equivalence_inputs.InputsTests.test_hidden_preparation_identity_not_copied) ... ok
+test_invalid_schema_and_bool_resource_rejected (test_proxy_equivalence_inputs.InputsTests.test_invalid_schema_and_bool_resource_rejected) ... ok
+test_nested_right_type_rejected_at_proof_entry (test_proxy_equivalence_inputs.ReviewInputTests.test_nested_right_type_rejected_at_proof_entry) ... FAIL
+test_pass_descriptor_cannot_borrow_placement_identity (test_proxy_equivalence_inputs.ReviewInputTests.test_pass_descriptor_cannot_borrow_placement_identity) ... FAIL
+test_source_variant_target_or_extra_field_tamper_rejected (test_proxy_equivalence_inputs.ReviewInputTests.test_source_variant_target_or_extra_field_tamper_rejected) ... FAIL
+
+======================================================================
+FAIL: test_nested_right_type_rejected_at_proof_entry (test_proxy_equivalence_inputs.ReviewInputTests.test_nested_right_type_rejected_at_proof_entry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_inputs.py", line 73, in test_nested_right_type_rejected_at_proof_entry
+    self.assertTrue(subject.validate_input(x))
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_pass_descriptor_cannot_borrow_placement_identity (test_proxy_equivalence_inputs.ReviewInputTests.test_pass_descriptor_cannot_borrow_placement_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_inputs.py", line 68, in test_pass_descriptor_cannot_borrow_placement_identity
+    self.assertTrue(subject.validate_input(x))
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_source_variant_target_or_extra_field_tamper_rejected (test_proxy_equivalence_inputs.ReviewInputTests.test_source_variant_target_or_extra_field_tamper_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-447/docs/card-game/tools/test_proxy_equivalence_inputs.py", line 77, in test_source_variant_target_or_extra_field_tamper_rejected
+    x=problem();x['actions'][0][key]=value;self.assertTrue(subject.validate_input(x),key)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true : source_instance_id
+
+----------------------------------------------------------------------
+Ran 8 tests in 4.183s
+
+FAILED (failures=3)

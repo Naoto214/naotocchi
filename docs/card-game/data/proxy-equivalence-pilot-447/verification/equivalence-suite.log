@@ -1,0 +1,43 @@
+test_duplicate_source_decision_rejected (test_proxy_equivalence_evaluation.EvaluationTests.test_duplicate_source_decision_rejected) ... ok
+test_group_label_not_selection_input (test_proxy_equivalence_evaluation.EvaluationTests.test_group_label_not_selection_input) ... ok
+test_manifest_313_and_groups_241_72 (test_proxy_equivalence_evaluation.EvaluationTests.test_manifest_313_and_groups_241_72) ... ok
+test_new_unsupported_row_not_dropped (test_proxy_equivalence_evaluation.EvaluationTests.test_new_unsupported_row_not_dropped) ... ok
+test_selected_action_binding_rejected (test_proxy_equivalence_evaluation.EvaluationTests.test_selected_action_binding_rejected) ... ok
+test_zero_reduction_is_valid (test_proxy_equivalence_evaluation.EvaluationTests.test_zero_reduction_is_valid) ... ok
+test_build_binds_complete_inventory (test_proxy_equivalence_inputs.InputsTests.test_build_binds_complete_inventory) ... ok
+test_discard_egg_runtime_control_preserved (test_proxy_equivalence_inputs.InputsTests.test_discard_egg_runtime_control_preserved) ... ok
+test_hidden_permutation_invariant (test_proxy_equivalence_inputs.InputsTests.test_hidden_permutation_invariant) ... ok
+test_hidden_preparation_identity_not_copied (test_proxy_equivalence_inputs.InputsTests.test_hidden_preparation_identity_not_copied) ... ok
+test_invalid_schema_and_bool_resource_rejected (test_proxy_equivalence_inputs.InputsTests.test_invalid_schema_and_bool_resource_rejected) ... ok
+test_hand_activation_retains_source_targets_and_unresolved_effect (test_proxy_equivalence_outcomes.CommonPrefixTests.test_hand_activation_retains_source_targets_and_unresolved_effect) ... ok
+test_paid_placement_keeps_declared_board_and_pending_obligations (test_proxy_equivalence_outcomes.CommonPrefixTests.test_paid_placement_keeps_declared_board_and_pending_obligations) ... ok
+test_discard_and_egg_are_not_deleted (test_proxy_equivalence_outcomes.OutcomeTests.test_discard_and_egg_are_not_deleted) ... ok
+test_empty_requires_coverage (test_proxy_equivalence_outcomes.OutcomeTests.test_empty_requires_coverage) ... ok
+test_pass_keeps_pending_end_response (test_proxy_equivalence_outcomes.OutcomeTests.test_pass_keeps_pending_end_response) ... ok
+test_runtime_effects_not_legacy_reservations_only (test_proxy_equivalence_outcomes.OutcomeTests.test_runtime_effects_not_legacy_reservations_only) ... ok
+test_same_instance_stays_identified (test_proxy_equivalence_outcomes.OutcomeTests.test_same_instance_stays_identified) ... ok
+test_unknown_reveal_stops_prefix (test_proxy_equivalence_outcomes.OutcomeTests.test_unknown_reveal_stops_prefix) ... ok
+test_common_world_affects_residual_main (test_proxy_equivalence_proofs.ProofTests.test_common_world_affects_residual_main) ... ok
+test_dependency_cycle_complete_vs_missing_edge (test_proxy_equivalence_proofs.ProofTests.test_dependency_cycle_complete_vs_missing_edge) ... ok
+test_exact_identity_closed_dependencies_cancel (test_proxy_equivalence_proofs.ProofTests.test_exact_identity_closed_dependencies_cancel) ... ok
+test_orientation_and_proof_tampering (test_proxy_equivalence_proofs.ProofTests.test_orientation_and_proof_tampering) ... ok
+test_same_name_other_instance_not_equal (test_proxy_equivalence_proofs.ProofTests.test_same_name_other_instance_not_equal) ... ok
+test_target_deadline_uses_order_mismatch (test_proxy_equivalence_proofs.ProofTests.test_target_deadline_uses_order_mismatch) ... ok
+test_time_changes_hand_condition (test_proxy_equivalence_proofs.ProofTests.test_time_changes_hand_condition) ... ok
+test_unknown_symbol_not_identity (test_proxy_equivalence_proofs.ProofTests.test_unknown_symbol_not_identity) ... ok
+test_disabled_proofs_reproduce_414 (test_proxy_equivalence_selection.SelectionTests.test_disabled_proofs_reproduce_414) ... ok
+test_input_order_does_not_choose_group (test_proxy_equivalence_selection.SelectionTests.test_input_order_does_not_choose_group) ... ok
+test_safe_free_certificate_not_transferred (test_proxy_equivalence_selection.SelectionTests.test_safe_free_certificate_not_transferred) ... ok
+test_same_frontier_same_seed (test_proxy_equivalence_selection.SelectionTests.test_same_frontier_same_seed) ... ok
+test_unknown_input_not_fallback (test_proxy_equivalence_selection.SelectionTests.test_unknown_input_not_fallback) ... ok
+test_unknown_retains_seeded_frontier (test_proxy_equivalence_selection.SelectionTests.test_unknown_retains_seeded_frontier) ... ok
+test_wrapper_choice_and_action_binding (test_proxy_equivalence_selection.SelectionTests.test_wrapper_choice_and_action_binding) ... ok
+test_default_two_policies_unchanged (test_proxy_equivalence_trajectory.TrajectoryTests.test_default_two_policies_unchanged) ... ok
+test_new_policy_requires_explicit_selector (test_proxy_equivalence_trajectory.TrajectoryTests.test_new_policy_requires_explicit_selector) ... ok
+test_new_route_preserves_end_and_effects (test_proxy_equivalence_trajectory.TrajectoryTests.test_new_route_preserves_end_and_effects) ... ok
+test_validation_replays_same_selector (test_proxy_equivalence_trajectory.TrajectoryTests.test_validation_replays_same_selector) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 10.489s
+
+OK

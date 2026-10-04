@@ -215,7 +215,10 @@ def problem(envelope,inventory,context,inputs=None):
 
 def select(envelope,inventory,context,policy,inputs=None):
     p=problem(envelope,inventory,context,inputs)
-    if policy==old.POLICIES[1]:
+    if policy=='public_result_equivalence_pilot_v1':
+        from proxy_equivalence_trajectory import select_normal
+        choice=select_normal(envelope,inventory,p)['choice'];chosen=choice['selected_candidate']
+    elif policy==old.POLICIES[1]:
         choice=select_problem(p);chosen=choice['selected_candidate']
     elif policy==old.POLICIES[0] and _borrow_problem(envelope,inventory,inputs):
         prior,boundary=_borrow_problem(envelope,inventory,inputs)

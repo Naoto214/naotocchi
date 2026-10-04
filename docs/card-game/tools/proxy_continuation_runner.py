@@ -48,7 +48,7 @@ def _forced(current,initial,events,shots):
 
 
 def run_route(initial,policy,forced_adapter=None):
-    if policy not in old.POLICIES:raise ValueError('unknown policy')
+    if policy not in (*old.POLICIES,'public_result_equivalence_pilot_v1'):raise ValueError('unknown policy')
     # Use the same signed source loader and independent initial reconstruction.
     if initial['initial_raw_sha256']!=old.INITIAL_SHA or state.canonical_sha256(initial['manifest'])!=initial['initial_manifest_sha256']:
         raise ValueError('initial identity differs')

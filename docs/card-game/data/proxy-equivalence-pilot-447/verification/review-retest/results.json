@@ -1,0 +1,50 @@
+[
+  {
+    "module": "test_proxy_equivalence_evaluation",
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_equivalence_inputs",
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_equivalence_outcomes",
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_equivalence_proofs",
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_equivalence_selection",
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_equivalence_trajectory",
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  }
+]
