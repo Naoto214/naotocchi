@@ -1,0 +1,1477 @@
+{
+  "beforeCommit": "1e2caad68912a1ede263b4fc90ed431706183b5e",
+  "afterCommit": "7fda83250518b172a2c1025ac9f87ef1ca1a5052",
+  "coverage": 35,
+  "errors": 0,
+  "matchedPosition": true,
+  "performance": {
+    "home-vq": {
+      "before": {
+        "calls": 42,
+        "tris": 35082,
+        "js": 6.8,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 42,
+        "tris": 35272,
+        "js": 14,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "home-house-vq": {
+      "before": {
+        "calls": 40,
+        "tris": 34646,
+        "js": 5.2,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 40,
+        "tris": 34836,
+        "js": 9.7,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "forest-vq": {
+      "before": {
+        "calls": 60,
+        "tris": 147752,
+        "js": 16.3,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 60,
+        "tris": 147752,
+        "js": 17.6,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "jungle-vq": {
+      "before": {
+        "calls": 62,
+        "tris": 172794,
+        "js": 18.1,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 1
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 62,
+        "tris": 172794,
+        "js": 19.2,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 1
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "city-vq": {
+      "before": {
+        "calls": 50,
+        "tris": 130188,
+        "js": 12.9,
+        "water": {
+          "kind": null,
+          "meshes": [
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 1
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 50,
+        "tris": 130188,
+        "js": 12.9,
+        "water": {
+          "kind": null,
+          "meshes": [
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 1
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "city-arcade-vq": {
+      "before": {
+        "calls": 49,
+        "tris": 130164,
+        "js": 9.5,
+        "water": {
+          "kind": null,
+          "meshes": [
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 1
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 49,
+        "tris": 130164,
+        "js": 9.6,
+        "water": {
+          "kind": null,
+          "meshes": [
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 1
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "city-market-vq": {
+      "before": {
+        "calls": 43,
+        "tris": 129916,
+        "js": 7.5,
+        "water": {
+          "kind": null,
+          "meshes": [
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 1
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 43,
+        "tris": 129916,
+        "js": 7.7,
+        "water": {
+          "kind": null,
+          "meshes": [
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 1
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "countryside-vq": {
+      "before": {
+        "calls": 54,
+        "tris": 119480,
+        "js": 10.8,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 54,
+        "tris": 119248,
+        "js": 11.6,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "mountain-vq": {
+      "before": {
+        "calls": 54,
+        "tris": 106342,
+        "js": 14,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 1
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 54,
+        "tris": 106342,
+        "js": 14.2,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 1
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "snow-vq": {
+      "before": {
+        "calls": 45,
+        "tris": 69408,
+        "js": 10.3,
+        "water": {
+          "kind": null,
+          "meshes": [
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 45,
+        "tris": 69408,
+        "js": 10.3,
+        "water": {
+          "kind": null,
+          "meshes": [
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "sea-vq": {
+      "before": {
+        "calls": 50,
+        "tris": 70000,
+        "js": 11.5,
+        "water": {
+          "kind": "sea",
+          "meshes": [
+            "water:wetsand",
+            "water:sea",
+            "water:foam",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 5
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 50,
+        "tris": 70000,
+        "js": 11.5,
+        "water": {
+          "kind": "sea",
+          "meshes": [
+            "water:wetsand",
+            "water:sea",
+            "water:foam",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 5
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "deepsea-vq": {
+      "before": {
+        "calls": 36,
+        "tris": 73332,
+        "js": 10,
+        "water": {
+          "kind": "chasm",
+          "meshes": [
+            "water:bank",
+            "water:chasm",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 6
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 36,
+        "tris": 73332,
+        "js": 9.9,
+        "water": {
+          "kind": "chasm",
+          "meshes": [
+            "water:bank",
+            "water:chasm",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 6
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "river_lake-vq": {
+      "before": {
+        "calls": 43,
+        "tris": 112210,
+        "js": 12.8,
+        "water": {
+          "kind": "river",
+          "meshes": [
+            "water:bank",
+            "water:river",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 6
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 43,
+        "tris": 112210,
+        "js": 13.5,
+        "water": {
+          "kind": "river",
+          "meshes": [
+            "water:bank",
+            "water:river",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 6
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "river-bridge-vq": {
+      "before": {
+        "calls": 55,
+        "tris": 113074,
+        "js": 10,
+        "water": {
+          "kind": "river",
+          "meshes": [
+            "water:bank",
+            "water:river",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 6
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 55,
+        "tris": 113074,
+        "js": 10.5,
+        "water": {
+          "kind": "river",
+          "meshes": [
+            "water:bank",
+            "water:river",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 6
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "desert-vq": {
+      "before": {
+        "calls": 41,
+        "tris": 90304,
+        "js": 10.1,
+        "water": {
+          "kind": null,
+          "meshes": [
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 5
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 41,
+        "tris": 90304,
+        "js": 10.5,
+        "water": {
+          "kind": null,
+          "meshes": [
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 5
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "oasis-vq": {
+      "before": {
+        "calls": 43,
+        "tris": 90544,
+        "js": 8.5,
+        "water": {
+          "kind": null,
+          "meshes": [
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 5
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 6
+      },
+      "after": {
+        "calls": 43,
+        "tris": 90544,
+        "js": 8.6,
+        "water": {
+          "kind": null,
+          "meshes": [
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 5
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 6
+      }
+    },
+    "star_stop-vq": {
+      "before": {
+        "calls": 30,
+        "tris": 65984,
+        "js": 7.4,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 30,
+        "tris": 65984,
+        "js": 7.7,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "memory_lake-vq": {
+      "before": {
+        "calls": 35,
+        "tris": 51204,
+        "js": 10.7,
+        "water": {
+          "kind": "lake",
+          "meshes": [
+            "water:wetsand",
+            "water:lake",
+            "water:foam"
+          ],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 35,
+        "tris": 51204,
+        "js": 10.6,
+        "water": {
+          "kind": "lake",
+          "meshes": [
+            "water:wetsand",
+            "water:lake",
+            "water:foam"
+          ],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "forest-creek-vq": {
+      "before": {
+        "calls": 65,
+        "tris": 147994,
+        "js": 15.9,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 5
+      },
+      "after": {
+        "calls": 65,
+        "tris": 147994,
+        "js": 16.1,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 5
+      }
+    },
+    "forest-bridge-vq": {
+      "before": {
+        "calls": 50,
+        "tris": 147034,
+        "js": 11.1,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 50,
+        "tris": 147034,
+        "js": 11.2,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "river-stonebridge-vq": {
+      "before": {
+        "calls": 56,
+        "tris": 113038,
+        "js": 12.9,
+        "water": {
+          "kind": "river",
+          "meshes": [
+            "water:bank",
+            "water:river",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 6
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 9
+      },
+      "after": {
+        "calls": 56,
+        "tris": 113038,
+        "js": 15.6,
+        "water": {
+          "kind": "river",
+          "meshes": [
+            "water:bank",
+            "water:river",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 6
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 9
+      }
+    },
+    "countryside-river-vq": {
+      "before": {
+        "calls": 55,
+        "tris": 119732,
+        "js": 11.6,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 55,
+        "tris": 119500,
+        "js": 12.1,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "mountain-summer-vq": {
+      "before": {
+        "calls": 55,
+        "tris": 106354,
+        "js": 13.3,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 1
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 55,
+        "tris": 106354,
+        "js": 14.6,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 1
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "mountain-winter-vq": {
+      "before": {
+        "calls": 54,
+        "tris": 104146,
+        "js": 12.7,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 1
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 54,
+        "tris": 104146,
+        "js": 14.2,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 1
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "river-bridge2-vq": {
+      "before": {
+        "calls": 46,
+        "tris": 110342,
+        "js": 13.7,
+        "water": {
+          "kind": "river",
+          "meshes": [
+            "water:bank",
+            "water:river",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 6
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 46,
+        "tris": 110342,
+        "js": 14,
+        "water": {
+          "kind": "river",
+          "meshes": [
+            "water:bank",
+            "water:river",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 6
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "mountain-slope-vq": {
+      "before": {
+        "calls": 63,
+        "tris": 106924,
+        "js": 16.1,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 1
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 12
+      },
+      "after": {
+        "calls": 63,
+        "tris": 106924,
+        "js": 15.4,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 1
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 12
+      }
+    },
+    "desert-slope-vq": {
+      "before": {
+        "calls": 34,
+        "tris": 89914,
+        "js": 8.7,
+        "water": {
+          "kind": null,
+          "meshes": [
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 5
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 34,
+        "tris": 89914,
+        "js": 9,
+        "water": {
+          "kind": null,
+          "meshes": [
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 5
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "forest-autumn-vq": {
+      "before": {
+        "calls": 60,
+        "tris": 147752,
+        "js": 16.5,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 60,
+        "tris": 147752,
+        "js": 17.6,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "countryside-autumn-vq": {
+      "before": {
+        "calls": 54,
+        "tris": 119480,
+        "js": 11.8,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 54,
+        "tris": 119248,
+        "js": 11.6,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "forest-winter-vq": {
+      "before": {
+        "calls": 46,
+        "tris": 152314,
+        "js": 13.5,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 46,
+        "tris": 152314,
+        "js": 12.9,
+        "water": {
+          "kind": "creek",
+          "meshes": [
+            "water:creekbed",
+            "water:creek",
+            "water:creekbed",
+            "water:creek",
+            "water:rim",
+            "water:pond"
+          ],
+          "ponds": 2
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "home-spring-vq": {
+      "before": {
+        "calls": 42,
+        "tris": 35082,
+        "js": 7.5,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 42,
+        "tris": 35272,
+        "js": 7.6,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "entrance-15": {
+      "before": {
+        "calls": 35,
+        "tris": 34192,
+        "js": 6.7,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 35,
+        "tris": 34382,
+        "js": 6.3,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "entrance-45": {
+      "before": {
+        "calls": 45,
+        "tris": 34410,
+        "js": 5.4,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 31
+      },
+      "after": {
+        "calls": 45,
+        "tris": 34600,
+        "js": 5.3,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 31
+      }
+    },
+    "entrance-64": {
+      "before": {
+        "calls": 40,
+        "tris": 34806,
+        "js": 4.9,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 40,
+        "tris": 34996,
+        "js": 4.8,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    },
+    "entrance-196": {
+      "before": {
+        "calls": 34,
+        "tris": 34190,
+        "js": 4.4,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      },
+      "after": {
+        "calls": 34,
+        "tris": 34380,
+        "js": 4.3,
+        "water": {
+          "kind": null,
+          "meshes": [],
+          "ponds": 0
+        },
+        "player": {
+          "missFrames": 0,
+          "ok": true,
+          "why": ""
+        },
+        "ghosts": 0
+      }
+    }
+  }
+}

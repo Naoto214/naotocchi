@@ -1,0 +1,45 @@
+{
+  "sourceCommit": "7fda83250518b172a2c1025ac9f87ef1ca1a5052",
+  "runId": 37183142483,
+  "baselineCommit": "1e2caad68912a1ede263b4fc90ed431706183b5e",
+  "regression": {
+    "mainPass": 2865,
+    "relationshipPass": 80,
+    "fail": 0,
+    "exit": 0,
+    "command": "package.json pipeline with Node test concurrency4; not unmodified npm test"
+  },
+  "captures": {
+    "worldPerSide": 31,
+    "entrancesPerSide": 4,
+    "galleryPerSide": 20,
+    "active3D": true,
+    "errors": 0
+  },
+  "smoke": {
+    "regions": 13,
+    "maxPartyObstacleOverlap": 0.0028149653578708467
+  },
+  "corridor": {
+    "directions": 8,
+    "issues": 0
+  },
+  "visibility": {
+    "regions": 13,
+    "samples": 2832,
+    "fullyHidden": 0,
+    "partial": 1,
+    "step": 1000,
+    "yaws": [
+      0,
+      1.2,
+      -1.2,
+      3.14
+    ],
+    "method": "ray probe, not pixels"
+  },
+  "historicalOverlap": 0.002591405357044607,
+  "overlapMeaning": "x/z circular-obstacle overlap; not terrain penetration; cause unconfirmed",
+  "artifactVerification": "All five ZIP SHA256 match GitHub metadata; extracted files matched ZIP bytes; source hashes and exits matched 7fda832. Recovery on 2026-10-04 retained these bytes after old scratch directory loss.",
+  "humanQA": "not approved"
+}
