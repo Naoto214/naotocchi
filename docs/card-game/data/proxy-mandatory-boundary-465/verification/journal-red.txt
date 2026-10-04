@@ -1,0 +1,65 @@
+test_changed_candidates_same_address_and_valid_redraw_are_rejected (test_proxy_mandatory_policy_journal.JournalTests.test_changed_candidates_same_address_and_valid_redraw_are_rejected) ... FAIL
+test_empty_or_dropped_records_never_prove_coverage (test_proxy_mandatory_policy_journal.JournalTests.test_empty_or_dropped_records_never_prove_coverage) ... FAIL
+test_identical_retry_is_one_supplied_address_not_two_judgments (test_proxy_mandatory_policy_journal.JournalTests.test_identical_retry_is_one_supplied_address_not_two_judgments) ... FAIL
+test_mirror_and_population_context_cannot_mix_inside_match (test_proxy_mandatory_policy_journal.JournalTests.test_mirror_and_population_context_cannot_mix_inside_match) ... FAIL
+test_record_tampering_and_unknown_claims_are_errors (test_proxy_mandatory_policy_journal.JournalTests.test_record_tampering_and_unknown_claims_are_errors) ... FAIL
+test_root_switch_is_rejected_even_at_a_new_address (test_proxy_mandatory_policy_journal.JournalTests.test_root_switch_is_rejected_even_at_a_new_address) ... FAIL
+
+======================================================================
+FAIL: test_changed_candidates_same_address_and_valid_redraw_are_rejected (test_proxy_mandatory_policy_journal.JournalTests.test_changed_candidates_same_address_and_valid_redraw_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_journal.py", line 19, in setUp
+    def setUp(self):self.assertIsNotNone(api,'retry journal verifier missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : retry journal verifier missing
+
+======================================================================
+FAIL: test_empty_or_dropped_records_never_prove_coverage (test_proxy_mandatory_policy_journal.JournalTests.test_empty_or_dropped_records_never_prove_coverage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_journal.py", line 19, in setUp
+    def setUp(self):self.assertIsNotNone(api,'retry journal verifier missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : retry journal verifier missing
+
+======================================================================
+FAIL: test_identical_retry_is_one_supplied_address_not_two_judgments (test_proxy_mandatory_policy_journal.JournalTests.test_identical_retry_is_one_supplied_address_not_two_judgments)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_journal.py", line 19, in setUp
+    def setUp(self):self.assertIsNotNone(api,'retry journal verifier missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : retry journal verifier missing
+
+======================================================================
+FAIL: test_mirror_and_population_context_cannot_mix_inside_match (test_proxy_mandatory_policy_journal.JournalTests.test_mirror_and_population_context_cannot_mix_inside_match)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_journal.py", line 19, in setUp
+    def setUp(self):self.assertIsNotNone(api,'retry journal verifier missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : retry journal verifier missing
+
+======================================================================
+FAIL: test_record_tampering_and_unknown_claims_are_errors (test_proxy_mandatory_policy_journal.JournalTests.test_record_tampering_and_unknown_claims_are_errors)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_journal.py", line 19, in setUp
+    def setUp(self):self.assertIsNotNone(api,'retry journal verifier missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : retry journal verifier missing
+
+======================================================================
+FAIL: test_root_switch_is_rejected_even_at_a_new_address (test_proxy_mandatory_policy_journal.JournalTests.test_root_switch_is_rejected_even_at_a_new_address)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_journal.py", line 19, in setUp
+    def setUp(self):self.assertIsNotNone(api,'retry journal verifier missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : retry journal verifier missing
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+FAILED (failures=6)

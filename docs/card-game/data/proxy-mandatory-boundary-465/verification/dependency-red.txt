@@ -1,0 +1,14 @@
+test_structure_rejects_changed_validation_dependency (test_proxy_mandatory_population_input.SourceTests.test_structure_rejects_changed_validation_dependency) ... FAIL
+
+======================================================================
+FAIL: test_structure_rejects_changed_validation_dependency (test_proxy_mandatory_population_input.SourceTests.test_structure_rejects_changed_validation_dependency)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_population_input.py", line 131, in test_structure_rejects_changed_validation_dependency
+    self.assertFalse(api.audit_input_bundle(b,root)['structure_verified'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 1.967s
+
+FAILED (failures=1)

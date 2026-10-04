@@ -1,0 +1,27 @@
+{
+  "execution_authorized": false,
+  "policy_promoted": false,
+  "schema": "mandatory_boundary_sources_465.v1",
+  "sources_sha256": {
+    "01-core-rules.md": "d95ee407ec1fb853a8da1102bf933a5e972e3bc6ecc0b78cfb20831e8c45ec71",
+    "02-main-system.md": "6a0d04606f066f9078e88422394d3d0c5f5c6d927806bb0be99366f503af5127",
+    "31-beetle-stagbeetle-card-master-migration.md": "575535cfcbcb60343f7947b0542350ce9027368664baec021609af9a53519a47",
+    "463-precommitted-mandatory-policy-detail.md": "7010dba3611af1523f7898b6cdd9de24733939c5261e2025976f3d43dbc3725c",
+    "464-approved-mandatory-policy-contract.md": "00d392af09ab2f27d9ac2f099d2683378be2b1741ca1ef9af83107cb3a278762",
+    "64-turn-boundaries-and-victory-timing.md": "00f9845b5b79774c48bac002e26f6b08096563a4bf1611f408aed0e2c9089a64",
+    "74-partner-18-card-text-draft.md": "d323f89aa2d9ef95bf446c6e1e40c8bc059c1cb278e729933b7926e0ad4518d0",
+    "77-current-items-card-text-draft.md": "ec0a630c5616f6a50ca97afcebaab22fe9de13fe5e3789552d4e7d7ee93a8a02",
+    "89-world-13-card-text-draft.md": "19babfc75a43ed494a10d7be3a78f7586e1319ffc4314853689781ac74dc8269",
+    "91-event-21-card-text-draft.md": "46d1da752ee096e95bd7af321fe2d5a2d2d4697759e3b2a34a63f41ae1e28aa8",
+    "data/proxy-normal-decision-candidate-table-114-20260918.json": "7e1df8fbedb74413c407497fff6f285f77f72907d7e544095e8bb34b348ed737",
+    "tools/proxy_continuation_choices.py": "e2152db6a78a45b8d145d96b725eda81196ef0481c2f27c1a1415dfd046112e4",
+    "tools/proxy_continuation_quick.py": "b568179ad70167aaf7029b372f343984a408863fead48d50ab64c8146f774f21",
+    "tools/proxy_continuation_triggers.py": "a30bbf14e34697206209926c941ffdf8a4cbd41e84bdadb235f42f748353fcda",
+    "tools/proxy_mandatory_policy_contract.py": "524ffee605243e6453456789346742e9a7f2b3590ff05786b1a385b36e9ba90c",
+    "tools/proxy_mandatory_policy_random.py": "cb736841d10fdbdba76292c9c342c8da608383fb7a171b89fb3ed19be5b98816",
+    "tools/proxy_new_seed_mixed_replay_406.py": "3664321cc23c51cd2740f3f3657e32d47638e228c7b0b893311e733450fcc1b3",
+    "tools/proxy_normal_decision_first_choice_audit.py": "6dc165f24bc3d25ab9a175aee955e48debef456aed1144f4539c4d20c97c5f85",
+    "tools/proxy_normal_decision_seeded_restart.py": "57a43474658ea99f1dc362882ad291fae77116762ce567a26ec21835b9977c3d",
+    "tools/proxy_population_contract.py": "ea64cdbf10539ae5814923a8c5283d77ce75f64d30684596c851f7841a11c480"
+  }
+}

@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+- [465 mandatory局所処理と400戦bundle接続](465-mandatory-boundary-and-population-input.md)：5種の途中state・候補・適用、MRP記録/retry、供給bundleとchooser/root/鏡像側の結合を検算。全体認証未完、seed生成・入力固定・対戦0。
+
 - [464 承認済みMRP機械契約と抽選証拠validator](464-approved-mandatory-policy-contract.md)：463承認を別版固定。pure抽選検算・fragment監査をTDD実装。戦略未証明とpolicy適格を分離、全体認証未完、本番seed/対戦0。
 
 - [463 事前固定mandatoryランダムpolicy詳細設計](463-precommitted-mandatory-policy-detail.md)：初期順/選択seed分離、鏡像側別導出、完全候補1/N、116と別record、policy条件付き算入契約案。詳細設計のみ、未採用・未実装・seed/対戦0。

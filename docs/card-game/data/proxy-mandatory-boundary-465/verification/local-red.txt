@@ -1,0 +1,65 @@
+test_all_registered_choices_dispatch_without_old_fallback (test_proxy_mandatory_policy_local.LocalTests.test_all_registered_choices_dispatch_without_old_fallback) ... FAIL
+test_every_layer_is_recomputed_not_trusted (test_proxy_mandatory_policy_local.LocalTests.test_every_layer_is_recomputed_not_trusted) ... FAIL
+test_real_dispatch_uses_reconstructed_candidates_before_application (test_proxy_mandatory_policy_local.LocalTests.test_real_dispatch_uses_reconstructed_candidates_before_application) ... FAIL
+test_rng_never_uses_hidden_state_hash (test_proxy_mandatory_policy_local.LocalTests.test_rng_never_uses_hidden_state_hash) ... FAIL
+test_singleton_binds_context_root_and_entry_but_is_not_admitted (test_proxy_mandatory_policy_local.LocalTests.test_singleton_binds_context_root_and_entry_but_is_not_admitted) ... FAIL
+test_wrong_owner_turn_kind_or_zero_choices_cannot_dispatch (test_proxy_mandatory_policy_local.LocalTests.test_wrong_owner_turn_kind_or_zero_choices_cannot_dispatch) ... FAIL
+
+======================================================================
+FAIL: test_all_registered_choices_dispatch_without_old_fallback (test_proxy_mandatory_policy_local.LocalTests.test_all_registered_choices_dispatch_without_old_fallback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_local.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(api,'local MRP dispatcher missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : local MRP dispatcher missing
+
+======================================================================
+FAIL: test_every_layer_is_recomputed_not_trusted (test_proxy_mandatory_policy_local.LocalTests.test_every_layer_is_recomputed_not_trusted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_local.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(api,'local MRP dispatcher missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : local MRP dispatcher missing
+
+======================================================================
+FAIL: test_real_dispatch_uses_reconstructed_candidates_before_application (test_proxy_mandatory_policy_local.LocalTests.test_real_dispatch_uses_reconstructed_candidates_before_application)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_local.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(api,'local MRP dispatcher missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : local MRP dispatcher missing
+
+======================================================================
+FAIL: test_rng_never_uses_hidden_state_hash (test_proxy_mandatory_policy_local.LocalTests.test_rng_never_uses_hidden_state_hash)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_local.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(api,'local MRP dispatcher missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : local MRP dispatcher missing
+
+======================================================================
+FAIL: test_singleton_binds_context_root_and_entry_but_is_not_admitted (test_proxy_mandatory_policy_local.LocalTests.test_singleton_binds_context_root_and_entry_but_is_not_admitted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_local.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(api,'local MRP dispatcher missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : local MRP dispatcher missing
+
+======================================================================
+FAIL: test_wrong_owner_turn_kind_or_zero_choices_cannot_dispatch (test_proxy_mandatory_policy_local.LocalTests.test_wrong_owner_turn_kind_or_zero_choices_cannot_dispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_local.py", line 18, in setUp
+    def setUp(self):self.assertIsNotNone(api,'local MRP dispatcher missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : local MRP dispatcher missing
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+FAILED (failures=6)

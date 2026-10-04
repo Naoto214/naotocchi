@@ -1,0 +1,50 @@
+test_cycle_draws_after_return_and_partner_requires_return (test_proxy_mandatory_choice_boundary.ApplicationTests.test_cycle_draws_after_return_and_partner_requires_return) ... FAIL
+test_draw_then_return_and_final_target_move_keep_order (test_proxy_mandatory_choice_boundary.ApplicationTests.test_draw_then_return_and_final_target_move_keep_order) ... FAIL
+test_egg_bottom_and_preserve_every_unrelated_field (test_proxy_mandatory_choice_boundary.ApplicationTests.test_egg_bottom_and_preserve_every_unrelated_field) ... FAIL
+test_no_choice_does_not_accept_selection_and_choice_requires_one (test_proxy_mandatory_choice_boundary.ApplicationTests.test_no_choice_does_not_accept_selection_and_choice_requires_one) ... FAIL
+test_top_and_bottom_have_exact_permutations_without_equivalence (test_proxy_mandatory_choice_boundary.ApplicationTests.test_top_and_bottom_have_exact_permutations_without_equivalence) ... FAIL
+
+======================================================================
+FAIL: test_cycle_draws_after_return_and_partner_requires_return (test_proxy_mandatory_choice_boundary.ApplicationTests.test_cycle_draws_after_return_and_partner_requires_return)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_choice_boundary.py", line 117, in setUp
+    self.assertTrue(hasattr(api,'apply_choice'), 'local application missing')
+AssertionError: False is not true : local application missing
+
+======================================================================
+FAIL: test_draw_then_return_and_final_target_move_keep_order (test_proxy_mandatory_choice_boundary.ApplicationTests.test_draw_then_return_and_final_target_move_keep_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_choice_boundary.py", line 117, in setUp
+    self.assertTrue(hasattr(api,'apply_choice'), 'local application missing')
+AssertionError: False is not true : local application missing
+
+======================================================================
+FAIL: test_egg_bottom_and_preserve_every_unrelated_field (test_proxy_mandatory_choice_boundary.ApplicationTests.test_egg_bottom_and_preserve_every_unrelated_field)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_choice_boundary.py", line 117, in setUp
+    self.assertTrue(hasattr(api,'apply_choice'), 'local application missing')
+AssertionError: False is not true : local application missing
+
+======================================================================
+FAIL: test_no_choice_does_not_accept_selection_and_choice_requires_one (test_proxy_mandatory_choice_boundary.ApplicationTests.test_no_choice_does_not_accept_selection_and_choice_requires_one)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_choice_boundary.py", line 117, in setUp
+    self.assertTrue(hasattr(api,'apply_choice'), 'local application missing')
+AssertionError: False is not true : local application missing
+
+======================================================================
+FAIL: test_top_and_bottom_have_exact_permutations_without_equivalence (test_proxy_mandatory_choice_boundary.ApplicationTests.test_top_and_bottom_have_exact_permutations_without_equivalence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_choice_boundary.py", line 117, in setUp
+    self.assertTrue(hasattr(api,'apply_choice'), 'local application missing')
+AssertionError: False is not true : local application missing
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+FAILED (failures=5)
