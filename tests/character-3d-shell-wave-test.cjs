@@ -10,3 +10,11 @@ test('original turtle05 representative has one canonical actor and finite shared
  const r=quadruped(sp,'turtle:5');r.faces=[attachFace(r,r.faceSpec,'C')];assert.equal(r.faces[0].eyes.length,2);for(const p of r.parts)assert.ok([...p.mesh.geometry.attributes.position.array].every(Number.isFinite));for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'turtle:5'});setEmotion(a,em);for(let n=0;n<10;n++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces[0].emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.scale.toArray(),b.rotation.x,b.rotation.y,b.rotation.z].every(Number.isFinite));}
  assert.equal(SPEC.ROLLOUT.turtle,undefined,'representative is not exact runtime coverage');
 });
+test('shell scute seams remain narrow continuous lines instead of interpolated dark spots',async()=>{
+ const {quadruped}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs');const sp=fixture(),r=quadruped(sp,'seam'),g=r.parts.find(p=>p.bone==='shell').mesh.geometry;
+ const mesh=new THREE.Mesh(g,new THREE.MeshBasicMaterial({side:THREE.FrontSide}));mesh.updateMatrixWorld(true);
+ const sample=(u,v)=>{const hit=new THREE.Raycaster(new THREE.Vector3(u*sp.shell.width,2,v*sp.shell.length),new THREE.Vector3(0,-1,0)).intersectObject(mesh)[0];assert.ok(hit);const p=g.attributes.position,c=g.attributes.color,f=hit.face,b=new THREE.Vector3();THREE.Triangle.getBarycoord(hit.point,new THREE.Vector3().fromBufferAttribute(p,f.a),new THREE.Vector3().fromBufferAttribute(p,f.b),new THREE.Vector3().fromBufferAttribute(p,f.c),b);return new THREE.Vector3().fromBufferAttribute(c,f.a).multiplyScalar(b.x).addScaledVector(new THREE.Vector3().fromBufferAttribute(c,f.b),b.y).addScaledVector(new THREE.Vector3().fromBufferAttribute(c,f.c),b.z);};
+ const seam=new THREE.Color(sp.colors.seam),target=new THREE.Vector3(seam.r,seam.g,seam.b);
+ // Three points along one hex edge, away from vertices: this catches disconnected dashes.
+ for(const u of [.04,.09,.14]){const v=.30-u/Math.sqrt(3);assert.ok(sample(u,v).distanceTo(target)<.025,'seam line follows full edge');assert.ok(sample(u,v-.045).distanceTo(target)>.08,'interior is not a wide dark blur');}
+});

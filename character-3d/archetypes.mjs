@@ -41,6 +41,27 @@ function bubblesGeo(list) {
   return merge(list.map(([x, y, z, r]) => paint(xform(ellipsoid(r, r, r, 10, 8), {pos:[x,y,z]}), (px, py, pz, nx, ny) => (ny > 0.55 ? '#ffffff' : '#7ec8f8'))));
 }
 
+// Surface ribbons follow the hex boundaries exactly. Sampling narrow seams only
+// at the dome's coarse vertices made disconnected blurry spots in browser QA.
+function shellSeams(sh,color){
+  const cell=sh.cell||.3,positions=[],normals=[],indices=[],seen=new Set(),limit=.985;
+  const point=(u,v)=>[u*sh.width,sh.height*Math.sqrt(Math.max(0,1-u*u-v*v))+.003,v*sh.length];
+  for(let row=-3;row<=3;row++)for(let col=-3;col<=3;col++){
+    const cx=(col+(Math.abs(row)%2)*.5)*cell*Math.sqrt(3),cz=row*cell*1.5;
+    for(let side=0;side<6;side++){
+      const a=(side+.5)*TAU/6,b=(side+1.5)*TAU/6;
+      const ax=cx+Math.cos(a)*cell,az=cz+Math.sin(a)*cell,bx=cx+Math.cos(b)*cell,bz=cz+Math.sin(b)*cell;
+      const keys=[[ax,az],[bx,bz]].map(p=>p.map(x=>x.toFixed(5)).join(',')).sort().join('/');if(seen.has(keys))continue;seen.add(keys);
+      const dx=bx-ax,dz=bz-az,A=dx*dx+dz*dz,B=2*(ax*dx+az*dz),C=ax*ax+az*az-limit*limit,D=B*B-4*A*C;if(D<=0)continue;
+      const lo=Math.max(0,(-B-Math.sqrt(D))/(2*A)),hi=Math.min(1,(-B+Math.sqrt(D))/(2*A));if(hi<=lo)continue;
+      const length=Math.sqrt(A),nx=-dz/length*.009,nz=dx/length*.009,start=positions.length/3,steps=10;
+      for(let i=0;i<=steps;i++)for(const sign of [-1,1]){const t=lerp(lo,hi,i/steps),u=ax+dx*t+nx*sign,v=az+dz*t+nz*sign;positions.push(...point(u,v));const n=V(u/sh.width,Math.sqrt(Math.max(0,1-u*u-v*v))/sh.height,v/sh.length).normalize();normals.push(...n.toArray());}
+      for(let i=0;i<steps;i++){const k=start+i*2;indices.push(k,k+1,k+2,k+1,k+3,k+2);}
+    }
+  }
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));g.setAttribute('normal',new THREE.Float32BufferAttribute(normals,3));g.setIndex(indices);return solid(g,color);
+}
+
 // ================= quadruped(犬・柴・ねこ …) =================
 export function quadruped(sp, key) {
   const c = sp.colors, B = sp.body, Hd = sp.head, Lg = sp.legs;
@@ -61,9 +82,9 @@ export function quadruped(sp, key) {
       const u=x/sh.width,v=z/sh.length,cell=sh.cell||.3;let first=Infinity,second=Infinity;
       const row=Math.round(v/(cell*1.5)),col=Math.round(u/(cell*Math.sqrt(3)));
       for(let j=row-2;j<=row+2;j++)for(let i=col-2;i<=col+2;i++){const dx=u-(i+(Math.abs(j)%2)*.5)*cell*Math.sqrt(3),dz=v-j*cell*1.5,d=dx*dx+dz*dz;if(d<first){second=first;first=d;}else if(d<second)second=d;}
-      return mix(c.seam,mix(c.shell,c.scute,Math.max(0,1-first/(cell*cell))*.5),smooth(.002,.027,second-first));
+      return mix(c.shell,c.scute,Math.max(0,1-first/(cell*cell))*.5);
     });
-    rig.add('shell','body',[0,.02,-.025],[dome]);
+    rig.add('shell','body',[0,.02,-.025],[dome,shellSeams(sh,c.seam)]);
   }
   // 頭
   const hr = Hd.r;
