@@ -1,0 +1,9 @@
+test_compact_utf8_and_types (test_proxy_mandatory_policy_contract.ContractTests.test_compact_utf8_and_types) ... ok
+test_load_rejects_duplicates_float_and_nonobject (test_proxy_mandatory_policy_contract.ContractTests.test_load_rejects_duplicates_float_and_nonobject) ... ok
+test_pinned_source_and_anchor_tamper_rejected (test_proxy_mandatory_policy_contract.ContractTests.test_pinned_source_and_anchor_tamper_rejected) ... ok
+test_verified_contract_never_authorizes_execution (test_proxy_mandatory_policy_contract.ContractTests.test_verified_contract_never_authorizes_execution) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.029s
+
+OK

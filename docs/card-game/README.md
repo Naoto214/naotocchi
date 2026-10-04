@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+- [464 承認済みMRP機械契約と抽選証拠validator](464-approved-mandatory-policy-contract.md)：463承認を別版固定。pure抽選検算・fragment監査をTDD実装。戦略未証明とpolicy適格を分離、全体認証未完、本番seed/対戦0。
+
 - [463 事前固定mandatoryランダムpolicy詳細設計](463-precommitted-mandatory-policy-detail.md)：初期順/選択seed分離、鏡像側別導出、完全候補1/N、116と別record、policy条件付き算入契約案。詳細設計のみ、未採用・未実装・seed/対戦0。
 
 - [462 必須複数選択の比較方針とランダムpolicy設計](462-mandatory-policy-options-design.md)：証明限定・全継続優越・事前固定ランダムの3案。戦略根拠とpolicy適合を分離し、別版算入条件の承認境界を整理。設計のみ、全案未採用、seed/対戦0。

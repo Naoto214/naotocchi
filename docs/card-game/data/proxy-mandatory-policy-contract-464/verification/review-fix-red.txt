@@ -1,0 +1,51 @@
+test_cli_nonexecution_and_error_exit_codes (test_proxy_mandatory_policy_audit.AuditTests.test_cli_nonexecution_and_error_exit_codes) ... ok
+test_contract_change_or_incomplete_candidates_cannot_be_hidden (test_proxy_mandatory_policy_audit.AuditTests.test_contract_change_or_incomplete_candidates_cannot_be_hidden) ... ok
+test_deep_json_cli_is_structured_invalid_not_pending (test_proxy_mandatory_policy_audit.AuditTests.test_deep_json_cli_is_structured_invalid_not_pending) ... FAIL
+test_forged_verified_or_legacy_record_cannot_grant_admission (test_proxy_mandatory_policy_audit.AuditTests.test_forged_verified_or_legacy_record_cannot_grant_admission) ... ok
+test_normal_response_unregistered_malformed_and_wrong_root (test_proxy_mandatory_policy_audit.AuditTests.test_normal_response_unregistered_malformed_and_wrong_root) ... ok
+test_supplied_singleton_does_not_certify_forced_legal_choice (test_proxy_mandatory_policy_audit.AuditTests.test_supplied_singleton_does_not_certify_forced_legal_choice) ... ok
+test_valid_arithmetic_retains_unproven_gates (test_proxy_mandatory_policy_audit.AuditTests.test_valid_arithmetic_retains_unproven_gates) ... ok
+test_compact_utf8_and_types (test_proxy_mandatory_policy_contract.ContractTests.test_compact_utf8_and_types) ... ok
+test_deep_json_is_validation_error (test_proxy_mandatory_policy_contract.ContractTests.test_deep_json_is_validation_error) ... ERROR
+test_load_rejects_duplicates_float_and_nonobject (test_proxy_mandatory_policy_contract.ContractTests.test_load_rejects_duplicates_float_and_nonobject) ... ok
+test_pinned_source_and_anchor_tamper_rejected (test_proxy_mandatory_policy_contract.ContractTests.test_pinned_source_and_anchor_tamper_rejected) ... ok
+test_verified_contract_never_authorizes_execution (test_proxy_mandatory_policy_contract.ContractTests.test_verified_contract_never_authorizes_execution) ... ok
+test_exact_messages_and_reference_mac (test_proxy_mandatory_policy_random.RandomTests.test_exact_messages_and_reference_mac) ... ok
+test_input_constraints_reject_scope_extension (test_proxy_mandatory_policy_random.RandomTests.test_input_constraints_reject_scope_extension) ... ok
+test_mirror_and_chooser_binding (test_proxy_mandatory_policy_random.RandomTests.test_mirror_and_chooser_binding) ... ok
+test_rejection_boundary_and_exhaustion (test_proxy_mandatory_policy_random.RandomTests.test_rejection_boundary_and_exhaustion) ... ok
+test_singleton_does_not_claim_strategy_comparison (test_proxy_mandatory_policy_random.RandomTests.test_singleton_does_not_claim_strategy_comparison) ... ok
+test_tampering_every_proof_component_is_rejected (test_proxy_mandatory_policy_random.RandomTests.test_tampering_every_proof_component_is_rejected) ... ok
+
+======================================================================
+ERROR: test_deep_json_is_validation_error (test_proxy_mandatory_policy_contract.ContractTests.test_deep_json_is_validation_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_contract.py", line 33, in test_deep_json_is_validation_error
+    policy.load_json(p)
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/proxy_mandatory_policy_contract.py", line 47, in load_json
+    result = json.loads(Path(path).read_text(encoding='utf-8'),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 359, in loads
+    return cls(**kw).decode(s)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/decoder.py", line 354, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+RecursionError: maximum recursion depth exceeded while decoding a JSON array from a unicode string
+
+======================================================================
+FAIL: test_deep_json_cli_is_structured_invalid_not_pending (test_proxy_mandatory_policy_audit.AuditTests.test_deep_json_cli_is_structured_invalid_not_pending)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_mandatory_policy_audit.py", line 87, in test_deep_json_cli_is_structured_invalid_not_pending
+    self.assertEqual(result.returncode, 2)
+AssertionError: 1 != 2
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.586s
+
+FAILED (failures=1, errors=1)

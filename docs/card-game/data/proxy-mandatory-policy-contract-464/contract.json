@@ -1,0 +1,187 @@
+{
+  "active_runtime_policy": false,
+  "admission": {
+    "all_planned_matches_and_groups_required": true,
+    "balance_admitted": null,
+    "common_evidence_unproved_allowed": false,
+    "current_116_454_459_unchanged": true,
+    "historical_reclassification": false,
+    "independent_balance_samples": 0,
+    "mandatory_strategic_unproved_conditionally_allowed_only_in_new_contract": true,
+    "normal_response_changed": false,
+    "old_116_fallback_excluded_in_proposal": true,
+    "whole_400_eligibility_guaranteed": false
+  },
+  "balance_admitted": null,
+  "canonical": {
+    "encoding": "UTF-8",
+    "ensure_ascii": false,
+    "existing_state_hash_format_changed": false,
+    "key_order": "sorted",
+    "reject": [
+      "float",
+      "duplicate_key",
+      "nonfinite",
+      "unpaired_surrogate",
+      "unknown_key",
+      "bool_as_integer"
+    ],
+    "separators": [
+      ",",
+      ":"
+    ],
+    "trailing_lf": false,
+    "unicode_normalization": false
+  },
+  "derivation": {
+    "accept": "x < threshold",
+    "block_integer": "unsigned_big_endian_256bit",
+    "candidate_digest": "hex(SHA256(C(sorted_candidate_ids)))",
+    "counter_exhaustion": "stop_unproved",
+    "counter_range": "0..2^32-1",
+    "draw_message": [
+      "MRP.v1/draw",
+      "policy_id",
+      "O",
+      "D",
+      "N",
+      "j"
+    ],
+    "finite_key_exact_independence_proved": false,
+    "hash": "SHA-256",
+    "hidden_state_hash_in_random_material": false,
+    "ideal_block_uniformity_assumption": true,
+    "index": "x mod N",
+    "mac": "HMAC-SHA256",
+    "mirror_message": [
+      "MRP.v1/mirror",
+      "protocol_id",
+      "group_id",
+      "owner",
+      "mirror_side"
+    ],
+    "threshold": "2^256 - (2^256 mod N)"
+  },
+  "design_approved": true,
+  "evaluation_id": "policy_conditional_population.v1",
+  "execution_authorized": false,
+  "independent_balance_samples": 0,
+  "input_generation_authorized": false,
+  "mirror": {
+    "design_approved": true,
+    "mode": "domain_separated_by_side",
+    "same_result_required": false,
+    "structural_pair_key": [
+      "group_id",
+      "owner",
+      "O"
+    ]
+  },
+  "origin_address": [
+    "turn_owner:A|B",
+    "turn_index_for_owner:int>=1",
+    "chooser:A|B",
+    "origin_kind:turn_start|effect_resolution",
+    "origin_ordinal:int>=0",
+    "choice_contract_id:registry_enum",
+    "choice_slot:selection",
+    "repeat_index:0_for_this_registry"
+  ],
+  "policy_eligible": null,
+  "policy_id": "mandatory_random_policy.v1",
+  "policy_promoted": false,
+  "randomness_id": "mandatory_random_hmac256_reject.v1",
+  "record_id": "mandatory_policy_choice.v1",
+  "schema": "mandatory_policy_contract_464.v1",
+  "scope": [
+    {
+      "adapter_reference": "proxy_normal_decision_seeded_restart.build_mandatory_choice_decision",
+      "adapter_verified": false,
+      "atom": "card_copy",
+      "choice_contract_id": "egg_exchange_bottom",
+      "choice_slot": "selection",
+      "choice_state": "after_egg_draw",
+      "repeat_index": 0
+    },
+    {
+      "adapter_reference": "proxy_continuation_triggers.mandatory_choice",
+      "adapter_verified": false,
+      "atom": "card_copy",
+      "choice_contract_id": "ability_hand_bottom",
+      "choice_slot": "selection",
+      "choice_state": "immediately_before_bottom",
+      "repeat_index": 0
+    },
+    {
+      "adapter_reference": "proxy_continuation_triggers.resolve",
+      "adapter_verified": false,
+      "atom": "card_copy",
+      "choice_contract_id": "ability_draw_then_hand_bottom",
+      "choice_slot": "selection",
+      "choice_state": "after_preceding_draw",
+      "repeat_index": 0
+    },
+    {
+      "adapter_reference": "proxy_new_seed_mixed_replay_406.hand_bottom_decision",
+      "adapter_verified": false,
+      "atom": "card_copy",
+      "choice_contract_id": "final_time_hand_bottom",
+      "choice_slot": "selection",
+      "choice_state": "after_target_recheck_and_conditional_draws",
+      "repeat_index": 0
+    },
+    {
+      "adapter_reference": "proxy_continuation_choices.resolve",
+      "adapter_verified": false,
+      "atom": "position_option",
+      "choice_contract_id": "ability_topdeck_order",
+      "choice_slot": "selection",
+      "choice_state": "after_permitted_topdeck_inspection",
+      "repeat_index": 0
+    }
+  ],
+  "seed_design": {
+    "actual_initial_seeds": null,
+    "actual_manifest": null,
+    "actual_roots": null,
+    "derived_mirror_keys": 800,
+    "groups": 200,
+    "initial_order_seed_bits": 128,
+    "initial_order_seed_count": 400,
+    "matches": 400,
+    "policy_root_bytes": 32,
+    "policy_root_count": 400,
+    "policy_root_order": "group_ascending_owner_A_then_B",
+    "policy_root_redraw_for_value_or_outcome": false,
+    "policy_root_source": "separate_OS_random_calls_after_initial_order_acceptance"
+  },
+  "sources_sha256": {
+    "01-core-rules.md": "d95ee407ec1fb853a8da1102bf933a5e972e3bc6ecc0b78cfb20831e8c45ec71",
+    "02-main-system.md": "6a0d04606f066f9078e88422394d3d0c5f5c6d927806bb0be99366f503af5127",
+    "07-advanced-rules-checkpoint.md": "f346005f5f803f725d294e2fdc9f7fe98fac8a016609612c3d4fe9ab76b6874a",
+    "107-normal-decision-match-protocol.md": "32f40f9edaadd5aead8d424eac3c33618ccc1ec212837a9672a30ff22e62f2e9",
+    "114-normal-decision-protocol-hardening.md": "aa161063e4fa9e056818d00e3fe799448107b3b51f00c05e67c2c89c3a50e59a",
+    "116-normal-decision-fallback-contract.md": "577dccec67343ead75aa813b464b432679927c2f4b71ed960be5058aaa3ef393",
+    "119-response-window-contract.md": "c79e89709c687211ae5ca4a2ba3328e285ffafcf9b7790f913ae5ceb953cba45",
+    "454-all-judgment-evaluation-design.md": "37b2441ca93a55a12773b975a6388b8151f08b0ba9bf23022b71e5c57e425220",
+    "455-judgment-evidence-contract.md": "b26a7c117b805d58f3df5a337ea58afdabcf5f78a30af0ec1a23471124254822",
+    "456-saved-replay-evidence.md": "0521ae57c528976f87ac45bd8ce8bdce99b4ddb063e788f0a288393577158e34",
+    "457-record-integrity-and-admission-boundary.md": "a724a5b9a54b69350aa53ae75ec952e516517baf6bbca3664007598973be2932",
+    "458-planned-population-admission-design.md": "604d8a79c613aa5e35045efb3dc5bf876a9cdb4b2865c33c582266cbded3cc30",
+    "459-approved-population-contract-and-validator-plan.md": "81331a62a2efd4d8ce3c3afcfdc69047c0a6644ab6ac14ec152d88e684ce9234",
+    "460-population-preflight-and-opening-boundary.md": "63494fe7660ef45bdde62bd97e399e18517523bf78485265556e2a0171f1c883",
+    "461-mandatory-choice-proof-design.md": "041e18a91b0125c6a205e0a1b38712af7833529ab6fe238773ff33362b4d1d44",
+    "462-mandatory-policy-options-design.md": "87d96a0cc8a566147154e2c8da69dc8cd6bf486295eaba6fa12eb3e4ff86042b",
+    "463-precommitted-mandatory-policy-detail.md": "7010dba3611af1523f7898b6cdd9de24733939c5261e2025976f3d43dbc3725c",
+    "98-proxy-pool-layers-and-replay-schema.md": "90036bf6e3caef2e45413ed2d6f84ca56ad9821b37a6fc36e0bc1e5eb0f0480d",
+    "data/proxy-admission-contract-459/contract.json": "165af27159ccdf4d8fc3ec5ede988075edbc3d8fd331daa994d872fb162a679a",
+    "data/proxy-mandatory-policy-design-462/design.json": "51ec3eb62016fe6c41fd76bafb4021104f3703b8ed05ea5594db3b03f2c7a371",
+    "data/proxy-mandatory-policy-detail-463/contract-draft.json": "79db13c852902d5a5939abe5d7f5d8381e221151af8320442478bd6ee8341355",
+    "tools/proxy_continuation_choices.py": "e2152db6a78a45b8d145d96b725eda81196ef0481c2f27c1a1415dfd046112e4",
+    "tools/proxy_continuation_quick.py": "b568179ad70167aaf7029b372f343984a408863fead48d50ab64c8146f774f21",
+    "tools/proxy_continuation_triggers.py": "a30bbf14e34697206209926c941ffdf8a4cbd41e84bdadb235f42f748353fcda",
+    "tools/proxy_new_seed_mixed_replay_406.py": "3664321cc23c51cd2740f3f3657e32d47638e228c7b0b893311e733450fcc1b3",
+    "tools/proxy_normal_decision_seeded_restart.py": "57a43474658ea99f1dc362882ad291fae77116762ce567a26ec21835b9977c3d"
+  },
+  "strategic_unproven": true
+}
