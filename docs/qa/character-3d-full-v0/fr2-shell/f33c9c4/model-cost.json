@@ -1,0 +1,72 @@
+{
+  "source": "f33c9c4f68cea600578cd65f25499833093d4f32",
+  "method": "Node geometry only, before face attachments; not renderer draws or runtime performance",
+  "rows": [
+    {
+      "id": "turtle",
+      "stage": 1,
+      "geometryTriangles": 4994,
+      "geometryMeshes": 8
+    },
+    {
+      "id": "turtle",
+      "stage": 2,
+      "geometryTriangles": 4994,
+      "geometryMeshes": 8
+    },
+    {
+      "id": "turtle",
+      "stage": 3,
+      "geometryTriangles": 4994,
+      "geometryMeshes": 8
+    },
+    {
+      "id": "turtle",
+      "stage": 4,
+      "geometryTriangles": 4994,
+      "geometryMeshes": 8
+    },
+    {
+      "id": "turtle",
+      "stage": 5,
+      "geometryTriangles": 4994,
+      "geometryMeshes": 8
+    },
+    {
+      "id": "turtle",
+      "stage": 6,
+      "geometryTriangles": 4994,
+      "geometryMeshes": 8
+    },
+    {
+      "id": "turtle",
+      "stage": 7,
+      "geometryTriangles": 5794,
+      "geometryMeshes": 8
+    },
+    {
+      "id": "turtle",
+      "stage": 8,
+      "geometryTriangles": 7394,
+      "geometryMeshes": 8
+    },
+    {
+      "id": "frog",
+      "stage": 3,
+      "geometryTriangles": 3064,
+      "geometryMeshes": 5
+    },
+    {
+      "id": "frog",
+      "stage": 5,
+      "geometryTriangles": 4480,
+      "geometryMeshes": 7
+    },
+    {
+      "id": "frog",
+      "stage": 7,
+      "geometryTriangles": 4464,
+      "geometryMeshes": 6
+    }
+  ]
+}

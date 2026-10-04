@@ -24,3 +24,7 @@ test('full turtle ages use infant proportions, lifted paw, withdrawn head and at
  for(let st=1;st<=8;st++){const sp=rows[st],r=quadruped(sp,'turtle:'+st);for(const p of r.parts)assert.ok([...p.mesh.geometry.attributes.position.array].every(Number.isFinite));if(st>1)assert.notDeepEqual(sp,rows[st-1]);}
  const sp=rows[8],withMoss=quadruped(sp,'old'),without=quadruped({...sp,shell:{...sp.shell,moss:[]}},'old'),geo=r=>r.parts.find(p=>p.bone==='shell').mesh.geometry;assert.ok(withMoss.bones.head.position.z<sp.body.len/2+sp.head.r*.25-.02,'old head is withdrawn');assert.ok(geo(withMoss).attributes.position.count>geo(without).attributes.position.count,'moss has attached volume');assert.equal(withMoss.parts.length,without.parts.length,'moss merged into shell draw');geo(withMoss).computeBoundingBox();assert.ok(geo(withMoss).boundingBox.max.y>sp.shell.height+.025,'moss protrudes above shell surface');
 });
+test('turtle infant and older neutral eyes retain visible half pupils',async()=>{
+ const rows=require('../character-3d/topology-spec.js')(SPEC.PILOT).turtle.stages,{quadruped}=await import('../character-3d/archetypes.mjs'),{attachFace,applyFaceExpression}=await import('../character-3d/rig.mjs');
+ for(const st of [1,6,7]){const r=quadruped(rows[st],'turtle:'+st),f=attachFace(r,r.faceSpec,'C');applyFaceExpression(f,'normal');assert.deepEqual(f.eyes.map(e=>e.userData.shape),['droop','droop']);applyFaceExpression(f,'positive');assert.deepEqual(f.eyes.map(e=>e.userData.shape),['happy','happy']);}
+});

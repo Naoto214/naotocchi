@@ -8,8 +8,9 @@ function digits(at,side,r,color){
 }
 function foldedLimb(profile,side,color){
  const path=profile.path.map(([x,y,z])=>[x*side,y,z]),r=profile.r;
- const limb=solid(sweep(path,t=>r*(t<.35?1.45-t:.95-(t-.35)*.7),9,{steps:14}),color);
- return merge([limb,...digits(path.at(-1),side,r*.25,color)]);
+ const limb=solid(sweep(path,t=>r*(profile.haunch ? .72 : (t<.35?1.45-t:.95-(t-.35)*.7)),9,{steps:14}),color);
+ const H=profile.haunch,haunch=H?solid(xform(ellipsoid(...H.size,18,14),{pos:[side*H.at[0],H.at[1],H.at[2]]}),color):null;
+ return merge([limb,haunch,...digits(path.at(-1),side,r*.25,color)]);
 }
 function membraneTail(T,c){
  const length=T.len,positions=[],indices=[],nu=18,nv=6;

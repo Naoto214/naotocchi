@@ -20,3 +20,6 @@ test('folded feet keep three splayed digits and tadpole tail includes a broad th
  if(st===3){const t=r.parts.find(p=>p.bone==='tail').mesh.geometry.attributes.position,ys=[],xs=[];for(let i=0;i<t.count;i++)if(t.getZ(i)<-.38&&t.getZ(i)>-.58){ys.push(t.getY(i));xs.push(t.getX(i));}assert.ok(Math.max(...ys)-Math.min(...ys)>.30,'tail is a fin sheet, not just a tube');assert.ok(Math.max(...xs)-Math.min(...xs)<.13,'tail membrane is thin');}
  }
 });
+test('adult folded hindlimbs have rounded haunch volume over the upper bend',async()=>{
+ const {quadruped}=await import('../character-3d/archetypes.mjs');for(const st of [5,7]){const sp=candidates().stages[st];assert.ok(sp.hind.haunch,'rounded original thigh');const a=quadruped(sp,'round'),b=quadruped({...sp,hind:{...sp.hind,haunch:null}},'plain');const g=r=>r.parts.find(p=>p.bone==='legBR').mesh.geometry;g(a).computeBoundingBox();g(b).computeBoundingBox();assert.ok(g(a).boundingBox.max.y>g(b).boundingBox.max.y+.025,'haunch covers angular upper bend');assert.equal(a.parts.length,b.parts.length,'same limb draw');}
+});
