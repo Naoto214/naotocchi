@@ -1,0 +1,23 @@
+{
+  "independent_reviews": 1,
+  "initial_findings": {
+    "critical": 0,
+    "important": 2,
+    "minor": 1
+  },
+  "fixes": [
+    {
+      "finding": "challenge source revision unguarded",
+      "fix": "Pinned 65 SHA256 in new diagnostic helper and artifact manifest; mutated contract bytes are rejected."
+    },
+    {
+      "finding": "actor differs from turn player",
+      "fix": "Reject inconsistent control ownership before refinement and in challenge helper; negative test."
+    },
+    {
+      "finding": "snapshot coverage may silently shrink",
+      "fix": "Require exact four trajectory files, twelve runs and 58 declarations."
+    }
+  ],
+  "verification": "Two added rejection tests failed before fixes; all 17 public-prefix tests pass after fixes. No second independent review performed."
+}

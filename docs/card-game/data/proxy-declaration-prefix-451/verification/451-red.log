@@ -1,0 +1,50 @@
+FFFFF
+======================================================================
+FAIL: test_all_remaining_prefixes_preserve_unknowns (test_proxy_public_declaration_prefix.DeclarationTests.test_all_remaining_prefixes_preserve_unknowns)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_public_declaration_prefix.py", line 9, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'declaration prefix absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : declaration prefix absent
+
+======================================================================
+FAIL: test_challenge_keeps_participants_parameter_and_no_reward (test_proxy_public_declaration_prefix.DeclarationTests.test_challenge_keeps_participants_parameter_and_no_reward)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_public_declaration_prefix.py", line 9, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'declaration prefix absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : declaration prefix absent
+
+======================================================================
+FAIL: test_false_immediate_reward_is_error (test_proxy_public_declaration_prefix.DeclarationTests.test_false_immediate_reward_is_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_public_declaration_prefix.py", line 9, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'declaration prefix absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : declaration prefix absent
+
+======================================================================
+FAIL: test_person_arrival_not_safe_or_resolved (test_proxy_public_declaration_prefix.DeclarationTests.test_person_arrival_not_safe_or_resolved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_public_declaration_prefix.py", line 9, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'declaration prefix absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : declaration prefix absent
+
+======================================================================
+FAIL: test_saved_challenge_declarations_match_engine (test_proxy_public_declaration_prefix.DeclarationTests.test_saved_challenge_declarations_match_engine)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_public_declaration_prefix.py", line 9, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'declaration prefix absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : declaration prefix absent
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.814s
+
+FAILED (failures=5)
