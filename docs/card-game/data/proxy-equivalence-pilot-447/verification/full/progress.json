@@ -1,0 +1,2842 @@
+[
+  {
+    "module": "test_proxy_board_ability_id_167",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_board_active_132",
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_board_combination_pilots",
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_board_response_134",
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_board_source_world_130",
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_board_trigger_audit_144",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_completed_comparison",
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_conditional_growth_129",
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_actions",
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_batch",
+    "tests": 35,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_board_links",
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_capabilities",
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_capability_runner",
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_challenge",
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_choices",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_condition_runner",
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_conditions",
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_end",
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_end_runner",
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_payments",
+    "tests": 29,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_preparation",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_public_history",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_quick",
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_rules",
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_runner",
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_state",
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_triggers",
+    "tests": 21,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_world_runner",
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_continuation_worlds",
+    "tests": 11,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_counterfactual_limits",
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_cross_restart_133",
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_current_turn_end_correction",
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_decision_fixture",
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_equivalence_evaluation",
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_equivalence_inputs",
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_equivalence_outcomes",
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_equivalence_proofs",
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_equivalence_selection",
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_equivalence_trajectory",
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_fallback_audit",
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_fixture_builder",
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_gap_disposition",
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_gap_fixture_builder",
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_hit_blow_response_142",
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_independent_seed_probe",
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_ability_activation_190",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_ability_activation_209",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_ability_resolution_196",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_ability_resolution_215",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_board_partner_audit_179",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_boundary_225",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_chain_normal_audit_191",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_chain_normal_audit_210",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_chain_pass_172",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_chain_resolution_155",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_choice_audit_211",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_choice_replay_212",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_current_audit_175",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_current_audit_226",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_current_choices_192",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_current_replay_227",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_current_restart_176",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_current_restart_193",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_egg_exchange_replay_186",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_egg_replay_205",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_egg_replay_221",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_egg_replay_236",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_egg_restart_152",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_egg_restart_165",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_end_response_audit_201",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_end_response_replay_183",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_end_response_replay_202",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_end_response_restart_161",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_audit_177",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_audit_213",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_audit_240",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_audit_243",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_audit_246",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_audit_249",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_choice_244",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_choice_247",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_opportunity_189",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_pass_197",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_replay_214",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_replay_241",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_replay_242",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_replay_245",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_replay_248",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_replay_250",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_response_194",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_followup_restart_178",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_item_chain_154",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_216",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_222",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_235",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_237",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_253",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_256",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_259",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_261",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_265",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_268",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_270",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_273",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_276",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_279",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_282",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_285",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_288",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_291",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_294",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_297",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_300",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_303",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_306",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_309",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_312",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_315",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_318",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_321",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_324",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_327",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_330",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_334",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_337",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_340",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_343",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_346",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_349",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_352",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_355",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_358",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_361",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_364",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_367",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_371",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_374",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_377",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_380",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_381",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_383",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_386",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_387",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_correction_331",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_audit_correction_368",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_217",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_223",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_238",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_254",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_257",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_263",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_266",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_271",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_274",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_277",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_280",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_283",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_286",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_289",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_292",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_295",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_298",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_301",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_304",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_307",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_310",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_313",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_316",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_319",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_322",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_325",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_328",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_332",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_335",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_338",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_341",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_344",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_347",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_350",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_353",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_356",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_359",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_362",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_365",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_369",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_372",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_choice_375",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_pass_195",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_218",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_224",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_234",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_239",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_255",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_258",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_260",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_262",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_264",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_267",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_269",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_272",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_275",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_278",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_281",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_284",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_287",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_290",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_293",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_296",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_299",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_302",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_305",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_308",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_311",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_314",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_317",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_320",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_323",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_326",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_329",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_333",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_336",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_339",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_342",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_345",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_348",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_351",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_354",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_357",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_360",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_363",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_366",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_370",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_373",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_376",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_378",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_379",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_380",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_381",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_382",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_384",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_385",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_386",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_387",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_388",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_389",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_390",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_391",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_392",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_393",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_394",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_395",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_396",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_397",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_398",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_399",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_400",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_401",
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_402",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_403",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_404",
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_405",
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_406",
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_407",
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_mixed_replay_408",
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_next_audit_159",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_next_audit_173",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_next_opportunities_143",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_next_response_audit_169",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_next_response_audit_208",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_next_response_restart_170",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_next_restart_174",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_normal_audit_140",
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_normal_audit_156",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_normal_audit_198",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_normal_audit_228",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_normal_choice_199",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_normal_choice_229",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_normal_pass_200",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_normal_replay_230",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_normal_restart_141",
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_normal_restart_147",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_normal_restart_157",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_normal_restart_160",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_normal_trigger_audit_146",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_opportunity_audit_171",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_partner_followup_180",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_r2_boundary_audit_182",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_r2_turn_end_history_181",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_response_audit_231",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_response_replay_232",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_response_restart_145",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_response_restart_148",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_response_restart_158",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_start_audit_166",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_start_audit_206",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_start_choice_188",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_start_choice_207",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_start_opportunity_audit_187",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_start_response_153",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_start_restart_168",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_turn_end_audit_149",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_turn_end_audit_163",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_turn_end_history_150",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_turn_end_history_162",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_turn_end_proof_184",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_turn_end_proof_203",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_turn_end_proof_219",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_turn_end_proof_233",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_turn_end_proof_251",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_turn_end_replay_185",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_turn_end_replay_204",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_turn_end_replay_220",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_turn_end_replay_252",
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_turn_end_restart_151",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_new_seed_turn_end_restart_164",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_normal_action_candidate_completeness",
+    "tests": 38,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_normal_action_extension",
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_normal_action_seeded_restart",
+    "tests": 18,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_normal_decision_admission",
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_normal_decision_fallback_contract",
+    "tests": 36,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_normal_decision_first_choice_audit",
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_normal_decision_hardening",
+    "tests": 13,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_normal_decision_pilot",
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_normal_decision_seeded_restart",
+    "tests": 24,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_pilot_trace",
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_r2_candidate_extension_127",
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_r2_candidate_extension_128",
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_record_validator",
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_reentry_pilot",
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_regeneration_410",
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_remaining_single_pilots",
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_reservation_pilot",
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_resource_value_comparison",
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_resource_value_evaluation",
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_resource_value_inputs",
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_resource_value_integration",
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_resource_value_normal_board",
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_resource_value_normal_chain",
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_resource_value_public_proof",
+    "tests": 2,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_resource_value_response",
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_resource_value_response_profiles",
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_resource_value_selection",
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_resource_value_shadow",
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_resource_value_trajectory",
+    "tests": 16,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_response_window_contract",
+    "tests": 31,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_response_window_seeded_restart",
+    "tests": 42,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_safe_placement_mixed_131",
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_same_name_two_pilots",
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_start_response_138",
+    "tests": 6,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_targeted_boundaries",
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_targeted_execution",
+    "tests": 17,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_targeted_variants",
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_test_suite_manifest_409",
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_turn_end_completeness",
+    "tests": 13,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  {
+    "module": "test_proxy_turn_end_provenance_restart",
+    "tests": 12,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  }
+]

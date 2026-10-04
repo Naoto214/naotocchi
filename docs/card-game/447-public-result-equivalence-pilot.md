@@ -53,10 +53,10 @@
 
 ## 検証と保存
 
-この中間保存では全proxy回帰は実行中。比較・12軌跡・二重生成・レビュー修正は検証済みだが、全回帰の最終PASSはまだ主張しない。最終集計後にこの段落を更新する。
+2026-10-04に全proxy回帰の完了を確認し、レビュー後の専用再検証を反映した最終集計と全moduleログを追加保存した。
 
 - 専用47件、選択/比較/fallback結合58件PASS。RED/GREENのログを保存。
-- 全proxy回帰の最終集計は `data/proxy-equivalence-pilot-447/verification/full/summary.json` に保存する。
+- 全proxy回帰355モジュール・1,227件PASS、failure/error/skip各0。最終集計は `data/proxy-equivalence-pilot-447/verification/full/summary.json`。
 - npm test成功（smoke/dialogue/visual QAとNodeテスト38ファイル）。設計データ検査・差分空白検査を実施。
 - 同じ公開入力・証明・選択を保つ秘密領域検査: 相手手札313/313、山札途中313/313、裏向き準備の非公開本文identity40/40。計666件の実変更が不変。準備領域は313入力で検査し、変更対象なし273を40へ足していない。
 - source固定後、空の別ディレクトリへ別processで全9成果物を2回生成し、保存byte一致。各runの独立再生とは別検査。保存validatorも元snapshot・入力・choice/action・source manifest・秘密領域件数を再計算して一致。

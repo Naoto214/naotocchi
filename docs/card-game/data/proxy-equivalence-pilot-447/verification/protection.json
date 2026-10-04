@@ -15,5 +15,8 @@
     "tools/proxy_continuation_runner.py"
   ],
   "protected_114_505_414_443_444_445_446_unchanged": true,
-  "outside_card_game_changes": 0
+  "outside_card_game_changes_to_save": 0,
+  "observed_outside_workspace_differences_excluded": [
+    "assets/world/forest-v1.webp"
+  ]
 }
