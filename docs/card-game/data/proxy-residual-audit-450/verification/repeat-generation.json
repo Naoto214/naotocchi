@@ -1,0 +1,9 @@
+{
+  "independent_processes": 2,
+  "byte_equal": true,
+  "sha256": {
+    "audit.json.gz": "58bae0e744d01366d3f00184ee34bdd816fff974c589d7ba5e045685f214119d",
+    "summary.json": "781440e6c5ce57fcab06d6dc72af272a7ac78e40c93bd10df52cbba105bf35b3",
+    "manifest.json": "11b4d568b1ee22341a7cb9f22964030a66b4fc59dadf7ff4b8e5dd278e51bd16"
+  }
+}

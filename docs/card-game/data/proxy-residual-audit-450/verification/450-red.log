@@ -1,0 +1,68 @@
+FFFFFFF
+======================================================================
+FAIL: test_direction_and_enumeration_order_do_not_change_witness_set (test_proxy_residual_witness_audit.ResidualAuditTests.test_direction_and_enumeration_order_do_not_change_witness_set)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_residual_witness_audit.py", line 7, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'residual audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : residual audit absent
+
+======================================================================
+FAIL: test_distinct_copies_and_zones_survive (test_proxy_residual_witness_audit.ResidualAuditTests.test_distinct_copies_and_zones_survive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_residual_witness_audit.py", line 7, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'residual audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : residual audit absent
+
+======================================================================
+FAIL: test_duplicate_and_wrong_candidate_binding_rejected (test_proxy_residual_witness_audit.ResidualAuditTests.test_duplicate_and_wrong_candidate_binding_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_residual_witness_audit.py", line 7, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'residual audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : residual audit absent
+
+======================================================================
+FAIL: test_equal_amount_different_target_or_deadline_survives (test_proxy_residual_witness_audit.ResidualAuditTests.test_equal_amount_different_target_or_deadline_survives)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_residual_witness_audit.py", line 7, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'residual audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : residual audit absent
+
+======================================================================
+FAIL: test_same_atoms_and_unknowns_are_not_proof (test_proxy_residual_witness_audit.ResidualAuditTests.test_same_atoms_and_unknowns_are_not_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_residual_witness_audit.py", line 7, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'residual audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : residual audit absent
+
+======================================================================
+FAIL: test_target_variant_and_pass_boundary_are_kept (test_proxy_residual_witness_audit.ResidualAuditTests.test_target_variant_and_pass_boundary_are_kept)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_residual_witness_audit.py", line 7, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'residual audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : residual audit absent
+
+======================================================================
+FAIL: test_time_only_is_not_non_time_difference (test_proxy_residual_witness_audit.ResidualAuditTests.test_time_only_is_not_non_time_difference)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/54592aa5de90/card-game-450/docs/card-game/tools/test_proxy_residual_witness_audit.py", line 7, in setUp
+    def setUp(self):self.assertIsNotNone(subject,'residual audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : residual audit absent
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+FAILED (failures=7)

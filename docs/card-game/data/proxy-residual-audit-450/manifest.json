@@ -1,0 +1,14 @@
+{
+  "compressed_sha256": "58bae0e744d01366d3f00184ee34bdd816fff974c589d7ba5e045685f214119d",
+  "raw_sha256": "6240217b1616939e39b3c45edf21d852ba5c3029da700efc831b56a1d99b79bd",
+  "sources_sha256": {
+    "data/proxy-equivalence-pilot-447/manifest.json": "efae80ba2263e0b3a24a489de082c7c5d17d8b3f7a9f6d5da8ca2dae36f552ea",
+    "data/proxy-main-prefix-449/manifest.json": "13b20a15f987c78ede30bb8baf3a3443eee96dfea0316fdf09fa3177244b5111",
+    "data/proxy-residual-audit-450/reproduce.py": "1f3e773b1bf1b4f4ffce319bb6f49b61877ffb47d6eab78c9df3e04334326051",
+    "plans/2026-10-03-public-result-equivalence-design-445.md": "70478084f8903429e20f4dab8d180a28ec966eaf3d7c243ef91ffaf6e59fdc4f",
+    "tools/proxy_equivalence_proofs.py": "e02fa0702c9f8fbcb9910484925b3b92a03af1500ad51524879ac58bf72d33cb",
+    "tools/proxy_public_main_prefix.py": "8633c5170132e9fa85aaa9ca843d0ad4c811707851e75d43477ec29afe7c9c41",
+    "tools/proxy_public_relationship_prefix.py": "d43b4e6cc8e17630b5bb2ec7a28ba177c73f997f8e105ff12bef822f15f6a79e",
+    "tools/proxy_residual_witness_audit.py": "e235c0b36b3e29b06f982e9aa83cc1b1c5bbde5338ff6e1d2afee76d129ccf0e"
+  }
+}

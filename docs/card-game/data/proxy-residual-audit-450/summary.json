@@ -1,0 +1,82 @@
+{
+  "categories": {
+    "declared_target": 71,
+    "declared_variant": 21,
+    "persistent_state_or_rights": 28,
+    "physical_card_or_location": 1337
+  },
+  "choice_changes": 0,
+  "decision_record_changes": 0,
+  "diagnostic_only": true,
+  "different_zones": {
+    "activation_source": 92,
+    "attachments": 8,
+    "control": 535,
+    "discard": 57,
+    "egg_state": 671,
+    "end_obligation": 400,
+    "history": 1436,
+    "own_board.companions": 89,
+    "own_board.main": 849,
+    "own_board.partner": 22,
+    "own_board.partner_stage": 90,
+    "own_board.prepared": 603,
+    "own_board.world": 401,
+    "own_hand": 1337,
+    "pending_action": 1405,
+    "public_prepared": 8,
+    "rights": 163,
+    "time": 1165
+  },
+  "fallback_supported": 182,
+  "frontier_changes": 0,
+  "groups": {
+    "already_seeded": {
+      "categories": {
+        "physical_card_or_location": 12
+      },
+      "decisions": 8,
+      "pairs": 12
+    },
+    "legacy_safe_free_unique": {
+      "categories": {
+        "declared_target": 7,
+        "physical_card_or_location": 196
+      },
+      "decisions": 46,
+      "pairs": 203
+    },
+    "legacy_time_unique": {
+      "categories": {
+        "declared_target": 64,
+        "declared_variant": 21,
+        "persistent_state_or_rights": 28,
+        "physical_card_or_location": 1129
+      },
+      "decisions": 128,
+      "pairs": 1242
+    }
+  },
+  "independent_balance_sample_count": 0,
+  "inputs_verified": 313,
+  "legacy_unsupported": 72,
+  "new_runs": 0,
+  "pairs_with_boundary_difference": 535,
+  "pairs_with_card_atom_presence_difference": 1337,
+  "pairs_with_generator_unsupported": 0,
+  "pairs_with_non_time_difference": 1457,
+  "pairs_with_raw_equal_atoms": 1457,
+  "pairs_with_time_difference": 1165,
+  "pairs_with_unknowns": 1457,
+  "policy_changes": 0,
+  "policy_promoted": false,
+  "raw_equal_atoms_are_proven_cancellations": false,
+  "supported_denominator": 241,
+  "target_decisions": 182,
+  "target_frontier_pairs": 1457,
+  "unknowns": {
+    "unresolved_arrival_or_departure": 1364,
+    "unresolved_effect": 113,
+    "unresolved_response": 563
+  }
+}
