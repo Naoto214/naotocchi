@@ -1,0 +1,36 @@
+{
+  "base_head": "96d8f0e1dd5f9eb173692ec36a4777a7e0ce90fc",
+  "changed_existing": [
+    "docs/card-game/README.md"
+  ],
+  "design_errors": [],
+  "existing_files": 2688,
+  "game_test_runs": 0,
+  "implementation_approved": false,
+  "independent_balance_sample_count": 0,
+  "independent_design_review": {
+    "count": 1,
+    "critical": 0,
+    "important": 0,
+    "minor": 0
+  },
+  "new_matches": 0,
+  "new_replays": 0,
+  "new_shadow_comparisons": 0,
+  "policy_promoted": false,
+  "sources_sha256": {
+    "114-normal-decision-protocol-hardening.md": "aa161063e4fa9e056818d00e3fe799448107b3b51f00c05e67c2c89c3a50e59a",
+    "116-normal-decision-fallback-contract.md": "577dccec67343ead75aa813b464b432679927c2f4b71ed960be5058aaa3ef393",
+    "119-response-window-contract.md": "c79e89709c687211ae5ca4a2ba3328e285ffafcf9b7790f913ae5ceb953cba45",
+    "414-normal-decision-resource-pilot-design.md": "f2663994080406e7a6cbfe777f1b16103606a31e1956c22f8a8af964c4fc327e",
+    "445-public-result-equivalence-design.md": "a7a2e3199c8e0ee536d2bb2345dcfcf19a21b5137efa220acddb3d40f490d667",
+    "450-residual-evidence-audit.md": "1d96cb7b73d82517081bdd5f37272371b05fdefae675a96e46060fba48c43a6a",
+    "451-public-declaration-prefix.md": "107984be2058d83e0e18fd0c6318dc0c7108af081d4ee3210e3a6cbdfc3db783",
+    "452-independent-balance-readiness.md": "4735e0568f2b40698e7f4dbdf5c1f25cbbbd0848b13e51d55340d95671cdafd5",
+    "453-experiment-design-decision.md": "6795b2f70171bd82c1a30ab4556e9202514ca058974c71c8f9925754a10f71f5",
+    "data/proxy-normal-decision-fallback-contract-116-20260918.json": "8a7f41847339816d786d6c6055e290454cf8d5d84d6ccc22d6a32eb287cbfb6f",
+    "tools/proxy_continuation_choices.py": "e2152db6a78a45b8d145d96b725eda81196ef0481c2f27c1a1415dfd046112e4",
+    "tools/proxy_resource_value_evaluation.py": "f5377c17a1c41a1b6131618f2b5438d5ea28c97d4f57eb00648a0fba8ed58e2d"
+  },
+  "status": "design_only_awaiting_user_review"
+}

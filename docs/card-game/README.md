@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+- [454 全判断種別の別版評価方針・設計](454-all-judgment-evaluation-design.md)：合法性・選択根拠・標本審査を分離。唯一候補/既存優越/同値/seededの証拠範囲を整理。設計のみ、114/A/116維持、実装・対戦・算入0。
+
 - [453 次期実験計画の共通部分と判断分岐](453-experiment-design-decision.md)：非実行draftを保存。全判断の別版評価方針設計か、現行policy固定の診断計画かを確認。114/A/116維持、対戦追加0。
 
 - [452 独立balance標本への条件整理](452-independent-balance-readiness.md)：保存12runはNORMAL以外にもfallbackがあり116除外。全判断種別の条件と未確定の実験仕様を分離。A初版・114維持、新方式未採用。
