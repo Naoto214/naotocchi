@@ -22,7 +22,7 @@ test('original emergence candidate has one canonical face and active wings throu
  const {wingedInsect}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
  const r=wingedInsect(sp,'butterfly:6');r.faces=[attachFace(r,r.faceSpec,'C')];assert.equal(r.faces[0].eyes.length,2);for(const part of r.parts)assert.ok([...part.mesh.geometry.attributes.position.array].every(Number.isFinite));
  for(const animLv of [0,2]){const a=instantiate({rig:r,key:'butterfly:6'});const before=a.bones.wingL.rotation.y;for(let i=0;i<20;i++)animate(a,{dt:.05,moving:true,animLv});assert.ok(Math.abs(a.bones.wingL.rotation.y-before)>.03);for(const em of SPEC.CANONICAL_EMOTIONS){setEmotion(a,em);animate(a,{dt:.1,moving:true,animLv});assert.equal(a.faces.length,1);assert.equal(a.faces[0].emotion,em);}}
- assert.equal(SPEC.ROLLOUT.butterfly,undefined,'no promotion before image review');
+ assert.deepEqual(SPEC.ROLLOUT.butterfly.stages[6],sp,'reviewed emergence promoted unchanged');
 });
 test('larval forebody lift and foot rhythm vary without changing inherited Pilot posture',async()=>{
  const {larva}=await import('../character-3d/archetypes.mjs');const base=SPEC.PILOT.butterfly.stages[1];

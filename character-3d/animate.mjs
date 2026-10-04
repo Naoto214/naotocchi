@@ -23,6 +23,12 @@ function swimAppendages(B,s,m,k,prefix='',offset=0){
   if(left&&right){left.rotation.y+=Math.sin(s.t*7+offset)*.35*Math.max(k.idle,.3);right.rotation.y-=Math.sin(s.t*7+offset)*.35*Math.max(k.idle,.3);}
 }
 
+// Soft composite parts pulse from their owner's time/phase, without a second root float.
+function blobPulse(body,s,m,k){
+  const q=1+Math.sin(s.t*2)*.035*k.idle;body.scale.set(1/Math.sqrt(q),q,1/Math.sqrt(q));
+  body.rotation.z+=Math.sin(s.phase*TAU)*.08*m;
+}
+
 export function createAnimState(seed = 0) {
   return { t: (seed % 97) * 0.37, phase: 0, move: 0, blinkIn: 1.5 + (seed % 7) * 0.4, blinkT: -1, reaction: null, emotion: null, expr: SPEC.expressionParams('normal') };
 }
@@ -186,8 +192,7 @@ const LOCO = {
   },
   blobFloat(B, s, m, k, meta, R) {
     R.position.y += meta.hover + Math.sin(s.t * 2) * 0.05 * Math.max(k.idle, 0.3);
-    const q = 1 + Math.sin(s.t * 2) * 0.035 * k.idle; B.body.scale.set(1 / Math.sqrt(q), q, 1 / Math.sqrt(q));
-    B.body.rotation.z += Math.sin(s.phase * TAU) * 0.08 * m;
+    blobPulse(B.body,s,m,k);
   },
 };
 
@@ -203,6 +208,7 @@ export function animate(inst, input) {
   s.phase += dt * (GAIT_HZ[inst.locomotion] || 1.5) * (0.25 + 0.75 * s.move) * e.tempo;
   restore(B);
   (LOCO[inst.locomotion] || LOCO.hopSway)(B, s, s.move, k, meta, R);
+  for(const name of meta.blobSubrigs||[])blobPulse(B[name],s,s.move,k);
   // ---- emotion posture
   const head = B.head || B.cap || B.body;
   if (head && head !== R) { head.rotation.x += e.droop * 0.32; head.rotation.y += e.turn; }

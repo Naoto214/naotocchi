@@ -663,7 +663,7 @@ function mushroomParts(cap, stem, c, faceOn) {
   paint(stemGeo, (x, y, z, nx, ny, nz) => mix(c.stem, shade(c.stem, 0.88), smooth(0.2, -0.9, nz) * 0.6));
   const cr = cap.r, ch = cap.h;
   const prof = cap.shape === 'upturned'
-    ? [[.001,-ch*.18],[cr*.35,-ch*.15],[cr*.72,ch*.06],[cr,ch*.45],[cr*.99,ch*.73],[cr*.75,ch*.47],[cr*.4,ch*.2],[.001,ch*.10]]
+    ? [[.001,-ch*.45],[cr*.35,-ch*.35],[cr*.72,-ch*.10],[cr,ch*.45],[cr*.99,ch*.73],[cr*.75,ch*.47],[cr*.4,ch*.2],[.001,ch*.10]]
     : cap.shape === 'cone'
     ? [[0.001, -ch * 0.05], [cr * 0.9, 0], [cr * 1.0, ch * 0.12], [cr * 0.92, ch * 0.4], [cr * 0.66, ch * 0.75], [cr * 0.3, ch * 0.96], [0.001, ch]]
     : [[0.001, -ch * 0.12], [cr * 0.7, -ch * 0.19], [cr * 1.0, 0.0], [cr * 1.02, ch * 0.2], [cr * 0.85, ch * 0.62], [cr * 0.45, ch * 0.92], [0.001, ch]];
@@ -673,7 +673,7 @@ function mushroomParts(cap, stem, c, faceOn) {
   for (let i = 0; i < cp.count; i++) { const y = cp.getY(i); if (y < 0.001) { const x = cp.getX(i), z = cp.getZ(i), a = Math.atan2(x, z), k = 1 + 0.06 * Math.cos(a * 20) * Math.hypot(x, z) / cr; cp.setY(i, y * k - 0.009 * Math.cos(a * 16) * Math.sin(Math.PI*Math.hypot(x,z)/cr)); } }
   capGeo.computeVertexNormals();
   paint(capGeo, (x,y,z,nx,ny,nz) => {
-    if(y<.005)return shade(c.gill,.92+.08*Math.cos(Math.atan2(x,z)*16));
+    if(y<.005||(cap.shape==='upturned'&&ny<-.05))return shade(c.gill,.92+.08*Math.cos(Math.atan2(x,z)*16));
     if(cap.spots&&ny>.05&&cap.spots.some(([sx,sz,r])=>Math.hypot(x/cr-sx,z/cr-sz)<r*(1+.1*Math.sin(Math.atan2(z/cr-sz,x/cr-sx)*5))))return c.spot;
     const tone=mix(c.cap,c.capDark,cap.shape==='flat'?smooth(.6,0,ny)*.55:smooth(.4,-.3,ny)*.4);
     return c.capFace?mix(tone,c.capFace,smooth(ch*.7,ch*.2,y)*.95):tone;
@@ -717,7 +717,7 @@ export function fungus(sp, key) {
     childFace = { bone: 'child', target: cg, center: [0, sp.stem.h * .24, sp.stem.r * .45], fwd: [0,0,1], half: sp.stem.r * .48, eyeSize: .26, forceMode: 'A', normalEye: 'content', layout: {eyeX:24,eyeY:56,mouthY:82,browY:36,cheekX:38,cheekY:72,mouthW:8}, style: {blush:'#f4a090'} };
   }
   let target, center, half, bone;
-  if (sp.faceOn === 'cap') { target = capGeo; bone = 'cap'; center = [0, sp.cap.h * 0.3, sp.cap.r * 0.8]; half = sp.cap.r * 0.6; }
+  if (sp.faceOn === 'cap') { target = capGeo; bone = 'cap'; center = [0, sp.cap.h * (sp.face?.capHeight ?? 0.3), sp.cap.r * 0.8]; half = sp.cap.r * (sp.face?.half ?? 0.6); }
   else { target = stemGeo; bone = 'body'; center = [0, sp.stem.h * 0.5, sp.stem.r * 0.9]; half = sp.stem.r * 0.85; }
   rig.meta = { idlePose: 'stand', hover: 0 };
   rig.faceSpec = { bone, target, center, fwd: [0, 0.05, 1], half, eyeSize: 0.26,
@@ -803,6 +803,13 @@ export function radial(sp, key) {
   rig.meta = { idlePose: 'stand', hover: 0 };
   rig.faceSpec = { bone: 'body', target: body, center: [0, 0.02, sp.thick], fwd: [0, 0, 1], half: sp.armR * 0.95, eyeSize: 0.25,
     layout: { eyeX: 25, eyeY: 56, mouthY: 82, browY: 36, cheekX: 40, cheekY: 74, mouthW: 9 }, style: { blush: '#ff8a9a' } };
+  if(sp.larvalAttachment){
+    const u=sp.larvalAttachment,child=blobArchetype(u.spec,key+':larva');
+    const anchor=rig.add('larva:anchor','body',u.at,null,'opaque',[0,0,u.roll||0]);anchor.scale.setScalar(u.scale);anchor.userData.rest.s.copy(anchor.scale);
+    rig.add('larva:body','larva:anchor',[0,0,0],null);
+    for(const part of child.parts)rig.mesh('larva:body',[part.mesh.geometry.clone()],part.mesh.material.name.slice(4));
+    rig.meta.blobSubrigs=['larva:body'];
+  }
   return rig;
 }
 
@@ -812,13 +819,14 @@ export function blobArchetype(sp, key) {
   const rig = new Rig(key, 'blob', 'blobFloat');
   const h = sp.h, r = sp.r;
   // ビピンナリア: たてながの 体に 左右 2 つずつの ふくらみ(うで の もと)
-  const contour = [[0,h],[-r*.3,h*.96],[-r*.51,h*.8],[-r*.57,h*.66],[-r*.88,h*.59],[-r*.95,h*.49],[-r*.78,h*.42],[-r*.57,h*.35],[-r*.82,h*.25],[-r*.88,h*.12],[-r*.69,.0],[-r*.48,h*.01],[-r*.28,h*.11],[-r*.13,h*.015],[0,-h*.015],[r*.13,h*.015],[r*.28,h*.11],[r*.48,h*.01],[r*.69,0],[r*.88,h*.12],[r*.82,h*.25],[r*.57,h*.35],[r*.78,h*.42],[r*.95,h*.49],[r*.88,h*.59],[r*.57,h*.66],[r*.51,h*.8],[r*.3,h*.96]];
+  const contour = sp.contour ? sp.contour.map(([x,y])=>[x*r,y*h]) : [[0,h],[-r*.3,h*.96],[-r*.51,h*.8],[-r*.57,h*.66],[-r*.88,h*.59],[-r*.95,h*.49],[-r*.78,h*.42],[-r*.57,h*.35],[-r*.82,h*.25],[-r*.88,h*.12],[-r*.69,.0],[-r*.48,h*.01],[-r*.28,h*.11],[-r*.13,h*.015],[0,-h*.015],[r*.13,h*.015],[r*.28,h*.11],[r*.48,h*.01],[r*.69,0],[r*.88,h*.12],[r*.82,h*.25],[r*.57,h*.35],[r*.78,h*.42],[r*.95,h*.49],[r*.88,h*.59],[r*.57,h*.66],[r*.51,h*.8],[r*.3,h*.96]];
   const outer = paint(outlineLoft(contour,r*.42,72,8), (x, y, z, nx, ny, nz) => mix(c.base, c.edge, smooth(0.4, 0.0, Math.abs(nz)) * 0.7));
   const core = paint(blob((x, y, z) => [x * r * 0.55, (y * 0.5 + 0.5) * h * 0.7 + h * 0.12, z * r * 0.24], 14, 10), () => c.light);
+  if(sp.coreTilt)core.rotateZ(sp.coreTilt);
   rig.add('body', 'root', [0, 0, 0], [outer.clone()], 'glow:' + sp.glow + ':' + sp.translucent);
   rig.mesh('body', [core], 'opaque');
   rig.meta = { idlePose: 'stand', hover: 0.12 };
-  rig.faceSpec = { bone: 'body', target: outer, center: [0, h * 0.5, r * 0.6], fwd: [0, 0, 1], half: r * 0.7, eyeSize: 0.25,
+  rig.faceSpec = { bone: 'body', target: outer, center: sp.face?.center ? sp.face.center.map((v,i)=>v*(i===1?h:r)) : [0, h * 0.5, r * 0.6], fwd: [0, 0, 1], half: r * (sp.face?.half ?? 0.7), eyeSize: 0.25,
     layout: { eyeX: 24, eyeY: 56, mouthY: 82, browY: 36, cheekX: 38, cheekY: 74, mouthW: 8 }, style: { blush: '#ff8aa8' } };
   return rig;
 }

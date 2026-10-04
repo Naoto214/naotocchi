@@ -113,3 +113,6 @@ test('reviewed human batch has all24 exact runtime templates without nearest-age
 test('reviewed dandelion batch has eight exact runtime stages including rooted seed head',async()=>{
  const rt=await import('../character-3d/runtime.mjs');for(let stage=1;stage<=8;stage++){assert.deepEqual(SPEC.specKeyFor({line:'dandelion',stage:stage-1}),{id:'dandelion',stage,exact:true});assert.equal(rt.getTemplate('dandelion',stage).status,'ok');}assert.equal(SPEC.ROLLOUT.dandelion.stages[7].form,'seedHead');assert.equal(SPEC.ROLLOUT.dandelion.stages[8].archetype,'cluster');
 });
+test('reviewed butterfly batch has all eight exact metamorphosis templates',async()=>{
+ const rt=await import('../character-3d/runtime.mjs');for(let stage=1;stage<=8;stage++){assert.deepEqual(SPEC.specKeyFor({line:'butterfly',stage:stage-1}),{id:'butterfly',stage,exact:true});assert.equal(rt.getTemplate('butterfly',stage).status,'ok');}assert.equal(SPEC.ROLLOUT.butterfly.stages[4].hang,true);assert.ok(SPEC.ROLLOUT.butterfly.stages[6].emergence);
+});

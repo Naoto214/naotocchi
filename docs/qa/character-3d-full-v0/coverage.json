@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 84,
-    "pending": 209,
-    "fourViewRecords": 72
+    "exactSpecs": 88,
+    "pending": 205,
+    "fourViewRecords": 80
   },
   "rows": [
     {
@@ -1461,10 +1461,10 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-1-back.jpg"
       }
     },
     {
@@ -1476,15 +1476,15 @@
       "group": "normal",
       "asset": "assets/characters/butterfly/02.png",
       "sha256": "b33ab14c49ffacf77b97b997a6add5eabd6b0234bf732e76a9a4a6f79e417ecb",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "larva",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-2-back.jpg"
       }
     },
     {
@@ -1496,15 +1496,15 @@
       "group": "normal",
       "asset": "assets/characters/butterfly/03.png",
       "sha256": "0fb0d70175b1a7aff382c5918c100a069cef1a6c77f9c9a43d0f406f59d1afa0",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "larva",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-3-back.jpg"
       }
     },
     {
@@ -1521,10 +1521,10 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-4-back.jpg"
       }
     },
     {
@@ -1541,10 +1541,10 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-5-back.jpg"
       }
     },
     {
@@ -1556,15 +1556,15 @@
       "group": "normal",
       "asset": "assets/characters/butterfly/06.png",
       "sha256": "bce91fa9a00a3c4ef1d31c69021f3bcb1fc20d72ad20d2f788da25b4a4562ced",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "winged_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-6-back.jpg"
       }
     },
     {
@@ -1576,15 +1576,15 @@
       "group": "normal",
       "asset": "assets/characters/butterfly/07.png",
       "sha256": "fa03c4a8ea871beb6aaa05a4b2af166093789df497d05d1c332158ee4f75dca2",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "exact-stage-not-built",
+      "archetype": "winged_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-7-back.jpg"
       }
     },
     {
@@ -1601,10 +1601,10 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr1-topology/d8e3b76/butterfly/butterfly-8-back.jpg"
       }
     },
     {

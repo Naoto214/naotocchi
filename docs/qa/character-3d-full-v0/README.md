@@ -5,7 +5,7 @@ This is a wave checkpoint, **not the completed Full Rollout Human QA package**.
 ## Current review surfaces
 
 - `character-3d/full-gallery.html`: master inventory, exact/pending status, paged lazy original/four-view records. Species, kind, archetype and stage filters. Full emotion/motion evidence filters remain pending.
-- `character-3d/gallery.html`: live reviewed Pilot + dog/cat/penguin/salmon/clownfish/man/woman/ren/dandelion exact stages, canonical expressions and motion.
+- `character-3d/gallery.html`: live reviewed Pilot + dog/cat/penguin/salmon/clownfish/man/woman/ren/dandelion/butterfly exact stages, canonical expressions and motion.
 - `fr1/dog-stages.jpg`, `fr1/cat-stages.jpg`, `fr1/penguin-stages.jpg`: original + front / 3/4 / side / back, all eight stages. Originals are alpha-trimmed for comparable art footprints; PNGs themselves are unchanged.
 - `fr1/evidence.json`: immutable renderer source `81b04e0758bca7018f39607bbcc8fb9cb8b280f9`, 96 views, triangles/draw calls. Three sheets plus 96 views = 99 saved images.
 
@@ -13,7 +13,7 @@ This is a wave checkpoint, **not the completed Full Rollout Human QA package**.
 
 Fresh master: 31 player species / 248 stages, 26 companions, 18 partners, author 1 = 293 active designs. Supplemental Home eggs (3) and retired kinoko (1) remain inventoried, not revived as gameplay actors.
 
-Current exact specs: **84/293** (82 player stages and 2 companions); **209 pending**. Added56 exact stages: dog +5, penguin +5, player cat +8, salmon +8, clownfish +5, man +5, woman +8, ren +8, dandelion +4. Reused quadruped/avian/fish/humanoid/plant, no new archetype.72 current four-view records; historical Pilot images remain in the Pilot QA packages. `coverage.json` distinguishes spec availability from saved visual evidence.
+Current exact specs: **88/293** (86 player stages and 2 companions); **205 pending**. Added60 exact stages: dog +5, penguin +5, player cat +8, salmon +8, clownfish +5, man +5, woman +8, ren +8, dandelion +4, butterfly +4. Reused quadruped/avian/fish/humanoid/plant/larva/pod/winged_insect, no new archetype.80 current four-view records; historical Pilot images remain in the Pilot QA packages. `coverage.json` distinguishes spec availability from saved visual evidence.
 
 ## What changed in this batch
 
@@ -125,3 +125,8 @@ Known visual candidates: mature age impression, woman06 hair softness, held plus
 - `fr1-topology/99268a8/`: all8 dandelion original/four-view comparison,32 views,16 normal-distance images and raw exact/live/fallback0 JSON. New02/03/05/07 promote unchanged after image review; runtime84/293,72 saved four-view records. Promoted-source72-stage matrix remains pending.
 - Butterfly06 now has an optional open empty pupa shell beside the emerging butterfly, bounded separate fore/hind wing proportions and one canonical face. Casing/branch is a presentation attachment, not a second gameplay actor or World item. Unpromoted pending four-view and normal-distance images.
 - Local dedicated93PASS/0FAIL, Pilot28 numerical geometry/pose hashes unchanged. Emergence4/4RED; latest promotion mutation result in progress log. Final full v0 and iPhone not complete.
+
+### Butterfly promotion / remaining topology representatives
+- `fr1-topology/d8e3b76/butterfly/` contains the current all8 butterfly32views and original comparison. Raw normal-distance8 exact/live/fallback0 +16World images saved alongside. Added4 exact stages; runtime88/293,80saved four-view records. Next promoted80-stage aggregate is pending.
+- Fungus02/03/06 historical images in the same source folder exposed cap-face/underside issues, now fixed for recapture. Starfish02/03 representatives are unpromoted and image/distance QA pending. No increase in coverage for those candidates.
+- Local dedicated104PASS/0FAIL; rollout12RED, fungus8RED, starfish4RED; Pilot28 numerical geometry/pose hashes identical. Source203 Runtime/Home/Character allSUCCESS. Latest source CI remains separate.
