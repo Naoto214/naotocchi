@@ -1,0 +1,58 @@
+test_all_41_cards_at_zero_time_have_explicit_second_actor_disposition (test_proxy_population_start_window.AssessmentTests.test_all_41_cards_at_zero_time_have_explicit_second_actor_disposition) ... ok
+test_invalid_initial_context_and_missing_source_fail_closed (test_proxy_population_start_window.AssessmentTests.test_invalid_initial_context_and_missing_source_fail_closed) ... ok
+test_multiple_response_alternatives_never_gain_a_value_or_random_choice (test_proxy_population_start_window.AssessmentTests.test_multiple_response_alternatives_never_gain_a_value_or_random_choice) ... ok
+test_selection_information_is_independent_of_hidden_orders (test_proxy_population_start_window.AssessmentTests.test_selection_information_is_independent_of_hidden_orders) ... ok
+test_singleton_uses_existing_response_unique_not_mandatory_policy (test_proxy_population_start_window.AssessmentTests.test_singleton_uses_existing_response_unique_not_mandatory_policy) ... FAIL
+test_bundle_reconstruction_binds_prefix_and_lookup_without_changing_466 (test_proxy_population_start_window.WindowTests.test_bundle_reconstruction_binds_prefix_and_lookup_without_changing_466) ... FAIL
+test_legacy_and_full_envelope_hash_chains_are_independently_checkable (test_proxy_population_start_window.WindowTests.test_legacy_and_full_envelope_hash_chains_are_independently_checkable) ... FAIL
+test_multiple_candidates_stop_before_any_pass_or_future_opportunity (test_proxy_population_start_window.WindowTests.test_multiple_candidates_stop_before_any_pass_or_future_opportunity) ... FAIL
+test_two_unique_passes_reach_normal_with_both_opportunities_and_preserved_resources (test_proxy_population_start_window.WindowTests.test_two_unique_passes_reach_normal_with_both_opportunities_and_preserved_resources) ... FAIL
+
+======================================================================
+FAIL: test_singleton_uses_existing_response_unique_not_mandatory_policy (test_proxy_population_start_window.AssessmentTests.test_singleton_uses_existing_response_unique_not_mandatory_policy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_start_window.py", line 27, in test_singleton_uses_existing_response_unique_not_mandatory_policy
+    self.assertIsNone(r['strategic_unproven'])
+AssertionError: False is not None
+
+======================================================================
+FAIL: test_bundle_reconstruction_binds_prefix_and_lookup_without_changing_466 (test_proxy_population_start_window.WindowTests.test_bundle_reconstruction_binds_prefix_and_lookup_without_changing_466)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_start_window.py", line 71, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'reconstruct_initial_window'),'initial window reconstruction missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : initial window reconstruction missing
+
+======================================================================
+FAIL: test_legacy_and_full_envelope_hash_chains_are_independently_checkable (test_proxy_population_start_window.WindowTests.test_legacy_and_full_envelope_hash_chains_are_independently_checkable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_start_window.py", line 71, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'reconstruct_initial_window'),'initial window reconstruction missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : initial window reconstruction missing
+
+======================================================================
+FAIL: test_multiple_candidates_stop_before_any_pass_or_future_opportunity (test_proxy_population_start_window.WindowTests.test_multiple_candidates_stop_before_any_pass_or_future_opportunity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_start_window.py", line 71, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'reconstruct_initial_window'),'initial window reconstruction missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : initial window reconstruction missing
+
+======================================================================
+FAIL: test_two_unique_passes_reach_normal_with_both_opportunities_and_preserved_resources (test_proxy_population_start_window.WindowTests.test_two_unique_passes_reach_normal_with_both_opportunities_and_preserved_resources)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_start_window.py", line 71, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'reconstruct_initial_window'),'initial window reconstruction missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : initial window reconstruction missing
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.566s
+
+FAILED (failures=5)

@@ -1,0 +1,10 @@
+# SDD ledger — plan: docs/card-game/plans/2026-10-05-population-start-window-467.md
+Base 28a178f74fa052fc8edb28d3f300661da3b77e89 / tree e47abe09aec393622710a2662196d4cedf5d981a; fresh remote equal, PR259 Draft/open/unmerged. Scratch restored from git.
+Pre-flight: 466 inventory consumes first actor/time1, not opponent/time0. Task1 checks first boundary with466 and separately proves all opponent quick uses unaffordable from pinned114 rows. Task2 consumes this conditional inventory only after reconstructed first pass; bundle wrapper authenticates supplied-input origin, not independence/lock. Task3 compares whole rebuilt record, not saved choice replay.
+Ruling: multi-candidate responses stop before selection; old120 comparator's default0 is not a new proof and is not invoked here — preserves the user's unknown-value boundary; costs incomplete executable response coverage until existing selection evidence is separately justified. No new policy adopted.
+
+Task1 complete: assessment5 RED→GREEN. Task2 test expectation correction: independent hash calculation initially used pretty JSON+LF; existing record/continuation canonical is compact sorted JSON without LF (record_validator line34). Correct test encoder, preserve production hash. Singleton strategic comparison is null, not inferred solved from sole candidate.
+
+Task2 complete: window4 plus assessment5 GREEN. Task3 complete: audit3 RED→GREEN; dedicated12 PASS. Final review once: C0/I0/M0; independent12 PASS plus mixed9/v2 probes. Declined areas remain explicitly unproved (whole-game, provenance/lock/full source closure, multi-response strategy); author completes final verification/packaging/remote checks. No re-review. Npm initial log lacked final summary despite tool exit0; retry captured exit0 with406 PASS/0fail, used as final evidence.
+
+Final verification: related224 PASS (dedicated12 included); npm406 PASS/0fail; design errors=[];39 source pins match; protected3711 of3712 existing blobs unchanged except README. No all-proxy-regression claim.

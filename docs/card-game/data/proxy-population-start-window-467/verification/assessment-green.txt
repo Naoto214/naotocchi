@@ -1,0 +1,10 @@
+test_all_41_cards_at_zero_time_have_explicit_second_actor_disposition (test_proxy_population_start_window.AssessmentTests.test_all_41_cards_at_zero_time_have_explicit_second_actor_disposition) ... ok
+test_invalid_initial_context_and_missing_source_fail_closed (test_proxy_population_start_window.AssessmentTests.test_invalid_initial_context_and_missing_source_fail_closed) ... ok
+test_multiple_response_alternatives_never_gain_a_value_or_random_choice (test_proxy_population_start_window.AssessmentTests.test_multiple_response_alternatives_never_gain_a_value_or_random_choice) ... ok
+test_selection_information_is_independent_of_hidden_orders (test_proxy_population_start_window.AssessmentTests.test_selection_information_is_independent_of_hidden_orders) ... ok
+test_singleton_uses_existing_response_unique_not_mandatory_policy (test_proxy_population_start_window.AssessmentTests.test_singleton_uses_existing_response_unique_not_mandatory_policy) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.585s
+
+OK

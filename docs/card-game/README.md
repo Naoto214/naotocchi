@@ -1,5 +1,7 @@
 # なおとっちカードゲーム — 設計正本
 
+- [467 — 初回responseの選択境界・両者pass・通常行動入口](467-initial-response-window-binding.md)
+
 - [466 初期loader・初回判断機会・response候補接続](466-planned-opening-and-first-response.md)：供給bundleから通常draw/たまご選択/既存event・snapshot・continuationを再構成。初回41 IDのresponse候補まで検算。全体認証未完、seed生成・対戦0。
 
 - [465 mandatory局所処理と400戦bundle接続](465-mandatory-boundary-and-population-input.md)：5種の途中state・候補・適用、MRP記録/retry、供給bundleとchooser/root/鏡像側の結合を検算。全体認証未完、seed生成・入力固定・対戦0。
