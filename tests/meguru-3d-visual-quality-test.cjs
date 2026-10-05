@@ -340,3 +340,13 @@ test('VQ-16 single-family main windows reserve the existing bay projection', () 
   }
   assert.ok(count>30);
 });
+
+test('VQ-17 two-storey entrance remains below its existing low canopy', () => {
+  const M=require('./helpers/runtime-harness.cjs').harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const objects=M.worldObjects3d(M.buildWorld('home',M.buildRegistry(),{world3d:true})).objects;
+  const house=objects.find(o=>o.id==='home:196');
+  assert.equal(house.parts[0].family,'twostorey');
+  const door=house.parts.find(p=>p.door), canopy=house.parts.find(p=>p.shape==='wslab'&&p.y===52);
+  assert.ok(canopy,'existing entrance canopy');
+  assert.ok(door.y+door.h<=canopy.y,'door must not penetrate the unchanged canopy');
+});

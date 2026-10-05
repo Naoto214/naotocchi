@@ -1471,7 +1471,8 @@
           }
           if (storeys === 2) out.push(Object.assign({ shape: 'box', rx: w * 1.04, rz: d * 1.04, h: 5, y: h * 0.5, ang, color: trimC }, at(0, 0)));   // 2 かいの 床の 帯
           // 入口: くぼみ(くらい 板の 奥)+ わく + とびら + とって。窓: わく + ガラス + だい
-          const doorW = family === 'barn' ? w * 0.55 : Math.min(16, w * 0.28), doorH = Math.min(family === 'barn' ? 110 : family === 'shed' ? 52 : 58, h * 0.55), doorX = family === 'barn' || family === 'shed' ? 0 : -w * 0.45;
+          const hasLowAwning = sm.awning || (sm.sign && v > 0.3) || (family === 'twostorey' && v < 0.5);
+          const doorW = family === 'barn' ? w * 0.55 : Math.min(16, w * 0.28), doorH = Math.min(family === 'barn' ? 110 : family === 'shed' || hasLowAwning ? 52 : 58, h * 0.55), doorX = family === 'barn' || family === 'shed' ? 0 : -w * 0.45;
           out.push(front(doorX, 0, doorW + 4, 1.2, doorH + 4, trimC), front(doorX, 0, doorW, 2.2, doorH, family === 'barn' ? '#7a3a2c' : v > 0.5 ? '#4a3a2c' : '#7a4a3a', { door: true }), family === 'barn' ? front(0, 0, 1.2, 3, doorH, trimC) : front(doorX + doorW * 0.55, doorH * 0.5, 1.5, 3, 2, '#ffe066'));
           // VQ: fit window sills to the facade remaining beside the real door.
           // Crowded small walls get one readable opening instead of two overlaps.
@@ -1530,7 +1531,7 @@
           const chimney = !sm.sign && family !== 'hut' && family !== 'adobe' && family !== 'barn' && (v > 0.5 || family === 'cabin');
           if (chimney) out.push(Object.assign({ shape: 'box', rx: 7, rz: 7, h: roofH * 0.8 + 16, y: h, ang, color: '#6a5a4a' }, at(-d * 0.2, w * 0.55)), Object.assign({ shape: 'box', rx: 8.5, rz: 8.5, h: 3, y: h + roofH * 0.8 + 16, ang, color: '#4a3a30' }, at(-d * 0.2, w * 0.55)));   // 煙突 + かさ
           if (sm.sign) out.push(Object.assign({ shape: 'board', w: w * 1.2, h: 22, y: h - 30, ang: ang + Math.PI / 2, color: accent }, at(d + 2, 0)), Object.assign({ shape: 'board', w: Math.max(w * 2.2, 96), h: 30, y: h + 18, ang: ang + Math.PI / 2, color: v > 0.5 ? '#ffffff' : accent }, at(d * 0.6, 0)));   // 屋上の ひろい 看板(あたまより 上・シルエットを ひろく)
-          if (sm.awning || (sm.sign && v > 0.3) || (family === 'twostorey' && v < 0.5)) out.push(Object.assign({ shape: 'wslab', len: sm.sign ? w * 1.3 : doorW * 2.6, w: 16, h: 4, y: Math.min(h * 0.32, 52), ang, color: accent }, at(d + 8, sm.sign ? 0 : doorX)));   // ひさし
+          if (hasLowAwning) out.push(Object.assign({ shape: 'wslab', len: sm.sign ? w * 1.3 : doorW * 2.6, w: 16, h: 4, y: Math.min(h * 0.32, 52), ang, color: accent }, at(d + 8, sm.sign ? 0 : doorX)));   // ひさし
           // 家の まわり: 正面の 両かどに しげみ、入口の わきに 花(地域の 花の いろ)
           const fl = (ctx && ctx.prof && ctx.prof.cover && ctx.prof.cover.flowers) || [], fc = fl.length ? fl[Math.floor(v * fl.length)] : '#f2a6c0';
           for (const sd of [-1, 1]) out.push(Object.assign({ shape: 'crown', small: true, r: 11 + ((sd + 1) * v * 3), sy: 0.85, y: 0, shade: sd > 0 ? 2 : 1 }, at(D + 4, sd * W * 0.9 - cx)));
