@@ -1,3 +1,5 @@
+> 2026-10-05: CIは全5job成功。生データと最新報告は [run-c03dc72](../meguru-3d-ci/run-c03dc72/README.md)。以下はproduct保存時の歴史的status。
+
 # World ground planting clearance — in progress
 
 Baseline f7ffdff2951722a272122748750da4c3170a46e6, tree59517d85496bd8ae7e7fb77d6bc88929679eb1fa. Fresh remote/PR confirmed: Draft/open, mergeable/clean, base69a8857b and main0b0a6b30 unchanged.
