@@ -27,4 +27,4 @@ seed生成0、予定400入力固定0、本番対戦0、独立balance標本0、�
 
 ## 検証証拠
 
-[計画](plans/2026-10-06-population-runtime-468.md)、[証拠](data/proxy-population-runtime-468/verification/)、[source版](data/proxy-population-runtime-468/sources.json)。専用23件を含むpopulation関連68件PASS、npm406件PASS、設計検査errors=[]。source853件を固定。独立レビュー1回はCritical0 / Important0 / Minor1（test直接実行時の配置を修正）。レビュー後にR10実proof/replay/chain検証と最終hash出力欄を補完した。全proxy回帰は6独立processで実行中のため、全件PASSとは報告しない。完了ログは同じ468証拠束へ追記する。保護検査では既存3,731 blobが一致（README索引追加前）。
+[計画](plans/2026-10-06-population-runtime-468.md)、[証拠](data/proxy-population-runtime-468/verification/)、[source版](data/proxy-population-runtime-468/sources.json)。専用23件を含むpopulation関連68件PASS、npm406件PASS、設計検査errors=[]。source853件を固定。独立レビュー1回はCritical0 / Important0 / Minor1（test直接実行時の配置を修正）。レビュー後にR10実proof/replay/chain検証と最終hash出力欄を補完した。全proxy回帰は6独立process・378 module・1,406件PASS（failure/error/skip各0）をtool出力で確認した。ただし完了後の作業環境置換で未保存のraw log/worker JSONが失われた。再実行やraw log保存済みとは扱わず、観測できた完了集計とこの限界をverification/completion-observed-before-environment-replacement.jsonへ記録する。後続469追加testはこの件数に含まない。保護検査では既存3,731 blobが一致（README索引追加前）。
