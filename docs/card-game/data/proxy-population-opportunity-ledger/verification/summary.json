@@ -1,0 +1,25 @@
+{
+  "actual_population_locked": false,
+  "actual_seeds_generated": 0,
+  "blocking_approval": "optional_trigger_group_choice_unit",
+  "dedicated": {
+    "passed": 16,
+    "tests": 16
+  },
+  "design_errors": [],
+  "full_proxy_regression_reexecuted": false,
+  "independent_balance_samples": 0,
+  "new_matches": 0,
+  "npm": {
+    "passed": 406,
+    "tests": 406
+  },
+  "policy_promoted": false,
+  "population_related": {
+    "includes_dedicated": true,
+    "passed": 114,
+    "tests": 114
+  },
+  "ready_for_execution": false,
+  "runtime_integration": false
+}

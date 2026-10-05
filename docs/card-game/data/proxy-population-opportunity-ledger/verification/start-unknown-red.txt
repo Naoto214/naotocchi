@@ -1,0 +1,14 @@
+..F.
+======================================================================
+FAIL: test_equipment_remaining_hand_condition_and_opponent_owner_are_separate (test_proxy_population_start_obligations.StartTests.test_equipment_remaining_hand_condition_and_opponent_owner_are_separate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_start_obligations.py", line 37, in test_equipment_remaining_hand_condition_and_opponent_owner_are_separate
+    with self.assertRaises(ValueError):api.capture(bad)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.133s
+
+FAILED (failures=1)

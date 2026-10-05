@@ -1,0 +1,9 @@
+test_catalog_exactly_covers_existing107_and_preserves_literal_sources (test_proxy_population_start_obligations.StartTests.test_catalog_exactly_covers_existing107_and_preserves_literal_sources) ... ok
+test_chicken_empty_deck_is_not_an_added_activation_condition (test_proxy_population_start_obligations.StartTests.test_chicken_empty_deck_is_not_an_added_activation_condition) ... ok
+test_equipment_remaining_hand_condition_and_opponent_owner_are_separate (test_proxy_population_start_obligations.StartTests.test_equipment_remaining_hand_condition_and_opponent_owner_are_separate) ... ok
+test_sources_cannot_join_retroactively_and_unknown_cards_fail_closed (test_proxy_population_start_obligations.StartTests.test_sources_cannot_join_retroactively_and_unknown_cards_fail_closed) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.081s
+
+OK
