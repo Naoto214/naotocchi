@@ -1,0 +1,9 @@
+test_cutoff_registry_has_fixed_code_only_input_and_exact_scope (test_proxy_population_input_history.HistoryTests.test_cutoff_registry_has_fixed_code_only_input_and_exact_scope) ... ok
+test_dedup_retains_locations_and_outcomes_do_not_change_identity (test_proxy_population_input_history.HistoryTests.test_dedup_retains_locations_and_outcomes_do_not_change_identity) ... ok
+test_malformed_input_is_not_silently_dropped (test_proxy_population_input_history.HistoryTests.test_malformed_input_is_not_silently_dropped) ... ok
+test_seed_projection_and_schema_definition_are_distinct (test_proxy_population_input_history.HistoryTests.test_seed_projection_and_schema_definition_are_distinct) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 26.289s
+
+OK

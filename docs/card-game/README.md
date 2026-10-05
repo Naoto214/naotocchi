@@ -1,5 +1,6 @@
 # なおとっちカードゲーム — 設計正本
 
+- [469 — 過去入力台帳・乱数材料・不変保存の検証bundle](469-population-input-authentication-bundle.md)
 - [468 — 通常行動・必須選択・chain・複数turnのruntime接続bundle](468-population-runtime-connection-bundle.md)
 
 - [467 — 初回responseの選択境界・両者pass・通常行動入口](467-initial-response-window-binding.md)

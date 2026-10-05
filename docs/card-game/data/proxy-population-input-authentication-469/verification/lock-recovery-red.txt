@@ -1,0 +1,14 @@
+test_exact_git_binding_is_not_publication_provenance_or_authority (test_proxy_population_input_lock.LockTests.test_exact_git_binding_is_not_publication_provenance_or_authority) ... FAIL
+
+======================================================================
+FAIL: test_exact_git_binding_is_not_publication_provenance_or_authority (test_proxy_population_input_lock.LockTests.test_exact_git_binding_is_not_publication_provenance_or_authority)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_input_lock.py", line 8, in test_exact_git_binding_is_not_publication_provenance_or_authority
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

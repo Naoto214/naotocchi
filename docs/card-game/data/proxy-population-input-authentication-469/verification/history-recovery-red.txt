@@ -1,0 +1,45 @@
+test_cutoff_registry_has_fixed_code_only_input_and_exact_scope (test_proxy_population_input_history.HistoryTests.test_cutoff_registry_has_fixed_code_only_input_and_exact_scope) ... FAIL
+test_dedup_retains_locations_and_outcomes_do_not_change_identity (test_proxy_population_input_history.HistoryTests.test_dedup_retains_locations_and_outcomes_do_not_change_identity) ... FAIL
+test_malformed_input_is_not_silently_dropped (test_proxy_population_input_history.HistoryTests.test_malformed_input_is_not_silently_dropped) ... FAIL
+test_seed_projection_and_schema_definition_are_distinct (test_proxy_population_input_history.HistoryTests.test_seed_projection_and_schema_definition_are_distinct) ... FAIL
+
+======================================================================
+FAIL: test_cutoff_registry_has_fixed_code_only_input_and_exact_scope (test_proxy_population_input_history.HistoryTests.test_cutoff_registry_has_fixed_code_only_input_and_exact_scope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_input_history.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_dedup_retains_locations_and_outcomes_do_not_change_identity (test_proxy_population_input_history.HistoryTests.test_dedup_retains_locations_and_outcomes_do_not_change_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_input_history.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_malformed_input_is_not_silently_dropped (test_proxy_population_input_history.HistoryTests.test_malformed_input_is_not_silently_dropped)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_input_history.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_seed_projection_and_schema_definition_are_distinct (test_proxy_population_input_history.HistoryTests.test_seed_projection_and_schema_definition_are_distinct)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_input_history.py", line 10, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

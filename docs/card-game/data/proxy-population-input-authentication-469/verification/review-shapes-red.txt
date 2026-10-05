@@ -1,0 +1,34 @@
+test_malformed_input_is_not_silently_dropped (test_proxy_population_input_history.HistoryTests.test_malformed_input_is_not_silently_dropped) ... ERROR
+test_malformed_call_rows_are_rejected (test_proxy_population_material_protocol.MaterialTests.test_malformed_call_rows_are_rejected) ... ERROR
+
+======================================================================
+ERROR: test_malformed_input_is_not_silently_dropped (test_proxy_population_input_history.HistoryTests.test_malformed_input_is_not_silently_dropped)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_input_history.py", line 16, in test_malformed_input_is_not_silently_dropped
+    d=document();mutate(d);self.assertTrue(api.collect(d,'unit')['gaps'])
+                                           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_input_history.py", line 46, in collect
+    if not (type(document) is dict and str(document.get('$schema','')).startswith('https://json-schema.org/') and document.get('type')=='object' and type(document.get('properties')) is dict):walk(document,source+'#')
+                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_input_history.py", line 38, in walk
+    orders={p['player_id']:p['deck_order_top_to_bottom'] for p in players}
+                           ~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'deck_order_top_to_bottom'
+
+======================================================================
+ERROR: test_malformed_call_rows_are_rejected (test_proxy_population_material_protocol.MaterialTests.test_malformed_call_rows_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_material_protocol.py", line 25, in test_malformed_call_rows_are_rejected
+    for row in (None,[],True):self.assertFalse(api.audit_material_record({'calls':[row]},registry(),decks(),group_count=1)['material_consistent'])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_material_protocol.py", line 43, in audit_material_record
+    if request is None or canonical({k:v for k,v in call.items() if k!='raw_hex'})!=canonical(request):raise ValueError('call binding')
+                                                    ^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'items'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.996s
+
+FAILED (errors=2)

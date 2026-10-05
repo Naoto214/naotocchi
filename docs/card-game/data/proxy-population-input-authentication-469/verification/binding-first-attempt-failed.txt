@@ -1,0 +1,24 @@
+test_group_order_attempt_and_owner_root_are_bound (test_proxy_population_material_protocol.BindingTests.test_group_order_attempt_and_owner_root_are_bound) ... FAIL
+test_all_initial_pairs_precede_policy_roots_and_new_coincidence_is_retained (test_proxy_population_material_protocol.MaterialTests.test_all_initial_pairs_precede_policy_roots_and_new_coincidence_is_retained) ... ok
+test_full_order_pair_historical_match_and_invalid_supply (test_proxy_population_material_protocol.MaterialTests.test_full_order_pair_historical_match_and_invalid_supply) ... ok
+test_rejections_retained_without_blacklisting_new_groups (test_proxy_population_material_protocol.MaterialTests.test_rejections_retained_without_blacklisting_new_groups) ... ok
+
+======================================================================
+FAIL: test_group_order_attempt_and_owner_root_are_bound (test_proxy_population_material_protocol.BindingTests.test_group_order_attempt_and_owner_root_are_bound)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_material_protocol.py", line 40, in test_group_order_attempt_and_owner_root_are_bound
+    self.assertEqual(api.binding_errors(b,r),[])
+AssertionError: Lists differ: ['group material differs'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'group material differs'
+
+- ['group material differs']
++ []
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.836s
+
+FAILED (failures=1)
