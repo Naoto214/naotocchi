@@ -1471,13 +1471,23 @@
           }
           if (storeys === 2) out.push(Object.assign({ shape: 'box', rx: w * 1.04, rz: d * 1.04, h: 5, y: h * 0.5, ang, color: trimC }, at(0, 0)));   // 2 かいの 床の 帯
           // 入口: くぼみ(くらい 板の 奥)+ わく + とびら + とって。窓: わく + ガラス + だい
-          const doorW = family === 'barn' ? w * 0.55 : Math.min(16, w * 0.28), doorH = Math.min(family === 'barn' ? 110 : 52, h * 0.55), doorX = family === 'barn' || family === 'shed' ? 0 : -w * 0.45;
+          const doorW = family === 'barn' ? w * 0.55 : Math.min(16, w * 0.28), doorH = Math.min(family === 'barn' ? 110 : family === 'shed' ? 52 : 58, h * 0.55), doorX = family === 'barn' || family === 'shed' ? 0 : -w * 0.45;
           out.push(front(doorX, 0, doorW + 4, 1.2, doorH + 4, trimC), front(doorX, 0, doorW, 2.2, doorH, family === 'barn' ? '#7a3a2c' : v > 0.5 ? '#4a3a2c' : '#7a4a3a', { door: true }), family === 'barn' ? front(0, 0, 1.2, 3, doorH, trimC) : front(doorX + doorW * 0.55, doorH * 0.5, 1.5, 3, 2, '#ffe066'));
-          const winW = Math.min(12, w * 0.2), rows = storeys, nWin = family === 'barn' || family === 'shed' ? 1 : w > 40 ? 2 : 1;
-          for (let r0 = 0; r0 < rows; r0++) for (let i = 0; i < nWin; i++) {
-            const side = family === 'barn' ? 0 : family === 'shed' ? w * 0.55 : w * (0.1 + i * 0.4), y = family === 'barn' ? h * 0.8 : h * (storeys === 2 ? (r0 === 0 ? 0.22 : 0.68) : 0.5);   // 納屋は 上の 小窓(屋根裏)
-            out.push(front(side, y - 2, winW + 2.5, 1.2, 18, trimC), front(side, y, winW, 2.2, 14, '#cfe6f2', { win: true }), front(side, y - 3, winW + 3.5, 3, 2.5, trimC, { solidBox: true }));
-            if (v < 0.4 && r0 === 0) out.push(front(side, y - 9, winW + 1, 4, 6, '#8a5a3a', { solidBox: true }), Object.assign({ shape: 'flower', r: 7, h: 2, y: y - 3, color: v < 0.2 ? '#f2a6c0' : '#f7d94c' }, at(d + 6, side)));   // 花の 箱
+          // VQ: fit window sills to the facade remaining beside the real door.
+          // Crowded small walls get one readable opening instead of two overlaps.
+          const separateLoft = family === 'barn' || family === 'shed';
+          const hasBay = family === 'single' && w > 36;
+          // The projecting bay already supplies the right opening; reserve its cap.
+          const windowLeft = doorX + doorW + 8, windowRight = hasBay ? w * 0.27 - 4 : w - 2;
+          const nWin = separateLoft ? 1 : Math.max(hasBay ? 0 : 1, Math.min(2, Math.floor((windowRight - windowLeft + 2) / 25)));
+          const cell = (windowRight - windowLeft) / Math.max(1, nWin);
+          const winW = separateLoft ? Math.min(12, w * 0.2) : Math.min(12, (cell - 2) * 0.5 - 3.5);
+          for (let r0 = 0; r0 < storeys; r0++) for (let i = 0; i < nWin; i++) {
+            const side = family === 'barn' ? 0 : family === 'shed' ? w * 0.55 : windowLeft + cell * (i + 0.5);
+            const y = family === 'barn' ? h * 0.8 : h * (storeys === 2 ? (r0 === 0 ? 0.22 : 0.68) : 0.5);
+            const glassH = separateLoft ? 14 : Math.min(24, h - y - 6);
+            out.push(front(side, y - 2, winW + 2.5, 1.2, glassH + 4, trimC), front(side, y, winW, 2.2, glassH, '#cfe6f2', { win: true }), front(side, y - 3, winW + 3.5, 3, 2.5, trimC, { solidBox: true }));
+            if (v < 0.4 && r0 === 0) out.push(front(side, y - 9, winW + 1, 4, 6, '#8a5a3a', { solidBox: true }), Object.assign({ shape: 'flower', r: Math.min(7, winW), h: 2, y: y - 3, color: v < 0.2 ? '#f2a6c0' : '#f7d94c' }, at(d + 6, side)));
           }
           // VQ 2026-10-02: houses are read from the street and rear paths too.
           // Three paired panels (12 triangles total), no new object/material.

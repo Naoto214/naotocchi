@@ -299,3 +299,44 @@ test('VQ-14 planting clearance preserves groups, rotations and blocked plots', (
     const once=JSON.stringify(house);build()(world,[house]);assert.equal(JSON.stringify(house),once,'second pass stable');
   }
 });
+
+// Existing facade intervals must reserve the entrance rather than overlap its frame.
+test('VQ-15 residential facade openings fit beside the entrance without frame overlap', () => {
+  const M=require('./helpers/runtime-harness.cjs').harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const reg=M.buildRegistry();let count=0;
+  for(const rid of Object.keys(M.WORLDS)) for(const ob of M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects) {
+    if(ob.type!=='house')continue;
+    const body=ob.parts[0];if(['shed','barn'].includes(body.family))continue;
+    const a=body.ang||0,side=p=>(p.dx-body.dx)*Math.sin(a)+(p.dz-body.dz)*Math.cos(a),front=p=>(p.dx-body.dx)*Math.cos(a)-(p.dz-body.dz)*Math.sin(a);
+    const door=ob.parts.find(p=>p.door);
+    const windows=ob.parts.filter(p=>p.win&&Math.abs(front(p)-body.rz-2.2)<1e-7);
+    assert.ok(windows.length>0 || (body.family==='single' && body.rx>36 && ob.parts.some(p=>p.win&&Math.abs(front(p)-body.rz-18.5)<1e-7)),ob.id+': facade has a main or bay opening');
+    for(const p of windows) {
+      assert.ok(p.rx>0 && p.h>=14,ob.id+': readable positive window dimensions');
+      assert.ok(side(p)-p.rx-3.5>=side(door)+door.rx+4+4-1e-7,ob.id+': sill clears door frame');
+      assert.ok(side(p)+p.rx+3.5<=body.rx-2+1e-7,ob.id+': sill within wall');
+      assert.ok(p.y+p.h+2<=body.h-2+1e-7,ob.id+': window frame below eaves');
+      count++;
+    }
+    for(let i=0;i<windows.length;i++)for(let j=i+1;j<windows.length;j++)if(windows[i].y===windows[j].y)assert.ok(Math.abs(side(windows[i])-side(windows[j]))>=windows[i].rx+windows[j].rx+7+2-1e-7,ob.id+': separated sills');
+  }
+  assert.ok(count>100);
+});
+
+// A projecting bay is already an opening; do not put another window behind its cap.
+test('VQ-16 single-family main windows reserve the existing bay projection', () => {
+  const M=require('./helpers/runtime-harness.cjs').harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const reg=M.buildRegistry();let count=0;
+  for(const rid of Object.keys(M.WORLDS)) for(const ob of M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects) {
+    if(ob.type!=='house')continue;
+    const b=ob.parts[0];if(b.family!=='single'||b.rx<=36)continue;
+    const a=b.ang||0,side=p=>(p.dx-b.dx)*Math.sin(a)+(p.dz-b.dz)*Math.cos(a),front=p=>(p.dx-b.dx)*Math.cos(a)-(p.dz-b.dz)*Math.sin(a);
+    const bay=ob.parts.find(p=>p.win&&Math.abs(front(p)-b.rz-18.5)<1e-7);
+    assert.ok(bay,ob.id+': existing bay remains a readable opening');
+    for(const p of ob.parts.filter(p=>p.win&&Math.abs(front(p)-b.rz-2.2)<1e-7)) {
+      assert.ok(side(p)+p.rx+3.5<=b.rx*.27-4+1e-7,ob.id+': main sill clears bay cap');
+    }
+    count++;
+  }
+  assert.ok(count>30);
+});
