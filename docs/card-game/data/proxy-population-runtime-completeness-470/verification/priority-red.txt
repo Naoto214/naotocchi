@@ -1,0 +1,49 @@
+test_existing114_upper_priorities_exclude_paid_action_before_pure116 (test_proxy_population_departure.ConnectionTests.test_existing114_upper_priorities_exclude_paid_action_before_pure116) ... ERROR
+
+======================================================================
+ERROR: test_existing114_upper_priorities_exclude_paid_action_before_pure116 (test_proxy_population_departure.ConnectionTests.test_existing114_upper_priorities_exclude_paid_action_before_pure116)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_departure.py", line 58, in test_existing114_upper_priorities_exclude_paid_action_before_pure116
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_departure.py", line 54, in run
+    r=candidates.select(c,inv,ctx,runtime.POLICY)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_departure.py", line 65, in select
+    if policy!='legacy_107_114_116' or not replacements or any(a['action_type']!='pass' and a not in replacements for a in details):return prior_select(envelope,inventory,context,policy,inputs)
+                                                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_candidates.py", line 217, in select
+    p=problem(envelope,inventory,context,inputs)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_candidates.py", line 196, in problem
+    scores,certs=_scores(envelope,inventory);vh=inventory['view_sha256'];pairs=[]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_batch.py", line 252, in scores
+    existing,certs=originals[1](envelope,delegated);byid={s['candidate_id']:s for s in existing}
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_worlds.py", line 104, in scores
+    existing,certs=original_scores(envelope,delegated)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_capabilities.py", line 82, in scores
+    existing,certs=original_scores(envelope,delegated)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_candidates.py", line 142, in _scores
+    cert=placement_certificate(envelope,action)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_candidates.py", line 127, in placement_certificate
+    raise ValueError('placement certain-effect proof unavailable')
+ValueError: placement certain-effect proof unavailable
+
+----------------------------------------------------------------------
+Ran 1 test in 0.181s
+
+FAILED (errors=1)

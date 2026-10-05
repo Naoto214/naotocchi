@@ -1,0 +1,13 @@
+F......
+======================================================================
+FAIL: test_normal_activation_uses_same_cost_effect_and_usage_contract (test_proxy_population_discard_recovery.NormalRecoveryTests.test_normal_activation_uses_same_cost_effect_and_usage_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_discard_recovery.py", line 104, in test_normal_activation_uses_same_cost_effect_and_usage_contract
+    self.assertTrue(hasattr(api,'activate_normal'))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.253s
+
+FAILED (failures=1)

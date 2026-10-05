@@ -1,0 +1,31 @@
+.E....
+======================================================================
+ERROR: test_known_upper_priority_unique_winner_is_not_stopped_by_replacement (test_proxy_population_departure.ConnectionTests.test_known_upper_priority_unique_winner_is_not_stopped_by_replacement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_departure.py", line 78, in test_known_upper_priority_unique_winner_is_not_stopped_by_replacement
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_departure.py", line 75, in run
+    inv=candidates.audit(c,[]);r=candidates.select(c,inv,ctx,runtime.POLICY)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_departure.py", line 69, in select
+    return select_verified_zero_immediate(envelope,inventory,context,policy,replacements,'own_companion_replacement_470',batch.RELATIONSHIP_SOURCE_SHA)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_departure.py", line 105, in select_verified_zero_immediate
+    if not set(frontier)<=permitted:raise ValueError('mixed resource comparison remains unproved')
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: mixed resource comparison remains unproved
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.362s
+
+FAILED (errors=1)

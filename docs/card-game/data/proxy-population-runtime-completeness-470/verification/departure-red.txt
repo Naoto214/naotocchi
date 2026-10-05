@@ -1,0 +1,25 @@
+test_full_board_replacement_is_atomic_and_preserves_all_three_targets (test_proxy_population_departure.DepartureTests.test_full_board_replacement_is_atomic_and_preserves_all_three_targets) ... FAIL
+test_invalid_or_unbound_action_cannot_move_any_card (test_proxy_population_departure.DepartureTests.test_invalid_or_unbound_action_cannot_move_any_card) ... FAIL
+
+======================================================================
+FAIL: test_full_board_replacement_is_atomic_and_preserves_all_three_targets (test_proxy_population_departure.DepartureTests.test_full_board_replacement_is_atomic_and_preserves_all_three_targets)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_departure.py", line 26, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_invalid_or_unbound_action_cannot_move_any_card (test_proxy_population_departure.DepartureTests.test_invalid_or_unbound_action_cannot_move_any_card)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_departure.py", line 26, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

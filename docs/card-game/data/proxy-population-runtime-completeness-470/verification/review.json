@@ -1,0 +1,17 @@
+{
+  "review_cycles": 1,
+  "reviewer": "review470",
+  "initial_findings": {
+    "Critical": 0,
+    "Important": 1,
+    "Minor": 1
+  },
+  "fixes": [
+    "shared first-entry guard until105incarnation connected",
+    "canonical payment comparison rejects bool/int"
+  ],
+  "unresolved": 0,
+  "independent_initial_dedicated_tests": 16,
+  "independent_fix_tests": 4,
+  "scope": "470 source modules/tests/report/cross-audit/unit output; final evidence packaging after review"
+}

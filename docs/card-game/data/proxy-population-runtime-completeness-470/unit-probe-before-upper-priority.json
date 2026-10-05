@@ -1,0 +1,20 @@
+{
+  "scope": "historical115_order_zero_roots_synthetic_integration",
+  "events": 152,
+  "decisions": 115,
+  "turn_counts": {
+    "A": 9,
+    "B": 9
+  },
+  "completed": false,
+  "stop": {
+    "code": "unsupported_contract_boundary",
+    "detail": "placement certain-effect proof unavailable",
+    "phase": "normal_action"
+  },
+  "result": null,
+  "independent_balance_samples": 0,
+  "seed_generation": false,
+  "planned_400_execution": false,
+  "preflight_ready": false
+}

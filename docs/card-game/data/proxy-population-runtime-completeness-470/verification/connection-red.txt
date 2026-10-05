@@ -1,0 +1,14 @@
+test_scope_connects_current_selector_apply_and_runtime_replay (test_proxy_population_departure.ConnectionTests.test_scope_connects_current_selector_apply_and_runtime_replay) ... FAIL
+
+======================================================================
+FAIL: test_scope_connects_current_selector_apply_and_runtime_replay (test_proxy_population_departure.ConnectionTests.test_scope_connects_current_selector_apply_and_runtime_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_departure.py", line 48, in test_scope_connects_current_selector_apply_and_runtime_replay
+    self.assertTrue(hasattr(api,'scope'))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)

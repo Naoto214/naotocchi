@@ -1,0 +1,43 @@
+E......
+======================================================================
+ERROR: test_normal_activation_uses_same_cost_effect_and_usage_contract (test_proxy_population_discard_recovery.NormalRecoveryTests.test_normal_activation_uses_same_cost_effect_and_usage_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_discard_recovery.py", line 116, in test_normal_activation_uses_same_cost_effect_and_usage_contract
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_discard_recovery.py", line 110, in run
+    record=runtime.engine.base.candidates.select(before,inventory,context,runtime.POLICY,None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_candidates.py", line 217, in select
+    p=problem(envelope,inventory,context,inputs)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_candidates.py", line 196, in problem
+    scores,certs=_scores(envelope,inventory);vh=inventory['view_sha256'];pairs=[]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_batch.py", line 252, in scores
+    existing,certs=originals[1](envelope,delegated);byid={s['candidate_id']:s for s in existing}
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_worlds.py", line 104, in scores
+    existing,certs=original_scores(envelope,delegated)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_capabilities.py", line 82, in scores
+    existing,certs=original_scores(envelope,delegated)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_candidates.py", line 157, in _scores
+    else: raise ValueError('certain-result proof unavailable: '+kind)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: certain-result proof unavailable: activate_companion_ability
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.279s
+
+FAILED (errors=1)

@@ -1,0 +1,12 @@
+test_existing114_upper_priorities_exclude_paid_action_before_pure116 (test_proxy_population_departure.ConnectionTests.test_existing114_upper_priorities_exclude_paid_action_before_pure116) ... ok
+test_scope_connects_current_selector_apply_and_runtime_replay (test_proxy_population_departure.ConnectionTests.test_scope_connects_current_selector_apply_and_runtime_replay) ... ok
+test_full_board_replacement_is_atomic_and_preserves_all_three_targets (test_proxy_population_departure.DepartureTests.test_full_board_replacement_is_atomic_and_preserves_all_three_targets) ... ok
+test_invalid_or_unbound_action_cannot_move_any_card (test_proxy_population_departure.DepartureTests.test_invalid_or_unbound_action_cannot_move_any_card) ... ok
+test_invalid_limit_restores_operation (test_proxy_population_runtime_completion.CompletionTests.test_invalid_limit_restores_operation) ... ok
+test_shared_segment_and_scope_restore (test_proxy_population_runtime_completion.CompletionTests.test_shared_segment_and_scope_restore) ... ok
+test_extension_scope_reentry_is_rejected_before_hook_replacement (test_proxy_population_runtime_completion.ReentryTests.test_extension_scope_reentry_is_rejected_before_hook_replacement) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.528s
+
+OK

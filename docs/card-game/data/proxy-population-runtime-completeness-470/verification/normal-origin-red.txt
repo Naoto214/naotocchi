@@ -1,0 +1,24 @@
+F......
+======================================================================
+FAIL: test_normal_activation_uses_same_cost_effect_and_usage_contract (test_proxy_population_discard_recovery.NormalRecoveryTests.test_normal_activation_uses_same_cost_effect_and_usage_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_discard_recovery.py", line 120, in test_normal_activation_uses_same_cost_effect_and_usage_contract
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_discard_recovery.py", line 113, in run
+    self.assertEqual(after['legacy_continuation']['response_context']['origin_event_seq'],after['event_seq'])
+AssertionError: 3 != 4
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.390s
+
+FAILED (failures=1)

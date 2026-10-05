@@ -1,0 +1,7 @@
+test_full_board_replacement_is_atomic_and_preserves_all_three_targets (test_proxy_population_departure.DepartureTests.test_full_board_replacement_is_atomic_and_preserves_all_three_targets) ... ok
+test_invalid_or_unbound_action_cannot_move_any_card (test_proxy_population_departure.DepartureTests.test_invalid_or_unbound_action_cannot_move_any_card) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.049s
+
+OK

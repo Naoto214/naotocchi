@@ -1,5 +1,6 @@
 # なおとっちカードゲーム — 設計正本
 
+- [470 — 離脱・回収・連続runtime接続bundle](470-population-runtime-completeness-bundle.md)
 - [469 — 過去入力台帳・乱数材料・不変保存の検証bundle](469-population-input-authentication-bundle.md)
 - [468 — 通常行動・必須選択・chain・複数turnのruntime接続bundle](468-population-runtime-connection-bundle.md)
 
