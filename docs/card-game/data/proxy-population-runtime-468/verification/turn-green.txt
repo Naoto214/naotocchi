@@ -1,0 +1,11 @@
+test_metadata_scope_restores_terminal_functions_on_failure (__main__.MetadataTests.test_metadata_scope_restores_terminal_functions_on_failure) ... ok
+test_r10_audit_uses_explicit_first_seat_and_preserves_other_failures (__main__.MetadataTests.test_r10_audit_uses_explicit_first_seat_and_preserves_other_failures) ... ok
+test_real_six_stage_proof_r10_both_seats_and_tie_without_135_lookup (__main__.TerminalTests.test_real_six_stage_proof_r10_both_seats_and_tie_without_135_lookup) ... ok
+test_egg_next_turn_and_choice_reuse_policy_for_both_first_seats (__main__.TurnTests.test_egg_next_turn_and_choice_reuse_policy_for_both_first_seats) ... ok
+test_empty_deck_has_no_invented_choice_or_loss (__main__.TurnTests.test_empty_deck_has_no_invented_choice_or_loss) ... ok
+test_next_turn_has_no_permission_to_skip_r10_comparison (__main__.TurnTests.test_next_turn_has_no_permission_to_skip_r10_comparison) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 2.114s
+
+OK

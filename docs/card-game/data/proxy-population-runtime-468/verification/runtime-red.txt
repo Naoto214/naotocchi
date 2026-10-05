@@ -1,0 +1,55 @@
+test_all_scope_hooks_restore_after_failure_and_reentry_is_rejected (test_proxy_population_runtime.RuntimeTests.test_all_scope_hooks_restore_after_failure_and_reentry_is_rejected) ... FAIL
+test_existing_normal_candidates_and_selector_are_used_after_window (test_proxy_population_runtime.RuntimeTests.test_existing_normal_candidates_and_selector_are_used_after_window) ... FAIL
+test_existing_response_fallback_is_executed_but_never_admitted_or_renamed (test_proxy_population_runtime.RuntimeTests.test_existing_response_fallback_is_executed_but_never_admitted_or_renamed) ... FAIL
+test_step_hashes_and_lookup_are_bound_and_invalid_limit_rejected (test_proxy_population_runtime.RuntimeTests.test_step_hashes_and_lookup_are_bound_and_invalid_limit_rejected) ... FAIL
+test_unique_responses_continue_together_to_normal_boundary (test_proxy_population_runtime.RuntimeTests.test_unique_responses_continue_together_to_normal_boundary) ... FAIL
+
+======================================================================
+FAIL: test_all_scope_hooks_restore_after_failure_and_reentry_is_rejected (test_proxy_population_runtime.RuntimeTests.test_all_scope_hooks_restore_after_failure_and_reentry_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_runtime.py", line 19, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'step'),'shared runtime operation adapter missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : shared runtime operation adapter missing
+
+======================================================================
+FAIL: test_existing_normal_candidates_and_selector_are_used_after_window (test_proxy_population_runtime.RuntimeTests.test_existing_normal_candidates_and_selector_are_used_after_window)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_runtime.py", line 19, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'step'),'shared runtime operation adapter missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : shared runtime operation adapter missing
+
+======================================================================
+FAIL: test_existing_response_fallback_is_executed_but_never_admitted_or_renamed (test_proxy_population_runtime.RuntimeTests.test_existing_response_fallback_is_executed_but_never_admitted_or_renamed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_runtime.py", line 19, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'step'),'shared runtime operation adapter missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : shared runtime operation adapter missing
+
+======================================================================
+FAIL: test_step_hashes_and_lookup_are_bound_and_invalid_limit_rejected (test_proxy_population_runtime.RuntimeTests.test_step_hashes_and_lookup_are_bound_and_invalid_limit_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_runtime.py", line 19, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'step'),'shared runtime operation adapter missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : shared runtime operation adapter missing
+
+======================================================================
+FAIL: test_unique_responses_continue_together_to_normal_boundary (test_proxy_population_runtime.RuntimeTests.test_unique_responses_continue_together_to_normal_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_runtime.py", line 19, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'step'),'shared runtime operation adapter missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : shared runtime operation adapter missing
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+FAILED (failures=5)

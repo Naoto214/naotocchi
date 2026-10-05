@@ -1,0 +1,29 @@
+test_each_registered_kind_checks_intermediate_complete_choices_and_application (test_proxy_population_policy_bridge.BridgeTests.test_each_registered_kind_checks_intermediate_complete_choices_and_application) ... ok
+test_no_choice_requires_zero_callbacks_and_preserves_boundary (test_proxy_population_policy_bridge.BridgeTests.test_no_choice_requires_zero_callbacks_and_preserves_boundary) ... ok
+test_no_origin_rebinding_out_of_turn_and_cross_turn_replay (test_proxy_population_policy_bridge.BridgeTests.test_no_origin_rebinding_out_of_turn_and_cross_turn_replay) ... ok
+test_origin_counts_rule_occurrences_including_no_choice_and_retries (test_proxy_population_policy_bridge.BridgeTests.test_origin_counts_rule_occurrences_including_no_choice_and_retries) ... ok
+test_existing_board_handlers_use_bound_policy_and_restore_all_callbacks (test_proxy_population_policy_bridge.HandlerTests.test_existing_board_handlers_use_bound_policy_and_restore_all_callbacks) ... ERROR
+test_missing_registered_origin_rejects_instead_of_allocating_from_callback (test_proxy_population_policy_bridge.HandlerTests.test_missing_registered_origin_rejects_instead_of_allocating_from_callback) ... ERROR
+
+======================================================================
+ERROR: test_existing_board_handlers_use_bound_policy_and_restore_all_callbacks (test_proxy_population_policy_bridge.HandlerTests.test_existing_board_handlers_use_bound_policy_and_restore_all_callbacks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_policy_bridge.py", line 64, in test_existing_board_handlers_use_bound_policy_and_restore_all_callbacks
+    c=self.current(kind);s.effect(api.occurrence_key(c),'A');original=t.mandatory_choice;resolver=t.resolve
+                                  ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_policy_bridge' has no attribute 'occurrence_key'
+
+======================================================================
+ERROR: test_missing_registered_origin_rejects_instead_of_allocating_from_callback (test_proxy_population_policy_bridge.HandlerTests.test_missing_registered_origin_rejects_instead_of_allocating_from_callback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_policy_bridge.py", line 74, in test_missing_registered_origin_rejects_instead_of_allocating_from_callback
+    with api.handler_scope(s),self.assertRaisesRegex(ValueError,'unregistered'):t.resolve(self.current('ability_hand_bottom'),initial())
+         ^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_policy_bridge' has no attribute 'handler_scope'
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.351s
+
+FAILED (errors=2)

@@ -1,0 +1,21 @@
+{
+  "status": "bundle_verified_full_regression_in_progress",
+  "dedicated_tests": 23,
+  "population_related_tests": 68,
+  "population_related_pass": true,
+  "npm_tests": 406,
+  "npm_pass": true,
+  "design_errors": [],
+  "source_pins": 853,
+  "full_proxy": "six isolated workers running; not yet a pass claim",
+  "initial_single_process_full_attempt": "interrupted with exit130 for process partitioning; partial log only",
+  "review_count": 1,
+  "critical": 0,
+  "important": 0,
+  "minor_found": 1,
+  "minor_open": 0,
+  "new_independent_seeds": 0,
+  "planned_matches_started": 0,
+  "independent_balance_samples": 0,
+  "ready_for_execution": false
+}

@@ -1,0 +1,45 @@
+test_each_registered_kind_checks_intermediate_complete_choices_and_application (test_proxy_population_policy_bridge.BridgeTests.test_each_registered_kind_checks_intermediate_complete_choices_and_application) ... FAIL
+test_no_choice_requires_zero_callbacks_and_preserves_boundary (test_proxy_population_policy_bridge.BridgeTests.test_no_choice_requires_zero_callbacks_and_preserves_boundary) ... FAIL
+test_no_origin_rebinding_out_of_turn_and_cross_turn_replay (test_proxy_population_policy_bridge.BridgeTests.test_no_origin_rebinding_out_of_turn_and_cross_turn_replay) ... FAIL
+test_origin_counts_rule_occurrences_including_no_choice_and_retries (test_proxy_population_policy_bridge.BridgeTests.test_origin_counts_rule_occurrences_including_no_choice_and_retries) ... FAIL
+
+======================================================================
+FAIL: test_each_registered_kind_checks_intermediate_complete_choices_and_application (test_proxy_population_policy_bridge.BridgeTests.test_each_registered_kind_checks_intermediate_complete_choices_and_application)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_policy_bridge.py", line 9, in setUp
+    def setUp(self):self.assertIsNotNone(api,'runtime policy binding missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : runtime policy binding missing
+
+======================================================================
+FAIL: test_no_choice_requires_zero_callbacks_and_preserves_boundary (test_proxy_population_policy_bridge.BridgeTests.test_no_choice_requires_zero_callbacks_and_preserves_boundary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_policy_bridge.py", line 9, in setUp
+    def setUp(self):self.assertIsNotNone(api,'runtime policy binding missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : runtime policy binding missing
+
+======================================================================
+FAIL: test_no_origin_rebinding_out_of_turn_and_cross_turn_replay (test_proxy_population_policy_bridge.BridgeTests.test_no_origin_rebinding_out_of_turn_and_cross_turn_replay)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_policy_bridge.py", line 9, in setUp
+    def setUp(self):self.assertIsNotNone(api,'runtime policy binding missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : runtime policy binding missing
+
+======================================================================
+FAIL: test_origin_counts_rule_occurrences_including_no_choice_and_retries (test_proxy_population_policy_bridge.BridgeTests.test_origin_counts_rule_occurrences_including_no_choice_and_retries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_policy_bridge.py", line 9, in setUp
+    def setUp(self):self.assertIsNotNone(api,'runtime policy binding missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : runtime policy binding missing
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

@@ -1,0 +1,28 @@
+test_metadata_scope_restores_terminal_functions_on_failure (test_proxy_population_turn_boundary.MetadataTests.test_metadata_scope_restores_terminal_functions_on_failure) ... ERROR
+test_r10_audit_uses_explicit_first_seat_and_preserves_other_failures (test_proxy_population_turn_boundary.MetadataTests.test_r10_audit_uses_explicit_first_seat_and_preserves_other_failures) ... ERROR
+test_egg_next_turn_and_choice_reuse_policy_for_both_first_seats (test_proxy_population_turn_boundary.TurnTests.test_egg_next_turn_and_choice_reuse_policy_for_both_first_seats) ... ok
+test_empty_deck_has_no_invented_choice_or_loss (test_proxy_population_turn_boundary.TurnTests.test_empty_deck_has_no_invented_choice_or_loss) ... ok
+test_next_turn_has_no_permission_to_skip_r10_comparison (test_proxy_population_turn_boundary.TurnTests.test_next_turn_has_no_permission_to_skip_r10_comparison) ... ok
+
+======================================================================
+ERROR: test_metadata_scope_restores_terminal_functions_on_failure (test_proxy_population_turn_boundary.MetadataTests.test_metadata_scope_restores_terminal_functions_on_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_turn_boundary.py", line 54, in test_metadata_scope_restores_terminal_functions_on_failure
+    with self.assertRaisesRegex(ValueError,'unit'),api.metadata_scope(initial(),None):raise ValueError('unit')
+                                                   ^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_turn_boundary' has no attribute 'metadata_scope'
+
+======================================================================
+ERROR: test_r10_audit_uses_explicit_first_seat_and_preserves_other_failures (test_proxy_population_turn_boundary.MetadataTests.test_r10_audit_uses_explicit_first_seat_and_preserves_other_failures)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game/docs/card-game/tools/test_proxy_population_turn_boundary.py", line 47, in test_r10_audit_uses_explicit_first_seat_and_preserves_other_failures
+    r=api.audit_end(dict(path_id=i['path_id'],game_state=dict(round=10,turn_player=first)),{},i)
+      ^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_turn_boundary' has no attribute 'audit_end'
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.068s
+
+FAILED (errors=2)
