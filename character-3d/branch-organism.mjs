@@ -5,8 +5,18 @@ import {Rig} from './rig.mjs';
 export function branchOrganism(sp,key){
  if(sp.colony)return branchColony(sp,key);
  const rig=new Rig(key,'branch_organism',sp.locomotion||'plantSway'),c=sp.colors,b=sp.body;
- const core=paint(xform(b.taper?blob((x,y,z)=>{const q=1-y*y*b.taper;return [x*b.width*q,y*b.height,z*b.depth*q];},20,14):ellipsoid(b.width,b.height,b.depth,20,14),{pos:[0,b.y,0]}),(x,y,z,nx,ny,nz)=>mix(c.body,c.light,Math.max(0,nz)*.22+Math.max(0,ny)*.12));
+ const core=paint(xform(sp.trap?blob((x,y,z)=>[x*b.width,y*b.height,b.depth*(1.6*(x*x+y*y)-.6)+(z<0?z*b.depth*.4:0)],24,16):b.taper?blob((x,y,z)=>{const q=1-y*y*b.taper;return [x*b.width*q,y*b.height,z*b.depth*q];},20,14):ellipsoid(b.width,b.height,b.depth,20,14),{pos:[0,b.y,0]}),(x,y,z,nx,ny,nz)=>sp.trap&&nz<0?c.branch:mix(c.body,c.light,Math.max(0,nz)*.22+Math.max(0,ny)*.12));
  const parts=[core.clone()];
+ if(sp.trap){
+  const t=sp.trap,rim=[];
+  for(let i=0;i<=32;i++){const a=i*Math.PI*2/32;rim.push([Math.cos(a)*b.width,b.y+Math.sin(a)*b.height,b.depth]);}
+  parts.push(solid(sweep(rim,()=>t.rim,7,{steps:48}),c.branch));
+  for(let i=0;i<t.teeth;i++){
+   const a=i*Math.PI*2/t.teeth,x=Math.cos(a),y=Math.sin(a),len=t.length*(.88+.12*Math.cos(i*2.4));
+   parts.push(solid(sweep([[x*b.width,b.y+y*b.height,b.depth],[x*(b.width+len*.55),b.y+y*(b.height+len*.55),b.depth+.015],[x*(b.width+len),b.y+y*(b.height+len),b.depth-.005]],q=>t.rim*.60*(1-q*.92),4,{steps:3}),c.tip));
+  }
+ }
+
  for(const s of sp.stemSegments||[])parts.push(paint(xform(ellipsoid(s.width,s.height,s.depth,16,10),{pos:[0,s.y,0]}),(x,y,z,nx,ny,nz)=>mix(c.body,c.light,Math.max(0,nz)*.30+Math.max(0,ny)*.12)));
  for(const p of sp.branches){
   parts.push(paint(sweep(p.path,t=>p.r*(1-t*(p.taper??.35)),p.sides||8,{steps:p.steps||10}),(x,y,z,nx,ny,nz)=>mix(c.branch,c.tip,Math.max(0,ny)*.25+Math.max(0,nz)*.12)));

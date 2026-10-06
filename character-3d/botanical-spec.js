@@ -74,5 +74,18 @@
  [[-.18,.76,.34],[-.27,.92,.35],[-.28,1.04,.36]]
  ];
  bare.branches.push(...winterTwigs.map(path=>({path,r:.025,taper:.45,bulb:2.2,sides:7,steps:7})));
- return {sakura:{why:'Explicit seed01,sprout02,leafy03,flowering-tree04,five buds05,two flowers06,three cherries07,bare tree08; candidate gates required before runtime promotion.',stages:{1:seed,2:sprout,3:leafy,4:bloom,5:buds,6:flowers,7:cherries,8:bare}}};
+ const venusRosette={archetype:'branch_organism',body:{width:.19,height:.16,depth:.14,y:.18},normalEye:'round',stones:[],branches:[],colors:{body:'#f7dfac',light:'#fff7d4',branch:'#469719',tip:'#bbd745',stones:[],blush:'#f39264'},foliage:[
+ leaf([0,.12,-.10],.11,.62,[.06,0,.02]),leaf([-.04,.11,-.09],.13,.57,[.1,-.2,.91]),leaf([.03,.12,-.08],.14,.65,[.08,.2,-.82]),
+ leaf([-.08,.09,-.05],.115,.50,[.18,-.35,1.26]),leaf([.08,.09,-.04],.12,.55,[.16,.4,-1.23]),
+ leaf([-.10,.075,.015],.105,.44,[.18,-.25,1.58]),leaf([.10,.075,.015],.11,.47,[.20,.35,-1.56]),
+ leaf([-.08,.06,.06],.095,.34,[.8,-.5,1.76]),leaf([.08,.06,.06],.10,.36,[.8,.5,-1.76]),
+ leaf([0,.09,-.11],.11,.48,[-.65,.8,.5]),leaf([.015,.09,-.10],.10,.47,[-.65,-.8,-.5])
+ ]};
+ const trapUnit=(at,w,h,eye)=>({at,scale:1,spec:{archetype:'branch_organism',body:{width:w,height:h,depth:.075,y:0},normalEye:eye,trap:{teeth:22,rim:.019,length:.050},stones:[],colors:{body:'#ed352b',light:'#ff9470',branch:'#62ad16',tip:'#dce54c',stones:[],blush:'#ffb568'},branches:[{path:[[-at[0],.035-at[1],-at[2]],[-at[0]*.6,-at[1]*.48,-at[2]*.7],[0,-h*.75,-.025]],r:.025,taper:.15}],foliage:[]}});
+ const venusTraps={archetype:'branch_organism',suspended:true,stones:[],stoneColors:[],colony:[
+ trapUnit([0,1.04,-.04],.24,.20,'happy'),trapUnit([-.41,.76,.015],.185,.17,'round'),trapUnit([.42,.73,-.015],.19,.175,'round'),trapUnit([-.26,.38,.12],.15,.13,'happy'),trapUnit([.32,.37,.13],.155,.135,'round')
+ ]};
+ venusTraps.colony[0].spec.branches.push(...roots.map(r=>({...r,path:r.path.map(([x,y,z])=>[x,y-1.04,z+.04])})));
+ venusTraps.colony[0].spec.foliage=[leaf([0,-.96,.08],.09,.32,[.40,.3,1.05]),leaf([0,-.96,.08],.09,.34,[.4,-.3,-1.05])];
+ return {venus_flytrap:{why:'Inspected03 broad rosette and07 five red toothed traps. Representative image gates before other stages.',stages:{3:venusRosette,7:venusTraps}},sakura:{why:'Explicit seed01,sprout02,leafy03,flowering-tree04,five buds05,two flowers06,three cherries07,bare tree08; candidate gates required before runtime promotion.',stages:{1:seed,2:sprout,3:leafy,4:bloom,5:buds,6:flowers,7:cherries,8:bare}}};
 });

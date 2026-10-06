@@ -80,3 +80,21 @@ test('bare sakura has rounded terminal buds and preserves original open upper-le
  const {branchOrganism}=await import('../character-3d/branch-organism.mjs'),r=branchOrganism(sp,'bare'),plain=branchOrganism({...sp,branches:sp.branches.map(b=>({...b,bulb:1}))},'unbudded');assert.ok(r.parts[0].mesh.geometry.attributes.position.count>plain.parts[0].mesh.geometry.attributes.position.count+1000,'terminal buds have actual volume');
  assert.equal(rows[5].colony[0].spec.normalEye,'round','source upper-left bud has open eyes');
 });
+test('venus flytrap representatives retain a broad rosette and five cupped red traps with physical rim teeth',async()=>{
+ const row=require('../character-3d/botanical-spec.js')().venus_flytrap;assert.ok(row,'explicit original-derived representatives');assert.deepEqual(Object.keys(row.stages),['3','7']);
+ const {branchOrganism}=await import('../character-3d/branch-organism.mjs'),{THREE}=await import('../character-3d/geometry.mjs'),{attachFace}=await import('../character-3d/rig.mjs');
+ const rosette=row.stages[3];assert.ok(rosette.foliage.length>=9);assert.ok(rosette.foliage.every(l=>l.width>.08),'broad smooth leaves, not spines');const r=branchOrganism(rosette,'venus:3');assert.equal(attachFace(r,r.faceSpec,'C').eyes.length,2);
+ const adult=row.stages[7];assert.equal(adult.colony.length,5);const a=branchOrganism(adult,'venus:7');assert.equal(a.faceSpec.length,5);assert.deepEqual(a.faceSpec.map(f=>f.bone),['unit0','unit1','unit2','unit3','unit4']);
+ for(const u of adult.colony){const sp=u.spec;assert.ok(sp.trap?.teeth>=18);const unit=branchOrganism(sp,'trap'),g=unit.faceSpec.target;g.computeBoundingBox();assert.ok(g.boundingBox.max.z-g.boundingBox.min.z>.055,'cup has physical front/back depth');const mesh=new THREE.Mesh(g,new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));mesh.updateMatrixWorld(true);unit.root.updateMatrixWorld(true);
+ const rayAt=(x,y)=>new THREE.Raycaster(new THREE.Vector3(x,y,1),new THREE.Vector3(0,0,-1));const center=rayAt(0,sp.body.y).intersectObject(mesh)[0],edge=rayAt(sp.body.width*.86,sp.body.y).intersectObject(mesh)[0];assert.ok(center&&edge);assert.ok(edge.point.z-center.point.z>.025,'red trap is concave rather than a flat disk or convex ball');
+ for(const side of [-1,1]){const ray=rayAt(side*sp.body.width*.4,sp.body.y+.01),target=ray.intersectObject(mesh)[0],actual=ray.intersectObject(unit.parts[0].mesh)[0];assert.ok(target&&actual);assert.ok(Math.abs(target.point.z-actual.point.z)<.002,'rim and teeth leave the facial area open');}
+ const plain=branchOrganism({...sp,trap:{...sp.trap,teeth:0}},'toothless');assert.ok(unit.parts[0].mesh.geometry.attributes.position.count>plain.parts[0].mesh.geometry.attributes.position.count+300,'teeth contribute real volume');}
+ for(const rig of [r,a]){let tris=0;for(const p of rig.parts){const g=p.mesh.geometry;assert.ok([...g.attributes.position.array].every(Number.isFinite));tris+=(g.index?.count||g.attributes.position.count)/3;}assert.ok(tris<22000);}
+ assert.equal(SPEC.specKeyFor({line:'venus_flytrap',stage:6}),null,'candidate does not bypass image gate');
+});
+test('venus representatives keep all original faces and one actor clock through32 emotion/motion states',async()=>{
+ const rows=require('../character-3d/botanical-spec.js')().venus_flytrap?.stages;assert.ok(rows);
+ const {branchOrganism}=await import('../character-3d/branch-organism.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
+ for(const n of [3,7]){const rig=branchOrganism(rows[n],'venus:'+n);rig.faces=(Array.isArray(rig.faceSpec)?rig.faceSpec:[rig.faceSpec]).map(f=>attachFace(rig,f,'C'));
+ for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig,key:'venus:'+n});setEmotion(a,em);for(let i=0;i<20;i++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,n===7?5:1);assert.ok(a.faces.every(f=>f.emotion===em));for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}}
+});
