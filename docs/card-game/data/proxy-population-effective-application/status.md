@@ -166,3 +166,11 @@ package関連10PASS（79.089s）、実行入口関連7PASS（33.988s）、独立
 関連24PASS、相手ターンの既存発動/解決/指定policyまで含めた専用5PASS、最後の全20turnを含む関連25PASS（193.526s）。独立review C/I/Minor0。設計errors=[]、保護正本476件一致。履歴fixtureは条件付きであり、新しい独立対戦や全ルール機会の証明とはしない。
 
 preflight-ready=false。入力生成/400戦入力固定/本番実行0。87638396固定全proxy回帰は継続中で、この後続変更とは区別。保存後も合法性/情報使用/全機会の残りを進める。
+
+## 完走再生の証拠合成と全resolver共通の連鎖順序検査
+
+対戦のcompleted_source_replay gateを固定未証明から、真正な完走再構成・全attempt認証・結果/版の非矛盾に基づく三値へ接続。未検証attemptは保留、真正な結果/版矛盾はcontradicted、過去未完走のgapと116除外は消さない。他の適格性gateや全体結論は変更しない。
+
+06の逆順解決/途中割込み禁止を、全現行原子resolverの実stepへ共通接続。top linkとactor/source/event、外側linkの内容・順序、残った連鎖のresolving状態を照合。native handlerの出力結合と別に検査するが、効果意味論・合法性・全機会の証明にはしない。
+
+逐次RED→GREEN、関連44件PASS（263.913s、既存115/零rootの全20turn、admission/schedule/attempt結合を含む）。独立read-only review C/I/Minor各0。保護正本476件不変。87638396固定版の全proxy回帰は引き続き実行中で、本差分を含まない。npmは87638396版406PASSを参照。preflight-ready=false、seed採取/本番入力固定/400戦開始0。保存後も残る機会・情報・合法性の接続へ継続する。

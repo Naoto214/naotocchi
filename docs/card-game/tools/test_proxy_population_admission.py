@@ -96,6 +96,42 @@ class RealEntryAdmissionTests(unittest.TestCase):
    self.assertEqual(rejected['source_reconstructed_attempt_count'],0)
    self.assertFalse(rejected['exclusions'])
 
+class CompletionEvidenceTests(unittest.TestCase):
+ synthetic=ReplayedDispositionTests.synthetic
+ def gate(self,out):
+  return next(g for g in out['gates'] if g['name']=='completed_source_replay')
+ def test_authenticated_completion_is_distinct_from_admission(self):
+  r=self.synthetic()
+  with patch.object(api.connected,'reconstruct',return_value=r):out=api.audit_match([r],bundle(),'test-1A')
+  gate=self.gate(out)
+  self.assertEqual(gate['state'],'verified');self.assertTrue(gate['evidence_refs'])
+  self.assertEqual(out['disposition'],'excluded')
+  self.assertIn('input_lock_unauthenticated',out['gaps'])
+  self.assertIn('all_rule_opportunities_unproved',out['gaps'])
+  self.assertIsNone(out['balance_admitted'])
+ def test_incomplete_and_unverified_attempts_cannot_supply_completion(self):
+  complete=self.synthetic();short=copy.deepcopy(complete);short['completed']=False
+  for attempts,expected in (([],[]),([short],[short]),([complete],[short]),([complete,short],[complete,complete])):
+   with self.subTest(attempt_count=len(attempts)):
+    with patch.object(api.connected,'reconstruct',side_effect=expected):out=api.audit_match(attempts,bundle(),'test-1A')
+    self.assertEqual(self.gate(out)['state'],'unproved')
+    self.assertTrue(self.gate(out)['reason_codes'])
+ def test_prior_incomplete_attempt_remains_a_gap_after_authenticated_completion(self):
+  complete=self.synthetic();short=copy.deepcopy(complete);short['completed']=False
+  with patch.object(api.connected,'reconstruct',side_effect=[short,complete]):out=api.audit_match([short,complete],bundle(),'test-1A')
+  self.assertEqual(self.gate(out)['state'],'verified')
+  self.assertIn('match_not_completed',out['gaps']);self.assertEqual(out['attempt_count'],2)
+  self.assertEqual(out['disposition'],'excluded')
+ def test_conflicting_authenticated_completion_or_edition_contradicts_gate(self):
+  first=self.synthetic()
+  for field in ('result','edition'):
+   second=copy.deepcopy(first)
+   if field=='result':second['runtime']['result']['winner']='B'
+   else:second['connected_tools_sha256']='another-source-edition'
+   with patch.object(api.connected,'reconstruct',side_effect=[first,second]):out=api.audit_match([first,second],bundle(),'test-1A')
+   self.assertEqual(self.gate(out)['state'],'contradicted')
+   self.assertTrue(self.gate(out)['reason_codes']);self.assertEqual(out['disposition'],'excluded')
+
 class CounterfactualBoundaryTests(unittest.TestCase):
  synthetic=ReplayedDispositionTests.synthetic
  def test_counterfactual_fallback_does_not_become_active_exclusion(self):

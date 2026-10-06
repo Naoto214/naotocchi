@@ -1,0 +1,41 @@
+test_non_resolution_is_not_a_vacuous_resolution_proof (test_proxy_population_resolution_order.ResolutionOrderTests.test_non_resolution_is_not_a_vacuous_resolution_proof) ... FAIL
+test_source_drift_is_rejected (test_proxy_population_resolution_order.ResolutionOrderTests.test_source_drift_is_rejected) ... FAIL
+test_top_link_and_ordered_remainder_are_checked_without_admission (test_proxy_population_resolution_order.ResolutionOrderTests.test_top_link_and_ordered_remainder_are_checked_without_admission) ... FAIL
+test_wrong_link_outer_loss_reorder_and_interruption_are_rejected (test_proxy_population_resolution_order.ResolutionOrderTests.test_wrong_link_outer_loss_reorder_and_interruption_are_rejected) ... FAIL
+
+======================================================================
+FAIL: test_non_resolution_is_not_a_vacuous_resolution_proof (test_proxy_population_resolution_order.ResolutionOrderTests.test_non_resolution_is_not_a_vacuous_resolution_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_resolution_order.py", line 54, in test_non_resolution_is_not_a_vacuous_resolution_proof
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_source_drift_is_rejected (test_proxy_population_resolution_order.ResolutionOrderTests.test_source_drift_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_resolution_order.py", line 58, in test_source_drift_is_rejected
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_top_link_and_ordered_remainder_are_checked_without_admission (test_proxy_population_resolution_order.ResolutionOrderTests.test_top_link_and_ordered_remainder_are_checked_without_admission)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_resolution_order.py", line 28, in test_top_link_and_ordered_remainder_are_checked_without_admission
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_wrong_link_outer_loss_reorder_and_interruption_are_rejected (test_proxy_population_resolution_order.ResolutionOrderTests.test_wrong_link_outer_loss_reorder_and_interruption_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_resolution_order.py", line 37, in test_wrong_link_outer_loss_reorder_and_interruption_are_rejected
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+
+FAILED (failures=4)

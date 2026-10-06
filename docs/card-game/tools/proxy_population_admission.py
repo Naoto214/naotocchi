@@ -83,7 +83,14 @@ def audit_match(attempts,bundle,match_id):
     if len({canonical(r['runtime']) for r in completed})>1:exclusions.append('conflicting_authenticated_completed_attempts')
     if len({r['connected_tools_sha256'] for r in verified})>1:exclusions.append('authenticated_execution_edition_mismatch')
     if not attempts:gaps.append('not_executed')
-    node=_node('match',match_id,[_gate(n,reasons=[n+'_unproved']) for n in ('input_and_edition_lock','all_judgments','all_rule_opportunities','completed_source_replay')],exclusions,gaps,children)
+    completion_reasons=list(exclusions)
+    if not completed:completion_reasons.append('no_authenticated_completed_attempt')
+    if len(verified)!=len(attempts):completion_reasons.append('unverified_attempts_retained')
+    completion_state='contradicted' if exclusions else 'unproved' if completion_reasons else 'verified'
+    completion_refs=['sha256:'+hashlib.sha256(canonical(r)).hexdigest() for r in completed]
+    gates=[_gate(n,reasons=[n+'_unproved']) for n in ('input_and_edition_lock','all_judgments','all_rule_opportunities')]
+    gates.append(_gate('completed_source_replay',completion_state,completion_refs,completion_reasons))
+    node=_node('match',match_id,gates,exclusions,gaps,children)
     node.update(execution_status='completed' if completed else 'incomplete' if verified else 'not_executed' if not attempts else 'record_unverified',attempt_count=len(attempts),source_reconstructed_attempt_count=len(verified),policy_eligible=None,balance_admitted=None,
                 opportunity_scope='existing_executor_only')
     return node

@@ -1,0 +1,9 @@
+test_authenticated_completion_is_distinct_from_admission (test_proxy_population_admission.CompletionEvidenceTests.test_authenticated_completion_is_distinct_from_admission) ... ok
+test_conflicting_authenticated_completion_or_edition_contradicts_gate (test_proxy_population_admission.CompletionEvidenceTests.test_conflicting_authenticated_completion_or_edition_contradicts_gate) ... ok
+test_incomplete_and_unverified_attempts_cannot_supply_completion (test_proxy_population_admission.CompletionEvidenceTests.test_incomplete_and_unverified_attempts_cannot_supply_completion) ... ok
+test_prior_incomplete_attempt_remains_a_gap_after_authenticated_completion (test_proxy_population_admission.CompletionEvidenceTests.test_prior_incomplete_attempt_remains_a_gap_after_authenticated_completion) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 3.438s
+
+OK

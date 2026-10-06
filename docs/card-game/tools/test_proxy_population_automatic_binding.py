@@ -51,6 +51,10 @@ class AutomaticBindingTests(unittest.TestCase):
     rebound=actions.bind_event(prior,after,raw);event.clear();event.update(rebound);prior=after
    bad['final_envelope']=copy.deepcopy(prior)
    self.assertFalse(api.audit_step(bad)['automatic_output_binding_verified'])
+ def test_connected_resolution_steps_bind_top_link_order(self):
+  steps=[s for s in self.record['runtime']['steps'] if s['source_envelope']['legacy_continuation']['response_context']['chain_status']=='resolving']
+  self.assertTrue(steps)
+  for step in steps:self.assertTrue(step['resolution_order_audit']['resolution_order_verified'])
  def test_connected_entry_exports_automatic_bindings(self):
   for s in self.record['runtime']['steps']:
    if s['forced_record'] is not None:self.assertTrue(s['automatic_output_binding']['automatic_output_binding_verified'])

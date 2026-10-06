@@ -1,0 +1,43 @@
+test_authenticated_completion_is_distinct_from_admission (test_proxy_population_admission.CompletionEvidenceTests.test_authenticated_completion_is_distinct_from_admission) ... FAIL
+test_conflicting_authenticated_completion_or_edition_contradicts_gate (test_proxy_population_admission.CompletionEvidenceTests.test_conflicting_authenticated_completion_or_edition_contradicts_gate) ... FAIL
+test_incomplete_and_unverified_attempts_cannot_supply_completion (test_proxy_population_admission.CompletionEvidenceTests.test_incomplete_and_unverified_attempts_cannot_supply_completion) ... ok
+test_prior_incomplete_attempt_remains_a_gap_after_authenticated_completion (test_proxy_population_admission.CompletionEvidenceTests.test_prior_incomplete_attempt_remains_a_gap_after_authenticated_completion) ... FAIL
+
+======================================================================
+FAIL: test_authenticated_completion_is_distinct_from_admission (test_proxy_population_admission.CompletionEvidenceTests.test_authenticated_completion_is_distinct_from_admission)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_admission.py", line 107, in test_authenticated_completion_is_distinct_from_admission
+    self.assertEqual(gate['state'],'verified');self.assertTrue(gate['evidence_refs'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'unproved' != 'verified'
+- unproved
++ verified
+
+
+======================================================================
+FAIL: test_conflicting_authenticated_completion_or_edition_contradicts_gate (test_proxy_population_admission.CompletionEvidenceTests.test_conflicting_authenticated_completion_or_edition_contradicts_gate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_admission.py", line 132, in test_conflicting_authenticated_completion_or_edition_contradicts_gate
+    self.assertEqual(self.gate(out)['state'],'contradicted')
+AssertionError: 'unproved' != 'contradicted'
+- unproved
++ contradicted
+
+
+======================================================================
+FAIL: test_prior_incomplete_attempt_remains_a_gap_after_authenticated_completion (test_proxy_population_admission.CompletionEvidenceTests.test_prior_incomplete_attempt_remains_a_gap_after_authenticated_completion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_admission.py", line 122, in test_prior_incomplete_attempt_remains_a_gap_after_authenticated_completion
+    self.assertEqual(self.gate(out)['state'],'verified')
+AssertionError: 'unproved' != 'verified'
+- unproved
++ verified
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.546s
+
+FAILED (failures=3)

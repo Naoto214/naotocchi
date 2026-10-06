@@ -1,0 +1,15 @@
+test_connected_resolution_steps_bind_top_link_order (test_proxy_population_automatic_binding.AutomaticBindingTests.test_connected_resolution_steps_bind_top_link_order) ... ERROR
+
+======================================================================
+ERROR: test_connected_resolution_steps_bind_top_link_order (test_proxy_population_automatic_binding.AutomaticBindingTests.test_connected_resolution_steps_bind_top_link_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_automatic_binding.py", line 57, in test_connected_resolution_steps_bind_top_link_order
+    for step in steps:self.assertTrue(step['resolution_order_audit']['resolution_order_verified'])
+                                      ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'resolution_order_audit'
+
+----------------------------------------------------------------------
+Ran 1 test in 18.293s
+
+FAILED (errors=1)

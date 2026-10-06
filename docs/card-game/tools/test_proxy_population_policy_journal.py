@@ -73,6 +73,7 @@ class BoundPolicyJournalTests(unittest.TestCase):
   for step in r['runtime']['steps']:
    c=step['source_envelope']['legacy_continuation']
    if c['response_context']['chain_status']=='resolving' and c['activation_zone']:
+    self.assertTrue(step['resolution_order_audit']['resolution_order_verified'])
     legacy=step['legacy_effect_choice_obligations'];self.assertFalse(legacy['errors'])
     if legacy['applicable']:self.assertTrue(legacy['legacy_choice_coverage_verified'])
     resolution=step['resolution_choice_obligation'];self.assertFalse(resolution['errors'])
