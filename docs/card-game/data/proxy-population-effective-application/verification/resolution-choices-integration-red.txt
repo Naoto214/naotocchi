@@ -1,0 +1,25 @@
+E......
+======================================================================
+ERROR: test_connected_step_rejects_an_extra_no_choice_record (test_proxy_population_resolution_choices.ResolutionChoiceTests.test_connected_step_rejects_an_extra_no_choice_record)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_resolution_choices.py", line 84, in test_connected_step_rejects_an_extra_no_choice_record
+    runtime.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_resolution_choices.py", line 79, in run
+    self.assertTrue(result['resolution_choice_obligation']['resolution_choice_obligation_verified'])
+                    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'resolution_choice_obligation'
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.237s
+
+FAILED (errors=1)

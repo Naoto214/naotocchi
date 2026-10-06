@@ -75,6 +75,9 @@ class BoundPolicyJournalTests(unittest.TestCase):
    if c['response_context']['chain_status']=='resolving' and c['activation_zone']:
     legacy=step['legacy_effect_choice_obligations'];self.assertFalse(legacy['errors'])
     if legacy['applicable']:self.assertTrue(legacy['legacy_choice_coverage_verified'])
+    resolution=step['resolution_choice_obligation'];self.assertFalse(resolution['errors'])
+    self.assertTrue(resolution['resolution_choice_obligation_verified'] or resolution['route']=='designated_465_journal_required')
+    self.assertFalse(resolution['all_rule_opportunities_proven'])
   self.assertGreaterEqual(r['turn_counts']['A'],10);self.assertGreaterEqual(r['turn_counts']['B'],10)
   self.assertEqual(proof['required_choice_count'],r['mandatory_policy_entry_audit']['verified_count'])
   self.assertGreater(proof['required_choice_count'],1)

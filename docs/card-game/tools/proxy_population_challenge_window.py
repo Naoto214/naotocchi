@@ -16,6 +16,7 @@ import proxy_population_public_application as public_application
 import proxy_population_legacy_choice_obligations as legacy_choices
 import proxy_population_source_inventory as source_inventory
 import proxy_population_decision_binding as decision_binding
+import proxy_population_resolution_choices as resolution_choices
 from proxy_mandatory_policy_contract import canonical
 
 _LOCK=Lock()
@@ -44,6 +45,9 @@ def contract_scope():
     proof=legacy_choices.audit(result['source_envelope'],initial,result['mandatory_decisions'])
     if proof['errors'] or proof['applicable'] and not proof['legacy_choice_coverage_verified']:raise ValueError('legacy effect choice obligations differ: '+str(proof['errors']))
     result['legacy_effect_choice_obligations']=proof
+    obligation=resolution_choices.audit(result['source_envelope'],initial,result['mandatory_decisions'])
+    if obligation['errors'] or obligation['route']=='unproved':raise ValueError('resolution choice obligation unproved: '+str(obligation['errors']))
+    result['resolution_choice_obligation']=obligation
    return result
  def operation(initial,callback):
   def connected(forced):

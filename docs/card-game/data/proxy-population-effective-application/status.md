@@ -106,3 +106,13 @@ preflight-ready=false。通常/responseの完全合法性・情報制約・opera
 独立reviewでImportant2/Minor1を検出し、逐次RED→GREENで全件修正。native priority_unique最小schemaを保持、既存116 safe-free subchoiceを明示区別、119 response seedの全10座標を実entryへ束縛。初回25関連はpriority_unique誤拒否により未完走でFAIL、最終26件PASS（283.865s）で全20turn接続を再確認。review修正確認は未解決0。準備伏せ札の不成立sidecar欠落も拒否する条件付きunitを追加。
 
 設計errors=[]、現行保護正本476件一致、473時点の475正本一致、docs/card-game外変更なし。6190固定全proxy回帰は別途進行中で、この差分の全回帰とはしない。npmは6190の406PASSを参照。新seed／本番入力固定／400戦開始0。preflight-ready=false。保存後も指定外／no-choice解決義務、全機会・合法性、入力来歴／事前lock／実行gateの接続へ継続する。
+
+## 解決時選択義務の共通route照合
+
+空のmandatory_decisionsだけを「追加選択なし」と扱わず、既存descriptor／source-pinned handler routeへ結合する。直接成長・支払／能力値／条件付き補正・固定対象移動・reveal・draw-only等は解決時の追加選択なしを明示し、余分なrecordを拒否。paid drawの動的DRAW_EFFECTS登録も既存handlerのまま再利用。旧116の3選択familyは既存auditを用い、指定465はactual-frame journalへ委譲（このlocal route単独ではverified=false/count=null）。未知routeは未証明で停止し、全ルール網羅とはしない。
+
+専用RED→GREEN、関連18件PASS（156.134s、旧115/零root全20turnを含む）。その後、既存paid draw登録のテストのみ追加して専用8件PASS。独立read-only review C/I/Minor各0。初期fixture誤指定とM03 descriptor欠落の誤分類は検証中に検出・修正済み。最終設計errors=[]、保護正本476件不変。
+
+6190固定版の全proxy回帰は1584件PASSで完了。開始・終了全ID一致、skip/重複なし、全6process成功、source不変。manifest／各worker JSON／各log／summaryの全14ファイルをregression-6190-evidence.json.gzへ保存。6190以降のnormal operand、source inventory、入口束縛、本bundleを含む全回帰とは呼ばない。後続差分は各bundle関連検証で区別。npmは同6190版406PASS。
+
+preflight-ready=false、新seed／本番入力固定／400戦開始0。入力生成・実行の最終承認は未取得。通常／responseの全合法集合・情報制約・operand根拠、全ルール機会合成、入力来歴／remote事前lock／実行gateを残して準備を継続する。旧116除外、新方式未採用、予定400行の全体結論保留を維持。
