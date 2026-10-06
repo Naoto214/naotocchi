@@ -60,4 +60,42 @@ class UnprovedPriorityTests(unittest.TestCase):
    return {}
   base.operation(initial(),run)
 
+
+class DirectGrowthOperandTests(unittest.TestCase):
+ def test_direct_growth_default_zero_is_not_a_normal_comparison_proof(self):
+  from test_proxy_population_activation_legality import fixture
+  import proxy_population_activation_legality as legality
+  def run(forced):
+   e,actor,source=fixture('E-first-date',0);g=e['legacy_continuation']['game_state'];g['phase']='normal_action'
+   with legality.scope(),api.scope():
+    inventory=candidates.audit(e,[])
+    ctx=dict(contract_version=base.engine.base.old.shadow.fallback.CONTRACT_VERSION,order_id='unit-only',actor=actor,actor_turn_index=1,round=1,phase='normal_action',decision_kind='normal_action',choice_kind='normal_action_resource_frontier')
+    r=candidates.select(e,inventory,ctx,base.POLICY)
+    self.assertEqual(r['choice']['resolution_mode'],'seeded_fallback')
+    self.assertEqual(r['execution_evidence']['native_comparison_guard'],'direct growth comparison operand proof unavailable')
+    self.assertEqual(r['choice']['seeded_fallback_candidates'],inventory['legal_candidate_ids'])
+    self.assertFalse(r['execution_evidence']['policy_eligible'])
+   return {}
+  base.operation(initial(),run)
+
+class DirectGrowthFamiliesTests(unittest.TestCase):
+ def test_public_growth_mechanisms_keep_unknown_candidates_in116_frontier(self):
+  from test_proxy_population_effect_application_runtime import fixture
+  def run(forced):
+   for card in ('G-area-claim','E-boss'):
+    e,actor,source=fixture(card,20);c=e['legacy_continuation'];g=c['game_state'];p=g['players'][actor]
+    c['activation_zone']=[];c['response_context'].update(chain_status='empty',chain_links=[],consecutive_passes=0);g['phase']='normal_action';p['hand'].append(source);p['time']=3
+    history=[dict(seq=2,action_type='challenge_compared',actor=actor,result=dict(outcome='win_loss',loser=actor))] if card=='E-boss' else []
+    with api.scope():
+     inventory=candidates.audit(e,history)
+     target=next(a['candidate_id'] for a in inventory['legal_candidate_details'] if a['source_instance_id']==source)
+     ctx=dict(contract_version=base.engine.base.old.shadow.fallback.CONTRACT_VERSION,order_id='unit-only',actor=actor,actor_turn_index=1,round=1,phase='normal_action',decision_kind='normal_action',choice_kind='normal_action_resource_frontier')
+     r=candidates.select(e,inventory,ctx,base.POLICY)
+     self.assertIn(target,r['choice']['seeded_fallback_candidates'])
+     self.assertEqual(r['execution_evidence']['candidate_comparison_evidence']['unproved'][target],api.DIRECT_GROWTH_GAP)
+     self.assertNotIn(target,r['execution_evidence']['candidate_comparison_evidence']['proved_scores'])
+    self.assertEqual(base._evaluate(r)['legacy_116'],'excluded')
+   return {}
+  base.operation(initial(),run)
+
 if __name__=='__main__':unittest.main()

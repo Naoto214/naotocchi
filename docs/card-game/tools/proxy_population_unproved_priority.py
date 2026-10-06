@@ -17,6 +17,8 @@ import proxy_population_effect_application_runtime as ruling
 from proxy_mandatory_policy_contract import ROOT,canonical
 SOURCES={'114-normal-decision-protocol-hardening.md':'aa161063e4fa9e056818d00e3fe799448107b3b51f00c05e67c2c89c3a50e59a','116-normal-decision-fallback-contract.md':'577dccec67343ead75aa813b464b432679927c2f4b71ed960be5058aaa3ef393'}
 GUARDS={'upper-priority or pending-effect proof unavailable','batch upper-priority/pending boundary unproved','relationship 100 maintenance boundary requires priority proof','uncertain reveal threshold priority requires proof','world placement upper-priority or pending effects unproved'}
+DIRECT_GROWTH_GAP='direct growth comparison operand proof unavailable'
+GUARDS.add(DIRECT_GROWTH_GAP)
 _LOCK=Lock()
 
 
@@ -27,7 +29,7 @@ def unresolved(envelope,inventory,context,policy,reason):
  if policy!='legacy_107_114_116' or reason not in GUARDS or g['phase']!='normal_action' or c['activation_zone'] or c['pending_triggers'] or any(p['reservations'] for p in g['players'].values()):raise ValueError('unproved priority is not complete legal execution')
  if context['actor']!=g['turn_player'] or context['round']!=g['round'] or canonical(candidates.audit(envelope,inventory['public_history']))!=canonical(inventory):raise ValueError('unproved priority fresh inventory/context differs')
  # A coverage error unrelated to the public threshold must never be recast.
- if not any(p['growth']==100 for p in g['players'].values()) and reason not in {'relationship 100 maintenance boundary requires priority proof','uncertain reveal threshold priority requires proof'}:raise ValueError('non-threshold upper comparison remains unproved')
+ if not any(p['growth']==100 for p in g['players'].values()) and reason not in {DIRECT_GROWTH_GAP,'relationship 100 maintenance boundary requires priority proof','uncertain reveal threshold priority requires proof'}:raise ValueError('non-threshold upper comparison remains unproved')
  kinds={'pass','challenge','relationship','play_main','place_world','place_partner','place_companion','attach_item','set_item','use_item','use_play','use_event','activate_main_ability','activate_companion_ability'}
  for action in inventory['legal_candidate_details']:
   if action['action_type'] not in kinds:raise ValueError('continuation action handler unproved')
@@ -88,11 +90,19 @@ def scope():
   result=prior_event(before,after,action,proof,kind)
   if 'growth_operation' in proof:result['growth_evidence']=dict(contract='bounded_growth_474.v1',source_sha256=ruling.RULING_SHA,operation=copy.deepcopy(proof['growth_operation']))
   return result
+ def comparison_outcome(envelope,action,history=None):
+  proof=prior_outcome(envelope,action,history)
+  cap=proof.get('capability',{})
+  # The native generic branch initializes growth to zero. Direct-growth
+  # mechanisms need their own114 comparison proof; effect execution support
+  # and a source-classification hash are not that proof. No replacement score.
+  if cap.get('kind') in ('symmetric_draw_growth','board_count_growth') or cap.get('timing')=='targeted_relationship_growth':raise ValueError(DIRECT_GROWTH_GAP)
+  return proof
  def select(envelope,inventory,context,policy,inputs=None):
   # Physical permission must not be used as proof of a zero upper score.
   active_ready=batch.ready;active_outcome=batch.outcome
   try:
-   batch.ready=prior_ready;batch.outcome=prior_outcome
+   batch.ready=prior_ready;batch.outcome=comparison_outcome
    return prior(envelope,inventory,context,policy,inputs)
   except ValueError as error:
    if policy!='legacy_107_114_116' or str(error) not in GUARDS:raise

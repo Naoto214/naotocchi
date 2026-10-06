@@ -82,3 +82,11 @@ preflight-ready=false。通常/responseの全合法集合・選択根拠と、�
 逐次RED→GREEN、最終関連24件PASS（43.321s）、直接実行2件PASS、設計errors=[]、保護正本476件不変。独立reviewのImportant2/Minor1を修正し未解決0。全proxy/npmは保存9c56の1546/406PASSを参照し、この差分の全回帰とはしない。
 
 preflight-ready=false。通常/responseの完全合法性・情報制約・operand根拠、全機会/自動処理の合成、生成来歴/remote事前lock/実行承認は残る。seed採取・本番400行固定・400戦開始0、新方式未採用。保存後も準備を継続する。
+
+## 通常行動の直接成長operand未証明を116へ接続
+
+通常比較のnative generic outcomeが、直接成長の3mechanismにも初期growth=0を返す点を現在合法E-first-dateでRED確認。比較用outcomeだけを未証明guardへ置き、既存116 frontierへ委譲する。symmetric_draw_growth / board_count_growth / targeted_relationship_growthという既存分類を使い、カード現物や経路専用分岐にはしない。新しい比較値を作らず、効果実行はnativeを維持。G-area-claim/E-bossの条件付き実候補でも、未知候補がfrontierに残り、proved_scoresから分離されることを確認。
+
+最終関連14件PASS（186.241s）、固定115/零rootの全20turn接続を含む。独立read-only review C/I/Minor各0。最初の結合commandはテストclass指定誤りによるloader errorであり、訂正後の14件を最終結果とする。保護正本476件不変、旧native・過去結果不変。現在の非fallbackを遡及して過去へ適用しない。
+
+6190固定worktreeで全proxy回帰を実行中。6190のnpm406PASS、同版の全3437保存ファイルとPython集合のedition照合成功。この後続2tools差分は6190回帰に含まれない。preflight-ready=false、seed/本番入力固定/400戦実行0。残る合法集合・情報制約・全義務合成と入力/実行管理を継続する。

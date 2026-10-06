@@ -74,3 +74,9 @@ preflight-ready=false。通常/responseの全合法集合・選択根拠と、�
 入力準備の次bundle: 459/463の実装版固定を、完全commit/treeとdocs/card-gameの保存blob集合、現在Python実装/版、現在tools集合へ結ぶread-only edition verifierとして追加する。Git replacementを無効化し、source差替え/欠落/追加Pythonを拒否する。保存済み全ファイルの不変性を検査するが、新しい入力/検証artifactの追加は既存sourceの変更と区別する。remote公開・承認・OS採取・結果前順序・適格性はこの検査から導かない。合成一時Git repositoryでTDDし、実seed/入力/対戦は作らない。
 
 同じ入力準備bundleで、供給済みtranscriptから465形式の全200群/400行・奇偶先後順・owner root commitmentを構成する純粋builderを追加する。乱数採取なし、旧115の同じ初期順を繰り返すin-memory fixtureでのみ構成を検証する。入力真正性・edition認証は別検査で、builder成功を生成許可や実験入力lockへ昇格させない。
+
+## 通常比較operandの未証明0境界
+
+続く横断確認で、native batch.outcomeの初期growth=0が、直接成長mechanismにも返ることを確認。E-first-dateの現在合法候補でpriority_uniqueになるREDを保存。現在opt-in比較scopeに限り、symmetric_draw_growth / board_count_growth / targeted_relationship_growthを未証明guardとして既存116 frontierへ委譲する。効果実行handlerはそのまま再利用し、新しい成長比較値を与えない。既存の条件付き非公開コインの141比較を一括置換しない。G-area-claim/E-bossの条件付き実候補でも、未知候補がfrontierに残り、proved_scoresへ入らないことを検査。旧native・過去記録を変更しない。
+
+独立read-only reviewerはC/I/Minor各0。候補削除、新点数、比較意味論の追加はなく、実行outcomeと比較outcomeを分離し例外時もscope復元することを確認。全20turnを含む結合検証は別記。6190固定全回帰には、この後続差分を含まない。
