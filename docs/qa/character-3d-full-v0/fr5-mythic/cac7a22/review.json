@@ -1,0 +1,13 @@
+{
+  "sourceCommit": "cac7a229ac1a641e3d8c3f0199db3bab70577b27",
+  "artifacts": {
+    "waveMotion": 11435329920,
+    "normalDistance": 11435347381
+  },
+  "fourViews": 8,
+  "stateFrames": 64,
+  "normalDistanceViews": 4,
+  "verdict": "REJECT",
+  "reason": "Open halos, tiered wings, one readable face and07flowing ribbons read correctly.03robe extends over lower legs despite short original tunic and bare legs; foot peeks through hem during walking. Shorten03robe, preserve test thresholds, recapture before expansion.",
+  "platform": "Chromium/SwiftShader; not iPhone"
+}

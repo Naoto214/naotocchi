@@ -1,6 +1,7 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap','tests/character-3d-celestial-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['short young robe','character-3d/mythic-spec.js','[[.001,.025],[.18,.025],[.235,-.045],[.26,-.07],[.255,-.085],[.001,-.085]],hem:[.26,-.075]','[[.001,.025],[.18,.025],[.24,-.13],[.29,-.17],[.285,-.19],[.001,-.19]],hem:[.29,-.175]'],
  ['feather tier pair','character-3d/celestial-humanoid.mjs','i<s.wings.length','i<s.wings.length-1'],
  ['open halo aperture','character-3d/celestial-humanoid.mjs','new THREE.TorusGeometry(q.radius,.012,6,40)','new THREE.SphereGeometry(q.radius,20,12)'],
  ['gold robe trim','character-3d/celestial-humanoid.mjs','if(s.trim)','if(false)'],

@@ -36,3 +36,9 @@ TestsRED before candidates, then202dedicatedPASS/0FAIL,5/5cosmicmutationsRED and
 
 ## Dragon canonical mouth projection correction
 Corrected-wing cfdf evidence revealed the mouth projected onto head-only surface behind the protruding muzzle. Face target now merges head, muzzle and chin (excluding horns/nostrils); original canonical layout/state is unchanged. Independent rays at three mouth positions fail before the fix.203dedicatedPASS,10/10mythicmutationsRED/restored,28Pilot hashes match. Corrected image gate remains required.
+
+## God03 short robe visibility correction
+Cac7representative fullgate rejected03 because the long lower hem concealed the original bare legs and walking feet intersected it. Front/left34/right34 independent rays against lower legs failbeforefix; shortened03profile exposeslegs,07unchanged.9/9celestialmutationsRED/restored.79JPEG/raw retained, correctedcapture required.
+
+## Unknown03/07 representatives
+Original03is a blue/purple rounded soft organism with cyanrim, white eyes, pinkmouth, twoarmstubs andtwofeet.07is a blue orb withoutlimbs withthreegoldrays overhead. Explicitclosedopaque volumes andvertexgradient/highlight preserve these silhouettes; no transparent billboard or guessed organ identity. White eyeProfileink reusescanonical eye shapes/blink andis cache-separated fromdefaultdarkeyes. ExistingblobFloat owner andoneface; no newcanonical state.207dedicatedPASS,7/7mysterymutationsRED/restored,28Pilot hashesmatch. Representativeimagesrequired before expansion/promotion.
