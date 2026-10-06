@@ -15,7 +15,9 @@ export function jellyOrganism(sp,key){
  const bubbles=sp.bubbles.map(p=>solid(xform(ellipsoid(p[3],p[3],p[3],8,6),{pos:p.slice(0,3)}),c.light));
  if(bubbles.length)rig.add('bubbles','body',[0,0,0],bubbles,'translucent:.5');
  rig.meta={hover:.10,idlePose:'hover',tentacleGroups:4};
- rig.faceSpec={bone:'body',target:bell,center:[0,b.height*.30,b.radius*.90],fwd:[0,0,1],half:b.radius*.53,eyeSize:.24,normalEye:sp.normalEye,
+ // Put the face on the solid inner volume, clear of the translucent rim.
+ // A radius-only face size drops the adult's mouth below its shallow bell.
+ rig.faceSpec={bone:'body',target:core,center:[0,b.height*.38,b.radius*.60],fwd:[0,0,1],half:Math.min(b.radius*.53,b.height*.65),eyeSize:.24,normalEye:sp.normalEye,
   layout:{eyeX:24,eyeY:56,mouthY:82,browY:36,cheekX:38,cheekY:72,mouthW:8},style:{blush:'#eb9bcc'}};
  return rig;
 }

@@ -175,7 +175,7 @@ jobs:
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/topology --topology
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/aquatic --aquatic
       - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/candidate-motion
-      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/aquatic-motion coral:2,coral:5,coral:7,coral:8
+      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/aquatic-motion coral:2,coral:5,coral:7,coral:8,jellyfish:1,jellyfish:4,jellyfish:7
       - run: node tools/character-3d/gallery-smoke.cjs
       - uses: actions/upload-artifact@v4
         if: always()

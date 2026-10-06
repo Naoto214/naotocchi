@@ -59,3 +59,16 @@ test('anemone lobes extend around the face disk in depth as well as silhouette',
  assert.ok(g.boundingBox.max.x>sp.body.width*1.25,'rounded peripheral lobes distinguish anemone from bare sphere');
  assert.ok(g.boundingBox.max.z-g.boundingBox.min.z>.15,'not a flat flower sprite');
 });
+test('elevated coral colony members remain physically rooted to the shared substrate',async()=>{
+ const {branchOrganism}=await import('../character-3d/branch-organism.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ for(const s of [6,7]){const sp=candidates().coral.stages[s],r=branchOrganism(sp,'rooted:'+s);
+ for(const [i,u]of sp.colony.entries()){
+  const bottom=u.at[1]+(u.spec.body.y-u.spec.body.height)*u.scale;
+  if(bottom<=.10)continue;
+  const localY=(.07+(bottom-.07)*.5-u.at[1])/u.scale;
+  const p=r.parts.find(p=>p.bone==='unit'+i),mesh=new THREE.Mesh(p.mesh.geometry,new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));mesh.updateMatrixWorld(true);
+  const ray=new THREE.Raycaster(new THREE.Vector3(0,localY,2),new THREE.Vector3(0,0,-1));
+  assert.ok(ray.intersectObject(mesh).length,'stage '+s+' member '+i+' has a solid root across the former gap');
+ }
+ }
+});

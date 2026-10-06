@@ -46,7 +46,14 @@ function branchColony(sp,key){
  const faces=[];
  for(const [i,u]of sp.colony.entries()){
   const sub=branchOrganism(u.spec,key+':unit'+i),name='unit'+i;
-  const bone=rig.add(name,'body',u.at,sub.parts.map(p=>p.mesh.geometry.clone()));
+  const parts=sub.parts.map(p=>p.mesh.geometry.clone()),b=u.spec.body;
+  // Raised crowns must grow out of the common substrate, not float above it.
+  // Keep the stem in its member's bone so sway cannot open a new gap.
+  if(u.at[1]+(b.y-b.height)*u.scale>.10){
+   const ground=(.045-u.at[1])/u.scale;
+   parts.push(solid(sweep([[0,ground,0],[0,(ground+b.y)*.5,0],[0,b.y-b.height*.5,0]],t=>b.width*(.36+t*.16),8,{steps:8}),u.spec.colors.branch));
+  }
+  const bone=rig.add(name,'body',u.at,parts);
   bone.scale.setScalar(u.scale);bone.userData.rest.s.copy(bone.scale);
   if(u.face!==false)faces.push({...sub.faceSpec,bone:name});
  }
