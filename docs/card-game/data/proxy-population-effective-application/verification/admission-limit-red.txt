@@ -1,0 +1,14 @@
+E
+======================================================================
+ERROR: test_mixed_actual_prefix_limits_preserve_authenticated_exclusion (test_proxy_population_admission.RealEntryAdmissionTests.test_mixed_actual_prefix_limits_preserve_authenticated_exclusion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_admission.py", line 82, in test_mixed_actual_prefix_limits_preserve_authenticated_exclusion
+    self.assertEqual(short['reconstruction_step_limit'],1);self.assertEqual(long['reconstruction_step_limit'],3)
+                     ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'reconstruction_step_limit'
+
+----------------------------------------------------------------------
+Ran 1 test in 4.798s
+
+FAILED (errors=1)

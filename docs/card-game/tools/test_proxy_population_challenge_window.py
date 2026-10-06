@@ -58,6 +58,8 @@ class MultiTurnConnectionTests(unittest.TestCase):
   self.assertTrue(r['supported_trigger_coverage']['covered'],r['supported_trigger_coverage'])
   self.assertEqual(len(r['supported_trigger_coverage']['transitions']),len(r['events']))
   self.assertEqual(r['supported_trigger_coverage']['pending_count'],0)
+  order=r['supported_trigger_coverage']['processing_order'];self.assertTrue(order['phase_order_verified'])
+  self.assertEqual(sum(order[k] for k in ('ordinary_normal_count','ordinary_response_count','automatic_step_count','sequential_trigger_step_count')),len(r['steps']))
   self.assertGreaterEqual(sum(x['action_type']=='turn_end_completed' for x in r['events']),18,r['stop'])
   self.assertGreaterEqual(session.counts['A'],2);self.assertGreaterEqual(session.counts['B'],1)
   self.assertFalse(r['ready_for_execution'])

@@ -38,3 +38,15 @@ Interface audit: native効果の既存receiptは指示量と実増加を混同�
 全体審査は459/463の既存仕様を別版で接続する。callerのeligible/verifiedを根拠にせず、現行のmanifest結合entryから再構成した判断・遷移だけを審査する。旧schema/過去runの遡及算入は拒否。旧116を確認した判断は除外とし、同時に未証明gateを保持。指定MRPの戦略未証明は維持し、局所乱数一致だけでpolicy_eligibleへ上げない。対戦の未完走、機会不足、input lock欠落は未証明。鏡像の片側欠落、予定400行の欠落、複数attempt不一致を残し、全体結論は全gateが揃うまでnull。
 
 次のTDDは、未知schema/自己申告、真正な旧116、指定MRPと指定外の分離、途中対戦、片側欠落、全予定行保持、再試行による除外消去拒否、0分母、過去record拒否をまとめて扱う。実験seed/manifestは作らず、既存の不適格in-memory test doubleで構造・保留動作を検証する。
+
+## 判断・対戦・鏡像・予定集合の保留審査bundle
+
+source再構成された現行recordだけを審査する別版admissionを追加。判断→対戦→鏡像→予定400行を保持し、未実施・除外・未証明を分離。旧schemaや自己申告flagは遡及算入しない。指定MRPは実Sessionのframe/origin/address/root/候補/選択/適用後stateを既存465で再検算し、戦略未証明・policy_eligible=nullを保持。通常/responseの選択根拠横断審査、全ルール機会、生成来歴・事前lockは未証明gateとして残す。全体件数/割合/結論はnull。
+
+各source義務を処理する前に通常行動やresponseへ進まないことを全stepで照合。全ルールの独立証明ではなく、既存producerとphaseの処理順監査。対象再検査のnative失敗は条件を再照合して474不適用証拠に接続し、activation/resolution/cleanupを保持。証拠のないnullは未知であり不適用にしない。
+
+独立レビューC0/I1/Minor0: caller共通replay limitで正規attemptの116除外が失われる点を実prefixで再現。各record固有reconstruction_step_limitを保存し、その境界で再構成するよう修正。修正確認で未解決0。最後の関連34件PASS（148.760s）、設計errors=[]、既存正本476ファイル一致。詳細admission-review.md。npmは前bundle406PASSを参照（今回Pythonのみ）。
+
+保存9c56固定worktreeの全proxy回帰は1,546件PASS、開始/終了ID全件一致・skipなし・source不変。d0ceおよび今回の後続変更を含む全回帰ではない。全回帰集計をregression-9c56-summary.jsonに保存、現在差分は上記関連検証と区別する。
+
+preflight-ready=false。入力生成・400戦固定・実行は0。次は残った通常/response・自動処理義務の証拠審査と入力生成/実行の管理境界。保存後も継続する。

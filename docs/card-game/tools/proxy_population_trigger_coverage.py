@@ -72,6 +72,8 @@ def audit(result,initial_history,initial_proof):
     if not result['completed']:journals.append(active)
     elif not journals or canonical(journals[-1])!=canonical(active):raise ValueError('final closed ledger absent')
     proof=reconcile(expected,journals)
+    import proxy_population_opportunity_order as order
+    proof['processing_order']=order.audit(result,expected)
     proof.update(transitions=examined,start_origins=start_origins,
                  source_scope=dict(native=sorted(existing.SUPPORTED),latched=sorted(latching.CARDS),start_catalog_sha256=starts.CATALOG_SHA),
                  initial_occurrences_conditionally_supplied=True)

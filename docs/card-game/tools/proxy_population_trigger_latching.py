@@ -18,6 +18,7 @@ QUICK={'use_item','use_play','use_event'}
 
 def applied(event):
  receipt=event.get('created_effect',event.get('result',{}))
+ if type(receipt) is not dict:raise ValueError('effect application unproved')
  if 'effect_applied' in receipt:
   if type(receipt['effect_applied']) is not bool:raise ValueError('effect application must be typed')
   return receipt['effect_applied']

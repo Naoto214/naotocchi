@@ -1,0 +1,32 @@
+test_forced_resolution_is_not_mislabeled_as_no_choice_normal (test_proxy_population_opportunity_order.OrderTests.test_forced_resolution_is_not_mislabeled_as_no_choice_normal) ... FAIL
+test_normal_and_ordinary_response_require_their_own_decision (test_proxy_population_opportunity_order.OrderTests.test_normal_and_ordinary_response_require_their_own_decision) ... FAIL
+test_unconsumed_source_obligation_blocks_ordinary_choice (test_proxy_population_opportunity_order.OrderTests.test_unconsumed_source_obligation_blocks_ordinary_choice) ... FAIL
+
+======================================================================
+FAIL: test_forced_resolution_is_not_mislabeled_as_no_choice_normal (test_proxy_population_opportunity_order.OrderTests.test_forced_resolution_is_not_mislabeled_as_no_choice_normal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_opportunity_order.py", line 29, in test_forced_resolution_is_not_mislabeled_as_no_choice_normal
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_normal_and_ordinary_response_require_their_own_decision (test_proxy_population_opportunity_order.OrderTests.test_normal_and_ordinary_response_require_their_own_decision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_opportunity_order.py", line 15, in test_normal_and_ordinary_response_require_their_own_decision
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_unconsumed_source_obligation_blocks_ordinary_choice (test_proxy_population_opportunity_order.OrderTests.test_unconsumed_source_obligation_blocks_ordinary_choice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_opportunity_order.py", line 24, in test_unconsumed_source_obligation_blocks_ordinary_choice
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

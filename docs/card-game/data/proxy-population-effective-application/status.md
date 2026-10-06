@@ -42,3 +42,15 @@ coinのdepth1/2制限を新top-link adapterで外し、外側の未解決linkを
 全proxy回帰は、active checkoutの直列試行を途中中止し、保存9c56のdetached worktreeで410 runnerによる6別processへ切り替えて継続中。この保存時点では全回帰完了を主張しない。直列試行も全回帰PASSではない。今回の後続変更はその固定baselineには含まれず、上記専用／関連検証で区別する。
 
 次は459/463の判断→対戦→鏡像→予定400行の真正審査と、生成来歴／remote事前lock／実行承認gate。preflight-ready=false、seed／本番入力固定／400戦実行0を維持し、保存後も続行する。
+
+## 判断・対戦・鏡像・予定集合の保留審査bundle
+
+source再構成された現行recordだけを審査する別版admissionを追加。判断→対戦→鏡像→予定400行を保持し、未実施・除外・未証明を分離。旧schemaや自己申告flagは遡及算入しない。指定MRPは実Sessionのframe/origin/address/root/候補/選択/適用後stateを既存465で再検算し、戦略未証明・policy_eligible=nullを保持。通常/responseの選択根拠横断審査、全ルール機会、生成来歴・事前lockは未証明gateとして残す。全体件数/割合/結論はnull。
+
+各source義務を処理する前に通常行動やresponseへ進まないことを全stepで照合。全ルールの独立証明ではなく、既存producerとphaseの処理順監査。対象再検査のnative失敗は条件を再照合して474不適用証拠に接続し、activation/resolution/cleanupを保持。証拠のないnullは未知であり不適用にしない。
+
+独立レビューC0/I1/Minor0: caller共通replay limitで正規attemptの116除外が失われる点を実prefixで再現。各record固有reconstruction_step_limitを保存し、その境界で再構成するよう修正。修正確認で未解決0。最後の関連34件PASS（148.760s）、設計errors=[]、既存正本476ファイル一致。詳細admission-review.md。npmは前bundle406PASSを参照（今回Pythonのみ）。
+
+保存9c56固定worktreeの全proxy回帰は1,546件PASS、開始/終了ID全件一致・skipなし・source不変。d0ceおよび今回の後続変更を含む全回帰ではない。全回帰集計をregression-9c56-summary.jsonに保存、現在差分は上記関連検証と区別する。
+
+preflight-ready=false。入力生成・400戦固定・実行は0。次は残った通常/response・自動処理義務の証拠審査と入力生成/実行の管理境界。保存後も継続する。

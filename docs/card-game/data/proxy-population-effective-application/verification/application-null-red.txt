@@ -1,0 +1,20 @@
+E
+======================================================================
+ERROR: test_unbound_null_receipt_remains_unproved (test_proxy_population_effect_application_runtime.RuntimeApplicationTests.test_unbound_null_receipt_remains_unproved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_effect_application_runtime.py", line 67, in test_unbound_null_receipt_remains_unproved
+    with self.assertRaisesRegex(ValueError,'unproved'):latching.applied(dict(created_effect=None))
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_effect_application_runtime.py", line 77, in applied
+    if 'application_evidence' not in event:return prior_latch(event)
+                                                  ^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_trigger_latching.py", line 21, in applied
+    if 'effect_applied' in receipt:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (errors=1)

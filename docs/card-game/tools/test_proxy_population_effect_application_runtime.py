@@ -44,6 +44,28 @@ class RuntimeApplicationTests(unittest.TestCase):
    self.assertEqual(e,original);self.assertEqual(payments.resolve(e,initial())['new_envelopes'][0]['legacy_continuation']['game_state']['players'][actor]['growth'],110)
    return {}
   base.operation(initial(),run)
+ def test_target_recheck_failure_is_resolved_without_effect_application(self):
+  def run(forced):
+   for card in ('G-archery-3d','E-big-illness','G-basketball-3d'):
+    e,actor,source=fixture(card);c=e['legacy_continuation'];g=c['game_state'];link=c['activation_zone'][-1]
+    link['action_type']=payments.QUICK_CARDS[card].get('action_type','use_event')
+    # Conditional root: the originally selected physical target is now in hand.
+    target=g['players'][actor]['hand'][0];link['target_instance_ids']=[target]
+    with api.scope():
+     r=payments.resolve(e,initial());event=r['new_events'][0];after=r['new_envelopes'][0]
+     self.assertIsNone(event['created_effect'])
+     self.assertEqual(event['application_evidence']['status'],'not_applied')
+     self.assertEqual(event['application_evidence']['parts'][0]['reason'],'target_no_longer_legal')
+     self.assertFalse(latching.applied(event));self.assertFalse(challenge.quick_effect_applied(after['legacy_continuation']['game_state'],[event],actor,0))
+     self.assertIn(source,after['legacy_continuation']['game_state']['players'][actor]['discard'])
+     self.assertEqual(api.validate(r,e,initial()),[])
+   return {}
+  base.operation(initial(),run)
+
+ def test_unbound_null_receipt_remains_unproved(self):
+  with api.scope():
+   with self.assertRaisesRegex(ValueError,'unproved'):latching.applied(dict(created_effect=None))
+
  def test_ruling_source_drift_rejects_without_leaking_scope(self):
   import tempfile
   from pathlib import Path

@@ -36,16 +36,32 @@ def status(event):
 def resolve(native,envelope,initial=None):
  verify_source()
  link=envelope['legacy_continuation']['activation_zone'][-1];card=link['card_id']
- if card not in payments.BOARD_COUNT_CARDS and card not in payments.IMMEDIATE_CARDS:return native(envelope,initial)
+ if card not in payments.BOARD_COUNT_CARDS and card not in payments.IMMEDIATE_CARDS and card not in payments.TARGETED_CARDS and card not in payments.CONDITIONAL_CARDS and card not in payments.STAT_CARDS:return native(envelope,initial)
  result=native(envelope,initial);after=copy.deepcopy(result['new_envelopes'][0]);event=copy.deepcopy(result['new_events'][0]);receipt=event['created_effect'];actor=link['actor']
- before=envelope['legacy_continuation']['game_state']['players'][actor]['growth'];part=contract.growth(before,receipt['growth_added']);parts=[part]
- if after['legacy_continuation']['game_state']['players'][actor]['growth']!=before+receipt['growth_added']:raise ValueError('native growth operation differs')
- after['legacy_continuation']['game_state']['players'][actor]['growth']=part['after']
- if card in payments.IMMEDIATE_CARDS:
-  draws=receipt['drawn_instance_ids_by_actor']
-  parts.append(dict(operation='draw',actual_instance_ids_by_actor=copy.deepcopy(draws),status='applied' if any(draws.values()) else 'not_applied',reason='actual_draw' if any(draws.values()) else 'empty_decks'))
+ if card in payments.TARGETED_CARDS or card in payments.CONDITIONAL_CARDS or card in payments.STAT_CARDS:
+  # The existing source-checked native handler rechecks the selected physical
+  # target at resolution. None alone is not proof: verify its exact predicate.
+  if len(link['target_instance_ids'])!=1:raise ValueError('target count differs')
+  target=link['target_instance_ids'][0];game=envelope['legacy_continuation']['game_state']
+  if card in payments.TARGETED_CARDS:
+   legal=target in payments.equipment_targets(game,envelope['runtime'],actor,card)
+  else:
+   owner=actor if card in payments.CONDITIONAL_CARDS or payments.STAT_CARDS[card].get('target_owner')=='own' else 'B' if actor=='A' else 'A'
+   legal=target==game['players'][owner]['board']['main']
+  if legal:
+   if receipt is None:raise ValueError('native target success receipt absent')
+   return result
+  if receipt is not None or result.get('new_decisions'):raise ValueError('native target failure performed extra effects')
+  parts=[dict(operation='target_recheck',target_instance_id=target,status='not_applied',reason='target_no_longer_legal',source_reference=copy.deepcopy(payments.capability(card)['reference']))]
+ else:
+  before=envelope['legacy_continuation']['game_state']['players'][actor]['growth'];part=contract.growth(before,receipt['growth_added']);parts=[part]
+  if after['legacy_continuation']['game_state']['players'][actor]['growth']!=before+receipt['growth_added']:raise ValueError('native growth operation differs')
+  after['legacy_continuation']['game_state']['players'][actor]['growth']=part['after']
+  if card in payments.IMMEDIATE_CARDS:
+   draws=receipt['drawn_instance_ids_by_actor']
+   parts.append(dict(operation='draw',actual_instance_ids_by_actor=copy.deepcopy(draws),status='applied' if any(draws.values()) else 'not_applied',reason='actual_draw' if any(draws.values()) else 'empty_decks'))
  proof=dict(contract='effective_application_474.v1',source_sha256=hashlib.sha256((ROOT/RULING).read_bytes()).hexdigest(),source_instance_id=link['source_instance_id'],chain_link_id=link['link_id'],resolved=True,activation_reference=dict(chain_link_id=link['link_id'],source_instance_id=link['source_instance_id'],origin_authenticated=False),parts=parts,parts_complete=True,status=contract.classify(parts,True))
- receipt.update(growth_added=part['actual_delta'],growth_requested=part['requested_delta'],effect_applied=proof['status']=='applied')
+ if receipt is not None:receipt.update(growth_added=part['actual_delta'],growth_requested=part['requested_delta'],effect_applied=proof['status']=='applied')
  extra={k:v for k,v in event.items() if k not in {'seq','action_type','actor','game_state_before_sha256','game_state_after_sha256','continuation_state_before_sha256','continuation_state_after_sha256',*payments.end.BIND_KEYS}}
  extra['application_evidence']=proof
  bound=payments.transition_event(envelope,after,event['action_type'],event['actor'],**extra)

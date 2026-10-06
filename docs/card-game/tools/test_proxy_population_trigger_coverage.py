@@ -29,7 +29,7 @@ class CoverageTests(unittest.TestCase):
   def run(forced):
    e=case('end');c=e['legacy_continuation'];c['game_state']['phase']='completed';c['activation_zone']=[];c['pending_triggers']=[]
    j=ledger.create(c['game_state']['turn_player']);archive=sequential.close_turn(j,e)
-   result=dict(source_envelope=e,final_envelope=e,steps=[],completed=True,events=[],trigger_ledger=j,closed_turn_trigger_ledgers=[archive])
+   result=dict(source_envelope=e,final_envelope=e,steps=[],completed=True,events=[],trigger_records=[],trigger_ledger=j,closed_turn_trigger_ledgers=[archive])
    self.assertTrue(api.audit(result,[],dict(occurrences=[]))['covered'])
    for key,value in [('boundary_event_seq',999),('boundary_envelope_sha256','0'*64),('round',999)]:
     bad=copy.deepcopy(result);bad['closed_turn_trigger_ledgers'][0][key]=value
