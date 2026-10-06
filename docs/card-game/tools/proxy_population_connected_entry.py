@@ -46,6 +46,12 @@ def reconstruct(bundle,match_id,limit):
   proof=policy_journal.audit(result['runtime']['mandatory_policy_journal'],decisions,result['origin_journal'],binding,bundle['policy_roots'][binding['group_id']])
   if not proof['local_entries_verified']:raise ValueError('actual mandatory policy journal differs: '+str(proof['errors']))
   result['mandatory_policy_entry_audit']=proof
+  origins=policy_journal.audit_origins(result)
+  if not origins['origin_sequence_verified']:raise ValueError('actual mandatory origin sequence differs: '+str(origins['errors']))
+  result['mandatory_origin_audit']=origins
+  opportunities=policy_journal.audit_opportunities(result)
+  if not opportunities['designated_opportunities_covered']:raise ValueError('actual mandatory opportunities differ: '+str(opportunities['errors']))
+  result['mandatory_opportunity_audit']=opportunities
   if fingerprint()!=before:raise ValueError('connected tools source changed during reconstruction')
   result.update(schema='bound_population_connected_runtime.v1',connected_tools_sha256=before,reconstruction_step_limit=limit,ready_for_execution=False,ready_for_input_generation=False)
   return result

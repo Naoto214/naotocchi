@@ -1,0 +1,14 @@
+E
+======================================================================
+ERROR: test_entry_exports_actual_opening_and_runtime_callbacks (test_proxy_population_policy_journal.BoundPolicyJournalTests.test_entry_exports_actual_opening_and_runtime_callbacks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_policy_journal.py", line 58, in test_entry_exports_actual_opening_and_runtime_callbacks
+    self.assertTrue(r['mandatory_opportunity_audit']['designated_opportunities_covered'])
+                    ~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'mandatory_opportunity_audit'
+
+----------------------------------------------------------------------
+Ran 1 test in 3.808s
+
+FAILED (errors=1)

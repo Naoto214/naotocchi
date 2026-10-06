@@ -50,3 +50,9 @@ source再構成された現行recordだけを審査する別版admissionを追�
 保存9c56固定worktreeの全proxy回帰は1,546件PASS、開始/終了ID全件一致・skipなし・source不変。d0ceおよび今回の後続変更を含む全回帰ではない。全回帰集計をregression-9c56-summary.jsonに保存、現在差分は上記関連検証と区別する。
 
 preflight-ready=false。入力生成・400戦固定・実行は0。次は残った通常/response・自動処理義務の証拠審査と入力生成/実行の管理境界。保存後も継続する。
+
+## 指定必須選択の発生機会と全手番addressの照合
+
+1911dcdから継続し、callbackの有無に依存せず全turn開始・全top-link解決からorigin journal/own-turn/resolution ordinalを再構成する。選択のない解決も番号を消費する。指定5種類は実際のentryから465 REGISTRY/prepareで必要な選択とno-choice理由を導き、実Session journalのidentity/frameと全件照合。全現物履歴をlife.observeで追い、現在active-copy投影と最終lifecycleを検証する。未知の指定外判断を今回のpolicyへ取り込まない。
+
+専用RED→GREEN、関連15件PASS（26.679s）。固定unit R10までの入口結合を含む5件PASS（134.421s）。全20手番、選択なし解決を含むorigin、必要選択件数、欠落/frame改変拒否を確認。独立review C/I/Minor各0。origin真正性・全ルール機会・戦略適格・事前入力lockは別gate。新seed/400戦入力固定/本番実行0、preflight-ready=false。保存後も残った指定外判断・自動処理の機会と入力管理を継続する。
