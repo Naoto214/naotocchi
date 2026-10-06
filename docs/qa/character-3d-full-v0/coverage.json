@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 154,
-    "pending": 139,
-    "fourViewRecords": 152
+    "exactSpecs": 162,
+    "pending": 131,
+    "fourViewRecords": 160
   },
   "rows": [
     {
@@ -1936,15 +1936,15 @@
       "group": "normal",
       "asset": "assets/characters/cicada/01.png",
       "sha256": "858ca18bcad40189c714a12e3c6dc6ce6b9669ea632a732484bc8628273578ca",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-1-back.jpg"
       }
     },
     {
@@ -1956,15 +1956,15 @@
       "group": "normal",
       "asset": "assets/characters/cicada/02.png",
       "sha256": "0cb07e00c8d37881d20149c7a013518417288e657cc55f396cee57f44c77214c",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-2-back.jpg"
       }
     },
     {
@@ -1976,15 +1976,15 @@
       "group": "normal",
       "asset": "assets/characters/cicada/03.png",
       "sha256": "91e78ec15f121909056e2c3d82228882beaa294aac4da4c54312f99f1a556944",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-3-back.jpg"
       }
     },
     {
@@ -1996,15 +1996,15 @@
       "group": "normal",
       "asset": "assets/characters/cicada/04.png",
       "sha256": "addd42e893f939ab97b46f2c726b5196508075d0f89ded7ae3b3452c14daf755",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-4-back.jpg"
       }
     },
     {
@@ -2016,15 +2016,15 @@
       "group": "normal",
       "asset": "assets/characters/cicada/05.png",
       "sha256": "4824188dbe4cee4cd648d9f2cee60266ef70d09757d724a4b035ab80180e1143",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/56ad868/cicada-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/56ad868/cicada-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/56ad868/cicada-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/56ad868/cicada-5-back.jpg"
       }
     },
     {
@@ -2036,15 +2036,15 @@
       "group": "normal",
       "asset": "assets/characters/cicada/06.png",
       "sha256": "0aa7fcd811cdd1eadc0679d4d4210b4446e686eeaab424c646a9c16653e6e184",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-6-back.jpg"
       }
     },
     {
@@ -2056,15 +2056,15 @@
       "group": "normal",
       "asset": "assets/characters/cicada/07.png",
       "sha256": "c0cfc06808e211b92bfe4d7ccfe6496290a312035f2fed706eb622f5f3aa5e75",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-7-back.jpg"
       }
     },
     {
@@ -2076,15 +2076,15 @@
       "group": "normal",
       "asset": "assets/characters/cicada/08.png",
       "sha256": "e40beafd474ca5d78b3bd393a7b37937e6d98c2a8f6644639773c30912ead71b",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/d0b01eb/cicada-8-back.jpg"
       }
     },
     {

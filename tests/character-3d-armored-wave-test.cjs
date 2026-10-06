@@ -37,6 +37,6 @@ test('beetle and stag originals keep six rooted articulated legs and distinct ho
 });
 test('armored candidate overlay resolves only an explicit candidate family',()=>{
  const {candidateConfig}=require('../tools/character-3d/candidate-spec.cjs');
- const before=JSON.stringify(SPEC.ROLLOUT);const c=candidateConfig(['--candidate-armored','--rollout','--species-only','--line','beetle']);assert.ok(c);assert.equal(c.spec.stageSpec('beetle',7).archetype,'armored_insect');assert.deepEqual(SPEC.stageSpec('beetle',7),JSON.parse(JSON.stringify(c.spec.stageSpec('beetle',7))));assert.equal(JSON.stringify(SPEC.ROLLOUT),before,'overlay never mutates runtime registry');assert.equal(SPEC.specKeyFor({line:'cicada',stage:6}),null,'unreviewed family remains isolated');
+ const before=JSON.stringify(SPEC.ROLLOUT);const c=candidateConfig(['--candidate-armored','--rollout','--species-only','--line','beetle']);assert.ok(c);assert.equal(c.spec.stageSpec('beetle',7).archetype,'armored_insect');assert.deepEqual(SPEC.stageSpec('beetle',7),JSON.parse(JSON.stringify(c.spec.stageSpec('beetle',7))));assert.equal(JSON.stringify(SPEC.ROLLOUT),before,'overlay never mutates runtime registry');assert.equal(SPEC.specKeyFor({line:'antlion',stage:6}),null,'unreviewed family remains isolated');
  assert.throws(()=>candidateConfig(['--candidate-armored','--candidate-aquatic','--rollout','--species-only','--line','beetle']));
 });

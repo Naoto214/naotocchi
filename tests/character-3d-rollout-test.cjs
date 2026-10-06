@@ -148,7 +148,7 @@ test('reviewed jellyfish batch preserves eight exact rooted, ephyra and bell run
   const t=rt.getTemplate('jellyfish',stage);assert.equal(t.status,'ok');
   assert.equal(t.rig.locomotion,stage<=2?'plantSway':'blobFloat');
  }
- assert.equal(SPEC.specKeyFor({line:'cicada',stage:6}),null,'incomplete cicada family stays outside rollout');
+ assert.equal(SPEC.specKeyFor({line:'antlion',stage:6}),null,'unreviewed antlion family stays outside rollout');
 });
 test('reviewed beetle families preserve all exact metamorphosis stages in runtime',async()=>{
  const rt=await import('../character-3d/runtime.mjs');
@@ -162,5 +162,12 @@ test('reviewed sakura batch preserves all eight original topologies and face own
  for(let stage=1;stage<=8;stage++){
   assert.deepEqual(SPEC.specKeyFor({line:'sakura',stage:stage-1}),{id:'sakura',stage,exact:true});const t=rt.getTemplate('sakura',stage);assert.equal(t.status,'ok');assert.equal(t.rig.archetype,'branch_organism');
   for(const emotion of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=rt.instantiate(t);an.setEmotion(a,emotion);an.animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,counts[stage-1]);assert.ok(a.faces.every(f=>f.emotion===emotion));}
+ }
+});
+test('reviewed cicada batch preserves all eight exact nymph emergence and adult stages in runtime',async()=>{
+ const rt=await import('../character-3d/runtime.mjs'),an=await import('../character-3d/animate.mjs');
+ for(let stage=1;stage<=8;stage++){
+  assert.deepEqual(SPEC.specKeyFor({line:'cicada',stage:stage-1}),{id:'cicada',stage,exact:true});const t=rt.getTemplate('cicada',stage);assert.equal(t.status,'ok');assert.equal(t.rig.archetype,'armored_insect');assert.equal(!!t.rig.bones.emptyShell,stage===5);assert.equal(!!t.rig.bones.wing0,stage>=5);
+  for(const emotion of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=rt.instantiate(t);an.setEmotion(a,emotion);an.animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,1);assert.equal(a.faces[0].emotion,emotion);}
  }
 });
