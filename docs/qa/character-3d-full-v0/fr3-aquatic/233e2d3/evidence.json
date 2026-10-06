@@ -1,0 +1,199 @@
+{
+  "source": "233e2d3ab7eeef82fdcdda717f081dd6e892aca5",
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "evidence": [
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 2,
+      "view": "front",
+      "emotion": "normal",
+      "moving": false,
+      "reduced": false,
+      "triangles": 5844,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5463250279426575,
+          -0.030947713530787242,
+          -0.2546935975551605
+        ],
+        [
+          0.5282750129699707,
+          0.9269594405569977,
+          0.2761576473712921
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "moving": false,
+      "reduced": false,
+      "triangles": 5844,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5463250279426575,
+          -0.030947713530787242,
+          -0.2546935975551605
+        ],
+        [
+          0.5282750129699707,
+          0.9269594405569977,
+          0.2761576473712921
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 2,
+      "view": "side",
+      "emotion": "normal",
+      "moving": false,
+      "reduced": false,
+      "triangles": 5844,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5463250279426575,
+          -0.030947713530787242,
+          -0.2546935975551605
+        ],
+        [
+          0.5282750129699707,
+          0.9269594405569977,
+          0.2761576473712921
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 2,
+      "view": "back",
+      "emotion": "normal",
+      "moving": false,
+      "reduced": false,
+      "triangles": 5844,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5463250279426575,
+          -0.030947713530787242,
+          -0.2546935975551605
+        ],
+        [
+          0.5282750129699707,
+          0.9269594405569977,
+          0.2761576473712921
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 5,
+      "view": "front",
+      "emotion": "normal",
+      "moving": false,
+      "reduced": false,
+      "triangles": 6628,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.6389999985694885,
+          -0.03439539180522288,
+          -0.2546935975551605
+        ],
+        [
+          0.628350019454956,
+          0.9670758313223023,
+          0.2761576473712921
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "moving": false,
+      "reduced": false,
+      "triangles": 6628,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.6389999985694885,
+          -0.03439539180522288,
+          -0.2546935975551605
+        ],
+        [
+          0.628350019454956,
+          0.9670758313223023,
+          0.2761576473712921
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 5,
+      "view": "side",
+      "emotion": "normal",
+      "moving": false,
+      "reduced": false,
+      "triangles": 6628,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.6389999985694885,
+          -0.03439539180522288,
+          -0.2546935975551605
+        ],
+        [
+          0.628350019454956,
+          0.9670758313223023,
+          0.2761576473712921
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "coral",
+      "stage": 5,
+      "view": "back",
+      "emotion": "normal",
+      "moving": false,
+      "reduced": false,
+      "triangles": 6628,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.6389999985694885,
+          -0.03439539180522288,
+          -0.2546935975551605
+        ],
+        [
+          0.628350019454956,
+          0.9670758313223023,
+          0.2761576473712921
+        ]
+      ]
+    }
+  ],
+  "errors": []
+}

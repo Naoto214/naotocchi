@@ -3,13 +3,20 @@
 import {ellipsoid,sweep,xform,solid,paint,mix} from './geometry.mjs';
 import {Rig} from './rig.mjs';
 export function branchOrganism(sp,key){
+ if(sp.colony)return branchColony(sp,key);
  const rig=new Rig(key,'branch_organism','plantSway'),c=sp.colors,b=sp.body;
  const core=paint(xform(ellipsoid(b.width,b.height,b.depth,20,14),{pos:[0,b.y,0]}),(x,y,z,nx,ny,nz)=>mix(c.body,c.light,Math.max(0,nz)*.22+Math.max(0,ny)*.12));
  const parts=[core.clone()];
  for(const p of sp.branches){
   parts.push(paint(sweep(p.path,t=>p.r*(1-t*(p.taper??.35)),8,{steps:10}),(x,y,z,nx,ny,nz)=>mix(c.branch,c.tip,Math.max(0,ny)*.25+Math.max(0,nz)*.12)));
   const last=p.path[p.path.length-1],r=p.r*(1-(p.taper??.35));
-  parts.push(solid(xform(ellipsoid(r*(p.bulb||1),r*(p.bulb||1),r*(p.bulb||1),8,6),{pos:last}),c.tip));
+  // sweep already has a rounded cap. Only larger source polyp bulbs
+  // need an additional volume; equal-radius spheres caused coplanar rings.
+  if(p.bulb>1)parts.push(solid(xform(ellipsoid(r*p.bulb,r*p.bulb,r*p.bulb,8,6),{pos:last}),c.tip));
+ }
+ if(sp.petals)for(let i=0;i<sp.petals.count;i++){
+  const a=i/sp.petals.count*Math.PI*2;
+  parts.push(paint(xform(ellipsoid(sp.petals.width,sp.petals.length,sp.petals.depth,8,6),{pos:[Math.sin(a)*b.width*.97,b.y+Math.cos(a)*b.height*.97,0],rot:[0,0,-a]}),(x,y,z,nx,ny,nz)=>mix(c.branch,c.tip,Math.max(0,nz)*.65)));
  }
  const stones=sp.stones.map((s,i)=>solid(xform(ellipsoid(s[3],s[4],s[3]*.8,10,6),{pos:s.slice(0,3),rot:[0,i*.7,i%2?.2:-.15]}),c.stones[i%c.stones.length]));
  rig.add('body','root',[0,0,0],parts);
@@ -21,4 +28,26 @@ export function branchOrganism(sp,key){
  rig.faceSpec={bone:'body',target:core,center:[0,b.y,b.depth*.96],fwd:[0,0,1],half:b.width*.73,eyeSize:.25,normalEye:sp.normalEye,
   layout:{eyeX:24,eyeY:56,mouthY:82,browY:36,cheekX:38,cheekY:72,mouthW:8},style:{blush:c.blush}};
  return rig;
+}
+
+// Each face owns one bone, but all members share the parent's actor/animation.
+function branchColony(sp,key){
+ const rig=new Rig(key,'branch_organism','plantSway');
+ const substrate=sp.stones.map((s,i)=>solid(xform(ellipsoid(s[3],s[4],s[3]*.85,8,6),{pos:s.slice(0,3)}),sp.stoneColors[i%sp.stoneColors.length]));
+ if(sp.mound){const m=sp.mound;
+  for(let row=0;row<5;row++)for(let col=0;col<9;col++){
+   const a=(col/8-.5)*Math.PI*1.3,h=row/4,r=m.r*Math.sqrt(1-h*h*.84),y=.11+h*m.h;
+   substrate.push(solid(xform(ellipsoid(.065,.075,.065,8,6),{pos:[Math.sin(a)*r,y,-.12+Math.cos(a)*r*.40]}),m.colors[(row*7+col)%m.colors.length]));
+  }
+ }
+ rig.add('body','root',[0,0,0],substrate);
+ rig.add('leavesA','body',[0,0,0],null);rig.add('leavesB','body',[0,0,0],null);
+ const faces=[];
+ for(const [i,u]of sp.colony.entries()){
+  const sub=branchOrganism(u.spec,key+':unit'+i),name='unit'+i;
+  const bone=rig.add(name,'body',u.at,sub.parts.map(p=>p.mesh.geometry.clone()));
+  bone.scale.setScalar(u.scale);bone.userData.rest.s.copy(bone.scale);
+  if(u.face!==false)faces.push({...sub.faceSpec,bone:name});
+ }
+ rig.faceSpec=faces;rig.meta={idlePose:'stand',hover:0};return rig;
 }

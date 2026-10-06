@@ -265,3 +265,14 @@ Local exec-server stopped accepting commands with `No such file or directory`. G
 - Inspected coral strip and05 original;implemented02 polyp/05 branched colony as candidates only. Reusable branch_organism builder merges rounded explicit-root paths into one body mesh;existing Rig/canonical face/plantSway retained. No runtime promotion or coverage inflation.
 - New tests RED for absent candidates and absent candidate overlay, then3PASS. Mechanism mutations3/3RED;Pilot28 geometry/pose hashes unchanged. Fresh post-mutation serial dedicated suite130PASS/0FAIL. Immutable RuntimeCI is pending at checkpoint.
 - Local browser executable missing;capture routed to existing Actions,not a visual PASS. Remaining stages await representative four-view and normal-distance review.
+
+### Coral representative visual review / mutation compatibility
+- Source233e2d3 original+four-view02/05 and ordinary front/back captures reviewed; exact requested/spec/live3D/fallback0/errors0 independently verified. Full image gate exposed coincident tip-cap rings on05: shared sweep already supplies hemispherical caps, so redundant equal-radius spheres removed; larger02 polyp bulbs remain. Corrected recapture required before promotion.
+- Source233 dedicated normal suite passed, then Pilot remove-it failed because added builder preceded its literal registry anchor. Preserved original registry prefix/order; local original13-mutation script then completed with13RED. No mutation weakened or deleted.
+- Colony06 has4 source faces (yellow, blue, small left pink and small right peach);07 has3;08 has5 flower/anemone faces with background faceless branches/mound. These require composite geometry sharing one actor and the existing multi-face expression contract.
+
+### Coral full candidate morphology
+- Original01/03/04/06/07/08 re-inspected at233. Added explicit pink sphere01,slender asymmetric curled polyp03,rounded lobed fork04,and source-specific colony06/07/08. Grouped face counts4/3/5;faceless rear branches remain faceless. Rounded anemone lobes and bounded green mound reuse merged geometry. Each face owns one bone;members share parent actor/emotion/plant locomotion.
+- Representative review saved fr3-aquatic/233e2d3:13JPEGs andraw four-view/distance evidence. Original geometry and game state unchanged. Prior registry-prefix fix included in next remote checkpoint.
+- Full8 remain candidates pending immutable full-image/distance gate. Exact114/293 unchanged. Representative cap correction and new colony morphology require recapture.
+- Fresh full dedicated132PASS/0FAIL; aquatic5/5mutationsRED;Pilot28 numeric geometry/pose hashes unchanged after restoration. Full immutableCI and full8 browser evidence pending.

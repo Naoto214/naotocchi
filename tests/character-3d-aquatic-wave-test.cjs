@@ -21,7 +21,7 @@ test('coral representatives have rounded connected branches in one bounded mesh'
 test('aquatic representative faces follow canonical emotions and reduced motion without actor state',async()=>{
  const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
  for(const [stage,sp]of Object.entries(candidates().coral.stages)){
- const r=BUILDERS[sp.archetype](sp,'coral:'+stage);r.faces=[attachFace(r,r.faceSpec,'C')];
+ const r=BUILDERS[sp.archetype](sp,'coral:'+stage);r.faces=[r.faceSpec].flat().map(f=>attachFace(r,f,'C'));
  for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){
   const a=instantiate({rig:r,key:'coral:'+stage});setEmotion(a,em);for(let n=0;n<20;n++)animate(a,{dt:.05,moving,animLv});
   assert.equal(a.faces[0].emotion,em);if(moving&&animLv===2&&em==='normal')assert.ok(a.root.position.y>0,'existing plant locomotion moves the single root');for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.scale.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));
@@ -35,4 +35,27 @@ test('aquatic candidate overlay is isolated and requires an exact family',()=>{
  assert.equal(SPEC.stageSpec('coral',5),null);
  assert.throws(()=>candidateConfig(['--candidate-aquatic','--candidate-topology','--rollout','--species-only','--line','coral']));
  assert.throws(()=>candidateConfig(['--candidate-aquatic','--rollout','--species-only','--line','missing']));
+});
+test('coral eight original stages preserve single versus colony face counts and shared actor motion',async()=>{
+ const rows=candidates().coral.stages;assert.deepEqual(Object.keys(rows).map(Number),[1,2,3,4,5,6,7,8]);
+ const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
+ for(const [s,want]of [[1,1],[3,1],[4,1],[6,4],[7,3],[8,5]]){
+  const r=BUILDERS[rows[s].archetype](rows[s],'coral:'+s),faces=[r.faceSpec].flat();assert.equal(faces.length,want);
+  assert.equal(new Set(faces.map(f=>f.bone)).size,want,'each projected face has a distinct owning bone');
+  r.faces=faces.map(f=>attachFace(r,f,'C'));const a=instantiate({rig:r,key:'coral:'+s});
+  for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){
+   setEmotion(a,em);animate(a,{dt:.05,moving,animLv});assert.ok(a.faces.every(f=>f.emotion===em));
+   for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.scale.toArray()].every(Number.isFinite));
+  }
+  let tris=0;for(const p of r.parts){const g=p.mesh.geometry;assert.ok([...g.attributes.position.array].every(Number.isFinite));tris+=(g.index?.count||g.attributes.position.count)/3;}
+  assert.ok(tris<30000,'merged colony topology is bounded');
+ }
+ assert.equal(rows[1].branches.length,0);assert.equal(rows[1].stones.length,0);
+ assert.notDeepEqual(rows[3].branches,rows[4].branches,'tentacle growth versus lobed forks');
+});
+test('anemone lobes extend around the face disk in depth as well as silhouette',async()=>{
+ const {branchOrganism}=await import('../character-3d/branch-organism.mjs'),sp=candidates().coral.stages[8].colony[1].spec;
+ const r=branchOrganism(sp,'anemone');const g=r.parts[0].mesh.geometry;g.computeBoundingBox();
+ assert.ok(g.boundingBox.max.x>sp.body.width*1.25,'rounded peripheral lobes distinguish anemone from bare sphere');
+ assert.ok(g.boundingBox.max.z-g.boundingBox.min.z>.15,'not a flat flower sprite');
 });
