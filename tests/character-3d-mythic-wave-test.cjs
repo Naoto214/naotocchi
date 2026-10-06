@@ -23,3 +23,10 @@ test('dragon owner keeps one canonical face with tail and attached wing motion a
 test('mythic candidate overlay requires one explicit wave and never mutates production lookup',()=>{
  const {candidateConfig}=require('../tools/character-3d/candidate-spec.cjs'),before=JSON.stringify(SPEC.ROLLOUT),c=candidateConfig(['--candidate-mythic','--rollout','--species-only','--line','dragon']);assert.ok(c);assert.equal(c.spec.stageSpec('dragon',7).archetype,'winged_reptile');assert.equal(JSON.stringify(SPEC.ROLLOUT),before);assert.equal(SPEC.specKeyFor({line:'dragon',stage:6}),null);assert.throws(()=>candidateConfig(['--candidate-mythic','--candidate-armored','--rollout','--species-only','--line','dragon']));
 });
+
+test('dragon membrane has one closed non-overlapping surface pair across its concave scallops',async()=>{
+ const sp=require('../character-3d/mythic-spec.js')().dragon.stages[7],{BUILDERS}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ const r=BUILDERS[sp.archetype]({...sp,wing:{...sp.wing,fingers:[]}},'membrane-only'),g=r.parts.find(p=>p.bone==='wingR').mesh.geometry,m=new THREE.Mesh(g,new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));let sampled=0;
+ for(let x=.041;x<.9;x+=.025)for(let y=-.103;y<.75;y+=.025){const hits=new THREE.Raycaster(new THREE.Vector3(x,y,2),new THREE.Vector3(0,0,-1)).intersectObject(m);const distinct=hits.filter((h,i)=>i===0||Math.abs(h.distance-hits[i-1].distance)>1e-5);if(distinct.length){sampled++;assert.equal(distinct.length,2,`single front/back membrane at ${x},${y}`);}}
+ assert.ok(sampled>600,'the full membrane silhouette is sampled, not removed');
+});

@@ -1,6 +1,7 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap','tests/character-3d-mythic-wave-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['non-overlapping scalloped membrane','character-3d/winged-reptile.mjs','curve(membraneGeometry(w))','curve(outlineLoft(w.outline,.011,36,4))'],
  ['membrane wing pair','character-3d/winged-reptile.mjs','if(sp.wing)for','if(false)for'],
  ['physical wing ribs','character-3d/winged-reptile.mjs','const path of w.fingers','const path of []'],
  ['curved membrane depth','character-3d/winged-reptile.mjs','w.bow*Math.sin','0*Math.sin'],
