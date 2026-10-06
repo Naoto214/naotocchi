@@ -40,3 +40,12 @@ test('leaf and cherry representatives retain all owned canonical faces through n
   for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'sakura:'+stage});setEmotion(a,em);for(let n=0;n<20;n++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,stage===7?3:1);assert.ok(a.faces.every(f=>f.emotion===em));for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}
  }
 });
+test('leafy crown exposes leaf surfaces from the side and keeps each depth leaf attached',async()=>{
+ const sp=require('../character-3d/botanical-spec.js')().sakura.stages[3];
+ assert.ok(sp.foliage.filter(l=>Math.abs(l.tilt[1])>1).length>=6,'side-facing leaf blades prevent an edge-on crown');
+ for(const leaf of sp.foliage.filter(l=>Math.abs(l.at[2])>.2))assert.ok(sp.branches.some(b=>Math.hypot(...b.path.at(-1).map((v,i)=>v-leaf.at[i]))<.025),'depth leaves meet branch tips');
+ const {branchOrganism}=await import('../character-3d/branch-organism.mjs');
+ const actual=branchOrganism(sp,'leafy'),flat=branchOrganism({...sp,foliage:sp.foliage.map(l=>({...l,tilt:[0,0,l.tilt[2]]}))},'flat');
+ const a=actual.parts[0].mesh.geometry.attributes.position.array,b=flat.parts[0].mesh.geometry.attributes.position.array;
+ assert.ok(a.some((v,i)=>v!==b[i]),'leaf rotations affect physical geometry');
+});

@@ -27,6 +27,19 @@
   leaf([.014,1.04,-.03],.07,.24,[-.1,.1,-.45]),leaf([.014,1.04,-.03],.055,.19,[0,-.4,.7]),leaf([.35,.89,-.02],.07,.23,[.1,.3,-.8]),leaf([.35,.89,-.02],.06,.20,[0,-.1,.4]),
   leaf([.51,.69,.01],.065,.24,[.2,.4,-1.1]),leaf([.51,.69,.01],.055,.20,[0,-.2,.15]),leaf([-.17,.86,.30],.065,.23,[-.1,.65,.2]),leaf([.093,.85,-.32],.07,.22,[.2,-.8,-.3]),
   leaf([-.20,.56,.02],.055,.20,[.2,.2,1.2]),leaf([.25,.56,.04],.06,.21,[.2,-.3,-1.1]) ]};
+ // Explicit paired leaves face outward around the front/back branches.
+ leafy.foliage.push(
+  leaf([-.17,.86,.30],.07,.23,[.15,1.35,-.60]),
+  leaf([.093,.85,-.32],.065,.22,[.12,-1.35,.65]),
+  leaf([-.34,.76,.23],.065,.23,[.18,1.25,.50]),
+  leaf([-.34,.76,.23],.06,.20,[-.12,1.45,-.70]),
+  leaf([.32,.78,-.25],.07,.24,[.16,-1.25,-.45]),
+  leaf([.32,.78,-.25],.06,.20,[-.12,-1.45,.70])
+ );
+ leafy.branches.push(
+  {path:[[-.12,.64,.10],[-.25,.71,.18],[-.34,.76,.23]],r:.03,taper:.65},
+  {path:[[.14,.63,-.08],[.25,.71,-.18],[.32,.78,-.25]],r:.03,taper:.65}
+ );
  const fruitUnits=[{at:[-.26,.51,-.01],r:.23,eye:{left:'happy',right:'happy'}},{at:[0,.25,.15],r:.25,eye:'round'},{at:[.29,.43,-.015],r:.225,eye:'round'}];
  const cherries={archetype:'branch_organism',suspended:true,stones:[],stoneColors:[],colony:fruitUnits.map((u,i)=>({at:u.at,scale:1,spec:{archetype:'branch_organism',body:{width:u.r,height:u.r*.96,depth:u.r*.88,y:0},stones:[],normalEye:u.eye,colors:{body:i===0?'#e82b3f':i===1?'#e51d38':'#db2634',light:'#ff9382',branch:'#657816',tip:'#b1ad32',stones:[],blush:'#ff8891'},branches:[{path:[[0,u.r*.86,0],[.03-u.at[0],.83-u.at[1],-u.at[2]],[.06-u.at[0],.95-u.at[1],-u.at[2]]],r:.036,taper:.18}],foliage:i===2?[leaf([.06-u.at[0],.95-u.at[1],-u.at[2]],.12,.41,[.06,-.15,-.62])]:[]}}))};
  return {sakura:{why:'Flowering rooted tree04 representative with physical five-petal canopy and one trunk face; other stages pending.',stages:{3:leafy,4:bloom,7:cherries}}};

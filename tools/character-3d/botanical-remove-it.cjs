@@ -1,6 +1,7 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap','tests/character-3d-botanical-wave-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['side-facing leaf blades','character-3d/branch-organism.mjs','rot:leaf.tilt||[0,0,0]','rot:[0,0,leaf.tilt?.[2]||0]'],
  ['physical leaf crown','character-3d/branch-organism.mjs','for(const leaf of sp.foliage||[])','for(const leaf of [])'],
  ['suspended fruit attachment','character-3d/branch-organism.mjs','!sp.suspended&&u.at[1]','u.at[1]'],
  ['outward blossom orientation','character-3d/branch-organism.mjs','rot:f.tilt||[0,0,0]','rot:[0,0,0]'],
