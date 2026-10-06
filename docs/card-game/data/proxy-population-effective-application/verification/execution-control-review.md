@@ -1,0 +1,7 @@
+# Fixed schedule / attempt / supervisor independent review
+
+Critical / Important / Minor: 0 / 0 / 0. Reviewer: review474_bundle. No edits/tests/production invocations.
+
+All attempts are source-reconstructed by existing admission. Fixed order and completion determine schedule position;116 exclusions remain retained. Unknown/incomplete/order/result/edition conflicts hold progression. The worker checks local immutable manifest/edition, durably writes start and raw record before later replay audit, retaining evidence on failure. The supervisor uses a fresh isolated process per row, binds receipt and compressed/canonical record hashes and match/bundle/completion identity, and stops on any incomplete/abnormal result. Exclusive files and directory fsync remain. Position and operational completion do not authenticate external approval, remote/pre-outcome lock or balance eligibility.
+
+The reviewer initially reviewed mock-child supervisor coverage. After review, a test-only isolated transport case was added: real separate interpreter and actual connected/replay backend on the old115/zero-root3step fixture, but local-lock/edition checks deliberately mocked in both processes. It stops at the incomplete first row and retains399 unexecuted rows. This is not production source/lock authentication or a new population match. The final related33PASS includes that test and is separate from the static review.

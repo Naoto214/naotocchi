@@ -134,3 +134,13 @@ responseの既存hand/paid/trigger helperへ実entry/historyを渡し、対象�
 独立review Important1（新directory親fsync欠落）を解消。修正前variantでRED、修正後の入力関連19件PASS（12.536s）。テストは旧115 bytes/零root/合成registryまたはentropy関数を返却前に遮断した一時file検証。実OS乱数採取・本番200群/400行固定・新対戦はいずれも0。完全400生成成功の実行検証は未実施であり、上記19件を本番生成の証拠とはしない。
 
 preflight-ready=false。全合法性/許可情報/選択operand/全ルール機会の合成認定、生成来歴/remote事前lock/実行gate/全予定行driverは残る。6190版1584全proxy/406npmと後続専用・関連検証を区別。旧116除外・新方式未採用・保護正本・過去結果・予定集合を維持して準備を続行する。
+
+## 固定予定集合・単独attempt・別process supervisor接続
+
+全attemptを既存admission/source reconstructionへ結び、固定execution_order上の位置を導くread-only scheduleを追加。400行と200鏡像群、旧116除外、再試行前の記録を残す。出所未確認・未完走・順序違反・結果/版衝突で自動進行を保留。次行IDは実行許可ではない。
+
+将来の単独attempt入口はimmutable local Git入力とsource/Python editionを検査し、startを永続化してから既存connected backendを呼ぶ。raw recordを保存後に既存admissionの独立再構成へ渡すため、後段異常でもrawを捨てない。supervisorは全予定集合を先に保存し、固定順で1行ずつfresh isolated Python processへ渡す。worker receipt・圧縮/展開record・bundle/match/完走状態を結合し、不完走/異常で後続を止め、未実施行を保持する。自動再開/再試行なし。外部承認、remote結果前lock、readinessは別のoperator前提であり、文字列やlocal一致で証明しない。実入口/本番supervisorの呼出しは最終確認前に禁止。
+
+逐次RED→GREEN。最終関連33件PASS（61.226s）。supervisorはmock-childの異常・未完走試験に加え、旧115/零root3stepだけを実別interpreterの既存backend/replayへ渡した輸送結合を含む。後者のlocal lock/edition gateは両processでmockしており、本番入力認証成功の主張ではない。独立read-only review C/I/Minor各0（追加輸送テストはreview後）。
+
+seed生成・本番入力固定・本番400戦開始0、preflight-ready=false。現在のmoduleは外部承認/remote lockを本人認証しない。残るsource由来の合法性・許可情報・比較operand・全ルール機会の合成を進め、最後に実際の生成/実行承認へ戻る。基盤接続だけで全体適格を成立させない。新方式未採用、旧116除外、過去正本/結果を維持。
