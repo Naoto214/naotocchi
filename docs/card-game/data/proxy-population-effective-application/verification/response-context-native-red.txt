@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "<stdin>", line 9, in <module>
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "<stdin>", line 7, in run
+AssertionError: concealed preparation projection lost actual comparing challenge and modifiers

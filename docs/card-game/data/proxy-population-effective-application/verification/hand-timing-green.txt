@@ -1,0 +1,56 @@
+test_actual_opponent_play_captures_only_preexisting_own_hand_source (test_proxy_population_hand_timing.HandTimingTests.test_actual_opponent_play_captures_only_preexisting_own_hand_source) ... ok
+test_current_cost_target_and_parameter_are_reenumerated_at_latched_origin (test_proxy_population_hand_timing.HandTimingTests.test_current_cost_target_and_parameter_are_reenumerated_at_latched_origin) ... ok
+test_group_activation_reuses_payment_link_and_no_ordinary_reoffer (test_proxy_population_hand_timing.HandTimingTests.test_group_activation_reuses_payment_link_and_no_ordinary_reoffer) ... ERROR
+test_source_drift_and_event_identity_mismatch_fail_closed (test_proxy_population_hand_timing.HandTimingTests.test_source_drift_and_event_identity_mismatch_fail_closed) ... ok
+
+======================================================================
+ERROR: test_group_activation_reuses_payment_link_and_no_ordinary_reoffer (test_proxy_population_hand_timing.HandTimingTests.test_group_activation_reuses_payment_link_and_no_ordinary_reoffer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_hand_timing.py", line 79, in test_group_activation_reuses_payment_link_and_no_ordinary_reoffer
+    runtime.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_hand_timing.py", line 69, in run
+    inv=quick.actions.response_inventory(current,initial(),history)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_challenge.py", line 148, in response
+    try:result=original_response(projected,i,projected_events)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_preparation.py", line 110, in prepared_response
+    opportunity=response_inventory(e,i,h,original_response)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_preparation.py", line 48, in response_inventory
+    if not any(not r['face_up'] for r in envelope['runtime']['public_prepared'].values()):return delegate(envelope,initial,events)
+                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch.py", line 301, in response
+    return actions_base_response(envelope,initial,events)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_actions.py", line 105, in response_inventory
+    opportunity=old._generic_response_opportunity(projected,initial,projected_events)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 41, in first_or_general
+    return prior_response(current,supplied,events)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_resource_value_trajectory.py", line 337, in _generic_response_opportunity
+    return reached_response.enumerate_opportunity(state,events)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_quick.py", line 143, in enumerate_opportunity
+    return batch.response_enumerator(current,events,capability_classifier=batch.response_capability,hand_classifier=hand_candidates)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_resource_value_response.py", line 60, in enumerate_opportunity
+    projected['game_state']['players'][actor]['hand'].remove(instance);excluded.append(dict(source_zone='hand',source_instance_id=instance,**reason))
+                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: dict() got multiple values for keyword argument 'source_instance_id'
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.247s
+
+FAILED (errors=1)

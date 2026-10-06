@@ -13,6 +13,7 @@ import proxy_population_trigger_replay as replay
 import proxy_population_opportunity_ledger as ledger
 import proxy_population_trigger_latching as latching
 import proxy_population_trigger_effects as effects
+import proxy_population_hand_timing as hand_timing
 import proxy_population_paid_draw as paid
 import proxy_continuation_batch as batch
 import proxy_continuation_actions as actions
@@ -31,6 +32,7 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
  def raw(event):return {k:v for k,v in event.items() if k not in end.BIND_KEYS}
  def remember(before,after,event):
   event=raw(event);key=state.canonical_sha256(event);capture=latching.capture(before,after,event)
+  hand=hand_timing.capture(before,after,event);capture['occurrences'].extend(hand['occurrences']);capture['hand_optional_capture']=hand
   pair=(copy.deepcopy(before),copy.deepcopy(after),copy.deepcopy(event))
   if key in pairs and canonical(list(pairs[key]))!=canonical(list(pair)):raise ValueError('actual timing event collision')
   pairs[key]=pair;captures[key]=capture;return capture
@@ -38,12 +40,21 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
  class Adapter(original_adapter):
   def enumerate(self,e,row):
    card=e['legacy_continuation']['game_state']['cards'][row['source_instance_id']]['card_id']
+   if card in hand_timing.DESCRIPTORS:
+    if not known(row):raise ValueError('hand occurrence has no actual transition capture')
+    return hand_timing.current_actions(e,row,self.existing.history)
    if card not in latching.CARDS:return super().enumerate(e,row)
    if not known(row):raise ValueError('positive occurrence has no actual transition capture')
    return latching.current_actions(e,row)
   def activate(self,e,action,row):
-   if action['card_id'] not in latching.CARDS:return super().activate(e,action,row)
-   self.enumerate(e,row);return effects.activate(e,action,row)
+   if action['card_id'] in hand_timing.DESCRIPTORS:
+    self.enumerate(e,row);result=hand_timing.activate(e,action,row,self.existing.history,initial)
+   elif action['card_id'] in latching.CARDS:
+    self.enumerate(e,row);result=effects.activate(e,action,row)
+   else:result=super().activate(e,action,row)
+   after,events=result
+   if len(events)!=1:raise ValueError('group activation must be one actual transition')
+   remember(e,after,events[0]);return result
  def observe(journal,e,event,history,status):
   observed,source_proof=original_observe(journal,e,event,history,status);key=state.canonical_sha256(raw(event))
   if key not in captures or canonical(pairs[key][1])!=canonical(e):raise ValueError('actual positive observation pair absent')
@@ -67,6 +78,12 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
    original=end.RUNTIME_TRANSITION_VERIFIER
    def verify(before,after,event,history=None):
     card=before['legacy_continuation']['game_state']['cards'].get(event.get('source_instance_id'),{}).get('card_id')
+    if card in hand_timing.DESCRIPTORS and event['action_type']=='activate_response':
+     try:
+      rows=[r for p in captures.values() for r in p['occurrences'] if r['source_instance_id']==event['source_instance_id'] and r['origin_event_seq']==event['trigger_origin_event_seq']]
+      if len(rows)!=1:return False
+      return hand_timing.verify_activation(before,after,event,rows[0],history or [],initial)
+     except (ValueError,KeyError,TypeError,StopIteration,IndexError):return False
     if card not in latching.CARDS:return original(before,after,event,history) if original else False
     try:
      if event['action_type']=='activate_response':
@@ -110,7 +127,7 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
     if c['response_context']['chain_status']=='resolving' and c['activation_zone'] and c['activation_zone'][-1]['card_id'] in latching.CARDS:
      result=effects.resolve(e,i);results(e,result,history);return actions.normalize_resolution_result(e,result)
     return forced(e,i,history,legacy,full)
-   with effects.scope():
+   with effects.scope(),hand_timing.scope():
     effective_boards=triggers.board_candidates
     try:
      batch.guard_applied_effect=guard;batch.guard_resolution_result=results;triggers.board_candidates=boards

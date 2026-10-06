@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/tmp/probe-hand-trigger.py", line 31, in <module>
+    runtime.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/probe-hand-trigger.py", line 29, in run
+    assert any(r['source_instance_id']==source for r in p['occurrences']), 'owner-known hand optional trigger missing from sequential occurrence ledger'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: owner-known hand optional trigger missing from sequential occurrence ledger

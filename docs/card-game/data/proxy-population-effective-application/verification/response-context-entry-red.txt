@@ -1,0 +1,14 @@
+test_hand_and_board_share_the_same_current_optional_group (test_proxy_population_hand_timing.ConnectedHandTimingTests.test_hand_and_board_share_the_same_current_optional_group) ... FAIL
+
+======================================================================
+FAIL: test_hand_and_board_share_the_same_current_optional_group (test_proxy_population_hand_timing.ConnectedHandTimingTests.test_hand_and_board_share_the_same_current_optional_group)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_hand_timing.py", line 149, in test_hand_and_board_share_the_same_current_optional_group
+    self.assertIsNone(result['stop'],result['stop'])
+AssertionError: {'code': 'unsupported_contract_boundary', 'detail': "response candidate expansions differ: ['registered response alternatives differ: B-028#1']", 'phase': 'response_window'} is not None : {'code': 'unsupported_contract_boundary', 'detail': "response candidate expansions differ: ['registered response alternatives differ: B-028#1']", 'phase': 'response_window'}
+
+----------------------------------------------------------------------
+Ran 1 test in 0.597s
+
+FAILED (failures=1)

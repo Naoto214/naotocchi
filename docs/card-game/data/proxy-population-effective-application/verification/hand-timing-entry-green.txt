@@ -1,0 +1,18 @@
+test_actual_quick_step_enters_sequential_group_before_ordinary_response (test_proxy_population_hand_timing.ConnectedHandTimingTests.test_actual_quick_step_enters_sequential_group_before_ordinary_response) ... FAIL
+test_actual_opponent_play_captures_only_preexisting_own_hand_source (test_proxy_population_hand_timing.HandTimingTests.test_actual_opponent_play_captures_only_preexisting_own_hand_source) ... ok
+test_current_cost_target_and_parameter_are_reenumerated_at_latched_origin (test_proxy_population_hand_timing.HandTimingTests.test_current_cost_target_and_parameter_are_reenumerated_at_latched_origin) ... ok
+test_group_activation_reuses_payment_link_and_no_ordinary_reoffer (test_proxy_population_hand_timing.HandTimingTests.test_group_activation_reuses_payment_link_and_no_ordinary_reoffer) ... ok
+test_source_drift_and_event_identity_mismatch_fail_closed (test_proxy_population_hand_timing.HandTimingTests.test_source_drift_and_event_identity_mismatch_fail_closed) ... ok
+
+======================================================================
+FAIL: test_actual_quick_step_enters_sequential_group_before_ordinary_response (test_proxy_population_hand_timing.ConnectedHandTimingTests.test_actual_quick_step_enters_sequential_group_before_ordinary_response)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_hand_timing.py", line 99, in test_actual_quick_step_enters_sequential_group_before_ordinary_response
+    self.assertIsNone(result['stop'],result['stop'])
+AssertionError: {'code': 'unsupported_contract_boundary', 'detail': 'current public turn boundary absent', 'phase': 'response_window'} is not None : {'code': 'unsupported_contract_boundary', 'detail': 'current public turn boundary absent', 'phase': 'response_window'}
+
+----------------------------------------------------------------------
+Ran 5 tests in 1.719s
+
+FAILED (failures=1)

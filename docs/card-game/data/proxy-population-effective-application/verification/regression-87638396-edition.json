@@ -1,0 +1,10 @@
+{
+  "commit": "87638396e856245b8e2c21e9be6460c8a13967a4",
+  "tree": "eb4fa17b2a2998bc47cebece247f910889bc4464",
+  "command": "python docs/card-game/tools/run_proxy_regression_410.py /tmp/regression-87638396-results --workers 6",
+  "isolated_worktree": "/tmp/card-game-regression-87638396",
+  "archive_format": "gzip of canonical JSON mapping original filenames to complete UTF-8 contents",
+  "archive_sha256": "9e179acaaaa03050bda2abec7824b28f9afc411c256e0bcfeac60b7d6818c225",
+  "later_changes_included": false,
+  "tests": 1630
+}

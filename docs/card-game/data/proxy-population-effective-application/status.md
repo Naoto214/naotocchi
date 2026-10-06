@@ -174,3 +174,15 @@ preflight-ready=false。入力生成/400戦入力固定/本番実行0。87638396
 06の逆順解決/途中割込み禁止を、全現行原子resolverの実stepへ共通接続。top linkとactor/source/event、外側linkの内容・順序、残った連鎖のresolving状態を照合。native handlerの出力結合と別に検査するが、効果意味論・合法性・全機会の証明にはしない。
 
 逐次RED→GREEN、関連44件PASS（263.913s、既存115/零rootの全20turn、admission/schedule/attempt結合を含む）。独立read-only review C/I/Minor各0。保護正本476件不変。87638396固定版の全proxy回帰は引き続き実行中で、本差分を含まない。npmは87638396版406PASSを参照。preflight-ready=false、seed採取/本番入力固定/400戦開始0。保存後も残る機会・情報・合法性の接続へ継続する。
+
+## 手札の事象条件付き任意誘発とresponse実state接続
+
+06/63/83/84の既存境界に従い、相手の勝負中quick play直前に手札にあったG-air-hockey現物を逐次任意誘発群へ捕捉する。現在の支払・参加者・対象・parameterは選択直前に既存helperで再列挙。後から引いた現物を遡及追加せず、見送り後の通常responseへの再出現を抑止する。発動は既存quick/連鎖handler、判断は既存116を再利用し、発動自体から生じる次の相手群も記録する。463の許容範囲は拡張しない。
+
+混在fixtureで、伏せ札を隠す内側投影が外側の実勝負stateを上書きし、合法なG-baseball-battingを落とす不足もRED再現した。現在pipelineのscopeで外側の実current/runtimeを保持し、既存合法性predicateへ渡す。過去adapterは変更しない。例外時も共有接続を復元。新しい裁定・効果・優先順位を追加しない。
+
+専用RED→GREEN、接続9PASS、関連42PASS、最終関連39PASS（238.484s、既存115/零root全20turn・admission・policy journal・coverageを含む）。途中のfixture不備／重複keyword／候補欠落失敗も保存し、最終成功と分離。独立read-only review C/I/Minor各0。条件付き438/native fixtureと合成unit contextは本番入力や独立標本ではない。
+
+87638396固定版の全proxy回帰が完了：1630件すべてPASS、6process exit0、開始/完了ID完全一致、skip/重複/欠落なし、source不変。14原本ファイルをcanonical JSON/gzipで梱包。同版npm406PASS。9ec3以降と本変更を含む全回帰とは呼ばず、後続差分は各関連検証で区別する。
+
+preflight-ready=false。全合法性・許可情報・比較operand・全rule機会の合成証明は未完了。seed生成／400戦入力固定／本番対戦0、旧116除外、新方式未採用、全体結論保留を維持。保存後も準備を継続する。

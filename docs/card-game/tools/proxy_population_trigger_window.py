@@ -130,7 +130,7 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
             if ledger.offer(current_ledger) is not None:
                 record=sequential.step(e,i,current_ledger,observation.Adapter(history))
                 current_ledger=record['after_ledger'];records.append(copy.deepcopy(record))
-                return _step_record(record)
+                return observe_existing(_step_record(record),e,history)
             def resolve_or_delegate(before,*args):
                 c=state.current(before)
                 if mode=='start' and c['response_context']['chain_status']=='resolving' and c['activation_zone'][-1]['card_id'] in ('C-chicken','I-bowtie'):

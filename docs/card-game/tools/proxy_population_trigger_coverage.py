@@ -10,6 +10,7 @@ import proxy_population_opportunity_ledger as ledger
 import proxy_population_trigger_sequential as sequential
 import proxy_population_trigger_existing as existing
 import proxy_population_trigger_latching as latching
+import proxy_population_hand_timing as hand_timing
 import proxy_population_start_obligations as starts
 from proxy_mandatory_policy_contract import canonical
 
@@ -41,7 +42,7 @@ def audit(result,initial_history,initial_proof):
         for bound,after in zip(step['events'],step['envelopes']):
             event={k:v for k,v in bound.items() if k not in runtime.BIND_KEYS}
             timing=latching.capture(previous,after,event)
-            history.append(event);expected.extend(timing['occurrences'])
+            history.append(event);expected.extend(timing['occurrences']);expected.extend(hand_timing.capture(previous,after,event)['occurrences'])
             # Scan every transition, not only events selected by the driver.
             # Past origins cannot be retroactively repaired at a later event.
             native=existing.ExistingAdapter(history).proof(after,event['seq'])
@@ -75,6 +76,6 @@ def audit(result,initial_history,initial_proof):
     import proxy_population_opportunity_order as order
     proof['processing_order']=order.audit(result,expected)
     proof.update(transitions=examined,start_origins=start_origins,
-                 source_scope=dict(native=sorted(existing.SUPPORTED),latched=sorted(latching.CARDS),start_catalog_sha256=starts.CATALOG_SHA),
+                 source_scope=dict(native=sorted(existing.SUPPORTED),latched=sorted(latching.CARDS),hand_optional=sorted(hand_timing.DESCRIPTORS),start_catalog_sha256=starts.CATALOG_SHA),
                  initial_occurrences_conditionally_supplied=True)
     return proof
