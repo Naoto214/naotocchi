@@ -18,7 +18,8 @@ test('botanical candidate lookup is isolated and canonical emotions retain the s
 test('flower canopy has outward-oriented side blossoms rather than one parallel plane',async()=>{
  const sp=require('../character-3d/botanical-spec.js')().sakura.stages[4],{branchOrganism}=await import('../character-3d/branch-organism.mjs');
  const r=branchOrganism(sp,'rounded'),flat=branchOrganism({...sp,blossoms:sp.blossoms.map(f=>({...f,tilt:[0,0,0]}))},'flat');
- assert.notDeepEqual([...r.parts[0].mesh.geometry.attributes.position.array],[...flat.parts[0].mesh.geometry.attributes.position.array],'blossom orientations must affect physical petal positions');
+ const actual=r.parts[0].mesh.geometry.attributes.position.array,baseline=flat.parts[0].mesh.geometry.attributes.position.array;
+ assert.ok(actual.length!==baseline.length||actual.some((v,i)=>v!==baseline[i]),'blossom orientations must affect physical petal positions');
  assert.ok(sp.blossoms.filter(f=>Math.abs(f.tilt?.[1]||0)>.7).length>=8,'side-facing flowers fill the side silhouette');
  for(const f of sp.blossoms)assert.ok(sp.branches.some(b=>Math.hypot(...b.path.at(-1).map((v,i)=>v-f.at[i]))<.02),'every depth-layer flower has an attached branch tip');
  assert.ok(Math.max(...sp.blossoms.map(f=>f.at[2]))-Math.min(...sp.blossoms.map(f=>f.at[2]))>.65,'three-dimensional crown depth');

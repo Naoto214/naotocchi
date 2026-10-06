@@ -60,6 +60,7 @@ test('early grubs use inspected small curled and long crawling silhouettes inste
   const a=rows[id].stages[1],b=rows[id].stages[2];assert.ok(a&&b,'both exact early grub candidates');
   const span=sp=>Math.max(...sp.bodyPath.map(p=>p[1]))-Math.min(...sp.bodyPath.map(p=>p[1]));
   assert.ok(span(b)<span(a)*.5,'02 horizontal crawling centerline differs from01 curl');assert.ok(a.head.r<b.head.r);assert.ok(a.segments<b.segments);
+  assert.equal(BUILDERS.larva(a,id+':1').faceSpec.normalEye,'round','original01 has open round eyes');
   for(const sp of [a,b]){assert.equal(sp.curveLocked,true);assert.equal(sp.thoracicFeet.length,3);const r=BUILDERS.larva(sp,'early');for(const p of r.parts)assert.ok([...p.mesh.geometry.attributes.position.array].every(Number.isFinite));}
  }
 });
