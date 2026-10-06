@@ -1,11 +1,11 @@
 // Rounded, rooted organic branches. Shared rig/material/expression contract;
 // explicit paths come from the original, never generated from species names.
-import {ellipsoid,sweep,xform,solid,paint,mix,outlineLoft} from './geometry.mjs';
+import {ellipsoid,sweep,xform,solid,paint,mix,outlineLoft,blob} from './geometry.mjs';
 import {Rig} from './rig.mjs';
 export function branchOrganism(sp,key){
  if(sp.colony)return branchColony(sp,key);
  const rig=new Rig(key,'branch_organism',sp.locomotion||'plantSway'),c=sp.colors,b=sp.body;
- const core=paint(xform(ellipsoid(b.width,b.height,b.depth,20,14),{pos:[0,b.y,0]}),(x,y,z,nx,ny,nz)=>mix(c.body,c.light,Math.max(0,nz)*.22+Math.max(0,ny)*.12));
+ const core=paint(xform(b.taper?blob((x,y,z)=>{const q=1-Math.abs(y)*b.taper;return [x*b.width*q,y*b.height,z*b.depth*q];},20,14):ellipsoid(b.width,b.height,b.depth,20,14),{pos:[0,b.y,0]}),(x,y,z,nx,ny,nz)=>mix(c.body,c.light,Math.max(0,nz)*.22+Math.max(0,ny)*.12));
  const parts=[core.clone()];
  for(const s of sp.stemSegments||[])parts.push(paint(xform(ellipsoid(s.width,s.height,s.depth,16,10),{pos:[0,s.y,0]}),(x,y,z,nx,ny,nz)=>mix(c.body,c.light,Math.max(0,nz)*.30+Math.max(0,ny)*.12)));
  for(const p of sp.branches){

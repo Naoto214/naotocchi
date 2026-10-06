@@ -49,3 +49,17 @@ test('leafy crown exposes leaf surfaces from the side and keeps each depth leaf 
  const a=actual.parts[0].mesh.geometry.attributes.position.array,b=flat.parts[0].mesh.geometry.attributes.position.array;
  assert.ok(a.some((v,i)=>v!==b[i]),'leaf rotations affect physical geometry');
 });
+test('sakura seed, sprout, five buds, two flowers and bare tree retain explicit original topology',async()=>{
+ const rows=require('../character-3d/botanical-spec.js')().sakura.stages;
+ for(const n of [1,2,5,6,8])assert.ok(rows[n],'explicit sakura stage '+n);
+ const {branchOrganism}=await import('../character-3d/branch-organism.mjs'),{attachFace}=await import('../character-3d/rig.mjs');
+ for(const [n,count] of [[1,1],[2,1],[5,5],[6,2],[8,1]]){const r=branchOrganism(rows[n],'sakura:'+n),fs=Array.isArray(r.faceSpec)?r.faceSpec:[r.faceSpec];assert.equal(fs.length,count,'original face count for '+n);for(const f of fs)assert.equal(attachFace(r,f,'C').eyes.length,2);let tris=0;for(const p of r.parts){const g=p.mesh.geometry;assert.ok([...g.attributes.position.array].every(Number.isFinite));tris+=(g.index?.count||g.attributes.position.count)/3;}assert.ok(tris<22000,'bounded sakura topology '+n);}
+ assert.equal(rows[2].foliage.length,2,'two large seedling leaves');assert.ok(rows[1].body.taper>.4,'pointed almond seed');assert.equal(rows[8].blossoms.length,0);assert.ok(rows[8].foliage.length<5,'bare tree has only a few dry leaves');
+ assert.ok(rows[5].colony.every(u=>u.spec.body.taper>.4),'five pointed buds, not a tree canopy');assert.equal(rows[6].colony.filter(u=>u.face!==false).length,2,'two flower centers own faces; small buds do not');
+ const pointed=branchOrganism(rows[1],'seed'),rounded=branchOrganism({...rows[1],body:{...rows[1].body,taper:0}},'rounded');const a=pointed.parts[0].mesh.geometry.attributes.position.array,b=rounded.parts[0].mesh.geometry.attributes.position.array;assert.ok(a.length!==b.length||a.some((v,i)=>v!==b[i]),'seed taper changes physical geometry');
+});
+test('all sakura candidates preserve original face ownership across32 canonical states without runtime promotion',async()=>{
+ const rows=require('../character-3d/botanical-spec.js')().sakura.stages,{branchOrganism}=await import('../character-3d/branch-organism.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
+ for(const [n,count] of [[1,1],[2,1],[5,5],[6,2],[8,1]]){assert.ok(rows[n]);assert.equal(SPEC.specKeyFor({line:'sakura',stage:n}),null);const r=branchOrganism(rows[n],'sakura:'+n);r.faces=(Array.isArray(r.faceSpec)?r.faceSpec:[r.faceSpec]).map(f=>attachFace(r,f,'C'));
+ for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'sakura:'+n});setEmotion(a,em);for(let i=0;i<20;i++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,count);assert.ok(a.faces.every(f=>f.emotion===em));for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}}
+});
