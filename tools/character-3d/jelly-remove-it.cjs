@@ -1,6 +1,7 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','tests/character-3d-jelly-wave-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['continuous ephyra lobes','character-3d/aquatic-spec.js','petals:{count:8,width:.12,length:.28,depth:.14}','petals:{count:6,width:.12,length:.28,depth:.14}'],
  ['stacked stalk geometry','character-3d/branch-organism.mjs','sp.stemSegments||[]','[]'],
  ['detached ephyra motion','character-3d/branch-organism.mjs',"sp.locomotion||'plantSway'","'plantSway'"],
  ['face target','character-3d/jelly-organism.mjs','target:core,center:','target:bell,center:'],
