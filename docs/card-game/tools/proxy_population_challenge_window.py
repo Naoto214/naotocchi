@@ -17,6 +17,7 @@ import proxy_population_legacy_choice_obligations as legacy_choices
 import proxy_population_source_inventory as source_inventory
 import proxy_population_decision_binding as decision_binding
 import proxy_population_automatic_binding as automatic_binding
+import proxy_population_public_turn as public_turn
 import proxy_population_resolution_choices as resolution_choices
 import proxy_population_candidate_expansions as candidate_expansions
 import proxy_population_response_expansions as response_expansions
@@ -66,7 +67,7 @@ def contract_scope():
   def connected(forced):
    # Install after native scopes so verified actual deltas replace their
    # historical constant-growth provenance, never the opposite order.
-   with growth.scope(),victory.scope(),legality.scope():return callback(forced)
+   with growth.scope(),victory.scope(),legality.scope(),public_turn.scope():return callback(forced)
   return prior_operation(initial,connected)
  try:
   runtime.operation=operation;runtime._step=step

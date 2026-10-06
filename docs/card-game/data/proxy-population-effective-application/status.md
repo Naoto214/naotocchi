@@ -156,3 +156,13 @@ seed生成・本番入力固定・本番400戦開始0、preflight-ready=false。
 package関連10PASS（79.089s）、実行入口関連7PASS（33.988s）、独立review C/I/Minor0。正例は過去115反復/zero roots/synthetic registry・edition mock、真正registryによる拒否を別検査。isolated子process検査もpackage/local Git/editionをmockしており本番認証の証拠ではない。
 
 87638396固定版npm406PASSを保存。全proxy回帰は同じ固定版で進行中であり、今回差分を含む全回帰ではない。保護正本476件一致。preflight-ready=false、seed生成/実験入力固定/400戦実行0、新方式未採用。保存後も残る合法性・情報使用・全rule機会の合成と実行前認証手順を継続する。
+
+## 現在ターンの公開履歴・相手ターン誘発の接続
+
+89「とかい」は自分が**このターンに**出した2枚目を対象とし、自分ターン限定ではない。06も両者の1ターン制限を先後交代で更新する。旧nativeのactor==turn_player限定とactorの前回自分ターン起点は、この境界に不足していた。旧実装で4枚扱い（正しくは現ターン2枚）と相手ターン候補欠落をRED再現。
+
+現行scopeだけに公開ターン境界を接続。自分/相手のどちらのプレイも現在ターン内で数え、board/prepared能力発動をカードプレイへ混ぜない。回数制限も現在ターン・現在source_instance_idに結合する。response windowのanchorと実際の2枚目originは区別し、途中のturn_end_completed→turn_start区間は明示、境界欠落は停止。候補以降は既存発動・効果・逐次群判断・指定look policyを再利用。点数・比較意味論・カード本文変更なし、旧116除外維持。
+
+関連24PASS、相手ターンの既存発動/解決/指定policyまで含めた専用5PASS、最後の全20turnを含む関連25PASS（193.526s）。独立review C/I/Minor0。設計errors=[]、保護正本476件一致。履歴fixtureは条件付きであり、新しい独立対戦や全ルール機会の証明とはしない。
+
+preflight-ready=false。入力生成/400戦入力固定/本番実行0。87638396固定全proxy回帰は継続中で、この後続変更とは区別。保存後も合法性/情報使用/全機会の残りを進める。
