@@ -35,7 +35,15 @@ test('cicada nymph has six legs with broad digging foreclaws and thick wing pads
  const sp=require('../character-3d/armored-spec.js')().cicada.stages[3];assert.ok(sp,'explicit nymph representative');
  const {armoredInsect}=await import('../character-3d/armored-insect.mjs'),{attachFace}=await import('../character-3d/rig.mjs');
  const r=armoredInsect(sp,'cicada:3');assert.equal(Object.keys(r.bones).filter(k=>k.startsWith('wing')).length,0);assert.equal(Object.keys(r.bones).filter(k=>/^leg/.test(k)).length,6);assert.equal(attachFace(r,r.faceSpec,'C').eyes.length,2);
+ const body=r.parts.find(p=>p.bone==='body').mesh.geometry.attributes.position;let rearWidth=0;for(let i=0;i<body.count;i++)if(body.getZ(i)<-.20&&body.getZ(i)>-.42)rearWidth=Math.max(rearWidth,Math.abs(body.getX(i)));assert.ok(rearWidth>sp.thorax.width,'nymph abdomen is broad, not an adult-like pointed spike');
  const plain=armoredInsect({...sp,legs:sp.legs.map(l=>({...l,claw:null})),nymphPads:[]},'plain');
  for(const bone of ['leg0','leg1','body'])assert.ok(r.parts.find(p=>p.bone===bone).mesh.geometry.attributes.position.count>plain.parts.find(p=>p.bone===bone).mesh.geometry.attributes.position.count+100,'physical digging claw or folded wing pad');
  for(const p of r.parts)assert.ok([...p.mesh.geometry.attributes.position.array].every(Number.isFinite));
+});
+test('emerging cicada has one adult face above an open empty exuvia with folded legs',async()=>{
+ const sp=require('../character-3d/armored-spec.js')().cicada.stages[5];assert.ok(sp,'explicit emerging adult on empty nymph casing');
+ const {armoredInsect}=await import('../character-3d/armored-insect.mjs'),{THREE}=await import('../character-3d/geometry.mjs'),{attachFace}=await import('../character-3d/rig.mjs');
+ const r=armoredInsect(sp,'cicada:5');assert.equal(Array.isArray(r.faceSpec),false,'empty casing has no second canonical face');assert.equal(attachFace(r,r.faceSpec,'C').eyes.length,2);assert.ok(r.bones.emptyShell);assert.ok(r.bones.body.position.y>sp.exuvia.at[1]+sp.exuvia.h);
+ const mesh=r.parts.find(p=>p.bone==='emptyShell').mesh;r.root.updateMatrixWorld(true);const ray=new THREE.Raycaster(new THREE.Vector3(sp.exuvia.at[0],sp.exuvia.at[1]+sp.exuvia.h*.58,1),new THREE.Vector3(0,0,-1)),hits=ray.intersectObject(mesh);assert.ok(hits.length>0);assert.ok(hits[0].point.z<sp.exuvia.at[2],'split front exposes continuous inner back surface');
+ const noLegs=armoredInsect({...sp,exuvia:{...sp.exuvia,legs:[]}},'empty');assert.ok(mesh.geometry.attributes.position.count>noLegs.parts.find(p=>p.bone==='emptyShell').mesh.geometry.attributes.position.count+200,'physical folded empty-casing legs');
 });

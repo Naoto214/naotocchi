@@ -148,5 +148,12 @@ test('reviewed jellyfish batch preserves eight exact rooted, ephyra and bell run
   const t=rt.getTemplate('jellyfish',stage);assert.equal(t.status,'ok');
   assert.equal(t.rig.locomotion,stage<=2?'plantSway':'blobFloat');
  }
- assert.equal(SPEC.specKeyFor({line:'beetle',stage:6}),null,'incomplete armored family stays outside rollout');
+ assert.equal(SPEC.specKeyFor({line:'cicada',stage:6}),null,'incomplete cicada family stays outside rollout');
+});
+test('reviewed beetle families preserve all exact metamorphosis stages in runtime',async()=>{
+ const rt=await import('../character-3d/runtime.mjs');
+ for(const id of ['beetle','stagbeetle'])for(let stage=1;stage<=8;stage++){
+  assert.deepEqual(SPEC.specKeyFor({line:id,stage:stage-1}),{id,stage,exact:true});const t=rt.getTemplate(id,stage);assert.equal(t.status,'ok');assert.equal(t.rig.archetype,stage<4?'larva':stage===4?'pod':'armored_insect');
+  for(const emotion of SPEC.CANONICAL_EMOTIONS){const a=rt.instantiate(t);const an=await import('../character-3d/animate.mjs');an.setEmotion(a,emotion);an.animate(a,{dt:.05,moving:true,animLv:2});assert.equal(a.faces[0].emotion,emotion);}
+ }
 });

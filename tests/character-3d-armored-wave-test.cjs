@@ -32,11 +32,11 @@ test('beetle and stag originals keep six rooted articulated legs and distinct ho
    for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));
    if(em==='normal'&&moving&&animLv===2){assert.notEqual(a.bones.leg0.rotation.y,0);assert.ok(a.bones.leg0.rotation.y*a.bones.leg1.rotation.y<0,'alternating tripod phase');}
   }
-  assert.equal(SPEC.ROLLOUT[id],undefined,'representative remains candidate-only');
+  assert.deepEqual(SPEC.ROLLOUT[id].stages[stage],sp,'reviewed adult data matches runtime promotion');
  }
 });
 test('armored candidate overlay resolves only an explicit candidate family',()=>{
  const {candidateConfig}=require('../tools/character-3d/candidate-spec.cjs');
- const c=candidateConfig(['--candidate-armored','--rollout','--species-only','--line','beetle']);assert.ok(c);assert.equal(c.spec.stageSpec('beetle',7).archetype,'armored_insect');assert.equal(SPEC.stageSpec('beetle',7),null);
+ const before=JSON.stringify(SPEC.ROLLOUT);const c=candidateConfig(['--candidate-armored','--rollout','--species-only','--line','beetle']);assert.ok(c);assert.equal(c.spec.stageSpec('beetle',7).archetype,'armored_insect');assert.deepEqual(SPEC.stageSpec('beetle',7),JSON.parse(JSON.stringify(c.spec.stageSpec('beetle',7))));assert.equal(JSON.stringify(SPEC.ROLLOUT),before,'overlay never mutates runtime registry');assert.equal(SPEC.specKeyFor({line:'cicada',stage:6}),null,'unreviewed family remains isolated');
  assert.throws(()=>candidateConfig(['--candidate-armored','--candidate-aquatic','--rollout','--species-only','--line','beetle']));
 });

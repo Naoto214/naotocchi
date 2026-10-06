@@ -261,3 +261,16 @@ export function softHalo(radius, seed='halo') {
   }
   const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('color',new THREE.Float32BufferAttribute(colors,4));g.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));g.setIndex(index);g.computeVertexNormals();return g;
 }
+
+// Shared opened casing: preserve the established butterfly shell geometry.
+export function openedShellParts(e){
+ const h=e.h,r=e.r;
+    const profile=[[.01,0],[r*.45,h*.12],[r*.92,h*.35],[r,h*.58],[r*.65,h*.84],[.014,h]];
+    // The front sector is absent, exposing a continuous inner/back surface.
+    // Optional shell attachment: no second actor, face or locomotion state.
+    const outer=new THREE.LatheGeometry(profile.map(([x,y])=>new THREE.Vector2(x,y)),28,.78,TAU-1.56);
+    const inner=new THREE.LatheGeometry(profile.map(([x,y])=>new THREE.Vector2(Math.max(.004,x-.016),y)),28,.78,TAU-1.56);
+    const index=inner.index;for(let i=0;i<index.count;i+=3){const a=index.getX(i);index.setX(i,index.getX(i+2));index.setX(i+2,a);}inner.computeVertexNormals();
+    const edge=[];for(const a of [.78,TAU-.78])edge.push(solid(sweep(profile.map(([rad,y])=>[Math.sin(a)*rad,y,Math.cos(a)*rad]),()=>.009,5,{steps:14}),e.colors.inside));
+ return [solid(outer,e.colors.base),solid(inner,e.colors.inside),...edge];
+}

@@ -6,7 +6,7 @@ import {branchOrganism} from './branch-organism.mjs';
 // builder は archetype ごとに 1 つ。species / stage の ちがいは spec.js の 数字と 色だけ(1 species 専用の 関数は つくらない)。
 // 座標: 前 = +z、うえ = +y、足もと = y 0。大きさは だいたい 高さ 1 前後(あとで 2D の 絵の 大きさに あわせる: runtime の fit)
 // どの builder も: rig(bone)・顔の 場所(face spec)・locomotion・idlePose・hover を かえす
-import { THREE, blob, lathe, sweep, sheet, fan, ellipsoid, paint, solid, mix, shade, xform, merge, clamp, lerp, smooth, rng, noise3, scalpCap, outlineLoft, softHalo } from './geometry.mjs';
+import { THREE, blob, lathe, sweep, sheet, fan, ellipsoid, paint, solid, mix, shade, xform, merge, clamp, lerp, smooth, rng, noise3, scalpCap, outlineLoft, softHalo, openedShellParts } from './geometry.mjs';
 import { Rig } from './rig.mjs';
 import { crouchedQuadruped } from './crouched-quadruped.mjs';
 import SPEC from './spec-esm.mjs';
@@ -599,14 +599,7 @@ export function wingedInsect(sp, key) {
   }
   if (sp.emergence) {
     const e=sp.emergence,h=e.h,r=e.r;
-    const profile=[[.01,0],[r*.45,h*.12],[r*.92,h*.35],[r,h*.58],[r*.65,h*.84],[.014,h]];
-    // The front sector is absent, exposing a continuous inner/back surface.
-    // Optional shell attachment: no second actor, face or locomotion state.
-    const outer=new THREE.LatheGeometry(profile.map(([x,y])=>new THREE.Vector2(x,y)),28,.78,TAU-1.56);
-    const inner=new THREE.LatheGeometry(profile.map(([x,y])=>new THREE.Vector2(Math.max(.004,x-.016),y)),28,.78,TAU-1.56);
-    const index=inner.index;for(let i=0;i<index.count;i+=3){const a=index.getX(i);index.setX(i,index.getX(i+2));index.setX(i+2,a);}inner.computeVertexNormals();
-    const edge=[];for(const a of [.78,TAU-.78])edge.push(solid(sweep(profile.map(([rad,y])=>[Math.sin(a)*rad,y,Math.cos(a)*rad]),()=>.009,5,{steps:14}),e.colors.inside));
-    rig.add('emptyShell','root',e.at,[solid(outer,e.colors.base),solid(inner,e.colors.inside),...edge]);
+    rig.add('emptyShell','root',e.at,openedShellParts(e));
     const top=e.at[1]+h;
     const thread=solid(sweep([[e.at[0],top,e.at[2]],[e.at[0],e.branchY,0]],()=>.015,5,{steps:3}),e.colors.dark);
     rig.add('branch','root',[0,0,0],[branchGeo(1.20,e.branchY),thread]);

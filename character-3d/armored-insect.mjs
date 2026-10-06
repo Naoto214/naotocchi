@@ -1,6 +1,6 @@
 // Shared articulated shell body: physical elytra, six attached limbs, and
 // original-specific head appendages. No extra actors or gameplay state.
-import {ellipsoid,sweep,xform,solid,paint,mix,outlineLoft,blob} from './geometry.mjs';
+import {ellipsoid,sweep,xform,solid,paint,mix,outlineLoft,blob,openedShellParts} from './geometry.mjs';
 import {Rig} from './rig.mjs';
 export function armoredInsect(sp,key){
  const r=new Rig(key,'armored_insect','insectWalk'),b=sp.body,c=sp.colors,s=sp.shell,h=sp.head,t=sp.thorax;
@@ -28,6 +28,7 @@ export function armoredInsect(sp,key){
   if(l.claw){const q=l.claw;limb.push(solid(xform(ellipsoid(...q.size,12,8),{pos:q.at,rot:q.rotation}),c.limb));for(const path of q.teeth)limb.push(solid(sweep(path,v=>q.r*(1-v*.85),6,{steps:5}),c.tip));}
   r.add('leg'+i,'body',l.at,limb);
  }
+ if(sp.exuvia){const e=sp.exuvia;r.add('emptyShell','root',e.at,[...openedShellParts(e),...e.legs.map(path=>solid(sweep(path,v=>e.legRadius*(1-v*.55),7,{steps:8}),e.colors.base))]);}
  r.meta={idlePose:'stand',hover:0,horns:sp.horn?1:0,mandibles:sp.mandibles.length};
  r.faceSpec={bone:'head',target:head,center:[0,0,h.depth*.96],fwd:[0,0,1],half:h.width*.72,eyeSize:.25,normalEye:sp.normalEye,
   layout:{eyeX:27,eyeY:52,mouthY:82,browY:32,cheekX:40,cheekY:72,mouthW:8},style:{blush:'#b96648'}};
