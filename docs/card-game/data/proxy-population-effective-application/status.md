@@ -116,3 +116,11 @@ preflight-ready=false。通常/responseの完全合法性・情報制約・opera
 6190固定版の全proxy回帰は1584件PASSで完了。開始・終了全ID一致、skip/重複なし、全6process成功、source不変。manifest／各worker JSON／各log／summaryの全14ファイルをregression-6190-evidence.json.gzへ保存。6190以降のnormal operand、source inventory、入口束縛、本bundleを含む全回帰とは呼ばない。後続差分は各bundle関連検証で区別。npmは同6190版406PASS。
 
 preflight-ready=false、新seed／本番入力固定／400戦開始0。入力生成・実行の最終承認は未取得。通常／responseの全合法集合・情報制約・operand根拠、全ルール機会合成、入力来歴／remote事前lock／実行gateを残して準備を継続する。旧116除外、新方式未採用、予定400行の全体結論保留を維持。
+
+## Source内の対象・支払候補展開の照合
+
+121/132実entry展開に、現在91のfirst-date対象・既存paid drawのordered cost・既存equipment target・item cost optionsを接続し、inventory内に残った候補とは独立に期待列を導く。source自体を残したまま対象や支払案を1件落とす改変を拒否。支払不能時も候補不成立行を残す。通常入口へ証拠を束縛し、差異時は停止する。新カード価値・新しい順位・現物同値化は追加しない。
+
+専用の入口未接続REDを保存後に実装。関連16件PASS（9.471s）、別途全20手番を含むpolicy journal5件PASS（146.256s）。割引テストの初期fixture集計は手札action以外も数えて失敗し、set_item対象へ訂正。独立read-only review C/I/Minor各0。設計errors=[]、保護正本476件不変。6190固定版1584全proxy/406npmと、この後続差分の関連検証を区別。
+
+これは登録済み展開helperによる列一致であり、helper自体の意味論・disposition・実情報利用・完全合法性・全rule機会の独立証明ではない。preflight-ready=false。seed生成／本番入力固定／400戦実行0。通常/responseの残るsource義務合成と入力／実行管理を継続する。

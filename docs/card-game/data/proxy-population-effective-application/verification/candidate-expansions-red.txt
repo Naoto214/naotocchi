@@ -1,0 +1,14 @@
+E..
+======================================================================
+ERROR: test_actual_normal_entries_export_expansion_evidence (test_proxy_population_candidate_expansions.ConnectedExpansionTests.test_actual_normal_entries_export_expansion_evidence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_candidate_expansions.py", line 58, in test_actual_normal_entries_export_expansion_evidence
+    proof=step['normal_candidate_expansions']
+          ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'normal_candidate_expansions'
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.828s
+
+FAILED (errors=1)

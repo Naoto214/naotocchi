@@ -17,6 +17,7 @@ import proxy_population_legacy_choice_obligations as legacy_choices
 import proxy_population_source_inventory as source_inventory
 import proxy_population_decision_binding as decision_binding
 import proxy_population_resolution_choices as resolution_choices
+import proxy_population_candidate_expansions as candidate_expansions
 from proxy_mandatory_policy_contract import canonical
 
 _LOCK=Lock()
@@ -33,6 +34,9 @@ def contract_scope():
    if decision is not None:
     if decision.get('context',{}).get('decision_kind')=='normal_action':
      coverage=source_inventory.audit_normal(result['source_envelope'],decision['inventory'])
+     expansion=candidate_expansions.audit_normal(result['source_envelope'],decision['inventory'])
+     if expansion['errors']:raise ValueError('normal candidate expansions differ: '+str(expansion['errors']))
+     result['normal_candidate_expansions']=expansion
     elif decision.get('decision_kind')=='response_action':
      coverage=source_inventory.audit_response(result['source_envelope'],decision['candidate_set_evidence'])
     else:raise ValueError('ordinary decision source coverage kind unsupported')
