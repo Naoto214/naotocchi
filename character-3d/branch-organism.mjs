@@ -5,7 +5,7 @@ import {Rig} from './rig.mjs';
 export function branchOrganism(sp,key){
  if(sp.colony)return branchColony(sp,key);
  const rig=new Rig(key,'branch_organism',sp.locomotion||'plantSway'),c=sp.colors,b=sp.body;
- const core=paint(xform(sp.trap?blob((x,y,z)=>[x*b.width,y*b.height,b.depth*(1.6*(x*x+y*y)-.6)+(z<0?z*b.depth*.4:0)],24,16):b.taper?blob((x,y,z)=>{const q=1-y*y*b.taper;return [x*b.width*q,y*b.height,z*b.depth*q];},20,14):ellipsoid(b.width,b.height,b.depth,20,14),{pos:[0,b.y,0]}),(x,y,z,nx,ny,nz)=>sp.trap&&nz<0?c.branch:mix(c.body,c.light,Math.max(0,nz)*.22+Math.max(0,ny)*.12));
+ const core=paint(xform(sp.trap?blob((x,y,z)=>[x*b.width,y*b.height,b.depth*(1.6*(x*x+y*y)-.6)+(z<0?z*b.depth*.4:0)],24,16):b.taper?blob((x,y,z)=>{const q=1-y*y*b.taper;return [x*b.width*q+(b.lean||0)*y,y*b.height,z*b.depth*q];},20,14):ellipsoid(b.width,b.height,b.depth,20,14),{pos:[0,b.y,0]}),(x,y,z,nx,ny,nz)=>sp.trap&&nz<0?c.branch:mix(c.body,c.light,Math.max(0,nz)*.22+Math.max(0,ny)*.12));
  const trapPlace=g=>sp.trap?.tilt?xform(g,{rot:sp.trap.tilt}):g;
  trapPlace(core);
  const parts=[core.clone()];
@@ -49,6 +49,7 @@ export function branchOrganism(sp,key){
   parts.push(solid(sweep(f.stem,t=>.014*(1-t*.35),6,{steps:12}),f.stemColor));
   parts.push(paint(xform(blob((x,y,z)=>{const l=1+.09*Math.cos(Math.atan2(z,x)*5),dip=.16*Math.exp(-Math.pow(x*3,2)-Math.pow(z*3,2))*Math.max(0,y);return [x*f.r*l,(y-dip)*f.r,z*f.r*l];},16,12),{pos:f.at}),(x,y,z,nx,ny,nz)=>mix(f.color,f.light,Math.max(0,ny)*.5+Math.max(0,nz)*.2)));
  }
+ for(const o of sp.orbits||[]){const path=[];for(let i=0;i<=64;i++){const a=i/64*Math.PI*2;path.push([Math.cos(a)*o.rx,o.y+Math.sin(a)*o.tilt,Math.sin(a)*o.rz]);}parts.push(solid(sweep(path,()=>o.r,6,{steps:64}),o.color));for(const a of [0,Math.PI/2,Math.PI,Math.PI*1.5])parts.push(solid(xform(new THREE.OctahedronGeometry(o.r*3.5),{pos:[Math.cos(a)*o.rx,o.y+Math.sin(a)*o.tilt,Math.sin(a)*o.rz],scale:[.7,1.5,.7]}),'#d4ffff'));}
  const stones=sp.stones.map((s,i)=>solid(xform(ellipsoid(s[3],s[4],s[3]*.8,10,6),{pos:s.slice(0,3),rot:[0,i*.7,i%2?.2:-.15]}),c.stones[i%c.stones.length]));
  rig.add('body','root',[0,0,0],parts);
  // Reuse the plant gait's bounded sway, with a single common base and no

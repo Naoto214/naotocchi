@@ -1,0 +1,87 @@
+{
+  "when": "2026-10-06T18:32:44.489Z",
+  "revision": "quality3",
+  "sourceCommit": "36b25e5d3e24cedcb379301a386dceacb9cfcf09",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "botanical",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "world_tree:3": {
+      "requestedStage": 3,
+      "harnessStageIndex": 2,
+      "playerKey": "world_tree:2",
+      "player3d": true,
+      "specKey": {
+        "id": "world_tree",
+        "stage": 3,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/botanical-distance/player-world_tree-3-front.png",
+      "back": "test-results/full-rollout/botanical-distance/player-world_tree-3-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 45200,
+        "meshes": 82,
+        "bones": 54,
+        "materials": 1,
+        "atlases": 10,
+        "eyeGeos": 10,
+        "cpuMsAvg": 2.557,
+        "cpuMsP95": 25.8,
+        "buildMsTotal": 228.7,
+        "buildMsMax": 45.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "world_tree:7": {
+      "requestedStage": 7,
+      "harnessStageIndex": 6,
+      "playerKey": "world_tree:6",
+      "player3d": true,
+      "specKey": {
+        "id": "world_tree",
+        "stage": 7,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/botanical-distance/player-world_tree-7-front.png",
+      "back": "test-results/full-rollout/botanical-distance/player-world_tree-7-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 48856,
+        "meshes": 82,
+        "bones": 54,
+        "materials": 1,
+        "atlases": 10,
+        "eyeGeos": 10,
+        "cpuMsAvg": 2.331,
+        "cpuMsP95": 22.3,
+        "buildMsTotal": 207.2,
+        "buildMsMax": 39.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}
