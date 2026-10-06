@@ -1,6 +1,9 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap','tests/character-3d-crustacean-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['aged moss','character-3d/coiled-shell.mjs','const moss=e.moss&&','const moss=false&&'],
+ ['attached plant sprigs','character-3d/armored-insect.mjs','if(sp.shellSprigs)r.add','if(false)r.add'],
+ ['compact young shell','character-3d/armored-spec.js','length:.43,coil:.10','length:.85,coil:.10'],
  ['connected shell whorls','character-3d/coiled-shell.mjs','Math.pow(t,.65)','Math.pow(t,1.8)'],
  ['shell winding','character-3d/coiled-shell.mjs','a=(t-1)*Math.PI*2*e.turns','a=0'],
  ['open shell aperture','character-3d/coiled-shell.mjs','e.mouth[2]-.09','e.mouth[2]+.2'],

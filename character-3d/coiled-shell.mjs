@@ -14,6 +14,6 @@ export function coiledShell(e){
  for(let layer=0;layer<2;layer++)for(let i=0;i<steps;i++)for(let j=0;j<sides;j++){const a=layer*offset+i*stride+j,b=a+stride;const tri=[a,a+1,b,b,a+1,b+1];if(layer)for(let k=0;k<6;k+=3)idx.push(tri[k+2],tri[k+1],tri[k]);else idx.push(...tri);}
  for(const i of [0,steps])for(let j=0;j<sides;j++){const a=i*stride+j,b=a+offset;if(i)idx.push(a,b,a+1,b,b+1,a+1);else idx.push(a,a+1,b,b,a+1,b+1);}
  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setIndex(idx);g.computeVertexNormals();
- paint(g,(x,y,z,nx,ny,nz,i)=>{const s=samples[i];return s.inner?e.colors.inside:mix(e.colors.base,e.colors.band,Math.pow(Math.max(0,Math.cos(s.t*Math.PI*e.bands)),3));});
+ paint(g,(x,y,z,nx,ny,nz,i)=>{const s=samples[i];const base=mix(e.colors.base,e.colors.band,Math.pow(Math.max(0,Math.cos(s.t*Math.PI*e.bands)),3));const moss=e.moss&&!s.inner&&y>-.12&&Math.sin(s.t*29+y*21+z*17)>.2?e.moss.coverage:0;return s.inner?e.colors.inside:(moss?mix(base,e.moss.color,moss):base);});
  return xform(g,{scale:e.scale||1,rot:e.rotation||[0,0,0]});
 }

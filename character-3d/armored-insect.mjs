@@ -41,6 +41,7 @@ export function armoredInsect(sp,key){
   r.add('leg'+i,'body',l.at,limb);
  }
  if(sp.coiledShell)r.add('coiledShell','body',sp.coiledShell.at,[coiledShell(sp.coiledShell)]);
+ if(sp.shellSprigs)r.add('shellSprigs','coiledShell',[0,0,0],sp.shellSprigs.flatMap(q=>[solid(sweep(q.path,()=>q.r,7,{steps:8}),'#65883a'),solid(xform(ellipsoid(...q.size,12,8),{pos:q.leaf,rot:[0,0,q.roll]}),'#6c9d42')]));
  if(sp.emptyShell)r.add('emptySpiral','root',sp.emptyShell.at,[coiledShell(sp.emptyShell)]);
  for(const [i,q]of(sp.claws||[]).entries()){
   const parts=[solid(sweep(q.arm,v=>q.r*(1-v*.15),7,{steps:8}),c.limb),volume(q.size,q.palm,c.head)];
