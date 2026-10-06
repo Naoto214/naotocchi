@@ -56,3 +56,13 @@ preflight-ready=false。入力生成・400戦固定・実行は0。次は残っ�
 1911dcdから継続し、callbackの有無に依存せず全turn開始・全top-link解決からorigin journal/own-turn/resolution ordinalを再構成する。選択のない解決も番号を消費する。指定5種類は実際のentryから465 REGISTRY/prepareで必要な選択とno-choice理由を導き、実Session journalのidentity/frameと全件照合。全現物履歴をlife.observeで追い、現在active-copy投影と最終lifecycleを検証する。未知の指定外判断を今回のpolicyへ取り込まない。
 
 専用RED→GREEN、関連15件PASS（26.679s）。固定unit R10までの入口結合を含む5件PASS（134.421s）。全20手番、選択なし解決を含むorigin、必要選択件数、欠落/frame改変拒否を確認。独立review C/I/Minor各0。origin真正性・全ルール機会・戦略適格・事前入力lockは別gate。新seed/400戦入力固定/本番実行0、preflight-ready=false。保存後も残った指定外判断・自動処理の機会と入力管理を継続する。
+
+## responseの未知0拒否と指定外の必須選択義務
+
+旧119実装の辞書default0は、新しい現行候補集合で未証明なカードの比較根拠にしない。E-first-dateとE-bossが合法な条件付きunitで、旧priority_uniqueをRED再現。現行scopeは明示119 first-date/passの既存前提が揃う場合と唯一responseを維持し、それ以外の未証明比較を119 seededへ委譲する。点数・同値化・優先順位追加なし。候補を落とさず、旧116除外を保持。
+
+指定外の解決時選択（本体能力値選択、回収成功後の山札順、対象装備除去後の探索）を既存descriptor/targets/choicesから導き、実mandatory_decisionsと完全比較。必要な選択の欠落、不要な選択追加、recordの戦略flag改変を拒否。対象不成立・山札空等のno-choice理由を保持。対応外mechanismはapplicable=false/未検証。指定MRPへ拡張しない。検索正例の新対戦は作らず、固定107の装備3種類はいずれも印刷時2で、時3以上の対象がない条件付き不成立根拠を別保存。
+
+専用RED→GREEN、関連16件PASS（1.595s）、response関連21件PASS（35.444s）、最終R10含む24件PASS（168.215s）。独立read-onlyレビューC/I/Minor各0、設計errors=[]、保護正本476件不変。npm/full regressionは保存9c56の406/1546PASSと区別し、この差分の全回帰とは呼ばない。
+
+preflight-ready=false。通常/responseの全合法集合・選択根拠と、自動処理を含む全機会の合成認定、入力生成来歴/版/事前lock/実行承認gateは残る。予定400行は削除しない。seed生成・実験入力固定・400戦実行0、新方式未採用。保存後も準備を続行する。

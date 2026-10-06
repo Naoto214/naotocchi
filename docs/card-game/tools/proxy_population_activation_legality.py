@@ -73,14 +73,19 @@ def scope():
   return [candidates._detail(row,reasons,f'candidate-use_event-{source}-target-{target}',payment_time=1,activation_condition_proof=proof)]
  def select(route,opportunity):
   details=opportunity['legal_candidate_details'];ids=opportunity['legal_candidate_ids']
-  if len(ids)==1 or not any(a.get('card_id')=='E-first-date' and a.get('resolution_condition_evidence',{}).get('legacy_five_growth_premises') is False for a in details):return prior_select(route,opportunity)
-  # Do not apply the old unconditional +5 lookup to a newly legal case.
-  # Unknown comparison remains119/116-excluded; it is not463 policy choice.
+  def known_comparison(a):
+   return (a.get('candidate_id')=='response-pass' and a.get('action_type')=='response_pass') or (a.get('card_id')=='E-first-date' and a.get('resolution_condition_evidence',{}).get('legacy_five_growth_premises') is True)
+  unknown=sorted(a['candidate_id'] for a in details if not known_comparison(a))
+  if len(ids)==1 or not unknown:return prior_select(route,opportunity)
+  #119's explicit comparison proof covers first-date and pass. Its historical
+  # dictionary default is not a zero-value proof for additional card families.
+  # Do not invent a comparison to replace it; use the existing119 delegation.
+  # This remains119/116-excluded, never a463 policy choice.
   from proxy_population_opportunity_ledger import create
   create(opportunity['actor']) # verifies immutable06/119 source anchors
   seeded=quick.old.start.seeded;seeded._validate_response_opportunity(opportunity);ctx=opportunity['response_context']
   context=dict(contract_version=seeded.response_119.CONTRACT_VERSION,order_id=route['order_id'],actor=opportunity['actor'],actor_turn_index=route['actor_turn_index'],round=route['round'],**{k:ctx[k] for k in ('origin_event_seq','response_opportunity_index','phase','decision_kind','choice_kind')})
   seed=seeded.response_119.build_response_seed_proof(context,ids);selected=seed['selected_candidate']
-  return dict(decision_kind='response_action',choice_kind='reaction_or_pass',actor=opportunity['actor'],phase='response_window',response_opportunity_index=ctx['response_opportunity_index'],legal_candidate_ids=copy.deepcopy(ids),legal_candidate_details=copy.deepcopy(details),candidate_set_evidence=copy.deepcopy(opportunity),resolution_mode='response_seeded_fallback',reason_code='strategic_unresolved_response_seeded_fallback',selected_candidate=selected,selected_action=copy.deepcopy(next(a for a in details if a['candidate_id']==selected)),runner_up_candidates=sorted(i for i in ids if i!=selected),comparison_evidence=None,seed_context=context,seed_proof=seed,comparison_gap='legacy_five_growth_premises_not_satisfied',strategic_unproven=True,policy_eligible=False)
+  return dict(decision_kind='response_action',choice_kind='reaction_or_pass',actor=opportunity['actor'],phase='response_window',response_opportunity_index=ctx['response_opportunity_index'],legal_candidate_ids=copy.deepcopy(ids),legal_candidate_details=copy.deepcopy(details),candidate_set_evidence=copy.deepcopy(opportunity),resolution_mode='response_seeded_fallback',reason_code='strategic_unresolved_response_seeded_fallback',selected_candidate=selected,selected_action=copy.deepcopy(next(a for a in details if a['candidate_id']==selected)),runner_up_candidates=sorted(i for i in ids if i!=selected),comparison_evidence=None,seed_context=context,seed_proof=seed,comparison_gap='existing_comparison_proof_unavailable',comparison_unproved_candidate_ids=unknown,strategic_unproven=True,policy_eligible=False)
  try:quick.hand_candidates=hand;quick.activate=apply;candidates.UNIT_ADJUDICATOR=unit;quick.old.start.seeded.resolve_response_choice=select;yield
  finally:quick.hand_candidates=prior_hand;quick.activate=prior_activate;candidates.UNIT_ADJUDICATOR=prior_unit;quick.old.start.seeded.resolve_response_choice=prior_select;_LOCK.release()

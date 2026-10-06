@@ -13,6 +13,7 @@ import proxy_population_end_victory as victory
 import proxy_population_unproved_priority as unresolved
 import proxy_population_activation_legality as legality
 import proxy_population_public_application as public_application
+import proxy_population_legacy_choice_obligations as legacy_choices
 from proxy_mandatory_policy_contract import canonical
 
 _LOCK=Lock()
@@ -23,7 +24,13 @@ def contract_scope():
  supported=existing.SUPPORTED;observed=window.OBSERVED_EVENTS;prior_operation=runtime.operation;prior_step=runtime._step
  def step(envelope,initial,events,shots,runtime_history,forced,session=None):
   with unresolved.scope(),public_application.scope(events,shots):
-   return prior_step(envelope,initial,events,shots,runtime_history,forced,session)
+   result=prior_step(envelope,initial,events,shots,runtime_history,forced,session)
+   current=result['source_envelope']['legacy_continuation']
+   if current['response_context']['chain_status']=='resolving' and current['activation_zone']:
+    proof=legacy_choices.audit(result['source_envelope'],initial,result['mandatory_decisions'])
+    if proof['errors'] or proof['applicable'] and not proof['legacy_choice_coverage_verified']:raise ValueError('legacy effect choice obligations differ: '+str(proof['errors']))
+    result['legacy_effect_choice_obligations']=proof
+   return result
  def operation(initial,callback):
   def connected(forced):
    # Install after native scopes so verified actual deltas replace their

@@ -70,6 +70,11 @@ class BoundPolicyJournalTests(unittest.TestCase):
   self.assertTrue(r['completed']);self.assertTrue(r['mandatory_origin_audit']['origin_sequence_verified'])
   proof=r['mandatory_opportunity_audit'];self.assertTrue(proof['designated_opportunities_covered'])
   self.assertGreater(r['mandatory_origin_audit']['resolution_entry_count'],0)
+  for step in r['runtime']['steps']:
+   c=step['source_envelope']['legacy_continuation']
+   if c['response_context']['chain_status']=='resolving' and c['activation_zone']:
+    legacy=step['legacy_effect_choice_obligations'];self.assertFalse(legacy['errors'])
+    if legacy['applicable']:self.assertTrue(legacy['legacy_choice_coverage_verified'])
   self.assertGreaterEqual(r['turn_counts']['A'],10);self.assertGreaterEqual(r['turn_counts']['B'],10)
   self.assertEqual(proof['required_choice_count'],r['mandatory_policy_entry_audit']['verified_count'])
   self.assertGreater(proof['required_choice_count'],1)

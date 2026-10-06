@@ -45,6 +45,34 @@ class LegalityTests(unittest.TestCase):
     self.assertEqual(r['seed_proof']['canonical_candidate_ids'],chance['legal_candidate_ids'])
    return {}
   base.operation(initial(),run)
+ def test_response_unlisted_comparison_is_not_assumed_zero(self):
+  def run(forced):
+   e,actor,source=fixture('E-first-date',0);p=e['legacy_continuation']['game_state']['players'][actor]
+   # Real current107 candidate enumeration, with sufficient native conditions.
+   for card,zone in [('E-boss','hand'),('M-antlion-06','main')]:
+    origin,physical=next((z,x) for z in ('hand','deck','discard') for x in p[z] if e['legacy_continuation']['game_state']['cards'][x]['card_id']==card)
+    p[origin].remove(physical)
+    if zone=='hand':p['hand'].append(physical)
+    else:p['board']['main']=physical
+   p['time']=3;e['event_seq']=3;e['legacy_continuation']['response_context']['origin_event_seq']=3
+   c=state.current(e);event=dict(seq=3,action_type='response_pass',actor=actor,game_state_after_sha256=quick.old.start.opening._stop_state_sha256(c['game_state']),continuation_state_after_sha256=quick.old.start._hash(c))
+   with api.scope():
+    chance=quick.actions.response_inventory(e,initial(),[dict(seq=2,action_type='challenge_compared',actor=actor,result=dict(outcome='win_loss',loser=actor)),event])
+    self.assertIn('E-boss',[d.get('card_id') for d in chance['legal_candidate_details']])
+    r=quick.old.start.seeded.resolve_response_choice(dict(order_id='unit-only',actor_turn_index=1,round=1),chance)
+    self.assertEqual(r['resolution_mode'],'response_seeded_fallback')
+    self.assertIsNone(r['comparison_evidence']);self.assertFalse(r['policy_eligible'])
+    self.assertEqual(r['comparison_gap'],'existing_comparison_proof_unavailable')
+    self.assertTrue(r['comparison_unproved_candidate_ids'])
+    # Selection-contract subcase only: explicit119 first-date/pass evidence.
+    known=copy.deepcopy(chance);known['legal_candidate_details']=[d for d in chance['legal_candidate_details'] if d.get('card_id') in (None,'E-first-date')];known['legal_candidate_ids']=[d['candidate_id'] for d in known['legal_candidate_details']]
+    preserved=quick.old.start.seeded.resolve_response_choice(dict(order_id='unit-only',actor_turn_index=1,round=1),known)
+    self.assertEqual(preserved['resolution_mode'],'priority_unique');self.assertEqual(preserved['selected_action']['card_id'],'E-first-date')
+    known['legal_candidate_details']=[d for d in known['legal_candidate_details'] if d.get('card_id') is None];known['legal_candidate_ids']=[d['candidate_id'] for d in known['legal_candidate_details']]
+    self.assertEqual(quick.old.start.seeded.resolve_response_choice(dict(order_id='unit-only',actor_turn_index=1,round=1),known)['resolution_mode'],'response_unique')
+   return {}
+  base.operation(initial(),run)
+
  def test_absent_target_cost_and_unregistered_declaration_still_rejected(self):
   self.assertIsNotNone(api)
   def run(forced):
