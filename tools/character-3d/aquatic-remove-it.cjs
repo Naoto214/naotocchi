@@ -2,7 +2,7 @@ const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/s
 const run=()=>cp.spawnSync(process.execPath,['--test','tests/character-3d-aquatic-wave-test.cjs'],{encoding:'utf8'});
 assert.equal(run().status,0);
 const cases=[
- ['colony substrate attachment','character-3d/branch-organism.mjs','if(u.at[1]+(b.y-b.height)*u.scale>.10)','if(false)'],
+ ['colony substrate attachment','character-3d/branch-organism.mjs','if(!sp.suspended&&u.at[1]+(b.y-b.height)*u.scale>.10)','if(false)'],
  ['colony face ownership','character-3d/branch-organism.mjs','if(u.face!==false)','if(false)'],
  ['anemone radial lobes','character-3d/branch-organism.mjs','if(sp.petals)','if(false)'],
  ['rooted branches','character-3d/branch-organism.mjs','for(const p of sp.branches)','for(const p of [])'],
