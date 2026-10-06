@@ -1,6 +1,8 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','tests/character-3d-armored-wave-test.cjs','tests/character-3d-armored-juvenile-test.cjs','tests/character-3d-veined-insect-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['upright emerging adult','character-3d/armored-insect.mjs','[b.pitch||0,0,0]','[0,0,0]'],
+ ['forward emergence head','character-3d/armored-insect.mjs','[h.pitch||0,0,0]','[0,0,0]'],
  ['nymph broad abdomen','character-3d/armored-spec.js','width:.31,height:.20,length:.48','width:.23,height:.20,length:.48'],
  ['emergence empty casing','character-3d/armored-insect.mjs','if(sp.exuvia){','if(false){'],
  ['emergence open front','character-3d/geometry.mjs','28,.78,TAU-1.56','28,0,TAU'],

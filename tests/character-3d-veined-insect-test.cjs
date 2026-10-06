@@ -47,3 +47,12 @@ test('emerging cicada has one adult face above an open empty exuvia with folded 
  const mesh=r.parts.find(p=>p.bone==='emptyShell').mesh;r.root.updateMatrixWorld(true);const ray=new THREE.Raycaster(new THREE.Vector3(sp.exuvia.at[0],sp.exuvia.at[1]+sp.exuvia.h*.58,1),new THREE.Vector3(0,0,-1)),hits=ray.intersectObject(mesh);assert.ok(hits.length>0);assert.ok(hits[0].point.z<sp.exuvia.at[2],'split front exposes continuous inner back surface');
  const noLegs=armoredInsect({...sp,exuvia:{...sp.exuvia,legs:[]}},'empty');assert.ok(mesh.geometry.attributes.position.count>noLegs.parts.find(p=>p.bone==='emptyShell').mesh.geometry.attributes.position.count+200,'physical folded empty-casing legs');
 });
+test('emerging adult rises vertically with a forward-facing head and original nymph and aged eyes',async()=>{
+ const stages=require('../character-3d/armored-spec.js')().cicada.stages,{armoredInsect}=await import('../character-3d/armored-insect.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ for(const stage of [3,8])assert.equal(armoredInsect(stages[stage],'cicada:'+stage).faceSpec.normalEye,'round','original open round eyes');
+ const sp=stages[5],r=armoredInsect(sp,'cicada:5');r.root.updateMatrixWorld(true);
+ const rear=r.bones.body.localToWorld(new THREE.Vector3(0,0,-sp.body.length-.12)),head=r.bones.head.getWorldPosition(new THREE.Vector3());
+ assert.ok(head.y-rear.y>.75,'adult long axis rises above the shell instead of projecting horizontally');
+ const fwd=new THREE.Vector3(0,0,1).transformDirection(r.bones.head.matrixWorld);assert.ok(fwd.z>.9,'upright body does not turn the face skyward');
+ assert.ok(rear.y<sp.exuvia.h+.10&&rear.y>sp.exuvia.h-.2,'abdomen emerges from the shell opening');
+});
