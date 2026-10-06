@@ -214,6 +214,11 @@ export function animate(inst, input) {
   (LOCO[inst.locomotion] || LOCO.hopSway)(B, s, s.move, k, meta, R);
   for(const name of meta.blobSubrigs||[])blobPulse(B[name],s,s.move,k);
   for(const sub of meta.clusterSubrigs||[])clusterPulse(B,s,k,sub.units,sub.prefix);
+  // Optional attached appendage groups share the owning actor's clock.
+  for(let i=0;i<(meta.tentacleGroups||0);i++){
+    const b=B['tentacle'+i];b.rotation.z+=Math.sin(s.t*1.8+i*1.4)*.035*k.idle;
+    b.rotation.x+=Math.sin(s.phase*TAU+i)*.045*s.move*k.amp;
+  }
   // ---- emotion posture
   const head = B.head || B.cap || B.body;
   if (head && head !== R) { head.rotation.x += e.droop * 0.32; head.rotation.y += e.turn; }

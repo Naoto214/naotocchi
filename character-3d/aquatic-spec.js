@@ -56,15 +56,15 @@
  const stoneColors=['#8950b9','#43a4d6','#d651a8','#76af52','#ed9762'];
  st[6]={archetype:'branch_organism',stones:gravel,stoneColors,colony:[
   {spec:violet,at:[.11,.21,-.15],scale:.80,face:false},
-  {spec:blue,at:[.33,.035,0],scale:.70},
+  {spec:blue,at:[.42,.045,.20],scale:.64},
   {spec:orange,at:[-.06,.04,.10],scale:.78},
   {spec:pink,at:[-.43,0,.16],scale:.49},
   {spec:colored(st[3],'#ffa17a','#f18d76','#ffc7a1','happy'),at:[.30,-.005,.23],scale:.41}
  ]};
  st[7]={archetype:'branch_organism',stones:gravel,stoneColors,colony:[
-  {spec:orange,at:[.00,.15,-.14],scale:1.02},
-  {spec:{...pink,normalEye:{left:'happy',right:'round'}},at:[-.36,.015,.11],scale:.69},
-  {spec:{...blue,normalEye:{left:'round',right:'happy'}},at:[.34,.015,.17],scale:.77}
+  {spec:orange,at:[.00,.33,-.14],scale:1.02},
+  {spec:{...pink,normalEye:{left:'happy',right:'round'}},at:[-.43,.015,.11],scale:.62},
+  {spec:{...blue,normalEye:{left:'round',right:'happy'}},at:[.42,.015,.17],scale:.66}
  ]};
  const disk=(body,petal,tip,eye)=>({archetype:'branch_organism',body:{width:.15,height:.15,depth:.105,y:.20},branches:[],stones:[],normalEye:eye||'round',petals:{count:18,width:.038,length:.080,depth:.055},colors:{body,light:tip,branch:petal,tip,blush:'#ed88a0',stones:[]}});
  st[8]={archetype:'branch_organism',stones:gravel,stoneColors,mound:{r:.49,h:.55,colors:['#508d42','#6dac44','#2b9180','#2f7181','#8db640']},colony:[
@@ -75,5 +75,32 @@
   {spec:disk('#f789b0','#e9639d','#ffb3cf','happy'),at:[.43,.035,.21],scale:.76},
   {spec:disk('#fff0b8','#eaa2cc','#fff5d0','happy'),at:[.16,-.005,.36],scale:.61}
  ]};
+ const youngBell={archetype:'jellyfish',bell:{radius:.38,height:.35,y:.55,alpha:.64,profile:[[.001,.35],[.14,.33],[.26,.23],[.34,.10],[.38,.025],[.36,0],[.31,.035],[.20,.09],[.001,.11]]},
+  colors:{bell:'#97c9ef',rim:'#c9abed',core:'#adbfee',light:'#e4f7ff',arm:'#969ade',armLight:'#c7cbf6'},
+  tentacles:[
+   {r:.043,path:[[-.25,.045,0],[-.22,-.14,.02],[-.34,-.34,.05],[-.27,-.39,.07]]},
+   {r:.044,path:[[-.14,.02,.10],[-.10,-.18,.12],[-.14,-.42,.10],[-.09,-.44,.10]]},
+   {r:.048,path:[[0,.015,.13],[.02,-.19,.15],[.05,-.44,.12],[.10,-.46,.11]]},
+   {r:.043,path:[[.14,.02,.08],[.14,-.15,.10],[.28,-.34,.10],[.26,-.38,.11]]},
+   {r:.038,path:[[.26,.045,-.01],[.30,-.12,.01],[.39,-.21,.04],[.42,-.21,.05]]},
+   {r:.035,path:[[.02,.03,-.15],[-.04,-.16,-.14],[-.08,-.30,-.11],[0,-.38,-.10]]}
+  ],bubbles:[[-.47,.29,.02,.035],[.49,.21,-.02,.045],[-.42,-.16,.08,.024]]};
+ const mature=copy(youngBell);mature.bell={radius:.50,height:.28,y:.80,alpha:.52,profile:[[.001,.28],[.18,.27],[.34,.20],[.45,.08],[.50,.015],[.48,-.005],[.39,.045],[.20,.09],[.001,.10]]};mature.normalEye='droop';
+ mature.colors={bell:'#84b9eb',rim:'#a59aee',core:'#95b5e9',light:'#d4edff',arm:'#8e8cdb',armLight:'#c1c5f2'};
+ // Explicit source filament groups; circumferential placement complements the
+ // visible bell rather than creating new faces or gameplay organisms.
+ mature.tentacles=[
+ [-.38,.01,.01,-.45,-.65,.026],[-.30,.00,.12,-.34,-.72,.023],[-.22,.00,.22,-.29,-.68,.027],[-.12,.01,.25,-.10,-.78,.027],
+ [.00,.01,.27,.08,-.71,.030],[.12,.01,.24,.22,-.76,.027],[.24,.01,.16,.36,-.70,.024],[.35,.01,.07,.47,-.63,.022],
+ [-.31,.02,-.13,-.38,-.59,.020],[-.18,.02,-.24,-.21,-.69,.022],[.04,.02,-.26,.03,-.65,.020],[.22,.02,-.20,.29,-.61,.022],
+ [-.08,.02,.04,-.13,-.73,.032],[.14,.02,.02,.17,-.67,.029]
+ ].map(([x,y,z,end,len,r],i)=>({r,path:[[x,y,z],[x+(i%2?.09:-.08),len*.30,z+.035],[end+(i%2?-.09:.08),len*.66,z-.015],[end,len,z+.045]]}));
+ const polyp={...copy(st[3]),body:{width:.115,height:.34,depth:.11,y:.36},normalEye:'round',colors:{body:'#87b6e2',light:'#d7ecff',branch:'#7aace0',tip:'#c0d9fa',blush:'#d597cc',stones:['#274c86','#3b60a1','#536bb4']},branches:[
+  twig([[0,.61,0],[.02,.84,-.02],[.00,1.02,-.02]],.019,1.3),twig([[-.04,.60,0],[-.15,.78,0],[-.16,.93,0]],.019,1.3),
+  twig([[.04,.60,0],[.17,.80,.01],[.20,.94,.02]],.020,1.3),twig([[-.08,.57,.02],[-.26,.70,.02],[-.28,.84,.04]],.019,1.3),
+  twig([[.08,.58,.01],[.25,.72,.02],[.29,.80,.03]],.020,1.3),twig([[-.09,.56,.02],[-.25,.59,.03],[-.34,.71,.03]],.018,1.3),
+  twig([[.09,.56,.02],[.26,.61,.03],[.35,.68,.03]],.018,1.3)
+ ]};
+ rows.jellyfish={why:'Rooted blue polyp01,young rounded bell04,and broad adult07 with numerous soft trailing filaments;one canonical face per source.',stages:{1:polyp,4:youngBell,7:mature}};
  return rows;
 });

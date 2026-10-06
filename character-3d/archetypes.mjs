@@ -1,3 +1,4 @@
+import {jellyOrganism} from './jelly-organism.mjs';
 import {branchOrganism} from './branch-organism.mjs';
 // なおとっち — Character 3D の archetype builder(pilot)。
 //
@@ -888,7 +889,7 @@ export function blobArchetype(sp, key) {
   return rig;
 }
 
-export const BUILDERS = { quadruped, avian, fish, humanoid, larva, pod, winged_insect: wingedInsect, plant, fungus, cluster, radial, blob: blobArchetype, branch_organism:branchOrganism };
+export const BUILDERS = { quadruped, avian, fish, humanoid, larva, pod, winged_insect: wingedInsect, plant, fungus, cluster, radial, blob: blobArchetype, branch_organism:branchOrganism, jellyfish:jellyOrganism };
 export function buildRig(id, stage) {
   const sp = SPEC.stageSpec(id, stage);
   if (!sp) throw new Error(`no 3D spec: ${id}/${stage}`);

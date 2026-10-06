@@ -35,6 +35,7 @@ function branchColony(sp,key){
  const rig=new Rig(key,'branch_organism','plantSway');
  const substrate=sp.stones.map((s,i)=>solid(xform(ellipsoid(s[3],s[4],s[3]*.85,8,6),{pos:s.slice(0,3)}),sp.stoneColors[i%sp.stoneColors.length]));
  if(sp.mound){const m=sp.mound;
+  substrate.push(solid(xform(ellipsoid(m.r,m.h*.53,m.r*.48,20,12),{pos:[0,.10+m.h*.42,-.10]}),m.colors[0]));
   for(let row=0;row<5;row++)for(let col=0;col<9;col++){
    const a=(col/8-.5)*Math.PI*1.3,h=row/4,r=m.r*Math.sqrt(1-h*h*.84),y=.11+h*m.h;
    substrate.push(solid(xform(ellipsoid(.065,.075,.065,8,6),{pos:[Math.sin(a)*r,y,-.12+Math.cos(a)*r*.40]}),m.colors[(row*7+col)%m.colors.length]));

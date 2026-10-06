@@ -280,3 +280,10 @@ Local exec-server stopped accepting commands with `No such file or directory`. G
 ### Promoted aggregate and multi-face QA readout
 - Source71539b8 CharacterCI37400181240 SUCCESS;artifact11385342445 independently verified112/112 across14shards with requested/spec/exact/live/fallback0/errors0. Saved immutable aggregate under fr2-shell/71539b8. Runtime/Home still running at read.
 - New colony motion exposed a QA-only readout issue:production multiFace is a setter facade,so instance.face.emotion is unreadable for grouped faces. Added actual-owned-face snapshot validation (RED missing helper → GREEN real3-face colony test and mismatched-face rejection),used by wave-review. Runtime canonical expression code unchanged. Source52ff old readout may fail candidate-motion;do not call it a full QA pass.
+
+### Coral full-image correction and jelly representatives
+- Source71539b8 Runtime37400186303 andHome37400186313 nowSUCCESS;allthreeCI successful. Aggregate112/112/14 already saved.
+- Source52 all8 coral original/four-view rows and ordinary exact/live/fallback0/errors0 validated. Visual gaps:06blue/07upper-face occlusion;08hollow bead-curtain mound. Corrected source-derived member placement and filled continuous mound;recapture required before promotion. Historical sheets/scans/raw metadata saved underfr3-aquatic/52ff06e.
+- Inspected jellyfish01/04/07 originals in player-2 strip. Added rooted narrow blue polyp,volumetric translucent young bell and broad mature bell with many soft filaments. Existing branch builder,shared materials/rig/canonical face/blobFloat;optional attached-tentacle motion uses parent clock. No gameplay state,new expression semantics,or Pilot changes.
+- Tests RED for missing representatives → GREEN;physical bell transparency,tentacle groups,parent-clock motion mutations3/3RED. New jellyfish candidates do not count as exact runtime coverage.
+- Fresh dedicated134PASS/0FAIL;Pilot28 geometry/pose hashes unchanged after jelly animation restoration. New candidateCI/image gate pending. Exact114/293 remains unchanged.

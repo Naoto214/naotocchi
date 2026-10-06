@@ -98,6 +98,10 @@ jobs:
           name: full-rollout-human-performance-${{ github.sha }}
           path: test-results/full-rollout/human-performance
   aquatic-candidate-distance:
+    strategy:
+      fail-fast: false
+      matrix:
+        line: [coral, jellyfish]
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -108,11 +112,13 @@ jobs:
       - run: npm ci
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps chromium
-      - run: node tools/character-3d/meguru-qa.cjs --candidate-aquatic --rollout --species-only --line coral --out test-results/full-rollout/aquatic-distance
+      - env:
+          QA_LINE: ${{ matrix.line }}
+        run: node tools/character-3d/meguru-qa.cjs --candidate-aquatic --rollout --species-only --line "$QA_LINE" --out test-results/full-rollout/aquatic-distance
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: full-rollout-aquatic-distance-${{ github.sha }}
+          name: full-rollout-aquatic-distance-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/aquatic-distance
   fish-performance:
     runs-on: ubuntu-latest
@@ -214,6 +220,7 @@ jobs:
           node tools/character-3d/shell-remove-it.cjs > test-results/full-rollout/shell-remove-it.txt
           node tools/character-3d/crouch-remove-it.cjs > test-results/full-rollout/crouch-remove-it.txt
           node tools/character-3d/aquatic-remove-it.cjs > test-results/full-rollout/aquatic-remove-it.txt
+          node tools/character-3d/jelly-remove-it.cjs > test-results/full-rollout/jelly-remove-it.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
