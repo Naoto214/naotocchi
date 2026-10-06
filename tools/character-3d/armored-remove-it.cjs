@@ -1,6 +1,13 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
-const run=()=>cp.spawnSync(process.execPath,['--test','tests/character-3d-armored-wave-test.cjs','tests/character-3d-armored-juvenile-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
+const run=()=>cp.spawnSync(process.execPath,['--test','tests/character-3d-armored-wave-test.cjs','tests/character-3d-armored-juvenile-test.cjs','tests/character-3d-veined-insect-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['rounded grub tail','character-3d/archetypes.mjs','k===0&&sp.tailPatch&&sp.tailSeal!==false','false'],
+ ['pupal ring envelope','character-3d/archetypes.mjs','rr=lerp(ra,rb,(y-ya)/(yb-ya))+.014','rr=r*.6'],
+ ['grub antenna exclusion','character-3d/archetypes.mjs','sp.antennae===false ? [] :','false ? [] :'],
+ ['open grub eyes','character-3d/armored-spec.js',"color:'#b9b7b0'},normalEye:{left:'round',right:'happy'}","color:'#b9b7b0'},normalEye:null"],
+ ['four veined membranes','character-3d/armored-insect.mjs','(sp.wings||[]).entries()','[].entries()'],
+ ['abdomen rings','character-3d/armored-insect.mjs','if(sp.abdomenBands)paint','if(false)paint'],
+ ['wing owner motion','character-3d/animate.mjs','Math.sin(s.t*9+i*.3)*.08*m*k.amp','0'],
  ['curved grub','character-3d/archetypes.mjs','sp.bodyPath || (sp.hang','(sp.hang'],
  ['thoracic feet','character-3d/archetypes.mjs','for(const t of sp.thoracicFeet||[])','for(const t of [])'],
  ['folded pupal legs','character-3d/archetypes.mjs','for(const points of sp.foldedLegs)','for(const points of [])'],

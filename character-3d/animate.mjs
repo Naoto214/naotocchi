@@ -62,6 +62,7 @@ const LOCO = {
       B['leg'+i].rotation.y+=Math.sin(phase)*.24*m*k.amp;
       B['leg'+i].rotation.z+=(i%2?1:-1)*Math.max(0,Math.cos(phase))*.12*m*k.amp;
     }
+    for(let i=0;i<4;i++)if(B['wing'+i])B['wing'+i].rotation.y+=Math.sin(s.t*9+i*.3)*.08*m*k.amp;
     B.body.position.y+=Math.abs(Math.sin(ph))*.012*m*k.amp;
     B.head.rotation.y+=Math.sin(s.t*1.5)*.025*k.idle;
   },

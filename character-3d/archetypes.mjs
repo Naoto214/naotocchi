@@ -474,6 +474,7 @@ export function larva(sp, key) {
     for (let i = 0; i <= 8; i++) pts.push(curve.getPointAt(lerp(t0, t1, i / 8)));
     const g = paint(sweep(pts, (u) => rad(lerp(t0, t1, u)), 12, { steps: 14, cap: k === 0 }), segCol);
     const feet = [];
+    if(k===0&&sp.tailPatch&&sp.tailSeal!==false)feet.push(solid(xform(ellipsoid(r*.86,r*.86,r*.86,14,10),{pos:ctrl[0]}),sp.tailPatch.color));
     if (!sp.hang) for (let i = 0; i < (sp.feetPerSection ?? 3); i++) { const t = lerp(t0, t1, (i + 0.5) / (sp.feetPerSection ?? 3)); const q = curve.getPointAt(t), rr = rad(t); for (const s of [-1, 1]) feet.push(solid(xform(ellipsoid(rr * 0.2, rr * 0.24, rr * 0.2, 6, 4), { pos: [q.x + s * rr * 0.5, q.y - rr * 0.82, q.z] }), c.foot)); }
     // Grubs have only three thoracic pairs near the head, not caterpillar prolegs.
     for(const t of sp.thoracicFeet||[])if(Math.min(CH-1,Math.floor(t*CH))===k){
@@ -488,7 +489,7 @@ export function larva(sp, key) {
   const hr = sp.head.r, end = curve.getPointAt(1), tan = curve.getTangentAt(1);
   const hp = end.clone().addScaledVector(tan, hr * 0.55);
   const headGeo = paint(blob((x, y, z) => [x * hr * 1.08, y * hr * 0.98, z * hr * 0.95], 18, 12), (x, y, z, nx, ny, nz) => (ny < -0.55 ? c.belly : c.head));
-  const ant = [-1, 1].map((s) => solid(sweep([[s * hr * 0.35, hr * 0.8, 0], [s * hr * 0.5, hr * 1.12, -0.02]], (t) => 0.028 * (1 - t * 0.5), 4, { steps: 3 }), shade(c.base, 0.7)));
+  const ant = sp.antennae===false ? [] : [-1, 1].map((s) => solid(sweep([[s * hr * 0.35, hr * 0.8, 0], [s * hr * 0.5, hr * 1.12, -0.02]], (t) => 0.028 * (1 - t * 0.5), 4, { steps: 3 }), shade(c.base, 0.7)));
   rig.add('head', 'root', [hp.x, hp.y, hp.z], null);
   rig.mesh('head', [headGeo.clone(), ...ant]);
   if (sp.hang) rig.add('branch', 'root', [0, 0, 0], [branchGeo(1.15, L * 1.0)]);
@@ -507,7 +508,7 @@ export function pod(sp, key) {
     const profile=[[.025,0],[r*.45,h*.08],[r*.77,h*.22],[r,h*.43],[r*.94,h*.62],[r*.67,h*.82],[.02,h*.9]];
     const abdomen=paint(lathe(profile,20),(x,y,z)=>mix(c.base,c.dark,.13+.12*Math.cos(y/h*TAU*7)));
     const folds=[];
-    for(let i=1;i<=5;i++){const y=h*(.10+i*.08),rr=r*(.5+i*.075);folds.push(solid(xform(ellipsoid(rr,.023,rr*.84,14,6),{pos:[0,y,0]}),c.light));}
+    for(let i=1;i<=5;i++){const y=h*(.10+i*.08);let j=0;while(j<profile.length-2&&profile[j+1][1]<y)j++;const [ra,ya]=profile[j],[rb,yb]=profile[j+1],rr=lerp(ra,rb,(y-ya)/(yb-ya))+.014;folds.push(solid(xform(ellipsoid(rr,.025,rr,20,8),{pos:[0,y,0]}),c.light));}
     for(const side of [-1,1])folds.push(solid(xform(ellipsoid(r*.42,h*.26,r*.57,14,10),{pos:[side*r*.69,h*.57,r*.30],rot:[0,0,-side*.18]}),c.light));
     for(const points of sp.foldedLegs)folds.push(solid(sweep(points,u=>sp.legRadius*(1-.3*u),7,{steps:9}),c.limb));
     rig.add('body','root',[0,0,0],[abdomen,...folds]);
@@ -516,7 +517,7 @@ export function pod(sp, key) {
     for(const q of sp.jawBuds||[])organs.push(solid(sweep(q,u=>.024*(1-.45*u),6,{steps:7}),c.limb));
     rig.add('head','body',H.at,[head.clone(),...organs]);
     rig.meta={idlePose:'stand',hover:0,foldedLegs:sp.foldedLegs.length,developingHorn:!!sp.horn};
-    rig.faceSpec={bone:'head',target:head,center:[0,-H.height*.08,H.depth*.92],fwd:[0,0,1],half:H.width*.72,eyeSize:.26,layout:{eyeX:24,eyeY:54,mouthY:84,browY:34,cheekX:38,cheekY:72,mouthW:8},style:{blush:'#e7a354'},normalEye:'content'};
+    rig.faceSpec={bone:'head',target:head,center:[0,-H.height*.08,H.depth*.92],fwd:[0,0,1],half:H.width*.72,eyeSize:.26,layout:{eyeX:24,eyeY:54,mouthY:84,browY:34,cheekX:38,cheekY:72,mouthW:8},style:{blush:'#e7a354'},normalEye:sp.normalEye??'content'};
     return rig;
   }
   let bodyGeo, faceCenter, half, hangY = null;
