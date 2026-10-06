@@ -28,6 +28,17 @@
  ],right:[
  plume([[0,0,0],[.14,-.10,-.035],[.27,-.33,-.045],[.35,-.45,-.025]],.07,'#ad793c','#e3c788'),plume([[0,-.02,0],[.13,-.15,.015],[.20,-.40,.035],[.23,-.52,.055]],.065,'#c6934f','#edd799'),plume([[0,-.025,0],[.10,-.15,.055],[.14,-.41,.075],[.13,-.51,.095]],.06,'#a87235','#d9b775'),plume([[0,.01,0],[.17,-.025,-.09],[.25,-.25,-.13]],.066,'#b48040','#e3c080'),plume([[0,.02,0],[.14,-.09,.09],[.22,-.31,.13]],.058,'#c3914d','#e8ce94')
  ]};
+ // Original07 retains cream-edged warm plumage; ageing is not a uniform brown tint.
+ for(const q of [...phoenix7.wings.left,...phoenix7.wings.right,...phoenix7.tail.feathers,...phoenix7.crest])q.edge='#ffe8bd';
+ phoenix7.breast=[
+ {...plume([[0,.24,.085],[0,.08,.171],[0,-.14,.173]],.085,'#d7b37b','#fff1d7'),edge:'#fff2d9'},
+ {...plume([[-.05,.18,.08],[-.10,.03,.14],[-.10,-.13,.13]],.061,'#c79752','#fff0d2'),edge:'#fff2d9'},
+ {...plume([[.05,.18,.08],[.10,.03,.14],[.10,-.13,.13]],.061,'#c79752','#fff0d2'),edge:'#fff2d9'},
+ {...plume([[-.025,.19,.165],[-.055,.10,.184],[-.058,.015,.189]],.037,'#ead3a7','#fff2d9'),edge:'#fff4df'},
+ {...plume([[.025,.19,.165],[.055,.10,.184],[.058,.015,.189]],.037,'#ead3a7','#fff2d9'),edge:'#fff4df'},
+ {...plume([[-.025,.095,.18],[-.065,.005,.197],[-.06,-.09,.195]],.037,'#d9bb87','#fff0d7'),edge:'#fff2d9'},
+ {...plume([[.025,.095,.18],[.065,.005,.197],[.06,-.09,.195]],.037,'#d9bb87','#fff0d7'),edge:'#fff2d9'}
+ ];
  const white={skin:'#ffe0b1',hair:'#f7fbff',top:'#fff7d9',bottom:'#ffe0b1',shoe:'#ffe0b1',accent:'#e8b439',sleeve:'#ffe0b1'};
  const celestialColors={cloth:'#fff8e8',gold:'#eac050',feather:'#e4efff',light:'#ffffff'};
  const feather=(path,width)=>({path,width,depth:.012});

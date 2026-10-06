@@ -18,3 +18,8 @@ test('phoenix keeps one canonical face with owned wing and tail motion across32 
  const a=instantiate({rig:r,key:'phoenix:'+n});setEmotion(a,'normal');for(let i=0;i<20;i++)animate(a,{dt:.05,moving:true,animLv:2});assert.ok(Math.abs(a.bones.tail.rotation.y-a.bones.tail.userData.rest.r.y)>.01,'tail plumage follows owner gait');assert.equal(a.bones.tail.parent,a.bones.body);
  }
 });
+
+test('aged phoenix retains the source cream breast and distinct pale feather edges',async()=>{
+ const sp=require('../character-3d/mythic-spec.js')().phoenix.stages[7],{BUILDERS}=await import('../character-3d/archetypes.mjs'),r=BUILDERS[sp.archetype](sp,'phoenix:7');
+ for(const name of ['body','wingL','wingR','tail']){const c=r.parts.find(p=>p.bone===name).mesh.geometry.attributes.color;let pale=0,dark=0;for(let i=0;i<c.count;i++){if(c.getX(i)>.8&&c.getY(i)>.65&&c.getZ(i)>.4)pale++;if(c.getY(i)<.35)dark++;}assert.ok(pale>50,`${name} keeps visible cream feather accents`);assert.ok(dark>50,`${name} retains contrasting warm feather centers`);}
+});

@@ -3,9 +3,9 @@ import {THREE,ellipsoid,sweep,lathe,xform,paint,solid,mix,outlineLoft,merge} fro
 import {Rig} from './rig.mjs';
 export function plumeGeometry(q){
  const curve=new THREE.CatmullRomCurve3(q.path.map(p=>new THREE.Vector3(...p)),false,'centripetal'),w=q.width;
- const g=outlineLoft([[0,0],[-w*.75,.20],[-w,.43],[-w*.7,.72],[0,1],[w*.68,.70],[w,.40],[w*.7,.18]],q.depth||.010,22,4),p=g.attributes.position;
- for(let i=0;i<p.count;i++){const t=Math.max(0,Math.min(1,p.getY(i))),c=curve.getPoint(t),tan=curve.getTangent(t),side=new THREE.Vector3(-tan.y,tan.x,0).normalize();if(side.lengthSq()<.1)side.set(1,0,0);const normal=new THREE.Vector3().crossVectors(tan,side).normalize(),v=c.addScaledVector(side,p.getX(i)).addScaledVector(normal,p.getZ(i));p.setXYZ(i,v.x,v.y,v.z);}
- g.computeVertexNormals();return paint(g,(x,y,z,nx,ny,nz)=>mix(q.color,q.light,Math.max(0,nz)*.32+Math.max(0,ny)*.15));
+ const g=outlineLoft([[0,0],[-w*.75,.20],[-w,.43],[-w*.7,.72],[0,1],[w*.68,.70],[w,.40],[w*.7,.18]],q.depth||.010,22,4),p=g.attributes.position,edge=[];
+ for(let i=0;i<p.count;i++){edge[i]=Math.max(0,Math.min(1,(Math.sqrt(Math.max(0,1-Math.pow(p.getZ(i)/(q.depth||.010),2)))-.62)/.38));const t=Math.max(0,Math.min(1,p.getY(i))),c=curve.getPoint(t),tan=curve.getTangent(t),side=new THREE.Vector3(-tan.y,tan.x,0).normalize();if(side.lengthSq()<.1)side.set(1,0,0);const normal=new THREE.Vector3().crossVectors(tan,side).normalize(),v=c.addScaledVector(side,p.getX(i)).addScaledVector(normal,p.getZ(i));p.setXYZ(i,v.x,v.y,v.z);}
+ g.computeVertexNormals();return paint(g,(x,y,z,nx,ny,nz,i)=>{const base=mix(q.color,q.light,Math.max(0,nz)*.32+Math.max(0,ny)*.15);return q.edge?mix(base,q.edge,edge[i]):base;});
 }
 export function plumedBird(sp,key){
  const r=new Rig(key,'plumed_bird','waddle'),c=sp.colors,b=sp.body,h=sp.head;

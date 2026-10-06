@@ -1,6 +1,7 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap','tests/character-3d-plumed-bird-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['source cream feather edges','character-3d/plumed-bird.mjs','q.edge?mix(base,q.edge,edge[i]):base','base'],
  ['physical crest','character-3d/plumed-bird.mjs','...sp.crest.map(plumeGeometry)','...[]'],
  ['curved plume paths','character-3d/plumed-bird.mjs','c=curve.getPoint(t)','c=new THREE.Vector3(0,t,0)'],
  ['layered wing feathers','character-3d/plumed-bird.mjs','sp.wings[name].map(plumeGeometry)','sp.wings[name].slice(0,1).map(plumeGeometry)'],
