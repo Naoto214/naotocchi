@@ -13,6 +13,6 @@
   horn:{r:.067,path:[[0,.13,.06],[0,.34,.13],[0,.47,.26],[0,.61,.28]],forks:[[[0,.45,.23],[-.12,.56,.28],[-.13,.65,.28]],[[0,.45,.23],[.12,.56,.28],[.13,.65,.28]]]},mandibles:[]};
  const stag={archetype:'armored_insect',body:{width:.30,height:.19,length:.45,y:.32},shell:{width:.17,height:.19,length:.39,y:.055,z:-.18},thorax:{width:.24,height:.17,length:.20,z:.20},head:{width:.24,height:.17,depth:.21,at:[0,.015,.42]},legs:legs.map(l=>({...l,r:l.r*.88})),
   colors:{body:'#182330',shell:'#283445',light:'#64778b',thorax:'#243243',head:'#263444',limb:'#25303c',tip:'#677784'},horn:null,
-  mandibles:[{r:.048,path:[[-.15,.045,.13],[-.27,.035,.31],[-.23,.04,.48],[-.12,.055,.55]],teeth:[[-.23,.04,.34],[-.13,.04,.34]]},{r:.048,path:[[.15,.045,.13],[.27,.035,.31],[.23,.04,.48],[.12,.055,.55]],teeth:[[.23,.04,.34],[.13,.04,.34]]}]};
+  mandibles:[{r:.048,path:[[-.13,-.11,.11],[-.27,-.13,.31],[-.23,-.12,.48],[-.12,-.115,.55]],teeth:[[-.23,-.12,.34],[-.13,-.12,.34]]},{r:.048,path:[[.13,-.11,.11],[.27,-.13,.31],[.23,-.12,.48],[.12,-.115,.55]],teeth:[[.23,-.12,.34],[.13,-.12,.34]]}]};
  return {beetle:{why:'07 domed brown split elytra, six angular legs and upright forked horn.',stages:{7:beetle}},stagbeetle:{why:'07 low blue-black paired elytra, six angular legs and two curved toothed forward mandibles; no rhinoceros horn.',stages:{7:stag}}};
 });

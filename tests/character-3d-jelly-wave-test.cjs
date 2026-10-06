@@ -1,4 +1,24 @@
 const test=require('node:test'),assert=require('node:assert/strict'),SPEC=require('../character-3d/spec.js');
+test('jellyfish strobila has a connected segmented stalk and ephyra floats without rooted substrate',async()=>{
+ const stages=require('../character-3d/aquatic-spec.js')().jellyfish.stages;
+ assert.ok(stages[2]&&stages[3],'both distinct transitional originals have explicit candidates');
+ const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs');
+ for(const stage of [2,3]){
+  const sp=stages[stage],r=BUILDERS[sp.archetype](sp,'jellyfish:'+stage);assert.equal(attachFace(r,r.faceSpec,'C').eyes.length,2);
+  for(const p of r.parts)assert.ok([...p.mesh.geometry.attributes.position.array].every(Number.isFinite));
+  if(stage===2){
+   assert.ok(sp.stemSegments.length>=4,'stacked strobila is distinct from the slender polyp');
+   const bare=structuredClone(sp);bare.stemSegments=[];
+   const r0=BUILDERS[sp.archetype](bare,'bare');
+   assert.ok(r.parts[0].mesh.geometry.attributes.position.count>r0.parts[0].mesh.geometry.attributes.position.count+200,'segments are physical geometry');
+   assert.equal(r.locomotion,'plantSway');
+  }else{
+   assert.equal(sp.branches.length,8,'eight rounded ephyra lobes');
+   assert.deepEqual(sp.stones,[],'detached ephyra has no rocky substrate');
+   assert.equal(r.locomotion,'blobFloat');
+  }
+ }
+});
 test('jellyfish representatives change rooted polyp into a volumetric bell with connected tentacles',async()=>{
  const rows=require('../character-3d/aquatic-spec.js')().jellyfish;assert.ok(rows,'original-derived polyp and bell representatives');
  const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');

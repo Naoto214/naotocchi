@@ -102,5 +102,22 @@
   twig([[.09,.56,.02],[.26,.61,.03],[.35,.68,.03]],.018,1.3)
  ]};
  rows.jellyfish={why:'Rooted blue polyp01,young rounded bell04,and broad adult07 with numerous soft trailing filaments;one canonical face per source.',stages:{1:polyp,4:youngBell,7:mature}};
+ rows.jellyfish.stages[2]={archetype:'branch_organism',body:{width:.20,height:.18,depth:.17,y:.64},normalEye:'happy',stones:copy(polyp.stones),colors:{...polyp.colors,body:'#8ec6ef',light:'#d6f4ff'},
+  stemSegments:[{width:.12,height:.065,depth:.10,y:.115},{width:.14,height:.075,depth:.12,y:.235},{width:.16,height:.078,depth:.135,y:.365},{width:.175,height:.080,depth:.15,y:.495}],branches:[
+   twig([[0,.76,0],[.01,.96,0],[0,1.11,0]],.022,1.3),twig([[-.05,.76,0],[-.12,.99,-.01],[-.20,1.07,0]],.022,1.3),
+   twig([[.05,.77,0],[.15,.99,.01],[.22,1.08,.01]],.021,1.3),twig([[-.13,.73,0],[-.29,.88,.02],[-.39,.96,.03]],.022,1.4),
+   twig([[.13,.73,0],[.31,.87,.02],[.40,.92,.03]],.023,1.4),twig([[-.17,.67,.02],[-.34,.71,.03],[-.44,.78,.04]],.023,1.4),
+   twig([[.17,.67,.02],[.35,.73,.04],[.43,.80,.04]],.023,1.4)
+  ]};
+ rows.jellyfish.stages[3]={archetype:'branch_organism',locomotion:'blobFloat',body:{width:.23,height:.23,depth:.14,y:.53},stones:[],normalEye:'round',colors:{...polyp.colors,body:'#9bcfe9',light:'#e7f8ff',branch:'#8fc4ec',tip:'#bad7f9'},branches:[
+  twig([[0,.69,0],[0,.88,0],[0,1.00,.01]],.085,1.55,.10),
+  twig([[.13,.66,0],[.27,.79,0],[.37,.87,.01]],.075,1.55,.10),
+  twig([[.17,.53,0],[.37,.53,0],[.49,.52,.01]],.077,1.55,.10),
+  twig([[.13,.39,0],[.27,.27,0],[.36,.16,.01]],.075,1.55,.10),
+  twig([[0,.36,0],[0,.18,0],[0,.07,.01]],.080,1.55,.10),
+  twig([[-.13,.39,0],[-.27,.26,0],[-.37,.17,.01]],.075,1.55,.10),
+  twig([[-.17,.53,0],[-.36,.53,0],[-.48,.54,.01]],.078,1.55,.10),
+  twig([[-.13,.66,0],[-.27,.79,0],[-.36,.86,.01]],.075,1.55,.10)
+ ]};
  return rows;
 });

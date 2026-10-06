@@ -4,9 +4,10 @@ import {ellipsoid,sweep,xform,solid,paint,mix} from './geometry.mjs';
 import {Rig} from './rig.mjs';
 export function branchOrganism(sp,key){
  if(sp.colony)return branchColony(sp,key);
- const rig=new Rig(key,'branch_organism','plantSway'),c=sp.colors,b=sp.body;
+ const rig=new Rig(key,'branch_organism',sp.locomotion||'plantSway'),c=sp.colors,b=sp.body;
  const core=paint(xform(ellipsoid(b.width,b.height,b.depth,20,14),{pos:[0,b.y,0]}),(x,y,z,nx,ny,nz)=>mix(c.body,c.light,Math.max(0,nz)*.22+Math.max(0,ny)*.12));
  const parts=[core.clone()];
+ for(const s of sp.stemSegments||[])parts.push(paint(xform(ellipsoid(s.width,s.height,s.depth,16,10),{pos:[0,s.y,0]}),(x,y,z,nx,ny,nz)=>mix(c.body,c.light,Math.max(0,nz)*.30+Math.max(0,ny)*.12)));
  for(const p of sp.branches){
   parts.push(paint(sweep(p.path,t=>p.r*(1-t*(p.taper??.35)),8,{steps:10}),(x,y,z,nx,ny,nz)=>mix(c.branch,c.tip,Math.max(0,ny)*.25+Math.max(0,nz)*.12)));
   const last=p.path[p.path.length-1],r=p.r*(1-(p.taper??.35));
@@ -24,7 +25,7 @@ export function branchOrganism(sp,key){
  // independently drifting tips or extra gameplay actors.
  rig.add('leavesA','root',[0,0,0],stones);
  rig.add('leavesB','root',[0,0,0],null);
- rig.meta={idlePose:'stand',hover:0};
+ rig.meta={idlePose:sp.locomotion==='blobFloat'?'hover':'stand',hover:sp.locomotion==='blobFloat'?.10:0};
  rig.faceSpec={bone:'body',target:core,center:[0,b.y,b.depth*.96],fwd:[0,0,1],half:b.width*.73,eyeSize:.25,normalEye:sp.normalEye,
   layout:{eyeX:24,eyeY:56,mouthY:82,browY:36,cheekX:38,cheekY:72,mouthW:8},style:{blush:c.blush}};
  return rig;

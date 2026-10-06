@@ -1,6 +1,7 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','tests/character-3d-armored-wave-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['jaw face clearance','character-3d/armored-spec.js','[-.13,-.11,.11]','[-.13,.045,.11]'],
  ['six legs','character-3d/armored-insect.mjs','sp.legs.entries()','sp.legs.slice(0,4).entries()'],
  ['forked horn','character-3d/armored-insect.mjs','if(sp.horn){','if(false){'],
  ['paired mandibles','character-3d/armored-insect.mjs','for(const q of sp.mandibles)','for(const q of [])'],
