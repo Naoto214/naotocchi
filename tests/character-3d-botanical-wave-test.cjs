@@ -107,3 +107,8 @@ test('Venus representative crowns expose broad side leaves and independently ori
  const brown=new THREE.Color('#a77320'),color=rig.parts.find(p=>p.bone==='unit0').mesh.geometry.attributes.color;let woody=false;for(let i=0;i<color.count;i++)if(Math.hypot(color.getX(i)-brown.r,color.getY(i)-brown.g,color.getZ(i)-brown.b)<.04)woody=true;assert.ok(woody,'brown source roots change actual vertex colors');
  assert.ok(units[0].spec.branches.filter(b=>b.color==='#a77320').length>=4,'original brown roots differ from green stems');
 });
+
+test('Venus rosette radial leaves leave eyes and mouth visible from front and both three-quarter directions',async()=>{
+ const sp=require('../character-3d/botanical-spec.js')().venus_flytrap.stages[3],{BUILDERS}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs'),r=BUILDERS[sp.archetype](sp,'venus_flytrap:3'),body=new THREE.Mesh(r.parts.find(p=>p.bone==='body').mesh.geometry,new THREE.MeshBasicMaterial({side:THREE.DoubleSide})),core=new THREE.Mesh(r.faceSpec.target,new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));
+ for(const [x,y]of [[-.062,.20],[.062,.20],[0,.145]]){const first=new THREE.Raycaster(new THREE.Vector3(x,y,2),new THREE.Vector3(0,0,-1)).intersectObject(core)[0];assert.ok(first);for(const az of [-.62,0,.62]){const dir=new THREE.Vector3(Math.sin(az),.175,Math.cos(az)).normalize(),ray=new THREE.Raycaster(first.point.clone().addScaledVector(dir,3),dir.negate()),a=ray.intersectObject(core)[0],b=ray.intersectObject(body)[0];assert.ok(a&&b);assert.ok(Math.abs(a.distance-b.distance)<.003,`rosette face visible at ${x},${y},az=${az}`);}}
+});

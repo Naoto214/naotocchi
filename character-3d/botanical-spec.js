@@ -82,9 +82,10 @@
  leaf([0,.09,-.11],.11,.48,[-.65,.8,.5]),leaf([.015,.09,-.10],.10,.47,[-.65,-.8,-.5])
  ]};
  venusRosette.foliage.push(
- leaf([-.10,.10,.08],.11,.42,[.12,1.25,1.20]),leaf([.10,.10,.08],.11,.44,[.12,-1.25,-1.20]),
+ leaf([-.25,.10,-.06],.11,.42,[.12,1.25,1.20]),leaf([.25,.10,-.06],.11,.44,[.12,-1.25,-1.20]),
  leaf([-.10,.10,-.08],.105,.39,[-.10,-1.30,1.15]),leaf([.10,.10,-.08],.11,.40,[-.10,1.30,-1.15])
  );
+ venusRosette.branches.push({path:[[-.10,.10,-.04],[-.18,.10,-.05],[-.25,.10,-.06]],r:.025,taper:.20},{path:[[.10,.10,-.04],[.18,.10,-.05],[.25,.10,-.06]],r:.025,taper:.20});
  const trapUnit=(at,w,h,eye)=>({at,scale:1,spec:{archetype:'branch_organism',body:{width:w,height:h,depth:.075,y:0},normalEye:eye,trap:{teeth:22,rim:.019,length:.050},stones:[],colors:{body:'#ed352b',light:'#ff9470',branch:'#62ad16',tip:'#dce54c',stones:[],blush:'#ffb568'},branches:[{path:[[-at[0],.035-at[1],-at[2]],[-at[0]*.6,-at[1]*.48,-at[2]*.7],[0,-h*.75,-.025]],r:.025,taper:.15}],foliage:[]}});
  const venusTraps={archetype:'branch_organism',suspended:true,stones:[],stoneColors:[],colony:[
  trapUnit([0,1.04,-.04],.24,.20,'happy'),trapUnit([-.41,.76,.015],.185,.17,'round'),trapUnit([.42,.73,-.015],.19,.175,'round'),trapUnit([-.26,.38,.12],.15,.13,'happy'),trapUnit([.32,.37,.13],.155,.135,'round')

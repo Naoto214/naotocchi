@@ -568,3 +568,10 @@ Worldtree representatives saved as36b25e5d3e24cedcb379301a386dceacb9cfcf09/treea
 Ghost03/07 original-derived closed tapered body, curved tail, paired hands,07open halo/four blue spirit flames added afterRED tests. Existing blobFloat owner and canonical emotion system retained.196dedicatedPASS/0FAIL,7/7spectralmutationsRED/restored,28Pilot baseline hashes match. Candidate capture only;runtime170/293 and123pending unchanged.
 
 CorrectedVenus9e wave/motionartifact11432317814 obtained;8fourviews/64states andnormaldistance4 reviewed.07 depth/oriented cups acceptable at representative view level.03 new radial side leaf obscures one eye/mouth at34view acrossnormal/positive/tired/sleeping/strained/wantsPlay/sick. GateREJECT; no expansion/promotion. Prior ordinary-distance assessment was limited to4images and did not establish this gate. New proof and leaf-position correction are next.
+
+## 2026-10-06 Venus03 canonical-face clearance correction
+Ghost03/07 saved as4819e20dc78faaad67d5eefafe33be7234986273/tree1717bc4f6e27ccf61a1d5bdc75b1b4437f08d90f.8files viaGitData blob/tree/commit/nonforceleasedref complete; fetched localHEAD/index/tree andfreshremote matched clean. PR376Draft updated.
+
+Venus9e rejected proof79JPEG/raw persisted. Added visibility tests for both eyes and mouth fromfront andboth34directions;RED confirmed radial-leaf occlusion. Two leaf bases moved outward/backward with short attached stalks.197dedicatedPASS/0FAIL,22/22botanicalmutationsRED/restored,28Pilot hashes match. The first full botanical mutation rerun stopped at the old five-trap factory-return selector afterworldtree addition. Updated only the anchor to current return, retained the same colony.pop deletion;all22rerunRED. This does not retroactively assert the prior worldtree/ghost CI wasgreen.
+
+Fresh dfd20family Character jobs:33completed,onlycicada stage-evidence112392145172 stillinprogress. e53221family aggregate stillpending12stagejobs.9e wave-review finished;6a phoenixdistance artifact11432836185 downloaded. UpdatedVenus imagegate pending;runtime170/293 and123pending unchanged, notfinalHumanQA.
