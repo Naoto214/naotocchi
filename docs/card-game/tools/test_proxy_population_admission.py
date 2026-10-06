@@ -73,6 +73,12 @@ class RealEntryAdmissionTests(unittest.TestCase):
   self.assertEqual(gates['complete_legal_set_and_allowed_information']['state'],'verified')
   self.assertEqual(gates['permitted_selection_basis']['state'],'unproved')
   self.assertEqual(first['old_116_applicability'],'outside_designated_policy_contract')
+  response=out['children'][0]['children'][1];response_gates={g['name']:g for g in response['gates']}
+  self.assertEqual(response_gates['permitted_selection_basis']['state'],'unproved')
+  self.assertEqual(response_gates['legacy_116_status']['state'],'unproved')
+  self.assertEqual(response_gates['complete_legal_set_and_allowed_information']['state'],'unproved')
+  self.assertTrue(response['selection_computation']['selection_computation_verified'])
+  self.assertTrue(response['selection_computation_bound_to_reconstructed_record'])
   bad=copy.deepcopy(r);bad['runtime']['events'][0]['seq']+=1
   failed=api.audit_match([bad],b,'test-1A')
   self.assertEqual(failed['source_reconstructed_attempt_count'],0);self.assertFalse(failed['exclusions'])

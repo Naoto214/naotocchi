@@ -66,3 +66,11 @@ preflight-ready=false。入力生成・400戦固定・実行は0。次は残っ�
 専用RED→GREEN、関連16件PASS（1.595s）、response関連21件PASS（35.444s）、最終R10含む24件PASS（168.215s）。独立read-onlyレビューC/I/Minor各0、設計errors=[]、保護正本476件不変。npm/full regressionは保存9c56の406/1546PASSと区別し、この差分の全回帰とは呼ばない。
 
 preflight-ready=false。通常/responseの全合法集合・選択根拠と、自動処理を含む全機会の合成認定、入力生成来歴/版/事前lock/実行承認gateは残る。予定400行は削除しない。seed生成・実験入力固定・400戦実行0、新方式未採用。保存後も準備を続行する。
+
+次の既存選択根拠接続: source再構成済の現行recordについて、通常114の全候補比較/116 safe-free証明と119の明示response証明を別validatorで検算する。ラベルの非fallbackだけでは認定しない。候補・点数の出所は現行source再構成へ結び、計算証明と完全合法性/機会/入力lockを別gateに残す。未知点数・新関係を補完しない。未対応のresolution_modeや不足certificateは未証明、既知116除外は優先保持。合成計算fixtureと実入口record改変拒否を先にREDで確認する。
+
+選択計算レビューでsafe分岐の114先行比較欠落をRED再現して修正。計算一致はoperand意味論の証明ではないため、admissionの選択根拠/116陰性gateを未証明のまま保持する。
+
+入力準備の次bundle: 459/463の実装版固定を、完全commit/treeとdocs/card-gameの保存blob集合、現在Python実装/版、現在tools集合へ結ぶread-only edition verifierとして追加する。Git replacementを無効化し、source差替え/欠落/追加Pythonを拒否する。保存済み全ファイルの不変性を検査するが、新しい入力/検証artifactの追加は既存sourceの変更と区別する。remote公開・承認・OS採取・結果前順序・適格性はこの検査から導かない。合成一時Git repositoryでTDDし、実seed/入力/対戦は作らない。
+
+同じ入力準備bundleで、供給済みtranscriptから465形式の全200群/400行・奇偶先後順・owner root commitmentを構成する純粋builderを追加する。乱数採取なし、旧115の同じ初期順を繰り返すin-memory fixtureでのみ構成を検証する。入力真正性・edition認証は別検査で、builder成功を生成許可や実験入力lockへ昇格させない。

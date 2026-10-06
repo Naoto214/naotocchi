@@ -70,3 +70,15 @@ preflight-ready=false。入力生成・400戦固定・実行は0。次は残っ�
 専用RED→GREEN、関連16件PASS（1.595s）、response関連21件PASS（35.444s）、最終R10含む24件PASS（168.215s）。独立read-onlyレビューC/I/Minor各0、設計errors=[]、保護正本476件不変。npm/full regressionは保存9c56の406/1546PASSと区別し、この差分の全回帰とは呼ばない。
 
 preflight-ready=false。通常/responseの全合法集合・選択根拠と、自動処理を含む全機会の合成認定、入力生成来歴/版/事前lock/実行承認gateは残る。予定400行は削除しない。seed生成・実験入力固定・400戦実行0、新方式未採用。保存後も準備を続行する。
+
+## 選択計算と入力準備の版・manifest接続
+
+114全候補比較/116 safe-free certificate/119 response計算の純粋検算を追加。source再構成された実recordへ計算を束縛するが、operand意味論・完全合法性・選択根拠の認定とは別。reviewでsafe分岐に先行114 unique検査とpassの上位4項目一致を追加。許可根拠/116陰性gateは未証明を維持し、過去recordを補完しない。
+
+459/463の実装版準備として、完全commit/tree・全保存CARD GAME blob・Python source集合/実装版を検証し、manifestのsource_versions/Python版とexact比較するread-only verifierを追加。Git replacementでは保存sourceを書き換えられない。新規artifact追加は既存source改変と分離する。remote公開・外部承認・OS採取・入力lock・全体適格性は未証明のまま。
+
+既存469 Cursor transcriptから465形式の200群/400行・先後鏡像・奇偶実行順・owner root commitmentを組み立てる純粋builderを追加。採取・保存・実行APIは持たない。テストは旧115 seed/orderを200回繰り返すin-memory doubleと零root、合成registryであり、独立標本や本番入力ではない。
+
+逐次RED→GREEN、最終関連24件PASS（43.321s）、直接実行2件PASS、設計errors=[]、保護正本476件不変。独立reviewのImportant2/Minor1を修正し未解決0。全proxy/npmは保存9c56の1546/406PASSを参照し、この差分の全回帰とはしない。
+
+preflight-ready=false。通常/responseの完全合法性・情報制約・operand根拠、全機会/自動処理の合成、生成来歴/remote事前lock/実行承認は残る。seed採取・本番400行固定・400戦開始0、新方式未採用。保存後も準備を継続する。

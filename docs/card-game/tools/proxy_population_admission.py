@@ -8,6 +8,7 @@ import copy,hashlib
 import proxy_population_runtime as runtime
 from proxy_mandatory_policy_contract import canonical
 import proxy_population_connected_entry as connected
+import proxy_population_selection_basis as selection_basis
 from proxy_mandatory_population_input import audit_input_bundle
 
 DISPOSITIONS=('eligible','excluded','unproved')
@@ -32,6 +33,8 @@ def _judgment(record,identity,source_ref,policy_entries_verified=False):
     fallback=runtime._evaluate(record)['legacy_116']=='excluded'
     refs=[source_ref,'tools/proxy_population_connected_entry.py']
     local_verified=bool(local) and policy_entries_verified
+    computation=selection_basis.audit(record) if not local and not fallback else None
+    computation_verified=computation is not None and computation['selection_computation_verified']
     gaps=[] if local_verified else ['complete_legal_set_and_information_cross_audit_pending']
     exclusions=['authenticated_116:'+identity] if fallback else []
     gates=[_gate('identity_and_origin','verified',refs),
@@ -46,7 +49,8 @@ def _judgment(record,identity,source_ref,policy_entries_verified=False):
     result=_node('judgment',identity,gates,exclusions,gaps)
     result.update(selection_kind='legacy_116' if fallback else 'designated_policy' if local else 'existing_contract',
         strategic_unproven=local.get('strategic_unproven') if local else record.get('strategic_unproven'),
-        local_policy_reconstruction_verified=local_verified,old_116_applicability='applicable_excluded' if fallback else 'outside_designated_policy_contract' if local_verified else 'unproved',policy_eligible=None,balance_admitted=None)
+        local_policy_reconstruction_verified=local_verified,old_116_applicability='applicable_excluded' if fallback else 'outside_designated_policy_contract' if local_verified else 'unproved',policy_eligible=None,balance_admitted=None,
+        selection_computation=computation,selection_computation_bound_to_reconstructed_record=computation_verified)
     return result
 
 

@@ -1,0 +1,14 @@
+.E
+======================================================================
+ERROR: test_saved_sources_python_and_tools_are_exact_but_not_authorization (test_proxy_population_execution_edition.EditionTests.test_saved_sources_python_and_tools_are_exact_but_not_authorization)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_execution_edition.py", line 20, in test_saved_sources_python_and_tools_are_exact_but_not_authorization
+    self.assertTrue(api.audit_bundle_edition(bundle,certificate,repo)['bundle_edition_bound'])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'proxy_population_execution_edition' has no attribute 'audit_bundle_edition'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.145s
+
+FAILED (errors=1)

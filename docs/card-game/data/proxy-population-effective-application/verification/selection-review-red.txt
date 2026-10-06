@@ -1,0 +1,13 @@
+..F
+======================================================================
+FAIL: test_safe_placement_needs_certificate_and_paid_exclusion (test_proxy_population_selection_basis.SelectionBasisTests.test_safe_placement_needs_certificate_and_paid_exclusion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_selection_basis.py", line 29, in test_safe_placement_needs_certificate_and_paid_exclusion
+    self.assertFalse(api.audit(bad)['selection_computation_verified'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.007s
+
+FAILED (failures=1)
