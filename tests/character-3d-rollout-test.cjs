@@ -138,5 +138,15 @@ test('reviewed coral batch preserves all eight exact runtime stages and owned co
   const t=rt.getTemplate('coral',stage);assert.equal(t.status,'ok');
   assert.equal(t.rig.faces.length,stage===6?4:stage===7?3:stage===8?5:1);
  }
- assert.equal(SPEC.specKeyFor({line:'jellyfish',stage:3}),null,'unreviewed transparent family stays outside rollout');
+
+});
+
+test('reviewed jellyfish batch preserves eight exact rooted, ephyra and bell runtime stages',async()=>{
+ const rt=await import('../character-3d/runtime.mjs');
+ for(let stage=1;stage<=8;stage++){
+  assert.deepEqual(SPEC.specKeyFor({line:'jellyfish',stage:stage-1}),{id:'jellyfish',stage,exact:true});
+  const t=rt.getTemplate('jellyfish',stage);assert.equal(t.status,'ok');
+  assert.equal(t.rig.locomotion,stage<=2?'plantSway':'blobFloat');
+ }
+ assert.equal(SPEC.specKeyFor({line:'beetle',stage:6}),null,'incomplete armored family stays outside rollout');
 });

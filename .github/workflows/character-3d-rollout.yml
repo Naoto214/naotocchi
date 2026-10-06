@@ -211,12 +211,22 @@ jobs:
             test-results/full-rollout/fish
             test-results/full-rollout/humanoid
             test-results/full-rollout/gallery
-            test-results/full-rollout/armored
-            test-results/full-rollout/armored-motion
-            test-results/full-rollout/aquatic
-            test-results/full-rollout/aquatic-motion
             test-results/full-rollout/topology
             test-results/full-rollout/candidate-motion
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-aquatic-review-${{ github.sha }}
+          path: |
+            test-results/full-rollout/aquatic
+            test-results/full-rollout/aquatic-motion
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-armored-review-${{ github.sha }}
+          path: |
+            test-results/full-rollout/armored
+            test-results/full-rollout/armored-motion
   dedicated:
     runs-on: ubuntu-latest
     timeout-minutes: 25

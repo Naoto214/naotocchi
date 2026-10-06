@@ -30,9 +30,10 @@ test('aquatic representative faces follow canonical emotions and reduced motion 
 });
 test('aquatic candidate overlay is isolated and requires an exact family',()=>{
  const {candidateConfig}=require('../tools/character-3d/candidate-spec.cjs');
+ const before=JSON.stringify(SPEC.ROLLOUT);
  const c=candidateConfig(['--candidate-aquatic','--rollout','--species-only','--line','coral']);
  assert.ok(c,'aquatic candidate route exists');assert.equal(c.spec.stageSpec('coral',5).archetype,'branch_organism');
- assert.equal(SPEC.stageSpec('jellyfish',4),null,'unreviewed aquatic family is not promoted by QA overlay');
+ assert.equal(JSON.stringify(SPEC.ROLLOUT),before,'QA overlay does not mutate the runtime registry');
  assert.throws(()=>candidateConfig(['--candidate-aquatic','--candidate-topology','--rollout','--species-only','--line','coral']));
  assert.throws(()=>candidateConfig(['--candidate-aquatic','--rollout','--species-only','--line','missing']));
 });

@@ -33,7 +33,7 @@ test('jellyfish representatives change rooted polyp into a volumetric bell with 
   for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'jellyfish:'+stage});setEmotion(a,em);for(let n=0;n<20;n++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces[0].emotion,em);if(stage>=4&&em==='normal'&&animLv===2&&!moving)assert.notEqual(a.bones.tentacle0.rotation.z,0,'attached filaments respond to owner time');for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.scale.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}
  }
  assert.ok(rows.stages[7].tentacles.length>rows.stages[4].tentacles.length,'mature fine trailing filaments');
- assert.equal(SPEC.ROLLOUT.jellyfish,undefined,'representatives do not inflate coverage');
+ assert.deepEqual(SPEC.ROLLOUT.jellyfish,rows,'promoted stages retain the reviewed candidate values');
 });
 test('jellyfish face stays on the visible inner volume above the bell rim',async()=>{
  const {jellyOrganism}=await import('../character-3d/jelly-organism.mjs'),{THREE,faceFrame,projectPoint}=await import('../character-3d/geometry.mjs');

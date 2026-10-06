@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 122,
-    "pending": 171,
-    "fourViewRecords": 120
+    "exactSpecs": 130,
+    "pending": 163,
+    "fourViewRecords": 128
   },
   "rows": [
     {
@@ -2416,15 +2416,15 @@
       "group": "normal",
       "asset": "assets/characters/jellyfish/01.png",
       "sha256": "d9b139bcb6f891eb49bdcf839fefe34e33a845feec79454852679a47a8bc5cb3",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-1-back.jpg"
       }
     },
     {
@@ -2436,15 +2436,15 @@
       "group": "normal",
       "asset": "assets/characters/jellyfish/02.png",
       "sha256": "38312ddf07cb2109056dfe23deb67689880bc8f8920e2842be9b6a77d91db5b6",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-2-back.jpg"
       }
     },
     {
@@ -2456,15 +2456,15 @@
       "group": "normal",
       "asset": "assets/characters/jellyfish/03.png",
       "sha256": "279b518fcbb1b19a5cafa652360b70ee36b56d1f964ff7ff5571350ff52c377d",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-3-back.jpg"
       }
     },
     {
@@ -2476,15 +2476,15 @@
       "group": "normal",
       "asset": "assets/characters/jellyfish/04.png",
       "sha256": "8b938512aa638c00e8614c0f651058eb450a5e6d9acb3b706439e4b20a2e2145",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "jellyfish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-4-back.jpg"
       }
     },
     {
@@ -2496,15 +2496,15 @@
       "group": "normal",
       "asset": "assets/characters/jellyfish/05.png",
       "sha256": "eec6a0ef167c56c596e56fd7127f618c690db3ef963341251fe77ab96e4c44d7",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "jellyfish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-5-back.jpg"
       }
     },
     {
@@ -2516,15 +2516,15 @@
       "group": "normal",
       "asset": "assets/characters/jellyfish/06.png",
       "sha256": "9f704cb89c7e7945b77368fdff96e95a61bdb6f70addc2ded09efd17228173f5",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "jellyfish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-6-back.jpg"
       }
     },
     {
@@ -2536,15 +2536,15 @@
       "group": "normal",
       "asset": "assets/characters/jellyfish/07.png",
       "sha256": "2f88c51c59db4758dca6a9f5bdf66c800c359b9aca3e7551d4c6ea025b643b62",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "jellyfish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-7-back.jpg"
       }
     },
     {
@@ -2556,15 +2556,15 @@
       "group": "normal",
       "asset": "assets/characters/jellyfish/08.png",
       "sha256": "1b68a87b3d90de534d19484dc62bb3a08bfa4faee90e521d6ab669f3c9b78553",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "jellyfish",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr3-aquatic/0e5cdce/jellyfish-8-back.jpg"
       }
     },
     {
