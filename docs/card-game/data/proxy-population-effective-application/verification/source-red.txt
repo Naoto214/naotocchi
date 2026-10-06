@@ -1,0 +1,14 @@
+..F
+======================================================================
+FAIL: test_ruling_source_drift_rejects_without_leaking_scope (__main__.RuntimeApplicationTests.test_ruling_source_drift_rejects_without_leaking_scope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_effect_application_runtime.py", line 54, in test_ruling_source_drift_rejects_without_leaking_scope
+    with self.assertRaisesRegex(ValueError,'source'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.164s
+
+FAILED (failures=1)

@@ -1,0 +1,23 @@
+FF
+======================================================================
+FAIL: test_partial_growth_and_independent_draw_remain_application (__main__.RuntimeApplicationTests.test_partial_growth_and_independent_draw_remain_application)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_effect_application_runtime.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'native application scope absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : native application scope absent
+
+======================================================================
+FAIL: test_real_resolution_cap_zero_keeps_resolution_without_M06_M07_basis (__main__.RuntimeApplicationTests.test_real_resolution_cap_zero_keeps_resolution_without_M06_M07_basis)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_effect_application_runtime.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'native application scope absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : native application scope absent
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

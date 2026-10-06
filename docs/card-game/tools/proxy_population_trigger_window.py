@@ -27,6 +27,8 @@ import proxy_resource_value_response as response
 from proxy_mandatory_policy_contract import canonical
 
 
+OBSERVED_EVENTS=frozenset(('main_movement','relationship_start','person_placement','place_world','attach_item','set_item','use_item','use_play','use_event','activate_response'))
+
 @contextmanager
 def resolution_boundaries(bindings):
     """Use actual execution bindings for both driver and old provenance replay.
@@ -97,7 +99,7 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
             for event,after in zip(result['events'],result['envelopes']):
                 raw={k:v for k,v in event.items() if k not in base.BIND_KEYS};history.append(raw)
                 kind=event['action_type']
-                if kind in ('main_movement','relationship_start','person_placement','place_world','attach_item','set_item','use_item','use_play','use_event','activate_response') or kind.startswith('resolve'):
+                if kind in OBSERVED_EVENTS or kind.startswith('resolve'):
                     status=previous['legacy_continuation']['response_context']['chain_status']
                     observed,source_proof=observation.observe(current_ledger,after,raw,history,status)
                     current_ledger=observed;other_proofs.append(source_proof)

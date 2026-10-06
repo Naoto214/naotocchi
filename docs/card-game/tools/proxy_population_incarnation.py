@@ -18,7 +18,15 @@ def located(e):
  result=field(game(e))
  for p in game(e)['players'].values():
   for zone in ('hand','deck','discard'):result.extend(p[zone])
- result.extend(l['source_instance_id'] for l in e['legacy_continuation']['activation_zone'] if l['source_zone']!='board')
+ for link in e['legacy_continuation']['activation_zone']:
+  zone=link.get('source_zone')
+  # Historical native hand activations predate source_zone. Their explicit
+  # action family identifies the moving source; absent arbitrary kinds fail.
+  if zone is None:
+   if link.get('action_type') not in ('use_item','use_play','use_event'):raise ValueError('activation physical source zone unproved')
+   zone='hand'
+  if zone not in ('board','hand','prepared'):raise ValueError('activation physical source zone unknown')
+  if zone!='board':result.append(link['source_instance_id'])
  if len(result)!=len(set(result)):raise ValueError('duplicate physical location')
  return result
 
