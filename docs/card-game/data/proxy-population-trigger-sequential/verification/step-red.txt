@@ -1,0 +1,25 @@
+test_all_physical_sources_are_flat_and_decline_is_not_ordinary_pass (test_proxy_population_trigger_sequential.SequentialTests.test_all_physical_sources_are_flat_and_decline_is_not_ordinary_pass) ... FAIL
+test_current_state_is_reenumerated_and_no_future_sequence_is_selected (test_proxy_population_trigger_sequential.SequentialTests.test_current_state_is_reenumerated_and_no_future_sequence_is_selected) ... FAIL
+
+======================================================================
+FAIL: test_all_physical_sources_are_flat_and_decline_is_not_ordinary_pass (test_proxy_population_trigger_sequential.SequentialTests.test_all_physical_sources_are_flat_and_decline_is_not_ordinary_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_trigger_sequential.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_current_state_is_reenumerated_and_no_future_sequence_is_selected (test_proxy_population_trigger_sequential.SequentialTests.test_current_state_is_reenumerated_and_no_future_sequence_is_selected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_trigger_sequential.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

@@ -1,0 +1,34 @@
+test_all_physical_sources_are_flat_and_decline_is_not_ordinary_pass (test_proxy_population_trigger_sequential.SequentialTests.test_all_physical_sources_are_flat_and_decline_is_not_ordinary_pass) ... ok
+test_current_state_is_reenumerated_and_no_future_sequence_is_selected (test_proxy_population_trigger_sequential.SequentialTests.test_current_state_is_reenumerated_and_no_future_sequence_is_selected) ... ok
+test_new_state_inapplicability_is_recorded_without_a_fictional_choice (test_proxy_population_trigger_sequential.SequentialTests.test_new_state_inapplicability_is_recorded_without_a_fictional_choice) ... ERROR
+
+======================================================================
+ERROR: test_new_state_inapplicability_is_recorded_without_a_fictional_choice (test_proxy_population_trigger_sequential.SequentialTests.test_new_state_inapplicability_is_recorded_without_a_fictional_choice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_trigger_sequential.py", line 58, in test_new_state_inapplicability_is_recorded_without_a_fictional_choice
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_trigger_sequential.py", line 54, in run
+    inv=api.inventory(e,l,api.StartAdapter());self.assertEqual(len(inv['legal_candidate_ids']),2)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_trigger_sequential.py", line 29, in inventory
+    actions,proof=adapter.enumerate(envelope,occurrence)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_trigger_sequential.py", line 89, in enumerate
+    if kind=='own_start_hand_at_most_two_draw' and (row['slot']!='prepared' or len(g['players'][actor]['hand'])>2):raise ValueError('start draw condition changed')
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: start draw condition changed
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.415s
+
+FAILED (errors=1)

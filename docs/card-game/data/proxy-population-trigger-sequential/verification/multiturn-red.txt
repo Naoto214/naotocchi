@@ -1,0 +1,15 @@
+test_actual_next_start_captures_pre_draw_sources_across_turns (test_proxy_population_trigger_multiturn.MultiTurnTests.test_actual_next_start_captures_pre_draw_sources_across_turns) ... ERROR
+
+======================================================================
+ERROR: test_actual_next_start_captures_pre_draw_sources_across_turns (test_proxy_population_trigger_multiturn.MultiTurnTests.test_actual_next_start_captures_pre_draw_sources_across_turns)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_trigger_multiturn.py", line 21, in test_actual_next_start_captures_pre_draw_sources_across_turns
+    self.assertIsNone(result['stop']);self.assertGreater(len(result['start_occurrence_proofs']),2)
+                                                             ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'start_occurrence_proofs'
+
+----------------------------------------------------------------------
+Ran 1 test in 12.865s
+
+FAILED (errors=1)

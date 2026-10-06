@@ -1,0 +1,41 @@
+test_arrival_recovery_keeps_every_discarded_quick_target (test_proxy_population_trigger_existing.ExistingTests.test_arrival_recovery_keeps_every_discarded_quick_target) ... ok
+test_city_occurrence_uses_the_actual_second_play_not_later_window (test_proxy_population_trigger_existing.ExistingTests.test_city_occurrence_uses_the_actual_second_play_not_later_window) ... ok
+test_end_group_uses_shared_loop_before_provenance_boundary (test_proxy_population_trigger_existing.ExistingTests.test_end_group_uses_shared_loop_before_provenance_boundary) ... ok
+test_end_sources_use_existing_inventory_and_same_flat_contract (test_proxy_population_trigger_existing.ExistingTests.test_end_sources_use_existing_inventory_and_same_flat_contract) ... ok
+test_single_forced_relationship_activation_is_not_a_seeded_judgment (test_proxy_population_trigger_existing.ExistingTests.test_single_forced_relationship_activation_is_not_a_seeded_judgment) ... FAIL
+
+======================================================================
+FAIL: test_single_forced_relationship_activation_is_not_a_seeded_judgment (test_proxy_population_trigger_existing.ExistingTests.test_single_forced_relationship_activation_is_not_a_seeded_judgment)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_trigger_existing.py", line 59, in test_single_forced_relationship_activation_is_not_a_seeded_judgment
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_trigger_existing.py", line 57, in run
+    self.assertEqual(repeated['occurrences'],[])
+AssertionError: Lists differ: [{'origin_event_seq': 3, 'source_instance_[150 chars]eo'}] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+{'origin_event_seq': 3, 'source_instance_id': 'A-017#1', 'actor': 'A', 'category': 'forced', 'ability_key': 'relationship_start', 'source_reference': '74-partner-18-card-text-draft.md#P-cat_ceo'}
+
++ []
+- [{'ability_key': 'relationship_start',
+-   'actor': 'A',
+-   'category': 'forced',
+-   'origin_event_seq': 3,
+-   'source_instance_id': 'A-017#1',
+-   'source_reference': '74-partner-18-card-text-draft.md#P-cat_ceo'}]
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.365s
+
+FAILED (failures=1)

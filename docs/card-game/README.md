@@ -1,5 +1,6 @@
 # なおとっちカードゲーム — 設計正本
 
+- [472 — 承認Aの逐次誘発契約と共通runtimeへの条件付き接続](472-sequential-trigger-connection.md)
 - [471 — 誘発機会・開始効果の条件付き検証と選択単位の承認境界](471-population-opportunity-policy-boundary.md)
 - [470 — 離脱・回収・連続runtime接続bundle](470-population-runtime-completeness-bundle.md)
 - [469 — 過去入力台帳・乱数材料・不変保存の検証bundle](469-population-input-authentication-bundle.md)

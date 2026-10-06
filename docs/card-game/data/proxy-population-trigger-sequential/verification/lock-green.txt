@@ -1,0 +1,9 @@
+test_live_and_provenance_resolution_share_the_same_boundary_adapter (test_proxy_population_trigger_window.ResolutionTests.test_live_and_provenance_resolution_share_the_same_boundary_adapter) ... ok
+test_failed_step_does_not_keep_a_phantom_trigger_record (test_proxy_population_trigger_window.TransactionTests.test_failed_step_does_not_keep_a_phantom_trigger_record) ... ok
+test_invalid_opening_cannot_leak_the_extension_lock (test_proxy_population_trigger_window.TransactionTests.test_invalid_opening_cannot_leak_the_extension_lock) ... ok
+test_group_then_ordinary_responses_use_existing_loop_and_exact_replay (test_proxy_population_trigger_window.WindowTests.test_group_then_ordinary_responses_use_existing_loop_and_exact_replay) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.403s
+
+OK
