@@ -13,7 +13,7 @@ const TAU = Math.PI * 2;
 const approach = (v, to, d) => (v < to ? Math.min(to, v + d) : Math.max(to, v - d));
 const lerp = (a, b, t) => a + (b - a) * t;
 export const REACTION_MS = { hop: 700, huff: 800, yawn: 1400, wobble: 1100 };
-export const GAIT_HZ = { quadWalk: 2.1, waddle: 2.4, swimHover: 1.6, humanWalk: 1.9, crawl: 1.5, inchCrawl: 1.3, hangSway: 0.6, hopSway: 1.8, flutter: 1.0, plantSway: 1.6, squashHop: 1.7, clusterBob: 1.6, radialShuffle: 1.7, blobFloat: 1.2 };
+export const GAIT_HZ = { quadWalk: 2.1, waddle: 2.4, swimHover: 1.6, humanWalk: 1.9, crawl: 1.5, inchCrawl: 1.3, hangSway: 0.6, hopSway: 1.8, flutter: 1.0, plantSway: 1.6, squashHop: 1.7, clusterBob: 1.6, radialShuffle: 1.7, blobFloat: 1.2, insectWalk: 2.2 };
 
 // Grafted fish reuse the owning actor's gait phase; only their appendages move.
 // No extra actor state, root hover, emotion vocabulary or gameplay events.
@@ -54,6 +54,17 @@ function restore(bones) {
 
 // ---------------- base locomotion
 const LOCO = {
+  insectWalk(B,s,m,k) {
+    const ph=s.phase*TAU;
+    for(let i=0;i<6;i++) {
+      // Opposite front/rear and the intervening middle leg form each tripod.
+      const phase=ph+([0,Math.PI,Math.PI,0,0,Math.PI][i]);
+      B['leg'+i].rotation.y+=Math.sin(phase)*.24*m*k.amp;
+      B['leg'+i].rotation.z+=(i%2?1:-1)*Math.max(0,Math.cos(phase))*.12*m*k.amp;
+    }
+    B.body.position.y+=Math.abs(Math.sin(ph))*.012*m*k.amp;
+    B.head.rotation.y+=Math.sin(s.t*1.5)*.025*k.idle;
+  },
   quadWalk(B, s, m, k, meta) {
     const ph = s.phase * TAU, sw = 0.6 * m * k.amp;
     if (B.legFL) { B.legFL.rotation.x += Math.sin(ph) * sw; B.legBR.rotation.x += Math.sin(ph) * sw; B.legFR.rotation.x += Math.sin(ph + Math.PI) * sw; B.legBL.rotation.x += Math.sin(ph + Math.PI) * sw; }

@@ -120,6 +120,29 @@ jobs:
         with:
           name: full-rollout-aquatic-distance-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/aquatic-distance
+  armored-candidate-distance:
+    strategy:
+      fail-fast: false
+      matrix:
+        line: [beetle, stagbeetle]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - env:
+          QA_LINE: ${{ matrix.line }}
+        run: node tools/character-3d/meguru-qa.cjs --candidate-armored --rollout --species-only --line "$QA_LINE" --out test-results/full-rollout/armored-distance
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-armored-distance-${{ matrix.line }}-${{ github.sha }}
+          path: test-results/full-rollout/armored-distance
   fish-performance:
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -173,9 +196,11 @@ jobs:
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/fish --fish
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/humanoid --human
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/topology --topology
+      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/armored --armored
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/aquatic --aquatic
       - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/candidate-motion
       - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/aquatic-motion coral:2,coral:5,coral:7,coral:8,jellyfish:1,jellyfish:4,jellyfish:7
+      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/armored-motion beetle:7,stagbeetle:7
       - run: node tools/character-3d/gallery-smoke.cjs
       - uses: actions/upload-artifact@v4
         if: always()
@@ -186,6 +211,8 @@ jobs:
             test-results/full-rollout/fish
             test-results/full-rollout/humanoid
             test-results/full-rollout/gallery
+            test-results/full-rollout/armored
+            test-results/full-rollout/armored-motion
             test-results/full-rollout/aquatic
             test-results/full-rollout/aquatic-motion
             test-results/full-rollout/topology
@@ -220,6 +247,7 @@ jobs:
           node tools/character-3d/shell-remove-it.cjs > test-results/full-rollout/shell-remove-it.txt
           node tools/character-3d/crouch-remove-it.cjs > test-results/full-rollout/crouch-remove-it.txt
           node tools/character-3d/aquatic-remove-it.cjs > test-results/full-rollout/aquatic-remove-it.txt
+          node tools/character-3d/armored-remove-it.cjs > test-results/full-rollout/armored-remove-it.txt
           node tools/character-3d/jelly-remove-it.cjs > test-results/full-rollout/jelly-remove-it.txt
       - uses: actions/upload-artifact@v4
         if: always()

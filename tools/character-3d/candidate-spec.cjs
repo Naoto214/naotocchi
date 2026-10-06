@@ -13,7 +13,7 @@ function loadHumanCandidates(createCandidates){
  return context.module.exports;
 }
 function candidateConfig(args){
- const kinds=['human','topology','aquatic'].filter(k=>args.includes('--candidate-'+k));
+ const kinds=['human','topology','aquatic','armored'].filter(k=>args.includes('--candidate-'+k));
  if(!kinds.length)return null;
  if(kinds.length!==1)throw Error('Choose one candidate wave');
  const kind=kinds[0],factory=require('../../character-3d/'+(kind==='human'?'humanoid':kind)+'-spec.js');

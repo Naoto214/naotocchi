@@ -1,6 +1,8 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','tests/character-3d-jelly-wave-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['face target','character-3d/jelly-organism.mjs','target:core,center:','target:bell,center:'],
+ ['height bounded face','character-3d/jelly-organism.mjs','Math.min(b.radius*.53,b.height*.65)','b.radius*.9'],
  ['physical bell transparency','character-3d/jelly-organism.mjs',"'translucent:'+b.alpha","'opaque'"],
  ['connected tentacle groups','character-3d/jelly-organism.mjs','i<4;i++','i<0;i++'],
  ['owned appendage motion','character-3d/animate.mjs','(meta.tentacleGroups||0)','0']
