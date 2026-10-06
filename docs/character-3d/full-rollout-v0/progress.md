@@ -276,3 +276,7 @@ Local exec-server stopped accepting commands with `No such file or directory`. G
 - Representative review saved fr3-aquatic/233e2d3:13JPEGs andraw four-view/distance evidence. Original geometry and game state unchanged. Prior registry-prefix fix included in next remote checkpoint.
 - Full8 remain candidates pending immutable full-image/distance gate. Exact114/293 unchanged. Representative cap correction and new colony morphology require recapture.
 - Fresh full dedicated132PASS/0FAIL; aquatic5/5mutationsRED;Pilot28 numeric geometry/pose hashes unchanged after restoration. Full immutableCI and full8 browser evidence pending.
+
+### Promoted aggregate and multi-face QA readout
+- Source71539b8 CharacterCI37400181240 SUCCESS;artifact11385342445 independently verified112/112 across14shards with requested/spec/exact/live/fallback0/errors0. Saved immutable aggregate under fr2-shell/71539b8. Runtime/Home still running at read.
+- New colony motion exposed a QA-only readout issue:production multiFace is a setter facade,so instance.face.emotion is unreadable for grouped faces. Added actual-owned-face snapshot validation (RED missing helper → GREEN real3-face colony test and mismatched-face rejection),used by wave-review. Runtime canonical expression code unchanged. Source52ff old readout may fail candidate-motion;do not call it a full QA pass.

@@ -142,3 +142,7 @@ Known visual candidates: mature age impression, woman06 hair softness, held plus
 ## Shell/crouch promotion checkpoint
 
 `fr2-shell/b1087ac/README.md`:16 reviewed stages,231 saved JPEGs, source-fixed distance and representative expression/motion JSON. Standard runtime matrix now14families/112stages; promotion CI pending.
+
+## Promoted runtime evidence71539b8
+
+`fr2-shell/71539b8/stage-coverage.json`:CharacterCI37400181240SUCCESS;independently verified14families/112stages,all exact/live,fallback0/errors0. Full Rollout remains114/293 until later candidate waves pass their own gates. Coral8 candidate shapes are not yet counted.
