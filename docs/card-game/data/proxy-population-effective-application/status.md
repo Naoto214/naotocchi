@@ -196,3 +196,5 @@ preflight-ready=false。全合法性・許可情報・比較operand・全rule機
 専用6PASS、review修正＋既存誘発10PASS、最終関連52PASS（223.910s、保存115/零root全20turn、候補、policy journal、admission、連鎖、手札誘発を含む）。review後の追加capacity fixtureの失敗も保存。設計errors=[]、番号付きtop-level正本376ファイルを直前保存blobと照合し一致。87638396版1630全proxy／406npmと今回差分の関連検証を区別する。
 
 preflight-ready=false。今回のcore predicate検証を完全合法性や対戦算入へ昇格しない。残作業は個別能力の合法性・実情報利用・比較operandのsource根拠、全rule機会の合成、結果前remote lock／外部実行承認への接続。未証明／116除外は予定400行・200群から落とさず、全体結論null。実seed採取、400戦入力固定、新対戦0、新方式未採用。
+
+41本文との続行監査では、じんとりの発動条件を確認した。114は7枚以上を明示した手動裁定、127はその境界を明文化済み。85/86の解決時6枚で0と両立し、06/474もこの個別条件を撤回していない。独立read-only source reviewで確認し、追加裁定・ユーザー質問・コード変更は不要とした。既存の発動時7枚条件を維持する。詳細はverification/area-activation-source-review.md。
