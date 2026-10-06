@@ -148,7 +148,7 @@ def scope():
  def apply(envelope,record,inputs):
   a=record.get('selected_action',{})
   if a.get('card_id')=='C-cat_friend' and a.get('action_type')=='activate_companion_ability':
-   if canonical(select(envelope,record['inventory'],record['context'],record['policy_id'],inputs))!=canonical(record):raise ValueError('normal recovery choice changed')
+   if canonical(candidates.select(envelope,record['inventory'],record['context'],record['policy_id'],inputs))!=canonical(record):raise ValueError('normal recovery choice changed')
    return activate_normal(envelope,a,inputs['public_events'])
   return old_apply(envelope,record,inputs)
  def boards(current,events,source,slot=None,runtime=None):

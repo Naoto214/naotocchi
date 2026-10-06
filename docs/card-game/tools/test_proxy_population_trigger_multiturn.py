@@ -19,6 +19,8 @@ class MultiTurnTests(unittest.TestCase):
   s=Session(dict(protocol_id='policy_conditional_population.v1',group_id='test-1',mirror_side='A_first'),{'A':'00'*32,'B':'00'*32});s.turn_start('A','opening')
   result=api.segment(e,i,prefix['events'],shots,[e],40,proof,session=s)
   self.assertIsNone(result['stop']);self.assertGreater(len(result['start_occurrence_proofs']),2)
+  self.assertEqual(len(result['closed_turn_trigger_ledgers']),len(result['start_occurrence_proofs'])-1)
+  self.assertTrue(all(r['supplied_occurrences_closed'] and not r['opportunity_completeness_proven'] for r in result['closed_turn_trigger_ledgers']))
   for record in result['start_occurrence_proofs'][1:]:
    self.assertGreater(record['origin_event_seq'],record['capture']['event_seq']);self.assertFalse(record['start_execution_authenticated'])
   self.assertEqual(result['independent_balance_samples'],0);self.assertFalse(result['ready_for_execution'])

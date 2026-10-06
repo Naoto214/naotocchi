@@ -1,0 +1,15 @@
+test100_keeps_unknown_priorities_and_uses_existing_excluded116 (test_proxy_population_unproved_priority.UnprovedPriorityTests.test100_keeps_unknown_priorities_and_uses_existing_excluded116) ... FAIL
+
+======================================================================
+FAIL: test100_keeps_unknown_priorities_and_uses_existing_excluded116 (test_proxy_population_unproved_priority.UnprovedPriorityTests.test100_keeps_unknown_priorities_and_uses_existing_excluded116)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_unproved_priority.py", line 11, in test100_keeps_unknown_priorities_and_uses_existing_excluded116
+    self.assertIsNotNone(api,'unknown priority execution bridge absent');helper=fixtures.ChallengeTests();helper.setUp()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : unknown priority execution bridge absent
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (failures=1)

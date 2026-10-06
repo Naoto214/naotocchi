@@ -106,7 +106,11 @@ class OtherTimingTests(unittest.TestCase):
      if s in p[z]:p[z].remove(s)
    p['board']['world']=worlds[0];p['hand'].append(worlds[1]);after=copy.deepcopy(before);after['event_seq']+=1;q=after['legacy_continuation']['game_state']['players']['A'];q['board']['world']=worlds[1];q['hand'].remove(worlds[1]);q['discard'].append(worlds[0])
    event=triggers._raw_event(state.current(before),state.current(after),'place_world','A',source_instance_id=worlds[1],previous_world_instance_id=worlds[0]);rows=api.capture(before,after,event)['occurrences'];self.assertEqual([r['source_instance_id'] for r in rows],[goat]);self.assertEqual(len(api.current_actions(after,rows[0])[0]),1)
-   q['board']['main']=None;q['hand'].append(main);self.assertEqual(api.current_actions(after,rows[0])[0],[])
+   for envelope in (before,after):
+    player=envelope['legacy_continuation']['game_state']['players']['A'];player['discard'].append(player['board']['main']);player['board']['main']=None
+   event=triggers._raw_event(state.current(before),state.current(after),'place_world','A',source_instance_id=worlds[1],previous_world_instance_id=worlds[0])
+   proof=api.capture(before,after,event);self.assertEqual(proof['occurrences'],[]);self.assertEqual(next(r for r in proof['classifications'] if r['source_instance_id']==goat)['reason'],'partner_suppressed_at_occurrence_while_egg')
+   self.assertEqual(api.current_actions(after,rows[0])[0],[])
    return {}
   base.operation(initial(),run)
 

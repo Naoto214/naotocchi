@@ -36,6 +36,16 @@ def audit_ledger(journal):
     if canonical(expected)!=canonical(journal):raise ValueError('trigger ledger reconstruction differs')
 
 
+def close_turn(journal,envelope):
+    """Archive supplied occurrences before a driver discards the turn ledger."""
+    audit_ledger(journal);c=envelope['legacy_continuation'];g=c['game_state'];seq=envelope['event_seq']
+    if g['phase'] not in ('turn_end','completed') or g['turn_player']!=journal['turn_player'] or c['activation_zone'] or c['pending_triggers'] or type(seq) is not int:
+        raise ValueError('trigger closure requires an empty actual turn boundary')
+    if any(r['status'] not in ('activated','declined','ineligible') for r in journal['occurrences'].values()):raise ValueError('unfinished trigger occurrence at turn boundary')
+    if any(r['occurrence']['origin_event_seq']>seq for r in journal['occurrences'].values()):raise ValueError('trigger closure precedes occurrence')
+    return dict(schema='closed_turn_trigger_ledger.v1',round=g['round'],turn_player=g['turn_player'],boundary_event_seq=seq,boundary_envelope_sha256=state.canonical_sha256(envelope),ledger=copy.deepcopy(journal),ledger_sha256=hashlib.sha256(canonical(journal)).hexdigest(),supplied_occurrences_closed=True,origin_authenticated=False,opportunity_completeness_proven=False)
+
+
 def inventory(envelope,journal,adapter):
     state.validate(envelope);audit_ledger(journal)
     group=ledger.offer(journal)

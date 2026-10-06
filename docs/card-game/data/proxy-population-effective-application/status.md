@@ -19,3 +19,13 @@ coinのdepth1/2制限を新top-link adapterで外し、外側の未解決linkを
 終了historyで新eventを再構成し、実増加のprovenanceを登録する。レビュー後の直接照合テストは正規化終了先・改変event/stateを検査。明示native hand actionのsource_zone省略はM06タイミング捕捉にも接続。詳細レビューはverification/review.md。
 
 未完了：W-countryside／その他全成長箇所の上限証拠、100時通常判断の既存114/116証拠、100維持の全historyと終了6段階、全機会の合成監査、入力真正性／lockと実行gate、全体最終検証。ready=falseを維持する。今回の安全保存後も続行し、実行承認はまだ求めない。
+
+## 100・終了・合法性・閉鎖台帳bundle（後続保存）
+
+前節の残件のうち、bounded challenge/W-countryside/結婚、typed失効、100維持履歴の6段階終了への条件付き接続、既存116の未知上位frontier、paid/recovery再照合を実装。population203件PASS（234.890s）。100到達完走の真正入力検証とは区別する。
+
+91/87由来のfirst-date他段階／hit-blow空山札の合法性と、既存119未解決fallbackを接続。関連20件PASS（121.429s）。全turnの閉じた誘発台帳を保持し、pending/deferredを残した置換を拒否。closure関連7件PASS（6.351s）。02の出来事時たまごのpartner無効はlatching7件PASS（0.294s）。新規カード、カード本文、数値、114 table、旧adapter、過去artifactは変更しない。
+
+新bundle独立レビューC0/I0/Minor1（テスト名の範囲、詳細threshold-review.md）。npm406件PASS。全proxy回帰は別途実行中であり、この保存時点では完了結果を主張しない。保存後も作業を継続する。
+
+残件：正本由来の全機会義務と実台帳の合成監査、実state履歴による継続効果の適用履歴照合、判断/対戦/鏡像/400行の真正な適格性審査、OS生成来歴・remote事前lock・実行承認gate。preflight-ready=false。400戦用seed／入力／実行は0、新方式未採用。

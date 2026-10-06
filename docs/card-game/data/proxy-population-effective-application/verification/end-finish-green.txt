@@ -1,0 +1,8 @@
+test_early_terminal_requires_all_six_stages_and_keeps_hash_chain (test_proxy_population_end_victory.EndVictoryTests.test_early_terminal_requires_all_six_stages_and_keeps_hash_chain) ... ok
+test_r10_keeps_full_history_but_never_declares_early_victory (test_proxy_population_end_victory.EndVictoryTests.test_r10_keeps_full_history_but_never_declares_early_victory) ... ok
+test_six_stages_preserve_reach_history_and_derive_future_opponent_end (test_proxy_population_end_victory.EndVictoryTests.test_six_stages_preserve_reach_history_and_derive_future_opponent_end) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.137s
+
+OK

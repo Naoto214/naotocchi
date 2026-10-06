@@ -3,7 +3,7 @@
 No execution authenticity is inferred from caller-supplied state/event pairs.
 Only four current107 timings are connected; other timings remain outside scope.
 """
-import copy
+import copy,hashlib
 import proxy_continuation_state as state
 import proxy_continuation_rules as rules
 import proxy_continuation_batch as batch
@@ -52,6 +52,9 @@ def capture(before,after,event):
    previous=prior['game_state']['players'][actor]['board']['world'];new=current['game_state']['players'][actor]['board']['world']
    if event.get('previous_world_instance_id')!=previous or event.get('source_instance_id')!=new:raise ValueError('world change receipt differs')
    met=previous is not None and new is not None and prior['game_state']['cards'][previous]['card_id']!=current['game_state']['cards'][new]['card_id'];reason='different_world_change' if met else 'not_different_world_change'
+  if public[source]['slot']=='partner' and prior['game_state']['players'][actor]['board']['main'] is None:
+   if hashlib.sha256((rules.ROOT/'02-main-system.md').read_bytes()).hexdigest()!='6a0d04606f066f9078e88422394d3d0c5f5c6d927806bb0be99366f503af5127':raise ValueError('partner suppression source changed')
+   met=False;reason='partner_suppressed_at_occurrence_while_egg'
   classified.append(dict(source_instance_id=source,reason=reason,source_reference=cap['reference'],source_raw_sha256=cap['source_raw_sha256']))
   if met:
    row=dict(origin_event_seq=event['seq'],source_instance_id=source,actor=actor,category='optional',ability_key=cap['timing'],source_reference=cap['reference']);ledger.identity(row);rows.append(row)

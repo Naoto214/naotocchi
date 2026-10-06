@@ -22,3 +22,9 @@ Interface audit: native効果の既存receiptは指示量と実増加を混同�
 - 関連179件PASS完了。以後のchain/latching/entry結合22件PASS（101.337s）。R10最終比較までの固定unit接続を達成、これは部分入力の接続検証であり独立標本ではない。
 - 3種類のquick top-linkを共有し、既存native hit/first-dateを利用。完全な外側chain保持、bounded growth、公開／drawと適用なし、現在incarnation対象／retired対象、終了正規化と履歴再照合を接続。
 - 独立レビュー1回の指摘をverification/review.mdへ記録。source読込lock leakと終了復帰をRED→GREEN修正。challenge reward上限をnative比較後の実増加・結果・hashへ接続（新規価値付けなし）。以後の変更は最終関連検証でまとめる。
+
+- 100到達後のbundle: challenge報酬・W-countryside・結婚のbounded実増加、typed当ターン効果失効、実到達／維持履歴と終了6段階を接続。通常選択の未知上位値はNoneのまま、既存114で証明できた劣位だけ除外し、残りを116へ委譲。paid/recoveryの適用再照合も現在の共通selectorへ接続。専用RED→GREEN、関連29件PASS、population203件PASS（234.890s）。100履歴の終端テストには条件付きhistoryとmockを含み、真正な新400入力や100到達対戦を検証した主張ではない。
+- 横断監査: current107全41カードの本文sectionと能力classificationを照合。静的一覧をcurrent107-source-routing.jsonへ保存。これはhandler実行／判断機会網羅の証明ではない。通常／response、開始、登場、quick発動、効果適用、セカイ変更、challenge宣言、終了、継続補正、支払軽減、置換を別責務として扱う。
+- 一意な不足を発見: 91のfirst-dateは段階0を解決条件と明記し他段階の発動を許すが、既存列挙器が0限定。87のhit-blowは空山札で分岐不実施を定めるが旧responseは候補を除外。保護114 table／旧adapterは変更せず、現行別版へ合法性を接続するRED→GREENを開始。旧responseの固定+5を新規合法範囲へ流用しない。新しい点数や解決済みの主張ではなく119未解決fallback／116除外を維持する。
+- 誘発台帳を手番変更前・最終完了時にarchiveし、pending/deferredを残した破棄を拒否。RED→GREEN、関連7件PASS。02のpartner出来事時たまご抑止はsource hashと陰性捕捉を追加し7件PASS。
+- 新bundle独立レビューC0/I0/Minor1（test名の未検証部分、threshold-review.md）。npm406PASS。全proxy回帰実行中。次の全機会監査では、C-chameleonの過去の場在籍を配置event名だけで再構成しないことを確認する。実snapshotからの公開継続適用照合を/tmpにTDD試作中（未接続、今回Git保存に含めない）。

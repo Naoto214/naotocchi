@@ -1,0 +1,26 @@
+test_board_growth_cap_and_verified_provenance_use_actual_delta (test_proxy_population_growth_runtime.GrowthRuntimeTests.test_board_growth_cap_and_verified_provenance_use_actual_delta) ... FAIL
+
+======================================================================
+FAIL: test_board_growth_cap_and_verified_provenance_use_actual_delta (test_proxy_population_growth_runtime.GrowthRuntimeTests.test_board_growth_cap_and_verified_provenance_use_actual_delta)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_growth_runtime.py", line 27, in test_board_growth_cap_and_verified_provenance_use_actual_delta
+    base.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_growth_runtime.py", line 24, in run
+    self.assertEqual(after['legacy_continuation']['game_state']['players']['A']['growth'],100);self.assertEqual(event['result']['growth_added'],0);self.assertEqual(event['application_evidence']['status'],'not_applied')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 105 != 100
+
+----------------------------------------------------------------------
+Ran 1 test in 0.044s
+
+FAILED (failures=1)

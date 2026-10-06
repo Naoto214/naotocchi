@@ -1,0 +1,29 @@
+test_closed_end_expires_known_modifiers_at100_without_deciding_victory (test_proxy_population_growth_runtime.GrowthRuntimeTests.test_closed_end_expires_known_modifiers_at100_without_deciding_victory) ... ERROR
+
+======================================================================
+ERROR: test_closed_end_expires_known_modifiers_at100_without_deciding_victory (test_proxy_population_growth_runtime.GrowthRuntimeTests.test_closed_end_expires_known_modifiers_at100_without_deciding_victory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_growth_runtime.py", line 54, in test_closed_end_expires_known_modifiers_at100_without_deciding_victory
+    base.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_growth_runtime.py", line 51, in run
+    with api.scope():r=payments.expire(e)
+                       ^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_payments.py", line 289, in expire
+    if g['phase']!='turn_end' or c['activation_zone'] or c['pending_triggers'] or c['response_context']['consecutive_passes']!=2 or any(p['growth']>=100 or p['reservations'] for p in g['players'].values()):raise ValueError('payment expiry requires closed end with priority proof')
+                                                                                                                                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: payment expiry requires closed end with priority proof
+
+----------------------------------------------------------------------
+Ran 1 test in 0.028s
+
+FAILED (errors=1)

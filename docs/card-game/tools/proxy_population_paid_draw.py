@@ -89,7 +89,7 @@ def scope():
   action=record.get('selected_action',{})
   combined=any(a.get('card_id') in DESCRIPTORS and a.get('action_type')=='activate_main_ability' for a in record.get('inventory',{}).get('legal_candidate_details',[]))
   if combined:
-   if canonical(select(envelope,record['inventory'],record['context'],record['policy_id'],inputs))!=canonical(record):raise ValueError('paid choice changed')
+   if canonical(candidates.select(envelope,record['inventory'],record['context'],record['policy_id'],inputs))!=canonical(record):raise ValueError('paid choice changed')
    if action.get('card_id') in DESCRIPTORS and action.get('action_type')=='activate_main_ability':return activate_normal(envelope,action,inputs['public_events'])
    if action.get('card_id')=='C-cat_friend' and action.get('action_type')=='activate_companion_ability':return recovery.activate_normal(envelope,action,inputs['public_events'])
    game=envelope['legacy_continuation']['game_state']

@@ -1,0 +1,49 @@
+test_paid_handler_revalidates_current_excluded_policy_at100 (test_proxy_population_unproved_priority.UnprovedPriorityTests.test_paid_handler_revalidates_current_excluded_policy_at100) ... ERROR
+
+======================================================================
+ERROR: test_paid_handler_revalidates_current_excluded_policy_at100 (test_proxy_population_unproved_priority.UnprovedPriorityTests.test_paid_handler_revalidates_current_excluded_policy_at100)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_unproved_priority.py", line 28, in test_paid_handler_revalidates_current_excluded_policy_at100
+    base.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_unproved_priority.py", line 26, in run
+    step=base._step(e,initial(),[],[],[e],forced);self.assertEqual(step['evaluation']['legacy_116'],'excluded');self.assertEqual(len(step['events']),1)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 71, in _step
+    after,generated=base.actions.apply(e,record,dict(public_events=events))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_paid_draw.py", line 92, in apply
+    if canonical(select(envelope,record['inventory'],record['context'],record['policy_id'],inputs))!=canonical(record):raise ValueError('paid choice changed')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_paid_draw.py", line 87, in select
+    return departure.select_verified_zero_immediate(envelope,inventory,context,policy,paid+cats+replacements,'existing_own_turn_paid_draw',batch.classification(paid[0]['card_id'])['source_raw_sha256'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_departure.py", line 101, in select_verified_zero_immediate
+    existing,certificates=candidates._scores(envelope,delegated)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch.py", line 252, in scores
+    existing,certs=originals[1](envelope,delegated);byid={s['candidate_id']:s for s in existing}
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_worlds.py", line 104, in scores
+    existing,certs=original_scores(envelope,delegated)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_capabilities.py", line 82, in scores
+    existing,certs=original_scores(envelope,delegated)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_candidates.py", line 135, in _scores
+    raise ValueError('upper-priority or pending-effect proof unavailable')
+ValueError: upper-priority or pending-effect proof unavailable
+
+----------------------------------------------------------------------
+Ran 1 test in 0.064s
+
+FAILED (errors=1)

@@ -1,0 +1,25 @@
+test_r10_keeps_full_history_but_never_declares_early_victory (test_proxy_population_end_victory.EndVictoryTests.test_r10_keeps_full_history_but_never_declares_early_victory) ... FAIL
+test_six_stages_preserve_reach_history_and_derive_future_opponent_end (test_proxy_population_end_victory.EndVictoryTests.test_six_stages_preserve_reach_history_and_derive_future_opponent_end) ... FAIL
+
+======================================================================
+FAIL: test_r10_keeps_full_history_but_never_declares_early_victory (test_proxy_population_end_victory.EndVictoryTests.test_r10_keeps_full_history_but_never_declares_early_victory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_end_victory.py", line 32, in setUp
+    def setUp(self):self.assertIsNotNone(api,'full-history end bridge absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : full-history end bridge absent
+
+======================================================================
+FAIL: test_six_stages_preserve_reach_history_and_derive_future_opponent_end (test_proxy_population_end_victory.EndVictoryTests.test_six_stages_preserve_reach_history_and_derive_future_opponent_end)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_end_victory.py", line 32, in setUp
+    def setUp(self):self.assertIsNotNone(api,'full-history end bridge absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : full-history end bridge absent
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

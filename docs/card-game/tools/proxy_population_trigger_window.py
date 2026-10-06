@@ -84,7 +84,7 @@ def _step_record(record):
 def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
     original_operation=base.operation;original_step=base._step
     current_ledger=ledger.observe(ledger.create(proof['capture']['turn_player']),proof['occurrences'],'empty')
-    records=[];active=True;current_proof=copy.deepcopy(proof);mode=proof.get('group_kind','start');start_proofs=[copy.deepcopy(proof)] if mode=='start' else [];other_proofs=[];boundaries={}
+    records=[];closed_turns=[];active=True;current_proof=copy.deepcopy(proof);mode=proof.get('group_kind','start');start_proofs=[copy.deepcopy(proof)] if mode=='start' else [];other_proofs=[];boundaries={}
     if not completion._EXTENSION_LOCK.acquire(blocking=False):raise ValueError('extension scope reentry/concurrency forbidden')
     def scoped(forced):
         if mode=='start':connection.validate_opening(envelope,proof)
@@ -120,6 +120,7 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
             captures=[e for e in result['envelopes'] if e['legacy_continuation']['game_state']['phase']=='turn_start']
             if len(captures)!=1:raise ValueError('actual start source-capture coverage differs')
             new_proof=starts.collect(starts.capture(captures[0]),finals)
+            closed_turns.append(sequential.close_turn(current_ledger,before))
             new_ledger=ledger.observe(ledger.create(c['game_state']['turn_player']),new_proof['occurrences'],'empty')
             current_proof=new_proof;current_ledger=new_ledger;active=True;mode='start';start_proofs.append(copy.deepcopy(new_proof))
             return result
@@ -143,19 +144,20 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
         def step(*args,**kwargs):
             nonlocal current_ledger,active,current_proof,mode
             before=copy.deepcopy((current_ledger,active,current_proof,mode,boundaries))
-            lengths=(len(records),len(start_proofs),len(other_proofs))
+            lengths=(len(records),len(start_proofs),len(other_proofs),len(closed_turns))
             try:return step_body(*args,**kwargs)
             except Exception:
                 current_ledger,active,current_proof,mode,saved_boundaries=before
                 boundaries.clear();boundaries.update(saved_boundaries)
-                del records[lengths[0]:];del start_proofs[lengths[1]:];del other_proofs[lengths[2]:]
+                del records[lengths[0]:];del start_proofs[lengths[1]:];del other_proofs[lengths[2]:];del closed_turns[lengths[3]:]
                 raise
         with departure.scope(),recovery.scope(),instances.scope(),references.scope(),replay.scope(),resolution_boundaries(boundaries):
             try:
                 base.operation=reuse;base._step=step
                 result=base.segment(envelope,initial,events,shots,runtime,limit,session)
+                if result['completed']:closed_turns.append(sequential.close_turn(current_ledger,result['final_envelope']))
                 result.update(connection_revision='conditional_sequential_start_window_A',trigger_records=records,trigger_ledger=current_ledger,start_occurrence_proofs=start_proofs,other_occurrence_proofs=other_proofs,
-                    origin_authenticated=False,opportunity_completeness_proven=False)
+                    closed_turn_trigger_ledgers=closed_turns,origin_authenticated=False,opportunity_completeness_proven=False)
                 return result
             finally:base.operation=original_operation;base._step=original_step
     try:return original_operation(initial,scoped)

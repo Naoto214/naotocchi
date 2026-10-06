@@ -1,0 +1,21 @@
+FF
+======================================================================
+FAIL: test_closed_bookkeeping_is_preserved_without_claiming_origin_or_execution (test_proxy_population_trigger_closure.ClosureTests.test_closed_bookkeeping_is_preserved_without_claiming_origin_or_execution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_trigger_closure.py", line 15, in test_closed_bookkeeping_is_preserved_without_claiming_origin_or_execution
+    self.assertTrue(hasattr(api,'close_turn'))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_pending_or_deferred_occurrences_cannot_disappear_at_next_turn (test_proxy_population_trigger_closure.ClosureTests.test_pending_or_deferred_occurrences_cannot_disappear_at_next_turn)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_trigger_closure.py", line 9, in test_pending_or_deferred_occurrences_cannot_disappear_at_next_turn
+    self.assertTrue(hasattr(api,'close_turn'),'cross-turn trigger closure absent')
+AssertionError: False is not true : cross-turn trigger closure absent
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)
