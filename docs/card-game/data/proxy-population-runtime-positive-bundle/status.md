@@ -20,3 +20,9 @@ One independent review by /root/review473 reported Critical0 Important1 Minor0: 
 A separate, NOT integrated100/105 lifecycle component and3 tests were reconstructed after loss. Original pre-loss RED/GREEN logs survive; the rewritten tests are not byte-identical. The reconstructed3 tests PASS. It preserves old metadata/reservation references, increments the generation only on actual repeated field entry, rejects missing/forged transitions and duplicate physical location, and offers an active-card local projection. Native movement legitimacy, whole event/hash binding, mandatory-policy frame integration and the execution-loop connection remain outstanding. It is NOT a completed lifecycle adapter or preflight-ready gate. No protected source was changed to bypass existing reentry guards.
 
 Continue with lifecycle integration, challenge timing, public100/end integration, authenticated full entry and final preflight. Do not request execution approval or claim ready while these remain incomplete.
+
+## Completed connection bundle /473 ruling boundary
+
+The earlier paragraphs are chronological recovery records, not the current final verification summary. Positive paid/latching/effects/window/victory dedicated24 PASS; selector shadowing review issue fixed. Conditional lifecycle integration now exists in the separate incarnation bundle, with two independently reviewed issues fixed by author TDD. Full baseline1498 and current supplemental/related verification are reported exactly in ../proxy-population-incarnation/verification/final-summary.json. None of the interrupted full runs count as PASS.
+
+The required new ruling at100 is documented in473 and ../proxy-population-incarnation/ruling-boundary.md. Preflight remains false, old100 guards stay closed, and remaining challenge/end/full-entry/lock work is not claimed complete. No experiment seeds,400 input material, new games or promotion.

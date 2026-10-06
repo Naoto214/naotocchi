@@ -1,0 +1,13 @@
+F.
+======================================================================
+FAIL: test_bad_initial_connection_does_not_leave_shared_lock (__main__.WindowTests.test_bad_initial_connection_does_not_leave_shared_lock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_incarnation_window.py", line 35, in test_bad_initial_connection_does_not_leave_shared_lock
+    self.assertFalse(api._LOCK.locked())
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.344s
+
+FAILED (failures=1)

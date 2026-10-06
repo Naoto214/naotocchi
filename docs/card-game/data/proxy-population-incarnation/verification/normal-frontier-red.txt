@@ -1,0 +1,13 @@
+F
+======================================================================
+FAIL: test_pure_challenge_pass_frontier_preserves_116_exclusion_and_real_step (__main__.NormalFrontierTests.test_pure_challenge_pass_frontier_preserves_116_exclusion_and_real_step)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_normal_frontier.py", line 12, in test_pure_challenge_pass_frontier_preserves_116_exclusion_and_real_step
+    self.assertIsNotNone(api,'pure116 current frontier connection absent')
+AssertionError: unexpectedly None : pure116 current frontier connection absent
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (failures=1)
