@@ -1,6 +1,10 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
-const run=()=>cp.spawnSync(process.execPath,['--test','tests/character-3d-armored-wave-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
+const run=()=>cp.spawnSync(process.execPath,['--test','tests/character-3d-armored-wave-test.cjs','tests/character-3d-armored-juvenile-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['curved grub','character-3d/archetypes.mjs','sp.bodyPath || (sp.hang','(sp.hang'],
+ ['thoracic feet','character-3d/archetypes.mjs','for(const t of sp.thoracicFeet||[])','for(const t of [])'],
+ ['folded pupal legs','character-3d/archetypes.mjs','for(const points of sp.foldedLegs)','for(const points of [])'],
+ ['developing pupal horn','character-3d/archetypes.mjs','if(sp.horn){organs.push','if(false){organs.push'],
  ['raised young covers','character-3d/armored-insect.mjs','side*(s.open||0)','0'],
  ['jaw face clearance','character-3d/armored-spec.js','[-.13,-.11,.11]','[-.13,.045,.11]'],
  ['six legs','character-3d/armored-insect.mjs','sp.legs.entries()','sp.legs.slice(0,4).entries()'],

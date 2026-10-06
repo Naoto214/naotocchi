@@ -1,6 +1,6 @@
 # Full Rollout v0 progress ledger
 
-Current working coverage:130/293 (128 player stages +2 companions),163 pending. Coral postpromotion15family/120stage aggregate and three CI passed at d027. Jellyfish full8 image gate accepted at0e5; runtime promotion and16family/128stage aggregate pending save/CI. Armored adult8 remain candidates; larva/pupa missing. Historical entries below retain their original checkpoint status.
+Current working coverage:130/293 (128 player stages +2 companions),163 pending. Coral postpromotion15family/120stage aggregate and three CI passed at d027. Jellyfish full8 image gate accepted at0e5; runtime promotion saved atc5b7fe8;16family/128stage aggregate and promoted CI pending. Armored adult8 and juvenile03/04 representatives remain candidates;01/02 absent. Historical entries below retain their original checkpoint status.
 
 Plan: docs/character-3d/full-rollout-v0/plan.md. Spec: design.md. Execute inline; normal work is authorized without repeated confirmation.
 
@@ -338,3 +338,10 @@ Local exec-server stopped accepting commands with `No such file or directory`. G
 - Connected all8 reviewed jellyfish stages. Promotion regression first RED for absent exact key then GREEN; rooted01/02 use plantSway, detached03 and bells04-08 blobFloat. Candidate isolation tests now assert registry immutability and reviewed-data equality after promotion. Fresh dedicated142PASS/0FAIL; rollout18/18mutationsRED and restored bytes; Pilot28 numeric geometry/pose hashes unchanged. Coverage130/293,163pending;128 four-view rows. Postpromotion16family128stage aggregate/CI remains pending.
 - Sourcecd81 dedicated job112265146848 SUCCESS confirms aquatic mutation selector repair on immutable CI; does not erase source0e5 failed dedicated job. Fullcd81 CI still running at review.
 - Sourcecd81 armored eight adult distance artifacts11413430681/11413920156 available. Combined wave artifact11413920744 is35,759,862bytes, exceeding the32MiB download route; direct signed download returned403. Future aquatic/armored review artifacts split by family to keep evidence retrievable. No assertion weakened and no image gate inferred from download availability.
+
+### Armored grub/pupa representatives
+- Inspected beetle/stag originals01–04. Added explicit03 C-curved cream grub with gray tail cap, dark head and three thoracic foot pairs; explicit04 amber ringed pupa with folded wing/leg cases and developing horn versus short jaw buds. Existing larva/pod builders receive optional physical anatomy; Pilot defaults preserved. No gameplay/actor/Expression semantics change.
+- New geometry tests RED for absent representatives, then GREEN for actual curved centerline, six physical thoracic legs, folded pupal legs and horn, projected eyes, finite geometry and all32 canonical motion states per representative. Fresh dedicated145PASS/0FAIL; armored11/11mutationsRED restored bytes; Pilot28 numeric geometry/pose hashes unchanged.
+- Candidate four-view/ordinary-distance/motion CI expanded to03/04 for both species. Await immutable representative image review before01/02 expansion. Armored remains outside runtime; coverage130/293 unchanged from jellyfish promotion. Full293 and final Human QA remain incomplete.
+
+- Jellyfish promotion saved as c5b7fe8e72c7ea3eb01cd407e8b93f3cc9eb4bd7/tree8e32453a24e4fb5e14740200ce754c27977a3a29 through Git Data API; fresh local/remote HEAD/tree match and no staged remainder. Juvenile candidate work remained explicitly unstaged for the next checkpoint. Runtime130/293 is now saved; no blob-only completion claim.

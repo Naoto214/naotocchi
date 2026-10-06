@@ -462,12 +462,12 @@ export function larva(sp, key) {
   const c = sp.colors, n = sp.segments, r = sp.r, L = sp.len;
   const rig = new Rig(key, 'larva', sp.hang ? 'hangSway' : 'inchCrawl');
   // 中心線(t: 0 = しっぽ → 1 = 頭)。hang は 枝から たれて J の 字に 前へ まがる
-  const ctrl = sp.hang
+  const ctrl = sp.bodyPath || (sp.hang
     ? [[0, L * 0.98, -0.16], [0, L * 0.78, -0.2], [0, L * 0.5, -0.18], [0, L * 0.26, -0.04], [0, L * 0.24, L * 0.16], [0, L * 0.36, L * 0.28]]
-    : [[0, r, -L / 2], [0.03, r * 1.02, -L / 4], [-0.02, r * 1.05, 0], [0.01, r * (1.15 + ((sp.foreRise ?? 1.45)-1.45)*.45), L / 4], [0, r * (sp.foreRise ?? 1.45), L / 2 * 0.8]];
+    : [[0, r, -L / 2], [0.03, r * 1.02, -L / 4], [-0.02, r * 1.05, 0], [0.01, r * (1.15 + ((sp.foreRise ?? 1.45)-1.45)*.45), L / 4], [0, r * (sp.foreRise ?? 1.45), L / 2 * 0.8]]);
   const curve = new THREE.CatmullRomCurve3(ctrl.map((q) => V(q[0], q[1], q[2])), false, 'centripetal');
   const rad = (t) => r * (0.62 + 0.38 * Math.sin(Math.PI * Math.min(1, t * 0.85 + 0.18))) * (0.86 + 0.14 * Math.abs(Math.cos(Math.PI * t * n)));
-  const segCol = (x, y, z, nx, ny, nz) => { const up = sp.hang ? nz : ny; if (up < -0.45) return c.belly; const spot = Math.abs(nx) > 0.5 && Math.sin((y + z) * 34) > 0.55; return spot ? c.spot : mix(c.base, shade(c.base, 1.1), up * 0.5 + 0.5); };
+  const segCol = (x, y, z, nx, ny, nz) => { if(sp.tailPatch && Math.hypot(x-ctrl[0][0],y-ctrl[0][1],z-ctrl[0][2])<sp.tailPatch.radius)return sp.tailPatch.color; const up = sp.hang ? nz : ny; if (up < -0.45) return c.belly; const spot = Math.abs(nx) > 0.5 && Math.sin((y + z) * 34) > 0.55; return spot ? c.spot : mix(c.base, shade(c.base, 1.1), up * 0.5 + 0.5); };
   const CH = 3, ov = 0.06;
   for (let k = 0; k < CH; k++) {
     const t0 = Math.max(0, k / CH - ov), t1 = Math.min(1, (k + 1) / CH + ov), pts = [];
@@ -475,6 +475,11 @@ export function larva(sp, key) {
     const g = paint(sweep(pts, (u) => rad(lerp(t0, t1, u)), 12, { steps: 14, cap: k === 0 }), segCol);
     const feet = [];
     if (!sp.hang) for (let i = 0; i < (sp.feetPerSection ?? 3); i++) { const t = lerp(t0, t1, (i + 0.5) / (sp.feetPerSection ?? 3)); const q = curve.getPointAt(t), rr = rad(t); for (const s of [-1, 1]) feet.push(solid(xform(ellipsoid(rr * 0.2, rr * 0.24, rr * 0.2, 6, 4), { pos: [q.x + s * rr * 0.5, q.y - rr * 0.82, q.z] }), c.foot)); }
+    // Grubs have only three thoracic pairs near the head, not caterpillar prolegs.
+    for(const t of sp.thoracicFeet||[])if(Math.min(CH-1,Math.floor(t*CH))===k){
+      const q=curve.getPointAt(t),rr=rad(t);
+      for(const side of [-1,1])feet.push(solid(sweep([[q.x,q.y-rr*.5,q.z+side*rr*.6],[q.x+.06,q.y-rr,q.z+side*rr],[q.x+.12,q.y-rr*1.4,q.z+side*rr*1.1]],u=>sp.footRadius*(1-.35*u),6,{steps:6}),c.foot));
+    }
     const cen = curve.getPointAt((t0 + t1) / 2);
     const geo = merge([g, ...feet]); geo.translate(-cen.x, -cen.y, -cen.z);
     rig.add('seg' + k, 'root', [cen.x, cen.y, cen.z], [geo]);
@@ -497,6 +502,23 @@ export function larva(sp, key) {
 export function pod(sp, key) {
   const c = sp.colors;
   const rig = new Rig(key, 'pod', 'hopSway');
+  if(sp.shape==='insectPupa'){
+    const h=sp.h,r=sp.r;
+    const profile=[[.025,0],[r*.45,h*.08],[r*.77,h*.22],[r,h*.43],[r*.94,h*.62],[r*.67,h*.82],[.02,h*.9]];
+    const abdomen=paint(lathe(profile,20),(x,y,z)=>mix(c.base,c.dark,.13+.12*Math.cos(y/h*TAU*7)));
+    const folds=[];
+    for(let i=1;i<=5;i++){const y=h*(.10+i*.08),rr=r*(.5+i*.075);folds.push(solid(xform(ellipsoid(rr,.023,rr*.84,14,6),{pos:[0,y,0]}),c.light));}
+    for(const side of [-1,1])folds.push(solid(xform(ellipsoid(r*.42,h*.26,r*.57,14,10),{pos:[side*r*.69,h*.57,r*.30],rot:[0,0,-side*.18]}),c.light));
+    for(const points of sp.foldedLegs)folds.push(solid(sweep(points,u=>sp.legRadius*(1-.3*u),7,{steps:9}),c.limb));
+    rig.add('body','root',[0,0,0],[abdomen,...folds]);
+    const H=sp.head,head=solid(ellipsoid(H.width,H.height,H.depth,18,12),c.head),organs=[];
+    if(sp.horn){organs.push(solid(sweep(sp.horn.path,u=>sp.horn.r*(1-.65*u),8,{steps:12}),c.light));for(const q of sp.horn.forks)organs.push(solid(sweep(q,u=>sp.horn.r*.62*(1-.7*u),7,{steps:7}),c.light));}
+    for(const q of sp.jawBuds||[])organs.push(solid(sweep(q,u=>.024*(1-.45*u),6,{steps:7}),c.limb));
+    rig.add('head','body',H.at,[head.clone(),...organs]);
+    rig.meta={idlePose:'stand',hover:0,foldedLegs:sp.foldedLegs.length,developingHorn:!!sp.horn};
+    rig.faceSpec={bone:'head',target:head,center:[0,-H.height*.08,H.depth*.92],fwd:[0,0,1],half:H.width*.72,eyeSize:.26,layout:{eyeX:24,eyeY:54,mouthY:84,browY:34,cheekX:38,cheekY:72,mouthW:8},style:{blush:'#e7a354'},normalEye:'content'};
+    return rig;
+  }
   let bodyGeo, faceCenter, half, hangY = null;
   if (sp.shape === 'chrysalis') {
     const h = sp.h, r = sp.r, top = h * 1.02;
