@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 162,
-    "pending": 131,
-    "fourViewRecords": 160
+    "exactSpecs": 170,
+    "pending": 123,
+    "fourViewRecords": 168
   },
   "rows": [
     {
@@ -2096,15 +2096,15 @@
       "group": "normal",
       "asset": "assets/characters/antlion/01.png",
       "sha256": "8ae81e8a9ad75e8cf69ca4e9e81cec17a56f2bbe3807db061ca96fa7f51087ed",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-1-back.jpg"
       }
     },
     {
@@ -2116,15 +2116,15 @@
       "group": "normal",
       "asset": "assets/characters/antlion/02.png",
       "sha256": "d49e82c215612bb9b4cce853bf5f91ec59bfc052b653d50b703b50f6c559dd1a",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-2-back.jpg"
       }
     },
     {
@@ -2136,15 +2136,15 @@
       "group": "normal",
       "asset": "assets/characters/antlion/03.png",
       "sha256": "6da45bbccfc435e09fa147eecec5737b96a8b8d05a7ab671d0f59d705ea685d0",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-3-back.jpg"
       }
     },
     {
@@ -2156,15 +2156,15 @@
       "group": "normal",
       "asset": "assets/characters/antlion/04.png",
       "sha256": "a75aa0f43ffcc7303b996e469ca3071496b7a447ae27897cdd3d99c82034ee6e",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "pod",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-4-back.jpg"
       }
     },
     {
@@ -2176,15 +2176,15 @@
       "group": "normal",
       "asset": "assets/characters/antlion/05.png",
       "sha256": "03da5baf28985f5762afbaa84f6fec0f4ed25868e988ee19412df3e6952888cb",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "pod",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-5-back.jpg"
       }
     },
     {
@@ -2196,15 +2196,15 @@
       "group": "normal",
       "asset": "assets/characters/antlion/06.png",
       "sha256": "c7522f7d5aed4542e7962e77ea757d2f62a105fb9ba57f7d6c107278addb8616",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-6-back.jpg"
       }
     },
     {
@@ -2216,15 +2216,15 @@
       "group": "normal",
       "asset": "assets/characters/antlion/07.png",
       "sha256": "57f77769ec9d717b94c56086e26b770487357880975e0733232447676aa308e8",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-7-back.jpg"
       }
     },
     {
@@ -2236,15 +2236,15 @@
       "group": "normal",
       "asset": "assets/characters/antlion/08.png",
       "sha256": "2f6879f36f91bf27b7f4be12a74ca5684d969a067977ec552787ea70d2e23dbe",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/21e6565/antlion-8-back.jpg"
       }
     },
     {

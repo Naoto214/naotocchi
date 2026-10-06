@@ -9,8 +9,8 @@ test('adult antlion representative has narrow ringed abdomen, four long veined w
  for(let i=0;i<4;i++)assert.ok(r.parts.find(p=>p.bone==='veins'+i).mesh.geometry.attributes.position.count>200,'wing venation is physical');
  let tris=0;for(const p of r.parts){const g=p.mesh.geometry;assert.ok([...g.attributes.position.array].every(Number.isFinite));tris+=(g.index?.count||g.attributes.position.count)/3;}assert.ok(tris<22000);
 });
-test('antlion representatives retain one owned face in32 canonical motion states and stay outside runtime',async()=>{
- const {candidateConfig}=require('../tools/character-3d/candidate-spec.cjs');const c=candidateConfig(['--candidate-armored','--rollout','--species-only','--line','antlion']);assert.ok(c);assert.equal(SPEC.specKeyFor({line:'antlion',stage:7}),null);
+test('antlion representatives retain one owned face in32 canonical motion states after reviewed runtime promotion',async()=>{
+ const {candidateConfig}=require('../tools/character-3d/candidate-spec.cjs');const c=candidateConfig(['--candidate-armored','--rollout','--species-only','--line','antlion']);assert.ok(c);assert.deepEqual(SPEC.specKeyFor({line:'antlion',stage:7}),{id:'antlion',stage:8,exact:true});
  const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
  for(const stage of [1,2,3,4,5,6,7,8]){const sp=c.spec.stageSpec('antlion',stage),r=BUILDERS[sp.archetype](sp,'antlion:'+stage);r.faces=[attachFace(r,r.faceSpec,'C')];
  for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'antlion:'+stage});setEmotion(a,em);for(let i=0;i<20;i++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces[0].emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}
