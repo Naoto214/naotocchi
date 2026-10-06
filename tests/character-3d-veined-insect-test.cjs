@@ -63,4 +63,5 @@ test('early cicada nymphs and soil emergence have explicit different anatomy and
  assert.notEqual(rows[1].body.width/rows[1].body.length,rows[2].body.width/rows[2].body.length,'early growth changes proportions, not uniform scale');assert.notEqual(rows[1].abdomenBands.count,rows[2].abdomenBands.count);assert.equal(rows[1].legs[0].claw.teeth.length,2);
  const soil=armoredInsect(rows[4],'emerging'),bare=armoredInsect({...rows[4],soil:null},'bare');assert.ok(soil.bones.ground);assert.equal(bare.bones.ground,undefined);const g=soil.parts.find(p=>p.bone==='ground').mesh.geometry;assert.ok(g.attributes.position.count>500,'raised dirt clods are physical');
  soil.root.updateMatrixWorld(true);const {THREE}=await import('../character-3d/geometry.mjs');assert.ok(soil.bones.head.getWorldPosition(new THREE.Vector3()).y>.5,'head and forebody rise out of dirt');
+ for(const p of soil.parts.filter(p=>/^leg[0-5]$/.test(p.bone)))assert.ok(new THREE.Box3().setFromObject(p.mesh,true).min.y>=0,'visible emergence legs must not dangle below the soil base');
 });
