@@ -80,3 +80,7 @@ preflight-ready=false。通常/responseの全合法集合・選択根拠と、�
 続く横断確認で、native batch.outcomeの初期growth=0が、直接成長mechanismにも返ることを確認。E-first-dateの現在合法候補でpriority_uniqueになるREDを保存。現在opt-in比較scopeに限り、symmetric_draw_growth / board_count_growth / targeted_relationship_growthを未証明guardとして既存116 frontierへ委譲する。効果実行handlerはそのまま再利用し、新しい成長比較値を与えない。既存の条件付き非公開コインの141比較を一括置換しない。G-area-claim/E-bossの条件付き実候補でも、未知候補がfrontierに残り、proved_scoresへ入らないことを検査。旧native・過去記録を変更しない。
 
 独立read-only reviewerはC/I/Minor各0。候補削除、新点数、比較意味論の追加はなく、実行outcomeと比較outcomeを分離し例外時もscope復元することを確認。全20turnを含む結合検証は別記。6190固定全回帰には、この後続差分を含まない。
+
+## 現行107のsource義務閉包監査bundle
+
+read-only横断レビューから、121/132の6 source familyと現行107表を実entryへ結ぶ不足を確認。まず通常行動の全source/手札action variantを、選択結果とは独立に現在の許可viewと114表から導き、保存された全enumeration_units（不成立理由を含む）へ照合する。candidate_set_complete=trueだけを受け入れず、source欠落・variant欠落・重複・合法projectionの脱落を拒否する。target/predicateの意味論、情報の実使用、戦略選択根拠は別項目であり、このsource被覆だけで完全合法性や全rule機会を認定しない。現行adapterのfirst-date等の裁定を旧表の発動条件へ戻さない。response/mandatory/trigger/automatic側も同じ責務で合成する方向とし、旧121や132を変更しない。

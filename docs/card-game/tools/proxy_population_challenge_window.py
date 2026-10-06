@@ -14,6 +14,7 @@ import proxy_population_unproved_priority as unresolved
 import proxy_population_activation_legality as legality
 import proxy_population_public_application as public_application
 import proxy_population_legacy_choice_obligations as legacy_choices
+import proxy_population_source_inventory as source_inventory
 from proxy_mandatory_policy_contract import canonical
 
 _LOCK=Lock()
@@ -26,6 +27,15 @@ def contract_scope():
   with unresolved.scope(),public_application.scope(events,shots):
    result=prior_step(envelope,initial,events,shots,runtime_history,forced,session)
    current=result['source_envelope']['legacy_continuation']
+   decision=result['decision']
+   if decision is not None:
+    if decision.get('context',{}).get('decision_kind')=='normal_action':
+     coverage=source_inventory.audit_normal(result['source_envelope'],decision['inventory'])
+    elif decision.get('decision_kind')=='response_action':
+     coverage=source_inventory.audit_response(result['source_envelope'],decision['candidate_set_evidence'])
+    else:raise ValueError('ordinary decision source coverage kind unsupported')
+    if coverage['errors']:raise ValueError('ordinary source inventory differs: '+str(coverage['errors']))
+    result['decision_source_inventory']=coverage
    if current['response_context']['chain_status']=='resolving' and current['activation_zone']:
     proof=legacy_choices.audit(result['source_envelope'],initial,result['mandatory_decisions'])
     if proof['errors'] or proof['applicable'] and not proof['legacy_choice_coverage_verified']:raise ValueError('legacy effect choice obligations differ: '+str(proof['errors']))

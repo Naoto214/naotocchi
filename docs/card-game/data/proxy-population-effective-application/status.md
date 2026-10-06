@@ -90,3 +90,11 @@ preflight-ready=false。通常/responseの完全合法性・情報制約・opera
 最終関連14件PASS（186.241s）、固定115/零rootの全20turn接続を含む。独立read-only review C/I/Minor各0。最初の結合commandはテストclass指定誤りによるloader errorであり、訂正後の14件を最終結果とする。保護正本476件不変、旧native・過去結果不変。現在の非fallbackを遡及して過去へ適用しない。
 
 6190固定worktreeで全proxy回帰を実行中。6190のnpm406PASS、同版の全3437保存ファイルとPython集合のedition照合成功。この後続2tools差分は6190回帰に含まれない。preflight-ready=false、seed/本番入力固定/400戦実行0。残る合法集合・情報制約・全義務合成と入力/実行管理を継続する。
+
+## 現在source inventoryと通常／response入口の照合
+
+121/125の6source familyと114手札action/variantを現在stateから導き、候補選択と独立に照合。sourceと合法リストを同時に削除しても拒否する。responseは現在priority actorの手札・盤面・準備現物を、合法候補と不成立sidecarの合併へ照合し、除外理由を脱落させない。各通常／response stepの実source envelopeへ証拠を接続。
+
+逐次RED→GREEN、最終関連20件PASS（229.034s）。旧115/零rootの全20turn再構成・指定外必須選択・admission結合を含む。独立read-only review C/I/Minor各0。通常盤面ability variant全展開、response全action variant、対象条件、除外理由の意味論、実情報利用、全ルール機会はこの検査で証明していない。合法性flag・policy適格性・balance算入へ昇格しない。
+
+6190固定版の全proxy回帰は別途継続中で、この後続差分は含まれない。preflight-ready=false。seed／本番入力固定／400戦実行0、旧116除外・新方式未採用・過去正本を維持。保存後も残りの共通契約接続を続ける。
