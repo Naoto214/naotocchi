@@ -1,6 +1,7 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap','tests/character-3d-spectral-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['upturned terminal tip','character-3d/spectral.mjs','t+.30*Math.exp(-t*12)','t'],
  ['closed body depth','character-3d/spectral.mjs','z*b.depth*q','z*.001'],
  ['curled spirit tail','character-3d/spectral.mjs','b.curl*Math.pow','0*Math.pow'],
  ['paired owned arms','character-3d/spectral.mjs','const side of [-1,1]','const side of []'],

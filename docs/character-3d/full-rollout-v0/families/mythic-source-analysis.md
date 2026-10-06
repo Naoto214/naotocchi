@@ -42,3 +42,6 @@ Cac7representative fullgate rejected03 because the long lower hem concealed the 
 
 ## Unknown03/07 representatives
 Original03is a blue/purple rounded soft organism with cyanrim, white eyes, pinkmouth, twoarmstubs andtwofeet.07is a blue orb withoutlimbs withthreegoldrays overhead. Explicitclosedopaque volumes andvertexgradient/highlight preserve these silhouettes; no transparent billboard or guessed organ identity. White eyeProfileink reusescanonical eye shapes/blink andis cache-separated fromdefaultdarkeyes. ExistingblobFloat owner andoneface; no newcanonical state.207dedicatedPASS,7/7mysterymutationsRED/restored,28Pilot hashesmatch. Representativeimagesrequired before expansion/promotion.
+
+## Ghost outline rejection and correction
+4819fullrepresentativegate rejected the long narrow pointed-leaf outline: original has a roundedbody andtail curling upwardleft. Earliercentroidtest proved lateraloffsetbut notthetipturn. Newterminalpole-vs-lowestbelly andbreadth tests failbeforefix. Continuousclosedblob nowhas fuller midsection andupturnedterminalpole, with07strongerleftreach; face/arm/haloownershipunchanged.209dedicatedPASS,8spectralmutationsRED/restored,28Pilot hashesmatch.79JPEG/raw retained; correctedimagesrequired.
