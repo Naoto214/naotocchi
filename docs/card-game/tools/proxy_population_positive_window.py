@@ -26,7 +26,7 @@ _LOCK=Lock()
 
 def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
  if not _LOCK.acquire(blocking=False):raise ValueError('positive connection concurrency/reentry forbidden')
- original_operation=base.operation;original_step=base._step;original_observe=observation.observe;original_adapter=observation.Adapter;original_replay=replay.scope
+ original_operation=base.operation;original_step=base._step;original_observe=observation.observe;original_adapter=observation.Adapter;original_replay=replay.scope;original_recovery=window.recovery.scope
  pairs={};captures={};owner=get_ident()
  def raw(event):return {k:v for k,v in event.items() if k not in end.BIND_KEYS}
  def remember(before,after,event):
@@ -82,6 +82,10 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
     except (ValueError,KeyError,TypeError,StopIteration,IndexError):return False
    try:end.RUNTIME_TRANSITION_VERIFIER=verify;yield
    finally:end.RUNTIME_TRANSITION_VERIFIER=original
+ @contextmanager
+ def recovery_scope():
+  # Combined selection must wrap recovery for selection and application.
+  with original_recovery(),paid.scope():yield
  def operation(supplied,callback):
   def connected(forced):
    old_guard=batch.guard_applied_effect;old_results=batch.guard_resolution_result;old_boards=triggers.board_candidates
@@ -106,7 +110,7 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
     if c['response_context']['chain_status']=='resolving' and c['activation_zone'] and c['activation_zone'][-1]['card_id'] in latching.CARDS:
      result=effects.resolve(e,i);results(e,result,history);return actions.normalize_resolution_result(e,result)
     return forced(e,i,history,legacy,full)
-   with effects.scope(),paid.scope():
+   with effects.scope():
     effective_boards=triggers.board_candidates
     try:
      batch.guard_applied_effect=guard;batch.guard_resolution_result=results;triggers.board_candidates=boards
@@ -114,12 +118,12 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
     finally:batch.guard_applied_effect=old_guard;batch.guard_resolution_result=old_results;triggers.board_candidates=old_boards
   return original_operation(supplied,connected)
  try:
-  base.operation=operation;base._step=step;observation.observe=observe;observation.Adapter=Adapter;replay.scope=replay_scope
+  base.operation=operation;base._step=step;observation.observe=observe;observation.Adapter=Adapter;replay.scope=replay_scope;window.recovery.scope=recovery_scope
   result=window.segment(envelope,initial,events,shots,runtime,limit,proof,session)
   result.update(positive_timing_proofs=list(captures.values()),connection_revision='conditional_positive_sequential_bundle',origin_authenticated=False,opportunity_completeness_proven=False,ready_for_execution=False)
   return result
  finally:
-  base.operation=original_operation;base._step=original_step;observation.observe=original_observe;observation.Adapter=original_adapter;replay.scope=original_replay;_LOCK.release()
+  base.operation=original_operation;base._step=original_step;observation.observe=original_observe;observation.Adapter=original_adapter;replay.scope=original_replay;window.recovery.scope=original_recovery;_LOCK.release()
 
 
 def validate(record,envelope,initial,events,shots,runtime,limit,proof):

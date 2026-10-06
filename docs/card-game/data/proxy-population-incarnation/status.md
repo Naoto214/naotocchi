@@ -1,0 +1,1 @@
+Conditional lifecycle component only. Runtime/native movement/event replay and mandatory-frame integration are NOT completed. Pre-loss RED/GREEN and reconstructed GREEN have different test text; no byte-identical restoration claim. No new game or experiment input. No preflight readiness. See positive-bundle status for remaining gates.

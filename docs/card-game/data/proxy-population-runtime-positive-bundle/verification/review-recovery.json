@@ -1,0 +1,15 @@
+{
+  "reviewer": "/root/review473",
+  "cycles": 1,
+  "critical": 0,
+  "important": 1,
+  "minor": 0,
+  "finding": "recovery selector shadowed combined paid/Cat selector and closure-bound apply reconstruction",
+  "fix": "nest paid outside recovery; reconstruct common selected record then route paid/Cat/replacement through its native atomic handler",
+  "recovery_red": "recovery-review-red.txt",
+  "recovery_green": "recovery-population.txt",
+  "related_tests_passed": 157,
+  "independent_rereview": false,
+  "full_proxy": "interrupted_no_success_claim",
+  "preflight_ready": false
+}

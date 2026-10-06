@@ -41,4 +41,18 @@ class PositiveWindowTests(unittest.TestCase):
    return dict(envelope=e,history=history,proof=existing.ExistingAdapter(history).proof(e,3))
   source=base.operation(initial(),build);e=source['envelope'];r=api.segment(e,initial(),source['history'],[],[e],1,source['proof']);self.assertIsNone(r['stop']);self.assertEqual(len(r['decisions'][0]['inventory']['legal_candidate_ids']),2)
 
+ def test_paid_main_and_cat_share_one_complete_selector_at_choice_and_apply(self):
+  from test_proxy_population_paid_draw import fixture
+  def build(forced):
+   e,source,costs=fixture('M-antlion-02');g=e['legacy_continuation']['game_state'];p=g['players']['A'];g['phase']='normal_action'
+   for card,zone in (('C-cat_friend','companions'),('C-bat','discard')):
+    s=next(s for s in p['hand']+p['deck'] if g['cards'][s]['card_id']==card)
+    for z in ('hand','deck'):
+     if s in p[z]:p[z].remove(s)
+    (p['board'][zone] if zone=='companions' else p[zone]).append(s)
+   p['deck'].extend(p['hand']);p['hand']=[];p['time']=0;event=dict(seq=3,actor='A',action_type='set_item',source_instance_id=costs[0]);history=[event]
+   return dict(envelope=e,history=history,proof=existing.ExistingAdapter(history).proof(e,3))
+  source=base.operation(initial(),build);e=source['envelope'];r=api.segment(e,initial(),source['history'],[],[e],1,source['proof']);self.assertIsNone(r['stop']);self.assertEqual(len(r['events']),1)
+  decision=r['decisions'][0];self.assertEqual(len(decision['inventory']['legal_candidate_ids']),3);self.assertEqual(decision['choice']['reason_code'],'strategic_unresolved_seeded_fallback');self.assertEqual(len(decision['execution_evidence']['verified_immediate_candidates']),2)
+
 if __name__=='__main__':unittest.main()

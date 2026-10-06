@@ -87,9 +87,14 @@ def scope():
   return departure.select_verified_zero_immediate(envelope,inventory,context,policy,paid+cats+replacements,'existing_own_turn_paid_draw',batch.classification(paid[0]['card_id'])['source_raw_sha256'])
  def apply(envelope,record,inputs):
   action=record.get('selected_action',{})
-  if action.get('card_id') in DESCRIPTORS and action.get('action_type')=='activate_main_ability':
+  combined=any(a.get('card_id') in DESCRIPTORS and a.get('action_type')=='activate_main_ability' for a in record.get('inventory',{}).get('legal_candidate_details',[]))
+  if combined:
    if canonical(select(envelope,record['inventory'],record['context'],record['policy_id'],inputs))!=canonical(record):raise ValueError('paid choice changed')
-   return activate_normal(envelope,action,inputs['public_events'])
+   if action.get('card_id') in DESCRIPTORS and action.get('action_type')=='activate_main_ability':return activate_normal(envelope,action,inputs['public_events'])
+   if action.get('card_id')=='C-cat_friend' and action.get('action_type')=='activate_companion_ability':return recovery.activate_normal(envelope,action,inputs['public_events'])
+   game=envelope['legacy_continuation']['game_state']
+   if action.get('action_type')=='place_companion' and len(game['players'][game['turn_player']]['board']['companions'])==3:
+    result=departure.replace_companion(envelope,action,inputs['public_events']);return result['envelope'],result['events']
   return old_apply(envelope,record,inputs)
  def runtime_verify(before,after,event,history=None):
   if before['legacy_continuation']['game_state']['cards'].get(event.get('source_instance_id'),{}).get('card_id') in DESCRIPTORS and event.get('action_type') in ('activate_response','activate_main_ability'):

@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_old_reference_metadata_preserved_and_active_projection_binds_full_game (__main__.IncarnationTests.test_old_reference_metadata_preserved_and_active_projection_binds_full_game)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/test_proxy_population_incarnation.py", line 8, in setUp
+    def setUp(self):self.assertIsNotNone(api,'common incarnation connection absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : common incarnation connection absent
+
+======================================================================
+FAIL: test_recovery_does_not_rebind_but_actual_second_and_third_entry_do (__main__.IncarnationTests.test_recovery_does_not_rebind_but_actual_second_and_third_entry_do)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/test_proxy_population_incarnation.py", line 8, in setUp
+    def setUp(self):self.assertIsNotNone(api,'common incarnation connection absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : common incarnation connection absent
+
+======================================================================
+FAIL: test_unrecorded_reentry_generation_skip_and_duplicate_copy_rejected_atomically (__main__.IncarnationTests.test_unrecorded_reentry_generation_skip_and_duplicate_copy_rejected_atomically)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/test_proxy_population_incarnation.py", line 8, in setUp
+    def setUp(self):self.assertIsNotNone(api,'common incarnation connection absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : common incarnation connection absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)
