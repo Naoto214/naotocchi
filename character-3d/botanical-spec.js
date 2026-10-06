@@ -81,11 +81,19 @@
  leaf([-.08,.06,.06],.095,.34,[.8,-.5,1.76]),leaf([.08,.06,.06],.10,.36,[.8,.5,-1.76]),
  leaf([0,.09,-.11],.11,.48,[-.65,.8,.5]),leaf([.015,.09,-.10],.10,.47,[-.65,-.8,-.5])
  ]};
+ venusRosette.foliage.push(
+ leaf([-.10,.10,.08],.11,.42,[.12,1.25,1.20]),leaf([.10,.10,.08],.11,.44,[.12,-1.25,-1.20]),
+ leaf([-.10,.10,-.08],.105,.39,[-.10,-1.30,1.15]),leaf([.10,.10,-.08],.11,.40,[-.10,1.30,-1.15])
+ );
  const trapUnit=(at,w,h,eye)=>({at,scale:1,spec:{archetype:'branch_organism',body:{width:w,height:h,depth:.075,y:0},normalEye:eye,trap:{teeth:22,rim:.019,length:.050},stones:[],colors:{body:'#ed352b',light:'#ff9470',branch:'#62ad16',tip:'#dce54c',stones:[],blush:'#ffb568'},branches:[{path:[[-at[0],.035-at[1],-at[2]],[-at[0]*.6,-at[1]*.48,-at[2]*.7],[0,-h*.75,-.025]],r:.025,taper:.15}],foliage:[]}});
  const venusTraps={archetype:'branch_organism',suspended:true,stones:[],stoneColors:[],colony:[
  trapUnit([0,1.04,-.04],.24,.20,'happy'),trapUnit([-.41,.76,.015],.185,.17,'round'),trapUnit([.42,.73,-.015],.19,.175,'round'),trapUnit([-.26,.38,.12],.15,.13,'happy'),trapUnit([.32,.37,.13],.155,.135,'round')
  ]};
- venusTraps.colony[0].spec.branches.push(...roots.map(r=>({...r,path:r.path.map(([x,y,z])=>[x,y-1.04,z+.04])})));
+ for(const [i,tilt]of [[0,[0,0,0]],[1,[0,-.60,.25]],[2,[0,.65,-.25]],[3,[0,-.45,.45]],[4,[0,.50,-.40]]]){
+  const sp=venusTraps.colony[i].spec;sp.trap.tilt=tilt;
+  sp.branches[0].path[2]=[-.055*Math.sin(tilt[1]),-sp.body.height*.45,-.055*Math.cos(tilt[1])];
+ }
+ venusTraps.colony[0].spec.branches.push(...roots.map(r=>({...r,color:'#a77320',tip:'#d3a554',path:r.path.map(([x,y,z])=>[x,y-1.04,z+.04])})));
  venusTraps.colony[0].spec.foliage=[leaf([0,-.96,.08],.09,.32,[.40,.3,1.05]),leaf([0,-.96,.08],.09,.34,[.4,-.3,-1.05])];
  return {venus_flytrap:{why:'Inspected03 broad rosette and07 five red toothed traps. Representative image gates before other stages.',stages:{3:venusRosette,7:venusTraps}},sakura:{why:'Explicit seed01,sprout02,leafy03,flowering-tree04,five buds05,two flowers06,three cherries07,bare tree08; candidate gates required before runtime promotion.',stages:{1:seed,2:sprout,3:leafy,4:bloom,5:buds,6:flowers,7:cherries,8:bare}}};
 });

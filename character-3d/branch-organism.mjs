@@ -1,25 +1,27 @@
 // Rounded, rooted organic branches. Shared rig/material/expression contract;
 // explicit paths come from the original, never generated from species names.
-import {ellipsoid,sweep,xform,solid,paint,mix,outlineLoft,blob} from './geometry.mjs';
+import {ellipsoid,sweep,xform,solid,paint,mix,outlineLoft,blob,THREE} from './geometry.mjs';
 import {Rig} from './rig.mjs';
 export function branchOrganism(sp,key){
  if(sp.colony)return branchColony(sp,key);
  const rig=new Rig(key,'branch_organism',sp.locomotion||'plantSway'),c=sp.colors,b=sp.body;
  const core=paint(xform(sp.trap?blob((x,y,z)=>[x*b.width,y*b.height,b.depth*(1.6*(x*x+y*y)-.6)+(z<0?z*b.depth*.4:0)],24,16):b.taper?blob((x,y,z)=>{const q=1-y*y*b.taper;return [x*b.width*q,y*b.height,z*b.depth*q];},20,14):ellipsoid(b.width,b.height,b.depth,20,14),{pos:[0,b.y,0]}),(x,y,z,nx,ny,nz)=>sp.trap&&nz<0?c.branch:mix(c.body,c.light,Math.max(0,nz)*.22+Math.max(0,ny)*.12));
+ const trapPlace=g=>sp.trap?.tilt?xform(g,{rot:sp.trap.tilt}):g;
+ trapPlace(core);
  const parts=[core.clone()];
  if(sp.trap){
   const t=sp.trap,rim=[];
   for(let i=0;i<=32;i++){const a=i*Math.PI*2/32;rim.push([Math.cos(a)*b.width,b.y+Math.sin(a)*b.height,b.depth]);}
-  parts.push(solid(sweep(rim,()=>t.rim,7,{steps:48}),c.branch));
+  parts.push(trapPlace(solid(sweep(rim,()=>t.rim,7,{steps:48}),c.branch)));
   for(let i=0;i<t.teeth;i++){
    const a=i*Math.PI*2/t.teeth,x=Math.cos(a),y=Math.sin(a),len=t.length*(.88+.12*Math.cos(i*2.4));
-   parts.push(solid(sweep([[x*b.width,b.y+y*b.height,b.depth],[x*(b.width+len*.55),b.y+y*(b.height+len*.55),b.depth+.015],[x*(b.width+len),b.y+y*(b.height+len),b.depth-.005]],q=>t.rim*.60*(1-q*.92),4,{steps:3}),c.tip));
+   parts.push(trapPlace(solid(sweep([[x*b.width,b.y+y*b.height,b.depth],[x*(b.width+len*.55),b.y+y*(b.height+len*.55),b.depth+.015],[x*(b.width+len),b.y+y*(b.height+len),b.depth-.005]],q=>t.rim*.60*(1-q*.92),4,{steps:3}),c.tip)));
   }
  }
 
  for(const s of sp.stemSegments||[])parts.push(paint(xform(ellipsoid(s.width,s.height,s.depth,16,10),{pos:[0,s.y,0]}),(x,y,z,nx,ny,nz)=>mix(c.body,c.light,Math.max(0,nz)*.30+Math.max(0,ny)*.12)));
  for(const p of sp.branches){
-  parts.push(paint(sweep(p.path,t=>p.r*(1-t*(p.taper??.35)),p.sides||8,{steps:p.steps||10}),(x,y,z,nx,ny,nz)=>mix(c.branch,c.tip,Math.max(0,ny)*.25+Math.max(0,nz)*.12)));
+  parts.push(paint(sweep(p.path,t=>p.r*(1-t*(p.taper??.35)),p.sides||8,{steps:p.steps||10}),(x,y,z,nx,ny,nz)=>mix(p.color||c.branch,p.tip||c.tip,Math.max(0,ny)*.25+Math.max(0,nz)*.12)));
   const last=p.path[p.path.length-1],r=p.r*(1-(p.taper??.35));
   // sweep already has a rounded cap. Only larger source polyp bulbs
   // need an additional volume; equal-radius spheres caused coplanar rings.
@@ -50,6 +52,7 @@ export function branchOrganism(sp,key){
  rig.meta={idlePose:sp.locomotion==='blobFloat'?'hover':'stand',hover:sp.locomotion==='blobFloat'?.10:0};
  rig.faceSpec={bone:'body',target:core,center:[0,b.y,b.depth*.96],fwd:[0,0,1],half:b.width*.73,eyeSize:.25,normalEye:sp.normalEye,
   layout:{eyeX:24,eyeY:56,mouthY:82,browY:36,cheekX:38,cheekY:72,mouthW:8},style:{blush:c.blush}};
+ if(sp.trap?.tilt){const e=new THREE.Euler(...sp.trap.tilt,'YXZ');rig.faceSpec.center=new THREE.Vector3(...rig.faceSpec.center).applyEuler(e).toArray();rig.faceSpec.fwd=new THREE.Vector3(0,0,1).applyEuler(e).toArray();}
  return rig;
 }
 
