@@ -136,6 +136,7 @@ const LOCO = {
     if(meta.swimSubrigs)for(const sub of meta.swimSubrigs)swimAppendages(B,s,m,k,sub.prefix,sub.phase);
   },
   humanWalk(B, s, m, k, meta) {
+    if(meta.celestialWings)for(const name of meta.celestialWings){const side=name.endsWith('L')?-1:1;B[name].rotation.y+=side*Math.sin(s.t*2.1)*(.055*k.idle+.08*m*k.amp);}
     const ph = s.phase * TAU, sw = 0.55 * m * k.amp;
     if(meta.poseProfile?.armSpread){const a=meta.poseProfile.armSpread*(1-m);B.armL.rotation.z-=a*(meta.poseProfile.armSpreadSides?.[0]??1);B.armR.rotation.z+=a*(meta.poseProfile.armSpreadSides?.[1]??1);}
     if(meta.poseProfile?.seated){

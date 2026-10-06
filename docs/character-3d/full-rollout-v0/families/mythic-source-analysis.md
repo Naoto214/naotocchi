@@ -14,3 +14,8 @@ Originals inspected directly.03 has bright orange/red/yellow young plumage, upri
 
 ## Dragon membrane rejection and topology correction
 Normal-distance f9e artifact11431680941 showed07back membrane stippling; four normal views preserved in fr5-mythic/f9e3831. Root cause: the concave scalloped contour was radial-fanned from its mean point, producing42 reversed front triangles and extra intersections at51/733 diagnostic rays. New independent surface-pair ray test failed4versus2 before correction. Ear-clipped triangulation with uniformly subdivided closed front/back and matching perimeter walls retains the explicit outline and bow without radial overlap.190dedicatedPASS,9/9mythicmutationRED/restored,28Pilot hashes match. No image acceptance until corrected capture.
+
+## God03/07 representatives
+Original PNGs viewed enlarged.03 is a floating white-haired young angel with one gold halo, one small feather-wing pair, short white/gold tunic, bare limbs.07 has a double gold halo, longer white hair, three feather-wing tiers and long curling white/gold robe tails; legs are hidden by the flowing robe. Tiny sparkle motifs are simplified away at ordinary game distance, without adding emitters or a new glow effect.
+
+The celestial_humanoid composition uses the existing human body/face/locomotion with owned closed feather volumes, physically open torus halos, a full robe and raised gold trim.03/07 have explicit separate proportions, wing paths and hem topology. No extra actor/state/clock; wing sway is opt-in on the existing humanWalk.192dedicatedPASS/0FAIL,8/8celestialmutationRED/restored and28Pilot baseline hashes match. Representative images required before any remaining-stage expansion or runtime promotion.
