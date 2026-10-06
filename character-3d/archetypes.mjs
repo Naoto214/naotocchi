@@ -493,7 +493,7 @@ export function larva(sp, key) {
   rig.add('head', 'root', [hp.x, hp.y, hp.z], null);
   rig.mesh('head', [headGeo.clone(), ...ant]);
   if (sp.hang) rig.add('branch', 'root', [0, 0, 0], [branchGeo(1.15, L * 1.0)]);
-  rig.meta = { idlePose: sp.hang ? 'hang' : 'crawl', hover: 0, segs: CH, hang: !!sp.hang, top: L };
+  rig.meta = { idlePose: sp.hang ? 'hang' : 'crawl', hover: 0, segs: CH, hang: !!sp.hang, top: L, curveLocked:!!sp.curveLocked };
   rig.faceSpec = { bone: 'head', target: headGeo, center: [0, -hr * 0.02, hr * 0.9], fwd: [0, 0, 1], half: hr * 0.74, eyeSize: 0.26,
     layout: { eyeX: 24, eyeY: 54, mouthY: 84, browY: 34, cheekX: 38, cheekY: 72, mouthW: 8 }, style: { blush: '#f0a0a0' }, normalEye: sp.normalEye ?? (sp.hang ? null : 'content') };
   return rig;

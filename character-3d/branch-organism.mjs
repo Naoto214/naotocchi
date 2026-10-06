@@ -19,6 +19,12 @@ export function branchOrganism(sp,key){
   const a=i/sp.petals.count*Math.PI*2;
   parts.push(paint(xform(ellipsoid(sp.petals.width,sp.petals.length,sp.petals.depth,8,6),{pos:[Math.sin(a)*b.width*.97,b.y+Math.cos(a)*b.height*.97,0],rot:[0,0,-a]}),(x,y,z,nx,ny,nz)=>mix(c.branch,c.tip,Math.max(0,nz)*.65)));
  }
+ // Flower canopy shares the branch's single owner and bounded merged mesh.
+ for(const f of sp.blossoms||[]){
+  for(let i=0;i<5;i++){const a=i/5*Math.PI*2+f.rotation;
+   parts.push(solid(xform(ellipsoid(f.r*.48,f.r*.66,f.r*.25,8,6),{pos:[f.at[0]+Math.sin(a)*f.r*.48,f.at[1]+Math.cos(a)*f.r*.48,f.at[2]],rot:[0,0,-a]}),f.petal));}
+  parts.push(solid(xform(ellipsoid(f.r*.23,f.r*.23,f.r*.28,8,6),{pos:[f.at[0],f.at[1],f.at[2]+f.r*.12]}),f.center));
+ }
  const stones=sp.stones.map((s,i)=>solid(xform(ellipsoid(s[3],s[4],s[3]*.8,10,6),{pos:s.slice(0,3),rot:[0,i*.7,i%2?.2:-.15]}),c.stones[i%c.stones.length]));
  rig.add('body','root',[0,0,0],parts);
  // Reuse the plant gait's bounded sway, with a single common base and no

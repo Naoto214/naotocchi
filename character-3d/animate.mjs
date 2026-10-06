@@ -158,8 +158,9 @@ const LOCO = {
     B.armL.rotation.x += -1.12 + Math.sin(ph) * 0.35 * m * k.amp; B.armR.rotation.x += -1.12 - Math.sin(ph) * 0.35 * m * k.amp;
     B.legL.rotation.x += 0.42 - Math.sin(ph) * 0.25 * m * k.amp; B.legR.rotation.x += 0.42 + Math.sin(ph) * 0.25 * m * k.amp;
   },
-  inchCrawl(B, s, m, k, meta) {
+  inchCrawl(B, s, m, k, meta, R) {
     const ph = s.phase * TAU;
+    if(meta.curveLocked){R.rotation.z+=Math.sin(ph)*.035*m*k.amp+Math.sin(s.t*1.3)*.008*k.idle;R.position.y+=Math.abs(Math.sin(ph))*.02*m*k.amp;return;}
     // しゃくとり: うしろ → まえ へ もちあがりが はしる + 体が のびちぢみ
     for (let i = 0; i < meta.segs; i++) { const b = B['seg' + i]; b.position.y += Math.max(0, Math.sin(ph - i * 1.4)) * 0.08 * m * k.amp; b.position.z += Math.sin(ph - i * 1.4) * 0.03 * m * k.amp; b.scale.y *= 1 + Math.sin(s.t * 2 + i * 0.6) * 0.03 * k.idle; }
     B.head.position.y += Math.max(0, Math.sin(ph - meta.segs * 1.4)) * 0.05 * m * k.amp + Math.sin(s.t * 1.6) * 0.02 * k.idle;

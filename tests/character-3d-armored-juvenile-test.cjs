@@ -46,3 +46,11 @@ test('grub tail is sealed and pupal abdomen rings visibly project outside the bo
   assert.ok(front>p.r*.855,'second abdomen ring protrudes beyond the unringed profile');
  }
 });
+test('curved grub sections retain their relative attachment through a complete walking cycle',async()=>{
+ const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate}=await import('../character-3d/animate.mjs');
+ for(const id of ['beetle','stagbeetle']){
+  const sp=require('../character-3d/armored-spec.js')()[id].stages[3],r=BUILDERS.larva(sp,id+':3');r.faces=[attachFace(r,r.faceSpec,'C')];const a=instantiate({rig:r,key:id+':3'}),pairs=[['seg0','seg1'],['seg1','seg2'],['seg2','head']],dist=pairs.map(([x,y])=>a.bones[x].position.distanceTo(a.bones[y].position));
+  for(let n=0;n<80;n++){animate(a,{dt:.025,moving:true,animLv:2});for(let i=0;i<pairs.length;i++){const[x,y]=pairs[i];assert.ok(Math.abs(a.bones[x].position.distanceTo(a.bones[y].position)-dist[i])<1e-7,'curved sections cannot tear apart under the straight-caterpillar differential gait');}}
+  assert.notEqual(a.root.rotation.z,0,'whole curved body still has owner-clock walking motion');
+ }
+});

@@ -143,6 +143,29 @@ jobs:
         with:
           name: full-rollout-armored-distance-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/armored-distance
+  botanical-candidate-distance:
+    strategy:
+      fail-fast: false
+      matrix:
+        line: [sakura]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - env:
+          QA_LINE: ${{ matrix.line }}
+        run: node tools/character-3d/meguru-qa.cjs --candidate-botanical --rollout --species-only --line "$QA_LINE" --out test-results/full-rollout/botanical-distance
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-botanical-distance-${{ matrix.line }}-${{ github.sha }}
+          path: test-results/full-rollout/botanical-distance
   fish-performance:
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -201,6 +224,8 @@ jobs:
       - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/candidate-motion
       - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/aquatic-motion coral:2,coral:5,coral:7,coral:8,jellyfish:1,jellyfish:2,jellyfish:3,jellyfish:4,jellyfish:5,jellyfish:6,jellyfish:7,jellyfish:8
       - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/armored-motion cicada:7,beetle:3,beetle:4,beetle:5,beetle:6,beetle:7,beetle:8,stagbeetle:3,stagbeetle:4,stagbeetle:5,stagbeetle:6,stagbeetle:7,stagbeetle:8
+      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/botanical --botanical
+      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/botanical-motion sakura:4
       - run: node tools/character-3d/gallery-smoke.cjs
       - uses: actions/upload-artifact@v4
         if: always()
@@ -227,6 +252,13 @@ jobs:
           path: |
             test-results/full-rollout/armored
             test-results/full-rollout/armored-motion
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-botanical-review-${{ github.sha }}
+          path: |
+            test-results/full-rollout/botanical
+            test-results/full-rollout/botanical-motion
   dedicated:
     runs-on: ubuntu-latest
     timeout-minutes: 25
@@ -258,6 +290,7 @@ jobs:
           node tools/character-3d/crouch-remove-it.cjs > test-results/full-rollout/crouch-remove-it.txt
           node tools/character-3d/aquatic-remove-it.cjs > test-results/full-rollout/aquatic-remove-it.txt
           node tools/character-3d/armored-remove-it.cjs > test-results/full-rollout/armored-remove-it.txt
+          node tools/character-3d/botanical-remove-it.cjs > test-results/full-rollout/botanical-remove-it.txt
           node tools/character-3d/jelly-remove-it.cjs > test-results/full-rollout/jelly-remove-it.txt
       - uses: actions/upload-artifact@v4
         if: always()
