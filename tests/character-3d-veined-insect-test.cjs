@@ -55,4 +55,12 @@ test('emerging adult rises vertically with a forward-facing head and original ny
  assert.ok(head.y-rear.y>.75,'adult long axis rises above the shell instead of projecting horizontally');
  const fwd=new THREE.Vector3(0,0,1).transformDirection(r.bones.head.matrixWorld);assert.ok(fwd.z>.9,'upright body does not turn the face skyward');
  assert.ok(rear.y<sp.exuvia.h+.10&&rear.y>sp.exuvia.h-.2,'abdomen emerges from the shell opening');
+ assert.ok(Math.abs(rear.z-sp.exuvia.at[2])<.05,'emerging abdomen aligns with the shell opening in depth');
+});
+test('early cicada nymphs and soil emergence have explicit different anatomy and one face each',async()=>{
+ const rows=require('../character-3d/armored-spec.js')().cicada.stages,{armoredInsect}=await import('../character-3d/armored-insect.mjs'),{attachFace}=await import('../character-3d/rig.mjs');
+ for(const n of [1,2,4]){assert.ok(rows[n],'explicit juvenile stage '+n);const r=armoredInsect(rows[n],'cicada:'+n);assert.equal(attachFace(r,r.faceSpec,'C').eyes.length,2);assert.equal(Object.keys(r.bones).filter(k=>/^leg\d$/.test(k)).length,6);assert.equal(r.bones.wing0,undefined);}
+ assert.notEqual(rows[1].body.width/rows[1].body.length,rows[2].body.width/rows[2].body.length,'early growth changes proportions, not uniform scale');assert.notEqual(rows[1].abdomenBands.count,rows[2].abdomenBands.count);assert.equal(rows[1].legs[0].claw.teeth.length,2);
+ const soil=armoredInsect(rows[4],'emerging'),bare=armoredInsect({...rows[4],soil:null},'bare');assert.ok(soil.bones.ground);assert.equal(bare.bones.ground,undefined);const g=soil.parts.find(p=>p.bone==='ground').mesh.geometry;assert.ok(g.attributes.position.count>500,'raised dirt clods are physical');
+ soil.root.updateMatrixWorld(true);const {THREE}=await import('../character-3d/geometry.mjs');assert.ok(soil.bones.head.getWorldPosition(new THREE.Vector3()).y>.5,'head and forebody rise out of dirt');
 });
