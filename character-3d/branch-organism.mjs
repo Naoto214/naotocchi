@@ -9,7 +9,7 @@ export function branchOrganism(sp,key){
  const parts=[core.clone()];
  for(const s of sp.stemSegments||[])parts.push(paint(xform(ellipsoid(s.width,s.height,s.depth,16,10),{pos:[0,s.y,0]}),(x,y,z,nx,ny,nz)=>mix(c.body,c.light,Math.max(0,nz)*.30+Math.max(0,ny)*.12)));
  for(const p of sp.branches){
-  parts.push(paint(sweep(p.path,t=>p.r*(1-t*(p.taper??.35)),8,{steps:10}),(x,y,z,nx,ny,nz)=>mix(c.branch,c.tip,Math.max(0,ny)*.25+Math.max(0,nz)*.12)));
+  parts.push(paint(sweep(p.path,t=>p.r*(1-t*(p.taper??.35)),p.sides||8,{steps:p.steps||10}),(x,y,z,nx,ny,nz)=>mix(c.branch,c.tip,Math.max(0,ny)*.25+Math.max(0,nz)*.12)));
   const last=p.path[p.path.length-1],r=p.r*(1-(p.taper??.35));
   // sweep already has a rounded cap. Only larger source polyp bulbs
   // need an additional volume; equal-radius spheres caused coplanar rings.
@@ -21,9 +21,10 @@ export function branchOrganism(sp,key){
  }
  // Flower canopy shares the branch's single owner and bounded merged mesh.
  for(const f of sp.blossoms||[]){
+  const place=g=>xform(g,{pos:f.at,rot:f.tilt||[0,0,0]});
   for(let i=0;i<5;i++){const a=i/5*Math.PI*2+f.rotation;
-   parts.push(solid(xform(ellipsoid(f.r*.48,f.r*.66,f.r*.25,8,6),{pos:[f.at[0]+Math.sin(a)*f.r*.48,f.at[1]+Math.cos(a)*f.r*.48,f.at[2]],rot:[0,0,-a]}),f.petal));}
-  parts.push(solid(xform(ellipsoid(f.r*.23,f.r*.23,f.r*.28,8,6),{pos:[f.at[0],f.at[1],f.at[2]+f.r*.12]}),f.center));
+   parts.push(solid(place(xform(ellipsoid(f.r*.48,f.r*.66,f.r*.25,8,6),{pos:[Math.sin(a)*f.r*.48,Math.cos(a)*f.r*.48,0],rot:[0,0,-a]})),f.petal));}
+  parts.push(solid(place(xform(ellipsoid(f.r*.23,f.r*.23,f.r*.28,8,6),{pos:[0,0,f.r*.12]})),f.center));
  }
  const stones=sp.stones.map((s,i)=>solid(xform(ellipsoid(s[3],s[4],s[3]*.8,10,6),{pos:s.slice(0,3),rot:[0,i*.7,i%2?.2:-.15]}),c.stones[i%c.stones.length]));
  rig.add('body','root',[0,0,0],parts);

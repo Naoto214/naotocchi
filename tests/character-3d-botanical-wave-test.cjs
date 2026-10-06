@@ -15,3 +15,11 @@ test('botanical candidate lookup is isolated and canonical emotions retain the s
  const {branchOrganism}=await import('../character-3d/branch-organism.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');const r=branchOrganism(c.spec.stageSpec('sakura',4),'sakura:4');r.faces=[attachFace(r,r.faceSpec,'C')];
  for(const emotion of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'sakura:4'});setEmotion(a,emotion);for(let n=0;n<20;n++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,1);assert.equal(a.faces[0].emotion,emotion);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}
 });
+test('flower canopy has outward-oriented side blossoms rather than one parallel plane',async()=>{
+ const sp=require('../character-3d/botanical-spec.js')().sakura.stages[4],{branchOrganism}=await import('../character-3d/branch-organism.mjs');
+ const r=branchOrganism(sp,'rounded'),flat=branchOrganism({...sp,blossoms:sp.blossoms.map(f=>({...f,tilt:[0,0,0]}))},'flat');
+ assert.notDeepEqual([...r.parts[0].mesh.geometry.attributes.position.array],[...flat.parts[0].mesh.geometry.attributes.position.array],'blossom orientations must affect physical petal positions');
+ assert.ok(sp.blossoms.filter(f=>Math.abs(f.tilt?.[1]||0)>.7).length>=8,'side-facing flowers fill the side silhouette');
+ for(const f of sp.blossoms)assert.ok(sp.branches.some(b=>Math.hypot(...b.path.at(-1).map((v,i)=>v-f.at[i]))<.02),'every depth-layer flower has an attached branch tip');
+ assert.ok(Math.max(...sp.blossoms.map(f=>f.at[2]))-Math.min(...sp.blossoms.map(f=>f.at[2]))>.65,'three-dimensional crown depth');
+});

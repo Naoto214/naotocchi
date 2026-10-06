@@ -27,7 +27,7 @@ test('amber pupae have a ringed upright abdomen, folded limb cases and species-s
 test('grub and pupa representatives retain canonical faces and finite whole-actor motion',async()=>{
  const rows=require('../character-3d/armored-spec.js')(),SPEC=require('../character-3d/spec.js');
  const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
- for(const id of ['beetle','stagbeetle'])for(const stage of [3,4]){
+ for(const id of ['beetle','stagbeetle'])for(const stage of [1,2,3,4]){
   const sp=rows[id].stages[stage],r=BUILDERS[sp.archetype](sp,id+':'+stage);r.faces=[attachFace(r,r.faceSpec,'C')];
   for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){
    const a=instantiate({rig:r,key:id+':'+stage});setEmotion(a,em);for(let n=0;n<20;n++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces[0].emotion,em);
@@ -52,5 +52,14 @@ test('curved grub sections retain their relative attachment through a complete w
   const sp=require('../character-3d/armored-spec.js')()[id].stages[3],r=BUILDERS.larva(sp,id+':3');r.faces=[attachFace(r,r.faceSpec,'C')];const a=instantiate({rig:r,key:id+':3'}),pairs=[['seg0','seg1'],['seg1','seg2'],['seg2','head']],dist=pairs.map(([x,y])=>a.bones[x].position.distanceTo(a.bones[y].position));
   for(let n=0;n<80;n++){animate(a,{dt:.025,moving:true,animLv:2});for(let i=0;i<pairs.length;i++){const[x,y]=pairs[i];assert.ok(Math.abs(a.bones[x].position.distanceTo(a.bones[y].position)-dist[i])<1e-7,'curved sections cannot tear apart under the straight-caterpillar differential gait');}}
   assert.notEqual(a.root.rotation.z,0,'whole curved body still has owner-clock walking motion');
+ }
+});
+test('early grubs use inspected small curled and long crawling silhouettes instead of scaled mature curves',async()=>{
+ const rows=require('../character-3d/armored-spec.js')(),{BUILDERS}=await import('../character-3d/archetypes.mjs');
+ for(const id of ['beetle','stagbeetle']){
+  const a=rows[id].stages[1],b=rows[id].stages[2];assert.ok(a&&b,'both exact early grub candidates');
+  const span=sp=>Math.max(...sp.bodyPath.map(p=>p[1]))-Math.min(...sp.bodyPath.map(p=>p[1]));
+  assert.ok(span(b)<span(a)*.5,'02 horizontal crawling centerline differs from01 curl');assert.ok(a.head.r<b.head.r);assert.ok(a.segments<b.segments);
+  for(const sp of [a,b]){assert.equal(sp.curveLocked,true);assert.equal(sp.thoracicFeet.length,3);const r=BUILDERS.larva(sp,'early');for(const p of r.parts)assert.ok([...p.mesh.geometry.attributes.position.array].every(Number.isFinite));}
  }
 });
