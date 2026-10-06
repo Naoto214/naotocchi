@@ -6,9 +6,14 @@ const http = require('http'), fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '..', '..');
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.svg': 'image/svg+xml', '.json': 'application/json', '.woff2': 'font/woff2' };
 function serve(opts = {}) {
+  if(opts.nonPlayerFactory && (opts.candidateHuman || opts.candidateFactory)) throw new Error('Choose one candidate wave');
   return new Promise((resolve) => {
     const srv = http.createServer((req, res) => {
       let file = path.join(ROOT, decodeURIComponent(req.url.split('?')[0]).replace(/^\/+/, '') || 'index.html');
+      if(opts.nonPlayerFactory && req.url.split('?')[0] === '/character-3d/spec.js'){
+        const body=require('./candidate-spec.cjs').nonPlayerCandidateSource(fs.readFileSync(file,'utf8'),opts.nonPlayerFactory);
+        res.writeHead(200,{'content-type':'text/javascript'});res.end(body);return;
+      }
       if((opts.candidateHuman || opts.candidateFactory) && req.url.split('?')[0] === '/character-3d/spec.js'){
         const body=require('./candidate-spec.cjs').humanCandidateSource(fs.readFileSync(file,'utf8'),opts.candidateFactory);
         res.writeHead(200,{'content-type':'text/javascript'});res.end(body);return;

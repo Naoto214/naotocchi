@@ -12,6 +12,16 @@ function loadHumanCandidates(createCandidates){
  vm.runInNewContext(humanCandidateSource(fs.readFileSync(specPath,'utf8'),createCandidates),context);
  return context.module.exports;
 }
+function nonPlayerCandidateSource(source,createCandidates){
+ const boundary='const api = factory(rollout);';
+ if(source.split(boundary).length!==2)throw Error('Candidate QA spec boundary changed');
+ return source.replace(boundary,`const api = factory(rollout,(${createCandidates.toString()})());`);
+}
+function loadNonPlayerCandidates(createCandidates){
+ const context={module:{exports:{}},require:createRequire(specPath)};
+ vm.runInNewContext(nonPlayerCandidateSource(fs.readFileSync(specPath,'utf8'),createCandidates),context);
+ return context.module.exports;
+}
 function candidateConfig(args){
  const kinds=['human','topology','aquatic','armored','botanical','mythic'].filter(k=>args.includes('--candidate-'+k));
  if(!kinds.length)return null;
@@ -21,4 +31,4 @@ function candidateConfig(args){
  if(!args.includes('--rollout')||!args.includes('--species-only')||!args.includes('--line')||!rows[line])throw Error('Candidate QA requires --rollout --species-only --line with an exact candidate family');
  return {kind,factory,spec:loadHumanCandidates(factory)};
 }
-module.exports={humanCandidateSource,loadHumanCandidates,candidateConfig};
+module.exports={humanCandidateSource,loadHumanCandidates,nonPlayerCandidateSource,loadNonPlayerCandidates,candidateConfig};

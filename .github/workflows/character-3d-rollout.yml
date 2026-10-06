@@ -340,6 +340,7 @@ jobs:
           node tools/character-3d/celestial-remove-it.cjs > test-results/full-rollout/celestial-remove-it.txt
           node tools/character-3d/world-tree-remove-it.cjs > test-results/full-rollout/world-tree-remove-it.txt
           node tools/character-3d/spectral-remove-it.cjs > test-results/full-rollout/spectral-remove-it.txt
+          node tools/character-3d/nonplayer-remove-it.cjs > test-results/full-rollout/nonplayer-remove-it.txt
           node tools/character-3d/mystery-remove-it.cjs > test-results/full-rollout/mystery-remove-it.txt
           node tools/character-3d/plush-remove-it.cjs > test-results/full-rollout/plush-remove-it.txt
           node tools/character-3d/cosmic-remove-it.cjs > test-results/full-rollout/cosmic-remove-it.txt

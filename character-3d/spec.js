@@ -15,7 +15,7 @@
   const api = factory(rollout);
   if (typeof module === 'object' && module.exports) module.exports = api;
   if (root) root.NaotocchiCharacter3DSpec = api;
-})(typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : null), function (createRollout) {
+})(typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : null), function (createRollout, nonPlayerCandidates) {
   'use strict';
   const freeze = (o) => { if (o && typeof o === 'object' && !Object.isFrozen(o)) { Object.freeze(o); for (const v of Object.values(o)) freeze(v); } return o; };
 
@@ -246,6 +246,11 @@
       ears: { type: 'pointy', len: 0.24, w: 0.2, tilt: 0.1 }, tail: { type: 'hook', len: 0.87, r: 0.085 }, colors: { base: '#f6e6d6', belly: '#fbf2e8', muzzle: '#fbf2e8', ear: '#e89848', nose: '#e88888', paw: '#f6e6d6', patch: '#332a29', patch2: '#d89449' }, patches: true },
   });
 
+  // Empty in production until each role-specific candidate passes image gates.
+  const NON_PLAYER = freeze(nonPlayerCandidates || {});
+  for (const [key,row] of Object.entries(NON_PLAYER)) {
+    if (!['companion','partner','author'].includes(row.kind) || !/^[a-z_]+$/.test(row.id) || key !== row.kind+':'+row.id || !row.spec || !row.asset) throw new Error('Invalid non-player identity '+key);
+  }
   const STAGE_KEYS = freeze(Object.fromEntries(Object.entries(PILOT).map(([id, p]) => [id, Object.keys(p.stages).map(Number)])));
   // Only visually reviewed family waves are included here. Pilot remains an immutable reference.
   const ROLLOUT = freeze(typeof createRollout === 'function' ? createRollout(PILOT, ARCHETYPE_REUSE) : {});
@@ -265,6 +270,7 @@
   //   stage: めぐるの form は 0 はじまり(0〜7)。ここでは 1〜8
   function specKeyFor(ref) {
     if (!ref) return null;
+    if (ref.kind && ref.kind !== 'form' && Object.hasOwn(NON_PLAYER,ref.kind+':'+ref.id)) return {id:ref.kind+':'+ref.id,stage:0,exact:true};
     if (ref.kind && ref.kind !== 'form') return Object.hasOwn(ARCHETYPE_REUSE, ref.id) && ARCHETYPE_REUSE[ref.id].kind === ref.kind ? { id: ref.id, stage: 0, exact: true } : null;
     const id = ref.line || ref.id, n = ref.stage != null ? Number(ref.stage) + (ref.zeroBased === false ? 0 : 1) : null;
     if (!Number.isInteger(n) || n < 1 || n > 8) return null;
@@ -274,6 +280,7 @@
     return s == null ? null : { id, stage: s, exact: s === n };
   }
   function stageSpec(id, stage) {
+    if (Object.hasOwn(NON_PLAYER,id)) return stage === 0 ? NON_PLAYER[id].spec : null;
     if (Object.hasOwn(ARCHETYPE_REUSE, id)) return ARCHETYPE_REUSE[id];
     if (Object.hasOwn(ROLLOUT,id)) return ROLLOUT[id].stages[stage] || null;
     const p = PILOT[id];
@@ -281,6 +288,7 @@
   }
   // 2D の 正本画像(QA の となりに ならべる・大きさを あわせる)
   function referenceAsset(id, stage, emotion) {
+    if (Object.hasOwn(NON_PLAYER,id)) return stage === 0 ? NON_PLAYER[id].asset : null;
     if (Object.hasOwn(ARCHETYPE_REUSE, id)) return `assets/characters/${ARCHETYPE_REUSE[id].kind}s/${id}.png`;
     const st = '0' + stage, e = REFERENCE_EXPRESSION[emotion || 'normal'];
     return !emotion || e === 'normal' ? `assets/characters/${id}/${st}.png` : `assets/characters/expressions/${id}/${st}-${e}.png`;
@@ -290,6 +298,6 @@
     CANONICAL_EMOTIONS, PILOT_EMOTIONS, REFERENCE_EXPRESSION, PRE368_LIFE_EMOTION, canonicalEmotion,
     EXPRESSION_3D, expressionParams,
     ARCHETYPES, PLAYER_LINES, COMPANIONS, PARTNERS, AUTHOR, inventory, archetypeCoverage,
-    PILOT, ARCHETYPE_REUSE, STAGE_KEYS, ROLLOUT, ROLLOUT_STAGE_KEYS, pilotStageFor, specKeyFor, stageSpec, referenceAsset,
+    PILOT, ARCHETYPE_REUSE, NON_PLAYER, STAGE_KEYS, ROLLOUT, ROLLOUT_STAGE_KEYS, pilotStageFor, specKeyFor, stageSpec, referenceAsset,
   });
 });
