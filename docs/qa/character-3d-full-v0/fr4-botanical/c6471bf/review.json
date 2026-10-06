@@ -1,0 +1,13 @@
+{
+  "sourceCommit": "c6471bff64069e9f5a4cc814d86c8892a0fdd6f6",
+  "waveArtifact": 11424525238,
+  "distanceArtifact": 11424361006,
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "verdict": "full-family gate rejected",
+  "inspected": "new01/02/05/06/08 front/side views; no full256-motion acceptance claimed",
+  "issues": [
+    "Seed01 and buds05 have an angular diamond equator rather than smooth almond/bud contour.",
+    "Flower06 center disks protrude ahead of the canonical face targets and occlude eye regions."
+  ],
+  "correction": "smooth quadratic taper, flower disks moved behind face volumes; numeric width and forward ray regressions RED then GREEN. Corrected immutable images required."
+}

@@ -63,3 +63,13 @@ test('all sakura candidates preserve original face ownership across32 canonical 
  for(const [n,count] of [[1,1],[2,1],[5,5],[6,2],[8,1]]){assert.ok(rows[n]);assert.equal(SPEC.specKeyFor({line:'sakura',stage:n}),null);const r=branchOrganism(rows[n],'sakura:'+n);r.faces=(Array.isArray(r.faceSpec)?r.faceSpec:[r.faceSpec]).map(f=>attachFace(r,f,'C'));
  for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'sakura:'+n});setEmotion(a,em);for(let i=0;i<20;i++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,count);assert.ok(a.faces.every(f=>f.emotion===em));for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}}
 });
+test('pointed seed keeps a smooth broad equator instead of a diamond corner',async()=>{
+ const sp=require('../character-3d/botanical-spec.js')().sakura.stages[1],{branchOrganism}=await import('../character-3d/branch-organism.mjs');const r=branchOrganism({...sp,branches:[],foliage:[],blossoms:[]},'seed-core'),p=r.parts[0].mesh.geometry.attributes.position;
+ const width=t=>{let w=0;for(let i=0;i<p.count;i++)if(Math.abs((p.getY(i)-sp.body.y)/sp.body.height-t)<.025)w=Math.max(w,Math.abs(p.getX(i)));return w;};
+ assert.ok(width(.222)>width(0)*.92,'almond contour stays rounded near its broad middle');assert.ok(width(.901)<width(0)*.32,'seed ends remain tapered');
+});
+test('flower center volume leaves both canonical eye regions visible from the front',async()=>{
+ const units=require('../character-3d/botanical-spec.js')().sakura.stages[6].colony.filter(u=>u.face!==false),{branchOrganism}=await import('../character-3d/branch-organism.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ for(const u of units){const sp=u.spec,r=branchOrganism(sp,'flower'),target=new THREE.Mesh(r.faceSpec.target,new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));r.root.updateMatrixWorld(true);target.updateMatrixWorld(true);
+ for(const side of [-1,1]){const ray=new THREE.Raycaster(new THREE.Vector3(side*sp.body.width*.4,sp.body.y+.01,1),new THREE.Vector3(0,0,-1)),core=ray.intersectObject(target)[0],actual=ray.intersectObject(r.parts[0].mesh)[0];assert.ok(core&&actual);assert.ok(Math.abs(core.point.z-actual.point.z)<.002,'petal center must not cover the facial target');}}
+});
