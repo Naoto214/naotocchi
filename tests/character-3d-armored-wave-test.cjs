@@ -1,7 +1,8 @@
 const test=require('node:test'),assert=require('node:assert/strict'),SPEC=require('../character-3d/spec.js');
 test('stag mandibles remain below the projected mouth instead of crossing the canonical face',async()=>{
- const sp=require('../character-3d/armored-spec.js')().stagbeetle.stages[7];
+ const stages=require('../character-3d/armored-spec.js')().stagbeetle.stages;
  const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs');
+ for(const stage of [5,6,7,8]){const sp=stages[stage];assert.ok(sp);
  const r=BUILDERS[sp.archetype](sp,'stagbeetle:7'),face=attachFace(r,r.faceSpec,'B');
  const mouth=face.feats.mouths.smile;
  for(const q of sp.mandibles){
@@ -10,15 +11,18 @@ test('stag mandibles remain below the projected mouth instead of crossing the ca
   const root=q.path[0];
   assert.ok((root[0]/sp.head.width)**2+(root[1]/sp.head.height)**2+(root[2]/sp.head.depth)**2<1.15,'jaw root remains attached to head');
  }
+ }
 });
 test('beetle and stag originals keep six rooted articulated legs and distinct horn versus paired jaws',async()=>{
  const rows=require('../character-3d/armored-spec.js')();
  const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
- for(const id of ['beetle','stagbeetle']){
-  const sp=rows[id].stages[7],r=BUILDERS[sp.archetype](sp,id+':7');r.faces=[attachFace(r,r.faceSpec,'C')];
+ for(const id of ['beetle','stagbeetle'])for(const stage of [5,6,7,8]){
+  const sp=rows[id].stages[stage];assert.ok(sp,id+' explicit adult stage '+stage);
+  const r=BUILDERS[sp.archetype](sp,id+':'+stage);r.faces=[attachFace(r,r.faceSpec,'C')];
   assert.equal(Object.keys(r.bones).filter(n=>/^leg[0-5]$/.test(n)).length,6);
   assert.equal(r.faces[0].eyes.length,2,'both eyes project onto the actual head');
   assert.ok(r.parts.some(p=>p.bone==='shellL')&&r.parts.some(p=>p.bone==='shellR'),'left/right elytra with longitudinal seam');
+  if(stage===6&&id==='beetle'){assert.ok(Math.abs(r.bones.shellL.rotation.z)>.2,'young red beetle has raised angled covers');assert.ok(r.bones.shellL.rotation.z*r.bones.shellR.rotation.z<0,'opposite attached cover opening');}
   const bare=structuredClone(sp);bare.horn=null;bare.mandibles=[];const r0=BUILDERS[sp.archetype](bare,id+':bare');
   assert.ok(r.parts.find(p=>p.bone==='head').mesh.geometry.attributes.position.count>r0.parts.find(p=>p.bone==='head').mesh.geometry.attributes.position.count+100,'horn or mandibles add real connected geometry');
   assert.equal(r.meta.horns,id==='beetle'?1:0);assert.equal(r.meta.mandibles,id==='stagbeetle'?2:0);

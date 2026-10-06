@@ -7,7 +7,7 @@ export function armoredInsect(sp,key){
  const volume=(size,pos,color)=>paint(xform(ellipsoid(...size,20,12),{pos}),(x,y,z,nx,ny,nz)=>mix(color,c.light,Math.max(0,ny)*.16+Math.max(0,nz)*.07));
  r.add('body','root',[0,b.y,0],[volume([b.width,b.height,b.length],[0,0,-.12],c.body),volume([t.width,t.height,t.length],[0,.02,t.z],c.thorax)]);
  // Two convex covers leave a narrow, dark longitudinal seam over the abdomen.
- for(const side of [-1,1])r.add(side<0?'shellL':'shellR','body',[side*(s.width+.006),s.y,s.z],[volume([s.width,s.height,s.length],[0,0,0],c.shell)]);
+ for(const side of [-1,1])r.add(side<0?'shellL':'shellR','body',[side*(s.width+.006),s.y,s.z],[volume([s.width,s.height,s.length],[0,0,0],c.shell)],'opaque',[s.pitch||0,0,side*(s.open||0)]);
  const head=volume([h.width,h.height,h.depth],[0,0,0],c.head),headParts=[head.clone()];
  for(const side of [-1,1]){
   const end=[side*(h.width+.09),.12,.13];

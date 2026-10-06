@@ -6,7 +6,7 @@ const cases=[
  ['colony face ownership','character-3d/branch-organism.mjs','if(u.face!==false)','if(false)'],
  ['anemone radial lobes','character-3d/branch-organism.mjs','if(sp.petals)','if(false)'],
  ['rooted branches','character-3d/branch-organism.mjs','for(const p of sp.branches)','for(const p of [])'],
- ['existing single-root locomotion','character-3d/branch-organism.mjs',"'branch_organism','plantSway'","'branch_organism','clusterBob'"],
+ ['existing single-root locomotion','character-3d/branch-organism.mjs',"sp.locomotion||'plantSway'","sp.locomotion||'clusterBob'"],
  ['candidate route','tools/character-3d/candidate-spec.cjs',"'aquatic'","'removed_aquatic'"]
 ];
 for(const [name,file,old,replacement]of cases){const source=fs.readFileSync(file);try{assert.ok(source.toString().includes(old));fs.writeFileSync(file,source.toString().replace(old,replacement));const r=run();assert.equal(r.status,1,r.stdout+r.stderr);assert.ok(r.stdout.includes('AssertionError'));console.log(name+': RED');}finally{fs.writeFileSync(file,source);}}
