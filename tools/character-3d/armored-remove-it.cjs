@@ -1,6 +1,10 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','tests/character-3d-armored-wave-test.cjs','tests/character-3d-armored-juvenile-test.cjs','tests/character-3d-veined-insect-test.cjs','tests/character-3d-antlion-wave-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['granular cocoon coat','character-3d/cocoon-pod.mjs','if(sp.granules!==false)','if(false)'],
+ ['open cocoon host','character-3d/armored-spec.js',"h:1.14,r:.33,open:true","h:1.14,r:.33,open:false"],
+ ['deep antlion pit','character-3d/armored-spec.js','[.62,.58],[.44,.30]','[.62,.32],[.44,.18]'],
+ ['tiny larva clearance','character-3d/armored-spec.js','length:.13,y:.14,z:.10','length:.13,y:.10,z:.10'],
  ['folded young wings','character-3d/armored-spec.js','rotation:[1.36,side*.10,0]','rotation:[0,side*.10,0]'],
  ['physical worn wing holes','character-3d/armored-insect.mjs','if(w.damage){','if(false){'],
  ['emerging cicada source eyes','character-3d/armored-spec.js',"const c5={...copy(c6),normalEye:'round'","const c5={...copy(c6),normalEye:'content'"],

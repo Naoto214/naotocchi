@@ -2,6 +2,7 @@
 const fs=require('fs'),path=require('path'),cp=require('child_process'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'../..'),test='tests/character-3d-rollout-test.cjs';
 const cases=[
+ ['sakura runtime coverage','character-3d/rollout-spec.js',',sakura:botanicalFactory(PILOT).sakura','','reviewed sakura batch'],
  ['beetle runtime coverage','character-3d/rollout-spec.js',',beetle:armoredFactory(PILOT).beetle','','reviewed beetle families'],
  ['stag runtime coverage','character-3d/rollout-spec.js',',stagbeetle:armoredFactory(PILOT).stagbeetle','','reviewed beetle families'],
  ['jellyfish runtime coverage','character-3d/rollout-spec.js',',jellyfish:aquaticFactory(PILOT).jellyfish','','reviewed jellyfish batch'],
@@ -15,7 +16,7 @@ const cases=[
  ['human runtime coverage','character-3d/rollout-spec.js','...humanFactory(PILOT)','...{}','reviewed human batch'],
  ['stage completeness','tools/character-3d/stage-evidence.cjs','if(JSON.stringify([...expected].sort())!==JSON.stringify(Object.keys(records||{}).sort()))return false;','if(false)return false;','Meguru family shards'],
  ['same-source evidence','tools/character-3d/stage-evidence.cjs',"assert.equal(shard.sourceCommit,source,'source mismatch');",'', 'Meguru family shards'],
- ['exact age','character-3d/rollout-spec.js','return {dog,cat,penguin,...fishFactory(PILOT),...humanFactory(PILOT),dandelion:topologyFactory(PILOT).dandelion,butterfly:topologyFactory(PILOT).butterfly,mushroom:topologyFactory(PILOT).mushroom,starfish:topologyFactory(PILOT).starfish,turtle:topologyFactory(PILOT).turtle,frog:topologyFactory(PILOT).frog,coral:aquaticFactory(PILOT).coral,jellyfish:aquaticFactory(PILOT).jellyfish,beetle:armoredFactory(PILOT).beetle,stagbeetle:armoredFactory(PILOT).stagbeetle};','delete dog.stages[2]; return {dog,cat,penguin,...fishFactory(PILOT),...humanFactory(PILOT),dandelion:topologyFactory(PILOT).dandelion,butterfly:topologyFactory(PILOT).butterfly,mushroom:topologyFactory(PILOT).mushroom,starfish:topologyFactory(PILOT).starfish,turtle:topologyFactory(PILOT).turtle,frog:topologyFactory(PILOT).frog,coral:aquaticFactory(PILOT).coral,jellyfish:aquaticFactory(PILOT).jellyfish,beetle:armoredFactory(PILOT).beetle,stagbeetle:armoredFactory(PILOT).stagbeetle};','FR-1 exact'],
+ ['exact age','character-3d/rollout-spec.js','return {dog,cat,penguin,','delete dog.stages[2]; return {dog,cat,penguin,','FR-1 exact'],
  ['signature paw','character-3d/animate.mjs','if (lifted && B[lifted])','if (false && B[lifted])','signature lifted'],
  ['stretch play','character-3d/animate.mjs',"pose === 'stretchPlay'","pose === 'removedStretch'",'signature lifted'],
  ['runtime exact dispatch','character-3d/spec.js','if (Object.hasOwn(ROLLOUT,id)) return ROLLOUT[id].stages[n] ? {id,stage:n,exact:true} : null;','if (Object.hasOwn(ROLLOUT,id)) return null;','reviewed exact stages'],

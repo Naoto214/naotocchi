@@ -4,6 +4,7 @@ import './humanoid-spec.js';
 import './topology-spec.js';
 import './aquatic-spec.js';
 import './armored-spec.js';
+import './botanical-spec.js';
 import './rollout-spec.js';
 import './spec.js';
 export default globalThis.NaotocchiCharacter3DSpec;

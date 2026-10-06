@@ -157,3 +157,10 @@ test('reviewed beetle families preserve all exact metamorphosis stages in runtim
   for(const emotion of SPEC.CANONICAL_EMOTIONS){const a=rt.instantiate(t);const an=await import('../character-3d/animate.mjs');an.setEmotion(a,emotion);an.animate(a,{dt:.05,moving:true,animLv:2});assert.equal(a.faces[0].emotion,emotion);}
  }
 });
+test('reviewed sakura batch preserves all eight original topologies and face ownership in runtime',async()=>{
+ const rt=await import('../character-3d/runtime.mjs'),an=await import('../character-3d/animate.mjs'),counts=[1,1,1,1,5,2,3,1];
+ for(let stage=1;stage<=8;stage++){
+  assert.deepEqual(SPEC.specKeyFor({line:'sakura',stage:stage-1}),{id:'sakura',stage,exact:true});const t=rt.getTemplate('sakura',stage);assert.equal(t.status,'ok');assert.equal(t.rig.archetype,'branch_organism');
+  for(const emotion of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=rt.instantiate(t);an.setEmotion(a,emotion);an.animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,counts[stage-1]);assert.ok(a.faces.every(f=>f.emotion===emotion));}
+ }
+});

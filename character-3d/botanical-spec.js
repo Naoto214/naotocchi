@@ -1,4 +1,4 @@
-// Original-derived rooted botanical candidates; isolated from runtime rollout.
+// Original-derived botanical families; runtime promotion is explicit in rollout-spec.
 (function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory;if(root)root.NaotocchiBotanicalWave=factory;})(typeof globalThis!=='undefined'?globalThis:this,function(){
  const roots=[
   {path:[[0,.27,0],[-.12,.13,.02],[-.38,.025,.16]],r:.075,taper:.80},

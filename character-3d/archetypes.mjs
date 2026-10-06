@@ -1,3 +1,4 @@
+import {cocoonPod} from './cocoon-pod.mjs';
 import {armoredInsect} from './armored-insect.mjs';
 import {jellyOrganism} from './jelly-organism.mjs';
 import {branchOrganism} from './branch-organism.mjs';
@@ -501,6 +502,7 @@ export function larva(sp, key) {
 
 // ================= pod(さなぎ・たね) =================
 export function pod(sp, key) {
+  if(sp.shape==='granularCocoon')return cocoonPod(sp,key);
   const c = sp.colors;
   const rig = new Rig(key, 'pod', 'hopSway');
   if(sp.shape==='insectPupa'){

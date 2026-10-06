@@ -10,7 +10,7 @@ test('flowering sakura has rooted branch volume, attached five-petal blossom clu
 });
 test('botanical candidate lookup is isolated and canonical emotions retain the single owning tree',async()=>{
  const {candidateConfig}=require('../tools/character-3d/candidate-spec.cjs'),before=JSON.stringify(SPEC.ROLLOUT);
- const c=candidateConfig(['--candidate-botanical','--rollout','--species-only','--line','sakura']);assert.ok(c);assert.equal(c.spec.stageSpec('sakura',4).archetype,'branch_organism');assert.equal(JSON.stringify(SPEC.ROLLOUT),before);assert.equal(SPEC.specKeyFor({line:'sakura',stage:3}),null);
+ const c=candidateConfig(['--candidate-botanical','--rollout','--species-only','--line','sakura']);assert.ok(c);assert.equal(c.spec.stageSpec('sakura',4).archetype,'branch_organism');assert.equal(JSON.stringify(SPEC.ROLLOUT),before);assert.equal(SPEC.specKeyFor({line:'sakura',stage:3}).exact,true);
  assert.throws(()=>candidateConfig(['--candidate-botanical','--candidate-armored','--rollout','--species-only','--line','sakura']));
  const {branchOrganism}=await import('../character-3d/branch-organism.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');const r=branchOrganism(c.spec.stageSpec('sakura',4),'sakura:4');r.faces=[attachFace(r,r.faceSpec,'C')];
  for(const emotion of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'sakura:4'});setEmotion(a,emotion);for(let n=0;n<20;n++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,1);assert.equal(a.faces[0].emotion,emotion);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}
@@ -58,9 +58,9 @@ test('sakura seed, sprout, five buds, two flowers and bare tree retain explicit 
  assert.ok(rows[5].colony.every(u=>u.spec.body.taper>.4),'five pointed buds, not a tree canopy');assert.equal(rows[6].colony.filter(u=>u.face!==false).length,2,'two flower centers own faces; small buds do not');
  const pointed=branchOrganism(rows[1],'seed'),rounded=branchOrganism({...rows[1],body:{...rows[1].body,taper:0}},'rounded');const a=pointed.parts[0].mesh.geometry.attributes.position.array,b=rounded.parts[0].mesh.geometry.attributes.position.array;assert.ok(a.length!==b.length||a.some((v,i)=>v!==b[i]),'seed taper changes physical geometry');
 });
-test('all sakura candidates preserve original face ownership across32 canonical states without runtime promotion',async()=>{
+test('all sakura candidates preserve original face ownership across32 canonical states after reviewed runtime promotion',async()=>{
  const rows=require('../character-3d/botanical-spec.js')().sakura.stages,{branchOrganism}=await import('../character-3d/branch-organism.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
- for(const [n,count] of [[1,1],[2,1],[5,5],[6,2],[8,1]]){assert.ok(rows[n]);assert.equal(SPEC.specKeyFor({line:'sakura',stage:n}),null);const r=branchOrganism(rows[n],'sakura:'+n);r.faces=(Array.isArray(r.faceSpec)?r.faceSpec:[r.faceSpec]).map(f=>attachFace(r,f,'C'));
+ for(const [n,count] of [[1,1],[2,1],[5,5],[6,2],[8,1]]){assert.ok(rows[n]);assert.equal(SPEC.specKeyFor({line:'sakura',stage:n-1}).stage,n);const r=branchOrganism(rows[n],'sakura:'+n);r.faces=(Array.isArray(r.faceSpec)?r.faceSpec:[r.faceSpec]).map(f=>attachFace(r,f,'C'));
  for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'sakura:'+n});setEmotion(a,em);for(let i=0;i<20;i++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,count);assert.ok(a.faces.every(f=>f.emotion===em));for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}}
 });
 test('pointed seed keeps a smooth broad equator instead of a diamond corner',async()=>{

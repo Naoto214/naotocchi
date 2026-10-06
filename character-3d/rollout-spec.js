@@ -64,5 +64,6 @@
   const topologyFactory=typeof module==='object'&&module.exports?require('./topology-spec.js'):globalThis.NaotocchiTopologyWave;
   const aquaticFactory=typeof module==='object'&&module.exports?require('./aquatic-spec.js'):globalThis.NaotocchiAquaticWave;
   const armoredFactory=typeof module==='object'&&module.exports?require('./armored-spec.js'):globalThis.NaotocchiArmoredWave;
-  return {dog,cat,penguin,...fishFactory(PILOT),...humanFactory(PILOT),dandelion:topologyFactory(PILOT).dandelion,butterfly:topologyFactory(PILOT).butterfly,mushroom:topologyFactory(PILOT).mushroom,starfish:topologyFactory(PILOT).starfish,turtle:topologyFactory(PILOT).turtle,frog:topologyFactory(PILOT).frog,coral:aquaticFactory(PILOT).coral,jellyfish:aquaticFactory(PILOT).jellyfish,beetle:armoredFactory(PILOT).beetle,stagbeetle:armoredFactory(PILOT).stagbeetle};
+  const botanicalFactory=typeof module==='object'&&module.exports?require('./botanical-spec.js'):globalThis.NaotocchiBotanicalWave;
+  return {dog,cat,penguin,...fishFactory(PILOT),...humanFactory(PILOT),dandelion:topologyFactory(PILOT).dandelion,butterfly:topologyFactory(PILOT).butterfly,mushroom:topologyFactory(PILOT).mushroom,starfish:topologyFactory(PILOT).starfish,turtle:topologyFactory(PILOT).turtle,frog:topologyFactory(PILOT).frog,coral:aquaticFactory(PILOT).coral,jellyfish:aquaticFactory(PILOT).jellyfish,beetle:armoredFactory(PILOT).beetle,stagbeetle:armoredFactory(PILOT).stagbeetle,sakura:botanicalFactory(PILOT).sakura};
 });
