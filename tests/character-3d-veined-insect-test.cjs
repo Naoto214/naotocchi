@@ -49,7 +49,7 @@ test('emerging cicada has one adult face above an open empty exuvia with folded 
 });
 test('emerging adult rises vertically with a forward-facing head and original nymph and aged eyes',async()=>{
  const stages=require('../character-3d/armored-spec.js')().cicada.stages,{armoredInsect}=await import('../character-3d/armored-insect.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
- for(const stage of [3,8])assert.equal(armoredInsect(stages[stage],'cicada:'+stage).faceSpec.normalEye,'round','original open round eyes');
+ for(const stage of [3,5,8])assert.equal(armoredInsect(stages[stage],'cicada:'+stage).faceSpec.normalEye,'round','original open round eyes');
  const sp=stages[5],r=armoredInsect(sp,'cicada:5');r.root.updateMatrixWorld(true);
  const rear=r.bones.body.localToWorld(new THREE.Vector3(0,0,-sp.body.length-.12)),head=r.bones.head.getWorldPosition(new THREE.Vector3());
  assert.ok(head.y-rear.y>.75,'adult long axis rises above the shell instead of projecting horizontally');

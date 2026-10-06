@@ -1,6 +1,9 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','tests/character-3d-armored-wave-test.cjs','tests/character-3d-armored-juvenile-test.cjs','tests/character-3d-veined-insect-test.cjs','tests/character-3d-antlion-wave-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['folded young wings','character-3d/armored-spec.js','rotation:[1.36,side*.10,0]','rotation:[0,side*.10,0]'],
+ ['physical worn wing holes','character-3d/armored-insect.mjs','if(w.damage){','if(false){'],
+ ['emerging cicada source eyes','character-3d/armored-spec.js',"const c5={...copy(c6),normalEye:'round'","const c5={...copy(c6),normalEye:'content'"],
  ['soil emergence foot clearance','character-3d/armored-spec.js','Math.max(y,-.055)','y'],
  ['antlion wing-size hierarchy','character-3d/armored-spec.js','const outline=upper?','const outline=false?'],
  ['unobscured pit face','character-3d/armored-spec.js','frontDrop:.72','frontDrop:0'],

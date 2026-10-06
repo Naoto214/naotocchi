@@ -12,7 +12,13 @@ export function armoredInsect(sp,key){
  if(s)for(const side of [-1,1])r.add(side<0?'shellL':'shellR','body',[side*(s.width+.006),s.y,s.z],[volume([s.width,s.height,s.length],[0,0,0],c.shell)],'opaque',[s.pitch||0,0,side*(s.open||0)]);
  // Thin enclosed membrane and raised opaque veins share an attached wing bone.
  for(const [i,w]of (sp.wings||[]).entries()){
-  r.add('wing'+i,'body',w.at,[solid(outlineLoft(w.outline,w.depth,32,4),w.color)],'translucent:'+w.alpha,w.rotation);
+  let membrane=outlineLoft(w.outline,w.depth,32,4);
+  if(w.damage){
+   const shape=new THREE.Shape(w.outline.map(([x,y])=>new THREE.Vector2(x,y)));
+   for(const h of w.damage.holes){const hole=new THREE.Path();hole.absellipse(h.x,h.y,h.rx,h.ry,0,Math.PI*2,true);shape.holes.push(hole);}
+   membrane=new THREE.ExtrudeGeometry(shape,{depth:w.depth*2,steps:1,bevelEnabled:false,curveSegments:12});membrane.translate(0,0,-w.depth);
+  }
+  r.add('wing'+i,'body',w.at,[solid(membrane,w.color)],'translucent:'+w.alpha,w.rotation);
   r.add('veins'+i,'wing'+i,[0,0,0],w.veins.map(q=>solid(sweep(q.map(([x,y])=>[x,y,w.depth+.002]),()=>w.veinRadius,5,{steps:7}),w.veinColor)));
  }
  const head=volume([h.width,h.height,h.depth],[0,0,0],c.head),headParts=[head.clone()];

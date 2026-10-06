@@ -12,7 +12,7 @@ test('adult antlion representative has narrow ringed abdomen, four long veined w
 test('antlion representatives retain one owned face in32 canonical motion states and stay outside runtime',async()=>{
  const {candidateConfig}=require('../tools/character-3d/candidate-spec.cjs');const c=candidateConfig(['--candidate-armored','--rollout','--species-only','--line','antlion']);assert.ok(c);assert.equal(SPEC.specKeyFor({line:'antlion',stage:7}),null);
  const {armoredInsect}=await import('../character-3d/armored-insect.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
- for(const stage of [3,7]){const r=armoredInsect(c.spec.stageSpec('antlion',stage),'antlion:'+stage);r.faces=[attachFace(r,r.faceSpec,'C')];
+ for(const stage of [3,6,7,8]){const r=armoredInsect(c.spec.stageSpec('antlion',stage),'antlion:'+stage);r.faces=[attachFace(r,r.faceSpec,'C')];
  for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'antlion:'+stage});setEmotion(a,em);for(let i=0;i<20;i++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces[0].emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}
  }
 });
@@ -32,4 +32,15 @@ test('pit rim leaves both canonical larval eyes visible from the front',async()=
  const sp=require('../character-3d/armored-spec.js')().antlion.stages[3],{armoredInsect}=await import('../character-3d/armored-insect.mjs'),{THREE}=await import('../character-3d/geometry.mjs');const r=armoredInsect(sp,'antlion:3');r.root.updateMatrixWorld(true);
  const head=r.parts.find(p=>p.bone==='head').mesh,soil=r.parts.filter(p=>['pit','ground'].includes(p.bone)).map(p=>p.mesh);
  for(const x of [-.05,.05]){const pt=r.bones.head.localToWorld(new THREE.Vector3(x,.035,0)),ray=new THREE.Raycaster(new THREE.Vector3(pt.x,pt.y,2),new THREE.Vector3(0,0,-1)),face=ray.intersectObject(head)[0],rim=ray.intersectObjects(soil)[0];assert.ok(face,'eye region intersects physical head');assert.ok(!rim||face.distance<rim.distance,'soil must not obscure canonical eye region');}
+});
+test('young antlion rests folded wings over a grounded abdomen and aged wings have physical damage',async()=>{
+ const rows=require('../character-3d/armored-spec.js')().antlion.stages;assert.ok(rows[6]&&rows[8],'explicit young and worn adult anatomy');
+ const {armoredInsect}=await import('../character-3d/armored-insect.mjs'),{THREE}=await import('../character-3d/geometry.mjs'),{attachFace}=await import('../character-3d/rig.mjs');
+ const young=armoredInsect(rows[6],'antlion:6'),aged=armoredInsect(rows[8],'antlion:8');young.root.updateMatrixWorld(true);aged.root.updateMatrixWorld(true);
+ for(const rig of [young,aged]){let tris=0;for(const part of rig.parts){const g=part.mesh.geometry;assert.ok([...g.attributes.position.array].every(Number.isFinite));tris+=(g.index?.count||g.attributes.position.count)/3;}assert.ok(tris<22000,'adult meshes stay bounded');}
+ assert.ok(young.bones.ground,'young adult stands amongst source stones');assert.equal(attachFace(young,young.faceSpec,'C').eyes.length,2);assert.equal(attachFace(aged,aged.faceSpec,'C').eyes.length,2);
+ const box=new THREE.Box3();for(const p of young.parts.filter(p=>/^wing\d$/.test(p.bone)))box.expandByObject(p.mesh,true);const size=box.getSize(new THREE.Vector3());assert.ok(size.z>size.x*1.3,'young wing fan folds lengthwise over the rear abdomen');
+ const w=rows[8].wings[0],mesh=aged.parts.find(p=>p.bone==='wing0').mesh;assert.ok(w.damage?.holes.length>=2,'source worn forewing holes are explicit');
+ for(const h of w.damage.holes){const origin=aged.bones.wing0.localToWorld(new THREE.Vector3(h.x,h.y,.1)),dir=new THREE.Vector3(0,0,-1).transformDirection(aged.bones.wing0.matrixWorld);assert.equal(new THREE.Raycaster(origin,dir).intersectObjects([mesh,aged.parts.find(p=>p.bone==='veins0').mesh]).length,0,'wing perforation is empty geometry, not a dark spot');}
+ const filled=armoredInsect({...rows[8],wings:rows[8].wings.map(v=>({...v,damage:undefined}))},'filled');filled.root.updateMatrixWorld(true);const h=w.damage.holes[0],origin=filled.bones.wing0.localToWorld(new THREE.Vector3(h.x,h.y,.1)),dir=new THREE.Vector3(0,0,-1).transformDirection(filled.bones.wing0.matrixWorld);assert.ok(new THREE.Raycaster(origin,dir).intersectObject(filled.parts.find(p=>p.bone==='wing0').mesh).length>0,'control wing covers the tested hole region');
 });
