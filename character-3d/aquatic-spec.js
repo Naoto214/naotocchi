@@ -1,4 +1,4 @@
-// Unpromoted original-derived aquatic representatives. No runtime coverage yet.
+// Original-derived aquatic family data. Only coral is runtime-promoted; jellyfish remains a candidate.
 (function(root,factory){if(typeof module==='object'&&module.exports)module.exports=factory;if(root)root.NaotocchiAquaticWave=factory;})(typeof globalThis!=='undefined'?globalThis:this,function(){
  const twig=(path,r,bulb=1,taper=.35)=>({path,r,bulb,taper});
  const stones=[[-.28,.065,.02,.14,.065],[-.12,.045,.16,.13,.05],[.10,.06,.13,.15,.06],[.29,.055,-.02,.13,.055],[0,.065,-.14,.14,.065]];
@@ -75,8 +75,8 @@
   {spec:disk('#f789b0','#e9639d','#ffb3cf','happy'),at:[.43,.035,.21],scale:.76},
   {spec:disk('#fff0b8','#eaa2cc','#fff5d0','happy'),at:[.16,-.005,.36],scale:.61}
  ]};
- const youngBell={archetype:'jellyfish',bell:{radius:.38,height:.35,y:.55,alpha:.64,profile:[[.001,.35],[.14,.33],[.26,.23],[.34,.10],[.38,.025],[.36,0],[.31,.035],[.20,.09],[.001,.11]]},
-  colors:{bell:'#97c9ef',rim:'#c9abed',core:'#adbfee',light:'#e4f7ff',arm:'#969ade',armLight:'#c7cbf6'},
+ const youngBell={archetype:'jellyfish',bell:{radius:.38,height:.35,y:.55,alpha:.28,profile:[[.001,.35],[.14,.33],[.26,.23],[.34,.10],[.38,.025],[.36,0],[.31,.035],[.20,.09],[.001,.11]]},
+  colors:{bell:'#97c9ef',rim:'#c9abed',core:'#c4dcf5',light:'#f1faff',arm:'#969ade',armLight:'#c7cbf6'},
   tentacles:[
    {r:.043,path:[[-.25,.045,0],[-.22,-.14,.02],[-.34,-.34,.05],[-.27,-.39,.07]]},
    {r:.044,path:[[-.14,.02,.10],[-.10,-.18,.12],[-.14,-.42,.10],[-.09,-.44,.10]]},
@@ -85,8 +85,8 @@
    {r:.038,path:[[.26,.045,-.01],[.30,-.12,.01],[.39,-.21,.04],[.42,-.21,.05]]},
    {r:.035,path:[[.02,.03,-.15],[-.04,-.16,-.14],[-.08,-.30,-.11],[0,-.38,-.10]]}
   ],bubbles:[[-.47,.29,.02,.035],[.49,.21,-.02,.045],[-.42,-.16,.08,.024]]};
- const mature=copy(youngBell);mature.bell={radius:.50,height:.28,y:.80,alpha:.52,profile:[[.001,.28],[.18,.27],[.34,.20],[.45,.08],[.50,.015],[.48,-.005],[.39,.045],[.20,.09],[.001,.10]]};mature.normalEye='droop';
- mature.colors={bell:'#84b9eb',rim:'#a59aee',core:'#95b5e9',light:'#d4edff',arm:'#8e8cdb',armLight:'#c1c5f2'};
+ const mature=copy(youngBell);mature.bell={radius:.50,height:.28,y:.80,alpha:.24,profile:[[.001,.28],[.18,.27],[.34,.20],[.45,.08],[.50,.015],[.48,-.005],[.39,.045],[.20,.09],[.001,.10]]};mature.normalEye='droop';
+ mature.colors={bell:'#84b9eb',rim:'#a59aee',core:'#bad7ef',light:'#e9f6ff',arm:'#8e8cdb',armLight:'#c1c5f2'};
  // Explicit source filament groups; circumferential placement complements the
  // visible bell rather than creating new faces or gameplay organisms.
  mature.tentacles=[

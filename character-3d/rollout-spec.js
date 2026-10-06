@@ -62,5 +62,6 @@
   const fishFactory=typeof module==='object'&&module.exports?require('./fish-spec.js'):globalThis.NaotocchiFishWave;
   const humanFactory=typeof module==='object'&&module.exports?require('./humanoid-spec.js'):globalThis.NaotocchiHumanoidWave;
   const topologyFactory=typeof module==='object'&&module.exports?require('./topology-spec.js'):globalThis.NaotocchiTopologyWave;
-  return {dog,cat,penguin,...fishFactory(PILOT),...humanFactory(PILOT),dandelion:topologyFactory(PILOT).dandelion,butterfly:topologyFactory(PILOT).butterfly,mushroom:topologyFactory(PILOT).mushroom,starfish:topologyFactory(PILOT).starfish,turtle:topologyFactory(PILOT).turtle,frog:topologyFactory(PILOT).frog};
+  const aquaticFactory=typeof module==='object'&&module.exports?require('./aquatic-spec.js'):globalThis.NaotocchiAquaticWave;
+  return {dog,cat,penguin,...fishFactory(PILOT),...humanFactory(PILOT),dandelion:topologyFactory(PILOT).dandelion,butterfly:topologyFactory(PILOT).butterfly,mushroom:topologyFactory(PILOT).mushroom,starfish:topologyFactory(PILOT).starfish,turtle:topologyFactory(PILOT).turtle,frog:topologyFactory(PILOT).frog,coral:aquaticFactory(PILOT).coral};
 });

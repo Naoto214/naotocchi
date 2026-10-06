@@ -131,3 +131,12 @@ test('reviewed shell and crouched batches reach all16 exact runtime stages', asy
  assert.equal(SPEC.ROLLOUT.frog.stages[7].tail,null);
  assert.ok(SPEC.ROLLOUT.turtle.stages[8].shell.moss.length);
 });
+test('reviewed coral batch preserves all eight exact runtime stages and owned colony faces',async()=>{
+ const rt=await import('../character-3d/runtime.mjs');
+ for(let stage=1;stage<=8;stage++){
+  assert.deepEqual(SPEC.specKeyFor({line:'coral',stage:stage-1}),{id:'coral',stage,exact:true});
+  const t=rt.getTemplate('coral',stage);assert.equal(t.status,'ok');
+  assert.equal(t.rig.faces.length,stage===6?4:stage===7?3:stage===8?5:1);
+ }
+ assert.equal(SPEC.specKeyFor({line:'jellyfish',stage:3}),null,'unreviewed transparent family stays outside rollout');
+});

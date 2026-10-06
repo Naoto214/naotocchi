@@ -16,7 +16,7 @@ test('coral representatives have rounded connected branches in one bounded mesh'
   const r0=BUILDERS[sp.archetype](bare,'coral:'+stage);
   assert.ok(branch.attributes.position.count>r0.parts.find(p=>p.bone==='body').mesh.geometry.attributes.position.count+500,'removing branches must remove real geometry');
  }
- assert.equal(SPEC.ROLLOUT.coral,undefined,'candidate is not counted as reviewed runtime coverage');
+ assert.deepEqual(SPEC.ROLLOUT.coral.stages,rows,'only reviewed coral stages are runtime promoted');
 });
 test('aquatic representative faces follow canonical emotions and reduced motion without actor state',async()=>{
  const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
@@ -32,7 +32,7 @@ test('aquatic candidate overlay is isolated and requires an exact family',()=>{
  const {candidateConfig}=require('../tools/character-3d/candidate-spec.cjs');
  const c=candidateConfig(['--candidate-aquatic','--rollout','--species-only','--line','coral']);
  assert.ok(c,'aquatic candidate route exists');assert.equal(c.spec.stageSpec('coral',5).archetype,'branch_organism');
- assert.equal(SPEC.stageSpec('coral',5),null);
+ assert.equal(SPEC.stageSpec('jellyfish',4),null,'unreviewed aquatic family is not promoted by QA overlay');
  assert.throws(()=>candidateConfig(['--candidate-aquatic','--candidate-topology','--rollout','--species-only','--line','coral']));
  assert.throws(()=>candidateConfig(['--candidate-aquatic','--rollout','--species-only','--line','missing']));
 });

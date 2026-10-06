@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 114,
-    "pending": 179,
-    "fourViewRecords": 112
+    "exactSpecs": 122,
+    "pending": 171,
+    "fourViewRecords": 120
   },
   "rows": [
     {
@@ -2736,15 +2736,15 @@
       "group": "normal",
       "asset": "assets/characters/coral/01.png",
       "sha256": "8f74d734f786ce0c5f8e20d8b25609627ff3fd19b9a4c1be29387e0c93531ed4",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-1-back.jpg"
       }
     },
     {
@@ -2756,15 +2756,15 @@
       "group": "normal",
       "asset": "assets/characters/coral/02.png",
       "sha256": "dd97585a8fa684c0e00ba728d96eb5a69cdb90b4cfaac2d3a3370e7a76bc6b6c",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-2-back.jpg"
       }
     },
     {
@@ -2776,15 +2776,15 @@
       "group": "normal",
       "asset": "assets/characters/coral/03.png",
       "sha256": "495883cad6380f2d349cb4239d8ee6b517b584e409ad537e3a1b1f99cca8bfda",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-3-back.jpg"
       }
     },
     {
@@ -2796,15 +2796,15 @@
       "group": "normal",
       "asset": "assets/characters/coral/04.png",
       "sha256": "74d3f4bc46e2e4d906144c2dd216656f18e0a630ef2843a3466031e2a5e0eef9",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-4-back.jpg"
       }
     },
     {
@@ -2816,15 +2816,15 @@
       "group": "normal",
       "asset": "assets/characters/coral/05.png",
       "sha256": "1203cfd60459b3c3c1182ea569cc05f62ff347c648a429a7bbc64aff5bb27285",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-5-back.jpg"
       }
     },
     {
@@ -2836,15 +2836,15 @@
       "group": "normal",
       "asset": "assets/characters/coral/06.png",
       "sha256": "733297c088055e54c0aa45fe82e4e30c04531942272090845341f1f350a33968",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-6-back.jpg"
       }
     },
     {
@@ -2856,15 +2856,15 @@
       "group": "normal",
       "asset": "assets/characters/coral/07.png",
       "sha256": "37dcef5d4a440850bf63311926691496fbc38f04fec962a879f0f7fb1f74c4c8",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-7-back.jpg"
       }
     },
     {
@@ -2876,15 +2876,15 @@
       "group": "normal",
       "asset": "assets/characters/coral/08.png",
       "sha256": "41301a1a088a29ea0795eafeb2095258ff3180951877f7251da35ed3285eb315",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr3-aquatic/64855b7/coral-8-back.jpg"
       }
     },
     {

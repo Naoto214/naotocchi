@@ -1,5 +1,7 @@
 # Full Rollout v0 progress ledger
 
+Current working coverage:122/293 (120 player stages +2 companions),171 pending. Coral promoted after source648 image gate; postpromotion15family/120stage CI pending. Jellyfish and armored representatives remain candidates. Historical entries below retain their original checkpoint status.
+
 Plan: docs/character-3d/full-rollout-v0/plan.md. Spec: design.md. Execute inline; normal work is authorized without repeated confirmation.
 
 ## FR-0
@@ -298,3 +300,10 @@ Local exec-server stopped accepting commands with `No such file or directory`. G
 - Inspected player-2 beetle07/stagbeetle07 originals. Added armored_insect shared body/head/paired-elytra/six-rooted-leg rig; source-specific forked horn versus paired toothed mandibles. New insectWalk uses owner phase for alternating tripod motion; existing gait behavior unchanged. Source analysis saved in families/armored-source-analysis.md.
 - Adult representatives only; no larva/pupa/adult auto-fill and no runtime promotion. Added isolated armored candidate overlay and immutable four-view/distance/motion jobs for both adults.
 - Dedicated138PASS/0FAIL; new armored5/5 mutationsRED; aquatic attachment gate now persisted in6/6 mutations and jelly projection gates in5/5 mutations. Pilot28 numerical geometry/pose hashes unchanged. Exact114/293 remains; final Human QA not reached.
+
+### Coral visual gate complete / runtime122 preparation
+- Source648 original/four-view32, ordinary front/back16 and coral02/05/07/08 motion128 captures reviewed. Source JSON verifies all8 exact/live3D/fallback0/errors0; actual owned face emotions match all128 states. Continuous substrate roots corrected floating crowns; faces/mound remain readable. Saved182 JPEGs (includes historical jellyfish candidate sheet), raw wave/motion/distance records and provenance in fr3-aquatic/64855b7.
+- Coral data and branch builder match reviewed648 bytes/serialized data. Connected only coral8 in runtime; exact122/293,171pending,120four-view rows. Node presenter verifies all8 and grouped face counts4/3/5; promotion test first RED then GREEN. Postpromotion15family/120stage aggregate not yet available. No final Human QA/iPhone acceptance.
+- Known aesthetic outliers remain explicitly recorded: simplified branch density/mouth amplitude and flatter rear mound. No reinterpretation of faceless organs.
+- Jellyfish648 mouth placement improved but face contrast behind layered translucent shell remains weak at normal distance. Reduced candidate bell opacity and lightened inner volume; new immutable visual gate required before expansion/promotion. Armored adults fbb8b23 saved separately, image gate pending. Full rollout remains incomplete.
+- Save verification: fresh post-mutation dedicated139PASS/0FAIL; rollout17/17RED; Pilot28 hashes identical. Candidate-source CI is not evidence for the promoted commit. Await its independent runtime aggregate.
