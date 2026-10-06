@@ -65,6 +65,16 @@ def validate_activation(after,events,before,action,occurrence):
  except (ValueError,KeyError,TypeError):return ['invalid positive activation']
 
 
+def relationship_effects(envelope):
+ g=envelope['legacy_continuation']['game_state'];actor=g['turn_player'];partner=g['players'][actor]['board']['partner']
+ return [r for r in envelope['runtime']['payment_effects'] if r['controller']==actor and r['payment_kind']=='relationship_same_source' and r['source_instance_id']==partner]
+
+
+def relationship_payment(envelope):
+ modifiers=relationship_effects(envelope)
+ return dict(payment_time=max(0,1-sum(r['amount'] for r in modifiers)),payment_effect_ids=sorted(r['effect_id'] for r in modifiers))
+
+
 @contextmanager
 def scope():
  import proxy_continuation_candidates as candidates
@@ -80,9 +90,6 @@ def scope():
  def capability(card):
   if card not in descriptors:return old_cap(card)
   cap=batch.classification(card);return dict(descriptors[card],source_raw_sha256=cap['source_raw_sha256'])
- def relationship_effects(envelope):
-  g=envelope['legacy_continuation']['game_state'];actor=g['turn_player'];partner=g['players'][actor]['board']['partner']
-  return [r for r in envelope['runtime']['payment_effects'] if r['controller']==actor and r['payment_kind']=='relationship_same_source' and r['source_instance_id']==partner]
  def adjudicate(envelope,unit):
   modifiers=relationship_effects(envelope)
   if unit['action_type']!='relationship' or not modifiers:return old_unit(envelope,unit) if old_unit else None
@@ -93,8 +100,7 @@ def scope():
   stage=b['partner_stage']
   if stage=='married':reasons.append('relationship_state_terminal')
   elif type(stage) is not int or stage not in (0,1,2,3) or unit['candidate_variant']!=('0-to-1','1-to-2','2-to-3','3-to-marriage')[stage]:raise ValueError('relationship variant differs')
-  cost=max(0,1-sum(r['amount'] for r in modifiers))
-  return [candidates._detail(unit,reasons,f"candidate-relationship-{actor}-{unit['candidate_variant']}",payment_time=cost,payment_effect_ids=sorted(r['effect_id'] for r in modifiers))]
+  return [candidates._detail(unit,reasons,f"candidate-relationship-{actor}-{unit['candidate_variant']}",**relationship_payment(envelope))]
  def project_payment(envelope,action):
   modified=copy.deepcopy(envelope);g=modified['legacy_continuation']['game_state'];g['players'][g['turn_player']]['time']+=1-action['evidence']['payment_time'];return modified
  def outcome(envelope,action,history=None):

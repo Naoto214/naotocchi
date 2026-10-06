@@ -21,6 +21,7 @@ import proxy_population_public_turn as public_turn
 import proxy_population_response_context as response_context
 import proxy_population_resolution_choices as resolution_choices
 import proxy_population_resolution_order as resolution_order
+import proxy_population_core_predicates as core_predicates
 import proxy_population_candidate_expansions as candidate_expansions
 import proxy_population_response_expansions as response_expansions
 from proxy_mandatory_policy_contract import canonical
@@ -42,6 +43,9 @@ def contract_scope():
      expansion=candidate_expansions.audit_normal(result['source_envelope'],decision['inventory'])
      if expansion['errors']:raise ValueError('normal candidate expansions differ: '+str(expansion['errors']))
      result['normal_candidate_expansions']=expansion
+     predicates=core_predicates.audit_normal(result['source_envelope'],decision['inventory'])
+     if predicates['errors']:raise ValueError('normal core predicates differ: '+str(predicates['errors']))
+     result['normal_core_predicates']=predicates
     elif decision.get('decision_kind')=='response_action':
      coverage=source_inventory.audit_response(result['source_envelope'],decision['candidate_set_evidence'])
      expansion=response_expansions.audit(result['source_envelope'],events,decision['candidate_set_evidence'])

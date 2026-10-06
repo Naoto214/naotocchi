@@ -1,0 +1,27 @@
+test_actual_normal_entries_bind_predicates (test_proxy_population_core_predicates.ConnectedCoreTests.test_actual_normal_entries_bind_predicates) ... ok
+test_all_core_variants_and_false_exclusions (test_proxy_population_core_predicates.CorePredicateTests.test_all_core_variants_and_false_exclusions) ... FAIL
+test_cost_and_target_evidence_corruption (test_proxy_population_core_predicates.CorePredicateTests.test_cost_and_target_evidence_corruption) ... ok
+
+======================================================================
+FAIL: test_all_core_variants_and_false_exclusions (test_proxy_population_core_predicates.CorePredicateTests.test_all_core_variants_and_false_exclusions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_core_predicates.py", line 32, in test_all_core_variants_and_false_exclusions
+    runtime.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_core_predicates.py", line 18, in run
+    self.assertTrue(proof['core_predicates_verified'],proof['errors'])
+AssertionError: False is not true : ['attachment target mechanism unproved']
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.911s
+
+FAILED (failures=1)

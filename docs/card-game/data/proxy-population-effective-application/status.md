@@ -186,3 +186,13 @@ preflight-ready=false。入力生成/400戦入力固定/本番実行0。87638396
 87638396固定版の全proxy回帰が完了：1630件すべてPASS、6process exit0、開始/完了ID完全一致、skip/重複/欠落なし、source不変。14原本ファイルをcanonical JSON/gzipで梱包。同版npm406PASS。9ec3以降と本変更を含む全回帰とは呼ばず、後続差分は各関連検証で区別する。
 
 preflight-ready=false。全合法性・許可情報・比較operand・全rule機会の合成証明は未完了。seed生成／400戦入力固定／本番対戦0、旧116除外、新方式未採用、全体結論保留を維持。保存後も準備を継続する。
+
+## 通常行動のcore合法／不合法判定の結合
+
+候補source/target/cost列の一致と、各行のdispositionの正しさを分離。01/02/06と114固定tableに基づき、pass・ちょうせん・交際・人生移動・人物／セカイ配置・準備枠／装備対象／支払について、合法行と除外行の双方を現在stateから検査する。主な対象は既存の枠・回数・種族段階・対象現物・時・軽減効果ID。main identityと支払は既存helperを再利用。未対応のquick/能力/予約unitはunproved_unitsへ残し、完全合法集合・情報利用・選択根拠・全機会を認定しない。
+
+逐次TDD：初回3件REDから接続。理由と合法列を同時改変するケース、余分なpayment effect ID、bool/int、対象差替え、source変化を拒否。独立review C0/I1/Minor1。I1は既存P-cliff_goat交際軽減を印刷時1と固定していた監査不足で、既存のeffect filter/payment計算をcurrent trigger_effectsの共通helperへ移し、実候補器と監査で共有。Minorはchallengeの参照先をgame_stateへ修正。いずれもRED再現→GREEN、旧効果・値・保護adapterは変更しない。
+
+専用6PASS、review修正＋既存誘発10PASS、最終関連52PASS（223.910s、保存115/零root全20turn、候補、policy journal、admission、連鎖、手札誘発を含む）。review後の追加capacity fixtureの失敗も保存。設計errors=[]、番号付きtop-level正本376ファイルを直前保存blobと照合し一致。87638396版1630全proxy／406npmと今回差分の関連検証を区別する。
+
+preflight-ready=false。今回のcore predicate検証を完全合法性や対戦算入へ昇格しない。残作業は個別能力の合法性・実情報利用・比較operandのsource根拠、全rule機会の合成、結果前remote lock／外部実行承認への接続。未証明／116除外は予定400行・200群から落とさず、全体結論null。実seed採取、400戦入力固定、新対戦0、新方式未採用。

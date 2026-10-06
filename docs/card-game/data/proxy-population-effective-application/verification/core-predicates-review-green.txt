@@ -1,0 +1,15 @@
+test_actual_normal_entries_bind_predicates (test_proxy_population_core_predicates.ConnectedCoreTests.test_actual_normal_entries_bind_predicates) ... ok
+test_all_core_variants_and_false_exclusions (test_proxy_population_core_predicates.CorePredicateTests.test_all_core_variants_and_false_exclusions) ... ok
+test_cost_and_target_evidence_corruption (test_proxy_population_core_predicates.CorePredicateTests.test_cost_and_target_evidence_corruption) ... ok
+test_existing_same_partner_discount_is_not_replaced_by_printed_cost (test_proxy_population_core_predicates.CurrentPaymentTests.test_existing_same_partner_discount_is_not_replaced_by_printed_cost) ... ok
+test_active_challenge_is_not_a_normal_entry (test_proxy_population_core_predicates.EntryPhaseTests.test_active_challenge_is_not_a_normal_entry) ... ok
+test_bat_returns_facedown_without_inspecting_text_and_rechecks_target (test_proxy_population_trigger_effects.EffectsTests.test_bat_returns_facedown_without_inspecting_text_and_rechecks_target) ... ok
+test_goat_modifier_is_bound_to_same_partner_and_expires_and_egg_suppresses_resolution (test_proxy_population_trigger_effects.EffectsTests.test_goat_modifier_is_bound_to_same_partner_and_expires_and_egg_suppresses_resolution) ... ok
+test_main_stat_choice_stays116_and_only_original_main_is_modified (test_proxy_population_trigger_effects.EffectsTests.test_main_stat_choice_stays116_and_only_original_main_is_modified) ... ok
+test_same_partner_discount_connects_existing_normal_progress_and_consumes_once (test_proxy_population_trigger_effects.EffectsTests.test_same_partner_discount_connects_existing_normal_progress_and_consumes_once) ... ok
+test_world_exchange_cost_is_atomic_and_invalid_target_never_refunds_or_retargets (test_proxy_population_trigger_effects.EffectsTests.test_world_exchange_cost_is_atomic_and_invalid_target_never_refunds_or_retargets) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 5.245s
+
+OK

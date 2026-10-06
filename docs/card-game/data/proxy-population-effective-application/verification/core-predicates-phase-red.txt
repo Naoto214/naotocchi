@@ -1,0 +1,26 @@
+test_active_challenge_is_not_a_normal_entry (test_proxy_population_core_predicates.EntryPhaseTests.test_active_challenge_is_not_a_normal_entry) ... FAIL
+
+======================================================================
+FAIL: test_active_challenge_is_not_a_normal_entry (test_proxy_population_core_predicates.EntryPhaseTests.test_active_challenge_is_not_a_normal_entry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_core_predicates.py", line 60, in test_active_challenge_is_not_a_normal_entry
+    runtime.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_core_predicates.py", line 58, in run
+    proof=api.audit_normal(e,inv);self.assertFalse(proof['core_predicates_verified']);self.assertIn('not a core normal entry',proof['errors'])
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 0.283s
+
+FAILED (failures=1)
