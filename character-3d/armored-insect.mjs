@@ -1,6 +1,6 @@
 // Shared articulated shell body: physical elytra, six attached limbs, and
 // original-specific head appendages. No extra actors or gameplay state.
-import {ellipsoid,sweep,xform,solid,paint,mix,outlineLoft,blob,openedShellParts} from './geometry.mjs';
+import {ellipsoid,sweep,xform,solid,paint,mix,outlineLoft,blob,openedShellParts,THREE} from './geometry.mjs';
 import {Rig} from './rig.mjs';
 export function armoredInsect(sp,key){
  const r=new Rig(key,'armored_insect','insectWalk'),b=sp.body,c=sp.colors,s=sp.shell,h=sp.head,t=sp.thorax;
@@ -29,6 +29,7 @@ export function armoredInsect(sp,key){
   if(l.claw){const q=l.claw;limb.push(solid(xform(ellipsoid(...q.size,12,8),{pos:q.at,rot:q.rotation}),c.limb));for(const path of q.teeth)limb.push(solid(sweep(path,v=>q.r*(1-v*.85),6,{steps:5}),c.tip));}
   r.add('leg'+i,'body',l.at,limb);
  }
+ if(sp.pit){const q=sp.pit;r.add('pit','root',[0,0,0],[paint(new THREE.LatheGeometry(q.profile.map(([x,y])=>new THREE.Vector2(x,y)),48),(x,y,z,nx,ny,nz)=>mix(q.dark,q.light,Math.max(0,ny)*.45+Math.max(0,y)*.6))]);}
  if(sp.soil){const q=sp.soil;r.add('ground','root',[0,0,0],[...q.clods.map((v,i)=>solid(xform(ellipsoid(v[3],v[4],v[5],10,7),{pos:v.slice(0,3),rot:[0,i*.7,0]}),q.colors[i%q.colors.length])),...q.tufts.map(path=>solid(sweep(path,v=>.013*(1-v*.9),5,{steps:5}),q.grass))]);}
  if(sp.exuvia){const e=sp.exuvia;r.add('emptyShell','root',e.at,[...openedShellParts(e),...e.legs.map(path=>solid(sweep(path,v=>e.legRadius*(1-v*.55),7,{steps:8}),e.colors.base))]);}
  r.meta={idlePose:'stand',hover:0,horns:sp.horn?1:0,mandibles:sp.mandibles.length};

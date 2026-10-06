@@ -1,6 +1,8 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','tests/character-3d-armored-wave-test.cjs','tests/character-3d-armored-juvenile-test.cjs','tests/character-3d-veined-insect-test.cjs','tests/character-3d-antlion-wave-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['antlion wing-size hierarchy','character-3d/armored-spec.js','const outline=upper?','const outline=false?'],
+ ['concave antlion pit','character-3d/armored-insect.mjs','if(sp.pit){','if(false){'],
  ['soil emergence clods','character-3d/armored-insect.mjs','if(sp.soil){','if(false){'],
  ['exuvia depth alignment','character-3d/armored-insect.mjs','[0,b.y,b.z||0]','[0,b.y,0]'],
  ['antlion long antennae','character-3d/armored-insect.mjs','for(const a of sp.antennae||[])','for(const a of [])'],

@@ -223,7 +223,7 @@ jobs:
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/aquatic --aquatic
       - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/candidate-motion
       - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/aquatic-motion coral:2,coral:5,coral:7,coral:8,jellyfish:1,jellyfish:2,jellyfish:3,jellyfish:4,jellyfish:5,jellyfish:6,jellyfish:7,jellyfish:8
-      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/armored-motion antlion:7,cicada:1,cicada:2,cicada:3,cicada:4,cicada:5,cicada:6,cicada:7,cicada:8,beetle:1,beetle:2,beetle:3,beetle:4,beetle:5,beetle:6,beetle:7,beetle:8,stagbeetle:1,stagbeetle:2,stagbeetle:3,stagbeetle:4,stagbeetle:5,stagbeetle:6,stagbeetle:7,stagbeetle:8
+      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/armored-motion antlion:3,antlion:7,cicada:1,cicada:2,cicada:3,cicada:4,cicada:5,cicada:6,cicada:7,cicada:8,beetle:1,beetle:2,beetle:3,beetle:4,beetle:5,beetle:6,beetle:7,beetle:8,stagbeetle:1,stagbeetle:2,stagbeetle:3,stagbeetle:4,stagbeetle:5,stagbeetle:6,stagbeetle:7,stagbeetle:8
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/botanical --botanical
       - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/botanical-motion sakura:1,sakura:2,sakura:3,sakura:4,sakura:5,sakura:6,sakura:7,sakura:8
       - run: node tools/character-3d/gallery-smoke.cjs

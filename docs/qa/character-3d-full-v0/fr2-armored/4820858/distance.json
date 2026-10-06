@@ -1,0 +1,53 @@
+{
+  "when": "2026-10-06T15:04:54.884Z",
+  "revision": "quality3",
+  "sourceCommit": "482085826cbea202a72286e161007683e36f1e73",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "armored",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "antlion:7": {
+      "requestedStage": 7,
+      "harnessStageIndex": 6,
+      "playerKey": "antlion:6",
+      "player3d": true,
+      "specKey": {
+        "id": "antlion",
+        "stage": 7,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-antlion-7-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-antlion-7-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 40386,
+        "meshes": 95,
+        "bones": 67,
+        "materials": 2,
+        "atlases": 10,
+        "eyeGeos": 10,
+        "cpuMsAvg": 4.383,
+        "cpuMsP95": 37.3,
+        "buildMsTotal": 302.7,
+        "buildMsMax": 67.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}
