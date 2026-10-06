@@ -302,6 +302,23 @@ jobs:
           path: |
             test-results/full-rollout/mythic
             test-results/full-rollout/mythic-motion
+  nonplayer-candidate-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/nonplayer
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-nonplayer-review-${{ github.sha }}
+          path: test-results/full-rollout/nonplayer
   dedicated:
     runs-on: ubuntu-latest
     timeout-minutes: 25
@@ -341,6 +358,7 @@ jobs:
           node tools/character-3d/world-tree-remove-it.cjs > test-results/full-rollout/world-tree-remove-it.txt
           node tools/character-3d/spectral-remove-it.cjs > test-results/full-rollout/spectral-remove-it.txt
           node tools/character-3d/nonplayer-remove-it.cjs > test-results/full-rollout/nonplayer-remove-it.txt
+          node tools/character-3d/nonplayer-wave-remove-it.cjs > test-results/full-rollout/nonplayer-wave-remove-it.txt
           node tools/character-3d/mystery-remove-it.cjs > test-results/full-rollout/mystery-remove-it.txt
           node tools/character-3d/plush-remove-it.cjs > test-results/full-rollout/plush-remove-it.txt
           node tools/character-3d/cosmic-remove-it.cjs > test-results/full-rollout/cosmic-remove-it.txt

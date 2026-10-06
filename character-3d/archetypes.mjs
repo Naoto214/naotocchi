@@ -1,3 +1,4 @@
+import {rigidObject} from './rigid-object.mjs';
 import {mysteryBlob} from './mystery-blob.mjs';
 import {cosmic} from './cosmic.mjs';
 import {softToy} from './soft-toy.mjs';
@@ -915,7 +916,7 @@ export function blobArchetype(sp, key) {
   return rig;
 }
 
-export const BUILDERS = { mystery_blob:mysteryBlob, cosmic, soft_toy:softToy, spectral, celestial_humanoid:(sp,key)=>celestialHumanoid(sp,key,humanoid), quadruped, avian, fish, humanoid, larva, pod, winged_insect: wingedInsect, plant, fungus, cluster, radial, blob: blobArchetype, branch_organism:branchOrganism, jellyfish:jellyOrganism, armored_insect:armoredInsect, winged_reptile:wingedReptile, plumed_bird:plumedBird };
+export const BUILDERS = { rigid_object:rigidObject, mystery_blob:mysteryBlob, cosmic, soft_toy:softToy, spectral, celestial_humanoid:(sp,key)=>celestialHumanoid(sp,key,humanoid), quadruped, avian, fish, humanoid, larva, pod, winged_insect: wingedInsect, plant, fungus, cluster, radial, blob: blobArchetype, branch_organism:branchOrganism, jellyfish:jellyOrganism, armored_insect:armoredInsect, winged_reptile:wingedReptile, plumed_bird:plumedBird };
 export function buildRig(id, stage) {
   const sp = SPEC.stageSpec(id, stage);
   if (!sp) throw new Error(`no 3D spec: ${id}/${stage}`);

@@ -3,6 +3,7 @@
 <style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#eee9dd}canvas{display:block}#label{position:absolute;top:8px;left:10px;font:13px sans-serif;color:#423d36}</style>
 <div id="label"></div>
 <script type="module">
+import './nonplayer-spec.js';
 import './mythic-spec.js';
 import './botanical-spec.js';
 import './armored-spec.js';
@@ -19,7 +20,8 @@ import {instantiate} from './runtime.mjs';
 import {animate,setEmotion} from './animate.mjs';
 import {snapshotCharacterState} from '../tools/character-3d/qa-state.mjs';
 const q=new URLSearchParams(location.search),id=q.get('id')||'cat',stage=Number(q.get('stage')||3),view=q.get('view')||'34';
-const row=(globalThis.NaotocchiMythicWave(SPEC.PILOT)[id]||globalThis.NaotocchiBotanicalWave(SPEC.PILOT)[id]||globalThis.NaotocchiArmoredWave(SPEC.PILOT)[id]||globalThis.NaotocchiAquaticWave(SPEC.PILOT)[id]||globalThis.NaotocchiTopologyWave(SPEC.PILOT)[id]||globalThis.NaotocchiHumanoidWave(SPEC.PILOT)[id]||globalThis.NaotocchiCharacter3DRollout(SPEC.PILOT)[id]||globalThis.NaotocchiFishWave(SPEC.PILOT)[id]),sp=row?.stages[stage];
+const nonPlayer=globalThis.NaotocchiNonPlayerWave()[id];
+const row=(nonPlayer?{stages:{0:nonPlayer.spec}}:null)||(globalThis.NaotocchiMythicWave(SPEC.PILOT)[id]||globalThis.NaotocchiBotanicalWave(SPEC.PILOT)[id]||globalThis.NaotocchiArmoredWave(SPEC.PILOT)[id]||globalThis.NaotocchiAquaticWave(SPEC.PILOT)[id]||globalThis.NaotocchiTopologyWave(SPEC.PILOT)[id]||globalThis.NaotocchiHumanoidWave(SPEC.PILOT)[id]||globalThis.NaotocchiCharacter3DRollout(SPEC.PILOT)[id]||globalThis.NaotocchiFishWave(SPEC.PILOT)[id]),sp=row?.stages[stage];
 if(!sp)throw Error('No exact candidate '+id+'/'+stage);
 const rig=builders.BUILDERS[sp.archetype](sp,id+':'+stage);
 rig.faces=(Array.isArray(rig.faceSpec)?rig.faceSpec:[rig.faceSpec]).map(f=>attachFace(rig,f,'C')); rig.face=rig.faces[0];
