@@ -43,6 +43,12 @@ export function branchOrganism(sp,key){
   const blade=paint(outlineLoft([[0,0],[-w*.7,h*.25],[-w,h*.55],[0,h],[w,h*.55],[w*.7,h*.25]],d,20,3),(x,y,z,nx,ny,nz)=>mix(leaf.color,leaf.light,Math.max(0,nz)*.28));
   parts.push(place(blade),solid(place(sweep([[0,0,d],[0,h*.5,d*1.1],[0,h,.003]],()=>.007,5,{steps:4})),leaf.vein));
  }
+ // Explicit rounded leaf masses keep the crown full from side and back.
+ for(const q of sp.canopy||[])parts.push(paint(xform(blob((x,y,z)=>{const a=Math.atan2(z,x),k=1+.075*Math.sin(a*7+y*8)+.045*Math.cos(y*11+x*4);return [x*q.size[0]*k,y*q.size[1]*k,z*q.size[2]*k];},18,12),{pos:q.at}),(x,y,z,nx,ny,nz)=>mix(q.color,q.light,Math.max(0,ny)*.55+Math.max(0,nz)*.12)));
+ for(const f of sp.fruit||[]){
+  parts.push(solid(sweep(f.stem,t=>.014*(1-t*.35),6,{steps:12}),f.stemColor));
+  parts.push(paint(xform(blob((x,y,z)=>{const l=1+.09*Math.cos(Math.atan2(z,x)*5),dip=.16*Math.exp(-Math.pow(x*3,2)-Math.pow(z*3,2))*Math.max(0,y);return [x*f.r*l,(y-dip)*f.r,z*f.r*l];},16,12),{pos:f.at}),(x,y,z,nx,ny,nz)=>mix(f.color,f.light,Math.max(0,ny)*.5+Math.max(0,nz)*.2)));
+ }
  const stones=sp.stones.map((s,i)=>solid(xform(ellipsoid(s[3],s[4],s[3]*.8,10,6),{pos:s.slice(0,3),rot:[0,i*.7,i%2?.2:-.15]}),c.stones[i%c.stones.length]));
  rig.add('body','root',[0,0,0],parts);
  // Reuse the plant gait's bounded sway, with a single common base and no
