@@ -259,3 +259,9 @@ Local exec-server stopped accepting commands with `No such file or directory`. G
 - Fresh Pilot28 geometry/pose hashes match saved baseline. Restored prior dedicated127PASS and rollout16/16RED logs retained; fresh dedicated rerun recorded at commit preparation. Promotion CI/aggregate pending until this change has an immutable remote commit.
 - Source b108 Runtime/Home/Character SUCCESS is candidate-source evidence only. No iPhone/full-native or final Human QA acceptance.
 - Next: capture promoted14-family/112-stage aggregate; update PR; continue remaining original-derived family representatives and batch gates. Full v0 remains incomplete.
+
+### Aquatic branching representative continuation
+- Promotion checkpoint71539b8 is saved;local/remote treeaf5d9b6 matched and clean before continuing. PromotionCI37400181240 currently running;14-family/112-stage aggregate not yet retrieved.
+- Inspected coral strip and05 original;implemented02 polyp/05 branched colony as candidates only. Reusable branch_organism builder merges rounded explicit-root paths into one body mesh;existing Rig/canonical face/plantSway retained. No runtime promotion or coverage inflation.
+- New tests RED for absent candidates and absent candidate overlay, then3PASS. Mechanism mutations3/3RED;Pilot28 geometry/pose hashes unchanged. Fresh post-mutation serial dedicated suite130PASS/0FAIL. Immutable RuntimeCI is pending at checkpoint.
+- Local browser executable missing;capture routed to existing Actions,not a visual PASS. Remaining stages await representative four-view and normal-distance review.

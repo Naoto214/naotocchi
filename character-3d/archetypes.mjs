@@ -1,3 +1,4 @@
+import {branchOrganism} from './branch-organism.mjs';
 // なおとっち — Character 3D の archetype builder(pilot)。
 //
 // builder は archetype ごとに 1 つ。species / stage の ちがいは spec.js の 数字と 色だけ(1 species 専用の 関数は つくらない)。
@@ -887,7 +888,7 @@ export function blobArchetype(sp, key) {
   return rig;
 }
 
-export const BUILDERS = { quadruped, avian, fish, humanoid, larva, pod, winged_insect: wingedInsect, plant, fungus, cluster, radial, blob: blobArchetype };
+export const BUILDERS = { branch_organism:branchOrganism, quadruped, avian, fish, humanoid, larva, pod, winged_insect: wingedInsect, plant, fungus, cluster, radial, blob: blobArchetype };
 export function buildRig(id, stage) {
   const sp = SPEC.stageSpec(id, stage);
   if (!sp) throw new Error(`no 3D spec: ${id}/${stage}`);

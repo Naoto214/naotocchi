@@ -97,6 +97,23 @@ jobs:
         with:
           name: full-rollout-human-performance-${{ github.sha }}
           path: test-results/full-rollout/human-performance
+  aquatic-candidate-distance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tools/character-3d/meguru-qa.cjs --candidate-aquatic --rollout --species-only --line coral --out test-results/full-rollout/aquatic-distance
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-aquatic-distance-${{ github.sha }}
+          path: test-results/full-rollout/aquatic-distance
   fish-performance:
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -150,6 +167,7 @@ jobs:
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/fish --fish
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/humanoid --human
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/topology --topology
+      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/aquatic --aquatic
       - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/candidate-motion
       - run: node tools/character-3d/gallery-smoke.cjs
       - uses: actions/upload-artifact@v4
@@ -161,6 +179,7 @@ jobs:
             test-results/full-rollout/fish
             test-results/full-rollout/humanoid
             test-results/full-rollout/gallery
+            test-results/full-rollout/aquatic
             test-results/full-rollout/topology
             test-results/full-rollout/candidate-motion
   dedicated:
@@ -192,6 +211,7 @@ jobs:
           node tools/character-3d/starfish-remove-it.cjs > test-results/full-rollout/starfish-remove-it.txt
           node tools/character-3d/shell-remove-it.cjs > test-results/full-rollout/shell-remove-it.txt
           node tools/character-3d/crouch-remove-it.cjs > test-results/full-rollout/crouch-remove-it.txt
+          node tools/character-3d/aquatic-remove-it.cjs > test-results/full-rollout/aquatic-remove-it.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
