@@ -463,3 +463,10 @@ Local exec-server stopped accepting commands with `No such file or directory`. G
 - Sourceca8229 stage04 front/side rejected because rear legs dangle below soil base. Added clearance regression RED, raised only04 rear foot paths. The initial coarse transformed bounding box remained negative despite physical vertices being clear; switched measurement to precise mesh vertices. Saved-HEAD old minimum=-0.09946361798320785; corrected minimum=0.011433298021484684. Same zero-height requirement, no relaxed threshold.
 - Fresh dedicated170PASS/0FAIL and armored34/34RED with restored bytes.04 recapture required; no full-family promotion. Runtime146/293 unchanged. Sourceca8229 dedicated112347000902/wave112347000773 SUCCESS does not override04 image rejection.
 - Final restored Pilot28 geometry/pose hashes exactly match committed baseline.
+
+### Antlion representative image gate / pit face clearance
+- Cicada04 correction checkpoint d0b01eb1db15e4f85dc3e3b3d1ae00f3e1da19fe/tree79505198905dfe959578921d3caec9227cd5e588 saved via Git Data non-force ref update, local/remote/tree match and clean. PR376 body refreshed and Draft verified.
+- Sourcef679 adult07 original/four views,32 states and normal front/back inspected and accepted. Broader forewings/shorter hindwings restore source hierarchy. Raw, individual views/states and review saved in fr2-armored/f679daa. Simplified veins/smooth cuticle are explicit v0 simplifications. No runtime promotion.
+- Sourcef679 pit03 rejected: front rim hides both canonical eyes; normal-distance view also fails face readability. Added physical front-ray visibility regression RED, lowered front soil rim/clods while retaining lateral/back depth and concave floor; GREEN. Corrected immutable captures required before pit-family expansion.
+- Fresh dedicated171PASS/0FAIL, armored35/35mutation RED with original bytes restored, Pilot28 exact committed-baseline hashes match. Runtime146/293 unchanged.
+- b506 dedicated112355160680/meguru-wave112355160587 SUCCESS; wave-review still running at check. No complete Character CI success claimed.

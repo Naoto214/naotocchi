@@ -3,6 +3,7 @@ const run=()=>cp.spawnSync(process.execPath,['--test','tests/character-3d-armore
 const cases=[
  ['soil emergence foot clearance','character-3d/armored-spec.js','Math.max(y,-.055)','y'],
  ['antlion wing-size hierarchy','character-3d/armored-spec.js','const outline=upper?','const outline=false?'],
+ ['unobscured pit face','character-3d/armored-spec.js','frontDrop:.72','frontDrop:0'],
  ['concave antlion pit','character-3d/armored-insect.mjs','if(sp.pit){','if(false){'],
  ['soil emergence clods','character-3d/armored-insect.mjs','if(sp.soil){','if(false){'],
  ['exuvia depth alignment','character-3d/armored-insect.mjs','[0,b.y,b.z||0]','[0,b.y,0]'],

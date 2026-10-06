@@ -28,3 +28,8 @@ test('antlion pit representative contains a genuinely concave soil surface and o
  assert.ok(Number.isFinite(height(.06))&&Number.isFinite(height(.58)));assert.ok(height(.58)-height(.06)>.20,'raised rim surrounds a lower interior, not a solid mound');
  let tris=0;for(const p of r.parts){const g=p.mesh.geometry;assert.ok([...g.attributes.position.array].every(Number.isFinite));tris+=(g.index?.count||g.attributes.position.count)/3;}assert.ok(tris<22000);
 });
+test('pit rim leaves both canonical larval eyes visible from the front',async()=>{
+ const sp=require('../character-3d/armored-spec.js')().antlion.stages[3],{armoredInsect}=await import('../character-3d/armored-insect.mjs'),{THREE}=await import('../character-3d/geometry.mjs');const r=armoredInsect(sp,'antlion:3');r.root.updateMatrixWorld(true);
+ const head=r.parts.find(p=>p.bone==='head').mesh,soil=r.parts.filter(p=>['pit','ground'].includes(p.bone)).map(p=>p.mesh);
+ for(const x of [-.05,.05]){const pt=r.bones.head.localToWorld(new THREE.Vector3(x,.035,0)),ray=new THREE.Raycaster(new THREE.Vector3(pt.x,pt.y,2),new THREE.Vector3(0,0,-1)),face=ray.intersectObject(head)[0],rim=ray.intersectObjects(soil)[0];assert.ok(face,'eye region intersects physical head');assert.ok(!rim||face.distance<rim.distance,'soil must not obscure canonical eye region');}
+});
