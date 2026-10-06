@@ -1,3 +1,4 @@
+import {plumedBird} from './plumed-bird.mjs';
 import {wingedReptile} from './winged-reptile.mjs';
 import {cocoonPod} from './cocoon-pod.mjs';
 import {armoredInsect} from './armored-insect.mjs';
@@ -909,7 +910,7 @@ export function blobArchetype(sp, key) {
   return rig;
 }
 
-export const BUILDERS = { quadruped, avian, fish, humanoid, larva, pod, winged_insect: wingedInsect, plant, fungus, cluster, radial, blob: blobArchetype, branch_organism:branchOrganism, jellyfish:jellyOrganism, armored_insect:armoredInsect, winged_reptile:wingedReptile };
+export const BUILDERS = { quadruped, avian, fish, humanoid, larva, pod, winged_insect: wingedInsect, plant, fungus, cluster, radial, blob: blobArchetype, branch_organism:branchOrganism, jellyfish:jellyOrganism, armored_insect:armoredInsect, winged_reptile:wingedReptile, plumed_bird:plumedBird };
 export function buildRig(id, stage) {
   const sp = SPEC.stageSpec(id, stage);
   if (!sp) throw new Error(`no 3D spec: ${id}/${stage}`);

@@ -125,6 +125,7 @@ const LOCO = {
     if (B.footL) { B.footL.position.z += Math.sin(ph) * 0.07 * m * k.amp; B.footL.position.y += Math.max(0, Math.sin(ph)) * 0.04 * m * k.amp; B.footR.position.z -= Math.sin(ph) * 0.07 * m * k.amp; B.footR.position.y += Math.max(0, -Math.sin(ph)) * 0.04 * m * k.amp; }
     const flap = s.expr.body.bounce * Math.abs(Math.sin(s.t * 9)) * 0.7 * k.idle + Math.abs(Math.sin(ph)) * 0.18 * m;
     if (B.wingL) { B.wingL.rotation.z -= flap; B.wingR.rotation.z += flap; }
+    if(meta.featherTail)B.tail.rotation.y+=Math.sin(s.t*2.1)*.08*k.idle+Math.sin(ph)*.10*m*k.amp;
     if (meta.idlePose === 'sit') B.body.position.y -= 0.02 * (1 - m);
   },
   swimHover(B, s, m, k, meta, R) {
