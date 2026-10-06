@@ -1,6 +1,6 @@
 // Rounded, rooted organic branches. Shared rig/material/expression contract;
 // explicit paths come from the original, never generated from species names.
-import {ellipsoid,sweep,xform,solid,paint,mix} from './geometry.mjs';
+import {ellipsoid,sweep,xform,solid,paint,mix,outlineLoft} from './geometry.mjs';
 import {Rig} from './rig.mjs';
 export function branchOrganism(sp,key){
  if(sp.colony)return branchColony(sp,key);
@@ -25,6 +25,11 @@ export function branchOrganism(sp,key){
   for(let i=0;i<5;i++){const a=i/5*Math.PI*2+f.rotation;
    parts.push(solid(place(xform(ellipsoid(f.r*.48,f.r*.66,f.r*.25,8,6),{pos:[Math.sin(a)*f.r*.48,Math.cos(a)*f.r*.48,0],rot:[0,0,-a]})),f.petal));}
   parts.push(solid(place(xform(ellipsoid(f.r*.23,f.r*.23,f.r*.28,8,6),{pos:[0,0,f.r*.12]})),f.center));
+ }
+ for(const leaf of sp.foliage||[]){
+  const w=leaf.width,h=leaf.length,d=leaf.depth||.018,place=g=>xform(g,{pos:leaf.at,rot:leaf.tilt||[0,0,0]});
+  const blade=paint(outlineLoft([[0,0],[-w*.7,h*.25],[-w,h*.55],[0,h],[w,h*.55],[w*.7,h*.25]],d,20,3),(x,y,z,nx,ny,nz)=>mix(leaf.color,leaf.light,Math.max(0,nz)*.28));
+  parts.push(place(blade),solid(place(sweep([[0,0,d],[0,h*.5,d*1.1],[0,h,.003]],()=>.007,5,{steps:4})),leaf.vein));
  }
  const stones=sp.stones.map((s,i)=>solid(xform(ellipsoid(s[3],s[4],s[3]*.8,10,6),{pos:s.slice(0,3),rot:[0,i*.7,i%2?.2:-.15]}),c.stones[i%c.stones.length]));
  rig.add('body','root',[0,0,0],parts);
@@ -57,7 +62,7 @@ function branchColony(sp,key){
   const parts=sub.parts.map(p=>p.mesh.geometry.clone()),b=u.spec.body;
   // Raised crowns must grow out of the common substrate, not float above it.
   // Keep the stem in its member's bone so sway cannot open a new gap.
-  if(u.at[1]+(b.y-b.height)*u.scale>.10){
+  if(!sp.suspended&&u.at[1]+(b.y-b.height)*u.scale>.10){
    const ground=(.045-u.at[1])/u.scale;
    parts.push(solid(sweep([[0,ground,0],[0,(ground+b.y)*.5,0],[0,b.y-b.height*.5,0]],t=>b.width*(.36+t*.16),8,{steps:8}),u.spec.colors.branch));
   }
