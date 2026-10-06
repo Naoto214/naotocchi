@@ -12,6 +12,7 @@ import proxy_population_runtime as runtime
 import proxy_population_end_victory as victory
 import proxy_population_unproved_priority as unresolved
 import proxy_population_activation_legality as legality
+import proxy_population_public_application as public_application
 from proxy_mandatory_policy_contract import canonical
 
 _LOCK=Lock()
@@ -20,8 +21,9 @@ _LOCK=Lock()
 def contract_scope():
  if not _LOCK.acquire(blocking=False):raise ValueError('challenge connection concurrency/reentry forbidden')
  supported=existing.SUPPORTED;observed=window.OBSERVED_EVENTS;prior_operation=runtime.operation;prior_step=runtime._step
- def step(*args,**kwargs):
-  with unresolved.scope():return prior_step(*args,**kwargs)
+ def step(envelope,initial,events,shots,runtime_history,forced,session=None):
+  with unresolved.scope(),public_application.scope(events,shots):
+   return prior_step(envelope,initial,events,shots,runtime_history,forced,session)
  def operation(initial,callback):
   def connected(forced):
    # Install after native scopes so verified actual deltas replace their

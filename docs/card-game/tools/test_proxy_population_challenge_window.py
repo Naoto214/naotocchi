@@ -55,6 +55,9 @@ class MultiTurnConnectionTests(unittest.TestCase):
   from pathlib import Path
   Path('/tmp/card-game-multiturn-diagnostic.json').write_text(json.dumps(dict(stop=r['stop'],events=[x['action_type'] for x in r['events']],last=r['final_envelope']['legacy_continuation']['game_state']['round']),indent=2))
   self.assertIsNone(r['stop']);self.assertTrue(r['completed']);self.assertEqual(r['events'][-1]['action_type'],'r10_final_comparison')
+  self.assertTrue(r['supported_trigger_coverage']['covered'],r['supported_trigger_coverage'])
+  self.assertEqual(len(r['supported_trigger_coverage']['transitions']),len(r['events']))
+  self.assertEqual(r['supported_trigger_coverage']['pending_count'],0)
   self.assertGreaterEqual(sum(x['action_type']=='turn_end_completed' for x in r['events']),18,r['stop'])
   self.assertGreaterEqual(session.counts['A'],2);self.assertGreaterEqual(session.counts['B'],1)
   self.assertFalse(r['ready_for_execution'])

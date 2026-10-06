@@ -1,0 +1,38 @@
+test_archived_boundary_is_bound_to_actual_envelope (test_proxy_population_trigger_coverage.CoverageTests.test_archived_boundary_is_bound_to_actual_envelope) ... 
+  test_archived_boundary_is_bound_to_actual_envelope (test_proxy_population_trigger_coverage.CoverageTests.test_archived_boundary_is_bound_to_actual_envelope) (key='boundary_event_seq') ... FAIL
+  test_archived_boundary_is_bound_to_actual_envelope (test_proxy_population_trigger_coverage.CoverageTests.test_archived_boundary_is_bound_to_actual_envelope) (key='boundary_envelope_sha256') ... FAIL
+  test_archived_boundary_is_bound_to_actual_envelope (test_proxy_population_trigger_coverage.CoverageTests.test_archived_boundary_is_bound_to_actual_envelope) (key='round') ... FAIL
+test_matching_ledger_does_not_prove_strategy_or_rules_authenticity (test_proxy_population_trigger_coverage.CoverageTests.test_matching_ledger_does_not_prove_strategy_or_rules_authenticity) ... ok
+test_missing_extra_and_duplicate_are_not_complete (test_proxy_population_trigger_coverage.CoverageTests.test_missing_extra_and_duplicate_are_not_complete) ... ok
+
+======================================================================
+FAIL: test_archived_boundary_is_bound_to_actual_envelope (test_proxy_population_trigger_coverage.CoverageTests.test_archived_boundary_is_bound_to_actual_envelope) (key='boundary_event_seq')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_trigger_coverage.py", line 36, in run
+    with self.subTest(key=key),self.assertRaises(ValueError):api.audit(bad,[],dict(occurrences=[]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_archived_boundary_is_bound_to_actual_envelope (test_proxy_population_trigger_coverage.CoverageTests.test_archived_boundary_is_bound_to_actual_envelope) (key='boundary_envelope_sha256')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_trigger_coverage.py", line 36, in run
+    with self.subTest(key=key),self.assertRaises(ValueError):api.audit(bad,[],dict(occurrences=[]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_archived_boundary_is_bound_to_actual_envelope (test_proxy_population_trigger_coverage.CoverageTests.test_archived_boundary_is_bound_to_actual_envelope) (key='round')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_trigger_coverage.py", line 36, in run
+    with self.subTest(key=key),self.assertRaises(ValueError):api.audit(bad,[],dict(occurrences=[]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.021s
+
+FAILED (failures=3)

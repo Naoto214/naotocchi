@@ -28,3 +28,13 @@ Interface audit: native効果の既存receiptは指示量と実増加を混同�
 - 一意な不足を発見: 91のfirst-dateは段階0を解決条件と明記し他段階の発動を許すが、既存列挙器が0限定。87のhit-blowは空山札で分岐不実施を定めるが旧responseは候補を除外。保護114 table／旧adapterは変更せず、現行別版へ合法性を接続するRED→GREENを開始。旧responseの固定+5を新規合法範囲へ流用しない。新しい点数や解決済みの主張ではなく119未解決fallback／116除外を維持する。
 - 誘発台帳を手番変更前・最終完了時にarchiveし、pending/deferredを残した破棄を拒否。RED→GREEN、関連7件PASS。02のpartner出来事時たまご抑止はsource hashと陰性捕捉を追加し7件PASS。
 - 新bundle独立レビューC0/I0/Minor1（test名の未検証部分、threshold-review.md）。npm406PASS。全proxy回帰実行中。次の全機会監査では、C-chameleonの過去の場在籍を配置event名だけで再構成しないことを確認する。実snapshotからの公開継続適用照合を/tmpにTDD試作中（未接続、今回Git保存に含めない）。
+
+## 公開適用・義務照合から全体審査への接続
+
+9c56保存後、公開なかま適用を全event/snapshotの実在籍から検証する別版を接続。C-chameleonが去った後のセカイ配置で過去在籍を復活させない。公開fieldのみを判断へ返し、解決receiptの不明をfalseにしない。旧defaultは保護。条件付きfixtureは合法な対戦全体の証拠ではなく、旧event名推定の偽陽性を再現するunitである。
+
+`proxy_population_trigger_coverage`は記録eventのうちdriverが観測対象にしたものだけを母集団にせず、各実state遷移へ既存source producerを適用し、開始captureからの義務と合わせ、全閉鎖台帳・残存台帳へ照合する。余分／欠落／複数手番への重複とjournal改変を拒否・報告。existing executor内の対象誘発に限定し、初期proof真正性、別実装ルール検証、全判断網羅、戦略的解決、標本算入を独立gateとして残す。固定R10結合は2件PASS（110.795s）。
+
+全体審査は459/463の既存仕様を別版で接続する。callerのeligible/verifiedを根拠にせず、現行のmanifest結合entryから再構成した判断・遷移だけを審査する。旧schema/過去runの遡及算入は拒否。旧116を確認した判断は除外とし、同時に未証明gateを保持。指定MRPの戦略未証明は維持し、局所乱数一致だけでpolicy_eligibleへ上げない。対戦の未完走、機会不足、input lock欠落は未証明。鏡像の片側欠落、予定400行の欠落、複数attempt不一致を残し、全体結論は全gateが揃うまでnull。
+
+次のTDDは、未知schema/自己申告、真正な旧116、指定MRPと指定外の分離、途中対戦、片側欠落、全予定行保持、再試行による除外消去拒否、0分母、過去record拒否をまとめて扱う。実験seed/manifestは作らず、既存の不適格in-memory test doubleで構造・保留動作を検証する。

@@ -1,0 +1,23 @@
+test_matching_ledger_does_not_prove_strategy_or_rules_authenticity (test_proxy_population_trigger_coverage.CoverageTests.test_matching_ledger_does_not_prove_strategy_or_rules_authenticity) ... FAIL
+test_missing_extra_and_duplicate_are_not_complete (test_proxy_population_trigger_coverage.CoverageTests.test_missing_extra_and_duplicate_are_not_complete) ... FAIL
+
+======================================================================
+FAIL: test_matching_ledger_does_not_prove_strategy_or_rules_authenticity (test_proxy_population_trigger_coverage.CoverageTests.test_matching_ledger_does_not_prove_strategy_or_rules_authenticity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_trigger_coverage.py", line 18, in test_matching_ledger_does_not_prove_strategy_or_rules_authenticity
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_missing_extra_and_duplicate_are_not_complete (test_proxy_population_trigger_coverage.CoverageTests.test_missing_extra_and_duplicate_are_not_complete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_trigger_coverage.py", line 9, in test_missing_extra_and_duplicate_are_not_complete
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

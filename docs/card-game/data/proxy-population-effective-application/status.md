@@ -29,3 +29,16 @@ coinのdepth1/2制限を新top-link adapterで外し、外側の未解決linkを
 新bundle独立レビューC0/I0/Minor1（テスト名の範囲、詳細threshold-review.md）。npm406件PASS。全proxy回帰は別途実行中であり、この保存時点では完了結果を主張しない。保存後も作業を継続する。
 
 残件：正本由来の全機会義務と実台帳の合成監査、実state履歴による継続効果の適用履歴照合、判断/対戦/鏡像/400行の真正な適格性審査、OS生成来歴・remote事前lock・実行承認gate。preflight-ready=false。400戦用seed／入力／実行は0、新方式未採用。
+
+
+## 公開適用・全遷移誘発照合bundle（継続保存）
+
+実event/snapshotの公開state履歴を利用するなかま適用照合を接続。離脱後のC-chameleonを過去配置eventだけで残存扱いにしない。C-cat_friendの実回収は既存targetsと実hand/discard移動へ照合し、成功／不適用／未知を分離する。
+
+開始・途中・終了の既存source producerを全実遷移へ再適用し、全手番の閉鎖台帳と残存台帳を照合。欠落／余分／複数手番への重複、終了stateへのarchive再束縛、全event展開を検査。これは対象producerの範囲だけであり、独立ルール実装や全判断種別網羅の証明ではない。initial proofは条件付き入力であり、入口真正性は別gate。
+
+関連bundle29件PASS（186.874s）、独立レビューC0/I1/Minor1を逐次RED→GREENで修正。同一review cycleの修正確認で未解決0、6件独立PASS。最後の実R10／manifest入口込み10件PASS（145.551s）。設計検査は保存9c56でerrors=[]。新規moduleはPythonのみでnpmに変更なし、前保存bundleのnpm406を明示参照する。
+
+全proxy回帰は、active checkoutの直列試行を途中中止し、保存9c56のdetached worktreeで410 runnerによる6別processへ切り替えて継続中。この保存時点では全回帰完了を主張しない。直列試行も全回帰PASSではない。今回の後続変更はその固定baselineには含まれず、上記専用／関連検証で区別する。
+
+次は459/463の判断→対戦→鏡像→予定400行の真正審査と、生成来歴／remote事前lock／実行承認gate。preflight-ready=false、seed／本番入力固定／400戦実行0を維持し、保存後も続行する。
