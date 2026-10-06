@@ -84,3 +84,11 @@ preflight-ready=false。通常/responseの全合法集合・選択根拠と、�
 ## 現行107のsource義務閉包監査bundle
 
 read-only横断レビューから、121/132の6 source familyと現行107表を実entryへ結ぶ不足を確認。まず通常行動の全source/手札action variantを、選択結果とは独立に現在の許可viewと114表から導き、保存された全enumeration_units（不成立理由を含む）へ照合する。candidate_set_complete=trueだけを受け入れず、source欠落・variant欠落・重複・合法projectionの脱落を拒否する。target/predicateの意味論、情報の実使用、戦略選択根拠は別項目であり、このsource被覆だけで完全合法性や全rule機会を認定しない。現行adapterのfirst-date等の裁定を旧表の発動条件へ戻さない。response/mandatory/trigger/automatic側も同じ責務で合成する方向とし、旧121や132を変更しない。
+
+### Ordinary entry / record / transition binding bundle
+
+Source inventory coverage is retained as a narrower proof. Next, derive ordinary decision identity from actual entry round/actor/phase and current response window, compare every selected detail with its inventory, and bind the selected ID to the actual first event. Verify all event/envelope/snapshot hashes through existing canonical bind/snapshot functions. No action semantics or legality inference from hash equality. Compose all step decisions/mandatory decisions into the exported decision list without deletion or reordering. Use actual115/zero-root fixtures and tamper tests first; then connected full-turn regression. No seed generation or input lock.
+
+### Resolution choice obligations: remaining source closure
+
+Current legacy obligation audit deliberately returns applicable=false outside its three known families. Do not interpret that as no mandatory choice. Next source-derived composition will separate:465 designated families (prepare/frame plus actual local record), existing116 legacy effect choices, source-bound resolvers with no further resolution choice, and unsupported/unproved mechanisms. Activated targets and paid costs are already fixed at activation; they must not be silently selected anew during resolution. No-choice certificates need a pinned source descriptor and handler route, not merely an empty new_decisions array. Current107 resolver routes include payment/stat/conditional/direct growth, reveal, draw-only, fixed-target recovery, designated cycle/look and legacy search/order/parameter. Reuse each existing descriptor/preparer rather than a new generic card interpreter. Unknown routes remain unproved and prevent a completeness claim. Keep activation/opportunity/legal-set/effect-semantic obligations separate from this resolution-choice classification.

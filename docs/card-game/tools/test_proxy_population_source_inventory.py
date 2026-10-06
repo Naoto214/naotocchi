@@ -51,6 +51,27 @@ class ResponseSourceTests(unittest.TestCase):
   runtime.operation(initial(),run)
 
 
+ def test_concealed_preparation_is_retained_as_an_explicit_exclusion(self):
+  from test_proxy_population_effect_application_runtime import fixture as prepared_fixture
+  import proxy_continuation_quick as quick
+  import proxy_continuation_state as state
+  def run(forced):
+   e,actor,source=prepared_fixture(growth=20);ctx=e['legacy_continuation']['response_context']
+   ctx.update(chain_status='building',consecutive_passes=0,origin_event_seq=3)
+   current=state.current(e);link=current['activation_zone'][-1]
+   event=dict(seq=3,action_type='activate_response',actor=actor,chain_link_id=link['link_id'],game_state_after_sha256=quick.old.start.opening._stop_state_sha256(current['game_state']),continuation_state_after_sha256=quick.old.start._hash(current))
+   with legality.scope():
+    opportunity=quick.actions.response_inventory(e,initial(),[dict(seq=2,action_type='turn_start_and_egg_draw',actor=actor),event]);proof=api.audit_response(e,opportunity)
+    self.assertTrue(proof['source_coverage_verified'],proof['errors'])
+    prepared=current['game_state']['players'][actor]['board']['prepared'][0]
+    self.assertIn(prepared,proof['covered_source_ids'])
+    self.assertTrue(any(row.get('source_instance_id')==prepared for row in opportunity['preparation_exclusions']))
+    bad=copy.deepcopy(opportunity);bad['preparation_exclusions']=[]
+    self.assertFalse(api.audit_response(e,bad)['source_coverage_verified'])
+   return {}
+  runtime.operation(initial(),run)
+
+
 class ConnectedSourceTests(unittest.TestCase):
  def test_actual_normal_and_response_entries_carry_source_audits(self):
   from test_proxy_mandatory_population_input import bundle

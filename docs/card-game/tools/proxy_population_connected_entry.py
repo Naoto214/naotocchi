@@ -10,6 +10,7 @@ import proxy_population_runtime as runtime
 import proxy_population_challenge_window as connected
 import proxy_population_trigger_existing as existing
 import proxy_population_policy_journal as policy_journal
+import proxy_population_decision_binding as decision_binding
 from proxy_mandatory_policy_contract import ROOT,canonical
 
 _LOCK=Lock()
@@ -52,6 +53,9 @@ def reconstruct(bundle,match_id,limit):
   opportunities=policy_journal.audit_opportunities(result)
   if not opportunities['designated_opportunities_covered']:raise ValueError('actual mandatory opportunities differ: '+str(opportunities['errors']))
   result['mandatory_opportunity_audit']=opportunities
+  projection=decision_binding.audit_projection(result['runtime'])
+  if not projection['decision_projection_verified']:raise ValueError('actual decision projection differs: '+str(projection['errors']))
+  result['decision_projection_audit']=projection
   if fingerprint()!=before:raise ValueError('connected tools source changed during reconstruction')
   result.update(schema='bound_population_connected_runtime.v1',connected_tools_sha256=before,reconstruction_step_limit=limit,ready_for_execution=False,ready_for_input_generation=False)
   return result

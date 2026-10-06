@@ -1,0 +1,13 @@
+F
+======================================================================
+FAIL: test_native_priority_choice_and_all_seed_coordinates (test_proxy_population_decision_binding.BindingTests.test_native_priority_choice_and_all_seed_coordinates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_decision_binding.py", line 62, in test_native_priority_choice_and_all_seed_coordinates
+    self.assertFalse(audit(bad,'test-1')['entry_and_transition_binding_verified'],field)
+AssertionError: True is not false : contract_version
+
+----------------------------------------------------------------------
+Ran 1 test in 9.790s
+
+FAILED (failures=1)

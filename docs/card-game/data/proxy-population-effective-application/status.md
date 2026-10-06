@@ -98,3 +98,11 @@ preflight-ready=false。通常/responseの完全合法性・情報制約・opera
 逐次RED→GREEN、最終関連20件PASS（229.034s）。旧115/零rootの全20turn再構成・指定外必須選択・admission結合を含む。独立read-only review C/I/Minor各0。通常盤面ability variant全展開、response全action variant、対象条件、除外理由の意味論、実情報利用、全ルール機会はこの検査で証明していない。合法性flag・policy適格性・balance算入へ昇格しない。
 
 6190固定版の全proxy回帰は別途継続中で、この後続差分は含まれない。preflight-ready=false。seed／本番入力固定／400戦実行0、旧116除外・新方式未採用・過去正本を維持。保存後も残りの共通契約接続を続ける。
+
+## 通常入口・選択・event/snapshot連鎖の束縛
+
+通常とresponseの実入口からactor/round/phase/windowを検証し、inventory内の選択現物detail・wrapper・最初のevent選択をexact照合。全eventの前後game/continuation/envelope hash・全snapshot・最終envelopeを既存canonical binder/snapshotで検算する。全stepのordinary/mandatory判断を保存decision列へ順序を含めexact投影し、削除・追加・並べ替えを拒否。効果意味論や全合法集合・全ルール機会とは分離。
+
+独立reviewでImportant2/Minor1を検出し、逐次RED→GREENで全件修正。native priority_unique最小schemaを保持、既存116 safe-free subchoiceを明示区別、119 response seedの全10座標を実entryへ束縛。初回25関連はpriority_unique誤拒否により未完走でFAIL、最終26件PASS（283.865s）で全20turn接続を再確認。review修正確認は未解決0。準備伏せ札の不成立sidecar欠落も拒否する条件付きunitを追加。
+
+設計errors=[]、現行保護正本476件一致、473時点の475正本一致、docs/card-game外変更なし。6190固定全proxy回帰は別途進行中で、この差分の全回帰とはしない。npmは6190の406PASSを参照。新seed／本番入力固定／400戦開始0。preflight-ready=false。保存後も指定外／no-choice解決義務、全機会・合法性、入力来歴／事前lock／実行gateの接続へ継続する。
