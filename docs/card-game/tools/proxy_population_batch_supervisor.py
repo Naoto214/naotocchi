@@ -8,6 +8,7 @@ import base64,copy,gzip,hashlib,json,os,subprocess,sys
 from pathlib import Path
 import proxy_population_input_lock as lock
 import proxy_population_execution_edition as edition
+import proxy_population_generation_package as generation_package
 from proxy_mandatory_population_input import audit_input_bundle
 from proxy_population_generation_entry import write_exclusive
 from proxy_mandatory_policy_contract import ROOT,canonical
@@ -36,12 +37,14 @@ def run_after_external_approval(bundle,receipt,certificate,repository,limit,dest
  if not edition.audit_bundle_edition(bundle,certificate,repository)['bundle_edition_bound']:raise ValueError('local execution edition unverified')
  rows=[dict(match_id=mid,execution_status='not_executed',attempt_directory=None) for mid in bundle['execution_order']]
  groups=[dict(group_id=g['group_id'],match_ids=[r['match_id'] for r in bundle['matches'] if r['group_id']==g['group_id']]) for g in bundle['groups']]
+ package=generation_package.audit_committed_generation(bundle,receipt,certificate,repository)
+ if not package['committed_generation_consistent']:raise ValueError('committed generation package unverified')
  destination.mkdir();directory=os.open(destination.parent,os.O_RDONLY|os.O_DIRECTORY)
  try:os.fsync(directory)
  finally:os.close(directory)
  start=dict(schema='fixed_population_supervisor_start.v1',supplied_bundle_sha256=digest(canonical(bundle)),immutable_local_receipt=receipt,
   execution_edition_sha256=digest(canonical(certificate)),reconstruction_step_limit=limit,approval_reference=approval_reference,
-  planned_rows=copy.deepcopy(rows),planned_groups=groups,external_approval_verified=False,input_lock_verified=False,ready_for_execution=False)
+  planned_rows=copy.deepcopy(rows),planned_groups=groups,generation_package_evidence=package,external_approval_verified=False,input_lock_verified=False,ready_for_execution=False)
  write_exclusive(destination/'start.json',start)
  for index,row in enumerate(rows,1):
   target=destination/('attempt-'+str(index).zfill(4));row.update(execution_status='started',attempt_directory=target.name)

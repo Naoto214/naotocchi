@@ -16,6 +16,24 @@ def equal(actual,expected,message):
  if canonical(actual)!=canonical(expected):raise ValueError(message)
 
 
+def audit_transitions(step):
+ """Shared canonical transition binding; no effect/legality inference."""
+ before=step['source_envelope'];state.validate(before)
+ events=step['events'];envelopes=step['envelopes'];shots=step['snapshots']
+ if not events or len(events)!=len(envelopes) or len(events)!=len(shots):raise ValueError('transition coverage differs')
+ prior=before
+ for event,after,shot in zip(events,envelopes,shots):
+  state.validate(after)
+  if type(event['seq']) is not int or event['seq']!=prior['event_seq']+1 or event['seq']!=after['event_seq']:raise ValueError('transition sequence differs')
+  raw={k:v for k,v in event.items() if k not in end.BIND_KEYS}
+  equal(event,actions.bind_event(prior,after,raw),'full envelope hash or contract differs')
+  for suffix,envelope in (('before',prior),('after',after)):
+   current=state.current(envelope)
+   equal(event['game_state_'+suffix+'_sha256'],old.start.opening._stop_state_sha256(current['game_state']),'game state hash differs')
+   equal(event['continuation_state_'+suffix+'_sha256'],old.start._hash(current),'continuation hash differs')
+  equal(shot,old._snapshot(state.current(after)),'snapshot differs');prior=after
+ equal(prior,step['final_envelope'],'final envelope differs')
+
 def audit_step(step,order_id):
  errors=[];identity=None;selected=None
  try:
@@ -49,21 +67,8 @@ def audit_step(step,order_id):
   selected=d['selected_candidate'];details=inventory['legal_candidate_details'];ids=[a['candidate_id'] for a in details]
   if ids!=sorted(set(ids)) or ids!=inventory['legal_candidate_ids'] or ids.count(selected)!=1:raise ValueError('selection inventory identity differs')
   equal(d['selected_action'],next(a for a in details if a['candidate_id']==selected),'selected detail differs')
-  events=step['events'];envelopes=step['envelopes'];shots=step['snapshots']
-  if not events or len(events)!=len(envelopes) or len(events)!=len(shots):raise ValueError('transition coverage differs')
-  equal(events[0]['selected_candidate'],selected,'first event selection differs');equal(events[0]['actor'],actor,'first event actor differs')
-  prior=before
-  for event,after,shot in zip(events,envelopes,shots):
-   state.validate(after)
-   if type(event['seq']) is not int or event['seq']!=prior['event_seq']+1 or event['seq']!=after['event_seq']:raise ValueError('transition sequence differs')
-   raw={k:v for k,v in event.items() if k not in end.BIND_KEYS}
-   equal(event,actions.bind_event(prior,after,raw),'full envelope hash or contract differs')
-   for suffix,envelope in (('before',prior),('after',after)):
-    current=state.current(envelope)
-    equal(event['game_state_'+suffix+'_sha256'],old.start.opening._stop_state_sha256(current['game_state']),'game state hash differs')
-    equal(event['continuation_state_'+suffix+'_sha256'],old.start._hash(current),'continuation hash differs')
-   equal(shot,old._snapshot(state.current(after)),'snapshot differs');prior=after
-  equal(prior,step['final_envelope'],'final envelope differs')
+  equal(step['events'][0]['selected_candidate'],selected,'first event selection differs');equal(step['events'][0]['actor'],actor,'first event actor differs')
+  audit_transitions(step)
   identity=dict(entry_envelope_sha256=state.state_hash(before),event_seq=before['event_seq'],actor=actor,round=g['round'],phase=g['phase'],decision_sha256=hashlib.sha256(canonical(d)).hexdigest(),selected_candidate=selected)
  except (ValueError,KeyError,TypeError,StopIteration,IndexError) as error:errors.append(str(error))
  return dict(schema='ordinary_entry_transition_binding.v1',entry_and_transition_binding_verified=not errors,errors=errors,identity=identity,

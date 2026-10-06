@@ -78,6 +78,17 @@ class BoundPolicyJournalTests(unittest.TestCase):
     resolution=step['resolution_choice_obligation'];self.assertFalse(resolution['errors'])
     self.assertTrue(resolution['resolution_choice_obligation_verified'] or resolution['route']=='designated_465_journal_required')
     self.assertFalse(resolution['all_rule_opportunities_proven'])
+  import proxy_population_automatic_binding as automatic
+  import proxy_continuation_payments as payments
+  automatic_steps=[s for s in r['runtime']['steps'] if s['forced_record'] is not None]
+  self.assertTrue(automatic_steps[-1]['automatic_output_binding']['identity']['completed'])
+  for step in automatic_steps:self.assertTrue(step['automatic_output_binding']['automatic_output_binding_verified'])
+  with payments.scope():
+   final=automatic_steps[-1]
+   self.assertTrue(automatic.audit_step(final)['automatic_output_binding_verified'])
+   for mutate in (lambda s:s['forced_record'].update(completed=False),lambda s:s['forced_record']['result'].update(winner='forged'),lambda s:s['events'][-1]['result'].update(winner='forged')):
+    bad=copy.deepcopy(final);mutate(bad)
+    self.assertFalse(automatic.audit_step(bad)['automatic_output_binding_verified'])
   self.assertGreaterEqual(r['turn_counts']['A'],10);self.assertGreaterEqual(r['turn_counts']['B'],10)
   self.assertEqual(proof['required_choice_count'],r['mandatory_policy_entry_audit']['verified_count'])
   self.assertGreater(proof['required_choice_count'],1)

@@ -21,7 +21,7 @@ class AttemptRunnerTests(unittest.TestCase):
   import gzip,json
   with tempfile.TemporaryDirectory() as d:
    root=Path(d)/'docs'/'card-game';(root/'data').mkdir(parents=True);out=root/'data'/'conditional-test'
-   with patch.object(api,'ROOT',root),patch.object(api.lock,'verify_git_binding',return_value=dict(immutable_content_verified=True,errors=[])),patch.object(api.edition,'audit_bundle_edition',return_value=dict(bundle_edition_bound=True,errors=[])),patch.object(api.edition,'verify',return_value=dict(local_edition_verified=True,errors=[])):
+   with patch.object(api,'ROOT',root),patch.object(api.lock,'verify_git_binding',return_value=dict(immutable_content_verified=True,errors=[])),patch.object(api.edition,'audit_bundle_edition',return_value=dict(bundle_edition_bound=True,errors=[])),patch.object(api.generation_package,'audit_committed_generation',return_value=dict(committed_generation_consistent=True)),patch.object(api.edition,'verify',return_value=dict(local_edition_verified=True,errors=[])):
     report=api.run_after_external_approval(bundle(),{}, {},Path(d),'test-1A',3,out,'conditional-test-not-production-approval')
     record=json.loads(gzip.decompress((out/'record.json.gz').read_bytes()))
     self.assertFalse(record['completed']);self.assertEqual(record['binding']['match_id'],'test-1A')

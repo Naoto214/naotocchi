@@ -39,9 +39,19 @@ def collect_supplied(cursor,path,read):
 
 
 def audit_journal(path,material):
+ return _audit_journal(lambda:Path(path).read_bytes(),material)
+
+
+def audit_journal_bytes(body,material):
+ """Check an immutable captured body without re-reading a mutable path."""
+ return _audit_journal(lambda:body,material)
+
+
+def _audit_journal(read,material):
  errors=[];pending=None;calls=[];complete=False;previous=None;terminal=False
  try:
-  body=Path(path).read_bytes()
+  body=read()
+  if type(body) is not bytes:raise ValueError('journal bytes required')
   if not body or not body.endswith(b'\n'):raise ValueError('empty or partial journal')
   for line in body.splitlines():
    row=json.loads(line,object_pairs_hook=_pairs,parse_constant=_nonfinite)

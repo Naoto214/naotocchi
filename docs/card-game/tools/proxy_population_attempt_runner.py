@@ -10,6 +10,7 @@ import proxy_population_connected_entry as connected
 import proxy_population_admission as admission
 import proxy_population_input_lock as lock
 import proxy_population_execution_edition as edition
+import proxy_population_generation_package as generation_package
 from proxy_population_generation_entry import write_exclusive
 from proxy_population_opening import load_match
 from proxy_mandatory_policy_contract import ROOT,canonical
@@ -25,6 +26,8 @@ def run_after_external_approval(bundle,receipt,certificate,repository,match_id,l
  if not binding['immutable_content_verified']:raise ValueError('local immutable manifest binding failed')
  version=edition.audit_bundle_edition(bundle,certificate,repository)
  if not version['bundle_edition_bound']:raise ValueError('local source/Python edition binding failed')
+ package=generation_package.audit_committed_generation(bundle,receipt,certificate,repository)
+ if not package['committed_generation_consistent']:raise ValueError('committed generation package unverified')
  load_match(bundle,match_id)
  destination.mkdir()
  directory=os.open(destination.parent,os.O_RDONLY|os.O_DIRECTORY)
@@ -32,7 +35,7 @@ def run_after_external_approval(bundle,receipt,certificate,repository,match_id,l
  finally:os.close(directory)
  start=dict(schema='conditional_population_attempt_start.v1',match_id=match_id,reconstruction_step_limit=limit,
   supplied_bundle_sha256=hashlib.sha256(canonical(bundle)).hexdigest(),immutable_local_receipt=receipt,
-  execution_edition_sha256=hashlib.sha256(canonical(certificate)).hexdigest(),approval_reference=approval_reference,
+  execution_edition_sha256=hashlib.sha256(canonical(certificate)).hexdigest(),approval_reference=approval_reference,generation_package_evidence=package,
   external_approval_verified=False,input_lock_verified=False,ready_for_execution=False)
  write_exclusive(destination/'start.json',start)
  try:

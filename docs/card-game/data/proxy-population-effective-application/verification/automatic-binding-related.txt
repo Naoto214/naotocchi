@@ -1,0 +1,17 @@
+.........E................
+======================================================================
+ERROR: test_existing_unit_trace_binds_all_turns_and_designated_choice_entries (test_proxy_population_policy_journal.BoundPolicyJournalTests.test_existing_unit_trace_binds_all_turns_and_designated_choice_entries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_policy_journal.py", line 69, in test_existing_unit_trace_binds_all_turns_and_designated_choice_entries
+    r=connected.reconstruct(bundle(),'test-1A',220)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_connected_entry.py", line 59, in reconstruct
+    if fingerprint()!=before:raise ValueError('connected tools source changed during reconstruction')
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: connected tools source changed during reconstruction
+
+----------------------------------------------------------------------
+Ran 26 tests in 298.878s
+
+FAILED (errors=1)

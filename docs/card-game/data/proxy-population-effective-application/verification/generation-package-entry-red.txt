@@ -1,0 +1,34 @@
+FF
+======================================================================
+FAIL: test_invalid_package_blocks_worker_and_supervisor_before_output (test_proxy_population_generation_package.EntryPackageGateTests.test_invalid_package_blocks_worker_and_supervisor_before_output) (entry='proxy_population_attempt_runner')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_generation_package.py", line 75, in test_invalid_package_blocks_worker_and_supervisor_before_output
+    with self.assertRaisesRegex(ValueError,'generation package'):entry.run_after_external_approval(*args,3,out,'unit-reference-only')
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_attempt_runner.py", line 39, in run_after_external_approval
+    record=connected.reconstruct(bundle,match_id,limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: executor must not run
+
+======================================================================
+FAIL: test_invalid_package_blocks_worker_and_supervisor_before_output (test_proxy_population_generation_package.EntryPackageGateTests.test_invalid_package_blocks_worker_and_supervisor_before_output) (entry='proxy_population_batch_supervisor')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_generation_package.py", line 75, in test_invalid_package_blocks_worker_and_supervisor_before_output
+    with self.assertRaisesRegex(ValueError,'generation package'):entry.run_after_external_approval(*args,3,out,'unit-reference-only')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 6.093s
+
+FAILED (failures=2)

@@ -144,3 +144,15 @@ preflight-ready=false。全合法性/許可情報/選択operand/全ルール機�
 逐次RED→GREEN。最終関連33件PASS（61.226s）。supervisorはmock-childの異常・未完走試験に加え、旧115/零root3stepだけを実別interpreterの既存backend/replayへ渡した輸送結合を含む。後者のlocal lock/edition gateは両processでmockしており、本番入力認証成功の主張ではない。独立read-only review C/I/Minor各0（追加輸送テストはreview後）。
 
 seed生成・本番入力固定・本番400戦開始0、preflight-ready=false。現在のmoduleは外部承認/remote lockを本人認証しない。残るsource由来の合法性・許可情報・比較operand・全ルール機会の合成を進め、最後に実際の生成/実行承認へ戻る。基盤接続だけで全体適格を成立させない。新方式未採用、旧116除外、過去正本/結果を維持。
+
+## 自動処理全出力と生成保存packageの結合bundle（87638396から継続）
+
+自動stepを、native forced outputの全event/snapshot/mandatory decision/final state/hash/sequence/完了結果に結合。ordinaryと共通の遷移照合を利用し、native envelopeがない旧形式は既存state.advanceからfull runtimeを含めて再構成する。解決・次手番の複数event・全20turn/R10完了を既存115/zero-root fixtureで検証。全ルール機会・dispatch/effect意味論・合法性・戦略的妥当性へは昇格しない。
+
+独立review I1（runtime改変後の再hashを拒否できない）がREDで再現し修正。修正確認済、残指摘0。専用/ordinary9PASS。途中関連26件の1件は検証中のsource変更をfingerprint guardが拒否したため失敗として保持。その後、変更しない専用checkoutで関連27件PASS（175.334s）。通常の証拠と失敗ログを混同しない。
+
+入力側はmanifest receiptと同じimmutable Git commitから、edition・469履歴registry・全material・sampling journalを読み、既存builderで全200/400行を再構成してexact比較する。worker/supervisorはpackage不一致を出力作成/子起動前に拒否しstartにbindingを保存する。OS来歴・remote公開・結果前固定・外部承認は依然別gateでfalse。path版journal validatorは保存bytes版と同じ検査本体を利用する。
+
+package関連10PASS（79.089s）、実行入口関連7PASS（33.988s）、独立review C/I/Minor0。正例は過去115反復/zero roots/synthetic registry・edition mock、真正registryによる拒否を別検査。isolated子process検査もpackage/local Git/editionをmockしており本番認証の証拠ではない。
+
+87638396固定版npm406PASSを保存。全proxy回帰は同じ固定版で進行中であり、今回差分を含む全回帰ではない。保護正本476件一致。preflight-ready=false、seed生成/実験入力固定/400戦実行0、新方式未採用。保存後も残る合法性・情報使用・全rule機会の合成と実行前認証手順を継続する。

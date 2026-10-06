@@ -16,6 +16,7 @@ import proxy_population_public_application as public_application
 import proxy_population_legacy_choice_obligations as legacy_choices
 import proxy_population_source_inventory as source_inventory
 import proxy_population_decision_binding as decision_binding
+import proxy_population_automatic_binding as automatic_binding
 import proxy_population_resolution_choices as resolution_choices
 import proxy_population_candidate_expansions as candidate_expansions
 import proxy_population_response_expansions as response_expansions
@@ -49,6 +50,10 @@ def contract_scope():
     binding=decision_binding.audit_step(result,initial['order_id'])
     if binding['errors']:raise ValueError('ordinary entry binding differs: '+str(binding['errors']))
     result['ordinary_entry_binding']=binding
+   else:
+    binding=automatic_binding.audit_step(result)
+    if binding['errors']:raise ValueError('automatic output binding differs: '+str(binding['errors']))
+    result['automatic_output_binding']=binding
    if current['response_context']['chain_status']=='resolving' and current['activation_zone']:
     proof=legacy_choices.audit(result['source_envelope'],initial,result['mandatory_decisions'])
     if proof['errors'] or proof['applicable'] and not proof['legacy_choice_coverage_verified']:raise ValueError('legacy effect choice obligations differ: '+str(proof['errors']))

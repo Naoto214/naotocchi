@@ -1,0 +1,13 @@
+F
+======================================================================
+FAIL: test_rehashed_runtime_cannot_diverge_from_native_snapshots (test_proxy_population_automatic_binding.AutomaticBindingTests.test_rehashed_runtime_cannot_diverge_from_native_snapshots)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_automatic_binding.py", line 53, in test_rehashed_runtime_cannot_diverge_from_native_snapshots
+    self.assertFalse(api.audit_step(bad)['automatic_output_binding_verified'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 1 test in 22.933s
+
+FAILED (failures=1)
