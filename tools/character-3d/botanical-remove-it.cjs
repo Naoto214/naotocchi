@@ -1,6 +1,9 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap','tests/character-3d-botanical-wave-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['winter terminal buds','character-3d/botanical-spec.js','b.bulb=2.15','b.bulb=1'],
+ ['blunt winter tips','character-3d/botanical-spec.js','b.taper=.50','b.taper=.95'],
+ ['original bud eyes','character-3d/botanical-spec.js',"[-.27,.77,-.015,.13,.23,'round']","[-.27,.77,-.015,.13,.23,'content']"],
  ['smooth pointed contour','character-3d/branch-organism.mjs','const q=1-y*y*b.taper','const q=1-Math.abs(y)*b.taper'],
  ['visible flower faces','character-3d/botanical-spec.js','at:[0,0,-.10],r,rotation:i','at:[0,0,-.035],r,rotation:i'],
  ['pointed seed and buds','character-3d/branch-organism.mjs','xform(b.taper?blob(','xform(false?blob('],

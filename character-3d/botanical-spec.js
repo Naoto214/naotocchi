@@ -44,7 +44,7 @@
  const cherries={archetype:'branch_organism',suspended:true,stones:[],stoneColors:[],colony:fruitUnits.map((u,i)=>({at:u.at,scale:1,spec:{archetype:'branch_organism',body:{width:u.r,height:u.r*.96,depth:u.r*.88,y:0},stones:[],normalEye:u.eye,colors:{body:i===0?'#e82b3f':i===1?'#e51d38':'#db2634',light:'#ff9382',branch:'#657816',tip:'#b1ad32',stones:[],blush:'#ff8891'},branches:[{path:[[0,u.r*.86,0],[.03-u.at[0],.83-u.at[1],-u.at[2]],[.06-u.at[0],.95-u.at[1],-u.at[2]]],r:.036,taper:.18}],foliage:i===2?[leaf([.06-u.at[0],.95-u.at[1],-u.at[2]],.12,.41,[.06,-.15,-.62])]:[]}}))};
  const seed={archetype:'branch_organism',body:{width:.22,height:.32,depth:.14,y:.33,taper:.6},normalEye:'content',stones:[],colors:{body:'#a6692d',light:'#e2ae67',branch:'#79941f',tip:'#bed044',stones:[],blush:'#dc7952'},branches:[{path:[[0,.57,0],[.04,.69,0],[.085,.78,0]],r:.028,taper:.4}],foliage:[leaf([.04,.67,0],.035,.12,[0,.2,-.7]),leaf([.07,.73,0],.03,.11,[0,-.4,.65])],blossoms:[]};
  const sprout={archetype:'branch_organism',body:{width:.26,height:.205,depth:.19,y:.235},normalEye:'round',stones:[[-.30,.035,0,.10,.06],[.30,.035,.02,.09,.055],[-.19,.035,.19,.09,.05],[.12,.03,.21,.08,.05]],colors:{body:'#f4dfac',light:'#fff5d3',branch:'#62951c',tip:'#8cc334',stones:['#a96b24','#dba149'],blush:'#e99970'},branches:[{path:[[0,.40,0],[0,.54,0],[-.01,.64,0]],r:.032,taper:.3}],foliage:[leaf([0,.55,0],.13,.44,[.12,-.25,.90]),leaf([-.005,.58,0],.145,.53,[-.10,.3,-.74])],blossoms:[]};
- const budPositions=[[-.27,.77,-.015,.13,.23,'content'],[0,.64,.07,.115,.20,'round'],[.29,.87,-.03,.14,.24,{left:'happy',right:'round'}],[-.42,.42,.05,.13,.15,'content'],[.43,.43,.025,.14,.16,{left:'round',right:'happy'}]];
+ const budPositions=[[-.27,.77,-.015,.13,.23,'round'],[0,.64,.07,.115,.20,'round'],[.29,.87,-.03,.14,.24,{left:'happy',right:'round'}],[-.42,.42,.05,.13,.15,'content'],[.43,.43,.025,.14,.16,{left:'round',right:'happy'}]];
  const budUnit=(p,face=true)=>{const [x,y,z,w,h,eye]=p;return {at:[x,y,z],scale:1,face,spec:{archetype:'branch_organism',body:{width:w,height:h,depth:w*.78,y:0,taper:.62},normalEye:eye,stones:[],colors:{body:'#ef8daf',light:'#ffe8e9',branch:'#668919',tip:'#a3bd3e',stones:[],blush:'#e76891'},branches:[{path:[[-x,.035-y,-z],[-x*.38,-y*.42,-z*.35],[0,-h*.65,0]],r:.023,taper:.15}],foliage:[leaf([-.02,-h*.70,.025],w*.47,h*.78,[.08,-.15,.50]),leaf([.02,-h*.70,-.01],w*.45,h*.75,[.05,.55,-.55])],blossoms:[]}};};
  const buds={archetype:'branch_organism',suspended:true,stones:[],stoneColors:[],colony:budPositions.map(p=>budUnit(p))};
  const flowerUnits=[[-.23,.72,.04,.30],[.27,.70,-.015,.28]].map(([x,y,z,r],i)=>({at:[x,y,z],scale:1,spec:{archetype:'branch_organism',body:{width:.09,height:.09,depth:.065,y:0},normalEye:i===0?'round':'happy',stones:[],colors:{body:'#ffd657',light:'#fff6a1',branch:'#62841b',tip:'#a1bb35',stones:[],blush:'#eaaa45'},branches:[{path:[[-x,.035-y,-z],[-x*.35,-y*.42,-z*.35],[0,-.07,0]],r:.029,taper:.25}],foliage:[leaf([-x*.35,-y*.42,-z*.35],.07,.28,[.1,.3,.9]),leaf([-x*.2,-y*.28,-z*.2],.07,.26,[.1,-.4,-.9])],blossoms:[{at:[0,0,-.10],r,rotation:i*.22,tilt:[0,i===0?-.18:.18,0],petal:i===0?'#ffc2d9':'#ffaacb',center:'#ffcf47'}]}}));
@@ -54,5 +54,25 @@
  {path:[[.025,.78,-.025],[.17,.96,.05],[.23,1.12,.07]],r:.022,taper:.9},{path:[[.19,.71,0],[.40,.83,.06],[.57,.86,.08]],r:.023,taper:.9},
  {path:[[.27,.60,.015],[.45,.60,-.05],[.59,.54,-.06]],r:.022,taper:.9},{path:[[.02,.70,-.19],[-.07,.88,-.28],[-.12,1.02,-.40]],r:.024,taper:.9},
  {path:[[-.06,.70,.18],[-.18,.76,.34],[-.31,.86,.40]],r:.022,taper:.9}]};
+ // Winter crown: blunt woody tips and small orange terminal buds from08.
+ bare.colors={...bare.colors,tip:'#d28a37'};
+ for(const b of bare.branches)if(b.path.at(-1)[1]>.4){b.taper=.50;b.bulb=2.15;}
+ const winterTwigs=[
+ [[-.21,.60,0],[-.37,.58,.02],[-.51,.54,.03]],
+ [[-.35,.66,.06],[-.45,.74,.065],[-.51,.78,.07]],
+ [[-.35,.66,.06],[-.45,.65,.08],[-.55,.69,.085]],
+ [[-.13,.76,-.015],[-.34,.84,-.005],[-.42,.89,0]],
+ [[-.20,.95,.06],[-.30,1.04,.07],[-.33,1.12,.075]],
+ [[.025,.78,-.025],[.11,.88,-.015],[.18,.89,-.01]],
+ [[.025,.78,-.025],[-.06,.98,-.04],[-.07,1.13,-.045]],
+ [[.19,.71,0],[.34,.75,.02],[.43,.76,.025]],
+ [[.40,.83,.06],[.44,.94,.065],[.52,1.01,.07]],
+ [[.45,.60,-.05],[.52,.67,-.055],[.61,.69,-.06]],
+ [[.27,.60,.015],[.35,.51,.02],[.49,.49,.025]],
+ [[.02,.70,-.19],[.18,.78,-.25],[.29,.83,-.29]],
+ [[-.07,.88,-.28],[-.21,.94,-.34],[-.29,1.00,-.37]],
+ [[-.18,.76,.34],[-.27,.92,.35],[-.28,1.04,.36]]
+ ];
+ bare.branches.push(...winterTwigs.map(path=>({path,r:.025,taper:.45,bulb:2.2,sides:7,steps:7})));
  return {sakura:{why:'Explicit seed01,sprout02,leafy03,flowering-tree04,five buds05,two flowers06,three cherries07,bare tree08; candidate gates required before runtime promotion.',stages:{1:seed,2:sprout,3:leafy,4:bloom,5:buds,6:flowers,7:cherries,8:bare}}};
 });

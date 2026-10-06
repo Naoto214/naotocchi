@@ -73,3 +73,10 @@ test('flower center volume leaves both canonical eye regions visible from the fr
  for(const u of units){const sp=u.spec,r=branchOrganism(sp,'flower'),target=new THREE.Mesh(r.faceSpec.target,new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));r.root.updateMatrixWorld(true);target.updateMatrixWorld(true);
  for(const side of [-1,1]){const ray=new THREE.Raycaster(new THREE.Vector3(side*sp.body.width*.4,sp.body.y+.01,1),new THREE.Vector3(0,0,-1)),core=ray.intersectObject(target)[0],actual=ray.intersectObject(r.parts[0].mesh)[0];assert.ok(core&&actual);assert.ok(Math.abs(core.point.z-actual.point.z)<.002,'petal center must not cover the facial target');}}
 });
+test('bare sakura has rounded terminal buds and preserves original open upper-left bud eyes',async()=>{
+ const rows=require('../character-3d/botanical-spec.js')().sakura.stages,sp=rows[8],tips=sp.branches.filter(b=>b.path.at(-1)[1]>.4);
+ assert.ok(tips.filter(b=>b.bulb>1).length>=20,'original bare crown ends in many round orange buds');
+ assert.ok(tips.every(b=>b.r*(1-b.taper)>.009),'bare branches end with rounded thickness, not needles');
+ const {branchOrganism}=await import('../character-3d/branch-organism.mjs'),r=branchOrganism(sp,'bare'),plain=branchOrganism({...sp,branches:sp.branches.map(b=>({...b,bulb:1}))},'unbudded');assert.ok(r.parts[0].mesh.geometry.attributes.position.count>plain.parts[0].mesh.geometry.attributes.position.count+1000,'terminal buds have actual volume');
+ assert.equal(rows[5].colony[0].spec.normalEye,'round','source upper-left bud has open eyes');
+});

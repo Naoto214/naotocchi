@@ -470,3 +470,9 @@ Local exec-server stopped accepting commands with `No such file or directory`. G
 - Sourcef679 pit03 rejected: front rim hides both canonical eyes; normal-distance view also fails face readability. Added physical front-ray visibility regression RED, lowered front soil rim/clods while retaining lateral/back depth and concave floor; GREEN. Corrected immutable captures required before pit-family expansion.
 - Fresh dedicated171PASS/0FAIL, armored35/35mutation RED with original bytes restored, Pilot28 exact committed-baseline hashes match. Runtime146/293 unchanged.
 - b506 dedicated112355160680/meguru-wave112355160587 SUCCESS; wave-review still running at check. No complete Character CI success claimed.
+
+### Sakura full-candidate review / winter crown correction
+- Antlion rim checkpointdfa9d77fc59631d7fdb24a8169229cffda548380/tree5d8a394c2384ff52bf2a3b8ebca5b34c14c2b5ae saved with local/remote/tree match and clean.
+- Sourceb506 full8 reviewed:32 four views,256 state cells,16 native-distance crops.01smooth contour and06eye visibility corrections accepted;01/02/03/04/06/07 pass.05upper-left bud normal eyes differ from source(open), and08bare branches are needles lacking source rounded orange terminal buds: reject full-family promotion. All sheets/raw/review in fr4-botanical/b5069f5.
+- Added regression RED for round terminal bud volume/non-needle branch thickness/source05eyes.08 now has14explicit crooked twigs, rounded thicker existing tips and orange terminal bulbs;05upper-left eyes opened. Shared branch builder unchanged. New image gate still required for05/08.
+- Fresh dedicated172PASS/0FAIL, botanical13/13RED restored, Pilot28 exact baseline hashes match. Runtime146/293 unchanged; Chromium/SwiftShader is not iPhone acceptance.
