@@ -18,3 +18,9 @@ test('hermit stalk eyes retain canonical emotion and blink ownership through32 s
  const {armoredInsect}=await import('../character-3d/armored-insect.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
  for(const n of [3,7]){const r=armoredInsect(rows[n],'hermit:'+n);r.faces=[attachFace(r,r.faceSpec,'C')];for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'hermit:'+n});setEmotion(a,em);for(let i=0;i<20;i++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,1);assert.equal(a.faces[0].eyes.length,2);assert.equal(a.faces[0].emotion,em);assert.equal(a.bones.coiledShell.parent,a.bones.body);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}}
 });
+test('shell whorls fill the narrow conical core instead of separating into a curled tube',async()=>{
+ const rows=require('../character-3d/armored-spec.js')().hermit_crab.stages,{coiledShell}=await import('../character-3d/coiled-shell.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ for(const n of [3,7]){const s=rows[n].coiledShell,mesh=new THREE.Mesh(coiledShell(s),new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));mesh.updateMatrixWorld(true);
+ for(let i=2;i<=9;i++){const t=i/10,x=-s.length*(1-t),innerHalf=s.radius*t*.50;for(const f of [-1,0,1]){const y=f*innerHalf,hit=new THREE.Raycaster(new THREE.Vector3(x,y,1),new THREE.Vector3(0,0,-1)).intersectObject(mesh)[0];assert.ok(hit,'compact conical shell covers its central silhouette at '+n+'/'+i+'/'+f);}}
+ }
+});

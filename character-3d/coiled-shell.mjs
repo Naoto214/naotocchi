@@ -7,7 +7,7 @@ export function coiledShell(e){
  points.push(new THREE.Vector3(0,0,e.mouth[2]-.09),new THREE.Vector3(...e.mouth));
  const curve=new THREE.CatmullRomCurve3(points,false,'centripetal'),steps=100,sides=14,frames=curve.computeFrenetFrames(steps,false),pos=[],idx=[],samples=[];
  for(let layer=0;layer<2;layer++)for(let i=0;i<=steps;i++){
-  const t=i/steps,p=curve.getPointAt(t),outer=(.018+(e.radius-.018)*Math.pow(t,1.8))*(1+.035*Math.sin(t*Math.PI*28)),r=layer?Math.max(.004,outer-.025):outer;
+  const t=i/steps,p=curve.getPointAt(t),outer=(.028+(e.radius-.028)*Math.pow(t,.65))*(1+.035*Math.sin(t*Math.PI*28)),r=layer?Math.max(.004,outer-.025):outer;
   for(let j=0;j<=sides;j++){const a=j/sides*Math.PI*2,v=p.clone().addScaledVector(frames.normals[i],Math.cos(a)*r).addScaledVector(frames.binormals[i],Math.sin(a)*r);pos.push(v.x,v.y,v.z);samples.push({t,inner:!!layer});}
  }
  const stride=sides+1,offset=(steps+1)*stride;
