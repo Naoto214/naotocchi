@@ -49,5 +49,17 @@
  [[-.13,.48,.08],[-.29,.38,.12],[-.25,.24,.19]],[[.13,.48,.08],[.29,.38,.12],[.25,.24,.19]],
  [[-.18,.32,.09],[-.31,.19,.13],[-.26,.05,.20]],[[.18,.32,.09],[.31,.19,.13],[.26,.05,.20]],
  [[-.15,.20,.06],[-.28,.10,.04],[-.34,.02,.12]],[[.15,.20,.06],[.28,.10,.04],[.34,.02,.12]] ]}};
- return {cicada:{why:'Mature green cicada representative with four translucent veined wings; other metamorphosis stages pending.',stages:{3:c3,5:c5,6:c6,7:c7,8:c8}},beetle:{why:'Explicit pale newly emerged05,red raised-cover06,brown mature07 and squat worn08 adults; larval/pupal gate pending.',stages:{1:b1,2:b2,3:b3,4:b4,5:b5,6:b6,7:beetle,8:b8}},stagbeetle:{why:'Explicit cream short-jaw05,slender red06,blue-black mature07 and broad low aged08 adults; larval/pupal gate pending.',stages:{1:s1,2:s2,3:s3,4:s4,5:s5,6:s6,7:stag,8:s8}}};
+ const antWings=[];
+ for(const side of [-1,1])for(const upper of [true,false]){
+  const outline=upper?[[0,0],[.18,.06],[.78,.55],[.85,.66],[.75,.70],[.17,.23]]:[[0,0],[.15,-.08],[.65,-.55],[.73,-.65],[.70,-.51],[.18,.015]];
+  const veins=upper?[[[0,0],[.26,.20],[.76,.63]],[[.10,.10],[.39,.36],[.75,.67]],[[.20,.12],[.42,.30],[.73,.52]],[[.26,.20],[.32,.32],[.42,.30]],[[.42,.30],[.51,.45],[.60,.42]],[[.51,.45],[.65,.57],[.69,.49]]]:[[[0,0],[.29,-.23],[.70,-.60]],[[.12,-.02],[.37,-.28],[.66,-.48]],[[.15,-.08],[.30,-.31],[.62,-.56]],[[.29,-.23],[.36,-.37],[.45,-.35]],[[.45,-.35],[.52,-.47],[.61,-.45]]];
+  antWings.push({at:[side*.065,.015,upper?.16:.07],outline:outline.map(([x,y])=>[side*x,y]),veins:veins.map(q=>q.map(([x,y])=>[side*x,y])),rotation:[.9,side*.13,0],depth:.0045,alpha:.47,color:'#eee6cf',veinColor:'#a79472',veinRadius:.0045});
+ }
+ const a7={archetype:'armored_insect',normalEye:'round',body:{width:.07,height:.065,length:.44,y:.73,taper:.70,pitch:-.9},shell:null,thorax:{width:.09,height:.08,length:.14,z:.16},head:{width:.135,height:.12,depth:.115,at:[0,.015,.32],pitch:.9},horn:null,mandibles:[],colors:{body:'#9a662d',shell:'#c0a078',light:'#dac087',thorax:'#a7763c',head:'#b98444',limb:'#88561e',tip:'#cfa768'},abdomenBands:{count:9,color:'#55381a'},wings:antWings,
+ antennae:[{path:[[-.055,.08,.055],[-.11,.25,.055],[-.14,.39,.05],[-.20,.43,.04]],r:.012},{path:[[.055,.08,.055],[.10,.26,.055],[.15,.40,.05],[.21,.44,.04]],r:.012}],
+ legs:[
+ {at:[.07,-.015,.20],path:[[0,0,0],[.15,-.06,.07],[.25,-.17,.12]],r:.017},{at:[-.07,-.015,.20],path:[[0,0,0],[-.15,-.06,.07],[-.25,-.17,.12]],r:.017},
+ {at:[.075,-.025,.12],path:[[0,0,0],[.16,-.09,-.03],[.27,-.19,-.09]],r:.016},{at:[-.075,-.025,.12],path:[[0,0,0],[-.16,-.09,-.03],[-.27,-.19,-.09]],r:.016},
+ {at:[.07,-.025,.04],path:[[0,0,0],[.14,-.08,-.16],[.23,-.20,-.29]],r:.016},{at:[-.07,-.025,.04],path:[[0,0,0],[-.14,-.08,-.16],[-.23,-.20,-.29]],r:.016}]};
+ return {antlion:{why:'Original07 adult representative: narrow banded abdomen, tall antennae and four splayed veined wings. Larva/pit/pupa topologies absent pending representative work.',stages:{7:a7}},cicada:{why:'Mature green cicada representative with four translucent veined wings; other metamorphosis stages pending.',stages:{3:c3,5:c5,6:c6,7:c7,8:c8}},beetle:{why:'Explicit pale newly emerged05,red raised-cover06,brown mature07 and squat worn08 adults; larval/pupal gate pending.',stages:{1:b1,2:b2,3:b3,4:b4,5:b5,6:b6,7:beetle,8:b8}},stagbeetle:{why:'Explicit cream short-jaw05,slender red06,blue-black mature07 and broad low aged08 adults; larval/pupal gate pending.',stages:{1:s1,2:s2,3:s3,4:s4,5:s5,6:s6,7:stag,8:s8}}};
 });

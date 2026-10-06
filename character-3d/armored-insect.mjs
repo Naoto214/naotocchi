@@ -16,10 +16,11 @@ export function armoredInsect(sp,key){
   r.add('veins'+i,'wing'+i,[0,0,0],w.veins.map(q=>solid(sweep(q.map(([x,y])=>[x,y,w.depth+.002]),()=>w.veinRadius,5,{steps:7}),w.veinColor)));
  }
  const head=volume([h.width,h.height,h.depth],[0,0,0],c.head),headParts=[head.clone()];
- for(const side of [-1,1]){
+ if(!sp.antennae)for(const side of [-1,1]){
   const end=[side*(h.width+.09),.12,.13];
   headParts.push(solid(sweep([[side*h.width*.7,.04,.09],[side*(h.width+.025),.10,.09],end],v=>.018*(1-v*.3),6,{steps:6}),c.limb),solid(xform(ellipsoid(.024,.025,.033,8,6),{pos:end}),c.tip));
  }
+ for(const a of sp.antennae||[])headParts.push(solid(sweep(a.path,v=>a.r*(1-v*.45),7,{steps:20}),c.limb));
  if(sp.horn){const q=sp.horn;headParts.push(solid(sweep(q.path,v=>q.r*(1-v*.62),8,{steps:14}),c.head));for(const path of q.forks)headParts.push(solid(sweep(path,v=>q.r*.55*(1-v*.75),7,{steps:8}),c.tip));}
  for(const q of sp.mandibles){headParts.push(solid(sweep(q.path,v=>q.r*(1-v*.68),8,{steps:12}),c.head));headParts.push(solid(sweep(q.teeth,v=>q.r*.65*(1-v*.8),6,{steps:4}),c.tip));}
  r.add('head','body',h.at,headParts,'opaque',[h.pitch||0,0,0]);
