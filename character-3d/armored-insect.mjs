@@ -1,11 +1,11 @@
 // Shared articulated shell body: physical elytra, six attached limbs, and
 // original-specific head appendages. No extra actors or gameplay state.
-import {ellipsoid,sweep,xform,solid,paint,mix,outlineLoft} from './geometry.mjs';
+import {ellipsoid,sweep,xform,solid,paint,mix,outlineLoft,blob} from './geometry.mjs';
 import {Rig} from './rig.mjs';
 export function armoredInsect(sp,key){
  const r=new Rig(key,'armored_insect','insectWalk'),b=sp.body,c=sp.colors,s=sp.shell,h=sp.head,t=sp.thorax;
  const volume=(size,pos,color)=>paint(xform(ellipsoid(...size,20,12),{pos}),(x,y,z,nx,ny,nz)=>mix(color,c.light,Math.max(0,ny)*.16+Math.max(0,nz)*.07));
- const abdomen=volume([b.width,b.height,b.length],[0,0,-.12],c.body);
+ const abdomen=b.taper?solid(blob((x,y,z)=>{const taper=1-b.taper*(1-z)*.5;return [x*b.width*taper,y*b.height*taper,z*b.length-.12];},24,16),c.body):volume([b.width,b.height,b.length],[0,0,-.12],c.body);
  if(sp.abdomenBands)paint(abdomen,(x,y,z)=>mix(c.body,sp.abdomenBands.color,Math.pow(Math.max(0,Math.cos((z+.12)/b.length*Math.PI*sp.abdomenBands.count)),10)*.75));
  r.add('body','root',[0,b.y,0],[abdomen,volume([t.width,t.height,t.length],[0,.02,t.z],c.thorax)]);
  // Two convex covers leave a narrow, dark longitudinal seam over the abdomen.

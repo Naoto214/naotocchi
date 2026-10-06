@@ -1,6 +1,8 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','tests/character-3d-armored-wave-test.cjs','tests/character-3d-armored-juvenile-test.cjs','tests/character-3d-veined-insect-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['cicada tail taper','character-3d/armored-insect.mjs','const abdomen=b.taper?','const abdomen=false?'],
+ ['cicada roof wings','character-3d/armored-spec.js','Math.PI/2,-side*.38','Math.PI/2,0'],
  ['curved section coherence','character-3d/animate.mjs','if(meta.curveLocked){','if(false){'],
  ['rounded grub tail','character-3d/archetypes.mjs','k===0&&sp.tailPatch&&sp.tailSeal!==false','false'],
  ['pupal ring envelope','character-3d/archetypes.mjs','rr=lerp(ra,rb,(y-ya)/(yb-ya))+.014','rr=r*.6'],

@@ -19,3 +19,13 @@ test('veined wings use the owner motion clock while canonical expressions and re
   for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));
  }
 });
+test('cicada silhouette tapers at the tail and its resting membranes slope down beside the abdomen',async()=>{
+ const sp=require('../character-3d/armored-spec.js')().cicada.stages[7];
+ const {armoredInsect}=await import('../character-3d/armored-insect.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ const r=armoredInsect(sp,'cicada:7'),plain=armoredInsect({...sp,body:{...sp.body,taper:0}},'untapered');
+ const width=(rig,z)=>{const p=rig.parts[0].mesh.geometry.attributes.position;let w=0;for(let i=0;i<p.count;i++)if(Math.abs(p.getZ(i)-z)<.045)w=Math.max(w,Math.abs(p.getX(i)));return w;};
+ assert.ok(width(r,-.12-sp.body.length*.72)<width(plain,-.12-sp.body.length*.72)*.6,'physical narrowing beyond a rounded beetle abdomen');
+ r.root.updateMatrixWorld(true);
+ for(let i=0;i<4;i++){const w=r.bones['wing'+i],q=sp.wings[i].outline.reduce((a,b)=>Math.abs(a[0])>Math.abs(b[0])?a:b),tip=w.localToWorld(new THREE.Vector3(q[0],q[1],0)),root=w.getWorldPosition(new THREE.Vector3());assert.ok(tip.y<root.y-.035,'resting outer membrane slopes down, not a flat fly wing');}
+ assert.deepEqual(r.faceSpec.normalEye,{left:'happy',right:'round'},'source mature left wink');
+});
