@@ -93,7 +93,7 @@
     cat: { stages: [Q, Q, Q, Q, Q, Q, Q, Q], attachments: [] },
     penguin: { stages: [A, A, A, A, A, A, A, A], attachments: ['cane(08)'] },
     turtle: { stages: [Q, Q, Q, Q, Q, Q, Q, Q], attachments: ['shell(01-08)', 'moss(08)'] },
-    frog: { stages: [F, F, F, Q, Q, Q, Q, Q], attachments: ['tail(04-05)'] },
+    frog: { stages: [Q, Q, Q, Q, Q, Q, Q, Q], attachments: ['membrane-tail(01-05)', 'folded-limbs(03-08)'] },
     salmon: { stages: [F, F, F, F, F, F, F, F], attachments: ['yolk(01)'] },
     clownfish: { stages: [F, F, F, F, F, F, F, F], attachments: ['school(05)'] },
     butterfly: { stages: [L, L, L, L, P, W, W, W], attachments: ['branch(04-06)', 'empty-pupa(06)'] },

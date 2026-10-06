@@ -120,3 +120,14 @@ test('reviewed fungus and starfish batches preserve all16 exact topology stages 
  const rt=await import('../character-3d/runtime.mjs');for(const id of ['mushroom','starfish'])for(let stage=1;stage<=8;stage++){assert.deepEqual(SPEC.specKeyFor({line:id,stage:stage-1}),{id,stage,exact:true});assert.equal(rt.getTemplate(id,stage).status,'ok');}
  assert.equal(SPEC.ROLLOUT.mushroom.stages[2].form,'mycelium');assert.ok(SPEC.ROLLOUT.mushroom.stages[7].sporeCluster);assert.ok(SPEC.ROLLOUT.starfish.stages[3].larvalAttachment);
 });
+
+test('reviewed shell and crouched batches reach all16 exact runtime stages', async()=>{
+ const rt=await import('../character-3d/runtime.mjs');
+ for(const id of ['turtle','frog'])for(let stage=1;stage<=8;stage++){
+ assert.deepEqual(SPEC.specKeyFor({line:id,stage:stage-1}),{id,stage,exact:true});
+ assert.equal(rt.getTemplate(id,stage).status,'ok');}
+ assert.equal(SPEC.ROLLOUT.frog.stages[1].hind,null);
+ assert.equal(SPEC.ROLLOUT.frog.stages[3].fore,null);
+ assert.equal(SPEC.ROLLOUT.frog.stages[7].tail,null);
+ assert.ok(SPEC.ROLLOUT.turtle.stages[8].shell.moss.length);
+});

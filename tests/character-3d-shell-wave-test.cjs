@@ -8,7 +8,7 @@ test('shelled quadruped uses a connected dome and splayed feet without mammalian
 test('all candidate turtle stages have one canonical actor and finite shared quadruped motion',async()=>{
  for(const sp of Object.values(require('../character-3d/topology-spec.js')(SPEC.PILOT).turtle.stages)){assert.ok(sp,'explicit shell candidate');const {quadruped}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
  const r=quadruped(sp,'turtle:5');r.faces=[attachFace(r,r.faceSpec,'C')];assert.equal(r.faces[0].eyes.length,2);for(const p of r.parts)assert.ok([...p.mesh.geometry.attributes.position.array].every(Number.isFinite));for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'turtle:5'});setEmotion(a,em);for(let n=0;n<10;n++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces[0].emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.scale.toArray(),b.rotation.x,b.rotation.y,b.rotation.z].every(Number.isFinite));}
- assert.equal(SPEC.ROLLOUT.turtle,undefined,'candidate is not exact runtime coverage');}
+ assert.ok(SPEC.ROLLOUT.turtle,'reviewed family is exact runtime coverage');}
 });
 test('shell scute seams remain narrow continuous lines instead of interpolated dark spots',async()=>{
  const {quadruped}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs');const sp=fixture(),r=quadruped(sp,'seam'),g=r.parts.find(p=>p.bone==='shell').mesh.geometry;

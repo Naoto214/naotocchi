@@ -6,7 +6,7 @@ test('original frog03/05/07 change anatomy from hind-only tail to folded adult l
  const g=r.parts.find(p=>p.bone==='legBR').mesh.geometry;g.computeBoundingBox();assert.ok(g.boundingBox.max.x>.18,'folded thigh and splayed digits');assert.ok(g.boundingBox.max.z-g.boundingBox.min.z>.24,'knee-to-ankle fold has depth');
  const h=r.parts.find(p=>p.bone==='head').mesh.geometry;h.computeBoundingBox();if(st===7)assert.ok(h.boundingBox.max.y>sp.head.height*1.2,'raised eye-bearing lobes');
  for(const p of r.parts)assert.ok([...p.mesh.geometry.attributes.position.array].every(Number.isFinite));}
- assert.equal(SPEC.ROLLOUT.frog,undefined,'candidate only');
+ assert.ok(SPEC.ROLLOUT.frog,'reviewed family is exact runtime coverage');
 });
 test('crouched representatives carry one projected face and shared canonical motion',async()=>{
  const rows=candidates();assert.ok(rows);const {quadruped}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');

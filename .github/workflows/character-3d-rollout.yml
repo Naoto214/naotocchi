@@ -97,30 +97,6 @@ jobs:
         with:
           name: full-rollout-human-performance-${{ github.sha }}
           path: test-results/full-rollout/human-performance
-  topology-candidate-distance:
-    strategy:
-      fail-fast: false
-      matrix:
-        line: [turtle, frog]
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - run: npm ci
-      - run: npm install --no-save --package-lock=false playwright@1.62.1
-      - run: npx playwright install --with-deps chromium
-      - name: Exact unpromoted transition candidates
-        env:
-          QA_LINE: ${{ matrix.line }}
-        run: node tools/character-3d/meguru-qa.cjs --candidate-topology --rollout --species-only --line "$QA_LINE" --out test-results/full-rollout/topology-distance
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: full-rollout-topology-distance-${{ matrix.line }}-${{ github.sha }}
-          path: test-results/full-rollout/topology-distance
   fish-performance:
     runs-on: ubuntu-latest
     timeout-minutes: 20

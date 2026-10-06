@@ -11,6 +11,6 @@ test('topology QA selection is isolated, explicit and rejects unknown lines or m
  const {candidateConfig}=require('../tools/character-3d/candidate-spec.cjs');assert.equal(typeof candidateConfig,'function');
  const args=['--candidate-topology','--rollout','--species-only','--line','dandelion'],c=candidateConfig(args);
  assert.equal(c.kind,'topology');const shell=candidateConfig(['--candidate-topology','--rollout','--species-only','--line','turtle']);assert.equal(shell.spec.specKeyFor({line:'turtle',stage:4}).exact,true);assert.deepEqual(Object.keys(c.spec.ROLLOUT.dandelion.stages),['1','2','3','4','5','6','7','8']);
- assert.equal(require('../character-3d/spec.js').ROLLOUT.turtle,undefined,'unreviewed shell representative stays isolated');
+ assert.notEqual(shell.spec,require('../character-3d/spec.js'),'candidate overlay still uses an isolated registry');
  for(const a of [['--candidate-topology'],[...args,'--candidate-human'],['--candidate-topology','--rollout','--species-only','--line','man']])assert.throws(()=>candidateConfig(a));
 });

@@ -252,3 +252,10 @@ Local exec-server stopped accepting commands with `No such file or directory`. G
 - Added explicit frog01/02 limbless tadpoles,04 forelimbs/full tail,06 open splayed adult,08 broad low squat/age mottle. Transition tests firstRED then GREEN;126 dedicatedPASS/0FAIL, crouch8/8mutationRED, Pilot28 hashes unchanged. All16 turtle/frog candidates now implemented; full8 frog image/distance pending, no runtime promotion yet.
 - Ruling: remaining simple frog records prepared after sourcef33 representative topology review and bounded visual fixes, while corrected recapture ran; sourcef26 subsequently verifies corrected representatives. All new stages remain isolated until their own full-image gate. Cost if rejected: candidate rework, no runtime coverage inflation.
 - Current exact98/293,195pending. Full-native performance, long-travel memory, iPhone and final QA package remain unverified.
+
+### Shell/crouch promotion recovery (2026-10-06)
+- Fresh remote b1087ac/tree9a75fe9 and PR376 open/Draft/base Pilot verified. Recovered local promotion and all231 JPEGs plus6 evidence files;237 manifest blob hashes match original restored bytes. Blob upload alone was not treated as a saved checkpoint.
+- Reviewed turtle/frog all16 stages now connected to exact runtime:114/293 (112 player stages +2 companions),179 pending. Removed obsolete candidate-distance job; canonical stage matrix derives14 families from ROLLOUT and requires112 stages. Candidate rendering remains isolated.
+- Fresh Pilot28 geometry/pose hashes match saved baseline. Restored prior dedicated127PASS and rollout16/16RED logs retained; fresh dedicated rerun recorded at commit preparation. Promotion CI/aggregate pending until this change has an immutable remote commit.
+- Source b108 Runtime/Home/Character SUCCESS is candidate-source evidence only. No iPhone/full-native or final Human QA acceptance.
+- Next: capture promoted14-family/112-stage aggregate; update PR; continue remaining original-derived family representatives and batch gates. Full v0 remains incomplete.

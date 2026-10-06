@@ -22,10 +22,10 @@
 ### Task 1: Fresh inventory and binding translation rules (FR-0)
 Files: tools/character-3d/inventory.cjs, tests/character-3d-rollout-inventory-test.cjs, docs/character-3d/full-rollout-v0/*.
 Produces auditInventory(root, master, {assets?}) → {active,supplemental,protectedVariants,missingAssets,unclassifiedAssets,counts}; stable keys and SHA256 source identity.
-- [ ] Test all current master entries/stages, hypothetical master addition, missing and unclassified assets. Run node --test tests/character-3d-rollout-inventory-test.cjs; observe RED.
-- [ ] Implement filesystem/master intersection and explicit legacy/egg classification. Run same test; expect 3 PASS.
-- [ ] Generate inventory.json + original source sheets, inspect topology and assign waves; preserve unclear interpretation in notes.
-- [ ] Save rules/design/plan/fresh conflict audit; checkpoint + separate stacked Draft PR.
+- [x] Test all current master entries/stages, hypothetical master addition, missing and unclassified assets. Run node --test tests/character-3d-rollout-inventory-test.cjs; observe RED.
+- [x] Implement filesystem/master intersection and explicit legacy/egg classification. Run same test; expect 3 PASS.
+- [x] Generate inventory.json + original source sheets, inspect topology and assign waves; preserve unclear interpretation in notes.
+- [x] Save rules/design/plan/fresh conflict audit; checkpoint + separate stacked Draft PR.
 
 ### Task 2: Family waves (FR-1…FR-6)
 Files: character-3d/rollout-spec.js, character-3d/archetypes*.mjs, geometry.mjs, rig.mjs, animate.mjs only as needed; tests/character-3d-rollout-test.cjs; docs/character-3d/full-rollout-v0/families/*.

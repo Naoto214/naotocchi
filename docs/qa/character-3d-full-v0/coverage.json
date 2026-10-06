@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 98,
-    "pending": 195,
-    "fourViewRecords": 96
+    "exactSpecs": 114,
+    "pending": 179,
+    "fourViewRecords": 112
   },
   "rows": [
     {
@@ -816,15 +816,15 @@
       "group": "normal",
       "asset": "assets/characters/turtle/01.png",
       "sha256": "bf7079cb7c9e0ec34e87063a78bcb0f854c185afb4140ef076be261541e7331f",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-1-back.jpg"
       }
     },
     {
@@ -836,15 +836,15 @@
       "group": "normal",
       "asset": "assets/characters/turtle/02.png",
       "sha256": "91faaf94e250445a27e72ea35c17df5661f46417bd01f02fa5637c1f1d6a03ff",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-2-back.jpg"
       }
     },
     {
@@ -856,15 +856,15 @@
       "group": "normal",
       "asset": "assets/characters/turtle/03.png",
       "sha256": "38f559d3522237c27bc5f3a0fc4e78fef60d6ea86b212cf9387d575cd34e4816",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-3-back.jpg"
       }
     },
     {
@@ -876,15 +876,15 @@
       "group": "normal",
       "asset": "assets/characters/turtle/04.png",
       "sha256": "b97164b573669ff82a4116f58b5d3d8127850e23117807aa2df3c0744bc9096f",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-4-back.jpg"
       }
     },
     {
@@ -896,15 +896,15 @@
       "group": "normal",
       "asset": "assets/characters/turtle/05.png",
       "sha256": "45fc3c5eb7c2c2ac7fc25e9dfdcf70853a3cab1093f38be3c0a775b6fd683342",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-5-back.jpg"
       }
     },
     {
@@ -916,15 +916,15 @@
       "group": "normal",
       "asset": "assets/characters/turtle/06.png",
       "sha256": "c90a224d260d7db714e7c2fa9814a36f3b2f5f36c431d87a178c5a12b55ea9c6",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-6-back.jpg"
       }
     },
     {
@@ -936,15 +936,15 @@
       "group": "normal",
       "asset": "assets/characters/turtle/07.png",
       "sha256": "33ed962d966ab25a4e33b495b1863e72f9b15a9a33f0023f42a2bd06009cbaa9",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-7-back.jpg"
       }
     },
     {
@@ -956,15 +956,15 @@
       "group": "normal",
       "asset": "assets/characters/turtle/08.png",
       "sha256": "cbb57262a6f3e939b755ac8a3288746c835a2aa41dbe00c7d9aad51ca9bdaee9",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/turtle-8-back.jpg"
       }
     },
     {
@@ -976,15 +976,15 @@
       "group": "normal",
       "asset": "assets/characters/frog/01.png",
       "sha256": "db197004b609bb0f93f273135968de0deff0d6993b02ee94dbd3eb010147ff7f",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-1-back.jpg"
       }
     },
     {
@@ -996,15 +996,15 @@
       "group": "normal",
       "asset": "assets/characters/frog/02.png",
       "sha256": "af8c08619432eb34e8f8a3fb1213e13bb17582b3e1734ba6692101833dc96952",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-2-back.jpg"
       }
     },
     {
@@ -1016,15 +1016,15 @@
       "group": "normal",
       "asset": "assets/characters/frog/03.png",
       "sha256": "5c0a95b75490414289cffb6902a31378f40e2a1b0c232dbcfcdbfa536de8d1b7",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-3-back.jpg"
       }
     },
     {
@@ -1036,15 +1036,15 @@
       "group": "normal",
       "asset": "assets/characters/frog/04.png",
       "sha256": "7a553a48da43cccbd82a7a0b34ce7b685c0bad3e299ac0d879527c758c202571",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-4-back.jpg"
       }
     },
     {
@@ -1056,15 +1056,15 @@
       "group": "normal",
       "asset": "assets/characters/frog/05.png",
       "sha256": "ea712f67c95fd017e39a6bf751440cdb8c37a558d77ab1e3315fcb0aa5c40ebf",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-5-back.jpg"
       }
     },
     {
@@ -1076,15 +1076,15 @@
       "group": "normal",
       "asset": "assets/characters/frog/06.png",
       "sha256": "06704d5b03eb541b45c50896c6460740b3fcf89e772d16c1da2d0157ad3cfcf0",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-6-back.jpg"
       }
     },
     {
@@ -1096,15 +1096,15 @@
       "group": "normal",
       "asset": "assets/characters/frog/07.png",
       "sha256": "2d6325b799c26cfbb1da78d51c052aa8eac50b62be58eb90b90f63f3f15da28b",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-7-back.jpg"
       }
     },
     {
@@ -1116,15 +1116,15 @@
       "group": "normal",
       "asset": "assets/characters/frog/08.png",
       "sha256": "92da93f109a6e69843bec823895b10720ace19f471baabfceef5c65b71659264",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-shell/b1087ac/frog-8-back.jpg"
       }
     },
     {
