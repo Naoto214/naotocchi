@@ -1,0 +1,26 @@
+test_first_date_rechecks_current_incarnation_without_migrating_old_target (test_proxy_population_chain_resolution.ChainTests.test_first_date_rechecks_current_incarnation_without_migrating_old_target) ... FAIL
+
+======================================================================
+FAIL: test_first_date_rechecks_current_incarnation_without_migrating_old_target (test_proxy_population_chain_resolution.ChainTests.test_first_date_rechecks_current_incarnation_without_migrating_old_target)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_chain_resolution.py", line 64, in test_first_date_rechecks_current_incarnation_without_migrating_old_target
+    base.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_chain_resolution.py", line 61, in run
+    after,event=api.resolve_top(c);self.assertTrue(event['result']['target_recheck']['legal']);self.assertEqual(event['result']['growth_added'],5);self.assertTrue(event['result']['effect_applied']);self.assertEqual(after['game_state']['cards'],g['cards'])
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 1 test in 0.021s
+
+FAILED (failures=1)

@@ -42,7 +42,7 @@ def capture(before,after,event):
    links=[l for l in prior['activation_zone'] if l['link_id']==event.get('chain_link_id') and l['source_instance_id']==event.get('source_instance_id')]
    if len(links)!=1:raise ValueError('quick application provenance absent')
    link=links[0]
-   if link['actor']==actor and link['source_zone']=='hand' and link['action_type'] in QUICK:
+   if link['actor']==actor and link['action_type'] in QUICK and link.get('source_zone','hand')=='hand':
     met=applied(event);reason='own_quick_effect_applied' if met else 'effect_not_applied'
   if card in ('M-antlion-03','C-bat') and actor!=prior['game_state']['turn_player']:
    played=event.get('source_instance_id');entry_card=prior['game_state']['cards'].get(played,{}).get('card_id');entry=next((r for r in rules.table()['cards'] if r['card_id']==entry_card),None)

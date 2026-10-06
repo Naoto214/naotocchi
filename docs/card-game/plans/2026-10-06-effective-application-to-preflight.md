@@ -18,3 +18,7 @@ Interface audit: native効果の既存receiptは指示量と実増加を混同�
 - この結合でlegacy native手札発動linkのsource_zone省略が個体監査と不整合になることを再現。明示use_item/use_play/use_eventの旧形式だけ移動元handとして扱い、他の未知形式は拒否するよう補修。カード個体や本文に固有の分岐は追加しない。
 - 468のopening／manifest行結合／policy機会journalをそのまま利用し、新backendへつなぐ条件付き入口を追加。全tools fingerprint前後一致、全出力canonical再実行を検証。入力lock・全機会・適格性の完成を主張しない。
 - population関連回帰を実行中。独立レビュー・最終preflightは未完了。次は100/終了/勝利と全入力真正性・機会網羅の残ゲート。
+
+- 関連179件PASS完了。以後のchain/latching/entry結合22件PASS（101.337s）。R10最終比較までの固定unit接続を達成、これは部分入力の接続検証であり独立標本ではない。
+- 3種類のquick top-linkを共有し、既存native hit/first-dateを利用。完全な外側chain保持、bounded growth、公開／drawと適用なし、現在incarnation対象／retired対象、終了正規化と履歴再照合を接続。
+- 独立レビュー1回の指摘をverification/review.mdへ記録。source読込lock leakと終了復帰をRED→GREEN修正。challenge reward上限をnative比較後の実増加・結果・hashへ接続（新規価値付けなし）。以後の変更は最終関連検証でまとめる。

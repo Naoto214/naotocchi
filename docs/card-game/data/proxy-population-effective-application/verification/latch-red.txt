@@ -1,0 +1,29 @@
+test_native_hand_link_without_source_zone_is_classified_by_explicit_action (test_proxy_population_trigger_latching.LatchingTests.test_native_hand_link_without_source_zone_is_classified_by_explicit_action) ... ERROR
+
+======================================================================
+ERROR: test_native_hand_link_without_source_zone_is_classified_by_explicit_action (test_proxy_population_trigger_latching.LatchingTests.test_native_hand_link_without_source_zone_is_classified_by_explicit_action)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_trigger_latching.py", line 45, in test_native_hand_link_without_source_zone_is_classified_by_explicit_action
+    base.operation(initial(),run)
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_trigger_latching.py", line 43, in run
+    self.assertEqual([r['source_instance_id'] for r in api.capture(before,after,event)['occurrences']],[source])
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/card-game-active/docs/card-game/tools/proxy_population_trigger_latching.py", line 45, in capture
+    if link['actor']==actor and link['source_zone']=='hand' and link['action_type'] in QUICK:
+                                ~~~~^^^^^^^^^^^^^^^
+KeyError: 'source_zone'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.030s
+
+FAILED (errors=1)

@@ -50,11 +50,12 @@ class MultiTurnConnectionTests(unittest.TestCase):
    with api.contract_scope():proof=existing.ExistingAdapter(prefix['events']).proof(upgraded)
    return dict(envelope=upgraded,proof=proof)
   prepared=base.operation(i,prepare);e=prepared['envelope']
-  r=api.segment(e,i,prefix['events'],shots,[e],80,prepared['proof'],session)
+  r=api.segment(e,i,prefix['events'],shots,[e],220,prepared['proof'],session)
   import json
   from pathlib import Path
   Path('/tmp/card-game-multiturn-diagnostic.json').write_text(json.dumps(dict(stop=r['stop'],events=[x['action_type'] for x in r['events']],last=r['final_envelope']['legacy_continuation']['game_state']['round']),indent=2))
-  self.assertGreaterEqual(sum(x['action_type']=='turn_end_completed' for x in r['events']),2,r['stop'])
+  self.assertIsNone(r['stop']);self.assertTrue(r['completed']);self.assertEqual(r['events'][-1]['action_type'],'r10_final_comparison')
+  self.assertGreaterEqual(sum(x['action_type']=='turn_end_completed' for x in r['events']),18,r['stop'])
   self.assertGreaterEqual(session.counts['A'],2);self.assertGreaterEqual(session.counts['B'],1)
   self.assertFalse(r['ready_for_execution'])
 

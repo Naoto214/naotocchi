@@ -6,6 +6,8 @@ import proxy_population_trigger_window as window
 import proxy_population_trigger_existing as existing
 import proxy_population_normal_frontier as normal
 import proxy_population_effect_application_runtime as application
+import proxy_population_chain_resolution as chain
+import proxy_population_growth_runtime as growth
 from proxy_mandatory_policy_contract import canonical
 
 _LOCK=Lock()
@@ -16,7 +18,7 @@ def contract_scope():
  supported=existing.SUPPORTED;observed=window.OBSERVED_EVENTS
  try:
   existing.SUPPORTED=supported|{'M-antlion-07','P-anglerfish'};window.OBSERVED_EVENTS=observed|{'challenge_declared'}
-  with normal.scope(),application.scope():yield
+  with normal.scope(),application.scope(),chain.scope(),growth.scope():yield
  finally:existing.SUPPORTED=supported;window.OBSERVED_EVENTS=observed;_LOCK.release()
 
 

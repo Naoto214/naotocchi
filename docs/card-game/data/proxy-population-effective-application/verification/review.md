@@ -1,0 +1,13 @@
+# 接続bundle独立レビュー（1回）
+
+対象：473以降の474裁定、三値適用、native効果接続、challenge/window/manifest入口、chain解決とテスト。read-only reviewer、実装agentなし。
+
+Critical 0。Important 2：
+1. challenge報酬がlegacyのraw加算であり全上下限接続は未完了。これは開示済みの残工程。レビュー後、native比較を再利用するbounded reward adapterをTDD追加。勝敗は維持し、reward操作のみの証拠であってカード効果全体の適用判定ではない。
+2. chainのdispatchテスト名がend provenance照合も検証したように読めるが実際には呼んでいなかった。名称を修正し、正規化した終了境界の再構成とevent/state改変拒否を直接追加。このREDで、チェーン解決の終了復帰がnormalへ戻る実装不足も再現し、既存payments/triggersと同じ終了復帰条件へ修正。
+
+Minor 1：入口fingerprint読込がtry/finallyの外にありOSError時lock残留。再現RED後、保護範囲内へ移動してGREEN。
+
+reviewerの専用12件PASS。修正後author専用9件PASS。レビュー後のreward adapter・最終梱包は独立再レビューの対象ではない。修正後の独立再レビューなし。100境界に新ゲーム裁定は見つからず、残る上限・優先度・全機会・終了履歴は実装／証明作業と整理。
+
+このレビューはpreflight完成や独立balance適格性を認定しない。

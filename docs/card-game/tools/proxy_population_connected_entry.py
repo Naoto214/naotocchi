@@ -19,7 +19,7 @@ def fingerprint():
 
 def reconstruct(bundle,match_id,limit):
  if not _LOCK.acquire(blocking=False):raise ValueError('connected entry concurrency/reentry forbidden')
- original=runtime.segment;owner=get_ident();before=fingerprint()
+ original=runtime.segment;owner=get_ident()
  def dispatch(envelope,initial,events,shots,envelopes,limit,session=None):
   if get_ident()!=owner:raise ValueError('connected entry thread differs')
   def prepare(forced):
@@ -33,6 +33,7 @@ def reconstruct(bundle,match_id,limit):
   try:return connected.segment(prepared['envelope'],initial,events,shots,envelopes,limit,prepared['proof'],session)
   finally:runtime.segment=dispatch
  try:
+  before=fingerprint()
   runtime.segment=dispatch;result=entry.reconstruct(bundle,match_id,limit)
   if fingerprint()!=before:raise ValueError('connected tools source changed during reconstruction')
   result.update(schema='bound_population_connected_runtime.v1',connected_tools_sha256=before,ready_for_execution=False,ready_for_input_generation=False)

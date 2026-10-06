@@ -5,6 +5,14 @@ try:import proxy_population_connected_entry as api
 except ImportError:api=None
 
 class EntryTests(unittest.TestCase):
+ def test_source_read_failure_releases_entry_lock(self):
+  from unittest.mock import patch
+  try:
+   with patch.object(api,'fingerprint',side_effect=OSError('source unreadable')):
+    with self.assertRaises(OSError):api.reconstruct({},'unused',1)
+   self.assertFalse(api._LOCK.locked())
+  finally:
+   if api._LOCK.locked():api._LOCK.release()
  def test_manifest_row_reaches_connected_backend_and_exact_reconstruction(self):
   self.assertIsNotNone(api,'manifest-connected current backend absent')
   b=bundle();original=runtime.segment;r=api.reconstruct(b,'test-1A',10)

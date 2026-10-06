@@ -36,6 +36,13 @@ class LatchingTests(unittest.TestCase):
    p['hand'].append(worlds[0]);p['discard'].append(worlds[1]);rows,why=api.current_actions(after,proof['occurrences'][0]);self.assertEqual([(r['cost_instance_ids'],r['target_instance_ids']) for r in rows],[([worlds[0]],[worlds[1]])]);self.assertTrue(why['complete'])
    return {}
   base.operation(initial(),run)
+ def test_native_hand_link_without_source_zone_is_classified_by_explicit_action(self):
+  def run(forced):
+   before,after,event,source=case();del before['legacy_continuation']['activation_zone'][0]['source_zone']
+   event=triggers._raw_event(state.current(before),state.current(after),event['action_type'],'A',source_instance_id=event['source_instance_id'],chain_link_id=event['chain_link_id'],result=event['result'])
+   self.assertEqual([r['source_instance_id'] for r in api.capture(before,after,event)['occurrences']],[source])
+   return {}
+  base.operation(initial(),run)
  def test_effect_false_is_absent_and_missing_application_proof_is_not_false(self):
   def run(forced):
    before,after,event,_=case();event['result']['effect_applied']=False;self.assertEqual(api.capture(before,after,event)['occurrences'],[])
