@@ -1,5 +1,5 @@
 // Upright horned reptile: explicit curved trunk, plate bands, limbs and wing ribs.
-import {THREE,blob,ellipsoid,sweep,xform,solid,paint,mix,outlineLoft} from './geometry.mjs';
+import {THREE,blob,ellipsoid,sweep,xform,solid,paint,mix,outlineLoft,merge} from './geometry.mjs';
 import {Rig} from './rig.mjs';
 // Ear-clipped scallops avoid the overlapping radial fans of a concave outline.
 function membraneGeometry(w){
@@ -22,6 +22,7 @@ export function wingedReptile(sp,key){
  for(const q of sp.spines)body.push(solid(xform(outlineLoft([[-q.w,0],[0,q.h],[q.w,0]],q.d,12,3),{pos:q.at,rot:[0,Math.PI/2,0]}),c.spine));
  r.add('body','root',[0,b.y,0],body);
  const h=sp.head,head=volume([h.width,h.height,h.depth],[0,0,0],c.body),parts=[head.clone(),volume(h.muzzle.size,h.muzzle.at,c.body),volume([h.muzzle.size[0]*.92,.035,h.muzzle.size[2]*.85],[0,h.muzzle.at[1]-.06,h.muzzle.at[2]+.018],c.belly)];
+ const faceSurface=merge(parts.map(g=>g.clone()));
  for(const horn of sp.horns)parts.push(solid(sweep(horn.path,t=>horn.r*(1-t*.96),8,{steps:14}),c.horn));
  for(const side of [-1,1])parts.push(volume([.016,.010,.007],[side*.075,h.muzzle.at[1]+.034,h.muzzle.at[2]+h.muzzle.size[2]*.89],c.nostril));
  r.add('head','body',h.at,parts);
@@ -36,6 +37,6 @@ export function wingedReptile(sp,key){
   for(const path of w.fingers)parts.push(solid(curve(sweep(path.map(([x,y])=>[x,y,.014]),t=>.025*(1-t*.6),7,{steps:12})),c.body));
   const g=r.add(side<0?'wingL':'wingR','body',[side*w.at[0],w.at[1],w.at[2]],parts,'opaque',[0,side*w.angle,0]);g.scale.x=side;g.userData.rest.s.copy(g.scale);
  }
- r.faceSpec={bone:'head',target:head,center:[0,.06,h.depth*.93],fwd:[0,0,1],half:h.width*.74,eyeSize:.26,normalEye:sp.normalEye,layout:{eyeX:27,eyeY:51,mouthY:84,browY:32,cheekX:39,cheekY:73,mouthW:8},style:{blush:'#e98245'}};
+ r.faceSpec={bone:'head',target:faceSurface,center:[0,.06,h.depth*.93],fwd:[0,0,1],half:h.width*.74,eyeSize:.26,normalEye:sp.normalEye,layout:{eyeX:27,eyeY:51,mouthY:84,browY:32,cheekX:39,cheekY:73,mouthW:8},style:{blush:'#e98245'}};
  r.meta={idlePose:'stand',hover:0,membraneWings:!!sp.wing};return r;
 }

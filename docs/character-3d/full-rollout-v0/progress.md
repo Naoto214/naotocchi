@@ -594,3 +594,10 @@ Phoenix accent correction saved as6a4c750fb11c082e9045dfa734c5c5f965c5e239/treea
 Star03tilted spiral galaxy and07irregular solar flares added afterRED tests; closed volumes andone existing blobFloat/canonical-face owner.202dedicatedPASS/0FAIL,5/5cosmicmutationsRED/restored,28Pilot hashes match. Initial core-to-center mutation was benign to tested visibility; replaced by an actual opaque face occluder. After yielded mutation execution, local cosmic.mjs retained no-flares despite reported restoration. Restored exact authoredloop; all5mutations followed immediately by baseline tests in one command PASS, then full202PASS. Future mutation runs avoid yielding/interleaved tools where possible.
 
 Corrected Hermitaf4 normal4 andDragoncfdf normal4 reviewed: compact whorl silhouette and unbroken wing membranes now read at normal distance. Fullwave/motionartifacts11434417604(hermit,31.15MB) and11435107999(dragon,4.42MB) downloadedforgate, not yet reviewed. Runtime170/293/123pending;20/160and21/168aggregate stillpending. No iPhone claim.
+
+## 2026-10-06 Hermit representative acceptance and Dragon mouth correction
+Star representatives saved as7c1f904190f5f75a21908cf975e788da897a871d/tree5920f1c48b16a2d09d4e7bc871da6bb22bc2228d; fresh remote/local match confirmed.
+
+Hermit af4 artifacts11434417604/11434490326:8fourviews/64states/4normal-distance images directly inspected, representative PASS with documented simplified faceted aperture/compact whorls.79JPEG/raw/review preserved. Remaining six stages may now be authored; runtime promotion still requires all-eight evidence.
+
+Dragon cfdf artifacts11435107999/11435726043:8fourviews/64states/4normal-distance inspected. Wing membrane correction reads continuously, but canonical mouth is hidden by protruding muzzle: REJECT.79JPEG/raw/review preserved. New independent muzzle-surface ray test RED, then face projection target includes head/muzzle/chin volumes.203dedicatedPASS/0FAIL,10/10mythicmutationsRED/restored,28Pilot hashes match; fresh5mythic baselinePASS. Corrected images required before expansion. Runtime170/293,123pending;20/160and21/168aggregates stillpending. Chromium/SwiftShader is not iPhone.

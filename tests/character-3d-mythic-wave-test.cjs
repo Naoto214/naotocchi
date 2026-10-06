@@ -30,3 +30,7 @@ test('dragon membrane has one closed non-overlapping surface pair across its con
  for(let x=.041;x<.9;x+=.025)for(let y=-.103;y<.75;y+=.025){const hits=new THREE.Raycaster(new THREE.Vector3(x,y,2),new THREE.Vector3(0,0,-1)).intersectObject(m);const distinct=hits.filter((h,i)=>i===0||Math.abs(h.distance-hits[i-1].distance)>1e-5);if(distinct.length){sampled++;assert.equal(distinct.length,2,`single front/back membrane at ${x},${y}`);}}
  assert.ok(sampled>600,'the full membrane silhouette is sampled, not removed');
 });
+
+test('dragon canonical mouth projects onto the protruding muzzle rather than behind it',async()=>{
+ const rows=require('../character-3d/mythic-spec.js')().dragon.stages,{BUILDERS}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs');for(const n of [3,7]){const sp=rows[n],r=BUILDERS[sp.archetype](sp,'dragon:'+n),f=r.faceSpec,target=new THREE.Mesh(f.target,new THREE.MeshBasicMaterial({side:THREE.DoubleSide})),actual=new THREE.Mesh(r.parts.find(p=>p.bone==='head').mesh.geometry,new THREE.MeshBasicMaterial({side:THREE.DoubleSide})),y=f.center[1]+(64-f.layout.mouthY)*f.half/64;for(const x of [-.018,0,.018]){const ray=new THREE.Raycaster(new THREE.Vector3(x,y,2),new THREE.Vector3(0,0,-1)),a=ray.intersectObject(target)[0],b=ray.intersectObject(actual)[0];assert.ok(a&&b);assert.ok(Math.abs(a.distance-b.distance)<.002,`dragon${n} mouth lies on visible muzzle`);}}
+});
