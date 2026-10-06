@@ -1,0 +1,29 @@
+FFF
+======================================================================
+FAIL: test_missing_external_reference_rejects_before_entropy_or_artifact_creation (test_proxy_population_generation_entry.GenerationEntryTests.test_missing_external_reference_rejects_before_entropy_or_artifact_creation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_generation_entry.py", line 10, in test_missing_external_reference_rejects_before_entropy_or_artifact_creation
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_outside_card_game_destination_is_rejected (test_proxy_population_generation_entry.GenerationEntryTests.test_outside_card_game_destination_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_generation_entry.py", line 24, in test_outside_card_game_destination_is_rejected
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_source_edition_failure_rejects_before_entropy_or_artifact_creation (test_proxy_population_generation_entry.GenerationEntryTests.test_source_edition_failure_rejects_before_entropy_or_artifact_creation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_generation_entry.py", line 16, in test_source_edition_failure_rejects_before_entropy_or_artifact_creation
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

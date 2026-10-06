@@ -1,0 +1,14 @@
+E...
+======================================================================
+ERROR: test_actual_entries_export_registered_and_unproved_scopes (test_proxy_population_response_expansions.ConnectedResponseExpansionTests.test_actual_entries_export_registered_and_unproved_scopes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-active/docs/card-game/tools/test_proxy_population_response_expansions.py", line 72, in test_actual_entries_export_registered_and_unproved_scopes
+    proof=step['response_candidate_expansions']
+          ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'response_candidate_expansions'
+
+----------------------------------------------------------------------
+Ran 4 tests in 7.236s
+
+FAILED (errors=1)

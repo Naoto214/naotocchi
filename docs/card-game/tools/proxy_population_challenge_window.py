@@ -18,6 +18,7 @@ import proxy_population_source_inventory as source_inventory
 import proxy_population_decision_binding as decision_binding
 import proxy_population_resolution_choices as resolution_choices
 import proxy_population_candidate_expansions as candidate_expansions
+import proxy_population_response_expansions as response_expansions
 from proxy_mandatory_policy_contract import canonical
 
 _LOCK=Lock()
@@ -39,6 +40,9 @@ def contract_scope():
      result['normal_candidate_expansions']=expansion
     elif decision.get('decision_kind')=='response_action':
      coverage=source_inventory.audit_response(result['source_envelope'],decision['candidate_set_evidence'])
+     expansion=response_expansions.audit(result['source_envelope'],events,decision['candidate_set_evidence'])
+     if expansion['errors']:raise ValueError('response candidate expansions differ: '+str(expansion['errors']))
+     result['response_candidate_expansions']=expansion
     else:raise ValueError('ordinary decision source coverage kind unsupported')
     if coverage['errors']:raise ValueError('ordinary source inventory differs: '+str(coverage['errors']))
     result['decision_source_inventory']=coverage

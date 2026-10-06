@@ -124,3 +124,13 @@ preflight-ready=false、新seed／本番入力固定／400戦開始0。入力生
 専用の入口未接続REDを保存後に実装。関連16件PASS（9.471s）、別途全20手番を含むpolicy journal5件PASS（146.256s）。割引テストの初期fixture集計は手札action以外も数えて失敗し、set_item対象へ訂正。独立read-only review C/I/Minor各0。設計errors=[]、保護正本476件不変。6190固定版1584全proxy/406npmと、この後続差分の関連検証を区別。
 
 これは登録済み展開helperによる列一致であり、helper自体の意味論・disposition・実情報利用・完全合法性・全rule機会の独立証明ではない。preflight-ready=false。seed生成／本番入力固定／400戦実行0。通常/responseの残るsource義務合成と入力／実行管理を継続する。
+
+## response候補展開と入力採取準備の接続
+
+responseの既存hand/paid/trigger helperへ実entry/historyを渡し、対象・宣言・ordered costの候補全行をcanonical Counterで照合。helper外のsourceはunproved_sourcesへ明示し、不在・全合法性と扱わない。共有full current/runtimeをfinallyで復元。専用RED→GREEN、関連20件PASS（12.032s）、全20turn・判断束縛・解決選択18件PASS（157.870s）。独立review C/I/Minor各0。
+
+459/463/469の将来OS採取入口とdurable journalを追加。要求永続化→read→返却永続化→既存Cursor消費、全拒否pairを保持し、途中fileの自動再開/上書き/引き直しを行わない。新directoryの親entryとjournal/file双方をfsyncする。固定200の既存builder・immutable edition前後照合へ接続。承認referenceはoperator申告であり認証tokenでない。入口は実際の外部承認取得後にのみ呼ぶ運用とし、CLI/default invocationなし。remote公開・OS由来の独立認証・入力lock・実行承認は自動成立しない。
+
+独立review Important1（新directory親fsync欠落）を解消。修正前variantでRED、修正後の入力関連19件PASS（12.536s）。テストは旧115 bytes/零root/合成registryまたはentropy関数を返却前に遮断した一時file検証。実OS乱数採取・本番200群/400行固定・新対戦はいずれも0。完全400生成成功の実行検証は未実施であり、上記19件を本番生成の証拠とはしない。
+
+preflight-ready=false。全合法性/許可情報/選択operand/全ルール機会の合成認定、生成来歴/remote事前lock/実行gate/全予定行driverは残る。6190版1584全proxy/406npmと後続専用・関連検証を区別。旧116除外・新方式未採用・保護正本・過去結果・予定集合を維持して準備を続行する。
