@@ -63,7 +63,7 @@ jobs:
       - uses: actions/checkout@v4
         if: matrix.audit == 'captures'
         with:
-          ref: 65da1f9ae58abd695610c98cfc9c46538af6a625
+          ref: 2300ffbd4cccd25a0957907016771fbe0273d4d2
           path: before
       - uses: actions/setup-node@v4
         with:

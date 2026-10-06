@@ -1337,8 +1337,17 @@
             // Art Direction v1(箱庭の 比率): 幹は あたりより ほそく(0.82)・根もとの はりで 地面に つなぐ。jungle は 根もとに 大きな は(下草)
             const out = [{ shape: 'trunk', r: r * 0.82, h: top, y: 0, taper: 0.6 }, { shape: 'crown', r: R, sy: 0.7, y: top + R * 0.3, shade: 1 }, { shape: 'crown', small: true, r: R * 0.7, sy: 0.75, y: Math.max(OBJ3D_HEAD + R * 0.6, top - R * (jungle ? 0.45 : 0.55)), dx: R * 0.65, shade: 2 }, { shape: 'crown', small: true, r: R * 0.62, sy: 0.75, y: top + R * (jungle ? 0.15 : -0.15), dx: -R * 0.55, dz: R * 0.35, shade: 0 },
               { shape: 'trunk', r: r * 0.95, h: r * 0.7, y: 0, taper: 0.5, color: '#6b4b32' }];   // 根の はり(あたりの なか・みじかく ひろい 幹 = 14 三角形)
-            if (jungle) for (let i = 0; i < 3; i++) { const a = v * 6.28 + i * 2.1; out.push({ shape: 'frond', len: 44 + (i % 2) * 14, w: 20, y: 3, dx: Math.sin(a) * r * 0.9, dz: Math.cos(a) * r * 0.9, dir: a, droop: 0.4, color: i ? '#2f8a3f' : '#9fd43a' }); }
+            // Ground fronds emerge upward from their own terrain root; palms still hang.
+            if (jungle) for (let i = 0; i < 3; i++) { const a = v * 6.28 + i * 2.1; out.push({ shape: 'frond', len: 44 + (i % 2) * 14, w: 20, y: 0, dx: Math.sin(a) * r * 0.9, dz: Math.cos(a) * r * 0.9, dir: a, rise: true, droop: 0.4, color: i ? '#2f8a3f' : '#9fd43a' }); }
             if (jungle) for (let i = 0; i < 2; i++) { const a = v * 6.28 + 1 + i * 3.1, vh = top * (0.4 + 0.15 * i); out.push({ shape: 'wpost', r: 1.8, h: vh, y: top + R * 0.1 - vh, dx: Math.sin(a) * R * 0.55, dz: Math.cos(a) * R * 0.55, color: i ? '#3f7a3a' : '#5f9a3a' }); }   // canopy から たれる つる(ジャングル だけ)
+            // Rotate existing side masses together around the trunk. Their height,
+            // radial envelope and count stay fixed; seeded trees no longer repeat
+            // the same world-axis outline. Landmark silhouettes remain authored.
+            const ca = Math.cos(v * Math.PI * 2), sa = Math.sin(v * Math.PI * 2);
+            for (const p of out) if (p.shape === 'crown') {
+              const x = p.dx || 0, z = p.dz || 0;
+              p.dx = x * ca - z * sa; p.dz = x * sa + z * ca;
+            }
             return out;
           }
           // ランドマークの 大きな木: みき = あたり の まま。えだはり(あたまより 上)を ひとまわり 大きく ひくめに ひろげて、spot の 空を おおう
@@ -2159,7 +2168,7 @@
             case 'shells': parts.push({ shape: 'pebble', r: 4 + u * 4, y: 0, dx, dz, color: i % 2 ? '#f6e4dc' : '#f0d0c8' }); break;
             case 'mushrooms': parts.push(...smallMushroom(dx, dz, 9 + u * 6, 13 + u * 9, 'cap')); break;
             case 'leaves': parts.push({ shape: 'leaf', w: 20 + u * 10, y: 0, dx, dz }); break;
-            case 'ferns': for (let k = 0; k < 5; k++) parts.push({ shape: 'frond', len: 42 + u * 20, w: 18, y: 4, dx, dz, dir: k * 1.26 + u * 3, droop: 0.55, color: k % 2 ? fol[0] : fol[1] }); break;
+            case 'ferns': for (let k = 0; k < 5; k++) parts.push({ shape: 'frond', len: 42 + u * 20, w: 18, y: 0, dx, dz, dir: k * 1.26 + u * 3, rise: true, droop: 0.4, color: k % 2 ? fol[0] : fol[1] }); break;
             case 'kelp': parts.push({ shape: 'kelp', w: 10 + u * 6, h: 36 + u * 40, y: 0, dx, dz, spin: u * 6.28, color: i % 2 ? '#3f8a6a' : '#4f9a78' }); break;
             case 'reeds': for (let k = 0; k < 3; k++) parts.push({ shape: 'wblade', r: 3.5, h: 40 + u * 24, y: 0, dx: dx + Math.sin(k * 2.1) * 6, dz: dz + Math.cos(k * 2.1) * 6, color: k ? '#8fbf5a' : '#a8c860' }); break;
             case 'sparkles': parts.push({ shape: 'spark', r: 4 + u * 3, y: 20 + u * 30, dx, dz, color: i % 2 ? '#fff0a0' : '#bfe3ff' }); break;

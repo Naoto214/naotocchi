@@ -9,6 +9,13 @@
 import * as THREE from './vendor/three-0.170.0/three.module.min.js';
 
 export const THREE_REVISION = THREE.REVISION;
+// Upward ground leaves reuse the palm mesh with a proper rotation, never a
+// negative instance scale (which would invert Lambert normal/winding parity).
+export function frondPose(pt) {
+  return { sx: pt.len, sy: pt.len * (pt.droop || 0.5), sz: pt.w,
+    ry: Math.PI / 2 - pt.dir + (pt.rise ? Math.PI : 0), rz: pt.rise ? Math.PI : 0 };
+}
+
 const TAU = Math.PI * 2;
 const HOR_BASE = 0.30, FEET_FRAC = 0.80;   // 2D の createCanvasRenderer と おなじ
 
@@ -331,7 +338,7 @@ export function terrainGrid(world, M, objects) {
 //   構造物(家・遺跡・柵 …)= 足もとの いちばん ひくい 所まで 物ごと しずめる(30 まで。屋根と からだが ずれない)。
 //   それ以外 = 地面に つく parts(y ≤ 2)ごとに その 足もとの いちばん ひくい 所へ(厚みの 0.6 まで しずめる。坂の 上がわは 地面に うまる = 地面から 生えて 見える)。
 //   y > 2 の parts(かんむり・屋根)は 物の 高さの まま。橋 / 飛び石は 水面 と 道の 高さ が 基準(ここでは あつかわない)
-export const GROUND_SHAPES = new Set(['trunk', 'rock', 'stone', 'stump', 'box', 'mound', 'post', 'wpost', 'wstem', 'stem', 'blade', 'flower', 'pebble', 'cliff', 'log', 'wcone', 'wslab', 'slab', 'plank', 'dome', 'leaf', 'decal', 'nut', 'billboard', 'moss', 'wblade']);
+export const GROUND_SHAPES = new Set(['trunk', 'rock', 'stone', 'stump', 'box', 'mound', 'post', 'wpost', 'wstem', 'stem', 'blade', 'flower', 'pebble', 'cliff', 'log', 'wcone', 'wslab', 'slab', 'plank', 'dome', 'leaf', 'decal', 'nut', 'billboard', 'moss', 'wblade', 'frond']);
 export const STRUCT_RE = /^(house|tower|temple|wall|dome|tent|lm_|hull|pier|ruin|bench|gate|torii|fountain|statue|obelisk|pillar|signal|lamp|signpost|ferris|wheel|slide|parasol|telescope|orrery|boat|car|bike|hotspring|fence|vent|neon|pot|boxprop)/;
 export const STRUCT_SINK_MAX = 30, PART_SINK_K = 0.6;
 export const LOOSE_SHAPES = new Set(['pebble', 'mound', 'flower', 'blade', 'stone', 'leaf', 'decal', 'nut', 'billboard', 'wblade']);
@@ -858,7 +865,7 @@ function create3DRenderer(M, o, onLost) {
           case 'wblade': push('wblade', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: pt.lean != null ? Math.atan2(-Math.cos(pt.lean), -Math.sin(pt.lean)) : t * TAU, rz: pt.lean != null ? (pt.tilt || 0.95) : 0, tint: t, color: pt.color }); break;
           case 'kelp': push('kelp', { x: px, y: pt.y || 0, z: pz, sx: pt.w, sy: pt.h, sz: 1, ry: pt.spin != null ? pt.spin : t * TAU, rz: 0, tint: t, color: pt.color }); break;
           // frond: 根もと (px, pz) から せかいの 向き dir へ len だけ のびる は。y 回転 θ: x 軸を (sin dir, cos dir) へ → θ = atan2(-cos dir, sin dir)... three の z は −z なので θ = dir − π/2 を x 軸基準に
-          case 'frond': push('frond', { x: px, y: pt.y || 0, z: pz, sx: pt.len, sy: pt.len * (pt.droop || 0.5), sz: pt.w, ry: Math.PI / 2 - pt.dir, rz: 0, tint: t, color: pt.color }); break;
+          case 'frond': push('frond', { x: px, y: pt.y || 0, z: pz, ...frondPose(pt), tint: t, color: pt.color }); break;
           case 'wcone': push(pt.glow ? 'glowcone' : pt.seg === 4 ? 'wcone4' : pt.seg === 6 ? 'wcone6' : 'wcone', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
           case 'wpost': push('wpost', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: 0, tint: t, color: pt.color }); break;
           case 'wstem': push('wstem', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: 0, tint: t, color: pt.color }); break;

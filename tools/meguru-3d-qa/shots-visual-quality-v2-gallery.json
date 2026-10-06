@@ -318,5 +318,27 @@
     ],
     "target": "desert:282",
     "galleryDistance": 578.223067136
+  },
+  {
+    "region": "forest",
+    "target": "forest:dress:-3,1",
+    "name": "vegetation-forest-fern",
+    "galleryDistance": 300
+  },
+  {
+    "region": "forest",
+    "target": "forest:0",
+    "name": "vegetation-forest-tree"
+  },
+  {
+    "region": "jungle",
+    "target": "jungle:dress:-8,0",
+    "name": "vegetation-jungle-fern",
+    "galleryDistance": 300
+  },
+  {
+    "region": "jungle",
+    "target": "jungle:0",
+    "name": "vegetation-jungle-tree"
   }
 ]

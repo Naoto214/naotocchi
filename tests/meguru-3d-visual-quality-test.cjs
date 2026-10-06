@@ -350,3 +350,97 @@ test('VQ-17 two-storey entrance remains below its existing low canopy', () => {
   assert.ok(canopy,'existing entrance canopy');
   assert.ok(door.y+door.h<=canopy.y,'door must not penetrate the unchanged canopy');
 });
+
+// Ground rosettes used the hanging-palm curvature: almost every leaf tip went
+// below its root plane. Check the actual production descriptors at each of the
+// five longitudinal vertices of the existing frond geometry.
+test('VQ-18 ground fern fronds emerge above their root plane, without changing hanging palm leaves', () => {
+  const {harness}=require('./helpers/runtime-harness.cjs');
+  const M=harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod, reg=M.buildRegistry();
+  let groundLeaves=0, hangingLeaves=0;
+  for(const rid of ['forest','jungle','sea']) for(const ob of M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects) {
+    for(const p of ob.parts.filter(p=>p.shape==='frond')) {
+      if((p.y||0)<=4) {
+        for(const t of [0,.25,.5,.75,1]) {
+          const y=(p.y||0)+(p.rise?1:-1)*t*t*p.len*(p.droop||.5);
+          assert.ok(y>=0,`${ob.id}: ground leaf vertex ${t} buried at ${y}`);
+          assert.ok(y<M.OBJ3D_HEAD*.5,`${ob.id}: ground leaf rises into actor head space`);
+        }
+        groundLeaves++;
+      } else { assert.ok(p.droop>0 && !p.rise,ob.id+': hanging palm leaf must still droop'); hangingLeaves++; }
+    }
+  }
+  assert.ok(groundLeaves>1000 && hangingLeaves>100,'both vegetation layers covered');
+});
+
+// Fixed world-axis offsets make every big tree present the same crown outline.
+// Sample real trees: the lower lobe should occupy all quadrants, while each
+// crown remains above walking head height and inside the existing radial bound.
+test('VQ-19 ordinary big-tree crowns vary azimuth without expanding their envelope', () => {
+  const {harness}=require('./helpers/runtime-harness.cjs');
+  const M=harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod,reg=M.buildRegistry();
+  for(const rid of ['forest','jungle']) {
+    const sectors=new Set();let count=0;
+    for(const ob of M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects) {
+      if(ob.type!=='bigtree')continue;
+      const crowns=ob.parts.filter(p=>p.shape==='crown');if(crowns.length!==3)continue;
+      const R=crowns[0].r, side=crowns[1];
+      sectors.add(Math.floor((Math.atan2(side.dz||0,side.dx||0)+Math.PI)/(Math.PI/2))%4);
+      for(const p of crowns) {
+        assert.ok(Math.hypot(p.dx||0,p.dz||0)+p.r<=R*1.35+1e-8,ob.id+': crown envelope expanded');
+        assert.ok(p.y-p.r*p.sy>=M.OBJ3D_HEAD,ob.id+': canopy enters walking head space');
+      }
+      count++;
+    }
+    assert.ok(count>20,rid+': real tree coverage');
+    assert.equal(sectors.size,4,rid+': every crown is aligned to the same world axis');
+  }
+});
+
+// A leaf can be above the object plane yet float above its offset terrain root.
+// Ground attachment must use the same production grounding path as the renderer.
+test('VQ-20 ground frond roots attach to their own terrain position', async () => {
+  const {harness}=require('./helpers/runtime-harness.cjs');
+  const M=harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod,reg=M.buildRegistry();
+  const m3=await mod();let checked=0;
+  for(const rid of ['forest','jungle']) {
+    const world=M.buildWorld(rid,reg,{world3d:true}),objects=M.worldObjects3d(world).objects,tg=m3.terrainGrid(world,M,objects);
+    for(const ob of objects) {
+      const ground=m3.objectGround(tg,ob);
+      for(const p of ob.parts.filter(p=>p.shape==='frond' && (p.y||0)<=4)) {
+        const root=(ground.part?ground.part(p):ground.base)+(p.y||0);
+        const surface=tg.surfaceY(ob.x+(p.dx||0),ob.z+(p.dz||0));
+        assert.ok(root<=surface+1e-8,ob.id+': fern root floats '+(root-surface));
+        assert.ok(root>=surface-6-1e-8,ob.id+': fern root too deeply embedded');
+        for(const side of [-1,1]) {
+          const x=ob.x+(p.dx||0)+Math.sin(p.dir)*p.len+Math.cos(p.dir)*p.w*.05*side;
+          const z=ob.z+(p.dz||0)+Math.cos(p.dir)*p.len-Math.sin(p.dir)*p.w*.05*side;
+          const tip=root+(p.rise?1:-1)*p.len*(p.droop||.5);
+          assert.ok(tip>tg.surfaceY(x,z),ob.id+': fern tip remains under terrain');
+        }
+        checked++;
+      }
+    }
+  }
+  assert.ok(checked>1000);
+});
+
+test('VQ-21 frond transforms preserve winding and radial direction for rising and hanging leaves', async () => {
+  const m3=await mod(),T=await import('../vendor/three-0.170.0/three.module.min.js');
+  assert.equal(typeof m3.frondPose,'function','production frond transform must be directly testable');
+  for(const dir of [0,Math.PI/2,Math.PI,Math.PI*1.5,.7]) for(const rise of [false,true]) {
+    const p={len:50,w:18,dir,droop:.4,rise},pose=m3.frondPose(p),obj=new T.Object3D();
+    obj.rotation.set(0,pose.ry,pose.rz);obj.scale.set(pose.sx,pose.sy,pose.sz);obj.updateMatrix();
+    assert.ok(obj.matrix.determinant()>0,'mirrored instance reverses Lambert lighting');
+    const tip=new T.Vector3(1,-1,0).applyMatrix4(obj.matrix);
+    assert.ok(Math.abs(tip.x-50*Math.sin(dir))<1e-8 && Math.abs(tip.z+50*Math.cos(dir))<1e-8,'radial leaf direction changed');
+    assert.ok(Math.abs(tip.y-(rise?20:-20))<1e-8,'leaf tip curvature');
+    // Compare transformed shader normal with actual transformed triangle winding.
+    const a=new T.Vector3(0,0,-.05),b=new T.Vector3(.25,-.0625,-.4),c=new T.Vector3(0,0,.05);
+    const normal=new T.Vector3().crossVectors(b.clone().sub(a),c.clone().sub(a)).normalize();
+    const shader=normal.clone().applyMatrix3(new T.Matrix3().getNormalMatrix(obj.matrix)).normalize();
+    const av=a.clone().applyMatrix4(obj.matrix),bv=b.clone().applyMatrix4(obj.matrix),cv=c.clone().applyMatrix4(obj.matrix);
+    const geometric=new T.Vector3().crossVectors(bv.sub(av),cv.sub(av)).normalize();
+    assert.ok(shader.dot(geometric)>.999999,'normal/winding mismatch');
+  }
+});
