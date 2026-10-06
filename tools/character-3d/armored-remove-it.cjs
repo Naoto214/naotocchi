@@ -1,6 +1,8 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','tests/character-3d-armored-wave-test.cjs','tests/character-3d-armored-juvenile-test.cjs','tests/character-3d-veined-insect-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['nymph digging claws','character-3d/armored-insect.mjs','if(l.claw){','if(false){'],
+ ['nymph folded pads','character-3d/armored-insect.mjs','(sp.nymphPads||[])','[]'],
  ['cicada tail taper','character-3d/armored-insect.mjs','const abdomen=b.taper?','const abdomen=false?'],
  ['cicada roof wings','character-3d/armored-spec.js','Math.PI/2,-side*.38','Math.PI/2,0'],
  ['curved section coherence','character-3d/animate.mjs','if(meta.curveLocked){','if(false){'],
