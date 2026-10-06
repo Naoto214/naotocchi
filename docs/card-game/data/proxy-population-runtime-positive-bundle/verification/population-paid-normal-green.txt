@@ -1,0 +1,8 @@
+test_current_facedown_cost_is_paid_once_before_existing_draw_resolution (test_proxy_population_paid_draw.PaidDrawTests.test_current_facedown_cost_is_paid_once_before_existing_draw_resolution) ... ok
+test_discard_cost_contains_both_orders_and_never_uses_one_copy_twice (test_proxy_population_paid_draw.PaidDrawTests.test_discard_cost_contains_both_orders_and_never_uses_one_copy_twice) ... ok
+test_normal_inventory_contains_the_same_costs_and_shares_usage_with_response (test_proxy_population_paid_draw.PaidDrawTests.test_normal_inventory_contains_the_same_costs_and_shares_usage_with_response) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.145s
+
+OK

@@ -1,0 +1,45 @@
+test_effect_false_is_absent_and_missing_application_proof_is_not_false (test_proxy_population_trigger_latching.LatchingTests.test_effect_false_is_absent_and_missing_application_proof_is_not_false) ... FAIL
+test_effect_occurrence_without_current_cost_is_deferred_not_omitted (test_proxy_population_trigger_latching.LatchingTests.test_effect_occurrence_without_current_cost_is_deferred_not_omitted) ... FAIL
+test_hash_and_sequence_forgery_rejected_and_full_reconstruction_matches (test_proxy_population_trigger_latching.LatchingTests.test_hash_and_sequence_forgery_rejected_and_full_reconstruction_matches) ... FAIL
+test_only_source_present_at_actual_occurrence_can_be_latched (test_proxy_population_trigger_latching.LatchingTests.test_only_source_present_at_actual_occurrence_can_be_latched) ... FAIL
+
+======================================================================
+FAIL: test_effect_false_is_absent_and_missing_application_proof_is_not_false (test_proxy_population_trigger_latching.LatchingTests.test_effect_false_is_absent_and_missing_application_proof_is_not_false)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/test_proxy_population_trigger_latching.py", line 28, in setUp
+    def setUp(self):self.assertIsNotNone(api,'timing occurrence producer missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : timing occurrence producer missing
+
+======================================================================
+FAIL: test_effect_occurrence_without_current_cost_is_deferred_not_omitted (test_proxy_population_trigger_latching.LatchingTests.test_effect_occurrence_without_current_cost_is_deferred_not_omitted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/test_proxy_population_trigger_latching.py", line 28, in setUp
+    def setUp(self):self.assertIsNotNone(api,'timing occurrence producer missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : timing occurrence producer missing
+
+======================================================================
+FAIL: test_hash_and_sequence_forgery_rejected_and_full_reconstruction_matches (test_proxy_population_trigger_latching.LatchingTests.test_hash_and_sequence_forgery_rejected_and_full_reconstruction_matches)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/test_proxy_population_trigger_latching.py", line 28, in setUp
+    def setUp(self):self.assertIsNotNone(api,'timing occurrence producer missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : timing occurrence producer missing
+
+======================================================================
+FAIL: test_only_source_present_at_actual_occurrence_can_be_latched (test_proxy_population_trigger_latching.LatchingTests.test_only_source_present_at_actual_occurrence_can_be_latched)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/test_proxy_population_trigger_latching.py", line 28, in setUp
+    def setUp(self):self.assertIsNotNone(api,'timing occurrence producer missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : timing occurrence producer missing
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

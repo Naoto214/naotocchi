@@ -1,0 +1,9 @@
+test_effect_false_is_absent_and_missing_application_proof_is_not_false (test_proxy_population_trigger_latching.LatchingTests.test_effect_false_is_absent_and_missing_application_proof_is_not_false) ... ok
+test_effect_occurrence_without_current_cost_is_deferred_not_omitted (test_proxy_population_trigger_latching.LatchingTests.test_effect_occurrence_without_current_cost_is_deferred_not_omitted) ... ok
+test_hash_and_sequence_forgery_rejected_and_full_reconstruction_matches (test_proxy_population_trigger_latching.LatchingTests.test_hash_and_sequence_forgery_rejected_and_full_reconstruction_matches) ... ok
+test_only_source_present_at_actual_occurrence_can_be_latched (test_proxy_population_trigger_latching.LatchingTests.test_only_source_present_at_actual_occurrence_can_be_latched) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.145s
+
+OK

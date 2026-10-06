@@ -1,0 +1,45 @@
+test_current_facedown_cost_is_paid_once_before_existing_draw_resolution (test_proxy_population_paid_draw.PaidDrawTests.test_current_facedown_cost_is_paid_once_before_existing_draw_resolution) ... FAIL
+test_discard_cost_contains_both_orders_and_never_uses_one_copy_twice (test_proxy_population_paid_draw.PaidDrawTests.test_discard_cost_contains_both_orders_and_never_uses_one_copy_twice) ... FAIL
+test_normal_inventory_contains_the_same_costs_and_shares_usage_with_response (test_proxy_population_paid_draw.PaidDrawTests.test_normal_inventory_contains_the_same_costs_and_shares_usage_with_response) ... FAIL
+test_original_normal_loop_applies_existing116_without_valuing_unknown_draw (test_proxy_population_paid_draw.PaidDrawTests.test_original_normal_loop_applies_existing116_without_valuing_unknown_draw) ... FAIL
+
+======================================================================
+FAIL: test_current_facedown_cost_is_paid_once_before_existing_draw_resolution (test_proxy_population_paid_draw.PaidDrawTests.test_current_facedown_cost_is_paid_once_before_existing_draw_resolution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/test_proxy_population_paid_draw.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'paid draw connection missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : paid draw connection missing
+
+======================================================================
+FAIL: test_discard_cost_contains_both_orders_and_never_uses_one_copy_twice (test_proxy_population_paid_draw.PaidDrawTests.test_discard_cost_contains_both_orders_and_never_uses_one_copy_twice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/test_proxy_population_paid_draw.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'paid draw connection missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : paid draw connection missing
+
+======================================================================
+FAIL: test_normal_inventory_contains_the_same_costs_and_shares_usage_with_response (test_proxy_population_paid_draw.PaidDrawTests.test_normal_inventory_contains_the_same_costs_and_shares_usage_with_response)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/test_proxy_population_paid_draw.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'paid draw connection missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : paid draw connection missing
+
+======================================================================
+FAIL: test_original_normal_loop_applies_existing116_without_valuing_unknown_draw (test_proxy_population_paid_draw.PaidDrawTests.test_original_normal_loop_applies_existing116_without_valuing_unknown_draw)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/test_proxy_population_paid_draw.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'paid draw connection missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : paid draw connection missing
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

@@ -1,0 +1,28 @@
+test_current_facedown_cost_is_paid_once_before_existing_draw_resolution (test_proxy_population_paid_draw.PaidDrawTests.test_current_facedown_cost_is_paid_once_before_existing_draw_resolution) ... FAIL
+test_discard_cost_contains_both_orders_and_never_uses_one_copy_twice (test_proxy_population_paid_draw.PaidDrawTests.test_discard_cost_contains_both_orders_and_never_uses_one_copy_twice) ... ok
+test_normal_inventory_contains_the_same_costs_and_shares_usage_with_response (test_proxy_population_paid_draw.PaidDrawTests.test_normal_inventory_contains_the_same_costs_and_shares_usage_with_response) ... ok
+test_original_normal_loop_applies_existing116_without_valuing_unknown_draw (test_proxy_population_paid_draw.PaidDrawTests.test_original_normal_loop_applies_existing116_without_valuing_unknown_draw) ... ok
+
+======================================================================
+FAIL: test_current_facedown_cost_is_paid_once_before_existing_draw_resolution (test_proxy_population_paid_draw.PaidDrawTests.test_current_facedown_cost_is_paid_once_before_existing_draw_resolution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_paid_draw.py", line 41, in test_current_facedown_cost_is_paid_once_before_existing_draw_resolution
+    base.operation(initial(),run)
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_paid_draw.py", line 33, in run
+    self.assertTrue(end.RUNTIME_TRANSITION_VERIFIER(e,after,raw,[]))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.181s
+
+FAILED (failures=1)

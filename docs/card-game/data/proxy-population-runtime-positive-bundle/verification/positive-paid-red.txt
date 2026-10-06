@@ -1,0 +1,17 @@
+test_actual_quick_resolution_latches_group_before_normal_actions (test_proxy_population_positive_window.PositiveWindowTests.test_actual_quick_resolution_latches_group_before_normal_actions) ... ok
+test_paid_draw_inventory_and_activation_remain_connected_inside_bundle (test_proxy_population_positive_window.PositiveWindowTests.test_paid_draw_inventory_and_activation_remain_connected_inside_bundle) ... FAIL
+test_scopes_restore_and_bad_capture_does_not_suppress_existing_guard (test_proxy_population_positive_window.PositiveWindowTests.test_scopes_restore_and_bad_capture_does_not_suppress_existing_guard) ... ok
+
+======================================================================
+FAIL: test_paid_draw_inventory_and_activation_remain_connected_inside_bundle (test_proxy_population_positive_window.PositiveWindowTests.test_paid_draw_inventory_and_activation_remain_connected_inside_bundle)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/test_proxy_population_positive_window.py", line 42, in test_paid_draw_inventory_and_activation_remain_connected_inside_bundle
+    source=base.operation(initial(),build);e=source['envelope'];r=api.segment(e,initial(),source['history'],[],[e],1,source['proof']);self.assertIsNone(r['stop']);self.assertEqual(len(r['decisions'][0]['inventory']['legal_candidate_ids']),2)
+                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'code': 'unsupported_contract_boundary', 'detail': 'board trigger origin unavailable', 'phase': 'normal_action'} is not None
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.911s
+
+FAILED (failures=1)

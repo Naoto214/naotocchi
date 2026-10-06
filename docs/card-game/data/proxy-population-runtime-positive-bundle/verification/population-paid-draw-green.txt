@@ -1,0 +1,7 @@
+test_current_facedown_cost_is_paid_once_before_existing_draw_resolution (test_proxy_population_paid_draw.PaidDrawTests.test_current_facedown_cost_is_paid_once_before_existing_draw_resolution) ... ok
+test_discard_cost_contains_both_orders_and_never_uses_one_copy_twice (test_proxy_population_paid_draw.PaidDrawTests.test_discard_cost_contains_both_orders_and_never_uses_one_copy_twice) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.064s
+
+OK

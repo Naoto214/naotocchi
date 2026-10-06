@@ -1,0 +1,8 @@
+test_actual_quick_resolution_latches_group_before_normal_actions (test_proxy_population_positive_window.PositiveWindowTests.test_actual_quick_resolution_latches_group_before_normal_actions) ... ok
+test_paid_draw_inventory_and_activation_remain_connected_inside_bundle (test_proxy_population_positive_window.PositiveWindowTests.test_paid_draw_inventory_and_activation_remain_connected_inside_bundle) ... ok
+test_scopes_restore_and_bad_capture_does_not_suppress_existing_guard (test_proxy_population_positive_window.PositiveWindowTests.test_scopes_restore_and_bad_capture_does_not_suppress_existing_guard) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 3.487s
+
+OK

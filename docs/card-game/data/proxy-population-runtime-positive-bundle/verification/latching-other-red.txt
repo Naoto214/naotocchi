@@ -1,0 +1,65 @@
+test_effect_false_is_absent_and_missing_application_proof_is_not_false (test_proxy_population_trigger_latching.LatchingTests.test_effect_false_is_absent_and_missing_application_proof_is_not_false) ... ok
+test_effect_occurrence_without_current_cost_is_deferred_not_omitted (test_proxy_population_trigger_latching.LatchingTests.test_effect_occurrence_without_current_cost_is_deferred_not_omitted) ... ok
+test_hash_and_sequence_forgery_rejected_and_full_reconstruction_matches (test_proxy_population_trigger_latching.LatchingTests.test_hash_and_sequence_forgery_rejected_and_full_reconstruction_matches) ... ok
+test_only_source_present_at_actual_occurrence_can_be_latched (test_proxy_population_trigger_latching.LatchingTests.test_only_source_present_at_actual_occurrence_can_be_latched) ... ok
+test_goat_requires_actual_different_world_and_same_non_egg_partner (test_proxy_population_trigger_latching.OtherTimingTests.test_goat_requires_actual_different_world_and_same_non_egg_partner) ... FAIL
+test_play_timing_captures_main_and_companion_before_current_targets (test_proxy_population_trigger_latching.OtherTimingTests.test_play_timing_captures_main_and_companion_before_current_targets) ... FAIL
+
+======================================================================
+FAIL: test_goat_requires_actual_different_world_and_same_non_egg_partner (test_proxy_population_trigger_latching.OtherTimingTests.test_goat_requires_actual_different_world_and_same_non_egg_partner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/test_proxy_population_trigger_latching.py", line 104, in test_goat_requires_actual_different_world_and_same_non_egg_partner
+    base.operation(initial(),run)
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/test_proxy_population_trigger_latching.py", line 101, in run
+    event=triggers._raw_event(state.current(before),state.current(after),'place_world','A',source_instance_id=worlds[1],previous_world_instance_id=worlds[0]);rows=api.capture(before,after,event)['occurrences'];self.assertEqual([r['source_instance_id'] for r in rows],[goat]);self.assertEqual(len(api.current_actions(after,rows[0])[0]),1)
+                                                                                                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != ['A-018#1']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'A-018#1'
+
+- []
++ ['A-018#1']
+
+======================================================================
+FAIL: test_play_timing_captures_main_and_companion_before_current_targets (test_proxy_population_trigger_latching.OtherTimingTests.test_play_timing_captures_main_and_companion_before_current_targets)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/test_proxy_population_trigger_latching.py", line 88, in test_play_timing_captures_main_and_companion_before_current_targets
+    base.operation(initial(),run)
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b25d9ca1626a/card-game-repo/docs/card-game/tools/test_proxy_population_trigger_latching.py", line 80, in run
+    proof=api.capture(before,after,event);self.assertEqual([r['source_instance_id'] for r in proof['occurrences']],[bat]);self.assertEqual(api.current_actions(after,proof['occurrences'][0])[0],[])
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != ['A-011#1']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'A-011#1'
+
+- []
++ ['A-011#1']
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.203s
+
+FAILED (failures=2)

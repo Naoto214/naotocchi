@@ -1,0 +1,25 @@
+test_current_facedown_cost_is_paid_once_before_existing_draw_resolution (test_proxy_population_paid_draw.PaidDrawTests.test_current_facedown_cost_is_paid_once_before_existing_draw_resolution) ... FAIL
+test_discard_cost_contains_both_orders_and_never_uses_one_copy_twice (test_proxy_population_paid_draw.PaidDrawTests.test_discard_cost_contains_both_orders_and_never_uses_one_copy_twice) ... FAIL
+
+======================================================================
+FAIL: test_current_facedown_cost_is_paid_once_before_existing_draw_resolution (test_proxy_population_paid_draw.PaidDrawTests.test_current_facedown_cost_is_paid_once_before_existing_draw_resolution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_paid_draw.py", line 24, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_discard_cost_contains_both_orders_and_never_uses_one_copy_twice (test_proxy_population_paid_draw.PaidDrawTests.test_discard_cost_contains_both_orders_and_never_uses_one_copy_twice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/card-game-recovery/repo/docs/card-game/tools/test_proxy_population_paid_draw.py", line 24, in setUp
+    def setUp(self):self.assertIsNotNone(api)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)
