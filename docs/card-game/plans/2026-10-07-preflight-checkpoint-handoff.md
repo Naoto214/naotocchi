@@ -34,3 +34,7 @@ preflight-ready=false。事象依存response/手札反応/予約、実際に使�
 この追補を含む保存版ではremote公開のlive exact-head prerequisiteも生成/attempt/supervisorの副作用前に実装済み。親Git設定継承をレビューで発見しRED→ceiling修正→最終関連21PASS。timeout/git失敗の個別test追加Minor1保留。外部承認/結果前順序/OS来歴は依然未認証であり、この変更をreadyやinput lockへ昇格しない。旧『remote gate未実装』はこのnarrow prerequisiteに関して更新する。完全gate結合は残る。
 
 次はstatus.md末尾とverification/{reaction-predicates,remote-publication}-review.mdを読む。preflight-ready=false、seed/本番入力/400戦0。残作業・保護・生成/開始の別承認境界は維持。最新remoteをfresh取得してこのファイルの所在commitを正本にする。
+
+### 逐次誘発監査の追補
+
+c4cc165から、trigger_predicatesをcurrent474へ接続。latched4種＋start2種の現在意味条件と候補集合を監査。関連42・全20turn含む結合19・npm406PASS、review C0/I0/Minor0。詳細status末尾とverification/trigger-predicates-review.md。次はprepared公開効果経路の監査、他の残gateを継続。preflight-ready=false、生成/固定/400戦0。

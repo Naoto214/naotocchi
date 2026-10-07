@@ -1,0 +1,12 @@
+✔ city switches to actual neon artwork at night without returning to old seasonal streets (0.412324ms)
+✔ current location has outdoor municipal profiles without adding gameplay regions (0.493988ms)
+✔ shared temperate branches do not turn a jungle or farm back into the same clearing (0.605827ms)
+✔ renderer updates the scenery when the municipality changes on the same gameplay region (15.29809ms)
+ℹ tests 406
+ℹ suites 0
+ℹ pass 406
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11961.371148

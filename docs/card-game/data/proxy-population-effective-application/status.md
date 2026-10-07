@@ -260,3 +260,11 @@ preflight-ready=false。次はremote公開のfresh照合を既存生成/attempt/
 remote一致はその照会時点だけの公開確認。外部の生成/実行承認、OS採取来歴、結果観測前の順序、全rule/情報/operandの準備を認証したことにしない。input_lock_verified=false、ready_for_execution=false。既存APIの非空approval_referenceも引き続き認証ではない。入力生成/本番固定/400戦0、全体結論null、独立balance0を維持。
 
 次の残作業は事象依存盤上/準備札/予約の意味条件と全機会・実情報使用・operand根拠の合成、および外部承認/結果前順序の信頼境界。107に存在しない効果は一覧だけで不可能扱いせず、source本文と実dispatchの閉包を照合する。保存を完了条件にせず続行する。
+
+## 逐次誘発6種の現在条件監査
+
+c4cc165から継続。M-antlion03/06・C-bat・P-cliff_goatの現在源/owner/手番/現incarnation使用回数、伏せ準備条件、全セカイcost×target・全準備target、およびC-chicken/I-bowtieの開始origin/現在源/手札閾値を監査。既存capture/ledger/adapter/actionsを維持し、current474 scopeだけでfresh auditを返す。発生時条件と現在条件を混同せず、発生機会網羅・実情報使用・operand・適格性は未証明。
+
+専用4RED→4GREEN、境界追加後6PASS、関連42PASS、全20turn/R10含む結合19PASS、npm406PASS。設計errors=[]、番号付き保護正本476件不変。独立review C0/I0/Minor0。verification/trigger-predicates-review.md参照。最新全proxy回帰の完了とは扱わない。
+
+preflight-ready=false。次は準備札の不発を公開された発動内容と正本の効果経路へ結ぶ監査。旧候補器のcapability一覧だけでは効果の非除去を証明しない。nativeの他の誘発・予約/全機会・許可情報実使用・比較operand・外部承認/時系列/lockの結合も残る。入力生成/本番固定/400戦0、旧116除外、policy promotion=false、独立balance0、全体結論null。

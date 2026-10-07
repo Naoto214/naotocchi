@@ -1,0 +1,41 @@
+FFFF
+======================================================================
+FAIL: test_all_latched_cards_check_full_alternatives_and_reject_mutations (test_proxy_population_trigger_predicates.TriggerPredicateTests.test_all_latched_cards_check_full_alternatives_and_reject_mutations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_trigger_predicates.py", line 39, in setUp
+    def setUp(self):self.assertIsNotNone(api,'current trigger predicate audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : current trigger predicate audit absent
+
+======================================================================
+FAIL: test_current_usage_turn_departure_and_no_cost_are_negative_not_unknown (test_proxy_population_trigger_predicates.TriggerPredicateTests.test_current_usage_turn_departure_and_no_cost_are_negative_not_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_trigger_predicates.py", line 39, in setUp
+    def setUp(self):self.assertIsNotNone(api,'current trigger predicate audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : current trigger predicate audit absent
+
+======================================================================
+FAIL: test_scope_is_connected_and_rejects_corrupt_native_inventory (test_proxy_population_trigger_predicates.TriggerPredicateTests.test_scope_is_connected_and_rejects_corrupt_native_inventory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_trigger_predicates.py", line 39, in setUp
+    def setUp(self):self.assertIsNotNone(api,'current trigger predicate audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : current trigger predicate audit absent
+
+======================================================================
+FAIL: test_start_adapter_audit_is_connected_to_real_inventory (test_proxy_population_trigger_predicates.TriggerPredicateTests.test_start_adapter_audit_is_connected_to_real_inventory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_trigger_predicates.py", line 39, in setUp
+    def setUp(self):self.assertIsNotNone(api,'current trigger predicate audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : current trigger predicate audit absent
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)
