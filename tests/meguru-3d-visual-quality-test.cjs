@@ -3,6 +3,33 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const mod = () => import('../meguru-3d.mjs');
+test('VQ-23 vehicle window frames connect body and roof at every cab corner when rotated', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const world = M.buildWorld('city',M.buildRegistry());
+  for (const emoji of ['🚕','🚜']) for (const ang of [0,0.73,Math.PI/2,-2.1]) {
+    const fixture = {...world,props:[{emoji,x:0,z:0,size:100,ang}],obstacles:[],world3d:false};
+    const vehicle = M.worldObjects3d(fixture).objects.find(o=>o.type==='car');
+    assert.ok(vehicle,emoji);
+    const cab=vehicle.parts.find(p=>p.color==='#7fa9b8');
+    const roof=vehicle.parts.find(p=>p.shape==='box' && p.y===cab.y+cab.h);
+    const frames=vehicle.parts.filter(p=>p.shape==='box' && p.solidBox && p.rx<2 && p.rz<2 && p.y===cab.y);
+    assert.equal(frames.length,4,emoji+': four connected cab corners');
+    const corners=new Set();
+    for(const p of frames) {
+      const dx=p.dx-cab.dx,dz=p.dz-cab.dz;
+      const f=dx*Math.sin(cab.ang)+dz*Math.cos(cab.ang),s=dx*Math.cos(cab.ang)-dz*Math.sin(cab.ang);
+      assert.equal(p.ang,cab.ang);
+      assert.equal(p.y+p.h,roof.y,'frame reaches roof underside');
+      assert.ok(Math.abs(f)-p.rx<=cab.rx && Math.abs(f)+p.rx>cab.rx,'frame wraps cab front/back corner');
+      assert.ok(Math.abs(s)-p.rz<=cab.rz && Math.abs(s)+p.rz>cab.rz,'frame wraps cab side corner');
+      assert.ok(Math.abs(f)+p.rx<=roof.rx && Math.abs(s)+p.rz<=roof.rz,'frame stays under existing roof');
+      assert.equal(p.color,roof.color);
+      corners.add(Math.sign(f)+','+Math.sign(s));
+    }
+    assert.equal(corners.size,4,'no duplicate corner or missing side');
+  }
+});
 // Bank color patches must not recolor water or change the crossing geometry.
 test('VQ-22 dry-bank patches are continuous, bounded and leave unpainted water unchanged', async () => {
   const { streamStripData } = await mod();

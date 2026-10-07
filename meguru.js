@@ -1683,8 +1683,15 @@
         case 'slide': return [{ shape: 'wslab', len: 60, w: 16, h: 6, y: 26, ang, color: c }, { shape: 'box', rx: 8, rz: 8, h: 30, y: 0, ang, color: '#c9c9c0', dx: -Math.sin(ang) * 26, dz: -Math.cos(ang) * 26 }];
         // 2026-10-02 監査(props gate): 車 / トラクタ = からだ + 窓の 箱 + 前後の 車輪(よこに ねた 円柱 2 本 = 左右の わ)。箱 2 つ だけ では 読めない
         case 'car': { const L = sm.big ? 60 : 50, W = sm.big ? 26 : 20, ux = Math.sin(ang), uz = Math.cos(ang), wr = sm.big ? 9 : 6.5;
-          return [{ shape: 'box', rx: L / 2, rz: W / 2, h: 18, y: 6, ang, color: c }, { shape: 'box', rx: L * (sm.big ? 0.2 : 0.27), rz: W * 0.41, h: sm.big ? 20 : 12, y: 24, ang, color: '#7fa9b8', dx: ux * L * 0.12, dz: uz * L * 0.12 }, { shape: 'box', rx: L * (sm.big ? 0.23 : 0.29), rz: W * 0.46, h: 3, y: sm.big ? 44 : 36, ang, color: c || '#e8e8e4', dx: ux * L * 0.12, dz: uz * L * 0.12 },
-            ...[-1, 1].map((sd) => ({ shape: 'log', len: W + 5, r: sd > 0 && sm.big ? wr * 1.3 : wr, y: 0, ang: ang + Math.PI / 2, color: '#2f3034', dx: ux * sd * L * 0.32, dz: uz * sd * L * 0.32 }))]; }
+          const out = [{ shape: 'box', rx: L / 2, rz: W / 2, h: 18, y: 6, ang, color: c }, { shape: 'box', rx: L * (sm.big ? 0.2 : 0.27), rz: W * 0.41, h: sm.big ? 20 : 12, y: 24, ang, color: '#7fa9b8', dx: ux * L * 0.12, dz: uz * L * 0.12 }, { shape: 'box', rx: L * (sm.big ? 0.23 : 0.29), rz: W * 0.46, h: 3, y: sm.big ? 44 : 36, ang, color: c || '#e8e8e4', dx: ux * L * 0.12, dz: uz * L * 0.12 },
+            ...[-1, 1].map((sd) => ({ shape: 'log', len: W + 5, r: sd > 0 && sm.big ? wr * 1.3 : wr, y: 0, ang: ang + Math.PI / 2, color: '#2f3034', dx: ux * sd * L * 0.32, dz: uz * sd * L * 0.32 }))];
+          // Body-colored corner posts frame the existing glass without changing
+          // the vehicle silhouette, wheel placement or cab/roof dimensions.
+          const cab = out[1], roof = out[2], px = Math.cos(ang), pz = -Math.sin(ang);
+          for (const f of [-1, 1]) for (const sd of [-1, 1]) out.push({ shape: 'box', rx: 0.7, rz: 0.7, h: cab.h, y: cab.y, ang, color: roof.color, solidBox: true,
+            dx: cab.dx + ux * f * (cab.rx - 0.4) + px * sd * (cab.rz - 0.4),
+            dz: cab.dz + uz * f * (cab.rx - 0.4) + pz * sd * (cab.rz - 0.4) });
+          return out; }
         case 'boat': return [{ shape: 'wslab', len: Math.min(90, size * 0.7), w: 26, h: 10, y: 0, ang, color: '#6b4a32' }, { shape: 'wpost', r: 2.5, h: 70, y: 10, color: '#6b4a32' }, { shape: 'board', w: 28, h: 40, y: 32, ang: ang + Math.PI / 2, color: c }];
         case 'pier': return [{ shape: 'plank', len: size * 0.9, w: size * 0.22, y: 0, ang }, { shape: 'wpost', r: 4, h: 14, y: 0, dx: Math.sin(ang) * size * 0.4, dz: Math.cos(ang) * size * 0.4, color: '#6b4a32' }, { shape: 'wpost', r: 4, h: 14, y: 0, dx: -Math.sin(ang) * size * 0.4, dz: -Math.cos(ang) * size * 0.4, color: '#6b4a32' }];
         // 2026-10-02 監査(props gate): 望遠鏡 = 3 本 足 + 空へ かたむいた 筒(柱 + 箱 では 読めない)
