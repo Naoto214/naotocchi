@@ -1,4 +1,12 @@
 const test=require('node:test'),assert=require('node:assert/strict'),SPEC=require('../character-3d/spec.js');
+test('sparse world tree04 keeps a readable face within the rooted trunk',async()=>{
+ const sp=require('../character-3d/botanical-spec.js')().world_tree.stages[4];
+ const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ const r=BUILDERS[sp.archetype](sp,'world_tree:4'),f=attachFace(r,r.faceSpec,'C');r.root.updateMatrixWorld(true);
+ const bounds=new THREE.Box3().setFromObject(r.root,true),height=bounds.max.y-bounds.min.y;
+ for(const eye of f.eyes){const b=new THREE.Box3().setFromObject(eye,true);assert.ok((b.max.y-b.min.y)/height>=.016,'eye remains readable against full sparse crown height');assert.ok(Math.max(Math.abs(b.min.x),Math.abs(b.max.x))<sp.body.width,'eye fits trunk');}
+ const faceWidth=f.eyes[1].position.distanceTo(f.eyes[0].position);assert.ok(faceWidth/height>=.05,'separated eyes do not collapse into a dot');
+});
 test('world tree representatives have a rooted trunk, volumetric crown and five physically hanging golden fruit only at07',async()=>{
  const rows=require('../character-3d/botanical-spec.js')().world_tree?.stages;assert.ok(rows,'original03/07 world-tree candidates');assert.deepEqual(Object.keys(rows),['1','2','3','4','5','6','7','8']);const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs'),{attachFace}=await import('../character-3d/rig.mjs');
  for(const n of [3,7]){const sp=rows[n],r=BUILDERS[sp.archetype](sp,'world_tree:'+n);assert.equal(attachFace(r,r.faceSpec,'C').eyes.length,2);assert.equal(sp.fruit?.length||0,n===7?5:0);const mesh=r.parts.find(p=>p.bone==='body').mesh,g=mesh.geometry;g.computeBoundingBox();const bare=BUILDERS[sp.archetype]({...sp,canopy:[]},'bare'),bg=bare.parts.find(p=>p.bone==='body').mesh.geometry;assert.ok(g.attributes.position.count>bg.attributes.position.count+3000,'closed foliage crown contributes substantial volume');

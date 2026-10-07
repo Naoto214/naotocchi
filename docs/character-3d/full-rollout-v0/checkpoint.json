@@ -1,6 +1,6 @@
 {
-  "baseCommit": "e149adc6e8a91191a98e143152046a2a08cb4855",
-  "checkpoint": "reviewed-box-sunflower-promotion-and-plush-representative-gate",
+  "baseCommit": "42dd99acd665b20b4b404903c429f666839c2576",
+  "checkpoint": "world-tree04-face-readability-candidate-awaiting-recapture",
   "coverage": {
     "exact": 180,
     "total": 293,
@@ -11,16 +11,18 @@
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 219,
+    "dedicatedPass": 220,
     "rolloutMutationsDetected": 24,
     "pilotHashesUnchanged": 28,
     "fullNpm": "3007 pass / 2 fail; same failures on immutable fb3 baseline",
-    "postPromotionAggregate": "pending",
-    "nonplayerMutationsDetected": 7
+    "postPromotionAggregate": "42dd99a:22families/176exact player stages, fallback0/failedTemplates0/errors0,artifact11459393592",
+    "nonplayerMutationsDetected": 7,
+    "worldTreeMutationsDetected": 9,
+    "previousHeadCI": "42dd99a Character37567216050/Runtime37567222572/Home37567222634 success"
   },
   "next": [
-    "Verify post-promotion CI and aggregate",
-    "World tree all8 image gate",
+    "Recapture world_tree04 faceHalf .16 and evaluate all8 image gate before any promotion",
+    "Verify new candidate CI; retain world_tree unpromoted until visual acceptance",
     "Expand Venus and Plush remaining6; review other saved representatives",
     "Implement remaining41 nonplayers; final full QA"
   ],

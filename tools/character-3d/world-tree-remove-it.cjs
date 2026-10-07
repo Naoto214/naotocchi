@@ -1,6 +1,7 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap','tests/character-3d-world-tree-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['sparse trunk face readability','character-3d/botanical-spec.js','faceHalf:.16,',''],
  ['leaning seed','character-3d/branch-organism.mjs','(b.lean||0)*y','0'],
  ['cyan orbit tubes','character-3d/branch-organism.mjs','for(const o of sp.orbits||[])','for(const o of [])'],
  ['physical foliage crown','character-3d/branch-organism.mjs','const q of sp.canopy||[]','const q of []'],

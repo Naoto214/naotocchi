@@ -57,7 +57,7 @@ export function branchOrganism(sp,key){
  rig.add('leavesA','root',[0,0,0],stones);
  rig.add('leavesB','root',[0,0,0],null);
  rig.meta={idlePose:sp.locomotion==='blobFloat'?'hover':'stand',hover:sp.locomotion==='blobFloat'?.10:0};
- rig.faceSpec={bone:'body',target:core,center:[0,b.y,b.depth*.96],fwd:[0,0,1],half:b.width*.73,eyeSize:.25,normalEye:sp.normalEye,
+ rig.faceSpec={bone:'body',target:core,center:[0,b.y,b.depth*.96],fwd:[0,0,1],half:sp.faceHalf??b.width*.73,eyeSize:.25,normalEye:sp.normalEye,
   layout:{eyeX:24,eyeY:56,mouthY:82,browY:36,cheekX:38,cheekY:72,mouthW:8},style:{blush:c.blush}};
  if(sp.trap?.tilt){const e=new THREE.Euler(...sp.trap.tilt,'YXZ');rig.faceSpec.center=new THREE.Vector3(...rig.faceSpec.center).applyEuler(e).toArray();rig.faceSpec.fwd=new THREE.Vector3(0,0,1).applyEuler(e).toArray();}
  return rig;
