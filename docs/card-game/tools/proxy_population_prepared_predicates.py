@@ -1,4 +1,4 @@
-"""Narrow concealed-preparation absence from public registered quick routes.
+"""Narrow concealed/replacement absence from public registered quick routes.
 
 All active links are inspected, not only the original response event. Unknown
 or board mechanisms stay unproved. This does not prove prior trigger coverage,
@@ -59,7 +59,7 @@ def quick_effect_route(link):
 
 
 def audit(envelope,events,inventory):
- errors=[];verified=[];unproved=[];routes=[];public_unproved=[]
+ errors=[];verified=[];unproved=[];routes=[];public_unproved=[];equipment=[];verified_equipment=[]
  try:
   for name,digest in SOURCES.items():
    if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:raise ValueError('prepared predicate source changed')
@@ -78,11 +78,22 @@ def audit(envelope,events,inventory):
     seen.add(s)
     meta=envelope['runtime']['public_prepared'][s]
     if meta['controller']!=owner or type(meta['face_up']) is not bool:raise ValueError('prepared public metadata differs')
-    if meta['face_up']:public_unproved.append(dict(source_instance_id=s,reason='public_equipment_predicate_separate'));continue
+    if meta['face_up']:
+     attachment=envelope['runtime']['attachments'][s];card=g['cards'][s]['card_id']
+     if attachment['controller']!=owner:raise ValueError('equipment controller differs')
+     target=attachment['target_instance_id'];board=p['board']
+     if target not in [board['main'],board['partner']]+board['companions'] or target is None:raise ValueError('equipment current target absent')
+     if card=='I-bond1':
+      if target not in board['companions']:raise ValueError('replacement target is not companion')
+      known=sources.catalog()['cards'][card];cap=rules.classification(card)
+      if cap['timing']!='companion_departure' or cap['reference']!=known['reference']:raise ValueError('replacement source differs')
+      equipment.append(dict(source_instance_id=s,target_instance_id=target,controller=owner,source_reference=known['reference'],source_raw_sha256=known['source_raw_sha256']))
+     else:public_unproved.append(dict(source_instance_id=s,reason='public_equipment_predicate_separate'))
+     continue
     # No hidden identity is inspected, even for the actor's own preparation.
     concealed.append((owner,index,s))
-  if concealed:
-   references=preparation.concealed_pool();sources.catalog()
+  if concealed or equipment:
+   sources.catalog()
    origins=[e for e in events if e['seq']==ctx['origin_event_seq']]
    if len(origins)!=1:raise ValueError('prepared origin absent or ambiguous')
    origin=origins[0];links=c['activation_zone']
@@ -96,7 +107,20 @@ def audit(envelope,events,inventory):
     if physical['card_id']!=l['card_id'] or physical['card_copy_id']!=l['card_copy_id']:raise ValueError('public effect physical source differs')
     route=quick_effect_route(l);routes.append(dict(link_id=l['link_id'],**route))
     if route['status']=='unproved':unproved.append(dict(link_id=l['link_id'],reason=route['reason']))
-   expected=[]
+  if equipment:
+   exclusions=inventory.get('equipment_exclusions',[])
+   for row in equipment:
+    source=row['source_instance_id']
+    expected_row=dict(source_instance_id=source,source_reference=row['source_reference'],reason='certified_origin_does_not_move_an_opponent_companion')
+    supplied=[r for r in exclusions if r.get('source_instance_id')==source]
+    if supplied!=[expected_row]:raise ValueError('replacement exclusion coverage differs')
+    if any(a.get('source_instance_id')==source for a in inventory['legal_candidate_details']):raise ValueError('inactive replacement reoffered')
+    if unproved:public_unproved.append(dict(source_instance_id=source,reason='public_effect_route_not_certified'))
+    else:verified_equipment.append(dict(row,reason='registered_current_links_do_not_move_companions'))
+  public_ids={r['source_instance_id'] for r in equipment+public_unproved}
+  if any(r.get('source_instance_id') not in public_ids for r in inventory.get('equipment_exclusions',[])):raise ValueError('foreign equipment exclusion')
+  if concealed:
+   references=preparation.concealed_pool();expected=[]
    for owner,index,s in concealed:
     row=dict(controller=owner,slot=index,reason='public_origin_has_no_opponent_main_removal_activation',source_references=references)
     if owner==actor:row['source_instance_id']=s
@@ -107,5 +131,5 @@ def audit(envelope,events,inventory):
   elif inventory.get('preparation_exclusions'):raise ValueError('extra concealed exclusion')
  except (ValueError,KeyError,TypeError,IndexError,OSError) as error:errors.append(str(error))
  return dict(schema='concealed_current_public_effect_predicates.v1',prepared_predicates_verified=not errors and not unproved,
-  errors=errors,verified_preparations=verified,public_effect_routes=routes,unproved_public_effects=unproved,unproved_public_equipment=public_unproved,
+  errors=errors,verified_preparations=verified,equipment_predicates_verified=not errors and not public_unproved,verified_equipment=verified_equipment,equipment_scope='current_replacement_negative_only',public_effect_routes=routes,unproved_public_effects=unproved,unproved_public_equipment=public_unproved,
   scope='current_concealed_negative_only',full_state_validity_proven=False,history_authenticated=False,complete_legal_set_proven=False,information_use_proven=False,all_rule_opportunities_proven=False,origin_authenticated=False,policy_eligible=None,balance_admitted=None)

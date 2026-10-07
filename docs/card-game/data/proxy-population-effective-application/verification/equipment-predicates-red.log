@@ -1,0 +1,64 @@
+FFF
+======================================================================
+FAIL: test_all_active_quick_links_required_and_board_routes_remain_unproved (test_proxy_population_equipment_predicates.EquipmentPredicateTests.test_all_active_quick_links_required_and_board_routes_remain_unproved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_equipment_predicates.py", line 63, in test_all_active_quick_links_required_and_board_routes_remain_unproved
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_equipment_predicates.py", line 59, in run
+    self.assertTrue(p.get('equipment_predicates_verified'),p);self.assertEqual(len(p['public_effect_routes']),2)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None is not true : {'schema': 'concealed_current_public_effect_predicates.v1', 'prepared_predicates_verified': True, 'errors': [], 'verified_preparations': [], 'public_effect_routes': [], 'unproved_public_effects': [], 'unproved_public_equipment': [{'source_instance_id': 'A-031#1', 'reason': 'public_equipment_predicate_separate'}], 'scope': 'current_concealed_negative_only', 'full_state_validity_proven': False, 'history_authenticated': False, 'complete_legal_set_proven': False, 'information_use_proven': False, 'all_rule_opportunities_proven': False, 'origin_authenticated': False, 'policy_eligible': None, 'balance_admitted': None}
+
+======================================================================
+FAIL: test_replacement_binds_current_public_source_target_and_exclusion (test_proxy_population_equipment_predicates.EquipmentPredicateTests.test_replacement_binds_current_public_source_target_and_exclusion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_equipment_predicates.py", line 48, in test_replacement_binds_current_public_source_target_and_exclusion
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_equipment_predicates.py", line 32, in run
+    self.assertTrue(p.get('equipment_predicates_verified'),p)
+AssertionError: None is not true : {'schema': 'concealed_current_public_effect_predicates.v1', 'prepared_predicates_verified': True, 'errors': [], 'verified_preparations': [{'controller': 'A', 'slot': 0, 'reason': 'public_origin_has_no_opponent_main_removal_activation', 'source_references': ['77-current-items-card-text-draft.md#I-poop1'], 'source_instance_id': 'A-034#1'}], 'public_effect_routes': [], 'unproved_public_effects': [], 'unproved_public_equipment': [{'source_instance_id': 'A-031#1', 'reason': 'public_equipment_predicate_separate'}], 'scope': 'current_concealed_negative_only', 'full_state_validity_proven': False, 'history_authenticated': False, 'complete_legal_set_proven': False, 'information_use_proven': False, 'all_rule_opportunities_proven': False, 'origin_authenticated': False, 'policy_eligible': None, 'balance_admitted': None}
+
+======================================================================
+FAIL: test_start_and_end_equipment_are_not_proved_by_no_removal (test_proxy_population_equipment_predicates.EquipmentPredicateTests.test_start_and_end_equipment_are_not_proved_by_no_removal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_equipment_predicates.py", line 73, in test_start_and_end_equipment_are_not_proved_by_no_removal
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_equipment_predicates.py", line 70, in run
+    self.assertIn('equipment_predicates_verified',p);self.assertFalse(p['equipment_predicates_verified']);self.assertEqual(p['verified_equipment'],[])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'equipment_predicates_verified' not found in {'schema': 'concealed_current_public_effect_predicates.v1', 'prepared_predicates_verified': True, 'errors': [], 'verified_preparations': [{'controller': 'A', 'slot': 0, 'reason': 'public_origin_has_no_opponent_main_removal_activation', 'source_references': ['77-current-items-card-text-draft.md#I-poop1'], 'source_instance_id': 'A-034#1'}], 'public_effect_routes': [], 'unproved_public_effects': [], 'unproved_public_equipment': [{'source_instance_id': 'A-032#1', 'reason': 'public_equipment_predicate_separate'}], 'scope': 'current_concealed_negative_only', 'full_state_validity_proven': False, 'history_authenticated': False, 'complete_legal_set_proven': False, 'information_use_proven': False, 'all_rule_opportunities_proven': False, 'origin_authenticated': False, 'policy_eligible': None, 'balance_admitted': None}
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.065s
+
+FAILED (failures=3)

@@ -1,0 +1,7 @@
+# Public replacement equipment audit review
+
+Base590d853af168af9e74f9ac797c7ed32dd1c5d763. One independent read-only reviewer /root/review_equipment_bundle: Critical0 / Important0 / Minor0. Source77 and registered quick dispatch inspected, including equipment-only movement and discard recovery. Reviewer passed13 equipment/prepared tests and five mutation probes (foreign exclusions, physical copy mismatch, concealed source, unknown route, unbound origin). No edits or second review.
+
+Related22PASS (13.116s). Three initial missing-equipment-proof tests RED then GREEN; later tests cover hidden identity access and actual connected evidence. Integration result recorded separately in equipment-predicates-integration.log. Design errors=[] and numbered top-level476 unchanged. No new npm or latest full-proxy regression claimed.
+
+Ruling on review limitations: full state/history/origin authentication, timing closure, full legal sets, actual information isolation, effect execution and policy/balance admission remain unproved requirements. The result certifies only current registered no-companion-movement links and the exact I-bond1 exclusion, with present source/controller/companion attachment. Promoting it would falsely establish completeness; no such promotion is made. Start/end equipment and board/unknown routes remain separate. No production input, seed generation, input lock or400-run occurred.

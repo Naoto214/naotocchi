@@ -278,3 +278,9 @@ preflight-ready=false。次は準備札の不発を公開された発動内容�
 preflight-ready=false。残件は他の盤上誘発/公開装備/予約の意味条件と機会閉包、許可情報の実使用・比較operandの出所、全判断/自動処理の合成、外部承認認証・結果前順序・本番lock/provenance。生成/実行API名や非空referenceは承認認証ではない。旧116除外・新方式不採用・policy promotion=false・独立balance0・全体結論null。seed生成/本番入力固定/400戦開始は未実施・未承認を維持。
 
 最終修正版の結合19PASS（133.901s、全20turn/R10・実入口・admission）。関連34と同じ実装sourceで確認。レビュー指摘は解消済み。残gateと未承認境界は変更なし。
+
+## 公開置換装備の現在条件監査
+
+590d853から継続。I-bond1の現在source/controller/装着先なかまと正確な除外行を、既存15quickの公開効果経路へ結合。伏せ準備がない盤面でも全active linkを検査。除外欠落/重複/改変/再提示・装着先欠落/不一致を拒否し、相手伏せidentityは読まない。開始/終了装備と盤上/未知効果は未証明。既存response実入口で新equipment_scopeを保存する。
+
+専用3RED→GREEN、境界/実入口を加え関連22PASS。独立review C0/I0/Minor0（13tests＋5mutation probes）。結合結果はverification/equipment-predicates-integration.log参照。設計errors=[]、保護476件不変。最新全proxy/npm実行ではない。preflight-ready=false、生成/固定/400戦0、旧116除外、policy promotion=false、独立balance0、全体結論null。次は既存arrival/end adapterの意味条件を監査し、残る機会/情報/operand/外部承認gateへ継続する。

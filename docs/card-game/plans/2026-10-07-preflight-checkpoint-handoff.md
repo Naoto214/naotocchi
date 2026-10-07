@@ -42,3 +42,7 @@ c4cc165から、trigger_predicatesをcurrent474へ接続。latched4種＋start2�
 ### 伏せ準備監査の追補（さらに新しい）
 
 0c54b38からprepared_predicatesを実response監査へ接続。15quickの正本/dispatch経路と全active linkを検査し、伏せ準備除外の欠落/重複/再提示を拒否。盤上効果/未知経路/公開装備は明示未証明。review C0/I2/Minor0をRED→GREEN修正（recovery override・監査内の伏せidentityアクセス禁止）。最終関連34PASS。最終統合結果はverification/prepared-predicates-final-integration.log、詳細同review.mdとstatus末尾。最新全proxy/npm実行ではない。preflight-ready=false、生成/固定/400戦0。次は公開装備/残る盤上効果・予約/機会の閉包と共通gate合成を続ける。
+
+### 公開置換装備の追補
+
+590d853からI-bond1の現在装着先/所有者・除外行を公開quick経路と結合。伏せ準備なしでも全linkを検査。関連22PASS、独立review C0/I0/Minor0。結合結果はverification/equipment-predicates-integration.log、reviewは同equipment-predicates-review.md。開始/終了装備・盤上/未知効果・置換機会履歴は未証明。次は残るarrival/end条件、予約/機会・実情報使用/operand・承認/lockの合成。preflight-ready=false、生成/固定/400戦0。
