@@ -148,7 +148,7 @@ test('reviewed jellyfish batch preserves eight exact rooted, ephyra and bell run
   const t=rt.getTemplate('jellyfish',stage);assert.equal(t.status,'ok');
   assert.equal(t.rig.locomotion,stage<=2?'plantSway':'blobFloat');
  }
- assert.equal(SPEC.specKeyFor({line:'hermit_crab',stage:6}),null,'unreviewed hermit family stays outside rollout');
+ assert.equal(SPEC.specKeyFor({line:'dragon',stage:6}),null,'unreviewed dragon family stays outside rollout');
 });
 test('reviewed beetle families preserve all exact metamorphosis stages in runtime',async()=>{
  const rt=await import('../character-3d/runtime.mjs');
@@ -176,5 +176,13 @@ test('reviewed antlion batch preserves eight exact larva cocoon and winged runti
  for(let stage=1;stage<=8;stage++){
   assert.deepEqual(SPEC.specKeyFor({line:'antlion',stage:stage-1}),{id:'antlion',stage,exact:true});const t=rt.getTemplate('antlion',stage);assert.equal(t.status,'ok');assert.equal(t.rig.archetype,[4,5].includes(stage)?'pod':'armored_insect');assert.equal(!!t.rig.bones.pit,[2,3].includes(stage));assert.equal(!!t.rig.bones.wing0,stage>=6);
   for(const emotion of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=rt.instantiate(t);an.setEmotion(a,emotion);an.animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,1);assert.equal(a.faces[0].emotion,emotion);}
+ }
+});
+
+test('reviewed hermit batch preserves all eight exact shelled actors and eyestalk faces',async()=>{
+ const rt=await import('../character-3d/runtime.mjs'),an=await import('../character-3d/animate.mjs');
+ for(let stage=1;stage<=8;stage++){
+  assert.deepEqual(SPEC.specKeyFor({line:'hermit_crab',stage:stage-1}),{id:'hermit_crab',stage,exact:true});const t=rt.getTemplate('hermit_crab',stage);assert.equal(t.status,'ok');assert.equal(t.rig.archetype,'armored_insect');
+  for(const emotion of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=rt.instantiate(t);an.setEmotion(a,emotion);an.animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,1);assert.equal(a.faces[0].emotion,emotion);assert.equal(a.faces[0].eyes.length,2);}
  }
 });

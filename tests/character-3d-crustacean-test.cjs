@@ -11,7 +11,7 @@ test('hermit representatives have real hollow spiral shells, six walking legs, t
  shell.geometry.computeBoundingBox();assert.ok(shell.geometry.boundingBox.max.x-shell.geometry.boundingBox.min.x>.5,'spiral extends along its conical axis');assert.ok(shell.geometry.boundingBox.max.y-shell.geometry.boundingBox.min.y>.4,'coiled shell has full volume');
  let tris=0;for(const p of r.parts){const g=p.mesh.geometry;assert.ok([...g.attributes.position.array].every(Number.isFinite));tris+=(g.index?.count||g.attributes.position.count)/3;}assert.ok(tris<22000,'bounded articulated shell model');
  }
- assert.ok(rows[3].emptyShell,'03 separate small empty shell prop');assert.equal(rows[7].emptyShell,undefined);assert.notDeepEqual(rows[3].coiledShell,rows[7].coiledShell,'different source shell shapes and patterns');assert.equal(SPEC.specKeyFor({line:'hermit_crab',stage:6}),null,'representatives remain isolated');
+ assert.ok(rows[3].emptyShell,'03 separate small empty shell prop');assert.equal(rows[7].emptyShell,undefined);assert.notDeepEqual(rows[3].coiledShell,rows[7].coiledShell,'different source shell shapes and patterns');assert.deepEqual(SPEC.specKeyFor({line:'hermit_crab',stage:6}),{id:'hermit_crab',stage:7,exact:true},'reviewed family uses exact runtime stage');
 });
 test('hermit stalk eyes retain canonical emotion and blink ownership through32 states with attached shell and claws',async()=>{
  const rows=require('../character-3d/armored-spec.js')().hermit_crab?.stages;assert.ok(rows);

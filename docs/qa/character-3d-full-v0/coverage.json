@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 170,
-    "pending": 123,
-    "fourViewRecords": 168
+    "exactSpecs": 178,
+    "pending": 115,
+    "fourViewRecords": 176
   },
   "rows": [
     {
@@ -2256,15 +2256,15 @@
       "group": "normal",
       "asset": "assets/characters/hermit_crab/01.png",
       "sha256": "5fe665da3c4bb3d5fe4a234ac677ae0bf73572e1a9b33377464c40c15a9b91bf",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-1-back.jpg"
       }
     },
     {
@@ -2276,15 +2276,15 @@
       "group": "normal",
       "asset": "assets/characters/hermit_crab/02.png",
       "sha256": "cae030a8b86b37856b505e9419e67420a0eafa706f843ba83afe95f43a560d9f",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-2-back.jpg"
       }
     },
     {
@@ -2296,15 +2296,15 @@
       "group": "normal",
       "asset": "assets/characters/hermit_crab/03.png",
       "sha256": "e9dac608376cd40044b5d6d355a28bc4390d62abd3efece8420c4e18ac5285bb",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-3-back.jpg"
       }
     },
     {
@@ -2316,15 +2316,15 @@
       "group": "normal",
       "asset": "assets/characters/hermit_crab/04.png",
       "sha256": "e158f132474609798727eb451f3e7214dd0b8d8bf39b60e7b769f60ac08356fa",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-4-back.jpg"
       }
     },
     {
@@ -2336,15 +2336,15 @@
       "group": "normal",
       "asset": "assets/characters/hermit_crab/05.png",
       "sha256": "45fd38d768c30d07d66b997379dee9e1cd60a890b5082360e7f91c085f75c787",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-5-back.jpg"
       }
     },
     {
@@ -2356,15 +2356,15 @@
       "group": "normal",
       "asset": "assets/characters/hermit_crab/06.png",
       "sha256": "f923be8b4b74fad1a37daa86c5cda632f4a2b2d4cb4a1f22cea14dfe5cd1d02a",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-6-back.jpg"
       }
     },
     {
@@ -2376,15 +2376,15 @@
       "group": "normal",
       "asset": "assets/characters/hermit_crab/07.png",
       "sha256": "68e125db17e00b65d5bc2af9862efbc22712266985a49d8bb426d97daef60b57",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-7-back.jpg"
       }
     },
     {
@@ -2396,15 +2396,15 @@
       "group": "normal",
       "asset": "assets/characters/hermit_crab/08.png",
       "sha256": "1acaf0e07e1aa4cfa9ad6d3ec4fc01b6ac982b2210565e1aef238c0e2a153b13",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "armored_insect",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr2-armored/f7cb48e-hermit/hermit_crab-8-back.jpg"
       }
     },
     {

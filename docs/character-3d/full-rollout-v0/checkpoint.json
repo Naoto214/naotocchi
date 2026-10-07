@@ -1,0 +1,34 @@
+{
+  "baseCommit": "fb3c3c4bb2065e0fc6a60e491373b9ca80886cfc",
+  "checkpoint": "hermit-eight-stage-promotion",
+  "coverage": {
+    "exact": 178,
+    "total": 293,
+    "pending": 115,
+    "playerFamilies": 22,
+    "playerStages": 176,
+    "companions": 2
+  },
+  "verification": {
+    "dedicatedPass": 217,
+    "rolloutMutationsDetected": 24,
+    "pilotHashesUnchanged": 28,
+    "fullNpm": "3007 pass / 2 fail; same failures on immutable fb3 baseline",
+    "postPromotionAggregate": "pending"
+  },
+  "next": [
+    "Save and verify this checkpoint remote HEAD/tree",
+    "Review fb3 nonplayer11458726652 andmythic11458118648",
+    "World tree all8 image gate",
+    "Expand Venus remaining6 andother accepted representatives",
+    "Implement remaining41nonplayer; finalfull QA"
+  ],
+  "protected": [
+    "Draft PR376/base feat/character-3d-pilot",
+    "No Ready/main merge/PR372 operations/v1",
+    "Existing2D/Expression/save schema/gameplay/World/Home unchanged",
+    "Human approved Pilot architecture retained; no reimplementation",
+    "Chromium/SwiftShader is not iPhone acceptance"
+  ],
+  "authority": "Remote HEAD andthischeckpoint; historicaldetails inprogress.md andimmutableQA evidence"
+}
