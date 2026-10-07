@@ -284,3 +284,13 @@ preflight-ready=false。残件は他の盤上誘発/公開装備/予約の意味
 590d853から継続。I-bond1の現在source/controller/装着先なかまと正確な除外行を、既存15quickの公開効果経路へ結合。伏せ準備がない盤面でも全active linkを検査。除外欠落/重複/改変/再提示・装着先欠落/不一致を拒否し、相手伏せidentityは読まない。開始/終了装備と盤上/未知効果は未証明。既存response実入口で新equipment_scopeを保存する。
 
 専用3RED→GREEN、境界/実入口を加え関連22PASS。独立review C0/I0/Minor0（13tests＋5mutation probes）。結合結果はverification/equipment-predicates-integration.log参照。設計errors=[]、保護476件不変。最新全proxy/npm実行ではない。preflight-ready=false、生成/固定/400戦0、旧116除外、policy promotion=false、独立balance0、全体結論null。次は既存arrival/end adapterの意味条件を監査し、残る機会/情報/operand/外部承認gateへ継続する。
+
+## native登場3種・終了4種の現在条件監査
+
+36c4b91から継続。M04/M05/beetle01の登場variant・準備条件・全捨札対象、およびbeetle02/countryside/desert_scorpion/sleepboostの現在終了条件を既存ExistingAdapterへ結合。現在source/slot/owner、unique supplied origin、現ターン履歴・既存使用済み判定を照合。候補器・効果処理・選択・ledgerは維持。起点認証・第一機会網羅・情報利用・operand正本由来の証明には昇格しない。
+
+専用6RED→GREEN、境界追加後関連35PASS。独立review C0/I1/Minor0。網羅監査が解決中の事象も観測するため、新wrapperの無条件発動禁止guardが空候補観測まで拒否する不備を発見。2専用REDと初回結合19中2errorsで再現し、独立計算でも空のnative観測だけ通す修正。非空発動・start/latched・逐次実行の解決中禁止は維持。最終関連37PASS（7.958s）。途中のprocess異常終了2件はPASSに数えず、最終版の結合はverification/native-predicates-final-integration.log参照。設計errors=[]、保護476不変。最新全proxy/npm回帰ではない。
+
+preflight-ready=false。残件：とかい/強制恋愛/挑戦等の残predicateと全発生機会・予約閉包、実際の許可情報利用・operandの正本根拠、全判断/自動処理の合成、外部承認認証・結果前順序・本番lock/provenanceと実行gate結合。旧116除外、新方式414/A未採用、policy promotion=false、独立balance0、全体結論null。seed生成/本番固定/400戦開始は未実施・未承認。
+
+最終修正版の結合19PASS（134.736s、既存115/test-zero-root全20turn/R10・実入口・admission）。関連37と同一実装source。I1修正済み、独立レビュー追加なし。実験seed/入力lock/対戦実行なし。

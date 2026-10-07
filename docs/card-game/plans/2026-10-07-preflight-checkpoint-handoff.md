@@ -46,3 +46,7 @@ c4cc165から、trigger_predicatesをcurrent474へ接続。latched4種＋start2�
 ### 公開置換装備の追補
 
 590d853からI-bond1の現在装着先/所有者・除外行を公開quick経路と結合。伏せ準備なしでも全linkを検査。関連22PASS、独立review C0/I0/Minor0。結合結果はverification/equipment-predicates-integration.log、reviewは同equipment-predicates-review.md。開始/終了装備・盤上/未知効果・置換機会履歴は未証明。次は残るarrival/end条件、予約/機会・実情報使用/operand・承認/lockの合成。preflight-ready=false、生成/固定/400戦0。
+
+### native登場・終了誘発の追補（最新）
+
+36c4b91から登場3種/終了4種の現在意味条件をExistingAdapterへ結合。最終関連37PASS、review C0/I1/Minor0のI1修正済み。解決中の全event観測は独立に空候補と分かるnativeのみに許し、非空発動は拒否する。初回結合19中2errorsと途中のprocess異常終了を成功扱いしない。最終結合はverification/native-predicates-final-integration.log、詳細は同native-predicates-review.mdとstatus末尾。次は残るnative/挑戦等のpredicate、予約・全機会・情報使用/operand・外部承認/lockの結合。preflight-ready=false、生成/固定/400戦0。最新remoteを正本にする。

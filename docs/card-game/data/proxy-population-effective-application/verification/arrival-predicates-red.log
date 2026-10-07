@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_prepared_conditions_and_same_occurrence_use (test_proxy_population_arrival_predicates.ArrivalPredicateTests.test_prepared_conditions_and_same_occurrence_use)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_arrival_predicates.py", line 28, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'audit_arrival'),'arrival semantic audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : arrival semantic audit absent
+
+======================================================================
+FAIL: test_scope_attaches_fresh_audit_and_restores_adapter (test_proxy_population_arrival_predicates.ArrivalPredicateTests.test_scope_attaches_fresh_audit_and_restores_adapter)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_arrival_predicates.py", line 28, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'audit_arrival'),'arrival semantic audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : arrival semantic audit absent
+
+======================================================================
+FAIL: test_source_variants_full_physical_targets_and_mutations (test_proxy_population_arrival_predicates.ArrivalPredicateTests.test_source_variants_full_physical_targets_and_mutations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_arrival_predicates.py", line 28, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'audit_arrival'),'arrival semantic audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : arrival semantic audit absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

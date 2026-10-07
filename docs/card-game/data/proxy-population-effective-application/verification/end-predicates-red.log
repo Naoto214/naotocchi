@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_all_four_sources_and_forged_alternatives (test_proxy_population_end_predicates.EndPredicateTests.test_all_four_sources_and_forged_alternatives)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_end_predicates.py", line 31, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'audit_end'),'end audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : end audit missing
+
+======================================================================
+FAIL: test_end_conditions_are_current_and_turn_bounded (test_proxy_population_end_predicates.EndPredicateTests.test_end_conditions_are_current_and_turn_bounded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_end_predicates.py", line 31, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'audit_end'),'end audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : end audit missing
+
+======================================================================
+FAIL: test_scope_and_missing_occurrence_membership (test_proxy_population_end_predicates.EndPredicateTests.test_scope_and_missing_occurrence_membership)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_end_predicates.py", line 31, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'audit_end'),'end audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : end audit missing
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)
