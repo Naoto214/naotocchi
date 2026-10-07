@@ -26,3 +26,11 @@ preflight-ready=false。事象依存response/手札反応/予約、実際に使�
 - 新方式414/A未採用、policy promotion=false、独立balance標本0。未知を0/同価値にしない。新価値点数・期待値・任意優先順位・有限先読み・現物同値化を追加しない。
 
 このcheckpointはタスク完了ではない。テスト編集の誤挿入を修正・再検証したが、このタブの編集精度低下を認め、ユーザーの品質優先ルールに従い新タブ移行を提案した。稼働中テスト/対戦やバックグラウンド処理を残さず停止する。
+
+## 2026-10-07 再開後の優先追補（上の旧checkpointより新しい）
+
+手札反応bundleは7723df78/tree f17dca59でremote保存確認済み。バッティング現在条件・エアホッケー通常response再提示禁止を実入口へ接続。最終関連47+全20turn2PASS、npm406PASS。旧条件付きchallenge testのturn-start不足をbaseで再現して入力だけ補修。module冒頭説明Minor1保留。
+
+この追補を含む保存版ではremote公開のlive exact-head prerequisiteも生成/attempt/supervisorの副作用前に実装済み。親Git設定継承をレビューで発見しRED→ceiling修正→最終関連21PASS。timeout/git失敗の個別test追加Minor1保留。外部承認/結果前順序/OS来歴は依然未認証であり、この変更をreadyやinput lockへ昇格しない。旧『remote gate未実装』はこのnarrow prerequisiteに関して更新する。完全gate結合は残る。
+
+次はstatus.md末尾とverification/{reaction-predicates,remote-publication}-review.mdを読む。preflight-ready=false、seed/本番入力/400戦0。残作業・保護・生成/開始の別承認境界は維持。最新remoteをfresh取得してこのファイルの所在commitを正本にする。

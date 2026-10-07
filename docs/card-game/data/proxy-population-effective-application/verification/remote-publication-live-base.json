@@ -1,0 +1,18 @@
+{
+  "schema": "fresh_population_remote_publication.v1",
+  "fresh_remote_head_verified": true,
+  "errors": [],
+  "remote": "https://github.com/Naoto214/naotocchi.git",
+  "ref": "refs/heads/design/card-pool-master-20260914",
+  "commit": "7723df78cba5e84df99057ba1666e550a26ed3f8",
+  "tree": "f17dca59acfb54aaec5c3925d542ba145b8075f3",
+  "observed_commit": "7723df78cba5e84df99057ba1666e550a26ed3f8",
+  "observed_at": "2026-10-07T04:57:47.733997+00:00",
+  "observation_scope": "single_live_exact_ref_observation",
+  "external_approval_verified": false,
+  "input_lock_verified": false,
+  "pre_outcome_ordering_verified": false,
+  "provenance_verified": false,
+  "ready_for_execution": false,
+  "balance_admitted": null
+}

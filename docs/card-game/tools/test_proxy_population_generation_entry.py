@@ -38,7 +38,7 @@ class GenerationEntryTests(unittest.TestCase):
     self.assertTrue((out/'sampling-journal.jsonl').exists())
     raise OSError('test interrupts before returning any entropy')
    registry=dict(registry_verified=True,known_shuffle_seeds=[],order_pairs=[])
-   with patch.object(api,'ROOT',root),patch.object(api.edition,'capture',return_value={'test_only_edition':True}),patch.object(api.history,'build_cutoff_registry',return_value=registry),patch.object(api,'load_json',return_value=fixture),patch.object(api.os,'fsync',side_effect=sync),patch.object(api.os,'urandom',side_effect=forbid) as read:
+   with patch.object(api,'ROOT',root),patch.object(api.edition,'capture',return_value={'test_only_edition':True,'commit':'0'*40,'tree':'1'*40}),patch.object(api.remote,'verify',return_value=dict(fresh_remote_head_verified=True,test_only=True)),patch.object(api.history,'build_cutoff_registry',return_value=registry),patch.object(api,'load_json',return_value=fixture),patch.object(api.os,'fsync',side_effect=sync),patch.object(api.os,'urandom',side_effect=forbid) as read:
     with self.assertRaises(OSError):api.generate_after_external_approval(Path(d),'0'*40,out,'test-only-reference-not-approval')
     read.assert_called_once_with(16)
    self.assertFalse((out/'manifest.json').exists());self.assertFalse((out/'material.json').exists());self.assertFalse((out/'completion.json').exists())

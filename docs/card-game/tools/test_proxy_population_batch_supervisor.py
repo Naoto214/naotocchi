@@ -24,8 +24,8 @@ class SupervisorTests(unittest.TestCase):
      (target/'receipt.json').write_bytes(canonical(receipt))
      from types import SimpleNamespace
      return SimpleNamespace(returncode=0,stdout=canonical(dict(receipt_sha256=api.digest(canonical(receipt)))),stderr=b'')
-    with patch.object(api,'ROOT',root),patch.object(api.lock,'verify_git_binding',return_value=dict(immutable_content_verified=True)),patch.object(api.edition,'audit_bundle_edition',return_value=dict(bundle_edition_bound=True)),patch.object(api.generation_package,'audit_committed_generation',return_value=dict(committed_generation_consistent=True)),patch.object(api.subprocess,'run',side_effect=child):
-     result=api.run_after_external_approval(bundle(),{}, {},Path(d),3,out,'test-reference-not-production-approval')
+    with patch.object(api,'ROOT',root),patch.object(api.lock,'verify_git_binding',return_value=dict(immutable_content_verified=True)),patch.object(api.edition,'audit_bundle_edition',return_value=dict(bundle_edition_bound=True)),patch.object(api.generation_package,'audit_committed_generation',return_value=dict(committed_generation_consistent=True)),patch.object(api.remote,'verify',return_value=dict(fresh_remote_head_verified=True,test_only=True)),patch.object(api.subprocess,'run',side_effect=child):
+     result=api.run_after_external_approval(bundle(),{'commit':'1'*40,'tree':'2'*40}, {},Path(d),3,out,'test-reference-not-production-approval')
     self.assertEqual(calls,['test-1A','test-1B'] if mode=='incomplete' else ['test-1A'])
     self.assertEqual(len(result['planned_rows']),400);self.assertEqual(len(result['planned_groups']),200)
     self.assertEqual(result['planned_rows'][-1]['execution_status'],'not_executed');self.assertFalse(result['whole_set']['allowed'])
@@ -49,13 +49,14 @@ a.lock.verify_git_binding=lambda *args,**kw:dict(immutable_content_verified=True
 a.edition.audit_bundle_edition=lambda *args,**kw:dict(bundle_edition_bound=True)
 a.edition.verify=lambda *args,**kw:dict(local_edition_verified=True)
 a.generation_package.audit_committed_generation=lambda *args,**kw:dict(committed_generation_consistent=True)
+a.remote.verify=lambda *args,**kw:dict(fresh_remote_head_verified=True,test_only=True)
 """
   def isolated(command,**kwargs):
    command=list(command);command[3]=prefix+command[3];return real(command,**kwargs)
   with tempfile.TemporaryDirectory(prefix='conditional-worker-test-',dir=api.ROOT/'data') as d:
    out=Path(d)/'batch'
-   with patch.object(api.lock,'verify_git_binding',return_value=dict(immutable_content_verified=True)),patch.object(api.edition,'audit_bundle_edition',return_value=dict(bundle_edition_bound=True)),patch.object(api.generation_package,'audit_committed_generation',return_value=dict(committed_generation_consistent=True)),patch.object(api.subprocess,'run',side_effect=isolated) as launches:
-    result=api.run_after_external_approval(bundle(),{}, {},api.ROOT.parents[1],3,out,'historical-unit-only-not-production-approval')
+   with patch.object(api.lock,'verify_git_binding',return_value=dict(immutable_content_verified=True)),patch.object(api.edition,'audit_bundle_edition',return_value=dict(bundle_edition_bound=True)),patch.object(api.generation_package,'audit_committed_generation',return_value=dict(committed_generation_consistent=True)),patch.object(api.remote,'verify',return_value=dict(fresh_remote_head_verified=True,test_only=True)),patch.object(api.subprocess,'run',side_effect=isolated) as launches:
+    result=api.run_after_external_approval(bundle(),{'commit':'1'*40,'tree':'2'*40}, {},api.ROOT.parents[1],3,out,'historical-unit-only-not-production-approval')
    self.assertEqual(launches.call_count,1)
    self.assertEqual(result['planned_rows'][0]['execution_status'],'incomplete',result['planned_rows'][0])
    self.assertEqual(result['not_executed_rows'],399);self.assertEqual(result['completed_rows'],0)

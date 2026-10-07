@@ -8,6 +8,7 @@ import os,platform
 from pathlib import Path
 import proxy_population_execution_edition as edition
 import proxy_population_input_history as history
+import proxy_population_remote_publication as remote
 from proxy_population_material_protocol import Cursor
 from proxy_population_manifest_builder import assemble_supplied
 from proxy_population_generation_journal import collect_supplied,audit_journal
@@ -29,6 +30,8 @@ def generate_after_external_approval(repository,commit,destination,approval_refe
  repository=Path(repository).resolve();destination=Path(destination).resolve()
  if repository!=ROOT.parents[1].resolve() or not destination.is_relative_to((ROOT/'data').resolve()) or destination==(ROOT/'data').resolve():raise ValueError('generation must use current source repository and a new CARD GAME data directory')
  certificate=edition.capture(repository,commit)
+ publication=remote.verify(repository,certificate['commit'],certificate['tree'])
+ if not publication['fresh_remote_head_verified']:raise ValueError('fresh remote source edition unverified')
  registry=history.build_cutoff_registry()
  if not registry['registry_verified']:raise ValueError('historical registry unproved')
  fixture=load_json(ROOT/'data/proxy-fixtures-107/fixture-107-normal-decision-a-first.json')
@@ -39,7 +42,7 @@ def generate_after_external_approval(repository,commit,destination,approval_refe
  try:os.fsync(directory)
  finally:os.close(directory)
  metadata=dict(schema='population_generation_operation.v1',api='os.urandom',os_name=os.name,
-  platform=platform.platform(),approval_reference=approval_reference,external_approval_verified=False,
+  platform=platform.platform(),approval_reference=approval_reference,remote_publication_observation=publication,external_approval_verified=False,
   provenance_verified=False,input_lock_verified=False,execution_authorized=False,ready_for_execution=False)
  write_exclusive(destination/'operation.json',metadata)
  write_exclusive(destination/'edition.json',certificate)

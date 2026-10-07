@@ -1,0 +1,21 @@
+FF
+======================================================================
+FAIL: test_entries_reject_unpublished_content_before_any_side_effect (test_proxy_population_remote_publication.RemotePublicationTests.test_entries_reject_unpublished_content_before_any_side_effect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_remote_publication.py", line 33, in test_entries_reject_unpublished_content_before_any_side_effect
+    self.assertIsNotNone(api,'remote publication prerequisite absent')
+AssertionError: unexpectedly None : remote publication prerequisite absent
+
+======================================================================
+FAIL: test_exact_fresh_ref_binds_local_commit_tree_but_not_consent (test_proxy_population_remote_publication.RemotePublicationTests.test_exact_fresh_ref_binds_local_commit_tree_but_not_consent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_remote_publication.py", line 10, in test_exact_fresh_ref_binds_local_commit_tree_but_not_consent
+    self.assertIsNotNone(api,'remote publication prerequisite absent')
+AssertionError: unexpectedly None : remote publication prerequisite absent
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+FAILED (failures=2)
