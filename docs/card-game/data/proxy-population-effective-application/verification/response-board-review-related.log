@@ -1,0 +1,31 @@
+..F..........................
+======================================================================
+FAIL: test_paid_sources_costs_usage_and_turn_owner (test_proxy_population_response_board_predicates.ResponseBoardPredicateTests.test_paid_sources_costs_usage_and_turn_owner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/test_proxy_population_response_board_predicates.py", line 45, in test_paid_sources_costs_usage_and_turn_owner
+    with connected.contract_scope():runtime.operation(initial(),run)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 100, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 99, in connected
+    with growth.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                 ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/test_proxy_population_response_board_predicates.py", line 35, in run
+    self.assertFalse(audit_response(e,used_history,inv)['response_board_predicates_verified'])
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 29 tests in 13.630s
+
+FAILED (failures=1)

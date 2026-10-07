@@ -230,3 +230,15 @@ preflight-ready=false。次はresponse個別predicate、許可情報の実使用
 統合24PASS（121.033s）、review補強後関連28PASS（13.637s）。独立review C0/I0/Minor1、非手番対象/履歴と改変テスト不足を補強。統合後はtestのみ変更。設計errors=[]、保護正本476件不変。verification/response-bundle-review.mdを現区切りの証跡索引とする。全proxy/npm旧版証跡とは区別。
 
 preflight-ready=false。盤上response/予約、実情報使用・operand・全機会、remote事前lock/外部承認gateが残る。seed生成/本番固定/対戦0、旧116除外、独立balance0、新方式未採用、全体結論nullを維持。
+
+## 盤上responseの能動能力predicate・2026-10-07 checkpoint
+
+priority actorの現在盤上源から、M-antlion-02/08の全現物cost/順序・自分の手番・使用回数、C-cat_friendの別名捨札target・自分の手番・履歴/現incarnation使用回数を通常側共通predicateへ結合。明示的非能動分類のみ候補なしを検査し、事象依存誘発・preparedは未証明へ残す。全人物/セカイ源でverifiedまたはunprovedを排他的に記録。preparedは未対応capability照会前に未証明へ分離。
+
+関連28PASS（13.314s）、統合24PASS（123.873s）。独立review C0/I0/Minor2。prepared分類順の補強と回収の履歴/回数/非手番テスト追加後、最終関連29PASS（13.747s）。統合24件はprepared分離順変更前、最終関連には実入口を含むがこの版の全統合/全proxy/npmとは呼ばない。設計errors=[]、保護正本476件不変。詳細verification/response-board-review.md。
+
+preflight-ready=false。未完了：事象依存response/手札反応/予約のpredicate、許可情報の実使用、比較operand根拠、正本由来の全判断/自動処理機会、結果前remote公開・外部承認・実行gateとの結合。既存の生成/attempt/supervisorは残して再利用。次のremote gate案は未実装であり、API名のafter_external_approvalや非空referenceは外部承認の認証ではない。
+
+seed生成/本番入力固定/400戦開始0。旧116除外、mandatory指定範囲以外へ許容を広げない。新方式414/A未採用、policy promotion=false、独立balance0、全体結論null。114/116/119・過去結果・保護正本は不変。474Bとじんとり発動時7枚裁定は維持、再質問不要。
+
+運用上の停止：テスト追加の誤挿入を修正し、失敗/最終成功を分離して保存。編集精度低下を認め、安全なcheckpointで新タブへの移行を提案する。タスク完了やpreflight-readyの宣言ではない。短い引継ぎ正本はplans/2026-10-07-preflight-checkpoint-handoff.md。新しい裁定は発見/追加していない。

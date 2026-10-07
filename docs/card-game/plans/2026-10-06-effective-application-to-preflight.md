@@ -156,3 +156,7 @@ Compose the freshly computed core, hand and board audits against every supplied 
 ### Response hand predicates (dc2ba7f continuation)
 
 Reuse the source-bound hand conditions with explicit priority actor; compare semantic target/variant/payment alternatives for 13 ordinary quick IDs, including fallback routes not covered by registered response expansion. Reaction-only air-hockey/baseball and board predicates stay unproved here. RED matrix → shared predicate connection → integration and one independent review → remote checkpoint. No new policy, values, production inputs, full-legality or information-use promotion.
+
+### Response activated board predicates (efbee579 continuation)
+
+Reuse normal board current-source/ordered-cost/target/usage conditions for own-turn response activation, with explicit priority ownership. Add response-history once-use checks for companion recovery. Verify nonactivated source classifications only; event-origin and prepared responses remain explicitly unproved. RED→GREEN, source matrix and related integration, one independent review, remote checkpoint. No policy/input/eligibility changes.

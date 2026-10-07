@@ -67,6 +67,9 @@ def contract_scope():
      hand_proof=response_predicates.audit(result['source_envelope'],events,decision['candidate_set_evidence'])
      if hand_proof['errors']:raise ValueError('response hand predicates differ: '+str(hand_proof['errors']))
      result['response_hand_predicates']=hand_proof
+     board_proof=board_predicates.audit_response(result['source_envelope'],events,decision['candidate_set_evidence'])
+     if board_proof['errors']:raise ValueError('response board predicates differ: '+str(board_proof['errors']))
+     result['response_board_predicates']=board_proof
     else:raise ValueError('ordinary decision source coverage kind unsupported')
     if coverage['errors']:raise ValueError('ordinary source inventory differs: '+str(coverage['errors']))
     result['decision_source_inventory']=coverage
