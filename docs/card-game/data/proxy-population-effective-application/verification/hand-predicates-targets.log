@@ -1,0 +1,31 @@
+.F.
+======================================================================
+FAIL: test_populated_targets_thresholds_and_public_conditions (test_proxy_population_hand_predicates.HandPredicateTests.test_populated_targets_thresholds_and_public_conditions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/test_proxy_population_hand_predicates.py", line 72, in test_populated_targets_thresholds_and_public_conditions
+    with connected.contract_scope():runtime.operation(initial(),run)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 86, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 85, in connected
+    with growth.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                 ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/013c52d9f902/naotocchi/docs/card-game/tools/test_proxy_population_hand_predicates.py", line 70, in run
+    self.assertFalse(api.audit_normal(e,events,bad)['hand_predicates_verified'],card)
+AssertionError: True is not false : G-baseball-batting
+
+----------------------------------------------------------------------
+Ran 3 tests in 2.859s
+
+FAILED (failures=1)

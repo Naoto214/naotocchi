@@ -198,3 +198,15 @@ preflight-ready=false。全合法性・許可情報・比較operand・全rule機
 preflight-ready=false。今回のcore predicate検証を完全合法性や対戦算入へ昇格しない。残作業は個別能力の合法性・実情報利用・比較operandのsource根拠、全rule機会の合成、結果前remote lock／外部実行承認への接続。未証明／116除外は予定400行・200群から落とさず、全体結論null。実seed採取、400戦入力固定、新対戦0、新方式未採用。
 
 41本文との続行監査では、じんとりの発動条件を確認した。114は7枚以上を明示した手動裁定、127はその境界を明文化済み。85/86の解決時6枚で0と両立し、06/474もこの個別条件を撤回していない。独立read-only source reviewで確認し、追加裁定・ユーザー質問・コード変更は不要とした。既存の発動時7枚条件を維持する。詳細はverification/area-activation-source-review.md。
+
+## 通常手札15種の発動条件監査・敗北履歴報酬の接続
+
+fa6e9d6c / tree85031386のfresh remote一致、PR259 Draft/open/unmergedを確認して復元。通常手札quick15 IDについて、正本/tableを固定し、時・現在対象・盤面枚数・公開敗北/適用履歴・同名ターン制限・通常/反応限定timingから、供給された各行の合法/除外判定を照合。候補列の再現だけで誤除外を正当化しない。対象/variant全量、除外理由の意味論、実情報使用、operand、全rule機会は別証明のまま。
+
+E-bossは91の「このターンに負けた事実」のみを条件とするのに、通常側121の英語前提文字列判定が現在mainも要求する不整合をRED再現。current scopeで既存response/payment helperを再利用し、main離脱後も時2と当該敗北履歴があれば候補を保持。過去ターン/引分/相手敗北/時不足は除外。旧table・旧adapter・過去結果は変更せず、比較は既存未証明guard/116のまま。既存固定test contextの通常/response双方で実選択→検証付き発動まで確認した。
+
+検証：既存baseline6PASS、bundle関連30PASS、全20turn/R10・policy journal・admission等を含む結合33PASS（150.205s）。レビュー後の回帰test追加後は関連31PASS（12.093s）。独立review C0/I0/Minor1（検証付き実選択から発動までの回帰不足）を追加テストで対応。sourceコードは結合33PASS後不変、追加test版fingerprintと区別する。全proxy/npmをこの版で再実行したとは主張しない。番号付きtop-level正本は実測476ファイルがbaseと一致（引継ぎ376という件数をそのまま再使用しない）。
+
+preflight-ready=false。残る共通責務は通常盤上/予約とresponseのpredicate、実際の許可情報使用、比較operandの根拠、全source/phaseの機会合成、結果前remote公開と外部生成/実行承認の結合。seed生成・本番入力固定・400戦開始0、旧116除外、新方式未採用、全体結論nullを維持。最新詳細証跡はverification/hand-bundle-*。
+
+運用：GitHub保存checkpointを正本とし、安全な区切りでcommit/pushとfresh remote確認。以後は最新checkpointと残件を中心に進め、古い途中ログを会話へ再展開しない。保護対象と未承認の生成/固定/実行境界は継続保持する。
