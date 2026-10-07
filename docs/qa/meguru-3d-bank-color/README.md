@@ -10,7 +10,7 @@ Saved images show bridges surrounded by a nearly uniform green bank ribbon. The 
 
 VQ-22 was observed RED for missing spatial variation, then GREEN. Together with VQ-3 it checks bounded continuous colors, determinism, input immutability, unchanged water colors, geometry, UVs and topology. Baseline VQ suite: 21 PASS. Independent code review: no Critical/Important findings; minor gap is helper-level test coverage of production lane selection. Rendered QA must inspect actual integration, including ditch controls.
 
-The full unmodified npm run is in progress at this product checkpoint. Its source hashes are frozen in source-sha256.txt. Do not claim success without full-npm.exit and completed log. Fresh browser QA is pending; CI before-ref is pinned to 8407964 for a matched comparison. Local Chromium is absent. Candidate visual improvement is not yet asserted.
+The full unmodified npm run completed:2879+80PASS/0FAIL/exit0, source hashes unchanged. Raw full-npm.log and full-npm.exit are preserved. This validates bank source0421779 only, not later vehicle code. CI37563978237 before-ref is8407964. All five CI jobs succeeded; all five artifact ZIP digests, commit/source hashes and exit codes were verified. CI concurrency-4 regression also reports2879+80PASS/0FAIL. Raw artifacts are under docs/qa/meguru-3d-ci/run-0421779/. Local Chromium is absent. Inspected creek/river/countryside pairs show a modest earth-tone variation, not a resolution of bridge crowding. All59matched capture/gallery budgets are identical. Broader Human QA remains unapproved.
 
 ## Continue
 
