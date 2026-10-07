@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 180,
-    "pending": 113,
-    "fourViewRecords": 178
+    "exactSpecs": 188,
+    "pending": 105,
+    "fourViewRecords": 186
   },
   "rows": [
     {
@@ -4016,15 +4016,15 @@
       "group": "rare",
       "asset": "assets/characters/world_tree/01.png",
       "sha256": "d2364b7eafcffe05acf4cc9de4be2ca44749e490520cd49c89fbb1170d88b581",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-1-back.jpg"
       }
     },
     {
@@ -4036,15 +4036,15 @@
       "group": "rare",
       "asset": "assets/characters/world_tree/02.png",
       "sha256": "caca741b7df24f3931a0b8866375fdec11faf130b6ca8b64c5775a4def41423b",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-2-back.jpg"
       }
     },
     {
@@ -4056,15 +4056,15 @@
       "group": "rare",
       "asset": "assets/characters/world_tree/03.png",
       "sha256": "cac5a51702240072299ce7aefb6384b7b3f45669a8d0f759123f2a73bd800716",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-3-back.jpg"
       }
     },
     {
@@ -4076,15 +4076,15 @@
       "group": "rare",
       "asset": "assets/characters/world_tree/04.png",
       "sha256": "7c236560db79ac1fb6fce10ab44af708337dea962f42d7ebd2a10d86f393da8e",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-4-back.jpg"
       }
     },
     {
@@ -4096,15 +4096,15 @@
       "group": "rare",
       "asset": "assets/characters/world_tree/05.png",
       "sha256": "1ca61e44054bd0543f153164747f5b324e89aaee5576626752e5017f17c4df61",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-5-back.jpg"
       }
     },
     {
@@ -4116,15 +4116,15 @@
       "group": "rare",
       "asset": "assets/characters/world_tree/06.png",
       "sha256": "307f78d38f16b24667dd11878984bf973a615e38accbb98a02561d353e982d13",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-6-back.jpg"
       }
     },
     {
@@ -4136,15 +4136,15 @@
       "group": "rare",
       "asset": "assets/characters/world_tree/07.png",
       "sha256": "aa4f2a0aa19f157f2aaae64ffc225514003deea460eda5affe076bff4725b65d",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-7-back.jpg"
       }
     },
     {
@@ -4156,15 +4156,15 @@
       "group": "rare",
       "asset": "assets/characters/world_tree/08.png",
       "sha256": "cf9e33dc0c3f5b9cf793098ab47cb17007891344f741d9ea63b133330b8baf4f",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr4-botanical/9b79310-world-tree/world_tree-8-back.jpg"
       }
     },
     {

@@ -1,17 +1,17 @@
 {
-  "baseCommit": "2ff1b9684fa0b9d22ac86486ebb3934979761c64",
-  "checkpoint": "venus-and-plush-all8-candidates-world-tree04-recapture-pending",
+  "baseCommit": "3076d288f3ef9de2b02876431117f8049d396950",
+  "checkpoint": "world-tree-all8-reviewed-promoted-188",
   "coverage": {
-    "exact": 180,
+    "exact": 188,
     "total": 293,
-    "pending": 113,
-    "playerFamilies": 22,
-    "playerStages": 176,
+    "pending": 105,
+    "playerFamilies": 23,
+    "playerStages": 184,
     "companions": 3,
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 225,
+    "dedicatedPass": 226,
     "rolloutMutationsDetected": 24,
     "pilotHashesUnchanged": 28,
     "fullNpm": "3008 pass / 2 fail after Venus; same protected resident-expression failures, not green",
@@ -21,13 +21,14 @@
     "previousHeadCI": "42dd99a Character37567216050/Runtime37567222572/Home37567222634 success",
     "venusMutationsDetected": 5,
     "botanicalMutationsDetected": 22,
-    "plushStageMutationsDetected": 6
+    "plushStageMutationsDetected": 6,
+    "worldTreeImageGate": "9b79310 artifacts11462261195/11461529312:32fourviews/256states/16distance PASS_ALL8_IMAGE_GATE"
   },
   "next": [
-    "Recapture world_tree04 faceHalf .16 and evaluate all8 image gate before any promotion",
-    "Review Venus all8 captures; retain all unreviewed candidates outside runtime",
-    "Review Plush all8 captures; other saved representative gates and remaining41nonplayers",
-    "Implement remaining41 nonplayers; final full QA"
+    "Review latest Venus all8 wave and distance artifacts before promotion",
+    "Review latest Plush all8 wave and distance artifacts before promotion",
+    "Complete other unpromoted player families and remaining41 nonplayers",
+    "Full293 integration/performance/regression QA and Human QA package"
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",

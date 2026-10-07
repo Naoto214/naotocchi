@@ -693,3 +693,10 @@ Venusall8candidates savedc15e1ad8/treef8ffcd0b,remote/local/treeclean matched. R
 InspectedPlush8originals;addedbow01,wavingpaw02,seams04,exposedcotton05,bluepatches06,heart/scarf08. Existingsofttoy builder extended only with optional ownedvolumes,per-sidearmplacement andsurface-conformingstitches.03/07specs,meshbuffers,bonetransforms exactly matchimmutable2ffbaseline. DefaultPilot28hashesunchanged. TDD2testsRED thenGREEN; thirdmouthraytest verifies6newstages across3angles/tired/sleeping. Dedicated225PASS/0FAIL,7/7representative and6/6newstage mutationsRED/restored. All8capturematrix extended; no productionpromotion.
 
 Fullnpm afterVenus completed3008PASS/2FAIL: tiredresident canonicalpicture/line andexpression-save boundary. Sameknownprotectedfailures; retainedrawcompressedlog andfailure summary, notclaimedgreen. It ranbeforePlushimplementation. Runtime180/293,113pending unchanged. Plush/Venus fullimagegates pending; no iPhone/HumanQAcompletionclaim.
+
+
+### 2026-10-07 — World tree all-eight promotion / resumed durable save
+
+Fresh remote3076d288 and Draft/open/unmerged PR376 confirmed. Recovered317 proof files match saved manifest by Git blob SHA and size. Previous cell13 cannot be inspected from this session; Git Data tree validation identifies missing remote blobs and only missing objects are uploaded. Existing image review PASS_ALL8_IMAGE_GATE is preserved:9b wave11462261195/distance11461529312,32fourviews/256states/16normaldistance. No geometry reimplementation.
+
+Promoted all8 world_tree stages via existing botanical factory:188/293 exact,105pending,23player families/184stages +3companions +1partner. Fresh dedicated226PASS/0FAIL and28Pilot hashes identical to saved promotion baseline. Initial hash command omitted its required directory argument and failed; corrected invocation passed. Historical fullnpm3008PASS/2FAIL remains not green; no fullnpm rerun claimed. Venus/Plush all8 image gates and other candidates remain pending. Four-view records186/293 are not full coverage. Protected boundaries/Draft maintained; final Human QA and iPhone acceptance not claimed.

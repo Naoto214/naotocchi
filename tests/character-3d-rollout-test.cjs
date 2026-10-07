@@ -186,3 +186,12 @@ test('reviewed hermit batch preserves all eight exact shelled actors and eyestal
   for(const emotion of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=rt.instantiate(t);an.setEmotion(a,emotion);an.animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,1);assert.equal(a.faces[0].emotion,emotion);assert.equal(a.faces[0].eyes.length,2);}
  }
 });
+test('reviewed world tree batch resolves eight exact rooted stage identities in runtime',async()=>{
+ const {getTemplate,instantiate}=await import('../character-3d/runtime.mjs');
+ for(let stage=1;stage<=8;stage++){
+  assert.deepEqual(SPEC.specKeyFor({line:'world_tree',stage:stage-1}),{id:'world_tree',stage,exact:true});
+  const t=getTemplate('world_tree',stage);assert.equal(t.status,'ok');assert.equal(t.rig.archetype,'branch_organism');assert.equal(instantiate(t).faces.length,1);
+ }
+ assert.equal(SPEC.specKeyFor({line:'venus_flytrap',stage:0}),null,'unreviewed Venus remains isolated');
+ assert.equal(SPEC.specKeyFor({line:'plush',stage:0}),null,'unreviewed Plush remains isolated');
+});
