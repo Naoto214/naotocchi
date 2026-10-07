@@ -1,0 +1,60 @@
+FF
+======================================================================
+FAIL: test_recovery_override_dispatch_is_certified_in_actual_scope (test_proxy_population_prepared_predicates.PreparedPredicateTests.test_recovery_override_dispatch_is_certified_in_actual_scope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_prepared_predicates.py", line 102, in test_recovery_override_dispatch_is_certified_in_actual_scope
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_prepared_predicates.py", line 100, in run
+    with recovery.scope():self.assertEqual(api.quick_effect_route(r)['status'],'registered_no_person_removal')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'unproved' != 'registered_no_person_removal'
+- unproved
++ registered_no_person_removal
+
+
+======================================================================
+FAIL: test_opponent_concealed_identity_has_no_read_access (test_proxy_population_prepared_predicates.PreparedPredicateTests.test_opponent_concealed_identity_has_no_read_access)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_prepared_predicates.py", line 119, in test_opponent_concealed_identity_has_no_read_access
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_prepared_predicates.py", line 117, in run
+    p=api.audit(e,h,inv);self.assertTrue(p['prepared_predicates_verified'],p['errors']);self.assertEqual(reads,[])
+                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['card_id', 'card_id', 'card_copy_id', 'ca[53 chars]_id'] != []
+
+First list contains 6 additional elements.
+First extra element 0:
+'card_id'
+
++ []
+- ['card_id',
+-  'card_id',
+-  'card_copy_id',
+-  'card_copy_id',
+-  'initial_instance_id',
+-  'initial_instance_id']
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.035s
+
+FAILED (failures=2)

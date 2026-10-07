@@ -29,6 +29,7 @@ import proxy_population_candidate_expansions as candidate_expansions
 import proxy_population_response_expansions as response_expansions
 import proxy_population_response_predicates as response_predicates
 import proxy_population_trigger_predicates as trigger_predicates
+import proxy_population_prepared_predicates as prepared_predicates
 from proxy_mandatory_policy_contract import canonical
 
 _LOCK=Lock()
@@ -74,6 +75,9 @@ def contract_scope():
      board_proof=board_predicates.audit_response(result['source_envelope'],events,decision['candidate_set_evidence'])
      if board_proof['errors']:raise ValueError('response board predicates differ: '+str(board_proof['errors']))
      result['response_board_predicates']=board_proof
+     prepared_proof=prepared_predicates.audit(result['source_envelope'],events,decision['candidate_set_evidence'])
+     if prepared_proof['errors']:raise ValueError('response prepared predicates differ: '+str(prepared_proof['errors']))
+     result['response_prepared_predicates']=prepared_proof
     else:raise ValueError('ordinary decision source coverage kind unsupported')
     if coverage['errors']:raise ValueError('ordinary source inventory differs: '+str(coverage['errors']))
     result['decision_source_inventory']=coverage

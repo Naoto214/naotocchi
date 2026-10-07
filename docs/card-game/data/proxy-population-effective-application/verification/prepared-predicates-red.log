@@ -1,0 +1,50 @@
+FFFFF
+======================================================================
+FAIL: test_connected_entry_exports_scope_without_claiming_full_closure (test_proxy_population_prepared_predicates.PreparedPredicateTests.test_connected_entry_exports_scope_without_claiming_full_closure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_prepared_predicates.py", line 29, in setUp
+    def setUp(self):self.assertIsNotNone(api,'prepared current-public-effect audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : prepared current-public-effect audit absent
+
+======================================================================
+FAIL: test_every_public_link_is_checked_even_with_nonactivation_origin (test_proxy_population_prepared_predicates.PreparedPredicateTests.test_every_public_link_is_checked_even_with_nonactivation_origin)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_prepared_predicates.py", line 29, in setUp
+    def setUp(self):self.assertIsNotNone(api,'prepared current-public-effect audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : prepared current-public-effect audit absent
+
+======================================================================
+FAIL: test_opponent_concealed_identity_is_neither_inspected_nor_exported (test_proxy_population_prepared_predicates.PreparedPredicateTests.test_opponent_concealed_identity_is_neither_inspected_nor_exported)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_prepared_predicates.py", line 29, in setUp
+    def setUp(self):self.assertIsNotNone(api,'prepared current-public-effect audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : prepared current-public-effect audit absent
+
+======================================================================
+FAIL: test_public_quick_dispatch_boundaries_and_unknown_are_not_absence (test_proxy_population_prepared_predicates.PreparedPredicateTests.test_public_quick_dispatch_boundaries_and_unknown_are_not_absence)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_prepared_predicates.py", line 29, in setUp
+    def setUp(self):self.assertIsNotNone(api,'prepared current-public-effect audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : prepared current-public-effect audit absent
+
+======================================================================
+FAIL: test_real_inventory_negative_coverage_and_corruption (test_proxy_population_prepared_predicates.PreparedPredicateTests.test_real_inventory_negative_coverage_and_corruption)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/5ac08198d4aa/naotocchi/docs/card-game/tools/test_proxy_population_prepared_predicates.py", line 29, in setUp
+    def setUp(self):self.assertIsNotNone(api,'prepared current-public-effect audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : prepared current-public-effect audit absent
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+FAILED (failures=5)

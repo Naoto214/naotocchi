@@ -38,3 +38,7 @@ preflight-ready=false。事象依存response/手札反応/予約、実際に使�
 ### 逐次誘発監査の追補
 
 c4cc165から、trigger_predicatesをcurrent474へ接続。latched4種＋start2種の現在意味条件と候補集合を監査。関連42・全20turn含む結合19・npm406PASS、review C0/I0/Minor0。詳細status末尾とverification/trigger-predicates-review.md。次はprepared公開効果経路の監査、他の残gateを継続。preflight-ready=false、生成/固定/400戦0。
+
+### 伏せ準備監査の追補（さらに新しい）
+
+0c54b38からprepared_predicatesを実response監査へ接続。15quickの正本/dispatch経路と全active linkを検査し、伏せ準備除外の欠落/重複/再提示を拒否。盤上効果/未知経路/公開装備は明示未証明。review C0/I2/Minor0をRED→GREEN修正（recovery override・監査内の伏せidentityアクセス禁止）。最終関連34PASS。最終統合結果はverification/prepared-predicates-final-integration.log、詳細同review.mdとstatus末尾。最新全proxy/npm実行ではない。preflight-ready=false、生成/固定/400戦0。次は公開装備/残る盤上効果・予約/機会の閉包と共通gate合成を続ける。
