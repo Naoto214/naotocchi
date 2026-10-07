@@ -1,0 +1,9 @@
+{
+  "sourceCommit": "fb3c3c4bb2065e0fc6a60e491373b9ca80886cfc",
+  "waveArtifact": 11458303534,
+  "distanceArtifact": 11457997296,
+  "status": "HOLD_WORLD_TREE04_FACE_READABILITY",
+  "handoffReview": "Prior turn inspected32fourviews/256states/16distance, found04 unreadable;03/07accepted74images byte-identical. This record preserves previous evidence; does not declare new gate acceptance.",
+  "currentReview": "16distance contact views and04before/after viewed thisturn;04face changed in9b79310 and must use new state/fourview evidence.",
+  "runtimePromoted": false
+}
