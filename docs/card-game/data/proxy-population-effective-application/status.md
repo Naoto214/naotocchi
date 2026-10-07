@@ -220,3 +220,13 @@ preflight-ready=false。残る共通責務は通常盤上/予約とresponseのpr
 最終関連33PASS（13.036s）、policy journal/admission結合25PASS（127.245s）。独立review C0/I0/Minor1、予約・外部ID・未知schemaの保守的境界テスト追加で対応、追加後5PASS（2.709s）。結合検証後はtestのみ変更、実装source不変。設計errors=[]、番号付き保護正本476件不変。証跡verification/board-bundle-*。全proxy/npmの旧版検証とは区別。
 
 preflight-ready=false。次はresponse個別predicate、許可情報の実使用、operand根拠、全source/phase機会、結果前remote lockと外部承認gateの結合。旧116除外・新方式未採用・独立balance標本0・全体結論nullを維持。seed生成/本番入力固定/400戦開始0。
+
+## 通常response手札の意味条件とpriority actor
+
+通常quick13種の候補対象/variant/時を、通常手札のsource-bound predicateを明示priority actorで再利用して照合。first-dateの現在partner（段階不問）、空山札宣言、現在ターン敗北、捨札、同名使用制限、盤面数、公開装備等を検査。通常側の手番actor既定は維持。反応限定air-hockey/baseballと盤上responseは別未証明範囲。
+
+候補削除・対象/variant/時改変を検出し、非手番側の対象/履歴も検証。実入口へ監査結果を結合するが、ID grammar、history真正性、全合法性、許可情報実使用、operand根拠、全rule機会を認定しない。
+
+統合24PASS（121.033s）、review補強後関連28PASS（13.637s）。独立review C0/I0/Minor1、非手番対象/履歴と改変テスト不足を補強。統合後はtestのみ変更。設計errors=[]、保護正本476件不変。verification/response-bundle-review.mdを現区切りの証跡索引とする。全proxy/npm旧版証跡とは区別。
+
+preflight-ready=false。盤上response/予約、実情報使用・operand・全機会、remote事前lock/外部承認gateが残る。seed生成/本番固定/対戦0、旧116除外、独立balance0、新方式未採用、全体結論nullを維持。

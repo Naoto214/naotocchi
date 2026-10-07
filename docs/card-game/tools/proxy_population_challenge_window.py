@@ -27,6 +27,7 @@ import proxy_population_resolution_order as resolution_order
 import proxy_population_core_predicates as core_predicates
 import proxy_population_candidate_expansions as candidate_expansions
 import proxy_population_response_expansions as response_expansions
+import proxy_population_response_predicates as response_predicates
 from proxy_mandatory_policy_contract import canonical
 
 _LOCK=Lock()
@@ -63,6 +64,9 @@ def contract_scope():
      expansion=response_expansions.audit(result['source_envelope'],events,decision['candidate_set_evidence'])
      if expansion['errors']:raise ValueError('response candidate expansions differ: '+str(expansion['errors']))
      result['response_candidate_expansions']=expansion
+     hand_proof=response_predicates.audit(result['source_envelope'],events,decision['candidate_set_evidence'])
+     if hand_proof['errors']:raise ValueError('response hand predicates differ: '+str(hand_proof['errors']))
+     result['response_hand_predicates']=hand_proof
     else:raise ValueError('ordinary decision source coverage kind unsupported')
     if coverage['errors']:raise ValueError('ordinary source inventory differs: '+str(coverage['errors']))
     result['decision_source_inventory']=coverage

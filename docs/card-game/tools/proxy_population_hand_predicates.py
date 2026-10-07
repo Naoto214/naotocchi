@@ -20,8 +20,8 @@ QUICK={'use_play','use_item','use_event'}
 SUPPORTED={'E-big-illness','E-boss','E-fateful-transform','E-final-time','E-first-date','G-air-hockey','G-animal-shogi','G-archery-3d','G-area-claim','G-asteroids-classic','G-baseball-batting','G-basketball-3d','G-beach-volley','G-hit-blow','I-c_coin2'}
 
 
-def _allowed(envelope,events,row,template):
- g=envelope['legacy_continuation']['game_state'];actor=g['turn_player'];p=g['players'][actor];b=p['board'];other=g['players']['B' if actor=='A' else 'A'];card=row['card_id'];target=row['target_instance_ids'];variant=row['candidate_variant']
+def _allowed(envelope,events,row,template,actor=None):
+ g=envelope['legacy_continuation']['game_state'];actor=g['turn_player'] if actor is None else actor;p=g['players'][actor];b=p['board'];other=g['players']['B' if actor=='A' else 'A'];card=row['card_id'];target=row['target_instance_ids'];variant=row['candidate_variant']
  if row['source_zone']!='hand' or row['source_id']!=row['source_instance_id'] or row['source_instance_id'] not in p['hand'] or g['cards'][row['source_instance_id']]['card_id']!=card:raise ValueError('hand predicate source differs')
  if variant not in template['candidate_variants']:raise ValueError('hand predicate variant differs')
  cost=template['base_time_cost']
