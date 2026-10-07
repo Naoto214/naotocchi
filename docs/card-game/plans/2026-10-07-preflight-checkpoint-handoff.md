@@ -56,3 +56,7 @@ c4cc165から、trigger_predicatesをcurrent474へ接続。latched4種＋start2�
 c8b869dからW-city/P-cat_ceo/M07/Panglerの現在条件auditを既存列挙入口へ接続。既存public_turnは相手手番集計とturn_end_completed中間状態を実装済み。これを未実装として再実装しないこと。初期テストのscope順序誤認で重複試作したcity moduleは撤回済み。既存候補器/handler/選択・旧source pinsは不変。新監査の中間状態拒否を実next_turnのRED→GREENで修正。review C0/I1/Minor0解消、最終関連46PASS。最終結合はverification/remaining-native-final-integration.log、詳細同review.mdとstatus末尾。前40/結合19や途中のsource fingerprint失敗を最終結果と混同しない。
 
 次はsource/phaseごとの全判断・自動処理/予約と機会閉包を既存inventory/capture/coverageで結合し、実情報使用/operand・外部承認/lockの残gateへ。単なる候補一致・静的一覧を完全性へ昇格しない。preflight-ready=false、生成/固定/400戦0、全体結論null。最新remoteをfresh確認して正本にする。
+
+### 供給済み機会の保存閉包結合（最新）
+
+04992fdから既存opportunity_orderを補強。個別に正しい保存ledgerでも実行と発動/見送り/ineligible証拠が違えば拒否し、全手番交代/終了のarchive境界と期待発生行重複を検証。関連33・結合19（130.792s）・npm406PASS、review C0/I0/Minor0、設計errors=[]・476不変。verification/closure-binding-review.md参照。空observe差を許容する意味状態結合で、独立実行認証/全機会/予約証明ではない。次はcollect早期除外を含むsource/phaseと残gate。preflight-ready=false、生成/固定/400戦0・結論null。

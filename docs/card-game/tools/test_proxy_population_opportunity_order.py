@@ -1,5 +1,6 @@
 """Conditional ordering slices; no claims of full game-state legality."""
 import copy,unittest
+import proxy_population_opportunity_ledger as ledger
 from test_proxy_population_opportunity_ledger import occurrence
 try:import proxy_population_opportunity_order as api
 except ImportError:api=None
@@ -8,7 +9,7 @@ def trace(decision=None,phase='normal_action',forced=None):
  e=dict(event_seq=1,legacy_continuation=dict(game_state=dict(turn_player='A',phase=phase),response_context=dict(chain_status='empty',priority_actor='A'),activation_zone=[],pending_triggers=[]))
  after=copy.deepcopy(e);after['event_seq']=2
  step=dict(source_envelope=e,final_envelope=after,events=[dict(seq=2)],envelopes=[after],decision=decision,forced_record=forced)
- return dict(source_envelope=e,final_envelope=after,steps=[step],trigger_records=[])
+ return dict(source_envelope=e,final_envelope=after,steps=[step],trigger_records=[],closed_turn_trigger_ledgers=[],trigger_ledger=ledger.observe(ledger.create('A'),[],'empty'))
 
 class OrderTests(unittest.TestCase):
  def test_normal_and_ordinary_response_require_their_own_decision(self):

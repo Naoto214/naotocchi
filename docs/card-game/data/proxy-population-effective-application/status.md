@@ -304,3 +304,11 @@ c8b869dから継続。W-cityの現ターン2枚目/起点/現在セカイ/使用
 最終設計errors=[]、保護476不変。新しい全proxy/npm実行ではない。preflight-ready=false。次は既存inventory/capture/coverageを再利用し、source/phaseごとの判断・自動処理/予約と不発・見送り・消費の機会閉包を結合する。実際の許可情報使用・operand正本根拠、外部承認認証・結果前順序・本番lock/provenanceも未証明。旧116除外、新方式414/A未採用、policy promotion=false、独立balance0、全体結論null。seed生成/本番固定/400戦開始なし。
 
 最終修正版の結合19PASS（136.062s、既存115/test-zero-root全20turn/R10・実入口・admission）。全Python sourceを固定して実行し、関連46と同一実装で確認。レビューI1解消済み。生成/固定/400戦0、preflight-ready=falseを維持。
+
+## 供給済み誘発の閉包状態と実行順序の結合
+
+04992fdから継続。coverageの発生ID一致だけでは、個別に正しい別ledgerへ発動/見送り状態を差替えても通ることを5mutation REDで確認。既存opportunity_orderに、実行stepから復元した各境界の状態と保存active/archiveのowner・occurrence/status・ineligible proofの一致を追加。手番交代/終了のarchive欠落は追加2REDで拒否へ。期待発生行の重複も集合化前に拒否。ledger/選択/効果/driverは再実装しない。
+
+関連33PASS（4.302s）、Python固定の結合19PASS（130.792s、既存115/test-zero-root全20turn/R10・実入口・admission）、npm406PASS。独立review C0/I0/Minor0、追加reviewなし。設計errors=[]、番号付き476不変。verification/closure-binding-review.mdと各logを参照。空のobserve呼出し差は許容し、保存journal自体の再構成と意味状態の一致を別に検証する。最新全proxy回帰とは呼ばない。
+
+これは供給済み機会の保存状態結合。実行recordの認証は既存replayに依存し、source起点/全発生機会・予約閉包・実情報使用/operand・外部承認/時系列/lockは未証明。preflight-ready=false、生成/固定/400戦0、旧116除外、policy promotion=false、独立balance0、全体結論null。次は既存collectの早期除外を含むsource/phase監査と残gateへ。

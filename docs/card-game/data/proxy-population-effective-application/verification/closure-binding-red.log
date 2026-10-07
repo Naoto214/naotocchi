@@ -1,0 +1,50 @@
+FFF.FF
+======================================================================
+FAIL: test_duplicate_source_obligation_is_not_collapsed_in_coverage (test_proxy_population_closure_binding.ClosureBindingTests.test_duplicate_source_obligation_is_not_collapsed_in_coverage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_closure_binding.py", line 58, in test_duplicate_source_obligation_is_not_collapsed_in_coverage
+    with self.assertRaisesRegex(ValueError,'duplicate'):coverage.reconcile([row,row],[j])
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_duplicate_source_obligation_is_not_collapsed_in_order (test_proxy_population_closure_binding.ClosureBindingTests.test_duplicate_source_obligation_is_not_collapsed_in_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_closure_binding.py", line 60, in test_duplicate_source_obligation_is_not_collapsed_in_order
+    with self.assertRaisesRegex(ValueError,'duplicate'):order.audit(self.result,self.rows+[self.rows[0]])
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_individually_valid_active_ledger_cannot_replace_executed_status (test_proxy_population_closure_binding.ClosureBindingTests.test_individually_valid_active_ledger_cannot_replace_executed_status)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_closure_binding.py", line 52, in test_individually_valid_active_ledger_cannot_replace_executed_status
+    with self.assertRaisesRegex(ValueError,'ledger.*execution'):order.audit(bad,self.rows)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_missing_final_ledger_is_not_silently_accepted (test_proxy_population_closure_binding.ClosureBindingTests.test_missing_final_ledger_is_not_silently_accepted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_closure_binding.py", line 55, in test_missing_final_ledger_is_not_silently_accepted
+    with self.assertRaises((ValueError,KeyError)):order.audit(bad,self.rows)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'ValueError'>, <class 'KeyError'>) not raised
+
+======================================================================
+FAIL: test_valid_but_different_archive_closure_is_rejected (test_proxy_population_closure_binding.ClosureBindingTests.test_valid_but_different_archive_closure_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_closure_binding.py", line 70, in test_valid_but_different_archive_closure_is_rejected
+    with self.assertRaisesRegex(ValueError,'ledger.*execution'):order.audit(r,self.rows)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.232s
+
+FAILED (failures=5)

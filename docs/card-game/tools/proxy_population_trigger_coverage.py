@@ -17,6 +17,7 @@ from proxy_mandatory_policy_contract import canonical
 
 def reconcile(expected,journals):
     wanted={ledger.identity(row):row for row in expected};actual={};pending=0
+    if len(wanted)!=len(expected):raise ValueError('duplicate expected trigger occurrence')
     for journal in journals:
         sequential.audit_ledger(journal)
         for key,row in journal['occurrences'].items():

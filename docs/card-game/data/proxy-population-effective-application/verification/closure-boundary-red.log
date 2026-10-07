@@ -1,0 +1,23 @@
+.....FF.
+======================================================================
+FAIL: test_terminal_trace_requires_final_archive (test_proxy_population_closure_binding.ClosureBindingTests.test_terminal_trace_requires_final_archive)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_closure_binding.py", line 90, in test_terminal_trace_requires_final_archive
+    with self.assertRaisesRegex(ValueError,'archive'):order.audit(r,self.rows)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_turn_change_requires_exact_archive_and_rejects_status_substitution (test_proxy_population_closure_binding.ClosureBindingTests.test_turn_change_requires_exact_archive_and_rejects_status_substitution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_closure_binding.py", line 85, in test_turn_change_requires_exact_archive_and_rejects_status_substitution
+    with self.assertRaisesRegex(ValueError,'archive'):order.audit(r,self.rows)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.264s
+
+FAILED (failures=2)
