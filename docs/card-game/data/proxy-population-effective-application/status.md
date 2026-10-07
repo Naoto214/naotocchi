@@ -294,3 +294,13 @@ preflight-ready=false。残件は他の盤上誘発/公開装備/予約の意味
 preflight-ready=false。残件：とかい/強制恋愛/挑戦等の残predicateと全発生機会・予約閉包、実際の許可情報利用・operandの正本根拠、全判断/自動処理の合成、外部承認認証・結果前順序・本番lock/provenanceと実行gate結合。旧116除外、新方式414/A未採用、policy promotion=false、独立balance0、全体結論null。seed生成/本番固定/400戦開始は未実施・未承認。
 
 最終修正版の結合19PASS（134.736s、既存115/test-zero-root全20turn/R10・実入口・admission）。関連37と同一実装source。I1修正済み、独立レビュー追加なし。実験seed/入力lock/対戦実行なし。
+
+## とかい・強制恋愛・挑戦2種の現在条件監査
+
+c8b869dから継続。W-cityの現ターン2枚目/起点/現在セカイ/使用済み、P-cat_ceoの強制分類/交際開始/現在partner・main/空手札でも発動、M07/Panglerの自分宣言/現在対象/parameter/セカイ条件/使用済みを既存trigger_predicatesへ結合。M07は既存474 helperを再利用し、上限100で実増加0かつ他に有効部分なしを適用に数えない。既存候補器・handler・選択処理は変更なし。native列挙入口11種への現在候補監査が接続されたが、collectの早期除外・全発生機会網羅・履歴認証は別の未証明範囲。
+
+初期テストのscope順序誤りにより、とかいの相手手番補正を未実装と誤認した。既存public_turnが既に補正済みとレビューで確認。重複して試作したcity moduleは全撤回し、既存public_turn.boundaryを再利用したauditのみ残した。旧trigger source/pins/manifestは不変。独立review C0/I1/Minor0。I1（新監査がturn_end_completed直後の中間状態を拒否）は実next_turn生成snapshotでRED→GREEN。最終関連46PASS（6.737s）。前40件・review前結合19件、source変更中の中間失敗と最終検証を混同しない。詳細verification/remaining-native-review.md、最終結合は同remaining-native-final-integration.log。
+
+最終設計errors=[]、保護476不変。新しい全proxy/npm実行ではない。preflight-ready=false。次は既存inventory/capture/coverageを再利用し、source/phaseごとの判断・自動処理/予約と不発・見送り・消費の機会閉包を結合する。実際の許可情報使用・operand正本根拠、外部承認認証・結果前順序・本番lock/provenanceも未証明。旧116除外、新方式414/A未採用、policy promotion=false、独立balance0、全体結論null。seed生成/本番固定/400戦開始なし。
+
+最終修正版の結合19PASS（136.062s、既存115/test-zero-root全20turn/R10・実入口・admission）。全Python sourceを固定して実行し、関連46と同一実装で確認。レビューI1解消済み。生成/固定/400戦0、preflight-ready=falseを維持。

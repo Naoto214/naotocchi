@@ -1,0 +1,44 @@
+E
+======================================================================
+ERROR: test_generated_turn_switch_is_observed_before_next_draw (test_proxy_population_city_predicates.CityPredicateTests.test_generated_turn_switch_is_observed_before_next_draw)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_city_predicates.py", line 110, in test_generated_turn_switch_is_observed_before_next_draw
+    with connected.contract_scope():runtime.operation(initial(),run)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 108, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 107, in connected
+    with growth.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                 ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_city_predicates.py", line 106, in run
+    proof=existing.ExistingAdapter(h).proof(after,h[-1]['seq']);self.assertEqual(proof['occurrences'],[])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_trigger_existing.py", line 71, in proof
+    capture=dict(turn_player=c['game_state']['turn_player']),current_envelope_sha256=state.canonical_sha256(envelope),**self.collect(envelope,seq))
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_trigger_existing.py", line 56, in collect
+    actions,proof=self.enumerate(envelope,occurrence)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_trigger_predicates.py", line 195, in arrival
+    return checked(result,envelope,occurrence,lambda e,o,a:audit(e,o,a,adapter.history))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_trigger_predicates.py", line 186, in checked
+    if check['errors']:raise ValueError('trigger current predicates differ: '+str(check['errors']))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: trigger current predicates differ: ['city current turn boundary absent']
+
+----------------------------------------------------------------------
+Ran 1 test in 0.083s
+
+FAILED (errors=1)

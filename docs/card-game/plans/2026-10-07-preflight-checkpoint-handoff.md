@@ -50,3 +50,9 @@ c4cc165から、trigger_predicatesをcurrent474へ接続。latched4種＋start2�
 ### native登場・終了誘発の追補（最新）
 
 36c4b91から登場3種/終了4種の現在意味条件をExistingAdapterへ結合。最終関連37PASS、review C0/I1/Minor0のI1修正済み。解決中の全event観測は独立に空候補と分かるnativeのみに許し、非空発動は拒否する。初回結合19中2errorsと途中のprocess異常終了を成功扱いしない。最終結合はverification/native-predicates-final-integration.log、詳細は同native-predicates-review.mdとstatus末尾。次は残るnative/挑戦等のpredicate、予約・全機会・情報使用/operand・外部承認/lockの結合。preflight-ready=false、生成/固定/400戦0。最新remoteを正本にする。
+
+### とかい・強制恋愛・挑戦誘発の追補（最新）
+
+c8b869dからW-city/P-cat_ceo/M07/Panglerの現在条件auditを既存列挙入口へ接続。既存public_turnは相手手番集計とturn_end_completed中間状態を実装済み。これを未実装として再実装しないこと。初期テストのscope順序誤認で重複試作したcity moduleは撤回済み。既存候補器/handler/選択・旧source pinsは不変。新監査の中間状態拒否を実next_turnのRED→GREENで修正。review C0/I1/Minor0解消、最終関連46PASS。最終結合はverification/remaining-native-final-integration.log、詳細同review.mdとstatus末尾。前40/結合19や途中のsource fingerprint失敗を最終結果と混同しない。
+
+次はsource/phaseごとの全判断・自動処理/予約と機会閉包を既存inventory/capture/coverageで結合し、実情報使用/operand・外部承認/lockの残gateへ。単なる候補一致・静的一覧を完全性へ昇格しない。preflight-ready=false、生成/固定/400戦0、全体結論null。最新remoteをfresh確認して正本にする。

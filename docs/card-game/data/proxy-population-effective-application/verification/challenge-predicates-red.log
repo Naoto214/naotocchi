@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_474_zero_is_not_application_and_world_change_is_required (test_proxy_population_challenge_predicates.ChallengePredicateTests.test_474_zero_is_not_application_and_world_change_is_required)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_predicates.py", line 32, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'audit_challenge'),'challenge trigger audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : challenge trigger audit absent
+
+======================================================================
+FAIL: test_current_source_target_parameter_and_all_alternatives (test_proxy_population_challenge_predicates.ChallengePredicateTests.test_current_source_target_parameter_and_all_alternatives)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_predicates.py", line 32, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'audit_challenge'),'challenge trigger audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : challenge trigger audit absent
+
+======================================================================
+FAIL: test_partner_requires_current_deepsea_main_and_origin (test_proxy_population_challenge_predicates.ChallengePredicateTests.test_partner_requires_current_deepsea_main_and_origin)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_predicates.py", line 32, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'audit_challenge'),'challenge trigger audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : challenge trigger audit absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

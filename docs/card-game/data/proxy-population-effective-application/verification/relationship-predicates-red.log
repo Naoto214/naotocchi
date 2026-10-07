@@ -1,0 +1,23 @@
+FF
+======================================================================
+FAIL: test_forced_activation_remains_with_empty_hand_and_has_no_decline (test_proxy_population_relationship_predicates.RelationshipPredicateTests.test_forced_activation_remains_with_empty_hand_and_has_no_decline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_relationship_predicates.py", line 22, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'audit_relationship'),'forced relationship audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : forced relationship audit missing
+
+======================================================================
+FAIL: test_same_occurrence_consumption_and_unrelated_origins (test_proxy_population_relationship_predicates.RelationshipPredicateTests.test_same_occurrence_consumption_and_unrelated_origins)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_relationship_predicates.py", line 22, in setUp
+    def setUp(self):self.assertTrue(hasattr(api,'audit_relationship'),'forced relationship audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : forced relationship audit missing
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)
