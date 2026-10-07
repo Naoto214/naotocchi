@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 178,
-    "pending": 115,
-    "fourViewRecords": 176
+    "exactSpecs": 180,
+    "pending": 113,
+    "fourViewRecords": 178
   },
   "rows": [
     {
@@ -5476,15 +5476,15 @@
       "group": "rare",
       "asset": "assets/characters/companions/box.png",
       "sha256": "088daf06f8aa26af3a3ebed6e50f4559727dfe41671c8ad312695798d0a70c16",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "rigid_object",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/nonplayer/fb3c3c4/companion-box-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/nonplayer/fb3c3c4/companion-box-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/nonplayer/fb3c3c4/companion-box-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/nonplayer/fb3c3c4/companion-box-0-back.jpg"
       }
     },
     {
@@ -5556,15 +5556,15 @@
       "group": "countryside",
       "asset": "assets/characters/partners/sunflower_partner.png",
       "sha256": "f43c2b6d67a35920a7a688b75583bc8393764553d4672ef079414ae453735726",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/nonplayer/fb3c3c4/partner-sunflower_partner-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/nonplayer/fb3c3c4/partner-sunflower_partner-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/nonplayer/fb3c3c4/partner-sunflower_partner-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/nonplayer/fb3c3c4/partner-sunflower_partner-0-back.jpg"
       }
     },
     {

@@ -1,0 +1,21 @@
+{
+  "sourceCommit": "fb3c3c4bb2065e0fc6a60e491373b9ca80886cfc",
+  "distanceSourceCommit": "374436e533c907f6b9a9d75d8c7648da1390413c",
+  "artifacts": {
+    "waveMotion": 11458118648,
+    "normalDistance": 11457736471
+  },
+  "fourViews": 8,
+  "stateFrames": 64,
+  "normalDistanceViews": 4,
+  "verdict": "PASS_REPRESENTATIVE",
+  "findings": [
+    "Lowered heart leaves03mouth visible in tired/sleeping states. Seated toy silhouette, held heart,07single ear and sewn patches remain readable.",
+    "Front/back normal-distance images for03and07 read as intended; exact/live3D/fallback0/failedTemplates0/errors0."
+  ],
+  "next": "Expand remaining six stages before any runtime family promotion.",
+  "limitations": [
+    "Chromium/SwiftShader is not iPhone acceptance",
+    "No Human QA acceptance"
+  ]
+}

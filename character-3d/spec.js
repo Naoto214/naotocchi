@@ -246,8 +246,10 @@
       ears: { type: 'pointy', len: 0.24, w: 0.2, tilt: 0.1 }, tail: { type: 'hook', len: 0.87, r: 0.085 }, colors: { base: '#f6e6d6', belly: '#fbf2e8', muzzle: '#fbf2e8', ear: '#e89848', nose: '#e88888', paw: '#f6e6d6', patch: '#332a29', patch2: '#d89449' }, patches: true },
   });
 
-  // Empty in production until each role-specific candidate passes image gates.
-  const NON_PLAYER = freeze(nonPlayerCandidates || {});
+  // Only these role-specific entries have passed four-view/state/distance image gates.
+  const nonPlayerFactory = typeof module === 'object' && module.exports ? require('./nonplayer-spec.js') : globalThis.NaotocchiNonPlayerWave;
+  const approvedNonPlayers = typeof nonPlayerFactory === 'function' ? nonPlayerFactory() : {};
+  const NON_PLAYER = freeze(nonPlayerCandidates || Object.fromEntries(['companion:box','partner:sunflower_partner'].filter(key=>approvedNonPlayers[key]).map(key=>[key,approvedNonPlayers[key]])));
   for (const [key,row] of Object.entries(NON_PLAYER)) {
     if (!['companion','partner','author'].includes(row.kind) || !/^[a-z_]+$/.test(row.id) || key !== row.kind+':'+row.id || !row.spec || !row.asset) throw new Error('Invalid non-player identity '+key);
   }

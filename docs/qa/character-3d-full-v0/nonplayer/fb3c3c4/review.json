@@ -1,0 +1,19 @@
+{
+  "sourceCommit": "fb3c3c4bb2065e0fc6a60e491373b9ca80886cfc",
+  "artifactId": 11458726652,
+  "verdict": "PASS",
+  "reviewed": {
+    "fourViews": 8,
+    "states": 64,
+    "normalDistance": 4
+  },
+  "unchangedStaticStateImages": 76,
+  "findings": [
+    "Closed box volume and physical sealing tape remain distinct. Sunflower petals, face, curved stem, paired leaf arms and root toes remain readable.",
+    "All four refreshed normal-distance captures show requested front/back orientation; rendered yaw error below 0.02; live3D/exact, fallback0/failedTemplates0/errors0."
+  ],
+  "limitations": [
+    "Chromium/SwiftShader is not iPhone acceptance",
+    "No Human QA acceptance"
+  ]
+}

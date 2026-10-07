@@ -1,27 +1,28 @@
 {
-  "baseCommit": "fb3c3c4bb2065e0fc6a60e491373b9ca80886cfc",
-  "checkpoint": "hermit-eight-stage-promotion",
+  "baseCommit": "e149adc6e8a91191a98e143152046a2a08cb4855",
+  "checkpoint": "reviewed-box-sunflower-promotion-and-plush-representative-gate",
   "coverage": {
-    "exact": 178,
+    "exact": 180,
     "total": 293,
-    "pending": 115,
+    "pending": 113,
     "playerFamilies": 22,
     "playerStages": 176,
-    "companions": 2
+    "companions": 3,
+    "partners": 1
   },
   "verification": {
-    "dedicatedPass": 217,
+    "dedicatedPass": 219,
     "rolloutMutationsDetected": 24,
     "pilotHashesUnchanged": 28,
     "fullNpm": "3007 pass / 2 fail; same failures on immutable fb3 baseline",
-    "postPromotionAggregate": "pending"
+    "postPromotionAggregate": "pending",
+    "nonplayerMutationsDetected": 7
   },
   "next": [
-    "Save and verify this checkpoint remote HEAD/tree",
-    "Review fb3 nonplayer11458726652 andmythic11458118648",
+    "Verify post-promotion CI and aggregate",
     "World tree all8 image gate",
-    "Expand Venus remaining6 andother accepted representatives",
-    "Implement remaining41nonplayer; finalfull QA"
+    "Expand Venus and Plush remaining6; review other saved representatives",
+    "Implement remaining41 nonplayers; final full QA"
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",

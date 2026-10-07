@@ -1,6 +1,9 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
-const run=()=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap','tests/character-3d-nonplayer-candidate-test.cjs'],{encoding:'utf8',timeout:10000});assert.equal(run().status,0);
+const run=()=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap','tests/character-3d-nonplayer-candidate-test.cjs','tests/character-3d-nonplayer-promotion-test.cjs'],{encoding:'utf8',timeout:10000});assert.equal(run().status,0);
 const cases=[
+ ['reviewed runtime keys','character-3d/spec.js',"['companion:box','partner:sunflower_partner'].filter","[].filter"],
+ ['browser nonplayer dependency','character-3d/spec-esm.mjs',"import './nonplayer-spec.js';","// dependency removed"],
+ ['unreviewed exclusion','character-3d/spec.js',"['companion:box','partner:sunflower_partner'].filter","Object.keys(approvedNonPlayers).filter"],
  ['role namespaced key','character-3d/spec.js',"return {id:ref.kind+':'+ref.id,stage:0,exact:true}","return {id:ref.id,stage:0,exact:true}"],
  ['exact zero stage','character-3d/spec.js','return stage === 0 ? NON_PLAYER[id].spec : null','return NON_PLAYER[id].spec'],
  ['explicit role asset','character-3d/spec.js','return stage === 0 ? NON_PLAYER[id].asset : null',"return 'assets/characters/authors/naoto.png'"],
