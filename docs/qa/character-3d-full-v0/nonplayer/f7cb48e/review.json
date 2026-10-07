@@ -1,0 +1,19 @@
+{
+  "sourceCommit": "f7cb48ea28830036a1ca3282b95b6db49353e386",
+  "artifactId": 11443146044,
+  "verdict": "REJECT_DISTANCE_CAPTURE",
+  "reviewed": {
+    "fourViews": 8,
+    "states": 64,
+    "normalDistance": 4
+  },
+  "findings": [
+    "Box closed volume/tape and sunflower petals/stem/leaf arms remain identifiable in four views and canonical states.",
+    "Front/back distance captures do not show requested actor orientation. Party simulation overwrites the rAF pose before rendering. Do not promote from these captures."
+  ],
+  "limitations": [
+    "Chromium/SwiftShader is not iPhone evidence",
+    "No Human QA acceptance"
+  ],
+  "next": "Hold QA pose after real sim.step; record actual rendered yaw and assert requested orientation; recapture both candidates."
+}
