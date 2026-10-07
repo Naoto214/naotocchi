@@ -3,6 +3,54 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const mod = () => import('../meguru-3d.mjs');
+// Missing/rotated terminal stones or coping that intrudes into the deck must fail.
+test('VQ-24 stone bridge masonry stays on both parapets and marks all four ends', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const reg=M.buildRegistry(); let checked=0;
+  for(const rid of Object.keys(M.REGION3D)) {
+    const w=M.buildWorld(rid,reg,{world3d:true});
+    for(const b of M.worldObjects3d(w).objects.filter(o=>o.type==='bridge' && o.bridgeKind==='stone' && o.crossing)) {
+      checked++;
+      const deck=b.parts.find(p=>p.shape==='slab'), a=b.crossing.pathAng;
+      const stones=b.parts.filter(p=>p.shape==='box' && p.y>=6 && p.h>=24);
+      assert.equal(stones.length,4,b.id+': four raised terminal stones');
+      const corners=new Set();
+      for(const p of stones) {
+        const t=(p.dx||0)*Math.sin(a)+(p.dz||0)*Math.cos(a);
+        const side=(p.dx||0)*Math.cos(a)-(p.dz||0)*Math.sin(a);
+        assert.equal(p.ang,a,'same longitudinal rotation as bridge');
+        assert.ok(Math.abs(t)+p.rx<=deck.len/2+1e-8,'within existing bridge ends');
+        assert.ok(Math.abs(side)-p.rz>=deck.w/2-3-1e-8,'preserve existing clear deck width');
+        assert.ok(Math.abs(side)+p.rz<=deck.w/2+9+1e-8,'preserve parapet exterior footprint');
+        assert.equal(p.y,6,'terminal rests on deck datum');
+        corners.add(Math.sign(t)+','+Math.sign(side));
+      }
+      assert.equal(corners.size,4,'one terminal at each distinct corner');
+      const parapet=b.parts.filter(p=>p.shape==='box' && p.y>=6);
+      for(let i=0;i<parapet.length;i++) for(let j=i+1;j<parapet.length;j++) {
+        const p=parapet[i],q=parapet[j],dx=(p.dx||0)-(q.dx||0),dz=(p.dz||0)-(q.dz||0);
+        const along=Math.abs(dx*Math.sin(a)+dz*Math.cos(a));
+        const side=Math.abs(dx*Math.cos(a)-dz*Math.sin(a));
+        const vertical=Math.min(p.y+p.h,q.y+q.h)-Math.max(p.y,q.y);
+        assert.ok(along>=p.rx+q.rx-1e-8 || side>=p.rz+q.rz-1e-8 || vertical<=1e-8,
+          'masonry interiors do not overlap or create coplanar differently colored side faces');
+      }
+      const coping=b.parts.filter(p=>p.shape==='box' && p.y>6 && p.h<=4);
+      assert.ok(coping.length>=4,b.id+': articulated coping on both sides');
+      for(const p of coping) {
+        const t=(p.dx||0)*Math.sin(a)+(p.dz||0)*Math.cos(a);
+        const side=(p.dx||0)*Math.cos(a)-(p.dz||0)*Math.sin(a);
+        assert.ok(Math.abs(t)+p.rx<=deck.len/2+1e-8);
+        assert.ok(Math.abs(side)-p.rz>=deck.w/2-3-1e-8);
+        assert.ok(Math.abs(side)+p.rz<=deck.w/2+9+1e-8);
+        assert.equal(p.ang,a);
+        assert.ok(p.y+p.h<=22,'coping does not raise existing parapet top');
+      }
+    }
+  }
+  assert.ok(checked>=2,'real forest and river stone crossings are covered');
+});
 test('VQ-23 vehicle window frames connect body and roof at every cab corner when rotated', () => {
   const { harness } = require('./helpers/runtime-harness.cjs');
   const M = harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;

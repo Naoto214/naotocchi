@@ -4,6 +4,9 @@ on:
   push:
     branches: [feat/meguru-3d-geometry-terrain-v1]
     paths:
+      - meguru.js
+      - meguru-3d.mjs
+      - index.html
       - '.github/workflows/world-bridge-approaches.yml'
       - 'docs/qa/meguru-3d-bridge-approaches/recipe-validation.json'
 

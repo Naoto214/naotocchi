@@ -1927,7 +1927,19 @@
       }
       if (kind === 'stone') {
         out.push({ shape: 'slab', len: L, w: W, y: D - 10, ang: pa });
-        for (const sd of [-1, 1]) out.push(Object.assign({ shape: 'box', rx: L / 2, rz: 6, h: 16, y: D, ang: pa, color: '#a39f94', solidBox: true }, at(0, sd * (W / 2 + 3))));
+        // Stone coping joints and end piers articulate the existing parapet;
+        // all pieces stay within its footprint and leave the deck/approaches intact.
+        const pierHalf = 8, copingCount = Math.max(2, Math.ceil((L - 4 * pierHalf) / 58));
+        const copingStep = (L - 4 * pierHalf) / copingCount;
+        for (const sd of [-1, 1]) {
+          const side = sd * (W / 2 + 3);
+          out.push(Object.assign({ shape: 'box', rx: (L - 4 * pierHalf) / 2, rz: 6, h: 13, y: D, ang: pa, color: '#969287', solidBox: true }, at(0, side)));
+          for (let i = 0; i < copingCount; i++) {
+            const t = -L / 2 + 2 * pierHalf + copingStep * (i + 0.5);
+            out.push(Object.assign({ shape: 'box', rx: (copingStep - 1) / 2, rz: 6, h: 3, y: D + 13, ang: pa, color: i % 2 ? '#b1ab9c' : '#b9b2a3', solidBox: true }, at(t, side)));
+          }
+          for (const t of [-L / 2 + pierHalf, L / 2 - pierHalf]) out.push(Object.assign({ shape: 'box', rx: pierHalf, rz: 6, h: 24, y: D, ang: pa, color: '#b1ab9c', solidBox: true }, at(t, side)));
+        }
         const R = Math.min(L * 0.3, 110);
         for (const sd of [-1, 1]) out.push(Object.assign({ shape: 'arch', r: R, y: D - 10 - R, ang: pa, color: '#9c988c' }, at(0, sd * (W / 2 - 4))));
         for (const t of [-L / 2 + 20, L / 2 - 20]) out.push(abut(t, '#9c988c', 26));

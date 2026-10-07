@@ -1,0 +1,35 @@
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/3320f3e69e77/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/3320f3e69e77/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ VQ-23 vehicle window frames connect body and roof at every cab corner when rotated (323.022351ms)
+✔ VQ-22 dry-bank patches are continuous, bounded and leave unpainted water unchanged (35.461829ms)
+✔ VQ-9 residential porch supports meet roof slopes within canonical lots (9972.821771ms)
+✔ VQ-8 farmhouse veranda posts meet a canopy contained over the existing deck (1046.977972ms)
+✔ VQ-6 cottage rooflines include both gable orientations within the residential family (197.382701ms)
+✔ VQ-5 garden stepping stones connect the actual front door to its finite road segment (203.848821ms)
+✔ VQ-1 contact footprints follow trunks and foundations without mutating objects (1.003669ms)
+✔ VQ-2 contact field excludes actors, water, bridges and tiny dressing; finite bounded support (0.80962ms)
+✔ VQ-3 outer-bank variation leaves water lanes and triangle topology unchanged (0.611516ms)
+✔ VQ-4 residential main roofs retain above-head clearance with canonical colliders (9346.625419ms)
+✔ VQ-7 garden beds retain their planting group outside canonical road and obstacle footprints (214.4325ms)
+✔ VQ-10 barn entrances read as broad paired doors within the wall (938.421132ms)
+✔ VQ-11 flower instances retain planter and window-box elevation (1.484456ms)
+✔ VQ-12 walkable market stalls have open counters and connected canopy supports (9189.658585ms)
+✔ VQ-13 representative farmhouse flowers clear the veranda as one planting group (933.849159ms)
+✔ VQ-14 planting clearance preserves groups, rotations and blocked plots (6.235176ms)
+✔ VQ-15 residential facade openings fit beside the entrance without frame overlap (9361.665135ms)
+✔ VQ-16 single-family main windows reserve the existing bay projection (9661.748075ms)
+✔ VQ-17 two-storey entrance remains below its existing low canopy (199.966744ms)
+✔ VQ-18 ground fern fronds emerge above their root plane, without changing hanging palm leaves (3415.163445ms)
+✔ VQ-19 ordinary big-tree crowns vary azimuth without expanding their envelope (2787.464947ms)
+✔ VQ-20 ground frond roots attach to their own terrain position (3159.684138ms)
+✔ VQ-21 frond transforms preserve winding and radial direction for rising and hanging leaves (1.6651ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 61113.646055
