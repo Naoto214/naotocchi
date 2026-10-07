@@ -1,5 +1,5 @@
 {
-  "baseCommit": "b12dc7a12bc66a5068682338399b4a15432dfd2f",
+  "baseCommit": "c331193d0fa58ecb57c87e5b9937d3fb40e78e65",
   "checkpoint": "plush-all8-reviewed-promoted-196-venus06-depth-recapture-pending",
   "coverage": {
     "exact": 196,
@@ -14,7 +14,7 @@
     "dedicatedPass": 228,
     "rolloutMutationsDetected": 26,
     "pilotHashesUnchanged": 28,
-    "fullNpm": "3008 pass / 2 fail after Venus; same protected resident-expression failures, not green",
+    "fullNpm": "3010 pass / 2 fail after Plush promotion; same protected resident-expression failures, not green; trailing Relationship command not reached",
     "postPromotionAggregate": "42dd99a:22families/176exact player stages, fallback0/failedTemplates0/errors0,artifact11459393592",
     "nonplayerMutationsDetected": 7,
     "worldTreeMutationsDetected": 9,
@@ -24,8 +24,7 @@
     "plushStageMutationsDetected": 6,
     "worldTreeImageGate": "9b79310 artifacts11462261195/11461529312:32fourviews/256states/16distance PASS_ALL8_IMAGE_GATE",
     "plushImageGate": "3076d288 wave11463280279/distance11462287707:32fourviews/256states/16distance PASS_ALL8_IMAGE_GATE",
-    "browserRegistration": "Browser-style UMD loading in ESM import order: Plush08 exact, Dragon03 remains absent",
-    "fullNpmRerun": "npm test started for Plush promotion and Venus06 candidate fix; still running at this checkpoint, no result claimed. Last completed run remains3008PASS/2FAIL."
+    "browserRegistration": "Browser-style UMD loading in ESM import order: Plush08 exact, Dragon03 remains absent"
   },
   "next": [
     "Review corrected Venus06 four-view/state/normal-distance Actions captures; other seven stages still require final full gate decision",
