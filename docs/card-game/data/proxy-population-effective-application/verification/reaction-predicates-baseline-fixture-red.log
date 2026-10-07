@@ -1,0 +1,18 @@
+test_normal_declaration_observes_partner_and_continues_comparison (test_proxy_population_challenge_window.ChallengeWindowTests.test_normal_declaration_observes_partner_and_continues_comparison) ... FAIL
+
+======================================================================
+FAIL: test_normal_declaration_observes_partner_and_continues_comparison (test_proxy_population_challenge_window.ChallengeWindowTests.test_normal_declaration_observes_partner_and_continues_comparison)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/card-game-reaction-baseline/docs/card-game/tools/test_proxy_population_challenge_window.py", line 29, in test_normal_declaration_observes_partner_and_continues_comparison
+    self.assertEqual(r['stop']['detail'],'end history event/snapshot coverage differs');self.assertEqual(r['events'][0]['action_type'],'challenge_declared')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'current public turn boundary absent' != 'end history event/snapshot coverage differs'
+- current public turn boundary absent
++ end history event/snapshot coverage differs
+
+
+----------------------------------------------------------------------
+Ran 1 test in 1.328s
+
+FAILED (failures=1)

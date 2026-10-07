@@ -21,7 +21,9 @@ class ChallengeWindowTests(unittest.TestCase):
     p['board'][slot]=source
    p['board']['partner_stage']=0
    for owner in g['players'].values():owner['deck'].extend(owner['hand']);owner['hand']=[];owner['time']=0
-   event=dict(seq=e['legacy_continuation']['response_context']['origin_event_seq'],actor=actor,action_type='unit_conditional_root');history=[event]
+   # This conditional prefix supplies the current-turn boundary, while still
+   # deliberately omitting complete snapshots for the later end-history gate.
+   event=dict(seq=e['legacy_continuation']['response_context']['origin_event_seq'],actor=actor,action_type='turn_start_and_normal_draw',fixture_only=True);history=[event]
    with api.contract_scope():proof=existing.ExistingAdapter(history).proof(e)
    return dict(envelope=e,history=history,proof=proof,partner=p['board']['partner'])
   built=base.operation(initial(),build);e=built['envelope'];history=built['history'];proof=built['proof'];partner=built['partner']

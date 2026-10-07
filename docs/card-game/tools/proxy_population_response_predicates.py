@@ -10,9 +10,48 @@ import proxy_continuation_rules as rules
 import proxy_continuation_payments as payments
 import proxy_normal_action_candidate_completeness as expansion
 import proxy_population_hand_predicates as hand
+import proxy_population_hand_timing as timing
+import proxy_continuation_challenge as challenge
 from proxy_mandatory_policy_contract import ROOT,canonical
 
 SUPPORTED=hand.SUPPORTED-{'G-air-hockey','G-baseball-batting'}
+
+
+def audit_reactions(envelope,inventory):
+ """Current ordinary-response reaction predicates, after optional groups.
+
+ Air hockey belongs to the existing latched group, never a second ordinary
+ response offer. This negative route check does not prove that group coverage.
+ Batting uses the existing source-bound current stats, not a predicted outcome.
+ """
+ errors=[];verified=[];count=0
+ try:
+  for path,digest in hand.SOURCES.items():
+   if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=digest:raise ValueError('reaction predicate source changed')
+  state.validate(envelope);c=envelope['legacy_continuation'];g=c['game_state'];ctx=c['response_context'];actor=ctx['priority_actor'];other='B' if actor=='A' else 'A';p=g['players'][actor]
+  if g['phase'] not in ('response_window','post_placement_response','turn_end_response') or ctx['chain_status'] not in ('empty','building') or c['pending_triggers']:raise ValueError('not an ordinary reaction predicate entry')
+  if inventory['actor']!=actor or canonical(inventory['response_context'])!=canonical(ctx):raise ValueError('reaction priority identity differs')
+  table={r['card_id']:r for r in rules.table()['cards']}
+  for source in p['hand']:
+   card=g['cards'][source]['card_id']
+   if card not in {'G-air-hockey','G-baseball-batting'}:continue
+   expected=[]
+   if card=='G-air-hockey':timing.descriptor(card)
+   else:
+    cap=payments.capability(card);template=next(a for a in table[card]['actions'] if a['action_type']=='use_play')
+    if cap['reference']!='81-play-batch-2-card-text-draft.md#G-baseball-batting' or cap['timing']!='challenge_stat' or cap['target_owner']!='own':raise ValueError('batting descriptor differs')
+    cost=template['base_time_cost']
+    if type(cost) is not int or cost!=cap['base_time_cost']:raise ValueError('batting payment differs')
+    battle=g.get('challenge')
+    met=bool(battle and battle['status']=='comparing' and battle['declaring_actor']==actor and battle['parameter']=='power' and all(battle['participants'][a] is not None and g['players'][a]['board']['main']==battle['participants'][a] for a in 'AB'))
+    if met:met=p['time']>=cost and challenge.stats(envelope,other)['power']>=challenge.stats(envelope,actor)['power']
+    if met:expected=[dict(action_type='use_play',card_id=card,card_copy_id=g['cards'][source]['card_copy_id'],source_instance_id=source,target_instance_ids=[battle['participants'][actor]],candidate_variant=None,base_time_cost=cost)]
+   actual=[r for r in inventory['legal_candidate_details'] if r.get('source_instance_id')==source]
+   if Counter(map(_signature,actual))!=Counter(map(_signature,expected)):raise ValueError('response reaction semantic alternatives differ: '+source)
+   verified.append(source);count+=len(expected)
+ except (ValueError,KeyError,TypeError,IndexError,StopIteration,OSError) as error:errors.append(str(error))
+ return dict(schema='ordinary_response_reaction_predicates.v1',response_reaction_predicates_verified=not errors,errors=errors,verified_source_ids=sorted(verified),verified_candidate_count=count,source_sha256=dict(hand.SOURCES),
+  candidate_identity_grammar_proven=False,optional_group_opportunities_proven=False,history_authenticated=False,complete_legal_set_proven=False,information_use_proven=False,all_rule_opportunities_proven=False,origin_authenticated=False,policy_eligible=None,balance_admitted=None)
 
 
 def _signature(row):

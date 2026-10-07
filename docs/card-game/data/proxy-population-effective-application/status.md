@@ -242,3 +242,11 @@ preflight-ready=false。未完了：事象依存response/手札反応/予約のp
 seed生成/本番入力固定/400戦開始0。旧116除外、mandatory指定範囲以外へ許容を広げない。新方式414/A未採用、policy promotion=false、独立balance0、全体結論null。114/116/119・過去結果・保護正本は不変。474Bとじんとり発動時7枚裁定は維持、再質問不要。
 
 運用上の停止：テスト追加の誤挿入を修正し、失敗/最終成功を分離して保存。編集精度低下を認め、安全なcheckpointで新タブへの移行を提案する。タスク完了やpreflight-readyの宣言ではない。短い引継ぎ正本はplans/2026-10-07-preflight-checkpoint-handoff.md。新しい裁定は発見/追加していない。
+
+## 手札反応の通常response境界
+
+cb8fa877から継続。81のバッティングを現在参加者・自分宣言・ちから・既存statsによる現在値比較・時1・自己対象に結合。83のエアホッケーは既存逐次群が扱うため、通常responseで再提示しないことだけを監査。候補欠落/重複/対象/支払/variant/現物改変とsource/priority driftを拒否。群機会の完全性、実情報使用、全合法集合、operand・適格性へ昇格しない。
+
+専用5REDから接続、関連27PASS。統合中に既存条件付きtestのturn-start欠落を発見し、baseでも再現。意図した終了履歴検査へ届くようtest入力のみ補修。最終関連47PASS＋全20turn/R10を含むchallenge2PASS、npm406PASS、設計errors=[]、保護476件不変。独立review C0/I0/Minor1（古いmodule冒頭説明、保留）。詳細verification/reaction-predicates-review.md。全proxy最新版の実行とは呼ばない。
+
+preflight-ready=false。次はremote公開のfresh照合を既存生成/attempt/supervisorの副作用前へ接続する。外部承認の認証・結果前順序・OS来歴はremote一致から推定しない。事象依存盤上/予約・許可情報の実使用・比較operand・全rule機会も残る。seed生成/入力固定/400戦0、旧116除外・policy promotion=false・独立balance0・全体結論nullを維持。

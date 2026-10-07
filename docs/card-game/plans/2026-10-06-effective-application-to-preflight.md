@@ -160,3 +160,9 @@ Reuse the source-bound hand conditions with explicit priority actor; compare sem
 ### Response activated board predicates (efbee579 continuation)
 
 Reuse normal board current-source/ordered-cost/target/usage conditions for own-turn response activation, with explicit priority ownership. Add response-history once-use checks for companion recovery. Verify nonactivated source classifications only; event-origin and prepared responses remain explicitly unproved. RED→GREEN, source matrix and related integration, one independent review, remote checkpoint. No policy/input/eligibility changes.
+
+### Ordinary response reaction predicates (cb8fa877 continuation)
+
+Fresh remote HEAD/tree and PR259 Draft/open/unmerged verified; restored the dedicated branch in a fresh checkout. Reuse current response audit and actual entry. Bind81 batting to current participants, declaring actor, power comparison through existing source-bound stats, current payment and own participant target.83 air hockey remains owned by the existing06 sequential hand-trigger ledger; certify only its absence from ordinary response, not occurrence coverage. Preserve candidate/selection/effect handlers, all old sources,116 exclusion, unknown operands and unproved admission gates.
+
+TDD: missing audit/entry evidence5RED; implement narrow semantic comparison; correct a test fixture that changed priority before authenticating its capture (recorded separately). Cover missing/duplicate/forged alternatives, wrong target/variant/copy/payment, greater/equal power boundary, nondeclarer/wisdom/ended/departed/time conditions, concealed projection with active modifier, source/priority drift, hand-trigger reoffer and actual entry. No experimental material or match. One independent review at bundle end, related/full-turn verification and remote checkpoint; continue remaining preparation.
