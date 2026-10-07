@@ -81,7 +81,7 @@ test('bare sakura has rounded terminal buds and preserves original open upper-le
  assert.equal(rows[5].colony[0].spec.normalEye,'round','source upper-left bud has open eyes');
 });
 test('venus flytrap representatives retain a broad rosette and five cupped red traps with physical rim teeth',async()=>{
- const row=require('../character-3d/botanical-spec.js')().venus_flytrap;assert.ok(row,'explicit original-derived representatives');assert.deepEqual(Object.keys(row.stages),['3','7']);
+ const row=require('../character-3d/botanical-spec.js')().venus_flytrap;assert.ok(row,'explicit original-derived representatives');assert.deepEqual(Object.keys(row.stages),['1','2','3','4','5','6','7','8']);
  const {branchOrganism}=await import('../character-3d/branch-organism.mjs'),{THREE}=await import('../character-3d/geometry.mjs'),{attachFace}=await import('../character-3d/rig.mjs');
  const rosette=row.stages[3];assert.ok(rosette.foliage.length>=9);assert.ok(rosette.foliage.every(l=>l.width>.08),'broad smooth leaves, not spines');const r=branchOrganism(rosette,'venus:3');assert.equal(attachFace(r,r.faceSpec,'C').eyes.length,2);
  const adult=row.stages[7];assert.equal(adult.colony.length,5);const a=branchOrganism(adult,'venus:7');assert.equal(a.faceSpec.length,5);assert.deepEqual(a.faceSpec.map(f=>f.bone),['unit0','unit1','unit2','unit3','unit4']);

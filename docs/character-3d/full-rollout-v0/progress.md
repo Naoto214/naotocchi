@@ -677,3 +677,11 @@ Draft/base/protected code boundaries maintained. Chromium/SwiftShader is not iPh
 Fresh remote/local42dd99a andtree1b7447c matched; Draft376/base unchanged. Reproduced inherited face readability testRED (AssertionError: separated eyes collapse into dot). Normal-distance16-view board confirms04 small face. Shared branch builder now accepts optional per-spec faceHalf; onlyworld4 uses .16 instead of default .09855, preserving trunk/crown and all other defaults. Test4/4GREEN; dedicated220PASS/0FAIL;9/9world-tree mutationsRED/restored;28Pilot hashesunchanged. This is a candidate correction, NOT image gate acceptance or runtimepromotion. Rejected04front and raw verification saved inworld-tree-face-20261007. Recapture required.
 
 42dd99a Character37567216050,Runtime37567222572,Home37567222634 allSUCCESS. Aggregateartifact11459393592 independently validated22shards/176unique exact playerstages, requested/index/keymatch,live3Dtrue,fallback0/failedTemplates0/errors0; rawsaved. Historical fullnpm3007PASS/2FAIL remains known and notclaimedgreen. Runtime180/293,113pending unchanged. No protectedWorld/Home/Expression/gameplay/save changes or iPhoneclaim.
+
+### 2026-10-07 — Venus remaining six candidate stages
+
+Worldtree04fix saved as9b79310dcf4c1e78eb566ab2bdd88f0dc968e9bd/treecf1669da47c084bb6b294244b81de71e1cd93bfe; fetchedlocal/remote/tree matchedclean. Its Actions37573312697 running.
+
+Inspectedall8Venus originals. Added explicit brownseed01,soil/twoyoungcups02,base+twoheads04,base+threeheads05,purpleinsect inonegiantcup06,sixwhiteflowers withthreefaces/twolowertraps08. Reused existingbranch/colony/cup/flowergeometry; allpriorbotanical specifications includingaccepted03/07 JSON-equivalent. All8capturing requested in existingwave/distance pipeline, no productionpromotion. NewTDDtestsRED for missingstages, thenGREEN. Groundcheck caughtlownewleaves; fixedonlynewbase leafheight without loweringthreshold. Dedicated222PASS/0FAIL,Venus5/5andbotanical22/22mutationsRED/restored,Pilot28hashesmatch. Fullnpm startedseparately; previousknown3007PASS/2FAIL retaineduntilfreshcompletion.
+
+Evidence invenus-all8-candidates-20261007. Originalshape simplifications andfaceownership recorded. All8imagegate pending; testsarenotvisualacceptance. Runtime180/293,113pending unchanged. Draft/protectedboundariesmaintained.

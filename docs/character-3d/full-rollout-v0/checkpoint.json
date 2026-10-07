@@ -1,6 +1,6 @@
 {
-  "baseCommit": "42dd99acd665b20b4b404903c429f666839c2576",
-  "checkpoint": "world-tree04-face-readability-candidate-awaiting-recapture",
+  "baseCommit": "9b79310dcf4c1e78eb566ab2bdd88f0dc968e9bd",
+  "checkpoint": "venus-all8-candidates-world-tree04-recapture-pending",
   "coverage": {
     "exact": 180,
     "total": 293,
@@ -11,19 +11,21 @@
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 220,
+    "dedicatedPass": 222,
     "rolloutMutationsDetected": 24,
     "pilotHashesUnchanged": 28,
     "fullNpm": "3007 pass / 2 fail; same failures on immutable fb3 baseline",
     "postPromotionAggregate": "42dd99a:22families/176exact player stages, fallback0/failedTemplates0/errors0,artifact11459393592",
     "nonplayerMutationsDetected": 7,
     "worldTreeMutationsDetected": 9,
-    "previousHeadCI": "42dd99a Character37567216050/Runtime37567222572/Home37567222634 success"
+    "previousHeadCI": "42dd99a Character37567216050/Runtime37567222572/Home37567222634 success",
+    "venusMutationsDetected": 5,
+    "botanicalMutationsDetected": 22
   },
   "next": [
     "Recapture world_tree04 faceHalf .16 and evaluate all8 image gate before any promotion",
-    "Verify new candidate CI; retain world_tree unpromoted until visual acceptance",
-    "Expand Venus and Plush remaining6; review other saved representatives",
+    "Review Venus all8 captures; retain all unreviewed candidates outside runtime",
+    "Expand Plush remaining6; review other saved representatives",
     "Implement remaining41 nonplayers; final full QA"
   ],
   "protected": [
