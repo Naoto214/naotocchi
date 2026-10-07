@@ -312,3 +312,11 @@ c8b869dから継続。W-cityの現ターン2枚目/起点/現在セカイ/使用
 関連33PASS（4.302s）、Python固定の結合19PASS（130.792s、既存115/test-zero-root全20turn/R10・実入口・admission）、npm406PASS。独立review C0/I0/Minor0、追加reviewなし。設計errors=[]、番号付き476不変。verification/closure-binding-review.mdと各logを参照。空のobserve呼出し差は許容し、保存journal自体の再構成と意味状態の一致を別に検証する。最新全proxy回帰とは呼ばない。
 
 これは供給済み機会の保存状態結合。実行recordの認証は既存replayに依存し、source起点/全発生機会・予約閉包・実情報使用/operand・外部承認/時系列/lockは未証明。preflight-ready=false、生成/固定/400戦0、旧116除外、policy promotion=false、独立balance0、全体結論null。次は既存collectの早期除外を含むsource/phase監査と残gateへ。
+
+## native公開source列挙と早期不成立条件の結合
+
+35a6899のfresh remote照合後も継続。既存trigger_predicates scopeでcollectを包み、公開sourceごとに支持範囲のclassificationと範囲外unprovedが欠落/重複なく対応することを確認。P-cat_ceoの早期不成立だけ監査を迂回する経路へ、既存relationship意味監査を空候補で接続。成立時の強制機会を偽の不成立へ落とすことを拒否する。正の機会投影はfresh auditのsource/actor/category/timing/reference/originへ結合し、W-cityの走査起点と2枚目事象の違いを維持。候補器/効果/選択処理/旧source pinsは不変。
+
+初期3tests/5failure RED、途中fixture callback戻り値のtest不備は修正して別error logに保持。origin差替え1RED→GREEN後、最終関連45PASS（6.485s）。全Python固定の結合19PASS（132.046s、既存115/test-zero-root全20turn/R10・実入口・admission）。独立review C0/I0/Minor0、設計errors=[]、保護476不変。詳細verification/native-collection-review.md。npm406は直前closure bundleの結果で、このbundleの新全proxy/npm結果ではない。
+
+証拠境界：同じ呼出し内でwrapped enumerateがfresh生成した現在predicate証拠を結合する。任意の保存済みproof dictionaryを認証するAPIではない。公開source rosterだけでは全機会/独立起点/伏せ情報使用/比較operand/予約閉包の証明にならない。これらと外部承認認証・結果前順序・本番lock/provenanceの残gateは未解消。preflight-ready=false、seed生成/本番固定/400戦0、旧116除外、新方式414/A未採用、policy promotion=false、独立balance0、全体結論null。次は各正本効果routeと実dispatchに由来する予約/自動処理の条件・機会を既存closureへ結合し、実情報使用/operandと承認gateを進める。

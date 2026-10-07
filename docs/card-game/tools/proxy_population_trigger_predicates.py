@@ -167,6 +167,7 @@ def _audit(envelope,occurrence,actions,kind,history=None):
  except (ValueError,KeyError,TypeError,IndexError,OSError) as error:errors.append(str(error))
  return dict(schema='sequential_current_trigger_predicates.v1',current_trigger_predicates_verified=not errors,errors=errors,mechanism=kind,source_reference=reference,verified_candidate_count=len(expected),
   current_envelope_sha256=state.canonical_sha256(envelope),occurrence_sha256=state.canonical_sha256(occurrence),
+  verified_occurrence_origin_event_seq=(second['seq'] if kind=='city' and expected else occurrence['origin_event_seq']) if not errors else None,
   candidate_identity_grammar_proven=False,origin_authenticated=False,complete_legal_set_proven=False,information_use_proven=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)
 
 
@@ -179,9 +180,48 @@ def audit_relationship(envelope,occurrence,actions,history):return _audit(envelo
 def audit_challenge(envelope,occurrence,actions,history):return _audit(envelope,occurrence,actions,'challenge',history)
 
 
+def _collection(envelope,history,origin,result):
+ """Bind a fresh native collect result; never authenticate a saved proof object."""
+ public=starts.public_sources(envelope);classified=result['classifications'];outside=result['unproved_sources']
+ supported={s for s,r in public.items() if r['card_id'] in existing.SUPPORTED}
+ classified_ids=[r['source_instance_id'] for r in classified];outside_ids=[r['source_instance_id'] for r in outside]
+ if len(set(classified_ids))!=len(classified_ids) or set(classified_ids)!=supported or len(set(outside_ids))!=len(outside_ids) or set(outside_ids)!=set(public)-supported:raise ValueError('native collection source coverage differs')
+ if type(origin) is not int or sum(e['seq']==origin for e in history)!=1:raise ValueError('native collection origin absent or ambiguous')
+ negative=0;wanted={}
+ for row in classified:
+  source=row['source_instance_id'];item=public[source];card=item['card_id'];cap=batch.classification(card)
+  occurrence=dict(origin_event_seq=origin,source_instance_id=source,actor=item['actor'],category='forced' if card=='P-cat_ceo' else 'optional',ability_key=cap['timing'],source_reference=cap['reference'])
+  if type(row['condition_met']) is not bool:raise ValueError('native collection condition type differs')
+  if card=='P-cat_ceo' and not row['condition_met']:
+   check=audit_relationship(envelope,occurrence,[],history)
+   if check['errors']:raise ValueError('native collection negative predicate differs: '+str(check['errors']))
+   row['proof']=dict(row.get('proof',{}),current_predicate_audit=check);negative+=1
+  check=row['proof']['current_predicate_audit']
+  if check['errors'] or check['current_trigger_predicates_verified'] is not True or check['current_envelope_sha256']!=state.canonical_sha256(envelope) or check['occurrence_sha256']!=state.canonical_sha256(occurrence) or row['condition_met']!=bool(check['verified_candidate_count']):raise ValueError('native collection current predicate binding differs')
+  if row['condition_met']:wanted[source]=dict(occurrence,origin_event_seq=check['verified_occurrence_origin_event_seq'])
+ for row in outside:
+  if row['card_id']!=public[row['source_instance_id']]['card_id'] or row['reason']!='outside_existing_trigger_adapter_scope':raise ValueError('native collection unsupported classification differs')
+ seen=set()
+ for occurrence in result['occurrences']:
+  ledger.identity(occurrence);source=occurrence['source_instance_id']
+  if source in seen or source not in wanted:raise ValueError('native collection occurrence projection differs')
+  seen.add(source)
+  for field in ledger.FIELDS:
+   if occurrence[field]!=wanted[source][field]:raise ValueError('native collection occurrence source differs')
+  # City uses the second-play origin certified by the fresh predicate check,
+  # which can differ from the scan's window anchor. This is not authentication.
+  if occurrence['origin_event_seq']>envelope['event_seq'] or sum(e['seq']==occurrence['origin_event_seq'] for e in history)!=1:raise ValueError('native collection occurrence origin differs')
+ if seen!=set(wanted):raise ValueError('native collection eligible occurrence missing')
+ result['current_collection_audit']=dict(schema='current_native_source_collection.v1',current_source_collection_bound=True,
+  public_source_count=len(public),classified_source_count=len(classified),unproved_source_count=len(outside),negative_relationship_count=negative,
+  scope='current_public_native_sources_and_early_relationship_negative',current_envelope_sha256=state.canonical_sha256(envelope),
+  origin_authenticated=False,all_rule_opportunities_proven=False,information_use_proven=False,policy_eligible=None,balance_admitted=None)
+ return result
+
+
 @contextmanager
 def scope():
- native_latched=latching.current_actions;native_start=sequential.StartAdapter.enumerate;native_existing=existing.ExistingAdapter.enumerate
+ native_latched=latching.current_actions;native_start=sequential.StartAdapter.enumerate;native_existing=existing.ExistingAdapter.enumerate;native_collect=existing.ExistingAdapter.collect
  def checked(result,envelope,occurrence,audit):
   rows,proof=result;check=audit(envelope,occurrence,rows)
   if check['errors']:raise ValueError('trigger current predicates differ: '+str(check['errors']))
@@ -194,7 +234,12 @@ def scope():
   audit=audit_arrival if card in ARRIVAL_CARDS else audit_end if card in END_CARDS else audit_city if card=='W-city' else audit_relationship if card=='P-cat_ceo' else audit_challenge if card in ('M-antlion-07','P-anglerfish') else None
   if audit is None:return result
   return checked(result,envelope,occurrence,lambda e,o,a:audit(e,o,a,adapter.history))
+ def collect(adapter,envelope,origin_event_seq=None):
+  result=native_collect(adapter,envelope,origin_event_seq)
+  origin=envelope['legacy_continuation']['response_context']['origin_event_seq'] if origin_event_seq is None else origin_event_seq
+  return _collection(envelope,adapter.history,origin,result)
  try:
+  existing.ExistingAdapter.collect=collect
   latching.current_actions=latched;sequential.StartAdapter.enumerate=start;existing.ExistingAdapter.enumerate=arrival
   yield
- finally:latching.current_actions=native_latched;sequential.StartAdapter.enumerate=native_start;existing.ExistingAdapter.enumerate=native_existing
+ finally:latching.current_actions=native_latched;sequential.StartAdapter.enumerate=native_start;existing.ExistingAdapter.enumerate=native_existing;existing.ExistingAdapter.collect=native_collect

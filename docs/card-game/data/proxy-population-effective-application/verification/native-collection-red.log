@@ -1,0 +1,72 @@
+FFFFF
+======================================================================
+FAIL: test_early_negative_cannot_suppress_a_met_forced_obligation (test_proxy_population_native_collection.CollectionTests.test_early_negative_cannot_suppress_a_met_forced_obligation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_native_collection.py", line 46, in test_early_negative_cannot_suppress_a_met_forced_obligation
+    with self.assertRaisesRegex(ValueError,'collection'):self.run_case(lambda e,h,o:existing.ExistingAdapter(h).collect(e,3))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_negative_relationship_gets_fresh_semantic_audit (test_proxy_population_native_collection.CollectionTests.test_negative_relationship_gets_fresh_semantic_audit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_native_collection.py", line 24, in test_negative_relationship_gets_fresh_semantic_audit
+    self.run_case(run)
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_native_collection.py", line 14, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback(*relationship()))
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 108, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 107, in connected
+    with growth.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                 ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_native_collection.py", line 14, in <lambda>
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback(*relationship()))
+                                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_native_collection.py", line 21, in run
+    self.assertIn('proof',row,'early negative relationship bypasses semantic audit')
+AssertionError: 'proof' not found in {'source_instance_id': 'A-017#1', 'condition_met': False} : early negative relationship bypasses semantic audit
+
+======================================================================
+FAIL: test_source_omission_and_duplicate_are_rejected_at_collect (test_proxy_population_native_collection.CollectionTests.test_source_omission_and_duplicate_are_rejected_at_collect) (mutation='omit')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_native_collection.py", line 36, in test_source_omission_and_duplicate_are_rejected_at_collect
+    with self.assertRaisesRegex(ValueError,'collection'):self.run_case(lambda e,h,o:existing.ExistingAdapter(h).collect(e,3))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_source_omission_and_duplicate_are_rejected_at_collect (test_proxy_population_native_collection.CollectionTests.test_source_omission_and_duplicate_are_rejected_at_collect) (mutation='duplicate')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_native_collection.py", line 36, in test_source_omission_and_duplicate_are_rejected_at_collect
+    with self.assertRaisesRegex(ValueError,'collection'):self.run_case(lambda e,h,o:existing.ExistingAdapter(h).collect(e,3))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_source_omission_and_duplicate_are_rejected_at_collect (test_proxy_population_native_collection.CollectionTests.test_source_omission_and_duplicate_are_rejected_at_collect) (mutation='outside')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_native_collection.py", line 36, in test_source_omission_and_duplicate_are_rejected_at_collect
+    with self.assertRaisesRegex(ValueError,'collection'):self.run_case(lambda e,h,o:existing.ExistingAdapter(h).collect(e,3))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.166s
+
+FAILED (failures=5)
