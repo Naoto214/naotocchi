@@ -210,3 +210,13 @@ E-bossは91の「このターンに負けた事実」のみを条件とするの
 preflight-ready=false。残る共通責務は通常盤上/予約とresponseのpredicate、実際の許可情報使用、比較operandの根拠、全source/phaseの機会合成、結果前remote公開と外部生成/実行承認の結合。seed生成・本番入力固定・400戦開始0、旧116除外、新方式未採用、全体結論nullを維持。最新詳細証跡はverification/hand-bundle-*。
 
 運用：GitHub保存checkpointを正本とし、安全な区切りでcommit/pushとfresh remote確認。以後は最新checkpointと残件を中心に進め、古い途中ログを会話へ再展開しない。保護対象と未承認の生成/固定/実行境界は継続保持する。
+
+## 通常盤上能力のpredicateと供給unitの対応
+
+4bd9853から継続。支払能力の現在main・現物cost全候補・現incarnation使用回数、C-cat_friendの現在companion・別名捨札対象・回数を既存helperで照合。手札の同能力は盤上自身costを払えないため除外。常時/誘発/response専用の通常非発動をsource分類から確認し、未対応能力・予約は未証明へ残す。
+
+実入口でcore/hand/boardのfresh監査を合成し、供給された通常unit IDの欠落・重複・外部IDを検出。供給unitのpredicate対応だけを示し、完全合法集合、実情報使用、比較operand、全rule機会、任意caller proof認証へ昇格しない。
+
+最終関連33PASS（13.036s）、policy journal/admission結合25PASS（127.245s）。独立review C0/I0/Minor1、予約・外部ID・未知schemaの保守的境界テスト追加で対応、追加後5PASS（2.709s）。結合検証後はtestのみ変更、実装source不変。設計errors=[]、番号付き保護正本476件不変。証跡verification/board-bundle-*。全proxy/npmの旧版検証とは区別。
+
+preflight-ready=false。次はresponse個別predicate、許可情報の実使用、operand根拠、全source/phase機会、結果前remote lockと外部承認gateの結合。旧116除外・新方式未採用・独立balance標本0・全体結論nullを維持。seed生成/本番入力固定/400戦開始0。

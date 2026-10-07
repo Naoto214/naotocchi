@@ -14,6 +14,7 @@ import proxy_population_unproved_priority as unresolved
 import proxy_population_activation_legality as legality
 import proxy_population_loss_reward as loss_reward
 import proxy_population_hand_predicates as hand_predicates
+import proxy_population_board_predicates as board_predicates
 import proxy_population_public_application as public_application
 import proxy_population_legacy_choice_obligations as legacy_choices
 import proxy_population_source_inventory as source_inventory
@@ -51,6 +52,12 @@ def contract_scope():
      hand_proof=hand_predicates.audit_normal(result['source_envelope'],events,decision['inventory'])
      if hand_proof['errors']:raise ValueError('normal hand predicates differ: '+str(hand_proof['errors']))
      result['normal_hand_predicates']=hand_proof
+     board_proof=board_predicates.audit_normal(result['source_envelope'],decision['inventory'])
+     if board_proof['errors']:raise ValueError('normal board predicates differ: '+str(board_proof['errors']))
+     result['normal_board_predicates']=board_proof
+     unit_coverage=board_predicates.compose(decision['inventory'],[predicates,hand_proof,board_proof])
+     if unit_coverage['errors']:raise ValueError('normal predicate composition differs: '+str(unit_coverage['errors']))
+     result['normal_unit_predicate_coverage']=unit_coverage
     elif decision.get('decision_kind')=='response_action':
      coverage=source_inventory.audit_response(result['source_envelope'],decision['candidate_set_evidence'])
      expansion=response_expansions.audit(result['source_envelope'],events,decision['candidate_set_evidence'])
