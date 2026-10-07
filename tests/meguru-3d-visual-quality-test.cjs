@@ -3,6 +3,33 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const mod = () => import('../meguru-3d.mjs');
+// Bank color patches must not recolor water or change the crossing geometry.
+test('VQ-22 dry-bank patches are continuous, bounded and leave unpainted water unchanged', async () => {
+  const { streamStripData } = await mod();
+  const pts = [0, 80, 160, 240, 320].map(z => ({x:0,z,w:50}));
+  const lanes = [{s:-1,a:1,b:35,y:0.6,c:[0.2,0.4,0.1]},
+    {s:-1,a:.88,b:0,y:-9,c:[0.1,0.3,0.7]}, {s:1,a:1,b:35,y:0.6,c:[0.2,0.4,0.1]}];
+  const painted = lanes.map((p,i)=>i===1?p:{...p,patch:[0.5,0.6,0.3]});
+  const input = JSON.stringify([pts,painted]);
+  const plain = streamStripData(pts,lanes), result = streamStripData(pts,painted);
+  assert.deepEqual(result.positions,plain.positions);
+  assert.deepEqual(result.index,plain.index);
+  assert.deepEqual(result.uvs,plain.uvs);
+  assert.equal(JSON.stringify([pts,painted]),input);
+  assert.deepEqual(streamStripData(pts,painted).colors,result.colors);
+  const shades = [];
+  for(let i=0;i<pts.length;i++) {
+    for(let channel=0;channel<3;channel++) assert.equal(result.colors[i*9+3+channel],plain.colors[i*9+3+channel]);
+    for(const j of [0,2]) for(let channel=0;channel<3;channel++) {
+      const color=result.colors[i*9+j*3+channel];
+      assert.ok(color>=painted[j].c[channel]-1e-7 && color<=painted[j].patch[channel]+1e-7);
+    }
+    shades.push(result.colors[i*9]);
+  }
+  assert.ok(new Set(shades).size>2,'bank must have spatial variation');
+  const near = streamStripData([{x:0,z:0,w:50},{x:0,z:0.001,w:50}],painted);
+  for(let j=0;j<9;j++) assert.ok(Math.abs(near.colors[j]-near.colors[9+j])<0.0001,'no seams in patch field');
+});
 // Catch disconnected porch supports and below-head roofs outside canonical lots.
 test('VQ-9 residential porch supports meet roof slopes within canonical lots', () => {
   const { harness } = require('./helpers/runtime-harness.cjs');

@@ -261,9 +261,20 @@ export function streamBedY(d, w, river, ditch) {
 // 帯の データ(はばが 点ごとに かわる): pts = [{ x, z, w }]、lanes = [{ a, b, y | 'g', c }](左 −、右 +。o = s × (a × w + b))。groundAt(x, z) で 'g' の 高さ
 export function streamStripData(pts, lanes, groundAt) {
   const fr = polylineFrames(pts.map((p) => [p.x, p.z])), pos = [], col = [], uv = [], idx = [], Ln = lanes.length;
+  const patchNoise = vnoise(83);
   fr.forEach((f, i) => {
     const w = pts[i].w;
-    lanes.forEach((ln, j) => { const edge = (ln.edgeVariation || 0) * (Math.sin(f.x * 0.018 + f.z * 0.013 + ln.s) * 0.6 + Math.sin(f.s * 0.039 + ln.s * 2) * 0.4); const o = ln.s * (ln.a * w + ln.b + edge), x = f.x + f.nx * o, z = f.z + f.nz * o, y = ln.y === 'g' ? (groundAt ? groundAt(x, z) : 0) + 0.4 : ln.y; pos.push(x, y, -z); col.push(ln.c[0], ln.c[1], ln.c[2]); uv.push(j / Math.max(1, Ln - 1), f.s / 400); });
+    lanes.forEach((ln, j) => {
+      const edge = (ln.edgeVariation || 0) * (Math.sin(f.x * 0.018 + f.z * 0.013 + ln.s) * 0.6 + Math.sin(f.s * 0.039 + ln.s * 2) * 0.4);
+      const o = ln.s * (ln.a * w + ln.b + edge), x = f.x + f.nx * o, z = f.z + f.nz * o;
+      const y = ln.y === 'g' ? (groundAt ? groundAt(x, z) : 0) + 0.4 : ln.y;
+      pos.push(x, y, -z);
+      // Broad soil/gravel patches share world coordinates across both banks.
+      // Only explicitly painted dry lanes participate; water and bed stay exact.
+      const mix = ln.patch ? (patchNoise(x / 170, z / 170) + 1) * 0.5 : 0;
+      for (let channel = 0; channel < 3; channel++) col.push(ln.c[channel] + (ln.patch ? (ln.patch[channel] - ln.c[channel]) * mix : 0));
+      uv.push(j / Math.max(1, Ln - 1), f.s / 400);
+    });
   });
   for (let i = 0; i < fr.length - 1; i++) for (let j = 0; j < Ln - 1; j++) { const a = i * Ln + j, b = a + 1, c = a + Ln, d = c + 1; idx.push(a, c, b, b, c, d); }
   return { positions: new Float32Array(pos), colors: new Float32Array(col), uvs: new Float32Array(uv), index: idx };
@@ -917,7 +928,12 @@ function create3DRenderer(M, o, onLost) {
         const L = (sgn, a, b, y, c) => ({ s: sgn, a, b, y, c });
         const bed = [L(-1, 1, 75, 'g', grassC), L(-1, 1, 35, 0.6, lipC), L(-1, 1, 8, -6 * k, soilC), L(-1, 0.6, 0, -13 * k, gravelC), L(1, 0, 0, -17 * k, bedC), L(1, 0.6, 0, -13 * k, gravelC), L(1, 1, 8, -6 * k, soilC), L(1, 1, 35, 0.6, lipC), L(1, 1, 75, 'g', grassC)];
         // VQ: only the dry outer bank changes contour. Water width, bed and crossing data stay canonical.
-        if (st.kind !== 'ditch') for (const ln of bed) if (ln.b >= 35) ln.edgeVariation = ln.b >= 75 ? 14 : 7;
+        if (st.kind !== 'ditch') for (const ln of bed) if (ln.b >= 35) {
+          ln.edgeVariation = ln.b >= 75 ? 14 : 7;
+          // Break the continuous green ribbon with exposed dry soil and gravel.
+          // Keep the outer edge grass-led and the waterline/cross-section intact.
+          ln.patch = ln.c.map((v, i) => v + ((ln.b >= 75 ? soilC[i] : gravelC[i]) - v) * (ln.b >= 75 ? 0.28 : 0.5));
+        }
         water.meshes.push(stripMesh(streamStripData(st.pts, bed, terr.sample), bankMat, river ? 'water:bank' : 'water:creekbed'));
         const wl = [L(-1, 0.88, 0, wy, shallowC), L(-1, 0.4, 0, wy, deepC), L(1, 0.4, 0, wy, deepC), L(1, 0.88, 0, wy, shallowC)];
         water.meshes.push(stripMesh(streamStripData(st.pts, wl), river ? waterMat : streamMat, river ? 'water:river' : 'water:creek'));
