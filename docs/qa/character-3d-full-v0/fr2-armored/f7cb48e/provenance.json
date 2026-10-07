@@ -1,0 +1,9 @@
+{
+  "sourceCommit": "f7cb48ea28830036a1ca3282b95b6db49353e386",
+  "artifact": 11447351173,
+  "run": 37518156776,
+  "exactUniqueStages": 168,
+  "families": 21,
+  "platform": "Chromium/SwiftShader; not iPhone",
+  "wholeWorkflow": "failure: stale Pilot mutation selector; 214 dedicated tests passed"
+}

@@ -1,6 +1,7 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap','tests/character-3d-plush-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['drooped mouth clearance','character-3d/mythic-spec.js','heart:{at:[0,.08,.255]','heart:{at:[0,.15,.255]'],
  ['owned heart prop','character-3d/soft-toy.mjs','if(sp.heart)','if(false)'],
  ['solid heart depth','character-3d/soft-toy.mjs','depth:.085','depth:.001'],
  ['physical round ears','character-3d/soft-toy.mjs','const e of sp.ears','const e of []'],
