@@ -1,0 +1,18 @@
+{
+  "sourceCommit": "3076d288f3ef9de2b02876431117f8049d396950",
+  "waveArtifact": 11463280279,
+  "distanceArtifact": 11462287707,
+  "status": "PASS_ALL8_IMAGE_GATE",
+  "scope": {
+    "fourViews": 32,
+    "canonicalStates": 256,
+    "normalDistance": 16
+  },
+  "review": "All eight four-view boards, all eight 32-state sheets and sixteen front/back normal-distance captures directly inspected against original strips. Bow, raised paw, heart, repaired seams, cotton, blue patches, one-ear worn form and scarf read. Mouth remains visible in tired/sleeping states.",
+  "simplifications": "Smooth fabric, reduced individual wear marks and no decorative floating sparkles; v0 volume and canonical expression retained.",
+  "notClaimed": [
+    "iPhone acceptance",
+    "final Human QA",
+    "full293 completion"
+  ]
+}

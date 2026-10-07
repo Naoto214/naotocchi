@@ -193,5 +193,14 @@ test('reviewed world tree batch resolves eight exact rooted stage identities in 
   const t=getTemplate('world_tree',stage);assert.equal(t.status,'ok');assert.equal(t.rig.archetype,'branch_organism');assert.equal(instantiate(t).faces.length,1);
  }
  assert.equal(SPEC.specKeyFor({line:'venus_flytrap',stage:0}),null,'unreviewed Venus remains isolated');
- assert.equal(SPEC.specKeyFor({line:'plush',stage:0}),null,'unreviewed Plush remains isolated');
+
+});
+test('reviewed plush batch resolves all eight exact soft toy actors with one canonical face',async()=>{
+ const rt=await import('../character-3d/runtime.mjs'),an=await import('../character-3d/animate.mjs');
+ for(let stage=1;stage<=8;stage++){
+  assert.deepEqual(SPEC.specKeyFor({line:'plush',stage:stage-1}),{id:'plush',stage,exact:true});
+  const t=rt.getTemplate('plush',stage);assert.equal(t.status,'ok');assert.equal(t.rig.archetype,'soft_toy');
+  for(const emotion of SPEC.CANONICAL_EMOTIONS){const a=rt.instantiate(t);an.setEmotion(a,emotion);an.animate(a,{dt:.05,moving:true,animLv:2});assert.equal(a.faces.length,1);assert.equal(a.faces[0].emotion,emotion);}
+ }
+ assert.equal(SPEC.specKeyFor({line:'venus_flytrap',stage:0}),null,'unreviewed Venus remains isolated');
 });

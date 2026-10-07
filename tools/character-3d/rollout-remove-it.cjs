@@ -2,6 +2,7 @@
 const fs=require('fs'),path=require('path'),cp=require('child_process'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'../..'),test='tests/character-3d-rollout-test.cjs';
 const cases=[
+ ['plush runtime coverage','character-3d/rollout-spec.js',',plush:mythicFactory(PILOT).plush','','reviewed plush batch'],
  ['worldtree runtime coverage','character-3d/rollout-spec.js',',world_tree:botanicalFactory(PILOT).world_tree','','reviewed world tree batch'],
  ['hermit runtime coverage','character-3d/rollout-spec.js',',hermit_crab:armoredFactory(PILOT).hermit_crab','','reviewed hermit batch'],
  ['antlion runtime coverage','character-3d/rollout-spec.js',',antlion:armoredFactory(PILOT).antlion','','reviewed antlion batch'],

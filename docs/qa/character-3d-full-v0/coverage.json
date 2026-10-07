@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 188,
-    "pending": 105,
-    "fourViewRecords": 186
+    "exactSpecs": 196,
+    "pending": 97,
+    "fourViewRecords": 194
   },
   "rows": [
     {
@@ -4496,15 +4496,15 @@
       "group": "rare",
       "asset": "assets/characters/plush/01.png",
       "sha256": "3ec17621b786a5e35de0a61de7fa9ff4e4e63d71c185603177aa5915113a4b5c",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-1-back.jpg"
       }
     },
     {
@@ -4516,15 +4516,15 @@
       "group": "rare",
       "asset": "assets/characters/plush/02.png",
       "sha256": "e55fe4ded4dc02a2ab8e58ed984d214767bdba5d273c21474a59c05dcfbd8758",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-2-back.jpg"
       }
     },
     {
@@ -4536,15 +4536,15 @@
       "group": "rare",
       "asset": "assets/characters/plush/03.png",
       "sha256": "92897650489a2ec86f4c886ffc0f8db9ac800fe0b62ae9ef7f231dfffe6074bc",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-3-back.jpg"
       }
     },
     {
@@ -4556,15 +4556,15 @@
       "group": "rare",
       "asset": "assets/characters/plush/04.png",
       "sha256": "ccbabfd4c706e414f13f0f1d09082900a7bc25fa1737873abd5a86f3ca6629f2",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-4-back.jpg"
       }
     },
     {
@@ -4576,15 +4576,15 @@
       "group": "rare",
       "asset": "assets/characters/plush/05.png",
       "sha256": "249cf4a7427e9feb7d6be113c9bff49290314c631acdea789a57df521537adf4",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-5-back.jpg"
       }
     },
     {
@@ -4596,15 +4596,15 @@
       "group": "rare",
       "asset": "assets/characters/plush/06.png",
       "sha256": "549760daddc34abae06b7bf44605606c0cda88b037819c9903eae306ee902ac3",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-6-back.jpg"
       }
     },
     {
@@ -4616,15 +4616,15 @@
       "group": "rare",
       "asset": "assets/characters/plush/07.png",
       "sha256": "43185638fc4aa6adc95e7dc046c302f39bf4c4d69d6dfca9cc9fb6615083e757",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-7-back.jpg"
       }
     },
     {
@@ -4636,15 +4636,15 @@
       "group": "rare",
       "asset": "assets/characters/plush/08.png",
       "sha256": "e517e31ad08aa5827f533d4a7f316d399b6960068fd0d3035837781a0808da12",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr5-mythic/3076d28-plush/plush-8-back.jpg"
       }
     },
     {

@@ -109,7 +109,7 @@
  const venusTwo=rootedVenus(venusBase(),[venusHead([-.27,.77,-.03],.235,.17,'round',[0,-.3,.23]),venusHead([.29,.60,.01],.145,.145,'content',[0,.55,-.3])]);
  venusTwo.colony[2].spec.colors.body='#a2c42c';venusTwo.colony[2].spec.colors.light='#e2e95c';
  const venusThree=rootedVenus(venusBase(),[venusHead([0,1.02,-.04],.245,.195,'happy'),venusHead([-.37,.62,.015],.18,.15,'round',[0,-.5,.23]),venusHead([.37,.60,.015],.18,.15,'happy',[0,.5,-.23])]);
- const giantCup=venusHead([0,.36,0],.47,.28,'round',[-.18,0,0],false);giantCup.spec.trap.teeth=24;giantCup.spec.trap.length=.09;giantCup.spec.trap.rim=.027;giantCup.spec.branches=[];
+ const giantCup=venusHead([0,.36,0],.47,.28,'round',[-.18,0,0],false);giantCup.spec.body.depth=.20;giantCup.spec.trap.teeth=24;giantCup.spec.trap.length=.09;giantCup.spec.trap.rim=.027;giantCup.spec.branches=[];
  const insect={archetype:'branch_organism',body:{width:.135,height:.12,depth:.08,y:0},normalEye:'round',branches:[{path:[[-.06,.07,0],[-.09,.15,.005],[-.11,.19,0]],r:.009,taper:.3},{path:[[.06,.07,0],[.09,.15,.005],[.11,.19,0]],r:.009,taper:.3}],foliage:[],stones:[],colors:{body:'#7560d1',light:'#bbaaed',branch:'#584486',tip:'#a287e5',stones:[],blush:'#e5809e'}};
  const venusCup={archetype:'branch_organism',suspended:true,stones:[],stoneColors:[],colony:[giantCup,{at:[0,.35,.065],scale:1,spec:insect}]};
  const flowerPositions=[[-.36,.86,.025,.22,true,'round'],[0,1.24,-.02,.28,true,'happy'],[.39,.74,.05,.21,true,{left:'happy',right:'round'}],[.35,1.17,-.09,.13,false,'round'],[-.47,.43,.08,.13,false,'round'],[.47,.36,.09,.12,false,'round']];

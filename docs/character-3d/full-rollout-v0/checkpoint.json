@@ -1,33 +1,36 @@
 {
-  "baseCommit": "3076d288f3ef9de2b02876431117f8049d396950",
-  "checkpoint": "world-tree-all8-reviewed-promoted-188",
+  "baseCommit": "b12dc7a12bc66a5068682338399b4a15432dfd2f",
+  "checkpoint": "plush-all8-reviewed-promoted-196-venus06-depth-recapture-pending",
   "coverage": {
-    "exact": 188,
+    "exact": 196,
     "total": 293,
-    "pending": 105,
-    "playerFamilies": 23,
-    "playerStages": 184,
+    "pending": 97,
+    "playerFamilies": 24,
+    "playerStages": 192,
     "companions": 3,
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 226,
-    "rolloutMutationsDetected": 24,
+    "dedicatedPass": 228,
+    "rolloutMutationsDetected": 26,
     "pilotHashesUnchanged": 28,
     "fullNpm": "3008 pass / 2 fail after Venus; same protected resident-expression failures, not green",
     "postPromotionAggregate": "42dd99a:22families/176exact player stages, fallback0/failedTemplates0/errors0,artifact11459393592",
     "nonplayerMutationsDetected": 7,
     "worldTreeMutationsDetected": 9,
-    "previousHeadCI": "42dd99a Character37567216050/Runtime37567222572/Home37567222634 success",
-    "venusMutationsDetected": 5,
+    "previousHeadCI": "b12dc7a Runtime37591735877/Home37591735859 success;Character37591725500 queued when checked",
+    "venusMutationsDetected": 6,
     "botanicalMutationsDetected": 22,
     "plushStageMutationsDetected": 6,
-    "worldTreeImageGate": "9b79310 artifacts11462261195/11461529312:32fourviews/256states/16distance PASS_ALL8_IMAGE_GATE"
+    "worldTreeImageGate": "9b79310 artifacts11462261195/11461529312:32fourviews/256states/16distance PASS_ALL8_IMAGE_GATE",
+    "plushImageGate": "3076d288 wave11463280279/distance11462287707:32fourviews/256states/16distance PASS_ALL8_IMAGE_GATE",
+    "browserRegistration": "Browser-style UMD loading in ESM import order: Plush08 exact, Dragon03 remains absent",
+    "fullNpmRerun": "npm test started for Plush promotion and Venus06 candidate fix; still running at this checkpoint, no result claimed. Last completed run remains3008PASS/2FAIL."
   },
   "next": [
-    "Review latest Venus all8 wave and distance artifacts before promotion",
-    "Review latest Plush all8 wave and distance artifacts before promotion",
-    "Complete other unpromoted player families and remaining41 nonplayers",
+    "Review corrected Venus06 four-view/state/normal-distance Actions captures; other seven stages still require final full gate decision",
+    "Review saved remaining player representative gates, then expand explicit remaining stages",
+    "Implement remaining41 nonplayers; keep all candidates isolated until image gates",
     "Full293 integration/performance/regression QA and Human QA package"
   ],
   "protected": [

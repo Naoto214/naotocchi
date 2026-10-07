@@ -1,0 +1,10 @@
+{
+  "sourceCommit": "3076d288f3ef9de2b02876431117f8049d396950",
+  "waveArtifact": 11462159890,
+  "distanceArtifact": 11462327031,
+  "status": "REJECT_STAGE06_DEPTH",
+  "finding": "Giant trap inherits .075 depth from small heads, presenting a thin saucer from the side instead of the original insect-enclosing cup.",
+  "fix": "Only giantCup body.depth .075 to .20; existing closed concave trap geometry, insect face and other seven stages unchanged.",
+  "tests": "Side-depth ratio and insect-behind-rim regression RED before fix; 6/6 Venus mutations RED/restored after fix.",
+  "acceptance": "Corrected four-view/state/normal-distance capture required before any Venus runtime promotion."
+}
