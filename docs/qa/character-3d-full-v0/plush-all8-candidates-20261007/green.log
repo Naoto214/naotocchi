@@ -1,0 +1,21 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/0c2aa70cdbce/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/0c2aa70cdbce/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ all plush stages preserve bow, asymmetric arm, repairs, stuffing and scarf as owned volumes (376.504062ms)
+✔ all plush stages keep one face and finite owned bones across32 canonical states (181.708312ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/0c2aa70cdbce/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/0c2aa70cdbce/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ plush representatives preserve round seated bear volumes, held heart03 and worn patched one-ear07 (188.990538ms)
+✔ soft toy limbs, held prop and stitched patches share one actor through32 states (89.184274ms)
+✔ held heart leaves the drooped mouth visible in tired and sleeping poses (20.382458ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 639.980378

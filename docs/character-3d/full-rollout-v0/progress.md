@@ -685,3 +685,11 @@ Worldtree04fix saved as9b79310dcf4c1e78eb566ab2bdd88f0dc968e9bd/treecf1669da47c0
 Inspectedall8Venus originals. Added explicit brownseed01,soil/twoyoungcups02,base+twoheads04,base+threeheads05,purpleinsect inonegiantcup06,sixwhiteflowers withthreefaces/twolowertraps08. Reused existingbranch/colony/cup/flowergeometry; allpriorbotanical specifications includingaccepted03/07 JSON-equivalent. All8capturing requested in existingwave/distance pipeline, no productionpromotion. NewTDDtestsRED for missingstages, thenGREEN. Groundcheck caughtlownewleaves; fixedonlynewbase leafheight without loweringthreshold. Dedicated222PASS/0FAIL,Venus5/5andbotanical22/22mutationsRED/restored,Pilot28hashesmatch. Fullnpm startedseparately; previousknown3007PASS/2FAIL retaineduntilfreshcompletion.
 
 Evidence invenus-all8-candidates-20261007. Originalshape simplifications andfaceownership recorded. All8imagegate pending; testsarenotvisualacceptance. Runtime180/293,113pending unchanged. Draft/protectedboundariesmaintained.
+
+### 2026-10-07 — Plush remaining six candidate stages / World evidence recovery
+
+Venusall8candidates savedc15e1ad8/treef8ffcd0b,remote/local/treeclean matched. Recovered317Worldtreefb3proof files saved2ff1b968/treea83a0bdb,remote/local/treeclean matched. Old04facehold remains explicit; new9b normaldistance images reviewed,face reads better butnewfourview/stategate stillpending.9b dedicatedCI112636580611SUCCESS;wavecapture ongoing.
+
+InspectedPlush8originals;addedbow01,wavingpaw02,seams04,exposedcotton05,bluepatches06,heart/scarf08. Existingsofttoy builder extended only with optional ownedvolumes,per-sidearmplacement andsurface-conformingstitches.03/07specs,meshbuffers,bonetransforms exactly matchimmutable2ffbaseline. DefaultPilot28hashesunchanged. TDD2testsRED thenGREEN; thirdmouthraytest verifies6newstages across3angles/tired/sleeping. Dedicated225PASS/0FAIL,7/7representative and6/6newstage mutationsRED/restored. All8capturematrix extended; no productionpromotion.
+
+Fullnpm afterVenus completed3008PASS/2FAIL: tiredresident canonicalpicture/line andexpression-save boundary. Sameknownprotectedfailures; retainedrawcompressedlog andfailure summary, notclaimedgreen. It ranbeforePlushimplementation. Runtime180/293,113pending unchanged. Plush/Venus fullimagegates pending; no iPhone/HumanQAcompletionclaim.
