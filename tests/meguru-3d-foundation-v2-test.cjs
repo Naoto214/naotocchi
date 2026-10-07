@@ -326,8 +326,9 @@ test('v2-14. Kit v2 の 原型: 昆布は 曲がった は(木 / 柱では な�
   const f = objsOf('forest'), log = f.find((o) => o.kind === '🌉' && o.spot === 'bridge1'), stone = f.find((o) => o.kind === '🌉' && o.spot === 'bridge2');
   assert.ok(log && log.parts.filter((pt) => pt.shape === 'log').length === 3 && log.parts.filter((pt) => pt.shape === 'wpost').length >= 4, 'まるたの はし = 丸太 3 本 + 支柱');
   // 2026-10-01 Art Direction v1(Bridge v3): 床は 水面より 上・両はしの だん(ramp)・橋脚 が ふえた
-  // 2026-10-02 Geometry pass(Bridge v4): いしの はし = あつい 石の 床(slab)+ 欄干 2 つ(h 16)+ アーチ 2 つ + 橋台 + だん。床の 上面は 小川の 水面(−9)より 上
-  assert.ok(stone && stone.parts.some((pt) => pt.shape === 'slab') && stone.parts.filter((pt) => pt.shape === 'box' && pt.h === 16).length === 2, 'いしの はし = 石の いた + 両わきの 欄干');
+  // 2026-10-02 Geometry pass(Bridge v4): いしの はし = あつい 石の 床(slab)+ 両側の欄干(土台 + 笠石の高さ16、端柱24)+ アーチ 2 つ + 橋台 + だん。床の 上面は 小川の 水面(−9)より 上
+  assert.ok(stone, 'いしの はし');
+  require('./helpers/stone-parapet.cjs')(stone);
   assert.ok(stone.parts.filter((pt) => pt.shape === 'arch').length === 2 && stone.parts.find((pt) => pt.shape === 'slab').y + 10 > -9 && stone.parts.filter((pt) => pt.shape === 'box' && pt.solidBox && pt.rz <= 20).length >= 4, 'いしの はし: アーチ・床は 水面より 上・橋台 と だん');
   const rope = [...objsOf('jungle'), ...objsOf('mountain')].find((o) => o.kind === 'ropebridge'), light = objsOf('star_stop').find((o) => o.kind === 'lightbridge');
   if (rope) assert.ok(rope.parts.some((pt) => pt.shape === 'plank') && rope.parts.filter((pt) => pt.shape === 'rail').length === 2 && rope.parts.filter((pt) => pt.shape === 'wpost').length >= 6, 'ロープの はし');

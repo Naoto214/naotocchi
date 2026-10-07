@@ -224,7 +224,10 @@ test('AD-12. Bridge v4: 交わりに かかる(ながさ ≥ 水の はば)・�
     const supports = o.parts.filter((p) => ['wpost', 'box', 'stone'].includes(p.shape) && (p.y || 0) < top - 4);
     assert.ok(supports.length >= 2, o.id + ' 床より 下から ささえる 物 ' + supports.length);
     if (o.bridgeKind === 'log') assert.ok(o.parts.filter((p) => p.shape === 'log').length === 3 && o.parts.some((p) => p.shape === 'rail'), o.id + ' 丸太 3 本 + ロープ');
-    if (o.bridgeKind === 'stone') assert.ok(o.parts.filter((p) => p.shape === 'arch').length === 2 && o.parts.filter((p) => p.shape === 'box' && p.h === 16).length === 2, o.id + ' アーチ + 欄干');
+    if (o.bridgeKind === 'stone') {
+      assert.equal(o.parts.filter(p => p.shape === 'arch').length, 2, o.id + ' アーチ');
+      require('./helpers/stone-parapet.cjs')(o);
+    }
     if (o.bridgeKind === 'wood' || o.bridgeKind === 'rope') assert.ok(o.parts.filter((p) => p.shape === 'rail').length >= 2, o.id + ' てすり');
     sig[o.bridgeKind] = [...new Set(o.parts.map((p) => p.shape))].sort().join('/');
   }
