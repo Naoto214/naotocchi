@@ -1,6 +1,6 @@
 {
-  "baseCommit": "d2a4c70586efb70943507ef426c022fbe7c47fc7",
-  "checkpoint": "dragon-all8-spine-attachment-fixed-recapture-pending",
+  "baseCommit": "a65ceb526e0e62da9fab4bc99bba3f57785cffc4",
+  "checkpoint": "dragon04-wing-root-fixed-final-recapture-pending",
   "coverage": {
     "exact": 204,
     "total": 293,
@@ -11,10 +11,10 @@
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 234,
+    "dedicatedPass": 235,
     "rolloutMutationsDetected": 27,
     "pilotHashesUnchanged": 28,
-    "fullNpm": "Retained completed summaries:3013PASS/0FAIL plus Relationship80PASS/0FAIL. Original process exit code unavailable; exact compressed log and SHA256 archived. Historical3010/2 separate.",
+    "fullNpm": "Fresh a65ceb5:3013PASS+Relationship80PASS,0FAIL,exit0;exact gzip/SHA256 saved. Final04coordinate edit has5targeted/235dedicatedPASS;not another fullnpm run.",
     "postPromotionAggregate": "e45910d artifact11546721411:25families/200exact;fallback/errors/failedTemplates0",
     "nonplayerMutationsDetected": 7,
     "worldTreeMutationsDetected": 9,
@@ -30,11 +30,10 @@
     "mythicMutationsDetected": 11,
     "dragonRearRibs": "e45910d Dragon03/07 image gate PASS:8fourviews/64states/4normal-distance",
     "dragonStageMutationsDetected": 6,
-    "dragonAll8": "d2a4c70 REJECT_SPINE_ATTACHMENT;actual new-stage roots corrected;regression RED->GREEN;03/07 unchanged;new all8 image gate required",
-    "currentFullNpm": "Fresh npm test started after spine correction; still running at this checkpoint. Prior completed3013+80 log is separate."
+    "dragonAll8": "a65ceb5 all32fourviews/256states/16distance reviewed;spines resolved but04wing root REJECT.04root test RED->GREEN and coordinate fixed;recapture before promotion."
   },
   "next": [
-    "Collect fresh fullnpm exit code;review corrected all8 Actions images before promotion",
+    "Review corrected Dragon04 fourviews/32states/2distance;confirm other7unchanged,then all8gate and promotion",
     "New Actions Dragon all8 image gate:32fourviews/256states/16normal-distance;promote only after PASS",
     "Remaining48player stages and41nonplayers; candidates isolated until gates",
     "Full293 integration/performance/regression QA and Human QA package"

@@ -1,0 +1,55 @@
+TAP version 13
+# (node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: Dragon explicit eight-stage candidates retain juvenile support, small wings, breath and seated elder identity
+ok 1 - Dragon explicit eight-stage candidates retain juvenile support, small wings, breath and seated elder identity
+  ---
+  duration_ms: 282.789946
+  type: 'test'
+  ...
+# Subtest: Dragon06 flame volumes stay owned by the head without hiding the canonical eye targets
+ok 2 - Dragon06 flame volumes stay owned by the head without hiding the canonical eye targets
+  ---
+  duration_ms: 58.508057
+  type: 'test'
+  ...
+# Subtest: Dragon all8 candidates preserve one canonical face and finite owned motion across32 states
+ok 3 - Dragon all8 candidates preserve one canonical face and finite owned motion across32 states
+  ---
+  duration_ms: 248.149686
+  type: 'test'
+  ...
+# Subtest: new Dragon dorsal and tail spine roots intersect their owned body volumes
+ok 4 - new Dragon dorsal and tail spine roots intersect their owned body volumes
+  ---
+  duration_ms: 109.940364
+  type: 'test'
+  ...
+# Subtest: Dragon04 small wings root inside the juvenile trunk
+not ok 5 - Dragon04 small wings root inside the juvenile trunk
+  ---
+  duration_ms: 19.71831
+  type: 'test'
+  location: '/workspace/scratch/e537a95e2294/character-rollout/tests/character-3d-dragon-stages-test.cjs:44:1'
+  failureType: 'testCodeFailure'
+  error: 'wingL has a physical trunk attachment'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (/workspace/scratch/e537a95e2294/character-rollout/tests/character-3d-dragon-stages-test.cjs:48:179)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 4
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 805.182695

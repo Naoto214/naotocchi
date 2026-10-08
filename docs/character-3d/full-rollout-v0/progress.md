@@ -750,3 +750,12 @@ d2a4c70 saved103files;remote/local/tree1e7544d1 clean matched. Independent candi
 Root cause: new-stage anatomy/tail paths no longer meet authored spine roots;bone ownership did not detect physical disconnection. Ray probes show similar attachment defects among new04/05/06/08. Added real mesh interior-root regression, watched RED at01body0, then authored explicit root coordinates for only new six stages;GREEN4/4. No shared-builder or approved03/07 modification. Fresh dedicated234PASS/0FAIL. Source evidence/rejection/RED-GREEN saved. New npm test currently running;exit/result pending,do not conflate retained prior3013+80log.
 
 Ruling: extend attachment repair to all six new stages because the same measured defect exists, rather than approving uninspected similar roots. Cost:all8recapture required;coverage204/293 remains unchanged. Human/iPhoneQA pending.
+
+
+### 2026-10-08 — Spine recapture reviewed;04 wing root corrected
+
+a65ceb5 remote/local/treeba0b7420 clean matched. Actions37777583881 mythic11551466631 anddistance11551441285 SUCCESS. Reviewed32fourviews,all8x32state sheets,and16normal-distance images. Spine detachment resolved;04small wing visibly isolated in34/stateviews. Root placement [.19,.27,-.16] is outside juvenile trunk. New direct mesh-root test RED then adjusted only04root to[.12,.18,-.09],GREEN5/5. Fresh dedicated235PASS.03/07 unchanged;no runtime promotion. Stage archives preserve312source files byte-for-byte with per-entry manifest;summary/metadata/rejection saved separately.
+
+Fresh fullnpm on spine-corrected a65ceb5 completed3013PASS/0FAIL plusRelationship80PASS/0FAIL,exit0. Prior exit-code uncertainty is now resolved for this new run only. Exact log gzip/SHA256 saved. Subsequent04coordinate-only correction gets targeted/dedicated coverage;fullnpm is not claimed rerun after that edit. Dragon6/6mutations restored before04root edit. No local test remains running.
+
+Ruling: keep entireDragon family outside runtime until04recapture passes;do not infer image approval from tests. Cost:one further capture round. Coverage204/293,89pending unchanged. Next04gate,all8promotion,remaining40otherplayerstages+41nonplayers after that promotion;Human/iPhoneQA pending.

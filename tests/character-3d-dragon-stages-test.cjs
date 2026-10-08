@@ -41,3 +41,9 @@ test('new Dragon dorsal and tail spine roots intersect their owned body volumes'
  }
  }
 });
+test('Dragon04 small wings root inside the juvenile trunk',async()=>{
+ const {wingedReptile}=await import('../character-3d/winged-reptile.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ const sp=stages()[4],r=wingedReptile(sp,'dragon:4'),body=r.parts.find(p=>p.bone==='body').mesh;
+ const mesh=new THREE.Mesh(body.geometry,new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));
+ for(const name of ['wingL','wingR']){const direction=new THREE.Vector3(0,0,-1),hit=new THREE.Raycaster(r.bones[name].position.clone(),direction).intersectObject(mesh)[0];assert.ok(hit&&hit.face.normal.dot(direction)>0,name+' has a physical trunk attachment');}
+});
