@@ -346,3 +346,16 @@ TDD3FAIL0.001s→関連16PASS5.142s→実W-countryside終了見送り（条件�
 次はactivatedによるgroup消費を、既存board/positive発動の全差分監査と同じ実record/history/trace/ledgerへ結合する。開始sourceの非開始機会・latched sourceの発生有無、別originにまたがる閉鎖、全機会の合成は別途残る。管理項目22維持、具体化理由はnative suppressionのstatus文字列と実操作receiptの間を接続したため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
 
 固定22＋既存完走unit1: Ran 23 tests in 272.605s、PASS。全source/phase到達・最新全proxy回帰とは扱わない。
+
+
+### 実発動receiptからgroup消費・response再提示禁止への結合
+
+594e7d6からP07/P08/P09を継続。response_group_closureの同origin/physical source・現在ledger journal prefix/status・実record/history/full trace結合をactivatedにも拡張した。fresh group inventory再列挙を維持し、既存board_group_effectまたはpositive_activation_effectのapplicableが一意かつ全delta verifiedであることを要求する。declined/ineligible枝と再提示拒否は維持。activatedというstatus単独を消費証明へ昇格しない。
+
+実C-chicken/I-bowtie/M-antlion-04/W-countrysideの発動record、positive4の実record（既存latching current_actionsを再利用する条件付きtest-only Adapter＋供給empty inventory）、欠落/chosen/decision/history/reoffer、hashを整合させた余分growthを検証。positive4の単体fixtureはnative timingや入力起点の証明ではない。
+
+TDD2件2FAIL0.179s（初期group中の119優先権を誤ってパスしたテストを修正）→2件6FAIL0.197s→実装。初回green.logはdotsのみで最終結果不明、詳細再試験18PASS6.838s。追加後green-expanded.logもdotsのみで最終結果不明、詳細再試験20PASS7.107s。欠けた最終結果の原因は確定しておらずPASSに読み替えない。全試行ログはverification/response-activation-closure-*。独立review1回C0/I0/Minor0、新規4件を-vで独立PASS1.088s/exit0。design errors=[]、保護476件不変。固定結合は最終logで別判定。
+
+次は既存完走unitのresponse source合成に残る未証明を集計し、開始sourceの非開始機会、latched発生有無、別originにまたがる閉鎖のうち実際に残る具体的な欠落へ進む。静的一覧だけで全機会を閉じない。管理項目22維持、具体化理由はgroup消費のstatusから実発動receiptへの証拠結合を追加したため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
+
+固定22＋既存完走unit1: Ran 23 tests in 275.412s、PASS（詳細最終行確認済み）。全source/phase到達・最新全proxy回帰とは扱わない。
