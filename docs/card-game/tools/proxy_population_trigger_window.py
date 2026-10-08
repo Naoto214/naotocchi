@@ -139,6 +139,16 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
                     boundaries[state.canonical_sha256(before)]=dict(kind=mode,turn_player=current_proof['capture']['turn_player'],origin_event_seq=current_proof['origin_event_seq'])
                 return original_forced(before,*args)
             with closed_start() if mode=='start' else closed_native(current_ledger,e['event_seq']):r=original_step(e,i,history,legacy,full,resolve_or_delegate,supplied_session)
+            if 'response_source_predicate_coverage' in r:
+                import proxy_population_response_group_closure as response_closure
+                import proxy_population_response_composition as composition
+                inv=r['decision']['candidate_set_evidence']
+                closed=response_closure.audit(e,history,inv,current_ledger,records,full,r['response_source_predicate_coverage']['unproved_source_ids'])
+                if closed['errors']:raise ValueError('response group closure differs: '+str(closed['errors']))
+                r['response_group_closure']=closed
+                composed=composition.audit(e,inv,{name:r[name] for name in composition.FAMILIES},closed)
+                if composed['errors']:raise ValueError('response closed-group composition differs: '+str(composed['errors']))
+                r['response_source_predicate_coverage']=composed
             if r['final_envelope']['legacy_continuation']['game_state']['phase']==('turn_end' if mode=='end' else 'normal_action'):active=False
             return observe_existing(r,e,history)
         def step(*args,**kwargs):

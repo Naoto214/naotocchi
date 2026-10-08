@@ -583,3 +583,16 @@ TDD2ERROR0.028s（伏せ準備を含むfixtureのorigin分類）→2件1FAIL/1ER
 残る開始sourceおよびpositiveな現在条件のsourceについて、実groupの消費・見送り・ineligible receiptと現在ledgerの結合が必要。台帳status・候補欠落・reason文字列だけを閉鎖証明にしない。管理項目22維持、具体化理由はresponse source合成の未証明を現在条件と発生/閉鎖条件に分けたため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
 
 固定22＋既存完走unit1: Ran 23 tests in 281.945s、PASS。design errors=[]、保護476件不変。全source/phase到達・最新全proxy回帰とは扱わない。
+
+
+### 実group見送り・ineligibleから通常response再提示禁止への結合
+
+7dd7c5cからP07/P08/P09を継続。responseの既存4監査で未補完のsourceに対し、同origin・同physical sourceのdeclined/ineligibleを、実group record、実history event、actual full traceのbefore/after、現在ledgerのjournal prefix/statusへ結合する入口を追加。既存sequential.inventory(observation.Adapter)で当時の候補をfresh再列挙し保存inventoryと比較、既存trigger_closure_effect.auditの全差分検査を再利用して、通常inventoryへの再提示を拒否する。既存scope/driver/ledger代数は作り直さない。
+
+trigger_windowの既存closed scopeを出た直後にfresh監査を接続し、response_compositionは任意の追加closure familyをstate hash・flag・重複/foreign/zone検査つきで合成する。現在priority actorの公開board sourceだけが対象。別origin・pending/deferred・activatedは未証明のまま。statusやreasonだけではverifiedにならない。発生・選択・履歴真正性はfalseを維持する。
+
+TDD3FAIL0.001s→関連16PASS5.142s→実W-countryside終了見送り（条件付きtest-only明示選択）/別origin・pending/追加composition変造拒否を加え関連17PASS5.528s。実start見送り・ineligible、実driver接続を検証し、record/history/trace/ledger/再列挙inventoryの欠落・重複・不一致を拒否。全試行ログはverification/response-group-closure-*。独立review1回C0/I0/Minor0、新規4件独立PASS1.461s。design errors=[]、保護476件不変。固定結合は最終logで別判定。
+
+次はactivatedによるgroup消費を、既存board/positive発動の全差分監査と同じ実record/history/trace/ledgerへ結合する。開始sourceの非開始機会・latched sourceの発生有無、別originにまたがる閉鎖、全機会の合成は別途残る。管理項目22維持、具体化理由はnative suppressionのstatus文字列と実操作receiptの間を接続したため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
+
+固定22＋既存完走unit1: Ran 23 tests in 272.605s、PASS。全source/phase到達・最新全proxy回帰とは扱わない。

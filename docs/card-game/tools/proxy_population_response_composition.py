@@ -12,7 +12,7 @@ FAMILIES={
  'response_board_predicates':('response_board_activation_predicates.v1','response_board_predicates_verified','board'),
  'response_prepared_predicates':('concealed_current_public_effect_predicates.v1',None,'prepared')}
 
-def audit(envelope,inventory,proofs):
+def audit(envelope,inventory,proofs,group_closure=None):
  errors=[];covered={};wanted={};missing=[]
  try:
   c=envelope['legacy_continuation'];g=c['game_state'];ctx=c['response_context'];actor=ctx['priority_actor'];p=g['players'][actor];board=p['board']
@@ -44,6 +44,12 @@ def audit(envelope,inventory,proofs):
      for row in proof[key]:
       if row['controller'] not in ('A','B'):raise ValueError('prepared predicate controller differs')
       if row['controller']==actor:claim(row['source_instance_id'],name,'prepared')
+  if group_closure is not None:
+   proof=group_closure
+   if proof['schema']!='response_closed_group_predicates.v1' or proof['errors'] or proof['response_group_closure_verified'] is not True:raise ValueError('response group closure audit failed')
+   import proxy_continuation_state as state
+   if proof['current_envelope_sha256']!=state.canonical_sha256(envelope) or type(proof['verified_source_ids']) is not list:raise ValueError('response group closure binding differs')
+   for source in proof['verified_source_ids']:claim(source,'response_group_closure','board')
   missing=sorted(set(wanted)-set(covered))
  except (ValueError,KeyError,TypeError,IndexError,AttributeError) as error:errors.append(str(error))
  return dict(schema='response_source_predicate_coverage.v1',supplied_response_source_predicates_covered=not errors and not missing,errors=errors,
