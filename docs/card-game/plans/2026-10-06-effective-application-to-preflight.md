@@ -718,3 +718,16 @@ TDD2FAIL0.001s。初回15件2FAIL6.187sは、board支払が時0に加えて既�
 I-poop1/I-bond1の全非到達や旧reservations全機会は未達。登録一覧だけを証明へ算入しない。次は既存root・実lifecycle・全event差分joinと、旧reservations空/敵人物除去なしの条件をtrace上で結合する。未知のdispatch、入力/起点認証、全機会の未証明は引き続き拒否/保留する。管理項目22維持、具体化理由はprepared監査のhand限定分岐を実board発動へ辿ったため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
 
 固定22＋既存完走unit1: Ran 23 tests in 279.879s、PASS。全source/phaseの到達試験、最新全proxy回帰とは扱わない。
+
+
+### 107供給traceの旧予約空・相手人物保存の結合
+
+63ebe44からP06/P07を継続。既存source_rootのinitial/opening rootでlegacy reservationsを厳格空listとして検査し、policy_journalの既存life.observe直前に全actual before/after・actor A/B・相手main同一/companion multiset保存を結合した。自分の人物移動、敵装備だけの除去、typed補正や資源変化の詳細は既存全delta監査へ委譲し、今回の不変条件から適法と推測しない。
+
+supplied_source_invariants_verifiedの範囲は107_bound_actual_trace_only。global_replacement_unreachability_proven=false、全機会/起点認証falseを維持する。供給traceで予約空・相手人物保存だったことを、I-poop1/I-bond1の全非到達や全ルール上の予約不要へ読み替えない。
+
+TDD3FAIL2.572s→関連23PASS9.674s。実birth/time_skip/transform、実G-archery敵装備除去、実cat本人/装備支払いを許容し、予約混入/型・相手人物変更・不正actorを拒否。追加後関連25PASS8.960s。独立review1回C0/I0/Minor0、新規5件独立PASS3.104s。design errors=[]、保護476件不変。全試行ログはverification/source-invariants-*、固定結合は最終logで別判定する。
+
+次の合成欠落: normalには既存board_predicates.composeでpredicate unitの欠落を列挙する入口があるが、responseのhand/reaction/board/preparedの各ローカル監査には対応するsource単位の横断結合がない。各監査のerrors=[]だけでは未証明sourceが消えたことにならない。P08/P09の次工程ではこの欠落を明示的に集約し、source inventoryや静的一覧を意味証明へ昇格しない。管理項目22維持、追加具体化理由は局所predicateのunproved出力の消費先を辿ったため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
+
+固定22＋既存完走unit1: Ran 23 tests in 275.227s、PASS。既存4step診断ではG-air-hockeyのhand未証明をreactionが補い、P-desert_scorpionの通常response sourceが未証明として残る。次の横断結合はこの区別を保持する。全source/phase到達や最新全proxy回帰とは扱わない。

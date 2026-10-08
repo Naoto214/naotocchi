@@ -1,7 +1,7 @@
 """Narrow concealed/replacement absence from public registered quick routes.
 
 All active links are inspected, not only the original response event. Unknown
-or board mechanisms stay unproved. This does not prove prior trigger coverage,
+public mechanisms stay unproved; registered board links require receipts. This does not prove prior trigger coverage,
 actual information-use isolation, effect execution or complete legal sets.
 """
 from collections import Counter

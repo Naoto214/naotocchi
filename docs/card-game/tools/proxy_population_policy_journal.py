@@ -142,6 +142,7 @@ def audit_opportunities(record):
                 if egg['errors']:raise ValueError('egg choice semantics differ: '+str(egg['errors']))
                 if egg['applicable']:egg_audits.append(egg);pending_egg=None
                 prior_owner=life.game(before)['turn_player']
+                source_root.check_transition(before,after,event)
                 prior_lifecycle=life.digest(registry)
                 registry=life.observe(registry,before,after,event.get('instance_transitions',[]))
                 physical_steps.append(dict(event_seq=event['seq'],event_sha256=life.digest(event),before_envelope_sha256=life.digest(before),after_envelope_sha256=life.digest(after),before_lifecycle_sha256=prior_lifecycle,after_lifecycle_sha256=life.digest(registry)))
@@ -162,7 +163,7 @@ def audit_opportunities(record):
         if set(actual)!=set(expected) or any(canonical(actual[k])!=canonical(expected[k]) for k in expected):raise ValueError('designated callback opportunity/frame coverage differs')
     except (ValueError,KeyError,TypeError,IndexError,OSError) as error:errors.append(str(error))
     return dict(schema='designated_mandatory_opportunity_coverage.v1',designated_opportunities_covered=not errors,
-        errors=errors,required_choice_count=len(expected),no_choice_occurrences=no_choice,physical_source_root_and_journal_verified=not errors,
+        errors=errors,required_choice_count=len(expected),no_choice_occurrences=no_choice,physical_source_root_and_journal_verified=not errors,supplied_source_invariants_verified=not errors,global_replacement_unreachability_proven=False,source_invariant_scope='107_bound_actual_trace_only',
         designated_effect_audits=effect_audits,designated_effect_semantics_verified=not errors,egg_choice_delta_audits=egg_audits,
         origin_authenticated=False,all_rule_opportunities_proven=False,opportunity_scope='designated_465_rules_given_actual_trace_entries',
         policy_eligible=None,balance_admitted=None)
