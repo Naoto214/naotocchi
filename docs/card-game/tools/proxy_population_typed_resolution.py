@@ -3,6 +3,7 @@
 No executor replay. A supplied resolution choice is bound to its receipt here;
 its policy, actual use of permitted information and origin remain separate.
 """
+from proxy_population_resolution_semantics import event_digest
 import copy
 import proxy_continuation_state as state
 import proxy_population_effect_creation as creation
@@ -54,6 +55,6 @@ def audit(before,after,event,decisions):
  except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
  return dict(schema='supplied_typed_resolution_delta.v1',applicable=applicable,errors=errors,
   supplied_typed_resolution_verified=applicable and not errors,typed_row_proof=row_proof,supplied_parameter_receipt_bound=choice_bound and not errors,
-  before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),
+  event_sha256=event_digest(event),before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),
   activation_proven=False,choice_proven=False,origin_authenticated=False,all_rule_opportunities_proven=False,
   legacy_reservation_closure_proven=False,policy_eligible=None,balance_admitted=None)

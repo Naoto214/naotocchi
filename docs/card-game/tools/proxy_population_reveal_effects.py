@@ -1,4 +1,5 @@
 """Source-bound supplied C-chicken reveal semantics, not activation authority."""
+from proxy_population_resolution_semantics import event_digest
 import copy
 import proxy_continuation_state as state
 import proxy_continuation_rules as rules
@@ -34,5 +35,5 @@ def audit(before,after,event):
  except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
  return dict(schema='supplied_reveal_semantics.v1',applicable=applicable,errors=errors,
   supplied_reveal_resolution_verified=applicable and not errors,revealed_instance_id=revealed,drawn_instance_id=drawn,source_reference=reference,
-  before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),
+  event_sha256=event_digest(event),before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),
   activation_proven=False,origin_authenticated=False,all_rule_opportunities_proven=False,legacy_reservation_closure_proven=False,policy_eligible=None,balance_admitted=None)

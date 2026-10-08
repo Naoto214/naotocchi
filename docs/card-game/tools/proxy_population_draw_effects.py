@@ -3,6 +3,7 @@
 Conditional on the supplied activated link and state, not activation/history
 or full dispatch authentication. Reuses the pinned catalog, never the resolver.
 """
+from proxy_population_resolution_semantics import event_digest
 import copy
 import proxy_continuation_state as state
 import proxy_population_resolution_delta as tail
@@ -42,6 +43,6 @@ def audit(before,after,event):
  except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
  return dict(schema='supplied_one_draw_semantics.v1',applicable=applicable,errors=errors,
   supplied_draw_resolution_verified=applicable and not errors,partner_egg_suppressed=suppressed,drawn_instance_ids=drawn,source_reference=reference,
-  before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),
+  event_sha256=event_digest(event),before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),
   activation_proven=False,choice_proven=False,origin_authenticated=False,all_rule_opportunities_proven=False,
   legacy_reservation_closure_proven=False,policy_eligible=None,balance_admitted=None)

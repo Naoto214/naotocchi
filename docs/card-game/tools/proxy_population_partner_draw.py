@@ -4,6 +4,7 @@ Reuse native draw/chain/event machinery with zero draw operations. Never hide
 or change game state, erase activation history, or amend historical source pins.
 Cat cycle suppression reuses the same native zero-draw branch; live cycles remain native.
 """
+from proxy_population_resolution_semantics import event_digest
 import hashlib
 from contextlib import contextmanager
 from threading import Lock
@@ -70,5 +71,5 @@ def audit_cycle(before,after,event,decisions):
    if canonical(after)!=canonical(expected):raise ValueError('suppressed partner changed effect state')
  except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
  return dict(schema='supplied_partner_cycle_suppression.v1',applicable=applicable,errors=errors,supplied_suppression_verified=applicable and not errors,
-  before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),
+  event_sha256=event_digest(event),before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),
   activation_proven=False,origin_authenticated=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)

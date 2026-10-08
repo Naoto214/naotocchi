@@ -462,3 +462,11 @@ caaae54からP07の直前発見を継続。既存Connection.scopeでも旧#1 met
 TDD3FAIL→初回3ERROR（fixtureに既存recovery.scope不足）→scope接続後8FAIL/1ERROR（canonical bytesをcandidate文字列に使用、coverage未接続）→修正し関連20PASS1.834s。empty/singleton/対象離脱/種類違い、top/bottom両枝、outer P-cat_ceo/start/end/challengeを検証。独立review1回C0/I0/Minor0（reviewer関連14PASS1.104s）。design errors=[]、途中ログ保存。
 
 これは実効果の整合であり、印刷table/選択/発動起点の真正性・全機会・全到達性は未完。管理項目22維持、preflight-ready=false、生成/固定/400戦0。固定Python結合: Ran 22 tests in 167.420s、PASS。最新全proxy回帰/最新npm完了は主張しない。
+
+### 実traceの全解決と個別意味監査の結合
+
+65533e1からP07を継続。12個の既存full-delta監査にraw event hashを追加（envelope bindの3keyだけ除外し、before/afterは別hashで結合）。既存06 resolution_orderを再利用し、実traceの各top-link解決をbefore/after/eventの3hashで各局所監査に対応させる。missing/extra/failed/同family重複/misbound/receipt差替えを拒否。指定465は既存registry付きjournalの出力と合成し、connected_entryに必須接続。複数の正当な監査が同じ解決を覆うことは許す。
+
+これはconnected entryが生成した局所監査出力の結合。standalone供給flagの真正性・全handler到達性/全機会・発動適法性・全体算入の証明ではない。実traceに未知/未監査解決があれば拒否し、静的登録を完了扱いしない。G-asteroids等の未到達枝は消さない。
+
+TDD3FAIL→event hash欠落1FAIL→関連24PASS12.841s。独立review1回C0/I0/Minor0（focused3PASS2.486s、raw/bound正規化と抑止catの2監査併存probe）。design errors=[]。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null。固定結合22+既存完走unit trace1=23PASS275.035s、保護476件不変。最新npm/全proxy回帰完了は主張しない。次は既存movement_payment/個体世代/typed消費の証拠を再利用し、通常main移動の全state保存則を結合する。

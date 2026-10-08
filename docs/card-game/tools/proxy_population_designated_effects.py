@@ -3,6 +3,7 @@
 The lifecycle registry and selection are supplied. Their authentication and
 policy roots are separately checked by the connected entry; no new policy.
 """
+from proxy_population_resolution_semantics import event_digest
 import copy
 import proxy_population_incarnation as life
 import proxy_population_start_obligations as starts
@@ -54,4 +55,4 @@ def audit(before,after,event,decisions,registry):
    if canonical(after)!=canonical(expected):raise ValueError('designated effect full envelope differs')
  except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
  return dict(schema='supplied_designated_effect_semantics.v1',applicable=applicable,errors=errors,supplied_designated_effect_verified=applicable and not errors,choice_contract_id=kind,required_choice_count=choice_count,
-  before_envelope_sha256=life.digest(before),after_envelope_sha256=life.digest(after),choice_authenticated=False,activation_proven=False,incarnation_origin_proven=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)
+  event_sha256=event_digest(event),before_envelope_sha256=life.digest(before),after_envelope_sha256=life.digest(after),choice_authenticated=False,activation_proven=False,incarnation_origin_proven=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)

@@ -3,6 +3,7 @@
 Legacy116 selection remains excluded. This audit checks what the supplied
 choice did, not whether that policy or input origin may be admitted.
 """
+from proxy_population_resolution_semantics import event_digest
 import copy
 import proxy_continuation_state as state
 import proxy_continuation_rules as rules
@@ -39,4 +40,4 @@ def audit(before,after,event,decisions):
    if canonical(after)!=canonical(expected):raise ValueError('quick recovery full state differs')
  except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
  return dict(schema='supplied_quick_recovery_semantics.v1',applicable=applicable,errors=errors,supplied_quick_recovery_verified=applicable and not errors,target_legal=valid,required_choice_count=choice_count,
-  before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),old_116_excluded=bool(choice_count) if applicable and not errors else None,choice_authenticated=False,activation_proven=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)
+  event_sha256=event_digest(event),before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),old_116_excluded=bool(choice_count) if applicable and not errors else None,choice_authenticated=False,activation_proven=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)
