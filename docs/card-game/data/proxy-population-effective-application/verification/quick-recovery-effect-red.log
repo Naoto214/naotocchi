@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_choice_receipt_and_unrelated_state_tampering_refused (test_proxy_population_quick_recovery_effect.QuickRecoveryEffectTests.test_choice_receipt_and_unrelated_state_tampering_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'quick recovery full effect audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : quick recovery full effect audit absent
+
+======================================================================
+FAIL: test_coverage_calls_full_effect_audit (test_proxy_population_quick_recovery_effect.QuickRecoveryEffectTests.test_coverage_calls_full_effect_audit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'quick recovery full effect audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : quick recovery full effect audit absent
+
+======================================================================
+FAIL: test_target_choice_and_all_state_branches (test_proxy_population_quick_recovery_effect.QuickRecoveryEffectTests.test_target_choice_and_all_state_branches)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'quick recovery full effect audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : quick recovery full effect audit absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

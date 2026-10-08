@@ -1,0 +1,191 @@
+.EFFFFFFFF
+======================================================================
+ERROR: test_coverage_calls_full_effect_audit (test_proxy_population_quick_recovery_effect.QuickRecoveryEffectTests.test_coverage_calls_full_effect_audit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 69, in test_coverage_calls_full_effect_audit
+    self.run_case(run)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 35, in run_case
+    with window.contract_scope():return runtime.operation(initial(),run)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 111, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 110, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 34, in run
+    with recovery.scope():return fn(forced)
+                                 ^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 67, in run
+    with self.assertRaisesRegex(ValueError,'quick recovery'):coverage.audit(r,[],dict(occurrences=[]))
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_trigger_coverage.py", line 118, in audit
+    if canonical(previous)!=canonical(result['final_envelope']):raise ValueError('coverage final envelope differs')
+                                      ~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'final_envelope'
+
+======================================================================
+FAIL: test_target_choice_and_all_state_branches (test_proxy_population_quick_recovery_effect.QuickRecoveryEffectTests.test_target_choice_and_all_state_branches) (mode='normal')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 41, in run
+    with self.subTest(mode=mode):self.assertEqual(proof['errors'],[]);self.assertTrue(proof['supplied_quick_recovery_verified']);self.assertEqual(proof['old_116_excluded'],bool(ds));self.assertIsNone(proof['balance_admitted'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['unsupported JSON type'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'unsupported JSON type'
+
+- ['unsupported JSON type']
++ []
+
+======================================================================
+FAIL: test_target_choice_and_all_state_branches (test_proxy_population_quick_recovery_effect.QuickRecoveryEffectTests.test_target_choice_and_all_state_branches) (mode='singleton')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 41, in run
+    with self.subTest(mode=mode):self.assertEqual(proof['errors'],[]);self.assertTrue(proof['supplied_quick_recovery_verified']);self.assertEqual(proof['old_116_excluded'],bool(ds));self.assertIsNone(proof['balance_admitted'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['unsupported JSON type'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'unsupported JSON type'
+
+- ['unsupported JSON type']
++ []
+
+======================================================================
+FAIL: test_target_choice_and_all_state_branches (test_proxy_population_quick_recovery_effect.QuickRecoveryEffectTests.test_target_choice_and_all_state_branches) (mode='outer')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 41, in run
+    with self.subTest(mode=mode):self.assertEqual(proof['errors'],[]);self.assertTrue(proof['supplied_quick_recovery_verified']);self.assertEqual(proof['old_116_excluded'],bool(ds));self.assertIsNone(proof['balance_admitted'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['unsupported JSON type'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'unsupported JSON type'
+
+- ['unsupported JSON type']
++ []
+
+======================================================================
+FAIL: test_target_choice_and_all_state_branches (test_proxy_population_quick_recovery_effect.QuickRecoveryEffectTests.test_target_choice_and_all_state_branches) (mode='start')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 41, in run
+    with self.subTest(mode=mode):self.assertEqual(proof['errors'],[]);self.assertTrue(proof['supplied_quick_recovery_verified']);self.assertEqual(proof['old_116_excluded'],bool(ds));self.assertIsNone(proof['balance_admitted'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['unsupported JSON type'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'unsupported JSON type'
+
+- ['unsupported JSON type']
++ []
+
+======================================================================
+FAIL: test_target_choice_and_all_state_branches (test_proxy_population_quick_recovery_effect.QuickRecoveryEffectTests.test_target_choice_and_all_state_branches) (mode='end')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 41, in run
+    with self.subTest(mode=mode):self.assertEqual(proof['errors'],[]);self.assertTrue(proof['supplied_quick_recovery_verified']);self.assertEqual(proof['old_116_excluded'],bool(ds));self.assertIsNone(proof['balance_admitted'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['unsupported JSON type'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'unsupported JSON type'
+
+- ['unsupported JSON type']
++ []
+
+======================================================================
+FAIL: test_target_choice_and_all_state_branches (test_proxy_population_quick_recovery_effect.QuickRecoveryEffectTests.test_target_choice_and_all_state_branches) (mode='comparing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 41, in run
+    with self.subTest(mode=mode):self.assertEqual(proof['errors'],[]);self.assertTrue(proof['supplied_quick_recovery_verified']);self.assertEqual(proof['old_116_excluded'],bool(ds));self.assertIsNone(proof['balance_admitted'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['unsupported JSON type'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'unsupported JSON type'
+
+- ['unsupported JSON type']
++ []
+
+======================================================================
+FAIL: test_target_choice_and_all_state_branches (test_proxy_population_quick_recovery_effect.QuickRecoveryEffectTests.test_target_choice_and_all_state_branches) (mode='resolved')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 41, in run
+    with self.subTest(mode=mode):self.assertEqual(proof['errors'],[]);self.assertTrue(proof['supplied_quick_recovery_verified']);self.assertEqual(proof['old_116_excluded'],bool(ds));self.assertIsNone(proof['balance_admitted'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['unsupported JSON type'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'unsupported JSON type'
+
+- ['unsupported JSON type']
++ []
+
+======================================================================
+FAIL: test_target_choice_and_all_state_branches (test_proxy_population_quick_recovery_effect.QuickRecoveryEffectTests.test_target_choice_and_all_state_branches)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 45, in test_target_choice_and_all_state_branches
+    self.run_case(run)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 35, in run_case
+    with window.contract_scope():return runtime.operation(initial(),run)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 111, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 110, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 34, in run
+    with recovery.scope():return fn(forced)
+                                 ^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_quick_recovery_effect.py", line 43, in run
+    b,a,event,ds=actual(forced,order=order);positions.add(event['created_effect']['topdeck_position']);self.assertEqual(api.audit(b,a,event,ds)['errors'],[])
+                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['unsupported JSON type'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'unsupported JSON type'
+
+- ['unsupported JSON type']
++ []
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.431s
+
+FAILED (failures=8, errors=1)

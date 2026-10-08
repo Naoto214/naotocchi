@@ -19,6 +19,7 @@ import proxy_population_effect_creation as creation
 import proxy_population_return_effects as returns
 import proxy_population_draw_effects as draws
 import proxy_population_zone_effects as zones
+import proxy_population_quick_recovery_effect as quick_recovery
 import proxy_population_reveal_effects as reveals
 import proxy_population_immediate_growth as immediate_growth
 import proxy_population_partner_draw as partner_suppression
@@ -49,7 +50,7 @@ def reconcile(expected,journals):
 def audit(result,initial_history,initial_proof):
     """Call inside the native scopes which own the execution's source handlers."""
     expected=copy.deepcopy(initial_proof['occurrences']);history=copy.deepcopy(initial_history)
-    previous=result['source_envelope'];examined=[];start_origins=[];expiry_audits=[];payment_audits=[];challenge_audits=[];creation_audits=[];return_audits=[];draw_audits=[];zone_audits=[];typed_resolution_audits=[];reveal_audits=[];immediate_growth_audits=[];partner_suppression_audits=[];quick_reveal_audits=[];first_date_audits=[];equipment_audits=[]
+    previous=result['source_envelope'];examined=[];start_origins=[];expiry_audits=[];payment_audits=[];challenge_audits=[];creation_audits=[];return_audits=[];draw_audits=[];zone_audits=[];typed_resolution_audits=[];reveal_audits=[];immediate_growth_audits=[];partner_suppression_audits=[];quick_reveal_audits=[];first_date_audits=[];equipment_audits=[];quick_recovery_audits=[]
     boundaries={previous['event_seq']:previous};actual_events=[]
     for step in result['steps']:
         if canonical(previous)!=canonical(step['source_envelope']):raise ValueError('coverage step source differs')
@@ -98,6 +99,9 @@ def audit(result,initial_history,initial_proof):
             removed=equipment.audit(previous,after,event)
             if removed['errors']:raise ValueError('equipment effect semantics differ: '+str(removed['errors']))
             equipment_audits.append(removed)
+            recovered=quick_recovery.audit(previous,after,event,step.get('mandatory_decisions',[]))
+            if recovered['errors']:raise ValueError('quick recovery semantics differ: '+str(recovered['errors']))
+            quick_recovery_audits.append(recovered)
             timing=latching.capture(previous,after,event)
             history.append(event);expected.extend(timing['occurrences']);expected.extend(hand_timing.capture(previous,after,event)['occurrences'])
             # Scan every transition, not only events selected by the driver.
@@ -132,7 +136,7 @@ def audit(result,initial_history,initial_proof):
     proof=reconcile(expected,journals)
     import proxy_population_opportunity_order as order
     proof['processing_order']=order.audit(result,expected)
-    proof.update(transitions=examined,start_origins=start_origins,typed_effect_expiry_audits=expiry_audits,payment_consumption_audits=payment_audits,challenge_lifetime_audits=challenge_audits,typed_effect_creation_audits=creation_audits,return_effect_audits=return_audits,draw_effect_audits=draw_audits,zone_effect_audits=zone_audits,typed_resolution_audits=typed_resolution_audits,reveal_effect_audits=reveal_audits,immediate_growth_audits=immediate_growth_audits,partner_suppression_audits=partner_suppression_audits,quick_reveal_audits=quick_reveal_audits,first_date_audits=first_date_audits,equipment_effect_audits=equipment_audits,
+    proof.update(transitions=examined,start_origins=start_origins,typed_effect_expiry_audits=expiry_audits,payment_consumption_audits=payment_audits,challenge_lifetime_audits=challenge_audits,typed_effect_creation_audits=creation_audits,return_effect_audits=return_audits,draw_effect_audits=draw_audits,zone_effect_audits=zone_audits,typed_resolution_audits=typed_resolution_audits,reveal_effect_audits=reveal_audits,immediate_growth_audits=immediate_growth_audits,partner_suppression_audits=partner_suppression_audits,quick_reveal_audits=quick_reveal_audits,first_date_audits=first_date_audits,equipment_effect_audits=equipment_audits,quick_recovery_effect_audits=quick_recovery_audits,
                  source_scope=dict(native=sorted(existing.SUPPORTED),latched=sorted(latching.CARDS),hand_optional=sorted(hand_timing.DESCRIPTORS),start_catalog_sha256=starts.CATALOG_SHA),
                  initial_occurrences_conditionally_supplied=True)
     return proof
