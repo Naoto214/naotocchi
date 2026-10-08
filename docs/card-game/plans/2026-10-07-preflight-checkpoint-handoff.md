@@ -652,3 +652,18 @@ TDD手札1FAIL0.018s→関連19PASS12.526s、開始1FAIL0.029s→関連28件1ERR
 既存完走unitの通常/response全監査行が局所source述語を合成し、all_rule_opportunities_proven=falseを維持するassertを既存固定結合へ追加した。単一unit完走や全行coveredを全source/phase・全ルール機会の証明へ昇格しない。管理項目22維持、具体化理由は実unit診断で判明した2種類の未接続述語を区別したため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。次はsource述語の局所合成と全機会の閉包の間に残るdispatch/到達根拠を正本から確認する。最新npm/全proxy回帰完了は主張しない。
 
 固定22＋既存完走unit1: Ran 23 tests in 274.111s、PASS/exit0。既存unitのresponse89行・normal29行すべて局所source述語covered、全機会flag=falseを確認。これは単一unitの条件付き監査であり全source/phase到達・全proxy回帰ではない。
+
+
+### E-final-timeの外側盤上連鎖と現行物理保存の接続
+
+e215184からP07のdispatch/連鎖を確認し、caaae54/65533e1以来の406 outer board=C-chicken限定を実W-city/M-antlion-04/C-batの外側linkで再現した。現行Connection.scopeだけで、406の既存result_from_state/validate_chainによる実hash連鎖、既存life.check/project_gameとsnapshot physical保存を再利用する。変更前の残存予定outerに非C-chicken盤上能力がある場合だけ、この検査へ接続。外側linkの順序/全内容/chain contextとmetadataを保持し、物理数え上げ用の写しから盤上能力linkを除く。実state/効果/指定policy/歴史406/hash/manifestは変更しない。
+
+供給済み盤上linkの発動適法・全source/phase到達や過去起点の認証を追加したものではない。既存registryと実full-delta監査が別に必要。通常/retained metadata/source#2/target#2/不適正target/複数outerを実E-final-time handlerと指定選択/全差分へ結合し、自己整合hash付きouter改変・順序/全消去・context・metadata・物理重複と不正hashを拒否。scope外の歴史406拒否と例外時復元は維持する。
+
+TDD1件15ERROR0.455s（全て406 active board source identity differs）→初回関連GREEN→拡充17PASS5.040s。独立review1回C0/I1/Minor0、新3件独立PASS1.265s。I1はafter側だけの分岐がouter全消去を旧406へ逃がす点。固定結合をCtrl-C/exit130で中断し停止確認後、全消去を1FAIL0.133sで再現、before側の残存予定outerへ結合して関連17PASS4.945s。再reviewなし。全ログはverification/final-time-outer-*、中断logを最終成功へ読み替えない。修正後固定結合はfinal-integration.logで別判定する。
+
+管理項目22維持、具体化理由は既存実handlerの現行scopeと歴史validatorの適用範囲が異なるため。P07の当該接続不足を補ったが、全dispatch優先順位/P06予約/P08全source/P09全機会/P10以降のgateは未完。preflight-ready=false、seed生成/本番固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。次は既存逆順解決・誘発ledger・phase別自動入口の優先境界を照合する。
+
+P07次工程のread-only probe: 終了条件positiveのM-beetle-02とtyped paymentを供給した場合、実forcedはopen_turn_end_triggersを先に返す。一方、payments.expireを直接呼んだ遷移は単体expiry.auditではerrors=[]となる（end-dispatch-order-probe.log）。これは単体差分の責務範囲でありnativeの順序不具合ではない。終了源の既存独立述語と実history/ledgerを失効・手番終了入口へ結合する監査が残る。追加理由は全差分とdispatch優先境界の証明を分けて確認したため。
+
+修正後固定22＋既存完走unit1: Ran 23 tests in 273.740s、PASS/exit0。design errors=[]、保護476不変。既存unit局所source合成response89/normal29と全機会flag=falseを維持。初回関連GREENは10PASS3.514s。全source/phase・最新全proxy回帰ではない。

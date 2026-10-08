@@ -86,6 +86,27 @@ class Connection:
   prior_final_verify=quick.final_time.verify_transition
   def final_verify(row,after,event):
    before=quick.final_time.contracts.current(row)
+   outer_board=[link for link in before['activation_zone'][:-1] if link.get('source_zone')=='board']
+   if any(link['card_id']!='C-chicken' for link in outer_board):
+    # 406's source-specific board check predates the current board handlers.
+    # Reuse its full hash-chain validator, then the existing100 physical view;
+    # do not alter the real chain or pretend a board ability is a hand card.
+    contracts=quick.final_time.contracts
+    result=contracts.result_from_state(row,after,event);contracts.validate_chain(row,result)
+    if not before['activation_zone'] or before['activation_zone'][-1]['card_id']!='E-final-time':raise ValueError('final-time outer source boundary differs')
+    if life.digest(after['activation_zone'])!=life.digest(before['activation_zone'][:-1]):raise ValueError('final-time ordered outer links changed')
+    ids=[link['link_id'] for link in after['activation_zone']]
+    if len(ids)!=len(set(ids)) or after['response_context']['chain_links']!=ids or after['response_context']['chain_status']!='resolving':raise ValueError('final-time outer chain context differs')
+    record=self.registry(before['game_state'])
+    for current in (before,after):life.check(record,dict(legacy_continuation=current))
+    for link in outer_board:
+     physical=after['game_state']['cards'][link['source_instance_id']]
+     if link['action_type']!='activate_board_ability' or link['actor'] not in after['game_state']['players'] or link['card_id']!=physical['card_id'] or link['card_copy_id']!=physical['card_copy_id']:raise ValueError('final-time outer board identity differs')
+    shot=copy.deepcopy(result['new_snapshots'][0]);shot['game_state']=life.project_game(record,shot['game_state'])
+    shot['continuation_state']['activation_zone']=[link for link in shot['continuation_state']['activation_zone'] if link.get('source_zone')!='board']
+    errors=contracts.response._snapshot_instance_errors(shot)
+    if errors:raise ValueError('final-time outer physical zones differ: '+str(errors))
+    return
    if all(len(active_cards(c['game_state']['cards']))==len(c['game_state']['cards']) for c in (before,after)):return prior_final_verify(row,after,event)
    record=self.registry(before['game_state'])
    for current in (before,after):life.check(record,dict(legacy_continuation=current))
