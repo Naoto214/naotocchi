@@ -10,7 +10,7 @@
 |---|---|---|
 | C-bat | proxy_population_trigger_effects.resolve | 相手手番での自分quickプレイが起点（適用成功は不要）。準備札→手札の全差分を監査へ接続、全発動起点は別gate |
 | C-box | 能力なし。通常配置は既存actions | 能力なしと配置/交換/離脱の機会を区別 |
-| C-cat_friend | proxy_population_discard_recovery.activate_normal / activate / resolve | 自身を底へ支払う・付属装備離脱・対象不適正時の全差分 |
+| C-cat_friend | proxy_population_discard_recovery.activate_normal / activate / resolve | 解決の全差分をzone_effectsへ接続。本人支払・装備離脱の発動起点/全機会は別 |
 | C-chameleon | proxy_continuation_challenge.stats | 公開両worldの同名/異名/片欠けによる数値根拠。履歴/状態起点は別 |
 | C-chicken | proxy_population_start_effects.resolve_chicken、trigger_connection.resolve | 開始時capture・公開top・空山札・drawの結合 |
 | E-big-illness | proxy_continuation_payments.resolve | typed生成/対象離脱/当ターン失効済。解決全体と数値参照の結合 |
@@ -35,7 +35,7 @@
 | M-antlion-01 | proxy_continuation_preparation.transition のcost_modifiers | 任意軽減の選択/実費用/1ターン使用記録。main自身のbirth/transformは現行main_routes.scope→既存batchへ接続済み、旧play_main_birthの監査も追加（P22） |
 | M-antlion-02 | proxy_population_paid_draw.scope → triggers.resolve | 自伏せ底への支払と1draw、全コスト候補・機会 |
 | M-antlion-03 | proxy_population_trigger_effects.resolve | typed生成済。解決時parameter指定policyと実使用/起点 |
-| M-antlion-04 | proxy_continuation_triggers.resolve | 到来/伏せなし・対象の捨て札→top、部分不適正 |
+| M-antlion-04 | proxy_continuation_triggers.resolve | 捨てquick→top/対象不適正の全差分をzone_effectsへ接続。到来/伏せなしの起点・全機会は別 |
 | M-antlion-05 | proxy_continuation_triggers.resolve | time_skipのみ・装備含む準備空とdraw |
 | M-antlion-06 | proxy_population_trigger_effects.resolve | quick実適用→手札world支払→捨てworld回収。供給済み解決の全差分を監査へ接続、発動/支払起点は別gate |
 | M-antlion-07 | proxy_continuation_payments.resolve_board_stat | typed生成/終了済。world変更・quick実適用・宣言の全履歴 |

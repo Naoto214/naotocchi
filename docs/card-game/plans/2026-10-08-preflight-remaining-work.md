@@ -154,3 +154,13 @@ Final frozen Python integration: Ran 22 tests in 164.044s, PASS. Related31PASS7.
 P07のこの具体的resolver未接続は解消。107内での到達性/全機会/他partner handler意味/起点認証/P06閉包は別。課題数22維持、preflight-ready=false、seed生成/本番固定/400戦0、結論null。次は残る捨て札回収・山札操作handlerの意味結合を、既存処理/選択境界を再利用して進める。
 
 Final frozen Python integration: Ran 22 tests in 157.743s, PASS. Related30PASS4.479s; review C0/I0/Minor1 corrected inline; design errors=[]; numbered476 unchanged. No production inputs/games.
+
+### C-cat_friend/M04固定対象移動と監査境界の共通化
+
+07edb58からP07を継続。C-cat_friendの自捨てなかま（同名以外）→hand、M04の印刷quick→deck topを正本に基づく全差分へ結合。対象不在は不移動、先払い本人/装備離脱・人物枠/使用記録・他札・予約を維持する。開始/終了/挑戦のcontext監査をreturn/drawからresolution_delta.finishへ抽出し、この移動監査も再利用。実executor/既存scope/選択policyを再実装しない。
+
+TDD3FAIL→初回1FAIL/1ERROR（coverage未接続と、fixtureがCcatのpaid receipt付きlinkを別IDで外側に複製して正しく拒否された）→正しい独立board外側linkで19focusedPASS5.288s。関連38PASS6.004s。独立review C0/I0/Minor0。固定Python結合はzone-effects-integration.log。供給済みの効果差分のみ、全初期状態/発動/支払起点・印刷tableの認証・全機会は別gate。
+
+P07のこの2handlerの解決差分を接続したが、activation/source/dispatch全体は未完。管理項目22維持、preflight-ready=false、生成/固定/400戦0・全体結論null。次はtyped生成10sourceの行以外の全状態差分とreceipt/解決選択の結合を、既存生成監査を再利用して進める。
+
+Final frozen Python integration: Ran 22 tests in 160.145s, PASS. Related38PASS6.004s; review C0/I0/Minor0; design errors=[]. No production inputs/games.
