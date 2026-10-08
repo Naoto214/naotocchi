@@ -8,10 +8,10 @@ import proxy_continuation_state as state
 from proxy_mandatory_policy_contract import ROOT,canonical
 
 
-def movement_instance(before,after,event):
+def field_entry_instance(before,after,event,slot):
  """Bind a supplied reentry receipt; historical seen-field proof stays separate."""
  g=before['legacy_continuation']['game_state'];a=after['legacy_continuation']['game_state'];actor=g['turn_player'];source=event['source_instance_id'];rows=event.get('instance_transitions',[])
- if a['players'][actor]['board']['main']!=source or type(rows) is not list:raise ValueError('movement destination or incarnation receipt differs')
+ if slot not in ('main','world') or a['players'][actor]['board'][slot]!=source or type(rows) is not list:raise ValueError('movement destination or incarnation receipt differs')
  if source in g['players'][actor]['hand']:
   if rows or canonical(a['cards'][source])!=canonical(g['cards'][source]):raise ValueError('first-entry identity or unexpected incarnation differs')
   return source
@@ -25,6 +25,10 @@ def movement_instance(before,after,event):
  expected=dict(g['cards']);expected[source]=copy.deepcopy(g['cards'][prior])
  if canonical(a['cards'])!=canonical(expected) or prior in incarnation.located(after):raise ValueError('movement reentry metadata or old physical location differs')
  return prior
+
+
+def movement_instance(before,after,event):
+ return field_entry_instance(before,after,event,'main')
 
 
 def movement_payment(before,after,event,prior_source,used):

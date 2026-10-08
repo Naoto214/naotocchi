@@ -1,0 +1,88 @@
+F.FE
+======================================================================
+ERROR: test_three_worlds_initial_replacement_same_name_and_reentry (test_proxy_population_world_placement_effect.WorldPlacementEffectTests.test_three_worlds_initial_replacement_same_name_and_reentry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_world_placement_effect.py", line 41, in test_three_worlds_initial_replacement_same_name_and_reentry
+    self.run_case(run)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_payment_consumption.py", line 25, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback(fixture()))
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 111, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 110, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_payment_consumption.py", line 25, in <lambda>
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback(fixture()))
+                                                                                     ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_world_placement_effect.py", line 38, in run
+    b,a,event=actual(template,card,previous);proof=api.audit(b,a,event)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_world_placement_effect.py", line 19, in actual
+    action=next(a for a in candidates.audit(b,[])['legal_candidate_details'] if a['action_type']=='place_world' and a['card_id']==card)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration
+
+======================================================================
+FAIL: test_coverage_rejects_added_growth_even_with_updated_hashes (test_proxy_population_world_placement_effect.WorldPlacementEffectTests.test_coverage_rejects_added_growth_even_with_updated_hashes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_world_placement_effect.py", line 70, in test_coverage_rejects_added_growth_even_with_updated_hashes
+    self.run_case(run)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_payment_consumption.py", line 25, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback(fixture()))
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 111, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 110, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_payment_consumption.py", line 25, in <lambda>
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback(fixture()))
+                                                                                     ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_world_placement_effect.py", line 69, in run
+    self.assertIn('world placement full delta',message);return {}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'world placement full delta' not found in 'current public turn boundary absent'
+
+======================================================================
+FAIL: test_three_worlds_initial_replacement_same_name_and_reentry (test_proxy_population_world_placement_effect.WorldPlacementEffectTests.test_three_worlds_initial_replacement_same_name_and_reentry) (card='W-city', previous=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_world_placement_effect.py", line 39, in run
+    with self.subTest(card=card,previous=previous):self.assertEqual(proof['errors'],[]);self.assertTrue(proof['supplied_world_placement_verified']);self.assertFalse(proof['incarnation_origin_proven']);self.assertIsNone(proof['balance_admitted'])
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['world printed payment/source differs'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'world printed payment/source differs'
+
+- ['world printed payment/source differs']
++ []
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.814s
+
+FAILED (failures=2, errors=1)

@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_coverage_rejects_added_growth_even_with_updated_hashes (test_proxy_population_world_placement_effect.WorldPlacementEffectTests.test_coverage_rejects_added_growth_even_with_updated_hashes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_world_placement_effect.py", line 33, in setUp
+    def setUp(self):self.assertIsNotNone(api,'world placement full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : world placement full delta absent
+
+======================================================================
+FAIL: test_payment_identity_relocation_and_unrelated_state_tampering_refused (test_proxy_population_world_placement_effect.WorldPlacementEffectTests.test_payment_identity_relocation_and_unrelated_state_tampering_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_world_placement_effect.py", line 33, in setUp
+    def setUp(self):self.assertIsNotNone(api,'world placement full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : world placement full delta absent
+
+======================================================================
+FAIL: test_three_worlds_initial_replacement_same_name_and_reentry (test_proxy_population_world_placement_effect.WorldPlacementEffectTests.test_three_worlds_initial_replacement_same_name_and_reentry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_world_placement_effect.py", line 33, in setUp
+    def setUp(self):self.assertIsNotNone(api,'world placement full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : world placement full delta absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

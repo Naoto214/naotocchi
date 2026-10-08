@@ -578,3 +578,11 @@ TDD3FAIL→event hash欠落1FAIL→関連24PASS12.841s。独立review1回C0/I0/M
 固定結合/設計試験の実行中に作業ディレクトリが消失。両sessionはexit1、成功に読み替えない。fresh remote HEAD57cafe8/tree5e6e279とDraft/open/unmerged PRを確認しclone復元。未保存3Pythonファイルを会話の同一実装から復元した。復元後4RED→関連17PASS5.249s。復元前の失敗/成功ログを偽造せず、復元後ログを別名保存。復元後固定Python結合22PASS159.801s、design errors=[]、番号付き保護476件不変。最新npm/全proxy回帰完了は主張しない。
 
 preflight-ready=false、生成/固定/400戦0、全体結論null。
+
+### 107 world配置/置換の全差分
+
+5d4f104からP07を継続。01/06の既存pinと89の既存catalog/印刷時2を用い、W-city/W-countryside/W-deepseaの手札→world、旧world→捨て、時2、全他state/反応contextを照合。既存movement_instance本体をmain/world用field_entry_instanceへ共通化し、main wrapperは維持。#1→#2の隣接世代/全metadataを既存Connectionの実遷移と結合する。native/料金/候補は変更しない。
+
+107の各自deckは3worldを各1物理札ずつ持つ。既存fixtureで同名をboardへ置くと同名の手札候補がなくなるため、別copyを追加せず候補なしを検証。同名置換全体の非到達証明ではない。新発見というより試験前提の修正であり、管理項目22維持。
+
+TDD3FAIL→初回2FAIL1ERROR（既存candidate_variantの誤認、coverage未接続、同名copyのないfixture）→関連18PASS5.969s。独立review1回C0/I0/Minor0（関連14PASS4.913s）。design errors=[]、途中ログ保存。全発動/履歴/世代発生由来/全機会/全到達性は未完、preflight-ready=false、生成/固定/400戦0、全体結論null。固定Python結合: Ran 22 tests in 164.001s、PASS。番号付き保護476件不変。最新npm/全proxy回帰完了は主張しない。
