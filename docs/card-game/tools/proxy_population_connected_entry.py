@@ -12,6 +12,7 @@ import proxy_population_trigger_existing as existing
 import proxy_population_policy_journal as policy_journal
 import proxy_population_decision_binding as decision_binding
 import proxy_population_resolution_semantics as semantics
+import proxy_population_nonresolution_semantics as nonresolution
 from proxy_mandatory_policy_contract import ROOT,canonical
 
 _LOCK=Lock()
@@ -57,6 +58,9 @@ def reconstruct(bundle,match_id,limit):
   semantic=semantics.audit(result)
   if not semantic['supplied_resolution_semantics_joined']:raise ValueError('actual resolution semantics differ: '+str(semantic['errors']))
   result['resolution_semantics_audit']=semantic
+  nonsemantic=nonresolution.audit(result)
+  if not nonsemantic['supplied_nonresolution_semantics_joined']:raise ValueError('actual non-resolution semantics differ: '+str(nonsemantic['errors']))
+  result['nonresolution_semantics_audit']=nonsemantic
   projection=decision_binding.audit_projection(result['runtime'])
   if not projection['decision_projection_verified']:raise ValueError('actual decision projection differs: '+str(projection['errors']))
   result['decision_projection_audit']=projection

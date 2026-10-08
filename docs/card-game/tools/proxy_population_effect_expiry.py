@@ -9,6 +9,7 @@ import proxy_continuation_payments as payments
 import proxy_continuation_state as state
 from proxy_population_victory_history import SOURCES
 from proxy_mandatory_policy_contract import ROOT,canonical
+from proxy_population_resolution_semantics import event_digest
 
 FAMILIES=('payment_effects','stat_effects','conditional_effects')
 REFERENCE='64-turn-boundaries-and-victory-timing.md'
@@ -33,6 +34,6 @@ def audit(before,after,event):
    if canonical(after)!=canonical(expected):raise ValueError('typed expiry state differs or changes unrelated state')
  except (ValueError,KeyError,TypeError,IndexError,OSError) as error:errors.append(str(error))
  return dict(schema='typed_turn_end_expiry.v1',applicable=applicable,typed_expiry_verified=applicable and not errors,errors=errors,
-  expired_effect_count=count,source_reference=REFERENCE,before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),
+  expired_effect_count=count,source_reference=REFERENCE,event_sha256=event_digest(event),before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),
   effect_creation_proven=False,effect_consumption_proven=False,legacy_reservation_closure_proven=False,
   all_rule_opportunities_proven=False,origin_authenticated=False,policy_eligible=None,balance_admitted=None)

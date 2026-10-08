@@ -6,6 +6,7 @@ import proxy_population_challenge_operands as printed
 import proxy_continuation_payments as payments
 import proxy_continuation_state as state
 from proxy_mandatory_policy_contract import ROOT,canonical
+from proxy_population_resolution_semantics import event_digest
 
 
 def field_entry_instance(before,after,event,slot):
@@ -114,7 +115,7 @@ def audit(before,after,event):
    expected=[r for r in rows if r not in used]
    if canonical(after['runtime']['payment_effects'])!=canonical(expected):raise ValueError('payment consumption retained effects differ')
  except (ValueError,KeyError,TypeError,IndexError,OSError) as error:errors.append(str(error))
- return dict(schema='typed_payment_consumption.v2',applicable=applicable,payment_consumption_verified=applicable and not errors,errors=errors,
-  consumed_effect_count=count,movement_target_expiry_verified=movement and not errors,movement_instance_binding_verified=movement and not errors,incarnation_history_proven=False,relationship_payment_verified=relation and not errors,expired_target_effect_count=expired,source_reference=reference,before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),
+ return dict(schema='typed_payment_consumption.v2',applicable=applicable,full_delta_applicable=relation,supplied_relationship_verified=relation and not errors,payment_consumption_verified=applicable and not errors,errors=errors,
+  consumed_effect_count=count,movement_target_expiry_verified=movement and not errors,movement_instance_binding_verified=movement and not errors,incarnation_history_proven=False,relationship_payment_verified=relation and not errors,expired_target_effect_count=expired,source_reference=reference,event_sha256=event_digest(event),before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),
   movement_payment_verified=movement and not errors,movement_payment=movement_price,payment_amount_proven=False,effect_creation_proven=False,legacy_reservation_closure_proven=False,
   all_rule_opportunities_proven=False,origin_authenticated=False,policy_eligible=None,balance_admitted=None)

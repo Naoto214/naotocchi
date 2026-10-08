@@ -9,6 +9,7 @@ import proxy_continuation_state as state
 import proxy_population_effective_application as application
 import proxy_population_challenge_operands as operands
 from proxy_mandatory_policy_contract import ROOT,canonical
+from proxy_population_resolution_semantics import event_digest
 
 REFERENCE='65-challenge-participants-and-resolution.md'
 SOURCE_SHA='65a8dfef2f97aa982173f1e767215a9da557e29e5adedbc4173250a4de1441a0'
@@ -67,7 +68,7 @@ def audit(before,after,event):
     expected['legacy_continuation']['game_state'].pop('challenge');expected['legacy_continuation']['game_state']['phase']='normal_action';expected['legacy_continuation']['return_target']='normal_action_opportunity'
     if canonical(after)!=canonical(expected):raise ValueError('challenge finish expiry or unrelated state differs')
  except (ValueError,KeyError,TypeError,IndexError,OSError) as error:errors.append(str(error))
- return dict(schema='typed_challenge_lifetime.v1',applicable=applicable,next_win_consumption_verified=kind=='challenge_compared' and not errors,challenge_finish_verified=kind=='challenge_finished' and not errors,
+ return dict(schema='typed_challenge_lifetime.v1',applicable=applicable,supplied_challenge_lifetime_verified=applicable and not errors,next_win_consumption_verified=kind=='challenge_compared' and not errors,challenge_finish_verified=kind=='challenge_finished' and not errors,
   consumed_effect_count=len(used),consumed_effect_ids=sorted(r['effect_id'] for r in used),expired_stat_count=len(expired),errors=errors,source_reference=reference,challenge_source_sha256=SOURCE_SHA,
-  before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),comparison_operand_binding=operand_binding,supplied_comparison_arithmetic_verified=operand_binding is not None and not errors,comparison_operands_proven=False,participant_incarnation_proven=False,
+  event_sha256=event_digest(event),before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),comparison_operand_binding=operand_binding,supplied_comparison_arithmetic_verified=operand_binding is not None and not errors,comparison_operands_proven=False,participant_incarnation_proven=False,
   effect_creation_proven=False,legacy_reservation_closure_proven=False,all_rule_opportunities_proven=False,origin_authenticated=False,policy_eligible=None,balance_admitted=None)

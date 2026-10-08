@@ -481,3 +481,16 @@ TDD2FAIL。単体fixtureで既存fallbackが辞退するための2FAIL0.095s/2FA
 次はこれまでの非resolution全差分監査を実eventへ結合し、未対応dispatchを列挙する。静的一覧や条件付き検証を全source/機会証明へ昇格しない。管理項目22維持、今回の具体的未閉包は挑戦variantの専用経路とテスト入口差を辿ったために判明。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
 
 固定22＋既存完走unit1の再実行: Ran 23 tests in 277.472s、PASS。修正後design errors=[]、保護476件不変。切断した最初の試行は未完了のまま保持する。
+
+
+### 非resolutionの実eventと全差分監査の結合
+
+9ae00bbからP07を継続。既存resolution_semanticsと併用して、供給traceの全非resolution eventをbefore/after/event hashでローカル全差分監査へ結合した。移動・各配置・挑戦宣言/比較/終了・交際・pass・誘発閉鎖・開始/終了・各発動・期限切れ・指定egg choiceを対象とする。欠落/別event/余分/同family重複/failedとtrace断裂を拒否し、connected_entryへ必須接続した。
+
+旧expiry/challenge_lifetime/payment_consumptionにはevent digestを追加。paymentのmovement枝は部分監査のため全delta代替に使わず、全afterを比較するrelationship枝だけfull_delta_applicableとsupplied_relationship_verifiedで採用する。実executor/既存scopes/native/歴史hash/manifestは変更しない。
+
+TDD3FAIL0.001s→関連25PASS8.389s。独立review1回C0/I0/Minor0、新規3件を独立実行PASS2.763s（Python変更なし）。固定結合は別logで完了判定する。design errors=[]、保護476件不変。全試行ログはverification/nonresolution-semantics-*。
+
+ローカル監査出力の真正性・全source到達・全機会を認証するものではない。今後の未対応dispatchは欠落として拒否し、未知をno-opへ置換しない。次は実dispatcherの全枝と現在の全差分familyを照合し、107物理集合・既存lifecycle・旧reservations/置換条件の結合に残る具体的な穴を列挙する。管理項目22維持。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
+
+固定22＋既存完走unit1: Ran 23 tests in 272.690s、PASS。供給された既存unit traceで未監査の非resolution eventは検出されなかった。全source/phase到達試験とは扱わない。
