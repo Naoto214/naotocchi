@@ -114,7 +114,7 @@ def audit_response(envelope,events,inventory):
  Occurrence-dependent triggers, prepared cards and unknown classifications need
  their own event-origin proof; no absence is inferred for those sources.
  """
- errors=[];verified=[];unproved=[];count=0;end_negative_audits={}
+ errors=[];verified=[];unproved=[];count=0;end_negative_audits={};event_negative_audits={}
  try:
   for path,digest in SOURCES.items():
    if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=digest:raise ValueError('response board predicate source changed')
@@ -148,6 +148,15 @@ def audit_response(envelope,events,inventory):
     if proof['errors'] or proof['current_trigger_predicates_verified'] is not True or proof['verified_candidate_count']!=0:
      unproved.append(dict(source_instance_id=source,card_id=card,reason='end_response_negative_not_proven'));continue
     end_negative_audits[source]=proof
+   elif card in ('M-antlion-04','M-antlion-05','M-beetle-01','W-city','P-cat_ceo','M-antlion-07','P-anglerfish'):
+    import proxy_population_trigger_predicates as event_predicates
+    mechanism=('arrival' if card in event_predicates.ARRIVAL_CARDS else 'city' if card=='W-city' else 'relationship' if card=='P-cat_ceo' else 'challenge')
+    cap=event_predicates.batch.classification(card)
+    occurrence=dict(origin_event_seq=ctx['origin_event_seq'],source_instance_id=source,actor=actor,category='forced' if mechanism=='relationship' else 'optional',ability_key=cap['timing'],source_reference=cap['reference'])
+    proof=getattr(event_predicates,'audit_'+mechanism)(envelope,occurrence,[],events)
+    if proof['errors'] or proof['current_trigger_predicates_verified'] is not True or proof['verified_candidate_count']!=0:
+     unproved.append(dict(source_instance_id=source,card_id=card,reason='event_response_negative_not_proven'));continue
+    event_negative_audits[source]=proof
    else:
     if source in b['prepared']:
      unproved.append(dict(source_instance_id=source,card_id=card,reason='event_or_prepared_response_predicate_unproved'));continue
@@ -160,5 +169,5 @@ def audit_response(envelope,events,inventory):
    if Counter(map(signature,actual))!=Counter(map(signature,expected)):raise ValueError('board response semantic alternatives differ: '+source)
    verified.append(source);count+=len(expected)
  except (ValueError,KeyError,TypeError,IndexError,OSError) as error:errors.append(str(error))
- return dict(schema='response_board_activation_predicates.v1',response_board_predicates_verified=not errors,errors=errors,verified_source_ids=sorted(verified),unproved_sources=unproved,verified_candidate_count=count,end_negative_audits=end_negative_audits,source_sha256=dict(SOURCES),
+ return dict(schema='response_board_activation_predicates.v1',response_board_predicates_verified=not errors,errors=errors,verified_source_ids=sorted(verified),unproved_sources=unproved,verified_candidate_count=count,end_negative_audits=end_negative_audits,event_negative_audits=event_negative_audits,source_sha256=dict(SOURCES),
   candidate_identity_grammar_proven=False,history_authenticated=False,complete_legal_set_proven=False,information_use_proven=False,all_rule_opportunities_proven=False,origin_authenticated=False,policy_eligible=None,balance_admitted=None)

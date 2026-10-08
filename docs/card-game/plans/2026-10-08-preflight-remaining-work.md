@@ -559,3 +559,16 @@ TDD1FAIL2.756s→関連23件2ERROR9.747s（テストscope参照を修正）→23
 次は他のevent依存board sourceの否定判定と、正のgroupを実際に見送った後のledger閉鎖を接続する。後者を今回のempty判定で済ませない。管理項目22維持、具体化理由はresponse source横断合成で残るevent依存sourceを個別の既存predicateへ辿ったため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
 
 固定22＋既存完走unit1: Ran 23 tests in 274.366s、PASS。全source/phase到達・最新全proxy回帰とは扱わない。
+
+
+### 通常responseの到着・街・交際・挑戦7source否定接続
+
+66572b2からP08/P09を継続。M-antlion-04/M-antlion-05/M-beetle-01、W-city、P-cat_ceo、M-antlion-07/P-anglerfishをそれぞれ既存audit_arrival/city/relationship/challengeへ接続した。現在origin/source/正本参照とforced/optionalを結合し、空候補の既存predicateが成立するときだけevent_negative_auditsへ記録する。実inventoryの空照合を維持し、spurious再提示を拒否する。新しい条件/候補/価値判断は追加しない。
+
+positive、origin欠落/重複はunproved。正のP-cat_ceo交際誘発は既存native ordinary inventoryが強制誘発未処理として拒否することを確認し、意図的なsupplied empty inventoryもnegativeへ昇格しない。predicateと本来の強制dispatchを混同しない。
+
+TDD初回2件1FAIL/1ERROR0.138sはテストが強制交際の既存進入拒否を考慮していなかったため。拒否の期待を明示した再試験2件1FAIL0.162s後に実装、関連25PASS8.511s。全試行ログはverification/response-event-predicates-*。独立review1回C0/I0/Minor0、新規2件独立PASS0.645s。design errors=[]、保護476件不変。固定結合は最終logで別判定。
+
+次は残る開始/latched sourceの否定枝と、実group見送り・消費のledger閉鎖からresponse再提示禁止への結合。台帳のstatusやreason文字列だけを発動/見送りの実receiptと扱わない。管理項目22維持、具体化理由はsource合成後の未証明を既存event別predicateと照合したため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
+
+固定22＋既存完走unit1: Ran 23 tests in 272.833s、PASS。全source/phase到達・最新全proxy回帰とは扱わない。
