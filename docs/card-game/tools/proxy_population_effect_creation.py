@@ -11,6 +11,11 @@ from proxy_mandatory_policy_contract import canonical
 FAMILIES=('payment_effects','stat_effects','conditional_effects')
 EVENTS={'resolve_payment_modifier','resolve_board_stat','resolve_board_ability'}
 POSITIVE={'M-antlion-03','P-cliff_goat'}
+# These transitions are checked by coverage's existing consumption/expiry
+# audits. All other event/family combinations must preserve rows exactly.
+MUTATIONS={'main_movement':FAMILIES,'expire_payment_modifiers':FAMILIES,
+ 'challenge_compared':('conditional_effects',),'challenge_finished':('stat_effects',),
+ 'relationship_progress':('payment_effects',),'relationship_marriage':('payment_effects',)}
 
 
 def audit(before,after,event):
@@ -24,6 +29,8 @@ def audit(before,after,event):
    applicable=(not board and card in payments.PAYMENT_CARDS|payments.STAT_CARDS|payments.CONDITIONAL_CARDS and kind=='resolve_payment_modifier') or (board and card in payments.BOARD_STATS and kind=='resolve_board_stat') or (board and card in POSITIVE and kind=='resolve_board_ability')
   if not applicable:
    if new:raise ValueError('typed creation outside registered source route')
+   for name in FAMILIES:
+    if name not in MUTATIONS.get(kind,()) and canonical(after['runtime'][name])!=canonical(before['runtime'][name]):raise ValueError('typed rows changed outside registered lifetime route')
   else:
    payments.validate_effects(before);payments.validate_effects(after)
    cap=payments.capability(card);reference=cap['reference'];actor=link['actor'];source=link['source_instance_id'];seq=event['seq'];ctx=c['response_context']

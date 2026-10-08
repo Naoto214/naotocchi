@@ -1,9 +1,29 @@
 """91 transform and74 same-partner consumption over supplied normal transitions."""
 import copy,hashlib
 import proxy_continuation_batch as batch
+import proxy_population_incarnation as incarnation
 import proxy_continuation_payments as payments
 import proxy_continuation_state as state
 from proxy_mandatory_policy_contract import ROOT,canonical
+
+
+def movement_instance(before,after,event):
+ """Bind a supplied reentry receipt; historical seen-field proof stays separate."""
+ g=before['legacy_continuation']['game_state'];a=after['legacy_continuation']['game_state'];actor=g['turn_player'];source=event['source_instance_id'];rows=event.get('instance_transitions',[])
+ if a['players'][actor]['board']['main']!=source or type(rows) is not list:raise ValueError('movement destination or incarnation receipt differs')
+ if source in g['players'][actor]['hand']:
+  if rows or canonical(a['cards'][source])!=canonical(g['cards'][source]):raise ValueError('first-entry identity or unexpected incarnation differs')
+  return source
+ if len(rows)!=1:raise ValueError('movement reentry receipt absent or ambiguous')
+ row=rows[0]
+ if set(row)!={'card_copy_id','from_instance_id','to_instance_id','reason'} or row['to_instance_id']!=source or row['reason']!='zone_change':raise ValueError('movement reentry receipt identity differs')
+ prior=row['from_instance_id'];ids=incarnation.identities(g['cards'])
+ if prior not in g['players'][actor]['hand'] or source in g['cards'] or ids[prior]!=row['card_copy_id']:raise ValueError('movement previous hand instance differs')
+ match=incarnation.INSTANCE_RE.fullmatch(prior)
+ if source!=row['card_copy_id']+'#'+str(int(match.group(2))+1):raise ValueError('movement reentry generation differs')
+ expected=dict(g['cards']);expected[source]=copy.deepcopy(g['cards'][prior])
+ if canonical(a['cards'])!=canonical(expected) or prior in incarnation.located(after):raise ValueError('movement reentry metadata or old physical location differs')
+ return prior
 
 
 def relationship(before,after,event):
@@ -47,7 +67,7 @@ def audit(before,after,event):
    if event['actor']!=actor or g['phase']!='normal_action' or c['activation_zone'] or c['pending_triggers'] or c['response_context']['chain_status']!='empty' or c['response_context']['chain_links']!=[]:raise ValueError('payment consumption movement boundary differs')
    if variant not in ('birth','time_skip','transform'):raise ValueError('payment consumption movement variant unknown')
    source=event['source_instance_id']
-   if source not in g['players'][actor]['hand'] or after['legacy_continuation']['game_state']['players'][actor]['board']['main']!=source:raise ValueError('payment consumption movement source differs')
+   movement_instance(before,after,event)
    if type(event['seq']) is not int or event['seq']!=before['event_seq']+1 or after['event_seq']!=event['seq']:raise ValueError('payment consumption sequence differs')
    if g.get('challenge') is not None:raise ValueError('normal movement during challenge')
    old_target=g['players'][actor]['board']['main']
@@ -60,6 +80,6 @@ def audit(before,after,event):
    if canonical(after['runtime']['payment_effects'])!=canonical(expected):raise ValueError('payment consumption retained effects differ')
  except (ValueError,KeyError,TypeError,IndexError,OSError) as error:errors.append(str(error))
  return dict(schema='typed_payment_consumption.v2',applicable=applicable,payment_consumption_verified=applicable and not errors,errors=errors,
-  consumed_effect_count=count,movement_target_expiry_verified=movement and not errors,relationship_payment_verified=relation and not errors,expired_target_effect_count=expired,source_reference=reference,before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),
+  consumed_effect_count=count,movement_target_expiry_verified=movement and not errors,movement_instance_binding_verified=movement and not errors,incarnation_history_proven=False,relationship_payment_verified=relation and not errors,expired_target_effect_count=expired,source_reference=reference,before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),
   payment_amount_proven=False,effect_creation_proven=False,legacy_reservation_closure_proven=False,
   all_rule_opportunities_proven=False,origin_authenticated=False,policy_eligible=None,balance_admitted=None)

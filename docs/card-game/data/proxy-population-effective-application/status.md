@@ -354,3 +354,11 @@ f7dc4d1の保存一致確認後、既存10sourceのtyped生成行/receipt/保持
 次はP03再登場#1→#2の実main移動を前監査が誤拒否する欠落（実Connection.finishで再現済み）、P05対象外eventのtyped保存則、P06旧予約等へ。全残件は2026-10-08-preflight-remaining-work.md。許可情報実使用/operand/全機会/認証lockは未証明、preflight-ready=false、seed生成/本番固定/400戦0、全体結論null。
 
 Final frozen-source integration19PASS146.406s after review fix; no production seed, lock or matches.
+
+### 再登場個体の接続とtyped寿命保存則
+
+0683401からP03/P05を継続。実Connection.finishでmain再登場#1→#2を前監査が誤拒否するREDを確認し、手札の前個体・同一物理ID・隣接世代・exact receipt・metadata追加・旧個体の所在消去・main到達を結合した。歴史全体の起点認証は未証明のまま。time_skipの旧対象行消去/他対象保持とbirthの保持も実処理で確認し、前bundleのMinor枝不足を閉じた。
+
+生成/消費/離脱/終了以外での既存typed行の改変・消去をRED再現し、全eventのfamily別保存則を追加。例外familyは既存の消費・失効・挑戦監査でexact結果を検査する。効果全体/全機会の証明へ拡張しない。
+
+独立review C0/I0/Minor0。最終関連41PASS7.678s、固定Python結合19PASS144.820s、npm406PASS、design errors=[]、保護476件不変。ログreentry-conservation-*.log、レビューreentry-conservation-review.md。preflight-ready=false、seed生成/本番固定/400戦0、全体結論null。残件正本は2026-10-08-preflight-remaining-work.md。

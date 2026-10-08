@@ -105,6 +105,18 @@ class CreationTests(unittest.TestCase):
    with self.assertRaisesRegex(ValueError,'typed effect creation'):coverage.audit(dict(source_envelope=e,steps=[step]),[],dict(occurrences=[]))
    return {}
   self.run_case(run)
+ def test_unrelated_events_cannot_change_or_erase_existing_typed_rows(self):
+  def run():
+   e=quick_case('G-basketball-3d');r=payments.resolve(e,initial());before=r['new_envelopes'][0]
+   after=copy.deepcopy(before);after['event_seq']+=1;event=payments.transition_event(before,after,'response_pass','A')
+   self.assertEqual(api.audit(before,after,event)['errors'],[])
+   for mode in ('erase','edit'):
+    bad=copy.deepcopy(after)
+    if mode=='erase':bad['runtime']['conditional_effects']=[]
+    else:bad['runtime']['conditional_effects'][0]['amount']=0
+    with self.subTest(mode=mode):self.assertTrue(api.audit(before,bad,event)['errors'])
+   return {}
+  self.run_case(run)
  def test_creation_on_unrelated_transition_is_rejected(self):
   def run():
    e=quick_case('E-fateful-transform');r=payments.resolve(e,initial());ev=dict(r['new_events'][0],action_type='response_pass')
