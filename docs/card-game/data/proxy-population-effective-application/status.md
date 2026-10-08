@@ -631,3 +631,14 @@ TDD3FAIL→初回1FAIL（coverageのtyped消去は既存typed生成監査が先�
 TDD3FAIL→初回3ERROR（fixtureで同seqのbefore/afterをbind）→条件付き起点記録へ修正後3ERROR（初期窓の時1条件違反）→訂正後1ERROR（両deckに同じmainがあると仮定）→各deckの実main使用後1ERROR（fixtureに既存paid.scope不足）→通常接続どおり既存scopeを使用し関連12PASS1.705s。開始/配置後/終了/比較前/挑戦終了/連鎖ありの各2pass、不正優先/早期解決/資源改変/receipt差替えとcoverageを検証。これらの条件付きorigin/選択は本番入力や認証済み履歴ではない。
 
 独立review1回C0/I0/Minor0（新規3PASS0.527s）。失敗・成功ログを保存。共通制御のため固定22+既存完走unit trace1: Ran 23 tests in 289.488s、PASS。design errors=[]、保護476件不変。未処理機会の閉包・全履歴/全機会は未証明、管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、最新npm/全proxy回帰完了は主張しない。
+
+
+### 誘発辞退・現group全件不適用の供給差分
+
+3721393からP07/P09を継続。decline_trigger_group/close_ineligible_triggersについて、実step recordとevent、現在offer、ineligibleの現在envelope hash、effective/final ledger、chosen/decisionを結合し、event_seq以外のgame/context/runtime全保持を監査。coverageの全実eventへ接続。後順位groupは保持し、現在groupの全件閉鎖と全ledger消滅を混同しない。不適用理由・選択起点自体の認証は別gateであり、occurrence_adjudication_proven/choice_origin_proven=false。
+
+TDD: 初回3FAIL→関連13PASS0.779s。後順位保持テスト1FAIL→関連14PASS0.783s。decision対応テスト1FAIL→関連14PASS0.885s。修正前固定結合22PASS165.343s。独立review1回C0/I1/Minor0: 現groupが全件不適用の際、別actorの後順位declineへ飛べる結合漏れ。回帰5件中1FAIL0.694sを保存し、effective offerのactor/category/group_rankと元offerの一致・実行候補残存を要求して関連11PASS1.042s。独立reviewのI1を再review C0/I0に読み替えず、実装側修正検証として記録。全途中ログをverification/trigger-closure-effect-*に保存。
+
+次工程: 既存終了時4sourceのpredicateを再利用し、open_turn_end_triggersの全対象/不成立一覧・一度だけの窓・全状態差分を結合する。現行batch_runnerがturn_endでこの入口を呼ぶことを確認済み。予約・全機会の閉包まで静的一覧で完了にしない。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
+
+修正後固定Python結合: Ran 22 tests in 172.107s、PASS。修正後design errors=[]、保護正本476件不変。関連11はclosure/sequential/connection、修正前関連14とは組合せが異なる。

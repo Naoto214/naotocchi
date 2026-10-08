@@ -1,0 +1,14 @@
+..F.
+======================================================================
+FAIL: test_extra_draw_pass_reset_and_occurrence_rebinding_refused (test_proxy_population_trigger_closure_effect.TriggerClosureEffectTests.test_extra_draw_pass_reset_and_occurrence_rebinding_refused) (mode='decline', mutation='decision')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_trigger_closure_effect.py", line 62, in run
+    with self.subTest(mode=mode,mutation=mutation):self.assertTrue(api.audit(b,bad,ev,r)['errors'])
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.605s
+
+FAILED (failures=1)
