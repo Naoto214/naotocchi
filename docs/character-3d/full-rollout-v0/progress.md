@@ -732,3 +732,12 @@ Dragon07 normal-distance rear wing readability remains held pending diagnosis; n
 Artifacts11470710049/11469883827 show the membranes present, but rear support fingers unreadable. Ray comparison with ribless membrane:15 sampled locations/14 intersections, before rear0/front14 protruding; fingers offset+.014 with .025→.010 radius are hidden on back. Centered existing tubes at0 and retained minimum .015 radius; after rear14/front14 protruding. New regression RED→GREEN; fresh isolated dedicated230PASS/0FAIL, mythic11/11 mutations RED/restored, Pilot28 unchanged. No new topology/material/face and Dragon stays outside runtime.
 
 Local Chromium download returned an invalid ZIP; image gate remains pending new Actions captures. Stage-matrix derives all25 runtime families automatically. Historical fullnpm3010/2 remains non-green, separate Relationship80PASS is recorded. Browser UMD registration resolves Venus8 and leaves Dragon isolated.
+
+
+### 2026-10-08 — Dragon all8 candidates and split capture jobs
+
+Fresh remote e45910d and Draft/open/unmerged376 confirmed; prior scratch files survived. Dragon03/07 reviewed gate8fourviews/64states/4normal-distance PASS,84proof files preserved. Tree validation found2missing image blobs and both were restored; old upload counts were not trusted. Candidate01/02/04/05/06/08 reuse existing factory;03/07 remain unchanged,06flame is head-owned. All8 still outside runtime;204/293 exact,89pending unchanged.
+
+Wave-review timeout cancellation addressed by5jobs preserving14capture commands/6artifact contracts;Dragon state captures now cover8stages. Prior Runtime/Home SUCCESS, Character CANCELLED is not green. Post-Venus25family/200stage aggregate artifact11546721411 has0fallback/errors/failedTemplates.
+
+Review minor fixes:ray test uses actual projected eyes;two eyes checked for every stage;all8runtime isolation checked. Fresh dedicated233PASS/0FAIL after mutation restoration;Dragon6/6mutations detected/restored;Pilot28hashes unchanged. First dedicated run overlapped mutation execution and is not relied on;sequential fresh rerun passed. Fullnpm retained complete summaries3013PASS/0FAIL plus80PASS/0FAIL;original process exit code unavailable. Exact gzip/SHA256 archived;historical3010/2 is separate. No new fullnpm run claimed. No protected production areas changed. Next:all8 Actions image gate before promotion;Human/iPhoneQA remains pending.

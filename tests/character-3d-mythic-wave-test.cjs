@@ -1,6 +1,6 @@
 const test=require('node:test'),assert=require('node:assert/strict'),SPEC=require('../character-3d/spec.js');
 test('dragon representatives preserve horned muzzle, plated upright trunk, curled tail and attached finger-supported wings',async()=>{
- let rows;try{rows=require('../character-3d/mythic-spec.js')().dragon?.stages;}catch{}assert.ok(rows,'explicit original03and07 dragon candidates');assert.deepEqual(Object.keys(rows),['3','7']);
+ let rows;try{rows=require('../character-3d/mythic-spec.js')().dragon?.stages;}catch{}assert.ok(rows,'explicit original03and07 dragon candidates');assert.ok(rows[3]&&rows[7]);
  const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
  for(const n of [3,7]){const sp=rows[n],r=BUILDERS[sp.archetype](sp,'dragon:'+n);assert.equal(attachFace(r,r.faceSpec,'C').eyes.length,2);assert.equal(sp.horns.length,2);assert.ok(sp.belly.plates>=7);assert.ok(r.bones.tail);assert.ok(r.bones.legFL&&r.bones.legFR&&r.bones.legBL&&r.bones.legBR);assert.equal(!!r.bones.wingL,n===7);assert.equal(!!r.bones.wingR,n===7);r.root.updateMatrixWorld(true);
  const head=r.parts.find(p=>p.bone==='head').mesh,target=new THREE.Mesh(r.faceSpec.target,new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));target.matrixAutoUpdate=false;target.matrix.copy(r.bones.head.matrixWorld);target.updateMatrixWorld(true);

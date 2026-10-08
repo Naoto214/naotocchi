@@ -242,15 +242,7 @@ jobs:
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/fish --fish
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/humanoid --human
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/topology --topology
-      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/armored --armored
-      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/aquatic --aquatic
       - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/candidate-motion
-      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/aquatic-motion coral:2,coral:5,coral:7,coral:8,jellyfish:1,jellyfish:2,jellyfish:3,jellyfish:4,jellyfish:5,jellyfish:6,jellyfish:7,jellyfish:8
-      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/armored-motion hermit_crab:1,hermit_crab:2,hermit_crab:3,hermit_crab:4,hermit_crab:5,hermit_crab:6,hermit_crab:7,hermit_crab:8,antlion:1,antlion:2,antlion:3,antlion:4,antlion:5,antlion:6,antlion:7,antlion:8,cicada:1,cicada:2,cicada:3,cicada:4,cicada:5,cicada:6,cicada:7,cicada:8,beetle:1,beetle:2,beetle:3,beetle:4,beetle:5,beetle:6,beetle:7,beetle:8,stagbeetle:1,stagbeetle:2,stagbeetle:3,stagbeetle:4,stagbeetle:5,stagbeetle:6,stagbeetle:7,stagbeetle:8
-      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/mythic --mythic
-      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/mythic-motion dragon:3,dragon:7,phoenix:3,phoenix:7,god:3,god:7,ghost:3,ghost:7,plush:1,plush:2,plush:3,plush:4,plush:5,plush:6,plush:7,plush:8,star:3,star:7,unknown:3,unknown:7
-      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/botanical --botanical
-      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/botanical-motion world_tree:1,world_tree:2,world_tree:3,world_tree:4,world_tree:5,world_tree:6,world_tree:7,world_tree:8,venus_flytrap:1,venus_flytrap:2,venus_flytrap:3,venus_flytrap:4,venus_flytrap:5,venus_flytrap:6,venus_flytrap:7,venus_flytrap:8,sakura:1,sakura:2,sakura:3,sakura:4,sakura:5,sakura:6,sakura:7,sakura:8
       - run: node tools/character-3d/gallery-smoke.cjs
       - uses: actions/upload-artifact@v4
         if: always()
@@ -263,6 +255,19 @@ jobs:
             test-results/full-rollout/gallery
             test-results/full-rollout/topology
             test-results/full-rollout/candidate-motion
+  aquatic-wave-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/aquatic --aquatic
+      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/aquatic-motion coral:2,coral:5,coral:7,coral:8,jellyfish:1,jellyfish:2,jellyfish:3,jellyfish:4,jellyfish:5,jellyfish:6,jellyfish:7,jellyfish:8
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -270,6 +275,19 @@ jobs:
           path: |
             test-results/full-rollout/aquatic
             test-results/full-rollout/aquatic-motion
+  armored-wave-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/armored --armored
+      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/armored-motion hermit_crab:1,hermit_crab:2,hermit_crab:3,hermit_crab:4,hermit_crab:5,hermit_crab:6,hermit_crab:7,hermit_crab:8,antlion:1,antlion:2,antlion:3,antlion:4,antlion:5,antlion:6,antlion:7,antlion:8,cicada:1,cicada:2,cicada:3,cicada:4,cicada:5,cicada:6,cicada:7,cicada:8,beetle:1,beetle:2,beetle:3,beetle:4,beetle:5,beetle:6,beetle:7,beetle:8,stagbeetle:1,stagbeetle:2,stagbeetle:3,stagbeetle:4,stagbeetle:5,stagbeetle:6,stagbeetle:7,stagbeetle:8
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -288,13 +306,19 @@ jobs:
             test-results/full-rollout/armored/evidence.json
             test-results/full-rollout/armored-motion/hermit_crab*.jpg
             test-results/full-rollout/armored-motion/motion-evidence.json
-      - uses: actions/upload-artifact@v4
-        if: always()
+  mythic-wave-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          name: full-rollout-botanical-review-${{ github.sha }}
-          path: |
-            test-results/full-rollout/botanical
-            test-results/full-rollout/botanical-motion
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/mythic --mythic
+      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/mythic-motion dragon:1,dragon:2,dragon:3,dragon:4,dragon:5,dragon:6,dragon:7,dragon:8,phoenix:3,phoenix:7,god:3,god:7,ghost:3,ghost:7,plush:1,plush:2,plush:3,plush:4,plush:5,plush:6,plush:7,plush:8,star:3,star:7,unknown:3,unknown:7
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -302,6 +326,26 @@ jobs:
           path: |
             test-results/full-rollout/mythic
             test-results/full-rollout/mythic-motion
+  botanical-wave-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/botanical --botanical
+      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/botanical-motion world_tree:1,world_tree:2,world_tree:3,world_tree:4,world_tree:5,world_tree:6,world_tree:7,world_tree:8,venus_flytrap:1,venus_flytrap:2,venus_flytrap:3,venus_flytrap:4,venus_flytrap:5,venus_flytrap:6,venus_flytrap:7,venus_flytrap:8,sakura:1,sakura:2,sakura:3,sakura:4,sakura:5,sakura:6,sakura:7,sakura:8
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-botanical-review-${{ github.sha }}
+          path: |
+            test-results/full-rollout/botanical
+            test-results/full-rollout/botanical-motion
   nonplayer-candidate-review:
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -353,6 +397,7 @@ jobs:
           node tools/character-3d/botanical-remove-it.cjs > test-results/full-rollout/botanical-remove-it.txt
           node tools/character-3d/venus-stages-remove-it.cjs > test-results/full-rollout/venus-stages-remove-it.txt
           node tools/character-3d/crustacean-remove-it.cjs > test-results/full-rollout/crustacean-remove-it.txt
+          node tools/character-3d/dragon-stages-remove-it.cjs > test-results/full-rollout/dragon-stages-remove-it.txt
           node tools/character-3d/mythic-remove-it.cjs > test-results/full-rollout/mythic-remove-it.txt
           node tools/character-3d/plumed-bird-remove-it.cjs > test-results/full-rollout/plumed-bird-remove-it.txt
           node tools/character-3d/celestial-remove-it.cjs > test-results/full-rollout/celestial-remove-it.txt

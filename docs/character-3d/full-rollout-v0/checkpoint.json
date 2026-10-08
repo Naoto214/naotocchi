@@ -1,6 +1,6 @@
 {
-  "baseCommit": "df26408db1a448eee4e6971981522d2b6a537961",
-  "checkpoint": "venus-recovered-204-dragon07-rear-ribs-fixed-recapture-pending",
+  "baseCommit": "e45910d13bf793051391907d971a59fdb61447d1",
+  "checkpoint": "dragon-all8-candidates-review-split-image-gate-pending",
   "coverage": {
     "exact": 204,
     "total": 293,
@@ -11,14 +11,14 @@
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 230,
+    "dedicatedPass": 233,
     "rolloutMutationsDetected": 27,
     "pilotHashesUnchanged": 28,
-    "fullNpm": "Historical df26408/c331193:3010PASS/2FAIL protected resident-expression; NOT GREEN. Not rerun during scratch recovery. Previously trailing Relationship independently rerun:80PASS.",
-    "postPromotionAggregate": "Pre-Venus c331193:24families/192exact, fallback0/errors0,artifact11471980946. Post-Venus25families NOT YET RUN.",
+    "fullNpm": "Retained completed summaries:3013PASS/0FAIL plus Relationship80PASS/0FAIL. Original process exit code unavailable; exact compressed log and SHA256 archived. Historical3010/2 separate.",
+    "postPromotionAggregate": "e45910d artifact11546721411:25families/200exact;fallback/errors/failedTemplates0",
     "nonplayerMutationsDetected": 7,
     "worldTreeMutationsDetected": 9,
-    "previousHeadCI": "b12dc7a Runtime37591735877/Home37591735859 success;Character37591725500 queued when checked",
+    "previousHeadCI": "e45910d Runtime37764800479/Home37764800482 SUCCESS;Character37764789096 CANCELLED, not green",
     "venusMutationsDetected": 6,
     "botanicalMutationsDetected": 22,
     "plushStageMutationsDetected": 6,
@@ -28,12 +28,14 @@
     "relationshipPass": 80,
     "venusImageGate": "c331193 artifacts11470811397/11470106366:32fourviews/256states/16distance; prior all8 PASS carried forward, archives restored",
     "mythicMutationsDetected": 11,
-    "dragonRearRibs": "RED rear0/14, GREEN rear14/14 andfront14/14; image recapture pending"
+    "dragonRearRibs": "e45910d Dragon03/07 image gate PASS:8fourviews/64states/4normal-distance",
+    "dragonStageMutationsDetected": 6,
+    "dragonAll8": "Candidate only;03/07 unchanged;all8 image gate pending;review minor tests improved:real eye rays,two eyes per stage,all8 runtime isolation"
   },
   "next": [
-    "Post-Venus25family runtime aggregate",
-    "Review Dragon03/07 corrected fourview/state/normal-distance Actions captures; rear ribs fixed but image gate pending",
-    "Remaining48 player stages and41 nonplayers; candidates isolated until image gates",
+    "Save candidates and split workflow via Git Data API; fresh remote/local/tree verification",
+    "New Actions Dragon all8 image gate:32fourviews/256states/16normal-distance;promote only after PASS",
+    "Remaining48player stages and41nonplayers; candidates isolated until gates",
     "Full293 integration/performance/regression QA and Human QA package"
   ],
   "protected": [

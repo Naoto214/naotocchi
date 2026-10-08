@@ -25,6 +25,7 @@ export function wingedReptile(sp,key){
  const faceSurface=merge(parts.map(g=>g.clone()));
  for(const horn of sp.horns)parts.push(solid(sweep(horn.path,t=>horn.r*(1-t*.96),8,{steps:14}),c.horn));
  for(const side of [-1,1])parts.push(volume([.016,.010,.007],[side*.075,h.muzzle.at[1]+.034,h.muzzle.at[2]+h.muzzle.size[2]*.89],c.nostril));
+ for(const f of sp.breathFlames||[])parts.push(solid(sweep(f.path,t=>f.radius*Math.sin(Math.PI*Math.min(.98,.10+t*.9)),8,{steps:14}),f.color));
  r.add('head','body',h.at,parts);
  for(const l of sp.limbs){const parts=[solid(sweep(l.path,t=>l.r*(1-t*.46),10,{steps:12}),c.body),volume(l.paw.size,l.paw.at,c.body)];
   for(const claw of l.claws)parts.push(solid(sweep(claw,t=>.022*(1-t*.94),6,{steps:5}),c.horn));
