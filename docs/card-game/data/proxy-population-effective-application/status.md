@@ -719,3 +719,16 @@ TDD2FAIL→fixtureの既存references.scope不足で1FAIL1ERROR→本来scopeを
 次はC-cat_friendのsource自身をコストで山札下へ移す発動入口とM06の手札world支払を既存処理へ結合する。前者は付属装備・typed対象離脱、後者は発生機会groupとの結合があり、今回のM02/08監査からは分離する。課題追加なし、P07内の未閉包を具体化。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
 
 固定22＋既存完走unit1: Ran 23 tests in 279.965s、PASS。design errors=[]、保護476件不変。
+
+
+### C-cat_friendの本人支払・付属装備・typed離脱と全差分
+
+502a09bからP07を継続。既存descriptor/target条件と供給当該手番履歴を再利用し、本人の山札下移動、装備の準備→捨て札membershipとmetadata消去、本人対象のstat/conditional消去、usage、source_cost/activation receipt、119/context、その他全state保持をcoverageへ結合した。通常/response、装備0/1/2枚、供給typed行の離脱を実既存入口で確認。指定policy/nativeを変更しない。
+
+TDD2FAIL→関連5PASS0.832s。typedとcoverage回帰を加え関連14PASS1.293s。本人/山札/捨て札/装備/時/成長/usage/receipt/対象/同名対象/重複使用/支払/chain改変を拒否。独立review1回C0/I0/Minor0（新規4PASS0.530s）。ログverification/cat-activation-effect-*。
+
+装備複数離脱時は既存捨て札prefixと追加membershipのみを照合し、末尾順序を正本由来と見なさない。equipment_discard_order_proven=false、順序交換例も全体nullのまま。供給typed fixtureは初期状態からの到達性を証明しない。履歴起点・選択認証・全機会も未証明。
+
+次はM06を含む既存positive4sourceのgroup発動で、実chosen/occurrenceと支払・使用記録・全差分を結合する。課題追加なし、既存P07内の未閉包を具体化。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
+
+固定22＋既存完走unit1: Ran 23 tests in 282.212s、PASS。design errors=[]、保護476件不変。
