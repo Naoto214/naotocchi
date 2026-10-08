@@ -380,3 +380,11 @@ ec3c5de保存・fresh一致後も継続し、正本02/06の価格を既存main_m
 独立review C0/I0/Minor2、関連46PASS7.960s・固定Python結合19PASS149.113s、design errors=[]、保護476不変。npmは直前bundle406PASSで今回再実行なし。Minor2（非行動側before.timeの厳格型/範囲、正額が残る割引と不足時専用test）は台帳P11へ明記。詳細movement-payment-review.md。
 
 横断reviewでP22を発見: M-antlion-01旧birthはplay_main_birthで今回監査外、transformは候補あり/旧executor拒否。既存未接続であり今回回帰ではない。正本02/55と既存handlerの接続が次工程。残課題台帳は22管理項目、理由/完了条件を追記。preflight-ready=false、生成/固定/400戦0、全体結論null。
+
+### M-antlion-01旧/新main入口の接続（最新）
+
+cfba45eのfresh保存一致後も継続し、P22をTDD接続。source55の既存cost_modifier/set_item_payment/set_discountを現行main_routes.scopeだけでbatchへ登録し、既存birth/transform/outcome/applyを再利用。旧native/manifest/hashは不変。旧play_main_birth固有eventもM01/birthに限定して価格・個体監査へ接続した。
+
+前reviewのMinor2（相手before.timeのbool/負値、正の割引支払8→6と不足時test）をRED→GREEN解消。今回review C0/I0/Minor0、関連50PASS8.787s・固定Python結合19PASS150.179s、design errors=[]、保護476不変。npmは挑戦数値bundleの406PASS以降再実行なし。全proxy回帰完了ではない。詳細main-routes-review.md、失敗/成功ログ保持。
+
+P22の具体的未接続は解消。22項目の台帳2026-10-08-preflight-remaining-work.mdと全41種対応表2026-10-08-preflight-handler-and-gate-audit.mdを更新。残る全handler意味/全機会/許可情報実使用/他operand/外部承認の信頼元と認証/生成由来・結果前順序/lock・実行gate合成は未完。preflight-ready=false、seed生成/本番入力固定/400戦0、全体結論null。準備完了と本番開始の最終確認はまだ行わない。

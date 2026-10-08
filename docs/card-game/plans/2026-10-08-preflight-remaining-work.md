@@ -35,7 +35,7 @@
 | P19 | 条件付き | 新しいhandler・裁定・情報境界不足が検出された場合 | 既存正本から一意ならTDDで接続。不明なら停止理由と具体的な選択肢/影響を記録し、値/優先順位/先読みを創作しない |
 | P20 | 本番開始後可 | 実400行のcompleted/excluded/unproved・対群・勝率等 | 承認済み固定集合の全行を保持して算入判定。除外/未証明があれば全体結論null。subsetは診断専用、独立balance標本への自動昇格なし |
 | P21 | 本番開始後可 | 実行時間/実際の中断/観測頻度 | 事前に定めたログを結果と保存。結果を理由に追加・削除・差替えしない。将来の比較方式/カード調整は別承認 |
-| P22 | 必須 | M-antlion-01の旧main経路: birthは既存play_main_birth、transformは候補に入るが旧executorが拒否 | 旧birthの固有event形を支払/個体監査へ接続。transformの実入口は既存batch移動と正本02/55から接続し、候補が実行不能のままなら未証明/停止を保持。現main_movement価格監査だけで全main移動済みにしない |
+| P22 | 必須 | M-antlion-01の現行移動接続済み: source55既存cost modifierを現行batch scopeへ登録、旧birth監査も追加 | 旧birth固有event形を支払/個体監査へ接続。現行birth/transformのbatch実処理、scope復元、既存割引維持を検証。過去起点/全機会/一般policyをこの接続から昇格しない |
 
 ## route inventoryの読み方
 
@@ -87,3 +87,10 @@ P01〜P03レビュー・最終検証・保存 → P04/P05生成と残る消費 �
 - P11: 既存typed消費監査に、正本02のたんじょう=段階/ときおくり=同種後段階差/へんしん=別種行先段階と、正本06の全軽減後0下限を結合。event金額と両者の残り時を検査し、自己整合した不正支払も拒否。一般payment_amount_provenはfalseのまま。
 - review C0/I0/Minor2。Minorは(1)非行動側before.timeのbool/負値の単独監査型検査不足（外側state検証とは別）、(2)割引後も正の支払となるstage8→6と不足時の専用テスト不足。既存scope内の実正常main_movement誤拒否はなし。両件をP11の未完小項目として保持し、今回完了と数えない。
 - **P22を追加**: current107のM-antlion-01 birthはplay_main_birthでvariant/receipt fieldsが違い、main_movement監査対象外。transformは候補にあるが既存旧executorが拒否する。これは新コードの回帰ではなく、全sourceを横断して旧/新実入口の差まで確認したことで判明した既存未接続。追加理由と完了条件を分離した。台帳は22管理項目となった（22個の新規ルールではない）。
+
+### P22を保存待ちで止めず継続した結果
+
+- source55の既存M-antlion-01 descriptorを現行scopeだけでbatchへ登録。set_item_payment/set_discountを保持し、既存batchのbirth/transform・価格・選択処理を再利用。新しいscore、期待値、先読みなし。歴史native/manifest/hashは不変。scope解除と例外時のregistry復元も確認。
+- 旧play_main_birthもM01/birthに限定して既存個体・支払監査へ接続。P22の具体的未接続を解消。ただし全候補/全機会/起点認証のP08/P09/P11は残る。
+- 直前reviewのMinor2も解消: 両者before.timeは厳密int>=0、正の割引支払8→6、不足5、bool/負値をRED→GREEN。供給状態の妥当性検査と起点認証は別。
+- 独立review C0/I0/Minor0、関連50PASS8.787s・結合19PASS150.179s、design errors=[]、476不変。main-routes-*ログ参照。新たな必須課題増加なし。

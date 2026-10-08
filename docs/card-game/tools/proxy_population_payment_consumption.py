@@ -32,10 +32,10 @@ def movement_payment(before,after,event,prior_source,used):
  for path in ('02-main-system.md','31-beetle-stagbeetle-card-master-migration.md','55-insect-three-lines-card-text-draft.md'):
   if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=printed.SOURCES[path]:raise ValueError('movement price source changed')
  if hashlib.sha256((ROOT/'06-action-chain-checkpoint.md').read_bytes()).hexdigest()!='7ac6d6141095d1139b8a8e072bc1523d621b7f100a57e292c08bbc97a7618c67':raise ValueError('movement payment order source changed')
- g=before['legacy_continuation']['game_state'];actor=g['turn_player'];p=g['players'][actor];card=g['cards'][prior_source]['card_id'];variant=event['candidate_variant']
+ g=before['legacy_continuation']['game_state'];actor=g['turn_player'];p=g['players'][actor];card=g['cards'][prior_source]['card_id'];variant=event.get('candidate_variant','birth') if event['action_type']=='play_main_birth' else event['candidate_variant']
  if any(player['reservations'] for player in g['players'].values()):raise ValueError('legacy movement price modifiers unproved')
  species,stage=batch.rules.main_identity(card,set(printed.PRINTED));current=p['board']['main'];previous=batch.rules.main_identity(g['cards'][current]['card_id'],set(printed.PRINTED)) if current else None
- cap=batch.classification(card)
+ cap=batch.classification(card) if card in batch.CAPABILITIES else batch.rules.classification(card)
  if event['source_reference']!=cap['reference']:raise ValueError('movement payment source reference differs')
  if variant=='birth':
   if previous is not None:raise ValueError('birth requires egg')
@@ -49,6 +49,7 @@ def movement_payment(before,after,event,prior_source,used):
  cost=max(0,base-sum(r['amount'] for r in used))
  if type(p['time']) is not int or p['time']<cost or type(event['payment_time']) is not int or event['payment_time']!=cost:raise ValueError('movement actual payment differs')
  for owner in ('A','B'):
+  if type(g['players'][owner]['time']) is not int or g['players'][owner]['time']<0:raise ValueError('movement prior remaining time differs')
   actual=after['legacy_continuation']['game_state']['players'][owner]['time'];expected=g['players'][owner]['time']-(cost if owner==actor else 0)
   if type(actual) is not int or actual!=expected:raise ValueError('movement remaining time differs')
  return dict(base_time=base,modifier_total=sum(r['amount'] for r in used),payment_time=cost,source_reference=cap['reference'],history_authenticated=False)
@@ -79,7 +80,7 @@ def relationship(before,after,event):
 
 
 def audit(before,after,event):
- errors=[];count=0;expired=0;movement=event.get('action_type')=='main_movement';relation=event.get('action_type') in ('relationship_progress','relationship_marriage');applicable=movement or relation;reference=None;movement_price=None
+ errors=[];count=0;expired=0;movement=event.get('action_type') in ('main_movement','play_main_birth');relation=event.get('action_type') in ('relationship_progress','relationship_marriage');applicable=movement or relation;reference=None;movement_price=None
  try:
   cap=payments.capability('E-fateful-transform');reference=cap['reference']
   if cap['timing']!='next_transform_this_turn' or cap['payment_kind']!='transform':raise ValueError('payment consumption source timing differs')
@@ -91,11 +92,12 @@ def audit(before,after,event):
   else:
    if hashlib.sha256((ROOT/'07-advanced-rules-checkpoint.md').read_bytes()).hexdigest()!='f346005f5f803f725d294e2fdc9f7fe98fac8a016609612c3d4fe9ab76b6874a':raise ValueError('movement target expiry source changed')
    payments.validate_effects(before)
-   c=before['legacy_continuation'];g=c['game_state'];actor=g['turn_player'];variant=event['candidate_variant']
+   c=before['legacy_continuation'];g=c['game_state'];actor=g['turn_player'];legacy_birth=event['action_type']=='play_main_birth';variant=event.get('candidate_variant','birth') if legacy_birth else event['candidate_variant']
    if event['actor']!=actor or g['phase']!='normal_action' or c['activation_zone'] or c['pending_triggers'] or c['response_context']['chain_status']!='empty' or c['response_context']['chain_links']!=[]:raise ValueError('payment consumption movement boundary differs')
    if variant not in ('birth','time_skip','transform'):raise ValueError('payment consumption movement variant unknown')
    source=event['source_instance_id']
    prior_source=movement_instance(before,after,event)
+   if legacy_birth and (variant!='birth' or g['cards'][prior_source]['card_id']!='M-antlion-01'):raise ValueError('legacy birth source or variant differs')
    if type(event['seq']) is not int or event['seq']!=before['event_seq']+1 or after['event_seq']!=event['seq']:raise ValueError('payment consumption sequence differs')
    if g.get('challenge') is not None:raise ValueError('normal movement during challenge')
    old_target=g['players'][actor]['board']['main']

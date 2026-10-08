@@ -5,6 +5,7 @@ import proxy_population_incarnation_window as incarnation
 import proxy_population_trigger_window as window
 import proxy_population_trigger_existing as existing
 import proxy_population_normal_frontier as normal
+import proxy_population_main_routes as main_routes
 import proxy_population_effect_application_runtime as application
 import proxy_population_chain_resolution as chain
 import proxy_population_growth_runtime as growth
@@ -110,7 +111,7 @@ def contract_scope():
  try:
   runtime.operation=operation;runtime._step=step
   existing.SUPPORTED=supported|{'M-antlion-07','P-anglerfish'};window.OBSERVED_EVENTS=observed|{'challenge_declared'}
-  with normal.scope(),application.scope(),chain.scope(),trigger_predicates.scope():yield
+  with main_routes.scope(),normal.scope(),application.scope(),chain.scope(),trigger_predicates.scope():yield
  finally:runtime.operation=prior_operation;runtime._step=prior_step;existing.SUPPORTED=supported;window.OBSERVED_EVENTS=observed;_LOCK.release()
 
 
