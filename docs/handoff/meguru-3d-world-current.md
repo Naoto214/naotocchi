@@ -18,9 +18,13 @@ Candidate product95c5850e7aedde4c46c16f71f20eedfc4d0d8320 / tree759b431daad87999
 
 ## Unfinished
 
-Stone CI37590015576 evidence: five ZIP digests,223raw entries, commits/source hashes verified before workspace maintenance.59comparison draw calls unchanged; triangle deltas limited to forest+100 and river_lake+340. Smoke13/corridor8 issues[], smoke maxPartyObstacleOverlap0.0025200611492053326 (not zero), visibility2832/hidden0/partial1. Raw evidence is still being saved; do not call the failed regression passing. CI artifacts remain the recovery source.
+Recovered CI evidence: latest run37699392254 completed/success, all5jobs successful; source eedd964f5d081748dd19924d4b10acaa58f3bfd6. All5ZIP digests,219original files,job commits,three source SHA256s and exits freshly checked; regression2881+80PASS/0FAIL/exit0 with Node concurrency4 package pipeline, not unmodified npm test. Latest originals and README/verification are saved in6f1d6778226953e45a5aff7c749c27c2c41b020f under docs/qa/meguru-3d-ci/run-eedd964/.
 
-Waterwheel axle/two-support candidate is preserved in /tmp/wheel-candidate (meguru.js, index.html, visual-quality test). Not committed or visually verified. Earlier local45PASS logs/fingerprints were lost; rerun before claiming validation. First save the stone test correction and remaining QA evidence, then continue waterwheel improvement.
+Old run37590015576 completed/failure: browser4jobs success; regression2879PASS/2FAIL/exit1, subsequent80not executed. All5ZIPs and223original files freshly recovered and reverified under docs/qa/meguru-3d-ci/run-95c5850/. AD-12/v2-14 failures remain historical evidence, not success. Both runs smoke13/corridor8 issues[]; visibility2832/hidden0/partial1. Latest smoke maxPartyObstacleOverlap0.004852588928741852; old0.0025200611492053326. Neither is zero. Difference cause remains unconfirmed despite identical meguru.js/meguru-3d.mjs/index.html hashes.
+
+The old /tmp/wheel-candidate no longer exists. Its files, manifest and success logs were lost; none are validation evidence. Reconstruct the horizontal axle and two side supports from current source with TDD and image QA. Preserve wheel/rim,6spokes,6paddles,placement/collision. No waterwheel product implementation has been saved yet. Four dry-road bridge approach views are already saved and reviewed; do not prune crowns on overview images alone.
+
+This recovery contains442unchanged raw files plus2READMEs,2verification records and this checkpoint. Source unchanged; no new regression execution claimed. Earlier partial dangling-blob uploads were not branch saves; only committed paths count as saved.
 
 
 Bank-only unmodified npm completed2879+80PASS/exit0 with matching source hashes; raw evidence is saved alongside its README. It cannot validate later vehicle code. Bank and vehicle CI artifacts are verified and saved; matched vehicle and region images were reviewed. Keep runtime/source provenance separate from Human QA. Minor review gap: VQ-22 covers the real strip builder but not actual production dry-lane/ditch selection; browser comparisons must verify that scope.
