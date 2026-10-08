@@ -153,3 +153,14 @@ c1449eaからP07/P11を継続。既存victory_history/end_victoryの全公開履
 終点snapshotのcontinuationだけでは、game側100と実before側95の食い違いを受理できたため追加TDDで再現し、gameとcontinuationの双方を実beforeへ結合した。TDD4FAIL→関連18PASS1.244s、終点追加5件中1FAIL0.356s→関連19PASS1.278s。独立review1回C0/I0/Minor0（新規＋turn finish9PASS1.147s）。固定22＋既存完走unit1は23PASS278.417s。design errors=[]、番号付き保護正本476件不変。失敗・修正・成功ログはverification/early-finish-effect-*に保存。
 
 供給履歴の整合性検査であり、履歴起点・先後の外部認証、終了六段階全義務、全ルール機会の証明ではない。相手の次ターン未到来例は合成した条件付き履歴であり真正な本番結果ではない。次は手札即時カードの既存normal/response発動入口で、費用・手札除去・chain・contextの全差分結合を確認する。新たな管理項目を追加せず既存P07/P11の未閉包を具体化した。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
+
+
+### 手札即時カードの支払・発動zone・chain全差分
+
+3ee8a70からP07を継続。既存手札15source集合とpin済みtable/本文から費用とaction typeを読み、通常/responseの実支払、手札からの除去、physical identity・対象・variantを含むlink、context、他state全保持を照合する。119の既存transitionを再利用し、state machine/nativeを作り直さない。coverageへ全event接続。個別発動条件と選択起点は別の既存監査であり、このproofではfalseを維持する。
+
+TDD3FAIL→初期response fixtureの資源不一致2ERROR→初期条件へ修正後10件中1FAIL。response sourceを未知IDへ改変すると非適用になる抜けを再現し、拒否へ修正して関連13PASS4.156s。I-c_coin2/G-hit-blowの実normal/response、先行pass0/1、時/成長/手札/runtime/priority/chain/receipt改変とcoverageを検証。独立review1回C0/I0/Minor0（新規3PASS0.316s）。ログverification/hand-activation-effect-*。全15source到達試験完了・全個別条件の証明とは扱わない。
+
+次工程調査: M-antlion-02/08の既存paid_draw入口はsource costの準備札/捨て札→山札下と使用回数を実行し、既存replayもある。これを独立した費用・全差分監査へ結合する余地が残る。C-cat_friend/M06の支払も別入口である。管理項目追加なし、既存P07の未閉包を具体化。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
+
+固定22＋既存完走unit1: Ran 23 tests in 277.276s、PASS。design errors=[]、保護476件不変。

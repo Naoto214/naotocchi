@@ -1,0 +1,14 @@
+..F.......
+======================================================================
+FAIL: test_payment_link_and_unrelated_changes_rejected (test_proxy_population_hand_activation_effect.HandActivationEffectTests.test_payment_link_and_unrelated_changes_rejected) (normal=False, mode='source')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_hand_activation_effect.py", line 54, in run
+    with self.subTest(normal=normal,mode=mode):self.assertTrue(api.audit(before,after,ev)['errors'])
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 10 tests in 1.213s
+
+FAILED (failures=1)
