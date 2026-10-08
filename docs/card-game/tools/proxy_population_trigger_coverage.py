@@ -80,7 +80,9 @@ def audit(result,initial_history,initial_proof,initial=None,initial_snapshots=No
             paid=paid_activation.audit(previous,after,event)
             if paid['errors']:raise ValueError('paid activation full delta differs: '+str(paid['errors']))
             paid_activation_audits.append(paid)
-            activated=hand_activation.audit(previous,after,event)
+            hand_records=[r for r in result.get('trigger_records',[]) if r['before_envelope']['event_seq']==previous['event_seq']]
+            if len(hand_records)>1:raise ValueError('group activation record ambiguous')
+            activated=hand_activation.audit(previous,after,event,hand_records[0] if hand_records else None)
             if activated['errors']:raise ValueError('hand activation full delta differs: '+str(activated['errors']))
             hand_activation_audits.append(activated)
             expiration=expiry.audit(previous,after,event)

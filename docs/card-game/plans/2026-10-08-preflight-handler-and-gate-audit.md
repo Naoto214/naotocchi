@@ -358,3 +358,16 @@ TDD2FAIL→関連5PASS0.832s。typedとcoverage回帰を加え関連14PASS1.293s
 次はM06を含む既存positive4sourceのgroup発動で、実chosen/occurrenceと支払・使用記録・全差分を結合する。課題追加なし、既存P07内の未閉包を具体化。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
 
 固定22＋既存完走unit1: Ran 23 tests in 282.212s、PASS。design errors=[]、保護476件不変。
+
+
+### G-air-hockeyのgroup所有者bridgeと実選択記録の結合
+
+ea40f33から次のgroup発動を調査中、04d0804の手札全差分監査がG-air-hockeyの既存group-owner bridgeを通常response優先者違反として拒否する回帰を発見した。既存hand_timingの7テスト中3ERROR3.334sで再現。これは通常responseの実支払監査をgroup発動へ接続した入口差の検証不足であり、先の固定23PASSを全枝成功に読み替えない。
+
+group_activation_bindingは実recordのbefore/after/event、prior/effective ledger、現在group actor/category/rank、chosen/decision、occurrence消費とeventを結合する。既存ledger algebraを再利用。G-air-hockeyの該当hand groupだけで所有者/発生originへのbridgeを許容し、その後の費用/link/119/全state監査は維持する。native・通常response・policyは変更しない。coverageは実trigger_recordsを渡し、欠落/重複/改変を拒否。
+
+修正後既存＋手札10PASS4.172s。実connected groupを使う追加回帰は最初scope不足1FAIL（16件6.019s）→既存contract_scopeをruntime.operation外側へ戻して関連16PASS5.736s。record欠落・decision/chosen/origin/consume/rank/actor/event改変、余分な成長を拒否。独立review1回C0/I0/Minor0（新規＋既存hand timing8PASS5.719s）。ログverification/hand-group-effect-*。
+
+管理項目22は維持し、既存P07/P09の入口差に関する具体的修正を記録した。未完が具体化した理由はpositive groupのdispatchを辿って既存hand bridgeを見つけたため。次は当初のpositive4source発動と実group記録・全差分の結合へ戻る。個別発動条件・occurrence/選択起点認証・全機会は未証明、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
+
+固定22＋既存完走unit1: Ran 23 tests in 282.118s、PASS。design errors=[]、保護476件不変。

@@ -3,6 +3,7 @@
 This does not authenticate selection or prove per-card activation predicates.
 """
 import copy,hashlib
+import proxy_population_group_activation_binding as group_binding
 import proxy_continuation_rules as rules
 import proxy_continuation_state as state
 import proxy_resource_value_trajectory as old
@@ -10,7 +11,7 @@ import proxy_population_hand_predicates as predicates
 from proxy_population_resolution_semantics import event_digest
 from proxy_mandatory_policy_contract import ROOT,canonical
 
-def audit(before,after,event):
+def audit(before,after,event,record=None):
  errors=[];applicable=False
  try:
   c=before['legacy_continuation'];g=c['game_state'];kind=event.get('action_type');source=event.get('source_instance_id')
@@ -20,13 +21,19 @@ def audit(before,after,event):
     if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=digest:raise ValueError('hand activation source changed')
    actor=event['actor'];seq=event['seq'];card=g['cards'][source];ctx=c['response_context'];normal=g['phase']=='normal_action';p=g['players'][actor]
    if card['card_id'] not in predicates.SUPPORTED or source not in p['hand'] or c['pending_triggers']:raise ValueError('hand activation source/boundary differs')
+   group=record is not None or (event.get('source_zone')=='hand' and 'trigger_origin_event_seq' in event)
+   occurrence=None
+   if group:
+    if normal or card['card_id']!='G-air-hockey' or event.get('source_zone')!='hand':raise ValueError('hand group dispatch differs')
+    action,occurrence=group_binding.bind(before,after,event,record)
+    if action['card_id']!=card['card_id'] or action['card_copy_id']!=card['card_copy_id'] or action['candidate_variant']!=event['candidate_variant']:raise ValueError('hand group chosen identity differs')
    template=next(a for r in rules.table()['cards'] if r['card_id']==card['card_id'] for a in r['actions'] if a['action_type'] in predicates.QUICK)
    cost=template['base_time_cost'];ref=template['source_text_reference'];rules.source_section(ref)
    if type(cost) is not int or cost<0 or any(type(g['players'][a]['time']) is not int or g['players'][a]['time']<0 for a in 'AB') or p['time']<cost:raise ValueError('hand activation payment differs')
    if type(seq) is not int or seq!=before['event_seq']+1 or after['event_seq']!=seq or canonical(event['payment'])!=canonical(dict(time=cost)) or event['source_reference']!=ref:raise ValueError('hand activation receipt differs')
    if normal:
     if actor!=g['turn_player'] or kind!=template['action_type'] or c['activation_zone'] or ctx['chain_links'] or ctx['chain_status']!='empty' or g.get('challenge'):raise ValueError('hand activation normal boundary differs')
-   elif kind!='activate_response' or g['phase'] not in ('response_window','post_placement_response','turn_end_response') or actor!=ctx['priority_actor']:raise ValueError('hand activation response boundary differs')
+   elif kind!='activate_response' or g['phase'] not in ('response_window','post_placement_response','turn_end_response') or (occurrence is None and actor!=ctx['priority_actor']):raise ValueError('hand activation response boundary differs')
    link_id=f'response-link-{seq}-{source}'
    if event['chain_link_id']!=link_id:raise ValueError('hand activation link ID differs')
    expected=copy.deepcopy(before);expected['event_seq']=seq;ec=expected['legacy_continuation']
@@ -36,6 +43,7 @@ def audit(before,after,event):
    else:
     links=[r['link_id'] for r in c['activation_zone']]
     if ctx['chain_links']!=links or ctx['chain_status']!=('building' if links else 'empty') or ctx['turn_player']!=g['turn_player']:raise ValueError('hand activation prior stack differs')
+   if occurrence is not None:ec['response_context'].update(priority_actor=actor,origin_event_seq=occurrence['origin_event_seq'])
    owner=ec['game_state']['players'][actor];owner['time']-=cost;owner['hand'].remove(source)
    link=dict(link_id=link_id,action_type=template['action_type'],actor=actor,card_id=card['card_id'],card_copy_id=card['card_copy_id'],source_instance_id=source,target_instance_ids=copy.deepcopy(event['target_instance_ids']),candidate_variant=event['candidate_variant'],payment=dict(time=cost),source_references=[ref])
    ec['activation_zone'].append(link)
