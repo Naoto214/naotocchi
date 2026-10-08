@@ -105,7 +105,8 @@ def audit_opportunities(record):
     import proxy_population_incarnation as life
     import proxy_population_designated_effects as effects
     import proxy_population_egg_choice_effect as egg_choice
-    expected={};no_choice=[];errors=[];effect_audits=[];egg_audits=[];pending_egg=None
+    import proxy_population_source_root as source_root
+    expected={};no_choice=[];errors=[];effect_audits=[];egg_audits=[];pending_egg=None;physical_steps=[]
     def key(envelope):
         return occurrence_key(dict(envelope['legacy_continuation'],last_event_seq=envelope['event_seq']))
     def require(origin,frame):
@@ -121,7 +122,7 @@ def audit_opportunities(record):
     try:
         opening=record['opening'];first=record['binding']['mirror_side'][0]
         require('initial_turn_start',frame('egg_exchange_bottom',first,opening['normal_draw_intermediate']))
-        runtime=record['runtime'];registry=copy.deepcopy(runtime['physical_lifecycle_root']);before=runtime['source_envelope']
+        runtime=record['runtime'];registry=source_root.bind(record);before=runtime['source_envelope']
         life.check(registry,before)
         bycard={card:kind for kind,cards in REGISTRY.items() for card in cards}
         for step in runtime['steps']:
@@ -141,7 +142,9 @@ def audit_opportunities(record):
                 if egg['errors']:raise ValueError('egg choice semantics differ: '+str(egg['errors']))
                 if egg['applicable']:egg_audits.append(egg);pending_egg=None
                 prior_owner=life.game(before)['turn_player']
+                prior_lifecycle=life.digest(registry)
                 registry=life.observe(registry,before,after,event.get('instance_transitions',[]))
+                physical_steps.append(dict(event_seq=event['seq'],event_sha256=life.digest(event),before_envelope_sha256=life.digest(before),after_envelope_sha256=life.digest(after),before_lifecycle_sha256=prior_lifecycle,after_lifecycle_sha256=life.digest(registry)))
                 game=life.project_game(registry,life.game(after));actor=game['turn_player']
                 if actor!=prior_owner:
                     if event['action_type']!='turn_end_completed' or game['phase']!='turn_start':raise ValueError('designated turn entry differs')
@@ -150,15 +153,16 @@ def audit_opportunities(record):
                         require(key(after),pending_egg)
                 before=after
         if canonical(before)!=canonical(runtime['final_envelope']) or canonical(registry)!=canonical(runtime['physical_lifecycle_final']):raise ValueError('designated lifecycle final binding differs')
+        if canonical(physical_steps)!=canonical(runtime['physical_lifecycle_steps']):raise ValueError('actual physical lifecycle journal differs')
         actual={}
         for row in runtime['mandatory_policy_journal']['entries']:
             identity=canonical(row['identity'])
             if identity in actual:raise ValueError('duplicate callback occurrence')
             actual[identity]=row['frame']
         if set(actual)!=set(expected) or any(canonical(actual[k])!=canonical(expected[k]) for k in expected):raise ValueError('designated callback opportunity/frame coverage differs')
-    except (ValueError,KeyError,TypeError,IndexError) as error:errors.append(str(error))
+    except (ValueError,KeyError,TypeError,IndexError,OSError) as error:errors.append(str(error))
     return dict(schema='designated_mandatory_opportunity_coverage.v1',designated_opportunities_covered=not errors,
-        errors=errors,required_choice_count=len(expected),no_choice_occurrences=no_choice,
+        errors=errors,required_choice_count=len(expected),no_choice_occurrences=no_choice,physical_source_root_and_journal_verified=not errors,
         designated_effect_audits=effect_audits,designated_effect_semantics_verified=not errors,egg_choice_delta_audits=egg_audits,
         origin_authenticated=False,all_rule_opportunities_proven=False,opportunity_scope='designated_465_rules_given_actual_trace_entries',
         policy_eligible=None,balance_admitted=None)

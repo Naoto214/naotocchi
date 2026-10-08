@@ -1,0 +1,14 @@
+F.
+======================================================================
+FAIL: test_changed_root_prefix_and_actual_journal_are_rejected (test_proxy_population_source_root.SourceRootTests.test_changed_root_prefix_and_actual_journal_are_rejected) (mode='initial_players')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_source_root.py", line 30, in test_changed_root_prefix_and_actual_journal_are_rejected
+    with self.subTest(mode=mode):self.assertTrue(journal.audit_opportunities(bad)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 2 tests in 2.817s
+
+FAILED (failures=1)

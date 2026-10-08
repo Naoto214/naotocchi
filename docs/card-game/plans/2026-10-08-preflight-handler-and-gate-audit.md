@@ -414,3 +414,16 @@ TDD3FAIL0.001s→関連25PASS8.389s。独立review1回C0/I0/Minor0、新規3件�
 ローカル監査出力の真正性・全source到達・全機会を認証するものではない。今後の未対応dispatchは欠落として拒否し、未知をno-opへ置換しない。次は実dispatcherの全枝と現在の全差分familyを照合し、107物理集合・既存lifecycle・旧reservations/置換条件の結合に残る具体的な穴を列挙する。管理項目22維持。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
 
 固定22＋既存完走unit1: Ran 23 tests in 272.690s、PASS。供給された既存unit traceで未監査の非resolution eventは検出されなかった。全source/phase到達試験とは扱わない。
+
+
+### 107物理集合から既存lifecycleのroot・実journalへの結合
+
+8efe29aからP06/P07/P08の結合を継続。runtime/trigger_window/sequential/batch forced/chain scopeのdispatch順を読み、通常・応答・強制・group発動の出力が既存の全差分joinへ到達する構造を確認した。枝の静的照合だけで全source/phase到達とはしない。
+
+具体的な穴は、policy_journalの既存life.observe再計算が供給rootと最終値を検査する一方、107初期物理集合へのroot結合と保存physical_lifecycle_stepsの全値照合を持たなかった点。466の既存source anchorで107 fixtureをpinし、initial/opening finalの80定義・所有者別40所在、openingからruntimeへのlegacy/seq、既存life.createとroot全一致を結合した。既存life.observeループからhash列を得て保存journalの欠落/余分/順序/各event・state・lifecycle hashを厳密比較する。lifecycle/runtime/既存scopeを再実装しない。
+
+TDD2件10FAIL2.756s→関連16PASS6.739s。追加した初期player欠落の反例は2件中1FAIL2.817s、A/B集合を厳密検査して関連16PASS6.789s。独立review1回C0/I0/Minor0、新規2件独立PASS3.183s。全試行ログはverification/source-root-*。固定結合は最終logで別判定する。
+
+これは実traceの物理保存と供給root/journalの構造結合であり、入力provenance/lock、opening全履歴の独立認証、全ルール機会・I-poop1/I-bond1の全非到達・旧reservations閉包は未証明。次はpreparedの公開効果分類がboard linkをunprovedとして残す経路と、P06の人物除去否定条件を照合する。既存quick限定監査を全閉包へ読み替えない。管理項目22維持、追加の具体化理由は実dispatchから記録の消費先を辿って結合欠落を発見したため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
+
+固定22＋既存完走unit1: Ran 23 tests in 271.103s、PASS。design errors=[]、保護476件不変。
