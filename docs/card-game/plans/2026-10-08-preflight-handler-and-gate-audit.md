@@ -32,7 +32,7 @@
 | I-c_coin2 | proxy_population_chain_resolution.resolve_top | 公開top分類・底へ戻す・分岐draw/成長。旧予約の再導入禁止 |
 | I-poop1 | preparation.transitionで設置。preparation.response_inventoryは置換発動境界を拒否 | **置換resolverを完全接続済みとしない**。107から敵main除去発動の到達不能をsource/dispatch全域で証明するか、到達時は既存裁定から接続。除外を成功に数えない |
 | I-sleepboost1 | proxy_continuation_triggers.resolve | end条件/支払2・2draw後bottom・指定mandatoryと期限 |
-| M-antlion-01 | proxy_continuation_preparation.transition のcost_modifiers | 任意軽減の選択/実費用/1ターン使用記録 |
+| M-antlion-01 | proxy_continuation_preparation.transition のcost_modifiers | 任意軽減の選択/実費用/1ターン使用記録。main自身のbirthは旧play_main_birth、transformは候補あり/旧executor拒否（P22） |
 | M-antlion-02 | proxy_population_paid_draw.scope → triggers.resolve | 自伏せ底への支払と1draw、全コスト候補・機会 |
 | M-antlion-03 | proxy_population_trigger_effects.resolve | typed生成済。解決時parameter指定policyと実使用/起点 |
 | M-antlion-04 | proxy_continuation_triggers.resolve | 到来/伏せなし・対象の捨て札→top、部分不適正 |
@@ -78,3 +78,5 @@
 - I-poop1の置換入口は明示拒否が残る。静的41種登録を全handler完了としないため、P08/P19の到達条件に具体化した。新しい裁定の追加ではない。
 - 比較値をreceiptのまま信用すると、両側+7の自己整合した偽値を旧lifetime監査が受け入れる（P11）。独立の正本数値監査を追加した。
 - 独立レビューで正本02「最低0、上限なし」に対し、既存challenge.statsと追加監査が負値を返すことを発見（P11）。既存実handlerの未接続ルールとしてRED→GREEN修正。歴史runtimeの固定sourceを変更するとanchor検査が拒否したため、旧file/hash/manifestを復元・維持し、現行challenge接続scopeに最終下限adapterを追加した。全補正は既存statsで計算し、監査側は別に再構成する。
+
+- P22追補: M-antlion-01は準備軽減能力の接続と、main自身の移動経路を分ける。旧birthイベントにはcandidate_variant/payment_effect_idsがない。main_movement価格監査がこの旧経路も証明した扱いにはしない。transform候補はあるが旧handlerがbirth以外を拒否するため、current107内の未接続実行経路として必須に追加した。

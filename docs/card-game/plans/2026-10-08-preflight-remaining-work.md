@@ -35,6 +35,7 @@
 | P19 | 条件付き | 新しいhandler・裁定・情報境界不足が検出された場合 | 既存正本から一意ならTDDで接続。不明なら停止理由と具体的な選択肢/影響を記録し、値/優先順位/先読みを創作しない |
 | P20 | 本番開始後可 | 実400行のcompleted/excluded/unproved・対群・勝率等 | 承認済み固定集合の全行を保持して算入判定。除外/未証明があれば全体結論null。subsetは診断専用、独立balance標本への自動昇格なし |
 | P21 | 本番開始後可 | 実行時間/実際の中断/観測頻度 | 事前に定めたログを結果と保存。結果を理由に追加・削除・差替えしない。将来の比較方式/カード調整は別承認 |
+| P22 | 必須 | M-antlion-01の旧main経路: birthは既存play_main_birth、transformは候補に入るが旧executorが拒否 | 旧birthの固有event形を支払/個体監査へ接続。transformの実入口は既存batch移動と正本02/55から接続し、候補が実行不能のままなら未証明/停止を保持。現main_movement価格監査だけで全main移動済みにしない |
 
 ## route inventoryの読み方
 
@@ -80,3 +81,9 @@ P01〜P03レビュー・最終検証・保存 → P04/P05生成と残る消費 �
 - P13: 信頼主体・承認の認証方式は既存正本から未確定。非空referenceとfresh remoteを承認認証へ読み替えない。実seed/lock/開始は未実施。
 
 - P18補足: 初回の下限修正は歴史nativeファイルを直接変更したため、runtime468の固定source検査が関連2件/結合3件で拒否した（ログ保持）。旧source/hash/manifestを更新せずnativeを元に戻し、現行接続scopeへ下限adapterを設けた。scope解除時の復元と歴史anchor一致も検証。最終結果は `challenge-operands-final-scoped-*` のみを参照する。
+
+### 通常main_movementの実支払額
+
+- P11: 既存typed消費監査に、正本02のたんじょう=段階/ときおくり=同種後段階差/へんしん=別種行先段階と、正本06の全軽減後0下限を結合。event金額と両者の残り時を検査し、自己整合した不正支払も拒否。一般payment_amount_provenはfalseのまま。
+- review C0/I0/Minor2。Minorは(1)非行動側before.timeのbool/負値の単独監査型検査不足（外側state検証とは別）、(2)割引後も正の支払となるstage8→6と不足時の専用テスト不足。既存scope内の実正常main_movement誤拒否はなし。両件をP11の未完小項目として保持し、今回完了と数えない。
+- **P22を追加**: current107のM-antlion-01 birthはplay_main_birthでvariant/receipt fieldsが違い、main_movement監査対象外。transformは候補にあるが既存旧executorが拒否する。これは新コードの回帰ではなく、全sourceを横断して旧/新実入口の差まで確認したことで判明した既存未接続。追加理由と完了条件を分離した。台帳は22管理項目となった（22個の新規ルールではない）。

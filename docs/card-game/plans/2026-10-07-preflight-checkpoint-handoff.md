@@ -106,3 +106,11 @@ a33d7a6から継続。次勝利の比較値をreceiptから信用せず、正本
 最終関連59PASS16.311s、固定Python結合19PASS141.784s（challenge-operands-final-scoped-*）。npm406PASSは同bundle内の下限scope修正前、npm対象コードは以後変更なし。design errors=[]、保護476不変。全proxy回帰完了ではない。初回fixture期待値誤認と設計検査コマンド誤りを含む失敗ログ保持。詳細challenge-operands-review.md。
 
 残課題正本はplans/2026-10-08-preflight-remaining-work.md。21管理項目に分類/完了条件/増減理由を記録。別紙2026-10-08-preflight-handler-and-gate-audit.mdに107全41種類の実handlerと未接続証拠、validator/入力認証の不足を対応。I-poop1置換入口の明示拒否は全到達不能証明またはhandler接続が必要。P06旧予約、P07〜P12全意味/機会/許可情報/他operand、P13〜P17承認信頼元/由来/順序/lock/合成gateは未完。preflight-ready=false、seed生成/本番固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。
+
+### 通常main_movementの費用・実時間差分
+
+ec3c5de保存・fresh一致後も継続し、正本02/06の価格を既存main_movementへ接続。birth段階費用・time_skip同種後段階差・transform別種段階費用、全該当軽減後0下限、event支払と両者の残り時を監査。7変異RED→GREEN。過去生成や一般payment全体は未証明。
+
+独立review C0/I0/Minor2、関連46PASS7.960s・固定Python結合19PASS149.113s、design errors=[]、保護476不変。npmは直前bundle406PASSで今回再実行なし。Minor2（非行動側before.timeの厳格型/範囲、正額が残る割引と不足時専用test）は台帳P11へ明記。詳細movement-payment-review.md。
+
+横断reviewでP22を発見: M-antlion-01旧birthはplay_main_birthで今回監査外、transformは候補あり/旧executor拒否。既存未接続であり今回回帰ではない。正本02/55と既存handlerの接続が次工程。残課題台帳は22管理項目、理由/完了条件を追記。preflight-ready=false、生成/固定/400戦0、全体結論null。
