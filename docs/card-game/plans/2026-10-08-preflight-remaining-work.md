@@ -507,3 +507,16 @@ TDD2件10FAIL2.756s→関連16PASS6.739s。追加した初期player欠落の反�
 これは実traceの物理保存と供給root/journalの構造結合であり、入力provenance/lock、opening全履歴の独立認証、全ルール機会・I-poop1/I-bond1の全非到達・旧reservations閉包は未証明。次はpreparedの公開効果分類がboard linkをunprovedとして残す経路と、P06の人物除去否定条件を照合する。既存quick限定監査を全閉包へ読み替えない。管理項目22維持、追加の具体化理由は実dispatchから記録の消費先を辿って結合欠落を発見したため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
 
 固定22＋既存完走unit1: Ran 23 tests in 271.103s、PASS。design errors=[]、保護476件不変。
+
+
+### 公開board linkの置換否定predicateへの接続
+
+7181882からP06/P07/P09を継続。prepared_predicatesの既存quick分類は維持し、正本本文で敵main/なかま除去を持たない既存20board効果を、固定start catalog・公開activation receipt・source reference・時0の条件でpublic_effect_routeへ接続した。各分類に既存resolution full-delta family名を付けるが、分類自体はeffect_execution_proven=false / activation_origin_authenticated=falseを維持する。監査は全public linkを調べ、不明source・不正receipt・参照・支払はunprovedへ残す。伏せidentityを分類へ用いない。
+
+TDD2FAIL0.001s。初回15件2FAIL6.187sは、board支払が時0に加えて既存の札移動receiptを持つ点を狭く扱ったため。時の厳格int/0と参照を検査し、既存札移動情報を保持して15PASS6.277s。実M02/M08・本人離脱後cat、実開始/到着/終了/挑戦/強制group7種、実native inventory＋伏せidentity読出し追跡を追加し関連28PASS9.618s。これは条件付きfixture検証であり新本番seed/入力の生成ではない。
+
+独立review1回C0/I0/Minor0、新規4件独立PASS0.715s。20分類/既存family・pin・公開receipt・参照・時0とcat自己離脱の意味、伏せidentity読出しの追加がないことを確認。全到達性/全機会/実行証明/情報利用全体の認証/固定結合全体はreview対象外。ログはverification/prepared-board-routes-*。design errors=[]、保護476件不変、固定結合は最終logで別判定する。
+
+I-poop1/I-bond1の全非到達や旧reservations全機会は未達。登録一覧だけを証明へ算入しない。次は既存root・実lifecycle・全event差分joinと、旧reservations空/敵人物除去なしの条件をtrace上で結合する。未知のdispatch、入力/起点認証、全機会の未証明は引き続き拒否/保留する。管理項目22維持、具体化理由はprepared監査のhand限定分岐を実board発動へ辿ったため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
+
+固定22＋既存完走unit1: Ran 23 tests in 279.879s、PASS。全source/phaseの到達試験、最新全proxy回帰とは扱わない。

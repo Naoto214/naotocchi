@@ -58,6 +58,34 @@ def quick_effect_route(link):
   opponent_main_removal=False,opponent_companion_removal=False,effect_execution_proven=False)
 
 
+# These pinned107 bodies have no opponent main/companion removal operation.
+# A family names the existing full-resolution check required by the later join;
+# this public classification alone never attests that an effect was executed.
+BOARD_ROUTES={
+ 'draw_effect_audits':frozenset(('M-antlion-02','M-antlion-05','M-antlion-08','P-desert_scorpion','I-bowtie')),
+ 'zone_effect_audits':frozenset(('C-cat_friend','M-antlion-04')),
+ 'return_effect_audits':frozenset(('C-bat','M-antlion-06')),
+ 'typed_resolution_audits':frozenset(('M-antlion-03','P-cliff_goat','M-antlion-07','P-anglerfish')),
+ 'reveal_effect_audits':frozenset(('C-chicken',)),
+ 'immediate_growth_audits':frozenset(('W-countryside',)),
+ 'designated_effect_audits':frozenset(('M-beetle-01','M-beetle-02','P-cat_ceo','I-sleepboost1','W-city'))}
+
+
+def public_effect_route(envelope,link):
+ if link.get('source_zone','hand')!='board':return quick_effect_route(link)
+ card=link.get('card_id');unknown=dict(status='unproved',card_id=card,reason='public_effect_route_not_certified')
+ families=[family for family,cards in BOARD_ROUTES.items() if card in cards]
+ if len(families)!=1:return unknown
+ try:
+  from proxy_population_activation_reference import validate_reference
+  known=sources.catalog()['cards'][card]
+  validate_reference(envelope,link)
+  if type(link['payment']['time']) is not int or link['payment']['time']!=0 or link['source_references']!=[known['reference']]:return unknown
+ except (ValueError,KeyError,TypeError,IndexError,OSError):return unknown
+ return dict(status='registered_no_person_removal',card_id=card,handler='current_board_resolution_dispatch',resolution_audit_family=families[0],source_reference=known['reference'],source_raw_sha256=known['source_raw_sha256'],
+  opponent_main_removal=False,opponent_companion_removal=False,effect_execution_proven=False,activation_origin_authenticated=False)
+
+
 def audit(envelope,events,inventory):
  errors=[];verified=[];unproved=[];routes=[];public_unproved=[];equipment=[];verified_equipment=[]
  try:
@@ -105,7 +133,7 @@ def audit(envelope,events,inventory):
     if l['source_instance_id'] in concealed_ids:raise ValueError('public activation source still concealed')
     physical=g['cards'][l['source_instance_id']]
     if physical['card_id']!=l['card_id'] or physical['card_copy_id']!=l['card_copy_id']:raise ValueError('public effect physical source differs')
-    route=quick_effect_route(l);routes.append(dict(link_id=l['link_id'],**route))
+    route=public_effect_route(envelope,l);routes.append(dict(link_id=l['link_id'],**route))
     if route['status']=='unproved':unproved.append(dict(link_id=l['link_id'],reason=route['reason']))
   if equipment:
    exclusions=inventory.get('equipment_exclusions',[])
