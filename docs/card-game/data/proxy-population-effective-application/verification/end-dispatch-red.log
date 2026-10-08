@@ -1,0 +1,45 @@
+test_coverage_invokes_dispatch_order_after_full_delta (test_proxy_population_end_dispatch.EndDispatchTests.test_coverage_invokes_dispatch_order_after_full_delta) ... FAIL
+test_native_opens_eligible_source_before_expiry_or_finish (test_proxy_population_end_dispatch.EndDispatchTests.test_native_opens_eligible_source_before_expiry_or_finish) ... FAIL
+test_no_eligible_source_is_proved_without_native_empty_inventory (test_proxy_population_end_dispatch.EndDispatchTests.test_no_eligible_source_is_proved_without_native_empty_inventory) ... FAIL
+test_past_open_requires_its_actual_delta_and_cannot_reopen (test_proxy_population_end_dispatch.EndDispatchTests.test_past_open_requires_its_actual_delta_and_cannot_reopen) ... FAIL
+
+======================================================================
+FAIL: test_coverage_invokes_dispatch_order_after_full_delta (test_proxy_population_end_dispatch.EndDispatchTests.test_coverage_invokes_dispatch_order_after_full_delta)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_end_dispatch.py", line 16, in setUp
+    def setUp(self):self.assertIsNotNone(api,'end dispatch ordering audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : end dispatch ordering audit absent
+
+======================================================================
+FAIL: test_native_opens_eligible_source_before_expiry_or_finish (test_proxy_population_end_dispatch.EndDispatchTests.test_native_opens_eligible_source_before_expiry_or_finish)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_end_dispatch.py", line 16, in setUp
+    def setUp(self):self.assertIsNotNone(api,'end dispatch ordering audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : end dispatch ordering audit absent
+
+======================================================================
+FAIL: test_no_eligible_source_is_proved_without_native_empty_inventory (test_proxy_population_end_dispatch.EndDispatchTests.test_no_eligible_source_is_proved_without_native_empty_inventory)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_end_dispatch.py", line 16, in setUp
+    def setUp(self):self.assertIsNotNone(api,'end dispatch ordering audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : end dispatch ordering audit absent
+
+======================================================================
+FAIL: test_past_open_requires_its_actual_delta_and_cannot_reopen (test_proxy_population_end_dispatch.EndDispatchTests.test_past_open_requires_its_actual_delta_and_cannot_reopen)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_end_dispatch.py", line 16, in setUp
+    def setUp(self):self.assertIsNotNone(api,'end dispatch ordering audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : end dispatch ordering audit absent
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

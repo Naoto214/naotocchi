@@ -77,6 +77,9 @@ class BoundPolicyJournalTests(unittest.TestCase):
    self.assertTrue(all(a[flag] and not a['errors'] for a in audits),key)
    self.assertTrue(all(a['all_rule_opportunities_proven'] is False for a in audits))
    print('existing_unit_source_predicates',key,len(audits),'covered')
+  end_audits=[a for a in r['runtime']['supported_trigger_coverage']['end_dispatch_audits'] if a['applicable']]
+  self.assertTrue(end_audits);self.assertTrue(all(a['supplied_end_dispatch_verified'] and not a['errors'] for a in end_audits))
+  self.assertTrue(all(a['all_rule_opportunities_proven'] is False for a in end_audits));print('existing_unit_end_dispatch',len(end_audits),'verified')
   for step in r['runtime']['steps']:
    c=step['source_envelope']['legacy_continuation']
    if c['response_context']['chain_status']=='resolving' and c['activation_zone']:

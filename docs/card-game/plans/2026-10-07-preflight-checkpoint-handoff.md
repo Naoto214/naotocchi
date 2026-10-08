@@ -667,3 +667,22 @@ TDD1件15ERROR0.455s（全て406 active board source identity differs）→初�
 P07次工程のread-only probe: 終了条件positiveのM-beetle-02とtyped paymentを供給した場合、実forcedはopen_turn_end_triggersを先に返す。一方、payments.expireを直接呼んだ遷移は単体expiry.auditではerrors=[]となる（end-dispatch-order-probe.log）。これは単体差分の責務範囲でありnativeの順序不具合ではない。終了源の既存独立述語と実history/ledgerを失効・手番終了入口へ結合する監査が残る。追加理由は全差分とdispatch優先境界の証明を分けて確認したため。
 
 修正後固定22＋既存完走unit1: Ran 23 tests in 273.740s、PASS/exit0。design errors=[]、保護476不変。既存unit局所source合成response89/normal29と全機会flag=falseを維持。初回関連GREENは10PASS3.514s。全source/phase・最新全proxy回帰ではない。
+
+
+### 終了時source機会から失効・手番終了へのdispatch順序
+
+7be97dfからP07/P09を継続。既存nativeはopen_end→typed expiry→finishの順であるが、単体全差分だけでは前提となる終了時sourceの処理順を証明しない。現行coverageの全eventにend_dispatch監査を追加し、typed失効・通常手番終了・R10比較・100維持終了の前で、既存4source条件を独立に判定する。未開催かつeligibleなsourceがあれば拒否する。空native inventoryを証明に使わず、既存end_condition/catalog/公開ターン境界を再利用する。
+
+既に当ターンのopenがある場合は、履歴event名だけで済扱いせず、供給traceの実before/afterと当時のhistoryを既存end_window全差分監査へfresh結合する。trace外の過去openはerrors=[]でもverified=false/unprovedを保持。既存ledger順序監査と各full-deltaは維持し、native dispatcher/handler/歴史版は変更しない。未対応ルール源や履歴真正性、終了義務全体、旧reservations閉包をこの局所接続から昇格しない。
+
+TDD新4件4FAIL0.001s→関連19PASS1.237s→全4sourceの否定枝と既存順序監査を合わせ22PASS1.284s。4source×4後段event、実nativeのopen優先、直接expireの単体差分と順序の区別、過去openの分類/trace改変・重複・未来・開始欠落、trace外未証明とcoverage接続を確認。独立review1回C0/I0/Minor0、新4件独立PASS0.412s/exit0。固定結合は最終logで別判定。既存完走unitに全applicable end監査verifiedかつall_rule_opportunities_proven=falseのassertを追加した。
+
+管理項目22維持。具体化理由は単体全状態差分と、その処理を先に実行してよい条件が別であるため。P07/P09の全体完了ではない。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
+
+P10 read-only準備診断: 既存E-boss通常入口の条件付きfixtureで両者山札順反転・相手手札/山札の非公開札交換を行い、許可visibleと実decision全体の一致を確認した（information-use-current-entry-probe.log）。新規seed/本番入力ではなく、単一fixtureの非干渉診断。一般の情報実使用・全経路の証明へは昇格しない。次はこの既存入口の検証を、公開された値の変化との区別を含む永続回帰へ結合する。
+
+固定結合初回end-dispatch-integration-incomplete.logは2件目実行表示で途切れ、sessionはUnknown process、Python active processも0。最終Ran/OK/終了コードなし、原因未確定、結果不明として保持する。Python変更なしで同じ23件を再実行し、final-integration.logと別exit JSONへ最終結果を保存する。設計logのerrors=[]と保護476不変は別途実内容で再確認済み。
+
+P10追加read-only診断: 同じE-boss response入口も、両山札順反転・相手手札/山札交換でdecision全体の差分0。一方、公開の残り時0ではvisibleと候補/選択が変わりresponse-passとなる（information-use-response-entry-probe.log）。非公開の無関係性と公開条件への応答を区別した条件付き診断で、全経路証明や算入条件にはしない。
+
+最終固定22＋既存完走unit1: Ran 23 tests in 270.080s、PASS、別exit JSONも0。existing_unit_end_dispatch 20 verified。response89/normal29の局所合成・全機会false維持。design errors=[]、保護476不変。初回不完全logは結果不明のまま保存する。

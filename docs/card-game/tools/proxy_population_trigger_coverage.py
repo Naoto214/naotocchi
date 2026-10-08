@@ -34,6 +34,7 @@ import proxy_population_normal_pass_effect as normal_pass
 import proxy_population_response_pass_effect as response_pass
 import proxy_population_trigger_closure_effect as closure
 import proxy_population_end_window_effect as end_window
+import proxy_population_end_dispatch as end_dispatch
 import proxy_population_start_draw_effect as start_draw
 import proxy_population_turn_finish_effect as turn_finish
 import proxy_population_early_finish_effect as early_finish
@@ -70,7 +71,7 @@ def audit(result,initial_history,initial_proof,initial=None,initial_snapshots=No
     expected=copy.deepcopy(initial_proof['occurrences']);history=copy.deepcopy(initial_history)
     previous=result['source_envelope'];examined=[];start_origins=[];expiry_audits=[];payment_audits=[];challenge_audits=[];creation_audits=[];return_audits=[];draw_audits=[];zone_audits=[];typed_resolution_audits=[];reveal_audits=[];immediate_growth_audits=[];partner_suppression_audits=[];quick_reveal_audits=[];first_date_audits=[];equipment_audits=[];quick_recovery_audits=[];main_movement_audits=[];world_placement_audits=[];person_placement_audits=[];prepared_placement_audits=[];declaration_audits=[];normal_pass_audits=[];response_pass_audits=[];closure_audits=[];end_window_audits=[];start_draw_audits=[];turn_finish_audits=[];early_finish_audits=[];hand_activation_audits=[];paid_activation_audits=[];cat_activation_audits=[];positive_activation_audits=[];board_group_audits=[]
     history_shots=copy.deepcopy(initial_snapshots) if initial_snapshots is not None else []
-    boundaries={previous['event_seq']:previous};actual_events=[]
+    boundaries={previous['event_seq']:previous};actual_events=[];end_dispatch_audits=[]
     for step in result['steps']:
         if canonical(previous)!=canonical(step['source_envelope']):raise ValueError('coverage step source differs')
         if len(step['events'])!=len(step['envelopes']):raise ValueError('coverage event/envelope count differs')
@@ -178,6 +179,9 @@ def audit(result,initial_history,initial_proof,initial=None,initial_snapshots=No
             terminal=early_finish.audit(previous,after,event,history,history_shots,initial.get('first_player') if type(initial) is dict else None)
             if terminal['errors']:raise ValueError('early finish full delta differs: '+str(terminal['errors']))
             early_finish_audits.append(terminal)
+            dispatched=end_dispatch.audit(previous,history,event,boundaries)
+            if dispatched['errors']:raise ValueError('end dispatch order differs: '+str(dispatched['errors']))
+            end_dispatch_audits.append(dispatched)
             history_shots.append(end.old._snapshot(state.current(after)))
             timing=latching.capture(previous,after,event)
             history.append(event);expected.extend(timing['occurrences']);expected.extend(hand_timing.capture(previous,after,event)['occurrences'])
@@ -213,7 +217,7 @@ def audit(result,initial_history,initial_proof,initial=None,initial_snapshots=No
     proof=reconcile(expected,journals)
     import proxy_population_opportunity_order as order
     proof['processing_order']=order.audit(result,expected)
-    proof.update(transitions=examined,start_origins=start_origins,typed_effect_expiry_audits=expiry_audits,payment_consumption_audits=payment_audits,challenge_lifetime_audits=challenge_audits,typed_effect_creation_audits=creation_audits,return_effect_audits=return_audits,draw_effect_audits=draw_audits,zone_effect_audits=zone_audits,typed_resolution_audits=typed_resolution_audits,reveal_effect_audits=reveal_audits,immediate_growth_audits=immediate_growth_audits,partner_suppression_audits=partner_suppression_audits,quick_reveal_audits=quick_reveal_audits,first_date_audits=first_date_audits,equipment_effect_audits=equipment_audits,quick_recovery_effect_audits=quick_recovery_audits,main_movement_delta_audits=main_movement_audits,world_placement_delta_audits=world_placement_audits,person_placement_delta_audits=person_placement_audits,prepared_placement_delta_audits=prepared_placement_audits,challenge_declaration_delta_audits=declaration_audits,normal_pass_delta_audits=normal_pass_audits,response_pass_delta_audits=response_pass_audits,trigger_closure_delta_audits=closure_audits,end_window_delta_audits=end_window_audits,start_draw_delta_audits=start_draw_audits,turn_finish_delta_audits=turn_finish_audits,early_finish_delta_audits=early_finish_audits,hand_activation_delta_audits=hand_activation_audits,paid_activation_delta_audits=paid_activation_audits,cat_activation_delta_audits=cat_activation_audits,positive_activation_delta_audits=positive_activation_audits,board_group_delta_audits=board_group_audits,
+    proof.update(end_dispatch_audits=end_dispatch_audits,transitions=examined,start_origins=start_origins,typed_effect_expiry_audits=expiry_audits,payment_consumption_audits=payment_audits,challenge_lifetime_audits=challenge_audits,typed_effect_creation_audits=creation_audits,return_effect_audits=return_audits,draw_effect_audits=draw_audits,zone_effect_audits=zone_audits,typed_resolution_audits=typed_resolution_audits,reveal_effect_audits=reveal_audits,immediate_growth_audits=immediate_growth_audits,partner_suppression_audits=partner_suppression_audits,quick_reveal_audits=quick_reveal_audits,first_date_audits=first_date_audits,equipment_effect_audits=equipment_audits,quick_recovery_effect_audits=quick_recovery_audits,main_movement_delta_audits=main_movement_audits,world_placement_delta_audits=world_placement_audits,person_placement_delta_audits=person_placement_audits,prepared_placement_delta_audits=prepared_placement_audits,challenge_declaration_delta_audits=declaration_audits,normal_pass_delta_audits=normal_pass_audits,response_pass_delta_audits=response_pass_audits,trigger_closure_delta_audits=closure_audits,end_window_delta_audits=end_window_audits,start_draw_delta_audits=start_draw_audits,turn_finish_delta_audits=turn_finish_audits,early_finish_delta_audits=early_finish_audits,hand_activation_delta_audits=hand_activation_audits,paid_activation_delta_audits=paid_activation_audits,cat_activation_delta_audits=cat_activation_audits,positive_activation_delta_audits=positive_activation_audits,board_group_delta_audits=board_group_audits,
                  source_scope=dict(native=sorted(existing.SUPPORTED),latched=sorted(latching.CARDS),hand_optional=sorted(hand_timing.DESCRIPTORS),start_catalog_sha256=starts.CATALOG_SHA),
                  initial_occurrences_conditionally_supplied=True)
     return proof
