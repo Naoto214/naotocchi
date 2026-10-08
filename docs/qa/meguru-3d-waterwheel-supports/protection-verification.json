@@ -1,0 +1,49 @@
+{
+  "protected_regions": 13,
+  "world2d_canonical3d_collision_objects": "unchanged",
+  "rendered_changes": {
+    "countryside": {
+      "before": {
+        "world2d": "46c144336fbca66ecde632ec0cb56b95e2654709c78ef4812eed84a2f2305fa5",
+        "canonical3d": "514303ddb36b6372037a992bde3abd73f3b0c8735a8ec17c85e7698eb65a2e03",
+        "collision": "f841c45248434c5f203c8f66a953979c5becf80cd4fe1a40a8ec6b7ab09d75d1",
+        "rendered": "900f4b8d85dbd5377e62f213f255a74a6a592eb60366aadff4fbf4ade6c30d1e",
+        "objects": 899,
+        "parts": 6531
+      },
+      "after": {
+        "world2d": "46c144336fbca66ecde632ec0cb56b95e2654709c78ef4812eed84a2f2305fa5",
+        "canonical3d": "514303ddb36b6372037a992bde3abd73f3b0c8735a8ec17c85e7698eb65a2e03",
+        "collision": "f841c45248434c5f203c8f66a953979c5becf80cd4fe1a40a8ec6b7ab09d75d1",
+        "rendered": "cf5341c2d9b50ac6e8e2d9eef7e14beb1feecb6cc32bc5b6ee983f395db4f346",
+        "objects": 899,
+        "parts": 6533
+      }
+    },
+    "river_lake": {
+      "before": {
+        "world2d": "dd76763ec3d0e3bc66670398784a801fa6c7069d4a8a50c3f467b20a31d41b2f",
+        "canonical3d": "80ec24c2e37c213ffec739d86104a2725d15f916cf05cf5f2fcc27f375160cef",
+        "collision": "5de0759936e6989b5723e5d4001d7c093a7974bf839cc10bf6fa648ecf6eeb72",
+        "rendered": "03530f6a298b02e578c629e143fe5fbf80b7a15194639b45391f5ec8e6a1cd26",
+        "objects": 831,
+        "parts": 5193
+      },
+      "after": {
+        "world2d": "dd76763ec3d0e3bc66670398784a801fa6c7069d4a8a50c3f467b20a31d41b2f",
+        "canonical3d": "80ec24c2e37c213ffec739d86104a2725d15f916cf05cf5f2fcc27f375160cef",
+        "collision": "5de0759936e6989b5723e5d4001d7c093a7974bf839cc10bf6fa648ecf6eeb72",
+        "rendered": "ae028cf13046741e172dc61a3e4100af4cd468ecdf6b9a36c6be7894d00e02db",
+        "objects": 831,
+        "parts": 5195
+      }
+    }
+  },
+  "geometry_before_after": {
+    "float": 4,
+    "bury": 21
+  },
+  "historical_bury18": "retained; difference predates this candidate; cause not established here",
+  "human_qa": false,
+  "iphone": false
+}

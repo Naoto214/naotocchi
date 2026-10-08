@@ -3,6 +3,49 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const mod = () => import('../meguru-3d.mjs');
+// Missing/parallel axle, a support inside the paddle sweep, or a gap beneath
+// the axle must fail for both actual waterwheels and rotated fixtures.
+test('VQ-25 waterwheel axle spans two grounded supports outside the paddle sweep', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const reg=M.buildRegistry(), fixtures=[];
+  for(const rid of ['countryside','river_lake']) {
+    const world=M.buildWorld(rid,reg,{world3d:true});
+    fixtures.push(...M.worldObjects3d(world).objects.filter(o=>o.type==='wheel'));
+  }
+  assert.equal(fixtures.length,2,'both production wheels');
+  const world=M.buildWorld('river_lake',reg);
+  for(const ang of [0,0.73,Math.PI/2,-2.1]) {
+    fixtures.push(M.worldObjects3d({...world,props:[{struct:'waterwheel',x:0,z:0,size:220,ang,collider3d:{shape:'box',w:0.32,d:0.16,ang}}],obstacles:[],world3d:false}).objects.find(o=>o.type==='wheel'));
+  }
+  for(const wheel of fixtures) {
+    assert.ok(wheel,'wheel fixture');
+    const ring=wheel.parts.find(p=>p.shape==='arch'),a=ring.ang;
+    const supports=wheel.parts.filter(p=>p.shape==='wpost');
+    assert.equal(supports.length,2,'two side supports, no central vertical post');
+    const axle=wheel.parts.find(p=>p.shape==='log');
+    assert.ok(axle,'constant-radius closed horizontal axle, not a tapered open trunk');
+    const nx=Math.cos(a),nz=-Math.sin(a),ux=Math.sin(a),uz=Math.cos(a);
+    assert.ok(Math.abs(Math.sin(axle.ang)*ux+Math.cos(axle.ang)*uz)<1e-9,'axle perpendicular to wheel plane');
+    assert.ok(Math.abs(axle.y+axle.r-ring.y)<1e-9,'round axle center at ring hub');
+    assert.equal(axle.dx||0,0,'axle centered across hub');
+    assert.equal(axle.dz||0,0,'axle centered across hub');
+    const ends=[-axle.len/2,axle.len/2];
+    const sides=new Set();
+    for(const p of supports) {
+      const side=(p.dx||0)*nx+(p.dz||0)*nz;
+      assert.ok(Math.abs((p.dx||0)*ux+(p.dz||0)*uz)<1e-9,'support lies on axle');
+      assert.ok(Math.abs(side)-p.r>=10,'post clears existing ten-unit paddle half-depth');
+      assert.ok(side-p.r>=ends[0]-1e-9 && side+p.r<=ends[1]+1e-9,'axle spans entire support');
+      assert.equal(p.y,0,'same structural ground datum');
+      assert.ok(Math.abs(p.y+p.h-axle.y)<1e-9,'post meets axle underside');
+      sides.add(Math.sign(side));
+    }
+    assert.deepEqual([...sides].sort(),[-1,1]);
+    assert.equal(wheel.parts.filter(p=>p.shape==='box').length,6,'retain six paddles');
+    assert.equal(wheel.parts.filter(p=>p.shape==='trunk').length,6,'retain six spokes');
+  }
+});
 // Missing/rotated terminal stones or coping that intrudes into the deck must fail.
 test('VQ-24 stone bridge masonry stays on both parapets and marks all four ends', () => {
   const { harness } = require('./helpers/runtime-harness.cjs');

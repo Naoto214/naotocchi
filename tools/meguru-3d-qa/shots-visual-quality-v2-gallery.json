@@ -340,5 +340,11 @@
     "region": "jungle",
     "target": "jungle:0",
     "name": "vegetation-jungle-tree"
+  },
+  {
+    "region": "river_lake",
+    "target": "river_lake:406",
+    "name": "prop-wheel-river",
+    "galleryDistance": 150
   }
 ]

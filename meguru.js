@@ -1709,10 +1709,13 @@
         case 'obelisk': return [{ shape: 'wcone', r: Math.min(r || 10, 14), h: Math.max(OBJ3D_HEAD + 40, size * 0.9), y: 0, color: c, seg: 4 }];
         case 'orrery': return [{ shape: 'wpost', r: 4, h: 60, y: 0, color: c }, { shape: 'spark', r: 8, y: 66, color: '#ffe070' }, { shape: 'spark', r: 4, y: 72, dx: 18, color: '#9fc8ff' }, { shape: 'spark', r: 3, y: 60, dx: -22, dz: 8, color: '#ffb766' }];
         case 'wheel': {
-          // VQ: replace the concentric inner ring with spokes and broad paddles.
+          // The horizontal hub axle rests on two posts outside the paddle sweep.
+          // Keep the existing ring, spokes, paddles and canonical collider intact.
           const R = Math.min(bw, 40), cy = R + 4, ux = Math.sin(ang), uz = Math.cos(ang);
+          const nx = Math.cos(ang), nz = -Math.sin(ang), side = 13, postR = 2.5, axleR = 3, halfAxle = side + postR;
           const out = [{ shape: 'arch', r: R, y: cy, ang, color: c },
-            { shape: 'wpost', r: 4, h: cy, y: 0, color: c }];
+            { shape: 'log', r: axleR, len: halfAxle * 2, y: cy - axleR, ang: ang + Math.PI / 2, color: c }];
+          for (const s of [-1, 1]) out.push({ shape: 'wpost', r: postR, h: cy - axleR, y: 0, dx: nx * side * s, dz: nz * side * s, color: c });
           for (let i = 0; i < 6; i++) {
             const a = i * Math.PI / 3;
             out.push({ shape: 'trunk', r: 1.8, h: R, y: cy, taper: 1, tilt: a, toward: [ux, uz], color: c },
