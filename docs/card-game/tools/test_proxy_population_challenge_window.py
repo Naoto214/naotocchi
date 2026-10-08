@@ -60,6 +60,8 @@ class MultiTurnConnectionTests(unittest.TestCase):
   self.assertTrue(r['supported_trigger_coverage']['covered'],r['supported_trigger_coverage'])
   self.assertEqual(len(r['supported_trigger_coverage']['transitions']),len(r['events']))
   self.assertEqual(r['supported_trigger_coverage']['pending_count'],0)
+  lifetime=r['supported_trigger_coverage']['challenge_lifetime_audits'];self.assertEqual(len(lifetime),len(r['events']))
+  self.assertEqual([p['applicable'] for p in lifetime],[event['action_type'] in ('challenge_compared','challenge_finished') for event in r['events']])
   payments_audit=r['supported_trigger_coverage']['payment_consumption_audits'];self.assertEqual(len(payments_audit),len(r['events']))
   self.assertEqual([p['payment_consumption_verified'] for p in payments_audit],[event['action_type']=='main_movement' for event in r['events']])
   order=r['supported_trigger_coverage']['processing_order'];self.assertTrue(order['phase_order_verified'])

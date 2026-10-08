@@ -74,3 +74,9 @@ f696bbeから既存payments/stat/conditionalの終了失効を正本64と全even
 ### 次回変身の軽減消費監査（最新）
 
 dc4154eから正本91の消費を既存batch.transition/全event coverageへ結合。最終関連58PASS8.092s・結合19PASS133.828s、独立review C0/I0/Minor0、設計errors=[]・476不変。初回結合の誤った「既存試走にmovementあり」assertionは実event inventoryを確認して適用判定一致へ修正、実変身の正例は専用testに保持。詳細payment-consumption-review.mdとstatus末尾。支払量/生成/全機会証明ではない。次は既存consume_win_rewardsの次勝利消費（差2の報酬成立とは別）・挑戦終了/対象離脱/生成routeと残gate。preflight-ready=false、生成/固定/400戦0、全体結論null。
+
+### 次勝利・挑戦終了・通常main対象離脱と残課題台帳
+
+aeeca7fから既存compare/finish/main移動へ監査を追加。review C0/I1/Minor1、I1比較後のrefund/宣言reset/残chainを実abort5変異RED→完全照合GREEN修正。最終関連63PASS、最終結合はverification/challenge-lifetime-final-integration.log、npm406PASS、設計errors=[]、476不変。Minorのtime_skip対象あり/birth枝テスト未完。残課題の正本はplans/2026-10-08-preflight-remaining-work.md。次はP05既存P-cliff_goat割引relationship消費をpayment監査が誤拒否する欠落（再現済み）、P04生成route・P06旧予約等へ。今回も全機会/operand/情報/認証/lockは未証明、preflight-ready=false、生成/固定/400戦0。
+
+Final frozen-source connected19PASS146.339s after review correction; npm406PASS, design errors=[], numbered476 unchanged. No production input/game.

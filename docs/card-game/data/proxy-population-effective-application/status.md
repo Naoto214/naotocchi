@@ -336,3 +336,13 @@ dc4154eから継続。正本91の次回変身効果について、既存batch.tr
 初期3RED→GREEN、実coverage export1RED→GREEN、最終関連58PASS（8.092s）。初回結合19中1失敗は追加テストが既存20turn試走にmain_movementがあると誤認したもの。実event inventoryにはなく、各eventの適用判定一致へtestだけ修正。実変身の正例は専用handler経路で確認済み。Python固定後の最終結合19PASS（133.828s）。独立review C0/I0/Minor0、追加reviewなし。設計errors=[]、番号付き476不変。詳細verification/payment-consumption-review.md。npm406は前expiry bundleの結果。最新全proxy回帰ではない。
 
 次は正本81の次勝利条件と実consume_win_rewards、挑戦終了/対象離脱、生成routeと旧予約機会の結合。既存consume_win_rewardsは差が2でなくても当該mainの次勝利時に消費する。引分/中止/敗者側・別対象は保持するため、報酬量と消費条件を分離して監査する。比較operand・許可情報実使用・外部承認認証/結果前順序/本番lock/provenanceは引き続き未証明。preflight-ready=false、生成/固定/400戦0、旧116除外、policy promotion=false、独立balance0、全体結論null。
+
+## 次勝利・挑戦終了・通常main対象離脱の監査
+
+aeeca7fのfresh remote/tree・PR259 Draft/open/unmergedを確認して継続。正本81の次勝利消費を既存compare/consume_win_rewardsへ、65のtyped挑戦終了をfinishへ、07の通常main対象離脱を既存payment消費監査へ接続。全event coverageで監査。差2以外の勝利も消費、引分/中止/敗者/別対象は保持。成長100でも消費。終了は当該battle statのみ消去しturn stat等を保持。既存handler/選択/保護正本不変。
+
+独立review C0/I1/Minor1。比較後の不正refund/宣言回数reset/chain等を許すI1を5変異RED→envelope完全照合GREENで修正。最終関連63PASS7.999s。修正前62/結合19PASS163.663sは最終結果と区別。最終結合はverification/challenge-lifetime-final-integration.log、npm406PASS、設計errors=[]、保護476不変。Minor: target消去のtime_skip対象あり/birth枝テストは未完。詳細challenge-lifetime-review.md。
+
+残課題はplans/2026-10-08-preflight-remaining-work.md（必須/条件付き/本番後、完了条件、増減理由）へ統合。107全80物理/41種類のroute観測JSONも保存。静的登録は意味/機会証明ではない。P-cliff_goatの実割引relationshipを前監査が誤拒否する既存欠落を再現しP05へ追加、次にTDD接続する。P04生成route・P06旧予約・判断/情報operand・外部承認/lock等は未完。preflight-ready=false、生成/固定/400戦0、全体結論null。
+
+Final frozen-source connected19PASS146.339s after review correction; npm406PASS, design errors=[], numbered476 unchanged. No production input/game.

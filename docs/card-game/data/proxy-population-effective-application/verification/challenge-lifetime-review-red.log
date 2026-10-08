@@ -1,0 +1,49 @@
+======================================================================
+FAIL: test_comparison_preserves_declaration_costs_and_closed_result_window (test_proxy_population_challenge_lifetime.LifetimeBoundaries.test_comparison_preserves_declaration_costs_and_closed_result_window) (mode='declaration')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_lifetime.py", line 87, in run
+    with self.subTest(mode=mode):self.assertTrue(api.audit(e,bad,event)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_comparison_preserves_declaration_costs_and_closed_result_window (test_proxy_population_challenge_lifetime.LifetimeBoundaries.test_comparison_preserves_declaration_costs_and_closed_result_window) (mode='refund')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_lifetime.py", line 87, in run
+    with self.subTest(mode=mode):self.assertTrue(api.audit(e,bad,event)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_comparison_preserves_declaration_costs_and_closed_result_window (test_proxy_population_challenge_lifetime.LifetimeBoundaries.test_comparison_preserves_declaration_costs_and_closed_result_window) (mode='links')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_lifetime.py", line 87, in run
+    with self.subTest(mode=mode):self.assertTrue(api.audit(e,bad,event)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_comparison_preserves_declaration_costs_and_closed_result_window (test_proxy_population_challenge_lifetime.LifetimeBoundaries.test_comparison_preserves_declaration_costs_and_closed_result_window) (mode='priority')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_lifetime.py", line 87, in run
+    with self.subTest(mode=mode):self.assertTrue(api.audit(e,bad,event)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_comparison_preserves_declaration_costs_and_closed_result_window (test_proxy_population_challenge_lifetime.LifetimeBoundaries.test_comparison_preserves_declaration_costs_and_closed_result_window) (mode='reservation')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_lifetime.py", line 87, in run
+    with self.subTest(mode=mode):self.assertTrue(api.audit(e,bad,event)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 1 test in 0.183s
+
+FAILED (failures=5)

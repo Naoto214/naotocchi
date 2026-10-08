@@ -66,4 +66,24 @@ class ConsumptionTests(unittest.TestCase):
    return {}
   self.run_case(run)
 
+class TargetDepartureTests(unittest.TestCase):
+ setUp=ConsumptionTests.setUp
+ run_case=ConsumptionTests.run_case
+ transform=ConsumptionTests.transform
+ def test_movement_removes_old_target_effects_without_erasing_other_target(self):
+  def run(e):
+   g=e['legacy_continuation']['game_state'];actor=g['turn_player'];other='A' if actor=='B' else 'B'
+   for owner in (actor,other):
+    for card,add in [('E-big-illness',payments.add_stat_modifier),('G-basketball-3d',payments.add_conditional_reward)]:
+     source=next(s for s,v in g['cards'].items() if s.startswith(owner+'-') and v['card_id']==card)
+     add(e,owner,source,g['players'][owner]['board']['main'])
+   action,a,event=self.transform(e);proof=api.audit(e,a,event)
+   self.assertTrue(proof.get('movement_target_expiry_verified'),proof)
+   self.assertEqual(proof['expired_target_effect_count'],2)
+   for family in ('stat_effects','conditional_effects'):
+    for rows in ([],e['runtime'][family]):
+     bad=copy.deepcopy(a);bad['runtime'][family]=copy.deepcopy(rows);self.assertTrue(api.audit(e,bad,event)['errors'],family)
+   return {}
+  self.run_case(run)
+
 if __name__=='__main__':unittest.main()
