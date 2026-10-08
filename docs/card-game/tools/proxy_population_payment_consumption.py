@@ -11,7 +11,7 @@ from proxy_mandatory_policy_contract import ROOT,canonical
 def field_entry_instance(before,after,event,slot):
  """Bind a supplied reentry receipt; historical seen-field proof stays separate."""
  g=before['legacy_continuation']['game_state'];a=after['legacy_continuation']['game_state'];actor=g['turn_player'];source=event['source_instance_id'];rows=event.get('instance_transitions',[])
- if slot not in ('main','world') or a['players'][actor]['board'][slot]!=source or type(rows) is not list:raise ValueError('movement destination or incarnation receipt differs')
+ if slot not in ('main','world','partner','companions') or (source not in a['players'][actor]['board'][slot] if slot=='companions' else a['players'][actor]['board'][slot]!=source) or type(rows) is not list:raise ValueError('movement destination or incarnation receipt differs')
  if source in g['players'][actor]['hand']:
   if rows or canonical(a['cards'][source])!=canonical(g['cards'][source]):raise ValueError('first-entry identity or unexpected incarnation differs')
   return source

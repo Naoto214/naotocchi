@@ -586,3 +586,12 @@ preflight-ready=false、生成/固定/400戦0、全体結論null。
 107の各自deckは3worldを各1物理札ずつ持つ。既存fixtureで同名をboardへ置くと同名の手札候補がなくなるため、別copyを追加せず候補なしを検証。同名置換全体の非到達証明ではない。新発見というより試験前提の修正であり、管理項目22維持。
 
 TDD3FAIL→初回2FAIL1ERROR（既存candidate_variantの誤認、coverage未接続、同名copyのないfixture）→関連18PASS5.969s。独立review1回C0/I0/Minor0（関連14PASS4.913s）。design errors=[]、途中ログ保存。全発動/履歴/世代発生由来/全機会/全到達性は未完、preflight-ready=false、生成/固定/400戦0、全体結論null。固定Python結合: Ran 22 tests in 164.001s、PASS。番号付き保護476件不変。最新npm/全proxy回帰完了は主張しない。
+
+
+### 107人物配置・満員なかま交代の全差分
+
+80ab3cbからP07を継続。01/06/72/74/77の既存pin/catalogを用い、人物共有1回・時0・手札から人物枠・交際初期0・P-cat_ceoのmain存在時pendingと卵時抑止を照合。満員3人の交代は旧なかま/装備の離脱・公開付属metadata消去・対象typed失効と全他stateを照合する。既存field_entry_instanceをpartner/companionsにも適用し、既存Connectionによる隣接#2/metadata/pending世代を検証。native配置・候補・policyは変更しない。
+
+捨て到着順はmain移動bundleと同じ未証明境界。元discard prefixと新規離脱札Counterを照合し、供給順序を保持する。順序を同価値扱いせずdiscard_arrival_order_proven=false。synthetic unit_recovery起点は真正性の証明ではなく、全履歴/全到達/全機会も未完。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null。
+
+TDD3FAIL→初回1ERROR（旧actions.apply fixtureにselection inventory不足）→既存legacy placement入口を直接使用し関連18PASS7.238s。9人物、main/egg、旧形式、装備付き交代、typed失効、#2再登場を検証。失敗・成功ログを保存。design errors=[]、保護正本476件不変。独立review1回C0/I0/Minor0（新規5PASS4.283s）。固定Python結合: Ran 22 tests in 164.361s、PASS。最新npm/全proxy回帰完了は主張しない。
