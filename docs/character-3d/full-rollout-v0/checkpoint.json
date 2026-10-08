@@ -1,6 +1,6 @@
 {
-  "baseCommit": "ce809aa82ec5b934eece4bcfb6738832d137e39a",
-  "checkpoint": "dragon-promoted-212-phoenix-representatives-approved",
+  "baseCommit": "6a78278468ed154d2e2fd48cc89eed594a623036",
+  "checkpoint": "phoenix-all8-candidates-awaiting-images",
   "coverage": {
     "exact": 212,
     "total": 293,
@@ -11,7 +11,7 @@
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 236,
+    "dedicatedPass": 238,
     "rolloutMutationsDetected": 28,
     "pilotHashesUnchanged": 28,
     "fullNpm": "Pre-promotion spine-corrected a65ceb5:3013PASS+80PASS,0FAIL,exit0,archived. Final04root+runtime promotion has236dedicatedPASS;no fresh fullnpm after registration claimed.",
@@ -31,12 +31,15 @@
     "dragonRearRibs": "e45910d Dragon03/07 image gate PASS:8fourviews/64states/4normal-distance",
     "dragonStageMutationsDetected": 6,
     "dragonAll8": "025d4bb image gate PASS:32fourviews/256states/16distance;04fixed andrecaptured,other7images match prior inspected bytes",
-    "phoenixImageGate": "025d4bb artifacts11552082313/11552087590:8fourviews/64states/4distance PASS_REPRESENTATIVE_IMAGE_GATE;remaining6 candidates next"
+    "phoenixImageGate": "025d4bb artifacts11552082313/11552087590:8fourviews/64states/4distance PASS_REPRESENTATIVE_IMAGE_GATE;remaining6 candidates next",
+    "phoenixCandidates": "All8 source-derived candidates;03/07 definitions unchanged;7factory+5stage mutations detected/restored;28Pilot hashes unchanged. All8 image gate pending, runtime remains212.",
+    "dragonPostPromotionCI": "ce809aa Runtime37788161396/Home37788161431 SUCCESS;Character37788145192 incomplete, botanical-candidate-distance(sakura) CANCELLED, stage matrix still running;26family/208stage aggregate unconfirmed."
   },
   "next": [
-    "Confirm post-promotion26family/208stage runtime aggregate andCI",
-    "Remaining40player stages:phoenix,god,ghost,star,unknown;use existing candidate factories and source-specific stages",
-    "Remaining41nonplayers and full293 integration/performance/regression/Human QA"
+    "Phoenix all8 image gate from new Actions:fourviews/256states/16normal-distance, then runtime promotion only on PASS",
+    "Confirm Dragon26family/208stage aggregate; distinguish cancelled optional candidate job from stage evidence",
+    "Remaining god/ghost/star/unknown32player stages;inspect representative images before expansion",
+    "Remaining41nonplayers and full293 integration/performance/regression/Human/iPhone QA"
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",

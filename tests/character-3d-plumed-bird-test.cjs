@@ -1,6 +1,6 @@
 const test=require('node:test'),assert=require('node:assert/strict'),SPEC=require('../character-3d/spec.js');
 test('phoenix representatives have a physical crest, layered wings, curved plume tails and two clawed feet',async()=>{
- const rows=require('../character-3d/mythic-spec.js')().phoenix?.stages;assert.ok(rows,'original03and07 representatives');assert.deepEqual(Object.keys(rows),['3','7']);
+ const rows=require('../character-3d/mythic-spec.js')().phoenix?.stages;assert.ok(rows,'original03and07 representatives');assert.ok(rows[3]&&rows[7]);
  const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
  for(const n of [3,7]){const sp=rows[n],r=BUILDERS[sp.archetype](sp,'phoenix:'+n);assert.equal(attachFace(r,r.faceSpec,'C').eyes.length,2);assert.ok(r.bones.wingL&&r.bones.wingR&&r.bones.tail&&r.bones.footL&&r.bones.footR);assert.ok(sp.crest.length>=5&&sp.tail.feathers.length>=4);assert.ok(sp.wings.left.length>=5&&sp.wings.right.length>=5);
  const noCrest=BUILDERS[sp.archetype]({...sp,crest:[]},'crestless');assert.ok(r.parts.find(p=>p.bone==='head').mesh.geometry.attributes.position.count>noCrest.parts.find(p=>p.bone==='head').mesh.geometry.attributes.position.count+500,'crest is layered volume');

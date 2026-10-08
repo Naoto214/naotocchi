@@ -318,7 +318,7 @@ jobs:
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps chromium
       - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/mythic --mythic
-      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/mythic-motion dragon:1,dragon:2,dragon:3,dragon:4,dragon:5,dragon:6,dragon:7,dragon:8,phoenix:3,phoenix:7,god:3,god:7,ghost:3,ghost:7,plush:1,plush:2,plush:3,plush:4,plush:5,plush:6,plush:7,plush:8,star:3,star:7,unknown:3,unknown:7
+      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/mythic-motion dragon:1,dragon:2,dragon:3,dragon:4,dragon:5,dragon:6,dragon:7,dragon:8,phoenix:1,phoenix:2,phoenix:3,phoenix:4,phoenix:5,phoenix:6,phoenix:7,phoenix:8,god:3,god:7,ghost:3,ghost:7,plush:1,plush:2,plush:3,plush:4,plush:5,plush:6,plush:7,plush:8,star:3,star:7,unknown:3,unknown:7
       - uses: actions/upload-artifact@v4
         if: always()
         with:

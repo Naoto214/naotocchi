@@ -45,3 +45,8 @@ Original03is a blue/purple rounded soft organism with cyanrim, white eyes, pinkm
 
 ## Ghost outline rejection and correction
 4819fullrepresentativegate rejected the long narrow pointed-leaf outline: original has a roundedbody andtail curling upwardleft. Earliercentroidtest proved lateraloffsetbut notthetipturn. Newterminalpole-vs-lowestbelly andbreadth tests failbeforefix. Continuousclosedblob nowhas fuller midsection andupturnedterminalpole, with07strongerleftreach; face/arm/haloownershipunchanged.209dedicatedPASS,8spectralmutationsRED/restored,28Pilot hashesmatch.79JPEG/raw retained; correctedimagesrequired.
+
+## Phoenix remaining stages — source-derived candidates
+Original01/02 show round small chicks with compact crest/wings/tail and short legs.04/05 raise layered wings above the head,05 has longer curling tail plumes;06 has pale golden plumage and a calm eye.08 is a tiny rebirth head in a broad charcoal mound, not a scaled mature bird. Optional scaled feet and absent wings/tail/feet plus an owned opaque coal mound extend the existing plumed_bird factory; no new actor/state/clock.03/07 definitions and28Pilot output hashes are unchanged.
+
+New tests first failed on missing01; initial coal geometry test exposed rotated bottom-ring corners below ground (-.00949), fixed at the coal center placement.238dedicatedPASS,7factory/5stage mutations detected and restored. Reviewer Critical0/Important0. Minor deferred:unused embers.height metadata and lack of independent new-stage parent/motion assertions (shared factory covered by existing representative tests). All8 images remain pending; candidates do not change212/293 runtime coverage.
