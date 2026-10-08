@@ -15,6 +15,7 @@ import proxy_population_start_obligations as starts
 import proxy_population_effect_expiry as expiry
 import proxy_population_payment_consumption as payment_use
 import proxy_population_challenge_lifetime as challenge_lifetime
+import proxy_population_effect_creation as creation
 from proxy_mandatory_policy_contract import canonical
 
 
@@ -38,7 +39,7 @@ def reconcile(expected,journals):
 def audit(result,initial_history,initial_proof):
     """Call inside the native scopes which own the execution's source handlers."""
     expected=copy.deepcopy(initial_proof['occurrences']);history=copy.deepcopy(initial_history)
-    previous=result['source_envelope'];examined=[];start_origins=[];expiry_audits=[];payment_audits=[];challenge_audits=[]
+    previous=result['source_envelope'];examined=[];start_origins=[];expiry_audits=[];payment_audits=[];challenge_audits=[];creation_audits=[]
     boundaries={previous['event_seq']:previous};actual_events=[]
     for step in result['steps']:
         if canonical(previous)!=canonical(step['source_envelope']):raise ValueError('coverage step source differs')
@@ -54,6 +55,9 @@ def audit(result,initial_history,initial_proof):
             lifetime=challenge_lifetime.audit(previous,after,event)
             if lifetime['errors']:raise ValueError('challenge lifetime differs: '+str(lifetime['errors']))
             challenge_audits.append(lifetime)
+            created=creation.audit(previous,after,event)
+            if created['errors']:raise ValueError('typed effect creation differs: '+str(created['errors']))
+            creation_audits.append(created)
             timing=latching.capture(previous,after,event)
             history.append(event);expected.extend(timing['occurrences']);expected.extend(hand_timing.capture(previous,after,event)['occurrences'])
             # Scan every transition, not only events selected by the driver.
@@ -88,7 +92,7 @@ def audit(result,initial_history,initial_proof):
     proof=reconcile(expected,journals)
     import proxy_population_opportunity_order as order
     proof['processing_order']=order.audit(result,expected)
-    proof.update(transitions=examined,start_origins=start_origins,typed_effect_expiry_audits=expiry_audits,payment_consumption_audits=payment_audits,challenge_lifetime_audits=challenge_audits,
+    proof.update(transitions=examined,start_origins=start_origins,typed_effect_expiry_audits=expiry_audits,payment_consumption_audits=payment_audits,challenge_lifetime_audits=challenge_audits,typed_effect_creation_audits=creation_audits,
                  source_scope=dict(native=sorted(existing.SUPPORTED),latched=sorted(latching.CARDS),hand_optional=sorted(hand_timing.DESCRIPTORS),start_catalog_sha256=starts.CATALOG_SHA),
                  initial_occurrences_conditionally_supplied=True)
     return proof

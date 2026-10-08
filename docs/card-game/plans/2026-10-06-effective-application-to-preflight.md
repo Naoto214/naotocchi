@@ -254,3 +254,11 @@ Reuse existing compare/consume_win_rewards/finish/batch.transition. Source81 con
 Ruling: narrow typed-transition evidence is not operand, source-origin, all-opportunity or admission proof. Review declined those out-of-scope judgments; retain required gates. Initial fixture mistakes were diagnosed and corrected only in tests, not counted as handler fixes. Whole remaining-work register is plans/2026-10-08-preflight-remaining-work.md with21 classified items and completion criteria;41-card static inventory is not closure. P05 newly reproduced aeeca7f's nonmovement-payment guard rejecting the existing goat relationship discount. Continue its TDD closure after this bundle save, then generation/old reservations and other required gates. Preflight remains false.
 
 Final frozen-source connected19PASS146.339s after review correction; npm406PASS, design errors=[], numbered476 unchanged. No production input/game.
+
+### typed効果生成と同じpartnerの交際軽減消費
+
+f7dc4d1の保存一致確認後、既存10sourceのtyped生成行/receipt/保持/不生成条件を全event coverageへ接続。P-cliff_goatの実交際軽減を旧payment監査が誤拒否する欠落もsource74・実0→1〜3→結婚へ接続。未知receiptは拒否継続。handler/選択再実装なし。review C0/I1/Minor0、既存の成長100到達拒否を監査も保持する修正をRED→GREEN。最終関連49PASS4.985s、最終固定Python結合はverification/creation-relationship-final-integration.log。npm406PASS・design errors=[]・476不変。詳細creation-relationship-review.md。
+
+次はP03再登場#1→#2の実main移動を前監査が誤拒否する欠落（実Connection.finishで再現済み）、P05対象外eventのtyped保存則、P06旧予約等へ。全残件は2026-10-08-preflight-remaining-work.md。許可情報実使用/operand/全機会/認証lockは未証明、preflight-ready=false、seed生成/本番固定/400戦0、全体結論null。
+
+Final frozen-source integration19PASS146.406s after review fix; no production seed, lock or matches.

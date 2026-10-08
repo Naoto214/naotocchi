@@ -1,0 +1,43 @@
+======================================================================
+FAIL: test_positive_board_creation_uses_existing_choice_and_same_source (test_proxy_population_effect_creation.CreationTests.test_positive_board_creation_uses_existing_choice_and_same_source)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_creation.py", line 59, in test_positive_board_creation_uses_existing_choice_and_same_source
+    self.run_case(run)
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_creation.py", line 34, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),run)
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 108, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 107, in connected
+    with growth.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                 ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_creation.py", line 33, in run
+    with effects.scope():return callback()
+                                ^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_creation.py", line 56, in run
+    self.assertEqual(proof['errors'],[],card);self.assertEqual(proof['created_effect_count'],1)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['typed creation target count differs'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'typed creation target count differs'
+
+- ['typed creation target count differs']
++ [] : M-antlion-03
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.197s
+
+FAILED (failures=1)

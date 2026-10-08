@@ -1,0 +1,40 @@
+======================================================================
+FAIL: test_actual_quick_typed_creation_binds_source_target_and_exact_row (test_proxy_population_effect_creation.CreationTests.test_actual_quick_typed_creation_binds_source_target_and_exact_row)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_creation.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'typed creation audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : typed creation audit missing
+
+======================================================================
+FAIL: test_creation_on_unrelated_transition_is_rejected (test_proxy_population_effect_creation.CreationTests.test_creation_on_unrelated_transition_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_creation.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'typed creation audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : typed creation audit missing
+
+======================================================================
+FAIL: test_invalid_target_creates_nothing_and_retains_prior_rows (test_proxy_population_effect_creation.CreationTests.test_invalid_target_creates_nothing_and_retains_prior_rows)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_creation.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'typed creation audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : typed creation audit missing
+
+======================================================================
+FAIL: test_positive_board_creation_uses_existing_choice_and_same_source (test_proxy_population_effect_creation.CreationTests.test_positive_board_creation_uses_existing_choice_and_same_source)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_effect_creation.py", line 30, in setUp
+    def setUp(self):self.assertIsNotNone(api,'typed creation audit missing')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : typed creation audit missing
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)

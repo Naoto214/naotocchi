@@ -346,3 +346,11 @@ aeeca7fのfresh remote/tree・PR259 Draft/open/unmergedを確認して継続。�
 残課題はplans/2026-10-08-preflight-remaining-work.md（必須/条件付き/本番後、完了条件、増減理由）へ統合。107全80物理/41種類のroute観測JSONも保存。静的登録は意味/機会証明ではない。P-cliff_goatの実割引relationshipを前監査が誤拒否する既存欠落を再現しP05へ追加、次にTDD接続する。P04生成route・P06旧予約・判断/情報operand・外部承認/lock等は未完。preflight-ready=false、生成/固定/400戦0、全体結論null。
 
 Final frozen-source connected19PASS146.339s after review correction; npm406PASS, design errors=[], numbered476 unchanged. No production input/game.
+
+### typed効果生成と同じpartnerの交際軽減消費
+
+f7dc4d1の保存一致確認後、既存10sourceのtyped生成行/receipt/保持/不生成条件を全event coverageへ接続。P-cliff_goatの実交際軽減を旧payment監査が誤拒否する欠落もsource74・実0→1〜3→結婚へ接続。未知receiptは拒否継続。handler/選択再実装なし。review C0/I1/Minor0、既存の成長100到達拒否を監査も保持する修正をRED→GREEN。最終関連49PASS4.985s、最終固定Python結合はverification/creation-relationship-final-integration.log。npm406PASS・design errors=[]・476不変。詳細creation-relationship-review.md。
+
+次はP03再登場#1→#2の実main移動を前監査が誤拒否する欠落（実Connection.finishで再現済み）、P05対象外eventのtyped保存則、P06旧予約等へ。全残件は2026-10-08-preflight-remaining-work.md。許可情報実使用/operand/全機会/認証lockは未証明、preflight-ready=false、seed生成/本番固定/400戦0、全体結論null。
+
+Final frozen-source integration19PASS146.406s after review fix; no production seed, lock or matches.

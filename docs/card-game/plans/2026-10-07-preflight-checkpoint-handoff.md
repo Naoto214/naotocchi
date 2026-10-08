@@ -80,3 +80,11 @@ dc4154eから正本91の消費を既存batch.transition/全event coverageへ結�
 aeeca7fから既存compare/finish/main移動へ監査を追加。review C0/I1/Minor1、I1比較後のrefund/宣言reset/残chainを実abort5変異RED→完全照合GREEN修正。最終関連63PASS、最終結合はverification/challenge-lifetime-final-integration.log、npm406PASS、設計errors=[]、476不変。Minorのtime_skip対象あり/birth枝テスト未完。残課題の正本はplans/2026-10-08-preflight-remaining-work.md。次はP05既存P-cliff_goat割引relationship消費をpayment監査が誤拒否する欠落（再現済み）、P04生成route・P06旧予約等へ。今回も全機会/operand/情報/認証/lockは未証明、preflight-ready=false、生成/固定/400戦0。
 
 Final frozen-source connected19PASS146.339s after review correction; npm406PASS, design errors=[], numbered476 unchanged. No production input/game.
+
+### typed効果生成と同じpartnerの交際軽減消費
+
+f7dc4d1の保存一致確認後、既存10sourceのtyped生成行/receipt/保持/不生成条件を全event coverageへ接続。P-cliff_goatの実交際軽減を旧payment監査が誤拒否する欠落もsource74・実0→1〜3→結婚へ接続。未知receiptは拒否継続。handler/選択再実装なし。review C0/I1/Minor0、既存の成長100到達拒否を監査も保持する修正をRED→GREEN。最終関連49PASS4.985s、最終固定Python結合はverification/creation-relationship-final-integration.log。npm406PASS・design errors=[]・476不変。詳細creation-relationship-review.md。
+
+次はP03再登場#1→#2の実main移動を前監査が誤拒否する欠落（実Connection.finishで再現済み）、P05対象外eventのtyped保存則、P06旧予約等へ。全残件は2026-10-08-preflight-remaining-work.md。許可情報実使用/operand/全機会/認証lockは未証明、preflight-ready=false、seed生成/本番固定/400戦0、全体結論null。
+
+Final frozen-source integration19PASS146.406s after review fix; no production seed, lock or matches.

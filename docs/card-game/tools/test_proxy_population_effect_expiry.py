@@ -79,6 +79,7 @@ class ExpiryTests(unittest.TestCase):
    self.assertFalse(proof['payment_consumption_audits'][0]['payment_consumption_verified'])
    self.assertIn('challenge_lifetime_audits',proof,'coverage bypasses challenge lifetime')
    self.assertFalse(proof['challenge_lifetime_audits'][0]['applicable'])
+   self.assertIn('typed_effect_creation_audits',proof,'coverage bypasses typed creation')
    event['expired_effect_ids'].pop()
    with self.assertRaisesRegex(ValueError,'expiry'):coverage.audit(result,h,dict(occurrences=[]))
    return {}

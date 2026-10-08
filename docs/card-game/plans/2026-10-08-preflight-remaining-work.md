@@ -14,11 +14,11 @@
 
 | ID | 分類 | 現状・既存接続先 | 完了条件 |
 |---|---|---|---|
-| P01 | 必須 | 次勝利消費81: 新challenge_lifetime→trigger_coverageへ接続、レビュー/最終検証待ち | 実compare経路で差2/他差、引分、中止、敗者、別対象、複数効果、成長100を検証。消費と追加報酬を分離し不正receipt/残存を拒否 |
-| P02 | 必須 | 挑戦終了65: 新challenge_lifetime→coverageへ接続、レビュー/最終検証待ち | 閉じた終了入口・結果一致、当該challenge stat全消去、turn stat/条件報酬/その他状態保持を実finishと改変テストで検証 |
-| P03 | 必須 | 通常main移動時の対象離脱07: payment_consumptionへ統合、レビュー/最終検証待ち | 旧対象stat/conditional消去、他対象と次回変身の別寿命を保持。birth/time_skip/transform、再登場個体との結合を区別 |
-| P04 | 必須 | typed効果生成: payments.resolve/resolve_board_stat、trigger_effects.resolveに既存handlerあり。474は一部対象再確認/有効適用を監査済み | 全生成routeのsource/actor/target/parameter/時系列/一意ID/正本数値/実差分を実入口に結合。生成しない条件と外側の効果保持も証明。receipt存在だけで認証しない |
-| P05 | 必須 | payment/stat/conditionalのその他消費: relationship_same_source、P-cliff_goat/M-antlion-03等のscope追加を含む | 現行scopeの全descriptorと生成/消費/離脱/失効の対応を閉じる。E-fateful-transformだけで全payment消費済みとしない |
+| P01 | 必須 | 次勝利消費81: f7dc4d1で供給遷移の監査保存済み | 実compare経路で差2/他差、引分、中止、敗者、別対象、複数効果、成長100を検証。消費と追加報酬を分離し不正receipt/残存を拒否 |
+| P02 | 必須 | 挑戦終了65: f7dc4d1で供給遷移の監査保存済み | 閉じた終了入口・結果一致、当該challenge stat全消去、turn stat/条件報酬/その他状態保持を実finishと改変テストで検証 |
+| P03 | 必須 | 通常main移動時の対象離脱07: f7dc4d1でtransform監査保存。再登場と枝の不足を後述 | 旧対象stat/conditional消去、他対象と次回変身の別寿命を保持。birth/time_skip/transform、再登場個体との結合を区別 |
+| P04 | 必須 | typed効果生成: 既存10routeの生成行/不生成/保持/receipt監査を全eventへ接続。activation/choice/全効果意味は別gate | 全生成routeのsource/actor/target/parameter/時系列/一意ID/正本数値/実差分を実入口に結合。生成しない条件と外側の効果保持も証明。receipt存在だけで認証しない |
+| P05 | 必須 | payment/stat/conditionalのその他消費: source74同一partner交際軽減の消費を接続。全寿命保存則は未完 | 現行scopeの全descriptorと生成/消費/離脱/失効の対応を閉じる。E-fateful-transformだけで全payment消費済みとしない |
 | P06 | 条件付き | 旧reservations: reservation_pilot・既存legacy forcedを再利用。開始・終了guardは空予約を要求する場合あり | 107からの生成可否を全sourceについて証明。到達可能な予約は宣言/受け/勝利/終了/終了後/turn期限・不遡及を閉じる。到達不能なら根拠を記録 |
 | P07 | 必須 | 全効果/自動handler: batch_runner.forced_body、legacy _forced、chain_resolution、recovery、start/trigger/equipment等が既存 | 各dispatch優先順位・条件・意味差分・全出力を対応表と実遷移に結合。automatic_bindingは出力構造、resolution_choicesは選択義務の証明に限る |
 | P08 | 必須 | 通常/response/誘発の現在predicate、候補展開・公開source列挙は接続済み | 全源・phase・早期除外の意味監査を合成し、未対応source/条件をゼロ件として無視しない。107からの生成/再登場も含む到達可能集合を証明 |
@@ -57,3 +57,10 @@ P01〜P03レビュー・最終検証・保存 → P04/P05生成と残る消費 �
 - 独立review C0/I1/Minor1。P01の比較後に宣言回数/時等の不正復元を許す漏れを実abort遷移・5改変でRED再現し、許可差分以外のenvelope完全一致へ修正。再レビューなし。
 - MinorはP03のtime_skip対象効果付き/birthの枝テスト不足。今回のreview修正対象に追加せず未完了条件として保持。
 - **P05追加の具体的不具合**: aeeca7fのpayment_consumptionは全nonmovement receiptを拒否するため、既存P-cliff_goatの実relationship_progress（payment_time0、消費あり）を誤拒否する。正本の新判断は不要。次bundleで既存relationship handlerの正例と偽消費の拒否をTDD接続する。課題増加理由は別寿命routeを実処理で横断確認したためで、handler再実装は不要。
+
+### 生成・交際消費bundle
+
+- P04: 既存typed10sourceの生成行監査をcoverageへ接続。手札6/挑戦盤上2/正の盤上2。発動/選択権威・効果全体・全機会の証明へ拡張しない。
+- P05: P-cliff_goatの実交際軽減消費を接続。review C0/I1/Minor0のI1（既存の成長100境界拒否を監査が保持していない）をRED→GREEN修正。新しい100到達ルールは追加しない。
+- **P03具体化**: 既存Connection.finishによるmain再登場の実出力A-009#2を、before手札#1にないとして前監査が誤拒否すると再現。次に既存incarnation receipt/metadataと源を結合する。増加理由は固定初期個体だけでは現行全routeを覆えないことを実再登場で確認したため。
+- P05残り: 指定生成/消費/離脱/期限外eventでのtyped行保存則が未独立結合。単に新ID生成がないだけでは既存行の不正変更/消去がない証明にならない。
