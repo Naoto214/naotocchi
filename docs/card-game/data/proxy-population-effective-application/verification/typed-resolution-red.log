@@ -1,0 +1,50 @@
+FFFFF
+======================================================================
+FAIL: test_all_ten_existing_resolvers_and_normalized_boundaries (test_proxy_population_typed_resolution.TypedResolutionTests.test_all_ten_existing_resolvers_and_normalized_boundaries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_typed_resolution.py", line 47, in setUp
+    def setUp(self):self.assertIsNotNone(api,'whole typed delta audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : whole typed delta audit absent
+
+======================================================================
+FAIL: test_correct_typed_rows_do_not_allow_draw_refund_source_return_or_reservations (test_proxy_population_typed_resolution.TypedResolutionTests.test_correct_typed_rows_do_not_allow_draw_refund_source_return_or_reservations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_typed_resolution.py", line 47, in setUp
+    def setUp(self):self.assertIsNotNone(api,'whole typed delta audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : whole typed delta audit absent
+
+======================================================================
+FAIL: test_coverage_rejects_rebound_unrelated_draw_with_valid_effect_row (test_proxy_population_typed_resolution.TypedResolutionTests.test_coverage_rejects_rebound_unrelated_draw_with_valid_effect_row)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_typed_resolution.py", line 47, in setUp
+    def setUp(self):self.assertIsNotNone(api,'whole typed delta audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : whole typed delta audit absent
+
+======================================================================
+FAIL: test_invalid_target_exact_nonapplication_and_wrong_dispatch (test_proxy_population_typed_resolution.TypedResolutionTests.test_invalid_target_exact_nonapplication_and_wrong_dispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_typed_resolution.py", line 47, in setUp
+    def setUp(self):self.assertIsNotNone(api,'whole typed delta audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : whole typed delta audit absent
+
+======================================================================
+FAIL: test_parameter_receipt_must_match_supplied_resolution_choice (test_proxy_population_typed_resolution.TypedResolutionTests.test_parameter_receipt_must_match_supplied_resolution_choice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_typed_resolution.py", line 47, in setUp
+    def setUp(self):self.assertIsNotNone(api,'whole typed delta audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : whole typed delta audit absent
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+FAILED (failures=5)
