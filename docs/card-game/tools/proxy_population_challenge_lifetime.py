@@ -7,6 +7,7 @@ import copy,hashlib
 import proxy_continuation_payments as payments
 import proxy_continuation_state as state
 import proxy_population_effective_application as application
+import proxy_population_challenge_operands as operands
 from proxy_mandatory_policy_contract import ROOT,canonical
 
 REFERENCE='65-challenge-participants-and-resolution.md'
@@ -14,7 +15,7 @@ SOURCE_SHA='65a8dfef2f97aa982173f1e767215a9da557e29e5adedbc4173250a4de1441a0'
 
 
 def audit(before,after,event):
- errors=[];used=[];expired=[];kind=event.get('action_type');applicable=kind in ('challenge_compared','challenge_finished');reference=None
+ errors=[];used=[];expired=[];kind=event.get('action_type');applicable=kind in ('challenge_compared','challenge_finished');reference=None;operand_binding=None
  try:
   if applicable:
    if hashlib.sha256((ROOT/REFERENCE).read_bytes()).hexdigest()!=SOURCE_SHA:raise ValueError('challenge lifetime source changed')
@@ -33,6 +34,9 @@ def audit(before,after,event):
     values=receipt['values']
     if current:
      if not isinstance(values,dict) or set(values)!={'A','B'} or any(type(v) is not int for v in values.values()):raise ValueError('comparison values malformed')
+     operand_binding={o:operands.values(before,o) for o in ('A','B')}
+     expected_values={o:operand_binding[o]['values'][battle['parameter']] for o in ('A','B')}
+     if values!=expected_values:raise ValueError('challenge comparison numeric operands differ')
      winner=None if values['A']==values['B'] else max(values,key=values.get)
     else:
      if values is not None:raise ValueError('aborted challenge has comparison values')
@@ -65,5 +69,5 @@ def audit(before,after,event):
  except (ValueError,KeyError,TypeError,IndexError,OSError) as error:errors.append(str(error))
  return dict(schema='typed_challenge_lifetime.v1',applicable=applicable,next_win_consumption_verified=kind=='challenge_compared' and not errors,challenge_finish_verified=kind=='challenge_finished' and not errors,
   consumed_effect_count=len(used),consumed_effect_ids=sorted(r['effect_id'] for r in used),expired_stat_count=len(expired),errors=errors,source_reference=reference,challenge_source_sha256=SOURCE_SHA,
-  before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),comparison_operands_proven=False,participant_incarnation_proven=False,
+  before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),comparison_operand_binding=operand_binding,supplied_comparison_arithmetic_verified=operand_binding is not None and not errors,comparison_operands_proven=False,participant_incarnation_proven=False,
   effect_creation_proven=False,legacy_reservation_closure_proven=False,all_rule_opportunities_proven=False,origin_authenticated=False,policy_eligible=None,balance_admitted=None)

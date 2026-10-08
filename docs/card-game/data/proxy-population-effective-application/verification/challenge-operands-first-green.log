@@ -1,0 +1,42 @@
+======================================================================
+FAIL: test_typed_sum_target_and_scope_with_mutation_rejection (test_proxy_population_challenge_operands.OperandTests.test_typed_sum_target_and_scope_with_mutation_rejection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_operands.py", line 56, in test_typed_sum_target_and_scope_with_mutation_rejection
+    self.run_case(run)
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_lifetime.py", line 32, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback())
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 108, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/proxy_population_challenge_window.py", line 107, in connected
+    with growth.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                 ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_lifetime.py", line 32, in <lambda>
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback())
+                                                                                     ^^^^^^^^^^
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_operands.py", line 50, in run
+    self.assertEqual(api.values(e,'A')['values'],dict(power=3,wisdom=0));self.assertEqual(api.values(e,'B')['values'],dict(power=2,wisdom=2))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'power': 2, 'wisdom': 0} != {'power': 3, 'wisdom': 0}
+- {'power': 2, 'wisdom': 0}
+?           ^
+
++ {'power': 3, 'wisdom': 0}
+?           ^
+
+
+----------------------------------------------------------------------
+Ran 14 tests in 3.354s
+
+FAILED (failures=1)

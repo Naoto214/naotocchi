@@ -24,7 +24,7 @@
 | P08 | 必須 | 通常/response/誘発の現在predicate、候補展開・公開source列挙は接続済み | 全源・phase・早期除外の意味監査を合成し、未対応source/条件をゼロ件として無視しない。107からの生成/再登場も含む到達可能集合を証明 |
 | P09 | 必須 | 機会閉包: latching/starts/existing/sequential/coverage/order、供給済みledgerとの実行一致は接続済み | 全ルール由来の予約・自動・任意/強制機会の発生、最初の機会、失効、見送り、deferredの生成元と実順序を独立に結合。静的一覧と同じexecutor再現のみでは不可 |
 | P10 | 必須 | 許可情報の実使用: visible/public_history等あり、predicateの一部は公開情報のみを検証済み | 実候補列挙・比較・選択が許可projectionだけを使うことを経路ごとに示す。相手伏せidentity・未公開山札等のアクセス/非干渉検証と実入口結合 |
-| P11 | 必須 | 比較operand: selection_basisは114/116/119の計算だけを検証、operand_provenance_verified=false | sourceと実状態/履歴から各operandへ根拠を結合。挑戦statsの印刷値/補正/適用順、費用・成長・優先値を含む。未知を0に置換せず未証明を保持 |
+| P11 | 必須 | 比較operand: selection_basisは114/116/119の計算だけを検証、operand_provenance_verified=false | sourceと実状態/履歴から各operandへ根拠を結合。挑戦statsの供給状態上の印刷値/補正/最終0下限を接続済み。過去生成/状態認証、費用・成長・優先値を含む。未知を0に置換せず未証明を保持 |
 | P12 | 必須 | mandatory指定policy: 463/465 journal・origin・機会結合済み。指定外は116 | 指定範囲を維持し、事前policy rootsと入力lockに結合。通常/response/指定外を昇格しない。全判断への網羅・未証明/除外伝播を検証 |
 | P13 | 必須 | 外部承認認証: generation_entry/attempt_runner/supervisorの非空approval_referenceは認証しない | 生成承認と開始承認の別対象・権限主体・改竄検出・再利用防止・失効と入口の拒否を定義/実装。信頼元の選択は既存正本だけでは未確定。実承認は今回取得しない |
 | P14 | 必須 | 入力生成provenance/結果前順序: material protocol/registry/journal/packageあり、provenance/ordering=false | OS生成と保存・失敗時停止・過去履歴除外・seedとpolicy seed分離・生成前edition・結果前全400行確定を信頼可能な証拠鎖で認証。今回テスト用既存/合成材料のみ |
@@ -70,3 +70,13 @@ P01〜P03レビュー・最終検証・保存 → P04/P05生成と残る消費 �
 - P03: 実再登場の誤拒否を解消。隣接世代・物理ID・metadata・exact receipt・所在を結合。time_skip/birth枝の前Minorも解消。過去のseen-field認証や全機会は済扱いしない。
 - P05: 非生成/非消費eventの既存typed行の編集/消去を拒否。許可された寿命変更も各専用監査がexact結果を検査。新しいルール追加なし。
 - 課題増加なし。前bundleで具体化した二つの欠落を閉じた。独立review C0/I0/Minor0、関連41/結合19/npm406PASS。P06以降の全意味/機会/情報/operand/入力認証は残る。
+
+### 挑戦の公開数値根拠・全handler/gate監査
+
+- P11: lifetimeがreceiptの数値を信用していたため、両側+7の自己整合した偽比較を受け入れるREDを再現。107のmain10種印刷値、typed行、deepsea手札数、chameleon両worldを独立に再構成して実compareへ結合。供給状態上の算術の証明であり、過去生成/初期状態/全判断operandの認証ではない。
+- **P11追加発見**: 独立review I1により、正本02「最低0、上限なし」に対して既存challenge.statsも負値を返す漏れを発見。病気+エアホッケーでA=-2/B=2となり、差2報酬15を5に誤る実経路をRED再現。全typed/継続補正後に最終0下限を適用し、実handlerと独立監査を修正。早すぎる丸めを拒む正の継続補正併用も確認。課題増加の理由は、receipt保持監査から正本数値根拠へ横断したことで既存実処理の漏れが可視化されたため。新裁定ではない。
+- [handler・validator・入力条件対応表](2026-10-08-preflight-handler-and-gate-audit.md)に全41種類の実入口と固有の完了条件、共通未証明、入力gateの現在の検査範囲を記録。
+- P08/P19: I-poop1の置換発動境界は明示拒否が残る。107の敵main除去起点を全source/dispatchから非到達と証明するか、到達時のhandlerを正本から接続する条件付き実装課題。現時点で不在を0件/成功と数えない。
+- P13: 信頼主体・承認の認証方式は既存正本から未確定。非空referenceとfresh remoteを承認認証へ読み替えない。実seed/lock/開始は未実施。
+
+- P18補足: 初回の下限修正は歴史nativeファイルを直接変更したため、runtime468の固定source検査が関連2件/結合3件で拒否した（ログ保持）。旧source/hash/manifestを更新せずnativeを元に戻し、現行接続scopeへ下限adapterを設けた。scope解除時の復元と歴史anchor一致も検証。最終結果は `challenge-operands-final-scoped-*` のみを参照する。

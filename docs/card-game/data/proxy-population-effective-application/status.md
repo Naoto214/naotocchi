@@ -362,3 +362,13 @@ Final frozen-source integration19PASS146.406s after review fix; no production se
 生成/消費/離脱/終了以外での既存typed行の改変・消去をRED再現し、全eventのfamily別保存則を追加。例外familyは既存の消費・失効・挑戦監査でexact結果を検査する。効果全体/全機会の証明へ拡張しない。
 
 独立review C0/I0/Minor0。最終関連41PASS7.678s、固定Python結合19PASS144.820s、npm406PASS、design errors=[]、保護476件不変。ログreentry-conservation-*.log、レビューreentry-conservation-review.md。preflight-ready=false、seed生成/本番固定/400戦0、全体結論null。残件正本は2026-10-08-preflight-remaining-work.md。
+
+### 挑戦の公開数値根拠・最低0・全handler/gate監査
+
+a33d7a6から継続。次勝利の比較値をreceiptから信用せず、正本のmain10種印刷値・typed補正・deepsea・chameleonから独立照合する監査を実compare/coverageへ接続。自己整合した両側+7の偽値をRED→拒否。供給状態上の算術だけを証明し、過去生成/初期状態/全判断operandは未証明のまま。
+
+独立review C0/I1/Minor0。正本02「最低0」に対して既存statsが負値を返し、差2報酬まで誤る漏れをRED再現して修正。歴史nativeの直接変更はsource anchorで関連2/結合3ERRORになったため撤回し、旧file/hash/manifestは不変。現行challenge operation scopeのadapterで全補正後の下限だけ適用する。再レビューなし。
+
+最終関連59PASS16.311s、固定Python結合19PASS141.784s（challenge-operands-final-scoped-*）。npm406PASSは同bundle内の下限scope修正前、npm対象コードは以後変更なし。design errors=[]、保護476不変。全proxy回帰完了ではない。初回fixture期待値誤認と設計検査コマンド誤りを含む失敗ログ保持。詳細challenge-operands-review.md。
+
+残課題正本はplans/2026-10-08-preflight-remaining-work.md。21管理項目に分類/完了条件/増減理由を記録。別紙2026-10-08-preflight-handler-and-gate-audit.mdに107全41種類の実handlerと未接続証拠、validator/入力認証の不足を対応。I-poop1置換入口の明示拒否は全到達不能証明またはhandler接続が必要。P06旧予約、P07〜P12全意味/機会/許可情報/他operand、P13〜P17承認信頼元/由来/順序/lock/合成gateは未完。preflight-ready=false、seed生成/本番固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。
