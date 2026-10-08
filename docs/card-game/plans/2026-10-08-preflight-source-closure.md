@@ -75,3 +75,15 @@
 新規実装必須IDを増やさず、P06/P08の条件付き項目を具体化した。I-poop1/I-bond1用の到達しないresolverを新設する前に、上記既存結合を閉じる。I-sleepboost1の旧対応表「支払2」は本文/実装とも異なり、残り時2以上の発動条件なので表を訂正する。新裁定・カード変更ではない。
 
 独立read-only review: C0/I0/Minor1（上表/下表の誤記を訂正）。全41本文・section hash・typed2/7/1を照合。実行到達性/全handler適合/provenance/gateは対象外として維持。code変更なし、テスト再実行は不要。
+
+### E-first-dateの対象世代/段階と解決全差分
+
+cd22246からP07を継続。正本91の現在partner・厳格な交際段階0と、既存active_cardsの世代整合から対象を照合し、1draw/要求成長5/474実変化を独立導出。現在#2指定は成立、旧#1指定は#2へ移行せず不成立。交際1〜3/married・対象離脱も不成立。たまごだけではこのできごと自体を抑止しない。receipt/適用evidence/旧metadataを含む全stateと連鎖差分を比較し、交際段階の変更や追加drawを拒否。native・歴史pin不変。
+
+TDD4FAIL→初回1FAIL（coverage未接続）→関連25PASS3.858s。独立review1回C0/I0/Minor0（reviewer4PASS1.094s）。空山札/成長100/outer/start/end/challengeも確認。design errors=[]、保護476件不変。世代の発生由来・発動/初期入力の認証をsupplied mappingの整合から主張しない。
+
+次工程調査: 107内の装備はI-bond1/I-bowtie/I-sleepboost1の印刷時2であり、G-asteroids-classicが要求する印刷時3以上の自装備はない。G-archery-3dは時2以下装備を対象にできる。旧単体テストのtableを3へ変更したprobeは仮想契約試験であり107実到達証拠ではない。P06/P07/P08の条件付き閉包へ記録するが、この静的一覧だけで非到達/算入を認定しない。source集合固定・全物理保存・handler意味/全機会/入力認証との結合が必要。
+
+管理項目22維持、preflight-ready=false、seed生成/本番入力固定/400戦0、全体結論null。次はG-archeryの実装備除去全差分と、G-asteroidsの107条件付き非到達の根拠を既存入口へ結合する。
+
+Final frozen Python integration: Ran 22 tests in 163.351s, PASS. Full proxy regression/latest npm not claimed.
