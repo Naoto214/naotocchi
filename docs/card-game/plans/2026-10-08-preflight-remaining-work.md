@@ -572,3 +572,14 @@ TDD初回2件1FAIL/1ERROR0.138sはテストが強制交際の既存進入拒否�
 次は残る開始/latched sourceの否定枝と、実group見送り・消費のledger閉鎖からresponse再提示禁止への結合。台帳のstatusやreason文字列だけを発動/見送りの実receiptと扱わない。管理項目22維持、具体化理由はsource合成後の未証明を既存event別predicateと照合したため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
 
 固定22＋既存完走unit1: Ran 23 tests in 272.833s、PASS。全source/phase到達・最新全proxy回帰とは扱わない。
+
+
+### 通常responseのlatched4source現在条件による否定接続
+
+20eec3dからP08/P09を継続。M-antlion-03/M-antlion-06/C-bat/P-cliff_goatについて既存audit_latchedを再利用し、現在手番・費用札・対象・使用条件による空候補だけをlatched_negative_auditsへ結合する。実inventoryの候補をemptyと照合し再提示を拒否する。timing発生や閉鎖をこの現在条件から推測せず、条件positiveならnative候補が空でもunprovedを維持する。
+
+TDD2ERROR0.028s（伏せ準備を含むfixtureのorigin分類）→2件1FAIL/1ERROR0.052s（既存paid scope未設定）→修正後2件1FAIL0.059s→実装後関連28PASS9.042s。テスト側は既存start eventとpaid.scopeを利用し、runtime.operationの外側にcontract_scopeを維持。全試行ログはverification/response-latched-predicates-*。独立review1回C0/I0/Minor0、新規2件独立PASS0.166s。固定結合は最終logで別判定する。
+
+残る開始sourceおよびpositiveな現在条件のsourceについて、実groupの消費・見送り・ineligible receiptと現在ledgerの結合が必要。台帳status・候補欠落・reason文字列だけを閉鎖証明にしない。管理項目22維持、具体化理由はresponse source合成の未証明を現在条件と発生/閉鎖条件に分けたため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
+
+固定22＋既存完走unit1: Ran 23 tests in 281.945s、PASS。design errors=[]、保護476件不変。全source/phase到達・最新全proxy回帰とは扱わない。
