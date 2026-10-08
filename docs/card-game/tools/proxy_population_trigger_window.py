@@ -159,7 +159,7 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
                 result.update(connection_revision='conditional_sequential_start_window_A',trigger_records=records,trigger_ledger=current_ledger,start_occurrence_proofs=start_proofs,other_occurrence_proofs=other_proofs,
                     closed_turn_trigger_ledgers=closed_turns,origin_authenticated=False,opportunity_completeness_proven=False)
                 import proxy_population_trigger_coverage as coverage
-                result['supported_trigger_coverage']=coverage.audit(result,events,proof,initial)
+                result['supported_trigger_coverage']=coverage.audit(result,events,proof,initial,shots)
                 return result
             finally:base.operation=original_operation;base._step=original_step
     try:return original_operation(initial,scoped)

@@ -1,0 +1,37 @@
+...F.
+======================================================================
+FAIL: test_history_snapshot_game_cannot_disagree_with_actual_continuation (test_proxy_population_early_finish_effect.EarlyFinishEffectTests.test_history_snapshot_game_cannot_disagree_with_actual_continuation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_early_finish_effect.py", line 64, in test_history_snapshot_game_cannot_disagree_with_actual_continuation
+    self.run_case(run)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_early_finish_effect.py", line 27, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback())
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 111, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 110, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_early_finish_effect.py", line 27, in <lambda>
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback())
+                                                                                     ^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_early_finish_effect.py", line 63, in run
+    self.assertTrue(api.audit(b,a,event,h,s,f)['errors']);return {}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.356s
+
+FAILED (failures=1)

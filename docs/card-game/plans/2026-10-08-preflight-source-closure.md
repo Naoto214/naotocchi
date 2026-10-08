@@ -144,3 +144,12 @@ TDD3FAIL→関連14PASS1.101s。100対100/100対95/95対100/0対0は供給score-
 先後入力起点・終了全義務・早期100維持履歴は別gate。次は既存victory_history/end_victoryの実公開履歴判定を再利用してmaintained100終端と、勝つべき終了で誤って続行する枝を結合する。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
 
 固定22+既存完走unit1: Ran 23 tests in 269.863s、PASS。
+
+
+### 100維持の早期終了・誤続行拒否と公開履歴終点
+
+c1449eaからP07/P11を継続。既存victory_history/end_victoryの全公開履歴再構築を再利用し、maintained100_final_comparisonの候補・結果と全状態差分を照合する。100でも将来の相手ターン終了前は続行でき、成立済みなら誤って次ターンへ進む枝を拒否する。R10早期終了は禁止。既存turn_finishの閉じた終了境界をclosed_endへ意味を変えず抽出した。coverageは既存initial snapshotsを受け渡し、現在eventを追加する前に供給履歴と照合する。
+
+終点snapshotのcontinuationだけでは、game側100と実before側95の食い違いを受理できたため追加TDDで再現し、gameとcontinuationの双方を実beforeへ結合した。TDD4FAIL→関連18PASS1.244s、終点追加5件中1FAIL0.356s→関連19PASS1.278s。独立review1回C0/I0/Minor0（新規＋turn finish9PASS1.147s）。固定22＋既存完走unit1は23PASS278.417s。design errors=[]、番号付き保護正本476件不変。失敗・修正・成功ログはverification/early-finish-effect-*に保存。
+
+供給履歴の整合性検査であり、履歴起点・先後の外部認証、終了六段階全義務、全ルール機会の証明ではない。相手の次ターン未到来例は合成した条件付き履歴であり真正な本番結果ではない。次は手札即時カードの既存normal/response発動入口で、費用・手札除去・chain・contextの全差分結合を確認する。新たな管理項目を追加せず既存P07/P11の未閉包を具体化した。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。

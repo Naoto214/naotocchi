@@ -10,14 +10,18 @@ from proxy_population_resolution_semantics import event_digest
 from proxy_mandatory_policy_contract import ROOT,canonical
 KINDS=('turn_end_completed','r10_final_comparison')
 
+def closed_end(before,first_player):
+ for name,digest in victory.SOURCES.items():
+  if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:raise ValueError('turn finish source changed')
+ state.validate(before);c=before['legacy_continuation'];g=c['game_state'];actor=g['turn_player'];ctx=c['response_context'];victory._game(g)
+ if first_player not in ('A','B') or g['phase']!='turn_end' or c['return_target']!='turn_end' or c['activation_zone'] or c['pending_triggers'] or ctx['chain_status']!='empty' or ctx['chain_links'] or ctx['consecutive_passes']!=2 or g.get('challenge') is not None or any(p['reservations'] for p in g['players'].values()) or any(before['runtime'][k] for k in ('payment_effects','stat_effects','conditional_effects')):raise ValueError('turn finish closed boundary or first seat differs')
+ return c,g,actor
+
 def audit(before,after,event,first_player=None):
  errors=[];applicable=event.get('action_type') in KINDS
  try:
   if applicable:
-   for name,digest in victory.SOURCES.items():
-    if hashlib.sha256((ROOT/name).read_bytes()).hexdigest()!=digest:raise ValueError('turn finish source changed')
-   state.validate(before);c=before['legacy_continuation'];g=c['game_state'];actor=g['turn_player'];seq=event['seq'];ctx=c['response_context'];victory._game(g)
-   if first_player not in ('A','B') or g['phase']!='turn_end' or c['return_target']!='turn_end' or c['activation_zone'] or c['pending_triggers'] or ctx['chain_status']!='empty' or ctx['chain_links'] or ctx['consecutive_passes']!=2 or g.get('challenge') is not None or any(p['reservations'] for p in g['players'].values()) or any(before['runtime'][k] for k in ('payment_effects','stat_effects','conditional_effects')):raise ValueError('turn finish closed boundary or first seat differs')
+   c,g,actor=closed_end(before,first_player);seq=event['seq']
    if type(seq) is not int or seq!=before['event_seq']+1 or after['event_seq']!=seq or event['actor']!=actor or event['selected_candidate'] is not None:raise ValueError('turn finish receipt differs')
    terminal=g['round']==10 and actor!=first_player
    if event['action_type']!=KINDS[int(terminal)]:raise ValueError('turn finish must respect final second turn')
