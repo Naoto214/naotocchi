@@ -372,3 +372,14 @@ receipt修正前の固定22+既存完走unit1は23PASS272.327s。途中で停止
 旧reservations非空は開始処理順が未閉包のため拒否。前終了/起点認証・全開始義務・たまご選択自体は未証明のまま。次は既存465のframe/選択/適用結果とegg_exchange_bottom全差分を結合する。既存policy bridge、再登場projection、通常/response policyの範囲は維持する。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
 
 最終receipt修正後の固定22+既存完走unit1: Ran 23 tests in 267.585s、PASS。最終design errors=[]、保護476件不変。
+
+
+### たまご交換の指定選択と実移動の全差分
+
+a0a1842からP07/P12を継続。policy_journalの既存通常draw prefixをegg_entryへ抽出し、実turn_startから465 frameを保持。egg_exchange_bottomでprepare(frame)の選択直前状態と実beforeを照合し、既存apply_choiceの全結果をlife.project/restoreで現metadataへ戻して全after/contextを照合する。decision/local evidence/eventのselectedと選択physical detailを結合し、無選択時はcallback0を要求。native、指定policy、再登場定義は変更しない。
+
+TDD2FAIL→関連12PASS1.732s。選択physical detail改変を追加して3件中1FAIL2.565s→結合を補い関連16PASS3.909s。両actor、通常/不足/空山札、手札空、欠落/重複callback、異なる選択・前提frame・山札順・資源/metadata/runtime/context改変、journal hookを検証。独立review1回C0/I0/Minor0（新規3PASS2.785s）。前bundleのstart draw非選択receipt修正も現コードで確認された。design errors=[]、保護476件不変。ログはverification/egg-choice-effect-*。
+
+供給frameの実境界への結合であり、外部由来の認証・指定policy入力lock・全開始機会の閉包ではない。次はターン交代/R10終端の先後・round・比較と全state差分を既存境界へ結合する。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
+
+固定22+既存完走unit1: Ran 23 tests in 274.601s、PASS。

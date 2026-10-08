@@ -10,18 +10,19 @@ import proxy_continuation_end as end
 try:import proxy_population_start_draw_effect as api
 except ImportError:api=None
 
-def actual(actor,egg,count,round_number=1):
+def actual(actor,egg,count,round_number=1,full=False,empty_hand=False):
  e,_=boundary();e=runtime.engine.payments.upgrade(e);c=e['legacy_continuation'];g=c['game_state'];prior='B' if actor=='A' else 'A';g.update(turn_player=prior,phase='turn_end',round=round_number);c['return_target']='turn_end';c['response_context'].update(turn_player=prior,priority_actor=prior,consecutive_passes=2)
  p=g['players'][actor]
  if not egg:
   source=next(s for s in p['hand']+p['deck'] if g['cards'][s]['card_id'].startswith('M-'));(p['hand'] if source in p['hand'] else p['deck']).remove(source);p['board']['main']=source
  p.update(time=0,challenge_used=True,person_placed=True,relationship_progressed=True)
  p['discard']+=p['deck'][count:];p['deck']=p['deck'][:count]
+ if empty_hand:p['discard']+=p['hand'];p['hand']=[]
  i=initial();i['first_player']=prior;s=Session(dict(protocol_id='unit',group_id='unit',mirror_side=prior+'_first'),{'A':'00'*32,'B':'00'*32});s.turn_start(prior,'conditional-prior')
  # Conditional end fixture: reuse production source classification scope.
  with end.end_scope(e,[],[],[e]):result=turn.next_turn(state.current(e),i,s)
  b=state.advance(e,result['new_snapshots'][0]['continuation_state'],result['new_snapshots'][0]['event_seq']);a=state.advance(b,result['new_snapshots'][1]['continuation_state'],result['new_snapshots'][1]['event_seq'])
- return b,a,result['new_events'][1]
+ return (b,a,result['new_events'][1],result) if full else (b,a,result['new_events'][1])
 
 class StartDrawEffectTests(unittest.TestCase):
  def setUp(self):self.assertIsNotNone(api,'start draw full delta absent')

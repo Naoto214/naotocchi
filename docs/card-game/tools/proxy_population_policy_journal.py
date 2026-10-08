@@ -84,6 +84,15 @@ def audit_origins(record):
         scope='supplied_actual_turn_boundaries_and_top_link_entries',policy_eligible=None,balance_admitted=None)
 
 
+def egg_entry(game,actor):
+    """Existing01 normal-draw prefix for the465 egg rule slice."""
+    game=copy.deepcopy(game);p=game['players'][actor]
+    p.update(time=game['round'],challenge_used=False,person_placed=False,relationship_progressed=False)
+    if p['deck']:p['hand'].append(p['deck'].pop(0))
+    game['phase']='egg_exchange_choice'
+    return dict(schema='mandatory_rule_slice_input.v1',choice_contract_id='egg_exchange_bottom',actor=actor,entry='after_normal_draw',source_instance_id=None,target_instance_id=None,game_state=game)
+
+
 def audit_opportunities(record):
     """Enumerate designated local obligations from supplied actual entry states.
 
@@ -95,7 +104,8 @@ def audit_opportunities(record):
     from proxy_population_policy_bridge import occurrence_key
     import proxy_population_incarnation as life
     import proxy_population_designated_effects as effects
-    expected={};no_choice=[];errors=[];effect_audits=[]
+    import proxy_population_egg_choice_effect as egg_choice
+    expected={};no_choice=[];errors=[];effect_audits=[];egg_audits=[];pending_egg=None
     def key(envelope):
         return occurrence_key(dict(envelope['legacy_continuation'],last_event_seq=envelope['event_seq']))
     def require(origin,frame):
@@ -127,18 +137,17 @@ def audit_opportunities(record):
                 effect=effects.audit(before,after,event,step.get('mandatory_decisions',[]),registry)
                 if effect['errors']:raise ValueError('designated effect semantics differ: '+str(effect['errors']))
                 if effect['applicable']:effect_audits.append(effect)
+                egg=egg_choice.audit(before,after,event,pending_egg,step.get('mandatory_decisions',[]),registry)
+                if egg['errors']:raise ValueError('egg choice semantics differ: '+str(egg['errors']))
+                if egg['applicable']:egg_audits.append(egg);pending_egg=None
                 prior_owner=life.game(before)['turn_player']
                 registry=life.observe(registry,before,after,event.get('instance_transitions',[]))
                 game=life.project_game(registry,life.game(after));actor=game['turn_player']
                 if actor!=prior_owner:
                     if event['action_type']!='turn_end_completed' or game['phase']!='turn_start':raise ValueError('designated turn entry differs')
                     if game['players'][actor]['board']['main'] is None:
-                        #01 normal start prefix precedes the465 egg rule slice.
-                        p=game['players'][actor]
-                        p.update(time=game['round'],challenge_used=False,person_placed=False,relationship_progressed=False)
-                        if p['deck']:p['hand'].append(p['deck'].pop(0))
-                        game['phase']='egg_exchange_choice'
-                        require(key(after),frame('egg_exchange_bottom',actor,game))
+                        pending_egg=egg_entry(game,actor)
+                        require(key(after),pending_egg)
                 before=after
         if canonical(before)!=canonical(runtime['final_envelope']) or canonical(registry)!=canonical(runtime['physical_lifecycle_final']):raise ValueError('designated lifecycle final binding differs')
         actual={}
@@ -150,6 +159,6 @@ def audit_opportunities(record):
     except (ValueError,KeyError,TypeError,IndexError) as error:errors.append(str(error))
     return dict(schema='designated_mandatory_opportunity_coverage.v1',designated_opportunities_covered=not errors,
         errors=errors,required_choice_count=len(expected),no_choice_occurrences=no_choice,
-        designated_effect_audits=effect_audits,designated_effect_semantics_verified=not errors,
+        designated_effect_audits=effect_audits,designated_effect_semantics_verified=not errors,egg_choice_delta_audits=egg_audits,
         origin_authenticated=False,all_rule_opportunities_proven=False,opportunity_scope='designated_465_rules_given_actual_trace_entries',
         policy_eligible=None,balance_admitted=None)
