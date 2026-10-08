@@ -731,3 +731,16 @@ TDD3FAIL2.572s→関連23PASS9.674s。実birth/time_skip/transform、実G-archer
 次の合成欠落: normalには既存board_predicates.composeでpredicate unitの欠落を列挙する入口があるが、responseのhand/reaction/board/preparedの各ローカル監査には対応するsource単位の横断結合がない。各監査のerrors=[]だけでは未証明sourceが消えたことにならない。P08/P09の次工程ではこの欠落を明示的に集約し、source inventoryや静的一覧を意味証明へ昇格しない。管理項目22維持、追加具体化理由は局所predicateのunproved出力の消費先を辿ったため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
 
 固定22＋既存完走unit1: Ran 23 tests in 275.227s、PASS。既存4step診断ではG-air-hockeyのhand未証明をreactionが補い、P-desert_scorpionの通常response sourceが未証明として残る。次の横断結合はこの区別を保持する。全source/phase到達や最新全proxy回帰とは扱わない。
+
+
+### response4監査の所有者source単位合成
+
+3b5490dからP08/P09を継続。通常responseでfresh計算したhand/reaction/board/preparedを、priority actorの実hand/board/prepared sourceへ横断結合し、challenge_windowの既存入口へ接続した。G-air-hockeyのhand未証明をreactionが補完する一方、どこも検証していないP-desert_scorpion等はunproved_source_idsとして保持する。監査familyの欠落/schema/failed/false、重複/foreign/zone/actor不一致はerrorsとして拒否。missingだけは既存normal compose同様に条件付き記録へ残し、証明を捏造しない。
+
+preparedのverified部分行だけを採用し、他者equipmentを自分のsource coverageへ算入しない。全体equipment flagがfalseでも、個別verified行の意味と残る未証明を混同しない。source predicate合成であり、候補grammar/全合法集合・情報利用・履歴真正性・全機会を証明するものではない。caller_proofs_authenticated=false、complete_legal_set_proven=false等を維持する。
+
+TDD3FAIL0.001s→関連29PASS16.476s→実own/other equipment・伏せsource・重複拒否追加で関連30PASS16.947s。独立review1回C0/I0/Minor0、新規4件独立PASS3.266s。design errors=[]、保護476件不変。全試行ログはverification/response-composition-*、固定結合は最終logで別判定。
+
+次は普通のresponseに残るevent依存board sourceについて、既存trigger_predicatesの時点別独立条件を再利用できる否定枝と、実groupの見送り/消費/閉鎖ledgerが必要な枝を分離して結合する。たとえばP-desert_scorpionの非終了時否定と、正しい終了機会を見送った後の再提示禁止は同じ根拠ではない。静的一覧/同じ候補/唯一候補を証明にしない。管理項目22維持、今回の具体化は局所のunproved出力を横断して未補完sourceを把握できたため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
+
+固定22＋既存完走unit1: Ran 23 tests in 279.117s、PASS。missing sourceは条件付き記録に残り、全機会・算入・本番開始へ昇格しない。最新全proxy回帰完了とは扱わない。

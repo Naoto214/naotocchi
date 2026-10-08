@@ -33,6 +33,7 @@ import proxy_population_response_expansions as response_expansions
 import proxy_population_response_predicates as response_predicates
 import proxy_population_trigger_predicates as trigger_predicates
 import proxy_population_prepared_predicates as prepared_predicates
+import proxy_population_response_composition as response_composition
 from proxy_mandatory_policy_contract import canonical
 
 _LOCK=Lock()
@@ -81,6 +82,9 @@ def contract_scope():
      prepared_proof=prepared_predicates.audit(result['source_envelope'],events,decision['candidate_set_evidence'])
      if prepared_proof['errors']:raise ValueError('response prepared predicates differ: '+str(prepared_proof['errors']))
      result['response_prepared_predicates']=prepared_proof
+     composed=response_composition.audit(result['source_envelope'],decision['candidate_set_evidence'],dict(response_hand_predicates=hand_proof,response_reaction_predicates=reaction_proof,response_board_predicates=board_proof,response_prepared_predicates=prepared_proof))
+     if composed['errors']:raise ValueError('response predicate composition differs: '+str(composed['errors']))
+     result['response_source_predicate_coverage']=composed
     else:raise ValueError('ordinary decision source coverage kind unsupported')
     if coverage['errors']:raise ValueError('ordinary source inventory differs: '+str(coverage['errors']))
     result['decision_source_inventory']=coverage

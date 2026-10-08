@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_empty_board_does_not_allow_a_missing_audit_family (test_proxy_population_response_composition.ResponseCompositionTests.test_empty_board_does_not_allow_a_missing_audit_family)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_response_composition.py", line 16, in setUp
+    def setUp(self):self.assertIsNotNone(api,'response source predicate composition absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : response source predicate composition absent
+
+======================================================================
+FAIL: test_missing_family_failed_duplicate_foreign_and_reaction_omission (test_proxy_population_response_composition.ResponseCompositionTests.test_missing_family_failed_duplicate_foreign_and_reaction_omission)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_response_composition.py", line 16, in setUp
+    def setUp(self):self.assertIsNotNone(api,'response source predicate composition absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : response source predicate composition absent
+
+======================================================================
+FAIL: test_real_reaction_complements_hand_but_actual_board_gap_remains (test_proxy_population_response_composition.ResponseCompositionTests.test_real_reaction_complements_hand_but_actual_board_gap_remains)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_response_composition.py", line 16, in setUp
+    def setUp(self):self.assertIsNotNone(api,'response source predicate composition absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : response source predicate composition absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)
