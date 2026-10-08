@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_actual_switch_round_and_final_comparison_both_seats (test_proxy_population_turn_finish_effect.TurnFinishEffectTests.test_actual_switch_round_and_final_comparison_both_seats)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_turn_finish_effect.py", line 35, in setUp
+    def setUp(self):self.assertIsNotNone(api,'turn finish full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : turn finish full delta absent
+
+======================================================================
+FAIL: test_coverage_uses_explicit_first_seat_for_delta (test_proxy_population_turn_finish_effect.TurnFinishEffectTests.test_coverage_uses_explicit_first_seat_for_delta)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_turn_finish_effect.py", line 35, in setUp
+    def setUp(self):self.assertIsNotNone(api,'turn finish full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : turn finish full delta absent
+
+======================================================================
+FAIL: test_early_resets_extra_draw_wrong_first_round_and_result_refused (test_proxy_population_turn_finish_effect.TurnFinishEffectTests.test_early_resets_extra_draw_wrong_first_round_and_result_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_turn_finish_effect.py", line 35, in setUp
+    def setUp(self):self.assertIsNotNone(api,'turn finish full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : turn finish full delta absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+FAILED (failures=3)

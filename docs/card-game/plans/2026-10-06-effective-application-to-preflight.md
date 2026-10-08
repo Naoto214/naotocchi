@@ -581,3 +581,14 @@ TDD2FAIL→関連12PASS1.732s。選択physical detail改変を追加して3件�
 供給frameの実境界への結合であり、外部由来の認証・指定policy入力lock・全開始機会の閉包ではない。次はターン交代/R10終端の先後・round・比較と全state差分を既存境界へ結合する。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
 
 固定22+既存完走unit1: Ran 23 tests in 274.601s、PASS。
+
+
+### 先後に従うターン交代とR10終端の全差分
+
+7e2c5e9からP07を継続。01/06/64 pinの下で、閉じた終了境界・typed期限処理済み・旧予約空から、先攻終了ではround保持、後攻終了ではround+1、R10後攻終了では延長せず公開growth比較を照合。非選択receiptと結果全項目を結合し、交代/終端以外の全state/runtimeを保持する。交代時に時・回数・drawを先取りしない。実trigger_window callerの既存initialからfirst_playerを渡し、欠落や不一致を拒否。native変更なし。
+
+TDD3FAIL→関連14PASS1.101s。100対100/100対95/95対100/0対0は供給score-edgeの条件付き差分として追加し15PASS1.025s（保存歴史の改変・真正な対戦結果ではない）。実next_turnと既存405/metadata終端で両先後・R1/9/10、余分なdraw/growth/time/reset、actor/round/context/usage/選択/結果改変とcoverage接続を検証。独立review1回C0/I0/Minor0（新規4PASS0.598s）。design errors=[]、保護476件不変。ログはverification/turn-finish-effect-*。
+
+先後入力起点・終了全義務・早期100維持履歴は別gate。次は既存victory_history/end_victoryの実公開履歴判定を再利用してmaintained100終端と、勝つべき終了で誤って続行する枝を結合する。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
+
+固定22+既存完走unit1: Ran 23 tests in 269.863s、PASS。
