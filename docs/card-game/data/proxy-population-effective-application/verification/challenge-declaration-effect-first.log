@@ -1,0 +1,60 @@
+E.F................
+======================================================================
+ERROR: test_both_actors_and_parameters_fix_participants_without_rewards (test_proxy_population_challenge_declaration_effect.ChallengeDeclarationEffectTests.test_both_actors_and_parameters_fix_participants_without_rewards)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_challenge_declaration_effect.py", line 25, in test_both_actors_and_parameters_fix_participants_without_rewards
+    self.run_case(run)
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_payment_consumption.py", line 25, in run_case
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback(fixture()))
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 111, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 110, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_payment_consumption.py", line 25, in <lambda>
+    with connected.contract_scope():return runtime.operation(initial(),lambda forced:callback(fixture()))
+                                                                                     ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_challenge_declaration_effect.py", line 22, in run
+    b,a,event=actual(template,actor,parameter);proof=api.audit(b,a,event)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_challenge_declaration_effect.py", line 12, in actual
+    action=next(a for a in candidates.audit(b,[])['legal_candidate_details'] if a['action_type']=='challenge' and a['candidate_variant']==parameter)
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_candidates.py", line 52, in audit
+    state.validate(envelope);game=envelope['legacy_continuation']['game_state'];actor=game['turn_player']
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_board_links.py", line 40, in validate
+    if not refs:return original(envelope)
+                       ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_payments.py", line 304, in validate
+    originals[4](e);validate_effects(e)
+                    ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_payments.py", line 43, in validate_effects
+    raise ValueError('payment effect identity/source/value/expiry differs')
+ValueError: payment effect identity/source/value/expiry differs
+
+======================================================================
+FAIL: test_participant_usage_reward_cost_and_unrelated_changes_refused (test_proxy_population_challenge_declaration_effect.ChallengeDeclarationEffectTests.test_participant_usage_reward_cost_and_unrelated_changes_refused) (mode='metadata')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_challenge_declaration_effect.py", line 47, in run
+    with self.subTest(mode=mode):self.assertTrue(api.audit(before,bad,ev)['errors'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 19 tests in 3.784s
+
+FAILED (failures=1, errors=1)

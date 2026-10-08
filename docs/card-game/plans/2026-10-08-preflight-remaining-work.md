@@ -310,3 +310,12 @@ de5aba1からP07を継続。01/06/55/77の既存pin/catalogを用い、I-poop1�
 P06未閉包のlegacy reservations非空は費用影響未証明として拒否する。I-poop1の配置監査であり、後日の置換入口/全非到達性を解決した扱いにしない。synthetic unit_recovery起点の真正性、全到達性/全機会は未完。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null。
 
 TDD3FAIL→新規3PASS1.254s→再登場/軽減使用済みtest追加、関連21PASS7.481s。対象/支払/付属情報/回数/typed/余分なgrowth等の改変と、hashを更新したcoverage入力の不正を拒否する。途中ログ保存。独立review1回C0/I0/Minor0（新規4PASS2.076s）。design errors=[]、保護476件不変。固定Python結合: Ran 22 tests in 161.844s、PASS。最新npm/全proxy回帰完了は主張しない。
+
+
+### 挑戦宣言の参加者固定と全差分
+
+9d17b9cからP07を継続。既存02/06/65 pinを再利用し、normal境界・自分から1回・両main・ちから/ちえを照合し、宣言時の2体/parameter/開始seqを固定する。自分の宣言回数だけを消費し、時0・成長0・相手回数/既存typed/metadata等の保存と反応contextを全差分照合。既存declare/native、比較数値、次勝利消費、挑戦終了監査は再実装しない。
+
+legacy予約非空は宣言時機会が未閉包のため拒否する。参加個体の履歴真正性・全機会・発動適法性全体は未証明。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null。
+
+TDD3FAIL→初回1FAIL1ERROR（actor変更後typed期限が旧手番のfixture、metadataの改変値が元と同値）→既存constructorでfixtureを訂正し関連19PASS4.184s。両actor/両parameter、参加者差替え、宣言回数/時/成長/typed/metadata/contextの不正、hash更新後coverage入力を検証。独立review1回C0/I0/Minor0（新規3PASS0.712s）。途中ログ保存。固定Python結合: Ran 22 tests in 164.361s、PASS。design errors=[]、保護476件不変。最新npm/全proxy回帰完了は主張しない。
