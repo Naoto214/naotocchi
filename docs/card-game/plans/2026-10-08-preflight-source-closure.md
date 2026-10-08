@@ -408,3 +408,20 @@ P10 read-only準備診断: 既存E-boss通常入口の条件付きfixtureで両�
 P10追加read-only診断: 同じE-boss response入口も、両山札順反転・相手手札/山札交換でdecision全体の差分0。一方、公開の残り時0ではvisibleと候補/選択が変わりresponse-passとなる（information-use-response-entry-probe.log）。非公開の無関係性と公開条件への応答を区別した条件付き診断で、全経路証明や算入条件にはしない。
 
 最終固定22＋既存完走unit1: Ran 23 tests in 270.080s、PASS、別exit JSONも0。existing_unit_end_dispatch 20 verified。response89/normal29の局所合成・全機会false維持。design errors=[]、保護476不変。初回不完全logは結果不明のまま保存する。
+
+
+### P10 実通常/response入口の条件付き情報非干渉回帰
+
+e4a23a0から、直前のread-only probeを既存E-boss/G-hit-blow/I-c_coin2の実runtime._stepへ結合した永続回帰へ移した。既存107の実copyだけを手札/山札内で移し、metadata・各所有者の物理集合・各zone枚数を保つ。3card×通常/response×5変更（本人/相手の山札逆順、両山札回転、相手の手札/山札先頭または末尾交換）で、実visibleとdecision全体およびevaluationの一致を検査する。相手の非公開手札内容と両山札順の有限組合せに限る。現在visibleにzone枚数が含まれないため枚数は別途固定する。
+
+公開の時0で実passへ変わること、現在visibleが同じでも公開の敗北履歴を引分へ変えるとE-bossを選ばなくなることを両phaseで検査する。条件付きstateごとのhashは再結合し、hashそのものを許可visibleと混同しない。元envelope非変更・policy/balance非算入・ready=falseを維持する。
+
+初回3件1FAIL1.065sは通常のG-hit-blow/I-c_coin2も必ずカードを選ぶというtest側の仮定による。診断で既存の合法候補（7/1）を保ったpass選択と確認し、通常pass/response実使用の両方を固定した。実装の不具合や情報漏洩のREDとは扱わない。runtime/評価値/selector/歴史policyに変更なし。修正後関連11PASS3.231s。初回/診断/関連logはverification/information-use-regression-*。独立reviewと固定fingerprint結合は別途最終結果を記録する。
+
+管理項目22維持。P10の具体化理由はfirst-response限定の候補view確認と、後続実入口の候補・比較・選択全recordの条件付き非干渉を分けたため。この有限回帰は全経路のread-access証明、相手伏せ準備identity全般、将来公開情報の利用制限、P11 operand由来を完了させない。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
+
+独立review1回C0/I0/Minor0、新規3件独立PASS2.691s/exit0。design errors=[]、保護476不変。固定結合は最終logで別判定する。
+
+次工程のread-only probeでは、相手に実I-poop1伏せ準備を置いた条件付きstateを使用。通常は非公開山札順/相手手札交換でもdecision全体一致。responseは選択を含むrecordの差がcandidate_set_evidence.envelope_sha256だけであり、実hidden stateを結ぶhashと判断材料を区別する必要を確認した（information-use-prepared-entry-probe.log）。伏せ準備自体のidentity変更はしていない。この既存response入口の実hash結合と、候補・比較・選択の非干渉を別々に検証する回帰が次の具体的作業。hashを一括無視したり、差分があるだけで情報漏洩と判定しない。
+
+最終固定22＋既存完走unit1: Ran 23 tests in 273.533s、PASS、別exit JSONも0。既存unit response89/normal29局所source covered、end dispatch20 verified、全機会false維持。最新全proxy回帰ではない。
