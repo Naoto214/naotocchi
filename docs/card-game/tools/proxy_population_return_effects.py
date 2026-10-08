@@ -54,6 +54,10 @@ def audit(before,after,event):
     ec['response_context'].update(chain_status='empty',consecutive_passes=2 if ending else 0)
     ec['game_state']['phase']='turn_end' if ending else 'normal_action'
     ec['return_target']='turn_end' if ending else 'normal_action_opportunity'
+    battle=g.get('challenge')
+    if battle is not None and not ending:
+     ec['game_state']['phase']='response_window';ec['return_target']='challenge_comparison' if battle['status']=='comparing' else 'challenge_end'
+     ec['response_context']=dict(source_phase='challenge_declaration' if battle['status']=='comparing' else 'challenge_result',phase='response_window',window_kind='after_normal_action',origin_event_seq=seq,turn_player=g['turn_player'],priority_actor=g['turn_player'],chain_status='empty',chain_links=[],consecutive_passes=0,response_opportunity_index=1,decision_kind='response_action',choice_kind='reaction_or_pass')
    if 'processing_boundary' in event:
     # Existing06 adapter reopens ordinary reactions after the last link.
     # Validate its supplied shape/delta, not the origin ledger's authority.

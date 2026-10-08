@@ -132,3 +132,13 @@ ac5a24fからP07を継続。M02/M05/M08/P-desert_scorpion/I-bowtieの既存resol
 preflight-ready=false、seed生成/本番固定/400戦0、全体結論null。npm406は9e59c06時点。今回全proxy回帰完了ではない。
 
 Final frozen Python integration: Ran 22 tests in 197.181s, PASS. Related31PASS3.667s. No production inputs/games.
+
+### 回収監査の挑戦中context結合
+
+afd4986から保存後も継続。回収C-bat/M06が最終linkを終えると既存challenge.normalize_resultは比較前ならchallenge_comparison、結果後ならchallenge_endへの反応を再開するが、新回収監査が通常行動へ戻ると仮定していた。2種×2statusの4REDを、既存adapterの全context差分を監査へ足してGREEN。実handler/比較/支払は不変。外側link維持/誤消去・不正戻り先・不正boundary型を永続回帰にした。draw側のchallengeとP-scorpion mainなし拒否も永続化し、前2bundleのMinorを解消した。
+
+独立review C0/I0/Minor0。関連31PASS7.868s、固定Python結合はverification/return-challenge-integration.log。供給境界から実比較とresolver/adapterを実行するテストであり、最初からの実履歴/全到達性を証明しない。新監査の結合不足修正で、歴史handler不具合として数えない。
+
+次工程調査: P-scorpionのmainを解決前に失った供給境界を実forcedへ通すと1drawしてしまう（scorpion-egg-dispatch-probe.log）。06/93の既決定抑止と不一致。現監査が拒否するため算入はされないが、供給境界の既存resolver未接続としてP07へ明示。全107到達不能の証明を先取りしない。管理項目22維持、preflight-ready=false、生成/固定/400戦0、結論null。
+
+Final frozen Python integration: Ran 22 tests in 164.044s, PASS. Related31PASS7.868s; review C0/I0/Minor0. No production inputs/games.

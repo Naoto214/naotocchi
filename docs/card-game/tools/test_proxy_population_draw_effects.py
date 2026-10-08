@@ -20,7 +20,7 @@ except ImportError:api=None
 
 CARDS=('M-antlion-02','M-antlion-05','M-antlion-08','P-desert_scorpion','I-bowtie')
 
-def actual(card, empty=False, outer=False, departed=False, restart=None):
+def actual(card, empty=False, outer=False, departed=False, restart=None, battle_status=None):
  with ExitStack() as stack:
   import proxy_population_activation_reference as references
   stack.enter_context(references.scope())
@@ -51,6 +51,9 @@ def actual(card, empty=False, outer=False, departed=False, restart=None):
    # Retain a distinct board link below the actual draw link.
    other=copy.deepcopy(c['activation_zone'][-1]);other['link_id']='outer-supplied-link';other.pop('activation_receipt',None)
    c['activation_zone'].insert(0,other);c['response_context']['chain_links'].insert(0,other['link_id'])
+  if battle_status:
+   from test_proxy_population_return_challenge import in_battle
+   b=in_battle(b,battle_status)
   result=start.resolve(b,initial()) if card=='I-bowtie' else actions.normalize_resolution_result(b,triggers.resolve(state.current(b),initial()))
   if restart:result=boundary.normalize(b,result,dict(kind=restart,turn_player=c['game_state']['turn_player'],origin_event_seq=2))
   event=result['new_events'][0];a=state.advance(b,result['new_snapshots'][0]['continuation_state'],event['seq'])
@@ -98,6 +101,20 @@ class DrawEffectsTests(unittest.TestCase):
    for value in (None,[],True,dict(kind='end',turn_player='A',origin_event_seq=True)):
     self.assertTrue(api.audit(b,a,dict(event,processing_boundary=value))['errors'])
    proof=api.audit(a,a,dict(action_type='response_pass'));self.assertEqual(proof['errors'],[]);self.assertFalse(proof['supplied_draw_resolution_verified'])
+   return {}
+  self.run_case(run)
+ def test_challenge_restart_and_known_partner_egg_gate(self):
+  def run():
+   for card in ('M-antlion-02','M-antlion-08'):
+    for status in ('comparing','resolved'):
+     for outer in (False,True):
+      b,a,ev=actual(card,outer=outer,battle_status=status)
+      self.assertEqual(api.audit(b,a,ev)['errors'],[])
+      bad=copy.deepcopy(a);bad['legacy_continuation']['return_target']='normal_action_opportunity'
+      self.assertTrue(api.audit(b,bad,ev)['errors'])
+   b,a,ev=actual('P-desert_scorpion')
+   p=b['legacy_continuation']['game_state']['players'][ev['actor']];p['discard'].append(p['board']['main']);p['board']['main']=None
+   self.assertIn('partner egg suppression semantics not connected',api.audit(b,a,ev)['errors'])
    return {}
   self.run_case(run)
  def test_coverage_rejects_rebound_false_draw(self):
