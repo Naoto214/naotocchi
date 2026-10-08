@@ -272,3 +272,15 @@ TDD3FAIL→初回3ERROR（fixtureに既存recovery.scope不足）→scope接続�
 これはconnected entryが生成した局所監査出力の結合。standalone供給flagの真正性・全handler到達性/全機会・発動適法性・全体算入の証明ではない。実traceに未知/未監査解決があれば拒否し、静的登録を完了扱いしない。G-asteroids等の未到達枝は消さない。
 
 TDD3FAIL→event hash欠落1FAIL→関連24PASS12.841s。独立review1回C0/I0/Minor0（focused3PASS2.486s、raw/bound正規化と抑止catの2監査併存probe）。design errors=[]。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null。固定結合22+既存完走unit trace1=23PASS275.035s、保護476件不変。最新npm/全proxy回帰完了は主張しない。次は既存movement_payment/個体世代/typed消費の証拠を再利用し、通常main移動の全state保存則を結合する。
+
+### 通常main移動の全差分と限定された捨て保存則
+
+57cafe8からP07を継続。既存payment_consumptionの費用/typed3family/世代照合を再利用し、02の旧main捨て・手札newmain配置、77の装備離脱/公開付属metadata消去と、その他全state/反応contextを照合。余分なdraw/growth、旧main手札返還、予約/交際/人物回数/使用記録/metadata改変を拒否する。既存main移動/native/価格を再実装しない。
+
+新たに確認した限界P07: mainと装備が捨てへ到着する内部順序の正本根拠は未確認。元discard prefixを厳守し、新規部分は離脱札だけとCounter照合するが、到着順は供給値として保持する。discard_arrival_order_proven=falseを明示し、順序反転のunitもこの限定された保存則として受理する。未知の順序を同価値/最適としない。全ルール意味完了へは昇格しない。作業増加理由は移動の全差分監査で順序の独立根拠が必要と判明したため。管理項目22維持。
+
+消失前TDD3FAIL→1FAIL2ERROR（coverage未接続、legacy birth fixtureの候補消失、敵側装備を改変対象へ誤選択）→関連16PASS5.491s→順序限界test追加で17PASS4.956s。ここは会話tool結果による観測要約であり、生ログはworkspace消失で失われた。独立review1回は静的C0/I0/Minor0。reviewerの追加試験はexec-serverエラーで不可。
+
+固定結合/設計試験の実行中に作業ディレクトリが消失。両sessionはexit1、成功に読み替えない。fresh remote HEAD57cafe8/tree5e6e279とDraft/open/unmerged PRを確認しclone復元。未保存3Pythonファイルを会話の同一実装から復元した。復元後4RED→関連17PASS5.249s。復元前の失敗/成功ログを偽造せず、復元後ログを別名保存。復元後固定Python結合22PASS159.801s、design errors=[]、番号付き保護476件不変。最新npm/全proxy回帰完了は主張しない。
+
+preflight-ready=false、生成/固定/400戦0、全体結論null。

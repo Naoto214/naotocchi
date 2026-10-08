@@ -1,0 +1,41 @@
+FFFF
+======================================================================
+FAIL: test_coverage_rejects_self_consistent_extra_growth (test_proxy_population_main_movement_effect.MainMovementEffectTests.test_coverage_rejects_self_consistent_extra_growth)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_main_movement_effect.py", line 26, in setUp
+    def setUp(self):self.assertIsNotNone(api,'main movement full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : main movement full delta absent
+
+======================================================================
+FAIL: test_supplied_discard_arrival_order_is_not_a_rule_proof (test_proxy_population_main_movement_effect.MainMovementEffectTests.test_supplied_discard_arrival_order_is_not_a_rule_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_main_movement_effect.py", line 26, in setUp
+    def setUp(self):self.assertIsNotNone(api,'main movement full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : main movement full delta absent
+
+======================================================================
+FAIL: test_three_movements_equipment_legacy_birth_and_reentry (test_proxy_population_main_movement_effect.MainMovementEffectTests.test_three_movements_equipment_legacy_birth_and_reentry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_main_movement_effect.py", line 26, in setUp
+    def setUp(self):self.assertIsNotNone(api,'main movement full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : main movement full delta absent
+
+======================================================================
+FAIL: test_unrelated_changes_and_wrong_destinations_are_rejected (test_proxy_population_main_movement_effect.MainMovementEffectTests.test_unrelated_changes_and_wrong_destinations_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_main_movement_effect.py", line 26, in setUp
+    def setUp(self):self.assertIsNotNone(api,'main movement full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : main movement full delta absent
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+FAILED (failures=4)
