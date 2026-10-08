@@ -1,0 +1,23 @@
+FF
+======================================================================
+FAIL: test_all_four_group_sources_and_m06_world_cost (test_proxy_population_positive_activation_effect.PositiveActivationEffectTests.test_all_four_group_sources_and_m06_world_cost)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_positive_activation_effect.py", line 26, in setUp
+    def setUp(self):self.assertIsNotNone(api,'positive activation full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : positive activation full delta absent
+
+======================================================================
+FAIL: test_cost_receipt_usage_group_and_unrelated_changes_refused (test_proxy_population_positive_activation_effect.PositiveActivationEffectTests.test_cost_receipt_usage_group_and_unrelated_changes_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_positive_activation_effect.py", line 26, in setUp
+    def setUp(self):self.assertIsNotNone(api,'positive activation full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : positive activation full delta absent
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

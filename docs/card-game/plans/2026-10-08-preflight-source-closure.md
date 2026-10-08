@@ -201,3 +201,18 @@ group_activation_bindingは実recordのbefore/after/event、prior/effective ledg
 管理項目22は維持し、既存P07/P09の入口差に関する具体的修正を記録した。未完が具体化した理由はpositive groupのdispatchを辿って既存hand bridgeを見つけたため。次は当初のpositive4source発動と実group記録・全差分の結合へ戻る。個別発動条件・occurrence/選択起点認証・全機会は未証明、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
 
 固定22＋既存完走unit1: Ran 23 tests in 282.118s、PASS。design errors=[]、保護476件不変。
+
+
+### positive4sourceのgroup発動・M06支払・usageと全差分
+
+ea4b1c0からP07を継続。M-antlion-03/M-antlion-06/C-bat/P-cliff_goatの実sequential group recordをgroup_activation_bindingへ結合し、既存current_actionsの条件・費用/対象を再利用してM06手札world→山札下、全4source usage、physical link/receipt、119/context、他state全保持をcoverageへ接続。通常response priorityと異なるgroup所有者を保持する。native/policy/ledger/119を作り直さない。
+
+TDD2FAIL→関連15PASS5.842s。M06がquick解決後normal_actionへ戻った地点からgroup発動する枝は追加3件中1FAIL0.968sで再現し、実group必須・M06・空chainに限定して許容した。receipt/usage/時/成長/支払/山札/対象/priority/origin/decision/consume/記録欠落とcoverage改変を拒否。既存unit-only入力による条件付き実group recordであり、本番seed/入力生成ではない。
+
+追加window試験8件3ERROR2.514sを発見。変更前HEADのcoverageをoverlayしても同じ3ERROR2.588s（旧standaloneで474growth adapterなし2件、cat fixture開始履歴なし1件）。現行challenge_window wrapperと明示fixture-only開始prefixへ接続し、proof生成もcontract_scopeをruntime.operation外側に置いて揃えた。中間4ERROR0.649s（proof生成scope不一致）→8PASS9.615s。既存assertion維持、旧source hash/manifest/本文は変更しない。これを履歴真正性の証明へ昇格しない。
+
+最終関連25PASS15.630s。独立review1回C0/I0/Minor0（新規＋positive window8PASS10.480s、fixture移行が既存assertionを維持することも確認）。全試行ログはverification/positive-activation-effect-*。今回の未閉包具体化は、実dispatchを複数入口で検証しnormal復帰枝・古いfixture入口差を見つけたため。管理項目22維持。次は開始/到着/終了/挑戦の既存無支払board group発動と全差分を同じ実recordへ結合する。
+
+occurrence/選択起点・全機会は未証明。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
+
+固定22＋既存完走unit1: Ran 23 tests in 278.061s、PASS。design errors=[]、保護476件不変。

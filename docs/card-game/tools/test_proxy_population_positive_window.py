@@ -4,7 +4,8 @@ from test_proxy_population_trigger_effects import case
 from test_proxy_population_runtime import initial
 import proxy_population_runtime as base
 import proxy_population_trigger_existing as existing
-try:import proxy_population_positive_window as api
+# Current contract wrapper supplies474 and public-turn adapters around positive_window.
+try:import proxy_population_challenge_window as api
 except ImportError:api=None
 
 def setup():
@@ -14,9 +15,9 @@ def setup():
    if source in p[z]:p[z].remove(source)
   link=dict(link_id='response-link-3-'+source,action_type='use_event',source_zone='hand',actor='A',card_id='E-boss',card_copy_id=g['cards'][source]['card_copy_id'],source_instance_id=source,target_instance_ids=[],candidate_variant=None,payment=dict(time=2),source_references=['91-event-21-card-text-draft.md#E-boss'])
   e['legacy_continuation']['activation_zone']=[link];e['legacy_continuation']['response_context'].update(chain_status='resolving',chain_links=[link['link_id']],consecutive_passes=2)
-  event=dict(seq=3,action_type='activate_response',actor='A',source_instance_id=source,source_zone='hand',chain_link_id=link['link_id']);history=[event];proof=existing.ExistingAdapter(history).proof(e,3)
+  event=dict(seq=3,action_type='activate_response',actor='A',source_instance_id=source,source_zone='hand',chain_link_id=link['link_id']);history=[dict(seq=1,actor='A',action_type='turn_start_and_normal_draw',fixture_only=True),event];proof=existing.ExistingAdapter(history).proof(e,3)
   return dict(envelope=e,history=history,proof=proof)
- return base.operation(initial(),build)
+ with api.contract_scope():return base.operation(initial(),build)
 
 class PositiveWindowTests(unittest.TestCase):
  def setUp(self):self.assertIsNotNone(api,'positive bundle connection missing')
@@ -37,9 +38,10 @@ class PositiveWindowTests(unittest.TestCase):
   from test_proxy_population_paid_draw import fixture
   def build(forced):
    e,source,costs=fixture('M-antlion-02');g=e['legacy_continuation']['game_state'];g['phase']='normal_action';p=g['players']['A'];p['deck'].extend(p['hand']);p['hand']=[];p['time']=0
-   event=dict(seq=3,actor='A',action_type='set_item',source_instance_id=costs[0]);history=[event]
+   event=dict(seq=3,actor='A',action_type='set_item',source_instance_id=costs[0]);history=[dict(seq=1,actor='A',action_type='turn_start_and_normal_draw',fixture_only=True),event]
    return dict(envelope=e,history=history,proof=existing.ExistingAdapter(history).proof(e,3))
-  source=base.operation(initial(),build);e=source['envelope'];r=api.segment(e,initial(),source['history'],[],[e],1,source['proof']);self.assertIsNone(r['stop']);self.assertEqual(len(r['decisions'][0]['inventory']['legal_candidate_ids']),2)
+  with api.contract_scope():source=base.operation(initial(),build)
+  e=source['envelope'];r=api.segment(e,initial(),source['history'],[],[e],1,source['proof']);self.assertIsNone(r['stop']);self.assertEqual(len(r['decisions'][0]['inventory']['legal_candidate_ids']),2)
 
  def test_paid_main_and_cat_share_one_complete_selector_at_choice_and_apply(self):
   from test_proxy_population_paid_draw import fixture
@@ -50,9 +52,10 @@ class PositiveWindowTests(unittest.TestCase):
     for z in ('hand','deck'):
      if s in p[z]:p[z].remove(s)
     (p['board'][zone] if zone=='companions' else p[zone]).append(s)
-   p['deck'].extend(p['hand']);p['hand']=[];p['time']=0;event=dict(seq=3,actor='A',action_type='set_item',source_instance_id=costs[0]);history=[event]
+   p['deck'].extend(p['hand']);p['hand']=[];p['time']=0;event=dict(seq=3,actor='A',action_type='set_item',source_instance_id=costs[0]);history=[dict(seq=1,actor='A',action_type='turn_start_and_normal_draw',fixture_only=True),event]
    return dict(envelope=e,history=history,proof=existing.ExistingAdapter(history).proof(e,3))
-  source=base.operation(initial(),build);e=source['envelope'];r=api.segment(e,initial(),source['history'],[],[e],1,source['proof']);self.assertIsNone(r['stop']);self.assertEqual(len(r['events']),1)
+  with api.contract_scope():source=base.operation(initial(),build)
+  e=source['envelope'];r=api.segment(e,initial(),source['history'],[],[e],1,source['proof']);self.assertIsNone(r['stop']);self.assertEqual(len(r['events']),1)
   decision=r['decisions'][0];self.assertEqual(len(decision['inventory']['legal_candidate_ids']),3);self.assertEqual(decision['choice']['reason_code'],'strategic_unresolved_seeded_fallback');self.assertEqual(len(decision['execution_evidence']['verified_immediate_candidates']),2)
 
 if __name__=='__main__':unittest.main()
