@@ -8,6 +8,7 @@ import hashlib
 import proxy_continuation_state as state
 import proxy_continuation_rules as rules
 import proxy_continuation_payments as payments
+import proxy_population_equipment_effects as equipment
 import proxy_continuation_public_history as history_rules
 import proxy_continuation_challenge as challenge
 import proxy_continuation_conditions as conditions
@@ -63,8 +64,8 @@ def _allowed(envelope,events,row,template,actor=None):
    used=any(e['seq']>max(starts) and e['actor']==actor and e['action_type'] in ('activate_response','use_event') and e.get('source_zone')!='board' and g['cards'].get(e.get('source_instance_id'),{}).get('card_id')==card for e in events)
    met=met and not used
  elif card in payments.TARGETED_CARDS:
-  descriptor=payments.TARGETED_CARDS[card];world=not descriptor.get('requires_world',True) or b['world'] is not None
-  targets=payments.equipment_targets(g,envelope['runtime'],actor,card) if world else []
+  world=card=='G-asteroids-classic' or b['world'] is not None
+  targets=equipment.targets(envelope,actor,card) if world else []
   if target not in ([[s] for s in targets] or [[]]):raise ValueError('public equipment target differs')
   met=met and world and bool(target)
  elif card=='G-area-claim':

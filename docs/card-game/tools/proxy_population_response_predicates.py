@@ -8,6 +8,7 @@ from collections import Counter
 import proxy_continuation_state as state
 import proxy_continuation_rules as rules
 import proxy_continuation_payments as payments
+import proxy_population_equipment_effects as equipment
 import proxy_normal_action_candidate_completeness as expansion
 import proxy_population_hand_predicates as hand
 import proxy_population_hand_timing as timing
@@ -76,8 +77,8 @@ def audit(envelope,events,inventory):
     for variant in template['candidate_variants']:
      if card=='E-first-date':targets=[[p['board']['partner']]] if p['board']['partner'] else [[]]
      elif card in payments.TARGETED_CARDS:
-      cap=payments.TARGETED_CARDS[card];world=not cap.get('requires_world',True) or p['board']['world'] is not None
-      targets=([[s] for s in payments.equipment_targets(g,envelope['runtime'],actor,card)] or [[]]) if world else [[]]
+      world=card=='G-asteroids-classic' or p['board']['world'] is not None
+      targets=([[s] for s in equipment.targets(envelope,actor,card)] or [[]]) if world else [[]]
      else:targets=expansion._targets(variant,view,'hand_card_action')
      for targets_one in targets:
       row=dict(source_zone='hand',source_id=source,source_instance_id=source,card_id=card,candidate_variant=variant,target_instance_ids=targets_one)
