@@ -31,7 +31,7 @@
 | I-bowtie | proxy_population_trigger_connection.scope / resolve → triggers.resolve | 開始捕捉群と付属対象、生存/離脱、1draw |
 | I-c_coin2 | proxy_population_chain_resolution.resolve_top | 公開top分類・底へ戻す・分岐draw/成長。旧予約の再導入禁止 |
 | I-poop1 | preparation.transitionで設置。preparation.response_inventoryは置換発動境界を拒否 | **置換resolverを完全接続済みとしない**。107から敵main除去発動の到達不能をsource/dispatch全域で証明するか、到達時は既存裁定から接続。除外を成功に数えない |
-| I-sleepboost1 | proxy_continuation_triggers.resolve | end条件/支払2・2draw後bottom・指定mandatoryと期限 |
+| I-sleepboost1 | proxy_continuation_triggers.resolve | end条件（残り時2以上、時2の支払ではない）・2draw後bottom・指定mandatoryと期限 |
 | M-antlion-01 | proxy_continuation_preparation.transition のcost_modifiers | 任意軽減の選択/実費用/1ターン使用記録。main自身のbirth/transformは現行main_routes.scope→既存batchへ接続済み、旧play_main_birthの監査も追加（P22） |
 | M-antlion-02 | proxy_population_paid_draw.scope → triggers.resolve | 自伏せ底への支払と1draw、全コスト候補・機会 |
 | M-antlion-03 | proxy_population_trigger_effects.resolve | typed生成済。解決時parameter指定policyと実使用/起点 |
@@ -82,3 +82,5 @@
 - P22追補: M-antlion-01は準備軽減能力の接続と、main自身の移動経路を分ける。旧birthイベントにはcandidate_variant/payment_effect_idsがない。main_movement価格監査がこの旧経路も証明した扱いにはしない。transform候補はあるが旧handlerがbirth以外を拒否するため、current107内の未接続実行経路として必須に追加した。
 
 - P22完了追補: 前項の旧executor拒否は現行main_routes.scopeによる既存batch登録で解消した。旧ファイルの拒否文を削除せず歴史版を保持。現行のbirth/transformと旧birth形式の監査を検証し、全機会や選択operandの完全証明へは昇格しない。
+
+[107本文の予約・人物除去到達条件](2026-10-08-preflight-source-closure.md)で全41本文の作用先と条件付き閉包を整理。実意味/dispatch/起点結合を残し、P06やI-poop1非到達を実行証明へ昇格しない。

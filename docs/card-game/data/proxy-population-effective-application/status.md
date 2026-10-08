@@ -400,3 +400,7 @@ P06調査: 41本文中の期限付き/次回効果はtyped10sourceとI-poop1の�
 preflight-ready=false、seed生成/本番固定/400戦0。旧116除外、policy promotion=false、独立balance標本0、全体結論null。次は107 source閉包と予約/置換条件の実証へ続ける。
 
 Final frozen-source integration22PASS162.362s (previous19 scope plus runtime_entry3). Related30PASS2.634s; npm406PASS; design errors=[]; numbered476 unchanged. Independent C0/I0/Minor1 deferred as above. No production seed/input/game.
+
+### 107本文の予約・人物除去条件付き閉包
+
+9e59c06からsource41本文を全件照合した別紙plans/2026-10-08-preflight-source-closure.mdを追加。外部card/能力生成と敵main/なかま除去は本文上0。I-poop1/I-bond1の条件は固定107・本文準拠遷移の仮定下で非到達、期限付き10sourceはtyped payment2/stat7/conditional1。実handler全意味・物理集合/再登場・input起点・全機会の結合が残るため、P06/P08/P09を実行証明へ昇格しない。I-sleepboost1の旧表「支払2」は残り時>=2条件へ訂正（nativeも時支払なし）。独立review C0/I0/Minor1の上表/下表誤記を修正。code変更なし、管理項目22を維持、生成/固定/400戦0、preflight-ready=false。
