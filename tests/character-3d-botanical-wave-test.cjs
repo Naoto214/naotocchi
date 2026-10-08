@@ -90,7 +90,7 @@ test('venus flytrap representatives retain a broad rosette and five cupped red t
  for(const side of [-1,1]){const ray=rayAt(side*sp.body.width*.4,sp.body.y+.01),target=ray.intersectObject(mesh)[0],actual=ray.intersectObject(unit.parts[0].mesh)[0];assert.ok(target&&actual);assert.ok(Math.abs(target.distance-actual.distance)<.002,'rim and teeth leave the facial area open');}
  const plain=branchOrganism({...sp,trap:{...sp.trap,teeth:0}},'toothless');assert.ok(unit.parts[0].mesh.geometry.attributes.position.count>plain.parts[0].mesh.geometry.attributes.position.count+300,'teeth contribute real volume');}
  for(const rig of [r,a]){let tris=0;for(const p of rig.parts){const g=p.mesh.geometry;assert.ok([...g.attributes.position.array].every(Number.isFinite));tris+=(g.index?.count||g.attributes.position.count)/3;}assert.ok(tris<22000);}
- assert.equal(SPEC.specKeyFor({line:'venus_flytrap',stage:6}),null,'candidate does not bypass image gate');
+ assert.deepEqual(SPEC.specKeyFor({line:'venus_flytrap',stage:6}),{id:'venus_flytrap',stage:7,exact:true},'reviewed Venus uses exact registration');
 });
 test('venus representatives keep all original faces and one actor clock through32 emotion/motion states',async()=>{
  const rows=require('../character-3d/botanical-spec.js')().venus_flytrap?.stages;assert.ok(rows);

@@ -10,7 +10,7 @@ test('Venus remaining stages preserve original seed, young traps, insect cup and
  assert.equal(rows[4].colony.filter(u=>u.spec.trap).length,2);assert.equal(rows[5].colony.filter(u=>u.spec.trap).length,3);
  const cup=rows[6].colony.find(u=>u.spec.trap);assert.ok(cup.spec.body.width>.4&&cup.face===false);assert.equal(rows[6].colony.filter(u=>u.face!==false).length,1);
  assert.equal(rows[8].colony.filter(u=>u.spec.blossoms?.length).length,6);assert.equal(rows[8].colony.filter(u=>u.spec.trap).length,2);
- assert.equal(require('../character-3d/spec.js').specKeyFor({line:'venus_flytrap',stage:0}),null,'unreviewed candidates stay isolated');
+ assert.deepEqual(require('../character-3d/spec.js').specKeyFor({line:'venus_flytrap',stage:0}),{id:'venus_flytrap',stage:1,exact:true},'reviewed Venus is exact');
 });
 test('all eight Venus candidates retain finite bones and source face ownership across32 states',async()=>{
  const rows=specs();assert.equal(Object.keys(rows).length,8);const {branchOrganism}=await import('../character-3d/branch-organism.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs'),SPEC=require('../character-3d/spec.js');

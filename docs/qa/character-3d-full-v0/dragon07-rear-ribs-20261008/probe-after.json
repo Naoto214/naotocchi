@@ -1,0 +1,96 @@
+{
+  "samples": [
+    {
+      "finger": 0,
+      "t": 0.25,
+      "rearProjection": 0.011701607777033107,
+      "frontProjection": 0.009542299388264341
+    },
+    {
+      "finger": 0,
+      "t": 0.5,
+      "rearProjection": 0.01400000074702934,
+      "frontProjection": 0.01152140699335713
+    },
+    {
+      "finger": 0,
+      "t": 0.75,
+      "rearProjection": 0.006310964164775168,
+      "frontProjection": 0.00562773220802848
+    },
+    {
+      "finger": 1,
+      "t": 0.25,
+      "rearProjection": 0.008753275434048025,
+      "frontProjection": 0.010520067739773209
+    },
+    {
+      "finger": 1,
+      "t": 0.5,
+      "rearProjection": 0.005418659810949578,
+      "frontProjection": 0.007878658786667714
+    },
+    {
+      "finger": 1,
+      "t": 0.75,
+      "rearProjection": 0.003958001734303274,
+      "frontProjection": 0.005874555961976391
+    },
+    {
+      "finger": 2,
+      "t": 0.25,
+      "rearProjection": 0.00920564759479614,
+      "frontProjection": 0.010530198713788685
+    },
+    {
+      "finger": 2,
+      "t": 0.5,
+      "rearProjection": 0.004738179852530333,
+      "frontProjection": 0.009594891763436086
+    },
+    {
+      "finger": 2,
+      "t": 0.75,
+      "rearProjection": null,
+      "frontProjection": null
+    },
+    {
+      "finger": 3,
+      "t": 0.25,
+      "rearProjection": 0.00955332092293082,
+      "frontProjection": 0.01102624877142655
+    },
+    {
+      "finger": 3,
+      "t": 0.5,
+      "rearProjection": 0.006169605049970883,
+      "frontProjection": 0.009498648720563718
+    },
+    {
+      "finger": 3,
+      "t": 0.75,
+      "rearProjection": 0.006274948319445972,
+      "frontProjection": 0.004808370654252103
+    },
+    {
+      "finger": 4,
+      "t": 0.25,
+      "rearProjection": 0.010790874992127275,
+      "frontProjection": 0.00898995967815952
+    },
+    {
+      "finger": 4,
+      "t": 0.5,
+      "rearProjection": 0.007747706675162114,
+      "frontProjection": 0.006699147718713494
+    },
+    {
+      "finger": 4,
+      "t": 0.75,
+      "rearProjection": 0.005815549500903128,
+      "frontProjection": 0.004581102298343298
+    }
+  ],
+  "baseCommit": "df26408db1a448eee4e6971981522d2b6a537961",
+  "workingTreeChange": "wing fingers centered at z0; taper radius .025*(1-t*.4)"
+}

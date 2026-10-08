@@ -34,7 +34,7 @@ export function wingedReptile(sp,key){
  if(sp.wing)for(const side of [-1,1]){
   const w=sp.wing,curve=g=>{const p=g.attributes.position;for(let i=0;i<p.count;i++)p.setZ(i,p.getZ(i)+w.bow*Math.sin(Math.PI*p.getX(i)/w.span));g.computeVertexNormals();return g;};
   const parts=[solid(curve(membraneGeometry(w)),c.wing)];
-  for(const path of w.fingers)parts.push(solid(curve(sweep(path.map(([x,y])=>[x,y,.014]),t=>.025*(1-t*.6),7,{steps:12})),c.body));
+  for(const path of w.fingers)parts.push(solid(curve(sweep(path.map(([x,y])=>[x,y,0]),t=>.025*(1-t*.4),7,{steps:12})),c.body));
   const g=r.add(side<0?'wingL':'wingR','body',[side*w.at[0],w.at[1],w.at[2]],parts,'opaque',[0,side*w.angle,0]);g.scale.x=side;g.userData.rest.s.copy(g.scale);
  }
  r.faceSpec={bone:'head',target:faceSurface,center:[0,.06,h.depth*.93],fwd:[0,0,1],half:h.width*.74,eyeSize:.26,normalEye:sp.normalEye,layout:{eyeX:27,eyeY:51,mouthY:84,browY:32,cheekX:39,cheekY:73,mouthW:8},style:{blush:'#e98245'}};

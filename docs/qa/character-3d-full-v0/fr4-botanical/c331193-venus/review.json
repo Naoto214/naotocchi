@@ -1,0 +1,13 @@
+{
+  "sourceCommit": "c331193d0fa58ecb57c87e5b9937d3fb40e78e65",
+  "waveArtifact": 11470811397,
+  "distanceArtifact": 11470106366,
+  "status": "PASS_ALL8_IMAGE_GATE",
+  "visualDecision": "Carried forward explicit handoff: all8 gate PASS; stage comparison sheet re-inspected during recovery. Not Human QA or iPhone acceptance.",
+  "counts": {
+    "fourviews": 32,
+    "states": 256,
+    "distanceImages": 16
+  },
+  "recovery": "Original scratch and save manifest unavailable; rebuilt from original Actions archives. Previous expected tree 5daf8b4ef922a7906805cb61bdbb53b5ebe60a77 not retrievable. No claim of byte-equivalent recovery of former332 files. Model source unchanged from df26408."
+}

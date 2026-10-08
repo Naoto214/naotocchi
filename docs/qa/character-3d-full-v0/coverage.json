@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 196,
-    "pending": 97,
-    "fourViewRecords": 194
+    "exactSpecs": 204,
+    "pending": 89,
+    "fourViewRecords": 202
   },
   "rows": [
     {
@@ -3216,15 +3216,15 @@
       "group": "normal",
       "asset": "assets/characters/venus_flytrap/01.png",
       "sha256": "d586056a4e164ac574fccc5cf4b2acf86beb76c710dc9b8d36d14e9bfb0e024c",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-1-back.jpg"
       }
     },
     {
@@ -3236,15 +3236,15 @@
       "group": "normal",
       "asset": "assets/characters/venus_flytrap/02.png",
       "sha256": "0c0067ce3b95e27dc9463a51ea785f8fcad3d3c380d10cfa423367e97d4d09ea",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-2-back.jpg"
       }
     },
     {
@@ -3256,15 +3256,15 @@
       "group": "normal",
       "asset": "assets/characters/venus_flytrap/03.png",
       "sha256": "b7edace25d2d34220702708d0af7f4fac5b399fcd86251e729873af5b5b60c74",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-3-back.jpg"
       }
     },
     {
@@ -3276,15 +3276,15 @@
       "group": "normal",
       "asset": "assets/characters/venus_flytrap/04.png",
       "sha256": "062ff88a73e4abcec43f6881288a1915517cc7c35a8c54295819850aeda5d5a6",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-4-back.jpg"
       }
     },
     {
@@ -3296,15 +3296,15 @@
       "group": "normal",
       "asset": "assets/characters/venus_flytrap/05.png",
       "sha256": "58e8790f4d077f7088bfab312b68b4bc9af525fa8709b05beea7db4503e0a45b",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-5-back.jpg"
       }
     },
     {
@@ -3316,15 +3316,15 @@
       "group": "normal",
       "asset": "assets/characters/venus_flytrap/06.png",
       "sha256": "4934f0480cdbbaae77bbc7d99737766df1671581cdf1f9832992bc77403e7693",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-6-back.jpg"
       }
     },
     {
@@ -3336,15 +3336,15 @@
       "group": "normal",
       "asset": "assets/characters/venus_flytrap/07.png",
       "sha256": "84b47f608d3daf2b4bcf57567b0c20574ffdb34a6fbcff8c7e6f12172007e216",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-7-back.jpg"
       }
     },
     {
@@ -3356,15 +3356,15 @@
       "group": "normal",
       "asset": "assets/characters/venus_flytrap/08.png",
       "sha256": "1a2660506e3bfb98584abc08d815e12c4f46bb903122e4037e046adfc945857f",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr4-botanical/c331193-venus/venus_flytrap-8-back.jpg"
       }
     },
     {

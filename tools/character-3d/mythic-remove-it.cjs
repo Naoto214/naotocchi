@@ -1,6 +1,7 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap','tests/character-3d-mythic-wave-test.cjs'],{encoding:'utf8'});assert.equal(run().status,0);
 const cases=[
+ ['back-facing wing fingers','character-3d/winged-reptile.mjs','path.map(([x,y])=>[x,y,0]),t=>.025*(1-t*.4)','path.map(([x,y])=>[x,y,.014]),t=>.025*(1-t*.6)'],
  ['visible muzzle mouth target','character-3d/winged-reptile.mjs','target:faceSurface','target:head'],
  ['non-overlapping scalloped membrane','character-3d/winged-reptile.mjs','curve(membraneGeometry(w))','curve(outlineLoft(w.outline,.011,36,4))'],
  ['membrane wing pair','character-3d/winged-reptile.mjs','if(sp.wing)for','if(false)for'],

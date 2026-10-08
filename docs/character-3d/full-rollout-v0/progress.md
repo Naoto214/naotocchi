@@ -716,3 +716,19 @@ Verification addendum:26/26rollout mutations RED/restored, Pilot28 hashes unchan
 ### 2026-10-07 — Full npm result saved after Plush promotion
 
 c331193d0fa58ecb57c87e5b9937d3fb40e78e65/tree5c923939f33bddae74d00df03331cc3ab2d34156 saved344files, remote/local/tree clean matched. Fullnpm rerun finished: mainNode batch3010PASS/2FAIL in676355ms. Same tests6(tired resident picture/line) and13(expression save boundary) in meguru-resident-expression-test.cjs fail as documented immutablefb3 baseline; nearest beetle actor differs. Command is NOT GREEN; trailing Relationship command after && did not execute. Compressed exact log and summary preserved in plush-promotion-verification. No protected files modified. Dedicated228PASS,26/26rollout and6/6Venus mutations remain valid. Runtime196/293,97pending; Venus06 corrected capture/latest aggregate/fullQA remain pending. No local background test or blob upload remains.
+
+
+### 2026-10-08 — Venus promotion recovered after scratch loss
+
+Fresh remote df26408/Draft376 confirmed. Prior scratch including332-file staging manifest is absent; expected5daf8b4 tree returns404. Recovered original Actions artifacts11470811397/11470106366 from c331193, preserving source bytes and generating a new SHA/size manifest. Prior handoff all8 image gate PASS is retained; stage comparison sheet inspected again. New recovery tree is not claimed identical to former staging. Pilot/completed models were not rebuilt.
+
+Explicit Venus factory registration recovered with runtime RED(null before registration) then GREEN. Dedicated229PASS/0FAIL, rollout27/27 mutations RED and bytes restored, Pilot28 hashes identical, standalone Relationship80PASS/0FAIL. Runtime204/293,89pending (48player+41nonplayer). Pre-Venus artifact11471980946 has24families/192exact, no fallback/failedTemplates/errors;25family aggregate pending. Historical fullnpm3010PASS/2FAIL remains NOT GREEN; protected expression failures unchanged and no fullnpm rerun claimed.
+
+Dragon07 normal-distance rear wing readability remains held pending diagnosis; no Dragon promotion. Draft/base/protected areas unchanged.
+
+
+### 2026-10-08 — Dragon07 rear finger visibility diagnosed and candidate fixed
+
+Artifacts11470710049/11469883827 show the membranes present, but rear support fingers unreadable. Ray comparison with ribless membrane:15 sampled locations/14 intersections, before rear0/front14 protruding; fingers offset+.014 with .025→.010 radius are hidden on back. Centered existing tubes at0 and retained minimum .015 radius; after rear14/front14 protruding. New regression RED→GREEN; fresh isolated dedicated230PASS/0FAIL, mythic11/11 mutations RED/restored, Pilot28 unchanged. No new topology/material/face and Dragon stays outside runtime.
+
+Local Chromium download returned an invalid ZIP; image gate remains pending new Actions captures. Stage-matrix derives all25 runtime families automatically. Historical fullnpm3010/2 remains non-green, separate Relationship80PASS is recorded. Browser UMD registration resolves Venus8 and leaves Dragon isolated.

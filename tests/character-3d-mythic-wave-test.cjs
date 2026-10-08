@@ -34,3 +34,23 @@ test('dragon membrane has one closed non-overlapping surface pair across its con
 test('dragon canonical mouth projects onto the protruding muzzle rather than behind it',async()=>{
  const rows=require('../character-3d/mythic-spec.js')().dragon.stages,{BUILDERS}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs');for(const n of [3,7]){const sp=rows[n],r=BUILDERS[sp.archetype](sp,'dragon:'+n),f=r.faceSpec,target=new THREE.Mesh(f.target,new THREE.MeshBasicMaterial({side:THREE.DoubleSide})),actual=new THREE.Mesh(r.parts.find(p=>p.bone==='head').mesh.geometry,new THREE.MeshBasicMaterial({side:THREE.DoubleSide})),y=f.center[1]+(64-f.layout.mouthY)*f.half/64;for(const x of [-.018,0,.018]){const ray=new THREE.Raycaster(new THREE.Vector3(x,y,2),new THREE.Vector3(0,0,-1)),a=ray.intersectObject(target)[0],b=ray.intersectObject(actual)[0];assert.ok(a&&b);assert.ok(Math.abs(a.distance-b.distance)<.002,`dragon${n} mouth lies on visible muzzle`);}}
 });
+
+test('dragon wing fingers remain exposed on both sides of the closed membrane',async()=>{
+ const sp=require('../character-3d/mythic-spec.js')().dragon.stages[7];
+ const {wingedReptile}=await import('../character-3d/winged-reptile.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ const mesh=s=>new THREE.Mesh(wingedReptile(s,'rib-visibility').parts.find(p=>p.bone==='wingR').mesh.geometry,new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));
+ const full=mesh(sp),bare=mesh({...sp,wing:{...sp.wing,fingers:[]}});
+ for(const side of [-1,1]){
+  let visible=0,sampled=0;
+  for(const path of sp.wing.fingers){
+   const curve=new THREE.CatmullRomCurve3(path.map(([x,y])=>new THREE.Vector3(x,y,0)));
+   for(const t of [.25,.5,.75]){
+    const p=curve.getPoint(t),ray=new THREE.Raycaster(new THREE.Vector3(p.x,p.y,side*2),new THREE.Vector3(0,0,-side));
+    const a=ray.intersectObject(full)[0],b=ray.intersectObject(bare)[0];
+    if(a&&b){sampled++;if(b.distance-a.distance>.002)visible++;}
+   }
+  }
+  assert.ok(sampled>=14,'sample supporting fingers across membrane');
+  assert.ok(visible>=12,`${side<0?'rear':'front'} wing fingers must protrude from membrane: ${visible}/${sampled}`);
+ }
+});

@@ -1,21 +1,21 @@
 {
-  "baseCommit": "c331193d0fa58ecb57c87e5b9937d3fb40e78e65",
-  "checkpoint": "plush-all8-reviewed-promoted-196-venus06-depth-recapture-pending",
+  "baseCommit": "df26408db1a448eee4e6971981522d2b6a537961",
+  "checkpoint": "venus-recovered-204-dragon07-rear-ribs-fixed-recapture-pending",
   "coverage": {
-    "exact": 196,
+    "exact": 204,
     "total": 293,
-    "pending": 97,
-    "playerFamilies": 24,
-    "playerStages": 192,
+    "pending": 89,
+    "playerFamilies": 25,
+    "playerStages": 200,
     "companions": 3,
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 228,
-    "rolloutMutationsDetected": 26,
+    "dedicatedPass": 230,
+    "rolloutMutationsDetected": 27,
     "pilotHashesUnchanged": 28,
-    "fullNpm": "3010 pass / 2 fail after Plush promotion; same protected resident-expression failures, not green; trailing Relationship command not reached",
-    "postPromotionAggregate": "42dd99a:22families/176exact player stages, fallback0/failedTemplates0/errors0,artifact11459393592",
+    "fullNpm": "Historical df26408/c331193:3010PASS/2FAIL protected resident-expression; NOT GREEN. Not rerun during scratch recovery. Previously trailing Relationship independently rerun:80PASS.",
+    "postPromotionAggregate": "Pre-Venus c331193:24families/192exact, fallback0/errors0,artifact11471980946. Post-Venus25families NOT YET RUN.",
     "nonplayerMutationsDetected": 7,
     "worldTreeMutationsDetected": 9,
     "previousHeadCI": "b12dc7a Runtime37591735877/Home37591735859 success;Character37591725500 queued when checked",
@@ -24,12 +24,16 @@
     "plushStageMutationsDetected": 6,
     "worldTreeImageGate": "9b79310 artifacts11462261195/11461529312:32fourviews/256states/16distance PASS_ALL8_IMAGE_GATE",
     "plushImageGate": "3076d288 wave11463280279/distance11462287707:32fourviews/256states/16distance PASS_ALL8_IMAGE_GATE",
-    "browserRegistration": "Browser-style UMD loading in ESM import order: Plush08 exact, Dragon03 remains absent"
+    "browserRegistration": "Browser UMD order:Venus8exact,Dragon isolated",
+    "relationshipPass": 80,
+    "venusImageGate": "c331193 artifacts11470811397/11470106366:32fourviews/256states/16distance; prior all8 PASS carried forward, archives restored",
+    "mythicMutationsDetected": 11,
+    "dragonRearRibs": "RED rear0/14, GREEN rear14/14 andfront14/14; image recapture pending"
   },
   "next": [
-    "Review corrected Venus06 four-view/state/normal-distance Actions captures; other seven stages still require final full gate decision",
-    "Review saved remaining player representative gates, then expand explicit remaining stages",
-    "Implement remaining41 nonplayers; keep all candidates isolated until image gates",
+    "Post-Venus25family runtime aggregate",
+    "Review Dragon03/07 corrected fourview/state/normal-distance Actions captures; rear ribs fixed but image gate pending",
+    "Remaining48 player stages and41 nonplayers; candidates isolated until image gates",
     "Full293 integration/performance/regression QA and Human QA package"
   ],
   "protected": [
@@ -39,5 +43,12 @@
     "Human approved Pilot architecture retained; no reimplementation",
     "Chromium/SwiftShader is not iPhone acceptance"
   ],
-  "authority": "Remote HEAD andthischeckpoint; historicaldetails inprogress.md andimmutableQA evidence"
+  "authority": "Remote HEAD andthischeckpoint; historicaldetails inprogress.md andimmutableQA evidence",
+  "recovery": {
+    "oldScratch": "/workspace/scratch/34176a89036e",
+    "status": "unavailable; original332-file manifest unavailable",
+    "oldExpectedTree": "5daf8b4ef922a7906805cb61bdbb53b5ebe60a77",
+    "method": "fresh clone df26408; Actions source archives restored; explicit Venus registration recovered; fresh RED/GREEN,229 dedicated,27 mutation,28 Pilot,80 relationship",
+    "limitation": "New recovery tree; do not claim identity with lost staging tree."
+  }
 }

@@ -1,0 +1,29 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/e537a95e2294/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/e537a95e2294/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ dragon wing fingers remain exposed on both sides of the closed membrane (144.773148ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 272.958874
+
+✖ failing tests:
+
+test at tests/character-3d-mythic-wave-test.cjs:38:1
+✖ dragon wing fingers remain exposed on both sides of the closed membrane (144.773148ms)
+  AssertionError [ERR_ASSERTION]: rear wing fingers must protrude from membrane: 0/14
+      at TestContext.<anonymous> (/workspace/scratch/e537a95e2294/character-rollout/tests/character-3d-mythic-wave-test.cjs:54:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
