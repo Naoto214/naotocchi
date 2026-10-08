@@ -301,3 +301,12 @@ TDD3FAIL→初回2FAIL1ERROR（既存candidate_variantの誤認、coverage未接
 捨て到着順はmain移動bundleと同じ未証明境界。元discard prefixと新規離脱札Counterを照合し、供給順序を保持する。順序を同価値扱いせずdiscard_arrival_order_proven=false。synthetic unit_recovery起点は真正性の証明ではなく、全履歴/全到達/全機会も未完。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null。
 
 TDD3FAIL→初回1ERROR（旧actions.apply fixtureにselection inventory不足）→既存legacy placement入口を直接使用し関連18PASS7.238s。9人物、main/egg、旧形式、装備付き交代、typed失効、#2再登場を検証。失敗・成功ログを保存。design errors=[]、保護正本476件不変。独立review1回C0/I0/Minor0（新規5PASS4.283s）。固定Python結合: Ran 22 tests in 164.361s、PASS。最新npm/全proxy回帰完了は主張しない。
+
+
+### 準備・装備配置の全差分と支払照合
+
+de5aba1からP07を継続。01/06/55/77の既存pin/catalogを用い、I-poop1のしかける時1、I-bowtie/I-bond1/I-sleepboost1の装備時2と対象範囲、準備3枠、手札→準備、公開/伏せmetadata、装備関係、全他state/反応contextを照合。M-antlion-01軽減は任意の非使用枝と時1→0枝を保ち、現個体・自分ターン/roundの使用済みを拒否し、使用記録1回だけを追加する。使用回数の履歴真正性は未証明。既存field_entry_instanceをpreparedリストにも適用し、既存Connectionの#2と全metadataを照合。native/価格候補/policyは変更しない。
+
+P06未閉包のlegacy reservations非空は費用影響未証明として拒否する。I-poop1の配置監査であり、後日の置換入口/全非到達性を解決した扱いにしない。synthetic unit_recovery起点の真正性、全到達性/全機会は未完。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null。
+
+TDD3FAIL→新規3PASS1.254s→再登場/軽減使用済みtest追加、関連21PASS7.481s。対象/支払/付属情報/回数/typed/余分なgrowth等の改変と、hashを更新したcoverage入力の不正を拒否する。途中ログ保存。独立review1回C0/I0/Minor0（新規4PASS2.076s）。design errors=[]、保護476件不変。固定Python結合: Ran 22 tests in 161.844s、PASS。最新npm/全proxy回帰完了は主張しない。
