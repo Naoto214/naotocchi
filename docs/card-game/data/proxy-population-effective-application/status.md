@@ -388,3 +388,15 @@ cfba45eのfresh保存一致後も継続し、P22をTDD接続。source55の既存
 前reviewのMinor2（相手before.timeのbool/負値、正の割引支払8→6と不足時test）をRED→GREEN解消。今回review C0/I0/Minor0、関連50PASS8.787s・固定Python結合19PASS150.179s、design errors=[]、保護476不変。npmは挑戦数値bundleの406PASS以降再実行なし。全proxy回帰完了ではない。詳細main-routes-review.md、失敗/成功ログ保持。
 
 P22の具体的未接続は解消。22項目の台帳2026-10-08-preflight-remaining-work.mdと全41種対応表2026-10-08-preflight-handler-and-gate-audit.mdを更新。残る全handler意味/全機会/許可情報実使用/他operand/外部承認の信頼元と認証/生成由来・結果前順序/lock・実行gate合成は未完。preflight-ready=false、seed生成/本番入力固定/400戦0、全体結論null。準備完了と本番開始の最終確認はまだ行わない。
+
+### C-bat/M06回収解決の全差分監査
+
+75483e9からP06の全source本文/dispatchを読み、P07のC-bat対応表が「quick適用→draw」と誤記されていると判明。本文/実装は「相手手番で自分がquickをプレイ→準備札を手札へ」で一致していた。表のみ訂正。既存2回収handlerの正本に基づく全envelope差分を全event coverageへ接続した。対象不適正は不回収、発動後source離脱を許容、M06支払は返還せず、bat装備回収時のpublic/attachment消去と外側連鎖/使用記録を保持。自己整合hashを付けた余計なdrawも拒否する。
+
+独立review C0/I0/Minor1。Minorは外側非空stackの専用回帰未追加（独立probeは両sourcePASS）。P07の未完小項目として保持。関連30PASS2.634s、npm406PASS、design errors=[]、476不変。固定Python結合と試行ログはverification/return-effects-*。供給済み解決意味のみの証明で、activation/choice/history/全dispatch/全機会のP07/P09やP06を完了扱いしない。
+
+P06調査: 41本文中の期限付き/次回効果はtyped10sourceとI-poop1の条件付き置換に分けられる。現在の可視sourceは敵mainを除去する本文を持たず、G-archery-3dは敵装備のみ。ただし現在表にない生成/複製がないこと、107の物理集合/再登場と全遷移の保存、既存dispatchの意味まで結合する前にはI-poop1非到達/旧reservations閉包を認定しない。課題数は22管理項目のまま。今回の表訂正とP07小項目追加理由は、全source本文と実resolverを突き合わせたため。
+
+preflight-ready=false、seed生成/本番固定/400戦0。旧116除外、policy promotion=false、独立balance標本0、全体結論null。次は107 source閉包と予約/置換条件の実証へ続ける。
+
+Final frozen-source integration22PASS162.362s (previous19 scope plus runtime_entry3). Related30PASS2.634s; npm406PASS; design errors=[]; numbered476 unchanged. Independent C0/I0/Minor1 deferred as above. No production seed/input/game.

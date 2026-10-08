@@ -8,7 +8,7 @@
 
 | 107 source | 既存の主な実入口 | 特有の残件/完了条件 |
 |---|---|---|
-| C-bat | proxy_population_trigger_effects.resolve | quick適用→相手手番→drawの全起点と実差分 |
+| C-bat | proxy_population_trigger_effects.resolve | 相手手番での自分quickプレイが起点（適用成功は不要）。準備札→手札の全差分を監査へ接続、全発動起点は別gate |
 | C-box | 能力なし。通常配置は既存actions | 能力なしと配置/交換/離脱の機会を区別 |
 | C-cat_friend | proxy_population_discard_recovery.activate_normal / activate / resolve | 自身を底へ支払う・付属装備離脱・対象不適正時の全差分 |
 | C-chameleon | proxy_continuation_challenge.stats | 公開両worldの同名/異名/片欠けによる数値根拠。履歴/状態起点は別 |
@@ -37,7 +37,7 @@
 | M-antlion-03 | proxy_population_trigger_effects.resolve | typed生成済。解決時parameter指定policyと実使用/起点 |
 | M-antlion-04 | proxy_continuation_triggers.resolve | 到来/伏せなし・対象の捨て札→top、部分不適正 |
 | M-antlion-05 | proxy_continuation_triggers.resolve | time_skipのみ・装備含む準備空とdraw |
-| M-antlion-06 | proxy_population_trigger_effects.resolve | quick実適用→手札world支払→捨てworld回収 |
+| M-antlion-06 | proxy_population_trigger_effects.resolve | quick実適用→手札world支払→捨てworld回収。供給済み解決の全差分を監査へ接続、発動/支払起点は別gate |
 | M-antlion-07 | proxy_continuation_payments.resolve_board_stat | typed生成/終了済。world変更・quick実適用・宣言の全履歴 |
 | M-antlion-08 | proxy_population_paid_draw.scope → triggers.resolve | 異なる2枚の支払順・型条件・1draw |
 | M-beetle-01 | proxy_continuation_triggers.resolve | birth由来・hand bottom後draw・指定mandatory |
