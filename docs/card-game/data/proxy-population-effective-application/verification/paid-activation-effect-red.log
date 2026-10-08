@@ -1,0 +1,23 @@
+FF
+======================================================================
+FAIL: test_both_sources_normal_response_and_both_bottom_orders (test_proxy_population_paid_activation_effect.PaidActivationEffectTests.test_both_sources_normal_response_and_both_bottom_orders)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_paid_activation_effect.py", line 22, in setUp
+    def setUp(self):self.assertIsNotNone(api,'paid activation full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : paid activation full delta absent
+
+======================================================================
+FAIL: test_payment_usage_metadata_chain_and_full_delta_tampering (test_proxy_population_paid_activation_effect.PaidActivationEffectTests.test_payment_usage_metadata_chain_and_full_delta_tampering)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_paid_activation_effect.py", line 22, in setUp
+    def setUp(self):self.assertIsNotNone(api,'paid activation full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : paid activation full delta absent
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (failures=2)

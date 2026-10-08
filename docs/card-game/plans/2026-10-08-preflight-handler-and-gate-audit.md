@@ -334,3 +334,14 @@ TDD3FAIL→初期response fixtureの資源不一致2ERROR→初期条件へ修�
 次工程調査: M-antlion-02/08の既存paid_draw入口はsource costの準備札/捨て札→山札下と使用回数を実行し、既存replayもある。これを独立した費用・全差分監査へ結合する余地が残る。C-cat_friend/M06の支払も別入口である。管理項目追加なし、既存P07の未閉包を具体化。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
 
 固定22＋既存完走unit1: Ran 23 tests in 277.276s、PASS。design errors=[]、保護476件不変。
+
+
+### M-antlion-02/08の発動時支払・使用回数と全差分
+
+04d0804からP07を継続。M02の自分の伏せ準備1枚、M08の捨て札の異なるセット可能札/クイック札2枚を正本table/既存分類から照合し、準備/捨て札→山札下の支払順序、M02公開準備metadata消去、once使用記録、activation receipt、119/context、その他全state保持をcoverageへ結合した。normal/response、M08両順序を実既存入口で検証。選択起点認証・全機会はfalseのまま。
+
+TDD2FAIL→fixtureの既存references.scope不足で1FAIL1ERROR→本来scopeを再利用して関連9PASS1.005s。余分な成長にhashを付け直したcoverage拒否を追加し関連10PASS1.009s。支払/対象/使用回数/receipt/context/時/成長/main/turn/face改変を拒否。独立review1回C0/I0/Minor0（新規3PASS0.525s）。ログverification/paid-activation-effect-*。native/policy/119は変更しない。
+
+次はC-cat_friendのsource自身をコストで山札下へ移す発動入口とM06の手札world支払を既存処理へ結合する。前者は付属装備・typed対象離脱、後者は発生機会groupとの結合があり、今回のM02/08監査からは分離する。課題追加なし、P07内の未閉包を具体化。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
+
+固定22＋既存完走unit1: Ran 23 tests in 279.965s、PASS。design errors=[]、保護476件不変。
