@@ -168,3 +168,11 @@ e25fdbcからP07/P09を継続。既存465のprepare/apply_choice、既存life.pr
 新発見P07: E-final-timeの旧metadata保持fixtureは、歴史406.verify_transition内のsnapshot instance検査でmissing旧#1として拒否される。現bundleでは拒否を維持。既存incarnation_runtime.scopeのextended-step projectionはこの直接呼出しを置換していない。全backend/履歴結合での再現と現行scopeでの適合が次の検討対象。作業増加理由は全state監査試験による旧validator直結の発見であり、新ルール追加ではない。静的登録や他5種の成功でこの枝を完了にしない。
 
 管理項目22維持、preflight-ready=false、生成/本番入力固定/400戦未実施、全体結論null。TDD3FAIL→初回1FAIL/1ERROR（監査未接続/上記406拒否）→関連17PASS121.681s、独立review1回C0/I0/Minor0（focused3PASS5.926s）。固定Python結合22PASS159.864s、design errors=[]、保護476件不変。途中結果を保存。最新npm/全proxy回帰完了は主張しない。
+
+### E-final-timeの保持metadataと406保存則の接続
+
+caaae54からP07の直前発見を継続。既存Connection.scopeでも旧#1 metadataのmissing拒否をRED再現。Connection内で406.verify_transitionの全state/chain/hash検査を保持し、その末尾snapshot物理保存則へ渡す写しだけ既存registryのactive projectionとする。元state/全metadata/receiptは変更せず、life.checkを前後へ適用し、snapshot hookと406 hookをfinally復元。歴史406/native/hash pinは不変。
+
+無関係札#2/使用札#2/対象札#2を既存465選択・全効果監査に結合。改変metadata/重複位置/不正hashの拒否を保持。TDD2テスト中1ERROR→関連10PASS6.464s→source/target世代試験拡充後10PASS6.466s。起点registryはsuppliedであり世代生成の真正性は主張しない。Connection外の旧406拒否試験は保存し、scope必須を明示する。
+
+残件: 406のouter board-link検査はC-chickenだけを許す既存制約があり、他board sourceの全連鎖閉包は未証明。今回のmetadata接続から全source/phase/機会を完了扱いしない。管理項目22維持、preflight-ready=false、seed/入力固定/400戦0、全体結論null。独立review1回C0/I0/Minor0。固定Python結合22PASS159.280s、design errors=[]、保護476件不変。旧npm406/全proxy回帰を最新完了へ読み替えない。

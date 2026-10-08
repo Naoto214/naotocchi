@@ -33,9 +33,14 @@ def actual(forced,card,mode='normal'):
  if mode=='outer':
   s=next(s for s in p['hand']+p['deck'] if g['cards'][s]['card_id']=='C-chicken');(p['hand'] if s in p['hand'] else p['deck']).remove(s);p['board']['companions'].append(s);outer=copy.deepcopy(link);outer.update(link_id='outer-supplied',source_instance_id=s,card_id='C-chicken',card_copy_id=g['cards'][s]['card_copy_id'],source_zone='board',action_type='activate_board_ability',payment=dict(time=0),target_instance_ids=[]);c['activation_zone'].insert(0,outer);c['response_context']['chain_links'].insert(0,outer['link_id'])
  registry=life.create(b)
- if mode=='retained':
+ if mode in ('retained','retained_source','retained_target'):
   # Supplied registry projection is structural; this does not attest the move history.
-  old=p['deck'][0];new=old.rsplit('#',1)[0]+'#2';g['cards'][new]=copy.deepcopy(g['cards'][old]);p['deck'][0]=new;registry['metadata']=copy.deepcopy(g['cards']);registry['active'][g['cards'][old]['card_copy_id']]=new;registry['current_envelope_sha256']=life.digest(b);life.check(registry,b)
+  old=link['source_instance_id'] if mode=='retained_source' else link['target_instance_ids'][0] if mode=='retained_target' else p['deck'][0]
+  new=old.rsplit('#',1)[0]+'#2';g['cards'][new]=copy.deepcopy(g['cards'][old])
+  for zone in ('hand','deck','discard'):p[zone]=[new if x==old else x for x in p[zone]]
+  if link['source_instance_id']==old:link['source_instance_id']=new
+  link['target_instance_ids']=[new if x==old else x for x in link['target_instance_ids']]
+  registry['metadata']=copy.deepcopy(g['cards']);registry['active'][g['cards'][old]['card_copy_id']]=new;registry['current_envelope_sha256']=life.digest(b);life.check(registry,b)
  s=incarnation_policy.Session(dict(protocol_id='unit',group_id='unit',mirror_side='A_first'),{'A':'00'*32,'B':'00'*32},lambda game:registry);s.turn_start('A','supplied-start');s.effect(bridge.occurrence_key(state.current(b)),'A')
  with incarnation_policy.handler_scope(s):r=forced(b,initial(),[],[],[b])
  if mode in ('start','end'):r=boundary.normalize(b,r,dict(kind=mode,turn_player='A',origin_event_seq=3))

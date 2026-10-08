@@ -16,6 +16,7 @@ import proxy_continuation_batch as batch
 import proxy_continuation_state as state
 import proxy_continuation_end as end
 import proxy_continuation_preparation as preparation
+import proxy_continuation_quick as quick
 import proxy_resource_value_trajectory as old
 import proxy_response_window_contract as response_contract
 
@@ -82,6 +83,22 @@ class Connection:
  def scope(self):
   if not _SCOPE_LOCK.acquire(blocking=False):raise ValueError('incarnation scope reentry/concurrency forbidden')
   prior_guard=guard.require_initial_entry;prior_departure=departure.replace_companion;prior_transition=batch.transition;prior_apply=actions.apply;prior_bind=actions.bind_event;prior_verify=old.extension._verify_extended_step;prior_validate=state.validate;prior_detail=response_contract._instance_detail;prior_set=preparation.set_card;prior_attach=actions.attach
+  prior_final_verify=quick.final_time.verify_transition
+  def final_verify(row,after,event):
+   before=quick.final_time.contracts.current(row)
+   if all(len(active_cards(c['game_state']['cards']))==len(c['game_state']['cards']) for c in (before,after)):return prior_final_verify(row,after,event)
+   record=self.registry(before['game_state'])
+   for current in (before,after):life.check(record,dict(legacy_continuation=current))
+   # Keep406 chain/hash validation on the original full states. Its final
+   # physical-zone check alone receives the existing active registry view.
+   checker=quick.final_time.contracts.response;prior_snapshot=checker._snapshot_instance_errors
+   def snapshot(shot):
+    private=copy.deepcopy(shot);private['game_state']=life.project_game(record,shot['game_state'])
+    return prior_snapshot(private)
+   try:
+    checker._snapshot_instance_errors=snapshot
+    return prior_final_verify(row,after,event)
+   finally:checker._snapshot_instance_errors=prior_snapshot
   def validate(e):
    prior_validate(e);active=active_cards(life.game(e)['cards'])
    # Existing information-only projections deliberately omit inactive hidden
@@ -139,6 +156,8 @@ class Connection:
    private[-1].update(game_state_after_sha256=old.start.opening._stop_state_sha256(a['game_state']),continuation_state_after_sha256=old.start._hash(a))
    return prior_verify(b,a,private)
   try:
+   quick.final_time.verify_transition=final_verify
    preparation.set_card=set_card;actions.attach=attach;state.validate=validate;response_contract._instance_detail=detail;guard.require_initial_entry=require;departure.replace_companion=replaced;batch.transition=transition;actions.apply=apply;actions.bind_event=bind;old.extension._verify_extended_step=verify;yield
   finally:
+   quick.final_time.verify_transition=prior_final_verify
    preparation.set_card=prior_set;actions.attach=prior_attach;state.validate=prior_validate;response_contract._instance_detail=prior_detail;guard.require_initial_entry=prior_guard;departure.replace_companion=prior_departure;batch.transition=prior_transition;actions.apply=prior_apply;actions.bind_event=prior_bind;old.extension._verify_extended_step=prior_verify;_SCOPE_LOCK.release()
