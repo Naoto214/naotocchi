@@ -653,3 +653,16 @@ TDD3FAIL→関連13PASS1.211s。actual nativeの4source窓、負のclassificatio
 旧reservations非空は終了順未証明として拒否。履歴起点/全source到達性/全機会/承認は未証明のまま。次は既存開始時処理の通常/たまごドロー・時更新・回数更新と指定選択の供給差分結合を確認する。既存start/turn/policy bridgeを作り直さない。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
 
 固定Python結合: Ran 22 tests in 165.421s、PASS。
+
+
+### 開始時の通常/たまごドロー・時/回数更新の全差分
+
+ea51e69からP07を継続。01/02/64の既存pinを再利用し、turn_startから通常1枚/たまご2枚を山札上から可能分だけ引くこと、時をroundへ置換すること、現actorのchallenge_used/person_placed/relationship_progressedのみFalseへ戻すことを全差分照合。通常は開始responseへ、たまごは既存egg_exchange_choice中間へ進む。相手・他資源/metadata/runtimeは保持し、非選択eventのselected_candidateはNone必須。nativeは変更しない。
+
+両actor、main/egg、deck0/1/2/4、R1/5/10と不正変更を実next_turnの中間snapshotで確認。TDD3FAIL→fixtureの既存end_scope不足による3ERROR→本来scope再利用で13PASS→R5/10追加で14PASS1.054s。独立review1回C0/I0/Minor0（新規4PASS0.786s）。その後の自己確認で非選択receiptチェック不足を発見し、追加回帰4件中2FAIL→関連14PASS1.125s。独立review結果を後続修正の再reviewとしては扱わない。
+
+receipt修正前の固定22+既存完走unit1は23PASS272.327s。途中で停止を試みたがプロセスを中断できなかったため、Pythonを凍結したまま完了を待った。結果は修正前として保持し、最終結果へ読み替えない。ログはverification/start-draw-effect-*。
+
+旧reservations非空は開始処理順が未閉包のため拒否。前終了/起点認証・全開始義務・たまご選択自体は未証明のまま。次は既存465のframe/選択/適用結果とegg_exchange_bottom全差分を結合する。既存policy bridge、再登場projection、通常/response policyの範囲は維持する。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
+
+最終receipt修正後の固定22+既存完走unit1: Ran 23 tests in 267.585s、PASS。最終design errors=[]、保護476件不変。

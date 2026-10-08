@@ -1,0 +1,23 @@
+...FF
+======================================================================
+FAIL: test_unrelated_changes_wrong_draw_reset_and_context_refused (test_proxy_population_start_draw_effect.StartDrawEffectTests.test_unrelated_changes_wrong_draw_reset_and_context_refused) (egg=False, mode='selection')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_start_draw_effect.py", line 65, in run
+    with self.subTest(egg=egg,mode=mode):self.assertTrue(api.audit(before,after,ev)['errors'])
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+======================================================================
+FAIL: test_unrelated_changes_wrong_draw_reset_and_context_refused (test_proxy_population_start_draw_effect.StartDrawEffectTests.test_unrelated_changes_wrong_draw_reset_and_context_refused) (egg=True, mode='selection')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_start_draw_effect.py", line 65, in run
+    with self.subTest(egg=egg,mode=mode):self.assertTrue(api.audit(before,after,ev)['errors'])
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: [] is not true
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.712s
+
+FAILED (failures=2)
