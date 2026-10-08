@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_actual_four_source_windows_and_complete_classifications (test_proxy_population_end_window_effect.EndWindowEffectTests.test_actual_four_source_windows_and_complete_classifications)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_end_window_effect.py", line 19, in setUp
+    def setUp(self):self.assertIsNotNone(api,'end window full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : end window full delta absent
+
+======================================================================
+FAIL: test_coverage_rejects_extra_growth (test_proxy_population_end_window_effect.EndWindowEffectTests.test_coverage_rejects_extra_growth)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_end_window_effect.py", line 19, in setUp
+    def setUp(self):self.assertIsNotNone(api,'end window full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : end window full delta absent
+
+======================================================================
+FAIL: test_missing_false_classifications_and_added_effects_are_refused (test_proxy_population_end_window_effect.EndWindowEffectTests.test_missing_false_classifications_and_added_effects_are_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_end_window_effect.py", line 19, in setUp
+    def setUp(self):self.assertIsNotNone(api,'end window full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : end window full delta absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

@@ -642,3 +642,14 @@ TDD: 初回3FAIL→関連13PASS0.779s。後順位保持テスト1FAIL→関連14
 次工程: 既存終了時4sourceのpredicateを再利用し、open_turn_end_triggersの全対象/不成立一覧・一度だけの窓・全状態差分を結合する。現行batch_runnerがturn_endでこの入口を呼ぶことを確認済み。予約・全機会の閉包まで静的一覧で完了にしない。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
 
 修正後固定Python結合: Ran 22 tests in 172.107s、PASS。修正後design errors=[]、保護正本476件不変。関連11はclosure/sequential/connection、修正前関連14とは組合せが異なる。
+
+
+### 終了時4sourceの窓・全分類・全差分
+
+bc2c376からP07/P09を継続。正本64・既存catalog/pinの下で、閉じたturn_endからopen_turn_end_triggersの1回窓を照合。trigger_predicatesの既存4source条件をend_conditionへ抽出して共用し、M-beetle-02/W-countryside/P-desert_scorpion/I-sleepboost1の成立/不成立を含む全一覧とeligibleを現状態・供給履歴から照合する。窓以外の資源/回数/typed/metadataは全保持。nativeは変更しない。
+
+TDD3FAIL→関連13PASS1.211s。actual nativeの4source窓、負のclassification欠落、eligible欠落、余分な成長/時/ドロー/typed/usage変更、再開窓と不正境界を拒否。独立review1回C0/I0/Minor0（8PASS0.949s）。design errors=[]、保護476件不変。ログはverification/end-window-effect-*。
+
+旧reservations非空は終了順未証明として拒否。履歴起点/全source到達性/全機会/承認は未証明のまま。次は既存開始時処理の通常/たまごドロー・時更新・回数更新と指定選択の供給差分結合を確認する。既存start/turn/policy bridgeを作り直さない。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。最新npm/全proxy回帰完了は主張しない。
+
+固定Python結合: Ran 22 tests in 165.421s、PASS。

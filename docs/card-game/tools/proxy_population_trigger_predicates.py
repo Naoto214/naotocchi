@@ -32,6 +32,24 @@ FIELDS=('action_type','card_id','card_copy_id','source_instance_id','target_inst
 def _signature(row):return canonical({key:row.get(key) for key in FIELDS})
 
 
+def end_condition(envelope,history,source,actor):
+ """Existing four source conditions, independent of opening-event membership."""
+ c=envelope['legacy_continuation'];g=c['game_state'];p=g['players'][actor];b=p['board'];card=g['cards'][source]['card_id']
+ if card not in END_CARDS:raise ValueError('unsupported end predicate')
+ since=triggers._since(history,actor)
+ current_history=[e for e in history if e['seq']>since and e['actor']==actor]
+ if card=='M-beetle-02':return not any(e['action_type']=='main_movement' and e.get('source_instance_id')==source and e.get('candidate_variant')=='time_skip' for e in current_history)
+ if card=='I-sleepboost1':
+  attachment=envelope['runtime']['attachments'].get(source)
+  return attachment is not None and attachment['controller']==actor and attachment['target_instance_id']==b['main'] and b['main'] is not None and not p['challenge_used'] and p['time']>=2
+ plays=[e for e in current_history if e['action_type'] in ('attach_item','set_item','use_item','use_play','use_event','activate_response') and e.get('source_zone') not in ('board','prepared') and e.get('source_instance_id')]
+ if card=='W-countryside':return len(plays)==1
+ public_plays=[e for e in plays if e['action_type']!='set_item']
+ play_ids=[g['cards'][e['source_instance_id']]['card_id'] for e in public_plays]
+ item_ids=[g['cards'][e['source_instance_id']]['card_id'] for e in public_plays if e['action_type'] in ('attach_item','use_item','activate_response')]
+ return b['main'] is not None and any(k.startswith('G-') for k in play_ids) and any(k.startswith('I-') for k in item_ids)
+
+
 def _audit(envelope,occurrence,actions,kind,history=None):
  errors=[];expected=[];reference=None
  try:
@@ -94,21 +112,7 @@ def _audit(envelope,occurrence,actions,kind,history=None):
    if len(origins)!=1:raise ValueError('end origin absent or ambiguous')
    origin=origins[0];ctx=dict(c['response_context'],priority_actor=actor,origin_event_seq=occurrence['origin_event_seq'])
    met=actor==g['turn_player'] and origin['action_type']=='open_turn_end_triggers' and origin['actor']==actor and source in origin['eligible_source_instance_ids']
-   since=triggers._since(history,actor)
-   current_history=[e for e in history if e['seq']>since and e['actor']==actor]
-   if met:
-    if card=='M-beetle-02':met=not any(e['action_type']=='main_movement' and e.get('source_instance_id')==source and e.get('candidate_variant')=='time_skip' for e in current_history)
-    elif card=='I-sleepboost1':
-     attachment=envelope['runtime']['attachments'].get(source)
-     met=attachment is not None and attachment['controller']==actor and attachment['target_instance_id']==b['main'] and b['main'] is not None and not p['challenge_used'] and p['time']>=2
-    else:
-     plays=[e for e in current_history if e['action_type'] in ('attach_item','set_item','use_item','use_play','use_event','activate_response') and e.get('source_zone') not in ('board','prepared') and e.get('source_instance_id')]
-     if card=='W-countryside':met=len(plays)==1
-     else:
-      public_plays=[e for e in plays if e['action_type']!='set_item']
-      play_ids=[g['cards'][e['source_instance_id']]['card_id'] for e in public_plays]
-      item_ids=[g['cards'][e['source_instance_id']]['card_id'] for e in public_plays if e['action_type'] in ('attach_item','use_item','activate_response')]
-      met=b['main'] is not None and any(k.startswith('G-') for k in play_ids) and any(k.startswith('I-') for k in item_ids)
+   if met:met=end_condition(envelope,history,source,actor)
    if met and not triggers._used(dict(c,response_context=ctx,last_event_seq=envelope['event_seq']),history,source,card):pairs=[(None,[])]
   elif kind=='arrival':
    if card not in ARRIVAL_CARDS or b['main']!=source:raise ValueError('arrival current main differs')
