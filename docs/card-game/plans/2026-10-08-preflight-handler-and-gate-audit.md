@@ -239,3 +239,12 @@ TDD3FAIL→新規3PASS1.254s→再登場/軽減使用済みtest追加、関連21
 legacy予約非空は宣言時機会が未閉包のため拒否する。参加個体の履歴真正性・全機会・発動適法性全体は未証明。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null。
 
 TDD3FAIL→初回1FAIL1ERROR（actor変更後typed期限が旧手番のfixture、metadataの改変値が元と同値）→既存constructorでfixtureを訂正し関連19PASS4.184s。両actor/両parameter、参加者差替え、宣言回数/時/成長/typed/metadata/contextの不正、hash更新後coverage入力を検証。独立review1回C0/I0/Minor0（新規3PASS0.712s）。途中ログ保存。固定Python結合: Ran 22 tests in 164.361s、PASS。design errors=[]、保護476件不変。最新npm/全proxy回帰完了は主張しない。
+
+
+### 通常パスは終了要求だけという全差分
+
+cd41047からP07を継続。06 pinを再利用し、normal_actionの空連鎖/未処理なし/挑戦外でのpassを、相手優先・連続pass1のturn_end_responseへ結合。残り時・成長・手札/山札・使用回数・typed効果・turn/round・全metadataを保持し、ここで失効や次ターン更新をしない。終了処理の完遂はend_obligations_proven=falseで分離する。nativeは変更しない。
+
+TDD3FAIL→初回1FAIL（coverageのtyped消去は既存typed生成監査が先に拒否）→接続試験を余分な成長へ変更し、新監査到達を確認、関連9PASS1.213s。typed失効の直接拒否試験は保持。独立review1回C0/I0/Minor0（新規3PASS0.725s）。途中ログ保存。固定Python結合: Ran 22 tests in 166.603s、PASS。design errors=[]、保護476件不変。
+
+次工程調査: 旧反応passには複数の復帰表現があるが、現行runtime.operationのquick.scopeは全response_passを既存quick.response_passへ接続している。旧raw入口を現行dispatchと誤認せず、この既存統一入口と外側challenge/end補正を次に照合する。再実装や未確認の同値扱いはしない。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、最新npm/全proxy回帰完了は主張しない。
