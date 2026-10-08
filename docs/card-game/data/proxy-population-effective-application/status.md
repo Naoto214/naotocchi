@@ -969,3 +969,20 @@ e4a23a0から、直前のread-only probeを既存E-boss/G-hit-blow/I-c_coin2の�
 次工程のread-only probeでは、相手に実I-poop1伏せ準備を置いた条件付きstateを使用。通常は非公開山札順/相手手札交換でもdecision全体一致。responseは選択を含むrecordの差がcandidate_set_evidence.envelope_sha256だけであり、実hidden stateを結ぶhashと判断材料を区別する必要を確認した（information-use-prepared-entry-probe.log）。伏せ準備自体のidentity変更はしていない。この既存response入口の実hash結合と、候補・比較・選択の非干渉を別々に検証する回帰が次の具体的作業。hashを一括無視したり、差分があるだけで情報漏洩と判定しない。
 
 最終固定22＋既存完走unit1: Ran 23 tests in 273.533s、PASS、別exit JSONも0。既存unit response89/normal29局所source covered、end dispatch20 verified、全機会false維持。最新全proxy回帰ではない。
+
+
+### 実情報viewと伏せ準備を含む全状態hashの入口結合
+
+310db87からP10/P11の入力参照境界を継続。3card×通常/responseの伏せ準備あり実入口で、実copy/metadata/枚数/盤面/準備runtimeを保つ非公開山札順/相手手札交換を検証。通常はdecision全体一致、responseは実envelopeへ結ぶ1個のhashだけが変わることを確認し、そのhashを各実stateから独立再計算した上で、それ以外の候補・比較・seed/context・選択・evaluation全体を比較する。伏せ札のidentity自体は変更しておらず、その全域非干渉は未証明。
+
+既存ordinary_entry監査がresponse inventoryのenvelope_sha256欠落/偽値/別hidden stateを受理する局所欠落を新4件5FAIL1.506sで再現。runtimeの実beforeからfresh照合し、準備/装備があればhash必須、準備なしでも任意に供給されたhashは一致必須とした。歴史selectorやseed材料を変更せず、選択後の現行入口監査を接続した。関連11PASS4.465s、公開I-bowtie装備/準備なしを追加して17PASS7.363s。
+
+同監査の通常inventory/view、problem/view・state_ref、pair/view、choice/state_refも実actorのvisibleへ結合。先に1件8FAIL0.389sで改変受理を確認した。初回の追加実装は旧116 safe-free choiceのstate_ref固定文字列をhashと誤認し、既存unitが2stepで停止。関連の不完全log2本はいずれもexit1・最終summaryなしとして保持。直接端末再試験18件1ERROR8.011s（通常step欠落のStopIteration）と診断を記録。旧形式safe_free_placement_contextを保持し、候補一覧/problemの実view照合は維持。既存testの4step前提も明示化した。修正後関連18PASS8.400s、別exit JSONも0。全試行はverification/prepared-information-*、不完全logを最終結果へ読み替えない。
+
+管理項目22維持。具体化理由は判断材料の非干渉と、添付された全状態/許可view参照の真正な対象一致が別の検査であるため。照合hashが正しくても情報実使用・履歴起点の認証・比較operandの正本由来・全機会の証明にはしない。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。独立reviewと固定結合は別途最終結果を追記。最新npm/全proxy回帰完了は主張しない。
+
+独立review1回C0/I0/Minor0、新6＋既存binding5の独立11PASS4.898s/exit0。design errors=[]、保護476不変。固定結合は最終logで別判定する。
+
+P11次工程のread-only probe: 実G-hit-blow通常入口の比較行すべてでpayment_timeを+1、time_after_certain_resolutionを-1と同じだけ改変すると、候補の費用条件・入口結合はerrors=[]、selection_basisの計算検証もtrueとなる一方、operand_provenance_verified=falseが維持される（payment-operand-binding-probe.log）。現行計算監査の責務どおりであり実支払バグではない。既存core/handのsource付き費用監査と、実比較行の支払operandを結合する工程を次に行う。未証明の成長/上位優先値/将来効果を費用の一致から昇格しない。
+
+最終固定22＋既存完走unit1: Ran 23 tests in 269.848s、PASS、別exit JSONも0。response89/normal29局所source covered、end dispatch20 verified、全機会falseを維持。過去の不完全/失敗logは保持。最新全proxy回帰ではない。

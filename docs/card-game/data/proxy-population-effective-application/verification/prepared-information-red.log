@@ -1,0 +1,72 @@
+test_actual_hidden_variants_change_only_the_bound_response_state_hash (test_proxy_population_prepared_information.PreparedInformationTests.test_actual_hidden_variants_change_only_the_bound_response_state_hash) ... ok
+test_current_entry_rejects_forged_private_binding_after_native_execution (test_proxy_population_prepared_information.PreparedInformationTests.test_current_entry_rejects_forged_private_binding_after_native_execution) ... FAIL
+test_public_cost_still_changes_candidates_with_concealed_preparation (test_proxy_population_prepared_information.PreparedInformationTests.test_public_cost_still_changes_candidates_with_concealed_preparation) ... ok
+test_response_inventory_hash_must_bind_actual_prepared_envelope (test_proxy_population_prepared_information.PreparedInformationTests.test_response_inventory_hash_must_bind_actual_prepared_envelope) ...
+  test_response_inventory_hash_must_bind_actual_prepared_envelope (test_proxy_population_prepared_information.PreparedInformationTests.test_response_inventory_hash_must_bind_actual_prepared_envelope) (mode='missing') ... FAIL
+  test_response_inventory_hash_must_bind_actual_prepared_envelope (test_proxy_population_prepared_information.PreparedInformationTests.test_response_inventory_hash_must_bind_actual_prepared_envelope) (mode='forged') ... FAIL
+  test_response_inventory_hash_must_bind_actual_prepared_envelope (test_proxy_population_prepared_information.PreparedInformationTests.test_response_inventory_hash_must_bind_actual_prepared_envelope) (mode='null') ... FAIL
+  test_response_inventory_hash_must_bind_actual_prepared_envelope (test_proxy_population_prepared_information.PreparedInformationTests.test_response_inventory_hash_must_bind_actual_prepared_envelope) (mode='another_hidden_state') ... FAIL
+
+======================================================================
+FAIL: test_current_entry_rejects_forged_private_binding_after_native_execution (test_proxy_population_prepared_information.PreparedInformationTests.test_current_entry_rejects_forged_private_binding_after_native_execution)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_prepared_information.py", line 78, in test_current_entry_rejects_forged_private_binding_after_native_execution
+    with patch.object(runtime,'_step',tampered),window.contract_scope():runtime.operation(initial(),run)
+                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 115, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 114, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_prepared_information.py", line 76, in run
+    with self.assertRaisesRegex(ValueError,'response inventory envelope binding differs'):execute(e,h,forced)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_response_inventory_hash_must_bind_actual_prepared_envelope (test_proxy_population_prepared_information.PreparedInformationTests.test_response_inventory_hash_must_bind_actual_prepared_envelope) (mode='missing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_prepared_information.py", line 65, in run
+    self.assertFalse(proof['entry_and_transition_binding_verified'],proof)
+AssertionError: True is not false : {'schema': 'ordinary_entry_transition_binding.v1', 'entry_and_transition_binding_verified': True, 'errors': [], 'identity': {'entry_envelope_sha256': 'ea3a02bb471857a90c966dc229ec3a247d0ce5d943d27ec01770a44708f38c3e', 'event_seq': 3, 'actor': 'A', 'round': 1, 'phase': 'response_window', 'decision_sha256': 'ac71dd0b8d76ef86b0b1698e8e8a075643fbe572de029eb579c3eeef78e29685', 'selected_candidate': 'response-pass'}, 'complete_legal_set_proven': False, 'effect_semantics_proven': False, 'all_rule_opportunities_proven': False, 'origin_authenticated': False, 'policy_eligible': None, 'balance_admitted': None}
+
+======================================================================
+FAIL: test_response_inventory_hash_must_bind_actual_prepared_envelope (test_proxy_population_prepared_information.PreparedInformationTests.test_response_inventory_hash_must_bind_actual_prepared_envelope) (mode='forged')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_prepared_information.py", line 65, in run
+    self.assertFalse(proof['entry_and_transition_binding_verified'],proof)
+AssertionError: True is not false : {'schema': 'ordinary_entry_transition_binding.v1', 'entry_and_transition_binding_verified': True, 'errors': [], 'identity': {'entry_envelope_sha256': 'ea3a02bb471857a90c966dc229ec3a247d0ce5d943d27ec01770a44708f38c3e', 'event_seq': 3, 'actor': 'A', 'round': 1, 'phase': 'response_window', 'decision_sha256': '852adbae7ec6fa829af5e9e54fa43ba85d331580d0943741ce80d6ed33fc5f8b', 'selected_candidate': 'response-pass'}, 'complete_legal_set_proven': False, 'effect_semantics_proven': False, 'all_rule_opportunities_proven': False, 'origin_authenticated': False, 'policy_eligible': None, 'balance_admitted': None}
+
+======================================================================
+FAIL: test_response_inventory_hash_must_bind_actual_prepared_envelope (test_proxy_population_prepared_information.PreparedInformationTests.test_response_inventory_hash_must_bind_actual_prepared_envelope) (mode='null')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_prepared_information.py", line 65, in run
+    self.assertFalse(proof['entry_and_transition_binding_verified'],proof)
+AssertionError: True is not false : {'schema': 'ordinary_entry_transition_binding.v1', 'entry_and_transition_binding_verified': True, 'errors': [], 'identity': {'entry_envelope_sha256': 'ea3a02bb471857a90c966dc229ec3a247d0ce5d943d27ec01770a44708f38c3e', 'event_seq': 3, 'actor': 'A', 'round': 1, 'phase': 'response_window', 'decision_sha256': '9e029a7db8208e0fb8d6f12fd6d6197771490cd5e81ed49e98f52cd24476bb39', 'selected_candidate': 'response-pass'}, 'complete_legal_set_proven': False, 'effect_semantics_proven': False, 'all_rule_opportunities_proven': False, 'origin_authenticated': False, 'policy_eligible': None, 'balance_admitted': None}
+
+======================================================================
+FAIL: test_response_inventory_hash_must_bind_actual_prepared_envelope (test_proxy_population_prepared_information.PreparedInformationTests.test_response_inventory_hash_must_bind_actual_prepared_envelope) (mode='another_hidden_state')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_prepared_information.py", line 65, in run
+    self.assertFalse(proof['entry_and_transition_binding_verified'],proof)
+AssertionError: True is not false : {'schema': 'ordinary_entry_transition_binding.v1', 'entry_and_transition_binding_verified': True, 'errors': [], 'identity': {'entry_envelope_sha256': 'ea3a02bb471857a90c966dc229ec3a247d0ce5d943d27ec01770a44708f38c3e', 'event_seq': 3, 'actor': 'A', 'round': 1, 'phase': 'response_window', 'decision_sha256': 'd71c6cce75dfbba1e8b384038220548c1fe06f0f5f243b5ded0aa2eee1f8fd15', 'selected_candidate': 'response-pass'}, 'complete_legal_set_proven': False, 'effect_semantics_proven': False, 'all_rule_opportunities_proven': False, 'origin_authenticated': False, 'policy_eligible': None, 'balance_admitted': None}
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.506s
+
+FAILED (failures=5)

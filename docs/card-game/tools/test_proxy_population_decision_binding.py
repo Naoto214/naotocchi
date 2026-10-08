@@ -13,6 +13,7 @@ class BindingTests(unittest.TestCase):
  @classmethod
  def setUpClass(cls):
   cls.record=connected.reconstruct(bundle(),'test-1A',4)
+  if len(cls.record['runtime']['steps'])!=4:raise AssertionError(cls.record['runtime']['stop'])
  def test_each_ordinary_entry_binds_identity_selection_and_all_transition_hashes(self):
   self.assertIsNotNone(api)
   for step in self.record['runtime']['steps']:
@@ -29,6 +30,9 @@ class BindingTests(unittest.TestCase):
     bad=copy.deepcopy(step);mutate(bad)
     self.assertFalse(audit(bad,'test-1')['entry_and_transition_binding_verified'])
    if 'context' in step['decision']:self.assertFalse(audit(step,'different-order')['entry_and_transition_binding_verified'])
+   if 'context' in step['decision'] and 'candidate_set_evidence' in step['decision']['choice']:
+    bad=copy.deepcopy(step);bad['decision']['choice']['candidate_set_evidence']['state_ref']='forged-context'
+    self.assertFalse(audit(bad,'test-1')['entry_and_transition_binding_verified'])
  def test_context_relabel_and_inventory_projection_differ(self):
   self.assertIsNotNone(api)
   for step in self.record['runtime']['steps']:

@@ -44,6 +44,20 @@ def audit_step(step,order_id):
    expected=dict(actor=actor,order_id=order_id,actor_turn_index=g['round'],round=g['round'],phase=g['phase'],decision_kind='normal_action',choice_kind='normal_action_resource_frontier')
    equal({k:dc[k] for k in expected},expected,'normal entry context differs')
    inventory=d['inventory'];choice=d['choice']
+   # Normal evidence names the actor's public/owner projection, not the full
+   # private envelope. Binding a view is not proof of its exclusive use.
+   view_hash=state.canonical_sha256(state.visible(before,actor))
+   equal(inventory['view_sha256'],view_hash,'normal inventory visible binding differs')
+   problem=d.get('problem')
+   if problem is not None:
+    equal(problem['view_sha256'],view_hash,'normal problem visible binding differs')
+    equal(problem['candidate_set_evidence']['state_ref'],view_hash,'normal problem state reference differs')
+    for pair in problem['pairs']:equal(pair['view_sha256'],view_hash,'normal pair visible binding differs')
+   if 'candidate_set_evidence' in choice:
+    #116 safe-free subchoices use a fixed context label, not a view digest.
+    # Preserve that historical format; inventory/problem still bind the view.
+    safe=choice.get('pass_dominated_by')=='safe_free_development' and 'selected_placement' in choice
+    equal(choice['candidate_set_evidence']['state_ref'],'safe_free_placement_context' if safe else view_hash,'normal choice state reference differs')
    equal(choice['selected_candidate'],d['selected_candidate'],'normal wrapper choice differs')
    if 'legal_candidates' in choice:equal(choice['legal_candidates'],inventory['legal_candidate_ids'],'normal wrapper candidates differ')
    elif choice.get('resolution_mode')!='priority_unique':raise ValueError('normal wrapper candidates absent')
@@ -54,6 +68,10 @@ def audit_step(step,order_id):
     for key in ('contract_version','order_id','actor','actor_turn_index','round','phase','decision_kind'):equal(choice['seed_context'][key],dc[key],'normal seed context differs')
   elif g['phase'] in ('response_window','post_placement_response','turn_end_response') and ctx['chain_status'] in ('empty','building') and not c['pending_triggers']:
    actor=ctx['priority_actor'];inventory=d['candidate_set_evidence']
+   # Preparation/equipment projection keeps a full-state binding alongside
+   # public choice material. Recompute it; omission cannot evade this check.
+   if before['runtime']['public_prepared'] or 'envelope_sha256' in inventory:
+    equal(inventory.get('envelope_sha256'),state.state_hash(before),'response inventory envelope binding differs')
    expected=dict(actor=actor,phase=ctx['phase'],decision_kind='response_action',choice_kind=ctx['choice_kind'],response_opportunity_index=ctx['response_opportunity_index'])
    equal({k:d[k] for k in expected},expected,'response entry context differs')
    equal(inventory['actor'],actor,'response inventory actor differs')
