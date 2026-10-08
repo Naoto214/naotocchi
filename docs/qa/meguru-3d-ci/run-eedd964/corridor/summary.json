@@ -1,0 +1,10 @@
+{
+  "kind": "corridor",
+  "coverage": 8,
+  "issues": [],
+  "samples": 0,
+  "hidden": 0,
+  "partial": 0,
+  "maxPartyObstacleOverlap": 0,
+  "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+}
