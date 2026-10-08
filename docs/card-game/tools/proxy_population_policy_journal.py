@@ -94,7 +94,8 @@ def audit_opportunities(record):
     from proxy_mandatory_choice_boundary import REGISTRY,prepare
     from proxy_population_policy_bridge import occurrence_key
     import proxy_population_incarnation as life
-    expected={};no_choice=[];errors=[]
+    import proxy_population_designated_effects as effects
+    expected={};no_choice=[];errors=[];effect_audits=[]
     def key(envelope):
         return occurrence_key(dict(envelope['legacy_continuation'],last_event_seq=envelope['event_seq']))
     def require(origin,frame):
@@ -123,6 +124,9 @@ def audit_opportunities(record):
                     require(key(before),frame(kind,link['actor'],life.project_game(registry,current['game_state']),link['source_instance_id'],target))
             if len(step['events'])!=len(step['envelopes']):raise ValueError('designated transition coverage differs')
             for event,after in zip(step['events'],step['envelopes']):
+                effect=effects.audit(before,after,event,step.get('mandatory_decisions',[]),registry)
+                if effect['errors']:raise ValueError('designated effect semantics differ: '+str(effect['errors']))
+                if effect['applicable']:effect_audits.append(effect)
                 prior_owner=life.game(before)['turn_player']
                 registry=life.observe(registry,before,after,event.get('instance_transitions',[]))
                 game=life.project_game(registry,life.game(after));actor=game['turn_player']
@@ -146,5 +150,6 @@ def audit_opportunities(record):
     except (ValueError,KeyError,TypeError,IndexError) as error:errors.append(str(error))
     return dict(schema='designated_mandatory_opportunity_coverage.v1',designated_opportunities_covered=not errors,
         errors=errors,required_choice_count=len(expected),no_choice_occurrences=no_choice,
+        designated_effect_audits=effect_audits,designated_effect_semantics_verified=not errors,
         origin_authenticated=False,all_rule_opportunities_proven=False,opportunity_scope='designated_465_rules_given_actual_trace_entries',
         policy_eligible=None,balance_admitted=None)

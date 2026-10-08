@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_choice_receipt_runtime_and_old_metadata_tampering_are_rejected (test_proxy_population_designated_effects.DesignatedEffectTests.test_choice_receipt_runtime_and_old_metadata_tampering_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in setUp
+    def setUp(self):self.assertIsNotNone(api,'designated full effect audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : designated full effect audit absent
+
+======================================================================
+FAIL: test_existing_trace_audit_invokes_semantics_before_accepting_opportunities (test_proxy_population_designated_effects.DesignatedEffectTests.test_existing_trace_audit_invokes_semantics_before_accepting_opportunities)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in setUp
+    def setUp(self):self.assertIsNotNone(api,'designated full effect audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : designated full effect audit absent
+
+======================================================================
+FAIL: test_six_native_effects_choices_no_choices_outer_and_retained_metadata (test_proxy_population_designated_effects.DesignatedEffectTests.test_six_native_effects_choices_no_choices_outer_and_retained_metadata)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_designated_effects.py", line 45, in setUp
+    def setUp(self):self.assertIsNotNone(api,'designated full effect audit absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : designated full effect audit absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)
