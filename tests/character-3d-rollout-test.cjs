@@ -148,7 +148,7 @@ test('reviewed jellyfish batch preserves eight exact rooted, ephyra and bell run
   const t=rt.getTemplate('jellyfish',stage);assert.equal(t.status,'ok');
   assert.equal(t.rig.locomotion,stage<=2?'plantSway':'blobFloat');
  }
- assert.equal(SPEC.specKeyFor({line:'dragon',stage:6}),null,'unreviewed dragon family stays outside rollout');
+ assert.equal(SPEC.specKeyFor({line:'phoenix',stage:6}),null,'unreviewed Phoenix remains isolated');
 });
 test('reviewed beetle families preserve all exact metamorphosis stages in runtime',async()=>{
  const rt=await import('../character-3d/runtime.mjs');
@@ -192,7 +192,7 @@ test('reviewed world tree batch resolves eight exact rooted stage identities in 
   assert.deepEqual(SPEC.specKeyFor({line:'world_tree',stage:stage-1}),{id:'world_tree',stage,exact:true});
   const t=getTemplate('world_tree',stage);assert.equal(t.status,'ok');assert.equal(t.rig.archetype,'branch_organism');assert.equal(instantiate(t).faces.length,1);
  }
- assert.equal(SPEC.specKeyFor({line:'dragon',stage:0}),null,'unreviewed Dragon remains isolated');
+ assert.equal(SPEC.specKeyFor({line:'phoenix',stage:0}),null,'unreviewed Phoenix remains isolated');
 
 });
 test('reviewed plush batch resolves all eight exact soft toy actors with one canonical face',async()=>{
@@ -202,7 +202,7 @@ test('reviewed plush batch resolves all eight exact soft toy actors with one can
   const t=rt.getTemplate('plush',stage);assert.equal(t.status,'ok');assert.equal(t.rig.archetype,'soft_toy');
   for(const emotion of SPEC.CANONICAL_EMOTIONS){const a=rt.instantiate(t);an.setEmotion(a,emotion);an.animate(a,{dt:.05,moving:true,animLv:2});assert.equal(a.faces.length,1);assert.equal(a.faces[0].emotion,emotion);}
  }
- assert.equal(SPEC.specKeyFor({line:'dragon',stage:0}),null,'unreviewed Dragon remains isolated');
+ assert.equal(SPEC.specKeyFor({line:'phoenix',stage:0}),null,'unreviewed Phoenix remains isolated');
 });
 
 test('reviewed Venus batch resolves eight exact stages and preserves each canonical face',async()=>{
@@ -215,5 +215,14 @@ test('reviewed Venus batch resolves eight exact stages and preserves each canoni
    assert.ok(a.faces.length>0);for(const f of a.faces)assert.equal(f.emotion,emotion);
   }
  }
- assert.equal(SPEC.specKeyFor({line:'dragon',stage:0}),null);
+ assert.equal(SPEC.specKeyFor({line:'phoenix',stage:0}),null,'unreviewed Phoenix remains isolated');
+});
+test('reviewed Dragon resolves eight exact stages with one two-eye face and finite motion',async()=>{
+ const rt=await import('../character-3d/runtime.mjs'),an=await import('../character-3d/animate.mjs');
+ for(let stage=1;stage<=8;stage++){
+  assert.deepEqual(SPEC.specKeyFor({line:'dragon',stage:stage-1}),{id:'dragon',stage,exact:true});
+  const t=rt.getTemplate('dragon',stage);assert.equal(t.status,'ok');assert.equal(t.rig.archetype,'winged_reptile');
+  for(const emotion of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=rt.instantiate(t);an.setEmotion(a,emotion);an.animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,1);assert.equal(a.faces[0].eyes.length,2);assert.equal(a.faces[0].emotion,emotion);for(const b of Object.values(a.bones))assert.ok(b.position.toArray().every(Number.isFinite));}
+ }
+ assert.equal(SPEC.specKeyFor({line:'phoenix',stage:0}),null);
 });

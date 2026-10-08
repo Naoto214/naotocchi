@@ -12,7 +12,7 @@ test('Dragon explicit eight-stage candidates retain juvenile support, small wing
   for(const p of r.parts){const g=p.mesh.geometry;assert.ok([...g.attributes.position.array].every(Number.isFinite));tris+=(g.index?.count||g.attributes.position.count)/3;}
   assert.ok(tris<26000,'bounded stage'+n);assert.ok(new THREE.Box3().setFromObject(r.root,true).min.y>=-.005,'ground stage'+n);
  }
- for(let stage=0;stage<8;stage++)assert.equal(require('../character-3d/spec.js').specKeyFor({line:'dragon',stage}),null,'image gate precedes promotion stage '+stage);
+ for(let stage=0;stage<8;stage++)assert.deepEqual(require('../character-3d/spec.js').specKeyFor({line:'dragon',stage}),{id:'dragon',stage:stage+1,exact:true},'reviewed exact stage '+stage);
 });
 test('Dragon06 flame volumes stay owned by the head without hiding the canonical eye targets',async()=>{
  const sp=stages()[6];assert.ok(sp,'sixth stage');

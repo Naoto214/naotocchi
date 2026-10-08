@@ -759,3 +759,12 @@ a65ceb5 remote/local/treeba0b7420 clean matched. Actions37777583881 mythic115514
 Fresh fullnpm on spine-corrected a65ceb5 completed3013PASS/0FAIL plusRelationship80PASS/0FAIL,exit0. Prior exit-code uncertainty is now resolved for this new run only. Exact log gzip/SHA256 saved. Subsequent04coordinate-only correction gets targeted/dedicated coverage;fullnpm is not claimed rerun after that edit. Dragon6/6mutations restored before04root edit. No local test remains running.
 
 Ruling: keep entireDragon family outside runtime until04recapture passes;do not infer image approval from tests. Cost:one further capture round. Coverage204/293,89pending unchanged. Next04gate,all8promotion,remaining40otherplayerstages+41nonplayers after that promotion;Human/iPhoneQA pending.
+
+
+### 2026-10-08 — Dragon all8 image gate PASS and runtime promotion
+
+025d4bb/tree9131a174 remote/local clean matched. Runtime37780926425/Home37780926581/Character37780916572 SUCCESS.04fix artifacts11552082313/11552726107:fourviews/32states/2distance directly inspected;wing now attached. Other7fourviews28/28 andstate images/contact sheets231/231 byte-identical to inspected a65ceb5;their prior14distance review remains valid. Metadata all8exact/fallback0/errors0/failedTemplates0. All8image gate PASS;physical/source-style simplifications andHuman/iPhone limits retained.
+
+Runtime all8 lookup test RED(null) before existing-factory registration,then GREEN. Obsolete Dragon isolation guards now protect unreviewedPhoenix. Fresh dedicated236PASS/0FAIL after28/28rollout mutations andrestoration. Diff afterrestoration contains onlyDragon registry addition;completed registrations preserved. Pilot28hashes unchanged. Independent promotion review C0/I0;final restoration checked by parent. Coverage212/293,81pending(40player+41nonplayer),26playerfamilies/208stages+3companions+1partner. Fourview records210/293 is not fullcoverage.
+
+No new geometry inpromotion. Latest fullnpm remains pre-promotion a65ceb5:3013+80PASS/exit0;not claimed rerun after registration. New26familyaggregate/CI pending after save. Next remainingfiveplayerfamilies and41nonplayer,then full293QA/HumanQA.

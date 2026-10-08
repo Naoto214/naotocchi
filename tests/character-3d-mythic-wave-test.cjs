@@ -10,7 +10,7 @@ test('dragon representatives preserve horned muzzle, plated upright trunk, curle
  let tris=0;for(const p of r.parts){const g=p.mesh.geometry;assert.ok([...g.attributes.position.array].every(Number.isFinite));tris+=(g.index?.count||g.attributes.position.count)/3;}assert.ok(tris<22000);assert.ok(new THREE.Box3().setFromObject(r.root,true).min.y>=-.005,'original standing feet/tail are grounded');
  if(n===7){for(const name of ['wingL','wingR']){const g=r.parts.find(p=>p.bone===name).mesh.geometry;g.computeBoundingBox();assert.ok(g.boundingBox.max.z-g.boundingBox.min.z>.08,'curved membrane has side depth');}const plain=BUILDERS[sp.archetype]({...sp,wing:{...sp.wing,fingers:[]}},'unribbed');assert.ok(r.parts.find(p=>p.bone==='wingL').mesh.geometry.attributes.position.count>plain.parts.find(p=>p.bone==='wingL').mesh.geometry.attributes.position.count+100,'physical supporting wing fingers');}
  }
- assert.equal(SPEC.specKeyFor({line:'dragon',stage:6}),null,'image gate precedes runtime promotion');
+ assert.equal(SPEC.specKeyFor({line:'phoenix',stage:6}),null,'unreviewed Phoenix remains isolated');
 });
 test('dragon owner keeps one canonical face with tail and attached wing motion across32 states',async()=>{
  let rows;try{rows=require('../character-3d/mythic-spec.js')().dragon?.stages;}catch{}assert.ok(rows);
@@ -21,7 +21,7 @@ test('dragon owner keeps one canonical face with tail and attached wing motion a
 });
 
 test('mythic candidate overlay requires one explicit wave and never mutates production lookup',()=>{
- const {candidateConfig}=require('../tools/character-3d/candidate-spec.cjs'),before=JSON.stringify(SPEC.ROLLOUT),c=candidateConfig(['--candidate-mythic','--rollout','--species-only','--line','dragon']);assert.ok(c);assert.equal(c.spec.stageSpec('dragon',7).archetype,'winged_reptile');assert.equal(JSON.stringify(SPEC.ROLLOUT),before);assert.equal(SPEC.specKeyFor({line:'dragon',stage:6}),null);assert.throws(()=>candidateConfig(['--candidate-mythic','--candidate-armored','--rollout','--species-only','--line','dragon']));
+ const {candidateConfig}=require('../tools/character-3d/candidate-spec.cjs'),before=JSON.stringify(SPEC.ROLLOUT),c=candidateConfig(['--candidate-mythic','--rollout','--species-only','--line','dragon']);assert.ok(c);assert.equal(c.spec.stageSpec('dragon',7).archetype,'winged_reptile');assert.equal(JSON.stringify(SPEC.ROLLOUT),before);assert.equal(SPEC.specKeyFor({line:'phoenix',stage:6}),null,'unreviewed Phoenix remains isolated');assert.throws(()=>candidateConfig(['--candidate-mythic','--candidate-armored','--rollout','--species-only','--line','dragon']));
 });
 
 test('dragon membrane has one closed non-overlapping surface pair across its concave scallops',async()=>{

@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 204,
-    "pending": 89,
-    "fourViewRecords": 202
+    "exactSpecs": 212,
+    "pending": 81,
+    "fourViewRecords": 210
   },
   "rows": [
     {
@@ -3536,15 +3536,15 @@
       "group": "rare",
       "asset": "assets/characters/dragon/01.png",
       "sha256": "ee4253c9060ee40344c6eb5a18eee8441c1ac165f3124ce30f5d9fe43dcba468",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "winged_reptile",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-1-back.jpg"
       }
     },
     {
@@ -3556,15 +3556,15 @@
       "group": "rare",
       "asset": "assets/characters/dragon/02.png",
       "sha256": "9dabb093a8d25ac9de2fb572c9812da70d22da127c8c41364bdc23f18d51f2f2",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "winged_reptile",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-2-back.jpg"
       }
     },
     {
@@ -3576,15 +3576,15 @@
       "group": "rare",
       "asset": "assets/characters/dragon/03.png",
       "sha256": "862eb8a705db9d996a93b97dc83d1e6347c2440053871b21ce82fb4e284b7e13",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "winged_reptile",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-3-back.jpg"
       }
     },
     {
@@ -3596,15 +3596,15 @@
       "group": "rare",
       "asset": "assets/characters/dragon/04.png",
       "sha256": "5a176b88933207a3468f7afafb7b060ced9734e6de95ac28e3dd3296ef2812ca",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "winged_reptile",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-4-back.jpg"
       }
     },
     {
@@ -3616,15 +3616,15 @@
       "group": "rare",
       "asset": "assets/characters/dragon/05.png",
       "sha256": "3b7b28d248ecbe9a806902d10cda8cd96382a2fad3a1257f1862d5280cc1dc47",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "winged_reptile",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-5-back.jpg"
       }
     },
     {
@@ -3636,15 +3636,15 @@
       "group": "rare",
       "asset": "assets/characters/dragon/06.png",
       "sha256": "61b1e3c00fb37a3e67396c0e13eddf1ad8aa550d426bb7189308042a1f840211",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "winged_reptile",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-6-back.jpg"
       }
     },
     {
@@ -3656,15 +3656,15 @@
       "group": "rare",
       "asset": "assets/characters/dragon/07.png",
       "sha256": "d0dd2e26caf8c101fe902846fd60549665325127644aba9fea64ad32307c78b4",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "winged_reptile",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-7-back.jpg"
       }
     },
     {
@@ -3676,15 +3676,15 @@
       "group": "rare",
       "asset": "assets/characters/dragon/08.png",
       "sha256": "b14fbf6ce1315c58ec58921454091ee0bde1588157dc093827210453929f6553",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "winged_reptile",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/dragon-8-back.jpg"
       }
     },
     {

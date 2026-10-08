@@ -1,24 +1,24 @@
 {
-  "baseCommit": "a65ceb526e0e62da9fab4bc99bba3f57785cffc4",
-  "checkpoint": "dragon04-wing-root-fixed-final-recapture-pending",
+  "baseCommit": "025d4bbdd63d467512e9d58b26c442350e7bfd91",
+  "checkpoint": "dragon-all8-image-approved-promoted-212",
   "coverage": {
-    "exact": 204,
+    "exact": 212,
     "total": 293,
-    "pending": 89,
-    "playerFamilies": 25,
-    "playerStages": 200,
+    "pending": 81,
+    "playerFamilies": 26,
+    "playerStages": 208,
     "companions": 3,
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 235,
-    "rolloutMutationsDetected": 27,
+    "dedicatedPass": 236,
+    "rolloutMutationsDetected": 28,
     "pilotHashesUnchanged": 28,
-    "fullNpm": "Fresh a65ceb5:3013PASS+Relationship80PASS,0FAIL,exit0;exact gzip/SHA256 saved. Final04coordinate edit has5targeted/235dedicatedPASS;not another fullnpm run.",
-    "postPromotionAggregate": "e45910d artifact11546721411:25families/200exact;fallback/errors/failedTemplates0",
+    "fullNpm": "Pre-promotion spine-corrected a65ceb5:3013PASS+80PASS,0FAIL,exit0,archived. Final04root+runtime promotion has236dedicatedPASS;no fresh fullnpm after registration claimed.",
+    "postPromotionAggregate": "26family/208stage aggregate pending new Actions;25family/200stage result is pre-Dragon",
     "nonplayerMutationsDetected": 7,
     "worldTreeMutationsDetected": 9,
-    "previousHeadCI": "e45910d Runtime37764800479/Home37764800482 SUCCESS;Character37764789096 CANCELLED, not green",
+    "previousHeadCI": "025d4bb Character37780916572/Runtime37780926425/Home37780926581 SUCCESS",
     "venusMutationsDetected": 6,
     "botanicalMutationsDetected": 22,
     "plushStageMutationsDetected": 6,
@@ -30,13 +30,12 @@
     "mythicMutationsDetected": 11,
     "dragonRearRibs": "e45910d Dragon03/07 image gate PASS:8fourviews/64states/4normal-distance",
     "dragonStageMutationsDetected": 6,
-    "dragonAll8": "a65ceb5 all32fourviews/256states/16distance reviewed;spines resolved but04wing root REJECT.04root test RED->GREEN and coordinate fixed;recapture before promotion."
+    "dragonAll8": "025d4bb image gate PASS:32fourviews/256states/16distance;04fixed andrecaptured,other7images match prior inspected bytes"
   },
   "next": [
-    "Review corrected Dragon04 fourviews/32states/2distance;confirm other7unchanged,then all8gate and promotion",
-    "New Actions Dragon all8 image gate:32fourviews/256states/16normal-distance;promote only after PASS",
-    "Remaining48player stages and41nonplayers; candidates isolated until gates",
-    "Full293 integration/performance/regression QA and Human QA package"
+    "Confirm post-promotion26family/208stage runtime aggregate andCI",
+    "Remaining40player stages:phoenix,god,ghost,star,unknown;use existing candidate factories and source-specific stages",
+    "Remaining41nonplayers and full293 integration/performance/regression/Human QA"
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",

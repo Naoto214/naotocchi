@@ -16,3 +16,6 @@ Base: e45910d. Existing full-rollout design/visual-translation rules govern this
 Ruling: reuse the existing winged-reptile builder with authored per-stage anatomy; flame is optional head-owned geometry. This preserves rig/face/material contracts. Visual risk: new low juvenile supports and elder wing contour need all8 source-matched captures before runtime promotion. No scale-only family filling or new generic dragon architecture.
 
 Representative gate e45910d:8fourviews+64states+4normal-distance PASS. All8 gate remains pending. Runtime remains204/293.
+
+
+025d4bb all8 image gate PASS after physical spine-root and04wing-root fixes. Runtime all8 promoted using existing factory;coverage212/293. Proof:docs/qa/character-3d-full-v0/fr5-mythic/025d4bb-dragon/review.json. Full293/Human/iPhone acceptance remains pending.
