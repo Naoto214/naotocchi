@@ -31,3 +31,13 @@ test('Dragon all8 candidates preserve one canonical face and finite owned motion
  for(const [n,sp]of Object.entries(rows)){const r=wingedReptile(sp,'dragon:'+n);r.faces=[attachFace(r,r.faceSpec,'C')];assert.equal(r.faces[0].eyes.length,2,'two projected eyes stage '+n);
  for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'dragon:'+n});setEmotion(a,em);for(let i=0;i<10;i++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,1);assert.equal(a.faces[0].emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}}
 });
+test('new Dragon dorsal and tail spine roots intersect their owned body volumes',async()=>{
+ const {wingedReptile}=await import('../character-3d/winged-reptile.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ for(const n of [1,2,4,5,6,8]){const sp=stages()[n],bare=wingedReptile({...sp,spines:[],tail:{...sp.tail,spines:[]}},'bare');
+ for(const bone of ['body','tail'])for(const [i,q]of (bone==='body'?sp.spines:sp.tail.spines).entries()){
+ const geometry=bare.parts.find(p=>p.bone===bone).mesh.geometry,mesh=new THREE.Mesh(geometry,new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));
+ const direction=bone==='body'?new THREE.Vector3(0,0,-1):new THREE.Vector3(0,1,0),ray=new THREE.Raycaster(new THREE.Vector3(...q.at),direction);
+ const hit=ray.intersectObject(mesh)[0];assert.ok(hit&&hit.face.normal.dot(direction)>0,'attached root stage '+n+' '+bone+' '+i);
+ }
+ }
+});

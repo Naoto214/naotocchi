@@ -741,3 +741,12 @@ Fresh remote e45910d and Draft/open/unmerged376 confirmed; prior scratch files s
 Wave-review timeout cancellation addressed by5jobs preserving14capture commands/6artifact contracts;Dragon state captures now cover8stages. Prior Runtime/Home SUCCESS, Character CANCELLED is not green. Post-Venus25family/200stage aggregate artifact11546721411 has0fallback/errors/failedTemplates.
 
 Review minor fixes:ray test uses actual projected eyes;two eyes checked for every stage;all8runtime isolation checked. Fresh dedicated233PASS/0FAIL after mutation restoration;Dragon6/6mutations detected/restored;Pilot28hashes unchanged. First dedicated run overlapped mutation execution and is not relied on;sequential fresh rerun passed. Fullnpm retained complete summaries3013PASS/0FAIL plus80PASS/0FAIL;original process exit code unavailable. Exact gzip/SHA256 archived;historical3010/2 is separate. No new fullnpm run claimed. No protected production areas changed. Next:all8 Actions image gate before promotion;Human/iPhoneQA remains pending.
+
+
+### 2026-10-08 — Dragon all8 image gate rejected; physical spine roots corrected
+
+d2a4c70 saved103files;remote/local/tree1e7544d1 clean matched. Independent candidate code review C0/I0 with9targetedPASS;image gate remained independent. Actions37775465688 produced mythic11549443483 andDragon-distance11549359550. All32fourviews and16distance reviewed;01/02sideviews visibly floating dorsal spines and02tail spines. Full256state visual approval not claimed after this rejection. No promotion.
+
+Root cause: new-stage anatomy/tail paths no longer meet authored spine roots;bone ownership did not detect physical disconnection. Ray probes show similar attachment defects among new04/05/06/08. Added real mesh interior-root regression, watched RED at01body0, then authored explicit root coordinates for only new six stages;GREEN4/4. No shared-builder or approved03/07 modification. Fresh dedicated234PASS/0FAIL. Source evidence/rejection/RED-GREEN saved. New npm test currently running;exit/result pending,do not conflate retained prior3013+80log.
+
+Ruling: extend attachment repair to all six new stages because the same measured defect exists, rather than approving uninspected similar roots. Cost:all8recapture required;coverage204/293 remains unchanged. Human/iPhoneQA pending.

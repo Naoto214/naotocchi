@@ -1,6 +1,6 @@
 {
-  "baseCommit": "e45910d13bf793051391907d971a59fdb61447d1",
-  "checkpoint": "dragon-all8-candidates-review-split-image-gate-pending",
+  "baseCommit": "d2a4c70586efb70943507ef426c022fbe7c47fc7",
+  "checkpoint": "dragon-all8-spine-attachment-fixed-recapture-pending",
   "coverage": {
     "exact": 204,
     "total": 293,
@@ -11,7 +11,7 @@
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 233,
+    "dedicatedPass": 234,
     "rolloutMutationsDetected": 27,
     "pilotHashesUnchanged": 28,
     "fullNpm": "Retained completed summaries:3013PASS/0FAIL plus Relationship80PASS/0FAIL. Original process exit code unavailable; exact compressed log and SHA256 archived. Historical3010/2 separate.",
@@ -30,10 +30,11 @@
     "mythicMutationsDetected": 11,
     "dragonRearRibs": "e45910d Dragon03/07 image gate PASS:8fourviews/64states/4normal-distance",
     "dragonStageMutationsDetected": 6,
-    "dragonAll8": "Candidate only;03/07 unchanged;all8 image gate pending;review minor tests improved:real eye rays,two eyes per stage,all8 runtime isolation"
+    "dragonAll8": "d2a4c70 REJECT_SPINE_ATTACHMENT;actual new-stage roots corrected;regression RED->GREEN;03/07 unchanged;new all8 image gate required",
+    "currentFullNpm": "Fresh npm test started after spine correction; still running at this checkpoint. Prior completed3013+80 log is separate."
   },
   "next": [
-    "Save candidates and split workflow via Git Data API; fresh remote/local/tree verification",
+    "Collect fresh fullnpm exit code;review corrected all8 Actions images before promotion",
     "New Actions Dragon all8 image gate:32fourviews/256states/16normal-distance;promote only after PASS",
     "Remaining48player stages and41nonplayers; candidates isolated until gates",
     "Full293 integration/performance/regression QA and Human QA package"
