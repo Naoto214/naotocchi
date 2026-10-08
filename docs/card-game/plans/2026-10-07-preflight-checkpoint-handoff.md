@@ -66,3 +66,7 @@ c8b869dからW-city/P-cat_ceo/M07/Panglerの現在条件auditを既存列挙入�
 35a6899のfresh remote保存確認後、collectのPcat早期不成立を既存意味監査へ接続。現在公開source rosterの分類/明示未証明と正の機会投影をfresh predicate証拠へ結合。とかいの2枚目originと走査anchorの違いを維持。最終関連45PASS6.485s・結合19PASS132.046s、独立review C0/I0/Minor0、設計errors=[]・476不変。verification/native-collection-review.mdとstatus末尾が最新。前closureの関連33/結合19/npm406と今回の範囲を区別する。
 
 この結合は保存proofの独立認証ではなく同一呼出しのfresh監査結果を対象とする。全機会/予約/実情報使用/operand/承認・時系列・lockは未証明。次は正本効果と実dispatchに由来する予約/自動処理の条件・機会の結合。preflight-ready=false、生成/固定/400戦0、全体結論null。最新remote HEAD/tree・PR259 Draft/open/unmergedをfresh確認して再開する。
+
+### typed効果の終了時失効監査（最新）
+
+f696bbeから既存payments/stat/conditionalの終了失効を正本64と全event coverageへ結合。閉じた境界・全ID・全消去・無関係状態保持、turn/round/terminalへの持越し禁止。既存handler不変。review C0/I1/Minor0の残chain_links漏れを実処理RED→GREEN修正。最終関連56PASS4.344s・結合19PASS134.499s。npm初回環境異常は未完了として分離し再実行406PASS、設計errors=[]・476不変。詳細effect-expiry-review.mdとstatus末尾。生成/消費・旧予約・全機会・実情報/operand・承認lockは未証明。次は実生成/消費routeと残gate。preflight-ready=false、生成/固定/400戦0、結論null。

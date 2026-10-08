@@ -12,6 +12,7 @@ import proxy_population_trigger_existing as existing
 import proxy_population_trigger_latching as latching
 import proxy_population_hand_timing as hand_timing
 import proxy_population_start_obligations as starts
+import proxy_population_effect_expiry as expiry
 from proxy_mandatory_policy_contract import canonical
 
 
@@ -35,13 +36,16 @@ def reconcile(expected,journals):
 def audit(result,initial_history,initial_proof):
     """Call inside the native scopes which own the execution's source handlers."""
     expected=copy.deepcopy(initial_proof['occurrences']);history=copy.deepcopy(initial_history)
-    previous=result['source_envelope'];examined=[];start_origins=[]
+    previous=result['source_envelope'];examined=[];start_origins=[];expiry_audits=[]
     boundaries={previous['event_seq']:previous};actual_events=[]
     for step in result['steps']:
         if canonical(previous)!=canonical(step['source_envelope']):raise ValueError('coverage step source differs')
         if len(step['events'])!=len(step['envelopes']):raise ValueError('coverage event/envelope count differs')
         for bound,after in zip(step['events'],step['envelopes']):
             event={k:v for k,v in bound.items() if k not in runtime.BIND_KEYS}
+            expiration=expiry.audit(previous,after,event)
+            if expiration['errors']:raise ValueError('typed effect expiry differs: '+str(expiration['errors']))
+            expiry_audits.append(expiration)
             timing=latching.capture(previous,after,event)
             history.append(event);expected.extend(timing['occurrences']);expected.extend(hand_timing.capture(previous,after,event)['occurrences'])
             # Scan every transition, not only events selected by the driver.
@@ -76,7 +80,7 @@ def audit(result,initial_history,initial_proof):
     proof=reconcile(expected,journals)
     import proxy_population_opportunity_order as order
     proof['processing_order']=order.audit(result,expected)
-    proof.update(transitions=examined,start_origins=start_origins,
+    proof.update(transitions=examined,start_origins=start_origins,typed_effect_expiry_audits=expiry_audits,
                  source_scope=dict(native=sorted(existing.SUPPORTED),latched=sorted(latching.CARDS),hand_optional=sorted(hand_timing.DESCRIPTORS),start_catalog_sha256=starts.CATALOG_SHA),
                  initial_occurrences_conditionally_supplied=True)
     return proof
