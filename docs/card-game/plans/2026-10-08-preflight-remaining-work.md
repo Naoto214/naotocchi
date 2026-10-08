@@ -328,3 +328,12 @@ cd41047からP07を継続。06 pinを再利用し、normal_actionの空連鎖/�
 TDD3FAIL→初回1FAIL（coverageのtyped消去は既存typed生成監査が先に拒否）→接続試験を余分な成長へ変更し、新監査到達を確認、関連9PASS1.213s。typed失効の直接拒否試験は保持。独立review1回C0/I0/Minor0（新規3PASS0.725s）。途中ログ保存。固定Python結合: Ran 22 tests in 166.603s、PASS。design errors=[]、保護476件不変。
 
 次工程調査: 旧反応passには複数の復帰表現があるが、現行runtime.operationのquick.scopeは全response_passを既存quick.response_passへ接続している。旧raw入口を現行dispatchと誤認せず、この既存統一入口と外側challenge/end補正を次に照合する。再実装や未確認の同値扱いはしない。管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、最新npm/全proxy回帰完了は主張しない。
+
+
+### 現行反応パスの全差分と復帰先
+
+5fb503dからP07を継続。現行quick.scopeの統一response_pass入口を正本06/65と照合。0→1では優先を相手へ渡し、1→2では空連鎖を通常/終了/比較前/挑戦終了へ戻すか、積まれた連鎖をresolvingへ移す。stack・資源・回数・typed・全metadataは保持し、event.resultの4項目も結合する。外側triggers/challenge補正を含めて照合し、旧raw passの別表現を許容枝として追加しない。native/119は変更しない。
+
+TDD3FAIL→初回3ERROR（fixtureで同seqのbefore/afterをbind）→条件付き起点記録へ修正後3ERROR（初期窓の時1条件違反）→訂正後1ERROR（両deckに同じmainがあると仮定）→各deckの実main使用後1ERROR（fixtureに既存paid.scope不足）→通常接続どおり既存scopeを使用し関連12PASS1.705s。開始/配置後/終了/比較前/挑戦終了/連鎖ありの各2pass、不正優先/早期解決/資源改変/receipt差替えとcoverageを検証。これらの条件付きorigin/選択は本番入力や認証済み履歴ではない。
+
+独立review1回C0/I0/Minor0（新規3PASS0.527s）。失敗・成功ログを保存。共通制御のため固定22+既存完走unit trace1: Ran 23 tests in 289.488s、PASS。design errors=[]、保護476件不変。未処理機会の閉包・全履歴/全機会は未証明、管理項目22維持、preflight-ready=false、生成/固定/400戦0、全体結論null、最新npm/全proxy回帰完了は主張しない。

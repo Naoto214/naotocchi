@@ -1,0 +1,32 @@
+FFF
+======================================================================
+FAIL: test_both_passes_at_start_placement_end_challenge_and_building_chain (test_proxy_population_response_pass_effect.ResponsePassEffectTests.test_both_passes_at_start_placement_end_challenge_and_building_chain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_response_pass_effect.py", line 40, in setUp
+    def setUp(self):self.assertIsNotNone(api,'response pass full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : response pass full delta absent
+
+======================================================================
+FAIL: test_coverage_refuses_added_growth_with_rebound_hashes (test_proxy_population_response_pass_effect.ResponsePassEffectTests.test_coverage_refuses_added_growth_with_rebound_hashes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_response_pass_effect.py", line 40, in setUp
+    def setUp(self):self.assertIsNotNone(api,'response pass full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : response pass full delta absent
+
+======================================================================
+FAIL: test_wrong_priority_early_resolution_and_extra_state_changes_refused (test_proxy_population_response_pass_effect.ResponsePassEffectTests.test_wrong_priority_early_resolution_and_extra_state_changes_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_response_pass_effect.py", line 40, in setUp
+    def setUp(self):self.assertIsNotNone(api,'response pass full delta absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : response pass full delta absent
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)
