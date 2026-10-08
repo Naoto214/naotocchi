@@ -70,3 +70,7 @@ c8b869dからW-city/P-cat_ceo/M07/Panglerの現在条件auditを既存列挙入�
 ### typed効果の終了時失効監査（最新）
 
 f696bbeから既存payments/stat/conditionalの終了失効を正本64と全event coverageへ結合。閉じた境界・全ID・全消去・無関係状態保持、turn/round/terminalへの持越し禁止。既存handler不変。review C0/I1/Minor0の残chain_links漏れを実処理RED→GREEN修正。最終関連56PASS4.344s・結合19PASS134.499s。npm初回環境異常は未完了として分離し再実行406PASS、設計errors=[]・476不変。詳細effect-expiry-review.mdとstatus末尾。生成/消費・旧予約・全機会・実情報/operand・承認lockは未証明。次は実生成/消費routeと残gate。preflight-ready=false、生成/固定/400戦0、結論null。
+
+### 次回変身の軽減消費監査（最新）
+
+dc4154eから正本91の消費を既存batch.transition/全event coverageへ結合。最終関連58PASS8.092s・結合19PASS133.828s、独立review C0/I0/Minor0、設計errors=[]・476不変。初回結合の誤った「既存試走にmovementあり」assertionは実event inventoryを確認して適用判定一致へ修正、実変身の正例は専用testに保持。詳細payment-consumption-review.mdとstatus末尾。支払量/生成/全機会証明ではない。次は既存consume_win_rewardsの次勝利消費（差2の報酬成立とは別）・挑戦終了/対象離脱/生成routeと残gate。preflight-ready=false、生成/固定/400戦0、全体結論null。

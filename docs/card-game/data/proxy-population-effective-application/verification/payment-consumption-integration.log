@@ -1,0 +1,13 @@
+.F.................
+======================================================================
+FAIL: test_existing_unit_prefix_crosses_multiple_turns_with_all_histories (test_proxy_population_challenge_window.MultiTurnConnectionTests.test_existing_unit_prefix_crosses_multiple_turns_with_all_histories)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/84a1bac0476b/naotocchi/docs/card-game/tools/test_proxy_population_challenge_window.py", line 64, in test_existing_unit_prefix_crosses_multiple_turns_with_all_histories
+    self.assertTrue(any(p['payment_consumption_verified'] for p in payments_audit))
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 19 tests in 133.510s
+
+FAILED (failures=1)

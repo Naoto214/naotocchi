@@ -328,3 +328,11 @@ f696bbeから継続。支払軽減・能力値・条件付き報酬の既存type
 初期4RED→GREEN・実coverage入口1RED→GREEN。独立review C0/I1/Minor0。I1はempty statusでもchain_linksが残る境界を許す漏れ。実payments.expireでRED再現しexact empty linksを要求して修正。最終関連56PASS（4.344s）、修正後Python固定の結合19PASS（134.499s、既存115/test-zero-root全20turn/R10・実入口・admission）。前55/結合19PASS136.926sは修正前。npm初回は環境fatal library errorで未完了、別ログの再実行406PASS。設計errors=[]、番号付き476不変。詳細verification/effect-expiry-review.md。
 
 preflight-ready=false。次は実生成/消費route（変身軽減・次勝利条件・挑戦終了等）と予約/自動処理の機会閉包、実情報使用・operand、外部承認/時系列/lock/provenance。未知を0や同価値にせず、新価値/優先/先読みなし。seed生成/本番固定/400戦0、旧116除外、policy promotion=false、独立balance0、全体結論null。最新全proxy回帰とは扱わない。
+
+## 次回変身の支払軽減消費と実遷移の結合
+
+dc4154eから継続。正本91の次回変身効果について、既存batch.transitionが消費する全自分側modifierと保持する相手側行を、閉じた通常入口・actor/source/variant/sequence・exact receiptへ結合。birth/time_skipは保持、非movementの消費claimは拒否。実支払が0へ丸められる場合も既存消費を確認。handler/候補器/選択は変更なし。支払額・生成・他系統・旧予約・全機会は未証明。
+
+初期3RED→GREEN、実coverage export1RED→GREEN、最終関連58PASS（8.092s）。初回結合19中1失敗は追加テストが既存20turn試走にmain_movementがあると誤認したもの。実event inventoryにはなく、各eventの適用判定一致へtestだけ修正。実変身の正例は専用handler経路で確認済み。Python固定後の最終結合19PASS（133.828s）。独立review C0/I0/Minor0、追加reviewなし。設計errors=[]、番号付き476不変。詳細verification/payment-consumption-review.md。npm406は前expiry bundleの結果。最新全proxy回帰ではない。
+
+次は正本81の次勝利条件と実consume_win_rewards、挑戦終了/対象離脱、生成routeと旧予約機会の結合。既存consume_win_rewardsは差が2でなくても当該mainの次勝利時に消費する。引分/中止/敗者側・別対象は保持するため、報酬量と消費条件を分離して監査する。比較operand・許可情報実使用・外部承認認証/結果前順序/本番lock/provenanceは引き続き未証明。preflight-ready=false、生成/固定/400戦0、旧116除外、policy promotion=false、独立balance0、全体結論null。
