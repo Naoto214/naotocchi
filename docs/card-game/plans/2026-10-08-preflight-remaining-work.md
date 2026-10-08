@@ -120,3 +120,15 @@ Final frozen-source integration22PASS162.362s (previous19 scope plus runtime_ent
 管理項目は22のまま。この追加修正の理由は監査を実開始/終了adapterまで辿って接続差を見つけたため。preflight-ready=false、生成/固定/400戦0、全体結論null。次の未完はP06の本文論証を実物理集合/全handler意味へ結合し、P07全dispatch・P08/P09全機会・P10〜P17へ進めること。
 
 Final frozen-source integration22PASS167.431s; related32PASS2.143s; design errors=[]; numbered476 unchanged. Latest npm406 at9e59c06, not re-run for Python-only boundary fix. No production seed/input/game.
+
+### 5種の1draw解決意味の接続
+
+ac5a24fからP07を継続。M02/M05/M08/P-desert_scorpion/I-bowtieの既存resolverを再実装せず、固定start catalogの本文と、供給linkに対する1draw/空山札/全状態差分を全event coverageへ結合した。支払済みcost・使用記録・予約・他者/他札を保持し、誤ったtop・枚数・返金・外側連鎖消去を拒否。開始/終了/挑戦の既存adapter差分も監査する。発動条件/起点認証/全機会/P06閉包は未証明。
+
+独立review C0/I0/Minor1。Minorはchallenge分岐とP-scorpionのmainなし拒否の専用永続test不足（独立probeでは正常）。関連31PASS3.667s、設計errors=[]、保護476不変。固定Python結合はverification/draw-effects-integration.log。初回scope不足・public turn履歴不足のfixture失敗と、coverage接続前の不正draw受入れREDを保持。
+
+新具体化: P-scorpionの解決時たまご抑止はtriggers.resolveに見当たらず、現監査はこの枝を明示拒否。06/93の既決定条件であり新裁定不要。実dispatchでの再現/必要接続または到達条件の結合をP07へ残す。また既存回収監査は挑戦normalize後のcontextを誤拒否する4条件付きprobeを再現。これは新監査の接続不足であり古いhandler不具合と数えない。次bundleで実挑戦状態によるTDD修正。管理項目22を維持、増加理由は全handler差分と外側adapterを突き合わせたため。
+
+preflight-ready=false、seed生成/本番固定/400戦0、全体結論null。npm406は9e59c06時点。今回全proxy回帰完了ではない。
+
+Final frozen Python integration: Ran 22 tests in 197.181s, PASS. Related31PASS3.667s. No production inputs/games.
