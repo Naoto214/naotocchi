@@ -768,3 +768,9 @@ Ruling: keep entireDragon family outside runtime until04recapture passes;do not 
 Runtime all8 lookup test RED(null) before existing-factory registration,then GREEN. Obsolete Dragon isolation guards now protect unreviewedPhoenix. Fresh dedicated236PASS/0FAIL after28/28rollout mutations andrestoration. Diff afterrestoration contains onlyDragon registry addition;completed registrations preserved. Pilot28hashes unchanged. Independent promotion review C0/I0;final restoration checked by parent. Coverage212/293,81pending(40player+41nonplayer),26playerfamilies/208stages+3companions+1partner. Fourview records210/293 is not fullcoverage.
 
 No new geometry inpromotion. Latest fullnpm remains pre-promotion a65ceb5:3013+80PASS/exit0;not claimed rerun after registration. New26familyaggregate/CI pending after save. Next remainingfiveplayerfamilies and41nonplayer,then full293QA/HumanQA.
+
+## 2026-10-08 Dragon promotion saved; Phoenix representatives accepted
+
+Dragon promotion ce809aa82ec5b934eece4bcfb6738832d137e39a/tree df5cff023672624507fb0cb99ae13b61108edb4a saved by Git Data API nonforce leased ref. Fresh fetch/local/remote/tree clean matched. New Character37788145192,Runtime37788161396,Home37788161431 queued at check;no success claim yet.
+
+Phoenix025d4bb corrected03/07:8fourviews,64state cells,4normal-distance inspected.07cream feather borders and layered breast now distinguish plumage,expressions/attached anatomy remain readable. PASS_REPRESENTATIVE_IMAGE_GATE supersedes6a color rejection.78original image files archived in2stage ZIPs with SHA256manifest and raw metadata. Candidate metadata2exact/player3d,fallback/errors/failedTemplates0. Runtime212/293,81pending unchanged;remaining6Phoenix stages next. No product code change or new fullnpm run in this checkpoint;notHuman/iPhone acceptance.
