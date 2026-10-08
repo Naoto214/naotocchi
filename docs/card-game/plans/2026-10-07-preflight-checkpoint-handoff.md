@@ -138,3 +138,13 @@ Final frozen-source integration22PASS162.362s (previous19 scope plus runtime_ent
 ### 107本文の予約・人物除去条件付き閉包
 
 9e59c06からsource41本文を全件照合した別紙plans/2026-10-08-preflight-source-closure.mdを追加。外部card/能力生成と敵main/なかま除去は本文上0。I-poop1/I-bond1の条件は固定107・本文準拠遷移の仮定下で非到達、期限付き10sourceはtyped payment2/stat7/conditional1。実handler全意味・物理集合/再登場・input起点・全機会の結合が残るため、P06/P08/P09を実行証明へ昇格しない。I-sleepboost1の旧表「支払2」は残り時>=2条件へ訂正（nativeも時支払なし）。独立review C0/I0/Minor1の上表/下表誤記を修正。code変更なし、管理項目22を維持、生成/固定/400戦0、preflight-ready=false。
+
+### 回収監査と開始/終了boundary adapterの結合修正
+
+128aa1bから実dispatchを追跡し、9e59c06で追加した回収監査が、既存boundary_response.normalizeによる最終link後の反応再開を誤拒否する欠落を発見。新監査の結合不足であり、古いhandlerの不具合として数えない。C-bat/M06×start/endの実adapter4ケースをRED再現し、供給processing_boundaryの厳格形/turn owner/非未来origin/空stackと、反応再開後の全envelope差分を監査へ追加した。実adapter・driver・historical source/hashは変更しない。境界の実起点認証は既存ledger側に残し、event名/metadataだけで認証しない。
+
+独立review C0/I0/Minor1。Minorは不正boundary型/外側stackの専用永続回帰不足（独立read-only probeでは拒否確認済み）。先の外側stack回帰未追加と合わせP07へ保留。関連32PASS2.143s、最終固定Python結合はverification/return-boundary-integration.log。source41本文の論証が全実行閉包を証明した扱いにはしない。
+
+管理項目は22のまま。この追加修正の理由は監査を実開始/終了adapterまで辿って接続差を見つけたため。preflight-ready=false、生成/固定/400戦0、全体結論null。次の未完はP06の本文論証を実物理集合/全handler意味へ結合し、P07全dispatch・P08/P09全機会・P10〜P17へ進めること。
+
+Final frozen-source integration22PASS167.431s; related32PASS2.143s; design errors=[]; numbered476 unchanged. Latest npm406 at9e59c06, not re-run for Python-only boundary fix. No production seed/input/game.

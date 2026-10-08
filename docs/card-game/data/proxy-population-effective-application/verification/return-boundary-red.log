@@ -1,0 +1,69 @@
+..FFFF...
+======================================================================
+FAIL: test_existing_start_end_restart_adapter_preserves_return_semantics (test_proxy_population_return_effects.ReturnEffectsTests.test_existing_start_end_restart_adapter_preserves_return_semantics) (card='C-bat', kind='start')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_return_effects.py", line 117, in run
+    with self.subTest(card=card,kind=kind):self.assertEqual(api.audit(b,final,ev)['errors'],[])
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['return effect changed unrelated state or retained chain'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'return effect changed unrelated state or retained chain'
+
+- ['return effect changed unrelated state or retained chain']
++ []
+
+======================================================================
+FAIL: test_existing_start_end_restart_adapter_preserves_return_semantics (test_proxy_population_return_effects.ReturnEffectsTests.test_existing_start_end_restart_adapter_preserves_return_semantics) (card='C-bat', kind='end')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_return_effects.py", line 117, in run
+    with self.subTest(card=card,kind=kind):self.assertEqual(api.audit(b,final,ev)['errors'],[])
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['return effect changed unrelated state or retained chain'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'return effect changed unrelated state or retained chain'
+
+- ['return effect changed unrelated state or retained chain']
++ []
+
+======================================================================
+FAIL: test_existing_start_end_restart_adapter_preserves_return_semantics (test_proxy_population_return_effects.ReturnEffectsTests.test_existing_start_end_restart_adapter_preserves_return_semantics) (card='M-antlion-06', kind='start')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_return_effects.py", line 117, in run
+    with self.subTest(card=card,kind=kind):self.assertEqual(api.audit(b,final,ev)['errors'],[])
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['return effect changed unrelated state or retained chain'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'return effect changed unrelated state or retained chain'
+
+- ['return effect changed unrelated state or retained chain']
++ []
+
+======================================================================
+FAIL: test_existing_start_end_restart_adapter_preserves_return_semantics (test_proxy_population_return_effects.ReturnEffectsTests.test_existing_start_end_restart_adapter_preserves_return_semantics) (card='M-antlion-06', kind='end')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_return_effects.py", line 117, in run
+    with self.subTest(card=card,kind=kind):self.assertEqual(api.audit(b,final,ev)['errors'],[])
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['return effect changed unrelated state or retained chain'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'return effect changed unrelated state or retained chain'
+
+- ['return effect changed unrelated state or retained chain']
++ []
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.860s
+
+FAILED (failures=4)

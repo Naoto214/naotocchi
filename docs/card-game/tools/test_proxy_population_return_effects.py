@@ -104,5 +104,21 @@ class ReturnEffectsTests(unittest.TestCase):
    a['runtime']['attachments'][target]=copy.deepcopy(b['runtime']['attachments'][target])
    self.assertTrue(api.audit(b,a,ev)['errors']);return {}
   self.run_case(run)
+ def test_existing_start_end_restart_adapter_preserves_return_semantics(self):
+  import proxy_population_boundary_response as boundary
+  import proxy_continuation_payments as payments
+  def run():
+   for card in ('C-bat','M-antlion-06'):
+    for kind in ('start','end'):
+     b,a,event,_=transition(card,ending=kind=='end')
+     descriptor=dict(kind=kind,turn_player=b['legacy_continuation']['game_state']['turn_player'],origin_event_seq=3)
+     result=boundary.normalize(b,payments.forced_result(b,a,event),descriptor)
+     final=result['new_envelopes'][0];ev=result['new_events'][0]
+     with self.subTest(card=card,kind=kind):self.assertEqual(api.audit(b,final,ev)['errors'],[])
+     for field,value in [('kind','unknown'),('origin_event_seq',999),('turn_player','foreign')]:
+      bad=copy.deepcopy(ev);bad['processing_boundary'][field]=value
+      self.assertTrue(api.audit(b,final,bad)['errors'])
+   return {}
+  self.run_case(run)
 
 if __name__=='__main__':unittest.main()

@@ -54,8 +54,17 @@ def audit(before,after,event):
     ec['response_context'].update(chain_status='empty',consecutive_passes=2 if ending else 0)
     ec['game_state']['phase']='turn_end' if ending else 'normal_action'
     ec['return_target']='turn_end' if ending else 'normal_action_opportunity'
+   if 'processing_boundary' in event:
+    # Existing06 adapter reopens ordinary reactions after the last link.
+    # Validate its supplied shape/delta, not the origin ledger's authority.
+    boundary=event['processing_boundary'];origin=boundary.get('origin_event_seq')
+    if set(boundary)!={'kind','turn_player','origin_event_seq'} or boundary['kind'] not in ('start','end') or boundary['turn_player']!=g['turn_player'] or type(origin) is not int or not 0<origin<=before['event_seq'] or ec['activation_zone']:raise ValueError('return processing boundary differs')
+    ending=boundary['kind']=='end'
+    ec['game_state']['phase']='turn_end_response' if ending else 'response_window'
+    ec['return_target']='turn_end' if ending else 'normal_action_opportunity'
+    ec['response_context']=dict(source_phase='turn_end' if ending else 'response_window',phase='response_window',window_kind='after_normal_action',origin_event_seq=seq,turn_player=g['turn_player'],priority_actor=g['turn_player'],chain_status='empty',chain_links=[],consecutive_passes=0,response_opportunity_index=1,decision_kind='response_action',choice_kind='reaction_or_pass')
    if canonical(after)!=canonical(expected):raise ValueError('return effect changed unrelated state or retained chain')
- except (ValueError,KeyError,TypeError,IndexError,OSError) as error:errors.append(str(error))
+ except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
  return dict(schema='supplied_return_effect_semantics.v1',applicable=applicable,errors=errors,
   supplied_return_resolution_verified=applicable and not errors,returned_instance_id=returned,source_reference=reference,
   before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),
