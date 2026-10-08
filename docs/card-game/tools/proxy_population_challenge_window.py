@@ -9,6 +9,7 @@ import proxy_population_main_routes as main_routes
 import proxy_population_effect_application_runtime as application
 import proxy_population_chain_resolution as chain
 import proxy_population_growth_runtime as growth
+import proxy_population_partner_draw as partner_draw
 import proxy_population_challenge_arithmetic as arithmetic
 import proxy_population_runtime as runtime
 import proxy_population_end_victory as victory
@@ -106,7 +107,7 @@ def contract_scope():
   def connected(forced):
    # Install after native scopes so verified actual deltas replace their
    # historical constant-growth provenance, never the opposite order.
-   with arithmetic.scope(),growth.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+   with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
   return prior_operation(initial,connected)
  try:
   runtime.operation=operation;runtime._step=step

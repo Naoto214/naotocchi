@@ -45,7 +45,7 @@
 | P-anglerfish | proxy_continuation_payments.resolve_board_stat | typed生成/終了済。deepseaと自宣言の条件・個体 |
 | P-cat_ceo | proxy_continuation_triggers.resolve | 登場の任意手札支払→draw、指定mandatory |
 | P-cliff_goat | proxy_population_trigger_effects.resolve / relationship_payment | typed生成/同partner交際消費済。全関係の数値根拠、成長100到達は既存拒否継続 |
-| P-desert_scorpion | proxy_continuation_triggers.resolve | end時手札条件、draw・空山札・1ターン制限 |
+| P-desert_scorpion | proxy_population_partner_draw.scope → proxy_continuation_triggers.resolve | end時の表向きあそび/あいてむ履歴・1ターン制限。1draw全差分と解決時たまご抑止を接続、起点/全機会は別 |
 | W-city | proxy_continuation_triggers.resolve | 登場起点/公開top選択の指定mandatory |
 | W-countryside | proxy_continuation_triggers.resolve | end条件と成長5/474上限/誘発の結合 |
 | W-deepsea | proxy_continuation_challenge.stats | hand2以下の即時再適用/解除と両値補正 |

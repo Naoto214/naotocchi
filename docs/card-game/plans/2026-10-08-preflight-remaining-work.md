@@ -142,3 +142,15 @@ afd4986から保存後も継続。回収C-bat/M06が最終linkを終えると既
 次工程調査: P-scorpionのmainを解決前に失った供給境界を実forcedへ通すと1drawしてしまう（scorpion-egg-dispatch-probe.log）。06/93の既決定抑止と不一致。現監査が拒否するため算入はされないが、供給境界の既存resolver未接続としてP07へ明示。全107到達不能の証明を先取りしない。管理項目22維持、preflight-ready=false、生成/固定/400戦0、結論null。
 
 Final frozen Python integration: Ran 22 tests in 164.044s, PASS. Related31PASS7.868s; review C0/I0/Minor0. No production inputs/games.
+
+### P-desert_scorpionの解決時たまご抑止
+
+7130b02から実forcedの未接続をRED再現し、正本06/93の「正当に発動済みでも解決時たまごなら効果を適用しない」を現行operation scopeへ接続。該当source/時点だけ既存draw数を0にし、nativeの解決・連鎖pop・event生成を再利用する。stateの偽装/山札消去/発動取消し/使用回数復元なし。finallyでdescriptorとresolverを復元。通常1draw、main能力のsource離脱後draw、空外側/残存外側、終了反応再開を保持。旧file/hash/manifest不変。
+
+独立review C0/I0/Minor1。Minorの負例テストが再開後stateと再開前eventを組んでいたため、同じstate/eventの正常受理を先に確認してから不正drawを加える形へ修正。再レビューなし。最終関連30PASS4.479s。レビュー修正前の結合試験はCtrl-C/exit130で中断し未完了ログ保存、Python停止を確認後に修正した。最終固定Python結合はpartner-draw-final-integration.logのみ。
+
+試験コマンドのeffect_applicationという存在しないmodule指定ERRORも別ログに保持。途中境界だけをend.verify_new_eventsへ渡す追加probeは全seq0起点のsnapshotがなく拒否された。実forcedと条件付き全差分の確認を、全履歴provenance認証へ読み替えない。
+
+P07のこの具体的resolver未接続は解消。107内での到達性/全機会/他partner handler意味/起点認証/P06閉包は別。課題数22維持、preflight-ready=false、seed生成/本番固定/400戦0、結論null。次は残る捨て札回収・山札操作handlerの意味結合を、既存処理/選択境界を再利用して進める。
+
+Final frozen Python integration: Ran 22 tests in 157.743s, PASS. Related30PASS4.479s; review C0/I0/Minor1 corrected inline; design errors=[]; numbered476 unchanged. No production inputs/games.

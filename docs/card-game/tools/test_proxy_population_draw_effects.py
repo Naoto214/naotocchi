@@ -103,7 +103,7 @@ class DrawEffectsTests(unittest.TestCase):
    proof=api.audit(a,a,dict(action_type='response_pass'));self.assertEqual(proof['errors'],[]);self.assertFalse(proof['supplied_draw_resolution_verified'])
    return {}
   self.run_case(run)
- def test_challenge_restart_and_known_partner_egg_gate(self):
+ def test_challenge_restart_and_wrong_partner_egg_output(self):
   def run():
    for card in ('M-antlion-02','M-antlion-08'):
     for status in ('comparing','resolved'):
@@ -114,7 +114,7 @@ class DrawEffectsTests(unittest.TestCase):
       self.assertTrue(api.audit(b,bad,ev)['errors'])
    b,a,ev=actual('P-desert_scorpion')
    p=b['legacy_continuation']['game_state']['players'][ev['actor']];p['discard'].append(p['board']['main']);p['board']['main']=None
-   self.assertIn('partner egg suppression semantics not connected',api.audit(b,a,ev)['errors'])
+   self.assertTrue(api.audit(b,a,ev)['errors'])
    return {}
   self.run_case(run)
  def test_coverage_rejects_rebound_false_draw(self):

@@ -6,13 +6,14 @@ or full dispatch authentication. Reuses the pinned catalog, never the resolver.
 import copy
 import proxy_continuation_state as state
 import proxy_population_start_obligations as starts
+import proxy_population_partner_draw as partner_draw
 from proxy_mandatory_policy_contract import canonical
 
 CARDS=frozenset(('M-antlion-02','M-antlion-05','M-antlion-08','P-desert_scorpion','I-bowtie'))
 
 
 def audit(before,after,event):
- errors=[];applicable=False;reference=None;drawn=[]
+ errors=[];applicable=False;reference=None;drawn=[];suppressed=False
  try:
   c=before['legacy_continuation'];g=c['game_state'];ctx=c['response_context'];links=c['activation_zone']
   link=links[-1] if links else None;card=link.get('card_id') if link else None
@@ -28,10 +29,9 @@ def audit(before,after,event):
    if type(seq) is not int or seq!=before['event_seq']+1 or after['event_seq']!=seq:raise ValueError('draw effect sequence differs')
    if event['actor']!=actor or event['source_instance_id']!=source or event['source_zone']!='board' or event['chain_link_id']!=link['link_id'] or event['source_reference']!=reference:raise ValueError('draw effect receipt identity differs')
    p=g['players'][actor]
-   #06/93: a partner cannot apply an unresolved ability while its owner is
-   #an egg. Fail closed until that distinct resolver path is connected.
-   if card=='P-desert_scorpion' and p['board']['main'] is None:raise ValueError('partner egg suppression semantics not connected')
-   drawn=p['deck'][:1]
+   if card=='P-desert_scorpion':partner_draw.verify_source()
+   suppressed=card=='P-desert_scorpion' and p['board']['main'] is None
+   drawn=[] if suppressed else p['deck'][:1]
    receipt=dict(drawn_instance_ids=drawn,hand_bottom_instance_id=None,target_instance_id=None,growth_added=0)
    if canonical(event['result'])!=canonical(receipt):raise ValueError('draw effect result differs')
    expected=copy.deepcopy(before);expected['event_seq']=seq;ec=expected['legacy_continuation'];ep=ec['game_state']['players'][actor]
@@ -53,7 +53,7 @@ def audit(before,after,event):
    if canonical(after)!=canonical(expected):raise ValueError('draw effect changed unrelated state or chain')
  except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
  return dict(schema='supplied_one_draw_semantics.v1',applicable=applicable,errors=errors,
-  supplied_draw_resolution_verified=applicable and not errors,drawn_instance_ids=drawn,source_reference=reference,
+  supplied_draw_resolution_verified=applicable and not errors,partner_egg_suppressed=suppressed,drawn_instance_ids=drawn,source_reference=reference,
   before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),
   activation_proven=False,choice_proven=False,origin_authenticated=False,all_rule_opportunities_proven=False,
   legacy_reservation_closure_proven=False,policy_eligible=None,balance_admitted=None)
