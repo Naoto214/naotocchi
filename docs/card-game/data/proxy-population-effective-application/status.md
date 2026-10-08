@@ -903,3 +903,18 @@ TDD2件2FAIL0.179s（初期group中の119優先権を誤ってパスしたテス
 次は既存完走unitのresponse source合成に残る未証明を集計し、開始sourceの非開始機会、latched発生有無、別originにまたがる閉鎖のうち実際に残る具体的な欠落へ進む。静的一覧だけで全機会を閉じない。管理項目22維持、具体化理由はgroup消費のstatusから実発動receiptへの証拠結合を追加したため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
 
 固定22＋既存完走unit1: Ran 23 tests in 275.412s、PASS（詳細最終行確認済み）。全source/phase到達・最新全proxy回帰とは扱わない。
+
+
+### 既存完走unitで残った通常手札・開始sourceの局所述語補完
+
+c949ae9からP08/P09を継続。保存時点の既存test-1A診断はruntime143行、response89行中85行covered（C-chicken4行未証明）、normal29行中19行covered（I-poop1のtrigger_prepared_item10行未証明）。診断はresponse-source-diagnostic-after-c949ae9.jsonへ保存し、現行実装後の結果に読み替えない。
+
+I-poop1の通常手札trigger_prepared_itemを既存source/variant/timing述語へ接続し、reaction_onlyによる非適用を独立照合する。通常set_itemは既存入口を維持し、time0/1/5で費用と区別して検証。置換handlerの接続や全到達不能証明は行っていない。
+
+C-chickenの非開始機会を、実ctx.origin_event_seqの一意なoriginと既存144の開始述語へ接続した。現行開始3形式をturn_startへ正規化し、既存closed_startの一時patchより前に保持した述語を利用する。配置後・相手開始の否定を合成し、自分開始、未知の自分手番event、origin欠落/重複は未証明を維持する。最新passやnative suppressionを非発生証明にせず、再提示を拒否する。
+
+TDD手札1FAIL0.018s→関連19PASS12.526s、開始1FAIL0.029s→関連28件1ERROR14.983s（相手手番fixtureが初期event_seq2の専用入口へ入ったため、後続event_seq5へ修正）→28PASS15.135s。全試行ログはverification/hand-prepared-trigger-*、start-negative-red.log、source-predicate-gaps-*。独立review1回C0/I0/Minor0、新規2件-v独立PASS0.146s/exit0。design errors=[]、保護476件不変。固定結合は最終logで別判定する。
+
+既存完走unitの通常/response全監査行が局所source述語を合成し、all_rule_opportunities_proven=falseを維持するassertを既存固定結合へ追加した。単一unit完走や全行coveredを全source/phase・全ルール機会の証明へ昇格しない。管理項目22維持、具体化理由は実unit診断で判明した2種類の未接続述語を区別したため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。次はsource述語の局所合成と全機会の閉包の間に残るdispatch/到達根拠を正本から確認する。最新npm/全proxy回帰完了は主張しない。
+
+固定22＋既存完走unit1: Ran 23 tests in 274.111s、PASS/exit0。既存unitのresponse89行・normal29行すべて局所source述語covered、全機会flag=falseを確認。これは単一unitの条件付き監査であり全source/phase到達・全proxy回帰ではない。

@@ -1,0 +1,33 @@
+test_actual_hand_row_is_excluded_and_composes_without_claiming_replacement_reachability (test_proxy_population_hand_prepared_trigger.HandPreparedTriggerTests.test_actual_hand_row_is_excluded_and_composes_without_claiming_replacement_reachability) ... FAIL
+
+======================================================================
+FAIL: test_actual_hand_row_is_excluded_and_composes_without_claiming_replacement_reachability (test_proxy_population_hand_prepared_trigger.HandPreparedTriggerTests.test_actual_hand_row_is_excluded_and_composes_without_claiming_replacement_reachability)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_hand_prepared_trigger.py", line 30, in test_actual_hand_row_is_excluded_and_composes_without_claiming_replacement_reachability
+    with connected.contract_scope():runtime.operation(initial(),run)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 115, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 114, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_hand_prepared_trigger.py", line 21, in run
+    self.assertEqual(out['errors'],[]);proved=next((v for v in out['verified_units'] if v['enumeration_unit_id']==row['enumeration_unit_id']),None);self.assertIsNotNone(proved);self.assertFalse(proved['activation_allowed']);self.assertFalse(out['all_rule_opportunities_proven'])
+                                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 1 test in 0.018s
+
+FAILED (failures=1)

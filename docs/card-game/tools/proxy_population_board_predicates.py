@@ -11,6 +11,8 @@ import proxy_continuation_state as state
 import proxy_continuation_rules as rules
 import proxy_population_paid_draw as paid
 import proxy_population_discard_recovery as recovery
+# Preserve the source predicate before closed_start temporarily suppresses native offers.
+from proxy_board_trigger_audit_144 import matches as source_start_matches
 from proxy_population_candidate_expansions import TABLE_PATH,TABLE_SHA
 from proxy_mandatory_policy_contract import ROOT,canonical
 
@@ -114,7 +116,7 @@ def audit_response(envelope,events,inventory):
  Occurrence-dependent triggers, prepared cards and unknown classifications need
  their own event-origin proof; no absence is inferred for those sources.
  """
- errors=[];verified=[];unproved=[];count=0;end_negative_audits={};event_negative_audits={};latched_negative_audits={}
+ errors=[];verified=[];unproved=[];count=0;end_negative_audits={};event_negative_audits={};latched_negative_audits={};start_negative_audits={}
  try:
   for path,digest in SOURCES.items():
    if hashlib.sha256((ROOT/path).read_bytes()).hexdigest()!=digest:raise ValueError('response board predicate source changed')
@@ -167,6 +169,21 @@ def audit_response(envelope,events,inventory):
     if proof['errors'] or proof['current_trigger_predicates_verified'] is not True or proof['verified_candidate_count']!=0:
      unproved.append(dict(source_instance_id=source,card_id=card,reason='latched_response_negative_not_proven'));continue
     latched_negative_audits[source]=proof
+   elif card=='C-chicken':
+    import proxy_continuation_batch as batch
+    if source not in b['companions']:raise ValueError('start companion current source differs')
+    cap=rules.classification(card)
+    if cap['kind']!='triggered' or cap['timing']!='own_turn_start':raise ValueError('start companion source contract differs')
+    origins=[e for e in events if e['seq']==ctx['origin_event_seq']]
+    if len(origins)!=1:
+     unproved.append(dict(source_instance_id=source,card_id=card,reason='start_response_origin_unproved'));continue
+    origin=origins[0];raw=origin['action_type'];kind='turn_start' if raw in ('turn_start_and_normal_draw','turn_start_and_egg_draw','egg_exchange_bottom') else raw
+    met=source_start_matches(card,ctx['window_kind'],actor,g['turn_player'],kind,origin['actor'])
+    # Restrict this local negative to registered normal-method origins or
+    # another player's turn; unknown own-turn mechanisms remain unproved.
+    if met or (actor==g['turn_player'] and raw not in batch.NORMAL_CARD_EVENTS):
+     unproved.append(dict(source_instance_id=source,card_id=card,reason='start_response_negative_not_proven'));continue
+    start_negative_audits[source]=dict(origin_event_seq=origin['seq'],origin_action=raw,normalized_origin_action=kind,timing_matches=False,source_reference=cap['reference'])
    else:
     if source in b['prepared']:
      unproved.append(dict(source_instance_id=source,card_id=card,reason='event_or_prepared_response_predicate_unproved'));continue
@@ -179,5 +196,5 @@ def audit_response(envelope,events,inventory):
    if Counter(map(signature,actual))!=Counter(map(signature,expected)):raise ValueError('board response semantic alternatives differ: '+source)
    verified.append(source);count+=len(expected)
  except (ValueError,KeyError,TypeError,IndexError,OSError) as error:errors.append(str(error))
- return dict(schema='response_board_activation_predicates.v1',response_board_predicates_verified=not errors,errors=errors,verified_source_ids=sorted(verified),unproved_sources=unproved,verified_candidate_count=count,end_negative_audits=end_negative_audits,event_negative_audits=event_negative_audits,latched_negative_audits=latched_negative_audits,source_sha256=dict(SOURCES),
+ return dict(schema='response_board_activation_predicates.v1',response_board_predicates_verified=not errors,errors=errors,verified_source_ids=sorted(verified),unproved_sources=unproved,verified_candidate_count=count,end_negative_audits=end_negative_audits,event_negative_audits=event_negative_audits,latched_negative_audits=latched_negative_audits,start_negative_audits=start_negative_audits,source_sha256=dict(SOURCES),
   candidate_identity_grammar_proven=False,history_authenticated=False,complete_legal_set_proven=False,information_use_proven=False,all_rule_opportunities_proven=False,origin_authenticated=False,policy_eligible=None,balance_admitted=None)

@@ -70,6 +70,13 @@ class BoundPolicyJournalTests(unittest.TestCase):
   self.assertTrue(r['completed']);self.assertTrue(r['mandatory_origin_audit']['origin_sequence_verified'])
   proof=r['mandatory_opportunity_audit'];self.assertTrue(proof['designated_opportunities_covered'])
   self.assertGreater(r['mandatory_origin_audit']['resolution_entry_count'],0)
+  # This one existing unit's supplied source rows are locally covered; no
+  # all-rule/whole-population inference follows from completing this trace.
+  for key,flag in (('response_source_predicate_coverage','supplied_response_source_predicates_covered'),('normal_unit_predicate_coverage','supplied_normal_unit_predicates_covered')):
+   audits=[step[key] for step in r['runtime']['steps'] if key in step];self.assertTrue(audits)
+   self.assertTrue(all(a[flag] and not a['errors'] for a in audits),key)
+   self.assertTrue(all(a['all_rule_opportunities_proven'] is False for a in audits))
+   print('existing_unit_source_predicates',key,len(audits),'covered')
   for step in r['runtime']['steps']:
    c=step['source_envelope']['legacy_continuation']
    if c['response_context']['chain_status']=='resolving' and c['activation_zone']:

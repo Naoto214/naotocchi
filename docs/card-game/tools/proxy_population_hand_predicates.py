@@ -88,8 +88,8 @@ def audit_normal(envelope,events,inventory):
   table={r['card_id']:r for r in rules.table()['cards']}
   for row in inventory['enumeration_units']:
    identity=dict(enumeration_unit_id=row['enumeration_unit_id'],source_instance_id=row['source_instance_id'],card_id=row['card_id'])
-   if row['source_family']!='hand_card_action' or row['action_type'] not in QUICK:continue
-   if row['card_id'] not in SUPPORTED:unproved.append(dict(identity,reason='unregistered_hand_mechanism'));continue
+   if row['source_family']!='hand_card_action' or row['action_type'] not in QUICK|{'trigger_prepared_item'}:continue
+   if row['card_id'] not in SUPPORTED and not (row['card_id']=='I-poop1' and row['action_type']=='trigger_prepared_item'):unproved.append(dict(identity,reason='unregistered_hand_mechanism'));continue
    template=next(a for a in table[row['card_id']]['actions'] if a['action_type']==row['action_type'])
    allowed,cost=_allowed(envelope,events,row,template)
    if row['disposition']!=('admitted' if allowed else 'excluded') or (row['candidate_id'] is not None)!=allowed or bool(row['reason_codes'])==allowed:raise ValueError('hand activation disposition differs: '+row['enumeration_unit_id'])
