@@ -840,3 +840,16 @@ TDD3FAIL0.001s→関連29PASS16.476s→実own/other equipment・伏せsource・�
 次は普通のresponseに残るevent依存board sourceについて、既存trigger_predicatesの時点別独立条件を再利用できる否定枝と、実groupの見送り/消費/閉鎖ledgerが必要な枝を分離して結合する。たとえばP-desert_scorpionの非終了時否定と、正しい終了機会を見送った後の再提示禁止は同じ根拠ではない。静的一覧/同じ候補/唯一候補を証明にしない。管理項目22維持、今回の具体化は局所のunproved出力を横断して未補完sourceを把握できたため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
 
 固定22＋既存完走unit1: Ran 23 tests in 279.117s、PASS。missing sourceは条件付き記録に残り、全機会・算入・本番開始へ昇格しない。最新全proxy回帰完了とは扱わない。
+
+
+### 通常responseの終了4source否定predicate接続
+
+388e903からP08/P09を継続。response_board_predicatesでM-beetle-02/W-countryside/P-desert_scorpion/I-sleepboost1について既存trigger_predicates.audit_endを再利用し、現在origin・物理source・正本参照に結合した空候補の検証が成立する場合だけsourceをverifiedへ追加する。実inventoryの候補は別途emptyと照合し、再提示を拒否する。I-sleepboost1は公開face_upとattachmentを前提とし、伏せをこの経路へ昇格しない。
+
+正の終了機会、origin履歴の欠落/重複はunprovedのまま。候補欠落・initial_trigger_occurrence_closedという理由だけを見送り/閉鎖の証拠にはしない。既存4stepの非終了P-desert_scorpionはこの限定された否定でresponse source合成へ接続されるが、履歴真正性・全合法集合・全機会・情報実使用の証明ではない。
+
+TDD1FAIL2.756s→関連23件2ERROR9.747s（テストscope参照を修正）→23件2ERROR10.604s（条件付きfixture最終eventの既存hash結合を補完）→23PASS9.915s。失敗ログを含めverification/response-end-predicates-*へ保存。独立review1回C0/I0/Minor0、新規3件独立PASS3.226s。design errors=[]、保護476件不変。固定結合は最終logで別判定。
+
+次は他のevent依存board sourceの否定判定と、正のgroupを実際に見送った後のledger閉鎖を接続する。後者を今回のempty判定で済ませない。管理項目22維持、具体化理由はresponse source横断合成で残るevent依存sourceを個別の既存predicateへ辿ったため。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0、最新npm/全proxy回帰完了は主張しない。
+
+固定22＋既存完走unit1: Ran 23 tests in 274.366s、PASS。全source/phase到達・最新全proxy回帰とは扱わない。

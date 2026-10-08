@@ -1,0 +1,14 @@
+F
+======================================================================
+FAIL: test_actual_non_end_scorpion_is_bound_to_existing_end_negative (test_proxy_population_response_end_predicates.ResponseEndPredicateTests.test_actual_non_end_scorpion_is_bound_to_existing_end_negative)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/f8f151ef89e6/card-game/docs/card-game/tools/test_proxy_population_response_end_predicates.py", line 11, in test_actual_non_end_scorpion_is_bound_to_existing_end_negative
+    p=step['response_board_predicates'];self.assertIn(source,p['verified_source_ids']);self.assertTrue(p['end_negative_audits'][source]['current_trigger_predicates_verified']);self.assertEqual(p['end_negative_audits'][source]['verified_candidate_count'],0)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'A-019#1' not found in []
+
+----------------------------------------------------------------------
+Ran 1 test in 2.756s
+
+FAILED (failures=1)

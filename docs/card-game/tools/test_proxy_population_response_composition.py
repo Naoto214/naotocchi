@@ -14,10 +14,10 @@ class ResponseCompositionTests(unittest.TestCase):
  def setUpClass(cls):
   if api is not None:cls.record=connected.reconstruct(bundle(),'test-1A',4)
  def setUp(self):self.assertIsNotNone(api,'response source predicate composition absent')
- def test_real_reaction_complements_hand_but_actual_board_gap_remains(self):
+ def test_real_reaction_and_end_negative_complement_source_gaps(self):
   steps=[s for s in self.record['runtime']['steps'] if 'response_hand_predicates' in s]
   first=api.audit(*inputs(steps[0]));self.assertEqual(first['errors'],[]);self.assertTrue(first['supplied_response_source_predicates_covered']);self.assertTrue(steps[0]['response_hand_predicates']['unproved_sources']);self.assertFalse(first['complete_legal_set_proven']);self.assertFalse(first['caller_proofs_authenticated'])
-  last=api.audit(*inputs(steps[-1]));self.assertEqual(last['errors'],[]);self.assertFalse(last['supplied_response_source_predicates_covered']);self.assertTrue(last['unproved_source_ids'])
+  last=api.audit(*inputs(steps[-1]));self.assertEqual(last['errors'],[]);self.assertTrue(last['supplied_response_source_predicates_covered']);self.assertEqual(last['unproved_source_ids'],[]);self.assertTrue(steps[-1]['response_board_predicates']['end_negative_audits'])
   for step in steps:self.assertEqual(step['response_source_predicate_coverage'],api.audit(*inputs(step)))
  def test_missing_family_failed_duplicate_foreign_and_reaction_omission(self):
   step=next(s for s in self.record['runtime']['steps'] if 'response_hand_predicates' in s);e,inv,proofs=inputs(step)
