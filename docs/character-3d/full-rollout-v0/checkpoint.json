@@ -1,6 +1,6 @@
 {
-  "baseCommit": "c543cdd2e1b7544d5e3b64d708edb1b22446be4f",
-  "checkpoint": "god-ghost-image-approved-runtime-promotion",
+  "baseCommit": "7ab521ecae3b1bc8fc1b01de533879fded9a0e09",
+  "checkpoint": "unknown05-06-shape-fix-star-representative-export",
   "coverage": {
     "exact": 236,
     "total": 293,
@@ -50,11 +50,14 @@
     "ghostImageGate": "4f3a839 PASS_ALL8:32fourviews/256states/16distance actually inspected;299wave+17distance hashes verified;archivef1b57c4. Runtime promotion pending.",
     "starCorrection": "03 corez .35->.08 and tiltx1.10->.65 to center face in spiral disk;07unchanged.3testsPASS,6/6mutations detected/restored,250dedicatedPASS,reviewCritical0/Important0. Corrected representative images pending;no expansion.",
     "unknownReview": "Critical0/Important0 after actual wing-motion fix.",
-    "godGhostPromotion": "God/Ghost all8 registered after actualimagePASS.252dedicatedPASS;31/31runtime mutations detected/restored;28Pilot hashes identical;coverage236/293,57pending,234fourviewrecords. ReviewCritical0/Important0."
+    "godGhostPromotion": "God/Ghost all8 registered after actualimagePASS.252dedicatedPASS;31/31runtime mutations detected/restored;28Pilot hashes identical;coverage236/293,57pending,234fourviewrecords. ReviewCritical0/Important0.",
+    "unknownImageGate": "47e6264 actual32views/16distance REJECT05/06silhouette;01/02/04/08fresh128statesPASS;03/07prior64states reused via74identicalimages.299wave+17distance hashes verified.05outwardfan/06broadpear corrected;recapturepending.",
+    "unknownShapeFix": "252dedicatedPASS;8/8stage mutations detected. Lingering lastmutation explicitly restored factory to HEAD and fullsuiteverified. Factory/Pilot untouched. No promotion.",
+    "fullNpmInterrupted": "d87e31b npm test started; scratch disappeared during execution,completion/exit not available. Do not claim PASS. Prior completed a65 result remains historical."
   },
   "next": [
-    "Review Unknown47e6264 all8 images;export requested from successful37874359307",
-    "Review corrected Star03 bc91033 representative then expand remaining6stages",
+    "Review corrected Unknown05/06 capture;remaining6 imagePASS reusable ifhashesmatch",
+    "Review corrected Star03 bc91033 representative (exportrequested),then remaining6stages",
     "Remaining41nonplayers and full293 integration/performance/regression/Human/iPhone QA",
     "Confirm new29family/232stage aggregate after God/Ghost promotion"
   ],
@@ -71,6 +74,7 @@
     "status": "unavailable; original332-file manifest unavailable",
     "oldExpectedTree": "5daf8b4ef922a7906805cb61bdbb53b5ebe60a77",
     "method": "fresh clone df26408; Actions source archives restored; explicit Venus registration recovered; fresh RED/GREEN,229 dedicated,27 mutation,28 Pilot,80 relationship",
-    "limitation": "New recovery tree; do not claim identity with lost staging tree."
+    "limitation": "New recovery tree; do not claim identity with lost staging tree.",
+    "latest": "Scratch150320e8a2fd disappeared after7ab521e image save. Fresh remote clone restored samepath;HEAD7ab521e/tree1b19f6926d30a178d0c0821d338e1ca6d9f85d41 matched andclean. npmci succeeded. No unsaved implementation lost."
   }
 }

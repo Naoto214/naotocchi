@@ -1,61 +1,61 @@
 {
-  "sourceCommit": "47e62641538e0fd59ea94ad3598f3596b994408f",
-  "runId": 37874359307,
+  "sourceCommit": "bc9103327e133c8a6bd4b18661c2000c7d5f2c4c",
+  "runId": 37874666009,
   "families": [
-    "unknown"
+    "star"
   ],
   "artifacts": [
     {
-      "id": 11591143904,
-      "label": "unknown-wave",
-      "digest": "sha256:9bd42a8311875d690f8dccaf8777abc250397417c973daf5e4cf15b5ee789a78",
+      "id": 11591788031,
+      "label": "star-wave",
+      "digest": "sha256:4e454fc760c66fa8be6b893cba8b5a0412b990486263ef91fea6fbb869f02d92",
       "required": [
         {
-          "pattern": "unknown-[1-8]-front.jpg",
-          "count": 8
+          "pattern": "star-[37]-front.jpg",
+          "count": 2
         },
         {
-          "pattern": "unknown-[1-8]-34.jpg",
-          "count": 8
+          "pattern": "star-[37]-34.jpg",
+          "count": 2
         },
         {
-          "pattern": "unknown-[1-8]-side.jpg",
-          "count": 8
+          "pattern": "star-[37]-side.jpg",
+          "count": 2
         },
         {
-          "pattern": "unknown-[1-8]-back.jpg",
-          "count": 8
+          "pattern": "star-[37]-back.jpg",
+          "count": 2
         },
         {
-          "pattern": "unknown-[1-8]-*-*-*.jpg",
-          "count": 256
+          "pattern": "star-[37]-*-*-*.jpg",
+          "count": 64
         },
         {
-          "pattern": "unknown-[1-8]-motion.jpg",
-          "count": 8
+          "pattern": "star-[37]-motion.jpg",
+          "count": 2
         },
         {
-          "pattern": "unknown-stages.jpg",
+          "pattern": "star-stages.jpg",
           "count": 1
         }
       ],
-      "name": "full-rollout-mythic-review-47e62641538e0fd59ea94ad3598f3596b994408f"
+      "name": "full-rollout-mythic-review-bc9103327e133c8a6bd4b18661c2000c7d5f2c4c"
     },
     {
-      "id": 11592140913,
-      "label": "unknown-distance",
-      "digest": "sha256:2d6102271a4c4d9ee5af48073adbdd3cc54ed13ff0fb28f0cfd4b7cd6563eb75",
+      "id": 11591756938,
+      "label": "star-distance",
+      "digest": "sha256:7cae0c2efd77f32f9277881f4bf3362e0a57e7a8be8024381efe9acb92c8329d",
       "required": [
         {
-          "pattern": "player-unknown-[1-8]-front.png",
-          "count": 8
+          "pattern": "player-star-[37]-front.png",
+          "count": 2
         },
         {
-          "pattern": "player-unknown-[1-8]-back.png",
-          "count": 8
+          "pattern": "player-star-[37]-back.png",
+          "count": 2
         }
       ],
-      "name": "full-rollout-mythic-distance-unknown-47e62641538e0fd59ea94ad3598f3596b994408f"
+      "name": "full-rollout-mythic-distance-star-bc9103327e133c8a6bd4b18661c2000c7d5f2c4c"
     }
   ]
 }

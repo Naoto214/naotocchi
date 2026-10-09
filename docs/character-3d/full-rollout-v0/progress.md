@@ -843,3 +843,10 @@ God corrected86dfd3a PASS32views/256states/16distance;185unchanged stage01/02/03
 Register only God/Ghost all8;runtime tests RED/GREEN,252dedicatedPASS,31/31rollout mutations detected/restored,28Pilot hashes identical. Coverage236/293,57pending=16player+41nonplayer;29families/232playerstages;234fourviewrecords,not finalall293QA.
 
 Phoenix c67ba80 Character37871872563 completed57/57SUCCESS (0failure/0cancelled/0skipped);27family/216stage aggregation113640335472SUCCESS,artifact11591862686. Runtime37871878184/Home37871878268SUCCESS. New29/232 aggregate pending. Unknown47e6264 scoped Character37874359307SUCCESS;exportrequested. Star correctedbc91033 scoped Character37874666009SUCCESS;image reviewpending. Human/iPhone remain separate.
+
+
+### Unknown05/06 silhouette correction; scratch recovery
+
+Unknown47e6264:32views/16distance reviewed,05uprightnarrowwing/body and06thinelongatedbody REJECT. Source board correctly preserves aspect; preliminary scratchcontactsheet had independently capped width/height and distorted proportions.05rounderbody/outwardfan,06broadpear corrected in data only. Other01/02/04/08 actual128statesPASS;03/07prior64states reused with74identicalwaveimages.299wave+17distance hashes verified.252dedicatedPASS;8/8stage mutations detected;lingering lastmutation explicitly restored factory to HEAD and fullsuite reverified. Actual correctedimagegate pending,no promotion.
+
+Scratch disappeared after7ab521e save; freshclone restored remoteHEAD/tree1b19f6926d30a178d0c0821d338e1ca6d9f85d41 clean, npmci succeeded. In-progress d87fullnpm completionlost,notPASS. All implementation/evidence survived in GitHub. Starbc91033 source37874666009SUCCESS exportrequested through existing recoveryworkflow.
