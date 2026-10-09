@@ -17,10 +17,6 @@
         {
           "pattern": "production-nonplayer.json",
           "count": 1
-        },
-        {
-          "pattern": "meguru-qa.json",
-          "count": 1
         }
       ]
     }
