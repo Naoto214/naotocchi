@@ -1,0 +1,36 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "9fadab27a5abacedfb40add609f95fb14f2c69a3",
+  "artifact": {
+    "id": 11557951427,
+    "name": "full-rollout-mythic-distance-unknown-9fadab27a5abacedfb40add609f95fb14f2c69a3",
+    "digest": "sha256:fc1bbc620f9d02a4352b799b8a2fcc021f6f7bd13e3d22167a79b8eb5f99a910"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "d7677a44933f92ffc1c4a4a2eb6fc517658953b4c1a6bef36b2ce685a1dc4135",
+      "bytes": 2215
+    },
+    {
+      "path": "player-unknown-3-back.png",
+      "sha256": "c01ab91aca39f60d3a2c7e6940c1b16f5500f850f950b8a9cd0de1950c7fc86d",
+      "bytes": 305651
+    },
+    {
+      "path": "player-unknown-3-front.png",
+      "sha256": "4cc2d4bc97245d8d667d131a91825e2c092351dc07c6963fc4e33611150ffc45",
+      "bytes": 308805
+    },
+    {
+      "path": "player-unknown-7-back.png",
+      "sha256": "eb7299cd5d337fe451917e85a5d851db4f7075faf5b799d45b3eb7b414b2ffc1",
+      "bytes": 299327
+    },
+    {
+      "path": "player-unknown-7-front.png",
+      "sha256": "7ea1366b080a6246f1bed5fd38194aac9d9e4c4b58624f328cd97431bb3c9fbd",
+      "bytes": 302335
+    }
+  ]
+}
