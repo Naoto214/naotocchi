@@ -1,5 +1,5 @@
 {
-  "baseCommit": "0be70751e0896388e46a33969bef51c15dcdb3ae",
+  "baseCommit": "172bc67e123727705bf2f5f1e4f1569f7de0292a",
   "checkpoint": "all293-exact-fourview-models-registered-final-integration-open",
   "coverage": {
     "exact": 293,
@@ -170,14 +170,16 @@
     "f07ActualSaveDiagnosis": "Recovered2JSON/5archiveentries verifiedSHA256/size/directbytes. Actualwarmupcity normal seedMapRecords/loadMapRecords/enterWorld/saveState operation adds3emptycitybags/saveRevision/savedAt and3storagecalls20to23. All38syncboundaries and3latercycles/cleanup clean. OriginalwholeFAIL retained; earlier uninstrumented cause not retroactively asserted.",
     "f07NativeMetrics": "Actual native dog04+first4/all26companions 1/5/27 verified; clone120samples percast and appearancewindows audited. SwiftShader only; no device-performance PASS. Sourcequalifiedreview export/f07fef280059b41e6ab22c2475b0cc5fd3c7c9ca/reviews/f07-scene-native-review.json.",
     "finalProtected": "Production0be:11protectedgroups exact +28Pilot hashes exact, no differences; final-protected-verification/result.json.",
-    "strictPostwarmupCandidate": "8afb11402d850558e29e742887f381fa7434b051 QA-only boundedcitysetup validation + strict3cycles/cleanup + every synchronousboundary + adapterrestoration.21focused+1repeatedPASS,5controlsRED/exactrestore,root4PASS. Actualf07read-onlyreplay preservesrawFAIL; freshbrowsergateOPEN."
+    "strictPostwarmupCandidate": "8afb11402d850558e29e742887f381fa7434b051 QA-only boundedcitysetup validation + strict3cycles/cleanup + every synchronousboundary + adapterrestoration.21focused+1repeatedPASS,5controlsRED/exactrestore,root4PASS. Actualf07read-onlyreplay preservesrawFAIL; freshbrowsergateOPEN.",
+    "mushroom6Actual": "0be artifact11617459970:56entries/85rawfiles SHA256,size,directbytesverified. Actual4views/32states/2distance plus7raw/reference inspected PASS C0/I0/M0; all4sickvariants show3blueforeheadmarks. All8repairsgatesclosed;86/86additionalmotionstagesPASS.",
+    "finalNpm0be": "Originalfullattempt3022main:3018PASS4FAIL(allasset-integrity gitls-files ENOBUFS),exit1retained.577c2177test-only16MiBbufferfix preservesall14501paths;completeassetfile6PASSincludingall4failedchecks,negativecontrolRED/exactrestore. SeparateRelationship80PASS. Combined3022maincoverage+80verified; nosecondfullnpmexit0claimed.",
+    "postwarmupCI172": "Character37937039121 dedicatedSUCCESS;scene113841589545FAIL setup exact state delta: livebefore:undefined versus JSON-omittedundefined. Rawartifact11618174182recoveryrequested; originalFAILretained. No additional native metrics (explicitreuse).",
+    "liveDiagnosticFix": "63479083 strips onlyundefined optionaldiagnosticendpoints onbothsides, notrawstate/storage. Live/JSONpairedfixture15scenePASS,1controlRED/exactrestore,16otherfunctions exact. Root3related+6assetPASS,independentC0/I0. Freshscene gateOPEN."
   },
   "next": [
-    "ActuallyreviewMushroom6collar-onlyreplacement;recoverf07savephasefielddeltas/callstacks/nativeperformance andresolveactualscenecontractwithprotectedproductionunchanged.",
-    "Complete and archive actual86stage motion findings, retainnormaldistance80PASS; changed stage image evidence must be renewed. All other unchanged approvals reused.",
-    "Retain completed final npm3022+80 PASS; finish dedicated/sourceCI/protected checks, runtime/scene/performance evidence and independent final review.",
-    "Publish complete source-specific Human QA package and architecture/roadmap; confirmremote/local/tree/clean andDraft376.",
-    "Human/iPhone remain separateOPEN;stop atv0Human QA handoff, noReady/main/v1."
+    "Complete actual strictscene execution and recover its rawJSON with existingexport; all293imagegates complete, no recapture.",
+    "Finalize source-specific QA handoff, architecture/roadmap and independent review. Originalnpm/scene failures remain archived with scoped fixes; do not relabel them.",
+    "Verify freshremote/local/tree/clean andDraft376; Human/iPhone remain separateOPEN; stopatv0handoff, noReady/main/v1."
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",
@@ -209,7 +211,7 @@
     ],
     "candidateBatchInProgress": [],
     "missingLegacyFourViewRecords": [],
-    "full293Integration": "OPEN:Mushroom6 actualreplacementimagegate and freshstrictpostwarmupscene execution; nativeperformance reviewed. Human/iPhone separateOPEN.",
+    "full293Integration": "OPEN:strictscene live/JSON undefined transport comparison fix and asset-test outputbuffer fix; all293imagegates complete. Human/iPhone separateOPEN.",
     "humanQA": "OPEN_SEPARATE",
     "iPhoneQA": "OPEN_SEPARATE",
     "candidateBatchReview": "All45nonplayer models actualimagePASS andregistered. Finalproduction-presenter/scene/gallery/performance gatesOPEN.",
@@ -226,7 +228,7 @@
       "homeRun": 37890612549,
       "homeStatus": "SUCCESS"
     },
-    "playerImageIntegration": "Actual85/86missingmotionstagesPASS;Mushroom6onlyREJECTpendingcollarcorrectionnewimages. Other7ddafrepairs4views/32states/distancePASS;updatedcoveragepathssourcequalified. Prior136full32+26Pilotminimumreused;notall248x32."
+    "playerImageIntegration": "PASS_86_OF_86_ADDITIONAL_STAGES:ae9unchanged78+ddaf7+0beMushroom6;80earlydistancePASSwithchangedrowreplacements. Prior136full32+26Pilotminimumreused;222full32+26narrowerPilot, notall248x32."
   },
   "verificationHistoryNote": "verification entries are source-scoped historical evidence. Current coverage/currentGates/next identify the active state; older pending or REJECT records are not current verdicts."
 }

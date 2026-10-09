@@ -10,7 +10,7 @@ const { harness } = require('./helpers/runtime-harness.cjs');
 // RH-3 asset gate: いまは 欠けは ない(QA で確認済み)。これからの 欠け・大文字小文字・古い token・
 // token の つけわすれ を CI で止める。検査は 純粋な関数にして、こわれた入力(メモリ上)でも赤になることを確かめる。
 const ROOT = path.join(__dirname, '..');
-const tracked = () => new Set(execFileSync('git', ['ls-files'], { cwd: ROOT, encoding: 'utf8' }).split('\n').filter(Boolean));
+const tracked = () => new Set(execFileSync('git', ['ls-files'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 }).split('\n').filter(Boolean));
 const read = (file) => fs.readFileSync(path.join(ROOT, file));
 
 // --- 検査の部品 ---

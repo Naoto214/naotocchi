@@ -1,0 +1,211 @@
+{
+  "status": "PASS",
+  "reviewDate": "2026-10-09",
+  "reviewer": "small_mammal_review",
+  "scope": "Actual final Mushroom6 collar replacement image gate only.",
+  "verdicts": {
+    "spec": "PASS",
+    "quality": "PASS",
+    "critical": 0,
+    "important": 0,
+    "minor": 0
+  },
+  "source": {
+    "status": "PENDING_VISUAL_REVIEW",
+    "sourceCommit": "0be70751e0896388e46a33969bef51c15dcdb3ae",
+    "artifact": {
+      "id": 11617459970,
+      "name": "full-rollout-stages-mushroom-0be70751e0896388e46a33969bef51c15dcdb3ae",
+      "digest": "sha256:b58c6b9cce5b881ab0e3fdf92c25b3cc8aa750e09eaa999afdb08f6e510818b4"
+    },
+    "sourceRun": 37934515030,
+    "sourceRunConclusion": "success",
+    "artifactJobId": 113833720859,
+    "artifactJobName": "stage-evidence (mushroom)",
+    "artifactJobStatus": "completed",
+    "artifactJobConclusion": "success",
+    "artifactEvidenceMode": "successful"
+  },
+  "counts": {
+    "changedStagesReviewed": 1,
+    "fourViewImagesActuallyViewed": 4,
+    "motionBoardsActuallyViewed": 1,
+    "motionStateCellsActuallyViewed": 32,
+    "normalDistanceImagesActuallyViewed": 2,
+    "primaryProducedFramesOrCells": 38,
+    "additionalRawImagesActuallyViewed": 7,
+    "originalReferenceImagesActuallyViewed": 1,
+    "distinctImageFilesActuallyViewed": 15,
+    "primaryExportedFilesHashAndSizeMatchedToManifest": 7
+  },
+  "matrix": {
+    "emotions": [
+      "normal",
+      "positive",
+      "dislike",
+      "tired",
+      "sleeping",
+      "strained",
+      "wantsPlay",
+      "sick"
+    ],
+    "columns": [
+      "idle-normal",
+      "walk-normal",
+      "idle-reduced",
+      "walk-reduced"
+    ],
+    "states": 32,
+    "fourDirections": [
+      "front",
+      "34",
+      "side",
+      "back"
+    ],
+    "normalDistance": [
+      "front",
+      "back"
+    ]
+  },
+  "observations": [
+    "The complete sampled eye/brow/forehead/mouth footprint is visible in all 32 motion cells. In particular all three blue sick forehead marks are visible in each of the four idle/walk normal/reduced raw frames, resolving the previous collar obstruction.",
+    "Additional unchanged raw dislike, tired and positive idle-normal frames confirm visible brows/eyes and a continuous stem-to-cap attachment; the raised collar does not introduce a detached cap.",
+    "Four directions and both normal-distance images retain the source's shallow bowl-like red spotted cap, white stem and soil identity, coherent silhouette and continuous cap/stem join."
+  ],
+  "originalReference": {
+    "path": "assets/characters/mushroom/06.png",
+    "sha256": "1c165152179115c920c6c839992f295cb5513b980ca3ef1859bfb98f42ab5f06",
+    "bytes": 4301,
+    "actualViewed": true
+  },
+  "primaryImages": [
+    {
+      "path": "docs/qa/character-3d-full-v0/export/0be70751e0896388e46a33969bef51c15dcdb3ae/mushroom6-collar/repair-motion/mushroom-6-motion.jpg",
+      "sha256": "7b519f9ee88e6bd0a552919467b84f3faef1a5daf11e7a5c68adfab9c3f95c0b",
+      "bytes": 472195,
+      "manifestMatches": true,
+      "actualViewed": true
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/0be70751e0896388e46a33969bef51c15dcdb3ae/mushroom6-collar/repair-views/mushroom-6-front.jpg",
+      "sha256": "4027d34fa587682f25e6651909bb70eac0b67748c8b478b0c62c36ba38bf9150",
+      "bytes": 11138,
+      "manifestMatches": true,
+      "actualViewed": true
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/0be70751e0896388e46a33969bef51c15dcdb3ae/mushroom6-collar/repair-views/mushroom-6-34.jpg",
+      "sha256": "66f9a42172e4c5fb57dccfcfaa13eab1d92a99b86e024058015835e343643a30",
+      "bytes": 10710,
+      "manifestMatches": true,
+      "actualViewed": true
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/0be70751e0896388e46a33969bef51c15dcdb3ae/mushroom6-collar/repair-views/mushroom-6-side.jpg",
+      "sha256": "5190d455ec6536961353f208c3fef63d4684e2918d9bada21ed68448ca73355d",
+      "bytes": 11393,
+      "manifestMatches": true,
+      "actualViewed": true
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/0be70751e0896388e46a33969bef51c15dcdb3ae/mushroom6-collar/repair-views/mushroom-6-back.jpg",
+      "sha256": "65edfc7db8b5cbeedc2bc4007214aaa4141e6d6e12aac9ab7667553e86e94773",
+      "bytes": 13033,
+      "manifestMatches": true,
+      "actualViewed": true
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/0be70751e0896388e46a33969bef51c15dcdb3ae/mushroom6-collar/player-mushroom-6-front.png",
+      "sha256": "9501e807bd67fe7dc2c9b72b4cbb3c39ff62ea37e66ae4725f97fb55a243625d",
+      "bytes": 314603,
+      "manifestMatches": true,
+      "actualViewed": true
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/0be70751e0896388e46a33969bef51c15dcdb3ae/mushroom6-collar/player-mushroom-6-back.png",
+      "sha256": "0e0096aaffbbc30ecf13523cb42710233d2f653451221cbee6f3373ba6915338",
+      "bytes": 313564,
+      "manifestMatches": true,
+      "actualViewed": true
+    }
+  ],
+  "rawArchive": {
+    "path": "docs/qa/character-3d-full-v0/export/0be70751e0896388e46a33969bef51c15dcdb3ae/mushroom6-collar/raw-evidence.zip",
+    "sha256": "be093885e51afbb68d9765f262717b5972c8c523b4038ec36a8786c73a74c40e",
+    "bytes": 6598432
+  },
+  "rawConfirmations": [
+    {
+      "zipEntry": "repair-motion/mushroom-6-sick-idle-normal.jpg",
+      "extractedPath": "/workspace/scratch/150320e8a2fd/mushroom6-collar-raw/mushroom-6-sick-idle-normal.jpg",
+      "sha256": "d2f7f867db89b79d98e41c30d8ee187560766ecbdb38005978fe20a68d4b768c",
+      "bytes": 10372,
+      "matchesZipBytes": true,
+      "actualViewed": true
+    },
+    {
+      "zipEntry": "repair-motion/mushroom-6-sick-walk-normal.jpg",
+      "extractedPath": "/workspace/scratch/150320e8a2fd/mushroom6-collar-raw/mushroom-6-sick-walk-normal.jpg",
+      "sha256": "f3f6142f0116283a337c1ad92d336bd23352c6f5a6e57772c8e3fbe701206b25",
+      "bytes": 10227,
+      "matchesZipBytes": true,
+      "actualViewed": true
+    },
+    {
+      "zipEntry": "repair-motion/mushroom-6-sick-idle-reduced.jpg",
+      "extractedPath": "/workspace/scratch/150320e8a2fd/mushroom6-collar-raw/mushroom-6-sick-idle-reduced.jpg",
+      "sha256": "c66448307c2e9f53f732d0c6acab53f396ba9af086b4c67b41382c73b31f39e8",
+      "bytes": 10571,
+      "matchesZipBytes": true,
+      "actualViewed": true
+    },
+    {
+      "zipEntry": "repair-motion/mushroom-6-sick-walk-reduced.jpg",
+      "extractedPath": "/workspace/scratch/150320e8a2fd/mushroom6-collar-raw/mushroom-6-sick-walk-reduced.jpg",
+      "sha256": "f34cca50f40b947b88f8883a5311d061c9182aed2fe4f9c867566c7259f82a81",
+      "bytes": 10608,
+      "matchesZipBytes": true,
+      "actualViewed": true
+    },
+    {
+      "zipEntry": "repair-motion/mushroom-6-dislike-idle-normal.jpg",
+      "extractedPath": "/workspace/scratch/150320e8a2fd/mushroom6-collar-raw/mushroom-6-dislike-idle-normal.jpg",
+      "sha256": "9702996fb085f0f48358a7207daa87dc8f8cb2829906d1def90972b8aeb00780",
+      "bytes": 9104,
+      "matchesZipBytes": true,
+      "actualViewed": true
+    },
+    {
+      "zipEntry": "repair-motion/mushroom-6-tired-idle-normal.jpg",
+      "extractedPath": "/workspace/scratch/150320e8a2fd/mushroom6-collar-raw/mushroom-6-tired-idle-normal.jpg",
+      "sha256": "c6fc409cdd8a0f9fe70aca123a6b87f619bbca9f2e81dda9b0b0ab2db136a207",
+      "bytes": 10379,
+      "matchesZipBytes": true,
+      "actualViewed": true
+    },
+    {
+      "zipEntry": "repair-motion/mushroom-6-positive-idle-normal.jpg",
+      "extractedPath": "/workspace/scratch/150320e8a2fd/mushroom6-collar-raw/mushroom-6-positive-idle-normal.jpg",
+      "sha256": "c6a85af9b84a0add1cc949f75ca1a373c8ffc3635dd6bf34321108b31990b9c2",
+      "bytes": 11275,
+      "matchesZipBytes": true,
+      "actualViewed": true
+    }
+  ],
+  "priorFinding": {
+    "id": "I1",
+    "severity": "Important",
+    "status": "RESOLVED_FOR_STAGE_6",
+    "previousReport": ".superpowers/sdd/1772ca6d6997/player-motion-repair-mushroom-review.json",
+    "previousDescription": "Mushroom6 collar hid sick forehead marks in all four idle/walk normal/reduced variants.",
+    "resolutionEvidence": "Actual replacement board and all four unchanged extracted sick raw JPEGs expose the three blue forehead marks; all 32 cells, four directions and both distance images inspected.",
+    "otherStages": "Stages5/7 retain their earlier ddaf-scoped PASS; no other stage was re-reviewed or its approval changed."
+  },
+  "limits": [
+    "PASS applies only to the sampled images from source 0be70751e0896388e46a33969bef51c15dcdb3ae and the exact recorded hashes, not continuous animation or all possible camera/pose combinations.",
+    "Source run/job SUCCESS is capture provenance only. Visual PASS derives from actual view_image inspection; the source manifest remains PENDING_VISUAL_REVIEW.",
+    "Parent-reported full archive verification of 56 Git entries / 85 raw files was not repeated. Reviewer independently matched hashes and sizes for seven primary inspected export files and unchanged bytes for seven extracted raw images.",
+    "No Human approval or iPhone approval is claimed.",
+    "No production code, tests, captures, publications or refs were changed."
+  ]
+}

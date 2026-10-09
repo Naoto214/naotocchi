@@ -3487,13 +3487,13 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": "docs/qa/character-3d-full-v0/fr1-topology/3ce6f6e/mushroom-6-34.jpg",
-        "front": "docs/qa/character-3d-full-v0/fr1-topology/3ce6f6e/mushroom-6-front.jpg",
-        "side": "docs/qa/character-3d-full-v0/fr1-topology/3ce6f6e/mushroom-6-side.jpg",
-        "back": "docs/qa/character-3d-full-v0/fr1-topology/3ce6f6e/mushroom-6-back.jpg"
+        "34": "docs/qa/character-3d-full-v0/export/0be70751e0896388e46a33969bef51c15dcdb3ae/mushroom6-collar/repair-views/mushroom-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/0be70751e0896388e46a33969bef51c15dcdb3ae/mushroom6-collar/repair-views/mushroom-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/0be70751e0896388e46a33969bef51c15dcdb3ae/mushroom6-collar/repair-views/mushroom-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/0be70751e0896388e46a33969bef51c15dcdb3ae/mushroom6-collar/repair-views/mushroom-6-back.jpg"
       },
-      "replacementImageGate": "OPEN",
-      "historicalViewsOnly": true
+      "replacementImageGate": "PASS",
+      "replacementReview": "docs/qa/character-3d-full-v0/export/0be70751e0896388e46a33969bef51c15dcdb3ae/reviews/player-motion-repair-mushroom6-collar-review.json"
     },
     {
       "key": "form:mushroom:7",
@@ -5924,10 +5924,8 @@
     }
   ],
   "currentVisualRepair": {
-    "status": "OPEN_REPLACEMENT_IMAGES_REQUIRED",
-    "keys": [
-      "form:mushroom:6"
-    ],
-    "note": "Seven repaired rows actually approved atddaf; Mushroom6 collar correction needs new4views/32states/2distance. Historical293records remain, current292accepted."
+    "status": "PASS_ALL_REPLACEMENTS",
+    "keys": [],
+    "note": "All8 corrected rows actually approved:7ddaf, Mushroom6 at0be. Current293four-view records accepted;86/86additionalmotionstages completed; Human/iPhone separateOPEN."
   }
 }

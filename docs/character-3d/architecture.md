@@ -4,9 +4,9 @@
 現在の正本: [Full Rollout設計](full-rollout-v0/design.md)・[Visual Translation Rules](full-rollout-v0/visual-translation-rules.md)・[checkpoint](full-rollout-v0/checkpoint.json)。以下のPilot仕様・測定はreference implementationの記録であり、Full Rollout完了値ではない。
 QA 記録: [`docs/qa/character-3d-pilot-2026-10-01.md`](../qa/character-3d-pilot-2026-10-01.md)
 
-## Full Rollout v0 current implementation (ae9c9ffe)
+## Full Rollout v0 current implementation (production0be70751)
 
-全293件のexact登録と四方向の実画像gateが揃った。31 player families ×8 stages、companion26、partner18、author1。これは最終統合・Human QAの完了宣言ではない。[現在のgate](full-rollout-v0/checkpoint.json)と[残工程](full-rollout-v0/roadmap.md)を参照。以下のPilot inventory分類・nearest-stage説明・性能値は歴史的baselineであり、現在の登録仕様ではない。
+全293件のexact登録と歴史的な四方向の実画像記録が揃った。現在の修正画像の承認はcheckpointを正本とする。31 player families ×8 stages、companion26、partner18、author1。これは最終統合・Human QAの完了宣言ではない。[現在のgate](full-rollout-v0/checkpoint.json)と[残工程](full-rollout-v0/roadmap.md)を参照。以下のPilot inventory分類・nearest-stage説明・性能値は歴史的baselineであり、現在の登録仕様ではない。
 
 - `rollout-spec.js`とfamily別specが明示的なplayer stage入力を供給する。登録familyの欠けた段階をnearest stageで成功扱いしない。
 - `nonplayer-spec.js`の43 factoryモデルと既存Pilot2モデルを、`spec.js`のkind/id/stage境界で解決する。playerの同名IDはcompanion/partnerに置換しない。作者の実actor kind `naoto`は正しいIDだけauthorモデルへ解決する。
@@ -15,7 +15,7 @@ QA 記録: [`docs/qa/character-3d-pilot-2026-10-01.md`](../qa/character-3d-pilot
 - `full-gallery.html`は293件のinventoryと保存済み画像を遅延表示し、exactなroleのlive galleryへ接続する。legacy2件の比較画像は右側四方向の再利用を明示する。
 - Actions artifactは既存のGit-object exportでbranch上へ保存できる。元run失敗時はartifactごとの成功jobを厳密に紐付ける。失敗runtimeのJSONは診断専用。exportは画像承認でもref更新でもなく、SHA256照合・実画像レビュー後に別の判定を保存する。
 
-最終統合では全293登録と、未確認player motion86段階・初期5family通常距離80画像を区別する。非player45件の実画像gateは完了。scene/default性能は失敗したfunctional検証の修正後に確認する。SwiftShader結果からiPhone性能やHuman採用を推定しない。
+最終統合の追加player motion86段階は実画像を確認し、全86段階を承認。Mushroom06のcollar修正後も実画像で確認済み。初期5family通常距離80画像と非player45件の実画像gateは確認済み。既存136段階の32状態とPilot26段階の狭い既承認protocolを保持し、全248×32を確認済みとはしない。ae9の248登録集計・45role gallery、6dfの45role functionalをsource別に再利用する。f07で初回cityの自然な地図初期化saveと38境界の無変更を特定し、172bc67eで初期化内容を厳密に制限した後の3往復QAを実行する。f07 native dog04+companions1/5/27性能・clone animation・appearance windowは実測監査済み。28Pilot identityと11保護群はproduction0beで一致。SwiftShader結果からiPhone性能やHuman採用を推定しない。
 
 ## 1. Goals / Non-goals
 
@@ -201,7 +201,7 @@ Pilot Human QAによる全量展開開始承認済み。Full Rollout v0完成後
 - `tools/character-3d/coverage.cjs --require-full`はexact stageまたは保存4方向が欠けている限り失敗する。spec-readyはHuman QA採用済みを意味しない。
 - 新しい共通parameter: quadrupedの左右ear profile、持ち上げた前足、水平に伸びた遊び姿勢、身体を回り込むtail family、avianの左右wing pose。既存parameterがない場合のPilot挙動を保持する。
 - canonical emotion / actor state / Motion意味論 / save / Worldは変更しない。新poseはpresentation内でidle→locomotionへblendする。
-- memory/cacheの全量上限判断、未実装family、新archetype、最終実機QAは未完了。現在のcheckpointを全量完成と扱わない。
+- 全active familyの実装・exact登録は完了。測定したfixtureのresource plateauを全端末・長時間の上限保証へ広げない。現在の統合gateと最終実機QAはcheckpointで区別する。
 
 ### Humanoid rollout presentation parameters
 

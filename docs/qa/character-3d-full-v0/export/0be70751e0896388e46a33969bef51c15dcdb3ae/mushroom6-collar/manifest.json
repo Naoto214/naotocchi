@@ -1,0 +1,443 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "0be70751e0896388e46a33969bef51c15dcdb3ae",
+  "artifact": {
+    "id": 11617459970,
+    "name": "full-rollout-stages-mushroom-0be70751e0896388e46a33969bef51c15dcdb3ae",
+    "digest": "sha256:b58c6b9cce5b881ab0e3fdf92c25b3cc8aa750e09eaa999afdb08f6e510818b4"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "355063a80a1aca5c714d383ebb015b23c3c9290b1336a2d0b49ee63e1ca27fe5",
+      "bytes": 7649
+    },
+    {
+      "path": "player-mushroom-1-back.png",
+      "sha256": "435a8cab02c1ec762a82736213c7767963922c17d0fa9bce39abe1d2d79b1e41",
+      "bytes": 311664
+    },
+    {
+      "path": "player-mushroom-1-front.png",
+      "sha256": "42691aacbae13abbabbff3e62cfac0d84a4c315b37dc2227d60029610124116b",
+      "bytes": 315283
+    },
+    {
+      "path": "player-mushroom-2-back.png",
+      "sha256": "781e89d81fc912183b48fed54d76bc5ec0f5405a4bfe771b4aa95ac14be93119",
+      "bytes": 311981
+    },
+    {
+      "path": "player-mushroom-2-front.png",
+      "sha256": "979e5b88ce40562e2e16794fefe716e37265662923f67f3396bd238147220096",
+      "bytes": 313038
+    },
+    {
+      "path": "player-mushroom-3-back.png",
+      "sha256": "e0790030b606572b74e6b605b394413ad4c5eb354cfa77deacf10bee46a16fb8",
+      "bytes": 315818
+    },
+    {
+      "path": "player-mushroom-3-front.png",
+      "sha256": "2f6391b0125c138a2e21a7796609f34003c482caa9ee40f23ca417f14fa6674f",
+      "bytes": 318435
+    },
+    {
+      "path": "player-mushroom-4-back.png",
+      "sha256": "e4cd42450c3d09476977971f1c0b648e21257fcf20e0fd2ac22f519998f70e3e",
+      "bytes": 308212
+    },
+    {
+      "path": "player-mushroom-4-front.png",
+      "sha256": "5453d8a13f8deb64fb8c0e094d7ee475cbf9268c946f59480e85cb1bafb8c041",
+      "bytes": 311641
+    },
+    {
+      "path": "player-mushroom-5-back.png",
+      "sha256": "b3dbcbfebf72835d8b3803aabc0d6a451b911cbe033e8555d169d719077419bc",
+      "bytes": 312219
+    },
+    {
+      "path": "player-mushroom-5-front.png",
+      "sha256": "1c6c5221518e56a08bab81337580e3d6c412025fd758f87fd88aac4b09f181a2",
+      "bytes": 314350
+    },
+    {
+      "path": "player-mushroom-6-back.png",
+      "sha256": "0e0096aaffbbc30ecf13523cb42710233d2f653451221cbee6f3373ba6915338",
+      "bytes": 313564
+    },
+    {
+      "path": "player-mushroom-6-front.png",
+      "sha256": "9501e807bd67fe7dc2c9b72b4cbb3c39ff62ea37e66ae4725f97fb55a243625d",
+      "bytes": 314603
+    },
+    {
+      "path": "player-mushroom-7-back.png",
+      "sha256": "8f1a30fa5775c05bbcd3c3dbdead72da3027c07f9d385e66637c3b1839d9ceb7",
+      "bytes": 309793
+    },
+    {
+      "path": "player-mushroom-7-front.png",
+      "sha256": "a89241f87a89aef55b475346cc5adf2db75079af18fc0859ee74eeb552f1ac37",
+      "bytes": 311553
+    },
+    {
+      "path": "player-mushroom-8-back.png",
+      "sha256": "97c88ecd3aec548a7cb7b11b1099e4fd1be38f8ed37536af68e9b51f46c0f17c",
+      "bytes": 303178
+    },
+    {
+      "path": "player-mushroom-8-front.png",
+      "sha256": "65e9e64a3383567148a348f5e82bf34a9e259009f896cbd01771eeaf72c8773f",
+      "bytes": 309250
+    },
+    {
+      "path": "repair-motion/motion-evidence.json",
+      "sha256": "20525890dfef0457d825e6b711155db84a93ece47eb628498741461f86c130a7",
+      "bytes": 18905
+    },
+    {
+      "path": "repair-motion/mushroom-6-dislike-idle-normal.jpg",
+      "sha256": "9702996fb085f0f48358a7207daa87dc8f8cb2829906d1def90972b8aeb00780",
+      "bytes": 9104
+    },
+    {
+      "path": "repair-motion/mushroom-6-dislike-idle-reduced.jpg",
+      "sha256": "907141794c651de9b0788f2b3c0383ac18b6bc9054628e70afbf5049ee4092a6",
+      "bytes": 9272
+    },
+    {
+      "path": "repair-motion/mushroom-6-dislike-walk-normal.jpg",
+      "sha256": "3798e31ea62dbc8868c181e353233176c2968d3e7be5f83e27054474c86fd1e2",
+      "bytes": 9152
+    },
+    {
+      "path": "repair-motion/mushroom-6-dislike-walk-reduced.jpg",
+      "sha256": "c77a6e653f63346ce516c3fb170190589c6453ebef12eb748dd111dbce2a3458",
+      "bytes": 9392
+    },
+    {
+      "path": "repair-motion/mushroom-6-motion.jpg",
+      "sha256": "7b519f9ee88e6bd0a552919467b84f3faef1a5daf11e7a5c68adfab9c3f95c0b",
+      "bytes": 472195
+    },
+    {
+      "path": "repair-motion/mushroom-6-normal-idle-normal.jpg",
+      "sha256": "66f9a42172e4c5fb57dccfcfaa13eab1d92a99b86e024058015835e343643a30",
+      "bytes": 10710
+    },
+    {
+      "path": "repair-motion/mushroom-6-normal-idle-reduced.jpg",
+      "sha256": "5c5f612b7fc6b1e5d4801e8766e8012b21d283c44ffb562d4eb2ab86806de7ba",
+      "bytes": 10838
+    },
+    {
+      "path": "repair-motion/mushroom-6-normal-walk-normal.jpg",
+      "sha256": "d6f7797230ba4fd77f2c83f00348ef48cf24dfae3ede2a76f6870fa92a3424b6",
+      "bytes": 10394
+    },
+    {
+      "path": "repair-motion/mushroom-6-normal-walk-reduced.jpg",
+      "sha256": "2d344ab6c2e8651a67d8e9961d36156fc2ed339e7afba2eb3d7f44fdef62cfab",
+      "bytes": 10856
+    },
+    {
+      "path": "repair-motion/mushroom-6-positive-idle-normal.jpg",
+      "sha256": "c6a85af9b84a0add1cc949f75ca1a373c8ffc3635dd6bf34321108b31990b9c2",
+      "bytes": 11275
+    },
+    {
+      "path": "repair-motion/mushroom-6-positive-idle-reduced.jpg",
+      "sha256": "06136c120376a7ab232e3c3449a92a61db7fb6139e82ea7dc77ca7d7e68d8a18",
+      "bytes": 11368
+    },
+    {
+      "path": "repair-motion/mushroom-6-positive-walk-normal.jpg",
+      "sha256": "8db74b9d099325b7c8d14beafe9a0cd5b904cb037889f2aaa609f16a14cd8f41",
+      "bytes": 10923
+    },
+    {
+      "path": "repair-motion/mushroom-6-positive-walk-reduced.jpg",
+      "sha256": "c9b42cac4ae0bc0c48f18efba51b4f5f925e01558e1e4991f936b728ed36a19e",
+      "bytes": 11298
+    },
+    {
+      "path": "repair-motion/mushroom-6-sick-idle-normal.jpg",
+      "sha256": "d2f7f867db89b79d98e41c30d8ee187560766ecbdb38005978fe20a68d4b768c",
+      "bytes": 10372
+    },
+    {
+      "path": "repair-motion/mushroom-6-sick-idle-reduced.jpg",
+      "sha256": "c66448307c2e9f53f732d0c6acab53f396ba9af086b4c67b41382c73b31f39e8",
+      "bytes": 10571
+    },
+    {
+      "path": "repair-motion/mushroom-6-sick-walk-normal.jpg",
+      "sha256": "f3f6142f0116283a337c1ad92d336bd23352c6f5a6e57772c8e3fbe701206b25",
+      "bytes": 10227
+    },
+    {
+      "path": "repair-motion/mushroom-6-sick-walk-reduced.jpg",
+      "sha256": "f34cca50f40b947b88f8883a5311d061c9182aed2fe4f9c867566c7259f82a81",
+      "bytes": 10608
+    },
+    {
+      "path": "repair-motion/mushroom-6-sleeping-idle-normal.jpg",
+      "sha256": "bf5c9e6f032fc6bd9f02a9c3ea90f8306d30baaf96ed1dcae4bde08a63586589",
+      "bytes": 10794
+    },
+    {
+      "path": "repair-motion/mushroom-6-sleeping-idle-reduced.jpg",
+      "sha256": "4c836fe140ace52a3868b8f82fe0d9a20afe35955ac1f48b4ac9eefadb5886a4",
+      "bytes": 10933
+    },
+    {
+      "path": "repair-motion/mushroom-6-sleeping-walk-normal.jpg",
+      "sha256": "36a85c8a5c515b9b186152bd2d26e14cc6e50ea6d66c2d9d523071a7469f42c7",
+      "bytes": 10534
+    },
+    {
+      "path": "repair-motion/mushroom-6-sleeping-walk-reduced.jpg",
+      "sha256": "3f1466df06d2284da06917207731d010cc91ffcaeee1c96b2c02527f03f848ae",
+      "bytes": 10856
+    },
+    {
+      "path": "repair-motion/mushroom-6-strained-idle-normal.jpg",
+      "sha256": "c7c0c300e462cc250bfa76381f8a498dfbfe677adafaf9bc8ae9a29ed80f3568",
+      "bytes": 10670
+    },
+    {
+      "path": "repair-motion/mushroom-6-strained-idle-reduced.jpg",
+      "sha256": "47262ed201538b46981a3b84351084c3db3171281853847a9aeccd071e9b0e3e",
+      "bytes": 10786
+    },
+    {
+      "path": "repair-motion/mushroom-6-strained-walk-normal.jpg",
+      "sha256": "270343bbbe1ec59c17d63573cac1c28c0bba4ebe9455b05dc4bd21836d644981",
+      "bytes": 10489
+    },
+    {
+      "path": "repair-motion/mushroom-6-strained-walk-reduced.jpg",
+      "sha256": "feed0d64b12dc08fc8a3fc99a4bae843d3c521f64fa9fd096bab7004be6e0cb2",
+      "bytes": 10761
+    },
+    {
+      "path": "repair-motion/mushroom-6-tired-idle-normal.jpg",
+      "sha256": "c6fc409cdd8a0f9fe70aca123a6b87f619bbca9f2e81dda9b0b0ab2db136a207",
+      "bytes": 10379
+    },
+    {
+      "path": "repair-motion/mushroom-6-tired-idle-reduced.jpg",
+      "sha256": "0213a196728af0b42ac4354e6619d4bfbebbd7c5b79cfd7316ec9f38f392cded",
+      "bytes": 10707
+    },
+    {
+      "path": "repair-motion/mushroom-6-tired-walk-normal.jpg",
+      "sha256": "227374274470ac8c5ca9605a0d16d29896395ad05a88ed57ce971af44547293c",
+      "bytes": 10375
+    },
+    {
+      "path": "repair-motion/mushroom-6-tired-walk-reduced.jpg",
+      "sha256": "47efc813db81c4c53ab553dfcbcafa776f20bb52c883d806b2311b6bd6adc5c7",
+      "bytes": 10715
+    },
+    {
+      "path": "repair-motion/mushroom-6-wantsPlay-idle-normal.jpg",
+      "sha256": "07921ccf8942a89d3270dd35275ecc718d10f40340fa2f273b0ef265f74ad34b",
+      "bytes": 11562
+    },
+    {
+      "path": "repair-motion/mushroom-6-wantsPlay-idle-reduced.jpg",
+      "sha256": "6dea0a8a15b411fcb8af4f51be8ceeaa9a47387dc2475824f3a13b0dab116fbe",
+      "bytes": 11530
+    },
+    {
+      "path": "repair-motion/mushroom-6-wantsPlay-walk-normal.jpg",
+      "sha256": "7f586b96f4a72ab8d1f4874333ba31d1a01c8c3f656c65a993254e7c758dd846",
+      "bytes": 11332
+    },
+    {
+      "path": "repair-motion/mushroom-6-wantsPlay-walk-reduced.jpg",
+      "sha256": "b1df6454fbaf80ea9b3c815f681738f8dae0e2b949bc08c7e8bdd7c52068a629",
+      "bytes": 11643
+    },
+    {
+      "path": "repair-views/evidence.json",
+      "sha256": "25b2a89783a18de9e4ba9c65eb516a4225bd5ec59926ecf45bc95fa3afbfa510",
+      "bytes": 17909
+    },
+    {
+      "path": "repair-views/mushroom-1-34.jpg",
+      "sha256": "1a4159c9cdb92119f9d9d664976c39ef96e31e19a6d3754d549580c5c7feb86a",
+      "bytes": 11007
+    },
+    {
+      "path": "repair-views/mushroom-1-back.jpg",
+      "sha256": "572591adeb886bfc50383b332388fa76bacad86e1ecf83d0e5a7e1ccbdc082a5",
+      "bytes": 9264
+    },
+    {
+      "path": "repair-views/mushroom-1-front.jpg",
+      "sha256": "1828b2663a29bf22e9406a21773cdce0ee38a3beb4f48984cf85e94ad0edf372",
+      "bytes": 11592
+    },
+    {
+      "path": "repair-views/mushroom-1-side.jpg",
+      "sha256": "28d5f307005b2ad3869008c91bffa10f73d7370a0aa1120291eac24c3afb21e1",
+      "bytes": 7923
+    },
+    {
+      "path": "repair-views/mushroom-2-34.jpg",
+      "sha256": "8a692b2d86c4bed828287ce55cd56eb2bd9974e31aeac99ca74438bc63e781b1",
+      "bytes": 13006
+    },
+    {
+      "path": "repair-views/mushroom-2-back.jpg",
+      "sha256": "14ac92198fecf49361e058614d127ee137faa40639ee5d055b3417b6a5811468",
+      "bytes": 13698
+    },
+    {
+      "path": "repair-views/mushroom-2-front.jpg",
+      "sha256": "530ea6212d1d7c171f33f52f2aeb175a326a22bead16f22edc65181aa86362cb",
+      "bytes": 14295
+    },
+    {
+      "path": "repair-views/mushroom-2-side.jpg",
+      "sha256": "fcb575dd5ddf0bbe5a530162ef67602fee40f19fbca5a684cdf7fe1d39e5bc93",
+      "bytes": 8234
+    },
+    {
+      "path": "repair-views/mushroom-3-34.jpg",
+      "sha256": "6a3e3e9710be55e71a2c7d898bb838fb35e4d61f60d1ae0ed4743877ebe77f71",
+      "bytes": 13586
+    },
+    {
+      "path": "repair-views/mushroom-3-back.jpg",
+      "sha256": "3d986557ff30a781bf984f5fb5ddb5fc34c8bdffd15296aa57f7fecc0c8141d8",
+      "bytes": 12379
+    },
+    {
+      "path": "repair-views/mushroom-3-front.jpg",
+      "sha256": "a9a7e6ee3da52194a0df8c4fc836b95794901db635fdcd4fc69acf65b6d4110d",
+      "bytes": 14193
+    },
+    {
+      "path": "repair-views/mushroom-3-side.jpg",
+      "sha256": "8e5936209b48202bdb3d9813eca052a3776b58d93da2f2b5872f8ab8a71fbac7",
+      "bytes": 12327
+    },
+    {
+      "path": "repair-views/mushroom-4-34.jpg",
+      "sha256": "b978a3ae4bd1459d77d0fbc7d4d422a335fbff5921f07f83f8c805b9d00a171f",
+      "bytes": 11087
+    },
+    {
+      "path": "repair-views/mushroom-4-back.jpg",
+      "sha256": "0780d3a0412a8d8e996ef83e854a20ce8d1e2d0b89b748fac8a4110c6b162a16",
+      "bytes": 9981
+    },
+    {
+      "path": "repair-views/mushroom-4-front.jpg",
+      "sha256": "56a00d3c6ebc77b44c800dbcf966c12384725ca14ffe66d07312d404c741ed4f",
+      "bytes": 11438
+    },
+    {
+      "path": "repair-views/mushroom-4-side.jpg",
+      "sha256": "917b92865dc323b68af3432b52dd8215e8d6083763a04000dac8ef1c52650429",
+      "bytes": 10002
+    },
+    {
+      "path": "repair-views/mushroom-5-34.jpg",
+      "sha256": "433bc1f295354a890d0e22cade4d74d405065eebf663ed3319ab26775ad9d295",
+      "bytes": 13222
+    },
+    {
+      "path": "repair-views/mushroom-5-back.jpg",
+      "sha256": "e128e16e68967bf6a917585936f0549d6dd2a6b9e77e1ee7be12acf287369f7c",
+      "bytes": 13303
+    },
+    {
+      "path": "repair-views/mushroom-5-front.jpg",
+      "sha256": "87018004d6183ab37a7905e203ef847647cf9f97c611d51974d297260898b7bd",
+      "bytes": 13768
+    },
+    {
+      "path": "repair-views/mushroom-5-side.jpg",
+      "sha256": "75ea9a032f3923ae3c400209e6c7275483baa20728469580169f99a017e4ab98",
+      "bytes": 12652
+    },
+    {
+      "path": "repair-views/mushroom-6-34.jpg",
+      "sha256": "66f9a42172e4c5fb57dccfcfaa13eab1d92a99b86e024058015835e343643a30",
+      "bytes": 10710
+    },
+    {
+      "path": "repair-views/mushroom-6-back.jpg",
+      "sha256": "65edfc7db8b5cbeedc2bc4007214aaa4141e6d6e12aac9ab7667553e86e94773",
+      "bytes": 13033
+    },
+    {
+      "path": "repair-views/mushroom-6-front.jpg",
+      "sha256": "4027d34fa587682f25e6651909bb70eac0b67748c8b478b0c62c36ba38bf9150",
+      "bytes": 11138
+    },
+    {
+      "path": "repair-views/mushroom-6-side.jpg",
+      "sha256": "5190d455ec6536961353f208c3fef63d4684e2918d9bada21ed68448ca73355d",
+      "bytes": 11393
+    },
+    {
+      "path": "repair-views/mushroom-7-34.jpg",
+      "sha256": "02efb2619e44e76b9c9517a9a36af43ec4e5a2a1499e953f5f74836f6ab01b13",
+      "bytes": 12089
+    },
+    {
+      "path": "repair-views/mushroom-7-back.jpg",
+      "sha256": "8568d7e83601ca6b493175e06da375980182ec4d570a08aa5843ac75fcbc8c0b",
+      "bytes": 12334
+    },
+    {
+      "path": "repair-views/mushroom-7-front.jpg",
+      "sha256": "81b3cdd32a68ba56cfe53d8396486b9a501b03ea0d6b8e377f442f849c5916fe",
+      "bytes": 12627
+    },
+    {
+      "path": "repair-views/mushroom-7-side.jpg",
+      "sha256": "801d13cea6efd286c242321e1070992ab9753e5e0b8b03bbd344f47694b0cf0e",
+      "bytes": 11379
+    },
+    {
+      "path": "repair-views/mushroom-8-34.jpg",
+      "sha256": "6b8bbbe3a8f6dc6a0eae7f58556e95aabb7bd361a5e1f8375b4fd6b9ed1e0edb",
+      "bytes": 11466
+    },
+    {
+      "path": "repair-views/mushroom-8-back.jpg",
+      "sha256": "47037454fdd0ab851c5c42f4ba26a0d96f4280d8d8242f06692465dd7d34fb45",
+      "bytes": 11084
+    },
+    {
+      "path": "repair-views/mushroom-8-front.jpg",
+      "sha256": "9c791892d2d2bf1196b72d4faf19a6c6cc46f9729c7e6013882e87545d211a1e",
+      "bytes": 12213
+    },
+    {
+      "path": "repair-views/mushroom-8-side.jpg",
+      "sha256": "5d2541bea2d2faccc3915274115de1c3408797e64cce09ef10b3d7f97872ec7d",
+      "bytes": 10938
+    },
+    {
+      "path": "repair-views/mushroom-stages.jpg",
+      "sha256": "0f8540cfbd1c20e7329d715277e08560bc6b516abad3a8d86ba243df708fa7c2",
+      "bytes": 503540
+    }
+  ],
+  "sourceRun": 37934515030,
+  "sourceRunConclusion": "success",
+  "artifactJobId": 113833720859,
+  "artifactJobName": "stage-evidence (mushroom)",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}
