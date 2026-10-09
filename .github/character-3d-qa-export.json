@@ -1,48 +1,18 @@
 {
-  "sourceCommit": "73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6",
-  "runId": 37911082729,
+  "sourceCommit": "e16963da37bed05de483096e6bafc83df6196b3a",
+  "runId": 37917302347,
   "families": [
-    "partner"
+    "partner",
+    "author",
+    "companion"
   ],
   "artifacts": [
     {
-      "id": 11606821438,
-      "label": "spider-yarn-eagle-snowman",
-      "name": "full-rollout-nonplayer-review-73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6",
-      "digest": "sha256:de916e04cc36d6837e91c9f9d9df82147b7b2701cb44fe3b3657e84720d858cb",
+      "id": 11610776353,
+      "label": "eagle-author-legacy-complete",
+      "name": "full-rollout-nonplayer-review-e16963da37bed05de483096e6bafc83df6196b3a",
+      "digest": "sha256:650cbae8d8fe92aab540368946c0f9aa674a316fe735ea1cd99c01d6051600c3",
       "required": [
-        {
-          "pattern": "partner-knitting_spider-0-front.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-knitting_spider-0-34.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-knitting_spider-0-side.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-knitting_spider-0-back.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-knitting_spider-0-*-*-*.jpg",
-          "count": 32
-        },
-        {
-          "pattern": "partner-knitting_spider-views.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-knitting_spider-motion.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-knitting_spider-distance-*.jpg",
-          "count": 2
-        },
         {
           "pattern": "partner-high_eagle-0-front.jpg",
           "count": 1
@@ -60,12 +30,32 @@
           "count": 1
         },
         {
-          "pattern": "partner-high_eagle-0-*-*-*.jpg",
-          "count": 32
-        },
-        {
           "pattern": "partner-high_eagle-views.jpg",
           "count": 1
+        },
+        {
+          "pattern": "author-naoto-0-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "author-naoto-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "author-naoto-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "author-naoto-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "author-naoto-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-high_eagle-0-*-*-*.jpg",
+          "count": 32
         },
         {
           "pattern": "partner-high_eagle-motion.jpg",
@@ -76,36 +66,52 @@
           "count": 2
         },
         {
-          "pattern": "partner-snowman-0-front.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-snowman-0-34.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-snowman-0-side.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-snowman-0-back.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-snowman-0-*-*-*.jpg",
+          "pattern": "author-naoto-0-*-*-*.jpg",
           "count": 32
         },
         {
-          "pattern": "partner-snowman-views.jpg",
+          "pattern": "author-naoto-motion.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-snowman-motion.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-snowman-distance-*.jpg",
+          "pattern": "author-naoto-distance-*.jpg",
           "count": 2
+        },
+        {
+          "pattern": "companion-cat_friend-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "companion-cat_friend-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-cat_friend-distance-*.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "companion-shiba-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "companion-shiba-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-shiba-distance-*.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "companion-cat_friend-views.jpg",
+          "count": 0
+        },
+        {
+          "pattern": "companion-shiba-views.jpg",
+          "count": 0
+        },
+        {
+          "pattern": "evidence.json",
+          "count": 1
         }
       ]
     }
