@@ -1,6 +1,6 @@
 {
-  "baseCommit": "5cf15f160b9cd292ffc407826354689570264ee6",
-  "checkpoint": "star01-silhouette-fix-punyu-candidate-owl-export",
+  "baseCommit": "6a55b97cc10e152f74bd7c54a081a9ba52516f70",
+  "checkpoint": "owl-image-correction-star-punyu-recovery",
   "coverage": {
     "exact": 244,
     "total": 293,
@@ -11,7 +11,7 @@
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 260,
+    "dedicatedPass": 261,
     "rolloutMutationsDetected": 32,
     "pilotHashesUnchanged": 28,
     "fullNpm": "8b6fcae fixed implementation:3017PASS+Relationship80PASS,0FAIL,exit0; full log/result archived. Before Star expansion/Unknown promotion.",
@@ -63,11 +63,15 @@
     "star01Correction": "3sourcewisps+shortarcs replace regularring;3targettestsPASS,8/8stage mutationsdetected/restored. Existingcosmicfactory/other7unchanged. No promotion.",
     "punyuCandidate": "Existingblob factory dataonly:opaqueyellowmeltingcontour,foldedtip,lefttrail,scallopedbase;2targettestsPASS,3/3mutationsdetected/restored.260dedicatedPASScombined. Roleisolated;imagespending.",
     "owlCandidateCI": "6716048 Character37878471960SUCCESS;owlartifact11593312304 exportrequested. No imageacceptance.",
-    "starArchiveRecovery": "f6 recovery37877945943SUCCESS;preparedentriesrebased on671 throughGitDataAPI andcompareallowlist,archived5cf15f1. Redundant671recovery37878472023FAIL branchmovedbeforeexport;no sourceimageslost orfalsePASS."
+    "starArchiveRecovery": "f6 recovery37877945943SUCCESS;preparedentriesrebased on671 throughGitDataAPI andcompareallowlist,archived5cf15f1. Redundant671recovery37878472023FAIL branchmovedbeforeexport;no sourceimageslost orfalsePASS.",
+    "owlImageGate": "6716048 archive6a55b97:41rawhashesverified;actual4views2distanceREJECT breastpaintaliasing,hiddenheldwing,smallfacialdiscs. No32stateapproval. PhysicalVs/forwardownedwing/facialdisc correction readyforrecapture.",
+    "owlCorrection": "261dedicatedPASS,5/5mutationsdetected/restored,28Pilot hashesidentical;optional arithmetic preserves unchangedPilot negativezero. No owlregistration.",
+    "starPunyuCapture": "12fb2c6 Character37879217065SUCCESS;Starwave11593173580/distance11593399232/Punyu11593004038 exportrequested. Actualreviewpending.",
+    "godGhostPostPromotionCI": "d87e31b Character37875308764:all59jobsSUCCESS,0FAIL/CANCELLED/SKIPPED,29stagefamilyjobs;stagecoverage113651820721SUCCESS,29families/232stages. SeparatefromUnknown30familyaggregate."
   },
   "next": [
-    "Review correctedStar01 andPunyu fresh captures;otherStar7 states reusable ifbyteidentical",
-    "Review owl671 actualimages viarequested durableGitexport",
+    "Review correctedStar01/Punyu12fb2c6 actualimages viarequestedexport;Starother7 reusable ifbyteidentical",
+    "Review correctedOwl freshcapture4views32states2distance before promotion",
     "Remainingnonplayers and full293 integration/performance/regression/Human/iPhone gates",
     "Confirm30family/240stage postUnknownaggregate"
   ],

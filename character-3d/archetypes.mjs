@@ -154,15 +154,17 @@ export function avian(sp, key) {
   const bodyCol = (x, y, z, nx, ny, nz) => {
     const by = B.h * 0.42, bw = B.r * B.belly, bh = B.h * 0.42;
     const inBelly = nz > 0.15 && (x * x) / (bw * bw) + ((y - by) * (y - by)) / (bh * bh) < 1;
-    if (inBelly) {const m=sp.featherMarks;if(m){const row=Math.floor(y/m.spacing),xx=x+(row%2)*m.spacing*.5,dx=Math.abs(xx-Math.round(xx/m.spacing)*m.spacing),dy=y-row*m.spacing;if(dy>.02&&dy<.09&&Math.abs(dx-(.09-dy)*.5)<m.width*.45)return m.color;}return c.belly;}
+    if (inBelly) return c.belly;
     if (patchy(x, y, z)) return c.fluff;
     return nz < -0.3 ? c.back : c.base;
   };
   const body = paint(blob((x, y, z) => { const f = fuzz(x, y, z), yy = y * 0.5 + 0.5, k = 1 - 0.36 * Math.pow(yy, 1.6) + (y < 0 ? 0.04 * y : 0); return [x * B.r * k * f, yy * B.h, z * B.r * 0.92 * k * f]; }, 20, 14), bodyCol);
-  rig.add('body', 'root', [0, 0.02, 0], [body]);
+  const featherParts=[];
+  if(sp.featherMarks){const m=sp.featherMarks,surface=(x,y)=>{const yy=y/B.h,unitY=yy*2-1,k=1-.36*Math.pow(yy,1.6)+(unitY<0?.04*unitY:0);return [x,y,B.r*.92*k*Math.sqrt(Math.max(0,1-unitY*unitY-(x/(B.r*k))**2))+.009];};for(const [x,y]of m.positions)featherParts.push(solid(sweep([surface(x-m.width,y+m.height),surface(x,y),surface(x+m.width,y+m.height)],()=>.006,5,{steps:6}),m.color));}
+  rig.add('body', 'root', [0, 0.02, 0], [body,...featherParts]);
   const hr = Hd.r, hy = B.h * 0.82 + hr * (0.42 - Hd.merge * 0.3);
-  const headCol = (x, y, z, nx, ny, nz) => { if (patchy(x + 3, y, z) && y > hr * 0.3) return c.fluff; const lobe = Math.pow((Math.abs(x)-hr*.40)/(hr*.43),2)+Math.pow((y+hr*.18)/(hr*.66),2); const face = nz > .20 && (lobe < 1 || (Math.abs(x)<hr*.38 && y<0 && y>-hr*.83)); return face ? c.face : c.base; };
-  const skull = paint(blob((x, y, z) => { const f = fuzz(x + 1, y, z); return [x * hr * 1.08 * f, y * hr * f, z * hr * f]; }, 18, 12), headCol);
+  const headCol = (x, y, z, nx, ny, nz) => { if(sp.faceDiscs){const d=sp.faceDiscs,lobe=((Math.abs(x)/hr-d.x)/d.width)**2+((y/hr-d.y)/d.height)**2;return nz>.18&&lobe<1?c.face:c.base;} if (patchy(x + 3, y, z) && y > hr * 0.3) return c.fluff; const lobe = Math.pow((Math.abs(x)-hr*.40)/(hr*.43),2)+Math.pow((y+hr*.18)/(hr*.66),2); const face = nz > .20 && (lobe < 1 || (Math.abs(x)<hr*.38 && y<0 && y>-hr*.83)); return face ? c.face : c.base; };
+  const skull = paint(blob((x, y, z) => { const f = fuzz(x + 1, y, z); return [x * hr * 1.08 * f, y * hr * f, z * hr * f]; }, sp.faceDiscs?40:18, sp.faceDiscs?28:12), headCol);
   const tufts = [];
   if (fl > 0.3 || sp.patchy) for (let i = 0; i < 4; i++) { const a = -0.6 + i * 0.4 + R() * 0.2; tufts.push(solid(sweep([[Math.sin(a) * hr * 0.4, hr * 0.85, 0], [Math.sin(a) * hr * 0.7, hr * 1.18, -0.03]], (t) => 0.05 * (1 - t), 5, { steps: 3 }), sp.patchy ? c.fluff : c.base)); }
   for(const q of sp.earTufts||[])tufts.push(paint(sweep(q.path,t=>q.r*(1-t)+.002,8,{steps:12}),(x,y,z,nx,ny,nz)=>mix(c.back,c.base,Math.max(0,nz))));
@@ -171,9 +173,9 @@ export function avian(sp, key) {
   rig.add('head', 'body', [0, hy, 0.02], null);
   rig.mesh('head', [headGeo.clone()]);
   // つばさ(ひれ)
-  const W = sp.wing;
   for (const s of [-1, 1]) {
-    const g = paint(blob((x, y, z) => { const t = (1 - y) / 2; return [x * W.w * Math.sin(Math.PI * Math.min(1,t*.9+.08)) + s * .02, -t * W.len, z * .065 * (1 - t * 0.6) * Math.sin(Math.PI * Math.min(1, t * 0.95 + 0.15))]; }, 12, 8), (x,y,z) => sp.patchy && y > -W.len*.48 ? c.fluff : fl>.5 ? c.base : c.back);
+    const W={...sp.wing,...sp.wing.sides?.[s<0?'left':'right']};
+    const g = paint(blob((x, y, z) => { const t = (1 - y) / 2; return [x * W.w * Math.sin(Math.PI * Math.min(1,t*.9+.08)) + s * .02, -t * W.len, W.forward ? z * .065 * (1 - t * 0.6) * Math.sin(Math.PI * Math.min(1, t * 0.95 + 0.15))+W.forward*t : z * .065 * (1 - t * 0.6) * Math.sin(Math.PI * Math.min(1, t * 0.95 + 0.15))]; }, 12, 8), (x,y,z) => sp.patchy && y > -W.len*.48 ? c.fluff : fl>.5 ? c.base : c.back);
     rig.add(s < 0 ? 'wingL' : 'wingR', 'body', W.at?.[s<0?'left':'right'] || [s * B.r * 0.84, B.h * 0.72, -0.02], [g], 'opaque', [0, 0, sp.wingPose?.[s < 0 ? 'left' : 'right'] ?? (sp.raisedWing && s>0 ? 2.25 : s * .20)]);
   }
   // 足

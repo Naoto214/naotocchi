@@ -1,46 +1,99 @@
 {
-  "sourceCommit": "6716048b3275d7f054bd7d1c34da3fe6b4351783",
-  "runId": 37878471960,
+  "sourceCommit": "12fb2c6561e0f705c45b141cabdec590ff393d2a",
+  "runId": 37879217065,
   "families": [
+    "star",
     "companion"
   ],
   "artifacts": [
     {
-      "id": 11593312304,
-      "label": "owl",
-      "name": "full-rollout-nonplayer-review-6716048b3275d7f054bd7d1c34da3fe6b4351783",
-      "digest": "sha256:3b300a442165c828e4bfd9da62da71fb9c6517ad197b99e3a79f768f25f16f56",
+      "id": 11593173580,
+      "label": "star-wave",
+      "name": "full-rollout-mythic-review-12fb2c6561e0f705c45b141cabdec590ff393d2a",
+      "digest": "sha256:44a1271fb260a1fd1306b256c6b3b539386b97bf00c4f0197971dce64790cd03",
       "required": [
         {
-          "pattern": "companion-owl-0-front.jpg",
+          "pattern": "star-[1-8]-front.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "star-[1-8]-34.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "star-[1-8]-side.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "star-[1-8]-back.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "star-[1-8]-*-*-*.jpg",
+          "count": 256
+        },
+        {
+          "pattern": "star-[1-8]-motion.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "star-stages.jpg",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": 11593399232,
+      "label": "star-distance",
+      "name": "full-rollout-mythic-distance-star-12fb2c6561e0f705c45b141cabdec590ff393d2a",
+      "digest": "sha256:a7da06e50e698fff013e99270e8484236a37242db570d302883f9b670acdba2f",
+      "required": [
+        {
+          "pattern": "player-star-[1-8]-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-star-[1-8]-back.png",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "id": 11593004038,
+      "label": "punyu",
+      "name": "full-rollout-nonplayer-review-12fb2c6561e0f705c45b141cabdec590ff393d2a",
+      "digest": "sha256:6979fc41cbab0753d2b8345be807a74177e0bf81c9f8d6d7bd43cc20f9680945",
+      "required": [
+        {
+          "pattern": "companion-punyu-0-front.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-owl-0-34.jpg",
+          "pattern": "companion-punyu-0-34.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-owl-0-side.jpg",
+          "pattern": "companion-punyu-0-side.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-owl-0-back.jpg",
+          "pattern": "companion-punyu-0-back.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-owl-0-*-*-*.jpg",
+          "pattern": "companion-punyu-0-*-*-*.jpg",
           "count": 32
         },
         {
-          "pattern": "companion-owl-views.jpg",
+          "pattern": "companion-punyu-views.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-owl-motion.jpg",
+          "pattern": "companion-punyu-motion.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-owl-distance-*.jpg",
+          "pattern": "companion-punyu-distance-*.jpg",
           "count": 2
         }
       ]

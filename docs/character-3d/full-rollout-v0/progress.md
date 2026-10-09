@@ -875,3 +875,9 @@ Scratch disappeared after7ab521e save; freshclone restored remoteHEAD/tree1b19f6
 - Star2789all8 archive5cf15f1:32views/16distance inspected,01REJECT(overregularring).Other7 accepted:5fresh160states+03/07prior64states via74identicalwaveimages.299wave+17distancehashesverified.01dataonly irregularwisps/shortarcs fix;other7/factoryunchanged;8stage mutationsdetected. Recapturepending.
 - Punyu originalyellowmeltingbody viaexistingblobfactory dataonly,foldedtip/lefttrail/scallopedbase.2targetPASS,3mutationsdetected/restored. Roleisolated. Combined260dedicatedPASS. Scopednonplayerselection moved toJSON,combinedStar/nonplayercapture avoids completedfamilies;review found missingpush.path forJSON and itwasadded.
 - Owl671captureSUCCESS,artifact11593312304 exportrequested;actualimagegatepending. Starf6recoverySUCCESSwaspublished;redundant671recoveryFAIL branchmovedbeforeexport,accuratelyseparate.
+
+## Owl actualimage correction / Star-Punyu batch retrieval
+
+- Owl671 archive6a55b97:41hashesverified;4views2distance actuallyinspectedREJECT(breastpaint aliasing into broadbands,heldwinghidden,creamdiscs too small). No32stateacceptance claimed. Optionalavian physicalsurfaceVs,largerdiscs andper-sideforwardfoldedwing fix;261dedicatedPASS,5mutationdetected/restored,28Pilot hashesidentical. Recapturepending,nopromotion.
+-12fb2c6 Star+Punyu scopedcaptureSUCCESS,threeartifacts requestedtogether throughdurableexport. Star01/Punyu actualreviewpending.
+-d87God/Ghost Character37875308764:59/59SUCCESS,0FAIL/CANCELLED/SKIPPED;29stagefamilyjobs,stagecoverage113651820721SUCCESS(29families/232stages). Unknown30familyaggregate separatepending.
