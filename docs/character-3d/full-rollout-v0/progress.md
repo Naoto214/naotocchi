@@ -850,3 +850,9 @@ Phoenix c67ba80 Character37871872563 completed57/57SUCCESS (0failure/0cancelled/
 Unknown47e6264:32views/16distance reviewed,05uprightnarrowwing/body and06thinelongatedbody REJECT. Source board correctly preserves aspect; preliminary scratchcontactsheet had independently capped width/height and distorted proportions.05rounderbody/outwardfan,06broadpear corrected in data only. Other01/02/04/08 actual128statesPASS;03/07prior64states reused with74identicalwaveimages.299wave+17distance hashes verified.252dedicatedPASS;8/8stage mutations detected;lingering lastmutation explicitly restored factory to HEAD and fullsuite reverified. Actual correctedimagegate pending,no promotion.
 
 Scratch disappeared after7ab521e save; freshclone restored remoteHEAD/tree1b19f6926d30a178d0c0821d338e1ca6d9f85d41 clean, npmci succeeded. In-progress d87fullnpm completionlost,notPASS. All implementation/evidence survived in GitHub. Starbc91033 source37874666009SUCCESS exportrequested through existing recoveryworkflow.
+
+## Star all8 candidates / Unknown corrected all8 image PASS
+
+- Star bc91033 representatives: actual8views/64states/4distance PASS; durableGit archive35859c5,82filehashes verified. Remaining6 source-derived cosmic candidates added;03/07/factory untouched.254dedicatedPASS,7stage+6cosmic mutationsdetected/restored;reviewCritical0/Important0. All8capture pending,no registration.
+- Unknown8b6fcae:32views/256states/16distance PASS;05/06fresh64states,remaining192states reused via222identicalimages. Archivefcf8844;299wave+17distance hashesverified. Runtime promotion ready.
+- Full npm completed on fixed8b6 implementation:3017+Relationship80PASS,0FAIL,exit0; archived full-npm-8b6. Separate from later Star expansion and futureUnknownpromotion.

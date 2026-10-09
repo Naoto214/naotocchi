@@ -1,6 +1,6 @@
 {
-  "baseCommit": "7ab521ecae3b1bc8fc1b01de533879fded9a0e09",
-  "checkpoint": "unknown05-06-shape-fix-star-representative-export",
+  "baseCommit": "fcf8844656b1fa85a5b604f82651ce8079ccd32c",
+  "checkpoint": "star-all8-candidates-unknown-all8-image-pass",
   "coverage": {
     "exact": 236,
     "total": 293,
@@ -14,7 +14,7 @@
     "dedicatedPass": 252,
     "rolloutMutationsDetected": 31,
     "pilotHashesUnchanged": 28,
-    "fullNpm": "Pre-promotion spine-corrected a65ceb5:3013PASS+80PASS,0FAIL,exit0,archived. Final04root+runtime promotion has236dedicatedPASS;no fresh fullnpm after registration claimed.",
+    "fullNpm": "8b6fcae fixed implementation:3017PASS+Relationship80PASS,0FAIL,exit0; full log/result archived. Before Star expansion/Unknown promotion.",
     "postPromotionAggregate": "9fadab27 Character37793464360 all56jobs SUCCESS;26families/208expected stage coverage job113385923002 SUCCESS",
     "nonplayerMutationsDetected": 7,
     "worldTreeMutationsDetected": 9,
@@ -48,18 +48,18 @@
     "unknownCandidates": "All8 via existingmystery_blob:darkseed/bluedome/antennae/featherwings/tallwisp/curl.03/07JSON identical;7stage+7factory mutations detected/restored;249dedicatedPASS,28Pilot unchanged. Image gate pending,not registered. Review found stationary05 wings;existing owned feather-wing channel reused,actual motion RED/GREEN verified.",
     "ghostCandidateCI": "4f3a839 Character37873539531 SUCCESS (3success/15skipped);wave11591341783/distance11590574842 exportrequested.",
     "ghostImageGate": "4f3a839 PASS_ALL8:32fourviews/256states/16distance actually inspected;299wave+17distance hashes verified;archivef1b57c4. Runtime promotion pending.",
-    "starCorrection": "03 corez .35->.08 and tiltx1.10->.65 to center face in spiral disk;07unchanged.3testsPASS,6/6mutations detected/restored,250dedicatedPASS,reviewCritical0/Important0. Corrected representative images pending;no expansion.",
+    "starCorrection": "bc91033 actual8views64states4distance PASS;all77wave+5distance filehashes verified;archived35859c5.",
     "unknownReview": "Critical0/Important0 after actual wing-motion fix.",
     "godGhostPromotion": "God/Ghost all8 registered after actualimagePASS.252dedicatedPASS;31/31runtime mutations detected/restored;28Pilot hashes identical;coverage236/293,57pending,234fourviewrecords. ReviewCritical0/Important0.",
-    "unknownImageGate": "47e6264 actual32views/16distance REJECT05/06silhouette;01/02/04/08fresh128statesPASS;03/07prior64states reused via74identicalimages.299wave+17distance hashes verified.05outwardfan/06broadpear corrected;recapturepending.",
+    "unknownImageGate": "8b6fcae PASS_ALL8:32views/256states/16distance;05/06fresh64states,remaining6reuse192states through222byteidenticalwaveimages.299wave+17distancehashesverified;archivefcf8844. Ready for promotion.",
     "unknownShapeFix": "252dedicatedPASS;8/8stage mutations detected. Lingering lastmutation explicitly restored factory to HEAD and fullsuiteverified. Factory/Pilot untouched. No promotion.",
-    "fullNpmInterrupted": "d87e31b npm test started; scratch disappeared during execution,completion/exit not available. Do not claim PASS. Prior completed a65 result remains historical."
+    "fullNpmInterrupted": "d87e31b npm test started; scratch disappeared during execution,completion/exit not available. Do not claim PASS. Prior completed a65 result remains historical.",
+    "starCandidates": "Remaining6 source-derived candidates via unchangedcosmic factory;03/07 unchanged;254dedicatedPASS,7stage+6cosmic mutationsdetected/restored,reviewCritical0/Important0. All8images pending;not registered."
   },
   "next": [
-    "Review corrected Unknown05/06 capture;remaining6 imagePASS reusable ifhashesmatch",
-    "Review corrected Star03 bc91033 representative (exportrequested),then remaining6stages",
+    "Review Star all8 actualcapture before promotion; Unknown all8 image-approved promotion ready",
     "Remaining41nonplayers and full293 integration/performance/regression/Human/iPhone QA",
-    "Confirm new29family/232stage aggregate after God/Ghost promotion"
+    "Confirm29family/232stage aggregate after God/Ghost promotion"
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",
