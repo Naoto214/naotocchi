@@ -1,59 +1,47 @@
 {
-  "sourceCommit": "2789b990b800b0639914005dd4d4ed4e36bd3bae",
-  "runId": 37877360650,
+  "sourceCommit": "6716048b3275d7f054bd7d1c34da3fe6b4351783",
+  "runId": 37878471960,
   "families": [
-    "star"
+    "companion"
   ],
   "artifacts": [
     {
-      "id": 11592962667,
-      "label": "star-wave",
-      "digest": "sha256:647737f2a00a52932b53ee7658e2029898ad5528cc69c6dd1fabbf9fe0099a3b",
-      "name": "full-rollout-mythic-review-2789b990b800b0639914005dd4d4ed4e36bd3bae",
+      "id": 11593312304,
+      "label": "owl",
+      "name": "full-rollout-nonplayer-review-6716048b3275d7f054bd7d1c34da3fe6b4351783",
+      "digest": "sha256:3b300a442165c828e4bfd9da62da71fb9c6517ad197b99e3a79f768f25f16f56",
       "required": [
         {
-          "pattern": "star-[1-8]-front.jpg",
-          "count": 8
-        },
-        {
-          "pattern": "star-[1-8]-34.jpg",
-          "count": 8
-        },
-        {
-          "pattern": "star-[1-8]-side.jpg",
-          "count": 8
-        },
-        {
-          "pattern": "star-[1-8]-back.jpg",
-          "count": 8
-        },
-        {
-          "pattern": "star-[1-8]-*-*-*.jpg",
-          "count": 256
-        },
-        {
-          "pattern": "star-[1-8]-motion.jpg",
-          "count": 8
-        },
-        {
-          "pattern": "star-stages.jpg",
+          "pattern": "companion-owl-0-front.jpg",
           "count": 1
-        }
-      ]
-    },
-    {
-      "id": 11592663889,
-      "label": "star-distance",
-      "digest": "sha256:fe86506d9e0a642e4cf6ab36a07689913cd90f922485a64ddde62d3eff48e5bc",
-      "name": "full-rollout-mythic-distance-star-2789b990b800b0639914005dd4d4ed4e36bd3bae",
-      "required": [
-        {
-          "pattern": "player-star-[1-8]-front.png",
-          "count": 8
         },
         {
-          "pattern": "player-star-[1-8]-back.png",
-          "count": 8
+          "pattern": "companion-owl-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-owl-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-owl-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-owl-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "companion-owl-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-owl-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-owl-distance-*.jpg",
+          "count": 2
         }
       ]
     }

@@ -2,7 +2,7 @@ name: Character 3D Full Rollout
 on:
   push:
     branches: [feat/character-3d-full-rollout-v0]
-    paths: ['character-3d/**', 'tools/character-3d/**', 'tests/character-3d*', 'docs/character-3d/full-rollout-v0/**', '.github/workflows/character-3d-rollout.yml']
+    paths: ['.github/character-3d-nonplayer-qa.json', 'character-3d/**', 'tools/character-3d/**', 'tests/character-3d*', 'docs/character-3d/full-rollout-v0/**', '.github/workflows/character-3d-rollout.yml']
 permissions:
   contents: read
 jobs:
@@ -175,7 +175,7 @@ jobs:
           name: full-rollout-botanical-distance-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/botanical-distance
   mythic-candidate-distance:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:nonplayer]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:nonplayer]') || contains(github.event.head_commit.message, '[qa:star]') }}
     strategy:
       fail-fast: false
       matrix:
@@ -321,7 +321,7 @@ jobs:
             test-results/full-rollout/armored-motion/hermit_crab*.jpg
             test-results/full-rollout/armored-motion/motion-evidence.json
   mythic-wave-review:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:nonplayer]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:nonplayer]') || contains(github.event.head_commit.message, '[qa:star]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -363,7 +363,7 @@ jobs:
             test-results/full-rollout/botanical
             test-results/full-rollout/botanical-motion
   nonplayer-candidate-review:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') }}
+    if: ${{ contains(github.event.head_commit.message, '[qa:nonplayer]') || !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -374,7 +374,15 @@ jobs:
       - run: npm ci
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps chromium
-      - run: node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/nonplayer ${{ contains(github.event.head_commit.message, '[qa:nonplayer]') && '--keys=companion:owl' || '' }}
+      - name: Capture selected nonplayer candidates or integration batch
+        env:
+          QA_SCOPED: ${{ contains(github.event.head_commit.message, '[qa:nonplayer]') }}
+        run: |
+          if [ "$QA_SCOPED" = true ]; then
+            node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/nonplayer --keys="$(node -p "require('./.github/character-3d-nonplayer-qa.json').keys.join(',')")"
+          else
+            node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/nonplayer
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -417,6 +425,9 @@ jobs:
             node tools/character-3d/plumed-bird-remove-it.cjs > test-results/full-rollout/plumed-bird-remove-it.txt
             node tools/character-3d/phoenix-stages-remove-it.cjs > test-results/full-rollout/phoenix-stages-remove-it.txt
           fi
+      - name: Scoped nonplayer contour mutations
+        if: ${{ contains(github.event.head_commit.message, '[qa:nonplayer]') }}
+        run: node tools/character-3d/punyu-remove-it.cjs > test-results/full-rollout/punyu-remove-it.txt
       - name: Existing mechanism mutations
         if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]') }}
         run: |

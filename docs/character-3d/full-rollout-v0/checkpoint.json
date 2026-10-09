@@ -1,6 +1,6 @@
 {
-  "baseCommit": "f6c86cdc482231f61b006872c3cf940f21f7d8a3",
-  "checkpoint": "owl-candidate-scoped-durable-image-qa",
+  "baseCommit": "5cf15f160b9cd292ffc407826354689570264ee6",
+  "checkpoint": "star01-silhouette-fix-punyu-candidate-owl-export",
   "coverage": {
     "exact": 244,
     "total": 293,
@@ -11,7 +11,7 @@
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 257,
+    "dedicatedPass": 260,
     "rolloutMutationsDetected": 32,
     "pilotHashesUnchanged": 28,
     "fullNpm": "8b6fcae fixed implementation:3017PASS+Relationship80PASS,0FAIL,exit0; full log/result archived. Before Star expansion/Unknown promotion.",
@@ -58,13 +58,18 @@
     "unknownPromotion": "All8 image-approved registered;255dedicatedPASS,32/32rollout mutationsdetected/restored,28Pilot hashesidentical,reviewCritical0/Important0. Coverage244/293,pending49,242fourviewrecords. Postpromotion30family/240stageaggregate pending.",
     "starCandidateCI": "2789b99 Character37877360650SUCCESS;all8wave11592962667/distance11592663889 exportrequested. Actualall8review pending.",
     "owlCandidate": "Existingavian optionalpairedtufts/creamfeatherpaint/asymmetricwingpose;roleexact isolated.257dedicatedPASS,owl4+nonplayer4mutationsdetected,28Pilot identical,reviewCritical0/Important0. Finalsunflower mutation persisted despiteharnesslog;explicitlyremoved,priornonplayerdeep equality and257PASS confirmed. Imagespending.",
-    "nonplayerImageExport": "Existingcapture --keys filter;scopednonplayer CI;role0fourviews/distance/boards directGitpublication;exporter6testsPASS withselection/packagecoverage. Requestfamilies companion forowl. No Human/iPhone acceptance."
+    "nonplayerImageExport": "Existingcapture --keys filter;scopednonplayer CI;role0fourviews/distance/boards directGitpublication;exporter6testsPASS withselection/packagecoverage. Requestfamilies companion forowl. No Human/iPhone acceptance.",
+    "starAll8ImageGate": "2789b99 archived5cf15f1;299wave+17distancehashesverified.32views/16distance inspected;01REJECTregularring instead ofirregularseed.02/04/05/06/08fresh160statesPASS;03/07prior64reused via74identicalwaveimages.01dataonlyfix pendingrecapture;other7unchanged.",
+    "star01Correction": "3sourcewisps+shortarcs replace regularring;3targettestsPASS,8/8stage mutationsdetected/restored. Existingcosmicfactory/other7unchanged. No promotion.",
+    "punyuCandidate": "Existingblob factory dataonly:opaqueyellowmeltingcontour,foldedtip,lefttrail,scallopedbase;2targettestsPASS,3/3mutationsdetected/restored.260dedicatedPASScombined. Roleisolated;imagespending.",
+    "owlCandidateCI": "6716048 Character37878471960SUCCESS;owlartifact11593312304 exportrequested. No imageacceptance.",
+    "starArchiveRecovery": "f6 recovery37877945943SUCCESS;preparedentriesrebased on671 throughGitDataAPI andcompareallowlist,archived5cf15f1. Redundant671recovery37878472023FAIL branchmovedbeforeexport;no sourceimageslost orfalsePASS."
   },
   "next": [
-    "Retrieve/review Star2789b99 all8;export request retained (prior recovery37877945943 queued)",
-    "Review owl candidate4views32states2distance before nonplayerpromotion orbirdexpansion",
-    "Remaining40nonplayers plusowl;full293 integration/performance/regression/Human/iPhone gates",
-    "Confirm30family/240stage postUnknown aggregate"
+    "Review correctedStar01 andPunyu fresh captures;otherStar7 states reusable ifbyteidentical",
+    "Review owl671 actualimages viarequested durableGitexport",
+    "Remainingnonplayers and full293 integration/performance/regression/Human/iPhone gates",
+    "Confirm30family/240stage postUnknownaggregate"
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",

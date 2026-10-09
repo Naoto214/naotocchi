@@ -869,3 +869,9 @@ Scratch disappeared after7ab521e save; freshclone restored remoteHEAD/tree1b19f6
 - Existingnonplayercapture accepts --keys andscopedworkflow avoids completedfamilies. Existingexporter directlypublishes role0fourviews,normaldistance,andboards;6testsPASS including selection usingfamilies:[companion].
 -257dedicatedPASS;owl4+nonplayer4mutationdetected. Finalsunflower mutation persisted despiteharnessrestorationlog;explicitlyremoved,existingnonplayerdeep equality and257PASS reverified. ReviewCritical0/Important0. Actualowlimagegate pending.
 - Star2789b99 all8captureSUCCESS;recovery37877945943 remainsqueued. Same request retained withexporter update;no uninspectedimagePASS.
+
+## Star01 image correction / Punyu candidate / Owl export
+
+- Star2789all8 archive5cf15f1:32views/16distance inspected,01REJECT(overregularring).Other7 accepted:5fresh160states+03/07prior64states via74identicalwaveimages.299wave+17distancehashesverified.01dataonly irregularwisps/shortarcs fix;other7/factoryunchanged;8stage mutationsdetected. Recapturepending.
+- Punyu originalyellowmeltingbody viaexistingblobfactory dataonly,foldedtip/lefttrail/scallopedbase.2targetPASS,3mutationsdetected/restored. Roleisolated. Combined260dedicatedPASS. Scopednonplayerselection moved toJSON,combinedStar/nonplayercapture avoids completedfamilies;review found missingpush.path forJSON and itwasadded.
+- Owl671captureSUCCESS,artifact11593312304 exportrequested;actualimagegatepending. Starf6recoverySUCCESSwaspublished;redundant671recoveryFAIL branchmovedbeforeexport,accuratelyseparate.
