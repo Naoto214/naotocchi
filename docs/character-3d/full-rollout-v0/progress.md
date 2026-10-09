@@ -1107,3 +1107,10 @@ All86missingstage motion boards/2752statecells actually inspected:78stagesPASS a
 Candidate e30be553 changes only affected cap tilts and an opt-in fish root placement with exactlegacydefaults.25focusedPASS, nine negative controls detected/restored (initialharness wording failure retained and corrected), root9PASS;28Pilot roster/38unique unaffected rigs exact. Actual replacement8stage images remainOPEN. The new reviewedworkflow mode reuses onlyexisting twofamily capturejobs: familyviews/distance andexact8motion, no false248aggregate. All other oldmodes preserved.
 
 Ad96 sceneCI dedicatedSUCCESS butmeguruFAIL at unchangedsave afterwarmup+3cycle forestreadiness;no scenePASS. FailedJSON recovery first rejected emptyfamilies request; request corrected withnonemptydog and selector/count preflight. Cause remainsunproven; naturalcitymap initialization is a source-supported candidate only. Preserve strictguards pendingactual diagnostics.
+
+
+## ad96 raw scene diagnosis and observational follow-up
+
+RecoveredfailedJSON1file SHA256/size/directbytesverified viaexistingGitDataexport. All17phasesREADY;3cycles have exact11actorcomposition,off0/0,cityhiddenidentity-boundcache and warmresourceplateau. OriginalwholegateFAIL remains: save/storage/write flagsfalse,20to23writes; getter andrestoredstep/regiontrue. JSONhadno fielddelta/eventstacks, so naturalcityseedisnotproven.
+
+051e22ab adds observationalphase/whole-spandeltas,normalwritecallstacks,synchronousdraw/flagproofsandcleanup; originalvalidatorandstrictprewarmupbaseline unchanged.18focusedPASS,4controlsRED/restored,root4PASS,14functionsexact. New observations arediagnostic; everyboundaryrequiresinspectionbeforeanysceneacceptance. Existingnative1/5/27metrics can now run aftercompletedscenefailure withoutturningjobgreen, avoidinganotherunnecessarywaitforindependentmeasurements. Setupfailures remainblocked.

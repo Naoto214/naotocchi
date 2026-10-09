@@ -33,3 +33,12 @@ test('motion repair reuses two-family capture and exact eight motion keys withou
  for(const name of ['Scoped candidate mutations','Scoped selected nonplayer mutations','Existing mechanism mutations']){const expr=jobs.dedicated.match(new RegExp('name: '+name+'\\n        if: (.+)'))[1];assert.equal(evaluate(expr,'[qa:motion-repair]'),false);}
  assert.match(jobs.dedicated,/name: Repaired fish and fungus mechanisms/);
 });
+
+test('independent native metrics continue after observed scene failure but not failed setup',()=>{
+ const job=jobs['meguru-wave'];assert.match(job,/name: Repeated production scene lifecycle without image capture\n        id: repeated_scene/);
+ const expression=job.match(/name: Native composition 1 5 27 performance and isolated QA measurements\n        if: (.+)/)[1];
+ for(const message of ['[qa:runtime] [qa:scene]','[qa:integration]'])for(const [priorSuccess,scene,want] of [[true,'success',true],[false,'failure',true],[false,'skipped',false],[false,'cancelled',false]]){
+  const expr=expression.replace('success()',String(priorSuccess)).replace('steps.repeated_scene.conclusion',JSON.stringify(scene));assert.equal(evaluate(expr,message),want,message+'/'+scene);
+ }
+ const ordinary=expression.replace('success()','true').replace('steps.repeated_scene.conclusion','"success"');assert.equal(evaluate(ordinary,''),false);
+});

@@ -1,22 +1,165 @@
 {
-  "sourceCommit": "ad96bc539b8bfc2799d1ad8e9790fa5360c0f4ac",
-  "runId": 37929709480,
+  "sourceCommit": "ddaf1edf5c4d13254151308996a1727bc705829b",
+  "runId": 37931349651,
   "artifactJobEvidence": true,
   "families": [
-    "dog"
+    "mushroom",
+    "clownfish"
   ],
   "artifacts": [
     {
-      "id": 11615707537,
-      "label": "scene-save-diagnostic",
-      "name": "full-rollout-meguru-ad96bc539b8bfc2799d1ad8e9790fa5360c0f4ac",
-      "digest": "sha256:f5fd0eb1e973b94907437c313262d9971124a755a1fddec7eeba0bfa26a99537",
-      "jobId": 113817149491,
-      "evidenceMode": "diagnostic",
+      "id": 11617275973,
+      "label": "motion-repair-mushroom",
+      "name": "full-rollout-stages-mushroom-ddaf1edf5c4d13254151308996a1727bc705829b",
+      "digest": "sha256:e5195df267d5458596bcc0c087d83e0936a0cceb64f844f3cb3cab59691b1273",
+      "jobId": 113823115627,
+      "evidenceMode": "successful",
       "required": [
         {
           "pattern": "meguru-qa.json",
           "count": 1
+        },
+        {
+          "pattern": "evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-mushroom-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-mushroom-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "mushroom-*-front.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "mushroom-*-34.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "mushroom-*-side.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "mushroom-*-back.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "mushroom-5-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "mushroom-5-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "mushroom-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "mushroom-6-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "mushroom-7-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "mushroom-7-*-*-*.jpg",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "id": 11616991353,
+      "label": "motion-repair-clownfish",
+      "name": "full-rollout-stages-clownfish-ddaf1edf5c4d13254151308996a1727bc705829b",
+      "digest": "sha256:b24791d3471d96f252c3ee6a21dc1fd55fd586c67b1fe22d580afe4cef249d57",
+      "jobId": 113823115600,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        },
+        {
+          "pattern": "evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-clownfish-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-clownfish-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "clownfish-*-front.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "clownfish-*-34.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "clownfish-*-side.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "clownfish-*-back.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "clownfish-2-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "clownfish-2-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "clownfish-3-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "clownfish-3-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "clownfish-5-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "clownfish-5-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "clownfish-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "clownfish-6-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "clownfish-7-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "clownfish-7-*-*-*.jpg",
+          "count": 32
         }
       ]
     }

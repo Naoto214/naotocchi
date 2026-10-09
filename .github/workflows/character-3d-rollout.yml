@@ -263,13 +263,14 @@ jobs:
         if: ${{ (contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) && !(contains(github.event.head_commit.message, '[qa:runtime]') && contains(github.event.head_commit.message, '[qa:scene]')) }}
         run: node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/production-nonplayer --functional-only --require-full
       - name: Repeated production scene lifecycle without image capture
+        id: repeated_scene
         if: ${{ (contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) }}
         run: node tools/character-3d/meguru-qa.cjs --rollout --no-species --no-perf --integration-scene --no-capture --out test-results/full-rollout/meguru
       - name: Comparable fixed Pilot mix 1 5 27 actors
         if: ${{ !(contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) }}
         run: node tools/character-3d/meguru-qa.cjs --perf-only --seconds 8 --out test-results/full-rollout/performance
       - name: Native composition 1 5 27 performance and isolated QA measurements
-        if: ${{ (contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) }}
+        if: ${{ (contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) && (success() || steps.repeated_scene.conclusion == 'failure') }}
         run: node tools/character-3d/meguru-qa.cjs --perf-only --seconds 8 --integration-metrics --no-capture --out test-results/full-rollout/performance
       - uses: actions/upload-artifact@v4
         if: always()

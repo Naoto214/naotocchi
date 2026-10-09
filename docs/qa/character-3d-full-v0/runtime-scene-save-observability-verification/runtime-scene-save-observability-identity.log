@@ -1,0 +1,15 @@
+functionalRows: exact function bytes
+validateFunctional: exact function bytes
+functionalRun: exact function bytes
+recordFunctionalResult: exact function bytes
+saveDelta: exact function bytes
+saveSnapshot: exact function bytes
+observeSaveBoundary: exact function bytes
+installSaveCounter: exact function bytes
+validateRepeated: exact function bytes
+validateCityCache: exact function bytes
+appearanceWindows: exact function bytes
+isolatedAnimation: exact function bytes
+installAppearanceProbe: exact function bytes
+retainRepeatedResult: exact function bytes
+14 functions exact; original prewarmup save/storage/writes and postwarmup resource baselines exact.

@@ -174,10 +174,16 @@ module.exports = { functionalRows, validateFunctional, validateRepeated, validat
 async function repeatSceneInBrowser() {
     const run = globalThis.__meguruRun, rd = run.renderer, p = rd.char3dPresenter, bridge = globalThis.__meguruBridge, getter = bridge.getState, state = getter(), region = state.regionId, save = JSON.stringify(state), step = run.sim.step;
     const storage = () => Object.fromEntries(Object.keys(localStorage).filter(k => k.startsWith('naotocchi-save')).sort().map(k => [k,localStorage.getItem(k)]));
-    const raw = JSON.stringify(storage()), writes = globalThis.__integrationSaveWrites;
+    const raw = JSON.stringify(storage()), writes = globalThis.__integrationSaveWrites, originalDraw=rd.draw, originalFlag=rd.setChar3D;
     const snapshot = () => { let holders=0;p.scene?.traverse(o=>{if(o.name?.startsWith('c3d-actor:'))holders++;});const st=rd.stats3d(),actors=[run.sim.player,...run.party,...run.world.residents].map((a,i)=>{const inst=p.instanceOf(a);return {key:i===0?'player':a.key,kind:a.kind,id:a.id,line:a.line,stage:a.stage,x:a.x,z:a.z,live:p.has(a),attached:!!inst?.holder.parent,modelId:inst?.tpl.id,modelStage:inst?.tpl.stage};});return {...p.stats(),holders,is3D:rd.is3D,worldRegion:run.world.regionId,savedRegion:state.regionId,textures:st?.textures,geometries:st?.geometries,heapBytes:performance.memory?.usedJSHeapSize||null,glCanvases:document.querySelectorAll('.meguru-3d-canvas').length,actors,composition:actors.filter(a=>a.live).map(({key,modelId,modelStage})=>({key,modelId,modelStage})).sort((a,b)=>a.key.localeCompare(b.key))}; };
     let fixtureCount=null,fixtureComposition=null;
-    const result={cycles:3,fixtureCount,initial:snapshot(),warmup:null,before:null,after:null,samples:[],phases:[],unchanged:{},restored:{}};
+    const result={cycles:3,fixtureCount,initial:snapshot(),warmup:null,before:null,after:null,samples:[],phases:[],saveObservations:[],boundaries:[],unchanged:{},restored:{}};
+    let activeSavePhase='entry';
+    const observer={writes:()=>globalThis.__integrationSaveWrites,storage,delta:saveDelta,record(proof){proof.phase=activeSavePhase;proof.saveCalls=events().slice(Math.min(proof.beforeWrites,256),Math.min(proof.afterWrites,256));proof.eventLimitReached=events().length>=256;result.boundaries.push(proof);if(['save','storage','getter','saveWrites'].some(key=>!proof[key]))console.error('repeated scene presentation save '+JSON.stringify(proof));}};
+    const events=()=>globalThis.__integrationSaveEvents||[], saveBefore=saveSnapshot(bridge,observer), eventStart=events().length;
+    const rawSave=sample=>({state:JSON.parse(sample.state),storage:JSON.parse(sample.storage),writes:sample.writes,getterSame:sample.getter===getter});
+    const saveObservation=(label,before,eventIndex,scope)=>{const after=saveSnapshot(bridge,observer),calls=events().slice(eventIndex),proof={label,scope,beforeWrites:before.writes,afterWrites:after.writes,getterSame:before.getter===after.getter,delta:saveDelta(JSON.parse(before.state),JSON.parse(after.state)),storageDelta:saveDelta(JSON.parse(before.storage),JSON.parse(after.storage)),saveCalls:calls,eventLimitReached:events().length>=256};result.saveObservations.push(proof);if(proof.delta.length||proof.storageDelta.length||proof.afterWrites!==proof.beforeWrites||!proof.getterSame)console.log('repeated scene save '+label+' '+JSON.stringify(proof));return proof;};
+    const interval=async(label,action,scope='QA placement and natural application operations; no attribution to presentation')=>{const before=saveSnapshot(bridge,observer),eventIndex=events().length,previous=activeSavePhase;activeSavePhase=label;try{return await action();}finally{saveObservation(label,before,eventIndex,scope);activeSavePhase=previous;}};
     const references=()=>{const holders=[];p.scene?.traverse(o=>{if(o.name?.startsWith('c3d-actor:'))holders.push(o);});return {scene:p.scene,holders,canvases:[...document.querySelectorAll('.meguru-3d-canvas')]};};
     const compositionReady=()=>{const actual=snapshot();return actual.live===fixtureCount&&actual.holders===fixtureCount&&actual.actors.filter(a=>a.live).every(a=>a.attached)&&JSON.stringify(actual.composition)===JSON.stringify(fixtureComposition);};
     const raf = () => new Promise(requestAnimationFrame), wait = async (name,fn,expected,max=240) => {
@@ -187,14 +193,16 @@ async function repeatSceneInBrowser() {
       phase.status='timeout';phase.endMs=performance.now();console.error('repeated scene phase TIMEOUT '+name+' '+JSON.stringify(phase));
       throw Error('repeated scene readiness timeout: '+name+' expected '+JSON.stringify(expected)+' actual '+JSON.stringify(phase.last));
     };
-    const cycle = async label => {
-      rd.setChar3D(false); await wait(label+'/characters-off',()=>p.stats().live===0,{live:0}); const off=snapshot();
-      rd.setChar3D(true); await wait(label+'/characters-on',compositionReady,{live:fixtureCount,composition:fixtureComposition});const on=snapshot();
-      const beforeCity=references();state.regionId='city';run.enterWorld('city');await wait(label+'/city',()=>run.world.regionId==='city'&&!rd.is3D,{worldRegion:'city',is3D:false});const afterCity=references(),city={...snapshot(),sameScene:afterCity.scene===beforeCity.scene,sameHolders:afterCity.holders.length===beforeCity.holders.length&&beforeCity.holders.every((holder,i)=>holder===afterCity.holders[i]),sameCanvases:afterCity.canvases.length===beforeCity.canvases.length&&beforeCity.canvases.every((canvas,i)=>canvas===afterCity.canvases[i]),hiddenGL:afterCity.canvases.length>0&&afterCity.canvases.every(canvas=>getComputedStyle(canvas).display==='none')};result.phases.at(-1).cacheProof=city;
-      state.regionId='forest';run.enterWorld('forest');run.sim.setPlayer(result.fixturePose.x,result.fixturePose.z);run.sim.camera.yaw=result.fixturePose.yaw;run.sim.placeParty();await wait(label+'/forest',()=>run.world.regionId==='forest'&&rd.is3D&&compositionReady(),{worldRegion:'forest',is3D:true,live:fixtureCount,composition:fixtureComposition});
-      for(let i=0;i<8;i++)await raf();return {off,on,city,forest:snapshot()};
-    };
+    const cycle = label => interval(label,async()=>{
+      const off=await interval(label+'/characters-off',async()=>{rd.setChar3D(false);await wait(label+'/characters-off',()=>p.stats().live===0,{live:0});return snapshot();});
+      const on=await interval(label+'/characters-on',async()=>{rd.setChar3D(true);await wait(label+'/characters-on',compositionReady,{live:fixtureCount,composition:fixtureComposition});return snapshot();});
+      const city=await interval(label+'/city',async()=>{const beforeCity=references();state.regionId='city';run.enterWorld('city');await wait(label+'/city',()=>run.world.regionId==='city'&&!rd.is3D,{worldRegion:'city',is3D:false});const afterCity=references(),city={...snapshot(),sameScene:afterCity.scene===beforeCity.scene,sameHolders:afterCity.holders.length===beforeCity.holders.length&&beforeCity.holders.every((holder,i)=>holder===afterCity.holders[i]),sameCanvases:afterCity.canvases.length===beforeCity.canvases.length&&beforeCity.canvases.every((canvas,i)=>canvas===afterCity.canvases[i]),hiddenGL:afterCity.canvases.length>0&&afterCity.canvases.every(canvas=>getComputedStyle(canvas).display==='none')};result.phases.at(-1).cacheProof=city;return city;});
+      const forest=await interval(label+'/forest',async()=>{state.regionId='forest';run.enterWorld('forest');run.sim.setPlayer(result.fixturePose.x,result.fixturePose.z);run.sim.camera.yaw=result.fixturePose.yaw;run.sim.placeParty();await wait(label+'/forest',()=>run.world.regionId==='forest'&&rd.is3D&&compositionReady(),{worldRegion:'forest',is3D:true,live:fixtureCount,composition:fixtureComposition});for(let i=0;i<8;i++)await raf();return snapshot();});
+      return {off,on,city,forest};
+    });
     try {
+      rd.draw=function(...args){return observeSaveBoundary(bridge,observer,()=>originalDraw.apply(this,args),'scene-draw').value;};
+      rd.setChar3D=function(...args){return observeSaveBoundary(bridge,observer,()=>originalFlag.apply(this,args),'scene-char-flag').value;};
       // Hold this QA simulation during the renderer/region proof; no game save/getter replacement.
       run.sim.step=function(){return [];};
       const view=run.sim.view(),info=globalThis.__integrationActorInfo;
@@ -204,24 +212,29 @@ async function repeatSceneInBrowser() {
       fixtureComposition=[[view.player,true],...(view.party||[]).map(a=>[a,false]),...(view.residents||[]).filter(a=>Math.hypot(a.x-view.player.x,a.z-view.player.z)<1500).map(a=>[a,false])].flatMap(([a,isPlayer])=>{const spec=info(a,isPlayer,0,{playerKey:()=>bridge.currentPetKey()})?.specKey;if(!spec)return [];if(!spec.exact)throw Error('scene requires exact production model '+a.key);return [{key:isPlayer?'player':a.key,modelId:spec.id,modelStage:spec.stage}];}).sort((a,b)=>a.key.localeCompare(b.key));
       fixtureCount=fixtureComposition.length;
       if(!fixtureCount||new Set(fixtureComposition.map(a=>a.key)).size!==fixtureCount)throw Error('invalid eligible scene composition');
-      rd.draw(view,performance.now());
-      await wait('baseline/current-view',compositionReady,{live:fixtureCount,composition:fixtureComposition});
+      await interval('baseline/current-view',async()=>{rd.draw(view,performance.now());await wait('baseline/current-view',compositionReady,{live:fixtureCount,composition:fixtureComposition});});
       result.baseline=snapshot();result.fixtureCount=fixtureCount;result.fixtureComposition=fixtureComposition;
       result.warmup=await cycle('warmup');result.before=snapshot();
       for(let i=0;i<3;i++)result.samples.push(await cycle('cycle-'+(i+1)));result.after=snapshot();
     } catch(error) {
       result.error={message:String(error.message||error),stack:error.stack,phase:result.phases.at(-1)?.name};result.failed=snapshot();
     } finally {
+      const cleanupBefore=saveSnapshot(bridge,observer),cleanupEvents=events().length;activeSavePhase='cleanup';
       try {run.sim.step=step;state.regionId=region;if(run.world.regionId!==region)run.enterWorld(region);} catch(error) {result.restorationError={message:String(error.message||error),stack:error.stack};}
+      finally {try{saveObservation('cleanup',cleanupBefore,cleanupEvents,'Restoration via normal application operations');}finally{rd.draw=originalDraw;rd.setChar3D=originalFlag;}}
       result.saveCounters={before:writes,after:globalThis.__integrationSaveWrites};
       result.unchanged={save:save===JSON.stringify(getter()),storage:raw===JSON.stringify(storage()),getter:getter===bridge.getState,saveWrites:writes===globalThis.__integrationSaveWrites};
-      result.restored={step:run.sim.step===step,region:run.world.regionId===region&&state.regionId===region};result.final=snapshot();
+      result.restored={step:run.sim.step===step,region:run.world.regionId===region&&state.regionId===region,draw:rd.draw===originalDraw,charFlag:rd.setChar3D===originalFlag};result.final=snapshot();
+      const saveAfter=saveSnapshot(bridge,observer);result.saveEvidence={scope:'Original strict prewarmup whole-span baseline, including natural application operations; validation unchanged',before:rawSave(saveBefore),after:rawSave(saveAfter),delta:saveDelta(JSON.parse(saveBefore.state),JSON.parse(saveAfter.state)),storageDelta:saveDelta(JSON.parse(saveBefore.storage),JSON.parse(saveAfter.storage)),saveCalls:events().slice(eventStart),eventLimitReached:events().length>=256};
     }
     return result;
 }
 async function repeatScene(page) {
-  await page.evaluate(async()=>{globalThis.__integrationActorInfo=(await import('/character-3d/runtime.mjs')).actorInfo;});
-  try{return await page.evaluate(repeatSceneInBrowser);}finally{await page.evaluate(()=>{delete globalThis.__integrationActorInfo;});}
+  try {
+    await page.evaluate(async()=>{globalThis.__integrationActorInfo=(await import('/character-3d/runtime.mjs')).actorInfo;});
+    await page.evaluate('globalThis.saveDelta='+saveDelta.toString()+';globalThis.saveSnapshot='+saveSnapshot.toString()+';globalThis.observeSaveBoundary='+observeSaveBoundary.toString()+';');
+    return await page.evaluate(repeatSceneInBrowser);
+  }finally{await page.evaluate(()=>{delete globalThis.__integrationActorInfo;delete globalThis.saveDelta;delete globalThis.saveSnapshot;delete globalThis.observeSaveBoundary;});}
 }
 function retainRepeatedResult(report,result,file,validate=validateRepeated) {
   report.checks.repeated=result;

@@ -1,5 +1,5 @@
 {
-  "baseCommit": "494e426bd01b777b1ae6af9276d31cad28614596",
+  "baseCommit": "ddaf1edf5c4d13254151308996a1727bc705829b",
   "checkpoint": "all293-exact-fourview-models-registered-final-integration-open",
   "coverage": {
     "exact": 293,
@@ -159,8 +159,10 @@
     "sceneReadyBaseline": "aa035 actual diagnostic baseline7 versus warmed11 identified partial scene readiness, no runtime change. QA c0f71010 exact current-view eligible roster/template warmup precedes baseline;26focusedPASS,2controlsRED/restored,C0/I0.",
     "cityCacheContract": "23b351b6 QA only: natural city preserves hidden original Pilot cache; strict same scene/holder/canvas identity+bounded resources, explicitoff0 and exactforest/save gates.27focusedPASS,4controlsRED/restored,root3PASS,C0/I0. Renderer/runtime exact immutablePilot;11functional/metrics exports exact6df. Actualscene/defaultmetricsOPEN.",
     "playerMotionActual": "ae9 recovered86boards/2752cells actuallyviewed:78stagePASS,8stageREJECT (mushroom5/6/7 capfaceclearance;clownfish2/3/5/6/7 dislike fin gap). Rawzoom confirmation retained in four scoped reports. Early5families80normaldistancePASS. Replacement8stage gateOPEN; no full248x32claim.",
-    "sceneActualAd96": "Character37929709480FAILURE;dedicated113817149250SUCCESS. Meguru113817149491 reacheswarmup+3cycles forestREADY then unchangedsaveFAIL. No scenePASSclaim; originalruntime/Pilotunchanged. FailedJSONartifact11615707537 pendingrecovery. First494recovery37930323713failed invalidemptyfamilies request; correctednonemptydog, no403retry.",
-    "motionRepairCandidate": "e30be553 only3captilts+5clownfishrootFactor optins, factorylegacydefaults exact.25focusedPASS+root9PASS;8formerrows and1legacydefault negativecontrols detected/exactrestored, harnesswordingfailure retained/repaired;28Pilot/38unique unaffected rigs exact. IndependentC0/I0. Fresh8stage4view/32state/2distancegateOPEN."
+    "sceneActualAd96": "Character37929709480FAILURE; dedicated113817149250SUCCESS. 1rawJSONhash/sizeverified;17phasesREADY/all3cycles exact11,on/forestattached,off0/0,cityhiddenidentitybound/cacheplateauPASS_SCOPED. OriginaloverallFAILsave/storage/writesfalse;getter/restoredstep+regiontrue,writes20to23. No fielddelta/stacks inoriginalresult,causeunproven. FailedarchiveDIAGNOSTIC_NOT_APPROVED.",
+    "motionRepairCandidate": "e30be553 only3captilts+5clownfishrootFactor optins, factorylegacydefaults exact.25focusedPASS+root9PASS;8formerrows and1legacydefault negativecontrols detected/exactrestored, harnesswordingfailure retained/repaired;28Pilot/38unique unaffected rigs exact. IndependentC0/I0. Fresh8stage4view/32state/2distancegateOPEN.",
+    "sceneSaveObservability": "051e22ab diagnostic-only:18focusedPASS,4controlsRED/exactrestored,root4PASS,14functional/metric/validatorfunctions exact andstrictprewarmupbaselineunchanged. Capturesphase/whole-span save/storage deltas,originalwrite stacks, synchronousdraw/flagproofs andcleanup. ActualnewdiagnosisPENDING. Native metrics nowcontinue aftercompletedscenefailure independently;setupfailures do not run them,jobfailure retained;YAMLvalid/8routingPASS.",
+    "motionRepairCI": "ddaf Character37931349651SUCCESS:dedicated113822573246 andstage-evidence mushroom113823115627/clownfish113823115600SUCCESS. New8stagecaptureactualreviewpending; recoveryrequest selectsverified2sourceartifacts. Scoped2families isnotfull248aggregate."
   },
   "next": [
     "Run reviewed [qa:runtime] [qa:scene] QA against unchangedproduction; retain6df45role actualPASS. Complete boundedMushroom5/6/7 andClownfish2 motion repair then actual scoped recapture/review.",

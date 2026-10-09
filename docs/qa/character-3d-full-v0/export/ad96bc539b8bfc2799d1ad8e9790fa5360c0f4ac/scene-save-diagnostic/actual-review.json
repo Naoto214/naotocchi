@@ -1,0 +1,368 @@
+{
+  "review": "actualdiagnostic-review",
+  "sourceCommit": "ad96bc539b8bfc2799d1ad8e9790fa5360c0f4ac",
+  "inspectedPath": "docs/qa/character-3d-full-v0/export/ad96bc539b8bfc2799d1ad8e9790fa5360c0f4ac/scene-save-diagnostic/meguru/meguru-qa.json",
+  "jsonSha256": "abe0038edd4714b81cbca61a872e0757e75b6a2c6f69c7d25f61070cf23c2576",
+  "jsonBytes": 357116,
+  "artifactProvenance": {
+    "status": "DIAGNOSTIC_NOT_APPROVED",
+    "sourceCommit": "ad96bc539b8bfc2799d1ad8e9790fa5360c0f4ac",
+    "sourceRun": 37929709480,
+    "sourceRunConclusion": "failure",
+    "artifactJobId": 113817149491,
+    "artifactJobName": "meguru-wave",
+    "artifactJobStatus": "completed",
+    "artifactJobConclusion": "failure",
+    "artifactEvidenceMode": "diagnostic",
+    "artifact": {
+      "id": 11615707537,
+      "name": "full-rollout-meguru-ad96bc539b8bfc2799d1ad8e9790fa5360c0f4ac",
+      "digest": "sha256:f5fd0eb1e973b94907437c313262d9971124a755a1fddec7eeba0bfa26a99537"
+    }
+  },
+  "overallVerdict": "FAILURE_RETAINED_DIAGNOSTIC_ONLY",
+  "sourceVerdict": {
+    "pass": false,
+    "fails": [
+      "unchanged save\n\nfalse !== true\n"
+    ]
+  },
+  "criticalProductionCauseEstablished": false,
+  "importantOpenSaveBoundaryBlocker": true,
+  "method": "Read actual recovered JSON and compare original resource/composition predicates as data; no validator rerun, data mutation/normalization, synthetic pass copy, tests, capture or implementation. Root verified original archive/direct bytes.",
+  "environment": "chromium + SwiftShader(\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2 GPU)",
+  "capture": false,
+  "integrationScene": true,
+  "integrationMetrics": false,
+  "phaseCount": 17,
+  "phases": [
+    {
+      "name": "baseline/current-view",
+      "status": "ready",
+      "frames": 1
+    },
+    {
+      "name": "warmup/characters-off",
+      "status": "ready",
+      "frames": 1
+    },
+    {
+      "name": "warmup/characters-on",
+      "status": "ready",
+      "frames": 2
+    },
+    {
+      "name": "warmup/city",
+      "status": "ready",
+      "frames": 2
+    },
+    {
+      "name": "warmup/forest",
+      "status": "ready",
+      "frames": 2
+    },
+    {
+      "name": "cycle-1/characters-off",
+      "status": "ready",
+      "frames": 1
+    },
+    {
+      "name": "cycle-1/characters-on",
+      "status": "ready",
+      "frames": 1
+    },
+    {
+      "name": "cycle-1/city",
+      "status": "ready",
+      "frames": 2
+    },
+    {
+      "name": "cycle-1/forest",
+      "status": "ready",
+      "frames": 2
+    },
+    {
+      "name": "cycle-2/characters-off",
+      "status": "ready",
+      "frames": 1
+    },
+    {
+      "name": "cycle-2/characters-on",
+      "status": "ready",
+      "frames": 1
+    },
+    {
+      "name": "cycle-2/city",
+      "status": "ready",
+      "frames": 2
+    },
+    {
+      "name": "cycle-2/forest",
+      "status": "ready",
+      "frames": 2
+    },
+    {
+      "name": "cycle-3/characters-off",
+      "status": "ready",
+      "frames": 1
+    },
+    {
+      "name": "cycle-3/characters-on",
+      "status": "ready",
+      "frames": 1
+    },
+    {
+      "name": "cycle-3/city",
+      "status": "ready",
+      "frames": 2
+    },
+    {
+      "name": "cycle-3/forest",
+      "status": "ready",
+      "frames": 2
+    }
+  ],
+  "resourceCompositionAudit": {
+    "status": "NO_RECORDED_DISCREPANCY",
+    "issues": [],
+    "fixtureCount": 11,
+    "fixtureComposition": [
+      {
+        "key": "companion:cat_friend",
+        "modelId": "cat_friend",
+        "modelStage": 0
+      },
+      {
+        "key": "companion:penguin_friend",
+        "modelId": "companion:penguin_friend",
+        "modelStage": 0
+      },
+      {
+        "key": "companion:shiba",
+        "modelId": "shiba",
+        "modelStage": 0
+      },
+      {
+        "key": "companion:tanuki",
+        "modelId": "companion:tanuki",
+        "modelStage": 0
+      },
+      {
+        "key": "form:butterfly:1",
+        "modelId": "butterfly",
+        "modelStage": 2
+      },
+      {
+        "key": "form:butterfly:3",
+        "modelId": "butterfly",
+        "modelStage": 4
+      },
+      {
+        "key": "form:butterfly:7",
+        "modelId": "butterfly",
+        "modelStage": 8
+      },
+      {
+        "key": "form:mushroom:3",
+        "modelId": "mushroom",
+        "modelStage": 4
+      },
+      {
+        "key": "form:mushroom:5",
+        "modelId": "mushroom",
+        "modelStage": 6
+      },
+      {
+        "key": "form:mushroom:7",
+        "modelId": "mushroom",
+        "modelStage": 8
+      },
+      {
+        "key": "player",
+        "modelId": "dog",
+        "modelStage": 4
+      }
+    ],
+    "baselineGeometries": 107,
+    "postWarmupResources": {
+      "templates": 11,
+      "materials": 1,
+      "atlases": 12,
+      "eyeGeos": 10,
+      "textures": 44,
+      "geometries": 106
+    },
+    "finalResources": {
+      "templates": 11,
+      "materials": 1,
+      "atlases": 12,
+      "eyeGeos": 10,
+      "textures": 44,
+      "geometries": 106
+    },
+    "threeCycles": [
+      {
+        "cycle": 1,
+        "offLiveHolders": [
+          0,
+          0
+        ],
+        "onLiveHolders": [
+          11,
+          11
+        ],
+        "cityLiveHolders": [
+          11,
+          11
+        ],
+        "cityNatural2D": true,
+        "cityIdentityAndHiddenCanvas": {
+          "sameScene": true,
+          "sameHolders": true,
+          "sameCanvases": true,
+          "hiddenGL": true
+        },
+        "cityResourceAndCounterEqualityToOn": true,
+        "forestExactComposition": true,
+        "forestAllLiveAttached": true,
+        "forestResources": {
+          "templates": 11,
+          "materials": 1,
+          "atlases": 12,
+          "eyeGeos": 10,
+          "textures": 44,
+          "geometries": 106
+        },
+        "forestCreatedRemovedLive": [
+          66,
+          55,
+          11
+        ],
+        "fallbacks": 0,
+        "failedTemplates": 0
+      },
+      {
+        "cycle": 2,
+        "offLiveHolders": [
+          0,
+          0
+        ],
+        "onLiveHolders": [
+          11,
+          11
+        ],
+        "cityLiveHolders": [
+          11,
+          11
+        ],
+        "cityNatural2D": true,
+        "cityIdentityAndHiddenCanvas": {
+          "sameScene": true,
+          "sameHolders": true,
+          "sameCanvases": true,
+          "hiddenGL": true
+        },
+        "cityResourceAndCounterEqualityToOn": true,
+        "forestExactComposition": true,
+        "forestAllLiveAttached": true,
+        "forestResources": {
+          "templates": 11,
+          "materials": 1,
+          "atlases": 12,
+          "eyeGeos": 10,
+          "textures": 44,
+          "geometries": 106
+        },
+        "forestCreatedRemovedLive": [
+          88,
+          77,
+          11
+        ],
+        "fallbacks": 0,
+        "failedTemplates": 0
+      },
+      {
+        "cycle": 3,
+        "offLiveHolders": [
+          0,
+          0
+        ],
+        "onLiveHolders": [
+          11,
+          11
+        ],
+        "cityLiveHolders": [
+          11,
+          11
+        ],
+        "cityNatural2D": true,
+        "cityIdentityAndHiddenCanvas": {
+          "sameScene": true,
+          "sameHolders": true,
+          "sameCanvases": true,
+          "hiddenGL": true
+        },
+        "cityResourceAndCounterEqualityToOn": true,
+        "forestExactComposition": true,
+        "forestAllLiveAttached": true,
+        "forestResources": {
+          "templates": 11,
+          "materials": 1,
+          "atlases": 12,
+          "eyeGeos": 10,
+          "textures": 44,
+          "geometries": 106
+        },
+        "forestCreatedRemovedLive": [
+          110,
+          99,
+          11
+        ],
+        "fallbacks": 0,
+        "failedTemplates": 0
+      }
+    ],
+    "finalCreatedRemovedLive": [
+      110,
+      99,
+      11
+    ],
+    "reportedHeapBytesAtBeforeAfter": [
+      26000000,
+      26000000
+    ]
+  },
+  "failedSaveEvidence": {
+    "unchanged": {
+      "save": false,
+      "storage": false,
+      "getter": true,
+      "saveWrites": false
+    },
+    "saveCounters": {
+      "before": 20,
+      "after": 23
+    },
+    "addedSaveCalls": 3,
+    "restored": {
+      "step": true,
+      "region": true
+    },
+    "finalWorldSavedRegions": [
+      "forest",
+      "forest"
+    ],
+    "assertionOrdering": "Original validateRepeated completed resource checks before rejecting first unchanged/save predicate. storage and saveWrites false remain independently visible in raw JSON; their assertions and restored assertions were not reached after save throw."
+  },
+  "diagnosticGaps": [
+    "No before/after full state or stored-save values/deltas.",
+    "No saved write-event call stacks/timestamps or per-phase counters in repeated result.",
+    "No synchronous presentation boundary constituents for warmup/cycles.",
+    "No separate prewarmup/postwarmup/strict-cycle save interval proof."
+  ],
+  "causalAssessment": "Natural city loadMapRecords\u2192seedMapRecords\u2192saveState remains a source-supported hypothesis, not proved by flags/counters. Three additional writes cannot be allocated to warmup or individual cycles. Actual renderer synchronous/deferred mutation and normal application work remain unseparated.",
+  "remainingGates": [
+    "Save blocker remains OPEN; diagnostic observability worker must preserve strict existing baseline while collecting causal evidence.",
+    "No overall scene approval, isolated animation/appearance-window measurements, default performance, Human adoption or actual iPhone Safari approval."
+  ]
+}
