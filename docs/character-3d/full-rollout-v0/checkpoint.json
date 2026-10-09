@@ -1,6 +1,6 @@
 {
-  "baseCommit": "d7dc8973d7acfadb9298712505bb8735ffdbf0ce",
-  "checkpoint": "two-image-approvals-author-candidate-and-eagle-source-correction",
+  "baseCommit": "8523a522bf8967a2679ed7cbfdcdd63b328d354b",
+  "checkpoint": "legacy-capture-resolution-fixed-and-missing-player-integration-prepared",
   "coverage": {
     "exact": 291,
     "total": 293,
@@ -138,14 +138,16 @@
     "source73CI": "Character37911082729, Runtime37911092013, Home37911092044 all SUCCESS; 26fb Runtime37908684966 now SUCCESS.",
     "authorCandidate": "e67902df integrated with near3D readiness fix;11/11 assembled PASS,17 original+1 near3D controls RED/restored;35 existing humanoid/celestial inputs exact,42 previous candidate rows unchanged before Eagle fix. C0/I0. No author image approval.",
     "twoLatestPromotion": "Spider/Snowman actual gates approved. 19 boundaries PASS,7 role mutations RED/restored. Dedicated450:448PASS/2stale promotion-null expectations FAIL; corrected2/2 targetedGREEN. Full sourceCI pending; do not claim all450PASS.",
-    "eagleSourceCorrection": "a7c955a1 candidate-only22feather centerlines redistributed into descending primary fan.6affectedPASS and4controlsRED/restored; independent code reviewC0/I0,41otherrows exact,17728max triangles. No shared factory changes. Fresh full actual images pending."
+    "eagleSourceCorrection": "a7c955a1 candidate-only22feather centerlines redistributed into descending primary fan.6affectedPASS and4controlsRED/restored; independent code reviewC0/I0,41otherrows exact,17728max triangles. No shared factory changes. Fresh full actual images pending.",
+    "authorEagleCapture8523": "Character37915318261 FAILURE:dedicated113769954538 SUCCESS; capture113769954286 failed on first legacy state after80 partial files. artifact11609677554 has no completed metadata; no actual image approval. Existing wave page lacked exact legacy stage0 resolution; root narrow fallback fix RED1/GREEN2 and C0/I0. Repeat selected capture after fix.",
+    "missingPlayerIntegrationMode": "cc8f4258:explicit [qa:integration] mode reuses existing31family stage jobs;86 exact missing stages/15families get wave-motion child output, no new capture framework. Approved wave/candidate-distance/nonplayer recaptures skipped only in integration mode; gallery/scene/performance/dedicated/aggregate retained. Ordinary markers preserved. Workflow focused7PASS; root integrated workflow/page checks8/8PASS;7worker checks include existing stage-evidence integration guard. Independent reviewC0/I0; next [qa:nonplayer] save does not activate integration."
   },
   "next": [
-    "Complete Eagle source-wing correction and author candidate review; save scoped candidate batch.",
-    "Capture Eagle/author full gates and legacy cat/shiba states+distance only; actual inspect before last two promotions.",
-    "Complete source-by-source player state/distance evidence audit; capture and actually review only missing stage gates through existing tools.",
-    "Final293 integration: one dedicated/full npm batch, inventory/coverage, scene/performance and independent review.",
-    "Human/iPhone separate OPEN; deliver v0 Human QA package and retain Draft."
+    "Repeat scoped Eagle/author full and legacy cat/shiba states+distance capture after exact legacy page fix; actual inspect before last two promotions.",
+    "After actual approval, promote Eagle and author with exact role/actual-author alias tests; require293 exact and four-view records.",
+    "Run [qa:integration] source: existing31stage aggregate plus86missing motion stages; actually inspect missing motion and early-family distance evidence.",
+    "One final full npm batch, protected/default comparison, scene/performance, independent final review and source-specific Human QA package.",
+    "Human/iPhone remain separate OPEN; retain Draft and stop at v0 Human QA handoff."
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",
@@ -204,7 +206,7 @@
       "homeRun": 37890612549,
       "homeStatus": "SUCCESS"
     },
-    "playerImageIntegration": "OPEN: all31 families/248 stages have reviewed four-view evidence; final evidence audit found early families with representative-only state images. Full per-stage state/distance requirements are being reconciled; no blanket 248x32-state acceptance claim. Reuse full accepted sets (including Phoenix)."
+    "playerImageIntegration": "OPEN:136 stages with full32 reviewed sets +26 Human-approved Pilot five-emotion idle/walk sample sets leave86stages/860plan-minimum cells. Existing wave-motion emits2752cells for these86 only. Early5families80normal-distance images need actual review from final stage artifacts. All prior four-view/full gates reused with recorded default/Pilot identity; no all248x32 claim."
   },
   "verificationHistoryNote": "verification entries are source-scoped historical evidence. Current coverage/currentGates/next identify the active state; older pending or REJECT records are not current verdicts."
 }

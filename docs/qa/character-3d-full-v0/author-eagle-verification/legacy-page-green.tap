@@ -1,0 +1,22 @@
+TAP version 13
+# Subtest: actual wave page resolves reviewed legacy models at exact stage zero without widening identities
+ok 1 - actual wave page resolves reviewed legacy models at exact stage zero without widening identities
+  ---
+  duration_ms: 782.274056
+  type: 'test'
+  ...
+# Subtest: actual wave page retains player and role-specific candidate resolution
+ok 2 - actual wave page retains player and role-specific candidate resolution
+  ---
+  duration_ms: 241.327473
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1109.569366

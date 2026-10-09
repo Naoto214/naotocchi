@@ -1039,3 +1039,10 @@ Author candidate e67902df reuses humanoid with default-preserving opt-ins;35 old
 Integrated450-test run:448PASS and2 stale promotion-null assertions failed. Corrected Spider/Snowman expectations pass2/2; do not describe this as a450PASS rerun. Role controls7/7 restored;19 boundary tests PASS; independent integration reviewC0/I0. Next scoped CI captures Eagle/author plus legacy cat/shiba32states+2distance each, reusing legacy four-view boards.
 
 Final evidence reconciliation distinguishes four-view coverage from full per-stage state/distance approval. Several early player families have representative-only state records; the exact missing-stage table is being prepared and these gates remain OPEN. Reuse all accepted full sets, including Phoenix. Human/iPhone remain separate OPEN, PR376 remains Draft.
+
+
+### Legacy page resolution and missing-stage integration mode
+
+Saved8523a522/tree574e09d3 matched remote/local clean. Character37915318261 ended FAILURE: dedicated113769954538 SUCCESS, capture113769954286 stopped at the first legacy state after80 partial files (artifact11609677554), without completed metadata. No image approval is inferred. Root reproduced missing ARCHETYPE_REUSE lookup in the actual wave-page resolver and fixed only known legacy IDs at stage0; RED1/2 to GREEN2/2, independentC0/I0. Runtime37915328104 SUCCESS; Home37915328102 lastIN_PROGRESS.
+
+Task11cc8f4258 adds explicit integration mode using existing31family jobs, exact86-stage selector and per-family motion child directories. It skips only already-approved capture work, retaining gallery, scene/performance, dedicated and aggregate. Plan minimum is five emotions times idle/walk;136 full-matrix stages plus26 previously Human-approved Pilot sample stages leave86 missing stages (860 minimum cells; existing tool emits2752). Initialfivefamilies need actual review of80distance images from the existing final stage artifacts. No Phoenix or other accepted full gate is reopened.
