@@ -1123,3 +1123,9 @@ Ddaf captures recovered118entries/368rawfiles withSHA256/size/directbytesverifie
 Repaircapture config selects onlyMushroom6motion andone existingfamilyjob; no newCLI/framework. Recoveryworkflowcheckoutsparse.githubonly;22guardtestsPASS inisolatedsame-layoutdirectory, originalGitHubprovenance/lease unchanged. This avoids checkingoutalmost1GBhistoricalQAimagestoexportnewartifacts.
 
 F07sceneobservabilityrun remainsFAILsave;nativeperformance stepnowcompletesindependently. Artifactcontains2JSONs;causaldeltas/callstack inspectionpendingrecovery. Two old testconditionevaluators failedonnewGitHubsuccessfunction, fixedtestcontextonly and26relatedtestsPASS. No production/validatorwaiver.
+
+## f07 actual save provenance and native metrics recovered
+
+Original f07 scene whole-span FAILURE retained. Verified raw field deltas and normal write stacks identify one natural warmup/city map-seed save (three empty city bags, saveRevision/savedAt; backup/writer/main20→23). All38 synchronous presentation boundaries and three subsequent cycle/cleanup aggregates are clean. This proves this execution only, not earlier uninstrumented failures. Independent native dog04+companions1/5/27 metrics were audited, including120clone samples per cast and adjacent-frame appearance windows; SwiftShader is not device-performance approval. Source-specific review and original bytes are saved together.
+
+0be Character37934515030 SUCCESS (dedicated and Mushroom6 capture). Final Mushroom6 actual replacement review remains OPEN until recovery. Protected11groups and28Pilot hashes match. Next QA-only contract checks bounded normal warmup setup, all synchronous boundaries and strict postwarmup cycles; it does not change production/save behavior. Native metric reuse is explicitly selected to avoid duplicate measurement; the new scene still runs and may fail.

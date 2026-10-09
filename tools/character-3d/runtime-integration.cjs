@@ -57,8 +57,39 @@ function validateCityCache(before,city) {
   assert.equal(city.glCanvases,before.glCanvases,'city canvas count bound');
   for(const key of [...PLATEAU,'created','removed'])assert.equal(city[key],before[key],'city resource growth '+key);
 }
+function validateSceneSetup(r) {
+  const setup=r.setup;assert.ok(setup?.before&&setup?.after,'recorded setup raw snapshots required');
+  const before=setup.before,after=setup.after,delta=JSON.parse(JSON.stringify(saveDelta(before.state,after.state))),storageDelta=JSON.parse(JSON.stringify(saveDelta(before.storage,after.storage))),calls=setup.saveCalls||[];
+  assert.ok(before.getterSame&&after.getterSame,'setup getter identity');assert.equal(before.state.regionId,'forest','setup initial forest placement');assert.equal(after.state.regionId,'forest','setup restored forest placement');assert.equal(setup.eventLimitReached,false,'setup complete write provenance');
+  assert.deepEqual(setup.delta,delta,'setup exact state delta');assert.deepEqual(setup.storageDelta,storageDelta,'setup exact storage delta');
+  const observation=label=>{const matches=r.saveObservations.filter(p=>p.label===label);assert.equal(matches.length,1,'setup unique phase '+label);const p=matches[0];assert.equal(p.getterSame,true,'setup phase getter '+label);return p;};
+  const clean=p=>{assert.equal(p.beforeWrites,p.afterWrites,'setup unexpected write '+p.label);assert.deepEqual(p.delta,[],'setup unexpected state '+p.label);assert.deepEqual(p.storageDelta,[],'setup unexpected storage '+p.label);assert.deepEqual(p.saveCalls,[],'setup unexpected provenance '+p.label);};
+  for(const label of ['baseline/current-view','warmup/characters-off','warmup/characters-on'])clean(observation(label));
+  const warmup=observation('warmup'),city=observation('warmup/city'),forest=observation('warmup/forest');
+  assert.deepEqual(warmup.delta,delta,'setup warmup state identity');assert.deepEqual(warmup.storageDelta,storageDelta,'setup warmup storage identity');assert.deepEqual(warmup.saveCalls,calls,'setup warmup call identity');
+  assert.equal(warmup.beforeWrites,before.writes,'setup before count');assert.equal(warmup.afterWrites,after.writes,'setup after count');
+  assert.deepEqual(forest.delta,[{path:'regionId',before:'city',after:'forest'}],'setup forest placement only');assert.equal(forest.beforeWrites,forest.afterWrites,'setup forest write forbidden');assert.deepEqual(forest.storageDelta,[],'setup forest storage unchanged');assert.deepEqual(forest.saveCalls,[],'setup forest save calls absent');
+  if(!delta.length&&!storageDelta.length&&before.writes===after.writes){assert.deepEqual(calls,[],'unchanged setup has no write provenance');assert.deepEqual(city.delta,[{path:'regionId',before:'forest',after:'city'}],'unchanged setup city placement only');assert.equal(city.beforeWrites,city.afterWrites,'unchanged setup city writes');assert.deepEqual(city.storageDelta,[],'unchanged setup city storage');assert.deepEqual(city.saveCalls,[],'unchanged setup city provenance');return {kind:'unchanged',beforeWrites:before.writes,afterWrites:after.writes};}
+  for(const kind of ['marks','paths','zones'])assert.ok(before.state.lifetime?.meguru?.[kind]&&typeof before.state.lifetime.meguru[kind]==='object','setup existing map bag '+kind);
+  const missing=['marks','paths','zones'].filter(kind=>!Object.hasOwn(before.state.lifetime.meguru[kind],'city'));
+  assert.ok(missing.length,'setup must initialize absent city maps');
+  assert.deepEqual(delta.map(d=>d.path).sort(),[...missing.map(k=>'lifetime.meguru.'+k+'.city'),'lifetime.saveRevision','savedAt'].sort(),'setup unknown state delta');
+  for(const kind of missing)assert.deepEqual(after.state.lifetime.meguru[kind].city,[],'setup city map must be empty '+kind);
+  assert.ok(Number.isInteger(before.state.lifetime.saveRevision),'setup existing revision');assert.equal(after.state.lifetime.saveRevision,before.state.lifetime.saveRevision+1,'setup single revision commit');assert.ok(Number.isFinite(after.state.savedAt)&&after.state.savedAt>before.state.savedAt,'setup commit timestamp');
+  assert.equal(after.writes-before.writes,3,'setup exactly one normal three-write commit');
+  assert.deepEqual(calls.map(c=>c.key),['naotocchi-save-v1-backup','naotocchi-save-v1-writer','naotocchi-save-v1'],'setup normal commit keys');
+  for(const call of calls)assert.match(call.stack,/saveState[\s\S]*seedMapRecords[\s\S]*loadMapRecords[\s\S]*enterWorld/,'setup normal seed provenance');
+  assert.equal(city.beforeWrites,before.writes,'setup city initial writes');assert.equal(city.afterWrites,after.writes,'setup city final writes');assert.equal(forest.beforeWrites,after.writes,'setup forest postcommit writes');assert.deepEqual(city.saveCalls,calls,'setup only city writes');assert.deepEqual(city.delta,[...delta,{path:'regionId',before:'forest',after:'city'}].sort((a,b)=>a.path.localeCompare(b.path)),'setup city exact field delta');assert.deepEqual(city.storageDelta,storageDelta,'setup city exact storage delta');
+  const primary='naotocchi-save-v1',backup=primary+'-backup',writer=primary+'-writer';
+  assert.deepEqual(JSON.parse(before.storage[primary]),before.state,'setup initial stored save matches state');assert.deepEqual(JSON.parse(after.storage[primary]),{...after.state,regionId:'city'},'setup stored save is exact natural city commit');
+  assert.equal(after.storage[backup],before.storage[primary],'setup backup preserves previous primary');assert.equal(after.storage[writer],before.storage[writer],'setup existing writer identity');
+  assert.deepEqual(Object.keys(after.storage).sort(),Object.keys(before.storage).sort(),'setup storage key inventory');for(const key of Object.keys(before.storage))if(![primary,backup].includes(key))assert.equal(after.storage[key],before.storage[key],'setup unexpected storage '+key);
+  return {kind:'one-time-empty-city-map-seed',beforeWrites:before.writes,afterWrites:after.writes,fields:delta.map(d=>d.path)};
+}
 function validateRepeated(r) {
   assert.ok(!r.error && !r.restorationError, 'repeated scene readiness/restoration: '+(r.error?.message||r.restorationError?.message||''));
+  assert.ok(r.boundaries?.length,'repeated synchronous presentation proofs required');for(const proof of r.boundaries)for(const key of ['save','storage','getter','saveWrites'])assert.equal(proof[key],true,'dirty presentation boundary '+proof.label+' '+key);
+  r.setupVerdict=validateSceneSetup(r);
   assert.equal(r.cycles, 3, 'declared bounded repeated cycles');
   assert.equal(r.samples.length, r.cycles, 'complete repeated samples');
   if(r.fixtureComposition){assert.equal(r.baseline.live,r.fixtureCount,'ready baseline count');assert.equal(r.fixtureComposition.length,r.fixtureCount,'complete eligible roster');assert.deepEqual(r.baseline.composition,r.fixtureComposition,'exact baseline composition');for(const sample of r.samples)for(const phase of ['on','forest'])assert.deepEqual(sample[phase].composition,r.fixtureComposition,'exact repeated '+phase+' composition');}
@@ -75,7 +106,15 @@ function validateRepeated(r) {
   for (const key of PLATEAU) assert.equal(r.after[key], r.before[key], 'final warm resource plateau ' + key);
   assert.equal(r.after.created - r.after.removed, r.after.live, 'created/removed/live balance');
   for (const key of ['save','storage','getter','saveWrites']) assert.equal(r.unchanged[key], true, 'unchanged ' + key);
-  for (const key of ['step','region']) assert.equal(r.restored[key], true, 'restored ' + key);
+  assert.ok(r.strictSave?.before&&r.strictSave?.after,'strict postwarmup raw snapshots required');assert.deepEqual(r.strictSave.before,r.setup.after,'strict baseline follows recorded setup');
+  for(const key of ['state','storage','writes','getterSame'])assert.deepEqual(r.strictSave.after[key],r.strictSave.before[key],'strict cycles/cleanup '+key);
+  for(const label of ['cycle-1','cycle-2','cycle-3','cleanup']){const proof=r.saveObservations.find(p=>p.label===label);assert.ok(proof,'strict phase proof '+label);assert.equal(proof.getterSame,true,'strict getter '+label);assert.equal(proof.beforeWrites,r.strictSave.before.writes,'strict before writes '+label);assert.equal(proof.afterWrites,r.strictSave.before.writes,'strict after writes '+label);assert.deepEqual(proof.delta,[],'strict state '+label);assert.deepEqual(proof.storageDelta,[],'strict storage '+label);assert.deepEqual(proof.saveCalls,[],'strict save calls '+label);}
+  for(let i=1;i<=3;i++)for(const phase of ['characters-off','characters-on','city','forest']){
+    const label='cycle-'+i+'/'+phase,matches=r.saveObservations.filter(p=>p.label===label);assert.equal(matches.length,1,'strict unique phase '+label);const proof=matches[0];
+    assert.equal(proof.getterSame,true,'strict phase getter '+label);assert.equal(proof.beforeWrites,r.strictSave.before.writes,'strict phase before writes '+label);assert.equal(proof.afterWrites,r.strictSave.before.writes,'strict phase after writes '+label);assert.deepEqual(proof.storageDelta,[],'strict phase storage '+label);assert.deepEqual(proof.saveCalls,[],'strict phase write provenance '+label);
+    const expected=phase==='city'?[{path:'regionId',before:'forest',after:'city'}]:phase==='forest'?[{path:'regionId',before:'city',after:'forest'}]:[];assert.deepEqual(proof.delta,expected,'strict phase placement only '+label);
+  }
+  for (const key of ['step','region','draw','charFlag']) assert.equal(r.restored[key], true, 'restored ' + key);
 }
 // Read-only causal proof: ordinary app tasks cannot interleave a synchronous boundary.
 function saveDelta(before, after, prefix = '') {
@@ -169,14 +208,14 @@ async function functionalRun(out, args = []) {
   assert.equal(results.length, plan.rows.length, 'complete requested production sweep');
   console.log('production role functional PASS', results.length + '/45; missing=' + plan.missing.join(','));
 }
-module.exports = { functionalRows, validateFunctional, validateRepeated, validateCityCache, installSaveCounter, functionalRun, saveDelta, saveSnapshot, observeSaveBoundary, recordFunctionalResult };
+module.exports = { functionalRows, validateFunctional, validateRepeated, validateCityCache, installSaveCounter, functionalRun, saveDelta, saveSnapshot, observeSaveBoundary, recordFunctionalResult, validateSceneSetup };
 // Runs in the existing Meguru scene. Warm once, then compare three identical cycles.
 async function repeatSceneInBrowser() {
     const run = globalThis.__meguruRun, rd = run.renderer, p = rd.char3dPresenter, bridge = globalThis.__meguruBridge, getter = bridge.getState, state = getter(), region = state.regionId, save = JSON.stringify(state), step = run.sim.step;
     const storage = () => Object.fromEntries(Object.keys(localStorage).filter(k => k.startsWith('naotocchi-save')).sort().map(k => [k,localStorage.getItem(k)]));
     const raw = JSON.stringify(storage()), writes = globalThis.__integrationSaveWrites, originalDraw=rd.draw, originalFlag=rd.setChar3D;
     const snapshot = () => { let holders=0;p.scene?.traverse(o=>{if(o.name?.startsWith('c3d-actor:'))holders++;});const st=rd.stats3d(),actors=[run.sim.player,...run.party,...run.world.residents].map((a,i)=>{const inst=p.instanceOf(a);return {key:i===0?'player':a.key,kind:a.kind,id:a.id,line:a.line,stage:a.stage,x:a.x,z:a.z,live:p.has(a),attached:!!inst?.holder.parent,modelId:inst?.tpl.id,modelStage:inst?.tpl.stage};});return {...p.stats(),holders,is3D:rd.is3D,worldRegion:run.world.regionId,savedRegion:state.regionId,textures:st?.textures,geometries:st?.geometries,heapBytes:performance.memory?.usedJSHeapSize||null,glCanvases:document.querySelectorAll('.meguru-3d-canvas').length,actors,composition:actors.filter(a=>a.live).map(({key,modelId,modelStage})=>({key,modelId,modelStage})).sort((a,b)=>a.key.localeCompare(b.key))}; };
-    let fixtureCount=null,fixtureComposition=null;
+    let fixtureCount=null,fixtureComposition=null,strictBefore=null;
     const result={cycles:3,fixtureCount,initial:snapshot(),warmup:null,before:null,after:null,samples:[],phases:[],saveObservations:[],boundaries:[],unchanged:{},restored:{}};
     let activeSavePhase='entry';
     const observer={writes:()=>globalThis.__integrationSaveWrites,storage,delta:saveDelta,record(proof){proof.phase=activeSavePhase;proof.saveCalls=events().slice(Math.min(proof.beforeWrites,256),Math.min(proof.afterWrites,256));proof.eventLimitReached=events().length>=256;result.boundaries.push(proof);if(['save','storage','getter','saveWrites'].some(key=>!proof[key]))console.error('repeated scene presentation save '+JSON.stringify(proof));}};
@@ -214,7 +253,8 @@ async function repeatSceneInBrowser() {
       if(!fixtureCount||new Set(fixtureComposition.map(a=>a.key)).size!==fixtureCount)throw Error('invalid eligible scene composition');
       await interval('baseline/current-view',async()=>{rd.draw(view,performance.now());await wait('baseline/current-view',compositionReady,{live:fixtureCount,composition:fixtureComposition});});
       result.baseline=snapshot();result.fixtureCount=fixtureCount;result.fixtureComposition=fixtureComposition;
-      result.warmup=await cycle('warmup');result.before=snapshot();
+      result.warmup=await cycle('warmup');result.before=snapshot();strictBefore=saveSnapshot(bridge,observer);
+      const setupCalls=events().slice(eventStart);result.setup={before:rawSave(saveBefore),after:rawSave(strictBefore),delta:saveDelta(JSON.parse(saveBefore.state),JSON.parse(strictBefore.state)),storageDelta:saveDelta(JSON.parse(saveBefore.storage),JSON.parse(strictBefore.storage)),saveCalls:setupCalls,eventLimitReached:events().length>=256};
       for(let i=0;i<3;i++)result.samples.push(await cycle('cycle-'+(i+1)));result.after=snapshot();
     } catch(error) {
       result.error={message:String(error.message||error),stack:error.stack,phase:result.phases.at(-1)?.name};result.failed=snapshot();
@@ -222,10 +262,11 @@ async function repeatSceneInBrowser() {
       const cleanupBefore=saveSnapshot(bridge,observer),cleanupEvents=events().length;activeSavePhase='cleanup';
       try {run.sim.step=step;state.regionId=region;if(run.world.regionId!==region)run.enterWorld(region);} catch(error) {result.restorationError={message:String(error.message||error),stack:error.stack};}
       finally {try{saveObservation('cleanup',cleanupBefore,cleanupEvents,'Restoration via normal application operations');}finally{rd.draw=originalDraw;rd.setChar3D=originalFlag;}}
-      result.saveCounters={before:writes,after:globalThis.__integrationSaveWrites};
-      result.unchanged={save:save===JSON.stringify(getter()),storage:raw===JSON.stringify(storage()),getter:getter===bridge.getState,saveWrites:writes===globalThis.__integrationSaveWrites};
+      result.saveCounters={scope:'Strict postwarmup cycles and cleanup',before:strictBefore?.writes??writes,after:globalThis.__integrationSaveWrites};
+      result.initialUnchanged={save:save===JSON.stringify(getter()),storage:raw===JSON.stringify(storage()),getter:getter===bridge.getState,saveWrites:writes===globalThis.__integrationSaveWrites};
+      const strictAfter=saveSnapshot(bridge,observer);result.strictSave={before:strictBefore?rawSave(strictBefore):null,after:rawSave(strictAfter)};result.unchanged={save:!!strictBefore&&strictBefore.state===strictAfter.state,storage:!!strictBefore&&strictBefore.storage===strictAfter.storage,getter:!!strictBefore&&strictBefore.getter===strictAfter.getter,saveWrites:!!strictBefore&&strictBefore.writes===strictAfter.writes};
       result.restored={step:run.sim.step===step,region:run.world.regionId===region&&state.regionId===region,draw:rd.draw===originalDraw,charFlag:rd.setChar3D===originalFlag};result.final=snapshot();
-      const saveAfter=saveSnapshot(bridge,observer);result.saveEvidence={scope:'Original strict prewarmup whole-span baseline, including natural application operations; validation unchanged',before:rawSave(saveBefore),after:rawSave(saveAfter),delta:saveDelta(JSON.parse(saveBefore.state),JSON.parse(saveAfter.state)),storageDelta:saveDelta(JSON.parse(saveBefore.storage),JSON.parse(saveAfter.storage)),saveCalls:events().slice(eventStart),eventLimitReached:events().length>=256};
+      const saveAfter=saveSnapshot(bridge,observer);result.saveEvidence={scope:'Recorded initial whole span, including known setup; initialUnchanged retains its original flags',before:rawSave(saveBefore),after:rawSave(saveAfter),delta:saveDelta(JSON.parse(saveBefore.state),JSON.parse(saveAfter.state)),storageDelta:saveDelta(JSON.parse(saveBefore.storage),JSON.parse(saveAfter.storage)),saveCalls:events().slice(eventStart),eventLimitReached:events().length>=256};
     }
     return result;
 }

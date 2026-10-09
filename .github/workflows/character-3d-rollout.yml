@@ -270,7 +270,7 @@ jobs:
         if: ${{ !(contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) }}
         run: node tools/character-3d/meguru-qa.cjs --perf-only --seconds 8 --out test-results/full-rollout/performance
       - name: Native composition 1 5 27 performance and isolated QA measurements
-        if: ${{ (contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) && (success() || steps.repeated_scene.conclusion == 'failure') }}
+        if: ${{ !contains(github.event.head_commit.message, '[qa:reuse-metrics]') && (contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) && (success() || steps.repeated_scene.conclusion == 'failure') }}
         run: node tools/character-3d/meguru-qa.cjs --perf-only --seconds 8 --integration-metrics --no-capture --out test-results/full-rollout/performance
       - uses: actions/upload-artifact@v4
         if: always()

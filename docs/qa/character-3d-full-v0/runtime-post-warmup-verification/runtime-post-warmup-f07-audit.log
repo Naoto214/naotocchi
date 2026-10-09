@@ -1,0 +1,30 @@
+{
+  "scope": "Read-only new-contract replay of recorded f07 data; not a fresh browser run",
+  "sha256": "bce649d5e8feb3e616fce90306f9dff1c434e74e786242a83cd0506e5056d42d",
+  "bytes": 501718,
+  "sourceVerdict": {
+    "pass": false,
+    "fails": [
+      "unchanged save\n\nfalse !== true\n"
+    ]
+  },
+  "setup": {
+    "kind": "one-time-empty-city-map-seed",
+    "beforeWrites": 20,
+    "afterWrites": 23,
+    "fields": [
+      "lifetime.meguru.marks.city",
+      "lifetime.meguru.paths.city",
+      "lifetime.meguru.zones.city",
+      "lifetime.saveRevision",
+      "savedAt"
+    ]
+  },
+  "cleanSynchronousBoundaries": 38,
+  "postwarmupWrites": [
+    23,
+    23
+  ],
+  "rawSourceUnchanged": true,
+  "newBrowserSceneGate": "OPEN"
+}

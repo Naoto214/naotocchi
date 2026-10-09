@@ -40,5 +40,5 @@ test('independent native metrics continue after observed scene failure but not f
  for(const message of ['[qa:runtime] [qa:scene]','[qa:integration]'])for(const [priorSuccess,scene,want] of [[true,'success',true],[false,'failure',true],[false,'skipped',false],[false,'cancelled',false]]){
   const expr=expression.replace('success()',String(priorSuccess)).replace('steps.repeated_scene.conclusion',JSON.stringify(scene));assert.equal(evaluate(expr,message),want,message+'/'+scene);
  }
- const ordinary=expression.replace('success()','true').replace('steps.repeated_scene.conclusion','"success"');assert.equal(evaluate(ordinary,''),false);
+ const ordinary=expression.replace('success()','true').replace('steps.repeated_scene.conclusion','"success"');assert.equal(evaluate(ordinary,''),false);assert.equal(evaluate(ordinary,'[qa:runtime] [qa:scene] [qa:reuse-metrics]'),false,'explicit reuse skips only unchanged metrics');const lifecycle=job.match(/name: Repeated production scene lifecycle without image capture\n        id: repeated_scene\n        if: (.+)/)[1];assert.equal(evaluate(lifecycle,'[qa:runtime] [qa:scene] [qa:reuse-metrics]'),true,'new scene still executes');
 });

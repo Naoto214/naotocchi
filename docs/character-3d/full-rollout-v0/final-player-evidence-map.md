@@ -1,5 +1,21 @@
 # Final player image evidence map
 
+## Current integration review
+
+This current section supersedes the historical pre-integration audit below. Production source: `0be70751e0896388e46a33969bef51c15dcdb3ae`. All31 families/248 stages are registered; ae9 run37922214774 aggregate113805523751 confirms exact browser coverage. Registration is separate from image acceptance.
+
+- The86 formerly missing motion stages were actually inspected at32 cells each. Ae9 supplied78 PASS/8 REJECT; ddaf replacement review resolved Clownfish02/03/05/06/07 and Mushroom05/07. **85/86 are currently accepted; Mushroom06 remains OPEN until its0be replacement is actually inspected.** Original rejection reports remain saved.
+- All80 early-family normal-distance images were actually inspected from ae9. The changed Clownfish rows use ddaf replacements (10 distances); Mushroom05/07 also have accepted replacement distances. Prior unchanged416-distance evidence is retained, with Mushroom06 replacement pending.
+- Previous136 complete32-state gates and26 narrower Pilot five-emotion×idle/walk gates are reused. After the last replacement passes, the total will be222 complete32-state stages plus26 narrower Pilot stages. This is not a claim that all248 stages have32 reviewed images.
+- Phoenix all8 actual image approval is unchanged: original-source `fde2580` visual-review.json and byte-identity reuse details below. No new Phoenix capture or implementation is needed.
+- Review authorities: `export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/reviews/` (motion, distance and data); `export/ddaf1edf5c4d13254151308996a1727bc705829b/reviews/` (seven accepted repairs and retained Mushroom06 rejection). Paths are relative to `docs/qa/character-3d-full-v0/`.
+
+Human adoption and actual iPhone acceptance remain separate OPEN gates.
+
+## Historical pre-integration audit and preserved selector
+
+The following records describe the original missing scope and its capture plan. Their pending counts are historical, not current verdicts. Preserve the exact selector for provenance; current acceptance is stated above.
+
 Source-scoped audit for the final Human QA package; no fresh image inspection, capture, implementation, or acceptance performed. Paths below are relative to `docs/qa/character-3d-full-v0/` unless stated otherwise. Counts distinguish recorded actual review from capture/automated checks.
 
 The canonical checkpoint currently records 31 player families / 248 exact stages. Its `currentGates.playerStageAggregate` is source `d3e64f0dd5c9f038c0a0c61a9a77314f4c83d99c`, run37881115241, aggregate113671073543: 31 families /248 exact-live stage records. This is historical browser registration/distance-file completeness, not an actual review of every expression/motion image. `full293Integration`, Human QA and iPhone QA remain OPEN.

@@ -1,22 +1,62 @@
 {
-  "sourceCommit": "f07fef280059b41e6ab22c2475b0cc5fd3c7c9ca",
-  "runId": 37932498805,
+  "sourceCommit": "0be70751e0896388e46a33969bef51c15dcdb3ae",
+  "runId": 37934515030,
   "artifactJobEvidence": true,
   "families": [
-    "dog"
+    "mushroom"
   ],
   "artifacts": [
     {
-      "id": 11616792990,
-      "label": "scene-save-and-native-metrics-diagnostic",
-      "name": "full-rollout-meguru-f07fef280059b41e6ab22c2475b0cc5fd3c7c9ca",
-      "digest": "sha256:1e17be9cd8845f8c397e053fbd4912efc9706f19e1793231ae93b3ef0a3f60a9",
-      "jobId": 113826398450,
-      "evidenceMode": "diagnostic",
+      "id": 11617459970,
+      "label": "mushroom6-collar",
+      "name": "full-rollout-stages-mushroom-0be70751e0896388e46a33969bef51c15dcdb3ae",
+      "digest": "sha256:b58c6b9cce5b881ab0e3fdf92c25b3cc8aa750e09eaa999afdb08f6e510818b4",
+      "jobId": 113833720859,
+      "evidenceMode": "successful",
       "required": [
         {
           "pattern": "meguru-qa.json",
-          "count": 2
+          "count": 1
+        },
+        {
+          "pattern": "evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-mushroom-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-mushroom-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "mushroom-*-front.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "mushroom-*-34.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "mushroom-*-side.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "mushroom-*-back.jpg",
+          "count": 8
+        },
+        {
+          "pattern": "mushroom-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "mushroom-6-*-*-*.jpg",
+          "count": 32
         }
       ]
     }
