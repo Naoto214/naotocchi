@@ -1,0 +1,33 @@
+test_actual_comparisons_reject_self_consistent_payment_and_time_tampering (test_proxy_population_payment_operands.PaymentOperandTests.test_actual_comparisons_reject_self_consistent_payment_and_time_tampering) ... FAIL
+test_actual_entry_rejects_tampered_comparison_without_revaluing_candidates (test_proxy_population_payment_operands.PaymentOperandTests.test_actual_entry_rejects_tampered_comparison_without_revaluing_candidates) ... FAIL
+test_duplicate_missing_and_unbound_comparison_rows_are_not_certified (test_proxy_population_payment_operands.PaymentOperandTests.test_duplicate_missing_and_unbound_comparison_rows_are_not_certified) ... FAIL
+
+======================================================================
+FAIL: test_actual_comparisons_reject_self_consistent_payment_and_time_tampering (test_proxy_population_payment_operands.PaymentOperandTests.test_actual_comparisons_reject_self_consistent_payment_and_time_tampering)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/dfba51ced877/card-audit/docs/card-game/tools/test_proxy_population_payment_operands.py", line 14, in test_actual_comparisons_reject_self_consistent_payment_and_time_tampering
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_actual_entry_rejects_tampered_comparison_without_revaluing_candidates (test_proxy_population_payment_operands.PaymentOperandTests.test_actual_entry_rejects_tampered_comparison_without_revaluing_candidates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/dfba51ced877/card-audit/docs/card-game/tools/test_proxy_population_payment_operands.py", line 38, in test_actual_entry_rejects_tampered_comparison_without_revaluing_candidates
+    self.assertIsNotNone(api);prior=runtime._step
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None
+
+======================================================================
+FAIL: test_duplicate_missing_and_unbound_comparison_rows_are_not_certified (test_proxy_population_payment_operands.PaymentOperandTests.test_duplicate_missing_and_unbound_comparison_rows_are_not_certified)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/dfba51ced877/card-audit/docs/card-game/tools/test_proxy_population_payment_operands.py", line 50, in test_duplicate_missing_and_unbound_comparison_rows_are_not_certified
+    self.assertIsNotNone(api)
+AssertionError: unexpectedly None
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=3)

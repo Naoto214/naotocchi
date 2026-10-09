@@ -34,6 +34,7 @@ import proxy_population_response_predicates as response_predicates
 import proxy_population_trigger_predicates as trigger_predicates
 import proxy_population_prepared_predicates as prepared_predicates
 import proxy_population_response_composition as response_composition
+import proxy_population_payment_operands as payment_operands
 from proxy_mandatory_policy_contract import canonical
 
 _LOCK=Lock()
@@ -65,6 +66,9 @@ def contract_scope():
      unit_coverage=board_predicates.compose(decision['inventory'],[predicates,hand_proof,board_proof])
      if unit_coverage['errors']:raise ValueError('normal predicate composition differs: '+str(unit_coverage['errors']))
      result['normal_unit_predicate_coverage']=unit_coverage
+     payment_proof=payment_operands.audit_normal(result['source_envelope'],events,decision)
+     if payment_proof['errors']:raise ValueError('normal payment operands differ: '+str(payment_proof['errors']))
+     result['normal_payment_operands']=payment_proof
     elif decision.get('decision_kind')=='response_action':
      coverage=source_inventory.audit_response(result['source_envelope'],decision['candidate_set_evidence'])
      expansion=response_expansions.audit(result['source_envelope'],events,decision['candidate_set_evidence'])

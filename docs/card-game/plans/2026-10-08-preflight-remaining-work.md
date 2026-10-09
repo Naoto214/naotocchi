@@ -692,3 +692,16 @@ e4a23a0から、直前のread-only probeを既存E-boss/G-hit-blow/I-c_coin2の�
 P11次工程のread-only probe: 実G-hit-blow通常入口の比較行すべてでpayment_timeを+1、time_after_certain_resolutionを-1と同じだけ改変すると、候補の費用条件・入口結合はerrors=[]、selection_basisの計算検証もtrueとなる一方、operand_provenance_verified=falseが維持される（payment-operand-binding-probe.log）。現行計算監査の責務どおりであり実支払バグではない。既存core/handのsource付き費用監査と、実比較行の支払operandを結合する工程を次に行う。未証明の成長/上位優先値/将来効果を費用の一致から昇格しない。
 
 最終固定22＋既存完走unit1: Ran 23 tests in 269.848s、PASS、別exit JSONも0。response89/normal29局所source covered、end dispatch20 verified、全機会falseを維持。過去の不完全/失敗logは保持。最新全proxy回帰ではない。
+
+
+### 2026-10-09 全残件監査と比較費用operand結合
+
+8286fbcから[横断監査](2026-10-09-preflight-readiness-audit.md)を追加。22管理項目（必須18/条件付き2/本番後2）を維持。必須の局所実装済み6と残る大項目12を分け、項目粒度が異なるため全体完了率は出さない。P07〜12の実意味/全機会/情報/operand、P13〜17認証/事前固定/gate、P18最終検証の依存・完了条件を列挙した。P13の信頼方式は新設計判断、main/装備の捨て到着順は正本根拠未確認として保持。工程分割案は低信頼の6〜10以上bundle（閉包2〜3、判断/情報2〜3、認証/gate1〜2、最終1〜2）。未確定事項が多く所要日数・人日は未見積り。
+
+P11: 既存core/handのsource-pinned費用predicateをfresh検査し、実normal比較のpayment_time/残り時を実actor時・admitted候補・比較行IDへ結合。+1/-1の自己整合改変、bool/欠落/重複/別ID/偽sourceを拒否し、現行challenge_windowの実入口へ接続した。8card fixture（比較なしE-bossを含む）、pass/main birth/人物/world/準備/revealの既存選択を使用。未知の盤上費用はunproved、比較なしは未認証、他優先値/成長/情報実使用/履歴起点/operand全体はfalseのまま。新評価値・selector・policyの変更なし。
+
+初回TDD3FAIL（moduleなし）→初回実装3件中1FAILはE-bossにも比較problemがあるというtest側仮定。既存problem=Noneを維持して関連21PASS9.615s、card範囲拡張後22PASS9.911s。独立review1回C0/I0/Minor1、新4件独立PASS1.282s。Minorはstandaloneのenumeration ID重複による未対応sourceの費用根拠alias（実入口は既存composeで拒否済み）。未知行保持とalias拒否を1FAIL0.220sで再現し、一意ID検査を追加。再reviewなし。課題増加理由は計算整合と正本費用operandの結合を分けたこと、およびstandalone/統合入口の前提差を確認したこと。新管理ID・新裁定は追加しない。
+
+修正前固定結合は同じPythonで21PASS148.024s＋challenge2PASS116.746s（従来23件と同一集合）。最終修正後は別finalログで判定し、前結果を転用しない。npm testコマンドexit0、design errors=[]、番号付き正本476不変。最新全proxy回帰完了は主張しない。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。
+
+最終修正後固定23件: Ran 23 tests in 261.230s、PASS/exit0。Python1046ファイルの前後hash集合一致。既存unitのresponse89/normal29局所source covered、end dispatch20 verified、全機会falseを維持。最終関連23PASS10.719s、design errors=[]、保護476不変。npm logはnode集計が出ていなかったため、同じpackage.jsonのnode --test対象を明示TAPで実行し406PASS/FAIL0/exit0を別保存した。最終summaryはpayment-operands-summary.json。新規実seed/本番入力/400戦は0。
