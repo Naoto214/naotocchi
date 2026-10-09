@@ -827,3 +827,10 @@ Source01/02/04/05/06/08 use existing mystery_blob with owned optional antennae, 
 Ghost source4f3a839 scoped Character37873539531 SUCCESS (3success/15skipped),wave11591341783/distance11590574842 requested via reusable artifact API exporter. God staff corrected86dfd3a capture37873967912 still pending.
 
 Review found stationary Unknown05 wings; fixed via existing owned feather-wing metadata, with actual motion RED/GREEN and mutation detection. No shared animation implementation change.
+
+
+### Ghost image PASS; Star03 representative correction
+
+Ghost4f3a839 actual32fourviews/256states/16distance inspected PASS;299wave+17distance hashes verified, archivedf1b57c4. Runtime promotion remains separate.
+
+Star03 source galaxy was rejected for face projecting in front of a narrow ring. Move corez .35 to.08 and reduce tiltx1.10 to.65; centered-core/projected-disk RED/GREEN, existingthree-angleface ray checks retained. Side-depth minimum adjusted.9 to.6 for intended tilt, still detects flattenedgeometry.6/6cosmic mutations detected/restored;250dedicatedPASS;reviewCritical0/Important0.07unchanged. Scoped representative recapture, no premature expansion. God corrected86dfd3a Character37873967912SUCCESS;wave11591451520/distance11591597496 exportrequested.

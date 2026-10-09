@@ -1,6 +1,6 @@
 {
-  "baseCommit": "86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3",
-  "checkpoint": "unknown-all8-candidates-ghost-image-export",
+  "baseCommit": "f1b57c44127d1e1b12de1b35c27d6c30d2743565",
+  "checkpoint": "star03-core-correction-ghost-image-pass-god-export",
   "coverage": {
     "exact": 220,
     "total": 293,
@@ -11,7 +11,7 @@
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 249,
+    "dedicatedPass": 250,
     "rolloutMutationsDetected": 29,
     "pilotHashesUnchanged": 28,
     "fullNpm": "Pre-promotion spine-corrected a65ceb5:3013PASS+80PASS,0FAIL,exit0,archived. Final04root+runtime promotion has236dedicatedPASS;no fresh fullnpm after registration claimed.",
@@ -46,12 +46,15 @@
     "godImageGate": "3a1212e REJECT04/05/06:staff finials hidden behind hair/body.32fourviews/16distance reviewed;160states for01/02/03/07/08 PASS.299wave+17distance hashes verified; immutable images saved5d9e296. Owned staff rotated outward; corrected images pending.",
     "godStaffFix": "RED/GREEN silhouette clearance;8/8stage+9/9factory mutations detected/restored;212family-dedicated+34base=246PASS;28Pilot hashes unchanged;review Critical0/Important0.",
     "unknownCandidates": "All8 via existingmystery_blob:darkseed/bluedome/antennae/featherwings/tallwisp/curl.03/07JSON identical;7stage+7factory mutations detected/restored;249dedicatedPASS,28Pilot unchanged. Image gate pending,not registered. Review found stationary05 wings;existing owned feather-wing channel reused,actual motion RED/GREEN verified.",
-    "ghostCandidateCI": "4f3a839 Character37873539531 SUCCESS (3success/15skipped);wave11591341783/distance11590574842 exportrequested."
+    "ghostCandidateCI": "4f3a839 Character37873539531 SUCCESS (3success/15skipped);wave11591341783/distance11590574842 exportrequested.",
+    "ghostImageGate": "4f3a839 PASS_ALL8:32fourviews/256states/16distance actually inspected;299wave+17distance hashes verified;archivef1b57c4. Runtime promotion pending.",
+    "starCorrection": "03 corez .35->.08 and tiltx1.10->.65 to center face in spiral disk;07unchanged.3testsPASS,6/6mutations detected/restored,250dedicatedPASS,reviewCritical0/Important0. Corrected representative images pending;no expansion.",
+    "unknownReview": "Critical0/Important0 after actual wing-motion fix."
   },
   "next": [
     "Confirm fresh27family/216stage aggregate after Phoenix promotion;do not count scoped skips as integrationPASS",
-    "Review exported God all8 images before promotion;capture/review Ghost all8. Unknown remaining6 stages;Star03 composition correction.",
-    "Fix star03 core/orbit composition and recheck representativegate before expansion",
+    "Review corrected God86dfd3a images;Ghost all8imagePASS ready for guarded promotion;Unknown47e6264 imagespending.",
+    "Review corrected Star03 representative before expanding remaining6stages",
     "Remaining41nonplayers and full293 integration/performance/regression/Human/iPhone QA"
   ],
   "protected": [

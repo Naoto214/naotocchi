@@ -126,7 +126,7 @@
  {bone:'armL',direction:[-.35,-.15,1],width:.32,height:.17,color:'#c3a284',thread:'#716b63'},
  {bone:'armR',direction:[.15,-.20,1],width:.48,height:.16,color:'#d6bea0',thread:'#716b63'}
  ]};
- const star3={archetype:'cosmic',normalEye:'round',y:.64,core:{size:[.19,.18,.17],at:[0,0,.35]},orbitTilt:[1.10,0,.32],colors:{core:'#ffc922',light:'#fff4aa',rim:'#7427c6',fire:'#ff7713',blush:'#f384a6'},orbits:[
+ const star3={archetype:'cosmic',normalEye:'round',y:.64,core:{size:[.19,.18,.17],at:[0,0,.08]},orbitTilt:[.65,0,.32],colors:{core:'#ffc922',light:'#fff4aa',rim:'#7427c6',fire:'#ff7713',blush:'#f384a6'},orbits:[
  {inner:.27,outer:.62,start:0,turns:1.20,width:.045,color:'#f17618',light:'#ffd332'},
  {inner:.28,outer:.62,start:3.14,turns:1.20,width:.046,color:'#ffc529',light:'#fff197'},
  {inner:.62,outer:.64,start:.12,turns:.94,width:.050,color:'#7130ba',light:'#aa62e4'},
