@@ -1,17 +1,17 @@
 {
-  "baseCommit": "d59597d1d48dd43d40d03948f25c927198bf10f3",
-  "checkpoint": "parrot-backward-crest-owl-punyu-image-export",
+  "baseCommit": "a196ca6c362b2e504e0eb9f5644a539eb036287c",
+  "checkpoint": "three-nonplayers-promoted-five-small-mammal-candidates",
   "coverage": {
-    "exact": 254,
+    "exact": 257,
     "total": 293,
-    "pending": 39,
+    "pending": 36,
     "playerFamilies": 31,
     "playerStages": 248,
-    "companions": 4,
+    "companions": 7,
     "partners": 2
   },
   "verification": {
-    "dedicatedPass": 276,
+    "dedicatedPass": 299,
     "rolloutMutationsDetected": 33,
     "pilotHashesUnchanged": 28,
     "fullNpm": "8b6fcae fixed implementation:3017PASS+Relationship80PASS,0FAIL,exit0; full log/result archived. Before Star expansion/Unknown promotion.",
@@ -64,12 +64,12 @@
     "punyuCandidate": "Existingblob factory dataonly:opaqueyellowmeltingcontour,foldedtip,lefttrail,scallopedbase;2targettestsPASS,3/3mutationsdetected/restored.260dedicatedPASScombined. Roleisolated;imagespending.",
     "owlCandidateCI": "6716048 Character37878471960SUCCESS;owlartifact11593312304 exportrequested. No imageacceptance.",
     "starArchiveRecovery": "f6 recovery37877945943SUCCESS;preparedentriesrebased on671 throughGitDataAPI andcompareallowlist,archived5cf15f1. Redundant671recovery37878472023FAIL branchmovedbeforeexport;no sourceimageslost orfalsePASS.",
-    "owlImageGate": "d40 actual4viewsREJECT flatrectangularwing/mouthocclusion. Structuralwingdesign reconsideration required;notregistered.",
+    "owlImageGate": "d595 archive70dea050 actual4views32states2distancePASS;layeredheldwing visible,eyes/mouth clear. Part of81rawfiles hashverified.",
     "owlCorrection": "World-ray regression failsold;dataonly shoulder/length/forward corrected,5/5mutationsdetected;reviewCritical0/Important0 includingeyevisibility. Freshimagespending.",
     "starPunyuCapture": "12fb2c6 Character37879217065SUCCESS;Starwave11593173580/distance11593399232/Punyu11593004038 exportrequested. Actualreviewpending.",
     "godGhostPostPromotionCI": "d87e31b Character37875308764:all59jobsSUCCESS,0FAIL/CANCELLED/SKIPPED,29stagefamilyjobs;stagecoverage113651820721SUCCESS,29families/232stages. SeparatefromUnknown30familyaggregate.",
     "starPromotion": "All8 registered after actualimagePASS;33/33runtime mutationsdetected/restored,28Pilotidentical;252/293,41nonplayerpending,250fourviewrecords. ReviewCritical0/Important0;postmutation264PASS andproductiondiff inspected.",
-    "punyuImageGate": "d772 archive7a46f3c9:41rawhashesverified;actual4views32states readable,surfaceimproved;2normaldistanceREJECT constantidlehover. NextuseexistinggroundedsquashHop opt-in;notregistered.",
+    "punyuImageGate": "d595 archive70dea050 actual4views32states2distancePASS;normalidle grounded,sourcehook/scallops/face intact. Part of81rawfiles hashverified.",
     "cactusCandidate": "Existingbranch_organism optionalclosedcolumn;2targettests,4/4mutations,263dedicatedbeforeStarpromotion;28Pilotidentical;reviewCritical0/Important0.Imagespending;notregistered.",
     "owlCorrectedCapture": "46ff692 Character37879959890SUCCESS;artifact11593204347 exportrequested;actualimagegatepending.",
     "unknownPostPromotionCI": "f6c86cd Character37877945590 all60jobsSUCCESS,30stagefamilies,stagecoverage113660635981SUCCESS;Runtime37877952306/Home37877952265SUCCESS.",
@@ -82,7 +82,7 @@
     "clockCandidate": "Existingrigid_object optionalroundedhousing/detailvolumes/paths/dialfacetarget;2targettests,3/3mutations,271dedicatedPASS,28Pilotidentical,reviewCritical0/Important0. Imagespending,noregistration.",
     "parrotCI": "090d0d00 Character37882013865FAIL:nonplayercapture113663562927SUCCESS,dedicated113663563133FAIL cactusmutation stale return-prefix anchor. Fixedstable role-row anchor for cactus andsunflower;4+4 mutationsdetected/restored. Freshclock/parrotcapture requested. Not overallPASS.",
     "cactusImageGate": "d40 archiveb9e0cf95 actual4views32states2distancePASS;all121rawfiles(3candidates)hashverified. Promotedonlypartner:oasis_cactus;253/293,40pending,251acceptedfourviewrecords.",
-    "nonplayerPromotion": "7/7role/runtime mutationsdetected/restored;271dedicatedPASS,28Pilotidentical;reviewCritical0/Important0.",
+    "nonplayerPromotion": "Owl/Punyu/Parrot only promoted after actualimagePASS;59targetPASS,7/7role mutations detected/restored,reviewCritical0/Important0;257/293,36pending,255approvedviewrecords. Authornaoto remains isolation sentinel.",
     "clockParrotCapture": "dc652144 Character37882448856SUCCESS;artifact11594323377 exportrequested. Earlier090d0d00FAIL remains distinct.",
     "clockParrotImageGate": "540e8ef5 archive135d4d36:81rawhashesverified. Clock actual4views32states2distancePASS;Parrot4viewsREJECT crest side silhouette, no state/distanceapproval.",
     "clockParrotCorrection": "Roundedlathe housing joinsdialperimeter;Parrotlowbelly/smallerhook/eyes40 mouth116 withatlasmargin.273shared-factorysuitePASS beforefinalParrot-onlymouthdata;final6targetPASS plusClock3/Parrot6mutations restored.28Pilotidentical,reviewCritical0/Important0. Freshimagesrequired.",
@@ -91,14 +91,19 @@
     "clockPromotion": "Clock only added to exact runtime;5scopedtestsPASS,7/7role mutations detected/restored;254/293,39pending,252acceptedfourviewrecords. IndependentreviewCritical0/Important0.",
     "owlHeldPlumes": "Existingavian optionalclosed plume wing,9layers;7targetPASS,9/9mutations detected/restored,reviewCritical0/Important0. ActualimagegateOPEN. One minor testcamera-squash precision parked; independentfixed-camera32state clearancePASS.",
     "punyuGround": "OnlyPunyu opts into existing squashHop;4ground/default testsPASS, opt-in removalRED/restored;worker43focusedPASS,reviewCritical0/Important0. Integrated8Punyu testsPASS;actualfreshimagesrequired.",
-    "combinedVerification": "276dedicatedPASS withOwl+Clock beforePunyu testfile inclusion;finalintegrated8PunyuPASS;28Pilot geometry/animation hashes identical. No newfullnpm claim.",
+    "combinedVerification": "Integrated299dedicatedPASS,28Pilotgeometry/animationhashesidentical;existing7nonplayerdatapreserved,only5candidate additions. Sharedsoft_toy default8plushhashesPASS. No newfullnpm claim.",
     "parrotCrestCorrection": "Revieweded22c072:onlycrest paths curve backward, assembledfront/34/side exposedlayers verified.7focusedParrot/PhoenixPASS,7/7mutations detected/restored,reviewCritical0/Important0. FreshactualimagegateOPEN.",
-    "owlPunyuCorrectionCI": "d59597d1 Character37885171482SUCCESS;artifact11596565387 capturedOwl/Punyu;exportrequested, actualimageapprovalpending."
+    "owlPunyuCorrectionCI": "d59597d1 Character37885171482SUCCESS;artifact11596565387 capturedOwl/Punyu;exportrequested, actualimageapprovalpending.",
+    "parrotImageGate": "980b6925 archivea196ca6c actual4views32states2distancePASS;backwardcrest readable in side/34,leg/face corrections retained;41rawhashesverified.",
+    "owlPunyuCandidateCI": "d59597d1 Character37885171482/Runtime37885177817/Home37885177775SUCCESS.",
+    "parrotCrestCandidateCI": "980b6925 Character37885627048/Runtime37885633501/Home37885633539SUCCESS.",
+    "scopedNonplayerCI": "Reviewedafcac5c3 selector mapsselectedkeys toexistingmutationtools, validatesbeforeexecution/deduplicates/failsunsupportedkeys;5testsPASS,actualCactus4mutations/restored,reviewC0/I0. Unscopedintegration unchanged.",
+    "smallMammalCandidates": "Task2 reviewed7b156a90+dbad339d:fiveisolatedsoft_toycandidates;12focused/15mutations plus6fixedeyechecks/1closedeye-obstruction mutation PASS/restored. ReviewC0/I0 afterImportanttestcoveragefix. Existing7savedrowsdeep-equal,8plushgeometryhashesunchanged;actualimagesOPEN."
   },
   "next": [
-    "Archive andactuallyreview fresh Owl/Punyu correction images beforepromotion",
-    "Correct Parrot crest orientation using existing plume paths",
-    "Execute remainingnonplayerplan;full293integration then separateHuman/iPhone gates"
+    "Capture/recover/actuallyreview five smallmammals; promoteonly actualPASS entries",
+    "ContinueTask3 othermammals usingexistingfactories;addexplicitCIselector mapping withnewmutator",
+    "Remainingnonplayerplan;recoverlegacyshiba/cat_friend views atfull293integration;separateHuman/iPhone gates"
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",
@@ -115,5 +120,38 @@
     "method": "fresh clone df26408; Actions source archives restored; explicit Venus registration recovered; fresh RED/GREEN,229 dedicated,27 mutation,28 Pilot,80 relationship",
     "limitation": "New recovery tree; do not claim identity with lost staging tree.",
     "latest": "Scratch150320e8a2fd disappeared after7ab521e image save. Fresh remote clone restored samepath;HEAD7ab521e/tree1b19f6926d30a178d0c0821d338e1ca6d9f85d41 matched andclean. npmci succeeded. No unsaved implementation lost."
-  }
+  },
+  "currentGates": {
+    "registeredPlayerFamilies": 31,
+    "registeredPlayerStages": 248,
+    "playerStageAggregate": {
+      "sourceCommit": "d3e64f0dd5c9f038c0a0c61a9a77314f4c83d99c",
+      "run": 37881115241,
+      "jobsSuccess": 61,
+      "aggregateJob": 113671073543,
+      "status": "PASS_31_FAMILIES_248_STAGES"
+    },
+    "latestNonplayerImageApprovals": [
+      "companion:clock",
+      "companion:owl",
+      "companion:punyu",
+      "companion:parrot"
+    ],
+    "candidateBatchInProgress": [
+      "companion:rabbit_friend",
+      "companion:tanuki",
+      "companion:squirrel",
+      "companion:hamster",
+      "companion:panda"
+    ],
+    "missingLegacyFourViewRecords": [
+      "companion:cat_friend",
+      "companion:shiba"
+    ],
+    "full293Integration": "OPEN",
+    "humanQA": "OPEN_SEPARATE",
+    "iPhoneQA": "OPEN_SEPARATE",
+    "candidateBatchReview": "Task2 implementation/reviewPASS C0/I0 afterclosed-eye coveragefix;actualimagegateOPEN"
+  },
+  "verificationHistoryNote": "verification entries are source-scoped historical evidence. Current coverage/currentGates/next identify the active state; older pending or REJECT records are not current verdicts."
 }

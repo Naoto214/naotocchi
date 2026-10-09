@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 254,
-    "pending": 39,
-    "fourViewRecords": 252
+    "exactSpecs": 257,
+    "pending": 36,
+    "fourViewRecords": 255
   },
   "rows": [
     {
@@ -5056,15 +5056,15 @@
       "group": "normal",
       "asset": "assets/characters/companions/owl.png",
       "sha256": "943c2809d0394bc8b155e68eb8c701797530813de6bc4209166089fb78ad7a61",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "avian",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/d59597d1d48dd43d40d03948f25c927198bf10f3/owl-punyu/companion-owl-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/d59597d1d48dd43d40d03948f25c927198bf10f3/owl-punyu/companion-owl-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/d59597d1d48dd43d40d03948f25c927198bf10f3/owl-punyu/companion-owl-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/d59597d1d48dd43d40d03948f25c927198bf10f3/owl-punyu/companion-owl-0-back.jpg"
       }
     },
     {
@@ -5156,15 +5156,15 @@
       "group": "normal",
       "asset": "assets/characters/companions/parrot.png",
       "sha256": "b9b159aea4ba964050dd9ca05658f21075f949085084ea3777b736c46f884520",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "plumed_bird",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/980b692577c87e7efc62298a42d0923c1eb71852/parrot/companion-parrot-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/980b692577c87e7efc62298a42d0923c1eb71852/parrot/companion-parrot-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/980b692577c87e7efc62298a42d0923c1eb71852/parrot/companion-parrot-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/980b692577c87e7efc62298a42d0923c1eb71852/parrot/companion-parrot-0-back.jpg"
       }
     },
     {
@@ -5336,15 +5336,15 @@
       "group": "rare",
       "asset": "assets/characters/companions/punyu.png",
       "sha256": "b0fa6f743e64d3f2a215d0a994e0078920d7cf1f73b0091667009d6f11c792d2",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "blob",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/d59597d1d48dd43d40d03948f25c927198bf10f3/owl-punyu/companion-punyu-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/d59597d1d48dd43d40d03948f25c927198bf10f3/owl-punyu/companion-punyu-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/d59597d1d48dd43d40d03948f25c927198bf10f3/owl-punyu/companion-punyu-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/d59597d1d48dd43d40d03948f25c927198bf10f3/owl-punyu/companion-punyu-0-back.jpg"
       }
     },
     {

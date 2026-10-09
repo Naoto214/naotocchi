@@ -60,7 +60,7 @@ test('Punyu preserves one canonical face and finite transforms across all 32 sta
     states++;
   }
   assert.equal(states, 32);
-  assert.equal(SPEC.specKeyFor({ kind: 'companion', id: 'punyu' }), null, 'candidate remains unregistered');
+  assert.equal(SPEC.specKeyFor({ kind: 'companion', id: 'punyu' }).exact, true, 'image-approved Punyu is exact');
 });
 
 test('blob specs without an opt-in retain their exact existing animation transforms', async () => {

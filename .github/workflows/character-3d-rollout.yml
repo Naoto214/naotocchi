@@ -420,18 +420,14 @@ jobs:
             node tools/character-3d/cosmic-remove-it.cjs > test-results/full-rollout/cosmic-remove-it.txt
             node tools/character-3d/star-stages-remove-it.cjs > test-results/full-rollout/star-stages-remove-it.txt
           elif [ "$QA_FAMILY" = nonplayer ]; then
-            node tools/character-3d/owl-remove-it.cjs > test-results/full-rollout/owl-remove-it.txt
+            : # Selected nonplayer mutations run in the next step.
           else
             node tools/character-3d/plumed-bird-remove-it.cjs > test-results/full-rollout/plumed-bird-remove-it.txt
             node tools/character-3d/phoenix-stages-remove-it.cjs > test-results/full-rollout/phoenix-stages-remove-it.txt
           fi
-      - name: Scoped nonplayer contour mutations
+      - name: Scoped selected nonplayer mutations
         if: ${{ contains(github.event.head_commit.message, '[qa:nonplayer]') }}
-        run: |
-          node tools/character-3d/punyu-remove-it.cjs > test-results/full-rollout/punyu-remove-it.txt
-          node tools/character-3d/cactus-remove-it.cjs > test-results/full-rollout/cactus-remove-it.txt
-          node tools/character-3d/parrot-remove-it.cjs > test-results/full-rollout/parrot-remove-it.txt
-          node tools/character-3d/clock-remove-it.cjs > test-results/full-rollout/clock-remove-it.txt
+        run: node tools/character-3d/nonplayer-mutations.cjs
       - name: Existing mechanism mutations
         if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]') }}
         run: |

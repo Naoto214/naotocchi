@@ -930,3 +930,16 @@ Remainingplan recorded innonplayer-execution-plan.md;source-derivedcandidates us
 - d59597d1 Character37885171482SUCCESS;Owl/Punyu artifact11596565387 exported throughreusableGitHubAPI workflow request. Actualimagegatepending.
 - d3e64f0d31family/248stage aggregate113671073543SUCCESS,all61CharacterjobsSUCCESS,artifact11596131925. Runtime/HomeSUCCESS. This closesplayerregistrationaggregate,notFull293orHuman/iPhone.
 - Task2 smallmammals progressingisolated;coverage254/293 remains.
+
+## Owl/Punyu/Parrot actual image approval — archives70dea050/a196ca6c
+- d595Owl/Punyu81rawfiles and980Parrot41rawfiles SHA256/size verified. Actually inspected each4views/32canonicalstates/2normaldistance. All3PASS:Owlheldfeathers nowreadable withoutfaceobstruction;Punyu idlecontactsground;Parrotcrest sweepsback withside/34separation.
+- Onlythese3added to approved runtime,257/29336pending255approvedviewrecords.59scopedpromotion/sentineltestsPASS;role7/7mutationsdetected/restored;reviewCritical0/Important0. Sourcefactories/data unchanged bypromotion. Unreviewedauthornaoto replacesOwl nullsentinel.
+- d595 and980 CharacterSUCCESS. Starpromotionall61jobsSUCCESS/31families248stages aggregate113671073543SUCCESS,artifact11596131925. Human/iPhone remainopen;no currentfullnpm claim.
+- Task2 smallmammals inisolatedworktree;Task14 will select relevantmutationtools fromexistingQAkeys,failunsupportedkeys,retainfullintegration.
+
+## Five small mammal candidates and scoped mutation CI
+- Task2 local7b156a90+dbad339d reusesexistingsoft_toy forrabbit_friend/tanuki/squirrel/hamster/panda, allruntime-isolated. Optionalclosedears/props/tails/naturalmarkings/face-layout retainexistingdefault8plushgeometryhashes. Existing7savednonplayerrowsstrictlydeep-equal,Parrotcrestpreserved.
+- Initial12focusedPASS/15mutationsrestored;reviewfoundImportantzeroeye-raygap inclosedemotions. Fixusesactualeye frontdepth/normalcap,assertsnonemptyper-eye samples;6affectedchecksPASS andspecificpositive-eye obstructionmutationRED/restored. Independentre-reviewC0/I0;no productiongeometrychangebytestfix. ActualimagesOPEN.
+- Task14 afcac5c3 scopedCIselector choosesfixedexistingtools fromsamecapturekeys;validatesallbeforeexecution,deduplicatessharedtools,propagatesfailure,unknown/emptykeysfail.5targetPASS,actualCactus4mutations/restored,reviewC0/I0. Dedicated/unscopedintegration/otherfamilygates preserved.
+- Integrated299dedicatedPASS/0FAIL/exit0;28Pilot geometry+animationhashesidentical. Rolepromotion7mutations previouslyPASS/restored,59scopedpromotiontestsPASS;no sourcechangeafterthose rolechecks. Fullnpm remains historical8b6fcae,notcurrent.
+- Captureselectsonlynew5. Task3 independentcandidateworkcontinues inisolatedworktree. Allunconfirmedgates remainOPEN.

@@ -1,0 +1,21 @@
+{
+  "sourceCommit": "980b692577c87e7efc62298a42d0923c1eb71852",
+  "archiveCommit": "a196ca6c362b2e504e0eb9f5644a539eb036287c",
+  "character": "companion:parrot",
+  "status": "PASS_IMAGE_GATE",
+  "integrity": {
+    "rawFiles": 41,
+    "allHashesVerified": true
+  },
+  "actualReview": {
+    "fourViews": 4,
+    "stateImages": 32,
+    "normalDistance": 2
+  },
+  "findings": [
+    "Crest feathers sweep backward and remain separated/attached in side and three-quarter views.",
+    "Canonical face readable across32states; accepted low belly, hooked beak, asymmetric wings and tail maintained.",
+    "Front/back normal-distance character grounded and recognizable."
+  ],
+  "humanIPhoneGate": "OPEN_SEPARATE"
+}
