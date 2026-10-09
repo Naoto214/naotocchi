@@ -15,7 +15,7 @@ export function celestialHumanoid(sp,key,buildHuman){
  const wingNames=[];for(let i=0;i<s.wings.length;i++)for(const side of [-1,1]){const w=s.wings[i],name=`celestialWing${i}${side<0?'L':'R'}`,feathers=w.feathers.map(q=>plumeGeometry({...q,path:q.path.map(([x,y,z])=>[side*x,y,z]),color:c.feather,light:c.light}));r.add(name,'body',[side*w.at[0],w.at[1],w.at[2]],feathers,'opaque',[0,side*w.angle,0]);wingNames.push(name);}
  if(s.ribbons.length)r.add('ribbons','body',[0,0,0],s.ribbons.flatMap(q=>[plumeGeometry({...q,color:c.cloth,light:c.light}),solid(sweep(q.path,()=>.010,5,{steps:18}),c.gold)]));
  for(const side of [-1,1]){const arm=r.bones[side<0?'armL':'armR'];arm.rotation.z=side*s.armAngle;arm.rotation.x=s.armForward;arm.userData.rest.r.copy(arm.rotation);}
- if(s.staff){const q=s.staff,grip=[.045,-sp.arms.len-sp.arms.r*.7,.02],shaft=solid(sweep([[0,-q.below,0],[0,q.above,0]],()=>.016,8,{steps:12}),c.gold),orb=solid(xform(ellipsoid(q.r,q.r,q.r,16,12),{pos:[0,q.above,0]}),q.color),rim=solid(xform(new THREE.TorusGeometry(q.r*1.22,.013,6,28),{pos:[0,q.above,0]}),c.gold);r.add('staff','armR',grip,[shaft,orb,rim]);}
+ if(s.staff){const q=s.staff,grip=[.045,-sp.arms.len-sp.arms.r*.7,.02],shaft=solid(sweep([[0,-q.below,0],[0,q.above,0]],()=>.016,8,{steps:12}),c.gold),orb=solid(xform(ellipsoid(q.r,q.r,q.r,16,12),{pos:[0,q.above,0]}),q.color),rim=solid(xform(new THREE.TorusGeometry(q.r*1.22,.013,6,28),{pos:[0,q.above,0]}),c.gold);r.add('staff','armR',grip,[shaft,orb,rim],'opaque',[-s.armForward,0,-s.armAngle-.55]);}
  r.meta.celestialWings=wingNames;return r;
 }
 

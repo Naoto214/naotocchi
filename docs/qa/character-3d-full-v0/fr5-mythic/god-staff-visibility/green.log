@@ -1,0 +1,23 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ god representatives preserve open halos, white feather tiers and distinct short/flowing robes (251.047491ms)
+✔ celestial wings and robe retain one owner and canonical face through32 state combinations (129.146994ms)
+✔ young angel short robe leaves both lower legs visible at front and three-quarter views (25.887893ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ God source stages retain seed, winged infant, staff bearers and radiant rebirth identities (381.747528ms)
+✔ God all-stage candidates keep one face and owned props across32 states without runtime promotion (200.554206ms)
+✔ winged God orbs animate their attached wings in floating gait (25.765954ms)
+✔ staff finials stay outside the head silhouette instead of disappearing into hair (49.540602ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 759.075039

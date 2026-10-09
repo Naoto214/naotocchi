@@ -17,3 +17,7 @@ test('winged God orbs animate their attached wings in floating gait',async()=>{
  const rows=require('../character-3d/mythic-spec.js')().god.stages,{BUILDERS}=await import('../character-3d/archetypes.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate}=await import('../character-3d/animate.mjs');
  for(const n of [2,8]){const r=BUILDERS[rows[n].archetype](rows[n],'god:'+n);r.faces=[];const a=instantiate({rig:r,key:'god:'+n});for(let i=0;i<20;i++)animate(a,{dt:.05,moving:true,animLv:2});for(const name of ['celestialWing0L','celestialWing0R']){assert.equal(a.bones[name].parent,a.bones.body);assert.ok(Math.abs(a.bones[name].rotation.y-a.bones[name].userData.rest.r.y)>.01,'floating wing actually moves '+n+'/'+name);}}
 });
+test('staff finials stay outside the head silhouette instead of disappearing into hair',async()=>{
+ const rows=require('../character-3d/mythic-spec.js')().god.stages,{BUILDERS}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ for(const n of [4,5,6]){const sp=rows[n],r=BUILDERS[sp.archetype](sp,'god:'+n);r.root.updateMatrixWorld(true);const top=r.bones.staff.localToWorld(new THREE.Vector3(0,sp.celestial.staff.above,0)),head=r.bones.head.getWorldPosition(new THREE.Vector3());assert.ok(top.x-sp.celestial.staff.r>head.x+sp.head.r*1.1,'finial clears hair/head '+n);}
+});

@@ -811,3 +811,10 @@ After god03/07 representativePASS,added source-derived01orbseed,02wingedinfant,0
 Ghost01/02/04/05/06/08 use the existing spectral factory: small wisps, raised hands, long beard and ascending halo/gold sparks.03/07 remain definition-identical. Runtime remains220/293 (73pending); no Ghost/God registration.245 dedicated PASS;7stage+8spectral mutations detected. After mutation, missing03 was explicitly restored and representative equality/full suite verified; the spectral harness now asserts its restored baseline.28Pilot hashes match. Code review Critical0/Important0; image gate pending.
 
 God source3a1212e scoped Character37872664719 SUCCESS (3success/15skipped); original wave11591270378 and distance11590528811 requested through the reusable artifact API exporter. Ghost scoped capture uses existing workflows. Phoenix postpromotion27family/216stage aggregate still pending; no scoped run is counted as integration or Human/iPhone acceptance.
+
+
+### God actual image review: staff visibility correction
+
+Source3a1212e images archived at5d9e296;299wave+17distance hashes verified. Reviewed32fourviews/16normal-distance:04/05/06 REJECT because inward-tilted staff finials disappear behind head/hair.01/02/03/07/08 also reviewed through160statecells and PASS. Rejected-stage states deferred to corrected capture.
+
+The existing staff remains attached at the same hand grip, with outward local rotation to clear the head. Regression test reproduced the occlusion bound RED then GREEN;8/8stage+9/9celestial mutations detected/restored;212family-dedicated+34base=246PASS,28Pilot hashes identical. Review Critical0/Important0. ScopedGod recapture required before promotion; coverage remains220/293.
