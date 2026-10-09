@@ -1,113 +1,16 @@
 {
-  "sourceCommit": "5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0",
-  "runId": 37906158821,
+  "sourceCommit": "26fbf737778f71f31064cb1c75cc104b33343ba3",
+  "runId": 37908674862,
   "families": [
-    "partner",
-    "companion"
+    "partner"
   ],
   "artifacts": [
     {
-      "id": 11604398817,
-      "label": "humanoid-partners-unicorn-fix3",
-      "name": "full-rollout-nonplayer-review-5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0",
-      "digest": "sha256:a6beef524cb5945dcd1f7876cac646df8b227c943a66d616d73ed864fb22495a",
+      "id": 11605778122,
+      "label": "aquatic-partners-mermaid-bodice",
+      "name": "full-rollout-nonplayer-review-26fbf737778f71f31064cb1c75cc104b33343ba3",
+      "digest": "sha256:16d6ec9ffc2c770204b525a20f9564445d4cead064048db2b5ffc4bbd4cf6a49",
       "required": [
-        {
-          "pattern": "partner-cat_ceo-0-front.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-cat_ceo-0-34.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-cat_ceo-0-side.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-cat_ceo-0-back.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-cat_ceo-0-*-*-*.jpg",
-          "count": 32
-        },
-        {
-          "pattern": "partner-cat_ceo-views.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-cat_ceo-motion.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-cat_ceo-distance-*.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "partner-robot_neighbor-0-front.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-robot_neighbor-0-34.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-robot_neighbor-0-side.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-robot_neighbor-0-back.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-robot_neighbor-0-*-*-*.jpg",
-          "count": 32
-        },
-        {
-          "pattern": "partner-robot_neighbor-views.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-robot_neighbor-motion.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-robot_neighbor-distance-*.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "partner-snow_spirit-0-front.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-snow_spirit-0-34.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-snow_spirit-0-side.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-snow_spirit-0-back.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-snow_spirit-0-*-*-*.jpg",
-          "count": 32
-        },
-        {
-          "pattern": "partner-snow_spirit-views.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-snow_spirit-motion.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-snow_spirit-distance-*.jpg",
-          "count": 2
-        },
         {
           "pattern": "partner-sea_mermaid-0-front.jpg",
           "count": 1
@@ -141,35 +44,163 @@
           "count": 2
         },
         {
-          "pattern": "companion-unicorn-0-front.jpg",
+          "pattern": "partner-rock_octopus-0-front.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-unicorn-0-34.jpg",
+          "pattern": "partner-rock_octopus-0-34.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-unicorn-0-side.jpg",
+          "pattern": "partner-rock_octopus-0-side.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-unicorn-0-back.jpg",
+          "pattern": "partner-rock_octopus-0-back.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-unicorn-0-*-*-*.jpg",
+          "pattern": "partner-rock_octopus-0-*-*-*.jpg",
           "count": 32
         },
         {
-          "pattern": "companion-unicorn-views.jpg",
+          "pattern": "partner-rock_octopus-views.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-unicorn-motion.jpg",
+          "pattern": "partner-rock_octopus-motion.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-unicorn-distance-*.jpg",
+          "pattern": "partner-rock_octopus-distance-*.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "partner-anglerfish-0-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-anglerfish-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-anglerfish-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-anglerfish-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-anglerfish-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "partner-anglerfish-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-anglerfish-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-anglerfish-distance-*.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "partner-swamp_croc-0-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-swamp_croc-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-swamp_croc-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-swamp_croc-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-swamp_croc-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "partner-swamp_croc-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-swamp_croc-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-swamp_croc-distance-*.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "partner-knitting_spider-0-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-knitting_spider-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-knitting_spider-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-knitting_spider-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-knitting_spider-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "partner-knitting_spider-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-knitting_spider-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-knitting_spider-distance-*.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "partner-desert_scorpion-0-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-desert_scorpion-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-desert_scorpion-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-desert_scorpion-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-desert_scorpion-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "partner-desert_scorpion-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-desert_scorpion-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-desert_scorpion-distance-*.jpg",
           "count": 2
         }
       ]
