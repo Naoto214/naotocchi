@@ -924,3 +924,9 @@ Remainingplan recorded innonplayer-execution-plan.md;source-derivedcandidates us
 - Punyu reviewedd8185891:existing squashHop opt-in fixes idlecontact;4ground tests/43focusedPASS,removalRED/restored,reviewC0/I0. Integrated8PunyuPASS. Defaultblob untouched. ActualimagegateOPEN.
 - Dedicated276PASS withOwl/Clock before newPunyu file was included in glob;finalPunyu8PASS afterintegration.28Pilot geometry/animation hashes identical. Fullnpm remains8b6fcae3017+Relationship80,notcurrentHEAD.
 - Scopedcapture selectsOwl/Punyu only. Starpromotion Character60jobsSUCCESS,31/248aggregatejob113671073543 stillQUEUED;Runtime/HomeSUCCESS. Cactuspromotion all3SUCCESS. Draft376 maintained;Human/iPhone remainseparateopen.
+
+## Parrot backward crest correction / Owl-Punyu export
+- Revieweded22c072 changesonlyParrot crest paths to backwardfan;existingfactoryunchanged.7Parrot/PhoenixfocusedPASS,7mutations detected/restored,reviewC0/I0;integratedParrot4PASS. No imageapproval orpromotion.
+- d59597d1 Character37885171482SUCCESS;Owl/Punyu artifact11596565387 exported throughreusableGitHubAPI workflow request. Actualimagegatepending.
+- d3e64f0d31family/248stage aggregate113671073543SUCCESS,all61CharacterjobsSUCCESS,artifact11596131925. Runtime/HomeSUCCESS. This closesplayerregistrationaggregate,notFull293orHuman/iPhone.
+- Task2 smallmammals progressingisolated;coverage254/293 remains.

@@ -1,6 +1,6 @@
 {
-  "baseCommit": "135d4d36e54cb6a82690524d5e5285771cf8a6b7",
-  "checkpoint": "clock-image-approved-owl-punyu-scoped-corrections",
+  "baseCommit": "d59597d1d48dd43d40d03948f25c927198bf10f3",
+  "checkpoint": "parrot-backward-crest-owl-punyu-image-export",
   "coverage": {
     "exact": 254,
     "total": 293,
@@ -24,7 +24,7 @@
     "plushStageMutationsDetected": 6,
     "worldTreeImageGate": "9b79310 artifacts11462261195/11461529312:32fourviews/256states/16distance PASS_ALL8_IMAGE_GATE",
     "plushImageGate": "3076d288 wave11463280279/distance11462287707:32fourviews/256states/16distance PASS_ALL8_IMAGE_GATE",
-    "browserRegistration": "29family/232stage postGod/Ghost promotion aggregate pending;priorPhoenix27/216 aggregatePASS is separate.",
+    "browserRegistration": "All31playerfamilies/248stages aggregatePASS atd3e64f0d;nonplayerrollout continues.",
     "relationshipPass": 80,
     "venusImageGate": "c331193 artifacts11470811397/11470106366:32fourviews/256states/16distance; prior all8 PASS carried forward, archives restored",
     "mythicMutationsDetected": 11,
@@ -78,7 +78,7 @@
     "nonplayerCorrectionQA": "267dedicatedPASSaftermutations;28Pilotidentical;scopeowl,punyu,oasis_cactus requested. No promotion.",
     "parrotCandidate": "Original-derived whiteasymmetricwings/yellowfancrest/longtail/hookedgraybeak viaexistingplumed_bird;2targettests,4/4mutationsdetected/restored,269dedicatedPASS,28Pilotidentical,reviewCritical0/Important0. No registration;freshimagesrequested.",
     "nonplayerCorrectionCapture": "d40 Character37881625921SUCCESS;artifact11595151601 owl/punyu/cactus exportrequested. No actualapproval yet.",
-    "starPostPromotionCI": "d3e64f0d Character37881115241:60jobsSUCCESS,stage-coverage113671073543QUEUED;31family/248stage aggregate not yetPASS. Runtime37881122437/Home37881122413SUCCESS.",
+    "starPostPromotionCI": "d3e64f0d Character37881115241 all61jobsSUCCESS;31family/248stage aggregate113671073543SUCCESS,artifact11596131925. Runtime37881122437/Home37881122413SUCCESS.",
     "clockCandidate": "Existingrigid_object optionalroundedhousing/detailvolumes/paths/dialfacetarget;2targettests,3/3mutations,271dedicatedPASS,28Pilotidentical,reviewCritical0/Important0. Imagespending,noregistration.",
     "parrotCI": "090d0d00 Character37882013865FAIL:nonplayercapture113663562927SUCCESS,dedicated113663563133FAIL cactusmutation stale return-prefix anchor. Fixedstable role-row anchor for cactus andsunflower;4+4 mutationsdetected/restored. Freshclock/parrotcapture requested. Not overallPASS.",
     "cactusImageGate": "d40 archiveb9e0cf95 actual4views32states2distancePASS;all121rawfiles(3candidates)hashverified. Promotedonlypartner:oasis_cactus;253/293,40pending,251acceptedfourviewrecords.",
@@ -91,7 +91,9 @@
     "clockPromotion": "Clock only added to exact runtime;5scopedtestsPASS,7/7role mutations detected/restored;254/293,39pending,252acceptedfourviewrecords. IndependentreviewCritical0/Important0.",
     "owlHeldPlumes": "Existingavian optionalclosed plume wing,9layers;7targetPASS,9/9mutations detected/restored,reviewCritical0/Important0. ActualimagegateOPEN. One minor testcamera-squash precision parked; independentfixed-camera32state clearancePASS.",
     "punyuGround": "OnlyPunyu opts into existing squashHop;4ground/default testsPASS, opt-in removalRED/restored;worker43focusedPASS,reviewCritical0/Important0. Integrated8Punyu testsPASS;actualfreshimagesrequired.",
-    "combinedVerification": "276dedicatedPASS withOwl+Clock beforePunyu testfile inclusion;finalintegrated8PunyuPASS;28Pilot geometry/animation hashes identical. No newfullnpm claim."
+    "combinedVerification": "276dedicatedPASS withOwl+Clock beforePunyu testfile inclusion;finalintegrated8PunyuPASS;28Pilot geometry/animation hashes identical. No newfullnpm claim.",
+    "parrotCrestCorrection": "Revieweded22c072:onlycrest paths curve backward, assembledfront/34/side exposedlayers verified.7focusedParrot/PhoenixPASS,7/7mutations detected/restored,reviewCritical0/Important0. FreshactualimagegateOPEN.",
+    "owlPunyuCorrectionCI": "d59597d1 Character37885171482SUCCESS;artifact11596565387 capturedOwl/Punyu;exportrequested, actualimageapprovalpending."
   },
   "next": [
     "Archive andactuallyreview fresh Owl/Punyu correction images beforepromotion",

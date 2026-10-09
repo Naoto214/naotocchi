@@ -1,78 +1,78 @@
 {
-  "sourceCommit": "540e8ef521390ca3719ba5190ce7bf962badce07",
-  "runId": 37883629394,
+  "sourceCommit": "d59597d1d48dd43d40d03948f25c927198bf10f3",
+  "runId": 37885171482,
   "families": [
     "companion"
   ],
   "artifacts": [
     {
-      "id": 11594524231,
-      "label": "clock-parrot",
-      "name": "full-rollout-nonplayer-review-540e8ef521390ca3719ba5190ce7bf962badce07",
-      "digest": "sha256:8324b20c579cae82069e856186973a35ff151c14f2f3fb269db0faf999889b37",
+      "id": 11596565387,
+      "label": "owl-punyu",
+      "name": "full-rollout-nonplayer-review-d59597d1d48dd43d40d03948f25c927198bf10f3",
+      "digest": "sha256:b523e849575ba5075d2ed43cd2c9a10dc6bc0ab868da993fc450c8cb9109c0f6",
       "required": [
         {
-          "pattern": "companion-clock-0-front.jpg",
+          "pattern": "companion-owl-0-front.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-clock-0-34.jpg",
+          "pattern": "companion-owl-0-34.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-clock-0-side.jpg",
+          "pattern": "companion-owl-0-side.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-clock-0-back.jpg",
+          "pattern": "companion-owl-0-back.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-clock-0-*-*-*.jpg",
+          "pattern": "companion-owl-0-*-*-*.jpg",
           "count": 32
         },
         {
-          "pattern": "companion-clock-views.jpg",
+          "pattern": "companion-owl-views.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-clock-motion.jpg",
+          "pattern": "companion-owl-motion.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-clock-distance-*.jpg",
+          "pattern": "companion-owl-distance-*.jpg",
           "count": 2
         },
         {
-          "pattern": "companion-parrot-0-front.jpg",
+          "pattern": "companion-punyu-0-front.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-parrot-0-34.jpg",
+          "pattern": "companion-punyu-0-34.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-parrot-0-side.jpg",
+          "pattern": "companion-punyu-0-side.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-parrot-0-back.jpg",
+          "pattern": "companion-punyu-0-back.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-parrot-0-*-*-*.jpg",
+          "pattern": "companion-punyu-0-*-*-*.jpg",
           "count": 32
         },
         {
-          "pattern": "companion-parrot-views.jpg",
+          "pattern": "companion-punyu-views.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-parrot-motion.jpg",
+          "pattern": "companion-punyu-motion.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-parrot-distance-*.jpg",
+          "pattern": "companion-punyu-distance-*.jpg",
           "count": 2
         }
       ]
