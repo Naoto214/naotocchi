@@ -1,6 +1,6 @@
 // Seated stuffed animal with sewn surface patches and an owned solid prop.
-import {THREE,ellipsoid,sweep,xform,paint,solid,mix,merge,clamp} from './geometry.mjs';
-import {Rig} from './rig.mjs';
+import {THREE,ellipsoid,sweep,xform,paint,solid,mix,merge,clamp} from '../../character-3d/geometry.mjs';
+import {Rig} from '../../character-3d/rig.mjs';
 function patchParts(q,size,stitched){
  const n=new THREE.Vector3(...q.direction).normalize(),u=new THREE.Vector3().crossVectors(new THREE.Vector3(0,1,0),n).normalize(),v=new THREE.Vector3().crossVectors(n,u).normalize();
  const at=(x,y,lift)=>n.clone().addScaledVector(u,x*q.width).addScaledVector(v,y*q.height).normalize().multiply(new THREE.Vector3(...size)).multiplyScalar(lift),pos=[],idx=[],segments=24,rings=4;
@@ -37,7 +37,7 @@ export function softToy(sp,key){
  // Optional closed appendages/props inherit an existing owner bone and its motion.
  for(const q of [...(sp.tail?[{...sp.tail,name:'tail',bone:'body'}]:[]),...(sp.details||[])]){
   const parts=(q.volumes||[]).map(v=>volume(v.size,v.at,v.color||q.color,v.rotation||[0,0,0],null,v.segments));
-  for(const p of q.paths||[]){const g=sweep(p.path,t=>p.endTaper?p.radius*((.50+.62*Math.sin(Math.PI*t))*(1-Math.pow(t,4))+.015):p.radius*(1-(p.taper||0)*t),p.radial||10,{steps:p.steps||24,flat:p.flat||1,outwardCaps:p.outwardCaps});
+  for(const p of q.paths||[]){const g=sweep(p.path,t=>p.radius*(1-(p.taper||0)*t),p.radial||10,{steps:p.steps||24,flat:p.flat||1});
    if(p.tip){const start=new THREE.Vector3(...p.path[0]),axis=new THREE.Vector3(...p.path.at(-1)).sub(start),lengthSq=axis.lengthSq();parts.push(paint(g,(x,y,z)=>mix(p.color||q.color,p.tip,clamp((new THREE.Vector3(x,y,z).sub(start).dot(axis)/lengthSq-.60)/.30,0,1))));}
    else parts.push(solid(g,p.color||q.color));
   }

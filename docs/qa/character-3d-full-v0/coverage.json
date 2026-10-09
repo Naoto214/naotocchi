@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 273,
-    "pending": 20,
-    "fourViewRecords": 271
+    "exactSpecs": 278,
+    "pending": 15,
+    "fourViewRecords": 276
   },
   "rows": [
     {
@@ -5536,15 +5536,15 @@
       "group": "countryside",
       "asset": "assets/characters/partners/field_cow.png",
       "sha256": "de7b5bde0d77e236d2c16a0b25c7c3cd408da163ad46d38fb6232b6013a0b20f",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-field_cow-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-field_cow-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-field_cow-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-field_cow-0-back.jpg"
       }
     },
     {
@@ -5576,15 +5576,15 @@
       "group": "forest",
       "asset": "assets/characters/partners/forest_bear.png",
       "sha256": "0a62ed9e7c8037f75e54a6b7d8aa6f138d011c7f16a84952caf807cfa0efd959",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-forest_bear-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-forest_bear-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-forest_bear-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-forest_bear-0-back.jpg"
       }
     },
     {
@@ -5596,15 +5596,15 @@
       "group": "forest",
       "asset": "assets/characters/partners/grove_deer.png",
       "sha256": "88c0d7bc9823bbd030331db156c92fcfd34ccb873636eb6ff1ee6b97df06c5aa",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-grove_deer-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-grove_deer-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-grove_deer-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-grove_deer-0-back.jpg"
       }
     },
     {
@@ -5616,15 +5616,15 @@
       "group": "mountain",
       "asset": "assets/characters/partners/cliff_goat.png",
       "sha256": "f111750eb1b177bbdcf3203b8e1aeb6c09da1c31eea296832c4ecd3c3750dced",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-cliff_goat-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-cliff_goat-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-cliff_goat-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-cliff_goat-0-back.jpg"
       }
     },
     {
@@ -5776,15 +5776,15 @@
       "group": "jungle",
       "asset": "assets/characters/partners/gentle_gorilla.png",
       "sha256": "8977f4fdf01cc41e6b03412cf398c3858bb10b9f50251190f61202afc945b9b1",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-gentle_gorilla-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-gentle_gorilla-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-gentle_gorilla-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/mammal-partners/partner-gentle_gorilla-0-back.jpg"
       }
     },
     {

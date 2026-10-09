@@ -991,3 +991,12 @@ Fresh authority a2878b4c. Actually inspected d1 bat/snail/chameleon/sekizou and 
 Task6 five mammal partners implemented with existing factories; quadruped body.segments is opt-in and defaults unchanged. Cow upper grass leaf constituent disconnection fixed with actual closed-volume graph regression and old-placement negative control.18focusedPASS,13mutations detected/restored,independentC0/I0. Integrated dedicated372PASS;Pilot28hashes unchanged; selector11PASS. Allfive remain unregistered until actual image gates.
 
 The e8 Character run37897241823 remains FAILURE from stale mutation anchors; capture113711274552 was SUCCESS. Three narrow anchor corrections validated all53affected mutations and exact restoration. Exporter now permits explicitly validated successful capture from a completed failed run without approving images or CI:12Python testsPASS,C0/I0. Recovery37900096598SUCCESS saved60allowlisted files ata2878b4c; avoids redundant recapture and client-side403. Draft maintained; Human/iPhone and final293integrationOPEN.
+
+
+## Five partner image approvals and three source-specific corrections
+
+8f2242e3 capture113723754605SUCCESS; exportedviaRecovery37902156429 andsaved44files at9e8caf3a,201rawhashesverified. Rootactuallyinspected cow/bear/deer/goat/gorilla each4views32states2distancePASS;independentfourviewC0/I0. Same-runtime32stateproducedmesh/worldmatrixhashes matchbefore/after sharedTask5changes. Promoted5:278/293,15pending,276four-viewrecords.
+
+Task5fix2 atlocal05794054 corrects Watcher pupil/iris, Unicorn flowed/taperedownedlocks andFox outwardclosedcapnormals.16focusedPASS,9scopednegativecontrolsdetected/restored,23priorrowsunchangedinworker;28priorrowsincluding5partnersunchangedafterintegration. Defaults preserved withfrozeninput comparisons, no mutabletablefreeze. IndependentC0/I0;integrated376dedicatedPASS/Pilot28identical. Three roles remainunregistered pendingfreshactualimages; nextcaptureonlythese3. Task7fourhumanoidpartners underway.
+
+8f dedicatedFAILURE is retained: oldbase tests26/27 treated nowpromotedtanuki asunimplemented. RootreproducedRED, addedpositiveexacttanuki/canonicalemotion and permanently missingmodel companion/partner fallback assertions;2PASS andC0/I0. No productionbehaviorchanged. FourtargetedpromotiontestsPASS; finalnpm/Human/iPhone/full293integration remainOPEN.

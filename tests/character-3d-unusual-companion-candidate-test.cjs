@@ -91,3 +91,37 @@ test('closed-expression watcher eye stays nonempty and clear at its single owned
  for(const emotion of ['positive','sleeping','strained','sick']){const a=instantiate({rig:r,key:'watcher-closed'},7);setEmotion(a,emotion);animate(a,{dt:.05,moving:false,animLv:0});a.root.updateMatrixWorld(true);assert.equal(a.faces[0].eyes.length,1);shapes.add(SPEC.expressionParams(emotion).eye.shape);const obstacles=[];a.root.traverse(o=>{if(o.isMesh&&o.name.endsWith(':opaque'))obstacles.push(o);});for(const az of [-.62,0,.62])assertEyesClear(THREE,a.faces[0].eyes,obstacles,new THREE.Vector3(Math.sin(az),.175,Math.cos(az)).transformDirection(a.root.matrixWorld),'watcher closed-expression/'+emotion+'/frame0');}
  assert.deepEqual([...shapes].sort(),['flat','happy','squeeze']);
 });
+
+function pathVolumes(r,name){
+ const q=row('unicorn').spec.details.find(q=>q.name===name),g=part(r,name).geometry,p=g.attributes.position,result=[];let offset=0;
+ for(const path of q.paths){const radial=path.radial||9,steps=path.steps||20,ringCount=steps+7,count=ringCount*(radial+1)+2,center=ring=>{const a=[0,0,0];for(let j=0;j<radial;j++)for(let k=0;k<3;k++)a[k]+=p.array[(offset+ring*(radial+1)+j)*3+k]/radial;return a;},centers=Array.from({length:steps+1},(_,i)=>center(i+3)),last=center(steps+3);let radius=0;for(let j=0;j<radial;j++)radius=Math.max(radius,Math.hypot(...last.map((v,k)=>p.array[(offset+(steps+3)*(radial+1)+j)*3+k]-v)));result.push({centers,radius});offset+=count;}
+ assert.equal(offset,p.count,'actual owned lock topology');return result;
+}
+test('unicorn produced hair has distinct swept curls broad masses and tapered ends in front side and rear axes',async()=>{
+ const r=await build('unicorn');
+ for(const name of ['maneHead','maneNeck','hairTail']){const locks=pathVolumes(r,name);assert.ok(locks.length>=3,'layered owned locks');for(const lock of locks)assert.ok(lock.radius<.006,name+' physically tapered endpoint');
+  // Compare actual centerline offsets after translation: parallel copied rods fail.
+  const a=locks[0].centers,b=locks[1].centers;let varied=0;for(let i=0;i<Math.min(a.length,b.length);i++)varied=Math.max(varied,Math.hypot(...a[i].map((v,k)=>(v-a[0][k])-(b[i][k]-b[0][k]))));assert.ok(varied>.10,name+' independently swept actual centerlines');
+  const bounds=part(r,name).geometry.boundingBox;assert.ok(bounds.max.x-bounds.min.x>.28,name+' broad front and rear hair mass');
+ }
+ const tail=part(r,'hairTail').geometry.boundingBox;assert.ok(tail.min.y<-.25&&tail.max.y>.25,'long undulating tail descends below its high curl');assert.ok(tail.max.z-tail.min.z>.45,'side silhouette has flowing depth');
+});
+test('watcher open canonical pupil is dark within a physical pale cyan iris',async()=>{
+ const r=await build('watcher'),{attachFace,applyFaceExpression}=await import('../character-3d/rig.mjs');const f=attachFace(r,r.faceSpec,'C');assert.equal(f.eyes.length,1);
+ const body=part(r,'body').geometry;assert.ok(colorCount(body,(x,y,z,p,i)=>y>.4&&z>.5&&Math.abs(p.getX(i))<.085&&p.getY(i)>.10&&p.getY(i)<.27&&p.getZ(i)>.12)>50,'actual pale iris surrounding projected pupil');
+ for(const emotion of SPEC.CANONICAL_EMOTIONS){if(!['round','droop'].includes(SPEC.expressionParams(emotion).eye.shape))continue;applyFaceExpression(f,emotion);assert.ok(colorCount(f.eyes[0].geometry,(x,y,z)=>x<.08&&y<.09&&z<.12)>80,emotion+' actual dark pupil vertices');assert.ok(f.eyes[0].parent===r.bones.body,'single canonical pupil owned by wisp');}
+});
+test('fox tail terminal faces and vertex normals point outward with small tapered ends',async()=>{
+ const r=await build('many_tail_fox'),{THREE}=await import('../character-3d/geometry.mjs');
+ for(let i=0;i<6;i++){const g=part(r,'fanTail'+i).geometry,p=g.attributes.position,n=g.attributes.normal,idx=g.index,q=row('many_tail_fox').spec.details.find(q=>q.name==='fanTail'+i).paths[0],radial=q.radial,steps=q.steps,lastRing=(steps+3)*(radial+1),center=new THREE.Vector3();for(let j=0;j<radial;j++)center.add(new THREE.Vector3().fromBufferAttribute(p,lastRing+j).multiplyScalar(1/radial));const terminal=p.count-1,forward=new THREE.Vector3().fromBufferAttribute(p,terminal).sub(center).normalize();assert.ok(new THREE.Vector3().fromBufferAttribute(n,terminal).dot(forward)>.95,'fanTail'+i+' actual outward terminal vertex normal');let triangles=0;
+  for(let k=0;k<idx.count;k+=3){const ids=[idx.getX(k),idx.getX(k+1),idx.getX(k+2)];if(!ids.includes(terminal))continue;const [a,b,c]=ids.map(j=>new THREE.Vector3().fromBufferAttribute(p,j));assert.ok(b.sub(a).cross(c.sub(a)).normalize().dot(forward)>.5,'outward physical terminal winding');triangles++;}assert.equal(triangles,radial,'closed terminal triangle fan');assert.ok(new THREE.Vector3().fromBufferAttribute(p,lastRing).distanceTo(center)<.006,'small tapered cream endpoint');}
+});
+
+test('opt-in hair caps and iris preserve frozen soft toy inputs and legacy sweep defaults',async()=>{
+ const fs=require('node:fs'),crypto=require('node:crypto'),path=require('node:path');
+ for(const [file,digest]of [["tests/fixtures/character-3d-soft-toy-before-unusual-fix2.mjs", "1b79b704d11bfba36f87e3fd98b970aab417f5f6dd5c93094827250467034257"], ["tests/fixtures/character-3d-sweep-before-unusual-fix2.mjs", "7fba49c0cddc4966bf2287a5b8256a9499b8f2aea456f61f60c332baa8eea3bf"], ["tests/fixtures/character-3d-nonplayer-before-unusual-fix2.cjs", "35866c8a95cc003bf9f84a180dc9dcdc6caac7e09564be1cb6839137d7d87387"]])assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname,'..',file))).digest('hex'),digest,'frozen fix2 source integrity');
+ const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{softToy:oldSoft}=await import('./fixtures/character-3d-soft-toy-before-unusual-fix2.mjs'),{sameRigDefaults}=require('./helpers/character-3d-soft-toy-baseline.cjs'),old=require('./fixtures/character-3d-nonplayer-before-unusual-fix2.cjs')();let count=0;
+ for(const [key,{spec}]of Object.entries(old)){if(spec.archetype!=='soft_toy'||key==='companion:many_tail_fox')continue;sameRigDefaults(BUILDERS.soft_toy(spec,key),oldSoft(spec,key),key);count++;}assert.equal(count,14,'fourteen previous soft toy input rigs');
+ const {sweep}=await import('../character-3d/geometry.mjs'),{sweep:oldSweep}=await import('./fixtures/character-3d-sweep-before-unusual-fix2.mjs');
+ for(const [line,radius,radial,opt]of [[[[0,0,0],[.2,.3,.1]],t=>.1*(1-t*.7),8,{}],[[[0,0,0],[-.3,.2,.1],[-.2,.5,.2],[.1,.3,.4]],t=>.07+.02*Math.sin(t*3),12,{steps:30,flat:.4}],[[[0,0,0],[0,.4,0],[.2,.6,.1]],()=>.05,6,{steps:20,cap:false}]]){const a=sweep(line,radius,radial,opt),b=oldSweep(line,radius,radial,opt);assert.deepEqual(Object.keys(a.attributes),Object.keys(b.attributes));for(const key of Object.keys(a.attributes))assert.deepEqual(Buffer.from(a.attributes[key].array.buffer),Buffer.from(b.attributes[key].array.buffer),'legacy sweep '+key+' exact same-runtime bytes');assert.deepEqual(Buffer.from(a.index.array.buffer),Buffer.from(b.index.array.buffer),'legacy sweep indexed winding bytes');}
+});

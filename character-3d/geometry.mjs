@@ -189,11 +189,11 @@ export function sweep(path, radius, radial = 9, opt = {}) {
   if (capN) {
     const add = (R, sgn) => { const c = R.c; const base = pos.length / 3; pos.push(c.x, c.y, c.z); uv.push(0.5, sgn > 0 ? 1 : 0); return base; };
     const first = add({ c: rings[0].c.clone().addScaledVector(rings[0].T, -rings[0].r) }, -1);
-    for (let j = 0; j < radial; j++) idx.push(first, j, j + 1);
+    for (let j = 0; j < radial; j++) if(opt.outwardCaps)idx.push(first,j+1,j);else idx.push(first, j, j + 1);
     const lastRing = (ringList.length - 1) * (radial + 1);
     const lastR = rings[rings.length - 1];
     const last = add({ c: lastR.c.clone().addScaledVector(lastR.T, lastR.r) }, 1);
-    for (let j = 0; j < radial; j++) idx.push(lastRing + j + 1, lastRing + j, last);
+    for (let j = 0; j < radial; j++) if(opt.outwardCaps)idx.push(lastRing+j,lastRing+j+1,last);else idx.push(lastRing + j + 1, lastRing + j, last);
   }
   const g = new THREE.BufferGeometry();
   g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));

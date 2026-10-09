@@ -140,7 +140,7 @@ export function quadruped(sp, key) {
   rig.add('tail', 'body', [0, B.r * 0.35, -B.len / 2 * 0.9], [paint(sweep(tailPath, tailR, 8, { steps: T.type==='hook'?20:12 }), (x, y, z) => (T.type === 'curl' && y > tl * 0.6 ? c.belly : sp.patches ? (y>tl*.91?c.base:y>tl*.66?c.patch2:c.patch) : c.base))]);
   // Optional closed source hair/horns inherit established head/body/tail owners.
   for(const q of sp.details||[]){const parts=(q.volumes||[]).map(v=>solid(xform(ellipsoid(...v.size,v.segments?.[0]||16,v.segments?.[1]||12),{pos:v.at,rot:v.rotation||[0,0,0]}),v.color||q.color));
-    for(const p of q.paths||[])parts.push(solid(sweep(p.path,t=>p.radius*(1-(p.taper||0)*t),p.radial||9,{steps:p.steps||20,flat:p.flat||1}),p.color||q.color));
+    for(const p of q.paths||[])parts.push(solid(sweep(p.path,t=>p.endTaper?p.radius*((.50+.62*Math.sin(Math.PI*t))*(1-Math.pow(t,4))+.015):p.radius*(1-(p.taper||0)*t),p.radial||9,{steps:p.steps||20,flat:p.flat||1,outwardCaps:p.outwardCaps}),p.color||q.color));
     rig.add(q.name,q.bone||'body',q.at||[0,0,0],parts,'opaque',q.rotation||[0,0,0]);
   }
   rig.meta = { idlePose: sp.idlePose, hover: 0, bodyY, legTop, bodyR: B.r, bodyLen: B.len, pawR: Lg.r*1.05, earType: sp.ears.type, poseProfile: sp.poseProfile || null };
