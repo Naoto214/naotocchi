@@ -1,14 +1,14 @@
 {
-  "baseCommit": "090d0d0046d772e7195bcd00da6e0aa11aa310b8",
-  "checkpoint": "clock-candidate-recover-three-nonplayer-images",
+  "baseCommit": "b9e0cf9555fc62597807bb3f2bb5ca7392c2d3d5",
+  "checkpoint": "cactus-promotion-punyu-surface-clock-parrot-recovery",
   "coverage": {
-    "exact": 252,
+    "exact": 253,
     "total": 293,
-    "pending": 41,
+    "pending": 40,
     "playerFamilies": 31,
     "playerStages": 248,
     "companions": 3,
-    "partners": 1
+    "partners": 2
   },
   "verification": {
     "dedicatedPass": 271,
@@ -39,13 +39,13 @@
     "phoenixRepresentatives": "03/07 JSON SHA256 identical to accepted baseline",
     "phoenixCandidateCI": "fde2580 Character37870348699 SUCCESS(3run jobs,15unrelatedcapturejobsSKIPPED),Runtime37870354756 SUCCESS;Home37870354778 lastobservedIN_PROGRESS.",
     "remainingRepresentativeGates": "9fad source recovered:god/ghost/unknown03/07 PASS8views64states4distanceeach;star03 REJECT core/orbit composition,star07 visually readable.",
-    "godCandidates": "01orbseed/02winginfant/04staff/05longrobe-blueorb/06calm-doublehalo/08goldrays;03/07 definitions unchanged.9celestial+7stage mutations detected/restored;28Pilot hashes unchanged;images pending,no runtimeGodregistration.",
+    "godCandidates": "All8 registered after86dfd3a actualimagePASS;see godImageGate/godGhostPromotion.",
     "phoenixPostPromotionCI": "c67ba80 Character37871872563 all57jobsSUCCESS,27family/216stage aggregate113640335472SUCCESS/artifact11591862686. Runtime37871878184/Home37871878268SUCCESS.",
-    "ghostCandidates": "All8 isolated candidates;03/07 unchanged;7stage+8spectral mutations detected. Missing03 after mutation explicitly restored;245 dedicated and representative equality reverified.28Pilot hashes unchanged. Review Critical0/Important0. Actual image gate pending;not registered.",
+    "ghostCandidates": "All8 registered after4f3a839 actualimagePASS;see ghostImageGate/godGhostPromotion.",
     "godCandidateCI": "3a1212e Character37872664719 SUCCESS:3success,15skipped. God wave11591270378/distance11590528811 export requested;visual acceptance pending.",
     "godImageGate": "86dfd3a PASS_ALL8:32views/256states/16distance;04-06 corrected staff finials visible;185unchanged wave images identical to actualreviewed3a.299wave+17distancehashes verified;archivec543cdd.",
     "godStaffFix": "RED/GREEN silhouette clearance;8/8stage+9/9factory mutations detected/restored;212family-dedicated+34base=246PASS;28Pilot hashes unchanged;review Critical0/Important0.",
-    "unknownCandidates": "All8 via existingmystery_blob:darkseed/bluedome/antennae/featherwings/tallwisp/curl.03/07JSON identical;7stage+7factory mutations detected/restored;249dedicatedPASS,28Pilot unchanged. Image gate pending,not registered. Review found stationary05 wings;existing owned feather-wing channel reused,actual motion RED/GREEN verified.",
+    "unknownCandidates": "All8 registered after8b6fcae actualimagePASS;see unknownImageGate/unknownPromotion.",
     "ghostCandidateCI": "4f3a839 Character37873539531 SUCCESS (3success/15skipped);wave11591341783/distance11590574842 exportrequested.",
     "ghostImageGate": "4f3a839 PASS_ALL8:32fourviews/256states/16distance actually inspected;299wave+17distance hashes verified;archivef1b57c4. Runtime promotion pending.",
     "starCorrection": "bc91033 actual8views64states4distance PASS;all77wave+5distance filehashes verified;archived35859c5.",
@@ -54,7 +54,7 @@
     "unknownImageGate": "8b6fcae PASS_ALL8:32views/256states/16distance;05/06fresh64states,remaining6reuse192states through222byteidenticalwaveimages.299wave+17distancehashesverified;archivefcf8844. Ready for promotion.",
     "unknownShapeFix": "252dedicatedPASS;8/8stage mutations detected. Lingering lastmutation explicitly restored factory to HEAD and fullsuiteverified. Factory/Pilot untouched. No promotion.",
     "fullNpmInterrupted": "d87e31b npm test started; scratch disappeared during execution,completion/exit not available. Do not claim PASS. Prior completed a65 result remains historical.",
-    "starCandidates": "Remaining6 source-derived candidates via unchangedcosmic factory;03/07 unchanged;254dedicatedPASS,7stage+6cosmic mutationsdetected/restored,reviewCritical0/Important0. All8images pending;not registered.",
+    "starCandidates": "All8 registered after12fb2c6 actualimagePASS;see starAll8ImageGate/starPromotion.",
     "unknownPromotion": "All8 image-approved registered;255dedicatedPASS,32/32rollout mutationsdetected/restored,28Pilot hashesidentical,reviewCritical0/Important0. Coverage244/293,pending49,242fourviewrecords. Postpromotion30family/240stageaggregate pending.",
     "starCandidateCI": "2789b99 Character37877360650SUCCESS;all8wave11592962667/distance11592663889 exportrequested. Actualall8review pending.",
     "owlCandidate": "Existingavian optionalpairedtufts/creamfeatherpaint/asymmetricwingpose;roleexact isolated.257dedicatedPASS,owl4+nonplayer4mutationsdetected,28Pilot identical,reviewCritical0/Important0. Finalsunflower mutation persisted despiteharnesslog;explicitlyremoved,priornonplayerdeep equality and257PASS confirmed. Imagespending.",
@@ -64,12 +64,12 @@
     "punyuCandidate": "Existingblob factory dataonly:opaqueyellowmeltingcontour,foldedtip,lefttrail,scallopedbase;2targettestsPASS,3/3mutationsdetected/restored.260dedicatedPASScombined. Roleisolated;imagespending.",
     "owlCandidateCI": "6716048 Character37878471960SUCCESS;owlartifact11593312304 exportrequested. No imageacceptance.",
     "starArchiveRecovery": "f6 recovery37877945943SUCCESS;preparedentriesrebased on671 throughGitDataAPI andcompareallowlist,archived5cf15f1. Redundant671recovery37878472023FAIL branchmovedbeforeexport;no sourceimageslost orfalsePASS.",
-    "owlImageGate": "46ff692 archive5a78d95:41hashesverified;actual4views32statesREJECT heldwingocclusion. BreastVs improved. No distanceapproval.",
+    "owlImageGate": "d40 actual4viewsREJECT flatrectangularwing/mouthocclusion. Structuralwingdesign reconsideration required;notregistered.",
     "owlCorrection": "World-ray regression failsold;dataonly shoulder/length/forward corrected,5/5mutationsdetected;reviewCritical0/Important0 includingeyevisibility. Freshimagespending.",
     "starPunyuCapture": "12fb2c6 Character37879217065SUCCESS;Starwave11593173580/distance11593399232/Punyu11593004038 exportrequested. Actualreviewpending.",
     "godGhostPostPromotionCI": "d87e31b Character37875308764:all59jobsSUCCESS,0FAIL/CANCELLED/SKIPPED,29stagefamilyjobs;stagecoverage113651820721SUCCESS,29families/232stages. SeparatefromUnknown30familyaggregate.",
     "starPromotion": "All8 registered after actualimagePASS;33/33runtime mutationsdetected/restored,28Pilotidentical;252/293,41nonplayerpending,250fourviewrecords. ReviewCritical0/Important0;postmutation264PASS andproductiondiff inspected.",
-    "punyuImageGate": "12fb2c6 archive5715b51:4viewsREJECT radialfan-folding/losthook/innercoreleak;41hashesverified.No32state/distanceapproval.",
+    "punyuImageGate": "d40 actual4viewsREJECT broadsurfacecreases;notch/coreleak improved. Freshsmooth-min distance/analyticnormal correction prepared;4/4mutations andmanifold/notch testsPASS;no imageapproval.",
     "cactusCandidate": "Existingbranch_organism optionalclosedcolumn;2targettests,4/4mutations,263dedicatedbeforeStarpromotion;28Pilotidentical;reviewCritical0/Important0.Imagespending;notregistered.",
     "owlCorrectedCapture": "46ff692 Character37879959890SUCCESS;artifact11593204347 exportrequested;actualimagegatepending.",
     "unknownPostPromotionCI": "f6c86cd Character37877945590 all60jobsSUCCESS,30stagefamilies,stagecoverage113660635981SUCCESS;Runtime37877952306/Home37877952265SUCCESS.",
@@ -80,12 +80,16 @@
     "nonplayerCorrectionCapture": "d40 Character37881625921SUCCESS;artifact11595151601 owl/punyu/cactus exportrequested. No actualapproval yet.",
     "starPostPromotionCI": "d3e64f0d Character37881115241 last21SUCCESS/13IN_PROGRESS/26QUEUED,31familyaggregate notyetcomplete.",
     "clockCandidate": "Existingrigid_object optionalroundedhousing/detailvolumes/paths/dialfacetarget;2targettests,3/3mutations,271dedicatedPASS,28Pilotidentical,reviewCritical0/Important0. Imagespending,noregistration.",
-    "parrotCI": "090d0d00 Character37882013865FAIL:nonplayercapture113663562927SUCCESS,dedicated113663563133FAIL cactusmutation stale return-prefix anchor. Fixedstable role-row anchor for cactus andsunflower;4+4 mutationsdetected/restored. Freshclock/parrotcapture requested. Not overallPASS."
+    "parrotCI": "090d0d00 Character37882013865FAIL:nonplayercapture113663562927SUCCESS,dedicated113663563133FAIL cactusmutation stale return-prefix anchor. Fixedstable role-row anchor for cactus andsunflower;4+4 mutationsdetected/restored. Freshclock/parrotcapture requested. Not overallPASS.",
+    "cactusImageGate": "d40 archiveb9e0cf95 actual4views32states2distancePASS;all121rawfiles(3candidates)hashverified. Promotedonlypartner:oasis_cactus;253/293,40pending,251acceptedfourviewrecords.",
+    "nonplayerPromotion": "7/7role/runtime mutationsdetected/restored;271dedicatedPASS,28Pilotidentical;reviewCritical0/Important0.",
+    "clockParrotCapture": "dc652144 Character37882448856SUCCESS;artifact11594323377 exportrequested. Earlier090d0d00FAIL remains distinct."
   },
   "next": [
-    "Actuallyreview exported d40 owl/punyu/cactus 4views32states2distance each",
-    "Review freshclock/parrot capture after successfulrun;no promotionuntilPASS",
-    "Continue remaining41nonplayers and final293integration/Human/iPhone"
+    "Actuallyreview clock/parrot exportedimages;promote onlyPASS",
+    "Review freshPunyu correctedsurface images",
+    "Reconsider Owl heldfeather-wing geometry after repeated imageREJECT;retainisolation",
+    "Remaining40nonplayers and final293integration;Human/iPhone separate"
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",

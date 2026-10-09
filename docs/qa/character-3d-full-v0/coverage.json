@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 252,
-    "pending": 41,
-    "fourViewRecords": 250
+    "exactSpecs": 253,
+    "pending": 40,
+    "fourViewRecords": 251
   },
   "rows": [
     {
@@ -5836,15 +5836,15 @@
       "group": "desert",
       "asset": "assets/characters/partners/oasis_cactus.png",
       "sha256": "8efe1be00bf96a69d57a3a45628228bf23f674d9e63547840a227359637713c4",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "branch_organism",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/d40e286b064522e4b1bf9b4730e802edf620471d/nonplayers/partner-oasis_cactus-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/d40e286b064522e4b1bf9b4730e802edf620471d/nonplayers/partner-oasis_cactus-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/d40e286b064522e4b1bf9b4730e802edf620471d/nonplayers/partner-oasis_cactus-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/d40e286b064522e4b1bf9b4730e802edf620471d/nonplayers/partner-oasis_cactus-0-back.jpg"
       }
     },
     {

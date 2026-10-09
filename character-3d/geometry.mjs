@@ -123,11 +123,19 @@ function concaveOutlineVolume(curve, depth, segments) {
   // no front/back triangle may consist solely of zero-thickness outline points.
   const edgeMids=new Map(),edgeMid=(a,b)=>{const key=[Math.min(a,b),Math.max(a,b)].join(':');if(!edgeMids.has(key)){edgeMids.set(key,points.length);points.push(points[a].clone().add(points[b]).multiplyScalar(.5));}return edgeMids.get(key);};
   faces=faces.flatMap(([a,b,c])=>{const center=points.length;points.push(points[a].clone().add(points[b]).add(points[c]).multiplyScalar(1/3));const ab=edgeMid(a,b),bc=edgeMid(b,c),ca=edgeMid(c,a);return [[a,ab,center],[ab,b,center],[b,bc,center],[bc,c,center],[c,ca,center],[ca,a,center]];});
-  const distance=p=>Math.min(...boundary.map((a,i)=>{const b=boundary[(i+1)%boundary.length],dx=b.x-a.x,dy=b.y-a.y,t=clamp(((p.x-a.x)*dx+(p.y-a.y)*dy)/(dx*dx+dy*dy),0,1);return Math.hypot(p.x-a.x-t*dx,p.y-a.y-t*dy);}));
+  // A smooth minimum avoids a shading ridge wherever the nearest edge changes.
+  const distance=p=>{let inv=0;for(let i=0;i<boundary.length;i++){const a=boundary[i],b=boundary[(i+1)%boundary.length],dx=b.x-a.x,dy=b.y-a.y,t=clamp(((p.x-a.x)*dx+(p.y-a.y)*dy)/(dx*dx+dy*dy),0,1),d=Math.hypot(p.x-a.x-t*dx,p.y-a.y-t*dy);if(d<1e-9)return 0;inv+=Math.pow(d,-8);}return Math.pow(inv,-1/8);};
+  const cx=boundary.reduce((sum,p)=>sum+p.x,0)/segments,cy=boundary.reduce((sum,p)=>sum+p.y,0)/segments;
+  const height=p=>{const t=Math.min(1,distance(p)/(depth*.55)),bulge=.82+.18*Math.exp(-(((p.x-cx)/.30)**2+((p.y-cy)/.40)**2));return depth*Math.sqrt(t*(2-t))*bulge;};
+
   const pos=[],idx=[],count=points.length;
-  for(const side of [1,-1])for(const p of points){const d=distance(p);pos.push(p.x,p.y,side*depth*Math.sqrt(1-Math.exp(-d/(depth*.65))));}
+  for(const side of [1,-1])for(const p of points){pos.push(p.x,p.y,side*height(p));}
   for(const [a,b,c] of faces){const u=points[a],v=points[b],w=points[c],ccw=(v.x-u.x)*(w.y-u.y)-(v.y-u.y)*(w.x-u.x)>0;if(ccw)idx.push(a,b,c,a+count,c+count,b+count);else idx.push(a,c,b,a+count,b+count,c+count);}
-  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setIndex(idx);return smoothNormals(g);
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setIndex(idx);smoothNormals(g);
+  // Analytic surface gradients keep long triangulation diagonals out of shading.
+  const normals=g.attributes.normal,eps=1e-5;
+  for(let i=0;i<count;i++){const p=points[i];if(distance(p)<eps*2)continue;const dx=(height(new THREE.Vector2(p.x+eps,p.y))-height(new THREE.Vector2(p.x-eps,p.y)))/(2*eps),dy=(height(new THREE.Vector2(p.x,p.y+eps))-height(new THREE.Vector2(p.x,p.y-eps)))/(2*eps);for(const side of [1,-1]){const n=new THREE.Vector3(-dx,-dy,side).normalize();normals.setXYZ(i+(side<0?count:0),n.x,n.y,n.z);}}
+  return g;
 }
 export function outlineLoft(outline, depth, segments = 48, rings = 6, options = {}) {
   const curve = new THREE.CatmullRomCurve3(outline.map(([x,y])=>new THREE.Vector3(x,y,0)),true,'centripetal');

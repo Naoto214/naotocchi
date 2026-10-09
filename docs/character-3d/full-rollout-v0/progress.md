@@ -901,3 +901,9 @@ Existingplumed_bird reused forsourcewhiteasymmetricwings,yellowfancrest,longtail
 ## Clock candidate / ordered-mutation anchor fix
 Clock reusesrigid_object withoptionalroundedhousing,detailvolumes/paths,explicitdialfacetarget. Sourcebluecase,creamdial12marks2hands,pairedbells/handle,feet/arms/winder.2targettests,3mutations,271dedicatedPASS,28Pilotidentical,reviewCritical0/Important0;no imageapproval.
 Parrot090d0d00 capture113663562927SUCCESS butoverallCharacter37882013865FAIL:dedicatedcactus mutation searched old return-first-box prefix changedbycandidate addition. Corrected cactus/sunflower mutation anchors tostableownrole rows;4+4mutationsdetected/restored. No falseCIpass. d40Character37881625921SUCCESS,owl/punyu/cactus artifact11595151601durableexport requested. Freshclock/parrot scopedcapture requested;coverageunchanged252/293.
+
+
+## Cactus actual PASS and promotion; rejected Owl/Punyu remain isolated
+Archiveb9e0cf95/d40 contains121rawfiles withverifiedhashes. Cactusactual4views32states2normaldistancePASS;onlypartner:oasis_cactus promoted.253/293 exact,40pending,251acceptedfourviewrecords.7/7nonplayerrole/runtime mutationsdetected/restored,271dedicatedPASS,28Pilotidentical,reviewCritical0/Important0.
+Owl4viewsREJECT:heldwing appearsflatrectangular andcoversmouth. Currentflipperstructure needsreconsideration before anotherfix;notregistered. Punyu4viewsREJECTsurfacecreases despiteimprovedhook/noinnercoreleak;optionalconcavegeometry nowuses smooth-minboundarydistance andsurfacegradientnormals;4/4mutations andclosedmanifold testsPASS,reviewCritical0/Important0,freshimagesrequired.
+Clock/parrot dcCharacter37882448856SUCCESS;artifact11594323377durableexport requested. Earlier090dedicatedFAIL retained,notrewrittenasPASS. Draft376/basePilot maintained;Human/iPhone andfull293QA stillopen.

@@ -1,111 +1,78 @@
 {
-  "sourceCommit": "d40e286b064522e4b1bf9b4730e802edf620471d",
-  "runId": 37881625921,
+  "sourceCommit": "dc652144365d7adeed28d3de3bd29d1e33cccd31",
+  "runId": 37882448856,
   "families": [
-    "companion",
-    "partner"
+    "companion"
   ],
   "artifacts": [
     {
-      "id": 11595151601,
-      "label": "nonplayers",
-      "name": "full-rollout-nonplayer-review-d40e286b064522e4b1bf9b4730e802edf620471d",
-      "digest": "sha256:95bccf33ab5bd0982dac7293ba52e0cae624672d6d2958860b783b847eb7c8c7",
+      "id": 11594323377,
+      "label": "clock-parrot",
+      "name": "full-rollout-nonplayer-review-dc652144365d7adeed28d3de3bd29d1e33cccd31",
+      "digest": "sha256:5f22b73dd795e532cba523573dfa7ce7330e218ea50f621131806fc0841ec83d",
       "required": [
         {
-          "pattern": "companion-owl-0-front.jpg",
+          "pattern": "companion-clock-0-front.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-owl-0-34.jpg",
+          "pattern": "companion-clock-0-34.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-owl-0-side.jpg",
+          "pattern": "companion-clock-0-side.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-owl-0-back.jpg",
+          "pattern": "companion-clock-0-back.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-owl-0-*-*-*.jpg",
+          "pattern": "companion-clock-0-*-*-*.jpg",
           "count": 32
         },
         {
-          "pattern": "companion-owl-views.jpg",
+          "pattern": "companion-clock-views.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-owl-motion.jpg",
+          "pattern": "companion-clock-motion.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-owl-distance-*.jpg",
+          "pattern": "companion-clock-distance-*.jpg",
           "count": 2
         },
         {
-          "pattern": "companion-punyu-0-front.jpg",
+          "pattern": "companion-parrot-0-front.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-punyu-0-34.jpg",
+          "pattern": "companion-parrot-0-34.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-punyu-0-side.jpg",
+          "pattern": "companion-parrot-0-side.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-punyu-0-back.jpg",
+          "pattern": "companion-parrot-0-back.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-punyu-0-*-*-*.jpg",
+          "pattern": "companion-parrot-0-*-*-*.jpg",
           "count": 32
         },
         {
-          "pattern": "companion-punyu-views.jpg",
+          "pattern": "companion-parrot-views.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-punyu-motion.jpg",
+          "pattern": "companion-parrot-motion.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-punyu-distance-*.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "partner-oasis_cactus-0-front.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-oasis_cactus-0-34.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-oasis_cactus-0-side.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-oasis_cactus-0-back.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-oasis_cactus-0-*-*-*.jpg",
-          "count": 32
-        },
-        {
-          "pattern": "partner-oasis_cactus-views.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-oasis_cactus-motion.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-oasis_cactus-distance-*.jpg",
+          "pattern": "companion-parrot-distance-*.jpg",
           "count": 2
         }
       ]
