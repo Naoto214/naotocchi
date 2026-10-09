@@ -856,3 +856,9 @@ Scratch disappeared after7ab521e save; freshclone restored remoteHEAD/tree1b19f6
 - Star bc91033 representatives: actual8views/64states/4distance PASS; durableGit archive35859c5,82filehashes verified. Remaining6 source-derived cosmic candidates added;03/07/factory untouched.254dedicatedPASS,7stage+6cosmic mutationsdetected/restored;reviewCritical0/Important0. All8capture pending,no registration.
 - Unknown8b6fcae:32views/256states/16distance PASS;05/06fresh64states,remaining192states reused via222identicalimages. Archivefcf8844;299wave+17distance hashesverified. Runtime promotion ready.
 - Full npm completed on fixed8b6 implementation:3017+Relationship80PASS,0FAIL,exit0; archived full-npm-8b6. Separate from later Star expansion and futureUnknownpromotion.
+
+## Unknown runtime promotion / Star all8 retrieval
+
+- Unknown all8 registered only after8b6actualimagePASS.255dedicatedPASS,32/32rollout mutations detected; restored diff and255PASS rechecked;28Pilot hashes identical;reviewCritical0/Important0.244/293 exact,49pending=Star8+nonplayer41;242fourviewrecords.
+- Star2789b99 scopedCharacter37877360650SUCCESS;all8wave/distance export requested using persistentGit evidence mechanism. NoStarregistration before realall8review.
+- Fullnpm8b6:3017+80PASS remains preUnknownpromotion evidence;no repeat fullnpm claimed.

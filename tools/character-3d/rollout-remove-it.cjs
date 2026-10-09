@@ -2,6 +2,7 @@
 const fs=require('fs'),path=require('path'),cp=require('child_process'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'../..'),test='tests/character-3d-rollout-test.cjs';
 const cases=[
+ ['Unknown runtime coverage','character-3d/rollout-spec.js',',unknown:mythicFactory(PILOT).unknown','','reviewed Unknown resolves'],
  ['God runtime coverage','character-3d/rollout-spec.js',',god:mythicFactory(PILOT).god','','reviewed God resolves'],
  ['Ghost runtime coverage','character-3d/rollout-spec.js',',ghost:mythicFactory(PILOT).ghost','','reviewed Ghost resolves'],
  ['Phoenix runtime coverage','character-3d/rollout-spec.js',',phoenix:mythicFactory(PILOT).phoenix','','reviewed Phoenix resolves'],

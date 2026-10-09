@@ -1,58 +1,58 @@
 {
-  "sourceCommit": "8b6fcaee4af82dfe266fc4b08bdd56ae215b5275",
-  "runId": 37876119619,
+  "sourceCommit": "2789b990b800b0639914005dd4d4ed4e36bd3bae",
+  "runId": 37877360650,
   "families": [
-    "unknown"
+    "star"
   ],
   "artifacts": [
     {
-      "id": 11592208275,
-      "label": "unknown-wave",
-      "digest": "sha256:4cbe3b690fd3f05755496d2245dd9f3b657c2ea13665170eb08fa8280b8783f5",
-      "name": "full-rollout-mythic-review-8b6fcaee4af82dfe266fc4b08bdd56ae215b5275",
+      "id": 11592962667,
+      "label": "star-wave",
+      "digest": "sha256:647737f2a00a52932b53ee7658e2029898ad5528cc69c6dd1fabbf9fe0099a3b",
+      "name": "full-rollout-mythic-review-2789b990b800b0639914005dd4d4ed4e36bd3bae",
       "required": [
         {
-          "pattern": "unknown-[1-8]-front.jpg",
+          "pattern": "star-[1-8]-front.jpg",
           "count": 8
         },
         {
-          "pattern": "unknown-[1-8]-34.jpg",
+          "pattern": "star-[1-8]-34.jpg",
           "count": 8
         },
         {
-          "pattern": "unknown-[1-8]-side.jpg",
+          "pattern": "star-[1-8]-side.jpg",
           "count": 8
         },
         {
-          "pattern": "unknown-[1-8]-back.jpg",
+          "pattern": "star-[1-8]-back.jpg",
           "count": 8
         },
         {
-          "pattern": "unknown-[1-8]-*-*-*.jpg",
+          "pattern": "star-[1-8]-*-*-*.jpg",
           "count": 256
         },
         {
-          "pattern": "unknown-[1-8]-motion.jpg",
+          "pattern": "star-[1-8]-motion.jpg",
           "count": 8
         },
         {
-          "pattern": "unknown-stages.jpg",
+          "pattern": "star-stages.jpg",
           "count": 1
         }
       ]
     },
     {
-      "id": 11592169925,
-      "label": "unknown-distance",
-      "digest": "sha256:a03be863ca0367ad10adde1bf0d03c501b87469bae335abac2bcfb8c0e3e97c8",
-      "name": "full-rollout-mythic-distance-unknown-8b6fcaee4af82dfe266fc4b08bdd56ae215b5275",
+      "id": 11592663889,
+      "label": "star-distance",
+      "digest": "sha256:fe86506d9e0a642e4cf6ab36a07689913cd90f922485a64ddde62d3eff48e5bc",
+      "name": "full-rollout-mythic-distance-star-2789b990b800b0639914005dd4d4ed4e36bd3bae",
       "required": [
         {
-          "pattern": "player-unknown-[1-8]-front.png",
+          "pattern": "player-star-[1-8]-front.png",
           "count": 8
         },
         {
-          "pattern": "player-unknown-[1-8]-back.png",
+          "pattern": "player-star-[1-8]-back.png",
           "count": 8
         }
       ]

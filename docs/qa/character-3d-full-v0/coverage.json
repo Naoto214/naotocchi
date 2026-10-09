@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 236,
-    "pending": 57,
-    "fourViewRecords": 234
+    "exactSpecs": 244,
+    "pending": 49,
+    "fourViewRecords": 242
   },
   "rows": [
     {
@@ -4656,15 +4656,15 @@
       "group": "rare",
       "asset": "assets/characters/unknown/01.png",
       "sha256": "2a9469c6c20af6b85ca8d3dcf2dd3f587c07cee988438e79e4253c64103bda19",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "mystery_blob",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-1-back.jpg"
       }
     },
     {
@@ -4676,15 +4676,15 @@
       "group": "rare",
       "asset": "assets/characters/unknown/02.png",
       "sha256": "33958349e9004a749b39000b7644e5599b8b0791c645d6a6280841f447289d80",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "mystery_blob",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-2-back.jpg"
       }
     },
     {
@@ -4696,15 +4696,15 @@
       "group": "rare",
       "asset": "assets/characters/unknown/03.png",
       "sha256": "fddc90308de042b2a0c5d12edb8c3c9ad090de171ca6a013bc016cbca85e51d6",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "mystery_blob",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-3-back.jpg"
       }
     },
     {
@@ -4716,15 +4716,15 @@
       "group": "rare",
       "asset": "assets/characters/unknown/04.png",
       "sha256": "ad0c9e9d9e5a8e4300c6e7402c5e8228a85a61e5a0f0d244a72e8344cd6ba455",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "mystery_blob",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-4-back.jpg"
       }
     },
     {
@@ -4736,15 +4736,15 @@
       "group": "rare",
       "asset": "assets/characters/unknown/05.png",
       "sha256": "60d471b79a3b4a8b51f757c17df5389482eaab5aec3c72a3116b58ce89652a1f",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "mystery_blob",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-5-back.jpg"
       }
     },
     {
@@ -4756,15 +4756,15 @@
       "group": "rare",
       "asset": "assets/characters/unknown/06.png",
       "sha256": "0addb89db856ec2a936899bddf2e59042276dc47cdaf7fd11f1277fc9ec2b4f3",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "mystery_blob",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-6-back.jpg"
       }
     },
     {
@@ -4776,15 +4776,15 @@
       "group": "rare",
       "asset": "assets/characters/unknown/07.png",
       "sha256": "4a4e9057e7eeff1cb7d881025db87f90a03f631dd2e86c7608e53373df35720e",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "mystery_blob",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-7-back.jpg"
       }
     },
     {
@@ -4796,15 +4796,15 @@
       "group": "rare",
       "asset": "assets/characters/unknown/08.png",
       "sha256": "62dcf5edf3520c7c8bc40d87432c0f3b04638be9f52cbf608416f045d5cbc2e0",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "mystery_blob",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/8b6fcaee4af82dfe266fc4b08bdd56ae215b5275/unknown-wave/mythic/unknown-8-back.jpg"
       }
     },
     {
