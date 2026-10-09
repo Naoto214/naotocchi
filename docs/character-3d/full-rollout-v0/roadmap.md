@@ -1,21 +1,23 @@
-# Full Rollout v0 remaining gates
+# Full Rollout v0 — source-scoped integration and Human QA
 
-Source checkpoint: ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f. This is an implementation progress map, not Human approval. Draft PR376 remains based on the Pilot branch.
+Production: `0be70751e0896388e46a33969bef51c15dcdb3ae`. Final QA: `410edf9674d5937496e7acd0f255c98de11fc399`. [Checkpoint](checkpoint.json) records asynchronous CI and final local synchronization separately. Draft376/base Pilot remains unchanged.
 
-| Gate | Status | Evidence / remaining action |
-|---|---|---|
-| Exact inventory | 293/293 registered |31×8 player +26companion +18partner +1author; coverage.json|
-| Four-view visual gates |293/293 accepted|Original-derived model gates, legacy2 immutable comparison reuse|
-| Nonplayer motion/distance |45/45 accepted|43factory complete32-state gates; legacy2 fresh64states/4distance, reviewed unchanged4views|
-| Remaining player image integration |OPEN|86stages/2752captured state cells to inspect (860plan-minimum); early5families80normal-distance images. See final-player-evidence-map.md.|
-| Browser gallery |ae9 job SUCCESS|45role deep links and actual decoded images/missing-image negative control; raw artifact recovery pending|
-| Full npm |PASS|3022main+80Relationship,0FAIL,exit0; final-npm-ae9 raw log/result|
-| Runtime CI |ae9 SUCCESS|37922224120; separate from Character functional assertion below|
-| Character production functional/scene |OPEN / original failure retained|ae9 meguru-wave unchanged-save assertion FAILURE; diagnose exact data/write provenance, targeted QA-only followup, then actual45roles and repeatedscene evidence|
-| Performance |PARTIAL|ae9 human/fish jobsSUCCESS; raw inspection/export pending. Default1/5/27, isolatedanimation and appearancewindows await functional repair.|
-| Protected baseline/final review |OPEN|Retain28Pilot identity and protected-input proof; reconcile final scoped source evidence, independent review, HEAD/tree/clean|
-| Human / iPhone |OPEN, separate final gates|Actual Safari device, performance/temperature/long-play and visual acceptance require real Human/device QA|
+| Gate | Result and scope |
+|---|---|
+| Exact inventory and current four views |293/293 registered and actually accepted:31×8 player +26companion +18partner +1author|
+| Nonplayer images and functional roles |45 image gates;6df actual45-role functional PASS reused, its later scene failure retained|
+| Additional player motion |86/86 actual32-state gates:ae9 unchanged78 +ddaf7 repairs +0be Mushroom06|
+| Earlier protocols |136 full32-state +26 narrower Pilot gates reused; total222full32+26Pilot, not all248×32|
+| Normal distance |Early-five80 actually reviewed, changed rows use newer accepted replacements; other416 preserved|
+| Browser registration/gallery |ae9 aggregate248exact/31families and45role gallery/decoded-image/control proof|
+| Local npm |Original0be main3018PASS/4bufferFAIL/exit1 retained. Test-only repair:all6asset checksPASS including4failures; separateRelationship80PASS. Complete incremental coverage, not a second local fullnpm exit0|
+| Repeated scene |410 actualPASS:bounded natural city setup,38clean synchronous boundaries,3strict cycles/cleanup, exact11fixture, resource plateau, restoration|
+| Performance |f07 native dog04+companions1/5/27 andae9 native human/fish fixtures measured/audited; SwiftShader only, no device budget PASS|
+| Protected baseline |0be11protected groups and28Pilot identities exact; later changes are QA/docs only|
+| Async Runtime/Home CI |Use exact fresh conclusions incheckpoint; IN_PROGRESS is not PASS|
+| Final local synchronization |Executor disconnect blocked final fetch; resync final branch HEAD/tree/clean after recovery|
+| Human / iPhone |OPEN:visual adoption, Safari device, heat and sustained play|
 
-Use existing captures and successful jobs whenever rendering inputs are unchanged. Do not rerun31families for a QA-only runtime diagnostic repair. Preserve failed/cancelled/pending run conclusions and source hashes alongside successful scoped evidence. Never label artifact recovery as image approval.
+See [Human QA](../../qa/character-3d-full-v0/human-qa.md), [player evidence map](final-player-evidence-map.md) and [QA archive](../../qa/character-3d-full-v0/README.md). Original failed/rejected sources remain unchanged; newer approvals supersede only affected rows. Export success alone never approves images.
 
-At completion of the open automated/image gates, provide source-pinned gallery, representative sheets, raw performance and known visual simplifications for Human QA. Stop at that v0 handoff. Ready, main merge/import, PR372 operations and v1 polish remain out of scope.
+All active model implementation and planned image gates are complete. Continue only the explicitly outstanding CI/local verification and Human/device gates. No Ready/main merge/import, PR372 operations or v1 work.

@@ -1,15 +1,15 @@
-# Full Character 3D Rollout v0 — work in progress
+# Full Character 3D Rollout v0 — Human QA handoff
 
-The model rollout has **293/293 exact registrations and accepted four-view records**. Final integration remains OPEN; this is **not yet the completed Human QA package**. [Current checkpoint](../../character-3d/full-rollout-v0/checkpoint.json) and [remaining gates](../../character-3d/full-rollout-v0/roadmap.md) supersede historical wave counts below.
+The model rollout has **293/293 exact registrations and accepted four-view records**. Source-scoped automated/image integration is verified. **Human adoption and actual iPhone QA remain OPEN.** Asynchronous CI and final local synchronization are recorded separately in the checkpoint. [Current checkpoint](../../character-3d/full-rollout-v0/checkpoint.json) and [remaining gates](../../character-3d/full-rollout-v0/roadmap.md) supersede historical wave counts below.
 
 - Player:31families/248stages, including all8Phoenix actual image gates before promotion. Nonplayer:26companions/18partners/1author, all45 actual image gates complete.
 - [Full gallery](../../../character-3d/full-gallery.html) lists all293 with role-correct live links; [live gallery](../../../character-3d/gallery.html) uses the exact registered models. These are repository-relative QA pages that require the existing local/QA web server.
 - [Player evidence map](../../character-3d/full-rollout-v0/final-player-evidence-map.md):86追加段階を実画像確認し、86全承認。Mushroom06は0beの4views／32states／2distanceを確認済み。初期5family80通常距離は確認済み。変更7段階はddafの新証跡に置換。過去136full32＋Pilot26の狭いprotocolを保持する。
-- [Previous full npm](final-npm-ae9/result.json):3022main+80Relationship PASS,0FAIL,exit0, sourceae9c9ffe。production0beの全npm attemptは3018PASS／4FAIL（asset検証のgit出力buffer不足）、元exit1を保存。Relationship tailは別実行80PASS。テスト側buffer修正と対象再検証を継続。
+- [Previous full npm](final-npm-ae9/result.json):3022main+80Relationship PASS,0FAIL,exit0, sourceae9c9ffe。production0beの全npm attemptは3018PASS／4FAIL（asset検証のgit出力buffer不足）、元exit1を保存。Relationship tailは別実行80PASS。テスト側buffer修正後、失敗4件を含むasset全6件PASS。元の全npm exit1は保持し、2回目のlocal全npm成功とは表現しない。
 - ae9の248登録集計・45role galleryは[データ監査](export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/reviews/integration-data-review.json)で確認。6df actual45role functionalのみPASSを再利用し、同runのscene失敗を保持する。
-- [f07診断とnative性能](export/f07fef280059b41e6ab22c2475b0cc5fd3c7c9ca/reviews/f07-scene-native-review.md):自然な初回city map seedのsaveを確認。38描画境界と後続3往復は変更なしだが、元のwhole-spanFAILは保持する。厳密な初期化契約を加えた新しいscene実行は172bc67eでOPEN。
+- [f07診断とnative性能](export/f07fef280059b41e6ab22c2475b0cc5fd3c7c9ca/reviews/f07-scene-native-review.md):自然な初回city map seedのsaveを確認。38描画境界と後続3往復は変更なしだが、元のwhole-spanFAILは保持する。172のlive/JSON比較FAILは保持。修正後410の実動sceneはPASSし、[最終raw証跡](export/410edf9674d5937496e7acd0f255c98de11fc399/scene-final/manifest.json)と[独立監査](export/410edf9674d5937496e7acd0f255c98de11fc399/final-scene-review.md)で確認。
 - native dog04+companions1/5/27測定済み。27体のRAF平均204.83ms／p95533.4ms、appearance-window最大816.6msはSwiftShaderの観測値で、端末性能PASSではない。clone animate()は描画全体CPUとは別。測定castにMushroom06は含まれず、関連関数・入力一致を確認して再利用する。
-- [保護対象](final-protected-verification/result.json):production0beで11群・Pilot28体一致。0be scoped Character37934515030はSUCCESS。全統合の完了とは区別する。
+- [保護対象](final-protected-verification/result.json):production0beで11群・Pilot28体一致。0be scoped Character37934515030はSUCCESS。410の最終scene/focusedCIもSUCCESS。Runtime/Homeの最新結論はcheckpointに分けて記録する。
 - [Export recovery](../../../.github/scripts/README-character-qa-export.md) saves original image bytes, SHA256 manifests and viewable sheets through existing Actions/Git Data objects. Successful export never approves images. Completed failed runs may supply explicitly verified successful-job artifacts, while failed runtime JSON remains diagnostic-only.
 - Human visual adoption and actual iPhone Safari performance/temperature/long-play are separate OPEN gates. Draft376; no Ready/main merge or v1.
 

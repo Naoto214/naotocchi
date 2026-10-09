@@ -1,6 +1,6 @@
 # Character 3D System — architecture / Full Rollout v0
 
-状態: **Full Rollout v0 制作中**。2026-10-04のHuman QAでPilotから全量展開へ進むことを承認。全量採用・Ready・main mergeの承認ではない。Pilot正本 `d12ad70550b29c125f44ac2b32d7195905fb15f0` / #372を保持し、#376（Draft、base=Pilot）で展開する。
+状態: **Full Rollout v0 全293モデル・画像・source別統合QA確認済み。Human／iPhone QAはOPEN**。2026-10-04のHuman QAでPilotから全量展開へ進むことを承認。全量採用・Ready・main mergeの承認ではない。Pilot正本 `d12ad70550b29c125f44ac2b32d7195905fb15f0` / #372を保持し、#376（Draft、base=Pilot）で展開する。
 現在の正本: [Full Rollout設計](full-rollout-v0/design.md)・[Visual Translation Rules](full-rollout-v0/visual-translation-rules.md)・[checkpoint](full-rollout-v0/checkpoint.json)。以下のPilot仕様・測定はreference implementationの記録であり、Full Rollout完了値ではない。
 QA 記録: [`docs/qa/character-3d-pilot-2026-10-01.md`](../qa/character-3d-pilot-2026-10-01.md)
 
@@ -15,7 +15,7 @@ QA 記録: [`docs/qa/character-3d-pilot-2026-10-01.md`](../qa/character-3d-pilot
 - `full-gallery.html`は293件のinventoryと保存済み画像を遅延表示し、exactなroleのlive galleryへ接続する。legacy2件の比較画像は右側四方向の再利用を明示する。
 - Actions artifactは既存のGit-object exportでbranch上へ保存できる。元run失敗時はartifactごとの成功jobを厳密に紐付ける。失敗runtimeのJSONは診断専用。exportは画像承認でもref更新でもなく、SHA256照合・実画像レビュー後に別の判定を保存する。
 
-最終統合の追加player motion86段階は実画像を確認し、全86段階を承認。Mushroom06のcollar修正後も実画像で確認済み。初期5family通常距離80画像と非player45件の実画像gateは確認済み。既存136段階の32状態とPilot26段階の狭い既承認protocolを保持し、全248×32を確認済みとはしない。ae9の248登録集計・45role gallery、6dfの45role functionalをsource別に再利用する。f07で初回cityの自然な地図初期化saveと38境界の無変更を特定し、172bc67eで初期化内容を厳密に制限した後の3往復QAを実行する。f07 native dog04+companions1/5/27性能・clone animation・appearance windowは実測監査済み。28Pilot identityと11保護群はproduction0beで一致。SwiftShader結果からiPhone性能やHuman採用を推定しない。
+最終統合の追加player motion86段階は実画像を確認し、全86段階を承認。Mushroom06のcollar修正後も実画像で確認済み。初期5family通常距離80画像と非player45件の実画像gateは確認済み。既存136段階の32状態とPilot26段階の狭い既承認protocolを保持し、全248×32を確認済みとはしない。ae9の248登録集計・45role gallery、6dfの45role functionalをsource別に再利用する。f07で初回cityの自然な地図初期化saveと38境界の無変更を特定し、410edf9で初期化内容を厳密に制限した後の3往復QAが実動PASS。初回city初期化による保存と、その後の厳密な無変更を区別して記録する。f07 native dog04+companions1/5/27性能・clone animation・appearance windowは実測監査済み。28Pilot identityと11保護群はproduction0beで一致。SwiftShader結果からiPhone性能やHuman採用を推定しない。
 
 ## 1. Goals / Non-goals
 
