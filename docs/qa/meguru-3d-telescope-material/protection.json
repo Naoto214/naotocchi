@@ -1,0 +1,152 @@
+{
+  "before": "86daaa0b82ed725d14f6dedf06a146d086994d61",
+  "method": "Reverting only telescope neutralColor flags reproduces exact baseline rendered descriptor hash in all 13 regions.",
+  "regions": [
+    {
+      "region": "home",
+      "telescopes": [],
+      "world2d": true,
+      "canonical3d": true,
+      "collision": true,
+      "objectAndPartCounts": true,
+      "allOtherDescriptors": true
+    },
+    {
+      "region": "city",
+      "telescopes": [
+        "city:821"
+      ],
+      "world2d": true,
+      "canonical3d": true,
+      "collision": true,
+      "objectAndPartCounts": true,
+      "allOtherDescriptors": true
+    },
+    {
+      "region": "countryside",
+      "telescopes": [],
+      "world2d": true,
+      "canonical3d": true,
+      "collision": true,
+      "objectAndPartCounts": true,
+      "allOtherDescriptors": true
+    },
+    {
+      "region": "forest",
+      "telescopes": [],
+      "world2d": true,
+      "canonical3d": true,
+      "collision": true,
+      "objectAndPartCounts": true,
+      "allOtherDescriptors": true
+    },
+    {
+      "region": "jungle",
+      "telescopes": [],
+      "world2d": true,
+      "canonical3d": true,
+      "collision": true,
+      "objectAndPartCounts": true,
+      "allOtherDescriptors": true
+    },
+    {
+      "region": "sea",
+      "telescopes": [],
+      "world2d": true,
+      "canonical3d": true,
+      "collision": true,
+      "objectAndPartCounts": true,
+      "allOtherDescriptors": true
+    },
+    {
+      "region": "river_lake",
+      "telescopes": [],
+      "world2d": true,
+      "canonical3d": true,
+      "collision": true,
+      "objectAndPartCounts": true,
+      "allOtherDescriptors": true
+    },
+    {
+      "region": "mountain",
+      "telescopes": [
+        "mountain:720"
+      ],
+      "world2d": true,
+      "canonical3d": true,
+      "collision": true,
+      "objectAndPartCounts": true,
+      "allOtherDescriptors": true
+    },
+    {
+      "region": "snow",
+      "telescopes": [],
+      "world2d": true,
+      "canonical3d": true,
+      "collision": true,
+      "objectAndPartCounts": true,
+      "allOtherDescriptors": true
+    },
+    {
+      "region": "desert",
+      "telescopes": [],
+      "world2d": true,
+      "canonical3d": true,
+      "collision": true,
+      "objectAndPartCounts": true,
+      "allOtherDescriptors": true
+    },
+    {
+      "region": "memory_lake",
+      "telescopes": [],
+      "world2d": true,
+      "canonical3d": true,
+      "collision": true,
+      "objectAndPartCounts": true,
+      "allOtherDescriptors": true
+    },
+    {
+      "region": "deepsea",
+      "telescopes": [],
+      "world2d": true,
+      "canonical3d": true,
+      "collision": true,
+      "objectAndPartCounts": true,
+      "allOtherDescriptors": true
+    },
+    {
+      "region": "star_stop",
+      "telescopes": [
+        "star_stop:4",
+        "star_stop:167",
+        "star_stop:172",
+        "star_stop:173",
+        "star_stop:175",
+        "star_stop:176",
+        "star_stop:178",
+        "star_stop:180",
+        "star_stop:182",
+        "star_stop:208",
+        "star_stop:233",
+        "star_stop:237",
+        "star_stop:239",
+        "star_stop:243",
+        "star_stop:256",
+        "star_stop:295",
+        "star_stop:296",
+        "star_stop:383",
+        "star_stop:457"
+      ],
+      "world2d": true,
+      "canonical3d": true,
+      "collision": true,
+      "objectAndPartCounts": true,
+      "allOtherDescriptors": true
+    }
+  ],
+  "sourceSha256": {
+    "meguru.js": "5d2e07b0e5b6b6051a81bf157b13c6dc9f6dfce18f31c5b29de14a6a8c21fab5",
+    "meguru-3d.mjs": "15635346d858c454fd9b78aec92f2a991d242ca118d768da4ec56b3e0a5996af",
+    "index.html": "67f882e4c8b8bba0e536a35a66fd8aeb92c61f5228e97fcf7688cf8594b1b684"
+  }
+}

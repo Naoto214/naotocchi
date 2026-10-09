@@ -1695,8 +1695,8 @@
         case 'boat': return [{ shape: 'wslab', len: Math.min(90, size * 0.7), w: 26, h: 10, y: 0, ang, color: '#6b4a32' }, { shape: 'wpost', r: 2.5, h: 70, y: 10, color: '#6b4a32' }, { shape: 'board', w: 28, h: 40, y: 32, ang: ang + Math.PI / 2, color: c }];
         case 'pier': return [{ shape: 'plank', len: size * 0.9, w: size * 0.22, y: 0, ang }, { shape: 'wpost', r: 4, h: 14, y: 0, dx: Math.sin(ang) * size * 0.4, dz: Math.cos(ang) * size * 0.4, color: '#6b4a32' }, { shape: 'wpost', r: 4, h: 14, y: 0, dx: -Math.sin(ang) * size * 0.4, dz: -Math.cos(ang) * size * 0.4, color: '#6b4a32' }];
         // 2026-10-02 監査(props gate): 望遠鏡 = 3 本 足 + 空へ かたむいた 筒(柱 + 箱 では 読めない)
-        case 'telescope': return [0, 2.09, 4.19].map((a) => ({ shape: 'trunk', r: 2.2, h: 46, y: 0, taper: 0.8, tilt: 0.3, toward: [-Math.sin(ang + a), -Math.cos(ang + a)], color: '#c8c8d8', dx: Math.sin(ang + a) * 12, dz: Math.cos(ang + a) * 12 }))
-          .concat([{ shape: 'trunk', r: 6, h: 44, y: 38, taper: 0.75, tilt: 1.05, toward: [Math.sin(ang), Math.cos(ang)], color: c || '#d8d8f0', dx: -Math.sin(ang) * 10, dz: -Math.cos(ang) * 10 }]);
+        case 'telescope': return [0, 2.09, 4.19].map((a) => ({ shape: 'trunk', neutralColor: true, r: 2.2, h: 46, y: 0, taper: 0.8, tilt: 0.3, toward: [-Math.sin(ang + a), -Math.cos(ang + a)], color: '#c8c8d8', dx: Math.sin(ang + a) * 12, dz: Math.cos(ang + a) * 12 }))
+          .concat([{ shape: 'trunk', neutralColor: true, r: 6, h: 44, y: 38, taper: 0.75, tilt: 1.05, toward: [Math.sin(ang), Math.cos(ang)], color: c || '#d8d8f0', dx: -Math.sin(ang) * 10, dz: -Math.cos(ang) * 10 }]);
         // 2026-10-02 監査(props gate): 像 = だい(ひくい 箱)+ からだ(せまい 箱)+ あたま(2D の 像と おなじ 組み立て)
         case 'statue': return [{ shape: 'box', rx: 18, rz: 18, h: 22, y: 0, ang, color: '#a39f94', solidBox: true }, { shape: 'box', rx: 9, rz: 7, h: 34, y: 22, ang, color: c, solidBox: true }, { shape: 'nut', r: 9, y: 56, color: c }];
         case 'pillar': {   // Kit v2(Ruin v2): 柱 + 柱頭(箱)。半分は 折れて ひくい。足もとに かけら

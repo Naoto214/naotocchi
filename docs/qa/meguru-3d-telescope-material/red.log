@@ -1,0 +1,32 @@
+✖ VQ-26 production telescopes use their declared metal colors without a wood multiplier (1626.75804ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1726.310241
+
+✖ failing tests:
+
+test at tests/meguru-3d-visual-quality-test.cjs:7:1
+✖ VQ-26 production telescopes use their declared metal colors without a wood multiplier (1626.75804ms)
+  AssertionError [ERR_ASSERTION]: city:821: declared metal color needs neutral material
+  + actual - expected
+  
+  + undefined
+  - true
+  
+      at TestContext.<anonymous> (/workspace/scratch/9f7f8d0f1a75/world/tests/meguru-3d-visual-quality-test.cjs:18:16)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

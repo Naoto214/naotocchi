@@ -3,6 +3,27 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const mod = () => import('../meguru-3d.mjs');
+// Removing the neutral material opt-in must expose the wooden tint regression.
+test('VQ-26 production telescopes use their declared metal colors without a wood multiplier', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const reg = M.buildRegistry(); let checked = 0;
+  for (const rid of Object.keys(M.REGION3D)) {
+    const objects = M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects;
+    for (const ob of objects.filter(o=>o.type==='telescope')) {
+      checked++;
+      assert.equal(ob.parts.length,4,'retain tripod and barrel');
+      for (const pt of ob.parts) {
+        assert.equal(pt.shape,'trunk','reuse existing geometry');
+        assert.equal(pt.neutralColor,true,ob.id+': declared metal color needs neutral material');
+        assert.ok(pt.taper>=0.65,'neutral alias retains the existing trunk rather than trunk2 mesh');
+        assert.match(pt.color,/^#[0-9a-f]{6}$/i);
+      }
+      assert.deepEqual(Array.from(ob.parts.slice(0,3),p=>p.color),['#c8c8d8','#c8c8d8','#c8c8d8']);
+    }
+  }
+  assert.ok(checked>0,'inspect actual production telescopes');
+});
 // Missing/parallel axle, a support inside the paddle sweep, or a gap beneath
 // the axle must fail for both actual waterwheels and rotated fixtures.
 test('VQ-25 waterwheel axle spans two grounded supports outside the paddle sweep', () => {
