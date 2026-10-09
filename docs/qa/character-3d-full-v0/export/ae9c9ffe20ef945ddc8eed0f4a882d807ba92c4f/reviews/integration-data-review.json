@@ -1,0 +1,1386 @@
+{
+  "review": "integration-data-review",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "verdict": "PASS_SCOPED_DATA_INTEGRITY",
+  "critical": 0,
+  "important": 0,
+  "minor": 1,
+  "method": "Read recovered JSON and source harness/spec inventory, independently compare all stage/role keys and native performance compositions. No tests, capture, implementation or fresh image inspection. Root supplied archive byte/hash verification.",
+  "inspectedJSON": [
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/stage-coverage/stage-coverage.json",
+      "sha256": "0e9100687d3d22450c7b930479b07412edbb92ce08de5ffc81b04526727e776d"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/gallery/gallery/result.json",
+      "sha256": "450f3b71f3a9376098e983bb9f27408aab78cc72eb15ce993160f50de37cae3c"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/human-performance/meguru-qa.json",
+      "sha256": "8fa0feca5e13be8cf6d98edbd2c99df0f4a26018420ef7099d56f9ff4cb57b3b"
+    },
+    {
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/fish-performance/meguru-qa.json",
+      "sha256": "f8fb277d2468e506df51512e36cef44070e47b1f9ce9794b9a7b41ed4f8e0ff0"
+    }
+  ],
+  "artifactProvenance": {
+    "stage-coverage": {
+      "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "sourceRun": 37922214774,
+      "sourceRunConclusion": "failure",
+      "artifactJobId": 113805523751,
+      "artifactJobName": "stage-coverage",
+      "artifactJobStatus": "completed",
+      "artifactJobConclusion": "success",
+      "artifactEvidenceMode": "successful",
+      "artifact": {
+        "id": 11613793216,
+        "name": "full-rollout-stage-coverage-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+        "digest": "sha256:6ce03c33ea137d57729b8084939532eea92728395bb209887f3dfda1bf6811b3"
+      }
+    },
+    "gallery": {
+      "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "sourceRun": 37922214774,
+      "sourceRunConclusion": "failure",
+      "artifactJobId": 113792592014,
+      "artifactJobName": "wave-review",
+      "artifactJobStatus": "completed",
+      "artifactJobConclusion": "success",
+      "artifactEvidenceMode": "successful",
+      "artifact": {
+        "id": 11612053569,
+        "name": "full-rollout-wave-review-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+        "digest": "sha256:18ad61c0457910f58ed1616eca3c11d033a109a2dc2363f1331e52287efa5e71"
+      }
+    },
+    "human-performance": {
+      "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "sourceRun": 37922214774,
+      "sourceRunConclusion": "failure",
+      "artifactJobId": 113792592088,
+      "artifactJobName": "human-performance",
+      "artifactJobStatus": "completed",
+      "artifactJobConclusion": "success",
+      "artifactEvidenceMode": "successful",
+      "artifact": {
+        "id": 11612359683,
+        "name": "full-rollout-human-performance-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+        "digest": "sha256:493e7b0a86bb9a96b5414d1cfd4851e903546412180a91b8236906bff29422e0"
+      }
+    },
+    "fish-performance": {
+      "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "sourceRun": 37922214774,
+      "sourceRunConclusion": "failure",
+      "artifactJobId": 113792592103,
+      "artifactJobName": "fish-performance",
+      "artifactJobStatus": "completed",
+      "artifactJobConclusion": "success",
+      "artifactEvidenceMode": "successful",
+      "artifact": {
+        "id": 11611719794,
+        "name": "full-rollout-fish-performance-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+        "digest": "sha256:43aa4906d0541c72ee69b1a4ce6bc4e6e90ec5139ca371a1074880b51a4538c2"
+      }
+    }
+  },
+  "stageCoverage": {
+    "verdict": "PASS",
+    "rows": 248,
+    "species": 31,
+    "stagesPerSpecies": {
+      "antlion": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "beetle": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "butterfly": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "cat": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "cicada": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "clownfish": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "coral": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "dandelion": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "dog": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "dragon": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "frog": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "ghost": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "god": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "hermit_crab": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "jellyfish": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "man": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "mushroom": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "penguin": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "phoenix": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "plush": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "ren": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sakura": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "salmon": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "stagbeetle": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "star": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "starfish": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "turtle": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unknown": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "venus_flytrap": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "woman": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "world_tree": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "allRequestedStagesAndZeroBasedHarnessPlayerKeysMatch": true,
+    "allPlayer3D": true,
+    "allSpecKeysExactAndMatch": true,
+    "missingOrExtraRows": [],
+    "fallbacks": 0,
+    "failedTemplates": 0,
+    "errors": 0,
+    "frontBackPathRecords": 496,
+    "actualImageApprovalFromThisDataAudit": false
+  },
+  "gallery": {
+    "verdict": "PASS",
+    "exactRoles": 45,
+    "uniqueCanonicalModelKeys": 45,
+    "companion": 26,
+    "partner": 18,
+    "author": 1,
+    "allStage0StatusOk": true,
+    "decodedEvidence": true,
+    "missingImageControl": "rejected",
+    "errors": [],
+    "viewport": "390x844 Chromium / SwiftShader; not iPhone",
+    "roles": [
+      {
+        "kind": "companion",
+        "id": "cat_friend",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:rabbit_friend",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:tanuki",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:squirrel",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:owl",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:otter",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:hamster",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:panda",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:monkey",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:parrot",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:sheep",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:seal",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:bat",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:chicken",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:penguin_friend",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:hedgehog",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "shiba",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:snail",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:punyu",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:sekizou",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:chameleon",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:clock",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:unicorn",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:many_tail_fox",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:watcher",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "companion",
+        "id": "companion:box",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:cat_ceo",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:robot_neighbor",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:field_cow",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:sunflower_partner",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:forest_bear",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:grove_deer",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:cliff_goat",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:high_eagle",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:snow_spirit",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:snowman",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:rock_octopus",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:sea_mermaid",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:anglerfish",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:swamp_croc",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:gentle_gorilla",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:knitting_spider",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:desert_scorpion",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "partner",
+        "id": "partner:oasis_cactus",
+        "stage": 0,
+        "status": "ok"
+      },
+      {
+        "kind": "author",
+        "id": "author:naoto",
+        "stage": 0,
+        "status": "ok"
+      }
+    ],
+    "limitation": "45\u00d75 image decode checks and exact live role routing; not independent artistic approval, all293 live-links traversal, deployment-host verification or Safari/device test."
+  },
+  "performance": {
+    "verdict": "PASS_COMPOSITION_DATA_ONLY",
+    "samples": [
+      {
+        "sample": "human-1-2d",
+        "family": "human",
+        "actorCount": 1,
+        "mode": "2d",
+        "reportedMixLabel": "human-family QA stand-ins",
+        "metrics": {
+          "frames": 64,
+          "avgMs": 111.19,
+          "p95Ms": 316.7,
+          "over60": 22,
+          "calls": 31,
+          "tris": 97958,
+          "textures": 16,
+          "geometries": 22,
+          "jsDrawMs": 26.8,
+          "jsDrawP95": 310.3,
+          "char3d": null,
+          "heapMB": 17.1,
+          "party": 0,
+          "templatesByActor": {},
+          "errors": 0,
+          "load": {
+            "domContentLoadedMs": 456.4000000000233,
+            "maxFrameMs": 1899.9,
+            "maxLongTaskMs": 706,
+            "longTasks": 5
+          }
+        },
+        "compositionAudit": "Character presenter disabled; templates/composition check not applicable"
+      },
+      {
+        "sample": "human-1-3d",
+        "family": "human",
+        "actorCount": 1,
+        "mode": "3d",
+        "reportedMixLabel": "human-family QA stand-ins",
+        "metrics": {
+          "frames": 55,
+          "avgMs": 154.24,
+          "p95Ms": 350,
+          "over60": 29,
+          "calls": 51,
+          "tris": 108705,
+          "textures": 19,
+          "geometries": 41,
+          "jsDrawMs": 21.41,
+          "jsDrawP95": 247.3,
+          "char3d": {
+            "live": 1,
+            "templates": 1,
+            "built": 1,
+            "tris": 10297,
+            "meshes": 19,
+            "bones": 14,
+            "materials": 1,
+            "atlases": 2,
+            "eyeGeos": 4,
+            "cpuMsAvg": 1.504,
+            "cpuMsP95": 0.2,
+            "buildMsTotal": 128.4,
+            "buildMsMax": 128.4,
+            "fallbacks": 0,
+            "removed": 1,
+            "created": 2,
+            "failedTemplates": 0,
+            "buildsThisFrame": 0
+          },
+          "heapMB": 23.1,
+          "party": 0,
+          "templatesByActor": {
+            "woman:8": 1
+          },
+          "expectedTemplates": {
+            "woman:8": 1
+          },
+          "compositionMatches": true,
+          "errors": 0,
+          "load": {
+            "domContentLoadedMs": 305.29999999998836,
+            "maxFrameMs": 1633.2000000000003,
+            "maxLongTaskMs": 332,
+            "longTasks": 6
+          }
+        },
+        "compositionAudit": "Matches independently derived native player + first N-1 canonical companions; zero substitution"
+      },
+      {
+        "sample": "human-5-2d",
+        "family": "human",
+        "actorCount": 5,
+        "mode": "2d",
+        "reportedMixLabel": "human-family QA stand-ins",
+        "metrics": {
+          "frames": 65,
+          "avgMs": 112.3,
+          "p95Ms": 499.9,
+          "over60": 22,
+          "calls": 32,
+          "tris": 96886,
+          "textures": 25,
+          "geometries": 21,
+          "jsDrawMs": 34.93,
+          "jsDrawP95": 246.6,
+          "char3d": null,
+          "heapMB": 23.1,
+          "party": 4,
+          "templatesByActor": {},
+          "errors": 0,
+          "load": {
+            "domContentLoadedMs": 336.70000000001164,
+            "maxFrameMs": 1383.3000000000002,
+            "maxLongTaskMs": 317,
+            "longTasks": 4
+          }
+        },
+        "compositionAudit": "Character presenter disabled; templates/composition check not applicable"
+      },
+      {
+        "sample": "human-5-3d",
+        "family": "human",
+        "actorCount": 5,
+        "mode": "3d",
+        "reportedMixLabel": "human-family QA stand-ins",
+        "metrics": {
+          "frames": 34,
+          "avgMs": 195.09,
+          "p95Ms": 583.4,
+          "over60": 17,
+          "calls": 94,
+          "tris": 141221,
+          "textures": 30,
+          "geometries": 80,
+          "jsDrawMs": 24.6,
+          "jsDrawP95": 191,
+          "char3d": {
+            "live": 5,
+            "templates": 5,
+            "built": 5,
+            "tris": 43217,
+            "meshes": 70,
+            "bones": 53,
+            "materials": 1,
+            "atlases": 6,
+            "eyeGeos": 8,
+            "cpuMsAvg": 7.674,
+            "cpuMsP95": 43.7,
+            "buildMsTotal": 591.5,
+            "buildMsMax": 244.4,
+            "fallbacks": 0,
+            "removed": 5,
+            "created": 10,
+            "failedTemplates": 0,
+            "buildsThisFrame": 0
+          },
+          "heapMB": 24.5,
+          "party": 4,
+          "templatesByActor": {
+            "woman:8": 1,
+            "shiba:0": 1,
+            "cat_friend:0": 1,
+            "companion:tanuki:0": 1,
+            "companion:penguin_friend:0": 1
+          },
+          "expectedTemplates": {
+            "woman:8": 1,
+            "shiba:0": 1,
+            "cat_friend:0": 1,
+            "companion:tanuki:0": 1,
+            "companion:penguin_friend:0": 1
+          },
+          "compositionMatches": true,
+          "errors": 0,
+          "load": {
+            "domContentLoadedMs": 309.5999999999767,
+            "maxFrameMs": 1333.2999999999997,
+            "maxLongTaskMs": 313,
+            "longTasks": 9
+          }
+        },
+        "compositionAudit": "Matches independently derived native player + first N-1 canonical companions; zero substitution"
+      },
+      {
+        "sample": "human-27-2d",
+        "family": "human",
+        "actorCount": 27,
+        "mode": "2d",
+        "reportedMixLabel": "human-family QA stand-ins",
+        "metrics": {
+          "frames": 48,
+          "avgMs": 129.86,
+          "p95Ms": 283.4,
+          "over60": 21,
+          "calls": 54,
+          "tris": 97282,
+          "textures": 68,
+          "geometries": 21,
+          "jsDrawMs": 18.65,
+          "jsDrawP95": 9.9,
+          "char3d": null,
+          "heapMB": 18.2,
+          "party": 26,
+          "templatesByActor": {},
+          "errors": 0,
+          "load": {
+            "domContentLoadedMs": 357.8999999999651,
+            "maxFrameMs": 1316.6000000000001,
+            "maxLongTaskMs": 720,
+            "longTasks": 4
+          }
+        },
+        "compositionAudit": "Character presenter disabled; templates/composition check not applicable"
+      },
+      {
+        "sample": "human-27-3d",
+        "family": "human",
+        "actorCount": 27,
+        "mode": "3d",
+        "reportedMixLabel": "human-family QA stand-ins",
+        "metrics": {
+          "frames": 39,
+          "avgMs": 194.44,
+          "p95Ms": 549.9,
+          "over60": 21,
+          "calls": 336,
+          "tris": 390651,
+          "textures": 95,
+          "geometries": 283,
+          "jsDrawMs": 73.46,
+          "jsDrawP95": 341.2,
+          "char3d": {
+            "live": 27,
+            "templates": 27,
+            "built": 27,
+            "tris": 293543,
+            "meshes": 336,
+            "bones": 262,
+            "materials": 2,
+            "atlases": 28,
+            "eyeGeos": 11,
+            "cpuMsAvg": 59.467,
+            "cpuMsP95": 250.3,
+            "buildMsTotal": 4809.6,
+            "buildMsMax": 456.7,
+            "fallbacks": 0,
+            "removed": 11,
+            "created": 38,
+            "failedTemplates": 0,
+            "buildsThisFrame": 0
+          },
+          "heapMB": 37.3,
+          "party": 26,
+          "templatesByActor": {
+            "woman:8": 1,
+            "shiba:0": 1,
+            "cat_friend:0": 1,
+            "companion:tanuki:0": 1,
+            "companion:penguin_friend:0": 1,
+            "companion:rabbit_friend:0": 1,
+            "companion:squirrel:0": 1,
+            "companion:owl:0": 1,
+            "companion:otter:0": 1,
+            "companion:hamster:0": 1,
+            "companion:panda:0": 1,
+            "companion:monkey:0": 1,
+            "companion:parrot:0": 1,
+            "companion:sheep:0": 1,
+            "companion:seal:0": 1,
+            "companion:bat:0": 1,
+            "companion:chicken:0": 1,
+            "companion:hedgehog:0": 1,
+            "companion:snail:0": 1,
+            "companion:punyu:0": 1,
+            "companion:sekizou:0": 1,
+            "companion:chameleon:0": 1,
+            "companion:clock:0": 1,
+            "companion:unicorn:0": 1,
+            "companion:many_tail_fox:0": 1,
+            "companion:watcher:0": 1,
+            "companion:box:0": 1
+          },
+          "expectedTemplates": {
+            "woman:8": 1,
+            "shiba:0": 1,
+            "cat_friend:0": 1,
+            "companion:tanuki:0": 1,
+            "companion:penguin_friend:0": 1,
+            "companion:rabbit_friend:0": 1,
+            "companion:squirrel:0": 1,
+            "companion:owl:0": 1,
+            "companion:otter:0": 1,
+            "companion:hamster:0": 1,
+            "companion:panda:0": 1,
+            "companion:monkey:0": 1,
+            "companion:parrot:0": 1,
+            "companion:sheep:0": 1,
+            "companion:seal:0": 1,
+            "companion:bat:0": 1,
+            "companion:chicken:0": 1,
+            "companion:hedgehog:0": 1,
+            "companion:snail:0": 1,
+            "companion:punyu:0": 1,
+            "companion:sekizou:0": 1,
+            "companion:chameleon:0": 1,
+            "companion:clock:0": 1,
+            "companion:unicorn:0": 1,
+            "companion:many_tail_fox:0": 1,
+            "companion:watcher:0": 1,
+            "companion:box:0": 1
+          },
+          "compositionMatches": true,
+          "errors": 0,
+          "load": {
+            "domContentLoadedMs": 318.5999999999767,
+            "maxFrameMs": 949.9000000000001,
+            "maxLongTaskMs": 737,
+            "longTasks": 16
+          }
+        },
+        "compositionAudit": "Matches independently derived native player + first N-1 canonical companions; zero substitution"
+      },
+      {
+        "sample": "fish-1-2d",
+        "family": "fish",
+        "actorCount": 1,
+        "mode": "2d",
+        "reportedMixLabel": "fish-family QA stand-ins",
+        "metrics": {
+          "frames": 51,
+          "avgMs": 110.45,
+          "p95Ms": 383.4,
+          "over60": 13,
+          "calls": 27,
+          "tris": 96798,
+          "textures": 15,
+          "geometries": 20,
+          "jsDrawMs": 16.75,
+          "jsDrawP95": 16.5,
+          "char3d": null,
+          "heapMB": 18.2,
+          "party": 0,
+          "templatesByActor": {},
+          "errors": 0,
+          "load": {
+            "domContentLoadedMs": 556.5999999999913,
+            "maxFrameMs": 1683.3000000000002,
+            "maxLongTaskMs": 504,
+            "longTasks": 5
+          }
+        },
+        "compositionAudit": "Character presenter disabled; templates/composition check not applicable"
+      },
+      {
+        "sample": "fish-1-3d",
+        "family": "fish",
+        "actorCount": 1,
+        "mode": "3d",
+        "reportedMixLabel": "fish-family QA stand-ins",
+        "metrics": {
+          "frames": 56,
+          "avgMs": 149.7,
+          "p95Ms": 483.3,
+          "over60": 25,
+          "calls": 40,
+          "tris": 101384,
+          "textures": 18,
+          "geometries": 30,
+          "jsDrawMs": 17.02,
+          "jsDrawP95": 34.4,
+          "char3d": {
+            "live": 1,
+            "templates": 1,
+            "built": 1,
+            "tris": 2816,
+            "meshes": 8,
+            "bones": 5,
+            "materials": 1,
+            "atlases": 1,
+            "eyeGeos": 2,
+            "cpuMsAvg": 0.843,
+            "cpuMsP95": 0.2,
+            "buildMsTotal": 69.1,
+            "buildMsMax": 69.1,
+            "fallbacks": 0,
+            "removed": 1,
+            "created": 2,
+            "failedTemplates": 0,
+            "buildsThisFrame": 0
+          },
+          "heapMB": 21.7,
+          "party": 0,
+          "templatesByActor": {
+            "salmon:6": 1
+          },
+          "expectedTemplates": {
+            "salmon:6": 1
+          },
+          "compositionMatches": true,
+          "errors": 0,
+          "load": {
+            "domContentLoadedMs": 388.9000000000233,
+            "maxFrameMs": 1466.7000000000003,
+            "maxLongTaskMs": 363,
+            "longTasks": 7
+          }
+        },
+        "compositionAudit": "Matches independently derived native player + first N-1 canonical companions; zero substitution"
+      },
+      {
+        "sample": "fish-5-2d",
+        "family": "fish",
+        "actorCount": 5,
+        "mode": "2d",
+        "reportedMixLabel": "fish-family QA stand-ins",
+        "metrics": {
+          "frames": 60,
+          "avgMs": 125.55,
+          "p95Ms": 433.4,
+          "over60": 22,
+          "calls": 32,
+          "tris": 96886,
+          "textures": 25,
+          "geometries": 21,
+          "jsDrawMs": 21.67,
+          "jsDrawP95": 252.7,
+          "char3d": null,
+          "heapMB": 19.3,
+          "party": 4,
+          "templatesByActor": {},
+          "errors": 0,
+          "load": {
+            "domContentLoadedMs": 394.29999999998836,
+            "maxFrameMs": 1416.6999999999998,
+            "maxLongTaskMs": 348,
+            "longTasks": 5
+          }
+        },
+        "compositionAudit": "Character presenter disabled; templates/composition check not applicable"
+      },
+      {
+        "sample": "fish-5-3d",
+        "family": "fish",
+        "actorCount": 5,
+        "mode": "3d",
+        "reportedMixLabel": "fish-family QA stand-ins",
+        "metrics": {
+          "frames": 42,
+          "avgMs": 191.66,
+          "p95Ms": 566.7,
+          "over60": 20,
+          "calls": 81,
+          "tris": 132812,
+          "textures": 28,
+          "geometries": 68,
+          "jsDrawMs": 24.73,
+          "jsDrawP95": 99.9,
+          "char3d": {
+            "live": 5,
+            "templates": 5,
+            "built": 5,
+            "tris": 35736,
+            "meshes": 59,
+            "bones": 44,
+            "materials": 1,
+            "atlases": 5,
+            "eyeGeos": 6,
+            "cpuMsAvg": 7.247,
+            "cpuMsP95": 44,
+            "buildMsTotal": 557.9,
+            "buildMsMax": 198.1,
+            "fallbacks": 0,
+            "removed": 5,
+            "created": 10,
+            "failedTemplates": 0,
+            "buildsThisFrame": 0
+          },
+          "heapMB": 23.1,
+          "party": 4,
+          "templatesByActor": {
+            "salmon:6": 1,
+            "shiba:0": 1,
+            "cat_friend:0": 1,
+            "companion:tanuki:0": 1,
+            "companion:penguin_friend:0": 1
+          },
+          "expectedTemplates": {
+            "salmon:6": 1,
+            "shiba:0": 1,
+            "cat_friend:0": 1,
+            "companion:tanuki:0": 1,
+            "companion:penguin_friend:0": 1
+          },
+          "compositionMatches": true,
+          "errors": 0,
+          "load": {
+            "domContentLoadedMs": 341.5,
+            "maxFrameMs": 1349.9999999999998,
+            "maxLongTaskMs": 400,
+            "longTasks": 10
+          }
+        },
+        "compositionAudit": "Matches independently derived native player + first N-1 canonical companions; zero substitution"
+      },
+      {
+        "sample": "fish-27-2d",
+        "family": "fish",
+        "actorCount": 27,
+        "mode": "2d",
+        "reportedMixLabel": "fish-family QA stand-ins",
+        "metrics": {
+          "frames": 48,
+          "avgMs": 151.04,
+          "p95Ms": 350,
+          "over60": 22,
+          "calls": 54,
+          "tris": 97282,
+          "textures": 69,
+          "geometries": 21,
+          "jsDrawMs": 27.77,
+          "jsDrawP95": 36,
+          "char3d": null,
+          "heapMB": 19.3,
+          "party": 26,
+          "templatesByActor": {},
+          "errors": 0,
+          "load": {
+            "domContentLoadedMs": 506.6000000000058,
+            "maxFrameMs": 1216.4999999999998,
+            "maxLongTaskMs": 746,
+            "longTasks": 5
+          }
+        },
+        "compositionAudit": "Character presenter disabled; templates/composition check not applicable"
+      },
+      {
+        "sample": "fish-27-3d",
+        "family": "fish",
+        "actorCount": 27,
+        "mode": "3d",
+        "reportedMixLabel": "fish-family QA stand-ins",
+        "metrics": {
+          "frames": 30,
+          "avgMs": 193.88,
+          "p95Ms": 550,
+          "over60": 16,
+          "calls": 325,
+          "tris": 383330,
+          "textures": 94,
+          "geometries": 272,
+          "jsDrawMs": 81.21,
+          "jsDrawP95": 320.4,
+          "char3d": {
+            "live": 27,
+            "templates": 27,
+            "built": 27,
+            "tris": 286062,
+            "meshes": 325,
+            "bones": 253,
+            "materials": 2,
+            "atlases": 27,
+            "eyeGeos": 9,
+            "cpuMsAvg": 61.101,
+            "cpuMsP95": 297.4,
+            "buildMsTotal": 4686.4,
+            "buildMsMax": 412.9,
+            "fallbacks": 0,
+            "removed": 10,
+            "created": 37,
+            "failedTemplates": 0,
+            "buildsThisFrame": 0
+          },
+          "heapMB": 37.3,
+          "party": 26,
+          "templatesByActor": {
+            "salmon:6": 1,
+            "shiba:0": 1,
+            "cat_friend:0": 1,
+            "companion:tanuki:0": 1,
+            "companion:penguin_friend:0": 1,
+            "companion:rabbit_friend:0": 1,
+            "companion:squirrel:0": 1,
+            "companion:owl:0": 1,
+            "companion:otter:0": 1,
+            "companion:hamster:0": 1,
+            "companion:panda:0": 1,
+            "companion:monkey:0": 1,
+            "companion:parrot:0": 1,
+            "companion:sheep:0": 1,
+            "companion:seal:0": 1,
+            "companion:bat:0": 1,
+            "companion:chicken:0": 1,
+            "companion:hedgehog:0": 1,
+            "companion:snail:0": 1,
+            "companion:punyu:0": 1,
+            "companion:sekizou:0": 1,
+            "companion:chameleon:0": 1,
+            "companion:clock:0": 1,
+            "companion:unicorn:0": 1,
+            "companion:many_tail_fox:0": 1,
+            "companion:watcher:0": 1,
+            "companion:box:0": 1
+          },
+          "expectedTemplates": {
+            "salmon:6": 1,
+            "shiba:0": 1,
+            "cat_friend:0": 1,
+            "companion:tanuki:0": 1,
+            "companion:penguin_friend:0": 1,
+            "companion:rabbit_friend:0": 1,
+            "companion:squirrel:0": 1,
+            "companion:owl:0": 1,
+            "companion:otter:0": 1,
+            "companion:hamster:0": 1,
+            "companion:panda:0": 1,
+            "companion:monkey:0": 1,
+            "companion:parrot:0": 1,
+            "companion:sheep:0": 1,
+            "companion:seal:0": 1,
+            "companion:bat:0": 1,
+            "companion:chicken:0": 1,
+            "companion:hedgehog:0": 1,
+            "companion:snail:0": 1,
+            "companion:punyu:0": 1,
+            "companion:sekizou:0": 1,
+            "companion:chameleon:0": 1,
+            "companion:clock:0": 1,
+            "companion:unicorn:0": 1,
+            "companion:many_tail_fox:0": 1,
+            "companion:watcher:0": 1,
+            "companion:box:0": 1
+          },
+          "compositionMatches": true,
+          "errors": 0,
+          "load": {
+            "domContentLoadedMs": 364.5,
+            "maxFrameMs": 1283.1999999999998,
+            "maxLongTaskMs": 711,
+            "longTasks": 16
+          }
+        },
+        "compositionAudit": "Matches independently derived native player + first N-1 canonical companions; zero substitution"
+      }
+    ],
+    "allSix3DCountsAndNativeCompositionMatches": true,
+    "allSix3DFallbacksFailedTemplatesErrors": 0,
+    "all3DActualStandInTemplates": 0,
+    "humanPlayer": "woman:8",
+    "fishPlayer": "salmon:6",
+    "counts": [
+      1,
+      5,
+      27
+    ],
+    "actual27Cast": "one selected player + all26 native companions, no partner/author cast",
+    "integrationScene": false,
+    "integrationMetrics": false,
+    "isolatedAnimationAndAppearanceWindowEvidencePresent": false,
+    "environment": "headless Chromium + SwiftShader software GPU; throttle1",
+    "limitations": [
+      "Short single samples, 30\u201356 retained 3D RAF intervals; unequal warmup and separate page runs. No controlled statistical improvement or causal 2D/3D delta claim.",
+      "Frame metrics are RAF intervals after discarding first10; over60 counts intervals above60 milliseconds, not missed60fps frames.",
+      "Character cpuMsAvg/P95 are rolling presenter time including presentation/build paths, not isolated animation CPU. Rare outliers can leave mean above95th percentile.",
+      "Load maxFrame/maxLongTask are boot-window diagnostics, not isolated first-appearance hitch.",
+      "JS heap is usedJSHeapSize/1e6 at sample end; not retained-resource plateau or leak proof.",
+      "Poor software-GPU frame tails are recorded honestly; verdict.pass is composition/error correctness, not a speed/adoption threshold.",
+      "Default cast, repeated scene/cache/save, isolated animation and appearance windows await separate functional repair evidence; iPhone Safari temperature/long-play and Human remain OPEN."
+    ]
+  },
+  "findings": [
+    {
+      "severity": "Minor",
+      "id": "M1",
+      "evidencePaths": [
+        "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/human-performance/meguru-qa.json",
+        "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/fish-performance/meguru-qa.json"
+      ],
+      "finding": "performanceMix retains human-family/fish-family QA stand-ins labels, but every 3D actual/expected cast contains native exact companions and no stand-in templates. The human/fish distinction is only woman08 versus salmon06 player; these are not multi-human or multi-fish family casts.",
+      "action": "Preserve original JSON labels as historical harness metadata and explain actual native composition in package documentation; no raw evidence relabeling."
+    }
+  ]
+}
