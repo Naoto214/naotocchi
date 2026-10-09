@@ -7,7 +7,7 @@ const {harness}=require(path.join(ROOT,'tests/helpers/runtime-harness.cjs'));
 const h=harness({deterministic:true,fullDisplay:true,pinDate:true}),M=h.api.meguruMod,registry=M.buildRegistry();
 const selection=JSON.parse(fs.readFileSync(path.join(ROOT,'tools/meguru-3d-qa/shots-visual-quality-v2-gallery.json'))).filter(x=>['prop-wheel','prop-wheel-river'].includes(x.name));
 if(selection.length!==2)throw Error('Expected both production waterwheels');
-const items=selection.map(s=>{const world=M.buildWorld(s.region,registry,{world3d:true});const objects=M.worldObjects3d(world).objects;const ob=objects.find(o=>o.id===s.target);if(!ob)throw Error('Missing '+s.target);return {name:s.name,world,ob,objects:objects.length,targetSha256:crypto.createHash('sha256').update(JSON.stringify(ob)).digest('hex')};});
+const items=selection.map(s=>{const world=M.buildWorld(s.region,registry,{world3d:true});const pack=M.worldObjects3d(world),objects=pack.objects;const ob=objects.find(o=>o.id===s.target);if(!ob)throw Error('Missing '+s.target);return {name:s.name,world,pack,streams:M.streams3d(world),ob,objects:objects.length,targetSha256:crypto.createHash('sha256').update(JSON.stringify(ob)).digest('hex')};});
 const html='<!doctype html><style>body{margin:0}</style><canvas width="720" height="720"></canvas><script src="/meguru.js"></script>';
 (async()=>{
  const server=http.createServer((req,res)=>{if(req.url==='/'){res.setHeader('Content-Type','text/html');return res.end(html);}const f=path.resolve(ROOT,'.'+decodeURIComponent(req.url.split('?')[0]));if(!f.startsWith(ROOT+path.sep)||!fs.existsSync(f)||!fs.statSync(f).isFile()){res.statusCode=404;return res.end();}res.setHeader('Content-Type',/\.m?js$/.test(f)?'text/javascript':'application/octet-stream');fs.createReadStream(f).pipe(res);});
@@ -19,13 +19,15 @@ const html='<!doctype html><style>body{margin:0}</style><canvas width="720" heig
    const record=await page.evaluate(async({item,side})=>{
     if(window.inspectionRenderer)window.inspectionRenderer.destroy();
     const mod=installNaotocchiMeguru({getState:()=>({lifetime:{}})}),canvas=document.querySelector('canvas');
-    // Only actor painting is replaced; all world descriptors, terrain, streams and materials are production.
-    const proxy={...mod,ACTOR_SIZE:0,spriteFor:()=>null,createCanvasRenderer:()=>({draw(){},resize(){},destroy(){}})};
+    // Reuse complete source-generated descriptors/streams, as object-gallery does.
+    // Browser-side regeneration in the initial fixture returned fewer objects; retain canonical data.
+    // Actor painting alone is disabled. No scene descriptor is filtered or transformed.
+    const proxy={...mod,worldObjects3d:()=>item.pack,streams3d:()=>item.streams,ACTOR_SIZE:0,spriteFor:()=>null,createCanvasRenderer:()=>({draw(){},resize(){},destroy(){}})};
     const {createMeguru3D}=await import('/meguru-3d.mjs');const renderer=createMeguru3D(proxy,{onFallback:e=>{throw e;}})({canvas,ctx:null,W:720,H:720});window.inspectionRenderer=renderer;
     renderer.setOccluderFade(false);renderer.setAdaptiveDpr(false);renderer.setAnimLevel(0);
     const ob=item.ob,yaw=(ob.collision?.ang||ob.rot||0)-Math.PI/2+0.45+side*Math.PI/2;
     const view={world:item.world,player:{x:ob.x,z:ob.z,heading:0},party:[],residents:[],camera:{x:ob.x,z:ob.z,yaw,dist:150,height:1},env:{time:'day',weather:'sunny',season:'summer'},mood:{},frame:1};
-    renderer.draw(view,0);const stats=renderer.stats3d();return {active:renderer.is3D,triangles:stats.triangles,calls:stats.calls,camera:view.camera,worldObjects:mod.worldObjects3d(item.world).objects.length};
+    renderer.draw(view,0);const stats=renderer.stats3d();return {active:renderer.is3D,triangles:stats.triangles,calls:stats.calls,camera:view.camera,worldObjects:proxy.worldObjects3d(item.world).objects.length};
    },{item,side});
    if(!record.active||record.worldObjects!==item.objects||errors.length)throw Error(JSON.stringify({record,errors}));
    const name=item.name+'-'+side;await page.screenshot({path:path.join(OUT,name+'.jpg'),type:'jpeg',quality:90});records.push({name,region:item.world.regionId,target:item.ob.id,targetSha256:item.targetSha256,...record});console.log(name,JSON.stringify(record));
