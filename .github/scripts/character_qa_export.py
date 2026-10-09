@@ -42,11 +42,25 @@ def package_files(files,artifact,source,label,provenance=None):
    if name.endswith(('-stages.jpg','-motion.jpg','-views.jpg')) or re.fullmatch(r'[a-z_]+-[1-8]-(front|34|side|back)\.jpg',name) or re.fullmatch(r'(companion|partner|author)-[a-z_]+-(0-(front|34|side|back)|distance-(front|back))\.jpg',name) or name.startswith('player-') or p.endswith('.json'):out[p]=data
  manifest={'status':'PENDING_VISUAL_REVIEW','sourceCommit':source,'artifact':artifact,'files':[{'path':p,'sha256':sha(b),'bytes':len(b)} for p,b in sorted(files.items())]}
  if provenance:manifest.update(provenance)
+ if (provenance or {}).get('artifactEvidenceMode')=='diagnostic':manifest['status']='DIAGNOSTIC_NOT_APPROVED'
  out['raw-evidence.zip']=buf.getvalue();out['manifest.json']=(json.dumps(manifest,indent=2)+'\n').encode()
- lines=[f'# {label} — {source}','', 'PENDING_VISUAL_REVIEW — export success is not image approval. Chromium/SwiftShader is not Human/iPhone acceptance.','', '[All original selected images](raw-evidence.zip) · [SHA256 manifest](manifest.json)','']
+ lines=[f'# {label} — {source}','', manifest['status']+' — export success is not image approval. Chromium/SwiftShader is not Human/iPhone acceptance.','', '[All original selected evidence](raw-evidence.zip) · [SHA256 manifest](manifest.json)','']
  for p in sorted(out):
   if p.endswith(('.jpg','.png')):lines.extend([f'## {PurePosixPath(p).name}','',f'![{PurePosixPath(p).name}]({p})',''])
  out['README.md']='\n'.join(lines).encode();return out
+def verify_artifact_job(job,spec,artifact,run_id,source):
+ job_id=spec.get('jobId');mode=spec.get('evidenceMode')
+ if type(job_id) is not int or job_id<=0 or mode not in ('successful','diagnostic'):raise ValueError('explicit artifact job and evidence mode required')
+ name=artifact.get('name','');suffix='-'+source
+ known={'full-rollout-meguru':'meguru-wave','full-rollout-human-performance':'human-performance','full-rollout-fish-performance':'fish-performance','full-rollout-stage-coverage':'stage-coverage','full-rollout-wave-review':'wave-review','full-rollout-dedicated':'dedicated','full-rollout-nonplayer-review':'nonplayer-candidate-review'}
+ expected=known.get(name[:-len(suffix)]) if name.endswith(suffix) else None
+ stage=re.fullmatch(r'full-rollout-stages-([a-z_]+)-'+source,name)
+ if stage:expected='stage-evidence ('+stage.group(1)+')'
+ if not expected or spec.get('name')!=name:raise ValueError('unrecognized artifact job binding')
+ conclusion='success' if mode=='successful' else 'failure'
+ if mode=='diagnostic' and expected!='meguru-wave':raise ValueError('diagnostic export restricted to existing runtime JSON route')
+ if job.get('id')!=job_id or job.get('run_id')!=run_id or job.get('head_sha')!=source or job.get('head_branch')!=BRANCH or job.get('name')!=expected or job.get('status')!='completed' or job.get('conclusion')!=conclusion:raise ValueError('unverified artifact job')
+ return {'artifactJobId':job_id,'artifactJobName':expected,'artifactJobStatus':'completed','artifactJobConclusion':conclusion,'artifactEvidenceMode':mode}
 class NoRedirect(urllib.request.HTTPRedirectHandler):
  def redirect_request(self,*args,**kwargs):return None
 def main():
@@ -58,7 +72,9 @@ def main():
   with urllib.request.urlopen(req,timeout=60) as r:return json.load(r)
  run=api(f'actions/runs/{run_id}')
  capture_requested='successfulCaptureJobId' in request
- if run.get('id')!=run_id or run.get('head_sha')!=source or run.get('head_branch')!=BRANCH or run.get('status')!='completed' or run.get('conclusion') not in (('success','failure') if capture_requested else ('success',)):raise ValueError('unverified source run')
+ job_evidence=request.get('artifactJobEvidence') is True
+ if 'artifactJobEvidence' in request and not job_evidence or capture_requested and job_evidence:raise ValueError('invalid artifact job mode')
+ if run.get('id')!=run_id or run.get('head_sha')!=source or run.get('head_branch')!=BRANCH or run.get('status')!='completed' or run.get('conclusion') not in (('success','failure') if capture_requested or job_evidence else ('success',)):raise ValueError('unverified source run')
  provenance={'sourceRun':run_id,'sourceRunConclusion':run['conclusion']}
  if capture_requested:
   job_id=request['successfulCaptureJobId']
@@ -67,11 +83,16 @@ def main():
   if job.get('id')!=job_id or job.get('run_id')!=run_id or job.get('head_sha')!=source or job.get('head_branch')!=BRANCH or job.get('name')!='nonplayer-candidate-review' or job.get('status')!='completed' or job.get('conclusion')!='success':raise ValueError('unverified successful capture job')
   provenance.update({'successfulCaptureJobId':job_id,'successfulCaptureJobStatus':job['status'],'successfulCaptureJobConclusion':job['conclusion']})
  if api('git/ref/heads/'+BRANCH)['object']['sha']!=base:raise ValueError('branch moved before export')
- base_tree=api('git/commits/'+base)['tree']['sha'];entries=[];roots=[]
+ base_tree=api('git/commits/'+base)['tree']['sha'];entries=[];roots=[];artifact_jobs=[]
  for spec in request['artifacts']:
   artifact=api('actions/artifacts/'+str(spec['id']))
   if artifact['workflow_run']['id']!=run_id or artifact['workflow_run']['head_sha']!=source or artifact['expired'] or artifact['digest']!=spec['digest']:raise ValueError('artifact provenance mismatch')
   if capture_requested and (artifact.get('id')!=spec['id'] or artifact['workflow_run'].get('head_branch')!=BRANCH or artifact.get('name')!='full-rollout-nonplayer-review-'+source or spec.get('name')!=artifact['name']):raise ValueError('artifact provenance mismatch')
+  artifact_provenance=dict(provenance)
+  if job_evidence:
+   if type(spec.get('jobId')) is not int or spec['jobId']<=0 or spec.get('evidenceMode') not in ('successful','diagnostic'):raise ValueError('explicit artifact job and evidence mode required')
+   if artifact.get('id')!=spec['id'] or artifact['workflow_run'].get('head_branch')!=BRANCH:raise ValueError('artifact provenance mismatch')
+   bound=verify_artifact_job(api('actions/jobs/'+str(spec.get('jobId'))),spec,artifact,run_id,source);artifact_provenance.update(bound);artifact_jobs.append({'artifactId':artifact['id'],**bound})
   if not re.fullmatch('[a-z0-9-]+',spec['label']):raise ValueError('unsafe output label')
   req=urllib.request.Request('https://api.github.com/repos/'+REPO+'/actions/artifacts/'+str(spec['id'])+'/zip',headers={'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json'})
   try:
@@ -84,8 +105,12 @@ def main():
    response=urllib.request.urlopen(location,timeout=120)
   with response:raw=response.read(64*1024*1024+1)
   if len(raw)>64*1024*1024 or 'sha256:'+sha(raw)!=spec['digest']:raise ValueError('archive digest mismatch')
-  files=select_files(raw,request['families'],source);validate_counts(files,spec['required'])
-  exported=package_files(files,{k:artifact[k] for k in ['id','name','digest']},source,spec['label'],provenance)
+  files=select_files(raw,request['families'],source)
+  if artifact_provenance.get('artifactEvidenceMode')=='diagnostic':
+   files={p:b for p,b in files.items() if p.endswith('.json')}
+   if not files:raise ValueError('diagnostic JSON required')
+  validate_counts(files,spec['required'])
+  exported=package_files(files,{k:artifact[k] for k in ['id','name','digest']},source,spec['label'],artifact_provenance)
   root='docs/qa/character-3d-full-v0/export/'+source+'/'+spec['label'];roots.append(root)
   for path,data in exported.items():
    blob=api('git/blobs',{'content':base64.b64encode(data).decode(),'encoding':'base64'})
@@ -94,6 +119,7 @@ def main():
  if api('git/ref/heads/'+BRANCH)['object']['sha']!=base:raise ValueError('branch moved; caller must rebase prepared evidence')
  result={'expectedHead':base,'baseTree':base_tree,'tree':tree['sha'],'sourceCommit':source,'sourceRun':run_id,'paths':roots,'entries':entries,'status':'PREPARED_NOT_COMMITTED_NOT_APPROVED'}
  result.update(provenance)
+ if job_evidence:result['artifactJobs']=artifact_jobs
  Path('qa-export-result.json').write_text(json.dumps(result,indent=2)+'\n')
  print('QA_EXPORT_RESULT='+json.dumps(result,separators=(',',':')))
 if __name__=='__main__':main()

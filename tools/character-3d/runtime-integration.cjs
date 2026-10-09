@@ -40,6 +40,7 @@ function validateFunctional(row, r) {
   assert.equal(r.stats.failedTemplates, 0, 'failed production template');
   for (const [key, ok] of Object.entries(r.unchanged)) assert.equal(ok, true, 'unchanged ' + key);
   for (const key of ['save','getter','saveWrites']) assert.equal(r.unchanged[key], true, 'unchanged ' + key);
+  if(r.boundaries)for(const proof of r.boundaries)for(const key of ['save','storage','getter','saveWrites'])assert.equal(proof[key],true,'dirty presentation boundary '+proof.label+' '+key);
   if (row.kind === 'author') {
     assert.equal(r.actorIdentity.key, 'naoto', 'actual author key');
     for (const key of ['natural2D','sameActor','restoredActor','restoredPose','restoredDraw','restoredStep','restoredList']) assert.equal(r.author?.[key], true, 'actual author ' + key);
@@ -65,11 +66,32 @@ function validateRepeated(r) {
   for (const key of ['save','storage','getter','saveWrites']) assert.equal(r.unchanged[key], true, 'unchanged ' + key);
   for (const key of ['step','region']) assert.equal(r.restored[key], true, 'restored ' + key);
 }
+// Read-only causal proof: ordinary app tasks cannot interleave a synchronous boundary.
+function saveDelta(before, after, prefix = '') {
+  if (Object.is(before,after)) return [];
+  if (before && after && typeof before === 'object' && typeof after === 'object' && !Array.isArray(before) && !Array.isArray(after)) return [...new Set([...Object.keys(before),...Object.keys(after)])].sort().flatMap(key => saveDelta(before[key],after[key],prefix ? prefix+'.'+key : key));
+  if (JSON.stringify(before) === JSON.stringify(after)) return [];
+  return [{path:prefix,before,after}];
+}
+function saveSnapshot(bridge, observer) { return {state:JSON.stringify(bridge.getState()),storage:JSON.stringify(observer.storage()),writes:observer.writes(),getter:bridge.getState}; }
+function observeSaveBoundary(bridge, observer, action, label) {
+  const before=saveSnapshot(bridge,observer);let value,proof;
+  try { value=action(); } finally {
+    const after=saveSnapshot(bridge,observer);proof={label,save:before.state===after.state,storage:before.storage===after.storage,getter:before.getter===after.getter,saveWrites:before.writes===after.writes,beforeWrites:before.writes,afterWrites:after.writes,delta:observer.delta(JSON.parse(before.state),JSON.parse(after.state)),storageDelta:observer.delta(JSON.parse(before.storage),JSON.parse(after.storage))};
+    observer.record(proof);
+  }
+  return {value,proof};
+}
+function recordFunctionalResult(results,row,result,validate=validateFunctional) {
+  results.push(result);
+  try { assert.ok(result.boundaries?.length,'synchronous presentation boundary proof required');validate(row,result);result.validation={pass:true}; }
+  catch(e) { result.validation={pass:false,error:String(e.message||e)};throw new Error(row.key+': '+e.message,{cause:e}); }
+}
 // Observe normal storage calls; never suppress or rewrite them.
 function installSaveCounter() {
   const original = Storage.prototype.setItem;
-  globalThis.__integrationSaveWrites = 0;
-  Storage.prototype.setItem = function(key, value) { if (String(key).startsWith('naotocchi-save')) globalThis.__integrationSaveWrites++; return original.call(this, key, value); };
+  globalThis.__integrationSaveWrites = 0;globalThis.__integrationSaveEvents=[];
+  Storage.prototype.setItem = function(key, value) { if (String(key).startsWith('naotocchi-save')) {globalThis.__integrationSaveWrites++;if(globalThis.__integrationSaveEvents.length<256)globalThis.__integrationSaveEvents.push({key:String(key),timestampMs:performance.now(),stack:new Error('observed save call').stack});} return original.call(this, key, value); };
 }
 async function functionalRun(out, args = []) {
   assert.ok(!args.some(a => a.startsWith('--candidate')), 'production route cannot request candidate overlay');
@@ -79,16 +101,17 @@ async function functionalRun(out, args = []) {
   const srv = await require('./shot.cjs').serve(); // No candidate factory or historical revision.
   let browser;
   try { browser = await require('playwright').chromium.launch({ args: ['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader'] }); } catch (e) { srv.close(); throw e; }
-  const results = [], errors = [], failures = [];
+  const results = [], errors = [], failures = [];let activeRole=null;
   fs.mkdirSync(out, { recursive: true });
   try {
     for (const row of plan.rows) {
+      activeRole=row.key;console.log('functional role START '+row.key);
       const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 }), pg = await ctx.newPage();
       pg.on('pageerror', e => errors.push(String(e)));
       await pg.addInitScript(installSaveCounter);
-      await pg.addInitScript({ content: 'globalThis.__stageAuthorResident=' + stageAuthorResident.toString() + ';globalThis.__distanceActor=' + distanceActor.toString() + ';' });
+      await pg.addInitScript({ content: 'globalThis.__stageAuthorResident=' + stageAuthorResident.toString() + ';globalThis.__distanceActor=' + distanceActor.toString() + ';globalThis.saveDelta='+saveDelta.toString()+';globalThis.saveSnapshot='+saveSnapshot.toString()+';globalThis.observeSaveBoundary='+observeSaveBoundary.toString()+';' });
       await pg.addInitScript(s => localStorage.setItem('naotocchi-save-v1', s), saveFor(row));
-      let result;
+      let result,primaryError;
       try {
         await pg.goto('http://127.0.0.1:' + srv.address().port + '/index.html?meguru3d=1&char3d=1&perf=1');
         await pg.locator('.device.ui-home-active').waitFor({ timeout: 60000 });
@@ -97,39 +120,45 @@ async function functionalRun(out, args = []) {
           await pg.waitForFunction(() => globalThis.__meguruRun?.world.residents.some(a => a.kind === 'naoto') && globalThis.__meguruRun.renderer.is3D === false, null, { timeout: 60000 });
           await pg.evaluate(() => {
             const run = globalThis.__meguruRun, bridge = globalThis.__meguruBridge, actor = run.world.residents.find(a => a.kind === 'naoto');
-            globalThis.__integrationAuthor = { actor, list: [...run.world.residents], draw: run.renderer.draw, step: run.sim.step, pose: Object.fromEntries(['x','z','tx','tz','heading','route','behavior','until'].map(k => [k, actor[k]])), getter: bridge.getState, save: JSON.stringify(bridge.getState()), saveWrites: globalThis.__integrationSaveWrites, natural2D: !run.renderer.is3D };
-            globalThis.__authorStage = globalThis.__stageAuthorResident(run, bridge, globalThis.installNaotocchiMeguru(bridge));
+            const audit=globalThis.__integrationAudit={boundaries:[]},observer=audit.observer={writes:()=>globalThis.__integrationSaveWrites,storage:()=>Object.fromEntries(Object.keys(localStorage).filter(k=>k.startsWith('naotocchi-save')).sort().map(k=>[k,localStorage.getItem(k)])),delta:saveDelta,record(proof){this.last=proof;audit.boundaries.push(proof);}};
+            globalThis.__integrationAuthor = { actor, list: [...run.world.residents], draw: run.renderer.draw, step: run.sim.step, pose: Object.fromEntries(['x','z','tx','tz','heading','route','behavior','until'].map(k => [k, actor[k]])), spanBefore:saveSnapshot(bridge,observer),eventStart:globalThis.__integrationSaveEvents.length,natural2D: !run.renderer.is3D };
+            globalThis.__authorStage = observeSaveBoundary(bridge,observer,()=>globalThis.__stageAuthorResident(run,bridge,globalThis.installNaotocchiMeguru(bridge)),'author-stage-entry').value;
+            const adapter=run.renderer.draw;
+            run.renderer.draw=function(view,now){return observeSaveBoundary(bridge,observer,()=>adapter.call(this,view,now),'author-staged-draw').value;};
           });
         }
         await pg.waitForFunction(row => { const run = globalThis.__meguruRun, actor = run && globalThis.__distanceActor(run, row, globalThis.__authorStage); return actor && run.renderer.char3dPresenter?.has(actor); }, row, { timeout: 60000 });
         result = await pg.evaluate(async row => {
-          const SPEC = (await import('/character-3d/spec-esm.mjs')).default, run = globalThis.__meguruRun, bridge = globalThis.__meguruBridge, p = run.renderer.char3dPresenter, a = globalThis.__distanceActor(run, row, globalThis.__authorStage), inst = p.instanceOf(a), getter = bridge.getState, save = JSON.stringify(getter()), writes = globalThis.__integrationSaveWrites;
-          run.renderer.draw(run.sim.view(),performance.now());
-          const r = { roleKey: row.key, candidateOnly: false, actorIdentity: { key:a.key, kind:a.kind, id:a.id, asset:a.asset }, specKey: SPEC.specKeyFor(a), template: { id:inst.tpl.id, stage:inst.tpl.stage }, live3d:p.has(a), holderAttached:!!inst.holder.parent, stats:p.stats(), saveCounters:{before:writes,after:globalThis.__integrationSaveWrites}, unchanged: { save: save === JSON.stringify(bridge.getState()), getter: getter === bridge.getState, saveWrites: writes === globalThis.__integrationSaveWrites }, author: null };
+          const SPEC = (await import('/character-3d/spec-esm.mjs')).default, run = globalThis.__meguruRun, bridge = globalThis.__meguruBridge, p = run.renderer.char3dPresenter, a = globalThis.__distanceActor(run, row, globalThis.__authorStage), inst = p.instanceOf(a);
+          const audit=globalThis.__integrationAudit||(globalThis.__integrationAudit={boundaries:[]}),observer=audit.observer||(audit.observer={writes:()=>globalThis.__integrationSaveWrites,storage:()=>Object.fromEntries(Object.keys(localStorage).filter(k=>k.startsWith('naotocchi-save')).sort().map(k=>[k,localStorage.getItem(k)])),delta:saveDelta,record(proof){this.last=proof;audit.boundaries.push(proof);}});
+          observeSaveBoundary(bridge,observer,()=>run.renderer.draw(run.sim.view(),performance.now()),'functional-final-draw');
+          const r = { roleKey: row.key, candidateOnly: false, actorIdentity: { key:a.key, kind:a.kind, id:a.id, asset:a.asset }, specKey: SPEC.specKeyFor(a), template: { id:inst.tpl.id, stage:inst.tpl.stage }, live3d:p.has(a), holderAttached:!!inst.holder.parent, stats:p.stats(),boundaries:audit.boundaries,unchanged:{},author:null };
           if (row.kind === 'author') {
             const before = globalThis.__integrationAuthor, stage = globalThis.__authorStage;
             r.author = { ...stage.provenance, natural2D: before.natural2D, sameActor: a === before.actor && stage.actor === a, qaRegion: stage.sim.world.regionId };
-            stage.release(); globalThis.__authorStage = null;
+            observeSaveBoundary(bridge,observer,()=>stage.release(),'author-stage-release');globalThis.__authorStage=null;
             Object.assign(r.author, { restoredActor: run.world.residents.includes(a), restoredPose: Object.keys(before.pose).every(k => Object.is(a[k], before.pose[k])), restoredDraw: run.renderer.draw === before.draw, restoredStep: run.sim.step === before.step, restoredList: run.world.residents.length === before.list.length && before.list.every((v,i) => run.world.residents[i] === v) });
-            r.saveCounters={before:before.saveWrites,after:globalThis.__integrationSaveWrites};
-            r.unchanged = { save: before.save === JSON.stringify(bridge.getState()), getter: before.getter === bridge.getState, saveWrites: before.saveWrites === globalThis.__integrationSaveWrites };
+            const after=saveSnapshot(bridge,observer);
+            r.applicationInterval={scope:'Observed async interval outside synchronous presentation boundaries; changes are not a no-write claim',beforeWrites:before.spanBefore.writes,afterWrites:after.writes,delta:saveDelta(JSON.parse(before.spanBefore.state),JSON.parse(after.state)),storageDelta:saveDelta(JSON.parse(before.spanBefore.storage),JSON.parse(after.storage)),saveCalls:globalThis.__integrationSaveEvents.slice(before.eventStart)};
           }
+          r.saveCounters={before:r.boundaries[0].beforeWrites,after:r.boundaries.at(-1).afterWrites};
+          for(const key of ['save','storage','getter','saveWrites'])r.unchanged[key]=r.boundaries.every(proof=>proof[key]);
           return r;
         }, row);
-        validateFunctional(row, result); results.push(result);
-      } finally {
-        try { await pg.evaluate(() => { globalThis.__authorStage?.release(); globalThis.__authorStage = null; }).catch(() => {}); } finally { await ctx.close(); }
+        recordFunctionalResult(results,row,result);console.log('functional role PASS '+row.key);
+      } catch(e) { primaryError=e;if(!result){result={roleKey:row.key,validation:{pass:false,error:String(e.message||e)},phase:'readiness-or-evaluate'};try{Object.assign(result,await pg.evaluate(()=>{const audit=globalThis.__integrationAudit,before=globalThis.__integrationAuthor?.spanBefore,after=before&&saveSnapshot(globalThis.__meguruBridge,audit.observer);return {boundaries:audit?.boundaries||[],saveCalls:globalThis.__integrationSaveEvents||[],applicationInterval:before?{delta:saveDelta(JSON.parse(before.state),JSON.parse(after.state)),storageDelta:saveDelta(JSON.parse(before.storage),JSON.parse(after.storage)),beforeWrites:before.writes,afterWrites:after.writes}:null};}));}catch(diagnosticError){result.diagnosticError=String(diagnosticError.message||diagnosticError);}results.push(result);}throw e; } finally {
+        try { const cleanup=await pg.evaluate(() => {if(!globalThis.__authorStage)return null;const audit=globalThis.__integrationAudit;const proof=observeSaveBoundary(globalThis.__meguruBridge,audit.observer,()=>globalThis.__authorStage.release(),'author-failure-release').proof;globalThis.__authorStage=null;return proof;});if(cleanup){result.cleanupBoundary=cleanup;for(const key of ['save','storage','getter','saveWrites'])assert.equal(cleanup[key],true,'dirty failure release '+key);} } catch(cleanupError) { failures.push(row.key+': cleanup '+String(cleanupError.message||cleanupError));if(!primaryError)throw cleanupError; } finally { await ctx.close(); }
       }
     }
     assert.deepEqual(errors, [], 'no production browser errors');
-  } catch(e) { failures.push(String(e.message||e));throw e; } finally {
+  } catch(e) { failures.push(activeRole+': '+String(e.message||e));throw e; } finally {
     await browser.close(); srv.close();
-    fs.writeFileSync(path.join(out, 'production-nonplayer.json'), JSON.stringify({ sourceCommit:process.env.GITHUB_SHA || null, productionOnly:true, candidateOnly:false, capture:false, required:45, requireFull:plan.requireFull, checked:results.length, missing:plan.missing, rows:results, errors, failures, verdict:{pass:results.length===plan.rows.length&&!errors.length&&!failures.length,final45:plan.requireFull&&results.length===45&&!failures.length}, measurements:{animationOnlyCpuMs:null,firstAppearanceHitchMs:null,note:'Presenter CPU and build stats are aggregate; functional readiness is not a hitch measurement.'} }, null, 2));
+    fs.writeFileSync(path.join(out, 'production-nonplayer.json'), JSON.stringify({ sourceCommit:process.env.GITHUB_SHA || null, productionOnly:true, candidateOnly:false, capture:false, required:45, requireFull:plan.requireFull, checked:results.filter(r=>r.validation?.pass).length,attempted:results.length,failingRole:results.find(r=>r.validation?.pass===false)?.roleKey||null, missing:plan.missing, rows:results, errors, failures, verdict:{pass:results.length===plan.rows.length&&results.every(r=>r.validation?.pass)&&!errors.length&&!failures.length,final45:plan.requireFull&&results.filter(r=>r.validation?.pass).length===45&&!errors.length&&!failures.length}, measurements:{animationOnlyCpuMs:null,firstAppearanceHitchMs:null,note:'Presenter CPU and build stats are aggregate; functional readiness is not a hitch measurement.'} }, null, 2));
   }
   assert.equal(results.length, plan.rows.length, 'complete requested production sweep');
   console.log('production role functional PASS', results.length + '/45; missing=' + plan.missing.join(','));
 }
-module.exports = { functionalRows, validateFunctional, validateRepeated, installSaveCounter, functionalRun };
+module.exports = { functionalRows, validateFunctional, validateRepeated, installSaveCounter, functionalRun, saveDelta, saveSnapshot, observeSaveBoundary, recordFunctionalResult };
 // Runs in the existing Meguru scene. Warm once, then compare three identical cycles.
 async function repeatScene(page) {
   return page.evaluate(async () => {

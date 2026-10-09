@@ -1,0 +1,76 @@
+TAP version 13
+# Subtest: reviewed missing selector is exact86 legal stages in15 families and excludes accepted136 plus Pilot26
+ok 1 - reviewed missing selector is exact86 legal stages in15 families and excludes accepted136 plus Pilot26
+  ---
+  duration_ms: 2.269521
+  type: 'test'
+  ...
+# Subtest: selector rejects duplicates accepted stages and illegal family stages
+ok 2 - selector rejects duplicates accepted stages and illegal family stages
+  ---
+  duration_ms: 2.039975
+  type: 'test'
+  ...
+# Subtest: integration retains31stage aggregate gallery scene performance and dedicated while skipping accepted recaptures
+ok 3 - integration retains31stage aggregate gallery scene performance and dedicated while skipping accepted recaptures
+  ---
+  duration_ms: 1.726511
+  type: 'test'
+  ...
+# Subtest: ordinary unscoped and every existing family-marker combination retain previous job routing
+ok 4 - ordinary unscoped and every existing family-marker combination retain previous job routing
+  ---
+  duration_ms: 5.664074
+  type: 'test'
+  ...
+# Subtest: integration reuses family capture tool with bounded separate motion child and unchanged aggregate paths
+ok 5 - integration reuses family capture tool with bounded separate motion child and unchanged aggregate paths
+  ---
+  duration_ms: 1746.532272
+  type: 'test'
+  ...
+# Subtest: nested motion metadata cannot pollute same-source248-stage distance aggregation
+ok 6 - nested motion metadata cannot pollute same-source248-stage distance aggregation
+  ---
+  duration_ms: 150.05453
+  type: 'test'
+  ...
+# Subtest: strict boundaries isolate renderer effects from observed application progression and retain exact field deltas
+ok 7 - strict boundaries isolate renderer effects from observed application progression and retain exact field deltas
+  ---
+  duration_ms: 2.434085
+  type: 'test'
+  ...
+# Subtest: strict boundaries preserve every dirty presentation failure, including writes, getter swaps and thrown actions
+ok 8 - strict boundaries preserve every dirty presentation failure, including writes, getter swaps and thrown actions
+  ---
+  duration_ms: 1.015274
+  type: 'test'
+  ...
+# Subtest: failing functional row is recorded with validation error and boundary delta before error propagates
+ok 9 - failing functional row is recorded with validation error and boundary delta before error propagates
+  ---
+  duration_ms: 0.431943
+  type: 'test'
+  ...
+# Subtest: runtime marker routes only existing Meguru and focused dedicated jobs, preserving integration and ordinary behavior
+ok 10 - runtime marker routes only existing Meguru and focused dedicated jobs, preserving integration and ordinary behavior
+  ---
+  duration_ms: 2.329732
+  type: 'test'
+  ...
+# Subtest: real Meguru record APIs progress outside presentation boundaries without suppressing save calls
+ok 11 - real Meguru record APIs progress outside presentation boundaries without suppressing save calls
+  ---
+  duration_ms: 139.522584
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2101.230554

@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: strict boundaries isolate renderer effects from observed application progression and retain exact field deltas
+ok 1 - strict boundaries isolate renderer effects from observed application progression and retain exact field deltas
+  ---
+  duration_ms: 2.272932
+  type: 'test'
+  ...
+# Subtest: strict boundaries preserve every dirty presentation failure, including writes, getter swaps and thrown actions
+ok 2 - strict boundaries preserve every dirty presentation failure, including writes, getter swaps and thrown actions
+  ---
+  duration_ms: 0.811722
+  type: 'test'
+  ...
+# Subtest: failing functional row is recorded with validation error and boundary delta before error propagates
+ok 3 - failing functional row is recorded with validation error and boundary delta before error propagates
+  ---
+  duration_ms: 0.326551
+  type: 'test'
+  ...
+# Subtest: runtime marker routes only existing Meguru and focused dedicated jobs, preserving integration and ordinary behavior
+ok 4 - runtime marker routes only existing Meguru and focused dedicated jobs, preserving integration and ordinary behavior
+  ---
+  duration_ms: 2.133222
+  type: 'test'
+  ...
+# Subtest: real Meguru record APIs progress outside presentation boundaries without suppressing save calls
+ok 5 - real Meguru record APIs progress outside presentation boundaries without suppressing save calls
+  ---
+  duration_ms: 119.267267
+  type: 'test'
+  ...
+# Subtest: functional validation rejects dirty constituent boundaries even when aggregate flags claim unchanged
+ok 6 - functional validation rejects dirty constituent boundaries even when aggregate flags claim unchanged
+  ---
+  duration_ms: 71.361507
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 311.010183

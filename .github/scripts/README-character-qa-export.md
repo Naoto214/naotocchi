@@ -21,3 +21,9 @@ For candidate-only Phoenix visual fixes, commit marker `[qa:phoenix]` keeps the 
 Four-view originals are also published directly beside the contact boards, so coverage records and visual review can link to individual images without ZIP extraction. All32-state raw cells remain in the byte-preserving archive.
 
 `[qa:god]` likewise scopes candidate captures to all eight God stages. Either scoped marker runs full dedicated regression plus that family’s factory/stage mutation suite. Ordinary commits still run all mechanism mutations; scoped success is not full integration acceptance.
+
+### Completed integration runs with mixed outcomes
+
+When an integration run completes with an unrelated failed job, set `artifactJobEvidence: true` and supply `jobId` plus `evidenceMode` on every artifact selection. `successful` requires the exact completed SUCCESS job bound to the artifact name (family-specific stage job, stage aggregate, gallery, human/fish performance, dedicated, Meguru, or nonplayer capture). A failed overall run stays recorded as `sourceRunConclusion: failure`; image exports remain `PENDING_VISUAL_REVIEW`.
+
+`diagnostic` is restricted to the existing `full-rollout-meguru-<source>` artifact from the exact completed FAILURE `meguru-wave` job. It retains JSON only, marks `DIAGNOSTIC_NOT_APPROVED`, and never exports or approves images. Use it to inspect failed runtime evidence without treating the job as successful. Required-file counts, source/branch/job/artifact identity, archive SHA256/size/path checks and both expected-head checks remain mandatory. In-progress, cancelled and timed-out runs/jobs are rejected. This mode cannot be mixed with the older `successfulCaptureJobId` option and never updates a branch ref.

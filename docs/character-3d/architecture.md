@@ -1,8 +1,21 @@
 # Character 3D System — architecture / Full Rollout v0
 
 状態: **Full Rollout v0 制作中**。2026-10-04のHuman QAでPilotから全量展開へ進むことを承認。全量採用・Ready・main mergeの承認ではない。Pilot正本 `d12ad70550b29c125f44ac2b32d7195905fb15f0` / #372を保持し、#376（Draft、base=Pilot）で展開する。
-現在の正本: [Full Rollout設計](full-rollout-v0/design.md)・[Visual Translation Rules](full-rollout-v0/visual-translation-rules.md)・[checkpoint](full-rollout-v0/progress.md)。以下のPilot仕様・測定はreference implementationの記録であり、Full Rollout完了値ではない。
+現在の正本: [Full Rollout設計](full-rollout-v0/design.md)・[Visual Translation Rules](full-rollout-v0/visual-translation-rules.md)・[checkpoint](full-rollout-v0/checkpoint.json)。以下のPilot仕様・測定はreference implementationの記録であり、Full Rollout完了値ではない。
 QA 記録: [`docs/qa/character-3d-pilot-2026-10-01.md`](../qa/character-3d-pilot-2026-10-01.md)
+
+## Full Rollout v0 current implementation (ae9c9ffe)
+
+全293件のexact登録と四方向の実画像gateが揃った。31 player families ×8 stages、companion26、partner18、author1。これは最終統合・Human QAの完了宣言ではない。[現在のgate](full-rollout-v0/checkpoint.json)と[残工程](full-rollout-v0/roadmap.md)を参照。以下のPilot inventory分類・nearest-stage説明・性能値は歴史的baselineであり、現在の登録仕様ではない。
+
+- `rollout-spec.js`とfamily別specが明示的なplayer stage入力を供給する。登録familyの欠けた段階をnearest stageで成功扱いしない。
+- `nonplayer-spec.js`の43 factoryモデルと既存Pilot2モデルを、`spec.js`のkind/id/stage境界で解決する。playerの同名IDはcompanion/partnerに置換しない。作者の実actor kind `naoto`は正しいIDだけauthorモデルへ解決する。
+- 既存archetype dispatchに `branch_organism`、`jellyfish`、`armored_insect`、`winged_reptile`、`plumed_bird`、`celestial_humanoid`、`spectral`、`cosmic`、`mystery_blob`、`soft_toy`、`rigid_object`の共有factory責務を追加。species専用rendererを並立させず、元画像由来の部品・色・比率・接続を入力で指定する。
+- canonical emotion、rig、locomotion、lazy presenter、actor-local fallbackの既存契約を保持する。元2D／Expression画像・save/gameplay・World/Homeは変更対象外。Authorの自然なmemory_lake表示を変えず、QAでは同じactorを一時的なforest presentation fixtureで検証して復元する。
+- `full-gallery.html`は293件のinventoryと保存済み画像を遅延表示し、exactなroleのlive galleryへ接続する。legacy2件の比較画像は右側四方向の再利用を明示する。
+- Actions artifactは既存のGit-object exportでbranch上へ保存できる。元run失敗時はartifactごとの成功jobを厳密に紐付ける。失敗runtimeのJSONは診断専用。exportは画像承認でもref更新でもなく、SHA256照合・実画像レビュー後に別の判定を保存する。
+
+最終統合では全293登録と、未確認player motion86段階・初期5family通常距離80画像を区別する。非player45件の実画像gateは完了。scene/default性能は失敗したfunctional検証の修正後に確認する。SwiftShader結果からiPhone性能やHuman採用を推定しない。
 
 ## 1. Goals / Non-goals
 

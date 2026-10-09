@@ -1064,3 +1064,19 @@ CorrectedAuthor source `6eb8f197` Character37920067984 SUCCESS. ExistingActionsG
 FinalintegrationremainsOPEN:86playerstages need minimumemotion/motionreview andearly5families80distanceimages, production45role/presenter/scene/gallery/performance proof, onefinalnpm andfinalreview/handoff. No newglobalPASS fromcapture orcoveragealone.
 
 Finalexisting-routeQA extension `c4e5b226` independentlyreviewedC0/I0: production-only45-role no-capture sweep, same-actorAuthorrestoration, warmup+3scene loops/resourceplateau/save invariance, native1/5/27 isolatedcloneanimationCPU and appearance-windowRAF intervals. Worker15PASS (43then-approvedNodepresenters)+7controlsrestored;root8focusedPASS on293source. No production/render/save/World changes. Browser45/scene/timing results remain pending finalintegrationCI. Fullnpm batch started once on preparedfinalcode; completion notyetclaimed.
+
+
+### Final integration ae9 — completed npm and explicit partial CI failure
+
+Full npm on the prepared final production/test inputs subsequently published as ae9c9ffe completed:3022 main PASS plus80 Relationship PASS,0FAIL,exit0. Compressed raw log and byte hashes are preserved under final-npm-ae9. No repeat full suite is claimed for later QA-only edits.
+
+The ae9 integration run37922214774 is still running. Production functional meguru-wave113792592031 failed its unchanged-save assertion; scene/default performance did not execute. Gallery113792592014 and human/fish performance113792592088/113792592103 succeeded. Player capture shards continue; do not cancel their useful work or label the overall run successful. Runtime diagnosis/fix is separate from production/model changes.
+
+The existing Git-object artifact recovery route now supports explicit per-artifact completed-job evidence for a completed failed integration run. Exact source/run/branch/artifact digest and name-to-job binding remain mandatory. Successful capture output stays pending actual visual review; failed Meguru JSON is diagnostic-only and never approval.18 tests pass, including actual mocked packaging and fail-closed provenance/lease cases; independent review C0/I0, minor diagnostic ZIP caption corrected.
+
+
+### Runtime save-boundary diagnosis and narrow followup
+
+Integrated QA-only116370ed:20focused PASS and5new meaningful negative controls RED with exact restoration; root6boundary checks PASS. Author staging now records strict synchronous saved-state/storage/getter/write proofs at entry, every staged draw, final draw and release. The asynchronous interval retains exact state/storage deltas and actual save-call provenance separately, with no no-write claim. Real recordMapBits changes outside presentation are observed; the same API inside presentation is rejected. Failed rows are retained before validation.
+
+The original ae9 failing role/cause is not established by its log. This diagnostic repair is not a browser PASS; production models/gameplay are unchanged. The new [qa:runtime] marker activates only existing Meguru functional/scene/metrics and focused dedicated QA jobs, preserving the original integration captures and other successful jobs. Whole-scene strict cache/save gates remain unchanged. ae9 dedicated, Runtime and Home are now SUCCESS; original Meguru failure remains distinct.

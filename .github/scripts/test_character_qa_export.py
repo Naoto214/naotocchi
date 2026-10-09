@@ -128,4 +128,63 @@ class SourceRunTests(unittest.TestCase):
   for at in [1,2]:
    with self.subTest(lease_check=at):
     with self.assertRaisesRegex(ValueError,'branch moved'):self.execute(self.fixture('failure'),move_at=at)
+class ArtifactJobTests(unittest.TestCase):
+ load=ExportTests.load
+ zip=ExportTests.zip
+ fixture=SourceRunTests.fixture
+ execute=SourceRunTests.execute
+ def bound(self,diagnostic=False):
+  f=list(self.fixture('failure',capture=False));m,request,run,job,artifact,raw=f
+  request['artifactJobEvidence']=True
+  spec=request['artifacts'][0];spec.update(jobId=202,evidenceMode='diagnostic' if diagnostic else 'successful')
+  name=('full-rollout-meguru-' if diagnostic else 'full-rollout-stages-dog-')+'a'*40
+  spec['name']=artifact['name']=name;job['name']='meguru-wave' if diagnostic else 'stage-evidence (dog)'
+  if diagnostic:
+   job['conclusion']='failure';spec['required']=[{'pattern':'evidence.json','count':1}]
+  else:
+   request['families']=['dog'];f[5]=self.zip({'missing-motion/dog-2-motion.jpg':b'original','motion-evidence.json':json.dumps({'source':'a'*40}).encode()});spec['required']=[{'pattern':'dog-2-motion.jpg','count':1}];artifact['digest']=spec['digest']='sha256:'+m.sha(f[5])
+  return f
+ def test_successful_stage_from_failed_run_preserves_bytes_and_pending_verdict(self):
+  result,blobs,calls=self.execute(self.bound());self.assertEqual(result['sourceRunConclusion'],'failure');self.assertEqual(result['artifactJobs'][0]['artifactJobName'],'stage-evidence (dog)');self.assertEqual(result['artifactJobs'][0]['artifactJobConclusion'],'success')
+  manifest=next(json.loads(b) for b in blobs if b.startswith(b'{') and b'"files"' in b);self.assertEqual(manifest['status'],'PENDING_VISUAL_REVIEW');self.assertEqual(manifest['artifactEvidenceMode'],'successful')
+  archive=next(b for b in blobs if b.startswith(b'PK'))
+  with zipfile.ZipFile(io.BytesIO(archive)) as z:self.assertEqual(z.read('missing-motion/dog-2-motion.jpg'),b'original')
+ def test_failed_runtime_diagnostic_exports_only_json_and_never_image_approval(self):
+  result,blobs,calls=self.execute(self.bound(True));manifest=next(json.loads(b) for b in blobs if b.startswith(b'{') and b'"files"' in b);self.assertEqual(manifest['status'],'DIAGNOSTIC_NOT_APPROVED');self.assertEqual(manifest['artifactJobConclusion'],'failure')
+  self.assertTrue(all(f['path'].endswith('.json') for f in manifest['files']))
+  archive=next(b for b in blobs if b.startswith(b'PK'))
+  with zipfile.ZipFile(io.BytesIO(archive)) as z:self.assertEqual(z.namelist(),['evidence.json'])
+  self.assertTrue(any(b'DIAGNOSTIC_NOT_APPROVED' in b and b'export success is not image approval' in b for b in blobs))
+ def test_job_binding_rejects_wrong_role_source_status_and_artifact(self):
+  for field,value in [('id',999),('run_id',999),('head_sha','c'*40),('head_branch','main'),('name','stage-evidence (cat)'),('status','in_progress'),('conclusion','failure'),('conclusion','cancelled')]:
+   with self.subTest(field=field,value=value):
+    f=self.bound();f[3][field]=value
+    with self.assertRaises(ValueError):self.execute(f)
+  for name in ['arbitrary-'+'a'*40,'full-rollout-stages-cat-'+'a'*40,'full-rollout-stages-dog-'+'c'*40]:
+   f=self.bound();f[1]['artifacts'][0]['name']=f[4]['name']=name
+   with self.assertRaises(ValueError):self.execute(f)
+ def test_job_mode_never_accepts_unfinished_cancelled_source_or_wrong_diagnostic_job(self):
+  for field,value in [('status','in_progress'),('conclusion','cancelled'),('conclusion','timed_out')]:
+   f=self.bound();f[2][field]=value
+   with self.assertRaisesRegex(ValueError,'unverified source run'):self.execute(f)
+  f=self.bound();f[1]['artifacts'][0]['evidenceMode']='diagnostic';f[3]['conclusion']='failure'
+  with self.assertRaisesRegex(ValueError,'diagnostic export restricted'):self.execute(f)
+  f=self.bound(True);f[3]['conclusion']='success'
+  with self.assertRaisesRegex(ValueError,'unverified artifact job'):self.execute(f)
+ def test_explicit_job_identity_and_mode_required_and_old_capture_mode_stays_separate(self):
+  for field,value in [('jobId',None),('jobId',True),('jobId','202'),('jobId',0),('evidenceMode',None),('evidenceMode','approved')]:
+   f=self.bound();f[1]['artifacts'][0][field]=value
+   with self.assertRaisesRegex(ValueError,'explicit artifact job'):self.execute(f)
+  f=self.bound();f[1]['successfulCaptureJobId']=202
+  with self.assertRaisesRegex(ValueError,'invalid artifact job mode'):self.execute(f)
+ def test_job_mode_retains_digest_branch_expiration_count_and_lease_guards(self):
+  for change in ['digest','expired','branch','count']:
+   f=self.bound()
+   if change=='digest':f[5]+=b'corrupt'
+   elif change=='expired':f[4]['expired']=True
+   elif change=='branch':f[4]['workflow_run']['head_branch']='main'
+   else:f[1]['artifacts'][0]['required'][0]['count']=2
+   with self.assertRaises(ValueError):self.execute(f)
+  for at in [1,2]:
+   with self.assertRaisesRegex(ValueError,'branch moved'):self.execute(self.bound(),move_at=at)
 if __name__=='__main__':unittest.main()

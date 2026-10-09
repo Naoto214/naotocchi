@@ -7,7 +7,7 @@ permissions:
   contents: read
 jobs:
   stage-matrix:
-    if: ${{ contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
     runs-on: ubuntu-latest
     outputs:
       lines: ${{ steps.inventory.outputs.lines }}
@@ -19,7 +19,7 @@ jobs:
       - id: inventory
         run: node -e "console.log('lines='+JSON.stringify(Object.keys(require('./character-3d/spec.js').ROLLOUT)))" >> "$GITHUB_OUTPUT"
   stage-evidence:
-    if: ${{ contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
     needs: stage-matrix
     strategy:
       fail-fast: false
@@ -55,7 +55,7 @@ jobs:
           name: full-rollout-stages-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/stages/${{ matrix.line }}
   stage-coverage:
-    if: ${{ contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
     needs: stage-evidence
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -75,7 +75,7 @@ jobs:
           name: full-rollout-stage-coverage-${{ github.sha }}
           path: test-results/stage-coverage.json
   conflict-audit:
-    if: ${{ contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -93,7 +93,7 @@ jobs:
           name: full-rollout-conflicts-${{ github.sha }}
           path: test-results/full-rollout/conflicts.json
   human-performance:
-    if: ${{ contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -112,7 +112,7 @@ jobs:
           name: full-rollout-human-performance-${{ github.sha }}
           path: test-results/full-rollout/human-performance
   aquatic-candidate-distance:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
     strategy:
       fail-fast: false
       matrix:
@@ -136,7 +136,7 @@ jobs:
           name: full-rollout-aquatic-distance-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/aquatic-distance
   armored-candidate-distance:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
     strategy:
       fail-fast: false
       matrix:
@@ -160,7 +160,7 @@ jobs:
           name: full-rollout-armored-distance-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/armored-distance
   botanical-candidate-distance:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
     strategy:
       fail-fast: false
       matrix:
@@ -184,7 +184,7 @@ jobs:
           name: full-rollout-botanical-distance-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/botanical-distance
   mythic-candidate-distance:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:nonplayer]') || contains(github.event.head_commit.message, '[qa:star]')) }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:nonplayer]') || contains(github.event.head_commit.message, '[qa:star]'))) }}
     strategy:
       fail-fast: false
       matrix:
@@ -208,7 +208,7 @@ jobs:
           name: full-rollout-mythic-distance-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/mythic-distance
   fish-performance:
-    if: ${{ contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -227,7 +227,7 @@ jobs:
           name: full-rollout-fish-performance-${{ github.sha }}
           path: test-results/full-rollout/fish-performance
   meguru-wave:
-    if: ${{ contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+    if: ${{ contains(github.event.head_commit.message, '[qa:runtime]') || ((contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -239,19 +239,19 @@ jobs:
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps chromium
       - name: Presentation lifecycle and isolated actor fallback (stage matrix runs separately)
-        if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') }}
+        if: ${{ !(contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) }}
         run: node tools/character-3d/meguru-qa.cjs --rollout --no-species --no-perf --out test-results/full-rollout/meguru
       - name: Production role-exact nonplayer integration without image capture
-        if: ${{ contains(github.event.head_commit.message, '[qa:integration]') }}
+        if: ${{ (contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) }}
         run: node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/production-nonplayer --functional-only --require-full
       - name: Repeated production scene lifecycle without image capture
-        if: ${{ contains(github.event.head_commit.message, '[qa:integration]') }}
+        if: ${{ (contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) }}
         run: node tools/character-3d/meguru-qa.cjs --rollout --no-species --no-perf --integration-scene --no-capture --out test-results/full-rollout/meguru
       - name: Comparable fixed Pilot mix 1 5 27 actors
-        if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') }}
+        if: ${{ !(contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) }}
         run: node tools/character-3d/meguru-qa.cjs --perf-only --seconds 8 --out test-results/full-rollout/performance
       - name: Native composition 1 5 27 performance and isolated QA measurements
-        if: ${{ contains(github.event.head_commit.message, '[qa:integration]') }}
+        if: ${{ (contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) }}
         run: node tools/character-3d/meguru-qa.cjs --perf-only --seconds 8 --integration-metrics --no-capture --out test-results/full-rollout/performance
       - uses: actions/upload-artifact@v4
         if: always()
@@ -259,7 +259,7 @@ jobs:
           name: full-rollout-meguru-${{ github.sha }}
           path: test-results/full-rollout
   wave-review:
-    if: ${{ contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -293,7 +293,7 @@ jobs:
             test-results/full-rollout/topology
             test-results/full-rollout/candidate-motion
   aquatic-wave-review:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -314,7 +314,7 @@ jobs:
             test-results/full-rollout/aquatic
             test-results/full-rollout/aquatic-motion
   armored-wave-review:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -346,7 +346,7 @@ jobs:
             test-results/full-rollout/armored-motion/hermit_crab*.jpg
             test-results/full-rollout/armored-motion/motion-evidence.json
   mythic-wave-review:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:nonplayer]') || contains(github.event.head_commit.message, '[qa:star]')) }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:nonplayer]') || contains(github.event.head_commit.message, '[qa:star]'))) }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -367,7 +367,7 @@ jobs:
             test-results/full-rollout/mythic
             test-results/full-rollout/mythic-motion
   botanical-wave-review:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -388,7 +388,7 @@ jobs:
             test-results/full-rollout/botanical
             test-results/full-rollout/botanical-motion
   nonplayer-candidate-review:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') && (contains(github.event.head_commit.message, '[qa:nonplayer]') || !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]')) }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (contains(github.event.head_commit.message, '[qa:nonplayer]') || !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]'))) }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -424,12 +424,19 @@ jobs:
           node-version: 22
       - run: npm ci
       - name: Fresh inventory and dedicated regression
+        if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') }}
         run: |
           mkdir -p test-results/full-rollout
           node tools/character-3d/inventory.cjs test-results/full-rollout/inventory.json
           node --test --test-reporter=tap tests/character-3d*-test.cjs > test-results/full-rollout/dedicated.tap || { cat test-results/full-rollout/dedicated.tap; exit 1; }
+      - name: Focused runtime QA regression
+        if: ${{ contains(github.event.head_commit.message, '[qa:runtime]') }}
+        run: |
+          mkdir -p test-results/full-rollout
+          node --test --test-reporter=tap tests/character-3d-runtime-integration-test.cjs tests/character-3d-runtime-save-boundary-test.cjs tests/character-3d-integration-workflow-test.cjs > test-results/full-rollout/runtime-dedicated.tap || { cat test-results/full-rollout/runtime-dedicated.tap; exit 1; }
+          node tools/character-3d/runtime-integration-remove-it.cjs --save-boundaries-only > test-results/full-rollout/runtime-integration-controls.txt
       - name: Scoped candidate mutations
-        if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') && (contains(github.event.head_commit.message, '[qa:phoenix]') || contains(github.event.head_commit.message, '[qa:god]') || contains(github.event.head_commit.message, '[qa:ghost]') || contains(github.event.head_commit.message, '[qa:unknown]') || contains(github.event.head_commit.message, '[qa:star]') || contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+        if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (contains(github.event.head_commit.message, '[qa:phoenix]') || contains(github.event.head_commit.message, '[qa:god]') || contains(github.event.head_commit.message, '[qa:ghost]') || contains(github.event.head_commit.message, '[qa:unknown]') || contains(github.event.head_commit.message, '[qa:star]') || contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
         env:
           QA_FAMILY: ${{ contains(github.event.head_commit.message, '[qa:god]') && 'god' || contains(github.event.head_commit.message, '[qa:ghost]') && 'ghost' || contains(github.event.head_commit.message, '[qa:unknown]') && 'unknown' || contains(github.event.head_commit.message, '[qa:star]') && 'star' || contains(github.event.head_commit.message, '[qa:nonplayer]') && 'nonplayer' || 'phoenix' }}
         run: |
@@ -452,10 +459,10 @@ jobs:
             node tools/character-3d/phoenix-stages-remove-it.cjs > test-results/full-rollout/phoenix-stages-remove-it.txt
           fi
       - name: Scoped selected nonplayer mutations
-        if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') && (contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+        if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
         run: node tools/character-3d/nonplayer-mutations.cjs
       - name: Existing mechanism mutations
-        if: ${{ contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')) }}
+        if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
         run: |
           sh tools/character-3d/remove-it.sh > test-results/full-rollout/remove-it.txt
           node tools/character-3d/quality-remove-it.cjs > test-results/full-rollout/quality-remove-it.txt

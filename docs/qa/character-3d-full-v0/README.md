@@ -1,6 +1,18 @@
 # Full Character 3D Rollout v0 — work in progress
 
-This is a wave checkpoint, **not the completed Full Rollout Human QA package**.
+The model rollout has **293/293 exact registrations and accepted four-view records**. Final integration remains OPEN; this is **not yet the completed Human QA package**. [Current checkpoint](../../character-3d/full-rollout-v0/checkpoint.json) and [remaining gates](../../character-3d/full-rollout-v0/roadmap.md) supersede historical wave counts below.
+
+- Player:31families/248stages, including all8Phoenix actual image gates before promotion. Nonplayer:26companions/18partners/1author, all45 actual image gates complete.
+- [Full gallery](../../../character-3d/full-gallery.html) lists all293 with role-correct live links; [live gallery](../../../character-3d/gallery.html) uses the exact registered models. These are repository-relative QA pages that require the existing local/QA web server.
+- [Player evidence map](../../character-3d/full-rollout-v0/final-player-evidence-map.md) distinguishes accepted historical protocols from86missing-stage motion gates and80early-family distance images still awaiting actual inspection.
+- [Final npm result](final-npm-ae9/result.json):3022main+80Relationship PASS,0FAIL,exit0, sourceae9c9ffe.
+- ae9 Character integration: dedicated/gallery/human/fish jobs SUCCESS; production-functional Meguru job FAILURE at unchanged-save assertion. Scene/default performance not reached. Player captures remain in progress. Runtime CI37922224120 SUCCESS; Home37922224067 SUCCESS. Preserve these separate conclusions.
+- [Export recovery](../../../.github/scripts/README-character-qa-export.md) saves original image bytes, SHA256 manifests and viewable sheets through existing Actions/Git Data objects. Successful export never approves images. Completed failed runs may supply explicitly verified successful-job artifacts, while failed runtime JSON remains diagnostic-only.
+- Human visual adoption and actual iPhone Safari performance/temperature/long-play are separate OPEN gates. Draft376; no Ready/main merge or v1.
+
+## Historical wave evidence
+
+The following chronological checkpoints retain their original source-scoped results and limitations. Their old pending counts, performance casts and planned features are not the current rollout status.
 
 ## Current review surfaces
 
