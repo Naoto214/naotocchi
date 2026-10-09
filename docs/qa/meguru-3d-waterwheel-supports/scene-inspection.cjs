@@ -5,7 +5,7 @@ const fs=require('fs'),path=require('path'),http=require('http'),crypto=require(
 const ROOT=path.resolve(process.argv[2]),OUT=path.resolve(process.argv[3]);fs.mkdirSync(OUT,{recursive:true});
 const {harness}=require(path.join(ROOT,'tests/helpers/runtime-harness.cjs'));
 const h=harness({deterministic:true,fullDisplay:true,pinDate:true}),M=h.api.meguruMod,registry=M.buildRegistry();
-const selection=JSON.parse(fs.readFileSync(path.join(ROOT,'tools/meguru-3d-qa/shots-visual-quality-v2-gallery.json'))).filter(x=>['prop-wheel','prop-wheel-river'].includes(x.name));
+const selection=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../../../tools/meguru-3d-qa/shots-visual-quality-v2-gallery.json'))).filter(x=>['prop-wheel','prop-wheel-river'].includes(x.name));
 if(selection.length!==2)throw Error('Expected both production waterwheels');
 const items=selection.map(s=>{const world=M.buildWorld(s.region,registry,{world3d:true});const pack=M.worldObjects3d(world),objects=pack.objects;const ob=objects.find(o=>o.id===s.target);if(!ob)throw Error('Missing '+s.target);return {name:s.name,world,pack,streams:M.streams3d(world),ob,objects:objects.length,targetSha256:crypto.createHash('sha256').update(JSON.stringify(ob)).digest('hex')};});
 const html='<!doctype html><style>body{margin:0}</style><canvas width="720" height="720"></canvas><script src="/meguru.js"></script>';
