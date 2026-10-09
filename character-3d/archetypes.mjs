@@ -257,7 +257,7 @@ export function fish(sp, key) {
   // 胸びれ
   for (const s of [-1, 1]) {
     const pf = paint(xform(fan((a) => sp.fins.pectoral * (0.85 + 0.15 * Math.cos(a * 2)), -0.7, 0.7, { na: 8, nr: 3 }), { rot: [0, Math.PI / 2 + s * (sp.fins.spread ? -sp.fins.spread : .5), 0.3 * s] }), (x, y, z) => (Math.hypot(x, y, z) > sp.fins.pectoral * 0.75 && sp.bandEdge ? c.edge : c.fin));
-    rig.add(s < 0 ? 'finL' : 'finR', 'body', [s * B.w * (sp.fins.spread ? .94 : .8), -B.h * 0.12, len * 0.12], [pf], matKey);
+    rig.add(s < 0 ? 'finL' : 'finR', 'body', [s * B.w * (sp.fins.rootFactor ?? (sp.fins.spread ? .94 : .8)), -B.h * 0.12, len * 0.12], [pf], matKey);
   }
   // 顔は 頭の 先(からだの 前)
   rig.meta = { idlePose: 'swim', hover: sp.hover, len };

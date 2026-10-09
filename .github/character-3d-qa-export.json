@@ -2,7 +2,9 @@
   "sourceCommit": "ad96bc539b8bfc2799d1ad8e9790fa5360c0f4ac",
   "runId": 37929709480,
   "artifactJobEvidence": true,
-  "families": [],
+  "families": [
+    "dog"
+  ],
   "artifacts": [
     {
       "id": 11615707537,

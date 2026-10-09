@@ -16,10 +16,10 @@
  salmon.stages[1].colors.tail='#84929f';
  for(const sp of Object.values(salmon.stages))sp.fins.spread=.85;
  const clownfish=copy(PILOT.clownfish);
- clownfish.stages[2]={...copy(clownfish.stages[1]),body:{len:1.04,h:.46,w:.255},tail:{len:.31,h:.40},fins:{dorsal:.20,pectoral:.17,spread:.8},translucent:null,normalEye:'round',face:{half:.28,eyeSize:.28},colors:{base:'#f4b174',belly:'#f7d5a3',fin:'#f3ba85',band:'#fff6df',edge:'#f0ad76'}};
- clownfish.stages[3]={...copy(clownfish.stages[4]),body:{len:1.09,h:.60,w:.31},tail:{len:.32,h:.45},fins:{dorsal:.28,pectoral:.24,spread:.8},bands:[.29,.79],bandEdge:false,normalEye:'happy'};
- clownfish.stages[6]={...copy(clownfish.stages[4]),body:{len:1.13,h:.62,w:.33},tail:{len:.34,h:.47},fins:{dorsal:.31,pectoral:.27,spread:.8},normalEye:'happy'};
- clownfish.stages[7]={...copy(clownfish.stages[8]),body:{len:1.25,h:.81,w:.41},tail:{len:.37,h:.57},fins:{dorsal:.40,pectoral:.33,spread:.8},normalEye:'round'};
- clownfish.stages[5]={...copy(clownfish.stages[4]),body:{len:1.2,h:.78,w:.38},tail:{len:.35,h:.54},fins:{dorsal:.37,pectoral:.29,spread:.8},normalEye:'happy',school:[{at:[-.50,.61,-.28],scale:.40,heading:-.12},{at:[.35,-.61,-.18],scale:.37,heading:.13}]};
+ clownfish.stages[2]={...copy(clownfish.stages[1]),body:{len:1.04,h:.46,w:.255},tail:{len:.31,h:.40},fins:{dorsal:.20,pectoral:.17,spread:.8,rootFactor:.80},translucent:null,normalEye:'round',face:{half:.28,eyeSize:.28},colors:{base:'#f4b174',belly:'#f7d5a3',fin:'#f3ba85',band:'#fff6df',edge:'#f0ad76'}};
+ clownfish.stages[3]={...copy(clownfish.stages[4]),body:{len:1.09,h:.60,w:.31},tail:{len:.32,h:.45},fins:{dorsal:.28,pectoral:.24,spread:.8,rootFactor:.80},bands:[.29,.79],bandEdge:false,normalEye:'happy'};
+ clownfish.stages[6]={...copy(clownfish.stages[4]),body:{len:1.13,h:.62,w:.33},tail:{len:.34,h:.47},fins:{dorsal:.31,pectoral:.27,spread:.8,rootFactor:.80},normalEye:'happy'};
+ clownfish.stages[7]={...copy(clownfish.stages[8]),body:{len:1.25,h:.81,w:.41},tail:{len:.37,h:.57},fins:{dorsal:.40,pectoral:.33,spread:.8,rootFactor:.80},normalEye:'round'};
+ clownfish.stages[5]={...copy(clownfish.stages[4]),body:{len:1.2,h:.78,w:.38},tail:{len:.35,h:.54},fins:{dorsal:.37,pectoral:.29,spread:.8,rootFactor:.80},normalEye:'happy',school:[{at:[-.50,.61,-.28],scale:.40,heading:-.12},{at:[.35,-.61,-.18],scale:.37,heading:.13}]};
  return {salmon,clownfish};
 });

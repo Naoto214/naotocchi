@@ -1098,3 +1098,12 @@ Twenty ae9 artifacts are recovered as421 verified Git blobs;3113 original files 
 Root actually inspected80 early-five normal-distance images: PASS for this scope. Motion review found Mushroom5/6/7 face occlusion and a Clownfish2 fin-join concern, retained as blockers pending bounded repair and actual new images. Human/iPhone remainOPEN.
 
 The aa035 scene diagnostic showed baseline7 versus final11 because sampling began before the exact current-view roster finished loading. QA now waits for exact eligible actors/templates before baseline. Naturalcity assertions now follow the byte-identical original Pilot hidden-cache contract: actual GL hidden, same scene/holders/canvas identities and exact bounded resources. Explicitoff still requireszero; forest roster and save guards stay strict.27 focusedPASS,4controlsRED/restored,root3PASS,independentC0/I0; actualbrowser scene/defaultmetrics remainOPEN. Production was not changed for these QA corrections.
+
+
+## Actual motion findings and bounded replacement capture
+
+All86missingstage motion boards/2752statecells actually inspected:78stagesPASS and8REJECT. Mushroom5/6/7 caps hide emotion details; Clownfish2/3/5/6/7 have detached main-fish pectoral roots in dislike. Raw-frame confirmations and exactpaths/hashes are retained in four scoped ae9 reports.
+
+Candidate e30be553 changes only affected cap tilts and an opt-in fish root placement with exactlegacydefaults.25focusedPASS, nine negative controls detected/restored (initialharness wording failure retained and corrected), root9PASS;28Pilot roster/38unique unaffected rigs exact. Actual replacement8stage images remainOPEN. The new reviewedworkflow mode reuses onlyexisting twofamily capturejobs: familyviews/distance andexact8motion, no false248aggregate. All other oldmodes preserved.
+
+Ad96 sceneCI dedicatedSUCCESS butmeguruFAIL at unchangedsave afterwarmup+3cycle forestreadiness;no scenePASS. FailedJSON recovery first rejected emptyfamilies request; request corrected withnonemptydog and selector/count preflight. Cause remainsunproven; naturalcitymap initialization is a source-supported candidate only. Preserve strictguards pendingactual diagnostics.

@@ -1,5 +1,5 @@
 {
-  "baseCommit": "9528525d3a83b677e92e9fde99fe59c2447f4ee7",
+  "baseCommit": "494e426bd01b777b1ae6af9276d31cad28614596",
   "checkpoint": "all293-exact-fourview-models-registered-final-integration-open",
   "coverage": {
     "exact": 293,
@@ -157,7 +157,10 @@
     "sceneDiagnostics": "QA-only49616900:24focusedPASS,2controlsRED/exactrestored,root4PASS,C0/I0. Timeout phase/expected/actual actor-resource snapshots and restoration now persisted before failedverdict propagates. All strict count/save/cache gates unchanged. 11functional/save/metrics exports byte-identical to6df; [qa:runtime] [qa:scene] reuses45actualPASS and reruns scene/defaultmetrics only. Actualscene notfixed/attributed.",
     "artifactRecoveryActual": "952Recovery37927800328 completed all20 artifacts/421 verified blob entries then422 tree; no image approval. Connector chained100-entry trees recovered exactly421new files via unpublished194bc1b5; all3113rawfiles SHA256/sizeverified. Permanent100entrybatch fix22PASS with oldcodeRED,C0/I0; source/lease guards unchanged.",
     "sceneReadyBaseline": "aa035 actual diagnostic baseline7 versus warmed11 identified partial scene readiness, no runtime change. QA c0f71010 exact current-view eligible roster/template warmup precedes baseline;26focusedPASS,2controlsRED/restored,C0/I0.",
-    "cityCacheContract": "23b351b6 QA only: natural city preserves hidden original Pilot cache; strict same scene/holder/canvas identity+bounded resources, explicitoff0 and exactforest/save gates.27focusedPASS,4controlsRED/restored,root3PASS,C0/I0. Renderer/runtime exact immutablePilot;11functional/metrics exports exact6df. Actualscene/defaultmetricsOPEN."
+    "cityCacheContract": "23b351b6 QA only: natural city preserves hidden original Pilot cache; strict same scene/holder/canvas identity+bounded resources, explicitoff0 and exactforest/save gates.27focusedPASS,4controlsRED/restored,root3PASS,C0/I0. Renderer/runtime exact immutablePilot;11functional/metrics exports exact6df. Actualscene/defaultmetricsOPEN.",
+    "playerMotionActual": "ae9 recovered86boards/2752cells actuallyviewed:78stagePASS,8stageREJECT (mushroom5/6/7 capfaceclearance;clownfish2/3/5/6/7 dislike fin gap). Rawzoom confirmation retained in four scoped reports. Early5families80normaldistancePASS. Replacement8stage gateOPEN; no full248x32claim.",
+    "sceneActualAd96": "Character37929709480FAILURE;dedicated113817149250SUCCESS. Meguru113817149491 reacheswarmup+3cycles forestREADY then unchangedsaveFAIL. No scenePASSclaim; originalruntime/Pilotunchanged. FailedJSONartifact11615707537 pendingrecovery. First494recovery37930323713failed invalidemptyfamilies request; correctednonemptydog, no403retry.",
+    "motionRepairCandidate": "e30be553 only3captilts+5clownfishrootFactor optins, factorylegacydefaults exact.25focusedPASS+root9PASS;8formerrows and1legacydefault negativecontrols detected/exactrestored, harnesswordingfailure retained/repaired;28Pilot/38unique unaffected rigs exact. IndependentC0/I0. Fresh8stage4view/32state/2distancegateOPEN."
   },
   "next": [
     "Run reviewed [qa:runtime] [qa:scene] QA against unchangedproduction; retain6df45role actualPASS. Complete boundedMushroom5/6/7 andClownfish2 motion repair then actual scoped recapture/review.",
@@ -196,7 +199,7 @@
     ],
     "candidateBatchInProgress": [],
     "missingLegacyFourViewRecords": [],
-    "full293Integration": "OPEN",
+    "full293Integration": "OPEN:8stagevisualrepairs and actualscene/save/defaultmetrics remaining;Human/iPhoneseparate",
     "humanQA": "OPEN_SEPARATE",
     "iPhoneQA": "OPEN_SEPARATE",
     "candidateBatchReview": "All45nonplayer models actualimagePASS andregistered. Finalproduction-presenter/scene/gallery/performance gatesOPEN.",
@@ -213,7 +216,7 @@
       "homeRun": 37890612549,
       "homeStatus": "SUCCESS"
     },
-    "playerImageIntegration": "Actual86stage motion review in progress: confirmed REJECT Mushroom5/6/7 face occlusion and Clownfish2 fin join under investigation; exact scoped reports in ae9 export/reviews. Early5family80normaldistance actually reviewedPASS. Existing136full32 and26Pilot minimum gates reused; no all248x32claim."
+    "playerImageIntegration": "86stage/2752cellactualreviewcomplete:78PASS/8REJECT;boundedrepairreplacementOPEN. Early5family80normaldistancePASS. Prior136full32+26Pilot minimum unchanged evidence retained."
   },
   "verificationHistoryNote": "verification entries are source-scoped historical evidence. Current coverage/currentGates/next identify the active state; older pending or REJECT records are not current verdicts."
 }
