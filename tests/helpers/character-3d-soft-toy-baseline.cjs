@@ -27,4 +27,4 @@ async function assertSoftToyDefaults(softToy,stages){
  const {softToy:originalSoftToy}=await import('../fixtures/character-3d-soft-toy-before-small-mammals.mjs');
  for(let n=1;n<=8;n++){assert.ok(stages[n],`plush:${n}: existing stage`);const key=`plush:${n}`,sp=stages[n];sameRigDefaults(softToy(sp,key),originalSoftToy(sp,key),key);}
 }
-module.exports={assertSoftToyDefaults};
+module.exports={assertSoftToyDefaults,sameRigDefaults};

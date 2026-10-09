@@ -954,3 +954,10 @@ Remainingplan recorded innonplayer-execution-plan.md;source-derivedcandidates us
 - Added source-derived otter/monkey/sheep/seal/hedgehog through existingsoft_toy opt-in fields. Task3 focused13PASS and15/15mutationsdetected/restored; independentreviewC0/I0. Main integrated13+selector6=19PASS. Existing12nonplayer rows/geometry preserved by independentcomparison;28Pilotgeometry+animationhashesidentical.
 - All10mammals remaincandidate-only; scopedcapture/mutationselection includes bothbatches. Existing actualapprovedClock/Owl/Punyu/Parrot records retained. Coverage257/293,36nonplayerspending; imagegate andfinal293/Human/iPhonegates remainOPEN.
 - Final combined313dedicatedPASS/0FAIL/exit0;Task2fix2reviewC0/I0. ExactNode22 rootcause notprovenlocally; CI confirmation pending. No fullnpm repeated.
+
+## Birds/reptiles candidates and reusable legacy evidence
+- Task4 fivecandidate roles remainunregistered:bat,chicken,penguin_friend,snail,chameleon. Existingsoft_toy/plumed_bird opt-ins only;actualsourceposes includehangingbat/slidingpenguin/head-owned canonicalsnailface.14candidate+28priorfocusedtestsPASS;15/15mutationsdetected/restored.17existingnonplayer records/rigs preserved exactly in same runtime;sourceplush8/Phoenix/Parrotdefaults preserved. Selector7PASS.
+- Prior308Character dedicatedregressionstepSUCCESS onNode22;fullrun/capture stillpending. Controller omittedexisting[qa:nonplayer]commit tag, causingexpandedcapture/CI;no redundantrestart andfuturecandidate savesusecorrecttag.313localdedicated result belongs308source,beforeTask4.
+- Historicalcat_friend/shiba quality3cf7b rightmostfourviewtiles actuallyinspected. Source/currentgeometry+32stateanimationhashes exactlymatch;provenance/imageSHA inlegacy-four-view-review.json. Reuseforintegrationmapping;doesnotclosefullstates/distance/Human/iPhonegates.
+- Coverage257/293 remainsunchanged.15candidatesawaitactualimageQA;next4unusualcompanions underwayin isolation.
+- Task4 independentreviewC0/I0 and9independentscopedPASS;all3productionSHA matchrestorationlog. Integrated28Pilotgeometry+animationhashesidentical. ActualimageQA remainsOPEN.

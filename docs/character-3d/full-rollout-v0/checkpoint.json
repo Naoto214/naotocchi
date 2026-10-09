@@ -1,6 +1,6 @@
 {
-  "baseCommit": "284ebdacf111ce790c17212d65b2b8986e08f214",
-  "checkpoint": "nonplayer-ten-mammal-candidates",
+  "baseCommit": "3083126a75d1044da2f68142a5a46d789556895c",
+  "checkpoint": "birds-reptiles-isolated-candidates",
   "coverage": {
     "exact": 257,
     "total": 293,
@@ -102,7 +102,9 @@
     "smallMammalCI": "aabd Character37888909373 dedicated113685130130FAIL inregressionstep beforeselector;capture113685129838lastIN_PROGRESS. LocalNode24 integrated299PASS;CI usesNode22,rootcauseunknown. ZIP11597204233 connector download403. FailureTAPwillbeprintedtoActionslogs withoutweakeninggate.",
     "smallMammalDiagnosticCI": "284ebdac Character37889668789 FAIL only fixed plush06 hash expectation; capture113687497568SUCCESS. Replaced cross-runtime hash with SHA-pinned original factory evaluated on same runtime; exact geometry/topology/bone/face comparison, default tessellation mutation detected/restored. Node22 CI confirmation pending.",
     "otherMammalCandidates": "Task3 source-derived otter/monkey/sheep/seal/hedgehog via existingsoft_toy;13focusedPASS,15mutationsdetected/restored;independent reviewC0/I0,12existingrows/geometry unchanged. Integrated13+selector6PASS;actualimagegateOPEN,none registered.",
-    "tenMammalBatch": "Integrated313dedicatedPASS,0FAIL,exit0;28Pilotgeometry+animationhashesidentical;Task2fix2reviewC0/I0,defaultgeometrymutationdetected/restored;Task3reviewC0/I0. Node22CI and10actualimagegatesOPEN."
+    "tenMammalBatch": "Integrated313dedicatedPASS,0FAIL,exit0;28Pilotgeometry+animationhashesidentical;Task2fix2reviewC0/I0,defaultgeometrymutationdetected/restored;Task3reviewC0/I0. Node22CI and10actualimagegatesOPEN.",
+    "birdsReptilesCandidates": "Task4 55b7a2b8:5source-derived isolatedcandidates;14candidate+28priorfocusedtestsPASS,15/15mutationsdetected/restored;17existingnonplayerrecords/rigsexact same-runtime preservation;sourceplush8/Phoenix/Parrotdefaults preserved. Selector7PASS;actualimagegatesOPEN. Independent9scopedPASS,reviewC0/I0;28Pilotgeometry+animationhashesidentical afterintegration.",
+    "tenMammalCI": "3083126a Character37890605974 dedicatedregressionstepSUCCESS(Node22);unscopedmutations/capture/aggregate stillIN_PROGRESS. Controlleromitted[qa:nonplayer]tag causingexpandedrun;futurecandidate commitsuseexistingtag. No extraCI restart."
   },
   "next": [
     "Diagnose dedicatedCI failure fromretainedActionsTAP;no5candidate imageapproval/promotion until resolved",
@@ -151,7 +153,12 @@
       "companion:monkey",
       "companion:sheep",
       "companion:seal",
-      "companion:hedgehog"
+      "companion:hedgehog",
+      "companion:bat",
+      "companion:chicken",
+      "companion:penguin_friend",
+      "companion:snail",
+      "companion:chameleon"
     ],
     "missingLegacyFourViewRecords": [
       "companion:cat_friend",
@@ -160,7 +167,15 @@
     "full293Integration": "OPEN",
     "humanQA": "OPEN_SEPARATE",
     "iPhoneQA": "OPEN_SEPARATE",
-    "candidateBatchReview": "Task2+Task3 implementation/review C0/I0;10 isolatedcandidates;actual4views32states2distance gates OPEN"
+    "candidateBatchReview": "Task2/Task3/Task4 implementation+independentreviewC0/I0;15isolatedcandidates;actual4views32states2distance gatesOPEN",
+    "selectedCaptureBatch": [
+      "companion:bat",
+      "companion:chicken",
+      "companion:penguin_friend",
+      "companion:snail",
+      "companion:chameleon"
+    ],
+    "legacyFourViewReuse": "Existingcf7b comparisonboards forcat_friend/shiba actually reviewed;exactsource/currentgeometry+animationhashmatch;legacy-four-view-review.json saved. Coverageboardmapping pendingintegration;no recapture/reimplementationneededfortheseviews."
   },
   "verificationHistoryNote": "verification entries are source-scoped historical evidence. Current coverage/currentGates/next identify the active state; older pending or REJECT records are not current verdicts."
 }

@@ -1,6 +1,6 @@
 // Closed, curved feather volumes and one bird owner; original paths are data.
-import {THREE,ellipsoid,sweep,lathe,xform,paint,solid,mix,outlineLoft,merge} from './geometry.mjs';
-import {Rig} from './rig.mjs';
+import {THREE,ellipsoid,sweep,lathe,xform,paint,solid,mix,outlineLoft,merge} from '../../character-3d/geometry.mjs';
+import {Rig} from '../../character-3d/rig.mjs';
 export function plumeGeometry(q){
  const curve=new THREE.CatmullRomCurve3(q.path.map(p=>new THREE.Vector3(...p)),false,'centripetal'),w=q.width;
  const g=outlineLoft([[0,0],[-w*.75,.20],[-w,.43],[-w*.7,.72],[0,1],[w*.68,.70],[w,.40],[w*.7,.18]],q.depth||.010,22,4),p=g.attributes.position,edge=[];
@@ -20,7 +20,7 @@ export function plumedBird(sp,key){
   for(const spread of [-1,0,1])parts.push(solid(sweep([[side*.02,-.30,.035],[side*.02+spread*.04,-.325,.10],[side*.02+spread*.075,-.34,.19-Math.abs(spread)*.02]],t=>sp.legs.radius*.8*(1-t*.75),6,{steps:6}),c.feet));
   parts.push(solid(sweep([[side*.02,-.30,.025],[side*.015,-.33,-.055],[side*.01,-.34,-.09]],t=>sp.legs.radius*.65*(1-t*.8),6,{steps:5}),c.feet));
   const scale=sp.legs.scale||1;
-  r.add(side<0?'footL':'footR','root',[side*sp.legs.spread,sp.legs.y??.36*scale,.025],scale===1?parts:parts.map(g=>xform(g,{scale:[scale,scale,scale]})));
+  r.add(side<0?'footL':'footR','root',[side*sp.legs.spread,.36*scale,.025],scale===1?parts:parts.map(g=>xform(g,{scale:[scale,scale,scale]})));
  }
  if(sp.embers){
   const e=sp.embers,coals=[solid(lathe([[0,.025],[e.radius*.92,.025],[e.radius*.88,.075],[e.radius*.60,e.height*.60],[e.radius*.30,e.height*.90],[0,e.height]],24),e.colors[0])];
