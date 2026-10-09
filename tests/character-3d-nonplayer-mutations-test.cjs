@@ -18,6 +18,9 @@ test('shared wave and mammal tools run once in first-selected order', () => {
   assert.deepEqual(selectScripts({ keys: ['companion:box', 'partner:sunflower_partner', 'companion:box'] }), ['nonplayer-wave-remove-it.cjs']);
   assert.deepEqual(selectScripts({ keys: ['companion:rabbit_friend', 'companion:tanuki', 'companion:squirrel', 'companion:hamster', 'companion:panda', 'companion:clock'] }), ['small-mammal-remove-it.cjs', 'clock-remove-it.cjs']);
 });
+test('other mammal batch selects its shared mutation tool once', () => {
+  assert.deepEqual(selectScripts({ keys: ['otter', 'monkey', 'sheep', 'seal', 'hedgehog'].map(key => 'companion:' + key) }), ['other-mammal-remove-it.cjs']);
+});
 test('malformed and unsupported selections fail before spawning any tool', () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'nonplayer-selection-'));
   let calls = 0;

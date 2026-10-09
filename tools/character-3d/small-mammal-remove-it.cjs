@@ -4,6 +4,7 @@ const run=pattern=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap'
 const files=[spec,factory],originals=new Map(files.map(file=>[file,fs.readFileSync(file)])),sha=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const restored=()=>{for(const [file,bytes]of originals)assert.ok(fs.readFileSync(file).equals(bytes),`${file}: restored source bytes`);};
 const cases=[
+ ['existing plush default geometry',factory,'ellipsoid(...size,markings?40:20,markings?28:14)','ellipsoid(...size,markings?40:18,markings?28:14)','optional soft toy morphology'],
  ['closed-expression eye clearance',spec,"name:'heldLeaf',bone:'body',at:[0,.08,.325],color:'#65852f'","name:'heldLeaf',bone:'head',at:[-.112,.05,.35],color:'#65852f'",'closed-expression eyes remain clear','closed-expression/positive/frame0'],
  ['rabbit long ear',spec,'size:[.074,.36,.052]','size:[.074,.08,.052]','rabbit has'],
  ['rabbit raised forefeet',spec,'arms:{at:[.245,.185,.235]','arms:{at:[.245,.04,.235]','rabbit has'],

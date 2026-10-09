@@ -1,5 +1,5 @@
 // Seated stuffed animal with sewn surface patches and an owned solid prop.
-import {THREE,ellipsoid,sweep,xform,paint,solid,mix,merge} from './geometry.mjs';
+import {THREE,ellipsoid,sweep,xform,paint,solid,mix,merge,clamp} from './geometry.mjs';
 import {Rig} from './rig.mjs';
 function patchParts(q,size,stitched){
  const n=new THREE.Vector3(...q.direction).normalize(),u=new THREE.Vector3().crossVectors(new THREE.Vector3(0,1,0),n).normalize(),v=new THREE.Vector3().crossVectors(n,u).normalize();
@@ -19,8 +19,8 @@ function seamParts(q,size){
 export function softToy(sp,key){
  const r=new Rig(key,'soft_toy','waddle'),c=sp.colors,b=sp.body,h=sp.head;
  // Natural markings are painted on the closed skull/body; no second face mesh.
- const volume=(size,at,color,rotation=[0,0,0],markings=null)=>paint(xform(ellipsoid(...size,markings?40:20,markings?28:14),{pos:at,rot:rotation}),(x,y,z,nx,ny,nz)=>{
-  for(const q of markings||[]){const dx=x-q.at[0],dy=y-q.at[1],a=q.angle||0,u=dx*Math.cos(a)+dy*Math.sin(a),v=-dx*Math.sin(a)+dy*Math.cos(a);if(nz>.18&&(u/q.size[0])**2+(v/q.size[1])**2<1)return q.color;}
+ const volume=(size,at,color,rotation=[0,0,0],markings=null,segments=null)=>paint(xform(ellipsoid(...size,segments?.[0]||(markings?40:20),segments?.[1]||(markings?28:14)),{pos:at,rot:rotation}),(x,y,z,nx,ny,nz)=>{
+  for(const q of markings||[]){const dx=x-q.at[0],dy=y-q.at[1],a=q.angle||0,u=dx*Math.cos(a)+dy*Math.sin(a),v=-dx*Math.sin(a)+dy*Math.cos(a);if((q.side==='back'?nz<-.18:nz>.18)&&(u/q.size[0])**2+(v/q.size[1])**2<1)return q.color;}
   return mix(color,c.light,Math.max(0,nz)*.14+Math.max(0,ny)*.18);
  });
  const body=[volume(b.size,[0,0,0],b.color||c.body,[0,0,0],b.markings),...(sp.seams||[]).filter(q=>q.bone==='body').flatMap(q=>seamParts(q,b.size)),...sp.patches.filter(q=>q.bone==='body').flatMap(q=>patchParts(q,b.size,sp.stitches))];r.add('body','root',[0,b.y,0],body,'opaque',b.rotation||[0,0,0]);
@@ -32,12 +32,15 @@ export function softToy(sp,key){
  }
  parts.push(...(sp.seams||[]).filter(q=>q.bone==='head').flatMap(q=>seamParts(q,h.size)),...sp.patches.filter(q=>q.bone==='head').flatMap(q=>patchParts(q,h.size,sp.stitches)));r.add('head','body',h.at,parts,'opaque',[0,0,h.roll]);
  for(const side of [-1,1]){const a=sp.armSides?.[side<0?'left':'right']||sp.arms;const limb=[volume(a.size,[0,0,0],a.color||c.body)];for(const q of sp.patches.filter(q=>q.bone===(side<0?'armL':'armR')))limb.push(...patchParts(q,a.size,sp.stitches));if(sp.stuffing)for(const x of [-.035,0,.035])limb.push(volume([.045,.055,.04],[x,-a.size[1],a.size[2]*.25],c.muzzle));r.add(side<0?'armL':'armR','body',[side*a.at[0],a.at[1],a.at[2]],limb,'opaque',[0,0,side*a.roll]);
-  r.add(side<0?'footL':'footR','body',[side*sp.feet.at[0],sp.feet.at[1],sp.feet.at[2]],[volume(sp.feet.size,[0,0,0],sp.feet.color||c.body),volume([sp.feet.size[0]*.64,sp.feet.size[1]*.68,.025],[0,.015,sp.feet.size[2]*.93],c.pad),...sp.patches.filter(q=>q.bone===(side<0?'footL':'footR')).flatMap(q=>patchParts(q,sp.feet.size,sp.stitches))]);
+  r.add(side<0?'footL':'footR','body',[side*sp.feet.at[0],sp.feet.at[1],sp.feet.at[2]],sp.feet.enabled===false?null:[volume(sp.feet.size,[0,0,0],sp.feet.color||c.body),volume([sp.feet.size[0]*.64,sp.feet.size[1]*.68,.025],[0,.015,sp.feet.size[2]*.93],c.pad),...sp.patches.filter(q=>q.bone===(side<0?'footL':'footR')).flatMap(q=>patchParts(q,sp.feet.size,sp.stitches))]);
  }
  // Optional closed appendages/props inherit an existing owner bone and its motion.
  for(const q of [...(sp.tail?[{...sp.tail,name:'tail',bone:'body'}]:[]),...(sp.details||[])]){
-  const parts=(q.volumes||[]).map(v=>volume(v.size,v.at,v.color||q.color,v.rotation||[0,0,0]));
-  for(const p of q.paths||[])parts.push(solid(sweep(p.path,t=>p.radius*(1-(p.taper||0)*t),p.radial||10,{steps:p.steps||24,flat:p.flat||1}),p.color||q.color));
+  const parts=(q.volumes||[]).map(v=>volume(v.size,v.at,v.color||q.color,v.rotation||[0,0,0],null,v.segments));
+  for(const p of q.paths||[]){const g=sweep(p.path,t=>p.radius*(1-(p.taper||0)*t),p.radial||10,{steps:p.steps||24,flat:p.flat||1});
+   if(p.tip){const start=new THREE.Vector3(...p.path[0]),axis=new THREE.Vector3(...p.path.at(-1)).sub(start),lengthSq=axis.lengthSq();parts.push(paint(g,(x,y,z)=>mix(p.color||q.color,p.tip,clamp((new THREE.Vector3(x,y,z).sub(start).dot(axis)/lengthSq-.60)/.30,0,1))));}
+   else parts.push(solid(g,p.color||q.color));
+  }
   r.add(q.name,q.bone||'body',q.at||[0,0,0],parts,'opaque',q.rotation||[0,0,0]);
  }
  if(sp.bow){const q=sp.bow,parts=[volume([.042,.04,.032],[0,0,.014],q.color)];for(const side of [-1,1]){parts.push(solid(xform(ellipsoid(.085,.055,.035,12,8),{pos:[side*.085,0,0],rot:[0,0,side*.28]}),q.color));parts.push(solid(xform(ellipsoid(.03,.07,.019,10,6),{pos:[side*.054,-.061,-.005],rot:[0,0,side*.5]}),q.color));}r.add('bow','body',q.at,parts);}

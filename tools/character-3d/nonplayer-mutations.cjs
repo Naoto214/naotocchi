@@ -14,6 +14,8 @@ const scriptsByKey = new Map([
   ['partner:sunflower_partner', 'nonplayer-wave-remove-it.cjs'],
   ...['rabbit_friend', 'tanuki', 'squirrel', 'hamster', 'panda']
     .map(key => ['companion:' + key, 'small-mammal-remove-it.cjs']),
+  ...['otter', 'monkey', 'sheep', 'seal', 'hedgehog']
+    .map(key => ['companion:' + key, 'other-mammal-remove-it.cjs']),
 ]);
 
 function selectScripts(config) {

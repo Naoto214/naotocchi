@@ -948,3 +948,9 @@ Remainingplan recorded innonplayer-execution-plan.md;source-derivedcandidates us
 - Character37888909373 dedicated113685130130 failed inFreshinventory/dedicated before scopedselector. LocalNode24 299PASS remainslocal-only;CI Node22failure isnotPASS. Capture wasstillrunning atlastcheck.
 - FailureTAP existed onlyinartifact11597204233;connectorprovideddownloadalso403,notretried. Existingworkflow nowprintsTAPonfailureand exits1, preservingtestcommand/allgates. IndependentreviewC0/I0 andbashfailureprobeconfirmednonzero. Systematicdebugging gathersactualerror beforeproductionfix.
 - Task2five remainunregistered/imageOPEN. Task3 isolatedcandidateworkcontinues.
+
+## Ten mammal candidates — scoped continuation
+- Fresh remote284ebdac matched localHEAD/tree/clean. Character37889668789 capture113687497568SUCCESS, dedicated113687497785FAIL: only fixed plush06 byte-hash expectation differs in Node22 CI versus Node24 local. Test failure is preserved; no candidate imagePASS or promotion claimed. Same-runtime frozenbaseline comparison replaces this brittle hash: SHA-pinned pre-Task2 factory, exact attributes/index/owner/transforms/face comparison; defaulttessellation negativecontrol detected/restored. Node22CI confirmation remains pending.
+- Added source-derived otter/monkey/sheep/seal/hedgehog through existingsoft_toy opt-in fields. Task3 focused13PASS and15/15mutationsdetected/restored; independentreviewC0/I0. Main integrated13+selector6=19PASS. Existing12nonplayer rows/geometry preserved by independentcomparison;28Pilotgeometry+animationhashesidentical.
+- All10mammals remaincandidate-only; scopedcapture/mutationselection includes bothbatches. Existing actualapprovedClock/Owl/Punyu/Parrot records retained. Coverage257/293,36nonplayerspending; imagegate andfinal293/Human/iPhonegates remainOPEN.
+- Final combined313dedicatedPASS/0FAIL/exit0;Task2fix2reviewC0/I0. ExactNode22 rootcause notprovenlocally; CI confirmation pending. No fullnpm repeated.

@@ -1,6 +1,6 @@
 {
-  "baseCommit": "aabd4af3052ea88632a29229ccf649cdff7eac6b",
-  "checkpoint": "small-mammal-ci-diagnostic-output",
+  "baseCommit": "284ebdacf111ce790c17212d65b2b8986e08f214",
+  "checkpoint": "nonplayer-ten-mammal-candidates",
   "coverage": {
     "exact": 257,
     "total": 293,
@@ -11,7 +11,7 @@
     "partners": 2
   },
   "verification": {
-    "dedicatedPass": 299,
+    "dedicatedPass": 313,
     "rolloutMutationsDetected": 33,
     "pilotHashesUnchanged": 28,
     "fullNpm": "8b6fcae fixed implementation:3017PASS+Relationship80PASS,0FAIL,exit0; full log/result archived. Before Star expansion/Unknown promotion.",
@@ -99,7 +99,10 @@
     "parrotCrestCandidateCI": "980b6925 Character37885627048/Runtime37885633501/Home37885633539SUCCESS.",
     "scopedNonplayerCI": "Reviewedafcac5c3 selector mapsselectedkeys toexistingmutationtools, validatesbeforeexecution/deduplicates/failsunsupportedkeys;5testsPASS,actualCactus4mutations/restored,reviewC0/I0. Unscopedintegration unchanged.",
     "smallMammalCandidates": "Task2 reviewed7b156a90+dbad339d:fiveisolatedsoft_toycandidates;12focused/15mutations plus6fixedeyechecks/1closedeye-obstruction mutation PASS/restored. ReviewC0/I0 afterImportanttestcoveragefix. Existing7savedrowsdeep-equal,8plushgeometryhashesunchanged;actualimagesOPEN.",
-    "smallMammalCI": "aabd Character37888909373 dedicated113685130130FAIL inregressionstep beforeselector;capture113685129838lastIN_PROGRESS. LocalNode24 integrated299PASS;CI usesNode22,rootcauseunknown. ZIP11597204233 connector download403. FailureTAPwillbeprintedtoActionslogs withoutweakeninggate."
+    "smallMammalCI": "aabd Character37888909373 dedicated113685130130FAIL inregressionstep beforeselector;capture113685129838lastIN_PROGRESS. LocalNode24 integrated299PASS;CI usesNode22,rootcauseunknown. ZIP11597204233 connector download403. FailureTAPwillbeprintedtoActionslogs withoutweakeninggate.",
+    "smallMammalDiagnosticCI": "284ebdac Character37889668789 FAIL only fixed plush06 hash expectation; capture113687497568SUCCESS. Replaced cross-runtime hash with SHA-pinned original factory evaluated on same runtime; exact geometry/topology/bone/face comparison, default tessellation mutation detected/restored. Node22 CI confirmation pending.",
+    "otherMammalCandidates": "Task3 source-derived otter/monkey/sheep/seal/hedgehog via existingsoft_toy;13focusedPASS,15mutationsdetected/restored;independent reviewC0/I0,12existingrows/geometry unchanged. Integrated13+selector6PASS;actualimagegateOPEN,none registered.",
+    "tenMammalBatch": "Integrated313dedicatedPASS,0FAIL,exit0;28Pilotgeometry+animationhashesidentical;Task2fix2reviewC0/I0,defaultgeometrymutationdetected/restored;Task3reviewC0/I0. Node22CI and10actualimagegatesOPEN."
   },
   "next": [
     "Diagnose dedicatedCI failure fromretainedActionsTAP;no5candidate imageapproval/promotion until resolved",
@@ -143,7 +146,12 @@
       "companion:tanuki",
       "companion:squirrel",
       "companion:hamster",
-      "companion:panda"
+      "companion:panda",
+      "companion:otter",
+      "companion:monkey",
+      "companion:sheep",
+      "companion:seal",
+      "companion:hedgehog"
     ],
     "missingLegacyFourViewRecords": [
       "companion:cat_friend",
@@ -152,7 +160,7 @@
     "full293Integration": "OPEN",
     "humanQA": "OPEN_SEPARATE",
     "iPhoneQA": "OPEN_SEPARATE",
-    "candidateBatchReview": "Task2 implementation/reviewPASS C0/I0 afterclosed-eye coveragefix;actualimagegateOPEN"
+    "candidateBatchReview": "Task2+Task3 implementation/review C0/I0;10 isolatedcandidates;actual4views32states2distance gates OPEN"
   },
   "verificationHistoryNote": "verification entries are source-scoped historical evidence. Current coverage/currentGates/next identify the active state; older pending or REJECT records are not current verdicts."
 }
