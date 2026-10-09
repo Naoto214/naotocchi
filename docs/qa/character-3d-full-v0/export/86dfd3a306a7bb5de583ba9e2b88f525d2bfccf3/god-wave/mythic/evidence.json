@@ -1,0 +1,871 @@
+{
+  "source": "86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3",
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "evidence": [
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1934,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.16735774542935697,
+          0.19846328238475808,
+          -0.1575131669913158
+        ],
+        [
+          0.16735774542935697,
+          0.7627520594339413,
+          0.16820442585375814
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1934,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.16735774542935697,
+          0.19846328238475808,
+          -0.1575131669913158
+        ],
+        [
+          0.16735774542935697,
+          0.7627520594339413,
+          0.16820442585375814
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1934,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.16735774542935697,
+          0.19846328238475808,
+          -0.1575131669913158
+        ],
+        [
+          0.16735774542935697,
+          0.7627520594339413,
+          0.16820442585375814
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1934,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.16735774542935697,
+          0.19846328238475808,
+          -0.1575131669913158
+        ],
+        [
+          0.16735774542935697,
+          0.7627520594339413,
+          0.16820442585375814
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4828,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.33932416506350427,
+          0.23782677849109118,
+          -0.18765652509190978
+        ],
+        [
+          0.33932416506350427,
+          0.9214978230481489,
+          0.1902533218656259
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4828,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.33932416506350427,
+          0.23782677849109118,
+          -0.18765652509190978
+        ],
+        [
+          0.33932416506350427,
+          0.9214978230481489,
+          0.1902533218656259
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4828,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.33932416506350427,
+          0.23782677849109118,
+          -0.18765652509190978
+        ],
+        [
+          0.33932416506350427,
+          0.9214978230481489,
+          0.1902533218656259
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4828,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.33932416506350427,
+          0.23782677849109118,
+          -0.18765652509190978
+        ],
+        [
+          0.33932416506350427,
+          0.9214978230481489,
+          0.1902533218656259
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9474,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.20750591160361725,
+          -0.35013102513657424
+        ],
+        [
+          0.5543058900167388,
+          1.5103797673826578,
+          0.38355995178222657
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9474,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.20750591160361725,
+          -0.35013102513657424
+        ],
+        [
+          0.5543058900167388,
+          1.5103797673826578,
+          0.38355995178222657
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9474,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.20750591160361725,
+          -0.35013102513657424
+        ],
+        [
+          0.5543058900167388,
+          1.5103797673826578,
+          0.38355995178222657
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9474,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.20750591160361725,
+          -0.35013102513657424
+        ],
+        [
+          0.5543058900167388,
+          1.5103797673826578,
+          0.38355995178222657
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10674,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.20750591160361725,
+          -0.35013102513657424
+        ],
+        [
+          0.6047830476771865,
+          1.5111849417596421,
+          0.3563701605796814
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10674,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.20750591160361725,
+          -0.35013102513657424
+        ],
+        [
+          0.6047830476771865,
+          1.5111849417596421,
+          0.3563701605796814
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10674,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.20750591160361725,
+          -0.35013102513657424
+        ],
+        [
+          0.6047830476771865,
+          1.5111849417596421,
+          0.3563701605796814
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10674,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.20750591160361725,
+          -0.35013102513657424
+        ],
+        [
+          0.6047830476771865,
+          1.5111849417596421,
+          0.3563701605796814
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14694,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.1845602138449426,
+          -0.4791798974907467
+        ],
+        [
+          0.7233789248397168,
+          1.6147474495805223,
+          0.32883710622787476
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14694,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.1845602138449426,
+          -0.4791798974907467
+        ],
+        [
+          0.7233789248397168,
+          1.6147474495805223,
+          0.32883710622787476
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14694,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.1845602138449426,
+          -0.4791798974907467
+        ],
+        [
+          0.7233789248397168,
+          1.6147474495805223,
+          0.32883710622787476
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14694,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.1845602138449426,
+          -0.4791798974907467
+        ],
+        [
+          0.7233789248397168,
+          1.6147474495805223,
+          0.32883710622787476
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.15206521712475185,
+          -0.4791798974907467
+        ],
+        [
+          0.7233789248397168,
+          1.7453902986704672,
+          0.32883710622787476
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.15206521712475185,
+          -0.4791798974907467
+        ],
+        [
+          0.7233789248397168,
+          1.7453902986704672,
+          0.32883710622787476
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.15206521712475185,
+          -0.4791798974907467
+        ],
+        [
+          0.7233789248397168,
+          1.7453902986704672,
+          0.32883710622787476
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.15206521712475185,
+          -0.4791798974907467
+        ],
+        [
+          0.7233789248397168,
+          1.7453902986704672,
+          0.32883710622787476
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7635479161121176,
+          0.06596699606959688,
+          -0.6131180473367142
+        ],
+        [
+          0.7635479161121176,
+          1.8153902986704673,
+          0.32883710622787476
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7635479161121176,
+          0.06596699606959688,
+          -0.6131180473367142
+        ],
+        [
+          0.7635479161121176,
+          1.8153902986704673,
+          0.32883710622787476
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7635479161121176,
+          0.06596699606959688,
+          -0.6131180473367142
+        ],
+        [
+          0.7635479161121176,
+          1.8153902986704673,
+          0.32883710622787476
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7635479161121176,
+          0.06596699606959688,
+          -0.6131180473367142
+        ],
+        [
+          0.7635479161121176,
+          1.8153902986704673,
+          0.32883710622787476
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7508,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.543418194880397,
+          0.19589959638368737,
+          -0.23704846925870884
+        ],
+        [
+          0.543418194880397,
+          1.335030146298881,
+          0.23704846925870884
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7508,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.543418194880397,
+          0.19589959638368737,
+          -0.23704846925870884
+        ],
+        [
+          0.543418194880397,
+          1.335030146298881,
+          0.23704846925870884
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7508,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.543418194880397,
+          0.19589959638368737,
+          -0.23704846925870884
+        ],
+        [
+          0.543418194880397,
+          1.335030146298881,
+          0.23704846925870884
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7508,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.543418194880397,
+          0.19589959638368737,
+          -0.23704846925870884
+        ],
+        [
+          0.543418194880397,
+          1.335030146298881,
+          0.23704846925870884
+        ]
+      ]
+    }
+  ],
+  "errors": []
+}

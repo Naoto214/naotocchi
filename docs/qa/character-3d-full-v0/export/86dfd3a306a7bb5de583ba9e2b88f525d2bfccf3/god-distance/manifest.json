@@ -1,0 +1,96 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3",
+  "artifact": {
+    "id": 11591597496,
+    "name": "full-rollout-mythic-distance-god-86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3",
+    "digest": "sha256:2ea142239c442d8282a2fcb88219f7ae736c7c6acc4acbce2c0ac0334fdc70b5"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "192c7b3fbba7b60c812bda5a477abcf8395750abee5e000ccea78f9671d38107",
+      "bytes": 7373
+    },
+    {
+      "path": "player-god-1-back.png",
+      "sha256": "4209363009ab1648e462cb2586f78f9dcb7dd10b00ac7fcc5e659bce7b57237c",
+      "bytes": 307075
+    },
+    {
+      "path": "player-god-1-front.png",
+      "sha256": "96b6c9862fb274875741f9463f8b5348851bc217a2c0bb900fb0ccb88eeea8a5",
+      "bytes": 307993
+    },
+    {
+      "path": "player-god-2-back.png",
+      "sha256": "45415ac50a90211c7b06a1a97b13f9255065e0e7922df9c63095d19f4993ff26",
+      "bytes": 306435
+    },
+    {
+      "path": "player-god-2-front.png",
+      "sha256": "e3f38ab8cc72ef44d8f521a1b120be952d6e5bebd84f660e356e17d0b0ca077a",
+      "bytes": 311212
+    },
+    {
+      "path": "player-god-3-back.png",
+      "sha256": "183c8c613541dfd2f28efce304220562de4cf399ab13a17070fb0b139401ce8d",
+      "bytes": 309231
+    },
+    {
+      "path": "player-god-3-front.png",
+      "sha256": "cd8bcfcdfc88465f17df30676ce9c4d037c932f3c24f736a65a142bc3b021c32",
+      "bytes": 313119
+    },
+    {
+      "path": "player-god-4-back.png",
+      "sha256": "25fcd7347b5ffda3ef0f74d75eaedcd0d7858d95664446b6153e8733ee8ffa07",
+      "bytes": 314073
+    },
+    {
+      "path": "player-god-4-front.png",
+      "sha256": "d6cf0c69194717f307798f3c829f256cfd514b7abe12b85dad59f5e988b32846",
+      "bytes": 315432
+    },
+    {
+      "path": "player-god-5-back.png",
+      "sha256": "e26b9cb66f9b727ca5413452d2fe267ad4dec978a87c462c32845f12e0108276",
+      "bytes": 318514
+    },
+    {
+      "path": "player-god-5-front.png",
+      "sha256": "fe4cdee7aed5a631d0dfa37db54a4877529734440669f88a01737a18577edf5a",
+      "bytes": 322270
+    },
+    {
+      "path": "player-god-6-back.png",
+      "sha256": "4342069b8a8d4781928c5f0398dac13057a5e411bb5542ec82c9c7ddfcb771d3",
+      "bytes": 314634
+    },
+    {
+      "path": "player-god-6-front.png",
+      "sha256": "07a1e9e0009793f74deb09f7edc5415e153d84809127b514c61ab3d8c4dc3dcc",
+      "bytes": 320571
+    },
+    {
+      "path": "player-god-7-back.png",
+      "sha256": "c6f3a916980c778b44fc6ed73eb3e446063c3e295228adb7f3ebf972f234af2e",
+      "bytes": 315559
+    },
+    {
+      "path": "player-god-7-front.png",
+      "sha256": "57316f52b8dabd22b1423ab598a98166690e0dda8b29c5d85a6f2d636c2146cc",
+      "bytes": 318967
+    },
+    {
+      "path": "player-god-8-back.png",
+      "sha256": "0ea942c662235d4cd58dc2cd303f6fbdfbf141455bb6f0f3f23c552cc237ceac",
+      "bytes": 312133
+    },
+    {
+      "path": "player-god-8-front.png",
+      "sha256": "c334f7599c1bc4cb727a53609d9dd5b9074a5bd15de85de3afc82949dc4763fe",
+      "bytes": 314349
+    }
+  ]
+}
