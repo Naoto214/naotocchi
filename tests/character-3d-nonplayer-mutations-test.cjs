@@ -94,3 +94,9 @@ test('clock executes alone and box/sunflower execute their shared tool once', ()
     }
   } finally { fs.rmSync(dir, { recursive: true, force: true }); }
 });
+
+test('five mammal partners select their scoped mutation tool once', () => {
+  const keys = ['field_cow', 'forest_bear', 'grove_deer', 'cliff_goat', 'gentle_gorilla'].map(key => 'partner:' + key);
+  for (const key of keys) assert.deepEqual(selectScripts({keys:[key]}), ['mammal-partner-remove-it.cjs']);
+  assert.deepEqual(selectScripts({keys:[...keys,...keys]}), ['mammal-partner-remove-it.cjs']);
+});

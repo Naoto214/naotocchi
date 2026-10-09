@@ -1,17 +1,17 @@
 {
-  "baseCommit": "d1f7199204d319ba6fe649b6cac2d7c01f92940d",
-  "checkpoint": "seven-mammal-contact-repairs-ready-for-fresh-image-gates",
+  "baseCommit": "a2878b4c361b13f9312c656c12870959dc7b4817",
+  "checkpoint": "eleven-image-approved-companions-promoted-five-partners-ready-for-image-gates",
   "coverage": {
-    "exact": 262,
+    "exact": 273,
     "total": 293,
-    "pending": 31,
+    "pending": 20,
     "playerFamilies": 31,
     "playerStages": 248,
-    "companions": 12,
+    "companions": 23,
     "partners": 2
   },
   "verification": {
-    "dedicatedPass": 344,
+    "dedicatedPass": 372,
     "rolloutMutationsDetected": 33,
     "pilotHashesUnchanged": 28,
     "fullNpm": "8b6fcae fixed implementation:3017PASS+Relationship80PASS,0FAIL,exit0; full log/result archived. Before Star expansion/Unknown promotion.",
@@ -110,12 +110,17 @@
     "task5Fix1": "5069aeda four isolated candidates:12targetPASS,21total mutation cases (17initial plus4contact;8affected rerun/restored),53 genuine frozen factory comparisons+plush8; C0/I0. Actual image gate OPEN.",
     "integrationTask45": "344 dedicated PASS,37 focused PASS; exact22+4 candidate row merge;28Pilot hashes identical. Three stale mutation selectors corrected:3/3 affected mutations detected with restored baseline and SHA256. Six updated role mutations observed RED; unchanged QA overlay reuses prior recorded RED/restoration. Current restored role baseline PASS.",
     "mammalContactFix": "b03971d9:33focusedPASS,21/21negativecontrolsRED/restoredGREEN; exact7fixed+19unchanged mergedrows; integration35PASS includingapprovedpromotionrole checks; selector10PASS andC0/I0. Sharedfactories unchanged, Pilot comparison reused fromd1.",
-    "d1CandidateCI": "Character37896316097SUCCESS, dedicated113708358659SUCCESS;artifact11600044828. Runtime37896324542/Home37896324536 lastobservedIN_PROGRESS;distinguishfromSUCCESS."
+    "d1CandidateCI": "Character37896316097SUCCESS, dedicated113708358659SUCCESS;artifact11600044828. Runtime37896324542/Home37896324536 lastobservedIN_PROGRESS;distinguishfromSUCCESS.",
+    "latestScopedMutations": "53/53 affected mammal mutations detected/restored after three stale anchors repaired; sourcee8 Character remains FAILURE, capture job SUCCESS.",
+    "latestPilotComparison": "28/28 exact hashes unchanged after Task6 quadruped body.segments opt-in; defaults preserved.",
+    "task6Candidates": "Five partner source models,18focusedPASS,13scoped mutations detected/restored; cow detached leaf fixed with constituent graph RED/GREEN; independent C0/I0; image gate OPEN.",
+    "latestImageGate": "d1 bat/snail/chameleon/sekizou PASS4; e8 seven repaired mammals PASS7: each4views32states2distance actually inspected; independent repaired-site reviews C0/I0; raw281files hash-verified per batch.",
+    "artifactRecovery": "Successful-capture opt-in reviewed C0/I0,12Python testsPASS; completed failed run may export only explicitly validated successful nonplayer capture job. Never changes failed CI conclusion or pending image status. b7392a73 Recovery37900096598 SUCCESS; e8 archivea2878b4c."
   },
   "next": [
-    "Capture and actually review corrected bat/snail/chameleon plus isolated sekizou/unicorn/many_tail_fox/watcher using existing scoped workflow and Git Data exporter. No promotion before all required images pass.",
-    "Complete localized connection fixes for seven rejected mammals, then fresh 4-view/32-state/2-distance gates. Reuse unchanged PASS evidence.",
-    "Continue partner/author candidates from nonplayer-execution-plan, then all293 integration including legacy board mapping and final npm; Human/iPhone remain separate OPEN."
+    "Capture and actually review five Task6 partners with existing scoped workflow/exporter; no promotion before full image gate.",
+    "Complete Task5 source-specific Watcher pupil, Unicorn flowing mane/tail and Fox outward tail-cap repairs; capture only three changed candidates.",
+    "Continue remaining partners and author from nonplayer-execution-plan; all293 integration and legacy four-view mapping, then one final npm run. Human/iPhone remain separate OPEN."
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",
@@ -144,37 +149,10 @@
       "status": "PASS_31_FAMILIES_248_STAGES"
     },
     "latestNonplayerImageApprovals": [
-      "companion:chicken",
-      "companion:penguin_friend",
-      "companion:panda",
-      "companion:sheep",
-      "companion:seal"
-    ],
-    "candidateBatchInProgress": [
-      "companion:rabbit_friend",
-      "companion:tanuki",
-      "companion:squirrel",
-      "companion:hamster",
-      "companion:otter",
-      "companion:monkey",
-      "companion:hedgehog",
       "companion:bat",
       "companion:snail",
       "companion:chameleon",
       "companion:sekizou",
-      "companion:unicorn",
-      "companion:many_tail_fox",
-      "companion:watcher"
-    ],
-    "missingLegacyFourViewRecords": [
-      "companion:cat_friend",
-      "companion:shiba"
-    ],
-    "full293Integration": "OPEN",
-    "humanQA": "OPEN_SEPARATE",
-    "iPhoneQA": "OPEN_SEPARATE",
-    "candidateBatchReview": "Task4fixed3+Task5new4 atd1f71992 Character37896316097SUCCESS (2success/16skipped);artifact11600044828 exportrequested. ActualimagesOPEN. Sevenmammalfix code/specC0/I0; nextscopedcapture7. Task6partner5 implementationinprogress.",
-    "selectedCaptureBatch": [
       "companion:rabbit_friend",
       "companion:tanuki",
       "companion:squirrel",
@@ -183,8 +161,33 @@
       "companion:monkey",
       "companion:hedgehog"
     ],
+    "candidateBatchInProgress": [
+      "companion:unicorn",
+      "companion:many_tail_fox",
+      "companion:watcher",
+      "partner:field_cow",
+      "partner:forest_bear",
+      "partner:grove_deer",
+      "partner:cliff_goat",
+      "partner:gentle_gorilla"
+    ],
+    "missingLegacyFourViewRecords": [
+      "companion:cat_friend",
+      "companion:shiba"
+    ],
+    "full293Integration": "OPEN",
+    "humanQA": "OPEN_SEPARATE",
+    "iPhoneQA": "OPEN_SEPARATE",
+    "candidateBatchReview": "Task5 remaining3 actual imageREJECT, source-specific corrections in progress. Task6five code/specC0/I0 after leaf fix; scoped images requested. Eleven approved companions promoted.",
+    "selectedCaptureBatch": [
+      "partner:field_cow",
+      "partner:forest_bear",
+      "partner:grove_deer",
+      "partner:cliff_goat",
+      "partner:gentle_gorilla"
+    ],
     "legacyFourViewReuse": "Existingcf7b comparisonboards forcat_friend/shiba actually reviewed;exactsource/currentgeometry+animationhashmatch;legacy-four-view-review.json saved. Coverageboardmapping pendingintegration;no recapture/reimplementationneededfortheseviews.",
-    "sevenMammalConnections": "b03971d9 data-only closed limb/prop connections;33focusedPASS,21/21disconnections detected/restored;independentC0/I0;all7 remainunregistered pendingfreshimages.",
+    "sevenMammalConnections": "e8 actual4views/32states/2distance per7 PASS, archiveda2878b4c; independent repaired-site review C0/I0; promoted with local corrected-anchor53/53 and372dedicatedPASS.",
     "latestFullCharacterCI": {
       "sourceCommit": "3083126a75d1044da2f68142a5a46d789556895c",
       "run": 37890605974,

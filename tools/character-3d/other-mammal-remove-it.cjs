@@ -14,7 +14,7 @@ const cases=[
  ['sheep ground hooves',spec,"arms:{at:[.29,-.31,-.13],size:[.063,.09,.072]","arms:{at:[.29,-.21,-.13],size:[.063,.09,.072]",'sheep has'],
  ['seal spotted back',spec,"for(const side of ['front','back'])seal.body.markings","for(const side of ['front','front'])seal.body.markings",'seal lies'],
  ['seal forked tail',spec,'volumes:[{size:[.065,.16,.045],at:[.055,.38,-.04],rotation:[0,0,.40]},{size:[.065,.16,.045],at:[.18,.36,-.04],rotation:[0,0,-.40]}]','volumes:[{size:[.05,.06,.045],at:[.12,.26,-.04]}]','seal lies'],
- ['seal no hind feet',spec,'feet:{enabled:false,at:[0,0,0]}','feet:{enabled:true,at:[.14,-.10,.10],size:[.07,.06,.08]}','seal lies'],
+ ["seal no hind feet",spec,"feet:{enabled:false,at:[0,0,0]},muzzle:{size:[.11,.065,.055]","feet:{enabled:true,at:[.14,-.10,.10],size:[.07,.06,.08]},muzzle:{size:[.11,.065,.055]","seal lies"],
  ['seal physical whiskers',spec,'for(const side of [-1,1])for(let i=0;i<3;i++)seal.details','for(const side of [-1,1])for(let i=0;i<0;i++)seal.details','seal lies'],
  ['hedgehog tipped body spines',spec,"tip:'#f8dfb4'","tip:'#74472b'",'hedgehog carries'],
  ['hedgehog head spines',spec,'for(let j=0;j<3;j++)for(let i=0;i<16;i++)','for(let j=0;j<0;j++)for(let i=0;i<16;i++)','hedgehog carries'],

@@ -982,3 +982,12 @@ Remainingplan recorded innonplayer-execution-plan.md;source-derivedcandidates us
 - d1f71992 dedicatedCI113708358659SUCCESS; previous7candidate imagecapture remainsinprogress. Nextcapture selects onlythesevenrepairedmammals; no repeatedpassedrole images. Task6partnersimplementation continues.
 
 - Fresh d1f71992 Character37896316097SUCCESS (2success/16skipped); seven-roleartifact11600044828 export requested alongside next repair capture. Runtime/Home still lastobservedIN_PROGRESS; no falseSUCCESS.
+
+
+## Eleven companion approvals and five partner candidates
+
+Fresh authority a2878b4c. Actually inspected d1 bat/snail/chameleon/sekizou and e8 rabbit_friend/tanuki/squirrel/hamster/otter/monkey/hedgehog: each four views,32 expression/motion states,two normal-distance views PASS. Both archives verified281raw hashes; repaired-site independent reviews C0/I0. Promoted11, coverage273/293,pending20,271four-view records; legacy cat/shiba board mapping remains separate. Watcher/Unicorn/Fox remain REJECT and unregistered pending corrections/freshimages.
+
+Task6 five mammal partners implemented with existing factories; quadruped body.segments is opt-in and defaults unchanged. Cow upper grass leaf constituent disconnection fixed with actual closed-volume graph regression and old-placement negative control.18focusedPASS,13mutations detected/restored,independentC0/I0. Integrated dedicated372PASS;Pilot28hashes unchanged; selector11PASS. Allfive remain unregistered until actual image gates.
+
+The e8 Character run37897241823 remains FAILURE from stale mutation anchors; capture113711274552 was SUCCESS. Three narrow anchor corrections validated all53affected mutations and exact restoration. Exporter now permits explicitly validated successful capture from a completed failed run without approving images or CI:12Python testsPASS,C0/I0. Recovery37900096598SUCCESS saved60allowlisted files ata2878b4c; avoids redundant recapture and client-side403. Draft maintained; Human/iPhone and final293integrationOPEN.

@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 262,
-    "pending": 31,
-    "fourViewRecords": 260
+    "exactSpecs": 273,
+    "pending": 20,
+    "fourViewRecords": 271
   },
   "rows": [
     {
@@ -4996,15 +4996,15 @@
       "group": "normal",
       "asset": "assets/characters/companions/rabbit_friend.png",
       "sha256": "2dd16ef68a0a57f2ebcc525a382e36f058f6cd7452af7cff9bdad1e993e58dfb",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-rabbit_friend-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-rabbit_friend-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-rabbit_friend-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-rabbit_friend-0-back.jpg"
       }
     },
     {
@@ -5016,15 +5016,15 @@
       "group": "normal",
       "asset": "assets/characters/companions/tanuki.png",
       "sha256": "9159ed94c89d2e0752b6c826fdefa2ca3db0c7de2df6f2cc2a09a3ef510fec17",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-tanuki-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-tanuki-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-tanuki-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-tanuki-0-back.jpg"
       }
     },
     {
@@ -5036,15 +5036,15 @@
       "group": "normal",
       "asset": "assets/characters/companions/squirrel.png",
       "sha256": "571b799fe75878de5d705d2b26596a9e4f72883b25106883f1a2570d5f73e2cf",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-squirrel-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-squirrel-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-squirrel-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-squirrel-0-back.jpg"
       }
     },
     {
@@ -5076,15 +5076,15 @@
       "group": "normal",
       "asset": "assets/characters/companions/otter.png",
       "sha256": "3f24e4d6ff26e80fd7e9dd1bd8aa2f8e3ff4ad6d00267fd746f2d49db538a530",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-otter-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-otter-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-otter-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-otter-0-back.jpg"
       }
     },
     {
@@ -5096,15 +5096,15 @@
       "group": "normal",
       "asset": "assets/characters/companions/hamster.png",
       "sha256": "ba59cffa84a07e831d3722a7eea159664a79119becfe3f376142bc6f05bf8aa1",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-hamster-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-hamster-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-hamster-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-hamster-0-back.jpg"
       }
     },
     {
@@ -5136,15 +5136,15 @@
       "group": "normal",
       "asset": "assets/characters/companions/monkey.png",
       "sha256": "4cbdd49a2faae11387a5df966ad82a16903e5ce80d62806a882b0d109bfada33",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-monkey-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-monkey-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-monkey-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-monkey-0-back.jpg"
       }
     },
     {
@@ -5216,15 +5216,15 @@
       "group": "normal",
       "asset": "assets/characters/companions/bat.png",
       "sha256": "60e2f47209a343e43422905091e76c7c47e17e4c5beef89f065a7a7d38161bfc",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/birds-unusual/companion-bat-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/birds-unusual/companion-bat-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/birds-unusual/companion-bat-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/birds-unusual/companion-bat-0-back.jpg"
       }
     },
     {
@@ -5276,15 +5276,15 @@
       "group": "normal",
       "asset": "assets/characters/companions/hedgehog.png",
       "sha256": "ae76cf927cb23eb5db3b35835a228fe9eae632886e77542cfe698f02839867b6",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-hedgehog-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-hedgehog-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-hedgehog-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/mammal-contact-repairs/companion-hedgehog-0-back.jpg"
       }
     },
     {
@@ -5316,15 +5316,15 @@
       "group": "normal",
       "asset": "assets/characters/companions/snail.png",
       "sha256": "1c01972f5b6223bef99afdcf31bb15b06cc9b3bd6b81f6ddfbd88936deaaa847",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/birds-unusual/companion-snail-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/birds-unusual/companion-snail-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/birds-unusual/companion-snail-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/birds-unusual/companion-snail-0-back.jpg"
       }
     },
     {
@@ -5356,15 +5356,15 @@
       "group": "rare",
       "asset": "assets/characters/companions/sekizou.png",
       "sha256": "6a50c8dd1d084a854b233694800fed23b9475abbc2f9fff380ef31053923046a",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "rigid_object",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/birds-unusual/companion-sekizou-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/birds-unusual/companion-sekizou-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/birds-unusual/companion-sekizou-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/birds-unusual/companion-sekizou-0-back.jpg"
       }
     },
     {
@@ -5376,15 +5376,15 @@
       "group": "rare",
       "asset": "assets/characters/companions/chameleon.png",
       "sha256": "9384a95a8d0ec1950f033663039fcb73bd7dada32b2c24fb8f4b9e0f6d90306a",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/birds-unusual/companion-chameleon-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/birds-unusual/companion-chameleon-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/birds-unusual/companion-chameleon-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/birds-unusual/companion-chameleon-0-back.jpg"
       }
     },
     {

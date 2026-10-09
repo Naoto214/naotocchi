@@ -4,12 +4,12 @@ const run=pattern=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap'
 const files=[spec,factory],originals=new Map(files.map(file=>[file,fs.readFileSync(file)])),sha=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const restored=()=>{for(const [file,bytes]of originals)assert.ok(fs.readFileSync(file).equals(bytes),`${file}: restored source bytes`);};
 const cases=[
- ['existing plush default geometry',factory,'ellipsoid(...size,markings?40:20,markings?28:14)','ellipsoid(...size,markings?40:18,markings?28:14)','optional soft toy morphology'],
+ ["existing plush default geometry",factory,"ellipsoid(...size,segments?.[0]||(markings?40:20),segments?.[1]||(markings?28:14))","ellipsoid(...size,segments?.[0]||(markings?40:18),segments?.[1]||(markings?28:14))","optional soft toy morphology"],
  ['closed-expression eye clearance',spec,"name:'heldLeaf',bone:'body',at:[0,.08,.325],color:'#65852f'","name:'heldLeaf',bone:'head',at:[-.112,.05,.35],color:'#65852f'",'closed-expression eyes remain clear','closed-expression/positive/frame0'],
  ['rabbit long ear',spec,'size:[.074,.36,.052]','size:[.074,.08,.052]','rabbit has'],
  ['rabbit raised forefeet',spec,'arms:{at:[.245,.185,.235]','arms:{at:[.245,.04,.235]','rabbit has'],
  ['tanuki painted mask',spec,"angle:side*.50,color:'#4e3127'","angle:side*.50,color:'#f7e7ca'",'tanuki actual'],
- ['tanuki round tail',spec,'size:[.245,.225,.20]','size:[.08,.08,.08]','tanuki actual'],
+ ["tanuki round tail",spec,"tail:{at:[-.29,-.04,-.20],color:'#87542f',volumes:[{size:[.245,.225,.20]","tail:{at:[-.29,-.04,-.20],color:'#87542f',volumes:[{size:[.08,.08,.08]","tanuki actual"],
  ['tanuki exposed held leaf',spec,"name:'heldLeaf',bone:'body',at:[0,.08,.325]","name:'heldLeaf',bone:'body',at:[0,.08,-.325]",'tanuki actual'],
  ['squirrel tall curl',spec,'path:[[0,0,0],[.26,.04,-.04],[.43,.30,-.09],[.40,.60,-.11],[.20,.74,-.10],[.045,.61,-.075],[.13,.48,-.055]]','path:[[0,0,0],[.12,.05,-.05],[.10,.10,-.05]]','squirrel has'],
  ['squirrel acorn cap',spec,"at:[0,.071,0],color:'#77502e'","at:[0,.071,0],color:'#d59c57'",'squirrel has'],

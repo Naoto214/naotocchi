@@ -84,7 +84,7 @@ export function quadruped(sp, key) {
   const regionPaint=(regions,x,y,z)=>{for(const p of regions||[]){const d=((x-p.at[0])/p.size[0])**2+((y-p.at[1])/p.size[1])**2+((z-p.at[2])/p.size[2])**2;if(d<1+.08*Math.sin(y*12+z*8))return c[p.color];}return null;};
   const patch = (x, y, z) => sp.patches && (Math.sin(x * 7 + z * 3) + Math.cos(z * 5 - y * 4)) > 1.1 ? (z > 0 ? c.patch : c.patch2) : null;
   const bodyCol = (x, y, z, nx, ny, nz) => { const p = sp.patchMap ? regionPaint(sp.patchMap.body,x/B.r,y/B.r,z/(B.len/2)) : patch(x, y, z); if (p) return p; const belly = smooth(-0.15, -0.6, ny) + (z > B.len * 0.28 ? smooth(0.3, -0.2, ny) * 0.9 : 0); return mix(mix(c.base, shade(c.base, 0.92), smooth(0.4, 0.95, ny) * 0.5), c.belly, belly); };
-  const body = paint(blob((x, y, z) => { const t = (z + 1) / 2, s = lerp(B.hip, B.chest, t), sag = y < 0 ? 0.94 : 1; return [x * B.r * s * 0.9, y * B.r * s * sag * 0.95, z * B.len / 2]; }, 20, 14), bodyCol);
+  const body = paint(blob((x, y, z) => { const t = (z + 1) / 2, s = lerp(B.hip, B.chest, t), sag = y < 0 ? 0.94 : 1; return [x * B.r * s * 0.9, y * B.r * s * sag * 0.95, z * B.len / 2]; }, B.segments?.[0]||20, B.segments?.[1]||14), bodyCol);
   const neck = paint(sweep([[0, B.r * 0.1, B.len * 0.36], [0, B.r * 0.55 + sp.neck * 0.6, B.len * 0.5 + 0.02]], (t) => B.r * lerp(0.62, 0.5, t), 9, { steps: 4 }), bodyCol);
   const parts = [body, neck];
   if (sp.fluff === 'chest' || sp.coat) parts.push(paint(blob((x, y, z) => { const n = 1 + 0.18 * Math.max(0, noise3(x * 4, y * 4, z * 4) - 0.4); return [x * B.r * (sp.coat?.width || .62) * n, y * B.r * (sp.coat?.height || .62) * n, z * B.r * (sp.coat?.depth || .5) * n + B.len * 0.42]; }, 12, 10), () => c.belly));
