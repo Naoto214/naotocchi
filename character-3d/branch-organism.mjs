@@ -5,7 +5,7 @@ import {Rig} from './rig.mjs';
 export function branchOrganism(sp,key){
  if(sp.colony)return branchColony(sp,key);
  const rig=new Rig(key,'branch_organism',sp.locomotion||'plantSway'),c=sp.colors,b=sp.body;
- const core=paint(xform(sp.trap?blob((x,y,z)=>[x*b.width,y*b.height,b.depth*(1.6*(x*x+y*y)-.6)+(z<0?z*b.depth*.4:0)],24,16):b.taper?blob((x,y,z)=>{const q=1-y*y*b.taper;return [x*b.width*q+(b.lean||0)*y,y*b.height,z*b.depth*q];},20,14):ellipsoid(b.width,b.height,b.depth,20,14),{pos:[0,b.y,0]}),(x,y,z,nx,ny,nz)=>sp.trap&&nz<0?c.branch:mix(c.body,c.light,Math.max(0,nz)*.22+Math.max(0,ny)*.12));
+ const core=paint(xform(b.path?sweep(b.path,()=>b.width,16,{steps:32}):sp.trap?blob((x,y,z)=>[x*b.width,y*b.height,b.depth*(1.6*(x*x+y*y)-.6)+(z<0?z*b.depth*.4:0)],24,16):b.taper?blob((x,y,z)=>{const q=1-y*y*b.taper;return [x*b.width*q+(b.lean||0)*y,y*b.height,z*b.depth*q];},20,14):ellipsoid(b.width,b.height,b.depth,20,14),{pos:[0,b.y,0]}),(x,y,z,nx,ny,nz)=>sp.trap&&nz<0?c.branch:mix(c.body,c.light,Math.max(0,nz)*.22+Math.max(0,ny)*.12));
  const trapPlace=g=>sp.trap?.tilt?xform(g,{rot:sp.trap.tilt}):g;
  trapPlace(core);
  const parts=[core.clone()];

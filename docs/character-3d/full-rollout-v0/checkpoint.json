@@ -1,18 +1,18 @@
 {
-  "baseCommit": "6a55b97cc10e152f74bd7c54a081a9ba52516f70",
-  "checkpoint": "owl-image-correction-star-punyu-recovery",
+  "baseCommit": "5715b5157ae01092e82def9e5b0e6ef5b5b9c4e7",
+  "checkpoint": "star-all8-promotion-cactus-candidate-owl-recovery",
   "coverage": {
-    "exact": 244,
+    "exact": 252,
     "total": 293,
-    "pending": 49,
-    "playerFamilies": 30,
-    "playerStages": 240,
+    "pending": 41,
+    "playerFamilies": 31,
+    "playerStages": 248,
     "companions": 3,
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 261,
-    "rolloutMutationsDetected": 32,
+    "dedicatedPass": 264,
+    "rolloutMutationsDetected": 33,
     "pilotHashesUnchanged": 28,
     "fullNpm": "8b6fcae fixed implementation:3017PASS+Relationship80PASS,0FAIL,exit0; full log/result archived. Before Star expansion/Unknown promotion.",
     "postPromotionAggregate": "9fadab27 Character37793464360 all56jobs SUCCESS;26families/208expected stage coverage job113385923002 SUCCESS",
@@ -59,7 +59,7 @@
     "starCandidateCI": "2789b99 Character37877360650SUCCESS;all8wave11592962667/distance11592663889 exportrequested. Actualall8review pending.",
     "owlCandidate": "Existingavian optionalpairedtufts/creamfeatherpaint/asymmetricwingpose;roleexact isolated.257dedicatedPASS,owl4+nonplayer4mutationsdetected,28Pilot identical,reviewCritical0/Important0. Finalsunflower mutation persisted despiteharnesslog;explicitlyremoved,priornonplayerdeep equality and257PASS confirmed. Imagespending.",
     "nonplayerImageExport": "Existingcapture --keys filter;scopednonplayer CI;role0fourviews/distance/boards directGitpublication;exporter6testsPASS withselection/packagecoverage. Requestfamilies companion forowl. No Human/iPhone acceptance.",
-    "starAll8ImageGate": "2789b99 archived5cf15f1;299wave+17distancehashesverified.32views/16distance inspected;01REJECTregularring instead ofirregularseed.02/04/05/06/08fresh160statesPASS;03/07prior64reused via74identicalwaveimages.01dataonlyfix pendingrecapture;other7unchanged.",
+    "starAll8ImageGate": "12fb2c6 archive5715b51:PASS_ALL8;32fourviews,256states(fresh01 32+224 reused through259identicalimages),16distance;299+17hashesverified.",
     "star01Correction": "3sourcewisps+shortarcs replace regularring;3targettestsPASS,8/8stage mutationsdetected/restored. Existingcosmicfactory/other7unchanged. No promotion.",
     "punyuCandidate": "Existingblob factory dataonly:opaqueyellowmeltingcontour,foldedtip,lefttrail,scallopedbase;2targettestsPASS,3/3mutationsdetected/restored.260dedicatedPASScombined. Roleisolated;imagespending.",
     "owlCandidateCI": "6716048 Character37878471960SUCCESS;owlartifact11593312304 exportrequested. No imageacceptance.",
@@ -67,13 +67,19 @@
     "owlImageGate": "6716048 archive6a55b97:41rawhashesverified;actual4views2distanceREJECT breastpaintaliasing,hiddenheldwing,smallfacialdiscs. No32stateapproval. PhysicalVs/forwardownedwing/facialdisc correction readyforrecapture.",
     "owlCorrection": "261dedicatedPASS,5/5mutationsdetected/restored,28Pilot hashesidentical;optional arithmetic preserves unchangedPilot negativezero. No owlregistration.",
     "starPunyuCapture": "12fb2c6 Character37879217065SUCCESS;Starwave11593173580/distance11593399232/Punyu11593004038 exportrequested. Actualreviewpending.",
-    "godGhostPostPromotionCI": "d87e31b Character37875308764:all59jobsSUCCESS,0FAIL/CANCELLED/SKIPPED,29stagefamilyjobs;stagecoverage113651820721SUCCESS,29families/232stages. SeparatefromUnknown30familyaggregate."
+    "godGhostPostPromotionCI": "d87e31b Character37875308764:all59jobsSUCCESS,0FAIL/CANCELLED/SKIPPED,29stagefamilyjobs;stagecoverage113651820721SUCCESS,29families/232stages. SeparatefromUnknown30familyaggregate.",
+    "starPromotion": "All8 registered after actualimagePASS;33/33runtime mutationsdetected/restored,28Pilotidentical;252/293,41nonplayerpending,250fourviewrecords. ReviewCritical0/Important0;postmutation264PASS andproductiondiff inspected.",
+    "punyuImageGate": "12fb2c6 archive5715b51:4viewsREJECT radialfan-folding/losthook/innercoreleak;41hashesverified.No32state/distanceapproval.",
+    "cactusCandidate": "Existingbranch_organism optionalclosedcolumn;2targettests,4/4mutations,263dedicatedbeforeStarpromotion;28Pilotidentical;reviewCritical0/Important0.Imagespending;notregistered.",
+    "owlCorrectedCapture": "46ff692 Character37879959890SUCCESS;artifact11593204347 exportrequested;actualimagegatepending.",
+    "unknownPostPromotionCI": "f6c86cd Character37877945590 last55SUCCESS/4IN_PROGRESS,aggregatepending;Runtime37877952306SUCCESS,Home37877952265SUCCESS. Not fullaggregatePASS.",
+    "starPunyuCI": "12fb2c6 Character37879217065/Runtime37879223738/Home37879223736SUCCESS."
   },
   "next": [
-    "Review correctedStar01/Punyu12fb2c6 actualimages viarequestedexport;Starother7 reusable ifbyteidentical",
-    "Review correctedOwl freshcapture4views32states2distance before promotion",
-    "Remainingnonplayers and full293 integration/performance/regression/Human/iPhone gates",
-    "Confirm30family/240stage postUnknownaggregate"
+    "Review correctedOwl46ff actual4views32states2distance viaexport",
+    "Fix rejectedPunyu concavegeometry,then freshcapture and actualQA",
+    "Capture/review cactus; continue remainingnonplayers",
+    "Full293 integration and separateHuman/iPhone gates"
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",

@@ -881,3 +881,9 @@ Scratch disappeared after7ab521e save; freshclone restored remoteHEAD/tree1b19f6
 - Owl671 archive6a55b97:41hashesverified;4views2distance actuallyinspectedREJECT(breastpaint aliasing into broadbands,heldwinghidden,creamdiscs too small). No32stateacceptance claimed. Optionalavian physicalsurfaceVs,largerdiscs andper-sideforwardfoldedwing fix;261dedicatedPASS,5mutationdetected/restored,28Pilot hashesidentical. Recapturepending,nopromotion.
 -12fb2c6 Star+Punyu scopedcaptureSUCCESS,threeartifacts requestedtogether throughdurableexport. Star01/Punyu actualreviewpending.
 -d87God/Ghost Character37875308764:59/59SUCCESS,0FAIL/CANCELLED/SKIPPED;29stagefamilyjobs,stagecoverage113651820721SUCCESS(29families/232stages). Unknown30familyaggregate separatepending.
+
+
+## Star all8 promotion / cactus candidate
+Star12fb2c6 actualimage gate PASS:32fourviews,01fresh32states,other7 224states reused through259byte-identical waveimages,all16normaldistance.299wave+17distancehashes verified. Archive5715b51 and siblingvisual-review.json record the decision. Runtime now31families/248playerstages;252/293 exact,remaining41nonplayers,250fourviewrecords.264dedicatedPASS;33/33runtime mutationsdetected/restored;28Pilot hashes identical.
+Punyu actual4views REJECT:radialfan-folding/lostupperhook/innercoreleak.41rawhashesverified;states/distance not approved. No promotion. Owl corrected46ff captureSUCCESS;durableexport requested. Cactus isolatedcandidate reusesbranchfactory with optionalclosedcolumn,raisedarms,ribs/spines/roots/pinkflower;2targettests,4mutations,28Pilot unchanged,reviewCritical0/Important0. No cactusimageacceptance.
+Draft376/basePilot retained;no gitpush/main/Ready. Last fullnpm remains8b6 implementation3017+Relationship80PASS,not currentpromotion. Human/iPhone remain separate.

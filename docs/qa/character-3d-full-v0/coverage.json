@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 244,
-    "pending": 49,
-    "fourViewRecords": 242
+    "exactSpecs": 252,
+    "pending": 41,
+    "fourViewRecords": 250
   },
   "rows": [
     {
@@ -4336,15 +4336,15 @@
       "group": "rare",
       "asset": "assets/characters/star/01.png",
       "sha256": "3b9f3934bfb6ea9a3b51347779425c3d1dd3bc501e0f36c1c42f2b0ca4ee864c",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "cosmic",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-1-back.jpg"
       }
     },
     {
@@ -4356,15 +4356,15 @@
       "group": "rare",
       "asset": "assets/characters/star/02.png",
       "sha256": "c933e83b390a6c1c08d76530e6b4572306a32063272970c12cb8b0fbbde2b374",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "cosmic",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-2-back.jpg"
       }
     },
     {
@@ -4376,15 +4376,15 @@
       "group": "rare",
       "asset": "assets/characters/star/03.png",
       "sha256": "5a5c0f6f1f2812f37453840e504600ee4086ccb9b355296f43fd90bd3d23353d",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "cosmic",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-3-back.jpg"
       }
     },
     {
@@ -4396,15 +4396,15 @@
       "group": "rare",
       "asset": "assets/characters/star/04.png",
       "sha256": "a0fd35e4f6dd443c8de358fc18b07bc425888a1dfefa3a9616ce7d418db1eb3f",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "cosmic",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-4-back.jpg"
       }
     },
     {
@@ -4416,15 +4416,15 @@
       "group": "rare",
       "asset": "assets/characters/star/05.png",
       "sha256": "3840d2d0b5eda9a29c3166d87750806c9df7d77f583534b51fc5a71bfb9510d8",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "cosmic",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-5-back.jpg"
       }
     },
     {
@@ -4436,15 +4436,15 @@
       "group": "rare",
       "asset": "assets/characters/star/06.png",
       "sha256": "37db941d6ed6b4e4a3ab48694694bab5abb63c9e1bc6708db2c67fae536dcc9c",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "cosmic",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-6-back.jpg"
       }
     },
     {
@@ -4456,15 +4456,15 @@
       "group": "rare",
       "asset": "assets/characters/star/07.png",
       "sha256": "0779e6b4a9f724da485e3299d0d1a2ede6ede98ec326ad9c995e9d38ad30f8dd",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "cosmic",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-7-back.jpg"
       }
     },
     {
@@ -4476,15 +4476,15 @@
       "group": "rare",
       "asset": "assets/characters/star/08.png",
       "sha256": "4d662343b990f5c6ac557c96ac727d91d11757f4b6863af35a6403c419003026",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "cosmic",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/12fb2c6561e0f705c45b141cabdec590ff393d2a/star-wave/mythic/star-8-back.jpg"
       }
     },
     {
