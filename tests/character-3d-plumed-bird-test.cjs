@@ -9,7 +9,7 @@ test('phoenix representatives have a physical crest, layered wings, curved plume
  const tail=r.parts.find(p=>p.bone==='tail').mesh.geometry;tail.computeBoundingBox();assert.ok(tail.boundingBox.max.x-tail.boundingBox.min.x>.5,'original tail has long outward flowing plumes');assert.ok(tail.boundingBox.max.z-tail.boundingBox.min.z>.12,'plumes spread through depth');
  let tri=0;for(const p of r.parts){const g=p.mesh.geometry;assert.ok([...g.attributes.position.array].every(Number.isFinite));tri+=(g.index?.count||g.attributes.position.count)/3;}assert.ok(tri<22000);r.root.updateMatrixWorld(true);assert.ok(new THREE.Box3().setFromObject(r.root,true).min.y>=-.005,'feet and tail clear ground');
  }
- assert.notEqual(rows[3].colors.base,rows[7].colors.base,'aged source has muted plumage');assert.notDeepEqual(rows[3].tail.feathers,rows[7].tail.feathers,'long drooping older tail is explicit, not scaled young tail');assert.equal(SPEC.specKeyFor({line:'phoenix',stage:6}),null);
+ assert.notEqual(rows[3].colors.base,rows[7].colors.base,'aged source has muted plumage');assert.notDeepEqual(rows[3].tail.feathers,rows[7].tail.feathers,'long drooping older tail is explicit, not scaled young tail');assert.deepEqual(SPEC.specKeyFor({line:'phoenix',stage:6}),{id:'phoenix',stage:7,exact:true});
 });
 test('phoenix keeps one canonical face with owned wing and tail motion across32 states',async()=>{
  const rows=require('../character-3d/mythic-spec.js')().phoenix?.stages;assert.ok(rows);

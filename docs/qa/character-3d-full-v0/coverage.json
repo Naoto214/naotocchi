@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 212,
-    "pending": 81,
-    "fourViewRecords": 210
+    "exactSpecs": 220,
+    "pending": 73,
+    "fourViewRecords": 218
   },
   "rows": [
     {
@@ -3696,15 +3696,15 @@
       "group": "rare",
       "asset": "assets/characters/phoenix/01.png",
       "sha256": "65248ffb76de8d2d7ed929cf978ae9956b6a2c298b8badc686e30a217f82e58b",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "plumed_bird",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-1-back.jpg"
       }
     },
     {
@@ -3716,15 +3716,15 @@
       "group": "rare",
       "asset": "assets/characters/phoenix/02.png",
       "sha256": "0ee3fd234e619891a4b13ea163fd70ba26dbd2c72184e597a947a89b4b14a7d6",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "plumed_bird",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-2-back.jpg"
       }
     },
     {
@@ -3736,15 +3736,15 @@
       "group": "rare",
       "asset": "assets/characters/phoenix/03.png",
       "sha256": "2357cc2bc6265757a8f88bb6f93ba3ebd6142e0a2ce8484a40df6c1c754b1237",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "plumed_bird",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-3-back.jpg"
       }
     },
     {
@@ -3756,15 +3756,15 @@
       "group": "rare",
       "asset": "assets/characters/phoenix/04.png",
       "sha256": "3ccb04253241bdd1cb8d37753614803d2cc58bddc1355c17490b659c61cb8a7f",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "plumed_bird",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-4-back.jpg"
       }
     },
     {
@@ -3776,15 +3776,15 @@
       "group": "rare",
       "asset": "assets/characters/phoenix/05.png",
       "sha256": "9a5525e975343cb05113f2210375d6c1783c8cdfc21390a5bfd42b06f8e34851",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "plumed_bird",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-5-back.jpg"
       }
     },
     {
@@ -3796,15 +3796,15 @@
       "group": "rare",
       "asset": "assets/characters/phoenix/06.png",
       "sha256": "ffbb439eab33b871df43183fbe2991769fe5bc72370f48d2df1a92fe7dcad973",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "plumed_bird",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-6-back.jpg"
       }
     },
     {
@@ -3816,15 +3816,15 @@
       "group": "rare",
       "asset": "assets/characters/phoenix/07.png",
       "sha256": "82a1172b62515a63466ba8e419682d823019dbc851ba7ac18219f007ceafc971",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "plumed_bird",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-7-back.jpg"
       }
     },
     {
@@ -3836,15 +3836,15 @@
       "group": "rare",
       "asset": "assets/characters/phoenix/08.png",
       "sha256": "707d935e5fdc90cf1eb92a6f29dc25b8f9b1f63fa6c56847ed0a9b0523540fa2",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "plumed_bird",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/fde2580dafec7691a13f94c71660cc3c8c43b52a/phoenix-wave/mythic/phoenix-8-back.jpg"
       }
     },
     {

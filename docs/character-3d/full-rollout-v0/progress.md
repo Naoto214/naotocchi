@@ -788,3 +788,12 @@ Evidence: docs/qa/character-3d-full-v0/fr5-mythic/phoenix-all8-candidates/. Next
 Corrections move raised shoulders inside the torso, spread feather endpoints with pale edges, and close the coal footprint.03/07 definition hashes and28Pilot hashes remain identical.239dedicatedPASS;7/7stage and7/7factory mutations detected/restored. Review Critical0/Important0. Corrected images pending;runtime remains212/293.
 
 9fad Character37793464360 all56jobs SUCCESS, including26family/208stage aggregate;Runtime37793476456 andHome37793476851 SUCCESS. Scoped `[qa:phoenix]` commits retain full dedicated regression and capture Phoenix only; skipped unrelated capture jobs are not a new integration PASS. Full ordinary commits retain the original complete matrix.
+
+
+### Phoenix all8 image acceptance and runtime promotion (2026-10-09)
+
+fde2580 corrected images:PASS32fourviews/256states/16normal-distance.04-06 shoulder attachment and separate pale-edged feathers,08 closed coal mound visually verified.01/02/03/07 wave148images match prior inspected bytes exactly;all16distance images freshly inspected because scene/HUD differs. Evidence immutable under export/fde2580...,savedf7b8ba9. Raw299wave+17distancefile SHA256 verified.
+
+Phoenix registered via existingmythicfactory only after this gate.240dedicatedPASS,29/29rolloutmutations detected/restored,28Pilot hashes unchanged.03/07 definition hashes unchanged. Coverage220/293,remaining73=32player+41nonplayer;27families/216playerstages. Fresh27/216Actions aggregate pending;scopedfde3successjobs+15SKIPPED is not full integrationPASS. Fullnpm remains the historical pre-Dragon run,not a new claim.
+
+Remaining representative image review:god,ghost,unknown PASS8views/64states/4normal-distance each.Star03 REJECT:core appears below/in front of galaxy ring at normal distance;fix composition before expansion.Original archives and per-family reasoning saved under export/9fad.../remaining-mythic-representatives/visual-review.json. No remainingfamily promoted.
