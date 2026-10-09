@@ -7,7 +7,7 @@ permissions:
   contents: read
 jobs:
   stage-matrix:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') }}
     runs-on: ubuntu-latest
     outputs:
       lines: ${{ steps.inventory.outputs.lines }}
@@ -19,7 +19,7 @@ jobs:
       - id: inventory
         run: node -e "console.log('lines='+JSON.stringify(Object.keys(require('./character-3d/spec.js').ROLLOUT)))" >> "$GITHUB_OUTPUT"
   stage-evidence:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') }}
     needs: stage-matrix
     strategy:
       fail-fast: false
@@ -46,7 +46,7 @@ jobs:
           name: full-rollout-stages-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/stages/${{ matrix.line }}
   stage-coverage:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') }}
     needs: stage-evidence
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -66,7 +66,7 @@ jobs:
           name: full-rollout-stage-coverage-${{ github.sha }}
           path: test-results/stage-coverage.json
   conflict-audit:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -84,7 +84,7 @@ jobs:
           name: full-rollout-conflicts-${{ github.sha }}
           path: test-results/full-rollout/conflicts.json
   human-performance:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -103,7 +103,7 @@ jobs:
           name: full-rollout-human-performance-${{ github.sha }}
           path: test-results/full-rollout/human-performance
   aquatic-candidate-distance:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') }}
     strategy:
       fail-fast: false
       matrix:
@@ -127,7 +127,7 @@ jobs:
           name: full-rollout-aquatic-distance-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/aquatic-distance
   armored-candidate-distance:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') }}
     strategy:
       fail-fast: false
       matrix:
@@ -151,7 +151,7 @@ jobs:
           name: full-rollout-armored-distance-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/armored-distance
   botanical-candidate-distance:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') }}
     strategy:
       fail-fast: false
       matrix:
@@ -178,7 +178,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        line: ${{ fromJSON(contains(github.event.head_commit.message, '[qa:phoenix]') && '["phoenix"]' || contains(github.event.head_commit.message, '[qa:god]') && '["god"]' || '["dragon","phoenix","god","ghost","plush","star","unknown"]') }}
+        line: ${{ fromJSON(contains(github.event.head_commit.message, '[qa:phoenix]') && '["phoenix"]' || contains(github.event.head_commit.message, '[qa:god]') && '["god"]' || contains(github.event.head_commit.message, '[qa:ghost]') && '["ghost"]' || '["dragon","phoenix","god","ghost","plush","star","unknown"]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -198,7 +198,7 @@ jobs:
           name: full-rollout-mythic-distance-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/mythic-distance
   fish-performance:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -217,7 +217,7 @@ jobs:
           name: full-rollout-fish-performance-${{ github.sha }}
           path: test-results/full-rollout/fish-performance
   meguru-wave:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -238,7 +238,7 @@ jobs:
           name: full-rollout-meguru-${{ github.sha }}
           path: test-results/full-rollout
   wave-review:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -267,7 +267,7 @@ jobs:
             test-results/full-rollout/topology
             test-results/full-rollout/candidate-motion
   aquatic-wave-review:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -288,7 +288,7 @@ jobs:
             test-results/full-rollout/aquatic
             test-results/full-rollout/aquatic-motion
   armored-wave-review:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -330,8 +330,8 @@ jobs:
       - run: npm ci
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps chromium
-      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/mythic --mythic ${{ contains(github.event.head_commit.message, '[qa:phoenix]') && '--line=phoenix' || contains(github.event.head_commit.message, '[qa:god]') && '--line=god' || '' }}
-      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/mythic-motion ${{ contains(github.event.head_commit.message, '[qa:phoenix]') && 'phoenix:1,phoenix:2,phoenix:3,phoenix:4,phoenix:5,phoenix:6,phoenix:7,phoenix:8' || contains(github.event.head_commit.message, '[qa:god]') && 'god:1,god:2,god:3,god:4,god:5,god:6,god:7,god:8' || 'dragon:1,dragon:2,dragon:3,dragon:4,dragon:5,dragon:6,dragon:7,dragon:8,phoenix:1,phoenix:2,phoenix:3,phoenix:4,phoenix:5,phoenix:6,phoenix:7,phoenix:8,god:1,god:2,god:3,god:4,god:5,god:6,god:7,god:8,ghost:3,ghost:7,plush:1,plush:2,plush:3,plush:4,plush:5,plush:6,plush:7,plush:8,star:3,star:7,unknown:3,unknown:7' }}
+      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/mythic --mythic ${{ contains(github.event.head_commit.message, '[qa:phoenix]') && '--line=phoenix' || contains(github.event.head_commit.message, '[qa:god]') && '--line=god' || contains(github.event.head_commit.message, '[qa:ghost]') && '--line=ghost' || '' }}
+      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/mythic-motion ${{ contains(github.event.head_commit.message, '[qa:phoenix]') && 'phoenix:1,phoenix:2,phoenix:3,phoenix:4,phoenix:5,phoenix:6,phoenix:7,phoenix:8' || contains(github.event.head_commit.message, '[qa:god]') && 'god:1,god:2,god:3,god:4,god:5,god:6,god:7,god:8' || contains(github.event.head_commit.message, '[qa:ghost]') && 'ghost:1,ghost:2,ghost:3,ghost:4,ghost:5,ghost:6,ghost:7,ghost:8' || 'dragon:1,dragon:2,dragon:3,dragon:4,dragon:5,dragon:6,dragon:7,dragon:8,phoenix:1,phoenix:2,phoenix:3,phoenix:4,phoenix:5,phoenix:6,phoenix:7,phoenix:8,god:1,god:2,god:3,god:4,god:5,god:6,god:7,god:8,ghost:1,ghost:2,ghost:3,ghost:4,ghost:5,ghost:6,ghost:7,ghost:8,plush:1,plush:2,plush:3,plush:4,plush:5,plush:6,plush:7,plush:8,star:3,star:7,unknown:3,unknown:7' }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -340,7 +340,7 @@ jobs:
             test-results/full-rollout/mythic
             test-results/full-rollout/mythic-motion
   botanical-wave-review:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -361,7 +361,7 @@ jobs:
             test-results/full-rollout/botanical
             test-results/full-rollout/botanical-motion
   nonplayer-candidate-review:
-    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') }}
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -393,19 +393,22 @@ jobs:
           node tools/character-3d/inventory.cjs test-results/full-rollout/inventory.json
           node --test --test-reporter=tap tests/character-3d*-test.cjs > test-results/full-rollout/dedicated.tap
       - name: Scoped candidate mutations
-        if: ${{ contains(github.event.head_commit.message, '[qa:phoenix]') || contains(github.event.head_commit.message, '[qa:god]') }}
+        if: ${{ contains(github.event.head_commit.message, '[qa:phoenix]') || contains(github.event.head_commit.message, '[qa:god]') || contains(github.event.head_commit.message, '[qa:ghost]') }}
         env:
-          QA_FAMILY: ${{ contains(github.event.head_commit.message, '[qa:god]') && 'god' || 'phoenix' }}
+          QA_FAMILY: ${{ contains(github.event.head_commit.message, '[qa:god]') && 'god' || contains(github.event.head_commit.message, '[qa:ghost]') && 'ghost' || 'phoenix' }}
         run: |
           if [ "$QA_FAMILY" = god ]; then
             node tools/character-3d/celestial-remove-it.cjs > test-results/full-rollout/celestial-remove-it.txt
             node tools/character-3d/god-stages-remove-it.cjs > test-results/full-rollout/god-stages-remove-it.txt
+          elif [ "$QA_FAMILY" = ghost ]; then
+            node tools/character-3d/spectral-remove-it.cjs > test-results/full-rollout/spectral-remove-it.txt
+            node tools/character-3d/ghost-stages-remove-it.cjs > test-results/full-rollout/ghost-stages-remove-it.txt
           else
             node tools/character-3d/plumed-bird-remove-it.cjs > test-results/full-rollout/plumed-bird-remove-it.txt
             node tools/character-3d/phoenix-stages-remove-it.cjs > test-results/full-rollout/phoenix-stages-remove-it.txt
           fi
       - name: Existing mechanism mutations
-        if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') }}
+        if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') }}
         run: |
           sh tools/character-3d/remove-it.sh > test-results/full-rollout/remove-it.txt
           node tools/character-3d/quality-remove-it.cjs > test-results/full-rollout/quality-remove-it.txt

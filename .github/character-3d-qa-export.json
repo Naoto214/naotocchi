@@ -1,56 +1,56 @@
 {
-  "sourceCommit": "fde2580dafec7691a13f94c71660cc3c8c43b52a",
-  "runId": 37870348699,
+  "sourceCommit": "3a1212eca48ea5233b0e910b2456296aef7a54eb",
+  "runId": 37872664719,
   "families": [
-    "phoenix"
+    "god"
   ],
   "artifacts": [
     {
-      "id": 11589911880,
-      "label": "phoenix-wave",
-      "digest": "sha256:a9c9a756f7dd7631ccb3fa35da9b0a0ab852719fc8da3fb7841da298ed5cc5b6",
+      "id": 11591270378,
+      "label": "god-wave",
+      "digest": "sha256:defdc103e618a33a092f569c130090ec6314df65cd5279fdf97dc94243caf852",
       "required": [
         {
-          "pattern": "phoenix-[1-8]-front.jpg",
+          "pattern": "god-[1-8]-front.jpg",
           "count": 8
         },
         {
-          "pattern": "phoenix-[1-8]-34.jpg",
+          "pattern": "god-[1-8]-34.jpg",
           "count": 8
         },
         {
-          "pattern": "phoenix-[1-8]-side.jpg",
+          "pattern": "god-[1-8]-side.jpg",
           "count": 8
         },
         {
-          "pattern": "phoenix-[1-8]-back.jpg",
+          "pattern": "god-[1-8]-back.jpg",
           "count": 8
         },
         {
-          "pattern": "phoenix-[1-8]-*-*-*.jpg",
+          "pattern": "god-[1-8]-*-*-*.jpg",
           "count": 256
         },
         {
-          "pattern": "phoenix-[1-8]-motion.jpg",
+          "pattern": "god-[1-8]-motion.jpg",
           "count": 8
         },
         {
-          "pattern": "phoenix-stages.jpg",
+          "pattern": "god-stages.jpg",
           "count": 1
         }
       ]
     },
     {
-      "id": 11590141387,
-      "label": "phoenix-distance",
-      "digest": "sha256:e776740d685a036f50d4c7d4a5a215e617681bae85e1956449e31f8e3ff19389",
+      "id": 11590528811,
+      "label": "god-distance",
+      "digest": "sha256:c9093bdf22bf8e8c82837d16e80598dae4ab6d0eb48c71a8bb6bbdc9d2f3b200",
       "required": [
         {
-          "pattern": "player-phoenix-[1-8]-front.png",
+          "pattern": "player-god-[1-8]-front.png",
           "count": 8
         },
         {
-          "pattern": "player-phoenix-[1-8]-back.png",
+          "pattern": "player-god-[1-8]-back.png",
           "count": 8
         }
       ]

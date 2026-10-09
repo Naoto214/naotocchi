@@ -8,7 +8,7 @@ const cases=[
  ['gold halo','character-3d/spectral.mjs','if(sp.halo)','if(false)'],
  ['open halo aperture','character-3d/spectral.mjs','new THREE.TorusGeometry(sp.halo.radius,.017,7,40)','new THREE.SphereGeometry(sp.halo.radius,20,12)'],
  ['four spirit flames','character-3d/spectral.mjs','sp.flames.entries()','[].entries()'],
- ['explicit ghost03','character-3d/mythic-spec.js','stages:{3:ghost3,7:ghost7}','stages:{7:ghost7}']
+ ['explicit ghost03','character-3d/mythic-spec.js','2:ghost2,3:ghost3,4:ghost4','2:ghost2,4:ghost4']
 ];
 for(const[name,file,old,replacement]of cases){const src=fs.readFileSync(file);try{assert.equal(src.toString().split(old).length,2);fs.writeFileSync(file,src.toString().replace(old,replacement));const r=run();assert.equal(r.status,1,r.stdout+r.stderr);assert.ok(r.stdout.includes('AssertionError'));console.log(name+': RED');}finally{fs.writeFileSync(file,src);}}
-console.log(cases.length+'/'+cases.length+' spectral mutations detected; original bytes restored');
+assert.equal(run().status,0,'representatives restored after all mutations');console.log(cases.length+'/'+cases.length+' spectral mutations detected; original bytes restored');

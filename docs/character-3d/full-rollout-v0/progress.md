@@ -804,3 +804,10 @@ Remaining representative image review:god,ghost,unknown PASS8views/64states/4nor
 After god03/07 representativePASS,added source-derived01orbseed,02wingedinfant,04goldstaff,05longrobe+blueorb staff,06calm elder+doublehalo,08goldray orb. Existingcelestialfactory now has optional birth/rebirth orb path and hand-ownedstaff.03/07 definitions unchanged. Review found02/08 wings static underblobFloat;actual-motion test failed thenpassed after sharing the existingcelestialwing formula betweenhumanWalk/blobFloat. Expression unchanged.
 
 243dedicatedPASS,9/9celestial+7/7stage mutations detected/restored,28Pilot hashes unchanged. God runtime remains unregistered;coverage stays220/293. All8 images pending;no imagePASS claimed. `[qa:god]` scopes candidate capture and mutation to relevantfamily while retainingfull dedicatedregression;ordinary commits keepfullcapture/mutationmatrix. Phoenix c67ba80 postpromotion27/216aggregate remains pending.
+
+
+### Ghost all8 candidates; God image recovery request
+
+Ghost01/02/04/05/06/08 use the existing spectral factory: small wisps, raised hands, long beard and ascending halo/gold sparks.03/07 remain definition-identical. Runtime remains220/293 (73pending); no Ghost/God registration.245 dedicated PASS;7stage+8spectral mutations detected. After mutation, missing03 was explicitly restored and representative equality/full suite verified; the spectral harness now asserts its restored baseline.28Pilot hashes match. Code review Critical0/Important0; image gate pending.
+
+God source3a1212e scoped Character37872664719 SUCCESS (3success/15skipped); original wave11591270378 and distance11590528811 requested through the reusable artifact API exporter. Ghost scoped capture uses existing workflows. Phoenix postpromotion27family/216stage aggregate still pending; no scoped run is counted as integration or Human/iPhone acceptance.
