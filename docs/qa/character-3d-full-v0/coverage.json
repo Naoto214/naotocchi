@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 253,
-    "pending": 40,
-    "fourViewRecords": 251
+    "exactSpecs": 254,
+    "pending": 39,
+    "fourViewRecords": 252
   },
   "rows": [
     {
@@ -5396,15 +5396,15 @@
       "group": "rare",
       "asset": "assets/characters/companions/clock.png",
       "sha256": "ded1b89e7d170abfdd5ed501028476da1833ad436b9a814aabe2d91ad595ffab",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "rigid_object",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/540e8ef521390ca3719ba5190ce7bf962badce07/clock-parrot/companion-clock-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/540e8ef521390ca3719ba5190ce7bf962badce07/clock-parrot/companion-clock-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/540e8ef521390ca3719ba5190ce7bf962badce07/clock-parrot/companion-clock-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/540e8ef521390ca3719ba5190ce7bf962badce07/clock-parrot/companion-clock-0-back.jpg"
       }
     },
     {

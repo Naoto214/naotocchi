@@ -1,17 +1,17 @@
 {
-  "baseCommit": "7a46f3c9396df4bc56a6255a0b2999711ca9fd02",
-  "checkpoint": "punyu-idle-contact-reject-corrected-clock-parrot-export",
+  "baseCommit": "135d4d36e54cb6a82690524d5e5285771cf8a6b7",
+  "checkpoint": "clock-image-approved-owl-punyu-scoped-corrections",
   "coverage": {
-    "exact": 253,
+    "exact": 254,
     "total": 293,
-    "pending": 40,
+    "pending": 39,
     "playerFamilies": 31,
     "playerStages": 248,
-    "companions": 3,
+    "companions": 4,
     "partners": 2
   },
   "verification": {
-    "dedicatedPass": 273,
+    "dedicatedPass": 276,
     "rolloutMutationsDetected": 33,
     "pilotHashesUnchanged": 28,
     "fullNpm": "8b6fcae fixed implementation:3017PASS+Relationship80PASS,0FAIL,exit0; full log/result archived. Before Star expansion/Unknown promotion.",
@@ -78,22 +78,25 @@
     "nonplayerCorrectionQA": "267dedicatedPASSaftermutations;28Pilotidentical;scopeowl,punyu,oasis_cactus requested. No promotion.",
     "parrotCandidate": "Original-derived whiteasymmetricwings/yellowfancrest/longtail/hookedgraybeak viaexistingplumed_bird;2targettests,4/4mutationsdetected/restored,269dedicatedPASS,28Pilotidentical,reviewCritical0/Important0. No registration;freshimagesrequested.",
     "nonplayerCorrectionCapture": "d40 Character37881625921SUCCESS;artifact11595151601 owl/punyu/cactus exportrequested. No actualapproval yet.",
-    "starPostPromotionCI": "d3e64f0d Character37881115241 last21SUCCESS/13IN_PROGRESS/26QUEUED,31familyaggregate notyetcomplete.",
+    "starPostPromotionCI": "d3e64f0d Character37881115241:60jobsSUCCESS,stage-coverage113671073543QUEUED;31family/248stage aggregate not yetPASS. Runtime37881122437/Home37881122413SUCCESS.",
     "clockCandidate": "Existingrigid_object optionalroundedhousing/detailvolumes/paths/dialfacetarget;2targettests,3/3mutations,271dedicatedPASS,28Pilotidentical,reviewCritical0/Important0. Imagespending,noregistration.",
     "parrotCI": "090d0d00 Character37882013865FAIL:nonplayercapture113663562927SUCCESS,dedicated113663563133FAIL cactusmutation stale return-prefix anchor. Fixedstable role-row anchor for cactus andsunflower;4+4 mutationsdetected/restored. Freshclock/parrotcapture requested. Not overallPASS.",
     "cactusImageGate": "d40 archiveb9e0cf95 actual4views32states2distancePASS;all121rawfiles(3candidates)hashverified. Promotedonlypartner:oasis_cactus;253/293,40pending,251acceptedfourviewrecords.",
     "nonplayerPromotion": "7/7role/runtime mutationsdetected/restored;271dedicatedPASS,28Pilotidentical;reviewCritical0/Important0.",
     "clockParrotCapture": "dc652144 Character37882448856SUCCESS;artifact11594323377 exportrequested. Earlier090d0d00FAIL remains distinct.",
-    "clockParrotImageGate": "dc652144 archive00eb6a08:81rawhashesverified;actual4views eachREJECT(clockdialgap,parrotlonglegs/crowdedface). No state/distanceapproval.",
+    "clockParrotImageGate": "540e8ef5 archive135d4d36:81rawhashesverified. Clock actual4views32states2distancePASS;Parrot4viewsREJECT crest side silhouette, no state/distanceapproval.",
     "clockParrotCorrection": "Roundedlathe housing joinsdialperimeter;Parrotlowbelly/smallerhook/eyes40 mouth116 withatlasmargin.273shared-factorysuitePASS beforefinalParrot-onlymouthdata;final6targetPASS plusClock3/Parrot6mutations restored.28Pilotidentical,reviewCritical0/Important0. Freshimagesrequired.",
-    "cactusPromotionCI": "d772ff5e Character37883016188SUCCESS;Punyu surfaceartifact11595377978 exportrequested. Cactus remainsactualimageapproved;full293gate stillopen.",
-    "clockParrotCorrectionCI": "540e8ef5 Character37883629394SUCCESS;correctedclock/parrot artifact11594524231 exportrequested."
+    "cactusPromotionCI": "d772ff5e Character37883016188/Runtime37883022474/Home37883022473SUCCESS. Punyu actualimages rejectedidlehover;Cactusapproved.",
+    "clockParrotCorrectionCI": "540e8ef5 Character37883629394SUCCESS;correctedclock/parrot artifact11594524231 exportrequested.",
+    "clockPromotion": "Clock only added to exact runtime;5scopedtestsPASS,7/7role mutations detected/restored;254/293,39pending,252acceptedfourviewrecords. IndependentreviewCritical0/Important0.",
+    "owlHeldPlumes": "Existingavian optionalclosed plume wing,9layers;7targetPASS,9/9mutations detected/restored,reviewCritical0/Important0. ActualimagegateOPEN. One minor testcamera-squash precision parked; independentfixed-camera32state clearancePASS.",
+    "punyuGround": "OnlyPunyu opts into existing squashHop;4ground/default testsPASS, opt-in removalRED/restored;worker43focusedPASS,reviewCritical0/Important0. Integrated8Punyu testsPASS;actualfreshimagesrequired.",
+    "combinedVerification": "276dedicatedPASS withOwl+Clock beforePunyu testfile inclusion;finalintegrated8PunyuPASS;28Pilot geometry/animation hashes identical. No newfullnpm claim."
   },
   "next": [
-    "Review correctedClock/Parrot540 actualimages viaexport",
-    "CompleteisolatedOwl featherwing task1 andtargetedreview",
-    "PunyuTask12 groundedexistinggait correction thenfreshimages",
-    "Execute remainingnonplayerplan withoutrebuildingcompletedfamilies;full293/Human/iPhone gates"
+    "Archive andactuallyreview fresh Owl/Punyu correction images beforepromotion",
+    "Correct Parrot crest orientation using existing plume paths",
+    "Execute remainingnonplayerplan;full293integration then separateHuman/iPhone gates"
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",

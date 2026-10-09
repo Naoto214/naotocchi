@@ -916,3 +916,11 @@ Actualdc4views eachREJECT;81rawhashesverified. Clockellipsoidhousing leftdialper
 ## Punyu normal-distance gate and continued candidate execution
 Punyu d772 archive7a46f3c9:41hashesverified;actual4views32states nowreadable withimprovedsurface. Bothnormal-distance images showconstantidlehover inheritedfromblobFloat;REJECT pendingexistinggroundedgait opt-in. No promotion. CorrectedClock/Parrot540Character37883629394SUCCESS,artifact11594524231exportrequested.
 Remainingplan recorded innonplayer-execution-plan.md;source-derivedcandidates useexistingfactories. Oneisolatedimplementer atatime plus taskreview;root retainsactualimage gates/GitDataAPI saves. FreshOwl feather-volume correction replacesfailedsmoothflipperapproach;Punyu groundfix queuedseparately. No sharedworktree mutation interference. Coverage253/293 unchanged;allactualrejects remainexplicit.
+
+## Clock approved; Owl/Punyu scoped corrections — source135d4d36
+- CorrectedClock/Parrot540 evidence archived135d4d36;81raw SHA256/size entries verified. ActualClock4views/32states/2normaldistance PASS. OnlyClock promoted:254/293,39pending,252acceptedviewrecords. Role7/7mutations restored,5targetPASS,reviewC0/I0.
+- ActualParrot4views REJECT crest frontal-plane fan/side spike. Earlierbelly/face issues resolved;states/distance notapproved. Task13 adjusts existingcrest paths;no promotion.
+- Owl reviewedcda9a01d:closed layeredfeathers replace leftflipper through opt-in existingavian/plumeGeometry;7targetPASS/9mutations,defaultavian hashes exact. ReviewC0/I0;minor test-camera squash precision parked after independentfixed-camera32state raysPASS. ActualimagegateOPEN.
+- Punyu reviewedd8185891:existing squashHop opt-in fixes idlecontact;4ground tests/43focusedPASS,removalRED/restored,reviewC0/I0. Integrated8PunyuPASS. Defaultblob untouched. ActualimagegateOPEN.
+- Dedicated276PASS withOwl/Clock before newPunyu file was included in glob;finalPunyu8PASS afterintegration.28Pilot geometry/animation hashes identical. Fullnpm remains8b6fcae3017+Relationship80,notcurrentHEAD.
+- Scopedcapture selectsOwl/Punyu only. Starpromotion Character60jobsSUCCESS,31/248aggregatejob113671073543 stillQUEUED;Runtime/HomeSUCCESS. Cactuspromotion all3SUCCESS. Draft376 maintained;Human/iPhone remainseparateopen.

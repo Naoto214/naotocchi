@@ -249,7 +249,7 @@
   // Only these role-specific entries have passed four-view/state/distance image gates.
   const nonPlayerFactory = typeof module === 'object' && module.exports ? require('./nonplayer-spec.js') : globalThis.NaotocchiNonPlayerWave;
   const approvedNonPlayers = typeof nonPlayerFactory === 'function' ? nonPlayerFactory() : {};
-  const NON_PLAYER = freeze(nonPlayerCandidates || Object.fromEntries(['companion:box','partner:sunflower_partner','partner:oasis_cactus'].filter(key=>approvedNonPlayers[key]).map(key=>[key,approvedNonPlayers[key]])));
+  const NON_PLAYER = freeze(nonPlayerCandidates || Object.fromEntries(['companion:box','companion:clock','partner:sunflower_partner','partner:oasis_cactus'].filter(key=>approvedNonPlayers[key]).map(key=>[key,approvedNonPlayers[key]])));
   for (const [key,row] of Object.entries(NON_PLAYER)) {
     if (!['companion','partner','author'].includes(row.kind) || !/^[a-z_]+$/.test(row.id) || key !== row.kind+':'+row.id || !row.spec || !row.asset) throw new Error('Invalid non-player identity '+key);
   }

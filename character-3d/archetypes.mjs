@@ -4,7 +4,7 @@ import {cosmic} from './cosmic.mjs';
 import {softToy} from './soft-toy.mjs';
 import {spectral} from './spectral.mjs';
 import {celestialHumanoid} from './celestial-humanoid.mjs';
-import {plumedBird} from './plumed-bird.mjs';
+import {plumedBird, plumeGeometry} from './plumed-bird.mjs';
 import {wingedReptile} from './winged-reptile.mjs';
 import {cocoonPod} from './cocoon-pod.mjs';
 import {armoredInsect} from './armored-insect.mjs';
@@ -175,7 +175,7 @@ export function avian(sp, key) {
   // つばさ(ひれ)
   for (const s of [-1, 1]) {
     const W={...sp.wing,...sp.wing.sides?.[s<0?'left':'right']};
-    const g = paint(blob((x, y, z) => { const t = (1 - y) / 2; return [x * W.w * Math.sin(Math.PI * Math.min(1,t*.9+.08)) + s * .02, -t * W.len, W.forward ? z * .065 * (1 - t * 0.6) * Math.sin(Math.PI * Math.min(1, t * 0.95 + 0.15))+W.forward*t : z * .065 * (1 - t * 0.6) * Math.sin(Math.PI * Math.min(1, t * 0.95 + 0.15))]; }, 12, 8), (x,y,z) => sp.patchy && y > -W.len*.48 ? c.fluff : fl>.5 ? c.base : c.back);
+    const g = W.plumes ? merge(W.plumes.map(plumeGeometry)) : paint(blob((x, y, z) => { const t = (1 - y) / 2; return [x * W.w * Math.sin(Math.PI * Math.min(1,t*.9+.08)) + s * .02, -t * W.len, W.forward ? z * .065 * (1 - t * 0.6) * Math.sin(Math.PI * Math.min(1, t * 0.95 + 0.15))+W.forward*t : z * .065 * (1 - t * 0.6) * Math.sin(Math.PI * Math.min(1, t * 0.95 + 0.15))]; }, 12, 8), (x,y,z) => sp.patchy && y > -W.len*.48 ? c.fluff : fl>.5 ? c.base : c.back);
     rig.add(s < 0 ? 'wingL' : 'wingR', 'body', W.at?.[s<0?'left':'right'] || [s * B.r * 0.84, B.h * 0.72, -0.02], [g], 'opaque', [0, 0, sp.wingPose?.[s < 0 ? 'left' : 'right'] ?? (sp.raisedWing && s>0 ? 2.25 : s * .20)]);
   }
   // 足
@@ -902,7 +902,7 @@ export function radial(sp, key) {
 // ================= blob(ヒトデ幼生: すけた 光る からだ) =================
 export function blobArchetype(sp, key) {
   const c = sp.colors;
-  const rig = new Rig(key, 'blob', 'blobFloat');
+  const rig = new Rig(key, 'blob', sp.locomotion ?? 'blobFloat');
   const h = sp.h, r = sp.r;
   // ビピンナリア: たてながの 体に 左右 2 つずつの ふくらみ(うで の もと)
   const contour = sp.contour ? sp.contour.map(([x,y])=>[x*r,y*h]) : [[0,h],[-r*.3,h*.96],[-r*.51,h*.8],[-r*.57,h*.66],[-r*.88,h*.59],[-r*.95,h*.49],[-r*.78,h*.42],[-r*.57,h*.35],[-r*.82,h*.25],[-r*.88,h*.12],[-r*.69,.0],[-r*.48,h*.01],[-r*.28,h*.11],[-r*.13,h*.015],[0,-h*.015],[r*.13,h*.015],[r*.28,h*.11],[r*.48,h*.01],[r*.69,0],[r*.88,h*.12],[r*.82,h*.25],[r*.57,h*.35],[r*.78,h*.42],[r*.95,h*.49],[r*.88,h*.59],[r*.57,h*.66],[r*.51,h*.8],[r*.3,h*.96]];
