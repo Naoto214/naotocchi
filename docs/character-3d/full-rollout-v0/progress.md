@@ -862,3 +862,10 @@ Scratch disappeared after7ab521e save; freshclone restored remoteHEAD/tree1b19f6
 - Unknown all8 registered only after8b6actualimagePASS.255dedicatedPASS,32/32rollout mutations detected; restored diff and255PASS rechecked;28Pilot hashes identical;reviewCritical0/Important0.244/293 exact,49pending=Star8+nonplayer41;242fourviewrecords.
 - Star2789b99 scopedCharacter37877360650SUCCESS;all8wave/distance export requested using persistentGit evidence mechanism. NoStarregistration before realall8review.
 - Fullnpm8b6:3017+80PASS remains preUnknownpromotion evidence;no repeat fullnpm claimed.
+
+## Owl candidate / reusable scoped nonplayer QA
+
+- Existingavian reused with optionalpairedtufts,breastfeathermarks andwingattachmentdata;owl sourcepose asymmetricfoldedwings. Prior nonplayersdeep-equal;Pilot28hashes identical. Productionowl remains isolated.
+- Existingnonplayercapture accepts --keys andscopedworkflow avoids completedfamilies. Existingexporter directlypublishes role0fourviews,normaldistance,andboards;6testsPASS including selection usingfamilies:[companion].
+-257dedicatedPASS;owl4+nonplayer4mutationdetected. Finalsunflower mutation persisted despiteharnessrestorationlog;explicitlyremoved,existingnonplayerdeep equality and257PASS reverified. ReviewCritical0/Important0. Actualowlimagegate pending.
+- Star2789b99 all8captureSUCCESS;recovery37877945943 remainsqueued. Same request retained withexporter update;no uninspectedimagePASS.

@@ -28,4 +28,8 @@ class ExportTests(unittest.TestCase):
   m=self.load();files={'mythic/phoenix-stages.jpg':b'board','mythic-motion/phoenix-1-motion.jpg':b'states','mythic/phoenix-1-front.jpg':b'raw','mythic/evidence.json':b'{}'};out=m.package_files(files,{'id':12,'digest':'sha256:abc'},'a'*40,'wave');self.assertIn('raw-evidence.zip',out);self.assertEqual(out['mythic/phoenix-stages.jpg'],b'board');self.assertEqual(out['mythic/phoenix-1-front.jpg'],b'raw')
   with zipfile.ZipFile(io.BytesIO(out['raw-evidence.zip'])) as z:self.assertEqual(z.read('mythic/phoenix-1-front.jpg'),b'raw')
   self.assertIn(b'PENDING_VISUAL_REVIEW',out['README.md']);manifest=json.loads(out['manifest.json']);self.assertEqual(len(manifest['files']),4)
+ def test_nonplayer_direct_review_surfaces(self):
+  m=self.load();files={n:b'image' for n in ['companion-owl-views.jpg','companion-owl-0-front.jpg','companion-owl-distance-front.jpg','partner-cat_ceo-0-back.jpg','author-naoto-0-side.jpg']};out=m.package_files(files,{},'a'*40,'nonplayer')
+  for n in files:self.assertEqual(out.get(n),b'image')
+  selected=m.select_files(self.zip(files),['companion'],'a'*40);self.assertEqual(set(selected),{n for n in files if n.startswith('companion-')});self.assertIn('companion-owl-0-front.jpg',m.package_files(selected,{},'a'*40,'owl'))
 if __name__=='__main__':unittest.main()

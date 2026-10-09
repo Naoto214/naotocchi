@@ -1,6 +1,6 @@
 {
-  "baseCommit": "2789b990b800b0639914005dd4d4ed4e36bd3bae",
-  "checkpoint": "unknown-promoted-star-all8-export",
+  "baseCommit": "f6c86cdc482231f61b006872c3cf940f21f7d8a3",
+  "checkpoint": "owl-candidate-scoped-durable-image-qa",
   "coverage": {
     "exact": 244,
     "total": 293,
@@ -11,7 +11,7 @@
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 255,
+    "dedicatedPass": 257,
     "rolloutMutationsDetected": 32,
     "pilotHashesUnchanged": 28,
     "fullNpm": "8b6fcae fixed implementation:3017PASS+Relationship80PASS,0FAIL,exit0; full log/result archived. Before Star expansion/Unknown promotion.",
@@ -56,12 +56,15 @@
     "fullNpmInterrupted": "d87e31b npm test started; scratch disappeared during execution,completion/exit not available. Do not claim PASS. Prior completed a65 result remains historical.",
     "starCandidates": "Remaining6 source-derived candidates via unchangedcosmic factory;03/07 unchanged;254dedicatedPASS,7stage+6cosmic mutationsdetected/restored,reviewCritical0/Important0. All8images pending;not registered.",
     "unknownPromotion": "All8 image-approved registered;255dedicatedPASS,32/32rollout mutationsdetected/restored,28Pilot hashesidentical,reviewCritical0/Important0. Coverage244/293,pending49,242fourviewrecords. Postpromotion30family/240stageaggregate pending.",
-    "starCandidateCI": "2789b99 Character37877360650SUCCESS;all8wave11592962667/distance11592663889 exportrequested. Actualall8review pending."
+    "starCandidateCI": "2789b99 Character37877360650SUCCESS;all8wave11592962667/distance11592663889 exportrequested. Actualall8review pending.",
+    "owlCandidate": "Existingavian optionalpairedtufts/creamfeatherpaint/asymmetricwingpose;roleexact isolated.257dedicatedPASS,owl4+nonplayer4mutationsdetected,28Pilot identical,reviewCritical0/Important0. Finalsunflower mutation persisted despiteharnesslog;explicitlyremoved,priornonplayerdeep equality and257PASS confirmed. Imagespending.",
+    "nonplayerImageExport": "Existingcapture --keys filter;scopednonplayer CI;role0fourviews/distance/boards directGitpublication;exporter6testsPASS withselection/packagecoverage. Requestfamilies companion forowl. No Human/iPhone acceptance."
   },
   "next": [
-    "Review Star all8 actualimages and promote only after PASS",
-    "Remaining41nonplayers and full293 integration/performance/regression/Human/iPhone QA",
-    "Confirm30family/240stage aggregate after Unknown promotion"
+    "Retrieve/review Star2789b99 all8;export request retained (prior recovery37877945943 queued)",
+    "Review owl candidate4views32states2distance before nonplayerpromotion orbirdexpansion",
+    "Remaining40nonplayers plusowl;full293 integration/performance/regression/Human/iPhone gates",
+    "Confirm30family/240stage postUnknown aggregate"
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",

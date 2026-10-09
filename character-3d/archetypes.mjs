@@ -154,7 +154,7 @@ export function avian(sp, key) {
   const bodyCol = (x, y, z, nx, ny, nz) => {
     const by = B.h * 0.42, bw = B.r * B.belly, bh = B.h * 0.42;
     const inBelly = nz > 0.15 && (x * x) / (bw * bw) + ((y - by) * (y - by)) / (bh * bh) < 1;
-    if (inBelly) return c.belly;
+    if (inBelly) {const m=sp.featherMarks;if(m){const row=Math.floor(y/m.spacing),xx=x+(row%2)*m.spacing*.5,dx=Math.abs(xx-Math.round(xx/m.spacing)*m.spacing),dy=y-row*m.spacing;if(dy>.02&&dy<.09&&Math.abs(dx-(.09-dy)*.5)<m.width*.45)return m.color;}return c.belly;}
     if (patchy(x, y, z)) return c.fluff;
     return nz < -0.3 ? c.back : c.base;
   };
@@ -165,6 +165,7 @@ export function avian(sp, key) {
   const skull = paint(blob((x, y, z) => { const f = fuzz(x + 1, y, z); return [x * hr * 1.08 * f, y * hr * f, z * hr * f]; }, 18, 12), headCol);
   const tufts = [];
   if (fl > 0.3 || sp.patchy) for (let i = 0; i < 4; i++) { const a = -0.6 + i * 0.4 + R() * 0.2; tufts.push(solid(sweep([[Math.sin(a) * hr * 0.4, hr * 0.85, 0], [Math.sin(a) * hr * 0.7, hr * 1.18, -0.03]], (t) => 0.05 * (1 - t), 5, { steps: 3 }), sp.patchy ? c.fluff : c.base)); }
+  for(const q of sp.earTufts||[])tufts.push(paint(sweep(q.path,t=>q.r*(1-t)+.002,8,{steps:12}),(x,y,z,nx,ny,nz)=>mix(c.back,c.base,Math.max(0,nz))));
   const beak = paint(xform(lathe([[0.001, 0], [Sbeak(sp).r, 0.0], [Sbeak(sp).r * 0.7, Sbeak(sp).len * 0.5], [0.001, Sbeak(sp).len]], 8), { pos: [0, -hr * 0.12, hr * 0.92], rot: [Math.PI / 2 - 0.15, 0, 0] }), (x, y) => (y < -hr * 0.2 ? shade(c.beak, 0.85) : c.beak));
   const headGeo = merge([skull, ...tufts, beak]);
   rig.add('head', 'body', [0, hy, 0.02], null);
@@ -173,7 +174,7 @@ export function avian(sp, key) {
   const W = sp.wing;
   for (const s of [-1, 1]) {
     const g = paint(blob((x, y, z) => { const t = (1 - y) / 2; return [x * W.w * Math.sin(Math.PI * Math.min(1,t*.9+.08)) + s * .02, -t * W.len, z * .065 * (1 - t * 0.6) * Math.sin(Math.PI * Math.min(1, t * 0.95 + 0.15))]; }, 12, 8), (x,y,z) => sp.patchy && y > -W.len*.48 ? c.fluff : fl>.5 ? c.base : c.back);
-    rig.add(s < 0 ? 'wingL' : 'wingR', 'body', [s * B.r * 0.84, B.h * 0.72, -0.02], [g], 'opaque', [0, 0, sp.wingPose?.[s < 0 ? 'left' : 'right'] ?? (sp.raisedWing && s>0 ? 2.25 : s * .20)]);
+    rig.add(s < 0 ? 'wingL' : 'wingR', 'body', W.at?.[s<0?'left':'right'] || [s * B.r * 0.84, B.h * 0.72, -0.02], [g], 'opaque', [0, 0, sp.wingPose?.[s < 0 ? 'left' : 'right'] ?? (sp.raisedWing && s>0 ? 2.25 : s * .20)]);
   }
   // 足
   for (const s of [-1, 1]) {

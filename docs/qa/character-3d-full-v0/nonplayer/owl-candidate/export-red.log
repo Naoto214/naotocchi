@@ -1,0 +1,16 @@
+.F./opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/zipfile/__init__.py:1625: UserWarning: Duplicate name: 'phoenix-1-front.jpg'
+  return self._open_to_write(zinfo, force_zip64=force_zip64)
+...
+======================================================================
+FAIL: test_nonplayer_direct_review_surfaces (__main__.ExportTests.test_nonplayer_direct_review_surfaces)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/150320e8a2fd/character-rollout/.github/scripts/test_character_qa_export.py", line 33, in test_nonplayer_direct_review_surfaces
+    for n in files:self.assertEqual(out.get(n),b'image')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: None != b'image'
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.019s
+
+FAILED (failures=1)

@@ -39,7 +39,7 @@ def package_files(files,artifact,source,label):
   for p,data in sorted(files.items()):
    info=zipfile.ZipInfo(p,(2026,1,1,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;z.writestr(info,data)
    name=PurePosixPath(p).name
-   if name.endswith(('-stages.jpg','-motion.jpg')) or re.fullmatch(r'[a-z_]+-[1-8]-(front|34|side|back)\.jpg',name) or name.startswith('player-') or p.endswith('.json'):out[p]=data
+   if name.endswith(('-stages.jpg','-motion.jpg','-views.jpg')) or re.fullmatch(r'[a-z_]+-[1-8]-(front|34|side|back)\.jpg',name) or re.fullmatch(r'(companion|partner|author)-[a-z_]+-(0-(front|34|side|back)|distance-(front|back))\.jpg',name) or name.startswith('player-') or p.endswith('.json'):out[p]=data
  manifest={'status':'PENDING_VISUAL_REVIEW','sourceCommit':source,'artifact':artifact,'files':[{'path':p,'sha256':sha(b),'bytes':len(b)} for p,b in sorted(files.items())]}
  out['raw-evidence.zip']=buf.getvalue();out['manifest.json']=(json.dumps(manifest,indent=2)+'\n').encode()
  lines=[f'# {label} — {source}','', 'PENDING_VISUAL_REVIEW — export success is not image approval. Chromium/SwiftShader is not Human/iPhone acceptance.','', '[All original selected images](raw-evidence.zip) · [SHA256 manifest](manifest.json)','']
