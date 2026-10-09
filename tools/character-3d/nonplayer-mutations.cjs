@@ -18,6 +18,8 @@ const scriptsByKey = new Map([
     .map(key => ['companion:' + key, 'other-mammal-remove-it.cjs']),
   ...['bat', 'chicken', 'penguin_friend', 'snail', 'chameleon']
     .map(key => ['companion:' + key, 'birds-reptiles-remove-it.cjs']),
+  ...['cat_ceo', 'robot_neighbor', 'snow_spirit', 'sea_mermaid']
+    .map(key => ['partner:' + key, 'humanoid-partner-remove-it.cjs']),
   ...['field_cow', 'forest_bear', 'grove_deer', 'cliff_goat', 'gentle_gorilla']
     .map(key => ['partner:' + key, 'mammal-partner-remove-it.cjs']),
   ...['sekizou', 'unicorn', 'many_tail_fox', 'watcher']

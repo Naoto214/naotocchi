@@ -15,3 +15,41 @@ test('master additions cannot silently disappear behind the pilot registry',()=>
 test('missing and unclassified assets remain explicit audit failures',()=>{
  assert.equal(typeof api.auditInventory,'function');const m=master(),d=api.auditInventory(root,m,{assets:['assets/characters/unregistered/01.png']});assert.ok(d.unclassifiedAssets.includes('assets/characters/unregistered/01.png'));assert.ok(d.missingAssets.length>0);
 });
+const {coverage}=require('../tools/character-3d/coverage.cjs'),SPEC=require('../character-3d/spec.js');
+const legacyReview='docs/qa/character-3d-full-v0/legacy-four-view-review.json';
+function legacyFixture(t){
+ const tmp=fs.mkdtempSync(path.join(require('node:os').tmpdir(),'legacy-view-'));t.after(()=>fs.rmSync(tmp,{recursive:true,force:true}));
+ fs.symlinkSync(path.join(root,'assets'),path.join(tmp,'assets'),'dir');fs.copyFileSync(path.join(root,'character-world-master.v1.js'),path.join(tmp,'character-world-master.v1.js'));
+ const review=JSON.parse(fs.readFileSync(path.join(root,legacyReview),'utf8'));
+ for(const file of [legacyReview,review.sourceMetadata,...review.rows.map(r=>r.path)]){fs.mkdirSync(path.dirname(path.join(tmp,file)),{recursive:true});fs.copyFileSync(path.join(root,file),path.join(tmp,file));}
+ return {tmp,review,save:()=>fs.writeFileSync(path.join(tmp,legacyReview),JSON.stringify(review))};
+}
+test('legacy coverage references the reviewed rightmost four tiles without claiming raw photos or later gates',t=>{
+ const {tmp,review}=legacyFixture(t),result=coverage(tmp,SPEC);
+ assert.equal(result.counts.fourViewRecords,2);
+ for(const evidence of review.rows){
+  const row=result.rows.find(r=>r.key===evidence.key+':0');assert.ok(row.exact);assert.deepEqual(Object.values(row.views),Array(4).fill(evidence.path));
+  assert.equal(row.viewEvidence.type,'comparison-board');assert.equal(row.viewEvidence.layout,evidence.views);assert.deepEqual(row.viewEvidence.viewOrder,['front','34','side','back']);
+  assert.equal(row.viewEvidence.path,evidence.path);assert.equal(row.viewEvidence.sha256,evidence.sha256);assert.equal(row.viewEvidence.actualReview,'PASS_FOUR_VIEWS_ONLY');
+  assert.equal(row.viewEvidence.reviewRecord,legacyReview);assert.equal(row.viewEvidence.sourceCommit,review.sourceCommit);assert.equal(row.viewEvidence.sourceMetadata,review.sourceMetadata);
+  assert.equal(row.viewEvidence.currentComparisonCommit,review.currentComparisonCommit);assert.equal(row.viewEvidence.geometryAndAnimationHash,evidence.geometryAndAnimationHash);
+  assert.deepEqual(row.viewEvidence.remainingGates,review.remainingGates);assert.equal(row.states,undefined);assert.equal(row.distance,undefined);
+ }
+ assert.ok(result.rows.filter(r=>!['cat_friend','shiba'].includes(r.id)).every(r=>r.viewEvidence===undefined));
+});
+test('legacy coverage rejects unreviewed, missing, changed, or wrongly mapped boards',t=>{
+ const {tmp,review,save}=legacyFixture(t),original=structuredClone(review),cat=()=>coverage(tmp,SPEC).rows.find(r=>r.key==='companion:cat_friend:0');
+ for(const [field,value] of [['actualReview','PENDING_VISUAL_REVIEW'],['key','partner:cat_friend'],['path',review.rows[1].path],['path','../outside.jpg'],['sha256','0'.repeat(64)],['views','leftmost four baseline tiles']]){
+  review.rows=structuredClone(original.rows);review.rows[0][field]=value;save();const row=cat();assert.ok(Object.values(row.views).every(v=>v===null),field);assert.equal(row.viewEvidence,undefined,field);
+ }
+ review.rows=structuredClone(original.rows);save();fs.appendFileSync(path.join(tmp,review.rows[0].path),'changed');assert.equal(cat().viewEvidence,undefined);
+ fs.unlinkSync(path.join(tmp,review.rows[0].path));assert.equal(cat().viewEvidence,undefined);
+ fs.unlinkSync(path.join(tmp,legacyReview));assert.equal(coverage(tmp,SPEC).counts.fourViewRecords,0);
+});
+test('legacy board reuse requires the exact companion model at stage zero',t=>{
+ const {tmp}=legacyFixture(t);
+ for(const key of [{id:'cat_friend',stage:0,exact:false},{id:'cat_friend',stage:1,exact:true},{id:'partner:cat_friend',stage:0,exact:true}]){
+  const fake={...SPEC,specKeyFor:ref=>ref.kind==='companion'&&ref.id==='cat_friend'?key:SPEC.specKeyFor(ref)};
+  const row=coverage(tmp,fake).rows.find(r=>r.key==='companion:cat_friend:0');assert.equal(row.viewEvidence,undefined);assert.ok(Object.values(row.views).every(v=>v===null));
+ }
+});

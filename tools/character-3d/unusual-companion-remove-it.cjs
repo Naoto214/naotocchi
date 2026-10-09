@@ -17,6 +17,7 @@ const cases=[
  ['unicorn gold horn',spec,"color:'#e9be4b'","color:'#658dde'",'unicorn has'],
  ['unicorn swept hair',spec,'of paths.entries())unicorn.details.find','of paths.slice(0,0).entries())unicorn.details.find','unicorn has'],
  ['unicorn tail curl',spec,'paths.push({path,radius:radius*(i===2?.86:1)',"paths.push({path:name==='hairTail'?path.map(([x,y,z])=>[x,y*.10,z]):path,radius:radius*(i===2?.86:1)",'unicorn produced hair','long undulating tail'],
+ ['unicorn rejected tail ring',spec,'for(const [name,radius,color,paths]of unicornHair)',"unicornHair.find(q=>q[0]==='hairTail')[3]=[[[0,0,0],[-.04,.16,-.11],[-.04,.35,-.25],[-.07,.17,-.37],[-.12,-.10,-.39],[-.03,-.29,-.47],[.05,-.18,-.47],[-.015,-.10,-.51]],[[.025,0,-.01],[.10,.21,-.09],[.12,.36,-.22],[.11,.17,-.37],[.12,-.05,-.43],[.20,-.19,-.53],[.08,-.27,-.55],[.05,-.19,-.51]],[[-.025,0,.02],[-.08,.18,-.10],[.015,.24,-.25],[-.02,.08,-.40],[-.05,-.17,-.43],[.03,-.31,-.40],[.13,-.27,-.47],[.12,-.16,-.50]]];for(const [name,radius,color,paths]of unicornHair)",'unicorn layered hair','hairTail continuous produced cascade coverage'],
  ['fox pointed ears',spec,'for(const side of [-1,1]){manyTailFox.details','for(const side of []){manyTailFox.details','many_tail_fox sits'],
  ['fox six source tails',spec,'of foxFan.entries())manyTailFox.details','of foxFan.slice(0,5).entries())manyTailFox.details','many_tail_fox sits'],
  ['fox cream tail tips',spec,"tip:'#fff0ce'","tip:'#dc7429'",'many_tail_fox sits'],

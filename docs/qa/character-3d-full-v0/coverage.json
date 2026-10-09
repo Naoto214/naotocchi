@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 278,
-    "pending": 15,
-    "fourViewRecords": 276
+    "exactSpecs": 280,
+    "pending": 13,
+    "fourViewRecords": 280
   },
   "rows": [
     {
@@ -4981,10 +4981,34 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-quality3-2026-10-03/comparisons/cat_friend-00-comparison.jpg",
+        "front": "docs/qa/character-3d-quality3-2026-10-03/comparisons/cat_friend-00-comparison.jpg",
+        "side": "docs/qa/character-3d-quality3-2026-10-03/comparisons/cat_friend-00-comparison.jpg",
+        "back": "docs/qa/character-3d-quality3-2026-10-03/comparisons/cat_friend-00-comparison.jpg"
+      },
+      "viewEvidence": {
+        "type": "comparison-board",
+        "path": "docs/qa/character-3d-quality3-2026-10-03/comparisons/cat_friend-00-comparison.jpg",
+        "sha256": "6282aaff98e421006bdd96d0f1dd1973f2701aea0697710c20a7fb991706c35e",
+        "layout": "rightmost four revised tiles: front, 34, side, back",
+        "viewOrder": [
+          "front",
+          "34",
+          "side",
+          "back"
+        ],
+        "actualReview": "PASS_FOUR_VIEWS_ONLY",
+        "reviewRecord": "docs/qa/character-3d-full-v0/legacy-four-view-review.json",
+        "sourceCommit": "cf7b787d1ca422a358216ff36c6c29d06a571dd4",
+        "sourceMetadata": "docs/qa/character-3d-quality3-2026-10-03/package-manifest.json",
+        "currentComparisonCommit": "3083126a75d1044da2f68142a5a46d789556895c",
+        "geometryAndAnimationHash": "572e0df63a91df99d0201f823364b99f435d6e9f94095363b81d6590b2e7566e",
+        "remainingGates": [
+          "integration states and normal-distance evidence",
+          "full293 QA",
+          "Human QA",
+          "iPhone QA"
+        ]
       }
     },
     {
@@ -5301,10 +5325,34 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-quality3-2026-10-03/comparisons/shiba-00-comparison.jpg",
+        "front": "docs/qa/character-3d-quality3-2026-10-03/comparisons/shiba-00-comparison.jpg",
+        "side": "docs/qa/character-3d-quality3-2026-10-03/comparisons/shiba-00-comparison.jpg",
+        "back": "docs/qa/character-3d-quality3-2026-10-03/comparisons/shiba-00-comparison.jpg"
+      },
+      "viewEvidence": {
+        "type": "comparison-board",
+        "path": "docs/qa/character-3d-quality3-2026-10-03/comparisons/shiba-00-comparison.jpg",
+        "sha256": "70fbc94f728a8ab9eba2fccd1d75b08b7d332f801b155dbe5772f681298dd1e4",
+        "layout": "rightmost four revised tiles: front, 34, side, back",
+        "viewOrder": [
+          "front",
+          "34",
+          "side",
+          "back"
+        ],
+        "actualReview": "PASS_FOUR_VIEWS_ONLY",
+        "reviewRecord": "docs/qa/character-3d-full-v0/legacy-four-view-review.json",
+        "sourceCommit": "cf7b787d1ca422a358216ff36c6c29d06a571dd4",
+        "sourceMetadata": "docs/qa/character-3d-quality3-2026-10-03/package-manifest.json",
+        "currentComparisonCommit": "3083126a75d1044da2f68142a5a46d789556895c",
+        "geometryAndAnimationHash": "4175a7fcd816e7f6aaef998bc6aad4039c6e262a5e9dc9190dfc0e1df408b6f9",
+        "remainingGates": [
+          "integration states and normal-distance evidence",
+          "full293 QA",
+          "Human QA",
+          "iPhone QA"
+        ]
       }
     },
     {
@@ -5436,15 +5484,15 @@
       "group": "rare",
       "asset": "assets/characters/companions/many_tail_fox.png",
       "sha256": "5c0f806280f746c3a6b0b62d22cc5bcd02508ba3494f8a89319a4f2bd0bcdfee",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/64d739f9fda0fadf79595d3b45b1181ac6229f75/unusual-source-fixes/companion-many_tail_fox-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/64d739f9fda0fadf79595d3b45b1181ac6229f75/unusual-source-fixes/companion-many_tail_fox-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/64d739f9fda0fadf79595d3b45b1181ac6229f75/unusual-source-fixes/companion-many_tail_fox-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/64d739f9fda0fadf79595d3b45b1181ac6229f75/unusual-source-fixes/companion-many_tail_fox-0-back.jpg"
       }
     },
     {
@@ -5456,15 +5504,15 @@
       "group": "rare",
       "asset": "assets/characters/companions/watcher.png",
       "sha256": "4b6370d0afbbc8bd5cdd9dc7ae9d2cd7c251c2d7b793fc360d460dbe7938809d",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "cosmic",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/64d739f9fda0fadf79595d3b45b1181ac6229f75/unusual-source-fixes/companion-watcher-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/64d739f9fda0fadf79595d3b45b1181ac6229f75/unusual-source-fixes/companion-watcher-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/64d739f9fda0fadf79595d3b45b1181ac6229f75/unusual-source-fixes/companion-watcher-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/64d739f9fda0fadf79595d3b45b1181ac6229f75/unusual-source-fixes/companion-watcher-0-back.jpg"
       }
     },
     {

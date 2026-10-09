@@ -1,0 +1,45 @@
+{
+  "sourceCommit": "64d739f9fda0fadf79595d3b45b1181ac6229f75",
+  "sourceRun": 37903430971,
+  "sourceRunConclusion": "success",
+  "artifact": 11603577369,
+  "archiveCommit": "4fba9e41b92ac9401f76d40c7cca538a15cc5368",
+  "rawFilesVerified": 121,
+  "reviewer": "root actual image inspection plus independent four-view source-fidelity review",
+  "reviewed": {
+    "unicorn": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "REJECT"
+    },
+    "many_tail_fox": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "watcher": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    }
+  },
+  "resolved": {
+    "watcher": "Pale iris surrounds readable dark canonical pupil; closed expressions retain a single clear eye. Normal-distance view readable.",
+    "many_tail_fox": "Six closed cream tail tips have outward normals and tapered surfaces; former socket/ring shading resolved in actualimages."
+  },
+  "blockingFindings": {
+    "unicorn": "Important: mane still forms oversized hollow oval framing loops; tail34/side remains dominant inverted-U/open-loop bundle. Source needs layered flowing S-shaped mass with curled distal tips. Fix round3, no promotion."
+  },
+  "contentReuse": {
+    "method": "Watcher/Fox same-runtime produced mesh attributes and world matrices across all32states identical before/after Task7 soft-toy motion opt-ins.",
+    "sha256": {
+      "many_tail_fox": "9743db662b402a0f7e3673a5f5bd48a1b7c51cdca2a8ea700c9efd5fa745a63a",
+      "watcher": "9b4329077d0dedf8fb22e612cb740924d56992242f2b85ee6764d6f3ac499bab"
+    }
+  },
+  "humanQA": "OPEN_SEPARATE",
+  "iPhoneQA": "OPEN_SEPARATE"
+}

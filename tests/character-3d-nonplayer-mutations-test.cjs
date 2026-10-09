@@ -100,3 +100,9 @@ test('five mammal partners select their scoped mutation tool once', () => {
   for (const key of keys) assert.deepEqual(selectScripts({keys:[key]}), ['mammal-partner-remove-it.cjs']);
   assert.deepEqual(selectScripts({keys:[...keys,...keys]}), ['mammal-partner-remove-it.cjs']);
 });
+
+test('four humanoid partners select their scoped mutation tool once', () => {
+  const keys = ['cat_ceo', 'robot_neighbor', 'snow_spirit', 'sea_mermaid'].map(key => 'partner:' + key);
+  for (const key of keys) assert.deepEqual(selectScripts({keys:[key]}), ['humanoid-partner-remove-it.cjs']);
+  assert.deepEqual(selectScripts({keys:[...keys,...keys]}), ['humanoid-partner-remove-it.cjs']);
+});

@@ -1000,3 +1000,16 @@ The e8 Character run37897241823 remains FAILURE from stale mutation anchors; cap
 Task5fix2 atlocal05794054 corrects Watcher pupil/iris, Unicorn flowed/taperedownedlocks andFox outwardclosedcapnormals.16focusedPASS,9scopednegativecontrolsdetected/restored,23priorrowsunchangedinworker;28priorrowsincluding5partnersunchangedafterintegration. Defaults preserved withfrozeninput comparisons, no mutabletablefreeze. IndependentC0/I0;integrated376dedicatedPASS/Pilot28identical. Three roles remainunregistered pendingfreshactualimages; nextcaptureonlythese3. Task7fourhumanoidpartners underway.
 
 8f dedicatedFAILURE is retained: oldbase tests26/27 treated nowpromotedtanuki asunimplemented. RootreproducedRED, addedpositiveexacttanuki/canonicalemotion and permanently missingmodel companion/partner fallback assertions;2PASS andC0/I0. No productionbehaviorchanged. FourtargetedpromotiontestsPASS; finalnpm/Human/iPhone/full293integration remainOPEN.
+
+
+## Fox/Watcher approved; Unicorn remains rejected; humanoid partners ready
+
+64d739f9 Character37903430971SUCCESS (dedicated113731082088/capture113731081943); Recovery37904116438SUCCESS saved28imagefiles at4fba9e41,121rawhashesverified. Rootactuallyinspected allthree4views32states2distance. Watcher darkpupil/paleiris andFox outwardtaperedclosedtips resolvepriorREJECT;independentreviewPASS. Unicorn stillREJECT: oversizedhollowmane loops anddominantinverted-Utail ratherthanlayeredflowingS-shapedsourcehair. Originalworkerfixround3; no prematurepromotion. PromotedonlyWatcher/Fox, exact280/293,pending13.
+
+Task7fourhumanoidpartners implementedata68dacea,19focusedPASS17scopedmutationRED/restored,31priorrowsunchanged,independentC0/I0. Optionalexistingsoft-toy swimHover/hover preservesdefaults andTask5cap/taperoptions afterintegration;12selectorPASS/Pilot28identical. ApprovedWatcher/Fox same-runtimeproducedgeometry+worldtransformsall32statesmatchcaptureafterTask7factorychange. Fournewrolesremainisolatedpendingactualimages.
+
+Legacycat/shiba existingfourviewboards now mappedviaexactrole/model/stage/path/layout/PASS/SHAguards, explicitcomparison-board/rightmostfourdescriptor;6focusedPASS,C0/I0. No fakefourrawphotos andnostate/distanceapproval. Fourviewrecords280,othercoverage unchanged. Finallegacy states/distance,all293integration,finalnpm,Human/iPhoneOPEN.
+
+Integrated finalbatch399dedicatedPASS,12selectorPASS,7/7rolemutationsdetected/restored,28Pilotunchanged.64d739f9HomeSUCCESS;Runtime37903441922 stillIN_PROGRESS atlastfreshcheck, distinctfromSUCCESS. No fullnpm repeat.
+
+Unicornfix3 cdf38a00 changesonlythreeownedhairpathlists to4head/5neck-back/4staggeredtail locks;17focusedPASS,oldrejectedringnegative1/1RED-restored,maxactualexpression16826,C0/I0. Integratedafter399baseline with5scopedPASS;allother30savedrows unchangedincl signedzero,Task7adds4. BatchnextcaptureTask7four+Unicornonly, retaining priorUnicornREJECT untilfreshactualimages.

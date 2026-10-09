@@ -1,17 +1,17 @@
 {
-  "baseCommit": "9e8caf3ae5384bf743822e3332c0bacdfbe6eb23",
-  "checkpoint": "five-partners-image-approved-three-unusual-source-fixes-ready-for-fresh-images",
+  "baseCommit": "4fba9e41b92ac9401f76d40c7cca538a15cc5368",
+  "checkpoint": "fox-watcher-approved-humanoid-four-and-unicorn-fix3-ready-for-five-image-gates",
   "coverage": {
-    "exact": 278,
+    "exact": 280,
     "total": 293,
-    "pending": 15,
+    "pending": 13,
     "playerFamilies": 31,
     "playerStages": 248,
-    "companions": 23,
+    "companions": 25,
     "partners": 7
   },
   "verification": {
-    "dedicatedPass": 376,
+    "dedicatedPass": 399,
     "rolloutMutationsDetected": 33,
     "pilotHashesUnchanged": 28,
     "fullNpm": "8b6fcae fixed implementation:3017PASS+Relationship80PASS,0FAIL,exit0; full log/result archived. Before Star expansion/Unknown promotion.",
@@ -112,17 +112,24 @@
     "mammalContactFix": "b03971d9:33focusedPASS,21/21negativecontrolsRED/restoredGREEN; exact7fixed+19unchanged mergedrows; integration35PASS includingapprovedpromotionrole checks; selector10PASS andC0/I0. Sharedfactories unchanged, Pilot comparison reused fromd1.",
     "d1CandidateCI": "Character37896316097SUCCESS, dedicated113708358659SUCCESS;artifact11600044828. Runtime37896324542/Home37896324536 lastobservedIN_PROGRESS;distinguishfromSUCCESS.",
     "latestScopedMutations": "53/53 affected mammal mutations detected/restored after three stale anchors repaired; sourcee8 Character remains FAILURE, capture job SUCCESS.",
-    "latestPilotComparison": "28/28 exact hashes unchanged after Task5 opt-in sweepcap/taper/owned iris; all28 unaffected nonplayer rows preserved includingTask6five.",
+    "latestPilotComparison": "28/28 exact hashes unchanged after Task7 soft-toy motionopt-ins; approvedWatcher/Fox all32stateproducedgeometry/worldmatrixhashes identical to capture implementation.",
     "task6Candidates": "All5 actual4views/32states/2distance PASS at8f2242e3;archive9e8caf3a,201rawhashverified;independentfourviewC0/I0;promoted. Shared Task5 fixes preserve five all32state geometry/worldmatrix hashes exactly.",
     "latestImageGate": "d1 bat/snail/chameleon/sekizou PASS4; e8 seven repaired mammals PASS7: each4views32states2distance actually inspected; independent repaired-site reviews C0/I0; raw281files hash-verified per batch.",
     "artifactRecovery": "Successful-capture opt-in reviewed C0/I0,12Python testsPASS; completed failed run may export only explicitly validated successful nonplayer capture job. Never changes failed CI conclusion or pending image status. b7392a73 Recovery37900096598 SUCCESS; e8 archivea2878b4c.",
     "task5Fix2": "Watcher owned paleiris+darkpupil in onecanonicaleye; Unicorn swept/taperedconnectedlocks; Fox outward closed terminalcaps/taper. 16focusedPASS,9new/affectedmutationsdetected/restored,priorunchangedevidence reused;C0/I0. Max expression triangles14714/15472/10532. Fresh3imagegatesOPEN.",
-    "promotionBoundaryFix": "8f2242e3 dedicated113723754384FAILURE from tests26/27 stale tanuki-unimplemented expectation; capture113723754605SUCCESS. Updated exacttanuki+happycanonical and permanently missing-model fallback RED/GREEN2PASS,C0/I0; integrated376PASS. Do not relabel sourceCI."
+    "promotionBoundaryFix": "8f2242e3 dedicated113723754384FAILURE from tests26/27 stale tanuki-unimplemented expectation; capture113723754605SUCCESS. Updated exacttanuki+happycanonical and permanently missing-model fallback RED/GREEN2PASS,C0/I0; integrated376PASS. Do not relabel sourceCI.",
+    "task5ActualFix2": "64d739f9 Character37903430971SUCCESS dedicated113731082088/capture113731081943SUCCESS. Archive4fba9e41,121rawhashverified. Rootactualall3 fourviews32states2distance:Watcher/FoxPASS;UnicornREJECThollowmane/inverted-Utail,independentI1;fixround3inprogress.",
+    "task7Candidates": "a68dacea fourhumanoidpartners source-specificsoft_toy/rigid_object,optional existing swimHover/hover;19focusedPASS17scopedmutationsdetected/restored,31priorrowsunchanged,C0/I0. IntegratedTask5cap/taperopts retained; imagesOPEN.",
+    "legacyFourViewMapping": "a70a8aaf maps onlyexactcat_friend/shiba recordedcomparisonboards viaPASS/path/layout/SHAguards;explicitrightmost-fourdescriptor;6focusedPASS,C0/I0;otherrowsunchanged. No state/distanceapproval.",
+    "latestIntegratedVerification": "399dedicatedPASS afterTask7/legacy mapping/fox-watcherpromotion;12selectorPASS;7/7rolemutationsdetected/restored;28Pilotunchanged. Fullnpm remains historical pendingfinalintegration.",
+    "task5Fix2CI": "64d739f9 Character37903430971SUCCESS,Home37903441923SUCCESS;Runtime37903441922 lastobservedIN_PROGRESS.",
+    "task5Fix3": "cdf38a00 Unicorn-only hairdata:4head+5neck/back+4staggeredS-tail locks;17focusedPASS,oldrejectedring1/1RED-restored,C0/I0;allbuilders/otherrowsunchanged. Actualmaxexpression16826. Root5scopedintegrationPASS after399dedicatedbaseline;freshUnicornimagesOPEN."
   },
   "next": [
-    "Capture and actually review only three corrected unusual companions; priorREJECT remains until fresh images pass.",
-    "Continue Task7four humanoid partners, remainingTask8/9partners andTask10author.",
-    "Final293integration reuses actually reviewed cat/shiba comparison boards with explicit mapping; state/distance stillseparate. Onefinalnpm; Human/iPhoneOPEN."
+    "Capture and actually review four Task7 humanoidpartners plus Unicornfix3 inone scopedbatch; no promotion beforefullimages.",
+    "Preserve approvedWatcher/Fox/Sekizou and allcompletedfamilies; reuseunchangedimageevidence.",
+    "Continue Task8five aquatic/invertebratepartners,Task9eagle/snowman,Task10author usingexistingfactories.",
+    "Final293integration withlegacy32states/distance through existingruntime,onefinalnpm;Human/iPhoneOPEN."
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",
@@ -151,35 +158,29 @@
       "status": "PASS_31_FAMILIES_248_STAGES"
     },
     "latestNonplayerImageApprovals": [
-      "partner:field_cow",
-      "partner:forest_bear",
-      "partner:grove_deer",
-      "partner:cliff_goat",
-      "partner:gentle_gorilla"
+      "companion:many_tail_fox",
+      "companion:watcher"
     ],
     "candidateBatchInProgress": [
       "companion:unicorn",
-      "companion:many_tail_fox",
-      "companion:watcher",
       "partner:cat_ceo",
       "partner:robot_neighbor",
       "partner:snow_spirit",
       "partner:sea_mermaid"
     ],
-    "missingLegacyFourViewRecords": [
-      "companion:cat_friend",
-      "companion:shiba"
-    ],
+    "missingLegacyFourViewRecords": [],
     "full293Integration": "OPEN",
     "humanQA": "OPEN_SEPARATE",
     "iPhoneQA": "OPEN_SEPARATE",
-    "candidateBatchReview": "Task6five imagePASS and promoted. Task5fix2 code/specC0/I0, fresh3imagesOPEN;Task7fourhumanoidpartners implementing.",
+    "candidateBatchReview": "Watcher/Fox actualfullimagesPASS andpromoted. Task7four C0/I0 plus Unicornfix3C0/I0 ready forbatchedfivecapture; Unicorn priorREJECT notcloseduntilfreshactualimages.",
     "selectedCaptureBatch": [
-      "companion:unicorn",
-      "companion:many_tail_fox",
-      "companion:watcher"
+      "partner:cat_ceo",
+      "partner:robot_neighbor",
+      "partner:snow_spirit",
+      "partner:sea_mermaid",
+      "companion:unicorn"
     ],
-    "legacyFourViewReuse": "Existingcf7b comparisonboards forcat_friend/shiba actually reviewed;exactsource/currentgeometry+animationhashmatch;legacy-four-view-review.json saved. Coverageboardmapping pendingintegration;no recapture/reimplementationneededfortheseviews.",
+    "legacyFourViewReuse": "Existingcf7b comparisonboards cat_friend/shiba actualfourviewPASS+same-runtimePilotidentity carriedforward;coverageexactrole/path/layout/review/SHAverifiedmapping nowcomplete. States/normal-distance integrationstillOPEN;existingcapturetooltoextend narrowly withruntimekeys andno4viewrecapture.",
     "sevenMammalConnections": "e8 actual4views/32states/2distance per7 PASS, archiveda2878b4c; independent repaired-site review C0/I0; promoted with local corrected-anchor53/53 and372dedicatedPASS.",
     "latestFullCharacterCI": {
       "sourceCommit": "3083126a75d1044da2f68142a5a46d789556895c",

@@ -17,7 +17,7 @@ function seamParts(q,size){
  return parts;
 }
 export function softToy(sp,key){
- const r=new Rig(key,'soft_toy','waddle'),c=sp.colors,b=sp.body,h=sp.head;
+ const r=new Rig(key,'soft_toy',sp.locomotion||'waddle'),c=sp.colors,b=sp.body,h=sp.head;
  // Natural markings are painted on the closed skull/body; no second face mesh.
  const volume=(size,at,color,rotation=[0,0,0],markings=null,segments=null)=>paint(xform(ellipsoid(...size,segments?.[0]||(markings?40:20),segments?.[1]||(markings?28:14)),{pos:at,rot:rotation}),(x,y,z,nx,ny,nz)=>{
   for(const q of markings||[]){const dx=x-q.at[0],dy=y-q.at[1],a=q.angle||0,u=dx*Math.cos(a)+dy*Math.sin(a),v=-dx*Math.sin(a)+dy*Math.cos(a);if((q.side==='back'?nz<-.18:nz>.18)&&(u/q.size[0])**2+(v/q.size[1])**2<1)return q.color;}
@@ -46,7 +46,7 @@ export function softToy(sp,key){
  if(sp.bow){const q=sp.bow,parts=[volume([.042,.04,.032],[0,0,.014],q.color)];for(const side of [-1,1]){parts.push(solid(xform(ellipsoid(.085,.055,.035,12,8),{pos:[side*.085,0,0],rot:[0,0,side*.28]}),q.color));parts.push(solid(xform(ellipsoid(.03,.07,.019,10,6),{pos:[side*.054,-.061,-.005],rot:[0,0,side*.5]}),q.color));}r.add('bow','body',q.at,parts);}
  if(sp.scarf){const q=sp.scarf,parts=[];const path=[];for(let i=0;i<=32;i++){const a=i/32*Math.PI*2;path.push([Math.cos(a)*.275,.29,Math.sin(a)*.205]);}parts.push(solid(sweep(path,()=>.046,8,{steps:32}),q.color));for(const side of [-1,1])parts.push(solid(sweep([[side*.25,.29,-.08],[side*.32,.10,-.11],[side*.40,-.13,-.05]],()=>.074,8,{steps:12}),q.color));r.add('scarf','body',[0,0,0],parts);}
  if(sp.heart){const sh=new THREE.Shape();sh.moveTo(0,-.18);sh.bezierCurveTo(-.05,-.13,-.21,-.04,-.19,.075);sh.bezierCurveTo(-.17,.18,-.055,.18,0,.095);sh.bezierCurveTo(.055,.18,.17,.18,.19,.075);sh.bezierCurveTo(.21,-.04,.05,-.13,0,-.18);const g=new THREE.ExtrudeGeometry(sh,{depth:.085,bevelEnabled:true,bevelThickness:.018,bevelSize:.013,bevelSegments:2,steps:1,curveSegments:12});g.translate(0,0,-.04);r.add('heart','body',sp.heart.at,[solid(g,sp.heart.color)]);}
- r.meta={idlePose:'stand',hover:0};r.faceSpec={bone:'head',target,center:[0,.005,h.size[2]*.95],fwd:[0,0,1],half:h.size[0]*.73,eyeSize:.27,normalEye:sp.normalEye,layout:{eyeX:28,eyeY:51,mouthY:103,browY:30,cheekX:43,cheekY:77,mouthW:8},style:{blush:c.blush}};if(sp.face){r.faceSpec={...r.faceSpec,...sp.face,layout:{...r.faceSpec.layout,...sp.face.layout}};}
+ r.meta={idlePose:'stand',hover:sp.hover||0};r.faceSpec={bone:'head',target,center:[0,.005,h.size[2]*.95],fwd:[0,0,1],half:h.size[0]*.73,eyeSize:.27,normalEye:sp.normalEye,layout:{eyeX:28,eyeY:51,mouthY:103,browY:30,cheekX:43,cheekY:77,mouthW:8},style:{blush:c.blush}};if(sp.face){r.faceSpec={...r.faceSpec,...sp.face,layout:{...r.faceSpec.layout,...sp.face.layout}};}
  // Optional eye-bearing appendages share the head projection and canonical face.
  if(sp.face?.targetDetails){const extra=sp.face.targetDetails.map(name=>{const bone=r.bones[name],part=r.parts.find(p=>p.bone===name);if(!part||bone.parent!==r.bones.head)throw new Error('face target detail must belong to head: '+name);return xform(part.mesh.geometry.clone(),{pos:bone.position.toArray(),rot:[bone.rotation.x,bone.rotation.y,bone.rotation.z]});});r.faceSpec.target=merge([target,...extra]);}
  return r;
