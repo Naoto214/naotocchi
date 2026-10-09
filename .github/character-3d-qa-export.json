@@ -1,144 +1,16 @@
 {
-  "sourceCommit": "26fbf737778f71f31064cb1c75cc104b33343ba3",
-  "runId": 37908674862,
+  "sourceCommit": "73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6",
+  "runId": 37911082729,
   "families": [
     "partner"
   ],
   "artifacts": [
     {
-      "id": 11605778122,
-      "label": "aquatic-partners-mermaid-bodice",
-      "name": "full-rollout-nonplayer-review-26fbf737778f71f31064cb1c75cc104b33343ba3",
-      "digest": "sha256:16d6ec9ffc2c770204b525a20f9564445d4cead064048db2b5ffc4bbd4cf6a49",
+      "id": 11606821438,
+      "label": "spider-yarn-eagle-snowman",
+      "name": "full-rollout-nonplayer-review-73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6",
+      "digest": "sha256:de916e04cc36d6837e91c9f9d9df82147b7b2701cb44fe3b3657e84720d858cb",
       "required": [
-        {
-          "pattern": "partner-sea_mermaid-0-front.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-sea_mermaid-0-34.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-sea_mermaid-0-side.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-sea_mermaid-0-back.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-sea_mermaid-0-*-*-*.jpg",
-          "count": 32
-        },
-        {
-          "pattern": "partner-sea_mermaid-views.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-sea_mermaid-motion.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-sea_mermaid-distance-*.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "partner-rock_octopus-0-front.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-rock_octopus-0-34.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-rock_octopus-0-side.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-rock_octopus-0-back.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-rock_octopus-0-*-*-*.jpg",
-          "count": 32
-        },
-        {
-          "pattern": "partner-rock_octopus-views.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-rock_octopus-motion.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-rock_octopus-distance-*.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "partner-anglerfish-0-front.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-anglerfish-0-34.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-anglerfish-0-side.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-anglerfish-0-back.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-anglerfish-0-*-*-*.jpg",
-          "count": 32
-        },
-        {
-          "pattern": "partner-anglerfish-views.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-anglerfish-motion.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-anglerfish-distance-*.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "partner-swamp_croc-0-front.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-swamp_croc-0-34.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-swamp_croc-0-side.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-swamp_croc-0-back.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-swamp_croc-0-*-*-*.jpg",
-          "count": 32
-        },
-        {
-          "pattern": "partner-swamp_croc-views.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-swamp_croc-motion.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-swamp_croc-distance-*.jpg",
-          "count": 2
-        },
         {
           "pattern": "partner-knitting_spider-0-front.jpg",
           "count": 1
@@ -172,35 +44,67 @@
           "count": 2
         },
         {
-          "pattern": "partner-desert_scorpion-0-front.jpg",
+          "pattern": "partner-high_eagle-0-front.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-desert_scorpion-0-34.jpg",
+          "pattern": "partner-high_eagle-0-34.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-desert_scorpion-0-side.jpg",
+          "pattern": "partner-high_eagle-0-side.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-desert_scorpion-0-back.jpg",
+          "pattern": "partner-high_eagle-0-back.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-desert_scorpion-0-*-*-*.jpg",
+          "pattern": "partner-high_eagle-0-*-*-*.jpg",
           "count": 32
         },
         {
-          "pattern": "partner-desert_scorpion-views.jpg",
+          "pattern": "partner-high_eagle-views.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-desert_scorpion-motion.jpg",
+          "pattern": "partner-high_eagle-motion.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-desert_scorpion-distance-*.jpg",
+          "pattern": "partner-high_eagle-distance-*.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "partner-snowman-0-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-snowman-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-snowman-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-snowman-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-snowman-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "partner-snowman-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-snowman-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-snowman-distance-*.jpg",
           "count": 2
         }
       ]
