@@ -1,0 +1,871 @@
+{
+  "source": "4f3a83933e0ef9ef26a6838d5530324d98b9f183",
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "evidence": [
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 1,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2308,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.1362024372679046,
+          0.1454648713412841,
+          -0.10428147357535891
+        ],
+        [
+          0.12396180671281569,
+          0.940986608036219,
+          0.11453825920082646
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2308,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.1362024372679046,
+          0.1454648713412841,
+          -0.10428147357535891
+        ],
+        [
+          0.12396180671281569,
+          0.940986608036219,
+          0.11453825920082646
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 1,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2308,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.1362024372679046,
+          0.1454648713412841,
+          -0.10428147357535891
+        ],
+        [
+          0.12396180671281569,
+          0.940986608036219,
+          0.11453825920082646
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 1,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2308,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.1362024372679046,
+          0.1454648713412841,
+          -0.10428147357535891
+        ],
+        [
+          0.12396180671281569,
+          0.940986608036219,
+          0.11453825920082646
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 2,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1814,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.37956375974174783,
+          0.1454648713412841,
+          -0.17647634215361618
+        ],
+        [
+          0.22649254932492113,
+          1.0328362146872068,
+          0.1896593980221214
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1814,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.37956375974174783,
+          0.1454648713412841,
+          -0.17647634215361618
+        ],
+        [
+          0.22649254932492113,
+          1.0328362146872068,
+          0.1896593980221214
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 2,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1814,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.37956375974174783,
+          0.1454648713412841,
+          -0.17647634215361618
+        ],
+        [
+          0.22649254932492113,
+          1.0328362146872068,
+          0.1896593980221214
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 2,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1814,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.37956375974174783,
+          0.1454648713412841,
+          -0.17647634215361618
+        ],
+        [
+          0.22649254932492113,
+          1.0328362146872068,
+          0.1896593980221214
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 3,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2946,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5596968850929721,
+          0.1454648713412841,
+          -0.22460624964926865
+        ],
+        [
+          0.3697033593061473,
+          1.419771481433338,
+          0.26285010200099485
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2946,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5596968850929721,
+          0.1454648713412841,
+          -0.22460624964926865
+        ],
+        [
+          0.3697033593061473,
+          1.419771481433338,
+          0.26285010200099485
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 3,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2946,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5596968850929721,
+          0.1454648713412841,
+          -0.22460624964926865
+        ],
+        [
+          0.3697033593061473,
+          1.419771481433338,
+          0.26285010200099485
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 3,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2946,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5596968850929721,
+          0.1454648713412841,
+          -0.22460624964926865
+        ],
+        [
+          0.3697033593061473,
+          1.419771481433338,
+          0.26285010200099485
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 4,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2944,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.6133087767563565,
+          0.1454648713412841,
+          -0.24064955214781947
+        ],
+        [
+          0.4311923032204179,
+          1.4868403151240641,
+          0.32191754739760353
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2944,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.6133087767563565,
+          0.1454648713412841,
+          -0.24064955214781947
+        ],
+        [
+          0.4311923032204179,
+          1.4868403151240641,
+          0.32191754739760353
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 4,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2944,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.6133087767563565,
+          0.1454648713412841,
+          -0.24064955214781947
+        ],
+        [
+          0.4311923032204179,
+          1.4868403151240641,
+          0.32191754739760353
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 4,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2944,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.6133087767563565,
+          0.1454648713412841,
+          -0.24064955214781947
+        ],
+        [
+          0.4311923032204179,
+          1.4868403151240641,
+          0.32191754739760353
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 5,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5658,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6615553072313493,
+          0.1454648713412841,
+          -0.22460624964926865
+        ],
+        [
+          0.6615553072313493,
+          1.8902607132639655,
+          0.22880973790273204
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5658,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6615553072313493,
+          0.1454648713412841,
+          -0.22460624964926865
+        ],
+        [
+          0.6615553072313493,
+          1.8902607132639655,
+          0.22880973790273204
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 5,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5658,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6615553072313493,
+          0.1454648713412841,
+          -0.22460624964926865
+        ],
+        [
+          0.6615553072313493,
+          1.8902607132639655,
+          0.22880973790273204
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 5,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5658,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6615553072313493,
+          0.1454648713412841,
+          -0.22460624964926865
+        ],
+        [
+          0.6615553072313493,
+          1.8902607132639655,
+          0.22880973790273204
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 6,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5722,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5752508136588333,
+          0.1454648713412841,
+          -0.20856294715071783
+        ],
+        [
+          0.5796833450428538,
+          1.7767638395118757,
+          0.3246892886336022
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5722,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5752508136588333,
+          0.1454648713412841,
+          -0.20856294715071783
+        ],
+        [
+          0.5796833450428538,
+          1.7767638395118757,
+          0.3246892886336022
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 6,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5722,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5752508136588333,
+          0.1454648713412841,
+          -0.20856294715071783
+        ],
+        [
+          0.5796833450428538,
+          1.7767638395118757,
+          0.3246892886336022
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 6,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5722,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5752508136588333,
+          0.1454648713412841,
+          -0.20856294715071783
+        ],
+        [
+          0.5796833450428538,
+          1.7767638395118757,
+          0.3246892886336022
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 7,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6174,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5527083981379316,
+          0.1454648713412841,
+          -0.24194616496516796
+        ],
+        [
+          0.5492701306098875,
+          1.6819302996301542,
+          0.32782427392304825
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6174,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5527083981379316,
+          0.1454648713412841,
+          -0.24194616496516796
+        ],
+        [
+          0.5492701306098875,
+          1.6819302996301542,
+          0.32782427392304825
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 7,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6174,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5527083981379316,
+          0.1454648713412841,
+          -0.24194616496516796
+        ],
+        [
+          0.5492701306098875,
+          1.6819302996301542,
+          0.32782427392304825
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 7,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6174,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5527083981379316,
+          0.1454648713412841,
+          -0.24194616496516796
+        ],
+        [
+          0.5492701306098875,
+          1.6819302996301542,
+          0.32782427392304825
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 8,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3236,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5859255838508233,
+          0.4835719063398398,
+          -0.23215077355224975
+        ],
+        [
+          0.5207779045142791,
+          1.8150374936218059,
+          0.23215077355224975
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3236,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5859255838508233,
+          0.4835719063398398,
+          -0.23215077355224975
+        ],
+        [
+          0.5207779045142791,
+          1.8150374936218059,
+          0.23215077355224975
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 8,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3236,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5859255838508233,
+          0.4835719063398398,
+          -0.23215077355224975
+        ],
+        [
+          0.5207779045142791,
+          1.8150374936218059,
+          0.23215077355224975
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "ghost",
+      "stage": 8,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3236,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5859255838508233,
+          0.4835719063398398,
+          -0.23215077355224975
+        ],
+        [
+          0.5207779045142791,
+          1.8150374936218059,
+          0.23215077355224975
+        ]
+      ]
+    }
+  ],
+  "errors": []
+}
