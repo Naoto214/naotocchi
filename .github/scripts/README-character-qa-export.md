@@ -11,3 +11,5 @@ Use the existing `Recover Character wave evidence` workflow when artifact downlo
 7. Perform the actual visual review and save its outcome separately. Export success never changes coverage, runtime registration, or Human/iPhone gate status.
 
 The workflow token is ephemeral, scoped to repository contents-write/actions-read; it is used only for GitHub API requests. The signed archive redirect receives no GitHub Authorization header. Each output manifest records the original artifact ID/name/digest and source commit plus selected file hashes. Prepared trees remain unpublished until the leased connector update.
+
+For candidate-only Phoenix visual fixes, commit marker `[qa:phoenix]` keeps the full dedicated job but scopes capture to Phoenix four views, all32states/stage and normal distance. Unrelated capture jobs are SKIPPED, never counted as passed integration. Ordinary commits (including promotion) retain the complete matrix. Use only when runtime registration is unchanged.

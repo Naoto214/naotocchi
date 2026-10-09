@@ -23,7 +23,7 @@ export function plumedBird(sp,key){
   r.add(side<0?'footL':'footR','root',[side*sp.legs.spread,.36*scale,.025],scale===1?parts:parts.map(g=>xform(g,{scale:[scale,scale,scale]})));
  }
  if(sp.embers){
-  const e=sp.embers,coals=[];
+  const e=sp.embers,coals=[solid(lathe([[0,.025],[e.radius*.92,.025],[e.radius*.88,.075],[e.radius*.60,e.height*.60],[e.radius*.30,e.height*.90],[0,e.height]],24),e.colors[0])];
   for(let ring=0;ring<4;ring++){const count=ring===3?5:18-ring*4,rad=e.radius*(1-ring*.25);for(let i=0;i<count;i++){const a=i*Math.PI*2/count+ring*.41,sz=.065+(i%3)*.008,y=.080+ring*.052;const g=new THREE.IcosahedronGeometry(1,0);coals.push(solid(xform(g,{scale:[sz,sz*.70,sz*.9],pos:[Math.cos(a)*rad,y,Math.sin(a)*rad],rot:[i*.3,ring*.7,i*.5]}),e.colors[(i+ring)%e.colors.length]));}}
   r.add('embers','root',[0,0,0],coals);
  }

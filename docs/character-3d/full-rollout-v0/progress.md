@@ -779,3 +779,12 @@ Phoenix025d4bb corrected03/07:8fourviews,64state cells,4normal-distance inspecte
 Fresh remote/local/tree6a782784 matched; existing work reused. Added source-derived01/02/04/05/06/08 through plumed_bird, preserved03/07.238dedicatedPASS;7factory+5stage mutations detected/restored;28Pilot hashes unchanged. Reviewer Critical0/Important0;2minor notes in candidate verification.json. Existing Actions motion capture expanded toPhoenix all8. Local Chromium unavailable; all8 image gate pending, runtime212/293 remains. No fresh fullnpm claimed.
 Dragon ce809aa Runtime37788161396/Home37788161431 SUCCESS. Character37788145192 remains incomplete; botanical-candidate-distance(sakura) CANCELLED, stage evidence running.26family/208stage aggregate not yet confirmed.
 Evidence: docs/qa/character-3d-full-v0/fr5-mythic/phoenix-all8-candidates/. Next review new Actions Phoenix all8 fourviews/states/distance, then promote only if accepted.
+
+
+### Phoenix actual image review and durable export (2026-10-09)
+
+9fad artifacts were recovered by the existing recovery workflow using the Actions artifact API, digest-checked, packaged with original bytes, and saved as Git Data objects. Evidence commit014dcc7 contains GitHub-renderable boards/distance images and raw ZIPs. Local verification matched all299wave+17distance file hashes. Actual32fourviews/256states/16normal-distance inspection rejected04-06 detached/fused raised wings and08 open coal gaps.01/02/03/07 visually acceptable;no promotion.
+
+Corrections move raised shoulders inside the torso, spread feather endpoints with pale edges, and close the coal footprint.03/07 definition hashes and28Pilot hashes remain identical.239dedicatedPASS;7/7stage and7/7factory mutations detected/restored. Review Critical0/Important0. Corrected images pending;runtime remains212/293.
+
+9fad Character37793464360 all56jobs SUCCESS, including26family/208stage aggregate;Runtime37793476456 andHome37793476851 SUCCESS. Scoped `[qa:phoenix]` commits retain full dedicated regression and capture Phoenix only; skipped unrelated capture jobs are not a new integration PASS. Full ordinary commits retain the original complete matrix.

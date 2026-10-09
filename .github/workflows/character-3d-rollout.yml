@@ -7,6 +7,7 @@ permissions:
   contents: read
 jobs:
   stage-matrix:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') }}
     runs-on: ubuntu-latest
     outputs:
       lines: ${{ steps.inventory.outputs.lines }}
@@ -18,6 +19,7 @@ jobs:
       - id: inventory
         run: node -e "console.log('lines='+JSON.stringify(Object.keys(require('./character-3d/spec.js').ROLLOUT)))" >> "$GITHUB_OUTPUT"
   stage-evidence:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') }}
     needs: stage-matrix
     strategy:
       fail-fast: false
@@ -44,6 +46,7 @@ jobs:
           name: full-rollout-stages-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/stages/${{ matrix.line }}
   stage-coverage:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') }}
     needs: stage-evidence
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -63,6 +66,7 @@ jobs:
           name: full-rollout-stage-coverage-${{ github.sha }}
           path: test-results/stage-coverage.json
   conflict-audit:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -80,6 +84,7 @@ jobs:
           name: full-rollout-conflicts-${{ github.sha }}
           path: test-results/full-rollout/conflicts.json
   human-performance:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -98,6 +103,7 @@ jobs:
           name: full-rollout-human-performance-${{ github.sha }}
           path: test-results/full-rollout/human-performance
   aquatic-candidate-distance:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') }}
     strategy:
       fail-fast: false
       matrix:
@@ -121,6 +127,7 @@ jobs:
           name: full-rollout-aquatic-distance-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/aquatic-distance
   armored-candidate-distance:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') }}
     strategy:
       fail-fast: false
       matrix:
@@ -144,6 +151,7 @@ jobs:
           name: full-rollout-armored-distance-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/armored-distance
   botanical-candidate-distance:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') }}
     strategy:
       fail-fast: false
       matrix:
@@ -170,7 +178,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        line: [dragon, phoenix, god, ghost, plush, star, unknown]
+        line: ${{ fromJSON(contains(github.event.head_commit.message, '[qa:phoenix]') && '["phoenix"]' || '["dragon","phoenix","god","ghost","plush","star","unknown"]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -190,6 +198,7 @@ jobs:
           name: full-rollout-mythic-distance-${{ matrix.line }}-${{ github.sha }}
           path: test-results/full-rollout/mythic-distance
   fish-performance:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -208,6 +217,7 @@ jobs:
           name: full-rollout-fish-performance-${{ github.sha }}
           path: test-results/full-rollout/fish-performance
   meguru-wave:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -228,6 +238,7 @@ jobs:
           name: full-rollout-meguru-${{ github.sha }}
           path: test-results/full-rollout
   wave-review:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -256,6 +267,7 @@ jobs:
             test-results/full-rollout/topology
             test-results/full-rollout/candidate-motion
   aquatic-wave-review:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -276,6 +288,7 @@ jobs:
             test-results/full-rollout/aquatic
             test-results/full-rollout/aquatic-motion
   armored-wave-review:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -317,8 +330,8 @@ jobs:
       - run: npm ci
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps chromium
-      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/mythic --mythic
-      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/mythic-motion dragon:1,dragon:2,dragon:3,dragon:4,dragon:5,dragon:6,dragon:7,dragon:8,phoenix:1,phoenix:2,phoenix:3,phoenix:4,phoenix:5,phoenix:6,phoenix:7,phoenix:8,god:3,god:7,ghost:3,ghost:7,plush:1,plush:2,plush:3,plush:4,plush:5,plush:6,plush:7,plush:8,star:3,star:7,unknown:3,unknown:7
+      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/mythic --mythic ${{ contains(github.event.head_commit.message, '[qa:phoenix]') && '--line=phoenix' || '' }}
+      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/mythic-motion ${{ contains(github.event.head_commit.message, '[qa:phoenix]') && 'phoenix:1,phoenix:2,phoenix:3,phoenix:4,phoenix:5,phoenix:6,phoenix:7,phoenix:8' || 'dragon:1,dragon:2,dragon:3,dragon:4,dragon:5,dragon:6,dragon:7,dragon:8,phoenix:1,phoenix:2,phoenix:3,phoenix:4,phoenix:5,phoenix:6,phoenix:7,phoenix:8,god:3,god:7,ghost:3,ghost:7,plush:1,plush:2,plush:3,plush:4,plush:5,plush:6,plush:7,plush:8,star:3,star:7,unknown:3,unknown:7' }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -327,6 +340,7 @@ jobs:
             test-results/full-rollout/mythic
             test-results/full-rollout/mythic-motion
   botanical-wave-review:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -347,6 +361,7 @@ jobs:
             test-results/full-rollout/botanical
             test-results/full-rollout/botanical-motion
   nonplayer-candidate-review:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

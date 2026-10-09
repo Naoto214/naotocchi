@@ -1,6 +1,6 @@
 {
-  "baseCommit": "6a78278468ed154d2e2fd48cc89eed594a623036",
-  "checkpoint": "phoenix-all8-candidates-awaiting-images",
+  "baseCommit": "014dcc7230cd138334120bba04d9dcf4a7ec4fe1",
+  "checkpoint": "phoenix-image-reject-corrected-awaiting-recapture",
   "coverage": {
     "exact": 212,
     "total": 293,
@@ -11,11 +11,11 @@
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 238,
+    "dedicatedPass": 239,
     "rolloutMutationsDetected": 28,
     "pilotHashesUnchanged": 28,
     "fullNpm": "Pre-promotion spine-corrected a65ceb5:3013PASS+80PASS,0FAIL,exit0,archived. Final04root+runtime promotion has236dedicatedPASS;no fresh fullnpm after registration claimed.",
-    "postPromotionAggregate": "26family/208stage aggregate pending new Actions;25family/200stage result is pre-Dragon",
+    "postPromotionAggregate": "9fadab27 Character37793464360 all56jobs SUCCESS;26families/208expected stage coverage job113385923002 SUCCESS",
     "nonplayerMutationsDetected": 7,
     "worldTreeMutationsDetected": 9,
     "previousHeadCI": "025d4bb Character37780916572/Runtime37780926425/Home37780926581 SUCCESS",
@@ -24,7 +24,7 @@
     "plushStageMutationsDetected": 6,
     "worldTreeImageGate": "9b79310 artifacts11462261195/11461529312:32fourviews/256states/16distance PASS_ALL8_IMAGE_GATE",
     "plushImageGate": "3076d288 wave11463280279/distance11462287707:32fourviews/256states/16distance PASS_ALL8_IMAGE_GATE",
-    "browserRegistration": "Dragon all8 registered through existing mythic factory;post-promotion browser aggregate pending",
+    "browserRegistration": "Dragon registered;9fad 26family/208stage aggregate successful",
     "relationshipPass": 80,
     "venusImageGate": "c331193 artifacts11470811397/11470106366:32fourviews/256states/16distance; prior all8 PASS carried forward, archives restored",
     "mythicMutationsDetected": 11,
@@ -32,12 +32,15 @@
     "dragonStageMutationsDetected": 6,
     "dragonAll8": "025d4bb image gate PASS:32fourviews/256states/16distance;04fixed andrecaptured,other7images match prior inspected bytes",
     "phoenixImageGate": "025d4bb artifacts11552082313/11552087590:8fourviews/64states/4distance PASS_REPRESENTATIVE_IMAGE_GATE;remaining6 candidates next",
-    "phoenixCandidates": "All8 source-derived candidates;03/07 definitions unchanged;7factory+5stage mutations detected/restored;28Pilot hashes unchanged. All8 image gate pending, runtime remains212.",
-    "dragonPostPromotionCI": "ce809aa Runtime37788161396/Home37788161431 SUCCESS;Character37788145192 incomplete, botanical-candidate-distance(sakura) CANCELLED, stage matrix still running;26family/208stage aggregate unconfirmed."
+    "phoenixCandidates": "9fad original artifacts recovered through Actions artifact API to immutable Git Data evidence;32views/256states/16distance actually inspected. REJECT:04-06 detached/fused wings,08 coal gaps. Corrected candidates need fresh image review;runtime212.",
+    "dragonPostPromotionCI": "9fadab27 Character37793464360/Runtime37793476456/Home37793476851 SUCCESS",
+    "phoenixStageMutationsDetected": 7,
+    "phoenixFactoryMutationsDetected": 7,
+    "phoenixRepresentatives": "03/07 JSON SHA256 identical to accepted baseline"
   },
   "next": [
-    "Phoenix all8 image gate from new Actions:fourviews/256states/16normal-distance, then runtime promotion only on PASS",
-    "Confirm Dragon26family/208stage aggregate; distinguish cancelled optional candidate job from stage evidence",
+    "Inspect scoped corrected Phoenix Actions images;promote only after all8 image gate PASS",
+    "Reuse unchanged 01/02/03/07 images only with source/content equivalence; scoped CI is not full integration",
     "Remaining god/ghost/star/unknown32player stages;inspect representative images before expansion",
     "Remaining41nonplayers and full293 integration/performance/regression/Human/iPhone QA"
   ],

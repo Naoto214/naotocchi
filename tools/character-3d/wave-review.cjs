@@ -12,6 +12,7 @@ const sharp=require('sharp');
   const family=process.argv.includes('--mythic')?'mythic':process.argv.includes('--botanical')?'botanical':process.argv.includes('--armored')?'armored':process.argv.includes('--aquatic')?'aquatic':process.argv.includes('--topology')?'topology':process.argv.includes('--human')?'humanoid':process.argv.includes('--fish')?'fish':'rollout';
   const candidates=require('../../character-3d/'+family+'-spec.js')(require('../../character-3d/spec.js').PILOT);
   for(const id of (family==='mythic'||family==='botanical'||family==='humanoid'||family==='topology'||family==='aquatic'||family==='armored'?Object.keys(candidates):family==='fish'?['salmon','clownfish']:['dog','cat','penguin'])){
+   const only=process.argv.find(a=>a.startsWith('--line='))?.slice(7);if(only&&id!==only)continue;
    const tiles=[];
    const row=candidates[id];
    for(const stage of Object.keys(row.stages).map(Number)){

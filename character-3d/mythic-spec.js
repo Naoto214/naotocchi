@@ -80,15 +80,15 @@
  phoenix2.crest=phoenix3.crest.map(q=>({...copy(q),path:q.path.map(([x,y,z])=>[x*.8,y*.8,z*.8]),width:q.width*.9}));
  phoenix2.wings={at:[.13,.11,-.015],left:phoenix3.wings.left.map(q=>({...copy(q),path:q.path.map(([x,y,z])=>[x*.60,y*.65,z*.75]),width:q.width*.8})),right:phoenix3.wings.left.map(q=>({...copy(q),path:q.path.map(([x,y,z])=>[-x*.60,y*.65,z*.75]),width:q.width*.8}))};
  phoenix2.tail={at:[0,-.11,-.10],feathers:phoenix3.tail.feathers.slice(0,4).map(q=>({...copy(q),path:q.path.map(([x,y,z])=>[x*.55,y*.6,z*.7]),width:q.width*.8}))};
- const raisedWing=(side,reach,rise,color,light)=>Array.from({length:7},(_,i)=>plume([[0,0,0],[side*(.16+i*.019),.09-i*.033,.01+i*.009],[side*(reach-i*.025),rise-i*.085,-.025+i*.025]],.062+i*.002,color,light));
+ const raisedWing=(side,reach,rise,color,light)=>Array.from({length:7},(_,i)=>({...plume([[0,0,0],[side*(.17+i*.026),.16-i*.023,.01+i*.009],[side*(reach+i*.012),rise-i*.105,-.025+i*.025]],.047+i*.002,color,light),edge:light}));
  const phoenix4={...copy(phoenix3),body:{size:[.17,.29,.16],y:.56},head:{size:[.13,.14,.14],at:[0,.50,.075]},neck:{path:[[0,.10,0],[0,.29,.02],[0,.47,.06]],r:.082}};
- phoenix4.wings={at:[.14,.20,-.035],left:raisedWing(-1,.49,.64,'#ed551a','#ffcf45'),right:raisedWing(1,.40,.59,'#ef651c','#ffdb55')};
+ phoenix4.wings={at:[.085,.15,-.025],left:raisedWing(-1,.49,.64,'#ed551a','#ffcf45'),right:raisedWing(1,.40,.59,'#ef651c','#ffdb55')};
  phoenix4.tail={at:[0,-.13,-.11],feathers:phoenix3.tail.feathers.map(q=>({...copy(q),path:q.path.map(([x,y,z])=>[x*1.12,y*.90,z*1.1]),width:q.width*1.07}))};
  const phoenix5={...copy(phoenix4),body:{size:[.19,.31,.17],y:.62},head:{size:[.135,.145,.14],at:[0,.52,.07]},neck:{path:[[0,.10,0],[0,.30,.02],[0,.49,.055]],r:.087},colors:{...phoenix3.colors,base:'#f77e19',light:'#ffe485'}};
- phoenix5.wings={at:[.16,.22,-.035],left:raisedWing(-1,.56,.75,'#e94817','#ffda4b'),right:raisedWing(1,.50,.69,'#f35d19','#ffe16b')};
+ phoenix5.wings={at:[.095,.16,-.025],left:raisedWing(-1,.56,.75,'#e94817','#ffda4b'),right:raisedWing(1,.50,.69,'#f35d19','#ffe16b')};
  phoenix5.tail={at:[0,-.15,-.12],feathers:[plume([[0,0,0],[-.26,-.04,-.18],[-.57,-.16,-.22],[-.70,-.30,-.12]],.11),plume([[0,0,0],[-.23,-.15,-.23],[-.39,-.30,-.24],[-.27,-.39,-.12]],.105),plume([[0,0,0],[-.12,-.18,-.30],[-.17,-.35,-.37],[-.03,-.39,-.29]],.095),plume([[0,0,0],[.02,-.12,-.26],[.05,-.28,-.40],[.19,-.30,-.41]],.095),plume([[0,0,0],[-.28,.03,-.14],[-.56,.015,-.27],[-.67,-.12,-.32]],.10)]};
  const phoenix6={...copy(phoenix5),normalEye:'droop',colors:{base:'#f6b333',light:'#fff0ab',neck:'#fbd56d',face:'#ffeaa0',beak:'#c88b25',feet:'#d89b32'}};
- phoenix6.wings={at:[.16,.22,-.035],left:raisedWing(-1,.55,.75,'#e8a32e','#fff0ad'),right:raisedWing(1,.51,.73,'#efb13a','#fff4bd')};
+ phoenix6.wings={at:[.095,.16,-.025],left:raisedWing(-1,.55,.75,'#e8a32e','#fff0ad'),right:raisedWing(1,.51,.73,'#efb13a','#fff4bd')};
  for(const q of [...phoenix6.crest,...phoenix6.tail.feathers,...phoenix6.breast]){q.color='#eaa22e';q.light='#fff0a7';q.edge='#ffe8a0';}
  const phoenix8={...copy(phoenix1),body:{size:[.12,.12,.11],y:.25},neck:{path:[[0,.01,0],[0,.07,.015],[0,.13,.03]],r:.060},head:{size:[.12,.12,.115],at:[0,.14,.045]},legs:null,wings:null,tail:null,breast:[],embers:{radius:.48,height:.24,colors:['#46373c','#655049','#846047','#ad7139']}};
  phoenix8.crest=phoenix1.crest.map(q=>({...copy(q),path:q.path.map(([x,y,z])=>[x*.8,y*.8,z*.8]),width:q.width*.8}));

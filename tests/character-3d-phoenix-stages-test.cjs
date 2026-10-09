@@ -14,3 +14,10 @@ test('all Phoenix candidates retain a single face and finite owned motion over a
  const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
  for(let n=1;n<=8;n++){assert.ok(rows[n]);const r=BUILDERS[rows[n].archetype](rows[n],'phoenix:'+n);r.faces=[attachFace(r,r.faceSpec,'C')];const a=instantiate({rig:r,key:'phoenix:'+n});for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){setEmotion(a,em);for(let i=0;i<20;i++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,1);assert.equal(a.faces[0].emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}assert.equal(SPEC.specKeyFor({line:'phoenix',stage:n}),null,'candidate is not prematurely promoted');}
 });
+test('raised Phoenix shoulders overlap the torso and rebirth coals cover their footprint',async()=>{
+ const rows=require('../character-3d/mythic-spec.js')().phoenix.stages;
+ const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ for(const n of [4,5,6]){const sp=rows[n],p=sp.wings.at;assert.ok(p.reduce((s,v,i)=>s+(v/sp.body.size[i])**2,0)<.8,`${n} shoulder lies inside torso with motion margin`);}
+ const sp=rows[8],r=BUILDERS[sp.archetype](sp,'phoenix:8');r.root.updateMatrixWorld(true);
+ for(const radius of [.12,.25,.36])for(let i=0;i<24;i++){const a=i*Math.PI/12,ray=new THREE.Raycaster(new THREE.Vector3(Math.cos(a)*radius,1,Math.sin(a)*radius),new THREE.Vector3(0,-1,0));assert.ok(ray.intersectObject(r.bones.embers,true).length,`coal mound covers ${radius}/${i}`);}
+});
