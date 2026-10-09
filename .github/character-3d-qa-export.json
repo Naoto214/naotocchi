@@ -1,16 +1,145 @@
 {
-  "sourceCommit": "64d739f9fda0fadf79595d3b45b1181ac6229f75",
-  "runId": 37903430971,
+  "sourceCommit": "5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0",
+  "runId": 37906158821,
   "families": [
+    "partner",
     "companion"
   ],
   "artifacts": [
     {
-      "id": 11603577369,
-      "label": "unusual-source-fixes",
-      "name": "full-rollout-nonplayer-review-64d739f9fda0fadf79595d3b45b1181ac6229f75",
-      "digest": "sha256:388deb4436bf4655271598375d8347af144eedf80ab2d3fa82c4cdbb4a27733a",
+      "id": 11604398817,
+      "label": "humanoid-partners-unicorn-fix3",
+      "name": "full-rollout-nonplayer-review-5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0",
+      "digest": "sha256:a6beef524cb5945dcd1f7876cac646df8b227c943a66d616d73ed864fb22495a",
       "required": [
+        {
+          "pattern": "partner-cat_ceo-0-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-cat_ceo-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-cat_ceo-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-cat_ceo-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-cat_ceo-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "partner-cat_ceo-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-cat_ceo-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-cat_ceo-distance-*.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "partner-robot_neighbor-0-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-robot_neighbor-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-robot_neighbor-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-robot_neighbor-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-robot_neighbor-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "partner-robot_neighbor-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-robot_neighbor-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-robot_neighbor-distance-*.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "partner-snow_spirit-0-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-snow_spirit-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-snow_spirit-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-snow_spirit-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-snow_spirit-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "partner-snow_spirit-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-snow_spirit-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-snow_spirit-distance-*.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "partner-sea_mermaid-0-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-sea_mermaid-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-sea_mermaid-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-sea_mermaid-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-sea_mermaid-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "partner-sea_mermaid-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-sea_mermaid-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-sea_mermaid-distance-*.jpg",
+          "count": 2
+        },
         {
           "pattern": "companion-unicorn-0-front.jpg",
           "count": 1
@@ -41,70 +170,6 @@
         },
         {
           "pattern": "companion-unicorn-distance-*.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "companion-many_tail_fox-0-front.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-many_tail_fox-0-34.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-many_tail_fox-0-side.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-many_tail_fox-0-back.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-many_tail_fox-0-*-*-*.jpg",
-          "count": 32
-        },
-        {
-          "pattern": "companion-many_tail_fox-views.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-many_tail_fox-motion.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-many_tail_fox-distance-*.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "companion-watcher-0-front.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-watcher-0-34.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-watcher-0-side.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-watcher-0-back.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-watcher-0-*-*-*.jpg",
-          "count": 32
-        },
-        {
-          "pattern": "companion-watcher-views.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-watcher-motion.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-watcher-distance-*.jpg",
           "count": 2
         }
       ]
