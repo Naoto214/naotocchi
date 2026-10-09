@@ -1,0 +1,17 @@
+const fs=require('node:fs'),cp=require('node:child_process'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const file='character-3d/nonplayer-spec.js',suite='tests/character-3d-mammal-contact-test.cjs',original=fs.readFileSync(file),sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const run=id=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap',...(id?['--test-name-pattern=^'+id+': actual mammal contacts']:[]),suite],{encoding:'utf8',timeout:60000});
+const restored=()=>assert.ok(fs.readFileSync(file).equals(original),'exact original source bytes restored');
+const cases=[];
+for(const [variable,id]of [['rabbitFriend','rabbit_friend'],['tanuki','tanuki'],['squirrel','squirrel'],['hamster','hamster'],['otter','otter'],['hedgehog','hedgehog']])for(const [side,sign]of [['L',1],['R',-1]]){const anchor=`limbContact(${variable},'shoulder'+suffix,arm,`;cases.push([`${id} shoulder ${side}`,id,anchor,`if(side===${sign})`+anchor,`/frame0/${side}: actual limb/torso interior contact`]);}
+for(const id of ['monkey','hedgehog'])for(const [side,sign]of [['L',1],['R',-1]]){const anchor=`limbContact(${id},'hindLeg'+suffix,foot,`;cases.push([`${id} leg ${side}`,id,anchor,`if(side===${sign})`+anchor,`/frame0/${side}: actual limb/torso interior contact`]);}
+for(const [side,sign]of [['L',1],['R',-1]]){const anchor="limbContact(otter,'grip'+suffix,arm,";cases.push([`otter stone grip ${side}`,'otter',anchor,`if(side===${sign})`+anchor,': actual forepaw/stone interior contact '+side]);}
+cases.push(['monkey shoulder R','monkey',"limbContact(monkey,'shoulderR','armR',","if(false)limbContact(monkey,'shoulderR','armR',",'/frame0/R: actual limb/torso interior contact']);
+cases.push(['tanuki held leaf contact','tanuki',"tanuki.details[0].paths[0].path.unshift([-.215,.08,-.035]);","tanuki.details[0].paths[0].path.unshift([-.065,.025,.020]);",': actual leaf/forepaw interior contact']);
+cases.push(['squirrel held acorn contact','squirrel',"name:'heldAcorn',bone:'body',at:[-.23,.06,.35]","name:'heldAcorn',bone:'body',at:[-.65,.06,.35]",': preserved acorn/forepaw interior contact']);
+const args=process.argv.slice(2);assert.ok(args.length<=1&&args.every(a=>a.startsWith('--case=')),'optional argument: --case=<exact mutation name>');const selectedName=args[0]?.slice(7),selected=selectedName?cases.filter(c=>c[0]===selectedName):cases;assert.ok(selected.length>0,'selected mutation exists');
+const baselineId=selectedName?selected[0][1]:undefined;
+function green(result,label){assert.equal(result.status,0,label+'\n'+result.stdout+result.stderr);assert.match(result.stdout,/# pass [1-9]/,label+': selected tests actually ran');}
+green(run(baselineId),'baseline');
+for(const [name,id,anchor,replacement,error]of selected){try{assert.equal(original.toString().split(anchor).length,2,name+': unique anchor');fs.writeFileSync(file,original.toString().replace(anchor,replacement));const result=run(id);assert.equal(result.status,1,name+': expected contact assertion failure\n'+result.stdout+result.stderr);assert.ok(result.stdout.includes('AssertionError')&&result.stdout.includes(error),name+': expected actual-contact assertion\n'+result.stdout+result.stderr);console.log(name+': RED');}finally{fs.writeFileSync(file,original);restored();}}
+restored();green(run(baselineId),'restored baseline');restored();console.log(`${file}: original/restored SHA256 ${sha(original)}`);console.log(`${selected.length}/${selected.length} contact mutations detected; baseline/restored GREEN; exact bytes verified`);

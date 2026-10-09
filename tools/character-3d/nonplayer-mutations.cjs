@@ -22,6 +22,9 @@ const scriptsByKey = new Map([
     .map(key => ['companion:' + key, 'unusual-companion-remove-it.cjs']),
 ]);
 
+const mammalContactKeys = new Set(['rabbit_friend', 'tanuki', 'squirrel', 'hamster', 'otter', 'monkey', 'hedgehog']
+  .map(key => 'companion:' + key));
+
 function selectScripts(config) {
   if (!config || !Array.isArray(config.keys) || config.keys.length === 0) {
     throw new Error('Nonplayer mutation selection requires a nonempty keys array');
@@ -32,6 +35,7 @@ function selectScripts(config) {
       throw new Error('Unsupported nonplayer mutation key: ' + JSON.stringify(key));
     }
     scripts.add(scriptsByKey.get(key));
+    if (mammalContactKeys.has(key)) scripts.add('mammal-contact-remove-it.cjs');
   }
   return [...scripts];
 }

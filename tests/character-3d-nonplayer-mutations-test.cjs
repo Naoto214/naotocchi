@@ -16,10 +16,30 @@ test('clock selects only clock; all existing role mappings stay explicit', () =>
 });
 test('shared wave and mammal tools run once in first-selected order', () => {
   assert.deepEqual(selectScripts({ keys: ['companion:box', 'partner:sunflower_partner', 'companion:box'] }), ['nonplayer-wave-remove-it.cjs']);
-  assert.deepEqual(selectScripts({ keys: ['companion:rabbit_friend', 'companion:tanuki', 'companion:squirrel', 'companion:hamster', 'companion:panda', 'companion:clock'] }), ['small-mammal-remove-it.cjs', 'clock-remove-it.cjs']);
+  assert.deepEqual(selectScripts({ keys: ['companion:rabbit_friend', 'companion:tanuki', 'companion:squirrel', 'companion:hamster', 'companion:panda', 'companion:clock'] }), ['small-mammal-remove-it.cjs', 'mammal-contact-remove-it.cjs', 'clock-remove-it.cjs']);
 });
 test('other mammal batch selects its shared mutation tool once', () => {
-  assert.deepEqual(selectScripts({ keys: ['otter', 'monkey', 'sheep', 'seal', 'hedgehog'].map(key => 'companion:' + key) }), ['other-mammal-remove-it.cjs']);
+  assert.deepEqual(selectScripts({ keys: ['otter', 'monkey', 'sheep', 'seal', 'hedgehog'].map(key => 'companion:' + key) }), ['other-mammal-remove-it.cjs', 'mammal-contact-remove-it.cjs']);
+});
+test('each repaired mammal adds contact coverage while passed mammals keep existing tools', () => {
+  for (const id of ['rabbit_friend', 'tanuki', 'squirrel', 'hamster', 'otter', 'monkey', 'hedgehog']) {
+    const existing = ['otter', 'monkey', 'hedgehog'].includes(id) ? 'other' : 'small';
+    assert.deepEqual(selectScripts({ keys: ['companion:' + id] }), [existing + '-mammal-remove-it.cjs', 'mammal-contact-remove-it.cjs']);
+  }
+  assert.deepEqual(selectScripts({ keys: ['companion:panda', 'companion:sheep', 'companion:seal'] }), ['small-mammal-remove-it.cjs', 'other-mammal-remove-it.cjs']);
+});
+test('mixed seven repaired mammals execute both existing batches and contacts once in selected order', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'nonplayer-mammal-contacts-'));
+  try {
+    const config = path.join(dir, 'qa.json');
+    const keys = ['otter', 'rabbit_friend', 'tanuki', 'squirrel', 'hamster', 'monkey', 'hedgehog', 'otter', 'rabbit_friend'].map(id => 'companion:' + id);
+    const expected = ['other-mammal-remove-it.cjs', 'mammal-contact-remove-it.cjs', 'small-mammal-remove-it.cjs'];
+    assert.deepEqual(selectScripts({ keys }), expected);
+    fs.writeFileSync(config, JSON.stringify({ keys }));
+    const executed = [];
+    assert.deepEqual(runScoped(config, dir, (command, args) => { executed.push(path.basename(args[0])); return { status: 0 }; }), expected);
+    assert.deepEqual(executed, expected);
+  } finally { fs.rmSync(dir, { recursive: true, force: true }); }
 });
 test('birds and reptiles select their shared mutation tool once', () => {
   assert.deepEqual(selectScripts({ keys: ['bat', 'chicken', 'penguin_friend', 'snail', 'chameleon'].map(key => 'companion:' + key) }), ['birds-reptiles-remove-it.cjs']);

@@ -62,6 +62,30 @@
  // Closed low-poly radial shafts, pale tips and backward sweep preserve full depth.
  for(let j=0;j<4;j++)for(let i=0;i<20;i++){const a=i*Math.PI/10+j*.08;if(Math.cos(a)>.55)continue;const x=Math.sin(a)*.255,z=Math.cos(a)*.235,y=-.15+j*.12;hedgehog.details[0].paths.push({path:[[x,y,z],[x*1.2,y+.04,z-.065],[x*1.43,y+.09,z-.14]],radius:.026,taper:.97,tip:'#f8dfb4',radial:5,steps:3});}
  for(let j=0;j<3;j++)for(let i=0;i<16;i++){const a=i*Math.PI/8+j*.10;if(Math.cos(a)>.50)continue;const x=Math.sin(a)*.26,z=Math.cos(a)*.20,y=.035+j*.085;hedgehog.details[1].paths.push({path:[[x,y,z],[x*1.13,y+.05,z-.055],[x*1.36,y+.12,z-.13]],radius:.024,taper:.97,tip:'#ffe5ba',radial:5,steps:3});}
+ // Local closed contacts retain the source paw/foot/prop silhouettes. Each path
+ // is expressed in its moving limb's frame, with both ends embedded in solids.
+ const limbContact=(spec,name,bone,from,to,radius,color)=>{
+  const side=bone.endsWith('L')?-1:1,isArm=bone.startsWith('arm'),limb=isArm?(spec.armSides?.[side<0?'left':'right']||spec.arms):spec.feet;
+  const origin=[side*limb.at[0],limb.at[1],limb.at[2]],angle=isArm?side*limb.roll:0;
+  const local=([x,y,z])=>{x-=origin[0];y-=origin[1];return [x*Math.cos(angle)+y*Math.sin(angle),-x*Math.sin(angle)+y*Math.cos(angle),z-origin[2]];};
+  (spec.details||(spec.details=[])).push({name,bone,color:color||limb.color||spec.colors.body,paths:[{path:[local(from),local(to)],radius,radial:6,steps:2}]});
+ };
+ for(const side of [-1,1]){
+  const suffix=side<0?'L':'R',arm='arm'+suffix,foot='foot'+suffix;
+  limbContact(rabbitFriend,'shoulder'+suffix,arm,[side*.13,.13,.10],[side*.245,side<0?.185:.175,.235],.052);
+  limbContact(tanuki,'shoulder'+suffix,arm,[side*.14,.10,.15],[side*.215,.16,.29],.052);
+  limbContact(squirrel,'shoulder'+suffix,arm,[side*.12,.12,.13],[side*.18,.17,.29],.043);
+  limbContact(hamster,'shoulder'+suffix,arm,[side*.11,.12,.17],[side*.13,.155,.30],.032,'#fff0d6');
+  limbContact(otter,'shoulder'+suffix,arm,[side*.12,.08,.17],[side*.17,.08,.29],.038);
+  limbContact(otter,'grip'+suffix,arm,[side*.17,.08,.29],[side*.055,.04,.365],.032);
+  limbContact(hedgehog,'shoulder'+suffix,arm,[side*.15,.04,.13],[side*.215,.04,.23],.035);
+  limbContact(hedgehog,'hindLeg'+suffix,foot,[side*.12,-.18,.09],[side*.16,-.28,.15],.038);
+  limbContact(monkey,'hindLeg'+suffix,foot,[side*.10,-.18,.03],[side*.165,-.30,.09],.046,'#b26531');
+ }
+ limbContact(monkey,'shoulderR','armR',[.12,.17,.035],[.36,.18,.06],.043);
+ // Extend the existing visible leaf stem back into the holding left forepaw.
+ tanuki.details[0].paths[0].path.unshift([-.215,.08,-.035]);
+ tanuki.details[0].paths[0].radius=.009;
  // Source hanging/sliding/gastropod poses reuse closed soft-toy volumes and owner bones.
  const bat={...seated({body:'#766381',light:'#b99ac3',muzzle:'#a88cb1',nose:'#655071',inner:'#d2a9c4',pad:'#a38aaf',blush:'#c68fac'}),body:{size:[.17,.37,.14],y:.98},head:{size:[.245,.23,.215],at:[0,-.48,.065],roll:Math.PI},ears:[{size:[.11,.19,.04],at:[-.255,.12,-.015],rotation:[0,0,.55]},{size:[.11,.19,.04],at:[.255,.12,-.015],rotation:[0,0,-.55]}],arms:{at:[.125,-.055,.025],size:[.12,.43,.06],roll:.28,color:'#9073a4'},feet:{enabled:false,at:[0,0,0]},muzzle:{size:[.072,.055,.045],at:[0,-.075,.206],noseSize:[.023,.017,.015],noseAt:[0,-.047,.247]},details:[{name:'wingFolds',bone:'body',color:'#5b486b',paths:[]},{name:'hangingFeet',bone:'body',color:'#9b83a8',paths:[]}]};
  for(const side of [-1,1]){for(let i=0;i<3;i++)bat.details[0].paths.push({path:[[side*.035,.35,.035],[side*(.10+i*.045),.01,.085],[side*(.19+i*.035),-.34+i*.035,.04]],radius:.008,steps:16,radial:6});for(let i=0;i<3;i++)bat.details[1].paths.push({path:[[side*.055,.32,0],[side*.061,.43,-.005],[side*(.035+i*.018),.49,.015],[side*(.025+i*.023),.52,.033]],radius:.012,taper:.55,steps:10,radial:6});}

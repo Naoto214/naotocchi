@@ -972,3 +972,13 @@ Remainingplan recorded innonplayer-execution-plan.md;source-derivedcandidates us
 - Task45 integration:37 focused PASS, exact22+4candidate row merge,28Pilot hashes unchanged. Reuse affected mutation/restoration evidence; no full npm replay. Human/iPhone and full293 integration remain OPEN.
 
 - Save gate:344 dedicated PASS,28Pilot identical. Review found three stale mutation selectors after promotion test rename; corrected and3/3 targeted RED/restoredGREEN with exact byte hashes. Updated role mutations6observedRED; unchanged QAoverlay reuses prior7/7campaign evidence. Final restored role testsPASS.
+
+
+## Seven mammal physical-connection repair
+
+- b03971d9 addresses the actual source308 rejects using existing closed paths owned by the existing limbs and local leaf/stone grips; no shared factory changes. All seven remain unregistered until fresh actual-image gates.
+- Seven new produced-triangle contact sweeps cover32states and five sampledframes;33targetPASS and21/21disconnection controls detected/restored. Passedpanda/sheep/seal generatedgeometry identical;15unaffectedrows identical. Root merge proves7fixed+19unchanged rows and35integrationtestsPASS.
+- Selector adds contact mutation coverage onlyforsevenrepairedkeys, alongsideexistingmutators;10selectorPASS,independentC0/I0. CandidatefixreviewC0/I0.
+- d1f71992 dedicatedCI113708358659SUCCESS; previous7candidate imagecapture remainsinprogress. Nextcapture selects onlythesevenrepairedmammals; no repeatedpassedrole images. Task6partnersimplementation continues.
+
+- Fresh d1f71992 Character37896316097SUCCESS (2success/16skipped); seven-roleartifact11600044828 export requested alongside next repair capture. Runtime/Home still lastobservedIN_PROGRESS; no falseSUCCESS.
