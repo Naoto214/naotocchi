@@ -1,78 +1,46 @@
 {
-  "sourceCommit": "dc652144365d7adeed28d3de3bd29d1e33cccd31",
-  "runId": 37882448856,
+  "sourceCommit": "d772ff5eeae7a4513185436e3fe22813c63930dc",
+  "runId": 37883016188,
   "families": [
     "companion"
   ],
   "artifacts": [
     {
-      "id": 11594323377,
-      "label": "clock-parrot",
-      "name": "full-rollout-nonplayer-review-dc652144365d7adeed28d3de3bd29d1e33cccd31",
-      "digest": "sha256:5f22b73dd795e532cba523573dfa7ce7330e218ea50f621131806fc0841ec83d",
+      "id": 11595377978,
+      "label": "punyu",
+      "name": "full-rollout-nonplayer-review-d772ff5eeae7a4513185436e3fe22813c63930dc",
+      "digest": "sha256:fbba310b785a184aef66b367822a9f9cb87666e4c45d2e928646fb960dd19b8b",
       "required": [
         {
-          "pattern": "companion-clock-0-front.jpg",
+          "pattern": "companion-punyu-0-front.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-clock-0-34.jpg",
+          "pattern": "companion-punyu-0-34.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-clock-0-side.jpg",
+          "pattern": "companion-punyu-0-side.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-clock-0-back.jpg",
+          "pattern": "companion-punyu-0-back.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-clock-0-*-*-*.jpg",
+          "pattern": "companion-punyu-0-*-*-*.jpg",
           "count": 32
         },
         {
-          "pattern": "companion-clock-views.jpg",
+          "pattern": "companion-punyu-views.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-clock-motion.jpg",
+          "pattern": "companion-punyu-motion.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-clock-distance-*.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "companion-parrot-0-front.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-parrot-0-34.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-parrot-0-side.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-parrot-0-back.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-parrot-0-*-*-*.jpg",
-          "count": 32
-        },
-        {
-          "pattern": "companion-parrot-views.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-parrot-motion.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "companion-parrot-distance-*.jpg",
+          "pattern": "companion-punyu-distance-*.jpg",
           "count": 2
         }
       ]

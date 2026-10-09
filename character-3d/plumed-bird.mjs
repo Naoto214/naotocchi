@@ -27,6 +27,6 @@ export function plumedBird(sp,key){
   for(let ring=0;ring<4;ring++){const count=ring===3?5:18-ring*4,rad=e.radius*(1-ring*.25);for(let i=0;i<count;i++){const a=i*Math.PI*2/count+ring*.41,sz=.065+(i%3)*.008,y=.080+ring*.052;const g=new THREE.IcosahedronGeometry(1,0);coals.push(solid(xform(g,{scale:[sz,sz*.70,sz*.9],pos:[Math.cos(a)*rad,y,Math.sin(a)*rad],rot:[i*.3,ring*.7,i*.5]}),e.colors[(i+ring)%e.colors.length]));}}
   r.add('embers','root',[0,0,0],coals);
  }
- r.faceSpec={bone:'head',target:head,center:[0,h.size[1]*.05,h.size[2]*.9],fwd:[0,.05,1],half:h.size[0]*.74,eyeSize:.25,normalEye:sp.normalEye,layout:{eyeX:25,eyeY:50,mouthY:108,browY:30,cheekX:40,cheekY:74,mouthW:7},style:{blush:'#f0a164'}};
+ r.faceSpec={bone:'head',target:head,center:[0,h.size[1]*.05,h.size[2]*.9],fwd:[0,.05,1],half:h.size[0]*.74,eyeSize:.25,normalEye:sp.normalEye,layout:{eyeX:sp.face?.eyeX??25,eyeY:50,mouthY:sp.face?.mouthY??108,browY:30,cheekX:40,cheekY:74,mouthW:7},style:{blush:'#f0a164'}};
  r.meta={idlePose:'stand',hover:0,featherTail:!!sp.tail};return r;
 }

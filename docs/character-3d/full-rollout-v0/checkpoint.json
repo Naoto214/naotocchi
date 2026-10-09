@@ -1,6 +1,6 @@
 {
-  "baseCommit": "b9e0cf9555fc62597807bb3f2bb5ca7392c2d3d5",
-  "checkpoint": "cactus-promotion-punyu-surface-clock-parrot-recovery",
+  "baseCommit": "00eb6a080e80ee1f0587396807782e922de37188",
+  "checkpoint": "clock-parrot-image-corrections-punyu-recovery",
   "coverage": {
     "exact": 253,
     "total": 293,
@@ -11,7 +11,7 @@
     "partners": 2
   },
   "verification": {
-    "dedicatedPass": 271,
+    "dedicatedPass": 273,
     "rolloutMutationsDetected": 33,
     "pilotHashesUnchanged": 28,
     "fullNpm": "8b6fcae fixed implementation:3017PASS+Relationship80PASS,0FAIL,exit0; full log/result archived. Before Star expansion/Unknown promotion.",
@@ -83,13 +83,16 @@
     "parrotCI": "090d0d00 Character37882013865FAIL:nonplayercapture113663562927SUCCESS,dedicated113663563133FAIL cactusmutation stale return-prefix anchor. Fixedstable role-row anchor for cactus andsunflower;4+4 mutationsdetected/restored. Freshclock/parrotcapture requested. Not overallPASS.",
     "cactusImageGate": "d40 archiveb9e0cf95 actual4views32states2distancePASS;all121rawfiles(3candidates)hashverified. Promotedonlypartner:oasis_cactus;253/293,40pending,251acceptedfourviewrecords.",
     "nonplayerPromotion": "7/7role/runtime mutationsdetected/restored;271dedicatedPASS,28Pilotidentical;reviewCritical0/Important0.",
-    "clockParrotCapture": "dc652144 Character37882448856SUCCESS;artifact11594323377 exportrequested. Earlier090d0d00FAIL remains distinct."
+    "clockParrotCapture": "dc652144 Character37882448856SUCCESS;artifact11594323377 exportrequested. Earlier090d0d00FAIL remains distinct.",
+    "clockParrotImageGate": "dc652144 archive00eb6a08:81rawhashesverified;actual4views eachREJECT(clockdialgap,parrotlonglegs/crowdedface). No state/distanceapproval.",
+    "clockParrotCorrection": "Roundedlathe housing joinsdialperimeter;Parrotlowbelly/smallerhook/eyes40 mouth116 withatlasmargin.273shared-factorysuitePASS beforefinalParrot-onlymouthdata;final6targetPASS plusClock3/Parrot6mutations restored.28Pilotidentical,reviewCritical0/Important0. Freshimagesrequired.",
+    "cactusPromotionCI": "d772ff5e Character37883016188SUCCESS;Punyu surfaceartifact11595377978 exportrequested. Cactus remainsactualimageapproved;full293gate stillopen."
   },
   "next": [
-    "Actuallyreview clock/parrot exportedimages;promote onlyPASS",
-    "Review freshPunyu correctedsurface images",
-    "Reconsider Owl heldfeather-wing geometry after repeated imageREJECT;retainisolation",
-    "Remaining40nonplayers and final293integration;Human/iPhone separate"
+    "Review restored d772Punyu surfaceimages;promote only actualPASS",
+    "Review freshClock/Parrot corrections4views32states2distance each",
+    "Owl structuralwing reconsideration required after repeatedimageREJECT",
+    "Remaining40nonplayers and final293integration/Human/iPhone"
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",
