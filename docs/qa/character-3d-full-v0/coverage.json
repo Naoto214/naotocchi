@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 289,
-    "pending": 4,
-    "fourViewRecords": 289
+    "exactSpecs": 291,
+    "pending": 2,
+    "fourViewRecords": 291
   },
   "rows": [
     {
@@ -5724,15 +5724,15 @@
       "group": "snow",
       "asset": "assets/characters/partners/snowman.png",
       "sha256": "bd7e8101f538576b805b972e554400ecea8091195956d798403edddd31499ec7",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6/spider-yarn-eagle-snowman/partner-snowman-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6/spider-yarn-eagle-snowman/partner-snowman-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6/spider-yarn-eagle-snowman/partner-snowman-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6/spider-yarn-eagle-snowman/partner-snowman-0-back.jpg"
       }
     },
     {
@@ -5844,15 +5844,15 @@
       "group": "jungle",
       "asset": "assets/characters/partners/knitting_spider.png",
       "sha256": "f919346a71abf227dc2ec753c478657d0bbfc76bd7f8059d6460a88d5b95aaf0",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6/spider-yarn-eagle-snowman/partner-knitting_spider-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6/spider-yarn-eagle-snowman/partner-knitting_spider-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6/spider-yarn-eagle-snowman/partner-knitting_spider-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6/spider-yarn-eagle-snowman/partner-knitting_spider-0-back.jpg"
       }
     },
     {

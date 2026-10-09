@@ -1,0 +1,38 @@
+{
+  "sourceCommit": "73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6",
+  "sourceRun": 37911082729,
+  "sourceRunConclusion": "success",
+  "artifact": 11606821438,
+  "archiveCommit": "d7dc8973d7acfadb9298712505bb8735ffdbf0ce",
+  "rawFilesVerified": 121,
+  "reviewer": "Root actual four views, all 32 states and two normal distances; independent actual source/four-view review confirms two approvals and Eagle rejection.",
+  "reviewed": {
+    "knitting_spider": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "high_eagle": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "REJECT"
+    },
+    "snowman": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    }
+  },
+  "resolved": {
+    "knitting_spider": "Round green yarn ball and connected trailing strand now visible below knitted fabric; eight legs support body, canonical face clear across states and normal distance. Previous missing yarn finding resolved.",
+    "snowman": "Three white snowballs, dark hat, red scarf, carrot nose, two buttons and twig arms remain readable through expressions and movement; normal-distance front and back retain the complete silhouette."
+  },
+  "blockingFindings": {
+    "high_eagle": "Important: short shallow wing wedges omit the original long descending layered primaries reaching nearly to the talons. Candidate-only feather geometry correction and fresh full image gate required; not promoted."
+  },
+  "humanQA": "OPEN_SEPARATE",
+  "iPhoneQA": "OPEN_SEPARATE"
+}

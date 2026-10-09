@@ -110,3 +110,5 @@ test('four humanoid partners select their scoped mutation tool once', () => {
 test('aquatic/invertebrate partners select their shared scoped mutation suite',()=>{assert.deepEqual(selectScripts({keys:['rock_octopus','anglerfish','swamp_croc','knitting_spider','desert_scorpion'].map(id=>'partner:'+id)}),['aquatic-partner-remove-it.cjs']);});
 
 test('distinct eagle/snowman partners select one explicit mutation suite',()=>{assert.deepEqual(selectScripts({keys:['partner:high_eagle','partner:snowman']}),['distinct-partner-remove-it.cjs']);});
+
+test('author candidate selects its exact scoped mutation suite',()=>{assert.deepEqual(selectScripts({keys:['author:naoto']}),['author-remove-it.cjs']);});

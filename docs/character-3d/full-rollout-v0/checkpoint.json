@@ -1,14 +1,15 @@
 {
-  "baseCommit": "b632fb20af671f84260d2c5c28d055d055b96d93",
-  "checkpoint": "five-aquatic-image-approvals-spider-yarn-fix-and-distinct-partners-ready",
+  "baseCommit": "d7dc8973d7acfadb9298712505bb8735ffdbf0ce",
+  "checkpoint": "two-image-approvals-author-candidate-and-eagle-source-correction",
   "coverage": {
-    "exact": 289,
+    "exact": 291,
     "total": 293,
-    "pending": 4,
+    "pending": 2,
     "playerFamilies": 31,
     "playerStages": 248,
     "companions": 26,
-    "partners": 15
+    "partners": 17,
+    "authors": 0
   },
   "verification": {
     "dedicatedPass": 438,
@@ -131,12 +132,20 @@
     "rolePromotionMutations": "7/7 detected and exactrestored afterfiveaquaticpromotions; strict explicitlistanchor retained,unreviewedSpider/Eagle/Snow/Author exclusion staysmeaningful.",
     "aquaticActualImages": "26fbf737 artifact11605778122 archivedb632fb20;241rawfilesSHA256verified. Rootactual4views32states2distance eachsix;independentreviewagreesfivePASS Mermaid/Octopus/Angler/Croc/Scorpion,SpiderREJECTmissingyarnball/trailingstrand. Fivepromotedonly.",
     "spiderYarnCorrection": "Candidate-onlygreenball+closedtrailingstrand andcompressed9knittingloops;actuallegs nowrestatfloor independentlyofhangingprops. 7affectedtestsPASS,missingballRED→GREEN;roundness/detachment/support/changedloop4controlsRED-restored. C0/I0geometryreview;max11832tris;freshimagesPENDING.",
-    "distinctPartnerCandidates": "dfe51ba6 eagle/snowman existingplumed_bird/soft_toy;12focusedPASS15mutationsREDrestored;C0/I0. Sourceonlyplume tip/outwardcaps/faceopts. ExistingPhoenix8+parrot/chicken10/10allproducedattributes/indices/transforms/faceSpecexactidentity;rootPilot28same-runtimehashesidentical. 39othernonplayerrows unchanged inclsignedzero,2newrows."
+    "distinctPartnerCandidates": "dfe51ba6 eagle/snowman existingplumed_bird/soft_toy;12focusedPASS15mutationsREDrestored;C0/I0. Sourceonlyplume tip/outwardcaps/faceopts. ExistingPhoenix8+parrot/chicken10/10allproducedattributes/indices/transforms/faceSpecexactidentity;rootPilot28same-runtimehashesidentical. 39othernonplayerrows unchanged inclsignedzero,2newrows.",
+    "threePartnerImageGate": "73a1b4e artifact11606821438 archived d7dc: 121 raw files verified; actual 12 views/96 states/6 normal distances inspected. Spider and Snowman PASS; Eagle REJECT long descending primaries absent. Independent review agrees.",
+    "authorPilotPreservation": "28 Pilot produced geometry/32-state animation hashes identical after author factory opt-ins; protected asset/runtime groups identical to immutable fixture. No 2D/Expression/save/gameplay/World/Home edits.",
+    "source73CI": "Character37911082729, Runtime37911092013, Home37911092044 all SUCCESS; 26fb Runtime37908684966 now SUCCESS.",
+    "authorCandidate": "e67902df integrated with near3D readiness fix;11/11 assembled PASS,17 original+1 near3D controls RED/restored;35 existing humanoid/celestial inputs exact,42 previous candidate rows unchanged before Eagle fix. C0/I0. No author image approval.",
+    "twoLatestPromotion": "Spider/Snowman actual gates approved. 19 boundaries PASS,7 role mutations RED/restored. Dedicated450:448PASS/2stale promotion-null expectations FAIL; corrected2/2 targetedGREEN. Full sourceCI pending; do not claim all450PASS.",
+    "eagleSourceCorrection": "a7c955a1 candidate-only22feather centerlines redistributed into descending primary fan.6affectedPASS and4controlsRED/restored; independent code reviewC0/I0,41otherrows exact,17728max triangles. No shared factory changes. Fresh full actual images pending."
   },
   "next": [
-    "Capture andactuallyreview Spider yarnfix,high_eagle,snowman throughscopedexistingworkflow;donotrecapturefiveapprovedaquaticmodels.",
-    "Completeauthorcandidate/realidentityQA-onlypresentationroute withoutWorldchange, pluslegacycat/shiba32states-distance-only usingexistingcapturetool.",
-    "Final293integration:protecteddefaults/fullnpm/scene/performance;Human/iPhoneseparateOPEN,staysDraft."
+    "Complete Eagle source-wing correction and author candidate review; save scoped candidate batch.",
+    "Capture Eagle/author full gates and legacy cat/shiba states+distance only; actual inspect before last two promotions.",
+    "Complete source-by-source player state/distance evidence audit; capture and actually review only missing stage gates through existing tools.",
+    "Final293 integration: one dedicated/full npm batch, inventory/coverage, scene/performance and independent review.",
+    "Human/iPhone separate OPEN; deliver v0 Human QA package and retain Draft."
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",
@@ -165,26 +174,23 @@
       "status": "PASS_31_FAMILIES_248_STAGES"
     },
     "latestNonplayerImageApprovals": [
-      "partner:sea_mermaid",
-      "partner:rock_octopus",
-      "partner:anglerfish",
-      "partner:swamp_croc",
-      "partner:desert_scorpion"
+      "partner:knitting_spider",
+      "partner:snowman"
     ],
     "candidateBatchInProgress": [
-      "partner:knitting_spider",
       "partner:high_eagle",
-      "partner:snowman"
+      "author:naoto"
     ],
     "missingLegacyFourViewRecords": [],
     "full293Integration": "OPEN",
     "humanQA": "OPEN_SEPARATE",
     "iPhoneQA": "OPEN_SEPARATE",
-    "candidateBatchReview": "FiveactualimagegatesPASS promoted; Spider yarnprop/supportfix C0/I0 andTask9two C0/I0 awaitactualimages. Task10author+existingQAroute/legacy-state-distanceextensioninprogress.",
+    "candidateBatchReview": "Spider/Snowman actual full gates PASS and promoted. Eagle source correction and author candidate with near3D QA fix both C0/I0; actual capture/image approval pending.",
     "selectedCaptureBatch": [
-      "partner:knitting_spider",
       "partner:high_eagle",
-      "partner:snowman"
+      "author:naoto",
+      "companion:cat_friend (states/distance only)",
+      "companion:shiba (states/distance only)"
     ],
     "legacyFourViewReuse": "Existingcf7b comparisonboards cat_friend/shiba actualfourviewPASS+same-runtimePilotidentity carriedforward;coverageexactrole/path/layout/review/SHAverifiedmapping nowcomplete. States/normal-distance integrationstillOPEN;existingcapturetooltoextend narrowly withruntimekeys andno4viewrecapture.",
     "sevenMammalConnections": "e8 actual4views/32states/2distance per7 PASS, archiveda2878b4c; independent repaired-site review C0/I0; promoted with local corrected-anchor53/53 and372dedicatedPASS.",
@@ -197,7 +203,8 @@
       "runtimeStatus": "SUCCESS",
       "homeRun": 37890612549,
       "homeStatus": "SUCCESS"
-    }
+    },
+    "playerImageIntegration": "OPEN: all31 families/248 stages have reviewed four-view evidence; final evidence audit found early families with representative-only state images. Full per-stage state/distance requirements are being reconciled; no blanket 248x32-state acceptance claim. Reuse full accepted sets (including Phoenix)."
   },
   "verificationHistoryNote": "verification entries are source-scoped historical evidence. Current coverage/currentGates/next identify the active state; older pending or REJECT records are not current verdicts."
 }

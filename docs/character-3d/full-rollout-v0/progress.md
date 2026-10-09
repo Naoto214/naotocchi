@@ -1028,3 +1028,14 @@ Unicornfix3 cdf38a00 changesonlythreeownedhairpathlists to4head/5neck-back/4stag
 - Spider REJECTmissingoriginalyarnball/trailingstrand. Candidate-onlyroundgreenball+attachedstrand restored;9knittingloops compressed, bodyheight corrected soactuallegs supportatfloor independentlyofprops. Root7targetedPASS and4affectedcontrolsRED/restored;reviewC0/I0,max11832tris. Freshimagespending.
 - Task9eagle/snowman integrated atdfe51ba6:12focusedPASS15negativecontrolsRED/restored,C0/I0;newrowsunregistered. Optionalplumed_birdfeatures preserve10/10actualexistinginputs(Phoenix8+parrot/chicken),rootPilot28identical;39oldnonplayerrowsunchangedincluding signedzero exceptintendedSpiderfix.
 - Root dedicated438/438PASS,0FAIL. CaptureonlySpider/Eagle/Snowman. Source26fbHomeSUCCESS/Runtime lastIN_PROGRESS;previous5d36Runtime nowSUCCESS. Authorcandidate andnarrowexistingQAroute/legacy32state-distanceextension underway;natural memory_lake remains2D, noWorld/Home changes. Finalnpm/integration andHuman/iPhone separateOPEN.
+
+
+### Latest: two partner approvals and final candidates
+
+Source73a1b4e/archive d7dc:121 raw files verified; actual12 views/96states/6normal-distance reviewed. Spider yarn fix and Snowman PASS; Eagle REJECT because the long descending primary silhouette was missing. Only Spider/Snowman promoted:291/293 exact,291 four-view records; Eagle/author pending. The Eagle correction redistributes existing22 feather paths without shared factory changes; fresh full images remain required.
+
+Author candidate e67902df reuses humanoid with default-preserving opt-ins;35 old humanoid/celestial inputs exact,42 prior candidate rows unchanged before Eagle correction,28 Pilot hashes and protected fixtures exact. Root resolved initial QA placement outside near3D range while preserving the same real unlocked memory-lake actor and restoring original pose. Corrected11 author tests PASS;17 original+1 added negative controls; code reviewC0/I0. Normal memory_lake remains2D; forest placement is explicitly QA-only.
+
+Integrated450-test run:448PASS and2 stale promotion-null assertions failed. Corrected Spider/Snowman expectations pass2/2; do not describe this as a450PASS rerun. Role controls7/7 restored;19 boundary tests PASS; independent integration reviewC0/I0. Next scoped CI captures Eagle/author plus legacy cat/shiba32states+2distance each, reusing legacy four-view boards.
+
+Final evidence reconciliation distinguishes four-view coverage from full per-stage state/distance approval. Several early player families have representative-only state records; the exact missing-stage table is being prepared and these gates remain OPEN. Reuse all accepted full sets, including Phoenix. Human/iPhone remain separate OPEN, PR376 remains Draft.

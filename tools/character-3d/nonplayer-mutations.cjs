@@ -5,6 +5,7 @@ const root = path.resolve(__dirname, '../..');
 
 // Add explicit mappings here when introducing another scoped candidate batch.
 const scriptsByKey = new Map([
+  ['author:naoto', 'author-remove-it.cjs'],
   ['companion:owl', 'owl-remove-it.cjs'],
   ['companion:punyu', 'punyu-remove-it.cjs'],
   ['companion:parrot', 'parrot-remove-it.cjs'],

@@ -289,7 +289,7 @@ export function humanoid(sp, key) {
   const rig = new Rig(key, 'humanoid', sp.idlePose === 'crawl' ? 'crawl' : 'humanWalk');
   const hipY = Lg.len + 0.06;
   const dressed = sp.clothing && sp.clothing !== 'romper';
-  const torso = dressed
+  const torso = B.closedVolume ? paint(xform(ellipsoid(B.r,B.h*.5,B.r*.78,28,20),{pos:[0,B.h*.5,0]}),(x,y,z,nx,ny,nz)=>B.sourceShirt&&nz>.2&&(x/B.sourceShirt.size[0])**2+((y-B.sourceShirt.at[1])/B.sourceShirt.size[1])**2<1?B.sourceShirt.color:c.top) : dressed
     ? paint(xform(lathe([[0.001,0],[B.r*.91,0],[B.r,B.h*.12],[B.r*.94,B.h*.65],[B.r*.78,B.h*.9],[B.r*.40,B.h],[0.001,B.h]],16),{scale:[1,1,.78]}),(x,y)=>sp.clothing==='overalls'&&y>B.h*.40?c.sleeve||c.accent:c.top)
     : solid(blob((x,y,z)=>[x*B.r,(y+1)*B.h/2,z*B.r*.78],16,10),c.top);
   const parts = [torso];
@@ -398,7 +398,7 @@ export function humanoid(sp, key) {
   const headGeo = merge([skull, ...ears]);
   rig.add('head', 'body', [0, B.h * 0.98, 0.01], null);
   const headCenter = [0, hr * 0.92, 0.02];
-  rig.mesh('head', [xform(headGeo.clone(), { pos: headCenter }), xform(merge([hair, ...extra]), { pos: headCenter })]);
+  rig.mesh('head', [xform(headGeo.clone(), { pos: headCenter }), xform(sp.hair.closedVolumes?merge([...sp.hair.closedVolumes.map(v=>solid(xform(ellipsoid(...v.size,v.segments?.[0]||20,v.segments?.[1]||14),{pos:v.at}),c.hair)),...(sp.hair.closedPaths||[]).map(p=>solid(sweep(p.path,t=>p.radius*(1-(p.taper||0)*t),p.radial||8,{steps:p.steps||18,outwardCaps:p.outwardCaps}),c.hair))]):merge([hair, ...extra]), { pos: headCenter })]);
   // Bent arms end at the actual strap / handle. The prop shares the arm bone,
   // so locomotion and emotion posture cannot pull it away from the grip.
   if((sp.attachments||[]).includes('pacifier'))rig.add('pacifier','head',[0,headCenter[1]-hr*.36,hr*1.01],[solid(ellipsoid(hr*.17,hr*.11,.023,10,6),c.accent),solid(xform(new THREE.TorusGeometry(hr*.075,.009,5,12),{pos:[0,-hr*.085,.028]}),'#eee9db')]);
@@ -408,7 +408,7 @@ export function humanoid(sp, key) {
     const holding=(hold==='heldPet'&&(sp.heldPet?.grip!=='left'||s<0))||((hold==='backpack'||hold==='shoulderBag')&&s<0)||(hold==='cane'&&s>0);
     const end=holding&&hold==='heldPet'?[-s*B.r*.25,-B.h*.50,B.r*1.05]:holding?((hold==='backpack'||hold==='shoulderBag')?[s*-B.r*.43,-B.h*.32,B.r*.87]:[s*.035,-Ar.len*.52,B.r*.70]):[s*.045,-Ar.len-Ar.r*.7,.02];
     const elbow=holding?[s*.075,-Ar.len*.72,.055]:[s*.03,-Ar.len*.5,.01];
-    const arm=paint(sweep([[0,0,0],elbow,end],t=>Ar.r*lerp(1.15,.85,t),8,{steps:8}),(x,y)=>sp.wardrobe?.sleeve && y < -Ar.len*sp.wardrobe.sleeve?c.skin:c.sleeve||c.top);
+    const arm=paint(sweep([[0,0,0],elbow,end],t=>Ar.r*lerp(1.15,.85,t),8,{steps:8,outwardCaps:Ar.outwardCaps}),(x,y)=>sp.wardrobe?.sleeve && y < -Ar.len*sp.wardrobe.sleeve?c.skin:c.sleeve||c.top);
     const hand=solid(xform(ellipsoid(Ar.r*1.10,Ar.r*.95,Ar.r,8,6),{pos:end}),c.skin);
     const parts=[arm,hand];
     rig.add(s<0?'armL':'armR','body',[s*B.r*.88,B.h*.82,0],parts,'opaque',[0,0,holding?0:s*.12]);
@@ -438,12 +438,13 @@ export function humanoid(sp, key) {
       rig.add(s<0?'kneeL':'kneeR',s<0?'legL':'legR',[0,-half,0],[lower,shoe]);continue;
     }
     const L = hipY - 0.06;
-    const leg = paint(sweep([[0, 0, 0], [0, -L * 0.5, 0], [0, -L + 0.02, 0]], (t) => Lg.r * lerp(1.15, 0.9, t), 8, { steps: 6 }), (x,y) => sp.wardrobe?.shorts && y < -L*sp.wardrobe.shorts ? (y < -L*(1-(sp.wardrobe.socks||0)) ? c.socks||c.skin : c.skin) : c.bottom);
+    const leg = paint(sweep([[0, 0, 0], [0, -L * 0.5, 0], [0, -L + 0.02, 0]], (t) => Lg.r * lerp(1.15, 0.9, t), 8, { steps: 6,outwardCaps:Lg.outwardCaps }), (x,y) => sp.wardrobe?.shorts && y < -L*sp.wardrobe.shorts ? (y < -L*(1-(sp.wardrobe.socks||0)) ? c.socks||c.skin : c.skin) : c.bottom);
     const shoe = solid(xform(blob((x, y, z) => [x * Lg.r * 1.15, (y * 0.5 + 0.5) * 0.09, z * Lg.r * 1.7 + Lg.r * 0.45], 10, 6), { pos: [0, -hipY, 0] }), c.shoe);
-    rig.add(s < 0 ? 'legL' : 'legR', 'body', [s * B.r * (Lg.spread??0.42), 0.02, 0], [leg, shoe, solid(xform(ellipsoid(Lg.r*1.17,.025,Lg.r*1.72,10,4),{pos:[0,-hipY+.014,Lg.r*.45]}),shade(c.shoe,.65))]);
+    rig.add(s < 0 ? 'legL' : 'legR', 'body', [s * B.r * (Lg.spread??0.42), 0.02+(Lg.floorOffset||0), 0], [leg, shoe, solid(xform(ellipsoid(Lg.r*1.17,.025,Lg.r*1.72,10,4),{pos:[0,-hipY+.014,Lg.r*.45]}),shade(c.shoe,.65))]);
   }
   if(caneGrip){const h=hipY+B.h*.82+caneGrip[1]-.04; const cg=caneGeo(h);cg.translate(0,-h-.04,-.06);rig.add('cane','armR',caneGrip,[cg]);}
 
+  for(const d of sp.details||[]){const parts=(d.volumes||[]).map(v=>solid(xform(ellipsoid(...v.size,v.segments?.[0]||16,v.segments?.[1]||12),{pos:v.at,rot:v.rotation||[0,0,0]}),v.color||d.color));for(const p of d.paths||[])parts.push(solid(sweep(p.path,t=>p.radius*(1-(p.taper||0)*t),p.radial||8,{steps:p.steps||18,outwardCaps:p.outwardCaps}),p.color||d.color));rig.add(d.name,d.bone||'body',d.at||[0,0,0],parts);}
   const sittingHip=Lg.len*.5+.06+Lg.len*.5*Math.cos(1.4)+.003;
   if(sp.poseProfile?.seated && sp.wardrobe?.skirt){
     const sk=sp.wardrobe.skirt,drop=sittingHip-.025;

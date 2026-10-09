@@ -1,12 +1,13 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('fs'),path=require('path'),vm=require('vm');
 function check(spec){
- for(const [kind,id] of [['partner','sea_mermaid'],['partner','rock_octopus'],['partner','anglerfish'],['partner','swamp_croc'],['partner','desert_scorpion'],['companion','unicorn'],['partner','cat_ceo'],['partner','robot_neighbor'],['partner','snow_spirit'],['companion','box'],['companion','clock'],['companion','owl'],['companion','punyu'],['companion','parrot'],['companion','chicken'],['companion','penguin_friend'],['companion','panda'],['companion','sheep'],['companion','seal'],['companion','bat'],['companion','snail'],['companion','chameleon'],['companion','sekizou'],['companion','rabbit_friend'],['companion','tanuki'],['companion','squirrel'],['companion','hamster'],['companion','otter'],['companion','monkey'],['companion','hedgehog'],['companion','many_tail_fox'],['companion','watcher'],['partner','sunflower_partner'],['partner','oasis_cactus'],['partner','field_cow'],['partner','forest_bear'],['partner','grove_deer'],['partner','cliff_goat'],['partner','gentle_gorilla']]){
+ for(const [kind,id] of [['partner','knitting_spider'],['partner','snowman'],['partner','sea_mermaid'],['partner','rock_octopus'],['partner','anglerfish'],['partner','swamp_croc'],['partner','desert_scorpion'],['companion','unicorn'],['partner','cat_ceo'],['partner','robot_neighbor'],['partner','snow_spirit'],['companion','box'],['companion','clock'],['companion','owl'],['companion','punyu'],['companion','parrot'],['companion','chicken'],['companion','penguin_friend'],['companion','panda'],['companion','sheep'],['companion','seal'],['companion','bat'],['companion','snail'],['companion','chameleon'],['companion','sekizou'],['companion','rabbit_friend'],['companion','tanuki'],['companion','squirrel'],['companion','hamster'],['companion','otter'],['companion','monkey'],['companion','hedgehog'],['companion','many_tail_fox'],['companion','watcher'],['partner','sunflower_partner'],['partner','oasis_cactus'],['partner','field_cow'],['partner','forest_bear'],['partner','grove_deer'],['partner','cliff_goat'],['partner','gentle_gorilla']]){
   const key=spec.specKeyFor({kind,id});assert.ok(key,kind+':'+id+' is promoted');assert.equal(key.id,kind+':'+id);assert.equal(key.stage,0);assert.equal(key.exact,true);
   assert.ok(spec.stageSpec(key.id,0));assert.equal(spec.stageSpec(key.id,1),null);assert.equal(spec.referenceAsset(key.id,0),'assets/characters/'+(kind==='companion'?'companions':'partners')+'/'+id+'.png');
   for(const other of ['companion','partner','author'].filter(x=>x!==kind))assert.equal(spec.specKeyFor({kind:other,id}),null);
   assert.equal(spec.specKeyFor({line:id,stage:0}),null);
  }
  assert.equal(spec.specKeyFor({kind:'author',id:'naoto'}),null);
+ assert.equal(spec.specKeyFor({kind:'partner',id:'__unreviewed__'}),null,'unreviewed synthetic factory row never widens the explicit approval gate');
 }
 test('reviewed nonplayers are exact role-specific runtime entries',()=>check(require('../character-3d/spec.js')));
 test('browser ESM entry loads reviewed nonplayers but ignores unreviewed factory entries',()=>{
@@ -15,7 +16,7 @@ test('browser ESM entry loads reviewed nonplayers but ignores unreviewed factory
  for(const [,name]of entry.matchAll(/import '\.\/([^']+)';/g)){
   vm.runInContext(fs.readFileSync(path.resolve('character-3d',name),'utf8'),ctx);
   if(name==='nonplayer-spec.js'){
-   const factory=ctx.NaotocchiNonPlayerWave;ctx.NaotocchiNonPlayerWave=()=>({...factory(),'author:naoto':{kind:'author',id:'naoto',asset:'not-reviewed',spec:{archetype:'humanoid'}}});
+   const factory=ctx.NaotocchiNonPlayerWave;ctx.NaotocchiNonPlayerWave=()=>({...factory(),'partner:__unreviewed__':{kind:'partner',id:'__unreviewed__',asset:'not-reviewed',spec:{archetype:'humanoid'}}});
   }
  }
  check(ctx.NaotocchiCharacter3DSpec);

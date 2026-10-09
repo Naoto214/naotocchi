@@ -378,10 +378,11 @@ jobs:
         env:
           QA_SCOPED: ${{ contains(github.event.head_commit.message, '[qa:nonplayer]') }}
         run: |
+          LEGACY_STATES_DISTANCE="$(node -p "require('./.github/character-3d-nonplayer-qa.json').includeLegacyStatesDistance === true ? '--include-legacy-states-distance' : ''")"
           if [ "$QA_SCOPED" = true ]; then
-            node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/nonplayer --keys="$(node -p "require('./.github/character-3d-nonplayer-qa.json').keys.join(',')")"
+            node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/nonplayer --keys="$(node -p "require('./.github/character-3d-nonplayer-qa.json').keys.join(',')")" $LEGACY_STATES_DISTANCE
           else
-            node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/nonplayer
+            node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/nonplayer $LEGACY_STATES_DISTANCE
           fi
       - uses: actions/upload-artifact@v4
         if: always()

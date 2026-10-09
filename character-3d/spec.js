@@ -249,7 +249,7 @@
   // Only these role-specific entries have passed four-view/state/distance image gates.
   const nonPlayerFactory = typeof module === 'object' && module.exports ? require('./nonplayer-spec.js') : globalThis.NaotocchiNonPlayerWave;
   const approvedNonPlayers = typeof nonPlayerFactory === 'function' ? nonPlayerFactory() : {};
-  const NON_PLAYER = freeze(nonPlayerCandidates || Object.fromEntries(['partner:sea_mermaid','partner:rock_octopus','partner:anglerfish','partner:swamp_croc','partner:desert_scorpion','companion:unicorn','partner:cat_ceo','partner:robot_neighbor','partner:snow_spirit','companion:box','companion:clock','companion:owl','companion:punyu','companion:parrot','companion:chicken','companion:penguin_friend','companion:panda','companion:sheep','companion:seal','companion:bat','companion:snail','companion:chameleon','companion:sekizou','companion:rabbit_friend','companion:tanuki','companion:squirrel','companion:hamster','companion:otter','companion:monkey','companion:hedgehog','companion:many_tail_fox','companion:watcher','partner:sunflower_partner','partner:oasis_cactus','partner:field_cow','partner:forest_bear','partner:grove_deer','partner:cliff_goat','partner:gentle_gorilla'].filter(key=>approvedNonPlayers[key]).map(key=>[key,approvedNonPlayers[key]])));
+  const NON_PLAYER = freeze(nonPlayerCandidates || Object.fromEntries(['partner:knitting_spider','partner:snowman','partner:sea_mermaid','partner:rock_octopus','partner:anglerfish','partner:swamp_croc','partner:desert_scorpion','companion:unicorn','partner:cat_ceo','partner:robot_neighbor','partner:snow_spirit','companion:box','companion:clock','companion:owl','companion:punyu','companion:parrot','companion:chicken','companion:penguin_friend','companion:panda','companion:sheep','companion:seal','companion:bat','companion:snail','companion:chameleon','companion:sekizou','companion:rabbit_friend','companion:tanuki','companion:squirrel','companion:hamster','companion:otter','companion:monkey','companion:hedgehog','companion:many_tail_fox','companion:watcher','partner:sunflower_partner','partner:oasis_cactus','partner:field_cow','partner:forest_bear','partner:grove_deer','partner:cliff_goat','partner:gentle_gorilla'].filter(key=>approvedNonPlayers[key]).map(key=>[key,approvedNonPlayers[key]])));
   for (const [key,row] of Object.entries(NON_PLAYER)) {
     if (!['companion','partner','author'].includes(row.kind) || !/^[a-z_]+$/.test(row.id) || key !== row.kind+':'+row.id || !row.spec || !row.asset) throw new Error('Invalid non-player identity '+key);
   }
@@ -272,6 +272,7 @@
   //   stage: めぐるの form は 0 はじまり(0〜7)。ここでは 1〜8
   function specKeyFor(ref) {
     if (!ref) return null;
+    if(ref.kind==='naoto')return ref.id==='naoto'&&Object.hasOwn(NON_PLAYER,'author:naoto')?{id:'author:naoto',stage:0,exact:true}:null;
     if (ref.kind && ref.kind !== 'form' && Object.hasOwn(NON_PLAYER,ref.kind+':'+ref.id)) return {id:ref.kind+':'+ref.id,stage:0,exact:true};
     if (ref.kind && ref.kind !== 'form') return Object.hasOwn(ARCHETYPE_REUSE, ref.id) && ARCHETYPE_REUSE[ref.id].kind === ref.kind ? { id: ref.id, stage: 0, exact: true } : null;
     const id = ref.line || ref.id, n = ref.stage != null ? Number(ref.stage) + (ref.zeroBased === false ? 0 : 1) : null;

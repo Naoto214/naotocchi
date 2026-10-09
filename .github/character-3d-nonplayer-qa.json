@@ -1,7 +1,4 @@
 {
-  "keys": [
-    "partner:knitting_spider",
-    "partner:high_eagle",
-    "partner:snowman"
-  ]
+  "keys": ["partner:high_eagle", "author:naoto"],
+  "includeLegacyStatesDistance": true
 }
