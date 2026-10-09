@@ -1,0 +1,416 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "d59597d1d48dd43d40d03948f25c927198bf10f3",
+  "artifact": {
+    "id": 11596565387,
+    "name": "full-rollout-nonplayer-review-d59597d1d48dd43d40d03948f25c927198bf10f3",
+    "digest": "sha256:b523e849575ba5075d2ed43cd2c9a10dc6bc0ab868da993fc450c8cb9109c0f6"
+  },
+  "files": [
+    {
+      "path": "companion-owl-0-34.jpg",
+      "sha256": "67b403ba277b3e4f23e7831cd58b028a9d7d093b25ce69d877cc2b84c73ec320",
+      "bytes": 14382
+    },
+    {
+      "path": "companion-owl-0-back.jpg",
+      "sha256": "b7f403487d307d41a19aa4581da93ebe657ca24283b12269e04c3c6f6b2ca143",
+      "bytes": 10957
+    },
+    {
+      "path": "companion-owl-0-dislike-idle-normal.jpg",
+      "sha256": "cbab8a0484cbcabb9f4e18f4d05cb48f748fe9679b3a9c34a4d9fd0b651f79b4",
+      "bytes": 14409
+    },
+    {
+      "path": "companion-owl-0-dislike-idle-reduced.jpg",
+      "sha256": "dfc8ece3c9a6b9fbac007115382bfdfc272b33a107d5f318448cae3740baf9fe",
+      "bytes": 14438
+    },
+    {
+      "path": "companion-owl-0-dislike-walk-normal.jpg",
+      "sha256": "8b2b3b54e67d1ef16ccbc469f7736d6475eef2902330f6c102646d172f6ed453",
+      "bytes": 13878
+    },
+    {
+      "path": "companion-owl-0-dislike-walk-reduced.jpg",
+      "sha256": "761c0b9e99e37df2cd139079c3c525e31cbe238182fab879bca89068e7c3c551",
+      "bytes": 14480
+    },
+    {
+      "path": "companion-owl-0-front.jpg",
+      "sha256": "b2b0a9b269c523e75b1aa6b53e49488bf71eef3f4db85f34bfbbff3124e54a20",
+      "bytes": 15606
+    },
+    {
+      "path": "companion-owl-0-normal-idle-normal.jpg",
+      "sha256": "67b403ba277b3e4f23e7831cd58b028a9d7d093b25ce69d877cc2b84c73ec320",
+      "bytes": 14382
+    },
+    {
+      "path": "companion-owl-0-normal-idle-reduced.jpg",
+      "sha256": "e3ea50149bfe30e03016d5baacbcf73f8aa8fe5f5adcbafc18d2741929f1f35d",
+      "bytes": 14583
+    },
+    {
+      "path": "companion-owl-0-normal-walk-normal.jpg",
+      "sha256": "290c231ee021ba422481c58d162c8fd6af8311598da68a546227924549a3c61c",
+      "bytes": 14062
+    },
+    {
+      "path": "companion-owl-0-normal-walk-reduced.jpg",
+      "sha256": "f6f52d1b6af6da47983c8b3e48adb74d91b60af6f943884ba3d51b4f4f9c2f2d",
+      "bytes": 14562
+    },
+    {
+      "path": "companion-owl-0-positive-idle-normal.jpg",
+      "sha256": "4b9e41d24d24234945287c0cf40965bbd8969b32ba0958a95d769ba15c263e09",
+      "bytes": 14403
+    },
+    {
+      "path": "companion-owl-0-positive-idle-reduced.jpg",
+      "sha256": "4eefc6f599f681a81477d6f642d29df8426c6b5968e5503607db185b104dbc06",
+      "bytes": 14713
+    },
+    {
+      "path": "companion-owl-0-positive-walk-normal.jpg",
+      "sha256": "1011235ee97e681a9d7b8fecfd5a77097bc61794468ea24fd2c627c36bd271df",
+      "bytes": 14643
+    },
+    {
+      "path": "companion-owl-0-positive-walk-reduced.jpg",
+      "sha256": "a6790898065db7d2665987db05afec298547da98d4e4ee47e8fc27e02711ef6b",
+      "bytes": 14558
+    },
+    {
+      "path": "companion-owl-0-sick-idle-normal.jpg",
+      "sha256": "e21551261c885ec6923966775a209812d7639df86813993750c05c73f4b6d464",
+      "bytes": 14380
+    },
+    {
+      "path": "companion-owl-0-sick-idle-reduced.jpg",
+      "sha256": "349e4f405aeb882639d95c9388b7414df6cb4ab31e7148186469cd4e6a46fdbc",
+      "bytes": 14763
+    },
+    {
+      "path": "companion-owl-0-sick-walk-normal.jpg",
+      "sha256": "122584e50ebf74ee981080eec630facc4bb017bacb853242248f0a386aedb27f",
+      "bytes": 13984
+    },
+    {
+      "path": "companion-owl-0-sick-walk-reduced.jpg",
+      "sha256": "094e4389c234211e44798727ddae7a449500e791c23d2e4144535865fac4b355",
+      "bytes": 14474
+    },
+    {
+      "path": "companion-owl-0-side.jpg",
+      "sha256": "1bec2a4df53af8e4f8ba306dc46a866444a7b7a767da35a65fcf86c17ed75bbf",
+      "bytes": 11863
+    },
+    {
+      "path": "companion-owl-0-sleeping-idle-normal.jpg",
+      "sha256": "20b3fb6916b4a3efa3ac4192320db54412b32c7df867cb7eca594510223ff562",
+      "bytes": 14231
+    },
+    {
+      "path": "companion-owl-0-sleeping-idle-reduced.jpg",
+      "sha256": "aa4cfcdd499db772fb679af775c69ffc5663c281d12d15692f1787827587a91f",
+      "bytes": 14436
+    },
+    {
+      "path": "companion-owl-0-sleeping-walk-normal.jpg",
+      "sha256": "3163f0a2031af058e95c69e74b4ebdb5875edab17c24ec5b73ba43468ab3e35b",
+      "bytes": 13555
+    },
+    {
+      "path": "companion-owl-0-sleeping-walk-reduced.jpg",
+      "sha256": "b000ba9cacd04b7378f61286f9013eae30443716ed94330fa5996430b66c9ece",
+      "bytes": 13862
+    },
+    {
+      "path": "companion-owl-0-strained-idle-normal.jpg",
+      "sha256": "6d69d0b86f7d1ba6a6b92440a0d935acfed11bf7f9b5b31d2e7835253b29b71b",
+      "bytes": 14912
+    },
+    {
+      "path": "companion-owl-0-strained-idle-reduced.jpg",
+      "sha256": "d3242f21a8814b83562fc0b2d5fd5ab125d420c1fe789027d6f14d0e487abc55",
+      "bytes": 14940
+    },
+    {
+      "path": "companion-owl-0-strained-walk-normal.jpg",
+      "sha256": "e0cc82598a44613e3a8171269f6fab71fffe2339d0731354ee9c551096added6",
+      "bytes": 14963
+    },
+    {
+      "path": "companion-owl-0-strained-walk-reduced.jpg",
+      "sha256": "5ef5edb924c65be4ec4ca67a66cc957a2b11207d8e8703ac2ddaa401872e437a",
+      "bytes": 14923
+    },
+    {
+      "path": "companion-owl-0-tired-idle-normal.jpg",
+      "sha256": "1d8e11ec197ddf3f1a8d4034d77473bef32267d1d0fe231599eb3b7144dd5de3",
+      "bytes": 14228
+    },
+    {
+      "path": "companion-owl-0-tired-idle-reduced.jpg",
+      "sha256": "24b8193a401b7b6e3356cf2e59bcede6c28b95749a45ac2dea60f1f40043db09",
+      "bytes": 14534
+    },
+    {
+      "path": "companion-owl-0-tired-walk-normal.jpg",
+      "sha256": "5a831fb047703ecab6b512cb471698cacbe563ec45c779298ce7ca10c982d0ea",
+      "bytes": 13816
+    },
+    {
+      "path": "companion-owl-0-tired-walk-reduced.jpg",
+      "sha256": "668fd9169e6bc1a354b183a45fc7313d80ba0eabdba1627dde90a4d3dae4906b",
+      "bytes": 14248
+    },
+    {
+      "path": "companion-owl-0-wantsPlay-idle-normal.jpg",
+      "sha256": "d60db36dabee9a9184e2fb12e12292e7e4554e267ab7c79c98f28fb89f209bf7",
+      "bytes": 14439
+    },
+    {
+      "path": "companion-owl-0-wantsPlay-idle-reduced.jpg",
+      "sha256": "90253cbf88afd958d7857873ced48a94171a385b9abaa1f14175ab635bef3cbe",
+      "bytes": 14715
+    },
+    {
+      "path": "companion-owl-0-wantsPlay-walk-normal.jpg",
+      "sha256": "fb8bb89a31a1251b859e30667ff1f024cc64a2afa554a50c71421e3770fa350b",
+      "bytes": 13961
+    },
+    {
+      "path": "companion-owl-0-wantsPlay-walk-reduced.jpg",
+      "sha256": "63fc6a3c0a7859016c16317d2c01c3c1524d1ceeef77800902b41dbd72ca8745",
+      "bytes": 14257
+    },
+    {
+      "path": "companion-owl-distance-back.jpg",
+      "sha256": "672c45c7e943787e6882a88b0d8e100bbea57f6e3694528bb70c6d70275e2444",
+      "bytes": 117947
+    },
+    {
+      "path": "companion-owl-distance-front.jpg",
+      "sha256": "d996d65db3126fe6a2f0c4af09450ebfcf44dd966e1a7592d0375e56697b678c",
+      "bytes": 119317
+    },
+    {
+      "path": "companion-owl-motion.jpg",
+      "sha256": "c534df1cc516c819d25da78ed2e15d206820d170c84650c76c96bddd237a1ad7",
+      "bytes": 610326
+    },
+    {
+      "path": "companion-owl-views.jpg",
+      "sha256": "2eb05a6bd6ad1098b068f20263ffb2c84dc513ebd5a475a16994e4e25a535aae",
+      "bytes": 71854
+    },
+    {
+      "path": "companion-punyu-0-34.jpg",
+      "sha256": "ecc5a15dd33f41631d3d0c77485bca790a39a9ef785b8c1c718d62d56de25677",
+      "bytes": 12097
+    },
+    {
+      "path": "companion-punyu-0-back.jpg",
+      "sha256": "4b373f416450d5d60bc08237f4aab5d2c5f71ef2330771bd5dcab7c61613d822",
+      "bytes": 10755
+    },
+    {
+      "path": "companion-punyu-0-dislike-idle-normal.jpg",
+      "sha256": "f546697c21de06e217ad9da3dd058bdbae6323d4d6f3e704e06f32690980e20d",
+      "bytes": 11963
+    },
+    {
+      "path": "companion-punyu-0-dislike-idle-reduced.jpg",
+      "sha256": "68778414da2c753fdd6e55354fe826c56ed6bb5efadd907ebfcd46f850ffba06",
+      "bytes": 12001
+    },
+    {
+      "path": "companion-punyu-0-dislike-walk-normal.jpg",
+      "sha256": "baac1ab60d096093de4acc5acbf5776eba4bb919b0f9da2f2cd8b4e7ee3b17c4",
+      "bytes": 12021
+    },
+    {
+      "path": "companion-punyu-0-dislike-walk-reduced.jpg",
+      "sha256": "c89c42766689cbe9180dd76bd786e3a305a62bd50a404a29ff63abd5b9f42398",
+      "bytes": 11951
+    },
+    {
+      "path": "companion-punyu-0-front.jpg",
+      "sha256": "34f97ac1cb966767c7a3ea066d89152affe845de1ec489e906855b435a380d89",
+      "bytes": 12921
+    },
+    {
+      "path": "companion-punyu-0-normal-idle-normal.jpg",
+      "sha256": "ecc5a15dd33f41631d3d0c77485bca790a39a9ef785b8c1c718d62d56de25677",
+      "bytes": 12097
+    },
+    {
+      "path": "companion-punyu-0-normal-idle-reduced.jpg",
+      "sha256": "571b99309b3cb9a18ed38b9658a47c999da4ee12f9a24c957f61584ff36ac169",
+      "bytes": 12005
+    },
+    {
+      "path": "companion-punyu-0-normal-walk-normal.jpg",
+      "sha256": "4a3b4c5bf51aa09456c06c49682bd85408cd8d841b5e767eff191720bd273432",
+      "bytes": 11642
+    },
+    {
+      "path": "companion-punyu-0-normal-walk-reduced.jpg",
+      "sha256": "c30a470a497558b71ea9ab0e37ba13fb523f383eb380a90e062599d2dd18ed30",
+      "bytes": 11811
+    },
+    {
+      "path": "companion-punyu-0-positive-idle-normal.jpg",
+      "sha256": "94e8ae98f01b8d11293c4745cb647fee4bcb4b1b037bbab3147ba11adc9fe995",
+      "bytes": 12191
+    },
+    {
+      "path": "companion-punyu-0-positive-idle-reduced.jpg",
+      "sha256": "c42b66e00fb17032332c8ae1166220aa9416de229c0151955f2e473eba38f3ea",
+      "bytes": 12085
+    },
+    {
+      "path": "companion-punyu-0-positive-walk-normal.jpg",
+      "sha256": "028fa038bb0edc2f1b2dd2843cf4aefc34200e3b4b976f0a5f7c7244e282f38c",
+      "bytes": 11801
+    },
+    {
+      "path": "companion-punyu-0-positive-walk-reduced.jpg",
+      "sha256": "e4b115d3fb7820c1425e5898d35fb56326c1452e55ff9a592177b6e258c2f837",
+      "bytes": 12056
+    },
+    {
+      "path": "companion-punyu-0-sick-idle-normal.jpg",
+      "sha256": "4435eee57183223079ac7c0a09393248bd5dc45bc46c597ff1425385f25d70d8",
+      "bytes": 12278
+    },
+    {
+      "path": "companion-punyu-0-sick-idle-reduced.jpg",
+      "sha256": "4a70a2812e27c50c3ad11b4631cf944edc2987f729d7f2c91b57d5f5136d58dd",
+      "bytes": 12256
+    },
+    {
+      "path": "companion-punyu-0-sick-walk-normal.jpg",
+      "sha256": "7431dff8776f0db4cba6614ad97dcd24683f9c2e9f9e8e5a49ec89cdc87f64b9",
+      "bytes": 11949
+    },
+    {
+      "path": "companion-punyu-0-sick-walk-reduced.jpg",
+      "sha256": "c7cd09db8c3173b1eb7d5dbc5f637f3d258dc7db904937136616bff0cf9f06ab",
+      "bytes": 12295
+    },
+    {
+      "path": "companion-punyu-0-side.jpg",
+      "sha256": "1b88b6ae982971c1e43feffbc6d3743dd3228e587047a6d3596ddb07aeb49e92",
+      "bytes": 9423
+    },
+    {
+      "path": "companion-punyu-0-sleeping-idle-normal.jpg",
+      "sha256": "40dab9d0f1aea7d4790c72212b9dece6d6d2e2510bdbbea3b7825334a16b9e02",
+      "bytes": 11274
+    },
+    {
+      "path": "companion-punyu-0-sleeping-idle-reduced.jpg",
+      "sha256": "e5f68282adc128b426c52fb81f6b74d2061745ca6a018b47358d604094b2edb0",
+      "bytes": 11351
+    },
+    {
+      "path": "companion-punyu-0-sleeping-walk-normal.jpg",
+      "sha256": "b56169eb31f6462862b402d544a793d2887c0b4f12951c5c8b3519fa093bc9f7",
+      "bytes": 10903
+    },
+    {
+      "path": "companion-punyu-0-sleeping-walk-reduced.jpg",
+      "sha256": "befbf681205cc68d1c468c4c9b48b8705d66fe9aa47f277c8bd81b118010b0ea",
+      "bytes": 11233
+    },
+    {
+      "path": "companion-punyu-0-strained-idle-normal.jpg",
+      "sha256": "d1ca22c7fc9de0ffe7a4bb2ddbf72409e9f2c6ff8a311df2208821c0cdf0f99e",
+      "bytes": 12120
+    },
+    {
+      "path": "companion-punyu-0-strained-idle-reduced.jpg",
+      "sha256": "8d1c7e4ca38b9c6281877b5ca52fcc17a427ef3014fe5157a868629c5fc35141",
+      "bytes": 12184
+    },
+    {
+      "path": "companion-punyu-0-strained-walk-normal.jpg",
+      "sha256": "b55b5b50f588f3ab18f516ecacd47775a69698f83218e264c53853911b7f21ca",
+      "bytes": 12040
+    },
+    {
+      "path": "companion-punyu-0-strained-walk-reduced.jpg",
+      "sha256": "f4a1b20f277e5795ee173963f46b0502dc9623e736c228676ce9f6831ea8a5b5",
+      "bytes": 12186
+    },
+    {
+      "path": "companion-punyu-0-tired-idle-normal.jpg",
+      "sha256": "edcd42487180a8cb8e7864f9c3f993963122f6e01cc2744e6c0c7ef39498a4c0",
+      "bytes": 11523
+    },
+    {
+      "path": "companion-punyu-0-tired-idle-reduced.jpg",
+      "sha256": "3815ffcb3a426c5dfa254e105c00e796f8c1374b9c3d1d61beddb764ac4346b4",
+      "bytes": 11591
+    },
+    {
+      "path": "companion-punyu-0-tired-walk-normal.jpg",
+      "sha256": "7a7e6dd92fb5485d14d161993a6ed9ef7de989fa3ff250c12360cdd3cbf906f2",
+      "bytes": 11522
+    },
+    {
+      "path": "companion-punyu-0-tired-walk-reduced.jpg",
+      "sha256": "b2dd17251ee2c8cc8c473501fb1ab8c44a4af76d68d1abd5d657cff57318ab28",
+      "bytes": 11661
+    },
+    {
+      "path": "companion-punyu-0-wantsPlay-idle-normal.jpg",
+      "sha256": "73112aa08d042f6fa56f3107cafdbeaabd04e09252eb281cf256562f100cfb0a",
+      "bytes": 12176
+    },
+    {
+      "path": "companion-punyu-0-wantsPlay-idle-reduced.jpg",
+      "sha256": "a3284606e94b31a4ae5ef3ef22f25d33e27bda1797b3ce0bc8222de0f794200b",
+      "bytes": 12260
+    },
+    {
+      "path": "companion-punyu-0-wantsPlay-walk-normal.jpg",
+      "sha256": "10b251457b15be3a7bb0a866d4db64469b569a2ebfd1d9d041a0faf64bc23e40",
+      "bytes": 12159
+    },
+    {
+      "path": "companion-punyu-0-wantsPlay-walk-reduced.jpg",
+      "sha256": "96092a78583b4cc9a72c75e8a5033cc193d635e2772c8bf2d689e387c52b850b",
+      "bytes": 12292
+    },
+    {
+      "path": "companion-punyu-distance-back.jpg",
+      "sha256": "12d0342ff2751c0be44bac596ece879705fa91295f6cc6d4a56a5b3afc11b1c6",
+      "bytes": 118508
+    },
+    {
+      "path": "companion-punyu-distance-front.jpg",
+      "sha256": "0eb6eca481432b05e4733eb866f2bd14d4b505b1e7289e6651cc96cc6bae2112",
+      "bytes": 118820
+    },
+    {
+      "path": "companion-punyu-motion.jpg",
+      "sha256": "fdcafcc862a2777ba2f48b468307d754c77021511ea979d357ebdde14c0633e4",
+      "bytes": 470834
+    },
+    {
+      "path": "companion-punyu-views.jpg",
+      "sha256": "bfa6e64613b5b85adaf8ce7b38733eea3d32824bbd05f2280db71f34da408028",
+      "bytes": 56775
+    },
+    {
+      "path": "evidence.json",
+      "sha256": "eb9d7b3347eabfc712897c60313942cf34640b8dc258719609d3bd33311a2162",
+      "bytes": 49992
+    }
+  ]
+}
