@@ -1,15 +1,16 @@
 {
-  "sourceCommit": "46ff692b1c0f3900db2839cc7000a25fb5c0446c",
-  "runId": 37879959890,
+  "sourceCommit": "d40e286b064522e4b1bf9b4730e802edf620471d",
+  "runId": 37881625921,
   "families": [
-    "companion"
+    "companion",
+    "partner"
   ],
   "artifacts": [
     {
-      "id": 11593204347,
-      "label": "owl",
-      "name": "full-rollout-nonplayer-review-46ff692b1c0f3900db2839cc7000a25fb5c0446c",
-      "digest": "sha256:f843565923f5b52a511929cf451827b549933f56c14e11fb070221bc5ee177e1",
+      "id": 11595151601,
+      "label": "nonplayers",
+      "name": "full-rollout-nonplayer-review-d40e286b064522e4b1bf9b4730e802edf620471d",
+      "digest": "sha256:95bccf33ab5bd0982dac7293ba52e0cae624672d6d2958860b783b847eb7c8c7",
       "required": [
         {
           "pattern": "companion-owl-0-front.jpg",
@@ -41,6 +42,70 @@
         },
         {
           "pattern": "companion-owl-distance-*.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "companion-punyu-0-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-punyu-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-punyu-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-punyu-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-punyu-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "companion-punyu-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-punyu-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-punyu-distance-*.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "partner-oasis_cactus-0-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-oasis_cactus-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-oasis_cactus-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-oasis_cactus-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-oasis_cactus-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "partner-oasis_cactus-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-oasis_cactus-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "partner-oasis_cactus-distance-*.jpg",
           "count": 2
         }
       ]

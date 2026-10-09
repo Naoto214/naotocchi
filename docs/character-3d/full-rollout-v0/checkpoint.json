@@ -1,6 +1,6 @@
 {
-  "baseCommit": "d40e286b064522e4b1bf9b4730e802edf620471d",
-  "checkpoint": "parrot-candidate-await-nonplayer-images",
+  "baseCommit": "090d0d0046d772e7195bcd00da6e0aa11aa310b8",
+  "checkpoint": "clock-candidate-recover-three-nonplayer-images",
   "coverage": {
     "exact": 252,
     "total": 293,
@@ -11,7 +11,7 @@
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 269,
+    "dedicatedPass": 271,
     "rolloutMutationsDetected": 33,
     "pilotHashesUnchanged": 28,
     "fullNpm": "8b6fcae fixed implementation:3017PASS+Relationship80PASS,0FAIL,exit0; full log/result archived. Before Star expansion/Unknown promotion.",
@@ -77,14 +77,15 @@
     "punyuCorrection": "Optionalconcave contour uses triangulatedinflated closedvolume;defaultLoft/Pilot unchanged. Notch/coreleak +weldedmanifold/normals testsPASS,4/4mutationsdetected. Review caughtcollapsedeartriangles;fixedinteriorcentroids/sharedmidpoints,13440triangles;Critical0/Important0. Freshimagespending.",
     "nonplayerCorrectionQA": "267dedicatedPASSaftermutations;28Pilotidentical;scopeowl,punyu,oasis_cactus requested. No promotion.",
     "parrotCandidate": "Original-derived whiteasymmetricwings/yellowfancrest/longtail/hookedgraybeak viaexistingplumed_bird;2targettests,4/4mutationsdetected/restored,269dedicatedPASS,28Pilotidentical,reviewCritical0/Important0. No registration;freshimagesrequested.",
-    "nonplayerCorrectionCapture": "d40e286b Character37881625921 nonplayer113662376425/dedicated113662376587 QUEUED atfreshcheck;15unrelatedcapture/jobsSKIPPED. No imageacceptance.",
-    "starPostPromotionCI": "d3e64f0d Character37881115241 last21SUCCESS/13IN_PROGRESS/26QUEUED,31familyaggregate notyetcomplete."
+    "nonplayerCorrectionCapture": "d40 Character37881625921SUCCESS;artifact11595151601 owl/punyu/cactus exportrequested. No actualapproval yet.",
+    "starPostPromotionCI": "d3e64f0d Character37881115241 last21SUCCESS/13IN_PROGRESS/26QUEUED,31familyaggregate notyetcomplete.",
+    "clockCandidate": "Existingrigid_object optionalroundedhousing/detailvolumes/paths/dialfacetarget;2targettests,3/3mutations,271dedicatedPASS,28Pilotidentical,reviewCritical0/Important0. Imagespending,noregistration.",
+    "parrotCI": "090d0d00 Character37882013865FAIL:nonplayercapture113663562927SUCCESS,dedicated113663563133FAIL cactusmutation stale return-prefix anchor. Fixedstable role-row anchor for cactus andsunflower;4+4 mutationsdetected/restored. Freshclock/parrotcapture requested. Not overallPASS."
   },
   "next": [
-    "Review d40e286b owl/punyu/cactus actualimages when scopedcapture completes",
-    "Review Parrot fresh4views32states2distance;all4 remainisolateduntilPASS",
-    "Continue remaining41nonplayers and final293integration",
-    "Human/iPhone separate;never substituteChromium"
+    "Actuallyreview exported d40 owl/punyu/cactus 4views32states2distance each",
+    "Review freshclock/parrot capture after successfulrun;no promotionuntilPASS",
+    "Continue remaining41nonplayers and final293integration/Human/iPhone"
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",

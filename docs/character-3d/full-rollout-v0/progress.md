@@ -896,3 +896,8 @@ Punyu uses optional concave triangulated/inflated volume inexistingblob geometry
 
 ## Parrot isolated candidate while scoped images queue
 Existingplumed_bird reused forsourcewhiteasymmetricwings,yellowfancrest,longtail andoptionalhookedgraybeak. DefaultPhoenixbeakpath unchanged.269dedicatedPASS,4/4Parrotmutationsdetected/restored,28Pilotidentical;reviewCritical0/Important0. No runtimepromotion;freshParrot scopedcapture requested. Prior d40 owl/punyu/cactus run37881625921 queued,notPASS. Unknown f6postpromotionCharacter37877945590 nowall60SUCCESS incl30families/240stages aggregate113660635981;Runtime/Home alsoSUCCESS. Star31familyaggregate stillrunning. Coverage252/293,41nonplayerpending.
+
+
+## Clock candidate / ordered-mutation anchor fix
+Clock reusesrigid_object withoptionalroundedhousing,detailvolumes/paths,explicitdialfacetarget. Sourcebluecase,creamdial12marks2hands,pairedbells/handle,feet/arms/winder.2targettests,3mutations,271dedicatedPASS,28Pilotidentical,reviewCritical0/Important0;no imageapproval.
+Parrot090d0d00 capture113663562927SUCCESS butoverallCharacter37882013865FAIL:dedicatedcactus mutation searched old return-first-box prefix changedbycandidate addition. Corrected cactus/sunflower mutation anchors tostableownrole rows;4+4mutationsdetected/restored. No falseCIpass. d40Character37881625921SUCCESS,owl/punyu/cactus artifact11595151601durableexport requested. Freshclock/parrot scopedcapture requested;coverageunchanged252/293.

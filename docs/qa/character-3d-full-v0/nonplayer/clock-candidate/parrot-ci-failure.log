@@ -1,0 +1,87 @@
+0-09T04:03:26.8401679Z [36;1melif [ "$QA_FAMILY" = unknown ]; then[0m
+2026-10-09T04:03:26.8401960Z [36;1m  node tools/character-3d/mystery-remove-it.cjs > test-results/full-rollout/mystery-remove-it.txt[0m
+2026-10-09T04:03:26.8402426Z [36;1m  node tools/character-3d/unknown-stages-remove-it.cjs > test-results/full-rollout/unknown-stages-remove-it.txt[0m
+2026-10-09T04:03:26.8402748Z [36;1melif [ "$QA_FAMILY" = star ]; then[0m
+2026-10-09T04:03:26.8403013Z [36;1m  node tools/character-3d/cosmic-remove-it.cjs > test-results/full-rollout/cosmic-remove-it.txt[0m
+2026-10-09T04:03:26.8403412Z [36;1m  node tools/character-3d/star-stages-remove-it.cjs > test-results/full-rollout/star-stages-remove-it.txt[0m
+2026-10-09T04:03:26.8403711Z [36;1melif [ "$QA_FAMILY" = nonplayer ]; then[0m
+2026-10-09T04:03:26.8403970Z [36;1m  node tools/character-3d/owl-remove-it.cjs > test-results/full-rollout/owl-remove-it.txt[0m
+2026-10-09T04:03:26.8404210Z [36;1melse[0m
+2026-10-09T04:03:26.8404456Z [36;1m  node tools/character-3d/plumed-bird-remove-it.cjs > test-results/full-rollout/plumed-bird-remove-it.txt[0m
+2026-10-09T04:03:26.8405100Z [36;1m  node tools/character-3d/phoenix-stages-remove-it.cjs > test-results/full-rollout/phoenix-stages-remove-it.txt[0m
+2026-10-09T04:03:26.8405561Z [36;1mfi[0m
+2026-10-09T04:03:26.8458926Z shell: /usr/bin/bash -e {0}
+2026-10-09T04:03:26.8459081Z env:
+2026-10-09T04:03:26.8459197Z   QA_FAMILY: nonplayer
+2026-10-09T04:03:26.8459320Z ##[endgroup]
+2026-10-09T04:03:29.0190410Z ##[group]Run node tools/character-3d/punyu-remove-it.cjs > test-results/full-rollout/punyu-remove-it.txt
+2026-10-09T04:03:29.0190862Z [36;1mnode tools/character-3d/punyu-remove-it.cjs > test-results/full-rollout/punyu-remove-it.txt[0m
+2026-10-09T04:03:29.0191238Z [36;1mnode tools/character-3d/cactus-remove-it.cjs > test-results/full-rollout/cactus-remove-it.txt[0m
+2026-10-09T04:03:29.0191614Z [36;1mnode tools/character-3d/parrot-remove-it.cjs > test-results/full-rollout/parrot-remove-it.txt[0m
+2026-10-09T04:03:29.0246703Z shell: /usr/bin/bash -e {0}
+2026-10-09T04:03:29.0246856Z ##[endgroup]
+2026-10-09T04:03:33.0111242Z node:assert:150
+2026-10-09T04:03:33.0112241Z   throw new AssertionError(obj);
+2026-10-09T04:03:33.0112700Z   ^
+2026-10-09T04:03:33.0113058Z 
+2026-10-09T04:03:33.0113453Z AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+2026-10-09T04:03:33.0113843Z 
+2026-10-09T04:03:33.0114035Z 1 !== 2
+2026-10-09T04:03:33.0114237Z 
+2026-10-09T04:03:33.0114954Z     at Object.<anonymous> (/home/runner/work/naotocchi/naotocchi/tools/character-3d/cactus-remove-it.cjs:1:788)
+2026-10-09T04:03:33.0115629Z     at Module._compile (node:internal/modules/cjs/loader:1781:14)
+2026-10-09T04:03:33.0116120Z     at Object..js (node:internal/modules/cjs/loader:1913:10)
+2026-10-09T04:03:33.0116631Z     at Module.load (node:internal/modules/cjs/loader:1505:32)
+2026-10-09T04:03:33.0117134Z     at Function._load (node:internal/modules/cjs/loader:1309:12)
+2026-10-09T04:03:33.0117656Z     at wrapModuleLoad (node:internal/modules/cjs/loader:254:19)
+2026-10-09T04:03:33.0118254Z     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)
+2026-10-09T04:03:33.0118805Z     at node:internal/main/run_main_module:36:49 {
+2026-10-09T04:03:33.0119189Z   generatedMessage: true,
+2026-10-09T04:03:33.0119526Z   code: 'ERR_ASSERTION',
+2026-10-09T04:03:33.0119834Z   actual: 1,
+2026-10-09T04:03:33.0120119Z   expected: 2,
+2026-10-09T04:03:33.0120422Z   operator: 'strictEqual',
+2026-10-09T04:03:33.0120737Z   diff: 'simple'
+2026-10-09T04:03:33.0121031Z }
+2026-10-09T04:03:33.0121228Z 
+2026-10-09T04:03:33.0121415Z Node.js v22.23.3
+2026-10-09T04:03:33.0157831Z ##[error]Process completed with exit code 1.
+2026-10-09T04:03:33.0255467Z ##[group]Run actions/upload-artifact@v4
+2026-10-09T04:03:33.0255648Z with:
+2026-10-09T04:03:33.0255834Z   name: full-rollout-dedicated-090d0d0046d772e7195bcd00da6e0aa11aa310b8
+2026-10-09T04:03:33.0256067Z   path: test-results/full-rollout
+2026-10-09T04:03:33.0256215Z   if-no-files-found: warn
+2026-10-09T04:03:33.0256349Z   compression-level: 6
+2026-10-09T04:03:33.0256474Z   overwrite: false
+2026-10-09T04:03:33.0256611Z   include-hidden-files: false
+2026-10-09T04:03:33.0256751Z ##[endgroup]
+2026-10-09T04:03:33.1432316Z (node:2818) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-09T04:03:33.1432786Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-09T04:03:33.1484896Z With the provided path, there will be 5 files uploaded
+2026-10-09T04:03:33.1486848Z Artifact name is valid!
+2026-10-09T04:03:33.1487510Z Root directory input is valid!
+2026-10-09T04:03:33.4893537Z Beginning upload of artifact content to blob storage
+2026-10-09T04:03:33.5091862Z (node:2818) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-09T04:03:33.8206687Z Uploaded bytes 44379
+2026-10-09T04:03:33.8775282Z Finished uploading artifact content to blob storage!
+2026-10-09T04:03:33.8776318Z SHA256 digest of uploaded artifact zip is 8d5437ce2693a419540863a575f801a49676bf9d2bd37e6b623f2fc02c82988d
+2026-10-09T04:03:33.8776647Z Finalizing artifact upload
+2026-10-09T04:03:34.1166633Z Artifact full-rollout-dedicated-090d0d0046d772e7195bcd00da6e0aa11aa310b8.zip successfully finalized. Artifact ID 11594647813
+2026-10-09T04:03:34.1167764Z Artifact full-rollout-dedicated-090d0d0046d772e7195bcd00da6e0aa11aa310b8 has been successfully uploaded! Final size is 44379 bytes. Artifact ID is 11594647813
+2026-10-09T04:03:34.1172452Z Artifact download URL: https://github.com/Naoto214/naotocchi/actions/runs/37882013865/artifacts/11594647813
+2026-10-09T04:03:34.1581876Z Post job cleanup.
+2026-10-09T04:03:34.2189224Z [command]/usr/bin/git version
+2026-10-09T04:03:34.2224949Z git version 2.55.0
+2026-10-09T04:03:34.2252134Z Temporarily overriding HOME='/home/runner/work/_temp/1f4ff1f4-fdbf-434c-b4d3-a2a91ca67472' before making global git config changes
+2026-10-09T04:03:34.2252960Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-09T04:03:34.2256924Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/naotocchi/naotocchi
+2026-10-09T04:03:34.2293566Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-09T04:03:34.2333441Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-09T04:03:34.2570511Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-09T04:03:34.2600651Z http.https://github.com/.extraheader
+2026-10-09T04:03:34.2610840Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-09T04:03:34.2718379Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-09T04:03:34.2941315Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-09T04:03:34.2973655Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-09T04:03:34.3302324Z Cleaning up orphan processes
+2026-10-09T04:03:34.3505890Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
