@@ -1,0 +1,104 @@
+{
+  "run": 37894253894,
+  "source": "cdd5f3f0d76b1059cdfce24f74195f38ea52fc63",
+  "status": "in_progress",
+  "jobs": [
+    {
+      "id": 113701852270,
+      "name": "regression",
+      "status": "in_progress",
+      "conclusion": null
+    },
+    {
+      "id": 113701852529,
+      "name": "browser (corridor)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 113701852576,
+      "name": "browser (visibility)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 113701852644,
+      "name": "browser (smoke)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 113701852754,
+      "name": "browser (captures)",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "bridge": {
+    "run": 37894253911,
+    "status": "completed",
+    "conclusion": "success",
+    "imagesNotRearchived": "No bridge product changes; run status only, not new bridge visual QA."
+  },
+  "summarySource": "Completed Actions job logs; original ZIPs retained in Actions; only captures ZIP downloaded for target QA.",
+  "summaries": [
+    {
+      "kind": "smoke",
+      "coverage": 13,
+      "issues": [],
+      "samples": 0,
+      "hidden": 0,
+      "partial": 0,
+      "maxPartyObstacleOverlap": 5.684341886080802e-14,
+      "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+    },
+    {
+      "kind": "corridor",
+      "coverage": 8,
+      "issues": [],
+      "samples": 0,
+      "hidden": 0,
+      "partial": 0,
+      "maxPartyObstacleOverlap": 0,
+      "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+    },
+    {
+      "kind": "visibility",
+      "coverage": 13,
+      "issues": [],
+      "samples": 2832,
+      "hidden": 0,
+      "partial": 1,
+      "maxPartyObstacleOverlap": 0,
+      "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 11600370157,
+      "name": "world-visibility-cdd5f3f0d76b1059cdfce24f74195f38ea52fc63",
+      "digest": "sha256:d15a08d431bb592330fc34b0f2e3cbf894fb15a2342ac1c7b594e4337a6d2ed3",
+      "expires_at": "2026-11-08T06:45:00Z"
+    },
+    {
+      "id": 11600310692,
+      "name": "world-captures-cdd5f3f0d76b1059cdfce24f74195f38ea52fc63",
+      "digest": "sha256:a141ba8e6ab8f4b4e142e2acd706bf1752cb9266524c4093918bf9c59561de4a",
+      "expires_at": "2026-11-08T06:44:51Z"
+    },
+    {
+      "id": 11599678755,
+      "name": "world-smoke-cdd5f3f0d76b1059cdfce24f74195f38ea52fc63",
+      "digest": "sha256:67687a7b422ea3764e1b7cdf07e8376fbb7a4edd72d245b30d2ec410cb15da11",
+      "expires_at": "2026-11-08T06:39:34Z"
+    },
+    {
+      "id": 11599053639,
+      "name": "world-corridor-cdd5f3f0d76b1059cdfce24f74195f38ea52fc63",
+      "digest": "sha256:29f7b88baf54f505c2aab0bdad5263853902435a52eff3b6e20fcfb83141b686",
+      "expires_at": "2026-11-08T06:40:05Z"
+    }
+  ],
+  "unresolvedHistoricalOverlap": 0.00599196916066802,
+  "overlapChangeCause": "unconfirmed; material change does not modify collision or movement"
+}
