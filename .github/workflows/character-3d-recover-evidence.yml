@@ -22,6 +22,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: python .github/scripts/character_qa_export.py
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: character-qa-export-result-${{ github.sha }}
           path: qa-export-result.json

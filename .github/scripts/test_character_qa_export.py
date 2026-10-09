@@ -187,4 +187,24 @@ class ArtifactJobTests(unittest.TestCase):
    with self.assertRaises(ValueError):self.execute(f)
   for at in [1,2]:
    with self.assertRaisesRegex(ValueError,'branch moved'):self.execute(self.bound(),move_at=at)
+class TransientExportTests(unittest.TestCase):
+ load=ExportTests.load
+ def test_transient_gateway_retries_same_request_and_then_returns_json(self):
+  m=self.load();req=m.urllib.request.Request('https://api.github.com/repos/'+m.REPO+'/git/trees',data=b'{}');err=lambda:m.urllib.error.HTTPError(req.full_url,502,'gateway',{},None)
+  with patch.object(m.urllib.request,'urlopen',side_effect=[err(),err(),io.BytesIO(b'{"sha":"tree"}')]) as call,patch.object(m.time,'sleep') as sleep:
+   self.assertEqual(m.json_request(req),{'sha':'tree'});self.assertEqual(call.call_count,3);self.assertTrue(all(c.args[0] is req for c in call.call_args_list));self.assertEqual([c.args[0] for c in sleep.call_args_list],[1,2])
+ def test_permissions_and_exhausted_gateway_fail_without_unbounded_retry(self):
+  m=self.load();req=m.urllib.request.Request('https://api.github.com/repos/'+m.REPO+'/git/trees')
+  for code,count in [(403,1),(404,1),(429,1),(502,3),(503,3),(504,3)]:
+   with self.subTest(code=code),patch.object(m.urllib.request,'urlopen',side_effect=m.urllib.error.HTTPError(req.full_url,code,'failed',{},None)) as call,patch.object(m.time,'sleep'):
+    with self.assertRaises(m.urllib.error.HTTPError):m.json_request(req)
+    self.assertEqual(call.call_count,count)
+ def test_tree_failure_retains_verified_entries_without_tree_or_approval(self):
+  m=self.load();result={'expectedHead':'a'*40,'baseTree':'base','entries':[{'path':'approved/path','sha':'blob','mode':'100644','type':'blob'}],'paths':['approved'],'sourceCommit':'b'*40,'sourceRun':1};previous=Path.cwd()
+  with tempfile.TemporaryDirectory() as tmp:
+   os.chdir(tmp)
+   try:
+    with contextlib.redirect_stdout(io.StringIO()),self.assertRaisesRegex(RuntimeError,'tree failed'):m.complete_export(lambda *args:(_ for _ in ()).throw(RuntimeError('tree failed')),result)
+    saved=json.loads(Path('qa-export-result.json').read_text());self.assertEqual(saved['entries'],result['entries']);self.assertEqual(saved['expectedHead'],result['expectedHead']);self.assertEqual(saved['status'],'VERIFIED_BLOBS_TREE_PENDING_NOT_COMMITTED_NOT_APPROVED');self.assertNotIn('tree',saved)
+   finally:os.chdir(previous)
 if __name__=='__main__':unittest.main()

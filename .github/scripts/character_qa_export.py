@@ -1,7 +1,7 @@
 """Recover existing Character QA artifacts as Git objects; never update any ref.
 Final commit/ref publication belongs to the caller's expected_sha lease.
 """
-import base64,fnmatch,hashlib,io,json,os,re,stat,urllib.request,zipfile
+import base64,fnmatch,hashlib,io,json,os,re,stat,time,urllib.request,zipfile
 from pathlib import Path,PurePosixPath
 REPO='Naoto214/naotocchi'
 BRANCH='feat/character-3d-full-rollout-v0'
@@ -61,6 +61,25 @@ def verify_artifact_job(job,spec,artifact,run_id,source):
  if mode=='diagnostic' and expected!='meguru-wave':raise ValueError('diagnostic export restricted to existing runtime JSON route')
  if job.get('id')!=job_id or job.get('run_id')!=run_id or job.get('head_sha')!=source or job.get('head_branch')!=BRANCH or job.get('name')!=expected or job.get('status')!='completed' or job.get('conclusion')!=conclusion:raise ValueError('unverified artifact job')
  return {'artifactJobId':job_id,'artifactJobName':expected,'artifactJobStatus':'completed','artifactJobConclusion':conclusion,'artifactEvidenceMode':mode}
+def json_request(req):
+ # Only transient gateway failures; never retry permissions, rate limits or validation.
+ for attempt in range(3):
+  try:
+   with urllib.request.urlopen(req,timeout=60) as response:return json.load(response)
+  except urllib.error.HTTPError as error:
+   if error.code not in (502,503,504) or attempt==2:raise
+   error.close();time.sleep(2**attempt)
+def complete_export(api,result):
+ # All selected artifact bytes/counts/provenance and blobs have already been verified.
+ # This checkpoint is not a tree, commit, approval or permission to move a ref.
+ pending={**result,'status':'VERIFIED_BLOBS_TREE_PENDING_NOT_COMMITTED_NOT_APPROVED'}
+ Path('qa-export-result.json').write_text(json.dumps(pending,indent=2)+'\n')
+ print('QA_EXPORT_BLOBS='+json.dumps(pending,separators=(',',':')))
+ tree=api('git/trees',{'base_tree':result['baseTree'],'tree':result['entries']})
+ if api('git/ref/heads/'+BRANCH)['object']['sha']!=result['expectedHead']:raise ValueError('branch moved; caller must rebase prepared evidence')
+ result={**result,'tree':tree['sha'],'status':'PREPARED_NOT_COMMITTED_NOT_APPROVED'}
+ Path('qa-export-result.json').write_text(json.dumps(result,indent=2)+'\n')
+ print('QA_EXPORT_RESULT='+json.dumps(result,separators=(',',':')))
 class NoRedirect(urllib.request.HTTPRedirectHandler):
  def redirect_request(self,*args,**kwargs):return None
 def main():
@@ -69,7 +88,7 @@ def main():
  if not re.fullmatch('[a-f0-9]{40}',source):raise ValueError('exact source required')
  def api(path,data=None):
   req=urllib.request.Request('https://api.github.com/repos/'+REPO+'/'+path,data=None if data is None else json.dumps(data).encode(),headers={'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json','X-GitHub-Api-Version':'2022-11-28'})
-  with urllib.request.urlopen(req,timeout=60) as r:return json.load(r)
+  return json_request(req)
  run=api(f'actions/runs/{run_id}')
  capture_requested='successfulCaptureJobId' in request
  job_evidence=request.get('artifactJobEvidence') is True
@@ -115,11 +134,8 @@ def main():
   for path,data in exported.items():
    blob=api('git/blobs',{'content':base64.b64encode(data).decode(),'encoding':'base64'})
    entries.append({'path':root+'/'+path,'mode':'100644','type':'blob','sha':blob['sha']})
- tree=api('git/trees',{'base_tree':base_tree,'tree':entries})
- if api('git/ref/heads/'+BRANCH)['object']['sha']!=base:raise ValueError('branch moved; caller must rebase prepared evidence')
- result={'expectedHead':base,'baseTree':base_tree,'tree':tree['sha'],'sourceCommit':source,'sourceRun':run_id,'paths':roots,'entries':entries,'status':'PREPARED_NOT_COMMITTED_NOT_APPROVED'}
+ result={'expectedHead':base,'baseTree':base_tree,'sourceCommit':source,'sourceRun':run_id,'paths':roots,'entries':entries}
  result.update(provenance)
  if job_evidence:result['artifactJobs']=artifact_jobs
- Path('qa-export-result.json').write_text(json.dumps(result,indent=2)+'\n')
- print('QA_EXPORT_RESULT='+json.dumps(result,separators=(',',':')))
+ complete_export(api,result)
 if __name__=='__main__':main()
