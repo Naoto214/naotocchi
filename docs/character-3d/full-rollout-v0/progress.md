@@ -961,3 +961,14 @@ Remainingplan recorded innonplayer-execution-plan.md;source-derivedcandidates us
 - Historicalcat_friend/shiba quality3cf7b rightmostfourviewtiles actuallyinspected. Source/currentgeometry+32stateanimationhashes exactlymatch;provenance/imageSHA inlegacy-four-view-review.json. Reuseforintegrationmapping;doesnotclosefullstates/distance/Human/iPhonegates.
 - Coverage257/293 remainsunchanged.15candidatesawaitactualimageQA;next4unusualcompanions underwayin isolation.
 - Task4 independentreviewC0/I0 and9independentscopedPASS;all3productionSHA matchrestorationlog. Integrated28Pilotgeometry+animationhashesidentical. ActualimageQA remainsOPEN.
+
+
+## Five nonplayer image approvals and localized candidate fixes
+
+- Original ten-mammal evidence archived at 92ec6598 through the existing API exporter; 601 raw SHA256/byte counts verified. Source308 Character61/61, Runtime and Home SUCCESS.
+- Actual 4-view/32-state/2-distance PASS: chicken, penguin_friend (source5aac), panda, sheep, seal (source308). Only these five promote:262/293,31pending,260four-view records.
+- Seven source308 mammals remain rejected for physical connections; see exported visual-review.json and connectivity-review.md. Their appearance is not approved merely because code tests pass. Localized repair proceeds without changing passed roles.
+- Task4 bat/snail/chameleon fixes09d5cb5b and Task5 candidates5069aeda pass independent code/spec review; corrected/new seven-image gates remain OPEN. Scoped capture selector includes exactly these seven, with the established mutation mapping.
+- Task45 integration:37 focused PASS, exact22+4candidate row merge,28Pilot hashes unchanged. Reuse affected mutation/restoration evidence; no full npm replay. Human/iPhone and full293 integration remain OPEN.
+
+- Save gate:344 dedicated PASS,28Pilot identical. Review found three stale mutation selectors after promotion test rename; corrected and3/3 targeted RED/restoredGREEN with exact byte hashes. Updated role mutations6observedRED; unchanged QAoverlay reuses prior7/7campaign evidence. Final restored role testsPASS.

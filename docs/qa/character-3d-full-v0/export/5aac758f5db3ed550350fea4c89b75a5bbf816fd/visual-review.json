@@ -1,0 +1,70 @@
+{
+  "sourceCommit": "5aac758f5db3ed550350fea4c89b75a5bbf816fd",
+  "archiveCommit": "00b6f61df162e2b63658c3a45e6920ee4849fe3e",
+  "status": "PARTIAL_PASS_THREE_REJECTED",
+  "integrity": {
+    "rawFiles": 201,
+    "allHashesVerified": true
+  },
+  "characters": {
+    "companion:chicken": {
+      "status": "PASS_IMAGE_GATE",
+      "actualReview": {
+        "fourViews": 4,
+        "stateImages": 32,
+        "normalDistance": 2
+      },
+      "findings": [
+        "Source silhouette/pose and owned features recognizable;canonical face clear through32states;normal-distance front/back readable and grounded."
+      ]
+    },
+    "companion:penguin_friend": {
+      "status": "PASS_IMAGE_GATE",
+      "actualReview": {
+        "fourViews": 4,
+        "stateImages": 32,
+        "normalDistance": 2
+      },
+      "findings": [
+        "Source silhouette/pose and owned features recognizable;canonical face clear through32states;normal-distance front/back readable and grounded."
+      ]
+    },
+    "companion:bat": {
+      "status": "REJECT_IMAGE_GATE",
+      "actualReview": {
+        "fourViews": 4,
+        "stateImages": 0,
+        "normalDistance": 0
+      },
+      "findings": [
+        "Hanging body/ears but upright face: source nose/muzzle is above eyes, render places eyes above nose/muzzle."
+      ],
+      "remainingReview": "Stop at confirmeddefect;fresh fullimagegate required after correction. No promotion."
+    },
+    "companion:snail": {
+      "status": "REJECT_IMAGE_GATE",
+      "actualReview": {
+        "fourViews": 4,
+        "stateImages": 0,
+        "normalDistance": 0
+      },
+      "findings": [
+        "Spiral faces front/back; side render presents plain thick shell band. Source side/long-body profile requires lateral spiral face."
+      ],
+      "remainingReview": "Stop at confirmeddefect;fresh fullimagegate required after correction. No promotion."
+    },
+    "companion:chameleon": {
+      "status": "REJECT_IMAGE_GATE",
+      "actualReview": {
+        "fourViews": 4,
+        "stateImages": 32,
+        "normalDistance": 0
+      },
+      "findings": [
+        "Detached hind feet visible in34 and motion board. Independent continuous-volume check gives body Qmin1.28556 forfeet and1.23345 fortoes (>1 means no intersection);no leg connector exists."
+      ],
+      "remainingReview": "Stop at confirmeddefect;fresh fullimagegate required after correction. No promotion."
+    }
+  },
+  "humanIPhoneGate": "OPEN_SEPARATE"
+}

@@ -18,6 +18,8 @@ const scriptsByKey = new Map([
     .map(key => ['companion:' + key, 'other-mammal-remove-it.cjs']),
   ...['bat', 'chicken', 'penguin_friend', 'snail', 'chameleon']
     .map(key => ['companion:' + key, 'birds-reptiles-remove-it.cjs']),
+  ...['sekizou', 'unicorn', 'many_tail_fox', 'watcher']
+    .map(key => ['companion:' + key, 'unusual-companion-remove-it.cjs']),
 ]);
 
 function selectScripts(config) {

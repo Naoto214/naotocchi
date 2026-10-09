@@ -5,19 +5,24 @@ const run=pattern=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap'
 const files=[spec,soft,bird],originals=new Map(files.map(file=>[file,fs.readFileSync(file)])),sha=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
 const restored=()=>{for(const [file,bytes]of originals)assert.ok(fs.readFileSync(file).equals(bytes),`${file}: restored source bytes`);};
 const cases=[
- ['bat hanging pose',spec,'at:[0,-.48,.065],roll:0','at:[0,.48,.065],roll:0','bat hangs'],
+ ['bat hanging pose',spec,'at:[0,-.48,.065],roll:Math.PI','at:[0,.48,.065],roll:Math.PI','bat hangs'],
  ['bat folded membrane length',spec,'size:[.12,.43,.06],roll:.28','size:[.12,.16,.06],roll:.28','bat hangs'],
  ['rooster red comb',spec,'for(let i=0;i<5;i++)chicken.crest','for(let i=0;i<0;i++)chicken.crest','chicken retains'],
  ['rooster curled tail',spec,'for(let i=0;i<7;i++){const s=(i-3)/3;chicken.tail','for(let i=0;i<0;i++){const s=(i-3)/3;chicken.tail','chicken retains'],
- ['rooster ground contact',spec,'spread:.13,y:.3445','spread:.13,y:.4445','five candidates'],
+ ['rooster ground contact',spec,'spread:.13,y:.3445','spread:.13,y:.4445','five source models'],
  ['penguin horizontal slide',spec,'size:[.29,.19,.49],y:.19','size:[.29,.49,.19],y:.49','penguin slides'],
  ['penguin rear feet',spec,'feet:{at:[.15,.015,-.48]','feet:{at:[.15,.015,.48]','penguin slides'],
  ['snail stalk eye target',spec,"targetDetails:['eyeStalks']","targetDetails:[]",'snail carries'],
- ['snail raised spiral',spec,'r=.025+.27*t;path.push','r=.025+.07*t;path.push','snail carries'],
+ ['snail raised spiral',spec,'r=.025+.27*t,x=','r=.025+.07*t,x=','snail carries'],
  ['snail owned spiral',spec,"name:'shellSpiral',bone:'body'","name:'shellSpiral',bone:'head'",'snail carries'],
- ['snail triangle budget',spec,'segments:[16,12]','segments:[160,120]','five candidates'],
+ ['snail triangle budget',spec,'segments:[16,12]','segments:[160,120]','five source models'],
  ['chameleon high curl',spec,'[-.41,.52,-.32],[-.23,.66,-.32],[-.08,.53,-.30]','[-.41,.22,-.32],[-.23,.26,-.32],[-.08,.23,-.30]','chameleon has'],
  ['chameleon closed eye clearance',spec,"name:'glasses',bone:'head',color:'#353c2d',paths:[]","name:'glasses',bone:'head',color:'#353c2d',paths:[],volumes:[{size:[.13,.10,.04],at:[-.116,.044,.30]},{size:[.13,.10,.04],at:[.116,.044,.30]}]",'closed-expression chameleon','chameleon closed-expression/positive/frame0'],
+ ['bat inverted face',spec,'at:[0,-.48,.065],roll:Math.PI','at:[0,-.48,.065],roll:0','bat inverted'],
+ ['snail whole shell orientation',spec,"name:'shell',bone:'body',at:[0,.32,-.12],rotation:[0,Math.PI/2,0]","name:'shell',bone:'body',at:[0,.32,-.12],rotation:[0,0,0]",'snail whole'],
+ ['snail lateral spiral orientation',spec,"name:'shellSpiral',bone:'body',at:[0,.32,-.12],rotation:[0,Math.PI/2,0]","name:'shellSpiral',bone:'body',at:[0,.32,-.12],rotation:[0,0,0]",'snail whole'],
+ ['snail spiral attachment',spec,"name:'shellSpiral',bone:'body',at:[0,.32,-.12]","name:'shellSpiral',bone:'body',at:[0,.32,-.05]",'snail whole','attached to closed shell'],
+ ['chameleon separated hind foot',spec,'feet:{at:[.25,-.17,-.26],size:[.09,.09,.12]}','feet:{at:[.50,-.17,-.26],size:[.09,.09,.12]}','chameleon closed hindlegs','produced hindleg intersects torso'],
  ['preserved plush defaults',soft,'segments?.[0]||(markings?40:20)','segments?.[0]||(markings?40:18)','optional soft toy morphology'],
  ['preserved bird defaults',bird,'sp.legs.y??.36*scale','sp.legs.y??.34*scale','optional bird foot placement']
 ];

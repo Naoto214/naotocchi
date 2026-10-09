@@ -138,9 +138,15 @@ export function quadruped(sp, key) {
   const tailPath = { wrap: [[0,0,0],[-tl*.32,-tr,-tl*.12],[-B.r*1.08,-B.r*.55,tl*.30],[-B.r*.92,-B.r*.62,tl*.68],[-B.r*.30,-B.r*.64,tl*.82],[B.r*.30,-B.r*.61,tl*.78]], hook: [[0,0,0],[tl*.32,tl*.12,-tl*.22],[tl*.55,tl*.6,-tl*.35],[tl*.37,tl*.96,-tl*.3],[tl*.04,tl*.96,-tl*.2],[-tl*.09,tl*.78,-tl*.14]], raised: [[0,0,0],[0,tl*0.4,-tl*0.3],[0,tl*0.9,-tl*0.34],[0,tl*1.1,-tl*0.12]], curl: [[0, 0, 0], [0, tl * 0.45, -tl * 0.3], [tl*.16, tl * .87, -tl * .1], [tl*.42, tl * .78, tl * .12], [tl*.39,tl*.52,tl*.2], [tl*.19,tl*.49,tl*.16]], plume: [[0, 0, 0], [0, tl * 0.15, -tl * 0.5], [0, tl * 0.35, -tl * 0.95]], short: [[0, 0, 0], [0, tl * 0.35, -tl * 0.6]], long: [[0, 0, 0], [0, -tl * 0.05, -tl * 0.45], [0, tl * 0.25, -tl * 0.8], [0, tl * 0.55, -tl * 0.85]] }[T.type];
   const tailR = T.type === 'plume' ? (t) => tr * (0.9 + Math.sin(Math.PI * t) * 0.9) : (t) => tr * lerp(1.1, 0.55, t);
   rig.add('tail', 'body', [0, B.r * 0.35, -B.len / 2 * 0.9], [paint(sweep(tailPath, tailR, 8, { steps: T.type==='hook'?20:12 }), (x, y, z) => (T.type === 'curl' && y > tl * 0.6 ? c.belly : sp.patches ? (y>tl*.91?c.base:y>tl*.66?c.patch2:c.patch) : c.base))]);
+  // Optional closed source hair/horns inherit established head/body/tail owners.
+  for(const q of sp.details||[]){const parts=(q.volumes||[]).map(v=>solid(xform(ellipsoid(...v.size,v.segments?.[0]||16,v.segments?.[1]||12),{pos:v.at,rot:v.rotation||[0,0,0]}),v.color||q.color));
+    for(const p of q.paths||[])parts.push(solid(sweep(p.path,t=>p.radius*(1-(p.taper||0)*t),p.radial||9,{steps:p.steps||20,flat:p.flat||1}),p.color||q.color));
+    rig.add(q.name,q.bone||'body',q.at||[0,0,0],parts,'opaque',q.rotation||[0,0,0]);
+  }
   rig.meta = { idlePose: sp.idlePose, hover: 0, bodyY, legTop, bodyR: B.r, bodyLen: B.len, pawR: Lg.r*1.05, earType: sp.ears.type, poseProfile: sp.poseProfile || null };
   rig.faceSpec = { bone: 'head', target: headGeo, center: [0, hr * 0.0, hr * 0.92], fwd: [0, 0.08, 1], half: hr * 0.74, eyeSize: Hd.eyeSize || 0.25, eyeProfile: Hd.eyeProfile,
     layout: { eyeX: Hd.eyeX || 25, eyeY: 54, mouthY: 104, browY: 34, cheekX: 38, cheekY: 80, mouthW: 9 }, style: { mouth: '#9a2a24', blush: '#f08a7a' }, normalEye: sp.normalEye || (sp.idlePose === 'lie' || sp.fluff === 'chest' ? 'content' : null) };
+  if(sp.sourceFace)rig.faceSpec={...rig.faceSpec,...sp.sourceFace,layout:{...rig.faceSpec.layout,...sp.sourceFace.layout}};
   return rig;
 }
 

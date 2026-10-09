@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 257,
-    "pending": 36,
-    "fourViewRecords": 255
+    "exactSpecs": 262,
+    "pending": 31,
+    "fourViewRecords": 260
   },
   "rows": [
     {
@@ -5116,15 +5116,15 @@
       "group": "normal",
       "asset": "assets/characters/companions/panda.png",
       "sha256": "611784a35a3efc1d0190474af374aac5410afdcc2ac84366bbc6f8bfda268c38",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/3083126a75d1044da2f68142a5a46d789556895c/ten-mammals/companion-panda-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/3083126a75d1044da2f68142a5a46d789556895c/ten-mammals/companion-panda-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/3083126a75d1044da2f68142a5a46d789556895c/ten-mammals/companion-panda-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/3083126a75d1044da2f68142a5a46d789556895c/ten-mammals/companion-panda-0-back.jpg"
       }
     },
     {
@@ -5176,15 +5176,15 @@
       "group": "normal",
       "asset": "assets/characters/companions/sheep.png",
       "sha256": "9db5c7ca81fddb4611ea29bb6dbfc7ed351f718ea0a5eb2f6afee639c2125546",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/3083126a75d1044da2f68142a5a46d789556895c/ten-mammals/companion-sheep-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/3083126a75d1044da2f68142a5a46d789556895c/ten-mammals/companion-sheep-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/3083126a75d1044da2f68142a5a46d789556895c/ten-mammals/companion-sheep-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/3083126a75d1044da2f68142a5a46d789556895c/ten-mammals/companion-sheep-0-back.jpg"
       }
     },
     {
@@ -5196,15 +5196,15 @@
       "group": "normal",
       "asset": "assets/characters/companions/seal.png",
       "sha256": "781f9c3e380b0266ff8abc4f3bd49d275e0b03513d857ff2e96678a09d5f13fa",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/3083126a75d1044da2f68142a5a46d789556895c/ten-mammals/companion-seal-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/3083126a75d1044da2f68142a5a46d789556895c/ten-mammals/companion-seal-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/3083126a75d1044da2f68142a5a46d789556895c/ten-mammals/companion-seal-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/3083126a75d1044da2f68142a5a46d789556895c/ten-mammals/companion-seal-0-back.jpg"
       }
     },
     {
@@ -5236,15 +5236,15 @@
       "group": "normal",
       "asset": "assets/characters/companions/chicken.png",
       "sha256": "fee8f538d375342e3e44e1d558672abed8e92a37a0fcd08f757aeeb2d1a110d9",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "plumed_bird",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/5aac758f5db3ed550350fea4c89b75a5bbf816fd/birds-reptiles/companion-chicken-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/5aac758f5db3ed550350fea4c89b75a5bbf816fd/birds-reptiles/companion-chicken-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/5aac758f5db3ed550350fea4c89b75a5bbf816fd/birds-reptiles/companion-chicken-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/5aac758f5db3ed550350fea4c89b75a5bbf816fd/birds-reptiles/companion-chicken-0-back.jpg"
       }
     },
     {
@@ -5256,15 +5256,15 @@
       "group": "normal",
       "asset": "assets/characters/companions/penguin_friend.png",
       "sha256": "cd5c10182e742c681c4a6a654f1823de65258f350a989f88bd9f2ae9793da935",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/5aac758f5db3ed550350fea4c89b75a5bbf816fd/birds-reptiles/companion-penguin_friend-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/5aac758f5db3ed550350fea4c89b75a5bbf816fd/birds-reptiles/companion-penguin_friend-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/5aac758f5db3ed550350fea4c89b75a5bbf816fd/birds-reptiles/companion-penguin_friend-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/5aac758f5db3ed550350fea4c89b75a5bbf816fd/birds-reptiles/companion-penguin_friend-0-back.jpg"
       }
     },
     {

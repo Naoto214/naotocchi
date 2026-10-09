@@ -24,6 +24,9 @@ test('other mammal batch selects its shared mutation tool once', () => {
 test('birds and reptiles select their shared mutation tool once', () => {
   assert.deepEqual(selectScripts({ keys: ['bat', 'chicken', 'penguin_friend', 'snail', 'chameleon'].map(key => 'companion:' + key) }), ['birds-reptiles-remove-it.cjs']);
 });
+test('unusual companions select their shared mutation tool once', () => {
+  assert.deepEqual(selectScripts({ keys: ['sekizou', 'unicorn', 'many_tail_fox', 'watcher'].map(key => 'companion:' + key) }), ['unusual-companion-remove-it.cjs']);
+});
 test('malformed and unsupported selections fail before spawning any tool', () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'nonplayer-selection-'));
   let calls = 0;

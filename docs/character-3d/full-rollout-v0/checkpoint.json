@@ -1,17 +1,17 @@
 {
-  "baseCommit": "3083126a75d1044da2f68142a5a46d789556895c",
-  "checkpoint": "birds-reptiles-isolated-candidates",
+  "baseCommit": "92ec6598460326a00c494d50a3f5d7974fdb9e7b",
+  "checkpoint": "five-reviewed-nonplayers-promoted-and-seven-candidates-ready-for-images",
   "coverage": {
-    "exact": 257,
+    "exact": 262,
     "total": 293,
-    "pending": 36,
+    "pending": 31,
     "playerFamilies": 31,
     "playerStages": 248,
-    "companions": 7,
+    "companions": 12,
     "partners": 2
   },
   "verification": {
-    "dedicatedPass": 313,
+    "dedicatedPass": 344,
     "rolloutMutationsDetected": 33,
     "pilotHashesUnchanged": 28,
     "fullNpm": "8b6fcae fixed implementation:3017PASS+Relationship80PASS,0FAIL,exit0; full log/result archived. Before Star expansion/Unknown promotion.",
@@ -104,12 +104,16 @@
     "otherMammalCandidates": "Task3 source-derived otter/monkey/sheep/seal/hedgehog via existingsoft_toy;13focusedPASS,15mutationsdetected/restored;independent reviewC0/I0,12existingrows/geometry unchanged. Integrated13+selector6PASS;actualimagegateOPEN,none registered.",
     "tenMammalBatch": "Integrated313dedicatedPASS,0FAIL,exit0;28Pilotgeometry+animationhashesidentical;Task2fix2reviewC0/I0,defaultgeometrymutationdetected/restored;Task3reviewC0/I0. Node22CI and10actualimagegatesOPEN.",
     "birdsReptilesCandidates": "Task4 55b7a2b8:5source-derived isolatedcandidates;14candidate+28priorfocusedtestsPASS,15/15mutationsdetected/restored;17existingnonplayerrecords/rigsexact same-runtime preservation;sourceplush8/Phoenix/Parrotdefaults preserved. Selector7PASS;actualimagegatesOPEN. Independent9scopedPASS,reviewC0/I0;28Pilotgeometry+animationhashesidentical afterintegration.",
-    "tenMammalCI": "3083126a Character37890605974 dedicatedregressionstepSUCCESS(Node22);unscopedmutations/capture/aggregate stillIN_PROGRESS. Controlleromitted[qa:nonplayer]tag causingexpandedrun;futurecandidate commitsuseexistingtag. No extraCI restart."
+    "tenMammalCI": "3083126a Character37890605974 dedicatedregressionstepSUCCESS(Node22);unscopedmutations/capture/aggregate stillIN_PROGRESS. Controlleromitted[qa:nonplayer]tag causingexpandedrun;futurecandidate commitsuseexistingtag. No extraCI restart.",
+    "fiveNonplayerPromotion": "Source5aac chicken/penguin_friend and source308 panda/sheep/seal actual 4views+32states+2distance each PASS. Other7 mammals rejected; no unreviewed candidate promoted.",
+    "task4Fix1": "09d5cb5b bat inversion/snail lateral shell/chameleon closed hindlegs:13targetPASS,7affected mutations detected/restored,19otherrows unchanged; independent C0/I0. Corrected image gate OPEN.",
+    "task5Fix1": "5069aeda four isolated candidates:12targetPASS,21total mutation cases (17initial plus4contact;8affected rerun/restored),53 genuine frozen factory comparisons+plush8; C0/I0. Actual image gate OPEN.",
+    "integrationTask45": "344 dedicated PASS,37 focused PASS; exact22+4 candidate row merge;28Pilot hashes identical. Three stale mutation selectors corrected:3/3 affected mutations detected with restored baseline and SHA256. Six updated role mutations observed RED; unchanged QA overlay reuses prior recorded RED/restoration. Current restored role baseline PASS."
   },
   "next": [
-    "Diagnose dedicatedCI failure fromretainedActionsTAP;no5candidate imageapproval/promotion until resolved",
-    "ContinueTask3 othermammals usingexistingfactories;addexplicitCIselector mapping withnewmutator",
-    "Remainingnonplayerplan;recoverlegacyshiba/cat_friend views atfull293integration;separateHuman/iPhone gates"
+    "Capture and actually review corrected bat/snail/chameleon plus isolated sekizou/unicorn/many_tail_fox/watcher using existing scoped workflow and Git Data exporter. No promotion before all required images pass.",
+    "Complete localized connection fixes for seven rejected mammals, then fresh 4-view/32-state/2-distance gates. Reuse unchanged PASS evidence.",
+    "Continue partner/author candidates from nonplayer-execution-plan, then all293 integration including legacy board mapping and final npm; Human/iPhone remain separate OPEN."
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",
@@ -138,27 +142,27 @@
       "status": "PASS_31_FAMILIES_248_STAGES"
     },
     "latestNonplayerImageApprovals": [
-      "companion:clock",
-      "companion:owl",
-      "companion:punyu",
-      "companion:parrot"
+      "companion:chicken",
+      "companion:penguin_friend",
+      "companion:panda",
+      "companion:sheep",
+      "companion:seal"
     ],
     "candidateBatchInProgress": [
       "companion:rabbit_friend",
       "companion:tanuki",
       "companion:squirrel",
       "companion:hamster",
-      "companion:panda",
       "companion:otter",
       "companion:monkey",
-      "companion:sheep",
-      "companion:seal",
       "companion:hedgehog",
       "companion:bat",
-      "companion:chicken",
-      "companion:penguin_friend",
       "companion:snail",
-      "companion:chameleon"
+      "companion:chameleon",
+      "companion:sekizou",
+      "companion:unicorn",
+      "companion:many_tail_fox",
+      "companion:watcher"
     ],
     "missingLegacyFourViewRecords": [
       "companion:cat_friend",
@@ -167,15 +171,28 @@
     "full293Integration": "OPEN",
     "humanQA": "OPEN_SEPARATE",
     "iPhoneQA": "OPEN_SEPARATE",
-    "candidateBatchReview": "Task2/Task3/Task4 implementation+independentreviewC0/I0;15isolatedcandidates;actual4views32states2distance gatesOPEN",
+    "candidateBatchReview": "Task4 fix1 and Task5 fix1 code/spec C0/I0; actual corrected/new7 image gates OPEN. Ten-mammal actual QA passes panda/sheep/seal and rejects seven localized physical connections.",
     "selectedCaptureBatch": [
       "companion:bat",
-      "companion:chicken",
-      "companion:penguin_friend",
       "companion:snail",
-      "companion:chameleon"
+      "companion:chameleon",
+      "companion:sekizou",
+      "companion:unicorn",
+      "companion:many_tail_fox",
+      "companion:watcher"
     ],
-    "legacyFourViewReuse": "Existingcf7b comparisonboards forcat_friend/shiba actually reviewed;exactsource/currentgeometry+animationhashmatch;legacy-four-view-review.json saved. Coverageboardmapping pendingintegration;no recapture/reimplementationneededfortheseviews."
+    "legacyFourViewReuse": "Existingcf7b comparisonboards forcat_friend/shiba actually reviewed;exactsource/currentgeometry+animationhashmatch;legacy-four-view-review.json saved. Coverageboardmapping pendingintegration;no recapture/reimplementationneededfortheseviews.",
+    "sevenMammalConnections": "rabbit_friend/tanuki/squirrel/hamster/otter/monkey/hedgehog remain unregistered; source308 actual images expose disconnected limbs/held props. Scoped candidate-only fix in progress.",
+    "latestFullCharacterCI": {
+      "sourceCommit": "3083126a75d1044da2f68142a5a46d789556895c",
+      "run": 37890605974,
+      "status": "SUCCESS",
+      "jobsSuccess": 61,
+      "runtimeRun": 37890612410,
+      "runtimeStatus": "SUCCESS",
+      "homeRun": 37890612549,
+      "homeStatus": "SUCCESS"
+    }
   },
   "verificationHistoryNote": "verification entries are source-scoped historical evidence. Current coverage/currentGates/next identify the active state; older pending or REJECT records are not current verdicts."
 }
