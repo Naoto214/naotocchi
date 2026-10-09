@@ -1,18 +1,18 @@
 {
-  "sourceCommit": "172bc67e123727705bf2f5f1e4f1569f7de0292a",
-  "runId": 37937039121,
+  "sourceCommit": "410edf9674d5937496e7acd0f255c98de11fc399",
+  "runId": 37938257303,
   "artifactJobEvidence": true,
   "families": [
     "dog"
   ],
   "artifacts": [
     {
-      "id": 11618174182,
-      "label": "scene-transport-diagnostic",
-      "name": "full-rollout-meguru-172bc67e123727705bf2f5f1e4f1569f7de0292a",
-      "digest": "sha256:f990dfb5feeea38dff9573ca50ef236b817b9edb6b71d6495060701e97fab3ad",
-      "jobId": 113841589545,
-      "evidenceMode": "diagnostic",
+      "id": 11619241745,
+      "label": "scene-final",
+      "name": "full-rollout-meguru-410edf9674d5937496e7acd0f255c98de11fc399",
+      "digest": "sha256:799d3bbc471dffadc73e4730213b18e2c849729e2c4fadabcdcaa31e699d3d58",
+      "jobId": 113845722634,
+      "evidenceMode": "successful",
       "required": [
         {
           "pattern": "meguru-qa.json",
