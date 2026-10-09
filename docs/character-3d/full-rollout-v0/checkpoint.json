@@ -1,6 +1,6 @@
 {
-  "baseCommit": "00eb6a080e80ee1f0587396807782e922de37188",
-  "checkpoint": "clock-parrot-image-corrections-punyu-recovery",
+  "baseCommit": "7a46f3c9396df4bc56a6255a0b2999711ca9fd02",
+  "checkpoint": "punyu-idle-contact-reject-corrected-clock-parrot-export",
   "coverage": {
     "exact": 253,
     "total": 293,
@@ -69,7 +69,7 @@
     "starPunyuCapture": "12fb2c6 Character37879217065SUCCESS;Starwave11593173580/distance11593399232/Punyu11593004038 exportrequested. Actualreviewpending.",
     "godGhostPostPromotionCI": "d87e31b Character37875308764:all59jobsSUCCESS,0FAIL/CANCELLED/SKIPPED,29stagefamilyjobs;stagecoverage113651820721SUCCESS,29families/232stages. SeparatefromUnknown30familyaggregate.",
     "starPromotion": "All8 registered after actualimagePASS;33/33runtime mutationsdetected/restored,28Pilotidentical;252/293,41nonplayerpending,250fourviewrecords. ReviewCritical0/Important0;postmutation264PASS andproductiondiff inspected.",
-    "punyuImageGate": "d40 actual4viewsREJECT broadsurfacecreases;notch/coreleak improved. Freshsmooth-min distance/analyticnormal correction prepared;4/4mutations andmanifold/notch testsPASS;no imageapproval.",
+    "punyuImageGate": "d772 archive7a46f3c9:41rawhashesverified;actual4views32states readable,surfaceimproved;2normaldistanceREJECT constantidlehover. NextuseexistinggroundedsquashHop opt-in;notregistered.",
     "cactusCandidate": "Existingbranch_organism optionalclosedcolumn;2targettests,4/4mutations,263dedicatedbeforeStarpromotion;28Pilotidentical;reviewCritical0/Important0.Imagespending;notregistered.",
     "owlCorrectedCapture": "46ff692 Character37879959890SUCCESS;artifact11593204347 exportrequested;actualimagegatepending.",
     "unknownPostPromotionCI": "f6c86cd Character37877945590 all60jobsSUCCESS,30stagefamilies,stagecoverage113660635981SUCCESS;Runtime37877952306/Home37877952265SUCCESS.",
@@ -86,13 +86,14 @@
     "clockParrotCapture": "dc652144 Character37882448856SUCCESS;artifact11594323377 exportrequested. Earlier090d0d00FAIL remains distinct.",
     "clockParrotImageGate": "dc652144 archive00eb6a08:81rawhashesverified;actual4views eachREJECT(clockdialgap,parrotlonglegs/crowdedface). No state/distanceapproval.",
     "clockParrotCorrection": "Roundedlathe housing joinsdialperimeter;Parrotlowbelly/smallerhook/eyes40 mouth116 withatlasmargin.273shared-factorysuitePASS beforefinalParrot-onlymouthdata;final6targetPASS plusClock3/Parrot6mutations restored.28Pilotidentical,reviewCritical0/Important0. Freshimagesrequired.",
-    "cactusPromotionCI": "d772ff5e Character37883016188SUCCESS;Punyu surfaceartifact11595377978 exportrequested. Cactus remainsactualimageapproved;full293gate stillopen."
+    "cactusPromotionCI": "d772ff5e Character37883016188SUCCESS;Punyu surfaceartifact11595377978 exportrequested. Cactus remainsactualimageapproved;full293gate stillopen.",
+    "clockParrotCorrectionCI": "540e8ef5 Character37883629394SUCCESS;correctedclock/parrot artifact11594524231 exportrequested."
   },
   "next": [
-    "Review restored d772Punyu surfaceimages;promote only actualPASS",
-    "Review freshClock/Parrot corrections4views32states2distance each",
-    "Owl structuralwing reconsideration required after repeatedimageREJECT",
-    "Remaining40nonplayers and final293integration/Human/iPhone"
+    "Review correctedClock/Parrot540 actualimages viaexport",
+    "CompleteisolatedOwl featherwing task1 andtargetedreview",
+    "PunyuTask12 groundedexistinggait correction thenfreshimages",
+    "Execute remainingnonplayerplan withoutrebuildingcompletedfamilies;full293/Human/iPhone gates"
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",

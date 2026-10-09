@@ -911,3 +911,8 @@ Clock/parrot dcCharacter37882448856SUCCESS;artifact11594323377durableexport requ
 
 ## Clock/Parrot image corrections; Punyu surface recovery
 Actualdc4views eachREJECT;81rawhashesverified. Clockellipsoidhousing leftdialperimeter gap,nowoptionalroundedlathe case closes it withrayoverlap regression. Parrotbellylowered/smallerhook/eyes40/mouth116,canonicalfeature rayclearance and128pxatlasmargin verified.273sharedfactorysuitePASS beforefinalParrot-onlymouthdata;final6targetPASS plus3Clock/6Parrotmutations restored,28Pilotidentical,reviewCritical0/Important0. Freshscopedimagesrequested;neitherpromoted. d772Character37883016188SUCCESS,correctedPunyu surfaceartifact11595377978 exportrequested. Coverage253/293 unchanged.
+
+
+## Punyu normal-distance gate and continued candidate execution
+Punyu d772 archive7a46f3c9:41hashesverified;actual4views32states nowreadable withimprovedsurface. Bothnormal-distance images showconstantidlehover inheritedfromblobFloat;REJECT pendingexistinggroundedgait opt-in. No promotion. CorrectedClock/Parrot540Character37883629394SUCCESS,artifact11594524231exportrequested.
+Remainingplan recorded innonplayer-execution-plan.md;source-derivedcandidates useexistingfactories. Oneisolatedimplementer atatime plus taskreview;root retainsactualimage gates/GitDataAPI saves. FreshOwl feather-volume correction replacesfailedsmoothflipperapproach;Punyu groundfix queuedseparately. No sharedworktree mutation interference. Coverage253/293 unchanged;allactualrejects remainexplicit.
