@@ -1,6 +1,6 @@
 {
-  "baseCommit": "5a78d95e1f7b51ca32d5b3f2eb3c805a38fcb334",
-  "checkpoint": "nonplayer-owl-punyu-image-corrections",
+  "baseCommit": "d40e286b064522e4b1bf9b4730e802edf620471d",
+  "checkpoint": "parrot-candidate-await-nonplayer-images",
   "coverage": {
     "exact": 252,
     "total": 293,
@@ -11,7 +11,7 @@
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 267,
+    "dedicatedPass": 269,
     "rolloutMutationsDetected": 33,
     "pilotHashesUnchanged": 28,
     "fullNpm": "8b6fcae fixed implementation:3017PASS+Relationship80PASS,0FAIL,exit0; full log/result archived. Before Star expansion/Unknown promotion.",
@@ -72,15 +72,19 @@
     "punyuImageGate": "12fb2c6 archive5715b51:4viewsREJECT radialfan-folding/losthook/innercoreleak;41hashesverified.No32state/distanceapproval.",
     "cactusCandidate": "Existingbranch_organism optionalclosedcolumn;2targettests,4/4mutations,263dedicatedbeforeStarpromotion;28Pilotidentical;reviewCritical0/Important0.Imagespending;notregistered.",
     "owlCorrectedCapture": "46ff692 Character37879959890SUCCESS;artifact11593204347 exportrequested;actualimagegatepending.",
-    "unknownPostPromotionCI": "f6c86cd Character37877945590 last55SUCCESS/4IN_PROGRESS,aggregatepending;Runtime37877952306SUCCESS,Home37877952265SUCCESS. Not fullaggregatePASS.",
+    "unknownPostPromotionCI": "f6c86cd Character37877945590 all60jobsSUCCESS,30stagefamilies,stagecoverage113660635981SUCCESS;Runtime37877952306/Home37877952265SUCCESS.",
     "starPunyuCI": "12fb2c6 Character37879217065/Runtime37879223738/Home37879223736SUCCESS.",
     "punyuCorrection": "Optionalconcave contour uses triangulatedinflated closedvolume;defaultLoft/Pilot unchanged. Notch/coreleak +weldedmanifold/normals testsPASS,4/4mutationsdetected. Review caughtcollapsedeartriangles;fixedinteriorcentroids/sharedmidpoints,13440triangles;Critical0/Important0. Freshimagespending.",
-    "nonplayerCorrectionQA": "267dedicatedPASSaftermutations;28Pilotidentical;scopeowl,punyu,oasis_cactus requested. No promotion."
+    "nonplayerCorrectionQA": "267dedicatedPASSaftermutations;28Pilotidentical;scopeowl,punyu,oasis_cactus requested. No promotion.",
+    "parrotCandidate": "Original-derived whiteasymmetricwings/yellowfancrest/longtail/hookedgraybeak viaexistingplumed_bird;2targettests,4/4mutationsdetected/restored,269dedicatedPASS,28Pilotidentical,reviewCritical0/Important0. No registration;freshimagesrequested.",
+    "nonplayerCorrectionCapture": "d40e286b Character37881625921 nonplayer113662376425/dedicated113662376587 QUEUED atfreshcheck;15unrelatedcapture/jobsSKIPPED. No imageacceptance.",
+    "starPostPromotionCI": "d3e64f0d Character37881115241 last21SUCCESS/13IN_PROGRESS/26QUEUED,31familyaggregate notyetcomplete."
   },
   "next": [
-    "Inspect freshowl/punyu/cactus fourviews32states2distance each;promote only actualPASS",
-    "Continue remaining41nonplayers; allplayer31families/248stages registered",
-    "Full293 integration and separateHuman/iPhone gates"
+    "Review d40e286b owl/punyu/cactus actualimages when scopedcapture completes",
+    "Review Parrot fresh4views32states2distance;all4 remainisolateduntilPASS",
+    "Continue remaining41nonplayers and final293integration",
+    "Human/iPhone separate;never substituteChromium"
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",

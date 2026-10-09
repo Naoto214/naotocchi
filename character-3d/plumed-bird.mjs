@@ -11,7 +11,7 @@ export function plumedBird(sp,key){
  const r=new Rig(key,'plumed_bird','waddle'),c=sp.colors,b=sp.body,h=sp.head;
  const vol=(size,pos,color)=>paint(xform(ellipsoid(...size,18,12),{pos}),(x,y,z,nx,ny,nz)=>mix(color,c.light,Math.max(0,nz)*.18+Math.max(0,ny)*.12));
  r.add('body','root',[0,b.y,0],[vol(b.size,[0,0,0],c.base),solid(sweep(sp.neck.path,t=>sp.neck.r*(1-t*.25),10,{steps:14}),c.neck),...sp.breast.map(plumeGeometry)]);
- const beak=solid(xform(lathe([[.001,0],[sp.beak.r,0],[sp.beak.r*.65,sp.beak.length*.55],[.001,sp.beak.length]],10),{pos:[0,-h.size[1]*.16,h.size[2]*.88],rot:[Math.PI/2-.15,0,0]}),c.beak),head=merge([vol(h.size,[0,0,0],c.face),beak]);
+ const beak=sp.beak.path?solid(sweep(sp.beak.path,t=>sp.beak.r*(1-.75*t),10,{steps:14}),c.beak):solid(xform(lathe([[.001,0],[sp.beak.r,0],[sp.beak.r*.65,sp.beak.length*.55],[.001,sp.beak.length]],10),{pos:[0,-h.size[1]*.16,h.size[2]*.88],rot:[Math.PI/2-.15,0,0]}),c.beak),head=merge([vol(h.size,[0,0,0],c.face),beak]);
  r.add('head','body',h.at,[head.clone(),...sp.crest.map(plumeGeometry)]);
  if(sp.wings)for(const side of [-1,1]){const name=side<0?'left':'right';r.add(side<0?'wingL':'wingR','body',[side*sp.wings.at[0],sp.wings.at[1],sp.wings.at[2]],sp.wings[name].map(plumeGeometry));}
  if(sp.tail)r.add('tail','body',sp.tail.at,sp.tail.feathers.map(plumeGeometry));

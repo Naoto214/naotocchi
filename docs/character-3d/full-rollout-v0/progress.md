@@ -892,3 +892,7 @@ Draft376/basePilot retained;no gitpush/main/Ready. Last fullnpm remains8b6 imple
 ## Nonplayer actual image corrections
 Correctedowl46ff images durablyarchived5a78d95;41rawhashesverified. Actual4views+32states show breastVs improved butheldwing stilloccluded;REJECT,normaldistance notapproved. Worldrayregression nowtests assembledforegroundvisibility;shoulder/length/forward data corrected,5mutationsdetected,reviewCritical0/Important0 incl.eyevisibility.
 Punyu uses optional concave triangulated/inflated volume inexistingblob geometry;defaultLoft unchanged. Notchandcoreleak regression;review foundcollapsedboundary-ear triangles,correctedusinginteriorcentroids/sharedmidpoints. Closedmanifold+nonzeronormals pass,13440triangles,4mutationsdetected.267dedicated afterrestoration,28Pilotunchanged,reviewCritical0/Important0. Fresh scopedcapture owl/punyu/cactus requested;none promoted,coverage252/293.
+
+
+## Parrot isolated candidate while scoped images queue
+Existingplumed_bird reused forsourcewhiteasymmetricwings,yellowfancrest,longtail andoptionalhookedgraybeak. DefaultPhoenixbeakpath unchanged.269dedicatedPASS,4/4Parrotmutationsdetected/restored,28Pilotidentical;reviewCritical0/Important0. No runtimepromotion;freshParrot scopedcapture requested. Prior d40 owl/punyu/cactus run37881625921 queued,notPASS. Unknown f6postpromotionCharacter37877945590 nowall60SUCCESS incl30families/240stages aggregate113660635981;Runtime/Home alsoSUCCESS. Star31familyaggregate stillrunning. Coverage252/293,41nonplayerpending.
