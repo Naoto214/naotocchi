@@ -12,6 +12,12 @@ for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(con
  if(![6,15,30].includes(frame))continue;a.root.updateMatrixWorld(true);
  const cap=a.root.getObjectByName('cap:opaque'),body=a.root.getObjectByName('body:opaque'),label=`mushroom${stage}/${em}/${moving}/${animLv}/frame${frame}`;
  assert.ok(joined(T,cap,body),label+': cap/stem actual volume contact');
+ const support=(Array.isArray(r.faceSpec)?r.faceSpec[0]:r.faceSpec).target;
+ // Exclude only the exact face-support stem; its own surface is the decal target.
+ assert.deepEqual(body.geometry.attributes.position.array,support.attributes.position.array,label+': exempt stem is exact face support');
+ assert.deepEqual(body.geometry.index.array,support.index.array,label+': exempt stem has no extra occluding topology');
+ const obstacles=r.parts.filter(p=>p.bone!=='body').map(p=>a.root.getObjectByName(p.mesh.name));
+ const collar=a.root.getObjectByName('collar:opaque');if(stage===6)assert.ok(collar,label+': source white collar preserved');if(collar)assert.ok(joined(T,collar,body),label+': collar/stem actual volume contact');
  const face=a.faces[0],points=[];
 for(const eye of face.eyes){const g=eye.geometry,p=g.attributes.position,n=g.attributes.normal;g.computeBoundingBox();
  const hi=g.boundingBox.max.z,lo=g.boundingBox.min.z;
@@ -23,11 +29,11 @@ if(SPEC.expressionParams(em).brow.show)for(const s of [-1,1])for(const x of [-10
 for(const x of [-L.mouthW-2,0,L.mouthW+2])for(const y of [L.mouthY-5,L.mouthY,L.mouthY+L.mouthW*1.5+2])points.push(decalPoint(T,face.decal,64+x,y));
 for(const az of [-.62,0,.62]){const dir=new T.Vector3(Math.sin(az),.175,Math.cos(az)).normalize(),ray=new T.Raycaster();
  for(const p of points){ray.set(p.clone().addScaledVector(dir,2),dir.clone().negate());
- const hit=ray.intersectObject(cap)[0];
- assert.ok(!hit||hit.distance>=1.998,label+': cap covers canonical feature at '+p.toArray()+' distance '+hit?.distance);}}
+ const hit=ray.intersectObjects(obstacles)[0];
+ assert.ok(!hit||hit.distance>=1.998,label+': '+hit?.object.name+' covers canonical feature at '+p.toArray()+' distance '+hit?.distance);}}
 let tris=0;a.root.traverse(o=>{if(o.isMesh)tris+=(o.geometry.index?.count||o.geometry.attributes.position.count)/3;});
  assert.ok(tris<18000,label+': actual expression budget');}}assert.equal(states,32);}
-for(const n of [5,6,7])test('mushroom '+n+': assembled cap clears complete canonical face in32states',()=>checkMushroom(n));
+for(const n of [5,6,7])test('mushroom '+n+': assembled cap and collar clear complete canonical face in32states',()=>checkMushroom(n));
 function inside(T,point,mesh){const dir=new T.Vector3(.327,.631,.703).normalize();
  for(const s of [1,-1]){const hits=new T.Raycaster(point,dir.clone().multiplyScalar(s)).intersectObject(mesh),d=[];
  for(const h of hits)if(!d.length||Math.abs(h.distance-d.at(-1))>1e-5)d.push(h.distance);

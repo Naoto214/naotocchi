@@ -2,7 +2,7 @@ name: Character 3D Full Rollout
 on:
   push:
     branches: [feat/character-3d-full-rollout-v0]
-    paths: ['.github/character-3d-nonplayer-qa.json', '.github/character-3d-integration-motion.json', 'character-3d/**', 'tools/character-3d/**', 'tests/character-3d*', 'docs/character-3d/full-rollout-v0/**', '.github/workflows/character-3d-rollout.yml']
+    paths: ['.github/character-3d-nonplayer-qa.json', '.github/character-3d-integration-motion.json', '.github/character-3d-motion-repair.json', 'character-3d/**', 'tools/character-3d/**', 'tests/character-3d*', 'docs/character-3d/full-rollout-v0/**', '.github/workflows/character-3d-rollout.yml']
 permissions:
   contents: read
 jobs:
@@ -20,7 +20,7 @@ jobs:
         env:
           QA_MOTION_REPAIR: ${{ contains(github.event.head_commit.message, '[qa:motion-repair]') }}
         run: |
-          node -e "console.log('lines='+JSON.stringify(process.env.QA_MOTION_REPAIR === 'true' ? ['mushroom','clownfish'] : Object.keys(require('./character-3d/spec.js').ROLLOUT)))" >> "$GITHUB_OUTPUT"
+          node -e "console.log('lines='+JSON.stringify(process.env.QA_MOTION_REPAIR === 'true' ? Object.keys(require('./.github/character-3d-motion-repair.json')) : Object.keys(require('./character-3d/spec.js').ROLLOUT)))" >> "$GITHUB_OUTPUT"
   stage-evidence:
     if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:motion-repair]') || (!contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))))) }}
     needs: stage-matrix
@@ -48,12 +48,12 @@ jobs:
         env:
           QA_LINE: ${{ matrix.line }}
         run: |
+          STAGES="$(node -p "require('./.github/character-3d-motion-repair.json')[process.env.QA_LINE].map(stage => process.env.QA_LINE + ':' + stage).join(',')")"
+          test -n "$STAGES"
           if [ "$QA_LINE" = mushroom ]; then
             node tools/character-3d/wave-review.cjs "test-results/full-rollout/stages/$QA_LINE/repair-views" --topology --line=mushroom
-            STAGES="mushroom:5,mushroom:6,mushroom:7"
           elif [ "$QA_LINE" = clownfish ]; then
             node tools/character-3d/wave-review.cjs "test-results/full-rollout/stages/$QA_LINE/repair-views" --fish --line=clownfish
-            STAGES="clownfish:2,clownfish:3,clownfish:5,clownfish:6,clownfish:7"
           else
             exit 1
           fi

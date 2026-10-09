@@ -1114,3 +1114,12 @@ Ad96 sceneCI dedicatedSUCCESS butmeguruFAIL at unchangedsave afterwarmup+3cycle 
 RecoveredfailedJSON1file SHA256/size/directbytesverified viaexistingGitDataexport. All17phasesREADY;3cycles have exact11actorcomposition,off0/0,cityhiddenidentity-boundcache and warmresourceplateau. OriginalwholegateFAIL remains: save/storage/write flagsfalse,20to23writes; getter andrestoredstep/regiontrue. JSONhadno fielddelta/eventstacks, so naturalcityseedisnotproven.
 
 051e22ab adds observationalphase/whole-spandeltas,normalwritecallstacks,synchronousdraw/flagproofsandcleanup; originalvalidatorandstrictprewarmupbaseline unchanged.18focusedPASS,4controlsRED/restored,root4PASS,14functionsexact. New observations arediagnostic; everyboundaryrequiresinspectionbeforeanysceneacceptance. Existingnative1/5/27metrics can now run aftercompletedscenefailure withoutturningjobgreen, avoidinganotherunnecessarywaitforindependentmeasurements. Setupfailures remainblocked.
+
+
+## Seven replacement gates pass; Mushroom6 collar remains explicit blocker
+
+Ddaf captures recovered118entries/368rawfiles withSHA256/size/directbytesverified. ActualClownfish2/3/5/6/7 fourviews+160states+10distance PASS, all20priorrawfin gapsresolved. Mushroom5/7 fullsampledgatesPASS;6 remainsREJECT becausecollarhidesall4sickforeheadmarks despitecapclearance. Candidate64f72fb5 changesonlycollar.at .50to.61 andexpandsactualoccluder guards:20affectedPASS,3controlsRED/restored,root1actual32stategeometryPASS. New6imagegateOPEN;other7evidenceandcoveragepaths updated.
+
+Repaircapture config selects onlyMushroom6motion andone existingfamilyjob; no newCLI/framework. Recoveryworkflowcheckoutsparse.githubonly;22guardtestsPASS inisolatedsame-layoutdirectory, originalGitHubprovenance/lease unchanged. This avoids checkingoutalmost1GBhistoricalQAimagestoexportnewartifacts.
+
+F07sceneobservabilityrun remainsFAILsave;nativeperformance stepnowcompletesindependently. Artifactcontains2JSONs;causaldeltas/callstack inspectionpendingrecovery. Two old testconditionevaluators failedonnewGitHubsuccessfunction, fixedtestcontextonly and26relatedtestsPASS. No production/validatorwaiver.

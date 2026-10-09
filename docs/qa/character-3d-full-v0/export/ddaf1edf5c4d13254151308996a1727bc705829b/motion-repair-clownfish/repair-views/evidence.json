@@ -1,0 +1,879 @@
+{
+  "source": "ddaf1edf5c4d13254151308996a1727bc705829b",
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "evidence": [
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 1,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2404,
+      "meshes": 7,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2573701795631112,
+          0.25579345046950563,
+          -0.7468639125268118
+        ],
+        [
+          0.2573701795631112,
+          0.7017511111445545,
+          0.5181288769151204
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2404,
+      "meshes": 7,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2573701795631112,
+          0.25579345046950563,
+          -0.7468639125268118
+        ],
+        [
+          0.2573701795631112,
+          0.7017511111445545,
+          0.5181288769151204
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 1,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2404,
+      "meshes": 7,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2573701795631112,
+          0.25579345046950563,
+          -0.7468639125268118
+        ],
+        [
+          0.2573701795631112,
+          0.7017511111445545,
+          0.5181288769151204
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 1,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2404,
+      "meshes": 7,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2573701795631112,
+          0.25579345046950563,
+          -0.7468639125268118
+        ],
+        [
+          0.2573701795631112,
+          0.7017511111445545,
+          0.5181288769151204
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2576,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34570185822977706,
+          0.21980693757010683,
+          -0.7481965622121636
+        ],
+        [
+          0.34843417662417187,
+          0.7658294421382068,
+          0.5286505248753005
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2576,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34570185822977706,
+          0.21980693757010683,
+          -0.7481965622121636
+        ],
+        [
+          0.34843417662417187,
+          0.7658294421382068,
+          0.5286505248753005
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2576,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34570185822977706,
+          0.21980693757010683,
+          -0.7481965622121636
+        ],
+        [
+          0.34843417662417187,
+          0.7658294421382068,
+          0.5286505248753005
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2576,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34570185822977706,
+          0.21980693757010683,
+          -0.7481965622121636
+        ],
+        [
+          0.34843417662417187,
+          0.7658294421382068,
+          0.5286505248753005
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44967493663297275,
+          0.200909252757561,
+          -0.7818421488180278
+        ],
+        [
+          0.45033156585445266,
+          0.9343138593382952,
+          0.5555705605450466
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44967493663297275,
+          0.200909252757561,
+          -0.7818421488180278
+        ],
+        [
+          0.45033156585445266,
+          0.9343138593382952,
+          0.5555705605450466
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44967493663297275,
+          0.200909252757561,
+          -0.7818421488180278
+        ],
+        [
+          0.45033156585445266,
+          0.9343138593382952,
+          0.5555705605450466
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44967493663297275,
+          0.200909252757561,
+          -0.7818421488180278
+        ],
+        [
+          0.45033156585445266,
+          0.9343138593382952,
+          0.5555705605450466
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 4,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2552,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.35940692452757517,
+          0.14468603908492306,
+          -0.8118234942104987
+        ],
+        [
+          0.3605903695489202,
+          1.0120808142371294,
+          0.5866076287320839
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2552,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.35940692452757517,
+          0.14468603908492306,
+          -0.8118234942104987
+        ],
+        [
+          0.3605903695489202,
+          1.0120808142371294,
+          0.5866076287320839
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 4,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2552,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.35940692452757517,
+          0.14468603908492306,
+          -0.8118234942104987
+        ],
+        [
+          0.3605903695489202,
+          1.0120808142371294,
+          0.5866076287320839
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 4,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2552,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.35940692452757517,
+          0.14468603908492306,
+          -0.8118234942104987
+        ],
+        [
+          0.3605903695489202,
+          1.0120808142371294,
+          0.5866076287320839
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7496,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7349798535229393,
+          -0.2495806747727277,
+          -0.8627913152688077
+        ],
+        [
+          0.5489896025147781,
+          1.3423041456885456,
+          0.6129997881829151
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7496,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7349798535229393,
+          -0.2495806747727277,
+          -0.8627913152688077
+        ],
+        [
+          0.5489896025147781,
+          1.3423041456885456,
+          0.6129997881829151
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7496,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7349798535229393,
+          -0.2495806747727277,
+          -0.8627913152688077
+        ],
+        [
+          0.5489896025147781,
+          1.3423041456885456,
+          0.6129997881829151
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7496,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7349798535229393,
+          -0.2495806747727277,
+          -0.8627913152688077
+        ],
+        [
+          0.5489896025147781,
+          1.3423041456885456,
+          0.6129997881829151
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4913008646303789,
+          0.18112021266890743,
+          -0.8191519468654531
+        ],
+        [
+          0.49122507249438885,
+          0.9618755239195941,
+          0.5762619396866795
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4913008646303789,
+          0.18112021266890743,
+          -0.8191519468654531
+        ],
+        [
+          0.49122507249438885,
+          0.9618755239195941,
+          0.5762619396866795
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4913008646303789,
+          0.18112021266890743,
+          -0.8191519468654531
+        ],
+        [
+          0.49122507249438885,
+          0.9618755239195941,
+          0.5762619396866795
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4913008646303789,
+          0.18112021266890743,
+          -0.8191519468654531
+        ],
+        [
+          0.49122507249438885,
+          0.9618755239195941,
+          0.5762619396866795
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6063636340773817,
+          0.10256271063758116,
+          -0.9050980339868104
+        ],
+        [
+          0.6051614899793463,
+          1.1170404404349443,
+          0.639039971287438
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6063636340773817,
+          0.10256271063758116,
+          -0.9050980339868104
+        ],
+        [
+          0.6051614899793463,
+          1.1170404404349443,
+          0.639039971287438
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6063636340773817,
+          0.10256271063758116,
+          -0.9050980339868104
+        ],
+        [
+          0.6051614899793463,
+          1.1170404404349443,
+          0.639039971287438
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6063636340773817,
+          0.10256271063758116,
+          -0.9050980339868104
+        ],
+        [
+          0.6051614899793463,
+          1.1170404404349443,
+          0.639039971287438
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 8,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2552,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4204879421969594,
+          0.09640420972777586,
+          -0.8987684934027136
+        ],
+        [
+          0.4223021795846089,
+          1.125995442265999,
+          0.6236973950578708
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2552,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4204879421969594,
+          0.09640420972777586,
+          -0.8987684934027136
+        ],
+        [
+          0.4223021795846089,
+          1.125995442265999,
+          0.6236973950578708
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 8,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2552,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4204879421969594,
+          0.09640420972777586,
+          -0.8987684934027136
+        ],
+        [
+          0.4223021795846089,
+          1.125995442265999,
+          0.6236973950578708
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 8,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2552,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4204879421969594,
+          0.09640420972777586,
+          -0.8987684934027136
+        ],
+        [
+          0.4223021795846089,
+          1.125995442265999,
+          0.6236973950578708
+        ]
+      ]
+    }
+  ],
+  "errors": []
+}

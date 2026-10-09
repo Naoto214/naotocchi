@@ -1,0 +1,4573 @@
+{
+  "source": "ddaf1edf5c4d13254151308996a1727bc705829b",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "clownfish",
+      "stage": 2
+    },
+    {
+      "id": "clownfish",
+      "stage": 3
+    },
+    {
+      "id": "clownfish",
+      "stage": 5
+    },
+    {
+      "id": "clownfish",
+      "stage": 6
+    },
+    {
+      "id": "clownfish",
+      "stage": 7
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2576,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34570185822977706,
+          0.21980693757010683,
+          -0.7481965622121636
+        ],
+        [
+          0.34843417662417187,
+          0.7658294421382068,
+          0.5286505248753005
+        ]
+      ],
+      "file": "clownfish-2-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2576,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3463020114433877,
+          0.21980693757010683,
+          -0.7337546787168556
+        ],
+        [
+          0.3480825450354743,
+          0.7658294421382068,
+          0.5257105901692175
+        ]
+      ],
+      "file": "clownfish-2-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2576,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3312906305811003,
+          0.18959460973739622,
+          -0.7486266329181762
+        ],
+        [
+          0.331886406360079,
+          0.7356171143054961,
+          0.5244067809274037
+        ]
+      ],
+      "file": "clownfish-2-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2576,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3314240843120504,
+          0.18959460973739622,
+          -0.7449900386301962
+        ],
+        [
+          0.3318122908559075,
+          0.7356171143054961,
+          0.5228897990786282
+        ]
+      ],
+      "file": "clownfish-2-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2416,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3478234208795451,
+          0.24706336628128128,
+          -0.7493204270508419
+        ],
+        [
+          0.346667189742341,
+          0.8680297193988611,
+          0.5391493359118504
+        ]
+      ],
+      "file": "clownfish-2-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2416,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3477357504606079,
+          0.2161889695026446,
+          -0.7412222970031488
+        ],
+        [
+          0.34677926912868984,
+          0.837062290277087,
+          0.5385132603779785
+        ]
+      ],
+      "file": "clownfish-2-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2416,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.331756888464467,
+          0.155144526694714,
+          -0.7576781584498085
+        ],
+        [
+          0.33150480708823116,
+          0.7758402515191856,
+          0.5372990112804976
+        ]
+      ],
+      "file": "clownfish-2-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2416,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3317380265811248,
+          0.1551681196528441,
+          -0.7556242889405096
+        ],
+        [
+          0.33152949646606067,
+          0.7758166585610555,
+          0.5369763943726112
+        ]
+      ],
+      "file": "clownfish-2-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2576,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4496798556844935,
+          0.13629141742669937,
+          -0.6905875199401189
+        ],
+        [
+          0.4496798556844935,
+          0.838511250450851,
+          0.6171951985019459
+        ]
+      ],
+      "file": "clownfish-2-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2576,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4682939644420604,
+          0.13631496745358018,
+          -0.6051373750870441
+        ],
+        [
+          0.4682939644420604,
+          0.8384877004239701,
+          0.6170280844641945
+        ]
+      ],
+      "file": "clownfish-2-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2576,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.43961733246448953,
+          0.10615460882271893,
+          -0.7032987157982263
+        ],
+        [
+          0.43961733246448953,
+          0.80822340338941,
+          0.6166593042838691
+        ]
+      ],
+      "file": "clownfish-2-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2576,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4494063985286113,
+          0.10608037618737493,
+          -0.6639450328120907
+        ],
+        [
+          0.4494063985286113,
+          0.808297636024754,
+          0.6171860686688126
+        ]
+      ],
+      "file": "clownfish-2-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2776,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3443987462584177,
+          0.14433582119137345,
+          -0.7573990679961512
+        ],
+        [
+          0.3489632093755749,
+          0.8091901372781368,
+          0.5770960486919372
+        ]
+      ],
+      "file": "clownfish-2-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2776,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3494384798673608,
+          0.14269186181579713,
+          -0.7558845255533111
+        ],
+        [
+          0.34077118077965834,
+          0.8108340966537132,
+          0.5880727294103785
+        ]
+      ],
+      "file": "clownfish-2-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2776,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3309983158773352,
+          0.11513149335154282,
+          -0.7660970343195741
+        ],
+        [
+          0.33199386412784254,
+          0.7779698094525462,
+          0.5703656548328091
+        ]
+      ],
+      "file": "clownfish-2-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2776,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.33206570669375124,
+          0.11421950926063784,
+          -0.7657194535038443
+        ],
+        [
+          0.33017314456717706,
+          0.7788817935434513,
+          0.5764549526189254
+        ]
+      ],
+      "file": "clownfish-2-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2416,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.345122311267802,
+          0.13112292614352433,
+          -0.7554660950660517
+        ],
+        [
+          0.3487035068963289,
+          0.8141955230111899,
+          0.5825011378343758
+        ]
+      ],
+      "file": "clownfish-2-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2416,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34768013993129754,
+          0.13264626980088667,
+          -0.7423691670356912
+        ],
+        [
+          0.3468477153374522,
+          0.8126721793538276,
+          0.5741615937348251
+        ]
+      ],
+      "file": "clownfish-2-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2416,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3311610009498047,
+          0.10188933776502324,
+          -0.7671154970657905
+        ],
+        [
+          0.3319419597012955,
+          0.7830044557242699,
+          0.5771430291758982
+        ]
+      ],
+      "file": "clownfish-2-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2416,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3317260350734441,
+          0.10267482658084676,
+          -0.7637686222919504
+        ],
+        [
+          0.3315445523946403,
+          0.7822189669084463,
+          0.5728428710417799
+        ]
+      ],
+      "file": "clownfish-2-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2416,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34462801877682114,
+          0.1805722234426837,
+          -0.7617850141392117
+        ],
+        [
+          0.3491977993873098,
+          0.7933319193106894,
+          0.5571566863655948
+        ]
+      ],
+      "file": "clownfish-2-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2416,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3406053482254744,
+          0.17944954533904822,
+          -0.752951507246584
+        ],
+        [
+          0.3499310229907594,
+          0.7944545974143249,
+          0.5702619332372637
+        ]
+      ],
+      "file": "clownfish-2-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2416,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3311610009498047,
+          0.15082601283929348,
+          -0.7623297198392183
+        ],
+        [
+          0.3319419597012955,
+          0.7626534742486584,
+          0.5517156063787303
+        ]
+      ],
+      "file": "clownfish-2-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2416,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3302483618155244,
+          0.15021062033275812,
+          -0.7601154537037023
+        ],
+        [
+          0.332068605842341,
+          0.7632688667551937,
+          0.5588992066422476
+        ]
+      ],
+      "file": "clownfish-2-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2576,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34698278289507356,
+          0.20575522033354093,
+          -0.7574010288615893
+        ],
+        [
+          0.3475655094408526,
+          0.8453626235417797,
+          0.5408594423871167
+        ]
+      ],
+      "file": "clownfish-2-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2576,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3494260829192014,
+          0.18802093834711936,
+          -0.735690523015548
+        ],
+        [
+          0.34018119630381527,
+          0.8321759925779959,
+          0.5655051670479262
+        ]
+      ],
+      "file": "clownfish-2-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2576,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3315742116491215,
+          0.14470888010306993,
+          -0.7614991341769768
+        ],
+        [
+          0.33170125498418174,
+          0.7841424822064187,
+          0.5399175376201195
+        ]
+      ],
+      "file": "clownfish-2-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2576,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.33205695964012094,
+          0.1434845862151251,
+          -0.7560067823070149
+        ],
+        [
+          0.330037838244712,
+          0.7853667760943635,
+          0.5531875136653345
+        ]
+      ],
+      "file": "clownfish-2-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2416,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34310701684161293,
+          0.14565902479378268,
+          -0.7581477133456431
+        ],
+        [
+          0.350215993399962,
+          0.8185655121155477,
+          0.5740610782118432
+        ]
+      ],
+      "file": "clownfish-2-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2416,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3480472930807065,
+          0.14501260258879878,
+          -0.7664205683250975
+        ],
+        [
+          0.3442285996515789,
+          0.8192119343205316,
+          0.5786569254757271
+        ]
+      ],
+      "file": "clownfish-2-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2416,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3309856913284368,
+          0.11640900234221135,
+          -0.7655201970888903
+        ],
+        [
+          0.33199718681214474,
+          0.7873908789016979,
+          0.5672194064393831
+        ]
+      ],
+      "file": "clownfish-2-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2416,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3320526026567328,
+          0.11605781552709765,
+          -0.7675978760670704
+        ],
+        [
+          0.3306801290384866,
+          0.7877420657168115,
+          0.5697162281000692
+        ]
+      ],
+      "file": "clownfish-2-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44967493663297275,
+          0.200909252757561,
+          -0.7818421488180278
+        ],
+        [
+          0.45033156585445266,
+          0.9343138593382952,
+          0.5555705605450466
+        ]
+      ],
+      "file": "clownfish-3-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44995041755655574,
+          0.200909252757561,
+          -0.7669378029511242
+        ],
+        [
+          0.45037831438907316,
+          0.9343138593382952,
+          0.5519653367580466
+        ]
+      ],
+      "file": "clownfish-3-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4285109521522963,
+          0.17069692492485045,
+          -0.7822905306504015
+        ],
+        [
+          0.4277514177980921,
+          0.9041015315055847,
+          0.5503708532039311
+        ]
+      ],
+      "file": "clownfish-3-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.42841694799550123,
+          0.17069692492485045,
+          -0.7785374781728296
+        ],
+        [
+          0.42792203662617384,
+          0.9041015315055847,
+          0.5485188819113405
+        ]
+      ],
+      "file": "clownfish-3-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.45037205249704637,
+          0.2264928934282604,
+          -0.784253059075422
+        ],
+        [
+          0.45009418767974296,
+          1.038108125793558,
+          0.5706513104266306
+        ]
+      ],
+      "file": "clownfish-3-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.45036387476937645,
+          0.1956287529465202,
+          -0.7758940324995902
+        ],
+        [
+          0.4501340137130567,
+          1.0071304403748873,
+          0.5698749873335988
+        ]
+      ],
+      "file": "clownfish-3-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4280251535410735,
+          0.13460376998835288,
+          -0.7928811871681807
+        ],
+        [
+          0.4283465235464712,
+          0.9458889417672228,
+          0.5683946386430134
+        ]
+      ],
+      "file": "clownfish-3-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4280566766453284,
+          0.13463250747489924,
+          -0.7907611471738374
+        ],
+        [
+          0.4283225246234871,
+          0.9458602042806765,
+          0.5680016739711451
+        ]
+      ],
+      "file": "clownfish-3-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5099970052909478,
+          0.11177784182687084,
+          -0.7238450802416707
+        ],
+        [
+          0.5099970052909478,
+          1.0123220817364866,
+          0.6776622919926322
+        ]
+      ],
+      "file": "clownfish-3-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5285050202255857,
+          0.11152107599330485,
+          -0.6634650014024471
+        ],
+        [
+          0.5285050202255857,
+          1.0125788475700526,
+          0.6794843355691007
+        ]
+      ],
+      "file": "clownfish-3-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.49992361182623196,
+          0.08179215132165052,
+          -0.7370707784973384
+        ],
+        [
+          0.49992361182623196,
+          0.9818831165762858,
+          0.6760540441934352
+        ]
+      ],
+      "file": "clownfish-3-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5097238446655001,
+          0.08157091095866509,
+          -0.6963461274979548
+        ],
+        [
+          0.5097238446655001,
+          0.9821043569392712,
+          0.6776239944342235
+        ]
+      ],
+      "file": "clownfish-3-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4489529568115924,
+          0.12692639863234095,
+          -0.7939551054216059
+        ],
+        [
+          0.4500498860235177,
+          0.9740646663569308,
+          0.6220042684179009
+        ]
+      ],
+      "file": "clownfish-3-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44849927214424734,
+          0.12486935509024,
+          -0.7923490558090556
+        ],
+        [
+          0.44641635169692084,
+          0.9761217098990317,
+          0.6357391030622532
+        ]
+      ],
+      "file": "clownfish-3-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.42864644113857514,
+          0.09795626800165569,
+          -0.8029458882327305
+        ],
+        [
+          0.42737725040573854,
+          0.942610141322195,
+          0.6137101449264415
+        ]
+      ],
+      "file": "clownfish-3-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.42631913314259645,
+          0.0968329405914431,
+          -0.8025454539549164
+        ],
+        [
+          0.42873189647289356,
+          0.9437334687324076,
+          0.6212105774233543
+        ]
+      ],
+      "file": "clownfish-3-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.449371824600155,
+          0.11499788794711047,
+          -0.7925544150952202
+        ],
+        [
+          0.45023245552162844,
+          0.9770191888411148,
+          0.6306116842411518
+        ]
+      ],
+      "file": "clownfish-3-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4503572894225173,
+          0.11686557961342114,
+          -0.7790444397202646
+        ],
+        [
+          0.45015724161179416,
+          0.9751514971748041,
+          0.6203870071367545
+        ]
+      ],
+      "file": "clownfish-3-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.42858117202515267,
+          0.08598791319734883,
+          -0.8045870836500886
+        ],
+        [
+          0.4275855541737681,
+          0.9456045079254554,
+          0.6240294028826268
+        ]
+      ],
+      "file": "clownfish-3-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.428075895891969,
+          0.08694676766732079,
+          -0.8011346040566427
+        ],
+        [
+          0.4283072620100761,
+          0.9446456534554833,
+          0.6187801545605324
+        ]
+      ],
+      "file": "clownfish-3-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44887753210917414,
+          0.16278285320481994,
+          -0.7973763056502966
+        ],
+        [
+          0.45072674801260937,
+          0.9594121357510312,
+          0.5942003814038991
+        ]
+      ],
+      "file": "clownfish-3-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4461735411058905,
+          0.1613828081349694,
+          -0.7882129572292691
+        ],
+        [
+          0.44916569082066743,
+          0.9608121808208817,
+          0.6105433885512188
+        ]
+      ],
+      "file": "clownfish-3-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.42858117202515267,
+          0.13314313689326407,
+          -0.7979461776348642
+        ],
+        [
+          0.4275855541737681,
+          0.928627196397166,
+          0.5875161721706438
+        ]
+      ],
+      "file": "clownfish-3-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4287362285971611,
+          0.1323861999004498,
+          -0.7956492514804805
+        ],
+        [
+          0.42641566116192176,
+          0.9293841333899802,
+          0.5963520496363279
+        ]
+      ],
+      "file": "clownfish-3-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4502004944584194,
+          0.18485657609564998,
+          -0.7929102573324629
+        ],
+        [
+          0.4503405349745157,
+          1.0157228774063642,
+          0.5734124521950378
+        ]
+      ],
+      "file": "clownfish-3-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44817815548284323,
+          0.1665749000201064,
+          -0.7704320029630379
+        ],
+        [
+          0.44595642952536185,
+          1.0030836405317025,
+          0.6039913163752605
+        ]
+      ],
+      "file": "clownfish-3-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.42827571044469,
+          0.12382914892677133,
+          -0.7971407605706603
+        ],
+        [
+          0.42811374720137657,
+          0.9544838230094113,
+          0.5722655509996979
+        ]
+      ],
+      "file": "clownfish-3-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4261454626770871,
+          0.12232653854940029,
+          -0.7914543685212985
+        ],
+        [
+          0.4287195721310681,
+          0.9559864333867822,
+          0.588552166418874
+        ]
+      ],
+      "file": "clownfish-3-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4476831997886389,
+          0.12598937167437457,
+          -0.7945061340943418
+        ],
+        [
+          0.45126914702745213,
+          0.9866372568823221,
+          0.6175770030853711
+        ]
+      ],
+      "file": "clownfish-3-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44831742701740795,
+          0.12518523500865186,
+          -0.8030316575771338
+        ],
+        [
+          0.4492772427441742,
+          0.9874413935480447,
+          0.6232941478035708
+        ]
+      ],
+      "file": "clownfish-3-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4286506013715871,
+          0.09696321291738064,
+          -0.802129098895183
+        ],
+        [
+          0.4273610800514763,
+          0.9552387599738948,
+          0.6091437347676906
+        ]
+      ],
+      "file": "clownfish-3-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.42696949211110846,
+          0.09653170448797516,
+          -0.804270248067777
+        ],
+        [
+          0.4287192122240745,
+          0.9556702684033003,
+          0.612211616439044
+        ]
+      ],
+      "file": "clownfish-3-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7496,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7349798535229393,
+          -0.2495806747727277,
+          -0.8627913152688077
+        ],
+        [
+          0.5489896025147781,
+          1.3423041456885456,
+          0.6129997881829151
+        ]
+      ],
+      "file": "clownfish-5-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7496,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7315938826479246,
+          -0.2495806747727277,
+          -0.8464924277572532
+        ],
+        [
+          0.5516452848662731,
+          1.3423041456885456,
+          0.608556127752889
+        ]
+      ],
+      "file": "clownfish-5-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7496,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7135583374400184,
+          -0.27979300260543827,
+          -0.8632853033953337
+        ],
+        [
+          0.5414368434855394,
+          1.3120918178558347,
+          0.6065942114842935
+        ]
+      ],
+      "file": "clownfish-5-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7496,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7121186556909586,
+          -0.27979300260543827,
+          -0.8591810875212842
+        ],
+        [
+          0.542372720983235,
+          1.3120918178558347,
+          0.6043179640236853
+        ]
+      ],
+      "file": "clownfish-5-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7176,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7204566666485468,
+          -0.21272099579218132,
+          -0.8670502619339668
+        ],
+        [
+          0.5593101719796254,
+          1.4027998504952752,
+          0.633506831534896
+        ]
+      ],
+      "file": "clownfish-5-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7176,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7212471926168913,
+          -0.24372953251719806,
+          -0.8579078456921805
+        ],
+        [
+          0.5588141610214767,
+          1.3719499651576093,
+          0.6325528241108496
+        ]
+      ],
+      "file": "clownfish-5-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7176,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7076209165994821,
+          -0.3050281872860014,
+          -0.8764879138119656
+        ],
+        [
+          0.5451302454823842,
+          1.3109512903518576,
+          0.6307349211462904
+        ]
+      ],
+      "file": "clownfish-5-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7176,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7079349198729201,
+          -0.30507173415321776,
+          -0.8741691873412506
+        ],
+        [
+          0.5449488763203403,
+          1.3109868217423832,
+          0.6302526261176772
+        ]
+      ],
+      "file": "clownfish-5-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7656,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7898682938567362,
+          -0.24045916899819686,
+          -0.8017179381551711
+        ],
+        [
+          0.5965183710077138,
+          1.3736446874712969,
+          0.7744755845801093
+        ]
+      ],
+      "file": "clownfish-5-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7656,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.800638660035238,
+          -0.23868714636641847,
+          -0.7573056288226876
+        ],
+        [
+          0.6159874262673963,
+          1.3698914583431412,
+          0.778290623593183
+        ]
+      ],
+      "file": "clownfish-5-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7656,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7834713025376865,
+          -0.27159023711014935,
+          -0.8162675918077555
+        ],
+        [
+          0.5858567692753048,
+          1.3453146659747184,
+          0.7717570028433831
+        ]
+      ],
+      "file": "clownfish-5-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7656,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7896994367286675,
+          -0.2706968043690501,
+          -0.7716433502482206
+        ],
+        [
+          0.59622982128289,
+          1.3434847851157343,
+          0.7744073986857419
+        ]
+      ],
+      "file": "clownfish-5-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8256,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7411890749963502,
+          -0.21461967155116063,
+          -0.8794708577608598
+        ],
+        [
+          0.5473084833871138,
+          1.3434206358719039,
+          0.7009210148099337
+        ]
+      ],
+      "file": "clownfish-5-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 8256,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.6872207074855182,
+          -0.2206324264156657,
+          -0.8776799258878492
+        ],
+        [
+          0.575267320892214,
+          1.358766079684051,
+          0.7180623259551037
+        ]
+      ],
+      "file": "clownfish-5-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 8256,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7171261218779543,
+          -0.24588661718528756,
+          -0.8893143709693511
+        ],
+        [
+          0.5395764809383485,
+          1.3160193527622446,
+          0.6906665003245014
+        ]
+      ],
+      "file": "clownfish-5-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 8256,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.6949338797326376,
+          -0.2489063414762212,
+          -0.888867808595559
+        ],
+        [
+          0.5528295234828536,
+          1.3237912706246275,
+          0.6999369207726939
+        ]
+      ],
+      "file": "clownfish-5-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7176,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7379072896565388,
+          -0.19986694554179152,
+          -0.8787330171094793
+        ],
+        [
+          0.5477102595491404,
+          1.3359395071130526,
+          0.7132047769719768
+        ]
+      ],
+      "file": "clownfish-5-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7176,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7217357316965182,
+          -0.20232292018512565,
+          -0.8639640731814802
+        ],
+        [
+          0.5585042466787482,
+          1.3423828424211297,
+          0.7006038229726133
+        ]
+      ],
+      "file": "clownfish-5-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7176,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7152233430923387,
+          -0.23107948076608692,
+          -0.8918997648452945
+        ],
+        [
+          0.5405845614509946,
+          1.3083781439622268,
+          0.7050826781757779
+        ]
+      ],
+      "file": "clownfish-5-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7176,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7081293377434137,
+          -0.2323050966240517,
+          -0.8881255134732944
+        ],
+        [
+          0.5448357822810709,
+          1.3115762253110608,
+          0.6986312437316851
+        ]
+      ],
+      "file": "clownfish-5-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7176,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.737412997165558,
+          -0.22432791509411934,
+          -0.8817448609911165
+        ],
+        [
+          0.5482045520401214,
+          1.3451302124912974,
+          0.6637951424152055
+        ]
+      ],
+      "file": "clownfish-5-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7176,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7521948281227079,
+          -0.22304942386498475,
+          -0.8716863330543934
+        ],
+        [
+          0.5454354554623769,
+          1.341656731082557,
+          0.6841495803902093
+        ]
+      ],
+      "file": "clownfish-5-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7176,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7152233430923387,
+          -0.2550165840982275,
+          -0.8823742691615805
+        ],
+        [
+          0.5405845614509946,
+          1.3161803864482429,
+          0.6555472713793297
+        ]
+      ],
+      "file": "clownfish-5-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7176,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7241724430414278,
+          -0.2543817517415965,
+          -0.8798529695118735
+        ],
+        [
+          0.535497663898297,
+          1.314493969796354,
+          0.6664586844617514
+        ]
+      ],
+      "file": "clownfish-5-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7656,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7271771415480338,
+          -0.25219454556794474,
+          -0.8769330970209488
+        ],
+        [
+          0.554868044378842,
+          1.369802510034077,
+          0.6374790216158759
+        ]
+      ],
+      "file": "clownfish-5-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7656,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.6843797823392517,
+          -0.2620177871468311,
+          -0.8522932733027615
+        ],
+        [
+          0.5762755609711715,
+          1.3499519461437905,
+          0.675444938566041
+        ]
+      ],
+      "file": "clownfish-5-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7656,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7103148644709588,
+          -0.31316957894458464,
+          -0.8815603712430893
+        ],
+        [
+          0.5435210651021067,
+          1.3085386123618608,
+          0.6360717054861054
+        ]
+      ],
+      "file": "clownfish-5-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7656,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.6938854292899549,
+          -0.31041473979449175,
+          -0.8753273095201732
+        ],
+        [
+          0.5535280011989423,
+          1.3063360012333294,
+          0.65615658863846
+        ]
+      ],
+      "file": "clownfish-5-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7176,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7401924817590193,
+          -0.23426582249639194,
+          -0.8797782866096204
+        ],
+        [
+          0.548510825159836,
+          1.3693437219879039,
+          0.6948652825821466
+        ]
+      ],
+      "file": "clownfish-5-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7176,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.6972461788296507,
+          -0.23895747809650805,
+          -0.8890916541561598
+        ],
+        [
+          0.5720226981874721,
+          1.3814384116603988,
+          0.7019749459422019
+        ]
+      ],
+      "file": "clownfish-5-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7176,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.7172663856395275,
+          -0.26548674002851735,
+          -0.8881260885790099
+        ],
+        [
+          0.539500688340738,
+          1.3418208783706567,
+          0.6844371845170631
+        ]
+      ],
+      "file": "clownfish-5-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7176,
+      "meshes": 21,
+      "drawCalls": 21,
+      "box": [
+        [
+          -0.6991375068760924,
+          -0.26783719124359007,
+          -0.890465112725402
+        ],
+        [
+          0.5498790825469332,
+          1.3479004117924565,
+          0.6882232173975728
+        ]
+      ],
+      "file": "clownfish-5-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4913008646303789,
+          0.18112021266890743,
+          -0.8191519468654531
+        ],
+        [
+          0.49122507249438885,
+          0.9618755239195941,
+          0.5762619396866795
+        ]
+      ],
+      "file": "clownfish-6-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.49146355074070835,
+          0.18112021266890743,
+          -0.8033119436503524
+        ],
+        [
+          0.4914141602873764,
+          0.9618755239195941,
+          0.5724186959740273
+        ]
+      ],
+      "file": "clownfish-6-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.46728079698508695,
+          0.15090788483619688,
+          -0.819622960334586
+        ],
+        [
+          0.46601900759079684,
+          0.9316631960868835,
+          0.5707196968146808
+        ]
+      ],
+      "file": "clownfish-6-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4671027460873314,
+          0.15090788483619688,
+          -0.8156343080322761
+        ],
+        [
+          0.4662805661379002,
+          0.9316631960868835,
+          0.5687468871394065
+        ]
+      ],
+      "file": "clownfish-6-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4914978771062594,
+          0.20527629491820465,
+          -0.8214599916496017
+        ],
+        [
+          0.4915299499524427,
+          1.0670766478337008,
+          0.592336169188136
+        ]
+      ],
+      "file": "clownfish-6-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.49151792258058735,
+          0.17441585603705534,
+          -0.8125781214452747
+        ],
+        [
+          0.49154445454089235,
+          1.0360952608144394,
+          0.5915092293419912
+        ]
+      ],
+      "file": "clownfish-6-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4664425323067035,
+          0.1133979109183289,
+          -0.830626414146894
+        ],
+        [
+          0.466976413706813,
+          0.974846724367334,
+          0.5899326432069071
+        ]
+      ],
+      "file": "clownfish-6-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.46649275132761586,
+          0.11342851215171063,
+          -0.8283737705364995
+        ],
+        [
+          0.4669343958134476,
+          0.9748161231339523,
+          0.5895141931237637
+        ]
+      ],
+      "file": "clownfish-6-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5365206736538067,
+          0.08847860294873922,
+          -0.7581661382105528
+        ],
+        [
+          0.5365206736538067,
+          1.0433178977197897,
+          0.707791081781324
+        ]
+      ],
+      "file": "clownfish-6-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5555059052427156,
+          0.08815562582862824,
+          -0.6929790188165034
+        ],
+        [
+          0.5555059052427156,
+          1.0436408748399009,
+          0.7100829692138207
+        ]
+      ],
+      "file": "clownfish-6-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.52617303444771,
+          0.058530988407604234,
+          -0.7720915139802935
+        ],
+        [
+          0.52617303444771,
+          1.0128408565955036,
+          0.705912642014543
+        ]
+      ],
+      "file": "clownfish-6-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5362402013396748,
+          0.058272687016279634,
+          -0.7289448952757855
+        ],
+        [
+          0.5362402013396748,
+          1.0130991579868283,
+          0.7077455821075433
+        ]
+      ],
+      "file": "clownfish-6-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.490778434283328,
+          0.1054295846543693,
+          -0.8315779502024456
+        ],
+        [
+          0.4906518200461267,
+          1.0027767400949998,
+          0.6472186244089316
+        ]
+      ],
+      "file": "clownfish-6-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.48836393235177034,
+          0.10322965148761942,
+          -0.8299233451587857
+        ],
+        [
+          0.4886043556905984,
+          1.0049766732617498,
+          0.6619075299452115
+        ]
+      ],
+      "file": "clownfish-6-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4675740585761104,
+          0.07654251567527437,
+          -0.8411157878383783
+        ],
+        [
+          0.4654655938343117,
+          0.9712391534086738,
+          0.6383699000903474
+        ]
+      ],
+      "file": "clownfish-6-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.46398561821534257,
+          0.07534416869045629,
+          -0.8407032950807227
+        ],
+        [
+          0.4679938624300372,
+          0.9724375003934919,
+          0.6463712366426231
+        ]
+      ],
+      "file": "clownfish-6-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4910930876043279,
+          0.09339574800419426,
+          -0.8300165746572501
+        ],
+        [
+          0.4909937483521231,
+          1.0056352296212732,
+          0.6564801780868337
+        ]
+      ],
+      "file": "clownfish-6-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.49152872742734344,
+          0.09538668154160196,
+          -0.8156507640617128
+        ],
+        [
+          0.49155181816162524,
+          1.0036442960838654,
+          0.645580813420009
+        ]
+      ],
+      "file": "clownfish-6-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4674247714697984,
+          0.0644655211007022,
+          -0.8427921962206654
+        ],
+        [
+          0.46577078434111996,
+          0.9741408008593442,
+          0.6494613171833088
+        ]
+      ],
+      "file": "clownfish-6-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.46652354942116736,
+          0.06548692365620151,
+          -0.8391210708162475
+        ],
+        [
+          0.4669079103291496,
+          0.9731193983038449,
+          0.6438696493978996
+        ]
+      ],
+      "file": "clownfish-6-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4905987951133469,
+          0.142077130012274,
+          -0.8353685493198804
+        ],
+        [
+          0.49148804084310405,
+          0.987550045818111,
+          0.6174685222224294
+        ]
+      ],
+      "file": "clownfish-6-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4883367071868284,
+          0.14058063266391568,
+          -0.8256870350820964
+        ],
+        [
+          0.48909402854888584,
+          0.9890465431664692,
+          0.6349374361787318
+        ]
+      ],
+      "file": "clownfish-6-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4674247714697984,
+          0.11247539300663817,
+          -0.8359648098808494
+        ],
+        [
+          0.46577078434111996,
+          0.9567271271583258,
+          0.6103409729271515
+        ]
+      ],
+      "file": "clownfish-6-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.46797224866528764,
+          0.11166808835246822,
+          -0.8335379734392971
+        ],
+        [
+          0.4641171664529923,
+          0.9575344318124956,
+          0.6197648022147133
+        ]
+      ],
+      "file": "clownfish-6-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4915628189448542,
+          0.1633000819331592,
+          -0.8306031229748309
+        ],
+        [
+          0.4915466546172659,
+          1.045019125509159,
+          0.5952947875890462
+        ]
+      ],
+      "file": "clownfish-6-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.48792959626006727,
+          0.14482648306324986,
+          -0.8068018848755597
+        ],
+        [
+          0.4881860413745912,
+          1.0325718114288627,
+          0.6279538801432255
+        ]
+      ],
+      "file": "clownfish-6-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.46685369523888187,
+          0.10227951098700583,
+          -0.8350977881085636
+        ],
+        [
+          0.4665846310398151,
+          0.9837732148894804,
+          0.594073572609882
+        ]
+      ],
+      "file": "clownfish-6-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4637502343892913,
+          0.10067747862128751,
+          -0.8290764917400334
+        ],
+        [
+          0.46802651760254765,
+          0.9853752472551988,
+          0.6114378111526624
+        ]
+      ],
+      "file": "clownfish-6-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.48951615330242715,
+          0.10404742747177187,
+          -0.8321925894357982
+        ],
+        [
+          0.49185897514930255,
+          1.0160406128518296,
+          0.6424719247931573
+        ]
+      ],
+      "file": "clownfish-6-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4886235116701152,
+          0.10318822938810429,
+          -0.8412682082542356
+        ],
+        [
+          0.4912694575787561,
+          1.016899810935497,
+          0.6485805379124367
+        ]
+      ],
+      "file": "clownfish-6-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.46758440051097305,
+          0.07510063253093158,
+          -0.8402766077188207
+        ],
+        [
+          0.4654421612344739,
+          0.9845627521272486,
+          0.6334744060915806
+        ]
+      ],
+      "file": "clownfish-6-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.46488388711380113,
+          0.07464048893222852,
+          -0.8425558939912003
+        ],
+        [
+          0.4677906394802952,
+          0.9850228957259517,
+          0.6367458743097022
+        ]
+      ],
+      "file": "clownfish-6-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6063636340773817,
+          0.10256271063758116,
+          -0.9050980339868104
+        ],
+        [
+          0.6051614899793463,
+          1.1170404404349443,
+          0.639039971287438
+        ]
+      ],
+      "file": "clownfish-7-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6063711359147959,
+          0.10256271063758116,
+          -0.8878652765442103
+        ],
+        [
+          0.6055877506572536,
+          1.1170404404349443,
+          0.634237491750045
+        ]
+      ],
+      "file": "clownfish-7-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5767309247041824,
+          0.0723503828048706,
+          -0.9056169855384784
+        ],
+        [
+          0.574633896621375,
+          1.0868281126022339,
+          0.632118259266534
+        ]
+      ],
+      "file": "clownfish-7-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.576417130317902,
+          0.0723503828048706,
+          -0.9012776167406149
+        ],
+        [
+          0.5750507101760934,
+          1.0868281126022339,
+          0.6296603068318593
+        ]
+      ],
+      "file": "clownfish-7-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6058176404448357,
+          0.12251876662209027,
+          -0.9095860426725051
+        ],
+        [
+          0.6063263499863027,
+          1.2263440934663437,
+          0.6605462099106538
+        ]
+      ],
+      "file": "clownfish-7-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6058828839798986,
+          0.09167318540583419,
+          -0.8999209571477433
+        ],
+        [
+          0.6063037091627929,
+          1.195347848782189,
+          0.6595161020734573
+        ]
+      ],
+      "file": "clownfish-7-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5753122585453667,
+          0.030683462170566167,
+          -0.919562406220802
+        ],
+        [
+          0.5761995415531209,
+          1.1340710904516251,
+          0.6575536017717009
+        ]
+      ],
+      "file": "clownfish-7-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5753939636712095,
+          0.03072153120722254,
+          -0.9171111197181898
+        ],
+        [
+          0.5761279537440357,
+          1.1340330214149688,
+          0.6570330347946994
+        ]
+      ],
+      "file": "clownfish-7-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6342000586982166,
+          -0.0013980971598523961,
+          -0.8411861428412772
+        ],
+        [
+          0.6342000586982166,
+          1.2094438452304481,
+          0.8138176144311341
+        ]
+      ],
+      "file": "clownfish-7-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6541485315453812,
+          -0.0020514092099450654,
+          -0.7962413382334654
+        ],
+        [
+          0.6541485315453812,
+          1.2100971572805408,
+          0.8184536012669561
+        ]
+      ],
+      "file": "clownfish-7-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.623250973008649,
+          -0.031162468427538115,
+          -0.8564903625757733
+        ],
+        [
+          0.623250973008649,
+          1.1787835608327129,
+          0.8106388566871423
+        ]
+      ],
+      "file": "clownfish-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6339039420638137,
+          -0.031599073818794565,
+          -0.8093908220941899
+        ],
+        [
+          0.6339039420638137,
+          1.1792201662239692,
+          0.813737065033409
+        ]
+      ],
+      "file": "clownfish-7-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6060911526040683,
+          0.024385140786520987,
+          -0.9227621670148343
+        ],
+        [
+          0.6040829157864827,
+          1.1578035286519195,
+          0.732280264739881
+        ]
+      ],
+      "file": "clownfish-7-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6004293863065957,
+          0.021600224040915106,
+          -0.9209002699515048
+        ],
+        [
+          0.6042427568367519,
+          1.1605884453975253,
+          0.7508750928105197
+        ]
+      ],
+      "file": "clownfish-7-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5772740215191142,
+          -0.004165829833484569,
+          -0.9331591654865866
+        ],
+        [
+          0.5737698632220405,
+          1.125929843606504,
+          0.7211874190442572
+        ]
+      ],
+      "file": "clownfish-7-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5715372559083249,
+          -0.005667614753312122,
+          -0.9326949365737567
+        ],
+        [
+          0.5781987484830776,
+          1.1274316285263315,
+          0.7312148040378419
+        ]
+      ],
+      "file": "clownfish-7-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6062796536077955,
+          0.013059216825380693,
+          -0.9220092668951604
+        ],
+        [
+          0.6047040271370389,
+          1.1590057476267654,
+          0.7452108903488017
+        ]
+      ],
+      "file": "clownfish-7-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6059213762504081,
+          0.015546739720964986,
+          -0.906389443247638
+        ],
+        [
+          0.6062876199190096,
+          1.1565182247311814,
+          0.7315929474860026
+        ]
+      ],
+      "file": "clownfish-7-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5769925275637006,
+          -0.015549147348778436,
+          -0.9359228986980588
+        ],
+        [
+          0.5742436873268622,
+          1.1271894561355036,
+          0.736429992092575
+        ]
+      ],
+      "file": "clownfish-7-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5754442249528192,
+          -0.01427664685522656,
+          -0.9319312405567894
+        ],
+        [
+          0.5760830127106015,
+          1.1259169556419517,
+          0.7294636887693638
+        ]
+      ],
+      "file": "clownfish-7-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6057853611168145,
+          0.062407380930498135,
+          -0.9251296450634778
+        ],
+        [
+          0.6051983196280198,
+          1.1422238203350832,
+          0.6928564043607787
+        ]
+      ],
+      "file": "clownfish-7-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6039609385188898,
+          0.06051699236860353,
+          -0.914529364496304
+        ],
+        [
+          0.6012814358803265,
+          1.1441142088969778,
+          0.7149232895229496
+        ]
+      ],
+      "file": "clownfish-7-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5769925275637006,
+          0.03295892860442945,
+          -0.9257894324907293
+        ],
+        [
+          0.5742436873268622,
+          1.1112476169957308,
+          0.6839395322303388
+        ]
+      ],
+      "file": "clownfish-7-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5781392851609595,
+          0.03194813104151489,
+          -0.9231323207765049
+        ],
+        [
+          0.5717323398360916,
+          1.1122584145586454,
+          0.6957387750911201
+        ]
+      ],
+      "file": "clownfish-7-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6062505249563387,
+          0.07959215847928508,
+          -0.9200363652068096
+        ],
+        [
+          0.605994141483895,
+          1.2051796501101943,
+          0.6646917575022568
+        ]
+      ],
+      "file": "clownfish-7-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5997766354537664,
+          0.060337797559495976,
+          -0.894038137180686
+        ],
+        [
+          0.6038441284313387,
+          1.1935130980797783,
+          0.7058134371859937
+        ]
+      ],
+      "file": "clownfish-7-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5759914396004764,
+          0.018599051388343668,
+          -0.9249279073605752
+        ],
+        [
+          0.5755442689521301,
+          1.143906275635304,
+          0.6631728650582612
+        ]
+      ],
+      "file": "clownfish-7-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2556,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5711894744496966,
+          0.0165960604170578,
+          -0.9183510782163244
+        ],
+        [
+          0.578296433843092,
+          1.14590926660659,
+          0.6848830463059715
+        ]
+      ],
+      "file": "clownfish-7-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6048375044923034,
+          0.020434085340378494,
+          -0.9230784097296824
+        ],
+        [
+          0.6052685897274637,
+          1.1747956234692685,
+          0.725870008715668
+        ]
+      ],
+      "file": "clownfish-7-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6015197646315938,
+          0.019350444562919344,
+          -0.932934413720987
+        ],
+        [
+          0.606758720723852,
+          1.1758792642467277,
+          0.7335743348723526
+        ]
+      ],
+      "file": "clownfish-7-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5772940126295603,
+          -0.008191512226807585,
+          -0.9318939172423284
+        ],
+        [
+          0.5737337228195167,
+          1.1429965653710337,
+          0.7145888833256234
+        ]
+      ],
+      "file": "clownfish-7-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "clownfish",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2396,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5728812884119088,
+          -0.008767246426753528,
+          -0.9343692125785518
+        ],
+        [
+          0.5777121590547345,
+          1.1435722995709794,
+          0.7186821623422561
+        ]
+      ],
+      "file": "clownfish-7-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}

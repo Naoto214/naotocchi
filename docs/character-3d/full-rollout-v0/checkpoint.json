@@ -1,5 +1,5 @@
 {
-  "baseCommit": "ddaf1edf5c4d13254151308996a1727bc705829b",
+  "baseCommit": "f07fef280059b41e6ab22c2475b0cc5fd3c7c9ca",
   "checkpoint": "all293-exact-fourview-models-registered-final-integration-open",
   "coverage": {
     "exact": 293,
@@ -162,10 +162,13 @@
     "sceneActualAd96": "Character37929709480FAILURE; dedicated113817149250SUCCESS. 1rawJSONhash/sizeverified;17phasesREADY/all3cycles exact11,on/forestattached,off0/0,cityhiddenidentitybound/cacheplateauPASS_SCOPED. OriginaloverallFAILsave/storage/writesfalse;getter/restoredstep+regiontrue,writes20to23. No fielddelta/stacks inoriginalresult,causeunproven. FailedarchiveDIAGNOSTIC_NOT_APPROVED.",
     "motionRepairCandidate": "e30be553 only3captilts+5clownfishrootFactor optins, factorylegacydefaults exact.25focusedPASS+root9PASS;8formerrows and1legacydefault negativecontrols detected/exactrestored, harnesswordingfailure retained/repaired;28Pilot/38unique unaffected rigs exact. IndependentC0/I0. Fresh8stage4view/32state/2distancegateOPEN.",
     "sceneSaveObservability": "051e22ab diagnostic-only:18focusedPASS,4controlsRED/exactrestored,root4PASS,14functional/metric/validatorfunctions exact andstrictprewarmupbaselineunchanged. Capturesphase/whole-span save/storage deltas,originalwrite stacks, synchronousdraw/flagproofs andcleanup. ActualnewdiagnosisPENDING. Native metrics nowcontinue aftercompletedscenefailure independently;setupfailures do not run them,jobfailure retained;YAMLvalid/8routingPASS.",
-    "motionRepairCI": "ddaf Character37931349651SUCCESS:dedicated113822573246 andstage-evidence mushroom113823115627/clownfish113823115600SUCCESS. New8stagecaptureactualreviewpending; recoveryrequest selectsverified2sourceartifacts. Scoped2families isnotfull248aggregate."
+    "motionRepairCI": "ddaf Character37931349651SUCCESS:dedicated113822573246 andstage-evidence mushroom113823115627/clownfish113823115600SUCCESS. New8stagecaptureactualreviewpending; recoveryrequest selectsverified2sourceartifacts. Scoped2families isnotfull248aggregate.",
+    "motionRepairActual": "ddaf twoartifacts/118entries/368rawfiles SHA256,size,directbytesverified. ActualClownfish2/3/5/6/7 PASS20views160cells10distance incl20priorrawfailsresolved. Mushroom5/7 PASS8views64cells4distance;6fourviews/distancePASSbut32stateREJECTsickforeheadcollar in4rawstates. Current85/86missingmotionstagesaccepted;6replacementOPEN.",
+    "mushroom6CollarCandidate": "64f72fb5 onlycollar.at .50to.61;guardnowincludesactualcollar+allnon-supportmeshes, excludesstemonlyafterexactface-targetidentity.20affectedPASS,3controlsRED/exactrestore,root1actual32stategeometrytestPASS. Other292inputsexact;new6imagesOPEN.",
+    "sceneObservationCI": "f07 Character37932498805FAILURE:dedicated2oldworkflowtestcontextfail(successundefined),fixed2evaluators+26relatedPASS/C0I0. Meguru113826398450FAILunchangedsavebutindependentnative1/5/27metricsstepcompleted;2rawJSONartifact11616792990recoveryrequested. No causeclaimuntilfielddelta/callstacksread."
   },
   "next": [
-    "Run reviewed [qa:runtime] [qa:scene] QA against unchangedproduction; retain6df45role actualPASS. Complete boundedMushroom5/6/7 andClownfish2 motion repair then actual scoped recapture/review.",
+    "ActuallyreviewMushroom6collar-onlyreplacement;recoverf07savephasefielddeltas/callstacks/nativeperformance andresolveactualscenecontractwithprotectedproductionunchanged.",
     "Complete and archive actual86stage motion findings, retainnormaldistance80PASS; changed stage image evidence must be renewed. All other unchanged approvals reused.",
     "Retain completed final npm3022+80 PASS; finish dedicated/sourceCI/protected checks, runtime/scene/performance evidence and independent final review.",
     "Publish complete source-specific Human QA package and architecture/roadmap; confirmremote/local/tree/clean andDraft376.",
@@ -201,7 +204,7 @@
     ],
     "candidateBatchInProgress": [],
     "missingLegacyFourViewRecords": [],
-    "full293Integration": "OPEN:8stagevisualrepairs and actualscene/save/defaultmetrics remaining;Human/iPhoneseparate",
+    "full293Integration": "OPEN:Mushroom6visualgate andactualscene/save contract;nativeperformanceJSONretrievalpending;Human/iPhoneseparate",
     "humanQA": "OPEN_SEPARATE",
     "iPhoneQA": "OPEN_SEPARATE",
     "candidateBatchReview": "All45nonplayer models actualimagePASS andregistered. Finalproduction-presenter/scene/gallery/performance gatesOPEN.",
@@ -218,7 +221,7 @@
       "homeRun": 37890612549,
       "homeStatus": "SUCCESS"
     },
-    "playerImageIntegration": "86stage/2752cellactualreviewcomplete:78PASS/8REJECT;boundedrepairreplacementOPEN. Early5family80normaldistancePASS. Prior136full32+26Pilot minimum unchanged evidence retained."
+    "playerImageIntegration": "Actual85/86missingmotionstagesPASS;Mushroom6onlyREJECTpendingcollarcorrectionnewimages. Other7ddafrepairs4views/32states/distancePASS;updatedcoveragepathssourcequalified. Prior136full32+26Pilotminimumreused;notall248x32."
   },
   "verificationHistoryNote": "verification entries are source-scoped historical evidence. Current coverage/currentGates/next identify the active state; older pending or REJECT records are not current verdicts."
 }

@@ -1321,13 +1321,12 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-2-34.jpg",
-        "front": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-2-front.jpg",
-        "side": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-2-side.jpg",
-        "back": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-2-back.jpg"
+        "34": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-2-back.jpg"
       },
-      "replacementImageGate": "OPEN",
-      "historicalViewsOnly": true
+      "replacementImageGate": "PASS_ACTUAL_DDAF"
     },
     {
       "key": "form:clownfish:3",
@@ -1343,13 +1342,12 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-3-34.jpg",
-        "front": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-3-front.jpg",
-        "side": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-3-side.jpg",
-        "back": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-3-back.jpg"
+        "34": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-3-back.jpg"
       },
-      "replacementImageGate": "OPEN",
-      "historicalViewsOnly": true
+      "replacementImageGate": "PASS_ACTUAL_DDAF"
     },
     {
       "key": "form:clownfish:4",
@@ -1385,13 +1383,12 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-5-34.jpg",
-        "front": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-5-front.jpg",
-        "side": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-5-side.jpg",
-        "back": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-5-back.jpg"
+        "34": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-5-back.jpg"
       },
-      "replacementImageGate": "OPEN",
-      "historicalViewsOnly": true
+      "replacementImageGate": "PASS_ACTUAL_DDAF"
     },
     {
       "key": "form:clownfish:6",
@@ -1407,13 +1404,12 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-6-34.jpg",
-        "front": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-6-front.jpg",
-        "side": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-6-side.jpg",
-        "back": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-6-back.jpg"
+        "34": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-6-back.jpg"
       },
-      "replacementImageGate": "OPEN",
-      "historicalViewsOnly": true
+      "replacementImageGate": "PASS_ACTUAL_DDAF"
     },
     {
       "key": "form:clownfish:7",
@@ -1429,13 +1425,12 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-7-34.jpg",
-        "front": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-7-front.jpg",
-        "side": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-7-side.jpg",
-        "back": "docs/qa/character-3d-full-v0/fr1-fish/clownfish-7-back.jpg"
+        "34": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-7-back.jpg"
       },
-      "replacementImageGate": "OPEN",
-      "historicalViewsOnly": true
+      "replacementImageGate": "PASS_ACTUAL_DDAF"
     },
     {
       "key": "form:clownfish:8",
@@ -3471,13 +3466,12 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": "docs/qa/character-3d-full-v0/fr1-topology/3ce6f6e/mushroom-5-34.jpg",
-        "front": "docs/qa/character-3d-full-v0/fr1-topology/3ce6f6e/mushroom-5-front.jpg",
-        "side": "docs/qa/character-3d-full-v0/fr1-topology/3ce6f6e/mushroom-5-side.jpg",
-        "back": "docs/qa/character-3d-full-v0/fr1-topology/3ce6f6e/mushroom-5-back.jpg"
+        "34": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-5-back.jpg"
       },
-      "replacementImageGate": "OPEN",
-      "historicalViewsOnly": true
+      "replacementImageGate": "PASS_ACTUAL_DDAF"
     },
     {
       "key": "form:mushroom:6",
@@ -3515,13 +3509,12 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "34": "docs/qa/character-3d-full-v0/fr1-topology/3ce6f6e/mushroom-7-34.jpg",
-        "front": "docs/qa/character-3d-full-v0/fr1-topology/3ce6f6e/mushroom-7-front.jpg",
-        "side": "docs/qa/character-3d-full-v0/fr1-topology/3ce6f6e/mushroom-7-side.jpg",
-        "back": "docs/qa/character-3d-full-v0/fr1-topology/3ce6f6e/mushroom-7-back.jpg"
+        "34": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-mushroom/repair-views/mushroom-7-back.jpg"
       },
-      "replacementImageGate": "OPEN",
-      "historicalViewsOnly": true
+      "replacementImageGate": "PASS_ACTUAL_DDAF"
     },
     {
       "key": "form:mushroom:8",
@@ -5933,15 +5926,8 @@
   "currentVisualRepair": {
     "status": "OPEN_REPLACEMENT_IMAGES_REQUIRED",
     "keys": [
-      "form:clownfish:2",
-      "form:clownfish:3",
-      "form:clownfish:5",
-      "form:clownfish:6",
-      "form:clownfish:7",
-      "form:mushroom:5",
-      "form:mushroom:6",
-      "form:mushroom:7"
+      "form:mushroom:6"
     ],
-    "note": "Stored293fourview records are historical; eight changed rows require fresh views/motion/distance before current visual acceptance."
+    "note": "Seven repaired rows actually approved atddaf; Mushroom6 collar correction needs new4views/32states/2distance. Historical293records remain, current292accepted."
   }
 }
