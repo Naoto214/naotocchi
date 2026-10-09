@@ -943,3 +943,8 @@ Remainingplan recorded innonplayer-execution-plan.md;source-derivedcandidates us
 - Task14 afcac5c3 scopedCIselector choosesfixedexistingtools fromsamecapturekeys;validatesallbeforeexecution,deduplicatessharedtools,propagatesfailure,unknown/emptykeysfail.5targetPASS,actualCactus4mutations/restored,reviewC0/I0. Dedicated/unscopedintegration/otherfamilygates preserved.
 - Integrated299dedicatedPASS/0FAIL/exit0;28Pilot geometry+animationhashesidentical. Rolepromotion7mutations previouslyPASS/restored,59scopedpromotiontestsPASS;no sourcechangeafterthose rolechecks. Fullnpm remains historical8b6fcae,notcurrent.
 - Captureselectsonlynew5. Task3 independentcandidateworkcontinues inisolatedworktree. Allunconfirmedgates remainOPEN.
+
+## aabd dedicated CI failure — diagnostic output
+- Character37888909373 dedicated113685130130 failed inFreshinventory/dedicated before scopedselector. LocalNode24 299PASS remainslocal-only;CI Node22failure isnotPASS. Capture wasstillrunning atlastcheck.
+- FailureTAP existed onlyinartifact11597204233;connectorprovideddownloadalso403,notretried. Existingworkflow nowprintsTAPonfailureand exits1, preservingtestcommand/allgates. IndependentreviewC0/I0 andbashfailureprobeconfirmednonzero. Systematicdebugging gathersactualerror beforeproductionfix.
+- Task2five remainunregistered/imageOPEN. Task3 isolatedcandidateworkcontinues.

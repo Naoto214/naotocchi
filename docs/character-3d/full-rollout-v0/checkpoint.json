@@ -1,6 +1,6 @@
 {
-  "baseCommit": "a196ca6c362b2e504e0eb9f5644a539eb036287c",
-  "checkpoint": "three-nonplayers-promoted-five-small-mammal-candidates",
+  "baseCommit": "aabd4af3052ea88632a29229ccf649cdff7eac6b",
+  "checkpoint": "small-mammal-ci-diagnostic-output",
   "coverage": {
     "exact": 257,
     "total": 293,
@@ -98,10 +98,11 @@
     "owlPunyuCandidateCI": "d59597d1 Character37885171482/Runtime37885177817/Home37885177775SUCCESS.",
     "parrotCrestCandidateCI": "980b6925 Character37885627048/Runtime37885633501/Home37885633539SUCCESS.",
     "scopedNonplayerCI": "Reviewedafcac5c3 selector mapsselectedkeys toexistingmutationtools, validatesbeforeexecution/deduplicates/failsunsupportedkeys;5testsPASS,actualCactus4mutations/restored,reviewC0/I0. Unscopedintegration unchanged.",
-    "smallMammalCandidates": "Task2 reviewed7b156a90+dbad339d:fiveisolatedsoft_toycandidates;12focused/15mutations plus6fixedeyechecks/1closedeye-obstruction mutation PASS/restored. ReviewC0/I0 afterImportanttestcoveragefix. Existing7savedrowsdeep-equal,8plushgeometryhashesunchanged;actualimagesOPEN."
+    "smallMammalCandidates": "Task2 reviewed7b156a90+dbad339d:fiveisolatedsoft_toycandidates;12focused/15mutations plus6fixedeyechecks/1closedeye-obstruction mutation PASS/restored. ReviewC0/I0 afterImportanttestcoveragefix. Existing7savedrowsdeep-equal,8plushgeometryhashesunchanged;actualimagesOPEN.",
+    "smallMammalCI": "aabd Character37888909373 dedicated113685130130FAIL inregressionstep beforeselector;capture113685129838lastIN_PROGRESS. LocalNode24 integrated299PASS;CI usesNode22,rootcauseunknown. ZIP11597204233 connector download403. FailureTAPwillbeprintedtoActionslogs withoutweakeninggate."
   },
   "next": [
-    "Capture/recover/actuallyreview five smallmammals; promoteonly actualPASS entries",
+    "Diagnose dedicatedCI failure fromretainedActionsTAP;no5candidate imageapproval/promotion until resolved",
     "ContinueTask3 othermammals usingexistingfactories;addexplicitCIselector mapping withnewmutator",
     "Remainingnonplayerplan;recoverlegacyshiba/cat_friend views atfull293integration;separateHuman/iPhone gates"
   ],

@@ -401,7 +401,7 @@ jobs:
         run: |
           mkdir -p test-results/full-rollout
           node tools/character-3d/inventory.cjs test-results/full-rollout/inventory.json
-          node --test --test-reporter=tap tests/character-3d*-test.cjs > test-results/full-rollout/dedicated.tap
+          node --test --test-reporter=tap tests/character-3d*-test.cjs > test-results/full-rollout/dedicated.tap || { cat test-results/full-rollout/dedicated.tap; exit 1; }
       - name: Scoped candidate mutations
         if: ${{ contains(github.event.head_commit.message, '[qa:phoenix]') || contains(github.event.head_commit.message, '[qa:god]') || contains(github.event.head_commit.message, '[qa:ghost]') || contains(github.event.head_commit.message, '[qa:unknown]') || contains(github.event.head_commit.message, '[qa:star]') || contains(github.event.head_commit.message, '[qa:nonplayer]') }}
         env:
