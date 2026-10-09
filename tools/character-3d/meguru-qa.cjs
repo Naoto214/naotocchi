@@ -16,6 +16,8 @@ const opt = (n, d) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] :
 const OUT = opt('--out', path.join(require('os').tmpdir(), 'c3d-meguru'));
 const SECONDS = Number(opt('--seconds', 8));
 const THROTTLE = Number(opt('--throttle', 1));
+const NO_CAPTURE=args.includes('--no-capture'),INTEGRATION_SCENE=args.includes('--integration-scene'),INTEGRATION_METRICS=args.includes('--integration-metrics');
+if((INTEGRATION_SCENE||INTEGRATION_METRICS)&&(!NO_CAPTURE||CANDIDATE||args.some(a=>['--second','--claude','--previous'].includes(a))))throw Error('Integration scene requires production --no-capture');
 const PERF_ONLY = args.includes('--perf-only'), SPECIES_ONLY = args.includes('--species-only'), NO_PERF = args.includes('--no-perf') || SPECIES_ONLY;
 fs.mkdirSync(OUT, { recursive: true });
 
@@ -39,6 +41,8 @@ async function open(browser, base, save, q = '?meguru3d=1&char3d=1&perf=1') {
   const errors = [];
   page.on('pageerror', (e) => errors.push(String(e.message || e)));
   page.on('console', (m) => { if (m.type() === 'error' || /character 3D/.test(m.text())) errors.push(m.type() + ': ' + m.text()); });
+  if(INTEGRATION_METRICS)await page.addInitScript(require('./runtime-integration.cjs').installAppearanceProbe);
+  if(INTEGRATION_SCENE)await page.addInitScript(require('./runtime-integration.cjs').installSaveCounter);
   await page.addInitScript((s) => {
     localStorage.setItem('naotocchi-save-v1',s);
     window.__c3dBoot={frames:[],longTasks:[]};let last=performance.now();
@@ -75,6 +79,7 @@ async function pose(page, p) {
   }, p);
 }
 async function snap(page, name) {
+  if(NO_CAPTURE)return null;
   await page.waitForTimeout(900);
   const box = await page.locator('#mgrCanvas').boundingBox();
   const file = path.join(OUT, name + '.png');
@@ -104,7 +109,7 @@ async function walk(page, seconds) {
 (async () => {
   const srv = await serve({candidateFactory:CANDIDATE?.factory,second:args.includes('--second'),claude:args.includes('--claude'),previous:args.includes('--previous')}); const base = 'http://127.0.0.1:' + srv.address().port;
   const browser = await pw.chromium.launch({ args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
-  const R = { when: new Date().toISOString(), revision: args.includes('--second') ? 'quality2-31fe18f' : args.includes('--claude') ? 'claude-e12f720' : args.includes('--previous') ? 'quality1-8b19ecc' : 'quality3', sourceCommit: process.env.GITHUB_SHA || null, rolloutWave: args.includes('--rollout'), candidateOnly:!!CANDIDATE,candidateWave:CANDIDATE?.kind||null, performanceMix:MIX.name, headless: 'chromium + SwiftShader(ソフトウェア GPU)', throttle: THROTTLE, shots: {}, checks: {}, perf: {} };
+  const R = { when: new Date().toISOString(), revision: args.includes('--second') ? 'quality2-31fe18f' : args.includes('--claude') ? 'claude-e12f720' : args.includes('--previous') ? 'quality1-8b19ecc' : 'quality3', sourceCommit: process.env.GITHUB_SHA || null, rolloutWave: args.includes('--rollout'), candidateOnly:!!CANDIDATE,candidateWave:CANDIDATE?.kind||null, capture:!NO_CAPTURE, integrationScene:INTEGRATION_SCENE,integrationMetrics:INTEGRATION_METRICS, performanceMix:MIX.name, headless: 'chromium + SwiftShader(ソフトウェア GPU)', throttle: THROTTLE, shots: {}, checks: {}, perf: {} };
   const env = { time: 'day', weather: 'sunny', season: 'summer' };
   let prev = null;
   if (PERF_ONLY || SPECIES_ONLY) { try { prev = JSON.parse(fs.readFileSync(path.join(OUT, 'meguru-qa.json'), 'utf8')); Object.assign(R, { shots: prev.shots, checks: prev.checks, perSpecies: prev.perSpecies, errors: prev.errors }); } catch (_) { /* ない */ } }
@@ -151,6 +156,7 @@ async function walk(page, seconds) {
       for (let i = 0; i < 120; i++) { await new Promise((res) => requestAnimationFrame(res)); n++; const inst = p && p.instanceOf(pl); if (inst && inst.holder.visible && inst.holder.parent && inst.root.children.length) ok++; }
       return { frames: n, drawn3d: ok };
     });
+    if(INTEGRATION_SCENE){await pose(page,{spot:'entry',yaw:0,env});await page.waitForFunction(()=>globalThis.__meguruRun.renderer.char3dPresenter?.stats().live>=5);R.checks.repeated=await require('./runtime-integration.cjs').repeatScene(page);}
     // ---------- actor 単位 fallback: しば だけ 3D を こわす → しば だけ 2D、ほかは 3D・world も 3D の まま
     await pose(page, { spot: 'entry', yaw: 0, env });
     await page.evaluate(() => globalThis.__meguruRun.renderer.char3dHooks({ failUpdate: (a) => a.id === 'shiba' }));
@@ -217,6 +223,7 @@ async function walk(page, seconds) {
         R.perf[n + '-' + mode] = await walk(pg, SECONDS);
         R.perf[n + '-' + mode].templatesByActor = await pg.evaluate(()=>{const r=globalThis.__meguruRun,p=r.renderer.char3dPresenter,out={};if(p)for(const a of [r.sim.player,...r.party]){const t=p.instanceOf(a)?.tpl;if(t){const k=t.id+':'+t.stage;out[k]=(out[k]||0)+1;}}return out;});
         if(mode==='3d'){const row=R.perf[n+'-'+mode];row.expectedTemplates=expectedTemplates(MIX,n,require(path.join(ROOT,'character-3d/spec.js')),all);row.compositionMatches=matchesComposition(row.templatesByActor,row.expectedTemplates);}
+        if(INTEGRATION_METRICS&&mode==='3d'){const helper=require('./runtime-integration.cjs');R.perf[n+'-'+mode].isolatedAnimation=await helper.isolatedAnimation(pg);R.perf[n+'-'+mode].appearance=helper.appearanceWindows(await pg.evaluate(()=>globalThis.__integrationAppearance||[]));}
         R.perf[n + '-' + mode].errors = er.length; R.perf[n + '-' + mode].load = load;
         await pg.context().close();
       }
@@ -234,11 +241,12 @@ async function walk(page, seconds) {
   must(C.regionSwitch.inCity.live === 0 && !C.regionSwitch.inCity.is3D, 'city(main では 2D の world): 3D キャラを のこさない');
   must(C.regionSwitch.backInForest.is3D && C.regionSwitch.backInForest.live > 0 && C.regionSwitch.backInForest.holdersInScene === C.regionSwitch.backInForest.live, 'forest に もどる: scene の 3D = live(ghost なし)');
   }
+  if(INTEGRATION_SCENE){try{require('./runtime-integration.cjs').validateRepeated(C.repeated);}catch(e){must(false,e.message);}}
   for (const [id, v] of Object.entries(R.perSpecies || {})) must(v.player3d && v.specKey && v.specKey.exact && v.specKey.stage === v.requestedStage && !v.errors.some((e) => /pageerror|Error/.test(e)), 'player ' + id + ': spec が ある 段なら 3D・ない 段(未 pilot archetype)なら 2D');
   if(!PERF_ONLY&&!args.includes('--no-species'))must(validateStages(EXPECTED_STAGES,R.perSpecies),'exact inventory stage coverage, no omitted stages or fallback');
   must(!(R.errors || []).some((e) => !/forced update failure \(QA\)/.test(e)), 'page の error なし: ' + (R.errors || []).join(' / '));
   if(args.includes('--puff-stress'))must(R.perf['27-3d']?.templatesByActor['dandelion:8']===25,'stress has 25 puffs plus two native companions');
-  if(!NO_PERF) for(const n of (args.includes('--puff-stress')?[27]:[1,5,27])) { const p=R.perf[n+'-3d']; must(p && p.char3d && p.char3d.live===n && p.errors===0, 'exact 3D actor count '+n); must(p?.compositionMatches===true,'actual templates match intended '+MIX.name+' '+n); }
+  if(!NO_PERF) for(const n of (args.includes('--puff-stress')?[27]:[1,5,27])) { const p=R.perf[n+'-3d']; must(p && p.char3d && p.char3d.live===n && p.errors===0, 'exact 3D actor count '+n); must(p?.compositionMatches===true,'actual templates match intended '+MIX.name+' '+n);if(INTEGRATION_METRICS){must(p?.isolatedAnimation?.actors===n&&p.isolatedAnimation.liveActorsUnchanged,'isolated clone animation identity '+n);must(matchesComposition(p?.isolatedAnimation?.composition,p?.expectedTemplates),'isolated clone composition '+n);must(p?.appearance?.windows.length>0,'timestamped appearance window '+n);} }
   R.verdict = fails.length ? { pass: false, fails } : { pass: true };
   fs.writeFileSync(path.join(OUT, 'meguru-qa.json'), JSON.stringify(R, null, 2));
   console.log('VERDICT', JSON.stringify(R.verdict));

@@ -239,9 +239,20 @@ jobs:
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps chromium
       - name: Presentation lifecycle and isolated actor fallback (stage matrix runs separately)
+        if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') }}
         run: node tools/character-3d/meguru-qa.cjs --rollout --no-species --no-perf --out test-results/full-rollout/meguru
+      - name: Production role-exact nonplayer integration without image capture
+        if: ${{ contains(github.event.head_commit.message, '[qa:integration]') }}
+        run: node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/production-nonplayer --functional-only --require-full
+      - name: Repeated production scene lifecycle without image capture
+        if: ${{ contains(github.event.head_commit.message, '[qa:integration]') }}
+        run: node tools/character-3d/meguru-qa.cjs --rollout --no-species --no-perf --integration-scene --no-capture --out test-results/full-rollout/meguru
       - name: Comparable fixed Pilot mix 1 5 27 actors
+        if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') }}
         run: node tools/character-3d/meguru-qa.cjs --perf-only --seconds 8 --out test-results/full-rollout/performance
+      - name: Native composition 1 5 27 performance and isolated QA measurements
+        if: ${{ contains(github.event.head_commit.message, '[qa:integration]') }}
+        run: node tools/character-3d/meguru-qa.cjs --perf-only --seconds 8 --integration-metrics --no-capture --out test-results/full-rollout/performance
       - uses: actions/upload-artifact@v4
         if: always()
         with:

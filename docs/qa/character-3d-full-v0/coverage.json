@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 292,
-    "pending": 1,
-    "fourViewRecords": 292
+    "exactSpecs": 293,
+    "pending": 0,
+    "fourViewRecords": 293
   },
   "rows": [
     {
@@ -5902,15 +5902,15 @@
       "group": "secret",
       "asset": "assets/characters/author/naoto.png",
       "sha256": "b87cd30262026ced43075a5334102acf8d27197113ff86a287918589991cbe59",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/6eb8f197401c17c62178f28d68d511413c737657/author-hair-corrected/author-naoto-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/6eb8f197401c17c62178f28d68d511413c737657/author-hair-corrected/author-naoto-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/6eb8f197401c17c62178f28d68d511413c737657/author-hair-corrected/author-naoto-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/6eb8f197401c17c62178f28d68d511413c737657/author-hair-corrected/author-naoto-0-back.jpg"
       }
     }
   ]

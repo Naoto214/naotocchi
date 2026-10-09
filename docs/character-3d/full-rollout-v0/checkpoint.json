@@ -1,15 +1,15 @@
 {
-  "baseCommit": "5be8349be8f73401eb8c56d4f7dc27f74ab930d3",
-  "checkpoint": "eagle-approved-author-hair-corrected-awaiting-images",
+  "baseCommit": "00baa4da6d5a2a28ee95a6a52e9e5c15eef90269",
+  "checkpoint": "all293-exact-fourview-models-registered-final-integration-open",
   "coverage": {
-    "exact": 292,
+    "exact": 293,
     "total": 293,
-    "pending": 1,
+    "pending": 0,
     "playerFamilies": 31,
     "playerStages": 248,
     "companions": 26,
     "partners": 18,
-    "authors": 0
+    "authors": 1
   },
   "verification": {
     "dedicatedPass": 438,
@@ -145,14 +145,17 @@
     "eaglePromotion": "3affected registration/assembled budget testsPASS;7/7 role mutations detected/restored;no new fullnpm claim. Independent scoped review Critical0/Important0.",
     "authorLegacyCaptureCI": "e16963da Character37917302347/Runtime37917312605/Home37917312587 SUCCESS. Earlier8523 captureFAIL remains distinct; Home37915328102 nowSUCCESS.",
     "authorHairCorrection": "711f2dcb hair-only inputs;8substantive affected testsPASS,4controlsRED/restored,42othernonauthor inputs/geometry exact;factory/defaults unchanged. Root7hair/gallery/role integration testsPASS. FreshactualimagegateOPEN. IndependentreviewCritical0/Important0.",
-    "galleryRouting": "Exact role live links + NON_PLAYER selector/metadata corrected;oldroute2FAIL and syncUi2PASS/1FAIL→3PASS;existingbrowsergallerysmoke expanded44current/future45roles+decodedimages/missingimagecontrol. Browservalidationpendingfinalintegration."
+    "galleryRouting": "Exact role live links + NON_PLAYER selector/metadata corrected;oldroute2FAIL and syncUi2PASS/1FAIL→3PASS;existingbrowsergallerysmoke expanded44current/future45roles+decodedimages/missingimagecontrol. Browservalidationpendingfinalintegration.",
+    "authorImageGate": "6eb8f197 Character37920067984SUCCESS/artifact11611730815;archive00baa4da,41rawSHA256/sizeverified. Rootactual4views32states2normaldistancePASS;independentactualhairre-reviewCritical0/Important0, previouscapI1resolved. Author promoted onlyafterthisgate.",
+    "authorPromotion": "4registrationRED beforeallowlist→5focusedPASS after;7/7rolemutationsdetected/restored. All43factoryrows exactsameinputs inclsignedzero vs16acceptedcaptures;legacy2 separateimmutablePilotproof. 293exact/293fourviews,all45nonplayer image gatesPASS;remainingplayerstateintegration separatelyOPEN. IndependentpromotionreviewCritical0/Important0.",
+    "finalRuntimePreparation": "ExistingQA only: production45role functional no-capture + actualAuthorbounded fixture; warmup+3scene cycles and native1/5/27 isolatedcloneanimation/appearance-window records. Workerc4e5b226 15PASS including43base-approvedactualNodepresenters;7controlsRED/restored. Root8focusedPASS on293 source. Browser45/scene/performance remainsPENDING; finalfullnpmRUNNING, noPASSclaim. IndependentreviewCritical0/Important0."
   },
   "next": [
-    "Capture corrected Author only and actually inspect fourviews/all32states/2distance; preserve accepted Eagle/legacy gates.",
-    "After actual Author approval, promote exact canonical/actual-author alias; require293 exact and four-view records.",
-    "Run [qa:integration] source: existing31stage aggregate plus86missing motion stages; actually inspect missing motion and early-family distance evidence.",
-    "One final full npm batch, protected/default comparison, scene/performance, independent final review and source-specific Human QA package.",
-    "Human/iPhone remain separate OPEN; retain Draft and stop at v0 Human QA handoff."
+    "Integrate reviewed existing-route production45role and repeated-scene/measurement QA extensions; run final [qa:integration] source.",
+    "Actually inspect86missingplayerstage motion gates and early5family80normaldistance images from existing31stage artifacts; reuse all unchanged approved gates.",
+    "One final full npm batch, dedicated/sourceCI/protected checks, runtime/scene/performance evidence and independent final review.",
+    "Publish complete source-specific Human QA package and architecture/roadmap; confirmremote/local/tree/clean andDraft376.",
+    "Human/iPhone remain separateOPEN;stop atv0Human QA handoff, noReady/main/v1."
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",
@@ -181,21 +184,15 @@
       "status": "PASS_31_FAMILIES_248_STAGES"
     },
     "latestNonplayerImageApprovals": [
-      "partner:high_eagle",
-      "companion:cat_friend (states/distance)",
-      "companion:shiba (states/distance)"
-    ],
-    "candidateBatchInProgress": [
       "author:naoto"
     ],
+    "candidateBatchInProgress": [],
     "missingLegacyFourViewRecords": [],
     "full293Integration": "OPEN",
     "humanQA": "OPEN_SEPARATE",
     "iPhoneQA": "OPEN_SEPARATE",
-    "candidateBatchReview": "Author hair-only correction implemented and scopedtested; previousactualimageREJECT retained until fresh full gate.",
-    "selectedCaptureBatch": [
-      "author:naoto"
-    ],
+    "candidateBatchReview": "All45nonplayer models actualimagePASS andregistered. Finalproduction-presenter/scene/gallery/performance gatesOPEN.",
+    "selectedCaptureBatch": [],
     "legacyFourViewReuse": "Four views reused via immutable comparison hashes and Pilot identity; e169 actual32states+2distance perlegacy approved. Legacy image gaps closed.",
     "sevenMammalConnections": "e8 actual4views/32states/2distance per7 PASS, archiveda2878b4c; independent repaired-site review C0/I0; promoted with local corrected-anchor53/53 and372dedicatedPASS.",
     "latestFullCharacterCI": {

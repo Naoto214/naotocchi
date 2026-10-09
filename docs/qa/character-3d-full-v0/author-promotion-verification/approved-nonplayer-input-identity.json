@@ -1,0 +1,319 @@
+{
+  "comparison": "Exact recursive input equality including signed zero; shared-factory defaults separately established by recorded regression evidence. Does not create new visual approval.",
+  "rows": [
+    {
+      "key": "companion:rabbit_friend",
+      "sourceCommit": "e8ce322870e0b2f506eb193984e865a7cc30c74b",
+      "review": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/visual-review.json",
+      "inputSha256": "8ac6e63d3db2d8aba86a6311ef745561cc668f411a98852b6157ad2410377e7a",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:tanuki",
+      "sourceCommit": "e8ce322870e0b2f506eb193984e865a7cc30c74b",
+      "review": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/visual-review.json",
+      "inputSha256": "843f847bb4a71dc410d4651aafaff108b05d438684fb20eac5c0d172639746c4",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:squirrel",
+      "sourceCommit": "e8ce322870e0b2f506eb193984e865a7cc30c74b",
+      "review": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/visual-review.json",
+      "inputSha256": "574fc92957d382df7fd4fdcf2d50e867991a17b9da344852c2b233c5c555261a",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:owl",
+      "sourceCommit": "d59597d1d48dd43d40d03948f25c927198bf10f3",
+      "review": "docs/qa/character-3d-full-v0/export/d59597d1d48dd43d40d03948f25c927198bf10f3/visual-review.json",
+      "inputSha256": "23477e2ce0d471c0289a746c62996507f36e7e6434d47228469fe72aa2af0de6",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:otter",
+      "sourceCommit": "e8ce322870e0b2f506eb193984e865a7cc30c74b",
+      "review": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/visual-review.json",
+      "inputSha256": "37ee7663e2fb7d5004496651662cce41fa8e4036fc94f74bff135c2ca54bd884",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:hamster",
+      "sourceCommit": "e8ce322870e0b2f506eb193984e865a7cc30c74b",
+      "review": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/visual-review.json",
+      "inputSha256": "be00e06a5ee496c9ec20dd68c0801ed87d713f8eef172c0d1601c892c5dcb67b",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:panda",
+      "sourceCommit": "3083126a75d1044da2f68142a5a46d789556895c",
+      "review": "docs/qa/character-3d-full-v0/export/3083126a75d1044da2f68142a5a46d789556895c/visual-review.json",
+      "inputSha256": "3fcaa3bb876d17709a57555aa673ca0c00fc685bc1771cdb4e95fd4d09a94c41",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:monkey",
+      "sourceCommit": "e8ce322870e0b2f506eb193984e865a7cc30c74b",
+      "review": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/visual-review.json",
+      "inputSha256": "9556751a259a137bd6b6a69f168a9cff0bcf9dcae0cd9d4a4a94dc205e4480d0",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:parrot",
+      "sourceCommit": "980b692577c87e7efc62298a42d0923c1eb71852",
+      "review": "docs/qa/character-3d-full-v0/export/980b692577c87e7efc62298a42d0923c1eb71852/visual-review.json",
+      "inputSha256": "44d840fbbba31274ac2965f4f8ed26b6e8147683d8f740f4c6955c82f9670f98",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:sheep",
+      "sourceCommit": "3083126a75d1044da2f68142a5a46d789556895c",
+      "review": "docs/qa/character-3d-full-v0/export/3083126a75d1044da2f68142a5a46d789556895c/visual-review.json",
+      "inputSha256": "a8f8c5d40ee8188eff0292b6ff76fbe166a11600256ce9b03a29318bcb2db4d0",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:seal",
+      "sourceCommit": "3083126a75d1044da2f68142a5a46d789556895c",
+      "review": "docs/qa/character-3d-full-v0/export/3083126a75d1044da2f68142a5a46d789556895c/visual-review.json",
+      "inputSha256": "374edd0f5b80a132ba1a39cad9b938446d4c76abe13a99a8f5d9ea601877fc93",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:bat",
+      "sourceCommit": "d1f7199204d319ba6fe649b6cac2d7c01f92940d",
+      "review": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/visual-review.json",
+      "inputSha256": "578791e25b321bdbe533e37d8bb0eedda55af53acc23b8c107586e68ef3f47ba",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:chicken",
+      "sourceCommit": "5aac758f5db3ed550350fea4c89b75a5bbf816fd",
+      "review": "docs/qa/character-3d-full-v0/export/5aac758f5db3ed550350fea4c89b75a5bbf816fd/visual-review.json",
+      "inputSha256": "f28399f43fc5308c33627c0ce0236e0fb399b45c9361352bfdca4efaa22319f9",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:penguin_friend",
+      "sourceCommit": "5aac758f5db3ed550350fea4c89b75a5bbf816fd",
+      "review": "docs/qa/character-3d-full-v0/export/5aac758f5db3ed550350fea4c89b75a5bbf816fd/visual-review.json",
+      "inputSha256": "3e69c6528353de4189983a7ca9fdaf2b3885e520e3f53feb543e42554acbe718",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:hedgehog",
+      "sourceCommit": "e8ce322870e0b2f506eb193984e865a7cc30c74b",
+      "review": "docs/qa/character-3d-full-v0/export/e8ce322870e0b2f506eb193984e865a7cc30c74b/visual-review.json",
+      "inputSha256": "a7cb706387ff3cfa3f5906b907cc670dbfba44b595f3b8247c5a3bb3f47f2946",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:snail",
+      "sourceCommit": "d1f7199204d319ba6fe649b6cac2d7c01f92940d",
+      "review": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/visual-review.json",
+      "inputSha256": "f8380c31a1a0eaa1c12b27b1df88ae481e1a5458fc00bddca7889b43710a0c0d",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:punyu",
+      "sourceCommit": "d59597d1d48dd43d40d03948f25c927198bf10f3",
+      "review": "docs/qa/character-3d-full-v0/export/d59597d1d48dd43d40d03948f25c927198bf10f3/visual-review.json",
+      "inputSha256": "dfe14bcbedb116d8b2cf3634a595f2a647f9e508aced0ff98ca2117c46b4c564",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:sekizou",
+      "sourceCommit": "d1f7199204d319ba6fe649b6cac2d7c01f92940d",
+      "review": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/visual-review.json",
+      "inputSha256": "58bfa02a528f3c70f4fa4772872ef2c55a8500b36240e68eb7a47c9e13979f5e",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:chameleon",
+      "sourceCommit": "d1f7199204d319ba6fe649b6cac2d7c01f92940d",
+      "review": "docs/qa/character-3d-full-v0/export/d1f7199204d319ba6fe649b6cac2d7c01f92940d/visual-review.json",
+      "inputSha256": "fc0f5f31b7a5ae9462a98bef0c7b29cae43e6e03734b6b8ed21c06e854b032a1",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:clock",
+      "sourceCommit": "540e8ef521390ca3719ba5190ce7bf962badce07",
+      "review": "docs/qa/character-3d-full-v0/export/540e8ef521390ca3719ba5190ce7bf962badce07/visual-review.json",
+      "inputSha256": "f1da7433b9f26342c844e1a5684f302792d8aed28903967bb85fbda9e5d06bec",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:unicorn",
+      "sourceCommit": "5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0",
+      "review": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/visual-review.json",
+      "inputSha256": "b5eca90ff57a727bfbaeb7a150ab170ba6b74da48b46a69cda8bbc46136e1bf0",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:many_tail_fox",
+      "sourceCommit": "64d739f9fda0fadf79595d3b45b1181ac6229f75",
+      "review": "docs/qa/character-3d-full-v0/export/64d739f9fda0fadf79595d3b45b1181ac6229f75/visual-review.json",
+      "inputSha256": "2efa8e86f480fbbb9a043af01491d323de0a6d69da395124b5152e5122f0fdec",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:watcher",
+      "sourceCommit": "64d739f9fda0fadf79595d3b45b1181ac6229f75",
+      "review": "docs/qa/character-3d-full-v0/export/64d739f9fda0fadf79595d3b45b1181ac6229f75/visual-review.json",
+      "inputSha256": "5dee03eb426eef7b8d1375d68de9a2d27eaea632a698cdf66987781c5cd0ef6e",
+      "sameSourceInput": true
+    },
+    {
+      "key": "companion:box",
+      "sourceCommit": "fb3c3c4bb2065e0fc6a60e491373b9ca80886cfc",
+      "review": "docs/qa/character-3d-full-v0/nonplayer/fb3c3c4/review.json",
+      "inputSha256": "ce969941eae784e59fedec2ca904a07840e856d7e7bd461ee5acab7c289c502d",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:cat_ceo",
+      "sourceCommit": "5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0",
+      "review": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/visual-review.json",
+      "inputSha256": "4a93ff58895e7ae252cda25ad2ced78f432f782b90af639cc70ab21adb291683",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:robot_neighbor",
+      "sourceCommit": "5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0",
+      "review": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/visual-review.json",
+      "inputSha256": "5fa1b60cc8117a21be3c34fe2ee466d14b08d7c37c6a394baef2bb3a5a78c78a",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:field_cow",
+      "sourceCommit": "8f2242e341a192a9ebf5ba7df21bae7162a27873",
+      "review": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/visual-review.json",
+      "inputSha256": "dc821c0bfa6c229685f91abc1e0ba43209c508ba6ab2f10d98d80e24558e714a",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:sunflower_partner",
+      "sourceCommit": "fb3c3c4bb2065e0fc6a60e491373b9ca80886cfc",
+      "review": "docs/qa/character-3d-full-v0/nonplayer/fb3c3c4/review.json",
+      "inputSha256": "95ff9a4fc078486d360a8dcc08497773b3f9f3606313438b210583fca2221c1a",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:forest_bear",
+      "sourceCommit": "8f2242e341a192a9ebf5ba7df21bae7162a27873",
+      "review": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/visual-review.json",
+      "inputSha256": "9f6ca7d1f619fc39cc7fa2e2c214b096a98950b664198084ecc50a823e5c95dc",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:grove_deer",
+      "sourceCommit": "8f2242e341a192a9ebf5ba7df21bae7162a27873",
+      "review": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/visual-review.json",
+      "inputSha256": "d19db85290f1716d2a84a3825552828c6634fdbfd6685b2ba5f6f0e5ea6822fd",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:cliff_goat",
+      "sourceCommit": "8f2242e341a192a9ebf5ba7df21bae7162a27873",
+      "review": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/visual-review.json",
+      "inputSha256": "3d8b426e859285072d79012c7d8379858d29ff8ba624b3e015c7ce6966a4838f",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:high_eagle",
+      "sourceCommit": "e16963da37bed05de483096e6bafc83df6196b3a",
+      "review": "docs/qa/character-3d-full-v0/export/e16963da37bed05de483096e6bafc83df6196b3a/visual-review.json",
+      "inputSha256": "5851cf4a3aeb5d3ea01f4ed7065e3aa191289f35210009df74506e0708e4ad21",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:snow_spirit",
+      "sourceCommit": "5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0",
+      "review": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/visual-review.json",
+      "inputSha256": "1543c359a564e86951fd318edcb129865108f8f1940d77d668d07d00bf1b25e3",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:snowman",
+      "sourceCommit": "73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6",
+      "review": "docs/qa/character-3d-full-v0/export/73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6/visual-review.json",
+      "inputSha256": "f60cc9cd01db324aa08c98802d2bb8aa830c0100c90cce027af5fb19dd248c43",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:rock_octopus",
+      "sourceCommit": "26fbf737778f71f31064cb1c75cc104b33343ba3",
+      "review": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/visual-review.json",
+      "inputSha256": "520d25a863809c9b18b32f0b4550c0a27bcf06ecc0c6ac5f9d4f84f7d9f1c00a",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:sea_mermaid",
+      "sourceCommit": "26fbf737778f71f31064cb1c75cc104b33343ba3",
+      "review": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/visual-review.json",
+      "inputSha256": "c2529d1b22c442aa92f2aeacc7d3c52bfa787b2ffd8fb7616a77fb6049776551",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:anglerfish",
+      "sourceCommit": "26fbf737778f71f31064cb1c75cc104b33343ba3",
+      "review": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/visual-review.json",
+      "inputSha256": "6da3ee325a40406ab22c9d88fa7479197ff8cb1e8768d462c82c961b14a32e36",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:swamp_croc",
+      "sourceCommit": "26fbf737778f71f31064cb1c75cc104b33343ba3",
+      "review": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/visual-review.json",
+      "inputSha256": "e4395bd93e39653e791248a4e163203802c8d5b10f5603e497962547ba82c310",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:gentle_gorilla",
+      "sourceCommit": "8f2242e341a192a9ebf5ba7df21bae7162a27873",
+      "review": "docs/qa/character-3d-full-v0/export/8f2242e341a192a9ebf5ba7df21bae7162a27873/visual-review.json",
+      "inputSha256": "f5ff9e67b59ee6cc66b16483a3bb97ee6273c86aa07d6f6ca27f240320ec5045",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:knitting_spider",
+      "sourceCommit": "73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6",
+      "review": "docs/qa/character-3d-full-v0/export/73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6/visual-review.json",
+      "inputSha256": "5235f305a985ee1a95e2d25c9fea9929025c7d636b0e1aa95cc38a023c9d7e49",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:desert_scorpion",
+      "sourceCommit": "26fbf737778f71f31064cb1c75cc104b33343ba3",
+      "review": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/visual-review.json",
+      "inputSha256": "231231a9cf16fc8b53a19d5d227eb7f2a0706226b3309ffdf52e0750d64af4d5",
+      "sameSourceInput": true
+    },
+    {
+      "key": "partner:oasis_cactus",
+      "sourceCommit": "d40e286b064522e4b1bf9b4730e802edf620471d",
+      "review": "docs/qa/character-3d-full-v0/export/d40e286b064522e4b1bf9b4730e802edf620471d/visual-review.json",
+      "inputSha256": "3c4c06146441cd3c3bc46832940a5e596377d5edd1e899836e3f0f8dc8825322",
+      "sameSourceInput": true
+    },
+    {
+      "key": "author:naoto",
+      "sourceCommit": "6eb8f197401c17c62178f28d68d511413c737657",
+      "review": "docs/qa/character-3d-full-v0/export/6eb8f197401c17c62178f28d68d511413c737657/visual-review.json",
+      "inputSha256": "29b653c21daba809184a0f4a98b0b24f9f4185fc8aa02bc6a250ec344ce3cd1b",
+      "sameSourceInput": true
+    }
+  ],
+  "approvedImageGate": {
+    "factoryRows": 43,
+    "fourViews": 172,
+    "states": 1376,
+    "normalDistance": 86,
+    "legacySeparate": {
+      "rows": 2,
+      "fourViews": 8,
+      "states": 64,
+      "normalDistance": 4
+    },
+    "note": "Image counts reference per-role actual PASS records, not this input-identity audit. All45nonplayer visual gates complete; Human/iPhone separate."
+  }
+}

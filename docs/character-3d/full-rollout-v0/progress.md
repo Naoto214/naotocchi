@@ -1055,3 +1055,12 @@ Source `e16963da` Character `37917302347` capture and dedicated jobs SUCCESS. Ar
 Eagle exact promotion raises coverage to292/293 (248players,26companions,18partners,0authors);3affected testsPASS,7/7 role mutations detected/restored. Source-specific historical fullnpm unchanged. Missing86player-stage motion minimum cells and early5family80normal-distance images remain integration gates. Human/iPhone separate OPEN. Draft376 remains open, basepilot.
 
 Author hair correction `711f2dcb` changes only rear crown and eight existing wave coordinates;8affected assertionsPASS,4negativecontrols/restorationPASS,all42othernonplayer produced inputs/geometryexact. Root7hair/gallery/role testsPASS. Fresh Author full image gate remains OPEN. Existing gallery live links corrected to exact role keys, NON_PLAYER selector and metadata; whole syncUi regression catches prior TypeError. Browser smoke now traverses every exact nonplayer link and verifies decoded evidence with a missing-image control; actual browser result remains pending.
+
+
+### All293 exact models registered; final integration open
+
+CorrectedAuthor source `6eb8f197` Character37920067984 SUCCESS. ExistingActionsGit export archived41rawfiles at `00baa4da`, allSHA256/bytesverified. Rootactually inspected4views32states2normal-distance;independentactualsource review confirms centerpart/templewave correction, previousI1resolved,C0/I0. Author onlynow promoted withcanonical/actualidentity positives andpermanentunknown-author negatives. Root4RED→5GREEN,7/7rolemutations/restorationPASS. Coverage293exact/293fourviewrecords;43factorynonplayers retainexactacceptedinputs across16capture sources,2legacyprotected separately. All45nonplayer actualimage gatescomplete, notHuman/iPhone approval.
+
+FinalintegrationremainsOPEN:86playerstages need minimumemotion/motionreview andearly5families80distanceimages, production45role/presenter/scene/gallery/performance proof, onefinalnpm andfinalreview/handoff. No newglobalPASS fromcapture orcoveragealone.
+
+Finalexisting-routeQA extension `c4e5b226` independentlyreviewedC0/I0: production-only45-role no-capture sweep, same-actorAuthorrestoration, warmup+3scene loops/resourceplateau/save invariance, native1/5/27 isolatedcloneanimationCPU and appearance-windowRAF intervals. Worker15PASS (43then-approvedNodepresenters)+7controlsrestored;root8focusedPASS on293source. No production/render/save/World changes. Browser45/scene/timing results remain pending finalintegrationCI. Fullnpm batch started once on preparedfinalcode; completion notyetclaimed.

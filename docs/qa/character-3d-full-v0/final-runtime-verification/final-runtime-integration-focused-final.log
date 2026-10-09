@@ -1,0 +1,62 @@
+TAP version 13
+# Subtest: production role planner covers live master identities, preserves legacy keys and requires final45 explicitly
+ok 1 - production role planner covers live master identities, preserves legacy keys and requires final45 explicitly
+  ---
+  duration_ms: 6.788578
+  type: 'test'
+  ...
+# Subtest: functional gate rejects wrong role/template, stand-in, overlay, fallback and save mutation
+ok 2 - functional gate rejects wrong role/template, stand-in, overlay, fallback and save mutation
+  ---
+  duration_ms: 1.66244
+  type: 'test'
+  ...
+# Subtest: author functional gate requires natural2D actual same actor and complete restoration
+ok 3 - author functional gate requires natural2D actual same actor and complete restoration
+  ---
+  duration_ms: 0.791275
+  type: 'test'
+  ...
+# Subtest: repeated scene gate requires cleanup, warm cache/resource plateau and unchanged save counters
+ok 4 - repeated scene gate requires cleanup, warm cache/resource plateau and unchanged save counters
+  ---
+  duration_ms: 1.343158
+  type: 'test'
+  ...
+# Subtest: final integration wiring stays in existing scene job and requests production45 without capture
+ok 5 - final integration wiring stays in existing scene job and requests production45 without capture
+  ---
+  duration_ms: 0.416088
+  type: 'test'
+  ...
+# Subtest: appearance windows use timestamped creation events and neighbors, never unrelated startup maximum
+ok 6 - appearance windows use timestamped creation events and neighbors, never unrelated startup maximum
+  ---
+  duration_ms: 0.25827
+  type: 'test'
+  ...
+# (node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/rollout-final-runtime-integration/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/rollout-final-runtime-integration/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: production served lookup matches local spec bytes and unresolved roles remain unresolved
+ok 7 - production served lookup matches local spec bytes and unresolved roles remain unresolved
+  ---
+  duration_ms: 83.142401
+  type: 'test'
+  ...
+# Subtest: actual presenter actor fallback becomes a functional error without changing save
+ok 8 - actual presenter actor fallback becomes a functional error without changing save
+  ---
+  duration_ms: 1265.186797
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1523.404975
