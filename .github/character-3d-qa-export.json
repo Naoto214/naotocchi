@@ -1,46 +1,174 @@
 {
-  "sourceCommit": "980b692577c87e7efc62298a42d0923c1eb71852",
-  "runId": 37885627048,
+  "sourceCommit": "5aac758f5db3ed550350fea4c89b75a5bbf816fd",
+  "runId": 37892212610,
   "families": [
     "companion"
   ],
   "artifacts": [
     {
-      "id": 11596077173,
-      "label": "parrot",
-      "name": "full-rollout-nonplayer-review-980b692577c87e7efc62298a42d0923c1eb71852",
-      "digest": "sha256:1daf30789b5a5c66b3e34ab7f120b14a0e912ff0a114de407c3fa2d5f4a0f201",
+      "id": 11599435688,
+      "label": "birds-reptiles",
+      "name": "full-rollout-nonplayer-review-5aac758f5db3ed550350fea4c89b75a5bbf816fd",
+      "digest": "sha256:78bac9b6e2c8a5bd248bcd4a8b9826937559032fc006a094da75cdb96ffbc38e",
       "required": [
         {
-          "pattern": "companion-parrot-0-front.jpg",
+          "pattern": "companion-bat-0-front.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-parrot-0-34.jpg",
+          "pattern": "companion-bat-0-34.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-parrot-0-side.jpg",
+          "pattern": "companion-bat-0-side.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-parrot-0-back.jpg",
+          "pattern": "companion-bat-0-back.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-parrot-0-*-*-*.jpg",
+          "pattern": "companion-bat-0-*-*-*.jpg",
           "count": 32
         },
         {
-          "pattern": "companion-parrot-views.jpg",
+          "pattern": "companion-bat-views.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-parrot-motion.jpg",
+          "pattern": "companion-bat-motion.jpg",
           "count": 1
         },
         {
-          "pattern": "companion-parrot-distance-*.jpg",
+          "pattern": "companion-bat-distance-*.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "companion-chicken-0-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-chicken-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-chicken-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-chicken-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-chicken-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "companion-chicken-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-chicken-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-chicken-distance-*.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "companion-penguin_friend-0-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-penguin_friend-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-penguin_friend-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-penguin_friend-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-penguin_friend-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "companion-penguin_friend-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-penguin_friend-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-penguin_friend-distance-*.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "companion-snail-0-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-snail-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-snail-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-snail-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-snail-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "companion-snail-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-snail-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-snail-distance-*.jpg",
+          "count": 2
+        },
+        {
+          "pattern": "companion-chameleon-0-front.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-chameleon-0-34.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-chameleon-0-side.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-chameleon-0-back.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-chameleon-0-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "companion-chameleon-views.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-chameleon-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "companion-chameleon-distance-*.jpg",
           "count": 2
         }
       ]
