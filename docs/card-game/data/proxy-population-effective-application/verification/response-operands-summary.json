@@ -1,0 +1,32 @@
+{
+  "base_commit": "ef20f712e62a90ae8f40975065d40fce5f422cfe",
+  "related_tests": 31,
+  "related_seconds": 11.408,
+  "related_exit_code": 0,
+  "integration_tests": 24,
+  "integration_seconds": 270.484,
+  "integration_exit_code": 0,
+  "python_files_frozen": 1048,
+  "source_unchanged_during_final_integration": true,
+  "design_errors": [],
+  "protected_numbered_documents": 476,
+  "protected_changed": [],
+  "independent_review_cycles": 1,
+  "review_findings": {
+    "critical": 0,
+    "important": 1,
+    "minor": 0
+  },
+  "important_fixed_red_green": true,
+  "rereview": false,
+  "full_proxy_regression_run": false,
+  "npm_run_this_bundle": false,
+  "preflight_ready": false,
+  "production_seeds_generated": 0,
+  "production_inputs_fixed": 0,
+  "production_matches_run": 0,
+  "policy_promoted": false,
+  "independent_balance_samples": 0,
+  "whole_set_conclusion": null,
+  "pending_decision": "P07 departure discard arrival order; proposals A/B in plans/2026-10-09-departure-discard-order-decision.md; neither approved"
+}

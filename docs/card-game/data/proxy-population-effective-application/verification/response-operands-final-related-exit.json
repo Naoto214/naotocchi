@@ -1,0 +1,16 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "-v",
+    "test_proxy_population_response_operands",
+    "test_proxy_population_response_predicates",
+    "test_proxy_population_selection_basis",
+    "test_proxy_population_activation_legality",
+    "test_proxy_population_information_use",
+    "test_proxy_population_prepared_information",
+    "test_proxy_population_payment_operands"
+  ],
+  "exit_code": 0
+}

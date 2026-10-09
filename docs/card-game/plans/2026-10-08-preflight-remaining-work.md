@@ -705,3 +705,20 @@ P11: 既存core/handのsource-pinned費用predicateをfresh検査し、実normal
 修正前固定結合は同じPythonで21PASS148.024s＋challenge2PASS116.746s（従来23件と同一集合）。最終修正後は別finalログで判定し、前結果を転用しない。npm testコマンドexit0、design errors=[]、番号付き正本476不変。最新全proxy回帰完了は主張しない。preflight-ready=false、生成/固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。
 
 最終修正後固定23件: Ran 23 tests in 261.230s、PASS/exit0。Python1046ファイルの前後hash集合一致。既存unitのresponse89/normal29局所source covered、end dispatch20 verified、全機会falseを維持。最終関連23PASS10.719s、design errors=[]、保護476不変。npm logはnode集計が出ていなかったため、同じpackage.jsonのnode --test対象を明示TAPで実行し406PASS/FAIL0/exit0を別保存した。最終summaryはpayment-operands-summary.json。新規実seed/本番入力/400戦は0。
+
+
+### Responseの既存比較前提・数値と実入口状態の結合（2026-10-09）
+
+fresh remote ef20f712 / tree553690aを正本として独立cloneへ復元。直前のpayment-operands bundleを再実装せずP11を継続。E-first-dateのresolution_condition_evidenceについて、現在priority actorの手札source・対象・交際段階・そだちへ既存hand predicateを結合した。従来predicateはstage/growth/flagの改変・欠落・余分fieldを受理しており、先にREDで再現した。
+
+新response_operandsは、既存selection_basis/119計算を再利用し、現在の実sourceで検証済みのfirst-date/pass前提と比較record全体を照合する。既存5/0以外の値は作らず、unique/fallback/未知混在は比較値を証明しない。現在条件が一致しても、反応後の将来解決成功は証明しない。全operand由来、情報実使用、全合法集合、起点認証、policy/balanceはfalse/nullのまま。
+
+新4件8FAIL→4PASS0.426s、unique/passのみ/未知混在/相手ターンを加えて5PASS0.485s。関連29PASS11.305s。独立review1回C0/I1/Minor0、5件独立PASS。I1は手札から離れたsourceの古い比較が単体certificateで検証済みになる点。新たに1FAILで再現し、各first-date sourceがfresh hand proofで実際にcoveredであることを要求した。修正後関連31PASS11.408s。再reviewなし。全試行ログはverification/response-operands-*。初回結合は修正前にCtrl-C/exit130で中断、結果として扱わない。修正ファイルの相対path誤りによる未適用後の既知1FAILも最終PASSと分離した。
+
+固定結合とdesignの最終結果は別のexit/logへ記録する。design初回はsparse checkoutにtests/docs/qaがなくリンク/112検査が失敗した。保存済み同HEADの参照ファイルをread-only復元し再実行する。保護番号付き正本476件はbaseからbyte不変。全proxy回帰・npmの現行実行完了は主張しない（直前ef20f712のNode406は過去版実績）。
+
+P07を番号付き正本から再確認し、449が複数装備退場時の捨て札到着順を明示未対応としている点を確認。01/06/64/93と全番号付き正本の検索でも一般順序は未確定。既存配列/辞書の順やmembership一致をルール上の順序へ昇格しない。具体案はplans/2026-10-09-departure-discard-order-decision.md。案A（人物が捨て札へ行くなら人物→装備は直前準備枠順）と案B（所有者の順序選択）を未承認のまま提示する。保護正本・runtimeの退場順は今回変更していない。
+
+管理項目22維持。新規大項目の追加ではなくP11の比較前提とP07の既知順序境界を具体化した。preflight-ready=false、seed生成/本番入力固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。新しい裁定を仮定せず、保存確認後にこの順序の選択をユーザーへ確認する。これは生成/開始承認の依頼ではない。P13〜18を含む他の残件は既存台帳に残る。
+
+最終固定結合24件PASS270.484s、exit0、Python1048ファイルfingerprint不変。既存unit response89/normal29の局所source合成・終了dispatch20を維持。design再実行errors=[]。全proxy回帰/全source到達の証明ではない。

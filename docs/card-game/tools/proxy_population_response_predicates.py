@@ -86,6 +86,10 @@ def audit(envelope,events,inventory):
       if allowed:expected.append(dict(action_type=template['action_type'],card_id=card,card_copy_id=g['cards'][source]['card_copy_id'],source_instance_id=source,target_instance_ids=targets_one,candidate_variant=variant if len(template['candidate_variants'])>1 else None,base_time_cost=cost))
    actual=[r for r in inventory['legal_candidate_details'] if r.get('source_instance_id')==source]
    if Counter(map(_signature,actual))!=Counter(map(_signature,expected)):raise ValueError('response hand semantic alternatives differ: '+source)
+   if card=='E-first-date':
+    premise=dict(partner_stage=p['board']['partner_stage'],growth=p['growth'],legacy_five_growth_premises=p['board']['partner_stage']==0 and p['growth']<=95)
+    for row in actual:
+     if canonical(row.get('resolution_condition_evidence'))!=canonical(premise):raise ValueError('response current resolution premises differ: '+source)
    verified.append(source);count+=len(expected)
   for slot in ('main','partner','world','companions','prepared'):
    sources=p['board'][slot] if slot in ('companions','prepared') else [p['board'][slot]]

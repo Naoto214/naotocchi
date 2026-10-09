@@ -1,0 +1,8 @@
+{
+  "exit_code": 130,
+  "completed": false,
+  "reason": "explicit Ctrl-C for independent-review correction",
+  "source_unchanged": false,
+  "source_change": "new review regression test added before cancellation; final integration runs after implementation correction",
+  "result_claimed": false
+}

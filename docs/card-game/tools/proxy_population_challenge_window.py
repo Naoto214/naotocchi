@@ -35,6 +35,7 @@ import proxy_population_trigger_predicates as trigger_predicates
 import proxy_population_prepared_predicates as prepared_predicates
 import proxy_population_response_composition as response_composition
 import proxy_population_payment_operands as payment_operands
+import proxy_population_response_operands as response_operands
 from proxy_mandatory_policy_contract import canonical
 
 _LOCK=Lock()
@@ -77,6 +78,9 @@ def contract_scope():
      hand_proof=response_predicates.audit(result['source_envelope'],events,decision['candidate_set_evidence'])
      if hand_proof['errors']:raise ValueError('response hand predicates differ: '+str(hand_proof['errors']))
      result['response_hand_predicates']=hand_proof
+     operands=response_operands.audit(result['source_envelope'],events,decision)
+     if operands['errors']:raise ValueError('response comparison operands differ: '+str(operands['errors']))
+     result['response_comparison_operands']=operands
      reaction_proof=response_predicates.audit_reactions(result['source_envelope'],decision['candidate_set_evidence'])
      if reaction_proof['errors']:raise ValueError('response reaction predicates differ: '+str(reaction_proof['errors']))
      result['response_reaction_predicates']=reaction_proof
