@@ -1,189 +1,57 @@
 {
-  "sourceCommit": "9fadab27a5abacedfb40add609f95fb14f2c69a3",
-  "runId": 37793464360,
+  "sourceCommit": "fde2580dafec7691a13f94c71660cc3c8c43b52a",
+  "runId": 37870348699,
   "families": [
-    "god",
-    "ghost",
-    "star",
-    "unknown"
+    "phoenix"
   ],
   "artifacts": [
     {
-      "id": 11557259455,
-      "label": "remaining-mythic-representatives",
-      "digest": "sha256:2b28655b76cdab3318f173d550d1f6b46963fe4993eab07853f16684653684e2",
+      "id": 11589911880,
+      "label": "phoenix-wave",
+      "digest": "sha256:a9c9a756f7dd7631ccb3fa35da9b0a0ab852719fc8da3fb7841da298ed5cc5b6",
       "required": [
         {
-          "pattern": "god-[37]-front.jpg",
-          "count": 2
+          "pattern": "phoenix-[1-8]-front.jpg",
+          "count": 8
         },
         {
-          "pattern": "god-[37]-34.jpg",
-          "count": 2
+          "pattern": "phoenix-[1-8]-34.jpg",
+          "count": 8
         },
         {
-          "pattern": "god-[37]-side.jpg",
-          "count": 2
+          "pattern": "phoenix-[1-8]-side.jpg",
+          "count": 8
         },
         {
-          "pattern": "god-[37]-back.jpg",
-          "count": 2
+          "pattern": "phoenix-[1-8]-back.jpg",
+          "count": 8
         },
         {
-          "pattern": "god-[37]-*-*-*.jpg",
-          "count": 64
+          "pattern": "phoenix-[1-8]-*-*-*.jpg",
+          "count": 256
         },
         {
-          "pattern": "god-[37]-motion.jpg",
-          "count": 2
+          "pattern": "phoenix-[1-8]-motion.jpg",
+          "count": 8
         },
         {
-          "pattern": "god-stages.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "ghost-[37]-front.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "ghost-[37]-34.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "ghost-[37]-side.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "ghost-[37]-back.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "ghost-[37]-*-*-*.jpg",
-          "count": 64
-        },
-        {
-          "pattern": "ghost-[37]-motion.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "ghost-stages.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "star-[37]-front.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "star-[37]-34.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "star-[37]-side.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "star-[37]-back.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "star-[37]-*-*-*.jpg",
-          "count": 64
-        },
-        {
-          "pattern": "star-[37]-motion.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "star-stages.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "unknown-[37]-front.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "unknown-[37]-34.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "unknown-[37]-side.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "unknown-[37]-back.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "unknown-[37]-*-*-*.jpg",
-          "count": 64
-        },
-        {
-          "pattern": "unknown-[37]-motion.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "unknown-stages.jpg",
+          "pattern": "phoenix-stages.jpg",
           "count": 1
         }
       ]
     },
     {
-      "id": 11558400918,
-      "label": "god-distance",
-      "digest": "sha256:558167b87bb6e341bea3f1bc4566abaab88d30754977496b3ffbba6952f7f6d2",
+      "id": 11590141387,
+      "label": "phoenix-distance",
+      "digest": "sha256:e776740d685a036f50d4c7d4a5a215e617681bae85e1956449e31f8e3ff19389",
       "required": [
         {
-          "pattern": "player-god-[37]-front.png",
-          "count": 2
+          "pattern": "player-phoenix-[1-8]-front.png",
+          "count": 8
         },
         {
-          "pattern": "player-god-[37]-back.png",
-          "count": 2
-        }
-      ]
-    },
-    {
-      "id": 11558157647,
-      "label": "ghost-distance",
-      "digest": "sha256:a8d6b63e8b0dc0ed6bfb70f2415e24a64002d17be9b651dbb5fe16485b2474f8",
-      "required": [
-        {
-          "pattern": "player-ghost-[37]-front.png",
-          "count": 2
-        },
-        {
-          "pattern": "player-ghost-[37]-back.png",
-          "count": 2
-        }
-      ]
-    },
-    {
-      "id": 11556949357,
-      "label": "star-distance",
-      "digest": "sha256:f32861d54ba61f5836675f90f0e43de20fd29f748c2d56c614db19edc959743c",
-      "required": [
-        {
-          "pattern": "player-star-[37]-front.png",
-          "count": 2
-        },
-        {
-          "pattern": "player-star-[37]-back.png",
-          "count": 2
-        }
-      ]
-    },
-    {
-      "id": 11557951427,
-      "label": "unknown-distance",
-      "digest": "sha256:fc1bbc620f9d02a4352b799b8a2fcc021f6f7bd13e3d22167a79b8eb5f99a910",
-      "required": [
-        {
-          "pattern": "player-unknown-[37]-front.png",
-          "count": 2
-        },
-        {
-          "pattern": "player-unknown-[37]-back.png",
-          "count": 2
+          "pattern": "player-phoenix-[1-8]-back.png",
+          "count": 8
         }
       ]
     }

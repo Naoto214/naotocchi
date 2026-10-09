@@ -25,7 +25,7 @@ class ExportTests(unittest.TestCase):
   m=self.load()
   with self.assertRaises(ValueError):m.validate_counts({'phoenix-1-front.jpg':b'x'},[{'pattern':'phoenix-[1-8]-front.jpg','count':8}])
  def test_gallery_and_zip_keep_evidence_without_approval_claim(self):
-  m=self.load();files={'mythic/phoenix-stages.jpg':b'board','mythic-motion/phoenix-1-motion.jpg':b'states','mythic/phoenix-1-front.jpg':b'raw','mythic/evidence.json':b'{}'};out=m.package_files(files,{'id':12,'digest':'sha256:abc'},'a'*40,'wave');self.assertIn('raw-evidence.zip',out);self.assertEqual(out['mythic/phoenix-stages.jpg'],b'board');self.assertNotIn('mythic/phoenix-1-front.jpg',out)
+  m=self.load();files={'mythic/phoenix-stages.jpg':b'board','mythic-motion/phoenix-1-motion.jpg':b'states','mythic/phoenix-1-front.jpg':b'raw','mythic/evidence.json':b'{}'};out=m.package_files(files,{'id':12,'digest':'sha256:abc'},'a'*40,'wave');self.assertIn('raw-evidence.zip',out);self.assertEqual(out['mythic/phoenix-stages.jpg'],b'board');self.assertEqual(out['mythic/phoenix-1-front.jpg'],b'raw')
   with zipfile.ZipFile(io.BytesIO(out['raw-evidence.zip'])) as z:self.assertEqual(z.read('mythic/phoenix-1-front.jpg'),b'raw')
   self.assertIn(b'PENDING_VISUAL_REVIEW',out['README.md']);manifest=json.loads(out['manifest.json']);self.assertEqual(len(manifest['files']),4)
 if __name__=='__main__':unittest.main()

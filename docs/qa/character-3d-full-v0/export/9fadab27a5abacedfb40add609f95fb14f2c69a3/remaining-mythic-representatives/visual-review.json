@@ -1,0 +1,29 @@
+{
+  "sourceCommit": "9fadab27a5abacedfb40add609f95fb14f2c69a3",
+  "environment": "Chromium/SwiftShader;not Human/iPhone acceptance",
+  "perFamilyInspected": {
+    "fourViews": 8,
+    "stateCells": 64,
+    "normalDistance": 4
+  },
+  "rawManifestHashes": "302wave+5eachDistance verified",
+  "families": {
+    "god": {
+      "status": "PASS_REPRESENTATIVE_IMAGE_GATE",
+      "notes": "03 short robe clears feet;07 separated wing tiers, halo pair and ribbon silhouette;single visible face across states and normal distance."
+    },
+    "ghost": {
+      "status": "PASS_REPRESENTATIVE_IMAGE_GATE",
+      "notes": "03 closed curled tail and two owned hands;07 clasped hands,halo,four blue flames;face remains readable across states and distance."
+    },
+    "unknown": {
+      "status": "PASS_REPRESENTATIVE_IMAGE_GATE",
+      "notes": "03 four short attached limbs,white canonical expression on blue body;07 round orb and three gold markers remain distinct at normal distance."
+    },
+    "star": {
+      "status": "REJECT_REPRESENTATIVE_IMAGE_GATE",
+      "notes": "03 core projects in front/below tilted orbit instead of reading centrally within galaxy;normal-distance front shows a small face hanging below a dominant ring. Correct orbit/core composition and recheck03 before expansion.07 flame silhouette and face are readable."
+    }
+  },
+  "runtime": "All four remain candidates;no runtime registration."
+}
