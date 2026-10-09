@@ -1,0 +1,60 @@
+{
+  "sourceCommit": "26fbf737778f71f31064cb1c75cc104b33343ba3",
+  "sourceRun": 37908674862,
+  "sourceRunConclusion": "success",
+  "artifact": 11605778122,
+  "archiveCommit": "b632fb20af671f84260d2c5c28d055d055b96d93",
+  "rawFilesVerified": 241,
+  "reviewer": "root actual four views, all32states and two normaldistances for all6; independent source/four-view review agrees",
+  "reviewed": {
+    "sea_mermaid": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "rock_octopus": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "anglerfish": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "swamp_croc": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "knitting_spider": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "REJECT"
+    },
+    "desert_scorpion": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    }
+  },
+  "resolved": {
+    "sea_mermaid": "Closed continuous green/teal bodice now matchesactualoriginal throughwaist; previouspinkbraREJECTresolved. Face/hair/fins clear in32states andbothnormaldistances.",
+    "rock_octopus": "Eightattachedcurlingarms, solidsuckers andorange-redmottledhead readable, clearcanonicalface.",
+    "anglerfish": "Floatingpurplefish without inventedfeet,attachedarchedlure/warmbulb,fins,tail,creamunderside andsmallteeth readable.",
+    "swamp_croc": "Seatedolivecroc withbroadmuzzle,palebandedbelly,spinedback andcurvedtail;attachedlimbs andface clear.",
+    "desert_scorpion": "Goldsegmentedback/raisedtail,darkstinger,eightlegs andpairedpincers readable;outwardterminalshading clear."
+  },
+  "blockingFindings": {
+    "knitting_spider": "Important: original hasroundgreen yarnball andtrailingstrand beneathknittedstrip; allrenderedviews omitball/strand. Candidate-onlypropsfix andfreshfullimagegate required;notpromoted."
+  },
+  "contentReuse": "Fiveapprovedcandidate rows remainunchanged; upcomingplumed_bird optins do notaffecttheir soft_toy builder. KeeptheseactualPASS images withoutrecapture.",
+  "humanQA": "OPEN_SEPARATE",
+  "iPhoneQA": "OPEN_SEPARATE"
+}

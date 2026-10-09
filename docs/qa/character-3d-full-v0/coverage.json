@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 284,
-    "pending": 9,
-    "fourViewRecords": 284
+    "exactSpecs": 289,
+    "pending": 4,
+    "fourViewRecords": 289
   },
   "rows": [
     {
@@ -5744,15 +5744,15 @@
       "group": "sea",
       "asset": "assets/characters/partners/rock_octopus.png",
       "sha256": "cf338f3770fb2c43ec6e6f479d902a12e12fe3c085a6d530794a91fe112ca332",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-rock_octopus-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-rock_octopus-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-rock_octopus-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-rock_octopus-0-back.jpg"
       }
     },
     {
@@ -5764,15 +5764,15 @@
       "group": "sea",
       "asset": "assets/characters/partners/sea_mermaid.png",
       "sha256": "1328ecd58c2680e475241d564b18b6b71631bf3836b8a816e6f09ad03965b78c",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-sea_mermaid-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-sea_mermaid-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-sea_mermaid-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-sea_mermaid-0-back.jpg"
       }
     },
     {
@@ -5784,15 +5784,15 @@
       "group": "deepsea",
       "asset": "assets/characters/partners/anglerfish.png",
       "sha256": "44f2acdadea59d4d969516668ead57f77ab8d2a15fddb24672ec3a8edabf9006",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-anglerfish-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-anglerfish-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-anglerfish-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-anglerfish-0-back.jpg"
       }
     },
     {
@@ -5804,15 +5804,15 @@
       "group": "river_lake",
       "asset": "assets/characters/partners/swamp_croc.png",
       "sha256": "c6ec355264d9ff1c2c4cc912e29b148938962f716764573243165002e4bfd61c",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-swamp_croc-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-swamp_croc-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-swamp_croc-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-swamp_croc-0-back.jpg"
       }
     },
     {
@@ -5864,15 +5864,15 @@
       "group": "desert",
       "asset": "assets/characters/partners/desert_scorpion.png",
       "sha256": "7ac3fc6c683b0991f73f7cda6ff3188f8cf71baf43cc593defede91cae67fcc9",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-desert_scorpion-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-desert_scorpion-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-desert_scorpion-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/26fbf737778f71f31064cb1c75cc104b33343ba3/aquatic-partners-mermaid-bodice/partner-desert_scorpion-0-back.jpg"
       }
     },
     {
