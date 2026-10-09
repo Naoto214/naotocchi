@@ -1,175 +1,110 @@
 {
-  "sourceCommit": "8f2242e341a192a9ebf5ba7df21bae7162a27873",
-  "runId": 37901146775,
-  "successfulCaptureJobId": 113723754605,
+  "sourceCommit": "64d739f9fda0fadf79595d3b45b1181ac6229f75",
+  "runId": 37903430971,
   "families": [
-    "partner"
+    "companion"
   ],
   "artifacts": [
     {
-      "id": 11602991667,
-      "label": "mammal-partners",
-      "name": "full-rollout-nonplayer-review-8f2242e341a192a9ebf5ba7df21bae7162a27873",
-      "digest": "sha256:c10d502f29dcd45b66f09b2ed721d45ccaa5550e7b21a46eaf02a6fd72879c97",
+      "id": 11603577369,
+      "label": "unusual-source-fixes",
+      "name": "full-rollout-nonplayer-review-64d739f9fda0fadf79595d3b45b1181ac6229f75",
+      "digest": "sha256:388deb4436bf4655271598375d8347af144eedf80ab2d3fa82c4cdbb4a27733a",
       "required": [
         {
-          "pattern": "partner-field_cow-0-front.jpg",
+          "pattern": "companion-unicorn-0-front.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-field_cow-0-34.jpg",
+          "pattern": "companion-unicorn-0-34.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-field_cow-0-side.jpg",
+          "pattern": "companion-unicorn-0-side.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-field_cow-0-back.jpg",
+          "pattern": "companion-unicorn-0-back.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-field_cow-0-*-*-*.jpg",
+          "pattern": "companion-unicorn-0-*-*-*.jpg",
           "count": 32
         },
         {
-          "pattern": "partner-field_cow-views.jpg",
+          "pattern": "companion-unicorn-views.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-field_cow-motion.jpg",
+          "pattern": "companion-unicorn-motion.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-field_cow-distance-*.jpg",
+          "pattern": "companion-unicorn-distance-*.jpg",
           "count": 2
         },
         {
-          "pattern": "partner-forest_bear-0-front.jpg",
+          "pattern": "companion-many_tail_fox-0-front.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-forest_bear-0-34.jpg",
+          "pattern": "companion-many_tail_fox-0-34.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-forest_bear-0-side.jpg",
+          "pattern": "companion-many_tail_fox-0-side.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-forest_bear-0-back.jpg",
+          "pattern": "companion-many_tail_fox-0-back.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-forest_bear-0-*-*-*.jpg",
+          "pattern": "companion-many_tail_fox-0-*-*-*.jpg",
           "count": 32
         },
         {
-          "pattern": "partner-forest_bear-views.jpg",
+          "pattern": "companion-many_tail_fox-views.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-forest_bear-motion.jpg",
+          "pattern": "companion-many_tail_fox-motion.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-forest_bear-distance-*.jpg",
+          "pattern": "companion-many_tail_fox-distance-*.jpg",
           "count": 2
         },
         {
-          "pattern": "partner-grove_deer-0-front.jpg",
+          "pattern": "companion-watcher-0-front.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-grove_deer-0-34.jpg",
+          "pattern": "companion-watcher-0-34.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-grove_deer-0-side.jpg",
+          "pattern": "companion-watcher-0-side.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-grove_deer-0-back.jpg",
+          "pattern": "companion-watcher-0-back.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-grove_deer-0-*-*-*.jpg",
+          "pattern": "companion-watcher-0-*-*-*.jpg",
           "count": 32
         },
         {
-          "pattern": "partner-grove_deer-views.jpg",
+          "pattern": "companion-watcher-views.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-grove_deer-motion.jpg",
+          "pattern": "companion-watcher-motion.jpg",
           "count": 1
         },
         {
-          "pattern": "partner-grove_deer-distance-*.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "partner-cliff_goat-0-front.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-cliff_goat-0-34.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-cliff_goat-0-side.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-cliff_goat-0-back.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-cliff_goat-0-*-*-*.jpg",
-          "count": 32
-        },
-        {
-          "pattern": "partner-cliff_goat-views.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-cliff_goat-motion.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-cliff_goat-distance-*.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "partner-gentle_gorilla-0-front.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-gentle_gorilla-0-34.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-gentle_gorilla-0-side.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-gentle_gorilla-0-back.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-gentle_gorilla-0-*-*-*.jpg",
-          "count": 32
-        },
-        {
-          "pattern": "partner-gentle_gorilla-views.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-gentle_gorilla-motion.jpg",
-          "count": 1
-        },
-        {
-          "pattern": "partner-gentle_gorilla-distance-*.jpg",
+          "pattern": "companion-watcher-distance-*.jpg",
           "count": 2
         }
       ]
