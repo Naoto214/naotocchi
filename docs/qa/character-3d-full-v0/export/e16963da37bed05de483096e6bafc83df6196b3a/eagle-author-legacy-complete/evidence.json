@@ -1,0 +1,5729 @@
+{
+  "sourceCommit": "e16963da37bed05de483096e6bafc83df6196b3a",
+  "platform": "Chromium/SwiftShader; not iPhone",
+  "candidateOnly": true,
+  "includeLegacyStatesDistance": true,
+  "plans": [
+    {
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "fourViews": [
+        "front",
+        "34",
+        "side",
+        "back"
+      ],
+      "states": [
+        {
+          "emotion": "normal",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "normal",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "normal",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "normal",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "positive",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "positive",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "positive",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "positive",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "dislike",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "dislike",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "dislike",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "dislike",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "tired",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "tired",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "tired",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "tired",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "sleeping",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "sleeping",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "sleeping",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "sleeping",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "strained",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "strained",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "strained",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "strained",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "sick",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "sick",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "sick",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "sick",
+          "moving": true,
+          "reduced": true
+        }
+      ],
+      "distanceViews": [
+        "front",
+        "back"
+      ],
+      "reuseFourViews": false,
+      "reuse": null
+    },
+    {
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "fourViews": [
+        "front",
+        "34",
+        "side",
+        "back"
+      ],
+      "states": [
+        {
+          "emotion": "normal",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "normal",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "normal",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "normal",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "positive",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "positive",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "positive",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "positive",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "dislike",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "dislike",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "dislike",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "dislike",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "tired",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "tired",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "tired",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "tired",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "sleeping",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "sleeping",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "sleeping",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "sleeping",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "strained",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "strained",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "strained",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "strained",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "sick",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "sick",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "sick",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "sick",
+          "moving": true,
+          "reduced": true
+        }
+      ],
+      "distanceViews": [
+        "front",
+        "back"
+      ],
+      "reuseFourViews": false,
+      "reuse": null
+    },
+    {
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "fourViews": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "normal",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "normal",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "normal",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "positive",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "positive",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "positive",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "positive",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "dislike",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "dislike",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "dislike",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "dislike",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "tired",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "tired",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "tired",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "tired",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "sleeping",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "sleeping",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "sleeping",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "sleeping",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "strained",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "strained",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "strained",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "strained",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "sick",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "sick",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "sick",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "sick",
+          "moving": true,
+          "reduced": true
+        }
+      ],
+      "distanceViews": [
+        "front",
+        "back"
+      ],
+      "reuseFourViews": true,
+      "reuse": {
+        "key": "companion:cat_friend",
+        "path": "docs/qa/character-3d-quality3-2026-10-03/comparisons/cat_friend-00-comparison.jpg",
+        "sha256": "6282aaff98e421006bdd96d0f1dd1973f2701aea0697710c20a7fb991706c35e",
+        "dimensions": [
+          1980,
+          328
+        ],
+        "views": "rightmost four revised tiles: front, 34, side, back",
+        "geometryAndAnimationHash": "572e0df63a91df99d0201f823364b99f435d6e9f94095363b81d6590b2e7566e",
+        "actualReview": "PASS_FOUR_VIEWS_ONLY",
+        "sourceCommit": "cf7b787d1ca422a358216ff36c6c29d06a571dd4",
+        "currentComparisonCommit": "3083126a75d1044da2f68142a5a46d789556895c",
+        "sourceMetadata": "docs/qa/character-3d-quality3-2026-10-03/package-manifest.json"
+      }
+    },
+    {
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "fourViews": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "normal",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "normal",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "normal",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "positive",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "positive",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "positive",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "positive",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "dislike",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "dislike",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "dislike",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "dislike",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "tired",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "tired",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "tired",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "tired",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "sleeping",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "sleeping",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "sleeping",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "sleeping",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "strained",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "strained",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "strained",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "strained",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "sick",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "sick",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "sick",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "sick",
+          "moving": true,
+          "reduced": true
+        }
+      ],
+      "distanceViews": [
+        "front",
+        "back"
+      ],
+      "reuseFourViews": true,
+      "reuse": {
+        "key": "companion:shiba",
+        "path": "docs/qa/character-3d-quality3-2026-10-03/comparisons/shiba-00-comparison.jpg",
+        "sha256": "70fbc94f728a8ab9eba2fccd1d75b08b7d332f801b155dbe5772f681298dd1e4",
+        "dimensions": [
+          1980,
+          328
+        ],
+        "views": "rightmost four revised tiles: front, 34, side, back",
+        "geometryAndAnimationHash": "4175a7fcd816e7f6aaef998bc6aad4039c6e262a5e9dc9190dfc0e1df408b6f9",
+        "actualReview": "PASS_FOUR_VIEWS_ONLY",
+        "sourceCommit": "cf7b787d1ca422a358216ff36c6c29d06a571dd4",
+        "currentComparisonCommit": "3083126a75d1044da2f68142a5a46d789556895c",
+        "sourceMetadata": "docs/qa/character-3d-quality3-2026-10-03/package-manifest.json"
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17528,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5887928717824755,
+          -3.834155215542978e-13,
+          -0.4076938208309616
+        ],
+        [
+          0.5900094662858962,
+          1.195801356683295,
+          0.3503384816646576
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17528,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5887928717824755,
+          -3.834155215542978e-13,
+          -0.4076938208309616
+        ],
+        [
+          0.5900094662858962,
+          1.195801356683295,
+          0.3503384816646576
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17528,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5887928717824755,
+          -3.834155215542978e-13,
+          -0.4076938208309616
+        ],
+        [
+          0.5900094662858962,
+          1.195801356683295,
+          0.3503384816646576
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17528,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5887928717824755,
+          -3.834155215542978e-13,
+          -0.4076938208309616
+        ],
+        [
+          0.5900094662858962,
+          1.195801356683295,
+          0.3503384816646576
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17528,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5887928717824755,
+          -3.834155215542978e-13,
+          -0.4076938208309616
+        ],
+        [
+          0.5900094662858962,
+          1.195801356683295,
+          0.3503384816646576
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 17528,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.624448322348425,
+          -0.00027184992666001717,
+          -0.41656722773378974
+        ],
+        [
+          0.7118936841284584,
+          1.2179610712049767,
+          0.3503384816646576
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 17528,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5821517324447631,
+          -3.834155215542978e-13,
+          -0.3999999988079071
+        ],
+        [
+          0.581071308851242,
+          1.189999993443489,
+          0.3503384816646576
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 17528,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6563649898176688,
+          -3.834155215542978e-13,
+          -0.40545324248533504
+        ],
+        [
+          0.6923608188747585,
+          1.203771693971929,
+          0.3503384816646576
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17368,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7256440859752495,
+          0.06484182590002735,
+          -0.4026322784059732
+        ],
+        [
+          0.7364480771703364,
+          1.2828214040758503,
+          0.3512253003446196
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 17368,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7430041237660412,
+          0.03392091294982197,
+          -0.4009574611774256
+        ],
+        [
+          0.7440638161969094,
+          1.2472284470949446,
+          0.3511251619336553
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 17368,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5821517324447631,
+          0.002999999999616587,
+          -0.39487552613561816
+        ],
+        [
+          0.581071308851242,
+          1.2151842532763715,
+          0.35110253487670257
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 17368,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6016464630948103,
+          0.002999999999616587,
+          -0.395820552911892
+        ],
+        [
+          0.5933720830676823,
+          1.2170962108513061,
+          0.35116422974877387
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17528,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5887928717824755,
+          -0.00500000000038342,
+          -0.42958651468443776
+        ],
+        [
+          0.5900094662858962,
+          1.2180420300946062,
+          0.46027505280471154
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 17528,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7067468442401474,
+          -0.007986362853375839,
+          -0.4247870279172261
+        ],
+        [
+          0.6440298486509448,
+          1.213131622480554,
+          0.46060207236492334
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 17528,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5821517324447631,
+          -0.00500000000038342,
+          -0.42206653767521884
+        ],
+        [
+          0.581071308851242,
+          1.2143033943644457,
+          0.46039404409058554
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 17528,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6972889312371854,
+          -0.00500000000038342,
+          -0.42727977582075183
+        ],
+        [
+          0.6581155604726219,
+          1.2058806370881967,
+          0.46057972945463904
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17728,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5887928717824755,
+          -0.013000000000360445,
+          -0.39731910391322744
+        ],
+        [
+          0.5900094662858962,
+          1.136734356095726,
+          0.35239518274309484
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 17728,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.625138248206955,
+          -0.024475321413288065,
+          -0.4068825670823324
+        ],
+        [
+          0.7132714740120816,
+          1.15741513284447,
+          0.3540053844523164
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 17728,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5821517324447631,
+          -0.013000000000360445,
+          -0.38950426911324776
+        ],
+        [
+          0.581071308851242,
+          1.1312970290694602,
+          0.3521445708136109
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 17728,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6573612977010269,
+          -0.013000000000360445,
+          -0.3953848159986033
+        ],
+        [
+          0.6937331882120991,
+          1.144327118095686,
+          0.35282910665244727
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17368,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5887928717824755,
+          -0.016000000000352732,
+          -0.39512411570566797
+        ],
+        [
+          0.5900094662858962,
+          1.114301803824915,
+          0.3528019404019439
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 17368,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.706130048182734,
+          -0.018575539421749276,
+          -0.39155022764902336
+        ],
+        [
+          0.6437401044377302,
+          1.1236348034752501,
+          0.35424922863619546
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 17368,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5821517324447631,
+          -0.016000000000352732,
+          -0.38728741348824497
+        ],
+        [
+          0.581071308851242,
+          1.1089847553181662,
+          0.35250155441894554
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 17368,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6967220859673857,
+          -0.016000000000352732,
+          -0.39338454828223224
+        ],
+        [
+          0.6577012142708041,
+          1.1189918761322388,
+          0.3535310526546256
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17368,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5882985792914945,
+          -0.004000000000368098,
+          -0.41699873391855463
+        ],
+        [
+          0.5905037587768771,
+          1.1568071900449475,
+          0.38171144743480817
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 17368,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5882052892440335,
+          -0.004000000000368098,
+          -0.4159572757424357
+        ],
+        [
+          0.5962917925926257,
+          1.1538428764307518,
+          0.3816340543316297
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 17368,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5821517324447631,
+          -0.004000000000368098,
+          -0.40937401594494666
+        ],
+        [
+          0.581071308851242,
+          1.151242798162175,
+          0.38156628191654435
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 17368,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5952399524027063,
+          -0.004000000000368098,
+          -0.4099669326495671
+        ],
+        [
+          0.5893054430986497,
+          1.1524774857939792,
+          0.3815984588286566
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17528,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6538081252693203,
+          0.03292091294982197,
+          -0.39512411570566797
+        ],
+        [
+          0.6680397959795086,
+          1.2572620517319846,
+          0.3355974762067873
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 17528,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7473876089759842,
+          0.017460456474719277,
+          -0.3890440491646119
+        ],
+        [
+          0.708737193192915,
+          1.2488436105549723,
+          0.3365106675040554
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 17528,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5821517324447631,
+          0.0019999999996165863,
+          -0.38728741348824497
+        ],
+        [
+          0.581071308851242,
+          1.220553044567918,
+          0.33530307352026856
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 17528,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6756403545934314,
+          0.0019999999996165863,
+          -0.3921916344725155
+        ],
+        [
+          0.6426170151845796,
+          1.2295254186935556,
+          0.3360837234754052
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17368,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5875571405550232,
+          -0.009000000000371877,
+          -0.4076938208309616
+        ],
+        [
+          0.5912451975133485,
+          1.1734870998092017,
+          0.37741729780770944
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 17368,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6201025510946099,
+          -0.009000000000371877,
+          -0.41607295183858717
+        ],
+        [
+          0.7068204903547508,
+          1.1937595656625148,
+          0.37741729780770944
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 17368,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5821517324447631,
+          -0.009000000000371877,
+          -0.3999999988079071
+        ],
+        [
+          0.581071308851242,
+          1.1678666254665426,
+          0.37741729780770944
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 17368,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6518750609867844,
+          -0.009000000000371877,
+          -0.40512576608219675
+        ],
+        [
+          0.6861289126057859,
+          1.1804327397148746,
+          0.37741729780770944
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "high_eagle",
+      "roleKey": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "reuseFourViews": false,
+      "file": "partner-high_eagle-0-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9176,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.25999998092651366
+        ],
+        [
+          0.3216627764727591,
+          1.619681430982427,
+          0.32201910417509594
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9176,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.25999998092651366
+        ],
+        [
+          0.3216627764727591,
+          1.619681430982427,
+          0.32201910417509594
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9176,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.25999998092651366
+        ],
+        [
+          0.3216627764727591,
+          1.619681430982427,
+          0.32201910417509594
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9176,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.25999998092651366
+        ],
+        [
+          0.3216627764727591,
+          1.619681430982427,
+          0.32201910417509594
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9176,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.25999998092651366
+        ],
+        [
+          0.3216627764727591,
+          1.619681430982427,
+          0.32201910417509594
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9176,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.049641857737296124,
+          -0.36336250443666057
+        ],
+        [
+          0.3216627764727591,
+          1.6446682589589523,
+          0.4048025584121038
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9176,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -2.050399772191014e-8,
+          -0.25999998092651366
+        ],
+        [
+          0.3216627764727591,
+          1.613000016593933,
+          0.32201910417509594
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9176,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.004107109473041826,
+          -0.25999998092651366
+        ],
+        [
+          0.3216627764727591,
+          1.6254934305821958,
+          0.32201910417509594
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9016,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.059672108358193476,
+          -0.3122409379695428
+        ],
+        [
+          0.3216627764727591,
+          1.7039757485282099,
+          0.2856752061274278
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9016,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.053800957433389085,
+          -0.3122409379695428
+        ],
+        [
+          0.3216627764727591,
+          1.6927580590180424,
+          0.36236803438399223
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9016,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.0015805336453548202,
+          -0.31207611937723484
+        ],
+        [
+          0.3216627764727591,
+          1.6353704537190223,
+          0.2857528251787526
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9016,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.002214350089761563,
+          -0.31207611937723484
+        ],
+        [
+          0.3216627764727591,
+          1.6452220654390413,
+          0.2857528251787526
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9176,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3913777528375625,
+          -0.014455000229652626,
+          -0.32743670239207023
+        ],
+        [
+          0.39683635088135183,
+          1.6591172996444552,
+          0.494085802463224
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9176,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3913777528375625,
+          0.008556132329767485,
+          -0.32743670239207023
+        ],
+        [
+          0.39683635088135183,
+          1.6743321810475367,
+          0.494085802463224
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9176,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3913777528375625,
+          -0.010710327319988222,
+          -0.32762402680099945
+        ],
+        [
+          0.39683635088135183,
+          1.652270138666918,
+          0.4936976564132754
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9176,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3913777528375625,
+          -0.007591257107838589,
+          -0.32762402680099945
+        ],
+        [
+          0.39683635088135183,
+          1.6598775793684593,
+          0.4936976564132754
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9376,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.01884894236220369,
+          -0.28296768739440387
+        ],
+        [
+          0.3216627764727591,
+          1.5430212778719365,
+          0.3558576106905812
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9376,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.017852797350422223,
+          -0.28296768739440387
+        ],
+        [
+          0.3216627764727591,
+          1.5489143405181203,
+          0.3558576106905812
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9376,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.015327011326950912,
+          -0.2828029139911715
+        ],
+        [
+          0.3216627764727591,
+          1.5364836657627428,
+          0.356168615957254
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9376,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.013283751237896713,
+          -0.2828029139911715
+        ],
+        [
+          0.3216627764727591,
+          1.5394301970858346,
+          0.356168615957254
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9016,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.022017489381269684,
+          -0.28652987791122475
+        ],
+        [
+          0.3216627764727591,
+          1.51263111210223,
+          0.370239294999944
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9016,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.01153091355763125,
+          -0.28652987791122475
+        ],
+        [
+          0.3216627764727591,
+          1.5273687418344795,
+          0.370239294999944
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9016,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.018572390304378406,
+          -0.28632722283720724
+        ],
+        [
+          0.3216627764727591,
+          1.5061980865970845,
+          0.37060486702245027
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9016,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.016997159997137024,
+          -0.28632722283720724
+        ],
+        [
+          0.3216627764727591,
+          1.5135669014632094,
+          0.37060486702245027
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9016,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.32116848398177816,
+          -0.010129207419276365,
+          -0.24859279126805717
+        ],
+        [
+          0.32215706896374,
+          1.5715118383327127,
+          0.3555143258381055
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9016,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.32116848398177816,
+          -0.006116570244381947,
+          -0.24859279126805717
+        ],
+        [
+          0.32215706896374,
+          1.5817782722291756,
+          0.3555143258381055
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9016,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.006528966279207071,
+          -0.2486689279489009
+        ],
+        [
+          0.3216627764727591,
+          1.5649996453578394,
+          0.35535043824666407
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9016,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.008479219533460647,
+          -0.2486689279489009
+        ],
+        [
+          0.3216627764727591,
+          1.5701328623060709,
+          0.35535043824666407
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9176,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.026380163622738317,
+          -0.33916660966367307
+        ],
+        [
+          0.3216627764727591,
+          1.676178172013878,
+          0.271070140810587
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9176,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.017902782403001694,
+          -0.33916660966367307
+        ],
+        [
+          0.3216627764727591,
+          1.674613501025815,
+          0.3160747795505067
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9176,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0007960764178026603,
+          -0.33876942741055394
+        ],
+        [
+          0.3216627764727591,
+          1.6385309141019095,
+          0.2713318401872907
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9176,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.0010305227862708044,
+          -0.33876942741055394
+        ],
+        [
+          0.3216627764727591,
+          1.6454788068454294,
+          0.2713318401872907
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9016,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3204270452453068,
+          -0.012638900631829597,
+          -0.2596163023641069
+        ],
+        [
+          0.3228985077002114,
+          1.5942326621782232,
+          0.37250420311463484
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9016,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3204270452453068,
+          -0.015740830493615077,
+          -0.2596163023641069
+        ],
+        [
+          0.3228985077002114,
+          1.601275710673817,
+          0.37250420311463484
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9016,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.009000019888877775,
+          -0.2596163023641069
+        ],
+        [
+          0.3216627764727591,
+          1.5875451347924119,
+          0.37250420311463484
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9016,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.012367867244404196,
+          -0.2596163023641069
+        ],
+        [
+          0.3216627764727591,
+          1.5910666590402087,
+          0.37250420311463484
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4382,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.9594032426304597,
+          -0.06348002949895443,
+          -0.6527362964377356
+        ],
+        [
+          0.9535534612007838,
+          1.2647670722915074,
+          0.955838215009678
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4382,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.347858574749616,
+          -0.0035689917685314265,
+          -1.0058283585084657
+        ],
+        [
+          0.637233514278989,
+          1.5608138724967602,
+          1.0926897828075526
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4382,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.9594032426304597,
+          -0.06348002949895443,
+          -0.6527362964377356
+        ],
+        [
+          1.0637619829460454,
+          1.2642790665899202,
+          0.955838215009678
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4382,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.347858574749616,
+          -0.006608830552268574,
+          -0.9908701387479595
+        ],
+        [
+          0.5618839106801692,
+          1.5542995517574134,
+          1.092399447598498
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4022,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.9594032426304598,
+          0.006937941206091813,
+          -0.6472494410584995
+        ],
+        [
+          0.9316816518882662,
+          1.3157932751966215,
+          0.9569878851009923
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4022,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.3456000089645386,
+          0.026112222887264003,
+          -0.9824577459012263
+        ],
+        [
+          0.6457896189849983,
+          1.5957847954013284,
+          1.0730425528322403
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4022,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.9594032426304598,
+          -0.05490388469431895,
+          -0.6472494410584995
+        ],
+        [
+          1.0637619829460456,
+          1.256935731679997,
+          0.9569878851009923
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4022,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.347858574749616,
+          -0.013602292017847295,
+          -1.0176756019555444
+        ],
+        [
+          0.5677833757959353,
+          1.5473350836381532,
+          1.0728467501387078
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4182,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.9594032426304597,
+          -0.08108179189098694,
+          -0.6642343637632061
+        ],
+        [
+          0.9535534612007838,
+          1.2835934376058347,
+          0.9506438961262798
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4182,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.43199325297057034,
+          -0.04020523141668719,
+          -1.0037979892955593
+        ],
+        [
+          0.6308411892601364,
+          1.609237726841453,
+          1.217818266439279
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4182,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.9594032426304597,
+          -0.08108179189098694,
+          -0.6642343637632061
+        ],
+        [
+          1.0637619829460454,
+          1.2814805901156858,
+          0.9506438961262798
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4182,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.4319932529705704,
+          -0.041453818322229996,
+          -0.987139320021321
+        ],
+        [
+          0.5559071444936772,
+          1.6042516446109598,
+          1.2156442799346672
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4382,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.9854783928842796,
+          -0.062012889838582774,
+          -0.6413580758474805
+        ],
+        [
+          0.9535534612007837,
+          1.1545658109029457,
+          0.9575394689154189
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4382,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.347858574749616,
+          -0.03777628078379214,
+          -1.0505317672858772
+        ],
+        [
+          0.6002440289194299,
+          1.4308866115071375,
+          1.0932509054374284
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4382,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.9854783928842796,
+          -0.062012889838582774,
+          -0.6413580758474805
+        ],
+        [
+          1.0637619829460454,
+          1.1553813729870588,
+          0.9575394689154189
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4382,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.347858574749616,
+          -0.040188910819740464,
+          -1.0552926358278647
+        ],
+        [
+          0.5491587049731419,
+          1.4216894210644582,
+          1.0902015444389326
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4022,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.9923480563021072,
+          -0.06180218808028701,
+          -0.6388890833157
+        ],
+        [
+          0.9535534612007837,
+          1.1222734332639182,
+          0.9575925485004448
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4022,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.347858574749616,
+          -0.02024433621964039,
+          -1.062910414818144
+        ],
+        [
+          0.6508907026640294,
+          1.413906612140838,
+          1.0995658809377813
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4022,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.9923480563021072,
+          -0.06180218808028701,
+          -0.6388890833157
+        ],
+        [
+          1.0637619829460452,
+          1.1233209382539942,
+          0.9575925485004448
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4022,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.347858574749616,
+          -0.04322567145661016,
+          -1.0543597624006007
+        ],
+        [
+          0.5772652066874627,
+          1.3924740084821785,
+          1.0962278231690168
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4022,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.9593990280138935,
+          -0.07011166880667508,
+          -0.6578152128791817
+        ],
+        [
+          0.9540477536917649,
+          1.220142099611993,
+          0.9540911771478595
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4022,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.3473642822586351,
+          0.029710723548083462,
+          -1.002706830133095
+        ],
+        [
+          0.6537614021884882,
+          1.5343236587650004,
+          1.0903589836376884
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4022,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.9598933205048744,
+          -0.07011166880667508,
+          -0.6578152128791817
+        ],
+        [
+          1.0637619829460456,
+          1.219023149998575,
+          0.9540911771478595
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4022,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.347858574749616,
+          -0.015124203177583062,
+          -0.9959630834745998
+        ],
+        [
+          0.5806329503814184,
+          1.519820267835601,
+          1.0896351437056446
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4182,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.9594032426304595,
+          -0.01686407409358484,
+          -0.7556614833621382
+        ],
+        [
+          1.1885761391015646,
+          1.271438083274714,
+          0.9575925485004448
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4182,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.3456000089645386,
+          0.015636984383728958,
+          -1.2994855824452582
+        ],
+        [
+          0.48858628485364747,
+          1.563144905404758,
+          1.0779534585924957
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4182,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.9594032426304595,
+          -0.04778498704379022,
+          -0.6388890833157
+        ],
+        [
+          1.0637619829460452,
+          1.240392324189124,
+          0.9575925485004448
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4182,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.347858574749616,
+          -0.027324174204036378,
+          -1.0933316210577417
+        ],
+        [
+          0.552176549283768,
+          1.5311489561175673,
+          1.077561266637196
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4022,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.9737771171887112,
+          -0.07057562861398581,
+          -0.6527362964377356
+        ],
+        [
+          0.9547891924282361,
+          1.2178240601227621,
+          0.955838215009678
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4022,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.34662284352216366,
+          0.013740053110515404,
+          -0.9938693072775079
+        ],
+        [
+          0.5731646206190071,
+          1.5166334380452628,
+          1.1045603262134056
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4022,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.9750128484161635,
+          -0.07057562861398581,
+          -0.6527362964377356
+        ],
+        [
+          1.0637619829460454,
+          1.2173506945922226,
+          0.955838215009678
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "cat_friend",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4022,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.347858574749616,
+          -0.01298188562624003,
+          -1.0300640919899495
+        ],
+        [
+          0.5518151496416752,
+          1.5044925560663935,
+          1.1004548213375234
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "cat_friend",
+      "roleKey": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "reuseFourViews": true,
+      "file": "companion-cat_friend-0-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4286,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.13485072678720567,
+          -0.7625227853106602
+        ],
+        [
+          0.512712836265564,
+          1.614270387159955,
+          1.102913229505826
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4286,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.022340855560447404,
+          -0.7984535731636371
+        ],
+        [
+          0.5293968917229025,
+          1.5030330639526013,
+          1.001375858950648
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4286,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.13485072678720567,
+          -0.7242011328655148
+        ],
+        [
+          0.512712836265564,
+          1.5989642316662547,
+          1.102913229505826
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4286,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.01667052761653176,
+          -0.7573431749278805
+        ],
+        [
+          0.512712836265564,
+          1.4965187432132545,
+          0.995497059232826
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4126,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.05933074074772171,
+          -0.777368158413142
+        ],
+        [
+          0.5752667127610969,
+          1.6724220316746112,
+          1.1240966002210868
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4126,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          0.006972385587196928,
+          -0.8094327348928726
+        ],
+        [
+          0.5731183887983873,
+          1.5448589900456917,
+          0.9940263424506641
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4126,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.12117256664813247,
+          -0.7290706495052625
+        ],
+        [
+          0.512712836265564,
+          1.592676071368059,
+          1.1240966002210868
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4126,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.02091727672744259,
+          -0.7832496075669397
+        ],
+        [
+          0.512712836265564,
+          1.4996675624916533,
+          1.0010723557311971
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4286,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.6253573401403931,
+          -0.16390568044116172,
+          -0.7480089384800117
+        ],
+        [
+          0.653067342448477,
+          1.6309616425675175,
+          1.2648279942578786
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4286,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.6253573401403931,
+          -0.04534564326937607,
+          -0.798656031562382
+        ],
+        [
+          0.653067342448477,
+          1.5390303310147724,
+          1.2184916337534433
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4286,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.6253573401403931,
+          -0.16390568044116172,
+          -0.7106740627252581
+        ],
+        [
+          0.653067342448477,
+          1.61338511007385,
+          1.2648279942578786
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4286,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.6253573401403931,
+          -0.04122474682967059,
+          -0.7572618280993761
+        ],
+        [
+          0.653067342448477,
+          1.532558333206169,
+          1.2155781681335092
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4486,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.11933150538714071,
+          -0.7725232700160006
+        ],
+        [
+          0.512712836265564,
+          1.4844804773879514,
+          1.1024054013335967
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4486,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.042436952615646006,
+          -0.8235949966315179
+        ],
+        [
+          0.512712836265564,
+          1.3949775014784858,
+          1.0353731206439314
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4486,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.11933150538714071,
+          -0.7334845207213434
+        ],
+        [
+          0.512712836265564,
+          1.471911039503102,
+          1.1024054013335967
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4486,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.04165416889451068,
+          -0.8083322873830106
+        ],
+        [
+          0.512712836265564,
+          1.3869534208722287,
+          1.0312836377739514
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4126,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.11590589618667235,
+          -0.7742923735399817
+        ],
+        [
+          0.512712836265564,
+          1.4454076648969263,
+          1.113557322632102
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4126,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.03936399741994323,
+          -0.857495678219199
+        ],
+        [
+          0.547779367818597,
+          1.3801772419193163,
+          1.0437477872061602
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4126,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.11590589618667235,
+          -0.7351218609708288
+        ],
+        [
+          0.512712836265564,
+          1.4334654274633158,
+          1.113557322632102
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4126,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.047214321208894516,
+          -0.8193473690109669
+        ],
+        [
+          0.512712836265564,
+          1.3615320279430025,
+          1.0393227172522188
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4126,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5122185437745831,
+          -0.14334057248031923,
+          -0.7568060776151506
+        ],
+        [
+          0.5132071287565448,
+          1.5548581619843018,
+          1.0871057135728828
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4126,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5122185437745831,
+          -0.003770310865365223,
+          -0.8070099933829458
+        ],
+        [
+          0.5518597261841738,
+          1.4741391985146353,
+          1.0326591985704212
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4126,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.14334057248031923,
+          -0.7188790140914907
+        ],
+        [
+          0.512712836265564,
+          1.5392492204602979,
+          1.0871057135728828
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4126,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.03263958933505984,
+          -0.7698693633536391
+        ],
+        [
+          0.512712836265564,
+          1.4589061303619137,
+          1.0314384422174203
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4286,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.07567245247009058,
+          -0.880043982217326
+        ],
+        [
+          0.512712836265564,
+          1.656452467930564,
+          1.1248802824697621
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4286,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.006102438284220635,
+          -0.9828073724528434
+        ],
+        [
+          0.512712836265564,
+          1.531663843892662,
+          1.0117064711642914
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4286,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.10659336542029596,
+          -0.7351218609708288
+        ],
+        [
+          0.512712836265564,
+          1.5775058994166475,
+          1.1248802824697621
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4286,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.03223337993701236,
+          -0.8390376920436431
+        ],
+        [
+          0.512712836265564,
+          1.4986683264871088,
+          1.0069351623843161
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4126,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5114771050381116,
+          -0.13980520498358945,
+          -0.7625227853106602
+        ],
+        [
+          0.5139485674930163,
+          1.556842275545156,
+          1.1043199605258427
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4126,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5114771050381116,
+          -0.018424431370532346,
+          -0.763148062334231
+        ],
+        [
+          0.5139485674930163,
+          1.4605860537574284,
+          1.0513109160899359
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4126,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.13980520498358945,
+          -0.7242011328655148
+        ],
+        [
+          0.512712836265564,
+          1.5419953047162671,
+          1.1043199605258427
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "shiba",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4126,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.512712836265564,
+          -0.030545337842431908,
+          -0.782573284013462
+        ],
+        [
+          0.512712836265564,
+          1.4484451717785594,
+          1.0457949829829933
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "shiba",
+      "roleKey": "companion:shiba",
+      "modelKey": "shiba",
+      "reuseFourViews": true,
+      "file": "companion-shiba-0-sick-walk-reduced.jpg"
+    }
+  ],
+  "distance": [
+    {
+      "kind": "partner",
+      "id": "high_eagle",
+      "key": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "view": "front",
+      "actorIdentity": {
+        "key": "partner:high_eagle",
+        "kind": "partner",
+        "id": "high_eagle",
+        "asset": "assets/characters/partners/high_eagle.png"
+      },
+      "authorProvenance": null,
+      "qaPlacement": {
+        "region": "forest",
+        "actor": {
+          "x": 85,
+          "z": 165,
+          "heading": 3.141592653589793
+        },
+        "player": {
+          "x": 0,
+          "z": 150
+        },
+        "cameraYaw": 0
+      },
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "partner:high_eagle",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 21590,
+        "meshes": 24,
+        "bones": 18,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 11.843,
+        "cpuMsP95": 35.9,
+        "buildMsTotal": 266.3,
+        "buildMsMax": 231.4,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-high_eagle-distance-front.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "high_eagle",
+      "key": "partner:high_eagle",
+      "modelKey": "partner:high_eagle",
+      "view": "back",
+      "actorIdentity": {
+        "key": "partner:high_eagle",
+        "kind": "partner",
+        "id": "high_eagle",
+        "asset": "assets/characters/partners/high_eagle.png"
+      },
+      "authorProvenance": null,
+      "qaPlacement": {
+        "region": "forest",
+        "actor": {
+          "x": 85,
+          "z": 165,
+          "heading": 0
+        },
+        "player": {
+          "x": 0,
+          "z": 150
+        },
+        "cameraYaw": 0
+      },
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "partner:high_eagle",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 21590,
+        "meshes": 24,
+        "bones": 18,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 3.93,
+        "cpuMsP95": 0.8,
+        "buildMsTotal": 266.3,
+        "buildMsMax": 231.4,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-high_eagle-distance-back.jpg"
+    },
+    {
+      "kind": "author",
+      "id": "naoto",
+      "key": "author:naoto",
+      "modelKey": "author:naoto",
+      "view": "front",
+      "actorIdentity": {
+        "key": "naoto",
+        "kind": "naoto",
+        "id": "naoto",
+        "asset": "assets/characters/author/naoto.png"
+      },
+      "authorProvenance": {
+        "originalRegion": "memory_lake",
+        "originalSpot": "deep",
+        "originalCoordinates": {
+          "x": -160,
+          "z": 4300,
+          "heading": 3.141592653589793
+        },
+        "naturalPresentation": "2D",
+        "qaPlacementRegion": "forest",
+        "qaPlacement": "same actual resident object in existing forest simulation resident list; bounded renderer.draw view adapter",
+        "actor": {
+          "key": "naoto",
+          "kind": "naoto",
+          "id": "naoto",
+          "asset": "assets/characters/author/naoto.png"
+        },
+        "sameActorObject": true,
+        "party": false,
+        "saveObjectChanged": false,
+        "bridgeGetterChanged": false
+      },
+      "qaPlacement": {
+        "region": "forest",
+        "actor": {
+          "x": 85,
+          "z": 165,
+          "heading": 3.141592653589793
+        },
+        "player": {
+          "x": 0,
+          "z": 150
+        },
+        "cameraYaw": 0
+      },
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "author:naoto",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 13238,
+        "meshes": 28,
+        "bones": 22,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 4.478,
+        "cpuMsP95": 27.7,
+        "buildMsTotal": 97.7,
+        "buildMsMax": 70.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "author-naoto-distance-front.jpg"
+    },
+    {
+      "kind": "author",
+      "id": "naoto",
+      "key": "author:naoto",
+      "modelKey": "author:naoto",
+      "view": "back",
+      "actorIdentity": {
+        "key": "naoto",
+        "kind": "naoto",
+        "id": "naoto",
+        "asset": "assets/characters/author/naoto.png"
+      },
+      "authorProvenance": {
+        "originalRegion": "memory_lake",
+        "originalSpot": "deep",
+        "originalCoordinates": {
+          "x": -160,
+          "z": 4300,
+          "heading": 3.141592653589793
+        },
+        "naturalPresentation": "2D",
+        "qaPlacementRegion": "forest",
+        "qaPlacement": "same actual resident object in existing forest simulation resident list; bounded renderer.draw view adapter",
+        "actor": {
+          "key": "naoto",
+          "kind": "naoto",
+          "id": "naoto",
+          "asset": "assets/characters/author/naoto.png"
+        },
+        "sameActorObject": true,
+        "party": false,
+        "saveObjectChanged": false,
+        "bridgeGetterChanged": false
+      },
+      "qaPlacement": {
+        "region": "forest",
+        "actor": {
+          "x": 85,
+          "z": 165,
+          "heading": 0
+        },
+        "player": {
+          "x": 0,
+          "z": 150
+        },
+        "cameraYaw": 0
+      },
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "author:naoto",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 13238,
+        "meshes": 28,
+        "bones": 22,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 1.584,
+        "cpuMsP95": 0.4,
+        "buildMsTotal": 97.7,
+        "buildMsMax": 70.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "author-naoto-distance-back.jpg"
+    },
+    {
+      "kind": "companion",
+      "id": "cat_friend",
+      "key": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "view": "front",
+      "actorIdentity": {
+        "key": "companion:cat_friend",
+        "kind": "companion",
+        "id": "cat_friend",
+        "asset": "assets/characters/companions/cat_friend.png"
+      },
+      "authorProvenance": null,
+      "qaPlacement": {
+        "region": "forest",
+        "actor": {
+          "x": 85,
+          "z": 165,
+          "heading": 3.141592653589793
+        },
+        "player": {
+          "x": 0,
+          "z": 150
+        },
+        "cameraYaw": 0
+      },
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "cat_friend",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 8244,
+        "meshes": 26,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 6,
+        "cpuMsAvg": 5.63,
+        "cpuMsP95": 49,
+        "buildMsTotal": 116.6,
+        "buildMsMax": 68.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "companion-cat_friend-distance-front.jpg"
+    },
+    {
+      "kind": "companion",
+      "id": "cat_friend",
+      "key": "companion:cat_friend",
+      "modelKey": "cat_friend",
+      "view": "back",
+      "actorIdentity": {
+        "key": "companion:cat_friend",
+        "kind": "companion",
+        "id": "cat_friend",
+        "asset": "assets/characters/companions/cat_friend.png"
+      },
+      "authorProvenance": null,
+      "qaPlacement": {
+        "region": "forest",
+        "actor": {
+          "x": 85,
+          "z": 165,
+          "heading": 0
+        },
+        "player": {
+          "x": 0,
+          "z": 150
+        },
+        "cameraYaw": 0
+      },
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "cat_friend",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 8244,
+        "meshes": 26,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 6,
+        "cpuMsAvg": 2.018,
+        "cpuMsP95": 0.4,
+        "buildMsTotal": 116.6,
+        "buildMsMax": 68.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "companion-cat_friend-distance-back.jpg"
+    },
+    {
+      "kind": "companion",
+      "id": "shiba",
+      "key": "companion:shiba",
+      "modelKey": "shiba",
+      "view": "front",
+      "actorIdentity": {
+        "key": "companion:shiba",
+        "kind": "companion",
+        "id": "shiba",
+        "asset": "assets/characters/companions/shiba.png"
+      },
+      "authorProvenance": null,
+      "qaPlacement": {
+        "region": "forest",
+        "actor": {
+          "x": 85,
+          "z": 165,
+          "heading": 3.141592653589793
+        },
+        "player": {
+          "x": 0,
+          "z": 150
+        },
+        "cameraYaw": 0
+      },
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": -9.575673587391975e-16,
+      "yawError": 9.575673587391975e-16,
+      "specKey": {
+        "id": "shiba",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 8348,
+        "meshes": 26,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 6.213,
+        "cpuMsP95": 45.8,
+        "buildMsTotal": 135.6,
+        "buildMsMax": 90.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "companion-shiba-distance-front.jpg"
+    },
+    {
+      "kind": "companion",
+      "id": "shiba",
+      "key": "companion:shiba",
+      "modelKey": "shiba",
+      "view": "back",
+      "actorIdentity": {
+        "key": "companion:shiba",
+        "kind": "companion",
+        "id": "shiba",
+        "asset": "assets/characters/companions/shiba.png"
+      },
+      "authorProvenance": null,
+      "qaPlacement": {
+        "region": "forest",
+        "actor": {
+          "x": 85,
+          "z": 165,
+          "heading": 0
+        },
+        "player": {
+          "x": 0,
+          "z": 150
+        },
+        "cameraYaw": 0
+      },
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "shiba",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 8348,
+        "meshes": 26,
+        "bones": 20,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 2.197,
+        "cpuMsP95": 0.4,
+        "buildMsTotal": 135.6,
+        "buildMsMax": 90.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "companion-shiba-distance-back.jpg"
+    }
+  ],
+  "errors": []
+}
