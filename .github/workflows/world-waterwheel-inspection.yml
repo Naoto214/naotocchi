@@ -1,0 +1,49 @@
+name: World waterwheel scene inspection (Draft branch)
+on:
+  push:
+    branches: [feat/meguru-3d-geometry-terrain-v1]
+    paths:
+      - '.github/workflows/world-waterwheel-inspection.yml'
+      - 'docs/qa/meguru-3d-waterwheel-supports/scene-inspection.cjs'
+permissions:
+  contents: read
+jobs:
+  captures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: cf500370365b49b8c7f538c92b009e934cf8844b
+          path: before
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install browser QA dependencies
+        run: |
+          npm ci
+          npm install --no-save --package-lock=false playwright@1.51.1
+          npx playwright install --with-deps chromium
+          echo "PLAYWRIGHT_CHROMIUM=$(node -p 'require("playwright").chromium.executablePath()')" >> "$GITHUB_ENV"
+          echo "NODE_PATH=$PWD/node_modules" >> "$GITHUB_ENV"
+      - name: Capture two wheels in complete scenes from four directions
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-artifacts
+          git rev-parse HEAD > qa-artifacts/commit.txt
+          git -C before rev-parse HEAD > qa-artifacts/before-commit.txt
+          sha256sum meguru.js meguru-3d.mjs index.html > qa-artifacts/source-sha256.txt
+          (cd before; sha256sum meguru.js meguru-3d.mjs index.html) > qa-artifacts/before-source-sha256.txt
+          cp docs/qa/meguru-3d-waterwheel-supports/scene-inspection.cjs qa-artifacts/scene-inspection.cjs
+          node --check docs/qa/meguru-3d-waterwheel-supports/scene-inspection.cjs
+          node docs/qa/meguru-3d-waterwheel-supports/scene-inspection.cjs "$PWD" "$PWD/qa-artifacts/after" 2>&1 | tee qa-artifacts/after.log
+          node docs/qa/meguru-3d-waterwheel-supports/scene-inspection.cjs "$PWD/before" "$PWD/qa-artifacts/before" 2>&1 | tee qa-artifacts/before.log
+          printf '0\n' > qa-artifacts/runner-exit-code.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: waterwheel-scene-inspection-${{ github.sha }}
+          path: qa-artifacts
+          retention-days: 30
