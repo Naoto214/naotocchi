@@ -1,17 +1,17 @@
 {
-  "baseCommit": "4fba9e41b92ac9401f76d40c7cca538a15cc5368",
-  "checkpoint": "fox-watcher-approved-humanoid-four-and-unicorn-fix3-ready-for-five-image-gates",
+  "baseCommit": "2acc0c1b74288fade84a7802beda68918559d892",
+  "checkpoint": "unicorn-and-three-humanoid-partners-approved-aquatic-five-and-mermaid-bodice-ready-for-images",
   "coverage": {
-    "exact": 280,
+    "exact": 284,
     "total": 293,
-    "pending": 13,
+    "pending": 9,
     "playerFamilies": 31,
     "playerStages": 248,
-    "companions": 25,
-    "partners": 7
+    "companions": 26,
+    "partners": 10
   },
   "verification": {
-    "dedicatedPass": 399,
+    "dedicatedPass": 424,
     "rolloutMutationsDetected": 33,
     "pilotHashesUnchanged": 28,
     "fullNpm": "8b6fcae fixed implementation:3017PASS+Relationship80PASS,0FAIL,exit0; full log/result archived. Before Star expansion/Unknown promotion.",
@@ -123,13 +123,17 @@
     "legacyFourViewMapping": "a70a8aaf maps onlyexactcat_friend/shiba recordedcomparisonboards viaPASS/path/layout/SHAguards;explicitrightmost-fourdescriptor;6focusedPASS,C0/I0;otherrowsunchanged. No state/distanceapproval.",
     "latestIntegratedVerification": "399dedicatedPASS afterTask7/legacy mapping/fox-watcherpromotion;12selectorPASS;7/7rolemutationsdetected/restored;28Pilotunchanged. Fullnpm remains historical pendingfinalintegration.",
     "task5Fix2CI": "64d739f9 Character37903430971SUCCESS,Home37903441923SUCCESS;Runtime37903441922 lastobservedIN_PROGRESS.",
-    "task5Fix3": "cdf38a00 Unicorn-only hairdata:4head+5neck/back+4staggeredS-tail locks;17focusedPASS,oldrejectedring1/1RED-restored,C0/I0;allbuilders/otherrowsunchanged. Actualmaxexpression16826. Root5scopedintegrationPASS after399dedicatedbaseline;freshUnicornimagesOPEN."
+    "task5Fix3": "cdf38a00 Unicorn-only hairdata:4head+5neck/back+4staggeredS-tail locks;17focusedPASS,oldrejectedring1/1RED-restored,C0/I0;allbuilders/otherrowsunchanged. Actualmaxexpression16826. Root5scopedintegrationPASS after399dedicatedbaseline;freshUnicornimagesOPEN.",
+    "humanoidUnicornActualImageGate": "5d36 Character37906158821 SUCCESS; 201rawfiles SHA256verified archive2acc; Unicorn/Cat/Robot/Snow actual4views32states2distance eachPASS, Mermaid4viewsREJECT sourcebodice. Independent4viewreview agrees.",
+    "aquaticCandidates": "5newcandidate rows from7890cf48;22focusedPASS/17controlsREDrestored; rootcandidate-local all70paths outwardCaps actualterminalnormal/indexedfan regressionRED→GREEN plus1newcontrolRED/restored. Sharedfactoryunchanged;34previousrows identical inclsignedzero exceptintentionally correctedMermaid.",
+    "mermaidBodiceCorrection": "Candidate-only2pinkbra volumes replacedby1continuous tealbodice;actualsourceoverrideswrongbrief. Producedcolor/connectivity/bounds RED→GREEN,4affected32state/contact/source testsPASS,1oldpinktopnegativeRED/restored. ImagesPENDING.",
+    "latestScopedCI": "5d36 Character37906158821 SUCCESS;Home37906168010 SUCCESS;Runtime37906167865 lastobservedIN_PROGRESS.",
+    "rolePromotionMutations": "7/7 detected and exactrestored after4promotions; stalehardcodedallowlistanchor replacedwithstrictlyscoped explicitlist expression. Unreviewedexclusion stillmeaningful."
   },
   "next": [
-    "Capture and actually review four Task7 humanoidpartners plus Unicornfix3 inone scopedbatch; no promotion beforefullimages.",
-    "Preserve approvedWatcher/Fox/Sekizou and allcompletedfamilies; reuseunchangedimageevidence.",
-    "Continue Task8five aquatic/invertebratepartners,Task9eagle/snowman,Task10author usingexistingfactories.",
-    "Final293integration withlegacy32states/distance through existingruntime,onefinalnpm;Human/iPhoneOPEN."
+    "Capture/review new5aquaticpartners and correctedMermaid viaexisting scopedworkflow/export; neverpromote beforeactualimages.",
+    "Continue Task9eagle/snowman and Task10author existingfactory candidates; preserveapprovedmodels.",
+    "Final293integration andlegacy32states/normaldistance;onefinalnpm;Human/iPhone separateOPEN."
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",
@@ -158,27 +162,31 @@
       "status": "PASS_31_FAMILIES_248_STAGES"
     },
     "latestNonplayerImageApprovals": [
-      "companion:many_tail_fox",
-      "companion:watcher"
-    ],
-    "candidateBatchInProgress": [
       "companion:unicorn",
       "partner:cat_ceo",
       "partner:robot_neighbor",
-      "partner:snow_spirit",
-      "partner:sea_mermaid"
+      "partner:snow_spirit"
+    ],
+    "candidateBatchInProgress": [
+      "partner:sea_mermaid",
+      "partner:rock_octopus",
+      "partner:anglerfish",
+      "partner:swamp_croc",
+      "partner:knitting_spider",
+      "partner:desert_scorpion"
     ],
     "missingLegacyFourViewRecords": [],
     "full293Integration": "OPEN",
     "humanQA": "OPEN_SEPARATE",
     "iPhoneQA": "OPEN_SEPARATE",
-    "candidateBatchReview": "Watcher/Fox actualfullimagesPASS andpromoted. Task7four C0/I0 plus Unicornfix3C0/I0 ready forbatchedfivecapture; Unicorn priorREJECT notcloseduntilfreshactualimages.",
+    "candidateBatchReview": "Approved4 imagegatescomplete. Mermaid sourcebodicecorrected;Task8five capwindingcorrected candidate-locally. SixactualimagegatesPENDING. Task9eagle/snowmanimplementationinprogress.",
     "selectedCaptureBatch": [
-      "partner:cat_ceo",
-      "partner:robot_neighbor",
-      "partner:snow_spirit",
       "partner:sea_mermaid",
-      "companion:unicorn"
+      "partner:rock_octopus",
+      "partner:anglerfish",
+      "partner:swamp_croc",
+      "partner:knitting_spider",
+      "partner:desert_scorpion"
     ],
     "legacyFourViewReuse": "Existingcf7b comparisonboards cat_friend/shiba actualfourviewPASS+same-runtimePilotidentity carriedforward;coverageexactrole/path/layout/review/SHAverifiedmapping nowcomplete. States/normal-distance integrationstillOPEN;existingcapturetooltoextend narrowly withruntimekeys andno4viewrecapture.",
     "sevenMammalConnections": "e8 actual4views/32states/2distance per7 PASS, archiveda2878b4c; independent repaired-site review C0/I0; promoted with local corrected-anchor53/53 and372dedicatedPASS.",

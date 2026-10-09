@@ -1013,3 +1013,11 @@ Legacycat/shiba existingfourviewboards now mappedviaexactrole/model/stage/path/l
 Integrated finalbatch399dedicatedPASS,12selectorPASS,7/7rolemutationsdetected/restored,28Pilotunchanged.64d739f9HomeSUCCESS;Runtime37903441922 stillIN_PROGRESS atlastfreshcheck, distinctfromSUCCESS. No fullnpm repeat.
 
 Unicornfix3 cdf38a00 changesonlythreeownedhairpathlists to4head/5neck-back/4staggeredtail locks;17focusedPASS,oldrejectedringnegative1/1RED-restored,maxactualexpression16826,C0/I0. Integratedafter399baseline with5scopedPASS;allother30savedrows unchangedincl signedzero,Task7adds4. BatchnextcaptureTask7four+Unicornonly, retaining priorUnicornREJECT untilfreshactualimages.
+
+## 2026-10-09 — Four actual image approvals; six scoped candidates
+
+- Source `5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0` Character CI37906158821 SUCCESS. Recovery37907237876 SUCCESS archived201 SHA256-verified rawfiles at `2acc0c1b74288fade84a7802beda68918559d892` usingexisting authenticated Actions→Git Data export, no clientZIP retry.
+- Actual fourviews/all32states/two normaldistances PASS for Unicornfix3, CatCEO,Robot,SnowSpirit; independentfourview/source review agrees. Promotedonlythese4:284/293 exact,9pending,284fourviewrecords.
+- Mermaid REJECT: realoriginal hascontinuous tealbodice, formerbriefincorrectlyspecifiedpink/redtop. Candidate corrected locally toclosedtealbodice;4affectedsource/contact/32state suitesPASS, oldpinktopnegativecontrolRED/restored. Freshimagegatepending;notpromoted.
+- Task8fiveaquatic/invertebrate candidates integrated withsharedfactoryduplicateoptins omitted. Prior22PASS/17REDrestoredreused. Reviewfoundinwardterminalcaps;all70newpaths nowuseexistingoutwardCapsoptin, actualnormal/indexedfanregressionRED→GREEN andnewfalseoptinnegativeRED/restored. No sharedfactory change.
+- Dedicated424/424PASS,0FAIL; approved34 priorrows unchangedincluding signedzero exceptMermaidcorrection. Unchanged28Pilot evidence reused. Runtime5d36 lastIN_PROGRESS,HomeSUCCESS; finalnpm andHuman/iPhone gatesremainOPEN.

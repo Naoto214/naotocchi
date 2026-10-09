@@ -106,3 +106,5 @@ test('four humanoid partners select their scoped mutation tool once', () => {
   for (const key of keys) assert.deepEqual(selectScripts({keys:[key]}), ['humanoid-partner-remove-it.cjs']);
   assert.deepEqual(selectScripts({keys:[...keys,...keys]}), ['humanoid-partner-remove-it.cjs']);
 });
+
+test('aquatic/invertebrate partners select their shared scoped mutation suite',()=>{assert.deepEqual(selectScripts({keys:['rock_octopus','anglerfish','swamp_croc','knitting_spider','desert_scorpion'].map(id=>'partner:'+id)}),['aquatic-partner-remove-it.cjs']);});

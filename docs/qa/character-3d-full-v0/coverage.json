@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 280,
-    "pending": 13,
-    "fourViewRecords": 280
+    "exactSpecs": 284,
+    "pending": 9,
+    "fourViewRecords": 284
   },
   "rows": [
     {
@@ -5464,15 +5464,15 @@
       "group": "rare",
       "asset": "assets/characters/companions/unicorn.png",
       "sha256": "4b2634a6eaf848789e46b4b335729e9b5fb669d5ac180ff850565e3cc9aa759d",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "quadruped",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/humanoid-partners-unicorn-fix3/companion-unicorn-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/humanoid-partners-unicorn-fix3/companion-unicorn-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/humanoid-partners-unicorn-fix3/companion-unicorn-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/humanoid-partners-unicorn-fix3/companion-unicorn-0-back.jpg"
       }
     },
     {
@@ -5544,15 +5544,15 @@
       "group": "city",
       "asset": "assets/characters/partners/cat_ceo.png",
       "sha256": "1e23ba75cea57fe5d1830fca55287861101e63911107d100d2f95b653eff6027",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/humanoid-partners-unicorn-fix3/partner-cat_ceo-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/humanoid-partners-unicorn-fix3/partner-cat_ceo-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/humanoid-partners-unicorn-fix3/partner-cat_ceo-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/humanoid-partners-unicorn-fix3/partner-cat_ceo-0-back.jpg"
       }
     },
     {
@@ -5564,15 +5564,15 @@
       "group": "city",
       "asset": "assets/characters/partners/robot_neighbor.png",
       "sha256": "71386df66b1478bac9c847b314e911ef30269b1b3aef041a9058ccd308c36b6c",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "rigid_object",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/humanoid-partners-unicorn-fix3/partner-robot_neighbor-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/humanoid-partners-unicorn-fix3/partner-robot_neighbor-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/humanoid-partners-unicorn-fix3/partner-robot_neighbor-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/humanoid-partners-unicorn-fix3/partner-robot_neighbor-0-back.jpg"
       }
     },
     {
@@ -5704,15 +5704,15 @@
       "group": "snow",
       "asset": "assets/characters/partners/snow_spirit.png",
       "sha256": "409634c432c13dae543df65ea3b3f0614773a41d2fead21cd2229524cb86d9ed",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "soft_toy",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/humanoid-partners-unicorn-fix3/partner-snow_spirit-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/humanoid-partners-unicorn-fix3/partner-snow_spirit-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/humanoid-partners-unicorn-fix3/partner-snow_spirit-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0/humanoid-partners-unicorn-fix3/partner-snow_spirit-0-back.jpg"
       }
     },
     {

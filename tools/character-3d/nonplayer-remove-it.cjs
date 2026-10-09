@@ -1,9 +1,12 @@
 const fs=require('fs'),cp=require('child_process'),assert=require('node:assert/strict');
 const run=()=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap','tests/character-3d-nonplayer-candidate-test.cjs','tests/character-3d-nonplayer-promotion-test.cjs'],{encoding:'utf8',timeout:10000});assert.equal(run().status,0);
+// Read only the explicit reviewed-key expression; promotions must not stale the mutation anchor.
+const reviewedExpression=fs.readFileSync('character-3d/spec.js','utf8').match(/const NON_PLAYER = freeze\(nonPlayerCandidates \|\| Object\.fromEntries\((\[[^\]\n]+\]\.filter)/)?.[1];
+assert.ok(reviewedExpression,'explicit reviewed runtime key list');
 const cases=[
- ['reviewed runtime keys','character-3d/spec.js',"['companion:box','companion:clock','companion:owl','companion:punyu','companion:parrot','companion:chicken','companion:penguin_friend','companion:panda','companion:sheep','companion:seal','companion:bat','companion:snail','companion:chameleon','companion:sekizou','companion:rabbit_friend','companion:tanuki','companion:squirrel','companion:hamster','companion:otter','companion:monkey','companion:hedgehog','companion:many_tail_fox','companion:watcher','partner:sunflower_partner','partner:oasis_cactus','partner:field_cow','partner:forest_bear','partner:grove_deer','partner:cliff_goat','partner:gentle_gorilla'].filter","[].filter"],
+ ['reviewed runtime keys','character-3d/spec.js',reviewedExpression,"[].filter"],
  ['browser nonplayer dependency','character-3d/spec-esm.mjs',"import './nonplayer-spec.js';","// dependency removed"],
- ['unreviewed exclusion','character-3d/spec.js',"['companion:box','companion:clock','companion:owl','companion:punyu','companion:parrot','companion:chicken','companion:penguin_friend','companion:panda','companion:sheep','companion:seal','companion:bat','companion:snail','companion:chameleon','companion:sekizou','companion:rabbit_friend','companion:tanuki','companion:squirrel','companion:hamster','companion:otter','companion:monkey','companion:hedgehog','companion:many_tail_fox','companion:watcher','partner:sunflower_partner','partner:oasis_cactus','partner:field_cow','partner:forest_bear','partner:grove_deer','partner:cliff_goat','partner:gentle_gorilla'].filter","Object.keys(approvedNonPlayers).filter"],
+ ['unreviewed exclusion','character-3d/spec.js',reviewedExpression,"Object.keys(approvedNonPlayers).filter"],
  ['role namespaced key','character-3d/spec.js',"return {id:ref.kind+':'+ref.id,stage:0,exact:true}","return {id:ref.id,stage:0,exact:true}"],
  ['exact zero stage','character-3d/spec.js','return stage === 0 ? NON_PLAYER[id].spec : null','return NON_PLAYER[id].spec'],
  ['explicit role asset','character-3d/spec.js','return stage === 0 ? NON_PLAYER[id].asset : null',"return 'assets/characters/authors/naoto.png'"],

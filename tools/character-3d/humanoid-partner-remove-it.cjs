@@ -3,6 +3,7 @@ const fs=require('node:fs'),cp=require('node:child_process'),assert=require('nod
 const file='character-3d/nonplayer-spec.js',suite='tests/character-3d-humanoid-partner-candidate-test.cjs',original=fs.readFileSync(file),factory='character-3d/soft-toy.mjs',factoryOriginal=fs.readFileSync(factory);
 const run=pattern=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap',...(pattern?['--test-name-pattern='+pattern]:[]),suite],{encoding:'utf8',timeout:180000});
 const cases=[
+ ['mermaid rejected pink top','seaMermaid','humanoidPartners',"color:'#329788',volumes:[{size:[.115,.195,.095],at:[0,-.015,0]}]","color:'#d44966',volumes:[{size:[.069,.065,.045],at:[-.055,.09,.075]},{size:[.069,.065,.045],at:[.055,.09,.075]}]",'sea_mermaid original','source teal bodice'],
  ['cat white formal shirt','catCeo','robotNeighbor',"color:'#f5f0df'","color:'#26303e'",'cat_ceo original','white shirt inside navy jacket'],
  ['cat pointed ears','catCeo','robotNeighbor','[side*.14,.30,-.025]','[side*.14,.17,-.025]','cat_ceo original','black pointed cat ears'],
  ['cat cup grip connection','catCeo','robotNeighbor',"name:'catCup',bone:'armL',at:[.09,-.062,.085]","name:'catCup',bone:'armL',at:[.32,-.062,.20]",'cat_ceo: resting','cat_ceo/catCup/catGripL'],
