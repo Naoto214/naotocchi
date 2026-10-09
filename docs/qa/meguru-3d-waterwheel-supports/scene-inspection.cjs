@@ -3,6 +3,9 @@
 // node scene-inspection.cjs <sourceRoot> <outputDir>
 const fs=require('fs'),path=require('path'),http=require('http'),crypto=require('crypto'),pw=require('playwright');
 const ROOT=path.resolve(process.argv[2]),OUT=path.resolve(process.argv[3]);fs.mkdirSync(OUT,{recursive:true});
+// runtime-harness reads production source relative to cwd. Bind BOTH comparison
+// sides to their requested source root before requiring or constructing it.
+process.chdir(ROOT);
 const {harness}=require(path.join(ROOT,'tests/helpers/runtime-harness.cjs'));
 const h=harness({deterministic:true,fullDisplay:true,pinDate:true}),M=h.api.meguruMod,registry=M.buildRegistry();
 const selection=JSON.parse(fs.readFileSync(path.resolve(__dirname,'../../../tools/meguru-3d-qa/shots-visual-quality-v2-gallery.json'))).filter(x=>['prop-wheel','prop-wheel-river'].includes(x.name));

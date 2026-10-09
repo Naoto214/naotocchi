@@ -40,6 +40,22 @@ jobs:
           node --check docs/qa/meguru-3d-waterwheel-supports/scene-inspection.cjs
           node docs/qa/meguru-3d-waterwheel-supports/scene-inspection.cjs "$PWD" "$PWD/qa-artifacts/after" 2>&1 | tee qa-artifacts/after.log
           node docs/qa/meguru-3d-waterwheel-supports/scene-inspection.cjs "$PWD/before" "$PWD/qa-artifacts/before" 2>&1 | tee qa-artifacts/before.log
+          node - <<'JS'
+          const fs = require('fs'), assert = require('assert/strict');
+          const before = JSON.parse(fs.readFileSync('qa-artifacts/before/inspection.json'));
+          const after = JSON.parse(fs.readFileSync('qa-artifacts/after/inspection.json'));
+          assert.deepEqual(before.errors, []); assert.deepEqual(after.errors, []);
+          assert.equal(before.records.length, 8); assert.equal(after.records.length, 8);
+          const expected = ['prop-wheel', 'prop-wheel-river'].flatMap(n => [0,1,2,3].map(i => n + '-' + i)).sort();
+          for (const rows of [before.records, after.records]) assert.deepEqual(rows.map(r => r.name).sort(), expected);
+          for (const a of after.records) {
+            const b = before.records.find(r => r.name === a.name);
+            assert.equal(a.target, b.target); assert.equal(a.region, b.region); assert.deepEqual(a.camera, b.camera);
+            assert.notEqual(a.targetSha256, b.targetSha256, 'source-mixed wheel: ' + a.name);
+            assert.equal(a.worldObjects, b.worldObjects); assert.ok(a.active && b.active);
+          }
+          console.log('Matched 8 source-distinct before/after wheel descriptors and cameras');
+          JS
           printf '0\n' > qa-artifacts/runner-exit-code.txt
       - uses: actions/upload-artifact@v4
         if: always()
