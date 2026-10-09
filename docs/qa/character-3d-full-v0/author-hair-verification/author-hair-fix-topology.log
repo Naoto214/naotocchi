@@ -1,0 +1,26 @@
+TAP version 13
+# (node:15) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/nonplayer-author-hair-source-fix/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/nonplayer-author-hair-source-fix/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: author assembled hair exposes center part and visible descending layered brunette side sweeps
+ok 1 - author assembled hair exposes center part and visible descending layered brunette side sweeps
+  ---
+  duration_ms: 1141.763954
+  type: 'test'
+  ...
+# Subtest: author every produced hair constituent reaches skull through actual closed-volume contacts
+ok 2 - author every produced hair constituent reaches skull through actual closed-volume contacts
+  ---
+  duration_ms: 32.60318
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1263.557497

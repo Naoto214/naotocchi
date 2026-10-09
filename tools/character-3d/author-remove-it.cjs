@@ -8,7 +8,7 @@ const cases=[
  ['dark under-shirt','source',"color:'#252832'","color:'#f8f6f0'",'naoto original','dark source shirt'],
  ['eight source hair waves','source','for(let i=0;i<4;i++)','for(let i=0;i<3;i++)','naoto original','exactly eight waves'],
  ['detached source hair constituent','source','segments:[12,8]}]});}','segments:[12,8]}]});}naoto.hair.closedPaths[0].path=naoto.hair.closedPaths[0].path.map(([x,y,z])=>[x+1,y,z]);','naoto: resting','actual shell'],
- ['source hair occludes canonical face','source','at:[0,.13,-.025],segments:[20,14]','at:[0,.02,.23],segments:[20,14]','naoto: one','source volume covers canonical'],
+ ['source hair occludes canonical face','source','at:[0,.145,-.09],segments:[20,14]','at:[0,.02,.23],segments:[20,14]','naoto: one','source volume covers canonical'],
  ['neck loses torso contact','source','[[0,.37,0],[0,.49,.005],[0,.55,.015]]','[[0,.62,0],[0,.70,.005],[0,.75,.015]]','naoto: resting','authorNeck/body'],
  ['detached pale shoe sole','source','at:[0,-.55,.0243]','at:[.40,-.55,.0243]','naoto: resting','authorSoleL/legL'],
  ['hair terminal inward cap','source','radius:.055,taper:.88,outwardCaps:true','radius:.055,taper:.88,outwardCaps:false','terminal indexed','hair wave 0: outward'],

@@ -1,14 +1,14 @@
 {
-  "baseCommit": "8523a522bf8967a2679ed7cbfdcdd63b328d354b",
-  "checkpoint": "legacy-capture-resolution-fixed-and-missing-player-integration-prepared",
+  "baseCommit": "5be8349be8f73401eb8c56d4f7dc27f74ab930d3",
+  "checkpoint": "eagle-approved-author-hair-corrected-awaiting-images",
   "coverage": {
-    "exact": 291,
+    "exact": 292,
     "total": 293,
-    "pending": 2,
+    "pending": 1,
     "playerFamilies": 31,
     "playerStages": 248,
     "companions": 26,
-    "partners": 17,
+    "partners": 18,
     "authors": 0
   },
   "verification": {
@@ -140,11 +140,16 @@
     "twoLatestPromotion": "Spider/Snowman actual gates approved. 19 boundaries PASS,7 role mutations RED/restored. Dedicated450:448PASS/2stale promotion-null expectations FAIL; corrected2/2 targetedGREEN. Full sourceCI pending; do not claim all450PASS.",
     "eagleSourceCorrection": "a7c955a1 candidate-only22feather centerlines redistributed into descending primary fan.6affectedPASS and4controlsRED/restored; independent code reviewC0/I0,41otherrows exact,17728max triangles. No shared factory changes. Fresh full actual images pending.",
     "authorEagleCapture8523": "Character37915318261 FAILURE:dedicated113769954538 SUCCESS; capture113769954286 failed on first legacy state after80 partial files. artifact11609677554 has no completed metadata; no actual image approval. Existing wave page lacked exact legacy stage0 resolution; root narrow fallback fix RED1/GREEN2 and C0/I0. Repeat selected capture after fix.",
-    "missingPlayerIntegrationMode": "cc8f4258:explicit [qa:integration] mode reuses existing31family stage jobs;86 exact missing stages/15families get wave-motion child output, no new capture framework. Approved wave/candidate-distance/nonplayer recaptures skipped only in integration mode; gallery/scene/performance/dedicated/aggregate retained. Ordinary markers preserved. Workflow focused7PASS; root integrated workflow/page checks8/8PASS;7worker checks include existing stage-evidence integration guard. Independent reviewC0/I0; next [qa:nonplayer] save does not activate integration."
+    "missingPlayerIntegrationMode": "cc8f4258:explicit [qa:integration] mode reuses existing31family stage jobs;86 exact missing stages/15families get wave-motion child output, no new capture framework. Approved wave/candidate-distance/nonplayer recaptures skipped only in integration mode; gallery/scene/performance/dedicated/aggregate retained. Ordinary markers preserved. Workflow focused7PASS; root integrated workflow/page checks8/8PASS;7worker checks include existing stage-evidence integration guard. Independent reviewC0/I0; next [qa:nonplayer] save does not activate integration.",
+    "eagleLegacyActualImageGate": "e16963da capture37917302347/artifact11610776353;archive5be8349,151rawSHA256/sizeverified. Eagle4views32states2distancePASS;cat_friend/shiba32states2distanceeachPASS with prior4views reused. Author4views32states2distance inspectedREJECT: smooth cap misses source centerpart/waves; remains candidate.",
+    "eaglePromotion": "3affected registration/assembled budget testsPASS;7/7 role mutations detected/restored;no new fullnpm claim. Independent scoped review Critical0/Important0.",
+    "authorLegacyCaptureCI": "e16963da Character37917302347/Runtime37917312605/Home37917312587 SUCCESS. Earlier8523 captureFAIL remains distinct; Home37915328102 nowSUCCESS.",
+    "authorHairCorrection": "711f2dcb hair-only inputs;8substantive affected testsPASS,4controlsRED/restored,42othernonauthor inputs/geometry exact;factory/defaults unchanged. Root7hair/gallery/role integration testsPASS. FreshactualimagegateOPEN. IndependentreviewCritical0/Important0.",
+    "galleryRouting": "Exact role live links + NON_PLAYER selector/metadata corrected;oldroute2FAIL and syncUi2PASS/1FAIL→3PASS;existingbrowsergallerysmoke expanded44current/future45roles+decodedimages/missingimagecontrol. Browservalidationpendingfinalintegration."
   },
   "next": [
-    "Repeat scoped Eagle/author full and legacy cat/shiba states+distance capture after exact legacy page fix; actual inspect before last two promotions.",
-    "After actual approval, promote Eagle and author with exact role/actual-author alias tests; require293 exact and four-view records.",
+    "Capture corrected Author only and actually inspect fourviews/all32states/2distance; preserve accepted Eagle/legacy gates.",
+    "After actual Author approval, promote exact canonical/actual-author alias; require293 exact and four-view records.",
     "Run [qa:integration] source: existing31stage aggregate plus86missing motion stages; actually inspect missing motion and early-family distance evidence.",
     "One final full npm batch, protected/default comparison, scene/performance, independent final review and source-specific Human QA package.",
     "Human/iPhone remain separate OPEN; retain Draft and stop at v0 Human QA handoff."
@@ -176,25 +181,22 @@
       "status": "PASS_31_FAMILIES_248_STAGES"
     },
     "latestNonplayerImageApprovals": [
-      "partner:knitting_spider",
-      "partner:snowman"
+      "partner:high_eagle",
+      "companion:cat_friend (states/distance)",
+      "companion:shiba (states/distance)"
     ],
     "candidateBatchInProgress": [
-      "partner:high_eagle",
       "author:naoto"
     ],
     "missingLegacyFourViewRecords": [],
     "full293Integration": "OPEN",
     "humanQA": "OPEN_SEPARATE",
     "iPhoneQA": "OPEN_SEPARATE",
-    "candidateBatchReview": "Spider/Snowman actual full gates PASS and promoted. Eagle source correction and author candidate with near3D QA fix both C0/I0; actual capture/image approval pending.",
+    "candidateBatchReview": "Author hair-only correction implemented and scopedtested; previousactualimageREJECT retained until fresh full gate.",
     "selectedCaptureBatch": [
-      "partner:high_eagle",
-      "author:naoto",
-      "companion:cat_friend (states/distance only)",
-      "companion:shiba (states/distance only)"
+      "author:naoto"
     ],
-    "legacyFourViewReuse": "Existingcf7b comparisonboards cat_friend/shiba actualfourviewPASS+same-runtimePilotidentity carriedforward;coverageexactrole/path/layout/review/SHAverifiedmapping nowcomplete. States/normal-distance integrationstillOPEN;existingcapturetooltoextend narrowly withruntimekeys andno4viewrecapture.",
+    "legacyFourViewReuse": "Four views reused via immutable comparison hashes and Pilot identity; e169 actual32states+2distance perlegacy approved. Legacy image gaps closed.",
     "sevenMammalConnections": "e8 actual4views/32states/2distance per7 PASS, archiveda2878b4c; independent repaired-site review C0/I0; promoted with local corrected-anchor53/53 and372dedicatedPASS.",
     "latestFullCharacterCI": {
       "sourceCommit": "3083126a75d1044da2f68142a5a46d789556895c",

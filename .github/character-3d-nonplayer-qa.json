@@ -1,4 +1,6 @@
 {
-  "keys": ["partner:high_eagle", "author:naoto"],
-  "includeLegacyStatesDistance": true
+  "keys": [
+    "author:naoto"
+  ],
+  "includeLegacyStatesDistance": false
 }

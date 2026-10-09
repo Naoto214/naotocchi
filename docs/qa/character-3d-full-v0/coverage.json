@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 291,
-    "pending": 2,
-    "fourViewRecords": 291
+    "exactSpecs": 292,
+    "pending": 1,
+    "fourViewRecords": 292
   },
   "rows": [
     {
@@ -5004,7 +5004,6 @@
         "currentComparisonCommit": "3083126a75d1044da2f68142a5a46d789556895c",
         "geometryAndAnimationHash": "572e0df63a91df99d0201f823364b99f435d6e9f94095363b81d6590b2e7566e",
         "remainingGates": [
-          "integration states and normal-distance evidence",
           "full293 QA",
           "Human QA",
           "iPhone QA"
@@ -5348,7 +5347,6 @@
         "currentComparisonCommit": "3083126a75d1044da2f68142a5a46d789556895c",
         "geometryAndAnimationHash": "4175a7fcd816e7f6aaef998bc6aad4039c6e262a5e9dc9190dfc0e1df408b6f9",
         "remainingGates": [
-          "integration states and normal-distance evidence",
           "full293 QA",
           "Human QA",
           "iPhone QA"
@@ -5684,15 +5682,15 @@
       "group": "mountain",
       "asset": "assets/characters/partners/high_eagle.png",
       "sha256": "f01fe97dc9b400ed23b84684c9be5b7f48ab0d27d5e931776c1c37e5e9c1c48c",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "plumed_bird",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/e16963da37bed05de483096e6bafc83df6196b3a/eagle-author-legacy-complete/partner-high_eagle-0-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/e16963da37bed05de483096e6bafc83df6196b3a/eagle-author-legacy-complete/partner-high_eagle-0-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/e16963da37bed05de483096e6bafc83df6196b3a/eagle-author-legacy-complete/partner-high_eagle-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/e16963da37bed05de483096e6bafc83df6196b3a/eagle-author-legacy-complete/partner-high_eagle-0-back.jpg"
       }
     },
     {

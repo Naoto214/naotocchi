@@ -30,11 +30,17 @@
       "actualReview": "PASS_FOUR_VIEWS_ONLY"
     }
   ],
-  "coverageMapping": "Pending integration mapping of comparison-board evidence; no recapture needed for these identical four-view models.",
+  "coverageMapping": "Complete: exact legacy role/stage, approved comparison-board path/layout and SHA256 validated by coverage.cjs; four source tiles reused without recapture.",
   "remainingGates": [
-    "integration states and normal-distance evidence",
     "full293 QA",
     "Human QA",
     "iPhone QA"
-  ]
+  ],
+  "stateDistanceClosure": {
+    "sourceCommit": "e16963da37bed05de483096e6bafc83df6196b3a",
+    "reviewRecord": "docs/qa/character-3d-full-v0/export/e16963da37bed05de483096e6bafc83df6196b3a/visual-review.json",
+    "status": "PASS_ACTUALLY_INSPECTED",
+    "states": 64,
+    "normalDistance": 4
+  }
 }

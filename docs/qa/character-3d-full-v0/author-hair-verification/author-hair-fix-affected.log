@@ -1,0 +1,57 @@
+TAP version 13
+# (node:12) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/nonplayer-author-hair-source-fix/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/nonplayer-author-hair-source-fix/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: author candidates remain runtime-isolated, finite, grounded, closed and within triangle budget
+ok 1 - author candidates remain runtime-isolated, finite, grounded, closed and within triangle budget
+  ---
+  duration_ms: 142.610609
+  type: 'test'
+  ...
+# Subtest: naoto: one canonical face and one owner keep eyes and mouth clear of props in all 32 states
+ok 2 - naoto: one canonical face and one owner keep eyes and mouth clear of props in all 32 states
+  ---
+  duration_ms: 15904.745112
+  type: 'test'
+  ...
+# Subtest: naoto: resting produced source shell graph reaches each owner
+ok 3 - naoto: resting produced source shell graph reaches each owner
+  ---
+  duration_ms: 769.004846
+  type: 'test'
+  ...
+# Subtest: naoto: every source shell reaches torso limbs and props in all 32 states
+ok 4 - naoto: every source shell reaches torso limbs and props in all 32 states
+  ---
+  duration_ms: 6232.635672
+  type: 'test'
+  ...
+# Subtest: naoto original closed white hoodie dark shirt center-parted wavy hair navy slim trousers pale sneaker soles
+ok 5 - naoto original closed white hoodie dark shirt center-parted wavy hair navy slim trousers pale sneaker soles
+  ---
+  duration_ms: 12.649013
+  type: 'test'
+  ...
+# Subtest: author closed paths have actual outward terminal indexed winding
+ok 6 - author closed paths have actual outward terminal indexed winding
+  ---
+  duration_ms: 12.808715
+  type: 'test'
+  ...
+1..0
+# Subtest: tests/character-3d-author-hair-test.cjs
+ok 2 - tests/character-3d-author-hair-test.cjs
+  ---
+  duration_ms: 109.142854
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 23279.561466
