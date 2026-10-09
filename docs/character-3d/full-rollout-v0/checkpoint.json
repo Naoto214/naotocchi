@@ -1,5 +1,5 @@
 {
-  "baseCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "baseCommit": "c1493bffbb2496eaa94364ff72ba8371efaabcac",
   "checkpoint": "all293-exact-fourview-models-registered-final-integration-open",
   "coverage": {
     "exact": 293,
@@ -150,12 +150,14 @@
     "authorPromotion": "4registrationRED beforeallowlist\u21925focusedPASS after;7/7rolemutationsdetected/restored. All43factoryrows exactsameinputs inclsignedzero vs16acceptedcaptures;legacy2 separateimmutablePilotproof. 293exact/293fourviews,all45nonplayer image gatesPASS;remainingplayerstateintegration separatelyOPEN. IndependentpromotionreviewCritical0/Important0.",
     "finalRuntimePreparation": "ExistingQA only: production45role functional no-capture + actualAuthorbounded fixture; warmup+3scene cycles and native1/5/27 isolatedcloneanimation/appearance-window records. Workerc4e5b226 15PASS including43base-approvedactualNodepresenters;7controlsRED/restored. Root8focusedPASS on293 source. Browser45/scene/performance remainsPENDING; finalfullnpmRUNNING, noPASSclaim. IndependentreviewCritical0/Important0.",
     "finalFullNpm": "ae9c9ffe prepared final production/test inputs:3022 main PASS+Relationship80 PASS,0FAIL,exit0. Raw compressed log and SHA256 result in final-npm-ae9. QA/export-only followups do not imply another full npm run.",
-    "finalIntegrationCI": "ae9 Character37922214774 in progress; dedicated113792592173 SUCCESS; meguru-wave113792592031 FAILURE at functional unchanged-save assertion. Gallery113792592014, human-performance113792592088 and fish-performance113792592103 SUCCESS. Runtime37922224120 SUCCESS; Home37922224067 SUCCESS. Scene/default performance not reached; missing player captures/aggregate pending.",
+    "finalIntegrationCI": "ae9 Character37922214774 completed FAILURE: onlymeguru-wave113792592031 FAILURE. All31stagejobs and stage-coverage113805523751 SUCCESS (artifact11613793216); dedicated/gallery/human/fish SUCCESS. Runtime37922224120/Home37922224067 SUCCESS. Images still pending actual remaining-gate review.",
     "artifactJobRecovery": "Reviewed C0/I0 per-artifact completed-job provenance extension;18Python testsPASS. Successful captures from a completed failed integration run remain PENDING_VISUAL_REVIEW; failed Meguru JSON diagnostic only. Cancelled/in-progress runs rejected. No ref mutation by exporter.",
-    "runtimeProgressionDiagnostic": "QA-only116370ed:20focusedPASS,5newsave-boundarycontrolsRED/exactrestored,root6integrationPASS. Author entry/everydraw/finaldraw/release strict synchronous save/storage/getter/write audit; async field delta/call stack separately recorded without no-write claim. Failed row retained. Original ae9 failing role/cause unproven; actualbrowserrerun pending. [qa:runtime] reuses onlyexistingmeguru+focused dedicated; production and allcaptures unchanged."
+    "runtimeProgressionDiagnostic": "QA-only116370ed:20focusedPASS,5newsave-boundarycontrolsRED/exactrestored,root6integrationPASS. Author entry/everydraw/finaldraw/release strict synchronous save/storage/getter/write audit; async field delta/call stack separately recorded without no-write claim. Failed row retained. Original ae9 failing role/cause unproven; actualbrowserrerun pending. [qa:runtime] reuses onlyexistingmeguru+focused dedicated; production and allcaptures unchanged.",
+    "functional45Actual": "6df Character37924802873/meguru113801069134:production45functional PASS, rawJSON1file SHA256 verified; all45exact/live/attached/fallback0 and synchronous save/storage/getter/write proofsPASS. Author asyncapplication interval records map mark/saveRevision/savedAt changes, no no-write claim. Samejob laterFAIL atscene warmup characters-on, beforecity; sceneJSON absent.",
+    "sceneDiagnostics": "QA-only49616900:24focusedPASS,2controlsRED/exactrestored,root4PASS,C0/I0. Timeout phase/expected/actual actor-resource snapshots and restoration now persisted before failedverdict propagates. All strict count/save/cache gates unchanged. 11functional/save/metrics exports byte-identical to6df; [qa:runtime] [qa:scene] reuses45actualPASS and reruns scene/defaultmetrics only. Actualscene notfixed/attributed."
   },
   "next": [
-    "Run reviewed scoped [qa:runtime] production45role/scene/metrics followup; preserve original ae9 failure and successful capture jobs.",
+    "Run scoped scene diagnostics and native metrics; retain source6df45rolePASS. Recover completed ae9 successful image artifacts and inspect missing player gates.",
     "Actually inspect86missingplayerstage motion gates and early5family80normaldistance images from existing31stage artifacts; reuse all unchanged approved gates.",
     "Retain completed final npm3022+80 PASS; finish dedicated/sourceCI/protected checks, runtime/scene/performance evidence and independent final review.",
     "Publish complete source-specific Human QA package and architecture/roadmap; confirmremote/local/tree/clean andDraft376.",

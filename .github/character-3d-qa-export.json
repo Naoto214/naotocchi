@@ -1,17 +1,1165 @@
 {
-  "sourceCommit": "6df4db58dc505b272fe365748b3f55b9c7780ff0",
-  "runId": 37924802873,
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "runId": 37922214774,
   "artifactJobEvidence": true,
   "families": [
-    "author"
+    "dog",
+    "cat",
+    "penguin",
+    "salmon",
+    "clownfish",
+    "man",
+    "woman",
+    "ren",
+    "dandelion",
+    "butterfly",
+    "mushroom",
+    "starfish",
+    "turtle",
+    "frog",
+    "coral"
   ],
   "artifacts": [
     {
-      "id": 11613667094,
-      "label": "runtime-functional-and-scene-diagnostic",
-      "name": "full-rollout-meguru-6df4db58dc505b272fe365748b3f55b9c7780ff0",
-      "digest": "sha256:6fc3eeed5489d28082c68fcd2c3e4b2715c0347f7bcfbac3c84774fbfbf3d33d",
-      "jobId": 113801069134,
+      "id": 11613115016,
+      "label": "integration-dog",
+      "name": "full-rollout-stages-dog-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:cdceface616128f5f134182eed7d3e3fe0ef720c0a3bc2163fe2e197b82082a6",
+      "jobId": 113792866125,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-dog-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-dog-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "dog-2-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "dog-2-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "dog-3-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "dog-3-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "dog-5-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "dog-5-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "dog-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "dog-6-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "dog-7-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "dog-7-*-*-*.jpg",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "id": 11612782291,
+      "label": "integration-cat",
+      "name": "full-rollout-stages-cat-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:ec920876b37d88e1be6639099d94f7be511b006e3b551da05973ea56256b6ff0",
+      "jobId": 113792866162,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-cat-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-cat-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "cat-1-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "cat-1-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "cat-2-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "cat-2-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "cat-3-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "cat-3-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "cat-4-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "cat-4-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "cat-5-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "cat-5-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "cat-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "cat-6-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "cat-7-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "cat-7-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "cat-8-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "cat-8-*-*-*.jpg",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "id": 11612468637,
+      "label": "integration-penguin",
+      "name": "full-rollout-stages-penguin-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:66bbf9a0dc83c21d832722d760de6c864f5a1a5e24d31ea0c8b854f3acbd776f",
+      "jobId": 113792866119,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-penguin-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-penguin-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "penguin-2-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "penguin-2-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "penguin-3-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "penguin-3-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "penguin-5-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "penguin-5-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "penguin-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "penguin-6-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "penguin-7-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "penguin-7-*-*-*.jpg",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "id": 11612323630,
+      "label": "integration-salmon",
+      "name": "full-rollout-stages-salmon-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:ae85f96025f388ed3fd894e4c1a5c9509eb553a7104fee53c1e48c6afc363e87",
+      "jobId": 113792866074,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-salmon-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-salmon-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "salmon-1-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "salmon-1-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "salmon-2-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "salmon-2-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "salmon-3-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "salmon-3-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "salmon-4-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "salmon-4-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "salmon-5-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "salmon-5-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "salmon-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "salmon-6-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "salmon-7-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "salmon-7-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "salmon-8-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "salmon-8-*-*-*.jpg",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "id": 11612796192,
+      "label": "integration-clownfish",
+      "name": "full-rollout-stages-clownfish-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:80ecbd6461f7c1a611a832b9d35c41fa176d888185fdb9cac72b98134ffead42",
+      "jobId": 113792866059,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-clownfish-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-clownfish-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "clownfish-2-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "clownfish-2-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "clownfish-3-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "clownfish-3-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "clownfish-5-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "clownfish-5-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "clownfish-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "clownfish-6-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "clownfish-7-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "clownfish-7-*-*-*.jpg",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "id": 11612104318,
+      "label": "integration-man",
+      "name": "full-rollout-stages-man-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:4917b4bdd33cd377473b7a744c9b52f9683955c1d8cad3ae0705d8b820c60321",
+      "jobId": 113792866201,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-man-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-man-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "man-2-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "man-2-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "man-3-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "man-3-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "man-5-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "man-5-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "man-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "man-6-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "man-7-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "man-7-*-*-*.jpg",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "id": 11612339671,
+      "label": "integration-woman",
+      "name": "full-rollout-stages-woman-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:61b19e6d3dfdf96817644bf55a2f060fb39ef6aaaef6b18ddaae2d2514707f9c",
+      "jobId": 113792866071,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-woman-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-woman-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "woman-1-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "woman-1-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "woman-2-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "woman-2-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "woman-3-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "woman-3-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "woman-4-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "woman-4-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "woman-5-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "woman-5-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "woman-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "woman-6-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "woman-7-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "woman-7-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "woman-8-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "woman-8-*-*-*.jpg",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "id": 11612554168,
+      "label": "integration-ren",
+      "name": "full-rollout-stages-ren-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:1f06c85dcdf2f2db7e176f94019d28e666430b4b0d94128ec8a84aab6338e597",
+      "jobId": 113792866133,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-ren-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-ren-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "ren-1-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "ren-1-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "ren-2-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "ren-2-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "ren-3-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "ren-3-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "ren-4-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "ren-4-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "ren-5-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "ren-5-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "ren-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "ren-6-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "ren-7-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "ren-7-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "ren-8-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "ren-8-*-*-*.jpg",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "id": 11613351159,
+      "label": "integration-dandelion",
+      "name": "full-rollout-stages-dandelion-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:d8227b104a896d35e9fd0a0f15e4830dd965e883b472be428f14b826c43e3246",
+      "jobId": 113792866031,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-dandelion-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-dandelion-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "dandelion-2-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "dandelion-2-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "dandelion-3-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "dandelion-3-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "dandelion-5-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "dandelion-5-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "dandelion-7-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "dandelion-7-*-*-*.jpg",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "id": 11613535214,
+      "label": "integration-butterfly",
+      "name": "full-rollout-stages-butterfly-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:ee86de55aa629b26b0248793b011adbab4344a4a58db25bddd5bfa074f8c8feb",
+      "jobId": 113792866004,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-butterfly-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-butterfly-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "butterfly-2-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "butterfly-2-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "butterfly-3-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "butterfly-3-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "butterfly-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "butterfly-6-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "butterfly-7-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "butterfly-7-*-*-*.jpg",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "id": 11613750025,
+      "label": "integration-mushroom",
+      "name": "full-rollout-stages-mushroom-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:9a6204954c818dab18cfabb2baf1650ce84291908b7668d8095e624e203cad1a",
+      "jobId": 113792866050,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-mushroom-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-mushroom-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "mushroom-2-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "mushroom-2-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "mushroom-3-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "mushroom-3-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "mushroom-5-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "mushroom-5-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "mushroom-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "mushroom-6-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "mushroom-7-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "mushroom-7-*-*-*.jpg",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "id": 11613880164,
+      "label": "integration-starfish",
+      "name": "full-rollout-stages-starfish-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:475e0e94401dda884e0f6839be68c2f2020d986327f453ae77eba3ac917fa995",
+      "jobId": 113792866030,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-starfish-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-starfish-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "starfish-2-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "starfish-2-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "starfish-3-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "starfish-3-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "starfish-5-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "starfish-5-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "starfish-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "starfish-6-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "starfish-7-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "starfish-7-*-*-*.jpg",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "id": 11613920265,
+      "label": "integration-turtle",
+      "name": "full-rollout-stages-turtle-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:4f70c8b9269b260e7e3f1a3a3077005ba20943555ce8c23c6be0bc7e571fced1",
+      "jobId": 113792866199,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-turtle-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-turtle-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "turtle-1-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "turtle-1-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "turtle-2-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "turtle-2-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "turtle-4-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "turtle-4-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "turtle-5-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "turtle-5-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "turtle-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "turtle-6-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "turtle-7-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "turtle-7-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "turtle-8-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "turtle-8-*-*-*.jpg",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "id": 11613510710,
+      "label": "integration-frog",
+      "name": "full-rollout-stages-frog-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:5180830c1e947394abcebdf44d86a8530192c62ff8ac65498f39ff1033b58779",
+      "jobId": 113792866035,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-frog-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-frog-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "frog-1-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "frog-1-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "frog-2-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "frog-2-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "frog-4-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "frog-4-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "frog-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "frog-6-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "frog-8-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "frog-8-*-*-*.jpg",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "id": 11613850782,
+      "label": "integration-coral",
+      "name": "full-rollout-stages-coral-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:6a11e5d9d9f2a5607deaade4a9b87b1c6d50eb89935a022da13c9faa4d3fc63b",
+      "jobId": 113792866148,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        },
+        {
+          "pattern": "motion-evidence.json",
+          "count": 1
+        },
+        {
+          "pattern": "player-coral-*-front.png",
+          "count": 8
+        },
+        {
+          "pattern": "player-coral-*-back.png",
+          "count": 8
+        },
+        {
+          "pattern": "coral-1-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "coral-1-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "coral-3-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "coral-3-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "coral-4-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "coral-4-*-*-*.jpg",
+          "count": 32
+        },
+        {
+          "pattern": "coral-6-motion.jpg",
+          "count": 1
+        },
+        {
+          "pattern": "coral-6-*-*-*.jpg",
+          "count": 32
+        }
+      ]
+    },
+    {
+      "id": 11613793216,
+      "label": "stage-coverage",
+      "name": "full-rollout-stage-coverage-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:6ce03c33ea137d57729b8084939532eea92728395bb209887f3dfda1bf6811b3",
+      "jobId": 113805523751,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "stage-coverage.json",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": 11612053569,
+      "label": "gallery",
+      "name": "full-rollout-wave-review-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:18ad61c0457910f58ed1616eca3c11d033a109a2dc2363f1331e52287efa5e71",
+      "jobId": 113792592014,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "result.json",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": 11612359683,
+      "label": "human-performance",
+      "name": "full-rollout-human-performance-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:493e7b0a86bb9a96b5414d1cfd4851e903546412180a91b8236906bff29422e0",
+      "jobId": 113792592088,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": 11611719794,
+      "label": "fish-performance",
+      "name": "full-rollout-fish-performance-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:43aa4906d0541c72ee69b1a4ce6bc4e6e90ec5139ca371a1074880b51a4538c2",
+      "jobId": 113792592103,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": 11613060042,
+      "label": "original-runtime-diagnostic",
+      "name": "full-rollout-meguru-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+      "digest": "sha256:2c86fb4075b03ff334f9c396eadaa14f083477a78dfcc10f67468fc94db7a563",
+      "jobId": 113792592031,
       "evidenceMode": "diagnostic",
       "required": [
         {

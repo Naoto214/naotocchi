@@ -242,7 +242,7 @@ jobs:
         if: ${{ !(contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) }}
         run: node tools/character-3d/meguru-qa.cjs --rollout --no-species --no-perf --out test-results/full-rollout/meguru
       - name: Production role-exact nonplayer integration without image capture
-        if: ${{ (contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) }}
+        if: ${{ (contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) && !(contains(github.event.head_commit.message, '[qa:runtime]') && contains(github.event.head_commit.message, '[qa:scene]')) }}
         run: node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/production-nonplayer --functional-only --require-full
       - name: Repeated production scene lifecycle without image capture
         if: ${{ (contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) }}
@@ -433,8 +433,9 @@ jobs:
         if: ${{ contains(github.event.head_commit.message, '[qa:runtime]') }}
         run: |
           mkdir -p test-results/full-rollout
-          node --test --test-reporter=tap tests/character-3d-runtime-integration-test.cjs tests/character-3d-runtime-save-boundary-test.cjs tests/character-3d-integration-workflow-test.cjs > test-results/full-rollout/runtime-dedicated.tap || { cat test-results/full-rollout/runtime-dedicated.tap; exit 1; }
+          node --test --test-reporter=tap tests/character-3d-runtime-integration-test.cjs tests/character-3d-runtime-save-boundary-test.cjs tests/character-3d-runtime-scene-diagnostics-test.cjs tests/character-3d-integration-workflow-test.cjs > test-results/full-rollout/runtime-dedicated.tap || { cat test-results/full-rollout/runtime-dedicated.tap; exit 1; }
           node tools/character-3d/runtime-integration-remove-it.cjs --save-boundaries-only > test-results/full-rollout/runtime-integration-controls.txt
+          node tools/character-3d/runtime-integration-remove-it.cjs --scene-diagnostics-only > test-results/full-rollout/runtime-scene-controls.txt
       - name: Scoped candidate mutations
         if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (contains(github.event.head_commit.message, '[qa:phoenix]') || contains(github.event.head_commit.message, '[qa:god]') || contains(github.event.head_commit.message, '[qa:ghost]') || contains(github.event.head_commit.message, '[qa:unknown]') || contains(github.event.head_commit.message, '[qa:star]') || contains(github.event.head_commit.message, '[qa:nonplayer]'))) }}
         env:

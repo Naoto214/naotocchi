@@ -49,6 +49,7 @@ function validateFunctional(row, r) {
 }
 const PLATEAU = ['templates', 'materials', 'atlases', 'eyeGeos', 'textures', 'geometries'];
 function validateRepeated(r) {
+  assert.ok(!r.error && !r.restorationError, 'repeated scene readiness/restoration: '+(r.error?.message||r.restorationError?.message||''));
   assert.equal(r.cycles, 3, 'declared bounded repeated cycles');
   assert.equal(r.samples.length, r.cycles, 'complete repeated samples');
   for (const sample of r.samples) {
@@ -160,36 +161,53 @@ async function functionalRun(out, args = []) {
 }
 module.exports = { functionalRows, validateFunctional, validateRepeated, installSaveCounter, functionalRun, saveDelta, saveSnapshot, observeSaveBoundary, recordFunctionalResult };
 // Runs in the existing Meguru scene. Warm once, then compare three identical cycles.
-async function repeatScene(page) {
-  return page.evaluate(async () => {
+async function repeatSceneInBrowser() {
     const run = globalThis.__meguruRun, rd = run.renderer, p = rd.char3dPresenter, bridge = globalThis.__meguruBridge, getter = bridge.getState, state = getter(), region = state.regionId, save = JSON.stringify(state), step = run.sim.step;
     const storage = () => Object.fromEntries(Object.keys(localStorage).filter(k => k.startsWith('naotocchi-save')).sort().map(k => [k,localStorage.getItem(k)]));
     const raw = JSON.stringify(storage()), writes = globalThis.__integrationSaveWrites;
-    const raf = () => new Promise(requestAnimationFrame), wait = async (fn, max = 240) => { for(let i=0;i<max;i++){await raf();if(fn())return;}throw Error('repeated scene readiness timeout'); };
-    const snapshot = () => { let holders=0;p.scene?.traverse(o=>{if(o.name?.startsWith('c3d-actor:'))holders++;});const st=rd.stats3d();return {...p.stats(),holders,is3D:rd.is3D,textures:st?.textures,geometries:st?.geometries,heapBytes:performance.memory?.usedJSHeapSize||null}; };
+    const snapshot = () => { let holders=0;p.scene?.traverse(o=>{if(o.name?.startsWith('c3d-actor:'))holders++;});const st=rd.stats3d();return {...p.stats(),holders,is3D:rd.is3D,worldRegion:run.world.regionId,savedRegion:state.regionId,textures:st?.textures,geometries:st?.geometries,heapBytes:performance.memory?.usedJSHeapSize||null,actors:[run.sim.player,...run.party,...run.world.residents].map(a=>({key:a.key,kind:a.kind,id:a.id,line:a.line,stage:a.stage,x:a.x,z:a.z,live:p.has(a),attached:!!p.instanceOf(a)?.holder.parent}))}; };
     const fixtureCount = p.stats().live;
-    const cycle = async () => {
-      rd.setChar3D(false); await wait(()=>p.stats().live===0); const off=snapshot();
-      rd.setChar3D(true); await wait(()=>p.stats().live===fixtureCount);
-      state.regionId='city';run.enterWorld('city');await wait(()=>run.world.regionId==='city'&&!rd.is3D);const city=snapshot();
-      state.regionId='forest';run.enterWorld('forest');await wait(()=>run.world.regionId==='forest'&&rd.is3D&&p.stats().live===fixtureCount);
+    const result={cycles:3,fixtureCount,initial:snapshot(),warmup:null,before:null,after:null,samples:[],phases:[],unchanged:{},restored:{}};
+    const raf = () => new Promise(requestAnimationFrame), wait = async (name,fn,expected,max=240) => {
+      const phase={name,expected,maxFrames:max,frames:0,startMs:performance.now(),before:snapshot(),status:'waiting'};result.phases.push(phase);
+      console.log('repeated scene phase START '+name+' '+JSON.stringify({expected,actual:phase.before}));
+      for(let i=0;i<max;i++){await raf();phase.frames=i+1;phase.last=snapshot();if(fn()){phase.status='ready';phase.endMs=performance.now();console.log('repeated scene phase READY '+name+' '+JSON.stringify(phase.last));return;}}
+      phase.status='timeout';phase.endMs=performance.now();console.error('repeated scene phase TIMEOUT '+name+' '+JSON.stringify(phase));
+      throw Error('repeated scene readiness timeout: '+name+' expected '+JSON.stringify(expected)+' actual '+JSON.stringify(phase.last));
+    };
+    const cycle = async label => {
+      rd.setChar3D(false); await wait(label+'/characters-off',()=>p.stats().live===0,{live:0}); const off=snapshot();
+      rd.setChar3D(true); await wait(label+'/characters-on',()=>p.stats().live===fixtureCount,{live:fixtureCount});
+      state.regionId='city';run.enterWorld('city');await wait(label+'/city',()=>run.world.regionId==='city'&&!rd.is3D,{worldRegion:'city',is3D:false});const city=snapshot();
+      state.regionId='forest';run.enterWorld('forest');await wait(label+'/forest',()=>run.world.regionId==='forest'&&rd.is3D&&p.stats().live===fixtureCount,{worldRegion:'forest',is3D:true,live:fixtureCount});
       for(let i=0;i<8;i++)await raf();return {off,city,forest:snapshot()};
     };
-    const result={cycles:3,warmup:null,before:null,after:null,samples:[],unchanged:{},restored:{}};
     try {
       // Hold this QA simulation during the renderer/region proof; no game save/getter replacement.
       run.sim.step=function(){return [];};
-      result.warmup=await cycle();result.before=snapshot();
-      for(let i=0;i<3;i++)result.samples.push(await cycle());result.after=snapshot();
+      result.warmup=await cycle('warmup');result.before=snapshot();
+      for(let i=0;i<3;i++)result.samples.push(await cycle('cycle-'+(i+1)));result.after=snapshot();
+    } catch(error) {
+      result.error={message:String(error.message||error),stack:error.stack,phase:result.phases.at(-1)?.name};result.failed=snapshot();
     } finally {
-      run.sim.step=step;state.regionId=region;if(run.world.regionId!==region)run.enterWorld(region);
+      try {run.sim.step=step;state.regionId=region;if(run.world.regionId!==region)run.enterWorld(region);} catch(error) {result.restorationError={message:String(error.message||error),stack:error.stack};}
       result.saveCounters={before:writes,after:globalThis.__integrationSaveWrites};
       result.unchanged={save:save===JSON.stringify(getter()),storage:raw===JSON.stringify(storage()),getter:getter===bridge.getState,saveWrites:writes===globalThis.__integrationSaveWrites};
-      result.restored={step:run.sim.step===step,region:run.world.regionId===region&&state.regionId===region};
+      result.restored={step:run.sim.step===step,region:run.world.regionId===region&&state.regionId===region};result.final=snapshot();
     }
     return result;
-  });
 }
+async function repeatScene(page) { return page.evaluate(repeatSceneInBrowser); }
+function retainRepeatedResult(report,result,file,validate=validateRepeated) {
+  report.checks.repeated=result;
+  try {validate(result);} catch(error) {
+    report.verdict={pass:false,fails:[String(error.message||error)]};
+    fs.writeFileSync(file,JSON.stringify(report,null,2));
+    throw error;
+  }
+}
+module.exports.repeatSceneInBrowser=repeatSceneInBrowser;
+module.exports.retainRepeatedResult=retainRepeatedResult;
 module.exports.repeatScene = repeatScene;
 // QA-only frame observations; these intervals are not isolated build or animation CPU.
 function installAppearanceProbe() {

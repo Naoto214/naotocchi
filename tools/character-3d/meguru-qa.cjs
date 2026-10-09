@@ -119,6 +119,7 @@ async function walk(page, seconds) {
     const party = ['shiba', 'cat_friend', 'tanuki', 'penguin_friend'];
     const { save } = makeSave({ line: 'dog', stageIndex: 3, party });
     const { page, errors } = await open(browser, base, save);
+    if(INTEGRATION_SCENE)page.on('console',msg=>{if(msg.text().startsWith('repeated scene phase '))console.log(msg.text());});
     await pose(page, { spot: 'entry', yaw: 0, env });
     R.shots.forest3d = await snap(page, 'forest-entry-3d');
     R.checks.forest3d = await c3d(page);
@@ -156,7 +157,7 @@ async function walk(page, seconds) {
       for (let i = 0; i < 120; i++) { await new Promise((res) => requestAnimationFrame(res)); n++; const inst = p && p.instanceOf(pl); if (inst && inst.holder.visible && inst.holder.parent && inst.root.children.length) ok++; }
       return { frames: n, drawn3d: ok };
     });
-    if(INTEGRATION_SCENE){await pose(page,{spot:'entry',yaw:0,env});await page.waitForFunction(()=>globalThis.__meguruRun.renderer.char3dPresenter?.stats().live>=5);R.checks.repeated=await require('./runtime-integration.cjs').repeatScene(page);}
+    if(INTEGRATION_SCENE){await pose(page,{spot:'entry',yaw:0,env});await page.waitForFunction(()=>globalThis.__meguruRun.renderer.char3dPresenter?.stats().live>=5);const helper=require('./runtime-integration.cjs');helper.retainRepeatedResult(R,await helper.repeatScene(page),path.join(OUT,'meguru-qa.json'));}
     // ---------- actor 単位 fallback: しば だけ 3D を こわす → しば だけ 2D、ほかは 3D・world も 3D の まま
     await pose(page, { spot: 'entry', yaw: 0, env });
     await page.evaluate(() => globalThis.__meguruRun.renderer.char3dHooks({ failUpdate: (a) => a.id === 'shiba' }));
