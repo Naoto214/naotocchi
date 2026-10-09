@@ -199,6 +199,19 @@ class TransientExportTests(unittest.TestCase):
    with self.subTest(code=code),patch.object(m.urllib.request,'urlopen',side_effect=m.urllib.error.HTTPError(req.full_url,code,'failed',{},None)) as call,patch.object(m.time,'sleep'):
     with self.assertRaises(m.urllib.error.HTTPError):m.json_request(req)
     self.assertEqual(call.call_count,count)
+ def test_large_tree_uses_bounded_batches_and_checks_lease_after_last_batch(self):
+  m=self.load();entries=[{'path':'evidence/'+str(i),'sha':'b'*40,'mode':'100644','type':'blob'} for i in range(205)];calls=[];result={'expectedHead':'a'*40,'baseTree':'base','entries':entries,'paths':['evidence'],'sourceCommit':'b'*40,'sourceRun':1};previous=Path.cwd()
+  def api(path,data=None):
+   calls.append((path,data))
+   if path=='git/trees':return {'sha':'tree'+str(len(calls))}
+   return {'object':{'sha':'a'*40}}
+  with tempfile.TemporaryDirectory() as tmp:
+   os.chdir(tmp)
+   try:
+    with contextlib.redirect_stdout(io.StringIO()):m.complete_export(api,result)
+    saved=json.loads(Path('qa-export-result.json').read_text())
+   finally:os.chdir(previous)
+  self.assertEqual([len(data['tree']) for path,data in calls if path=='git/trees'],[100,100,5]);self.assertEqual([data['base_tree'] for path,data in calls if path=='git/trees'],['base','tree1','tree2']);self.assertEqual(calls[-1][0],'git/ref/heads/'+m.BRANCH);self.assertEqual(saved['tree'],'tree3');self.assertEqual(saved['status'],'PREPARED_NOT_COMMITTED_NOT_APPROVED');self.assertEqual(saved['entries'],entries)
  def test_tree_failure_retains_verified_entries_without_tree_or_approval(self):
   m=self.load();result={'expectedHead':'a'*40,'baseTree':'base','entries':[{'path':'approved/path','sha':'blob','mode':'100644','type':'blob'}],'paths':['approved'],'sourceCommit':'b'*40,'sourceRun':1};previous=Path.cwd()
   with tempfile.TemporaryDirectory() as tmp:

@@ -1,0 +1,280 @@
+{
+  "source": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "pass": true,
+  "missingImageControl": "rejected",
+  "decodedEvidence": true,
+  "nonplayers": [
+    {
+      "kind": "companion",
+      "id": "cat_friend",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:rabbit_friend",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:tanuki",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:squirrel",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:owl",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:otter",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:hamster",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:panda",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:monkey",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:parrot",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:sheep",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:seal",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:bat",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:chicken",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:penguin_friend",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:hedgehog",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "shiba",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:snail",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:punyu",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:sekizou",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:chameleon",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:clock",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:unicorn",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:many_tail_fox",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:watcher",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "companion",
+      "id": "companion:box",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:cat_ceo",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:robot_neighbor",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:field_cow",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:sunflower_partner",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:high_eagle",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:snow_spirit",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:snowman",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:rock_octopus",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:sea_mermaid",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:anglerfish",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:swamp_croc",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:knitting_spider",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:desert_scorpion",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "partner",
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "status": "ok"
+    },
+    {
+      "kind": "author",
+      "id": "author:naoto",
+      "stage": 0,
+      "status": "ok"
+    }
+  ],
+  "viewport": "390x844 Chromium / SwiftShader; not iPhone",
+  "errors": []
+}

@@ -75,7 +75,9 @@ def complete_export(api,result):
  pending={**result,'status':'VERIFIED_BLOBS_TREE_PENDING_NOT_COMMITTED_NOT_APPROVED'}
  Path('qa-export-result.json').write_text(json.dumps(pending,indent=2)+'\n')
  print('QA_EXPORT_BLOBS='+json.dumps(pending,separators=(',',':')))
- tree=api('git/trees',{'base_tree':result['baseTree'],'tree':result['entries']})
+ tree={'sha':result['baseTree']}
+ for offset in range(0,len(result['entries']),100):
+  tree=api('git/trees',{'base_tree':tree['sha'],'tree':result['entries'][offset:offset+100]})
  if api('git/ref/heads/'+BRANCH)['object']['sha']!=result['expectedHead']:raise ValueError('branch moved; caller must rebase prepared evidence')
  result={**result,'tree':tree['sha'],'status':'PREPARED_NOT_COMMITTED_NOT_APPROVED'}
  Path('qa-export-result.json').write_text(json.dumps(result,indent=2)+'\n')

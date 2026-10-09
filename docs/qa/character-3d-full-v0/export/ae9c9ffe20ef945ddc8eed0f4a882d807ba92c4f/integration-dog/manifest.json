@@ -1,0 +1,933 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11613115016,
+    "name": "full-rollout-stages-dog-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:cdceface616128f5f134182eed7d3e3fe0ef720c0a3bc2163fe2e197b82082a6"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "aba3858573dbd4c6ddaa94d10458605c7c5b662cfd557e1f810961aa044b07ee",
+      "bytes": 7368
+    },
+    {
+      "path": "missing-motion/dog-2-dislike-idle-normal.jpg",
+      "sha256": "4f2fc94df0ab7d14d7f098a141d960f47d9401c896b13a9aa201186b081b14cd",
+      "bytes": 11704
+    },
+    {
+      "path": "missing-motion/dog-2-dislike-idle-reduced.jpg",
+      "sha256": "34e4bf97c5b871de2a80a6169df6294145eb15b01fd1121b90f34cfea520033d",
+      "bytes": 11836
+    },
+    {
+      "path": "missing-motion/dog-2-dislike-walk-normal.jpg",
+      "sha256": "24d0af4035b91588f4e1a72a871da346e24fef10839059b75dc9a129f6f01907",
+      "bytes": 11305
+    },
+    {
+      "path": "missing-motion/dog-2-dislike-walk-reduced.jpg",
+      "sha256": "62bbd3648b04c494210480edeb1f6bfff971f070da7ef3a0f16b8d3a9fa93adc",
+      "bytes": 11621
+    },
+    {
+      "path": "missing-motion/dog-2-motion.jpg",
+      "sha256": "691e6781a77072baf6f58c7cb39b454795cbc624c3f5b46d647b9fdf5906646b",
+      "bytes": 490955
+    },
+    {
+      "path": "missing-motion/dog-2-normal-idle-normal.jpg",
+      "sha256": "825f2f8b98433d1b8d4639f0b01425b9833eb7ddd1f7421bf93f02a6506db027",
+      "bytes": 11827
+    },
+    {
+      "path": "missing-motion/dog-2-normal-idle-reduced.jpg",
+      "sha256": "647338385cecb9123c777cc1678c3bbc9eb860032d8c57111fcc53838d7e7779",
+      "bytes": 11972
+    },
+    {
+      "path": "missing-motion/dog-2-normal-walk-normal.jpg",
+      "sha256": "f8b239e9037d9c5417ec2f048a9b42011d881bee254eddf7edb519403d9244f9",
+      "bytes": 12064
+    },
+    {
+      "path": "missing-motion/dog-2-normal-walk-reduced.jpg",
+      "sha256": "dfe3638cb76b31b439ee5d3d62c9496afc10b07e7f09c207fc9ff05a49dddec7",
+      "bytes": 12319
+    },
+    {
+      "path": "missing-motion/dog-2-positive-idle-normal.jpg",
+      "sha256": "3d35d549babc84d91d61cd36389b8051c197b69329f582e94d381b7aa233ea3c",
+      "bytes": 11880
+    },
+    {
+      "path": "missing-motion/dog-2-positive-idle-reduced.jpg",
+      "sha256": "31acc4df0764aa5b36d5ff80d532e15754ee29222f8064c7829f04755d931e45",
+      "bytes": 11725
+    },
+    {
+      "path": "missing-motion/dog-2-positive-walk-normal.jpg",
+      "sha256": "d509bf67ed558990728a0157afe098163cb4d4b54cefee04e947a90304de08c5",
+      "bytes": 12116
+    },
+    {
+      "path": "missing-motion/dog-2-positive-walk-reduced.jpg",
+      "sha256": "a6f2da9b1d4c08abfb7dd6d12ede3fc6dec1091075c8bb2c531bc568b63868c7",
+      "bytes": 12147
+    },
+    {
+      "path": "missing-motion/dog-2-sick-idle-normal.jpg",
+      "sha256": "27c91610ba41552b4eab5ddc9088b098e969b09d44088810db28b469e877579c",
+      "bytes": 11828
+    },
+    {
+      "path": "missing-motion/dog-2-sick-idle-reduced.jpg",
+      "sha256": "8245a94ef6df56fc5ac0c54a139c69cca95ab8a06ec81a7a86b85a2bf52aa941",
+      "bytes": 11780
+    },
+    {
+      "path": "missing-motion/dog-2-sick-walk-normal.jpg",
+      "sha256": "f25ad75d055189be9f32b59f8115279b048a16c0655cdedd641a5f2297717eb8",
+      "bytes": 11375
+    },
+    {
+      "path": "missing-motion/dog-2-sick-walk-reduced.jpg",
+      "sha256": "227efdde09ca87b3e04e94593e0be61fceef779e877e43b8d8223b755d4697d1",
+      "bytes": 11757
+    },
+    {
+      "path": "missing-motion/dog-2-sleeping-idle-normal.jpg",
+      "sha256": "5e96960e9346c7848cb842ba690012b2df92bd01ef81b772ff194fe512d1eb7f",
+      "bytes": 11011
+    },
+    {
+      "path": "missing-motion/dog-2-sleeping-idle-reduced.jpg",
+      "sha256": "77c2f4cd57163ff0dd94a961488c26031dcb1e2c12b34d393fd09f7fad464db6",
+      "bytes": 10995
+    },
+    {
+      "path": "missing-motion/dog-2-sleeping-walk-normal.jpg",
+      "sha256": "5ad833128b5fedaf5a3f795c986864be2933531f5505484210460378b6ea22c0",
+      "bytes": 11055
+    },
+    {
+      "path": "missing-motion/dog-2-sleeping-walk-reduced.jpg",
+      "sha256": "85a6841a38b27eb3b36df681e8398bcc2657cf70c3b65546ff0f88a32fb49742",
+      "bytes": 11116
+    },
+    {
+      "path": "missing-motion/dog-2-strained-idle-normal.jpg",
+      "sha256": "0f1aa61f26d49384ec95d0dd172d95c89d5daff8b9acdb8d46a58d947cb74911",
+      "bytes": 11895
+    },
+    {
+      "path": "missing-motion/dog-2-strained-idle-reduced.jpg",
+      "sha256": "0a1a572d3a68235d1b56c9fa863fde93b48f7b1ab2209b4018dcf76555c31ffa",
+      "bytes": 11936
+    },
+    {
+      "path": "missing-motion/dog-2-strained-walk-normal.jpg",
+      "sha256": "97036f1a539b0450d42dfcda8c5037d08247a964938fa037ea5eb2aabca96c7a",
+      "bytes": 11301
+    },
+    {
+      "path": "missing-motion/dog-2-strained-walk-reduced.jpg",
+      "sha256": "54770667c6ce65a37e010afd4c24c7a8ea72aaf7af5e2d96885f02c2e4ad6a69",
+      "bytes": 11795
+    },
+    {
+      "path": "missing-motion/dog-2-tired-idle-normal.jpg",
+      "sha256": "fdeb1ffa1a206c7703e30202de6fb4a137eca52f17c65871d6cc5e65b4c3c0b9",
+      "bytes": 11237
+    },
+    {
+      "path": "missing-motion/dog-2-tired-idle-reduced.jpg",
+      "sha256": "02ce120078e1c0c24fe6c4a4fd302ac7f1d43d4a71f7cf114a1044eaa078010a",
+      "bytes": 11205
+    },
+    {
+      "path": "missing-motion/dog-2-tired-walk-normal.jpg",
+      "sha256": "d58614a329ef640acf96884d2f64daefb3d8e3e560f8fe9b0e61804f3cc80b02",
+      "bytes": 11403
+    },
+    {
+      "path": "missing-motion/dog-2-tired-walk-reduced.jpg",
+      "sha256": "a35f4df87fb82c7535eeb88907be9de954d306f1c29389095f674e6ed58bc8af",
+      "bytes": 11576
+    },
+    {
+      "path": "missing-motion/dog-2-wantsPlay-idle-normal.jpg",
+      "sha256": "0e6c8ec7ed7f1723defec3267df8f6a846b006148d7484661e6fcdb60989a92c",
+      "bytes": 11675
+    },
+    {
+      "path": "missing-motion/dog-2-wantsPlay-idle-reduced.jpg",
+      "sha256": "2b756d782c5b4b8e981d32ddb9eb749d4fec753e282c79fdac062bed5b99f421",
+      "bytes": 11890
+    },
+    {
+      "path": "missing-motion/dog-2-wantsPlay-walk-normal.jpg",
+      "sha256": "4ff509e376678b35c9cb84aadf72cb8384670a1bec4020025b491a30f70818a5",
+      "bytes": 11646
+    },
+    {
+      "path": "missing-motion/dog-2-wantsPlay-walk-reduced.jpg",
+      "sha256": "40da2fd9aeac5b93af049e4b5978e4481817cbd15dd7cc563cc19910f00dea6d",
+      "bytes": 12158
+    },
+    {
+      "path": "missing-motion/dog-3-dislike-idle-normal.jpg",
+      "sha256": "ae135d45ce4a3b6a12d234239a681cae4ccfabd185557ee9a1921087f4a063a7",
+      "bytes": 11274
+    },
+    {
+      "path": "missing-motion/dog-3-dislike-idle-reduced.jpg",
+      "sha256": "212a1246d20ae1a50c4240a233509a066358fe234ebd88bfb72915f8607de61a",
+      "bytes": 11518
+    },
+    {
+      "path": "missing-motion/dog-3-dislike-walk-normal.jpg",
+      "sha256": "0ece92769290c16dd3604fd532816b788b842759e4e5c8c2c3ac1e1aa6b315b0",
+      "bytes": 11205
+    },
+    {
+      "path": "missing-motion/dog-3-dislike-walk-reduced.jpg",
+      "sha256": "b63208a9c6c97fe105fcb233673dbcb83730436a120201a9cc070d9af1da5cda",
+      "bytes": 11451
+    },
+    {
+      "path": "missing-motion/dog-3-motion.jpg",
+      "sha256": "11fc5cf18fe1c66e6c6b9e5cd47e6045f4cf7f624cef46c3aef45b520dd90706",
+      "bytes": 490897
+    },
+    {
+      "path": "missing-motion/dog-3-normal-idle-normal.jpg",
+      "sha256": "55bb3ff61238f2118a8d83abc49220fddd35bc0abb3b400358fd17e6fa5760f3",
+      "bytes": 11980
+    },
+    {
+      "path": "missing-motion/dog-3-normal-idle-reduced.jpg",
+      "sha256": "cdfee444572a57c89cc18a0a1c2e91d637f0c4ee77fbac7425de8cc20dcb293a",
+      "bytes": 12333
+    },
+    {
+      "path": "missing-motion/dog-3-normal-walk-normal.jpg",
+      "sha256": "3e851ad4520aa666951f780c96753b4df5c7695e458c1168eded8c9b54f6c75f",
+      "bytes": 11690
+    },
+    {
+      "path": "missing-motion/dog-3-normal-walk-reduced.jpg",
+      "sha256": "0bc6441201c8ad339a04d5e1305970b21814dbf6d931839b8c0beac5a14e8e5c",
+      "bytes": 12083
+    },
+    {
+      "path": "missing-motion/dog-3-positive-idle-normal.jpg",
+      "sha256": "c18490df52483143c277de238411bc4c5a7b4c19f0e5745643156c003fcf71f6",
+      "bytes": 11903
+    },
+    {
+      "path": "missing-motion/dog-3-positive-idle-reduced.jpg",
+      "sha256": "5c2ef5de1cee38d570428dcad9665c0e23b3e582c1efc9084fe054a66546f4fe",
+      "bytes": 12254
+    },
+    {
+      "path": "missing-motion/dog-3-positive-walk-normal.jpg",
+      "sha256": "7d20e421a6e9c752a245a8eda00a83241b708bb1ca5a255d3d66fb500a34004b",
+      "bytes": 11663
+    },
+    {
+      "path": "missing-motion/dog-3-positive-walk-reduced.jpg",
+      "sha256": "0cb87af06e6176cf9489f9c28d093238dc3d1118075e8ed195f79c7748cfa826",
+      "bytes": 12050
+    },
+    {
+      "path": "missing-motion/dog-3-sick-idle-normal.jpg",
+      "sha256": "0ab179d473a52eb8846f0d5405c1bf12c31c7c90e2c0f26e28cabdd972bd4566",
+      "bytes": 11647
+    },
+    {
+      "path": "missing-motion/dog-3-sick-idle-reduced.jpg",
+      "sha256": "3c9e93006fc4597bbbc352d4b87f378431120d9e2b90ec202ab1d7fc5a5b5c4e",
+      "bytes": 11815
+    },
+    {
+      "path": "missing-motion/dog-3-sick-walk-normal.jpg",
+      "sha256": "52b6f750bcbd863e0d9d86fbacebe3e33ac8ed057ee28eed2a7e503ee2a34bd7",
+      "bytes": 11267
+    },
+    {
+      "path": "missing-motion/dog-3-sick-walk-reduced.jpg",
+      "sha256": "b1b1bd88583480359d38bea657532d4a79cca542024076aa47b10aa0a1a5a5b6",
+      "bytes": 11428
+    },
+    {
+      "path": "missing-motion/dog-3-sleeping-idle-normal.jpg",
+      "sha256": "e43600d0e6efeb71e53f13a42a62c9e42cdeab4b36eb831ac1a23b4ce58d5a4a",
+      "bytes": 10995
+    },
+    {
+      "path": "missing-motion/dog-3-sleeping-idle-reduced.jpg",
+      "sha256": "dd165676549d063cd53a84efb79aa2371ef6596363fd1a98a6eab8b0e2c9069a",
+      "bytes": 11246
+    },
+    {
+      "path": "missing-motion/dog-3-sleeping-walk-normal.jpg",
+      "sha256": "80ad6a2ee6209d0ff0a36cea629d51e72bcfbc5cbab69bcd20488ee9f2dfff06",
+      "bytes": 10719
+    },
+    {
+      "path": "missing-motion/dog-3-sleeping-walk-reduced.jpg",
+      "sha256": "d5fcc1c1a335c6846996bbcecd2d030afa14e536ad35ddb5775bbf050e0d6c63",
+      "bytes": 11053
+    },
+    {
+      "path": "missing-motion/dog-3-strained-idle-normal.jpg",
+      "sha256": "a54010b003a5f4909e744350e3b7e4f18a12372d238a5e3e71f4a23905b2c61e",
+      "bytes": 11870
+    },
+    {
+      "path": "missing-motion/dog-3-strained-idle-reduced.jpg",
+      "sha256": "a1462336b5bb0e6fe519f62ea9e7c72c512781c917f56c8daf0ed3744a970e54",
+      "bytes": 12078
+    },
+    {
+      "path": "missing-motion/dog-3-strained-walk-normal.jpg",
+      "sha256": "095cd3a269efc57777574ce4f2493a934f7043cfa300dcaf6249adf444540d4e",
+      "bytes": 11146
+    },
+    {
+      "path": "missing-motion/dog-3-strained-walk-reduced.jpg",
+      "sha256": "c2a66c59350c9e78349e785bb1d739f21fc7078cf65b29ced178a874bbf452f8",
+      "bytes": 11767
+    },
+    {
+      "path": "missing-motion/dog-3-tired-idle-normal.jpg",
+      "sha256": "50b704118f3b0e2aa09f20b237470dd769a050afbf29b6ad09cf435e81f85460",
+      "bytes": 11032
+    },
+    {
+      "path": "missing-motion/dog-3-tired-idle-reduced.jpg",
+      "sha256": "89b975fb44b44be7fc4273fd8763871df5070ba90d903113f63d188cdcb24f5c",
+      "bytes": 11361
+    },
+    {
+      "path": "missing-motion/dog-3-tired-walk-normal.jpg",
+      "sha256": "2fca92751c4df2476ef49c641ab98812cf85aad8154a113bf54855ab6a22c36f",
+      "bytes": 11001
+    },
+    {
+      "path": "missing-motion/dog-3-tired-walk-reduced.jpg",
+      "sha256": "6525f049ba2e25f1c669e3a90b8c0b4156e8a5e4014e9d331cd4aaa05ba12e1d",
+      "bytes": 11180
+    },
+    {
+      "path": "missing-motion/dog-3-wantsPlay-idle-normal.jpg",
+      "sha256": "5ed66de4fed72bd7c12ae3870079b559fee9b90505cc82fd0cf602d203023d59",
+      "bytes": 11636
+    },
+    {
+      "path": "missing-motion/dog-3-wantsPlay-idle-reduced.jpg",
+      "sha256": "473db76396172430bd18a4bb62ec0d93a69b09beeabbadfe15728685115d73f4",
+      "bytes": 12228
+    },
+    {
+      "path": "missing-motion/dog-3-wantsPlay-walk-normal.jpg",
+      "sha256": "f9ba0f2602a70eef8f6c348fe8e7c7375a6820e23636956280ce22e0fd550f8f",
+      "bytes": 11240
+    },
+    {
+      "path": "missing-motion/dog-3-wantsPlay-walk-reduced.jpg",
+      "sha256": "3192796cb0ad31f84a4fadafec1e1d2fc103199692420c39a5c3482131877c1b",
+      "bytes": 11784
+    },
+    {
+      "path": "missing-motion/dog-5-dislike-idle-normal.jpg",
+      "sha256": "3544c3cdfe510e5f50e754ec179700ef9d65be518161713db5d678d066de32c2",
+      "bytes": 11025
+    },
+    {
+      "path": "missing-motion/dog-5-dislike-idle-reduced.jpg",
+      "sha256": "4fe7e78f3ba29976e75fa892e9f43bdeae38fbe512e05dbdacfc0553f1bf62d5",
+      "bytes": 11320
+    },
+    {
+      "path": "missing-motion/dog-5-dislike-walk-normal.jpg",
+      "sha256": "1132fb4e6eadb135e5de2cfb90b0186d1baaa9c45615b5493432d604807e9dd5",
+      "bytes": 11018
+    },
+    {
+      "path": "missing-motion/dog-5-dislike-walk-reduced.jpg",
+      "sha256": "e2a596de42442ec3243dbe29ef9748088768402d2be31e4575e7e4384864c9de",
+      "bytes": 11371
+    },
+    {
+      "path": "missing-motion/dog-5-motion.jpg",
+      "sha256": "3df33211516a230bf39d30c4e569a4cd0c8d9c2d04005a9a90e4e56eb17b132a",
+      "bytes": 485779
+    },
+    {
+      "path": "missing-motion/dog-5-normal-idle-normal.jpg",
+      "sha256": "da33f15e743bc5a0a3cc1730337fc7365bc708668000a8c7cf055224db599d45",
+      "bytes": 11493
+    },
+    {
+      "path": "missing-motion/dog-5-normal-idle-reduced.jpg",
+      "sha256": "e02ff666507ee905f2b734dcb9ed9d3eaf2c350cdb1d01f9c408237bf5f433dd",
+      "bytes": 11867
+    },
+    {
+      "path": "missing-motion/dog-5-normal-walk-normal.jpg",
+      "sha256": "7218539d28fbf12a7049a28562bb1f34b60b378d173c51c65cfc9c6f2aab052b",
+      "bytes": 11521
+    },
+    {
+      "path": "missing-motion/dog-5-normal-walk-reduced.jpg",
+      "sha256": "8561dee2a9350415693bf15d6c8c467949cc6578e8a52fd90f54a9587b9170ab",
+      "bytes": 11718
+    },
+    {
+      "path": "missing-motion/dog-5-positive-idle-normal.jpg",
+      "sha256": "ce5772c8a4710f1d1e27b82ab11bb67394c0a4d81a66924dbdb4ca0153b492ac",
+      "bytes": 11422
+    },
+    {
+      "path": "missing-motion/dog-5-positive-idle-reduced.jpg",
+      "sha256": "364cf1f8db475247b9ea7d955b4ce866925d3676beb93869ab1cca27457e9f86",
+      "bytes": 11632
+    },
+    {
+      "path": "missing-motion/dog-5-positive-walk-normal.jpg",
+      "sha256": "dceaba457bf36671543f507f66c1e9c76ee740dd982673b555cee1afd9b9ccf0",
+      "bytes": 11438
+    },
+    {
+      "path": "missing-motion/dog-5-positive-walk-reduced.jpg",
+      "sha256": "86d697dac5c6447b2599c9310d1a56a1c45c719a050dc67aa93a1af66899310d",
+      "bytes": 11821
+    },
+    {
+      "path": "missing-motion/dog-5-sick-idle-normal.jpg",
+      "sha256": "66ded0e862f20de39c5315741f85996bb4c3dc30ed68525d43b4c91e14c34794",
+      "bytes": 11130
+    },
+    {
+      "path": "missing-motion/dog-5-sick-idle-reduced.jpg",
+      "sha256": "4a0af96b147ea7da185c3d5012248e29aab37944829ab2467fc677c6e54acdb9",
+      "bytes": 11520
+    },
+    {
+      "path": "missing-motion/dog-5-sick-walk-normal.jpg",
+      "sha256": "d4d8da6847d88780a28e416c06c5ac0943dd10503d82498d1fa417bf0727ffb3",
+      "bytes": 11025
+    },
+    {
+      "path": "missing-motion/dog-5-sick-walk-reduced.jpg",
+      "sha256": "d207a36064f1233668c8e2f01ba90dc79f9bc884eef3e4c2cabf5aa5ee97b19a",
+      "bytes": 11197
+    },
+    {
+      "path": "missing-motion/dog-5-sleeping-idle-normal.jpg",
+      "sha256": "2bd300d5e75390749cc29f9057139692fe64d392a04f51a475a0cc3ca6cca031",
+      "bytes": 10826
+    },
+    {
+      "path": "missing-motion/dog-5-sleeping-idle-reduced.jpg",
+      "sha256": "f28f191ef8877c00c11e7bcba140bd546f33e1a5ffe3520124ae8cc4dbed5b82",
+      "bytes": 11128
+    },
+    {
+      "path": "missing-motion/dog-5-sleeping-walk-normal.jpg",
+      "sha256": "d204ebfb9478eb3ebc7376defa83df75e3dfe99e26f64f21fa119ad0b2086a5c",
+      "bytes": 10818
+    },
+    {
+      "path": "missing-motion/dog-5-sleeping-walk-reduced.jpg",
+      "sha256": "bd3b9118911bfc6a841cd1a163b25603b25c5c00d065e7ca5d7c1299dced542a",
+      "bytes": 11229
+    },
+    {
+      "path": "missing-motion/dog-5-strained-idle-normal.jpg",
+      "sha256": "9cd162d3b0241a71543a2efcb632f853f1dfec160f2c3cde184b25f283e6bc75",
+      "bytes": 11424
+    },
+    {
+      "path": "missing-motion/dog-5-strained-idle-reduced.jpg",
+      "sha256": "b646e5eb3466e3ba2a62b1c5d5807d8a2192374e6fc1c98a226a924207b37016",
+      "bytes": 11648
+    },
+    {
+      "path": "missing-motion/dog-5-strained-walk-normal.jpg",
+      "sha256": "ced0cb13e9ced820a8e9e87865f72a645f53ab1f5c93f997445e052d22d5f3e1",
+      "bytes": 10997
+    },
+    {
+      "path": "missing-motion/dog-5-strained-walk-reduced.jpg",
+      "sha256": "390d78c33741d98e75357ff4100493f1d50daccfb049253bb6494d3475c60cbc",
+      "bytes": 11530
+    },
+    {
+      "path": "missing-motion/dog-5-tired-idle-normal.jpg",
+      "sha256": "674b40e44ad1f1a6d7ffaea2018c3d59fd72aef59a824a62e95ca5c3dcb72428",
+      "bytes": 10874
+    },
+    {
+      "path": "missing-motion/dog-5-tired-idle-reduced.jpg",
+      "sha256": "5799b90e55ab8c29e02d6444302922bc5b08771a0f5bcec3762d1499c2baea66",
+      "bytes": 11258
+    },
+    {
+      "path": "missing-motion/dog-5-tired-walk-normal.jpg",
+      "sha256": "d5b802d9c26f9b371bc76e51667ac630525191845962b486215bcf7498741d87",
+      "bytes": 10857
+    },
+    {
+      "path": "missing-motion/dog-5-tired-walk-reduced.jpg",
+      "sha256": "e957180bc890dcb1696a3e6f183739cb3d3862ec1cfb941fed207a56df83f35c",
+      "bytes": 11157
+    },
+    {
+      "path": "missing-motion/dog-5-wantsPlay-idle-normal.jpg",
+      "sha256": "bc1358a7f3d7b14e974d04808ad7074d92dc63cec1e0607d5c95737d37a84d19",
+      "bytes": 11144
+    },
+    {
+      "path": "missing-motion/dog-5-wantsPlay-idle-reduced.jpg",
+      "sha256": "9d947b061bd883bb7fabf095026a4df9f6bae1d33813183afe5e83e8171a177f",
+      "bytes": 11709
+    },
+    {
+      "path": "missing-motion/dog-5-wantsPlay-walk-normal.jpg",
+      "sha256": "89419e827d8798a7ce5c318f3b948c1e29142ad1654c8489ce51d78c2b43a163",
+      "bytes": 10925
+    },
+    {
+      "path": "missing-motion/dog-5-wantsPlay-walk-reduced.jpg",
+      "sha256": "aeec9c7e690b3634021273038eb32abea7506007af0280cdaa89772d44ef9286",
+      "bytes": 11614
+    },
+    {
+      "path": "missing-motion/dog-6-dislike-idle-normal.jpg",
+      "sha256": "38213fc6250c47d32283228069089f6e9b719b0b1771dd492d44ed1b1ce605ea",
+      "bytes": 11273
+    },
+    {
+      "path": "missing-motion/dog-6-dislike-idle-reduced.jpg",
+      "sha256": "05ebf1d8f8a2d32a87e026a863d99eb87eeeeaceec56925263af1f203450efa4",
+      "bytes": 11387
+    },
+    {
+      "path": "missing-motion/dog-6-dislike-walk-normal.jpg",
+      "sha256": "7356bcef1ba41c28b03b8b6195e43016f932108dbabae0fbb812f456694a63f6",
+      "bytes": 11181
+    },
+    {
+      "path": "missing-motion/dog-6-dislike-walk-reduced.jpg",
+      "sha256": "6b0719a4e1325883b6fbe16217a506f47db81b5bf28538612c305563259c4893",
+      "bytes": 11392
+    },
+    {
+      "path": "missing-motion/dog-6-motion.jpg",
+      "sha256": "157bd9e952cb57af6807d8b1aad68ffbc2df352582e54af8c05cb49d9e97de0e",
+      "bytes": 497405
+    },
+    {
+      "path": "missing-motion/dog-6-normal-idle-normal.jpg",
+      "sha256": "52ef95b2813ff1fef3186e65807e6c2c64b6a95b294f9d3d63c121f72793e470",
+      "bytes": 11695
+    },
+    {
+      "path": "missing-motion/dog-6-normal-idle-reduced.jpg",
+      "sha256": "a77ce8cc1fc2cbe64b6809420f940804247eb732b84155ce9a3b9c620110797f",
+      "bytes": 11955
+    },
+    {
+      "path": "missing-motion/dog-6-normal-walk-normal.jpg",
+      "sha256": "69358b4e5b682de04c63211bf06f44a40cc58e06a958179069412138622fb031",
+      "bytes": 11587
+    },
+    {
+      "path": "missing-motion/dog-6-normal-walk-reduced.jpg",
+      "sha256": "2279ada9e822d71cb0008afa4153c6b710b6b5b4f2c02010aff036f3752319c5",
+      "bytes": 11846
+    },
+    {
+      "path": "missing-motion/dog-6-positive-idle-normal.jpg",
+      "sha256": "67d6ebc64c5ae35beb011923874925b6d42141eb952c1eb3d8a039b014d39ba4",
+      "bytes": 11420
+    },
+    {
+      "path": "missing-motion/dog-6-positive-idle-reduced.jpg",
+      "sha256": "5846d4fefab493429bfe37b6eae6152f8ec811511509ca12d8d45a5eaff71d12",
+      "bytes": 11924
+    },
+    {
+      "path": "missing-motion/dog-6-positive-walk-normal.jpg",
+      "sha256": "d7aff88a17969dbf1a91204130dbed127944b174a0822b04a28278387302e269",
+      "bytes": 11383
+    },
+    {
+      "path": "missing-motion/dog-6-positive-walk-reduced.jpg",
+      "sha256": "50c15fe91580ee5813ccbc0cb59ece123a66d3a1e4e476e2f315f2107079bcb6",
+      "bytes": 11828
+    },
+    {
+      "path": "missing-motion/dog-6-sick-idle-normal.jpg",
+      "sha256": "3855a56265c14092c2bcaf7e327e8df295338781d0ce32a5a2092ca94d44995b",
+      "bytes": 11330
+    },
+    {
+      "path": "missing-motion/dog-6-sick-idle-reduced.jpg",
+      "sha256": "7e05de5dae3ae7d0e07872d145627d0bb69ce0e316591ad3aee64da298fc2cbe",
+      "bytes": 11565
+    },
+    {
+      "path": "missing-motion/dog-6-sick-walk-normal.jpg",
+      "sha256": "5cb14811a0117bd6eaf28551678b8346836c2eec5b0571b1eb679055fc85b3ae",
+      "bytes": 11028
+    },
+    {
+      "path": "missing-motion/dog-6-sick-walk-reduced.jpg",
+      "sha256": "d0c580f3fcf1e0ca4a5fd2c7f78e7af826c3625e8971721ef94e5512a0b2be40",
+      "bytes": 11152
+    },
+    {
+      "path": "missing-motion/dog-6-sleeping-idle-normal.jpg",
+      "sha256": "f6340764368cf1f55adbc416910720dd230709c6f9ae58289f917394254c470d",
+      "bytes": 11009
+    },
+    {
+      "path": "missing-motion/dog-6-sleeping-idle-reduced.jpg",
+      "sha256": "5ba0552b9c847df7c1031c4e83bff1b18a39dcaea141795c05844781db7290b9",
+      "bytes": 11153
+    },
+    {
+      "path": "missing-motion/dog-6-sleeping-walk-normal.jpg",
+      "sha256": "1886b16a048959394c708dcb11e58db032d511060c21c7f998d04947f7a5cfc9",
+      "bytes": 10820
+    },
+    {
+      "path": "missing-motion/dog-6-sleeping-walk-reduced.jpg",
+      "sha256": "16c1dcaaed2334015e5be2ce57cd0ed112312a525a3dfe435aabd1e4b997faf5",
+      "bytes": 11085
+    },
+    {
+      "path": "missing-motion/dog-6-strained-idle-normal.jpg",
+      "sha256": "9108982cc0d5d87346811fab817a84d176e7f904d638f5f7467bb2ebe1e582d9",
+      "bytes": 11641
+    },
+    {
+      "path": "missing-motion/dog-6-strained-idle-reduced.jpg",
+      "sha256": "12fbc3a0a61f5b743078bf1f43b68c17a6e8c8ea6271bf60c7d1160885349eff",
+      "bytes": 11764
+    },
+    {
+      "path": "missing-motion/dog-6-strained-walk-normal.jpg",
+      "sha256": "c72e28f82a1a261d87795f5ddf529b09a01602cb109fd8448a80e38bf7ef08bc",
+      "bytes": 10945
+    },
+    {
+      "path": "missing-motion/dog-6-strained-walk-reduced.jpg",
+      "sha256": "aef5ebf32d229c06fb9bff321ce59df45b3a42cff12321ad3acd38d57df350e4",
+      "bytes": 11539
+    },
+    {
+      "path": "missing-motion/dog-6-tired-idle-normal.jpg",
+      "sha256": "bf2776ef987dff57bb71b412bdcf95ca764e597f9e95078eace75a5b48e12912",
+      "bytes": 11147
+    },
+    {
+      "path": "missing-motion/dog-6-tired-idle-reduced.jpg",
+      "sha256": "f3292622d7bb6bd892f9ceb52ac4f907ae51004917e79c8ff0ca2eb402b3ea43",
+      "bytes": 11398
+    },
+    {
+      "path": "missing-motion/dog-6-tired-walk-normal.jpg",
+      "sha256": "7f764113ff64bf6b30c53549a233d87a94cccaa4b58ad796792546b5e1f9d379",
+      "bytes": 10935
+    },
+    {
+      "path": "missing-motion/dog-6-tired-walk-reduced.jpg",
+      "sha256": "79f44b1f407461b818e0a307c62d911d1c8ccd355e2f48e719cab0f521afca93",
+      "bytes": 11236
+    },
+    {
+      "path": "missing-motion/dog-6-wantsPlay-idle-normal.jpg",
+      "sha256": "560436e382efd393d407f087688978bf85c0d0be3b162bb347e76bdd3d8f142b",
+      "bytes": 11317
+    },
+    {
+      "path": "missing-motion/dog-6-wantsPlay-idle-reduced.jpg",
+      "sha256": "f41312b0172ceb58a51ca9b1887488e248d20bf780c41cd3eccf428e0f22b805",
+      "bytes": 11891
+    },
+    {
+      "path": "missing-motion/dog-6-wantsPlay-walk-normal.jpg",
+      "sha256": "4cd21155588c39589776b159118d5f2629b1180b759ae63bf9fb87bf3f3944a3",
+      "bytes": 10952
+    },
+    {
+      "path": "missing-motion/dog-6-wantsPlay-walk-reduced.jpg",
+      "sha256": "e87bac05f544280a24e07ee5a39c3da179d907f8d9425154faf2623380a91023",
+      "bytes": 11816
+    },
+    {
+      "path": "missing-motion/dog-7-dislike-idle-normal.jpg",
+      "sha256": "d1e1d0a49741434fc370119e8f184745bbae93c5e49186f63c8cc5e11756bf42",
+      "bytes": 10913
+    },
+    {
+      "path": "missing-motion/dog-7-dislike-idle-reduced.jpg",
+      "sha256": "6114bef2ab1a8f1c7eb3963eacd17d3d18a7877129341e0e9c088d25b218f3b8",
+      "bytes": 10996
+    },
+    {
+      "path": "missing-motion/dog-7-dislike-walk-normal.jpg",
+      "sha256": "01bcf2d5781c510d675af784f3548b46688ede9053eeb32e837f41c31056cf86",
+      "bytes": 10412
+    },
+    {
+      "path": "missing-motion/dog-7-dislike-walk-reduced.jpg",
+      "sha256": "98dee307d8df1ac2374dd3683b70fc531de64c9d3ccb8c2bd0870adf58512be3",
+      "bytes": 10524
+    },
+    {
+      "path": "missing-motion/dog-7-motion.jpg",
+      "sha256": "002783aff7a97e7cacac27a684b59d8054519f6bc93cea380ddb1b6b5d962b8a",
+      "bytes": 455977
+    },
+    {
+      "path": "missing-motion/dog-7-normal-idle-normal.jpg",
+      "sha256": "06c01ccc18adca8edfcba4700e8dd083cee9a83646c865e0b267a7bacbdf7f44",
+      "bytes": 10919
+    },
+    {
+      "path": "missing-motion/dog-7-normal-idle-reduced.jpg",
+      "sha256": "7b8370105a938465ded4922fe008da807c7d20829e2b5414e36fe803e94afa7e",
+      "bytes": 10937
+    },
+    {
+      "path": "missing-motion/dog-7-normal-walk-normal.jpg",
+      "sha256": "a0c0b8df4f2c95be0d1cf7d8e569a582a92aa9b40060499192b724786089ec8c",
+      "bytes": 10806
+    },
+    {
+      "path": "missing-motion/dog-7-normal-walk-reduced.jpg",
+      "sha256": "d228bd23e9698e9e2ff6cc1b5c7464fae68b276e9d204cc05692bdeaa6e79b74",
+      "bytes": 11020
+    },
+    {
+      "path": "missing-motion/dog-7-positive-idle-normal.jpg",
+      "sha256": "17951e72232fff072c9887fcd8e5dcda8b9c6a8f7da5bdfc0ac10b3bab683ff2",
+      "bytes": 11170
+    },
+    {
+      "path": "missing-motion/dog-7-positive-idle-reduced.jpg",
+      "sha256": "8dbc745ab8ac8b24d5eb9b25575c76baec28e4731aad76126d1142e6db4a1717",
+      "bytes": 11095
+    },
+    {
+      "path": "missing-motion/dog-7-positive-walk-normal.jpg",
+      "sha256": "73258f72de92a6f0abc84af50fa76397f351ad732f32d021424e19bc2bca4fee",
+      "bytes": 10968
+    },
+    {
+      "path": "missing-motion/dog-7-positive-walk-reduced.jpg",
+      "sha256": "fc2ca274a4a0cf9fb6f2fb8bb5f93db9f5cb63e2fd5be43aa720c405d4a652fb",
+      "bytes": 10965
+    },
+    {
+      "path": "missing-motion/dog-7-sick-idle-normal.jpg",
+      "sha256": "d7a32da5741478eca93363817074c7d4bd1f0460abbc8fe1f7313efa4d66ca1a",
+      "bytes": 11174
+    },
+    {
+      "path": "missing-motion/dog-7-sick-idle-reduced.jpg",
+      "sha256": "9d534ab69c39a2f56977ff749c0a35b5579d2a7ba4b3dae64d64e942ca3c6b03",
+      "bytes": 11196
+    },
+    {
+      "path": "missing-motion/dog-7-sick-walk-normal.jpg",
+      "sha256": "0a4a39c208851d24ed6bdbfaebeca027977b2cf964a0122687c14758dd351e8a",
+      "bytes": 10454
+    },
+    {
+      "path": "missing-motion/dog-7-sick-walk-reduced.jpg",
+      "sha256": "11a3c629a9d3f0a11a19d27749cb6b4d6d4590adbacf5aefbfc8a5549083ee64",
+      "bytes": 10569
+    },
+    {
+      "path": "missing-motion/dog-7-sleeping-idle-normal.jpg",
+      "sha256": "e9bef058e111693d4a944ec53c3425afababfa843f185f0254770a62395d9d89",
+      "bytes": 11084
+    },
+    {
+      "path": "missing-motion/dog-7-sleeping-idle-reduced.jpg",
+      "sha256": "e17233810d353fd1adc315c009c9d693e65fa80d7858cb3f5eadebd8abff1b3c",
+      "bytes": 11127
+    },
+    {
+      "path": "missing-motion/dog-7-sleeping-walk-normal.jpg",
+      "sha256": "74e3f0dbc369a423c569e79446a348ab5007f976a027903f857c2ca348ee0531",
+      "bytes": 10038
+    },
+    {
+      "path": "missing-motion/dog-7-sleeping-walk-reduced.jpg",
+      "sha256": "e9e9f5a6196b14d39abae9a9cfdfe0262b329428b2441471e4f53503f48c8b36",
+      "bytes": 10298
+    },
+    {
+      "path": "missing-motion/dog-7-strained-idle-normal.jpg",
+      "sha256": "8dbf01b4bbb1d03d95772b794ae8f985a7543371bbb8958f55725a26c3cc18d0",
+      "bytes": 11285
+    },
+    {
+      "path": "missing-motion/dog-7-strained-idle-reduced.jpg",
+      "sha256": "2aa444ef93e7a864ce305232fd4a38815ca103912cf2eb40b3c7a4d6b9c0bcb3",
+      "bytes": 11465
+    },
+    {
+      "path": "missing-motion/dog-7-strained-walk-normal.jpg",
+      "sha256": "ec4a3286eb59468cca4769ee2a5efc19d05bcf99d2cb1024ae8df194ec0ad0d5",
+      "bytes": 10421
+    },
+    {
+      "path": "missing-motion/dog-7-strained-walk-reduced.jpg",
+      "sha256": "fd9036f1cc2bdc529b649f2d47b0a01c8d2389490b169497dcb613b8b0787dee",
+      "bytes": 10679
+    },
+    {
+      "path": "missing-motion/dog-7-tired-idle-normal.jpg",
+      "sha256": "ad5b8814b8881ba967ee63427a56fc11e26685ab6fcc16546ffa8514014bc2d3",
+      "bytes": 11083
+    },
+    {
+      "path": "missing-motion/dog-7-tired-idle-reduced.jpg",
+      "sha256": "8702eaf404472ae73e236976b6496ff955dca065e20cf48affbf0f8ebe75d551",
+      "bytes": 11131
+    },
+    {
+      "path": "missing-motion/dog-7-tired-walk-normal.jpg",
+      "sha256": "7111c1f5881e2fb40d59085ca75a2b4d1d84bed9645f4339a12a0584213ea534",
+      "bytes": 10339
+    },
+    {
+      "path": "missing-motion/dog-7-tired-walk-reduced.jpg",
+      "sha256": "d1aae5f6e70902e0a896567b6b3542e7280f0ee320fabcceb183eabc04cfdb62",
+      "bytes": 10533
+    },
+    {
+      "path": "missing-motion/dog-7-wantsPlay-idle-normal.jpg",
+      "sha256": "cca211fc130a5a47d129e91897b54dedc992ed4053d60b21dea53c4fb41093b6",
+      "bytes": 11074
+    },
+    {
+      "path": "missing-motion/dog-7-wantsPlay-idle-reduced.jpg",
+      "sha256": "2b37e855b1ae4fd3e63b4500399849718414d60e90da6cdb86c590794e0ab29f",
+      "bytes": 11146
+    },
+    {
+      "path": "missing-motion/dog-7-wantsPlay-walk-normal.jpg",
+      "sha256": "728089763ce6d39c88a9f109b741719909670504f73f8dba090bdd794f6368b7",
+      "bytes": 10626
+    },
+    {
+      "path": "missing-motion/dog-7-wantsPlay-walk-reduced.jpg",
+      "sha256": "915a3f6eadc0987aeb70285a701fae177649463e5e8d0a30f202e04a7baae80b",
+      "bytes": 11080
+    },
+    {
+      "path": "missing-motion/motion-evidence.json",
+      "sha256": "c7541eb5e1fae62640c353c51aed595538ede7a7d521ebfac8082817c796407e",
+      "bytes": 92827
+    },
+    {
+      "path": "player-dog-1-back.png",
+      "sha256": "ef915e2e3ae0c9ee4934d16001f5bc4782ffeb210d132f8974557c44b1ef2f2c",
+      "bytes": 302793
+    },
+    {
+      "path": "player-dog-1-front.png",
+      "sha256": "2705f7ff16490a1e6269569cb93bc8abafee1389615c8d007339f02e7eeed8ce",
+      "bytes": 304772
+    },
+    {
+      "path": "player-dog-2-back.png",
+      "sha256": "abb75a3a4a08c6250c7f36d94e3300933368bbac99933b6af31496eb6bf9270b",
+      "bytes": 305604
+    },
+    {
+      "path": "player-dog-2-front.png",
+      "sha256": "c9fa18e091df731bceba804384d2a852fe3a9160940a0ba39855f044252375af",
+      "bytes": 309615
+    },
+    {
+      "path": "player-dog-3-back.png",
+      "sha256": "21a274b0c658f9d21df7658e4f4ae6334c0d157acd35297ca54b867f20af1660",
+      "bytes": 307939
+    },
+    {
+      "path": "player-dog-3-front.png",
+      "sha256": "ade3f1104d1d5ab1ca765a98767ad503cb575fe17fce637c0d4e2d6bca5c6d0f",
+      "bytes": 309335
+    },
+    {
+      "path": "player-dog-4-back.png",
+      "sha256": "afc2bea316f002359d2050d6b2809d754d4d83da1bfbd198420a7d4c2fb8fbd2",
+      "bytes": 302228
+    },
+    {
+      "path": "player-dog-4-front.png",
+      "sha256": "16ca9bfc009a285b8b1660d121f6ad14f8273bd47aa3c698172b15f17faf5027",
+      "bytes": 309532
+    },
+    {
+      "path": "player-dog-5-back.png",
+      "sha256": "bda8987d19596b6ff81373408380f9d2e1af682dea13cd8d5f00b8a0f28ab117",
+      "bytes": 306896
+    },
+    {
+      "path": "player-dog-5-front.png",
+      "sha256": "b437bf0532a73c8e825ec0be4b5d1ef8ece1ff84475a1df0d787ba2639ce21ae",
+      "bytes": 311873
+    },
+    {
+      "path": "player-dog-6-back.png",
+      "sha256": "5a25e8e79c9ab43ecf1b097346b5ab2e20a145ec4579f8b91c345ab38ecfc238",
+      "bytes": 308066
+    },
+    {
+      "path": "player-dog-6-front.png",
+      "sha256": "e65b7c69ce12e6cd766dc6bd633cff118baf7c1bafb7324f51943c31a47df623",
+      "bytes": 311843
+    },
+    {
+      "path": "player-dog-7-back.png",
+      "sha256": "452857c106d25d2653cac7a027224b1e20d6e8dd031406057230e820bbdc9ad6",
+      "bytes": 305874
+    },
+    {
+      "path": "player-dog-7-front.png",
+      "sha256": "8abfd699a33cc0d309206cde819fe0dd56c0f376f98196d47da61fb56a52f864",
+      "bytes": 310200
+    },
+    {
+      "path": "player-dog-8-back.png",
+      "sha256": "24475d76e60488e161548681236b30d0ef4ac816e3501473ca63fc7792dcc313",
+      "bytes": 306693
+    },
+    {
+      "path": "player-dog-8-front.png",
+      "sha256": "52704605742166c87e2aabde10fc6c9526014479e2e5d256aa5aa27503218778",
+      "bytes": 309636
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113792866125,
+  "artifactJobName": "stage-evidence (dog)",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

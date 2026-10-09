@@ -1,0 +1,33 @@
+TAP version 13
+# Subtest: natural city cache follows actual preserved show false and rejects visibility identity and growth defects
+not ok 1 - natural city cache follows actual preserved show false and rejects visibility identity and growth defects
+  ---
+  duration_ms: 16.39883
+  type: 'test'
+  location: '/workspace/scratch/150320e8a2fd/rollout-runtime-scene-baseline/tests/character-3d-runtime-scene-diagnostics-test.cjs:31:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    city cleanup
+    
+    2 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    validateRepeated (/workspace/scratch/150320e8a2fd/rollout-runtime-scene-baseline/tools/character-3d/runtime-integration.cjs:57:50)
+    TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/rollout-runtime-scene-baseline/tests/character-3d-runtime-scene-diagnostics-test.cjs:31:160)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 0
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 108.883542

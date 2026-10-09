@@ -48,13 +48,23 @@ function validateFunctional(row, r) {
   }
 }
 const PLATEAU = ['templates', 'materials', 'atlases', 'eyeGeos', 'textures', 'geometries'];
+function validateCityCache(before,city) {
+  assert.equal(city.is3D,false,'city natural2D');
+  assert.equal(city.hiddenGL,true,'city GL canvas hidden');
+  for(const key of ['sameScene','sameHolders','sameCanvases'])assert.equal(city[key],true,'city retained identity '+key);
+  assert.equal(city.live,before.live,'city retained live bound');
+  assert.equal(city.holders,before.holders,'city retained holder bound');
+  assert.equal(city.glCanvases,before.glCanvases,'city canvas count bound');
+  for(const key of [...PLATEAU,'created','removed'])assert.equal(city[key],before[key],'city resource growth '+key);
+}
 function validateRepeated(r) {
   assert.ok(!r.error && !r.restorationError, 'repeated scene readiness/restoration: '+(r.error?.message||r.restorationError?.message||''));
   assert.equal(r.cycles, 3, 'declared bounded repeated cycles');
   assert.equal(r.samples.length, r.cycles, 'complete repeated samples');
+  if(r.fixtureComposition){assert.equal(r.baseline.live,r.fixtureCount,'ready baseline count');assert.equal(r.fixtureComposition.length,r.fixtureCount,'complete eligible roster');assert.deepEqual(r.baseline.composition,r.fixtureComposition,'exact baseline composition');for(const sample of r.samples)for(const phase of ['on','forest'])assert.deepEqual(sample[phase].composition,r.fixtureComposition,'exact repeated '+phase+' composition');}
   for (const sample of r.samples) {
-    for (const state of ['off','city']) { assert.equal(sample[state].live, 0, state + ' cleanup'); assert.equal(sample[state].holders, 0, state + ' holder cleanup'); }
-    assert.equal(sample.city.is3D, false, 'city natural2D');
+    for (const state of ['off']) { assert.equal(sample[state].live, 0, state + ' cleanup'); assert.equal(sample[state].holders, 0, state + ' holder cleanup'); }
+    validateCityCache(sample.on,sample.city);
     assert.equal(sample.forest.is3D, true, 'forest 3D restored');
     assert.equal(sample.forest.live, sample.forest.holders, 'forest holder/live balance');
     assert.equal(sample.forest.live, r.before.live, 'same fixture actor count');
@@ -159,15 +169,17 @@ async function functionalRun(out, args = []) {
   assert.equal(results.length, plan.rows.length, 'complete requested production sweep');
   console.log('production role functional PASS', results.length + '/45; missing=' + plan.missing.join(','));
 }
-module.exports = { functionalRows, validateFunctional, validateRepeated, installSaveCounter, functionalRun, saveDelta, saveSnapshot, observeSaveBoundary, recordFunctionalResult };
+module.exports = { functionalRows, validateFunctional, validateRepeated, validateCityCache, installSaveCounter, functionalRun, saveDelta, saveSnapshot, observeSaveBoundary, recordFunctionalResult };
 // Runs in the existing Meguru scene. Warm once, then compare three identical cycles.
 async function repeatSceneInBrowser() {
     const run = globalThis.__meguruRun, rd = run.renderer, p = rd.char3dPresenter, bridge = globalThis.__meguruBridge, getter = bridge.getState, state = getter(), region = state.regionId, save = JSON.stringify(state), step = run.sim.step;
     const storage = () => Object.fromEntries(Object.keys(localStorage).filter(k => k.startsWith('naotocchi-save')).sort().map(k => [k,localStorage.getItem(k)]));
     const raw = JSON.stringify(storage()), writes = globalThis.__integrationSaveWrites;
-    const snapshot = () => { let holders=0;p.scene?.traverse(o=>{if(o.name?.startsWith('c3d-actor:'))holders++;});const st=rd.stats3d();return {...p.stats(),holders,is3D:rd.is3D,worldRegion:run.world.regionId,savedRegion:state.regionId,textures:st?.textures,geometries:st?.geometries,heapBytes:performance.memory?.usedJSHeapSize||null,actors:[run.sim.player,...run.party,...run.world.residents].map(a=>({key:a.key,kind:a.kind,id:a.id,line:a.line,stage:a.stage,x:a.x,z:a.z,live:p.has(a),attached:!!p.instanceOf(a)?.holder.parent}))}; };
-    const fixtureCount = p.stats().live;
+    const snapshot = () => { let holders=0;p.scene?.traverse(o=>{if(o.name?.startsWith('c3d-actor:'))holders++;});const st=rd.stats3d(),actors=[run.sim.player,...run.party,...run.world.residents].map((a,i)=>{const inst=p.instanceOf(a);return {key:i===0?'player':a.key,kind:a.kind,id:a.id,line:a.line,stage:a.stage,x:a.x,z:a.z,live:p.has(a),attached:!!inst?.holder.parent,modelId:inst?.tpl.id,modelStage:inst?.tpl.stage};});return {...p.stats(),holders,is3D:rd.is3D,worldRegion:run.world.regionId,savedRegion:state.regionId,textures:st?.textures,geometries:st?.geometries,heapBytes:performance.memory?.usedJSHeapSize||null,glCanvases:document.querySelectorAll('.meguru-3d-canvas').length,actors,composition:actors.filter(a=>a.live).map(({key,modelId,modelStage})=>({key,modelId,modelStage})).sort((a,b)=>a.key.localeCompare(b.key))}; };
+    let fixtureCount=null,fixtureComposition=null;
     const result={cycles:3,fixtureCount,initial:snapshot(),warmup:null,before:null,after:null,samples:[],phases:[],unchanged:{},restored:{}};
+    const references=()=>{const holders=[];p.scene?.traverse(o=>{if(o.name?.startsWith('c3d-actor:'))holders.push(o);});return {scene:p.scene,holders,canvases:[...document.querySelectorAll('.meguru-3d-canvas')]};};
+    const compositionReady=()=>{const actual=snapshot();return actual.live===fixtureCount&&actual.holders===fixtureCount&&actual.actors.filter(a=>a.live).every(a=>a.attached)&&JSON.stringify(actual.composition)===JSON.stringify(fixtureComposition);};
     const raf = () => new Promise(requestAnimationFrame), wait = async (name,fn,expected,max=240) => {
       const phase={name,expected,maxFrames:max,frames:0,startMs:performance.now(),before:snapshot(),status:'waiting'};result.phases.push(phase);
       console.log('repeated scene phase START '+name+' '+JSON.stringify({expected,actual:phase.before}));
@@ -177,14 +189,24 @@ async function repeatSceneInBrowser() {
     };
     const cycle = async label => {
       rd.setChar3D(false); await wait(label+'/characters-off',()=>p.stats().live===0,{live:0}); const off=snapshot();
-      rd.setChar3D(true); await wait(label+'/characters-on',()=>p.stats().live===fixtureCount,{live:fixtureCount});
-      state.regionId='city';run.enterWorld('city');await wait(label+'/city',()=>run.world.regionId==='city'&&!rd.is3D,{worldRegion:'city',is3D:false});const city=snapshot();
-      state.regionId='forest';run.enterWorld('forest');await wait(label+'/forest',()=>run.world.regionId==='forest'&&rd.is3D&&p.stats().live===fixtureCount,{worldRegion:'forest',is3D:true,live:fixtureCount});
-      for(let i=0;i<8;i++)await raf();return {off,city,forest:snapshot()};
+      rd.setChar3D(true); await wait(label+'/characters-on',compositionReady,{live:fixtureCount,composition:fixtureComposition});const on=snapshot();
+      const beforeCity=references();state.regionId='city';run.enterWorld('city');await wait(label+'/city',()=>run.world.regionId==='city'&&!rd.is3D,{worldRegion:'city',is3D:false});const afterCity=references(),city={...snapshot(),sameScene:afterCity.scene===beforeCity.scene,sameHolders:afterCity.holders.length===beforeCity.holders.length&&beforeCity.holders.every((holder,i)=>holder===afterCity.holders[i]),sameCanvases:afterCity.canvases.length===beforeCity.canvases.length&&beforeCity.canvases.every((canvas,i)=>canvas===afterCity.canvases[i]),hiddenGL:afterCity.canvases.length>0&&afterCity.canvases.every(canvas=>getComputedStyle(canvas).display==='none')};result.phases.at(-1).cacheProof=city;
+      state.regionId='forest';run.enterWorld('forest');run.sim.setPlayer(result.fixturePose.x,result.fixturePose.z);run.sim.camera.yaw=result.fixturePose.yaw;run.sim.placeParty();await wait(label+'/forest',()=>run.world.regionId==='forest'&&rd.is3D&&compositionReady(),{worldRegion:'forest',is3D:true,live:fixtureCount,composition:fixtureComposition});
+      for(let i=0;i<8;i++)await raf();return {off,on,city,forest:snapshot()};
     };
     try {
       // Hold this QA simulation during the renderer/region proof; no game save/getter replacement.
       run.sim.step=function(){return [];};
+      const view=run.sim.view(),info=globalThis.__integrationActorInfo;
+      if(typeof info!=='function')throw Error('actual runtime.actorInfo readiness resolver unavailable');
+      result.fixturePose={x:view.player.x,z:view.player.z,yaw:run.sim.camera.yaw};
+      // Same eligibility as the renderer: player/party always, residents strictly within1500.
+      fixtureComposition=[[view.player,true],...(view.party||[]).map(a=>[a,false]),...(view.residents||[]).filter(a=>Math.hypot(a.x-view.player.x,a.z-view.player.z)<1500).map(a=>[a,false])].flatMap(([a,isPlayer])=>{const spec=info(a,isPlayer,0,{playerKey:()=>bridge.currentPetKey()})?.specKey;if(!spec)return [];if(!spec.exact)throw Error('scene requires exact production model '+a.key);return [{key:isPlayer?'player':a.key,modelId:spec.id,modelStage:spec.stage}];}).sort((a,b)=>a.key.localeCompare(b.key));
+      fixtureCount=fixtureComposition.length;
+      if(!fixtureCount||new Set(fixtureComposition.map(a=>a.key)).size!==fixtureCount)throw Error('invalid eligible scene composition');
+      rd.draw(view,performance.now());
+      await wait('baseline/current-view',compositionReady,{live:fixtureCount,composition:fixtureComposition});
+      result.baseline=snapshot();result.fixtureCount=fixtureCount;result.fixtureComposition=fixtureComposition;
       result.warmup=await cycle('warmup');result.before=snapshot();
       for(let i=0;i<3;i++)result.samples.push(await cycle('cycle-'+(i+1)));result.after=snapshot();
     } catch(error) {
@@ -197,7 +219,10 @@ async function repeatSceneInBrowser() {
     }
     return result;
 }
-async function repeatScene(page) { return page.evaluate(repeatSceneInBrowser); }
+async function repeatScene(page) {
+  await page.evaluate(async()=>{globalThis.__integrationActorInfo=(await import('/character-3d/runtime.mjs')).actorInfo;});
+  try{return await page.evaluate(repeatSceneInBrowser);}finally{await page.evaluate(()=>{delete globalThis.__integrationActorInfo;});}
+}
 function retainRepeatedResult(report,result,file,validate=validateRepeated) {
   report.checks.repeated=result;
   try {validate(result);} catch(error) {

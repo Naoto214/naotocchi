@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: scene timeout retains warmup on phase, expected and last actual composition/resources, and restoration
+ok 1 - scene timeout retains warmup on phase, expected and last actual composition/resources, and restoration
+  ---
+  duration_ms: 17.678511
+  type: 'test'
+  ...
+# Subtest: scene diagnostic path preserves strict city cleanup and resource gates on completed cycles
+ok 2 - scene diagnostic path preserves strict city cleanup and resource gates on completed cycles
+  ---
+  duration_ms: 6.096465
+  type: 'test'
+  ...
+# Subtest: failed scene raw result is written with failing verdict before original error propagates
+ok 3 - failed scene raw result is written with failing verdict before original error propagates
+  ---
+  duration_ms: 5.261464
+  type: 'test'
+  ...
+# Subtest: scene-only marker requires runtime marker, skips only production45 step and keeps scene and native metrics
+ok 4 - scene-only marker requires runtime marker, skips only production45 step and keeps scene and native metrics
+  ---
+  duration_ms: 0.665474
+  type: 'test'
+  ...
+# Subtest: held current view waits for deferred seven-to-eleven exact actors before freezing scene composition
+ok 5 - held current view waits for deferred seven-to-eleven exact actors before freezing scene composition
+  ---
+  duration_ms: 2.940309
+  type: 'test'
+  ...
+# Subtest: same count with substituted actor template cannot satisfy exact scene composition readiness
+ok 6 - same count with substituted actor template cannot satisfy exact scene composition readiness
+  ---
+  duration_ms: 4.830083
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 157.078674

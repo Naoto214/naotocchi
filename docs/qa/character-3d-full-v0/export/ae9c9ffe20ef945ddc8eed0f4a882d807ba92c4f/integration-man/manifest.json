@@ -1,0 +1,933 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11612104318,
+    "name": "full-rollout-stages-man-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:4917b4bdd33cd377473b7a744c9b52f9683955c1d8cad3ae0705d8b820c60321"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "879b8b7a6ff9f65cfddf168c28139079af1910d8cad5f3993178690dff3772d2",
+      "bytes": 7371
+    },
+    {
+      "path": "missing-motion/man-2-dislike-idle-normal.jpg",
+      "sha256": "cd4d65db1eedc7917e7f04f9c7640a9162992201a28e1cdaf8c72f577c36ca35",
+      "bytes": 13423
+    },
+    {
+      "path": "missing-motion/man-2-dislike-idle-reduced.jpg",
+      "sha256": "59a42a9d4280280e32a5a5ac3bbdfd95b611aa63c2d0bf7b292c7432361b2d50",
+      "bytes": 13438
+    },
+    {
+      "path": "missing-motion/man-2-dislike-walk-normal.jpg",
+      "sha256": "987497cb6d84277c34a26355ff48a53e57eab3dbc2813d93a129b3c0b42e7d5c",
+      "bytes": 13087
+    },
+    {
+      "path": "missing-motion/man-2-dislike-walk-reduced.jpg",
+      "sha256": "0f09ee71bdec12a4f36c287dccb9b27fe519526161c4b2776e7dc2b417c5b7ab",
+      "bytes": 13297
+    },
+    {
+      "path": "missing-motion/man-2-motion.jpg",
+      "sha256": "3da9e485e68274807889b04013a74909b51c918cb367dc6d615929e59bd4480d",
+      "bytes": 552039
+    },
+    {
+      "path": "missing-motion/man-2-normal-idle-normal.jpg",
+      "sha256": "e6142d9a5a7ee917a7de73722f09ea3dca185a09d79d3b7649cd237bf059afa9",
+      "bytes": 14179
+    },
+    {
+      "path": "missing-motion/man-2-normal-idle-reduced.jpg",
+      "sha256": "0604b008141cf241abc9fd87b59f0220e984539a54583be4ddeb810e7e0daba5",
+      "bytes": 14172
+    },
+    {
+      "path": "missing-motion/man-2-normal-walk-normal.jpg",
+      "sha256": "275a6106953808f77b596bd66449d11d37e02b741e31859a5f456a364f763ee6",
+      "bytes": 13812
+    },
+    {
+      "path": "missing-motion/man-2-normal-walk-reduced.jpg",
+      "sha256": "cc09fb592c698677edff13c4ddf4502c6ba73e8b565af7ffcb73d8c0132abbf8",
+      "bytes": 13745
+    },
+    {
+      "path": "missing-motion/man-2-positive-idle-normal.jpg",
+      "sha256": "8bef2d7ca299d1ef690db4b7f9f15e9c38e83934f775faea9a34a9f51100a9fc",
+      "bytes": 14085
+    },
+    {
+      "path": "missing-motion/man-2-positive-idle-reduced.jpg",
+      "sha256": "c8061c83938028d0972cb84f9bc995e4fb33a09d9afc1dbdc353efb411bab1ca",
+      "bytes": 14315
+    },
+    {
+      "path": "missing-motion/man-2-positive-walk-normal.jpg",
+      "sha256": "c01ac900e02c9abf100e6e7fa43cf94430d7a9a54c8967eacb406978a05ba8a1",
+      "bytes": 13711
+    },
+    {
+      "path": "missing-motion/man-2-positive-walk-reduced.jpg",
+      "sha256": "aa0718616c9bfb8f39151900e9315fb931b8a676435db04e813dc7f9a8c58d39",
+      "bytes": 13863
+    },
+    {
+      "path": "missing-motion/man-2-sick-idle-normal.jpg",
+      "sha256": "02d3ebc4a806d5411a2eef5fb0a6ef1ae832ceb2052973dad77af17bbbc3c6a5",
+      "bytes": 13674
+    },
+    {
+      "path": "missing-motion/man-2-sick-idle-reduced.jpg",
+      "sha256": "82596ef42a0b739924dca6d082f6806f9f19d464ce747b055291e83b60dcc54e",
+      "bytes": 13842
+    },
+    {
+      "path": "missing-motion/man-2-sick-walk-normal.jpg",
+      "sha256": "5d008c8576f816a374bd63c5584d086b45d18c90ee6d4bf5c7bb6e8080c6c844",
+      "bytes": 13215
+    },
+    {
+      "path": "missing-motion/man-2-sick-walk-reduced.jpg",
+      "sha256": "6c34acbcfa2477ea61366f7bf9e815f30c3dff7fc191bf406d4c52aed76bebfc",
+      "bytes": 13523
+    },
+    {
+      "path": "missing-motion/man-2-sleeping-idle-normal.jpg",
+      "sha256": "9cf61beeef0f9eff5278b9d3a5caab68492ae79e626965688ef2037e7f646bf9",
+      "bytes": 13567
+    },
+    {
+      "path": "missing-motion/man-2-sleeping-idle-reduced.jpg",
+      "sha256": "c8a88011eedea015b068bffa723c7acb3960673fc502262a4e7656634fab417d",
+      "bytes": 13577
+    },
+    {
+      "path": "missing-motion/man-2-sleeping-walk-normal.jpg",
+      "sha256": "648a8256d8d2eafe3021145e2a752bf208ba011d165f49239a5b49132d970cb4",
+      "bytes": 13234
+    },
+    {
+      "path": "missing-motion/man-2-sleeping-walk-reduced.jpg",
+      "sha256": "7efaf587ada715830e638b1c953547219eb1772c2bae4bd894adf9d3599d6235",
+      "bytes": 13482
+    },
+    {
+      "path": "missing-motion/man-2-strained-idle-normal.jpg",
+      "sha256": "837d0d7f2e4982ce3b6b079a856b4e82986f5f082954ef89dff069a77bd416eb",
+      "bytes": 14252
+    },
+    {
+      "path": "missing-motion/man-2-strained-idle-reduced.jpg",
+      "sha256": "72a14585e3544028ed88e612d2a5557cd8556cc39e741e88e61554a7fb2eeed1",
+      "bytes": 14416
+    },
+    {
+      "path": "missing-motion/man-2-strained-walk-normal.jpg",
+      "sha256": "7117eef9b310185853e311e00e854f8ee8b357c1208212fd698990d42c1972d5",
+      "bytes": 13813
+    },
+    {
+      "path": "missing-motion/man-2-strained-walk-reduced.jpg",
+      "sha256": "4468dd0693b412ae23472c20c9a4dea8fcee405253f8f52b18a7a9d3dadb479c",
+      "bytes": 14070
+    },
+    {
+      "path": "missing-motion/man-2-tired-idle-normal.jpg",
+      "sha256": "306a4a021940d6ba1ed72798e32038eadd94cc2218ec8f03f5686e34586a29c5",
+      "bytes": 13685
+    },
+    {
+      "path": "missing-motion/man-2-tired-idle-reduced.jpg",
+      "sha256": "80649d3d36f799613d36ad1f881a8c705669c351015105166be4a0b7664f4215",
+      "bytes": 13780
+    },
+    {
+      "path": "missing-motion/man-2-tired-walk-normal.jpg",
+      "sha256": "208210a44ad39d5d4846fad8de16366af7f6f8959657a714df0a252c5dc579e5",
+      "bytes": 13368
+    },
+    {
+      "path": "missing-motion/man-2-tired-walk-reduced.jpg",
+      "sha256": "453cd698d44ee48174d6eab8cea9f10948f5e74deb0ec64e61230659aedd3efe",
+      "bytes": 13550
+    },
+    {
+      "path": "missing-motion/man-2-wantsPlay-idle-normal.jpg",
+      "sha256": "b1478698833f3d43db1f2795c56c233579b869f414980ea76a91b247b6b70a35",
+      "bytes": 14183
+    },
+    {
+      "path": "missing-motion/man-2-wantsPlay-idle-reduced.jpg",
+      "sha256": "8681dbf92be0904f1e87c9b4cefe4853e7c69b2cc00de74d3326c4aa67c4f785",
+      "bytes": 14152
+    },
+    {
+      "path": "missing-motion/man-2-wantsPlay-walk-normal.jpg",
+      "sha256": "d8f6c047c95e85192ada32bd084800b2917402cd43b4a57faba6026d717cd2ad",
+      "bytes": 13991
+    },
+    {
+      "path": "missing-motion/man-2-wantsPlay-walk-reduced.jpg",
+      "sha256": "d68c15cd1ac6e8fd92725d5e3cf76c032b0923ec02ff7bf3b7d4445f496174c2",
+      "bytes": 14210
+    },
+    {
+      "path": "missing-motion/man-3-dislike-idle-normal.jpg",
+      "sha256": "fb55ec2980fd0989dfda4870d1ea4a9827629894cd05c75b32d3b37940c30c7f",
+      "bytes": 12055
+    },
+    {
+      "path": "missing-motion/man-3-dislike-idle-reduced.jpg",
+      "sha256": "97e8bda41d2709512fe9be216e18726fca3bb018a3a3cd7ac356b587fd630e5a",
+      "bytes": 12168
+    },
+    {
+      "path": "missing-motion/man-3-dislike-walk-normal.jpg",
+      "sha256": "dc30f8f161caf1c41d6e98f041e04e48adfaba7e0c05a2aed39defc23fc1cedc",
+      "bytes": 11769
+    },
+    {
+      "path": "missing-motion/man-3-dislike-walk-reduced.jpg",
+      "sha256": "4a88b51dff91879b0b4b4c296051ca127f6a5bbd06a94b2dcb42ae01fee6849f",
+      "bytes": 11916
+    },
+    {
+      "path": "missing-motion/man-3-motion.jpg",
+      "sha256": "5963a5e55362b4588b7dc1c5579197d24ae51bc80c7fd6c03a78baace864fa59",
+      "bytes": 493852
+    },
+    {
+      "path": "missing-motion/man-3-normal-idle-normal.jpg",
+      "sha256": "937478c0a006e7680555d0f2f101eedc8442caff7d10f6cb4fc27ce895249428",
+      "bytes": 12349
+    },
+    {
+      "path": "missing-motion/man-3-normal-idle-reduced.jpg",
+      "sha256": "1a43d5f3f45cbe7b1dca255069c2f1a538ee6211388429bf01e0b09f08ebebb5",
+      "bytes": 12417
+    },
+    {
+      "path": "missing-motion/man-3-normal-walk-normal.jpg",
+      "sha256": "03d492c6a5e6b3f6873926fc04d37b59c81ea15b1d9157691c744c0f0d507d78",
+      "bytes": 12565
+    },
+    {
+      "path": "missing-motion/man-3-normal-walk-reduced.jpg",
+      "sha256": "48f2d2c59ad5b8b74e57aa805fdd15ccd8c45dffb7926ae820bd0337caeb2bd0",
+      "bytes": 12467
+    },
+    {
+      "path": "missing-motion/man-3-positive-idle-normal.jpg",
+      "sha256": "9557462d5455b74bc6ca75e33a8cce23a82493ca14696d4f97b2d7b396a1591b",
+      "bytes": 12389
+    },
+    {
+      "path": "missing-motion/man-3-positive-idle-reduced.jpg",
+      "sha256": "a68c17a6226d2c70feb79492a5de7efe3eeff5a9ca4f5f7cd6ec5c26cdc1cf20",
+      "bytes": 12460
+    },
+    {
+      "path": "missing-motion/man-3-positive-walk-normal.jpg",
+      "sha256": "c6f9b1ef4b624c8282999ad3ec860eb8d6c2796d4dd6073af4e5e32071484e43",
+      "bytes": 11977
+    },
+    {
+      "path": "missing-motion/man-3-positive-walk-reduced.jpg",
+      "sha256": "a6094afa18cd4da829b9de5afa270ebfbad893188039b6af6492f6d75a109049",
+      "bytes": 12021
+    },
+    {
+      "path": "missing-motion/man-3-sick-idle-normal.jpg",
+      "sha256": "bd7ada235b1dc71074c41657f7d23502c6c01a645a53af2ce72a1e391a8a4c86",
+      "bytes": 11919
+    },
+    {
+      "path": "missing-motion/man-3-sick-idle-reduced.jpg",
+      "sha256": "b4e89f91be1bc63c5fb7abd8a25e93bdc4ec6a0168ffa9e7b2eb453a26a39630",
+      "bytes": 12041
+    },
+    {
+      "path": "missing-motion/man-3-sick-walk-normal.jpg",
+      "sha256": "a19b0e6d123a23f2e74622c0afd2d9e82b1828af1141b8f748071378af7939e5",
+      "bytes": 11696
+    },
+    {
+      "path": "missing-motion/man-3-sick-walk-reduced.jpg",
+      "sha256": "4ec3184897b54c23b6f8df1f4cb5b7364763cbce3e94dc9429fff4552c41c43d",
+      "bytes": 12014
+    },
+    {
+      "path": "missing-motion/man-3-sleeping-idle-normal.jpg",
+      "sha256": "d23aeed836d15d632a0ef09fa1ec905a289618606d9878c586795f17da1d4320",
+      "bytes": 12019
+    },
+    {
+      "path": "missing-motion/man-3-sleeping-idle-reduced.jpg",
+      "sha256": "463dcde982982ca5b1bdb0a6b613f2def2f4bd4b170a0c43832d544e79f9fa00",
+      "bytes": 12086
+    },
+    {
+      "path": "missing-motion/man-3-sleeping-walk-normal.jpg",
+      "sha256": "3ad956b7f639a96486c9e8a068275e0de17a7c9cb141fe9da9380e5c27a8927f",
+      "bytes": 12053
+    },
+    {
+      "path": "missing-motion/man-3-sleeping-walk-reduced.jpg",
+      "sha256": "01662b5cf90299081217e6a56da8224d0fb19a0330894024ae09207b1db28175",
+      "bytes": 12262
+    },
+    {
+      "path": "missing-motion/man-3-strained-idle-normal.jpg",
+      "sha256": "4403bc61ca57180b93c65488822a265feabb827a8b459d953c46ed03a8cd0bec",
+      "bytes": 12345
+    },
+    {
+      "path": "missing-motion/man-3-strained-idle-reduced.jpg",
+      "sha256": "a04ea76acefd9cde11470ccb15cdcbd18b226b7ab486a4251a89de9f6e447a9e",
+      "bytes": 12401
+    },
+    {
+      "path": "missing-motion/man-3-strained-walk-normal.jpg",
+      "sha256": "390e15cfff163e4dbe2068b35356f400d01b01a10b0273e4508d0d6dd43220d5",
+      "bytes": 12310
+    },
+    {
+      "path": "missing-motion/man-3-strained-walk-reduced.jpg",
+      "sha256": "bf31ca485744102559dd3f6ffc971acb45a4a04f80ea98ba6fcfebbef6d4eca0",
+      "bytes": 12530
+    },
+    {
+      "path": "missing-motion/man-3-tired-idle-normal.jpg",
+      "sha256": "c86ac86a8db3dfd964b94d7bcece415aa0f91903601b6ea61647bbd15fa583e9",
+      "bytes": 12036
+    },
+    {
+      "path": "missing-motion/man-3-tired-idle-reduced.jpg",
+      "sha256": "ff437543679396220a9967385a8abeb0dcf9b4fddae306f1c7e386cf86ccaa16",
+      "bytes": 12119
+    },
+    {
+      "path": "missing-motion/man-3-tired-walk-normal.jpg",
+      "sha256": "077e3dc61b66208868f15b46d48b54102d8b4da9220f0ac92085333d0363afc4",
+      "bytes": 12007
+    },
+    {
+      "path": "missing-motion/man-3-tired-walk-reduced.jpg",
+      "sha256": "79a8a7952d77446cc415236e32f3ee5b5aa1181d1d8ae59db502e8e734383db4",
+      "bytes": 12040
+    },
+    {
+      "path": "missing-motion/man-3-wantsPlay-idle-normal.jpg",
+      "sha256": "1b469b73593b003cf43de74f3871fc11c4b9afaf7732317049987960be5e59b8",
+      "bytes": 12596
+    },
+    {
+      "path": "missing-motion/man-3-wantsPlay-idle-reduced.jpg",
+      "sha256": "5a27883dc0de3c578d836512138fdd591a6aba443b0e8fbeae4bf26ef0be4a00",
+      "bytes": 12722
+    },
+    {
+      "path": "missing-motion/man-3-wantsPlay-walk-normal.jpg",
+      "sha256": "9efbb64d777fb8d461ec11e8d62a15013202af5274980e2839206918d4207f02",
+      "bytes": 12143
+    },
+    {
+      "path": "missing-motion/man-3-wantsPlay-walk-reduced.jpg",
+      "sha256": "e328f22634db6d18090c346abb740319d8a7ec0100bd9c8b6576c86b3a841e6c",
+      "bytes": 12546
+    },
+    {
+      "path": "missing-motion/man-5-dislike-idle-normal.jpg",
+      "sha256": "6e6751af10cf4704e7981b7e384b53844294d6ef0b0c23a1619d1ba261a04f6c",
+      "bytes": 11115
+    },
+    {
+      "path": "missing-motion/man-5-dislike-idle-reduced.jpg",
+      "sha256": "516cbeed435543e3cd48a0ef453d62d52e989f16d4cdf377d269e101df658f75",
+      "bytes": 11252
+    },
+    {
+      "path": "missing-motion/man-5-dislike-walk-normal.jpg",
+      "sha256": "1e53cc04ac1819fd97a2124dec60b43a92438ff93b06079c3bb6245f5b2fd59c",
+      "bytes": 10884
+    },
+    {
+      "path": "missing-motion/man-5-dislike-walk-reduced.jpg",
+      "sha256": "d351eef954c55068f1673ec5c18ee00b2de760d966b8fe7d48838b69689c1009",
+      "bytes": 10962
+    },
+    {
+      "path": "missing-motion/man-5-motion.jpg",
+      "sha256": "d20f21c2c838b8ae3c38f1d90772b2842f27b878b7222f4fa63da36301d28f36",
+      "bytes": 457674
+    },
+    {
+      "path": "missing-motion/man-5-normal-idle-normal.jpg",
+      "sha256": "b3ec9a38a3580975ecc9ac9c7866851ffdf107d1f8d3e69e86be12a51ce22ead",
+      "bytes": 11645
+    },
+    {
+      "path": "missing-motion/man-5-normal-idle-reduced.jpg",
+      "sha256": "af25db532e873e418f900c8db75484529780af6740ac89c574590c0dbd52d0fe",
+      "bytes": 11764
+    },
+    {
+      "path": "missing-motion/man-5-normal-walk-normal.jpg",
+      "sha256": "01fda2e715e56d1de4adbd4fd4802b4ecf488854dac93dca73120eedf6e8e12c",
+      "bytes": 11945
+    },
+    {
+      "path": "missing-motion/man-5-normal-walk-reduced.jpg",
+      "sha256": "082c2be308146f6e3332e20e0996e8e5694b03adfd5ff068c145a06079fcd4be",
+      "bytes": 11796
+    },
+    {
+      "path": "missing-motion/man-5-positive-idle-normal.jpg",
+      "sha256": "58feea6c2cf0f0c38db46f158bfc0a5af7f30838835810901efd3dbf8095cbe4",
+      "bytes": 11667
+    },
+    {
+      "path": "missing-motion/man-5-positive-idle-reduced.jpg",
+      "sha256": "2b29419f122c89f6e9a436074df363f7afa90d4599357e72757618590947a510",
+      "bytes": 11796
+    },
+    {
+      "path": "missing-motion/man-5-positive-walk-normal.jpg",
+      "sha256": "21fbb76709624f0774748894fffdec1c0620051e1c2e4c99487e853c24d73852",
+      "bytes": 11493
+    },
+    {
+      "path": "missing-motion/man-5-positive-walk-reduced.jpg",
+      "sha256": "3e0fd346f26ef1c11d43e350a1a4e2e85e706058f0e5612e0b4c3d9794aca4b0",
+      "bytes": 11560
+    },
+    {
+      "path": "missing-motion/man-5-sick-idle-normal.jpg",
+      "sha256": "177b443a47a60fa285a7ec74c7268c53e15859bd06a7919d6aca6a792135ce93",
+      "bytes": 11071
+    },
+    {
+      "path": "missing-motion/man-5-sick-idle-reduced.jpg",
+      "sha256": "5ff6a5c50b0436681731d85497a42cf6823a9fcd6c684fffeef0fba138232c0b",
+      "bytes": 11199
+    },
+    {
+      "path": "missing-motion/man-5-sick-walk-normal.jpg",
+      "sha256": "24fd86cd21f37a36049360b48dfd45e04f5b9adedb34bb42277786195e9b70c4",
+      "bytes": 10992
+    },
+    {
+      "path": "missing-motion/man-5-sick-walk-reduced.jpg",
+      "sha256": "725a5ff14a31916ee74bc00d9e5201fad164681c619d87b427c3b6502910276c",
+      "bytes": 11172
+    },
+    {
+      "path": "missing-motion/man-5-sleeping-idle-normal.jpg",
+      "sha256": "42bb5980038f2a342fd4362412b59a05f86f63ca1e1cae63ad1405685ac60685",
+      "bytes": 11244
+    },
+    {
+      "path": "missing-motion/man-5-sleeping-idle-reduced.jpg",
+      "sha256": "69eec63c9163984781cc648a7f047ce47783afd7d6ccc25e7515216ceec15940",
+      "bytes": 11367
+    },
+    {
+      "path": "missing-motion/man-5-sleeping-walk-normal.jpg",
+      "sha256": "4040d8abce32759e16d50447a6b69b2b6b275f7ef15bb792412f3c80f955b634",
+      "bytes": 11543
+    },
+    {
+      "path": "missing-motion/man-5-sleeping-walk-reduced.jpg",
+      "sha256": "5f0554c1a132ae534345e41db51ec0ac566e2b2e4aa9992f2061383e3dbed41d",
+      "bytes": 11699
+    },
+    {
+      "path": "missing-motion/man-5-strained-idle-normal.jpg",
+      "sha256": "0b4bff18050d291f35a59bc87e18c02a8ec378bdd79f44452c9b3ffd46d6d78d",
+      "bytes": 11554
+    },
+    {
+      "path": "missing-motion/man-5-strained-idle-reduced.jpg",
+      "sha256": "c0c9235133c10fbfeb29bb01eb1627f65f121d7c2fa23c3e32c3aa79a1714e19",
+      "bytes": 11698
+    },
+    {
+      "path": "missing-motion/man-5-strained-walk-normal.jpg",
+      "sha256": "9520d0526255391b2fcf97ca07f7f33541381a0117cca9181cc05523a60b92df",
+      "bytes": 11821
+    },
+    {
+      "path": "missing-motion/man-5-strained-walk-reduced.jpg",
+      "sha256": "6f4dca1e0c30fcc279601806b0a27e5f0a0f9884a219bd6ae93db88d4782a44e",
+      "bytes": 11782
+    },
+    {
+      "path": "missing-motion/man-5-tired-idle-normal.jpg",
+      "sha256": "1817238c6999353b795aaf1fc2ad8b033dcb8c2739e33b8647258c306c5302f3",
+      "bytes": 11194
+    },
+    {
+      "path": "missing-motion/man-5-tired-idle-reduced.jpg",
+      "sha256": "c126cf2c4fbc4bed4f0c27fbfcdc8d26f3aa093de879704c0bd19e1abbc8ab0b",
+      "bytes": 11344
+    },
+    {
+      "path": "missing-motion/man-5-tired-walk-normal.jpg",
+      "sha256": "e5abec69f38e01d3a05cc01627ebc2c51cdf0b662147696bbeaed65663c7fc80",
+      "bytes": 11417
+    },
+    {
+      "path": "missing-motion/man-5-tired-walk-reduced.jpg",
+      "sha256": "506b21d5b2b260940269a11274b1c513f8c8b21c1484cf07fa51d6c727c7cf37",
+      "bytes": 11532
+    },
+    {
+      "path": "missing-motion/man-5-wantsPlay-idle-normal.jpg",
+      "sha256": "bbfe2655e5214af878358a234cea78b85332e6f93fd80e73d70a084a8d418e31",
+      "bytes": 11829
+    },
+    {
+      "path": "missing-motion/man-5-wantsPlay-idle-reduced.jpg",
+      "sha256": "587c45bf40af407069fe2cebb7139f8780960b5e3297c3ae488ba88c73a52807",
+      "bytes": 11933
+    },
+    {
+      "path": "missing-motion/man-5-wantsPlay-walk-normal.jpg",
+      "sha256": "ef2f46787b8dd0eb39a0ea99022fe2ecab043185cad4ac5e81986e98c137f208",
+      "bytes": 11634
+    },
+    {
+      "path": "missing-motion/man-5-wantsPlay-walk-reduced.jpg",
+      "sha256": "93610e68c7fd47a0fd6c5d756888c4ce43e04e389f46189ba32b4c57a399a57f",
+      "bytes": 11705
+    },
+    {
+      "path": "missing-motion/man-6-dislike-idle-normal.jpg",
+      "sha256": "fbd96737e646818e5bd58d4c663f20c4290b5ac1d46e6aef6406b517b34efb31",
+      "bytes": 11762
+    },
+    {
+      "path": "missing-motion/man-6-dislike-idle-reduced.jpg",
+      "sha256": "ec2550d31394967cec7779a7faf36ac8dba350a79d7a3c42d51a99ccf8197a9f",
+      "bytes": 12007
+    },
+    {
+      "path": "missing-motion/man-6-dislike-walk-normal.jpg",
+      "sha256": "29a522ea2abaed16ed8389179c9a9528d16c875de7f8d1bfe6451aafdb134079",
+      "bytes": 12089
+    },
+    {
+      "path": "missing-motion/man-6-dislike-walk-reduced.jpg",
+      "sha256": "41c0acb8a83d7d15d387de2df51d2601ccf32293af27c39af4602cdae434849b",
+      "bytes": 11863
+    },
+    {
+      "path": "missing-motion/man-6-motion.jpg",
+      "sha256": "4ff18a2fd9554ad7670a608ead097b2a2d16a5430f8727b09a2875661937cbfa",
+      "bytes": 477028
+    },
+    {
+      "path": "missing-motion/man-6-normal-idle-normal.jpg",
+      "sha256": "3dd01b4e9ad9c7a712d055e5178bfc1f311a2d33d041f36df8b574b77252757b",
+      "bytes": 12113
+    },
+    {
+      "path": "missing-motion/man-6-normal-idle-reduced.jpg",
+      "sha256": "3dac7cbd66742f12bd00e05ef7444ad780877979be360ba9ad962db050593d40",
+      "bytes": 12231
+    },
+    {
+      "path": "missing-motion/man-6-normal-walk-normal.jpg",
+      "sha256": "5277533899e24072d4f83ca4001fc1555ea29b2287980190dd56a9badc0f7c86",
+      "bytes": 12131
+    },
+    {
+      "path": "missing-motion/man-6-normal-walk-reduced.jpg",
+      "sha256": "d0c658cacb3abcf7063feb2560247f28399684d983099f0f7935a94560296534",
+      "bytes": 12166
+    },
+    {
+      "path": "missing-motion/man-6-positive-idle-normal.jpg",
+      "sha256": "378d454498b147319d6b234567fefe64ad41c3d5f8d02857843dc1885b5f7b69",
+      "bytes": 12213
+    },
+    {
+      "path": "missing-motion/man-6-positive-idle-reduced.jpg",
+      "sha256": "be2f854ad0096d257b64ea89fbd67d77a86383a88aed3743b14fc3d1bebb1f80",
+      "bytes": 12336
+    },
+    {
+      "path": "missing-motion/man-6-positive-walk-normal.jpg",
+      "sha256": "63e35dcc04301ab27fce2fe22e90d5f5e588733fdee9c1d076516771b6d9c28f",
+      "bytes": 12682
+    },
+    {
+      "path": "missing-motion/man-6-positive-walk-reduced.jpg",
+      "sha256": "48e87f90ba27f091b7498969c0b602de9cf834eea7a6bb29dfdd3022179e5b74",
+      "bytes": 12399
+    },
+    {
+      "path": "missing-motion/man-6-sick-idle-normal.jpg",
+      "sha256": "fcbcf294e0707bc9aac6b84664cb99799c3bf7ac3f755b9ae201f59126aa5815",
+      "bytes": 11837
+    },
+    {
+      "path": "missing-motion/man-6-sick-idle-reduced.jpg",
+      "sha256": "cb302bb96e8e072ce9c6004ef736a4b0fa98bd96d00ff288a3ceefbcb7429329",
+      "bytes": 11916
+    },
+    {
+      "path": "missing-motion/man-6-sick-walk-normal.jpg",
+      "sha256": "01578604044cd785d4e8f861e0d2d1968db45e23058827d44272cbe97a33053a",
+      "bytes": 11745
+    },
+    {
+      "path": "missing-motion/man-6-sick-walk-reduced.jpg",
+      "sha256": "ec1ebda86c1038e37511d73f30fad6a48a2914b418b814c434c3fa2d99f9afd5",
+      "bytes": 11847
+    },
+    {
+      "path": "missing-motion/man-6-sleeping-idle-normal.jpg",
+      "sha256": "75b22ee5d7e83fc1bcf803433e5cc42c848d9bdd18cbf780287e9480d4d3dde6",
+      "bytes": 11996
+    },
+    {
+      "path": "missing-motion/man-6-sleeping-idle-reduced.jpg",
+      "sha256": "3ac3b4f9143ca4f64e12f7b783c6c469bf096d4140034fb166d3056395a2e3e6",
+      "bytes": 12143
+    },
+    {
+      "path": "missing-motion/man-6-sleeping-walk-normal.jpg",
+      "sha256": "b7c847a9eb2a45fc90b1032b3358a2d2cc0660ea660fbb4c42bf75779759c411",
+      "bytes": 11911
+    },
+    {
+      "path": "missing-motion/man-6-sleeping-walk-reduced.jpg",
+      "sha256": "9e6ccc2d6bcd9621654469a8bae406d84d1b8e4ba744579b879545374d57d101",
+      "bytes": 12212
+    },
+    {
+      "path": "missing-motion/man-6-strained-idle-normal.jpg",
+      "sha256": "e1ff06ab86a36f21c92db84121e07eadd3de6776c6d965b5c96e1473e5fec918",
+      "bytes": 12229
+    },
+    {
+      "path": "missing-motion/man-6-strained-idle-reduced.jpg",
+      "sha256": "58ee9e7cbcf15043911a38fa48a5512bbe27da0e30b44a833ba18bcd96883451",
+      "bytes": 12342
+    },
+    {
+      "path": "missing-motion/man-6-strained-walk-normal.jpg",
+      "sha256": "c0cf3df178fa90500813509280116c4aa6581c04588f8a01bef4768ab4aef007",
+      "bytes": 12268
+    },
+    {
+      "path": "missing-motion/man-6-strained-walk-reduced.jpg",
+      "sha256": "791d6c88d8d1e371c57d2b9c7c63407477a7fc97307b39dd7bed323e1730574e",
+      "bytes": 12434
+    },
+    {
+      "path": "missing-motion/man-6-tired-idle-normal.jpg",
+      "sha256": "7337e16a4bbf22ba95a39e76d3ce8613511cae198ae74ec79e99d02d7c2059c4",
+      "bytes": 11921
+    },
+    {
+      "path": "missing-motion/man-6-tired-idle-reduced.jpg",
+      "sha256": "c12205f135968f76791e9549ad9845f2dc40e551314b2d0f6d7f91e6814ff7e4",
+      "bytes": 12056
+    },
+    {
+      "path": "missing-motion/man-6-tired-walk-normal.jpg",
+      "sha256": "b648c7d5fa1483c575c7224cb317c5cf66a030eee325f569af7d38847ea7c5f0",
+      "bytes": 11976
+    },
+    {
+      "path": "missing-motion/man-6-tired-walk-reduced.jpg",
+      "sha256": "5aa56356b2b6222281e5e7b31b09522958c6059bbd3ed05693ba9c0971fc1421",
+      "bytes": 12136
+    },
+    {
+      "path": "missing-motion/man-6-wantsPlay-idle-normal.jpg",
+      "sha256": "63e4e5f995f0ae0a2727b7a51c906e8b258f52b3c7e81690af4e9291ff363fe3",
+      "bytes": 12245
+    },
+    {
+      "path": "missing-motion/man-6-wantsPlay-idle-reduced.jpg",
+      "sha256": "1dc96ce5fcfd7f0c81dd9ab9ba4123278a3ae8c9508c68c79a583718c90242af",
+      "bytes": 12383
+    },
+    {
+      "path": "missing-motion/man-6-wantsPlay-walk-normal.jpg",
+      "sha256": "75941d4b1ef0ef88d5161d6adc664355fb61c8cc916dbc37e306e099565e349b",
+      "bytes": 12686
+    },
+    {
+      "path": "missing-motion/man-6-wantsPlay-walk-reduced.jpg",
+      "sha256": "33716e8ec234b224fa2eb3c06b54fbf9a5772e0b1d50d521943ddc087e8128a6",
+      "bytes": 12444
+    },
+    {
+      "path": "missing-motion/man-7-dislike-idle-normal.jpg",
+      "sha256": "ad2366a3178da8c58d5af8ab6827d38467b5f9679ffee18fe61795d7e5725a68",
+      "bytes": 11418
+    },
+    {
+      "path": "missing-motion/man-7-dislike-idle-reduced.jpg",
+      "sha256": "127e08e623497121499fcc94db6403120d5966f2fce7e2be3500168afdf89b9a",
+      "bytes": 11567
+    },
+    {
+      "path": "missing-motion/man-7-dislike-walk-normal.jpg",
+      "sha256": "d4bffaabb61e7c79ac6ee6a01d9f5e77297ed5a886fae5700be2b8c04e711f35",
+      "bytes": 11118
+    },
+    {
+      "path": "missing-motion/man-7-dislike-walk-reduced.jpg",
+      "sha256": "7138aa63be551d0f83d53872b6b68c44eea25a2ce49fe587dcd3f1d69cecf3f5",
+      "bytes": 11348
+    },
+    {
+      "path": "missing-motion/man-7-motion.jpg",
+      "sha256": "eb7df7b52a92c2cbd960f9343f291cdc8248b962b3f6c2177bd2f52de88f4f3f",
+      "bytes": 473988
+    },
+    {
+      "path": "missing-motion/man-7-normal-idle-normal.jpg",
+      "sha256": "dccd5d22cc53262543ef2e58b855ffb80a7926e6e362fa19f3d266cc5cea5e59",
+      "bytes": 12189
+    },
+    {
+      "path": "missing-motion/man-7-normal-idle-reduced.jpg",
+      "sha256": "82327ca56ffd6ffa6834b1f7670af2e8f14af1ad719cea071e2ae77ed12734fc",
+      "bytes": 12231
+    },
+    {
+      "path": "missing-motion/man-7-normal-walk-normal.jpg",
+      "sha256": "2b20836b2def1f81c6011988db189ddb734fa9cdb25e5e14b5b35aa3135694e9",
+      "bytes": 12489
+    },
+    {
+      "path": "missing-motion/man-7-normal-walk-reduced.jpg",
+      "sha256": "b25ac101dd9ee4890feb68549c99ef8a5428bf743a664c9e2347dd6b5a1de7e5",
+      "bytes": 12317
+    },
+    {
+      "path": "missing-motion/man-7-positive-idle-normal.jpg",
+      "sha256": "a11766945481c52bdf6ebb5c07180df2de0f20727f783c33f1985a2f37a7e0f0",
+      "bytes": 11888
+    },
+    {
+      "path": "missing-motion/man-7-positive-idle-reduced.jpg",
+      "sha256": "2e9046cd776e78052630a003cff6b8a01b2f472aeea6c33287b2893ceca1fb30",
+      "bytes": 12031
+    },
+    {
+      "path": "missing-motion/man-7-positive-walk-normal.jpg",
+      "sha256": "cce0c86de1ab894e7bd35e760606b599d2c9f33fb7ae5ff062cd0b4a9e0f2210",
+      "bytes": 11845
+    },
+    {
+      "path": "missing-motion/man-7-positive-walk-reduced.jpg",
+      "sha256": "ac2b4fa287227aefae6e2cdd11ee2a5041f8d42991a0181e0d842a3a227b5082",
+      "bytes": 11889
+    },
+    {
+      "path": "missing-motion/man-7-sick-idle-normal.jpg",
+      "sha256": "a54a7e83e3ddfa419fab9ad624e21459ca9d97c4beb0a7867d9b66ed9bd8e4f9",
+      "bytes": 11570
+    },
+    {
+      "path": "missing-motion/man-7-sick-idle-reduced.jpg",
+      "sha256": "87e3d8cee9e0daf6fd9ee389bbc17835efdc8de1c4979dcab8d2fecffc8f3aca",
+      "bytes": 11737
+    },
+    {
+      "path": "missing-motion/man-7-sick-walk-normal.jpg",
+      "sha256": "98fa0ec94a48ec6430d2787a8b133ac89405f182dfcbdb72a4fa19f0b651ca3d",
+      "bytes": 11334
+    },
+    {
+      "path": "missing-motion/man-7-sick-walk-reduced.jpg",
+      "sha256": "f0577bc2b081a49b7c66a1b9c71befb06d1959f3c2d79ef7a85b4ab1512a48d1",
+      "bytes": 11655
+    },
+    {
+      "path": "missing-motion/man-7-sleeping-idle-normal.jpg",
+      "sha256": "23e1ae6592942014490051e4db20a5b4af66c50c0fb5e7368c996a4b10e9768f",
+      "bytes": 11765
+    },
+    {
+      "path": "missing-motion/man-7-sleeping-idle-reduced.jpg",
+      "sha256": "66eeab79b6efa2a9c94bba26697dbadaf2e41fcf7bd43cf4c61e2e94044da19f",
+      "bytes": 11894
+    },
+    {
+      "path": "missing-motion/man-7-sleeping-walk-normal.jpg",
+      "sha256": "fd990ee0b30de7c4fca1c0b137c2f747e2c373eef18c4f54f34ea8c05fe83b1c",
+      "bytes": 11977
+    },
+    {
+      "path": "missing-motion/man-7-sleeping-walk-reduced.jpg",
+      "sha256": "94c2a8c2a831fcaa98cf6300dbc125250a636bd5f82f88842d0739b2d828d99d",
+      "bytes": 12039
+    },
+    {
+      "path": "missing-motion/man-7-strained-idle-normal.jpg",
+      "sha256": "8095f7da7d76f96a126aff4dca2869fc291a442d417717cdf688eb0ba2c87ec5",
+      "bytes": 12073
+    },
+    {
+      "path": "missing-motion/man-7-strained-idle-reduced.jpg",
+      "sha256": "2633cd6f228c9e9812160fa581acb9765b5bbd70bec6dd9d80639c8a9c58bf79",
+      "bytes": 12233
+    },
+    {
+      "path": "missing-motion/man-7-strained-walk-normal.jpg",
+      "sha256": "a4088e0abb5de6740f74b99b0a18ff16d5825c3ed7d6fdbcfbaba1fca224b2f6",
+      "bytes": 12167
+    },
+    {
+      "path": "missing-motion/man-7-strained-walk-reduced.jpg",
+      "sha256": "8495e621bc81ba301640cff38b1198cd31efdd84d929db302efabc401a798a11",
+      "bytes": 12211
+    },
+    {
+      "path": "missing-motion/man-7-tired-idle-normal.jpg",
+      "sha256": "a196d818ddc28c3b3ee7e6c6ec29e17bbdee097f932b9b308f22e57f67867078",
+      "bytes": 11819
+    },
+    {
+      "path": "missing-motion/man-7-tired-idle-reduced.jpg",
+      "sha256": "e975f26b2290dd6f3ca3ff9efeb8a2afa7879adf0b34dc240e69377265a989c6",
+      "bytes": 11904
+    },
+    {
+      "path": "missing-motion/man-7-tired-walk-normal.jpg",
+      "sha256": "670e8962e6b061883ee13dd7ce87472859ea3cbefadfae0105733ed6c57904b5",
+      "bytes": 11889
+    },
+    {
+      "path": "missing-motion/man-7-tired-walk-reduced.jpg",
+      "sha256": "3e0d3835020de1759559aec59ac41c749635597bb54e765d8a8b19b857ad06ba",
+      "bytes": 11911
+    },
+    {
+      "path": "missing-motion/man-7-wantsPlay-idle-normal.jpg",
+      "sha256": "ada206a692c4812566e09995f7d476595bd3d53095ec2a13167cc1b4eaaeb245",
+      "bytes": 12285
+    },
+    {
+      "path": "missing-motion/man-7-wantsPlay-idle-reduced.jpg",
+      "sha256": "7cb95971ecaaaaf5bbd1eba15ca5b0bb95ecdb586524a9bc84ff4dddc8c6fd19",
+      "bytes": 12372
+    },
+    {
+      "path": "missing-motion/man-7-wantsPlay-walk-normal.jpg",
+      "sha256": "7896c6d62c6944605e55d37c906e0dbf74b4347a2c50d443055c01fd7246bbae",
+      "bytes": 12084
+    },
+    {
+      "path": "missing-motion/man-7-wantsPlay-walk-reduced.jpg",
+      "sha256": "f725003170aff3f4f53e24a34c994a5b567c5e6837e1b29221af2e5d29ef5335",
+      "bytes": 12231
+    },
+    {
+      "path": "missing-motion/motion-evidence.json",
+      "sha256": "d192e2a8597c3bf20c346baf42c424c809e663df5c78eb2c8258d27f11f9e57c",
+      "bytes": 92605
+    },
+    {
+      "path": "player-man-1-back.png",
+      "sha256": "b5f143885e4406cb62523bb4c24789cb8128a693f0644c4928ffcfc9d54a1092",
+      "bytes": 303129
+    },
+    {
+      "path": "player-man-1-front.png",
+      "sha256": "10e0f96a2a44258327adb15d89a4d19201170c4e2cfeb1821c93615057a5fb16",
+      "bytes": 304157
+    },
+    {
+      "path": "player-man-2-back.png",
+      "sha256": "f27446c18cc5b30af5343177eb90d23e2421e6b15a55549cdeebc50024a678be",
+      "bytes": 309801
+    },
+    {
+      "path": "player-man-2-front.png",
+      "sha256": "e4eed8a3d2ac07abff0b9ced17391fe1ca232b262943af8d7a1c473cdb4cd65a",
+      "bytes": 311618
+    },
+    {
+      "path": "player-man-3-back.png",
+      "sha256": "0922726a545c7f683da88a31f0c1d2668dc019842ad6fcb206e7bbb5d961f823",
+      "bytes": 306987
+    },
+    {
+      "path": "player-man-3-front.png",
+      "sha256": "261cf3f850eb05b479ae11ac52f0719cf0bf3164f768165b4d5338b77496b9c5",
+      "bytes": 310806
+    },
+    {
+      "path": "player-man-4-back.png",
+      "sha256": "7ba01762a2d5fc2caca72c34c9de9e510498f2d2a945546aec3c05a1b2cf86c3",
+      "bytes": 308591
+    },
+    {
+      "path": "player-man-4-front.png",
+      "sha256": "b0b0e65c65dd83714ffd69e07a87fa963ac2d7afb2e237eeaeb34a07a42829a1",
+      "bytes": 310357
+    },
+    {
+      "path": "player-man-5-back.png",
+      "sha256": "629869da4039c7b505d1ec95668ccd4810c50e1214112c13d91b1730e887de6d",
+      "bytes": 306339
+    },
+    {
+      "path": "player-man-5-front.png",
+      "sha256": "b3ed0cf880c777dddf2dcdee1042ea4d5cb6c062e19ae8d592754cbc39d600d0",
+      "bytes": 309765
+    },
+    {
+      "path": "player-man-6-back.png",
+      "sha256": "378b60bbc0cbdfb973fd50508fa545a4c325e7ce7dde3c29746a2e23c990691f",
+      "bytes": 305474
+    },
+    {
+      "path": "player-man-6-front.png",
+      "sha256": "794db8ca37fb08361d2835d51523203bf386bd854aa78956268cc9c972f6baff",
+      "bytes": 311785
+    },
+    {
+      "path": "player-man-7-back.png",
+      "sha256": "df42aeb5a51e532687699e4a7124b6ecd481337cc4905ec412c4d27a6a172d9a",
+      "bytes": 305078
+    },
+    {
+      "path": "player-man-7-front.png",
+      "sha256": "f67ddb948ca10edfff3c8c0f47a8d11722fee88ec1d00c2a3a0a59422b548d38",
+      "bytes": 309782
+    },
+    {
+      "path": "player-man-8-back.png",
+      "sha256": "012abaa9991b9c2a30fc7b6a12244c3255c7bd00370bfddd805e99ddf0048e02",
+      "bytes": 306884
+    },
+    {
+      "path": "player-man-8-front.png",
+      "sha256": "d7474e7e90031e211ac3d5e486dc8aa446c8f14d442bf2bae500c571d17eb3c7",
+      "bytes": 310841
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113792866201,
+  "artifactJobName": "stage-evidence (man)",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

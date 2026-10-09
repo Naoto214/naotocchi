@@ -1,0 +1,4605 @@
+{
+  "source": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "mushroom",
+      "stage": 2
+    },
+    {
+      "id": "mushroom",
+      "stage": 3
+    },
+    {
+      "id": "mushroom",
+      "stage": 5
+    },
+    {
+      "id": "mushroom",
+      "stage": 6
+    },
+    {
+      "id": "mushroom",
+      "stage": 7
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7202264939419665,
+          0.09240860836577935,
+          -0.22875535033356506
+        ],
+        [
+          0.6539219046555439,
+          1.4588192813887697,
+          0.23795702274206784
+        ]
+      ],
+      "file": "mushroom-2-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7485317244553049,
+          0.2019318894540617,
+          -0.23774554019302443
+        ],
+        [
+          0.6796213344941912,
+          1.4669565999663372,
+          0.24730884253436314
+        ]
+      ],
+      "file": "mushroom-2-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.724145233631134,
+          0.09961445093154908,
+          -0.23000000417232513
+        ],
+        [
+          0.6574798822402954,
+          1.4512763714790344,
+          0.23925174271860156
+        ]
+      ],
+      "file": "mushroom-2-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.738118774434855,
+          0.1543760914756902,
+          -0.2344382222174018
+        ],
+        [
+          0.6701670084346386,
+          1.4553450307678182,
+          0.24386848786028492
+        ]
+      ],
+      "file": "mushroom-2-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7202264939419665,
+          0.14234412882957304,
+          -0.2791146131805605
+        ],
+        [
+          0.6539219046555439,
+          1.538484242957698,
+          0.2768370013857312
+        ]
+      ],
+      "file": "mushroom-2-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7367845789914922,
+          0.24072726205856787,
+          -0.2820945830146494
+        ],
+        [
+          0.6689556400208896,
+          1.5770704695050606,
+          0.279918192449641
+        ]
+      ],
+      "file": "mushroom-2-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.724145233631134,
+          0.08759817499914146,
+          -0.2798058086113164
+        ],
+        [
+          0.6574798822402954,
+          1.4692103753605128,
+          0.2775527808842644
+        ]
+      ],
+      "file": "mushroom-2-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.732418251754704,
+          0.15225033764622176,
+          -0.2812938851791643
+        ],
+        [
+          0.6649912801326515,
+          1.5039638055518165,
+          0.2790914680670228
+        ]
+      ],
+      "file": "mushroom-2-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6584,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7536989164556213,
+          0.027017714405826232,
+          -0.5436961818693504
+        ],
+        [
+          0.6921241892088954,
+          1.5104727559583617,
+          0.5724069231103996
+        ]
+      ],
+      "file": "mushroom-2-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6584,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7536999211232416,
+          0.18701579415799763,
+          -0.5436965340743171
+        ],
+        [
+          0.6921251117984693,
+          1.6704674023940806,
+          0.5724072961603468
+        ]
+      ],
+      "file": "mushroom-2-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6584,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7577997790071108,
+          0.033788930232776626,
+          -0.5451420276650314
+        ],
+        [
+          0.6958900247521577,
+          1.503349097826419,
+          0.5739382382910118
+        ]
+      ],
+      "file": "mushroom-2-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6584,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7578002895846789,
+          0.11378796937688052,
+          -0.5451422086953837
+        ],
+        [
+          0.6958904936172146,
+          1.583346421738723,
+          0.5739384300102222
+        ]
+      ],
+      "file": "mushroom-2-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6784,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7202264939419665,
+          0.047847150191417054,
+          -0.33094708369052717
+        ],
+        [
+          0.6539219046555439,
+          1.383941428447878,
+          0.33586058712379935
+        ]
+      ],
+      "file": "mushroom-2-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6784,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.730000468006751,
+          0.1880198002826775,
+          -0.3312188242587811
+        ],
+        [
+          0.6627960793634418,
+          1.4912938187619238,
+          0.3360016347471244
+        ]
+      ],
+      "file": "mushroom-2-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6784,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.724145233631134,
+          0.05435218339159409,
+          -0.3310424420333644
+        ],
+        [
+          0.6574798822402954,
+          1.377123498561947,
+          0.33590291013300255
+        ]
+      ],
+      "file": "mushroom-2-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6784,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.729062753211875,
+          0.12443707413160188,
+          -0.331187889144696
+        ],
+        [
+          0.6619446912933739,
+          1.4308011280245925,
+          0.3359830107718697
+        ]
+      ],
+      "file": "mushroom-2-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7202264939419665,
+          0.03978988196866329,
+          -0.3543872109266898
+        ],
+        [
+          0.6539219046555439,
+          1.3547897016844503,
+          0.3604687639365202
+        ]
+      ],
+      "file": "mushroom-2-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7527640092774335,
+          0.13488763832711814,
+          -0.35352740543556604
+        ],
+        [
+          0.6834639920126384,
+          1.3493013339519222,
+          0.3590945819254
+        ]
+      ],
+      "file": "mushroom-2-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.724145233631134,
+          0.04606932546866305,
+          -0.35420471417064114
+        ],
+        [
+          0.6574798822402954,
+          1.3482060936222382,
+          0.36022062416276135
+        ]
+      ],
+      "file": "mushroom-2-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7401390096832083,
+          0.09363385188842721,
+          -0.3536891451399925
+        ],
+        [
+          0.6720012593162259,
+          1.3454462615154372,
+          0.3594478668721145
+        ]
+      ],
+      "file": "mushroom-2-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7197322014509856,
+          0.06772976002381537,
+          -0.2871871890125403
+        ],
+        [
+          0.6544161971465248,
+          1.4133303615570953,
+          0.2899628035378724
+        ]
+      ],
+      "file": "mushroom-2-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7392268743197816,
+          0.19029615220165497,
+          -0.29026815519169313
+        ],
+        [
+          0.672116175861869,
+          1.4689943609563036,
+          0.2928993999359307
+        ]
+      ],
+      "file": "mushroom-2-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.724145233631134,
+          0.07451378688791077,
+          -0.28778644297842737
+        ],
+        [
+          0.6574798822402954,
+          1.406224030754089,
+          0.2905320980981358
+        ]
+      ],
+      "file": "mushroom-2-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7338562422445467,
+          0.13579796750753115,
+          -0.28931543344349764
+        ],
+        [
+          0.6662968881433313,
+          1.4340550459229924,
+          0.2919889036726589
+        ]
+      ],
+      "file": "mushroom-2-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6584,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7202264939419665,
+          0.10713695928897493,
+          -0.2919886588898528
+        ],
+        [
+          0.6539219046555439,
+          1.5098006931245838,
+          0.2891197441148057
+        ]
+      ],
+      "file": "mushroom-2-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6584,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7327644654366224,
+          0.228133794350735,
+          -0.29377585865757283
+        ],
+        [
+          0.6653056211242732,
+          1.5853653719610485,
+          0.291004281124449
+        ]
+      ],
+      "file": "mushroom-2-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6584,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.724145233631134,
+          0.08327706859328377,
+          -0.29253507987078486
+        ],
+        [
+          0.6574798822402954,
+          1.4714831160390458,
+          0.2896971315648424
+        ]
+      ],
+      "file": "mushroom-2-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6584,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7304355210883552,
+          0.15150509278942847,
+          -0.29343541690283753
+        ],
+        [
+          0.6631910811332209,
+          1.5169963052671163,
+          0.29064613721785676
+        ]
+      ],
+      "file": "mushroom-2-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7189907627145141,
+          0.055496462598500385,
+          -0.32218897887394476
+        ],
+        [
+          0.6551576358829962,
+          1.4308810751418954,
+          0.3266702701070253
+        ]
+      ],
+      "file": "mushroom-2-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7467020229104674,
+          0.16285129434865864,
+          -0.3239320092013241
+        ],
+        [
+          0.6803177767555746,
+          1.4452892463252263,
+          0.3280873863135491
+        ]
+      ],
+      "file": "mushroom-2-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.724145233631134,
+          0.062240533122518316,
+          -0.32238669146813825
+        ],
+        [
+          0.6574798822402954,
+          1.4238134333133736,
+          0.326819612576137
+        ]
+      ],
+      "file": "mushroom-2-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6424,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.7378338376612237,
+          0.1159253334567133,
+          -0.32320570557916994
+        ],
+        [
+          0.6699083031533326,
+          1.431010134445923,
+          0.3274756696267408
+        ]
+      ],
+      "file": "mushroom-2-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2976,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5122252917103368,
+          -0.05823582038283348,
+          -0.49588782248483676
+        ],
+        [
+          0.5077596306800842,
+          0.8388941482960447,
+          0.4963782632315844
+        ]
+      ],
+      "file": "mushroom-3-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2976,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.532355979873818,
+          0.0017530146263934898,
+          -0.5153764406379503
+        ],
+        [
+          0.5187476547344755,
+          0.8396060369462547,
+          0.5158861559302841
+        ]
+      ],
+      "file": "mushroom-3-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2976,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.49858593940734863,
+          -0.05823582038283348,
+          -0.49858593940734863
+        ],
+        [
+          0.5077596306800842,
+          0.811999988079071,
+          0.49907904863357544
+        ]
+      ],
+      "file": "mushroom-3-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2976,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5082069527689017,
+          -0.028241402878219996,
+          -0.5082069527689017
+        ],
+        [
+          0.5082069527689017,
+          0.8130411737659404,
+          0.5087095773265473
+        ]
+      ],
+      "file": "mushroom-3-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5122252917103368,
+          0.006606005517577271,
+          -0.5368538074015465
+        ],
+        [
+          0.5077596306800842,
+          0.9389407045462793,
+          0.4948321249955276
+        ]
+      ],
+      "file": "mushroom-3-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5240014066075227,
+          0.07578274953771502,
+          -0.547891184466726
+        ],
+        [
+          0.5106066448612976,
+          0.9718458191350524,
+          0.5066015606416263
+        ]
+      ],
+      "file": "mushroom-3-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.49858593940734863,
+          -0.05523582038283348,
+          -0.5381280391369456
+        ],
+        [
+          0.5077596306800842,
+          0.8500653315119886,
+          0.4962686578160307
+        ]
+      ],
+      "file": "mushroom-3-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.504282048863446,
+          -0.005186991897661912,
+          -0.5436426343771096
+        ],
+        [
+          0.5077596306800842,
+          0.8823883257278345,
+          0.502149426357069
+        ]
+      ],
+      "file": "mushroom-3-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2976,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.6596204577515091,
+          -0.06323582038283349,
+          -0.6306863736387007
+        ],
+        [
+          0.6474607687813462,
+          0.9185959624172315,
+          0.7238642883411779
+        ]
+      ],
+      "file": "mushroom-3-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2976,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.659621337014171,
+          0.09676058621731698,
+          -0.6306872860818551
+        ],
+        [
+          0.6474616318353531,
+          1.078590156991089,
+          0.7238650836850505
+        ]
+      ],
+      "file": "mushroom-3-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2976,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.6479548604109842,
+          -0.06323582038283349,
+          -0.635813955150476
+        ],
+        [
+          0.6479548604109842,
+          0.8924353997211482,
+          0.7237180776154869
+        ]
+      ],
+      "file": "mushroom-3-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2976,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.6479552969790936,
+          0.016762382917241747,
+          -0.6358144171479668
+        ],
+        [
+          0.6479552969790936,
+          0.9724325215308122,
+          0.7237184781107102
+        ]
+      ],
+      "file": "mushroom-3-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3176,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5122252917103368,
+          -0.06774167115986347,
+          -0.5240172100972569
+        ],
+        [
+          0.5077596306800842,
+          0.8444822995786025,
+          0.5464329853326109
+        ]
+      ],
+      "file": "mushroom-3-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3176,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5191765449044563,
+          0.056406378712517295,
+          -0.5304950001430274
+        ],
+        [
+          0.5077596306800842,
+          0.9460883673489164,
+          0.5552229026700483
+        ]
+      ],
+      "file": "mushroom-3-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3176,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.49858593940734863,
+          -0.06774167115986347,
+          -0.5236989004942395
+        ],
+        [
+          0.5077596306800842,
+          0.8183750772974743,
+          0.5470867768314844
+        ]
+      ],
+      "file": "mushroom-3-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3176,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5019717327618439,
+          -0.005667646223673085,
+          -0.5269212341073709
+        ],
+        [
+          0.5077596306800842,
+          0.86940177959313,
+          0.5514687485499137
+        ]
+      ],
+      "file": "mushroom-3-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5122252917103368,
+          -0.06957695475220681,
+          -0.5282618707455558
+        ],
+        [
+          0.5077596306800842,
+          0.837537987894673,
+          0.5572554401797369
+        ]
+      ],
+      "file": "mushroom-3-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5353659820687536,
+          -0.02358054870450995,
+          -0.5494787281184375
+        ],
+        [
+          0.5216807138873727,
+          0.8118650249634847,
+          0.5875333654662193
+        ]
+      ],
+      "file": "mushroom-3-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.49858593940734863,
+          -0.06957695475220681,
+          -0.5271987435544266
+        ],
+        [
+          0.5077596306800842,
+          0.8119107193816062,
+          0.5573676762091309
+        ]
+      ],
+      "file": "mushroom-3-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5095979180647351,
+          -0.046578751728358375,
+          -0.5374639856631354
+        ],
+        [
+          0.5095979180647351,
+          0.799770174274256,
+          0.5721315539694166
+        ]
+      ],
+      "file": "mushroom-3-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5117309992193559,
+          -0.059906387567520133,
+          -0.4960158380053458
+        ],
+        [
+          0.5082539231710651,
+          0.8422660958116116,
+          0.5436357054249108
+        ]
+      ],
+      "file": "mushroom-3-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5255956162266571,
+          0.02998537484737534,
+          -0.5099189468392902
+        ],
+        [
+          0.513136052223698,
+          0.8910204270613032,
+          0.556836891108031
+        ]
+      ],
+      "file": "mushroom-3-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.49858593940734863,
+          -0.059906387567520133,
+          -0.49716683190882405
+        ],
+        [
+          0.5077596306800842,
+          0.8162565536053923,
+          0.5446589015697724
+        ]
+      ],
+      "file": "mushroom-3-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.505272129037891,
+          -0.014960506360072394,
+          -0.5040893310800696
+        ],
+        [
+          0.5077596306800842,
+          0.8410935871635405,
+          0.5512293565304937
+        ]
+      ],
+      "file": "mushroom-3-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2976,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5122252917103368,
+          -0.025314907432628105,
+          -0.55653967904017
+        ],
+        [
+          0.5077596306800842,
+          0.9150593109841421,
+          0.48490519005918525
+        ]
+      ],
+      "file": "mushroom-3-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2976,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5211423006794953,
+          0.07349336291884154,
+          -0.5638192419520314
+        ],
+        [
+          0.5078206246964575,
+          0.9867751676683612,
+          0.49403962745576113
+        ]
+      ],
+      "file": "mushroom-3-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2976,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.49858593940734863,
+          -0.05623582038283348,
+          -0.5571274436581343
+        ],
+        [
+          0.5077596306800842,
+          0.8573227315025317,
+          0.4860615989877686
+        ]
+      ],
+      "file": "mushroom-3-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2976,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5029169060910269,
+          0.0008985430304526906,
+          -0.5607960081451264
+        ],
+        [
+          0.5077596306800842,
+          0.9012246558201061,
+          0.49065745329373556
+        ]
+      ],
+      "file": "mushroom-3-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5109895604828845,
+          -0.06548874577134847,
+          -0.5072133390924536
+        ],
+        [
+          0.5089953619075366,
+          0.8701341090479813,
+          0.5575899210893126
+        ]
+      ],
+      "file": "mushroom-3-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5306978167840987,
+          -0.003517145229369356,
+          -0.5267287567182619
+        ],
+        [
+          0.5195717524946226,
+          0.8709901207718092,
+          0.579043615886594
+        ]
+      ],
+      "file": "mushroom-3-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.49858593940734863,
+          -0.06548874577134847,
+          -0.5073159078382953
+        ],
+        [
+          0.5077596306800842,
+          0.8435242204551938,
+          0.5580018083982856
+        ]
+      ],
+      "file": "mushroom-3-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5080107690997222,
+          -0.034502945500358914,
+          -0.5169057611688789
+        ],
+        [
+          0.5080107690997222,
+          0.8445969896268903,
+          0.5685497833741574
+        ]
+      ],
+      "file": "mushroom-3-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7437978145311038,
+          -0.037590570747852325,
+          -0.7231697312433717
+        ],
+        [
+          0.7271240343098443,
+          1.1361366972664075,
+          0.7231697312433717
+        ]
+      ],
+      "file": "mushroom-5-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7730294087208568,
+          0.022398264261374645,
+          -0.75159063232836
+        ],
+        [
+          0.7557003413133284,
+          1.114793560643852,
+          0.75159063232836
+        ]
+      ],
+      "file": "mushroom-5-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7271044850349426,
+          -0.037590570747852325,
+          -0.7271044850349426
+        ],
+        [
+          0.7271044850349426,
+          1.0975999928474427,
+          0.7271044850349426
+        ]
+      ],
+      "file": "mushroom-5-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7411351293288463,
+          -0.00759615324323884,
+          -0.7411351293288463
+        ],
+        [
+          0.7411351293288463,
+          1.0879299825849664,
+          0.7411351293288463
+        ]
+      ],
+      "file": "mushroom-5-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7437978145311038,
+          0.027251255152558426,
+          -0.7770796795962727
+        ],
+        [
+          0.7271240343098443,
+          1.2525434316149555,
+          0.719648671763415
+        ]
+      ],
+      "file": "mushroom-5-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7608978067922184,
+          0.09642799917269618,
+          -0.793157772704526
+        ],
+        [
+          0.7438406945589835,
+          1.2718838069091953,
+          0.7368331879115592
+        ]
+      ],
+      "file": "mushroom-5-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7271044850349426,
+          -0.03459057074785232,
+          -0.7789297582926188
+        ],
+        [
+          0.7271044850349426,
+          1.151961032440499,
+          0.7217477379336221
+        ]
+      ],
+      "file": "mushroom-5-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7354113112115921,
+          0.015458257737319243,
+          -0.7869628706283066
+        ],
+        [
+          0.7354113112115921,
+          1.1776909089963898,
+          0.7303342451745112
+        ]
+      ],
+      "file": "mushroom-5-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2984,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.9589771825521842,
+          -0.04259057074785232,
+          -0.915449631370201
+        ],
+        [
+          0.9434928325193253,
+          1.2556401917225686,
+          1.0435070301222549
+        ]
+      ],
+      "file": "mushroom-5-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2984,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.958978460852183,
+          0.11740583585229813,
+          -0.9154509657001211
+        ],
+        [
+          0.9434940901789534,
+          1.415633555495242,
+          1.0435081902677317
+        ]
+      ],
+      "file": "mushroom-5-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2984,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.9449341585224671,
+          -0.04259057074785232,
+          -0.9232267740153925
+        ],
+        [
+          0.9449341585224671,
+          1.218004749644988,
+          1.0444669430451765
+        ]
+      ],
+      "file": "mushroom-5-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2984,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.9449347951842848,
+          0.0374076325522229,
+          -0.9232274497785795
+        ],
+        [
+          0.9449347951842848,
+          1.2980014674596227,
+          1.0444675279562177
+        ]
+      ],
+      "file": "mushroom-5-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7437978145311038,
+          -0.048335136502981185,
+          -0.7618446195051541
+        ],
+        [
+          0.7271240343098443,
+          1.156491889973344,
+          0.7825518919729684
+        ]
+      ],
+      "file": "mushroom-5-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.753891667797846,
+          0.07581291336939958,
+          -0.7711814319531894
+        ],
+        [
+          0.7369916127910637,
+          1.249429004275105,
+          0.7950414692432856
+        ]
+      ],
+      "file": "mushroom-5-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7271044850349426,
+          -0.048335136502981185,
+          -0.7613337885264995
+        ],
+        [
+          0.7271044850349426,
+          1.1190380385637526,
+          0.7833635454005663
+        ]
+      ],
+      "file": "mushroom-5-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7320421002761212,
+          0.013738888433209202,
+          -0.7659778308158856
+        ],
+        [
+          0.7320421002761212,
+          1.1658334797757146,
+          0.7895885218771843
+        ]
+      ],
+      "file": "mushroom-5-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7437978145311038,
+          -0.05058332508802414,
+          -0.7674413851692732
+        ],
+        [
+          0.7271240343098443,
+          1.1499966358062508,
+          0.7949591848493333
+        ]
+      ],
+      "file": "mushroom-5-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7774002062791956,
+          -0.004586919040327285,
+          -0.7979488791688415
+        ],
+        [
+          0.7599731583231154,
+          1.0965535961606583,
+          0.8378005050708378
+        ]
+      ],
+      "file": "mushroom-5-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7271044850349426,
+          -0.05058332508802414,
+          -0.7658345094637915
+        ],
+        [
+          0.7271044850349426,
+          1.113217928284191,
+          0.7949505312386327
+        ]
+      ],
+      "file": "mushroom-5-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7431636203575558,
+          -0.027585122064175713,
+          -0.7805896668432384
+        ],
+        [
+          0.7431636203575558,
+          1.0875140306581295,
+          0.8158319818970153
+        ]
+      ],
+      "file": "mushroom-5-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.743303522040123,
+          -0.04008694791793824,
+          -0.7210430827867346
+        ],
+        [
+          0.7276183268008252,
+          1.1467009129418206,
+          0.7856029124596209
+        ]
+      ],
+      "file": "mushroom-5-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7634362097387479,
+          0.04980481449695724,
+          -0.7413335624763119
+        ],
+        [
+          0.7472996982904051,
+          1.1800354214327595,
+          0.8047956633725803
+        ]
+      ],
+      "file": "mushroom-5-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7271044850349426,
+          -0.04008694791793824,
+          -0.7227236928284743
+        ],
+        [
+          0.7271044850349426,
+          1.1094257912220993,
+          0.7870784721369057
+        ]
+      ],
+      "file": "mushroom-5-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7368551781129309,
+          0.004858933289509509,
+          -0.7328266246145908
+        ],
+        [
+          0.7368551781129309,
+          1.1267651898733844,
+          0.7966311608891679
+        ]
+      ],
+      "file": "mushroom-5-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2984,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7437978145311038,
+          -0.004669657797646949,
+          -0.8047527218203394
+        ],
+        [
+          0.7271240343098443,
+          1.232455143372828,
+          0.7041290794412509
+        ]
+      ],
+      "file": "mushroom-5-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2984,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7567461243681061,
+          0.09413861255382269,
+          -0.8154612106752114
+        ],
+        [
+          0.7397820807604247,
+          1.2940890304842152,
+          0.717518626749594
+        ]
+      ],
+      "file": "mushroom-5-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2984,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7271044850349426,
+          -0.035590570747852324,
+          -0.8056340534699225
+        ],
+        [
+          0.7271044850349426,
+          1.1631113250641398,
+          0.7058360272418642
+        ]
+      ],
+      "file": "mushroom-5-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2984,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7334204780290142,
+          0.021543792665433846,
+          -0.811030237150728
+        ],
+        [
+          0.7334204780290142,
+          1.20211710609736,
+          0.7125725524180198
+        ]
+      ],
+      "file": "mushroom-5-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7425620833036515,
+          -0.04546285362541676,
+          -0.7366999954302546
+        ],
+        [
+          0.7283597655372966,
+          1.1893122451022355,
+          0.8008503722213421
+        ]
+      ],
+      "file": "mushroom-5-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7711802679233823,
+          0.016508746916562365,
+          -0.765045086080822
+        ],
+        [
+          0.7563364138263761,
+          1.1669551568069114,
+          0.8316636972369029
+        ]
+      ],
+      "file": "mushroom-5-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.7271044850349426,
+          -0.04546285362541676,
+          -0.7368312397330503
+        ],
+        [
+          0.7271044850349426,
+          1.1511607448831227,
+          0.8013755079234113
+        ]
+      ],
+      "file": "mushroom-5-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2824,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.740849028148535,
+          -0.014477053354427196,
+          -0.7507596488549745
+        ],
+        [
+          0.740849028148535,
+          1.1409245955156324,
+          0.8165240050727598
+        ]
+      ],
+      "file": "mushroom-5-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8920627169812807,
+          -0.04050067067146301,
+          -0.8788680989910332
+        ],
+        [
+          0.8845982342568615,
+          1.0633229715423118,
+          0.8788680989910332
+        ]
+      ],
+      "file": "mushroom-6-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.9271211896268937,
+          0.019488164337763958,
+          -0.913408017116796
+        ],
+        [
+          0.9193633493184995,
+          1.047382522275964,
+          0.913408017116796
+        ]
+      ],
+      "file": "mushroom-6-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.883650004863739,
+          -0.04050067067146301,
+          -0.883650004863739
+        ],
+        [
+          0.883650004863739,
+          1.019599985790253,
+          0.883650004863739
+        ]
+      ],
+      "file": "mushroom-6-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.9007014454114528,
+          -0.010506253166849527,
+          -0.9007014454114528
+        ],
+        [
+          0.9007014454114528,
+          1.0128553023684308,
+          0.9007014454114528
+        ]
+      ],
+      "file": "mushroom-6-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8920627169812807,
+          0.02434115522894774,
+          -0.921403744622575
+        ],
+        [
+          0.8845982342568615,
+          1.1916825658375463,
+          0.8760374046917057
+        ]
+      ],
+      "file": "mushroom-6-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.9125713353971943,
+          0.09351789924908549,
+          -0.9409350233558565
+        ],
+        [
+          0.9049352434070214,
+          1.2140052704054334,
+          0.8969375418939483
+        ]
+      ],
+      "file": "mushroom-6-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.883650004863739,
+          -0.03750067067146301,
+          -0.9236360440349798
+        ],
+        [
+          0.883650004863739,
+          1.0858675996181848,
+          0.8785933303402756
+        ]
+      ],
+      "file": "mushroom-6-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8937452898502507,
+          0.012548157813708556,
+          -0.9333946021494055
+        ],
+        [
+          0.8937452898502507,
+          1.1132226480088345,
+          0.889036399786706
+        ]
+      ],
+      "file": "mushroom-6-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3308,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -1.1544172658066623,
+          -0.04550067067146301,
+          -1.1154821013306606
+        ],
+        [
+          1.1474852646776224,
+          1.2133668325174172,
+          1.2199609736383714
+        ]
+      ],
+      "file": "mushroom-6-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3308,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -1.154418804624912,
+          0.11449573592868745,
+          -1.115483724384696
+        ],
+        [
+          1.1474867942556344,
+          1.373360361646569,
+          1.2199623930127819
+        ]
+      ],
+      "file": "mushroom-6-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3308,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -1.148378384344808,
+          -0.04550067067146301,
+          -1.124600626904029
+        ],
+        [
+          1.148378384344808,
+          1.1701120873091138,
+          1.225518644528013
+        ]
+      ],
+      "file": "mushroom-6-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3308,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -1.1483791580798488,
+          0.034497532628612215,
+          -1.1246014486720033
+        ],
+        [
+          1.1483791580798488,
+          1.2501088961537616,
+          1.22551936277294
+        ]
+      ],
+      "file": "mushroom-6-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3508,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8920627169812807,
+          -0.051070630431175226,
+          -0.9304882896682405
+        ],
+        [
+          0.8845982342568615,
+          1.1137271217824,
+          0.9004592666794367
+        ]
+      ],
+      "file": "mushroom-6-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3508,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.9041686280152044,
+          0.07307741944120554,
+          -0.9419178098699795
+        ],
+        [
+          0.8966028470725591,
+          1.2074399527000588,
+          0.9143455190328583
+        ]
+      ],
+      "file": "mushroom-6-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3508,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.883650004863739,
+          -0.051070630431175226,
+          -0.9299033416422977
+        ],
+        [
+          0.883650004863739,
+          1.07104469393863,
+          0.9008905531862244
+        ]
+      ],
+      "file": "mushroom-6-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3508,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8896506881516065,
+          0.011003394505015154,
+          -0.9355887446273777
+        ],
+        [
+          0.8896506881516065,
+          1.1183009748605381,
+          0.9078063599766555
+        ]
+      ],
+      "file": "mushroom-6-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8920627169812807,
+          -0.053260617017745975,
+          -0.9383609810858882
+        ],
+        [
+          0.8845982342568615,
+          1.114754192233066,
+          0.9035296851306553
+        ]
+      ],
+      "file": "mushroom-6-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.9323632399113849,
+          -0.0072642109700491175,
+          -0.9757684034094748
+        ],
+        [
+          0.9245615358778914,
+          1.0628682845049275,
+          0.9504466605462663
+        ]
+      ],
+      "file": "mushroom-6-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.883650004863739,
+          -0.053260617017745975,
+          -0.9364518144637275
+        ],
+        [
+          0.883650004863739,
+          1.0727885188136197,
+          0.9028449388769646
+        ]
+      ],
+      "file": "mushroom-6-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.9031666703471771,
+          -0.030262413993897546,
+          -0.954547337561352
+        ],
+        [
+          0.9031666703471771,
+          1.0480923643275355,
+          0.9256770539199618
+        ]
+      ],
+      "file": "mushroom-6-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8915684244902998,
+          -0.042880643844604494,
+          -0.878127286975363
+        ],
+        [
+          0.8850925267478423,
+          1.0909368695124475,
+          0.9266850428157757
+        ]
+      ],
+      "file": "mushroom-6-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.9157142605464234,
+          0.047011118570290986,
+          -0.9028157264564429
+        ],
+        [
+          0.90903631851641,
+          1.12748987202383,
+          0.9498596866540486
+        ]
+      ],
+      "file": "mushroom-6-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.883650004863739,
+          -0.042880643844604494,
+          -0.8801770990103138
+        ],
+        [
+          0.883650004863739,
+          1.0486183002149276,
+          0.9284308982869314
+        ]
+      ],
+      "file": "mushroom-6-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8955000211449273,
+          0.002065237362843253,
+          -0.8924698253331023
+        ],
+        [
+          0.8955000211449273,
+          1.0677172429602289,
+          0.9399661095991894
+        ]
+      ],
+      "file": "mushroom-6-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3308,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8920627169812807,
+          -0.007579757721257636,
+          -0.949340588988538
+        ],
+        [
+          0.8845982342568615,
+          1.1746227529631927,
+          0.8571432028102189
+        ]
+      ],
+      "file": "mushroom-6-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3308,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.9075920775519263,
+          0.091228512630212,
+          -0.9628055446199366
+        ],
+        [
+          0.8999976503275361,
+          1.2387166114913284,
+          0.8734081395461651
+        ]
+      ],
+      "file": "mushroom-6-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3308,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.883650004863739,
+          -0.03850067067146301,
+          -0.9505356682781452
+        ],
+        [
+          0.883650004863739,
+          1.1001136358834747,
+          0.8592168238706784
+        ]
+      ],
+      "file": "mushroom-6-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3308,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8913258304910042,
+          0.01863369274182316,
+          -0.9573189811660417
+        ],
+        [
+          0.8913258304910042,
+          1.140451971239341,
+          0.8674000432676586
+        ]
+      ],
+      "file": "mushroom-6-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8908269857538283,
+          -0.04828565055131912,
+          -0.8988682199607426
+        ],
+        [
+          0.8858339654843138,
+          1.1426563470019584,
+          0.9275869251954149
+        ]
+      ],
+      "file": "mushroom-6-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.9251497748615686,
+          0.013685949990660001,
+          -0.9334528559533373
+        ],
+        [
+          0.9198695529620883,
+          1.1236924360792253,
+          0.9632765351370974
+        ]
+      ],
+      "file": "mushroom-6-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.883650004863739,
+          -0.04828565055131912,
+          -0.8990495603013684
+        ],
+        [
+          0.883650004863739,
+          1.099275348464385,
+          0.9279446020060046
+        ]
+      ],
+      "file": "mushroom-6-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3148,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.9003537466768461,
+          -0.01729985028032956,
+          -0.9160444017542094
+        ],
+        [
+          0.9003537466768461,
+          1.0909465399842098,
+          0.9454856498908681
+        ]
+      ],
+      "file": "mushroom-6-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6264,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9373114466292948,
+          -0.03481549024581909,
+          -0.7335007621263594
+        ],
+        [
+          0.9985039765647125,
+          1.3153160546481573,
+          0.7335007621263594
+        ]
+      ],
+      "file": "mushroom-7-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6264,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.95891390539382,
+          0.02517334476340788,
+          -0.7623276774485954
+        ],
+        [
+          0.9985039765647125,
+          1.2917520966935836,
+          0.7623276774485954
+        ]
+      ],
+      "file": "mushroom-7-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6264,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9355006475537715,
+          -0.03481549024581909,
+          -0.7374917268753052
+        ],
+        [
+          0.9974651687205114,
+          1.283514397958857,
+          0.7374917268753052
+        ]
+      ],
+      "file": "mushroom-7-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6264,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9457365574753281,
+          -0.0048210727412056065,
+          -0.7517228096185052
+        ],
+        [
+          0.9974651687205114,
+          1.2726395731243807,
+          0.7517228096185052
+        ]
+      ],
+      "file": "mushroom-7-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5944,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9429652249566942,
+          0.03002633565459166,
+          -0.791616292186681
+        ],
+        [
+          0.9985039765647125,
+          1.431993175682916,
+          0.7387552963401635
+        ]
+      ],
+      "file": "mushroom-7-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5944,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9552118728607295,
+          0.09920307967472941,
+          -0.8078910738709476
+        ],
+        [
+          0.9985039765647125,
+          1.449953550338885,
+          0.7563463947904419
+        ]
+      ],
+      "file": "mushroom-7-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5944,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9410878372614855,
+          -0.03181549024581909,
+          -0.7938497367513933
+        ],
+        [
+          0.9974651687205114,
+          1.3381362855479928,
+          0.7410638263238254
+        ]
+      ],
+      "file": "mushroom-7-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5944,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9469868390565593,
+          0.018233338239352477,
+          -0.8019818617123056
+        ],
+        [
+          0.9974651687205114,
+          1.3631329328344344,
+          0.7498536952074378
+        ]
+      ],
+      "file": "mushroom-7-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6584,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -1.1534025544296258,
+          -0.040241003352122925,
+          -0.8936314671606651
+        ],
+        [
+          0.9985039765647125,
+          1.3801039552397993,
+          1.0378939713169977
+        ]
+      ],
+      "file": "mushroom-7-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6584,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -1.153403536009399,
+          0.11975530295307138,
+          -0.8936328374171016
+        ],
+        [
+          0.9985039765647125,
+          1.540097170356307,
+          1.0378951744565985
+        ]
+      ],
+      "file": "mushroom-7-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6584,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -1.153402191579183,
+          -0.040650388328333634,
+          -0.9039753812765401
+        ],
+        [
+          0.9974651687205114,
+          1.3486527798788641,
+          1.043544572174871
+        ]
+      ],
+      "file": "mushroom-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6584,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -1.1534026809324953,
+          0.03934776400129747,
+          -0.9039760765908051
+        ],
+        [
+          0.9974651687205114,
+          1.4286494211375391,
+          1.0435451814490058
+        ]
+      ],
+      "file": "mushroom-7-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7384,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9609903956962349,
+          -0.04572656083106995,
+          -0.7894691315148277
+        ],
+        [
+          0.9985039765647125,
+          1.324637544419938,
+          0.7825811095968603
+        ]
+      ],
+      "file": "mushroom-7-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7384,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9676888355305859,
+          0.07842148904131083,
+          -0.7992147603158839
+        ],
+        [
+          0.9985039765647125,
+          1.4167605780100585,
+          0.7952350871385588
+        ]
+      ],
+      "file": "mushroom-7-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7384,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9588199079108467,
+          -0.04572656083106995,
+          -0.7891779779073999
+        ],
+        [
+          0.9974651687205114,
+          1.2934576941643527,
+          0.7837986035311819
+        ]
+      ],
+      "file": "mushroom-7-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7384,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9620747081832134,
+          0.01634746410512044,
+          -0.7940292633952324
+        ],
+        [
+          0.9974651687205114,
+          1.3398271504743922,
+          0.7901118630519733
+        ]
+      ],
+      "file": "mushroom-7-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5944,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9661037330752982,
+          -0.04842172308395311,
+          -0.7991413440999127
+        ],
+        [
+          0.9985039765647125,
+          1.3145379027307276,
+          0.7928235367765669
+        ]
+      ],
+      "file": "mushroom-7-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5944,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9885967640924314,
+          -0.005552531732378019,
+          -0.831202281226755
+        ],
+        [
+          0.9985039765647125,
+          1.2587232276369535,
+          0.8362047517433088
+        ]
+      ],
+      "file": "mushroom-7-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5944,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9638247541486246,
+          -0.04879835726206695,
+          -0.7977946809948209
+        ],
+        [
+          0.9974651687205114,
+          1.2838719068822328,
+          0.7933102459487709
+        ]
+      ],
+      "file": "mushroom-7-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5944,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9743537205123142,
+          -0.027337332815035295,
+          -0.8133204541214825
+        ],
+        [
+          0.9974651687205114,
+          1.2568807672245659,
+          0.814483723719006
+        ]
+      ],
+      "file": "mushroom-7-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5944,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9443331018624933,
+          -0.03742287063598633,
+          -0.7419863672924898
+        ],
+        [
+          0.9989982690556933,
+          1.3190007489008315,
+          0.8000444427189137
+        ]
+      ],
+      "file": "mushroom-7-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5944,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9586982034638303,
+          0.05246889177890915,
+          -0.7628056339910154
+        ],
+        [
+          0.9989982690556933,
+          1.3507984840557672,
+          0.8194668312776154
+        ]
+      ],
+      "file": "mushroom-7-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5944,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9429255815560835,
+          -0.03742287063598633,
+          -0.7439013083816339
+        ],
+        [
+          0.9974651687205114,
+          1.2881774308617902,
+          0.801956165758666
+        ]
+      ],
+      "file": "mushroom-7-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5944,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9498126836976457,
+          0.0075230105714614165,
+          -0.7542680695699846
+        ],
+        [
+          0.9974651687205114,
+          1.304696250619962,
+          0.8116246801883821
+        ]
+      ],
+      "file": "mushroom-7-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6584,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9410915236273121,
+          -0.0023200904019175517,
+          -0.8256312621243806
+        ],
+        [
+          0.9985039765647125,
+          1.4119794729049486,
+          0.7259051558769108
+        ]
+      ],
+      "file": "mushroom-7-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6584,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9503897369635286,
+          0.09517835649374592,
+          -0.8364520645018456
+        ],
+        [
+          0.9985039765647125,
+          1.472554605399779,
+          0.7396138326332943
+        ]
+      ],
+      "file": "mushroom-7-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6584,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9392374505177775,
+          -0.033650388328333634,
+          -0.8270782875559244
+        ],
+        [
+          0.9974651687205114,
+          1.3493533227726036,
+          0.7279063153192504
+        ]
+      ],
+      "file": "mushroom-7-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6584,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9437444684474525,
+          0.02282683799872265,
+          -0.8325300786710529
+        ],
+        [
+          0.9974651687205114,
+          1.3878001139678626,
+          0.7348027496762092
+        ]
+      ],
+      "file": "mushroom-7-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5944,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.952712956574572,
+          -0.04277102553844452,
+          -0.7635377706799975
+        ],
+        [
+          0.9997397077921648,
+          1.363383796836793,
+          0.8103040590027604
+        ]
+      ],
+      "file": "mushroom-7-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5944,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9726405673618687,
+          0.0192005750035346,
+          -0.7929154650729733
+        ],
+        [
+          0.9997397077921648,
+          1.338891448621716,
+          0.8414811217819476
+        ]
+      ],
+      "file": "mushroom-7-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5944,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9519083204487055,
+          -0.04277102553844452,
+          -0.7639485193124951
+        ],
+        [
+          0.9974651687205114,
+          1.3317258417050462,
+          0.8113604329239306
+        ]
+      ],
+      "file": "mushroom-7-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "mushroom",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5944,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.9613294319642215,
+          -0.01178522526745496,
+          -0.7783895296161945
+        ],
+        [
+          0.9974651687205114,
+          1.3203347303747694,
+          0.8266976763057398
+        ]
+      ],
+      "file": "mushroom-7-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}

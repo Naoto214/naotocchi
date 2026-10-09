@@ -1,0 +1,4509 @@
+{
+  "source": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "frog",
+      "stage": 1
+    },
+    {
+      "id": "frog",
+      "stage": 2
+    },
+    {
+      "id": "frog",
+      "stage": 4
+    },
+    {
+      "id": "frog",
+      "stage": 6
+    },
+    {
+      "id": "frog",
+      "stage": 8
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          0.014999996423721351,
+          -0.8673290645693504
+        ],
+        [
+          0.33000001311302185,
+          0.6950000035762787,
+          0.4137288261730225
+        ]
+      ],
+      "file": "frog-1-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          0.019213235874092904,
+          -0.8575173562896221
+        ],
+        [
+          0.33000001311302185,
+          0.7168440470832951,
+          0.42264328541622365
+        ]
+      ],
+      "file": "frog-1-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          0.014999996423721351,
+          -0.8659966521263123
+        ],
+        [
+          0.33000001311302185,
+          0.6950000035762787,
+          0.4137288261730225
+        ]
+      ],
+      "file": "frog-1-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          0.017064447018457274,
+          -0.869339161486445
+        ],
+        [
+          0.33000001311302185,
+          0.7059641944602366,
+          0.41791823282440727
+        ]
+      ],
+      "file": "frog-1-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          0.06278768736880108,
+          -0.7607451847502259
+        ],
+        [
+          0.5366581192449609,
+          0.7828484668929068,
+          0.43295912657307
+        ]
+      ],
+      "file": "frog-1-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          0.06037006505395165,
+          -0.7085904191221712
+        ],
+        [
+          0.5923004306599516,
+          0.7597427361557354,
+          0.42167586226574333
+        ]
+      ],
+      "file": "frog-1-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          0.0009458614683903188,
+          -0.8710129018313815
+        ],
+        [
+          0.33000001311302185,
+          0.721006640992496,
+          0.43295912657307
+        ]
+      ],
+      "file": "frog-1-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          0.015131592174082664,
+          -0.8752947025162398
+        ],
+        [
+          0.33000001311302185,
+          0.7249801467109986,
+          0.4273749335676392
+        ]
+      ],
+      "file": "frog-1-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2368,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4129314026597435,
+          -0.0482829061587744,
+          -0.8728112971148738
+        ],
+        [
+          0.4129314026597435,
+          0.7336216255939884,
+          0.5568955800147029
+        ]
+      ],
+      "file": "frog-1-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2368,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4129314026597435,
+          -0.04715004870978767,
+          -0.8674629885944494
+        ],
+        [
+          0.4129314026597435,
+          0.7484302118256411,
+          0.5625909874834092
+        ]
+      ],
+      "file": "frog-1-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2368,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4129314026597435,
+          -0.0482829061587744,
+          -0.8714812822948167
+        ],
+        [
+          0.4129314026597435,
+          0.7336216255939884,
+          0.5568955800147029
+        ]
+      ],
+      "file": "frog-1-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2368,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.41293140265974354,
+          -0.04773717758849921,
+          -0.8736845721132828
+        ],
+        [
+          0.41293140265974354,
+          0.741046618864033,
+          0.559766140714556
+        ]
+      ],
+      "file": "frog-1-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2568,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          -0.03182474831842713,
+          -0.8768155440999374
+        ],
+        [
+          0.33000001311302185,
+          0.6843238356215824,
+          0.4541788158227943
+        ]
+      ],
+      "file": "frog-1-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2568,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          -0.027167713359078027,
+          -0.8808746129920024
+        ],
+        [
+          0.33000001311302185,
+          0.700651241377795,
+          0.4612035288738775
+        ]
+      ],
+      "file": "frog-1-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2568,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          -0.03182474831842713,
+          -0.8754847968254997
+        ],
+        [
+          0.33000001311302185,
+          0.6843238356215824,
+          0.4541788158227943
+        ]
+      ],
+      "file": "frog-1-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2568,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          -0.02953067757606448,
+          -0.8784286630544289
+        ],
+        [
+          0.33000001311302185,
+          0.6925219852370006,
+          0.45772376766969636
+        ]
+      ],
+      "file": "frog-1-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          -0.041144852766998086,
+          -0.8784505128193849
+        ],
+        [
+          0.33000001311302185,
+          0.6753365799087178,
+          0.46305313686970556
+        ]
+      ],
+      "file": "frog-1-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          -0.022778745808539336,
+          -0.8525602888418002
+        ],
+        [
+          0.3781483903529963,
+          0.7061500960198113,
+          0.47185440219158253
+        ]
+      ],
+      "file": "frog-1-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          -0.041144852766998086,
+          -0.8771204979993277
+        ],
+        [
+          0.33000001311302185,
+          0.6753365799087178,
+          0.46305313686970556
+        ]
+      ],
+      "file": "frog-1-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          -0.03200912770926101,
+          -0.8824905454250629
+        ],
+        [
+          0.33000001311302185,
+          0.6907906663857567,
+          0.4674998948661364
+        ]
+      ],
+      "file": "frog-1-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3295057206220409,
+          -0.01570338330259119,
+          -0.8699940592076246
+        ],
+        [
+          0.3304943056040028,
+          0.6834989856275426,
+          0.44125589279778316
+        ]
+      ],
+      "file": "frog-1-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3295057206220409,
+          0.011227664853128427,
+          -0.8395297628739977
+        ],
+        [
+          0.3916449001564978,
+          0.7139339666015447,
+          0.4432682607454546
+        ]
+      ],
+      "file": "frog-1-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          -0.01570338330259119,
+          -0.8686620631217891
+        ],
+        [
+          0.33000001311302185,
+          0.6834989856275426,
+          0.44125589279778316
+        ]
+      ],
+      "file": "frog-1-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          -0.002240113998699278,
+          -0.8742938230226696
+        ],
+        [
+          0.33000001311302185,
+          0.6987187308885116,
+          0.4422641382052785
+        ]
+      ],
+      "file": "frog-1-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2368,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.41004290951549704,
+          0.030048297497918652,
+          -0.8407823120790184
+        ],
+        [
+          0.33000001311302185,
+          0.7599149709478394,
+          0.43554887388311886
+        ]
+      ],
+      "file": "frog-1-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2368,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5133562756113945,
+          0.03497992837638686,
+          -0.7845313326572594
+        ],
+        [
+          0.33000001311302185,
+          0.7792467854944565,
+          0.4435211992163324
+        ]
+      ],
+      "file": "frog-1-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2368,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          -0.0008726154522867291,
+          -0.8771204979993277
+        ],
+        [
+          0.33000001311302185,
+          0.7289940579976342,
+          0.43554887388311886
+        ]
+      ],
+      "file": "frog-1-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2368,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          0.009284997442700949,
+          -0.882568020016929
+        ],
+        [
+          0.33000001311302185,
+          0.7464286242902918,
+          0.4395688492657123
+        ]
+      ],
+      "file": "frog-1-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.32876428188556955,
+          -0.030993012711534984,
+          -0.8673290645693504
+        ],
+        [
+          0.33123574434047415,
+          0.701693012711535,
+          0.4544187498526142
+        ]
+      ],
+      "file": "frog-1-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.32876428188556955,
+          -0.014857864100942975,
+          -0.8708254240301687
+        ],
+        [
+          0.33123574434047415,
+          0.7341213920164198,
+          0.4638905424602787
+        ]
+      ],
+      "file": "frog-1-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          -0.030993012711534984,
+          -0.8659966521263123
+        ],
+        [
+          0.33000001311302185,
+          0.701693012711535,
+          0.4544187498526142
+        ]
+      ],
+      "file": "frog-1-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2208,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.33000001311302185,
+          -0.02298811578663751,
+          -0.8712065525842364
+        ],
+        [
+          0.33000001311302185,
+          0.717969879744376,
+          0.45921203381352643
+        ]
+      ],
+      "file": "frog-1-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2344,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          0.023564152717590325,
+          -1.1422993816038784
+        ],
+        [
+          0.3137773671287958,
+          0.5864358472824096,
+          0.40115236743489713
+        ]
+      ],
+      "file": "frog-2-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2344,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          0.029803298860158145,
+          -1.1244576128957726
+        ],
+        [
+          0.3955112262231699,
+          0.6078618503589,
+          0.4013944574818688
+        ]
+      ],
+      "file": "frog-2-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2344,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          0.023564152717590325,
+          -1.1524983520507812
+        ],
+        [
+          0.30000001192092896,
+          0.5864358472824096,
+          0.40115236743489713
+        ]
+      ],
+      "file": "frog-2-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2344,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          0.027366862201316955,
+          -1.1549325304808398
+        ],
+        [
+          0.30000001192092896,
+          0.5971838217887826,
+          0.40130907584907605
+        ]
+      ],
+      "file": "frog-2-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          0.0738311475671754,
+          -0.9733566110428529
+        ],
+        [
+          0.7056876461161865,
+          0.6731584309665328,
+          0.40141261649434234
+        ]
+      ],
+      "file": "frog-2-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          0.0707757977105064,
+          -0.8965574194259733
+        ],
+        [
+          0.7871105053844171,
+          0.6504809487606285,
+          0.39114541850060125
+        ]
+      ],
+      "file": "frog-2-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          0.01198932166676464,
+          -1.1590048429349238
+        ],
+        [
+          0.30000001192092896,
+          0.6113166050661221,
+          0.40141261649434234
+        ]
+      ],
+      "file": "frog-2-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          0.025867512830179296,
+          -1.1618764951073692
+        ],
+        [
+          0.30000001192092896,
+          0.615493232145913,
+          0.396332408890385
+        ]
+      ],
+      "file": "frog-2-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2344,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3777285609822084,
+          -0.03525429516790085,
+          -1.1477295926350148
+        ],
+        [
+          0.3777285609822084,
+          0.6207441104686644,
+          0.5075189513943965
+        ]
+      ],
+      "file": "frog-2-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2344,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3777285609822084,
+          -0.033664577983561206,
+          -1.137713871493291
+        ],
+        [
+          0.3777285609822084,
+          0.6351388096830772,
+          0.5120892684775427
+        ]
+      ],
+      "file": "frog-2-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2344,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3777285609822084,
+          -0.03525429516790085,
+          -1.1579102104418961
+        ],
+        [
+          0.3777285609822084,
+          0.6207441104686644,
+          0.5075189513943965
+        ]
+      ],
+      "file": "frog-2-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2344,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.3777285609822084,
+          -0.03447685073849588,
+          -1.1596213006040208
+        ],
+        [
+          0.3777285609822084,
+          0.6279588146811652,
+          0.5098249640127528
+        ]
+      ],
+      "file": "frog-2-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2544,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          -0.02278318599498691,
+          -1.1546007691298632
+        ],
+        [
+          0.3137773671287958,
+          0.5782638452176627,
+          0.4212696644081988
+        ]
+      ],
+      "file": "frog-2-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2544,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          -0.018020882141059458,
+          -1.1639247842463318
+        ],
+        [
+          0.30000001192092896,
+          0.5943511155469677,
+          0.4276420855475991
+        ]
+      ],
+      "file": "frog-2-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2544,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          -0.02278318599498691,
+          -1.164786993519468
+        ],
+        [
+          0.30000001192092896,
+          0.5782638452176627,
+          0.4212696644081988
+        ]
+      ],
+      "file": "frog-2-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2544,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          -0.020431086691587386,
+          -1.166985956321137
+        ],
+        [
+          0.30000001192092896,
+          0.5863363214792375,
+          0.4244861088631854
+        ]
+      ],
+      "file": "frog-2-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          -0.0322415545709091,
+          -1.1567155959399118
+        ],
+        [
+          0.3137773671287958,
+          0.571144584864644,
+          0.4294617297704959
+        ]
+      ],
+      "file": "frog-2-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          -0.013827121215020444,
+          -1.1122687765590284
+        ],
+        [
+          0.4782258141798353,
+          0.6017580946179908,
+          0.436507291936918
+        ]
+      ],
+      "file": "frog-2-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          -0.0322415545709091,
+          -1.166896213746793
+        ],
+        [
+          0.30000001192092896,
+          0.571144584864644,
+          0.4294617297704959
+        ]
+      ],
+      "file": "frog-2-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          -0.02307440639902314,
+          -1.169839607898945
+        ],
+        [
+          0.30000001192092896,
+          0.5864910990752942,
+          0.43302719333807416
+        ]
+      ],
+      "file": "frog-2-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.299505719429948,
+          -0.00623716761799642,
+          -1.1450630342512864
+        ],
+        [
+          0.3142716596197767,
+          0.5766867571230837,
+          0.4077974218633251
+        ]
+      ],
+      "file": "frog-2-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.299505719429948,
+          0.020754492161142057,
+          -1.093289076502031
+        ],
+        [
+          0.4972004646535449,
+          0.6070241869280947,
+          0.40962688671158576
+        ]
+      ],
+      "file": "frog-2-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          -0.00623716761799642,
+          -1.15525881768592
+        ],
+        [
+          0.30000001192092896,
+          0.5766867571230837,
+          0.4077974218633251
+        ]
+      ],
+      "file": "frog-2-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          0.007256775796286086,
+          -1.1580283371192832
+        ],
+        [
+          0.30000001192092896,
+          0.5918573465190329,
+          0.40871406901856666
+        ]
+      ],
+      "file": "frog-2-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2344,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5236060589609522,
+          0.04106760619468347,
+          -1.0935500929104718
+        ],
+        [
+          0.30000001192092896,
+          0.649741246237782,
+          0.40457748693979956
+        ]
+      ],
+      "file": "frog-2-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2344,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.6718963990550156,
+          0.04638364275957213,
+          -1.0076415003331531
+        ],
+        [
+          0.30000001192092896,
+          0.6688427699273445,
+          0.4118226829587551
+        ]
+      ],
+      "file": "frog-2-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2344,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          0.010146693244478089,
+          -1.166896213746793
+        ],
+        [
+          0.30000001192092896,
+          0.6188203332875766,
+          0.40457748693979956
+        ]
+      ],
+      "file": "frog-2-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2344,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          0.020502949040353435,
+          -1.1698017998404224
+        ],
+        [
+          0.30000001192092896,
+          0.6361335241098044,
+          0.4082314833810565
+        ]
+      ],
+      "file": "frog-2-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.29876428069347666,
+          -0.021286492193448525,
+          -1.1422993816038784
+        ],
+        [
+          0.3150130983562481,
+          0.592839767055285,
+          0.4203354081903557
+        ]
+      ],
+      "file": "frog-2-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.29876428069347666,
+          -0.004986489734984334,
+          -1.1555043809155698
+        ],
+        [
+          0.30123574314838125,
+          0.6249171936635425,
+          0.4289300970617793
+        ]
+      ],
+      "file": "frog-2-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          -0.021286492193448525,
+          -1.1524983520507812
+        ],
+        [
+          0.30000001192092896,
+          0.592839767055285,
+          0.4203354081903557
+        ]
+      ],
+      "file": "frog-2-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2184,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.30000001192092896,
+          -0.013189305392226458,
+          -1.155497111723383
+        ],
+        [
+          0.30000001192092896,
+          0.608930915799797,
+          0.4246859909841984
+        ]
+      ],
+      "file": "frog-2-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6104,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.034998819828033434,
+          -1.072334356588892
+        ],
+        [
+          0.49257838010787963,
+          0.7400000023841857,
+          0.4575962649005695
+        ]
+      ],
+      "file": "frog-4-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6104,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.07775867047744855,
+          -1.0573320620111095
+        ],
+        [
+          0.49257838010787963,
+          0.7621684562935082,
+          0.5086001508488168
+        ]
+      ],
+      "file": "frog-4-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6104,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.034998819828033434,
+          -1.0784959440231323
+        ],
+        [
+          0.49257838010787963,
+          0.7400000023841857,
+          0.4575962649005695
+        ]
+      ],
+      "file": "frog-4-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6104,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.059181483394798784,
+          -1.081239713977911
+        ],
+        [
+          0.49257838010787963,
+          0.7511227451424556,
+          0.4785228717997029
+        ]
+      ],
+      "file": "frog-4-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5944,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          0.02379281592699789,
+          -0.9253003783555417
+        ],
+        [
+          0.6450578175624948,
+          0.8288830807092853,
+          0.4497069552957604
+        ]
+      ],
+      "file": "frog-4-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5944,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.05329977191665397,
+          -0.8572730182266883
+        ],
+        [
+          0.7173016370768537,
+          0.805334296844838,
+          0.5317846921807222
+        ]
+      ],
+      "file": "frog-4-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5944,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.03804900997341287,
+          -1.0842463233122996
+        ],
+        [
+          0.49257838010787963,
+          0.7670412548088745,
+          0.4497069552957604
+        ]
+      ],
+      "file": "frog-4-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5944,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.061637976423727814,
+          -1.0876009680545788
+        ],
+        [
+          0.49257838010787963,
+          0.7707877692817111,
+          0.4962784962469689
+        ]
+      ],
+      "file": "frog-4-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6104,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.048741394263452475,
+          -1.0783202479298968
+        ],
+        [
+          0.49257838010787963,
+          0.7810520135827029,
+          0.5861102410233133
+        ]
+      ],
+      "file": "frog-4-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6104,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.07446410313635998,
+          -1.0699540259109623
+        ],
+        [
+          0.49257838010787963,
+          0.7963642930364625,
+          0.5911355224969016
+        ]
+      ],
+      "file": "frog-4-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6104,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.048741394263452475,
+          -1.0844707478336135
+        ],
+        [
+          0.49257838010787963,
+          0.7810520135827029,
+          0.5861102410233133
+        ]
+      ],
+      "file": "frog-4-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6104,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.06265906294436885,
+          -1.0863485757268672
+        ],
+        [
+          0.49257838010787963,
+          0.7887274562506754,
+          0.5886465575317297
+        ]
+      ],
+      "file": "frog-4-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6304,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.057072892253832386,
+          -1.0831651968887441
+        ],
+        [
+          0.49257838010787963,
+          0.7288442619918358,
+          0.465722795201153
+        ]
+      ],
+      "file": "frog-4-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6304,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.07729819841014396,
+          -1.09063368249274
+        ],
+        [
+          0.49257838010787963,
+          0.745558138000377,
+          0.5101393310832651
+        ]
+      ],
+      "file": "frog-4-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6304,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.057072892253832386,
+          -1.0893190839431381
+        ],
+        [
+          0.49257838010787963,
+          0.7288442619918358,
+          0.465722795201153
+        ]
+      ],
+      "file": "frog-4-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6304,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.06375225613715158,
+          -1.0917714081688046
+        ],
+        [
+          0.49257838010787963,
+          0.7372331474728203,
+          0.48514369389337103
+        ]
+      ],
+      "file": "frog-4-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5944,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.06122754195937316,
+          -1.0850072306417866
+        ],
+        [
+          0.49257838010787963,
+          0.7194990812074458,
+          0.4736033955957235
+        ]
+      ],
+      "file": "frog-4-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5944,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.10612550132417051,
+          -1.0471305063151144
+        ],
+        [
+          0.49257838010787963,
+          0.7507888585948721,
+          0.5562872600480124
+        ]
+      ],
+      "file": "frog-4-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5944,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.06122754195937316,
+          -1.0911577305455031
+        ],
+        [
+          0.49257838010787963,
+          0.7194990812074458,
+          0.4736033955957235
+        ]
+      ],
+      "file": "frog-4-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5944,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.08389626071286235,
+          -1.0949374881405824
+        ],
+        [
+          0.49257838010787963,
+          0.7351880160725722,
+          0.5202537605163535
+        ]
+      ],
+      "file": "frog-4-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5944,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.4920840876168987,
+          -0.0412383834200426,
+          -1.0752990364279127
+        ],
+        [
+          0.49307267259886056,
+          0.7274010849829835,
+          0.45963879467777435
+        ]
+      ],
+      "file": "frog-4-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5944,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.4920840876168987,
+          -0.09569656783418068,
+          -1.031071825983999
+        ],
+        [
+          0.49307267259886056,
+          0.7579230462196113,
+          0.5563034055891611
+        ]
+      ],
+      "file": "frog-4-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5944,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.0412383834200426,
+          -1.081458698466364
+        ],
+        [
+          0.49257838010787963,
+          0.7274010849829835,
+          0.45963879467777435
+        ]
+      ],
+      "file": "frog-4-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5944,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.08402609420989032,
+          -1.0852165390130213
+        ],
+        [
+          0.49257838010787963,
+          0.7426641415388985,
+          0.5117771441222774
+        ]
+      ],
+      "file": "frog-4-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6104,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.016239458744765456,
+          -1.0308746855114825
+        ],
+        [
+          0.49257838010787963,
+          0.8064518617670567,
+          0.4585585900961859
+        ]
+      ],
+      "file": "frog-4-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6104,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6150029979663594,
+          -0.0811444762814078,
+          -0.9555053287056873
+        ],
+        [
+          0.49257838010787963,
+          0.8261599784255269,
+          0.5579222506216988
+        ]
+      ],
+      "file": "frog-4-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6104,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.04716037169497084,
+          -1.0911577305455031
+        ],
+        [
+          0.49257838010787963,
+          0.7755309488168514,
+          0.4585585900961859
+        ]
+      ],
+      "file": "frog-4-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6104,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.07298530287535099,
+          -1.0949398758612885
+        ],
+        [
+          0.49257838010787963,
+          0.7931506654335386,
+          0.5219891005557641
+        ]
+      ],
+      "file": "frog-4-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5944,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49134264888042734,
+          -0.042948855233192446,
+          -1.072334356588892
+        ],
+        [
+          0.49381411133533193,
+          0.7470220088657744,
+          0.4692751679701842
+        ]
+      ],
+      "file": "frog-4-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5944,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49134264888042734,
+          -0.10207614646766994,
+          -1.0821281228256607
+        ],
+        [
+          0.49381411133533193,
+          0.7799720308100904,
+          0.5484611210716721
+        ]
+      ],
+      "file": "frog-4-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5944,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.042948855233192446,
+          -1.0784959440231323
+        ],
+        [
+          0.49257838010787963,
+          0.7470220088657744,
+          0.4692751679701842
+        ]
+      ],
+      "file": "frog-4-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5944,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.49257838010787963,
+          -0.08321602930181554,
+          -1.0822559639633553
+        ],
+        [
+          0.49257838010787963,
+          0.7635551014999509,
+          0.5065554518285758
+        ]
+      ],
+      "file": "frog-4-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.03997738957405095,
+          -0.2677211630344391
+        ],
+        [
+          0.6963675630092621,
+          1.0673999905586242,
+          0.4552893090248108
+        ]
+      ],
+      "file": "frog-6-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.08670762697444373,
+          -0.3554147927672676
+        ],
+        [
+          0.6963675630092621,
+          1.0889208968079678,
+          0.5556096800636394
+        ]
+      ],
+      "file": "frog-6-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.03997738957405095,
+          -0.2677211630344391
+        ],
+        [
+          0.6963675630092621,
+          1.0673999905586242,
+          0.4552893090248108
+        ]
+      ],
+      "file": "frog-6-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.06671763403911574,
+          -0.3135473562251035
+        ],
+        [
+          0.6963675630092621,
+          1.078205947873913,
+          0.5086587318407121
+        ]
+      ],
+      "file": "frog-6-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          0.0182939660063266,
+          -0.2869651523091058
+        ],
+        [
+          0.6963675630092621,
+          1.1519928652469276,
+          0.46345007496733726
+        ]
+      ],
+      "file": "frog-6-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.06203875721432417,
+          -0.37752885973288997
+        ],
+        [
+          0.6963675630092621,
+          1.1293248060690586,
+          0.5920674491247111
+        ]
+      ],
+      "file": "frog-6-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.04354785989408416,
+          -0.2869651523091058
+        ],
+        [
+          0.6963675630092621,
+          1.0901510393465168,
+          0.46345007496733726
+        ]
+      ],
+      "file": "frog-6-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.06905585523859126,
+          -0.3216937410447415
+        ],
+        [
+          0.6963675630092621,
+          1.0943483633629079,
+          0.5344489522156057
+        ]
+      ],
+      "file": "frog-6-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6060,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.05625495163654898,
+          -0.3916031739269853
+        ],
+        [
+          0.6963675630092621,
+          1.1138133136062367,
+          0.5026612275117767
+        ]
+      ],
+      "file": "frog-6-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6060,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.08430956319890781,
+          -0.39500715079884263
+        ],
+        [
+          0.6963675630092621,
+          1.1289528186963462,
+          0.5088489426513936
+        ]
+      ],
+      "file": "frog-6-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6060,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.05625495163654898,
+          -0.3916031739269853
+        ],
+        [
+          0.6963675630092621,
+          1.1138133136062367,
+          0.5026612275117767
+        ]
+      ],
+      "file": "frog-6-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6060,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.07155344233234123,
+          -0.393328218033946
+        ],
+        [
+          0.6963675630092621,
+          1.1214053491335998,
+          0.505779220193918
+        ]
+      ],
+      "file": "frog-6-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6260,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.06269827066728129,
+          -0.302410752807986
+        ],
+        [
+          0.6963675630092621,
+          1.0278088338084557,
+          0.47132119969896025
+        ]
+      ],
+      "file": "frog-6-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6260,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.08401252412551707,
+          -0.32956898808657953
+        ],
+        [
+          0.6963675630092621,
+          1.0437613134849908,
+          0.5546792624427024
+        ]
+      ],
+      "file": "frog-6-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6260,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.06269827066728129,
+          -0.302410752807986
+        ],
+        [
+          0.6963675630092621,
+          1.0278088338084557,
+          0.47132119969896025
+        ]
+      ],
+      "file": "frog-6-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6260,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.07298571475103427,
+          -0.30576365639631553
+        ],
+        [
+          0.6963675630092621,
+          1.0358217898865525,
+          0.5154308712311582
+        ]
+      ],
+      "file": "frog-6-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.06690293243900303,
+          -0.3126678395518224
+        ],
+        [
+          0.6963675630092621,
+          1.009992363042205,
+          0.47438744199939875
+        ]
+      ],
+      "file": "frog-6-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.11307077156485751,
+          -0.4121093982726345
+        ],
+        [
+          0.6963675630092621,
+          1.0403459224829834,
+          0.6352276128332554
+        ]
+      ],
+      "file": "frog-6-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.06690293243900303,
+          -0.3126678395518224
+        ],
+        [
+          0.6963675630092621,
+          1.009992363042205,
+          0.47438744199939875
+        ]
+      ],
+      "file": "frog-6-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.09063996948931802,
+          -0.33969584820626886
+        ],
+        [
+          0.6963675630092621,
+          1.0252194472047709,
+          0.5706715238824608
+        ]
+      ],
+      "file": "frog-6-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6958732705182812,
+          -0.047055408008584265,
+          -0.2773859237333094
+        ],
+        [
+          0.696861855500243,
+          1.042251544232048,
+          0.4600016890763528
+        ]
+      ],
+      "file": "frog-6-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6958732705182812,
+          -0.10264881706765738,
+          -0.44592738616905925
+        ],
+        [
+          0.696861855500243,
+          1.0726012004884589,
+          0.6399292224394344
+        ]
+      ],
+      "file": "frog-6-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.047055408008584265,
+          -0.2773859237333094
+        ],
+        [
+          0.6963675630092621,
+          1.042251544232048,
+          0.4600016890763528
+        ]
+      ],
+      "file": "frog-6-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.09335453896361401,
+          -0.37468586742000654
+        ],
+        [
+          0.6963675630092621,
+          1.057428789981514,
+          0.5624382365971446
+        ]
+      ],
+      "file": "frog-6-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6060,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.022408361440015234,
+          -0.3057634597468218
+        ],
+        [
+          0.6963675630092621,
+          1.1250982990480982,
+          0.47438744199939875
+        ]
+      ],
+      "file": "frog-6-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6060,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.08853806859823826,
+          -0.41618754600482144
+        ],
+        [
+          0.6963675630092621,
+          1.1440617891611196,
+          0.6382691542596651
+        ]
+      ],
+      "file": "frog-6-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6060,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.053329274390220616,
+          -0.3057634597468218
+        ],
+        [
+          0.6963675630092621,
+          1.094177386097893,
+          0.47438744199939875
+        ]
+      ],
+      "file": "frog-6-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6060,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.08039962286860086,
+          -0.3412920668720436
+        ],
+        [
+          0.6963675630092621,
+          1.1114305213378886,
+          0.573333275749405
+        ]
+      ],
+      "file": "frog-6-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6951318317818098,
+          -0.04777806788682942,
+          -0.2822871323064484
+        ],
+        [
+          0.6976032942367144,
+          1.0612681058598104,
+          0.4552893090248108
+        ]
+      ],
+      "file": "frog-6-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6951318317818098,
+          -0.11030916940273477,
+          -0.4198710572174284
+        ],
+        [
+          0.6976032942367144,
+          1.093189843145932,
+          0.6228010150852352
+        ]
+      ],
+      "file": "frog-6-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.04777806788682942,
+          -0.2822871323064484
+        ],
+        [
+          0.6963675630092621,
+          1.0612681058598104,
+          0.4552893090248108
+        ]
+      ],
+      "file": "frog-6-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5900,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6963675630092621,
+          -0.09182963677544109,
+          -0.35228279621276004
+        ],
+        [
+          0.6963675630092621,
+          1.0772958265428685,
+          0.5522047112388179
+        ]
+      ],
+      "file": "frog-6-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.062158085107803296,
+          -0.3014409208297729
+        ],
+        [
+          0.657450168132782,
+          0.9774000096321106,
+          0.4769714510440827
+        ]
+      ],
+      "file": "frog-8-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.10910362680434582,
+          -0.3888956536746393
+        ],
+        [
+          0.657450168132782,
+          0.999859870293716,
+          0.561189409312362
+        ]
+      ],
+      "file": "frog-8-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.062158085107803296,
+          -0.3014409208297729
+        ],
+        [
+          0.657450168132782,
+          0.9774000096321106,
+          0.4769714510440827
+        ]
+      ],
+      "file": "frog-8-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.08902554187706135,
+          -0.34734939442169255
+        ],
+        [
+          0.657450168132782,
+          0.9886730528470984,
+          0.522149749289613
+        ]
+      ],
+      "file": "frog-8-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.004725829394079062,
+          -0.3055962830814689
+        ],
+        [
+          0.657450168132782,
+          1.0647306319778158,
+          0.48466893585651616
+        ]
+      ],
+      "file": "frog-8-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.08471484713986238,
+          -0.4103754963030579
+        ],
+        [
+          0.657450168132782,
+          1.0408783010416698,
+          0.5914142224418917
+        ]
+      ],
+      "file": "frog-8-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.06656765529448982,
+          -0.3055962830814689
+        ],
+        [
+          0.657450168132782,
+          1.0028888060774053,
+          0.48466893585651616
+        ]
+      ],
+      "file": "frog-8-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.09163160870190779,
+          -0.3552102621323254
+        ],
+        [
+          0.657450168132782,
+          1.0064905814346592,
+          0.5443793197303282
+        ]
+      ],
+      "file": "frog-8-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6044,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.07788133396140917,
+          -0.42160585278006935
+        ],
+        [
+          0.657450168132782,
+          1.0293537628432248,
+          0.5619076726455967
+        ]
+      ],
+      "file": "frog-8-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6044,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.1060644307522281,
+          -0.42496966778988887
+        ],
+        [
+          0.657450168132782,
+          1.0454890546282218,
+          0.5675487237600035
+        ]
+      ],
+      "file": "frog-8-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6044,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.07788133396140917,
+          -0.42160585278006935
+        ],
+        [
+          0.657450168132782,
+          1.0293537628432248,
+          0.5619076726455967
+        ]
+      ],
+      "file": "frog-8-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6044,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.09325141919648333,
+          -0.4233132487570296
+        ],
+        [
+          0.657450168132782,
+          1.037443016166355,
+          0.5647545697114246
+        ]
+      ],
+      "file": "frog-8-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6244,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.0851179834869028,
+          -0.3095606576038274
+        ],
+        [
+          0.657450168132782,
+          0.9488450412691786,
+          0.4920635183606943
+        ]
+      ],
+      "file": "frog-8-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6244,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.10595408656413652,
+          -0.3597025785433956
+        ],
+        [
+          0.657450168132782,
+          0.965646128652463,
+          0.5618101736721799
+        ]
+      ],
+      "file": "frog-8-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6244,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.0851179834869028,
+          -0.3095606576038274
+        ],
+        [
+          0.657450168132782,
+          0.9488450412691786,
+          0.4920635183606943
+        ]
+      ],
+      "file": "frog-8-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6244,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.09785480185424866,
+          -0.32981159540140176
+        ],
+        [
+          0.657450168132782,
+          0.9572809891815365,
+          0.5292530494227314
+        ]
+      ],
+      "file": "frog-8-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.0891492211818255,
+          -0.319205820311895
+        ],
+        [
+          0.657450168132782,
+          0.9340676665174907,
+          0.4949354971010863
+        ]
+      ],
+      "file": "frog-8-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.1342618636007239,
+          -0.4435867951936027
+        ],
+        [
+          0.657450168132782,
+          0.9654110418823052,
+          0.6253613608596857
+        ]
+      ],
+      "file": "frog-8-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.0891492211818255,
+          -0.319205820311895
+        ],
+        [
+          0.657450168132782,
+          0.9340676665174907,
+          0.4949354971010863
+        ]
+      ],
+      "file": "frog-8-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.11175070481050481,
+          -0.37021509225318655
+        ],
+        [
+          0.657450168132782,
+          0.9497880564869877,
+          0.5749970389508912
+        ]
+      ],
+      "file": "frog-8-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.656955875641801,
+          -0.06813215825651231,
+          -0.31139963032191875
+        ],
+        [
+          0.657944460623763,
+          0.9579993654732115,
+          0.4810829195725681
+        ]
+      ],
+      "file": "frog-8-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.656955875641801,
+          -0.12393431857287551,
+          -0.47671545633953155
+        ],
+        [
+          0.657944460623763,
+          0.9885653903803635,
+          0.6273508585919599
+        ]
+      ],
+      "file": "frog-8-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.06813215825651231,
+          -0.31139963032191875
+        ],
+        [
+          0.657450168132782,
+          0.9579993654732115,
+          0.4810829195725681
+        ]
+      ],
+      "file": "frog-8-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.11463876958351471,
+          -0.40811377157704903
+        ],
+        [
+          0.657450168132782,
+          0.9732846895118037,
+          0.5661025754781859
+        ]
+      ],
+      "file": "frog-8-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6044,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.04658911007351796,
+          -0.3110923718186594
+        ],
+        [
+          0.657450168132782,
+          1.0392182013985178,
+          0.4949354971010863
+        ]
+      ],
+      "file": "frog-8-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6044,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.1115715160843474,
+          -0.4475078545814957
+        ],
+        [
+          0.657450168132782,
+          1.0590958153060535,
+          0.627768279655178
+        ]
+      ],
+      "file": "frog-8-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6044,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.07751002302372334,
+          -0.3110923718186594
+        ],
+        [
+          0.657450168132782,
+          1.0082972884483126,
+          0.4949354971010863
+        ]
+      ],
+      "file": "frog-8-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6044,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.10335159099749602,
+          -0.37293327771755835
+        ],
+        [
+          0.657450168132782,
+          1.0260057409461258,
+          0.5772710219969109
+        ]
+      ],
+      "file": "frog-8-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6562144369053298,
+          -0.0692933425545692,
+          -0.3014409208297729
+        ],
+        [
+          0.6586858993602343,
+          0.9783023445147616,
+          0.4769714510440827
+        ]
+      ],
+      "file": "frog-8-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.6562144369053298,
+          -0.13208697174696066,
+          -0.45172638509756113
+        ],
+        [
+          0.6586858993602343,
+          1.011385148931578,
+          0.6151381846409298
+        ]
+      ],
+      "file": "frog-8-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.0692933425545692,
+          -0.3014409208297729
+        ],
+        [
+          0.657450168132782,
+          0.9783023445147616,
+          0.4769714510440827
+        ]
+      ],
+      "file": "frog-8-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "frog",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5884,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.657450168132782,
+          -0.11354844953547993,
+          -0.3858034458527946
+        ],
+        [
+          0.657450168132782,
+          0.9949081477476966,
+          0.5584747358229957
+        ]
+      ],
+      "file": "frog-8-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}

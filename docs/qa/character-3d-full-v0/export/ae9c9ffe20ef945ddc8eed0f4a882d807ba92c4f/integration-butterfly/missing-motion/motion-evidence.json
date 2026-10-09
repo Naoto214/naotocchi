@@ -1,0 +1,3609 @@
+{
+  "source": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "butterfly",
+      "stage": 2
+    },
+    {
+      "id": "butterfly",
+      "stage": 3
+    },
+    {
+      "id": "butterfly",
+      "stage": 6
+    },
+    {
+      "id": "butterfly",
+      "stage": 7
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3616962027594605,
+          -0.004099336760210792,
+          -0.8219022829604304
+        ],
+        [
+          0.342478015237388,
+          0.7992405063840489,
+          0.9903489943147845
+        ]
+      ],
+      "file": "butterfly-2-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3616962027594605,
+          0.0022006494366504092,
+          -0.7937511099471425
+        ],
+        [
+          0.342478015237388,
+          0.7992405063840489,
+          0.9903489943147845
+        ]
+      ],
+      "file": "butterfly-2-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3428806481926715,
+          0.0016621497465186263,
+          -0.8219022829604304
+        ],
+        [
+          0.3267193617255414,
+          0.761870964805343,
+          0.9903489943147845
+        ]
+      ],
+      "file": "butterfly-2-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3428806481926715,
+          0.005481490512392911,
+          -0.8078266964537865
+        ],
+        [
+          0.3267193617255414,
+          0.761870964805343,
+          0.9903489943147845
+        ]
+      ],
+      "file": "butterfly-2-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3616962027594605,
+          0.06074248914019997,
+          -0.8219022829604304
+        ],
+        [
+          0.342478015237388,
+          0.8775624277363879,
+          0.9830226379501941
+        ]
+      ],
+      "file": "butterfly-2-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3616962027594605,
+          0.029821576189994592,
+          -0.8412672133336012
+        ],
+        [
+          0.342478015237388,
+          0.8466415147861825,
+          0.9830226379501941
+        ]
+      ],
+      "file": "butterfly-2-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3428806481926715,
+          0.004662149746518629,
+          -0.8219022829604304
+        ],
+        [
+          0.3267193617255414,
+          0.7783710759499001,
+          0.9824428502789613
+        ]
+      ],
+      "file": "butterfly-2-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3428806481926715,
+          0.004662149746518629,
+          -0.8315847481470158
+        ],
+        [
+          0.3267193617255414,
+          0.7783710759499001,
+          0.9824428502789613
+        ]
+      ],
+      "file": "butterfly-2-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44404744716866285,
+          -0.009099336760210797,
+          -0.8219022829604304
+        ],
+        [
+          0.4250473247973513,
+          0.8238923654339159,
+          1.1040643610593002
+        ]
+      ],
+      "file": "butterfly-2-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44404744716866285,
+          -0.009099336760210797,
+          -0.8302599480013323
+        ],
+        [
+          0.4250473247973513,
+          0.872574949620727,
+          1.1040643610593002
+        ]
+      ],
+      "file": "butterfly-2-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4265741070437258,
+          -0.003337850253481378,
+          -0.8219022829604304
+        ],
+        [
+          0.41041282057659567,
+          0.7871645039686215,
+          1.0985788387626227
+        ]
+      ],
+      "file": "butterfly-2-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4265741070437258,
+          -0.003337850253481378,
+          -0.8260811154808814
+        ],
+        [
+          0.41041282057659567,
+          0.811505796062027,
+          1.0985788387626227
+        ]
+      ],
+      "file": "butterfly-2-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3124,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3616962027594605,
+          -0.016853376554598176,
+          -0.8219022829604304
+        ],
+        [
+          0.342478015237388,
+          0.786917764740842,
+          1.0393776405083606
+        ]
+      ],
+      "file": "butterfly-2-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3124,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3616962027594605,
+          -0.016853376554598176,
+          -0.8468838336456068
+        ],
+        [
+          0.342478015237388,
+          0.786917764740842,
+          1.0393776405083606
+        ]
+      ],
+      "file": "butterfly-2-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3124,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3428806481926715,
+          -0.011437579238272516,
+          -0.8219022829604304
+        ],
+        [
+          0.3267193617255414,
+          0.7521424905425231,
+          1.0357890096781963
+        ]
+      ],
+      "file": "butterfly-2-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3124,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3428806481926715,
+          -0.011437579238272516,
+          -0.8343930583030186
+        ],
+        [
+          0.3267193617255414,
+          0.7521424905425231,
+          1.0357890096781963
+        ]
+      ],
+      "file": "butterfly-2-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3616962027594605,
+          -0.01977138981939397,
+          -0.8219022829604304
+        ],
+        [
+          0.342478015237388,
+          0.7755200233662833,
+          1.0538507412418348
+        ]
+      ],
+      "file": "butterfly-2-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3616962027594605,
+          0.01655703946285797,
+          -0.8070944992855995
+        ],
+        [
+          0.342478015237388,
+          0.7755200233662833,
+          1.0538507412418348
+        ]
+      ],
+      "file": "butterfly-2-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3428806481926715,
+          -0.014470822233202896,
+          -0.8219022829604304
+        ],
+        [
+          0.3267193617255414,
+          0.7416610792396661,
+          1.0494503890695708
+        ]
+      ],
+      "file": "butterfly-2-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3428806481926715,
+          0.0036933924079231018,
+          -0.814498391123015
+        ],
+        [
+          0.3267193617255414,
+          0.7416610792396661,
+          1.0494503890695708
+        ]
+      ],
+      "file": "butterfly-2-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3612019102684796,
+          -0.00793536328980235,
+          -0.8219022829604304
+        ],
+        [
+          0.34297230772836895,
+          0.7803342568407203,
+          0.9910991347396576
+        ]
+      ],
+      "file": "butterfly-2-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3612019102684796,
+          -0.0018873765408156107,
+          -0.8083750220343051
+        ],
+        [
+          0.34297230772836895,
+          0.807064477060217,
+          0.9910991347396576
+        ]
+      ],
+      "file": "butterfly-2-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3428806481926715,
+          -0.0024043362433421034,
+          -0.8219022829604304
+        ],
+        [
+          0.3267193617255414,
+          0.7444936519394475,
+          0.989987697394475
+        ]
+      ],
+      "file": "butterfly-2-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3428806481926715,
+          0.001262230891897198,
+          -0.8151386524973678
+        ],
+        [
+          0.3267193617255414,
+          0.7578587620491959,
+          0.989987697394475
+        ]
+      ],
+      "file": "butterfly-2-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3616962027594605,
+          0.02882157618999459,
+          -0.8219022829604304
+        ],
+        [
+          0.342478015237388,
+          0.8412469534699423,
+          0.9913675834129987
+        ]
+      ],
+      "file": "butterfly-2-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3616962027594605,
+          0.04623644978252717,
+          -0.8095740341850672
+        ],
+        [
+          0.342478015237388,
+          0.8257864969948396,
+          0.9913675834129987
+        ]
+      ],
+      "file": "butterfly-2-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3428806481926715,
+          0.003662149746518628,
+          -0.8219022829604304
+        ],
+        [
+          0.3267193617255414,
+          0.7729653957533906,
+          0.991300918825849
+        ]
+      ],
+      "file": "butterfly-2-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3428806481926715,
+          0.02009981478033629,
+          -0.8157381585727488
+        ],
+        [
+          0.3267193617255414,
+          0.7729653957533906,
+          0.991300918825849
+        ]
+      ],
+      "file": "butterfly-2-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3604604715320082,
+          -0.012976356657404486,
+          -0.8219022829604304
+        ],
+        [
+          0.3437137464648403,
+          0.8028355351096537,
+          1.0187893770792842
+        ]
+      ],
+      "file": "butterfly-2-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3604604715320082,
+          -0.012976356657404486,
+          -0.8512322632956661
+        ],
+        [
+          0.3437137464648403,
+          0.8171981769037658,
+          1.0187893770792842
+        ]
+      ],
+      "file": "butterfly-2-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3428806481926715,
+          -0.007387714745876933,
+          -0.8219022829604304
+        ],
+        [
+          0.3267193617255414,
+          0.7667615485334847,
+          1.0162955745460223
+        ]
+      ],
+      "file": "butterfly-2-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3428806481926715,
+          -0.007387714745876933,
+          -0.8365672731280482
+        ],
+        [
+          0.3267193617255414,
+          0.7739428694305407,
+          1.0162955745460223
+        ]
+      ],
+      "file": "butterfly-2-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2844,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4524099757942798,
+          -0.01384795139122802,
+          -0.9148292018536901
+        ],
+        [
+          0.43330004131797367,
+          1.1800518822819939,
+          1.1260151892416101
+        ]
+      ],
+      "file": "butterfly-3-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2844,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4524099757942798,
+          -0.0017379975660344327,
+          -0.8866780288404021
+        ],
+        [
+          0.43330004131797367,
+          1.1800518822819939,
+          1.1260151892416101
+        ]
+      ],
+      "file": "butterfly-3-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2844,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4289253769140019,
+          -0.0067460638083131075,
+          -0.9148292018536901
+        ],
+        [
+          0.4134746374864803,
+          1.1381926878460735,
+          1.1260151892416101
+        ]
+      ],
+      "file": "butterfly-3-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2844,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4289253769140019,
+          0.0022208360764582324,
+          -0.9007536153470461
+        ],
+        [
+          0.4134746374864803,
+          1.1381926878460735,
+          1.1260151892416101
+        ]
+      ],
+      "file": "butterfly-3-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4524099757942797,
+          0.050993874509182746,
+          -0.9148292018536901
+        ],
+        [
+          0.43330004131797367,
+          1.261856552212418,
+          1.1168354704646695
+        ]
+      ],
+      "file": "butterfly-3-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4524099757942797,
+          0.020072961558977365,
+          -0.9341941322268609
+        ],
+        [
+          0.43330004131797367,
+          1.2309356392622126,
+          1.1168354704646695
+        ]
+      ],
+      "file": "butterfly-3-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4289253769140019,
+          -0.003746063808313105,
+          -0.9148292018536901
+        ],
+        [
+          0.4134746374864803,
+          1.1581807186558442,
+          1.1161060601609627
+        ]
+      ],
+      "file": "butterfly-3-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4289253769140019,
+          -0.003746063808313105,
+          -0.9245116670402755
+        ],
+        [
+          0.4134746374864803,
+          1.1581807186558442,
+          1.1161060601609627
+        ]
+      ],
+      "file": "butterfly-3-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5560264577002322,
+          -0.018847951391228024,
+          -0.9148292018536901
+        ],
+        [
+          0.5371775532362278,
+          1.2123725126608815,
+          1.2687661968965993
+        ]
+      ],
+      "file": "butterfly-3-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5560264577002322,
+          -0.018847951391228024,
+          -0.923186866894592
+        ],
+        [
+          0.5371775532362278,
+          1.2610550968476928,
+          1.2687661968965993
+        ]
+      ],
+      "file": "butterfly-3-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5342171412394184,
+          -0.011746063808313112,
+          -0.9148292018536901
+        ],
+        [
+          0.5187664018118968,
+          1.171315078482371,
+          1.2619336431828363
+        ]
+      ],
+      "file": "butterfly-3-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5342171412394184,
+          -0.011746063808313112,
+          -0.919008034374141
+        ],
+        [
+          0.5187664018118968,
+          1.1956563705757766,
+          1.2619336431828363
+        ]
+      ],
+      "file": "butterfly-3-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3124,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4524099757942798,
+          -0.02601707430775438,
+          -0.9148292018536901
+        ],
+        [
+          0.43330004131797367,
+          1.1575011973083043,
+          1.1870138258338845
+        ]
+      ],
+      "file": "butterfly-3-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3124,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4524099757942798,
+          -0.02601707430775438,
+          -0.9398107525388664
+        ],
+        [
+          0.43330004131797367,
+          1.1575011973083043,
+          1.1870138258338845
+        ]
+      ],
+      "file": "butterfly-3-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3124,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4289253769140019,
+          -0.019341299979814347,
+          -0.9148292018536901
+        ],
+        [
+          0.4134746374864803,
+          1.1185966137173209,
+          1.1824980663233127
+        ]
+      ],
+      "file": "butterfly-3-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3124,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4289253769140019,
+          -0.019341299979814347,
+          -0.9273199771962782
+        ],
+        [
+          0.4134746374864803,
+          1.1185966137173209,
+          1.1824980663233127
+        ]
+      ],
+      "file": "butterfly-3-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4524099757942798,
+          -0.028740115279929812,
+          -0.9148292018536901
+        ],
+        [
+          0.43330004131797367,
+          1.1404790697620697,
+          1.2050590912115502
+        ]
+      ],
+      "file": "butterfly-3-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4524099757942798,
+          0.007588314002322072,
+          -0.9000214181788592
+        ],
+        [
+          0.43330004131797367,
+          1.1404790697620697,
+          1.2050590912115502
+        ]
+      ],
+      "file": "butterfly-3-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4289253769140019,
+          -0.022206378703648055,
+          -0.9148292018536901
+        ],
+        [
+          0.4134746374864803,
+          1.1026242550306247,
+          1.1995219008143827
+        ]
+      ],
+      "file": "butterfly-3-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4289253769140019,
+          -0.004042164062522058,
+          -0.9074253100162746
+        ],
+        [
+          0.4134746374864803,
+          1.1026242550306247,
+          1.1995219008143827
+        ]
+      ],
+      "file": "butterfly-3-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.45191568330329884,
+          -0.017294033335578912,
+          -0.9148292018536901
+        ],
+        [
+          0.4337943338089546,
+          1.150323478557616,
+          1.1267732693552983
+        ]
+      ],
+      "file": "butterfly-3-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.45191568330329884,
+          -0.005668477663393068,
+          -0.9013019409275648
+        ],
+        [
+          0.4337943338089546,
+          1.177053698777113,
+          1.1267732693552983
+        ]
+      ],
+      "file": "butterfly-3-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4289253769140019,
+          -0.010476221255980606,
+          -0.9148292018536901
+        ],
+        [
+          0.4134746374864803,
+          1.110181630917563,
+          1.1253746903430115
+        ]
+      ],
+      "file": "butterfly-3-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4289253769140019,
+          -0.0018679973666000937,
+          -0.9080655713906274
+        ],
+        [
+          0.4134746374864803,
+          1.1235467410273114,
+          1.1253746903430115
+        ]
+      ],
+      "file": "butterfly-3-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4524099757942797,
+          0.019072961558977364,
+          -0.9148292018536901
+        ],
+        [
+          0.43330004131797367,
+          1.2244047674631902,
+          1.1273339554611812
+        ]
+      ],
+      "file": "butterfly-3-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4524099757942797,
+          0.036487835151509995,
+          -0.9025009530783268
+        ],
+        [
+          0.43330004131797367,
+          1.2089443109880873,
+          1.1273339554611812
+        ]
+      ],
+      "file": "butterfly-3-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4289253769140019,
+          -0.004746063808313106,
+          -0.9148292018536901
+        ],
+        [
+          0.4134746374864803,
+          1.1516358553955375,
+          1.1272500869572122
+        ]
+      ],
+      "file": "butterfly-3-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2924,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4289253769140019,
+          0.011691601225504555,
+          -0.9086650774660086
+        ],
+        [
+          0.4134746374864803,
+          1.1516358553955375,
+          1.1272500869572122
+        ]
+      ],
+      "file": "butterfly-3-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4511742445668274,
+          -0.022432512849491187,
+          -0.9148292018536901
+        ],
+        [
+          0.43453577254542597,
+          1.1816955637509357,
+          1.161332081807338
+        ]
+      ],
+      "file": "butterfly-3-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4511742445668274,
+          -0.022432512849491187,
+          -0.9441591821889259
+        ],
+        [
+          0.43453577254542597,
+          1.1960582055450477,
+          1.161332081807338
+        ]
+      ],
+      "file": "butterfly-3-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4289253769140019,
+          -0.015543681894063716,
+          -0.9148292018536901
+        ],
+        [
+          0.4134746374864803,
+          1.1413116881932728,
+          1.1581940012858176
+        ]
+      ],
+      "file": "butterfly-3-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2764,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4289253769140019,
+          -0.015543681894063716,
+          -0.929494192021308
+        ],
+        [
+          0.4134746374864803,
+          1.148493009090329,
+          1.1581940012858176
+        ]
+      ],
+      "file": "butterfly-3-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6550,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.19612896192396734,
+          -0.19373818913342555
+        ],
+        [
+          0.6314696669578552,
+          1.5073114914775312,
+          0.4207096875577375
+        ]
+      ],
+      "file": "butterfly-6-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6550,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.1990648744596722,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.5073114914775312,
+          0.40639447938357703
+        ]
+      ],
+      "file": "butterfly-6-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6550,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.1744779043074659,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.48566043386103,
+          0.4207096875577375
+        ]
+      ],
+      "file": "butterfly-6-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6550,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.17741381684317076,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.48566043386103,
+          0.40639447938357703
+        ]
+      ],
+      "file": "butterfly-6-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6390,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.26396336343418986,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.572153317377942,
+          0.383536742977288
+        ]
+      ],
+      "file": "butterfly-6-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6390,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.22731801571342125,
+          -0.19909870192787366
+        ],
+        [
+          0.6314696669578552,
+          1.5412324044277366,
+          0.4130200028560652
+        ]
+      ],
+      "file": "butterfly-6-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6390,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.18047047991727766,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.4886604338610299,
+          0.383536742977288
+        ]
+      ],
+      "file": "butterfly-6-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6390,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.17474604514671443,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.4886604338610299,
+          0.4130200028560652
+        ]
+      ],
+      "file": "butterfly-6-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6550,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.18496945396506648,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.5023114914775313,
+          0.5579945871298012
+        ]
+      ],
+      "file": "butterfly-6-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6550,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.18997613369526734,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.5023114914775313,
+          0.5320229083471191
+        ]
+      ],
+      "file": "butterfly-6-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6550,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.16331839634856504,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.4806604338610299,
+          0.5579945871298012
+        ]
+      ],
+      "file": "butterfly-6-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6550,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.1683250760787659,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.4806604338610299,
+          0.5320229083471191
+        ]
+      ],
+      "file": "butterfly-6-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6750,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.21207618417191293,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.4387286069274365,
+          0.4832884963259668
+        ]
+      ],
+      "file": "butterfly-6-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6750,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.21227861123259706,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.4387286069274365,
+          0.48243173675383766
+        ]
+      ],
+      "file": "butterfly-6-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6750,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.1904251265554115,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.4170775493109353,
+          0.4832884963259668
+        ]
+      ],
+      "file": "butterfly-6-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6750,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.19062755361609562,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.4170775493109353,
+          0.48243173675383766
+        ]
+      ],
+      "file": "butterfly-6-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6390,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.21790354299297077,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.4172009787440718,
+          0.497365642165221
+        ]
+      ],
+      "file": "butterfly-6-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6390,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.21253191622305884,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.4172009787440718,
+          0.520508823596298
+        ]
+      ],
+      "file": "butterfly-6-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6390,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.19625248537646933,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.3955499211275704,
+          0.497365642165221
+        ]
+      ],
+      "file": "butterfly-6-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6390,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.1908808586065574,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.3955499211275704,
+          0.520508823596298
+        ]
+      ],
+      "file": "butterfly-6-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6390,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8018358438081524,
+          0.2048880023326674,
+          -0.19000000178813933
+        ],
+        [
+          0.6319639594488361,
+          1.4662562351108015,
+          0.46334365028193836
+        ]
+      ],
+      "file": "butterfly-6-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6390,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8018358438081524,
+          0.20972188927108776,
+          -0.19000000178813933
+        ],
+        [
+          0.6319639594488361,
+          1.4662562351108015,
+          0.43854641517308335
+        ]
+      ],
+      "file": "butterfly-6-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6390,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.18323694471616597,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.4446051774943,
+          0.46334365028193836
+        ]
+      ],
+      "file": "butterfly-6-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6390,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.18807083165458632,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.4446051774943,
+          0.43854641517308335
+        ]
+      ],
+      "file": "butterfly-6-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6550,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.2366482351330616,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.5402324044277367,
+          0.3700618088259824
+        ]
+      ],
+      "file": "butterfly-6-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6550,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.21722360054711531,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.524771947952634,
+          0.38808279371082827
+        ]
+      ],
+      "file": "butterfly-6-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6550,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.18407626456635479,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.4876604338610298,
+          0.3700618088259824
+        ]
+      ],
+      "file": "butterfly-6-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6550,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.18011208645551124,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.4876604338610298,
+          0.38808279371082827
+        ]
+      ],
+      "file": "butterfly-6-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6390,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.801094405071681,
+          0.19867299553552692,
+          -0.19000000178813933
+        ],
+        [
+          0.6327053981853076,
+          1.470520049202484,
+          0.4836757774393531
+        ]
+      ],
+      "file": "butterfly-6-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6390,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.801094405071681,
+          0.2004735431396028,
+          -0.19000000178813933
+        ],
+        [
+          0.6327053981853076,
+          1.470520049202484,
+          0.4751886995520973
+        ]
+      ],
+      "file": "butterfly-6-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6390,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.17702193791902548,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.4488689915859825,
+          0.4836757774393531
+        ]
+      ],
+      "file": "butterfly-6-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6390,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.8023301362991333,
+          0.17882248552310137,
+          -0.19000000178813933
+        ],
+        [
+          0.6314696669578552,
+          1.4488689915859825,
+          0.4751886995520973
+        ]
+      ],
+      "file": "butterfly-6-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5092,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8275230684376327,
+          -0.004532802262014579,
+          -0.4882525457995259
+        ],
+        [
+          0.8275230684376327,
+          1.5473662765545113,
+          0.437270605785636
+        ]
+      ],
+      "file": "butterfly-7-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5092,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8275230684376327,
+          -0.001699521643872326,
+          -0.4783083853143027
+        ],
+        [
+          0.8275230684376327,
+          1.5401575794648215,
+          0.42016958715736996
+        ]
+      ],
+      "file": "butterfly-7-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5092,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8884145586870824,
+          -0.026183859878516014,
+          -0.2180942295588017
+        ],
+        [
+          0.8884145586870824,
+          1.4801036652125596,
+          0.437270605785636
+        ]
+      ],
+      "file": "butterfly-7-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5092,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8884317304887894,
+          -0.02335057926037376,
+          -0.20487020799812028
+        ],
+        [
+          0.8884317304887894,
+          1.481200828471522,
+          0.42016958715736996
+        ]
+      ],
+      "file": "butterfly-7-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5012,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8312073928198471,
+          0.06319812156338178,
+          -0.46955256220832153
+        ],
+        [
+          0.8312073928198471,
+          1.603783647366805,
+          0.3924296612984847
+        ]
+      ],
+      "file": "butterfly-7-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5012,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8312073928198471,
+          0.026874612232861028,
+          -0.48953400305278083
+        ],
+        [
+          0.8312073928198471,
+          1.5865014758831326,
+          0.42763946876801745
+        ]
+      ],
+      "file": "butterfly-7-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5012,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8884145586870824,
+          -0.020294761953530416,
+          -0.20462398289716457
+        ],
+        [
+          0.8884145586870824,
+          1.4833142193186961,
+          0.3924296612984847
+        ]
+      ],
+      "file": "butterfly-7-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5012,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8786788358206616,
+          -0.025697358333845788,
+          -0.324725633016456
+        ],
+        [
+          0.8786788358206616,
+          1.5048075825392573,
+          0.42763946876801745
+        ]
+      ],
+      "file": "butterfly-7-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5172,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8875062106711094,
+          -0.014970825933482201,
+          -0.25583051659301415
+        ],
+        [
+          0.8875062106711094,
+          1.5030749427314722,
+          0.5964004765166322
+        ]
+      ],
+      "file": "butterfly-7-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5172,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8875062106711094,
+          -0.01060981089436508,
+          -0.2344385388833474
+        ],
+        [
+          0.8875062106711094,
+          1.5035228596136403,
+          0.5652228521275046
+        ]
+      ],
+      "file": "butterfly-7-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5172,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8884145586870824,
+          -0.036621883549983636,
+          -0.24985086075102836
+        ],
+        [
+          0.8884145586870824,
+          1.4722513585888302,
+          0.5964004765166322
+        ]
+      ],
+      "file": "butterfly-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5172,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8883813852940421,
+          -0.032260868510866514,
+          -0.22545751464821098
+        ],
+        [
+          0.8883813852940421,
+          1.4771853627761222,
+          0.5652228521275046
+        ]
+      ],
+      "file": "butterfly-7-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5372,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8199551928253999,
+          0.02336871918511152,
+          -0.48442267521967297
+        ],
+        [
+          0.8199551928253999,
+          1.4635809235551247,
+          0.5141050654464221
+        ]
+      ],
+      "file": "butterfly-7-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5372,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8199551928253999,
+          0.023575611667638996,
+          -0.48374919067632643
+        ],
+        [
+          0.8199551928253999,
+          1.4630596596834118,
+          0.5130798922807274
+        ]
+      ],
+      "file": "butterfly-7-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5372,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8884145586870824,
+          0.001717661568610085,
+          -0.19102585290701488
+        ],
+        [
+          0.8884145586870824,
+          1.4117089485061975,
+          0.5141050654464221
+        ]
+      ],
+      "file": "butterfly-7-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5372,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8819785092750303,
+          0.0019245540511375614,
+          -0.26918668968791565
+        ],
+        [
+          0.8819785092750303,
+          1.421497454906051,
+          0.5130798922807274
+        ]
+      ],
+      "file": "butterfly-7-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5012,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8883788431872492,
+          0.03324568170901898,
+          -0.1855526946536681
+        ],
+        [
+          0.8883788431872492,
+          1.412891845121492,
+          0.5314331690036312
+        ]
+      ],
+      "file": "butterfly-7-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5012,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8883788431872492,
+          0.027853327674454698,
+          -0.21005490370381932
+        ],
+        [
+          0.8883788431872492,
+          1.4141075546819066,
+          0.5591517075765473
+        ]
+      ],
+      "file": "butterfly-7-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5012,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8884145586870824,
+          0.011594624092517547,
+          -0.1855526946536681
+        ],
+        [
+          0.8884145586870824,
+          1.3900129596769855,
+          0.5314331690036312
+        ]
+      ],
+      "file": "butterfly-7-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5012,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8733507291401434,
+          0.006202270057953263,
+          -0.3370698129448961
+        ],
+        [
+          0.8733507291401434,
+          1.4102783509186114,
+          0.5591517075765473
+        ]
+      ],
+      "file": "butterfly-7-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5012,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8439553988324061,
+          0.012463438548260042,
+          -0.45605434521831556
+        ],
+        [
+          0.844943983814368,
+          1.5040497919184375,
+          0.48885063740280976
+        ]
+      ],
+      "file": "butterfly-7-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5012,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8439553988324061,
+          0.017000003697623,
+          -0.43813152785778753
+        ],
+        [
+          0.844943983814368,
+          1.4939661360421774,
+          0.4591918531935722
+        ]
+      ],
+      "file": "butterfly-7-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5012,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8884145586870824,
+          -0.009187619068241393,
+          -0.23142817442623825
+        ],
+        [
+          0.8884145586870824,
+          1.4385160816407363,
+          0.48885063740280976
+        ]
+      ],
+      "file": "butterfly-7-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5012,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8884169533427113,
+          -0.004651053918878434,
+          -0.20768816688874314
+        ],
+        [
+          0.8884169533427113,
+          1.439520882696495,
+          0.4591918531935722
+        ]
+      ],
+      "file": "butterfly-7-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5172,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.888427997280701,
+          0.03593316852007067,
+          -0.1855526946536681
+        ],
+        [
+          0.888427997280701,
+          1.53496989480373,
+          0.3765037914909058
+        ]
+      ],
+      "file": "butterfly-7-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5172,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.888427997280701,
+          0.01645150196165379,
+          -0.20185749454811017
+        ],
+        [
+          0.888427997280701,
+          1.5204039259909223,
+          0.3980055739277396
+        ]
+      ],
+      "file": "butterfly-7-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5172,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8884145586870824,
+          -0.016638802046636147,
+          -0.1855526946536681
+        ],
+        [
+          0.8884145586870824,
+          1.4816419975016986,
+          0.3765037914909058
+        ]
+      ],
+      "file": "butterfly-7-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5172,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8857237143517476,
+          -0.020660012129950278,
+          -0.2436256433166224
+        ],
+        [
+          0.8857237143517476,
+          1.490796548596932,
+          0.3980055739277396
+        ]
+      ],
+      "file": "butterfly-7-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5012,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8432139600959345,
+          0.004031084275124441,
+          -0.44605572268970684
+        ],
+        [
+          0.8456854225508391,
+          1.5031870874469468,
+          0.513943426015405
+        ]
+      ],
+      "file": "butterfly-7-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5012,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8432139600959345,
+          0.0057552755919917375,
+          -0.4396133309311909
+        ],
+        [
+          0.8456854225508391,
+          1.4994104628228513,
+          0.5037848761856016
+        ]
+      ],
+      "file": "butterfly-7-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5012,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8884145586870824,
+          -0.017619973341376993,
+          -0.2180942295588017
+        ],
+        [
+          0.8884145586870824,
+          1.4434789259969665,
+          0.513943426015405
+        ]
+      ],
+      "file": "butterfly-7-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "butterfly",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5012,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.8843154122658925,
+          -0.015895782024509697,
+          -0.2649562414673096
+        ],
+        [
+          0.8843154122658925,
+          1.4548773732452407,
+          0.5037848761856016
+        ]
+      ],
+      "file": "butterfly-7-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}

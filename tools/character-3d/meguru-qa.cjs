@@ -169,18 +169,21 @@ async function walk(page, seconds) {
     });
     R.shots.fallback = await snap(page, 'forest-fallback-shiba-2d');
     await page.evaluate(() => globalThis.__meguruRun.renderer.char3dHooks({}));
-    // ---------- 地域の きりかえ: city(main では 2D の world)→ forest。3D の キャラを のこさない
+    // ---------- city: Pilot と同じ3D cacheを非表示で保持 → forestの新sceneで再構築
     R.checks.regionSwitch = await page.evaluate(async () => {
       const r = globalThis.__meguruRun, rd = r.renderer, p = rd.char3dPresenter, raf = () => new Promise((res) => requestAnimationFrame(res));
       const before = p.stats().live;
+      const references=()=>{const holders=[];p.scene?.traverse(o=>{if(o.name?.startsWith('c3d-actor:'))holders.push(o);});return {scene:p.scene,holders,canvases:[...document.querySelectorAll('.meguru-3d-canvas')]};};
+      const counts=()=>{const stats=rd.stats3d();return {...p.stats(),holders:references().holders.length,glCanvases:references().canvases.length,textures:stats?.textures,geometries:stats?.geometries};};
+      const beforeCity=counts(),refs=references();
       const sceneCount = () => { const sc = p.scene; let n = 0; if (sc) sc.traverse((o) => { if (o.name && o.name.startsWith('c3d-actor:')) n++; }); return n; };
       const until = async (fn, max = 240) => { for (let i = 0; i < max && !fn(); i++) await raf(); };
       globalThis.__meguruBridge.getState().regionId = 'city'; r.enterWorld('city'); await until(() => r.world.regionId === 'city' && !rd.is3D);
       for (let i = 0; i < 10; i++) await raf();
-      const inCity = { region: r.world.regionId, is3D: rd.is3D, live: p.stats().live };
+      const after=references(),inCity = {region:r.world.regionId,is3D:rd.is3D,...counts(),sameScene:after.scene===refs.scene,sameHolders:after.holders.length===refs.holders.length&&refs.holders.every((holder,i)=>holder===after.holders[i]),sameCanvases:after.canvases.length===refs.canvases.length&&refs.canvases.every((canvas,i)=>canvas===after.canvases[i]),hiddenGL:after.canvases.length>0&&after.canvases.every(canvas=>getComputedStyle(canvas).display==='none')};
       globalThis.__meguruBridge.getState().regionId = 'forest'; r.enterWorld('forest'); await until(() => r.world.regionId === 'forest' && rd.is3D);
       for (let i = 0; i < 90; i++) await raf();
-      return { before, inCity, backInForest: { region: r.world.regionId, is3D: rd.is3D, live: p.stats().live, holdersInScene: sceneCount() } };
+      return { before, beforeCity, inCity, backInForest: { region: r.world.regionId, is3D: rd.is3D, live: p.stats().live, holdersInScene: sceneCount() } };
     });
     R.errors = errors;
     await page.context().close();
@@ -239,7 +242,7 @@ async function walk(page, seconds) {
   must(C.after3dOn.live.live === C.forest3d.live.live, '2D → 3D: おなじ 数に もどる');
   must(C.playerVisible.drawn3d === C.playerVisible.frames, 'player は 120 frame ずっと 3D で えがかれる');
   must(C.fallback.worldIs3D && !C.fallback.rendererFailed && C.fallback.shibaBroken && !C.fallback.shiba3d && C.fallback.cat3d && C.fallback.player3d, 'actor 単位 fallback(しば だけ 2D)');
-  must(C.regionSwitch.inCity.live === 0 && !C.regionSwitch.inCity.is3D, 'city(main では 2D の world): 3D キャラを のこさない');
+  try{require('./runtime-integration.cjs').validateCityCache(C.regionSwitch.beforeCity,C.regionSwitch.inCity);}catch(error){must(false,error.message);}
   must(C.regionSwitch.backInForest.is3D && C.regionSwitch.backInForest.live > 0 && C.regionSwitch.backInForest.holdersInScene === C.regionSwitch.backInForest.live, 'forest に もどる: scene の 3D = live(ghost なし)');
   }
   if(INTEGRATION_SCENE){try{require('./runtime-integration.cjs').validateRepeated(C.repeated);}catch(e){must(false,e.message);}}

@@ -1,0 +1,933 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11613880164,
+    "name": "full-rollout-stages-starfish-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:475e0e94401dda884e0f6839be68c2f2020d986327f453ae77eba3ac917fa995"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "8e4811bf71a0ca656641e2ae109263f00fafde00251ea3f39589de7acf8b052e",
+      "bytes": 7645
+    },
+    {
+      "path": "missing-motion/motion-evidence.json",
+      "sha256": "9a8c853af3a0853420da84a99a88f9ff3e7bc833c9e09d429cc08b976b88f85d",
+      "bytes": 94089
+    },
+    {
+      "path": "missing-motion/starfish-2-dislike-idle-normal.jpg",
+      "sha256": "6cf11a663b1903e44ce15894796d85a7065788e9184117943b305436a2f9178b",
+      "bytes": 10715
+    },
+    {
+      "path": "missing-motion/starfish-2-dislike-idle-reduced.jpg",
+      "sha256": "a349836b6db3d228565559d6374b2ba00e82dde9e493821d41c23d9f1507aa6b",
+      "bytes": 10899
+    },
+    {
+      "path": "missing-motion/starfish-2-dislike-walk-normal.jpg",
+      "sha256": "3a4c9cdf213483bd32df22e54113803c52895231aa1924a1e12275e128bc8bcc",
+      "bytes": 10951
+    },
+    {
+      "path": "missing-motion/starfish-2-dislike-walk-reduced.jpg",
+      "sha256": "096292f2d656c648e7b04ecac4250c5bbfdc40ba5a12d2ecb26542c9a40c7184",
+      "bytes": 11342
+    },
+    {
+      "path": "missing-motion/starfish-2-motion.jpg",
+      "sha256": "4ed8fe639a64661a6eb9ff57ec84f382db57749fd10f5e906684898df00dcd14",
+      "bytes": 483996
+    },
+    {
+      "path": "missing-motion/starfish-2-normal-idle-normal.jpg",
+      "sha256": "706c45c361c4e1c3107592bab3936a1a1c531789eaad04e7677bbbd7349b57ba",
+      "bytes": 10396
+    },
+    {
+      "path": "missing-motion/starfish-2-normal-idle-reduced.jpg",
+      "sha256": "ccb8befe381bcc95887c0c558de726da0e1bffa3798c72c3620147f4335db292",
+      "bytes": 10691
+    },
+    {
+      "path": "missing-motion/starfish-2-normal-walk-normal.jpg",
+      "sha256": "fc1652538db095067069b5b50e76b9d9e478f9c5913e72ddb9bc09312abd498e",
+      "bytes": 10301
+    },
+    {
+      "path": "missing-motion/starfish-2-normal-walk-reduced.jpg",
+      "sha256": "28759ba9dd4048f25499acce868c693f3e620a19f7850197b81ac20558e1a09c",
+      "bytes": 10555
+    },
+    {
+      "path": "missing-motion/starfish-2-positive-idle-normal.jpg",
+      "sha256": "c61a63bf4acb52200a9f2b58e052c9b349533e2f9f88fd9852f324e29c9bcce8",
+      "bytes": 10411
+    },
+    {
+      "path": "missing-motion/starfish-2-positive-idle-reduced.jpg",
+      "sha256": "c378a15d3d33f4af9e3e0b0cb617ec038497e6c5b5d6b5779df661562dd855f4",
+      "bytes": 10768
+    },
+    {
+      "path": "missing-motion/starfish-2-positive-walk-normal.jpg",
+      "sha256": "60773923887d2ad31cdcc59f856ed9c21b811718e613c0f09868a3d2ac70ca0f",
+      "bytes": 10509
+    },
+    {
+      "path": "missing-motion/starfish-2-positive-walk-reduced.jpg",
+      "sha256": "d011aaa3e698964160a55ed328c26ebd65f446634495e35aa383145aa8f693ae",
+      "bytes": 10867
+    },
+    {
+      "path": "missing-motion/starfish-2-sick-idle-normal.jpg",
+      "sha256": "b87a44a984fb807a8418a76eb2086d75d8456822b9ab1005f16cd8af93aeb31a",
+      "bytes": 10370
+    },
+    {
+      "path": "missing-motion/starfish-2-sick-idle-reduced.jpg",
+      "sha256": "5c83a96b3ec48de63a615d46635281a9b63f07d1be5af5e6a221fb38a29108b5",
+      "bytes": 10666
+    },
+    {
+      "path": "missing-motion/starfish-2-sick-walk-normal.jpg",
+      "sha256": "8ea9bda7938f62238b757c5f03e4bdeea8459ad5732830ca50431b9594323d8b",
+      "bytes": 10236
+    },
+    {
+      "path": "missing-motion/starfish-2-sick-walk-reduced.jpg",
+      "sha256": "7163572063b698ea9896724b2037dfe040919e7003ba2a3301ac86271944251a",
+      "bytes": 10403
+    },
+    {
+      "path": "missing-motion/starfish-2-sleeping-idle-normal.jpg",
+      "sha256": "4837aa5274777c46bf3af720bc9ccbac843576039d17ed2ab6735b357e0ffbe3",
+      "bytes": 10142
+    },
+    {
+      "path": "missing-motion/starfish-2-sleeping-idle-reduced.jpg",
+      "sha256": "4d39c640d2c4afa53e333f82d547ed560abacffc128bf68c3f81fde7df79c4d5",
+      "bytes": 10570
+    },
+    {
+      "path": "missing-motion/starfish-2-sleeping-walk-normal.jpg",
+      "sha256": "def6fd8b0678eadd234c7d499e77b15b8cf04a631f9b6eec2d6575a1535a3031",
+      "bytes": 10051
+    },
+    {
+      "path": "missing-motion/starfish-2-sleeping-walk-reduced.jpg",
+      "sha256": "102c8a943adce4a237915b4a8b411eb8d63cd6ffa7f1064cfa8f927d12b0fddf",
+      "bytes": 10421
+    },
+    {
+      "path": "missing-motion/starfish-2-strained-idle-normal.jpg",
+      "sha256": "f860abc8fbd9bfe7fc7499c472add5695aa8f756c7b2ad333a744d04b7c33899",
+      "bytes": 10707
+    },
+    {
+      "path": "missing-motion/starfish-2-strained-idle-reduced.jpg",
+      "sha256": "ead0ac9ec9df2c148d7b70054781a1078113c9f75c5b782d709d57b17cc3f7ef",
+      "bytes": 11009
+    },
+    {
+      "path": "missing-motion/starfish-2-strained-walk-normal.jpg",
+      "sha256": "c438f1f347e7718761e70057d6dda3e51ec3fd269299e547b9f8874065bd9201",
+      "bytes": 10763
+    },
+    {
+      "path": "missing-motion/starfish-2-strained-walk-reduced.jpg",
+      "sha256": "ddcad699033e51b854c120e8cba75ad74e7f73b630e17ed8742c1de57e52cacc",
+      "bytes": 11118
+    },
+    {
+      "path": "missing-motion/starfish-2-tired-idle-normal.jpg",
+      "sha256": "afc61bd5f6de20a3d939089d4434043f6a9a5f9ebd599a1a1f017ecdf1158479",
+      "bytes": 10306
+    },
+    {
+      "path": "missing-motion/starfish-2-tired-idle-reduced.jpg",
+      "sha256": "3613442fc381303282522f44d4886c1a45562a97f267978fad0ff3539609194c",
+      "bytes": 10456
+    },
+    {
+      "path": "missing-motion/starfish-2-tired-walk-normal.jpg",
+      "sha256": "e8dcc6bacf64395d1b2151424bc9d11d80c235ec39dbb313eff015a892e4b929",
+      "bytes": 10065
+    },
+    {
+      "path": "missing-motion/starfish-2-tired-walk-reduced.jpg",
+      "sha256": "8713f73a8fad7761f266cd095ff4d5d70ca551f0ffa667d844bdea86ccdab241",
+      "bytes": 10321
+    },
+    {
+      "path": "missing-motion/starfish-2-wantsPlay-idle-normal.jpg",
+      "sha256": "0e66f599636549a083874760582fa393667d3c1d61da921d7c238fc7053dc423",
+      "bytes": 10626
+    },
+    {
+      "path": "missing-motion/starfish-2-wantsPlay-idle-reduced.jpg",
+      "sha256": "96965aca80eeb975046d08da8f997666b59c838599a0b111f69c9fa0ac8c4f22",
+      "bytes": 10896
+    },
+    {
+      "path": "missing-motion/starfish-2-wantsPlay-walk-normal.jpg",
+      "sha256": "f42e89bd7560642feb3e31228b1cfbbfb27e7ea580763a05ef0a1ecb3a30eb06",
+      "bytes": 10360
+    },
+    {
+      "path": "missing-motion/starfish-2-wantsPlay-walk-reduced.jpg",
+      "sha256": "8e0cbfd0e11c5f3e4bbd3f3f00d20385d7cbfa49d19a2bf42b40087a36904c51",
+      "bytes": 10656
+    },
+    {
+      "path": "missing-motion/starfish-3-dislike-idle-normal.jpg",
+      "sha256": "d5860a3a6fa3070a9c4fc12ae8a1751af152601d5badda3f0a1e87fccb55e97b",
+      "bytes": 11544
+    },
+    {
+      "path": "missing-motion/starfish-3-dislike-idle-reduced.jpg",
+      "sha256": "cfa5e0da4c507a5703355cbeaeac4bac2948d443da1d0bbea69262b68b3720a1",
+      "bytes": 11615
+    },
+    {
+      "path": "missing-motion/starfish-3-dislike-walk-normal.jpg",
+      "sha256": "c1aa946d55df63340fc2cb47ba1beaa806a5614ab27ddf9f18e27adc6b45a8ba",
+      "bytes": 11260
+    },
+    {
+      "path": "missing-motion/starfish-3-dislike-walk-reduced.jpg",
+      "sha256": "21d6d0f80c4b753b45f918303776319a0b29b69072bc02fcfcbd60b9522c09de",
+      "bytes": 11531
+    },
+    {
+      "path": "missing-motion/starfish-3-motion.jpg",
+      "sha256": "4b4be5566b62465fd03b4d857649cd5b051c6bc7c20e5258c439a54cc6992df1",
+      "bytes": 504297
+    },
+    {
+      "path": "missing-motion/starfish-3-normal-idle-normal.jpg",
+      "sha256": "e326754c882e3dfb1d827ac6b0394c1bb34227da360e25d9c3eabbb328e9fd22",
+      "bytes": 10864
+    },
+    {
+      "path": "missing-motion/starfish-3-normal-idle-reduced.jpg",
+      "sha256": "921d89137979430f947fda2796b1cebbc0b9e38b9e6f2e346fc6c7c41091be32",
+      "bytes": 11060
+    },
+    {
+      "path": "missing-motion/starfish-3-normal-walk-normal.jpg",
+      "sha256": "4819ff22d94d25472f9b52339f41098706877fc5a79dbef5e32c85a1e5376656",
+      "bytes": 10884
+    },
+    {
+      "path": "missing-motion/starfish-3-normal-walk-reduced.jpg",
+      "sha256": "d5f9103fd85214bae030d25f4985f43a3c660e26991966767b3f55d28a3ff66a",
+      "bytes": 11098
+    },
+    {
+      "path": "missing-motion/starfish-3-positive-idle-normal.jpg",
+      "sha256": "589c99dc8ad0da8be2991e0fadcdcf2c36c016f0f89ff00b54566749663fa21b",
+      "bytes": 11007
+    },
+    {
+      "path": "missing-motion/starfish-3-positive-idle-reduced.jpg",
+      "sha256": "7f8e9863bb6fe0fc6e2704609d94ccf0b5cc599d0dbb0602446183f8fd1ec1f0",
+      "bytes": 11212
+    },
+    {
+      "path": "missing-motion/starfish-3-positive-walk-normal.jpg",
+      "sha256": "0abb6e64e80715317dccd86f9d1f1e0522f764c179ec71966b0e7e3518f8f35c",
+      "bytes": 10831
+    },
+    {
+      "path": "missing-motion/starfish-3-positive-walk-reduced.jpg",
+      "sha256": "9327ffa32a3ae734be41e3d350dac1db254f8370f43562f5957595eb7d4ded01",
+      "bytes": 11086
+    },
+    {
+      "path": "missing-motion/starfish-3-sick-idle-normal.jpg",
+      "sha256": "e2bacf4331ca73826f93c1806fc568411fc4b148966b660b25e91dd764accded",
+      "bytes": 10988
+    },
+    {
+      "path": "missing-motion/starfish-3-sick-idle-reduced.jpg",
+      "sha256": "35f845de86017c6574885c1ceff2c5662aa1bbd9bb10f3b5aa0850ae0088a742",
+      "bytes": 11151
+    },
+    {
+      "path": "missing-motion/starfish-3-sick-walk-normal.jpg",
+      "sha256": "f8eb76a3c6871da825926d77c4b6100bed1cc5bf21d81da732c3c045dd5db5b4",
+      "bytes": 11086
+    },
+    {
+      "path": "missing-motion/starfish-3-sick-walk-reduced.jpg",
+      "sha256": "a1aabe15df618ef537ac737395e1da61c3525b8b8e5591f7bbe489cd0a7983bc",
+      "bytes": 11180
+    },
+    {
+      "path": "missing-motion/starfish-3-sleeping-idle-normal.jpg",
+      "sha256": "b7e2666a7d9f843df187216d9c7963b2b044967e6769bcb51c43adcf3632ec99",
+      "bytes": 10451
+    },
+    {
+      "path": "missing-motion/starfish-3-sleeping-idle-reduced.jpg",
+      "sha256": "2530d572a2cf5365f36d3556ed0aa36f0adaed5546c8f05a014ff4b7fe74be9f",
+      "bytes": 10798
+    },
+    {
+      "path": "missing-motion/starfish-3-sleeping-walk-normal.jpg",
+      "sha256": "22c17e296d8ee243624e9932c62bdc946d4e92c953f74d3eac154082b08799c2",
+      "bytes": 10570
+    },
+    {
+      "path": "missing-motion/starfish-3-sleeping-walk-reduced.jpg",
+      "sha256": "b9d3b1009d7bd62328612f317b4e086bfbf4fe41453179c00a5154ea681fb837",
+      "bytes": 10829
+    },
+    {
+      "path": "missing-motion/starfish-3-strained-idle-normal.jpg",
+      "sha256": "fdfc0c818f857d8a6a7e854902e0b96ad3fb12730e23b6b1083452102a1ec9e7",
+      "bytes": 11062
+    },
+    {
+      "path": "missing-motion/starfish-3-strained-idle-reduced.jpg",
+      "sha256": "da468f19d02f5bcfd4f32bd53b650a52b602ef6fd56fe7c4a4297759f075744c",
+      "bytes": 11371
+    },
+    {
+      "path": "missing-motion/starfish-3-strained-walk-normal.jpg",
+      "sha256": "6c6d11124bf2c4b266be9408f5e8f32ca223ffad5eeaaa31d6acde635fe9f3c9",
+      "bytes": 10904
+    },
+    {
+      "path": "missing-motion/starfish-3-strained-walk-reduced.jpg",
+      "sha256": "ec4071b590480de1e454e1981af80232836f548dc119e9f73250a681caf89725",
+      "bytes": 11470
+    },
+    {
+      "path": "missing-motion/starfish-3-tired-idle-normal.jpg",
+      "sha256": "76e1888b61e2fb0b39c0475706965ce1f20392c83b11a2837bb3abc640f327fe",
+      "bytes": 10563
+    },
+    {
+      "path": "missing-motion/starfish-3-tired-idle-reduced.jpg",
+      "sha256": "2883fe8fedae90481e32f133839bc2d70afe0accbab4cba5694e8ac3620c8918",
+      "bytes": 10942
+    },
+    {
+      "path": "missing-motion/starfish-3-tired-walk-normal.jpg",
+      "sha256": "4dc61e3f31107383fbd9beb0ef6468818e63200ea48b6dffabfaa0d89fcec69d",
+      "bytes": 10668
+    },
+    {
+      "path": "missing-motion/starfish-3-tired-walk-reduced.jpg",
+      "sha256": "7cef776a9b0f2718222efa392d02e1329d9abea4d6c63d59abcac77efffd482a",
+      "bytes": 10866
+    },
+    {
+      "path": "missing-motion/starfish-3-wantsPlay-idle-normal.jpg",
+      "sha256": "913503a814c7e84470b7d9bfccf011180c0318850e58ad7ceeaa0d213231e88b",
+      "bytes": 11221
+    },
+    {
+      "path": "missing-motion/starfish-3-wantsPlay-idle-reduced.jpg",
+      "sha256": "627ce41a41b09c2e2a91816c1ddf592ed016ea34ce6c5a2683baaf93b8dfd2ae",
+      "bytes": 11502
+    },
+    {
+      "path": "missing-motion/starfish-3-wantsPlay-walk-normal.jpg",
+      "sha256": "5e5dd3711a28404fbf6bfb81db46f5c0bf85e5683b3d5080f4e96b70dddbe4c1",
+      "bytes": 11282
+    },
+    {
+      "path": "missing-motion/starfish-3-wantsPlay-walk-reduced.jpg",
+      "sha256": "3c79acaabb8abf955e1305e3223bb0e03dbf6f174a33feb91c4304b3fde64923",
+      "bytes": 11561
+    },
+    {
+      "path": "missing-motion/starfish-5-dislike-idle-normal.jpg",
+      "sha256": "6c3a138f593b1d809134fac37892fdd5c4c47ab8bf68ca3cca8a17f14ebe58bf",
+      "bytes": 11302
+    },
+    {
+      "path": "missing-motion/starfish-5-dislike-idle-reduced.jpg",
+      "sha256": "5e05ae7f2ea5d0df48f2485df8a5cca737c374defa61f10d1908c45e429ef89a",
+      "bytes": 11680
+    },
+    {
+      "path": "missing-motion/starfish-5-dislike-walk-normal.jpg",
+      "sha256": "69af8162b2cb4172a96c3e1930aa68dffbaa7cd0572852b4c4b4b0315eb864a7",
+      "bytes": 10563
+    },
+    {
+      "path": "missing-motion/starfish-5-dislike-walk-reduced.jpg",
+      "sha256": "5d61c36c08515b04b11cb286c51956fdcc83005bc55c21450cb769f0830482d9",
+      "bytes": 11214
+    },
+    {
+      "path": "missing-motion/starfish-5-motion.jpg",
+      "sha256": "1232fe29f01d9c7071c71a7e3dd830aeac50de6b5d5b2d3b30aefee77789fb9d",
+      "bytes": 475113
+    },
+    {
+      "path": "missing-motion/starfish-5-normal-idle-normal.jpg",
+      "sha256": "cb65e4fea08353a9754ef031c0e714659adb4a9df7ea0aba6a4d01697efb3d0d",
+      "bytes": 11049
+    },
+    {
+      "path": "missing-motion/starfish-5-normal-idle-reduced.jpg",
+      "sha256": "baf2d442719d8dfe5136302155536e3f753ae445607374326a7608ee77ff7343",
+      "bytes": 11449
+    },
+    {
+      "path": "missing-motion/starfish-5-normal-walk-normal.jpg",
+      "sha256": "88a225e229355b229ad34ec7bba8f42d7294a01b74ea9b267a0d326a7cd6ba3d",
+      "bytes": 11151
+    },
+    {
+      "path": "missing-motion/starfish-5-normal-walk-reduced.jpg",
+      "sha256": "f24e7567ca43efa953ed4eead260da3c4589c1eff7f624e5eeac3aa4c564891e",
+      "bytes": 11130
+    },
+    {
+      "path": "missing-motion/starfish-5-positive-idle-normal.jpg",
+      "sha256": "29789d1dedc60e8cb419a486aa5f2e17d9c730bda07f223615093f87cfb1882f",
+      "bytes": 11194
+    },
+    {
+      "path": "missing-motion/starfish-5-positive-idle-reduced.jpg",
+      "sha256": "182f741f362c7a770b742f88e1b6fea1263c8cc63fb81608258b6baa64314f4a",
+      "bytes": 11603
+    },
+    {
+      "path": "missing-motion/starfish-5-positive-walk-normal.jpg",
+      "sha256": "4937a95e50787366d1564b71dfe6494faa4941377c6bdcbef1848e21c5cc9148",
+      "bytes": 10747
+    },
+    {
+      "path": "missing-motion/starfish-5-positive-walk-reduced.jpg",
+      "sha256": "440d241c8f3955fc5acc6a253aed815b98d2ab1c1f95fa504251a1cf101e0eee",
+      "bytes": 11359
+    },
+    {
+      "path": "missing-motion/starfish-5-sick-idle-normal.jpg",
+      "sha256": "5ffcf8e9e42771e843826fd46385a9437b79c8e60db0520573407ac9a1292fae",
+      "bytes": 10850
+    },
+    {
+      "path": "missing-motion/starfish-5-sick-idle-reduced.jpg",
+      "sha256": "f40eafdc5a846259567ebe945d062afcb8c2418385c5159b0907caaa440f73e9",
+      "bytes": 11381
+    },
+    {
+      "path": "missing-motion/starfish-5-sick-walk-normal.jpg",
+      "sha256": "2cdbb9b9c40072ea5bad710d7accfeb680fa624c257273a3ed1f2deb1471c3c9",
+      "bytes": 11116
+    },
+    {
+      "path": "missing-motion/starfish-5-sick-walk-reduced.jpg",
+      "sha256": "e7a27a967db25a9bcea6a4e37d9f1aa1e58eaaea8526da99f4b2be9f93a4e913",
+      "bytes": 11188
+    },
+    {
+      "path": "missing-motion/starfish-5-sleeping-idle-normal.jpg",
+      "sha256": "a4d40adf216fb00281be50927bb08b1f2c862b3a8e16f1fe0c2f670532ab5404",
+      "bytes": 10400
+    },
+    {
+      "path": "missing-motion/starfish-5-sleeping-idle-reduced.jpg",
+      "sha256": "487d620307f3341dfb0dc332645584bc545f6c1dc341e71ab0cc038d72fbea2b",
+      "bytes": 10812
+    },
+    {
+      "path": "missing-motion/starfish-5-sleeping-walk-normal.jpg",
+      "sha256": "347d47b06a6f5860b74a8bbfafe697ea4b5c1ec979bf316faace841ccf8fc7b6",
+      "bytes": 10583
+    },
+    {
+      "path": "missing-motion/starfish-5-sleeping-walk-reduced.jpg",
+      "sha256": "e31829f07f96464b3ea7e4673e7b636f599ee48fc4283a91f0a9c3e30dff351e",
+      "bytes": 10788
+    },
+    {
+      "path": "missing-motion/starfish-5-strained-idle-normal.jpg",
+      "sha256": "07f5bdf2df5ba2bcb4457c0de02f526021795e06bcb4f13f08397b354aaf46ea",
+      "bytes": 11024
+    },
+    {
+      "path": "missing-motion/starfish-5-strained-idle-reduced.jpg",
+      "sha256": "d28c9be971d3934f81a9f89a85d1a035d231538fb1cadfd69d1612659e068bc5",
+      "bytes": 11318
+    },
+    {
+      "path": "missing-motion/starfish-5-strained-walk-normal.jpg",
+      "sha256": "25aa76798c7bfe3994e50b1de0a25452b2d9e6c0ac04253f662572836842a533",
+      "bytes": 10625
+    },
+    {
+      "path": "missing-motion/starfish-5-strained-walk-reduced.jpg",
+      "sha256": "de194f05e481fe807233a8ec5bc4019619d1c27053ba5cb2482a46513b120fba",
+      "bytes": 11258
+    },
+    {
+      "path": "missing-motion/starfish-5-tired-idle-normal.jpg",
+      "sha256": "83fbf69a3e836e45e167bfbadf8008a4a0884342eccf402a83affce6b72e1cfe",
+      "bytes": 10543
+    },
+    {
+      "path": "missing-motion/starfish-5-tired-idle-reduced.jpg",
+      "sha256": "99663741403e97a875c44931016a37208c8b8fb0014080c12538fa3a9e61b88a",
+      "bytes": 11008
+    },
+    {
+      "path": "missing-motion/starfish-5-tired-walk-normal.jpg",
+      "sha256": "0bb4dc58ba0c20fbe3827ae5c30e1a639f8d23cd08dab4d71232bc8e52096a8d",
+      "bytes": 10327
+    },
+    {
+      "path": "missing-motion/starfish-5-tired-walk-reduced.jpg",
+      "sha256": "bce93523ef7840c7f6377a2efbf02ea2529cf69adb5feb6c54e4cb047e5cf5ad",
+      "bytes": 10569
+    },
+    {
+      "path": "missing-motion/starfish-5-wantsPlay-idle-normal.jpg",
+      "sha256": "97b5bad196164e987d99f5654fece75b21548c3ef025d1228181cbfdcff38873",
+      "bytes": 11275
+    },
+    {
+      "path": "missing-motion/starfish-5-wantsPlay-idle-reduced.jpg",
+      "sha256": "4f2780b45f3c7545882833c6937546f15b6c854a428902a683ac3fa2c44016ed",
+      "bytes": 11779
+    },
+    {
+      "path": "missing-motion/starfish-5-wantsPlay-walk-normal.jpg",
+      "sha256": "60c267a2988db81830a10997a96ce67e8d39a33f1cf437ac48afb977814357cd",
+      "bytes": 11164
+    },
+    {
+      "path": "missing-motion/starfish-5-wantsPlay-walk-reduced.jpg",
+      "sha256": "46278472696d0d7e3ef5db1b5f9144debf870501692cf76a0c58e83342eba92e",
+      "bytes": 11306
+    },
+    {
+      "path": "missing-motion/starfish-6-dislike-idle-normal.jpg",
+      "sha256": "2017a4caabd13bdf37bebd6d85994659abdece3a82fb2ca3eefc452e092fb566",
+      "bytes": 14693
+    },
+    {
+      "path": "missing-motion/starfish-6-dislike-idle-reduced.jpg",
+      "sha256": "d477fd39a9f4b200650490ba955f049f99d02ff0fb81a0dfabf12d655b6b3c2e",
+      "bytes": 15051
+    },
+    {
+      "path": "missing-motion/starfish-6-dislike-walk-normal.jpg",
+      "sha256": "1c8a10c1235573d46501128f4ffc6bb36b78c2d743fe81b32774ef15ab699717",
+      "bytes": 13325
+    },
+    {
+      "path": "missing-motion/starfish-6-dislike-walk-reduced.jpg",
+      "sha256": "5b157384d479cacbd1a7e5bfa05f495c968737cf9dcfecc11bcf1e6e176315e2",
+      "bytes": 14256
+    },
+    {
+      "path": "missing-motion/starfish-6-motion.jpg",
+      "sha256": "3e18fac3f37d7dfafe31b4eb84cdf801533ad6d1df04fda7186bcf43d650bf9b",
+      "bytes": 567914
+    },
+    {
+      "path": "missing-motion/starfish-6-normal-idle-normal.jpg",
+      "sha256": "adb3f39c1ad6d00d33478e01db0ce2f7a0ffe5e2044f623f33fff6e389d133c6",
+      "bytes": 13409
+    },
+    {
+      "path": "missing-motion/starfish-6-normal-idle-reduced.jpg",
+      "sha256": "a032a55221abf1e50d962ad155abb9d85e4e9fcb4215a96f28624779f600c292",
+      "bytes": 13942
+    },
+    {
+      "path": "missing-motion/starfish-6-normal-walk-normal.jpg",
+      "sha256": "769b0ab1b4276a67500ae8cc330b08834c30292790250bf86e12da2e4794e506",
+      "bytes": 13669
+    },
+    {
+      "path": "missing-motion/starfish-6-normal-walk-reduced.jpg",
+      "sha256": "ea3737747ab02cd5f361b4a5b6875d23f0350f4e2a600ddf9edd9527f3905d68",
+      "bytes": 13754
+    },
+    {
+      "path": "missing-motion/starfish-6-positive-idle-normal.jpg",
+      "sha256": "f363ca7b54468cdaae8fd8b26696a901a667d7ea660c3d791691d4a4f474a7fc",
+      "bytes": 13818
+    },
+    {
+      "path": "missing-motion/starfish-6-positive-idle-reduced.jpg",
+      "sha256": "c69e9d40e24c07f5d89dc32a8818a0f71c36ed528132ad7e1938d46db8225915",
+      "bytes": 14288
+    },
+    {
+      "path": "missing-motion/starfish-6-positive-walk-normal.jpg",
+      "sha256": "26f0b756917fad2efedae0e1a9936cb06c3c61234ca7fd8cbd728443209ad89f",
+      "bytes": 12751
+    },
+    {
+      "path": "missing-motion/starfish-6-positive-walk-reduced.jpg",
+      "sha256": "a947d0922739664b8f16ef74b6af2ceda59ca8b8f5a1dcd8c9b75f41e59b45ad",
+      "bytes": 13808
+    },
+    {
+      "path": "missing-motion/starfish-6-sick-idle-normal.jpg",
+      "sha256": "e6c94a741b4d5dee075b00f9f98b1c89df7494a928aa84ab83720e3b1d6d425e",
+      "bytes": 13388
+    },
+    {
+      "path": "missing-motion/starfish-6-sick-idle-reduced.jpg",
+      "sha256": "a29adbb60272ed0ef435f8de10b4f560c12ed8a282ab92fccbfd2eebe363197f",
+      "bytes": 13806
+    },
+    {
+      "path": "missing-motion/starfish-6-sick-walk-normal.jpg",
+      "sha256": "87afdeaa49e32149a65debac882daf7aff25f32a2faafeb899731dfd012cab13",
+      "bytes": 13418
+    },
+    {
+      "path": "missing-motion/starfish-6-sick-walk-reduced.jpg",
+      "sha256": "b3458374398ff19d1408e76358642a02b9e19d9786447265a539c9b58d96da90",
+      "bytes": 13427
+    },
+    {
+      "path": "missing-motion/starfish-6-sleeping-idle-normal.jpg",
+      "sha256": "cbd68b9f7ef0ccbb66aff995a2dc6a31a333a7968599f8bdd063a40f879d9f56",
+      "bytes": 12496
+    },
+    {
+      "path": "missing-motion/starfish-6-sleeping-idle-reduced.jpg",
+      "sha256": "9bedd32fc1e22e57652d96103c6ba9d01771439c73fdf4725d06587e5071681a",
+      "bytes": 13015
+    },
+    {
+      "path": "missing-motion/starfish-6-sleeping-walk-normal.jpg",
+      "sha256": "d0c80a7fb8d1a76ec75dee9b31576d2f5fde3252169609554f72219efd3b1d49",
+      "bytes": 12702
+    },
+    {
+      "path": "missing-motion/starfish-6-sleeping-walk-reduced.jpg",
+      "sha256": "0b6175bf48f55b59787e7f85d98c1f1baf7b835768d9d89711625840f633bfec",
+      "bytes": 12919
+    },
+    {
+      "path": "missing-motion/starfish-6-strained-idle-normal.jpg",
+      "sha256": "0f0f1da3e590e39dd7b3b9bfd431ffad6c3a852595b388377e803139053b25e8",
+      "bytes": 13529
+    },
+    {
+      "path": "missing-motion/starfish-6-strained-idle-reduced.jpg",
+      "sha256": "a1180f35e7116861471b07e7fe5b73b790315028a9acb6cd654f86f469983e4a",
+      "bytes": 13850
+    },
+    {
+      "path": "missing-motion/starfish-6-strained-walk-normal.jpg",
+      "sha256": "f22b7650da3e32dc76eacbe4c4ae75ea942d2d3c5dfd39cb3b79d8006aff6b93",
+      "bytes": 12838
+    },
+    {
+      "path": "missing-motion/starfish-6-strained-walk-reduced.jpg",
+      "sha256": "360208580115a18b58ca1e1cb4afa31319efd4ad5179fbd6877140fbcdd67698",
+      "bytes": 13588
+    },
+    {
+      "path": "missing-motion/starfish-6-tired-idle-normal.jpg",
+      "sha256": "1b956becbbf4ea31f8f0440c9aaa0ef7ba303853398eb974e1bbefdac29710c7",
+      "bytes": 12781
+    },
+    {
+      "path": "missing-motion/starfish-6-tired-idle-reduced.jpg",
+      "sha256": "b32d594ee16d4d509287db5813a49008800a2d5378dc54ea8d5fb2b68de35620",
+      "bytes": 13312
+    },
+    {
+      "path": "missing-motion/starfish-6-tired-walk-normal.jpg",
+      "sha256": "6b0bb8b18ec3dac5ef619c17d99ef57caf5e8c477d04fba81c0b620c27d2c1eb",
+      "bytes": 12322
+    },
+    {
+      "path": "missing-motion/starfish-6-tired-walk-reduced.jpg",
+      "sha256": "cd000b8a155ac2d187d883be72b263c3849a0a6258f75e42c56851b30c2e1e5b",
+      "bytes": 12709
+    },
+    {
+      "path": "missing-motion/starfish-6-wantsPlay-idle-normal.jpg",
+      "sha256": "de0cb0e6817f740b52d1360432470471fa93ac61b695c80ec509acf5be3d564a",
+      "bytes": 13955
+    },
+    {
+      "path": "missing-motion/starfish-6-wantsPlay-idle-reduced.jpg",
+      "sha256": "189ddcb3479a33cb78c1e1025ccb227d00c74fcdf26eb49cfee8b823cb568eb9",
+      "bytes": 14453
+    },
+    {
+      "path": "missing-motion/starfish-6-wantsPlay-walk-normal.jpg",
+      "sha256": "9ec8c142946b03b214adf80c6c4a1d90bb40dd32b1a5a28acaf7bcdceac6d115",
+      "bytes": 13767
+    },
+    {
+      "path": "missing-motion/starfish-6-wantsPlay-walk-reduced.jpg",
+      "sha256": "55b50f52fe3351c3e3f8978f636f517bd8edc05602a6cad6f1008525cfa60e99",
+      "bytes": 13882
+    },
+    {
+      "path": "missing-motion/starfish-7-dislike-idle-normal.jpg",
+      "sha256": "7757e8ddc424da967bab50c302ddd17444268ff7ab9a662e7e87d74052c4ca97",
+      "bytes": 10852
+    },
+    {
+      "path": "missing-motion/starfish-7-dislike-idle-reduced.jpg",
+      "sha256": "000a52b118754b4520851ef84d9a369b135b91343989313762031825a3c5b216",
+      "bytes": 11210
+    },
+    {
+      "path": "missing-motion/starfish-7-dislike-walk-normal.jpg",
+      "sha256": "188ac37dfe61dfe3e38f9d647dc0fc87e148c0a49aaf8be228f59ba4277b181a",
+      "bytes": 9963
+    },
+    {
+      "path": "missing-motion/starfish-7-dislike-walk-reduced.jpg",
+      "sha256": "c6f8d92a14036f369e5891b2bcb0a9038cf1f5e4e330da8fea2d45ef9b8dacb5",
+      "bytes": 10908
+    },
+    {
+      "path": "missing-motion/starfish-7-motion.jpg",
+      "sha256": "252836e9f0ce1935086fae2c3fddc77955f317fb5a5c26d62f57d5049c654964",
+      "bytes": 442507
+    },
+    {
+      "path": "missing-motion/starfish-7-normal-idle-normal.jpg",
+      "sha256": "5093d86deb72bc8084e8a8801dfe8b3bb79b1a1395e8053c316d8513021a6df8",
+      "bytes": 10338
+    },
+    {
+      "path": "missing-motion/starfish-7-normal-idle-reduced.jpg",
+      "sha256": "19ba68761dcd4295225db218bf945b6899c59b24b2d332b17e4a78af4a913be9",
+      "bytes": 10595
+    },
+    {
+      "path": "missing-motion/starfish-7-normal-walk-normal.jpg",
+      "sha256": "89e88997287d806772234c84aed6c9ad184d3a0d21a6a7094485fe94c9709b87",
+      "bytes": 10528
+    },
+    {
+      "path": "missing-motion/starfish-7-normal-walk-reduced.jpg",
+      "sha256": "07541c556346d242e45e281db1927ae1e581c5b4475d5d3f57eddaee749259f4",
+      "bytes": 10607
+    },
+    {
+      "path": "missing-motion/starfish-7-positive-idle-normal.jpg",
+      "sha256": "0b1eb74b9f5d1c1d60efe9173675b5757bda281cfd58113cdc11df6f96e69959",
+      "bytes": 10486
+    },
+    {
+      "path": "missing-motion/starfish-7-positive-idle-reduced.jpg",
+      "sha256": "c216a489b92972627b482fc2f0be1fead945bb036f301cbfa23a2c5e81a093f4",
+      "bytes": 10795
+    },
+    {
+      "path": "missing-motion/starfish-7-positive-walk-normal.jpg",
+      "sha256": "aaa51efafefde10a9b08c9d23d232a1ed71d95dc6c997c0c73fa39754d22054b",
+      "bytes": 9985
+    },
+    {
+      "path": "missing-motion/starfish-7-positive-walk-reduced.jpg",
+      "sha256": "d96c41927eab2dcf712a0b121b8966317c6d54a4c1d7eb5615efd0f4e5f9799e",
+      "bytes": 10640
+    },
+    {
+      "path": "missing-motion/starfish-7-sick-idle-normal.jpg",
+      "sha256": "9015de29d3c33e8d23e4d8e56e534bb8357a169bdfb1d612d9b5e447d4d9bc8a",
+      "bytes": 10319
+    },
+    {
+      "path": "missing-motion/starfish-7-sick-idle-reduced.jpg",
+      "sha256": "a742d30066e48cf42afc57eded27ccdcb9f6fac010ecf2a76cd0cd4bf85d12dc",
+      "bytes": 10679
+    },
+    {
+      "path": "missing-motion/starfish-7-sick-walk-normal.jpg",
+      "sha256": "b9a0015936a0047a2ab65d2109384b4df799f1fd57d7db41028c685f6660a77a",
+      "bytes": 10438
+    },
+    {
+      "path": "missing-motion/starfish-7-sick-walk-reduced.jpg",
+      "sha256": "cb81e7b0733dd49a94665912f1860f99d980ae3b282f82767966dc3bd03c779c",
+      "bytes": 10601
+    },
+    {
+      "path": "missing-motion/starfish-7-sleeping-idle-normal.jpg",
+      "sha256": "b9b5d46dde258dbcedd0c3567655725042d732097415927142b9f2bbbe234db5",
+      "bytes": 10128
+    },
+    {
+      "path": "missing-motion/starfish-7-sleeping-idle-reduced.jpg",
+      "sha256": "799d635cd235de3f439c435ba43929f86d190374b2c1aadd2e225e79e8f3d856",
+      "bytes": 10384
+    },
+    {
+      "path": "missing-motion/starfish-7-sleeping-walk-normal.jpg",
+      "sha256": "a1eaac2e8236dd9b1e8993460e31e07a4f1329a67fe4d983379d8d4eed2e4157",
+      "bytes": 10241
+    },
+    {
+      "path": "missing-motion/starfish-7-sleeping-walk-reduced.jpg",
+      "sha256": "7305b0b154a926f2da03122a28ed666486ecd9fa2ab2ae1ba8b0ac381dc1096b",
+      "bytes": 10398
+    },
+    {
+      "path": "missing-motion/starfish-7-strained-idle-normal.jpg",
+      "sha256": "d922c3d8a98b0cf15f1bfdfeb40e0d47a990774cfb240c9d8344f17f6883c811",
+      "bytes": 10466
+    },
+    {
+      "path": "missing-motion/starfish-7-strained-idle-reduced.jpg",
+      "sha256": "e73dc746b3451b6f48d91d9f76ed36666c5558e4b70f36c31c84bc833a1720fe",
+      "bytes": 10830
+    },
+    {
+      "path": "missing-motion/starfish-7-strained-walk-normal.jpg",
+      "sha256": "32db4af556598e153ede9db6c9e2ed6c5ec274f95f3a031cfde3f079fad2a693",
+      "bytes": 10009
+    },
+    {
+      "path": "missing-motion/starfish-7-strained-walk-reduced.jpg",
+      "sha256": "94f9834705533ad534a9ce01a8cf856ca0c147d7b7a54fa242f83af33ee0a55a",
+      "bytes": 10666
+    },
+    {
+      "path": "missing-motion/starfish-7-tired-idle-normal.jpg",
+      "sha256": "f260274e6acdba1ca22d0d0bb6cc6052d9d5fce75cb1c41c36cd3350543426e3",
+      "bytes": 10176
+    },
+    {
+      "path": "missing-motion/starfish-7-tired-idle-reduced.jpg",
+      "sha256": "c84a07661db03a3e4c35625709407fcc664b4405feebfbaabc194059b94ee8ea",
+      "bytes": 10390
+    },
+    {
+      "path": "missing-motion/starfish-7-tired-walk-normal.jpg",
+      "sha256": "fc9ab6b829199eda262edb1caac3a3bb9d514cfce0e137b8a92e03d61d99c553",
+      "bytes": 9647
+    },
+    {
+      "path": "missing-motion/starfish-7-tired-walk-reduced.jpg",
+      "sha256": "fa9ee78a8b4819cf44a663fa5516da506a8379d2e3eb792344d9ec4f3702265c",
+      "bytes": 10113
+    },
+    {
+      "path": "missing-motion/starfish-7-wantsPlay-idle-normal.jpg",
+      "sha256": "f153a0f059588c4510bac0a773ddc9a4b6928a87dd2fe6207aed0bd700f9e69c",
+      "bytes": 10605
+    },
+    {
+      "path": "missing-motion/starfish-7-wantsPlay-idle-reduced.jpg",
+      "sha256": "e94a8aa54f5c5809f9b8436eb0241bc98bfc5f2f26d3e3886cf8b27c1f967ef5",
+      "bytes": 10980
+    },
+    {
+      "path": "missing-motion/starfish-7-wantsPlay-walk-normal.jpg",
+      "sha256": "d8720c1d852012e6215f97f3ab87d0bbb2d90789d3f056a6f382d92efbc7869c",
+      "bytes": 10498
+    },
+    {
+      "path": "missing-motion/starfish-7-wantsPlay-walk-reduced.jpg",
+      "sha256": "658452ffb93b90117cd3f23c8511e221ee07705dc8eae0b028cbf5903af725e6",
+      "bytes": 10687
+    },
+    {
+      "path": "player-starfish-1-back.png",
+      "sha256": "3e144cccbe7a68707260d08c89cfbec73e28dfd15977517ab9e8d5d96ca35ba8",
+      "bytes": 309957
+    },
+    {
+      "path": "player-starfish-1-front.png",
+      "sha256": "f70566a1fc9bc240858ff9ce09a0b42e07960315d1d9e467be77cc840b32e526",
+      "bytes": 313021
+    },
+    {
+      "path": "player-starfish-2-back.png",
+      "sha256": "5036270ae7a5fa40e1c89377d7ecf94ed7c1ac56544761335f5690825e9e1a18",
+      "bytes": 307875
+    },
+    {
+      "path": "player-starfish-2-front.png",
+      "sha256": "e731e2c892b9d01973502f2ee99e2213364bc511ff34a04551ceae7992199fe8",
+      "bytes": 309053
+    },
+    {
+      "path": "player-starfish-3-back.png",
+      "sha256": "9845ca38b09f548052c535aa59a069c8ee6f64ef45562878e50769e0b0fd5911",
+      "bytes": 310171
+    },
+    {
+      "path": "player-starfish-3-front.png",
+      "sha256": "62ab28eb240accdb146d02766cca28ceca85e87888eb8128bde3bacadfd7a726",
+      "bytes": 313652
+    },
+    {
+      "path": "player-starfish-4-back.png",
+      "sha256": "a932c0d3346c0d9ad9c8d9af9314901447ed4f8ff37a32590e4e35fed8c1ed31",
+      "bytes": 309817
+    },
+    {
+      "path": "player-starfish-4-front.png",
+      "sha256": "86583edee4134b67ff83cc2d95d7bdb934f08308adc22857288033d6bb69d499",
+      "bytes": 313792
+    },
+    {
+      "path": "player-starfish-5-back.png",
+      "sha256": "51b0ce0dca5c6ce836a90bcaa37787d75996f71969a5c5e93d8c6ac28ce183a3",
+      "bytes": 306500
+    },
+    {
+      "path": "player-starfish-5-front.png",
+      "sha256": "a5da43f4b6380813b1802a64f6345b0ff019ad2070602e56f7570cd25aa20c35",
+      "bytes": 310830
+    },
+    {
+      "path": "player-starfish-6-back.png",
+      "sha256": "9eb700f7d0bd25610b0b6ce5be4ecb761a459fcba95e25d177e8e38fc5d39f82",
+      "bytes": 309992
+    },
+    {
+      "path": "player-starfish-6-front.png",
+      "sha256": "55a62711f32a8356ae1c36ed62541997a525863b623c33ab334d8462daa374a5",
+      "bytes": 315490
+    },
+    {
+      "path": "player-starfish-7-back.png",
+      "sha256": "cefad30dab036fffb719633e6a48e13a4167952e9a6e373ccf9e2779ea22c17c",
+      "bytes": 307648
+    },
+    {
+      "path": "player-starfish-7-front.png",
+      "sha256": "f99b0cbea93adfef64f11566e08493478399f92f5d82ced37407451352b046ae",
+      "bytes": 311712
+    },
+    {
+      "path": "player-starfish-8-back.png",
+      "sha256": "965f83b9adde522827ed52f4be4b590fe7113e152f6210ec21e5631a2756f6a0",
+      "bytes": 308827
+    },
+    {
+      "path": "player-starfish-8-front.png",
+      "sha256": "27aad10232cefa9e3c9e357cb3faeb9c69d478608813f9a8ceb07c5b596ebc61",
+      "bytes": 311740
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113792866030,
+  "artifactJobName": "stage-evidence (starfish)",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}
