@@ -10,7 +10,7 @@ test('god representatives preserve open halos, white feather tiers and distinct 
  const target=new THREE.Mesh(r.faceSpec.target,new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));target.matrixAutoUpdate=false;target.matrix.copy(r.bones.head.matrixWorld);target.updateMatrixWorld(true);const head=r.parts.find(p=>p.bone==='head').mesh;
  for(const x of [-sp.head.r*.25,sp.head.r*.25]){const pt=r.bones.head.localToWorld(new THREE.Vector3(x,r.faceSpec.center[1],0)),ray=new THREE.Raycaster(new THREE.Vector3(pt.x,pt.y,3),new THREE.Vector3(0,0,-1)),a=ray.intersectObject(target)[0],b=ray.intersectObject(head)[0];assert.ok(a&&b);assert.ok(Math.abs(a.distance-b.distance)<.003,'hair does not occlude canonical eyes');}
  }
- assert.equal(SPEC.specKeyFor({line:'god',stage:2}),null);
+ assert.deepEqual(SPEC.specKeyFor({line:'god',stage:2}),{id:'god',stage:3,exact:true});
 });
 test('celestial wings and robe retain one owner and canonical face through32 state combinations',async()=>{
  const rows=require('../character-3d/mythic-spec.js')().god?.stages;assert.ok(rows);const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');

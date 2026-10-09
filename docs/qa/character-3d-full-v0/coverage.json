@@ -2,9 +2,9 @@
   "phase": "Full Rollout v0 — in progress, not Human QA completion",
   "counts": {
     "total": 293,
-    "exactSpecs": 220,
-    "pending": 73,
-    "fourViewRecords": 218
+    "exactSpecs": 236,
+    "pending": 57,
+    "fourViewRecords": 234
   },
   "rows": [
     {
@@ -3856,15 +3856,15 @@
       "group": "rare",
       "asset": "assets/characters/god/01.png",
       "sha256": "3e9ba7ff83036637beab953d84d321b13f13ae6e2e0cef4fab8a4d2adcb46ca5",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "celestial_humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-1-back.jpg"
       }
     },
     {
@@ -3876,15 +3876,15 @@
       "group": "rare",
       "asset": "assets/characters/god/02.png",
       "sha256": "47f4bd18d29ab15c8977776f05d2a7fdf22183c6b3a69020c8953fe80c38cf68",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "celestial_humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-2-back.jpg"
       }
     },
     {
@@ -3896,15 +3896,15 @@
       "group": "rare",
       "asset": "assets/characters/god/03.png",
       "sha256": "68184e0b5f36156281403e1100569088b620f570991319b5daa12216596e39a7",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "celestial_humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-3-back.jpg"
       }
     },
     {
@@ -3916,15 +3916,15 @@
       "group": "rare",
       "asset": "assets/characters/god/04.png",
       "sha256": "493e5f6866f33750bb2319107df728f3fbf0589b4ab250bc82c0801b1486fdf9",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "celestial_humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-4-back.jpg"
       }
     },
     {
@@ -3936,15 +3936,15 @@
       "group": "rare",
       "asset": "assets/characters/god/05.png",
       "sha256": "4fb80b48f2c3009044b31f930507aa484d2969efba2b19c0408e960895314c98",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "celestial_humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-5-back.jpg"
       }
     },
     {
@@ -3956,15 +3956,15 @@
       "group": "rare",
       "asset": "assets/characters/god/06.png",
       "sha256": "10afbe41502067c5fd4244035c8f5845cc695f94ac64eaa2f8b9a25273d1c16a",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "celestial_humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-6-back.jpg"
       }
     },
     {
@@ -3976,15 +3976,15 @@
       "group": "rare",
       "asset": "assets/characters/god/07.png",
       "sha256": "4f6352b11fe931d3d6b586b45d42e3b3fee1230f4136a8e0a7269b424a651772",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "celestial_humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-7-back.jpg"
       }
     },
     {
@@ -3996,15 +3996,15 @@
       "group": "rare",
       "asset": "assets/characters/god/08.png",
       "sha256": "1a3ad9b9fc3adf621f67c421b4af1c541c9d9286db207b06f7230c6f2fa17f89",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "celestial_humanoid",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3/god-wave/mythic/god-8-back.jpg"
       }
     },
     {
@@ -4176,15 +4176,15 @@
       "group": "rare",
       "asset": "assets/characters/ghost/01.png",
       "sha256": "6335deebf91c0bd510130da4429e47dab9f588bf747fc4e11cc308e284c5e111",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "spectral",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-1-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-1-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-1-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-1-back.jpg"
       }
     },
     {
@@ -4196,15 +4196,15 @@
       "group": "rare",
       "asset": "assets/characters/ghost/02.png",
       "sha256": "65653aef8297f659ef8110da65544389642011926999005f3d94c4878142f227",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "spectral",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-2-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-2-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-2-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-2-back.jpg"
       }
     },
     {
@@ -4216,15 +4216,15 @@
       "group": "rare",
       "asset": "assets/characters/ghost/03.png",
       "sha256": "98ca88dbd1f823fa5cde65e1fad34c26100aad2daa0515c2494a2bce7c5d8ce5",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "spectral",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-3-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-3-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-3-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-3-back.jpg"
       }
     },
     {
@@ -4236,15 +4236,15 @@
       "group": "rare",
       "asset": "assets/characters/ghost/04.png",
       "sha256": "4aabd7d239db708e5a89f8a71886b7d50437b3f3237a7fbdebc3569ec9a8a84d",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "spectral",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-4-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-4-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-4-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-4-back.jpg"
       }
     },
     {
@@ -4256,15 +4256,15 @@
       "group": "rare",
       "asset": "assets/characters/ghost/05.png",
       "sha256": "c74b48efe3f6ed52d9e0779486ef0547a5b3eabc9a2392d409cfea03ab806f94",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "spectral",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-5-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-5-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-5-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-5-back.jpg"
       }
     },
     {
@@ -4276,15 +4276,15 @@
       "group": "rare",
       "asset": "assets/characters/ghost/06.png",
       "sha256": "adfbfcd95e89f6493807c0de1fb9321cd805037029ff7ca17d8648755bd4e19e",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "spectral",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-6-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-6-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-6-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-6-back.jpg"
       }
     },
     {
@@ -4296,15 +4296,15 @@
       "group": "rare",
       "asset": "assets/characters/ghost/07.png",
       "sha256": "c9cdf5cdc8c16091dcfb196bc04401ed6cdc55e804fbbebe5e722acb89c72bdd",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "spectral",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-7-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-7-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-7-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-7-back.jpg"
       }
     },
     {
@@ -4316,15 +4316,15 @@
       "group": "rare",
       "asset": "assets/characters/ghost/08.png",
       "sha256": "ca5cdc133766751cff2f8d2ac2443426830a8504af46e9b4283ca41f0f0856b8",
-      "archetype": null,
-      "exact": false,
-      "status": "pending",
-      "reason": "family-not-built",
+      "archetype": "spectral",
+      "exact": true,
+      "status": "spec-ready",
+      "reason": null,
       "views": {
-        "34": null,
-        "front": null,
-        "side": null,
-        "back": null
+        "34": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-8-34.jpg",
+        "front": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-8-front.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-8-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/4f3a83933e0ef9ef26a6838d5530324d98b9f183/ghost-wave/mythic/ghost-8-back.jpg"
       }
     },
     {

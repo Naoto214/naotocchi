@@ -9,9 +9,9 @@ test('God source stages retain seed, winged infant, staff bearers and radiant re
  }
  assert.notDeepEqual(rows[5].celestial.robe,rows[4].celestial.robe);assert.equal(rows[6].normalEye,'content');
 });
-test('God all-stage candidates keep one face and owned props across32 states without runtime promotion',async()=>{
+test('God all-stage candidates keep one face and owned props across32 states after image-approved promotion',async()=>{
  const rows=require('../character-3d/mythic-spec.js')().god.stages,SPEC=require('../character-3d/spec.js'),{BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
- for(let n=1;n<=8;n++){assert.ok(rows[n]);const r=BUILDERS[rows[n].archetype](rows[n],'god:'+n);r.faces=[attachFace(r,r.faceSpec,'C')];for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'god:'+n});setEmotion(a,em);for(let i=0;i<20;i++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,1);assert.equal(a.faces[0].emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}assert.equal(SPEC.specKeyFor({line:'god',stage:n-1}),null);}
+ for(let n=1;n<=8;n++){assert.ok(rows[n]);const r=BUILDERS[rows[n].archetype](rows[n],'god:'+n);r.faces=[attachFace(r,r.faceSpec,'C')];for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'god:'+n});setEmotion(a,em);for(let i=0;i<20;i++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,1);assert.equal(a.faces[0].emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}assert.deepEqual(SPEC.specKeyFor({line:'god',stage:n-1}),{id:'god',stage:n,exact:true});}
 });
 test('winged God orbs animate their attached wings in floating gait',async()=>{
  const rows=require('../character-3d/mythic-spec.js')().god.stages,{BUILDERS}=await import('../character-3d/archetypes.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate}=await import('../character-3d/animate.mjs');

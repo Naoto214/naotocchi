@@ -1,18 +1,18 @@
 {
-  "baseCommit": "f1b57c44127d1e1b12de1b35c27d6c30d2743565",
-  "checkpoint": "star03-core-correction-ghost-image-pass-god-export",
+  "baseCommit": "c543cdd2e1b7544d5e3b64d708edb1b22446be4f",
+  "checkpoint": "god-ghost-image-approved-runtime-promotion",
   "coverage": {
-    "exact": 220,
+    "exact": 236,
     "total": 293,
-    "pending": 73,
-    "playerFamilies": 27,
-    "playerStages": 216,
+    "pending": 57,
+    "playerFamilies": 29,
+    "playerStages": 232,
     "companions": 3,
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 250,
-    "rolloutMutationsDetected": 29,
+    "dedicatedPass": 252,
+    "rolloutMutationsDetected": 31,
     "pilotHashesUnchanged": 28,
     "fullNpm": "Pre-promotion spine-corrected a65ceb5:3013PASS+80PASS,0FAIL,exit0,archived. Final04root+runtime promotion has236dedicatedPASS;no fresh fullnpm after registration claimed.",
     "postPromotionAggregate": "9fadab27 Character37793464360 all56jobs SUCCESS;26families/208expected stage coverage job113385923002 SUCCESS",
@@ -24,7 +24,7 @@
     "plushStageMutationsDetected": 6,
     "worldTreeImageGate": "9b79310 artifacts11462261195/11461529312:32fourviews/256states/16distance PASS_ALL8_IMAGE_GATE",
     "plushImageGate": "3076d288 wave11463280279/distance11462287707:32fourviews/256states/16distance PASS_ALL8_IMAGE_GATE",
-    "browserRegistration": "Phoenix now registered;27family/216stage post-promotion aggregate pending. Prior9fad26family/208stageSUCCESS is not new aggregate.",
+    "browserRegistration": "29family/232stage postGod/Ghost promotion aggregate pending;priorPhoenix27/216 aggregatePASS is separate.",
     "relationshipPass": 80,
     "venusImageGate": "c331193 artifacts11470811397/11470106366:32fourviews/256states/16distance; prior all8 PASS carried forward, archives restored",
     "mythicMutationsDetected": 11,
@@ -40,22 +40,23 @@
     "phoenixCandidateCI": "fde2580 Character37870348699 SUCCESS(3run jobs,15unrelatedcapturejobsSKIPPED),Runtime37870354756 SUCCESS;Home37870354778 lastobservedIN_PROGRESS.",
     "remainingRepresentativeGates": "9fad source recovered:god/ghost/unknown03/07 PASS8views64states4distanceeach;star03 REJECT core/orbit composition,star07 visually readable.",
     "godCandidates": "01orbseed/02winginfant/04staff/05longrobe-blueorb/06calm-doublehalo/08goldrays;03/07 definitions unchanged.9celestial+7stage mutations detected/restored;28Pilot hashes unchanged;images pending,no runtimeGodregistration.",
-    "phoenixPostPromotionCI": "c67ba80 Character37871872563/Runtime37871878184/Home37871878268 last observed queued/in_progress;27family/216stage aggregate pending.",
+    "phoenixPostPromotionCI": "c67ba80 Character37871872563 all57jobsSUCCESS,27family/216stage aggregate113640335472SUCCESS/artifact11591862686. Runtime37871878184/Home37871878268SUCCESS.",
     "ghostCandidates": "All8 isolated candidates;03/07 unchanged;7stage+8spectral mutations detected. Missing03 after mutation explicitly restored;245 dedicated and representative equality reverified.28Pilot hashes unchanged. Review Critical0/Important0. Actual image gate pending;not registered.",
     "godCandidateCI": "3a1212e Character37872664719 SUCCESS:3success,15skipped. God wave11591270378/distance11590528811 export requested;visual acceptance pending.",
-    "godImageGate": "3a1212e REJECT04/05/06:staff finials hidden behind hair/body.32fourviews/16distance reviewed;160states for01/02/03/07/08 PASS.299wave+17distance hashes verified; immutable images saved5d9e296. Owned staff rotated outward; corrected images pending.",
+    "godImageGate": "86dfd3a PASS_ALL8:32views/256states/16distance;04-06 corrected staff finials visible;185unchanged wave images identical to actualreviewed3a.299wave+17distancehashes verified;archivec543cdd.",
     "godStaffFix": "RED/GREEN silhouette clearance;8/8stage+9/9factory mutations detected/restored;212family-dedicated+34base=246PASS;28Pilot hashes unchanged;review Critical0/Important0.",
     "unknownCandidates": "All8 via existingmystery_blob:darkseed/bluedome/antennae/featherwings/tallwisp/curl.03/07JSON identical;7stage+7factory mutations detected/restored;249dedicatedPASS,28Pilot unchanged. Image gate pending,not registered. Review found stationary05 wings;existing owned feather-wing channel reused,actual motion RED/GREEN verified.",
     "ghostCandidateCI": "4f3a839 Character37873539531 SUCCESS (3success/15skipped);wave11591341783/distance11590574842 exportrequested.",
     "ghostImageGate": "4f3a839 PASS_ALL8:32fourviews/256states/16distance actually inspected;299wave+17distance hashes verified;archivef1b57c4. Runtime promotion pending.",
     "starCorrection": "03 corez .35->.08 and tiltx1.10->.65 to center face in spiral disk;07unchanged.3testsPASS,6/6mutations detected/restored,250dedicatedPASS,reviewCritical0/Important0. Corrected representative images pending;no expansion.",
-    "unknownReview": "Critical0/Important0 after actual wing-motion fix."
+    "unknownReview": "Critical0/Important0 after actual wing-motion fix.",
+    "godGhostPromotion": "God/Ghost all8 registered after actualimagePASS.252dedicatedPASS;31/31runtime mutations detected/restored;28Pilot hashes identical;coverage236/293,57pending,234fourviewrecords. ReviewCritical0/Important0."
   },
   "next": [
-    "Confirm fresh27family/216stage aggregate after Phoenix promotion;do not count scoped skips as integrationPASS",
-    "Review corrected God86dfd3a images;Ghost all8imagePASS ready for guarded promotion;Unknown47e6264 imagespending.",
-    "Review corrected Star03 representative before expanding remaining6stages",
-    "Remaining41nonplayers and full293 integration/performance/regression/Human/iPhone QA"
+    "Review Unknown47e6264 all8 images;export requested from successful37874359307",
+    "Review corrected Star03 bc91033 representative then expand remaining6stages",
+    "Remaining41nonplayers and full293 integration/performance/regression/Human/iPhone QA",
+    "Confirm new29family/232stage aggregate after God/Ghost promotion"
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",

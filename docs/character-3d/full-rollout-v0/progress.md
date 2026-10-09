@@ -834,3 +834,12 @@ Review found stationary Unknown05 wings; fixed via existing owned feather-wing m
 Ghost4f3a839 actual32fourviews/256states/16distance inspected PASS;299wave+17distance hashes verified, archivedf1b57c4. Runtime promotion remains separate.
 
 Star03 source galaxy was rejected for face projecting in front of a narrow ring. Move corez .35 to.08 and reduce tiltx1.10 to.65; centered-core/projected-disk RED/GREEN, existingthree-angleface ray checks retained. Side-depth minimum adjusted.9 to.6 for intended tilt, still detects flattenedgeometry.6/6cosmic mutations detected/restored;250dedicatedPASS;reviewCritical0/Important0.07unchanged. Scoped representative recapture, no premature expansion. God corrected86dfd3a Character37873967912SUCCESS;wave11591451520/distance11591597496 exportrequested.
+
+
+### God + Ghost image-approved runtime promotion
+
+God corrected86dfd3a PASS32views/256states/16distance;185unchanged stage01/02/03/07/08 waveimages exacthash matched prior actualreview.04-06 staff finials now visible across96freshstates;299wave+17distance hashes verified,archivec543cdd. Ghost4f3a839 PASS32views/256states/16distance previouslyrecorded.
+
+Register only God/Ghost all8;runtime tests RED/GREEN,252dedicatedPASS,31/31rollout mutations detected/restored,28Pilot hashes identical. Coverage236/293,57pending=16player+41nonplayer;29families/232playerstages;234fourviewrecords,not finalall293QA.
+
+Phoenix c67ba80 Character37871872563 completed57/57SUCCESS (0failure/0cancelled/0skipped);27family/216stage aggregation113640335472SUCCESS,artifact11591862686. Runtime37871878184/Home37871878268SUCCESS. New29/232 aggregate pending. Unknown47e6264 scoped Character37874359307SUCCESS;exportrequested. Star correctedbc91033 scoped Character37874666009SUCCESS;image reviewpending. Human/iPhone remain separate.
