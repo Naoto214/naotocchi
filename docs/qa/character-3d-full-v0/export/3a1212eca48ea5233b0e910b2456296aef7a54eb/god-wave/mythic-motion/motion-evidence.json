@@ -1,0 +1,7209 @@
+{
+  "source": "3a1212eca48ea5233b0e910b2456296aef7a54eb",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "god",
+      "stage": 1
+    },
+    {
+      "id": "god",
+      "stage": 2
+    },
+    {
+      "id": "god",
+      "stage": 3
+    },
+    {
+      "id": "god",
+      "stage": 4
+    },
+    {
+      "id": "god",
+      "stage": 5
+    },
+    {
+      "id": "god",
+      "stage": 6
+    },
+    {
+      "id": "god",
+      "stage": 7
+    },
+    {
+      "id": "god",
+      "stage": 8
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1934,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.16735774542935697,
+          0.19846328238475808,
+          -0.1575131669913158
+        ],
+        [
+          0.16735774542935697,
+          0.7627520594339413,
+          0.16820442585375814
+        ]
+      ],
+      "file": "god-1-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1934,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.17802022037844784,
+          0.19072084549154508,
+          -0.1575131669913158
+        ],
+        [
+          0.17802022037844784,
+          0.7642229709831105,
+          0.16820442585375814
+        ]
+      ],
+      "file": "god-1-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1934,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.17000000178813934,
+          0.1736394625944781,
+          -0.1599999964237213
+        ],
+        [
+          0.17000000178813934,
+          0.7205234330935169,
+          0.17086004966517612
+        ]
+      ],
+      "file": "god-1-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1934,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.18032467949408773,
+          0.16576268035363323,
+          -0.1599999964237213
+        ],
+        [
+          0.18032467949408773,
+          0.7220355567980604,
+          0.17086004966517612
+        ]
+      ],
+      "file": "god-1-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1774,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.16735774542935697,
+          0.2524214341035345,
+          -0.17365006150586157
+        ],
+        [
+          0.16735774542935697,
+          0.8275365653816551,
+          0.17365006150586157
+        ]
+      ],
+      "file": "god-1-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1774,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.16875661993771932,
+          0.2204739137619913,
+          -0.17372513725238253
+        ],
+        [
+          0.16875661993771932,
+          0.796848437022519,
+          0.17372513725238253
+        ]
+      ],
+      "file": "god-1-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1774,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.17000000178813934,
+          0.16555576360408905,
+          -0.175619605477763
+        ],
+        [
+          0.17000000178813934,
+          0.7235070977004543,
+          0.175619605477763
+        ]
+      ],
+      "file": "god-1-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1774,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.17135558083845043,
+          0.16451274668418256,
+          -0.17569588125227692
+        ],
+        [
+          0.17135558083845043,
+          0.723743856723157,
+          0.17569588125227692
+        ]
+      ],
+      "file": "god-1-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1934,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.21384407750920453,
+          0.16660999538779386,
+          -0.23799130038435654
+        ],
+        [
+          0.21384407750920453,
+          0.7581203927644813,
+          0.23799130038435654
+        ]
+      ],
+      "file": "god-1-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1934,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.225030965013481,
+          0.17464205595612833,
+          -0.23460455558202997
+        ],
+        [
+          0.225030965013481,
+          0.7566693768317478,
+          0.23460455558202997
+        ]
+      ],
+      "file": "god-1-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1934,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.21722026348815077,
+          0.14125864528377652,
+          -0.24027158974888096
+        ],
+        [
+          0.21722026348815077,
+          0.7160514677503449,
+          0.24027158974888096
+        ]
+      ],
+      "file": "god-1-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1934,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.22805147220893204,
+          0.14943180643705012,
+          -0.23704406838610875
+        ],
+        [
+          0.22805147220893204,
+          0.71455631073381,
+          0.23704406838610875
+        ]
+      ],
+      "file": "god-1-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2134,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.16735774542935697,
+          0.16044462636984236,
+          -0.19126838403436452
+        ],
+        [
+          0.16735774542935697,
+          0.70945848880827,
+          0.19126838403436452
+        ]
+      ],
+      "file": "god-1-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2134,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.17837781505484449,
+          0.1530203087472655,
+          -0.19252679033921125
+        ],
+        [
+          0.17837781505484449,
+          0.7115318636497466,
+          0.19252679033921125
+        ]
+      ],
+      "file": "god-1-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2134,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.17000000178813934,
+          0.1347509226035842,
+          -0.1926225831403512
+        ],
+        [
+          0.17000000178813934,
+          0.6680057479955341,
+          0.1926225831403512
+        ]
+      ],
+      "file": "god-1-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2134,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.18067062373139353,
+          0.12719736857313302,
+          -0.19390289474596123
+        ],
+        [
+          0.18067062373139353,
+          0.6701297182774036,
+          0.19390289474596123
+        ]
+      ],
+      "file": "god-1-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1774,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.16735774542935697,
+          0.15240074105852885,
+          -0.19870531603388492
+        ],
+        [
+          0.16735774542935697,
+          0.6921207958936284,
+          0.19870531603388492
+        ]
+      ],
+      "file": "god-1-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1774,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.17906988334810262,
+          0.14473832938417014,
+          -0.200358972927982
+        ],
+        [
+          0.17906988334810262,
+          0.6935429060692755,
+          0.200358972927982
+        ]
+      ],
+      "file": "god-1-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1774,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.17000000178813934,
+          0.12644790254604513,
+          -0.1997809890924811
+        ],
+        [
+          0.17000000178813934,
+          0.6509438797798082,
+          0.1997809890924811
+        ]
+      ],
+      "file": "god-1-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1774,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.1813400826255271,
+          0.11865128452103779,
+          -0.20146360961662227
+        ],
+        [
+          0.1813400826255271,
+          0.6524081023753325,
+          0.20146360961662227
+        ]
+      ],
+      "file": "god-1-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1774,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.16686345293837604,
+          0.17896568927227946,
+          -0.1770662282296479
+        ],
+        [
+          0.1678520379203379,
+          0.7330710387799277,
+          0.1770662282296479
+        ]
+      ],
+      "file": "god-1-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1774,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.16779726427687178,
+          0.1783082284147852,
+          -0.17712734177538325
+        ],
+        [
+          0.16878584925883364,
+          0.7332791173912305,
+          0.17712734177538325
+        ]
+      ],
+      "file": "god-1-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1774,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.17000000178813934,
+          0.15362300852161048,
+          -0.17892089587528004
+        ],
+        [
+          0.17000000178813934,
+          0.6913153096435243,
+          0.17892089587528004
+        ]
+      ],
+      "file": "god-1-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1774,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.1709049446084632,
+          0.1529550817199323,
+          -0.1789829822712638
+        ],
+        [
+          0.1709049446084632,
+          0.6915268010544018,
+          0.1789829822712638
+        ]
+      ],
+      "file": "god-1-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1934,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.16735774542935697,
+          0.21787341091368956,
+          -0.17770173938847775
+        ],
+        [
+          0.16735774542935697,
+          0.7953058942701929,
+          0.17770173938847775
+        ]
+      ],
+      "file": "god-1-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1934,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.1832250472228626,
+          0.19103051695472928,
+          -0.17875188812981066
+        ],
+        [
+          0.1832250472228626,
+          0.781754927003391,
+          0.17875188812981066
+        ]
+      ],
+      "file": "god-1-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1934,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.17000000178813934,
+          0.16187060263704134,
+          -0.1795348139773022
+        ],
+        [
+          0.17000000178813934,
+          0.7222170748859227,
+          0.1795348139773022
+        ]
+      ],
+      "file": "god-1-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1934,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.18535775215035238,
+          0.15028125139130544,
+          -0.18060405267427151
+        ],
+        [
+          0.18535775215035238,
+          0.7241971364026408,
+          0.18060405267427151
+        ]
+      ],
+      "file": "god-1-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1774,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.16612201420190467,
+          0.1676268527609222,
+          -0.18845826587788658
+        ],
+        [
+          0.16859347665680927,
+          0.7330286629095877,
+          0.18845826587788658
+        ]
+      ],
+      "file": "god-1-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1774,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.18113094684672734,
+          0.15723350263464192,
+          -0.1900119501466407
+        ],
+        [
+          0.18360240930163194,
+          0.7357670179388685,
+          0.1900119501466407
+        ]
+      ],
+      "file": "god-1-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1774,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.17000000178813934,
+          0.14217653104483255,
+          -0.18991460823282508
+        ],
+        [
+          0.17000000178813934,
+          0.6912447027165451,
+          0.18991460823282508
+        ]
+      ],
+      "file": "god-1-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1774,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.1845280358304328,
+          0.13159569660595694,
+          -0.1914963192132341
+        ],
+        [
+          0.1845280358304328,
+          0.6940610497661325,
+          0.1914963192132341
+        ]
+      ],
+      "file": "god-1-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4828,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.33932416506350427,
+          0.23782677849109118,
+          -0.18765652509190978
+        ],
+        [
+          0.33932416506350427,
+          0.9214978230481489,
+          0.1902533218656259
+        ]
+      ],
+      "file": "god-2-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4828,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3513029346442743,
+          0.2286958145438147,
+          -0.18765652509190978
+        ],
+        [
+          0.3522798741455195,
+          0.930036742103548,
+          0.1902533218656259
+        ]
+      ],
+      "file": "god-2-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4828,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34060000360012055,
+          0.21363946676680323,
+          -0.19061926007270813
+        ],
+        [
+          0.34060000360012055,
+          0.8762235027594256,
+          0.19325705526433568
+        ]
+      ],
+      "file": "god-2-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4828,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3503759219412027,
+          0.20435113465187005,
+          -0.19061926007270813
+        ],
+        [
+          0.35132272892214633,
+          0.8849204908209032,
+          0.19325705526433568
+        ]
+      ],
+      "file": "god-2-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4668,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.33932416506350427,
+          0.29040385953788284,
+          -0.21895887858907678
+        ],
+        [
+          0.33932416506350427,
+          0.9988651176409054,
+          0.19479190706559663
+        ]
+      ],
+      "file": "god-2-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4668,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3452629384181655,
+          0.25827480369060024,
+          -0.21904342008396901
+        ],
+        [
+          0.345389135970299,
+          0.9691002494528635,
+          0.19488025849445584
+        ]
+      ],
+      "file": "god-2-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4668,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34060000360012055,
+          0.20415032969966007,
+          -0.2209328241555293
+        ],
+        [
+          0.34060000360012055,
+          0.8920008777750625,
+          0.19702505315684773
+        ]
+      ],
+      "file": "god-2-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4668,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3445333787327174,
+          0.20292289287125004,
+          -0.22101872868513642
+        ],
+        [
+          0.34465568387360446,
+          0.8931755610666822,
+          0.19711481554992788
+        ]
+      ],
+      "file": "god-2-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4828,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3576171256746702,
+          0.20209525819679236,
+          -0.26982419035584343
+        ],
+        [
+          0.3227510709944841,
+          0.9463331948507782,
+          0.30283419325290284
+        ]
+      ],
+      "file": "god-2-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4828,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3658949201466746,
+          0.21157096064845088,
+          -0.2780046423048038
+        ],
+        [
+          0.3292003165668019,
+          0.9375042146069648,
+          0.2953993790974626
+        ]
+      ],
+      "file": "god-2-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4828,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3626682360129435,
+          0.17730977099720663,
+          -0.27247277477275955
+        ],
+        [
+          0.3278017120871004,
+          0.9017288560482918,
+          0.30477802728983494
+        ]
+      ],
+      "file": "god-2-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4828,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3711627684598984,
+          0.18695066543234468,
+          -0.26905391030940085
+        ],
+        [
+          0.33494026893545664,
+          0.8927330348012043,
+          0.2976343814152068
+        ]
+      ],
+      "file": "god-2-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5028,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.33932416506350427,
+          0.19477585717369061,
+          -0.2139593100953039
+        ],
+        [
+          0.33932416506350427,
+          0.8833854014679461,
+          0.25392598739317235
+        ]
+      ],
+      "file": "god-2-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5028,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3524924055558147,
+          0.1860193098133774,
+          -0.21544352655358123
+        ],
+        [
+          0.3515277606098212,
+          0.8915665000752278,
+          0.255312666491689
+        ]
+      ],
+      "file": "god-2-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5028,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34060000360012055,
+          0.16962704214871188,
+          -0.21552034067606057
+        ],
+        [
+          0.34060000360012055,
+          0.8395136818278327,
+          0.254735720636679
+        ]
+      ],
+      "file": "god-2-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5028,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3515279158849104,
+          0.16071913224569156,
+          -0.217030212768666
+        ],
+        [
+          0.3505930242484943,
+          0.8478470340905817,
+          0.25614820641127234
+        ]
+      ],
+      "file": "god-2-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4668,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.33932416506350427,
+          0.18545100592189417,
+          -0.22203639999005415
+        ],
+        [
+          0.33932416506350427,
+          0.8677565128052345,
+          0.26897986399583595
+        ]
+      ],
+      "file": "god-2-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4668,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.35196105038519876,
+          0.1764121261228257,
+          -0.22398711818817224
+        ],
+        [
+          0.3530361051504941,
+          0.8761859665931412,
+          0.27079905943485044
+        ]
+      ],
+      "file": "god-2-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4668,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34060000360012055,
+          0.16001684786363554,
+          -0.22329301676551314
+        ],
+        [
+          0.34060000360012055,
+          0.8243258323968289,
+          0.26926673123766454
+        ]
+      ],
+      "file": "god-2-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4668,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3510113438437905,
+          0.15082082705871713,
+          -0.22527764821688787
+        ],
+        [
+          0.3520532398418345,
+          0.8329137868241312,
+          0.27112013335809926
+        ]
+      ],
+      "file": "god-2-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4668,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.33882987257252334,
+          0.21515303379188333,
+          -0.19851168278297526
+        ],
+        [
+          0.3398184575544852,
+          0.9000119819934369,
+          0.22566952324710524
+        ]
+      ],
+      "file": "god-2-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4668,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34453521614456317,
+          0.21437939280764517,
+          -0.19858359572369874
+        ],
+        [
+          0.3454434285067469,
+          0.9007530680782814,
+          0.22573841008321682
+        ]
+      ],
+      "file": "god-2-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4668,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34060000360012055,
+          0.1903924580227046,
+          -0.20061939949603783
+        ],
+        [
+          0.34060000360012055,
+          0.8555795202353655,
+          0.22742515858996148
+        ]
+      ],
+      "file": "god-2-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4668,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34430725383710503,
+          0.18960650902447268,
+          -0.20069245651456843
+        ],
+        [
+          0.34422936021381967,
+          0.8563324716491124,
+          0.2274951483545779
+        ]
+      ],
+      "file": "god-2-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4828,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.33932416506350427,
+          0.25551533089377176,
+          -0.22692138923172533
+        ],
+        [
+          0.33932416506350427,
+          0.9698148020242369,
+          0.19920351176606382
+        ]
+      ],
+      "file": "god-2-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4828,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3545108832321642,
+          0.22661385122644606,
+          -0.22806483824675805
+        ],
+        [
+          0.35597795203249594,
+          0.9667480536185912,
+          0.20044358653981573
+        ]
+      ],
+      "file": "god-2-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4828,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34060000360012055,
+          0.20011778065190666,
+          -0.2286360396860887
+        ],
+        [
+          0.34060000360012055,
+          0.8939486317138584,
+          0.20128764943160707
+        ]
+      ],
+      "file": "god-2-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4828,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3534706666633391,
+          0.1864348692321593,
+          -0.22980236310806876
+        ],
+        [
+          0.35489248549644825,
+          0.9065902727634841,
+          0.2025500409207407
+        ]
+      ],
+      "file": "god-2-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4668,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.33808843383605197,
+          0.20327593944112893,
+          -0.21090503523913373
+        ],
+        [
+          0.34055989629095657,
+          0.9103606099743686,
+          0.24828623396835664
+        ]
+      ],
+      "file": "god-2-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4668,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.35407873558469927,
+          0.19100554586509716,
+          -0.2127393155471065
+        ],
+        [
+          0.3552272392954908,
+          0.9217019557597782,
+          0.24998163249907063
+        ]
+      ],
+      "file": "god-2-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4668,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34060000360012055,
+          0.17839337010484896,
+          -0.21257767335684558
+        ],
+        [
+          0.34060000360012055,
+          0.8660371846812406,
+          0.24928834736850253
+        ]
+      ],
+      "file": "god-2-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4668,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.35425223243570114,
+          0.16590373064986608,
+          -0.21444472835911585
+        ],
+        [
+          0.352970078757986,
+          0.8776025232456895,
+          0.25101723019955086
+        ]
+      ],
+      "file": "god-2-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9474,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.20750591160361725,
+          -0.35013102513657424
+        ],
+        [
+          0.5543058900167388,
+          1.5103797673826578,
+          0.38355995178222657
+        ]
+      ],
+      "file": "god-3-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9474,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5538093298666548,
+          0.20938828621986616,
+          -0.3728674867218078
+        ],
+        [
+          0.5538093298666548,
+          1.5353665953591829,
+          0.38355995178222657
+        ]
+      ],
+      "file": "god-3-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9474,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.553501398156889,
+          0.2090000128746033,
+          -0.3338842442498664
+        ],
+        [
+          0.553501398156889,
+          1.5035010730385783,
+          0.38355995178222657
+        ]
+      ],
+      "file": "god-3-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9474,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.554179041259304,
+          0.19977897555466168,
+          -0.3457477627176638
+        ],
+        [
+          0.554179041259304,
+          1.5159944870268407,
+          0.38355995178222657
+        ]
+      ],
+      "file": "god-3-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9314,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.2707900593058091,
+          -0.3651579025893335
+        ],
+        [
+          0.5543058900167388,
+          1.5910054541767191,
+          0.37598487356249605
+        ]
+      ],
+      "file": "god-3-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9314,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5538093298666548,
+          0.23604524934765359,
+          -0.3873432374751491
+        ],
+        [
+          0.5538093298666548,
+          1.5797877646665517,
+          0.37598487356249605
+        ]
+      ],
+      "file": "god-3-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9314,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.553501398156889,
+          0.21044186779405483,
+          -0.3650125297149486
+        ],
+        [
+          0.553501398156889,
+          1.5222179636313842,
+          0.3760355682380671
+        ]
+      ],
+      "file": "god-3-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9314,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.554179041259304,
+          0.20458359069815962,
+          -0.3650125297149486
+        ],
+        [
+          0.554179041259304,
+          1.532069575351403,
+          0.3760355682380671
+        ]
+      ],
+      "file": "god-3-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9474,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.1960452076260928,
+          -0.41102000179161446
+        ],
+        [
+          0.5543058900167388,
+          1.5407421887288517,
+          0.581304834584593
+        ]
+      ],
+      "file": "god-3-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9474,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5538093298666548,
+          0.19271934429054904,
+          -0.41102000179161446
+        ],
+        [
+          0.5538093298666548,
+          1.5559570701319334,
+          0.581304834584593
+        ]
+      ],
+      "file": "god-3-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9474,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.553501398156889,
+          0.19753662032150893,
+          -0.4111483629394493
+        ],
+        [
+          0.553501398156889,
+          1.5337296686033846,
+          0.5809652133874991
+        ]
+      ],
+      "file": "god-3-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9474,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.554179041259304,
+          0.1921721857727267,
+          -0.4111483629394493
+        ],
+        [
+          0.554179041259304,
+          1.5413371093049253,
+          0.5809652133874991
+        ]
+      ],
+      "file": "god-3-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9674,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.17926462014603214,
+          -0.3788688643849229
+        ],
+        [
+          0.5543058900167388,
+          1.433887402811781,
+          0.457638992625185
+        ]
+      ],
+      "file": "god-3-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9674,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5538093298666548,
+          0.17928785573021766,
+          -0.40157691131363504
+        ],
+        [
+          0.5538093298666548,
+          1.439780465457965,
+          0.457638992625185
+        ]
+      ],
+      "file": "god-3-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9674,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.553501398156889,
+          0.18066732013747866,
+          -0.36245489471870196
+        ],
+        [
+          0.553501398156889,
+          1.427225720401257,
+          0.45790576929268517
+        ]
+      ],
+      "file": "god-3-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9674,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.554179041259304,
+          0.18077462376757789,
+          -0.3743035868776151
+        ],
+        [
+          0.554179041259304,
+          1.4301722517243491,
+          0.45790576929268517
+        ]
+      ],
+      "file": "god-3-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9314,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.17169235206179503,
+          -0.38450505326075923
+        ],
+        [
+          0.5543058900167388,
+          1.4037200634006255,
+          0.47446769047230175
+        ]
+      ],
+      "file": "god-3-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9314,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5538093298666548,
+          0.16884684225230734,
+          -0.4072006014913553
+        ],
+        [
+          0.5538093298666548,
+          1.4184576931328752,
+          0.47446769047230175
+        ]
+      ],
+      "file": "god-3-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9314,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.553501398156889,
+          0.1730644517415779,
+          -0.3680625574304614
+        ],
+        [
+          0.553501398156889,
+          1.39718605532708,
+          0.474778420753728
+        ]
+      ],
+      "file": "god-3-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9314,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.554179041259304,
+          0.1729356715510334,
+          -0.379904727970548
+        ],
+        [
+          0.554179041259304,
+          1.404554870193205,
+          0.474778420753728
+        ]
+      ],
+      "file": "god-3-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9314,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5538115975257578,
+          0.19252242773235434,
+          -0.3480620644091785
+        ],
+        [
+          0.5548001825077198,
+          1.4634112585183388,
+          0.4435484664916445
+        ]
+      ],
+      "file": "god-3-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9314,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5533150373756739,
+          0.18511746697519288,
+          -0.3707914212202185
+        ],
+        [
+          0.5543036223576356,
+          1.4736776924148014,
+          0.4435484664916445
+        ]
+      ],
+      "file": "god-3-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9314,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.553501398156889,
+          0.19395631674546449,
+          -0.3318329532429098
+        ],
+        [
+          0.553501398156889,
+          1.4567237121027778,
+          0.4434045289564975
+        ]
+      ],
+      "file": "god-3-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9314,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.554179041259304,
+          0.18855877344761796,
+          -0.3436927645542731
+        ],
+        [
+          0.554179041259304,
+          1.4618569290510093,
+          0.4434045289564975
+        ]
+      ],
+      "file": "god-3-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9474,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.23693433910433043,
+          -0.38723090657532755
+        ],
+        [
+          0.5543058900167388,
+          1.562321084888676,
+          0.36469183246102665
+        ]
+      ],
+      "file": "god-3-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9474,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5538093298666548,
+          0.218314966310807,
+          -0.4072006014913553
+        ],
+        [
+          0.5538093298666548,
+          1.560756413900613,
+          0.36469183246102665
+        ]
+      ],
+      "file": "god-3-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9474,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.553501398156889,
+          0.20750483884954118,
+          -0.38688002547197087
+        ],
+        [
+          0.553501398156889,
+          1.5244865946562003,
+          0.3648111186378675
+        ]
+      ],
+      "file": "god-3-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9474,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.554179041259304,
+          0.20835631013376815,
+          -0.38688002547197087
+        ],
+        [
+          0.554179041259304,
+          1.53143448739972,
+          0.3648111186378675
+        ]
+      ],
+      "file": "god-3-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9314,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5530701587892866,
+          0.19228073425550876,
+          -0.35013102513657424
+        ],
+        [
+          0.555541621244191,
+          1.482225338026002,
+          0.4660495612578266
+        ]
+      ],
+      "file": "god-3-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9314,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.5525735986392024,
+          0.18462899401299543,
+          -0.3728674867218078
+        ],
+        [
+          0.5550450610941071,
+          1.489268386521596,
+          0.4660495612578266
+        ]
+      ],
+      "file": "god-3-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9314,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.553501398156889,
+          0.19373001248836522,
+          -0.3338842442498664
+        ],
+        [
+          0.553501398156889,
+          1.4753849092590436,
+          0.4660495612578266
+        ]
+      ],
+      "file": "god-3-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9314,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.554179041259304,
+          0.18914937711577084,
+          -0.3457477627176638
+        ],
+        [
+          0.554179041259304,
+          1.4789064335068405,
+          0.4660495612578266
+        ]
+      ],
+      "file": "god-3-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10674,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.20750591160361725,
+          -0.35013102513657424
+        ],
+        [
+          0.5543058900167388,
+          1.5111849417596421,
+          0.3563701605796814
+        ]
+      ],
+      "file": "god-4-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10674,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5538093298666548,
+          0.20938828621986616,
+          -0.3728674867218078
+        ],
+        [
+          0.5538093298666548,
+          1.5361717697361674,
+          0.37941849710153386
+        ]
+      ],
+      "file": "god-4-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10674,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.553501398156889,
+          0.2090000128746033,
+          -0.3338842442498664
+        ],
+        [
+          0.553501398156889,
+          1.5043010730385782,
+          0.3563701605796814
+        ]
+      ],
+      "file": "god-4-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10674,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.554179041259304,
+          0.19977897555466168,
+          -0.3457477627176638
+        ],
+        [
+          0.554179041259304,
+          1.5167944870268406,
+          0.3563701605796814
+        ]
+      ],
+      "file": "god-4-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10514,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.2707900593058091,
+          -0.36461388066410905
+        ],
+        [
+          0.5543058900167388,
+          1.5919009349237143,
+          0.3504254380935801
+        ]
+      ],
+      "file": "god-4-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10514,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5538093298666548,
+          0.23604524934765359,
+          -0.3873432374751491
+        ],
+        [
+          0.5538093298666548,
+          1.5806832454135467,
+          0.3504254380935801
+        ]
+      ],
+      "file": "god-4-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10514,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.553501398156889,
+          0.21044186779405483,
+          -0.34827840081606354
+        ],
+        [
+          0.553501398156889,
+          1.5231079856402765,
+          0.3504766392753975
+        ]
+      ],
+      "file": "god-4-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10514,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.554179041259304,
+          0.20458359069815962,
+          -0.3601382121274268
+        ],
+        [
+          0.554179041259304,
+          1.5329595973602954,
+          0.3504766392753975
+        ]
+      ],
+      "file": "god-4-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10674,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.1960452076260928,
+          -0.3830936897535788
+        ],
+        [
+          0.5543058900167388,
+          1.5418533136367363,
+          0.5583812945896374
+        ]
+      ],
+      "file": "god-4-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10674,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5538093298666548,
+          0.19271934429054904,
+          -0.3830936897535788
+        ],
+        [
+          0.5538093298666548,
+          1.5570681950398182,
+          0.5583812945896374
+        ]
+      ],
+      "file": "god-4-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10674,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.553501398156889,
+          0.19753662032150893,
+          -0.38322284699691184
+        ],
+        [
+          0.553501398156889,
+          1.5348348355142793,
+          0.558041363826696
+        ]
+      ],
+      "file": "god-4-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10674,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.554179041259304,
+          0.1921721857727267,
+          -0.38322284699691184
+        ],
+        [
+          0.554179041259304,
+          1.54244227621582,
+          0.558041363826696
+        ]
+      ],
+      "file": "god-4-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10874,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.17926462014603214,
+          -0.3788688643849229
+        ],
+        [
+          0.5543058900167388,
+          1.4350528499058084,
+          0.422514578345247
+        ]
+      ],
+      "file": "god-4-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10874,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5538093298666548,
+          0.17928785573021766,
+          -0.40157691131363504
+        ],
+        [
+          0.5538093298666548,
+          1.4409459125519923,
+          0.422514578345247
+        ]
+      ],
+      "file": "god-4-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10874,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.553501398156889,
+          0.18066732013747866,
+          -0.36245489471870196
+        ],
+        [
+          0.553501398156889,
+          1.4283812837531482,
+          0.4227831528112538
+        ]
+      ],
+      "file": "god-4-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10874,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.554179041259304,
+          0.18077462376757789,
+          -0.3743035868776151
+        ],
+        [
+          0.554179041259304,
+          1.43132781507624,
+          0.4227831528112538
+        ]
+      ],
+      "file": "god-4-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10514,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.17169235206179503,
+          -0.38450505326075923
+        ],
+        [
+          0.5543058900167388,
+          1.4050797634772665,
+          0.4376321819288222
+        ]
+      ],
+      "file": "god-4-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10514,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5538093298666548,
+          0.16884684225230734,
+          -0.4072006014913553
+        ],
+        [
+          0.5538093298666548,
+          1.4198173932095162,
+          0.4376321819288222
+        ]
+      ],
+      "file": "god-4-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10514,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.553501398156889,
+          0.1730644517415779,
+          -0.3680625574304614
+        ],
+        [
+          0.553501398156889,
+          1.3985335702416868,
+          0.4379457334505314
+        ]
+      ],
+      "file": "god-4-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10514,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.554179041259304,
+          0.1729356715510334,
+          -0.379904727970548
+        ],
+        [
+          0.554179041259304,
+          1.4059023851078116,
+          0.4379457334505314
+        ]
+      ],
+      "file": "god-4-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10514,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5538115975257578,
+          0.19252242773235434,
+          -0.3480620644091785
+        ],
+        [
+          0.5548001825077198,
+          1.464318856502141,
+          0.4138805343706704
+        ]
+      ],
+      "file": "god-4-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10514,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5533150373756739,
+          0.18511746697519288,
+          -0.3707914212202185
+        ],
+        [
+          0.5543036223576356,
+          1.4745852903986039,
+          0.4138805343706704
+        ]
+      ],
+      "file": "god-4-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10514,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.553501398156889,
+          0.19395631674546449,
+          -0.3318329532429098
+        ],
+        [
+          0.553501398156889,
+          1.4576258562406248,
+          0.41373645083717064
+        ]
+      ],
+      "file": "god-4-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10514,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.554179041259304,
+          0.18855877344761796,
+          -0.3436927645542731
+        ],
+        [
+          0.554179041259304,
+          1.4627590731888562,
+          0.41373645083717064
+        ]
+      ],
+      "file": "god-4-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10674,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5543058900167388,
+          0.23693433910433043,
+          -0.38450505326075923
+        ],
+        [
+          0.5543058900167388,
+          1.5632182322553239,
+          0.33846240178021075
+        ]
+      ],
+      "file": "god-4-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10674,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5538093298666548,
+          0.218314966310807,
+          -0.4072006014913553
+        ],
+        [
+          0.5538093298666548,
+          1.5616535612672608,
+          0.33846240178021075
+        ]
+      ],
+      "file": "god-4-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10674,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.553501398156889,
+          0.20750483884954118,
+          -0.3680625574304614
+        ],
+        [
+          0.553501398156889,
+          1.5253784500311207,
+          0.3385830629232178
+        ]
+      ],
+      "file": "god-4-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10674,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.554179041259304,
+          0.20835631013376815,
+          -0.379904727970548
+        ],
+        [
+          0.554179041259304,
+          1.5323263427746405,
+          0.3385830629232178
+        ]
+      ],
+      "file": "god-4-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10514,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5530701587892866,
+          0.19228073425550876,
+          -0.35013102513657424
+        ],
+        [
+          0.555541621244191,
+          1.4833943710999875,
+          0.43338412551147926
+        ]
+      ],
+      "file": "god-4-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10514,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.5525735986392024,
+          0.18462899401299543,
+          -0.3728674867218078
+        ],
+        [
+          0.5550450610941071,
+          1.4904374195955814,
+          0.43338412551147926
+        ]
+      ],
+      "file": "god-4-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10514,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.553501398156889,
+          0.19373001248836522,
+          -0.3338842442498664
+        ],
+        [
+          0.553501398156889,
+          1.4765464296525401,
+          0.43338412551147926
+        ]
+      ],
+      "file": "god-4-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10514,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.554179041259304,
+          0.18914937711577084,
+          -0.3457477627176638
+        ],
+        [
+          0.554179041259304,
+          1.4800679539003374,
+          0.43338412551147926
+        ]
+      ],
+      "file": "god-4-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14694,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.1845602138449426,
+          -0.4791798974907467
+        ],
+        [
+          0.7233789248397168,
+          1.6147474495805223,
+          0.32883710622787476
+        ]
+      ],
+      "file": "god-5-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14694,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7198321741255459,
+          0.20954704182146777,
+          -0.514169879974193
+        ],
+        [
+          0.7198321741255459,
+          1.6397342775570474,
+          0.41975533231508555
+        ]
+      ],
+      "file": "god-5-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14694,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7241493194710412,
+          0.18710147023200996,
+          -0.4541759849405075
+        ],
+        [
+          0.7241493194710412,
+          1.6080977429568768,
+          0.32883710622787476
+        ]
+      ],
+      "file": "god-5-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14694,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.723724014708055,
+          0.1995948842202726,
+          -0.4724341138162603
+        ],
+        [
+          0.723724014708055,
+          1.6205911569451397,
+          0.32883710622787476
+        ]
+      ],
+      "file": "god-5-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14534,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.2488491580767211,
+          -0.4994090150371556
+        ],
+        [
+          0.7233789248397168,
+          1.6970409066631105,
+          0.3288317956936769
+        ]
+      ],
+      "file": "god-5-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14534,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7198321741255459,
+          0.23763146856655354,
+          -0.5343880637205625
+        ],
+        [
+          0.7198321741255459,
+          1.6858232171529428,
+          0.3288317956936769
+        ]
+      ],
+      "file": "god-5-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14534,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7241493194710412,
+          0.18954779446211745,
+          -0.4742819530281639
+        ],
+        [
+          0.7241493194710412,
+          1.6284755297771925,
+          0.32887086326916476
+        ]
+      ],
+      "file": "god-5-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14534,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.723724014708055,
+          0.19939940618213636,
+          -0.4925343765358068
+        ],
+        [
+          0.723724014708055,
+          1.6383271414972114,
+          0.32887086326916476
+        ]
+      ],
+      "file": "god-5-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14694,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.1693524697959431,
+          -0.4885774465850519
+        ],
+        [
+          0.7233789248397168,
+          1.6494770303608737,
+          0.5161354343212057
+        ]
+      ],
+      "file": "god-5-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14694,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7198321741255459,
+          0.1845673511990248,
+          -0.5235044659923513
+        ],
+        [
+          0.7198321741255459,
+          1.6646919117639556,
+          0.5161354343212057
+        ]
+      ],
+      "file": "god-5-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14694,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7241493194710412,
+          0.17188915329362753,
+          -0.46355259385137937
+        ],
+        [
+          0.7241493194710412,
+          1.6426779803491396,
+          0.5158099687957028
+        ]
+      ],
+      "file": "god-5-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14694,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.723724014708055,
+          0.17949659399516837,
+          -0.48177786795336236
+        ],
+        [
+          0.723724014708055,
+          1.6502854210506803,
+          0.5158099687957028
+        ]
+      ],
+      "file": "god-5-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14894,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.1596798170528531,
+          -0.5193260182056316
+        ],
+        [
+          0.7233789248397168,
+          1.5359032597219486,
+          0.38695512365633655
+        ]
+      ],
+      "file": "god-5-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14894,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7198321741255459,
+          0.16557287969903695,
+          -0.5542722723221889
+        ],
+        [
+          0.7198321741255459,
+          1.5417963223681326,
+          0.38695512365633655
+        ]
+      ],
+      "file": "god-5-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14894,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7241493194710412,
+          0.16206561270246816,
+          -0.49409151033372156
+        ],
+        [
+          0.7241493194710412,
+          1.5294205561210767,
+          0.38721284255044386
+        ]
+      ],
+      "file": "god-5-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14894,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.723724014708055,
+          0.16501214402556014,
+          -0.5123268213027045
+        ],
+        [
+          0.723724014708055,
+          1.5323670874441686,
+          0.38721284255044386
+        ]
+      ],
+      "file": "god-5-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14534,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.15295718712468248,
+          -0.5272026324794195
+        ],
+        [
+          0.7233789248397168,
+          1.504756061536982,
+          0.4002848143572601
+        ]
+      ],
+      "file": "god-5-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14534,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7198321741255459,
+          0.16769481685693205,
+          -0.5621296518867189
+        ],
+        [
+          0.7198321741255459,
+          1.5194936912692316,
+          0.4002848143572601
+        ]
+      ],
+      "file": "god-5-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14534,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7241493194710412,
+          0.15529093594255222,
+          -0.501929558641568
+        ],
+        [
+          0.7241493194710412,
+          1.4983860741398143,
+          0.40058605500410305
+        ]
+      ],
+      "file": "god-5-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14534,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.723724014708055,
+          0.16265975080867695,
+          -0.5201548327435508
+        ],
+        [
+          0.723724014708055,
+          1.5057548890059391,
+          0.40058605500410305
+        ]
+      ],
+      "file": "god-5-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14534,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7228846323487359,
+          0.1689265356797124,
+          -0.4833072046217384
+        ],
+        [
+          0.7238732173306976,
+          1.5656172903356778,
+          0.38223794836819336
+        ]
+      ],
+      "file": "god-5-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14534,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.719337881634565,
+          0.17919296957617514,
+          -0.5182862533051451
+        ],
+        [
+          0.7203264666165268,
+          1.5758837242321402,
+          0.38223794836819336
+        ]
+      ],
+      "file": "god-5-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14534,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7241493194710412,
+          0.1713653794740873,
+          -0.458283619374555
+        ],
+        [
+          0.7241493194710412,
+          1.5591405305573904,
+          0.3821000870429616
+        ]
+      ],
+      "file": "god-5-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14534,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.723724014708055,
+          0.17649859642231874,
+          -0.476536042882198
+        ],
+        [
+          0.723724014708055,
+          1.564273747505622,
+          0.3821000870429616
+        ]
+      ],
+      "file": "god-5-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14694,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.2165700293900777,
+          -0.5272026324794195
+        ],
+        [
+          0.7233789248397168,
+          1.6687905630587925,
+          0.31816939188422716
+        ]
+      ],
+      "file": "god-5-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14694,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7198321741255459,
+          0.21500535840201457,
+          -0.5621296518867189
+        ],
+        [
+          0.7198321741255459,
+          1.6672258920707292,
+          0.31816939188422716
+        ]
+      ],
+      "file": "god-5-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14694,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7241493194710412,
+          0.18818579993755674,
+          -0.501929558641568
+        ],
+        [
+          0.7241493194710412,
+          1.6311802588040998,
+          0.3182610967773487
+        ]
+      ],
+      "file": "god-5-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14694,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.723724014708055,
+          0.19513369268107655,
+          -0.5201548327435508
+        ],
+        [
+          0.723724014708055,
+          1.6381281515476196,
+          0.3182610967773487
+        ]
+      ],
+      "file": "god-5-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14534,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7221431936122644,
+          0.17002340742959438,
+          -0.4791798974907467
+        ],
+        [
+          0.7246146560671691,
+          1.5871028073602442,
+          0.3989397012159567
+        ]
+      ],
+      "file": "god-5-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14534,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7185964428980935,
+          0.17706645592518838,
+          -0.514169879974193
+        ],
+        [
+          0.7210679053529983,
+          1.5941458558558383,
+          0.3989397012159567
+        ]
+      ],
+      "file": "god-5-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14534,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7241493194710412,
+          0.17248842612504972,
+          -0.4541759849405075
+        ],
+        [
+          0.7241493194710412,
+          1.5804610993121158,
+          0.3989397012159567
+        ]
+      ],
+      "file": "god-5-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14534,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.723724014708055,
+          0.17600995037284667,
+          -0.4724341138162603
+        ],
+        [
+          0.723724014708055,
+          1.5839826235599128,
+          0.3989397012159567
+        ]
+      ],
+      "file": "god-5-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.15206521712475185,
+          -0.4791798974907467
+        ],
+        [
+          0.7233789248397168,
+          1.7453902986704672,
+          0.32883710622787476
+        ]
+      ],
+      "file": "god-6-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7198321741255459,
+          0.17705204510127703,
+          -0.514169879974193
+        ],
+        [
+          0.7198321741255459,
+          1.7703771266469925,
+          0.41975533231508555
+        ]
+      ],
+      "file": "god-6-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7241493194710412,
+          0.15513661980628968,
+          -0.4541759849405075
+        ],
+        [
+          0.7241493194710412,
+          1.7382223484039305,
+          0.32883710622787476
+        ]
+      ],
+      "file": "god-6-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.723724014708055,
+          0.16763003379455232,
+          -0.4724341138162603
+        ],
+        [
+          0.723724014708055,
+          1.7507157623921934,
+          0.32883710622787476
+        ]
+      ],
+      "file": "god-6-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.21638108957766894,
+          -0.4994090150371556
+        ],
+        [
+          0.7233789248397168,
+          1.8263366875251625,
+          0.330691558699048
+        ]
+      ],
+      "file": "god-6-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7198321741255459,
+          0.2051634000675014,
+          -0.5343880637205625
+        ],
+        [
+          0.7198321741255459,
+          1.815118998014995,
+          0.330691558699048
+        ]
+      ],
+      "file": "god-6-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7241493194710412,
+          0.1576097065954472,
+          -0.4742819530281639
+        ],
+        [
+          0.7241493194710412,
+          1.7572586243435047,
+          0.3307265174053293
+        ]
+      ],
+      "file": "god-6-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.723724014708055,
+          0.16746131831546612,
+          -0.4925343765358068
+        ],
+        [
+          0.723724014708055,
+          1.7671102360635236,
+          0.3307265174053293
+        ]
+      ],
+      "file": "god-6-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15776,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.13293918487367978,
+          -0.4885774465850519
+        ],
+        [
+          0.7233789248397168,
+          1.7765422859998525,
+          0.5164673217276721
+        ]
+      ],
+      "file": "god-6-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15776,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7198321741255459,
+          0.14815406627676148,
+          -0.5235044659923513
+        ],
+        [
+          0.7198321741255459,
+          1.7917571674029342,
+          0.5164673217276721
+        ]
+      ],
+      "file": "god-6-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15776,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7241493194710412,
+          0.13600506068874924,
+          -0.46355259385137937
+        ],
+        [
+          0.7241493194710412,
+          1.7692378612731186,
+          0.5161418665908355
+        ]
+      ],
+      "file": "god-6-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15776,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.723724014708055,
+          0.14361250139029008,
+          -0.48177786795336236
+        ],
+        [
+          0.723724014708055,
+          1.7768453019746595,
+          0.5161418665908355
+        ]
+      ],
+      "file": "god-6-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15976,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.129233592658473,
+          -0.5193260182056316
+        ],
+        [
+          0.7233789248397168,
+          1.6554512283612095,
+          0.38695512365633655
+        ]
+      ],
+      "file": "god-6-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15976,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7198321741255459,
+          0.13512665530465684,
+          -0.5542722723221889
+        ],
+        [
+          0.7198321741255459,
+          1.6613442910073932,
+          0.38695512365633655
+        ]
+      ],
+      "file": "god-6-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15976,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7241493194710412,
+          0.13211710303275886,
+          -0.49409151033372156
+        ],
+        [
+          0.7241493194710412,
+          1.6485118667649745,
+          0.38721284255044386
+        ]
+      ],
+      "file": "god-6-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15976,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.723724014708055,
+          0.13506363435585084,
+          -0.5123268213027045
+        ],
+        [
+          0.723724014708055,
+          1.6514583980880666,
+          0.38721284255044386
+        ]
+      ],
+      "file": "god-6-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.12320089854846727,
+          -0.5272026324794195
+        ],
+        [
+          0.7233789248397168,
+          1.6207252187642311,
+          0.4002848143572601
+        ]
+      ],
+      "file": "god-6-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7198321741255459,
+          0.13793852828071684,
+          -0.5621296518867189
+        ],
+        [
+          0.7198321741255459,
+          1.6354628484964808,
+          0.4002848143572601
+        ]
+      ],
+      "file": "god-6-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7241493194710412,
+          0.1260215042983312,
+          -0.501929558641568
+        ],
+        [
+          0.7241493194710412,
+          1.613918078853578,
+          0.40058605500410305
+        ]
+      ],
+      "file": "god-6-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.723724014708055,
+          0.13339031916445593,
+          -0.5201548327435508
+        ],
+        [
+          0.723724014708055,
+          1.621286893719703,
+          0.40058605500410305
+        ]
+      ],
+      "file": "god-6-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7228846323487359,
+          0.13612858529399202,
+          -0.4833072046217384
+        ],
+        [
+          0.7238732173306976,
+          1.689402886073528,
+          0.38223794836819336
+        ]
+      ],
+      "file": "god-6-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.719337881634565,
+          0.14639501919045478,
+          -0.5182862533051451
+        ],
+        [
+          0.7203264666165268,
+          1.6996693199699908,
+          0.38223794836819336
+        ]
+      ],
+      "file": "god-6-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7241493194710412,
+          0.13907621049545354,
+          -0.458283619374555
+        ],
+        [
+          0.7241493194710412,
+          1.6824359265926814,
+          0.3821000870429616
+        ]
+      ],
+      "file": "god-6-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.723724014708055,
+          0.14420942744368498,
+          -0.476536042882198
+        ],
+        [
+          0.723724014708055,
+          1.6875691435409126,
+          0.3821000870429616
+        ]
+      ],
+      "file": "god-6-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15776,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7233789248397168,
+          0.18422623745940897,
+          -0.5272026324794195
+        ],
+        [
+          0.7233789248397168,
+          1.7976691821898192,
+          0.3205166650266188
+        ]
+      ],
+      "file": "god-6-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15776,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7198321741255459,
+          0.18266156647134585,
+          -0.5621296518867189
+        ],
+        [
+          0.7198321741255459,
+          1.796104511201756,
+          0.3205166650266188
+        ]
+      ],
+      "file": "god-6-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15776,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7241493194710412,
+          0.15637120032427304,
+          -0.501929558641568
+        ],
+        [
+          0.7241493194710412,
+          1.7595450267406916,
+          0.32059850720905875
+        ]
+      ],
+      "file": "god-6-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15776,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.723724014708055,
+          0.16331909306779285,
+          -0.5201548327435508
+        ],
+        [
+          0.723724014708055,
+          1.7664929194842114,
+          0.32059850720905875
+        ]
+      ],
+      "file": "god-6-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7221431936122644,
+          0.13850326061100932,
+          -0.4791798974907467
+        ],
+        [
+          0.7246146560671691,
+          1.710849803904132,
+          0.3989397012159567
+        ]
+      ],
+      "file": "god-6-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7185964428980935,
+          0.14554630910660343,
+          -0.514169879974193
+        ],
+        [
+          0.7210679053529983,
+          1.7178928523997261,
+          0.3989397012159567
+        ]
+      ],
+      "file": "god-6-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.7241493194710412,
+          0.14148252121210098,
+          -0.4541759849405075
+        ],
+        [
+          0.7241493194710412,
+          1.7037245281491875,
+          0.3989397012159567
+        ]
+      ],
+      "file": "god-6-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15616,
+      "meshes": 15,
+      "drawCalls": 15,
+      "box": [
+        [
+          -0.723724014708055,
+          0.14500404545989803,
+          -0.4724341138162603
+        ],
+        [
+          0.723724014708055,
+          1.7072460523969846,
+          0.3989397012159567
+        ]
+      ],
+      "file": "god-6-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7635479161121176,
+          0.06596699606959688,
+          -0.6131180473367142
+        ],
+        [
+          0.7635479161121176,
+          1.8153902986704673,
+          0.32883710622787476
+        ]
+      ],
+      "file": "god-7-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 17466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7493488399269195,
+          0.09095382404612207,
+          -0.6453581630543139
+        ],
+        [
+          0.7493488399269195,
+          1.8403771266469924,
+          0.32883710622787476
+        ]
+      ],
+      "file": "god-7-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 17466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7715614043253639,
+          0.07004154920577998,
+          -0.5897179554585349
+        ],
+        [
+          0.7715614043253639,
+          1.8082223484039308,
+          0.32883710622787476
+        ]
+      ],
+      "file": "god-7-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 17466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7658758276794692,
+          0.08253496319404263,
+          -0.6068330609106791
+        ],
+        [
+          0.7658758276794692,
+          1.8207157623921932,
+          0.32883710622787476
+        ]
+      ],
+      "file": "god-7-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17306,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7635479161121176,
+          0.12548656359285382,
+          -0.623799341230285
+        ],
+        [
+          0.7635479161121176,
+          1.8963366875251626,
+          0.3279130487973516
+        ]
+      ],
+      "file": "god-7-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 17306,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7493488399269195,
+          0.11426887408268627,
+          -0.6560293824364536
+        ],
+        [
+          0.7493488399269195,
+          1.885118998014995,
+          0.3279130487973516
+        ]
+      ],
+      "file": "god-7-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 17306,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7715614043253639,
+          0.06771801759708729,
+          -0.6003366879437101
+        ],
+        [
+          0.7715614043253639,
+          1.8272586243435045,
+          0.3279541462071893
+        ]
+      ],
+      "file": "god-7-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 17306,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7658758276794692,
+          0.0775696293171062,
+          -0.6174464452039609
+        ],
+        [
+          0.7658758276794692,
+          1.8371102360635234,
+          0.3279541462071893
+        ]
+      ],
+      "file": "god-7-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7635479161121176,
+          0.047132119457285904,
+          -0.614428839973455
+        ],
+        [
+          0.7635479161121176,
+          1.8465422859998526,
+          0.5159428868667302
+        ]
+      ],
+      "file": "god-7-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 17466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7493488399269195,
+          0.062347000860367596,
+          -0.6466109408903365
+        ],
+        [
+          0.7493488399269195,
+          1.861757167402934,
+          0.5159428868667302
+        ]
+      ],
+      "file": "god-7-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 17466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7715614043253639,
+          0.05119934059781861,
+          -0.5910553418073721
+        ],
+        [
+          0.7715614043253639,
+          1.8392378612731186,
+          0.5156174153141495
+        ]
+      ],
+      "file": "god-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 17466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7658758276794692,
+          0.058806781299359456,
+          -0.6081396493107504
+        ],
+        [
+          0.7658758276794692,
+          1.8468453019746593,
+          0.5156174153141495
+        ]
+      ],
+      "file": "god-7-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17666,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7635479161121176,
+          0.03937873220977994,
+          -0.634090780841132
+        ],
+        [
+          0.7635479161121176,
+          1.7212512283612094,
+          0.38695512365633655
+        ]
+      ],
+      "file": "god-7-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 17666,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7493488399269195,
+          0.045271794855963776,
+          -0.6662906048092486
+        ],
+        [
+          0.7493488399269195,
+          1.7271442910073933,
+          0.38695512365633655
+        ]
+      ],
+      "file": "god-7-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 17666,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7715614043253639,
+          0.04320402555519054,
+          -0.6105802295407232
+        ],
+        [
+          0.7715614043253639,
+          1.7143118667649746,
+          0.38721284255044386
+        ]
+      ],
+      "file": "god-7-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 17666,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7658758276794692,
+          0.04615055687828251,
+          -0.6276739455677396
+        ],
+        [
+          0.7658758276794692,
+          1.7172583980880667,
+          0.38721284255044386
+        ]
+      ],
+      "file": "god-7-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17306,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7635479161121176,
+          0.033556316672915365,
+          -0.6380967484805102
+        ],
+        [
+          0.7635479161121176,
+          1.6851252187642312,
+          0.4002848143572601
+        ]
+      ],
+      "file": "god-7-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 17306,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7493488399269195,
+          0.048293946405164934,
+          -0.6702788493973918
+        ],
+        [
+          0.7493488399269195,
+          1.6998628484964808,
+          0.4002848143572601
+        ]
+      ],
+      "file": "god-7-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 17306,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7715614043253639,
+          0.03729816012220544,
+          -0.6145711507387954
+        ],
+        [
+          0.7715614043253639,
+          1.678318078853578,
+          0.40058605500410305
+        ]
+      ],
+      "file": "god-7-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 17306,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7658758276794692,
+          0.044666974988330166,
+          -0.6316554582421738
+        ],
+        [
+          0.7658758276794692,
+          1.685686893719703,
+          0.40058605500410305
+        ]
+      ],
+      "file": "god-7-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17306,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7630536236211367,
+          0.053525227394201846,
+          -0.6139328210599415
+        ],
+        [
+          0.7640422086030985,
+          1.756602886073528,
+          0.38223794836819336
+        ]
+      ],
+      "file": "god-7-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 17306,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7488545474359385,
+          0.06379166129066471,
+          -0.64616286226611
+        ],
+        [
+          0.7498431324179005,
+          1.766869319969991,
+          0.38223794836819336
+        ]
+      ],
+      "file": "god-7-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 17306,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7715614043253639,
+          0.05743557610266026,
+          -0.5905335740321167
+        ],
+        [
+          0.7715614043253639,
+          1.749635926592681,
+          0.3821000870429616
+        ]
+      ],
+      "file": "god-7-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 17306,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7658758276794692,
+          0.06256879305089169,
+          -0.6076433312923675
+        ],
+        [
+          0.7658758276794692,
+          1.7547691435409127,
+          0.3821000870429616
+        ]
+      ],
+      "file": "god-7-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7635479161121176,
+          0.08678647455120025,
+          -0.6380967484805102
+        ],
+        [
+          0.7635479161121176,
+          1.8676691821898193,
+          0.31700980869638445
+        ]
+      ],
+      "file": "god-7-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 17466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7493488399269195,
+          0.08522180356313713,
+          -0.6702788493973918
+        ],
+        [
+          0.7493488399269195,
+          1.866104511201756,
+          0.31700980869638445
+        ]
+      ],
+      "file": "god-7-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 17466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7715614043253639,
+          0.05993278274152758,
+          -0.6145711507387954
+        ],
+        [
+          0.7715614043253639,
+          1.8295450267406919,
+          0.3171063858957095
+        ]
+      ],
+      "file": "god-7-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 17466,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7658758276794692,
+          0.06688067548504739,
+          -0.6316554582421738
+        ],
+        [
+          0.7658758276794692,
+          1.8364929194842117,
+          0.3171063858957095
+        ]
+      ],
+      "file": "god-7-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 17306,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7623121848846652,
+          0.054987986187509,
+          -0.6131180473367142
+        ],
+        [
+          0.7647836473395699,
+          1.7787498039041318,
+          0.3989397012159567
+        ]
+      ],
+      "file": "god-7-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 17306,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7481131086994672,
+          0.062031034683103115,
+          -0.6453581630543139
+        ],
+        [
+          0.7505845711543717,
+          1.785792852399726,
+          0.3989397012159567
+        ]
+      ],
+      "file": "god-7-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 17306,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7715614043253639,
+          0.0589403027296066,
+          -0.5897179554585349
+        ],
+        [
+          0.7715614043253639,
+          1.7716245281491876,
+          0.3989397012159567
+        ]
+      ],
+      "file": "god-7-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 17306,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.7658758276794692,
+          0.062461826977403656,
+          -0.6068330609106791
+        ],
+        [
+          0.7658758276794692,
+          1.7751460523969844,
+          0.3989397012159567
+        ]
+      ],
+      "file": "god-7-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7508,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.543418194880397,
+          0.19589959638368737,
+          -0.23704846925870884
+        ],
+        [
+          0.543418194880397,
+          1.335030146298881,
+          0.23704846925870884
+        ]
+      ],
+      "file": "god-8-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7508,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.570029945563371,
+          0.1705679521519471,
+          -0.23704846925870884
+        ],
+        [
+          0.570029945563371,
+          1.3603617905306211,
+          0.23704846925870884
+        ]
+      ],
+      "file": "god-8-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7508,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.551997721195221,
+          0.18164174020716428,
+          -0.24079100787639618
+        ],
+        [
+          0.551997721195221,
+          1.2856371825976063,
+          0.24079100787639618
+        ]
+      ],
+      "file": "god-8-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7508,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5777596811893251,
+          0.15587978021306015,
+          -0.24079100787639618
+        ],
+        [
+          0.5777596811893251,
+          1.3113991425917102,
+          0.24079100787639618
+        ]
+      ],
+      "file": "god-8-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7348,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.543418194880397,
+          0.2506369160751133,
+          -0.2668132639185571
+        ],
+        [
+          0.543418194880397,
+          1.3927441002965382,
+          0.2151811749811007
+        ]
+      ],
+      "file": "god-8-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7348,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5469257279387963,
+          0.21637937549420572,
+          -0.26692000621680834
+        ],
+        [
+          0.5469257279387963,
+          1.3651598149770352,
+          0.2152916860394945
+        ]
+      ],
+      "file": "god-8-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7348,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.551997721195221,
+          0.17430696590228179,
+          -0.2696083030149559
+        ],
+        [
+          0.551997721195221,
+          1.2814675127413073,
+          0.2177011348589545
+        ]
+      ],
+      "file": "god-8-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7348,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5553965852680237,
+          0.17091715408177532,
+          -0.2697167576052127
+        ],
+        [
+          0.5553965852680237,
+          1.284857324561814,
+          0.2178134074088168
+        ]
+      ],
+      "file": "god-8-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7508,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5637554595108242,
+          0.17831455296090937,
+          -0.4255967184178814
+        ],
+        [
+          0.4761181673108686,
+          1.3732330945997862,
+          0.3636430493607411
+        ]
+      ],
+      "file": "god-8-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7508,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5916559949582703,
+          0.20462115937513747,
+          -0.41796575161173466
+        ],
+        [
+          0.5040187027583147,
+          1.346926488185558,
+          0.3569409823483933
+        ]
+      ],
+      "file": "god-8-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7508,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5726560720511594,
+          0.1635981411109959,
+          -0.42860982055377816
+        ],
+        [
+          0.4836351558546703,
+          1.3247820842996214,
+          0.3666723801762411
+        ]
+      ],
+      "file": "god-8-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7508,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5996615241708447,
+          0.1903559324753179,
+          -0.4213920408993189
+        ],
+        [
+          0.5106406079743556,
+          1.2980242929352994,
+          0.3602549876190225
+        ]
+      ],
+      "file": "god-8-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7708,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.543418194880397,
+          0.19672061376024885,
+          -0.24697189535296538
+        ],
+        [
+          0.543418194880397,
+          1.2663540955119865,
+          0.2996695050621438
+        ]
+      ],
+      "file": "god-8-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7708,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5709173540567383,
+          0.1724232853282467,
+          -0.2510902416905175
+        ],
+        [
+          0.5709173540567383,
+          1.2906514239439886,
+          0.30144286506905904
+        ]
+      ],
+      "file": "god-8-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7708,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.551997721195221,
+          0.18138265172516144,
+          -0.24669208110137802
+        ],
+        [
+          0.551997721195221,
+          1.2185929513646423,
+          0.30134288399029363
+        ]
+      ],
+      "file": "god-8-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7708,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5786177026689111,
+          0.15667155429296198,
+          -0.2508805604188306
+        ],
+        [
+          0.5786177026689111,
+          1.2433040487968416,
+          0.303147982590934
+        ]
+      ],
+      "file": "god-8-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7348,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.543418194880397,
+          0.1980810887499429,
+          -0.2672098792339613
+        ],
+        [
+          0.543418194880397,
+          1.2407805612019431,
+          0.3136718643635446
+        ]
+      ],
+      "file": "god-8-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7348,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5726338156319409,
+          0.17299149528692115,
+          -0.27262456862464723
+        ],
+        [
+          0.5726338156319409,
+          1.2658701546649649,
+          0.316000640550429
+        ]
+      ],
+      "file": "god-8-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7348,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.551997721195221,
+          0.18232599250211573,
+          -0.2662561362014324
+        ],
+        [
+          0.551997721195221,
+          1.193553176828544,
+          0.3148394001798725
+        ]
+      ],
+      "file": "god-8-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7348,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5802771197808981,
+          0.1568070834638018,
+          -0.2717634779698549
+        ],
+        [
+          0.5802771197808981,
+          1.2190720858668578,
+          0.3172101858436984
+        ]
+      ],
+      "file": "god-8-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7348,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5429239023894161,
+          0.1978105779940852,
+          -0.21904001084607555
+        ],
+        [
+          0.5439124873713779,
+          1.2940794139186103,
+          0.2731525408567866
+        ]
+      ],
+      "file": "god-8-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7348,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5452658620943257,
+          0.19567441329259827,
+          -0.21912994093815788
+        ],
+        [
+          0.5462544470762875,
+          1.2962155786200973,
+          0.2732394671696646
+        ]
+      ],
+      "file": "god-8-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7348,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.551997721195221,
+          0.1828869076273777,
+          -0.2214290636053444
+        ],
+        [
+          0.551997721195221,
+          1.245670555900909,
+          0.2757377424165218
+        ]
+      ],
+      "file": "god-8-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7348,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5542672309135899,
+          0.18071680146099212,
+          -0.22152042259430046
+        ],
+        [
+          0.5542672309135899,
+          1.2478406620672946,
+          0.275826055788371
+        ]
+      ],
+      "file": "god-8-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7508,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.543418194880397,
+          0.21659066690804252,
+          -0.27433341923892135
+        ],
+        [
+          0.543418194880397,
+          1.3584747337115455,
+          0.21975732961318828
+        ]
+      ],
+      "file": "god-8-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7508,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5829117534475783,
+          0.1637403594363661,
+          -0.275806138730734
+        ],
+        [
+          0.5829117534475783,
+          1.3804041282330166,
+          0.22131965683796362
+        ]
+      ],
+      "file": "god-8-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7508,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.551997721195221,
+          0.17110648992695177,
+          -0.2768792009613347
+        ],
+        [
+          0.551997721195221,
+          1.278123566342701,
+          0.2221217681881206
+        ]
+      ],
+      "file": "god-8-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7508,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5902077412479376,
+          0.1330580606554832,
+          -0.27837978023978094
+        ],
+        [
+          0.5902077412479376,
+          1.3161719956141695,
+          0.22371161397050154
+        ]
+      ],
+      "file": "god-8-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7348,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5421824636529446,
+          0.20121331054654334,
+          -0.2394243417789047
+        ],
+        [
+          0.5446539261078494,
+          1.3062046556597173,
+          0.2944005817064502
+        ]
+      ],
+      "file": "god-8-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7348,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5795567640271535,
+          0.16709542361639074,
+          -0.2445245667845528
+        ],
+        [
+          0.5820282264820582,
+          1.34032254258987,
+          0.29658137125977624
+        ]
+      ],
+      "file": "god-8-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7348,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.551997721195221,
+          0.18642112406207212,
+          -0.23939297058907838
+        ],
+        [
+          0.551997721195221,
+          1.2578652639513908,
+          0.29625975350975203
+        ]
+      ],
+      "file": "god-8-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "god",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7348,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5881609193544015,
+          0.15170588565976129,
+          -0.24458249265235787
+        ],
+        [
+          0.5881609193544015,
+          1.2925805023537014,
+          0.2984813937756126
+        ]
+      ],
+      "file": "god-8-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}
