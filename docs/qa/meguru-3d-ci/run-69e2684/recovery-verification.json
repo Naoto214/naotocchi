@@ -1,0 +1,38 @@
+[
+  {
+    "artifactId": 11552493469,
+    "runId": 37780406075,
+    "source": "69e26840a4e853641f0c5443f7834b56b5b6e345",
+    "zip": "regression-original.zip",
+    "sha256": "9cd4b416fdc616bfb3bf7b157832b2649608671a6331dd538b06050c1d610f11",
+    "commitMatch": true,
+    "sourceMatch": true,
+    "exits": {
+      "exit-code.txt": "0"
+    }
+  },
+  {
+    "artifactId": 11551869371,
+    "runId": 37780406075,
+    "source": "69e26840a4e853641f0c5443f7834b56b5b6e345",
+    "zip": "visibility-original.zip",
+    "sha256": "5ca2acf97b407018c0a9063bee6ec64f5736a15860e71851a6b568e2e36224dd",
+    "commitMatch": true,
+    "sourceMatch": true,
+    "exits": {
+      "runner-exit-code.txt": "0"
+    }
+  },
+  {
+    "artifactId": 11551753868,
+    "runId": 37780406075,
+    "source": "69e26840a4e853641f0c5443f7834b56b5b6e345",
+    "zip": "captures-original.zip",
+    "sha256": "ba09570a4c36de2741eb411e35e2ba030ebd1aefed06c6106d924d123a1a1352",
+    "commitMatch": true,
+    "sourceMatch": true,
+    "exits": {
+      "runner-exit-code.txt": "0"
+    }
+  }
+]
