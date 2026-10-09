@@ -9,7 +9,7 @@ const cases=[
  ['long flowing ribbons','character-3d/celestial-humanoid.mjs','if(s.ribbons.length)','if(false)'],
  ['hidden elder legs','character-3d/celestial-humanoid.mjs','if(s.hideLegs)','if(false)'],
  ['owner wing motion','character-3d/animate.mjs','if(meta.celestialWings)','if(false)'],
- ['candidate god03','character-3d/mythic-spec.js','stages:{3:god3,7:god7}','stages:{7:god7}']
+ ['candidate god03','character-3d/mythic-spec.js','2:god2,3:god3,4:god4','2:god2,4:god4']
 ];
 for(const[name,file,old,replacement]of cases){const src=fs.readFileSync(file);try{assert.equal(src.toString().split(old).length,2);fs.writeFileSync(file,src.toString().replace(old,replacement));const r=run();assert.equal(r.status,1,r.stdout+r.stderr);assert.ok(r.stdout.includes('AssertionError'));console.log(name+': RED');}finally{fs.writeFileSync(file,src);}}
 console.log(cases.length+'/'+cases.length+' celestial mutations detected; original bytes restored');

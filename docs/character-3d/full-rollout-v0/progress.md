@@ -797,3 +797,10 @@ fde2580 corrected images:PASS32fourviews/256states/16normal-distance.04-06 shoul
 Phoenix registered via existingmythicfactory only after this gate.240dedicatedPASS,29/29rolloutmutations detected/restored,28Pilot hashes unchanged.03/07 definition hashes unchanged. Coverage220/293,remaining73=32player+41nonplayer;27families/216playerstages. Fresh27/216Actions aggregate pending;scopedfde3successjobs+15SKIPPED is not full integrationPASS. Fullnpm remains the historical pre-Dragon run,not a new claim.
 
 Remaining representative image review:god,ghost,unknown PASS8views/64states/4normal-distance each.Star03 REJECT:core appears below/in front of galaxy ring at normal distance;fix composition before expansion.Original archives and per-family reasoning saved under export/9fad.../remaining-mythic-representatives/visual-review.json. No remainingfamily promoted.
+
+
+### God remaining stages candidate batch (2026-10-09)
+
+After god03/07 representativePASS,added source-derived01orbseed,02wingedinfant,04goldstaff,05longrobe+blueorb staff,06calm elder+doublehalo,08goldray orb. Existingcelestialfactory now has optional birth/rebirth orb path and hand-ownedstaff.03/07 definitions unchanged. Review found02/08 wings static underblobFloat;actual-motion test failed thenpassed after sharing the existingcelestialwing formula betweenhumanWalk/blobFloat. Expression unchanged.
+
+243dedicatedPASS,9/9celestial+7/7stage mutations detected/restored,28Pilot hashes unchanged. God runtime remains unregistered;coverage stays220/293. All8 images pending;no imagePASS claimed. `[qa:god]` scopes candidate capture and mutation to relevantfamily while retainingfull dedicatedregression;ordinary commits keepfullcapture/mutationmatrix. Phoenix c67ba80 postpromotion27/216aggregate remains pending.

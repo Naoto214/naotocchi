@@ -15,3 +15,5 @@ The workflow token is ephemeral, scoped to repository contents-write/actions-rea
 For candidate-only Phoenix visual fixes, commit marker `[qa:phoenix]` keeps the full dedicated job but scopes capture to Phoenix four views, all32states/stage and normal distance. Unrelated capture jobs are SKIPPED, never counted as passed integration. Ordinary commits (including promotion) retain the complete matrix. Use only when runtime registration is unchanged.
 
 Four-view originals are also published directly beside the contact boards, so coverage records and visual review can link to individual images without ZIP extraction. All32-state raw cells remain in the byte-preserving archive.
+
+`[qa:god]` likewise scopes candidate captures to all eight God stages. Either scoped marker runs full dedicated regression plus that family’s factory/stage mutation suite. Ordinary commits still run all mechanism mutations; scoped success is not full integration acceptance.

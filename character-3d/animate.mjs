@@ -24,6 +24,10 @@ function swimAppendages(B,s,m,k,prefix='',offset=0){
 }
 
 // Soft composite parts pulse from their owner's time/phase, without a second root float.
+function celestialAppendages(B,s,m,k,meta){
+if(meta.celestialWings)for(const name of meta.celestialWings){const side=name.endsWith('L')?-1:1;B[name].rotation.y+=side*Math.sin(s.t*2.1)*(.055*k.idle+.08*m*k.amp);}
+}
+
 function blobPulse(body,s,m,k){
   const q=1+Math.sin(s.t*2)*.035*k.idle;body.scale.set(1/Math.sqrt(q),q,1/Math.sqrt(q));
   body.rotation.z+=Math.sin(s.phase*TAU)*.08*m;
@@ -136,7 +140,7 @@ const LOCO = {
     if(meta.swimSubrigs)for(const sub of meta.swimSubrigs)swimAppendages(B,s,m,k,sub.prefix,sub.phase);
   },
   humanWalk(B, s, m, k, meta) {
-    if(meta.celestialWings)for(const name of meta.celestialWings){const side=name.endsWith('L')?-1:1;B[name].rotation.y+=side*Math.sin(s.t*2.1)*(.055*k.idle+.08*m*k.amp);}
+    celestialAppendages(B,s,m,k,meta);
     const ph = s.phase * TAU, sw = 0.55 * m * k.amp;
     if(meta.poseProfile?.armSpread){const a=meta.poseProfile.armSpread*(1-m);B.armL.rotation.z-=a*(meta.poseProfile.armSpreadSides?.[0]??1);B.armR.rotation.z+=a*(meta.poseProfile.armSpreadSides?.[1]??1);}
     if(meta.poseProfile?.seated){
@@ -211,6 +215,7 @@ const LOCO = {
     R.position.y += Math.abs(Math.sin(ph)) * 0.05 * m * k.amp;
   },
   blobFloat(B, s, m, k, meta, R) {
+    celestialAppendages(B,s,m,k,meta);
     R.position.y += meta.hover + Math.sin(s.t * 2) * 0.05 * Math.max(k.idle, 0.3);
     blobPulse(B.body,s,m,k);
   },
