@@ -2,7 +2,7 @@ name: Recover Character wave evidence
 on:
   push:
     branches: [feat/character-3d-full-rollout-v0]
-    paths: [.github/workflows/character-3d-recover-evidence.yml]
+    paths: ['.github/workflows/character-3d-recover-evidence.yml', '.github/character-3d-qa-export.json', '.github/scripts/character_qa_export.py', '.github/scripts/test_character_qa_export.py']
 permissions:
   contents: write
   actions: read
@@ -10,28 +10,18 @@ jobs:
   recover:
     if: github.ref == 'refs/heads/feat/character-3d-full-rollout-v0'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
         with:
-          node-version: 22
-      - run: npm ci
-      - uses: actions/download-artifact@v4
+          persist-credentials: false
+      - name: Verify export selection and provenance guards
+        run: python .github/scripts/test_character_qa_export.py
+      - name: Prepare original QA images as Git Data objects without changing a ref
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/character_qa_export.py
+      - uses: actions/upload-artifact@v4
         with:
-          name: full-rollout-meguru-81b04e0758bca7018f39607bbcc8fb9cb8b280f9
-          run-id: 37183152163
-          github-token: ${{ github.token }}
-          path: .ci-recovery
-      - run: git fetch --no-tags --depth=1 origin d12ad70550b29c125f44ac2b32d7195905fb15f0
-      - run: node tools/character-3d/recover-evidence.cjs
-      - name: Save recovered evidence on the authorized Draft branch
-        run: |
-          test "$GITHUB_REF_NAME" = "feat/character-3d-full-rollout-v0"
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/qa/character-3d-full-v0 docs/character-3d/full-rollout-v0/progress.md
-          if ! git diff --cached --quiet; then
-            git commit -m "FR-1: recover all immutable Meguru evidence after executor loss"
-            git push origin HEAD:feat/character-3d-full-rollout-v0
-          fi
+          name: character-qa-export-result-${{ github.sha }}
+          path: qa-export-result.json

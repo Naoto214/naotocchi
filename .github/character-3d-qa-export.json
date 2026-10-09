@@ -1,0 +1,9 @@
+{
+ "sourceCommit":"9fadab27a5abacedfb40add609f95fb14f2c69a3",
+ "runId":37793464360,
+ "families":["phoenix"],
+ "artifacts":[
+  {"id":11557259455,"label":"phoenix-wave","digest":"sha256:2b28655b76cdab3318f173d550d1f6b46963fe4993eab07853f16684653684e2","required":[{"pattern":"phoenix-[1-8]-front.jpg","count":8},{"pattern":"phoenix-[1-8]-34.jpg","count":8},{"pattern":"phoenix-[1-8]-side.jpg","count":8},{"pattern":"phoenix-[1-8]-back.jpg","count":8},{"pattern":"phoenix-[1-8]-*-*-*.jpg","count":256},{"pattern":"phoenix-[1-8]-motion.jpg","count":8},{"pattern":"phoenix-stages.jpg","count":1}]},
+  {"id":11557972486,"label":"phoenix-distance","digest":"sha256:1c6efe56465613fc4b5ce434f7531c23a216c597f82f58043dab26ebf49dbee2","required":[{"pattern":"player-phoenix-[1-8]-front.png","count":8},{"pattern":"player-phoenix-[1-8]-back.png","count":8}]}
+ ]
+}
