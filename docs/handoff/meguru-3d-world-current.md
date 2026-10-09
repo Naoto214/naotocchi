@@ -2,6 +2,12 @@
 
 Use fresh GitHub state as authority, not past conversation. Repository Naoto214/naotocchi; branch feat/meguru-3d-geometry-terrain-v1; Draft PR374; base feat/meguru-3d-art-direction-v1.
 
+## Latest continuation — 2026-10-09, after db9ba1c
+
+Fresh remote db9ba1c/tree040f24b2407782e69af652b728363ebff0827a15 and PR374 Draft/open/unmerged confirmed. Product remains69e2684-equivalent. Pending86files, remaining3CI ZIPs and valid8target image pairs are already saved; skip their reconstruction. Lost unmodified npm raw files remain unavailable, not retained success evidence.
+
+WQ-WHEEL-TREE diagnosis now also confirms both wheel-post centres fall inside the projected seven-sided tree-root base. Root radius27.093524, centre distances22.636196/6.053074. See docs/qa/meguru-3d-waterwheel-supports/tree-conflict/ for reproducible source-bound calculation and treatment boundaries. This is projected geometry, not a fresh browser or mesh-contact PASS. Crown pruning cannot fix the visible lower-trunk conflict. No uniquely determined collision-preserving redesign has been established; keep the gate OPEN and select the next weak-prop/bridge-composition design without silently relocating a protected collider or hiding its visual. No product changes in this checkpoint. Historical sections below retain their original scope; their older "next" instructions are superseded by this section and the verified targeted image checkpoint.
+
 ## Saved state
 
 - Vegetation QA recovery complete: 8407964113e4fd212c994a885c6a890b6a596b04 / tree d9e888972edfbeb443d34e74fe916bf4e169fa3c. All 147 additional files saved, no code changes or deletions, force=false. Do not recreate them.
