@@ -1,6 +1,6 @@
 {
-  "baseCommit": "5715b5157ae01092e82def9e5b0e6ef5b5b9c4e7",
-  "checkpoint": "star-all8-promotion-cactus-candidate-owl-recovery",
+  "baseCommit": "5a78d95e1f7b51ca32d5b3f2eb3c805a38fcb334",
+  "checkpoint": "nonplayer-owl-punyu-image-corrections",
   "coverage": {
     "exact": 252,
     "total": 293,
@@ -11,7 +11,7 @@
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 264,
+    "dedicatedPass": 267,
     "rolloutMutationsDetected": 33,
     "pilotHashesUnchanged": 28,
     "fullNpm": "8b6fcae fixed implementation:3017PASS+Relationship80PASS,0FAIL,exit0; full log/result archived. Before Star expansion/Unknown promotion.",
@@ -64,8 +64,8 @@
     "punyuCandidate": "Existingblob factory dataonly:opaqueyellowmeltingcontour,foldedtip,lefttrail,scallopedbase;2targettestsPASS,3/3mutationsdetected/restored.260dedicatedPASScombined. Roleisolated;imagespending.",
     "owlCandidateCI": "6716048 Character37878471960SUCCESS;owlartifact11593312304 exportrequested. No imageacceptance.",
     "starArchiveRecovery": "f6 recovery37877945943SUCCESS;preparedentriesrebased on671 throughGitDataAPI andcompareallowlist,archived5cf15f1. Redundant671recovery37878472023FAIL branchmovedbeforeexport;no sourceimageslost orfalsePASS.",
-    "owlImageGate": "6716048 archive6a55b97:41rawhashesverified;actual4views2distanceREJECT breastpaintaliasing,hiddenheldwing,smallfacialdiscs. No32stateapproval. PhysicalVs/forwardownedwing/facialdisc correction readyforrecapture.",
-    "owlCorrection": "261dedicatedPASS,5/5mutationsdetected/restored,28Pilot hashesidentical;optional arithmetic preserves unchangedPilot negativezero. No owlregistration.",
+    "owlImageGate": "46ff692 archive5a78d95:41hashesverified;actual4views32statesREJECT heldwingocclusion. BreastVs improved. No distanceapproval.",
+    "owlCorrection": "World-ray regression failsold;dataonly shoulder/length/forward corrected,5/5mutationsdetected;reviewCritical0/Important0 includingeyevisibility. Freshimagespending.",
     "starPunyuCapture": "12fb2c6 Character37879217065SUCCESS;Starwave11593173580/distance11593399232/Punyu11593004038 exportrequested. Actualreviewpending.",
     "godGhostPostPromotionCI": "d87e31b Character37875308764:all59jobsSUCCESS,0FAIL/CANCELLED/SKIPPED,29stagefamilyjobs;stagecoverage113651820721SUCCESS,29families/232stages. SeparatefromUnknown30familyaggregate.",
     "starPromotion": "All8 registered after actualimagePASS;33/33runtime mutationsdetected/restored,28Pilotidentical;252/293,41nonplayerpending,250fourviewrecords. ReviewCritical0/Important0;postmutation264PASS andproductiondiff inspected.",
@@ -73,12 +73,13 @@
     "cactusCandidate": "Existingbranch_organism optionalclosedcolumn;2targettests,4/4mutations,263dedicatedbeforeStarpromotion;28Pilotidentical;reviewCritical0/Important0.Imagespending;notregistered.",
     "owlCorrectedCapture": "46ff692 Character37879959890SUCCESS;artifact11593204347 exportrequested;actualimagegatepending.",
     "unknownPostPromotionCI": "f6c86cd Character37877945590 last55SUCCESS/4IN_PROGRESS,aggregatepending;Runtime37877952306SUCCESS,Home37877952265SUCCESS. Not fullaggregatePASS.",
-    "starPunyuCI": "12fb2c6 Character37879217065/Runtime37879223738/Home37879223736SUCCESS."
+    "starPunyuCI": "12fb2c6 Character37879217065/Runtime37879223738/Home37879223736SUCCESS.",
+    "punyuCorrection": "Optionalconcave contour uses triangulatedinflated closedvolume;defaultLoft/Pilot unchanged. Notch/coreleak +weldedmanifold/normals testsPASS,4/4mutationsdetected. Review caughtcollapsedeartriangles;fixedinteriorcentroids/sharedmidpoints,13440triangles;Critical0/Important0. Freshimagespending.",
+    "nonplayerCorrectionQA": "267dedicatedPASSaftermutations;28Pilotidentical;scopeowl,punyu,oasis_cactus requested. No promotion."
   },
   "next": [
-    "Review correctedOwl46ff actual4views32states2distance viaexport",
-    "Fix rejectedPunyu concavegeometry,then freshcapture and actualQA",
-    "Capture/review cactus; continue remainingnonplayers",
+    "Inspect freshowl/punyu/cactus fourviews32states2distance each;promote only actualPASS",
+    "Continue remaining41nonplayers; allplayer31families/248stages registered",
     "Full293 integration and separateHuman/iPhone gates"
   ],
   "protected": [

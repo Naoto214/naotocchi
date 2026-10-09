@@ -7,3 +7,7 @@ test('owl candidate retains canonical face, owned finite motion and scoped captu
 });
 
 test('owl revised source details avoid coarse paint bands and expose its folded wing',()=>{const s=require('../character-3d/nonplayer-spec.js')()['companion:owl'].spec;assert.ok(s.featherMarks.positions?.length>=8,'explicit small breast feather positions');assert.ok(s.faceDiscs,'large paired cream facial discs');assert.ok(s.wing.sides.left.forward>=.2,'wing curves forward from attached base');});
+
+test('owl held wing is actually visible ahead of breast and lower head',async()=>{
+ const s=require('../character-3d/nonplayer-spec.js')()['companion:owl'].spec,{BUILDERS}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs'),r=BUILDERS.avian(s,'owl');r.root.updateMatrixWorld(true);const wing=r.parts.find(p=>p.bone==='wingL').mesh,others=r.parts.filter(p=>['body','head'].includes(p.bone)).map(p=>p.mesh);let visible=0;for(const [x,y]of [[-.16,.48],[-.10,.51],[-.04,.54]]){const ray=new THREE.Raycaster(new THREE.Vector3(x,y,2),new THREE.Vector3(0,0,-1)),a=ray.intersectObject(wing)[0],b=ray.intersectObjects(others)[0];if(a&&b&&a.distance<b.distance-.008)visible++;}assert.ok(visible>=2,'held wing must emerge in front of breast/head, not merely extend forward locally');
+});

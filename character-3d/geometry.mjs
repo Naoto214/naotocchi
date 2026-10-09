@@ -109,8 +109,29 @@ export function scalpCap(radius, { front = 1.05, side = 1.65, back = 2.05, volum
 
 // Smooth front outline with a shallow rounded back. Shared by soft larvae,
 // lobed bodies and future irregular silhouettes; not a species-specific mesh.
-export function outlineLoft(outline, depth, segments = 48, rings = 6) {
+// Concave silhouettes cannot use a radial fan: triangulate their interior and
+// inflate both surfaces by distance from the outline. Shared boundary vertices
+// close the volume; uniform subdivision keeps adjacent triangles watertight.
+function concaveOutlineVolume(curve, depth, segments) {
+  const points=Array.from({length:segments},(_,i)=>{const p=curve.getPoint(i/segments);return new THREE.Vector2(p.x,p.y);});
+  const boundary=points.slice();let faces=THREE.ShapeUtils.triangulateShape(points,[]);
+  for(let level=0;level<2;level++){
+    const mids=new Map(),mid=(a,b)=>{const key=[Math.min(a,b),Math.max(a,b)].join(':');if(!mids.has(key)){mids.set(key,points.length);points.push(points[a].clone().add(points[b]).multiplyScalar(.5));}return mids.get(key);};
+    faces=faces.flatMap(([a,b,c])=>{const ab=mid(a,b),bc=mid(b,c),ca=mid(c,a);return [[a,ab,ca],[ab,b,bc],[ca,bc,c],[ab,bc,ca]];});
+  }
+  // Interior centroids and shared edge midpoints keep boundary ears inflated;
+  // no front/back triangle may consist solely of zero-thickness outline points.
+  const edgeMids=new Map(),edgeMid=(a,b)=>{const key=[Math.min(a,b),Math.max(a,b)].join(':');if(!edgeMids.has(key)){edgeMids.set(key,points.length);points.push(points[a].clone().add(points[b]).multiplyScalar(.5));}return edgeMids.get(key);};
+  faces=faces.flatMap(([a,b,c])=>{const center=points.length;points.push(points[a].clone().add(points[b]).add(points[c]).multiplyScalar(1/3));const ab=edgeMid(a,b),bc=edgeMid(b,c),ca=edgeMid(c,a);return [[a,ab,center],[ab,b,center],[b,bc,center],[bc,c,center],[c,ca,center],[ca,a,center]];});
+  const distance=p=>Math.min(...boundary.map((a,i)=>{const b=boundary[(i+1)%boundary.length],dx=b.x-a.x,dy=b.y-a.y,t=clamp(((p.x-a.x)*dx+(p.y-a.y)*dy)/(dx*dx+dy*dy),0,1);return Math.hypot(p.x-a.x-t*dx,p.y-a.y-t*dy);}));
+  const pos=[],idx=[],count=points.length;
+  for(const side of [1,-1])for(const p of points){const d=distance(p);pos.push(p.x,p.y,side*depth*Math.sqrt(1-Math.exp(-d/(depth*.65))));}
+  for(const [a,b,c] of faces){const u=points[a],v=points[b],w=points[c],ccw=(v.x-u.x)*(w.y-u.y)-(v.y-u.y)*(w.x-u.x)>0;if(ccw)idx.push(a,b,c,a+count,c+count,b+count);else idx.push(a,c,b,a+count,b+count,c+count);}
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setIndex(idx);return smoothNormals(g);
+}
+export function outlineLoft(outline, depth, segments = 48, rings = 6, options = {}) {
   const curve = new THREE.CatmullRomCurve3(outline.map(([x,y])=>new THREE.Vector3(x,y,0)),true,'centripetal');
+  if(options.concave)return concaveOutlineVolume(curve,depth,segments);
   const cx=outline.reduce((s,p)=>s+p[0],0)/outline.length,cy=outline.reduce((s,p)=>s+p[1],0)/outline.length;
   const area=outline.reduce((sum,p,i)=>{const q=outline[(i+1)%outline.length];return sum+p[0]*q[1]-q[0]*p[1];},0);
   const winding = area >= 0 ? 1 : -1;

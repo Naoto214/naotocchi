@@ -427,7 +427,9 @@ jobs:
           fi
       - name: Scoped nonplayer contour mutations
         if: ${{ contains(github.event.head_commit.message, '[qa:nonplayer]') }}
-        run: node tools/character-3d/punyu-remove-it.cjs > test-results/full-rollout/punyu-remove-it.txt
+        run: |
+          node tools/character-3d/punyu-remove-it.cjs > test-results/full-rollout/punyu-remove-it.txt
+          node tools/character-3d/cactus-remove-it.cjs > test-results/full-rollout/cactus-remove-it.txt
       - name: Existing mechanism mutations
         if: ${{ !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]') }}
         run: |

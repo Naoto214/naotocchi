@@ -906,13 +906,13 @@ export function blobArchetype(sp, key) {
   const h = sp.h, r = sp.r;
   // ビピンナリア: たてながの 体に 左右 2 つずつの ふくらみ(うで の もと)
   const contour = sp.contour ? sp.contour.map(([x,y])=>[x*r,y*h]) : [[0,h],[-r*.3,h*.96],[-r*.51,h*.8],[-r*.57,h*.66],[-r*.88,h*.59],[-r*.95,h*.49],[-r*.78,h*.42],[-r*.57,h*.35],[-r*.82,h*.25],[-r*.88,h*.12],[-r*.69,.0],[-r*.48,h*.01],[-r*.28,h*.11],[-r*.13,h*.015],[0,-h*.015],[r*.13,h*.015],[r*.28,h*.11],[r*.48,h*.01],[r*.69,0],[r*.88,h*.12],[r*.82,h*.25],[r*.57,h*.35],[r*.78,h*.42],[r*.95,h*.49],[r*.88,h*.59],[r*.57,h*.66],[r*.51,h*.8],[r*.3,h*.96]];
-  const outer = paint(outlineLoft(contour,r*.42,72,8), (x, y, z, nx, ny, nz) => mix(c.base, c.edge, smooth(0.4, 0.0, Math.abs(nz)) * 0.7));
+  const outer = paint(outlineLoft(contour,r*.42,72,8,{concave:sp.concaveContour}), (x, y, z, nx, ny, nz) => mix(c.base, c.edge, smooth(0.4, 0.0, Math.abs(nz)) * 0.7));
   const core = paint(blob((x, y, z) => {
     if(sp.coreProfile){const q=sp.coreProfile,a=q.tilt||0,xx=x*r*q.radii[0],yy=y*h*q.radii[1];return [xx*Math.cos(a)-yy*Math.sin(a)+q.center[0]*r,xx*Math.sin(a)+yy*Math.cos(a)+q.center[1]*h,z*r*q.radii[2]];}
     return [x*r*.55,(y*.5+.5)*h*.7+h*.12,z*r*.24];
   }, 14, 10), () => c.light);
   rig.add('body', 'root', [0, 0, 0], [outer.clone()], 'glow:' + sp.glow + ':' + sp.translucent);
-  rig.mesh('body', [core], 'opaque');
+  if(!sp.solidBody)rig.mesh('body', [core], 'opaque');
   rig.meta = { idlePose: 'stand', hover: 0.12 };
   rig.faceSpec = { bone: 'body', target: outer, center: sp.face?.center ? sp.face.center.map((v,i)=>v*(i===1?h:r)) : [0, h * 0.5, r * 0.6], fwd: [0, 0, 1], half: r * (sp.face?.half ?? 0.7), eyeSize: 0.25,
     layout: { eyeX: 24, eyeY: 56, mouthY: 82, browY: 36, cheekX: 38, cheekY: 74, mouthW: 8 }, style: { blush: '#ff8aa8' } };
