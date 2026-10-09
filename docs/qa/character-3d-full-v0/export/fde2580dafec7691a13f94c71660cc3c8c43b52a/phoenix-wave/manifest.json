@@ -1,0 +1,1506 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "fde2580dafec7691a13f94c71660cc3c8c43b52a",
+  "artifact": {
+    "id": 11589911880,
+    "name": "full-rollout-mythic-review-fde2580dafec7691a13f94c71660cc3c8c43b52a",
+    "digest": "sha256:a9c9a756f7dd7631ccb3fa35da9b0a0ab852719fc8da3fb7841da298ed5cc5b6"
+  },
+  "files": [
+    {
+      "path": "mythic-motion/motion-evidence.json",
+      "sha256": "4e0604da225c9baf166d53227ac1c2f512c17f74b275fdf1f000f191a8fb6e26",
+      "bytes": 150585
+    },
+    {
+      "path": "mythic-motion/phoenix-1-dislike-idle-normal.jpg",
+      "sha256": "a2bae73b22c94ab9a90cf40c6f1dd5703517159c1ba37f6bb3c42432f2370f10",
+      "bytes": 11272
+    },
+    {
+      "path": "mythic-motion/phoenix-1-dislike-idle-reduced.jpg",
+      "sha256": "0241a294f004219862c10f571a9cd5da5bfdfeb4081d91bcb01c64447e7f409c",
+      "bytes": 11431
+    },
+    {
+      "path": "mythic-motion/phoenix-1-dislike-walk-normal.jpg",
+      "sha256": "a7b44afd684f6990dcc946de84328cc775e5d7de4aefcc12807a97603d124dc2",
+      "bytes": 11107
+    },
+    {
+      "path": "mythic-motion/phoenix-1-dislike-walk-reduced.jpg",
+      "sha256": "40ae55be40d695484693cd2161ea3b32f4ad18f794f1cfe25a1d5d39d8d6807c",
+      "bytes": 11483
+    },
+    {
+      "path": "mythic-motion/phoenix-1-motion.jpg",
+      "sha256": "21e7f7e261a37b055f435b0e20abbd8121aa10049a76bdb8dcaf0cbbc94bb59e",
+      "bytes": 476209
+    },
+    {
+      "path": "mythic-motion/phoenix-1-normal-idle-normal.jpg",
+      "sha256": "29a64aba5fd7805797f39fbb5f525586a8e02bde885a754575784fb4f00a72d7",
+      "bytes": 11385
+    },
+    {
+      "path": "mythic-motion/phoenix-1-normal-idle-reduced.jpg",
+      "sha256": "8a4bbdaebc9e31fab66ab48d618789c485f09dd3998760decdae1faed33ff825",
+      "bytes": 11419
+    },
+    {
+      "path": "mythic-motion/phoenix-1-normal-walk-normal.jpg",
+      "sha256": "2324be369fa6fc652b5ffeb494baa7eb75e4b0dabe3594248ca5ccb44cb5cc85",
+      "bytes": 11255
+    },
+    {
+      "path": "mythic-motion/phoenix-1-normal-walk-reduced.jpg",
+      "sha256": "c55a87967b479b2b8cfeae8326131aec21ab75c1c2329d3b2421313438c35dd9",
+      "bytes": 11427
+    },
+    {
+      "path": "mythic-motion/phoenix-1-positive-idle-normal.jpg",
+      "sha256": "4dacbed33b4f79d89d326cc7a1024b138f3fb4f6a82d33ab258b1b14261d9c4c",
+      "bytes": 11201
+    },
+    {
+      "path": "mythic-motion/phoenix-1-positive-idle-reduced.jpg",
+      "sha256": "cf5644a20aefa21202c7c4830c2d99ba797169b7789f930f96264e037157bec1",
+      "bytes": 11513
+    },
+    {
+      "path": "mythic-motion/phoenix-1-positive-walk-normal.jpg",
+      "sha256": "f1691c37df56625b1fd48663456625ccd06819fd00b541dca68e5e395f33a9b4",
+      "bytes": 11370
+    },
+    {
+      "path": "mythic-motion/phoenix-1-positive-walk-reduced.jpg",
+      "sha256": "350fef5166158b9005a57f30dae2ec1131685208819786745ef79968d0c6f1ca",
+      "bytes": 11554
+    },
+    {
+      "path": "mythic-motion/phoenix-1-sick-idle-normal.jpg",
+      "sha256": "ff10032528aaeeac82c40032f11838eed539d73b76e38683faccf41ace19270d",
+      "bytes": 11454
+    },
+    {
+      "path": "mythic-motion/phoenix-1-sick-idle-reduced.jpg",
+      "sha256": "f980bed405b4a3f393e5bfa4218eb52f778b906ea38850fd4958519c30502241",
+      "bytes": 11652
+    },
+    {
+      "path": "mythic-motion/phoenix-1-sick-walk-normal.jpg",
+      "sha256": "5ff35fca49035090ff324df1cff4553df62e2aaf64e6983e41adb10b29d8b47f",
+      "bytes": 11298
+    },
+    {
+      "path": "mythic-motion/phoenix-1-sick-walk-reduced.jpg",
+      "sha256": "a8e50af27a7dc7724d947a663094ef8d688824eb19d5b7e09e07069ab80ca545",
+      "bytes": 11436
+    },
+    {
+      "path": "mythic-motion/phoenix-1-sleeping-idle-normal.jpg",
+      "sha256": "5303e1be4abbbd7c4b337fa5465fb501ac88daa39b261f5ab4f57f70e18c34f7",
+      "bytes": 11369
+    },
+    {
+      "path": "mythic-motion/phoenix-1-sleeping-idle-reduced.jpg",
+      "sha256": "4bd91e7482fe5849c789442416c804890016c7b0f201e097691b4f9b30994d74",
+      "bytes": 11636
+    },
+    {
+      "path": "mythic-motion/phoenix-1-sleeping-walk-normal.jpg",
+      "sha256": "31cdcff47617652ce26bd298b43f67d4bae660c36d030bead4d30342df313327",
+      "bytes": 11119
+    },
+    {
+      "path": "mythic-motion/phoenix-1-sleeping-walk-reduced.jpg",
+      "sha256": "913f8d62a61bf82c0e5ef731f944bf3c7786c01b4e05b8ab8b2571614793cdfc",
+      "bytes": 11367
+    },
+    {
+      "path": "mythic-motion/phoenix-1-strained-idle-normal.jpg",
+      "sha256": "bde93dcfbc709dfb4bca24770192d52febc9b7e24f2c9a2332a351f3fef6f485",
+      "bytes": 11839
+    },
+    {
+      "path": "mythic-motion/phoenix-1-strained-idle-reduced.jpg",
+      "sha256": "0db489be705c5a17c687aa61380b9bb533cb7e5d99b27b6011a674a71add754a",
+      "bytes": 11885
+    },
+    {
+      "path": "mythic-motion/phoenix-1-strained-walk-normal.jpg",
+      "sha256": "aff4182fb67be645240b41766ac591279e0a08d6e6df7671cd624aa673da1acb",
+      "bytes": 11891
+    },
+    {
+      "path": "mythic-motion/phoenix-1-strained-walk-reduced.jpg",
+      "sha256": "60e577f1b71b62e1829e43cea3f6700810072c8530993de032cca812ddabab66",
+      "bytes": 11895
+    },
+    {
+      "path": "mythic-motion/phoenix-1-tired-idle-normal.jpg",
+      "sha256": "07ed80a6d754852a585431d5a4bae8934178c9e6e31dca53275abe7bc7f39686",
+      "bytes": 11458
+    },
+    {
+      "path": "mythic-motion/phoenix-1-tired-idle-reduced.jpg",
+      "sha256": "070d3bd13f637e05d7902c95affe65e2af9e953a360a76ecd1c7f4f75c1dc1cd",
+      "bytes": 11614
+    },
+    {
+      "path": "mythic-motion/phoenix-1-tired-walk-normal.jpg",
+      "sha256": "2262a6615ca8482f54f93b27007bc26e37961b44e838c457a3f059464843438f",
+      "bytes": 11427
+    },
+    {
+      "path": "mythic-motion/phoenix-1-tired-walk-reduced.jpg",
+      "sha256": "36dfd3f10563f06df12a4a34149617e72645400d9c9877aa0ecf1c2561eb8490",
+      "bytes": 11367
+    },
+    {
+      "path": "mythic-motion/phoenix-1-wantsPlay-idle-normal.jpg",
+      "sha256": "d20df80d3b67c9fe5dd5cbd3079738fa9b817b39d5b362d5e4f12431246d2b9f",
+      "bytes": 11593
+    },
+    {
+      "path": "mythic-motion/phoenix-1-wantsPlay-idle-reduced.jpg",
+      "sha256": "57e8f2a2db8aedfcfd41ebca56f1b93803cc26b7a58f6e8d09758dc6b895836a",
+      "bytes": 11600
+    },
+    {
+      "path": "mythic-motion/phoenix-1-wantsPlay-walk-normal.jpg",
+      "sha256": "cc5eda826b054ed6b36b21d2a3547648af0cf887bd188a115cc099ac82ad20bb",
+      "bytes": 11508
+    },
+    {
+      "path": "mythic-motion/phoenix-1-wantsPlay-walk-reduced.jpg",
+      "sha256": "10021558127aee83ad5805b9493bf1600e3af5a1469529d32c3cbd7f121f307e",
+      "bytes": 11585
+    },
+    {
+      "path": "mythic-motion/phoenix-2-dislike-idle-normal.jpg",
+      "sha256": "1fd6f52c6f43ef4eaa2e3f7dbca037f226cc8117d5cc482b890b28c00734b56c",
+      "bytes": 12231
+    },
+    {
+      "path": "mythic-motion/phoenix-2-dislike-idle-reduced.jpg",
+      "sha256": "fdb36089f84b71d13ff9cda0f96147e6959740c07d7f66d2d49a135a73ffdfb6",
+      "bytes": 12449
+    },
+    {
+      "path": "mythic-motion/phoenix-2-dislike-walk-normal.jpg",
+      "sha256": "bd8b5e1ff3fda74c2e2439e56d01b6de011b7612e9a58314b8e3f620d0769e22",
+      "bytes": 12307
+    },
+    {
+      "path": "mythic-motion/phoenix-2-dislike-walk-reduced.jpg",
+      "sha256": "9f96d3e705bfa1f59f199f37171d2c402b32ca4bff8238f85d5009f5226d6ab1",
+      "bytes": 12614
+    },
+    {
+      "path": "mythic-motion/phoenix-2-motion.jpg",
+      "sha256": "a9a3bdffb05986bbcad598572ad5bc963a0882154b24e9d9d82e4d932e6dad33",
+      "bytes": 525993
+    },
+    {
+      "path": "mythic-motion/phoenix-2-normal-idle-normal.jpg",
+      "sha256": "177ef8916275d774343496cbefd80110c09ee04351f8f4a9ed71f8a591903c7b",
+      "bytes": 12322
+    },
+    {
+      "path": "mythic-motion/phoenix-2-normal-idle-reduced.jpg",
+      "sha256": "34e4abd1dd9a24087b545ceb246246927aa214cdfb8999c5210332c8a2851025",
+      "bytes": 12611
+    },
+    {
+      "path": "mythic-motion/phoenix-2-normal-walk-normal.jpg",
+      "sha256": "361fa643ca499208ca264ec87846ebfcada1edff45cf81528f940e18021b1332",
+      "bytes": 12366
+    },
+    {
+      "path": "mythic-motion/phoenix-2-normal-walk-reduced.jpg",
+      "sha256": "f134cbe1c04167c1183990f6ae3da75fc4ba1e80aff667711c47c8699344564e",
+      "bytes": 12505
+    },
+    {
+      "path": "mythic-motion/phoenix-2-positive-idle-normal.jpg",
+      "sha256": "30bba0ec0c574166f488861cdcb200a3eadf0e89cfcd26a0abee3e6f8dc90c55",
+      "bytes": 12323
+    },
+    {
+      "path": "mythic-motion/phoenix-2-positive-idle-reduced.jpg",
+      "sha256": "45de3c6b023d3f9e005bbe15dc00ea93a49d7f2fa7ea2492d431a687ea492388",
+      "bytes": 12576
+    },
+    {
+      "path": "mythic-motion/phoenix-2-positive-walk-normal.jpg",
+      "sha256": "710d287a11f79140db1a6095c81fb943267ab40e6f4875e1ff8193009977093d",
+      "bytes": 12516
+    },
+    {
+      "path": "mythic-motion/phoenix-2-positive-walk-reduced.jpg",
+      "sha256": "56952e4cc159fc34265d34ea1e475253f66dfe5ee82714f31d6364dfa92c6e19",
+      "bytes": 12792
+    },
+    {
+      "path": "mythic-motion/phoenix-2-sick-idle-normal.jpg",
+      "sha256": "9bb59b3802fd08bb123bf9ed426a31a7aea1772a71a579a7c39649564d8f213f",
+      "bytes": 12179
+    },
+    {
+      "path": "mythic-motion/phoenix-2-sick-idle-reduced.jpg",
+      "sha256": "f9c92bf4b521eede31f71f2c138288f94432350fb32f51dd0cbaf081e3ebdd48",
+      "bytes": 12331
+    },
+    {
+      "path": "mythic-motion/phoenix-2-sick-walk-normal.jpg",
+      "sha256": "4f20b970ba917e8b22b380536d570e15d191cc2b68b80d9656899fad3fbca300",
+      "bytes": 12309
+    },
+    {
+      "path": "mythic-motion/phoenix-2-sick-walk-reduced.jpg",
+      "sha256": "efe4f81b6eeae8943a65b4ba8d173a362373158aece886d2a59a470835960bfe",
+      "bytes": 12601
+    },
+    {
+      "path": "mythic-motion/phoenix-2-sleeping-idle-normal.jpg",
+      "sha256": "4645f3adedda3bc1089fd245c2448e9710d9d7a9a28743a7b986e01e050e80f7",
+      "bytes": 12497
+    },
+    {
+      "path": "mythic-motion/phoenix-2-sleeping-idle-reduced.jpg",
+      "sha256": "60cd6f6d782dba8f1ab38cc79499ed7d49465c0b5bf8faceebcf4158dc669a7d",
+      "bytes": 12581
+    },
+    {
+      "path": "mythic-motion/phoenix-2-sleeping-walk-normal.jpg",
+      "sha256": "5c02040f0a19ec09b0914fabca90aad9468dcc84de9c21359e716801ef1696e4",
+      "bytes": 12312
+    },
+    {
+      "path": "mythic-motion/phoenix-2-sleeping-walk-reduced.jpg",
+      "sha256": "8c8f0ef0241bb0ae067426aaaff374cb6b705d8c955198c557c143477dfce529",
+      "bytes": 12697
+    },
+    {
+      "path": "mythic-motion/phoenix-2-strained-idle-normal.jpg",
+      "sha256": "2e3c65f32a0c95a202134e0f7d756e51bb202391eebdd5cf12c1eced555712d6",
+      "bytes": 12446
+    },
+    {
+      "path": "mythic-motion/phoenix-2-strained-idle-reduced.jpg",
+      "sha256": "40ad3bf58762436f2f92e3a4b2b90cedd4f35b4c29a3e794c19ff817de0f6be9",
+      "bytes": 12712
+    },
+    {
+      "path": "mythic-motion/phoenix-2-strained-walk-normal.jpg",
+      "sha256": "bf054c18c00bee8db1da81688ae8cf083f5335a065b09c4045c95d64046366ba",
+      "bytes": 12587
+    },
+    {
+      "path": "mythic-motion/phoenix-2-strained-walk-reduced.jpg",
+      "sha256": "2d70cb48fbe7541ae625dfa9e5eda6d0258f3d688877db9066869e39b2d084f2",
+      "bytes": 12834
+    },
+    {
+      "path": "mythic-motion/phoenix-2-tired-idle-normal.jpg",
+      "sha256": "d106f1442da0e7cd970aa4ec457b5c637007cbee7eabe604747e239942cbb182",
+      "bytes": 12306
+    },
+    {
+      "path": "mythic-motion/phoenix-2-tired-idle-reduced.jpg",
+      "sha256": "40953f2634db74e1ad3ae8e8a7ce49d7f6874cb8c4bffdf44eef51cd7b19d655",
+      "bytes": 12466
+    },
+    {
+      "path": "mythic-motion/phoenix-2-tired-walk-normal.jpg",
+      "sha256": "5cdb4916ca1d421562191b8bd67d7a1987de9b0747cda7b5b4c9251c8a3e00f8",
+      "bytes": 12333
+    },
+    {
+      "path": "mythic-motion/phoenix-2-tired-walk-reduced.jpg",
+      "sha256": "fc2f100dba630654b8c77b97b8846a5fb23d8f14f299b3265cb3a5c5dd657655",
+      "bytes": 12679
+    },
+    {
+      "path": "mythic-motion/phoenix-2-wantsPlay-idle-normal.jpg",
+      "sha256": "412d206668a282c0a4dd3755cbeed0fcc2ff780c15e5c6b526269f9723d8fb0a",
+      "bytes": 12692
+    },
+    {
+      "path": "mythic-motion/phoenix-2-wantsPlay-idle-reduced.jpg",
+      "sha256": "62f45e91dea545db559445aa3eae18d2e98cb9c58caec4a607ae660845237d4b",
+      "bytes": 12794
+    },
+    {
+      "path": "mythic-motion/phoenix-2-wantsPlay-walk-normal.jpg",
+      "sha256": "4d00ab6a54d1eb1fb898b9d7b0c97418ef4d26a73b1b9140f54c2b9c89795467",
+      "bytes": 12529
+    },
+    {
+      "path": "mythic-motion/phoenix-2-wantsPlay-walk-reduced.jpg",
+      "sha256": "9c1d9960ab0fa173cd37170e6900743198499c506e20094c467679e88e725bbe",
+      "bytes": 12678
+    },
+    {
+      "path": "mythic-motion/phoenix-3-dislike-idle-normal.jpg",
+      "sha256": "261529143b843d4d97487497cae128f51d6ed7325466df75fc2dde3d9d445af9",
+      "bytes": 12618
+    },
+    {
+      "path": "mythic-motion/phoenix-3-dislike-idle-reduced.jpg",
+      "sha256": "b9211b2d6dc29b13022a0621085c352779c36c173013dd516d7999e789c32c97",
+      "bytes": 12784
+    },
+    {
+      "path": "mythic-motion/phoenix-3-dislike-walk-normal.jpg",
+      "sha256": "80a18ae2fb0d09b7feb253ab25bf4dbd9adfeac3a669786432fad93fe9bee11a",
+      "bytes": 12435
+    },
+    {
+      "path": "mythic-motion/phoenix-3-dislike-walk-reduced.jpg",
+      "sha256": "0e731f08d8fbe76d47619a3e91c8fb90bdd99793203051e373d2d20fc175fc76",
+      "bytes": 12706
+    },
+    {
+      "path": "mythic-motion/phoenix-3-motion.jpg",
+      "sha256": "861ee13402a3c4982208a3efaf343ea70691b63410cd155478e160f4d3970f3e",
+      "bytes": 549994
+    },
+    {
+      "path": "mythic-motion/phoenix-3-normal-idle-normal.jpg",
+      "sha256": "26b5faf46718e0470f93e3ba09b4851fc2da6d79f41dcc9daf285a5f453278f2",
+      "bytes": 12569
+    },
+    {
+      "path": "mythic-motion/phoenix-3-normal-idle-reduced.jpg",
+      "sha256": "57d54d31c7bf5962a9867179fa4182948a8f766138ad2141b3813cd38fdfb586",
+      "bytes": 12773
+    },
+    {
+      "path": "mythic-motion/phoenix-3-normal-walk-normal.jpg",
+      "sha256": "9b7b66dcd88ae3a6286b9e8c4d98d198e75da47b7e6edc40c40fe9945e9f178a",
+      "bytes": 13274
+    },
+    {
+      "path": "mythic-motion/phoenix-3-normal-walk-reduced.jpg",
+      "sha256": "5dc0bc1e0355d026f3cecfc541f61c5d4a44c3f2a7bc8578d5b15897c164ebad",
+      "bytes": 13207
+    },
+    {
+      "path": "mythic-motion/phoenix-3-positive-idle-normal.jpg",
+      "sha256": "e48a15c896f603c3ff8648e832023a14cf7479fdfeda08d17b501a7c91da83b6",
+      "bytes": 13069
+    },
+    {
+      "path": "mythic-motion/phoenix-3-positive-idle-reduced.jpg",
+      "sha256": "bbb832a6774de99212ba57c4dcad242810a8d74e530fc88a09100574f9337ed7",
+      "bytes": 12790
+    },
+    {
+      "path": "mythic-motion/phoenix-3-positive-walk-normal.jpg",
+      "sha256": "3ee1aaf6428f00b4756f22e805bb48ef792cb82e2fb49399207e97b575afd716",
+      "bytes": 13127
+    },
+    {
+      "path": "mythic-motion/phoenix-3-positive-walk-reduced.jpg",
+      "sha256": "4e51760c2b66906b4802d683d063bc6f5beac90b21453108edca53d304e99d54",
+      "bytes": 12829
+    },
+    {
+      "path": "mythic-motion/phoenix-3-sick-idle-normal.jpg",
+      "sha256": "202202512dc77088457fa32287dd3487dd967604414e903c68133b13dc4ed65c",
+      "bytes": 12452
+    },
+    {
+      "path": "mythic-motion/phoenix-3-sick-idle-reduced.jpg",
+      "sha256": "d949c66f86af6b8745b3b3f1f732e5c3a245dc12d022f38d52c01236bde98c33",
+      "bytes": 12512
+    },
+    {
+      "path": "mythic-motion/phoenix-3-sick-walk-normal.jpg",
+      "sha256": "a86ef8ab16192d8dfbd8444776a971883efdb1265a2d593ec262cc03932e819e",
+      "bytes": 13082
+    },
+    {
+      "path": "mythic-motion/phoenix-3-sick-walk-reduced.jpg",
+      "sha256": "5270be3003abdfff11d9a70df20c1d5fb1bfc60dbbbb1dec23fd22a78aa64f25",
+      "bytes": 12980
+    },
+    {
+      "path": "mythic-motion/phoenix-3-sleeping-idle-normal.jpg",
+      "sha256": "1e02c97447b3131f4b0b55e4e3fb46821ba4edc8001963f23e20a999b0c3e50c",
+      "bytes": 12837
+    },
+    {
+      "path": "mythic-motion/phoenix-3-sleeping-idle-reduced.jpg",
+      "sha256": "abd1af6886822a64d95bb4799cb7e7fc0d869a0d6e6e11e25278805ec28b4e9f",
+      "bytes": 12957
+    },
+    {
+      "path": "mythic-motion/phoenix-3-sleeping-walk-normal.jpg",
+      "sha256": "8da30c607ac46dbde539d9ce8b3c5a85b7ebff025da0b94ec8cf2d442f6b9291",
+      "bytes": 12804
+    },
+    {
+      "path": "mythic-motion/phoenix-3-sleeping-walk-reduced.jpg",
+      "sha256": "d1f39f782a926d32e35d6a875be6e0b024d9df0ce2474758bd42cb47e756f88f",
+      "bytes": 12874
+    },
+    {
+      "path": "mythic-motion/phoenix-3-strained-idle-normal.jpg",
+      "sha256": "6572bd3bb340c6c912c976ed308f0d931bca3f2419906b578bef6e6524f47c76",
+      "bytes": 12780
+    },
+    {
+      "path": "mythic-motion/phoenix-3-strained-idle-reduced.jpg",
+      "sha256": "087e930df47cc1e65cb86c1890d3c1f9d10d37971203fc9a2a5e51212ed969ee",
+      "bytes": 12844
+    },
+    {
+      "path": "mythic-motion/phoenix-3-strained-walk-normal.jpg",
+      "sha256": "618b5cc310b800bda0bafd0d84538e3822f670297c807089de006f6a12bceff6",
+      "bytes": 12908
+    },
+    {
+      "path": "mythic-motion/phoenix-3-strained-walk-reduced.jpg",
+      "sha256": "26727e77fae4e8dde8bf4c244f8375293d1b16e0b92bf23d73949856d3dc4609",
+      "bytes": 12916
+    },
+    {
+      "path": "mythic-motion/phoenix-3-tired-idle-normal.jpg",
+      "sha256": "4dc5c84f9b580be63dab9960470cd13afd999002b53e825525200acecaea0d79",
+      "bytes": 12603
+    },
+    {
+      "path": "mythic-motion/phoenix-3-tired-idle-reduced.jpg",
+      "sha256": "18a16cf06ae4991d19f021d2ee2afce9b6c1b0dbd215c2813715a4196646201d",
+      "bytes": 12755
+    },
+    {
+      "path": "mythic-motion/phoenix-3-tired-walk-normal.jpg",
+      "sha256": "ce6b3103c11b506aa06fd4ed5e2ec78431ade1db3fefca1a886e11cb7a961e02",
+      "bytes": 13351
+    },
+    {
+      "path": "mythic-motion/phoenix-3-tired-walk-reduced.jpg",
+      "sha256": "4c69e962e8b49a017e615b07ba42b0dbf810bc0feca2b9ac20c39406e67374b6",
+      "bytes": 13136
+    },
+    {
+      "path": "mythic-motion/phoenix-3-wantsPlay-idle-normal.jpg",
+      "sha256": "f2e9fce3909cdf8489ac97e8e1bfb6889f7700f9de6feef8aa8e4a7d6b5117e9",
+      "bytes": 13264
+    },
+    {
+      "path": "mythic-motion/phoenix-3-wantsPlay-idle-reduced.jpg",
+      "sha256": "9238d8d4a758941cbab9cf8374274e858723d9fc95950b44301f5ca988e846fd",
+      "bytes": 13080
+    },
+    {
+      "path": "mythic-motion/phoenix-3-wantsPlay-walk-normal.jpg",
+      "sha256": "3f72cd49f504f5d546ee4d74be426cd4560bcc60c2433b896bbc66ee5716acf8",
+      "bytes": 12977
+    },
+    {
+      "path": "mythic-motion/phoenix-3-wantsPlay-walk-reduced.jpg",
+      "sha256": "ca795f3a1a73d21fba89a70a01bfbcaaf707a69077bb1d727ae18e362a583c6b",
+      "bytes": 13049
+    },
+    {
+      "path": "mythic-motion/phoenix-4-dislike-idle-normal.jpg",
+      "sha256": "11042546aee18930397687890e980741d211ec1deebfe84a24ca03f462cb6c33",
+      "bytes": 15650
+    },
+    {
+      "path": "mythic-motion/phoenix-4-dislike-idle-reduced.jpg",
+      "sha256": "7facd9fb5e9ebca64ecad4f625343e58449c852b5a1708e9d838e193efe4fb5f",
+      "bytes": 15602
+    },
+    {
+      "path": "mythic-motion/phoenix-4-dislike-walk-normal.jpg",
+      "sha256": "88a792af545264fc67b02152d5f3471d4a7dd4b6df482d5f0d6ec19344b5153a",
+      "bytes": 14149
+    },
+    {
+      "path": "mythic-motion/phoenix-4-dislike-walk-reduced.jpg",
+      "sha256": "c9da2262dd3e6de16b2878bb41975c1024a8c86f9f53a77b4eee9170d1dae8db",
+      "bytes": 14676
+    },
+    {
+      "path": "mythic-motion/phoenix-4-motion.jpg",
+      "sha256": "a9266fc526ffb321fd36960c7252eb062c9530d7fd30cfbe9d2c309ab4ff9e58",
+      "bytes": 676653
+    },
+    {
+      "path": "mythic-motion/phoenix-4-normal-idle-normal.jpg",
+      "sha256": "4551fc18b35225bd978a5f6a2217719b83a36e86c1351d34c7df6abc9ceef07b",
+      "bytes": 15558
+    },
+    {
+      "path": "mythic-motion/phoenix-4-normal-idle-reduced.jpg",
+      "sha256": "65904fa2b83a5b74e69c34d6f11ccc52dc35dcd296433412a81c7e77e67d0785",
+      "bytes": 15590
+    },
+    {
+      "path": "mythic-motion/phoenix-4-normal-walk-normal.jpg",
+      "sha256": "e22960a03c5f11e72cf244888e4fae390c5b01b9ec7ee920d7b3e54fb9121895",
+      "bytes": 15297
+    },
+    {
+      "path": "mythic-motion/phoenix-4-normal-walk-reduced.jpg",
+      "sha256": "7ed39831e4c3480aae4be74c423505c6a8af2c0e6af028c0fde833d39a00f8ee",
+      "bytes": 15491
+    },
+    {
+      "path": "mythic-motion/phoenix-4-positive-idle-normal.jpg",
+      "sha256": "6f3b68c3cf26a5770bd8a68ad1c0c3ec986c2478b58cd59a8d92e8e3494c9d0d",
+      "bytes": 14624
+    },
+    {
+      "path": "mythic-motion/phoenix-4-positive-idle-reduced.jpg",
+      "sha256": "a1eeab0562abfe1d0a69926c7490bec9e428b807b3bae1a9b2ce33205902ae6a",
+      "bytes": 15387
+    },
+    {
+      "path": "mythic-motion/phoenix-4-positive-walk-normal.jpg",
+      "sha256": "e5ed43848c8ac7ae47aac59108e31e826d7a47dc06b70b6779f427d0e42736f3",
+      "bytes": 14415
+    },
+    {
+      "path": "mythic-motion/phoenix-4-positive-walk-reduced.jpg",
+      "sha256": "81d3edc392a355731d06f09fd7252c3d4a995bdc8d8977f2a1bfa6824b5ec099",
+      "bytes": 15583
+    },
+    {
+      "path": "mythic-motion/phoenix-4-sick-idle-normal.jpg",
+      "sha256": "23891d645afcbeabc2a45eb55f76b2a42b6c5e5f9d0be5b6e0d3e8bb48dc1c0f",
+      "bytes": 15361
+    },
+    {
+      "path": "mythic-motion/phoenix-4-sick-idle-reduced.jpg",
+      "sha256": "de40c695a375735e982f8c748fc421672c8c6181aa36fca0f95e1acefe8e6598",
+      "bytes": 15562
+    },
+    {
+      "path": "mythic-motion/phoenix-4-sick-walk-normal.jpg",
+      "sha256": "c1cc01e16231c1a5f21043c46560e6a5b52e7d484664ca842c8d92038837f045",
+      "bytes": 15452
+    },
+    {
+      "path": "mythic-motion/phoenix-4-sick-walk-reduced.jpg",
+      "sha256": "aa94a46fd8656973233be034f24c85cf8d1773855724d30936a563e6ea9157ac",
+      "bytes": 15181
+    },
+    {
+      "path": "mythic-motion/phoenix-4-sleeping-idle-normal.jpg",
+      "sha256": "cbf5cd41601c9b61a71bb8674394a64d6ed3d21d36c1f03921c4255688410e7e",
+      "bytes": 15844
+    },
+    {
+      "path": "mythic-motion/phoenix-4-sleeping-idle-reduced.jpg",
+      "sha256": "107c9b504ec516eed9073d5bb3d910f4433a263c747af37595b897980c807709",
+      "bytes": 15979
+    },
+    {
+      "path": "mythic-motion/phoenix-4-sleeping-walk-normal.jpg",
+      "sha256": "607155eb285c1832db6cd9e8b2d503693ee9a25ed769de182f1e6d9857ba2712",
+      "bytes": 15114
+    },
+    {
+      "path": "mythic-motion/phoenix-4-sleeping-walk-reduced.jpg",
+      "sha256": "00f59efcb2a0058f62e00fbace657bd58cc492fef057615a6a43a5d4c5593e74",
+      "bytes": 15201
+    },
+    {
+      "path": "mythic-motion/phoenix-4-strained-idle-normal.jpg",
+      "sha256": "da7d7dbe1942b514c9909205735d1c1d453a3f71f65dea7e9f17bfc6ddb06008",
+      "bytes": 15907
+    },
+    {
+      "path": "mythic-motion/phoenix-4-strained-idle-reduced.jpg",
+      "sha256": "d67e1ab0f6ded89bfbd43481cf56ea8cb0721d1b59bea2ae3ef777febbf78614",
+      "bytes": 16190
+    },
+    {
+      "path": "mythic-motion/phoenix-4-strained-walk-normal.jpg",
+      "sha256": "3329d029b9714a75c49e3f3be7ed4942c03f0dcd426620488f0844d6f560f5ad",
+      "bytes": 16048
+    },
+    {
+      "path": "mythic-motion/phoenix-4-strained-walk-reduced.jpg",
+      "sha256": "8a030af081c0871d40ec6e1e239050d104c6c3743437d34048c93c9e4f088705",
+      "bytes": 16177
+    },
+    {
+      "path": "mythic-motion/phoenix-4-tired-idle-normal.jpg",
+      "sha256": "26e8fbf4f4c57dfe3478d728e9c0eda0999c5c373de0dfcc8568beda2df68938",
+      "bytes": 15632
+    },
+    {
+      "path": "mythic-motion/phoenix-4-tired-idle-reduced.jpg",
+      "sha256": "c1fb3c2d9701000c2ce603a680ef9544bf548ec30a047501ebdb44e66347aaf7",
+      "bytes": 15704
+    },
+    {
+      "path": "mythic-motion/phoenix-4-tired-walk-normal.jpg",
+      "sha256": "435d80773ac1504a466284dbe2c6ba6e987bf0bac953b780435c340a7df4000a",
+      "bytes": 15561
+    },
+    {
+      "path": "mythic-motion/phoenix-4-tired-walk-reduced.jpg",
+      "sha256": "f3b5fba183191a27f9a9f36e3553021c265e3b699c2f5da17b90f323a3c1a223",
+      "bytes": 15524
+    },
+    {
+      "path": "mythic-motion/phoenix-4-wantsPlay-idle-normal.jpg",
+      "sha256": "2109fabe7ca05932f72cde9ec7b223610901ff4db1a36e632ea62548a3590d66",
+      "bytes": 15566
+    },
+    {
+      "path": "mythic-motion/phoenix-4-wantsPlay-idle-reduced.jpg",
+      "sha256": "1953dcf005da4bcab0ff6afc362feaa9dc386841bcc875699cea40e5e3b4fb1f",
+      "bytes": 15657
+    },
+    {
+      "path": "mythic-motion/phoenix-4-wantsPlay-walk-normal.jpg",
+      "sha256": "f2dd3c14d9bcbcbbd75ccf2f15b7f97e21fa87f87e48b05ab71e0a5da0c46d53",
+      "bytes": 14208
+    },
+    {
+      "path": "mythic-motion/phoenix-4-wantsPlay-walk-reduced.jpg",
+      "sha256": "27ffdd9d9be76e14f5ed7dc9760688ec4aac03f70a06654951800f3bc5b4ea69",
+      "bytes": 15257
+    },
+    {
+      "path": "mythic-motion/phoenix-5-dislike-idle-normal.jpg",
+      "sha256": "a4c96192933eb0f8c3eda55b96666dfdfcd96cffe6c079a28ffc4c0c2027b5e5",
+      "bytes": 16969
+    },
+    {
+      "path": "mythic-motion/phoenix-5-dislike-idle-reduced.jpg",
+      "sha256": "eaf21b7221a1b189f852bc46e9e284c22da3d0dc16c4bfe32ba5275b2afbec52",
+      "bytes": 17037
+    },
+    {
+      "path": "mythic-motion/phoenix-5-dislike-walk-normal.jpg",
+      "sha256": "0f7bce54a64d6ffc3b2d2beff3e3ab4bd761aa3eb870a432ece53e2e2daa27c7",
+      "bytes": 15237
+    },
+    {
+      "path": "mythic-motion/phoenix-5-dislike-walk-reduced.jpg",
+      "sha256": "0c286f6180fc42dbcd6855cc19f70f4a9c63dbe1badcf07946c8f9b411e22250",
+      "bytes": 15395
+    },
+    {
+      "path": "mythic-motion/phoenix-5-motion.jpg",
+      "sha256": "bc1dfa86bb14b588dc4ceb097dfea7b8504043735ae4c60f3fa9283c9e502ddd",
+      "bytes": 719437
+    },
+    {
+      "path": "mythic-motion/phoenix-5-normal-idle-normal.jpg",
+      "sha256": "46317a2bb018a7cf72aa6364fb573d0c5a9582677ad0ff362fc36dfd10ebf38e",
+      "bytes": 16843
+    },
+    {
+      "path": "mythic-motion/phoenix-5-normal-idle-reduced.jpg",
+      "sha256": "9bbe6e0d83fe723bd90eaf0fa58ec8a1513aacb192c09f9c4e3f3c05fa766e88",
+      "bytes": 16929
+    },
+    {
+      "path": "mythic-motion/phoenix-5-normal-walk-normal.jpg",
+      "sha256": "4bb8d6ddc2fe5a642f8c9100de7bf955948a0dbbe0eb0f5f9f5d55a6c3639e99",
+      "bytes": 15042
+    },
+    {
+      "path": "mythic-motion/phoenix-5-normal-walk-reduced.jpg",
+      "sha256": "2ba4d671af41baae0085102fbb404b00de43658a34f03ba3d982b70ccf0ca98e",
+      "bytes": 16225
+    },
+    {
+      "path": "mythic-motion/phoenix-5-positive-idle-normal.jpg",
+      "sha256": "8ace90cd1f94ccccf8285e1dcecd341e3aaf837ef98cb7874413e426afc67700",
+      "bytes": 15003
+    },
+    {
+      "path": "mythic-motion/phoenix-5-positive-idle-reduced.jpg",
+      "sha256": "2e0ad6e4176c061ad0a9766e6e3147221f1853fc85b5c57401a37fd7a49a3834",
+      "bytes": 16995
+    },
+    {
+      "path": "mythic-motion/phoenix-5-positive-walk-normal.jpg",
+      "sha256": "b90f641b47a021567ac80b02b239b092d1f793c3c2d9b869d2f7bc86b16a283a",
+      "bytes": 14977
+    },
+    {
+      "path": "mythic-motion/phoenix-5-positive-walk-reduced.jpg",
+      "sha256": "7118e2df63f682ec39ecff751e70fa5dfb437262df9d918846fa09a1396ff585",
+      "bytes": 16862
+    },
+    {
+      "path": "mythic-motion/phoenix-5-sick-idle-normal.jpg",
+      "sha256": "b5a5ed679f1a4e1ea4d9cb59a9a9c33731509a673f12a4f0489bf57de4839b8d",
+      "bytes": 16968
+    },
+    {
+      "path": "mythic-motion/phoenix-5-sick-idle-reduced.jpg",
+      "sha256": "22fb2f0f25b32dee53e15ded133cdc4d7e2461bec79692a762a66bb64c79fb4c",
+      "bytes": 17179
+    },
+    {
+      "path": "mythic-motion/phoenix-5-sick-walk-normal.jpg",
+      "sha256": "2c211a630ed8337da2e644c1d17ad5c8668a570bd0b68b6be2c00775393a0b6c",
+      "bytes": 15382
+    },
+    {
+      "path": "mythic-motion/phoenix-5-sick-walk-reduced.jpg",
+      "sha256": "51a5521d7467e6c36c979f7da752f0075f4a5599d241055f255f6daaeab0290c",
+      "bytes": 16303
+    },
+    {
+      "path": "mythic-motion/phoenix-5-sleeping-idle-normal.jpg",
+      "sha256": "6ca7f7c392cd2355450a5b25f95fa29599e2005be5ef51da77844db973ce6143",
+      "bytes": 17543
+    },
+    {
+      "path": "mythic-motion/phoenix-5-sleeping-idle-reduced.jpg",
+      "sha256": "e7bc39941f417d4577c7f3def225f6cec4f607957a2d75e461176f556f91e417",
+      "bytes": 17871
+    },
+    {
+      "path": "mythic-motion/phoenix-5-sleeping-walk-normal.jpg",
+      "sha256": "f2dab57aaba0c5cea6dfcbe19540cc2ee0de5f24e514b7e97dc0286be7720b0f",
+      "bytes": 15706
+    },
+    {
+      "path": "mythic-motion/phoenix-5-sleeping-walk-reduced.jpg",
+      "sha256": "af75a89b6861de73f8b9a5b7b3b5bdc2d6d8104efb1d6d1cca35691b399dcebb",
+      "bytes": 16150
+    },
+    {
+      "path": "mythic-motion/phoenix-5-strained-idle-normal.jpg",
+      "sha256": "499f38b1b40561b6a05fff3ba06d6154a9e62708b1665734f16436624ef5692c",
+      "bytes": 17183
+    },
+    {
+      "path": "mythic-motion/phoenix-5-strained-idle-reduced.jpg",
+      "sha256": "d13ce868c99f8b5903b4389c5567295d065570f2447a0f7f8ae2c5e38013033a",
+      "bytes": 17360
+    },
+    {
+      "path": "mythic-motion/phoenix-5-strained-walk-normal.jpg",
+      "sha256": "170ecbce37d98be2e3052fffb39cf8cd810a1164a682c6cd4d5372655841e183",
+      "bytes": 17291
+    },
+    {
+      "path": "mythic-motion/phoenix-5-strained-walk-reduced.jpg",
+      "sha256": "8dbb2ce05b7612ec686237f49002c5cffa407b86c51a0d41af01c55d57139746",
+      "bytes": 17300
+    },
+    {
+      "path": "mythic-motion/phoenix-5-tired-idle-normal.jpg",
+      "sha256": "ce67920c7f8c81420ef39650fe81f190b25ffe27f89c78e0390107bdd25258a5",
+      "bytes": 17273
+    },
+    {
+      "path": "mythic-motion/phoenix-5-tired-idle-reduced.jpg",
+      "sha256": "6e51a9d72b6a07bc62b8623d80b48f2ef1d4d08b36a50c76d3f211c3f33902d2",
+      "bytes": 17490
+    },
+    {
+      "path": "mythic-motion/phoenix-5-tired-walk-normal.jpg",
+      "sha256": "5b9e2b72ef85e15d79413e2d870c3204a410d775e0d547c5722235e168620e0d",
+      "bytes": 15218
+    },
+    {
+      "path": "mythic-motion/phoenix-5-tired-walk-reduced.jpg",
+      "sha256": "ad1beda575ae05077a39a52678c3f01c949ef6e74c1424783be1c48ddd654d54",
+      "bytes": 16282
+    },
+    {
+      "path": "mythic-motion/phoenix-5-wantsPlay-idle-normal.jpg",
+      "sha256": "e68e341703b48c231699d2b19b280285d1764932fdbb703850c00ee5ac0716d1",
+      "bytes": 16186
+    },
+    {
+      "path": "mythic-motion/phoenix-5-wantsPlay-idle-reduced.jpg",
+      "sha256": "5b23c1f8b3ac90ab20a6c3376c7dbbcc644b404bf76ade1cc31ebc880fc3c8cc",
+      "bytes": 17167
+    },
+    {
+      "path": "mythic-motion/phoenix-5-wantsPlay-walk-normal.jpg",
+      "sha256": "c9d1363f199f45901d0690d0b754f492bd8fe162e7b75d57b1d49d46bcda1973",
+      "bytes": 14940
+    },
+    {
+      "path": "mythic-motion/phoenix-5-wantsPlay-walk-reduced.jpg",
+      "sha256": "2f71ad9e5332c65a41d50510e19fa669c3203f1aa1a471d641afcbebac601196",
+      "bytes": 16218
+    },
+    {
+      "path": "mythic-motion/phoenix-6-dislike-idle-normal.jpg",
+      "sha256": "741bc1bea7bc77468695735eaedc7015749478e138f4479cf9f49d8f2f50c9d0",
+      "bytes": 14629
+    },
+    {
+      "path": "mythic-motion/phoenix-6-dislike-idle-reduced.jpg",
+      "sha256": "5db958ac777fd95e44943e166a74fdc581ec1136e3beab1feebb21cde173c0bf",
+      "bytes": 14634
+    },
+    {
+      "path": "mythic-motion/phoenix-6-dislike-walk-normal.jpg",
+      "sha256": "915a547872b4da97f5d3a4469e6d8bbe155e23cbbe69a08739876b3d1d3c353b",
+      "bytes": 13154
+    },
+    {
+      "path": "mythic-motion/phoenix-6-dislike-walk-reduced.jpg",
+      "sha256": "246f5742acf056b790be98b92ddfb76a673736c357db2a1f06d50d43d60f6ae0",
+      "bytes": 13326
+    },
+    {
+      "path": "mythic-motion/phoenix-6-motion.jpg",
+      "sha256": "4c133bba09f85f38cbbfb3ddb958ba0e94e2951b8e9edb49ff76bfafc4d22332",
+      "bytes": 646721
+    },
+    {
+      "path": "mythic-motion/phoenix-6-normal-idle-normal.jpg",
+      "sha256": "e324cfdd2c74f8dddf71026abfd4589b39863e2e691bcc34bc8d8b5d87f036e2",
+      "bytes": 14611
+    },
+    {
+      "path": "mythic-motion/phoenix-6-normal-idle-reduced.jpg",
+      "sha256": "12a10b94a163cacf8ba50d7e8fcc6601a8fc31f26303315d668fce377e89ad0e",
+      "bytes": 14645
+    },
+    {
+      "path": "mythic-motion/phoenix-6-normal-walk-normal.jpg",
+      "sha256": "12e0b0b1c40d7d62a525d334231bc9910a26fa38a2406ef192d7a0027e93ca95",
+      "bytes": 12723
+    },
+    {
+      "path": "mythic-motion/phoenix-6-normal-walk-reduced.jpg",
+      "sha256": "e6296850345f40826f42918bb5d59617eb92bcbcf87ebd479241c2ce3c62bd94",
+      "bytes": 13706
+    },
+    {
+      "path": "mythic-motion/phoenix-6-positive-idle-normal.jpg",
+      "sha256": "20f25f84cdc48eb372c2c4d258b44b7da6488b92187d52cd234099aacb83839f",
+      "bytes": 13030
+    },
+    {
+      "path": "mythic-motion/phoenix-6-positive-idle-reduced.jpg",
+      "sha256": "1ed1cd33f0b2409ebdbd7244d8c41c3061e17c7071f9647936b379785ce07bce",
+      "bytes": 14673
+    },
+    {
+      "path": "mythic-motion/phoenix-6-positive-walk-normal.jpg",
+      "sha256": "f99a218501bdc68094d80f8f0ae1b7f10bb4c5bdd3274e487f004140294cf30d",
+      "bytes": 13030
+    },
+    {
+      "path": "mythic-motion/phoenix-6-positive-walk-reduced.jpg",
+      "sha256": "ad7455b0a727c4b6edf42f806ea479b7924da97e5497b23fc13f08f3a50ed178",
+      "bytes": 14550
+    },
+    {
+      "path": "mythic-motion/phoenix-6-sick-idle-normal.jpg",
+      "sha256": "48d87ceaee1e977a7e40405139060a7fdb543f49112e4b1a4f0a2387de16adbb",
+      "bytes": 14714
+    },
+    {
+      "path": "mythic-motion/phoenix-6-sick-idle-reduced.jpg",
+      "sha256": "da2b3391c331c34976ed49673e346488d850c8aa59dc1032771e5306dcee78b6",
+      "bytes": 14695
+    },
+    {
+      "path": "mythic-motion/phoenix-6-sick-walk-normal.jpg",
+      "sha256": "445afc885eefad1463bb6e93a948aba488834d50832fa990d0e2979129d0f4a7",
+      "bytes": 12909
+    },
+    {
+      "path": "mythic-motion/phoenix-6-sick-walk-reduced.jpg",
+      "sha256": "0f4858272f3865e92e6684b0a9990b708f6c605c1ea18be85840ff70e593b3f2",
+      "bytes": 13676
+    },
+    {
+      "path": "mythic-motion/phoenix-6-sleeping-idle-normal.jpg",
+      "sha256": "42e054f98c560a1786011e410bd5a7edd1b6fc8f478ff415c55d86da3128902e",
+      "bytes": 14972
+    },
+    {
+      "path": "mythic-motion/phoenix-6-sleeping-idle-reduced.jpg",
+      "sha256": "5e684c382f8bd6bdabd30bd74328422d43117501d0d14098461d693474f322a1",
+      "bytes": 15177
+    },
+    {
+      "path": "mythic-motion/phoenix-6-sleeping-walk-normal.jpg",
+      "sha256": "ae45561aca90d158a56c4cbc6acd62304762bbf7e5f36c478f6defbba6cbd07c",
+      "bytes": 13407
+    },
+    {
+      "path": "mythic-motion/phoenix-6-sleeping-walk-reduced.jpg",
+      "sha256": "1d09b9afbfbe180f76fbad17a1007573411c315db2483808576babb152491b8c",
+      "bytes": 13813
+    },
+    {
+      "path": "mythic-motion/phoenix-6-strained-idle-normal.jpg",
+      "sha256": "326e2ed3ac44dc485735c08a36d0d3c0e402f41dd0ef14c61a89249a1b65fbab",
+      "bytes": 14929
+    },
+    {
+      "path": "mythic-motion/phoenix-6-strained-idle-reduced.jpg",
+      "sha256": "f2ea2bc62a55f34be97fc7bb18c62405914c865d968b10d621b0439a1e1e428e",
+      "bytes": 14967
+    },
+    {
+      "path": "mythic-motion/phoenix-6-strained-walk-normal.jpg",
+      "sha256": "e5e1f7212efe22f94574379655fe5b6bc84a738ac6d7649652d6777e52804e6d",
+      "bytes": 14945
+    },
+    {
+      "path": "mythic-motion/phoenix-6-strained-walk-reduced.jpg",
+      "sha256": "b401786677bb7541fc0e577bcccbdb403ee36929b72f791b8bea1dc7e5ed3cd3",
+      "bytes": 14967
+    },
+    {
+      "path": "mythic-motion/phoenix-6-tired-idle-normal.jpg",
+      "sha256": "102c9e4560e8b3ad1257e90678f5a7e0381ca209c735bb9a0f9910ede6ff17f4",
+      "bytes": 14732
+    },
+    {
+      "path": "mythic-motion/phoenix-6-tired-idle-reduced.jpg",
+      "sha256": "f242106a076b667f3fb3096cb3a4c2fbf67ff1dbc235e444080c7c21d6e265bf",
+      "bytes": 14835
+    },
+    {
+      "path": "mythic-motion/phoenix-6-tired-walk-normal.jpg",
+      "sha256": "9f6b50ad9708b6251b5e5eb68f3afd32aee40560b87607898c7204f489f675d3",
+      "bytes": 12950
+    },
+    {
+      "path": "mythic-motion/phoenix-6-tired-walk-reduced.jpg",
+      "sha256": "0dd6f182d960693708c87e63eb9424eef79eaf78e91c301f6229542469251c86",
+      "bytes": 13603
+    },
+    {
+      "path": "mythic-motion/phoenix-6-wantsPlay-idle-normal.jpg",
+      "sha256": "f07916ebde5cf3328f6068a6ebad26f4a63ed364f74baade286a74b757edf117",
+      "bytes": 13941
+    },
+    {
+      "path": "mythic-motion/phoenix-6-wantsPlay-idle-reduced.jpg",
+      "sha256": "2c57421f95e00492b4abace2a3506c8e93f44d72261d147c8538a140e69e4f56",
+      "bytes": 14782
+    },
+    {
+      "path": "mythic-motion/phoenix-6-wantsPlay-walk-normal.jpg",
+      "sha256": "e5994e5d1ed31453947ea84cd1a50b2cc97c419404cbb9cdc831ca8e00e667a9",
+      "bytes": 12890
+    },
+    {
+      "path": "mythic-motion/phoenix-6-wantsPlay-walk-reduced.jpg",
+      "sha256": "cb94f18b8ff4cb0fe96f83eadba731c3085e20dc37bbd14428005f70247b3b4e",
+      "bytes": 13879
+    },
+    {
+      "path": "mythic-motion/phoenix-7-dislike-idle-normal.jpg",
+      "sha256": "af5631cb8d3b61f81787791f692c99e0366a6e70be6f405b3862434fc873dd77",
+      "bytes": 12730
+    },
+    {
+      "path": "mythic-motion/phoenix-7-dislike-idle-reduced.jpg",
+      "sha256": "fb062860a68b6b59725e65e51ff9c9edb48e25fb327bd7e0b32689701fbd4e2d",
+      "bytes": 12734
+    },
+    {
+      "path": "mythic-motion/phoenix-7-dislike-walk-normal.jpg",
+      "sha256": "81a896d1f9bdb022df048032818028804aa055c13c7784d5e87665cd85e78c52",
+      "bytes": 12516
+    },
+    {
+      "path": "mythic-motion/phoenix-7-dislike-walk-reduced.jpg",
+      "sha256": "465941b91db1dad040e91aa9bfcb8093456253716046889da3e0bf9eb4902bdf",
+      "bytes": 12798
+    },
+    {
+      "path": "mythic-motion/phoenix-7-motion.jpg",
+      "sha256": "c0c635cf149cb53865f0447b017524595f96a3e277ed10769a941da04a21e4e4",
+      "bytes": 565484
+    },
+    {
+      "path": "mythic-motion/phoenix-7-normal-idle-normal.jpg",
+      "sha256": "15980c0cc941f2f2b88f735c7d9b2ac1fbfcb79846b31d8a6a7974dd0fad21c0",
+      "bytes": 12697
+    },
+    {
+      "path": "mythic-motion/phoenix-7-normal-idle-reduced.jpg",
+      "sha256": "21048053fa7760b70706810e6f4b56607118da5f0c08d742cee91e74dd561817",
+      "bytes": 12813
+    },
+    {
+      "path": "mythic-motion/phoenix-7-normal-walk-normal.jpg",
+      "sha256": "aec5cc8801411a93cfde1335b10bc67b10719d5402d3a2bce20a1780211b1a75",
+      "bytes": 12323
+    },
+    {
+      "path": "mythic-motion/phoenix-7-normal-walk-reduced.jpg",
+      "sha256": "9ca0beb9a8af24a4f181cb3210f74d557fb2e0e4fa6515361b4e5fee591e9943",
+      "bytes": 12831
+    },
+    {
+      "path": "mythic-motion/phoenix-7-positive-idle-normal.jpg",
+      "sha256": "0e5d941b0f4507271f2475088faa50d89986c20eeb356dc5dfa00b4629631690",
+      "bytes": 12399
+    },
+    {
+      "path": "mythic-motion/phoenix-7-positive-idle-reduced.jpg",
+      "sha256": "e5e7701449064f887680343c7ca085d60b9e0469a6ead78e2879a58323b730d2",
+      "bytes": 12777
+    },
+    {
+      "path": "mythic-motion/phoenix-7-positive-walk-normal.jpg",
+      "sha256": "976b713f7db00f1b00a6a72ef5809cb45138183ac934a6d1ea666132c0dd7406",
+      "bytes": 12494
+    },
+    {
+      "path": "mythic-motion/phoenix-7-positive-walk-reduced.jpg",
+      "sha256": "0e15ec289e4c16b85ba6991f2640a0a3838571f3a496a39b412ecb0b0d4af281",
+      "bytes": 12905
+    },
+    {
+      "path": "mythic-motion/phoenix-7-sick-idle-normal.jpg",
+      "sha256": "7c8ff2614b1ffd6fb63457f7c713f61463653e6e62af7155fc3e39d4d65d92bb",
+      "bytes": 12518
+    },
+    {
+      "path": "mythic-motion/phoenix-7-sick-idle-reduced.jpg",
+      "sha256": "08f5d96b9a32d6823e32a879be066af43233b12bad0d76b980ddb331fe4064a1",
+      "bytes": 12404
+    },
+    {
+      "path": "mythic-motion/phoenix-7-sick-walk-normal.jpg",
+      "sha256": "988d9852b374e875ae621d8ff5096027836a1f41a13b64ebc2a1288884921ba8",
+      "bytes": 12221
+    },
+    {
+      "path": "mythic-motion/phoenix-7-sick-walk-reduced.jpg",
+      "sha256": "dbc827e90c719f528cd1f79009d3f7ea404547dc39e2a81310a52fae671b66c6",
+      "bytes": 12456
+    },
+    {
+      "path": "mythic-motion/phoenix-7-sleeping-idle-normal.jpg",
+      "sha256": "2eb587c396fd5899ab7035e38ad822f88f8a45087cae1659fde841aecfab3f48",
+      "bytes": 12487
+    },
+    {
+      "path": "mythic-motion/phoenix-7-sleeping-idle-reduced.jpg",
+      "sha256": "c018b2d6c05339089c5692c12e051a212165863c68b8ff3374a42e35521a5327",
+      "bytes": 12863
+    },
+    {
+      "path": "mythic-motion/phoenix-7-sleeping-walk-normal.jpg",
+      "sha256": "f8c2a4d4f1dfddf6e2603b5915088bd01d91bada57262f2ea68ea71d9ade9f62",
+      "bytes": 12272
+    },
+    {
+      "path": "mythic-motion/phoenix-7-sleeping-walk-reduced.jpg",
+      "sha256": "795e497443bc947df6a1142c9fa6d9dc571a3a714cd14fbae8df298526311be8",
+      "bytes": 12564
+    },
+    {
+      "path": "mythic-motion/phoenix-7-strained-idle-normal.jpg",
+      "sha256": "65700fb9c216b16aba3370389353d3f3b5b623e7ff49ecbacab81c55993c1833",
+      "bytes": 12618
+    },
+    {
+      "path": "mythic-motion/phoenix-7-strained-idle-reduced.jpg",
+      "sha256": "de4017dad0b1867c40e5d75f0b62c27d08130223319c987f3ad950cdf6e4a52c",
+      "bytes": 13028
+    },
+    {
+      "path": "mythic-motion/phoenix-7-strained-walk-normal.jpg",
+      "sha256": "0feaa10405c11b7f97138b9eb57a6d5bf5ba8aec6250ca29b0c093b219e18b0a",
+      "bytes": 12758
+    },
+    {
+      "path": "mythic-motion/phoenix-7-strained-walk-reduced.jpg",
+      "sha256": "2d81256ae65b5fbaf2cd2a244ca4119a89f624e3ea57a4f0929610a401002054",
+      "bytes": 13092
+    },
+    {
+      "path": "mythic-motion/phoenix-7-tired-idle-normal.jpg",
+      "sha256": "249d511bae71020dad672c18aefd0de2adaa1b0b4d29ee68ca8ac06a474b230e",
+      "bytes": 12383
+    },
+    {
+      "path": "mythic-motion/phoenix-7-tired-idle-reduced.jpg",
+      "sha256": "2a75c601274f587e6a91972a4ef5e4a5bd034eb00bf9d6d13b23bdd33e9dc142",
+      "bytes": 12697
+    },
+    {
+      "path": "mythic-motion/phoenix-7-tired-walk-normal.jpg",
+      "sha256": "0a69e0aa060de9d34962b9c12a6c71a8d7a18e1e5a803d5cde337ac81e44a7b5",
+      "bytes": 12155
+    },
+    {
+      "path": "mythic-motion/phoenix-7-tired-walk-reduced.jpg",
+      "sha256": "9a4078dd0e0add9bb66d2ad5f2e31fc440a86fd82f3157ef6042ebf5d7f24467",
+      "bytes": 12454
+    },
+    {
+      "path": "mythic-motion/phoenix-7-wantsPlay-idle-normal.jpg",
+      "sha256": "16493ab36e85afb21bfb257fa70b534ab745c9d0f65c6b01f8de3cd427b60282",
+      "bytes": 12963
+    },
+    {
+      "path": "mythic-motion/phoenix-7-wantsPlay-idle-reduced.jpg",
+      "sha256": "88f680353d4df97c8031191023417a5aa0349560826b173f3864497c646a8905",
+      "bytes": 12979
+    },
+    {
+      "path": "mythic-motion/phoenix-7-wantsPlay-walk-normal.jpg",
+      "sha256": "173c54d77208a25dd619dc1852f0484f6d727a36e2b4ada6345e8779f148edd1",
+      "bytes": 12838
+    },
+    {
+      "path": "mythic-motion/phoenix-7-wantsPlay-walk-reduced.jpg",
+      "sha256": "f7496548addc24c82663afa75bf8e6674990cf17825bdaa814ba5f08e0995bdd",
+      "bytes": 13141
+    },
+    {
+      "path": "mythic-motion/phoenix-8-dislike-idle-normal.jpg",
+      "sha256": "4191ee0b5775eead92de891e4c598b2630667ff568c78849b865efa8e3c9a162",
+      "bytes": 12135
+    },
+    {
+      "path": "mythic-motion/phoenix-8-dislike-idle-reduced.jpg",
+      "sha256": "8055802e0c24fb65af62fc4c545460079e15309162a0460c6e0193346cbc611e",
+      "bytes": 12213
+    },
+    {
+      "path": "mythic-motion/phoenix-8-dislike-walk-normal.jpg",
+      "sha256": "58befce0aa87521e781551b63ea90cac32e877120f5171fe20164efa88241f1d",
+      "bytes": 12138
+    },
+    {
+      "path": "mythic-motion/phoenix-8-dislike-walk-reduced.jpg",
+      "sha256": "164a3971335226aea8a4183a205c844e96f863dd8157ddf7cc75297a6bed8a4d",
+      "bytes": 12166
+    },
+    {
+      "path": "mythic-motion/phoenix-8-motion.jpg",
+      "sha256": "c73bc240fd149e30ff702c8b0bd7ef403982f0943adc12e515533611c889043b",
+      "bytes": 491372
+    },
+    {
+      "path": "mythic-motion/phoenix-8-normal-idle-normal.jpg",
+      "sha256": "895652dc07be2654d785b0a8201bfae2f57e968e783c451d66d339a88e0e0b8f",
+      "bytes": 11900
+    },
+    {
+      "path": "mythic-motion/phoenix-8-normal-idle-reduced.jpg",
+      "sha256": "5c4cd66d8eb3b219e4121f967042e76f363e62fc123b9c56a352b20b7a665286",
+      "bytes": 11966
+    },
+    {
+      "path": "mythic-motion/phoenix-8-normal-walk-normal.jpg",
+      "sha256": "7675f8ac8a2e0db24e5d0659832249e6337aa0eb1ac4d9da20091d0daca04a77",
+      "bytes": 12023
+    },
+    {
+      "path": "mythic-motion/phoenix-8-normal-walk-reduced.jpg",
+      "sha256": "ddd1a58a199c85563fe56cae2fbe26958032b92bfc21f4f0fa4c9d412ff0a432",
+      "bytes": 12099
+    },
+    {
+      "path": "mythic-motion/phoenix-8-positive-idle-normal.jpg",
+      "sha256": "12e925e977c4fba28735b9b1d5e844c7404fc4b04a3059b44b4376f11c671af4",
+      "bytes": 12065
+    },
+    {
+      "path": "mythic-motion/phoenix-8-positive-idle-reduced.jpg",
+      "sha256": "b4a2624a2238238475671bf32667d6f397e8412cdc1653873ea44827732b8f51",
+      "bytes": 12180
+    },
+    {
+      "path": "mythic-motion/phoenix-8-positive-walk-normal.jpg",
+      "sha256": "dd55a466d8b2344b87898afb7eeb7bb38de1b3f0822380c24c72672f04a473c7",
+      "bytes": 12116
+    },
+    {
+      "path": "mythic-motion/phoenix-8-positive-walk-reduced.jpg",
+      "sha256": "3b376cb0ed86510bb374290dcc1f77ae24eace85be96f2a73ae2e49ffd82634e",
+      "bytes": 12307
+    },
+    {
+      "path": "mythic-motion/phoenix-8-sick-idle-normal.jpg",
+      "sha256": "b82f5c49d2ae534b46ddf5ef69aef6113050eb2c94c1f71a565d40df1388310f",
+      "bytes": 11699
+    },
+    {
+      "path": "mythic-motion/phoenix-8-sick-idle-reduced.jpg",
+      "sha256": "ca596ef3b42cd0b8a79d974c182f3cf17f83413fd270e533a047f9613aacfa29",
+      "bytes": 11718
+    },
+    {
+      "path": "mythic-motion/phoenix-8-sick-walk-normal.jpg",
+      "sha256": "f0db21a9ead3e4ab16c64757c4b04b88ade1e9bb95abdede23a45a0b555e5bc3",
+      "bytes": 11786
+    },
+    {
+      "path": "mythic-motion/phoenix-8-sick-walk-reduced.jpg",
+      "sha256": "5b969542836faa410732a121b23cf771e769e77871c77c23bd51406a2a9f532e",
+      "bytes": 11840
+    },
+    {
+      "path": "mythic-motion/phoenix-8-sleeping-idle-normal.jpg",
+      "sha256": "47b69ab6f89e5227224a235d4e9426edb6ff54c781f8ea255a0da28bf6cb569e",
+      "bytes": 11652
+    },
+    {
+      "path": "mythic-motion/phoenix-8-sleeping-idle-reduced.jpg",
+      "sha256": "f57fb697846be85ca7c51864be718d842cb6cdaa49ed21282b7edc4947499d40",
+      "bytes": 11712
+    },
+    {
+      "path": "mythic-motion/phoenix-8-sleeping-walk-normal.jpg",
+      "sha256": "556e7d5cbc63c1ddf89da59febac6e3a4862c503fb4f768b63797788c84f4b38",
+      "bytes": 11694
+    },
+    {
+      "path": "mythic-motion/phoenix-8-sleeping-walk-reduced.jpg",
+      "sha256": "7c2253c50cc6676aa0a84675a0c837c711ed102cf0cf543b44eb590bae8be9e5",
+      "bytes": 11805
+    },
+    {
+      "path": "mythic-motion/phoenix-8-strained-idle-normal.jpg",
+      "sha256": "78b0ca3f8537bee02e80a374ba28d4c5703af231b6c11518fa462ecfe5e80728",
+      "bytes": 11779
+    },
+    {
+      "path": "mythic-motion/phoenix-8-strained-idle-reduced.jpg",
+      "sha256": "0439e075ccb9cf3f41722598c095400bf48a71dfb2753370f97f427bb70fd5ec",
+      "bytes": 11978
+    },
+    {
+      "path": "mythic-motion/phoenix-8-strained-walk-normal.jpg",
+      "sha256": "2b0f3cf7689e035ac82c10daff4e2a5c643e7883c1457b659ab8a3eb4df1788e",
+      "bytes": 11964
+    },
+    {
+      "path": "mythic-motion/phoenix-8-strained-walk-reduced.jpg",
+      "sha256": "f4d110e15658ada9f0295097e963506fd244d4809d0665a071d77bb18ba870ce",
+      "bytes": 12003
+    },
+    {
+      "path": "mythic-motion/phoenix-8-tired-idle-normal.jpg",
+      "sha256": "6e0ba51018f0713d242d7347aea6a61ba1ea052f0c4d2ce912a50f6af53c2b3f",
+      "bytes": 11571
+    },
+    {
+      "path": "mythic-motion/phoenix-8-tired-idle-reduced.jpg",
+      "sha256": "a471fb36ef1c582235b39e6ba51d9c189af5af738e9f4b7d4d12710daa675763",
+      "bytes": 11666
+    },
+    {
+      "path": "mythic-motion/phoenix-8-tired-walk-normal.jpg",
+      "sha256": "8fc2eba29043550a17a49057330f7b68a0a744864beb957b5a97ec8dbbd26845",
+      "bytes": 11644
+    },
+    {
+      "path": "mythic-motion/phoenix-8-tired-walk-reduced.jpg",
+      "sha256": "fc9c0d18b61f620f99dfddbc912c788a4937ada64a91bc84228b74a7b01e49e6",
+      "bytes": 11825
+    },
+    {
+      "path": "mythic-motion/phoenix-8-wantsPlay-idle-normal.jpg",
+      "sha256": "3cdd31a341be8c5e62a92e5383283b8c9b07a18582f81d13a144b5c29f08a032",
+      "bytes": 12243
+    },
+    {
+      "path": "mythic-motion/phoenix-8-wantsPlay-idle-reduced.jpg",
+      "sha256": "d680631891e1ee12a5bdbfe3226e90502a70cc695c3e369598fa9160d4c879e0",
+      "bytes": 12387
+    },
+    {
+      "path": "mythic-motion/phoenix-8-wantsPlay-walk-normal.jpg",
+      "sha256": "963e1a1c485562a6e52dc6f1392e035380aeb25d7bbf7cce467d2827d6c840e0",
+      "bytes": 12339
+    },
+    {
+      "path": "mythic-motion/phoenix-8-wantsPlay-walk-reduced.jpg",
+      "sha256": "351638bbdf9eff2dbbcd4ee0f95108867ef83019e28f3d2e419d20a5390545a0",
+      "bytes": 12411
+    },
+    {
+      "path": "mythic/evidence.json",
+      "sha256": "7e72aedc48bb080008f0503388d68b2a94fbb5542ecd2950d0f1b0aa9f516057",
+      "bytes": 17277
+    },
+    {
+      "path": "mythic/phoenix-1-34.jpg",
+      "sha256": "29a64aba5fd7805797f39fbb5f525586a8e02bde885a754575784fb4f00a72d7",
+      "bytes": 11385
+    },
+    {
+      "path": "mythic/phoenix-1-back.jpg",
+      "sha256": "c4ce4759e9b46b0f75d1d7ab13a755abf83708a9e153ef0f497237328696c739",
+      "bytes": 10837
+    },
+    {
+      "path": "mythic/phoenix-1-front.jpg",
+      "sha256": "3dbc22733537d13760f1aa60168ea3e1e1dd60925631fdfcbd37c1887ee5041c",
+      "bytes": 12484
+    },
+    {
+      "path": "mythic/phoenix-1-side.jpg",
+      "sha256": "d7f402e4488e71b78ab3d65a5fe6a9691a9679e937d4407a916bd9e40b1cc0e2",
+      "bytes": 10408
+    },
+    {
+      "path": "mythic/phoenix-2-34.jpg",
+      "sha256": "177ef8916275d774343496cbefd80110c09ee04351f8f4a9ed71f8a591903c7b",
+      "bytes": 12322
+    },
+    {
+      "path": "mythic/phoenix-2-back.jpg",
+      "sha256": "8facb63e37b0d4aaa053cad4fdfbdfd4ec28c00d097bfe1c10adeb4b51eee3d7",
+      "bytes": 12457
+    },
+    {
+      "path": "mythic/phoenix-2-front.jpg",
+      "sha256": "36b7b3888cac981ee193289f5adf39f30d58d6d9c70c6a1ff46613458a5b5760",
+      "bytes": 14066
+    },
+    {
+      "path": "mythic/phoenix-2-side.jpg",
+      "sha256": "69cbd116bb9e163dc2e252945290fa449c2f8d08187df296bf11b83c3f513eae",
+      "bytes": 11400
+    },
+    {
+      "path": "mythic/phoenix-3-34.jpg",
+      "sha256": "26b5faf46718e0470f93e3ba09b4851fc2da6d79f41dcc9daf285a5f453278f2",
+      "bytes": 12569
+    },
+    {
+      "path": "mythic/phoenix-3-back.jpg",
+      "sha256": "45dd59c1479c6e176066bc287b57f3c81d724cfb51999ce2aa3dafd48e28906f",
+      "bytes": 13257
+    },
+    {
+      "path": "mythic/phoenix-3-front.jpg",
+      "sha256": "38704d06789808b79b4beb28dbe814ae749e46378c548283a750b0fd29be32f2",
+      "bytes": 14520
+    },
+    {
+      "path": "mythic/phoenix-3-side.jpg",
+      "sha256": "fb7894f106fcaba431a60c22ba60bfc917702c7603ba9d22525825c118b97815",
+      "bytes": 11614
+    },
+    {
+      "path": "mythic/phoenix-4-34.jpg",
+      "sha256": "4551fc18b35225bd978a5f6a2217719b83a36e86c1351d34c7df6abc9ceef07b",
+      "bytes": 15558
+    },
+    {
+      "path": "mythic/phoenix-4-back.jpg",
+      "sha256": "4e65629b58f9670873b81ac5ac43196a47c2c9a16ce77ed4bd616161ec82843b",
+      "bytes": 16256
+    },
+    {
+      "path": "mythic/phoenix-4-front.jpg",
+      "sha256": "6d0818a88f59e1886f840eb514498a5685d3e20624d984a3e97890740b3508fe",
+      "bytes": 17327
+    },
+    {
+      "path": "mythic/phoenix-4-side.jpg",
+      "sha256": "8df4aab7fb3a8b46fb1121079fd2872c81b76fd58a506aa00e5c4f3e2c6c7ce5",
+      "bytes": 11053
+    },
+    {
+      "path": "mythic/phoenix-5-34.jpg",
+      "sha256": "46317a2bb018a7cf72aa6364fb573d0c5a9582677ad0ff362fc36dfd10ebf38e",
+      "bytes": 16843
+    },
+    {
+      "path": "mythic/phoenix-5-back.jpg",
+      "sha256": "ac6b376fb1741034319aef36d66027972324bec38e93f74dc8c21cca91d5d164",
+      "bytes": 15923
+    },
+    {
+      "path": "mythic/phoenix-5-front.jpg",
+      "sha256": "66f0ef6a84b247a9d2873cb1aa55df7ca00c081df996022639f814554bdee502",
+      "bytes": 18347
+    },
+    {
+      "path": "mythic/phoenix-5-side.jpg",
+      "sha256": "3b5654939a913f01928b02aea5aab4e0101d6ee2c796453c73f4c07839ee4de3",
+      "bytes": 11121
+    },
+    {
+      "path": "mythic/phoenix-6-34.jpg",
+      "sha256": "e324cfdd2c74f8dddf71026abfd4589b39863e2e691bcc34bc8d8b5d87f036e2",
+      "bytes": 14611
+    },
+    {
+      "path": "mythic/phoenix-6-back.jpg",
+      "sha256": "05f7d6bdb34de1f99905b1037328761938904e7aa3a7d5c7f214a9283cb52c4c",
+      "bytes": 14605
+    },
+    {
+      "path": "mythic/phoenix-6-front.jpg",
+      "sha256": "02a1321bfe99e2b798ba5a8be84ed26fcce93b439af7ee0da1b5c1a658602b2e",
+      "bytes": 16068
+    },
+    {
+      "path": "mythic/phoenix-6-side.jpg",
+      "sha256": "479974a92242bf640680f32769a29044556c678f96e542810712399e13c608b4",
+      "bytes": 10282
+    },
+    {
+      "path": "mythic/phoenix-7-34.jpg",
+      "sha256": "15980c0cc941f2f2b88f735c7d9b2ac1fbfcb79846b31d8a6a7974dd0fad21c0",
+      "bytes": 12697
+    },
+    {
+      "path": "mythic/phoenix-7-back.jpg",
+      "sha256": "5e93d877ad16c2411f515d57a9857b48fda2d4c16b91046b8b0908ba8f9d049b",
+      "bytes": 13403
+    },
+    {
+      "path": "mythic/phoenix-7-front.jpg",
+      "sha256": "503dbecea9dafe4fe38fa1f90337ced33bb0ba347414df15dc4900e2d377d0b7",
+      "bytes": 14382
+    },
+    {
+      "path": "mythic/phoenix-7-side.jpg",
+      "sha256": "1354166dda3b3cd224864fa0a38ae9b4d6ef65ea923aee7ddc7580703e5aa4d9",
+      "bytes": 11708
+    },
+    {
+      "path": "mythic/phoenix-8-34.jpg",
+      "sha256": "895652dc07be2654d785b0a8201bfae2f57e968e783c451d66d339a88e0e0b8f",
+      "bytes": 11900
+    },
+    {
+      "path": "mythic/phoenix-8-back.jpg",
+      "sha256": "7fee6c779c4e576be5399dfd3920f43d841685749246ecb7c4bbca79590f154a",
+      "bytes": 11492
+    },
+    {
+      "path": "mythic/phoenix-8-front.jpg",
+      "sha256": "51be5039be3837dc46b3e836be9e97bceb1ea36c8f46eb113b0e9d806d4f4406",
+      "bytes": 12222
+    },
+    {
+      "path": "mythic/phoenix-8-side.jpg",
+      "sha256": "1640b546187a0c548b8ff24a76095b05a1585c988740bbb24975ce6924f2532e",
+      "bytes": 11496
+    },
+    {
+      "path": "mythic/phoenix-stages.jpg",
+      "sha256": "ad9e316bf5ce89bfe5fbf8eb0ca7f041f0b29caa507d6d61a44ac76f647975b2",
+      "bytes": 561415
+    }
+  ]
+}

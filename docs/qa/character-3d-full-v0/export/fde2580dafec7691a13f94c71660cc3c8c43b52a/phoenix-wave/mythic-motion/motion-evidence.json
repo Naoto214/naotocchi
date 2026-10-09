@@ -1,0 +1,7209 @@
+{
+  "source": "fde2580dafec7691a13f94c71660cc3c8c43b52a",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "phoenix",
+      "stage": 1
+    },
+    {
+      "id": "phoenix",
+      "stage": 2
+    },
+    {
+      "id": "phoenix",
+      "stage": 3
+    },
+    {
+      "id": "phoenix",
+      "stage": 4
+    },
+    {
+      "id": "phoenix",
+      "stage": 5
+    },
+    {
+      "id": "phoenix",
+      "stage": 6
+    },
+    {
+      "id": "phoenix",
+      "stage": 7
+    },
+    {
+      "id": "phoenix",
+      "stage": 8
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7928,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2730866547431869,
+          0.007674455165863042,
+          -0.25731011086445704
+        ],
+        [
+          0.2715453383456785,
+          0.7444380701642155,
+          0.23261955201625822
+        ]
+      ],
+      "file": "phoenix-1-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7928,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2763302456067088,
+          0.007674455165863042,
+          -0.25580458892589103
+        ],
+        [
+          0.2775473332267703,
+          0.7576578828782864,
+          0.23261955201625822
+        ]
+      ],
+      "file": "phoenix-1-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7928,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2703027027845383,
+          0.007674455165863042,
+          -0.2574999988079071
+        ],
+        [
+          0.2709604698419571,
+          0.741000000834465,
+          0.23261955201625822
+        ]
+      ],
+      "file": "phoenix-1-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7928,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.27907317598839165,
+          0.007674455165863042,
+          -0.25744794966389506
+        ],
+        [
+          0.27995725609308275,
+          0.7491725696579715,
+          0.23261955201625822
+        ]
+      ],
+      "file": "phoenix-1-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7768,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2838979564736722,
+          0.07251628106627378,
+          -0.2582617420805548
+        ],
+        [
+          0.28374444317933434,
+          0.8234277773462595,
+          0.23727417909120146
+        ]
+      ],
+      "file": "phoenix-1-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7768,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2843070826425843,
+          0.041595368116068426,
+          -0.2583737611188459
+        ],
+        [
+          0.28473539024568983,
+          0.7897377745587602,
+          0.23719917873020344
+        ]
+      ],
+      "file": "phoenix-1-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7768,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2703027027845383,
+          0.010674455165863045,
+          -0.25845692610672555
+        ],
+        [
+          0.2709604698419571,
+          0.7581516101885525,
+          0.2371819737705362
+        ]
+      ],
+      "file": "phoenix-1-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7768,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2723271859109925,
+          0.010674455165863045,
+          -0.2597902736282749
+        ],
+        [
+          0.2725196971843158,
+          0.7596166356617535,
+          0.2372183495853857
+        ]
+      ],
+      "file": "phoenix-1-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7928,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2730866547431869,
+          0.0026744551658630378,
+          -0.2659411795829524
+        ],
+        [
+          0.2715453383456785,
+          0.7580312379356569,
+          0.3159886654230561
+        ]
+      ],
+      "file": "phoenix-1-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7928,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.27859308897797175,
+          0.0026744551658630378,
+          -0.2701151653220153
+        ],
+        [
+          0.2790344769030885,
+          0.7582466281340449,
+          0.3163885642802044
+        ]
+      ],
+      "file": "phoenix-1-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7928,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2703027027845383,
+          0.0026744551658630378,
+          -0.2661213911811637
+        ],
+        [
+          0.2709604698419571,
+          0.7561153882350364,
+          0.31609752927683116
+        ]
+      ],
+      "file": "phoenix-1-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7928,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.27950518642464584,
+          0.0026744551658630378,
+          -0.27365955651356855
+        ],
+        [
+          0.2800233030748036,
+          0.7522069262570668,
+          0.3163103534553252
+        ]
+      ],
+      "file": "phoenix-1-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8128,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2730866547431869,
+          -0.005786012144088748,
+          -0.2590519681146348
+        ],
+        [
+          0.2715453383456785,
+          0.70642086375922,
+          0.25419290130369965
+        ]
+      ],
+      "file": "phoenix-1-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 8128,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.27640804868155017,
+          -0.005786012144088748,
+          -0.25732822477088035
+        ],
+        [
+          0.2775223876930103,
+          0.718712161110113,
+          0.25534767968721733
+        ]
+      ],
+      "file": "phoenix-1-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 8128,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2703027027845383,
+          -0.005786012144088748,
+          -0.2592523262398634
+        ],
+        [
+          0.2709604698419571,
+          0.7031998716659712,
+          0.2540037962645532
+        ]
+      ],
+      "file": "phoenix-1-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 8128,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2791797445252342,
+          -0.005786012144088748,
+          -0.25917724705180994
+        ],
+        [
+          0.28002109205121123,
+          0.7109238554530789,
+          0.25451263033789256
+        ]
+      ],
+      "file": "phoenix-1-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7768,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2730866547431869,
+          -0.008939501247406029,
+          -0.25932275105464975
+        ],
+        [
+          0.2715453383456785,
+          0.6917974273110645,
+          0.259020095794069
+        ]
+      ],
+      "file": "phoenix-1-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7768,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.278588178784569,
+          -0.008939501247406029,
+          -0.26551170173945426
+        ],
+        [
+          0.2789996629654837,
+          0.7005159453265077,
+          0.25982330283752453
+        ]
+      ],
+      "file": "phoenix-1-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7768,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2703027027845383,
+          -0.008939501247406029,
+          -0.2595251439371317
+        ],
+        [
+          0.2709604698419571,
+          0.6886478171461965,
+          0.25879341519965154
+        ]
+      ],
+      "file": "phoenix-1-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7768,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.27947985438349676,
+          -0.008939501247406029,
+          -0.26827431124602213
+        ],
+        [
+          0.2799793501751331,
+          0.6965452683803853,
+          0.25940112441969737
+        ]
+      ],
+      "file": "phoenix-1-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7768,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.27259236225220596,
+          0.0033674769592285103,
+          -0.2610207885147173
+        ],
+        [
+          0.2720396308366594,
+          0.7204358215003999,
+          0.2570914217048128
+        ]
+      ],
+      "file": "phoenix-1-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7768,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2707337148955312,
+          0.0033674769592285103,
+          -0.26109435893544203
+        ],
+        [
+          0.27293077604142313,
+          0.718678835063327,
+          0.2570455324155333
+        ]
+      ],
+      "file": "phoenix-1-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7768,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2703027027845383,
+          0.0033674769592285103,
+          -0.2612067257547347
+        ],
+        [
+          0.2709604698419571,
+          0.7171387425465187,
+          0.25700538446899224
+        ]
+      ],
+      "file": "phoenix-1-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7768,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2716791364141873,
+          0.0033674769592285103,
+          -0.26204261694707265
+        ],
+        [
+          0.2720086260795076,
+          0.7180832462749185,
+          0.2570299976769874
+        ]
+      ],
+      "file": "phoenix-1-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7928,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2782550537465306,
+          0.040595368116068425,
+          -0.25932275105464975
+        ],
+        [
+          0.27920499365303236,
+          0.7959555585432653,
+          0.23209536489910446
+        ]
+      ],
+      "file": "phoenix-1-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7928,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.28149862202732856,
+          0.025134911640965735,
+          -0.26195103791770447
+        ],
+        [
+          0.2845082907005071,
+          0.7872728983519214,
+          0.23256637787397033
+        ]
+      ],
+      "file": "phoenix-1-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7928,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2703027027845383,
+          0.009674455165863044,
+          -0.2595251439371317
+        ],
+        [
+          0.2709604698419571,
+          0.7616045469731985,
+          0.23187423811026037
+        ]
+      ],
+      "file": "phoenix-1-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7928,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2783646121658365,
+          0.009674455165863044,
+          -0.26653282447310195
+        ],
+        [
+          0.27834160943434016,
+          0.7686302244336989,
+          0.23232656966857462
+        ]
+      ],
+      "file": "phoenix-1-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7768,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2718509235157346,
+          -0.001555778489112869,
+          -0.25731011086445704
+        ],
+        [
+          0.27278106957313075,
+          0.7300726525516312,
+          0.2623918019029259
+        ]
+      ],
+      "file": "phoenix-1-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7768,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2747392199186307,
+          -0.001555778489112869,
+          -0.25594149061691396
+        ],
+        [
+          0.2788575292093128,
+          0.7421271009417244,
+          0.2623918019029259
+        ]
+      ],
+      "file": "phoenix-1-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7768,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2703027027845383,
+          -0.001555778489112869,
+          -0.2574999988079071
+        ],
+        [
+          0.2709604698419571,
+          0.7267428758376744,
+          0.2623918019029259
+        ]
+      ],
+      "file": "phoenix-1-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7768,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.2785889573157351,
+          -0.001555778489112869,
+          -0.25746186923655795
+        ],
+        [
+          0.27964902749584364,
+          0.7341927984102283,
+          0.2623918019029259
+        ]
+      ],
+      "file": "phoenix-1-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11096,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.3614580841279706,
+          0.010702374219894395,
+          -0.3863159446171448
+        ],
+        [
+          0.34114363736183273,
+          0.9552751626161726,
+          0.24261955201625823
+        ]
+      ],
+      "file": "phoenix-2-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11096,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.38874163772099357,
+          0.010702374219894395,
+          -0.38310636044195456
+        ],
+        [
+          0.36221545305724756,
+          0.9664582165812787,
+          0.24261955201625823
+        ]
+      ],
+      "file": "phoenix-2-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11096,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.3409999907016754,
+          0.010702374219894395,
+          -0.38700000047683714
+        ],
+        [
+          0.3399999934434891,
+          0.9520000147819518,
+          0.24261955201625823
+        ]
+      ],
+      "file": "phoenix-2-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11096,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.3629433637782413,
+          0.010702374219894395,
+          -0.3866704569690014
+        ],
+        [
+          0.3645072754933444,
+          0.9596070915750189,
+          0.24261955201625823
+        ]
+      ],
+      "file": "phoenix-2-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10936,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.37717782822893964,
+          0.07554420012030516,
+          -0.3877823802894347
+        ],
+        [
+          0.37651372203489886,
+          1.034354084587844,
+          0.24492740380517025
+        ]
+      ],
+      "file": "phoenix-2-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10936,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.379500815489789,
+          0.04462328717009978,
+          -0.3880641172262625
+        ],
+        [
+          0.3794239303556957,
+          1.0008024307209524,
+          0.24483539463773915
+        ]
+      ],
+      "file": "phoenix-2-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10936,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.3409999907016754,
+          0.013702374219894398,
+          -0.38847890248877
+        ],
+        [
+          0.3399999934434891,
+          0.9692407701956398,
+          0.24481438170236458
+        ]
+      ],
+      "file": "phoenix-2-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10936,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.34478372605702634,
+          0.013702374219894398,
+          -0.39117909460185407
+        ],
+        [
+          0.3439047462761113,
+          0.9710269439277497,
+          0.24484961318905432
+        ]
+      ],
+      "file": "phoenix-2-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11096,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.3614580841279706,
+          0.0057023742198943905,
+          -0.4015956227195605
+        ],
+        [
+          0.34114363736183273,
+          0.9719683279073034,
+          0.349869124646347
+        ]
+      ],
+      "file": "phoenix-2-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11096,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.3668228927825456,
+          0.0057023742198943905,
+          -0.4103610129274806
+        ],
+        [
+          0.3621718968114037,
+          0.9751794947522505,
+          0.3504645427766484
+        ]
+      ],
+      "file": "phoenix-2-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11096,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.3409999907016754,
+          0.0057023742198943905,
+          -0.4022540353474386
+        ],
+        [
+          0.3399999934434891,
+          0.9705548438054874,
+          0.3500252886736618
+        ]
+      ],
+      "file": "phoenix-2-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11096,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.365100858237013,
+          0.0057023742198943905,
+          -0.41755233005793807
+        ],
+        [
+          0.3638370855215823,
+          0.9678112969539594,
+          0.35033986411490764
+        ]
+      ],
+      "file": "phoenix-2-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11296,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.3614580841279706,
+          -0.002939768233299306,
+          -0.38900646459690513
+        ],
+        [
+          0.34114363736183273,
+          0.910023751186794,
+          0.26824888936185265
+        ]
+      ],
+      "file": "phoenix-2-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11296,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.38905266015479656,
+          -0.002939768233299306,
+          -0.3853694741457344
+        ],
+        [
+          0.36234709081766175,
+          0.920292319969245,
+          0.26968149300882494
+        ]
+      ],
+      "file": "phoenix-2-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11296,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.3409999907016754,
+          -0.002939768233299306,
+          -0.38971501783218143
+        ],
+        [
+          0.3399999934434891,
+          0.9069576437938234,
+          0.26801748269249615
+        ]
+      ],
+      "file": "phoenix-2-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11296,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.36324150171936187,
+          -0.002939768233299306,
+          -0.38932624490191187
+        ],
+        [
+          0.3647557726767309,
+          0.9141272405004904,
+          0.26864263301109764
+        ]
+      ],
+      "file": "phoenix-2-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10936,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.3614580841279706,
+          -0.006153815717697131,
+          -0.38942806347425074
+        ],
+        [
+          0.34114363736183273,
+          0.8921175765990434,
+          0.2741878475639986
+        ]
+      ],
+      "file": "phoenix-2-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10936,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.36666227851835087,
+          -0.006153815717697131,
+          -0.4022870056939618
+        ],
+        [
+          0.3620618706025469,
+          0.9034245019305656,
+          0.27495118837529975
+        ]
+      ],
+      "file": "phoenix-2-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10936,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.3409999907016754,
+          -0.006153815717697131,
+          -0.39014130554536036
+        ],
+        [
+          0.3399999934434891,
+          0.8891198117338631,
+          0.2739104245617314
+        ]
+      ],
+      "file": "phoenix-2-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10936,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.36500024193718306,
+          -0.006153815717697131,
+          -0.4079002629256491
+        ],
+        [
+          0.36371309393008616,
+          0.8986890014008467,
+          0.2745149185136051
+        ]
+      ],
+      "file": "phoenix-2-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10936,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.36096379163698966,
+          0.006274279251098608,
+          -0.3928547114031835
+        ],
+        [
+          0.34163792985281366,
+          0.9256343123192979,
+          0.27361702809561994
+        ]
+      ],
+      "file": "phoenix-2-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10936,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.35747263203216295,
+          0.006274279251098608,
+          -0.39303735305511933
+        ],
+        [
+          0.3439361766964514,
+          0.9239721935187154,
+          0.2735735952022938
+        ]
+      ],
+      "file": "phoenix-2-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10936,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.3409999907016754,
+          0.006274279251098608,
+          -0.39352837666915647
+        ],
+        [
+          0.3399999934434891,
+          0.9224942688654418,
+          0.2735350626808922
+        ]
+      ],
+      "file": "phoenix-2-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10936,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.3432312985741791,
+          0.006274279251098608,
+          -0.3952209298237329
+        ],
+        [
+          0.3426177355057324,
+          0.923646108835907,
+          0.2735650777577753
+        ]
+      ],
+      "file": "phoenix-2-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11096,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.3614580841279706,
+          0.04362328717009978,
+          -0.38942806347425074
+        ],
+        [
+          0.3612588001873256,
+          1.0070329554660693,
+          0.23687083441630855
+        ]
+      ],
+      "file": "phoenix-2-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11096,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.37432698776037165,
+          0.028162830694997087,
+          -0.3950588333934681
+        ],
+        [
+          0.3768549052403684,
+          1.000663029690687,
+          0.23728404455675384
+        ]
+      ],
+      "file": "phoenix-2-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11096,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.3409999907016754,
+          0.012702374219894397,
+          -0.39014130554536036
+        ],
+        [
+          0.3399999934434891,
+          0.9728445643118723,
+          0.23659977206143312
+        ]
+      ],
+      "file": "phoenix-2-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11096,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.36105848322396933,
+          0.012702374219894397,
+          -0.4043574994734149
+        ],
+        [
+          0.35916624321426205,
+          0.9813752609225386,
+          0.23704343434337397
+        ]
+      ],
+      "file": "phoenix-2-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10936,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.36022235290051824,
+          0.0013813029932975562,
+          -0.3863159446171448
+        ],
+        [
+          0.342379368589285,
+          0.9393783391879289,
+          0.27971044934232153
+        ]
+      ],
+      "file": "phoenix-2-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10936,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.38608399749350814,
+          0.0013813029932975562,
+          -0.3833849405048577
+        ],
+        [
+          0.3628025170712945,
+          0.9495923435396543,
+          0.27971044934232153
+        ]
+      ],
+      "file": "phoenix-2-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10936,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.3409999907016754,
+          0.0013813029932975562,
+          -0.38700000047683714
+        ],
+        [
+          0.3399999934434891,
+          0.936208051449617,
+          0.27971044934232153
+        ]
+      ],
+      "file": "phoenix-2-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10936,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.36159629788051184,
+          0.0013813029932975562,
+          -0.3867105559169379
+        ],
+        [
+          0.3633578443483585,
+          0.9431502206535457,
+          0.27971044934232153
+        ]
+      ],
+      "file": "phoenix-2-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12152,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6599691370201849,
+          0.016072467565536486,
+          -0.6667647082636505
+        ],
+        [
+          0.3865092623877484,
+          1.3537114225519271,
+          0.2988296765089035
+        ]
+      ],
+      "file": "phoenix-3-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 12152,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7163793830776674,
+          0.016072467565536486,
+          -0.6717510192257196
+        ],
+        [
+          0.4444273451686848,
+          1.3647889911725357,
+          0.2988296765089035
+        ]
+      ],
+      "file": "phoenix-3-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 12152,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6200000047683716,
+          0.016072467565536486,
+          -0.6600000119209289
+        ],
+        [
+          0.3829304027557373,
+          1.3500000035762787,
+          0.2988296765089035
+        ]
+      ],
+      "file": "phoenix-3-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 12152,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6537241957238573,
+          0.016072467565536486,
+          -0.6649753447939212
+        ],
+        [
+          0.43961022961967045,
+          1.3584188213340145,
+          0.2988296765089035
+        ]
+      ],
+      "file": "phoenix-3-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11992,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6599691370201849,
+          0.08091429346594725,
+          -0.6703533527387249
+        ],
+        [
+          0.4649739289849586,
+          1.4353805270950581,
+          0.2952098599808922
+        ]
+      ],
+      "file": "phoenix-3-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11992,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6492937108750652,
+          0.04999338051574187,
+          -0.6690372791728597
+        ],
+        [
+          0.47014757599146495,
+          1.401486449034518,
+          0.29509494410261816
+        ]
+      ],
+      "file": "phoenix-3-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11992,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6200000047683716,
+          0.01907246756553649,
+          -0.6635433818377799
+        ],
+        [
+          0.3829304027557373,
+          1.3698314938160503,
+          0.29506890521203283
+        ]
+      ],
+      "file": "phoenix-3-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11992,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6239532709464389,
+          0.01907246756553649,
+          -0.6684518911934167
+        ],
+        [
+          0.3902505163610901,
+          1.3720359864625526,
+          0.2951095643157629
+        ]
+      ],
+      "file": "phoenix-3-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12152,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6599691370201849,
+          0.011072467565536481,
+          -0.6894268099371158
+        ],
+        [
+          0.3865092623877484,
+          1.3742533490477835,
+          0.4386546224964876
+        ]
+      ],
+      "file": "phoenix-3-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 12152,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6581919558482001,
+          0.011072467565536481,
+          -0.6975577526005057
+        ],
+        [
+          0.4231244020174295,
+          1.3786798742627877,
+          0.4393972512631227
+        ]
+      ],
+      "file": "phoenix-3-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 12152,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6200000047683716,
+          0.011072467565536481,
+          -0.682797970276629
+        ],
+        [
+          0.3829304027557373,
+          1.372843224667376,
+          0.43885775555586204
+        ]
+      ],
+      "file": "phoenix-3-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 12152,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6438243011080022,
+          0.011072467565536481,
+          -0.7105941037806708
+        ],
+        [
+          0.428596144735718,
+          1.3699116416940043,
+          0.4392533552529798
+        ]
+      ],
+      "file": "phoenix-3-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12352,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6599691370201849,
+          0.0021081195116042784,
+          -0.6735230481892811
+        ],
+        [
+          0.3865092623877484,
+          1.2912257400611595,
+          0.3248081450938586
+        ]
+      ],
+      "file": "phoenix-3-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 12352,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7170384765790364,
+          -0.011085521509175078,
+          -0.6785397306726829
+        ],
+        [
+          0.4450267802713284,
+          1.3012889630263353,
+          0.3266444600177209
+        ]
+      ],
+      "file": "phoenix-3-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 12352,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6200000047683716,
+          0.0021081195116042784,
+          -0.6666720587402517
+        ],
+        [
+          0.3829304027557373,
+          1.2877522213256816,
+          0.3245200737889553
+        ]
+      ],
+      "file": "phoenix-3-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 12352,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6541668772198067,
+          0.0021081195116042784,
+          -0.6719712618551217
+        ],
+        [
+          0.44028245109932135,
+          1.2956738627860513,
+          0.32530506673497966
+        ]
+      ],
+      "file": "phoenix-3-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11992,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6599691370201849,
+          -0.0012133298397064562,
+          -0.6746731680816294
+        ],
+        [
+          0.3865092623877484,
+          1.2664424756313104,
+          0.3312887448836505
+        ]
+      ],
+      "file": "phoenix-3-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11992,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6579603632522925,
+          -0.0012133298397064562,
+          -0.6898611515611272
+        ],
+        [
+          0.4229274967438155,
+          1.2801848227000765,
+          0.3321910769921456
+        ]
+      ],
+      "file": "phoenix-3-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11992,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6200000047683716,
+          -0.0012133298397064562,
+          -0.6678069687282506
+        ],
+        [
+          0.3829304027557373,
+          1.2630465508455453,
+          0.3309433761154221
+        ]
+      ],
+      "file": "phoenix-3-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11992,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6437024037932896,
+          -0.0012133298397064562,
+          -0.7000518880334654
+        ],
+        [
+          0.4283517785211607,
+          1.2746721028889985,
+          0.331657633528939
+        ]
+      ],
+      "file": "phoenix-3-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11992,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6594748445292039,
+          0.011429568862915018,
+          -0.6765037527586416
+        ],
+        [
+          0.3870035548787293,
+          1.3109743054796545,
+          0.3392511185132655
+        ]
+      ],
+      "file": "phoenix-3-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11992,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6523887644161535,
+          0.011429568862915018,
+          -0.6756911016000918
+        ],
+        [
+          0.3909174155989248,
+          1.3091034879054928,
+          0.3392022211484555
+        ]
+      ],
+      "file": "phoenix-3-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11992,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6200000047683716,
+          0.011429568862915018,
+          -0.6697927307866588
+        ],
+        [
+          0.3829304027557373,
+          1.3074163515980177,
+          0.339158231745149
+        ]
+      ],
+      "file": "phoenix-3-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11992,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6226523386304484,
+          0.011429568862915018,
+          -0.6728697986125948
+        ],
+        [
+          0.3878316501300414,
+          1.30883914063092,
+          0.33919530690928157
+        ]
+      ],
+      "file": "phoenix-3-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12152,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6599691370201849,
+          0.04899338051574187,
+          -0.6746731680816294
+        ],
+        [
+          0.4288893937643663,
+          1.409130897193509,
+          0.28071921962001456
+        ]
+      ],
+      "file": "phoenix-3-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 12152,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6492474019918488,
+          0.03353292404063918,
+          -0.6767391244502375
+        ],
+        [
+          0.4564989886984669,
+          1.4049194846009825,
+          0.28119632858955507
+        ]
+      ],
+      "file": "phoenix-3-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 12152,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6200000047683716,
+          0.018072467565536487,
+          -0.6678069687282506
+        ],
+        [
+          0.3829304027557373,
+          1.374507302155986,
+          0.2803811608321631
+        ]
+      ],
+      "file": "phoenix-3-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 12152,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6392168010572261,
+          0.018072467565536487,
+          -0.6936266118327874
+        ],
+        [
+          0.4194461711112989,
+          1.3849156827526494,
+          0.28090336056045984
+        ]
+      ],
+      "file": "phoenix-3-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 11992,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6587334057927325,
+          0.00659029353857038,
+          -0.6667647082636505
+        ],
+        [
+          0.38774499361520065,
+          1.331301869337727,
+          0.34436298957963435
+        ]
+      ],
+      "file": "phoenix-3-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 11992,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.712137253593975,
+          0.00659029353857038,
+          -0.6715893421617316
+        ],
+        [
+          0.4428942416143189,
+          1.3414775803714614,
+          0.34436298957963435
+        ]
+      ],
+      "file": "phoenix-3-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 11992,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6200000047683716,
+          0.00659029353857038,
+          -0.6600000119209289
+        ],
+        [
+          0.3829304027557373,
+          1.3277100500074965,
+          0.34436298957963435
+        ]
+      ],
+      "file": "phoenix-3-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 11992,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6517256382637884,
+          0.00659029353857038,
+          -0.6647001899994631
+        ],
+        [
+          0.43654715584817494,
+          1.335408424151217,
+          0.34436298957963435
+        ]
+      ],
+      "file": "phoenix-3-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7374952023062298,
+          0.016072467565536486,
+          -0.7221614819027183
+        ],
+        [
+          0.5542767944722934,
+          1.4037053534140909,
+          0.297226545214653
+        ]
+      ],
+      "file": "phoenix-4-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.79505765136588,
+          0.016072467565536486,
+          -0.7272606847639936
+        ],
+        [
+          0.5241728232317004,
+          1.429961064988018,
+          0.297226545214653
+        ]
+      ],
+      "file": "phoenix-4-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6944000124931335,
+          0.016072467565536486,
+          -0.7150000190734863
+        ],
+        [
+          0.5570000028610229,
+          1.4000000035762787,
+          0.297226545214653
+        ]
+      ],
+      "file": "phoenix-4-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.729341391171678,
+          0.016072467565536486,
+          -0.7202786883860586
+        ],
+        [
+          0.5453166356926278,
+          1.4083800161093776,
+          0.297226545214653
+        ]
+      ],
+      "file": "phoenix-4-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7374952023062298,
+          0.08091429346594725,
+          -0.7252603722619799
+        ],
+        [
+          0.544595176745299,
+          1.5393365741057963,
+          0.2944645468502845
+        ]
+      ],
+      "file": "phoenix-4-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7264479428302962,
+          0.04999338051574187,
+          -0.7238767326251885
+        ],
+        [
+          0.5468280546284563,
+          1.527204982204526,
+          0.2943495196062953
+        ]
+      ],
+      "file": "phoenix-4-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6944000124931335,
+          0.01907246756553649,
+          -0.718051252254236
+        ],
+        [
+          0.5570000028610229,
+          1.4200211719571219,
+          0.2943234766517528
+        ]
+      ],
+      "file": "phoenix-4-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6979871087558309,
+          0.01907246756553649,
+          -0.7235491760643008
+        ],
+        [
+          0.5592426938865882,
+          1.4222246529860383,
+          0.2943641548005366
+        ]
+      ],
+      "file": "phoenix-4-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7374952023062298,
+          0.011072467565536481,
+          -0.742560183416715
+        ],
+        [
+          0.5542767944722934,
+          1.42451112166222,
+          0.438911098420363
+        ]
+      ],
+      "file": "phoenix-4-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7283781386238691,
+          0.011072467565536481,
+          -0.752101983407863
+        ],
+        [
+          0.5743788203529788,
+          1.4863429478800068,
+          0.4396349387737288
+        ]
+      ],
+      "file": "phoenix-4-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6944000124931335,
+          0.011072467565536481,
+          -0.7355403032940913
+        ],
+        [
+          0.5570000028610229,
+          1.4231070554984773,
+          0.4391121787038158
+        ]
+      ],
+      "file": "phoenix-4-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.715645797473558,
+          0.011072467565536481,
+          -0.7666940386409723
+        ],
+        [
+          0.5687312926462844,
+          1.4684203750223754,
+          0.4394989693758413
+        ]
+      ],
+      "file": "phoenix-4-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7374952023062298,
+          0.0021081195116042784,
+          -0.7279059984968219
+        ],
+        [
+          0.5542767944722934,
+          1.3379616450011982,
+          0.3231602932914002
+        ]
+      ],
+      "file": "phoenix-4-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7957181675306118,
+          0.0021081195116042784,
+          -0.7330274817661327
+        ],
+        [
+          0.523450421767045,
+          1.3478169476960251,
+          0.32500717416509123
+        ]
+      ],
+      "file": "phoenix-4-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6944000124931335,
+          0.0021081195116042784,
+          -0.7206537267759041
+        ],
+        [
+          0.5570000028610229,
+          1.3344938241255346,
+          0.32287193243656115
+        ]
+      ],
+      "file": "phoenix-4-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7297976941489176,
+          0.0021081195116042784,
+          -0.7262768000424705
+        ],
+        [
+          0.5449662125638299,
+          1.342378008382116,
+          0.3236588288571014
+        ]
+      ],
+      "file": "phoenix-4-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7374952023062298,
+          -0.0012133298397064562,
+          -0.728836955124797
+        ],
+        [
+          0.5542767944722934,
+          1.3121279575769809,
+          0.3294145607025394
+        ]
+      ],
+      "file": "phoenix-4-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7281794509907473,
+          -0.0012133298397064562,
+          -0.7462884216340853
+        ],
+        [
+          0.5742737674709613,
+          1.3581741665451057,
+          0.3303226904447389
+        ]
+      ],
+      "file": "phoenix-4-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6944000124931335,
+          -0.0012133298397064562,
+          -0.7215686903848351
+        ],
+        [
+          0.5570000028610229,
+          1.3087376063505478,
+          0.3290688482778735
+        ]
+      ],
+      "file": "phoenix-4-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7155397235125622,
+          -0.0012133298397064562,
+          -0.7577031802133259
+        ],
+        [
+          0.5686839303409226,
+          1.3417881904554143,
+          0.32978545423383665
+        ]
+      ],
+      "file": "phoenix-4-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7370009098152489,
+          0.011429568862915018,
+          -0.7309812203337085
+        ],
+        [
+          0.5547710869632743,
+          1.3590824687408625,
+          0.3391350645481559
+        ]
+      ],
+      "file": "phoenix-4-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7296719098581832,
+          0.011429568862915018,
+          -0.7301270947018066
+        ],
+        [
+          0.5569690264893448,
+          1.3572162580457994,
+          0.3390862854907681
+        ]
+      ],
+      "file": "phoenix-4-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6944000124931335,
+          0.011429568862915018,
+          -0.7238756452520506
+        ],
+        [
+          0.5570000028610229,
+          1.355530339410902,
+          0.33904232735802475
+        ]
+      ],
+      "file": "phoenix-4-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6968090042464515,
+          0.011429568862915018,
+          -0.7273221441676533
+        ],
+        [
+          0.5585158148486995,
+          1.3569526994308991,
+          0.3390793915048483
+        ]
+      ],
+      "file": "phoenix-4-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7374952023062298,
+          0.04899338051574187,
+          -0.728836955124797
+        ],
+        [
+          0.5543487075066047,
+          1.4591932163021422,
+          0.2793699555826582
+        ]
+      ],
+      "file": "phoenix-4-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7206131046457288,
+          0.03353292404063918,
+          -0.7315804917074795
+        ],
+        [
+          0.5677996412280408,
+          1.536146637218743,
+          0.27984954874763057
+        ]
+      ],
+      "file": "phoenix-4-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6944000124931335,
+          0.018072467565536487,
+          -0.7215686903848351
+        ],
+        [
+          0.5570000028610229,
+          1.4245757221238502,
+          0.2790316212391468
+        ]
+      ],
+      "file": "phoenix-4-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7116146780073481,
+          0.018072467565536487,
+          -0.7504994972245085
+        ],
+        [
+          0.5668362947696783,
+          1.4566386898104824,
+          0.27955501602991834
+        ]
+      ],
+      "file": "phoenix-4-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7362594710787775,
+          0.00659029353857038,
+          -0.7221614819027183
+        ],
+        [
+          0.5555125256997457,
+          1.379795982274026,
+          0.3437174491315497
+        ]
+      ],
+      "file": "phoenix-4-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7908040218840698,
+          0.00659029353857038,
+          -0.7271069304653776
+        ],
+        [
+          0.5285524547221259,
+          1.3897839188465315,
+          0.3437174491315497
+        ]
+      ],
+      "file": "phoenix-4-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6944000124931335,
+          0.00659029353857038,
+          -0.7150000190734863
+        ],
+        [
+          0.5570000028610229,
+          1.3762100500074967,
+          0.3437174491315497
+        ]
+      ],
+      "file": "phoenix-4-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7272804706404652,
+          0.00659029353857038,
+          -0.7199882098134238
+        ],
+        [
+          0.5468273910517106,
+          1.3838753627277334,
+          0.3437174491315497
+        ]
+      ],
+      "file": "phoenix-4-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7491961294977869,
+          0.016072467565536486,
+          -0.5495663388676285
+        ],
+        [
+          0.6639171248344891,
+          1.5273836478657203,
+          0.292226545214653
+        ]
+      ],
+      "file": "phoenix-5-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7506757435195776,
+          -0.06210315926894361,
+          -0.5629784103718621
+        ],
+        [
+          0.6264154922510169,
+          1.6278296813134896,
+          0.292226545214653
+        ]
+      ],
+      "file": "phoenix-5-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7270000290870666,
+          0.016072467565536486,
+          -0.5374509644508362
+        ],
+        [
+          0.6670000267028808,
+          1.53,
+          0.292226545214653
+        ]
+      ],
+      "file": "phoenix-5-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7381981055596246,
+          0.0007853312031579907,
+          -0.5460741039064785
+        ],
+        [
+          0.6511743949742179,
+          1.589761524407967,
+          0.292226545214653
+        ]
+      ],
+      "file": "phoenix-5-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7275866499074461,
+          0.07957643932268954,
+          -0.5491235806597425
+        ],
+        [
+          0.6484835282030433,
+          1.7334943489453858,
+          0.2893309507365654
+        ]
+      ],
+      "file": "phoenix-5-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7223434297964335,
+          0.04999338051574187,
+          -0.5465191551007622
+        ],
+        [
+          0.6506557771808009,
+          1.7232788215261337,
+          0.2892158136719481
+        ]
+      ],
+      "file": "phoenix-5-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7270000290870666,
+          0.01907246756553649,
+          -0.5369128979877384
+        ],
+        [
+          0.6670000267028808,
+          1.5352153794023606,
+          0.2891897667098317
+        ]
+      ],
+      "file": "phoenix-5-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.726746377245195,
+          0.01907246756553649,
+          -0.5424696632734078
+        ],
+        [
+          0.6692691359317474,
+          1.5594492166463745,
+          0.2892304636394383
+        ]
+      ],
+      "file": "phoenix-5-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7491961294977869,
+          0.011072467565536481,
+          -0.5828380109178586
+        ],
+        [
+          0.6639171248344891,
+          1.5237490475742477,
+          0.43511901192045543
+        ]
+      ],
+      "file": "phoenix-5-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7571247671653657,
+          0.011072467565536481,
+          -0.587696967156021
+        ],
+        [
+          0.6848524510120504,
+          1.682308460441892,
+          0.4358366216850383
+        ]
+      ],
+      "file": "phoenix-5-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7270000290870666,
+          0.011072467565536481,
+          -0.5709923480131343
+        ],
+        [
+          0.6670000267028808,
+          1.5263606916873464,
+          0.43532045613372866
+        ]
+      ],
+      "file": "phoenix-5-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7359518241280272,
+          0.011072467565536481,
+          -0.6026198976394963
+        ],
+        [
+          0.6783304024579986,
+          1.6624643837102109,
+          0.43570473159332296
+        ]
+      ],
+      "file": "phoenix-5-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7491961294977869,
+          -0.010088386628115453,
+          -0.5483376380886883
+        ],
+        [
+          0.6639171248344891,
+          1.426372717220425,
+          0.3171672619344791
+        ]
+      ],
+      "file": "phoenix-5-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7509487089221739,
+          -0.09124955962104508,
+          -0.5625913522169202
+        ],
+        [
+          0.62552820753238,
+          1.5220475787090126,
+          0.3190252116225681
+        ]
+      ],
+      "file": "phoenix-5-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7270000290870666,
+          0.0021081195116042784,
+          -0.5360392784406678
+        ],
+        [
+          0.6670000267028808,
+          1.428829014653298,
+          0.31687859774917276
+        ]
+      ],
+      "file": "phoenix-5-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.738297340556048,
+          -0.035734755096659576,
+          -0.5453015107513128
+        ],
+        [
+          0.650727410268597,
+          1.486220264568714,
+          0.31766748823616886
+        ]
+      ],
+      "file": "phoenix-5-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7491961294977869,
+          -0.0173338590844051,
+          -0.5479272722645102
+        ],
+        [
+          0.6639171248344891,
+          1.393207468045811,
+          0.32322464180309496
+        ]
+      ],
+      "file": "phoenix-5-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7567738798514047,
+          -0.01988979482760983,
+          -0.5607231456816016
+        ],
+        [
+          0.6847439103692952,
+          1.5383985123475639,
+          0.32413891119979754
+        ]
+      ],
+      "file": "phoenix-5-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7270000290870666,
+          -0.0037447988104329366,
+          -0.5355959910194442
+        ],
+        [
+          0.6670000267028808,
+          1.3956101806298618,
+          0.32287856544860866
+        ]
+      ],
+      "file": "phoenix-5-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.735769330944945,
+          -0.014541213713061274,
+          -0.5723680149117567
+        ],
+        [
+          0.6782890516288014,
+          1.5202534848881823,
+          0.32359765849498495
+        ]
+      ],
+      "file": "phoenix-5-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7487018370068059,
+          0.011429568862915018,
+          -0.5636769370318179
+        ],
+        [
+          0.66441141732547,
+          1.4632159760471517,
+          0.3346364231724303
+        ]
+      ],
+      "file": "phoenix-5-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7286317632867609,
+          0.011429568862915018,
+          -0.5620572711182211
+        ],
+        [
+          0.6667147722163148,
+          1.469069171045072,
+          0.3345877641108525
+        ]
+      ],
+      "file": "phoenix-5-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7270000290870666,
+          0.011429568862915018,
+          -0.5516686957013732
+        ],
+        [
+          0.6670000267028808,
+          1.4657268892312996,
+          0.33454383769494045
+        ]
+      ],
+      "file": "phoenix-5-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7269314105383801,
+          0.011429568862915018,
+          -0.5551504163308058
+        ],
+        [
+          0.6685370751942222,
+          1.4813881434206508,
+          0.33458089066722485
+        ]
+      ],
+      "file": "phoenix-5-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7320983969011061,
+          0.031471066119330315,
+          -0.5479272722645102
+        ],
+        [
+          0.6621310862819118,
+          1.6348215609601664,
+          0.2736392966772481
+        ]
+      ],
+      "file": "phoenix-5-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7437067808520161,
+          0.017545682217074365,
+          -0.5457486503937607
+        ],
+        [
+          0.6757142033169093,
+          1.7343682730930239,
+          0.27420247976984413
+        ]
+      ],
+      "file": "phoenix-5-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7270000290870666,
+          0.015320870858225089,
+          -0.5355959910194442
+        ],
+        [
+          0.6670000267028808,
+          1.5363588919889803,
+          0.27330068933970564
+        ]
+      ],
+      "file": "phoenix-5-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7290857568762482,
+          0.005983142291371757,
+          -0.5649887364555914
+        ],
+        [
+          0.6766299541439376,
+          1.648304003916636,
+          0.2738252680833767
+        ]
+      ],
+      "file": "phoenix-5-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7479603982703346,
+          0.00659029353857038,
+          -0.5495663388676285
+        ],
+        [
+          0.6651528560619414,
+          1.4725621384297485,
+          0.3387174491315497
+        ]
+      ],
+      "file": "phoenix-5-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7482060145838396,
+          -0.06391613375600946,
+          -0.5622544363822384
+        ],
+        [
+          0.6315153951339073,
+          1.5634415313019037,
+          0.3387174491315497
+        ]
+      ],
+      "file": "phoenix-5-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7270000290870666,
+          0.00659029353857038,
+          -0.5374509644508362
+        ],
+        [
+          0.6670000267028808,
+          1.4750999999999999,
+          0.3387174491315497
+        ]
+      ],
+      "file": "phoenix-5-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7377328167871458,
+          -0.0055749197020451,
+          -0.545560974929769
+        ],
+        [
+          0.6531059387962657,
+          1.5287969747001144,
+          0.3387174491315497
+        ]
+      ],
+      "file": "phoenix-5-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7391991140139966,
+          0.016072467565536486,
+          -0.5495663388676285
+        ],
+        [
+          0.6739934640725547,
+          1.5273836478657203,
+          0.292226545214653
+        ]
+      ],
+      "file": "phoenix-6-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7494068264124505,
+          -0.06210315926894361,
+          -0.5629784103718621
+        ],
+        [
+          0.63692137110564,
+          1.6689392214367114,
+          0.292226545214653
+        ]
+      ],
+      "file": "phoenix-6-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.716999979019165,
+          0.016072467565536486,
+          -0.5374509644508362
+        ],
+        [
+          0.6770000171661377,
+          1.53,
+          0.292226545214653
+        ]
+      ],
+      "file": "phoenix-6-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7282746985199599,
+          0.0007853312031579907,
+          -0.5460741039064785
+        ],
+        [
+          0.6616497450538955,
+          1.6309904793067433,
+          0.292226545214653
+        ]
+      ],
+      "file": "phoenix-6-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7275866499074461,
+          0.07957643932268954,
+          -0.5491235806597425
+        ],
+        [
+          0.6589899257576501,
+          1.730887190341408,
+          0.2893309507365654
+        ]
+      ],
+      "file": "phoenix-6-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7223434297964335,
+          0.04999338051574187,
+          -0.5465191551007622
+        ],
+        [
+          0.6611617524857359,
+          1.720214213647937,
+          0.2892158136719481
+        ]
+      ],
+      "file": "phoenix-6-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.716999979019165,
+          0.01907246756553649,
+          -0.5369128979877384
+        ],
+        [
+          0.6770000171661377,
+          1.5352153794023606,
+          0.2891897667098317
+        ]
+      ],
+      "file": "phoenix-6-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7167589074802592,
+          0.01907246756553649,
+          -0.5424696632734078
+        ],
+        [
+          0.6793246095498241,
+          1.5590722404981676,
+          0.2892304636394383
+        ]
+      ],
+      "file": "phoenix-6-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7391991140139966,
+          0.011072467565536481,
+          -0.5828380109178586
+        ],
+        [
+          0.6739934640725547,
+          1.5237490475742477,
+          0.43511901192045543
+        ]
+      ],
+      "file": "phoenix-6-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7571247671653657,
+          0.011072467565536481,
+          -0.587696967156021
+        ],
+        [
+          0.6950644725940627,
+          1.6795086550271185,
+          0.4358366216850383
+        ]
+      ],
+      "file": "phoenix-6-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.716999979019165,
+          0.011072467565536481,
+          -0.5709923480131343
+        ],
+        [
+          0.6770000171661377,
+          1.5263606916873464,
+          0.43532045613372866
+        ]
+      ],
+      "file": "phoenix-6-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7359518241280272,
+          0.011072467565536481,
+          -0.6026198976394963
+        ],
+        [
+          0.6886333043819606,
+          1.6600513293514236,
+          0.43570473159332296
+        ]
+      ],
+      "file": "phoenix-6-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7391991140139966,
+          -0.010088386628115453,
+          -0.5483376380886883
+        ],
+        [
+          0.6739934640725547,
+          1.426372717220425,
+          0.3171672619344791
+        ]
+      ],
+      "file": "phoenix-6-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7495757779110628,
+          -0.09124955962104508,
+          -0.5625913522169202
+        ],
+        [
+          0.6360335576627302,
+          1.5606295766777367,
+          0.3190252116225681
+        ]
+      ],
+      "file": "phoenix-6-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.716999979019165,
+          0.0021081195116042784,
+          -0.5360392784406678
+        ],
+        [
+          0.6770000171661377,
+          1.428829014653298,
+          0.31687859774917276
+        ]
+      ],
+      "file": "phoenix-6-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7283758635238237,
+          -0.035734755096659576,
+          -0.5453015107513128
+        ],
+        [
+          0.6612053552700601,
+          1.5249281287012821,
+          0.31766748823616886
+        ]
+      ],
+      "file": "phoenix-6-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7391991140139966,
+          -0.0173338590844051,
+          -0.5479272722645102
+        ],
+        [
+          0.6739934640725547,
+          1.393207468045811,
+          0.32322464180309496
+        ]
+      ],
+      "file": "phoenix-6-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7567738798514047,
+          -0.01988979482760983,
+          -0.5607231456816016
+        ],
+        [
+          0.6949552414352096,
+          1.5358379671183013,
+          0.32413891119979754
+        ]
+      ],
+      "file": "phoenix-6-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.716999979019165,
+          -0.0037447988104329366,
+          -0.5355959910194442
+        ],
+        [
+          0.6770000171661377,
+          1.3956101806298618,
+          0.32287856544860866
+        ]
+      ],
+      "file": "phoenix-6-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.735769330944945,
+          -0.014541213713061274,
+          -0.5723680149117567
+        ],
+        [
+          0.688590628817794,
+          1.5180456784902607,
+          0.32359765849498495
+        ]
+      ],
+      "file": "phoenix-6-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7387048215230158,
+          0.011429568862915018,
+          -0.5636769370318179
+        ],
+        [
+          0.6744877565635357,
+          1.4632159760471517,
+          0.3346364231724303
+        ]
+      ],
+      "file": "phoenix-6-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.723640702184683,
+          0.011429568862915018,
+          -0.5620572711182211
+        ],
+        [
+          0.6768062800152836,
+          1.4689995837412548,
+          0.3345877641108525
+        ]
+      ],
+      "file": "phoenix-6-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.716999979019165,
+          0.011429568862915018,
+          -0.5516686957013732
+        ],
+        [
+          0.6770000171661377,
+          1.4657268892312996,
+          0.33454383769494045
+        ]
+      ],
+      "file": "phoenix-6-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7169381895887696,
+          0.011429568862915018,
+          -0.5551504163308058
+        ],
+        [
+          0.678574485017447,
+          1.4811463120323758,
+          0.33458089066722485
+        ]
+      ],
+      "file": "phoenix-6-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7275866499074461,
+          0.031471066119330315,
+          -0.5479272722645102
+        ],
+        [
+          0.6725304497481264,
+          1.6368813514573448,
+          0.2736392966772481
+        ]
+      ],
+      "file": "phoenix-6-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7437067808520161,
+          0.017545682217074365,
+          -0.5457486503937607
+        ],
+        [
+          0.6861644959209283,
+          1.7308115798694972,
+          0.27420247976984413
+        ]
+      ],
+      "file": "phoenix-6-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.716999979019165,
+          0.015320870858225089,
+          -0.5355959910194442
+        ],
+        [
+          0.6770000171661377,
+          1.5363588919889803,
+          0.27330068933970564
+        ]
+      ],
+      "file": "phoenix-6-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7290857568762482,
+          0.005983142291371757,
+          -0.5649887364555914
+        ],
+        [
+          0.6868809068887605,
+          1.6463854952624697,
+          0.2738252680833767
+        ]
+      ],
+      "file": "phoenix-6-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7379633827865444,
+          0.00659029353857038,
+          -0.5495663388676285
+        ],
+        [
+          0.675229195300007,
+          1.4725621384297485,
+          0.3387174491315497
+        ]
+      ],
+      "file": "phoenix-6-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7473649665939572,
+          -0.06391613375600946,
+          -0.5622544363822384
+        ],
+        [
+          0.6420214107591631,
+          1.6033681158887896,
+          0.3387174491315497
+        ]
+      ],
+      "file": "phoenix-6-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.716999979019165,
+          0.00659029353857038,
+          -0.5374509644508362
+        ],
+        [
+          0.6770000171661377,
+          1.4750999999999999,
+          0.3387174491315497
+        ]
+      ],
+      "file": "phoenix-6-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7278010316348784,
+          -0.0055749197020451,
+          -0.545560974929769
+        ],
+        [
+          0.6635682397287384,
+          1.5669788919345562,
+          0.3387174491315497
+        ]
+      ],
+      "file": "phoenix-6-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.886492667248169,
+          0.016072467565536486,
+          -0.6946621957371873
+        ],
+        [
+          0.4977341000742491,
+          1.393570090025182,
+          0.27769020974636077
+        ]
+      ],
+      "file": "phoenix-7-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.913320583969764,
+          -0.010903996074643763,
+          -0.6964331336457773
+        ],
+        [
+          0.6051936771411197,
+          1.4038430127142019,
+          0.28604211191258233
+        ]
+      ],
+      "file": "phoenix-7-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8500000238418579,
+          0.016072467565536486,
+          -0.6899999737739563
+        ],
+        [
+          0.48999999403953554,
+          1.390000011920929,
+          0.27769020974636077
+        ]
+      ],
+      "file": "phoenix-7-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8707273158613804,
+          0.016072467565536486,
+          -0.6935358304801478
+        ],
+        [
+          0.5886652049002629,
+          1.3980498477167225,
+          0.27769020974636077
+        ]
+      ],
+      "file": "phoenix-7-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.886492667248169,
+          0.08091429346594725,
+          -0.6925234553640012
+        ],
+        [
+          0.6281872241115857,
+          1.475026049080158,
+          0.2730259868165515
+        ]
+      ],
+      "file": "phoenix-7-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8800514179670732,
+          0.04999338051574187,
+          -0.6917062565182056
+        ],
+        [
+          0.6351940651109068,
+          1.4412472911830316,
+          0.27288291618466537
+        ]
+      ],
+      "file": "phoenix-7-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8500000238418579,
+          0.01907246756553649,
+          -0.6878331406810085
+        ],
+        [
+          0.48999999403953554,
+          1.4096183905275295,
+          0.2728504522464752
+        ]
+      ],
+      "file": "phoenix-7-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8543020493121927,
+          0.01907246756553649,
+          -0.6945680778598846
+        ],
+        [
+          0.5011452975373082,
+          1.412377328119761,
+          0.27288977602507075
+        ]
+      ],
+      "file": "phoenix-7-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.886492667248169,
+          0.011072467565536481,
+          -0.7195201104232855
+        ],
+        [
+          0.4977341000742491,
+          1.428881027529943,
+          0.43546427598067505
+        ]
+      ],
+      "file": "phoenix-7-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.890661937716323,
+          0.011072467565536481,
+          -0.7352608398983665
+        ],
+        [
+          0.5478908576584897,
+          1.4414231160715603,
+          0.4365913261075327
+        ]
+      ],
+      "file": "phoenix-7-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8500000238418579,
+          0.011072467565536481,
+          -0.7149436875543242
+        ],
+        [
+          0.48999999403953554,
+          1.4286078818662387,
+          0.43574124690203503
+        ]
+      ],
+      "file": "phoenix-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8754317025690002,
+          0.011072467565536481,
+          -0.7532368508532006
+        ],
+        [
+          0.559820728381928,
+          1.4290258767753645,
+          0.43632945799964995
+        ]
+      ],
+      "file": "phoenix-7-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.886492667248169,
+          0.0021081195116042784,
+          -0.689951910373824
+        ],
+        [
+          0.4977341000742491,
+          1.344190749042871,
+          0.2954603390578386
+        ]
+      ],
+      "file": "phoenix-7-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.9135278828156468,
+          -0.049495001006278516,
+          -0.6916099181341417
+        ],
+        [
+          0.6063984163422315,
+          1.3532419074344364,
+          0.29765090669611965
+        ]
+      ],
+      "file": "phoenix-7-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8500000238418579,
+          0.0021081195116042784,
+          -0.6852364342650703
+        ],
+        [
+          0.48999999403953554,
+          1.3408566417626329,
+          0.2951038160744178
+        ]
+      ],
+      "file": "phoenix-7-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13760,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8709783049542209,
+          0.0021081195116042784,
+          -0.6890021490187593
+        ],
+        [
+          0.5898747217060013,
+          1.348382619038932,
+          0.2960648478751922
+        ]
+      ],
+      "file": "phoenix-7-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.886492667248169,
+          -0.0012133298397064562,
+          -0.688802458016041
+        ],
+        [
+          0.4977341000742491,
+          1.3220556533465817,
+          0.2999435195002546
+        ]
+      ],
+      "file": "phoenix-7-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8904251450734699,
+          -0.0012133298397064562,
+          -0.7145101713999074
+        ],
+        [
+          0.5476193142707915,
+          1.3410394179603626,
+          0.30073201961415863
+        ]
+      ],
+      "file": "phoenix-7-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8500000238418579,
+          -0.0012133298397064562,
+          -0.6840777416835049
+        ],
+        [
+          0.48999999403953554,
+          1.3187976535870123,
+          0.2995160194864776
+        ]
+      ],
+      "file": "phoenix-7-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8753050789116831,
+          -0.0012133298397064562,
+          -0.7285520767216649
+        ],
+        [
+          0.5594451324761824,
+          1.3336279722435873,
+          0.3002098730893331
+        ]
+      ],
+      "file": "phoenix-7-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.885998374757188,
+          0.011429568862915018,
+          -0.7053288258500047
+        ],
+        [
+          0.4982283925652301,
+          1.3593595157313634,
+          0.3163325527118256
+        ]
+      ],
+      "file": "phoenix-7-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8817576210435553,
+          0.011429568862915018,
+          -0.7048304353657483
+        ],
+        [
+          0.5035604039728128,
+          1.3575646806841424,
+          0.31628559057289984
+        ]
+      ],
+      "file": "phoenix-7-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8500000238418579,
+          0.011429568862915018,
+          -0.7007003307591004
+        ],
+        [
+          0.48999999403953554,
+          1.355939279378541,
+          0.31624319758397706
+        ]
+      ],
+      "file": "phoenix-7-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8528894456640836,
+          0.011429568862915018,
+          -0.7049209817527227
+        ],
+        [
+          0.4974605761783606,
+          1.3577176653264176,
+          0.31628953910213997
+        ]
+      ],
+      "file": "phoenix-7-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.886492667248169,
+          0.04899338051574187,
+          -0.688802458016041
+        ],
+        [
+          0.5674512523889477,
+          1.447974086794264,
+          0.25677099496087136
+        ]
+      ],
+      "file": "phoenix-7-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8813950932784447,
+          0.03353292404063918,
+          -0.6963907078169328
+        ],
+        [
+          0.6051446874325195,
+          1.4481870517611428,
+          0.27420247976984413
+        ]
+      ],
+      "file": "phoenix-7-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8500000238418579,
+          0.018072467565536487,
+          -0.6840777416835049
+        ],
+        [
+          0.48999999403953554,
+          1.4134916271365328,
+          0.2563499870174383
+        ]
+      ],
+      "file": "phoenix-7-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13560,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8706166802945244,
+          0.018072467565536487,
+          -0.719645454535889
+        ],
+        [
+          0.5457724405759634,
+          1.4267267657651195,
+          0.2568592712171355
+        ]
+      ],
+      "file": "phoenix-7-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8852569360207166,
+          0.00659029353857038,
+          -0.6946621957371873
+        ],
+        [
+          0.4989698313017014,
+          1.3856733483950607,
+          0.31797733626009633
+        ]
+      ],
+      "file": "phoenix-7-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.9110952660209651,
+          -0.012663024426113112,
+          -0.6964831550114089
+        ],
+        [
+          0.6009085703932464,
+          1.394969642846088,
+          0.31797733626009633
+        ]
+      ],
+      "file": "phoenix-7-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8500000238418579,
+          0.00659029353857038,
+          -0.6899999737739563
+        ],
+        [
+          0.48999999403953554,
+          1.3822233980313792,
+          0.31797733626009633
+        ]
+      ],
+      "file": "phoenix-7-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13400,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.8695864499711677,
+          0.00659029353857038,
+          -0.6933537514154894
+        ],
+        [
+          0.5831699962077219,
+          1.3895606488801628,
+          0.31797733626009633
+        ]
+      ],
+      "file": "phoenix-7-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4620,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.010506970807909966,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5696599126210475,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4620,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.010506970807909966,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5811212507330219,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4620,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.010506970807909966,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5667999976873398,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4620,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.010506970807909966,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5736569566602187,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4460,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.07534879670832072,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.6471882485903914,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4460,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.04442788375811534,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.6139617252896882,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4460,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.013506970807909965,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5824897503812947,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4460,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.013506970807909965,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5836739336900958,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4620,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.005506970807909965,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.579615186359743,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4620,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.005506970807909965,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5798634915682819,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4620,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.005506970807909965,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.578007309241767,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4620,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.005506970807909965,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5748278532304827,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4820,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          -0.003123447440564635,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.539101359622963,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4820,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          -0.003123447440564635,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.549774653761776,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4820,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          -0.003123447440564635,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5364219764472915,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4820,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          -0.003123447440564635,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5429045284613702,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4460,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          -0.006333586856722832,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.527503688684346,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4460,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          -0.006333586856722832,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5346530265675149,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4460,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          -0.006333586856722832,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5248836875288594,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4460,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          -0.006333586856722832,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5313302304839872,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4460,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5245440690583966,
+          0.006086691975593566,
+          -0.5313225984573364
+        ],
+        [
+          0.5357866198950031,
+          0.5507405619577188,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4460,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5245440690583966,
+          0.006086691975593566,
+          -0.5313225984573364
+        ],
+        [
+          0.5357866198950031,
+          0.5492753999383334,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4460,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.006086691975593566,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5479979055681821,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4460,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.006086691975593566,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5487609464629775,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4620,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.04342788375811534,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.619488381036488,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4620,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.027967427283012655,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.6095295898712966,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4620,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.012506970807909966,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.585714277138293,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4620,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.012506970807909966,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5914346752331723,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 4460,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5238026303219251,
+          0.0011917616836726649,
+          -0.5313225984573364
+        ],
+        [
+          0.5365280586314746,
+          0.5575554185891858,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 4460,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5238026303219251,
+          0.0011917616836726649,
+          -0.5313225984573364
+        ],
+        [
+          0.5365280586314746,
+          0.5679842780316628,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 4460,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.0011917616836726649,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5547855463284166,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "phoenix",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 4460,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.5250383615493774,
+          0.0011917616836726649,
+          -0.5313225984573364
+        ],
+        [
+          0.5352923274040222,
+          0.5610307176545251,
+          0.5378514528274536
+        ]
+      ],
+      "file": "phoenix-8-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}
