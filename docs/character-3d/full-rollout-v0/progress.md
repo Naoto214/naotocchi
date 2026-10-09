@@ -818,3 +818,12 @@ God source3a1212e scoped Character37872664719 SUCCESS (3success/15skipped); orig
 Source3a1212e images archived at5d9e296;299wave+17distance hashes verified. Reviewed32fourviews/16normal-distance:04/05/06 REJECT because inward-tilted staff finials disappear behind head/hair.01/02/03/07/08 also reviewed through160statecells and PASS. Rejected-stage states deferred to corrected capture.
 
 The existing staff remains attached at the same hand grip, with outward local rotation to clear the head. Regression test reproduced the occlusion bound RED then GREEN;8/8stage+9/9celestial mutations detected/restored;212family-dedicated+34base=246PASS,28Pilot hashes identical. Review Critical0/Important0. ScopedGod recapture required before promotion; coverage remains220/293.
+
+
+### Unknown all8 candidates and Ghost image export
+
+Source01/02/04/05/06/08 use existing mystery_blob with owned optional antennae, featherwings and curl;03/07 JSON unchanged.249 dedicated PASS;7/7stage+7/7factory mutations detected/restored;28Pilot hashes identical. All8 image gate pending; no registration,coverage remains220/293.
+
+Ghost source4f3a839 scoped Character37873539531 SUCCESS (3success/15skipped),wave11591341783/distance11590574842 requested via reusable artifact API exporter. God staff corrected86dfd3a capture37873967912 still pending.
+
+Review found stationary Unknown05 wings; fixed via existing owned feather-wing metadata, with actual motion RED/GREEN and mutation detection. No shared animation implementation change.

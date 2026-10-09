@@ -7,7 +7,7 @@ const cases=[
  ['soft limbs','character-3d/mystery-blob.mjs','sp.limbs.entries()','[].entries()'],
  ['gold rays','character-3d/mystery-blob.mjs','sp.markers.entries()','[].entries()'],
  ['cyan edge','character-3d/mystery-blob.mjs','Math.pow(1-Math.abs(nz),3)*.95','0'],
- ['unknown03 candidate','character-3d/mythic-spec.js','stages:{3:unknown3,7:unknown7}','stages:{7:unknown7}']
+ ['unknown03 candidate','character-3d/mythic-spec.js','2:unknown2,3:unknown3,4:unknown4','2:unknown2,4:unknown4']
 ];
 for(const[name,file,old,replacement]of cases){const src=fs.readFileSync(file);try{assert.equal(src.toString().split(old).length,2);fs.writeFileSync(file,src.toString().replace(old,replacement));const r=run();assert.equal(r.status,1,r.stdout+r.stderr);assert.ok(r.stdout.includes('AssertionError'));console.log(name+': RED');}finally{fs.writeFileSync(file,src);}}
-console.log(cases.length+'/'+cases.length+' mystery mutations detected; original bytes restored');
+assert.equal(run().status,0);console.log(cases.length+'/'+cases.length+' mystery mutations detected; original bytes restored');

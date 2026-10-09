@@ -1,6 +1,6 @@
 {
-  "baseCommit": "5d9e296f722ef8737a3704ade21693831daf27c0",
-  "checkpoint": "god-staff-visibility-fix-awaiting-recapture",
+  "baseCommit": "86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3",
+  "checkpoint": "unknown-all8-candidates-ghost-image-export",
   "coverage": {
     "exact": 220,
     "total": 293,
@@ -11,7 +11,7 @@
     "partners": 1
   },
   "verification": {
-    "dedicatedPass": 246,
+    "dedicatedPass": 249,
     "rolloutMutationsDetected": 29,
     "pilotHashesUnchanged": 28,
     "fullNpm": "Pre-promotion spine-corrected a65ceb5:3013PASS+80PASS,0FAIL,exit0,archived. Final04root+runtime promotion has236dedicatedPASS;no fresh fullnpm after registration claimed.",
@@ -44,7 +44,9 @@
     "ghostCandidates": "All8 isolated candidates;03/07 unchanged;7stage+8spectral mutations detected. Missing03 after mutation explicitly restored;245 dedicated and representative equality reverified.28Pilot hashes unchanged. Review Critical0/Important0. Actual image gate pending;not registered.",
     "godCandidateCI": "3a1212e Character37872664719 SUCCESS:3success,15skipped. God wave11591270378/distance11590528811 export requested;visual acceptance pending.",
     "godImageGate": "3a1212e REJECT04/05/06:staff finials hidden behind hair/body.32fourviews/16distance reviewed;160states for01/02/03/07/08 PASS.299wave+17distance hashes verified; immutable images saved5d9e296. Owned staff rotated outward; corrected images pending.",
-    "godStaffFix": "RED/GREEN silhouette clearance;8/8stage+9/9factory mutations detected/restored;212family-dedicated+34base=246PASS;28Pilot hashes unchanged;review Critical0/Important0."
+    "godStaffFix": "RED/GREEN silhouette clearance;8/8stage+9/9factory mutations detected/restored;212family-dedicated+34base=246PASS;28Pilot hashes unchanged;review Critical0/Important0.",
+    "unknownCandidates": "All8 via existingmystery_blob:darkseed/bluedome/antennae/featherwings/tallwisp/curl.03/07JSON identical;7stage+7factory mutations detected/restored;249dedicatedPASS,28Pilot unchanged. Image gate pending,not registered. Review found stationary05 wings;existing owned feather-wing channel reused,actual motion RED/GREEN verified.",
+    "ghostCandidateCI": "4f3a839 Character37873539531 SUCCESS (3success/15skipped);wave11591341783/distance11590574842 exportrequested."
   },
   "next": [
     "Confirm fresh27family/216stage aggregate after Phoenix promotion;do not count scoped skips as integrationPASS",

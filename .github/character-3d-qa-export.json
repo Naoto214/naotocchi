@@ -1,59 +1,61 @@
 {
-  "sourceCommit": "3a1212eca48ea5233b0e910b2456296aef7a54eb",
-  "runId": 37872664719,
+  "sourceCommit": "4f3a83933e0ef9ef26a6838d5530324d98b9f183",
+  "runId": 37873539531,
   "families": [
-    "god"
+    "ghost"
   ],
   "artifacts": [
     {
-      "id": 11591270378,
-      "label": "god-wave",
-      "digest": "sha256:defdc103e618a33a092f569c130090ec6314df65cd5279fdf97dc94243caf852",
+      "id": 11591341783,
+      "label": "ghost-wave",
+      "digest": "sha256:1c9f9c9840aa25dc511ccef899689180340fbfbc79c744f6e0188f84a909ff7a",
       "required": [
         {
-          "pattern": "god-[1-8]-front.jpg",
+          "pattern": "ghost-[1-8]-front.jpg",
           "count": 8
         },
         {
-          "pattern": "god-[1-8]-34.jpg",
+          "pattern": "ghost-[1-8]-34.jpg",
           "count": 8
         },
         {
-          "pattern": "god-[1-8]-side.jpg",
+          "pattern": "ghost-[1-8]-side.jpg",
           "count": 8
         },
         {
-          "pattern": "god-[1-8]-back.jpg",
+          "pattern": "ghost-[1-8]-back.jpg",
           "count": 8
         },
         {
-          "pattern": "god-[1-8]-*-*-*.jpg",
+          "pattern": "ghost-[1-8]-*-*-*.jpg",
           "count": 256
         },
         {
-          "pattern": "god-[1-8]-motion.jpg",
+          "pattern": "ghost-[1-8]-motion.jpg",
           "count": 8
         },
         {
-          "pattern": "god-stages.jpg",
+          "pattern": "ghost-stages.jpg",
           "count": 1
         }
-      ]
+      ],
+      "name": "full-rollout-mythic-review-4f3a83933e0ef9ef26a6838d5530324d98b9f183"
     },
     {
-      "id": 11590528811,
-      "label": "god-distance",
-      "digest": "sha256:c9093bdf22bf8e8c82837d16e80598dae4ab6d0eb48c71a8bb6bbdc9d2f3b200",
+      "id": 11590574842,
+      "label": "ghost-distance",
+      "digest": "sha256:32c78f4ca3a92fe1376818d330bee430e3cbcecb7c35c456f5fa10c7cbaff729",
       "required": [
         {
-          "pattern": "player-god-[1-8]-front.png",
+          "pattern": "player-ghost-[1-8]-front.png",
           "count": 8
         },
         {
-          "pattern": "player-god-[1-8]-back.png",
+          "pattern": "player-ghost-[1-8]-back.png",
           "count": 8
         }
-      ]
+      ],
+      "name": "full-rollout-mythic-distance-ghost-4f3a83933e0ef9ef26a6838d5530324d98b9f183"
     }
   ]
 }
