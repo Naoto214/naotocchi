@@ -1,0 +1,17 @@
+{
+  "run": 38032036132,
+  "source": "61412b0b0dcb097e738476fda7a69cb142a0786c",
+  "job": 114154815393,
+  "evidenceKind": "Decoded successful GitHub job log; artifact ZIP bytes not downloaded",
+  "summary": {
+    "kind": "visibility",
+    "coverage": 13,
+    "issues": [],
+    "samples": 2832,
+    "hidden": 0,
+    "partial": 1,
+    "maxPartyObstacleOverlap": 0,
+    "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+  },
+  "excerpt": "2026-10-10T07:00:31.5572393Z {\"kind\":\"visibility\",\"coverage\":13,\"issues\":[],\"samples\":2832,\"hidden\":0,\"partial\":1,\"maxPartyObstacleOverlap\":0,\"caveat\":\"ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration\"}"
+}
