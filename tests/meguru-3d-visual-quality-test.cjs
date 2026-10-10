@@ -610,3 +610,37 @@ test('VQ-21 frond transforms preserve winding and radial direction for rising an
     assert.ok(shader.dot(geometric)>.999999,'normal/winding mismatch');
   }
 });
+
+// Removing the production opt-in must fail; other nuts must keep their old mesh.
+test('VQ-27 statue heads alone opt into recessed faces while retaining the original three-part shape',()=>{
+ const {harness}=require('./helpers/runtime-harness.cjs');
+ const M=harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod,reg=M.buildRegistry();let n=0;
+ for(const rid of Object.keys(M.REGION3D))for(const ob of M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects){
+  if(ob.type!=='statue'){assert.ok(ob.parts.every(p=>!p.stoneFace));continue;}
+  n++;assert.equal(ob.parts.length,3);const [base,body,head]=ob.parts;
+  assert.deepEqual([base.shape,base.rx,base.rz,base.h,base.y],['box',18,18,22,0]);
+  assert.deepEqual([body.shape,body.rx,body.rz,body.h,body.y],['box',9,7,34,22]);
+  assert.deepEqual([head.shape,head.r,head.y],['nut',9,56]);assert.equal(head.stoneFace,true,ob.id);
+ }
+ assert.ok(n>0);
+});
+// Any outward face vertex, lost original corner or open edge violates the approved silhouette.
+test('VQ-28 carved head preserves the icosahedron hull and is watertight with shallow inward details',async()=>{
+ const {statueHeadGeometry}=await import('../meguru-3d.mjs');
+ assert.equal(typeof statueHeadGeometry,'function','production carving geometry exists');
+ const T=await import('../vendor/three-0.170.0/three.module.min.js');
+ const old=new T.IcosahedronGeometry(1,0),g=statueHeadGeometry(),a=old.attributes.position,p=g.attributes.position;
+ const vertices=Array.from({length:p.count},(_,i)=>new T.Vector3().fromBufferAttribute(p,i));
+ const key=v=>v.toArray().map(x=>x.toFixed(6)).join(',');const set=new Set(vertices.map(key));
+ for(let i=0;i<a.count;i++)assert.ok(set.has(key(new T.Vector3().fromBufferAttribute(a,i))),'retain original corner');
+ for(let i=0;i<a.count;i+=3){const v=[0,1,2].map(j=>new T.Vector3().fromBufferAttribute(a,i+j));const normal=v[1].clone().sub(v[0]).cross(v[2].clone().sub(v[0])).normalize();for(const q of vertices)assert.ok(normal.dot(q.clone().sub(v[0]))<1e-6,'no outward projection');}
+ const edges=new Map(),directions=new Map();for(let i=0;i<p.count;i+=3){const v=vertices.slice(i,i+3);assert.ok(v[1].clone().sub(v[0]).cross(v[2].clone().sub(v[0])).length()>1e-8,'nondegenerate');for(let j=0;j<3;j++){const k=[key(v[j]),key(v[(j+1)%3])].sort().join('|');edges.set(k,(edges.get(k)||0)+1);directions.set(k,(directions.get(k)||0)+(key(v[j])<key(v[(j+1)%3])?1:-1));}}
+ for(const count of edges.values())assert.equal(count,2,'closed surface');
+ for(const balance of directions.values())assert.equal(balance,0,'opposite winding on each shared edge');
+ assert.ok(p.count/3<=100,'bounded statue geometry');
+ const color=g.attributes.color;assert.equal(color.count,p.count);
+ const dark=vertices.filter((v,i)=>color.getX(i)<0.8);assert.ok(dark.some(v=>v.x<0)&&dark.some(v=>v.x>0),'two eyes');
+ for(const v of dark){assert.ok(v.y>0,'eyes on upper face');assert.ok(v.z>0.7,'front only');}
+ for(const q of vertices){let near=Infinity;for(let i=0;i<a.count;i+=3){const v=[0,1,2].map(j=>new T.Vector3().fromBufferAttribute(a,i+j));const n=v[1].clone().sub(v[0]).cross(v[2].clone().sub(v[0])).normalize();near=Math.min(near,Math.abs(n.dot(q.clone().sub(v[0]))));}assert.ok(near<=0.036,'recess less than 0.324 world units');}
+ old.dispose();g.dispose();
+});

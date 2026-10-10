@@ -1,0 +1,23 @@
+[
+  {
+    "name": "statue-front",
+    "region": "countryside",
+    "target": "countryside:498",
+    "galleryDistance": 130,
+    "galleryYaw": -0.32484068038118463
+  },
+  {
+    "name": "statue-side",
+    "region": "countryside",
+    "target": "countryside:498",
+    "galleryDistance": 130,
+    "galleryYaw": 1.2459556464137118
+  },
+  {
+    "name": "statue-oblique",
+    "region": "countryside",
+    "target": "countryside:498",
+    "galleryDistance": 130,
+    "galleryYaw": 0.46055748301626365
+  }
+]

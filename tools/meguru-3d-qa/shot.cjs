@@ -1,6 +1,6 @@
 // しゃしん: node shot.cjs <root> <outDir> <json: [{region, spot|x,z, yaw(deg), name, env?, jpg?}]>
 const pw = require('playwright'); const fs = require('fs'); const path = require('path'); const http = require('http');
-const ROOT = process.argv[2], OUT = process.argv[3]; const SHOTS = JSON.parse(process.argv[4]); fs.mkdirSync(OUT, { recursive: true });
+const ROOT = path.resolve(process.argv[2]), OUT = path.resolve(process.argv[3]); process.chdir(ROOT); const SHOTS = JSON.parse(process.argv[4]); fs.mkdirSync(OUT, { recursive: true });
 const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.png': 'image/png', '.webp': 'image/webp', '.svg': 'image/svg+xml', '.json': 'application/json', '.woff2': 'font/woff2', '.mp3': 'audio/mpeg' };
 function serve() { return new Promise((res) => { const s = http.createServer((req, r) => { const f = path.join(ROOT, decodeURIComponent(req.url.split('?')[0]).replace(/^\/+/, '') || 'index.html'); if (!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { r.writeHead(404); r.end(); return; } r.writeHead(200, { 'content-type': TYPES[path.extname(f)] || 'application/octet-stream' }); fs.createReadStream(f).pipe(r); }); s.listen(0, '127.0.0.1', () => res(s)); }); }
 const { harness } = require(path.join(ROOT, 'tests/helpers/runtime-harness.cjs'));
@@ -51,7 +51,7 @@ function makeSave(region, env) { const arr = (x) => Array.from(x || []); const h
         r.sim.setCameraMotion && r.sim.setCameraMotion(false); r.setPlayer(x, z); r.sim.camera.yaw = (sh.yaw || 0) * Math.PI / 180; if (sh.dist) r.sim.camera.dist = sh.dist; r.sim.placeParty(); return { x, z, is3D: r.renderer.is3D }; }, sh);
       await page.waitForTimeout(1600);
       const box = await page.locator('#mgrCanvas').boundingBox(); await captureFrame(page, sh.jpg ? { path: path.join(OUT, sh.name + '.jpg'), clip: box, type: 'jpeg', quality: 82 } : { path: path.join(OUT, sh.name + '.png'), clip: box });   // jpg: docs 用(小さく)
-      const stats = await page.evaluate(() => { const r = globalThis.__meguruRun; const s = r.renderer.stats3d ? r.renderer.stats3d() : null; return s && { calls: s.calls, tris: s.triangles, js: +s.drawMsAvg.toFixed(1), water: s.water, player: s.player, ghosts: s.ghosts && s.ghosts.visible }; });
+      const stats = await page.evaluate(() => { const r = globalThis.__meguruRun; const s = r.renderer.stats3d ? r.renderer.stats3d() : null; return s && { calls: s.calls, tris: s.triangles, camera: { ...r.sim.camera }, js: +s.drawMsAvg.toFixed(1), water: s.water, player: s.player, ghosts: s.ghosts && s.ghosts.visible }; });
       console.log(sh.name.padEnd(28), JSON.stringify(st), JSON.stringify(stats), 'err', errors.length);
       if (!st.is3D || errors.length) failures++;
     } catch (e) { failures++; console.log(sh.name, 'EXC', String(e.message || e).slice(0, 200)); if (ctx) await ctx.close(); ctx = page = contextKey = null; }

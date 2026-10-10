@@ -16,6 +16,51 @@ export function frondPose(pt) {
     ry: Math.PI / 2 - pt.dir + (pt.rise ? Math.PI : 0), rz: pt.rise ? Math.PI : 0 };
 }
 
+// Shallow carving inside the existing stone head: all original corners/edges
+// survive, and no new vertex projects outside the old icosahedron hull.
+export function statueHeadGeometry() {
+  const base = new THREE.IcosahedronGeometry(1, 0), src = base.attributes.position;
+  const positions = [], colors = [];
+  const triangle = (a, b, c, shade = 1) => {
+    for (const p of [a, b, c]) { positions.push(p.x, p.y, p.z); colors.push(shade, shade, shade); }
+  };
+  for (let i = 0; i < src.count; i += 3) {
+    const outer = [0, 1, 2].map(j => new THREE.Vector3().fromBufferAttribute(src, i + j));
+    const normal = outer[1].clone().sub(outer[0]).cross(outer[2].clone().sub(outer[0])).normalize();
+    if (normal.z < 0.9 || Math.abs(normal.y) > 1e-6) { triangle(...outer); continue; }
+    const side = Math.sign(normal.x), plane = normal.dot(outer[0]);
+    const onFace = ([x, y]) => new THREE.Vector3(x, y, (plane - normal.x * x) / normal.z);
+    const holes = [
+      { points: [[.15,.10],[.32,.10],[.32,.17],[.15,.17]], depth: .03, shade: .62 },
+      // Two short grooves leave the original central stone ridge as a low nose.
+      { points: [[.035,.035],[.13,-.18],[.035,-.18]], depth: .018, shade: .88 }
+    ].map(h => ({ ...h, points: h.points.map(([x,y]) => new THREE.Vector2(side * x,y)) }));
+    const contour = outer.map(p => new THREE.Vector2(p.x,p.y));
+    const planar = contour.concat(...holes.map(h => h.points));
+    for (const face of THREE.ShapeUtils.triangulateShape(contour, holes.map(h => h.points))) {
+      const v = face.map(j => onFace(planar[j].toArray()));
+      if (v[1].clone().sub(v[0]).cross(v[2].clone().sub(v[0])).dot(normal) < 0) v.reverse();
+      triangle(...v);
+    }
+    for (const hole of holes) {
+      // CCW viewed from outside; floor and rim share exactly the same vertices.
+      const rim = hole.points.map(p => onFace(p.toArray()));
+      if (rim[1].clone().sub(rim[0]).cross(rim[2].clone().sub(rim[0])).dot(normal) < 0) rim.reverse();
+      const floor = rim.map(p => p.clone().addScaledVector(normal, -hole.depth));
+      for (let j = 1; j < floor.length - 1; j++) triangle(floor[0], floor[j], floor[j+1], hole.shade);
+      for (let j = 0; j < rim.length; j++) {
+        const k = (j + 1) % rim.length;
+        triangle(rim[j], rim[k], floor[k]); triangle(rim[j], floor[k], floor[j]);
+      }
+    }
+  }
+  base.dispose();
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+  g.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+  g.computeVertexNormals(); return g;
+}
+
 const TAU = Math.PI * 2;
 const HOR_BASE = 0.30, FEET_FRAC = 0.80;   // 2D の createCanvasRenderer と おなじ
 
@@ -764,7 +809,7 @@ function create3DRenderer(M, o, onLost) {
       cliff: up(ruggedBox()), moss: keep(new THREE.IcosahedronGeometry(1, 1)), shore: keep(new THREE.CircleGeometry(1, 24).rotateX(-Math.PI / 2).translate(0, 1.8, 0)),
       // 小物は 三角形を けちる(そこ なし・かど すくなめ): くき 12・草 4・かさ 36・はしら 10
       stem: up(new THREE.CylinderGeometry(0.8, 1, 1, 6, 1, true)), blade: up(new THREE.ConeGeometry(1, 1, 4, 1, true)), petal: keep(new THREE.CircleGeometry(1, 6).rotateX(-Math.PI / 2)),
-      nut: keep(new THREE.IcosahedronGeometry(1, 0)), pebble: keep(new THREE.IcosahedronGeometry(1, 0).translate(0, 0.25, 0)), post: up(new THREE.CylinderGeometry(0.9, 1, 1, 5, 1, true)),
+      statueHead: keep(statueHeadGeometry()), nut: keep(new THREE.IcosahedronGeometry(1, 0)), pebble: keep(new THREE.IcosahedronGeometry(1, 0).translate(0, 0.25, 0)), post: up(new THREE.CylinderGeometry(0.9, 1, 1, 5, 1, true)),
       board: up(new THREE.BoxGeometry(1, 1, 0.12)), mound: keep(ruggedMound()), box: up(noBottom(new THREE.BoxGeometry(2, 1, 2))), roof4: up(new THREE.ConeGeometry(1, 1, 4)), roof6: up(new THREE.ConeGeometry(1, 1, 6)), roof8: up(new THREE.ConeGeometry(1, 1, 8)),
       wcone4: up(new THREE.ConeGeometry(1, 1, 4, 1, true)), wcone6: up(new THREE.ConeGeometry(1, 1, 6, 1, true)), ring: keep(new THREE.TorusGeometry(1, 0.08, 4, 12)),
       // Geometry pass(予算): かべの 前の うすい 板(まど・わく・入口・看板の 面)は 正面 1 まい(2 三角形)。箱(12)の 見えない 5 面を つくらない。
@@ -775,7 +820,7 @@ function create3DRenderer(M, o, onLost) {
       foam: keep(new THREE.CircleGeometry(1, 16).rotateX(-Math.PI / 2).translate(0, 3.2, 0)), wet: keep(new THREE.CircleGeometry(1, 24).rotateX(-Math.PI / 2).translate(0, 1.0, 0)), mist: keep(new THREE.IcosahedronGeometry(1, 1)), litter: keep(new THREE.PlaneGeometry(1, 1).rotateX(-Math.PI / 2).translate(0, 1.6, 0)),
     };
     const flat = (color) => keep(new THREE.MeshLambertMaterial({ color, flatShading: true }));
-    const MAT = { trunk: flat('#7a5536'), cone: flat('#ffffff'), crown: flat('#ffffff'), rock: flat('#8c8f8a'), log: flat('#7a5436'), stump: flat('#8a6440'),
+    const MAT = { statueHead: keep(new THREE.MeshLambertMaterial({ color: '#ffffff', flatShading: true, vertexColors: true })), trunk: flat('#7a5536'), cone: flat('#ffffff'), crown: flat('#ffffff'), rock: flat('#8c8f8a'), log: flat('#7a5436'), stump: flat('#8a6440'),
       pool: keep(new THREE.MeshPhongMaterial({ map: keep(waterTexture()), transparent: true, opacity: 0.92, shininess: 70, specular: '#d8ecff' })), shore: keep(new THREE.MeshLambertMaterial({ color: new THREE.Color(world.ground[1]).multiplyScalar(0.62) })),
       cliff: keep(new THREE.MeshLambertMaterial({ map: keep(cliffTexture()), color: '#c4c1b8' })), moss: flat('#5f8c46'), plank: flat('#9a7550'),   // AD v1: 岩 / がけは くらく つぶさない(明るめ)
       fall: keep(new THREE.MeshLambertMaterial({ map: keep(fallTexture()), transparent: true, opacity: 0.9, side: THREE.DoubleSide, depthWrite: false })),
@@ -859,7 +904,7 @@ function create3DRenderer(M, o, onLost) {
           case 'blade': push('blade', { x: px, y: 0, z: pz, sx: pt.r, sy: pt.h, sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
           case 'leaf': push('leaf', { x: px, y: 0, z: pz, sx: pt.w * 0.5, sy: 1, sz: pt.w * 0.3, ry: t * TAU, tint: t }); break;
           // VQ: elevated pieces (statue heads / nest eggs) must retain their part height and color.
-          case 'nut': push(pt.color ? 'wnut' : 'nut', { x: px, y: (pt.y || 0) + pt.r * 0.5, z: pz, sx: pt.r, sy: pt.r * 0.8, sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
+          case 'nut': push(ob.type === 'statue' && pt.stoneFace ? 'statueHead' : pt.color ? 'wnut' : 'nut', { x: px, y: (pt.y || 0) + pt.r * 0.5, z: pz, sx: pt.r, sy: pt.r * 0.8, sz: pt.r, ry: t * TAU, tint: t, color: pt.color }); break;
           case 'spark': push('spark', { x: px, y: pt.y, z: pz, sx: pt.r, sy: pt.r, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); break;
           case 'flower': push('blade', { x: px, y: pt.y || 0, z: pz, sx: 3, sy: pt.h, sz: 3, ry: 0, tint: t, color: '#5fae4c' }); push('petal', { x: px, y: (pt.y || 0) + pt.h, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); push('nut8', { x: px, y: (pt.y || 0) + pt.h + 1.5, z: pz, sx: pt.r * 0.28, sy: pt.r * 0.2, sz: pt.r * 0.28, ry: 0, tint: 0.5, color: '#ffe066' }); break;   // 花の まんなか: 8 三角形(20 → 8)
           case 'petal': push('petal', { x: px, y: pt.y || 0, z: pz, sx: pt.r, sy: 1, sz: pt.r, ry: t * TAU, tint: 0.5, color: pt.color }); break;
