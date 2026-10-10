@@ -29,6 +29,21 @@ SwiftShader27cast measured204.83ms average RAF/533.4ms p95 and816.6ms maximum ad
 
 ## Human decisions (all OPEN)
 
+### iPhone preview without a development PC (2026-10-10)
+
+Fresh remote source: `41441d94b74a6889dfb53e58420e2796ea0da844`, tree `5ed672ba0e62613dbb280338260c1461e04dc5c4`. PR376 was open, Draft, unmerged, based on `feat/character-3d-pilot`. Reuse the Pilot rawcdn.githack.com delivery documented in `docs/qa/character-3d-quality3-2026-10-03.md`; no deployment, Pages setting, main or runtime change is needed. These links remain pinned to this reviewed source even after this documentation update.
+
+- [Full Character 3D Gallery — all293 / original and four views](https://rawcdn.githack.com/Naoto214/naotocchi/41441d94b74a6889dfb53e58420e2796ea0da844/character-3d/full-gallery.html)
+- [Live 3D Gallery — motion and emotions](https://rawcdn.githack.com/Naoto214/naotocchi/41441d94b74a6889dfb53e58420e2796ea0da844/character-3d/gallery.html)
+- [Meguru with Character 3D](https://rawcdn.githack.com/Naoto214/naotocchi/41441d94b74a6889dfb53e58420e2796ea0da844/index.html?meguru3d=1&char3d=1&perf=1)
+- [Same world with 2D character billboards](https://rawcdn.githack.com/Naoto214/naotocchi/41441d94b74a6889dfb53e58420e2796ea0da844/index.html?meguru3d=1&perf=1)
+
+Open in iPhone Safari. The host may first show a third-party-content notice with an **Open the page** button. Full Gallery supports family/kind/stage filters; follow each entry's live link. The live page retains its historical Pilot title but its source includes the Full Rollout roster. The comparison link disables Character 3D only, not the 3D world. Test in forest where this branch enables the 3D renderer; this does not integrate the separate World PR374.
+
+Use a separate Safari profile for QA: paths/commit SHAs on rawcdn share the same origin and can share saves with older Pilot previews. Main-site saves are not automatically imported. A fresh QA profile starts at the egg, not a pre-populated Meguru test fixture; no save is injected by these URLs. Open the game comparison links sequentially in the same QA profile, not as simultaneously running games, and keep actor/region/camera conditions matched. This is an entry-point handoff, not completed 1/5/27-actor device QA.
+
+Cloud-browser verification: Full Gallery loaded `293 / exact293 / pending0 / four-view293`; Phoenix filtering returned all8 stages with live links. Both game links rendered the initial game UI. Live Gallery HTML and vendored Three.js were delivered, but this cloud browser reports `GL_RENDERER=Disabled` / WebGL context creation failure, so no live 3D rendering or device performance PASS is claimed. A terminal HEAD request returned403; it was not retried, and browser delivery was checked separately. Actual iPhone Safari display, motion, sustained performance and Human acceptance remain **NOT_RUN / OPEN** until user observations are recorded.
+
 | Check | Record |
 |---|---|
 | Identity and growth |Original likeness across all8 stages; side/back interpretation; metamorphosis and held props|
