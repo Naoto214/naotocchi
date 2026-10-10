@@ -1,0 +1,13 @@
+{
+  "reason": "single20minute job canceled during botanical-motion after all mythic captures completed; runner start10:38:26/cancel10:58:39, consistent with configured timeout",
+  "commandsPreserved": 14,
+  "artifactContractsPreserved": 6,
+  "jobs": {
+    "wave-review": 6,
+    "aquatic-wave-review": 2,
+    "armored-wave-review": 2,
+    "mythic-wave-review": 2,
+    "botanical-wave-review": 2
+  },
+  "timeoutMinutes": 20
+}

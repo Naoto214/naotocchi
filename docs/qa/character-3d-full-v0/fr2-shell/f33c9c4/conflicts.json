@@ -1,0 +1,64 @@
+{
+  "source": "f33c9c4f68cea600578cd65f25499833093d4f32",
+  "when": "2026-10-04T22:20:11.515Z",
+  "readOnly": true,
+  "rows": [
+    {
+      "lane": "main",
+      "head": "0b0a6b30e8e098472b2fa965604f4901874942e3",
+      "mechanical": "clean",
+      "files": [],
+      "mergeTreeOutput": "392b03e5fc81474bc0e62804fbf126d6569f920a\n\n",
+      "semantic": "Respect latest main; World/lifecycle ownership still requires integration QA."
+    },
+    {
+      "lane": "pr367",
+      "head": "32e3320466d57899c474b38e1d00c2854411ac7d",
+      "mechanical": "conflicts",
+      "files": [
+        "index.html"
+      ],
+      "mergeTreeOutput": "3e3db97421c23d020c0076ca51823c1a260d59b0\nindex.html\n\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\nAuto-merging meguru.js\n",
+      "semantic": "Unintegrated feature lane; visibility, ground contact, occlusion, motion/emotion ownership and actor lifecycle not resolved by mechanical result."
+    },
+    {
+      "lane": "pr369",
+      "head": "cbafd678875997ba754b5abe6bbb006db135731c",
+      "mechanical": "conflicts",
+      "files": [
+        "index.html",
+        "meguru-3d.mjs",
+        "meguru.js",
+        "package.json"
+      ],
+      "mergeTreeOutput": "8e3e57ad7ff7ac87ee89292ca67d18a4de588171\nindex.html\nmeguru-3d.mjs\nmeguru.js\npackage.json\n\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\nCONFLICT (content): Merge conflict in meguru-3d.mjs\nAuto-merging meguru.js\nCONFLICT (content): Merge conflict in meguru.js\nAuto-merging package.json\nCONFLICT (content): Merge conflict in package.json\n",
+      "semantic": "Unintegrated feature lane; visibility, ground contact, occlusion, motion/emotion ownership and actor lifecycle not resolved by mechanical result."
+    },
+    {
+      "lane": "pr371",
+      "head": "69a8857bacfa597fa65dcb433536b2f603f26b7d",
+      "mechanical": "conflicts",
+      "files": [
+        "index.html",
+        "meguru-3d.mjs",
+        "meguru.js",
+        "package.json"
+      ],
+      "mergeTreeOutput": "d301c2f56031b52af9c4cc94fc32403e869d4ea1\nindex.html\nmeguru-3d.mjs\nmeguru.js\npackage.json\n\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\nCONFLICT (content): Merge conflict in meguru-3d.mjs\nAuto-merging meguru.js\nCONFLICT (content): Merge conflict in meguru.js\nAuto-merging package.json\nCONFLICT (content): Merge conflict in package.json\n",
+      "semantic": "Unintegrated feature lane; visibility, ground contact, occlusion, motion/emotion ownership and actor lifecycle not resolved by mechanical result."
+    },
+    {
+      "lane": "pr374",
+      "head": "c03dc729e714a7f66177ac50443a128ddc7d5f56",
+      "mechanical": "conflicts",
+      "files": [
+        "index.html",
+        "meguru-3d.mjs",
+        "meguru.js",
+        "package.json"
+      ],
+      "mergeTreeOutput": "f48cdc0a0ab290a374cb678b3f7fc21b91b2d429\nindex.html\nmeguru-3d.mjs\nmeguru.js\npackage.json\n\nAuto-merging index.html\nCONFLICT (content): Merge conflict in index.html\nAuto-merging meguru-3d.mjs\nCONFLICT (content): Merge conflict in meguru-3d.mjs\nAuto-merging meguru.js\nCONFLICT (content): Merge conflict in meguru.js\nAuto-merging package.json\nCONFLICT (content): Merge conflict in package.json\n",
+      "semantic": "Unintegrated feature lane; visibility, ground contact, occlusion, motion/emotion ownership and actor lifecycle not resolved by mechanical result."
+    }
+  ]
+}

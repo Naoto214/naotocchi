@@ -1,0 +1,29 @@
+{
+  "verdict": "PASS_FULL_FAMILY_IMAGE_GATE",
+  "sourceCommit": "f7cb48ea28830036a1ca3282b95b6db49353e386",
+  "artifactId": 11443278022,
+  "distanceCommit": "374436e533c907f6b9a9d75d8c7648da1390413c",
+  "distanceArtifactId": 11457791716,
+  "reviewed": {
+    "fourViews": 32,
+    "states": 256,
+    "distance": 16
+  },
+  "unchangedAcceptedRepresentatives": {
+    "source": "af4dd4d",
+    "stages": [
+      3,
+      7
+    ],
+    "byteIdenticalImages": 74
+  },
+  "findings": [
+    "Eight original-derived shell silhouettes/colors and 03 empty shell, 08 moss/sprigs remain identifiable.",
+    "Eyestalk eyes/mouth and claw/leg separation remain readable across canonical states.",
+    "Actual Meguru front/back images distinguish front face from rear shell for each stage."
+  ],
+  "simplifications": [
+    "Shell surface striping and spiral lobes are simplified, consistent with accepted representatives."
+  ],
+  "humanQA": "pending; Chromium/SwiftShader is not iPhone"
+}

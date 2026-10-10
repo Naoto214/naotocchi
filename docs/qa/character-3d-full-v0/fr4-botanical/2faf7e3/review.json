@@ -1,0 +1,20 @@
+{
+  "sourceCommit": "2faf7e3b719106e45590990d70bf7d34c0fb9fce",
+  "waveArtifact": 11422296894,
+  "distanceArtifact": 11422131213,
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "verdict": "leafy-tree03 representative visual gate accepted",
+  "checks": {
+    "fourViews": 4,
+    "canonicalMotion": 32,
+    "normalDistance": 2,
+    "fallbacks": 0,
+    "errors": 0
+  },
+  "review": "Side-facing front/back leaf pairs now show blade area from the side; their branches attach visibly. Front/back crown, rooted trunk and single face remain recognizable at ordinary distance. All32 owned expressions remain coherent.",
+  "simplifications": [
+    "Smooth bark and pointed leaves omit fine pixel serration",
+    "Sparse larger leaf pairs simplify original dense crown"
+  ],
+  "coverage": "146/293 unchanged; no sakura promotion"
+}

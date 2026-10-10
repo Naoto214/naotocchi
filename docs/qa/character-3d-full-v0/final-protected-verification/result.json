@@ -1,0 +1,9 @@
+{
+  "sourceProductionCommit": "0be70751e0896388e46a33969bef51c15dcdb3ae",
+  "protectedFixtureBase": "0b0a6b30e8e098472b2fa965604f4901874942e3",
+  "protectedGroupsExact": 11,
+  "pilotBaseline": "d12ad70550b29c125f44ac2b32d7195905fb15f0",
+  "pilotChecked": 28,
+  "pilotDifferent": [],
+  "environment": "Same current executor Node; QA-only followups do not change these inputs"
+}

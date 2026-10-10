@@ -1,0 +1,96 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "fde2580dafec7691a13f94c71660cc3c8c43b52a",
+  "artifact": {
+    "id": 11590141387,
+    "name": "full-rollout-mythic-distance-phoenix-fde2580dafec7691a13f94c71660cc3c8c43b52a",
+    "digest": "sha256:e776740d685a036f50d4c7d4a5a215e617681bae85e1956449e31f8e3ff19389"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "230090ab9fc9778d5722ba3b3ef8b0f08059c4045f3d3fe664ad107e5cf8bef8",
+      "bytes": 7532
+    },
+    {
+      "path": "player-phoenix-1-back.png",
+      "sha256": "2e4a1e98f1f2a3e9f35c11faa06bc21edcfc6ff694a263df41ed35a0bf790324",
+      "bytes": 307676
+    },
+    {
+      "path": "player-phoenix-1-front.png",
+      "sha256": "f0a24825b837d66d8228c87350d554aea97a6a850b681bdef4eee9460541baea",
+      "bytes": 310414
+    },
+    {
+      "path": "player-phoenix-2-back.png",
+      "sha256": "bbba06b206819cd014d35d47b1f7df27acaa06958d0eb8ad16d3509e956e4acf",
+      "bytes": 308482
+    },
+    {
+      "path": "player-phoenix-2-front.png",
+      "sha256": "6c9b3e2896385d8ca522313aa1e7e74579449aa835934e3f99d9193c2ae44d6f",
+      "bytes": 311818
+    },
+    {
+      "path": "player-phoenix-3-back.png",
+      "sha256": "9e982210d026fe8a852407172ee9f835325b816146acab9c1643924f1a9d0dc8",
+      "bytes": 309748
+    },
+    {
+      "path": "player-phoenix-3-front.png",
+      "sha256": "76ab754bc273afbb6b54b646ae0753d2837f32d838fb7edcd86c5e6eb83c749b",
+      "bytes": 311794
+    },
+    {
+      "path": "player-phoenix-4-back.png",
+      "sha256": "0f12fdbb98aff40dc773b9f3fcf7f481a6763745d7b858fc68c1430608ede5a1",
+      "bytes": 316590
+    },
+    {
+      "path": "player-phoenix-4-front.png",
+      "sha256": "da9f832d575e90cf2aa52b5be653268a20d98aebf2ad74b33acd62b28000c3f7",
+      "bytes": 316779
+    },
+    {
+      "path": "player-phoenix-5-back.png",
+      "sha256": "0d8c7bb9f58bd91215042fbbb2f07c55dcf46aaf05e1434cfa7594f5b41dada6",
+      "bytes": 318960
+    },
+    {
+      "path": "player-phoenix-5-front.png",
+      "sha256": "0193624fe7f8cbc5e897a5ddeda0b37f9617768ab253ca22a0c4c2ec0e6671e0",
+      "bytes": 320481
+    },
+    {
+      "path": "player-phoenix-6-back.png",
+      "sha256": "6cf92c3afb817a8f4a1f6be28c3a017a560abcb17b5b70ff5917193298a40577",
+      "bytes": 320031
+    },
+    {
+      "path": "player-phoenix-6-front.png",
+      "sha256": "e07212038066bc8fd42bb4d20844f170231abaaef8683b76c362b9fc5ce9a38e",
+      "bytes": 321778
+    },
+    {
+      "path": "player-phoenix-7-back.png",
+      "sha256": "dfdfd0771692f984a7dd3599447dbe35b912ab9096542053d861db924e171e37",
+      "bytes": 319081
+    },
+    {
+      "path": "player-phoenix-7-front.png",
+      "sha256": "872f5258571a4108b50400f7ccd20bbe040191f98f844fedaec411d8c5787a5b",
+      "bytes": 319884
+    },
+    {
+      "path": "player-phoenix-8-back.png",
+      "sha256": "b2b53b11dfb9f6af8be291942a5f44a442b0ac4f9656b629a5fd188a74f9b148",
+      "bytes": 317252
+    },
+    {
+      "path": "player-phoenix-8-front.png",
+      "sha256": "6f88c8bb392fbd99430880438ca75a890d7f161c5dc920112896be3a56a4f9bd",
+      "bytes": 319706
+    }
+  ]
+}

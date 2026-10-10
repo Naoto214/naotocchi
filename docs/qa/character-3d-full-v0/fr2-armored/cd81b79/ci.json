@@ -1,0 +1,23 @@
+{
+  "sourceCommit": "cd81b79c1f3f22efdf9a17cf8a9d8f31839cd184",
+  "runs": {
+    "runtime": {
+      "id": 37462461834,
+      "conclusion": "success"
+    },
+    "character": {
+      "id": 37462453634,
+      "conclusion": "success"
+    },
+    "home": {
+      "id": 37462461845,
+      "conclusion": "failure",
+      "job": 112265175349,
+      "case": "chromium-landscape-safe-area",
+      "message": "home exceeds the visible viewport",
+      "artifact": 11413508237,
+      "artifactBytes": 269383960
+    }
+  },
+  "attribution": "No Home production/test/CSS change since green d027; only candidate3D modules, dedicated tests, QA tools/workflow and docs differ. Existing layout/timing issue suspected, not proven. Later-run comparison pending; no base reproduction or blanket CI pass claimed."
+}

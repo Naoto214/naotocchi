@@ -1,0 +1,24 @@
+{
+  "sourceCommit": "410edf9674d5937496e7acd0f255c98de11fc399",
+  "runId": 37938257303,
+  "artifactJobEvidence": true,
+  "families": [
+    "dog"
+  ],
+  "artifacts": [
+    {
+      "id": 11619241745,
+      "label": "scene-final",
+      "name": "full-rollout-meguru-410edf9674d5937496e7acd0f255c98de11fc399",
+      "digest": "sha256:799d3bbc471dffadc73e4730213b18e2c849729e2c4fadabcdcaa31e699d3d58",
+      "jobId": 113845722634,
+      "evidenceMode": "successful",
+      "required": [
+        {
+          "pattern": "meguru-qa.json",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

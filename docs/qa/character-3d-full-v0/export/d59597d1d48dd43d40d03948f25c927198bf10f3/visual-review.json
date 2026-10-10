@@ -1,0 +1,36 @@
+{
+  "sourceCommit": "d59597d1d48dd43d40d03948f25c927198bf10f3",
+  "archiveCommit": "70dea050f8ac2f75767809160516123ebd22f61d",
+  "status": "PASS_IMAGE_GATE",
+  "integrity": {
+    "rawFiles": 81,
+    "allHashesVerified": true
+  },
+  "characters": {
+    "companion:owl": {
+      "status": "PASS_IMAGE_GATE",
+      "actualReview": {
+        "fourViews": 4,
+        "stateImages": 32,
+        "normalDistance": 2
+      },
+      "findings": [
+        "Overlapping pale-edged held feathers visible and attached in front/34/side; canonical eyes/mouth remain clear in all32 states.",
+        "Normal-distance held-wing silhouette, paired tufts and breast marks remain readable."
+      ]
+    },
+    "companion:punyu": {
+      "status": "PASS_IMAGE_GATE",
+      "actualReview": {
+        "fourViews": 4,
+        "stateImages": 32,
+        "normalDistance": 2
+      },
+      "findings": [
+        "Curled opaque yellow silhouette and scalloped base remain readable in four views and all32states.",
+        "Front/back normal-distance idle now contacts ground; prior constant hover resolved with existing squashHop."
+      ]
+    }
+  },
+  "humanIPhoneGate": "OPEN_SEPARATE"
+}

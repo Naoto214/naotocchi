@@ -1,0 +1,33 @@
+{
+  "sourceCommit": "86dfd3a306a7bb5de583ba9e2b88f525d2bfccf3",
+  "result": "PASS_ALL8_IMAGE_GATE",
+  "reviewed": {
+    "fourViews": 32,
+    "stateCells": 256,
+    "normalDistance": 16
+  },
+  "reuse": {
+    "stages": [
+      1,
+      2,
+      3,
+      7,
+      8
+    ],
+    "identicalWaveImages": 185,
+    "priorSource": "3a1212eca48ea5233b0e910b2456296aef7a54eb",
+    "priorActualStateCells": 160
+  },
+  "freshStateCells": 96,
+  "hashesVerified": {
+    "god-wave": 299,
+    "god-distance": 17
+  },
+  "findings": [
+    "04gold/05-06blue staff finials now clear head and hair in front/34 and all canonical states",
+    "Staff remains held through walking states; face stays visible",
+    "01seed/02winginfant/03youngangel/07doublehalo/08radiantorb unchanged and byte-identical",
+    "Fresh normal-distance images all8 inspected; source identities remain readable"
+  ],
+  "limits": "Chromium/SwiftShader;not Human/iPhone acceptance"
+}

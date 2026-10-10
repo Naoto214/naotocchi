@@ -1,0 +1,10 @@
+{
+  "sourceCommit": "8b6fcaee4af82dfe266fc4b08bdd56ae215b5275",
+  "implementationFixedDuringRun": true,
+  "pass": 3017,
+  "relationshipPass": 80,
+  "fail": 0,
+  "exitCode": 0,
+  "logSHA256": "83578ea8fb1c8d4dc1bf8b6d29c1af3dcf9262d82ca689b0d7e5b2508bec56ca",
+  "scope": "Completed before Star expansion and Unknown runtime promotion"
+}

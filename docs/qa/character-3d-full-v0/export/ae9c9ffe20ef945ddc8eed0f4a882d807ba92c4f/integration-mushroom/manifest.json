@@ -1,0 +1,933 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11613750025,
+    "name": "full-rollout-stages-mushroom-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:9a6204954c818dab18cfabb2baf1650ce84291908b7668d8095e624e203cad1a"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "0e3afaf67859cf23b40c77d341d791829230ff1d0e04044e832da7bf8157e9d5",
+      "bytes": 7654
+    },
+    {
+      "path": "missing-motion/motion-evidence.json",
+      "sha256": "76eb3639d3186d26af5c6958e10ccd556d0b8f746843f3b999a53a7d14ebdeb7",
+      "bytes": 95813
+    },
+    {
+      "path": "missing-motion/mushroom-2-dislike-idle-normal.jpg",
+      "sha256": "076c78644d1b87e727080d9e47a8eeac064fb665a1788e7c9d44fcbca76bcb7e",
+      "bytes": 13135
+    },
+    {
+      "path": "missing-motion/mushroom-2-dislike-idle-reduced.jpg",
+      "sha256": "f707a1c80dc0a69e01ec307753f56c2306308cb9bd7aa5e95940a8a94cd0bdf2",
+      "bytes": 13239
+    },
+    {
+      "path": "missing-motion/mushroom-2-dislike-walk-normal.jpg",
+      "sha256": "99ebc7dcd8555c1851495f827ddf5e3cd046a832ce3e15f5382a3bca683473bb",
+      "bytes": 13189
+    },
+    {
+      "path": "missing-motion/mushroom-2-dislike-walk-reduced.jpg",
+      "sha256": "1fc4621b046c06976b3688dfb033b42373bbcdd1ed9445060ef0a3ef44559015",
+      "bytes": 13371
+    },
+    {
+      "path": "missing-motion/mushroom-2-motion.jpg",
+      "sha256": "3690d7b3f6199df6013f8d01ce706352934c6ce2ec9495d448db5c23aadb8968",
+      "bytes": 589292
+    },
+    {
+      "path": "missing-motion/mushroom-2-normal-idle-normal.jpg",
+      "sha256": "8a692b2d86c4bed828287ce55cd56eb2bd9974e31aeac99ca74438bc63e781b1",
+      "bytes": 13006
+    },
+    {
+      "path": "missing-motion/mushroom-2-normal-idle-reduced.jpg",
+      "sha256": "3d7658ef43b71e2aec16f2e7f434db3a8215cf84f9f9a0e4768f7bbae4b38e0e",
+      "bytes": 12978
+    },
+    {
+      "path": "missing-motion/mushroom-2-normal-walk-normal.jpg",
+      "sha256": "211ca211a3f32df37a159a26f8b930d2b956c9736592d96b86708a571943ff3d",
+      "bytes": 12555
+    },
+    {
+      "path": "missing-motion/mushroom-2-normal-walk-reduced.jpg",
+      "sha256": "2b80c05c6548cd81805bfd50cba98e2de0f0dee465af295c0d15689259346167",
+      "bytes": 12883
+    },
+    {
+      "path": "missing-motion/mushroom-2-positive-idle-normal.jpg",
+      "sha256": "500ec6adaa89f77d72f1a424d115ffd486d92b180c2b0108adac968a68b980f2",
+      "bytes": 13126
+    },
+    {
+      "path": "missing-motion/mushroom-2-positive-idle-reduced.jpg",
+      "sha256": "b2929803947c617859caca6179ec741c129bdbdc352a153df80961af2a8e11ef",
+      "bytes": 13356
+    },
+    {
+      "path": "missing-motion/mushroom-2-positive-walk-normal.jpg",
+      "sha256": "ab82378e3a7ad2161e3413116e79766504400b49982059f0e56788d3cae914aa",
+      "bytes": 13092
+    },
+    {
+      "path": "missing-motion/mushroom-2-positive-walk-reduced.jpg",
+      "sha256": "4bd8ad6e68b9afb52dbb554f3f2026e935772e42920186e1024bdecc769df6da",
+      "bytes": 13239
+    },
+    {
+      "path": "missing-motion/mushroom-2-sick-idle-normal.jpg",
+      "sha256": "05b3afbeeeee1f319a08357539e7554b5c397c9c95259ea7c343aba2b2ed61d8",
+      "bytes": 13019
+    },
+    {
+      "path": "missing-motion/mushroom-2-sick-idle-reduced.jpg",
+      "sha256": "7a0eff67782acb7c6338debd38c12f453c31fae11711316e0fce2e67a3441311",
+      "bytes": 12966
+    },
+    {
+      "path": "missing-motion/mushroom-2-sick-walk-normal.jpg",
+      "sha256": "46f2cc4d474465fbe675f16e0f6e6ee8eb0eb9371b88c526559fa4ee7bc03a15",
+      "bytes": 12537
+    },
+    {
+      "path": "missing-motion/mushroom-2-sick-walk-reduced.jpg",
+      "sha256": "a7ae622839bf7132afe1e62c37a5e45703b9380fd7abb8cab092d7de34c0ca12",
+      "bytes": 12861
+    },
+    {
+      "path": "missing-motion/mushroom-2-sleeping-idle-normal.jpg",
+      "sha256": "6d0d7f8bf3836e01316211b3d39a7c744014a2c0e325d5130f4dba0ac3f6eb8a",
+      "bytes": 12330
+    },
+    {
+      "path": "missing-motion/mushroom-2-sleeping-idle-reduced.jpg",
+      "sha256": "b32684e4898d0f8582b36edc1cb906082955dcb1e3a6711e32e4896f50d42ba9",
+      "bytes": 12372
+    },
+    {
+      "path": "missing-motion/mushroom-2-sleeping-walk-normal.jpg",
+      "sha256": "4e9640fe21875a8edc77b5d6464f466474177dc06bd9424bbf9613a11de8bfe9",
+      "bytes": 11747
+    },
+    {
+      "path": "missing-motion/mushroom-2-sleeping-walk-reduced.jpg",
+      "sha256": "17a2c2c2d7c37fe85f545cba555d46f33f1a0b6431957cfd5567ce451dbf1078",
+      "bytes": 12152
+    },
+    {
+      "path": "missing-motion/mushroom-2-strained-idle-normal.jpg",
+      "sha256": "47eaf2a7d5a59ef5cc3ab0cf9f0d4d879ea626c804f54e4dfaa3b741ad90b025",
+      "bytes": 13008
+    },
+    {
+      "path": "missing-motion/mushroom-2-strained-idle-reduced.jpg",
+      "sha256": "59db7e7d62958536159e76a940507ec1d3c94b1310902c2ff0292c31ad7896ec",
+      "bytes": 13035
+    },
+    {
+      "path": "missing-motion/mushroom-2-strained-walk-normal.jpg",
+      "sha256": "3a54fa660a29037097e79df684e2f039014e2e44228760638bcb7025c7d41738",
+      "bytes": 12623
+    },
+    {
+      "path": "missing-motion/mushroom-2-strained-walk-reduced.jpg",
+      "sha256": "b22904569816b32fbc0b7b6b78a7cb39b79b96450f0bf23f74f31928d5ef9677",
+      "bytes": 12927
+    },
+    {
+      "path": "missing-motion/mushroom-2-tired-idle-normal.jpg",
+      "sha256": "82b5ad6da87fe7ce98ccf3968e86dccf92a6b028f0cbb9bf31a6b9fd1bc2e41e",
+      "bytes": 12622
+    },
+    {
+      "path": "missing-motion/mushroom-2-tired-idle-reduced.jpg",
+      "sha256": "0b9ca613c20c6131d5579116c832f710599f52fdab1c826433142cc94abd5196",
+      "bytes": 12552
+    },
+    {
+      "path": "missing-motion/mushroom-2-tired-walk-normal.jpg",
+      "sha256": "e1b68b344f07605c6177790ec5a40e5eb2b27ec1af22d57ef33b023a6a8b4ced",
+      "bytes": 12411
+    },
+    {
+      "path": "missing-motion/mushroom-2-tired-walk-reduced.jpg",
+      "sha256": "e4c19402eeae93ee74e4557121f2e1de7296c06a4b5eae1fefe4d6fb348b42fe",
+      "bytes": 12619
+    },
+    {
+      "path": "missing-motion/mushroom-2-wantsPlay-idle-normal.jpg",
+      "sha256": "a4f471fd0724b01cb38b40cbeb606c6d35a6ccb9c5ac5ab31c66011aaf65010d",
+      "bytes": 13314
+    },
+    {
+      "path": "missing-motion/mushroom-2-wantsPlay-idle-reduced.jpg",
+      "sha256": "39dbc95e220bfa8dff4a75e8a513933c99e085f7d72403589975f1afc9d3c3d3",
+      "bytes": 13533
+    },
+    {
+      "path": "missing-motion/mushroom-2-wantsPlay-walk-normal.jpg",
+      "sha256": "69b9bc97c79823fe79b526b86439a577cb5a52bd29993f4d64ac6cc199853c3c",
+      "bytes": 13256
+    },
+    {
+      "path": "missing-motion/mushroom-2-wantsPlay-walk-reduced.jpg",
+      "sha256": "2ea7534e29f23090b758001df04e36319f504a6da390fc1720378b2a9c604dbe",
+      "bytes": 13458
+    },
+    {
+      "path": "missing-motion/mushroom-3-dislike-idle-normal.jpg",
+      "sha256": "4226f30031abdaff4d454f0ef70a1a9aa7d27fd1b4c1650fa4055a2f6740e18b",
+      "bytes": 11432
+    },
+    {
+      "path": "missing-motion/mushroom-3-dislike-idle-reduced.jpg",
+      "sha256": "6a6379371774e88981a25b30352801b4109302ed771e207a63c1377e1c9e3207",
+      "bytes": 11446
+    },
+    {
+      "path": "missing-motion/mushroom-3-dislike-walk-normal.jpg",
+      "sha256": "125599709c71d4842dbd012248b0f81c742cde4dec0b9787fe9df3ba6508cab2",
+      "bytes": 11491
+    },
+    {
+      "path": "missing-motion/mushroom-3-dislike-walk-reduced.jpg",
+      "sha256": "4a1dde18f84c92448c7fcf409b004ead1ff0f08a1484bd291b940de925e5beb5",
+      "bytes": 11575
+    },
+    {
+      "path": "missing-motion/mushroom-3-motion.jpg",
+      "sha256": "96992b74f4ffc72e02571e1b42cf3e6096d56d0dc3bfaf4030312239c026f726",
+      "bytes": 544948
+    },
+    {
+      "path": "missing-motion/mushroom-3-normal-idle-normal.jpg",
+      "sha256": "6a3e3e9710be55e71a2c7d898bb838fb35e4d61f60d1ae0ed4743877ebe77f71",
+      "bytes": 13586
+    },
+    {
+      "path": "missing-motion/mushroom-3-normal-idle-reduced.jpg",
+      "sha256": "513a3342cc78fdc5186a98b1818d55b84c81cb21dd5b4a4c69d98666d2457212",
+      "bytes": 13744
+    },
+    {
+      "path": "missing-motion/mushroom-3-normal-walk-normal.jpg",
+      "sha256": "4a9570b434e7a89e3475e08ade53604015018a9773402ed2e6be23004bf0a1e4",
+      "bytes": 13311
+    },
+    {
+      "path": "missing-motion/mushroom-3-normal-walk-reduced.jpg",
+      "sha256": "6fcd9be1dd8699f5a857e554e4b523fa235c7b124a0364fb575c2504c21719a0",
+      "bytes": 13703
+    },
+    {
+      "path": "missing-motion/mushroom-3-positive-idle-normal.jpg",
+      "sha256": "8f0f05e6e8405b1a643a0ce9fae4a1a56a6af112a9efbd52e71d5c475388b77f",
+      "bytes": 13660
+    },
+    {
+      "path": "missing-motion/mushroom-3-positive-idle-reduced.jpg",
+      "sha256": "f0768e0be30c57a7f231fad7c683cb6fc0bfabba3a8c268625a64ffc0c025598",
+      "bytes": 13687
+    },
+    {
+      "path": "missing-motion/mushroom-3-positive-walk-normal.jpg",
+      "sha256": "d089aa8811a871762016f339f6efdf35aca24bfccfec48b075ca932bf7156837",
+      "bytes": 13396
+    },
+    {
+      "path": "missing-motion/mushroom-3-positive-walk-reduced.jpg",
+      "sha256": "09028c7ba94d418c47156179c17d9e7fdb8f9a968f950ec01744588e3b4a748b",
+      "bytes": 13473
+    },
+    {
+      "path": "missing-motion/mushroom-3-sick-idle-normal.jpg",
+      "sha256": "15dd1d4dbd10fee875e7ae1e683607e26e25943903183bd7a0c8214a63d66732",
+      "bytes": 13575
+    },
+    {
+      "path": "missing-motion/mushroom-3-sick-idle-reduced.jpg",
+      "sha256": "c3640a63ec82cdac5545a73c9f670fa70b900d89bfc41ae889bcb38ac9eddce7",
+      "bytes": 13484
+    },
+    {
+      "path": "missing-motion/mushroom-3-sick-walk-normal.jpg",
+      "sha256": "dd3eae2bdb76c88b9c9872cf03506084e99bf7dbaa4d7dcb8442b25f72d34b81",
+      "bytes": 13116
+    },
+    {
+      "path": "missing-motion/mushroom-3-sick-walk-reduced.jpg",
+      "sha256": "2314bc51551d53f8f2312a45e3b7141d1bb6c24ce9127b7ab423fb8d1ce3ffe6",
+      "bytes": 13596
+    },
+    {
+      "path": "missing-motion/mushroom-3-sleeping-idle-normal.jpg",
+      "sha256": "447da099c9cd665a2a4258a850b079e85e679e02f1e328021bef9c6b37f068cc",
+      "bytes": 12585
+    },
+    {
+      "path": "missing-motion/mushroom-3-sleeping-idle-reduced.jpg",
+      "sha256": "154512f470aab0fb12d744f0f479b2faf93c51120d09f9e369dfa3dc876b4afc",
+      "bytes": 12684
+    },
+    {
+      "path": "missing-motion/mushroom-3-sleeping-walk-normal.jpg",
+      "sha256": "8f4ca3e6be003bfa7dbc4357d174d4d4c477434c3e791ae7744a60e862552bf7",
+      "bytes": 12005
+    },
+    {
+      "path": "missing-motion/mushroom-3-sleeping-walk-reduced.jpg",
+      "sha256": "3422cb5613a4ff62dd5bc1e41788be6fd749c2372e842a392aad208deab117d9",
+      "bytes": 12405
+    },
+    {
+      "path": "missing-motion/mushroom-3-strained-idle-normal.jpg",
+      "sha256": "7719653435cfe3266aad8899aa8cab7e558253eb28b8809fde41bce1f8f4521f",
+      "bytes": 13676
+    },
+    {
+      "path": "missing-motion/mushroom-3-strained-idle-reduced.jpg",
+      "sha256": "bcba52e3eaa4bdfa658c57065d87daa84f9196ffbf05560653cefc86d98d253c",
+      "bytes": 13931
+    },
+    {
+      "path": "missing-motion/mushroom-3-strained-walk-normal.jpg",
+      "sha256": "7077e955fab1e9377da70aaf35c747d3a6718c8bc16d16adf45c76745ca77df0",
+      "bytes": 13548
+    },
+    {
+      "path": "missing-motion/mushroom-3-strained-walk-reduced.jpg",
+      "sha256": "e5d40f146a57e424c79c5fa09702b95bae5d7960daceaedb0b621fe870ac389b",
+      "bytes": 13630
+    },
+    {
+      "path": "missing-motion/mushroom-3-tired-idle-normal.jpg",
+      "sha256": "0a2e1b5321ed3ca1f934331f157f5dbd3d2c3cbc1210479390b8cb280fdc183e",
+      "bytes": 13038
+    },
+    {
+      "path": "missing-motion/mushroom-3-tired-idle-reduced.jpg",
+      "sha256": "273f34bd54904e534fff0252d4f7a7dd30d5c19e2f374b169e6e7275f6f7912b",
+      "bytes": 13146
+    },
+    {
+      "path": "missing-motion/mushroom-3-tired-walk-normal.jpg",
+      "sha256": "a2c81769314960b986494df149db408fff2dd5b03ec2680e185dee7b5f23c3c1",
+      "bytes": 12801
+    },
+    {
+      "path": "missing-motion/mushroom-3-tired-walk-reduced.jpg",
+      "sha256": "fa4402db90fe7f9607cdff76948df8c99811c38c99348a851670deb38e04cc8c",
+      "bytes": 13034
+    },
+    {
+      "path": "missing-motion/mushroom-3-wantsPlay-idle-normal.jpg",
+      "sha256": "c30a7d6beeb29998f3f6db967c3e74687a96eb791dbe8247d793a107cefd1ed9",
+      "bytes": 13669
+    },
+    {
+      "path": "missing-motion/mushroom-3-wantsPlay-idle-reduced.jpg",
+      "sha256": "24ea624cfdf972a18af267a8fb3a8da3036b73b803dae5811827a032f0292724",
+      "bytes": 13742
+    },
+    {
+      "path": "missing-motion/mushroom-3-wantsPlay-walk-normal.jpg",
+      "sha256": "764b7bf7da72d801d63614c51f32989a13ac073780073519e8271301106fbea0",
+      "bytes": 13563
+    },
+    {
+      "path": "missing-motion/mushroom-3-wantsPlay-walk-reduced.jpg",
+      "sha256": "766da66766c187e342b29ab5dcd3ebaf0c17d682c6db040ac5ac0c01d7c96189",
+      "bytes": 13684
+    },
+    {
+      "path": "missing-motion/mushroom-5-dislike-idle-normal.jpg",
+      "sha256": "f02afc9d2b3c8c003b284d2b21dc1c070e102421f490a45ae727fc728d84beca",
+      "bytes": 11607
+    },
+    {
+      "path": "missing-motion/mushroom-5-dislike-idle-reduced.jpg",
+      "sha256": "68ce70d87e003c1dead355b7c177f1fc0f751e8d67be2eab6d5acf8d7923467a",
+      "bytes": 11428
+    },
+    {
+      "path": "missing-motion/mushroom-5-dislike-walk-normal.jpg",
+      "sha256": "659445bd55c651fcf3edd7d0d8d21aff470b3ebac0d4462a0fcc76cae820c5dc",
+      "bytes": 11668
+    },
+    {
+      "path": "missing-motion/mushroom-5-dislike-walk-reduced.jpg",
+      "sha256": "9a962ce15911a107dd28f186c0b49076f8c8f28bf2909b30e6892f5c646b64c0",
+      "bytes": 11555
+    },
+    {
+      "path": "missing-motion/mushroom-5-motion.jpg",
+      "sha256": "546450cdc3a20c40c3b505ebd6707ef5cb5aa84749a33278615862df87c2743e",
+      "bytes": 578011
+    },
+    {
+      "path": "missing-motion/mushroom-5-normal-idle-normal.jpg",
+      "sha256": "f96702b0e92bf3347d9086b6b42e31f358514b03ba5a907dd23fd5366e82e0b0",
+      "bytes": 13969
+    },
+    {
+      "path": "missing-motion/mushroom-5-normal-idle-reduced.jpg",
+      "sha256": "8c876f47b6a8fd24c903162a01998225805c636dd2cf302856d83a09d802b5c1",
+      "bytes": 14192
+    },
+    {
+      "path": "missing-motion/mushroom-5-normal-walk-normal.jpg",
+      "sha256": "ad553625d9a96aaa81781dbd03fd47263c176504a2ee05ad789c029c2b8f603c",
+      "bytes": 13607
+    },
+    {
+      "path": "missing-motion/mushroom-5-normal-walk-reduced.jpg",
+      "sha256": "be4283a7591642d407ecb55fbb21f1105d2a3b431180055961626a64902f8871",
+      "bytes": 14281
+    },
+    {
+      "path": "missing-motion/mushroom-5-positive-idle-normal.jpg",
+      "sha256": "77d8796de0c3e44bdfaba2832faf5edb2f421da1c74c4cb59690cb3bb1ebe81a",
+      "bytes": 13981
+    },
+    {
+      "path": "missing-motion/mushroom-5-positive-idle-reduced.jpg",
+      "sha256": "d3759c8fb8010e0c9d1db65fdcd7973534d283a6e4bcb4535c9566450b3387b0",
+      "bytes": 13854
+    },
+    {
+      "path": "missing-motion/mushroom-5-positive-walk-normal.jpg",
+      "sha256": "468665ccd454d32c60e83cf0587ff027c5295bf59ebd1720a07f3d3e6440a2ac",
+      "bytes": 13582
+    },
+    {
+      "path": "missing-motion/mushroom-5-positive-walk-reduced.jpg",
+      "sha256": "fd959916f52afb1b376c0c28e152d99b27de2552a8daf82025fa6cbc8b9c1c83",
+      "bytes": 13901
+    },
+    {
+      "path": "missing-motion/mushroom-5-sick-idle-normal.jpg",
+      "sha256": "c32ecb06e3ede92e920d5666b812c9853db12fca56986bb2d3ca70b0a7c26507",
+      "bytes": 13278
+    },
+    {
+      "path": "missing-motion/mushroom-5-sick-idle-reduced.jpg",
+      "sha256": "cd7030035835aaaaf0a859b778cc747fe97d670ded8085a9c4e5a721ff5e63f8",
+      "bytes": 13267
+    },
+    {
+      "path": "missing-motion/mushroom-5-sick-walk-normal.jpg",
+      "sha256": "4188503611fbb9904810a4b87f14d127d43a43d1a4ae9dc8db5dadb456f5797a",
+      "bytes": 12926
+    },
+    {
+      "path": "missing-motion/mushroom-5-sick-walk-reduced.jpg",
+      "sha256": "a6d6a7bd6bb4132461be3c034a3d18327d208d9b89cfbdff96756eb2a615716d",
+      "bytes": 13248
+    },
+    {
+      "path": "missing-motion/mushroom-5-sleeping-idle-normal.jpg",
+      "sha256": "a54dbe1e6000eecf2fa06efc01afbdccc9871aae3e2329310db5c6efcebdc997",
+      "bytes": 13403
+    },
+    {
+      "path": "missing-motion/mushroom-5-sleeping-idle-reduced.jpg",
+      "sha256": "a30735b94803fd22bd2533ffcb1b7bad96fab1e95b31b8a68164742b6d2bbe37",
+      "bytes": 13555
+    },
+    {
+      "path": "missing-motion/mushroom-5-sleeping-walk-normal.jpg",
+      "sha256": "9bceb746e77ab5cda64af5fef8d40cad0e43e3f05695e3541531513e451485ba",
+      "bytes": 12786
+    },
+    {
+      "path": "missing-motion/mushroom-5-sleeping-walk-reduced.jpg",
+      "sha256": "c132c53c6253948bbe6789badc01aa46830155da441715b40d79936592b91075",
+      "bytes": 13290
+    },
+    {
+      "path": "missing-motion/mushroom-5-strained-idle-normal.jpg",
+      "sha256": "64ca07ea1ca077a8d0741716c585d2d356d7b2b4ac1a47fa286e60b8b7a1983a",
+      "bytes": 13823
+    },
+    {
+      "path": "missing-motion/mushroom-5-strained-idle-reduced.jpg",
+      "sha256": "0159374b77bcb50ebd7f74ec60aec319d85b8a9e30396171fef4c2018667c134",
+      "bytes": 13985
+    },
+    {
+      "path": "missing-motion/mushroom-5-strained-walk-normal.jpg",
+      "sha256": "3ab27d20d6919a1a6e27ec256b07a1a8d1219c5a1c3ab271d1e3308608895e3f",
+      "bytes": 13482
+    },
+    {
+      "path": "missing-motion/mushroom-5-strained-walk-reduced.jpg",
+      "sha256": "7ad85fe51d0d567a38c742f3588569a93429df400b5f726f65505277709dad31",
+      "bytes": 13790
+    },
+    {
+      "path": "missing-motion/mushroom-5-tired-idle-normal.jpg",
+      "sha256": "900917e72edf819e8a64d6cef0b8cd20e131550327ffd794e9978fe47ac3a473",
+      "bytes": 13117
+    },
+    {
+      "path": "missing-motion/mushroom-5-tired-idle-reduced.jpg",
+      "sha256": "5e719b88db7bdf50ee1d34cf5898340062d63c34b10613501b318eeafba6c48d",
+      "bytes": 13361
+    },
+    {
+      "path": "missing-motion/mushroom-5-tired-walk-normal.jpg",
+      "sha256": "debae988bb8a7c55bf397e264037217bd3d24b174222e6b71d78cfda02212039",
+      "bytes": 13098
+    },
+    {
+      "path": "missing-motion/mushroom-5-tired-walk-reduced.jpg",
+      "sha256": "6724071768cc00a9a23688cc28382b66940ff66310677d8d68fc31f6e76da632",
+      "bytes": 13362
+    },
+    {
+      "path": "missing-motion/mushroom-5-wantsPlay-idle-normal.jpg",
+      "sha256": "00c2bd2fdcb4d5fbfe2c754ce8b19c9922a5995e918986214cc79809ef606f7d",
+      "bytes": 14067
+    },
+    {
+      "path": "missing-motion/mushroom-5-wantsPlay-idle-reduced.jpg",
+      "sha256": "d763699020d378d9695c9d80c7e071f9c89072e1a5df9d4ab9c2e540544feb30",
+      "bytes": 13984
+    },
+    {
+      "path": "missing-motion/mushroom-5-wantsPlay-walk-normal.jpg",
+      "sha256": "37562ee678c8574270c862b407accdeb968d02c4fa16bb17d77897da285b9c86",
+      "bytes": 13792
+    },
+    {
+      "path": "missing-motion/mushroom-5-wantsPlay-walk-reduced.jpg",
+      "sha256": "a2a986ccaf9e3948612cc69883d8c976afb8cb01b9e5333a23d7feb5c010248a",
+      "bytes": 14063
+    },
+    {
+      "path": "missing-motion/mushroom-6-dislike-idle-normal.jpg",
+      "sha256": "8630613ee98d748a5095300d108d74a88ad4179b1f4393a7a81948de786736db",
+      "bytes": 10465
+    },
+    {
+      "path": "missing-motion/mushroom-6-dislike-idle-reduced.jpg",
+      "sha256": "5e80e52ca3415dfc0b7569633d62f04144b10c50bfc4be41db24b28575de7a4e",
+      "bytes": 10543
+    },
+    {
+      "path": "missing-motion/mushroom-6-dislike-walk-normal.jpg",
+      "sha256": "36083adbb028b065a2ecc9bcbb58e5485a879285655865f71aaba30a295ec943",
+      "bytes": 10509
+    },
+    {
+      "path": "missing-motion/mushroom-6-dislike-walk-reduced.jpg",
+      "sha256": "dadb9c42667dc6be0468fc2c0dca717907a4b132d2f4f8a57357a83f00991ecc",
+      "bytes": 10669
+    },
+    {
+      "path": "missing-motion/mushroom-6-motion.jpg",
+      "sha256": "3c6ad5c14a2fd30a0e9b4cb3ad4e236fa2903a2f9514dcfb5d8e0acb480f1f31",
+      "bytes": 507556
+    },
+    {
+      "path": "missing-motion/mushroom-6-normal-idle-normal.jpg",
+      "sha256": "693c56084c8f5a46a0b71bb4436ad66f48f2b3c9815d318127b0dcbb90d90d18",
+      "bytes": 11769
+    },
+    {
+      "path": "missing-motion/mushroom-6-normal-idle-reduced.jpg",
+      "sha256": "494b563de878c26c7e5fc9ba80cab6c1954517e13791e1af42dc87018e298b70",
+      "bytes": 12044
+    },
+    {
+      "path": "missing-motion/mushroom-6-normal-walk-normal.jpg",
+      "sha256": "9f5edd09a5be11da5ff9d8416cdbeee7af8d88d1c9c05c5107707421cbb1a408",
+      "bytes": 11536
+    },
+    {
+      "path": "missing-motion/mushroom-6-normal-walk-reduced.jpg",
+      "sha256": "a17bddb7dd3141860d0519451a39246719601f786883de8381cef39d6ea7ce55",
+      "bytes": 11972
+    },
+    {
+      "path": "missing-motion/mushroom-6-positive-idle-normal.jpg",
+      "sha256": "f250a2a1bd6758ae4a409566eba56d3ec37b593c0a19426b4b80857f92434074",
+      "bytes": 11494
+    },
+    {
+      "path": "missing-motion/mushroom-6-positive-idle-reduced.jpg",
+      "sha256": "5d561548c6e3539e359921f54d5da0665585ac685a3df86b6d5d4830b0947fce",
+      "bytes": 11727
+    },
+    {
+      "path": "missing-motion/mushroom-6-positive-walk-normal.jpg",
+      "sha256": "bdd4e8380d9187c566b2923e9be1f599ed774fdf3eb97f6372da89402bd074b1",
+      "bytes": 11313
+    },
+    {
+      "path": "missing-motion/mushroom-6-positive-walk-reduced.jpg",
+      "sha256": "47236e88e9fda12907caf084f47dd7631999b61bab3a661d449b38016e5edee7",
+      "bytes": 11586
+    },
+    {
+      "path": "missing-motion/mushroom-6-sick-idle-normal.jpg",
+      "sha256": "49c08842ae9fd9bed95e76f060b11765c05aca4e871ac823dc0ab977bc780496",
+      "bytes": 12003
+    },
+    {
+      "path": "missing-motion/mushroom-6-sick-idle-reduced.jpg",
+      "sha256": "5d3a0ae50cd311ccf3c5fefd84f73e51641e2d3f0fd65a7bbdd9cde09b609d36",
+      "bytes": 12125
+    },
+    {
+      "path": "missing-motion/mushroom-6-sick-walk-normal.jpg",
+      "sha256": "b39bef8e71c672afc00242217cf3c75981ac255ddc656127946c0e019ac5449f",
+      "bytes": 11668
+    },
+    {
+      "path": "missing-motion/mushroom-6-sick-walk-reduced.jpg",
+      "sha256": "3f85f6d64a5f2d3e3b54a50a5fa4a96d7e9c5b078030a2d2cdd19a4a5a1e9b34",
+      "bytes": 12134
+    },
+    {
+      "path": "missing-motion/mushroom-6-sleeping-idle-normal.jpg",
+      "sha256": "7162bb267770f77c9d2a8adb22895b7899208796bd45943580a8ba9cc26d3cc6",
+      "bytes": 12151
+    },
+    {
+      "path": "missing-motion/mushroom-6-sleeping-idle-reduced.jpg",
+      "sha256": "93d7ab9f9a447b2f197e6d7a86a6a94d35e925aa869907e2eb9f62c9254bdad2",
+      "bytes": 12475
+    },
+    {
+      "path": "missing-motion/mushroom-6-sleeping-walk-normal.jpg",
+      "sha256": "d267b3d144121590b5898fb1b2dc54fd53c434bf05e6c490447df361e49aba7a",
+      "bytes": 12048
+    },
+    {
+      "path": "missing-motion/mushroom-6-sleeping-walk-reduced.jpg",
+      "sha256": "a6892904c1703cb8e0153560d0492a374cd235db1e97db1443aaac436148a892",
+      "bytes": 12305
+    },
+    {
+      "path": "missing-motion/mushroom-6-strained-idle-normal.jpg",
+      "sha256": "0040cceac0b113aade322256ab6933e813be4e25ac388a292a671a0c72f5c770",
+      "bytes": 12058
+    },
+    {
+      "path": "missing-motion/mushroom-6-strained-idle-reduced.jpg",
+      "sha256": "eb1ab5d6b0e658baf94b82b982b660b617fcaa9542bdb3280e3e69775ea0b291",
+      "bytes": 12271
+    },
+    {
+      "path": "missing-motion/mushroom-6-strained-walk-normal.jpg",
+      "sha256": "50ffb94c73a496e328e564af3c93ae0154e67e7fa0296cef67c2ae99222960bb",
+      "bytes": 11996
+    },
+    {
+      "path": "missing-motion/mushroom-6-strained-walk-reduced.jpg",
+      "sha256": "b433f5fe6940205736818f9eaff753a4891ebe846a215cd52020600e1d6f7bad",
+      "bytes": 12252
+    },
+    {
+      "path": "missing-motion/mushroom-6-tired-idle-normal.jpg",
+      "sha256": "b5584f847936d15f1535a57df676e3bab42cef14cb2b8687aa9c6beea64f7753",
+      "bytes": 11840
+    },
+    {
+      "path": "missing-motion/mushroom-6-tired-idle-reduced.jpg",
+      "sha256": "75bff7f4c65af9b2f4f4b106e7d8ce5d960de5d506c2f605f892b0ab371c1dc6",
+      "bytes": 12132
+    },
+    {
+      "path": "missing-motion/mushroom-6-tired-walk-normal.jpg",
+      "sha256": "169ae12382a7f7c9b6dc9d46d9d0989af46c3ad2d5db95a0b04e4a4ef3bbbcb2",
+      "bytes": 11868
+    },
+    {
+      "path": "missing-motion/mushroom-6-tired-walk-reduced.jpg",
+      "sha256": "c9ca475e7279bd8da2f44c002ff4f077344ca6f7ce3497c293cb9c40021662a7",
+      "bytes": 12155
+    },
+    {
+      "path": "missing-motion/mushroom-6-wantsPlay-idle-normal.jpg",
+      "sha256": "f26d54a7930512d8ff8e2a3f0738bc7e8e41392535aca52060579cd49ca647a5",
+      "bytes": 11371
+    },
+    {
+      "path": "missing-motion/mushroom-6-wantsPlay-idle-reduced.jpg",
+      "sha256": "3fa034f9fd34b30a0ee4ef96ed454edaf728cf41fbd8231f3b2b79f3164d20a5",
+      "bytes": 11761
+    },
+    {
+      "path": "missing-motion/mushroom-6-wantsPlay-walk-normal.jpg",
+      "sha256": "fa7ceda23e2ea4edc2611c7ea3156025de0993352073e18ba0e14e435d8ce257",
+      "bytes": 11388
+    },
+    {
+      "path": "missing-motion/mushroom-6-wantsPlay-walk-reduced.jpg",
+      "sha256": "b3248eddc847967f995432eab82bf53f9c156c454f8c778e16b87951d63f62d0",
+      "bytes": 11860
+    },
+    {
+      "path": "missing-motion/mushroom-7-dislike-idle-normal.jpg",
+      "sha256": "a5bc9f2048dfb1f133fc2e6c96fdf0eb8627160e7099ada3d482f2bc4ef47e6c",
+      "bytes": 11588
+    },
+    {
+      "path": "missing-motion/mushroom-7-dislike-idle-reduced.jpg",
+      "sha256": "c90c98a28f9fbda0b9715ef883e1702b44d205f225a76dec60d253ec8b7b7d95",
+      "bytes": 11589
+    },
+    {
+      "path": "missing-motion/mushroom-7-dislike-walk-normal.jpg",
+      "sha256": "a22d57e984d50d40a58b26028047dbc2bff9de100cbee233d5cef735d5a953f5",
+      "bytes": 11654
+    },
+    {
+      "path": "missing-motion/mushroom-7-dislike-walk-reduced.jpg",
+      "sha256": "058861933d478ec2a5b8c2602982e1cbab922a2f73803c035db341ccd93eae92",
+      "bytes": 11707
+    },
+    {
+      "path": "missing-motion/mushroom-7-motion.jpg",
+      "sha256": "cf2f90ce567a1d521014982f024001a76c3684d86867c373e4acd4d005469bd0",
+      "bytes": 543754
+    },
+    {
+      "path": "missing-motion/mushroom-7-normal-idle-normal.jpg",
+      "sha256": "24b6fa1355c8bbb218c721a6a7a43aa1d8101e610f0a39277403df583d0ad6f5",
+      "bytes": 12305
+    },
+    {
+      "path": "missing-motion/mushroom-7-normal-idle-reduced.jpg",
+      "sha256": "c51f3244c762f3ab1b1af06ce0bc110bf91e872bce02b6b9431c5d5fcba54fb0",
+      "bytes": 12124
+    },
+    {
+      "path": "missing-motion/mushroom-7-normal-walk-normal.jpg",
+      "sha256": "e4be16ba3a1e59110f5caed48e430562816ed2b6d5e40f0c737154e6f761573d",
+      "bytes": 12097
+    },
+    {
+      "path": "missing-motion/mushroom-7-normal-walk-reduced.jpg",
+      "sha256": "758e2b83484ebc67295a3fb617a3058d54f058aff36d484a7f4876613e6e0916",
+      "bytes": 12226
+    },
+    {
+      "path": "missing-motion/mushroom-7-positive-idle-normal.jpg",
+      "sha256": "ba5c04ada59716db941127e4954dbf76598d5e3dd107f6a39af57672c6aa9983",
+      "bytes": 12290
+    },
+    {
+      "path": "missing-motion/mushroom-7-positive-idle-reduced.jpg",
+      "sha256": "9ebc098f7383254e3c6b87456eccc1f513835d136a24ceaad654ad60016a51aa",
+      "bytes": 12227
+    },
+    {
+      "path": "missing-motion/mushroom-7-positive-walk-normal.jpg",
+      "sha256": "afcd9e8a16b7f0fafbafb5905043991e5e755167eaca6e2dc0e58d860518fcfa",
+      "bytes": 12304
+    },
+    {
+      "path": "missing-motion/mushroom-7-positive-walk-reduced.jpg",
+      "sha256": "1c70e01bae318c985de26debb43c4df3b250441b5ee04263a286cf3c03c447c6",
+      "bytes": 12329
+    },
+    {
+      "path": "missing-motion/mushroom-7-sick-idle-normal.jpg",
+      "sha256": "cd4926628c241262df6d228d8809b115b845fa6e852451af7b9fcccddcc3ef3e",
+      "bytes": 12091
+    },
+    {
+      "path": "missing-motion/mushroom-7-sick-idle-reduced.jpg",
+      "sha256": "f95890b93760730df5887b13129d940bda57006c0cfed460217816288f429fa1",
+      "bytes": 12103
+    },
+    {
+      "path": "missing-motion/mushroom-7-sick-walk-normal.jpg",
+      "sha256": "a8964f65f0682459c1a3d88918f367116d388fdca0fbfa731a96832f4d17a053",
+      "bytes": 11718
+    },
+    {
+      "path": "missing-motion/mushroom-7-sick-walk-reduced.jpg",
+      "sha256": "de3c5988f57c06fa2da5c4af62b162b0b7c1e22ebd439868ee7c1180b2af80f5",
+      "bytes": 12086
+    },
+    {
+      "path": "missing-motion/mushroom-7-sleeping-idle-normal.jpg",
+      "sha256": "aa8f87d1419aac1e28bbe581c4098bb23fcb946760b270d2499087fb7f8eaaa2",
+      "bytes": 11945
+    },
+    {
+      "path": "missing-motion/mushroom-7-sleeping-idle-reduced.jpg",
+      "sha256": "efa64e36802c14965ba7a416c4f7db9e134cadbe7ec0bb35fec8f7a02f6df69d",
+      "bytes": 11878
+    },
+    {
+      "path": "missing-motion/mushroom-7-sleeping-walk-normal.jpg",
+      "sha256": "24471c7962cab89f739e0e3ff5c5770b747ed7fe89f75a46649f5e625436abd2",
+      "bytes": 11784
+    },
+    {
+      "path": "missing-motion/mushroom-7-sleeping-walk-reduced.jpg",
+      "sha256": "47c8f7ab3646e88618372823dbcc6ff3e3293459b7dfdcc85ea8f130f204f3bd",
+      "bytes": 11975
+    },
+    {
+      "path": "missing-motion/mushroom-7-strained-idle-normal.jpg",
+      "sha256": "e5e4da32a3272e81dc1d346b451851d95b9ea94496488d586e5baea17283ada1",
+      "bytes": 12194
+    },
+    {
+      "path": "missing-motion/mushroom-7-strained-idle-reduced.jpg",
+      "sha256": "e814e6469afee15b53fd36bb1262328e87d1f34fc38e54f8192498b5227ec889",
+      "bytes": 12394
+    },
+    {
+      "path": "missing-motion/mushroom-7-strained-walk-normal.jpg",
+      "sha256": "0e62f1566a61065a33fa754273b2a3fecd1754d319b2171d65d748094e779422",
+      "bytes": 12063
+    },
+    {
+      "path": "missing-motion/mushroom-7-strained-walk-reduced.jpg",
+      "sha256": "e832c2fad84c941c01ab38ae16e770e0304d121d7d93f946b3e0ec49fe1473a8",
+      "bytes": 12274
+    },
+    {
+      "path": "missing-motion/mushroom-7-tired-idle-normal.jpg",
+      "sha256": "b06ba869de4bee5baad3d259e443f9c383712cda186ae4f8ddb18197255b76a8",
+      "bytes": 11877
+    },
+    {
+      "path": "missing-motion/mushroom-7-tired-idle-reduced.jpg",
+      "sha256": "cadeb9b44c809753dccc3af215adc7fd52b7b424e9e961f201dcf95d5ebf1c79",
+      "bytes": 11775
+    },
+    {
+      "path": "missing-motion/mushroom-7-tired-walk-normal.jpg",
+      "sha256": "dbb8b496fb287a294fedc2936f9dfbe24f23fa67d0e5bb76a815f60fb73d622b",
+      "bytes": 11614
+    },
+    {
+      "path": "missing-motion/mushroom-7-tired-walk-reduced.jpg",
+      "sha256": "9d137ad0946df19f48ed6b912a8838612697925783237a0c80338f86f9df7d7e",
+      "bytes": 11770
+    },
+    {
+      "path": "missing-motion/mushroom-7-wantsPlay-idle-normal.jpg",
+      "sha256": "13351c2b338db6ba0863aa2b1c872f4359026a34de6de46e0eebc3b0715555b6",
+      "bytes": 12282
+    },
+    {
+      "path": "missing-motion/mushroom-7-wantsPlay-idle-reduced.jpg",
+      "sha256": "44963844ef4858a66c3b1dfaf5e302b3fc5a93426094ae5dee267aa3451f0a54",
+      "bytes": 12381
+    },
+    {
+      "path": "missing-motion/mushroom-7-wantsPlay-walk-normal.jpg",
+      "sha256": "8d3696841dbb120c9eff990ba50be8565927bc996e7748f5cfc1fa99fdf6b310",
+      "bytes": 12434
+    },
+    {
+      "path": "missing-motion/mushroom-7-wantsPlay-walk-reduced.jpg",
+      "sha256": "13b6fc4e0d2c60a27e6cc3833a180bb3d7cb4a9d79abd36377beacdfe310fc9f",
+      "bytes": 12509
+    },
+    {
+      "path": "player-mushroom-1-back.png",
+      "sha256": "07a15104f498efe72d6b6d5b1027fe779630b6ce495bf9afb756f507dd1e9598",
+      "bytes": 309500
+    },
+    {
+      "path": "player-mushroom-1-front.png",
+      "sha256": "38770f6b0f97a40c41cd4016dbec27a5b8a60fc66343d34650d5ad00be501c0f",
+      "bytes": 314143
+    },
+    {
+      "path": "player-mushroom-2-back.png",
+      "sha256": "a018882b9e6269e74558947d3d5d99f8903c78e7a0c96c234a9254cb20b5b447",
+      "bytes": 309156
+    },
+    {
+      "path": "player-mushroom-2-front.png",
+      "sha256": "6ede390e38a988d99e0cec8eb1fb3722db7b8d4b90adecb8fdaa4a55012f58bc",
+      "bytes": 312919
+    },
+    {
+      "path": "player-mushroom-3-back.png",
+      "sha256": "115ed4ac627944e94f3e1f6e8dc2a6f960f3691e31783cc6be6ac4e735377b60",
+      "bytes": 314549
+    },
+    {
+      "path": "player-mushroom-3-front.png",
+      "sha256": "16ce661d232ea8cb2910e6656a94efb27a6465e2e96dd45c681a8bc5737a090b",
+      "bytes": 319912
+    },
+    {
+      "path": "player-mushroom-4-back.png",
+      "sha256": "4d1ff1032518f7e52db149715aa8df14d6e5a788c10d8e99c173b1d6d726705e",
+      "bytes": 310807
+    },
+    {
+      "path": "player-mushroom-4-front.png",
+      "sha256": "e1501ebbd2767c1607321ab67cd55f823d7b90bd6d2e57e287c700dcc68f49b3",
+      "bytes": 313744
+    },
+    {
+      "path": "player-mushroom-5-back.png",
+      "sha256": "779e2eb90d84c881c22161da336d666f858da4701c22bc19ea77729277ff30ef",
+      "bytes": 318051
+    },
+    {
+      "path": "player-mushroom-5-front.png",
+      "sha256": "95cdf0a5265b8c336af7b784532fb4207fa89a7a0895c7db4c4caf90355e6c8d",
+      "bytes": 318936
+    },
+    {
+      "path": "player-mushroom-6-back.png",
+      "sha256": "9a7bac20e73f1577d52c46b03eb01564a3086905964701a5c1fe5b94f559b119",
+      "bytes": 315329
+    },
+    {
+      "path": "player-mushroom-6-front.png",
+      "sha256": "5945e05bba574e2172c9fc8a446a756573a02755fc41619f670fdf05b2c3c9d6",
+      "bytes": 317162
+    },
+    {
+      "path": "player-mushroom-7-back.png",
+      "sha256": "b633c23f64d72d3e6e78c07ad3816bd82d81850ee74ae430001dcdb4f9a8476e",
+      "bytes": 310691
+    },
+    {
+      "path": "player-mushroom-7-front.png",
+      "sha256": "0c023d2f9af21cb6bf7488b9aec0616980ac8dcd2c4090e2a53bb01606c85e6d",
+      "bytes": 315046
+    },
+    {
+      "path": "player-mushroom-8-back.png",
+      "sha256": "83ede5871b9fb7ac579b65021e4f7e46afe5ffa52dae77434fe71b4cd4618343",
+      "bytes": 307992
+    },
+    {
+      "path": "player-mushroom-8-front.png",
+      "sha256": "3d47f6e349825dca2d1e1ddd74c1ab5c5d1d516e44193fa44fff4621901edb8e",
+      "bytes": 313008
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113792866050,
+  "artifactJobName": "stage-evidence (mushroom)",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

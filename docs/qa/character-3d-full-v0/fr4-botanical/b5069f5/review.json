@@ -1,0 +1,21 @@
+{
+  "sourceCommit": "b5069f591d0e28849cbb61c7815e14502a554050",
+  "waveArtifact": 11425402641,
+  "distanceArtifact": 11425795549,
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "inspected": "32 four views,256 canonical motion states,16 normal-distance front/back",
+  "acceptedStages": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7
+  ],
+  "rejectedStages": {
+    "5": "upper-left bud should have open source eyes",
+    "8": "needle-like sparse branch tips omit rounded orange terminal buds"
+  },
+  "simplifications": "smooth bark/seed surface, reduced veins and serrations, rounded low-poly petals",
+  "runtimePromotion": false
+}

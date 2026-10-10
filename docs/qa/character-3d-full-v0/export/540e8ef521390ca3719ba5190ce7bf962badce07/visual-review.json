@@ -1,0 +1,37 @@
+{
+  "sourceCommit": "540e8ef521390ca3719ba5190ce7bf962badce07",
+  "archiveCommit": "135d4d36e54cb6a82690524d5e5285771cf8a6b7",
+  "integrity": {
+    "rawFiles": 81,
+    "allHashesVerified": true
+  },
+  "characters": {
+    "companion:clock": {
+      "status": "PASS_IMAGE_GATE",
+      "actualReview": {
+        "fourViews": 4,
+        "stateImages": 32,
+        "normalDistance": 2
+      },
+      "findings": [
+        "Dial perimeter joins rounded housing in side/three-quarter views.",
+        "All canonical states readable; hands, bells, winder and feet remain attached.",
+        "Normal-distance front and back readable with ground contact."
+      ]
+    },
+    "companion:parrot": {
+      "status": "REJECT_CREST_ORIENTATION",
+      "actualReview": {
+        "fourViews": 4,
+        "stateImages": 0,
+        "normalDistance": 0
+      },
+      "findings": [
+        "Low belly and spaced face fix the earlier exposed-leg/crowded-face findings.",
+        "Crest fans sideways in frontal plane and collapses into a thin spike from side; source crest sweeps backward above head."
+      ],
+      "next": "Adjust candidate crest paths with existing plume geometry; fresh scoped images required."
+    }
+  },
+  "humanIPhoneGate": "OPEN_SEPARATE"
+}

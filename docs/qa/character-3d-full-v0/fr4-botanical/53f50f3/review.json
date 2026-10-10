@@ -1,0 +1,13 @@
+{
+  "sourceCommit": "53f50f316a76f6a45b40ca6e76b52b3b9605b0dc",
+  "artifacts": {
+    "waveMotion": 11437986017,
+    "normalDistance": 11437382014
+  },
+  "fourViews": 8,
+  "stateFrames": 64,
+  "normalDistanceViews": 4,
+  "verdict": "PASS",
+  "reason": "Corrected leaves no longer obscure the03canonical eyes/mouth in reviewed states. Broad rosette, five outward concave red cups, physical side/back surfaces and rooted stance are readable. Smooth leaves and simplified veins are accepted v0 translation.",
+  "platform": "Chromium/SwiftShader; not iPhone"
+}

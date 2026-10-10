@@ -1,0 +1,23 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11613793216,
+    "name": "full-rollout-stage-coverage-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:6ce03c33ea137d57729b8084939532eea92728395bb209887f3dfda1bf6811b3"
+  },
+  "files": [
+    {
+      "path": "stage-coverage.json",
+      "sha256": "0e9100687d3d22450c7b930479b07412edbb92ce08de5ffc81b04526727e776d",
+      "bytes": 218967
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113805523751,
+  "artifactJobName": "stage-coverage",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

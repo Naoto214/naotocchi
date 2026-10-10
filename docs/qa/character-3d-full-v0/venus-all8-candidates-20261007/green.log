@@ -1,0 +1,33 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/0c2aa70cdbce/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/0c2aa70cdbce/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ flowering sakura has rooted branch volume, attached five-petal blossom clusters and one trunk face (138.738301ms)
+✔ botanical candidate lookup is isolated and canonical emotions retain the single owning tree (98.292561ms)
+✔ flower canopy has outward-oriented side blossoms rather than one parallel plane (51.193086ms)
+✔ leafy tree and suspended three-cherry cluster retain distinct topology and face ownership (69.785163ms)
+✔ leaf and cherry representatives retain all owned canonical faces through normal and reduced motion (50.367326ms)
+✔ leafy crown exposes leaf surfaces from the side and keeps each depth leaf attached (30.10467ms)
+✔ sakura seed, sprout, five buds, two flowers and bare tree retain explicit original topology (83.910901ms)
+✔ all sakura candidates preserve original face ownership across32 canonical states after reviewed runtime promotion (87.065054ms)
+✔ pointed seed keeps a smooth broad equator instead of a diamond corner (2.657371ms)
+✔ flower center volume leaves both canonical eye regions visible from the front (8.736161ms)
+✔ bare sakura has rounded terminal buds and preserves original open upper-left bud eyes (24.056737ms)
+✔ venus flytrap representatives retain a broad rosette and five cupped red traps with physical rim teeth (69.172376ms)
+✔ venus representatives keep all original faces and one actor clock through32 emotion/motion states (73.294894ms)
+✔ Venus representative crowns expose broad side leaves and independently oriented trap volumes (93.066548ms)
+✔ Venus rosette radial leaves leave eyes and mouth visible from front and both three-quarter directions (12.141525ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/0c2aa70cdbce/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/0c2aa70cdbce/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Venus remaining stages preserve original seed, young traps, insect cup and flowering crown (302.32536ms)
+✔ all eight Venus candidates retain finite bones and source face ownership across32 states (263.275481ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1015.787596

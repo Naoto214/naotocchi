@@ -1,0 +1,527 @@
+name: Character 3D Full Rollout
+on:
+  push:
+    branches: [feat/character-3d-full-rollout-v0]
+    paths: ['.github/character-3d-nonplayer-qa.json', '.github/character-3d-integration-motion.json', '.github/character-3d-motion-repair.json', 'character-3d/**', 'tools/character-3d/**', 'tests/character-3d*', 'docs/character-3d/full-rollout-v0/**', '.github/workflows/character-3d-rollout.yml']
+permissions:
+  contents: read
+jobs:
+  stage-matrix:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:motion-repair]') || (!contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))))) }}
+    runs-on: ubuntu-latest
+    outputs:
+      lines: ${{ steps.inventory.outputs.lines }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: inventory
+        env:
+          QA_MOTION_REPAIR: ${{ contains(github.event.head_commit.message, '[qa:motion-repair]') }}
+        run: |
+          node -e "console.log('lines='+JSON.stringify(process.env.QA_MOTION_REPAIR === 'true' ? Object.keys(require('./.github/character-3d-motion-repair.json')) : Object.keys(require('./character-3d/spec.js').ROLLOUT)))" >> "$GITHUB_OUTPUT"
+  stage-evidence:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:motion-repair]') || (!contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))))) }}
+    needs: stage-matrix
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        line: ${{ fromJSON(needs.stage-matrix.outputs.lines) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: ${{ (contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:motion-repair]')) && 25 || 15 }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - name: Exact family stages in real Meguru
+        env:
+          QA_LINE: ${{ matrix.line }}
+        run: node tools/character-3d/meguru-qa.cjs --rollout --species-only --line "$QA_LINE" --out "test-results/full-rollout/stages/$QA_LINE"
+      - name: Repair family views and exact affected motion
+        if: ${{ contains(github.event.head_commit.message, '[qa:motion-repair]') }}
+        env:
+          QA_LINE: ${{ matrix.line }}
+        run: |
+          STAGES="$(node -p "require('./.github/character-3d-motion-repair.json')[process.env.QA_LINE].map(stage => process.env.QA_LINE + ':' + stage).join(',')")"
+          test -n "$STAGES"
+          if [ "$QA_LINE" = mushroom ]; then
+            node tools/character-3d/wave-review.cjs "test-results/full-rollout/stages/$QA_LINE/repair-views" --topology --line=mushroom
+          elif [ "$QA_LINE" = clownfish ]; then
+            node tools/character-3d/wave-review.cjs "test-results/full-rollout/stages/$QA_LINE/repair-views" --fish --line=clownfish
+          else
+            exit 1
+          fi
+          node tools/character-3d/wave-motion.cjs "test-results/full-rollout/stages/$QA_LINE/repair-motion" "$STAGES"
+      - name: Missing plan-minimum player motion
+        if: ${{ contains(github.event.head_commit.message, '[qa:integration]') && !contains(github.event.head_commit.message, '[qa:motion-repair]') }}
+        env:
+          QA_LINE: ${{ matrix.line }}
+        run: |
+          STAGES="$(node -p "require('./.github/character-3d-integration-motion.json').entries.filter(key => key.startsWith(process.env.QA_LINE + ':')).join(',')")"
+          if [ -n "$STAGES" ]; then
+            node tools/character-3d/wave-motion.cjs "test-results/full-rollout/stages/$QA_LINE/missing-motion" "$STAGES"
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-stages-${{ matrix.line }}-${{ github.sha }}
+          path: test-results/full-rollout/stages/${{ matrix.line }}
+  stage-coverage:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')))) }}
+    needs: stage-evidence
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: full-rollout-stages-*-${{ github.sha }}
+          path: test-results/stage-shards
+      - name: Require complete non-duplicated same-source inventory evidence and captures
+        run: node tools/character-3d/stage-evidence.cjs test-results/stage-shards test-results/stage-coverage.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: full-rollout-stage-coverage-${{ github.sha }}
+          path: test-results/stage-coverage.json
+  conflict-audit:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')))) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Fresh mechanical audit without merging any lane
+        run: node tools/character-3d/conflict-audit.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-conflicts-${{ github.sha }}
+          path: test-results/full-rollout/conflicts.json
+  human-performance:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')))) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - name: Human-family QA mixed cast at 1 5 27 (not full-native or iPhone)
+        run: node tools/character-3d/meguru-qa.cjs --perf-only --human-mix --seconds 8 --out test-results/full-rollout/human-performance
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-human-performance-${{ github.sha }}
+          path: test-results/full-rollout/human-performance
+  aquatic-candidate-distance:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')))) }}
+    strategy:
+      fail-fast: false
+      matrix:
+        line: [coral, jellyfish]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - env:
+          QA_LINE: ${{ matrix.line }}
+        run: node tools/character-3d/meguru-qa.cjs --candidate-aquatic --rollout --species-only --line "$QA_LINE" --out test-results/full-rollout/aquatic-distance
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-aquatic-distance-${{ matrix.line }}-${{ github.sha }}
+          path: test-results/full-rollout/aquatic-distance
+  armored-candidate-distance:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')))) }}
+    strategy:
+      fail-fast: false
+      matrix:
+        line: [beetle, stagbeetle, cicada, antlion, hermit_crab]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - env:
+          QA_LINE: ${{ matrix.line }}
+        run: node tools/character-3d/meguru-qa.cjs --candidate-armored --rollout --species-only --line "$QA_LINE" --out test-results/full-rollout/armored-distance
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-armored-distance-${{ matrix.line }}-${{ github.sha }}
+          path: test-results/full-rollout/armored-distance
+  botanical-candidate-distance:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')))) }}
+    strategy:
+      fail-fast: false
+      matrix:
+        line: [sakura, venus_flytrap, world_tree]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - env:
+          QA_LINE: ${{ matrix.line }}
+        run: node tools/character-3d/meguru-qa.cjs --candidate-botanical --rollout --species-only --line "$QA_LINE" --out test-results/full-rollout/botanical-distance
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-botanical-distance-${{ matrix.line }}-${{ github.sha }}
+          path: test-results/full-rollout/botanical-distance
+  mythic-candidate-distance:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:nonplayer]') || contains(github.event.head_commit.message, '[qa:star]')))) }}
+    strategy:
+      fail-fast: false
+      matrix:
+        line: ${{ fromJSON(contains(github.event.head_commit.message, '[qa:phoenix]') && '["phoenix"]' || contains(github.event.head_commit.message, '[qa:god]') && '["god"]' || contains(github.event.head_commit.message, '[qa:ghost]') && '["ghost"]' || contains(github.event.head_commit.message, '[qa:unknown]') && '["unknown"]' || contains(github.event.head_commit.message, '[qa:star]') && '["star"]' || '["dragon","phoenix","god","ghost","plush","star","unknown"]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - env:
+          QA_LINE: ${{ matrix.line }}
+        run: node tools/character-3d/meguru-qa.cjs --candidate-mythic --rollout --species-only --line "$QA_LINE" --out test-results/full-rollout/mythic-distance
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-mythic-distance-${{ matrix.line }}-${{ github.sha }}
+          path: test-results/full-rollout/mythic-distance
+  fish-performance:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')))) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - name: Fish-family QA mixed cast at 1 5 27 (not full-native or iPhone)
+        run: node tools/character-3d/meguru-qa.cjs --perf-only --fish-mix --seconds 8 --out test-results/full-rollout/fish-performance
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-fish-performance-${{ github.sha }}
+          path: test-results/full-rollout/fish-performance
+  meguru-wave:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (contains(github.event.head_commit.message, '[qa:runtime]') || ((contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')))) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - name: Presentation lifecycle and isolated actor fallback (stage matrix runs separately)
+        if: ${{ !(contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) }}
+        run: node tools/character-3d/meguru-qa.cjs --rollout --no-species --no-perf --out test-results/full-rollout/meguru
+      - name: Production role-exact nonplayer integration without image capture
+        if: ${{ (contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) && !(contains(github.event.head_commit.message, '[qa:runtime]') && contains(github.event.head_commit.message, '[qa:scene]')) }}
+        run: node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/production-nonplayer --functional-only --require-full
+      - name: Repeated production scene lifecycle without image capture
+        id: repeated_scene
+        if: ${{ (contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) }}
+        run: node tools/character-3d/meguru-qa.cjs --rollout --no-species --no-perf --integration-scene --no-capture --out test-results/full-rollout/meguru
+      - name: Comparable fixed Pilot mix 1 5 27 actors
+        if: ${{ !(contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) }}
+        run: node tools/character-3d/meguru-qa.cjs --perf-only --seconds 8 --out test-results/full-rollout/performance
+      - name: Native composition 1 5 27 performance and isolated QA measurements
+        if: ${{ !contains(github.event.head_commit.message, '[qa:reuse-metrics]') && (contains(github.event.head_commit.message, '[qa:integration]') || contains(github.event.head_commit.message, '[qa:runtime]')) && (success() || steps.repeated_scene.conclusion == 'failure') }}
+        run: node tools/character-3d/meguru-qa.cjs --perf-only --seconds 8 --integration-metrics --no-capture --out test-results/full-rollout/performance
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-meguru-${{ github.sha }}
+          path: test-results/full-rollout
+  wave-review:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')))) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') }}
+        run: node tools/character-3d/wave-review.cjs
+      - if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') }}
+        run: node tools/character-3d/wave-review.cjs test-results/full-rollout/fish --fish
+      - if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') }}
+        run: node tools/character-3d/wave-review.cjs test-results/full-rollout/humanoid --human
+      - if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') }}
+        run: node tools/character-3d/wave-review.cjs test-results/full-rollout/topology --topology
+      - if: ${{ !contains(github.event.head_commit.message, '[qa:integration]') }}
+        run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/candidate-motion
+      - run: node tools/character-3d/gallery-smoke.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-wave-review-${{ github.sha }}
+          path: |
+            test-results/full-rollout/wave1
+            test-results/full-rollout/fish
+            test-results/full-rollout/humanoid
+            test-results/full-rollout/gallery
+            test-results/full-rollout/topology
+            test-results/full-rollout/candidate-motion
+  aquatic-wave-review:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')))) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/aquatic --aquatic
+      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/aquatic-motion coral:2,coral:5,coral:7,coral:8,jellyfish:1,jellyfish:2,jellyfish:3,jellyfish:4,jellyfish:5,jellyfish:6,jellyfish:7,jellyfish:8
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-aquatic-review-${{ github.sha }}
+          path: |
+            test-results/full-rollout/aquatic
+            test-results/full-rollout/aquatic-motion
+  armored-wave-review:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')))) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/armored --armored
+      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/armored-motion hermit_crab:1,hermit_crab:2,hermit_crab:3,hermit_crab:4,hermit_crab:5,hermit_crab:6,hermit_crab:7,hermit_crab:8,antlion:1,antlion:2,antlion:3,antlion:4,antlion:5,antlion:6,antlion:7,antlion:8,cicada:1,cicada:2,cicada:3,cicada:4,cicada:5,cicada:6,cicada:7,cicada:8,beetle:1,beetle:2,beetle:3,beetle:4,beetle:5,beetle:6,beetle:7,beetle:8,stagbeetle:1,stagbeetle:2,stagbeetle:3,stagbeetle:4,stagbeetle:5,stagbeetle:6,stagbeetle:7,stagbeetle:8
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-armored-review-${{ github.sha }}
+          path: |
+            test-results/full-rollout/armored
+            test-results/full-rollout/armored-motion
+            !test-results/full-rollout/armored/hermit_crab*.jpg
+            !test-results/full-rollout/armored-motion/hermit_crab*.jpg
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-hermit-review-${{ github.sha }}
+          path: |
+            test-results/full-rollout/armored/hermit_crab*.jpg
+            test-results/full-rollout/armored/evidence.json
+            test-results/full-rollout/armored-motion/hermit_crab*.jpg
+            test-results/full-rollout/armored-motion/motion-evidence.json
+  mythic-wave-review:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:nonplayer]') || contains(github.event.head_commit.message, '[qa:star]')))) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/mythic --mythic ${{ contains(github.event.head_commit.message, '[qa:phoenix]') && '--line=phoenix' || contains(github.event.head_commit.message, '[qa:god]') && '--line=god' || contains(github.event.head_commit.message, '[qa:ghost]') && '--line=ghost' || contains(github.event.head_commit.message, '[qa:unknown]') && '--line=unknown' || contains(github.event.head_commit.message, '[qa:star]') && '--line=star' || '' }}
+      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/mythic-motion ${{ contains(github.event.head_commit.message, '[qa:phoenix]') && 'phoenix:1,phoenix:2,phoenix:3,phoenix:4,phoenix:5,phoenix:6,phoenix:7,phoenix:8' || contains(github.event.head_commit.message, '[qa:god]') && 'god:1,god:2,god:3,god:4,god:5,god:6,god:7,god:8' || contains(github.event.head_commit.message, '[qa:ghost]') && 'ghost:1,ghost:2,ghost:3,ghost:4,ghost:5,ghost:6,ghost:7,ghost:8' || contains(github.event.head_commit.message, '[qa:unknown]') && 'unknown:1,unknown:2,unknown:3,unknown:4,unknown:5,unknown:6,unknown:7,unknown:8' || contains(github.event.head_commit.message, '[qa:star]') && 'star:1,star:2,star:3,star:4,star:5,star:6,star:7,star:8' || 'dragon:1,dragon:2,dragon:3,dragon:4,dragon:5,dragon:6,dragon:7,dragon:8,phoenix:1,phoenix:2,phoenix:3,phoenix:4,phoenix:5,phoenix:6,phoenix:7,phoenix:8,god:1,god:2,god:3,god:4,god:5,god:6,god:7,god:8,ghost:1,ghost:2,ghost:3,ghost:4,ghost:5,ghost:6,ghost:7,ghost:8,plush:1,plush:2,plush:3,plush:4,plush:5,plush:6,plush:7,plush:8,star:1,star:2,star:3,star:4,star:5,star:6,star:7,star:8,unknown:1,unknown:2,unknown:3,unknown:4,unknown:5,unknown:6,unknown:7,unknown:8' }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-mythic-review-${{ github.sha }}
+          path: |
+            test-results/full-rollout/mythic
+            test-results/full-rollout/mythic-motion
+  botanical-wave-review:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]')))) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tools/character-3d/wave-review.cjs test-results/full-rollout/botanical --botanical
+      - run: node tools/character-3d/wave-motion.cjs test-results/full-rollout/botanical-motion world_tree:1,world_tree:2,world_tree:3,world_tree:4,world_tree:5,world_tree:6,world_tree:7,world_tree:8,venus_flytrap:1,venus_flytrap:2,venus_flytrap:3,venus_flytrap:4,venus_flytrap:5,venus_flytrap:6,venus_flytrap:7,venus_flytrap:8,sakura:1,sakura:2,sakura:3,sakura:4,sakura:5,sakura:6,sakura:7,sakura:8
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-botanical-review-${{ github.sha }}
+          path: |
+            test-results/full-rollout/botanical
+            test-results/full-rollout/botanical-motion
+  nonplayer-candidate-review:
+    if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (contains(github.event.head_commit.message, '[qa:nonplayer]') || !contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]')))) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - name: Capture selected nonplayer candidates or integration batch
+        env:
+          QA_SCOPED: ${{ contains(github.event.head_commit.message, '[qa:nonplayer]') }}
+        run: |
+          LEGACY_STATES_DISTANCE="$(node -p "require('./.github/character-3d-nonplayer-qa.json').includeLegacyStatesDistance === true ? '--include-legacy-states-distance' : ''")"
+          if [ "$QA_SCOPED" = true ]; then
+            node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/nonplayer --keys="$(node -p "require('./.github/character-3d-nonplayer-qa.json').keys.join(',')")" $LEGACY_STATES_DISTANCE
+          else
+            node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/nonplayer $LEGACY_STATES_DISTANCE
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-nonplayer-review-${{ github.sha }}
+          path: test-results/full-rollout/nonplayer
+  dedicated:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - name: Fresh inventory and dedicated regression
+        if: ${{ !contains(github.event.head_commit.message, '[qa:runtime]') }}
+        run: |
+          mkdir -p test-results/full-rollout
+          node tools/character-3d/inventory.cjs test-results/full-rollout/inventory.json
+          node --test --test-reporter=tap tests/character-3d*-test.cjs > test-results/full-rollout/dedicated.tap || { cat test-results/full-rollout/dedicated.tap; exit 1; }
+      - name: Focused runtime QA regression
+        if: ${{ contains(github.event.head_commit.message, '[qa:runtime]') }}
+        run: |
+          mkdir -p test-results/full-rollout
+          node --test --test-reporter=tap tests/character-3d-runtime-integration-test.cjs tests/character-3d-runtime-save-boundary-test.cjs tests/character-3d-runtime-scene-diagnostics-test.cjs tests/character-3d-integration-workflow-test.cjs > test-results/full-rollout/runtime-dedicated.tap || { cat test-results/full-rollout/runtime-dedicated.tap; exit 1; }
+          node tools/character-3d/runtime-integration-remove-it.cjs --save-boundaries-only > test-results/full-rollout/runtime-integration-controls.txt
+          node tools/character-3d/runtime-integration-remove-it.cjs --scene-diagnostics-only > test-results/full-rollout/runtime-scene-controls.txt
+      - name: Scoped candidate mutations
+        if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (contains(github.event.head_commit.message, '[qa:phoenix]') || contains(github.event.head_commit.message, '[qa:god]') || contains(github.event.head_commit.message, '[qa:ghost]') || contains(github.event.head_commit.message, '[qa:unknown]') || contains(github.event.head_commit.message, '[qa:star]') || contains(github.event.head_commit.message, '[qa:nonplayer]'))) ) }}
+        env:
+          QA_FAMILY: ${{ contains(github.event.head_commit.message, '[qa:god]') && 'god' || contains(github.event.head_commit.message, '[qa:ghost]') && 'ghost' || contains(github.event.head_commit.message, '[qa:unknown]') && 'unknown' || contains(github.event.head_commit.message, '[qa:star]') && 'star' || contains(github.event.head_commit.message, '[qa:nonplayer]') && 'nonplayer' || 'phoenix' }}
+        run: |
+          if [ "$QA_FAMILY" = god ]; then
+            node tools/character-3d/celestial-remove-it.cjs > test-results/full-rollout/celestial-remove-it.txt
+            node tools/character-3d/god-stages-remove-it.cjs > test-results/full-rollout/god-stages-remove-it.txt
+          elif [ "$QA_FAMILY" = ghost ]; then
+            node tools/character-3d/spectral-remove-it.cjs > test-results/full-rollout/spectral-remove-it.txt
+            node tools/character-3d/ghost-stages-remove-it.cjs > test-results/full-rollout/ghost-stages-remove-it.txt
+          elif [ "$QA_FAMILY" = unknown ]; then
+            node tools/character-3d/mystery-remove-it.cjs > test-results/full-rollout/mystery-remove-it.txt
+            node tools/character-3d/unknown-stages-remove-it.cjs > test-results/full-rollout/unknown-stages-remove-it.txt
+          elif [ "$QA_FAMILY" = star ]; then
+            node tools/character-3d/cosmic-remove-it.cjs > test-results/full-rollout/cosmic-remove-it.txt
+            node tools/character-3d/star-stages-remove-it.cjs > test-results/full-rollout/star-stages-remove-it.txt
+          elif [ "$QA_FAMILY" = nonplayer ]; then
+            : # Selected nonplayer mutations run in the next step.
+          else
+            node tools/character-3d/plumed-bird-remove-it.cjs > test-results/full-rollout/plumed-bird-remove-it.txt
+            node tools/character-3d/phoenix-stages-remove-it.cjs > test-results/full-rollout/phoenix-stages-remove-it.txt
+          fi
+      - name: Scoped selected nonplayer mutations
+        if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (contains(github.event.head_commit.message, '[qa:nonplayer]'))) ) }}
+        run: node tools/character-3d/nonplayer-mutations.cjs
+      - name: Repaired fish and fungus mechanisms
+        if: ${{ contains(github.event.head_commit.message, '[qa:motion-repair]') && !contains(github.event.head_commit.message, '[qa:runtime]') }}
+        run: |
+          node tools/character-3d/fish-remove-it.cjs > test-results/full-rollout/fish-remove-it.txt
+          node tools/character-3d/fungus-remove-it.cjs > test-results/full-rollout/fungus-remove-it.txt
+      - name: Existing mechanism mutations
+        if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (contains(github.event.head_commit.message, '[qa:integration]') || (!contains(github.event.head_commit.message, '[qa:phoenix]') && !contains(github.event.head_commit.message, '[qa:god]') && !contains(github.event.head_commit.message, '[qa:ghost]') && !contains(github.event.head_commit.message, '[qa:unknown]') && !contains(github.event.head_commit.message, '[qa:star]') && !contains(github.event.head_commit.message, '[qa:nonplayer]'))) ) }}
+        run: |
+          sh tools/character-3d/remove-it.sh > test-results/full-rollout/remove-it.txt
+          node tools/character-3d/quality-remove-it.cjs > test-results/full-rollout/quality-remove-it.txt
+          node tools/character-3d/quality2-remove-it.cjs > test-results/full-rollout/quality2-remove-it.txt
+          node tools/character-3d/quality3-remove-it.cjs > test-results/full-rollout/quality3-remove-it.txt
+          node tools/character-3d/rollout-remove-it.cjs > test-results/full-rollout/rollout-remove-it.txt
+          node tools/character-3d/fish-remove-it.cjs > test-results/full-rollout/fish-remove-it.txt
+          node tools/character-3d/humanoid-remove-it.cjs > test-results/full-rollout/humanoid-remove-it.txt
+          node tools/character-3d/plant-remove-it.cjs > test-results/full-rollout/plant-remove-it.txt
+          node tools/character-3d/emergence-remove-it.cjs > test-results/full-rollout/emergence-remove-it.txt
+          node tools/character-3d/fungus-remove-it.cjs > test-results/full-rollout/fungus-remove-it.txt
+          node tools/character-3d/starfish-remove-it.cjs > test-results/full-rollout/starfish-remove-it.txt
+          node tools/character-3d/shell-remove-it.cjs > test-results/full-rollout/shell-remove-it.txt
+          node tools/character-3d/crouch-remove-it.cjs > test-results/full-rollout/crouch-remove-it.txt
+          node tools/character-3d/aquatic-remove-it.cjs > test-results/full-rollout/aquatic-remove-it.txt
+          node tools/character-3d/armored-remove-it.cjs > test-results/full-rollout/armored-remove-it.txt
+          node tools/character-3d/botanical-remove-it.cjs > test-results/full-rollout/botanical-remove-it.txt
+          node tools/character-3d/venus-stages-remove-it.cjs > test-results/full-rollout/venus-stages-remove-it.txt
+          node tools/character-3d/crustacean-remove-it.cjs > test-results/full-rollout/crustacean-remove-it.txt
+          node tools/character-3d/dragon-stages-remove-it.cjs > test-results/full-rollout/dragon-stages-remove-it.txt
+          node tools/character-3d/mythic-remove-it.cjs > test-results/full-rollout/mythic-remove-it.txt
+          node tools/character-3d/plumed-bird-remove-it.cjs > test-results/full-rollout/plumed-bird-remove-it.txt
+          node tools/character-3d/celestial-remove-it.cjs > test-results/full-rollout/celestial-remove-it.txt
+          node tools/character-3d/world-tree-remove-it.cjs > test-results/full-rollout/world-tree-remove-it.txt
+          node tools/character-3d/spectral-remove-it.cjs > test-results/full-rollout/spectral-remove-it.txt
+          node tools/character-3d/nonplayer-remove-it.cjs > test-results/full-rollout/nonplayer-remove-it.txt
+          node tools/character-3d/nonplayer-wave-remove-it.cjs > test-results/full-rollout/nonplayer-wave-remove-it.txt
+          node tools/character-3d/mystery-remove-it.cjs > test-results/full-rollout/mystery-remove-it.txt
+          node tools/character-3d/plush-remove-it.cjs > test-results/full-rollout/plush-remove-it.txt
+          node tools/character-3d/plush-stages-remove-it.cjs > test-results/full-rollout/plush-stages-remove-it.txt
+          node tools/character-3d/cosmic-remove-it.cjs > test-results/full-rollout/cosmic-remove-it.txt
+          node tools/character-3d/jelly-remove-it.cjs > test-results/full-rollout/jelly-remove-it.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-rollout-dedicated-${{ github.sha }}
+          path: test-results/full-rollout

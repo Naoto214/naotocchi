@@ -1,0 +1,1018 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0",
+  "artifact": {
+    "id": 11604398817,
+    "name": "full-rollout-nonplayer-review-5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0",
+    "digest": "sha256:a6beef524cb5945dcd1f7876cac646df8b227c943a66d616d73ed864fb22495a"
+  },
+  "files": [
+    {
+      "path": "companion-unicorn-0-34.jpg",
+      "sha256": "30ebd82b96c4bf52b13dc1d5ecc7f08909d6a3f9e592808bdc1843acb96151b7",
+      "bytes": 11351
+    },
+    {
+      "path": "companion-unicorn-0-back.jpg",
+      "sha256": "8dbe0c7412279f590434bb0d6fa8200a6a5289a2a175b984cbc6892f192cef32",
+      "bytes": 9692
+    },
+    {
+      "path": "companion-unicorn-0-dislike-idle-normal.jpg",
+      "sha256": "a1214ce3de55425e8030eb50666d34fa0ece0e8d52bdd45b00a94f091a9d6bf7",
+      "bytes": 11203
+    },
+    {
+      "path": "companion-unicorn-0-dislike-idle-reduced.jpg",
+      "sha256": "8a4411496fbdb022e794335aa0379c129ff3b3b18c0a3dabde39a9876a2ccb28",
+      "bytes": 11278
+    },
+    {
+      "path": "companion-unicorn-0-dislike-walk-normal.jpg",
+      "sha256": "4b87195c871eaecb5544855fac8b5f3f9b8eabaa792e386ddbcf70b98ef79ee2",
+      "bytes": 11072
+    },
+    {
+      "path": "companion-unicorn-0-dislike-walk-reduced.jpg",
+      "sha256": "0d1cafcd1e49e258b140534ae349ea5ee9a38b74228eb9b52002fe689da59b4e",
+      "bytes": 10986
+    },
+    {
+      "path": "companion-unicorn-0-front.jpg",
+      "sha256": "daabb7b3b53ec4797905e8134239743adfb0e0fd21a94924a5553a0989112952",
+      "bytes": 9471
+    },
+    {
+      "path": "companion-unicorn-0-normal-idle-normal.jpg",
+      "sha256": "30ebd82b96c4bf52b13dc1d5ecc7f08909d6a3f9e592808bdc1843acb96151b7",
+      "bytes": 11351
+    },
+    {
+      "path": "companion-unicorn-0-normal-idle-reduced.jpg",
+      "sha256": "4dd4cd64ba766001b7ce6ed9d04c300ab362ec7f9b4ca4d63d38b8f062de1df6",
+      "bytes": 11514
+    },
+    {
+      "path": "companion-unicorn-0-normal-walk-normal.jpg",
+      "sha256": "df12e9f39c4009f1687388d88e437540a445ba563d93ad8ff068a8c0238cf476",
+      "bytes": 11269
+    },
+    {
+      "path": "companion-unicorn-0-normal-walk-reduced.jpg",
+      "sha256": "855076c49e0896352d02006a859ee60573c4743474ec5d262f86604944b896db",
+      "bytes": 11309
+    },
+    {
+      "path": "companion-unicorn-0-positive-idle-normal.jpg",
+      "sha256": "94ef1f658839a2131f00be34769f2e4e5e628edb2cba2a77be198aee9039c980",
+      "bytes": 11632
+    },
+    {
+      "path": "companion-unicorn-0-positive-idle-reduced.jpg",
+      "sha256": "119a0827328e980661077d9e6649436689af2056d018461fdc0a10358261c7b5",
+      "bytes": 11584
+    },
+    {
+      "path": "companion-unicorn-0-positive-walk-normal.jpg",
+      "sha256": "01c431007620e14c49f11d3e5590a80facca58f736ecf2e0d7d5b5aca5d237d3",
+      "bytes": 11710
+    },
+    {
+      "path": "companion-unicorn-0-positive-walk-reduced.jpg",
+      "sha256": "21be7ee6b038a65efe839447deacd1ee84d8cc89e5a31e928fc8cbf19f5db88d",
+      "bytes": 11385
+    },
+    {
+      "path": "companion-unicorn-0-sick-idle-normal.jpg",
+      "sha256": "bc3f7af3a64400fb5aad7505ee168f5b4dd7f40eff61cfea58a590200fa0e884",
+      "bytes": 11070
+    },
+    {
+      "path": "companion-unicorn-0-sick-idle-reduced.jpg",
+      "sha256": "a75a0ebb89de2539fc98bf292df414689f41a24820bdca15345bf29926c667eb",
+      "bytes": 11212
+    },
+    {
+      "path": "companion-unicorn-0-sick-walk-normal.jpg",
+      "sha256": "ba828e554972c3437c76a14b21814c073a65bb7fec961318a3121f3ad22eb77c",
+      "bytes": 10906
+    },
+    {
+      "path": "companion-unicorn-0-sick-walk-reduced.jpg",
+      "sha256": "0bdcb6ea0bf9693be5fcdde67e07c4ec05e3284d50af7e7f99910c0bb5514a30",
+      "bytes": 10958
+    },
+    {
+      "path": "companion-unicorn-0-side.jpg",
+      "sha256": "a5159535dd9d9bcb1ad4d51ea8399c52b10f2d3c25d9f5bc74344ad46827b26b",
+      "bytes": 11447
+    },
+    {
+      "path": "companion-unicorn-0-sleeping-idle-normal.jpg",
+      "sha256": "804ec81839d211a8e5788e09262c5052f986b2cf6eec83e9a5152b2a5dffafec",
+      "bytes": 11193
+    },
+    {
+      "path": "companion-unicorn-0-sleeping-idle-reduced.jpg",
+      "sha256": "bea76a409b2fab42764d08dbe1310f92de4b88f64e6a06da04ae955a9e7b0342",
+      "bytes": 11133
+    },
+    {
+      "path": "companion-unicorn-0-sleeping-walk-normal.jpg",
+      "sha256": "ed2ac76a74596d4738613e3a23c1a530cb52a2a0d1bcdaee497b36ee005310c6",
+      "bytes": 10918
+    },
+    {
+      "path": "companion-unicorn-0-sleeping-walk-reduced.jpg",
+      "sha256": "b7db5231033079829f1177659108ab8323abd887140be63c04a1cb5e142619da",
+      "bytes": 10954
+    },
+    {
+      "path": "companion-unicorn-0-strained-idle-normal.jpg",
+      "sha256": "d7b67f1b4362270151f7250d40bf1f860a316878bbcedb4baf311b9d8a1a5b01",
+      "bytes": 11131
+    },
+    {
+      "path": "companion-unicorn-0-strained-idle-reduced.jpg",
+      "sha256": "0e0d19ccd66ab812269a7b44598131ae6ca0a755e59de68c4dfba0ed4b53a19e",
+      "bytes": 11259
+    },
+    {
+      "path": "companion-unicorn-0-strained-walk-normal.jpg",
+      "sha256": "9f8c263e992d43b16c66dc786ee6f61b8aea27d2a859d144f03f90c16845591b",
+      "bytes": 11152
+    },
+    {
+      "path": "companion-unicorn-0-strained-walk-reduced.jpg",
+      "sha256": "2f24890ee7f2e6d7f90fe5d4573badb0088b075c3837a832c5c05f0ca252fd11",
+      "bytes": 11118
+    },
+    {
+      "path": "companion-unicorn-0-tired-idle-normal.jpg",
+      "sha256": "37c448ab2b86abd9507b53aa00cbbdbcb22e080c14083dffcca12da99bc00e0c",
+      "bytes": 11097
+    },
+    {
+      "path": "companion-unicorn-0-tired-idle-reduced.jpg",
+      "sha256": "1e222cb64eed0d25b9960738462e3e0b24c199b9078296a795ae63e01573ee31",
+      "bytes": 11298
+    },
+    {
+      "path": "companion-unicorn-0-tired-walk-normal.jpg",
+      "sha256": "20e1ced538729652a212b098331dd7339e068c39ebf3d1406edd613dd6aeeb10",
+      "bytes": 10901
+    },
+    {
+      "path": "companion-unicorn-0-tired-walk-reduced.jpg",
+      "sha256": "4a186ef9ed99ccc8e8097891812f5a839eb55d6317ecc7400721029e02b97c6a",
+      "bytes": 11032
+    },
+    {
+      "path": "companion-unicorn-0-wantsPlay-idle-normal.jpg",
+      "sha256": "fe303b6cd2cdf444e9b744f6b71ed89ebe1de4611efaa5eedda76f026596c237",
+      "bytes": 10937
+    },
+    {
+      "path": "companion-unicorn-0-wantsPlay-idle-reduced.jpg",
+      "sha256": "0a7b78f371ca7ef7dacdfc7763e4c54cd868f72e0a58cf8b2600bd050dd22aeb",
+      "bytes": 11849
+    },
+    {
+      "path": "companion-unicorn-0-wantsPlay-walk-normal.jpg",
+      "sha256": "cbcb9b3c8660f2bd60077add744be71b2964c1f90afefd7056e16e74e48a8694",
+      "bytes": 10631
+    },
+    {
+      "path": "companion-unicorn-0-wantsPlay-walk-reduced.jpg",
+      "sha256": "211c8eca2a7573da70db0898da119a5f9b7f4b5aa067c47bee6a5765a39985b5",
+      "bytes": 11283
+    },
+    {
+      "path": "companion-unicorn-distance-back.jpg",
+      "sha256": "e0b761e0c71e79f5dee6bacb00560005d6a59d512a11a257885d54b634a9434a",
+      "bytes": 119270
+    },
+    {
+      "path": "companion-unicorn-distance-front.jpg",
+      "sha256": "cb851009db2ffc00d3c412eb6a7c24d3bd9629547f918b1cbf1da8b18f516e3e",
+      "bytes": 118416
+    },
+    {
+      "path": "companion-unicorn-motion.jpg",
+      "sha256": "ec7f77b19b9fe603e5ca14e9c277b22438b5e1613423d7ed16fdb8f6cfe83a49",
+      "bytes": 498243
+    },
+    {
+      "path": "companion-unicorn-views.jpg",
+      "sha256": "27a7bad625e15f0d42dfc8f4cac0b59b0666cf58859ebbd0257ee43aee8bc5b7",
+      "bytes": 59671
+    },
+    {
+      "path": "evidence.json",
+      "sha256": "ed1e94701b656481490e1c331ddab263cb4652651cbc2eae38f25131867a3161",
+      "bytes": 128682
+    },
+    {
+      "path": "partner-cat_ceo-0-34.jpg",
+      "sha256": "fc5c7d545ac7f214dddf61601c7570a9f8ed9c8dbdfb15041fd163f3c8ee08fc",
+      "bytes": 10130
+    },
+    {
+      "path": "partner-cat_ceo-0-back.jpg",
+      "sha256": "fd0daecb977ab9faa34ffd15a2608dc041d1ac9a8c5669dbfd0f8ba810469063",
+      "bytes": 9977
+    },
+    {
+      "path": "partner-cat_ceo-0-dislike-idle-normal.jpg",
+      "sha256": "b1bfe5aa5744523417453a423e3a9307937d84c6fde2be5c416fdc1046c3b0b9",
+      "bytes": 9931
+    },
+    {
+      "path": "partner-cat_ceo-0-dislike-idle-reduced.jpg",
+      "sha256": "df079dbda57d8754124d759b971f5b7c1e38f9478cebf3ac6107e1b151c4a496",
+      "bytes": 10218
+    },
+    {
+      "path": "partner-cat_ceo-0-dislike-walk-normal.jpg",
+      "sha256": "b04d2f252f9e71ee17c597fd32a959c86921845d140e455923f84da65212b4e6",
+      "bytes": 9801
+    },
+    {
+      "path": "partner-cat_ceo-0-dislike-walk-reduced.jpg",
+      "sha256": "c517f5ba08ad4eb3244bb6d36d21dc6247fb4a1591f71a94465df59e0d18478c",
+      "bytes": 10167
+    },
+    {
+      "path": "partner-cat_ceo-0-front.jpg",
+      "sha256": "3dc3d998080eb5840c92f8850a06446acb375942b9c0fc5e7a65dd665fc6d36b",
+      "bytes": 11105
+    },
+    {
+      "path": "partner-cat_ceo-0-normal-idle-normal.jpg",
+      "sha256": "fc5c7d545ac7f214dddf61601c7570a9f8ed9c8dbdfb15041fd163f3c8ee08fc",
+      "bytes": 10130
+    },
+    {
+      "path": "partner-cat_ceo-0-normal-idle-reduced.jpg",
+      "sha256": "891f15233bb54127c70d8cbd39d7b04288f9247364162bb91aac5349ca0f378e",
+      "bytes": 10298
+    },
+    {
+      "path": "partner-cat_ceo-0-normal-walk-normal.jpg",
+      "sha256": "0fb2d6f532902af23eb416b41d499ec211baa0d69d882ca9e8770b56ec10e0ca",
+      "bytes": 10469
+    },
+    {
+      "path": "partner-cat_ceo-0-normal-walk-reduced.jpg",
+      "sha256": "daff865e8826156b664fe96e400cc73d2ca5b4080fca1158cea6b2dea3aefd4e",
+      "bytes": 10454
+    },
+    {
+      "path": "partner-cat_ceo-0-positive-idle-normal.jpg",
+      "sha256": "8f52363f842dd548be7ea954b88e70590edb9405a7450eb5da1a36e3e72bc43c",
+      "bytes": 10319
+    },
+    {
+      "path": "partner-cat_ceo-0-positive-idle-reduced.jpg",
+      "sha256": "c419cfec043869ac356bc833bb79d489384edfd7377829670de743ad15871a8e",
+      "bytes": 10437
+    },
+    {
+      "path": "partner-cat_ceo-0-positive-walk-normal.jpg",
+      "sha256": "f2c509a9a79abbc140ac9c19f6fb733fc4b4a228a2e146be0d08ea79ba8a639c",
+      "bytes": 10197
+    },
+    {
+      "path": "partner-cat_ceo-0-positive-walk-reduced.jpg",
+      "sha256": "5e034a3603fceeb24e52e680f76240d5b8155c71d8b8e5de3a9a7fd66a535af0",
+      "bytes": 10380
+    },
+    {
+      "path": "partner-cat_ceo-0-sick-idle-normal.jpg",
+      "sha256": "230e677ffc91e2ab54fd62f941a41c75df49b5442f3dafe02108d876f9a52a74",
+      "bytes": 10275
+    },
+    {
+      "path": "partner-cat_ceo-0-sick-idle-reduced.jpg",
+      "sha256": "372be959cb5a133ebcaf37bf702b44956430385298148ca4ecd41ccd977fd7a3",
+      "bytes": 10284
+    },
+    {
+      "path": "partner-cat_ceo-0-sick-walk-normal.jpg",
+      "sha256": "7b10e723d2fcd9f093b36beeb2aa667ab9a9c93c80b7947b400ece01639dd9fc",
+      "bytes": 10557
+    },
+    {
+      "path": "partner-cat_ceo-0-sick-walk-reduced.jpg",
+      "sha256": "e8d1a8e9b1dbee5f3ed8c2c36ef2cf3438dae778ef771f03f5bd6b3832b0571d",
+      "bytes": 10452
+    },
+    {
+      "path": "partner-cat_ceo-0-side.jpg",
+      "sha256": "8ef068ad03dce4c3cb53b525f259e142de1e81bb2bfb14476f5dc6bdad1d5a8b",
+      "bytes": 9413
+    },
+    {
+      "path": "partner-cat_ceo-0-sleeping-idle-normal.jpg",
+      "sha256": "192678bf20e73ecac7cc5a75238e59086a02224364b1c73fc73a2c3f1f06b39f",
+      "bytes": 10630
+    },
+    {
+      "path": "partner-cat_ceo-0-sleeping-idle-reduced.jpg",
+      "sha256": "3b2967def51970cfa85d56e0ae5b445034fd92e0ae722c7e37cb65142506371a",
+      "bytes": 10564
+    },
+    {
+      "path": "partner-cat_ceo-0-sleeping-walk-normal.jpg",
+      "sha256": "1aceb84fd59430683aeb5e35879cff3229840f7816f2b3d5a4656582a0b05fb9",
+      "bytes": 10225
+    },
+    {
+      "path": "partner-cat_ceo-0-sleeping-walk-reduced.jpg",
+      "sha256": "eb55325dbfb4539fb42e45115506e8ff6dcca14783c34b44ea4b89f661e51f90",
+      "bytes": 10246
+    },
+    {
+      "path": "partner-cat_ceo-0-strained-idle-normal.jpg",
+      "sha256": "6d0a3f39c72c5eb9bec4f05b42b54cfb9041fde5e1b13b27a650d407f124490b",
+      "bytes": 10491
+    },
+    {
+      "path": "partner-cat_ceo-0-strained-idle-reduced.jpg",
+      "sha256": "5d5c79c2d7f5cd9240a01f76971cd0e3bae70063c428b92cf2ef1333d67049e9",
+      "bytes": 10685
+    },
+    {
+      "path": "partner-cat_ceo-0-strained-walk-normal.jpg",
+      "sha256": "3b5a44c4a73e520dbb73726165c19945851d77874bd0eb73356ba523530a9f94",
+      "bytes": 10633
+    },
+    {
+      "path": "partner-cat_ceo-0-strained-walk-reduced.jpg",
+      "sha256": "720b6ccc7b3e0ef4445ff74d4437bef8344810f882da4fcc4b86148e8f8eefa1",
+      "bytes": 10514
+    },
+    {
+      "path": "partner-cat_ceo-0-tired-idle-normal.jpg",
+      "sha256": "0792b629b0a9665399d922f9360f0a001961632d67b5e4eba3fa84704dfa4b71",
+      "bytes": 10375
+    },
+    {
+      "path": "partner-cat_ceo-0-tired-idle-reduced.jpg",
+      "sha256": "ef74b2e7f44820ba39ff1c2e27deea81ecf5e57e931a9515854e8c721d1d13b7",
+      "bytes": 10339
+    },
+    {
+      "path": "partner-cat_ceo-0-tired-walk-normal.jpg",
+      "sha256": "95a70cf6109e647d2a7eda4f8a06960c1edb31448f0dfca83a17922915589c7d",
+      "bytes": 10490
+    },
+    {
+      "path": "partner-cat_ceo-0-tired-walk-reduced.jpg",
+      "sha256": "3e291ad19b179280658b5732b1b0ea1ca3910c2d3da9d836c4bea8c4d2e8b9a4",
+      "bytes": 10508
+    },
+    {
+      "path": "partner-cat_ceo-0-wantsPlay-idle-normal.jpg",
+      "sha256": "25c849b84a5c33a5d2da908c6879a5816566dcdb88ba4d421a95b7ad71285fc9",
+      "bytes": 10282
+    },
+    {
+      "path": "partner-cat_ceo-0-wantsPlay-idle-reduced.jpg",
+      "sha256": "3453b66e7b4060b1368ccaa679e7cbc99e211f9f57bda98509a6fb9c591fa716",
+      "bytes": 10452
+    },
+    {
+      "path": "partner-cat_ceo-0-wantsPlay-walk-normal.jpg",
+      "sha256": "5e90ce49996712cb8e3e3ee3982572a419b3c2d193aa038fd327ebf39f12f1cf",
+      "bytes": 10001
+    },
+    {
+      "path": "partner-cat_ceo-0-wantsPlay-walk-reduced.jpg",
+      "sha256": "cdc9ee93e95137934e83edb094ee028d1e211f64b26b0ec53a5fefaa513cc341",
+      "bytes": 10179
+    },
+    {
+      "path": "partner-cat_ceo-distance-back.jpg",
+      "sha256": "95dd05107e03aad1a3cfa4bc80bd9efb7c5fc6c14ce014395a6ff17769635fba",
+      "bytes": 117243
+    },
+    {
+      "path": "partner-cat_ceo-distance-front.jpg",
+      "sha256": "fc057973551eab7a0221cc1a55f15aad1ec381a231775652b5093338340eefa7",
+      "bytes": 117392
+    },
+    {
+      "path": "partner-cat_ceo-motion.jpg",
+      "sha256": "075cc6cab60c522e71ec90ffa062c8ad8dce99c31ccedca8edd3479d53721564",
+      "bytes": 398420
+    },
+    {
+      "path": "partner-cat_ceo-views.jpg",
+      "sha256": "1ae8c66705c255062f1b8a97755b5b2bd0324d4f7eea4078aacbc8f93eea5923",
+      "bytes": 49349
+    },
+    {
+      "path": "partner-robot_neighbor-0-34.jpg",
+      "sha256": "3a8a6c7b904b7d7143050b2aa0847f2109527dec7ced03e211001f997fc048cc",
+      "bytes": 10542
+    },
+    {
+      "path": "partner-robot_neighbor-0-back.jpg",
+      "sha256": "82c45728257c49e90b5a13779361f94f196edc56e4273f8d1d07fb5e0653bf9b",
+      "bytes": 10089
+    },
+    {
+      "path": "partner-robot_neighbor-0-dislike-idle-normal.jpg",
+      "sha256": "6dd3a78080efba89fddd71a7d928efde5b02691d9f4b50d268c6b63676ec9b81",
+      "bytes": 10782
+    },
+    {
+      "path": "partner-robot_neighbor-0-dislike-idle-reduced.jpg",
+      "sha256": "57cf8b6783b61a9387e6b4f17097bb6e3731668ad0488bcf51709153827b2ee5",
+      "bytes": 10868
+    },
+    {
+      "path": "partner-robot_neighbor-0-dislike-walk-normal.jpg",
+      "sha256": "6f4af331752de9465d3bc26a87b652014efeb8cfa6ad773c56498a3c0b20a833",
+      "bytes": 10760
+    },
+    {
+      "path": "partner-robot_neighbor-0-dislike-walk-reduced.jpg",
+      "sha256": "f427d4641240530942f534b1bd0221ab6b62f02f97f65e80e66cb5599571649e",
+      "bytes": 10864
+    },
+    {
+      "path": "partner-robot_neighbor-0-front.jpg",
+      "sha256": "b704ac05021996c3c05bf185e29c50e3b1201afb7eda08a5620cb7b37d74b41e",
+      "bytes": 10953
+    },
+    {
+      "path": "partner-robot_neighbor-0-normal-idle-normal.jpg",
+      "sha256": "3a8a6c7b904b7d7143050b2aa0847f2109527dec7ced03e211001f997fc048cc",
+      "bytes": 10542
+    },
+    {
+      "path": "partner-robot_neighbor-0-normal-idle-reduced.jpg",
+      "sha256": "635af5ef47a0d015f0e30fbc6c23d320ae73e05a1095f399c61b109ee9188757",
+      "bytes": 10680
+    },
+    {
+      "path": "partner-robot_neighbor-0-normal-walk-normal.jpg",
+      "sha256": "9a78a38d61fdea44ab3b28378e03da44921e68d2a6b9794ecf10e16514e24d0f",
+      "bytes": 10646
+    },
+    {
+      "path": "partner-robot_neighbor-0-normal-walk-reduced.jpg",
+      "sha256": "41bd2b3881086a6e89d50a70408e5f95d5a66361acbb8fa617ee1c141750cdbd",
+      "bytes": 10676
+    },
+    {
+      "path": "partner-robot_neighbor-0-positive-idle-normal.jpg",
+      "sha256": "2de445b32773af5f60bfef504213d96783b0c68c0bdb3715345c84e1c6389eb1",
+      "bytes": 10649
+    },
+    {
+      "path": "partner-robot_neighbor-0-positive-idle-reduced.jpg",
+      "sha256": "36bd059bc52eff9335522946cb1d812ee26fcf64393cf4e45a539b18896273cb",
+      "bytes": 10887
+    },
+    {
+      "path": "partner-robot_neighbor-0-positive-walk-normal.jpg",
+      "sha256": "fc24e5ffa8c1723febe5147e389dfb635e3e51fb9ffa4f7b96ec543c38be506d",
+      "bytes": 10758
+    },
+    {
+      "path": "partner-robot_neighbor-0-positive-walk-reduced.jpg",
+      "sha256": "6cceddee4bf7e0b104d1b1b5006305ec5e6ba31317cc41495c8541d348a584ab",
+      "bytes": 11055
+    },
+    {
+      "path": "partner-robot_neighbor-0-sick-idle-normal.jpg",
+      "sha256": "1ddba3f6962d3bba7788c7bc2b022e847a54e275a72746a5677634f0e55241d9",
+      "bytes": 10571
+    },
+    {
+      "path": "partner-robot_neighbor-0-sick-idle-reduced.jpg",
+      "sha256": "f27bff2b1fe79692dc17381403f525038cca1234f204cc2cd9a1adf6d67a6901",
+      "bytes": 10577
+    },
+    {
+      "path": "partner-robot_neighbor-0-sick-walk-normal.jpg",
+      "sha256": "73c0bcd1910a5337d7795a983f698b70524f3e924947bdb4cf5b850df6c43eb3",
+      "bytes": 10916
+    },
+    {
+      "path": "partner-robot_neighbor-0-sick-walk-reduced.jpg",
+      "sha256": "ef08cf1b5b7d7a11739f19dca5f87563e2206b783fcfc24148a134596a4293c6",
+      "bytes": 11034
+    },
+    {
+      "path": "partner-robot_neighbor-0-side.jpg",
+      "sha256": "db9d9128db1d2579772522b2dc64ba348c6a328f682a44737d4d7506645d06f1",
+      "bytes": 8653
+    },
+    {
+      "path": "partner-robot_neighbor-0-sleeping-idle-normal.jpg",
+      "sha256": "b0613a82a3eae6d70382fa23644d128fe03330ecde8f0df996a1b634c4559c27",
+      "bytes": 10888
+    },
+    {
+      "path": "partner-robot_neighbor-0-sleeping-idle-reduced.jpg",
+      "sha256": "8c43773cac8cccef93dfa0924fb503092dcb3b1cbb5ec9b5ca64d342f27dd387",
+      "bytes": 10971
+    },
+    {
+      "path": "partner-robot_neighbor-0-sleeping-walk-normal.jpg",
+      "sha256": "f51d7e3f6dc7aa1223973f6e25f47e5d450adc9e9d7a1df5983c0ff1b5cda9ad",
+      "bytes": 10773
+    },
+    {
+      "path": "partner-robot_neighbor-0-sleeping-walk-reduced.jpg",
+      "sha256": "be4d240b145fd4ff1aa6c102b89ef423241c7868a34b9fc0b16a76746fea57f7",
+      "bytes": 11002
+    },
+    {
+      "path": "partner-robot_neighbor-0-strained-idle-normal.jpg",
+      "sha256": "c55994f4a8a1a1d403db35b59d9f2afda5ce683041af48ecc55072531269e240",
+      "bytes": 10841
+    },
+    {
+      "path": "partner-robot_neighbor-0-strained-idle-reduced.jpg",
+      "sha256": "271057ef94f357a6ac9b7d2221ecccfbf2200910012d8e2a5cf9bfe102795db3",
+      "bytes": 10805
+    },
+    {
+      "path": "partner-robot_neighbor-0-strained-walk-normal.jpg",
+      "sha256": "8ee552086bebe3a66a6c9781d748c25974017b6e273c565d09165de07f222dd2",
+      "bytes": 10684
+    },
+    {
+      "path": "partner-robot_neighbor-0-strained-walk-reduced.jpg",
+      "sha256": "6e78e7ab36f6a8aee51bc6b127cd0c4c983576eab10ce64306480e9c5efa1a46",
+      "bytes": 10856
+    },
+    {
+      "path": "partner-robot_neighbor-0-tired-idle-normal.jpg",
+      "sha256": "8ff194a425c753fc4def696e76920e47dd9b973e407f644482ab4df936a82d9b",
+      "bytes": 10682
+    },
+    {
+      "path": "partner-robot_neighbor-0-tired-idle-reduced.jpg",
+      "sha256": "f0c3102cc35888c51bae9138ac6cf6e2daada856c6e4d35e220af2b92feaf364",
+      "bytes": 10815
+    },
+    {
+      "path": "partner-robot_neighbor-0-tired-walk-normal.jpg",
+      "sha256": "01c929ed3a17e4c313f0619c54168bf9e2179bf7eff2454d5f821cb07dcf7c54",
+      "bytes": 10959
+    },
+    {
+      "path": "partner-robot_neighbor-0-tired-walk-reduced.jpg",
+      "sha256": "f1023cd897d8e2fee336bfd0882955a7cdb4f6d3017ec173afad107bfc6fbc92",
+      "bytes": 10971
+    },
+    {
+      "path": "partner-robot_neighbor-0-wantsPlay-idle-normal.jpg",
+      "sha256": "82c0223dd2a63862ff55f6d2acbeedb20c33d260b496cd9bd55799e2e77b202d",
+      "bytes": 10605
+    },
+    {
+      "path": "partner-robot_neighbor-0-wantsPlay-idle-reduced.jpg",
+      "sha256": "0a16b2f1c6d1316ed1463d334cd8f53b7f9e0c9f36836e046b862374b21d5cb9",
+      "bytes": 11019
+    },
+    {
+      "path": "partner-robot_neighbor-0-wantsPlay-walk-normal.jpg",
+      "sha256": "a3c03325e869cb3bb7ba9cb5e95abf17beb343d7661be58fd439732d1504d40b",
+      "bytes": 10977
+    },
+    {
+      "path": "partner-robot_neighbor-0-wantsPlay-walk-reduced.jpg",
+      "sha256": "404a2a2a314c931ec8ae60365cbc2cb9d3486086140f5c74eac048758af93d94",
+      "bytes": 11102
+    },
+    {
+      "path": "partner-robot_neighbor-distance-back.jpg",
+      "sha256": "7f3223b0b945f719ead58e76d234f892b584ab82121ff04d9c4c5ab62e8369be",
+      "bytes": 118462
+    },
+    {
+      "path": "partner-robot_neighbor-distance-front.jpg",
+      "sha256": "36350ea5cb1de5df9bff16318bcc025888b0e880ddebcb70a496a1e95548f239",
+      "bytes": 118313
+    },
+    {
+      "path": "partner-robot_neighbor-motion.jpg",
+      "sha256": "e2f9e1d4b89548e17925e9fe7bced01e395f2c652419eafd5f4684ac6126682c",
+      "bytes": 448445
+    },
+    {
+      "path": "partner-robot_neighbor-views.jpg",
+      "sha256": "8ba6432ea3b573b9cafd0204aba2907b1391037a4aa1c18267b46b8236207d52",
+      "bytes": 53319
+    },
+    {
+      "path": "partner-sea_mermaid-0-34.jpg",
+      "sha256": "1b4a55ca2c9aaa32707197466978bf2f13fdee1b08247ba2f8b719dacb3ed5d8",
+      "bytes": 13927
+    },
+    {
+      "path": "partner-sea_mermaid-0-back.jpg",
+      "sha256": "760fb25163bdec7372911674f847a05a8a34698a7510bb6ca2c5109bfee6f3f7",
+      "bytes": 13147
+    },
+    {
+      "path": "partner-sea_mermaid-0-dislike-idle-normal.jpg",
+      "sha256": "231c1c5e75064d6f47f3e2ffa238d7c26623c075858b5618bb6f82f6978a4742",
+      "bytes": 14038
+    },
+    {
+      "path": "partner-sea_mermaid-0-dislike-idle-reduced.jpg",
+      "sha256": "02ece5d822d39742e7ff6104b017fbc91b52ff9566dac0571ffb9f79e160af0a",
+      "bytes": 14034
+    },
+    {
+      "path": "partner-sea_mermaid-0-dislike-walk-normal.jpg",
+      "sha256": "5e7be040c3c748d6f1f9b48fb6d14efbac653d61be17effa79beba69a2b625da",
+      "bytes": 14450
+    },
+    {
+      "path": "partner-sea_mermaid-0-dislike-walk-reduced.jpg",
+      "sha256": "32737037bf940d5db831352e43ebe0f2c630fa7413b03e421c7d2e6831b39f6c",
+      "bytes": 14235
+    },
+    {
+      "path": "partner-sea_mermaid-0-front.jpg",
+      "sha256": "c48b9633d257b4ae904e99f04b8d54bc40e9636de2f6776bd7e21406cd2b1fa6",
+      "bytes": 14881
+    },
+    {
+      "path": "partner-sea_mermaid-0-normal-idle-normal.jpg",
+      "sha256": "1b4a55ca2c9aaa32707197466978bf2f13fdee1b08247ba2f8b719dacb3ed5d8",
+      "bytes": 13927
+    },
+    {
+      "path": "partner-sea_mermaid-0-normal-idle-reduced.jpg",
+      "sha256": "eaaa14c4b076729fce617f9ad5c9e516f6b6593a71946e526a0c68924b794c2b",
+      "bytes": 14240
+    },
+    {
+      "path": "partner-sea_mermaid-0-normal-walk-normal.jpg",
+      "sha256": "435c4ed899cc3c539104039813bd822e973c5bd537003e6165345bcc6f3596d1",
+      "bytes": 13406
+    },
+    {
+      "path": "partner-sea_mermaid-0-normal-walk-reduced.jpg",
+      "sha256": "086443e789f756775031d65724b7bdb5d436955607c0812eb89cdf6aea514bf7",
+      "bytes": 13610
+    },
+    {
+      "path": "partner-sea_mermaid-0-positive-idle-normal.jpg",
+      "sha256": "84bd416807cb45a8a32a86d9398fa53296a59b907b6e307d5a6e4c71a7947cae",
+      "bytes": 13285
+    },
+    {
+      "path": "partner-sea_mermaid-0-positive-idle-reduced.jpg",
+      "sha256": "b8c9fecb60412f6a53be7458463c6a2bbc7c66f586deee107e4832d3a5dcfec9",
+      "bytes": 13579
+    },
+    {
+      "path": "partner-sea_mermaid-0-positive-walk-normal.jpg",
+      "sha256": "0d098aa6c2d92b0722cba63077e2aed762b535794ccb2763ae5253348de44ade",
+      "bytes": 14121
+    },
+    {
+      "path": "partner-sea_mermaid-0-positive-walk-reduced.jpg",
+      "sha256": "8e2d43f1127d007c1f935a0a2e5fe30645b6d621495ec7a627e3b91e5685f7a4",
+      "bytes": 14063
+    },
+    {
+      "path": "partner-sea_mermaid-0-sick-idle-normal.jpg",
+      "sha256": "3acd18c869ddf1f9e750246a128b27093b740e8c02648b2bcbcac69686783d2f",
+      "bytes": 14240
+    },
+    {
+      "path": "partner-sea_mermaid-0-sick-idle-reduced.jpg",
+      "sha256": "d8bdede6a0057c9de0caf879ddb754767fe0032e4a42cf58dc450703221a74d3",
+      "bytes": 14117
+    },
+    {
+      "path": "partner-sea_mermaid-0-sick-walk-normal.jpg",
+      "sha256": "027278454495b51064bf14f1017889966354ba72e946694898b4c6933ff994d3",
+      "bytes": 13728
+    },
+    {
+      "path": "partner-sea_mermaid-0-sick-walk-reduced.jpg",
+      "sha256": "c68b4c70b628ee891241709d447dcbb4c82643f7e51823c8a6193c311d65bae8",
+      "bytes": 13894
+    },
+    {
+      "path": "partner-sea_mermaid-0-side.jpg",
+      "sha256": "6e886131b0bc0edf4e25a7e5477670c704d90a6376381c053da708971f6344d4",
+      "bytes": 10327
+    },
+    {
+      "path": "partner-sea_mermaid-0-sleeping-idle-normal.jpg",
+      "sha256": "1135a6e08d61895d19ebeba1b711bd7b89db0ddde8081f7ca087c5e88e3d530d",
+      "bytes": 14073
+    },
+    {
+      "path": "partner-sea_mermaid-0-sleeping-idle-reduced.jpg",
+      "sha256": "18fe13e8fbcb835bf9a4b31c7c504d785d96a64c29bb607eea6bb31ca94390f4",
+      "bytes": 14164
+    },
+    {
+      "path": "partner-sea_mermaid-0-sleeping-walk-normal.jpg",
+      "sha256": "44687b244577dca00f92631e1c1e8361aab8b737ce7ee75b2f3632b8812ceffd",
+      "bytes": 12987
+    },
+    {
+      "path": "partner-sea_mermaid-0-sleeping-walk-reduced.jpg",
+      "sha256": "a9b68000bd37aa00df56231d0b9c4c189c355ee87b9d58ab00c88882e8699ba1",
+      "bytes": 13655
+    },
+    {
+      "path": "partner-sea_mermaid-0-strained-idle-normal.jpg",
+      "sha256": "ea28ce558472b5801e39bc9a9feea99a0caf6623c0399e1d877a962598126a61",
+      "bytes": 14266
+    },
+    {
+      "path": "partner-sea_mermaid-0-strained-idle-reduced.jpg",
+      "sha256": "6d680b6755fdf5b6da947718ab448f6cf165d90c48985fd1ee89045c2211344b",
+      "bytes": 14321
+    },
+    {
+      "path": "partner-sea_mermaid-0-strained-walk-normal.jpg",
+      "sha256": "b654b5c58fbaee8a974bcc8eb635089614e50c882531818b634fede05404d612",
+      "bytes": 14350
+    },
+    {
+      "path": "partner-sea_mermaid-0-strained-walk-reduced.jpg",
+      "sha256": "598604cdb1252b0541aa86035029e1ca9f9e1ea6bee177ac7b6862919a810343",
+      "bytes": 14522
+    },
+    {
+      "path": "partner-sea_mermaid-0-tired-idle-normal.jpg",
+      "sha256": "79c475cf21cb5a95f188cbc692fb1c8e9d8e60dee4278fe79a7372d507faad5c",
+      "bytes": 14018
+    },
+    {
+      "path": "partner-sea_mermaid-0-tired-idle-reduced.jpg",
+      "sha256": "96fe3fffec116d752f05642f1ea112dfd7c766f784e01c155b7a24e4bceef2fa",
+      "bytes": 14075
+    },
+    {
+      "path": "partner-sea_mermaid-0-tired-walk-normal.jpg",
+      "sha256": "1743c87120c7934327c1a7a4d43d04cd06dae1b8919104bfdf558f5e0305c730",
+      "bytes": 12972
+    },
+    {
+      "path": "partner-sea_mermaid-0-tired-walk-reduced.jpg",
+      "sha256": "eca2e3e4037a8787631f8a9e39ad18d35605a92c531dd65c15ff59905b06ccb8",
+      "bytes": 13566
+    },
+    {
+      "path": "partner-sea_mermaid-0-wantsPlay-idle-normal.jpg",
+      "sha256": "7d0c02e86505d53065aa99a0146870eedfad18472bc3266277687b893d19af2c",
+      "bytes": 13441
+    },
+    {
+      "path": "partner-sea_mermaid-0-wantsPlay-idle-reduced.jpg",
+      "sha256": "b63fc10639ac4225c044c8717d14d842f67a3e266c6c4b65a7a91e39d7871de5",
+      "bytes": 13806
+    },
+    {
+      "path": "partner-sea_mermaid-0-wantsPlay-walk-normal.jpg",
+      "sha256": "c2603167785dcc3b7ada42fbdf3ecef3f948cddce21f1f06118a226e357b934a",
+      "bytes": 12977
+    },
+    {
+      "path": "partner-sea_mermaid-0-wantsPlay-walk-reduced.jpg",
+      "sha256": "f89b90e0b00414f31daffaad6fc0bd10d8bca43b9ee0e53579bfa38c9e6e6ca7",
+      "bytes": 13669
+    },
+    {
+      "path": "partner-sea_mermaid-distance-back.jpg",
+      "sha256": "368af775eb334bae6cb161ca82827d03beeb4f13e795ac20c1638701167e1d86",
+      "bytes": 118425
+    },
+    {
+      "path": "partner-sea_mermaid-distance-front.jpg",
+      "sha256": "99ae042ea56a886b7bc784e99454df066295a43ac6fd43539d1746c461e7b343",
+      "bytes": 118606
+    },
+    {
+      "path": "partner-sea_mermaid-motion.jpg",
+      "sha256": "818ae783553e77c6565430f4801dd865d1e9f717497267d1915a3a17d4bf6306",
+      "bytes": 544479
+    },
+    {
+      "path": "partner-sea_mermaid-views.jpg",
+      "sha256": "67c42aa371f2fcb3c85746bbeeb4ab37ee35bc99373330dd8e5ede23cdf05309",
+      "bytes": 65159
+    },
+    {
+      "path": "partner-snow_spirit-0-34.jpg",
+      "sha256": "e91f0437c9dbf4c681d0354947595afbeaf4493827a7761e0ae42d67f8e57818",
+      "bytes": 10177
+    },
+    {
+      "path": "partner-snow_spirit-0-back.jpg",
+      "sha256": "8781d2641b8c5e943c504fbac49ee9d6b3e7a6988b252135bb4471f957589073",
+      "bytes": 10963
+    },
+    {
+      "path": "partner-snow_spirit-0-dislike-idle-normal.jpg",
+      "sha256": "348960bd05317e837e58656214859e20de085e898eb03a826aa539b6b404da6a",
+      "bytes": 10253
+    },
+    {
+      "path": "partner-snow_spirit-0-dislike-idle-reduced.jpg",
+      "sha256": "fe122c192cbe99dc24adef64b683c70daebccb47b6b7edb979ebeb0a96611cba",
+      "bytes": 10183
+    },
+    {
+      "path": "partner-snow_spirit-0-dislike-walk-normal.jpg",
+      "sha256": "167bd320dccf340a4630eaa7f7b6abecca68ac39e52667809ae04862c6b9bb74",
+      "bytes": 10299
+    },
+    {
+      "path": "partner-snow_spirit-0-dislike-walk-reduced.jpg",
+      "sha256": "0b2cdadf32a2d77d20643a1a5a55679b242a1a841a0e7a7b2b7e60569133bb50",
+      "bytes": 10300
+    },
+    {
+      "path": "partner-snow_spirit-0-front.jpg",
+      "sha256": "5414b32a217381e8367a46fcbc76b58f97f155ea2c69c046a1ead4a6f21f271b",
+      "bytes": 11184
+    },
+    {
+      "path": "partner-snow_spirit-0-normal-idle-normal.jpg",
+      "sha256": "e91f0437c9dbf4c681d0354947595afbeaf4493827a7761e0ae42d67f8e57818",
+      "bytes": 10177
+    },
+    {
+      "path": "partner-snow_spirit-0-normal-idle-reduced.jpg",
+      "sha256": "87441ded4c575035dcb52218684ff26a184a9d5d3cd4b4d6d965fe1bc5a24d3c",
+      "bytes": 10244
+    },
+    {
+      "path": "partner-snow_spirit-0-normal-walk-normal.jpg",
+      "sha256": "f84f56407c5f7a4a210e234bb992f8716237f91a96897cbd23775c921df84ccb",
+      "bytes": 10251
+    },
+    {
+      "path": "partner-snow_spirit-0-normal-walk-reduced.jpg",
+      "sha256": "81b2468d3865fb774e14fef2ec3c7cf6c2fd40ffae7a658c17c53bb0097d7118",
+      "bytes": 10324
+    },
+    {
+      "path": "partner-snow_spirit-0-positive-idle-normal.jpg",
+      "sha256": "1a0c51ac3dd51f37de4f50aeeb37a3cf169b9c67ddce3013a2e0488c0c3004e5",
+      "bytes": 10104
+    },
+    {
+      "path": "partner-snow_spirit-0-positive-idle-reduced.jpg",
+      "sha256": "2bbd1814362139cc1d1a08479910bac67da446f0fdc128b8983d9f14ee454a87",
+      "bytes": 10187
+    },
+    {
+      "path": "partner-snow_spirit-0-positive-walk-normal.jpg",
+      "sha256": "5025a15fed54ee950d4d576cadffa6105e2ab051dbedd8fda229f495d2344ced",
+      "bytes": 10154
+    },
+    {
+      "path": "partner-snow_spirit-0-positive-walk-reduced.jpg",
+      "sha256": "02afe036d5446035b665e721ec757bec495afbc29b4340e5b1aad924cc979729",
+      "bytes": 10239
+    },
+    {
+      "path": "partner-snow_spirit-0-sick-idle-normal.jpg",
+      "sha256": "edd7e3f284e8eda6a758002583f006759e946166158ccc661baacef18039fc53",
+      "bytes": 10305
+    },
+    {
+      "path": "partner-snow_spirit-0-sick-idle-reduced.jpg",
+      "sha256": "837c34ef410096d94cb0818fc260ba5c2dc03bf345a879f73ef52db46155dc61",
+      "bytes": 10324
+    },
+    {
+      "path": "partner-snow_spirit-0-sick-walk-normal.jpg",
+      "sha256": "67451493b25d652d6a5f4ef9f979d4ab6d7d19940ba49415eac5c93ddfc1ed36",
+      "bytes": 10438
+    },
+    {
+      "path": "partner-snow_spirit-0-sick-walk-reduced.jpg",
+      "sha256": "0b78a4b1765d604e1005cbe45828904c13afaf866f3ae707762931210af2f091",
+      "bytes": 10427
+    },
+    {
+      "path": "partner-snow_spirit-0-side.jpg",
+      "sha256": "d3e1c3ae0f990aae1598691058f76a3c9bfd75d1f0deaaace87707b2f30f7721",
+      "bytes": 9499
+    },
+    {
+      "path": "partner-snow_spirit-0-sleeping-idle-normal.jpg",
+      "sha256": "dd502156dc0dee6d16ad916e5849dece6ab589e85d887ecf5d37e7bfcb582561",
+      "bytes": 10454
+    },
+    {
+      "path": "partner-snow_spirit-0-sleeping-idle-reduced.jpg",
+      "sha256": "0bb2e75d8dc2228b2c0a22ee19b3c429318295b374b5530f544fd74214d29b76",
+      "bytes": 10563
+    },
+    {
+      "path": "partner-snow_spirit-0-sleeping-walk-normal.jpg",
+      "sha256": "285b64c3483d49326c80c52ed6584445cdf8334673fe091962cf209d0c54394c",
+      "bytes": 10562
+    },
+    {
+      "path": "partner-snow_spirit-0-sleeping-walk-reduced.jpg",
+      "sha256": "522ca2c5a33dd9d52eebcc2d7faf82f0b9854889bcb10913ffa7b64d3f4cd965",
+      "bytes": 10688
+    },
+    {
+      "path": "partner-snow_spirit-0-strained-idle-normal.jpg",
+      "sha256": "51fd7877d249518864aacd0b9e26f08abbdf9bc5e6a0d12fbaa3ee212535cfd1",
+      "bytes": 10389
+    },
+    {
+      "path": "partner-snow_spirit-0-strained-idle-reduced.jpg",
+      "sha256": "17665d9a41cb3a96a0c25cd02db75762c227507506e051f0a07ba7af0e166bae",
+      "bytes": 10484
+    },
+    {
+      "path": "partner-snow_spirit-0-strained-walk-normal.jpg",
+      "sha256": "5dde6ed7dbede0d5b23ded7d48a4410288b5b567f5f51482d62cc941cd39190d",
+      "bytes": 10642
+    },
+    {
+      "path": "partner-snow_spirit-0-strained-walk-reduced.jpg",
+      "sha256": "dcfec4d956c39a1058c4cca2f19454f63f401a37f259139ba75b74bfe629d6f7",
+      "bytes": 10579
+    },
+    {
+      "path": "partner-snow_spirit-0-tired-idle-normal.jpg",
+      "sha256": "7a2d3a397e26e7bdf3f2befbb9a45456c75bfabc197123f6e643446d47ea6a56",
+      "bytes": 10358
+    },
+    {
+      "path": "partner-snow_spirit-0-tired-idle-reduced.jpg",
+      "sha256": "0c11bcd78e408e965d0a67e8d127ad992600241f4cb97a52d62647b1374beb62",
+      "bytes": 10393
+    },
+    {
+      "path": "partner-snow_spirit-0-tired-walk-normal.jpg",
+      "sha256": "0555d9a698f4311d9911fdd2ff423208817de53e5f87b53812eac8024957eed4",
+      "bytes": 10561
+    },
+    {
+      "path": "partner-snow_spirit-0-tired-walk-reduced.jpg",
+      "sha256": "8c7a1b1ebeafe5f17de6f20f9c8664e38958db69593f61a0ed609a60ee616d29",
+      "bytes": 10564
+    },
+    {
+      "path": "partner-snow_spirit-0-wantsPlay-idle-normal.jpg",
+      "sha256": "887e46e0a876744f7dcde0aadb346b0c63b53d28c41275ac4ead69a37e15d36f",
+      "bytes": 10320
+    },
+    {
+      "path": "partner-snow_spirit-0-wantsPlay-idle-reduced.jpg",
+      "sha256": "1d708d26a8c81ae505f82784ca14c53e5c56a08e469af5ffc7b5e8d53fd8992f",
+      "bytes": 10426
+    },
+    {
+      "path": "partner-snow_spirit-0-wantsPlay-walk-normal.jpg",
+      "sha256": "d6ed28bf98ead2f92c17fc9ef559ca30c4cd919892024cb48fdcb56661fb582c",
+      "bytes": 10541
+    },
+    {
+      "path": "partner-snow_spirit-0-wantsPlay-walk-reduced.jpg",
+      "sha256": "71522a210df71cc16f81a14c4088c1ce09d460a849c43e8122a248f656f1aebd",
+      "bytes": 10631
+    },
+    {
+      "path": "partner-snow_spirit-distance-back.jpg",
+      "sha256": "71f3476fb8ce08abed565d06f1264c1c3e48a06ed2dd2c72cdd2a7d94173c7d0",
+      "bytes": 117393
+    },
+    {
+      "path": "partner-snow_spirit-distance-front.jpg",
+      "sha256": "4f42d91710c0af31842fc410c02b988301d81e92ef9d8484c18a6254d3d182ba",
+      "bytes": 116868
+    },
+    {
+      "path": "partner-snow_spirit-motion.jpg",
+      "sha256": "8a00986becda1495680afbcb4ee8f1e55941e1a97da930a27d5d7cc22bdd1cae",
+      "bytes": 422211
+    },
+    {
+      "path": "partner-snow_spirit-views.jpg",
+      "sha256": "de8947a9c8b204b176c7d54bff06b4f9cec053acd436a0897a2f41252127832d",
+      "bytes": 53363
+    }
+  ],
+  "sourceRun": 37906158821,
+  "sourceRunConclusion": "success"
+}

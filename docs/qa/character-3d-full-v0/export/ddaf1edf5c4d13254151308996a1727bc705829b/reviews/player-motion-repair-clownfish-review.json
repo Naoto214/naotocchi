@@ -1,0 +1,861 @@
+{
+  "reviewType": "ACTUAL_SCOPED_REPAIR_IMAGE_REVIEW",
+  "verdict": "PASS",
+  "reviewDate": "2026-10-09",
+  "sourceCommit": "ddaf1edf5c4d13254151308996a1727bc705829b",
+  "sourceRun": 37931349651,
+  "sourceRunConclusion": "success",
+  "artifact": {
+    "id": 11616991353,
+    "name": "full-rollout-stages-clownfish-ddaf1edf5c4d13254151308996a1727bc705829b",
+    "digest": "sha256:b24791d3471d96f252c3ee6a21dc1fd55fd586c67b1fe22d580afe4cef249d57"
+  },
+  "artifactJobId": 113823115600,
+  "artifactJobName": "stage-evidence (clownfish)",
+  "sourceManifestPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/manifest.json",
+  "sourceManifestSha256": "43f99077e32971dd78f981356c24ed55163a1e5363348ef118803296c96238b6",
+  "visualVerdictBasis": "Actual original-size view_image inspection of every listed image, including all 160 motion-board cells and the exact 20 previously failed raw frames. CI/job status and manifest ready/pass fields did not determine this verdict.",
+  "scope": {
+    "family": "clownfish",
+    "changedStages": [
+      2,
+      3,
+      5,
+      6,
+      7
+    ],
+    "unaffectedStagesNotReviewed": [
+      1,
+      4,
+      8
+    ],
+    "directions": [
+      "front",
+      "34",
+      "side",
+      "back"
+    ],
+    "motionEmotions": [
+      "normal",
+      "positive",
+      "dislike",
+      "tired",
+      "sleeping",
+      "strained",
+      "wantsPlay",
+      "sick"
+    ],
+    "motionPoses": [
+      "idle",
+      "walk"
+    ],
+    "motionModes": [
+      "normal",
+      "reduced"
+    ],
+    "distanceDirections": [
+      "front",
+      "back"
+    ],
+    "sourceComparisonRows": [
+      2,
+      3,
+      5,
+      6,
+      7
+    ]
+  },
+  "counts": {
+    "changedStages": 5,
+    "fourViewDirections": 20,
+    "motionBoards": 5,
+    "motionStates": 160,
+    "normalDistanceImages": 10,
+    "previousFailedStatesReinspected": 20,
+    "previousFailedStatesResolved": 20,
+    "inspectedDistinctImageFiles": 56,
+    "blockingFindings": 0
+  },
+  "stageResults": [
+    {
+      "stage": 2,
+      "sourceIdentity": "PASS",
+      "fourViews": "PASS",
+      "motion32States": "PASS",
+      "normalDistanceFrontBack": "PASS",
+      "observation": "Plain orange juvenile silhouette retained; visible fins and tail roots connected."
+    },
+    {
+      "stage": 3,
+      "sourceIdentity": "PASS",
+      "fourViews": "PASS",
+      "motion32States": "PASS",
+      "normalDistanceFrontBack": "PASS",
+      "observation": "Orange/white banded identity retained; visible fin and tail roots connected."
+    },
+    {
+      "stage": 5,
+      "sourceIdentity": "PASS",
+      "fourViews": "PASS",
+      "motion32States": "PASS",
+      "normalDistanceFrontBack": "PASS",
+      "observation": "Main banded fish and two smaller school fish remain intact and separately visible in four-view and motion evidence. Normal-distance PNGs show one child separately; the other is obscured in the depth grouping, so they do not independently prove visibility of both children."
+    },
+    {
+      "stage": 6,
+      "sourceIdentity": "PASS",
+      "fourViews": "PASS",
+      "motion32States": "PASS",
+      "normalDistanceFrontBack": "PASS",
+      "observation": "Black-outlined bands and adult silhouette retained; visible fin and tail roots connected."
+    },
+    {
+      "stage": 7,
+      "sourceIdentity": "PASS",
+      "fourViews": "PASS",
+      "motion32States": "PASS",
+      "normalDistanceFrontBack": "PASS",
+      "observation": "Fuller adult silhouette, outlined bands and large eyes retained; visible fin and tail roots connected."
+    }
+  ],
+  "previousFailureResolutions": [
+    {
+      "family": "clownfish",
+      "stage": 2,
+      "emotion": "dislike",
+      "pose": "idle",
+      "mode": "normal",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-2-dislike-idle-normal.jpg",
+      "sha256": "4b39cf46232d5bec5b2c6ac625680083bd9e0a5b03f6930ff34e7d273e6c8ed8",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 2,
+      "emotion": "dislike",
+      "pose": "idle",
+      "mode": "reduced",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-2-dislike-idle-reduced.jpg",
+      "sha256": "c24318cc1b15e2890e07e0c50051a15c70072c7bf12c14a0a707e067b4e127fb",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 2,
+      "emotion": "dislike",
+      "pose": "walk",
+      "mode": "normal",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-2-dislike-walk-normal.jpg",
+      "sha256": "16168abec6bbfed9b64c7c3768011f3b6bd7f19c6b412cd13b0c861cd832ff33",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 2,
+      "emotion": "dislike",
+      "pose": "walk",
+      "mode": "reduced",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-2-dislike-walk-reduced.jpg",
+      "sha256": "a68e92d2749ba896b254563ba43b4133838213d185719b4eab4fe38e89deaf4f",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 3,
+      "emotion": "dislike",
+      "pose": "idle",
+      "mode": "normal",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-3-dislike-idle-normal.jpg",
+      "sha256": "3b1a7ed572e8d2ba1f4f922be674c54ebcb3a8fb7b45566894875cb63c8d8711",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 3,
+      "emotion": "dislike",
+      "pose": "idle",
+      "mode": "reduced",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-3-dislike-idle-reduced.jpg",
+      "sha256": "4316abfd928de0404c570522e55c57be45554de8661e4146e0c411ab338f4807",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 3,
+      "emotion": "dislike",
+      "pose": "walk",
+      "mode": "normal",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-3-dislike-walk-normal.jpg",
+      "sha256": "107b3653140b31b5cd8380e7e82f59e89aac94a1d4881b989130c2e00d90c8f1",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 3,
+      "emotion": "dislike",
+      "pose": "walk",
+      "mode": "reduced",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-3-dislike-walk-reduced.jpg",
+      "sha256": "defb08d9f20d66de14fee36717c9ef346d0f2dd647dc2491e7d5405d4e855d17",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 5,
+      "emotion": "dislike",
+      "pose": "idle",
+      "mode": "normal",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-5-dislike-idle-normal.jpg",
+      "sha256": "e9e3adfd0e653f8b0abdb6b89e0e5e18ff829af331b54e36553f8cfcb8d32523",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 5,
+      "emotion": "dislike",
+      "pose": "idle",
+      "mode": "reduced",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-5-dislike-idle-reduced.jpg",
+      "sha256": "b7477d116bfb47e13e8f052b0c70eb0b48488a6a67e01e030a74bb1b97cc3619",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 5,
+      "emotion": "dislike",
+      "pose": "walk",
+      "mode": "normal",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-5-dislike-walk-normal.jpg",
+      "sha256": "fda777c98cdd1194f425dc424c18e7827068b576902fc499543f9fe352a9f354",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 5,
+      "emotion": "dislike",
+      "pose": "walk",
+      "mode": "reduced",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-5-dislike-walk-reduced.jpg",
+      "sha256": "3fb60d4c81c412a68a871e2eca5ccdeca2faefc6d80edfcd1598ebee5cf61e1b",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 6,
+      "emotion": "dislike",
+      "pose": "idle",
+      "mode": "normal",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-6-dislike-idle-normal.jpg",
+      "sha256": "862c5249ef6b6325ef83153fd679838adc8ecc9bae6324cb0a828bdd32a7754c",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 6,
+      "emotion": "dislike",
+      "pose": "idle",
+      "mode": "reduced",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-6-dislike-idle-reduced.jpg",
+      "sha256": "df94de7696577e1b320e5be169fa795206d29b9306cf423821bfdf41ac3f2530",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 6,
+      "emotion": "dislike",
+      "pose": "walk",
+      "mode": "normal",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-6-dislike-walk-normal.jpg",
+      "sha256": "e209264796ac9cb9e70a90399c78f66819c1a1b3a1fdb2bfce838725da38ab35",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 6,
+      "emotion": "dislike",
+      "pose": "walk",
+      "mode": "reduced",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-6-dislike-walk-reduced.jpg",
+      "sha256": "a24db352a9c029c789738d8f83295e5436bcff4f84d4c3a214da1947daec2343",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 7,
+      "emotion": "dislike",
+      "pose": "idle",
+      "mode": "normal",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-7-dislike-idle-normal.jpg",
+      "sha256": "c500cf86f380d3c40f11a3e2c993bfd9aef64fb66a20cde6ad2cdef09cb2dc9f",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 7,
+      "emotion": "dislike",
+      "pose": "idle",
+      "mode": "reduced",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-7-dislike-idle-reduced.jpg",
+      "sha256": "e66e7b17078543b9316189f0d584dbaddd3073aba3416cd9e54e68bde9041944",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 7,
+      "emotion": "dislike",
+      "pose": "walk",
+      "mode": "normal",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-7-dislike-walk-normal.jpg",
+      "sha256": "44e64f0aa0b2bb988c7ed239a38bd84717f9bac53316861ae19900be6c0e6f25",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    },
+    {
+      "family": "clownfish",
+      "stage": 7,
+      "emotion": "dislike",
+      "pose": "walk",
+      "mode": "reduced",
+      "previousVerdict": "REJECT",
+      "replacementVerdict": "PASS",
+      "artifactRelativePath": "repair-motion/clownfish-7-dislike-walk-reduced.jpg",
+      "sha256": "2c5e9a7621524f909086221bdab8e77a398515c06d777de2e20acd26c1f7b3ea",
+      "observation": "Both visible pectoral fin roots meet the body; previous screen-left detached gap is closed. Face remains visible."
+    }
+  ],
+  "nonblockingObservations": [
+    "Stage 5 normal-distance front/back captures do not independently expose both smaller fish; both are clearly present and intact in all four directions and the motion board/raw-frame evidence.",
+    "Pointed side profile, round front profile, simplified fins and expected absence of a face in back view are existing v0 conventions, not new blockers."
+  ],
+  "limitations": [
+    "Scoped still-image review only; no continuous animation timing or full-cycle approval.",
+    "Unchanged stages 1, 4 and 8 were not re-reviewed; incidental rows on the shared source-comparison board do not expand approval.",
+    "No Human QA, iPhone/device performance, functional/runtime or CI approval is granted by this report."
+  ],
+  "inspectedFiles": [
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-stages.jpg",
+      "artifactRelativePath": "repair-views/clownfish-stages.jpg",
+      "sha256": "d3174c1f8b3418ce83e002d8760b20e932a3a2ef4cbeb1ea6db5ec152eb910a1",
+      "bytes": 444400,
+      "category": "sourceComparisonBoardChangedRowsOnly"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-2-front.jpg",
+      "artifactRelativePath": "repair-views/clownfish-2-front.jpg",
+      "sha256": "b3680ff31028140fc80f4889cb6f8c598a9e62829dbbb89592bcc289bfd655f6",
+      "bytes": 7915,
+      "category": "fourView",
+      "stage": 2
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-2-34.jpg",
+      "artifactRelativePath": "repair-views/clownfish-2-34.jpg",
+      "sha256": "52a24887af1a7557b48ac21a7e5330585c5f1e3f41f3a6bc8a4c146b7ffc16b3",
+      "bytes": 8269,
+      "category": "fourView",
+      "stage": 2
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-2-side.jpg",
+      "artifactRelativePath": "repair-views/clownfish-2-side.jpg",
+      "sha256": "b9abc29a734f659ff25fef1379cc6855eb5ef32147195c68997ffd6815553395",
+      "bytes": 9334,
+      "category": "fourView",
+      "stage": 2
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-2-back.jpg",
+      "artifactRelativePath": "repair-views/clownfish-2-back.jpg",
+      "sha256": "64f6175b67497ce73b606f4386d9a8d44b0b32c18c8ec3fef750a2546544f3f7",
+      "bytes": 7113,
+      "category": "fourView",
+      "stage": 2
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-motion/clownfish-2-motion.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-2-motion.jpg",
+      "sha256": "d7d0ead6cd21dfabe548c78aceca9fb3cdb935862c3a0d46467bfc8abc2b3b36",
+      "bytes": 329638,
+      "category": "motionBoard32States",
+      "stage": 2
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/player-clownfish-2-front.png",
+      "artifactRelativePath": "player-clownfish-2-front.png",
+      "sha256": "4fef103b2b895f1a88b5d7c8db32883a406e0310ca5c3ac349844b33153824fa",
+      "bytes": 305150,
+      "category": "normalDistance",
+      "stage": 2
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/player-clownfish-2-back.png",
+      "artifactRelativePath": "player-clownfish-2-back.png",
+      "sha256": "e6abf5616bfeb5e562073f464a76b0bc88a242645f7b229a9d20be1bdce0f5fb",
+      "bytes": 303486,
+      "category": "normalDistance",
+      "stage": 2
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-2-dislike-idle-normal.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-2-dislike-idle-normal.jpg",
+      "sha256": "4b39cf46232d5bec5b2c6ac625680083bd9e0a5b03f6930ff34e7d273e6c8ed8",
+      "bytes": 7570,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 2,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-2-dislike-idle-normal.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-2-dislike-idle-reduced.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-2-dislike-idle-reduced.jpg",
+      "sha256": "c24318cc1b15e2890e07e0c50051a15c70072c7bf12c14a0a707e067b4e127fb",
+      "bytes": 7760,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 2,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-2-dislike-idle-reduced.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-2-dislike-walk-normal.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-2-dislike-walk-normal.jpg",
+      "sha256": "16168abec6bbfed9b64c7c3768011f3b6bd7f19c6b412cd13b0c861cd832ff33",
+      "bytes": 7830,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 2,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-2-dislike-walk-normal.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-2-dislike-walk-reduced.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-2-dislike-walk-reduced.jpg",
+      "sha256": "a68e92d2749ba896b254563ba43b4133838213d185719b4eab4fe38e89deaf4f",
+      "bytes": 7902,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 2,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-2-dislike-walk-reduced.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-3-front.jpg",
+      "artifactRelativePath": "repair-views/clownfish-3-front.jpg",
+      "sha256": "0a026701258e76189acfd7d0150a3202e4dbd0a46715d6d902250290b9bc5402",
+      "bytes": 10172,
+      "category": "fourView",
+      "stage": 3
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-3-34.jpg",
+      "artifactRelativePath": "repair-views/clownfish-3-34.jpg",
+      "sha256": "d5ee1bb2ebd4ce64d479b7e8de31713100e7ad25984d167f57147dcc1e57e4b4",
+      "bytes": 9996,
+      "category": "fourView",
+      "stage": 3
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-3-side.jpg",
+      "artifactRelativePath": "repair-views/clownfish-3-side.jpg",
+      "sha256": "d74c1fe6cefde480e983b954b06825ddc15e81d202e0b8ad9adf4b4c10c60c4d",
+      "bytes": 11267,
+      "category": "fourView",
+      "stage": 3
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-3-back.jpg",
+      "artifactRelativePath": "repair-views/clownfish-3-back.jpg",
+      "sha256": "18ff731be9644865a137ae4a22cd601d6d793b6f23e4363ac3a08178c3b66e99",
+      "bytes": 9696,
+      "category": "fourView",
+      "stage": 3
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-motion/clownfish-3-motion.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-3-motion.jpg",
+      "sha256": "dc738a2717e6337df27f0f8fe22eba49ea189755096b9423aeb8e51a9a4e128f",
+      "bytes": 401917,
+      "category": "motionBoard32States",
+      "stage": 3
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/player-clownfish-3-front.png",
+      "artifactRelativePath": "player-clownfish-3-front.png",
+      "sha256": "189bd98b1d4f8a15f540531773361be7401d8dd85ad5b0357561bd17be095edf",
+      "bytes": 307601,
+      "category": "normalDistance",
+      "stage": 3
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/player-clownfish-3-back.png",
+      "artifactRelativePath": "player-clownfish-3-back.png",
+      "sha256": "58de11bdadddb8ca2890718b9a7783ab09cc6c1c93c3ef3831e7071cbf2a91d8",
+      "bytes": 305264,
+      "category": "normalDistance",
+      "stage": 3
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-3-dislike-idle-normal.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-3-dislike-idle-normal.jpg",
+      "sha256": "3b1a7ed572e8d2ba1f4f922be674c54ebcb3a8fb7b45566894875cb63c8d8711",
+      "bytes": 9635,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 3,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-3-dislike-idle-normal.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-3-dislike-idle-reduced.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-3-dislike-idle-reduced.jpg",
+      "sha256": "4316abfd928de0404c570522e55c57be45554de8661e4146e0c411ab338f4807",
+      "bytes": 9577,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 3,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-3-dislike-idle-reduced.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-3-dislike-walk-normal.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-3-dislike-walk-normal.jpg",
+      "sha256": "107b3653140b31b5cd8380e7e82f59e89aac94a1d4881b989130c2e00d90c8f1",
+      "bytes": 9835,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 3,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-3-dislike-walk-normal.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-3-dislike-walk-reduced.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-3-dislike-walk-reduced.jpg",
+      "sha256": "defb08d9f20d66de14fee36717c9ef346d0f2dd647dc2491e7d5405d4e855d17",
+      "bytes": 9860,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 3,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-3-dislike-walk-reduced.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-5-front.jpg",
+      "artifactRelativePath": "repair-views/clownfish-5-front.jpg",
+      "sha256": "56297700110ee3593ecb63a5f4f19a9d17babaaf1bf7f8021f111cfd7a1a4f58",
+      "bytes": 15407,
+      "category": "fourView",
+      "stage": 5
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-5-34.jpg",
+      "artifactRelativePath": "repair-views/clownfish-5-34.jpg",
+      "sha256": "06fb7f6c9f3e5c90b764769d5f8afdaa9c546a8a4eb712fe2f77435ef5716c91",
+      "bytes": 15663,
+      "category": "fourView",
+      "stage": 5
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-5-side.jpg",
+      "artifactRelativePath": "repair-views/clownfish-5-side.jpg",
+      "sha256": "46f26a9c7bd6ff49af1965ec3080a25c8a1fa66f61b884f8a5bcb5e1b5880dc5",
+      "bytes": 16701,
+      "category": "fourView",
+      "stage": 5
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-5-back.jpg",
+      "artifactRelativePath": "repair-views/clownfish-5-back.jpg",
+      "sha256": "4947de32b72eab0203f168083ed345c3eac4c3611ae2bb5193f50545d0b448d3",
+      "bytes": 13934,
+      "category": "fourView",
+      "stage": 5
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-motion/clownfish-5-motion.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-5-motion.jpg",
+      "sha256": "39ece6983edd31cf100cc94f3c8190aadabcd4eae928b45ea6fc741104f756f7",
+      "bytes": 670384,
+      "category": "motionBoard32States",
+      "stage": 5
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/player-clownfish-5-front.png",
+      "artifactRelativePath": "player-clownfish-5-front.png",
+      "sha256": "bf8b59ddac9b34346e0157d47debb117bb231b304924620ca546f15b6081dad1",
+      "bytes": 311829,
+      "category": "normalDistance",
+      "stage": 5
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/player-clownfish-5-back.png",
+      "artifactRelativePath": "player-clownfish-5-back.png",
+      "sha256": "5fb1c01f14c87c911a0981ccd9c233352feea495da8a08d1140ad12e11583e00",
+      "bytes": 309455,
+      "category": "normalDistance",
+      "stage": 5
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-5-dislike-idle-normal.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-5-dislike-idle-normal.jpg",
+      "sha256": "e9e3adfd0e653f8b0abdb6b89e0e5e18ff829af331b54e36553f8cfcb8d32523",
+      "bytes": 14914,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 5,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-5-dislike-idle-normal.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-5-dislike-idle-reduced.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-5-dislike-idle-reduced.jpg",
+      "sha256": "b7477d116bfb47e13e8f052b0c70eb0b48488a6a67e01e030a74bb1b97cc3619",
+      "bytes": 14858,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 5,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-5-dislike-idle-reduced.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-5-dislike-walk-normal.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-5-dislike-walk-normal.jpg",
+      "sha256": "fda777c98cdd1194f425dc424c18e7827068b576902fc499543f9fe352a9f354",
+      "bytes": 14911,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 5,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-5-dislike-walk-normal.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-5-dislike-walk-reduced.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-5-dislike-walk-reduced.jpg",
+      "sha256": "3fb60d4c81c412a68a871e2eca5ccdeca2faefc6d80edfcd1598ebee5cf61e1b",
+      "bytes": 14885,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 5,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-5-dislike-walk-reduced.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-6-front.jpg",
+      "artifactRelativePath": "repair-views/clownfish-6-front.jpg",
+      "sha256": "073f5db16f6184752f1428742b01afd0118ba35806c2df0dc7773fa147c26b2f",
+      "bytes": 11318,
+      "category": "fourView",
+      "stage": 6
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-6-34.jpg",
+      "artifactRelativePath": "repair-views/clownfish-6-34.jpg",
+      "sha256": "a3284a9ee460648bdf00d1252815d1e0cecb47feef94ded8156fefa2eda88278",
+      "bytes": 11704,
+      "category": "fourView",
+      "stage": 6
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-6-side.jpg",
+      "artifactRelativePath": "repair-views/clownfish-6-side.jpg",
+      "sha256": "f8f61754db0b976a4a236bfaacc1dbe7ccc1ea44b8a4bc6207c530a352e544dd",
+      "bytes": 12303,
+      "category": "fourView",
+      "stage": 6
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-6-back.jpg",
+      "artifactRelativePath": "repair-views/clownfish-6-back.jpg",
+      "sha256": "01cd605931b4523b14e1f4aad42c3338d56caa5a29f1ea4ca46a3ecab7242353",
+      "bytes": 10390,
+      "category": "fourView",
+      "stage": 6
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-motion/clownfish-6-motion.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-6-motion.jpg",
+      "sha256": "d10d41c5e4e83a369782e19ce133d2ce4f00f04feeba7f68b203fc6e26ce3c92",
+      "bytes": 462364,
+      "category": "motionBoard32States",
+      "stage": 6
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/player-clownfish-6-front.png",
+      "artifactRelativePath": "player-clownfish-6-front.png",
+      "sha256": "071568bd148c0b5456298fd9824fb357cfdf7506b98864711e4a8af20f5e61fe",
+      "bytes": 311611,
+      "category": "normalDistance",
+      "stage": 6
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/player-clownfish-6-back.png",
+      "artifactRelativePath": "player-clownfish-6-back.png",
+      "sha256": "077e36bdf15dc75909ef898399d6920f4477f0268ae6c0800086519d0722bc7e",
+      "bytes": 308265,
+      "category": "normalDistance",
+      "stage": 6
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-6-dislike-idle-normal.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-6-dislike-idle-normal.jpg",
+      "sha256": "862c5249ef6b6325ef83153fd679838adc8ecc9bae6324cb0a828bdd32a7754c",
+      "bytes": 10714,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 6,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-6-dislike-idle-normal.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-6-dislike-idle-reduced.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-6-dislike-idle-reduced.jpg",
+      "sha256": "df94de7696577e1b320e5be169fa795206d29b9306cf423821bfdf41ac3f2530",
+      "bytes": 10678,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 6,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-6-dislike-idle-reduced.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-6-dislike-walk-normal.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-6-dislike-walk-normal.jpg",
+      "sha256": "e209264796ac9cb9e70a90399c78f66819c1a1b3a1fdb2bfce838725da38ab35",
+      "bytes": 11103,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 6,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-6-dislike-walk-normal.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-6-dislike-walk-reduced.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-6-dislike-walk-reduced.jpg",
+      "sha256": "a24db352a9c029c789738d8f83295e5436bcff4f84d4c3a214da1947daec2343",
+      "bytes": 11011,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 6,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-6-dislike-walk-reduced.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-7-front.jpg",
+      "artifactRelativePath": "repair-views/clownfish-7-front.jpg",
+      "sha256": "92a1e297e459790189c6bb7f7da2f2c44af8697dd0837cc5e74ee1b3f84ef13d",
+      "bytes": 12519,
+      "category": "fourView",
+      "stage": 7
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-7-34.jpg",
+      "artifactRelativePath": "repair-views/clownfish-7-34.jpg",
+      "sha256": "52b1b19920927c7a4ec1e9a2da18d5965be22346717128fa8eccb1761405ecee",
+      "bytes": 12518,
+      "category": "fourView",
+      "stage": 7
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-7-side.jpg",
+      "artifactRelativePath": "repair-views/clownfish-7-side.jpg",
+      "sha256": "11d6fc1e181b8a3a363e08bb5bc2760a6b5497a3366d767a82534e95121a9a57",
+      "bytes": 13086,
+      "category": "fourView",
+      "stage": 7
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-views/clownfish-7-back.jpg",
+      "artifactRelativePath": "repair-views/clownfish-7-back.jpg",
+      "sha256": "9530432ee485c59b6f57b1bd04b551875110dcf5878723b1ae192336a8192c4b",
+      "bytes": 11338,
+      "category": "fourView",
+      "stage": 7
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/repair-motion/clownfish-7-motion.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-7-motion.jpg",
+      "sha256": "91457eac07088be9ac29a6d9d527a01260a786ff2c1a6b27f6ae178f6b40012b",
+      "bytes": 507867,
+      "category": "motionBoard32States",
+      "stage": 7
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/player-clownfish-7-front.png",
+      "artifactRelativePath": "player-clownfish-7-front.png",
+      "sha256": "20c9104947960646771429a57cfef33ef6d5417b80ae516d196fe9ff96894cdf",
+      "bytes": 312229,
+      "category": "normalDistance",
+      "stage": 7
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/player-clownfish-7-back.png",
+      "artifactRelativePath": "player-clownfish-7-back.png",
+      "sha256": "a0505c09c1213e4dc46b39bae9205f6f762a5ab092a7609d6c5be3aa8fa6970e",
+      "bytes": 310176,
+      "category": "normalDistance",
+      "stage": 7
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-7-dislike-idle-normal.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-7-dislike-idle-normal.jpg",
+      "sha256": "c500cf86f380d3c40f11a3e2c993bfd9aef64fb66a20cde6ad2cdef09cb2dc9f",
+      "bytes": 11607,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 7,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-7-dislike-idle-normal.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-7-dislike-idle-reduced.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-7-dislike-idle-reduced.jpg",
+      "sha256": "e66e7b17078543b9316189f0d584dbaddd3073aba3416cd9e54e68bde9041944",
+      "bytes": 11640,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 7,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-7-dislike-walk-normal.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-7-dislike-walk-normal.jpg",
+      "sha256": "44e64f0aa0b2bb988c7ed239a38bd84717f9bac53316861ae19900be6c0e6f25",
+      "bytes": 11844,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 7,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-7-dislike-walk-normal.jpg"
+    },
+    {
+      "path": "/workspace/scratch/150320e8a2fd/clownfish-repair-raw/clownfish-7-dislike-walk-reduced.jpg",
+      "artifactRelativePath": "repair-motion/clownfish-7-dislike-walk-reduced.jpg",
+      "sha256": "2c5e9a7621524f909086221bdab8e77a398515c06d777de2e20acd26c1f7b3ea",
+      "bytes": 11842,
+      "category": "exactPreviousFailureRawFrame",
+      "stage": 7,
+      "zipPath": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ddaf1edf5c4d13254151308996a1727bc705829b/motion-repair-clownfish/raw-evidence.zip",
+      "zipMember": "repair-motion/clownfish-7-dislike-walk-reduced.jpg"
+    }
+  ]
+}

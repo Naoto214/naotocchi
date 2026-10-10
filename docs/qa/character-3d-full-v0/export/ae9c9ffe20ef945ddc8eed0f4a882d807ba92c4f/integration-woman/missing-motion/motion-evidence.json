@@ -1,0 +1,7273 @@
+{
+  "source": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "woman",
+      "stage": 1
+    },
+    {
+      "id": "woman",
+      "stage": 2
+    },
+    {
+      "id": "woman",
+      "stage": 3
+    },
+    {
+      "id": "woman",
+      "stage": 4
+    },
+    {
+      "id": "woman",
+      "stage": 5
+    },
+    {
+      "id": "woman",
+      "stage": 6
+    },
+    {
+      "id": "woman",
+      "stage": 7
+    },
+    {
+      "id": "woman",
+      "stage": 8
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5362,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.04826954407727069,
+          -0.4048726441129938
+        ],
+        [
+          0.6323235034942627,
+          1.7053433220900824,
+          1.0366711902357957
+        ]
+      ],
+      "file": "woman-1-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5362,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.03407249812765384,
+          -0.4306778125702854
+        ],
+        [
+          0.6323235034942627,
+          1.7053433220900824,
+          1.0366711902357957
+        ]
+      ],
+      "file": "woman-1-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5362,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.04826954407727069,
+          -0.4048726441129938
+        ],
+        [
+          0.6323235034942627,
+          1.7053433220900824,
+          1.0366711902357957
+        ]
+      ],
+      "file": "woman-1-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5362,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.03800063770992512,
+          -0.41425472664883756
+        ],
+        [
+          0.6323235034942627,
+          1.7053433220900824,
+          1.0366711902357957
+        ]
+      ],
+      "file": "woman-1-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5202,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.11836409592204711,
+          -0.4080304139319888
+        ],
+        [
+          0.6323235034942627,
+          1.7505517529335684,
+          0.9555054236646787
+        ]
+      ],
+      "file": "woman-1-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5202,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.06308073197230041,
+          -0.42979345528744817
+        ],
+        [
+          0.6323235034942627,
+          1.7196308399833629,
+          0.9555054236646787
+        ]
+      ],
+      "file": "woman-1-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5202,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.05652227002163629,
+          -0.4080304139319888
+        ],
+        [
+          0.6323235034942627,
+          1.6887099270331576,
+          0.9555054236646787
+        ]
+      ],
+      "file": "woman-1-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5202,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.047860974205428286,
+          -0.41754954574445746
+        ],
+        [
+          0.6323235034942627,
+          1.6887099270331576,
+          0.9555054236646787
+        ]
+      ],
+      "file": "woman-1-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5362,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.7307677649285963,
+          0.018566755476663144,
+          -0.45771489234219354
+        ],
+        [
+          0.8087548668220921,
+          1.7743128144148228,
+          1.3407840230301273
+        ]
+      ],
+      "file": "woman-1-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5362,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.7307677649285963,
+          0.010202477479632155,
+          -0.45771489234219354
+        ],
+        [
+          0.8087548668220921,
+          1.7743128144148228,
+          1.3407840230301273
+        ]
+      ],
+      "file": "woman-1-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5362,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.7307677649285963,
+          0.018566755476663144,
+          -0.45771489234219354
+        ],
+        [
+          0.8087548668220921,
+          1.7743128144148228,
+          1.3407840230301273
+        ]
+      ],
+      "file": "woman-1-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5362,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.7307677649285963,
+          0.012032045922250434,
+          -0.45771489234219354
+        ],
+        [
+          0.8087548668220921,
+          1.7743128144148228,
+          1.3407840230301273
+        ]
+      ],
+      "file": "woman-1-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5562,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.042402693843026085,
+          -0.4110081741180711
+        ],
+        [
+          0.6323235034942627,
+          1.6452828985890542,
+          1.1791208144960081
+        ]
+      ],
+      "file": "woman-1-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5562,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          -0.002145286287985382,
+          -0.43577266609419574
+        ],
+        [
+          0.6323235034942627,
+          1.6452828985890542,
+          1.1791208144960081
+        ]
+      ],
+      "file": "woman-1-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5562,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.042402693843026085,
+          -0.4110081741180711
+        ],
+        [
+          0.6323235034942627,
+          1.6452828985890542,
+          1.1791208144960081
+        ]
+      ],
+      "file": "woman-1-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5562,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.02454329695177948,
+          -0.42179207079074765
+        ],
+        [
+          0.6323235034942627,
+          1.6452828985890542,
+          1.1791208144960081
+        ]
+      ],
+      "file": "woman-1-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5202,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.040258845199620474,
+          -0.4121484548235644
+        ],
+        [
+          0.6323235034942627,
+          1.614981259555751,
+          1.2102967652497754
+        ]
+      ],
+      "file": "woman-1-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5202,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.03774516062423522,
+          -0.4149066817482835
+        ],
+        [
+          0.6323235034942627,
+          1.614981259555751,
+          1.2102967652497754
+        ]
+      ],
+      "file": "woman-1-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5202,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.040258845199620474,
+          -0.4121484548235644
+        ],
+        [
+          0.6323235034942627,
+          1.614981259555751,
+          1.2102967652497754
+        ]
+      ],
+      "file": "woman-1-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5202,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.03892685950014768,
+          -0.4135580876572898
+        ],
+        [
+          0.6323235034942627,
+          1.614981259555751,
+          1.2102967652497754
+        ]
+      ],
+      "file": "woman-1-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5202,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5653036921090863,
+          0.03234025684207881,
+          -0.401536838164433
+        ],
+        [
+          0.6328177959852436,
+          1.6495222534525729,
+          1.1287611643368451
+        ]
+      ],
+      "file": "woman-1-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5202,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5653036921090863,
+          0.021684448935095024,
+          -0.44731137782086017
+        ],
+        [
+          0.6328177959852436,
+          1.6495222534525729,
+          1.1287611643368451
+        ]
+      ],
+      "file": "woman-1-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5202,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.03234025684207881,
+          -0.401536838164433
+        ],
+        [
+          0.6323235034942627,
+          1.6495222534525729,
+          1.1287611643368451
+        ]
+      ],
+      "file": "woman-1-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5202,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.021878503327395826,
+          -0.4258995055894036
+        ],
+        [
+          0.6323235034942627,
+          1.6495222534525729,
+          1.1287611643368451
+        ]
+      ],
+      "file": "woman-1-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5362,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.09407183164544497,
+          -0.4121484548235644
+        ],
+        [
+          0.6323235034942627,
+          1.7229027472158067,
+          0.92837269841498
+        ]
+      ],
+      "file": "woman-1-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5362,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.036606122585183754,
+          -0.4265904078093445
+        ],
+        [
+          0.6323235034942627,
+          1.7074422907407039,
+          0.92837269841498
+        ]
+      ],
+      "file": "woman-1-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5362,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.06315091869523959,
+          -0.4121484548235644
+        ],
+        [
+          0.6323235034942627,
+          1.6919818342656012,
+          0.92837269841498
+        ]
+      ],
+      "file": "woman-1-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5362,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.04517567587548427,
+          -0.42104082890907857
+        ],
+        [
+          0.6323235034942627,
+          1.6919818342656012,
+          0.92837269841498
+        ]
+      ],
+      "file": "woman-1-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5202,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5645622533726148,
+          0.0378214577549526,
+          -0.4048726441129938
+        ],
+        [
+          0.633559234721715,
+          1.6820000922481344,
+          1.1755713902287215
+        ]
+      ],
+      "file": "woman-1-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5202,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5645622533726148,
+          0.018022854568558788,
+          -0.43909675049939295
+        ],
+        [
+          0.633559234721715,
+          1.6820000922481344,
+          1.1755713902287215
+        ]
+      ],
+      "file": "woman-1-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5202,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.0378214577549526,
+          -0.4048726441129938
+        ],
+        [
+          0.6323235034942627,
+          1.6820000922481344,
+          1.1755713902287215
+        ]
+      ],
+      "file": "woman-1-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5202,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.5657979846000671,
+          0.026200081581609858,
+          -0.4183854475182167
+        ],
+        [
+          0.6323235034942627,
+          1.6820000922481344,
+          1.1755713902287215
+        ]
+      ],
+      "file": "woman-1-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9050,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          0.006859090484495234,
+          -0.47001572489738463
+        ],
+        [
+          0.6234677210776387,
+          1.593304233016188,
+          0.5191121196746826
+        ]
+      ],
+      "file": "woman-2-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9050,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          -0.006043438735033435,
+          -0.47001572489738463
+        ],
+        [
+          0.6079728007316589,
+          1.6182910609927132,
+          0.5191121196746826
+        ]
+      ],
+      "file": "woman-2-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9050,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          0.008999989032745404,
+          -0.47001572489738463
+        ],
+        [
+          0.6234677210776387,
+          1.5852499918937684,
+          0.5191121196746826
+        ]
+      ],
+      "file": "woman-2-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9050,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          -0.011752374675454313,
+          -0.47001572489738463
+        ],
+        [
+          0.6079728007316589,
+          1.597743405882031,
+          0.5191121196746826
+        ]
+      ],
+      "file": "woman-2-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8730,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          0.069374345192248,
+          -0.5433177322591608
+        ],
+        [
+          0.6234677210776387,
+          1.6931667719496386,
+          0.5110931657383025
+        ]
+      ],
+      "file": "woman-2-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 8730,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          0.021163053140809795,
+          -0.5433177322591608
+        ],
+        [
+          0.6079728007316589,
+          1.6819490824394707,
+          0.5110931657383025
+        ]
+      ],
+      "file": "woman-2-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 8730,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          0.009672748844135659,
+          -0.5431202890792535
+        ],
+        [
+          0.6234677210776387,
+          1.6231219908909291,
+          0.5111482119927787
+        ]
+      ],
+      "file": "woman-2-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 8730,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          -0.004315873041398133,
+          -0.5431202890792535
+        ],
+        [
+          0.6079728007316589,
+          1.632973602610948,
+          0.5111482119927787
+        ]
+      ],
+      "file": "woman-2-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9050,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.7426504974364474,
+          -0.0077975006263941715,
+          -0.6377899552617823
+        ],
+        [
+          0.7534429458454682,
+          1.6722459356382013,
+          0.8483844043962154
+        ]
+      ],
+      "file": "woman-2-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9050,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.7426504974364474,
+          -0.02197716706627806,
+          -0.6377899552617823
+        ],
+        [
+          0.7534429458454682,
+          1.6874608170412833,
+          0.8483844043962154
+        ]
+      ],
+      "file": "woman-2-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9050,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.7426504974364474,
+          -0.005660454539584359,
+          -0.637933354038128
+        ],
+        [
+          0.7534429458454682,
+          1.6638784661140495,
+          0.8479242026386093
+        ]
+      ],
+      "file": "woman-2-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9050,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.7426504974364474,
+          -0.017948662520312908,
+          -0.637933354038128
+        ],
+        [
+          0.7534429458454682,
+          1.6714859068155905,
+          0.8479242026386093
+        ]
+      ],
+      "file": "woman-2-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9450,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          -0.010729331906597028,
+          -0.48557463302539744
+        ],
+        [
+          0.6234677210776387,
+          1.545678723414119,
+          0.6372160795465465
+        ]
+      ],
+      "file": "woman-2-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9450,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          -0.013646014728983191,
+          -0.48557463302539744
+        ],
+        [
+          0.6079728007316589,
+          1.5515717860603027,
+          0.6372160795465465
+        ]
+      ],
+      "file": "woman-2-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9450,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          -0.008719402303005663,
+          -0.4854402500412671
+        ],
+        [
+          0.6234677210776387,
+          1.5376333721461801,
+          0.637578351424749
+        ]
+      ],
+      "file": "woman-2-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9450,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          -0.010132876368547983,
+          -0.4854402500412671
+        ],
+        [
+          0.6079728007316589,
+          1.540579903469272,
+          0.637578351424749
+        ]
+      ],
+      "file": "woman-2-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8730,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          -0.014502384526512924,
+          -0.4868389370150083
+        ],
+        [
+          0.6234677210776387,
+          1.5204680007796307,
+          0.6640680666025061
+        ]
+      ],
+      "file": "woman-2-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 8730,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          -0.026856447249806237,
+          -0.4868389370150083
+        ],
+        [
+          0.6079728007316589,
+          1.5352056305118804,
+          0.6640680666025061
+        ]
+      ],
+      "file": "woman-2-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 8730,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          -0.012536302126647914,
+          -0.48666889543986525
+        ],
+        [
+          0.6234677210776387,
+          1.512524123087598,
+          0.664489628407274
+        ]
+      ],
+      "file": "woman-2-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 8730,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          -0.016451357183905557,
+          -0.48666889543986525
+        ],
+        [
+          0.6079728007316589,
+          1.519892937953723,
+          0.664489628407274
+        ]
+      ],
+      "file": "woman-2-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8730,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6074785082406781,
+          -0.0014197969272429778,
+          -0.4618886610864248
+        ],
+        [
+          0.6239620135686196,
+          1.5629361353235671,
+          0.6060581470960373
+        ]
+      ],
+      "file": "woman-2-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 8730,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6074785082406781,
+          -0.018247521908463127,
+          -0.4618886610864248
+        ],
+        [
+          0.6084670932226398,
+          1.57320256922003,
+          0.6060581470960373
+        ]
+      ],
+      "file": "woman-2-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 8730,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          0.0006348234429635058,
+          -0.4619447253288917
+        ],
+        [
+          0.6234677210776387,
+          1.5550273812787827,
+          0.6058623752296718
+        ]
+      ],
+      "file": "woman-2-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 8730,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          -0.01015175702947535,
+          -0.4619447253288917
+        ],
+        [
+          0.6079728007316589,
+          1.5601605982270144,
+          0.6058623752296718
+        ]
+      ],
+      "file": "woman-2-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9050,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          0.034548755856169566,
+          -0.5719381621246545
+        ],
+        [
+          0.6234677210776387,
+          1.6692519018193246,
+          0.4987250442018819
+        ]
+      ],
+      "file": "woman-2-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9050,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          0.006894559687350754,
+          -0.5719381621246545
+        ],
+        [
+          0.6079728007316589,
+          1.6676872308312616,
+          0.4987250442018819
+        ]
+      ],
+      "file": "woman-2-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9050,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          0.005764888992773998,
+          -0.571461333193371
+        ],
+        [
+          0.6234677210776387,
+          1.6301890573376077,
+          0.4988539262660046
+        ]
+      ],
+      "file": "woman-2-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9050,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          0.0035653328525605543,
+          -0.571461333193371
+        ],
+        [
+          0.6079728007316589,
+          1.6371369500811275,
+          0.4988539262660046
+        ]
+      ],
+      "file": "woman-2-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8730,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6067370695042066,
+          -0.0023466822300395873,
+          -0.4689220948033311
+        ],
+        [
+          0.624703452305091,
+          1.594637582292799,
+          0.6433182069236514
+        ]
+      ],
+      "file": "woman-2-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 8730,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6067370695042066,
+          -0.017500810018359236,
+          -0.4689220948033311
+        ],
+        [
+          0.6092085319591113,
+          1.601680630788393,
+          0.6433182069236514
+        ]
+      ],
+      "file": "woman-2-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 8730,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          -0.0002700106382369505,
+          -0.4689220948033311
+        ],
+        [
+          0.6234677210776387,
+          1.5864513855431914,
+          0.6433182069236514
+        ]
+      ],
+      "file": "woman-2-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 8730,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6079728007316589,
+          -0.008899866262979284,
+          -0.4689220948033311
+        ],
+        [
+          0.6079728007316589,
+          1.5899729097909883,
+          0.6433182069236514
+        ]
+      ],
+      "file": "woman-2-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6196,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.020209268508462164,
+          -0.5137500071525574
+        ],
+        [
+          0.5528315305709839,
+          1.762103452764956,
+          0.5737499690055847
+        ]
+      ],
+      "file": "woman-3-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6196,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          0.004658625631768498,
+          -0.5137500071525574
+        ],
+        [
+          0.5528315305709839,
+          1.7870902807414812,
+          0.5737499690055847
+        ]
+      ],
+      "file": "woman-3-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6196,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.017508833385620648,
+          -0.5137500071525574
+        ],
+        [
+          0.5528315305709839,
+          1.7533500237464905,
+          0.5737499690055847
+        ]
+      ],
+      "file": "woman-3-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6196,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.008368034685731662,
+          -0.5137500071525574
+        ],
+        [
+          0.5528315305709839,
+          1.7658434377347532,
+          0.5737499690055847
+        ]
+      ],
+      "file": "woman-3-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6036,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          0.04659245344178292,
+          -0.5924880077756024
+        ],
+        [
+          0.5528315305709839,
+          1.865794591890558,
+          0.5756808679534685
+        ]
+      ],
+      "file": "woman-3-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6036,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          0.02741555128630241,
+          -0.5924880077756024
+        ],
+        [
+          0.5528315305709839,
+          1.8545769023803904,
+          0.5756808679534685
+        ]
+      ],
+      "file": "woman-3-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6036,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.012549781177810748,
+          -0.5922734370056075
+        ],
+        [
+          0.5528315305709839,
+          1.7950343303608065,
+          0.5757192316854054
+        ]
+      ],
+      "file": "woman-3-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6036,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.0024214158802668417,
+          -0.5922734370056075
+        ],
+        [
+          0.5528315305709839,
+          1.8048859420808254,
+          0.5757192316854054
+        ]
+      ],
+      "file": "woman-3-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6196,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7076646903809867,
+          -0.02883955290711776,
+          -0.676482720506494
+        ],
+        [
+          0.7225014950080131,
+          1.8432000630904015,
+          0.8896014397151952
+        ]
+      ],
+      "file": "woman-3-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6196,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7076646903809867,
+          -0.016116056175037696,
+          -0.676482720506494
+        ],
+        [
+          0.7225014950080131,
+          1.8584149444934832,
+          0.8896014397151952
+        ]
+      ],
+      "file": "woman-3-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6196,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7076646903809867,
+          -0.026143977109437444,
+          -0.6765858322078508
+        ],
+        [
+          0.7225014950080131,
+          1.8341254817816512,
+          0.8891003238989085
+        ]
+      ],
+      "file": "woman-3-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6196,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.7076646903809867,
+          -0.015464177892866637,
+          -0.6765858322078508
+        ],
+        [
+          0.7225014950080131,
+          1.841732922483192,
+          0.8891003238989085
+        ]
+      ],
+      "file": "woman-3-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6396,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.028066399115674934,
+          -0.5555681060536277
+        ],
+        [
+          0.5528315305709839,
+          1.710115151004651,
+          0.6979924938513197
+        ]
+      ],
+      "file": "woman-3-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6396,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.0134412239198764,
+          -0.5555681060536277
+        ],
+        [
+          0.5528315305709839,
+          1.7160082136508348,
+          0.6979924938513197
+        ]
+      ],
+      "file": "woman-3-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6396,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.025531162450484368,
+          -0.5554639835226336
+        ],
+        [
+          0.5528315305709839,
+          1.7013662790901622,
+          0.698385651415946
+        ]
+      ],
+      "file": "woman-3-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6396,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.009469687689227457,
+          -0.5554639835226336
+        ],
+        [
+          0.5528315305709839,
+          1.7043128104132543,
+          0.698385651415946
+        ]
+      ],
+      "file": "woman-3-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6036,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.029861349753551925,
+          -0.5628213854091586
+        ],
+        [
+          0.5528315305709839,
+          1.682530074970923,
+          0.7261953205987374
+        ]
+      ],
+      "file": "woman-3-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6036,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.023732704430021734,
+          -0.5628213854091586
+        ],
+        [
+          0.5528315305709839,
+          1.6972677047031726,
+          0.7261953205987374
+        ]
+      ],
+      "file": "woman-3-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6036,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.02738142001968602,
+          -0.5626861941084987
+        ],
+        [
+          0.5528315305709839,
+          1.6738897640998303,
+          0.7266526956602435
+        ]
+      ],
+      "file": "woman-3-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6036,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.015634038921402194,
+          -0.5626861941084987
+        ],
+        [
+          0.5528315305709839,
+          1.6812585789659549,
+          0.7266526956602435
+        ]
+      ],
+      "file": "woman-3-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6036,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.552337238080003,
+          -0.02503028554612563,
+          -0.5180167059937564
+        ],
+        [
+          0.5533258230619648,
+          1.7284922598702754,
+          0.6669744733853754
+        ]
+      ],
+      "file": "woman-3-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6036,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.552337238080003,
+          -0.015633088720044652,
+          -0.5180167059937564
+        ],
+        [
+          0.5533258230619648,
+          1.738758693766738,
+          0.6669744733853754
+        ]
+      ],
+      "file": "woman-3-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6036,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.02243867791654125,
+          -0.5180561385244469
+        ],
+        [
+          0.5528315305709839,
+          1.7198958838765954,
+          0.6667618081940895
+        ]
+      ],
+      "file": "woman-3-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6036,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.008997522519192669,
+          -0.5180561385244469
+        ],
+        [
+          0.5528315305709839,
+          1.7250291008248269,
+          0.6667618081940895
+        ]
+      ],
+      "file": "woman-3-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6196,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          0.01785422843547496,
+          -0.6238966354950599
+        ],
+        [
+          0.5528315305709839,
+          1.842742440107686,
+          0.5644721268446778
+        ]
+      ],
+      "file": "woman-3-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6196,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          0.009350032793897123,
+          -0.6238966354950599
+        ],
+        [
+          0.5528315305709839,
+          1.841177769119623,
+          0.5644721268446778
+        ]
+      ],
+      "file": "woman-3-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6196,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.010371108717050048,
+          -0.6233784348870973
+        ],
+        [
+          0.5528315305709839,
+          1.802970574840253,
+          0.5645606134640643
+        ]
+      ],
+      "file": "woman-3-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6196,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          0.004210594208160667,
+          -0.6233784348870973
+        ],
+        [
+          0.5528315305709839,
+          1.8099184675837727,
+          0.5645606134640643
+        ]
+      ],
+      "file": "woman-3-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6036,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5515957993435315,
+          -0.028602990453208188,
+          -0.5344439254334634
+        ],
+        [
+          0.5540672617984362,
+          1.7639027369973144,
+          0.7058715723506055
+        ]
+      ],
+      "file": "woman-3-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6036,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5515957993435315,
+          -0.01648369855921189,
+          -0.5344439254334634
+        ],
+        [
+          0.5540672617984362,
+          1.7709457854929083,
+          0.7058715723506055
+        ]
+      ],
+      "file": "woman-3-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6036,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.02598356838405208,
+          -0.5344439254334634
+        ],
+        [
+          0.5528315305709839,
+          1.7550027905349685,
+          0.7058715723506055
+        ]
+      ],
+      "file": "woman-3-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6036,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5528315305709839,
+          -0.008391485613230998,
+          -0.5344439254334634
+        ],
+        [
+          0.5528315305709839,
+          1.7585243147827656,
+          0.7058715723506055
+        ]
+      ],
+      "file": "woman-3-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5988,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          0.006147629246577135,
+          -0.442237069606781
+        ],
+        [
+          0.5468845963478088,
+          1.7613522703773825,
+          0.5012374913692474
+        ]
+      ],
+      "file": "woman-4-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5988,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          0.007362039788692765,
+          -0.442237069606781
+        ],
+        [
+          0.5468845963478088,
+          1.7863390983539078,
+          0.5012374913692474
+        ]
+      ],
+      "file": "woman-4-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5988,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          0.009000004529953032,
+          -0.442237069606781
+        ],
+        [
+          0.5468845963478088,
+          1.7529249890327454,
+          0.5012374913692474
+        ]
+      ],
+      "file": "woman-4-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5988,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          -0.008755668537744343,
+          -0.442237069606781
+        ],
+        [
+          0.5468845963478088,
+          1.765418403021008,
+          0.5012374913692474
+        ]
+      ],
+      "file": "woman-4-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5908,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          0.06863819505716812,
+          -0.5146614533191507
+        ],
+        [
+          0.5468845963478088,
+          1.8600056442718296,
+          0.5178630760386906
+        ]
+      ],
+      "file": "woman-4-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5908,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          0.02789905012838023,
+          -0.5146614533191507
+        ],
+        [
+          0.5468845963478088,
+          1.848787954761662,
+          0.5178630760386906
+        ]
+      ],
+      "file": "woman-4-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5908,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          0.009647853119281624,
+          -0.5144544602700984
+        ],
+        [
+          0.5468845963478088,
+          1.7895931118014992,
+          0.51787507795323
+        ]
+      ],
+      "file": "woman-4-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5908,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          -0.0030950644604691435,
+          -0.5144544602700984
+        ],
+        [
+          0.5468845963478088,
+          1.799444723521518,
+          0.51787507795323
+        ]
+      ],
+      "file": "woman-4-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6068,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.6756163705142437,
+          -0.008559888346419242,
+          -0.6355814896342911
+        ],
+        [
+          0.6900824252616821,
+          1.8338040870475387,
+          0.8090032769474396
+        ]
+      ],
+      "file": "woman-4-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6068,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.6756163705142437,
+          -0.0158021643985351,
+          -0.6355814896342911
+        ],
+        [
+          0.6900824252616821,
+          1.8490189684506204,
+          0.8090032769474396
+        ]
+      ],
+      "file": "woman-4-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6068,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.6756163705142437,
+          -0.005712645798455596,
+          -0.6356207605176134
+        ],
+        [
+          0.6900824252616821,
+          1.8250882146429253,
+          0.8085194272297489
+        ]
+      ],
+      "file": "woman-4-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6068,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.6756163705142437,
+          -0.016058015936059655,
+          -0.6356207605176134
+        ],
+        [
+          0.6900824252616821,
+          1.832695655344466,
+          0.8085194272297489
+        ]
+      ],
+      "file": "woman-4-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6268,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          -0.011379466497040025,
+          -0.5222281289304931
+        ],
+        [
+          0.5468845963478088,
+          1.6999668856699426,
+          0.6062693173117857
+        ]
+      ],
+      "file": "woman-4-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6268,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          -0.014256017262987364,
+          -0.5222281289304931
+        ],
+        [
+          0.5468845963478088,
+          1.7058599483161265,
+          0.6062693173117857
+        ]
+      ],
+      "file": "woman-4-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6268,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          -0.008701584573445165,
+          -0.5221789208223508
+        ],
+        [
+          0.5468845963478088,
+          1.6915995873489473,
+          0.606651775907143
+        ]
+      ],
+      "file": "woman-4-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6268,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          -0.009666654556434395,
+          -0.5221789208223508
+        ],
+        [
+          0.5468845963478088,
+          1.6945461186720392,
+          0.606651775907143
+        ]
+      ],
+      "file": "woman-4-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5908,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          -0.015104480797378195,
+          -0.5387128976542938
+        ],
+        [
+          0.5468845963478088,
+          1.6707669445989146,
+          0.630285080288971
+        ]
+      ],
+      "file": "woman-4-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5908,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          -0.024288486601292403,
+          -0.5387128976542938
+        ],
+        [
+          0.5468845963478088,
+          1.6855045743311643,
+          0.630285080288971
+        ]
+      ],
+      "file": "woman-4-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5908,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          -0.012485017653251662,
+          -0.538643951422244
+        ],
+        [
+          0.5468845963478088,
+          1.6625125647268435,
+          0.6307314000656861
+        ]
+      ],
+      "file": "woman-4-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5908,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          -0.016213762956410194,
+          -0.538643951422244
+        ],
+        [
+          0.5468845963478088,
+          1.6698813795929681,
+          0.6307314000656861
+        ]
+      ],
+      "file": "woman-4-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5908,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.546390303856828,
+          -0.002169696573080304,
+          -0.46477492076763416
+        ],
+        [
+          0.5473788888387897,
+          1.722039587182464,
+          0.5865032721219363
+        ]
+      ],
+      "file": "woman-4-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5908,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.546390303856828,
+          -0.016391519240595565,
+          -0.46477492076763416
+        ],
+        [
+          0.5473788888387897,
+          1.732306021078927,
+          0.5865032721219363
+        ]
+      ],
+      "file": "woman-4-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5908,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          0.0005677280309429045,
+          -0.46478784618288405
+        ],
+        [
+          0.5468845963478088,
+          1.7137832174682266,
+          0.5862979737948136
+        ]
+      ],
+      "file": "woman-4-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5908,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          -0.00964863032544494,
+          -0.46478784618288405
+        ],
+        [
+          0.5468845963478088,
+          1.718916434416458,
+          0.5862979737948136
+        ]
+      ],
+      "file": "woman-4-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6068,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          0.033894303387837776,
+          -0.5461588290233526
+        ],
+        [
+          0.5468845963478088,
+          1.8356715919207485,
+          0.5088878897065562
+        ]
+      ],
+      "file": "woman-4-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6068,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          0.008498276832032692,
+          -0.5461588290233526
+        ],
+        [
+          0.5468845963478088,
+          1.8341069209326855,
+          0.5088878897065562
+        ]
+      ],
+      "file": "woman-4-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6068,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          0.0058206329855960415,
+          -0.5456592764493673
+        ],
+        [
+          0.5468845963478088,
+          1.7962399051217068,
+          0.5089135346939314
+        ]
+      ],
+      "file": "woman-4-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6068,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          0.0036524124187971574,
+          -0.5456592764493673
+        ],
+        [
+          0.5468845963478088,
+          1.8031877978652266,
+          0.5089135346939314
+        ]
+      ],
+      "file": "woman-4-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5908,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5456488651203565,
+          -0.003036799630820153,
+          -0.49504366406395905
+        ],
+        [
+          0.5481203275752612,
+          1.7542589314562251,
+          0.6184355018924318
+        ]
+      ],
+      "file": "woman-4-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5908,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5456488651203565,
+          -0.01747152023486731,
+          -0.49504366406395905
+        ],
+        [
+          0.5481203275752612,
+          1.7613019799518193,
+          0.6184355018924318
+        ]
+      ],
+      "file": "woman-4-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5908,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          -0.00026999560594559435,
+          -0.49504366406395905
+        ],
+        [
+          0.5468845963478088,
+          1.7457326406612477,
+          0.6184355018924318
+        ]
+      ],
+      "file": "woman-4-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5908,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5468845963478088,
+          -0.008882551163726493,
+          -0.49504366406395905
+        ],
+        [
+          0.5468845963478088,
+          1.7492541649090447,
+          0.6184355018924318
+        ]
+      ],
+      "file": "woman-4-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5956,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          0.005888918795978082,
+          -0.4255698823928833
+        ],
+        [
+          0.5096808075904846,
+          1.7908095046529926,
+          0.4852408564090729
+        ]
+      ],
+      "file": "woman-5-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5956,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          0.010840876891068163,
+          -0.4255698823928833
+        ],
+        [
+          0.5096808075904846,
+          1.8157963326295177,
+          0.4852408564090729
+        ]
+      ],
+      "file": "woman-5-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5956,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          0.00900001287460328,
+          -0.4255698823928833
+        ],
+        [
+          0.5096808075904846,
+          1.7824499753952026,
+          0.4852408564090729
+        ]
+      ],
+      "file": "woman-5-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5956,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          -0.008386456048185664,
+          -0.4255698823928833
+        ],
+        [
+          0.5096808075904846,
+          1.7949433893834652,
+          0.4852408564090729
+        ]
+      ],
+      "file": "woman-5-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5796,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          0.06833277999896414,
+          -0.496333519776185
+        ],
+        [
+          0.5096808075904846,
+          1.8883654179435165,
+          0.47393167602141867
+        ]
+      ],
+      "file": "woman-5-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5796,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          0.02928683811301791,
+          -0.496333519776185
+        ],
+        [
+          0.5096808075904846,
+          1.877147728433349,
+          0.47393167602141867
+        ]
+      ],
+      "file": "woman-5-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5796,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          0.009601076010914311,
+          -0.49612808545190495
+        ],
+        [
+          0.5096808075904846,
+          1.8180253553086376,
+          0.4740074454447954
+        ]
+      ],
+      "file": "woman-5-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5796,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          -0.003157015752875081,
+          -0.49612808545190495
+        ],
+        [
+          0.5096808075904846,
+          1.8278769670286565,
+          0.4740074454447954
+        ]
+      ],
+      "file": "woman-5-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5956,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.6375023999017423,
+          -0.008996303084155333,
+          -0.5527944596978557
+        ],
+        [
+          0.64959910298484,
+          1.8594204170608042,
+          0.7786393076483334
+        ]
+      ],
+      "file": "woman-5-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5956,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.6375023999017423,
+          -0.01458321350871139,
+          -0.5527944596978557
+        ],
+        [
+          0.64959910298484,
+          1.8746352984638859,
+          0.7786393076483334
+        ]
+      ],
+      "file": "woman-5-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5956,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.6375023999017423,
+          -0.005890807295082512,
+          -0.552985788517601
+        ],
+        [
+          0.64959910298484,
+          1.8507866598892009,
+          0.7781586275678829
+        ]
+      ],
+      "file": "woman-5-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5956,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.6375023999017423,
+          -0.015968897652154257,
+          -0.552985788517601
+        ],
+        [
+          0.64959910298484,
+          1.8583941005907416,
+          0.7781586275678829
+        ]
+      ],
+      "file": "woman-5-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6156,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          -0.011686780784831874,
+          -0.4477111071177374
+        ],
+        [
+          0.5096808075904846,
+          1.7255037916973794,
+          0.5847623484351674
+        ]
+      ],
+      "file": "woman-5-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6156,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          -0.014699170293162256,
+          -0.4477111071177374
+        ],
+        [
+          0.5096808075904846,
+          1.7313968543435632,
+          0.5847623484351674
+        ]
+      ],
+      "file": "woman-5-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6156,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          -0.008766007124960173,
+          -0.4475377481948486
+        ],
+        [
+          0.5096808075904846,
+          1.7172170642517934,
+          0.585142698246975
+        ]
+      ],
+      "file": "woman-5-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6156,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          -0.009665486737261086,
+          -0.4475377481948486
+        ],
+        [
+          0.5096808075904846,
+          1.7201635955748855,
+          0.585142698246975
+        ]
+      ],
+      "file": "woman-5-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5796,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          -0.01540668192453759,
+          -0.45046204689410796
+        ],
+        [
+          0.5096808075904846,
+          1.6953595638821737,
+          0.6075645100466265
+        ]
+      ],
+      "file": "woman-5-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5796,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          -0.02406417245415049,
+          -0.45046204689410796
+        ],
+        [
+          0.5096808075904846,
+          1.7100971936144231,
+          0.6075645100466265
+        ]
+      ],
+      "file": "woman-5-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5796,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          -0.012549625798590536,
+          -0.45024605822444136
+        ],
+        [
+          0.5096808075904846,
+          1.6871866501079873,
+          0.6080087182642631
+        ]
+      ],
+      "file": "woman-5-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5796,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          -0.01641054699707828,
+          -0.45024605822444136
+        ],
+        [
+          0.5096808075904846,
+          1.694555464974112,
+          0.6080087182642631
+        ]
+      ],
+      "file": "woman-5-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5796,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5120056955880902,
+          -0.002506090545116857,
+          -0.41420021719444167
+        ],
+        [
+          0.5101751000814655,
+          1.7489985450026921,
+          0.5683852367763471
+        ]
+      ],
+      "file": "woman-5-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5796,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5120056955880902,
+          -0.016376288093285618,
+          -0.41420021719444167
+        ],
+        [
+          0.5101751000814655,
+          1.759264978899155,
+          0.5683852367763471
+        ]
+      ],
+      "file": "woman-5-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5796,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          0.00047962649074956287,
+          -0.4142768074267498
+        ],
+        [
+          0.5096808075904846,
+          1.7408134315873252,
+          0.5681814567047357
+        ]
+      ],
+      "file": "woman-5-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5796,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          -0.009827949336416564,
+          -0.4142768074267498
+        ],
+        [
+          0.5096808075904846,
+          1.7459466485355564,
+          0.5681814567047357
+        ]
+      ],
+      "file": "woman-5-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5956,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          0.03356582390179497,
+          -0.527970572512129
+        ],
+        [
+          0.5096808075904846,
+          1.8637480462019482,
+          0.4570871977502706
+        ]
+      ],
+      "file": "woman-5-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5956,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          0.008430558836431401,
+          -0.527970572512129
+        ],
+        [
+          0.5096808075904846,
+          1.8621833752138852,
+          0.4570871977502706
+        ]
+      ],
+      "file": "woman-5-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5956,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          0.005750406740662406,
+          -0.5274748698309504
+        ],
+        [
+          0.5096808075904846,
+          1.8243871945467631,
+          0.45726600137607837
+        ]
+      ],
+      "file": "woman-5-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5956,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          0.0034379372824928645,
+          -0.5274748698309504
+        ],
+        [
+          0.5096808075904846,
+          1.831335087290283,
+          0.45726600137607837
+        ]
+      ],
+      "file": "woman-5-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5796,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5112642568516187,
+          -0.003287748767901222,
+          -0.42459186319380865
+        ],
+        [
+          0.510916538817937,
+          1.7808013014129127,
+          0.5982885834247622
+        ]
+      ],
+      "file": "woman-5-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5796,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5112642568516187,
+          -0.01787310460213054,
+          -0.42459186319380865
+        ],
+        [
+          0.510916538817937,
+          1.7878443499085068,
+          0.5982885834247622
+        ]
+      ],
+      "file": "woman-5-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5796,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          -0.00026998751163481716,
+          -0.42459186319380865
+        ],
+        [
+          0.5096808075904846,
+          1.7723537831181448,
+          0.5982885834247622
+        ]
+      ],
+      "file": "woman-5-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5796,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.512499988079071,
+          -0.009081701393373165,
+          -0.42459186319380865
+        ],
+        [
+          0.5096808075904846,
+          1.775875307365942,
+          0.5982885834247622
+        ]
+      ],
+      "file": "woman-5-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5939,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          0.005888918795978082,
+          -0.4200141632556915
+        ],
+        [
+          0.5215596556663513,
+          1.7905830847776594,
+          0.4799086546897888
+        ]
+      ],
+      "file": "woman-6-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5939,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          0.005357063225104208,
+          -0.4200141632556915
+        ],
+        [
+          0.5215596556663513,
+          1.8155699127541847,
+          0.4799086546897888
+        ]
+      ],
+      "file": "woman-6-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5939,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          0.00900001287460328,
+          -0.4200141632556915
+        ],
+        [
+          0.5215596556663513,
+          1.7822250105857849,
+          0.4799086546897888
+        ]
+      ],
+      "file": "woman-6-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5939,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          -0.011216987601122885,
+          -0.4200141632556915
+        ],
+        [
+          0.5215596556663513,
+          1.7947184245740475,
+          0.4799086546897888
+        ]
+      ],
+      "file": "woman-6-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5779,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          0.06818456837299935,
+          -0.49030640772998774
+        ],
+        [
+          0.5215596556663513,
+          1.8877721511057544,
+          0.49595687017951956
+        ]
+      ],
+      "file": "woman-6-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5779,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          0.025116014141118637,
+          -0.49030640772998774
+        ],
+        [
+          0.5215596556663513,
+          1.8765544615955867,
+          0.49595687017951956
+        ]
+      ],
+      "file": "woman-6-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5779,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          0.009452864384949522,
+          -0.49010096481166204
+        ],
+        [
+          0.5215596556663513,
+          1.8174351227193295,
+          0.49597322736738386
+        ]
+      ],
+      "file": "woman-6-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5779,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          -0.005144411641104907,
+          -0.49010096481166204
+        ],
+        [
+          0.5215596556663513,
+          1.8272867344393484,
+          0.49597322736738386
+        ]
+      ],
+      "file": "woman-6-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5939,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6438550628498344,
+          -0.00962167276275483,
+          -0.6042723822504005
+        ],
+        [
+          0.658652746339562,
+          1.859169151021804,
+          0.7762521739661322
+        ]
+      ],
+      "file": "woman-6-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5939,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6438550628498344,
+          -0.018615906149422545,
+          -0.6042723822504005
+        ],
+        [
+          0.658652746339562,
+          1.874384032424886,
+          0.7762521739661322
+        ]
+      ],
+      "file": "woman-6-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5939,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6438550628498344,
+          -0.0065161769736820085,
+          -0.6043215678663509
+        ],
+        [
+          0.658652746339562,
+          1.8505370279551947,
+          0.7757715193767878
+        ]
+      ],
+      "file": "woman-6-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5939,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.6438550628498344,
+          -0.018319716012539233,
+          -0.6043215678663509
+        ],
+        [
+          0.658652746339562,
+          1.8581444686567354,
+          0.7757715193767878
+        ]
+      ],
+      "file": "woman-6-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6139,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          -0.011965331571850424,
+          -0.5019857261248626
+        ],
+        [
+          0.5215596556663513,
+          1.7245694642735243,
+          0.5774290535788977
+        ]
+      ],
+      "file": "woman-6-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6139,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          -0.015568703447746302,
+          -0.5019857261248626
+        ],
+        [
+          0.5215596556663513,
+          1.730462526919708,
+          0.5774290535788977
+        ]
+      ],
+      "file": "woman-6-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6139,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          -0.009044557911978723,
+          -0.5019289533544153
+        ],
+        [
+          0.5215596556663513,
+          1.71628975737526,
+          0.5778097564699354
+        ]
+      ],
+      "file": "woman-6-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6139,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          -0.010326935933541725,
+          -0.5019289533544153
+        ],
+        [
+          0.5215596556663513,
+          1.719236288698352,
+          0.5778097564699354
+        ]
+      ],
+      "file": "woman-6-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5779,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          -0.015733770949954595,
+          -0.5189677485234147
+        ],
+        [
+          0.5215596556663513,
+          1.69430980364422,
+          0.59979385471802
+        ]
+      ],
+      "file": "woman-6-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5779,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          -0.026851453280902327,
+          -0.5189677485234147
+        ],
+        [
+          0.5215596556663513,
+          1.7090474333764694,
+          0.59979385471802
+        ]
+      ],
+      "file": "woman-6-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5779,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          -0.01287671482400754,
+          -0.5188901227851547
+        ],
+        [
+          0.5215596556663513,
+          1.686144641561822,
+          0.6002386260584288
+        ]
+      ],
+      "file": "woman-6-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5779,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          -0.017523053347627715,
+          -0.5188901227851547
+        ],
+        [
+          0.5215596556663513,
+          1.6935134564279468,
+          0.6002386260584288
+        ]
+      ],
+      "file": "woman-6-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5779,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5210653631753704,
+          -0.002756362496444731,
+          -0.4420288407912555
+        ],
+        [
+          0.5220539481573322,
+          1.748340200640376,
+          0.5624280914167417
+        ]
+      ],
+      "file": "woman-6-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5779,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5210653631753704,
+          -0.018967884771109556,
+          -0.4420288407912555
+        ],
+        [
+          0.5220539481573322,
+          1.7586066345368387,
+          0.5624280914167417
+        ]
+      ],
+      "file": "woman-6-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5779,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          0.00022935453942168893,
+          -0.4420460573543611
+        ],
+        [
+          0.5215596556663513,
+          1.74015856185504,
+          0.5622242892613625
+        ]
+      ],
+      "file": "woman-6-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5779,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          -0.011251174489482596,
+          -0.4420460573543611
+        ],
+        [
+          0.5215596556663513,
+          1.7452917788032711,
+          0.5622242892613625
+        ]
+      ],
+      "file": "woman-6-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5939,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          0.03321029235242867,
+          -0.5221049832827251
+        ],
+        [
+          0.5215596556663513,
+          1.8630554508180657,
+          0.48600812257382864
+        ]
+      ],
+      "file": "woman-6-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5939,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          0.00587349784467428,
+          -0.5221049832827251
+        ],
+        [
+          0.5215596556663513,
+          1.8614907798300022,
+          0.48600812257382864
+        ]
+      ],
+      "file": "woman-6-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5939,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          0.005394875191296111,
+          -0.5216092969220034
+        ],
+        [
+          0.5215596556663513,
+          1.82369711993327,
+          0.4860443469267617
+        ]
+      ],
+      "file": "woman-6-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5939,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          0.0024709497671062675,
+          -0.5216092969220034
+        ],
+        [
+          0.5215596556663513,
+          1.83064501267679,
+          0.4860443469267617
+        ]
+      ],
+      "file": "woman-6-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5779,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.520323924438899,
+          -0.003287748767901222,
+          -0.473257563371846
+        ],
+        [
+          0.5227953868938037,
+          1.7799046260271867,
+          0.5915729594691185
+        ]
+      ],
+      "file": "woman-6-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5779,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.520323924438899,
+          -0.019492604660624302,
+          -0.473257563371846
+        ],
+        [
+          0.5227953868938037,
+          1.7869476745227806,
+          0.5915729594691185
+        ]
+      ],
+      "file": "woman-6-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5779,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          -0.00026998751163481716,
+          -0.473257563371846
+        ],
+        [
+          0.5215596556663513,
+          1.7714628701319821,
+          0.5915729594691185
+        ]
+      ],
+      "file": "woman-6-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5779,
+      "meshes": 10,
+      "drawCalls": 10,
+      "box": [
+        [
+          -0.5215596556663513,
+          -0.009888820642421026,
+          -0.473257563371846
+        ],
+        [
+          0.5215596556663513,
+          1.7749843943797792,
+          0.5915729594691185
+        ]
+      ],
+      "file": "woman-6-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          0.006082959132698129,
+          -0.442237069606781
+        ],
+        [
+          0.5286816954612732,
+          1.7910790426135015,
+          0.5012374913692474
+        ]
+      ],
+      "file": "woman-7-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          0.0021995596422160757,
+          -0.442237069606781
+        ],
+        [
+          0.5286816954612732,
+          1.8160658705900268,
+          0.5012374913692474
+        ]
+      ],
+      "file": "woman-7-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          0.009000014066696205,
+          -0.442237069606781
+        ],
+        [
+          0.5286816954612732,
+          1.7825249890327455,
+          0.5012374913692474
+        ]
+      ],
+      "file": "woman-7-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          -0.011776943357094671,
+          -0.442237069606781
+        ],
+        [
+          0.5286816954612732,
+          1.795018403021008,
+          0.5012374913692474
+        ]
+      ],
+      "file": "woman-7-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          0.06839881596323433,
+          -0.5151545712548563
+        ],
+        [
+          0.5286816954612732,
+          1.8897262522126916,
+          0.4899513693997574
+        ]
+      ],
+      "file": "woman-7-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          0.023658097040855086,
+          -0.5151545712548563
+        ],
+        [
+          0.5286816954612732,
+          1.8785085627025242,
+          0.4899513693997574
+        ]
+      ],
+      "file": "woman-7-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          0.009473133464631911,
+          -0.5149444092300268
+        ],
+        [
+          0.5286816954612732,
+          1.8191869871205029,
+          0.4900271175757193
+        ]
+      ],
+      "file": "woman-7-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          -0.0052966807305355745,
+          -0.5149444092300268
+        ],
+        [
+          0.5286816954612732,
+          1.8290385988405218,
+          0.4900271175757193
+        ]
+      ],
+      "file": "woman-7-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6299,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.6587119801960137,
+          -0.009356891281389113,
+          -0.5752253481986814
+        ],
+        [
+          0.6731780349434522,
+          1.8625497069153136,
+          0.8035006138900352
+        ]
+      ],
+      "file": "woman-7-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6299,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.6587119801960137,
+          -0.0199333822339805,
+          -0.5752253481986814
+        ],
+        [
+          0.6731780349434522,
+          1.8777645883183953,
+          0.8035006138900352
+        ]
+      ],
+      "file": "woman-7-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6299,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.6587119801960137,
+          -0.006445085471251555,
+          -0.5754170272606256
+        ],
+        [
+          0.6731780349434522,
+          1.8537107740414287,
+          0.803008953131256
+        ]
+      ],
+      "file": "woman-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6299,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.6587119801960137,
+          -0.018621629638560955,
+          -0.5754170272606256
+        ],
+        [
+          0.6731780349434522,
+          1.8613182147429697,
+          0.803008953131256
+        ]
+      ],
+      "file": "woman-7-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6499,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          -0.011762693964679327,
+          -0.4643131231522442
+        ],
+        [
+          0.5286816954612732,
+          1.727886877443064,
+          0.6052833896230326
+        ]
+      ],
+      "file": "woman-7-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6499,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          -0.015323285093507666,
+          -0.4643131231522442
+        ],
+        [
+          0.5286816954612732,
+          1.733779940089248,
+          0.6052833896230326
+        ]
+      ],
+      "file": "woman-7-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6499,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          -0.009024089152257386,
+          -0.46413893627470565
+        ],
+        [
+          0.5286816954612732,
+          1.7194005621464643,
+          0.6056721841894377
+        ]
+      ],
+      "file": "woman-7-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6499,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          -0.010393949929739521,
+          -0.46413893627470565
+        ],
+        [
+          0.5286816954612732,
+          1.7223470934695562,
+          0.6056721841894377
+        ]
+      ],
+      "file": "woman-7-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          -0.015539822202876918,
+          -0.4669866852232444
+        ],
+        [
+          0.5286816954612732,
+          1.6980829173204057,
+          0.6291021839907859
+        ]
+      ],
+      "file": "woman-7-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          -0.02729841076709799,
+          -0.4669866852232444
+        ],
+        [
+          0.5286816954612732,
+          1.712820547052655,
+          0.6291021839907859
+        ]
+      ],
+      "file": "woman-7-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          -0.012860960857550452,
+          -0.46676939739414885
+        ],
+        [
+          0.5286816954612732,
+          1.689712116862955,
+          0.6295561055386889
+        ]
+      ],
+      "file": "woman-7-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          -0.017486709302836245,
+          -0.46676939739414885
+        ],
+        [
+          0.5286816954612732,
+          1.6970809317290798,
+          0.6295561055386889
+        ]
+      ],
+      "file": "woman-7-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5281874029702923,
+          -0.002529087051738821,
+          -0.4308814042702523
+        ],
+        [
+          0.5291759879522541,
+          1.7505713708056918,
+          0.586996390057642
+        ]
+      ],
+      "file": "woman-7-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5281874029702923,
+          -0.01923846121303141,
+          -0.4308814042702523
+        ],
+        [
+          0.5291759879522541,
+          1.7608378047021547,
+          0.586996390057642
+        ]
+      ],
+      "file": "woman-7-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          0.00027041061399718513,
+          -0.43095802163606584
+        ],
+        [
+          0.5286816954612732,
+          1.74219333777447,
+          0.586787922754742
+        ]
+      ],
+      "file": "woman-7-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          -0.011259000869991098,
+          -0.43095802163606584
+        ],
+        [
+          0.5286816954612732,
+          1.7473265547227017,
+          0.586787922754742
+        ]
+      ],
+      "file": "woman-7-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6299,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          0.033421106207947804,
+          -0.5473417253215377
+        ],
+        [
+          0.5286816954612732,
+          1.8653628666180213,
+          0.47309901582977765
+        ]
+      ],
+      "file": "woman-7-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6299,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          0.005668587149523896,
+          -0.5473417253215377
+        ],
+        [
+          0.5286816954612732,
+          1.863798195629958,
+          0.47309901582977765
+        ]
+      ],
+      "file": "woman-7-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6299,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          0.00541199906787998,
+          -0.5468345709763645
+        ],
+        [
+          0.5286816954612732,
+          1.8258046357044369,
+          0.4732776690766389
+        ]
+      ],
+      "file": "woman-7-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6299,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          0.0025351146481167874,
+          -0.5468345709763645
+        ],
+        [
+          0.5286816954612732,
+          1.8327525284479567,
+          0.4732776690766389
+        ]
+      ],
+      "file": "woman-7-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5274459642338208,
+          -0.0030995296412827944,
+          -0.4412156952246431
+        ],
+        [
+          0.5299174266887255,
+          1.7830939005252606,
+          0.6184355018924318
+        ]
+      ],
+      "file": "woman-7-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5274459642338208,
+          -0.01935335944121841,
+          -0.4412156952246431
+        ],
+        [
+          0.5299174266887255,
+          1.7901369490208547,
+          0.6184355018924318
+        ]
+      ],
+      "file": "woman-7-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          -0.0002699863553046744,
+          -0.4412156952246431
+        ],
+        [
+          0.5286816954612732,
+          1.7744446406612475,
+          0.6184355018924318
+        ]
+      ],
+      "file": "woman-7-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6139,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5286816954612732,
+          -0.009820162806388477,
+          -0.4412156952246431
+        ],
+        [
+          0.5286816954612732,
+          1.7779661649090448,
+          0.6184355018924318
+        ]
+      ],
+      "file": "woman-7-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10137,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.0020000000949949026,
+          -0.442237069606781
+        ],
+        [
+          0.5332310795783997,
+          1.6995311913722422,
+          0.5959308414668324
+        ]
+      ],
+      "file": "woman-8-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10137,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.0026460460577250045,
+          -0.442237069606781
+        ],
+        [
+          0.5332310795783997,
+          1.8958249193397165,
+          0.5959308414668324
+        ]
+      ],
+      "file": "woman-8-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10137,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.0020000000949949026,
+          -0.442237069606781
+        ],
+        [
+          0.5332310795783997,
+          1.6905931019163993,
+          0.5959308414668324
+        ]
+      ],
+      "file": "woman-8-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10137,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.02018628134493855,
+          -0.442237069606781
+        ],
+        [
+          0.5332310795783997,
+          1.8743934158956113,
+          0.5959308414668324
+        ]
+      ],
+      "file": "woman-8-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9977,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          0.06284182580541585,
+          -0.5218436297614486
+        ],
+        [
+          0.5332310795783997,
+          1.797296339827669,
+          0.5839852831906818
+        ]
+      ],
+      "file": "woman-8-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9977,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          0.016634783432894373,
+          -0.5218436297614486
+        ],
+        [
+          0.5332310795783997,
+          1.9573855503084505,
+          0.5839852831906818
+        ]
+      ],
+      "file": "woman-8-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9977,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          0.0009999999050050975,
+          -0.5216238880216602
+        ],
+        [
+          0.5332310795783997,
+          1.7263765404733036,
+          0.5839908450665359
+        ]
+      ],
+      "file": "woman-8-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9977,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.014420730326207665,
+          -0.5216238880216602
+        ],
+        [
+          0.5332310795783997,
+          1.907535052184272,
+          0.5839908450665359
+        ]
+      ],
+      "file": "woman-8-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10297,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6097883628638193,
+          -0.027991461379592297,
+          -0.5798534862223317
+        ],
+        [
+          0.6743248970237062,
+          1.7702631027971178,
+          0.7887286829749438
+        ]
+      ],
+      "file": "woman-8-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10297,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6097883628638193,
+          -0.02714743695766403,
+          -0.5798534862223317
+        ],
+        [
+          0.6743248970237062,
+          1.956784884191149,
+          0.7887286829749438
+        ]
+      ],
+      "file": "woman-8-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10297,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6097883628638193,
+          -0.026011348733514017,
+          -0.5800262131583628
+        ],
+        [
+          0.6743248970237062,
+          1.7610421923131325,
+          0.7882132838108655
+        ]
+      ],
+      "file": "woman-8-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10297,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6097883628638193,
+          -0.027463695677817923,
+          -0.5800262131583628
+        ],
+        [
+          0.6743248970237062,
+          1.9399565330056228,
+          0.7882132838108655
+        ]
+      ],
+      "file": "woman-8-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10697,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.01488000008929521,
+          -0.46184830393036147
+        ],
+        [
+          0.5332310795783997,
+          1.640605895088541,
+          0.6165705884389806
+        ]
+      ],
+      "file": "woman-8-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10697,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.02465208659813839,
+          -0.46184830393036147
+        ],
+        [
+          0.5332310795783997,
+          1.807527443726217,
+          0.6165705884389806
+        ]
+      ],
+      "file": "woman-8-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10697,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.01488000008929521,
+          -0.4616899569804424
+        ],
+        [
+          0.5332310795783997,
+          1.6317732216620562,
+          0.6169783756285601
+        ]
+      ],
+      "file": "woman-8-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10697,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.019403687116715196,
+          -0.4616899569804424
+        ],
+        [
+          0.5332310795783997,
+          1.7957482389766404,
+          0.6169783756285601
+        ]
+      ],
+      "file": "woman-8-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9977,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.01784000008739531,
+          -0.4640294444777815
+        ],
+        [
+          0.5332310795783997,
+          1.612009388580825,
+          0.6449843431894354
+        ]
+      ],
+      "file": "woman-8-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9977,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.03503649497658129,
+          -0.4640294444777815
+        ],
+        [
+          0.5332310795783997,
+          1.784349366304748,
+          0.6449843431894354
+        ]
+      ],
+      "file": "woman-8-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9977,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.01784000008739531,
+          -0.46383116107665606
+        ],
+        [
+          0.5332310795783997,
+          1.6033068896444704,
+          0.6454607381934218
+        ]
+      ],
+      "file": "woman-8-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9977,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.026317958152937693,
+          -0.46383116107665606
+        ],
+        [
+          0.5332310795783997,
+          1.7682780525022685,
+          0.6454607381934218
+        ]
+      ],
+      "file": "woman-8-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9977,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4755057184762737,
+          -0.013321708990787717,
+          -0.4321141991095163
+        ],
+        [
+          0.5337253720693805,
+          1.6622868618353075,
+          0.5970589275724406
+        ]
+      ],
+      "file": "woman-8-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9977,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.4755057184762737,
+          -0.027624185090786624,
+          -0.4321141991095163
+        ],
+        [
+          0.5337253720693805,
+          1.8370079197230818,
+          0.5970589275724406
+        ]
+      ],
+      "file": "woman-8-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9977,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.011417969149589757,
+          -0.4321828940358867
+        ],
+        [
+          0.5332310795783997,
+          1.653541646824062,
+          0.5970020791296933
+        ]
+      ],
+      "file": "woman-8-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9977,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.020332933049822477,
+          -0.4321828940358867
+        ],
+        [
+          0.5332310795783997,
+          1.8231294877636048,
+          0.5970020791296933
+        ]
+      ],
+      "file": "woman-8-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10297,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          0.030920912855210474,
+          -0.5543829378967354
+        ],
+        [
+          0.5332310795783997,
+          1.7726797435286086,
+          0.5819047207035504
+        ]
+      ],
+      "file": "woman-8-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10297,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.003195379419176303,
+          -0.5543829378967354
+        ],
+        [
+          0.5332310795783997,
+          1.9424219725314946,
+          0.5819047207035504
+        ]
+      ],
+      "file": "woman-8-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10297,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -9.499490256914545e-11,
+          -0.5538527767407956
+        ],
+        [
+          0.5332310795783997,
+          1.7327402401629408,
+          0.5819180625876763
+        ]
+      ],
+      "file": "woman-8-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10297,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.007176946905793624,
+          -0.5538527767407956
+        ],
+        [
+          0.5332310795783997,
+          1.91099503289741,
+          0.5819180625876763
+        ]
+      ],
+      "file": "woman-8-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 9977,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47476427973980234,
+          -0.010940000092145057,
+          -0.4412156952246431
+        ],
+        [
+          0.534466810805852,
+          1.6931974063192552,
+          0.6257752649108134
+        ]
+      ],
+      "file": "woman-8-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 9977,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47476427973980234,
+          -0.028602890779465373,
+          -0.4412156952246431
+        ],
+        [
+          0.534466810805852,
+          1.8664081478060701,
+          0.6257752649108134
+        ]
+      ],
+      "file": "woman-8-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 9977,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.010940000092145057,
+          -0.4412156952246431
+        ],
+        [
+          0.5332310795783997,
+          1.684182669074834,
+          0.6257752649108134
+        ]
+      ],
+      "file": "woman-8-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "woman",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 9977,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.47600001096725464,
+          -0.01929493209673855,
+          -0.4412156952246431
+        ],
+        [
+          0.5332310795783997,
+          1.853871886313852,
+          0.6257752649108134
+        ]
+      ],
+      "file": "woman-8-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}

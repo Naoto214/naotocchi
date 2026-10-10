@@ -1,0 +1,96 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "4f3a83933e0ef9ef26a6838d5530324d98b9f183",
+  "artifact": {
+    "id": 11590574842,
+    "name": "full-rollout-mythic-distance-ghost-4f3a83933e0ef9ef26a6838d5530324d98b9f183",
+    "digest": "sha256:32c78f4ca3a92fe1376818d330bee430e3cbcecb7c35c456f5fa10c7cbaff729"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "e68e4aafd71953ef74e08bd2c708d01b7fbbc6293d5f265b6c7d86b21fe45a08",
+      "bytes": 7453
+    },
+    {
+      "path": "player-ghost-1-back.png",
+      "sha256": "3a280dd3869345c51e780d9bd9bc084965dabe52ff8645502afa46709b624eb8",
+      "bytes": 302592
+    },
+    {
+      "path": "player-ghost-1-front.png",
+      "sha256": "b747a84055afedbf267df6260448f891f1d3965bae19ed18b746fd118eadf2af",
+      "bytes": 306867
+    },
+    {
+      "path": "player-ghost-2-back.png",
+      "sha256": "5aed341bd239b93936e0a375393028729d9c5a6a0e82f230405e0e23d92ea5cc",
+      "bytes": 307763
+    },
+    {
+      "path": "player-ghost-2-front.png",
+      "sha256": "cb1f67b7b11f55be4024b9189e87ba2a371983ad162b7928292107c7e4f7890b",
+      "bytes": 309685
+    },
+    {
+      "path": "player-ghost-3-back.png",
+      "sha256": "b4e8c7a02f098d349c64f436ea85d252aa2acd4cfc121f13051fcbf441636140",
+      "bytes": 308659
+    },
+    {
+      "path": "player-ghost-3-front.png",
+      "sha256": "350248dba386e9585d50a5f7ba34bd54ccf8467f023a117bd5d1aec51b741e33",
+      "bytes": 312253
+    },
+    {
+      "path": "player-ghost-4-back.png",
+      "sha256": "5b168c839176b437da0737f090c2811df3f35d9bbce24fc5493eac44cf24744c",
+      "bytes": 310003
+    },
+    {
+      "path": "player-ghost-4-front.png",
+      "sha256": "090b9819713fd932cab97d4199b14874d2049cdda9837133580a88e0f10cd349",
+      "bytes": 313586
+    },
+    {
+      "path": "player-ghost-5-back.png",
+      "sha256": "18b822e9ee6a253d4523b106fb452282995f2b5bdc8befa812df61a75c5f1612",
+      "bytes": 312185
+    },
+    {
+      "path": "player-ghost-5-front.png",
+      "sha256": "de58e45c818313d1c0ca5506c89d342ba93445d50c151693cc254dcdd428e7da",
+      "bytes": 315072
+    },
+    {
+      "path": "player-ghost-6-back.png",
+      "sha256": "603e882c960ac281511f45eb32238051c351b9558a8f03e5946ed3455b82e9cf",
+      "bytes": 307631
+    },
+    {
+      "path": "player-ghost-6-front.png",
+      "sha256": "b06b087df8278a6639b24ad6980e1cc52604d65a86a72746754db8d1251c651c",
+      "bytes": 312308
+    },
+    {
+      "path": "player-ghost-7-back.png",
+      "sha256": "932aba2ca56948dd9c42ab946ac39482564ad711d8e50e8724c4675a79cc5f2b",
+      "bytes": 310472
+    },
+    {
+      "path": "player-ghost-7-front.png",
+      "sha256": "3a9aa126743aee1e9ed7a436e5e8a047d57b79ba99469641ccc920aa178d528a",
+      "bytes": 314938
+    },
+    {
+      "path": "player-ghost-8-back.png",
+      "sha256": "b956866a515298577bd1b3680bb7fea002b65e87103fd01c95706cf21044f205",
+      "bytes": 311873
+    },
+    {
+      "path": "player-ghost-8-front.png",
+      "sha256": "55f1e97e3244ef02f8b806eeb01a24a3a940d0892bda3d4013bea0acd8f82a95",
+      "bytes": 314423
+    }
+  ]
+}

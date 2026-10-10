@@ -1,0 +1,21 @@
+(node:52) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/star-candidates/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/star-candidates/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ star representatives distinguish a deep tilted spiral galaxy from an irregular blazing sun (176.82434ms)
+✔ cosmic representative retains a single canonical face and owner through32 states (104.910346ms)
+✔ galaxy core stays centered inside its spiral instead of hanging in front of a narrow ring (1.746577ms)
+(node:53) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/star-candidates/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/star-candidates/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Star source stages distinguish blue galaxies, warm suns and calm blue rebirth (243.948909ms)
+✔ Star candidates keep one unobstructed canonical face through all32 states and remain isolated (182.420615ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 506.328159

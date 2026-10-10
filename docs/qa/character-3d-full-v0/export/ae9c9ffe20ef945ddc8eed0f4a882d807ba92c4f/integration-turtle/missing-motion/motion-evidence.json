@@ -1,0 +1,6309 @@
+{
+  "source": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "turtle",
+      "stage": 1
+    },
+    {
+      "id": "turtle",
+      "stage": 2
+    },
+    {
+      "id": "turtle",
+      "stage": 4
+    },
+    {
+      "id": "turtle",
+      "stage": 5
+    },
+    {
+      "id": "turtle",
+      "stage": 6
+    },
+    {
+      "id": "turtle",
+      "stage": 7
+    },
+    {
+      "id": "turtle",
+      "stage": 8
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5950,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.0014280015945434266,
+          -0.34499999284744265
+        ],
+        [
+          0.2800000011920929,
+          0.5162999940395355,
+          0.5650636030190299
+        ]
+      ],
+      "file": "turtle-1-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5950,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.012998988237901687,
+          -0.34499999284744265
+        ],
+        [
+          0.2800000011920929,
+          0.5365370580831745,
+          0.5652090267693213
+        ]
+      ],
+      "file": "turtle-1-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5950,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.0014280015945434266,
+          -0.34499999284744265
+        ],
+        [
+          0.2800000011920929,
+          0.5162999940395355,
+          0.5650636030190299
+        ]
+      ],
+      "file": "turtle-1-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5950,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.008478795293031055,
+          -0.34499999284744265
+        ],
+        [
+          0.2800000011920929,
+          0.5264465162614206,
+          0.5651672475753472
+        ]
+      ],
+      "file": "turtle-1-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          0.056932569331953925,
+          -0.35089156095452684
+        ],
+        [
+          0.2800000011920929,
+          0.6053789858669513,
+          0.5614039169365017
+        ]
+      ],
+      "file": "turtle-1-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          0.016651056591614283,
+          -0.35089156095452684
+        ],
+        [
+          0.2800000011920929,
+          0.5840810868295643,
+          0.5540742060247366
+        ]
+      ],
+      "file": "turtle-1-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.004909256568456838,
+          -0.35089156095452684
+        ],
+        [
+          0.2800000011920929,
+          0.5435371599665405,
+          0.5614039169365017
+        ]
+      ],
+      "file": "turtle-1-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.010380468451071184,
+          -0.35089156095452684
+        ],
+        [
+          0.2800000011920929,
+          0.5483927250390077,
+          0.5577851409827401
+        ]
+      ],
+      "file": "turtle-1-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3351730695135051,
+          -0.02278429860406961,
+          -0.34737737947980174
+        ],
+        [
+          0.3351730695135051,
+          0.5343181910774475,
+          0.6632332930657509
+        ]
+      ],
+      "file": "turtle-1-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3351730695135051,
+          -0.02966529670189913,
+          -0.34737737947980174
+        ],
+        [
+          0.3351730695135051,
+          0.5480096848821361,
+          0.6668212975025521
+        ]
+      ],
+      "file": "turtle-1-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3351730695135051,
+          -0.02278429860406961,
+          -0.34737737947980174
+        ],
+        [
+          0.3351730695135051,
+          0.5343181910774475,
+          0.6632332930657509
+        ]
+      ],
+      "file": "turtle-1-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3351730695135052,
+          -0.02670160482591899,
+          -0.34737737947980174
+        ],
+        [
+          0.3351730695135052,
+          0.5411781002692688,
+          0.6650454839635727
+        ]
+      ],
+      "file": "turtle-1-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5950,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.026415632466378763,
+          -0.3565638332580279
+        ],
+        [
+          0.2800000011920929,
+          0.5188335473673278,
+          0.5730174695944387
+        ]
+      ],
+      "file": "turtle-1-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5950,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.03130833219463708,
+          -0.3565638332580279
+        ],
+        [
+          0.2800000011920929,
+          0.5343114274928262,
+          0.5780373219741556
+        ]
+      ],
+      "file": "turtle-1-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5950,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.026415632466378763,
+          -0.3565638332580279
+        ],
+        [
+          0.2800000011920929,
+          0.5188335473673278,
+          0.5730174695944387
+        ]
+      ],
+      "file": "turtle-1-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5950,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.029736488683122647,
+          -0.3565638332580279
+        ],
+        [
+          0.2800000011920929,
+          0.5265959567423188,
+          0.5755530539951059
+        ]
+      ],
+      "file": "turtle-1-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.031440301036920665,
+          -0.35877054062154284
+        ],
+        [
+          0.2800000011920929,
+          0.5139968833704898,
+          0.5786033925841082
+        ]
+      ],
+      "file": "turtle-1-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.035565511393117755,
+          -0.35877054062154284
+        ],
+        [
+          0.2800000011920929,
+          0.543984204250392,
+          0.5841282968475403
+        ]
+      ],
+      "file": "turtle-1-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.031440301036920665,
+          -0.35877054062154284
+        ],
+        [
+          0.2800000011920929,
+          0.5139968833704898,
+          0.5786033925841082
+        ]
+      ],
+      "file": "turtle-1-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.03597472033115842,
+          -0.35877054062154284
+        ],
+        [
+          0.2800000011920929,
+          0.52902297880919,
+          0.5814019932660304
+        ]
+      ],
+      "file": "turtle-1-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.27950570870111197,
+          -0.011993630064304595,
+          -0.3461420557679805
+        ],
+        [
+          0.2804942936830738,
+          0.5032183703186763,
+          0.5681042498384926
+        ]
+      ],
+      "file": "turtle-1-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.27950570870111197,
+          -0.01959366376185523,
+          -0.3461420557679805
+        ],
+        [
+          0.2804942936830738,
+          0.5333620520891922,
+          0.5695563631667224
+        ]
+      ],
+      "file": "turtle-1-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.011993630064304595,
+          -0.3461420557679805
+        ],
+        [
+          0.2800000011920929,
+          0.5032183703186763,
+          0.5681042498384926
+        ]
+      ],
+      "file": "turtle-1-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.022799158613567044,
+          -0.3461420557679805
+        ],
+        [
+          0.2800000011920929,
+          0.5182917284200095,
+          0.5688319386068801
+        ]
+      ],
+      "file": "turtle-1-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          0.01613797704050904,
+          -0.35877054062154284
+        ],
+        [
+          0.2800000011920929,
+          0.5882987959876911,
+          0.5605864260067219
+        ]
+      ],
+      "file": "turtle-1-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.00358583228763526,
+          -0.35877054062154284
+        ],
+        [
+          0.2800000011920929,
+          0.6064569462886528,
+          0.5656934892123032
+        ]
+      ],
+      "file": "turtle-1-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.014782935909696343,
+          -0.35877054062154284
+        ],
+        [
+          0.2800000011920929,
+          0.5573778830374857,
+          0.5605864260067219
+        ]
+      ],
+      "file": "turtle-1-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.019686761361163957,
+          -0.35877054062154284
+        ],
+        [
+          0.2800000011920929,
+          0.5742131052368308,
+          0.5631668377771912
+        ]
+      ],
+      "file": "turtle-1-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2787642699646406,
+          -0.010385161546707156,
+          -0.34499999284744265
+        ],
+        [
+          0.2812357324195452,
+          0.52210930596323,
+          0.5762591676270845
+        ]
+      ],
+      "file": "turtle-1-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2787642699646406,
+          -0.022682193447947252,
+          -0.34499999284744265
+        ],
+        [
+          0.2812357324195452,
+          0.5533293015003418,
+          0.5830362915709268
+        ]
+      ],
+      "file": "turtle-1-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.010385161546707156,
+          -0.34499999284744265
+        ],
+        [
+          0.2800000011920929,
+          0.52210930596323,
+          0.5762591676270845
+        ]
+      ],
+      "file": "turtle-1-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.2800000011920929,
+          -0.021357633744371662,
+          -0.34499999284744265
+        ],
+        [
+          0.2800000011920929,
+          0.5377619470791251,
+          0.5796929331144806
+        ]
+      ],
+      "file": "turtle-1-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.0016379952669143827,
+          -0.40499999523162844
+        ],
+        [
+          0.3400000035762787,
+          0.6931000085830689,
+          0.671242306676612
+        ]
+      ],
+      "file": "turtle-2-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.01584592217307304,
+          -0.40499999523162844
+        ],
+        [
+          0.3400000035762787,
+          0.714768474096922,
+          0.6714301166083573
+        ]
+      ],
+      "file": "turtle-2-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.0016379952669143827,
+          -0.40499999523162844
+        ],
+        [
+          0.3400000035762787,
+          0.6931000085830689,
+          0.671242306676612
+        ]
+      ],
+      "file": "turtle-2-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.010437452732593416,
+          -0.40499999523162844
+        ],
+        [
+          0.3400000035762787,
+          0.703970400183396,
+          0.6713731071179593
+        ]
+      ],
+      "file": "turtle-2-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          0.05562405094763856,
+          -0.41262263184974435
+        ],
+        [
+          0.3400000035762787,
+          0.7868361111583491,
+          0.6681389378128539
+        ]
+      ],
+      "file": "turtle-2-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          0.012951410220269743,
+          -0.41262263184974435
+        ],
+        [
+          0.3400000035762787,
+          0.7638744339242578,
+          0.6592369645170153
+        ]
+      ],
+      "file": "turtle-2-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.006217774952772204,
+          -0.41262263184974435
+        ],
+        [
+          0.3400000035762787,
+          0.7249942852579383,
+          0.6681389378128539
+        ]
+      ],
+      "file": "turtle-2-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.01336104010692521,
+          -0.41262263184974435
+        ],
+        [
+          0.3400000035762787,
+          0.7290306672367487,
+          0.6637432747895602
+        ]
+      ],
+      "file": "turtle-2-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3938496930609924,
+          -0.025667853266235857,
+          -0.40726941425580954
+        ],
+        [
+          0.3938496930609924,
+          0.7152962020199576,
+          0.7923186473231703
+        ]
+      ],
+      "file": "turtle-2-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3938496930609924,
+          -0.03408873141153096,
+          -0.40726941425580954
+        ],
+        [
+          0.3938496930609924,
+          0.7299998068738942,
+          0.7970599540723387
+        ]
+      ],
+      "file": "turtle-2-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3938496930609924,
+          -0.025667853266235857,
+          -0.40726941425580954
+        ],
+        [
+          0.3938496930609924,
+          0.7152962020199576,
+          0.7923186473231703
+        ]
+      ],
+      "file": "turtle-2-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.39384969306099243,
+          -0.030516551535967523,
+          -0.40726941425580954
+        ],
+        [
+          0.39384969306099243,
+          0.7226660627631104,
+          0.7947111188529932
+        ]
+      ],
+      "file": "turtle-2-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5958,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.02864294106153195,
+          -0.4199873927544006
+        ],
+        [
+          0.3400000035762787,
+          0.6938117266968,
+          0.684427053821479
+        ]
+      ],
+      "file": "turtle-2-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5958,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.0349808645327101,
+          -0.4199873927544006
+        ],
+        [
+          0.3400000035762787,
+          0.710193497821074,
+          0.691022509116652
+        ]
+      ],
+      "file": "turtle-2-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5958,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.02864294106153195,
+          -0.4199873927544006
+        ],
+        [
+          0.3400000035762787,
+          0.6938117266968,
+          0.684427053821479
+        ]
+      ],
+      "file": "turtle-2-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5958,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.03298346545427838,
+          -0.4199873927544006
+        ],
+        [
+          0.3400000035762787,
+          0.7020326311632217,
+          0.6877559138916451
+        ]
+      ],
+      "file": "turtle-2-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.03400083859595221,
+          -0.4228600554222158
+        ],
+        [
+          0.3400000035762787,
+          0.6869574970962098,
+          0.6916178520679854
+        ]
+      ],
+      "file": "turtle-2-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.03940039490334851,
+          -0.4228600554222158
+        ],
+        [
+          0.3400000035762787,
+          0.7178926294175817,
+          0.6989121939428982
+        ]
+      ],
+      "file": "turtle-2-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.03400083859595221,
+          -0.4228600554222158
+        ],
+        [
+          0.3400000035762787,
+          0.6869574970962098,
+          0.6916178520679854
+        ]
+      ],
+      "file": "turtle-2-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.03982779827816088,
+          -0.4228600554222158
+        ],
+        [
+          0.3400000035762787,
+          0.7024664586349926,
+          0.6953089804310826
+        ]
+      ],
+      "file": "turtle-2-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.33950571108529776,
+          -0.01328997229133913,
+          -0.40612330912796346
+        ],
+        [
+          0.3404942960672596,
+          0.6752916264090864,
+          0.6793456188259943
+        ]
+      ],
+      "file": "turtle-2-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.33950571108529776,
+          -0.021002307516179652,
+          -0.40612330912796346
+        ],
+        [
+          0.3404942960672596,
+          0.7057140699738995,
+          0.6812381647570802
+        ]
+      ],
+      "file": "turtle-2-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.01328997229133913,
+          -0.40612330912796346
+        ],
+        [
+          0.3400000035762787,
+          0.6752916264090864,
+          0.6793456188259943
+        ]
+      ],
+      "file": "turtle-2-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.026353226067114294,
+          -0.40612330912796346
+        ],
+        [
+          0.3400000035762787,
+          0.6905047979926948,
+          0.6802938628074459
+        ]
+      ],
+      "file": "turtle-2-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          0.01335478404156168,
+          -0.4228600554222158
+        ],
+        [
+          0.3400000035762787,
+          0.772471595150622,
+          0.6661651939495732
+        ]
+      ],
+      "file": "turtle-2-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.007615563241801654,
+          -0.4228600554222158
+        ],
+        [
+          0.3400000035762787,
+          0.7917705961795207,
+          0.6733631206245514
+        ]
+      ],
+      "file": "turtle-2-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.017566128908643702,
+          -0.4228600554222158
+        ],
+        [
+          0.3400000035762787,
+          0.7415506822004165,
+          0.6661651939495732
+        ]
+      ],
+      "file": "turtle-2-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.023859434004220054,
+          -0.4228600554222158
+        ],
+        [
+          0.3400000035762787,
+          0.7589636907937953,
+          0.6696476337124231
+        ]
+      ],
+      "file": "turtle-2-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3387642723488264,
+          -0.010588855408906944,
+          -0.40499999523162844
+        ],
+        [
+          0.341235734803731,
+          0.6994541507962606,
+          0.6895245632967992
+        ]
+      ],
+      "file": "turtle-2-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3387642723488264,
+          -0.024806732513681096,
+          -0.40499999523162844
+        ],
+        [
+          0.341235734803731,
+          0.7319406343613846,
+          0.6984194857120507
+        ]
+      ],
+      "file": "turtle-2-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.010588855408906944,
+          -0.40499999523162844
+        ],
+        [
+          0.3400000035762787,
+          0.6994541507962606,
+          0.6895245632967992
+        ]
+      ],
+      "file": "turtle-2-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.3400000035762787,
+          -0.024082066103094074,
+          -0.40499999523162844
+        ],
+        [
+          0.3400000035762787,
+          0.7157519654389786,
+          0.694026843141458
+        ]
+      ],
+      "file": "turtle-2-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.0019950002193450667,
+          -0.5949999928474426
+        ],
+        [
+          0.4300000071525574,
+          0.89300000705719,
+          0.759081708870029
+        ]
+      ],
+      "file": "turtle-4-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.020657362070870378,
+          -0.5949999928474426
+        ],
+        [
+          0.4300000071525574,
+          0.9133662560209793,
+          0.7592496842073703
+        ]
+      ],
+      "file": "turtle-4-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.0019950002193450667,
+          -0.5949999928474426
+        ],
+        [
+          0.4300000071525574,
+          0.89300000705719,
+          0.759081708870029
+        ]
+      ],
+      "file": "turtle-4-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.013760063336312522,
+          -0.5949999928474426
+        ],
+        [
+          0.4300000071525574,
+          0.903215427278242,
+          0.7591969695261581
+        ]
+      ],
+      "file": "turtle-4-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          0.05227178762880075,
+          -0.6050629970011622
+        ],
+        [
+          0.4300000071525574,
+          0.9870483885899433,
+          0.753035594975782
+        ]
+      ],
+      "file": "turtle-4-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          0.005577264441242624,
+          -0.6050629970011622
+        ],
+        [
+          0.4300000071525574,
+          0.965643101297293,
+          0.7453947913792804
+        ]
+      ],
+      "file": "turtle-4-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.009570038271610015,
+          -0.6050629970011622
+        ],
+        [
+          0.4300000071525574,
+          0.9252065626895325,
+          0.753035594975782
+        ]
+      ],
+      "file": "turtle-4-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.01950727494256682,
+          -0.6050629970011622
+        ],
+        [
+          0.4300000071525574,
+          0.9300149894651395,
+          0.749158506930665
+        ]
+      ],
+      "file": "turtle-4-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.03329196771630161,
+          -0.5969275144636027
+        ],
+        [
+          0.4300000071525574,
+          0.898825774223714,
+          0.8700808077636031
+        ]
+      ],
+      "file": "turtle-4-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.04431201008635316,
+          -0.5969275144636027
+        ],
+        [
+          0.4300000071525574,
+          0.9124036892821289,
+          0.8743808388829197
+        ]
+      ],
+      "file": "turtle-4-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.03329196771630161,
+          -0.5969275144636027
+        ],
+        [
+          0.4300000071525574,
+          0.898825774223714,
+          0.8700808077636031
+        ]
+      ],
+      "file": "turtle-4-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.039717357541388165,
+          -0.5969275144636027
+        ],
+        [
+          0.4300000071525574,
+          0.9056307132594545,
+          0.8722492725832001
+        ]
+      ],
+      "file": "turtle-4-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5958,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.034552537463658495,
+          -0.6147478564774067
+        ],
+        [
+          0.4300000071525574,
+          0.8819754276016533,
+          0.7647247300184874
+        ]
+      ],
+      "file": "turtle-4-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5958,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.04328355830956204,
+          -0.6147478564774067
+        ],
+        [
+          0.4300000071525574,
+          0.8974171558416473,
+          0.7706779292561272
+        ]
+      ],
+      "file": "turtle-4-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5958,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.034552537463658495,
+          -0.6147478564774067
+        ],
+        [
+          0.4300000071525574,
+          0.8819754276016533,
+          0.7647247300184874
+        ]
+      ],
+      "file": "turtle-4-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5958,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.04059929440551957,
+          -0.6147478564774067
+        ],
+        [
+          0.4300000071525574,
+          0.8897229344825548,
+          0.767728000186012
+        ]
+      ],
+      "file": "turtle-4-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.04084859028025872,
+          -0.61851455592054
+        ],
+        [
+          0.4300000071525574,
+          0.8710185093694989,
+          0.7695999701217549
+        ]
+      ],
+      "file": "turtle-4-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.0483399826636397,
+          -0.61851455592054
+        ],
+        [
+          0.4300000071525574,
+          0.9009218890354793,
+          0.7762035805094811
+        ]
+      ],
+      "file": "turtle-4-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.04084859028025872,
+          -0.61851455592054
+        ],
+        [
+          0.4300000071525574,
+          0.8710185093694989,
+          0.7695999701217549
+        ]
+      ],
+      "file": "turtle-4-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.04879194191165925,
+          -0.61851455592054
+        ],
+        [
+          0.4300000071525574,
+          0.8860068869677387,
+          0.7729394907646097
+        ]
+      ],
+      "file": "turtle-4-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.42950571466157644,
+          -0.016580543410109616,
+          -0.5960639348369061
+        ],
+        [
+          0.4304942996435383,
+          0.8604699467091788,
+          0.7717981065160284
+        ]
+      ],
+      "file": "turtle-4-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.42950571466157644,
+          -0.02433273506176481,
+          -0.5960639348369061
+        ],
+        [
+          0.4304942996435383,
+          0.8906233575019009,
+          0.7734978479424619
+        ]
+      ],
+      "file": "turtle-4-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.016580543410109616,
+          -0.5960639348369061
+        ],
+        [
+          0.4300000071525574,
+          0.8604699467091788,
+          0.7717981065160284
+        ]
+      ],
+      "file": "turtle-4-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.03344027269597116,
+          -0.5960639348369061
+        ],
+        [
+          0.4300000071525574,
+          0.8755483878440966,
+          0.7726496601765174
+        ]
+      ],
+      "file": "turtle-4-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          0.005911575689054649,
+          -0.61851455592054
+        ],
+        [
+          0.4300000071525574,
+          0.9764081438663592,
+          0.746400486790637
+        ]
+      ],
+      "file": "turtle-4-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.017090105875612327,
+          -0.61851455592054
+        ],
+        [
+          0.4300000071525574,
+          0.9945929323550513,
+          0.7531379128172904
+        ]
+      ],
+      "file": "turtle-4-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.025009337261150733,
+          -0.61851455592054
+        ],
+        [
+          0.4300000071525574,
+          0.9454872309161537,
+          0.746400486790637
+        ]
+      ],
+      "file": "turtle-4-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.03357302833741732,
+          -0.61851455592054
+        ],
+        [
+          0.4300000071525574,
+          0.962339463174917,
+          0.749796815834757
+        ]
+      ],
+      "file": "turtle-4-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4287642759251051,
+          -0.0109351502127647,
+          -0.5949999928474426
+        ],
+        [
+          0.43123573838000967,
+          0.8878070745817419,
+          0.7771755504503914
+        ]
+      ],
+      "file": "turtle-4-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4287642759251051,
+          -0.02831844843196679,
+          -0.5949999928474426
+        ],
+        [
+          0.43123573838000967,
+          0.9189892902405087,
+          0.7851991038217122
+        ]
+      ],
+      "file": "turtle-4-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.0109351502127647,
+          -0.5949999928474426
+        ],
+        [
+          0.4300000071525574,
+          0.8878070745817419,
+          0.7771755504503914
+        ]
+      ],
+      "file": "turtle-4-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4300000071525574,
+          -0.02868821339728933,
+          -0.5949999928474426
+        ],
+        [
+          0.4300000071525574,
+          0.9034466341386962,
+          0.7812342717330707
+        ]
+      ],
+      "file": "turtle-4-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.002204991817474411,
+          -0.575000011920929
+        ],
+        [
+          0.4699999988079071,
+          0.8202000067234039,
+          0.7638001795356837
+        ]
+      ],
+      "file": "turtle-5-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.025350824255586324,
+          -0.575000011920929
+        ],
+        [
+          0.4699999988079071,
+          0.8410058118454873,
+          0.7639672173702022
+        ]
+      ],
+      "file": "turtle-5-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.002204991817474411,
+          -0.575000011920929
+        ],
+        [
+          0.4699999988079071,
+          0.8202000067234039,
+          0.7638001795356837
+        ]
+      ],
+      "file": "turtle-5-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.016182315353406307,
+          -0.575000011920929
+        ],
+        [
+          0.4699999988079071,
+          0.8306351217374841,
+          0.7639169265556524
+        ]
+      ],
+      "file": "turtle-5-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          0.05195175353913084,
+          -0.5865691095576555
+        ],
+        [
+          0.4699999988079071,
+          0.915016067692022,
+          0.7588988679523518
+        ]
+      ],
+      "file": "turtle-5-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.00023155289293547154,
+          -0.5865691095576555
+        ],
+        [
+          0.4699999988079071,
+          0.8930688021205537,
+          0.7508263313390597
+        ]
+      ],
+      "file": "turtle-5-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.009890072361279922,
+          -0.5865691095576555
+        ],
+        [
+          0.4699999988079071,
+          0.8531742417916113,
+          0.7588988679523518
+        ]
+      ],
+      "file": "turtle-5-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.02252682795794253,
+          -0.5865691095576555
+        ],
+        [
+          0.4699999988079071,
+          0.8577116524836268,
+          0.7549124065715931
+        ]
+      ],
+      "file": "turtle-5-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.03390387432031239,
+          -0.576963522704063
+        ],
+        [
+          0.4699999988079071,
+          0.8346335463105755,
+          0.8776908119740368
+        ]
+      ],
+      "file": "turtle-5-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.04767679385548196,
+          -0.576963522704063
+        ],
+        [
+          0.4699999988079071,
+          0.8441940483033648,
+          0.8819002141114508
+        ]
+      ],
+      "file": "turtle-5-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.03390387432031239,
+          -0.576963522704063
+        ],
+        [
+          0.4699999988079071,
+          0.8346335463105755,
+          0.8776908119740368
+        ]
+      ],
+      "file": "turtle-5-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.041695177677817774,
+          -0.576963522704063
+        ],
+        [
+          0.4699999988079071,
+          0.8386189072307354,
+          0.8798151801422358
+        ]
+      ],
+      "file": "turtle-5-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5958,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.03495568148871844,
+          -0.5977716205945571
+        ],
+        [
+          0.4699999988079071,
+          0.8151873737188465,
+          0.7708793437654871
+        ]
+      ],
+      "file": "turtle-5-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5958,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.04683908607528062,
+          -0.5977716205945571
+        ],
+        [
+          0.4699999988079071,
+          0.830992177808434,
+          0.7767417579736675
+        ]
+      ],
+      "file": "turtle-5-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5958,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.03495568148871844,
+          -0.5977716205945571
+        ],
+        [
+          0.4699999988079071,
+          0.8151873737188465,
+          0.7708793437654871
+        ]
+      ],
+      "file": "turtle-5-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5958,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.04255926368951743,
+          -0.5977716205945571
+        ],
+        [
+          0.4699999988079071,
+          0.8231165541837362,
+          0.7738385260049714
+        ]
+      ],
+      "file": "turtle-5-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.04128288767326185,
+          -0.6021484046927325
+        ],
+        [
+          0.4699999988079071,
+          0.8060737635484752,
+          0.7763670985355012
+        ]
+      ],
+      "file": "turtle-5-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.05555552794606508,
+          -0.6021484046927325
+        ],
+        [
+          0.4699999988079071,
+          0.8363912953244266,
+          0.782846576120865
+        ]
+      ],
+      "file": "turtle-5-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.04128288767326185,
+          -0.6021484046927325
+        ],
+        [
+          0.4699999988079071,
+          0.8060737635484752,
+          0.7763670985355012
+        ]
+      ],
+      "file": "turtle-5-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.05294100685733752,
+          -0.6021484046927325
+        ],
+        [
+          0.4699999988079071,
+          0.8212694672708343,
+          0.7796463245467844
+        ]
+      ],
+      "file": "turtle-5-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4695057063169262,
+          -0.016943741570874055,
+          -0.5760702035789182
+        ],
+        [
+          0.47049429129888803,
+          0.7920748263800552,
+          0.7726122724269685
+        ]
+      ],
+      "file": "turtle-5-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4695057063169262,
+          -0.03464377124701834,
+          -0.5760702035789182
+        ],
+        [
+          0.47049429129888803,
+          0.8223250462355209,
+          0.7742962767822945
+        ]
+      ],
+      "file": "turtle-5-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.016943741570874055,
+          -0.5760702035789182
+        ],
+        [
+          0.4699999988079071,
+          0.7920748263800552,
+          0.7726122724269685
+        ]
+      ],
+      "file": "turtle-5-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.038773354053044384,
+          -0.5760702035789182
+        ],
+        [
+          0.4699999988079071,
+          0.8072016745249144,
+          0.7734560469129732
+        ]
+      ],
+      "file": "turtle-5-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          0.00543951330535547,
+          -0.6021484046927325
+        ],
+        [
+          0.4699999988079071,
+          0.9043588760418254,
+          0.754130128429253
+        ]
+      ],
+      "file": "turtle-5-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.025233689914544555,
+          -0.6021484046927325
+        ],
+        [
+          0.4699999988079071,
+          0.9229494336233359,
+          0.7601380713687556
+        ]
+      ],
+      "file": "turtle-5-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.02548139964484991,
+          -0.6021484046927325
+        ],
+        [
+          0.4699999988079071,
+          0.8734379630916199,
+          0.754130128429253
+        ]
+      ],
+      "file": "turtle-5-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5758,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.03821592867515222,
+          -0.6021484046927325
+        ],
+        [
+          0.4699999988079071,
+          0.8904931420428078,
+          0.7569753835336537
+        ]
+      ],
+      "file": "turtle-5-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4687642675804548,
+          -0.011138842062950183,
+          -0.575000011920929
+        ],
+        [
+          0.4712357300353594,
+          0.8191535412431965,
+          0.7796846461743819
+        ]
+      ],
+      "file": "turtle-5-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4687642675804548,
+          -0.036954999024444324,
+          -0.575000011920929
+        ],
+        [
+          0.4712357300353594,
+          0.8508351302308934,
+          0.7875920569294466
+        ]
+      ],
+      "file": "turtle-5-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.011138842062950183,
+          -0.575000011920929
+        ],
+        [
+          0.4699999988079071,
+          0.8191535412431965,
+          0.7796846461743819
+        ]
+      ],
+      "file": "turtle-5-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5598,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4699999988079071,
+          -0.03306641920448339,
+          -0.575000011920929
+        ],
+        [
+          0.4699999988079071,
+          0.835043014059984,
+          0.7836876144709721
+        ]
+      ],
+      "file": "turtle-5-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5950,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.002204996871948306,
+          -0.6049999833106995
+        ],
+        [
+          0.49000000953674316,
+          0.9132000119209289,
+          0.7583225171858868
+        ]
+      ],
+      "file": "turtle-6-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5950,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.025192169153795074,
+          -0.6049999833106995
+        ],
+        [
+          0.49000000953674316,
+          0.9262286533996229,
+          0.7584710280965012
+        ]
+      ],
+      "file": "turtle-6-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5950,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.002204996871948306,
+          -0.6049999833106995
+        ],
+        [
+          0.49000000953674316,
+          0.9132000119209289,
+          0.7583225171858868
+        ]
+      ],
+      "file": "turtle-6-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5950,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.01614248656741607,
+          -0.6049999833106995
+        ],
+        [
+          0.49000000953674316,
+          0.9197143326602759,
+          0.7584270331851856
+        ]
+      ],
+      "file": "turtle-6-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          0.05154096732902036,
+          -0.6190594466320929
+        ],
+        [
+          0.49000000953674316,
+          0.9917372764102413,
+          0.753355732865337
+        ]
+      ],
+      "file": "turtle-6-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.00037701834758002706,
+          -0.6190594466320929
+        ],
+        [
+          0.49000000953674316,
+          0.9789755998842309,
+          0.7462664327878796
+        ]
+      ],
+      "file": "turtle-6-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.010300858571390403,
+          -0.6190594466320929
+        ],
+        [
+          0.49000000953674316,
+          0.9298954505098306,
+          0.753355732865337
+        ]
+      ],
+      "file": "turtle-6-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.022843276245601396,
+          -0.6190594466320929
+        ],
+        [
+          0.49000000953674316,
+          0.938975068721928,
+          0.749856216674372
+        ]
+      ],
+      "file": "turtle-6-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.03488032936013524,
+          -0.6069095103433726
+        ],
+        [
+          0.49000000953674316,
+          0.9434525425818507,
+          0.8567149116076254
+        ]
+      ],
+      "file": "turtle-6-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.04854902407099154,
+          -0.6069095103433726
+        ],
+        [
+          0.49000000953674316,
+          0.9514232644221705,
+          0.8603884297112302
+        ]
+      ],
+      "file": "turtle-6-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.03488032936013524,
+          -0.6069095103433726
+        ],
+        [
+          0.49000000953674316,
+          0.9434525425818507,
+          0.8567149116076254
+        ]
+      ],
+      "file": "turtle-6-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.042634297144099775,
+          -0.6069095103433726
+        ],
+        [
+          0.49000000953674316,
+          0.9474379035020106,
+          0.8585694118287549
+        ]
+      ],
+      "file": "turtle-6-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5950,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.03572348370849948,
+          -0.6327320179505961
+        ],
+        [
+          0.49000000953674316,
+          0.8708125325357344,
+          0.7642992202478365
+        ]
+      ],
+      "file": "turtle-6-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5950,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.04745325631269515,
+          -0.6327320179505961
+        ],
+        [
+          0.49000000953674316,
+          0.8813047528935153,
+          0.7694187470586955
+        ]
+      ],
+      "file": "turtle-6-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5950,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.03572348370849948,
+          -0.6327320179505961
+        ],
+        [
+          0.49000000953674316,
+          0.8708125325357344,
+          0.7642992202478365
+        ]
+      ],
+      "file": "turtle-6-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5950,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.043277406381439454,
+          -0.6327320179505961
+        ],
+        [
+          0.49000000953674316,
+          0.8760586427146249,
+          0.7668842485997296
+        ]
+      ],
+      "file": "turtle-6-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.04218249308996644,
+          -0.6380907944096398
+        ],
+        [
+          0.49000000953674316,
+          0.8538179948772482,
+          0.7693047103707872
+        ]
+      ],
+      "file": "turtle-6-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.05598381619882556,
+          -0.6380907944096398
+        ],
+        [
+          0.49000000953674316,
+          0.8784078064120244,
+          0.7749516765537918
+        ]
+      ],
+      "file": "turtle-6-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.04218249308996644,
+          -0.6380907944096398
+        ],
+        [
+          0.49000000953674316,
+          0.8538179948772482,
+          0.7693047103707872
+        ]
+      ],
+      "file": "turtle-6-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.05362439971152114,
+          -0.6380907944096398
+        ],
+        [
+          0.49000000953674316,
+          0.8661129006446363,
+          0.7721638217500995
+        ]
+      ],
+      "file": "turtle-6-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.48950571704576223,
+          -0.01733754528543946,
+          -0.6060608004659
+        ],
+        [
+          0.4904943020277241,
+          0.8870195074933436,
+          0.7639109833000028
+        ]
+      ],
+      "file": "turtle-6-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.48950571704576223,
+          -0.03419247279961368,
+          -0.6060608004659
+        ],
+        [
+          0.4904943020277241,
+          0.9157025220582045,
+          0.7653865578750463
+        ]
+      ],
+      "file": "turtle-6-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.01733754528543946,
+          -0.6060608004659
+        ],
+        [
+          0.49000000953674316,
+          0.8870195074933436,
+          0.7639109833000028
+        ]
+      ],
+      "file": "turtle-6-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.03893412000639862,
+          -0.6060608004659
+        ],
+        [
+          0.49000000953674316,
+          0.901361014775774,
+          0.7646503744215171
+        ]
+      ],
+      "file": "turtle-6-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          0.004461681330676648,
+          -0.6380907944096398
+        ],
+        [
+          0.49000000953674316,
+          0.9783752552080839,
+          0.7499940649366774
+        ]
+      ],
+      "file": "turtle-6-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.025661481317321433,
+          -0.6380907944096398
+        ],
+        [
+          0.49000000953674316,
+          0.9905069779206265,
+          0.7551234446010763
+        ]
+      ],
+      "file": "turtle-6-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.026459231619528734,
+          -0.6380907944096398
+        ],
+        [
+          0.49000000953674316,
+          0.9474543422578785,
+          0.7499940649366774
+        ]
+      ],
+      "file": "turtle-6-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.03894571251810569,
+          -0.6380907944096398
+        ],
+        [
+          0.49000000953674316,
+          0.9612504318517012,
+          0.7524878399245514
+        ]
+      ],
+      "file": "turtle-6-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.48876427830929087,
+          -0.011138846965789873,
+          -0.6049999833106995
+        ],
+        [
+          0.49123574076419546,
+          0.876804011563301,
+          0.7707887362189361
+        ]
+      ],
+      "file": "turtle-6-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.48876427830929087,
+          -0.036395469892720245,
+          -0.6049999833106995
+        ],
+        [
+          0.49123574076419546,
+          0.9010857755210394,
+          0.7776971486409838
+        ]
+      ],
+      "file": "turtle-6-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.011138846965789873,
+          -0.6049999833106995
+        ],
+        [
+          0.49000000953674316,
+          0.876804011563301,
+          0.7707887362189361
+        ]
+      ],
+      "file": "turtle-6-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5590,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.49000000953674316,
+          -0.03292432609739793,
+          -0.6049999833106995
+        ],
+        [
+          0.49000000953674316,
+          0.8889448935421702,
+          0.7742874429224806
+        ]
+      ],
+      "file": "turtle-6-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.0022050019264221454,
+          -0.6350000143051148
+        ],
+        [
+          0.5099999904632568,
+          0.9704550985336304,
+          0.7723901226614585
+        ]
+      ],
+      "file": "turtle-7-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.025033514052003714,
+          -0.6350000143051148
+        ],
+        [
+          0.5099999904632568,
+          0.9834837400123243,
+          0.7725339354683328
+        ]
+      ],
+      "file": "turtle-7-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.0022050019264221454,
+          -0.6350000143051148
+        ],
+        [
+          0.5099999904632568,
+          0.9704550985336304,
+          0.7723901226614585
+        ]
+      ],
+      "file": "turtle-7-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.016102657781425778,
+          -0.6350000143051148
+        ],
+        [
+          0.5099999904632568,
+          0.9769694192729773,
+          0.772491716010909
+        ]
+      ],
+      "file": "turtle-7-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6390,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          0.051212687425037595,
+          -0.650301349922697
+        ],
+        [
+          0.5099999904632568,
+          1.049726644275279,
+          0.7675425513659951
+        ]
+      ],
+      "file": "turtle-7-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6390,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.00043999239570596815,
+          -0.650301349922697
+        ],
+        [
+          0.5099999904632568,
+          1.0369649677492687,
+          0.7606051105863905
+        ]
+      ],
+      "file": "turtle-7-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6390,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.010629138475373168,
+          -0.650301349922697
+        ],
+        [
+          0.5099999904632568,
+          0.9878848183748683,
+          0.7675425513659951
+        ]
+      ],
+      "file": "turtle-7-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6390,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.02307711086216402,
+          -0.650301349922697
+        ],
+        [
+          0.5099999904632568,
+          0.9969644365869659,
+          0.76411804186616
+        ]
+      ],
+      "file": "turtle-7-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6550,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.03565890317857587,
+          -0.6368555574800708
+        ],
+        [
+          0.5099999904632568,
+          1.0024164791180854,
+          0.8700459465363455
+        ]
+      ],
+      "file": "turtle-7-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6550,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.049223373065118814,
+          -0.6368555574800708
+        ],
+        [
+          0.5099999904632568,
+          1.0103872009584052,
+          0.8736363035329487
+        ]
+      ],
+      "file": "turtle-7-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6550,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.03565890317857587,
+          -0.6368555574800708
+        ],
+        [
+          0.5099999904632568,
+          1.0024164791180854,
+          0.8700459465363455
+        ]
+      ],
+      "file": "turtle-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6550,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.043375535388999575,
+          -0.6368555574800708
+        ],
+        [
+          0.5099999904632568,
+          1.0064018400382453,
+          0.8718586427316091
+        ]
+      ],
+      "file": "turtle-7-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.03633622254269092,
+          -0.6651962683648001
+        ],
+        [
+          0.5099999904632568,
+          0.9259829255065146,
+          0.7786491678321819
+        ]
+      ],
+      "file": "turtle-7-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.0479122399736866,
+          -0.6651962683648001
+        ],
+        [
+          0.5099999904632568,
+          0.9364751458642955,
+          0.7836642141679364
+        ]
+      ],
+      "file": "turtle-7-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.03633622254269092,
+          -0.6651962683648001
+        ],
+        [
+          0.5099999904632568,
+          0.9259829255065146,
+          0.7786491678321819
+        ]
+      ],
+      "file": "turtle-7-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6750,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.0438404235312978,
+          -0.6651962683648001
+        ],
+        [
+          0.5099999904632568,
+          0.9312290356854052,
+          0.7811814403356108
+        ]
+      ],
+      "file": "turtle-7-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6390,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.042900014900972866,
+          -0.6710383450843111
+        ],
+        [
+          0.5099999904632568,
+          0.908064816490584,
+          0.7836964229378509
+        ]
+      ],
+      "file": "turtle-7-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6390,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.056230053727914314,
+          -0.6710383450843111
+        ],
+        [
+          0.5099999904632568,
+          0.9326546280253603,
+          0.7892281445163053
+        ]
+      ],
+      "file": "turtle-7-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6390,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.042900014900972866,
+          -0.6710383450843111
+        ],
+        [
+          0.5099999904632568,
+          0.908064816490584,
+          0.7836964229378509
+        ]
+      ],
+      "file": "turtle-7-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6390,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.05412556556034373,
+          -0.6710383450843111
+        ],
+        [
+          0.5099999904632568,
+          0.9203597222579722,
+          0.7864971849072389
+        ]
+      ],
+      "file": "turtle-7-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6390,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.509505697972276,
+          -0.017652157249746947,
+          -0.6360514569389012
+        ],
+        [
+          0.5104942829542377,
+          0.9426893006437798,
+          0.7770950523098957
+        ]
+      ],
+      "file": "turtle-7-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6390,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.509505697972276,
+          -0.033661982601951135,
+          -0.6360514569389012
+        ],
+        [
+          0.5104942829542377,
+          0.9713723152086406,
+          0.7785405130325276
+        ]
+      ],
+      "file": "turtle-7-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6390,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.017652157249746947,
+          -0.6360514569389012
+        ],
+        [
+          0.5099999904632568,
+          0.9426893006437798,
+          0.7770950523098957
+        ]
+      ],
+      "file": "turtle-7-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6390,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.03901569420949497,
+          -0.6360514569389012
+        ],
+        [
+          0.5099999904632568,
+          0.9570308079262102,
+          0.7778193537739205
+        ]
+      ],
+      "file": "turtle-7-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6550,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          0.003681766318713142,
+          -0.6710383450843111
+        ],
+        [
+          0.5099999904632568,
+          1.0373391917443184,
+          0.7647627405768418
+        ]
+      ],
+      "file": "turtle-7-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6550,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.025891391498716165,
+          -0.6710383450843111
+        ],
+        [
+          0.5099999904632568,
+          1.049470914456861,
+          0.7698045716663175
+        ]
+      ],
+      "file": "turtle-7-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6550,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.02723914663149224,
+          -0.6710383450843111
+        ],
+        [
+          0.5099999904632568,
+          1.0064182787941132,
+          0.7647627405768418
+        ]
+      ],
+      "file": "turtle-7-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6550,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.03947741865917631,
+          -0.6710383450843111
+        ],
+        [
+          0.5099999904632568,
+          1.0202143683879359,
+          0.7672029415541857
+        ]
+      ],
+      "file": "turtle-7-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6390,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5087642592358045,
+          -0.011138851868629507,
+          -0.6350000143051148
+        ],
+        [
+          0.5112357216907092,
+          0.9323414455776213,
+          0.7842420301725568
+        ]
+      ],
+      "file": "turtle-7-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6390,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5087642592358045,
+          -0.03583594076099628,
+          -0.6350000143051148
+        ],
+        [
+          0.5112357216907092,
+          0.9566232095353597,
+          0.7910094541393364
+        ]
+      ],
+      "file": "turtle-7-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6390,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.011138851868629507,
+          -0.6350000143051148
+        ],
+        [
+          0.5099999904632568,
+          0.9323414455776213,
+          0.7842420301725568
+        ]
+      ],
+      "file": "turtle-7-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6390,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099999904632568,
+          -0.032782232990312354,
+          -0.6350000143051148
+        ],
+        [
+          0.5099999904632568,
+          0.9444823275564906,
+          0.787669334475596
+        ]
+      ],
+      "file": "turtle-7-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.002204991197586048,
+          -0.6450000047683716
+        ],
+        [
+          0.5199999809265137,
+          0.9934433988571167,
+          0.7332180422953009
+        ]
+      ],
+      "file": "turtle-8-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.025708652560405554,
+          -0.6450000047683716
+        ],
+        [
+          0.5199999809265137,
+          1.0064720403358107,
+          0.7340309888130803
+        ]
+      ],
+      "file": "turtle-8-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.002204991197586048,
+          -0.6450000047683716
+        ],
+        [
+          0.5199999809265137,
+          0.9934433988571167,
+          0.7332180422953009
+        ]
+      ],
+      "file": "turtle-8-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.016272152665332607,
+          -0.6450000047683716
+        ],
+        [
+          0.5199999809265137,
+          0.9999577195964637,
+          0.7331399403309726
+        ]
+      ],
+      "file": "turtle-8-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          0.05103965089061718,
+          -0.6613728111145777
+        ],
+        [
+          0.5199999809265137,
+          1.0729514851753326,
+          0.7392206137654059
+        ]
+      ],
+      "file": "turtle-8-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.0017377954570438892,
+          -0.6613728111145777
+        ],
+        [
+          0.5199999809265137,
+          1.0601898086493222,
+          0.7321916024672855
+        ]
+      ],
+      "file": "turtle-8-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.01080217500979358,
+          -0.6613728111145777
+        ],
+        [
+          0.5199999809265137,
+          1.0111096592749218,
+          0.7392206137654059
+        ]
+      ],
+      "file": "turtle-8-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.02368226319356137,
+          -0.6613728111145777
+        ],
+        [
+          0.5199999809265137,
+          1.0201892774870194,
+          0.7357503418643845
+        ]
+      ],
+      "file": "turtle-8-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8138,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.03609064411310617,
+          -0.6468375533598406
+        ],
+        [
+          0.5199999809265137,
+          1.0259270632048194,
+          0.837560551300002
+        ]
+      ],
+      "file": "turtle-8-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 8138,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.050098623651302104,
+          -0.6468375533598406
+        ],
+        [
+          0.5199999809265137,
+          1.033897785045139,
+          0.8406510141542709
+        ]
+      ],
+      "file": "turtle-8-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 8138,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.03609064411310617,
+          -0.6468375533598406
+        ],
+        [
+          0.5199999809265137,
+          1.0259270632048194,
+          0.837560551300002
+        ]
+      ],
+      "file": "turtle-8-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 8138,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.0439661510189249,
+          -0.6468375533598406
+        ],
+        [
+          0.5199999809265137,
+          1.029912424124979,
+          0.8391233428622135
+        ]
+      ],
+      "file": "turtle-8-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8338,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.03667318904687136,
+          -0.6773322809824512
+        ],
+        [
+          0.5199999809265137,
+          0.9480112308231167,
+          0.7479091694687393
+        ]
+      ],
+      "file": "turtle-8-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 8338,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.04893815930804413,
+          -0.6773322809824512
+        ],
+        [
+          0.5199999809265137,
+          0.9585034511808975,
+          0.752270922375966
+        ]
+      ],
+      "file": "turtle-8-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 8338,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.03667318904687136,
+          -0.6773322809824512
+        ],
+        [
+          0.5199999809265137,
+          0.9480112308231167,
+          0.7479091694687393
+        ]
+      ],
+      "file": "turtle-8-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 8338,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.04440646740874793,
+          -0.6773322809824512
+        ],
+        [
+          0.5199999809265137,
+          0.9532573410020071,
+          0.750114403750252
+        ]
+      ],
+      "file": "turtle-8-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.04330122159155758,
+          -0.6835980916832188
+        ],
+        [
+          0.5199999809265137,
+          0.9296945538503791,
+          0.7526743096103617
+        ]
+      ],
+      "file": "turtle-8-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.05862746870908636,
+          -0.6835980916832188
+        ],
+        [
+          0.5199999809265137,
+          0.9542843653851554,
+          0.757446652951935
+        ]
+      ],
+      "file": "turtle-8-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.04330122159155758,
+          -0.6835980916832188
+        ],
+        [
+          0.5199999809265137,
+          0.9296945538503791,
+          0.7526743096103617
+        ]
+      ],
+      "file": "turtle-8-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.05548779967039763,
+          -0.6835980916832188
+        ],
+        [
+          0.5199999809265137,
+          0.9419894596177674,
+          0.755094720558801
+        ]
+      ],
+      "file": "turtle-8-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5195056884355328,
+          -0.017816530141304854,
+          -0.6460483225678951
+        ],
+        [
+          0.5204942734174945,
+          0.9649851479078311,
+          0.7446298095490228
+        ]
+      ],
+      "file": "turtle-8-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5195056884355328,
+          -0.03742253296788739,
+          -0.6460483225678951
+        ],
+        [
+          0.5204942734174945,
+          0.993668162472692,
+          0.7457137762512351
+        ]
+      ],
+      "file": "turtle-8-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.017816530141304854,
+          -0.6460483225678951
+        ],
+        [
+          0.5199999809265137,
+          0.9649851479078311,
+          0.7446298095490228
+        ]
+      ],
+      "file": "turtle-8-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.04017171661428279,
+          -0.6460483225678951
+        ],
+        [
+          0.5199999809265137,
+          0.9793266551902615,
+          0.7451733565688654
+        ]
+      ],
+      "file": "turtle-8-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 8138,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          0.003245672089816687,
+          -0.6835980916832188
+        ],
+        [
+          0.5199999809265137,
+          1.0608497758310524,
+          0.7386284622504224
+        ]
+      ],
+      "file": "turtle-8-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 8138,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.02865787005592113,
+          -0.6835980916832188
+        ],
+        [
+          0.5199999809265137,
+          1.072981498543595,
+          0.7435256435993629
+        ]
+      ],
+      "file": "turtle-8-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 8138,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.027675240860388667,
+          -0.6835980916832188
+        ],
+        [
+          0.5199999809265137,
+          1.0299288628808472,
+          0.7386284622504224
+        ]
+      ],
+      "file": "turtle-8-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 8138,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.04101496526389073,
+          -0.6835980916832188
+        ],
+        [
+          0.5199999809265137,
+          1.0437249524746697,
+          0.7411028553720681
+        ]
+      ],
+      "file": "turtle-8-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5187642496990613,
+          -0.0111388414616585,
+          -0.6450000047683716
+        ],
+        [
+          0.521235712153966,
+          0.9546400968914032,
+          0.7507979633050283
+        ]
+      ],
+      "file": "turtle-8-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5187642496990613,
+          -0.038216924962482246,
+          -0.6450000047683716
+        ],
+        [
+          0.521235712153966,
+          0.9789218608491417,
+          0.7566941041140918
+        ]
+      ],
+      "file": "turtle-8-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.0111388414616585,
+          -0.6450000047683716
+        ],
+        [
+          0.5199999809265137,
+          0.9546400968914032,
+          0.7507979633050283
+        ]
+      ],
+      "file": "turtle-8-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "turtle",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7978,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5199999809265137,
+          -0.033386894640096865,
+          -0.6450000047683716
+        ],
+        [
+          0.5199999809265137,
+          0.9667809788702725,
+          0.7537889695517576
+        ]
+      ],
+      "file": "turtle-8-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}

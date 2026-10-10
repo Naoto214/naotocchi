@@ -1,0 +1,12 @@
+const test=require('node:test'),assert=require('node:assert/strict');
+test('Ghost source stages preserve small wisps, raised hands, beard and ascending halo identities',async()=>{
+ const rows=require('../character-3d/mythic-spec.js')().ghost.stages,{BUILDERS}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),bounds={};
+ for(let n=1;n<=8;n++){assert.ok(rows[n],'stage '+n);const r=BUILDERS[rows[n].archetype](rows[n],'ghost:'+n);assert.equal(attachFace(r,r.faceSpec,'C').eyes.length,2);r.root.updateMatrixWorld(true);bounds[n]=new THREE.Box3().setFromObject(r.root,true);assert.ok(bounds[n].min.y>=-.005);let tris=0;for(const p of r.parts){const g=p.mesh.geometry;assert.ok([...g.attributes.position.array].every(Number.isFinite));tris+=(g.index?.count||g.attributes.position.count)/3;}assert.ok(tris<16000);
+ if([1,2,6,8].includes(n))assert.ok(!r.bones.armL,'no generic arms '+n);if([1,5,6].includes(n))assert.ok(r.bones.crest,'source upper wisp '+n);if(n===5){assert.ok(rows[n].arms.path.at(-1)[1]>0,'raised hands');assert.ok(r.bones.flame0);}if(n===6)assert.ok(r.bones.tendrils,'long beard');if(n===8){assert.ok(r.bones.halo&&r.bones.sparkles);assert.ok(!r.bones.flame0,'gold sparks replace blue flames');}
+ }
+ assert.ok(bounds[1].getSize(new THREE.Vector3()).y<bounds[3].getSize(new THREE.Vector3()).y*.8);assert.ok(rows[8].body.width<rows[7].body.width*.8);
+});
+test('Ghost all-stage candidates retain one canonical face across32 owned states',async()=>{
+ const rows=require('../character-3d/mythic-spec.js')().ghost.stages,SPEC=require('../character-3d/spec.js'),{BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
+ for(let n=1;n<=8;n++){assert.ok(rows[n]);const r=BUILDERS[rows[n].archetype](rows[n],'ghost:'+n);r.faces=[attachFace(r,r.faceSpec,'C')];for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'ghost:'+n});setEmotion(a,em);for(let i=0;i<20;i++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,1);assert.equal(a.faces[0].emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}assert.deepEqual(SPEC.specKeyFor({line:'ghost',stage:n-1}),{id:'ghost',stage:n,exact:true});}
+});

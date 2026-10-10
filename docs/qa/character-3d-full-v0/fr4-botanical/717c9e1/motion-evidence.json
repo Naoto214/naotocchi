@@ -1,0 +1,909 @@
+{
+  "source": "717c9e13c6a15eb7799bd784219b6ecd23957e09",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "sakura",
+      "stage": 4
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 21372,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          0.010881478061758085,
+          -0.42566919326782227
+        ],
+        [
+          0.607096791267395,
+          1.2656822369965364,
+          0.4263462722301483
+        ]
+      ],
+      "file": "sakura-4-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 21372,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          0.030030903449459814,
+          -0.42566919326782227
+        ],
+        [
+          0.607096791267395,
+          1.2848316623842382,
+          0.4263462722301483
+        ]
+      ],
+      "file": "sakura-4-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 21372,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          0.010673589073121548,
+          -0.42566919326782227
+        ],
+        [
+          0.607096791267395,
+          1.2415015697479248,
+          0.4263462722301483
+        ]
+      ],
+      "file": "sakura-4-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 21372,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          0.020248301766972412,
+          -0.42566919326782227
+        ],
+        [
+          0.607096791267395,
+          1.2510762824417756,
+          0.4263462722301483
+        ]
+      ],
+      "file": "sakura-4-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 21212,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          0.04464806343465679,
+          -0.5168482644691701
+        ],
+        [
+          0.607096791267395,
+          1.358248792520971,
+          0.4244171344035519
+        ]
+      ],
+      "file": "sakura-4-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 21212,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          0.024013348473814693,
+          -0.5168482644691701
+        ],
+        [
+          0.607096791267395,
+          1.337614077560129,
+          0.4244171344035519
+        ]
+      ],
+      "file": "sakura-4-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 21212,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          -0.017401097780123317,
+          -0.5150846431241107
+        ],
+        [
+          0.607096791267395,
+          1.2722907001528971,
+          0.4244322968245882
+        ]
+      ],
+      "file": "sakura-4-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 21212,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          -0.01225799878544168,
+          -0.5150846431241107
+        ],
+        [
+          0.607096791267395,
+          1.2774337991475788,
+          0.4244322968245882
+        ]
+      ],
+      "file": "sakura-4-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 21372,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6845321320535087,
+          -0.07882725645898031,
+          -0.612899255344615
+        ],
+        [
+          0.721929879850086,
+          1.334883702488214,
+          0.7769658963279034
+        ]
+      ],
+      "file": "sakura-4-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 21372,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6845321320535087,
+          0.010406129714058882,
+          -0.612899255344615
+        ],
+        [
+          0.721929879850086,
+          1.424117088661253,
+          0.7769658963279034
+        ]
+      ],
+      "file": "sakura-4-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 21372,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6845321320535087,
+          -0.07903311146096467,
+          -0.6129282648215896
+        ],
+        [
+          0.721929879850086,
+          1.310939618979544,
+          0.7735916507058562
+        ]
+      ],
+      "file": "sakura-4-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 21372,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.6845321320535087,
+          -0.03441641837444507,
+          -0.6129282648215896
+        ],
+        [
+          0.721929879850086,
+          1.3555563120660634,
+          0.7735916507058562
+        ]
+      ],
+      "file": "sakura-4-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 21572,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          -0.06595663813715565,
+          -0.41865490530367794
+        ],
+        [
+          0.607096791267395,
+          1.2248794975702084,
+          0.6201824701090504
+        ]
+      ],
+      "file": "sakura-4-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 21572,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          0.027446364632868897,
+          -0.41865490530367794
+        ],
+        [
+          0.607096791267395,
+          1.3182825003402328,
+          0.6201824701090504
+        ]
+      ],
+      "file": "sakura-4-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 21572,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          -0.06614961967842217,
+          -0.418687615271192
+        ],
+        [
+          0.607096791267395,
+          1.2024327943316429,
+          0.6163778008701513
+        ]
+      ],
+      "file": "sakura-4-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 21572,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          -0.0194481182934099,
+          -0.418687615271192
+        ],
+        [
+          0.607096791267395,
+          1.249134295716655,
+          0.6163778008701513
+        ]
+      ],
+      "file": "sakura-4-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 21212,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          -0.08256819124605348,
+          -0.415399940330727
+        ],
+        [
+          0.607096791267395,
+          1.2023990066952992,
+          0.6646716292383821
+        ]
+      ],
+      "file": "sakura-4-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 21212,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          -0.07361618021235482,
+          -0.415399940330727
+        ],
+        [
+          0.607096791267395,
+          1.211351017728998,
+          0.6646716292383821
+        ]
+      ],
+      "file": "sakura-4-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 21212,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          -0.08275578718006919,
+          -0.4154404261885448
+        ],
+        [
+          0.607096791267395,
+          1.1805787319064434,
+          0.6599625050919424
+        ]
+      ],
+      "file": "sakura-4-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 21212,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          -0.07827978166321986,
+          -0.4154404261885448
+        ],
+        [
+          0.607096791267395,
+          1.1850547374232927,
+          0.6599625050919424
+        ]
+      ],
+      "file": "sakura-4-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 21212,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.566602477318742,
+          -0.029974080805763713,
+          -0.4230172694077641
+        ],
+        [
+          0.6075910837583759,
+          1.2425670795392898,
+          0.5371559089598964
+        ]
+      ],
+      "file": "sakura-4-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 21212,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.566602477318742,
+          0.059856301235406556,
+          -0.4230172694077641
+        ],
+        [
+          0.6075910837583759,
+          1.3323974615804601,
+          0.5371559089598964
+        ]
+      ],
+      "file": "sakura-4-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 21212,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          -0.03017286434588798,
+          -0.42303574711154274
+        ],
+        [
+          0.607096791267395,
+          1.2194455151420058,
+          0.5350066695532314
+        ]
+      ],
+      "file": "sakura-4-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 21212,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          0.014742326674697156,
+          -0.42303574711154274
+        ],
+        [
+          0.607096791267395,
+          1.264360706162591,
+          0.5350066695532314
+        ]
+      ],
+      "file": "sakura-4-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 21372,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          0.004650027828843835,
+          -0.5401476048705695
+        ],
+        [
+          0.607096791267395,
+          1.3324191083475736,
+          0.4235435627117111
+        ]
+      ],
+      "file": "sakura-4-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 21372,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          0.08884583248762931,
+          -0.5401476048705695
+        ],
+        [
+          0.607096791267395,
+          1.4166149130063592,
+          0.4235435627117111
+        ]
+      ],
+      "file": "sakura-4-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 21372,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          -0.02647789494416565,
+          -0.5379261203551152
+        ],
+        [
+          0.607096791267395,
+          1.2774197885743312,
+          0.42356266152997124
+        ]
+      ],
+      "file": "sakura-4-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 21372,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          0.02335023562277843,
+          -0.5379261203551152
+        ],
+        [
+          0.607096791267395,
+          1.3272479191412754,
+          0.42356266152997124
+        ]
+      ],
+      "file": "sakura-4-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 21212,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5658610385822705,
+          -0.05790066060744329,
+          -0.4197019529182849
+        ],
+        [
+          0.6083325224948474,
+          1.2652570354559318,
+          0.6035625575654653
+        ]
+      ],
+      "file": "sakura-4-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 21212,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5658610385822705,
+          0.009817763984383505,
+          -0.4197019529182849
+        ],
+        [
+          0.6083325224948474,
+          1.3329754600477586,
+          0.6035625575654653
+        ]
+      ],
+      "file": "sakura-4-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 21212,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          -0.05810022580546493,
+          -0.4197317855809961
+        ],
+        [
+          0.607096791267395,
+          1.2420445522964634,
+          0.6000925628587158
+        ]
+      ],
+      "file": "sakura-4-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 21212,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          -0.02424101350955153,
+          -0.4197317855809961
+        ],
+        [
+          0.607096791267395,
+          1.2759037645923768,
+          0.6000925628587158
+        ]
+      ],
+      "file": "sakura-4-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}

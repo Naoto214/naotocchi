@@ -1,0 +1,223 @@
+{
+  "source": "fbb8b23d598ccdc8b6871ba3fdad82e7b2965d68",
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "evidence": [
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6248,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          0.004597771167755116,
+          -0.5844333457946778
+        ],
+        [
+          0.6938529312610626,
+          1.0241562032699585,
+          0.7445335651388689
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6248,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          0.004597771167755116,
+          -0.5844333457946778
+        ],
+        [
+          0.6938529312610626,
+          1.0241562032699585,
+          0.7445335651388689
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6248,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          0.004597771167755116,
+          -0.5844333457946778
+        ],
+        [
+          0.6938529312610626,
+          1.0241562032699585,
+          0.7445335651388689
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6248,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          0.004597771167755116,
+          -0.5844333457946778
+        ],
+        [
+          0.6938529312610626,
+          1.0241562032699585,
+          0.7445335651388689
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6332,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          0.006478118896484364,
+          -0.5823606240749359
+        ],
+        [
+          0.692190557718277,
+          0.5649999976158142,
+          0.993703262120629
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6332,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          0.006478118896484364,
+          -0.5823606240749359
+        ],
+        [
+          0.692190557718277,
+          0.5649999976158142,
+          0.993703262120629
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6332,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          0.006478118896484364,
+          -0.5823606240749359
+        ],
+        [
+          0.692190557718277,
+          0.5649999976158142,
+          0.993703262120629
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6332,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          0.006478118896484364,
+          -0.5823606240749359
+        ],
+        [
+          0.692190557718277,
+          0.5649999976158142,
+          0.993703262120629
+        ]
+      ]
+    }
+  ],
+  "errors": []
+}

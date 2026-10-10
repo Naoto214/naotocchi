@@ -1,0 +1,44 @@
+{
+  "sourceCommit": "e16963da37bed05de483096e6bafc83df6196b3a",
+  "sourceRun": 37917302347,
+  "sourceRunConclusion": "success",
+  "artifact": 11610776353,
+  "archiveCommit": "5be8349be8f73401eb8c56d4f7dc27f74ab930d3",
+  "rawFilesVerified": 151,
+  "reviewer": "Root actually inspected source/four-view boards, all 128 states and 8 normal-distance images; independent source/four-view reviewer agrees Eagle PASS and Author REJECT.",
+  "reviewed": {
+    "partner:high_eagle": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "author:naoto": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "REJECT"
+    },
+    "companion:cat_friend": {
+      "fourViews": 0,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "companion:shiba": {
+      "fourViews": 0,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    }
+  },
+  "findings": {
+    "partner:high_eagle": "Long layered primaries now descend near talons, pale outer feathers and dark tips readable. Wings remain attached and ground-clear across 32 states. Normal-distance front/back retain silhouette. Previous short-wedge reject resolved.",
+    "author:naoto": "Important source-fidelity blocker: smooth domed cap with continuous low fringe omits central exposed forehead and swept wavy side locks. Clothing, expressions, connected limbs and normal-distance route readable; no promotion until fresh corrected full image gate.",
+    "companion:cat_friend": "Calico pattern, curled tail, reclining idle and supported locomotion remain readable through all 32 states and front/back normal distance. Approved immutable four views reused.",
+    "companion:shiba": "Orange/cream pattern, curled tail and crouched idle remain readable through all 32 states and normal distance. Approved immutable four views reused."
+  },
+  "authorRoute": "Actual memory_lake resident, same actor object, not party. Natural region remains 2D; QA-only forest 3D placement verified separately. Exact candidate key, live3d true, zero fallbacks, heading error under 1e-12; save/getter unchanged.",
+  "humanQA": "OPEN_SEPARATE",
+  "iPhoneQA": "OPEN_SEPARATE"
+}

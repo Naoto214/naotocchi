@@ -97,7 +97,7 @@ test('5. stage 01 / 04 / 08 が 解決できる。めぐるの 0 はじまり �
     assert.deepEqual(SPEC.specKeyFor({ line: id, stage: 7 }), { id, stage: 8, exact: true });
     for (let i = 0; i < 8; i++) { const k = SPEC.specKeyFor({ line: id, stage: i }); if (k) assert.equal(SPEC.stageSpec(id, k.stage).archetype, SPEC.PLAYER_LINES[id].stages[i], `${id} 0${i + 1} → 0${k.stage} は おなじ archetype`); }
   }
-  assert.equal(SPEC.specKeyFor({ line: 'cat', stage: 3 }), null, 'pilot に ない species は null(2D のまま)');
+  assert.equal(SPEC.specKeyFor({ line: 'koala', stage: 3 }), null, '未展開の species は null(2D のまま)');
   assert.equal(SPEC.specKeyFor({ line: 'dog', stage: 9 }), null);
 });
 
@@ -327,8 +327,10 @@ test('25. player は いつも えがく(frustum culling で きえない・表�
 test('26. party の actor も 3D(archetype 再利用: しば・ねこ)。model の ない なかまは 2D', async () => {
   assert.deepEqual(SPEC.specKeyFor({ kind: 'companion', id: 'shiba' }), { id: 'shiba', stage: 0, exact: true });
   assert.deepEqual(SPEC.specKeyFor({ kind: 'companion', id: 'cat_friend' }), { id: 'cat_friend', stage: 0, exact: true });
-  assert.equal(SPEC.specKeyFor({ kind: 'companion', id: 'tanuki' }), null);
-  assert.equal(SPEC.specKeyFor({ kind: 'partner', id: 'forest_bear' }), null);
+  assert.deepEqual(SPEC.specKeyFor({ kind: 'companion', id: 'tanuki' }), { id: 'companion:tanuki', stage: 0, exact: true });
+  // Missing-model fallback must stay valid after all real roles are promoted.
+  assert.equal(SPEC.specKeyFor({ kind: 'companion', id: '__missing_model__' }), null);
+  assert.equal(SPEC.specKeyFor({ kind: 'partner', id: '__missing_model__' }), null);
   const { p } = await presenter();
   const party = ['shiba', 'cat_friend'].map((id) => [actor({ key: 'companion:' + id, kind: 'companion', id }), { specKey: SPEC.specKeyFor({ kind: 'companion', id }), emotion: 'normal' }]);
   assert.deepEqual(frame(p, [[actor({ key: 'player' }), info('dog', 4, { isPlayer: true })], ...party], 0), [true, true, true]);
@@ -347,7 +349,9 @@ test('27. 住人の presentation 境界: 住人の 生活の きもち → canon
   assert.equal(RT.actorInfo({ kind: 'form', line: 'dog', stage: 3, emotion: 'happy', expr: { emotion: 'tired' } }, false, 0.016, {}).emotion, 'tired');
   assert.equal(RT.actorInfo({ moving: true }, true, 0.016, { playerKey: k }).emotion, 'normal');
   assert.equal(RT.actorInfo({ moving: true }, true, 0.016, { playerKey: k, force: 'sick' }).emotion, 'sick');
-  assert.equal(RT.actorInfo({ kind: 'companion', id: 'tanuki' }, false, 0.016, {}), null);
+  assert.deepEqual(RT.actorInfo({ kind: 'companion', id: 'tanuki', emotion: 'happy' }, false, 0.016, {}).specKey, { id: 'companion:tanuki', stage: 0, exact: true });
+  assert.equal(RT.actorInfo({ kind: 'companion', id: 'tanuki', emotion: 'happy' }, false, 0.016, {}).emotion, 'positive');
+  assert.equal(RT.actorInfo({ kind: 'companion', id: '__missing_model__' }, false, 0.016, {}), null);
   // 住人の 生活の きもち(meguru.js の RESIDENT_EMOTIONS)は ぜんぶ canonical へ
   for (const e of ['normal', 'happy', 'tired', 'sleeping', 'unhappy', 'wantsPlay', 'strained']) assert.ok(SPEC.CANONICAL_EMOTIONS.includes(SPEC.canonicalEmotion(e)), e);
   // #368 の runtime は index.html が よむ 正本 だけ(window.NaotocchiResidentExpression)。3D 側は 複製 / 別に 読みこみ しない

@@ -1,0 +1,121 @@
+{
+  "when": "2026-10-04T14:11:17.482Z",
+  "revision": "quality3",
+  "sourceCommit": "27d36b639a24e1d1534b6345aa0b444b4113bda1",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "topology",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "mushroom:2": {
+      "requestedStage": 2,
+      "harnessStageIndex": 1,
+      "playerKey": "mushroom:1",
+      "player3d": true,
+      "specKey": {
+        "id": "mushroom",
+        "stage": 2,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/topology-distance/player-mushroom-2-front.png",
+      "back": "test-results/full-rollout/topology-distance/player-mushroom-2-back.png",
+      "live": {
+        "live": 7,
+        "templates": 7,
+        "built": 7,
+        "tris": 29246,
+        "meshes": 64,
+        "bones": 43,
+        "materials": 1,
+        "atlases": 7,
+        "eyeGeos": 10,
+        "cpuMsAvg": 3.36,
+        "cpuMsP95": 23.6,
+        "buildMsTotal": 203.2,
+        "buildMsMax": 47.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 7,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "mushroom:3": {
+      "requestedStage": 3,
+      "harnessStageIndex": 2,
+      "playerKey": "mushroom:2",
+      "player3d": true,
+      "specKey": {
+        "id": "mushroom",
+        "stage": 3,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/topology-distance/player-mushroom-3-front.png",
+      "back": "test-results/full-rollout/topology-distance/player-mushroom-3-back.png",
+      "live": {
+        "live": 7,
+        "templates": 7,
+        "built": 7,
+        "tris": 25638,
+        "meshes": 66,
+        "bones": 45,
+        "materials": 1,
+        "atlases": 6,
+        "eyeGeos": 8,
+        "cpuMsAvg": 2.916,
+        "cpuMsP95": 25.6,
+        "buildMsTotal": 227.2,
+        "buildMsMax": 60.3,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 7,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "mushroom:6": {
+      "requestedStage": 6,
+      "harnessStageIndex": 5,
+      "playerKey": "mushroom:5",
+      "player3d": true,
+      "specKey": {
+        "id": "mushroom",
+        "stage": 6,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/topology-distance/player-mushroom-6-front.png",
+      "back": "test-results/full-rollout/topology-distance/player-mushroom-6-back.png",
+      "live": {
+        "live": 6,
+        "templates": 6,
+        "built": 6,
+        "tris": 22662,
+        "meshes": 59,
+        "bones": 41,
+        "materials": 1,
+        "atlases": 6,
+        "eyeGeos": 8,
+        "cpuMsAvg": 3.026,
+        "cpuMsP95": 25.5,
+        "buildMsTotal": 233,
+        "buildMsMax": 78.3,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 6,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

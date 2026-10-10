@@ -1,0 +1,45 @@
+(node:6) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/player-motion-image-blockers/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/player-motion-image-blockers/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+dog:1: exact assembled attrs/indices/transforms/faceSpec
+dog:4: exact assembled attrs/indices/transforms/faceSpec
+dog:8: exact assembled attrs/indices/transforms/faceSpec
+penguin:1: exact assembled attrs/indices/transforms/faceSpec
+penguin:4: exact assembled attrs/indices/transforms/faceSpec
+penguin:8: exact assembled attrs/indices/transforms/faceSpec
+clownfish:1: exact assembled attrs/indices/transforms/faceSpec
+clownfish:4: exact assembled attrs/indices/transforms/faceSpec
+clownfish:8: exact assembled attrs/indices/transforms/faceSpec
+man:1: exact assembled attrs/indices/transforms/faceSpec
+man:4: exact assembled attrs/indices/transforms/faceSpec
+man:8: exact assembled attrs/indices/transforms/faceSpec
+butterfly:1: exact assembled attrs/indices/transforms/faceSpec
+butterfly:4: exact assembled attrs/indices/transforms/faceSpec
+butterfly:5: exact assembled attrs/indices/transforms/faceSpec
+butterfly:8: exact assembled attrs/indices/transforms/faceSpec
+dandelion:1: exact assembled attrs/indices/transforms/faceSpec
+dandelion:4: exact assembled attrs/indices/transforms/faceSpec
+dandelion:6: exact assembled attrs/indices/transforms/faceSpec
+dandelion:8: exact assembled attrs/indices/transforms/faceSpec
+mushroom:1: exact assembled attrs/indices/transforms/faceSpec
+mushroom:4: exact assembled attrs/indices/transforms/faceSpec
+mushroom:8: exact assembled attrs/indices/transforms/faceSpec
+starfish:1: exact assembled attrs/indices/transforms/faceSpec
+starfish:4: exact assembled attrs/indices/transforms/faceSpec
+starfish:8: exact assembled attrs/indices/transforms/faceSpec
+shiba:0: exact assembled attrs/indices/transforms/faceSpec
+cat_friend:0: exact assembled attrs/indices/transforms/faceSpec
+28/28 immutable Pilot roster exact (26 player definitions + two legacy reused role inputs)
+salmon:1: exact assembled attrs/indices/transforms/faceSpec
+salmon:2: exact assembled attrs/indices/transforms/faceSpec
+salmon:3: exact assembled attrs/indices/transforms/faceSpec
+salmon:4: exact assembled attrs/indices/transforms/faceSpec
+salmon:5: exact assembled attrs/indices/transforms/faceSpec
+salmon:6: exact assembled attrs/indices/transforms/faceSpec
+salmon:7: exact assembled attrs/indices/transforms/faceSpec
+salmon:8: exact assembled attrs/indices/transforms/faceSpec
+mushroom:2: exact assembled attrs/indices/transforms/faceSpec
+mushroom:3: exact assembled attrs/indices/transforms/faceSpec
+38 unique unaffected assembled input rigs exact; all11 unaffected fish stages exact; all5 unaffected mushroom stages exact
+All unaffected fish/topology stage definitions exact; no current candidate rows frozen.

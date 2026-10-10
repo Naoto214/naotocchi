@@ -1,0 +1,36 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "9fadab27a5abacedfb40add609f95fb14f2c69a3",
+  "artifact": {
+    "id": 11558157647,
+    "name": "full-rollout-mythic-distance-ghost-9fadab27a5abacedfb40add609f95fb14f2c69a3",
+    "digest": "sha256:a8d6b63e8b0dc0ed6bfb70f2415e24a64002d17be9b651dbb5fe16485b2474f8"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "23477a13a8b896e294cb1e4419f8ea2ce3eb08d1bf57bc79b003c932a2b37487",
+      "bytes": 2190
+    },
+    {
+      "path": "player-ghost-3-back.png",
+      "sha256": "b0a4cbe3d02539f51788e5d3581ab691fe1512efccb52318229219fc0f4c45ca",
+      "bytes": 301778
+    },
+    {
+      "path": "player-ghost-3-front.png",
+      "sha256": "cbd5a9f445a284bcc858e8a882d3511546ab6941b5064acb1597724104bde086",
+      "bytes": 303904
+    },
+    {
+      "path": "player-ghost-7-back.png",
+      "sha256": "0376e6c76d04df65c63faecdf0642ed2e2544e3397b21710c96c937f8cf471e2",
+      "bytes": 303571
+    },
+    {
+      "path": "player-ghost-7-front.png",
+      "sha256": "20789abe37a0a44da647208887573fd5f4940bd0f64cbe2937e4d5aa514a42eb",
+      "bytes": 308930
+    }
+  ]
+}

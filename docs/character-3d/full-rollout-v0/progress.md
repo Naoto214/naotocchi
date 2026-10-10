@@ -1,0 +1,1149 @@
+# Full Rollout v0 progress ledger
+
+Current working coverage:130/293 (128 player stages +2 companions),163 pending. Coral postpromotion15family/120stage aggregate and three CI passed at d027. Jellyfish full8 image gate accepted at0e5; runtime promotion saved atc5b7fe8;16family/128stage aggregate and allthree promoted CI verified. Armored adult8 and juvenile03/04 representatives remain candidates;01/02 absent. Historical entries below retain their original checkpoint status.
+
+Plan: docs/character-3d/full-rollout-v0/plan.md. Spec: design.md. Execute inline; normal work is authorized without repeated confirmation.
+
+## FR-0
+- Fresh Pilot remote d12ad70550b29c125f44ac2b32d7195905fb15f0; main 0b0a6b30e8e098472b2fa965604f4901874942e3. #372 open/Draft/unmerged; retain it.
+- New branch feat/character-3d-full-rollout-v0, stacked Draft PR against Pilot for reviewable delta. No main or other feature merge.
+- Fresh master: 31 lines, 248 stages, 26 companions, 18 partners, 1 author = 293 active designs.
+- Assets: 2869 PNGs; 2572 expression/relationship variants protected; 3 Home-startup egg states + retired kinoko PNG supplemental. No missing/unclassified PNG.
+- Ruling: retired assets and Home-only startup states stay in supplemental inventory, not active Meguru coverage; reviving them would change existing gameplay/Home scope. Original kinoko is not silently reassigned to clock.
+- Baseline dedicated 54 PASS. Inventory tests RED for absent auditor; then 3 PASS. First audit caught kinoko as unclassified; corrected the mistaken koala-asset assumption using master compatibility and filesystem.
+- FR-0 code only audits; no new 3D coverage yet. Active exact templates remain 28 (26 Pilot stages + 2 companions).
+
+## Execution record
+- Plan review focus mapped to exact-ID/metamorphosis tests, special face tests, alpha visual/perf checks, cache lifecycle tests.
+- Next: inspect all original contact sheets; update family assignments where legacy Pilot inventory misclassifies actual topology. Then implement existing-family stage expansion, representative QA before batch.
+- Full regression/CI for FR-0 not yet run. iPhone performance NOT_RUN. Full Rollout incomplete.
+
+## FR-1a candidate checkpoint (not a completed wave)
+- Branch `feat/character-3d-full-rollout-v0`, stacked Draft PR #376; FR-0 remote `12a4fdcdf22f60f22e599dd2eb8e498dbe45458d`, tree `b02a58cecc1937b5b59afc15674c43645772e201`. #372 untouched.
+- 24 candidate exact stages: dog 8, cat 8, penguin 8. This adds 18 candidate stages; existing dog/penguin 01/04/08 copied byte-equivalent in spec values. Not yet promoted to runtime coverage.
+- Shared mechanisms: parameterized lifted-paw idle that releases into locomotion; wrapped-tail family for curled feline resting poses. No new archetype.
+- Dedicated 59 PASS, 0 FAIL locally. Three rollout removal mutations added. FR-0 dedicated CI 37182044066 success. Runtime/Home FR-0 CI pending at checkpoint.
+- `wave-review.html` and `tools/character-3d/wave-review.cjs` render original + front/3/4/side/back from real shared builders/rig/expression/motion. CI artifact will contain 96 individual views + 3 species sheets.
+- Local browser download failed (invalid/truncated archive); CI is the rendering route. No visual pass, fallback-zero claim or performance claim yet.
+- Exact next: inspect CI wave images, correct any silhouette/pose/contact problems, run emotions/motion coverage, promote reviewed exact specs. Then remaining existing families and new topology waves.
+- Full npm local run remains unresolved; do not report PASS without completion. Full inventory coverage, performance, final gallery and Human QA package remain pending.
+
+### FR-1a visual review and correction
+CI 37182457478 succeeded: 96 views + 3 sheets inspected from source `0d21776` (artifact 11294804833). Explicitly found: cat ears too small and face mask too narrow, dog07 asymmetric ears missing, penguin03 only one wing raised. Corrected through shared ear-side parameters, wing pose and original-derived feline parameters. Re-capture required before runtime promotion. Candidate-only view framing also aligned original and model art footprints more closely.
+
+Local dedicated now 61 PASS / 0 FAIL including every candidate × eight canonical emotions × idle/walk × reduced/normal motion; rollout mutations 5/5 RED. FR-0 full npm run completed: 2920 + Relationship 80 PASS, 0 FAIL. These are checkpoint-specific results, not full-rollout completion or iPhone acceptance.
+
+### FR-1 integration validation checkpoint
+- Corrected source `732f587` / tree `a575e952ac7a132f9a92d894884c465ab8143330`: four-view CI 37182744172 success; 96 views inspected. Cat face/ears, dog07 asymmetric ears, penguin03 both raised wings now represented. Cat04 was still using a canine bow, so replaced with a reusable level-torso extended-play pose; next CI verifies that final change.
+- Exact rollout registry now connects dog/cat/penguin all eight stages to real template/presenter and live gallery. Immutable Pilot definitions and all six existing dog/penguin reference stage values preserved. Exact candidate additions = 18; total exact spec availability = 46/293 active rows (includes 26 Pilot stages + 2 companions). This is not full visual/World acceptance.
+- Role lookup rejects player cat as companion and companion cat_friend as partner. Unsupported exact rollout age returns null rather than nearest-stage substitution.
+- Local dedicated 62 PASS; rollout mutation 7/7 RED. Added CI Meguru wave traversal (24 exact player stages) plus existing lifecycle/fallback and fixed Pilot-composition 1/5/27 measurements. Performance uses explicit QA stand-ins until all relationship characters exist; never claim that as full native coverage.
+- FR-0 Runtime CI 37182066777 success. Home CI 37182066807 FAILED: chromium-landscape-safe-area route.fetch ECONNRESET fetching item-memories.css, movie.css, home-care-colors.css at 144 ms. FR-0 changed no app/Home/CSS code; transport failure is suspected, base reproduction not yet executed. Later Home runs still pending. Do not call this GREEN.
+- No Home/World production fix made to hide the failure. iPhone remains NOT_RUN.
+
+### FR-1 first family batch validated (source 81b04e0)
+- 24 exact stages (dog/cat/penguin), 18 newly added; total exact availability 46/293. Remaining 247. No new archetype; 3 visual outlier candidates (cat01/08 curl compactness, cat04 wink fidelity), no adoption rating.
+- 99 original/four-view image records + 61 Meguru JPEG captures; complete source and raw evidence under docs/qa/character-3d-full-v0/. Pilot 28-target geometry/pose hashes unchanged.
+- Dedicated 62 PASS, old mutation groups 13/13 + 11/11 + 7/7 + 6/6 RED, rollout 7/7 RED. CI 37183152163 all jobs success. Runtime 37183155273 (2925+80 PASS/0 FAIL) and Home 37183155268 success. Earlier CSS ECONNRESET retained in history, no Home/CSS changes used to obtain success.
+- Meguru 24 exact/live stages; unintentional fallback 0. 1/5/27 live counts correct, fallback 0. Fixed old-Pilot mix tris 4062/19144/106403 unchanged; CPU .957/2.701/5.555 ms; heap 19.3/19.3/23.1 MB. Separate-run comparison, not full-native/iPhone acceptance. Separate animation CPU and isolated appearance hitch still missing.
+- Fresh main remains 0b0a6b3. #372 remains d12ad70 open Draft. Terrain progressed to 7fda832: four mechanical conflict files retained; new veranda presentation was read-only audited. No other lane merged.
+- Remaining within FR-1: man/clownfish/butterfly/dandelion/mushroom/starfish exact gaps, then original-derived existing-family relatives. Next exact step: salmon and missing clownfish source strips → representative yolk/slender fish/jaw/marking/schooling mechanisms → visual QA → batch remaining fish stages; do not fill stages by interpolation or clone/recolour. New topology stays assigned to later family waves.
+- Continue ordinary work without new Human approval. This checkpoint is not full v0 completion and not the final Human QA stop. No Ready/main merge/v1.
+
+## Execution environment interruption
+
+[RECOVERY_COMPLETE: all 61 World JPEGs and raw performance JSON saved from verified CI artifact]
+Local exec-server stopped accepting commands with `No such file or directory`. GitHub remained available. Dedicated source 81b04e0 and all CI checks are complete. Recovery workflow saves all verified World evidence to this Draft branch; it does not change models, main, #372, or adoption status. Resume ordinary FR-1 fish/existing-family work from fresh remote after a working executor is available. Full v0 is not complete; this is an infrastructure checkpoint, not the final Human QA stop.
+
+### FR-1 fish representative checkpoint (not promoted)
+- Recovered working tree from exact remote c2bb41d/tree46d5e04; local existing object reuse was hash-verified. Original assets match remote. Historical QA images are sparse locally and remain saved on GitHub.
+- Next family originals inspected: salmon01 yolk /03 parr bars /07 red body, olive head and hooked jaw; clownfish05 parent and two small school members. Implemented these representatives in a separate fish-spec candidate module; no new runtime coverage claimed.
+- Shared fish parameters add yolk volume, lateral markings/back/head colour fields, forked tail contour, softly curved jaw volume and a school attachment with independently addressable faces. No new archetype, textures, actor state, gameplay or emotion semantics.
+- Representative tests first RED (missing candidate module), then 2 PASS; removal mutations 5/5 RED. Pilot 28-target numeric geometry/pose hashes still identical to the saved Pilot baseline. Dedicated suite 64 PASS/0 FAIL after restoring the missing historical Claude source fixture (initial sparse-checkout run failed only because that fixture was absent).
+- Local Chromium render failed before page load: socket() Operation not permitted. This is an execution-environment limitation, not a visual pass. CI renders the seven available fish candidate/reference stages in four views; inspect those artifacts before filling remaining fish stages or promoting them.
+- Exact runtime availability remains46/293;247 pending. Full npm / candidate CI pending at this checkpoint. iPhone NOT_RUN. No Ready/merge/v1.
+
+### Fish representative visual correction
+- Source e2db5bd, CI37185762824 wave-review and dedicated successful; artifact11296947716 inspected. No runtime promotion yet.
+- Visual defects found: salmon nose too pointed, yolk too large, dorsal fin too long, vertex-noise flecks became streaks. Corrected through optional rounded-head profile, smaller original-derived yolk, parameterized dorsal span and 6-triangle surface spots merged into the existing body draw (no texture or new draw per spot). Small school members retain round neutral eyes rather than copying the parent happy-eye pose.
+- Fish tests2PASS initially, but parr-mark removal then survived because unrelated spot-count changes masked its absence. Split the test into a bars-only colour comparison and a separate bounded spot-geometry assertion; re-run the six mutations before claiming detection. Re-capture is required before remaining stage expansion. No Pilot shape changed by the optional parameters.
+- Corrected fish verification:64 dedicated PASS/0FAIL;6/6 fish mutations RED after isolating the parr-band assertion. Local full npm stopped because its long run overlapped source-mutation work; do not use that interrupted run as evidence. Immutable-commit Runtime CI remains the full-regression source.
+
+### Fish stage batch awaiting complete visual review
+- Corrected representative source9d86c70 / artifact11296688918: head volume, smaller yolk, shorter dorsal span and bounded speckles inspected in four views. Clownfish05 three faces and group silhouette present. Mature salmon face/jaw fidelity remains a Human-QA outlier candidate; no adoption verdict.
+- Expanded explicit original-derived candidate data to salmon01–08 and clownfish01–08; original Pilot clownfish01/04/08 unchanged. Optional outward pectoral spread corrects a newly observed buried-fin connection for rollout candidates without changing the Pilot reference shapes. Salmon01 grey tail retained separately from its pink fins.
+- Fish mutations7/7 RED; all16 candidate stages finite, swimHover retained, no identical adjacent body parameters. Still not promoted to runtime; coverage46/293, pending247 until full-batch visual review and integration.
+
+### Fish batch runtime promotion
+- Source88888c0 four-view CI37186326551/artifact11296838939: all16 salmon/clownfish stages inspected; pectoral silhouette now reads outside the flank. Preserve mature salmon face/jaw and silver-stage gill/fin nuance as outlier candidates for full v0 QA.
+- Exact runtime coverage59/293 (+13 since prior batch),234 pending;40 current four-view records. Reused fish builder, no new archetype. Pilot clownfish01/04/08 and all28 reference numerical geometry/pose hashes unchanged.
+- Runtime exact-template test first RED for missing salmon, then dedicated66 PASS. All40 promoted stages tested across canonical emotions, idle/walk and reduced motion; all faces in a school checked individually. Rollout7/7 and fish7/7 mutation RED.
+- Added separate fish-family1/5/27 QA mix to avoid presenting unchanged Pilot composition as new-family performance. Fish mix uses explicit QA stand-ins for unbuilt companion roles; not full-native or iPhone acceptance. CI normal-distance/all40stage integration and both performance mixes still pending.
+- Next after CI evidence: finish remaining existing Pilot stage gaps (human/plant/insect/fungus/radial), then new family responsibilities and relationship/author coverage according to plan. Continue ordinary authorized work; this is not the final Human QA stop.
+
+### Performance composition defect (QA only; results rejected)
+- Source374e12d fish-performance CI reported success, but raw templatesByActor proved that all unbuilt companion stand-ins were dandelion08 (a truthy string was passed to the old puff boolean selector). This also invalidates the fixed-Pilot composition results from this source. Do not use either as fish/fixed-Pilot performance.
+- Replaced boolean/string interpretation with an explicit QA composition module shared by setup and expected template counts. Added RED→GREEN dedicated test rejecting the exact mislabeled result; browser verdict now requires exact actual/expected template composition, not actor count alone. Re-measure both mixes before publishing numbers.
+- Original actor/game state and presentation code are unchanged by this QA fix.
+
+### Independent fish review and subrig articulation fix
+- Read-only reviewer at4990f62 found one Important issue: school fins/tails were grafted under prefixes but only the main fish appendages animated. Six school appendage deltas stayed0 during moving/reduced motion.
+- Reproduced RED, then reused the existing swim appendage equations for registered presentation subrigs with fixed phase offsets, same actor animation state, and no duplicated root hover. Focused reviewer recheck11/11 PASS, no remaining Important defect in this wave's reviewed scope. This is not merge or aesthetic acceptance.
+- Local dedicated68PASS; fish/QA mutations10/10 RED; Pilot28 numerical shape/pose hashes unchanged. Updated source still needs immutable CI performance and recaptured school images.
+- Corrected pre-articulation fish composition at4990f62 succeeded:1/5/27 live and exact template composition, fallback0; character tris2816/16792/108316, World calls40/74/289, presenteravg .812/2.996/4.954ms, heap18.2/20.5/23.1MB. Saved raw checkpointJSON. These are a different composition from Pilot baseline and predate the articulation fix; not an improvement claim or iPhone pass.
+- Fresh CI read-only conflict audit at4990f62: main0b0a6b3 clean; #367(index.html), #369/#371/#374(index.html, meguru-3d.mjs, meguru.js, package.json) conflict. Heads unchanged; no other lane merged. Semantic visibility/ground-contact/occlusion/emotion-motion ownership/lifecycle integration still unverified for those open lanes.
+
+### Fish source048 evidence and human representative start
+- Recapture64 views/two sheets and corrected-composition fish1/5/27 evidence saved. Live1/5/27, fallback0; tris2816/16792/108316; World calls38/73/322; presenteravg .698/3.016/5.219ms; heap19.3/20.5/23.1MB. Explicit QA stand-ins, not full-native/iPhone acceptance. Actual school articulation and normal-distance screenshot inspected. Latest dedicated/wave/fish-perf/conflict jobs succeeded; Runtime/Home/Meguru pending at08:17UTC.
+- Home374 failed on CSS route.fetch ECONNRESET, later4990 Home passed with no Home/CSS change. Record as intermittent transport observation, not a proven base reproduction.
+- Human original analysis led to man02/06 shared wardrobe/pose/hand-prop representative candidates. Tests initially RED for absent candidates, then70 dedicated PASS. The first sleeve mutation survived a weak colour-count test because hand skin masked forearm absence; replaced with bounded forearm/calf region assertions. Held-prop assertion compares parent identity without formatting entire cyclic scene graphs. Corrected mutation rerun4/4RED; exact source bytes restored.
+- Pilot28 shape/pose hashes remain identical. Candidate image CI pending; no runtime promotion; coverage remains59/293,234 pending. man02 ground toy not yet represented. Next: inspect representative images and fix silhouette/clothes/grip, then woman04/08 and ren03/05 shared hair/skirt/seated/held-object responsibilities, then full24-human batch. No gameplay, save, canonical emotion, World or Home changes.
+
+### Human representative visual correction
+- Candidate7e0b104 / CI37188558261 wave-review and dedicated succeeded. Original/four-view man02/06 images saved in fr1-human. No coverage promotion.
+- Found man02 back straps ending as disconnected dots, arms too low, and both candidates' shoes touching. Corrected shared strap path to overlap the lower bib, original-derived spread-arm parameter and optional leg spread preserving all Pilot defaults. Foot-gap assertion first RED; 5/5 human mutations now RED, including removal of spread. Re-capture needed before expansion.
+- Source048 Home37187846343 now SUCCESS; Runtime37187846342 and Meguru37187842663 still running at this checkpoint. iPhone NOT_RUN, full v0 incomplete.
+
+### Confirmed fish checkpoint / scalable stage evidence
+- Source048 Runtime full npm2931+Relationship80PASS/0FAIL, Home and all Character CI succeeded.40 exact/live stages verified against inventory with zero fallback;32 fish World captures and raw all40/lifecycle/fixed-Pilot performance saved. Fixed-Pilot27tris106403/CPU5.464ms/heap23.1MB, separate from fish-family108316/5.219/23.1. No actual iPhone evidence.
+- Sourcec375 human candidate re-capture confirms straps/arm spread/foot gaps. Saved8 views plus sheet, no runtime promotion. Human70 dedicated/5RED verified before capture; latest source full CI pending.
+- Meguru stage CI split by dynamic ROLLOUT family inventory; aggregation rejects missing/duplicate/different-source records and missing screenshots. Lifecycle/performance are separate. Dedicated71PASS, rollout9RED. Real048 all40 JSON also passes new exact-stage validation. Matrix browser run pending, not inherited green.
+- One normal-distance school image was partially covered by an actual discovery notice. Future stage captures wait for the notice queue to settle, not hide UI or change gameplay. Keep old source image as evidence, not falsely unobstructed visual acceptance.
+- Re-inspected32 original butterfly/dandelion/mushroom/starfish stages and saved topology transition analysis. No new coverage from analysis. Exact next: validate matrix CI, then human woman04/08 and ren03/05 representative mechanisms, original/four-view/normal-distance QA, then full24-stage humanoid expansion. Continue remaining topology/family waves;234 designs still pending.
+
+### Human school/sports representative checkpoint
+- Fresh fe3ae8b CI confirmation: Runtime37189486968, Home37189486948, Character37189484613 all SUCCESS, including dynamic five-family stage shards and strict aggregate. This validates40 promoted stage records, not293-design completion. Full npm count for fe3 not extracted; retain source048 counts rather than inventing a new total.
+- Added unpromoted woman04/ren03/ren05 representatives from inspected originals: optional long side/back hair volume, pleated skirt, shirt separate from open jacket, bow, hand-anchored shoulder bag, swept fringe, rear hoodie volume and sports ball. Five new mechanisms have remove-it coverage; total human10/10RED. Dedicated72PASS/0FAIL. Pilot28 geometry/pose hashes identical to pre-wave baseline.
+- Ruling: keep these candidates outside runtime until original/four-view and ordinary-distance review — numeric build tests cannot establish identity. Cost: no coverage increase until visual gate; exact runtime remains59/293,234pending.
+- Still incomplete: ren03 jersey26 and original play-leg pose, woman04 neutral wink, man02 ground toy; woman08 seated/chair/held-cat representative not implemented. Candidate CI images pending; no visual or iPhone PASS claimed. No main/Ready/adoption changes.
+- Next exact work: inspect candidate CI captures and correct clear clothing/hair/prop defects; finish source-specific sports markings/pose and seated representative; ordinary-distance gate, then remaining24-human stage batch and rollout promotion. Full v0 and final Human QA package remain unfinished.
+
+### Human representative image findings / seated candidate
+- Sourcefe666b5 / CI37191131226 wave-review succeeded. Saved four-view composite and source-stamped raw evidence. Found woman04 thin separated side locks, hidden calves, wrong closed neutral eyes; ren05 still read as a suit. Corrected optional hair overlap, skirt/leg proportion, per-eye neutral wink (all non-normal canonical shapes unchanged), hoodie inner layer without shirt collar/buttons. Added ren03 original26 through shared bounded vertex-colour digits and asymmetric play stride releasing into base gait.
+- Added woman08 representative: optional bun, articulated knees, seated pose, chair support and white/ginger held feline using the existing quadruped builder plus grafted canonical face. No second gameplay actor. Tests first RED then PASS; human16/16 mutation RED; Pilot28 numerical shape/pose hashes unchanged. Corrected/new candidate visual gate still pending.
+- Ruling: chair is a presentation support attachment for the original resting pose; as existing actor motion blends to walking it scales away while the figure stands, then returns at rest. It does not create persistent World furniture or change movement state. Cost if wrong: visible transition may need an attachment presentation adjustment after image/motion review; no gameplay semantics altered.
+- Added isolated QA HTTP spec overlay and Node mirror for candidate normal-distance capture. It requires candidate-human + species-only + explicit human line; production registry/files remain unchanged. Separate artifact names and candidateOnly flag prevent confusing this with promoted coverage. Dedicated76PASS/0FAIL after QA overlay test; runtime remains59/293,234pending. Added human/stage-evidence/candidate tests to full npm command; latest full npm/CI not yet run on this change.
+- Next: verify corrected6 representative close/four views and candidate ordinary-distance captures, fix obvious attachment/ground problems, then expand full24 human stages. iPhone NOT_RUN, final Human QA package not complete. Draft only.
+
+### Human full-stage candidate batch / seated correction
+- f5260cd Character CI37191610958 all jobs SUCCESS:6 candidate human stages exact/live at ordinary Meguru distance, zero fallback; promoted40-stage evidence/lifecycle/fixed and fish QA mixes also succeeded. Saved16-view comparison, raw source-stamped geometry evidence and12 World JPEGs/three JSONs. Runtime/Home still pending when preparing this next checkpoint. fe3 Runtime logs separately verified2931+Relationship80PASS/0FAIL.
+- Found woman08 seated skirt dipping below ground (-.145 in root-updated bounds). Replaced tilted standing skirt with optional seated drape volume; corrected foot support height. Held feline uses the same quadruped builder but its nonwalking secondary body parts now merge into one body draw, retaining its projected canonical face. Seated body draw count reduces despite adding the cloth volume. New ground/cost assertions PASS; recapture is required.
+- Ruling: expand the24-stage human candidate batch using the verified representative mechanisms while the specific seated correction is recaptured; candidates remain unpromoted. This overlaps data entry with visual QA without claiming the unresolved seat correction accepted. Cost: affected candidate data must be adjusted if recapture finds a shared issue.
+- Added original-derived man/woman/ren01–08, preserving exact Pilot man01/04/08. Shared school hat, pigtails/bun, clothing profiles, configurable backpack colour, pacifier, wheeled ground toy and one-hand held plush extend the same humanoid/secondary-animal mechanisms. No new archetype or source PNG edits. All24 build finite geometry, distinct adjacent shape/pose specs, two projected eyes per face, all8 canonical emotions × idle/walk × normal/reduced. Dedicated78PASS/0FAIL; human/QA21/21 mutations RED; Pilot28 numeric reference hashes unchanged.
+- Coverage still59/293,234pending until full batch original/four-view/normal-distance review and runtime promotion. Full npm local attempt overlapped subsequent visual corrections; do not use that mutable-worktree run as commit evidence. Immutable Runtime/Home CI remains authoritative; no latest-source full-regression PASS yet.
+- Next exact work: inspect all24 source-fixed four-view sheets and all24 candidate World stages, especially skirt ground contact, plush grip, infant pacifier, hat/hair overlap and older clothing. Fix clear failures within this wave, promote reviewed24 human stages (+21 new exact), add human-family performance mix, record1/5/27 and updatedcoverage. Continue topology gaps/new families afterward. Full v0 unfinished; no Ready/main merge/v1; iPhone NOT_RUN.
+
+### All24 human four-view audit corrections
+- eda8543 CI37192370487 wave-review/dedicated succeeded; inspected all24 original/four-view rows. Clear findings: hair pokes through school hats; woman01 inherited blue shoes; woman05/07 bun should sit at the side, not crown; woman02 free arm should raise while plush arm stays at the grip. Corrected through shared hat/hair boundary, explicit source colours, bun position/radii and per-arm pose multipliers. Tests first RED, then dedicated79PASS; human/QA23/23RED; Pilot28 hashes unchanged. Latest correction images pending.
+- Seated cloth now stays above ground and covers knees; held secondary body merged into one draw. Sourceeda woman08 still a cost outlier (10137 tris/18 total draw calls including two faces); woman02 held plush9050/14. Other human candidates4437–6378tris/9–11calls. These are close-view model counts, not 27-actor/iPhone performance. Measure human mix after promotion; do not disguise cost outliers.
+- Woman06 long-hair softness, adult age impression and held-plush likeness remain Human-QA visual candidates, not automatic adoption failures or approvals. Full24 ordinary-distance jobs still being collected. All79 dedicated tests refer to current correction; no latest immutable full npm/Runtime/Home PASS claimed.
+
+### Human runtime promotion checkpoint
+- Corrected source2befff5: all24 originals/four-view rows reviewed; all24 exact/live normal-Meguru stage captures pass with fallback0, including hat/pink infant/held plush/side bun/seat fixes. Saved96 close views,3 original comparison sheets,48 World JPEGs, ordinary-distance scan and source-stamped JSON/conflict audit. Candidate labels describe unapproved adoption, not missing rendering.
+- Promoted man/woman/ren01–08 through shared rollout registry. Added21 exact stages; total80/293 (78player+2companion),213pending. Saved four-view records64. Runtime exact/template test first RED for nearest man02→01, then PASS. Dedicated81PASS/0FAIL; human/QA23RED, rollout10RED (new human dispatch removal), fish/performance11RED (human composition removal); Pilot28 numerical geometry/pose hashes unchanged.
+- Human-family performance mix explicitly uses woman08 player plus man02/06, woman02/04, ren03/05/08 QA stand-ins; actual/expected composition must match. New1/5/27 human performance CI pending. No fish/Pilot timing substituted for it. Candidate-only distance jobs replaced by the promoted64-stage dynamic matrix; QA overlay remains isolated and tested with an unregistered fixture.
+- Fresh source2be conflict audit: main0b0a6b3 mechanical clean; #367 index.html conflict; #369/#371/#374 index.html,meguru-3d.mjs,meguru.js,package.json conflicts, heads unchanged. Semantic World ground/visibility/occlusion, Resident/Motion ownership and lifecycle integration for those unmerged lanes remain unverified. No lane merged.
+- Next exact work: collect promoted-source human1/5/27,64-stage aggregate, Runtime/Home and full npm results; save raw measures and source-fixed evidence. Then finish remaining butterfly/dandelion/mushroom/starfish stage topology using saved original analysis, followed by other original-derived families/new archetypes/companions/partners/author. Human cost/visual outliers remain listed in QA README. Full v0 is not complete; no final Human QA stop, Ready, main merge or v1. Actual iPhone NOT_RUN.
+
+### Promoted296 evidence / plant transition representatives
+- Fresh remote confirmed296cea0, main0b0a6b3, Pilotd12ad705, Draft#376/#372 open/unmerged. Existing dedicated checkout clean at start;81/81 baseline PASS.
+- Source296 Character37197646020 all16 jobs SUCCESS. Strict aggregate64/64 across8 shards, exact/live/fallback0. Human QA cast1/5/27 actual/expected equality independently checked from raw JSON; tris10297/31012/167889, World calls46/90/320, presenteravg .819/2.100/3.632ms, heap19.3/21.7/26MB. Saved50 same-resolution JPEGs, raw human/stage JSON, full64 aggregate and conflict audit underfr1-human/296cea0. SwiftShader, not iPhone/full-native or cross-cast improvement.
+- Source296 Runtime37197649405 SUCCESS: npm2944+Relationship80PASS/0FAIL. Home37197649385 in_progress at preparation, not inherited PASS. Fresh conflict audit sees World#374 advance toc312aba; mechanical conflict files unchanged; no merge.
+- Following saved topology analysis, added unpromoted dandelion05 closed-bud and07 rooted-seed-head representatives. Shared plant form parameters retain rounded continuous head volume, overlapping sepals and merged rounded peripheral seed lobes, rooted stem/rosette and one canonical face. Original2D inspected; no detached cluster substitution or new actor/state.
+- Tests first RED for missing bud/rooted volume, then candidates and QA selection;85 dedicatedPASS/0FAIL, plant4/4 mutationsRED; Pilot28 numerical geometry/pose hashes match296 baseline. Close/four-view and ordinary-distance CI captures still pending; no visual acceptance or runtime promotion. Coverage remains80/293,213pending.
+- Candidate QA reuses the existing injectable HTTP/Node overlay with explicit wave selection and exact-family restriction; production spec registry remains unchanged. Added topology capture/distance CI and plant test/mutations to immutable-source gates.
+- Next: inspect representative images and fix clear silhouette/connection issues before family expansion; continue butterfly/mushroom/starfish transition representatives and remaining families. Full v0 incomplete; no Ready/main merge/v1; iPhone NOT_RUN.
+
+### Plant representative visual correction
+- Source24b9c76 Character37198532829 wave-review, dedicated and topology-candidate-distance jobs SUCCESS. Both candidate stages exact/live with fallback0; not runtime promotion. Saved original/four-view8 images/sheet,4 World images and raw JSON underfr1-topology/24b9c76.
+- Image inspection found sepals buried inside yellow bud, upright leaves/long stems, missing source neutral closed/wink eyes. Root cause: sepal radial placement inside the core; leaf inclination inherited the generic nonflower default; neutral-eye override not forwarded by plant builder. Added visible-exposure/low-rosette/canonical-eye tests RED→GREEN; shared surface-following sepal placement, optional leaf inclination and existing eye override fixed the mechanisms. Source-specific shorter stem data follows originals; Pilot defaults preserved.
+- Dedicated87PASS/0FAIL, plant7/7mutationsRED; Pilot28 numerical geometry/pose hashes unchanged. Corrected images/immutable full regression still pending. First defective source24 images preserved as historical evidence, not accepted fidelity.
+- Fresh source296 Home37197649385 now SUCCESS. Source296 Runtime/Home/Character all confirmed green. Source24 Runtime/Home remain separate pending gates; no inherited PASS.
+- Next exact work: collect corrected plant four-view/normal-distance and immutable CI; expand dandelion02/03 after representative gate, continue butterfly/mushroom/starfish saved topology. Coverage80/293,213pending. Final full-rollout review/iPhone/QA package not complete; Draft only.
+
+### Dandelion full-stage candidate batch
+- Sourcec8c8c8d / Character37198847656 dedicated, wave-review and topology-distance SUCCESS. Saved corrected8 close views/comparison sheet,4 World JPEGs and raw evidence. Exposed sepals/low rosette/shorter stems verified in four views and ordinary distance.05 neutral calm closure belongs to existing content eye, not happy arc; test RED then data corrected for next capture.07 wink retains canonical non-normal behavior.
+- Added original-derived02 orange bulb/two raised oval cotyledons/central shoot/grounded feet through shared plant sprout parameters;03 small-face broad rosette uses explicit proportions. All8 dandelion candidates now present; Pilot01/04/06/08 data unchanged. No new archetype or actor semantics.
+- Dedicated89PASS/0FAIL; plant9/9 mutationsRED; Pilot28 numerical geometry/pose hashes unchanged. Candidate all8 close/four-view and ordinary-distance jobs pending. No promotion yet: exact80/293,213pending.
+- Ruling: fill02/03 after corrected representative geometry/distance passed, while the small05 neutral-eye correction is recaptured in the full batch. Runtime remains unchanged until full-batch review; cost is rework of candidate data if that gate fails.
+- Next exact work: inspect full8 dandelion batch, fix clear silhouette/connection issues and promote with RED exact-runtime tests only after visual gate. Continue butterfly06 emergence, mushroom02/03/06 and starfish02/03 from saved source analysis. Full v0 remains incomplete, all latest-source full regressions separate/pending, iPhone NOT_RUN, Draft only.
+
+### Dandelion visual gate / runtime promotion and butterfly06 representative
+- Source99268a8 Character37199169732 wave-review/topology-candidate-distance SUCCESS. Reviewed all8 stages in original/four-view and ordinary Meguru distance; raw8 records independently exact/live/fallback0/error-free. Saved32 close views, one comparison sheet,16 World JPEGs, navigation scan and raw geometry/distance JSON underfr1-topology/99268a8. Source992 full matrix and Runtime/Home not inherited as latest-source PASS.
+- Promoted02/03/05/07 unchanged, preservingPilot01/04/06/08:84/293 exact (82player+2companion),209pending,72four-view records. Exact-runtime test first RED for nearest02→01 then GREEN. Updated existing PLAYER_LINES02 classification from initial pod mapping to implemented plant sprout; no gameplay/save semantics change. Dynamic promoted matrix9families72stages pending immutable CI.
+- Butterfly06 representative reuses winged_insect with body offset, separate fore/hind wing proportions and hollow opened empty casing/thread/branch attachment. One face and actor; shared canonical emotion/locomotion ownership retained. Open-front ray/geometry, wing proportion, neutral-eye and canonical motion tests RED→GREEN; emergence4/4mutationsRED. Candidate browser builder lookup uses shared BUILDERS map for snake-case archetypes. Four-view/normal-distance CI pending; no butterfly runtime promotion.
+- Local dedicated93PASS/0FAIL; rollout11/11mutationsRED (including plant runtime removal); Pilot28 geometry/pose hashes match296 baseline. Thin plant leaves/seed-head softness remain final Human QA outlier candidates. Full293 rollout unfinished, iPhone NOT_RUN, Draft only.
+- Next: collect promoted72 aggregate, immutable Runtime/Home and butterfly06 close/distance; fix clear emergence issues, then butterfly04 J larva and remaining butterfly stages, mushroom/starfish transitions and remaining original-derived families. No Ready/main merge/v1.
+
+### Butterfly full-stage candidates / emergence correction
+- Source203d9ec wave-review/topology-distance SUCCESS:06 exact/live/fallback0, empty casing and single face verified in four views. Images revealed horizontally spread wings and overly long inherited legs; corrected fore/hind aspect ratio and legs/body parameters for recapture. Historical images/raw saved underfr1-topology/203d9ec, not accepted as corrected geometry.
+- Filled02/03 with optional larval forebody lift/foot rhythm and original head/body proportions;07 broad open wings/round normal eyes. Pilot01/04/05/08 unchanged, including already-existing04 suspended J centerline. All8 candidates outside runtime pending complete image/distance gate.
+- Dedicated95PASS/0FAIL, emergence/larva7/7mutationsRED, Pilot28 numerical geometry/pose hashes unchanged. Source203 full72 aggregate/Runtime/Home still separate pending gates. Source992 Character37199169732 now allSUCCESS; its Runtime/Home pending when checked.
+- Fresh203 read-only conflict audit saved: main0b0a6b3 clean; World#374 advanced1cbc27b, same four mechanical conflict files; other lane heads/files unchanged. No lane merge or semantic integration claim.
+- Next: all8 butterfly close/normal-distance review, then promote only after gate; mushroom02/03/06 and starfish02/03 representatives. Exact84/293,209pending; full v0/iPhone incomplete, Draft only.
+
+### Fungus transition representatives / promoted72 evidence
+- Source203 Character37199971568 all18 jobs SUCCESS. Strict aggregate independently verified72 exact/live/fallback0 records across9 families; saved raw aggregate and16 promoted dandelion World captures. Source992 Runtime37199172724 and Home37199172716 now SUCCESS (all its CI green); latest203 Runtime/Home still pending, not inherited.
+- Sourcef0 full8 butterfly four views inspected:06 wing/leg correction visible;02/03 low/upright larval differences readable. Found omitted03/07 source wink; corrected using existing per-eye normal override, RED→GREEN. Saved historical sheet/06 close views/raw; corrected-source ordinary-distance gate still pending, no runtime promotion.
+- Added unpromoted mushroom02 branching mycelium body with one central canonical face and merged branch mesh;03 low pink/cream cap-face and short stem;06 concave upturned spotted cap, scalloped collar and stem-face. Shared fungus form/profile/optional vertex-colour patches; no new archetype, actor state or protected2D modification.
+- Tests first RED for missing topology/patches/representatives, then99 dedicatedPASS/0FAIL; fungus6/6RED (including branch forks), emergence/larva7/7RED. Pilot28 numerical geometry/pose hashes unchanged after shared fungus additions. Representative four-view/normal-distance CI pending; coverage84/293,209pending unchanged.
+- Next: corrected butterfly all8 gate/promotion, fungus representative visual fixes and fullstage batch, starfish transition representatives, remaining species/roles/fullQA. Final v0 incomplete, actual iPhone NOT_RUN, Draft only.
+
+### Butterfly promotion / fungus visual correction / starfish representatives
+- Source d8e3b76 all8 butterfly original/four-view and ordinary-distance gate complete. Independent raw check:8 exact requested/spec keys, player3D live, fallback0/error-free.03/07 wink and06 hanging wing/short limb correction verified. Saved32 views+sheet,16World captures/scan and rawJSON. Promoted02/03/06/07 unchanged:88/293 exact (86player+2companion),205pending,80current four-view records. Pilot01/04/05/08 unchanged. Promoted80-stage matrix pending on next source.
+- Source d8 mushroom02/03/06 exact/live/fallback0, but images exposed03 face too low/closed neutral eyes and06 red underside. Saved historical12views+sheet/6World/raw. Corrected cap-face height/half, original round eyes and stem proportion; upturned profile now has deeper underside with normal-based pale-gill shading. Tests RED→GREEN and fungus8/8RED; corrected images pending, no fungus promotion.
+- Starfish02/03 unpromoted: optional asymmetric larval contour/face centre; young radial body with translucent attached larval remnant and one source face. Reuses blob/radial builders. Secondary blob pulse uses owning actor time/phase/reduced mode with no second root hover or gameplay actor; same shared pulse retained for Pilot blob.4/4starfish mutationsRED. Close/four-view/ordinary-distance pending.
+- Dedicated104PASS/0FAIL, rollout12/12RED, fungus8/8RED, starfish4/4RED, Pilot28 numerical geometry/pose hashes unchanged. Source203 Runtime/Home/Character allSUCCESS now confirmed. Source d8 Runtime/Home/full aggregate remain separate pending gates; no latest-source PASS inherited.
+- Next: promoted80 aggregate/CI, corrected fungus representative and starfish transition image review, remaining mushroom/starfish exact batch, then remaining original-derived species/roles and full runtime/performance/QA package. Full v0 incomplete; iPhone NOT_RUN; Draft only.
+
+### Resume verification after interrupted local batch
+- Fresh remote d8e3b7648bf6381ec6be276df173b879427ed218; local pending butterfly promotion/fungus correction/starfish representatives preserved. Re-ran dedicated104/104, rollout12/12, fungus8/8, starfish4/4 removal checks. Pilot28 numerical hashes independently match296 baseline after mutations restored.
+- Fresh source d8 Runtime37200806717, Home37200806712, Character37200804017 allSUCCESS. These belong to d8, not the pending local changes. New immutable candidate image/normal-distance and promoted80-stage aggregate still required.
+- Main0b0a6b3/Pilotd12ad705 unchanged; World#374 now04c2a82. Other lane PR heads unchanged from prior audit; new mechanical audit will run in CI. No lane integration/merge.
+
+### Transition visual findings / spore-release representative
+- Source27d36b6 wave-review and both topology-distance jobs SUCCESS. Independent5 candidate exact/live/fallback0 checks; saved original/four-view/ordinary-distance evidence. Mushroom03 corrected face/gills visible. Found starfish02 opaque core protruding through asymmetric silhouette (origin rotation plus inherited core proportions); bounded core profile around its own centre fixes61 exterior vertices, RED→GREEN. Found mushroom06 empty-bowl crown; optional raised centre restores original cap mass. Corrected images pending.
+- Added mushroom07 representative using shared cluster graft: existing spore geometry/faces, original lean and pale/red cap markings, same canonical emotion/time, no duplicate actor/root-hop. Existing cluster pulse extracted without numeric change to Pilot. Mechanism and explicit-stage tests firstRED→GREEN; no runtime promotion.
+- Ruling: original06 has a raised central crown inside an upturned outer rim; previous 'concave cap' interpretation was incomplete. Add optional crown rather than changing Pilot/default cap profiles. Cost: pending recapture may need proportion adjustment; gameplay unaffected.
+- Ruling: secondary spore faces reuse the canonical parent emotion, matching existing cluster/Pilot group ownership. They are presentation subrigs only. Cost: aesthetic intensity remains for Human QA; no new emotional state.
+- Full batch expansion waits on corrected representative captures. Runtime exact88/293,205pending; no final Human QA/Ready/main merge/v1. Latest immutable full CI still pending when preparing this checkpoint; actual iPhone NOT_RUN.
+- Local verification:108 dedicatedPASS/0FAIL; fungus12/12 and starfish5/5 mutationsRED; Pilot28 numerical geometry/pose hashes match296 after restoration; diff-check clean. These do not substitute for pending corrected browser captures/full CI.
+
+### Full mushroom/starfish candidate batch
+- Sourcef01 four-view and6 ordinary-distance rows checked exact/live/fallback0. Starfish02 core now contained; mushroom06 central crown visible. Mushroom07 revealed horizontally bunched spores: added optional source-derived rising cluster layout after RED test, reusing the same unit bones/clock/faces. Saved sourcef01 evidence as historical for07.
+- Filled mushroom05 red dome and starfish05 golden/06 broad spotted/07 slender pale-tip forms; preserved all6 Pilot entries by identity. Both families now have8 candidates, with source-specific proportions, markings and normal eyes. New pale tips/spot radius/neutral eyes are optional shared radial parameters. Full16-stage four-view/ordinary-distance gate pending; no runtime promotion.
+- Local112 dedicatedPASS/0FAIL, fungus13/13 and starfish8/8mutationsRED; Pilot28 geometry/pose numerical hashes unchanged. Strengthened spot-radius test after a mutation exposed that comparing allXYZ also detected height alone; XY coverage now detects lost radius.
+- Ruling: prepare remaining simple dome/radial candidate data while bounded02/06 correction recaptures run; sourcef01 recapture subsequently verifies those corrected representative mechanisms. All remain outside runtime until full-family gate; cost is candidate rework if full images reveal a problem.
+- Source27 Character37208278911 all20jobsSUCCESS. Saved aggregate independently verifies80/80 exact/live/fallback0 across10families. Latest full Runtime/Home and sourcef01 full CI still separate gates. Exact88/293,205pending; full v0 unfinished; no Ready/main merge/v1.
+
+### Full16 visual eye correction
+- Source4b9 wave-review all16 original/four-view rows inspected. Rising mushroom07 spores now separated vertically. Fixed four explicit original-eye data mismatches after RED tests: mushroom02/06 and starfish06 squeeze; starfish07 single wink. Existing canonical normal override only; tests prove positive returns happy eyes. Dedicated114PASS/0FAIL. No runtime promotion until corrected captures/distance.
+- Saved historical full16 sheets, source geometry, numerical model costs and fresh mechanical conflict audit (World#3745f240973; main clean, same conflict paths, no lane integration).
+- Local full npm on4b9 cancelled after partial execution as redundant with immutable Runtime CI; do not report a local full PASS. CI remains authoritative and pending. Exact88/293; Full v0 unfinished.
+
+### Shell representative prepared while topology image CI runs
+- Inspected all16 turtle/frog originals; saved source-specific stage/pose boundaries in families/shell-amphibian-source-analysis.md. Frog adult cannot be treated as recoloured dog; no frog implementation yet.
+- Added unpromoted turtle05 with shared optional shell/scute vertex colours, earless flat-face profile and splayed feet in quadruped. Shell follows body rig, one canonical actor, defaults unchanged. Representative tests RED→GREEN;116 dedicatedPASS/0FAIL, shell5/5mutationsRED, Pilot28 numerical geometry/pose hashes unchanged. Turtle close/four-view/normal-distance pending on next source; not runtime coverage.
+
+### Mushroom/starfish full16 runtime promotion
+- Source3ce all16 original/four-view and ordinary-distance records reviewed; independent raw checks exact requested/spec keys, player3D, fallback0/no errors. Saved64 close views,2 sheets+2 detail sheets,32World captures+scan, raw JSON. Corrected core/crown/rising spore/source-normal-eye presentation verified; known softness/proportion/eye-library outliers recorded for final Human QA.
+- Exact-runtime test firstRED (mushroom02 null), then promoted both full8 families unchanged. Added10 new exact stages, preserving6 Pilot stages:98/293 exact (96player+2companion),195pending,96current saved four-view records. Mushroom02 routing updated to actual shared fungus/mycelium builder, not new gameplay semantics.
+- Dynamic promoted96-stage matrix replaces these candidate-only jobs; turtle05 remains the sole topology candidate-distance family. Promoted immutable aggregate/full CI and turtle image gate pending on next source. Full293, full-native performance/iPhone and final QA package still unfinished.
+- Promotion verification:117 dedicatedPASS/0FAIL; rollout14/14mutationsRED; shell5/5RED; Pilot28 numerical geometry/pose hashes unchanged after mutation restoration. Source3ce full CI not yet claimed; promoted source next must capture96-stage matrix and turtle representative.
+
+### Resume4a7 / shell seam correction
+- Fresh remote4a7ebe4 unchanged/clean. Runtime37210488076, Home37210488074, Character37210484668 allSUCCESS. Independently checked and saved promoted96/96 exact requested/spec/live3D/fallback0/errorfree aggregate, plus turtle05 four-view/ordinary distance evidence in fr2-shell/4a7ebe4.
+- Turtle05 volume/attachment checks pass, but images show broken blurry scute markings: coarse dome vertex sampling loses narrow boundaries. RED surface ray samples along a full hex edge reproduced the defect. Shared surface-following seam ribbons merged into the same shell mesh restore narrow boundaries without extra actors/materials/draws. Corrected browser images still pending; no turtle promotion.
+- Local dedicated118PASS/0FAIL, shell7/7mutationsRED, Pilot28 numeric hashes unchanged. Main unchanged0b0a6b3; saved source4a7 conflict audit has World#374f7ffdff2, same4 conflict files; semantics unintegrated. Full98/293 unchanged.
+
+### Shell full-eight / crouched transition representatives
+- Source273fe84 turtle05 original/four-view and ordinary-distance gate checked; saved corrected evidence fr2-shell/273fe84. Scute boundaries now continuous in close and normal distance. Full source CI still pending at preparation.
+- Added explicit turtle01–08 candidates: infant head/shell ratio,03 lifted paw/wink,04 long neck,06 high dome,07 sparse attached moss,08 withdrawn head and fuller irregular moss. Shared moss volumes merged into shell; no new actor/draw per patch.
+- Added frog03/05/07 candidate morphology: hind-only full membrane tail, froglet forearms/remnant tail, adult folded haunches and eye-bearing lobes. Same optional quadruped rig/gait, one projected canonical face. No runtime dispatch change. Source-stage analysis records anatomy and gait ruling.
+- Mechanism tests RED→GREEN; shell9/9 and crouch6/6mutationsRED. Dedicated parallel run aborted with 'fatal library error, lookup self'; serial retry exit0,122PASS/0FAIL. Pilot28 hashes independently match baseline after all mutations restored. No local full npm PASS claimed; immutable CI remains gate.
+- Exact98/293 unchanged (195pending). New11 candidates require immutable original/four-view, normal-distance and motion checks; no final QA/adoption, no Ready/main merge/v1.
+
+### Shell/crouch original comparison corrections
+- Sourcef33 full11 original/four-view rows and ordinary-distance raw data inspected exact/live/fallback0/errors0. Saved historical two sheets,22-view distance scan, geometry/cost/conflicts/raw JSON under fr2-shell/f33c9c4. Turtle01/06/07 source half pupils had become closed curves; frog05/07 upper hind bends looked angular/capped.
+- Tests firstRED for those findings, then corrected turtle normal overrides to existing droop and added optional rounded haunch volume merged into folded limb geometry.124 dedicatedPASS/0FAIL; crouch7/7mutationsRED; Pilot28 numerical hashes unchanged after restoration. Other canonical expressions still supersede normal overrides.
+- Added reusable commit-fixed candidate expression/motion capture: turtle03 and frog03/05/07,8 emotions × idle/walk × normal/reduced. Pending browser evidence; not PASS yet. Full-eight frog expansion awaits corrected representative captures. Turtle remains candidate until corrected full8 gate.
+- Source273 Runtime37238930985 and Character37238927867SUCCESS, Home stillpending; f33 fullCI stillpending. Exact98/293 unchanged. Chromium/SwiftShader only.
+
+### Full frog candidate expansion / corrected representative motion
+- Sourcef26 corrected turtle8/frog3 original+four-view sheets inspected. Half pupils restored and frog rounded haunches cover angular proximal caps. Four representative motion sheets inspected: turtle03/frog03/05/07,128 distinct source-tagged captures (8 canonical × idle/walk × normal/reduced), errorfree. Shared gait retained; no disconnected parts/second actors. Ordinary turtle sourcef26 job still pending at preparation; frog sourcef26 distanceSUCCESS, raw recovery next.
+- Added explicit frog01/02 limbless tadpoles,04 forelimbs/full tail,06 open splayed adult,08 broad low squat/age mottle. Transition tests firstRED then GREEN;126 dedicatedPASS/0FAIL, crouch8/8mutationRED, Pilot28 hashes unchanged. All16 turtle/frog candidates now implemented; full8 frog image/distance pending, no runtime promotion yet.
+- Ruling: remaining simple frog records prepared after sourcef33 representative topology review and bounded visual fixes, while corrected recapture ran; sourcef26 subsequently verifies corrected representatives. All new stages remain isolated until their own full-image gate. Cost if rejected: candidate rework, no runtime coverage inflation.
+- Current exact98/293,195pending. Full-native performance, long-travel memory, iPhone and final QA package remain unverified.
+
+### Shell/crouch promotion recovery (2026-10-06)
+- Fresh remote b1087ac/tree9a75fe9 and PR376 open/Draft/base Pilot verified. Recovered local promotion and all231 JPEGs plus6 evidence files;237 manifest blob hashes match original restored bytes. Blob upload alone was not treated as a saved checkpoint.
+- Reviewed turtle/frog all16 stages now connected to exact runtime:114/293 (112 player stages +2 companions),179 pending. Removed obsolete candidate-distance job; canonical stage matrix derives14 families from ROLLOUT and requires112 stages. Candidate rendering remains isolated.
+- Fresh Pilot28 geometry/pose hashes match saved baseline. Restored prior dedicated127PASS and rollout16/16RED logs retained; fresh dedicated rerun recorded at commit preparation. Promotion CI/aggregate pending until this change has an immutable remote commit.
+- Source b108 Runtime/Home/Character SUCCESS is candidate-source evidence only. No iPhone/full-native or final Human QA acceptance.
+- Next: capture promoted14-family/112-stage aggregate; update PR; continue remaining original-derived family representatives and batch gates. Full v0 remains incomplete.
+
+### Aquatic branching representative continuation
+- Promotion checkpoint71539b8 is saved;local/remote treeaf5d9b6 matched and clean before continuing. PromotionCI37400181240 currently running;14-family/112-stage aggregate not yet retrieved.
+- Inspected coral strip and05 original;implemented02 polyp/05 branched colony as candidates only. Reusable branch_organism builder merges rounded explicit-root paths into one body mesh;existing Rig/canonical face/plantSway retained. No runtime promotion or coverage inflation.
+- New tests RED for absent candidates and absent candidate overlay, then3PASS. Mechanism mutations3/3RED;Pilot28 geometry/pose hashes unchanged. Fresh post-mutation serial dedicated suite130PASS/0FAIL. Immutable RuntimeCI is pending at checkpoint.
+- Local browser executable missing;capture routed to existing Actions,not a visual PASS. Remaining stages await representative four-view and normal-distance review.
+
+### Coral representative visual review / mutation compatibility
+- Source233e2d3 original+four-view02/05 and ordinary front/back captures reviewed; exact requested/spec/live3D/fallback0/errors0 independently verified. Full image gate exposed coincident tip-cap rings on05: shared sweep already supplies hemispherical caps, so redundant equal-radius spheres removed; larger02 polyp bulbs remain. Corrected recapture required before promotion.
+- Source233 dedicated normal suite passed, then Pilot remove-it failed because added builder preceded its literal registry anchor. Preserved original registry prefix/order; local original13-mutation script then completed with13RED. No mutation weakened or deleted.
+- Colony06 has4 source faces (yellow, blue, small left pink and small right peach);07 has3;08 has5 flower/anemone faces with background faceless branches/mound. These require composite geometry sharing one actor and the existing multi-face expression contract.
+
+### Coral full candidate morphology
+- Original01/03/04/06/07/08 re-inspected at233. Added explicit pink sphere01,slender asymmetric curled polyp03,rounded lobed fork04,and source-specific colony06/07/08. Grouped face counts4/3/5;faceless rear branches remain faceless. Rounded anemone lobes and bounded green mound reuse merged geometry. Each face owns one bone;members share parent actor/emotion/plant locomotion.
+- Representative review saved fr3-aquatic/233e2d3:13JPEGs andraw four-view/distance evidence. Original geometry and game state unchanged. Prior registry-prefix fix included in next remote checkpoint.
+- Full8 remain candidates pending immutable full-image/distance gate. Exact114/293 unchanged. Representative cap correction and new colony morphology require recapture.
+- Fresh full dedicated132PASS/0FAIL; aquatic5/5mutationsRED;Pilot28 numeric geometry/pose hashes unchanged after restoration. Full immutableCI and full8 browser evidence pending.
+
+### Promoted aggregate and multi-face QA readout
+- Source71539b8 CharacterCI37400181240 SUCCESS;artifact11385342445 independently verified112/112 across14shards with requested/spec/exact/live/fallback0/errors0. Saved immutable aggregate under fr2-shell/71539b8. Runtime/Home still running at read.
+- New colony motion exposed a QA-only readout issue:production multiFace is a setter facade,so instance.face.emotion is unreadable for grouped faces. Added actual-owned-face snapshot validation (RED missing helper → GREEN real3-face colony test and mismatched-face rejection),used by wave-review. Runtime canonical expression code unchanged. Source52ff old readout may fail candidate-motion;do not call it a full QA pass.
+
+### Coral full-image correction and jelly representatives
+- Source71539b8 Runtime37400186303 andHome37400186313 nowSUCCESS;allthreeCI successful. Aggregate112/112/14 already saved.
+- Source52 all8 coral original/four-view rows and ordinary exact/live/fallback0/errors0 validated. Visual gaps:06blue/07upper-face occlusion;08hollow bead-curtain mound. Corrected source-derived member placement and filled continuous mound;recapture required before promotion. Historical sheets/scans/raw metadata saved underfr3-aquatic/52ff06e.
+- Inspected jellyfish01/04/07 originals in player-2 strip. Added rooted narrow blue polyp,volumetric translucent young bell and broad mature bell with many soft filaments. Existing branch builder,shared materials/rig/canonical face/blobFloat;optional attached-tentacle motion uses parent clock. No gameplay state,new expression semantics,or Pilot changes.
+- Tests RED for missing representatives → GREEN;physical bell transparency,tentacle groups,parent-clock motion mutations3/3RED. New jellyfish candidates do not count as exact runtime coverage.
+- Fresh dedicated134PASS/0FAIL;Pilot28 geometry/pose hashes unchanged after jelly animation restoration. New candidateCI/image gate pending. Exact114/293 remains unchanged.
+
+### Aquatic19 visual gate and attachment correction
+- Fresh remote19e4c17 confirmed unchanged; Runtime37402247495/Home37402247487/Character37402242480 all SUCCESS. Candidate coral8/jelly3 original-four-view sheets and exact distance JSON saved in fr3-aquatic/19e4c17. CI success is separate from visual acceptance.
+- Reviewed corrected source19: coral faces/mound improved, but raised colony crowns have a visible substrate gap. Added continuous stems in the owning member bone to preserve attachment through sway. Jellyfish shallow-bell face projection puts mouth below the rim; moved projection to rendered inner volume with a height-bounded face. Both families remain candidate-only until recapture.
+- Two regression tests first failed on the actual old geometry, then passed. Removed stems, wrong face target and unbounded face size each cause RED (3/3). Dedicated136PASS/0FAIL; Pilot28 hashes identical. Expanded immutable motion capture to jellyfish01/04/07. Exact114/293 unchanged; full rollout/Human QA incomplete.
+
+### Armored adult representatives / shared six-leg mechanism
+- Aquatic correction64855b7 saved:tree766e052 matched local/remote,clean. Dedicated and jelly-distance jobs SUCCESS at read; full CI/coral correction image gate still pending.
+- Inspected player-2 beetle07/stagbeetle07 originals. Added armored_insect shared body/head/paired-elytra/six-rooted-leg rig; source-specific forked horn versus paired toothed mandibles. New insectWalk uses owner phase for alternating tripod motion; existing gait behavior unchanged. Source analysis saved in families/armored-source-analysis.md.
+- Adult representatives only; no larva/pupa/adult auto-fill and no runtime promotion. Added isolated armored candidate overlay and immutable four-view/distance/motion jobs for both adults.
+- Dedicated138PASS/0FAIL; new armored5/5 mutationsRED; aquatic attachment gate now persisted in6/6 mutations and jelly projection gates in5/5 mutations. Pilot28 numerical geometry/pose hashes unchanged. Exact114/293 remains; final Human QA not reached.
+
+### Coral visual gate complete / runtime122 preparation
+- Source648 original/four-view32, ordinary front/back16 and coral02/05/07/08 motion128 captures reviewed. Source JSON verifies all8 exact/live3D/fallback0/errors0; actual owned face emotions match all128 states. Continuous substrate roots corrected floating crowns; faces/mound remain readable. Saved182 JPEGs (includes historical jellyfish candidate sheet), raw wave/motion/distance records and provenance in fr3-aquatic/64855b7.
+- Coral data and branch builder match reviewed648 bytes/serialized data. Connected only coral8 in runtime; exact122/293,171pending,120four-view rows. Node presenter verifies all8 and grouped face counts4/3/5; promotion test first RED then GREEN. Postpromotion15family/120stage aggregate not yet available. No final Human QA/iPhone acceptance.
+- Known aesthetic outliers remain explicitly recorded: simplified branch density/mouth amplitude and flatter rear mound. No reinterpretation of faceless organs.
+- Jellyfish648 mouth placement improved but face contrast behind layered translucent shell remains weak at normal distance. Reduced candidate bell opacity and lightened inner volume; new immutable visual gate required before expansion/promotion. Armored adults fbb8b23 saved separately, image gate pending. Full rollout remains incomplete.
+- Save verification: fresh post-mutation dedicated139PASS/0FAIL; rollout17/17RED; Pilot28 hashes identical. Candidate-source CI is not evidence for the promoted commit. Await its independent runtime aggregate.
+
+### Coral recovery committed / next representative gates (2026-10-06)
+- Fresh remote fbb8b23 and local196-file staged tree d299801 verified. Completed missing Git blobs, created tree/commit and non-force leased ref update. Saved d027d3c36743f4ffba6f95bf195f6fd7844745e6; local/remote HEAD and tree d29980150f7e68c7bf345ecad9fbfae1ddf97d21 match; worktree was clean. Blob transport used complete chunked base64 with returned-SHA equality, not an upload-success assumption.
+- Fresh139 dedicatedPASS, rollout17/17mutationRED, Pilot28 hashes unchanged. Exact122/293 is now remote-confirmed. Promotion Runtime37458515649/Home37458515650/Character37458512206 and15-family/120-stage aggregate are pending at this entry; no candidate-source substitution.
+- Source d027 jelly01/04/07 original/four-view, normal-distance front/back and96 motion captures reviewed; exact/live/fallback0/errors0 and owned-emotion coherence independently checked. Lighter core/lower shell opacity restores ordinary-distance face contrast. Saved sheets/raw records and original artifact provenance under fr3-aquatic/d027d3c. Individual captures remain in artifact11410852866; distance11410722676.
+- Source fbb armored originals/four-view and64-state motion review identified stag jaws crossing the canonical face. Saved historical sheets/raw records in fr2-armored/fbb8b23. A geometric clearance/attachment regression first failed, then passed after moving source jaws below the mouth. Corrected immutable image gate pending; neither adult promoted.
+- Inspected all8 jelly originals. Added explicit02 stacked-strobila and03 eight-lobed detached-ephyra candidates. Shared branch builder gains optional merged stalk segments and explicit existing locomotion selection; no new actor or expression semantics. New transition test RED→GREEN; jelly7/7 and armored6/6mutationsRED. Fresh dedicated141PASS/0FAIL; Pilot28 hashes unchanged. Full npm run and candidate image gate pending at entry.
+- Ruling: keep reviewed01/04/07 candidate gate separate from new02/03 morphology gate; finish03 topology review before broadening remaining bell-stage data. Cost if rejected is isolated candidate rework, not runtime rollback. Coverage remains122/293;171pending. Known visual simplifications are recorded in family notes. No iPhone/final Human QA acceptance.
+
+### Coral post-promotion aggregate verified
+- Source d027d3c Runtime37458515649/Home37458515650/Character37458512206 all SUCCESS. Artifact11411362107 independently checked:15 distinct families,120 unique stages, same immutable source, requested/spec exact match, live3D, fallback0/errors0. Saved full aggregate and CI provenance under fr3-aquatic/d027d3c.
+- Candidate checkpoint f6414b6c5a80232553587f5e736c6b728e2b3ae1/tree824108ca1158a7c6baa9a64afc1a3a1e3f309740 saved through Git Data API; local/remote match and clean confirmed before this evidence append. New candidate CI and visual review pending; not equivalent to d027 promotion success.
+
+### Jelly full-eight candidates / ephyra visual correction
+- Source f6414b6 artifacts11411617347/11412991180 independently verify jelly5 exact/live/fallback0/errors0 and160 coherent canonical motion states.02 stacked-strobila original/four-view, ordinary distance and32-state motion accepted.03 silhouette rejected: narrow stalks with ball tips did not match continuous rounded source lobes. Saved historical sheets/raw records in fr3-aquatic/f6414b6; replaced03 branches with the existing merged eight-petal volume mechanism. Regression first RED then GREEN; no new architecture.
+- Source f641 corrected stag original/four-view, ordinary-distance and32-state motion gate accepted: jaws stay below the face with attached roots. Historical corrected evidence saved in fr2-armored/f6414b6, wave artifact11411617347/distance11412690912. Armored representatives remain candidate-only; larva/pupa/full-family expansion still required.
+- Ruling update: the03 correction uses an existing rounded-volume mechanism; proceed with independent bell05/06/08 data after the already-passed04/07 bell gate, while requiring corrected03 and all8 captures before promotion. This supersedes the earlier sequential scheduling ruling, not the visual gate. Cost if any new shape fails is isolated candidate rework; no coverage is counted.
+- Explicit05 tall dome/seven unequal curled arms/wink,06 intermediate dome/ten longer arms/droop,08 broad rounded dome/eighteen fine five-point filaments/closed smile. All8 finite geometry, face projection and8 canonical emotions ×idle/walk ×normal/reduced tested. Dedicated141PASS/0FAIL, jelly8/8mutationRED; Pilot28 hashes unchanged. Full8 immutable image/motion gate pending; exact122/293 remains.
+- Local npm test was attempted but stopped after approximately15minutes in long-running unrelated World simulation tests; no completed full-local PASS is claimed. No assertion failures were observed in its retained output before termination. Immutable RuntimeCI remains the full-suite gate. Existing2D/Expression/save/gameplay/World/Home unchanged; no iPhone/final Human QA acceptance.
+
+### Armored adult expansion and aquatic mutation selector repair
+- Jelly full8 candidate checkpoint0e5cdcefb6e4b9b6d07493f3d41b25d5c2efb598/tree400eb4a33cfb14f2261d531e0bef67f3a6df7559 saved; local/remote match and clean confirmed. Full8 image gate pending at entry; exact122/293 unchanged.
+- Source0e dedicated normal suite passed, but job112262316811 failed aquatic-remove-it: its single-root literal selector now hit branchColony after optional locomotion was introduced. Locally reproduced the same escaped mutation (test exit0 instead of required1). Retargeted the existing mutation to the single-organism default-locomotion expression; unchanged six semantic cases now6/6RED. No test/mutation removed or expectation weakened. Source failure retained as failure, not retrospectively relabeled.
+- Source f641 corrected adult image gate enables explicit beetle/stag05/06/08 candidates. Added source-specific body/head/shell/limb proportions, pale emerging/red young/muted aged palettes, altered developing/aged horn-jaws and normal-eye poses. Beetle06 has optional attached raised-cover rotation, first RED then GREEN. Expanded jaw clearance/root-attachment regression caught the new low aged head and was fixed before save.
+- All8 adult candidates (two species ×four adult stages) run real finite geometry, six-leg, face, all canonical emotions/motion checks. Armored7/7mutationsRED, dedicated141PASS/0FAIL, Pilot28 hashes unchanged. New adult images/ordinary-distance/motion pending. Larva/pupa morphology remains absent; not nearest-adult-filled. Candidate fullCI pending.
+
+### Jellyfish full-eight visual gate and runtime promotion preparation
+- Source0e5 original/four-view32, ordinary front/back16 and256 canonical emotion/idle/walk/normal/reduced captures reviewed. Independently checked exact requested/spec/live3D/fallback0/errors0 for8 stages,32 ready views and256 owned-emotion coherent states.313 JPEGs, complete raw records and artifact provenance saved under fr3-aquatic/0e5cdce. Corrected03 continuous lobes and lower-opacity bell face contrast accepted; faceted lobe tips/smoother sparse filaments remain explicit simplifications.
+- Connected all8 reviewed jellyfish stages. Promotion regression first RED for absent exact key then GREEN; rooted01/02 use plantSway, detached03 and bells04-08 blobFloat. Candidate isolation tests now assert registry immutability and reviewed-data equality after promotion. Fresh dedicated142PASS/0FAIL; rollout18/18mutationsRED and restored bytes; Pilot28 numeric geometry/pose hashes unchanged. Coverage130/293,163pending;128 four-view rows. Postpromotion16family128stage aggregate/CI remains pending.
+- Sourcecd81 dedicated job112265146848 SUCCESS confirms aquatic mutation selector repair on immutable CI; does not erase source0e5 failed dedicated job. Fullcd81 CI still running at review.
+- Sourcecd81 armored eight adult distance artifacts11413430681/11413920156 available. Combined wave artifact11413920744 is35,759,862bytes, exceeding the32MiB download route; direct signed download returned403. Future aquatic/armored review artifacts split by family to keep evidence retrievable. No assertion weakened and no image gate inferred from download availability.
+
+### Armored grub/pupa representatives
+- Inspected beetle/stag originals01–04. Added explicit03 C-curved cream grub with gray tail cap, dark head and three thoracic foot pairs; explicit04 amber ringed pupa with folded wing/leg cases and developing horn versus short jaw buds. Existing larva/pod builders receive optional physical anatomy; Pilot defaults preserved. No gameplay/actor/Expression semantics change.
+- New geometry tests RED for absent representatives, then GREEN for actual curved centerline, six physical thoracic legs, folded pupal legs and horn, projected eyes, finite geometry and all32 canonical motion states per representative. Fresh dedicated145PASS/0FAIL; armored11/11mutationsRED restored bytes; Pilot28 numeric geometry/pose hashes unchanged.
+- Candidate four-view/ordinary-distance/motion CI expanded to03/04 for both species. Await immutable representative image review before01/02 expansion. Armored remains outside runtime; coverage130/293 unchanged from jellyfish promotion. Full293 and final Human QA remain incomplete.
+
+- Jellyfish promotion saved as c5b7fe8e72c7ea3eb01cd407e8b93f3cc9eb4bd7/tree8e32453a24e4fb5e14740200ce754c27977a3a29 through Git Data API; fresh local/remote HEAD/tree match and no staged remainder. Juvenile candidate work remained explicitly unstaged for the next checkpoint. Runtime130/293 is now saved; no blob-only completion claim.
+
+### cd81 CI follow-up
+- Runtime37462461834 andCharacter37462453634 SUCCESS. Home37462461845 FAILED: job112265175349 chromium-landscape-safe-area, home exceeds visible viewport; other listed cases including WebKit landscape passed. CI provenance saved in fr2-armored/cd81b79/ci.json. No Home production/test/CSS changes since green d027; existing layout/timing issue suspected but cause/base reproduction not established. c5/c193 comparison pending. Home is not patched or assertion weakened for this rollout.
+
+### Armored adult gate / juvenile visual corrections / cicada representative
+- Sourcec5b7fe8 adult05–08 original/four-view32 and256-state motion sheets reviewed; raw ready/owned-emotion records checked. Sourcecd81 ordinary-distance8 exact/live/fallback0/error0 stages reviewed; builder/spec/motion bytes unchanged between these sources. Adult gate accepted, with smooth shell/limited scratch and horn details retained as known simplifications. Saved10 sheets/raw records/provenance under fr2-armored/c5b7fe8; individual captures retained in artifact11413994813 and distance11413430681/11413920156 until complete family promotion.
+- Sourcec193 juvenile original/four-view and front distance review rejected03/04 candidates: grub tail center hole, buried pupal abdomen rings, unrelated pale antennae and source normal-eye mismatches. Saved rejected sheets/raw records/provenance under fr2-armored/c193989. Added rounded tail seal, ring radius outside the actual abdomen envelope, antenna opt-out, beetle03 happy/stag03 wink/stag04 drooping overrides. Tail/ring/antenna regressions each observed RED before GREEN. Corrected representative gate still requires recapture;01/02 expansion deferred.
+- Inspected cicada03/04/07; added only07 representative: shared six-leg body, ringed green/ochre abdomen, four physically thick translucent veined membranes, optional hard-cover omission and owner-clock wing movement. Source notes recorded; no generic nymph/adult fill. New physical wing/ring and motion regressions RED→GREEN. Image/normal-distance/motion CI includes cicada07; runtime coverage stays130/293.
+- Post-correction dedicated148PASS/0FAIL; armored18/18mutationsRED with byte restoration; Pilot28 numeric geometry/pose hashes identical. All additions remain candidates; no completed-family geometry change or new exact coverage counted.
+
+### Jellyfish post-promotion aggregate complete / botanical representative
+- Sourcec5b7fe8 Runtime37464575968/Home37464575958/Character37464569406 all SUCCESS. Artifact11415036808 independently validates16 distinct families/128 unique stages, exact requested/spec keys, live3D/fallback0/errors0. Saved complete aggregate and CI provenance under fr3-aquatic/c5b7fe8. cd81 Home failure remains in history; c5 passed with unchanged Home inputs, without claiming a conclusive root cause.
+- Corrected juvenile/cicada checkpointb2a3009709bab478749fc77634899d0d2b76a860/tree2644c3d841edd4db8f0ebfce61b5e18e31782b09 saved through Git Data API; local/remote/tree match and clean confirmed. Corrected immutable visual/CI gates pending.
+- While corrected insect captures run, inspected sakura03/04/07 originals and added only04 flowering-tree representative. Existing branch builder gains optional merged physical five-petal flowers; explicit rooted trunk/branches retain one low trunk face.07 cherry cluster is not tree-filled. New geometry/isolated-lookup/canonical-motion tests first RED then GREEN. Separate botanical original/four-view, ordinary-distance and32-state motion CI configured. No runtime promotion; coverage130/293 unchanged.
+
+### Curved grub motion gate correction
+- Sourceb2 four-view confirms rounded tail seal, visible pupal rings, source eyes and antenna omission.03/04 motion sheets inspected: walking curved grubs expose a gap between independently shifted straight-caterpillar sections. Reject curved-grub motion gate; keep01/02 expansion deferred. Saved historical sheets/raw records in fr2-armored/b2a3009 (artifact11415082774).
+- Added optional curveLocked owner-clock whole-body crawl sway for these curved grubs; no independent segment scale/translation can open seams.80-frame test first RED on changing adjacent segment/head distances, then GREEN while whole-body motion remains nonzero. Straight/hanging Pilot larva defaults unchanged. Corrected image gate pending.
+- Fresh post-correction dedicated151PASS/0FAIL; armored19/19 and botanical3/3 mutations RED with byte restoration. Restored Pilot28 geometry/pose hashes identical. Sakura04 and corrected curved-grub immutable image gates remain pending; no runtime coverage increase.
+
+### Cicada silhouette correction and plant mutation selector
+- fd51debce20418db17feb6bbd8e3945a4a844eef/treee0104b20eb80b0c6ec203faf797ce2720636ce4e saved with fresh remote/local HEAD/tree match and clean. PR376 refreshed, Draft maintained. Exact130/293 unchanged.
+- Sourceb2 Runtime37466987152/Home37466987016 SUCCESS, Character37466975115 FAILED at dedicated job112280351266: plant bulb-foot mutation literal now matches added grub feet too. Reproduced unique-selector assertion locally; narrowed target to existing bulb-foot position expression. Same9cases RED, bytes restored. Does not erase immutable failure.
+- Sourceb2 cicada07 ordinary front/back and32-state motion review rejects rounded abdomen/flat membranes and missing mature left wink. Added optional physical abdomen taper and sloped resting membranes, existing normal-eye override. Geometry/pose regression RED before fix, GREEN after; corrected immutable visual gate pending. No nymph/adult expansion or promotion yet.
+- Fresh full dedicated152PASS/0FAIL; armored21/21 and repaired plant9/9 mutations RED, original bytes restored; Pilot28 geometry/pose hashes unchanged. CI recapture pending.
+
+### Juvenile representative gate accepted / early-grub expansion / botanical depth repair
+- Cicada/plant selector checkpoint eac6e1fd60b77248b70a3d56050ccb10d4ae6921/tree5ef3c29f147effddd7db027d215cbb28f03ed775 saved by Git Data API; fresh remote/local/tree match and clean. Draft PR refreshed.
+- Sourcefd51 juvenile03/04 original/four-view16, normal-distance8 and128 canonical motion states reviewed; metadata independently verifies ready/coherent faces and exact/live3D/fallback0/errors0. CurveLocked gait preserves section/head attachment in captures; rounded tail, visible pupal rings and folded anatomy remain intact. Representative gate accepted; evidence/provenance under fr2-armored/fd51deb. Smooth segments/plain gray caps/simplified folded cases remain declared simplifications.
+- Inspected original01/02 again. Added each species' small low curl01 and extended horizontal02 with distinct explicit centerlines, segment count, proportions, palette and normal eyes. RED for missing exact candidates then GREEN. All juvenile01–04 canonical states tested; full-eight candidate images/normal distance/motion configured. No armored runtime promotion until new full-family gate.
+- Sourcefd51 sakura04 front/34/back and normal front identify flowering tree, but side canopy is too flat: flowers all share a plane. Rejected; fr4-botanical/fd51deb preserves views/provenance. Added outward flower rotations, explicit depth-layer positions and attached short branch tips. Short tips use bounded resolution; geometry remains under22k triangles. Orientation/attachment tests first RED then GREEN. Other sakura stages still absent until corrected representative gate.
+- Fresh dedicated154PASS/0FAIL, botanical4/4 and armored21/21 mutations RED with restored bytes; Pilot28 numeric geometry/pose hashes identical. Coverage130/293 remains unchanged.
+
+### Cicada representative gate / nymph and remaining simple adults
+- Early-grub/botanical correction checkpoint717c9e13c6a15eb7799bd784219b6ecd23957e09/tree1fdc3b4025009a72719863df78b39a41d5f8d7e7 saved; fresh remote/local/tree match and clean. All beetle/stag01–08 candidates await complete immutable image gate.
+- Sourceeac6 adult cicada07 four-view4, ordinary front/back2 and32 canonical motion states reviewed. Independently checked ready/coherent faces/exact/live/fallback0/errors0. Pointed abdomen is visible at ordinary rear distance; sloped layered membranes and source wink accepted. Smooth head/limited veins/wear remain declared simplifications. Evidence fr2-armored/eac6e1f. Immutable dedicated job112292895514 SUCCESS confirms repaired plant mutation gate; no retrospective b2/fd51 GREEN claim.
+- Inspected all8 cicada originals. Added explicit narrow bright-green06 and low muted gray08 adult candidates after mature07 gate.05 emerging adult on exuvia is intentionally absent pending its distinct topology. Added only03 amber nymph representative with tapered ringed abdomen, thick folded wing pads and broad toothed digging foreclaws. Existing shared six-leg body gains optional physical pads/claws; absent options preserve beetle adults. New physical nymph test RED→GREEN;01/02/ground-emerging04 wait for03 image gate. No runtime promotion.
+- Fresh dedicated155PASS/0FAIL; armored23/23 mutation cases RED with original-byte restoration; Pilot28 geometry/pose hashes unchanged. Candidate cicada03/06/08 image gates pending; coverage130/293.
+
+### TAP mutation output and earliest grub eye correction
+- Cicada candidate checkpointc845061188edd224e928329bf08c9044f6676f70/treec9e74df98d461a7639095140b3b06d20eec04a55 saved, fresh remote/local/tree match and clean; PR refreshed/Draft retained.
+- Source717 dedicated job112297614301 failed because the botanical orientation mutation's TAP assertion dumped complete vertex arrays and exceeded spawnSync output capacity. Forced-TAP local reproduction: statusnull/ENOBUFS/SIGTERM,1061001 stdout bytes. Replaced array-dump inequality with the same boolean vertex comparison and explicitly run TAP in the mutation harness. Same4 cases RED with restored bytes; historical CI failure retained in fr4-botanical/717c9e1/ci.json.
+- Source717 full beetle/stag four-view64 review finds beetle01 normal eyes misread: original has open round eyes, candidate had droop. Corrected existing normalEye override after a rendered-face-spec regression RED. Earlier source-note half-closed interpretation is superseded. Full-family promotion withheld until corrected capture. Other stage silhouettes retain their reviewed morphology; no runtime coverage increase.
+- Final serial TAP mutation rerun4/4RED and explicit candidate-spec byte diff clean; dedicated155PASS/0FAIL after restoration. Pilot28 hashes unchanged. No remaining mutation bytes staged.
+
+### Corrected flowering-tree gate / leafy tree and cherries
+- Eye/TAP correction checkpointe1c536fec5927d6fa7de6002a4d51a0db5f7f700/tree9cac0949d846fef27540dc5282ad87db6185f24d saved with fresh remote/local/tree match and clean. Beetle01 corrected immutable image gate pending.
+- Source717 sakura04 four-view4,32 canonical motion states and normal front distance reviewed; raw ready/coherent/exact/live/fallback0/errors0 verified. Side canopy now carries visible flower volumes in several orientations/depths with attached tips. Representative visual gate accepted, while independent TAP CI failure remains failed. Evidence fr4-botanical/717c9e1. Smooth bark and29 larger flowers simplify the denser pixel crown.
+- Inspected all8 sakura originals:01 almond seed/small shoot,02 pale round sprout/two leaves,03 rooted leafy tree,04 flowering tree,05 five face-bearing buds,06 two face-bearing flowers plus small buds,07 three red cherries/common stem/one leaf,08 bare rooted tree. Added only03 physical pointed-leaf representative and07 suspended three-face cherry representative. Shared branch builder optional leaves carry physical vein; colony suspended mode omits unwanted ground pedestals while stems meet at common fork. Existing coral/Pilot defaults preserved. New topology tests first RED then GREEN; all owned faces follow32 canonical states. Remaining sakura stages await new representative gate, no generic tree fill.
+- Fresh dedicated157PASS/0FAIL, botanical6/6 forced-TAP mutations RED, original bytes and candidate overlay diff restored; Pilot28 numeric geometry/pose hashes unchanged. Runtime130/293 remains unchanged.
+
+### Armored full-eight promotion / cicada juvenile and emergence candidates
+- Leaf/cherry representative checkpoint8b6c3f65330d2b516be4c0051b0b6957163f26f2/treea0867c98da97797eca8950b6ef43b42b40831c66 saved with fresh remote/local/tree match and clean. Sakura03/07 immutable gate pending.
+- Sourcee1 beetle01 open eyes confirmed in four-view/motion/ordinary distance. Full beetle/stag16-stage gate accepted: original/four-view64,512 canonical states and32 ordinary-distance views. All16 exact/live/fallback0/errors0 and coherent owned faces independently verified. New01/02 motion sheets reviewed;03/04 fd51 and05–08 c5 morphology/motion retained. Complete626 JPEGs/raw records/provenance persisted under fr2-armored/e1c536f. Smooth shell/limited scratch/horn teeth/plain tail/simplified pupal cases remain documented.
+- Connected only reviewed beetle/stag01–08 into runtime. Runtime promotion test first RED for absent exact key then GREEN; candidate overlay stays isolated and does not accidentally promote cicada. Coverage146/293,147pending,144 four-view rows. Postpromotion18family144stage aggregate and CI pending after save.
+- Sourcec845 cicada03 34/side review rejected overly narrow pointed abdomen; wide original nymph abdomen corrected with physical rear-width RED→GREEN regression.01/02/04 remain absent pending corrected representative images.
+- Added original05 pale green emerging adult above open amber exuvia. Reused established open-casing geometry by extracting unchanged butterfly mechanism into shared openedShellParts; butterfly06 vertex/color/index/bone digest6177d4afcf707671b8ebe044adb3ec7875a4a74ccae1d5bf22b488d4f71a435d identical before/after. Six physical folded empty-casing legs; one adult face/owner, no new actor. Open-front ray and physical casing tests first RED then GREEN. New05 image gate pending.
+- Fresh dedicated159PASS/0FAIL; rollout20/20, armored26/26 and existing emergence7/7 mutation cases RED with restored bytes; Pilot28 numeric geometry/pose hashes unchanged. Candidate overlay byte diff clean. Sourcee1 dedicated112304368415 andwave112304368917 SUCCESS confirm TAP-output repair; full other CI status remains separate.
+
+### Aquatic mutation selector after suspended botanical fruit
+- Armored promotion checkpoint e4da5ffd41cca619a47bf142264b950381f37928/tree87e215ad3e334ea1044a90dd87d9c053e25fd40c saved; fresh remote matches. Runtime146/293,18families/144playerstages; aggregate still pending.
+- Sourcee1 Runtime37473962502/Home37473962646/Character37473951894 allSUCCESS. Source8b Runtime37474903340/Home37474902547 SUCCESS; Character37474891474 dedicated112307617818 FAILED. Sourcee4 dedicated112322068944 repeats the same aquatic mutation selector failure: suspended fruit guard changed the exact substrate-condition literal. Historical failures remain failures.
+- Locally reproduced missing-selector assertion and updated only the selector to include the suspended guard; same6 behavior mutations detect removal. No geometry or runtime change.
+- During the full serial local mechanism sweep, a post-fish snapshot detected a residual open-shell mutation in geometry.mjs despite the preceding emergence restoration check. Cause not established; restored exact HEAD bytes, reran fish and every later harness with per-harness byte comparison. All reruns restored exact bytes. This is not represented as a clean first run.
+- Fresh restored dedicated159PASS/0FAIL; all17 mechanism harnesses detect their mutations (Pilot13, rollout20, aquatic6, armored26, botanical6, crouch8, emergence7, fish11, fungus13, humanoid23, jelly8, plant9, quality11, quality2 7, quality3 6, shell9, starfish8). Final Pilot28 numeric geometry/pose hashes identical. Initial hash invocation omitted its required directory argument; corrected invocation and exact JSON comparison passed.
+
+### Leaf crown depth correction / cherry representative gate
+- Aquatic selector checkpoint127f38faf92f9daed6f3bc9036bcd94800e8d8ae/treeac163918cc533c61a72fed71cc1d5d1fb1f245f2 saved through Git Data API, fresh remote/local/tree match and clean before this work. Its CI remains pending.
+- Source8b sakura07 original/four-view4,32 motion states, normal front/back accepted as representative. Three face-bearing fruits retain a common stem and one leaf without ground pedestals; all owned expressions coherent. Smooth skin/highlights/face detail remain simplifications. Source8b sakura03 side crown rejected: leaf surfaces mostly edge-on. Four views/32 states inspected; ordinary-distance metadata verified but no03 distance image acceptance claimed. Raw records and82 evidence/review files preserved in fr4-botanical/8b6c3f6.
+- Added explicit side-facing leaf pairs at front/back branch tips, plus two attached depth branches. New regression first RED for edge-on crown then GREEN; physical orientation mutation catches removal. Dedicated160PASS/0FAIL, botanical7/7RED with original-byte restoration. Candidate-only change; runtime146/293 remains unchanged. Corrected03 images required before further tree expansion.
+
+### Cicada emergence posture / original eye correction
+- Leaf depth checkpoint2faf7e3b719106e45590990d70bf7d34c0fb9fce/tree87591cf561d7e3d43f51dc65f8ddbc8be88917b3 saved and local/remote/tree verified clean. Draft PR refreshed. Corrected leaf image gate pending.
+- Sourcee4 cicada03/05/08 four-view sheet and05 canonical32 motion sheet inspected.03 width now retains nymph abdomen but normal eyes wrongly happy;08 wrongly droop. Original PNGs rechecked: both open round.05 body projects horizontally above casing instead of upright original emergence. Rejected candidate gate and saved historical views/raw/review in fr2-armored/e4da5ff. No full-family acceptance or runtime promotion.
+- Optional body/head rest pitches allow original05 upright emerging abdomen and counter-rotated forward face; wing rest angle compensates parent pitch. Tail remains at shell opening. New world-space regression first RED for original eyes, then RED for horizontal long axis, then GREEN after fix. Existing shared-builder defaults remain zero pitch.
+- Fresh dedicated161PASS/0FAIL, armored28/28 mutation RED and byte restoration, Pilot28 geometry/pose hashes identical. All8 already-promoted armored adults have identical geometry/rest-bone digests compared with saved HEAD builder. Runtime146/293 unchanged; new03/05/08 images required,01/02/04 still absent.
+
+### Workspace recovery / antlion adult representative / leafy-tree gate
+- Cicada pose checkpoint4460ffeedee03e405b04fa742b6e3c3943c19695/tree88a4a52c5ec08fa9ab204cbfd06441c50e95dfbd saved with fresh remote/local/tree match. Later execution-environment restoration reverted the old local checkout to c193989; fresh remote still4460ffee. Created a new isolated checkout from exact saved commit, verified tree and restored161PASS. The interrupted unsaved antlion attempt was not treated as saved; rebuilt from the verified checkout.
+- Original antlion07 inspected: narrow banded abdomen, long curved antennae and four splayed narrow membranes with veins. Added only this adult representative; no larva/pit/pupa fill. Optional explicit antenna paths reuse the six-leg builder while default short antenna geometry remains intact. Candidate topology/owned32-state tests first RED then GREEN. CI distance/four-view/motion configured for antlion07. Runtime146/293 unchanged.
+- Source2faf sakura03 four views,32 canonical states and normal front/back images reviewed and accepted as representative. Outward leaf pairs now expose side blade area, attached depth branches remain intact; ordinary-distance trunk/face/root readable. Metadata ready/coherent/exact/live/fallback0/errors0 verified. Evidence fr4-botanical/2faf7e3. Smooth bark/fine serration and reduced leaf density remain declared simplifications.
+- Fresh dedicated163PASS/0FAIL, armored29/29RED with restored bytes; Pilot28 hashes compared directly to committed pilot-regression.json baselineHashes: exact match. Source127f38f dedicated112328370352 SUCCESS confirms aquatic-selector repair in immutable CI. Sourcee4 Runtime37479071181/Home37479070823 SUCCESS;18family aggregate remains pending.
+
+### Explicit remaining sakura stage candidates
+- Antlion/leaf-gate checkpoint482085826cbea202a72286e161007683e36f1e73/treec1ff89cec5a65ebf222cbcc780352b81caee1e68 saved by Git Data API with local/remote/tree match and clean. Antlion07 immutable image gate pending.
+- After03/04/07 representative gates, re-inspected original01/02/05/06/08 PNGs and added explicit almond seed/tiny shoot, pale two-leaf sprout on soil, five face-bearing buds, two face-bearing flowers with unowned small buds, and fine-branched bare tree with three dry leaves. No scale-only tree substitution for flowers or fruit. Optional physical body taper gives seed/buds pointed volume; all stems and owned faces remain within one actor.
+- New exact-stage/face-count/physical-taper/32-state tests first RED on missing candidates then GREEN. All8 sakura candidates now configured for immutable four-view, normal-distance and256-state motion QA; no runtime promotion before new gates.
+- Fresh dedicated165PASS/0FAIL, botanical8/8RED with byte restoration, Pilot28 exact committed-baseline hash match. All8 promoted coral geometry/rest digests identical to saved HEAD builder with optional taper absent. Runtime146/293 unchanged.
+- Source2faf dedicated112331000142 andwave112331000082 SUCCESS. Source4460 dedicated112333489543 andwave112333489453 SUCCESS; corrected cicada images now available, review pending.
+
+### Promoted18-family aggregate / complete cicada candidates
+- Sakura candidate checkpointc6471bff64069e9f5a4cc814d86c8892a0fdd6f6/tree86879cab97df93ce4490c34362124aabd199010a saved with local/remote/tree match and clean. New sakura stage image gates pending.
+- Sourcee4 artifact11422820482 verified against exact promoted inventory:18families,144 unique stages, no gaps/duplicates, requestedStage/harnessIndex/specKey exact, all live3D/fallback0/errors0 and front/back capture paths. Aggregate and CI provenance persisted in fr2-armored/e4da5ff. Runtime37479071181/Home37479070823 SUCCESS; Character37479054192 FAILED at historical aquatic selector.127f38f dedicated112328370352 SUCCESS separately verifies its fix.
+- Source4460 cicada03 four views/32states/normal front/back reviewed and accepted: broad amber nymph, folded pads, digging claws and original round eyes. Ready/coherent/exact/live/fallback0/errors0 independently verified. Evidence in fr2-armored/4460ffe. Smooth cuticle/band/claw detail remains simplified.
+- Source4460 cicada05 upright body/forward face corrected but 34/side reveal abdomen and exuvia offset in depth. Rejected attachment gate. World-space depth alignment test first RED, then optional body z offset aligns abdomen with shell opening. Existing default0 leaves prior armored shapes unchanged; recapture required.
+- After03 representative gate, re-inspected01/02/04 originals. Added explicit small early nymph with two foreclaw teeth/four bands, intermediate nymph with changed proportions/pads/five bands, and raised forebody emerging from physical soil clods/tufts04. Early stages are not uniform scales. All8 cicada candidates now configured for four-view/distance/256-state QA; no runtime promotion.
+- Fresh dedicated166PASS/0FAIL, armored31/31 mutation RED with restored bytes; Pilot28 exact committed-baseline hashes match. Runtime146/293 unchanged,147pending. Full293/Human QA handoff not reached.
+
+### Antlion adult silhouette correction and concave pit representative
+- Cicada/full aggregate checkpointca8229dc4b7a00dd617bd72706394e00024307c1/tree2a66e99b05973c03e5621205b4d37b57194e5d16 saved with fresh remote/local/tree match and clean. Draft PR refreshed. Sakura/cicada full candidate gates pending.
+- Source482 antlion07 original/four-view/32state sheet and normal front/back inspected. Rejected equal-size narrow X-shaped wing silhouette. Preserved historical raw/views/review in fr2-armored/4820858. Broadened forewing outline, shortened hindwing outline/veins and modestly widened tapered abdomen. Physical projected blade-area hierarchy regression first RED then GREEN. No06/08 expansion before corrected representative gate.
+- Inspected antlion03 and remaining originals. Added only03 concave-pit larva representative: cream banded abdomen, six small legs, paired forward mandibles and one face inside a physical depressed soil bowl with irregular rim clods. Actual top-down rays confirm rim>center by.20; not a painted disk or solid mound. New topology test first RED then GREEN; both03/07 retain one owned face through32 states.01larva/02deep pit/04cocoon/05pupa/06folded-wing/08worn-wing remain absent.
+- Fresh dedicated168PASS/0FAIL, armored33/33 mutation RED with restored bytes; Pilot28 exact committed-baseline hashes match. Runtime146/293 unchanged. New03/07 immutable image gates required.
+- Fresh single-run status:127f38f Runtime37480897616/Home37480897690 SUCCESS;2faf Runtime37481657960/Home37481658004 SUCCESS;4460 Runtime37482368108 SUCCESS/Home37482368056 CANCELLED. Their Character full-run statuses remain queued despite completed dedicated/wave jobs; do not claim whole-workflow success.
+
+### Sakura contour and flower-face visibility correction
+- Antlion pit checkpointf679daa5e7568af1914668cffe704816208d8272/treedc271fb11306e1fdd641919472a6c8e4475df518 saved, local/remote/tree match and clean. New antlion03/07 image gates pending.
+- Sourcec647 new01/02/05/06/08 front/side reviewed. Rejected full-family gate: linear absolute-y taper makes01/05 diamond-like at the equator;06 blossom center disks protrude in front of the face target, obscuring eyes despite face-count tests. Historical images/raw/review in fr4-botanical/c6471bf. No256-state acceptance or runtime promotion claimed.
+- Added physical equator-width/pointed-end regression and rays through both flower eye regions comparing actual surface with canonical target. Both first RED. Replaced absolute-y taper with smooth quadratic taper and moved flower disks behind face volume; both GREEN. Existing tree/coral defaults remain untapered.
+- Fresh dedicated170PASS/0FAIL, botanical10/10RED with original-byte restoration, Pilot28 exact committed-baseline hashes match. Corrected01/05/06 captures required; runtime146/293 remains unchanged.
+- Sourcec647 dedicated112342100047, wave112342100019 andbotanical distance112342099967 SUCCESS; this does not override the image rejection.
+
+### Cicada04 soil clearance / remaining stage visual gate
+- Sakura visual correction checkpointb5069f591d0e28849cbb61c7815e14502a554050/treea703b1a5eb748794900319fdd42325091ba66338 saved with local/remote/tree match and clean. Corrected flower/seed/bud images pending.
+- Sourceca8229 cicada01/02/05/06/08 four-view20,160 canonical states and normal front/back10 reviewed; metadata ready/coherent/exact/live/fallback0/errors0 verified. Those stage gates accepted, including corrected05 depth attachment. Evidence/review in fr2-armored/ca8229d; native-pixel normal-distance crops retain comparison scale. Smooth bands/veins/claws/plain exuvia remain simplifications.03/07 earlier representative gates unchanged.
+- Sourceca8229 stage04 front/side rejected because rear legs dangle below soil base. Added clearance regression RED, raised only04 rear foot paths. The initial coarse transformed bounding box remained negative despite physical vertices being clear; switched measurement to precise mesh vertices. Saved-HEAD old minimum=-0.09946361798320785; corrected minimum=0.011433298021484684. Same zero-height requirement, no relaxed threshold.
+- Fresh dedicated170PASS/0FAIL and armored34/34RED with restored bytes.04 recapture required; no full-family promotion. Runtime146/293 unchanged. Sourceca8229 dedicated112347000902/wave112347000773 SUCCESS does not override04 image rejection.
+- Final restored Pilot28 geometry/pose hashes exactly match committed baseline.
+
+### Antlion representative image gate / pit face clearance
+- Cicada04 correction checkpoint d0b01eb1db15e4f85dc3e3b3d1ae00f3e1da19fe/tree79505198905dfe959578921d3caec9227cd5e588 saved via Git Data non-force ref update, local/remote/tree match and clean. PR376 body refreshed and Draft verified.
+- Sourcef679 adult07 original/four views,32 states and normal front/back inspected and accepted. Broader forewings/shorter hindwings restore source hierarchy. Raw, individual views/states and review saved in fr2-armored/f679daa. Simplified veins/smooth cuticle are explicit v0 simplifications. No runtime promotion.
+- Sourcef679 pit03 rejected: front rim hides both canonical eyes; normal-distance view also fails face readability. Added physical front-ray visibility regression RED, lowered front soil rim/clods while retaining lateral/back depth and concave floor; GREEN. Corrected immutable captures required before pit-family expansion.
+- Fresh dedicated171PASS/0FAIL, armored35/35mutation RED with original bytes restored, Pilot28 exact committed-baseline hashes match. Runtime146/293 unchanged.
+- b506 dedicated112355160680/meguru-wave112355160587 SUCCESS; wave-review still running at check. No complete Character CI success claimed.
+
+### Sakura full-candidate review / winter crown correction
+- Antlion rim checkpointdfa9d77fc59631d7fdb24a8169229cffda548380/tree5d8a394c2384ff52bf2a3b8ebca5b34c14c2b5ae saved with local/remote/tree match and clean.
+- Sourceb506 full8 reviewed:32 four views,256 state cells,16 native-distance crops.01smooth contour and06eye visibility corrections accepted;01/02/03/04/06/07 pass.05upper-left bud normal eyes differ from source(open), and08bare branches are needles lacking source rounded orange terminal buds: reject full-family promotion. All sheets/raw/review in fr4-botanical/b5069f5.
+- Added regression RED for round terminal bud volume/non-needle branch thickness/source05eyes.08 now has14explicit crooked twigs, rounded thicker existing tips and orange terminal bulbs;05upper-left eyes opened. Shared branch builder unchanged. New image gate still required for05/08.
+- Fresh dedicated172PASS/0FAIL, botanical13/13RED restored, Pilot28 exact baseline hashes match. Runtime146/293 unchanged; Chromium/SwiftShader is not iPhone acceptance.
+
+### Cicada final eye check / antlion adult expansion
+- Winter sakura checkpoint8f5245f97ed1e1e7270a64ddb7b20ae44fa86a22/tree5ed334a61e64aafe429d5b89d318f7ac23117afd saved; local/remote/tree match and clean.05/08 corrected images pending.
+- Sourced0b full cicada32 views/256states/16distance inspected.04 soil clearance now accepted;01/02/03/06/07/08 remain accepted.05 upright geometry and shell contact pass, but normal closed eyes differ from open original eyes; prior05 gate was incomplete and is superseded here. Added05 to open-eye regression, RED then corrected onlynormalEye to round.313JPEG/raw/review persisted fr2-armored/d0b01eb. No runtime promotion before corrected05 image gate.
+- Following f679 accepted antlion07 representative, expanded explicit06 folded-wing young adult on stones and08 worn adult with asymmetric notched forewing outlines and actual perforations. Physical wing-depth/width and hole-ray regressions RED then GREEN; rays through holes also check raised veins. All4antlion candidates retain one owned face across32states.01/02/04/05 remain absent; pit03 corrected gate pending.
+- Added optional damaged-wing extrusion only when requested; all existing wing defaults retain prior outline-loft path. Fresh dedicated173PASS/0FAIL, armored38/38 mutation RED with restoration, Pilot28 exact committed-baseline match. Runtime146/293 unchanged.
+- Fresh single-run b506 Runtime37488644353/Home37488644415 and d0b Runtime37490930946/Home37490930934 SUCCESS. Character full workflows still queued/running; do not infer fullCI completion.
+
+### Antlion full candidates / reviewed sakura runtime promotion
+- Prior checkpoint56ad8683b81eadf4f9cb6c0c0f92f574406b9588/treeb3c21b31438cefb289a0b923580a937dd886ea8a saved via full Git Data procedure; local/remote/tree match and clean. PR376 updated/Draft verified.
+- Source dfa9 corrected antlion03 passes original/four-view4/32states/normal2; face visible above front rim, true concavity retained. Persisted raw/individuals/review in fr2-armored/dfa9d77. Expanded01exposed larva/02tiny larva in a deep pit after that representative gate.02 front-ray regression caught low face occlusion; increased body support height without weakening visibility/depth requirements. An initial Mesh equality failure produced a whole-test-file failure; boolean identity comparison made the same failed visibility requirement readable.
+- Enlarged original04 resolves one closed shell face;05 has one internal open-eyed pupa face. Added reusable granular cocoon pod modifier with attached surface grains, closed/open topology and physical folded pupa plates. New tests RED→GREEN; all8antlion candidates32states,175dedicatedPASS,armored42/42RED and Pilot28 baseline match before promotion changes. Workflow motion entries now include all8antlion (previous56ad captured06/08fourviews/distance but did not yet include their motion entries). New full-family images required, no antlion promotion.
+- Source8f5245f corrected sakura05/08 direct8views/64states/normal4 pass. Unchanged6stages24views/192states(+6sheets) byte-identical to reviewedb506; all16 current distance views reinspected. Full8 gate accepted.313JPEG/raw/review saved fr4-botanical/8f5245f, with explicit source simplifications and no iPhone claim.
+- Added exact sakura runtime face-count/state test RED then promoted8 together. Runtime154/293 =19families/152player stages +2companions,139pending,152four-view records. Dedicated176PASS/0FAIL; rollout21/21RED and botanical13/13RED restored; Pilot28 exact committed-baseline match. Mechanical exact-age mutation selector shortened at the same unique return boundary to preserve its behavior through future family additions.
+- Fresh whole Character workflow statuses:12737480882445 SUCCESS;2faf37481645831 SUCCESS;446037482356174 CANCELLED;48237484072685 SUCCESS;c64737484837791 SUCCESS;ca822937486282876 SUCCESS. f679 still queued at check. New19families/152stages aggregate and currentCI pending.
+
+### Reviewed cicada runtime promotion
+- Sakura/antlion checkpoint21e65658d0088702e0c20aaaf6ce23c2950d9323/tree04a015992ad918e1d4f07d31070b92a85ac16c91 saved; local/remote/tree match and clean, PR376 refreshed/Draft verified. During blob upload one RemoteProtocolError occurred; confirmed274blobs retained and remaining102 retried, then fulltree/commit/non-force ref verified. No blob-only completion claim.
+- Source56ad corrected05original/fourviews4/32states pass; upright casing attachment retained and normal source eyes now open. Other7stages28views/224states(+7sheets) byte-identical to accepted d0b, and all16 latest normal-distance images reinspected. Raw/corrected05/normal16 in fr2-armored/56ad868; other individual stage proof remains fr2-armored/d0b01eb. All8 gate accepted with documented simplified cuticle/bands/claws/veins/empty exuvia.
+- Added exact cicada runtime morphology/one-face/state test RED then promoted8 together. Runtime162/293 =20families/160player stages +2companions,131pending,160four-view records. Dedicated177PASS/0FAIL, rollout22/22RED restored, Pilot28 exact baseline hashes match. Latest prior armored42/42 andbotanical13/13 remain recorded; not rerun/claimed as new runs here.
+- Fresh b506 Character37488630724 SUCCESS;f67937487588771 CANCELLED. New19family checkpoint21e Character37497895209/Runtime37497904083/Home37497904092 started, aggregate/currentCI pending.20family aggregate will also be checked after saving this promotion.
+
+## 2026-10-06 Venus03/07 candidate checkpoint after saved cicada promotion
+Cicada runtime162/293 checkpoint saved asdfd80ea009f7eca062892e5d4f8c215101460849,tree1a75fbd194f8074c69ab513e68dfd2a010d195e2 via GitData blobs/tree/commit/leased non-force ref; fetched local/remote/tree match and clean verified. PR376 updated;Draft/base preserved. Character37499119519/Runtime37499129927/Home37499129858 started, success not yet claimed.
+
+Original Venus03/07 inspected. Explicit broad rosette and five red concave toothed traps added as isolated candidates, with03/07 image capture jobs.179 dedicatedPASS/0FAIL and28Pilot hashes match. Botanical17/17 mutations RED/restored. Initial trap tessellation exceeded22k and was reduced without removing teeth or relaxing budget. One test assumed missing lookup returned exact:false; corrected to the actual null contract. First mutation run stopped after9RED because the old seed-taper text selector no longer matched the optional trap ternary; selector narrowed to the same unique taper branch, and all17 rerunRED. Existing passed families unchanged. Runtime remains162/293 pending131; no Venus expansion/promotion before visual gate.
+
+Fresh historical wholeCharacter workflowsd0b37490920572 anddfa937491974606 SUCCESS.8f37492921681 stillinprogress;56ad37494957757/21e37497895209 stillqueued for remaining jobs at check.21e antlion full artifact11429202365(28.8MB) andnormaldistance11429102079 available. Normal16 images inspected; full four-view/state audit not yet complete, no promotion.19/152 and20/160 aggregate remain pending.
+
+## 2026-10-06 Antlion full-eight image gate and runtime promotion
+Fresh remote114d294bc339a6e04cc6235cd05d3ac60c81eee1/tree8f4cd884780ee25eb7737c600db406515051fdca matched clean local after GitData save. Venus03/07 representative candidates saved, not promoted. Character37499912653/Runtime37499922485/Home37499922538 started.21e Runtime37497904083 SUCCESS; remainingCI not claimed.
+
+Antlion source21e artifacts11429202365(wave/motion) and11429102079(distance):32fourviews+16ordinary-distance directly inspected. New01/02/04/05/06/08 had192state frames reviewed;02 sleeping/tired and05 normal individually inspected for small-sheet occlusion concerns and visible facial features confirmed.03/07 eightviews64states+2sheets byte-identical to previously accepteddfa9/f679. All8 pass v0 gate with explicit simplifications.313JPEG/raw/review saved in fr2-armored/21e6565.
+
+Runtime promotion test RED before implementation, then180 dedicatedPASS/0FAIL.23/23 rollout mutations RED, exact production bytes restored.28Pilot baseline hashes match. Runtime170/293 =21families168playerstages+2companions;123pending,168fourViewRecords. Existing2D/Expression/save/schema/gameplay/World/Home unchanged. New21/168 aggregate andCI pending after save;19/152 and20/160 aggregate still awaited. Full293/HumanQA package not yet complete.
+
+## 2026-10-06 Hermit03/07 candidate checkpoint
+Antlion170/293 saved ase5328e08e6aa2caddf4c523c0d9c6e2d53ca994b,tree1088184ba295423fa33224bf2a9e2a6ad9eb3dcd.326files/313JPEG,252new blobs plus74reachable blobs,tree batches100/100/100/26 thencommit/nonforceleasedref; fetched localHEAD/tree andfreshremote match. Saved index clean; concurrent hermit changes remained explicitly unstaged. PR376Draft updated. Character37501417281/Runtime37501428470/Home37501428702 started, no overallsuccess claimed.
+
+Hermit original03/07 inspected: tan rounded spiral with empty prop vs blue-white tapered shell, one stalk-eyed crab, two pincers, six walking limbs. Added isolated candidates plus shared thick coiled tube/inner aperture, attached shells/claws and stalk facial target. Representative tests RED before implementation. New world-geometry ground test found empty-shell and rear-foot penetration, fixed without relaxing threshold; arbitrary pincer vertex cutoff replaced by actual finger-vs-palm height behavior.182dedicatedPASS/0FAIL,8/8new crustaceanmutationsRED/restored,28Pilot hashes match. Existing runtime remains170/293 pending123. CI captures representative fourviews/32states/normaldistance; no hermit promotion or expansion before image gate.
+
+Venus114d normaldistance artifact11430035543 obtained and4front/back images inspected; four-view/state gate still pending.19/152,20/160,21/168aggregate/wholeCI remain to confirm. No iPhone claim.
+
+## 2026-10-06 Dragon03/07 representative checkpoint; Venus side gate rejected
+Fresh e0ea84427c9f8ccd5899cd5d50a71e7181a652e0/treebd7b32cd5322016a44f4aa3c6c9c3f1859370248 local/remote/index matched clean after Hermit candidate GitData save;PR376Draft refreshed. Runtime170/293 unchanged.
+
+Dragon originals03/07 inspected, then representative RED tests and QA-overlay RED. Added explicit upright horned/plated reptile builder, curved tail, four clawed limbs and optional finger-supported curved wings; optional membrane motion on existing owner quadWalk clock.185dedicatedPASS/0FAIL,8/8mythicmutationsRED/restored,28Pilot hashes match. First tail mutation survived the test because decorative points still extended its bounds; narrowed fixture to actual tail tube, retained threshold, all8rerunRED. Added exact isolated mythic QA overlay and representative four-view/state/normal-distance workflows. No promotion or remaining-stage expansion before gate.
+
+Venus source114d artifacts11430795352(wave/motion),11430035543(distance):8fourviews/64states/4normaldistance inspected.03 broad rosette/cream face and07five owned cupped trap faces render; however side views expose a nearly parallel flat crown in both. Gate rejected for depth/orientation; do not expand or promote. Raw/images downloaded locally, immutable proof will accompany correction checkpoint. Root color also needs original brown interpretation.19/152,20/160,21/168aggregate still not available at fresh check. WholeCI pending; not iPhone.
+
+## 2026-10-06 Venus side-depth representative correction
+Dragon03/07 checkpoint saved asf9e3831d8c35733e5bb1a3d1671b9dfdc8f7b270/tree8da1c3eb47c4c2b3086d344a07562ae09f558759;GitData ref and fetched localHEAD/index match. Venus test was already unstaged at save completion, not falsely reported as clean. Character37502917968/Runtime37502932363/Home37502932479 started. Hermit e0ea Character37501809380/Runtime37501820120/Home37501819952 started; visual artifacts pending.
+
+Rejected Venus114d evidence79JPEG/raw/review preserved. Added radial side leaves, four individually oriented side traps and brown source roots. Geometry and canonical projection rotate together, not a separate actor/clock; branch supports retain attachment.186 dedicatedPASS/0FAIL,21/21botanicalmutationsRED/restored,28Pilot hashes match. Old global-z concavity assertion failed on correctly yawed cups; switched to ray distance in the rotated local view, same.025/.002 thresholds. Five-face mutation initially threwTypeError before tests because it removed an indexed unit; moved the same missing-fifth-head mutation after assembly, all21rerun with AssertionError. New image gate required before full family expansion. Runtime remains170/293 pending123;19/152/20/160/21/168aggregate still pending at fresh check.
+
+## 2026-10-06 Phoenix03/07 representative checkpoint
+Venus depth fix saved as9e488d85ca3114de32db31acfcb36b11d934addd/treefd5f98d0a2e37b0aa6573271b5d3e1fad9e01429.89files/79JPEG GitData commit/ref complete; fetched local/remote/tree matched clean. PR376Draft refreshed.19family21e jobs allSUCCESS except queuedstage-coverage112405338504 at check; aggregate not yet claimed.
+
+Phoenix03/07 originals inspected; testsRED then explicit young bright plume vs older muted drooping plume candidates, closed curved feather volumes, layered crest/wings/tail, clawed feet and one canonical bird face. Existing waddle clock gains opt-in tail motion only.188dedicatedPASS/0FAIL,6/6plumed-birdmutationsRED/restored,28Pilot hashes match. Runtime170/293 unchanged; capture representative fourviews/states/distance before any expansion.
+
+Hermit e0ea normaldistance artifact11431017261 downloaded and4front/back images inspected. Shell opening and eye ownership render, but the spiral's early whorls separate into a thin curled tube rather than the original compact conical shell. Representative gate is REJECT pending a physical whorl-continuity correction; no expansion/promotion. Four-view/state artifact still pending. Proof will be saved with correction.
+
+## 2026-10-06 Hermit compact-whorl correction
+Phoenix representatives saved as6a07513e0856aa83afa6efdc178a8aa7f0a9f730/tree35d2f04602234e691bf45c957f145b1e92c62841 via GitData;fetched local/remote/tree clean match. PR376Draft refreshed. Runtime170 unchanged.
+
+Hermit e0ea8fourviews/64states/4normaldistance inspected and79JPEG/raw/review persisted. Rejected thin separated early whorls. New24point/ray-per-stage conical-core test RED; early radius growth changed while aperture/inner wall/winding stay physical. Initial.82 still failed07one sample and widened empty-shell ground clearance; .65 plus raised prop fixes both at unchanged thresholds.189dedicatedPASS/0FAIL,9/9crustaceanmutationsRED/restored,28Pilot hashes match. No runtime promotion or other Hermit stages before corrected image gate. WholeCI/19-21familyaggregate and Venus/Dragon/Phoenix image gates remain pending. Not iPhone.
+
+## 2026-10-06 Dragon membrane correction and 19-family aggregate confirmation
+Hermit compact-whorl correction saved asaf4dd4d83f1ea64db3f9d4f12e08183d7ceb47c4/treef23b8520150873cde51a730f3bc53ced2b44002e.89files/79JPEG saved through blob/tree/commit/nonforceleasedref; fetched localHEAD/index/tree andfreshremote matched clean. PR376Draft refreshed.
+
+21e stage-coverage artifact11430983471 obtained and all19families/152unique exact stages validated: requestedstage/index/key match, player3dtrue, fallback0,failedTemplates0,errors[]. Raw/provenance saved in fr4-botanical/21e6565. Fresh wholeCI Character37497895209/Runtime37497904083/Home37497904092 allSUCCESS. This is19-family evidence;20/160and21/168remainpending.
+
+Dragon f9e normaldistance4views reviewed,07back membrane stippling REJECT. Rootcause radial fan through concave outline:42 reversed front triangles,51/733sample rays with excess intersections. New ray-grid test RED(4intersections instead of2), then closed ear-clipped/subdivided membrane geometry correction.190dedicatedPASS/0FAIL,9/9mythicmutationsRED/restored,28Pilot hashes match. Four JPEG/raw/rejection preserved, fullfour-view/state artifact not yet reviewed. Corrected imagegate required;runtime170/293 and123pending unchanged. Venus/Phoenix/Hermit gates pending. Chromium/SwiftShader notiPhone.
+
+## 2026-10-06 God03/07 representative checkpoint
+Dragon concave-membrane correction and19/152aggregate evidence saved ascfdf91912b3b8264b680a1f8a91a84a38a8e0972/tree4fa9c3c365fe1f4cac2203f8ead4a48e07a90320.13files/4JPEG,GitData blob/tree/commit/nonforceleasedref complete; fetched localHEAD/tree/index andfreshremote matched clean. PR376Draft updated.
+
+God03/07 originals inspected enlarged; representative testsRED before implementation. Added composition on shared human owner with original-derived one-vs-three wing tiers, one-vs-two open halos, short tunic vs long streaming robe tails. Existing canonical face and opt-in humanWalk-owned wings; no new gameplay state or actor.192dedicatedPASS/0FAIL,8/8celestialmutationsRED/restored,28Pilot hashes match. Capture matrix extended to god03/07. Runtime170/293 unchanged pending all representative image gates;123pending.20/160and21/168aggregate remain pending. CorrectedVenus9e normaldistanceartifact11432620157 downloaded, review next. Full293/HumanQA not yet complete.
+
+## 2026-10-06 World tree03/07 representative checkpoint
+God03/07 candidates saved ascac7a229ac1a641e3d8c3f0199db3bab70577b27/treeb99ac3ffdb7993f04ae7171642297049a6ba69f4.9files GitData blob/tree/commit/nonforceleasedref completed; fetched localHEAD/index/tree andfreshremote matched clean. PR376Draft updated. God Character37507079463/Runtime37507088924/Home37507088937 started. Dragonfix Character37506362046 started. Hermitfix af4 Runtime37506106002 SUCCESS; other wholeCI pending.
+
+Worldtree03/07 originals inspected enlarged. RED tests then explicit rooted trunk, full-volume crown and07five hanging golden fruit. Optional crown/fruit geometry on existing branch-organism owner, no additional actors or expression state. Fixed front-root penetration at unchanged ground threshold. First flat-crown mutation escaped through widely spaced thin layers; added isolated per-leaf-mass depth verification without relaxing the whole-crown check. Overlay null config now asserted before dereference. All6/6mutationsRED/restored,194dedicatedPASS/0FAIL,28Pilot baseline hashes match.03/07candidate capture only, no runtime promotion or other stages before gate.
+
+CorrectedVenus9e normaldistance4images directly inspected: radial03rosette and07five differently oriented cups read at game distance, no obvious failure in these four. Fullfour-view/64state gate stillpending. Runtime170/293,123pending.20/160and21/168aggregate/wholeCI stillawaited. Remaining player originalsghost/star/plush/unknown03and07 inspected as a sourceboard, no implementations yet. No iPhone claim.
+
+## 2026-10-06 Ghost03/07 representative checkpoint; corrected Venus03 rejected
+Worldtree representatives saved as36b25e5d3e24cedcb379301a386dceacb9cfcf09/treeacbca4af40fc392edd4c180caa1ca317715f14c7.7files GitData tree/commit/nonforceleasedref complete; fetched localHEAD/index/tree andfreshremote matched clean. PR376Draft refreshed.
+
+Ghost03/07 original-derived closed tapered body, curved tail, paired hands,07open halo/four blue spirit flames added afterRED tests. Existing blobFloat owner and canonical emotion system retained.196dedicatedPASS/0FAIL,7/7spectralmutationsRED/restored,28Pilot baseline hashes match. Candidate capture only;runtime170/293 and123pending unchanged.
+
+CorrectedVenus9e wave/motionartifact11432317814 obtained;8fourviews/64states andnormaldistance4 reviewed.07 depth/oriented cups acceptable at representative view level.03 new radial side leaf obscures one eye/mouth at34view acrossnormal/positive/tired/sleeping/strained/wantsPlay/sick. GateREJECT; no expansion/promotion. Prior ordinary-distance assessment was limited to4images and did not establish this gate. New proof and leaf-position correction are next.
+
+## 2026-10-06 Venus03 canonical-face clearance correction
+Ghost03/07 saved as4819e20dc78faaad67d5eefafe33be7234986273/tree1717bc4f6e27ccf61a1d5bdc75b1b4437f08d90f.8files viaGitData blob/tree/commit/nonforceleasedref complete; fetched localHEAD/index/tree andfreshremote matched clean. PR376Draft updated.
+
+Venus9e rejected proof79JPEG/raw persisted. Added visibility tests for both eyes and mouth fromfront andboth34directions;RED confirmed radial-leaf occlusion. Two leaf bases moved outward/backward with short attached stalks.197dedicatedPASS/0FAIL,22/22botanicalmutationsRED/restored,28Pilot hashes match. The first full botanical mutation rerun stopped at the old five-trap factory-return selector afterworldtree addition. Updated only the anchor to current return, retained the same colony.pop deletion;all22rerunRED. This does not retroactively assert the prior worldtree/ghost CI wasgreen.
+
+Fresh dfd20family Character jobs:33completed,onlycicada stage-evidence112392145172 stillinprogress. e53221family aggregate stillpending12stagejobs.9e wave-review finished;6a phoenixdistance artifact11432836185 downloaded. UpdatedVenus imagegate pending;runtime170/293 and123pending unchanged, notfinalHumanQA.
+
+## 2026-10-06 Plush03/07 representative checkpoint; Phoenix07 color gate rejected
+Venus03 face-clearance fix saved as53f50f316a76f6a45b40ca6e76b52b3b9605b0dc/treee625cf5bb11882db1dc6f783db9818c671568eee.88files/79JPEG saved throughGitData blob/tree/commit/nonforceleasedref; fetched localHEAD/index/tree andfreshremote matched. ConcurrentplushRED test remained untracked and explicitlynotclaimed saved/clean. PR376Draft refreshed.
+
+Plush03/07 original-derived seated teddy,03solid heldheart,07one-ear/tiltedhead with conforming head/body/arm patches and physical thread added afterRED tests. Shared canonical face,onewaddleowner. Initial earheight assertion conflicted with07lower sideear; corrected test to physical side projection without altering source proportions.199dedicatedPASS/0FAIL,6/6plushmutationsRED/restored,28Pilot hashes match. Capture only; no remaining stages before representativegate.
+
+Phoenix6a artifacts11435325363(wave/motion),11432836185(distance):8fourviews/64states/4distance inspected.03forms readable with explicit simplified broad feather layers.07faces/motion/topology read but plumage has become nearly uniform brown, losing original cream feather edges/bright layered breast. GateREJECT for07color/layer differentiation; do notexpand. Preserve proof and add source-derived feather accents next. Runtime170/293,123pending;20/160and21/168aggregate/wholeCI stillpending.
+
+## 2026-10-06 Phoenix07 source-color correction
+Plush03/07 saved as4402994ab2e760a6fcc1a23f5816b26fe9031cae/tree2277d9afa61a235a62e0cd79913a5d2bf54bf4bb.8files GitData blob/tree/commit/nonforceleasedref complete; fetchedlocalHEAD/index/tree andfreshremote matched clean. PR376Draft updated.
+
+Phoenix6a rejected evidence79JPEG/raw persisted. New color-separation test RED for missing pale breast/wing/tail accents. Added07cream feather edges and seven overlapping breast feathers while retaining warm older centers and existing young default.200dedicatedPASS/0FAIL,7/7plumed-birdmutationsRED/restored,28Pilot hashes match. Correctedcapture needed;noexpansion/promotion. Runtime170/293,123pending. Latest available corrected Hermitdistance artifact11434490326(sourceaf4) and correctedDragondistance11435726043(sourcecfdf) not yet inspected.20/160and21/168aggregate stillpending.
+
+## 2026-10-06 Star03/07 representative checkpoint
+Phoenix accent correction saved as6a4c750fb11c082e9045dfa734c5c5f965c5e239/treea05985611baf63f5f051e51d76a2fe5ba5a1115f.89files/79JPEG throughGitData blob/tree/commit/nonforceleasedref; fetched localHEAD/index/tree andfreshremote matched. Concurrentstar candidate work explicitly remained unstaged, not claimedclean. PR376Draft refreshed.
+
+Star03tilted spiral galaxy and07irregular solar flares added afterRED tests; closed volumes andone existing blobFloat/canonical-face owner.202dedicatedPASS/0FAIL,5/5cosmicmutationsRED/restored,28Pilot hashes match. Initial core-to-center mutation was benign to tested visibility; replaced by an actual opaque face occluder. After yielded mutation execution, local cosmic.mjs retained no-flares despite reported restoration. Restored exact authoredloop; all5mutations followed immediately by baseline tests in one command PASS, then full202PASS. Future mutation runs avoid yielding/interleaved tools where possible.
+
+Corrected Hermitaf4 normal4 andDragoncfdf normal4 reviewed: compact whorl silhouette and unbroken wing membranes now read at normal distance. Fullwave/motionartifacts11434417604(hermit,31.15MB) and11435107999(dragon,4.42MB) downloadedforgate, not yet reviewed. Runtime170/293/123pending;20/160and21/168aggregate stillpending. No iPhone claim.
+
+## 2026-10-06 Hermit representative acceptance and Dragon mouth correction
+Star representatives saved as7c1f904190f5f75a21908cf975e788da897a871d/tree5920f1c48b16a2d09d4e7bc871da6bb22bc2228d; fresh remote/local match confirmed.
+
+Hermit af4 artifacts11434417604/11434490326:8fourviews/64states/4normal-distance images directly inspected, representative PASS with documented simplified faceted aperture/compact whorls.79JPEG/raw/review preserved. Remaining six stages may now be authored; runtime promotion still requires all-eight evidence.
+
+Dragon cfdf artifacts11435107999/11435726043:8fourviews/64states/4normal-distance inspected. Wing membrane correction reads continuously, but canonical mouth is hidden by protruding muzzle: REJECT.79JPEG/raw/review preserved. New independent muzzle-surface ray test RED, then face projection target includes head/muzzle/chin volumes.203dedicatedPASS/0FAIL,10/10mythicmutationsRED/restored,28Pilot hashes match; fresh5mythic baselinePASS. Corrected images required before expansion. Runtime170/293,123pending;20/160and21/168aggregates stillpending. Chromium/SwiftShader is not iPhone.
+
+## 2026-10-06 Hermit eight-stage candidates
+Dragon mouth correction and158JPEG proof saved asc7fee4a693519dd86a348c753f3ca208329c5191/tree9c14afa9b596b8cb36b201659f0030b1ecea85ed throughGitData blob/tree/commit/nonforceleasedref. Fetched localHEAD/index/tree andfreshPRhead matched; PR376Draft maintained. ConcurrentHermit expansion remained unstaged and explicitly not claimedclean.
+
+After accepted03/07gate, all8originals inspected. Added six explicit shapes: compacttan01,longertan02,broadpink04,slendersage05,longteal06,broadmossy08 with attached sprigs. Existing03/07 data unchanged. All8stages×32states andaperture/whorl/face/ground/finitegeometry checked. Newcompact/elongated/agedshell andphysicalmoss/sprig testsRED before implementation.08largepalm initially left fingers too short; extended only08fingerpaths following original, same thresholdPASS.204dedicatedPASS/0FAIL,12/12crustaceanmutationsRED/restored,28Pilot hashes match. Armored capture artifact split to a separatehermit package to remain below downloadlimit without dropping raw or images. All-eight image gate required before runtimepromotion. Runtime170/293,123pending;20/160and21/168aggregates stillabsent onfreshlookup.
+
+## 2026-10-06 Unknown representatives and God03 short-robe correction
+Hermit8candidates saved as9ca55c8f07a0fed92265f59e7e1c91a21d2e48e4/tree12417c21e26874dc65f7978c086718dc18fb335e throughGitData blob/tree/commit/nonforceleasedref; fetchedlocal/remote/tree matched clean. PR376Draft refreshed.
+
+Godcac7wave/distance artifacts11435329920/11435347381 reviewed8fourviews/64states/4normaldistance. Wings/halos/face and07ribbons read, but03robe concealed original bare legs and feet peeked through hem: REJECT.79JPEG/raw saved. Newfront/both34lower-leg visibility raysRED; shortened only03robe at unchanged thresholds,9/9celestialmutationsRED/restored. Recapture before expansion.
+
+Unknown03/07originals inspected: soft blue/purple limbedbody vs round blue orb/3gold rays. RED candidate/white-eye tests, thenclosedbluecore with cyanrim/highlight,03foursoftlimbs,07threephysicalgoldrays. ExistingblobFloat andcanonical emotion ownership retained. OptionaleyeProfile ink supports white original eyes in3D andatlasA; cacheddefaultdarkeyes remain separate. B feature ink honors explicit source ink, defaultsunchanged.7/7mysterymutationsRED/restored.207dedicatedPASS/0FAIL,28Pilot hashesmatch. Capturematrixextended; no remaining stages or runtimepromotion beforegate.
+
+Proofcopy caught newhermitartifact JSONpath typo:motion-evidence.json isactual filename, correctedfromevidence.json. Raw remained preserved inexistingarmored artifact; no evidence dropped. Latest53f50Runtime/HomeSUCCESS,Characterqueued;6a4and7cCharacterqueued.20/160and21/168aggregatesstillabsent. Runtime170/293,123pending. NotiPhone;full293/HumanQAcontractnotyetmet.
+
+## 2026-10-06 World tree eight-stage candidates and20-family aggregate
+Unknown03/07 andGod03short-robe fix saved asaecd1a56b0dc753ba84254c1678ac0825f4a74a4/tree0344210a40fef0347bfda23a02ba830f3d654d2b.94files/79JPEG viaGitData blob/tree/commit/nonforceleasedref; fetchedlocal/remote/tree matchedclean, PR376Draft refreshed.
+
+Dfd20-familyaggregate artifact11436256214 validated160exactunique stages/20families, requestedstage/index/keymatch,live3Dtrue,fallback0,failedTemplates0,errors0. Raw/provenance savedfr2-armored/dfd80ea. FreshwholeCI Character37499119519/Runtime37499129927/Home37499129858 allSUCCESS.21/168stillpending. Worldtree36b andGhost4819Runtime/HomeSUCCESS; theirdedicated jobs112421189830/112423355954 FAILED retained (before53f50botanical selector correction); notclaimedGREEN.
+
+Worldtree36bartifacts11436656720/11435852274 inspected8fourviews/64states/4normaldistance. RepresentativePASS: fullcrown,spreadroots,onevisibleface,fivehangingfruit; roundedleafmasses/smoothbark simplificationrecorded.79JPEG/raw saved. All8originals theninspected enlarged; sixexplicitnewcandidatesgoldenleaningseed01,two-leafsprout02,sparsethree-tiercrown04,4cyanfruit05,broadlowtiered5cyanfruit06,twoopenphysicalcyanorbits08.03/07unchanged. Newstage/ring/seedtestsRED, then208dedicatedPASS/0FAIL,8/8world-tree and22/22botanicalmutationsRED/restored,28Pilot hashesmatch. Sproutsoil stonecenters raised aftergroundtestRED; thresholdunchanged. Postbotanical command used nonexistenttestfilename (no test failure); full208suiteverified restoration.
+
+All-eightworldtreeimages required beforepromotion. Ghostnormaldistance4viewed,fullgatepending. Runtime170/293/123pending; notiPhone andnotfinalHumanQA.
+
+## 2026-10-06 Ghost rounded-body/upturned-tail correction
+Worldtree8candidates and20/160aggregate saved as16b937df1037ec2b995fee3f9e03862cb99fa3de/tree437441a8ba7c4651fdca799dbfe7d3f22a19b324.92files/79JPEG viaGitData tree/commit/nonforceleasedref complete; fetchedlocal/remote/tree matched. Concurrentghostcorrection remainedunstaged,notclaimedclean. PR376Draft refreshed.
+
+Ghost4819artifacts11436742215/11436246250:8fourviews/64states/4normaldistance reviewed,REJECT elongatedpointedleaf silhouette. Original roundedbody/upturnedlefttail absent despite earliercentroidcurltest. Added terminalpole-above-lowerbelly andbreadth testsRED. Broadenedclosedvolume andliftedterminaltip with strongerleftcurl, retainingonecontinuoussurface/face/arms.07needed strongerleftreach at unchangedthreshold.209dedicatedPASS/0FAIL,8/8spectralmutationsRED/restored,28Pilot hashesmatch.79JPEG/raw retained. Newcapture beforeexpansion; no runtimepromotion.
+
+CorrectedVenus53f50normaldistance4viewed:03faceclear of leaves atnormal view;07orientedcups read. Fullwave/64state gatepending, no acceptanceyet. All45nonplayeroriginals viewed in3boards forplanning;43pending have no newimplementationyet. Runtime170/293,123pending,21/168aggregatepending. No iPhone/full293completionclaim.
+
+## 2026-10-06 Nonplayer role-safe QA foundation
+Ghostoutlinefix saved asc605197f6c283285168a2c0f4b5eae379641743f/treebfc3a998b59609c7962b53da1a46bedc922ac88e.89files/79JPEG viaGitData blob/tree/commit/nonforceleasedref; fetchedlocal/remote/tree match. ConcurrentnonplayerQAwork unstaged,notclaimedclean. PR376Draft updated.
+
+Before43nonplayer implementations, added isolatedoptionalNON_PLAYER registry forQA with explicit kind:id keys,exactstage0 andexplicitassetpaths. Productionregistry remains empty; Pilotcompanionlookupunchanged. Testfixtures use identicaldog ID forplayer/companion/partner andsingularauthorasset toverify no cross-rolealias; wrongstage rejected. NodeandHTTPcandidate overlays testedRED thenGREEN, mixedfamilyoverlays rejected. Firstimplementation useddefaultparameter inside strictfactory (syntaxerror); moveddefaultinto registryinitialization, preservingstrictmode.4/4nonplayermutationsRED/restored,211dedicatedPASS/0FAIL,28Pilot hashesmatch. No43models or normaldistancecaptureclaimed.
+
+Ruling: nonplayerexact keys use kind:id whilepreservinglegacyPilotcompanionkeys — prevents cross-role/playercollisions withoutrewritingapprovedPilot — futuregallery/capture/promotionsmustconsume returnedkey andexplicitasset, notassume keyid==masterid. Nextaddactualoriginal-derived representatives androle-awarewave/normaldistance capturesbeforepromotion. Runtime170/293 and123pending unchanged.
+
+## 2026-10-06 Box and sunflower candidate geometry
+Role-safe foundation saved as a8cb892459f1203f0cf8b1d04a270b6700865191/tree88b3de4604ee02e7df6f9eaaae2e44e98d00e1c7; fresh remote lease confirmed. Added original-derived companion:box and partner:sunflower_partner candidates with a closed rigid-object builder and existing botanical volume mechanisms. QA-only role overlay and native party save references feed four views, all32states and actual Meguru front/back captures; dedicated CI job added. No production promotion or image gate acceptance.
+
+214 dedicated tests PASS/0FAIL, four physical nonplayer mutations RED with bytes restored, all28Pilot hashes match. 21/168aggregate still absent in fresh e532 workflow artifacts. Runtime170/293,123pending unchanged. Browser captures await Actions; Chromium is not iPhone.
+
+## 2026-10-07 Recovery,21-family aggregate and representative gates
+Fresh remote f7cb48ea28830036a1ca3282b95b6db49353e386 confirmed. Local environment had reverted to c193989; rebuilt isolated checkout from remote,214 tests PASS. Saved geometry was reused. Artifact11447351173 validates21families/168exact unique player stages, requested/index/spec keys, live3D, fallback0,failedTemplates0,errors0. Sourcef7 Character37518156776 has all capture/aggregate jobs SUCCESS but dedicated job112456324697 FAILURE: old Pilot remove-it selector expected quadruped first in BUILDERS. Repaired selector only; same13mutations all RED and34baseline PASS. Failure history retained.
+
+Previous image reviews restored from exact artifacts: Venus53f50 artifacts11437986017/11437382014,8fourviews/64states/4normaldistance PASS; Plush440 artifacts11438346256/11437402913,same range REJECT because03heart obscures drooped mouth.79JPEG/raw each preserved. Venus remaining six stages may now be designed; no runtime promotion. Plush mouth-clearance test RED, lower heart .15→.08 GREEN;7/7plushmutations RED/restored,215dedicatedPASS/0FAIL,28Pilot hashes unchanged. New capture required before plush expansion. Production runtime170/293,123pending. No iPhone/full293/HumanQA-complete claim.
+
+## 2026-10-07 Durable recovery checkpoint and nonplayer distance gate
+173 recovered files saved at374436e533c907f6b9a9d75d8c7648da1390413c/tree12280cee8f030b0bf4b6d5c332b6a70e1fa43077. Fresh clone fromf7, manifest-only migration, allSHA/size andplannedtree matched.41missing blobs uploaded; nonforce leased ref update, local/remote/tree matchedclean.215dedicatedPASS;Pilot13/13 andplush7/7 mutationsRED/restored;Pilot28hashesmatch. Initial180-test run used revertedpre-fix files andwasexcluded; restored215run is authoritative.
+
+Nonplayerf7 artifact11443146044 reviewed8fourviews/64states/4distance: standalonebox/sunflower read, butdistancefront/back fail to showrequestedorientation. GateREJECT;all80JPEG/raw retained undernonplayer/f7cb48e. Rootcause: independentrAFhold runs before realparty sim.step overwrites heading. Real-simulation regression failed withheading-1.315 instead ofpi; QA-only wrapper now holds afterstep, restores originalmethod onviewchange, andrecords/asserts actualpresenterholderyaw. QA daylightfixed forreadability. World/Home/gameplay/runtime geometryunchanged. Recapture required beforepromotion.216dedicatedPASS. Runtime170/293,123pending.
+
+## 2026-10-07 Hermit all-eight promotion checkpoint
+Basefb3c3c4bb2065e0fc6a60e491373b9ca80886cfc/tree39f42986ba9c1930783f4a52fdc4d60cfffe6081 confirmed. Hermitf7 artifact11443278022:32fourviews/256states reviewed.03/07's74images match acceptedaf4 bytes; other6stages directly inspected. Distance374436e artifact11457791716:16front/back captures reviewed, all8exact/live3D/fallback0/errors0. Sharedgeometry unchanged betweenboth sources.317proof files preserved withreview/provenance.
+Runtimepromoted8hermit stages through existingarmored factory,178/293exact(22families/176player+2companions),115pending. Exactlookup testRED thenGREEN. Initialtest expectation namednonexistent shelled_crustacean builder; corrected to existingarmored_insect, no geometry change. Twoobsolete isolation assertions updated forreviewedhermit whileunrevieweddragon remains isolated.217dedicatedPASS/0FAIL;24/24rollout mutationsRED/restored;Pilot28hashesmatch.
+Fullnpm run3007PASS/2FAIL (18ResidentExpression tests include2failures);same2failures reproduced inisolated immutablefb3 archive,16PASS/2FAIL. Tests: tiredresident canonicalpicture/line andexpression-save boundary; expected nearest beetle actor differs. No protectedExpression/World/Home edits. Fullnpm notgreen. fb3 Runtime37564467160 andHome37564467235SUCCESS;Character37564461825stillinprogress. Freshfb3 nonplayer artifact11458726652 andmythic11458118648 available,notyetreviewed. iPhone/HumanQA/full293completionnotclaimed.
+
+
+### 2026-10-07 — reviewed nonplayer promotion / Plush representative gate
+
+Base e149adc6 (Hermit all8 promotion), fresh remote/local HEAD and clean verified. Runtime now **180/293**,113 pending:22player families/176stages +3companions +1partner. Only explicit approved keys companion:box and partner:sunflower_partner enter production; browser ESM loads factory; future candidate additions stay excluded. Role namespace, exact stage0, role-specific asset and existing QA override preserved. Coverage routes role-prefixed proof filenames without aliasing player IDs.
+
+Nonplayer fb3 artifact11458726652:8fourviews/64states/4distance PASS.76static/state/sheet images byte-identical to previously reviewed f7;4new distance images directly reviewed, real rendered yaw agrees with requested front/back (error<.02), exact/live3D/fallback0/failedTemplates0/errors0.80JPEG/raw/review saved at nonplayer/fb3c3c4. Old f7 REJECT_DISTANCE_CAPTURE remains unchanged.
+
+Plush03/07 fb3 wave11458118648 and374 distance11457736471:8fourviews/64states/4distance PASS_REPRESENTATIVE. Heart now clears tired/sleeping mouth;07single ear/patches readable. Geometry source files identical between374 andfb3.79JPEG/raw/review saved at fr5-mythic/fb3c3c4-plush. Remaining6stages must pass before family promotion; old440 REJECT retained.
+
+TDD: two new Node/browser promotion tests failed before implementation and passed after. Dedicated219PASS/0FAIL; nonplayer7/7mutationRED/restored (including missing approved keys, missing browser dependency, and accidental promotion of an injected unreviewed factory entry); Pilot28hashes equal committed baseline. Evidence: nonplayer-promotion-verification/. Earlier full npm3007PASS/2FAIL in protected resident-expression tests reproduced on immutablefb3 baseline; not claimed green and protected files untouched. e149 CI still queued/in progress at check; post-promotion CI/aggregate pending.
+
+Draft/base/protected code boundaries maintained. Chromium/SwiftShader is not iPhone acceptance. Full293 final Human QA gate not reached.
+
+### 2026-10-07 — World tree04 face readability candidate and22-family aggregate
+
+Fresh remote/local42dd99a andtree1b7447c matched; Draft376/base unchanged. Reproduced inherited face readability testRED (AssertionError: separated eyes collapse into dot). Normal-distance16-view board confirms04 small face. Shared branch builder now accepts optional per-spec faceHalf; onlyworld4 uses .16 instead of default .09855, preserving trunk/crown and all other defaults. Test4/4GREEN; dedicated220PASS/0FAIL;9/9world-tree mutationsRED/restored;28Pilot hashesunchanged. This is a candidate correction, NOT image gate acceptance or runtimepromotion. Rejected04front and raw verification saved inworld-tree-face-20261007. Recapture required.
+
+42dd99a Character37567216050,Runtime37567222572,Home37567222634 allSUCCESS. Aggregateartifact11459393592 independently validated22shards/176unique exact playerstages, requested/index/keymatch,live3Dtrue,fallback0/failedTemplates0/errors0; rawsaved. Historical fullnpm3007PASS/2FAIL remains known and notclaimedgreen. Runtime180/293,113pending unchanged. No protectedWorld/Home/Expression/gameplay/save changes or iPhoneclaim.
+
+### 2026-10-07 — Venus remaining six candidate stages
+
+Worldtree04fix saved as9b79310dcf4c1e78eb566ab2bdd88f0dc968e9bd/treecf1669da47c084bb6b294244b81de71e1cd93bfe; fetchedlocal/remote/tree matchedclean. Its Actions37573312697 running.
+
+Inspectedall8Venus originals. Added explicit brownseed01,soil/twoyoungcups02,base+twoheads04,base+threeheads05,purpleinsect inonegiantcup06,sixwhiteflowers withthreefaces/twolowertraps08. Reused existingbranch/colony/cup/flowergeometry; allpriorbotanical specifications includingaccepted03/07 JSON-equivalent. All8capturing requested in existingwave/distance pipeline, no productionpromotion. NewTDDtestsRED for missingstages, thenGREEN. Groundcheck caughtlownewleaves; fixedonlynewbase leafheight without loweringthreshold. Dedicated222PASS/0FAIL,Venus5/5andbotanical22/22mutationsRED/restored,Pilot28hashesmatch. Fullnpm startedseparately; previousknown3007PASS/2FAIL retaineduntilfreshcompletion.
+
+Evidence invenus-all8-candidates-20261007. Originalshape simplifications andfaceownership recorded. All8imagegate pending; testsarenotvisualacceptance. Runtime180/293,113pending unchanged. Draft/protectedboundariesmaintained.
+
+### 2026-10-07 — Plush remaining six candidate stages / World evidence recovery
+
+Venusall8candidates savedc15e1ad8/treef8ffcd0b,remote/local/treeclean matched. Recovered317Worldtreefb3proof files saved2ff1b968/treea83a0bdb,remote/local/treeclean matched. Old04facehold remains explicit; new9b normaldistance images reviewed,face reads better butnewfourview/stategate stillpending.9b dedicatedCI112636580611SUCCESS;wavecapture ongoing.
+
+InspectedPlush8originals;addedbow01,wavingpaw02,seams04,exposedcotton05,bluepatches06,heart/scarf08. Existingsofttoy builder extended only with optional ownedvolumes,per-sidearmplacement andsurface-conformingstitches.03/07specs,meshbuffers,bonetransforms exactly matchimmutable2ffbaseline. DefaultPilot28hashesunchanged. TDD2testsRED thenGREEN; thirdmouthraytest verifies6newstages across3angles/tired/sleeping. Dedicated225PASS/0FAIL,7/7representative and6/6newstage mutationsRED/restored. All8capturematrix extended; no productionpromotion.
+
+Fullnpm afterVenus completed3008PASS/2FAIL: tiredresident canonicalpicture/line andexpression-save boundary. Sameknownprotectedfailures; retainedrawcompressedlog andfailure summary, notclaimedgreen. It ranbeforePlushimplementation. Runtime180/293,113pending unchanged. Plush/Venus fullimagegates pending; no iPhone/HumanQAcompletionclaim.
+
+
+### 2026-10-07 — World tree all-eight promotion / resumed durable save
+
+Fresh remote3076d288 and Draft/open/unmerged PR376 confirmed. Recovered317 proof files match saved manifest by Git blob SHA and size. Previous cell13 cannot be inspected from this session; Git Data tree validation identifies missing remote blobs and only missing objects are uploaded. Existing image review PASS_ALL8_IMAGE_GATE is preserved:9b wave11462261195/distance11461529312,32fourviews/256states/16normaldistance. No geometry reimplementation.
+
+Promoted all8 world_tree stages via existing botanical factory:188/293 exact,105pending,23player families/184stages +3companions +1partner. Fresh dedicated226PASS/0FAIL and28Pilot hashes identical to saved promotion baseline. Initial hash command omitted its required directory argument and failed; corrected invocation passed. Historical fullnpm3008PASS/2FAIL remains not green; no fullnpm rerun claimed. Venus/Plush all8 image gates and other candidates remain pending. Four-view records186/293 are not full coverage. Protected boundaries/Draft maintained; final Human QA and iPhone acceptance not claimed.
+
+
+### 2026-10-07 — Plush all-eight image gate and Venus06 cup-depth correction
+
+Worldtree promotion saved b12dc7a/treee051b36a; remote/local/tree clean matched. Latest3076 Character37574982767/Runtime37574988379/Home37574988358 completedSUCCESS. All8 Plush originals,32fourviews,256states via eight full sheets,16normaldistance inspected; PASS_ALL8_IMAGE_GATE. Raw confirms exact/live3D eight actors, fallback0/failedTemplates0/errors0.317 proof files stored in fr5-mythic/3076d28-plush. Smooth fabric/reduced wear marks/no floating decorative sparks are explicit v0 simplifications.
+
+Plush runtime exact-lookup test RED, then registered only reviewed Plush from existing mythic factory, including browser ESM dependency. Updated obsolete candidate-isolation assertions; other mythic candidates remain isolated. Dedicated228PASS/0FAIL. Coverage196/293,97pending,24player families/192stages +3companions+1partner;194fourview records is not full coverage.
+
+Venus06 3076 fourviews/normaldistance REJECT: inherited small-head depth .075 makes giant insect cup appear thin from side. Regression checks physical side-depth and insect behind enclosing rim failed before correction. Set only giantCup depth .20, reuse existing closed cup builder;6/6Venus mutations RED/restored. Other seven stage definitions and approved03/07 unchanged. Corrected capture required before promotion; Venus remains outside runtime. Local Chromium binary unavailable; use Actions recapture. Fullnpm remains known non-green until a new run is recorded; no iPhone/finalHumanQA claim.
+
+Verification addendum:26/26rollout mutations RED/restored, Pilot28 hashes unchanged. A chunked blob upload initially produced a mismatched SHA because pipe reads were short; mismatch guard prevented use of that object. Full-block reads with exact byte/base64-length and returned-SHA checks replaced that transport; only verified object IDs enter the saved tree. No runtime source change from transport recovery.
+
+
+### 2026-10-07 — Full npm result saved after Plush promotion
+
+c331193d0fa58ecb57c87e5b9937d3fb40e78e65/tree5c923939f33bddae74d00df03331cc3ab2d34156 saved344files, remote/local/tree clean matched. Fullnpm rerun finished: mainNode batch3010PASS/2FAIL in676355ms. Same tests6(tired resident picture/line) and13(expression save boundary) in meguru-resident-expression-test.cjs fail as documented immutablefb3 baseline; nearest beetle actor differs. Command is NOT GREEN; trailing Relationship command after && did not execute. Compressed exact log and summary preserved in plush-promotion-verification. No protected files modified. Dedicated228PASS,26/26rollout and6/6Venus mutations remain valid. Runtime196/293,97pending; Venus06 corrected capture/latest aggregate/fullQA remain pending. No local background test or blob upload remains.
+
+
+### 2026-10-08 — Venus promotion recovered after scratch loss
+
+Fresh remote df26408/Draft376 confirmed. Prior scratch including332-file staging manifest is absent; expected5daf8b4 tree returns404. Recovered original Actions artifacts11470811397/11470106366 from c331193, preserving source bytes and generating a new SHA/size manifest. Prior handoff all8 image gate PASS is retained; stage comparison sheet inspected again. New recovery tree is not claimed identical to former staging. Pilot/completed models were not rebuilt.
+
+Explicit Venus factory registration recovered with runtime RED(null before registration) then GREEN. Dedicated229PASS/0FAIL, rollout27/27 mutations RED and bytes restored, Pilot28 hashes identical, standalone Relationship80PASS/0FAIL. Runtime204/293,89pending (48player+41nonplayer). Pre-Venus artifact11471980946 has24families/192exact, no fallback/failedTemplates/errors;25family aggregate pending. Historical fullnpm3010PASS/2FAIL remains NOT GREEN; protected expression failures unchanged and no fullnpm rerun claimed.
+
+Dragon07 normal-distance rear wing readability remains held pending diagnosis; no Dragon promotion. Draft/base/protected areas unchanged.
+
+
+### 2026-10-08 — Dragon07 rear finger visibility diagnosed and candidate fixed
+
+Artifacts11470710049/11469883827 show the membranes present, but rear support fingers unreadable. Ray comparison with ribless membrane:15 sampled locations/14 intersections, before rear0/front14 protruding; fingers offset+.014 with .025→.010 radius are hidden on back. Centered existing tubes at0 and retained minimum .015 radius; after rear14/front14 protruding. New regression RED→GREEN; fresh isolated dedicated230PASS/0FAIL, mythic11/11 mutations RED/restored, Pilot28 unchanged. No new topology/material/face and Dragon stays outside runtime.
+
+Local Chromium download returned an invalid ZIP; image gate remains pending new Actions captures. Stage-matrix derives all25 runtime families automatically. Historical fullnpm3010/2 remains non-green, separate Relationship80PASS is recorded. Browser UMD registration resolves Venus8 and leaves Dragon isolated.
+
+
+### 2026-10-08 — Dragon all8 candidates and split capture jobs
+
+Fresh remote e45910d and Draft/open/unmerged376 confirmed; prior scratch files survived. Dragon03/07 reviewed gate8fourviews/64states/4normal-distance PASS,84proof files preserved. Tree validation found2missing image blobs and both were restored; old upload counts were not trusted. Candidate01/02/04/05/06/08 reuse existing factory;03/07 remain unchanged,06flame is head-owned. All8 still outside runtime;204/293 exact,89pending unchanged.
+
+Wave-review timeout cancellation addressed by5jobs preserving14capture commands/6artifact contracts;Dragon state captures now cover8stages. Prior Runtime/Home SUCCESS, Character CANCELLED is not green. Post-Venus25family/200stage aggregate artifact11546721411 has0fallback/errors/failedTemplates.
+
+Review minor fixes:ray test uses actual projected eyes;two eyes checked for every stage;all8runtime isolation checked. Fresh dedicated233PASS/0FAIL after mutation restoration;Dragon6/6mutations detected/restored;Pilot28hashes unchanged. First dedicated run overlapped mutation execution and is not relied on;sequential fresh rerun passed. Fullnpm retained complete summaries3013PASS/0FAIL plus80PASS/0FAIL;original process exit code unavailable. Exact gzip/SHA256 archived;historical3010/2 is separate. No new fullnpm run claimed. No protected production areas changed. Next:all8 Actions image gate before promotion;Human/iPhoneQA remains pending.
+
+
+### 2026-10-08 — Dragon all8 image gate rejected; physical spine roots corrected
+
+d2a4c70 saved103files;remote/local/tree1e7544d1 clean matched. Independent candidate code review C0/I0 with9targetedPASS;image gate remained independent. Actions37775465688 produced mythic11549443483 andDragon-distance11549359550. All32fourviews and16distance reviewed;01/02sideviews visibly floating dorsal spines and02tail spines. Full256state visual approval not claimed after this rejection. No promotion.
+
+Root cause: new-stage anatomy/tail paths no longer meet authored spine roots;bone ownership did not detect physical disconnection. Ray probes show similar attachment defects among new04/05/06/08. Added real mesh interior-root regression, watched RED at01body0, then authored explicit root coordinates for only new six stages;GREEN4/4. No shared-builder or approved03/07 modification. Fresh dedicated234PASS/0FAIL. Source evidence/rejection/RED-GREEN saved. New npm test currently running;exit/result pending,do not conflate retained prior3013+80log.
+
+Ruling: extend attachment repair to all six new stages because the same measured defect exists, rather than approving uninspected similar roots. Cost:all8recapture required;coverage204/293 remains unchanged. Human/iPhoneQA pending.
+
+
+### 2026-10-08 — Spine recapture reviewed;04 wing root corrected
+
+a65ceb5 remote/local/treeba0b7420 clean matched. Actions37777583881 mythic11551466631 anddistance11551441285 SUCCESS. Reviewed32fourviews,all8x32state sheets,and16normal-distance images. Spine detachment resolved;04small wing visibly isolated in34/stateviews. Root placement [.19,.27,-.16] is outside juvenile trunk. New direct mesh-root test RED then adjusted only04root to[.12,.18,-.09],GREEN5/5. Fresh dedicated235PASS.03/07 unchanged;no runtime promotion. Stage archives preserve312source files byte-for-byte with per-entry manifest;summary/metadata/rejection saved separately.
+
+Fresh fullnpm on spine-corrected a65ceb5 completed3013PASS/0FAIL plusRelationship80PASS/0FAIL,exit0. Prior exit-code uncertainty is now resolved for this new run only. Exact log gzip/SHA256 saved. Subsequent04coordinate-only correction gets targeted/dedicated coverage;fullnpm is not claimed rerun after that edit. Dragon6/6mutations restored before04root edit. No local test remains running.
+
+Ruling: keep entireDragon family outside runtime until04recapture passes;do not infer image approval from tests. Cost:one further capture round. Coverage204/293,89pending unchanged. Next04gate,all8promotion,remaining40otherplayerstages+41nonplayers after that promotion;Human/iPhoneQA pending.
+
+
+### 2026-10-08 — Dragon all8 image gate PASS and runtime promotion
+
+025d4bb/tree9131a174 remote/local clean matched. Runtime37780926425/Home37780926581/Character37780916572 SUCCESS.04fix artifacts11552082313/11552726107:fourviews/32states/2distance directly inspected;wing now attached. Other7fourviews28/28 andstate images/contact sheets231/231 byte-identical to inspected a65ceb5;their prior14distance review remains valid. Metadata all8exact/fallback0/errors0/failedTemplates0. All8image gate PASS;physical/source-style simplifications andHuman/iPhone limits retained.
+
+Runtime all8 lookup test RED(null) before existing-factory registration,then GREEN. Obsolete Dragon isolation guards now protect unreviewedPhoenix. Fresh dedicated236PASS/0FAIL after28/28rollout mutations andrestoration. Diff afterrestoration contains onlyDragon registry addition;completed registrations preserved. Pilot28hashes unchanged. Independent promotion review C0/I0;final restoration checked by parent. Coverage212/293,81pending(40player+41nonplayer),26playerfamilies/208stages+3companions+1partner. Fourview records210/293 is not fullcoverage.
+
+No new geometry inpromotion. Latest fullnpm remains pre-promotion a65ceb5:3013+80PASS/exit0;not claimed rerun after registration. New26familyaggregate/CI pending after save. Next remainingfiveplayerfamilies and41nonplayer,then full293QA/HumanQA.
+
+## 2026-10-08 Dragon promotion saved; Phoenix representatives accepted
+
+Dragon promotion ce809aa82ec5b934eece4bcfb6738832d137e39a/tree df5cff023672624507fb0cb99ae13b61108edb4a saved by Git Data API nonforce leased ref. Fresh fetch/local/remote/tree clean matched. New Character37788145192,Runtime37788161396,Home37788161431 queued at check;no success claim yet.
+
+Phoenix025d4bb corrected03/07:8fourviews,64state cells,4normal-distance inspected.07cream feather borders and layered breast now distinguish plumage,expressions/attached anatomy remain readable. PASS_REPRESENTATIVE_IMAGE_GATE supersedes6a color rejection.78original image files archived in2stage ZIPs with SHA256manifest and raw metadata. Candidate metadata2exact/player3d,fallback/errors/failedTemplates0. Runtime212/293,81pending unchanged;remaining6Phoenix stages next. No product code change or new fullnpm run in this checkpoint;notHuman/iPhone acceptance.
+
+## 2026-10-08 Phoenix all8 candidates, no promotion
+Fresh remote/local/tree6a782784 matched; existing work reused. Added source-derived01/02/04/05/06/08 through plumed_bird, preserved03/07.238dedicatedPASS;7factory+5stage mutations detected/restored;28Pilot hashes unchanged. Reviewer Critical0/Important0;2minor notes in candidate verification.json. Existing Actions motion capture expanded toPhoenix all8. Local Chromium unavailable; all8 image gate pending, runtime212/293 remains. No fresh fullnpm claimed.
+Dragon ce809aa Runtime37788161396/Home37788161431 SUCCESS. Character37788145192 remains incomplete; botanical-candidate-distance(sakura) CANCELLED, stage evidence running.26family/208stage aggregate not yet confirmed.
+Evidence: docs/qa/character-3d-full-v0/fr5-mythic/phoenix-all8-candidates/. Next review new Actions Phoenix all8 fourviews/states/distance, then promote only if accepted.
+
+
+### Phoenix actual image review and durable export (2026-10-09)
+
+9fad artifacts were recovered by the existing recovery workflow using the Actions artifact API, digest-checked, packaged with original bytes, and saved as Git Data objects. Evidence commit014dcc7 contains GitHub-renderable boards/distance images and raw ZIPs. Local verification matched all299wave+17distance file hashes. Actual32fourviews/256states/16normal-distance inspection rejected04-06 detached/fused raised wings and08 open coal gaps.01/02/03/07 visually acceptable;no promotion.
+
+Corrections move raised shoulders inside the torso, spread feather endpoints with pale edges, and close the coal footprint.03/07 definition hashes and28Pilot hashes remain identical.239dedicatedPASS;7/7stage and7/7factory mutations detected/restored. Review Critical0/Important0. Corrected images pending;runtime remains212/293.
+
+9fad Character37793464360 all56jobs SUCCESS, including26family/208stage aggregate;Runtime37793476456 andHome37793476851 SUCCESS. Scoped `[qa:phoenix]` commits retain full dedicated regression and capture Phoenix only; skipped unrelated capture jobs are not a new integration PASS. Full ordinary commits retain the original complete matrix.
+
+
+### Phoenix all8 image acceptance and runtime promotion (2026-10-09)
+
+fde2580 corrected images:PASS32fourviews/256states/16normal-distance.04-06 shoulder attachment and separate pale-edged feathers,08 closed coal mound visually verified.01/02/03/07 wave148images match prior inspected bytes exactly;all16distance images freshly inspected because scene/HUD differs. Evidence immutable under export/fde2580...,savedf7b8ba9. Raw299wave+17distancefile SHA256 verified.
+
+Phoenix registered via existingmythicfactory only after this gate.240dedicatedPASS,29/29rolloutmutations detected/restored,28Pilot hashes unchanged.03/07 definition hashes unchanged. Coverage220/293,remaining73=32player+41nonplayer;27families/216playerstages. Fresh27/216Actions aggregate pending;scopedfde3successjobs+15SKIPPED is not full integrationPASS. Fullnpm remains the historical pre-Dragon run,not a new claim.
+
+Remaining representative image review:god,ghost,unknown PASS8views/64states/4normal-distance each.Star03 REJECT:core appears below/in front of galaxy ring at normal distance;fix composition before expansion.Original archives and per-family reasoning saved under export/9fad.../remaining-mythic-representatives/visual-review.json. No remainingfamily promoted.
+
+
+### God remaining stages candidate batch (2026-10-09)
+
+After god03/07 representativePASS,added source-derived01orbseed,02wingedinfant,04goldstaff,05longrobe+blueorb staff,06calm elder+doublehalo,08goldray orb. Existingcelestialfactory now has optional birth/rebirth orb path and hand-ownedstaff.03/07 definitions unchanged. Review found02/08 wings static underblobFloat;actual-motion test failed thenpassed after sharing the existingcelestialwing formula betweenhumanWalk/blobFloat. Expression unchanged.
+
+243dedicatedPASS,9/9celestial+7/7stage mutations detected/restored,28Pilot hashes unchanged. God runtime remains unregistered;coverage stays220/293. All8 images pending;no imagePASS claimed. `[qa:god]` scopes candidate capture and mutation to relevantfamily while retainingfull dedicatedregression;ordinary commits keepfullcapture/mutationmatrix. Phoenix c67ba80 postpromotion27/216aggregate remains pending.
+
+
+### Ghost all8 candidates; God image recovery request
+
+Ghost01/02/04/05/06/08 use the existing spectral factory: small wisps, raised hands, long beard and ascending halo/gold sparks.03/07 remain definition-identical. Runtime remains220/293 (73pending); no Ghost/God registration.245 dedicated PASS;7stage+8spectral mutations detected. After mutation, missing03 was explicitly restored and representative equality/full suite verified; the spectral harness now asserts its restored baseline.28Pilot hashes match. Code review Critical0/Important0; image gate pending.
+
+God source3a1212e scoped Character37872664719 SUCCESS (3success/15skipped); original wave11591270378 and distance11590528811 requested through the reusable artifact API exporter. Ghost scoped capture uses existing workflows. Phoenix postpromotion27family/216stage aggregate still pending; no scoped run is counted as integration or Human/iPhone acceptance.
+
+
+### God actual image review: staff visibility correction
+
+Source3a1212e images archived at5d9e296;299wave+17distance hashes verified. Reviewed32fourviews/16normal-distance:04/05/06 REJECT because inward-tilted staff finials disappear behind head/hair.01/02/03/07/08 also reviewed through160statecells and PASS. Rejected-stage states deferred to corrected capture.
+
+The existing staff remains attached at the same hand grip, with outward local rotation to clear the head. Regression test reproduced the occlusion bound RED then GREEN;8/8stage+9/9celestial mutations detected/restored;212family-dedicated+34base=246PASS,28Pilot hashes identical. Review Critical0/Important0. ScopedGod recapture required before promotion; coverage remains220/293.
+
+
+### Unknown all8 candidates and Ghost image export
+
+Source01/02/04/05/06/08 use existing mystery_blob with owned optional antennae, featherwings and curl;03/07 JSON unchanged.249 dedicated PASS;7/7stage+7/7factory mutations detected/restored;28Pilot hashes identical. All8 image gate pending; no registration,coverage remains220/293.
+
+Ghost source4f3a839 scoped Character37873539531 SUCCESS (3success/15skipped),wave11591341783/distance11590574842 requested via reusable artifact API exporter. God staff corrected86dfd3a capture37873967912 still pending.
+
+Review found stationary Unknown05 wings; fixed via existing owned feather-wing metadata, with actual motion RED/GREEN and mutation detection. No shared animation implementation change.
+
+
+### Ghost image PASS; Star03 representative correction
+
+Ghost4f3a839 actual32fourviews/256states/16distance inspected PASS;299wave+17distance hashes verified, archivedf1b57c4. Runtime promotion remains separate.
+
+Star03 source galaxy was rejected for face projecting in front of a narrow ring. Move corez .35 to.08 and reduce tiltx1.10 to.65; centered-core/projected-disk RED/GREEN, existingthree-angleface ray checks retained. Side-depth minimum adjusted.9 to.6 for intended tilt, still detects flattenedgeometry.6/6cosmic mutations detected/restored;250dedicatedPASS;reviewCritical0/Important0.07unchanged. Scoped representative recapture, no premature expansion. God corrected86dfd3a Character37873967912SUCCESS;wave11591451520/distance11591597496 exportrequested.
+
+
+### God + Ghost image-approved runtime promotion
+
+God corrected86dfd3a PASS32views/256states/16distance;185unchanged stage01/02/03/07/08 waveimages exacthash matched prior actualreview.04-06 staff finials now visible across96freshstates;299wave+17distance hashes verified,archivec543cdd. Ghost4f3a839 PASS32views/256states/16distance previouslyrecorded.
+
+Register only God/Ghost all8;runtime tests RED/GREEN,252dedicatedPASS,31/31rollout mutations detected/restored,28Pilot hashes identical. Coverage236/293,57pending=16player+41nonplayer;29families/232playerstages;234fourviewrecords,not finalall293QA.
+
+Phoenix c67ba80 Character37871872563 completed57/57SUCCESS (0failure/0cancelled/0skipped);27family/216stage aggregation113640335472SUCCESS,artifact11591862686. Runtime37871878184/Home37871878268SUCCESS. New29/232 aggregate pending. Unknown47e6264 scoped Character37874359307SUCCESS;exportrequested. Star correctedbc91033 scoped Character37874666009SUCCESS;image reviewpending. Human/iPhone remain separate.
+
+
+### Unknown05/06 silhouette correction; scratch recovery
+
+Unknown47e6264:32views/16distance reviewed,05uprightnarrowwing/body and06thinelongatedbody REJECT. Source board correctly preserves aspect; preliminary scratchcontactsheet had independently capped width/height and distorted proportions.05rounderbody/outwardfan,06broadpear corrected in data only. Other01/02/04/08 actual128statesPASS;03/07prior64states reused with74identicalwaveimages.299wave+17distance hashes verified.252dedicatedPASS;8/8stage mutations detected;lingering lastmutation explicitly restored factory to HEAD and fullsuite reverified. Actual correctedimagegate pending,no promotion.
+
+Scratch disappeared after7ab521e save; freshclone restored remoteHEAD/tree1b19f6926d30a178d0c0821d338e1ca6d9f85d41 clean, npmci succeeded. In-progress d87fullnpm completionlost,notPASS. All implementation/evidence survived in GitHub. Starbc91033 source37874666009SUCCESS exportrequested through existing recoveryworkflow.
+
+## Star all8 candidates / Unknown corrected all8 image PASS
+
+- Star bc91033 representatives: actual8views/64states/4distance PASS; durableGit archive35859c5,82filehashes verified. Remaining6 source-derived cosmic candidates added;03/07/factory untouched.254dedicatedPASS,7stage+6cosmic mutationsdetected/restored;reviewCritical0/Important0. All8capture pending,no registration.
+- Unknown8b6fcae:32views/256states/16distance PASS;05/06fresh64states,remaining192states reused via222identicalimages. Archivefcf8844;299wave+17distance hashesverified. Runtime promotion ready.
+- Full npm completed on fixed8b6 implementation:3017+Relationship80PASS,0FAIL,exit0; archived full-npm-8b6. Separate from later Star expansion and futureUnknownpromotion.
+
+## Unknown runtime promotion / Star all8 retrieval
+
+- Unknown all8 registered only after8b6actualimagePASS.255dedicatedPASS,32/32rollout mutations detected; restored diff and255PASS rechecked;28Pilot hashes identical;reviewCritical0/Important0.244/293 exact,49pending=Star8+nonplayer41;242fourviewrecords.
+- Star2789b99 scopedCharacter37877360650SUCCESS;all8wave/distance export requested using persistentGit evidence mechanism. NoStarregistration before realall8review.
+- Fullnpm8b6:3017+80PASS remains preUnknownpromotion evidence;no repeat fullnpm claimed.
+
+## Owl candidate / reusable scoped nonplayer QA
+
+- Existingavian reused with optionalpairedtufts,breastfeathermarks andwingattachmentdata;owl sourcepose asymmetricfoldedwings. Prior nonplayersdeep-equal;Pilot28hashes identical. Productionowl remains isolated.
+- Existingnonplayercapture accepts --keys andscopedworkflow avoids completedfamilies. Existingexporter directlypublishes role0fourviews,normaldistance,andboards;6testsPASS including selection usingfamilies:[companion].
+-257dedicatedPASS;owl4+nonplayer4mutationdetected. Finalsunflower mutation persisted despiteharnessrestorationlog;explicitlyremoved,existingnonplayerdeep equality and257PASS reverified. ReviewCritical0/Important0. Actualowlimagegate pending.
+- Star2789b99 all8captureSUCCESS;recovery37877945943 remainsqueued. Same request retained withexporter update;no uninspectedimagePASS.
+
+## Star01 image correction / Punyu candidate / Owl export
+
+- Star2789all8 archive5cf15f1:32views/16distance inspected,01REJECT(overregularring).Other7 accepted:5fresh160states+03/07prior64states via74identicalwaveimages.299wave+17distancehashesverified.01dataonly irregularwisps/shortarcs fix;other7/factoryunchanged;8stage mutationsdetected. Recapturepending.
+- Punyu originalyellowmeltingbody viaexistingblobfactory dataonly,foldedtip/lefttrail/scallopedbase.2targetPASS,3mutationsdetected/restored. Roleisolated. Combined260dedicatedPASS. Scopednonplayerselection moved toJSON,combinedStar/nonplayercapture avoids completedfamilies;review found missingpush.path forJSON and itwasadded.
+- Owl671captureSUCCESS,artifact11593312304 exportrequested;actualimagegatepending. Starf6recoverySUCCESSwaspublished;redundant671recoveryFAIL branchmovedbeforeexport,accuratelyseparate.
+
+## Owl actualimage correction / Star-Punyu batch retrieval
+
+- Owl671 archive6a55b97:41hashesverified;4views2distance actuallyinspectedREJECT(breastpaint aliasing into broadbands,heldwinghidden,creamdiscs too small). No32stateacceptance claimed. Optionalavian physicalsurfaceVs,largerdiscs andper-sideforwardfoldedwing fix;261dedicatedPASS,5mutationdetected/restored,28Pilot hashesidentical. Recapturepending,nopromotion.
+-12fb2c6 Star+Punyu scopedcaptureSUCCESS,threeartifacts requestedtogether throughdurableexport. Star01/Punyu actualreviewpending.
+-d87God/Ghost Character37875308764:59/59SUCCESS,0FAIL/CANCELLED/SKIPPED;29stagefamilyjobs,stagecoverage113651820721SUCCESS(29families/232stages). Unknown30familyaggregate separatepending.
+
+
+## Star all8 promotion / cactus candidate
+Star12fb2c6 actualimage gate PASS:32fourviews,01fresh32states,other7 224states reused through259byte-identical waveimages,all16normaldistance.299wave+17distancehashes verified. Archive5715b51 and siblingvisual-review.json record the decision. Runtime now31families/248playerstages;252/293 exact,remaining41nonplayers,250fourviewrecords.264dedicatedPASS;33/33runtime mutationsdetected/restored;28Pilot hashes identical.
+Punyu actual4views REJECT:radialfan-folding/lostupperhook/innercoreleak.41rawhashesverified;states/distance not approved. No promotion. Owl corrected46ff captureSUCCESS;durableexport requested. Cactus isolatedcandidate reusesbranchfactory with optionalclosedcolumn,raisedarms,ribs/spines/roots/pinkflower;2targettests,4mutations,28Pilot unchanged,reviewCritical0/Important0. No cactusimageacceptance.
+Draft376/basePilot retained;no gitpush/main/Ready. Last fullnpm remains8b6 implementation3017+Relationship80PASS,not currentpromotion. Human/iPhone remain separate.
+
+
+## Nonplayer actual image corrections
+Correctedowl46ff images durablyarchived5a78d95;41rawhashesverified. Actual4views+32states show breastVs improved butheldwing stilloccluded;REJECT,normaldistance notapproved. Worldrayregression nowtests assembledforegroundvisibility;shoulder/length/forward data corrected,5mutationsdetected,reviewCritical0/Important0 incl.eyevisibility.
+Punyu uses optional concave triangulated/inflated volume inexistingblob geometry;defaultLoft unchanged. Notchandcoreleak regression;review foundcollapsedboundary-ear triangles,correctedusinginteriorcentroids/sharedmidpoints. Closedmanifold+nonzeronormals pass,13440triangles,4mutationsdetected.267dedicated afterrestoration,28Pilotunchanged,reviewCritical0/Important0. Fresh scopedcapture owl/punyu/cactus requested;none promoted,coverage252/293.
+
+
+## Parrot isolated candidate while scoped images queue
+Existingplumed_bird reused forsourcewhiteasymmetricwings,yellowfancrest,longtail andoptionalhookedgraybeak. DefaultPhoenixbeakpath unchanged.269dedicatedPASS,4/4Parrotmutationsdetected/restored,28Pilotidentical;reviewCritical0/Important0. No runtimepromotion;freshParrot scopedcapture requested. Prior d40 owl/punyu/cactus run37881625921 queued,notPASS. Unknown f6postpromotionCharacter37877945590 nowall60SUCCESS incl30families/240stages aggregate113660635981;Runtime/Home alsoSUCCESS. Star31familyaggregate stillrunning. Coverage252/293,41nonplayerpending.
+
+
+## Clock candidate / ordered-mutation anchor fix
+Clock reusesrigid_object withoptionalroundedhousing,detailvolumes/paths,explicitdialfacetarget. Sourcebluecase,creamdial12marks2hands,pairedbells/handle,feet/arms/winder.2targettests,3mutations,271dedicatedPASS,28Pilotidentical,reviewCritical0/Important0;no imageapproval.
+Parrot090d0d00 capture113663562927SUCCESS butoverallCharacter37882013865FAIL:dedicatedcactus mutation searched old return-first-box prefix changedbycandidate addition. Corrected cactus/sunflower mutation anchors tostableownrole rows;4+4mutationsdetected/restored. No falseCIpass. d40Character37881625921SUCCESS,owl/punyu/cactus artifact11595151601durableexport requested. Freshclock/parrot scopedcapture requested;coverageunchanged252/293.
+
+
+## Cactus actual PASS and promotion; rejected Owl/Punyu remain isolated
+Archiveb9e0cf95/d40 contains121rawfiles withverifiedhashes. Cactusactual4views32states2normaldistancePASS;onlypartner:oasis_cactus promoted.253/293 exact,40pending,251acceptedfourviewrecords.7/7nonplayerrole/runtime mutationsdetected/restored,271dedicatedPASS,28Pilotidentical,reviewCritical0/Important0.
+Owl4viewsREJECT:heldwing appearsflatrectangular andcoversmouth. Currentflipperstructure needsreconsideration before anotherfix;notregistered. Punyu4viewsREJECTsurfacecreases despiteimprovedhook/noinnercoreleak;optionalconcavegeometry nowuses smooth-minboundarydistance andsurfacegradientnormals;4/4mutations andclosedmanifold testsPASS,reviewCritical0/Important0,freshimagesrequired.
+Clock/parrot dcCharacter37882448856SUCCESS;artifact11594323377durableexport requested. Earlier090dedicatedFAIL retained,notrewrittenasPASS. Draft376/basePilot maintained;Human/iPhone andfull293QA stillopen.
+
+
+## Clock/Parrot image corrections; Punyu surface recovery
+Actualdc4views eachREJECT;81rawhashesverified. Clockellipsoidhousing leftdialperimeter gap,nowoptionalroundedlathe case closes it withrayoverlap regression. Parrotbellylowered/smallerhook/eyes40/mouth116,canonicalfeature rayclearance and128pxatlasmargin verified.273sharedfactorysuitePASS beforefinalParrot-onlymouthdata;final6targetPASS plus3Clock/6Parrotmutations restored,28Pilotidentical,reviewCritical0/Important0. Freshscopedimagesrequested;neitherpromoted. d772Character37883016188SUCCESS,correctedPunyu surfaceartifact11595377978 exportrequested. Coverage253/293 unchanged.
+
+
+## Punyu normal-distance gate and continued candidate execution
+Punyu d772 archive7a46f3c9:41hashesverified;actual4views32states nowreadable withimprovedsurface. Bothnormal-distance images showconstantidlehover inheritedfromblobFloat;REJECT pendingexistinggroundedgait opt-in. No promotion. CorrectedClock/Parrot540Character37883629394SUCCESS,artifact11594524231exportrequested.
+Remainingplan recorded innonplayer-execution-plan.md;source-derivedcandidates useexistingfactories. Oneisolatedimplementer atatime plus taskreview;root retainsactualimage gates/GitDataAPI saves. FreshOwl feather-volume correction replacesfailedsmoothflipperapproach;Punyu groundfix queuedseparately. No sharedworktree mutation interference. Coverage253/293 unchanged;allactualrejects remainexplicit.
+
+## Clock approved; Owl/Punyu scoped corrections — source135d4d36
+- CorrectedClock/Parrot540 evidence archived135d4d36;81raw SHA256/size entries verified. ActualClock4views/32states/2normaldistance PASS. OnlyClock promoted:254/293,39pending,252acceptedviewrecords. Role7/7mutations restored,5targetPASS,reviewC0/I0.
+- ActualParrot4views REJECT crest frontal-plane fan/side spike. Earlierbelly/face issues resolved;states/distance notapproved. Task13 adjusts existingcrest paths;no promotion.
+- Owl reviewedcda9a01d:closed layeredfeathers replace leftflipper through opt-in existingavian/plumeGeometry;7targetPASS/9mutations,defaultavian hashes exact. ReviewC0/I0;minor test-camera squash precision parked after independentfixed-camera32state raysPASS. ActualimagegateOPEN.
+- Punyu reviewedd8185891:existing squashHop opt-in fixes idlecontact;4ground tests/43focusedPASS,removalRED/restored,reviewC0/I0. Integrated8PunyuPASS. Defaultblob untouched. ActualimagegateOPEN.
+- Dedicated276PASS withOwl/Clock before newPunyu file was included in glob;finalPunyu8PASS afterintegration.28Pilot geometry/animation hashes identical. Fullnpm remains8b6fcae3017+Relationship80,notcurrentHEAD.
+- Scopedcapture selectsOwl/Punyu only. Starpromotion Character60jobsSUCCESS,31/248aggregatejob113671073543 stillQUEUED;Runtime/HomeSUCCESS. Cactuspromotion all3SUCCESS. Draft376 maintained;Human/iPhone remainseparateopen.
+
+## Parrot backward crest correction / Owl-Punyu export
+- Revieweded22c072 changesonlyParrot crest paths to backwardfan;existingfactoryunchanged.7Parrot/PhoenixfocusedPASS,7mutations detected/restored,reviewC0/I0;integratedParrot4PASS. No imageapproval orpromotion.
+- d59597d1 Character37885171482SUCCESS;Owl/Punyu artifact11596565387 exported throughreusableGitHubAPI workflow request. Actualimagegatepending.
+- d3e64f0d31family/248stage aggregate113671073543SUCCESS,all61CharacterjobsSUCCESS,artifact11596131925. Runtime/HomeSUCCESS. This closesplayerregistrationaggregate,notFull293orHuman/iPhone.
+- Task2 smallmammals progressingisolated;coverage254/293 remains.
+
+## Owl/Punyu/Parrot actual image approval — archives70dea050/a196ca6c
+- d595Owl/Punyu81rawfiles and980Parrot41rawfiles SHA256/size verified. Actually inspected each4views/32canonicalstates/2normaldistance. All3PASS:Owlheldfeathers nowreadable withoutfaceobstruction;Punyu idlecontactsground;Parrotcrest sweepsback withside/34separation.
+- Onlythese3added to approved runtime,257/29336pending255approvedviewrecords.59scopedpromotion/sentineltestsPASS;role7/7mutationsdetected/restored;reviewCritical0/Important0. Sourcefactories/data unchanged bypromotion. Unreviewedauthornaoto replacesOwl nullsentinel.
+- d595 and980 CharacterSUCCESS. Starpromotionall61jobsSUCCESS/31families248stages aggregate113671073543SUCCESS,artifact11596131925. Human/iPhone remainopen;no currentfullnpm claim.
+- Task2 smallmammals inisolatedworktree;Task14 will select relevantmutationtools fromexistingQAkeys,failunsupportedkeys,retainfullintegration.
+
+## Five small mammal candidates and scoped mutation CI
+- Task2 local7b156a90+dbad339d reusesexistingsoft_toy forrabbit_friend/tanuki/squirrel/hamster/panda, allruntime-isolated. Optionalclosedears/props/tails/naturalmarkings/face-layout retainexistingdefault8plushgeometryhashes. Existing7savednonplayerrowsstrictlydeep-equal,Parrotcrestpreserved.
+- Initial12focusedPASS/15mutationsrestored;reviewfoundImportantzeroeye-raygap inclosedemotions. Fixusesactualeye frontdepth/normalcap,assertsnonemptyper-eye samples;6affectedchecksPASS andspecificpositive-eye obstructionmutationRED/restored. Independentre-reviewC0/I0;no productiongeometrychangebytestfix. ActualimagesOPEN.
+- Task14 afcac5c3 scopedCIselector choosesfixedexistingtools fromsamecapturekeys;validatesallbeforeexecution,deduplicatessharedtools,propagatesfailure,unknown/emptykeysfail.5targetPASS,actualCactus4mutations/restored,reviewC0/I0. Dedicated/unscopedintegration/otherfamilygates preserved.
+- Integrated299dedicatedPASS/0FAIL/exit0;28Pilot geometry+animationhashesidentical. Rolepromotion7mutations previouslyPASS/restored,59scopedpromotiontestsPASS;no sourcechangeafterthose rolechecks. Fullnpm remains historical8b6fcae,notcurrent.
+- Captureselectsonlynew5. Task3 independentcandidateworkcontinues inisolatedworktree. Allunconfirmedgates remainOPEN.
+
+## aabd dedicated CI failure — diagnostic output
+- Character37888909373 dedicated113685130130 failed inFreshinventory/dedicated before scopedselector. LocalNode24 299PASS remainslocal-only;CI Node22failure isnotPASS. Capture wasstillrunning atlastcheck.
+- FailureTAP existed onlyinartifact11597204233;connectorprovideddownloadalso403,notretried. Existingworkflow nowprintsTAPonfailureand exits1, preservingtestcommand/allgates. IndependentreviewC0/I0 andbashfailureprobeconfirmednonzero. Systematicdebugging gathersactualerror beforeproductionfix.
+- Task2five remainunregistered/imageOPEN. Task3 isolatedcandidateworkcontinues.
+
+## Ten mammal candidates — scoped continuation
+- Fresh remote284ebdac matched localHEAD/tree/clean. Character37889668789 capture113687497568SUCCESS, dedicated113687497785FAIL: only fixed plush06 byte-hash expectation differs in Node22 CI versus Node24 local. Test failure is preserved; no candidate imagePASS or promotion claimed. Same-runtime frozenbaseline comparison replaces this brittle hash: SHA-pinned pre-Task2 factory, exact attributes/index/owner/transforms/face comparison; defaulttessellation negativecontrol detected/restored. Node22CI confirmation remains pending.
+- Added source-derived otter/monkey/sheep/seal/hedgehog through existingsoft_toy opt-in fields. Task3 focused13PASS and15/15mutationsdetected/restored; independentreviewC0/I0. Main integrated13+selector6=19PASS. Existing12nonplayer rows/geometry preserved by independentcomparison;28Pilotgeometry+animationhashesidentical.
+- All10mammals remaincandidate-only; scopedcapture/mutationselection includes bothbatches. Existing actualapprovedClock/Owl/Punyu/Parrot records retained. Coverage257/293,36nonplayerspending; imagegate andfinal293/Human/iPhonegates remainOPEN.
+- Final combined313dedicatedPASS/0FAIL/exit0;Task2fix2reviewC0/I0. ExactNode22 rootcause notprovenlocally; CI confirmation pending. No fullnpm repeated.
+
+## Birds/reptiles candidates and reusable legacy evidence
+- Task4 fivecandidate roles remainunregistered:bat,chicken,penguin_friend,snail,chameleon. Existingsoft_toy/plumed_bird opt-ins only;actualsourceposes includehangingbat/slidingpenguin/head-owned canonicalsnailface.14candidate+28priorfocusedtestsPASS;15/15mutationsdetected/restored.17existingnonplayer records/rigs preserved exactly in same runtime;sourceplush8/Phoenix/Parrotdefaults preserved. Selector7PASS.
+- Prior308Character dedicatedregressionstepSUCCESS onNode22;fullrun/capture stillpending. Controller omittedexisting[qa:nonplayer]commit tag, causingexpandedcapture/CI;no redundantrestart andfuturecandidate savesusecorrecttag.313localdedicated result belongs308source,beforeTask4.
+- Historicalcat_friend/shiba quality3cf7b rightmostfourviewtiles actuallyinspected. Source/currentgeometry+32stateanimationhashes exactlymatch;provenance/imageSHA inlegacy-four-view-review.json. Reuseforintegrationmapping;doesnotclosefullstates/distance/Human/iPhonegates.
+- Coverage257/293 remainsunchanged.15candidatesawaitactualimageQA;next4unusualcompanions underwayin isolation.
+- Task4 independentreviewC0/I0 and9independentscopedPASS;all3productionSHA matchrestorationlog. Integrated28Pilotgeometry+animationhashesidentical. ActualimageQA remainsOPEN.
+
+
+## Five nonplayer image approvals and localized candidate fixes
+
+- Original ten-mammal evidence archived at 92ec6598 through the existing API exporter; 601 raw SHA256/byte counts verified. Source308 Character61/61, Runtime and Home SUCCESS.
+- Actual 4-view/32-state/2-distance PASS: chicken, penguin_friend (source5aac), panda, sheep, seal (source308). Only these five promote:262/293,31pending,260four-view records.
+- Seven source308 mammals remain rejected for physical connections; see exported visual-review.json and connectivity-review.md. Their appearance is not approved merely because code tests pass. Localized repair proceeds without changing passed roles.
+- Task4 bat/snail/chameleon fixes09d5cb5b and Task5 candidates5069aeda pass independent code/spec review; corrected/new seven-image gates remain OPEN. Scoped capture selector includes exactly these seven, with the established mutation mapping.
+- Task45 integration:37 focused PASS, exact22+4candidate row merge,28Pilot hashes unchanged. Reuse affected mutation/restoration evidence; no full npm replay. Human/iPhone and full293 integration remain OPEN.
+
+- Save gate:344 dedicated PASS,28Pilot identical. Review found three stale mutation selectors after promotion test rename; corrected and3/3 targeted RED/restoredGREEN with exact byte hashes. Updated role mutations6observedRED; unchanged QAoverlay reuses prior7/7campaign evidence. Final restored role testsPASS.
+
+
+## Seven mammal physical-connection repair
+
+- b03971d9 addresses the actual source308 rejects using existing closed paths owned by the existing limbs and local leaf/stone grips; no shared factory changes. All seven remain unregistered until fresh actual-image gates.
+- Seven new produced-triangle contact sweeps cover32states and five sampledframes;33targetPASS and21/21disconnection controls detected/restored. Passedpanda/sheep/seal generatedgeometry identical;15unaffectedrows identical. Root merge proves7fixed+19unchanged rows and35integrationtestsPASS.
+- Selector adds contact mutation coverage onlyforsevenrepairedkeys, alongsideexistingmutators;10selectorPASS,independentC0/I0. CandidatefixreviewC0/I0.
+- d1f71992 dedicatedCI113708358659SUCCESS; previous7candidate imagecapture remainsinprogress. Nextcapture selects onlythesevenrepairedmammals; no repeatedpassedrole images. Task6partnersimplementation continues.
+
+- Fresh d1f71992 Character37896316097SUCCESS (2success/16skipped); seven-roleartifact11600044828 export requested alongside next repair capture. Runtime/Home still lastobservedIN_PROGRESS; no falseSUCCESS.
+
+
+## Eleven companion approvals and five partner candidates
+
+Fresh authority a2878b4c. Actually inspected d1 bat/snail/chameleon/sekizou and e8 rabbit_friend/tanuki/squirrel/hamster/otter/monkey/hedgehog: each four views,32 expression/motion states,two normal-distance views PASS. Both archives verified281raw hashes; repaired-site independent reviews C0/I0. Promoted11, coverage273/293,pending20,271four-view records; legacy cat/shiba board mapping remains separate. Watcher/Unicorn/Fox remain REJECT and unregistered pending corrections/freshimages.
+
+Task6 five mammal partners implemented with existing factories; quadruped body.segments is opt-in and defaults unchanged. Cow upper grass leaf constituent disconnection fixed with actual closed-volume graph regression and old-placement negative control.18focusedPASS,13mutations detected/restored,independentC0/I0. Integrated dedicated372PASS;Pilot28hashes unchanged; selector11PASS. Allfive remain unregistered until actual image gates.
+
+The e8 Character run37897241823 remains FAILURE from stale mutation anchors; capture113711274552 was SUCCESS. Three narrow anchor corrections validated all53affected mutations and exact restoration. Exporter now permits explicitly validated successful capture from a completed failed run without approving images or CI:12Python testsPASS,C0/I0. Recovery37900096598SUCCESS saved60allowlisted files ata2878b4c; avoids redundant recapture and client-side403. Draft maintained; Human/iPhone and final293integrationOPEN.
+
+
+## Five partner image approvals and three source-specific corrections
+
+8f2242e3 capture113723754605SUCCESS; exportedviaRecovery37902156429 andsaved44files at9e8caf3a,201rawhashesverified. Rootactuallyinspected cow/bear/deer/goat/gorilla each4views32states2distancePASS;independentfourviewC0/I0. Same-runtime32stateproducedmesh/worldmatrixhashes matchbefore/after sharedTask5changes. Promoted5:278/293,15pending,276four-viewrecords.
+
+Task5fix2 atlocal05794054 corrects Watcher pupil/iris, Unicorn flowed/taperedownedlocks andFox outwardclosedcapnormals.16focusedPASS,9scopednegativecontrolsdetected/restored,23priorrowsunchangedinworker;28priorrowsincluding5partnersunchangedafterintegration. Defaults preserved withfrozeninput comparisons, no mutabletablefreeze. IndependentC0/I0;integrated376dedicatedPASS/Pilot28identical. Three roles remainunregistered pendingfreshactualimages; nextcaptureonlythese3. Task7fourhumanoidpartners underway.
+
+8f dedicatedFAILURE is retained: oldbase tests26/27 treated nowpromotedtanuki asunimplemented. RootreproducedRED, addedpositiveexacttanuki/canonicalemotion and permanently missingmodel companion/partner fallback assertions;2PASS andC0/I0. No productionbehaviorchanged. FourtargetedpromotiontestsPASS; finalnpm/Human/iPhone/full293integration remainOPEN.
+
+
+## Fox/Watcher approved; Unicorn remains rejected; humanoid partners ready
+
+64d739f9 Character37903430971SUCCESS (dedicated113731082088/capture113731081943); Recovery37904116438SUCCESS saved28imagefiles at4fba9e41,121rawhashesverified. Rootactuallyinspected allthree4views32states2distance. Watcher darkpupil/paleiris andFox outwardtaperedclosedtips resolvepriorREJECT;independentreviewPASS. Unicorn stillREJECT: oversizedhollowmane loops anddominantinverted-Utail ratherthanlayeredflowingS-shapedsourcehair. Originalworkerfixround3; no prematurepromotion. PromotedonlyWatcher/Fox, exact280/293,pending13.
+
+Task7fourhumanoidpartners implementedata68dacea,19focusedPASS17scopedmutationRED/restored,31priorrowsunchanged,independentC0/I0. Optionalexistingsoft-toy swimHover/hover preservesdefaults andTask5cap/taperoptions afterintegration;12selectorPASS/Pilot28identical. ApprovedWatcher/Fox same-runtimeproducedgeometry+worldtransformsall32statesmatchcaptureafterTask7factorychange. Fournewrolesremainisolatedpendingactualimages.
+
+Legacycat/shiba existingfourviewboards now mappedviaexactrole/model/stage/path/layout/PASS/SHAguards, explicitcomparison-board/rightmostfourdescriptor;6focusedPASS,C0/I0. No fakefourrawphotos andnostate/distanceapproval. Fourviewrecords280,othercoverage unchanged. Finallegacy states/distance,all293integration,finalnpm,Human/iPhoneOPEN.
+
+Integrated finalbatch399dedicatedPASS,12selectorPASS,7/7rolemutationsdetected/restored,28Pilotunchanged.64d739f9HomeSUCCESS;Runtime37903441922 stillIN_PROGRESS atlastfreshcheck, distinctfromSUCCESS. No fullnpm repeat.
+
+Unicornfix3 cdf38a00 changesonlythreeownedhairpathlists to4head/5neck-back/4staggeredtail locks;17focusedPASS,oldrejectedringnegative1/1RED-restored,maxactualexpression16826,C0/I0. Integratedafter399baseline with5scopedPASS;allother30savedrows unchangedincl signedzero,Task7adds4. BatchnextcaptureTask7four+Unicornonly, retaining priorUnicornREJECT untilfreshactualimages.
+
+## 2026-10-09 — Four actual image approvals; six scoped candidates
+
+- Source `5d36cb9a25e6cd9b09a5ab4d31b3badc305a94c0` Character CI37906158821 SUCCESS. Recovery37907237876 SUCCESS archived201 SHA256-verified rawfiles at `2acc0c1b74288fade84a7802beda68918559d892` usingexisting authenticated Actions→Git Data export, no clientZIP retry.
+- Actual fourviews/all32states/two normaldistances PASS for Unicornfix3, CatCEO,Robot,SnowSpirit; independentfourview/source review agrees. Promotedonlythese4:284/293 exact,9pending,284fourviewrecords.
+- Mermaid REJECT: realoriginal hascontinuous tealbodice, formerbriefincorrectlyspecifiedpink/redtop. Candidate corrected locally toclosedtealbodice;4affectedsource/contact/32state suitesPASS, oldpinktopnegativecontrolRED/restored. Freshimagegatepending;notpromoted.
+- Task8fiveaquatic/invertebrate candidates integrated withsharedfactoryduplicateoptins omitted. Prior22PASS/17REDrestoredreused. Reviewfoundinwardterminalcaps;all70newpaths nowuseexistingoutwardCapsoptin, actualnormal/indexedfanregressionRED→GREEN andnewfalseoptinnegativeRED/restored. No sharedfactory change.
+- Dedicated424/424PASS,0FAIL; approved34 priorrows unchangedincluding signedzero exceptMermaidcorrection. Unchanged28Pilot evidence reused. Runtime5d36 lastIN_PROGRESS,HomeSUCCESS; finalnpm andHuman/iPhone gatesremainOPEN.
+
+## 2026-10-09 — Five aquatic approvals; last four pending
+
+- `26fbf737` Character37908674862 SUCCESS;241rawfiles fromartifact11605778122 verified andarchived at `b632fb20af671f84260d2c5c28d055d055b96d93` (Recovery37909427955 SUCCESS). Allsix actual4views/32states/2distance inspected. Mermaid/Octopus/Angler/Croc/Scorpion PASS,independentfourview/source review agrees;promotedonlythese5 →289/293 exact,4pending,289fourviews.
+- Spider REJECTmissingoriginalyarnball/trailingstrand. Candidate-onlyroundgreenball+attachedstrand restored;9knittingloops compressed, bodyheight corrected soactuallegs supportatfloor independentlyofprops. Root7targetedPASS and4affectedcontrolsRED/restored;reviewC0/I0,max11832tris. Freshimagespending.
+- Task9eagle/snowman integrated atdfe51ba6:12focusedPASS15negativecontrolsRED/restored,C0/I0;newrowsunregistered. Optionalplumed_birdfeatures preserve10/10actualexistinginputs(Phoenix8+parrot/chicken),rootPilot28identical;39oldnonplayerrowsunchangedincluding signedzero exceptintendedSpiderfix.
+- Root dedicated438/438PASS,0FAIL. CaptureonlySpider/Eagle/Snowman. Source26fbHomeSUCCESS/Runtime lastIN_PROGRESS;previous5d36Runtime nowSUCCESS. Authorcandidate andnarrowexistingQAroute/legacy32state-distanceextension underway;natural memory_lake remains2D, noWorld/Home changes. Finalnpm/integration andHuman/iPhone separateOPEN.
+
+
+### Latest: two partner approvals and final candidates
+
+Source73a1b4e/archive d7dc:121 raw files verified; actual12 views/96states/6normal-distance reviewed. Spider yarn fix and Snowman PASS; Eagle REJECT because the long descending primary silhouette was missing. Only Spider/Snowman promoted:291/293 exact,291 four-view records; Eagle/author pending. The Eagle correction redistributes existing22 feather paths without shared factory changes; fresh full images remain required.
+
+Author candidate e67902df reuses humanoid with default-preserving opt-ins;35 old humanoid/celestial inputs exact,42 prior candidate rows unchanged before Eagle correction,28 Pilot hashes and protected fixtures exact. Root resolved initial QA placement outside near3D range while preserving the same real unlocked memory-lake actor and restoring original pose. Corrected11 author tests PASS;17 original+1 added negative controls; code reviewC0/I0. Normal memory_lake remains2D; forest placement is explicitly QA-only.
+
+Integrated450-test run:448PASS and2 stale promotion-null assertions failed. Corrected Spider/Snowman expectations pass2/2; do not describe this as a450PASS rerun. Role controls7/7 restored;19 boundary tests PASS; independent integration reviewC0/I0. Next scoped CI captures Eagle/author plus legacy cat/shiba32states+2distance each, reusing legacy four-view boards.
+
+Final evidence reconciliation distinguishes four-view coverage from full per-stage state/distance approval. Several early player families have representative-only state records; the exact missing-stage table is being prepared and these gates remain OPEN. Reuse all accepted full sets, including Phoenix. Human/iPhone remain separate OPEN, PR376 remains Draft.
+
+
+### Legacy page resolution and missing-stage integration mode
+
+Saved8523a522/tree574e09d3 matched remote/local clean. Character37915318261 ended FAILURE: dedicated113769954538 SUCCESS, capture113769954286 stopped at the first legacy state after80 partial files (artifact11609677554), without completed metadata. No image approval is inferred. Root reproduced missing ARCHETYPE_REUSE lookup in the actual wave-page resolver and fixed only known legacy IDs at stage0; RED1/2 to GREEN2/2, independentC0/I0. Runtime37915328104 SUCCESS; Home37915328102 lastIN_PROGRESS.
+
+Task11cc8f4258 adds explicit integration mode using existing31family jobs, exact86-stage selector and per-family motion child directories. It skips only already-approved capture work, retaining gallery, scene/performance, dedicated and aggregate. Plan minimum is five emotions times idle/walk;136 full-matrix stages plus26 previously Human-approved Pilot sample stages leave86 missing stages (860 minimum cells; existing tool emits2752). Initialfivefamilies need actual review of80distance images from the existing final stage artifacts. No Phoenix or other accepted full gate is reopened.
+
+
+### Eagle and legacy image closure; Author hair correction
+
+Source `e16963da` Character `37917302347` capture and dedicated jobs SUCCESS. Artifact `11610776353` direct URI again returned403; existing Actions-to-Git recovery succeeded, archived at `5be8349` with151 raw file hashes/sizes verified. Root actually inspected2 source/four-view boards,128state tiles and8normal-distance images. Independent review agrees Eagle PASS / Author REJECT. Eagle long lowered primaries resolve prior wedge silhouette; cat_friend/shiba state and distance gaps close while immutable approved fourviews are reused. Author has a smooth cap with continuous low fringe, missing exposed center-part forehead and wavy side locks; remains unregistered until correction and fresh actual gate.
+
+Eagle exact promotion raises coverage to292/293 (248players,26companions,18partners,0authors);3affected testsPASS,7/7 role mutations detected/restored. Source-specific historical fullnpm unchanged. Missing86player-stage motion minimum cells and early5family80normal-distance images remain integration gates. Human/iPhone separate OPEN. Draft376 remains open, basepilot.
+
+Author hair correction `711f2dcb` changes only rear crown and eight existing wave coordinates;8affected assertionsPASS,4negativecontrols/restorationPASS,all42othernonplayer produced inputs/geometryexact. Root7hair/gallery/role testsPASS. Fresh Author full image gate remains OPEN. Existing gallery live links corrected to exact role keys, NON_PLAYER selector and metadata; whole syncUi regression catches prior TypeError. Browser smoke now traverses every exact nonplayer link and verifies decoded evidence with a missing-image control; actual browser result remains pending.
+
+
+### All293 exact models registered; final integration open
+
+CorrectedAuthor source `6eb8f197` Character37920067984 SUCCESS. ExistingActionsGit export archived41rawfiles at `00baa4da`, allSHA256/bytesverified. Rootactually inspected4views32states2normal-distance;independentactualsource review confirms centerpart/templewave correction, previousI1resolved,C0/I0. Author onlynow promoted withcanonical/actualidentity positives andpermanentunknown-author negatives. Root4RED→5GREEN,7/7rolemutations/restorationPASS. Coverage293exact/293fourviewrecords;43factorynonplayers retainexactacceptedinputs across16capture sources,2legacyprotected separately. All45nonplayer actualimage gatescomplete, notHuman/iPhone approval.
+
+FinalintegrationremainsOPEN:86playerstages need minimumemotion/motionreview andearly5families80distanceimages, production45role/presenter/scene/gallery/performance proof, onefinalnpm andfinalreview/handoff. No newglobalPASS fromcapture orcoveragealone.
+
+Finalexisting-routeQA extension `c4e5b226` independentlyreviewedC0/I0: production-only45-role no-capture sweep, same-actorAuthorrestoration, warmup+3scene loops/resourceplateau/save invariance, native1/5/27 isolatedcloneanimationCPU and appearance-windowRAF intervals. Worker15PASS (43then-approvedNodepresenters)+7controlsrestored;root8focusedPASS on293source. No production/render/save/World changes. Browser45/scene/timing results remain pending finalintegrationCI. Fullnpm batch started once on preparedfinalcode; completion notyetclaimed.
+
+
+### Final integration ae9 — completed npm and explicit partial CI failure
+
+Full npm on the prepared final production/test inputs subsequently published as ae9c9ffe completed:3022 main PASS plus80 Relationship PASS,0FAIL,exit0. Compressed raw log and byte hashes are preserved under final-npm-ae9. No repeat full suite is claimed for later QA-only edits.
+
+The ae9 integration run37922214774 is still running. Production functional meguru-wave113792592031 failed its unchanged-save assertion; scene/default performance did not execute. Gallery113792592014 and human/fish performance113792592088/113792592103 succeeded. Player capture shards continue; do not cancel their useful work or label the overall run successful. Runtime diagnosis/fix is separate from production/model changes.
+
+The existing Git-object artifact recovery route now supports explicit per-artifact completed-job evidence for a completed failed integration run. Exact source/run/branch/artifact digest and name-to-job binding remain mandatory. Successful capture output stays pending actual visual review; failed Meguru JSON is diagnostic-only and never approval.18 tests pass, including actual mocked packaging and fail-closed provenance/lease cases; independent review C0/I0, minor diagnostic ZIP caption corrected.
+
+
+### Runtime save-boundary diagnosis and narrow followup
+
+Integrated QA-only116370ed:20focused PASS and5new meaningful negative controls RED with exact restoration; root6boundary checks PASS. Author staging now records strict synchronous saved-state/storage/getter/write proofs at entry, every staged draw, final draw and release. The asynchronous interval retains exact state/storage deltas and actual save-call provenance separately, with no no-write claim. Real recordMapBits changes outside presentation are observed; the same API inside presentation is rejected. Failed rows are retained before validation.
+
+The original ae9 failing role/cause is not established by its log. This diagnostic repair is not a browser PASS; production models/gameplay are unchanged. The new [qa:runtime] marker activates only existing Meguru functional/scene/metrics and focused dedicated QA jobs, preserving the original integration captures and other successful jobs. Whole-scene strict cache/save gates remain unchanged. ae9 dedicated, Runtime and Home are now SUCCESS; original Meguru failure remains distinct.
+
+
+### Completed ae9 capture jobs; source6df functional45 accepted, scene remains OPEN
+
+All31ae9 stage jobs and aggregate113805523751 succeeded; artifact11613793216. The overall Character37922214774 remains FAILURE because its original functional Meguru job failed. Successful stage/gallery/human/fish artifacts are requested with per-job provenance; remaining86motion/80distance images are not yet visually approved.
+
+Targeted6df run37924802873 dedicated succeeded. Actual45functional roles all PASS, including Author; production-nonplayer rawJSON SHA256 verified and every row/boundary checked. Author async interval visibly records memory_lake hero:shore discovery and saveRevision/savedAt changes while every synchronous presentation proof remains unchanged. This does not prove the older ae9 cause. The same job then failed warmup characters-on readiness before city; scene/default metrics remain OPEN. A first export request correctly rejected missing meguru-qa.json (no file emitted on timeout); corrected available-JSON recovery37925960153 succeeded. Exportmanifest retains failed-job diagnostic status, with a separate narrowly scoped functional45 review.
+
+Reviewed49616900 now retains phase/resource/actor snapshots and restoration on timeout, writes failed scene JSON before assertion propagation, and keeps all strict gates.24focusedPASS,2controlsRED/restored,root4PASS,C0/I0. Eleven functional/save/metrics exports are byte-identical to6df, so the combined runtime+scene marker reuses45functional and reruns only scene/defaultmetrics with focused dedicated checks. This is a diagnostic repair, not a scene PASS.
+
+
+## Recovered final integration images and bounded scene QA (base9528525d)
+
+Twenty ae9 artifacts are recovered as421 verified Git blobs;3113 original files pass SHA256/size checks. The exporter now chains100-entry Git trees, retaining its verified-blob checkpoint before tree creation and expected-head check before any prepared result. Its22 tests pass; old single205-entry tree test fails; independent C0/I0. No repeated403 download or image approval from export success.
+
+Root actually inspected80 early-five normal-distance images: PASS for this scope. Motion review found Mushroom5/6/7 face occlusion and a Clownfish2 fin-join concern, retained as blockers pending bounded repair and actual new images. Human/iPhone remainOPEN.
+
+The aa035 scene diagnostic showed baseline7 versus final11 because sampling began before the exact current-view roster finished loading. QA now waits for exact eligible actors/templates before baseline. Naturalcity assertions now follow the byte-identical original Pilot hidden-cache contract: actual GL hidden, same scene/holders/canvas identities and exact bounded resources. Explicitoff still requireszero; forest roster and save guards stay strict.27 focusedPASS,4controlsRED/restored,root3PASS,independentC0/I0; actualbrowser scene/defaultmetrics remainOPEN. Production was not changed for these QA corrections.
+
+
+## Actual motion findings and bounded replacement capture
+
+All86missingstage motion boards/2752statecells actually inspected:78stagesPASS and8REJECT. Mushroom5/6/7 caps hide emotion details; Clownfish2/3/5/6/7 have detached main-fish pectoral roots in dislike. Raw-frame confirmations and exactpaths/hashes are retained in four scoped ae9 reports.
+
+Candidate e30be553 changes only affected cap tilts and an opt-in fish root placement with exactlegacydefaults.25focusedPASS, nine negative controls detected/restored (initialharness wording failure retained and corrected), root9PASS;28Pilot roster/38unique unaffected rigs exact. Actual replacement8stage images remainOPEN. The new reviewedworkflow mode reuses onlyexisting twofamily capturejobs: familyviews/distance andexact8motion, no false248aggregate. All other oldmodes preserved.
+
+Ad96 sceneCI dedicatedSUCCESS butmeguruFAIL at unchangedsave afterwarmup+3cycle forestreadiness;no scenePASS. FailedJSON recovery first rejected emptyfamilies request; request corrected withnonemptydog and selector/count preflight. Cause remainsunproven; naturalcitymap initialization is a source-supported candidate only. Preserve strictguards pendingactual diagnostics.
+
+
+## ad96 raw scene diagnosis and observational follow-up
+
+RecoveredfailedJSON1file SHA256/size/directbytesverified viaexistingGitDataexport. All17phasesREADY;3cycles have exact11actorcomposition,off0/0,cityhiddenidentity-boundcache and warmresourceplateau. OriginalwholegateFAIL remains: save/storage/write flagsfalse,20to23writes; getter andrestoredstep/regiontrue. JSONhadno fielddelta/eventstacks, so naturalcityseedisnotproven.
+
+051e22ab adds observationalphase/whole-spandeltas,normalwritecallstacks,synchronousdraw/flagproofsandcleanup; originalvalidatorandstrictprewarmupbaseline unchanged.18focusedPASS,4controlsRED/restored,root4PASS,14functionsexact. New observations arediagnostic; everyboundaryrequiresinspectionbeforeanysceneacceptance. Existingnative1/5/27metrics can now run aftercompletedscenefailure withoutturningjobgreen, avoidinganotherunnecessarywaitforindependentmeasurements. Setupfailures remainblocked.
+
+
+## Seven replacement gates pass; Mushroom6 collar remains explicit blocker
+
+Ddaf captures recovered118entries/368rawfiles withSHA256/size/directbytesverified. ActualClownfish2/3/5/6/7 fourviews+160states+10distance PASS, all20priorrawfin gapsresolved. Mushroom5/7 fullsampledgatesPASS;6 remainsREJECT becausecollarhidesall4sickforeheadmarks despitecapclearance. Candidate64f72fb5 changesonlycollar.at .50to.61 andexpandsactualoccluder guards:20affectedPASS,3controlsRED/restored,root1actual32stategeometryPASS. New6imagegateOPEN;other7evidenceandcoveragepaths updated.
+
+Repaircapture config selects onlyMushroom6motion andone existingfamilyjob; no newCLI/framework. Recoveryworkflowcheckoutsparse.githubonly;22guardtestsPASS inisolatedsame-layoutdirectory, originalGitHubprovenance/lease unchanged. This avoids checkingoutalmost1GBhistoricalQAimagestoexportnewartifacts.
+
+F07sceneobservabilityrun remainsFAILsave;nativeperformance stepnowcompletesindependently. Artifactcontains2JSONs;causaldeltas/callstack inspectionpendingrecovery. Two old testconditionevaluators failedonnewGitHubsuccessfunction, fixedtestcontextonly and26relatedtestsPASS. No production/validatorwaiver.
+
+## f07 actual save provenance and native metrics recovered
+
+Original f07 scene whole-span FAILURE retained. Verified raw field deltas and normal write stacks identify one natural warmup/city map-seed save (three empty city bags, saveRevision/savedAt; backup/writer/main20→23). All38 synchronous presentation boundaries and three subsequent cycle/cleanup aggregates are clean. This proves this execution only, not earlier uninstrumented failures. Independent native dog04+companions1/5/27 metrics were audited, including120clone samples per cast and adjacent-frame appearance windows; SwiftShader is not device-performance approval. Source-specific review and original bytes are saved together.
+
+0be Character37934515030 SUCCESS (dedicated and Mushroom6 capture). Final Mushroom6 actual replacement review remains OPEN until recovery. Protected11groups and28Pilot hashes match. Next QA-only contract checks bounded normal warmup setup, all synchronous boundaries and strict postwarmup cycles; it does not change production/save behavior. Native metric reuse is explicitly selected to avoid duplicate measurement; the new scene still runs and may fail.
+
+## Final Mushroom06 image acceptance and targeted QA followup
+
+0be recovery56Gitentries/85rawfiles verified SHA256,size,directbytes. ActualMushroom06 4views/32states/2distance plus7raw/originalreference PASS C0/I0/M0. All4sickrawvariants showthreeblueforeheadmarks, cap/stemcontact andidentity retained. All86additionalplayerstage gates nowPASS (ae9unchanged78,ddaf7,0be1); prior136full32+26Pilotminimum unchanged. Coverage nowusesnewstage06fourviews; all293currentrecordsaccepted. Human/iPhone remainOPEN.
+
+Fullnpm production0be attempt completed3022main:3018PASS4FAIL, allfour causedby asset-integrity execFileSync gitls-files defaultbuffer ENOBUFS as evidenceinventoryexpanded. Originalexit1/rawlog retained. SeparatelyexecutedRelationshiptail80PASS. Targeted test-onlybufferrepair required; no productionfailureinferred. 172sceneCI reachedexactsetupdelta comparison butfailedonlive before:undefined vsJSONomission; diagnostictransportfix mustcoverboth withoutchangingrawstate/storage comparisons. Sourcefailure preserved andrawrecoveryrequested.
+
+QA fixes:577c2177 changesonlyassettestbuffer tobounded16MiB, preservingall14501trackedpaths;6assetPASS and1MiBcontrolRED/restored.63479083 comparesonlyoptionalundefineddiagnosticendpoints consistentlylive/JSON, preservingrawsaves/unknownfieldchecks;15scenePASS/newcontrolRED/restored,16otherfunctionsbodiesexact. Root6asset+3scenePASS;independentC0/I0. All3022mainchecks nowcovered incrementally plus80Relationship; originalfullnpmexit1retained, nosecondfullrunclaimed. Newactualscene remainsOPEN.
+
+## Final source-scoped integration and Human QA handoff
+
+410 Character37938257303 SUCCESS: dedicated113845722241 and repeatedscene113845722634. Raw artifact11619241745 independently audited:17READY phases,38clean draw/flag boundaries, exact11fixture,off0, natural hidden identity-bound city cache, three strict cycles and cleanup23→23 with no state/storage/getter/write change, all restoration true. Warmup alone performs the bounded normal empty-city-map seed20→23; original initial whole-span false flags remain visible. Plateau11templates/1material/12atlases/10eyeGeos/44textures/106geometries. Source-specific actual image approvals cover all293; no Human/device approval.
+
+Final raw JSON recovered through Git Data despite executor disconnect. UTF8 roundtrip returned exact prepared Git blob9495a337e8f372d69869c8a8fe81cf74655ed3d9,630363bytes; original manifest/exporter SHA256 proof retained. Final Runtime/Home run conclusions and local final HEAD/tree/clean remain separately recorded; neither is silently passed. Final docs/archive publication changes no production or QA behavior. All former source failures stay immutable alongside scoped fixes.
+
+## CI and workspace closure — 2026-10-10
+
+Fresh remote remained df2cbb5/treee0f48ddc. Workspace maintenance had removed scratch; restored the saved branch without recreating implementation. Local HEAD/tree match and clean state were verified, including final scene ZIP/JSON size/SHA256 against its manifest. Runtime/Home runs37938268351/37938268352 and37938899218/37938899211 are all completedSUCCESS. Actual410 full npm job113845760165 logs3022main+80Relationship PASS,0FAIL; this is separate from the retained0be local failed attempt and its incremental repair. No tests/images rerun. Closure records are documentation-only; final publication is followed by fresh remote/local/tree/clean verification. Only separate Human/iPhone gates remain, withDraft376/noReady/main/PR372/v1 constraints unchanged.

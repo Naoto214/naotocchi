@@ -1,0 +1,5770 @@
+{
+  "sourceCommit": "8f2242e341a192a9ebf5ba7df21bae7162a27873",
+  "platform": "Chromium/SwiftShader; not iPhone",
+  "candidateOnly": true,
+  "evidence": [
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12654,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.0009449909687042624,
+          -0.5544443714174399
+        ],
+        [
+          0.316764771938324,
+          1.0938162766933441,
+          0.8021315550804138
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12654,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.0009449909687042624,
+          -0.5544443714174399
+        ],
+        [
+          0.316764771938324,
+          1.0938162766933441,
+          0.8021315550804138
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12654,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.0009449909687042624,
+          -0.5544443714174399
+        ],
+        [
+          0.316764771938324,
+          1.0938162766933441,
+          0.8021315550804138
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12654,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.0009449909687042624,
+          -0.5544443714174399
+        ],
+        [
+          0.316764771938324,
+          1.0938162766933441,
+          0.8021315550804138
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12654,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.0009449909687042624,
+          -0.5544443714174399
+        ],
+        [
+          0.316764771938324,
+          1.0938162766933441,
+          0.8021315550804138
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 12654,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          0.008844141453144105,
+          -0.5637613252031808
+        ],
+        [
+          0.316764771938324,
+          1.1067546365227345,
+          0.807005063921479
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 12654,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.0009449909687042624,
+          -0.52049999833107
+        ],
+        [
+          0.316764771938324,
+          1.0938162766933441,
+          0.8021315550804138
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 12654,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.0001337968240875953,
+          -0.52749095166677
+        ],
+        [
+          0.316764771938324,
+          1.100322509409081,
+          0.804400462848744
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12494,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          0.056082159395114795,
+          -0.5861081749145305
+        ],
+        [
+          0.316764771938324,
+          1.1686250509049045,
+          0.8099938700498501
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 12494,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          0.04706559539445104,
+          -0.5853094547965023
+        ],
+        [
+          0.316764771938324,
+          1.1564185923388035,
+          0.8012450967207575
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 12494,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.005759666505296024,
+          -0.5228659569266702
+        ],
+        [
+          0.316764771938324,
+          1.1067832250044938,
+          0.8099938700498501
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 12494,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.00089745359531479,
+          -0.5325092736317305
+        ],
+        [
+          0.316764771938324,
+          1.116196599090065,
+          0.8056906942949282
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12654,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3190199135652902,
+          -0.024313822716185984,
+          -0.5805054288653659
+        ],
+        [
+          0.422729632299774,
+          1.07488207704775,
+          0.8912943619449666
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 12654,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3190199135652902,
+          -0.017605615012096232,
+          -0.5863937810149402
+        ],
+        [
+          0.422729632299774,
+          1.0841306439204415,
+          0.895022775848498
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 12654,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3190199135652902,
+          -0.024313822716185984,
+          -0.5466221373227893
+        ],
+        [
+          0.422729632299774,
+          1.07488207704775,
+          0.8912943619449666
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 12654,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3190199135652902,
+          -0.022489703457996335,
+          -0.5509331597732752
+        ],
+        [
+          0.422729632299774,
+          1.0795229228131287,
+          0.8931821839262873
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12854,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.028259616896272988,
+          -0.5588070927781688
+        ],
+        [
+          0.316764771938324,
+          1.0391559964658748,
+          0.8204676880427288
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 12854,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.020398228234909388,
+          -0.549532728850951
+        ],
+        [
+          0.316764771938324,
+          1.049631099532471,
+          0.8254469920293598
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 12854,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.028259616896272988,
+          -0.5249051413192128
+        ],
+        [
+          0.316764771938324,
+          1.0391559964658748,
+          0.8204676880427288
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 12854,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.025231824121088597,
+          -0.5253686409688985
+        ],
+        [
+          0.316764771938324,
+          1.0444210891046324,
+          0.8229962223413196
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12494,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.03359662922469575,
+          -0.5595123174901258
+        ],
+        [
+          0.316764771938324,
+          1.017500669767036,
+          0.8244563294547258
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 12494,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          0.01105975861373587,
+          -0.5767538029433792
+        ],
+        [
+          0.316764771938324,
+          1.041701833412051,
+          0.829752719928452
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 12494,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.03359662922469575,
+          -0.5256290259475492
+        ],
+        [
+          0.316764771938324,
+          1.017500669767036,
+          0.8244563294547258
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 12494,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.022942846895463,
+          -0.5395590902909453
+        ],
+        [
+          0.316764771938324,
+          1.0296382152081203,
+          0.8271588012852964
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12494,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.31627047944734304,
+          -0.012484137686033514,
+          -0.5655511914937773
+        ],
+        [
+          0.3172590644293049,
+          1.0389725932982627,
+          0.8261931338264297
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 12494,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.31627047944734304,
+          0.06151686310158366,
+          -0.5849330331885916
+        ],
+        [
+          0.3172590644293049,
+          1.067818461001228,
+          0.8277134446911493
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 12494,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.012484137686033514,
+          -0.5316174254715282
+        ],
+        [
+          0.316764771938324,
+          1.0389725932982627,
+          0.8261931338264297
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 12494,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          0.004368409238134752,
+          -0.5471115755583914
+        ],
+        [
+          0.316764771938324,
+          1.0533974180367531,
+          0.8269558109691459
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12654,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          0.01379414205379692,
+          -0.5130047252006698
+        ],
+        [
+          0.316764771938324,
+          1.1508784330437547,
+          0.8045498820295759
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 12654,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          0.050413126624063165,
+          -0.531540013622739
+        ],
+        [
+          0.316764771938324,
+          1.162134639853348,
+          0.8105128692720625
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 12654,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.01712677089640846,
+          -0.5256290259475492
+        ],
+        [
+          0.316764771938324,
+          1.1199575200935492,
+          0.8045498820295759
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 12654,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.004883723269015372,
+          -0.5263128786440333
+        ],
+        [
+          0.316764771938324,
+          1.1333472524828008,
+          0.8075725485195067
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 12494,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3155290407108717,
+          -0.009916641239643087,
+          -0.5544443714174399
+        ],
+        [
+          0.31800050316577627,
+          1.056180710855439,
+          0.83109430182823
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 12494,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3155290407108717,
+          0.03614447604766435,
+          -0.5390457925030065
+        ],
+        [
+          0.31800050316577627,
+          1.0805421676232387,
+          0.83786546086184
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 12494,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.009916641239643087,
+          -0.52049999833107
+        ],
+        [
+          0.316764771938324,
+          1.056180710855439,
+          0.83109430182823
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:field_cow",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 12494,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.316764771938324,
+          -0.0013928825807123513,
+          -0.5211868781321906
+        ],
+        [
+          0.316764771938324,
+          1.0684118302178982,
+          0.834548534060136
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "field_cow",
+      "file": "partner-field_cow-0-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14200,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5117887119714446,
+          -0.01011679210746913,
+          -0.2800000011920929
+        ],
+        [
+          0.506239761173392,
+          1.0722963392947298,
+          0.33729999423027035
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14200,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5117887119714446,
+          -0.01011679210746913,
+          -0.2800000011920929
+        ],
+        [
+          0.506239761173392,
+          1.0722963392947298,
+          0.33729999423027035
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14200,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5117887119714446,
+          -0.01011679210746913,
+          -0.2800000011920929
+        ],
+        [
+          0.506239761173392,
+          1.0722963392947298,
+          0.33729999423027035
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14200,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5117887119714446,
+          -0.01011679210746913,
+          -0.2800000011920929
+        ],
+        [
+          0.506239761173392,
+          1.0722963392947298,
+          0.33729999423027035
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14200,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5117887119714446,
+          -0.01011679210746913,
+          -0.2800000011920929
+        ],
+        [
+          0.506239761173392,
+          1.0722963392947298,
+          0.33729999423027035
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14200,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5202555884949154,
+          -0.04272292947247108,
+          -0.2800000011920929
+        ],
+        [
+          0.49173260585251627,
+          1.1024025549160394,
+          0.40439651946148675
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14200,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5091687473378905,
+          4.7683715587165665e-9,
+          -0.2800000011920929
+        ],
+        [
+          0.5091687473378905,
+          1.0650000166893006,
+          0.33729999423027035
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14200,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.515193517347795,
+          -0.013000488450157721,
+          -0.2800000011920929
+        ],
+        [
+          0.5011681365661306,
+          1.0826031331345063,
+          0.3708482568458786
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14040,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5117887119714446,
+          0.05733730403569226,
+          -0.28864303759133636
+        ],
+        [
+          0.506239761173392,
+          1.1593116735444449,
+          0.3461965754997144
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14040,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5096839366166773,
+          0.03434663391730594,
+          -0.2884554389476534
+        ],
+        [
+          0.5086426782718836,
+          1.1225027589560423,
+          0.3565542356041721
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14040,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5091687473378905,
+          0.005609113676756455,
+          -0.28841162044931695
+        ],
+        [
+          0.5091687473378905,
+          1.0901802116982389,
+          0.3459436819228203
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14040,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5080162104734294,
+          0.0023226340498578857,
+          -0.28850624856321194
+        ],
+        [
+          0.5102702979044693,
+          1.0931947837949674,
+          0.35135671222789655
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14200,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5117887119714446,
+          -0.03469463536094988,
+          -0.3348657254634724
+        ],
+        [
+          0.506239761173392,
+          1.1078024286720236,
+          0.4829857077785954
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14200,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.494573944519689,
+          -0.04903561267051487,
+          -0.3363975435137717
+        ],
+        [
+          0.5181639863948957,
+          1.1071004263239907,
+          0.48407888580230646
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14200,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5091687473378905,
+          -0.02459604325707096,
+          -0.33514398233342646
+        ],
+        [
+          0.5091687473378905,
+          1.1033424876133173,
+          0.4832467533094127
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14200,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5008102628950886,
+          -0.03501994359727828,
+          -0.3359052820979707
+        ],
+        [
+          0.5153915046368642,
+          1.0945478749330924,
+          0.48381433206992613
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14400,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5117887119714446,
+          -0.02504641950487896,
+          -0.2971056814878217
+        ],
+        [
+          0.506239761173392,
+          1.0289049453162407,
+          0.35487679517865606
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14400,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5203169621946037,
+          -0.06638428776403643,
+          -0.2993063384540889
+        ],
+        [
+          0.49170195503303626,
+          1.0570172922572643,
+          0.423320945782025
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14400,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5091687473378905,
+          -0.016355103987779562,
+          -0.2966429918319637
+        ],
+        [
+          0.5091687473378905,
+          1.0220678698221897,
+          0.3543711660751213
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14400,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5152636516484688,
+          -0.03824136831064773,
+          -0.2978081259348094
+        ],
+        [
+          0.5010423640446239,
+          1.0387216964996089,
+          0.3886511278573438
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14040,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5117887119714446,
+          -0.030185572231169577,
+          -0.30443635851099965
+        ],
+        [
+          0.506239761173392,
+          1.010489154925154,
+          0.3582870820160862
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14040,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.494693934380306,
+          -0.056284282006669795,
+          -0.3058212285759501
+        ],
+        [
+          0.518121211010238,
+          1.0291058662590036,
+          0.4270340437418905
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14040,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5091687473378905,
+          -0.02168386031085673,
+          -0.30398978475015814
+        ],
+        [
+          0.5091687473378905,
+          1.0038035792537319,
+          0.3576804383426721
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14040,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5008630318432475,
+          -0.043499163534531926,
+          -0.30514000863701674
+        ],
+        [
+          0.5153626147681,
+          1.0203689998981313,
+          0.39267441634963873
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14040,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5112944194804636,
+          -0.021698447650137842,
+          -0.28864303759133636
+        ],
+        [
+          0.506734053664373,
+          1.045002811833563,
+          0.36549466198377184
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14040,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5099108004959677,
+          -0.016281412613807444,
+          -0.28851807761835424
+        ],
+        [
+          0.5083620905733905,
+          1.04125759634526,
+          0.3653968951875423
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14040,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5091687473378905,
+          -0.011989357530321904,
+          -0.28841162044931695
+        ],
+        [
+          0.5091687473378905,
+          1.038005011488122,
+          0.3653121180260162
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14040,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5084043314122548,
+          -0.012756817758288658,
+          -0.28847494066457546
+        ],
+        [
+          0.5099104019881494,
+          1.0399463871819923,
+          0.36536270522484804
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14200,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5117887119714446,
+          0.017501812698934083,
+          -0.30043904057319976
+        ],
+        [
+          0.506239761173392,
+          1.1328608536872644,
+          0.3582870820160862
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14200,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.4988469592120991,
+          -0.017236696232229953,
+          -0.3015971137420055
+        ],
+        [
+          0.5163956162452961,
+          1.1316396093659096,
+          0.4128251459307485
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14200,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5091687473378905,
+          -0.0041781090335398785,
+          -0.29988391478926407
+        ],
+        [
+          0.5091687473378905,
+          1.0946597044951725,
+          0.3576804383426721
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14200,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5027221899453315,
+          -0.02318561600450897,
+          -0.30102573572159824
+        ],
+        [
+          0.5142751034958863,
+          1.109322112916041,
+          0.3855623925863319
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14040,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5105529807439924,
+          -0.01881328834424506,
+          -0.2800000011920929
+        ],
+        [
+          0.5074754924008443,
+          1.0629555489968836,
+          0.36895198205395985
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14040,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5187246947656904,
+          -0.04796003322410358,
+          -0.2800000011920929
+        ],
+        [
+          0.4930875896079232,
+          1.0903450942329442,
+          0.40018126165908957
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14040,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.5091687473378905,
+          -0.008999995374679604,
+          -0.2800000011920929
+        ],
+        [
+          0.5091687473378905,
+          1.0558877774576938,
+          0.36895198205395985
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:forest_bear",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14040,
+      "meshes": 11,
+      "drawCalls": 11,
+      "box": [
+        [
+          -0.514873667674524,
+          -0.020248192665654863,
+          -0.2800000011920929
+        ],
+        [
+          0.5017283792094697,
+          1.0719163669408953,
+          0.36895198205395985
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "forest_bear",
+      "file": "partner-forest_bear-0-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10728,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.18298667130897764,
+          -0.0004830199241637745,
+          -0.3721108287288811
+        ],
+        [
+          0.18298667130897764,
+          1.2215413618866793,
+          0.5666505682468415
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10728,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.18298667130897764,
+          -0.0004830199241637745,
+          -0.3721108287288811
+        ],
+        [
+          0.18298667130897764,
+          1.2215413618866793,
+          0.5666505682468415
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10728,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.18298667130897764,
+          -0.0004830199241637745,
+          -0.3721108287288811
+        ],
+        [
+          0.18298667130897764,
+          1.2215413618866793,
+          0.5666505682468415
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10728,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.18298667130897764,
+          -0.0004830199241637745,
+          -0.3721108287288811
+        ],
+        [
+          0.18298667130897764,
+          1.2215413618866793,
+          0.5666505682468415
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10728,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.18298667130897764,
+          -0.0004830199241637745,
+          -0.3721108287288811
+        ],
+        [
+          0.18298667130897764,
+          1.2215413618866793,
+          0.5666505682468415
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10728,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.18298667130897764,
+          0.019780441149189643,
+          -0.3926574910659962
+        ],
+        [
+          0.18298667130897764,
+          1.2356219356545441,
+          0.5707819337692592
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10728,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.18298667130897764,
+          -0.0004830199241637745,
+          -0.36557387810945513
+        ],
+        [
+          0.18298667130897764,
+          1.2215413618866793,
+          0.5666505682468415
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10728,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.18298667130897764,
+          0.004819115166346144,
+          -0.3671594896032061
+        ],
+        [
+          0.18298667130897764,
+          1.2286169012437786,
+          0.568280756752816
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10568,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.17495086588904327,
+          0.05835533100157009,
+          -0.37163973712404025
+        ],
+        [
+          0.17495086588904327,
+          1.2969220771729444,
+          0.5698818395310852
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10568,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.17495086588904327,
+          0.06607410655250645,
+          -0.4327851075372242
+        ],
+        [
+          0.17495086588904327,
+          1.2832884066913652,
+          0.5630103442696459
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10568,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.18298667130897764,
+          -0.003486494898840675,
+          -0.368254947946539
+        ],
+        [
+          0.18298667130897764,
+          1.2350144862034589,
+          0.5698818395310852
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10568,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.18298667130897764,
+          0.007558778858502091,
+          -0.37041648943951333
+        ],
+        [
+          0.18298667130897764,
+          1.2437117150776489,
+          0.566489240668726
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10728,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.18220885689500543,
+          -0.018762587782820028,
+          -0.37068554905010387
+        ],
+        [
+          0.18976461040192683,
+          1.2049259887803092,
+          0.6352038041822041
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10728,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.18220885689500543,
+          -0.00956186245237034,
+          -0.3721914671441011
+        ],
+        [
+          0.18976461040192677,
+          1.2138090116424451,
+          0.6382984052730424
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10728,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.18220885689500543,
+          -0.018762587782820028,
+          -0.36416036141226305
+        ],
+        [
+          0.18976461040192683,
+          1.2049259887803092,
+          0.6352038041822041
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10728,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.18220885689500543,
+          -0.01395896038534139,
+          -0.3651492243925987
+        ],
+        [
+          0.18976461040192683,
+          1.2093831085108337,
+          0.6367655441548119
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10928,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.15220766402978694,
+          -0.024381694557454314,
+          -0.3772346515617131
+        ],
+        [
+          0.15220766402978694,
+          1.1551660421467271,
+          0.5752246637030292
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10928,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.15220766402978694,
+          -0.010583150413439602,
+          -0.3757936042932156
+        ],
+        [
+          0.15220766402978694,
+          1.165979299746453,
+          0.5793595460207406
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10928,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.15220766402978694,
+          -0.024381694557454314,
+          -0.37070587042837233
+        ],
+        [
+          0.15220766402978694,
+          1.1551660421467271,
+          0.5752246637030292
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10928,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.15220766402978694,
+          -0.018825709501935295,
+          -0.3720732470321858
+        ],
+        [
+          0.15220766402978694,
+          1.1605988665275422,
+          0.5773161227712443
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10568,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.1448414843708942,
+          -0.029109233996085726,
+          -0.3781466378329348
+        ],
+        [
+          0.1448414843708942,
+          1.1296192195803216,
+          0.5773811810877502
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10568,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.1448414843708942,
+          0.0388054475651704,
+          -0.4998949839341216
+        ],
+        [
+          0.1448414843708942,
+          1.154233133380746,
+          0.5818926059016265
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10568,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.1448414843708942,
+          -0.029109233996085726,
+          -0.37162145019509396
+        ],
+        [
+          0.1448414843708942,
+          1.1296192195803216,
+          0.5773811810877502
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10568,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.1448414843708942,
+          -0.011249885547086502,
+          -0.3746802830067961
+        ],
+        [
+          0.1448414843708942,
+          1.1419612602345857,
+          0.5796706231986093
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10568,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.173246294288062,
+          -0.010032306718710027,
+          -0.3716795268427698
+        ],
+        [
+          0.17423487927002387,
+          1.1646105339420076,
+          0.5891176452334584
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10568,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.173246294288062,
+          0.09151617557720693,
+          -0.5714394209462508
+        ],
+        [
+          0.17423487927002387,
+          1.1935364903063759,
+          0.5903309162842316
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10568,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.17374058677904294,
+          -0.010032306718710027,
+          -0.36514461891401884
+        ],
+        [
+          0.17374058677904294,
+          1.1646105339420076,
+          0.5891176452334584
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10568,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.17374058677904294,
+          0.017931661469978488,
+          -0.4270691169448626
+        ],
+        [
+          0.17374058677904294,
+          1.179075315199238,
+          0.5897258189199128
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10728,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.17495086588904327,
+          0.01867174556315565,
+          -0.37916904883284464
+        ],
+        [
+          0.17495086588904327,
+          1.2767585497068366,
+          0.5611011871119119
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10728,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.17495086588904327,
+          0.08187533550416404,
+          -0.5082243548317662
+        ],
+        [
+          0.17495086588904327,
+          1.2891028492035532,
+          0.5658893934771344
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10728,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.18298667130897764,
+          -0.01224916738704973,
+          -0.37162145019509396
+        ],
+        [
+          0.18298667130897764,
+          1.2457719749308234,
+          0.5611011871119119
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10728,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.18298667130897764,
+          0.008303558375074682,
+          -0.3747668512693608
+        ],
+        [
+          0.18298667130897764,
+          1.2597046728574268,
+          0.5635204619738738
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10568,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.16065566961789718,
+          -0.009468529326438824,
+          -0.3721108287288811
+        ],
+        [
+          0.16312713207280183,
+          1.1810567409452288,
+          0.5899651277777547
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10568,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.16065566961789718,
+          0.06089310951003646,
+          -0.5149715333913533
+        ],
+        [
+          0.16312713207280183,
+          1.2058713850030287,
+          0.5955579555352439
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10568,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.1618914008453495,
+          -0.009468529326438824,
+          -0.36557387810945513
+        ],
+        [
+          0.1618914008453495,
+          1.1810567409452288,
+          0.5899651277777547
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10568,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.1618914008453495,
+          0.008708616603626207,
+          -0.38714089933313445
+        ],
+        [
+          0.1618914008453495,
+          1.1935121514766591,
+          0.5928038878949945
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "file": "partner-grove_deer-0-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15498,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.31810607874831426,
+          -0.00642958895781412,
+          -0.33784265995025636
+        ],
+        [
+          0.2954430276565571,
+          1.6054427003559806,
+          0.29300000101327894
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15498,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.31810607874831426,
+          -0.00642958895781412,
+          -0.33784265995025636
+        ],
+        [
+          0.2954430276565571,
+          1.6054427003559806,
+          0.29300000101327894
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15498,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.31810607874831426,
+          -0.00642958895781412,
+          -0.33784265995025636
+        ],
+        [
+          0.2954430276565571,
+          1.6054427003559806,
+          0.29300000101327894
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15498,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.31810607874831426,
+          -0.00642958895781412,
+          -0.33784265995025636
+        ],
+        [
+          0.2954430276565571,
+          1.6054427003559806,
+          0.29300000101327894
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15498,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.31810607874831426,
+          -0.00642958895781412,
+          -0.33784265995025636
+        ],
+        [
+          0.2954430276565571,
+          1.6054427003559806,
+          0.29300000101327894
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15498,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.38680623962978083,
+          -0.03203162185845135,
+          -0.33784265995025636
+        ],
+        [
+          0.34910161345773677,
+          1.6056721392868765,
+          0.29300000101327894
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15498,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3122066579029448,
+          5.9604643443123e-10,
+          -0.33784265995025636
+        ],
+        [
+          0.3122066579029448,
+          1.6081743655294758,
+          0.29300000101327894
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15498,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.32783442019437065,
+          -0.0153947856345788,
+          -0.33784265995025636
+        ],
+        [
+          0.2882420390491357,
+          1.6008118771742585,
+          0.29300000101327894
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15338,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.318386698716158,
+          0.05141227692415033,
+          -0.378767374058406
+        ],
+        [
+          0.29567374866736446,
+          1.670203832076351,
+          0.2964610176832787
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15338,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3133807826137484,
+          0.02567905253272565,
+          -0.37882372254637386
+        ],
+        [
+          0.30911870683872267,
+          1.6415417752382233,
+          0.2963792227878749
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15338,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3122066579029448,
+          -0.00400196856448938,
+          -0.3788355155772287
+        ],
+        [
+          0.3122066579029448,
+          1.611092681795451,
+          0.2963601319466693
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15338,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.30984481446254725,
+          -0.0063989128168941145,
+          -0.37885947248718055
+        ],
+        [
+          0.3190712388966568,
+          1.6120498374335426,
+          0.29640136628616254
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15498,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.36643141472795127,
+          -0.01965268707280604,
+          -0.33287222336063976
+        ],
+        [
+          0.3594999081595218,
+          1.6376879612291886,
+          0.4253213256576684
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15498,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3449642546251695,
+          -0.034657428809597685,
+          -0.3337735897642141
+        ],
+        [
+          0.4439569924788812,
+          1.6595962659819625,
+          0.4264854456362486
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15498,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3604101704901218,
+          -0.013234667308580778,
+          -0.3324866794109719
+        ],
+        [
+          0.37606928727367417,
+          1.6399891919400484,
+          0.42559619100460716
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15498,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.34354458994578685,
+          -0.02742471469286778,
+          -0.3333391054108118
+        ],
+        [
+          0.41852083331643597,
+          1.653280776262,
+          0.4261993899440009
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15698,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.31918764216397105,
+          -0.03176699634269668,
+          -0.33952820407265544
+        ],
+        [
+          0.2967393465580346,
+          1.54940036117305,
+          0.2997367558674491
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15698,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3930430038269828,
+          -0.056061009413718194,
+          -0.3399898300144074
+        ],
+        [
+          0.35029616502594507,
+          1.5490690710825796,
+          0.3007009536426285
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15698,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3122066579029448,
+          -0.025730735356014764,
+          -0.3393778367199028
+        ],
+        [
+          0.3122066579029448,
+          1.5519848727101493,
+          0.29953504744453163
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15698,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3305720491106376,
+          -0.04036675860918912,
+          -0.339724083571467
+        ],
+        [
+          0.28886362878721245,
+          1.5451743776221418,
+          0.30004360166958266
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15338,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3194651614773945,
+          -0.03665216728192319,
+          -0.33763415101427846
+        ],
+        [
+          0.29706544194947315,
+          1.5239365182399618,
+          0.3009947106653018
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15338,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3444572492873091,
+          -0.05034594029678058,
+          -0.3364283873459877
+        ],
+        [
+          0.3851576693654006,
+          1.5312379956096667,
+          0.30174014262208765
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15338,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3122066579029448,
+          -0.03074758909883593,
+          -0.33745404730502127
+        ],
+        [
+          0.3122066579029448,
+          1.5264683453194192,
+          0.30075270493861045
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15338,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.316429278951165,
+          -0.04373716825257834,
+          -0.33686999527033845
+        ],
+        [
+          0.3577578246541643,
+          1.5305528063221812,
+          0.30137446792031036
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15338,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3179220554092745,
+          -0.013772692007053805,
+          -0.3153091558364207
+        ],
+        [
+          0.2963141013700487,
+          1.5670790780745274,
+          0.310043935761324
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15338,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3145753023406966,
+          -0.010476472780318533,
+          -0.3153490780730788
+        ],
+        [
+          0.30523146856363864,
+          1.5685708417161544,
+          0.31014304191277264
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15338,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3122066579029448,
+          -0.007602214811753619,
+          -0.31538476123985004
+        ],
+        [
+          0.3122066579029448,
+          1.5697075386235628,
+          0.31022411976569797
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15338,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3106691044765941,
+          -0.009147452116137725,
+          -0.3154068278542444
+        ],
+        [
+          0.31680215264649475,
+          1.570330317139204,
+          0.31027119971318856
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15498,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3182918319602031,
+          0.010472905035071534,
+          -0.402142249507496
+        ],
+        [
+          0.2955955077988032,
+          1.638534872581908,
+          0.3009947106653018
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15498,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.32604984819830896,
+          -0.015272031704344824,
+          -0.40261554483986567
+        ],
+        [
+          0.3645436300935019,
+          1.6309196931554444,
+          0.3015008342674109
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15498,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3122066579029448,
+          -0.014029988150908584,
+          -0.4023058243134939
+        ],
+        [
+          0.3122066579029448,
+          1.6103406511979417,
+          0.30075270493861045
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15498,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3070845189268772,
+          -0.02552480622024525,
+          -0.4025452703598411
+        ],
+        [
+          0.34687575358798994,
+          1.614310507887886,
+          0.30125089504954705
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15338,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.31759724231229125,
+          -0.015236701289079696,
+          -0.31861019499933557
+        ],
+        [
+          0.29755489103083066,
+          1.5973570642595125,
+          0.31104583547210995
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15338,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.38384835219858704,
+          -0.03884481475731025,
+          -0.31861019499933557
+        ],
+        [
+          0.344958699783423,
+          1.5970906711880795,
+          0.31104583547210995
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15338,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.3122066579029448,
+          -0.008999999421834937,
+          -0.31861019499933557
+        ],
+        [
+          0.3122066579029448,
+          1.6000216769481257,
+          0.31104583547210995
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:cliff_goat",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15338,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.32759656687246463,
+          -0.02307684515551947,
+          -0.31861019499933557
+        ],
+        [
+          0.28544732487215874,
+          1.5928216002478448,
+          0.31104583547210995
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "cliff_goat",
+      "file": "partner-cliff_goat-0-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16652,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6193685920930101,
+          -0.009981493285835613,
+          -0.30000001192092896
+        ],
+        [
+          0.6131872166243304,
+          1.1027708202646997,
+          0.41671677827835085
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16652,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6193685920930101,
+          -0.009981493285835613,
+          -0.30000001192092896
+        ],
+        [
+          0.6131872166243304,
+          1.1027708202646997,
+          0.41671677827835085
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16652,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6193685920930101,
+          -0.009981493285835613,
+          -0.30000001192092896
+        ],
+        [
+          0.6131872166243304,
+          1.1027708202646997,
+          0.41671677827835085
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16652,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6193685920930101,
+          -0.009981493285835613,
+          -0.30000001192092896
+        ],
+        [
+          0.6131872166243304,
+          1.1027708202646997,
+          0.41671677827835085
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16652,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6193685920930101,
+          -0.009981493285835613,
+          -0.30000001192092896
+        ],
+        [
+          0.6131872166243304,
+          1.1027708202646997,
+          0.41671677827835085
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 16652,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6282677601218991,
+          -0.04525208626635874,
+          -0.30000001192092896
+        ],
+        [
+          0.5909566436225464,
+          1.131083055484974,
+          0.41671677827835085
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 16652,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6164649749038622,
+          -3.576278662098531e-9,
+          -0.30000001192092896
+        ],
+        [
+          0.6164649749038622,
+          1.0958475986107648,
+          0.41671677827835085
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 16652,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6230808121103386,
+          -0.014168142656047933,
+          -0.30000001192092896
+        ],
+        [
+          0.607456931514191,
+          1.1125184130817218,
+          0.41671677827835085
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16492,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6193685920930101,
+          0.05373545058510988,
+          -0.3096487064443406
+        ],
+        [
+          0.6131872166243304,
+          1.186854191515609,
+          0.4218285986280238
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 16492,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6170383549587346,
+          0.030633048172244035,
+          -0.30945139596104054
+        ],
+        [
+          0.6158784223834946,
+          1.1503472550112832,
+          0.4217240030338215
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 16492,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6164649749038622,
+          0.001871995341177643,
+          -0.30940527712830845
+        ],
+        [
+          0.6164649749038622,
+          1.118095099744894,
+          0.4216995507217418
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 16492,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.615178614558002,
+          0.0010026653514309536,
+          -0.3095048580056363
+        ],
+        [
+          0.6176896046996663,
+          1.1151606989255192,
+          0.42175234667046324
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16652,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6193685920930101,
+          -0.034751443693268144,
+          -0.32283043676490714
+        ],
+        [
+          0.6131872166243304,
+          1.1344529538548875,
+          0.442208284533228
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 16652,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.599935877629993,
+          -0.05203407593155618,
+          -0.32463308101726124
+        ],
+        [
+          0.626214522271013,
+          1.1219080229267422,
+          0.44339534429519956
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 16652,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6164649749038622,
+          -0.0247879152758307,
+          -0.3222464960562973
+        ],
+        [
+          0.6164649749038622,
+          1.1301099883628443,
+          0.4424858519504533
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 16652,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6070505352810651,
+          -0.037355794515603113,
+          -0.32375132577197707
+        ],
+        [
+          0.6232936293876359,
+          1.1165876395009515,
+          0.4430998823734945
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16852,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6193685920930101,
+          -0.026390170628516618,
+          -0.31910388060572503
+        ],
+        [
+          0.6131872166243304,
+          1.0544078595667923,
+          0.42667678983466795
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 16852,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6283232880034804,
+          -0.0696739109351398,
+          -0.3214081277438384
+        ],
+        [
+          0.5905797599943867,
+          1.080860664318398,
+          0.4296542896917077
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 16852,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6164649749038622,
+          -0.017247714830795846,
+          -0.31861717410905926
+        ],
+        [
+          0.6164649749038622,
+          1.0479197688939317,
+          0.4264187746728446
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 16852,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6231562480791821,
+          -0.04024448840165745,
+          -0.3198414271267309
+        ],
+        [
+          0.6073141327808638,
+          1.0636948297463036,
+          0.427067593315421
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16492,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6193685920930101,
+          -0.03166398127171971,
+          -0.32283043676490714
+        ],
+        [
+          0.6131872166243304,
+          1.0348048413538011,
+          0.428541565866038
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 16492,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6000732784605718,
+          -0.059032382095919766,
+          -0.32461747743448094
+        ],
+        [
+          0.6261706071860411,
+          1.0427803584967896,
+          0.4337805055151883
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 16492,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6164649749038622,
+          -0.02272097082830682,
+          -0.3222464960562973
+        ],
+        [
+          0.6164649749038622,
+          1.0284604015267809,
+          0.4282320044415257
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 16492,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.607110473634028,
+          -0.04564234952533597,
+          -0.3237431650139542
+        ],
+        [
+          0.62326260211014,
+          1.0341405539097646,
+          0.42902518810452006
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16492,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6188742996020291,
+          -0.021662191179607854,
+          -0.3096487064443406
+        ],
+        [
+          0.6136815091153114,
+          1.0721104714982732,
+          0.4195576709766893
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 16492,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6173448113676796,
+          -0.016318524975487872,
+          -0.3095173022539024
+        ],
+        [
+          0.615506921030158,
+          1.0685585772779898,
+          0.4194882815159935
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 16492,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6164649749038622,
+          -0.012082955349388524,
+          -0.30940527712830845
+        ],
+        [
+          0.6164649749038622,
+          1.0654702878771605,
+          0.4194294269662392
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 16492,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6156123358662429,
+          -0.012817474846772647,
+          -0.3094719176375087
+        ],
+        [
+          0.6172900562228916,
+          1.0635957148454194,
+          0.41946440496728876
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16652,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6193685920930101,
+          0.015894846350510083,
+          -0.32283043676490714
+        ],
+        [
+          0.6131872166243304,
+          1.1597821054047472,
+          0.428541565866038
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 16652,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6048170661409945,
+          -0.019797932289472908,
+          -0.3240458349227441
+        ],
+        [
+          0.6243657776075562,
+          1.146873341486972,
+          0.42918549277251616
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 16652,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6164649749038622,
+          -0.00530540307424654,
+          -0.3222464960562973
+        ],
+        [
+          0.6164649749038622,
+          1.1219529745192653,
+          0.4282320044415257
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 16652,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6092188544285299,
+          -0.02528426604611167,
+          -0.3234466683871744
+        ],
+        [
+          0.6220884759141336,
+          1.1246465929781824,
+          0.428868118572413
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 16492,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6181328608655577,
+          -0.018682048487260572,
+          -0.30000001192092896
+        ],
+        [
+          0.6144229478517828,
+          1.089329496181183,
+          0.41671677827835085
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 16492,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6267590775989791,
+          -0.05030703396256864,
+          -0.30000001192092896
+        ],
+        [
+          0.5938630838473398,
+          1.1151143103507248,
+          0.41671677827835085
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 16492,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6164649749038622,
+          -0.009000003468990284,
+          -0.30000001192092896
+        ],
+        [
+          0.6164649749038622,
+          1.0826226653669406,
+          0.41671677827835085
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:gentle_gorilla",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 16492,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.6227361383162766,
+          -0.021314179907155617,
+          -0.30000001192092896
+        ],
+        [
+          0.6080926558627792,
+          1.097808085683439,
+          0.41671677827835085
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "gentle_gorilla",
+      "file": "partner-gentle_gorilla-0-sick-walk-reduced.jpg"
+    }
+  ],
+  "distance": [
+    {
+      "kind": "partner",
+      "id": "field_cow",
+      "key": "partner:field_cow",
+      "view": "front",
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": -4.926614671774132e-16,
+      "yawError": 4.926614671774132e-16,
+      "specKey": {
+        "id": "partner:field_cow",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 16716,
+        "meshes": 28,
+        "bones": 24,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 15.696,
+        "cpuMsP95": 29.5,
+        "buildMsTotal": 356,
+        "buildMsMax": 327.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-field_cow-distance-front.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "field_cow",
+      "key": "partner:field_cow",
+      "view": "back",
+      "actorHeading": 0,
+      "renderedYaw": -3.1415926535897936,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "partner:field_cow",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 16716,
+        "meshes": 28,
+        "bones": 24,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 5.312,
+        "cpuMsP95": 0.3,
+        "buildMsTotal": 356,
+        "buildMsMax": 327.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-field_cow-distance-back.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "forest_bear",
+      "key": "partner:forest_bear",
+      "view": "front",
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": -8.98586760555986e-16,
+      "yawError": 8.98586760555986e-16,
+      "specKey": {
+        "id": "partner:forest_bear",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 18262,
+        "meshes": 25,
+        "bones": 19,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 13.122,
+        "cpuMsP95": 47.2,
+        "buildMsTotal": 296.4,
+        "buildMsMax": 250.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-forest_bear-distance-front.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "forest_bear",
+      "key": "partner:forest_bear",
+      "view": "back",
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "partner:forest_bear",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 18262,
+        "meshes": 25,
+        "bones": 19,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 4.446,
+        "cpuMsP95": 0.3,
+        "buildMsTotal": 296.4,
+        "buildMsMax": 250.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-forest_bear-distance-back.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "grove_deer",
+      "key": "partner:grove_deer",
+      "view": "front",
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "partner:grove_deer",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 14790,
+        "meshes": 27,
+        "bones": 21,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 20,
+        "cpuMsP95": 45.7,
+        "buildMsTotal": 428.2,
+        "buildMsMax": 383.4,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-grove_deer-distance-front.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "grove_deer",
+      "key": "partner:grove_deer",
+      "view": "back",
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "partner:grove_deer",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 14790,
+        "meshes": 27,
+        "bones": 21,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 6.613,
+        "cpuMsP95": 0.3,
+        "buildMsTotal": 428.2,
+        "buildMsMax": 383.4,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-grove_deer-distance-back.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "cliff_goat",
+      "key": "partner:cliff_goat",
+      "view": "front",
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "partner:cliff_goat",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 19560,
+        "meshes": 34,
+        "bones": 28,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 14.23,
+        "cpuMsP95": 53,
+        "buildMsTotal": 321.3,
+        "buildMsMax": 269.3,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-cliff_goat-distance-front.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "cliff_goat",
+      "key": "partner:cliff_goat",
+      "view": "back",
+      "actorHeading": 0,
+      "renderedYaw": -3.1415926535897922,
+      "yawError": 1.133107779529596e-15,
+      "specKey": {
+        "id": "partner:cliff_goat",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 19560,
+        "meshes": 34,
+        "bones": 28,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 4.963,
+        "cpuMsP95": 0.3,
+        "buildMsTotal": 321.3,
+        "buildMsMax": 269.3,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-cliff_goat-distance-back.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "gentle_gorilla",
+      "key": "partner:gentle_gorilla",
+      "view": "front",
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "partner:gentle_gorilla",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 20714,
+        "meshes": 28,
+        "bones": 22,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 22.67,
+        "cpuMsP95": 37,
+        "buildMsTotal": 512.9,
+        "buildMsMax": 477,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-gentle_gorilla-distance-front.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "gentle_gorilla",
+      "key": "partner:gentle_gorilla",
+      "view": "back",
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "partner:gentle_gorilla",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 20714,
+        "meshes": 28,
+        "bones": 22,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 7.622,
+        "cpuMsP95": 0.2,
+        "buildMsTotal": 512.9,
+        "buildMsMax": 477,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-gentle_gorilla-distance-back.jpg"
+    }
+  ],
+  "errors": []
+}

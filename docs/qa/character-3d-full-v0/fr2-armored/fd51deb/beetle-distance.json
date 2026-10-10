@@ -1,0 +1,223 @@
+{
+  "when": "2026-10-06T13:19:36.084Z",
+  "revision": "quality3",
+  "sourceCommit": "fd51debce20418db17feb6bbd8e3945a4a844eef",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "armored",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "beetle:3": {
+      "requestedStage": 3,
+      "harnessStageIndex": 2,
+      "playerKey": "beetle:2",
+      "player3d": true,
+      "specKey": {
+        "id": "beetle",
+        "stage": 3,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-beetle-3-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-beetle-3-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 37674,
+        "meshes": 86,
+        "bones": 55,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 12,
+        "cpuMsAvg": 4.159,
+        "cpuMsP95": 23.8,
+        "buildMsTotal": 314,
+        "buildMsMax": 70.3,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "beetle:4": {
+      "requestedStage": 4,
+      "harnessStageIndex": 3,
+      "playerKey": "beetle:3",
+      "player3d": true,
+      "specKey": {
+        "id": "beetle",
+        "stage": 4,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-beetle-4-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-beetle-4-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 39486,
+        "meshes": 84,
+        "bones": 53,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 3.19,
+        "cpuMsP95": 19.7,
+        "buildMsTotal": 251.5,
+        "buildMsMax": 58.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "beetle:5": {
+      "requestedStage": 5,
+      "harnessStageIndex": 4,
+      "playerKey": "beetle:4",
+      "player3d": true,
+      "specKey": {
+        "id": "beetle",
+        "stage": 5,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-beetle-5-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-beetle-5-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 40410,
+        "meshes": 92,
+        "bones": 61,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 2.979,
+        "cpuMsP95": 24,
+        "buildMsTotal": 236.7,
+        "buildMsMax": 57,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "beetle:6": {
+      "requestedStage": 6,
+      "harnessStageIndex": 5,
+      "playerKey": "beetle:5",
+      "player3d": true,
+      "specKey": {
+        "id": "beetle",
+        "stage": 6,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-beetle-6-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-beetle-6-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 40410,
+        "meshes": 92,
+        "bones": 61,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 3.448,
+        "cpuMsP95": 33.1,
+        "buildMsTotal": 292.3,
+        "buildMsMax": 59.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "beetle:7": {
+      "requestedStage": 7,
+      "harnessStageIndex": 6,
+      "playerKey": "beetle:6",
+      "player3d": true,
+      "specKey": {
+        "id": "beetle",
+        "stage": 7,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-beetle-7-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-beetle-7-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 40402,
+        "meshes": 92,
+        "bones": 61,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 3.171,
+        "cpuMsP95": 17.9,
+        "buildMsTotal": 252.7,
+        "buildMsMax": 60.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "beetle:8": {
+      "requestedStage": 8,
+      "harnessStageIndex": 7,
+      "playerKey": "beetle:7",
+      "player3d": true,
+      "specKey": {
+        "id": "beetle",
+        "stage": 8,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-beetle-8-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-beetle-8-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 40370,
+        "meshes": 92,
+        "bones": 61,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 12,
+        "cpuMsAvg": 3.412,
+        "cpuMsP95": 36.8,
+        "buildMsTotal": 273.6,
+        "buildMsMax": 58,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS_ALL8_IMAGE_GATE",
+  "sourceCommit": "025d4bbdd63d467512e9d58b26c442350e7bfd91",
+  "waveArtifact": 11552082313,
+  "distanceArtifact": 11552726107,
+  "counts": {
+    "fourviews": 32,
+    "states": 256,
+    "distance": 16
+  },
+  "review": "04fourviews/32states/2distance freshly inspected:small wings now connect to trunk,face/limbs/tail remain readable. Other7fourviews28/28 andstate/boards231/231 match inspected a65ceb5 bytes exactly;other7normaldistance review retained from a65ceb5. All8 browser metadata exact/fallback0/errors0/failedTemplates0.",
+  "inheritedEvidence": "docs/qa/character-3d-full-v0/dragon-wing-root-20261008/stage-01.zip through stage-08.zip;04superseded by this directory",
+  "simplifications": "Rounded Pilot-style anatomy;canonical face;06flame is simplified head-owned closed geometry;surface scale noise omitted.",
+  "limits": "Candidate image gate only;not full293 or iPhone/Human acceptance"
+}

@@ -1,0 +1,149 @@
+{
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "run": 37922214774,
+  "sourceRunConclusion": "failure",
+  "rawFilesVerified": 3113,
+  "artifacts": [
+    {
+      "label": "fish-performance",
+      "files": 1,
+      "artifact": 11611719794,
+      "mode": "successful",
+      "job": 113792592103
+    },
+    {
+      "label": "gallery",
+      "files": 1,
+      "artifact": 11612053569,
+      "mode": "successful",
+      "job": 113792592014
+    },
+    {
+      "label": "human-performance",
+      "files": 1,
+      "artifact": 11612359683,
+      "mode": "successful",
+      "job": 113792592088
+    },
+    {
+      "label": "integration-butterfly",
+      "files": 150,
+      "artifact": 11613535214,
+      "mode": "successful",
+      "job": 113792866004
+    },
+    {
+      "label": "integration-cat",
+      "files": 282,
+      "artifact": 11612782291,
+      "mode": "successful",
+      "job": 113792866162
+    },
+    {
+      "label": "integration-clownfish",
+      "files": 183,
+      "artifact": 11612796192,
+      "mode": "successful",
+      "job": 113792866059
+    },
+    {
+      "label": "integration-coral",
+      "files": 150,
+      "artifact": 11613850782,
+      "mode": "successful",
+      "job": 113792866148
+    },
+    {
+      "label": "integration-dandelion",
+      "files": 150,
+      "artifact": 11613351159,
+      "mode": "successful",
+      "job": 113792866031
+    },
+    {
+      "label": "integration-dog",
+      "files": 183,
+      "artifact": 11613115016,
+      "mode": "successful",
+      "job": 113792866125
+    },
+    {
+      "label": "integration-frog",
+      "files": 183,
+      "artifact": 11613510710,
+      "mode": "successful",
+      "job": 113792866035
+    },
+    {
+      "label": "integration-man",
+      "files": 183,
+      "artifact": 11612104318,
+      "mode": "successful",
+      "job": 113792866201
+    },
+    {
+      "label": "integration-mushroom",
+      "files": 183,
+      "artifact": 11613750025,
+      "mode": "successful",
+      "job": 113792866050
+    },
+    {
+      "label": "integration-penguin",
+      "files": 183,
+      "artifact": 11612468637,
+      "mode": "successful",
+      "job": 113792866119
+    },
+    {
+      "label": "integration-ren",
+      "files": 282,
+      "artifact": 11612554168,
+      "mode": "successful",
+      "job": 113792866133
+    },
+    {
+      "label": "integration-salmon",
+      "files": 282,
+      "artifact": 11612323630,
+      "mode": "successful",
+      "job": 113792866074
+    },
+    {
+      "label": "integration-starfish",
+      "files": 183,
+      "artifact": 11613880164,
+      "mode": "successful",
+      "job": 113792866030
+    },
+    {
+      "label": "integration-turtle",
+      "files": 249,
+      "artifact": 11613920265,
+      "mode": "successful",
+      "job": 113792866199
+    },
+    {
+      "label": "integration-woman",
+      "files": 282,
+      "artifact": 11612339671,
+      "mode": "successful",
+      "job": 113792866071
+    },
+    {
+      "label": "original-runtime-diagnostic",
+      "files": 1,
+      "artifact": 11613060042,
+      "mode": "diagnostic",
+      "job": 113792592031
+    },
+    {
+      "label": "stage-coverage",
+      "files": 1,
+      "artifact": 11613793216,
+      "mode": "successful",
+      "job": 113805523751
+    }
+  ],
+  "status": "BYTES_VERIFIED_VISUAL_REVIEW_PENDING"
+}

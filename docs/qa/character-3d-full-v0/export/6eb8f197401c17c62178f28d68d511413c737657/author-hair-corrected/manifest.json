@@ -1,0 +1,218 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "6eb8f197401c17c62178f28d68d511413c737657",
+  "artifact": {
+    "id": 11611730815,
+    "name": "full-rollout-nonplayer-review-6eb8f197401c17c62178f28d68d511413c737657",
+    "digest": "sha256:e37cfc7541e370dc567472229141c8af86e99b78a0478f39743b4dcdabbd1db7"
+  },
+  "files": [
+    {
+      "path": "author-naoto-0-34.jpg",
+      "sha256": "2612d5c10b3609e36a41b3059b92a5619d7071d804ac37414c3ada9a866e6263",
+      "bytes": 11314
+    },
+    {
+      "path": "author-naoto-0-back.jpg",
+      "sha256": "9bf9d2158894892b06e0082fa9b63dc3fe2f3e9a721d7ac1e5756deac1c2738e",
+      "bytes": 10409
+    },
+    {
+      "path": "author-naoto-0-dislike-idle-normal.jpg",
+      "sha256": "1740658fa914eb591ca7b0ae1c049fd484ddd5c8e02fb1d72a016c23bd42c21a",
+      "bytes": 11083
+    },
+    {
+      "path": "author-naoto-0-dislike-idle-reduced.jpg",
+      "sha256": "c4b16547158237534d0338092ca0bd57e7977fbe3a5861d3d64c8f5f0999589b",
+      "bytes": 11210
+    },
+    {
+      "path": "author-naoto-0-dislike-walk-normal.jpg",
+      "sha256": "e1225b4cc7a49906372a2b81ec38a5c645f97232843ae7d75f1ede8bf8a56f47",
+      "bytes": 11149
+    },
+    {
+      "path": "author-naoto-0-dislike-walk-reduced.jpg",
+      "sha256": "45a3ac6e1a41b90dbd9e31ed14d151ab6900e6c794e25629bfe5579a2e06c91a",
+      "bytes": 11158
+    },
+    {
+      "path": "author-naoto-0-front.jpg",
+      "sha256": "c189cdc1510a19d8cdbaa98006df8a865db8a2adefa61f1086bac91373b90d89",
+      "bytes": 11817
+    },
+    {
+      "path": "author-naoto-0-normal-idle-normal.jpg",
+      "sha256": "2612d5c10b3609e36a41b3059b92a5619d7071d804ac37414c3ada9a866e6263",
+      "bytes": 11314
+    },
+    {
+      "path": "author-naoto-0-normal-idle-reduced.jpg",
+      "sha256": "e34d886708793de41fe69be953ac12e40d2e1f6e8e59cbc80edd1ee36b9061ad",
+      "bytes": 11414
+    },
+    {
+      "path": "author-naoto-0-normal-walk-normal.jpg",
+      "sha256": "a9294f741e2b7008492f6f8e0c712c01757aa99a8e35ccc9347739d2740a3a08",
+      "bytes": 11896
+    },
+    {
+      "path": "author-naoto-0-normal-walk-reduced.jpg",
+      "sha256": "d55dd07fc08f6ca0e6e857445b4207429340ff5dc787df910a1878edea86711c",
+      "bytes": 11662
+    },
+    {
+      "path": "author-naoto-0-positive-idle-normal.jpg",
+      "sha256": "2613e185a1383adb49001cd30c18c698df41df0e7014480977367aba4a3bfa86",
+      "bytes": 11285
+    },
+    {
+      "path": "author-naoto-0-positive-idle-reduced.jpg",
+      "sha256": "a33681616971c594a19d674cd1a2b2eef9cbed789149a767eaff1b26a9a4c763",
+      "bytes": 11354
+    },
+    {
+      "path": "author-naoto-0-positive-walk-normal.jpg",
+      "sha256": "950360080a1bb298c7f24a32883e61be831130bf7d737f937ef9734fdd14ab1d",
+      "bytes": 11599
+    },
+    {
+      "path": "author-naoto-0-positive-walk-reduced.jpg",
+      "sha256": "2fde282dfaf9652b13b9469c563179cc5eb395605c9fdcc16654942690fb3a27",
+      "bytes": 11315
+    },
+    {
+      "path": "author-naoto-0-sick-idle-normal.jpg",
+      "sha256": "939fdea08db308f6af17c470fea6334dd566a7bca1dd339c0df3a2eae5931313",
+      "bytes": 11125
+    },
+    {
+      "path": "author-naoto-0-sick-idle-reduced.jpg",
+      "sha256": "8be82e5114d5f1d57b8073f20a1d0f04ff8ad261acc28c90fc8a9dca315bf3d9",
+      "bytes": 11357
+    },
+    {
+      "path": "author-naoto-0-sick-walk-normal.jpg",
+      "sha256": "49cdc37bb62263a64bbf9be3794e08a45d086c7c35b413cdd836bb8199177549",
+      "bytes": 11233
+    },
+    {
+      "path": "author-naoto-0-sick-walk-reduced.jpg",
+      "sha256": "4370664f1e7af7265c8d41eafac252ea8a64a6b93aa121dcc5242170de52fa50",
+      "bytes": 11289
+    },
+    {
+      "path": "author-naoto-0-side.jpg",
+      "sha256": "9b848c27066c5cd7a19fd01837b3ff9afe1cda6e16a0145809a9b6b8022bacf3",
+      "bytes": 9322
+    },
+    {
+      "path": "author-naoto-0-sleeping-idle-normal.jpg",
+      "sha256": "4b5dcc62ba83b9bafd31cd63f0c1d50dd0601ba0903f5521eb2372b5811edc93",
+      "bytes": 11309
+    },
+    {
+      "path": "author-naoto-0-sleeping-idle-reduced.jpg",
+      "sha256": "17aa8f24fadb18d06fc6309d54d3f766defb49c073b1a37c1bb78d7d1a538973",
+      "bytes": 11376
+    },
+    {
+      "path": "author-naoto-0-sleeping-walk-normal.jpg",
+      "sha256": "59a6da26dbff9c4d303373ed24b8704efb98fd70ac2b8a07c5b227d6ce3c6875",
+      "bytes": 11666
+    },
+    {
+      "path": "author-naoto-0-sleeping-walk-reduced.jpg",
+      "sha256": "449de2d4db87d90db96a95cab4fbe8b07d89ae1b52fb301acfa91567828ac6f1",
+      "bytes": 11551
+    },
+    {
+      "path": "author-naoto-0-strained-idle-normal.jpg",
+      "sha256": "98ee6d870fe6a25c7397d92d8da226e55bb0c941649d640375d9af7b97892cbd",
+      "bytes": 11561
+    },
+    {
+      "path": "author-naoto-0-strained-idle-reduced.jpg",
+      "sha256": "c43f92103102afa0dde9fca0c925f211899ca724b6a577be45835dc3e26d8010",
+      "bytes": 11615
+    },
+    {
+      "path": "author-naoto-0-strained-walk-normal.jpg",
+      "sha256": "61b82f08a0b30532f85d501a4495a6f8a3b6610ac91a9b2b177e20ca0d0c6cc6",
+      "bytes": 11842
+    },
+    {
+      "path": "author-naoto-0-strained-walk-reduced.jpg",
+      "sha256": "5ec4c65854d6529ce7accc7f87ec6f900541d9afc4af09472ce85cc7c9b1c532",
+      "bytes": 11855
+    },
+    {
+      "path": "author-naoto-0-tired-idle-normal.jpg",
+      "sha256": "e3a33f2cef809859ea1f0bd82064c6484e942241010769833810d016af22f79a",
+      "bytes": 11176
+    },
+    {
+      "path": "author-naoto-0-tired-idle-reduced.jpg",
+      "sha256": "cdbfa1266f2e68374edd9d2d48771c9055c99ec6e3d1eec8c3ff1d5689d9469b",
+      "bytes": 11230
+    },
+    {
+      "path": "author-naoto-0-tired-walk-normal.jpg",
+      "sha256": "e88e9cb0af5bdb9fd65dada79e0773a4e9d1481d87870ba55881185df6798c6c",
+      "bytes": 11350
+    },
+    {
+      "path": "author-naoto-0-tired-walk-reduced.jpg",
+      "sha256": "399aea0123d0e821b847d5331936f1b49a082a17630f741134e1916b0210e1e8",
+      "bytes": 11439
+    },
+    {
+      "path": "author-naoto-0-wantsPlay-idle-normal.jpg",
+      "sha256": "ee6e756ad7a4daf303b4e759628f91eed182066b364ca7b978969838c8328a83",
+      "bytes": 11317
+    },
+    {
+      "path": "author-naoto-0-wantsPlay-idle-reduced.jpg",
+      "sha256": "0d9928bfd6c48fd19109faabe17c497ce2d53728b1a45f505a3d0aefee091106",
+      "bytes": 11464
+    },
+    {
+      "path": "author-naoto-0-wantsPlay-walk-normal.jpg",
+      "sha256": "4b2967906baf36fb1bec3e8714147c779a98d6442b1155c76b4cbfadc298f66c",
+      "bytes": 11495
+    },
+    {
+      "path": "author-naoto-0-wantsPlay-walk-reduced.jpg",
+      "sha256": "39325fa20a5a7e127bae0feefb08cbf7775629ab2257529a8734a0e10862dfb3",
+      "bytes": 11511
+    },
+    {
+      "path": "author-naoto-distance-back.jpg",
+      "sha256": "276cdf20e18d6285fb1b73fd847742016d815cd58f20194cdf81097c4649d0d7",
+      "bytes": 115063
+    },
+    {
+      "path": "author-naoto-distance-front.jpg",
+      "sha256": "371122654f3dc4273776a1c6b281b6c236cd24cd8cf9ea363f8440858ac35388",
+      "bytes": 115436
+    },
+    {
+      "path": "author-naoto-motion.jpg",
+      "sha256": "7dc04c9b255bb03c016866d8b8d27aef32aa2eaa63d9bdb0b01c878e28d8b9b3",
+      "bytes": 462572
+    },
+    {
+      "path": "author-naoto-views.jpg",
+      "sha256": "c71c14ef4299cc8938aa02856c4d21667fe6e8d3bdbd098b11da877ddb942bfa",
+      "bytes": 55302
+    },
+    {
+      "path": "evidence.json",
+      "sha256": "9887d886080147be9b795b1e85f912c8036e275eb0a334004843c6684e9186ae",
+      "bytes": 34858
+    }
+  ],
+  "sourceRun": 37920067984,
+  "sourceRunConclusion": "success"
+}

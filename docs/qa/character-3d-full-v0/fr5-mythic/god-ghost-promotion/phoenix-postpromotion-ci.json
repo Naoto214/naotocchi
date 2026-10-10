@@ -1,0 +1,152 @@
+{
+  "sourceCommit": "c67ba8003c8f145fa24f3e90cf9beeafe8d51ea0",
+  "runId": 37871872563,
+  "totalJobs": 57,
+  "counts": {
+    "success": 57,
+    "failure": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "familyJobs": [
+    {
+      "id": 113631681702,
+      "name": "stage-evidence (salmon)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631681709,
+      "name": "stage-evidence (dog)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631681737,
+      "name": "stage-evidence (dandelion)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631681738,
+      "name": "stage-evidence (starfish)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631681747,
+      "name": "stage-evidence (penguin)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631681778,
+      "name": "stage-evidence (frog)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631681782,
+      "name": "stage-evidence (butterfly)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631681788,
+      "name": "stage-evidence (mushroom)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631681790,
+      "name": "stage-evidence (cat)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631681797,
+      "name": "stage-evidence (ren)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631681808,
+      "name": "stage-evidence (man)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631681820,
+      "name": "stage-evidence (clownfish)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631681821,
+      "name": "stage-evidence (woman)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631681851,
+      "name": "stage-evidence (coral)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631681861,
+      "name": "stage-evidence (turtle)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631682709,
+      "name": "stage-evidence (beetle)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631682710,
+      "name": "stage-evidence (jellyfish)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631682771,
+      "name": "stage-evidence (stagbeetle)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631682845,
+      "name": "stage-evidence (sakura)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631682853,
+      "name": "stage-evidence (cicada)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631682886,
+      "name": "stage-evidence (world_tree)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631682966,
+      "name": "stage-evidence (hermit_crab)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631682970,
+      "name": "stage-evidence (antlion)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631682997,
+      "name": "stage-evidence (plush)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631683100,
+      "name": "stage-evidence (dragon)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631683808,
+      "name": "stage-evidence (phoenix)",
+      "conclusion": "success"
+    },
+    {
+      "id": 113631683842,
+      "name": "stage-evidence (venus_flytrap)",
+      "conclusion": "success"
+    }
+  ],
+  "aggregateJob": 113640335472,
+  "aggregateArtifact": 11591862686,
+  "runtimeRun": 37871878184,
+  "homeRun": 37871878268
+}

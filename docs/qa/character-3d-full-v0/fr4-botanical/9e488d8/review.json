@@ -1,0 +1,14 @@
+{
+  "sourceCommit": "9e488d85ca3114de32db31acfcb36b11d934addd",
+  "artifacts": {
+    "waveMotion": 11432317814,
+    "normalDistance": 11432620157
+  },
+  "fourViews": 8,
+  "stateFrames": 64,
+  "normalDistanceViews": 4,
+  "verdict": "REJECT",
+  "stage3": "Radial front leaf obscures an eye/mouth in three-quarter view, including normal,positive,tired,sleeping,strained,wantsPlay,sick. No expansion.",
+  "stage7": "Oriented cupped traps with five owned faces and attached stems/roots acceptable at representative level; family still gated on03.",
+  "platform": "Chromium/SwiftShader; not iPhone"
+}

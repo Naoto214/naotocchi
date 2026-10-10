@@ -1,0 +1,71 @@
+{
+  "source": "81b04e0758bca7018f39607bbcc8fb9cb8b280f9",
+  "comparison": "Fixed Pilot mix, separate CI runs, eight seconds. QA stand-ins; not full-native/iPhone coverage.",
+  "rows": [
+    {
+      "actors": 1,
+      "before": {
+        "tris": 4062,
+        "calls": 41,
+        "cpu": 0.615,
+        "heap": 19.3
+      },
+      "after": {
+        "tris": 4062,
+        "calls": 39,
+        "cpu": 0.957,
+        "heap": 19.3,
+        "materials": 1,
+        "textures": 18,
+        "templates": 1,
+        "buildMs": 78,
+        "maxBuildMs": 78,
+        "fallback": 0
+      }
+    },
+    {
+      "actors": 5,
+      "before": {
+        "tris": 19144,
+        "calls": 85,
+        "cpu": 2.226,
+        "heap": 19.3
+      },
+      "after": {
+        "tris": 19144,
+        "calls": 85,
+        "cpu": 2.701,
+        "heap": 19.3,
+        "materials": 1,
+        "textures": 27,
+        "templates": 4,
+        "buildMs": 210.8,
+        "maxBuildMs": 95.1,
+        "fallback": 0
+      }
+    },
+    {
+      "actors": 27,
+      "before": {
+        "tris": 106403,
+        "calls": 236,
+        "cpu": 4.844,
+        "heap": 23.1
+      },
+      "after": {
+        "tris": 106403,
+        "calls": 255,
+        "cpu": 5.555,
+        "heap": 23.1,
+        "materials": 1,
+        "textures": 79,
+        "templates": 10,
+        "buildMs": 513.7,
+        "maxBuildMs": 83.1,
+        "fallback": 0
+      }
+    }
+  ],
+  "animationCPU": "NOT_MEASURED_SEPARATELY",
+  "firstAppearanceHitch": "NOT_ISOLATED"
+}

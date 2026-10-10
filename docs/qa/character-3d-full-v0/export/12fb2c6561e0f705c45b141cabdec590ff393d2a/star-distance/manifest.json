@@ -1,0 +1,96 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "12fb2c6561e0f705c45b141cabdec590ff393d2a",
+  "artifact": {
+    "id": 11593399232,
+    "name": "full-rollout-mythic-distance-star-12fb2c6561e0f705c45b141cabdec590ff393d2a",
+    "digest": "sha256:a7da06e50e698fff013e99270e8484236a37242db570d302883f9b670acdba2f"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "626d3fd390d9c210dfb275ba5e91d3b524f43a7180d489d3f933cc32e206e22d",
+      "bytes": 7420
+    },
+    {
+      "path": "player-star-1-back.png",
+      "sha256": "e4ff7c2c4339674c6384f59e052a34385710a47abf7e7caec80dd56010406b65",
+      "bytes": 309303
+    },
+    {
+      "path": "player-star-1-front.png",
+      "sha256": "9034c62b09b97d24577f9c56ea84a244905e1a065bed1ba25cb833402ecda8b6",
+      "bytes": 309718
+    },
+    {
+      "path": "player-star-2-back.png",
+      "sha256": "a2894cb59f0c75bc9ea9b7714b2b293c66f627196c31300f85a83330784673d5",
+      "bytes": 314126
+    },
+    {
+      "path": "player-star-2-front.png",
+      "sha256": "e5b857accff64cab681659dc49368cae105e6dbc5911025c0893501327c242e5",
+      "bytes": 311441
+    },
+    {
+      "path": "player-star-3-back.png",
+      "sha256": "86c3b80e05e22189c4d2562e94e3403e3d7c3aab4ab2e0b0f59bf16aa17132ea",
+      "bytes": 322319
+    },
+    {
+      "path": "player-star-3-front.png",
+      "sha256": "dc7317e52854d7ffe7c498e242055452d168b0bbea503e2aed8a9d489bfa0f38",
+      "bytes": 311807
+    },
+    {
+      "path": "player-star-4-back.png",
+      "sha256": "17766878f6a90c961c862512ba486afce8ca00dfc4ab7e8628782233a240245a",
+      "bytes": 311228
+    },
+    {
+      "path": "player-star-4-front.png",
+      "sha256": "0e24e69b2f4e4216d177318c3ffd05a7c5d0c1e39ffbd5809a4326a95909e927",
+      "bytes": 313910
+    },
+    {
+      "path": "player-star-5-back.png",
+      "sha256": "5a340a0c8b9471818ac6fb3aabe45fec0dcf931a1578ce173803e884efcf91bb",
+      "bytes": 312128
+    },
+    {
+      "path": "player-star-5-front.png",
+      "sha256": "cd93e16bdd1393775bf074d878fed243e9974f59f91b0f8fcb2be529b6d26b61",
+      "bytes": 314386
+    },
+    {
+      "path": "player-star-6-back.png",
+      "sha256": "d89cc5385105900dca36d926ab99dc681080f67d65fde5773273412dc029d71b",
+      "bytes": 315216
+    },
+    {
+      "path": "player-star-6-front.png",
+      "sha256": "5dd3672fd2fc0515c5bbf1faafee53921bf5a44eee3a1056b673a50c07a9611d",
+      "bytes": 317571
+    },
+    {
+      "path": "player-star-7-back.png",
+      "sha256": "74fbb3ee2e6066343d750106309bcabd3460225c32d8fe53bf14fa6e2d991850",
+      "bytes": 317081
+    },
+    {
+      "path": "player-star-7-front.png",
+      "sha256": "9d25c87db7b9d9250dd1bbd6fabc1f6fe3784e69e0174acc0eeefe1f92709dd3",
+      "bytes": 318540
+    },
+    {
+      "path": "player-star-8-back.png",
+      "sha256": "edd7e17c6aed5a80ccc145932ed30901e2ff7818d7970e19b8cddd3a9bcd737c",
+      "bytes": 322204
+    },
+    {
+      "path": "player-star-8-front.png",
+      "sha256": "61ad4e40c6eabb805a5500528aa0b9a3a61e17813f0b30c9e63bad308320fc74",
+      "bytes": 315870
+    }
+  ]
+}

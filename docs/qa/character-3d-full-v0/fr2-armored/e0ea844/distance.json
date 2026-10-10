@@ -1,0 +1,87 @@
+{
+  "when": "2026-10-06T17:30:53.585Z",
+  "revision": "quality3",
+  "sourceCommit": "e0ea84427c9f8ccd5899cd5d50a71e7181a652e0",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "armored",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "hermit_crab:3": {
+      "requestedStage": 3,
+      "harnessStageIndex": 2,
+      "playerKey": "hermit_crab:2",
+      "player3d": true,
+      "specKey": {
+        "id": "hermit_crab",
+        "stage": 3,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-hermit_crab-3-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-hermit_crab-3-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 49774,
+        "meshes": 91,
+        "bones": 63,
+        "materials": 1,
+        "atlases": 10,
+        "eyeGeos": 10,
+        "cpuMsAvg": 3.127,
+        "cpuMsP95": 27.5,
+        "buildMsTotal": 257.8,
+        "buildMsMax": 55.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "hermit_crab:7": {
+      "requestedStage": 7,
+      "harnessStageIndex": 6,
+      "playerKey": "hermit_crab:6",
+      "player3d": true,
+      "specKey": {
+        "id": "hermit_crab",
+        "stage": 7,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-hermit_crab-7-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-hermit_crab-7-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 44130,
+        "meshes": 90,
+        "bones": 62,
+        "materials": 1,
+        "atlases": 10,
+        "eyeGeos": 10,
+        "cpuMsAvg": 3.249,
+        "cpuMsP95": 27.5,
+        "buildMsTotal": 271,
+        "buildMsMax": 70.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

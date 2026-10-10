@@ -1,0 +1,22 @@
+{
+  "sourceCommit": "4f3a83933e0ef9ef26a6838d5530324d98b9f183",
+  "result": "PASS_ALL8_IMAGE_GATE",
+  "reviewed": {
+    "fourViews": 32,
+    "stateCells": 256,
+    "normalDistance": 16
+  },
+  "hashesVerified": {
+    "ghost-wave": 299,
+    "ghost-distance": 17
+  },
+  "findings": [
+    "01 rising wisp connected to small closed core",
+    "02 curl silhouette and03/04 owned hands readable",
+    "05 raised hands and purple crest/flames distinct while preserving canonical expressions",
+    "06 beard tendrils attached below unobscured face",
+    "07 clasp/halo and08 narrow ascension/gold sparks readable",
+    "No detached owned body parts or face occlusion across32states perstage"
+  ],
+  "limits": "Chromium/SwiftShader;not Human/iPhone acceptance;runtime promotion separate"
+}

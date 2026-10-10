@@ -1,0 +1,933 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11612796192,
+    "name": "full-rollout-stages-clownfish-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:80ecbd6461f7c1a611a832b9d35c41fa176d888185fdb9cac72b98134ffead42"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "2182550e160f821ed0c3da95e40284d379ab0a5b95f49a7c527e9a22d3da055f",
+      "bytes": 7711
+    },
+    {
+      "path": "missing-motion/clownfish-2-dislike-idle-normal.jpg",
+      "sha256": "d9291985d494993291bf06a498fb8f62eb0eed61f6a0491eb2a14a2246da3d5f",
+      "bytes": 7798
+    },
+    {
+      "path": "missing-motion/clownfish-2-dislike-idle-reduced.jpg",
+      "sha256": "3e64597be71b23b18f20ef4464cecd5081c31c95ca31eaf2014b9bd37c5a3229",
+      "bytes": 7898
+    },
+    {
+      "path": "missing-motion/clownfish-2-dislike-walk-normal.jpg",
+      "sha256": "b4085aff29a21ff8af814d5d2b22919b74a18769067dd2e6daebadc25cc3c7b2",
+      "bytes": 8061
+    },
+    {
+      "path": "missing-motion/clownfish-2-dislike-walk-reduced.jpg",
+      "sha256": "dc2924ae3b7946771d41e4e3641b608785a9afa9d1e4015acf67418b0b96a14b",
+      "bytes": 8069
+    },
+    {
+      "path": "missing-motion/clownfish-2-motion.jpg",
+      "sha256": "b3532c98bf4e6cae273431d1310ffff9bc0796acf0594a0f0049e81b791346d7",
+      "bytes": 331349
+    },
+    {
+      "path": "missing-motion/clownfish-2-normal-idle-normal.jpg",
+      "sha256": "d2b4bf279bf429a2cef74688be1bc6d2db1bf97c705de90f04ce40f57bfd19bd",
+      "bytes": 8347
+    },
+    {
+      "path": "missing-motion/clownfish-2-normal-idle-reduced.jpg",
+      "sha256": "076b5247092f47a482a50207ad17980703f930f9e846c2a7de46310d3eceda69",
+      "bytes": 8454
+    },
+    {
+      "path": "missing-motion/clownfish-2-normal-walk-normal.jpg",
+      "sha256": "c1c5bee75343129afbc5b33657e2fd433d031a847ad21fe1976001e0ea99d5f8",
+      "bytes": 8696
+    },
+    {
+      "path": "missing-motion/clownfish-2-normal-walk-reduced.jpg",
+      "sha256": "1ea8dba59f48d160bb3ce2512074635ee252307cf3258863a82ee90dcb4cdee4",
+      "bytes": 8581
+    },
+    {
+      "path": "missing-motion/clownfish-2-positive-idle-normal.jpg",
+      "sha256": "682afd91bf62a0e0d2586a09f6a7d1bb795c64bcb64e54e99252f4cdb4319637",
+      "bytes": 8464
+    },
+    {
+      "path": "missing-motion/clownfish-2-positive-idle-reduced.jpg",
+      "sha256": "0c4a3d51e4e933b64ff898c4e25b00fe5c17ed3139d164a3c18d2af1ab6bf17d",
+      "bytes": 8439
+    },
+    {
+      "path": "missing-motion/clownfish-2-positive-walk-normal.jpg",
+      "sha256": "ef1f51ac1a98f8f614fa35bf9c3a20049bd4a18af7209746e12bf1796e950752",
+      "bytes": 8166
+    },
+    {
+      "path": "missing-motion/clownfish-2-positive-walk-reduced.jpg",
+      "sha256": "80b1bdd70a2101be1a76d8eec0e977ffa33a0aa28046455e0096b8557aa33ff1",
+      "bytes": 8430
+    },
+    {
+      "path": "missing-motion/clownfish-2-sick-idle-normal.jpg",
+      "sha256": "f9d15e5ea9cf5e3528b2fbd21b18671c390761e6404b05f9943bd0302b5c512b",
+      "bytes": 7880
+    },
+    {
+      "path": "missing-motion/clownfish-2-sick-idle-reduced.jpg",
+      "sha256": "cc2692049c2b6b592afe5109d538730c38b142b17929a5f5b7614ebd9a3c3c8b",
+      "bytes": 7941
+    },
+    {
+      "path": "missing-motion/clownfish-2-sick-walk-normal.jpg",
+      "sha256": "0a4d0eca3e62a23fb84db60679101288642b242a7f2c32f79377c5bcfbbb95dd",
+      "bytes": 8044
+    },
+    {
+      "path": "missing-motion/clownfish-2-sick-walk-reduced.jpg",
+      "sha256": "521f0d97413e1f51c34da29035cd41a77b1a74808ad37c8ea3715a902ff67f20",
+      "bytes": 8095
+    },
+    {
+      "path": "missing-motion/clownfish-2-sleeping-idle-normal.jpg",
+      "sha256": "c72c1088daa011c9a660d64bf8043e0866c5d503425cf38e5bc2bee0b57ac1d3",
+      "bytes": 7733
+    },
+    {
+      "path": "missing-motion/clownfish-2-sleeping-idle-reduced.jpg",
+      "sha256": "1866d92038cb092854eac0d06815adc6dbc1a34cb71b4fd3f59b0ff159639774",
+      "bytes": 7795
+    },
+    {
+      "path": "missing-motion/clownfish-2-sleeping-walk-normal.jpg",
+      "sha256": "4780811a16810c8b24f6b39ffe31d6d5d8a3fad4e0ca2208d83c4637920f218d",
+      "bytes": 8149
+    },
+    {
+      "path": "missing-motion/clownfish-2-sleeping-walk-reduced.jpg",
+      "sha256": "c8c244cb5480095ce6d872a9521412d6bab6934a9bb204d6aa519e7ac1aab592",
+      "bytes": 8159
+    },
+    {
+      "path": "missing-motion/clownfish-2-strained-idle-normal.jpg",
+      "sha256": "160144c453778341399fce02ca75d70c114a9bb093c585ced6cf217e718adb0d",
+      "bytes": 8104
+    },
+    {
+      "path": "missing-motion/clownfish-2-strained-idle-reduced.jpg",
+      "sha256": "c900d7bb092daa40b88370bd4af83e8811ea722a9388aecfd3a232fb202e25f6",
+      "bytes": 8225
+    },
+    {
+      "path": "missing-motion/clownfish-2-strained-walk-normal.jpg",
+      "sha256": "0b771f4d34a1d00e246bda36e18cff1fb3da4c79c42e7f0de90af3fc0e3fcce8",
+      "bytes": 8015
+    },
+    {
+      "path": "missing-motion/clownfish-2-strained-walk-reduced.jpg",
+      "sha256": "0de5af0844672339c92c88faf7034cfc12185d8f27006f69aa8a75499d3a0cc2",
+      "bytes": 8140
+    },
+    {
+      "path": "missing-motion/clownfish-2-tired-idle-normal.jpg",
+      "sha256": "f5ae748e710ea5522354a2c29bbd376291a0ba9d007c48cd42b2bdf56662f92e",
+      "bytes": 7604
+    },
+    {
+      "path": "missing-motion/clownfish-2-tired-idle-reduced.jpg",
+      "sha256": "4d957c4be424cff012d66b611477e228641af88f171dce02e3c4679afe3c8561",
+      "bytes": 7686
+    },
+    {
+      "path": "missing-motion/clownfish-2-tired-walk-normal.jpg",
+      "sha256": "16df7b7750c3a9afd16cde9af5d46b8dfd5d386784db9b847c646a3ad09bb332",
+      "bytes": 7988
+    },
+    {
+      "path": "missing-motion/clownfish-2-tired-walk-reduced.jpg",
+      "sha256": "1ca27fabd390b832783b9d016ff9f0526882e54e5eec07325234f6891d2f9c72",
+      "bytes": 7950
+    },
+    {
+      "path": "missing-motion/clownfish-2-wantsPlay-idle-normal.jpg",
+      "sha256": "83bfa3f91e3c0cecdac9186fb397b9621dbf64232966952c5400b5b8b9cf613b",
+      "bytes": 8702
+    },
+    {
+      "path": "missing-motion/clownfish-2-wantsPlay-idle-reduced.jpg",
+      "sha256": "f54abbc8d762fe029984f7b56f30a5df4722c98c10d35c52cdc5d8cf3d5bc0e6",
+      "bytes": 8733
+    },
+    {
+      "path": "missing-motion/clownfish-2-wantsPlay-walk-normal.jpg",
+      "sha256": "f7c943fe2c04ad99d5c0030a7ff3820cbb5175db8406d57ac36e59e53f7498ef",
+      "bytes": 8994
+    },
+    {
+      "path": "missing-motion/clownfish-2-wantsPlay-walk-reduced.jpg",
+      "sha256": "533e02deb46b4f648304ea98fb81019eb413aa0b6b5480d02065ed2c6d735e22",
+      "bytes": 8870
+    },
+    {
+      "path": "missing-motion/clownfish-3-dislike-idle-normal.jpg",
+      "sha256": "d682a1afbefd334a411d5a05845e228d9576114dae8d10972d288808d751038f",
+      "bytes": 9938
+    },
+    {
+      "path": "missing-motion/clownfish-3-dislike-idle-reduced.jpg",
+      "sha256": "2dabfcf0252b4956e60c0038667db347ac5b3d5b8ac3ae3c80dae5a6d7c84995",
+      "bytes": 9893
+    },
+    {
+      "path": "missing-motion/clownfish-3-dislike-walk-normal.jpg",
+      "sha256": "f9abb56ecda31906b5e262d2fb761c0abbd2e771467244d8f3d5cacee91f5d8e",
+      "bytes": 10152
+    },
+    {
+      "path": "missing-motion/clownfish-3-dislike-walk-reduced.jpg",
+      "sha256": "17f1f90cd18dbf6776e4fad1a58d72de96d6cca8b46d6f8021d30cb6cb4c7687",
+      "bytes": 10177
+    },
+    {
+      "path": "missing-motion/clownfish-3-motion.jpg",
+      "sha256": "9944619a570d519d6acb3547c5e7f68d1fa3dff68105b83b482fb846a3ee2dbd",
+      "bytes": 405466
+    },
+    {
+      "path": "missing-motion/clownfish-3-normal-idle-normal.jpg",
+      "sha256": "2e43dbdaa4745e3f1a1bf0131350e13abffa194826ebff4be9f8338bf1abdc7a",
+      "bytes": 10071
+    },
+    {
+      "path": "missing-motion/clownfish-3-normal-idle-reduced.jpg",
+      "sha256": "ccb2d57d95a8bb1fa2d411ce5b68dfa7d37224ebaa71c558328482f4b810d4f6",
+      "bytes": 10047
+    },
+    {
+      "path": "missing-motion/clownfish-3-normal-walk-normal.jpg",
+      "sha256": "a5fbba9daeaab8c498fae6f9ceae07671d031e0437be563eb6e2627edfef771d",
+      "bytes": 10437
+    },
+    {
+      "path": "missing-motion/clownfish-3-normal-walk-reduced.jpg",
+      "sha256": "15e78890647c405ad0bf52fc864bc8826d5ec519377894a3bfe657b9363537e9",
+      "bytes": 10266
+    },
+    {
+      "path": "missing-motion/clownfish-3-positive-idle-normal.jpg",
+      "sha256": "ca7cc496287bcdc794c389f5e5a1532a8abb20bc4806272aea29cd601bd77ef6",
+      "bytes": 10296
+    },
+    {
+      "path": "missing-motion/clownfish-3-positive-idle-reduced.jpg",
+      "sha256": "7cc27078653c2d0bd4e953310e1939f4a085280fbe74a0e99293c65a3beb7058",
+      "bytes": 10107
+    },
+    {
+      "path": "missing-motion/clownfish-3-positive-walk-normal.jpg",
+      "sha256": "1a79ca46275b7ed7e81fb83806312e256a214e385ddb7eacfdb3f14b7e98327f",
+      "bytes": 9968
+    },
+    {
+      "path": "missing-motion/clownfish-3-positive-walk-reduced.jpg",
+      "sha256": "05d6c1532e1c87bc7cca103374c0d4bcfb6b5b2a6b0431991abfa067ecfe8993",
+      "bytes": 10064
+    },
+    {
+      "path": "missing-motion/clownfish-3-sick-idle-normal.jpg",
+      "sha256": "d883add77381758d1e56ef7efed16d71a9fdae0a9ac1d20e1ee8db6a1bed580e",
+      "bytes": 9580
+    },
+    {
+      "path": "missing-motion/clownfish-3-sick-idle-reduced.jpg",
+      "sha256": "5e6efcfa1e5f29f51041f88b5440948cba25b2dca4a3bc6a8cfaa488cdbb0246",
+      "bytes": 9422
+    },
+    {
+      "path": "missing-motion/clownfish-3-sick-walk-normal.jpg",
+      "sha256": "6d9e12c314aaa4761b9b1f31b8405b41d91d3c96b4833579cda73aef7e1b189d",
+      "bytes": 9601
+    },
+    {
+      "path": "missing-motion/clownfish-3-sick-walk-reduced.jpg",
+      "sha256": "bbaadf1c36fd551c4e8e3113ba166239a055ecee3f6ad7af3d8a472b0ea8367e",
+      "bytes": 9685
+    },
+    {
+      "path": "missing-motion/clownfish-3-sleeping-idle-normal.jpg",
+      "sha256": "685e8dc51f12d12dfe8a27611f4f1f4d75a802b93c908dd7793dcb0a96479499",
+      "bytes": 9553
+    },
+    {
+      "path": "missing-motion/clownfish-3-sleeping-idle-reduced.jpg",
+      "sha256": "41f38d11584ed987f485745e9effbef9514bbd2161a465e456a534204c90daf7",
+      "bytes": 9481
+    },
+    {
+      "path": "missing-motion/clownfish-3-sleeping-walk-normal.jpg",
+      "sha256": "d0140673d324d219aaa086ab9dd861d5f7680ee5ee2d60d3e2c72cd308731e30",
+      "bytes": 10038
+    },
+    {
+      "path": "missing-motion/clownfish-3-sleeping-walk-reduced.jpg",
+      "sha256": "6a4bf98c5239f93ab42d19d261b83e6daba89db5a1dbb11c4c979a790f80a033",
+      "bytes": 9740
+    },
+    {
+      "path": "missing-motion/clownfish-3-strained-idle-normal.jpg",
+      "sha256": "66616ed4d30d8a0c5139edd1e9044f4a9864c77ef5b9a269cde64907eec7fcc7",
+      "bytes": 9803
+    },
+    {
+      "path": "missing-motion/clownfish-3-strained-idle-reduced.jpg",
+      "sha256": "942b4d4bf7e628975791ad75774dd977613ae94084bb914c16b5f163a5b46068",
+      "bytes": 9734
+    },
+    {
+      "path": "missing-motion/clownfish-3-strained-walk-normal.jpg",
+      "sha256": "a109d499e79d0ce1e30c32c5c7d92f44e07f57f31e4c23295c3445bda9f80dc3",
+      "bytes": 9806
+    },
+    {
+      "path": "missing-motion/clownfish-3-strained-walk-reduced.jpg",
+      "sha256": "b664b0fc95ce7ef8248384d69af5c930613c67f0a35c6f9aa8543cf970d8e63f",
+      "bytes": 9814
+    },
+    {
+      "path": "missing-motion/clownfish-3-tired-idle-normal.jpg",
+      "sha256": "ff1af033118f0c87258d9be19113a4f3262b0fecd02b81661131159c8edff4fa",
+      "bytes": 9478
+    },
+    {
+      "path": "missing-motion/clownfish-3-tired-idle-reduced.jpg",
+      "sha256": "2bad741880de536259b50f1f8ed3cea79e426b9a87126f73de6c04e623021e1f",
+      "bytes": 9377
+    },
+    {
+      "path": "missing-motion/clownfish-3-tired-walk-normal.jpg",
+      "sha256": "e3a799d595dd3d36ca2087c9b007ddb32048714e2a23bd463c4b6fc55c676898",
+      "bytes": 9732
+    },
+    {
+      "path": "missing-motion/clownfish-3-tired-walk-reduced.jpg",
+      "sha256": "ce78bd1105fbd1e5eefc0a131645f433fd56fc7cf9f8c60cb32d23982c1dc5da",
+      "bytes": 9803
+    },
+    {
+      "path": "missing-motion/clownfish-3-wantsPlay-idle-normal.jpg",
+      "sha256": "b1a3313d59cc34618a9354be81dfe9e77f96ef9a89d202e19aacb175142c9b8c",
+      "bytes": 10408
+    },
+    {
+      "path": "missing-motion/clownfish-3-wantsPlay-idle-reduced.jpg",
+      "sha256": "3a0d3cc3e18ef2e7928a9ed47f1522ebedb0464bd9030a5da4fcbc92535486ac",
+      "bytes": 10369
+    },
+    {
+      "path": "missing-motion/clownfish-3-wantsPlay-walk-normal.jpg",
+      "sha256": "2e775a5cc819d5e677be38329f913988d8d8c35212b1c08d6a68202e703ee5c9",
+      "bytes": 10895
+    },
+    {
+      "path": "missing-motion/clownfish-3-wantsPlay-walk-reduced.jpg",
+      "sha256": "c7de3f98c15c669e6aaf971cee8ec3af72031f5aca7c3a4e5a8e0630598cc745",
+      "bytes": 10564
+    },
+    {
+      "path": "missing-motion/clownfish-5-dislike-idle-normal.jpg",
+      "sha256": "cdf78db53a4a8ec7ce4072c34a970379c327676a3411e9b8ef513c819dae3752",
+      "bytes": 15504
+    },
+    {
+      "path": "missing-motion/clownfish-5-dislike-idle-reduced.jpg",
+      "sha256": "0dc988694d3a02bbf5f67fb4bed8a8789a733c5f1db84eb6df9a50af8c0c96f3",
+      "bytes": 15564
+    },
+    {
+      "path": "missing-motion/clownfish-5-dislike-walk-normal.jpg",
+      "sha256": "757f35cf2dda86bc352cfa5b2476ff2451ff28607c0c446054b415e29409e181",
+      "bytes": 15360
+    },
+    {
+      "path": "missing-motion/clownfish-5-dislike-walk-reduced.jpg",
+      "sha256": "14e6466326638abf6ee944ca17406cea1280300e3e30e345b534117e54c0350b",
+      "bytes": 15474
+    },
+    {
+      "path": "missing-motion/clownfish-5-motion.jpg",
+      "sha256": "0012c245e0220bfba2a2e05b8e961696c5d2f018f60006adec442affd0f0ee60",
+      "bytes": 681971
+    },
+    {
+      "path": "missing-motion/clownfish-5-normal-idle-normal.jpg",
+      "sha256": "ae182c2862e97aa64bfdaeb51e29c6385a6350fe21110da1cbb71e997c6eb98c",
+      "bytes": 16061
+    },
+    {
+      "path": "missing-motion/clownfish-5-normal-idle-reduced.jpg",
+      "sha256": "78a1f2caa89ca1603809d3dc9d5e81a1b9e3e4d7be91c844f5b17d5451bc5086",
+      "bytes": 15903
+    },
+    {
+      "path": "missing-motion/clownfish-5-normal-walk-normal.jpg",
+      "sha256": "78c9ef65ff185843031f1ad9b9e5363acc23d1c84ad0c1a33ba12432ead40e32",
+      "bytes": 16508
+    },
+    {
+      "path": "missing-motion/clownfish-5-normal-walk-reduced.jpg",
+      "sha256": "72a444bf3e46283d4a3933fc32acbd851e70384473d4f4d4c0351dc0e4377182",
+      "bytes": 16108
+    },
+    {
+      "path": "missing-motion/clownfish-5-positive-idle-normal.jpg",
+      "sha256": "5aff9c2348629d33913b39fcdc75403d0b443b4d9fc02a5f75d7461bd228a196",
+      "bytes": 16076
+    },
+    {
+      "path": "missing-motion/clownfish-5-positive-idle-reduced.jpg",
+      "sha256": "62fd35e0c6dbcb19648332cf950f0473e1372822eb082ee5f128c6576aa2139f",
+      "bytes": 15742
+    },
+    {
+      "path": "missing-motion/clownfish-5-positive-walk-normal.jpg",
+      "sha256": "9c774a7e0850549ebce390fc51f94eee874224cd6f3981e91e66504f25e00327",
+      "bytes": 15350
+    },
+    {
+      "path": "missing-motion/clownfish-5-positive-walk-reduced.jpg",
+      "sha256": "17d242205476c1218ff8a8e2f9828a82188352a26641ab65a2083abc0888059d",
+      "bytes": 15444
+    },
+    {
+      "path": "missing-motion/clownfish-5-sick-idle-normal.jpg",
+      "sha256": "83de08493f44b605e3054a4b3cd7c7e7d09fe5fc49b3597a2bd18c1f7ca368e5",
+      "bytes": 15599
+    },
+    {
+      "path": "missing-motion/clownfish-5-sick-idle-reduced.jpg",
+      "sha256": "d9c20c539272c7b04fab9a96f8e4a0f66417a604b90deae245992f458681f38a",
+      "bytes": 15459
+    },
+    {
+      "path": "missing-motion/clownfish-5-sick-walk-normal.jpg",
+      "sha256": "27172d3778f32876eb561d30b3197943986c4df71d7e52fb92fbd73fcecfe29f",
+      "bytes": 15648
+    },
+    {
+      "path": "missing-motion/clownfish-5-sick-walk-reduced.jpg",
+      "sha256": "8957ca2748936bccf31d58a88edfa4be6f70d10b62c87e4e93b9a6c327468e8e",
+      "bytes": 15606
+    },
+    {
+      "path": "missing-motion/clownfish-5-sleeping-idle-normal.jpg",
+      "sha256": "026bff5b1e01b2e5146066a04bf98c81d8bd57cf186eff2b915f152b784a0009",
+      "bytes": 15424
+    },
+    {
+      "path": "missing-motion/clownfish-5-sleeping-idle-reduced.jpg",
+      "sha256": "d391c33c65cb9a5b14f23abb3e079be1e64d93bb288e811e7acee6b9d9b771fb",
+      "bytes": 15287
+    },
+    {
+      "path": "missing-motion/clownfish-5-sleeping-walk-normal.jpg",
+      "sha256": "b1fc39a8928228f4c654e8b24777aecd9e44de2937945a847bffbae3ce2f349c",
+      "bytes": 16312
+    },
+    {
+      "path": "missing-motion/clownfish-5-sleeping-walk-reduced.jpg",
+      "sha256": "794548a5170aedad970db746e3d3a2baf1317548d9f36b5e1209591c16558a60",
+      "bytes": 15899
+    },
+    {
+      "path": "missing-motion/clownfish-5-strained-idle-normal.jpg",
+      "sha256": "fad4d9681577831f09deb7df342538d2396972b4b36559063533bee97928b3d3",
+      "bytes": 16033
+    },
+    {
+      "path": "missing-motion/clownfish-5-strained-idle-reduced.jpg",
+      "sha256": "9077aedf79deaf52f5f5f7716f9f953ffbdd43b54f79fc5f6ec27aeecab0f1d5",
+      "bytes": 15835
+    },
+    {
+      "path": "missing-motion/clownfish-5-strained-walk-normal.jpg",
+      "sha256": "ed5a1ab4da712db602aaed67dc9f037a3f823b65c03b88b96e62f87073879018",
+      "bytes": 16270
+    },
+    {
+      "path": "missing-motion/clownfish-5-strained-walk-reduced.jpg",
+      "sha256": "2216681c72b2b6cef6147a3a13ebfa9b2df622acf395401cd4796bf35b293338",
+      "bytes": 15958
+    },
+    {
+      "path": "missing-motion/clownfish-5-tired-idle-normal.jpg",
+      "sha256": "9f98ab8fc8a20d94ac4be089e61aa8ea2b5081a6ecba97d95d478c7cbda05449",
+      "bytes": 15492
+    },
+    {
+      "path": "missing-motion/clownfish-5-tired-idle-reduced.jpg",
+      "sha256": "c7ff17c4961fe900025377485806bb718274c8b62469d1c7cb9cce3032cb0d17",
+      "bytes": 15438
+    },
+    {
+      "path": "missing-motion/clownfish-5-tired-walk-normal.jpg",
+      "sha256": "2bffa00fb6c6516bd6a737b154be33b82c3c2f83e28d39be2a7c2fca64a221df",
+      "bytes": 15921
+    },
+    {
+      "path": "missing-motion/clownfish-5-tired-walk-reduced.jpg",
+      "sha256": "78be87d75e2642874db7867dac88eac34d0e3e5c5f2fb7a8f99b58103c574508",
+      "bytes": 15805
+    },
+    {
+      "path": "missing-motion/clownfish-5-wantsPlay-idle-normal.jpg",
+      "sha256": "ebbecf8145b443479bddfa9a9a4f287f15915c86c215a308608569f8d7095457",
+      "bytes": 16224
+    },
+    {
+      "path": "missing-motion/clownfish-5-wantsPlay-idle-reduced.jpg",
+      "sha256": "639d93d56a6334759e3f5ae908d4de171e129574654960d7b88fd87a48c87710",
+      "bytes": 15936
+    },
+    {
+      "path": "missing-motion/clownfish-5-wantsPlay-walk-normal.jpg",
+      "sha256": "b056624ee139bed7c8563469b87b63447cd2bb2a70ee895b266cd4b3d140655b",
+      "bytes": 16895
+    },
+    {
+      "path": "missing-motion/clownfish-5-wantsPlay-walk-reduced.jpg",
+      "sha256": "ae268bcb42060aa073d7f8c0fb3e7f1a430c75331eb04897138e86b301ba6e78",
+      "bytes": 16276
+    },
+    {
+      "path": "missing-motion/clownfish-6-dislike-idle-normal.jpg",
+      "sha256": "4ca301a69ef8efa380e00d975e0068b3b7bea907e23e202991f70e39eed349d6",
+      "bytes": 11008
+    },
+    {
+      "path": "missing-motion/clownfish-6-dislike-idle-reduced.jpg",
+      "sha256": "bbb710e0cb6dcb877fe7ed478b93792d139309f2728d3d92f959dcf026aad5fb",
+      "bytes": 10959
+    },
+    {
+      "path": "missing-motion/clownfish-6-dislike-walk-normal.jpg",
+      "sha256": "e7b59247e2e171fe7ee465b430a3c6a69602eeb837e04239cada817c43c9d0ad",
+      "bytes": 11408
+    },
+    {
+      "path": "missing-motion/clownfish-6-dislike-walk-reduced.jpg",
+      "sha256": "bf75c160ebe337b97ebd29c6f7143868eb8b02a57a4f78a8b6a80239b585b7cf",
+      "bytes": 11363
+    },
+    {
+      "path": "missing-motion/clownfish-6-motion.jpg",
+      "sha256": "c7d2c56c6f9d4df91fbd9d25152ade103bbeb0497d38a3199c87f73062c5a435",
+      "bytes": 468460
+    },
+    {
+      "path": "missing-motion/clownfish-6-normal-idle-normal.jpg",
+      "sha256": "755d86334df9210b77c0c14f04249916e246d6fbee0aba4865cca9d5d3267b1b",
+      "bytes": 11805
+    },
+    {
+      "path": "missing-motion/clownfish-6-normal-idle-reduced.jpg",
+      "sha256": "98bc3f5bacef52f5f6585b1204b9f9b3c7dd6f9dcce85bd42a8ca485daf79366",
+      "bytes": 11746
+    },
+    {
+      "path": "missing-motion/clownfish-6-normal-walk-normal.jpg",
+      "sha256": "56b3d79b72ef75b8d3e4434c801db4f6f35fb15faac78bd586d6792e291a44a7",
+      "bytes": 12216
+    },
+    {
+      "path": "missing-motion/clownfish-6-normal-walk-reduced.jpg",
+      "sha256": "389e0c3e13fc56b649050e36ca44c68fc59f71043f6141ad3232ddb8982a4997",
+      "bytes": 11967
+    },
+    {
+      "path": "missing-motion/clownfish-6-positive-idle-normal.jpg",
+      "sha256": "18a12128b5344269d2fc32c5d03d5859172bc73e4c6aafc54c86818314b68f98",
+      "bytes": 11922
+    },
+    {
+      "path": "missing-motion/clownfish-6-positive-idle-reduced.jpg",
+      "sha256": "22ac00690b12f9100e2d3b46e9a8ebd327a263b698a90d68fc2c19e95fa8ae98",
+      "bytes": 11662
+    },
+    {
+      "path": "missing-motion/clownfish-6-positive-walk-normal.jpg",
+      "sha256": "71513a956a3a3b94bd93c71e47f6d01b1f80106b6a2f92b6b3efa1f5f64bb598",
+      "bytes": 11512
+    },
+    {
+      "path": "missing-motion/clownfish-6-positive-walk-reduced.jpg",
+      "sha256": "11a963307fa12142386bef181b22900cb956d4708611046a6f99d1528790ff35",
+      "bytes": 11606
+    },
+    {
+      "path": "missing-motion/clownfish-6-sick-idle-normal.jpg",
+      "sha256": "287f514d533882ec2d8ba74eeb7eaa31dc8a38fdab8424a53843989a378dab53",
+      "bytes": 10800
+    },
+    {
+      "path": "missing-motion/clownfish-6-sick-idle-reduced.jpg",
+      "sha256": "55d61943907f597cff5b5719c83ba82344b656100672e61290f79dfd3be38fa4",
+      "bytes": 10851
+    },
+    {
+      "path": "missing-motion/clownfish-6-sick-walk-normal.jpg",
+      "sha256": "d41b77fdd7b641bc4a6f4682b0863aad2a5f3b8536ed5e652a5b7471a7a18100",
+      "bytes": 11076
+    },
+    {
+      "path": "missing-motion/clownfish-6-sick-walk-reduced.jpg",
+      "sha256": "db5d302b1c645a69c4aac771270d67ff7b14268a4428971b6da3ac5d39423cef",
+      "bytes": 11031
+    },
+    {
+      "path": "missing-motion/clownfish-6-sleeping-idle-normal.jpg",
+      "sha256": "91a11ab3f861b4226d83c3aec6a9bdfd45c9f5c9bfbf9f0482a59dde697ba741",
+      "bytes": 10896
+    },
+    {
+      "path": "missing-motion/clownfish-6-sleeping-idle-reduced.jpg",
+      "sha256": "8ccee85f923f583de058a6a86917b994ab87b78b8994eef92ff33f4468bbeed2",
+      "bytes": 10874
+    },
+    {
+      "path": "missing-motion/clownfish-6-sleeping-walk-normal.jpg",
+      "sha256": "846468dbea487d8ff824d8c54fb9f40d48d789fda0ea06ff585d618ce2f322b8",
+      "bytes": 11567
+    },
+    {
+      "path": "missing-motion/clownfish-6-sleeping-walk-reduced.jpg",
+      "sha256": "585311ea73242b2d09986f5e3c310fba916c8e5132ec2ca1c00a3be34784ee89",
+      "bytes": 11263
+    },
+    {
+      "path": "missing-motion/clownfish-6-strained-idle-normal.jpg",
+      "sha256": "a31d7b5e0e7e8949e859298b95061be32522c4ee993f03940834b0a197a2bdb9",
+      "bytes": 11313
+    },
+    {
+      "path": "missing-motion/clownfish-6-strained-idle-reduced.jpg",
+      "sha256": "32671c15c713a869a19e65c7f4d83f411ee304bb390932c53aa3bfac3d37e406",
+      "bytes": 11217
+    },
+    {
+      "path": "missing-motion/clownfish-6-strained-walk-normal.jpg",
+      "sha256": "a415362559c696b3e09e833b9cf1580e244543b8323909f752b97c2af6beac18",
+      "bytes": 11256
+    },
+    {
+      "path": "missing-motion/clownfish-6-strained-walk-reduced.jpg",
+      "sha256": "3ca743d1496085d0459ee8dee2f41f4b2e927062f08592b9583f1e7d6a18eaf1",
+      "bytes": 11114
+    },
+    {
+      "path": "missing-motion/clownfish-6-tired-idle-normal.jpg",
+      "sha256": "6cff202636131d295ce34ffa3ce2f969225b79395f7472df7ebf3a0fe83f9381",
+      "bytes": 10715
+    },
+    {
+      "path": "missing-motion/clownfish-6-tired-idle-reduced.jpg",
+      "sha256": "00dc4f25bef9f5eac5b04060ccb38c62deb85c8c8dc5adec535042502c0b6968",
+      "bytes": 10731
+    },
+    {
+      "path": "missing-motion/clownfish-6-tired-walk-normal.jpg",
+      "sha256": "aec25978050503041573952216284905194adcbff50acd45a3e8ecdbcf58c767",
+      "bytes": 11202
+    },
+    {
+      "path": "missing-motion/clownfish-6-tired-walk-reduced.jpg",
+      "sha256": "617804d04ca2b15f91a32f14db8f53b5ae6be46f6382896e8a7c1b4964f95f13",
+      "bytes": 11143
+    },
+    {
+      "path": "missing-motion/clownfish-6-wantsPlay-idle-normal.jpg",
+      "sha256": "573cd0e9cc51500aa2bddcbe844f0c7fd3f8a8e029cc6a3480c1c16ef35a75e6",
+      "bytes": 11997
+    },
+    {
+      "path": "missing-motion/clownfish-6-wantsPlay-idle-reduced.jpg",
+      "sha256": "596f728fec4af1f9e853cf5521b66d3835067df5bf40559d2785ac4f29f2e61b",
+      "bytes": 11852
+    },
+    {
+      "path": "missing-motion/clownfish-6-wantsPlay-walk-normal.jpg",
+      "sha256": "8f9162b0a114cfc33ea3004e4533cb07c207092d62f3c765b4f74949d77e2c14",
+      "bytes": 12398
+    },
+    {
+      "path": "missing-motion/clownfish-6-wantsPlay-walk-reduced.jpg",
+      "sha256": "7198b10ee4279609c5862df54151638cd053ded379ceb14c5eb856c299cd1c3c",
+      "bytes": 12030
+    },
+    {
+      "path": "missing-motion/clownfish-7-dislike-idle-normal.jpg",
+      "sha256": "56780b213ae0bc255246f18cf71e5474ab72eedf9a39b9a5768fe99514732f58",
+      "bytes": 11946
+    },
+    {
+      "path": "missing-motion/clownfish-7-dislike-idle-reduced.jpg",
+      "sha256": "919bd8ac1f318938dde8d7d888e7c10d338860e64bc817e6c48ca405355be4ba",
+      "bytes": 11861
+    },
+    {
+      "path": "missing-motion/clownfish-7-dislike-walk-normal.jpg",
+      "sha256": "db3ad51e8fa5341af1ac61459d0deae6542b36d7257646348e155011ddc4dc37",
+      "bytes": 12246
+    },
+    {
+      "path": "missing-motion/clownfish-7-dislike-walk-reduced.jpg",
+      "sha256": "263ba60fd6b368d8172bcab2123497872cd1ca40543ccd5421663865de755abf",
+      "bytes": 12133
+    },
+    {
+      "path": "missing-motion/clownfish-7-motion.jpg",
+      "sha256": "75b87fbd4e5e9f874703639b1d4b824225a592989a62f17f86a4f30e4bebd263",
+      "bytes": 515882
+    },
+    {
+      "path": "missing-motion/clownfish-7-normal-idle-normal.jpg",
+      "sha256": "7fc584ed8d51fcab9290fad842818c16d10674aba76e3fa5d49d9219f7bd0afa",
+      "bytes": 12902
+    },
+    {
+      "path": "missing-motion/clownfish-7-normal-idle-reduced.jpg",
+      "sha256": "f2d731dcbe3beee303e1d5a5dc5f00f3128a6132045bbc2ef79f5558997afafe",
+      "bytes": 12694
+    },
+    {
+      "path": "missing-motion/clownfish-7-normal-walk-normal.jpg",
+      "sha256": "c097d50bb20dc19772aa28996df35bb78792e5dc5df70b7a464cba30235421c4",
+      "bytes": 13260
+    },
+    {
+      "path": "missing-motion/clownfish-7-normal-walk-reduced.jpg",
+      "sha256": "741578c43d8ce5e4450943350f9169cd2a5d0864a302d5666bdc68b294e2913e",
+      "bytes": 12849
+    },
+    {
+      "path": "missing-motion/clownfish-7-positive-idle-normal.jpg",
+      "sha256": "ef7f02a3331956da079e2356efb49d5c5474e54940bc8d6c83c1b81ef1af288b",
+      "bytes": 12882
+    },
+    {
+      "path": "missing-motion/clownfish-7-positive-idle-reduced.jpg",
+      "sha256": "a8eede3e21f848551afec8b650e43380ce7170faa316b1d45bd1ddf0740bc467",
+      "bytes": 12659
+    },
+    {
+      "path": "missing-motion/clownfish-7-positive-walk-normal.jpg",
+      "sha256": "6037c51b835b6e44e41c365e189ba9dbfe48b28b3b325fe0a5353880a6e9debb",
+      "bytes": 12618
+    },
+    {
+      "path": "missing-motion/clownfish-7-positive-walk-reduced.jpg",
+      "sha256": "5fc40c38b7df1a9dfed7536e44d96a189f13f16be944731f0325d12204827e5e",
+      "bytes": 12722
+    },
+    {
+      "path": "missing-motion/clownfish-7-sick-idle-normal.jpg",
+      "sha256": "955c0e3ca09c75cfd4980f9fe2b1b4b9734fad724b1bd0f1aed8a4c47e2c8c68",
+      "bytes": 11982
+    },
+    {
+      "path": "missing-motion/clownfish-7-sick-idle-reduced.jpg",
+      "sha256": "afc250114305dca9a2e6e09ef9c1db013e082dfe5909c9fc423325fb07eea374",
+      "bytes": 11845
+    },
+    {
+      "path": "missing-motion/clownfish-7-sick-walk-normal.jpg",
+      "sha256": "70ba4c18ad775177753d6488fe0b8d24a99e9bc2ee500f6d749a59031e0a620d",
+      "bytes": 11954
+    },
+    {
+      "path": "missing-motion/clownfish-7-sick-walk-reduced.jpg",
+      "sha256": "d1f25098eb8426109f983c3006b70cb6504f47c9ffc96db095d5c01ca76cc693",
+      "bytes": 11916
+    },
+    {
+      "path": "missing-motion/clownfish-7-sleeping-idle-normal.jpg",
+      "sha256": "c60ff9fcdafe4f435919b1141e744feb161dfe41ea93164ece283262587af48b",
+      "bytes": 11629
+    },
+    {
+      "path": "missing-motion/clownfish-7-sleeping-idle-reduced.jpg",
+      "sha256": "a3e7859c1bd46620c220ef8f5ab5af4a8f18010bd4dd1caf36d5bac168126283",
+      "bytes": 11516
+    },
+    {
+      "path": "missing-motion/clownfish-7-sleeping-walk-normal.jpg",
+      "sha256": "991ad690e5078434cad49917bd7efbe92d24fcbcc4a2bce94759c23d2c1a767c",
+      "bytes": 12225
+    },
+    {
+      "path": "missing-motion/clownfish-7-sleeping-walk-reduced.jpg",
+      "sha256": "462e29aee8cdf266c9cadd9a5ea0b39c900f714e3b20b49434725e6eba458dc6",
+      "bytes": 11937
+    },
+    {
+      "path": "missing-motion/clownfish-7-strained-idle-normal.jpg",
+      "sha256": "3458117c08dada9baff3286a3f91843a20b05fe0218f9a377639924ba0a93ab8",
+      "bytes": 12121
+    },
+    {
+      "path": "missing-motion/clownfish-7-strained-idle-reduced.jpg",
+      "sha256": "1508b5c171d4cfe3c57b63b31e9be526345be09d0e8be49f8b92372788fcd6e7",
+      "bytes": 12094
+    },
+    {
+      "path": "missing-motion/clownfish-7-strained-walk-normal.jpg",
+      "sha256": "551196c7db2461e7b520762db9bfc8b9fa2f8e15a278df113aacd24e17b514b1",
+      "bytes": 12098
+    },
+    {
+      "path": "missing-motion/clownfish-7-strained-walk-reduced.jpg",
+      "sha256": "e0191367d3df048b096b54dec5c5f1531167c8eb6dc1854ca770c3714e9552ea",
+      "bytes": 12288
+    },
+    {
+      "path": "missing-motion/clownfish-7-tired-idle-normal.jpg",
+      "sha256": "8c531c7bd71a1694a7053b0adce082a7ee6297ca5a6c9e2c4e3b46c3dee32ae4",
+      "bytes": 11604
+    },
+    {
+      "path": "missing-motion/clownfish-7-tired-idle-reduced.jpg",
+      "sha256": "83c1c1a3fcd112686ef84fbbcf53b7fe29af529d88c35394b0e1a6ab69a6b145",
+      "bytes": 11514
+    },
+    {
+      "path": "missing-motion/clownfish-7-tired-walk-normal.jpg",
+      "sha256": "cab47d33133338a9209785d7e14db18e1ec39100bdce139def7ee44d2b4c956e",
+      "bytes": 11947
+    },
+    {
+      "path": "missing-motion/clownfish-7-tired-walk-reduced.jpg",
+      "sha256": "119e4ce06249ed9f8eb150ab8b71d68331443cd10e7bcf591e93b2cb5aec935d",
+      "bytes": 11873
+    },
+    {
+      "path": "missing-motion/clownfish-7-wantsPlay-idle-normal.jpg",
+      "sha256": "50c7d9728572f7115b6cdf9ea8424d5495e153fa7610503f1d63e4724bae6858",
+      "bytes": 12940
+    },
+    {
+      "path": "missing-motion/clownfish-7-wantsPlay-idle-reduced.jpg",
+      "sha256": "02a33b2cfc54c21ef063b652c20472510930b838745d0f0e87ab098b35ac322a",
+      "bytes": 12840
+    },
+    {
+      "path": "missing-motion/clownfish-7-wantsPlay-walk-normal.jpg",
+      "sha256": "1df2bc672f34c5c3fe7db83efee02096b9974b3b92085a7ebaae31ec4506a9ea",
+      "bytes": 13133
+    },
+    {
+      "path": "missing-motion/clownfish-7-wantsPlay-walk-reduced.jpg",
+      "sha256": "a79a456e5e524eacaca76c91b287410aa7f078127cb54c636439ec05ca7a082e",
+      "bytes": 12872
+    },
+    {
+      "path": "missing-motion/motion-evidence.json",
+      "sha256": "db149d8fd29afe65db6f6def24269fd7a2e2a99b488f07564ae1506b976aa6fc",
+      "bytes": 95470
+    },
+    {
+      "path": "player-clownfish-1-back.png",
+      "sha256": "45ee6a129a440740e02040328a3d66c23389d462f2636233e4369a6de9425886",
+      "bytes": 302222
+    },
+    {
+      "path": "player-clownfish-1-front.png",
+      "sha256": "eba397a306319c47c27cd7eebded63d77f44e0d139f1ecb54f56815f9ea6f434",
+      "bytes": 303705
+    },
+    {
+      "path": "player-clownfish-2-back.png",
+      "sha256": "60a13ca5fdf269b235a8f80bba599d7cfb13ba851c35ce0e81d26da3ec8d1b66",
+      "bytes": 300530
+    },
+    {
+      "path": "player-clownfish-2-front.png",
+      "sha256": "aec4a425316e21637f7fdb8c0fb146e99451cb50b308da5388b4bf3518bba4be",
+      "bytes": 303233
+    },
+    {
+      "path": "player-clownfish-3-back.png",
+      "sha256": "bcbde9d170f57194464d5464fbe843b8369c2229138e269fc1f72e8e8ae3c9c9",
+      "bytes": 302587
+    },
+    {
+      "path": "player-clownfish-3-front.png",
+      "sha256": "fd02f067e448837a29f9d65183015a99a76871172d4e24ca7a2b1cdd1436c535",
+      "bytes": 306882
+    },
+    {
+      "path": "player-clownfish-4-back.png",
+      "sha256": "fb315c9ceda9021dffd3be80358c310126ba9c6ceb528c304b6299f41d37eec3",
+      "bytes": 305263
+    },
+    {
+      "path": "player-clownfish-4-front.png",
+      "sha256": "43816a1c19b80b6ea45a031266b290ff31a17197a4869f3efb45cc6763890713",
+      "bytes": 306684
+    },
+    {
+      "path": "player-clownfish-5-back.png",
+      "sha256": "917b7c506c37443a410f917201f702828eb8f93331d2f4baf3a0adb4a2564a7e",
+      "bytes": 311141
+    },
+    {
+      "path": "player-clownfish-5-front.png",
+      "sha256": "ace4d6885dc740366777a68ee072e41b7495349680534127edb009426d2c672c",
+      "bytes": 312026
+    },
+    {
+      "path": "player-clownfish-6-back.png",
+      "sha256": "ee91f31f7f8d8da017d17e16da7026cb88a16d99d2858b02c7cbebd3d997562d",
+      "bytes": 308833
+    },
+    {
+      "path": "player-clownfish-6-front.png",
+      "sha256": "79d3dd2d352e88e6f2db76f484bfbaa0c6408cc0044b73bc836a484481873e7e",
+      "bytes": 309941
+    },
+    {
+      "path": "player-clownfish-7-back.png",
+      "sha256": "6fce1e55ef924ac55cec08a635d1ca42ea7504820dfcb07762d8bf5387bd9523",
+      "bytes": 309957
+    },
+    {
+      "path": "player-clownfish-7-front.png",
+      "sha256": "9486e2475ab9226638e78c050019bb174c6f7cbf5e882ac4af2dbcca2eda7dd5",
+      "bytes": 311954
+    },
+    {
+      "path": "player-clownfish-8-back.png",
+      "sha256": "3ae2280a74ed4c58cd0daec208f320c6371cc85ca454f88d8643a30b9003d54a",
+      "bytes": 308334
+    },
+    {
+      "path": "player-clownfish-8-front.png",
+      "sha256": "d900f69d62eb7d608a84e91d9a5084519a0f0c0519881adbd9eec9d9e85a4f09",
+      "bytes": 312792
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113792866059,
+  "artifactJobName": "stage-evidence (clownfish)",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

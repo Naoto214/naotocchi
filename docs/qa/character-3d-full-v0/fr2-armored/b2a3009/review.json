@@ -1,0 +1,19 @@
+{
+  "sourceCommit": "b2a3009709bab478749fc77634899d0d2b76a860",
+  "waveArtifact": 11415082774,
+  "verdict": "corrected static anatomy accepted, curved grub motion gate rejected",
+  "reviewed": [
+    "three original/four-view sheets",
+    "beetle/stag03/04 canonical motion sheets128states"
+  ],
+  "findings": [
+    "rounded tail caps close the prior hole",
+    "pupal rings project beyond abdomen on front/side/back",
+    "source happy/wink/droop eyes and antenna omission corrected",
+    "normal walking reveals separation between curved grub sections under the straight-caterpillar differential gait"
+  ],
+  "correction": "optional curveLocked owner-clock movement preserves section/head relative transforms; first RED then GREEN80-frame attachment regression; immutable recapture required",
+  "cicada": "Rejected sourceb2 representative: rounded abdomen and flat membranes weaken pointed, roof-wing cicada identity; normal mature left wink missing. Local physical taper/roof pose/normal-eye correction requires immutable recapture.",
+  "fullImages": "Retained in artifact11415082774; selected historical sheets and full raw records committed",
+  "environment": "Chromium/SwiftShader; not iPhone"
+}

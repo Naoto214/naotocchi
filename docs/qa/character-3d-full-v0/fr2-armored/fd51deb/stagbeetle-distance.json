@@ -1,0 +1,223 @@
+{
+  "when": "2026-10-06T13:19:34.153Z",
+  "revision": "quality3",
+  "sourceCommit": "fd51debce20418db17feb6bbd8e3945a4a844eef",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "armored",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "stagbeetle:3": {
+      "requestedStage": 3,
+      "harnessStageIndex": 2,
+      "playerKey": "stagbeetle:2",
+      "player3d": true,
+      "specKey": {
+        "id": "stagbeetle",
+        "stage": 3,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-stagbeetle-3-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-stagbeetle-3-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 37674,
+        "meshes": 86,
+        "bones": 55,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 11,
+        "cpuMsAvg": 6.885,
+        "cpuMsP95": 52.6,
+        "buildMsTotal": 418.3,
+        "buildMsMax": 113.4,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "stagbeetle:4": {
+      "requestedStage": 4,
+      "harnessStageIndex": 3,
+      "playerKey": "stagbeetle:3",
+      "player3d": true,
+      "specKey": {
+        "id": "stagbeetle",
+        "stage": 4,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-stagbeetle-4-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-stagbeetle-4-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 39122,
+        "meshes": 84,
+        "bones": 53,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 12,
+        "cpuMsAvg": 5.446,
+        "cpuMsP95": 45.7,
+        "buildMsTotal": 363.2,
+        "buildMsMax": 97.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "stagbeetle:5": {
+      "requestedStage": 5,
+      "harnessStageIndex": 4,
+      "playerKey": "stagbeetle:4",
+      "player3d": true,
+      "specKey": {
+        "id": "stagbeetle",
+        "stage": 5,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-stagbeetle-5-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-stagbeetle-5-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 40494,
+        "meshes": 92,
+        "bones": 61,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 5.066,
+        "cpuMsP95": 33,
+        "buildMsTotal": 340.9,
+        "buildMsMax": 78.4,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "stagbeetle:6": {
+      "requestedStage": 6,
+      "harnessStageIndex": 5,
+      "playerKey": "stagbeetle:5",
+      "player3d": true,
+      "specKey": {
+        "id": "stagbeetle",
+        "stage": 6,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-stagbeetle-6-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-stagbeetle-6-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 40486,
+        "meshes": 92,
+        "bones": 61,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 4.724,
+        "cpuMsP95": 43.7,
+        "buildMsTotal": 315.4,
+        "buildMsMax": 82.2,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "stagbeetle:7": {
+      "requestedStage": 7,
+      "harnessStageIndex": 6,
+      "playerKey": "stagbeetle:6",
+      "player3d": true,
+      "specKey": {
+        "id": "stagbeetle",
+        "stage": 7,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-stagbeetle-7-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-stagbeetle-7-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 40486,
+        "meshes": 92,
+        "bones": 61,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 5.119,
+        "cpuMsP95": 50.7,
+        "buildMsTotal": 337.7,
+        "buildMsMax": 76.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    },
+    "stagbeetle:8": {
+      "requestedStage": 8,
+      "harnessStageIndex": 7,
+      "playerKey": "stagbeetle:7",
+      "player3d": true,
+      "specKey": {
+        "id": "stagbeetle",
+        "stage": 8,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-stagbeetle-8-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-stagbeetle-8-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 40454,
+        "meshes": 92,
+        "bones": 61,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 12,
+        "cpuMsAvg": 5.242,
+        "cpuMsP95": 47.7,
+        "buildMsTotal": 370.7,
+        "buildMsMax": 72.5,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

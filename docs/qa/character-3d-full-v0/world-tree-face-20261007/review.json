@@ -1,0 +1,24 @@
+{
+  "baseline": "42dd99acd665b20b4b404903c429f666839c2576",
+  "runtime": {
+    "exact": 180,
+    "pending": 113
+  },
+  "status": "RECAPTURE_REQUIRED_NOT_PROMOTED",
+  "issue": "World tree04 face too small at normal distance; sparse trunk width .135 gave face half .09855. Eye separation regression failed with AssertionError.",
+  "change": "Optional per-spec faceHalf; only world4 sets .16. Default .73*body.width remains unchanged.",
+  "evidence": {
+    "waveArtifact": 11458303534,
+    "distanceArtifact": 11457997296,
+    "source": "fb3c3c4bb2065e0fc6a60e491373b9ca80886cfc",
+    "thisTurnReview": "16 normal-distance contact views inspected; prior full-state review remains handoff evidence, not claimed repeated.",
+    "aggregateArtifact": 11459393592,
+    "aggregate": "176 exact/live3D player stages across22 families, fallback0/failedTemplates0/errors0"
+  },
+  "verification": {
+    "dedicatedPass": 220,
+    "worldTreeMutations": 9,
+    "pilotHashes": 28
+  },
+  "next": "Recapture four views,32states,normal front/back for world_tree04, compare unaffected stages then decide all8 gate; passing tests alone are not image acceptance."
+}

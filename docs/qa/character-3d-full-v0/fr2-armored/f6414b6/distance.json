@@ -1,0 +1,53 @@
+{
+  "when": "2026-10-06T12:00:53.258Z",
+  "revision": "quality3",
+  "sourceCommit": "f6414b6c5a80232553587f5e736c6b728e2b3ae1",
+  "rolloutWave": true,
+  "candidateOnly": true,
+  "candidateWave": "armored",
+  "performanceMix": "fixed Pilot QA stand-ins",
+  "headless": "chromium + SwiftShader(ソフトウェア GPU)",
+  "throttle": 1,
+  "shots": {},
+  "checks": {},
+  "perf": {},
+  "perSpecies": {
+    "stagbeetle:7": {
+      "requestedStage": 7,
+      "harnessStageIndex": 6,
+      "playerKey": "stagbeetle:6",
+      "player3d": true,
+      "specKey": {
+        "id": "stagbeetle",
+        "stage": 7,
+        "exact": true
+      },
+      "front": "test-results/full-rollout/armored-distance/player-stagbeetle-7-front.png",
+      "back": "test-results/full-rollout/armored-distance/player-stagbeetle-7-back.png",
+      "live": {
+        "live": 9,
+        "templates": 9,
+        "built": 9,
+        "tris": 40486,
+        "meshes": 92,
+        "bones": 61,
+        "materials": 1,
+        "atlases": 11,
+        "eyeGeos": 10,
+        "cpuMsAvg": 3.142,
+        "cpuMsP95": 17.6,
+        "buildMsTotal": 243.9,
+        "buildMsMax": 58.6,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 9,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "errors": []
+    }
+  },
+  "verdict": {
+    "pass": true
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "sourceCommit": "9b79310dcf4c1e78eb566ab2bdd88f0dc968e9bd",
+  "waveArtifact": 11462261195,
+  "distanceArtifact": 11461529312,
+  "status": "PASS_ALL8_IMAGE_GATE",
+  "scope": {
+    "fourViews": 32,
+    "canonicalStates": 256,
+    "normalDistance": 16
+  },
+  "review": {
+    "directlyReviewed": "All eight four-view comparison board, stage04 front and32-state sheet, all16 new distance captures and before/after04normaldistance.",
+    "inheritedReviewVerified": "Other seven stages259static/state/sheet images byte-identical to savedfb3evidence.03/07accepted74images unchanged.",
+    "correction": "04faceHalf.16 separates eyes on narrow trunk and preserves crown/root geometry.",
+    "simplifications": "Smooth bark,rounded leaf masses,opaque fruit and thin physical cyan orbits."
+  },
+  "rawValidation": "Eight exact/live3D stages; fallback0/failedTemplates0/errors0.32unique views and256unique states,onecanonicalface each.",
+  "recovery": "316source image/raw files match pre-interruption manifest exactly; only this review record rewritten after checkout recovery.",
+  "notClaimed": [
+    "iPhone acceptance",
+    "finalHumanQA",
+    "full293completion"
+  ]
+}

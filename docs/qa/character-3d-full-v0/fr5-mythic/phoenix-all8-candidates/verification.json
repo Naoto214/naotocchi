@@ -1,0 +1,24 @@
+{
+  "baseCommit": "6a78278468ed154d2e2fd48cc89eed594a623036",
+  "status": "CANDIDATES_ONLY_IMAGE_GATE_PENDING",
+  "dedicatedPass": 238,
+  "factoryMutationsDetected": 7,
+  "stageMutationsDetected": 5,
+  "pilotHashesUnchanged": 28,
+  "representativeDefinitionsUnchanged": [
+    3,
+    7
+  ],
+  "runtimeCoverage": 212,
+  "imageGate": "Pending all8 fourviews/256state/16normal-distance; local Chromium executable unavailable, existing Actions capture configured",
+  "review": {
+    "critical": 0,
+    "important": 0,
+    "minor": [
+      "embers.height is unused; fixed ring offsets currently implement source silhouette",
+      "new-stage finite-motion test does not independently assert parent ownership/movement; existing representative tests cover shared factory and owner"
+    ]
+  },
+  "fullNpm": "Not repeated for candidate-only change; prior a65 run remains the last full npm result",
+  "limits": "No runtime promotion, no Human/iPhone acceptance"
+}

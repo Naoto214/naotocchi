@@ -1,0 +1,33 @@
+{
+  "sourceCommit": "dc652144365d7adeed28d3de3bd29d1e33cccd31",
+  "archiveCommit": "00eb6a080e80ee1f0587396807782e922de37188",
+  "integrity": {
+    "rawFiles": 81,
+    "allHashesVerified": true
+  },
+  "results": {
+    "companion:clock": {
+      "status": "REJECT_DIAL_HOUSING_GAP",
+      "actualReview": {
+        "fourViews": 4,
+        "stateImages": 0,
+        "normalDistance": 0
+      },
+      "findings": [
+        "Ellipsoidal housing falls away behind dial rim; visible separated plate in side view."
+      ]
+    },
+    "companion:parrot": {
+      "status": "REJECT_PROPORTION_AND_FACE_CLEARANCE",
+      "actualReview": {
+        "fourViews": 4,
+        "stateImages": 0,
+        "normalDistance": 0
+      },
+      "findings": [
+        "Exposed legs too long relative to source squat white body.",
+        "Large hooked beak crowds eye/mouth reading."
+      ]
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "source": "717c9e13c6a15eb7799bd784219b6ecd23957e09",
+  "environment": "Chromium / SwiftShader; not iPhone",
+  "evidence": [
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 21372,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          0.010881478061758085,
+          -0.42566919326782227
+        ],
+        [
+          0.607096791267395,
+          1.2656822369965364,
+          0.4263462722301483
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 21372,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          0.010881478061758085,
+          -0.42566919326782227
+        ],
+        [
+          0.607096791267395,
+          1.2656822369965364,
+          0.4263462722301483
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 21372,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          0.010881478061758085,
+          -0.42566919326782227
+        ],
+        [
+          0.607096791267395,
+          1.2656822369965364,
+          0.4263462722301483
+        ]
+      ]
+    },
+    {
+      "ready": true,
+      "id": "sakura",
+      "stage": 4,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 21372,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5670967698097229,
+          0.010881478061758085,
+          -0.42566919326782227
+        ],
+        [
+          0.607096791267395,
+          1.2656822369965364,
+          0.4263462722301483
+        ]
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -109,8 +109,37 @@ export function scalpCap(radius, { front = 1.05, side = 1.65, back = 2.05, volum
 
 // Smooth front outline with a shallow rounded back. Shared by soft larvae,
 // lobed bodies and future irregular silhouettes; not a species-specific mesh.
-export function outlineLoft(outline, depth, segments = 48, rings = 6) {
+// Concave silhouettes cannot use a radial fan: triangulate their interior and
+// inflate both surfaces by distance from the outline. Shared boundary vertices
+// close the volume; uniform subdivision keeps adjacent triangles watertight.
+function concaveOutlineVolume(curve, depth, segments) {
+  const points=Array.from({length:segments},(_,i)=>{const p=curve.getPoint(i/segments);return new THREE.Vector2(p.x,p.y);});
+  const boundary=points.slice();let faces=THREE.ShapeUtils.triangulateShape(points,[]);
+  for(let level=0;level<2;level++){
+    const mids=new Map(),mid=(a,b)=>{const key=[Math.min(a,b),Math.max(a,b)].join(':');if(!mids.has(key)){mids.set(key,points.length);points.push(points[a].clone().add(points[b]).multiplyScalar(.5));}return mids.get(key);};
+    faces=faces.flatMap(([a,b,c])=>{const ab=mid(a,b),bc=mid(b,c),ca=mid(c,a);return [[a,ab,ca],[ab,b,bc],[ca,bc,c],[ab,bc,ca]];});
+  }
+  // Interior centroids and shared edge midpoints keep boundary ears inflated;
+  // no front/back triangle may consist solely of zero-thickness outline points.
+  const edgeMids=new Map(),edgeMid=(a,b)=>{const key=[Math.min(a,b),Math.max(a,b)].join(':');if(!edgeMids.has(key)){edgeMids.set(key,points.length);points.push(points[a].clone().add(points[b]).multiplyScalar(.5));}return edgeMids.get(key);};
+  faces=faces.flatMap(([a,b,c])=>{const center=points.length;points.push(points[a].clone().add(points[b]).add(points[c]).multiplyScalar(1/3));const ab=edgeMid(a,b),bc=edgeMid(b,c),ca=edgeMid(c,a);return [[a,ab,center],[ab,b,center],[b,bc,center],[bc,c,center],[c,ca,center],[ca,a,center]];});
+  // A smooth minimum avoids a shading ridge wherever the nearest edge changes.
+  const distance=p=>{let inv=0;for(let i=0;i<boundary.length;i++){const a=boundary[i],b=boundary[(i+1)%boundary.length],dx=b.x-a.x,dy=b.y-a.y,t=clamp(((p.x-a.x)*dx+(p.y-a.y)*dy)/(dx*dx+dy*dy),0,1),d=Math.hypot(p.x-a.x-t*dx,p.y-a.y-t*dy);if(d<1e-9)return 0;inv+=Math.pow(d,-8);}return Math.pow(inv,-1/8);};
+  const cx=boundary.reduce((sum,p)=>sum+p.x,0)/segments,cy=boundary.reduce((sum,p)=>sum+p.y,0)/segments;
+  const height=p=>{const t=Math.min(1,distance(p)/(depth*.55)),bulge=.82+.18*Math.exp(-(((p.x-cx)/.30)**2+((p.y-cy)/.40)**2));return depth*Math.sqrt(t*(2-t))*bulge;};
+
+  const pos=[],idx=[],count=points.length;
+  for(const side of [1,-1])for(const p of points){pos.push(p.x,p.y,side*height(p));}
+  for(const [a,b,c] of faces){const u=points[a],v=points[b],w=points[c],ccw=(v.x-u.x)*(w.y-u.y)-(v.y-u.y)*(w.x-u.x)>0;if(ccw)idx.push(a,b,c,a+count,c+count,b+count);else idx.push(a,c,b,a+count,b+count,c+count);}
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setIndex(idx);smoothNormals(g);
+  // Analytic surface gradients keep long triangulation diagonals out of shading.
+  const normals=g.attributes.normal,eps=1e-5;
+  for(let i=0;i<count;i++){const p=points[i];if(distance(p)<eps*2)continue;const dx=(height(new THREE.Vector2(p.x+eps,p.y))-height(new THREE.Vector2(p.x-eps,p.y)))/(2*eps),dy=(height(new THREE.Vector2(p.x,p.y+eps))-height(new THREE.Vector2(p.x,p.y-eps)))/(2*eps);for(const side of [1,-1]){const n=new THREE.Vector3(-dx,-dy,side).normalize();normals.setXYZ(i+(side<0?count:0),n.x,n.y,n.z);}}
+  return g;
+}
+export function outlineLoft(outline, depth, segments = 48, rings = 6, options = {}) {
   const curve = new THREE.CatmullRomCurve3(outline.map(([x,y])=>new THREE.Vector3(x,y,0)),true,'centripetal');
+  if(options.concave)return concaveOutlineVolume(curve,depth,segments);
   const cx=outline.reduce((s,p)=>s+p[0],0)/outline.length,cy=outline.reduce((s,p)=>s+p[1],0)/outline.length;
   const area=outline.reduce((sum,p,i)=>{const q=outline[(i+1)%outline.length];return sum+p[0]*q[1]-q[0]*p[1];},0);
   const winding = area >= 0 ? 1 : -1;
@@ -160,11 +189,11 @@ export function sweep(path, radius, radial = 9, opt = {}) {
   if (capN) {
     const add = (R, sgn) => { const c = R.c; const base = pos.length / 3; pos.push(c.x, c.y, c.z); uv.push(0.5, sgn > 0 ? 1 : 0); return base; };
     const first = add({ c: rings[0].c.clone().addScaledVector(rings[0].T, -rings[0].r) }, -1);
-    for (let j = 0; j < radial; j++) idx.push(first, j, j + 1);
+    for (let j = 0; j < radial; j++) if(opt.outwardCaps)idx.push(first,j+1,j);else idx.push(first, j, j + 1);
     const lastRing = (ringList.length - 1) * (radial + 1);
     const lastR = rings[rings.length - 1];
     const last = add({ c: lastR.c.clone().addScaledVector(lastR.T, lastR.r) }, 1);
-    for (let j = 0; j < radial; j++) idx.push(lastRing + j + 1, lastRing + j, last);
+    for (let j = 0; j < radial; j++) if(opt.outwardCaps)idx.push(lastRing+j,lastRing+j+1,last);else idx.push(lastRing + j + 1, lastRing + j, last);
   }
   const g = new THREE.BufferGeometry();
   g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
@@ -260,4 +289,17 @@ export function softHalo(radius, seed='halo') {
     for(let j=0;j<rings.length-1;j++)for(let i=0;i<count;i++){const a=start+j*(count+1)+i,b=a+count+1;index.push(a,b,a+1,a+1,b,b+1);}
   }
   const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('color',new THREE.Float32BufferAttribute(colors,4));g.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));g.setIndex(index);g.computeVertexNormals();return g;
+}
+
+// Shared opened casing: preserve the established butterfly shell geometry.
+export function openedShellParts(e){
+ const h=e.h,r=e.r;
+    const profile=[[.01,0],[r*.45,h*.12],[r*.92,h*.35],[r,h*.58],[r*.65,h*.84],[.014,h]];
+    // The front sector is absent, exposing a continuous inner/back surface.
+    // Optional shell attachment: no second actor, face or locomotion state.
+    const outer=new THREE.LatheGeometry(profile.map(([x,y])=>new THREE.Vector2(x,y)),28,.78,TAU-1.56);
+    const inner=new THREE.LatheGeometry(profile.map(([x,y])=>new THREE.Vector2(Math.max(.004,x-.016),y)),28,.78,TAU-1.56);
+    const index=inner.index;for(let i=0;i<index.count;i+=3){const a=index.getX(i);index.setX(i,index.getX(i+2));index.setX(i+2,a);}inner.computeVertexNormals();
+    const edge=[];for(const a of [.78,TAU-.78])edge.push(solid(sweep(profile.map(([rad,y])=>[Math.sin(a)*rad,y,Math.cos(a)*rad]),()=>.009,5,{steps:14}),e.colors.inside));
+ return [solid(outer,e.colors.base),solid(inner,e.colors.inside),...edge];
 }

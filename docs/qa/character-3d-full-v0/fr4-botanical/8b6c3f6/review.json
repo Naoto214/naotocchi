@@ -1,0 +1,14 @@
+{
+  "sourceCommit": "8b6c3f65330d2b516be4c0051b0b6957163f26f2",
+  "waveArtifact": 11418743562,
+  "distanceArtifact": 11419007162,
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "stage7": "representative visual gate accepted: four views,32 canonical motion states, normal front/back distance. Three owned faces and attached common stems; no ground pedestals.",
+  "stage3": "rejected side leaf canopy: blade surfaces mostly edge-on. Four views and32 states inspected; ordinary-distance metadata valid, image review not claimed. Corrected orientations/depth pairs require new capture.",
+  "simplifications": [
+    "Smooth cherry skins omit pixel highlights",
+    "Cherry expressions simplified through existing face rig",
+    "Tree bark and fine serration omitted"
+  ],
+  "coverage": "146/293 unchanged; no sakura runtime promotion"
+}

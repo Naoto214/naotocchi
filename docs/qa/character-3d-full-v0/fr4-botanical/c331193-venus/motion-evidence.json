@@ -1,0 +1,7561 @@
+{
+  "source": "c331193d0fa58ecb57c87e5b9937d3fb40e78e65",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "venus_flytrap",
+      "stage": 1
+    },
+    {
+      "id": "venus_flytrap",
+      "stage": 2
+    },
+    {
+      "id": "venus_flytrap",
+      "stage": 3
+    },
+    {
+      "id": "venus_flytrap",
+      "stage": 4
+    },
+    {
+      "id": "venus_flytrap",
+      "stage": 5
+    },
+    {
+      "id": "venus_flytrap",
+      "stage": 6
+    },
+    {
+      "id": "venus_flytrap",
+      "stage": 7
+    },
+    {
+      "id": "venus_flytrap",
+      "stage": 8
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1276,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0,
+          -0.1899999976158142
+        ],
+        [
+          0.2862929403781891,
+          0.7951919938742303,
+          0.20856551276162924
+        ]
+      ],
+      "file": "venus_flytrap-1-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1276,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0.01914942538770173,
+          -0.1899999976158142
+        ],
+        [
+          0.2862929403781891,
+          0.814341419261932,
+          0.20856551276162924
+        ]
+      ],
+      "file": "venus_flytrap-1-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1276,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0,
+          -0.1899999976158142
+        ],
+        [
+          0.2862929403781891,
+          0.7799999713897705,
+          0.20856551276162924
+        ]
+      ],
+      "file": "venus_flytrap-1-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1276,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0.009574712693850865,
+          -0.1899999976158142
+        ],
+        [
+          0.2862929403781891,
+          0.7895746840836214,
+          0.20856551276162924
+        ]
+      ],
+      "file": "venus_flytrap-1-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1116,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0.06484182590041075,
+          -0.24749143948948557
+        ],
+        [
+          0.2862929403781891,
+          0.8717736556951415,
+          0.19342546649755804
+        ]
+      ],
+      "file": "venus_flytrap-1-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1116,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0.04420711093956865,
+          -0.24749143948948557
+        ],
+        [
+          0.2862929403781891,
+          0.8511389407342994,
+          0.19342546649755804
+        ]
+      ],
+      "file": "venus_flytrap-1-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1116,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0.003,
+          -0.24638340657820385
+        ],
+        [
+          0.2862929403781891,
+          0.7947802684812605,
+          0.19342546649755804
+        ]
+      ],
+      "file": "venus_flytrap-1-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1116,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0.008143098994681637,
+          -0.24638340657820385
+        ],
+        [
+          0.2862929403781891,
+          0.7999233674759422,
+          0.19342546649755804
+        ]
+      ],
+      "file": "venus_flytrap-1-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1276,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.33634501744856193,
+          -0.04049675844002069,
+          -0.2770276367381213
+        ],
+        [
+          0.33634501744856193,
+          0.8218520457975381,
+          0.39083642482036707
+        ]
+      ],
+      "file": "venus_flytrap-1-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1276,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.33634501744856193,
+          0.0487366277330185,
+          -0.2770276367381213
+        ],
+        [
+          0.33634501744856193,
+          0.9110854319705773,
+          0.39083642482036707
+        ]
+      ],
+      "file": "venus_flytrap-1-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1276,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.33634501744856193,
+          -0.04049675844002069,
+          -0.2770819942447343
+        ],
+        [
+          0.33634501744856193,
+          0.806808662118604,
+          0.38871648268514025
+        ]
+      ],
+      "file": "venus_flytrap-1-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1276,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.33634501744856193,
+          0.004119934646498909,
+          -0.2770819942447343
+        ],
+        [
+          0.33634501744856193,
+          0.8514253552051236,
+          0.38871648268514025
+        ]
+      ],
+      "file": "venus_flytrap-1-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1476,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          -0.04168456972750565,
+          -0.1844251862871422
+        ],
+        [
+          0.2862929403781891,
+          0.75327135352448,
+          0.31275158680276405
+        ]
+      ],
+      "file": "venus_flytrap-1-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1476,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0.0517184330425189,
+          -0.1844251862871422
+        ],
+        [
+          0.2862929403781891,
+          0.8466743562945046,
+          0.31275158680276405
+        ]
+      ],
+      "file": "venus_flytrap-1-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1476,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          -0.04168456972750565,
+          -0.18448647771535429
+        ],
+        [
+          0.2862929403781891,
+          0.7391687310949082,
+          0.3103612218046019
+        ]
+      ],
+      "file": "venus_flytrap-1-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1476,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0.005016931657506617,
+          -0.18448647771535429
+        ],
+        [
+          0.2862929403781891,
+          0.7858702324799205,
+          0.3103612218046019
+        ]
+      ],
+      "file": "venus_flytrap-1-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1116,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          -0.05074813869543385,
+          -0.18239133355749104
+        ],
+        [
+          0.2862929403781891,
+          0.7356112983915157,
+          0.34122378740534653
+        ]
+      ],
+      "file": "venus_flytrap-1-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1116,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          -0.04179612766173518,
+          -0.18239133355749104
+        ],
+        [
+          0.2862929403781891,
+          0.7445633094252144,
+          0.34122378740534653
+        ]
+      ],
+      "file": "venus_flytrap-1-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1116,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          -0.05074813869543385,
+          -0.1824671953279736
+        ],
+        [
+          0.2862929403781891,
+          0.7219022430622662,
+          0.3382651792255441
+        ]
+      ],
+      "file": "venus_flytrap-1-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1116,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          -0.046272133178584515,
+          -0.1824671953279736
+        ],
+        [
+          0.2862929403781891,
+          0.7263782485791156,
+          0.3382651792255441
+        ]
+      ],
+      "file": "venus_flytrap-1-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1116,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.28579864788720816,
+          -0.02054853706274472,
+          -0.1874357244789021
+        ],
+        [
+          0.28678723286917,
+          0.7725751029265815,
+          0.25992669270389757
+        ]
+      ],
+      "file": "venus_flytrap-1-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1116,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.28579864788720816,
+          0.06928184497842554,
+          -0.1874357244789021
+        ],
+        [
+          0.28678723286917,
+          0.8624054849677518,
+          0.25992669270389757
+        ]
+      ],
+      "file": "venus_flytrap-1-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1116,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          -0.02054853706274472,
+          -0.1874703477127584
+        ],
+        [
+          0.2862929403781891,
+          0.7580484845091517,
+          0.2585763869801208
+        ]
+      ],
+      "file": "venus_flytrap-1-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1116,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0.024366653957840413,
+          -0.1874703477127584
+        ],
+        [
+          0.2862929403781891,
+          0.8029636755297369,
+          0.2585763869801208
+        ]
+      ],
+      "file": "venus_flytrap-1-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1276,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0.032920912950205376,
+          -0.2622509906354411
+        ],
+        [
+          0.2862929403781891,
+          0.8422053790225442,
+          0.19312181172441797
+        ]
+      ],
+      "file": "venus_flytrap-1-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1276,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0.11711671760899085,
+          -0.2622509906354411
+        ],
+        [
+          0.2862929403781891,
+          0.9264011836813297,
+          0.19312181172441797
+        ]
+      ],
+      "file": "venus_flytrap-1-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1276,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0.002,
+          -0.26085529537357455
+        ],
+        [
+          0.2862929403781891,
+          0.7961566908920839,
+          0.19312181172441797
+        ]
+      ],
+      "file": "venus_flytrap-1-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1276,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          0.05182813056694408,
+          -0.26085529537357455
+        ],
+        [
+          0.2862929403781891,
+          0.845984821459028,
+          0.19312181172441797
+        ]
+      ],
+      "file": "venus_flytrap-1-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 1116,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2850572091507368,
+          -0.03599629254068585,
+          -0.18510752155882196
+        ],
+        [
+          0.2875286716056414,
+          0.7808004048616684,
+          0.3021457980988009
+        ]
+      ],
+      "file": "venus_flytrap-1-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 1116,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2850572091507368,
+          0.031722132051140946,
+          -0.18510752155882196
+        ],
+        [
+          0.2875286716056414,
+          0.8485188294534951,
+          0.3021457980988009
+        ]
+      ],
+      "file": "venus_flytrap-1-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 1116,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          -0.03599629254068585,
+          -0.1851634215380608
+        ],
+        [
+          0.2862929403781891,
+          0.7662166647831542,
+          0.29996569954883545
+        ]
+      ],
+      "file": "venus_flytrap-1-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 1116,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.2862929403781891,
+          -0.002137080244772452,
+          -0.1851634215380608
+        ],
+        [
+          0.2862929403781891,
+          0.8000758770790676,
+          0.29996569954883545
+        ]
+      ],
+      "file": "venus_flytrap-1-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5618,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -1.822966807777545e-09,
+          -0.14000000059604645
+        ],
+        [
+          0.47403947353363035,
+          0.6500414323457877,
+          0.2849999964237213
+        ]
+      ],
+      "file": "venus_flytrap-2-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5618,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          0.01914942356473492,
+          -0.14000000059604645
+        ],
+        [
+          0.47403947353363035,
+          0.6691908577334895,
+          0.2849999964237213
+        ]
+      ],
+      "file": "venus_flytrap-2-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5618,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -1.7881393032936899e-09,
+          -0.14000000059604645
+        ],
+        [
+          0.47403947353363035,
+          0.6376224893331528,
+          0.2849999964237213
+        ]
+      ],
+      "file": "venus_flytrap-2-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5618,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          0.009574710905711561,
+          -0.14000000059604645
+        ],
+        [
+          0.47403947353363035,
+          0.6471972020270037,
+          0.2849999964237213
+        ]
+      ],
+      "file": "venus_flytrap-2-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5458,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          0.05769417597736214,
+          -0.18100327269945615
+        ],
+        [
+          0.47403947353363035,
+          0.7219956060403045,
+          0.2842409512354189
+        ]
+      ],
+      "file": "venus_flytrap-2-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5458,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          0.037059461016520044,
+          -0.18100327269945615
+        ],
+        [
+          0.47403947353363035,
+          0.7013608910794624,
+          0.2842409512354189
+        ]
+      ],
+      "file": "venus_flytrap-2-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5458,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -0.004147649888313859,
+          -0.18021278788505107
+        ],
+        [
+          0.47403947353363035,
+          0.6477679127086868,
+          0.2842409512328788
+        ]
+      ],
+      "file": "venus_flytrap-2-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5458,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          0.0009954491063677781,
+          -0.18021278788505107
+        ],
+        [
+          0.47403947353363035,
+          0.6529110117033685,
+          0.2842409512328788
+        ]
+      ],
+      "file": "venus_flytrap-2-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5618,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4623487776001056,
+          -0.06418933805125489,
+          -0.2505570489995667
+        ],
+        [
+          0.5050381323964116,
+          0.674191702819618,
+          0.4328186777207492
+        ]
+      ],
+      "file": "venus_flytrap-2-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5618,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4623487776001056,
+          0.025044048121784304,
+          -0.2505570489995667
+        ],
+        [
+          0.5050381323964116,
+          0.7634250889926573,
+          0.4328186777207492
+        ]
+      ],
+      "file": "venus_flytrap-2-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5618,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4623487776001056,
+          -0.06418933801676814,
+          -0.25058433990030915
+        ],
+        [
+          0.5050381323964116,
+          0.6618942667924537,
+          0.4325740689941464
+        ]
+      ],
+      "file": "venus_flytrap-2-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5618,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4623487776001056,
+          -0.019572644930248538,
+          -0.25058433990030915
+        ],
+        [
+          0.5050381323964116,
+          0.7065109598789733,
+          0.4325740689941464
+        ]
+      ],
+      "file": "venus_flytrap-2-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5818,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -0.05515230732679721,
+          -0.13504799227290956
+        ],
+        [
+          0.47403947353363035,
+          0.602953027798523,
+          0.295886741883383
+        ]
+      ],
+      "file": "venus_flytrap-2-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5818,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          0.03825069544322733,
+          -0.13504799227290956
+        ],
+        [
+          0.47403947353363035,
+          0.6963560305685476,
+          0.295886741883383
+        ]
+      ],
+      "file": "venus_flytrap-2-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5818,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -0.05515230729446714,
+          -0.13510928369541345
+        ],
+        [
+          0.47403947353363035,
+          0.5914246309401907,
+          0.2956109305163647
+        ]
+      ],
+      "file": "venus_flytrap-2-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5818,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -0.008450805909454878,
+          -0.13510928369541345
+        ],
+        [
+          0.47403947353363035,
+          0.638126132325203,
+          0.2956109305163647
+        ]
+      ],
+      "file": "venus_flytrap-2-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5458,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -0.06706279172470511,
+          -0.13334866622431688
+        ],
+        [
+          0.47403947353363035,
+          0.5857606229117606,
+          0.29741187135340946
+        ]
+      ],
+      "file": "venus_flytrap-2-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5458,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -0.05811078069100645,
+          -0.13334866622431688
+        ],
+        [
+          0.47403947353363035,
+          0.5947126339454593,
+          0.29741187135340946
+        ]
+      ],
+      "file": "venus_flytrap-2-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5458,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -0.0670627916932773,
+          -0.13342452798773424
+        ],
+        [
+          0.47403947353363035,
+          0.5745539532885973,
+          0.29707049346042236
+        ]
+      ],
+      "file": "venus_flytrap-2-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5458,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -0.06258678617642796,
+          -0.13342452798773424
+        ],
+        [
+          0.47403947353363035,
+          0.5790299588054466,
+          0.29707049346042236
+        ]
+      ],
+      "file": "venus_flytrap-2-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5458,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4635453598565838,
+          -0.028318267580822298,
+          -0.13763362193762574
+        ],
+        [
+          0.4745337660246113,
+          0.6247958721273877,
+          0.29202723329391295
+        ]
+      ],
+      "file": "venus_flytrap-2-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5458,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4635453598565838,
+          0.061512114460347975,
+          -0.13763362193762574
+        ],
+        [
+          0.4745337660246113,
+          0.714626254168558,
+          0.29202723329391295
+        ]
+      ],
+      "file": "venus_flytrap-2-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5458,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -0.028318267547520225,
+          -0.13766824516825749
+        ],
+        [
+          0.47403947353363035,
+          0.6129208734906431,
+          0.29187142877541733
+        ]
+      ],
+      "file": "venus_flytrap-2-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5458,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          0.01659692347306491,
+          -0.13766824516825749
+        ],
+        [
+          0.47403947353363035,
+          0.6578360645112282,
+          0.29187142877541733
+        ]
+      ],
+      "file": "venus_flytrap-2-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5618,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          0.023917623875176666,
+          -0.19152595494733135
+        ],
+        [
+          0.47403947353363035,
+          0.6913528618940226,
+          0.28379472708298265
+        ]
+      ],
+      "file": "venus_flytrap-2-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5618,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          0.10811342853396214,
+          -0.19152595494733135
+        ],
+        [
+          0.47403947353363035,
+          0.7755486665528081,
+          0.28379472708298265
+        ]
+      ],
+      "file": "venus_flytrap-2-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5618,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -0.007003289040348491,
+          -0.19053024814222713
+        ],
+        [
+          0.47403947353363035,
+          0.6480655258382881,
+          0.28379472707978304
+        ]
+      ],
+      "file": "venus_flytrap-2-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5618,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          0.04282484152659559,
+          -0.19053024814222713
+        ],
+        [
+          0.47403947353363035,
+          0.6978936564052323,
+          0.28379472707978304
+        ]
+      ],
+      "file": "venus_flytrap-2-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5458,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4628039211201124,
+          -0.048671364611089604,
+          -0.1356250296044539
+        ],
+        [
+          0.47527520476108265,
+          0.6268020615852159,
+          0.29521702598561256
+        ]
+      ],
+      "file": "venus_flytrap-2-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5458,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4628039211201124,
+          0.01904705998073719,
+          -0.1356250296044539
+        ],
+        [
+          0.47527520476108265,
+          0.6945204861770427,
+          0.29521702598561256
+        ]
+      ],
+      "file": "venus_flytrap-2-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5458,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -0.048671364577656584,
+          -0.13568092957848665
+        ],
+        [
+          0.47403947353363035,
+          0.6148803680035079,
+          0.2949654761337017
+        ]
+      ],
+      "file": "venus_flytrap-2-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5458,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4640396523475647,
+          -0.014812152281743186,
+          -0.13568092957848665
+        ],
+        [
+          0.47403947353363035,
+          0.6487395802994212,
+          0.2949654761337017
+        ]
+      ],
+      "file": "venus_flytrap-2-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7058,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.034741699627325234,
+          -0.4423482418060303
+        ],
+        [
+          0.5768236517906189,
+          0.7601007327580054,
+          0.34303927421569824
+        ]
+      ],
+      "file": "venus_flytrap-3-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7058,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.015592274239623505,
+          -0.4423482418060303
+        ],
+        [
+          0.5768236517906189,
+          0.7792501581457071,
+          0.34303927421569824
+        ]
+      ],
+      "file": "venus_flytrap-3-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7058,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.0340779647231102,
+          -0.4423482418060303
+        ],
+        [
+          0.5768236517906189,
+          0.7455791234970093,
+          0.34303927421569824
+        ]
+      ],
+      "file": "venus_flytrap-3-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7058,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.024503252029259334,
+          -0.4423482418060303
+        ],
+        [
+          0.5768236517906189,
+          0.7551538361908602,
+          0.34303927421569824
+        ]
+      ],
+      "file": "venus_flytrap-3-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6898,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.002070094697790917,
+          -0.49660821283883994
+        ],
+        [
+          0.5768236517906189,
+          0.8479378010847055,
+          0.34465954405639593
+        ]
+      ],
+      "file": "venus_flytrap-3-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6898,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.022704809658633016,
+          -0.49660821283883994
+        ],
+        [
+          0.5768236517906189,
+          0.8273030861238634,
+          0.34465954405639593
+        ]
+      ],
+      "file": "venus_flytrap-3-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6898,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.06324995343040742,
+          -0.49554907663742787
+        ],
+        [
+          0.5768236517906189,
+          0.7716130415713865,
+          0.34461113443095015
+        ]
+      ],
+      "file": "venus_flytrap-3-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6898,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.05810685443572578,
+          -0.49554907663742787
+        ],
+        [
+          0.5768236517906189,
+          0.7767561405660682,
+          0.34461113443095015
+        ]
+      ],
+      "file": "venus_flytrap-3-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7058,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.669763242311236,
+          -0.1120404461552454,
+          -0.6234842881442098
+        ],
+        [
+          0.6629160150012227,
+          0.8348433072860473,
+          0.6215201494468152
+        ]
+      ],
+      "file": "venus_flytrap-3-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7058,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.669763242311236,
+          -0.02280705998220621,
+          -0.6234842881442098
+        ],
+        [
+          0.6629160150012227,
+          0.9240766934590865,
+          0.6215201494468152
+        ]
+      ],
+      "file": "venus_flytrap-3-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7058,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.669763242311236,
+          -0.11138320523584701,
+          -0.6233916685083775
+        ],
+        [
+          0.6629160150012227,
+          0.8204637775050594,
+          0.6194937588608892
+        ]
+      ],
+      "file": "venus_flytrap-3-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7058,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.669763242311236,
+          -0.06676651214932741,
+          -0.6233916685083775
+        ],
+        [
+          0.6629160150012227,
+          0.865080470591579,
+          0.6194937588608892
+        ]
+      ],
+      "file": "venus_flytrap-3-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7258,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.09598689679604863,
+          -0.4423047061787729
+        ],
+        [
+          0.5768236517906189,
+          0.7580194599480008,
+          0.4583632182219644
+        ]
+      ],
+      "file": "venus_flytrap-3-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7258,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.002583894026024089,
+          -0.4423047061787729
+        ],
+        [
+          0.5768236517906189,
+          0.8514224627180254,
+          0.4583632182219644
+        ]
+      ],
+      "file": "venus_flytrap-3-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7258,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.09537075745337405,
+          -0.44220027184919514
+        ],
+        [
+          0.5768236517906189,
+          0.744539176286817,
+          0.45607833834306877
+        ]
+      ],
+      "file": "venus_flytrap-3-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7258,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.04866925606836178,
+          -0.44220027184919514
+        ],
+        [
+          0.5768236517906189,
+          0.7912406776718293,
+          0.45607833834306877
+        ]
+      ],
+      "file": "venus_flytrap-3-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6898,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.10881194668705195,
+          -0.440644641146423
+        ],
+        [
+          0.5768236517906189,
+          0.7491581169972288,
+          0.48449894924001313
+        ]
+      ],
+      "file": "venus_flytrap-3-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6898,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.09985993565335329,
+          -0.440644641146423
+        ],
+        [
+          0.5768236517906189,
+          0.7581101280309275,
+          0.48449894924001313
+        ]
+      ],
+      "file": "venus_flytrap-3-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6898,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.10821300217290673,
+          -0.440515380442732
+        ],
+        [
+          0.5768236517906189,
+          0.7360540325981715,
+          0.48167090234978327
+        ]
+      ],
+      "file": "venus_flytrap-3-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6898,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.1037369966560574,
+          -0.440515380442732
+        ],
+        [
+          0.5768236517906189,
+          0.7405300381150208,
+          0.48167090234978327
+        ]
+      ],
+      "file": "venus_flytrap-3-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6898,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5440372912950299,
+          -0.06649062587063509,
+          -0.443685408615386
+        ],
+        [
+          0.5773179442815998,
+          0.7605530056163552,
+          0.40924125639756215
+        ]
+      ],
+      "file": "venus_flytrap-3-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6898,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5440372912950299,
+          0.023339756170535186,
+          -0.443685408615386
+        ],
+        [
+          0.5773179442815998,
+          0.8503833876575255,
+          0.40924125639756215
+        ]
+      ],
+      "file": "venus_flytrap-3-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6898,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.06585596227046442,
+          -0.4436264141634525
+        ],
+        [
+          0.5768236517906189,
+          0.7466674366108269,
+          0.40795053871177467
+        ]
+      ],
+      "file": "venus_flytrap-3-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6898,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.02094077124987928,
+          -0.4436264141634525
+        ],
+        [
+          0.5768236517906189,
+          0.7915826276314121,
+          0.40795053871177467
+        ]
+      ],
+      "file": "venus_flytrap-3-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 7058,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.04231251746993379,
+          -0.5103082063368836
+        ],
+        [
+          0.5768236517906189,
+          0.8213222796160988,
+          0.34478028512990216
+        ]
+      ],
+      "file": "venus_flytrap-3-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 7058,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          0.04188328718885169,
+          -0.5103082063368836
+        ],
+        [
+          0.5768236517906189,
+          0.9055180842748843,
+          0.34478028512990216
+        ]
+      ],
+      "file": "venus_flytrap-3-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 7058,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.07257250246136844,
+          -0.5089741021212677
+        ],
+        [
+          0.5768236517906189,
+          0.7759411695209397,
+          0.34471930762266795
+        ]
+      ],
+      "file": "venus_flytrap-3-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 7058,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.02274437189442436,
+          -0.5089741021212677
+        ],
+        [
+          0.5768236517906189,
+          0.8257693000878839,
+          0.34471930762266795
+        ]
+      ],
+      "file": "venus_flytrap-3-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6898,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5432958525585584,
+          -0.09010095677391977,
+          -0.44275542779807825
+        ],
+        [
+          0.5780593830180712,
+          0.7822404954673884,
+          0.4485654073806815
+        ]
+      ],
+      "file": "venus_flytrap-3-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6898,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5432958525585584,
+          -0.022382532182092983,
+          -0.44275542779807825
+        ],
+        [
+          0.5780593830180712,
+          0.8499589200592151,
+          0.4485654073806815
+        ]
+      ],
+      "file": "venus_flytrap-3-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6898,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.08946379754551481,
+          -0.44266017994653506
+        ],
+        [
+          0.5768236517906189,
+          0.7683003255393395,
+          0.44648151504011624
+        ]
+      ],
+      "file": "venus_flytrap-3-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6898,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5445315837860107,
+          -0.05560458524960141,
+          -0.44266017994653506
+        ],
+        [
+          0.5768236517906189,
+          0.8021595378352528,
+          0.44648151504011624
+        ]
+      ],
+      "file": "venus_flytrap-3-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14874,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0,
+          -0.31767576932907104
+        ],
+        [
+          0.4869628185033798,
+          1.0105565116601474,
+          0.2046717256307602
+        ]
+      ],
+      "file": "venus_flytrap-4-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14874,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0.01914942538770173,
+          -0.31767576932907104
+        ],
+        [
+          0.4869628185033798,
+          1.0297059370478492,
+          0.2046717256307602
+        ]
+      ],
+      "file": "venus_flytrap-4-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14874,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0,
+          -0.31767576932907104
+        ],
+        [
+          0.4869628185033798,
+          0.991249982714653,
+          0.2046717256307602
+        ]
+      ],
+      "file": "venus_flytrap-4-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14874,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0.009574712693850865,
+          -0.31767576932907104
+        ],
+        [
+          0.4869628185033798,
+          1.0008246954085038,
+          0.2046717256307602
+        ]
+      ],
+      "file": "venus_flytrap-4-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14554,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0.04935177768415233,
+          -0.35765183227689035
+        ],
+        [
+          0.4869628185033798,
+          1.0824897034543282,
+          0.20356500450045736
+        ]
+      ],
+      "file": "venus_flytrap-4-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14554,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0.028717062723310236,
+          -0.35765183227689035
+        ],
+        [
+          0.4869628185033798,
+          1.061854988493486,
+          0.20356500450045736
+        ]
+      ],
+      "file": "venus_flytrap-4-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14554,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          -0.012636767559065381,
+          -0.3568719315918445
+        ],
+        [
+          0.4869628185033798,
+          1.0013927680142114,
+          0.2035757340785641
+        ]
+      ],
+      "file": "venus_flytrap-4-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14554,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          -0.007493668564383743,
+          -0.3568719315918445
+        ],
+        [
+          0.4869628185033798,
+          1.006535867008893,
+          0.2035757340785641
+        ]
+      ],
+      "file": "venus_flytrap-4-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.557455065257952,
+          -0.04381098053698581,
+          -0.4400535508403995
+        ],
+        [
+          0.5181363091806521,
+          1.011274928092204,
+          0.4686257635232334
+        ]
+      ],
+      "file": "venus_flytrap-4-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.557455065257952,
+          0.045422405636053376,
+          -0.4400535508403995
+        ],
+        [
+          0.5181363091806521,
+          1.1005083142652432,
+          0.4686257635232334
+        ]
+      ],
+      "file": "venus_flytrap-4-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.557455065257952,
+          -0.04395665234738887,
+          -0.44007407918796937
+        ],
+        [
+          0.5181363091806521,
+          0.9921572942990331,
+          0.46593167034121
+        ]
+      ],
+      "file": "venus_flytrap-4-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.557455065257952,
+          0.0006600407391307225,
+          -0.44007407918796937
+        ],
+        [
+          0.5181363091806521,
+          1.0367739873855528,
+          0.46593167034121
+        ]
+      ],
+      "file": "venus_flytrap-4-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15634,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          -0.036123498779107054,
+          -0.31250720665595316
+        ],
+        [
+          0.4869628185033798,
+          0.9414333737137073,
+          0.30156940852489733
+        ]
+      ],
+      "file": "venus_flytrap-4-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15634,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0.057279503990917496,
+          -0.31250720665595316
+        ],
+        [
+          0.4869628185033798,
+          1.0348363764837318,
+          0.30156940852489733
+        ]
+      ],
+      "file": "venus_flytrap-4-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15634,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          -0.03626006077769673,
+          -0.31253035362901704
+        ],
+        [
+          0.4869628185033798,
+          0.923511290697939,
+          0.2991605432532862
+        ]
+      ],
+      "file": "venus_flytrap-4-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15634,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0.010441440607315538,
+          -0.31253035362901704
+        ],
+        [
+          0.4869628185033798,
+          0.9702127920829513,
+          0.2991605432532862
+        ]
+      ],
+      "file": "venus_flytrap-4-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14554,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          -0.04572201390892498,
+          -0.31009376790682114
+        ],
+        [
+          0.4869628185033798,
+          0.9157083416620926,
+          0.3303541276345155
+        ]
+      ],
+      "file": "venus_flytrap-4-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14554,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          -0.03677000287522632,
+          -0.31009376790682114
+        ],
+        [
+          0.4869628185033798,
+          0.9246603526957913,
+          0.3303541276345155
+        ]
+      ],
+      "file": "venus_flytrap-4-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14554,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          -0.045854764821309416,
+          -0.31012241743268737
+        ],
+        [
+          0.4869628185033798,
+          0.8982864168459412,
+          0.327372621252808
+        ]
+      ],
+      "file": "venus_flytrap-4-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14554,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          -0.04137875930446008,
+          -0.31012241743268737
+        ],
+        [
+          0.4869628185033798,
+          0.9027624223627906,
+          0.327372621252808
+        ]
+      ],
+      "file": "venus_flytrap-4-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14554,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5556485037870189,
+          -0.016182512803005228,
+          -0.315734031321248
+        ],
+        [
+          0.48745711099436073,
+          0.9717228184292253,
+          0.2536096042235419
+        ]
+      ],
+      "file": "venus_flytrap-4-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14554,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5556485037870189,
+          0.07364786923816505,
+          -0.315734031321248
+        ],
+        [
+          0.48745711099436073,
+          1.0615532004703956,
+          0.2536096042235419
+        ]
+      ],
+      "file": "venus_flytrap-4-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14554,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          -0.016182512803005228,
+          -0.3157471069353238
+        ],
+        [
+          0.4869628185033798,
+          0.9532619071685194,
+          0.25265917725673215
+        ]
+      ],
+      "file": "venus_flytrap-4-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14554,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0.028732678217579907,
+          -0.3157471069353238
+        ],
+        [
+          0.4869628185033798,
+          0.9981770981891046,
+          0.25265917725673215
+        ]
+      ],
+      "file": "venus_flytrap-4-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 15034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0.011403588471238617,
+          -0.3677525002730816
+        ],
+        [
+          0.4869628185033798,
+          1.0515263278243827,
+          0.203098746208471
+        ]
+      ],
+      "file": "venus_flytrap-4-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 15034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0.0955993931300241,
+          -0.3677525002730816
+        ],
+        [
+          0.4869628185033798,
+          1.1357221324831683,
+          0.203098746208471
+        ]
+      ],
+      "file": "venus_flytrap-4-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 15034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          -0.019663813490010472,
+          -0.3667701253997704
+        ],
+        [
+          0.4869628185033798,
+          1.0013805335460144,
+          0.2031122613497388
+        ]
+      ],
+      "file": "venus_flytrap-4-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 15034,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0.03016431707693361,
+          -0.3667701253997704
+        ],
+        [
+          0.4869628185033798,
+          1.0512086641129585,
+          0.2031122613497388
+        ]
+      ],
+      "file": "venus_flytrap-4-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14554,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5549070650505477,
+          -0.03009796024462156,
+          -0.313282793863731
+        ],
+        [
+          0.4881985497308321,
+          0.9764749196165036,
+          0.2908525280268144
+        ]
+      ],
+      "file": "venus_flytrap-4-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14554,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5549070650505477,
+          0.037620464347205236,
+          -0.313282793863731
+        ],
+        [
+          0.4881985497308321,
+          1.0441933442083302,
+          0.2908525280268144
+        ]
+      ],
+      "file": "venus_flytrap-4-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14554,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          -0.030239181120524615,
+          -0.3133039047327621
+        ],
+        [
+          0.4869628185033798,
+          0.9579414162434398,
+          0.2886555565644063
+        ]
+      ],
+      "file": "venus_flytrap-4-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14554,
+      "meshes": 12,
+      "drawCalls": 12,
+      "box": [
+        [
+          -0.5561427962779999,
+          0.0036200311753887826,
+          -0.3133039047327621
+        ],
+        [
+          0.4869628185033798,
+          0.9918006285393531,
+          0.2886555565644063
+        ]
+      ],
+      "file": "venus_flytrap-4-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 18984,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0,
+          -0.31767576932907104
+        ],
+        [
+          0.6009804558753967,
+          1.2870622243204717,
+          0.2046717256307602
+        ]
+      ],
+      "file": "venus_flytrap-5-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 18984,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0.01914942538770173,
+          -0.31767576932907104
+        ],
+        [
+          0.6009804558753967,
+          1.3062116497081733,
+          0.2046717256307602
+        ]
+      ],
+      "file": "venus_flytrap-5-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 18984,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0,
+          -0.31767576932907104
+        ],
+        [
+          0.6009804558753967,
+          1.2624730956554413,
+          0.2046717256307602
+        ]
+      ],
+      "file": "venus_flytrap-5-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 18984,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0.009574712693850865,
+          -0.31767576932907104
+        ],
+        [
+          0.6009804558753967,
+          1.272047808349292,
+          0.2046717256307602
+        ]
+      ],
+      "file": "venus_flytrap-5-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 18664,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0.04935177768415233,
+          -0.35765183227689035
+        ],
+        [
+          0.6009804558753967,
+          1.352380847783883,
+          0.20356500450045736
+        ]
+      ],
+      "file": "venus_flytrap-5-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 18664,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0.028717062723310236,
+          -0.35765183227689035
+        ],
+        [
+          0.6009804558753967,
+          1.331746132823041,
+          0.20356500450045736
+        ]
+      ],
+      "file": "venus_flytrap-5-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 18664,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          -0.012636767559065381,
+          -0.3568719315918445
+        ],
+        [
+          0.6009804558753967,
+          1.266015381861604,
+          0.2035757340785641
+        ]
+      ],
+      "file": "venus_flytrap-5-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 18664,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          -0.007493668564383743,
+          -0.3568719315918445
+        ],
+        [
+          0.6009804558753967,
+          1.2711584808562857,
+          0.2035757340785641
+        ]
+      ],
+      "file": "venus_flytrap-5-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 19304,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.5823416685847173,
+          -0.05140345276173952,
+          -0.4400535508403995
+        ],
+        [
+          0.6298289802470791,
+          1.2996884549130003,
+          0.5182295864656544
+        ]
+      ],
+      "file": "venus_flytrap-5-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 19304,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.5823416685847173,
+          0.0378299334112997,
+          -0.4400535508403995
+        ],
+        [
+          0.6298289802470791,
+          1.3889218410860393,
+          0.5182295864656544
+        ]
+      ],
+      "file": "venus_flytrap-5-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 19304,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.5823416685847173,
+          -0.05159800738668596,
+          -0.44007407918796937
+        ],
+        [
+          0.6298289802470791,
+          1.2753399063759567,
+          0.5160004117568298
+        ]
+      ],
+      "file": "venus_flytrap-5-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 19304,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.5823416685847173,
+          -0.0069813143001663525,
+          -0.44007407918796937
+        ],
+        [
+          0.6298289802470791,
+          1.3199565994624762,
+          0.5160004117568298
+        ]
+      ],
+      "file": "venus_flytrap-5-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 20104,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          -0.036123498779107054,
+          -0.31250720665595316
+        ],
+        [
+          0.6009804558753967,
+          1.1987775019610176,
+          0.3256296212171615
+        ]
+      ],
+      "file": "venus_flytrap-5-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 20104,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0.057279503990917496,
+          -0.31250720665595316
+        ],
+        [
+          0.6009804558753967,
+          1.2921805047310422,
+          0.3256296212171615
+        ]
+      ],
+      "file": "venus_flytrap-5-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 20104,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          -0.03626006077769673,
+          -0.31253035362901704
+        ],
+        [
+          0.6009804558753967,
+          1.175951627539768,
+          0.323116089781459
+        ]
+      ],
+      "file": "venus_flytrap-5-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 20104,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0.010441440607315538,
+          -0.31253035362901704
+        ],
+        [
+          0.6009804558753967,
+          1.2226531289247802,
+          0.323116089781459
+        ]
+      ],
+      "file": "venus_flytrap-5-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 18664,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          -0.04572201390892498,
+          -0.31009376790682114
+        ],
+        [
+          0.6009804558753967,
+          1.1660301093748557,
+          0.35559081579872487
+        ]
+      ],
+      "file": "venus_flytrap-5-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 18664,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          -0.03677000287522632,
+          -0.31009376790682114
+        ],
+        [
+          0.6009804558753967,
+          1.1749821204085544,
+          0.35559081579872487
+        ]
+      ],
+      "file": "venus_flytrap-5-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 18664,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          -0.045854764821309416,
+          -0.31012241743268737
+        ],
+        [
+          0.6009804558753967,
+          1.143841245073756,
+          0.35247976176656765
+        ]
+      ],
+      "file": "venus_flytrap-5-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 18664,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          -0.04137875930446008,
+          -0.31012241743268737
+        ],
+        [
+          0.6009804558753967,
+          1.1483172505906054,
+          0.35247976176656765
+        ]
+      ],
+      "file": "venus_flytrap-5-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 18664,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.600772206074693,
+          -0.016182512803005228,
+          -0.315734031321248
+        ],
+        [
+          0.6014747483663776,
+          1.2365020850408592,
+          0.27005500637627344
+        ]
+      ],
+      "file": "venus_flytrap-5-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 18664,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.600772206074693,
+          0.07364786923816505,
+          -0.315734031321248
+        ],
+        [
+          0.6014747483663776,
+          1.3263324670820296,
+          0.27005500637627344
+        ]
+      ],
+      "file": "venus_flytrap-5-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 18664,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          -0.016182512803005228,
+          -0.3157471069353238
+        ],
+        [
+          0.6009804558753967,
+          1.2129899496619547,
+          0.2686351245226103
+        ]
+      ],
+      "file": "venus_flytrap-5-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 18664,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0.028732678217579907,
+          -0.3157471069353238
+        ],
+        [
+          0.6009804558753967,
+          1.25790514068254,
+          0.2686351245226103
+        ]
+      ],
+      "file": "venus_flytrap-5-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 19304,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0.011403588471238617,
+          -0.3677525002730816
+        ],
+        [
+          0.6009804558753967,
+          1.319458490540006,
+          0.203098746208471
+        ]
+      ],
+      "file": "venus_flytrap-5-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 19304,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0.0955993931300241,
+          -0.3677525002730816
+        ],
+        [
+          0.6009804558753967,
+          1.4036542951987916,
+          0.203098746208471
+        ]
+      ],
+      "file": "venus_flytrap-5-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 19304,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          -0.019663813490010472,
+          -0.3667701253997704
+        ],
+        [
+          0.6009804558753967,
+          1.2640524367401578,
+          0.2031122613497388
+        ]
+      ],
+      "file": "venus_flytrap-5-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 19304,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0.03016431707693361,
+          -0.3667701253997704
+        ],
+        [
+          0.6009804558753967,
+          1.313880567307102,
+          0.2031122613497388
+        ]
+      ],
+      "file": "venus_flytrap-5-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 18664,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6000307673382215,
+          -0.03009796024462156,
+          -0.313282793863731
+        ],
+        [
+          0.6022161871028491,
+          1.2425365194702658,
+          0.3144704537777654
+        ]
+      ],
+      "file": "venus_flytrap-5-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 18664,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6000307673382215,
+          0.037620464347205236,
+          -0.313282793863731
+        ],
+        [
+          0.6022161871028491,
+          1.3102549440620925,
+          0.3144704537777654
+        ]
+      ],
+      "file": "venus_flytrap-5-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 18664,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          -0.030239181120524615,
+          -0.3133039047327621
+        ],
+        [
+          0.6009804558753967,
+          1.2189319295234853,
+          0.3121780230224286
+        ]
+      ],
+      "file": "venus_flytrap-5-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 18664,
+      "meshes": 16,
+      "drawCalls": 16,
+      "box": [
+        [
+          -0.6012664985656738,
+          0.0036200311753887826,
+          -0.3133039047327621
+        ],
+        [
+          0.6009804558753967,
+          1.2527911418193989,
+          0.3121780230224286
+        ]
+      ],
+      "file": "venus_flytrap-5-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5226,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.033324548594023895,
+          -0.19676874577999115
+        ],
+        [
+          0.5612931847572327,
+          0.7613848767879325,
+          0.27490004897117615
+        ]
+      ],
+      "file": "venus_flytrap-6-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5226,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.05247397398172565,
+          -0.19676874577999115
+        ],
+        [
+          0.5612931847572327,
+          0.7805343021756344,
+          0.27490004897117615
+        ]
+      ],
+      "file": "venus_flytrap-6-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5226,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.032687888145446764,
+          -0.19676874577999115
+        ],
+        [
+          0.5612931847572327,
+          0.7468387341499328,
+          0.27490004897117615
+        ]
+      ],
+      "file": "venus_flytrap-6-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5226,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.042262600839297615,
+          -0.19676874577999115
+        ],
+        [
+          0.5612931847572327,
+          0.7564134468437838,
+          0.27490004897117615
+        ]
+      ],
+      "file": "venus_flytrap-6-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5066,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.08372625654969951,
+          -0.2517764321245599
+        ],
+        [
+          0.5612931847572327,
+          0.8442487782983893,
+          0.2717373710241556
+        ]
+      ],
+      "file": "venus_flytrap-6-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5066,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.06309154158885738,
+          -0.2517764321245599
+        ],
+        [
+          0.5612931847572327,
+          0.8236140633375472,
+          0.2717373710241556
+        ]
+      ],
+      "file": "venus_flytrap-6-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5066,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.021249465829275893,
+          -0.25071550657685293
+        ],
+        [
+          0.5612931847572327,
+          0.7678995507482256,
+          0.2717838059692761
+        ]
+      ],
+      "file": "venus_flytrap-6-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5066,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.02639256482395752,
+          -0.25071550657685293
+        ],
+        [
+          0.5612931847572327,
+          0.7730426497429072,
+          0.2717838059692761
+        ]
+      ],
+      "file": "venus_flytrap-6-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5226,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.576242518944361,
+          -0.03567462961216167,
+          -0.3824522616023123
+        ],
+        [
+          0.6232191860801949,
+          0.8034866983105402,
+          0.5580787908800965
+        ]
+      ],
+      "file": "venus_flytrap-6-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5226,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.576242518944361,
+          0.053558756560877496,
+          -0.3824522616023123
+        ],
+        [
+          0.6232191860801949,
+          0.8927200844835794,
+          0.5580787908800965
+        ]
+      ],
+      "file": "venus_flytrap-6-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5226,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.576242518944361,
+          -0.03630506097249858,
+          -0.38254110318427753
+        ],
+        [
+          0.6232191860801949,
+          0.7890828751872023,
+          0.5560489768303306
+        ]
+      ],
+      "file": "venus_flytrap-6-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5226,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.576242518944361,
+          0.008311632114021028,
+          -0.38254110318427753
+        ],
+        [
+          0.6232191860801949,
+          0.8336995682737219,
+          0.5560489768303306
+        ]
+      ],
+      "file": "venus_flytrap-6-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5426,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          -0.022723606020476017,
+          -0.18907438454785633
+        ],
+        [
+          0.5612931847572327,
+          0.7228896175705554,
+          0.3912747905387504
+        ]
+      ],
+      "file": "venus_flytrap-6-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5426,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.07067939674954854,
+          -0.18907438454785633
+        ],
+        [
+          0.5612931847572327,
+          0.8162926203405799,
+          0.3912747905387504
+        ]
+      ],
+      "file": "venus_flytrap-6-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5426,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          -0.023314612381301836,
+          -0.1891745588895906
+        ],
+        [
+          0.5612931847572327,
+          0.709386559788733,
+          0.38898605049405155
+        ]
+      ],
+      "file": "venus_flytrap-6-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5426,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.023386889003710443,
+          -0.1891745588895906
+        ],
+        [
+          0.5612931847572327,
+          0.7560880611737453,
+          0.38898605049405155
+        ]
+      ],
+      "file": "venus_flytrap-6-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5066,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          -0.03518162842593375,
+          -0.18651142372924956
+        ],
+        [
+          0.5612931847572327,
+          0.7063169992734755,
+          0.4179144414532
+        ]
+      ],
+      "file": "venus_flytrap-6-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5066,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          -0.02622961739223506,
+          -0.18651142372924956
+        ],
+        [
+          0.5612931847572327,
+          0.7152690103071742,
+          0.4179144414532
+        ]
+      ],
+      "file": "venus_flytrap-6-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5066,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          -0.03575614135365068,
+          -0.18663541175078147
+        ],
+        [
+          0.5612931847572327,
+          0.6931907763195878,
+          0.41508161674948585
+        ]
+      ],
+      "file": "venus_flytrap-6-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5066,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          -0.03128013583680134,
+          -0.18663541175078147
+        ],
+        [
+          0.5612931847572327,
+          0.6976667818364372,
+          0.41508161674948585
+        ]
+      ],
+      "file": "venus_flytrap-6-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5066,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5414203493661663,
+          0.00440848256251225,
+          -0.1930279865181867
+        ],
+        [
+          0.5617874772482135,
+          0.7408262817287415,
+          0.3414858564661134
+        ]
+      ],
+      "file": "venus_flytrap-6-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5066,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5414203493661663,
+          0.09423886460368253,
+          -0.1930279865181867
+        ],
+        [
+          0.5617874772482135,
+          0.8306566637699118,
+          0.3414858564661134
+        ]
+      ],
+      "file": "venus_flytrap-6-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5066,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.003799707568438282,
+          -0.1930845745234174
+        ],
+        [
+          0.5612931847572327,
+          0.7269172538975969,
+          0.3401929581911762
+        ]
+      ],
+      "file": "venus_flytrap-6-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5066,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.04871489858902345,
+          -0.1930845745234174
+        ],
+        [
+          0.5612931847572327,
+          0.771832444918182,
+          0.3401929581911762
+        ]
+      ],
+      "file": "venus_flytrap-6-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5226,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.04802733299270273,
+          -0.26588524456056495
+        ],
+        [
+          0.5612931847572327,
+          0.8163410237158628,
+          0.27067595690480617
+        ]
+      ],
+      "file": "venus_flytrap-6-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5226,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.1322231376514882,
+          -0.26588524456056495
+        ],
+        [
+          0.5612931847572327,
+          0.9005368283746482,
+          0.27067595690480617
+        ]
+      ],
+      "file": "venus_flytrap-6-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5226,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.016472452041061958,
+          -0.2645488864568919
+        ],
+        [
+          0.5612931847572327,
+          0.770935483995741,
+          0.27073444707439387
+        ]
+      ],
+      "file": "venus_flytrap-6-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5226,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.06630058260800603,
+          -0.2645488864568919
+        ],
+        [
+          0.5612931847572327,
+          0.8207636145626851,
+          0.27073444707439387
+        ]
+      ],
+      "file": "venus_flytrap-6-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5066,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5406789106296949,
+          -0.015275225525207381,
+          -0.18995000252228925
+        ],
+        [
+          0.562528915984685,
+          0.749289105627871,
+          0.38131570802148246
+        ]
+      ],
+      "file": "venus_flytrap-6-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5066,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5406789106296949,
+          0.05244319906661943,
+          -0.18995000252228925
+        ],
+        [
+          0.562528915984685,
+          0.8170075302196977,
+          0.38131570802148246
+        ]
+      ],
+      "file": "venus_flytrap-6-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5066,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          -0.015886394348174626,
+          -0.19004136511223954
+        ],
+        [
+          0.5612931847572327,
+          0.7353253846292629,
+          0.3792282950713547
+        ]
+      ],
+      "file": "venus_flytrap-6-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5066,
+      "meshes": 5,
+      "drawCalls": 5,
+      "box": [
+        [
+          -0.5419146418571472,
+          0.017972817947738806,
+          -0.19004136511223954
+        ],
+        [
+          0.5612931847572327,
+          0.7691845969251763,
+          0.3792282950713547
+        ]
+      ],
+      "file": "venus_flytrap-6-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 23110,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          0.010201969029916214,
+          -0.2828586632013321
+        ],
+        [
+          0.6501774471998214,
+          1.312497264676435,
+          0.3321575438976288
+        ]
+      ],
+      "file": "venus_flytrap-7-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 23110,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          0.029351394417618026,
+          -0.2828586632013321
+        ],
+        [
+          0.6501774471998214,
+          1.3316466900641368,
+          0.3321575438976288
+        ]
+      ],
+      "file": "venus_flytrap-7-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 23110,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          0.010007061958313024,
+          -0.2828586632013321
+        ],
+        [
+          0.6501774471998214,
+          1.2874222034215927,
+          0.3321575438976288
+        ]
+      ],
+      "file": "venus_flytrap-7-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 23110,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          0.01958177465216382,
+          -0.2828586632013321
+        ],
+        [
+          0.6501774471998214,
+          1.2969969161154435,
+          0.3321575438976288
+        ]
+      ],
+      "file": "venus_flytrap-7-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22630,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          0.0543862760250855,
+          -0.37783254663041266
+        ],
+        [
+          0.6501774471998214,
+          1.3980694649849834,
+          0.33052882062201216
+        ]
+      ],
+      "file": "venus_flytrap-7-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 22630,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          0.033751561064243596,
+          -0.37783254663041266
+        ],
+        [
+          0.6501774471998214,
+          1.3774347500241415,
+          0.33052882062201216
+        ]
+      ],
+      "file": "venus_flytrap-7-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 22630,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          -0.007649937847620691,
+          -0.37600369249652815
+        ],
+        [
+          0.6501774471998214,
+          1.3112193606653957,
+          0.33054303620457853
+        ]
+      ],
+      "file": "venus_flytrap-7-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 22630,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          -0.0025068388529390084,
+          -0.37600369249652815
+        ],
+        [
+          0.6501774471998214,
+          1.3163624596600774,
+          0.33054303620457853
+        ]
+      ],
+      "file": "venus_flytrap-7-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 23430,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.621964586114623,
+          -0.058371067997270876,
+          -0.407133528629646
+        ],
+        [
+          0.6735737889552409,
+          1.3522304332977741,
+          0.6335641443908882
+        ]
+      ],
+      "file": "venus_flytrap-7-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 23430,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.621964586114623,
+          0.030862318175768122,
+          -0.407133528629646
+        ],
+        [
+          0.6735737889552409,
+          1.4414638194708131,
+          0.6335641443908882
+        ]
+      ],
+      "file": "venus_flytrap-7-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 23430,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.621964586114623,
+          -0.058564068097347155,
+          -0.40716072656948366
+        ],
+        [
+          0.6735737889552409,
+          1.327400706537218,
+          0.6300650922434925
+        ]
+      ],
+      "file": "venus_flytrap-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 23430,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.621964586114623,
+          -0.013947375010827656,
+          -0.40716072656948366
+        ],
+        [
+          0.6735737889552409,
+          1.3720173996237375,
+          0.6300650922434925
+        ]
+      ],
+      "file": "venus_flytrap-7-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 24430,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          -0.05265664111865809,
+          -0.277730147321776
+        ],
+        [
+          0.6501774471998214,
+          1.2472153995117137,
+          0.5345329989974983
+        ]
+      ],
+      "file": "venus_flytrap-7-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 24430,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          0.04074636165136658,
+          -0.277730147321776
+        ],
+        [
+          0.6501774471998214,
+          1.3406184022817382,
+          0.5345329989974983
+        ]
+      ],
+      "file": "venus_flytrap-7-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 24430,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          -0.05283757165917591,
+          -0.2777608146698746
+        ],
+        [
+          0.6501774471998214,
+          1.2239384380908658,
+          0.5305876027336592
+        ]
+      ],
+      "file": "venus_flytrap-7-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 24430,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          -0.006136070274163741,
+          -0.2777608146698746
+        ],
+        [
+          0.6501774471998214,
+          1.2706399394758778,
+          0.5305876027336592
+        ]
+      ],
+      "file": "venus_flytrap-7-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22630,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          -0.0663057935263901,
+          -0.27545607724615884
+        ],
+        [
+          0.6501774471998214,
+          1.2190571596660202,
+          0.5814034025604795
+        ]
+      ],
+      "file": "venus_flytrap-7-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 22630,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          -0.05735378249269141,
+          -0.27545607724615884
+        ],
+        [
+          0.6501774471998214,
+          1.228009170699719,
+          0.5814034025604795
+        ]
+      ],
+      "file": "venus_flytrap-7-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 22630,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          -0.06648167477139244,
+          -0.2754940349082763
+        ],
+        [
+          0.6501774471998214,
+          1.1964297970170652,
+          0.576520097430204
+        ]
+      ],
+      "file": "venus_flytrap-7-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 22630,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          -0.062005669254543094,
+          -0.2754940349082763
+        ],
+        [
+          0.6501774471998214,
+          1.2009058025339145,
+          0.576520097430204
+        ]
+      ],
+      "file": "venus_flytrap-7-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22630,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6413474654025814,
+          -0.022586962499338004,
+          -0.2808323636969489
+        ],
+        [
+          0.6506717396908024,
+          1.2751459993437972,
+          0.4475010080348217
+        ]
+      ],
+      "file": "venus_flytrap-7-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 22630,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6413474654025814,
+          0.06724341954183233,
+          -0.2808323636969489
+        ],
+        [
+          0.6506717396908024,
+          1.3649763813849676,
+          0.4475010080348217
+        ]
+      ],
+      "file": "venus_flytrap-7-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 22630,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          -0.02277333272482529,
+          -0.2808496875348158
+        ],
+        [
+          0.6501774471998214,
+          1.2511692150140366,
+          0.445272272606665
+        ]
+      ],
+      "file": "venus_flytrap-7-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 22630,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          0.022141858295759764,
+          -0.2808496875348158
+        ],
+        [
+          0.6501774471998214,
+          1.2960844060346215,
+          0.445272272606665
+        ]
+      ],
+      "file": "venus_flytrap-7-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 23430,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          0.01709343491866111,
+          -0.40224193220289217
+        ],
+        [
+          0.6501774471998214,
+          1.3703830102924233,
+          0.3298155866868683
+        ]
+      ],
+      "file": "venus_flytrap-7-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 23430,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          0.10128923957744673,
+          -0.40224193220289217
+        ],
+        [
+          0.6501774471998214,
+          1.4545788149512089,
+          0.3298155866868683
+        ]
+      ],
+      "file": "venus_flytrap-7-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 23430,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          -0.014021560838048064,
+          -0.39993827946539806
+        ],
+        [
+          0.6501774471998214,
+          1.3144930789193978,
+          0.329833492852859
+        ]
+      ],
+      "file": "venus_flytrap-7-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 23430,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          0.035806569728896065,
+          -0.39993827946539806
+        ],
+        [
+          0.6501774471998214,
+          1.364321209486342,
+          0.329833492852859
+        ]
+      ],
+      "file": "venus_flytrap-7-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22630,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.64060602666611,
+          -0.04544210179137953,
+          -0.278467037099454
+        ],
+        [
+          0.6514131784272738,
+          1.2903187016830144,
+          0.517066781633608
+        ]
+      ],
+      "file": "venus_flytrap-7-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 22630,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.64060602666611,
+          0.022276322800447224,
+          -0.278467037099454
+        ],
+        [
+          0.6514131784272738,
+          1.3580371262748412,
+          0.517066781633608
+        ]
+      ],
+      "file": "venus_flytrap-7-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 22630,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          -0.04562920486304989,
+          -0.27849500682005
+        ],
+        [
+          0.6501774471998214,
+          1.2662476356898256,
+          0.5134684388364001
+        ]
+      ],
+      "file": "venus_flytrap-7-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 22630,
+      "meshes": 20,
+      "drawCalls": 20,
+      "box": [
+        [
+          -0.6418417578935622,
+          -0.0117699925671364,
+          -0.27849500682005
+        ],
+        [
+          0.6501774471998214,
+          1.300106847985739,
+          0.5134684388364001
+        ]
+      ],
+      "file": "venus_flytrap-7-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22486,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          0.010380083828817999,
+          -0.4423482418060303
+        ],
+        [
+          0.6239310199022293,
+          1.587942721587989,
+          0.34303927421569824
+        ]
+      ],
+      "file": "venus_flytrap-8-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 22486,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          0.0295295092165197,
+          -0.4423482418060303
+        ],
+        [
+          0.6239310199022293,
+          1.607092146975691,
+          0.34303927421569824
+        ]
+      ],
+      "file": "venus_flytrap-8-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 22486,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          0.010181773900985736,
+          -0.4423482418060303
+        ],
+        [
+          0.6239310199022293,
+          1.5576053166389465,
+          0.34303927421569824
+        ]
+      ],
+      "file": "venus_flytrap-8-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal",
+        "normal",
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 22486,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          0.019756486594836586,
+          -0.4423482418060303
+        ],
+        [
+          0.6239310199022293,
+          1.5671800293327973,
+          0.34303927421569824
+        ]
+      ],
+      "file": "venus_flytrap-8-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22246,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          0.043684185480010435,
+          -0.499954222207584
+        ],
+        [
+          0.6239310199022293,
+          1.6519978930956447,
+          0.3413135358648879
+        ]
+      ],
+      "file": "venus_flytrap-8-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 22246,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          0.02304947051916834,
+          -0.499954222207584
+        ],
+        [
+          0.6239310199022293,
+          1.6313631781348028,
+          0.3413135358648879
+        ]
+      ],
+      "file": "venus_flytrap-8-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 22246,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          -0.018369801838628238,
+          -0.4988311610044682
+        ],
+        [
+          0.6239310199022293,
+          1.559899460371015,
+          0.34132905121865487
+        ]
+      ],
+      "file": "venus_flytrap-8-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 22246,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          -0.0132267028439466,
+          -0.4988311610044682
+        ],
+        [
+          0.6239310199022293,
+          1.5650425593656967,
+          0.34132905121865487
+        ]
+      ],
+      "file": "venus_flytrap-8-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22726,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.669763242311236,
+          -0.06661283790894572,
+          -0.6170825435048859
+        ],
+        [
+          0.6629160150012227,
+          1.6042846555041876,
+          0.6279218963384837
+        ]
+      ],
+      "file": "venus_flytrap-8-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 22726,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.669763242311236,
+          0.022620548264093474,
+          -0.6170825435048859
+        ],
+        [
+          0.6629160150012227,
+          1.6935180416772266,
+          0.6279218963384837
+        ]
+      ],
+      "file": "venus_flytrap-8-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 22726,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.669763242311236,
+          -0.06682348455784466,
+          -0.6171122282298239
+        ],
+        [
+          0.6629160150012227,
+          1.5742440718400652,
+          0.6257732013487568
+        ]
+      ],
+      "file": "venus_flytrap-8-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike",
+        "dislike",
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 22726,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.669763242311236,
+          -0.02220679147132506,
+          -0.6171122282298239
+        ],
+        [
+          0.6629160150012227,
+          1.6188607649265847,
+          0.6257732013487568
+        ]
+      ],
+      "file": "venus_flytrap-8-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 23326,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          -0.053400174244180434,
+          -0.43508634580056627
+        ],
+        [
+          0.6239310199022293,
+          1.484737879382434,
+          0.46558158113982817
+        ]
+      ],
+      "file": "venus_flytrap-8-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 23326,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          0.04000282852584411,
+          -0.43508634580056627
+        ],
+        [
+          0.6239310199022293,
+          1.5781408821524585,
+          0.46558158113982817
+        ]
+      ],
+      "file": "venus_flytrap-8-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 23326,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          -0.05359764777931578,
+          -0.4351198171516436
+        ],
+        [
+          0.6239310199022293,
+          1.4565759300483665,
+          0.4631587955317577
+        ]
+      ],
+      "file": "venus_flytrap-8-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired",
+        "tired",
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 23326,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          -0.006896146394303512,
+          -0.4351198171516436
+        ],
+        [
+          0.6239310199022293,
+          1.5032774314333786,
+          0.4631587955317577
+        ]
+      ],
+      "file": "venus_flytrap-8-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22246,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          -0.06741370755312086,
+          -0.4317103151852649
+        ],
+        [
+          0.6239310199022293,
+          1.4456027443568908,
+          0.4934332783445615
+        ]
+      ],
+      "file": "venus_flytrap-8-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 22246,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          -0.05846169651942219,
+          -0.4317103151852649
+        ],
+        [
+          0.6239310199022293,
+          1.4545547553905895,
+          0.4934332783445615
+        ]
+      ],
+      "file": "venus_flytrap-8-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 22246,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          -0.06760567012127104,
+          -0.4317517434245349
+        ],
+        [
+          0.6239310199022293,
+          1.4182267209592359,
+          0.4904345424513168
+        ]
+      ],
+      "file": "venus_flytrap-8-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping",
+        "sleeping",
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 22246,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          -0.06312966460442171,
+          -0.4317517434245349
+        ],
+        [
+          0.6239310199022293,
+          1.4227027264760852,
+          0.4904345424513168
+        ]
+      ],
+      "file": "venus_flytrap-8-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22246,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6072084705896159,
+          -0.022623531558962663,
+          -0.43960779145546697
+        ],
+        [
+          0.6244253123932102,
+          1.5280438716435907,
+          0.41331887499212133
+        ]
+      ],
+      "file": "venus_flytrap-8-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 22246,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6072084705896159,
+          0.0672068504822076,
+          -0.43960779145546697
+        ],
+        [
+          0.6244253123932102,
+          1.617874253684761,
+          0.41331887499212133
+        ]
+      ],
+      "file": "venus_flytrap-8-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 22246,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          -0.022826942144956713,
+          -0.43962669926116904
+        ],
+        [
+          0.6239310199022293,
+          1.4990352320157472,
+          0.41195025502128974
+        ]
+      ],
+      "file": "venus_flytrap-8-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained",
+        "strained",
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 22246,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          0.022088248875628422,
+          -0.43962669926116904
+        ],
+        [
+          0.6239310199022293,
+          1.5439504230363323,
+          0.41195025502128974
+        ]
+      ],
+      "file": "venus_flytrap-8-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22726,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          0.003369933978077458,
+          -0.5145228910945008
+        ],
+        [
+          0.6239310199022293,
+          1.6184844762585795,
+          0.3405656018551495
+        ]
+      ],
+      "file": "venus_flytrap-8-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 22726,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          0.08756573863686293,
+          -0.5145228910945008
+        ],
+        [
+          0.6239310199022293,
+          1.7026802809173651,
+          0.3405656018551495
+        ]
+      ],
+      "file": "venus_flytrap-8-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 22726,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          -0.027762807322386625,
+          -0.513108265965576
+        ],
+        [
+          0.6239310199022293,
+          1.5573544557263572,
+          0.34058514523289424
+        ]
+      ],
+      "file": "venus_flytrap-8-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay",
+        "wantsPlay",
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 22726,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          0.022065323244557455,
+          -0.513108265965576
+        ],
+        [
+          0.6239310199022293,
+          1.6071825862933014,
+          0.34058514523289424
+        ]
+      ],
+      "file": "venus_flytrap-8-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 22246,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6064670318531447,
+          -0.04606136799574297,
+          -0.4361720244242189
+        ],
+        [
+          0.6251667511296817,
+          1.5376337830567017,
+          0.45514881307079924
+        ]
+      ],
+      "file": "venus_flytrap-8-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 22246,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6064670318531447,
+          0.021657056596083822,
+          -0.4361720244242189
+        ],
+        [
+          0.6251667511296817,
+          1.6053522076485285,
+          0.45514881307079924
+        ]
+      ],
+      "file": "venus_flytrap-8-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 22246,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          -0.046265578434133516,
+          -0.43620255149602805
+        ],
+        [
+          0.6239310199022293,
+          1.5085110754721103,
+          0.4529391457626297
+        ]
+      ],
+      "file": "venus_flytrap-8-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "venus_flytrap",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick",
+        "sick",
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 22246,
+      "meshes": 18,
+      "drawCalls": 18,
+      "box": [
+        [
+          -0.6077027630805969,
+          -0.012406366138220118,
+          -0.43620255149602805
+        ],
+        [
+          0.6239310199022293,
+          1.5423702877680237,
+          0.4529391457626297
+        ]
+      ],
+      "file": "venus_flytrap-8-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}

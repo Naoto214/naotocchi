@@ -1,0 +1,768 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11613535214,
+    "name": "full-rollout-stages-butterfly-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:ee86de55aa629b26b0248793b011adbab4344a4a58db25bddd5bfa074f8c8feb"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "f8209c0e3662bb1ec90b8f76d0f44e68dc671bfaf781fa79f2817976ad5da26c",
+      "bytes": 7710
+    },
+    {
+      "path": "missing-motion/butterfly-2-dislike-idle-normal.jpg",
+      "sha256": "df846a3f73f59285c249177cf949e35334ca93cf0b5a3515827ff1bbf755bdef",
+      "bytes": 8169
+    },
+    {
+      "path": "missing-motion/butterfly-2-dislike-idle-reduced.jpg",
+      "sha256": "91c650fe6399b2a5ce39838ac1bc455bc305423dc7fa890c5b72f85e2da3a757",
+      "bytes": 8107
+    },
+    {
+      "path": "missing-motion/butterfly-2-dislike-walk-normal.jpg",
+      "sha256": "d40492cfbdc351e25f0563860aa1e600167912b6d57edfe1eac2b578a37852d3",
+      "bytes": 8200
+    },
+    {
+      "path": "missing-motion/butterfly-2-dislike-walk-reduced.jpg",
+      "sha256": "3000816ffb8e58e8d3f80fe372c8749c3082cac0dc7ac30c4279710fef569122",
+      "bytes": 8241
+    },
+    {
+      "path": "missing-motion/butterfly-2-motion.jpg",
+      "sha256": "e8606516bd48f8cbea1a4fc884213e4a99cac0862c48ba46dcd90ed10fefc8e2",
+      "bytes": 353473
+    },
+    {
+      "path": "missing-motion/butterfly-2-normal-idle-normal.jpg",
+      "sha256": "16064e554d0e9fb18b84a759d6e665c275d478f50ebd214a0922332dca1b486a",
+      "bytes": 8463
+    },
+    {
+      "path": "missing-motion/butterfly-2-normal-idle-reduced.jpg",
+      "sha256": "48487d1db2507a6d54cb56ddca94aa9884387a49c2758736af89d028ac17f348",
+      "bytes": 8355
+    },
+    {
+      "path": "missing-motion/butterfly-2-normal-walk-normal.jpg",
+      "sha256": "e953bb37035f653a9f6ceaa26edf5dc83336945c41f37a29f6780ecd04496205",
+      "bytes": 8568
+    },
+    {
+      "path": "missing-motion/butterfly-2-normal-walk-reduced.jpg",
+      "sha256": "b4a0ceed808f3336ba497b92ba987f3bb4dc3d612ddbc5102a0de47d2946b31b",
+      "bytes": 8566
+    },
+    {
+      "path": "missing-motion/butterfly-2-positive-idle-normal.jpg",
+      "sha256": "d271d6467be2644c364077a0546e2af120c0c0a156a0399d28875b36438b7b2f",
+      "bytes": 8499
+    },
+    {
+      "path": "missing-motion/butterfly-2-positive-idle-reduced.jpg",
+      "sha256": "bd068588aa5c0cadc87bf5ae91be46d9e9f060c4333f3443cd07eb4fd9f1ab3b",
+      "bytes": 8660
+    },
+    {
+      "path": "missing-motion/butterfly-2-positive-walk-normal.jpg",
+      "sha256": "fe6b59f7f072b67f80b7e87f94c881a3c12337b0836f3bfa302bc5231ae5d7d7",
+      "bytes": 8447
+    },
+    {
+      "path": "missing-motion/butterfly-2-positive-walk-reduced.jpg",
+      "sha256": "fea073539779de489243ceaa8ff5176f0248fe4a88e168c2cfb6b67070011406",
+      "bytes": 8616
+    },
+    {
+      "path": "missing-motion/butterfly-2-sick-idle-normal.jpg",
+      "sha256": "54e94f01bb6177a4174a06b5b1acb3f38642e21e06e13ee885ab9fd6bb760cf0",
+      "bytes": 8281
+    },
+    {
+      "path": "missing-motion/butterfly-2-sick-idle-reduced.jpg",
+      "sha256": "e96c1c5f5a6aa2d2149078007c88d724a6ae7746523cc30fcc9dde09232ccf21",
+      "bytes": 8234
+    },
+    {
+      "path": "missing-motion/butterfly-2-sick-walk-normal.jpg",
+      "sha256": "fedaf7d6116c72fb928e3451537f3cf4b11a8df55045e88bdc49e1eb93599019",
+      "bytes": 8368
+    },
+    {
+      "path": "missing-motion/butterfly-2-sick-walk-reduced.jpg",
+      "sha256": "83c3546f75771125c88ac355ea0602433dcf1f0eccc02300385a12e7ea9819ce",
+      "bytes": 8264
+    },
+    {
+      "path": "missing-motion/butterfly-2-sleeping-idle-normal.jpg",
+      "sha256": "7fb5bac0f99945d028bf89a1d3f43f182428693cd4c278578ceeb400ab2da5c2",
+      "bytes": 7891
+    },
+    {
+      "path": "missing-motion/butterfly-2-sleeping-idle-reduced.jpg",
+      "sha256": "4ccc850547e8f0563cd8b50f00747a8d4c8253ebd49331d8c5ab0f590ee3f475",
+      "bytes": 8093
+    },
+    {
+      "path": "missing-motion/butterfly-2-sleeping-walk-normal.jpg",
+      "sha256": "3dad65d8ece4b2d27bcb4400027bde309841fadbd1d8a61bb05a12d303df4673",
+      "bytes": 8093
+    },
+    {
+      "path": "missing-motion/butterfly-2-sleeping-walk-reduced.jpg",
+      "sha256": "a188a7e24385ce543a9083a0dfc6dc81d21f283b2f3bb9d5e6ddb2bf968e9220",
+      "bytes": 8135
+    },
+    {
+      "path": "missing-motion/butterfly-2-strained-idle-normal.jpg",
+      "sha256": "ea2abd1d73dfe88e2f93b0f2a6b89f0e08ac043eeeb70f3702580250ce83b7b9",
+      "bytes": 8374
+    },
+    {
+      "path": "missing-motion/butterfly-2-strained-idle-reduced.jpg",
+      "sha256": "988eecfb0e7be5cbaac0d52c674b71bbcc13f9e26c57bf04d2811c53a15cf6cc",
+      "bytes": 8489
+    },
+    {
+      "path": "missing-motion/butterfly-2-strained-walk-normal.jpg",
+      "sha256": "e29838c2e94e7686cc63e6867493e99560b96f8c2047db80b3e00de3daab6ea8",
+      "bytes": 8522
+    },
+    {
+      "path": "missing-motion/butterfly-2-strained-walk-reduced.jpg",
+      "sha256": "948370c59352b7475b89b00b998b85122536a457dfbfebb6fdcf32fa1116f831",
+      "bytes": 8510
+    },
+    {
+      "path": "missing-motion/butterfly-2-tired-idle-normal.jpg",
+      "sha256": "5df088e47d745bda34b990b404282bca286a3565c8eb16a38737a2a9fbb5f704",
+      "bytes": 7988
+    },
+    {
+      "path": "missing-motion/butterfly-2-tired-idle-reduced.jpg",
+      "sha256": "f3c164694c296adeb1956c639e831968111134efda48243889d82adb9487584e",
+      "bytes": 8007
+    },
+    {
+      "path": "missing-motion/butterfly-2-tired-walk-normal.jpg",
+      "sha256": "448dfcf827686243daeeb5df3ac0e48980b5830f1588c3341797ed4e24fde32c",
+      "bytes": 7951
+    },
+    {
+      "path": "missing-motion/butterfly-2-tired-walk-reduced.jpg",
+      "sha256": "525bbc7d4e1eda0b03ea30b2ee66d738ac04d12d941c899b724a495d0cf5d9b9",
+      "bytes": 8004
+    },
+    {
+      "path": "missing-motion/butterfly-2-wantsPlay-idle-normal.jpg",
+      "sha256": "9f2725bae6739fb1bf8c1e9c647469352c977773db6342d834db4e1179789a7b",
+      "bytes": 8708
+    },
+    {
+      "path": "missing-motion/butterfly-2-wantsPlay-idle-reduced.jpg",
+      "sha256": "0ca952f74f6b873802201a323f7a39b0eb4603d8cb4b4b75194274f70e05a716",
+      "bytes": 8710
+    },
+    {
+      "path": "missing-motion/butterfly-2-wantsPlay-walk-normal.jpg",
+      "sha256": "914f997ef1bb16261ed4d23cf76249a9faa0c26f2f72d67769fb62b3a26e9bb3",
+      "bytes": 8823
+    },
+    {
+      "path": "missing-motion/butterfly-2-wantsPlay-walk-reduced.jpg",
+      "sha256": "922ea8be2c62077e7d7ad47ba1d37223d532d01d65cbe87ada66b4a0834a4ce9",
+      "bytes": 8775
+    },
+    {
+      "path": "missing-motion/butterfly-3-dislike-idle-normal.jpg",
+      "sha256": "799e1814ed8072f61d0218ced5f4f0a6806a24d6571d4e2ab3915a6c681be813",
+      "bytes": 8760
+    },
+    {
+      "path": "missing-motion/butterfly-3-dislike-idle-reduced.jpg",
+      "sha256": "8f5fe475baa05df87d744f3043939d80441541585ea5fd6546ca7ca05c2d56a2",
+      "bytes": 8577
+    },
+    {
+      "path": "missing-motion/butterfly-3-dislike-walk-normal.jpg",
+      "sha256": "19eb96ae3edef66e74492e1606c7d629fe7f9e7e0c46515ce7cae936c6d4fc5a",
+      "bytes": 8899
+    },
+    {
+      "path": "missing-motion/butterfly-3-dislike-walk-reduced.jpg",
+      "sha256": "d3e8f4a0cdcdc06eb04d423b67087e81b16d329b5a9f111c05656c45b48055b4",
+      "bytes": 8721
+    },
+    {
+      "path": "missing-motion/butterfly-3-motion.jpg",
+      "sha256": "d21512819153bbda0ec323f1e002b46e40c50fa851055538308101a388525bba",
+      "bytes": 387339
+    },
+    {
+      "path": "missing-motion/butterfly-3-normal-idle-normal.jpg",
+      "sha256": "0ad47a3421f712bdc75386af115fb193ce9e205773453948473c79645bcdfd90",
+      "bytes": 8868
+    },
+    {
+      "path": "missing-motion/butterfly-3-normal-idle-reduced.jpg",
+      "sha256": "6b803c5d94c062e89fa010bc3280f3b027f1f6ff015f463530ccbc8d6c6ee693",
+      "bytes": 8925
+    },
+    {
+      "path": "missing-motion/butterfly-3-normal-walk-normal.jpg",
+      "sha256": "e79be1a673029e4079a48e335fee725c9b8fbf516910c5fc2e5956cc922c7629",
+      "bytes": 9000
+    },
+    {
+      "path": "missing-motion/butterfly-3-normal-walk-reduced.jpg",
+      "sha256": "6ab1d23b7eeda3ced8ed7aeeff906a49fdef856f2428039f8e1d08e586034c70",
+      "bytes": 9119
+    },
+    {
+      "path": "missing-motion/butterfly-3-positive-idle-normal.jpg",
+      "sha256": "474997532aa60bfa4acdc673da4fd28a414a5049d9c9c4d9c2a74d3f9d7aaf29",
+      "bytes": 9074
+    },
+    {
+      "path": "missing-motion/butterfly-3-positive-idle-reduced.jpg",
+      "sha256": "c2e4ce82eab1c9e5bccf3d6c0b7af79886bb62a9c9ef2336291927d213bc1711",
+      "bytes": 9198
+    },
+    {
+      "path": "missing-motion/butterfly-3-positive-walk-normal.jpg",
+      "sha256": "48ad3f6fb926d217e17baa1d1d07a4f43afd69339e8e8b7b6f93ad809de1db50",
+      "bytes": 8950
+    },
+    {
+      "path": "missing-motion/butterfly-3-positive-walk-reduced.jpg",
+      "sha256": "c3bfa8a16635ced434404e363a0a4a1e666611403769117eab74f3becbf2f10a",
+      "bytes": 9199
+    },
+    {
+      "path": "missing-motion/butterfly-3-sick-idle-normal.jpg",
+      "sha256": "b19c161ed108667f2c0c706962c5bdff572a5b55dfc0b2a039196471a6bd2d12",
+      "bytes": 8825
+    },
+    {
+      "path": "missing-motion/butterfly-3-sick-idle-reduced.jpg",
+      "sha256": "f752e3bfb97e549ab4058d12cdd9b2e42710607f49fa907e8db324f4096de289",
+      "bytes": 8832
+    },
+    {
+      "path": "missing-motion/butterfly-3-sick-walk-normal.jpg",
+      "sha256": "9c8de803af1ca6f10b15bd339e9b0ae3a28e463898c423995a6a4aaf7fd74f7b",
+      "bytes": 8921
+    },
+    {
+      "path": "missing-motion/butterfly-3-sick-walk-reduced.jpg",
+      "sha256": "d1246407252f21bc671edccdcec4c7adb120452117808c162547ed478fdc3b6f",
+      "bytes": 8855
+    },
+    {
+      "path": "missing-motion/butterfly-3-sleeping-idle-normal.jpg",
+      "sha256": "ee3f3dc9a885f959a4bf7c0a365b3999ba2f1f0aa678b47f03139536a0cf4438",
+      "bytes": 8313
+    },
+    {
+      "path": "missing-motion/butterfly-3-sleeping-idle-reduced.jpg",
+      "sha256": "9708dc7546db021f16eddc8ef06db256428b5b0b2d6857599b4056cf3f97b091",
+      "bytes": 8522
+    },
+    {
+      "path": "missing-motion/butterfly-3-sleeping-walk-normal.jpg",
+      "sha256": "c9645a3cd8507068552a5ca306e3261b7a587a3b4dd4fcfd4d6b8be1fb5e06da",
+      "bytes": 8397
+    },
+    {
+      "path": "missing-motion/butterfly-3-sleeping-walk-reduced.jpg",
+      "sha256": "6f6b8dbcbbf5d86cd7fe2c2fcabd326fa31b16ebe8a6ebaec5e38fa67170e125",
+      "bytes": 8563
+    },
+    {
+      "path": "missing-motion/butterfly-3-strained-idle-normal.jpg",
+      "sha256": "249ace4b4ed26e3cc8f88282dcf079ba5ea877a46c64999877b8b9c048226cc8",
+      "bytes": 9037
+    },
+    {
+      "path": "missing-motion/butterfly-3-strained-idle-reduced.jpg",
+      "sha256": "b4cdaf721d6d074c9fb7ca7e7b63bbfb8a6796206a5534df588fd02840806ef3",
+      "bytes": 8951
+    },
+    {
+      "path": "missing-motion/butterfly-3-strained-walk-normal.jpg",
+      "sha256": "1504899cdfe5ad8372ce42ceedc0e381480f435802ddf0bfb0f51929e39779d7",
+      "bytes": 9111
+    },
+    {
+      "path": "missing-motion/butterfly-3-strained-walk-reduced.jpg",
+      "sha256": "95987aa44bc6682324648a91fc1069aeedbe3d7dc48a4776d0bfb6405f95de99",
+      "bytes": 9125
+    },
+    {
+      "path": "missing-motion/butterfly-3-tired-idle-normal.jpg",
+      "sha256": "20224511398245faf3fc90ae35f0e7c3a3183f1e6f8337489ef848c8fc3f8f27",
+      "bytes": 8585
+    },
+    {
+      "path": "missing-motion/butterfly-3-tired-idle-reduced.jpg",
+      "sha256": "72ae3cbb6fdbed6fee909cca8115ad6c4f685a7e75785cc501aa7303db41060a",
+      "bytes": 8471
+    },
+    {
+      "path": "missing-motion/butterfly-3-tired-walk-normal.jpg",
+      "sha256": "35f3c4a19a7e96c5597952231f4533535b69c5b75d4cb89609648cdb79290033",
+      "bytes": 8427
+    },
+    {
+      "path": "missing-motion/butterfly-3-tired-walk-reduced.jpg",
+      "sha256": "4643d81cdbf4363062df9e72076a358d38a6cbd254efcd784e62fb24b3ebefe9",
+      "bytes": 8478
+    },
+    {
+      "path": "missing-motion/butterfly-3-wantsPlay-idle-normal.jpg",
+      "sha256": "24fc59dfb3e9f6d07de888589efabef866a609ea8a5f3e3b825892c188f15857",
+      "bytes": 9222
+    },
+    {
+      "path": "missing-motion/butterfly-3-wantsPlay-idle-reduced.jpg",
+      "sha256": "326b7924359ebf6945f0ebfb756f117e75c900cee012cd07bbb33be19f014da0",
+      "bytes": 9243
+    },
+    {
+      "path": "missing-motion/butterfly-3-wantsPlay-walk-normal.jpg",
+      "sha256": "1e46c8f17a2dbe38055bef7929d184865d090511f4dfa28e166e43053531ea9e",
+      "bytes": 9393
+    },
+    {
+      "path": "missing-motion/butterfly-3-wantsPlay-walk-reduced.jpg",
+      "sha256": "980b9aae3bf0cf2208259e0946b0178885a2f0bd6378bc3b5233ceca76cd6a11",
+      "bytes": 9264
+    },
+    {
+      "path": "missing-motion/butterfly-6-dislike-idle-normal.jpg",
+      "sha256": "62b25d8d57e7dcb40497e7bf1da9c57e5499fd9b7e2eeaa0382465d9c966a7e7",
+      "bytes": 14209
+    },
+    {
+      "path": "missing-motion/butterfly-6-dislike-idle-reduced.jpg",
+      "sha256": "3dfda42aebbdcf458b62b5181af273e9000ccce52c3662ee9edd799d4d64b82b",
+      "bytes": 14197
+    },
+    {
+      "path": "missing-motion/butterfly-6-dislike-walk-normal.jpg",
+      "sha256": "d55ab0c4e95a33c16b74f08ddc1b6df515463efe523a8316bb38c876b3fd6bf5",
+      "bytes": 14194
+    },
+    {
+      "path": "missing-motion/butterfly-6-dislike-walk-reduced.jpg",
+      "sha256": "301a1a53c7fa9416027900c55ec33e1362710bfb4413bef2c8ed8539369b012d",
+      "bytes": 14287
+    },
+    {
+      "path": "missing-motion/butterfly-6-motion.jpg",
+      "sha256": "328da4eabf62a7ae7b8382cbe139277e9872a866b9d4a561472bd16c23cd9b4f",
+      "bytes": 614475
+    },
+    {
+      "path": "missing-motion/butterfly-6-normal-idle-normal.jpg",
+      "sha256": "165473aa282aa9e21dfda449c0b98f5f4557995df5b9be47c393006dafea73ba",
+      "bytes": 14242
+    },
+    {
+      "path": "missing-motion/butterfly-6-normal-idle-reduced.jpg",
+      "sha256": "d63486009f3e5888914a27333c61fe973d514d4e5b073993e4ada027db65ca71",
+      "bytes": 14188
+    },
+    {
+      "path": "missing-motion/butterfly-6-normal-walk-normal.jpg",
+      "sha256": "2a3107f3df39c3ada3278cafe4e42094203e4311aee8c1abb593b0adefb76f3b",
+      "bytes": 14169
+    },
+    {
+      "path": "missing-motion/butterfly-6-normal-walk-reduced.jpg",
+      "sha256": "cc4693dc86342d92ae8e0a489aae281ecb46061c1def9dc2c9cfa4e1281da249",
+      "bytes": 14379
+    },
+    {
+      "path": "missing-motion/butterfly-6-positive-idle-normal.jpg",
+      "sha256": "cb88c68337539a2023bad9d32421ad61f4699d264140c58308f2b4450f0a6622",
+      "bytes": 14244
+    },
+    {
+      "path": "missing-motion/butterfly-6-positive-idle-reduced.jpg",
+      "sha256": "41e97a85e34e302241f80c73731323e30379a017bef5df4b21892fbd3ff79a21",
+      "bytes": 14530
+    },
+    {
+      "path": "missing-motion/butterfly-6-positive-walk-normal.jpg",
+      "sha256": "6d3c94476192e7f991f2e50bd6ac0495b275ba9809f8a47d40f512a992683862",
+      "bytes": 14328
+    },
+    {
+      "path": "missing-motion/butterfly-6-positive-walk-reduced.jpg",
+      "sha256": "0be1af82d6caeeff20db13752ec2db7710a1bcd01f03bf931ede6c5b6039664c",
+      "bytes": 14474
+    },
+    {
+      "path": "missing-motion/butterfly-6-sick-idle-normal.jpg",
+      "sha256": "51d1e4041c12e8596c08341e5757e882425a83922ffdf7e68e824a6204315d81",
+      "bytes": 13621
+    },
+    {
+      "path": "missing-motion/butterfly-6-sick-idle-reduced.jpg",
+      "sha256": "e25dad1ad984b976004215a7089ccd100b044a639832c4cd5700dd8e39b8e929",
+      "bytes": 13990
+    },
+    {
+      "path": "missing-motion/butterfly-6-sick-walk-normal.jpg",
+      "sha256": "8ad0ef014b4d92f5d849fb8670667c08cf775e74864af59d0f2bf5b3c154bff9",
+      "bytes": 13808
+    },
+    {
+      "path": "missing-motion/butterfly-6-sick-walk-reduced.jpg",
+      "sha256": "d153f1c012c6332f316b20c2fc7b7b1d4afe5402b6a5a291ebd3bb1be0514646",
+      "bytes": 13958
+    },
+    {
+      "path": "missing-motion/butterfly-6-sleeping-idle-normal.jpg",
+      "sha256": "4d5a171a747d278cd9c6bfa9d0dde3c37510524b9b46d2642f1ecd6ba5a4591e",
+      "bytes": 13631
+    },
+    {
+      "path": "missing-motion/butterfly-6-sleeping-idle-reduced.jpg",
+      "sha256": "56874720eb1fc9300c212640e80ee541e1bf19d6969d38c15a4aa8af34c67b3f",
+      "bytes": 13758
+    },
+    {
+      "path": "missing-motion/butterfly-6-sleeping-walk-normal.jpg",
+      "sha256": "ac5e16ed45b1e1da116a2cdcce4c932679e90039037314a04e505e5aac22f22a",
+      "bytes": 13696
+    },
+    {
+      "path": "missing-motion/butterfly-6-sleeping-walk-reduced.jpg",
+      "sha256": "79e3104306da70004d8e7d7bff1332184af9b0fe88b1fc3e326db09060a70398",
+      "bytes": 13785
+    },
+    {
+      "path": "missing-motion/butterfly-6-strained-idle-normal.jpg",
+      "sha256": "1499700ccb4bf018e833e236fca6c7c64db9e01bb658b1cd3d5a85ee411c5585",
+      "bytes": 13750
+    },
+    {
+      "path": "missing-motion/butterfly-6-strained-idle-reduced.jpg",
+      "sha256": "5ed26e1dc034e5648b8350ce178495a2c684a0fafd78ee1b8ccae51561f7dfd5",
+      "bytes": 14105
+    },
+    {
+      "path": "missing-motion/butterfly-6-strained-walk-normal.jpg",
+      "sha256": "2ac89a826eb1ac4be76d17e74b2f4238907a3fed83f6122857427e42211e95d8",
+      "bytes": 14165
+    },
+    {
+      "path": "missing-motion/butterfly-6-strained-walk-reduced.jpg",
+      "sha256": "35829a98228b25a53b0028177409dcbb8cf86db8d5e4eae4fc0f1b79fdae1ac3",
+      "bytes": 14387
+    },
+    {
+      "path": "missing-motion/butterfly-6-tired-idle-normal.jpg",
+      "sha256": "ac8a9d8ff21f29a9a337f4c5613ae02385723db9061d0090889bcc86b4a01cc4",
+      "bytes": 13617
+    },
+    {
+      "path": "missing-motion/butterfly-6-tired-idle-reduced.jpg",
+      "sha256": "a9d4c72cbfd9e7155416d3b65552e5e908df70d231d655a510665c7b1ef25baf",
+      "bytes": 13905
+    },
+    {
+      "path": "missing-motion/butterfly-6-tired-walk-normal.jpg",
+      "sha256": "150e9f66c942da99dcbf74bec91f32ec55bd9ee964d53f9ab35c895ed27c4203",
+      "bytes": 13659
+    },
+    {
+      "path": "missing-motion/butterfly-6-tired-walk-reduced.jpg",
+      "sha256": "a78e24189ea1b2281c3e6257027fe0b3d593084ea6dda5d754963487d51facb5",
+      "bytes": 13745
+    },
+    {
+      "path": "missing-motion/butterfly-6-wantsPlay-idle-normal.jpg",
+      "sha256": "1f9b4526b164db88c78cffc962bd30b8a4836fdde14210b24d70d7116cf4b934",
+      "bytes": 14642
+    },
+    {
+      "path": "missing-motion/butterfly-6-wantsPlay-idle-reduced.jpg",
+      "sha256": "120ba81b2fa8f57b86239f5c9290993fe205e96ef5c54ce5245bed6381c5bd96",
+      "bytes": 14735
+    },
+    {
+      "path": "missing-motion/butterfly-6-wantsPlay-walk-normal.jpg",
+      "sha256": "27ac60937f4eb60eb06e58617346a5ead5dbc62138ba1794d7cade27e05704ad",
+      "bytes": 14681
+    },
+    {
+      "path": "missing-motion/butterfly-6-wantsPlay-walk-reduced.jpg",
+      "sha256": "0f9474ddedc9eb24864dff52cddbb0ad6a16ab0bff1336eb5857f0d0fe44a5db",
+      "bytes": 14679
+    },
+    {
+      "path": "missing-motion/butterfly-7-dislike-idle-normal.jpg",
+      "sha256": "da562ebfb6a892e57940e06b1213bee700b6e6ff22347cc4a617c2e588118349",
+      "bytes": 17902
+    },
+    {
+      "path": "missing-motion/butterfly-7-dislike-idle-reduced.jpg",
+      "sha256": "24065bd1b375073632e6b5bcb2501d935a7e6dade63a21f080450fe6018e834c",
+      "bytes": 17804
+    },
+    {
+      "path": "missing-motion/butterfly-7-dislike-walk-normal.jpg",
+      "sha256": "bf9ed2b951b21812ba4b8e2ac8953e5ca7ce14794d894bd4ed2988aa83911e65",
+      "bytes": 18266
+    },
+    {
+      "path": "missing-motion/butterfly-7-dislike-walk-reduced.jpg",
+      "sha256": "4a8b50e26d86cf2f703a57626f53a5c26010cf674dd2f844648cdd586526d439",
+      "bytes": 18330
+    },
+    {
+      "path": "missing-motion/butterfly-7-motion.jpg",
+      "sha256": "e41801784dbe492345ca7a380c87770d6c715e8e338932cc75327f948b4ee01e",
+      "bytes": 771209
+    },
+    {
+      "path": "missing-motion/butterfly-7-normal-idle-normal.jpg",
+      "sha256": "d3fde04527d050b9890d04b5e1cffd014bcb6489f5ce4653035026735e746d90",
+      "bytes": 18875
+    },
+    {
+      "path": "missing-motion/butterfly-7-normal-idle-reduced.jpg",
+      "sha256": "779dde78e4326eae0b0b999a29181b2bd84eec21fd0784dd6c42def0dddeb686",
+      "bytes": 18225
+    },
+    {
+      "path": "missing-motion/butterfly-7-normal-walk-normal.jpg",
+      "sha256": "d96ee92a8c4b7680a83b70fd83b39332425bed2c8a6526349a97df26b9f9ba4d",
+      "bytes": 18866
+    },
+    {
+      "path": "missing-motion/butterfly-7-normal-walk-reduced.jpg",
+      "sha256": "cf95e2d2bb098f5c4bda9ee50bcd11460361c617a7781a6ef79c49363bb3d6f7",
+      "bytes": 18595
+    },
+    {
+      "path": "missing-motion/butterfly-7-positive-idle-normal.jpg",
+      "sha256": "18a782ed54bb0744f1ab7519aa999c7629f14b49d658d75d3dd82e7a68448089",
+      "bytes": 18883
+    },
+    {
+      "path": "missing-motion/butterfly-7-positive-idle-reduced.jpg",
+      "sha256": "2068174f145d32753cd2f565c5dacd5c6404be27c983bbdab154d3f6fa23a749",
+      "bytes": 18249
+    },
+    {
+      "path": "missing-motion/butterfly-7-positive-walk-normal.jpg",
+      "sha256": "248bc704072aee00bc2b62838f014bf384e5489366f2a0cccf4e52393b4096f8",
+      "bytes": 18647
+    },
+    {
+      "path": "missing-motion/butterfly-7-positive-walk-reduced.jpg",
+      "sha256": "91d11499c3ace257ad7584abc0e6e0736c93acb735fdaebcc9acf8084efafbe5",
+      "bytes": 18345
+    },
+    {
+      "path": "missing-motion/butterfly-7-sick-idle-normal.jpg",
+      "sha256": "1cd55ee06de8777731b552e649e910b858365fda3c543372ab7049c34476c420",
+      "bytes": 18093
+    },
+    {
+      "path": "missing-motion/butterfly-7-sick-idle-reduced.jpg",
+      "sha256": "a21bacac177d0f21cabf3827f5711a0b16369919b3876363890f10e944465e81",
+      "bytes": 18139
+    },
+    {
+      "path": "missing-motion/butterfly-7-sick-walk-normal.jpg",
+      "sha256": "ea48f77569eeba0b63c8c0af35bd208a2bcf4b70f9cee0bec8ebd0ad5061d587",
+      "bytes": 18286
+    },
+    {
+      "path": "missing-motion/butterfly-7-sick-walk-reduced.jpg",
+      "sha256": "bf6bf6b1584a802ecc98c4fa58d5f54d69e09ad7dd12b590414b3b45744129f0",
+      "bytes": 18079
+    },
+    {
+      "path": "missing-motion/butterfly-7-sleeping-idle-normal.jpg",
+      "sha256": "7f2d0f2ba64d91fdb3b80dba5f05e61e4d4e0b261dc46844966430bfd37a9e9a",
+      "bytes": 17781
+    },
+    {
+      "path": "missing-motion/butterfly-7-sleeping-idle-reduced.jpg",
+      "sha256": "aa6e194c8b12dc2e9286c4cf9f3033aeabf4e95b308c678f63185568abce8b63",
+      "bytes": 17988
+    },
+    {
+      "path": "missing-motion/butterfly-7-sleeping-walk-normal.jpg",
+      "sha256": "bdc6fb4cf8cf25c3b808d0a1c804cb76a4239bab1d5c9c2625ba505bc80de3c4",
+      "bytes": 17420
+    },
+    {
+      "path": "missing-motion/butterfly-7-sleeping-walk-reduced.jpg",
+      "sha256": "ca32f6211d2adaf984c1128a2591ac74ac74cde239e41c6e834470881ab378a2",
+      "bytes": 17802
+    },
+    {
+      "path": "missing-motion/butterfly-7-strained-idle-normal.jpg",
+      "sha256": "68b0c4ada420fdbc4bab28ec6340bd8ab2787ced472dded10765de1331049706",
+      "bytes": 18139
+    },
+    {
+      "path": "missing-motion/butterfly-7-strained-idle-reduced.jpg",
+      "sha256": "38eced151fe2344361790c0c6578ed758ab178128f55e4bf6f69d90784b55eac",
+      "bytes": 18092
+    },
+    {
+      "path": "missing-motion/butterfly-7-strained-walk-normal.jpg",
+      "sha256": "5d66bbac49b71c56f6c594e5f485040edd707f02ac79ac98eb289c0fc46cf8c3",
+      "bytes": 18471
+    },
+    {
+      "path": "missing-motion/butterfly-7-strained-walk-reduced.jpg",
+      "sha256": "f9feed9befbbe9a22713a1e88a689ffa2a74d16b4ef9e3fcdd9058146a9b20ba",
+      "bytes": 18199
+    },
+    {
+      "path": "missing-motion/butterfly-7-tired-idle-normal.jpg",
+      "sha256": "6413e59d865c3a4e22ad07d5881e154e76cb63f8af672055c267d444cf1fb96b",
+      "bytes": 18098
+    },
+    {
+      "path": "missing-motion/butterfly-7-tired-idle-reduced.jpg",
+      "sha256": "dbe81d4ba07e25be3a0df9618f641401af26bebe9e5b407ab109a98c02265bb3",
+      "bytes": 17847
+    },
+    {
+      "path": "missing-motion/butterfly-7-tired-walk-normal.jpg",
+      "sha256": "c06ae1154560780e0836dcd60a76ec131c8135fb8ddc5d8018e13be574b3b138",
+      "bytes": 18068
+    },
+    {
+      "path": "missing-motion/butterfly-7-tired-walk-reduced.jpg",
+      "sha256": "324d5385ca6f41678ce9a1ca07030b8154c22dc70edcdab79f50ce7f3af6d9a2",
+      "bytes": 17889
+    },
+    {
+      "path": "missing-motion/butterfly-7-wantsPlay-idle-normal.jpg",
+      "sha256": "e4166ac4ac2c8db66de2263226881e4763b56e9470f887eda7b0208fb202bedf",
+      "bytes": 18722
+    },
+    {
+      "path": "missing-motion/butterfly-7-wantsPlay-idle-reduced.jpg",
+      "sha256": "15b922cd07e50cec7c63f0c955b8dd2cdf336be4623bc662c9daed8fef8787a6",
+      "bytes": 18671
+    },
+    {
+      "path": "missing-motion/butterfly-7-wantsPlay-walk-normal.jpg",
+      "sha256": "010d365184d2b9ae7e8abb1536e0e994ae0305a44222e88ae891ad1bed0cd5ca",
+      "bytes": 18700
+    },
+    {
+      "path": "missing-motion/butterfly-7-wantsPlay-walk-reduced.jpg",
+      "sha256": "e9849dc941d5f33ff672b16109b45b7059aeedf7e076726acb2bee4cc903afa8",
+      "bytes": 18887
+    },
+    {
+      "path": "missing-motion/motion-evidence.json",
+      "sha256": "e0e8e5999843134919cd58e96928d005f1e3aff38a448e34a3daafb10440405d",
+      "bytes": 75560
+    },
+    {
+      "path": "player-butterfly-1-back.png",
+      "sha256": "a044f61bec0209b3af0b4deb16b6dbf449b0497ffcfcfe07df1c1d36b4ffd3cf",
+      "bytes": 302403
+    },
+    {
+      "path": "player-butterfly-1-front.png",
+      "sha256": "a3a905fb5f06842a08976f9d28371976219e69ec2962c10d97f69a9a950ae4d3",
+      "bytes": 305383
+    },
+    {
+      "path": "player-butterfly-2-back.png",
+      "sha256": "69f31db2ec47430bd22f97d8a004e6b1dd1a99cf00bf35e7baaa2301c50a60ea",
+      "bytes": 302953
+    },
+    {
+      "path": "player-butterfly-2-front.png",
+      "sha256": "ec6eeafbefed390aefdaf82ad59bddea4e4cbaa7bb8e8c969a78a3080310a943",
+      "bytes": 306270
+    },
+    {
+      "path": "player-butterfly-3-back.png",
+      "sha256": "d98e31a83fc35bdc230fdcc4526007309351fae97dae0fba01920935910bece8",
+      "bytes": 304394
+    },
+    {
+      "path": "player-butterfly-3-front.png",
+      "sha256": "d3a84f3d55e573f309a9a387c6cb5a85e54c43d94ed71ef269aa71efa0166c20",
+      "bytes": 305799
+    },
+    {
+      "path": "player-butterfly-4-back.png",
+      "sha256": "407e60dfee3db1b81d3db153b44940d29337d4831396276316010d73e0d9b86e",
+      "bytes": 306331
+    },
+    {
+      "path": "player-butterfly-4-front.png",
+      "sha256": "b0b26a53e85482cc168eec6dbcfaf5ac3be5d7691f30e49c8405382f50de17a5",
+      "bytes": 311971
+    },
+    {
+      "path": "player-butterfly-5-back.png",
+      "sha256": "a8adacc22f28fc6d4a781fc4e6aae779a085896c687ad192c96c26cf20d2506c",
+      "bytes": 302606
+    },
+    {
+      "path": "player-butterfly-5-front.png",
+      "sha256": "e7807970dcb3235ab7973c8d709ca035b6d3d1dc89856f707efcef727e464527",
+      "bytes": 306605
+    },
+    {
+      "path": "player-butterfly-6-back.png",
+      "sha256": "0b7e65c933a8e057246bc18923a2494648aa32c94110df8e9e4a15f9956c06cf",
+      "bytes": 310528
+    },
+    {
+      "path": "player-butterfly-6-front.png",
+      "sha256": "b085cac5971b3512a3ea8f08be3f74646dee56c16e7b676d328122bdeb0216b3",
+      "bytes": 312148
+    },
+    {
+      "path": "player-butterfly-7-back.png",
+      "sha256": "1251cd6eaa6ca0139ea79a9c912c1040e633fdfe702212df44f39228b929ab17",
+      "bytes": 315208
+    },
+    {
+      "path": "player-butterfly-7-front.png",
+      "sha256": "b20732bfdc51b1b6a76f172ccdd3115fef98a3fccaade2de9b7abeb25dd50e6a",
+      "bytes": 316845
+    },
+    {
+      "path": "player-butterfly-8-back.png",
+      "sha256": "bf9dd64f467b000d282378f4b7bed589dbd12c08fecd519f9ff87a2ef3876a4b",
+      "bytes": 311684
+    },
+    {
+      "path": "player-butterfly-8-front.png",
+      "sha256": "922003b7be91fedc690956ef991ae3711043afeafb1e687ed053a0d97357271e",
+      "bytes": 314064
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113792866004,
+  "artifactJobName": "stage-evidence (butterfly)",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

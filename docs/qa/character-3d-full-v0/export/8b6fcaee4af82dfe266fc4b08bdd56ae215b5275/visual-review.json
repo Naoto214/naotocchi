@@ -1,0 +1,34 @@
+{
+  "status": "PASS_ALL8_IMAGE_GATE",
+  "sourceCommit": "8b6fcaee4af82dfe266fc4b08bdd56ae215b5275",
+  "archiveCommit": "fcf8844656b1fa85a5b604f82651ce8079ccd32c",
+  "family": "unknown",
+  "fourViews": 32,
+  "stateImages": 256,
+  "normalDistance": 16,
+  "freshReview": "All32views,05/06all64states,and all16distance actually inspected",
+  "reuse": {
+    "sourceCommit": "47e62641538e0fd59ea94ad3598f3596b994408f",
+    "stages": [
+      1,
+      2,
+      3,
+      4,
+      7,
+      8
+    ],
+    "identicalWaveImages": 222,
+    "previouslyInspectedStateImages": 192
+  },
+  "integrity": {
+    "waveFiles": 299,
+    "distanceFiles": 17,
+    "allRawManifestSHA256Verified": true
+  },
+  "findings": [
+    "05 wings spread outward with joined shoulders and layered closed feathers; canonical white eyes visible.",
+    "06 broad pear silhouette replaces tall narrow body; floor clearance and face remain stable.",
+    "No silhouette clipping or detached parts in reviewed views/states/distance."
+  ],
+  "limitation": "Chromium/SwiftShader; Human/iPhone separate pending gates."
+}

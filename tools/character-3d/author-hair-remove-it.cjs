@@ -1,0 +1,11 @@
+// Source-hair controls only. Exact production bytes are restored even on failure.
+const fs=require('node:fs'),cp=require('node:child_process'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const file='character-3d/nonplayer-spec.js',bytes=fs.readFileSync(file),source=bytes.toString(),lo=source.indexOf(' const naoto='),hi=source.indexOf(' const authorRows=',lo),scope=source.slice(lo,hi);
+const currentCap='size:[.28,.155,.21],at:[0,.145,-.09],segments:[20,14]',oldCap='size:[.29,.17,.265],at:[0,.13,-.025],segments:[20,14]';
+const currentWaves='[[side*(.04+i*.012),.285-i*.01,-.02-i*.025],[side*(.115+i*.034),.275-i*.012,.19-i*.045],[side*(.225+i*.022),.145-i*.016,.205-i*.045],[side*(.31+i*.006),.035-i*.012,.13-i*.042],[side*(.26+i*.013),-.052-i*.01,.11-i*.042]]',oldWaves='[[side*.02,.25,-.045],[side*(.10+i*.035),.25-i*.013,.105],[side*(.14+i*.036),.12-i*.013,.16-i*.025],[side*(.11+i*.035),.105-i*.014,.17-i*.025]]';
+const cases=[['old smooth cap and buried waves',s=>s.replace(currentCap,oldCap).replace(currentWaves,oldWaves),'center-part exposes'],['rear crown replaced by old broad cap',s=>s.replace(currentCap,oldCap),'center-part exposes'],['swept locks replaced by buried old waves',s=>s.replace(currentWaves,oldWaves),'visible side-swept locks descend']];
+for(const anchor of [currentCap,currentWaves])assert.equal(scope.split(anchor).length,2,'unique candidate hair anchor');
+const run=()=>cp.spawnSync(process.execPath,['--test','--test-reporter=tap','tests/character-3d-author-hair-test.cjs'],{encoding:'utf8',timeout:180000});
+let result=run();assert.equal(result.status,0,result.stdout+result.stderr);
+for(const [label,mutate,reason]of cases){try{fs.writeFileSync(file,source.slice(0,lo)+mutate(scope)+source.slice(hi));result=run();assert.equal(result.status,1,label+': meaningful RED\n'+result.stdout);assert.ok(result.stdout.includes('AssertionError')&&result.stdout.includes(reason),label+': expected geometry assertion\n'+result.stdout);console.log(label+': RED ('+reason+')');}finally{fs.writeFileSync(file,bytes);assert.ok(fs.readFileSync(file).equals(bytes),'exact byte restoration');}}
+result=run();assert.equal(result.status,0,result.stdout+result.stderr);console.log('3/3 controls detected; restored two-test baseline GREEN; exact SHA256 '+crypto.createHash('sha256').update(bytes).digest('hex'));

@@ -1,0 +1,3466 @@
+{
+  "sourceCommit": "d40e286b064522e4b1bf9b4730e802edf620471d",
+  "platform": "Chromium/SwiftShader; not iPhone",
+  "candidateOnly": true,
+  "evidence": [
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5976,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.35874396521044255,
+          0,
+          -0.302565336227417
+        ],
+        [
+          0.4495611351543909,
+          1.0040736213361525,
+          0.450000011920929
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5976,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.35874396521044255,
+          0,
+          -0.302565336227417
+        ],
+        [
+          0.4495611351543909,
+          1.0040736213361525,
+          0.450000011920929
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5976,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.35874396521044255,
+          0,
+          -0.302565336227417
+        ],
+        [
+          0.4495611351543909,
+          1.0040736213361525,
+          0.450000011920929
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5976,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.35874396521044255,
+          0,
+          -0.302565336227417
+        ],
+        [
+          0.4495611351543909,
+          1.0040736213361525,
+          0.450000011920929
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5976,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.35874396521044255,
+          0,
+          -0.302565336227417
+        ],
+        [
+          0.4495611351543909,
+          1.0040736213361525,
+          0.450000011920929
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5976,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.4762185732432961,
+          -0.028900692752055996,
+          -0.302565336227417
+        ],
+        [
+          0.49004450644310993,
+          1.0350532719462078,
+          0.450000011920929
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5976,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.33480000495910645,
+          0,
+          -0.302565336227417
+        ],
+        [
+          0.45187236347315707,
+          0.9961224524021149,
+          0.450000011920929
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5976,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.39492731882002324,
+          -0.0004769692335601615,
+          -0.302565336227417
+        ],
+        [
+          0.5063473531227841,
+          1.0150743787222247,
+          0.450000011920929
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5816,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.35916945625815394,
+          0.06484182590041075,
+          -0.33257030919951097
+        ],
+        [
+          0.5538553195511515,
+          1.0951230767589524,
+          0.4438545066298508
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5816,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.33938841025969485,
+          0.03392091295020538,
+          -0.33240986423412505
+        ],
+        [
+          0.5657942623988522,
+          1.057795243251322,
+          0.4437800925740035
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5816,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.33480000495910645,
+          0.003,
+          -0.332371434426163
+        ],
+        [
+          0.4577222008023354,
+          1.0253378064130845,
+          0.4433251898979427
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5816,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.3321851776409932,
+          0.003,
+          -0.33245397918796754
+        ],
+        [
+          0.46935001405583915,
+          1.0286372773493526,
+          0.44333757413234526
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5976,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.4501099669843209,
+          -0.01191809373905578,
+          -0.3960210861608303
+        ],
+        [
+          0.4414502393010959,
+          1.0470510901455872,
+          0.5720719806965137
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5976,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.3933762646527166,
+          -0.03821057761335692,
+          -0.39763686960998645
+        ],
+        [
+          0.545731049301284,
+          1.0469798763308322,
+          0.5731288328251577
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5976,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.42590227099873035,
+          -0.005,
+          -0.3963048983936658
+        ],
+        [
+          0.4479330868779455,
+          1.04253851886424,
+          0.5723459159567138
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5976,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.4063519539467306,
+          -0.025081453037571894,
+          -0.3971041593058823
+        ],
+        [
+          0.5166067966827266,
+          1.0333317446784331,
+          0.5729030155009106
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6176,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.3601127996879195,
+          -0.016020476932498688,
+          -0.3645423840639541
+        ],
+        [
+          0.42398462094235667,
+          0.97231780039741,
+          0.43623009157407033
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6176,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.4861715051677646,
+          -0.05485590889474383,
+          -0.36645621343643864
+        ],
+        [
+          0.47038478424489605,
+          1.0011273849869022,
+          0.4381010356295396
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6176,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.33480000495910645,
+          -0.013000000000000001,
+          -0.3641354170046957
+        ],
+        [
+          0.42593734653835413,
+          0.9648688730507065,
+          0.43604887952715965
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6176,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.39926611649342747,
+          -0.027907467335909514,
+          -0.36515744594364885
+        ],
+        [
+          0.48514459560093937,
+          0.982780643505849,
+          0.43725546357390116
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5816,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.36036294099903177,
+          -0.021731494600885685,
+          -0.37998818999750267
+        ],
+        [
+          0.4179488536727057,
+          0.9564899719562747,
+          0.4332631716473413
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5816,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.32709190244410397,
+          -0.045702347821126484,
+          -0.3814702243666587
+        ],
+        [
+          0.49831834245262135,
+          0.9759945104164944,
+          0.4329238126200701
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5816,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.33480000495910645,
+          -0.016,
+          -0.37950024480269356
+        ],
+        [
+          0.4198247571354097,
+          0.9492063749555639,
+          0.43304842457314036
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5816,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.32819333476142026,
+          -0.03373229886843694,
+          -0.38074739947331737
+        ],
+        [
+          0.4954812314968713,
+          0.9670131357142617,
+          0.43326438348706436
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5816,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.3587183045420511,
+          -0.004,
+          -0.30267330423399585
+        ],
+        [
+          0.4422894115267204,
+          0.9842096855106653,
+          0.46648645522465526
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5816,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.3454937499187817,
+          -0.004,
+          -0.3025633907095093
+        ],
+        [
+          0.45076584309046647,
+          0.9801430923921612,
+          0.46638631235184713
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5816,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.33480000495910645,
+          -0.004,
+          -0.3024707894843094
+        ],
+        [
+          0.4439916557478262,
+          0.9765844888661869,
+          0.4664930930609862
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5816,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.33311327447860173,
+          -0.004,
+          -0.30252575510155627
+        ],
+        [
+          0.45186813056792685,
+          0.9787113979598543,
+          0.4663858797073579
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5976,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.35903015888904893,
+          0.026691027514460064,
+          -0.3602405555532875
+        ],
+        [
+          0.5059826134168965,
+          1.0694035936729063,
+          0.4343338791731848
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5976,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.3278758487764924,
+          -0.006257400244342619,
+          -0.36115155166113405
+        ],
+        [
+          0.5679504194617732,
+          1.0690488219760612,
+          0.43362425477051314
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5976,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.33480000495910645,
+          0.002,
+          -0.35976358747788045
+        ],
+        [
+          0.4557781332173433,
+          1.0305493388024087,
+          0.43349303282166024
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5976,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.32844254058219213,
+          -0.012979860322351329,
+          -0.36071699815718067
+        ],
+        [
+          0.5144370365219153,
+          1.0463918882028826,
+          0.43355732801122043
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 5816,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.3585041502267027,
+          -0.009000000000000001,
+          -0.33127735682867376
+        ],
+        [
+          0.43319225367395814,
+          1.0041555760394238,
+          0.450000011920929
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 5816,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.4734998101798921,
+          -0.03456269405729984,
+          -0.33127735682867376
+        ],
+        [
+          0.47557134356457104,
+          1.032384188483992,
+          0.450000011920929
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 5816,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.33480000495910645,
+          -0.009000000000000001,
+          -0.33127735682867376
+        ],
+        [
+          0.4340151528107523,
+          0.9964548425582151,
+          0.450000011920929
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:owl",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 5816,
+      "meshes": 9,
+      "drawCalls": 9,
+      "box": [
+        [
+          -0.39355189720191935,
+          -0.009000000000000001,
+          -0.33127735682867376
+        ],
+        [
+          0.48817957161407,
+          1.0137260590311774,
+          0.450000011920929
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "owl",
+      "file": "companion-owl-0-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14176,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.489078399791244,
+          0.1654648713412841,
+          -0.17494947596724586
+        ],
+        [
+          0.3808011368873258,
+          0.9785952504218463,
+          0.19821302740720476
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14176,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.489078399791244,
+          0.1654648713412841,
+          -0.17494947596724586
+        ],
+        [
+          0.3808011368873258,
+          0.9785952504218463,
+          0.19821302740720476
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14176,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.489078399791244,
+          0.1654648713412841,
+          -0.17494947596724586
+        ],
+        [
+          0.3808011368873258,
+          0.9785952504218463,
+          0.19821302740720476
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14176,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.489078399791244,
+          0.1654648713412841,
+          -0.17494947596724586
+        ],
+        [
+          0.3808011368873258,
+          0.9785952504218463,
+          0.19821302740720476
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14176,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.489078399791244,
+          0.1654648713412841,
+          -0.17494947596724586
+        ],
+        [
+          0.3808011368873258,
+          0.9785952504218463,
+          0.19821302740720476
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14176,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5273981628091094,
+          0.1469782186882482,
+          -0.17494947596724586
+        ],
+        [
+          0.380131122678595,
+          0.9958729185872044,
+          0.19821302740720476
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14176,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4968000054359436,
+          0.13363946140238522,
+          -0.1777115911245346
+        ],
+        [
+          0.3868132531642914,
+          0.9216898149294543,
+          0.20134242922076623
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14176,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.533911756475899,
+          0.11463252694282165,
+          -0.1777115911245346
+        ],
+        [
+          0.38614359461227205,
+          0.9392836326976961,
+          0.20134242922076623
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14016,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.489078399791244,
+          0.2224374945974963,
+          -0.23378934152411832
+        ],
+        [
+          0.3808011368873258,
+          1.0540314241151905,
+          0.17672366252089208
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14016,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.49409134006202715,
+          0.18850375929276325,
+          -0.2339597541244657
+        ],
+        [
+          0.3807635849675821,
+          1.025440782167283,
+          0.17680939171972423
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14016,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4968000054359436,
+          0.12841795351738472,
+          -0.2347148840873848
+        ],
+        [
+          0.3868132531642914,
+          0.9355524141487884,
+          0.17951378866560788
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14016,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5016578925860422,
+          0.12535756885280963,
+          -0.23488803992574198
+        ],
+        [
+          0.38677652077292823,
+          0.9379201969781084,
+          0.17960087136331854
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14176,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5012547744914678,
+          0.11733483352843782,
+          -0.35755980318344993
+        ],
+        [
+          0.43809436301522015,
+          1.008021102061522,
+          0.5302247813727972
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14176,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4996120204797197,
+          0.13688855586356252,
+          -0.3601972444073369
+        ],
+        [
+          0.4731226123957004,
+          0.9903551081519292,
+          0.5082599021017984
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14176,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5091758342380825,
+          0.08460204601818883,
+          -0.36323606774531014
+        ],
+        [
+          0.44381506805199605,
+          0.9520301722172085,
+          0.5334417761752102
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14176,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5075173072037285,
+          0.10469092132682475,
+          -0.3659080741307412
+        ],
+        [
+          0.4777111811255501,
+          0.9340340794791758,
+          0.5123032499870803
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14376,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.489078399791244,
+          0.12625714227710366,
+          -0.17199871031345698
+        ],
+        [
+          0.3808011368873258,
+          0.9331622572154166,
+          0.300711022419614
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14376,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.48823762215740735,
+          0.11169745178816337,
+          -0.17496241474184293
+        ],
+        [
+          0.4205430603493909,
+          0.9546886780765219,
+          0.3043597057208272
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14376,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4968000054359436,
+          0.09401796278967617,
+          -0.17475021903295776
+        ],
+        [
+          0.3868132531642914,
+          0.8784638021851829,
+          0.29949255515528583
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14376,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4959572610759633,
+          0.07922840283949517,
+          -0.17776067062909534
+        ],
+        [
+          0.4253076621263384,
+          0.9003731426025776,
+          0.3032061425201962
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14016,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.489078399791244,
+          0.11771714728387037,
+          -0.17064478205239964
+        ],
+        [
+          0.3808011368873258,
+          0.9145669348220218,
+          0.3299548873004872
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14016,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5311847611959076,
+          0.0993171126714748,
+          -0.17565762876616198
+        ],
+        [
+          0.38001563352680395,
+          0.9316310076262537,
+          0.3336375557387441
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14016,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4968000054359436,
+          0.08539050194918885,
+          -0.17338346821428474
+        ],
+        [
+          0.3868132531642914,
+          0.8606045643080736,
+          0.32777984546334027
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14016,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5375760553594306,
+          0.06649389940468307,
+          -0.17847539643172422
+        ],
+        [
+          0.3860273802136386,
+          0.8779854422782037,
+          0.3315308849404995
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14016,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4885841073002631,
+          0.14634525895493944,
+          -0.1738211809293576
+        ],
+        [
+          0.38129542937830674,
+          0.9539084462805336,
+          0.24653014876109602
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14016,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.48855975305139,
+          0.14509569806385314,
+          -0.17396063031072928
+        ],
+        [
+          0.3846422415058702,
+          0.955828563681482,
+          0.24670863114717653
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14016,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4968000054359436,
+          0.1142811394668192,
+          -0.1765858076749586
+        ],
+        [
+          0.3868132531642914,
+          0.8983371888368907,
+          0.24705215511259732
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14016,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4967762088053149,
+          0.11301185041674221,
+          -0.1767274585208913
+        ],
+        [
+          0.39005668620245676,
+          0.9002879289041716,
+          0.24723348399470585
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14176,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.489078399791244,
+          0.1871962192212739,
+          -0.24891212223826914
+        ],
+        [
+          0.3808011368873258,
+          1.0241500783130544,
+          0.1764462275759339
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14176,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.5462007911107232,
+          0.13675463484123593,
+          -0.25123126478785596
+        ],
+        [
+          0.37946613333525325,
+          1.0338265324943605,
+          0.17770158171642803
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14176,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4968000054359436,
+          0.12404552700164302,
+          -0.24935844755774994
+        ],
+        [
+          0.3868132531642914,
+          0.936683549971734,
+          0.17923197355739173
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14176,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.552101658653787,
+          0.08851270222646968,
+          -0.25172319630487533
+        ],
+        [
+          0.3854735918871342,
+          0.9623147807867333,
+          0.18050714732112308
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 14016,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4878426685637917,
+          0.13179964096255486,
+          -0.17243501849194004
+        ],
+        [
+          0.3820368681147781,
+          0.9613904167629308,
+          0.2898252602337134
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 14016,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4863841981103576,
+          0.11115059516942374,
+          -0.1761424836473878
+        ],
+        [
+          0.436303003222397,
+          0.9914325119781553,
+          0.29431620205412656
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 14016,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4968000054359436,
+          0.09958481455749942,
+          -0.17519025068544072
+        ],
+        [
+          0.3868132531642914,
+          0.9058736555604963,
+          0.2889597320444284
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "companion:punyu",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 14016,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4953340162180748,
+          0.07860976011499439,
+          -0.17895617402763908
+        ],
+        [
+          0.43936473505374374,
+          0.9364738536183467,
+          0.29353410371146454
+        ]
+      ],
+      "kind": "companion",
+      "masterId": "punyu",
+      "file": "companion-punyu-0-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13648,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.010298016633726164,
+          -0.14499983191490173
+        ],
+        [
+          0.424559086561203,
+          1.4119755696528362,
+          0.15034717321395874
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13648,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.010298016633726164,
+          -0.14499983191490173
+        ],
+        [
+          0.424559086561203,
+          1.4119755696528362,
+          0.15034717321395874
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13648,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.010298016633726164,
+          -0.14499983191490173
+        ],
+        [
+          0.424559086561203,
+          1.4119755696528362,
+          0.15034717321395874
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13648,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.010298016633726164,
+          -0.14499983191490173
+        ],
+        [
+          0.424559086561203,
+          1.4119755696528362,
+          0.15034717321395874
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13648,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.010298016633726164,
+          -0.14499983191490173
+        ],
+        [
+          0.424559086561203,
+          1.4119755696528362,
+          0.15034717321395874
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13648,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.02944744202142789,
+          -0.14499983191490173
+        ],
+        [
+          0.424559086561203,
+          1.431124995040538,
+          0.15034717321395874
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13648,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.010101274587213993,
+          -0.14499983191490173
+        ],
+        [
+          0.424559086561203,
+          1.3849999904632568,
+          0.15034717321395874
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13648,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.019675987281064858,
+          -0.14499983191490173
+        ],
+        [
+          0.424559086561203,
+          1.3945747031571076,
+          0.15034717321395874
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13488,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.06453682665072369,
+          -0.24759634529571695
+        ],
+        [
+          0.424559086561203,
+          1.4840224553926749,
+          0.14919566333091364
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13488,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.04390211168988159,
+          -0.24759634529571695
+        ],
+        [
+          0.424559086561203,
+          1.463387740431833,
+          0.14919566333091364
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13488,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.002498782690228049,
+          -0.24562887654206583
+        ],
+        [
+          0.424559086561203,
+          1.3952768948199796,
+          0.14921001274770732
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13488,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.007641881684909686,
+          -0.24562887654206583
+        ],
+        [
+          0.424559086561203,
+          1.4004199938146613,
+          0.14921001274770732
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13648,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4401268327214956,
+          -0.0358190072459767,
+          -0.2878386155214402
+        ],
+        [
+          0.45003985346549225,
+          1.4339260656880295,
+          0.48808821370878547
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13648,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4401268327214956,
+          0.05341437892706249,
+          -0.2878386155214402
+        ],
+        [
+          0.45003985346549225,
+          1.5231594518610685,
+          0.48808821370878547
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13648,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4401268327214956,
+          -0.036013824367560655,
+          -0.28786606951939203
+        ],
+        [
+          0.45003985346549225,
+          1.4072144156674073,
+          0.48432395736933925
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13648,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4401268327214956,
+          0.00860286871895894,
+          -0.28786606951939203
+        ],
+        [
+          0.45003985346549225,
+          1.4518311087539268,
+          0.48432395736933925
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13848,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          -0.025677212861947178,
+          -0.1415733807433134
+        ],
+        [
+          0.424559086561203,
+          1.3191705342963835,
+          0.3706395264542144
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13848,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.06772578990807737,
+          -0.1415733807433134
+        ],
+        [
+          0.424559086561203,
+          1.4125735370664079,
+          0.3706395264542144
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13848,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          -0.025859846793724238,
+          -0.14160433681266696
+        ],
+        [
+          0.424559086561203,
+          1.294129338595232,
+          0.3663950961707625
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13848,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.020841654591288034,
+          -0.14160433681266696
+        ],
+        [
+          0.424559086561203,
+          1.340830839980244,
+          0.3663950961707625
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13488,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          -0.03364457805558339,
+          -0.14021806710307672
+        ],
+        [
+          0.424559086561203,
+          1.2841250558834418,
+          0.4224472298077415
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13488,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          -0.02469256702188473,
+          -0.14021806710307672
+        ],
+        [
+          0.424559086561203,
+          1.2930770669171405,
+          0.4224472298077415
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13488,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          -0.03382211515467498,
+          -0.14025638212194386
+        ],
+        [
+          0.424559086561203,
+          1.259782694092786,
+          0.41719380358836633
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13488,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          -0.029346109637825645,
+          -0.14025638212194386
+        ],
+        [
+          0.424559086561203,
+          1.2642586996096354,
+          0.41719380358836633
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13488,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4155261008806011,
+          -0.006981742855800881,
+          -0.1435106250520278
+        ],
+        [
+          0.42505337905218393,
+          1.358504082331063,
+          0.2752521077344039
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13488,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.4155261008806011,
+          0.08284863918536939,
+          -0.1435106250520278
+        ],
+        [
+          0.42505337905218393,
+          1.4483344643722333,
+          0.2752521077344039
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13488,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          -0.007169867685083486,
+          -0.14352811198714685
+        ],
+        [
+          0.424559086561203,
+          1.3327100219367327,
+          0.272854449422672
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13488,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.03774532333550165,
+          -0.14352811198714685
+        ],
+        [
+          0.424559086561203,
+          1.3776252129573179,
+          0.272854449422672
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13648,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.02985420488120421,
+          -0.27410520719534315
+        ],
+        [
+          0.424559086561203,
+          1.4527376514440036,
+          0.1487652710267598
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13648,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.11405000953998969,
+          -0.27410520719534315
+        ],
+        [
+          0.424559086561203,
+          1.5369334561027892,
+          0.1487652710267598
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13648,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          -0.0012626180902760749,
+          -0.2716269533552429
+        ],
+        [
+          0.424559086561203,
+          1.3949552394567508,
+          0.14878334577239738
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13648,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.04856551247666801,
+          -0.2716269533552429
+        ],
+        [
+          0.424559086561203,
+          1.444783370023695,
+          0.14878334577239738
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13488,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41478466214412973,
+          -0.02004230242858191,
+          -0.14202127491170555
+        ],
+        [
+          0.4257948177886553,
+          1.3666242943959621,
+          0.3514135862753692
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13488,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41478466214412973,
+          0.047676122163244884,
+          -0.14202127491170555
+        ],
+        [
+          0.4257948177886553,
+          1.4343427189877889,
+          0.3514135862753692
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13488,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          -0.02023116700351151,
+          -0.14204950795643395
+        ],
+        [
+          0.424559086561203,
+          1.340728806433736,
+          0.3475425137347752
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:oasis_cactus",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13488,
+      "meshes": 4,
+      "drawCalls": 4,
+      "box": [
+        [
+          -0.41602039337158203,
+          0.01362804529240189,
+          -0.14204950795643395
+        ],
+        [
+          0.424559086561203,
+          1.3745880187296493,
+          0.3475425137347752
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "oasis_cactus",
+      "file": "partner-oasis_cactus-0-sick-walk-reduced.jpg"
+    }
+  ],
+  "distance": [
+    {
+      "kind": "companion",
+      "id": "owl",
+      "key": "companion:owl",
+      "view": "front",
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "companion:owl",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 10038,
+        "meshes": 23,
+        "bones": 17,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 5.391,
+        "cpuMsP95": 26.2,
+        "buildMsTotal": 119.4,
+        "buildMsMax": 94.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "companion-owl-distance-front.jpg"
+    },
+    {
+      "kind": "companion",
+      "id": "owl",
+      "key": "companion:owl",
+      "view": "back",
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "companion:owl",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 10038,
+        "meshes": 23,
+        "bones": 17,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 1.843,
+        "cpuMsP95": 0.4,
+        "buildMsTotal": 119.4,
+        "buildMsMax": 94.1,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "companion-owl-distance-back.jpg"
+    },
+    {
+      "kind": "companion",
+      "id": "punyu",
+      "key": "companion:punyu",
+      "view": "front",
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "companion:punyu",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 18238,
+        "meshes": 18,
+        "bones": 12,
+        "materials": 2,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 13.674,
+        "cpuMsP95": 61.6,
+        "buildMsTotal": 309.7,
+        "buildMsMax": 248.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "companion-punyu-distance-front.jpg"
+    },
+    {
+      "kind": "companion",
+      "id": "punyu",
+      "key": "companion:punyu",
+      "view": "back",
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "companion:punyu",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 18238,
+        "meshes": 18,
+        "bones": 12,
+        "materials": 2,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 4.841,
+        "cpuMsP95": 0.3,
+        "buildMsTotal": 309.7,
+        "buildMsMax": 248.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "companion-punyu-distance-back.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "oasis_cactus",
+      "key": "partner:oasis_cactus",
+      "view": "front",
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "partner:oasis_cactus",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 17710,
+        "meshes": 18,
+        "bones": 14,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 5.657,
+        "cpuMsP95": 25.6,
+        "buildMsTotal": 125.7,
+        "buildMsMax": 100.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-oasis_cactus-distance-front.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "oasis_cactus",
+      "key": "partner:oasis_cactus",
+      "view": "back",
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "partner:oasis_cactus",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 17710,
+        "meshes": 18,
+        "bones": 14,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 1.862,
+        "cpuMsP95": 0.2,
+        "buildMsTotal": 125.7,
+        "buildMsMax": 100.9,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-oasis_cactus-distance-back.jpg"
+    }
+  ],
+  "errors": []
+}

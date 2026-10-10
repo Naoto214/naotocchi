@@ -1,0 +1,1809 @@
+{
+  "source": "fbb8b23d598ccdc8b6871ba3fdad82e7b2965d68",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "beetle",
+      "stage": 7
+    },
+    {
+      "id": "stagbeetle",
+      "stage": 7
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6248,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          0.004597771167755116,
+          -0.5844333457946778
+        ],
+        [
+          0.6938529312610626,
+          1.0241562032699585,
+          0.7445335651388689
+        ]
+      ],
+      "file": "beetle-7-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6248,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6973620635472777,
+          -0.044487022449772984,
+          -0.5967133588021711
+        ],
+        [
+          0.6965117320050437,
+          1.0256851333179209,
+          0.7445335651388689
+        ]
+      ],
+      "file": "beetle-7-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6248,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          0.004597771167755116,
+          -0.5844333457946778
+        ],
+        [
+          0.6938529312610626,
+          1.0241562032699585,
+          0.7363005805015563
+        ]
+      ],
+      "file": "beetle-7-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6248,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6964474746032785,
+          -0.020513370013716115,
+          -0.5906110534376918
+        ],
+        [
+          0.6952343702156134,
+          1.0249206682939396,
+          0.7363005805015563
+        ]
+      ],
+      "file": "beetle-7-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6088,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          0.05493398805759936,
+          -0.5853181698272596
+        ],
+        [
+          0.6938529312610626,
+          1.120917868294705,
+          0.7555649448667273
+        ]
+      ],
+      "file": "beetle-7-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6088,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6964469270295917,
+          0.03164062196998502,
+          -0.5853181698272596
+        ],
+        [
+          0.6969385022655309,
+          1.1018767074657085,
+          0.7555649448667273
+        ]
+      ],
+      "file": "beetle-7-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6088,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          -0.006907837842811404,
+          -0.5853181698272596
+        ],
+        [
+          0.6938529312610626,
+          1.0584755681687228,
+          0.7473538872769496
+        ]
+      ],
+      "file": "beetle-7-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6088,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6983096742650011,
+          -0.003142038096994315,
+          -0.586645648957379
+        ],
+        [
+          0.6985766126960518,
+          1.0644154442293272,
+          0.7473538872769496
+        ]
+      ],
+      "file": "beetle-7-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6248,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          -0.028046279336692792,
+          -0.6022941540310436
+        ],
+        [
+          0.6938529312610626,
+          1.0321371734381823,
+          0.9329756238085913
+        ]
+      ],
+      "file": "beetle-7-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6248,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6983788837277989,
+          -0.061060852532112464,
+          -0.6081097420951788
+        ],
+        [
+          0.6995914879035436,
+          1.0401443026586152,
+          0.9329756238085913
+        ]
+      ],
+      "file": "beetle-7-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6248,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          -0.028046279336692792,
+          -0.6022941540310436
+        ],
+        [
+          0.6938529312610626,
+          1.0313427941905846,
+          0.9282480926188363
+        ]
+      ],
+      "file": "beetle-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6248,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6975498543299208,
+          -0.04499957211014255,
+          -0.6051984414027429
+        ],
+        [
+          0.6986048265871581,
+          1.0353463588008012,
+          0.9282480926188363
+        ]
+      ],
+      "file": "beetle-7-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6448,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          -0.03575966677119652,
+          -0.5902705515406066
+        ],
+        [
+          0.6938529312610626,
+          0.9944193938556736,
+          0.8415431681877727
+        ]
+      ],
+      "file": "beetle-7-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6448,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.7041863325502455,
+          -0.06482281865488432,
+          -0.6425182992992621
+        ],
+        [
+          0.7029892445643047,
+          1.0016739584992118,
+          0.8415431681877727
+        ]
+      ],
+      "file": "beetle-7-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6448,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          -0.03575966677119652,
+          -0.5902705515406066
+        ],
+        [
+          0.6938529312610626,
+          0.9931972836628418,
+          0.8334127340589079
+        ]
+      ],
+      "file": "beetle-7-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6448,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.7008319206000725,
+          -0.050690661780904256,
+          -0.6142235599291492
+        ],
+        [
+          0.6997598460233742,
+          0.9968245659846107,
+          0.8334127340589079
+        ]
+      ],
+      "file": "beetle-7-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6088,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          -0.043484542802888326,
+          -0.5921483778571448
+        ],
+        [
+          0.6938529312610626,
+          0.9773656882263161,
+          0.8634081857947982
+        ]
+      ],
+      "file": "beetle-7-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6088,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6967025481236406,
+          -0.03913642700519393,
+          -0.5921483778571448
+        ],
+        [
+          0.6975269874686486,
+          0.9880073547450194,
+          0.8634081857947982
+        ]
+      ],
+      "file": "beetle-7-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6088,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          -0.043484542802888326,
+          -0.5921483778571448
+        ],
+        [
+          0.6938529312610626,
+          0.9758852388110018,
+          0.8553328347180398
+        ]
+      ],
+      "file": "beetle-7-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6088,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6982732594923073,
+          -0.04140930766585488,
+          -0.5921483778571448
+        ],
+        [
+          0.6987502252184405,
+          0.9812060720703535,
+          0.8553328347180398
+        ]
+      ],
+      "file": "beetle-7-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6088,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6933586387700816,
+          -0.006675401591793639,
+          -0.5921348256294582
+        ],
+        [
+          0.6943472237520436,
+          0.9849767946803932,
+          0.8028666771343651
+        ]
+      ],
+      "file": "beetle-7-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6088,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6977847546199931,
+          -0.018569528102912958,
+          -0.5960120238611926
+        ],
+        [
+          0.6976757003193366,
+          0.9954521988055121,
+          0.8028666771343651
+        ]
+      ],
+      "file": "beetle-7-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6088,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          -0.006675401591793639,
+          -0.5921348256294582
+        ],
+        [
+          0.6938529312610626,
+          0.9842717418937222,
+          0.794666277715228
+        ]
+      ],
+      "file": "beetle-7-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6088,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6988792771951209,
+          -0.012784305825291942,
+          -0.5951369700943216
+        ],
+        [
+          0.6981827591657067,
+          0.9895094439562817,
+          0.794666277715228
+        ]
+      ],
+      "file": "beetle-7-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6248,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          0.003046409903587677,
+          -0.5921483778571448
+        ],
+        [
+          0.6938529312610626,
+          1.1088893659371766,
+          0.7562678994817202
+        ]
+      ],
+      "file": "beetle-7-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6248,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.7014514988995625,
+          -0.050706385451783076,
+          -0.6261259187730908
+        ],
+        [
+          0.7025001134778769,
+          1.0989170648357405,
+          0.7562678994817202
+        ]
+      ],
+      "file": "beetle-7-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6248,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          -0.027874503046617705,
+          -0.5921483778571448
+        ],
+        [
+          0.6938529312610626,
+          1.0772120864359689,
+          0.7480697322671077
+        ]
+      ],
+      "file": "beetle-7-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6248,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6983272230507745,
+          -0.04754111291404639,
+          -0.6053852995092921
+        ],
+        [
+          0.6994862845719709,
+          1.0799561641228022,
+          0.7480697322671077
+        ]
+      ],
+      "file": "beetle-7-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6088,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6926172000336104,
+          -0.004540161967277467,
+          -0.5844333457946778
+        ],
+        [
+          0.6950886624885149,
+          1.008195567670267,
+          0.8358689072954746
+        ]
+      ],
+      "file": "beetle-7-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6088,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.7030181046660546,
+          -0.005266613914213292,
+          -0.6700062455157577
+        ],
+        [
+          0.70473856850593,
+          1.0195088114418598,
+          0.8358689072954746
+        ]
+      ],
+      "file": "beetle-7-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6088,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6938529312610626,
+          -0.004540161967277467,
+          -0.5844333457946778
+        ],
+        [
+          0.6938529312610626,
+          1.0070453867682676,
+          0.8277211348434346
+        ]
+      ],
+      "file": "beetle-7-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "beetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6088,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.7021742290637201,
+          -0.004932541092440401,
+          -0.6295519300132721
+        ],
+        [
+          0.7017469322476495,
+          1.0127020086540641,
+          0.8277211348434346
+        ]
+      ],
+      "file": "beetle-7-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6332,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          0.006478118896484364,
+          -0.5823606240749359
+        ],
+        [
+          0.692190557718277,
+          0.5649999976158142,
+          0.993703262120629
+        ]
+      ],
+      "file": "stagbeetle-7-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6332,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6950730279039066,
+          -0.04242258552427525,
+          -0.5945716587241021
+        ],
+        [
+          0.6946896229822591,
+          0.5665289276637766,
+          0.993703262120629
+        ]
+      ],
+      "file": "stagbeetle-7-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6332,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          0.006478118896484364,
+          -0.5823606240749359
+        ],
+        [
+          0.692190557718277,
+          0.5649999976158142,
+          0.985052032470703
+        ]
+      ],
+      "file": "stagbeetle-7-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6332,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6944681225909417,
+          -0.0185374798529912,
+          -0.5885072239697294
+        ],
+        [
+          0.693491925277471,
+          0.5657644626397954,
+          0.985052032470703
+        ]
+      ],
+      "file": "stagbeetle-7-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6172,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          0.057022897737662614,
+          -0.5821922983066791
+        ],
+        [
+          0.692190557718277,
+          0.6350147177890161,
+          1.0040680853139194
+        ]
+      ],
+      "file": "stagbeetle-7-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6172,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6944358616324213,
+          0.03374795500405231,
+          -0.5814288448610951
+        ],
+        [
+          0.69486124770025,
+          0.6159735569600195,
+          1.0040680853139194
+        ]
+      ],
+      "file": "stagbeetle-7-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6172,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          -0.004818928162748148,
+          -0.5821922983066791
+        ],
+        [
+          0.692190557718277,
+          0.5731728918886053,
+          0.9954398966305598
+        ]
+      ],
+      "file": "stagbeetle-7-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6172,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6964599174675936,
+          -0.0010435691739469344,
+          -0.5839533952556795
+        ],
+        [
+          0.6966929842424894,
+          0.5791127679492097,
+          0.9954398966305598
+        ]
+      ],
+      "file": "stagbeetle-7-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6332,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          -0.026237378823235236,
+          -0.6001029714088796
+        ],
+        [
+          0.692190557718277,
+          0.593738612739721,
+          1.0962370350532695
+        ]
+      ],
+      "file": "stagbeetle-7-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6332,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6964699045172591,
+          -0.05911051206125717,
+          -0.6052304794634167
+        ],
+        [
+          0.6973336633378384,
+          0.6017457419601538,
+          1.0962370350532695
+        ]
+      ],
+      "file": "stagbeetle-7-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6332,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          -0.026237378823235236,
+          -0.6001029714088796
+        ],
+        [
+          0.692190557718277,
+          0.593738612739721,
+          1.0934969107731014
+        ]
+      ],
+      "file": "stagbeetle-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6332,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.695758438267794,
+          -0.043117470526393586,
+          -0.6026614968807233
+        ],
+        [
+          0.696635461123174,
+          0.5977421773499374,
+          1.0934969107731014
+        ]
+      ],
+      "file": "stagbeetle-7-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6532,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          -0.033749213508860676,
+          -0.5816601213031579
+        ],
+        [
+          0.692190557718277,
+          0.5276780700725985,
+          1.0120309888161176
+        ]
+      ],
+      "file": "stagbeetle-7-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6532,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.7013778262325043,
+          -0.06265437376866922,
+          -0.6399872901086219
+        ],
+        [
+          0.7005394981594871,
+          0.5349326347161366,
+          1.0120309888161176
+        ]
+      ],
+      "file": "stagbeetle-7-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6532,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          -0.033749213508860676,
+          -0.5816601213031579
+        ],
+        [
+          0.692190557718277,
+          0.5276780700725985,
+          1.0034875193574688
+        ]
+      ],
+      "file": "stagbeetle-7-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6532,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6985867823051413,
+          -0.04859844845432337,
+          -0.6118123408429788
+        ],
+        [
+          0.6976976476964929,
+          0.5313053523943675,
+          1.0034875193574688
+        ]
+      ],
+      "file": "stagbeetle-7-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6172,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          -0.04149885558528521,
+          -0.5836654749281918
+        ],
+        [
+          0.692190557718277,
+          0.5149794447745512,
+          1.0141706419999768
+        ]
+      ],
+      "file": "stagbeetle-7-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6172,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6946992866075924,
+          -0.03712377949493856,
+          -0.5836654749281918
+        ],
+        [
+          0.6953991708303338,
+          0.5256211112932544,
+          1.0141706419999768
+        ]
+      ],
+      "file": "stagbeetle-7-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6172,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          -0.04149885558528521,
+          -0.5836654749281918
+        ],
+        [
+          0.692190557718277,
+          0.5149794447745512,
+          1.0056850538753257
+        ]
+      ],
+      "file": "stagbeetle-7-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6172,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6964281120377455,
+          -0.03940942486860094,
+          -0.5836654749281918
+        ],
+        [
+          0.6968413045199334,
+          0.5203002780339028,
+          1.0056850538753257
+        ]
+      ],
+      "file": "stagbeetle-7-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6172,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.691696265227296,
+          -0.004986726070798808,
+          -0.5900118135631198
+        ],
+        [
+          0.692684850209258,
+          0.5520050762411857,
+          1.0067863614856132
+        ]
+      ],
+      "file": "stagbeetle-7-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6172,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6956035961194938,
+          -0.016802972367503166,
+          -0.5929535963769441
+        ],
+        [
+          0.6956890414784624,
+          0.5624804803663046,
+          1.0067863614856132
+        ]
+      ],
+      "file": "stagbeetle-7-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6172,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          -0.004986726070798808,
+          -0.5900118135631198
+        ],
+        [
+          0.692190557718277,
+          0.5520050762411857,
+          0.9981693724201226
+        ]
+      ],
+      "file": "stagbeetle-7-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6172,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.696944278565822,
+          -0.011055812774726614,
+          -0.5925361012285477
+        ],
+        [
+          0.6963473266461644,
+          0.5572427783037451,
+          0.9981693724201226
+        ]
+      ],
+      "file": "stagbeetle-7-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6332,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          0.005204765574895354,
+          -0.5836654749281918
+        ],
+        [
+          0.692190557718277,
+          0.6150661484972666,
+          1.0052397752679776
+        ]
+      ],
+      "file": "stagbeetle-7-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6332,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6992240295594505,
+          -0.04835796507765816,
+          -0.6236221273246112
+        ],
+        [
+          0.6998550449056786,
+          0.6050938473958307,
+          1.0052397752679776
+        ]
+      ],
+      "file": "stagbeetle-7-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6332,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          -0.025716147375310028,
+          -0.5836654749281918
+        ],
+        [
+          0.692190557718277,
+          0.5833504447123272,
+          0.9966251318055481
+        ]
+      ],
+      "file": "stagbeetle-7-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6332,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6963793688918485,
+          -0.04528412091753775,
+          -0.602970761930343
+        ],
+        [
+          0.6973260183585341,
+          0.5860945223991607,
+          0.9966251318055481
+        ]
+      ],
+      "file": "stagbeetle-7-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6172,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6909548264908247,
+          -0.0027162246704101056,
+          -0.5823606240749359
+        ],
+        [
+          0.6934262889457292,
+          0.5390499976873397,
+          1.012160863059297
+        ]
+      ],
+      "file": "stagbeetle-7-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6172,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.70007707143089,
+          -0.0033978832423319227,
+          -0.6675451837995323
+        ],
+        [
+          0.7019076625234639,
+          0.5503632414589326,
+          1.012160863059297
+        ]
+      ],
+      "file": "stagbeetle-7-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6172,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.692190557718277,
+          -0.0027162246704101056,
+          -0.5823606240749359
+        ],
+        [
+          0.692190557718277,
+          0.5390499976873397,
+          1.0035991744708743
+        ]
+      ],
+      "file": "stagbeetle-7-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "stagbeetle",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6172,
+      "meshes": 13,
+      "drawCalls": 13,
+      "box": [
+        [
+          -0.6998558397947001,
+          -0.0030860231237451186,
+          -0.627276310434986
+        ],
+        [
+          0.6994849250121389,
+          0.5447066195731362,
+          1.0035991744708743
+        ]
+      ],
+      "file": "stagbeetle-7-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}

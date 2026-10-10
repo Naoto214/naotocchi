@@ -1,0 +1,34 @@
+{
+  "sourceCommit": "fde2580dafec7691a13f94c71660cc3c8c43b52a",
+  "sourceRun": 37870348699,
+  "status": "PASS_ALL8_IMAGE_GATE",
+  "scope": {
+    "fourViews": 32,
+    "stateCells": 256,
+    "normalDistance": 16
+  },
+  "provenance": "All299wave+17distance original file hashes verified;raw artifact SHA256 verified by recovery workflow.",
+  "reused": {
+    "stages": [
+      1,
+      2,
+      3,
+      7
+    ],
+    "identicalWaveImages": 148,
+    "priorReview": "../9fadab27a5abacedfb40add609f95fb14f2c69a3/visual-review.json"
+  },
+  "freshInspection": {
+    "fourViews": "All8 stages on contact board;04/05/06 shoulders visibly attached,distinct golden feather edges;08 closed charcoal mound.",
+    "states": "04/05/06/08 all32 states each freshly inspected;other128cells previously reviewed and hash-identical.",
+    "normalDistance": "All16 fresh images inspected;scene/HUD differs so no image-hash reuse asserted."
+  },
+  "resolved": [
+    "04/05/06 detached wing roots",
+    "04/05/06 fused feather silhouette",
+    "08 gaps through coal mound"
+  ],
+  "acceptedRepresentatives": "03/07 definitions unchanged",
+  "environment": "Chromium/SwiftShader;not Human/iPhone acceptance",
+  "performance": "Visual QA only;software-rendered timing is not target-device performance acceptance."
+}

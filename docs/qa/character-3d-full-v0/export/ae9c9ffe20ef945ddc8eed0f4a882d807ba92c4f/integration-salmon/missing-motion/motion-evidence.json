@@ -1,0 +1,7209 @@
+{
+  "source": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "salmon",
+      "stage": 1
+    },
+    {
+      "id": "salmon",
+      "stage": 2
+    },
+    {
+      "id": "salmon",
+      "stage": 3
+    },
+    {
+      "id": "salmon",
+      "stage": 4
+    },
+    {
+      "id": "salmon",
+      "stage": 5
+    },
+    {
+      "id": "salmon",
+      "stage": 6
+    },
+    {
+      "id": "salmon",
+      "stage": 7
+    },
+    {
+      "id": "salmon",
+      "stage": 8
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.24633729597936294,
+          0.1602123320050357,
+          -0.6736307992266267
+        ],
+        [
+          0.2513972252985419,
+          0.701143406624329,
+          0.5550024617589165
+        ]
+      ],
+      "file": "salmon-1-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.247307694195513,
+          0.1602123320050357,
+          -0.6648899334635586
+        ],
+        [
+          0.2506050310450047,
+          0.701143406624329,
+          0.55383124434567
+        ]
+      ],
+      "file": "salmon-1-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.2369118792555735,
+          0.13000000417232516,
+          -0.6739945617157654
+        ],
+        [
+          0.23883260946323143,
+          0.6709310787916183,
+          0.5532955977268801
+        ]
+      ],
+      "file": "salmon-1-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.23726775577967313,
+          0.13000000417232516,
+          -0.6717933959943824
+        ],
+        [
+          0.23851930050825404,
+          0.6709310787916183,
+          0.5526604482850671
+        ]
+      ],
+      "file": "salmon-1-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.2500649874149361,
+          0.22201433058107187,
+          -0.6800428736206426
+        ],
+        [
+          0.24792378460237627,
+          0.8056117723189857,
+          0.5627024159882215
+        ]
+      ],
+      "file": "salmon-1-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.24988878225141056,
+          0.19111645918011796,
+          -0.6751056111309172
+        ],
+        [
+          0.24811749236640007,
+          0.7746649159677172,
+          0.562347658446379
+        ]
+      ],
+      "file": "salmon-1-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.23830895461807777,
+          0.13002692929920398,
+          -0.6851643169072459
+        ],
+        [
+          0.23749626579921668,
+          0.7134818046042635,
+          0.561665713757677
+        ]
+      ],
+      "file": "salmon-1-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.23824084208563862,
+          0.13003848343480165,
+          -0.6839120876278888
+        ],
+        [
+          0.23756855881172514,
+          0.7134684795246632,
+          0.5614835027795408
+        ]
+      ],
+      "file": "salmon-1-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2836,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3649374024706398,
+          0.11916233331220388,
+          -0.6283762524610066
+        ],
+        [
+          0.36340593547961664,
+          0.7719526860921792,
+          0.5890036058644392
+        ]
+      ],
+      "file": "salmon-1-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2836,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3874885229248616,
+          0.119170399429528,
+          -0.5717916546189947
+        ],
+        [
+          0.38599667061944687,
+          0.7711116280014648,
+          0.5831143875927736
+        ]
+      ],
+      "file": "salmon-1-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2836,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.35294172138987834,
+          0.088988154221707,
+          -0.6385190053262898
+        ],
+        [
+          0.35139153918542054,
+          0.7420881692882755,
+          0.5914302992093134
+        ]
+      ],
+      "file": "salmon-1-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2836,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.36460971710687906,
+          0.08895067337097667,
+          -0.6121755554971398
+        ],
+        [
+          0.36307771808897304,
+          0.7417507374152554,
+          0.5890761207565328
+        ]
+      ],
+      "file": "salmon-1-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3036,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.24436330957353533,
+          0.130621568925802,
+          -0.6896707812718629
+        ],
+        [
+          0.25281615342957886,
+          0.7533393751208215,
+          0.5886763416939361
+        ]
+      ],
+      "file": "salmon-1-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3036,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.25548494974626285,
+          0.1298247671041368,
+          -0.6877738209784545
+        ],
+        [
+          0.23943414071100286,
+          0.7541374271455017,
+          0.5937202473271807
+        ]
+      ],
+      "file": "salmon-1-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3036,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.23620115753574733,
+          0.10089757991478718,
+          -0.6952608347171223
+        ],
+        [
+          0.2394107200345929,
+          0.7225994936238047,
+          0.5851047984733363
+        ]
+      ],
+      "file": "salmon-1-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3036,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.24058645969231796,
+          0.10045576363986958,
+          -0.6947869949399548
+        ],
+        [
+          0.23448500109893233,
+          0.7230923637718735,
+          0.5882531785979084
+        ]
+      ],
+      "file": "salmon-1-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.24544006465014628,
+          0.1275890201992472,
+          -0.6903597457075836
+        ],
+        [
+          0.2520720138386713,
+          0.7612665739068145,
+          0.5924852507392013
+        ]
+      ],
+      "file": "salmon-1-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.2497785150267247,
+          0.12832691191894738,
+          -0.6825775626624695
+        ],
+        [
+          0.24823696349413452,
+          0.7604447655962533,
+          0.5878919495341088
+        ]
+      ],
+      "file": "salmon-1-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.23658680209512473,
+          0.09785081125858625,
+          -0.6976435590763873
+        ],
+        [
+          0.23910454638391493,
+          0.730531029906041,
+          0.589582652094647
+        ]
+      ],
+      "file": "salmon-1-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.23819834193840023,
+          0.09823124478028514,
+          -0.6956536638972188
+        ],
+        [
+          0.2376132572880259,
+          0.7300950698619049,
+          0.5871488226882072
+        ]
+      ],
+      "file": "salmon-1-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.24494577215916535,
+          0.14748897664339647,
+          -0.6885204719620523
+        ],
+        [
+          0.2525663063296522,
+          0.7340442936999438,
+          0.5754272681709175
+        ]
+      ],
+      "file": "salmon-1-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.23936273735015778,
+          0.14694488719773888,
+          -0.6821033927925544
+        ],
+        [
+          0.2557906229340572,
+          0.7345839447210875,
+          0.581829922429006
+        ]
+      ],
+      "file": "salmon-1-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.23658680209512473,
+          0.11750244433101578,
+          -0.6890261967021891
+        ],
+        [
+          0.23910454638391493,
+          0.7035827881422072,
+          0.5724797222360668
+        ]
+      ],
+      "file": "salmon-1-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.23462959403546912,
+          0.11720432614177448,
+          -0.6874181106438071
+        ],
+        [
+          0.24049790525417797,
+          0.703909025026813,
+          0.5763396718207735
+        ]
+      ],
+      "file": "salmon-1-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2836,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.2484754963285823,
+          0.18964992316409374,
+          -0.6862631277232538
+        ],
+        [
+          0.2495546367172355,
+          0.783674320634823,
+          0.5639556925759682
+        ]
+      ],
+      "file": "salmon-1-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2836,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.25580379085878063,
+          0.17295694946273027,
+          -0.671469819908314
+        ],
+        [
+          0.23868335828633913,
+          0.7693473649563627,
+          0.576241573087817
+        ]
+      ],
+      "file": "salmon-1-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2836,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.23770276127216936,
+          0.1285591571975693,
+          -0.6887700852388434
+        ],
+        [
+          0.23811233812967464,
+          0.7224913119583318,
+          0.5634162642883104
+        ]
+      ],
+      "file": "salmon-1-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2836,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.24073879791387853,
+          0.1279333970640858,
+          -0.6850318908792621
+        ],
+        [
+          0.23422932305113955,
+          0.7231492713578229,
+          0.570547808075258
+        ]
+      ],
+      "file": "salmon-1-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.24304597445182483,
+          0.1273492601020857,
+          -0.6893967145815401
+        ],
+        [
+          0.2541055625176624,
+          0.7601301713560094,
+          0.5866230280018981
+        ]
+      ],
+      "file": "salmon-1-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.25278892722957447,
+          0.1270360043518085,
+          -0.694124654666006
+        ],
+        [
+          0.24361176767720732,
+          0.7604657389323715,
+          0.5887732010695675
+        ]
+      ],
+      "file": "salmon-1-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.2361721148295407,
+          0.09760313704849358,
+          -0.6941870249922913
+        ],
+        [
+          0.23943308984567507,
+          0.7294150258474194,
+          0.5829981911867678
+        ]
+      ],
+      "file": "salmon-1-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 1,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2676,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.23992524717748606,
+          0.0974330148745838,
+          -0.6953747381070727
+        ],
+        [
+          0.23550050949798818,
+          0.729612060984878,
+          0.584281166676103
+        ]
+      ],
+      "file": "salmon-1-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2560,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2966783265884544,
+          0.22183262586070285,
+          -0.7933918166013794
+        ],
+        [
+          0.3029346595570188,
+          0.7701312380976795,
+          0.6473406275010842
+        ]
+      ],
+      "file": "salmon-2-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2560,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.29787534218219464,
+          0.22183262586070285,
+          -0.7830602767180648
+        ],
+        [
+          0.30195232348739687,
+          0.7701312380976795,
+          0.6457077130443967
+        ]
+      ],
+      "file": "salmon-2-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2560,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.28674447828681815,
+          0.19162029802799224,
+          -0.7938204522024619
+        ],
+        [
+          0.2892166089086326,
+          0.7399189102649688,
+          0.6449668727810599
+        ]
+      ],
+      "file": "salmon-2-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2560,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2872008926793448,
+          0.19162029802799224,
+          -0.7912187172502965
+        ],
+        [
+          0.28881172903510144,
+          0.7399189102649688,
+          0.6440926579620109
+        ]
+      ],
+      "file": "salmon-2-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2400,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.30128338060399956,
+          0.22999266771506505,
+          -0.8011508565357721
+        ],
+        [
+          0.2986358974271447,
+          0.8810277385169617,
+          0.6565372296622749
+        ]
+      ],
+      "file": "salmon-2-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2400,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3010652343469574,
+          0.1994984893754449,
+          -0.795315564505157
+        ],
+        [
+          0.2988751287930178,
+          0.8500727448082568,
+          0.6560711995500308
+        ]
+      ],
+      "file": "salmon-2-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2400,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.28854030324553903,
+          0.1374958844471164,
+          -0.8072035003406663
+        ],
+        [
+          0.28749430891114336,
+          0.7888741007582274,
+          0.6552784830228602
+        ]
+      ],
+      "file": "salmon-2-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2400,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.288452477317578,
+          0.1376041163770173,
+          -0.805723505743691
+        ],
+        [
+          0.28758719594628024,
+          0.7888566490382256,
+          0.6550890406393887
+        ]
+      ],
+      "file": "salmon-2-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2560,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44165242319903086,
+          0.15279921585280748,
+          -0.7405197714571723
+        ],
+        [
+          0.44165242319903086,
+          0.8542719356932335,
+          0.6973181962321555
+        ]
+      ],
+      "file": "salmon-2-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2560,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4674540357809934,
+          0.1536413148914521,
+          -0.6777229451550111
+        ],
+        [
+          0.4674540357809934,
+          0.8534298366545888,
+          0.6913425524994847
+        ]
+      ],
+      "file": "salmon-2-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2560,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.427901536405706,
+          0.12225373806514234,
+          -0.7524769515803977
+        ],
+        [
+          0.427901536405706,
+          0.8243927578154774,
+          0.6996822714169079
+        ]
+      ],
+      "file": "salmon-2-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2560,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4412770216666442,
+          0.12257677520136073,
+          -0.72137181719491
+        ],
+        [
+          0.4412770216666442,
+          0.8240697206792591,
+          0.6973899581023477
+        ]
+      ],
+      "file": "salmon-2-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2760,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.29424641256989487,
+          0.15397113255746392,
+          -0.8127635473257611
+        ],
+        [
+          0.30469790356093374,
+          0.8310560809922034,
+          0.6907466182203174
+        ]
+      ],
+      "file": "salmon-2-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2760,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.30803362538115936,
+          0.15291287420015465,
+          -0.8105339283117903
+        ],
+        [
+          0.2881876553280198,
+          0.8321143393495127,
+          0.6978125860771772
+        ]
+      ],
+      "file": "salmon-2-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2760,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2858347911123401,
+          0.12446282277614806,
+          -0.8193667159112887
+        ],
+        [
+          0.289965750111365,
+          0.8001397351080981,
+          0.6860459051218137
+        ]
+      ],
+      "file": "salmon-2-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2760,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.29149967043851377,
+          0.12382428862453593,
+          -0.8188097873494142
+        ],
+        [
+          0.2836466140507381,
+          0.8007782692597103,
+          0.6903093836567441
+        ]
+      ],
+      "file": "salmon-2-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2400,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.29557248051637314,
+          0.13650216552171124,
+          -0.8136840841546201
+        ],
+        [
+          0.3037725322832514,
+          0.8399965689336336,
+          0.6960439826908673
+        ]
+      ],
+      "file": "salmon-2-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2400,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.30092874863070834,
+          0.1375938021071631,
+          -0.8044838370028542
+        ],
+        [
+          0.29902270230718975,
+          0.8389049323481816,
+          0.690067818743185
+        ]
+      ],
+      "file": "salmon-2-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2400,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.286328109109647,
+          0.10698435496247072,
+          -0.8222904307697022
+        ],
+        [
+          0.2895686437403834,
+          0.8090897238274528,
+          0.692241848220414
+        ]
+      ],
+      "file": "salmon-2-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2400,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2883976922851591,
+          0.10755935183980908,
+          -0.8199379537009432
+        ],
+        [
+          0.2876446423905007,
+          0.8085147269501145,
+          0.6890940280995294
+        ]
+      ],
+      "file": "salmon-2-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2400,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2950781880253922,
+          0.19789393499371138,
+          -0.8112146907081943
+        ],
+        [
+          0.3042668247742324,
+          0.8078572485994298,
+          0.6730781877784401
+        ]
+      ],
+      "file": "salmon-2-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2400,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.28821252222945315,
+          0.1971575653854949,
+          -0.8036435327386648
+        ],
+        [
+          0.308290979672944,
+          0.8085936182076462,
+          0.6816739780349894
+        ]
+      ],
+      "file": "salmon-2-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2400,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.28632810910964707,
+          0.16801236573605643,
+          -0.811810193651911
+        ],
+        [
+          0.2895686437403834,
+          0.7773141621916635,
+          0.669217176534889
+        ]
+      ],
+      "file": "salmon-2-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2400,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.28383057510568693,
+          0.16757841132640394,
+          -0.8099128966279011
+        ],
+        [
+          0.2913835525120231,
+          0.777748116601316,
+          0.6742828134713617
+        ]
+      ],
+      "file": "salmon-2-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2560,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2993174027148029,
+          0.18318480047269686,
+          -0.8085518645341065
+        ],
+        [
+          0.3006517022999078,
+          0.8606680732517944,
+          0.6582038042583349
+        ]
+      ],
+      "file": "salmon-2-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2560,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.30843471516533516,
+          0.1693356029777764,
+          -0.7910876198129737
+        ],
+        [
+          0.2872662126067994,
+          0.8467405545095816,
+          0.6748191342820795
+        ]
+      ],
+      "file": "salmon-2-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2560,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2877597072944088,
+          0.12177820710021042,
+          -0.8115147007870807
+        ],
+        [
+          0.2882868648761392,
+          0.7994704483438384,
+          0.6575059523737627
+        ]
+      ],
+      "file": "salmon-2-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2560,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2916996906383187,
+          0.1221853685722698,
+          -0.8071015259489439
+        ],
+        [
+          0.28332148526832496,
+          0.8003432543813281,
+          0.6669661933531977
+        ]
+      ],
+      "file": "salmon-2-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2400,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2929102259741685,
+          0.15688628248397607,
+          -0.8124008145854414
+        ],
+        [
+          0.30600044810110955,
+          0.8392318802742591,
+          0.6879679473609746
+        ]
+      ],
+      "file": "salmon-2-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2400,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3049687921594937,
+          0.15645654344800602,
+          -0.8179927259453569
+        ],
+        [
+          0.29303735423667837,
+          0.8396616193102291,
+          0.6910232492324448
+        ]
+      ],
+      "file": "salmon-2-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2400,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.28579766586121547,
+          0.1273452402911941,
+          -0.8180586698776775
+        ],
+        [
+          0.2899947968076735,
+          0.8083482668016198,
+          0.6831953293293471
+        ]
+      ],
+      "file": "salmon-2-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2400,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2906350992264257,
+          0.12709628406540247,
+          -0.8194634182260101
+        ],
+        [
+          0.2849401143361109,
+          0.8085972230274114,
+          0.6849653254407271
+        ]
+      ],
+      "file": "salmon-2-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.29652423606662937,
+          0.22183262586070285,
+          -0.8783389618800469
+        ],
+        [
+          0.3045459889973252,
+          0.7821433919615863,
+          0.7330228537927054
+        ]
+      ],
+      "file": "salmon-3-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.29802899863460486,
+          0.22183262586070285,
+          -0.8680378356354376
+        ],
+        [
+          0.3032564276889288,
+          0.7821433919615863,
+          0.7312294860465989
+        ]
+      ],
+      "file": "salmon-3-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.28786327056668826,
+          0.19162029802799224,
+          -0.8788072374949023
+        ],
+        [
+          0.29126514284903837,
+          0.7519310641288757,
+          0.7304148090349407
+        ]
+      ],
+      "file": "salmon-3-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.28848178840000993,
+          0.19162029802799224,
+          -0.8762131067944796
+        ],
+        [
+          0.2906984429334295,
+          0.7519310641288757,
+          0.7294527174459245
+        ]
+      ],
+      "file": "salmon-3-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3023859073319327,
+          0.22379386746018132,
+          -0.8859150374328744
+        ],
+        [
+          0.2989913539985962,
+          0.8992175857918796,
+          0.7428241901189963
+        ]
+      ],
+      "file": "salmon-3-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3021032549979482,
+          0.19329947125395347,
+          -0.880082724573032
+        ],
+        [
+          0.2992951426845334,
+          0.8682609298874868,
+          0.742419630825865
+        ]
+      ],
+      "file": "salmon-3-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2903208621131026,
+          0.13129656659024186,
+          -0.8919747590765406
+        ],
+        [
+          0.2888814805924514,
+          0.807059024513221,
+          0.7416401295828415
+        ]
+      ],
+      "file": "salmon-3-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.29019906800311124,
+          0.1314047440522142,
+          -0.8904955092897151
+        ],
+        [
+          0.28900836364166815,
+          0.8070406871642637,
+          0.7414314598070957
+        ]
+      ],
+      "file": "salmon-3-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2672,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4864892522793942,
+          0.13401288167105763,
+          -0.8168747127537397
+        ],
+        [
+          0.4864892522793942,
+          0.8775138008494962,
+          0.7795158803820179
+        ]
+      ],
+      "file": "salmon-3-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2672,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5160751313178613,
+          0.13506733546183436,
+          -0.7577858506402062
+        ],
+        [
+          0.5160751313178613,
+          0.8764593470587194,
+          0.7720333398528334
+        ]
+      ],
+      "file": "salmon-3-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2672,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4707431864080215,
+          0.103370485291013,
+          -0.8297649845018755
+        ],
+        [
+          0.4707431864080215,
+          0.8477315415641196,
+          0.7825677024380456
+        ]
+      ],
+      "file": "salmon-3-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2672,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.48605919162642586,
+          0.10378765206574375,
+          -0.7977532839612654
+        ],
+        [
+          0.48605919162642586,
+          0.8473143747893888,
+          0.7796074330296983
+        ]
+      ],
+      "file": "salmon-3-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2872,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.29349961201154295,
+          0.1343602147586067,
+          -0.8965590358173966
+        ],
+        [
+          0.30690031796961237,
+          0.8548438962496296,
+          0.7770138723754604
+        ]
+      ],
+      "file": "salmon-3-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2872,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.311558203895519,
+          0.13328070464126252,
+          -0.8939484496964815
+        ],
+        [
+          0.28611207287337104,
+          0.8559234063669738,
+          0.7842217377682782
+        ]
+      ],
+      "file": "salmon-3-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2872,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2866412082252394,
+          0.1048790757498726,
+          -0.9032715066242087
+        ],
+        [
+          0.2923257763440524,
+          0.8239003795929425,
+          0.7721317406239574
+        ]
+      ],
+      "file": "salmon-3-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2872,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2945578180655427,
+          0.10421555467672983,
+          -0.9026192407528899
+        ],
+        [
+          0.2837513118795149,
+          0.8245639006660852,
+          0.7765620562862847
+        ]
+      ],
+      "file": "salmon-3-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.29514382385051946,
+          0.11442711796947302,
+          -0.8969675445899038
+        ],
+        [
+          0.3056577766121973,
+          0.8661319477221425,
+          0.7821201123231186
+        ]
+      ],
+      "file": "salmon-3-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3019267046582992,
+          0.1155669161377012,
+          -0.8878515665412698
+        ],
+        [
+          0.2994828077687709,
+          0.8649921495539143,
+          0.7758802878143238
+        ]
+      ],
+      "file": "salmon-3-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2873022302661693,
+          0.08493849367423328,
+          -0.9056406979517837
+        ],
+        [
+          0.29176149501659193,
+          0.8351959163519611,
+          0.778158197664814
+        ]
+      ],
+      "file": "salmon-3-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.29012318576463864,
+          0.08554142998312675,
+          -0.9033092911252218
+        ],
+        [
+          0.2890869219275826,
+          0.8345929800430676,
+          0.7748574231396855
+        ]
+      ],
+      "file": "salmon-3-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.29464953135953853,
+          0.1834258807733875,
+          -0.8957878113175075
+        ],
+        [
+          0.3061520691031782,
+          0.8266277788913053,
+          0.7591793316487088
+        ]
+      ],
+      "file": "salmon-3-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2862439610038492,
+          0.18267149190438536,
+          -0.8878156898983929
+        ],
+        [
+          0.3117092228401791,
+          0.8273821677603075,
+          0.7679854643536204
+        ]
+      ],
+      "file": "salmon-3-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2873022302661693,
+          0.15355821125222702,
+          -0.8964511555231618
+        ],
+        [
+          0.29176149501659193,
+          0.7960707927470447,
+          0.7551560659908054
+        ]
+      ],
+      "file": "salmon-3-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.283991887710006,
+          0.15310660584868446,
+          -0.8944535313902122
+        ],
+        [
+          0.2943854584465607,
+          0.7965223981505872,
+          0.760427746522242
+        ]
+      ],
+      "file": "salmon-3-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2672,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.299858197738174,
+          0.17537604801736528,
+          -0.8931900049721115
+        ],
+        [
+          0.3015690116703962,
+          0.8804450920638325,
+          0.7443434952164583
+        ]
+      ],
+      "file": "salmon-3-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2672,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3121452583218795,
+          0.16158240194875023,
+          -0.8751236449389534
+        ],
+        [
+          0.28506603271237,
+          0.8665647170470943,
+          0.7607333637452756
+        ]
+      ],
+      "file": "salmon-3-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2672,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2892444763140312,
+          0.11396928904590758,
+          -0.8961546361326677
+        ],
+        [
+          0.2899698921759176,
+          0.8192441784905071,
+          0.7437328370483727
+        ]
+      ],
+      "file": "salmon-3-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2672,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2948562457004521,
+          0.1143903508444073,
+          -0.8915907973071499
+        ],
+        [
+          0.2833270876646605,
+          0.8201545298718025,
+          0.7527407416441079
+        ]
+      ],
+      "file": "salmon-3-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.29213978449154365,
+          0.13778057210828404,
+          -0.8963702819938065
+        ],
+        [
+          0.30822642167380276,
+          0.8626569849452024,
+          0.7742534952340954
+        ]
+      ],
+      "file": "salmon-3-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3077275734046715,
+          0.13733898393744381,
+          -0.9018353752642165
+        ],
+        [
+          0.29173190680873745,
+          0.8630985731160425,
+          0.7773930405205547
+        ]
+      ],
+      "file": "salmon-3-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.2865916174834897,
+          0.1082652592524797,
+          -0.9021412096306107
+        ],
+        [
+          0.2923672441053831,
+          0.8317476421355854,
+          0.7692979501587518
+        ]
+      ],
+      "file": "salmon-3-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2512,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.293288612531434,
+          0.10800589395599391,
+          -0.9035142332555308
+        ],
+        [
+          0.28545180525442,
+          0.8320070074320711,
+          0.7711419513069333
+        ]
+      ],
+      "file": "salmon-3-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3265929016116582,
+          0.19738344132376895,
+          -0.9554088466392525
+        ],
+        [
+          0.3344074810057043,
+          0.8016312497801898,
+          0.7973039097993931
+        ]
+      ],
+      "file": "salmon-4-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3280723088245515,
+          0.19738344132376895,
+          -0.9444718390611283
+        ],
+        [
+          0.33316473185536327,
+          0.8016312497801898,
+          0.7956094926182086
+        ]
+      ],
+      "file": "salmon-4-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.31456910845120056,
+          0.16717111349105834,
+          -0.9559167366866553
+        ],
+        [
+          0.3176798000719175,
+          0.7714189219474792,
+          0.7948348300794534
+        ]
+      ],
+      "file": "salmon-4-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3151392788768318,
+          0.16717111349105834,
+          -0.953162457801816
+        ],
+        [
+          0.3171662005572568,
+          0.7714189219474792,
+          0.7939164535282393
+        ]
+      ],
+      "file": "salmon-4-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2596,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3323224580895705,
+          0.1938220133644959,
+          -0.9641072320204794
+        ],
+        [
+          0.32901557407558235,
+          0.923388358831307,
+          0.8077346386210331
+        ]
+      ],
+      "file": "salmon-4-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2596,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3320484323132959,
+          0.16335421757694868,
+          -0.9579111773705687
+        ],
+        [
+          0.32931284361963187,
+          0.892432809563382,
+          0.8072610116319271
+        ]
+      ],
+      "file": "salmon-4-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2596,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.31682289886376364,
+          0.10129688069759307,
+          -0.9705475336756775
+        ],
+        [
+          0.3155067201058089,
+          0.8312329139310486,
+          0.8063495540141022
+        ]
+      ],
+      "file": "salmon-4-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2596,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3167119808108136,
+          0.10141180503112118,
+          -0.9689760252230568
+        ],
+        [
+          0.31562319388041965,
+          0.8312150882831899,
+          0.8061058009687414
+        ]
+      ],
+      "file": "salmon-4-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.50930319113018,
+          0.1126211597670792,
+          -0.8891929644615426
+        ],
+        [
+          0.50930319113018,
+          0.9047457122330187,
+          0.8385410966588084
+        ]
+      ],
+      "file": "salmon-4-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5420796942031156,
+          0.11392144525830261,
+          -0.8142436027952406
+        ],
+        [
+          0.5420796942031156,
+          0.9034454267417953,
+          0.8293141025764761
+        ]
+      ],
+      "file": "salmon-4-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4918911952326591,
+          0.08186092261048289,
+          -0.9031324424487603
+        ],
+        [
+          0.4918911952326591,
+          0.8750812937241939,
+          0.8424291321120009
+        ]
+      ],
+      "file": "salmon-4-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5088273466509293,
+          0.082392597142048,
+          -0.8688833706686689
+        ],
+        [
+          0.5088273466509293,
+          0.8745496191926287,
+          0.8386563008456438
+        ]
+      ],
+      "file": "salmon-4-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2956,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.32360432109581216,
+          0.11219133840106821,
+          -0.9759697602001753
+        ],
+        [
+          0.336658934164843,
+          0.8824877368110329,
+          0.8438682117856748
+        ]
+      ],
+      "file": "salmon-4-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2956,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.34102519364451855,
+          0.11119461432355976,
+          -0.9730965688180492
+        ],
+        [
+          0.31623624628328095,
+          0.8834844608885414,
+          0.8505233166050128
+        ]
+      ],
+      "file": "salmon-4-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2956,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.31343733539141344,
+          0.08267591071803188,
+          -0.9831302914149367
+        ],
+        [
+          0.3186353372406686,
+          0.851578508828648,
+          0.839215024760949
+        ]
+      ],
+      "file": "salmon-4-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2956,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3206180039478949,
+          0.08204294125540945,
+          -0.9824123730826282
+        ],
+        [
+          0.3107364724111261,
+          0.8522114782912704,
+          0.8434413479894619
+        ]
+      ],
+      "file": "salmon-4-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2596,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3252312800451276,
+          0.09057168156451878,
+          -0.9766273721086083
+        ],
+        [
+          0.3354736945536798,
+          0.8953095564798824,
+          0.8493760255270849
+        ]
+      ],
+      "file": "salmon-4-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2596,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3318771392744163,
+          0.09166793124278838,
+          -0.9669636423344814
+        ],
+        [
+          0.3294963596070445,
+          0.8942133068016128,
+          0.8433746072050518
+        ]
+      ],
+      "file": "salmon-4-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2596,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3140503547450981,
+          0.06105303056796291,
+          -0.9858600359251866
+        ],
+        [
+          0.31812793213260526,
+          0.864403551811017,
+          0.8455784920302996
+        ]
+      ],
+      "file": "salmon-4-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2596,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.31664283091183787,
+          0.061637129539296065,
+          -0.9833884161729296
+        ],
+        [
+          0.3156952652870181,
+          0.8638194528396839,
+          0.8423808425003377
+        ]
+      ],
+      "file": "salmon-4-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2596,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.32473698755414665,
+          0.16491052367388925,
+          -0.9746994863880475
+        ],
+        [
+          0.3359679870446607,
+          0.8507827052436724,
+          0.8253548650729337
+        ]
+      ],
+      "file": "salmon-4-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2596,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.31636971935680935,
+          0.16420858593677728,
+          -0.9661244442179068
+        ],
+        [
+          0.3412028351082168,
+          0.8514846429807843,
+          0.8335487251861797
+        ]
+      ],
+      "file": "salmon-4-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2596,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3140503547450981,
+          0.13502855416434784,
+          -0.9754219981690122
+        ],
+        [
+          0.31812793213260526,
+          0.8202400190877925,
+          0.8214985260500001
+        ]
+      ],
+      "file": "salmon-4-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2596,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3109625043568468,
+          0.13459664398710813,
+          -0.9732733342243609
+        ],
+        [
+          0.3204664453387799,
+          0.8206719292650323,
+          0.8265403002511567
+        ]
+      ],
+      "file": "salmon-4-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3298631653504829,
+          0.14396784559907888,
+          -0.9719848234052882
+        ],
+        [
+          0.33152979500329005,
+          0.9058184798458424,
+          0.8095414029362336
+        ]
+      ],
+      "file": "salmon-4-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3415643466254403,
+          0.13029287571358567,
+          -0.9526321463181359
+        ],
+        [
+          0.3151234674829893,
+          0.8918442766633243,
+          0.8256507258560988
+        ]
+      ],
+      "file": "salmon-4-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3158397116864921,
+          0.0825439485198628,
+          -0.975135212480388
+        ],
+        [
+          0.3165030361313317,
+          0.844619420041801,
+          0.8088279983834099
+        ]
+      ],
+      "file": "salmon-4-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2756,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3208797348267531,
+          0.08299495506886734,
+          -0.9702468060606093
+        ],
+        [
+          0.3103374062737593,
+          0.8454934188855185,
+          0.8183011680478823
+        ]
+      ],
+      "file": "salmon-4-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2596,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.32224558183192686,
+          0.11574476011943141,
+          -0.9756824390043516
+        ],
+        [
+          0.3379805871545736,
+          0.8903545421369121,
+          0.8409658690509819
+        ]
+      ],
+      "file": "salmon-4-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2596,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.33737388157103104,
+          0.11533165562370717,
+          -0.9814559972282653
+        ],
+        [
+          0.3218551556725088,
+          0.8907676466326363,
+          0.8439029048640073
+        ]
+      ],
+      "file": "salmon-4-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2596,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3133912691514221,
+          0.08619646864578262,
+          -0.9818435647327095
+        ],
+        [
+          0.3186725354206842,
+          0.8594781779451397,
+          0.836244790999541
+        ]
+      ],
+      "file": "salmon-4-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 4,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2596,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3194956728863524,
+          0.0859479512605838,
+          -0.9832941212170154
+        ],
+        [
+          0.31232965114701183,
+          0.8597266953303384,
+          0.8380116671000021
+        ]
+      ],
+      "file": "salmon-4-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.41275746216748455,
+          0.11744413554145083,
+          -1.0134205060342494
+        ],
+        [
+          0.41944568326057136,
+          0.9011028784461139,
+          0.8293036659418256
+        ]
+      ],
+      "file": "salmon-5-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4140713375723616,
+          0.11744413554145083,
+          -1.0009686004958884
+        ],
+        [
+          0.41842976166816714,
+          0.9011028784461139,
+          0.8272406976429699
+        ]
+      ],
+      "file": "salmon-5-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.39633578656110413,
+          0.08723180770874023,
+          -1.0139639157336813
+        ],
+        [
+          0.3986487392914534,
+          0.8708905506134033,
+          0.8263042045054627
+        ]
+      ],
+      "file": "salmon-5-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.39677427067480914,
+          0.08723180770874023,
+          -1.0108281849303518
+        ],
+        [
+          0.398281386971301,
+          0.8708905506134033,
+          0.8251987247391821
+        ]
+      ],
+      "file": "salmon-5-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.41772924635824116,
+          0.10994612821458438,
+          -1.0266788470338735
+        ],
+        [
+          0.4148990017219657,
+          1.0248318442287117,
+          0.8433011747893715
+        ]
+      ],
+      "file": "salmon-5-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4174994026823645,
+          0.07954021005567286,
+          -1.0196366598596853
+        ],
+        [
+          0.41515810943030373,
+          0.9938679115782427,
+          0.8427129110116495
+        ]
+      ],
+      "file": "salmon-5-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3980323271782543,
+          0.017357309975175983,
+          -1.0339900035587943
+        ],
+        [
+          0.39705368331926016,
+          0.9326520969738333,
+          0.8415837727825353
+        ]
+      ],
+      "file": "salmon-5-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.39795128151468284,
+          0.01748792769275942,
+          -1.032203899250483
+        ],
+        [
+          0.3971417147010997,
+          0.9326300601159443,
+          0.8412824344377413
+        ]
+      ],
+      "file": "salmon-5-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.562748775796496,
+          0.038567581361755754,
+          -0.9516403001647553
+        ],
+        [
+          0.562748775796496,
+          1.0096839583432913,
+          0.8981196738395627
+        ]
+      ],
+      "file": "salmon-5-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5958877564644286,
+          0.039669200748987166,
+          -0.870879614454825
+        ],
+        [
+          0.5958877564644286,
+          1.0085823389560598,
+          0.8903024401354448
+        ]
+      ],
+      "file": "salmon-5-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5450923436164588,
+          0.007916520143709305,
+          -0.9666860308070604
+        ],
+        [
+          0.5450923436164588,
+          0.9799103638959163,
+          0.9012329827071459
+        ]
+      ],
+      "file": "salmon-5-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5622667092543809,
+          0.008341970237626728,
+          -0.9285430111313766
+        ],
+        [
+          0.5622667092543809,
+          0.979484913801999,
+          0.8982139337941178
+        ]
+      ],
+      "file": "salmon-5-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3016,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4100510590505506,
+          0.04398452357940841,
+          -1.0447053358281242
+        ],
+        [
+          0.4212240389497506,
+          0.9796477989074805,
+          0.8917118935776571
+        ]
+      ],
+      "file": "salmon-5-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3016,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4243558879600593,
+          0.04265554865191845,
+          -1.04176416616788
+        ],
+        [
+          0.40313990789807835,
+          0.9809767738349705,
+          0.9005854300400515
+        ]
+      ],
+      "file": "salmon-5-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3016,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3954489787072821,
+          0.01465925172312943,
+          -1.0527480554483981
+        ],
+        [
+          0.39931394959977595,
+          0.9485484150983383,
+          0.8857890402655056
+        ]
+      ],
+      "file": "salmon-5-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3016,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.40060364031143,
+          0.013854627339946635,
+          -1.0520132752679476
+        ],
+        [
+          0.3932562339675204,
+          0.9493530394815213,
+          0.8911614996362698
+        ]
+      ],
+      "file": "salmon-5-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4115325530568159,
+          0.023213312673991127,
+          -1.0475384496157427
+        ],
+        [
+          0.4202986720385273,
+          0.9908131636644738,
+          0.9001818363228038
+        ]
+      ],
+      "file": "salmon-5-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4173552628372329,
+          0.024590125145610542,
+          -1.0364874901945438
+        ],
+        [
+          0.41531763803538624,
+          0.9894363511928544,
+          0.892644477127202
+        ]
+      ],
+      "file": "salmon-5-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.39593192338458305,
+          -0.006123392556749707,
+          -1.0579714799032234
+        ],
+        [
+          0.39896380339764315,
+          0.9597252132297935,
+          0.8953882408209626
+        ]
+      ],
+      "file": "salmon-5-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.39790061574946056,
+          -0.0053976050141149035,
+          -1.0551454682861563
+        ],
+        [
+          0.39719605394573954,
+          0.9589994256871586,
+          0.8914149172774177
+        ]
+      ],
+      "file": "salmon-5-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.411038260565835,
+          0.09688490726346843,
+          -1.0395795034617952
+        ],
+        [
+          0.4207929645295082,
+          0.948632049631408,
+          0.8661168793246091
+        ]
+      ],
+      "file": "salmon-5-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4032456091879891,
+          0.09595943532478562,
+          -1.0301771297325102
+        ],
+        [
+          0.42464188159692495,
+          0.9495575215700909,
+          0.8769200990453511
+        ]
+      ],
+      "file": "salmon-5-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.39593192338458305,
+          0.06708958804260551,
+          -1.0403428301354163
+        ],
+        [
+          0.39896380339764315,
+          0.9180027131868498,
+          0.8612490540876342
+        ]
+      ],
+      "file": "salmon-5-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3934434336506094,
+          0.06654260590001032,
+          -1.037986738864699
+        ],
+        [
+          0.4005100827831821,
+          0.918549695329445,
+          0.8676340864400879
+        ]
+      ],
+      "file": "salmon-5-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.41563549690904444,
+          0.05908532839623698,
+          -1.0365719927632302
+        ],
+        [
+          0.4170619060650844,
+          1.007656557649438,
+          0.8460236923840915
+        ]
+      ],
+      "file": "salmon-5-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.42470170380180594,
+          0.04560632620149818,
+          -1.0150952451505657
+        ],
+        [
+          0.40207189397032134,
+          0.9941248761655204,
+          0.8669294554379272
+        ]
+      ],
+      "file": "salmon-5-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.39730465207146987,
+          -0.0023780016138553184,
+          -1.04014979069275
+        ],
+        [
+          0.39779786653078214,
+          0.94644201210989,
+          0.8451424397833109
+        ]
+      ],
+      "file": "salmon-5-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.400762965800493,
+          -0.0018773826706440788,
+          -1.0347236414245007
+        ],
+        [
+          0.39292422426517276,
+          0.947542610389909,
+          0.8570716938252247
+        ]
+      ],
+      "file": "salmon-5-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4087025741117871,
+          0.04565362363151293,
+          -1.0436201657116384
+        ],
+        [
+          0.4225258320637959,
+          0.9903866796544717,
+          0.8875417744622357
+        ]
+      ],
+      "file": "salmon-5-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4214493564531535,
+          0.045113225249234445,
+          -1.0502873976395737
+        ],
+        [
+          0.4085236553312611,
+          0.9909270780367502,
+          0.8913838275468202
+        ]
+      ],
+      "file": "salmon-5-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3954124477921497,
+          0.016287069049959968,
+          -1.0505242102564467
+        ],
+        [
+          0.39933932988995663,
+          0.9593285785706034,
+          0.8815286074450299
+        ]
+      ],
+      "file": "salmon-5-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.3998901025173597,
+          0.01597320588513801,
+          -1.052199178096663
+        ],
+        [
+          0.3945618117162516,
+          0.9596424417354255,
+          0.8837600703436732
+        ]
+      ],
+      "file": "salmon-5-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.45851321237367837,
+          0.08628339349700198,
+          -1.0295697034574371
+        ],
+        [
+          0.4647170399021199,
+          0.934598811263573,
+          0.8405261390479604
+        ]
+      ],
+      "file": "salmon-6-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.45975901537660513,
+          0.08628339349700198,
+          -1.0167863494157128
+        ],
+        [
+          0.4638017811598909,
+          0.934598811263573,
+          0.8382396806231739
+        ]
+      ],
+      "file": "salmon-6-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4403291809699582,
+          0.056071065664291375,
+          -1.030122504437499
+        ],
+        [
+          0.4423061103108975,
+          0.9043864834308624,
+          0.8372054387407308
+        ]
+      ],
+      "file": "salmon-6-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44071305084688217,
+          0.056071065664291375,
+          -1.0269033126028686
+        ],
+        [
+          0.44200121484074495,
+          0.9043864834308624,
+          0.8359872312269732
+        ]
+      ],
+      "file": "salmon-6-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.46316355877732607,
+          0.07770832637663122,
+          -1.0448144292989845
+        ],
+        [
+          0.46053829424997683,
+          1.0590004843247947,
+          0.8553736239456746
+        ]
+      ],
+      "file": "salmon-6-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.46295302168516655,
+          0.04731598770819739,
+          -1.037586552259014
+        ],
+        [
+          0.46078129630002596,
+          1.028030937118487,
+          0.8547085851135549
+        ]
+      ],
+      "file": "salmon-6-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44179221628526744,
+          -0.014894497898020553,
+          -1.0523171083857243
+        ],
+        [
+          0.44095574879771815,
+          0.9668044745977677,
+          0.853433844208578
+        ]
+      ],
+      "file": "salmon-6-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4417238373952367,
+          -0.0147604361228727,
+          -1.0504839090418572
+        ],
+        [
+          0.4410318836141573,
+          0.9667796238571389,
+          0.8530940280203663
+        ]
+      ],
+      "file": "salmon-6-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5941715223485952,
+          0.01308758570315216,
+          -0.9703173098197426
+        ],
+        [
+          0.5941715223485952,
+          1.0458795089466717,
+          0.9242762120033102
+        ]
+      ],
+      "file": "salmon-6-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6270793403083452,
+          0.014024015933251921,
+          -0.8966982999416926
+        ],
+        [
+          0.6270793403083452,
+          1.0449430787165719,
+          0.9176311819310923
+        ]
+      ],
+      "file": "salmon-6-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5765999017915107,
+          -0.017475221749683634,
+          -0.9856434277951456
+        ],
+        [
+          0.5765999017915107,
+          1.0160176607340863,
+          0.926763260734301
+        ]
+      ],
+      "file": "salmon-6-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5936921090067687,
+          -0.01713561798571761,
+          -0.9466089117992295
+        ],
+        [
+          0.5936921090067687,
+          1.0156780569701203,
+          0.9243533884857813
+        ]
+      ],
+      "file": "salmon-6-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3016,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.45591845798161523,
+          0.0211981643015432,
+          -1.0653041043968448
+        ],
+        [
+          0.4662822362282745,
+          1.0124795993397275,
+          0.9085856255877272
+        ]
+      ],
+      "file": "salmon-6-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3016,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.46884371204740793,
+          0.019640976130574805,
+          -1.0623327141408345
+        ],
+        [
+          0.4491642966513721,
+          1.0140367875106961,
+          0.9189829368748517
+        ]
+      ],
+      "file": "salmon-6-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3016,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.43954289483247555,
+          -0.00799841105657989,
+          -1.0735449388668612
+        ],
+        [
+          0.44284636673615496,
+          0.9812515190324296,
+          0.9018034685781571
+        ]
+      ],
+      "file": "salmon-6-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3016,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44383331216378874,
+          -0.008919151935279646,
+          -1.072802628848045
+        ],
+        [
+          0.4375533294427911,
+          0.9821722599111293,
+          0.9079512352444479
+        ]
+      ],
+      "file": "salmon-6-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.45734320852316623,
+          0.0007140155775425816,
+          -1.0691033280758788
+        ],
+        [
+          0.46547444244911224,
+          1.0230775600734705,
+          0.9178630150177358
+        ]
+      ],
+      "file": "salmon-6-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4628207200325383,
+          0.0022796809483901503,
+          -1.057751117774375
+        ],
+        [
+          0.4609306699486083,
+          1.0215118947026232,
+          0.909291780718621
+        ]
+      ],
+      "file": "salmon-6-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.43997264504427025,
+          -0.028499956737907117,
+          -1.0798026388066697
+        ],
+        [
+          0.4425640566530671,
+          0.991866876723499,
+          0.9123975182317752
+        ]
+      ],
+      "file": "salmon-6-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44168100164898344,
+          -0.0276792573010487,
+          -1.076899649053898
+        ],
+        [
+          0.44107879785813,
+          0.9910461772866408,
+          0.907904599570199
+        ]
+      ],
+      "file": "salmon-6-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4568489160321853,
+          0.07423287942345907,
+          -1.0584313208596272
+        ],
+        [
+          0.46596873494009317,
+          0.9816315352731986,
+          0.880424795967554
+        ]
+      ],
+      "file": "salmon-6-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44926214966206857,
+          0.07315434354389827,
+          -1.0488311709865652
+        ],
+        [
+          0.46918039789666366,
+          0.9827100711527594,
+          0.8930147617964291
+        ]
+      ],
+      "file": "salmon-6-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.43997264504427025,
+          0.04449601082106863,
+          -1.0592063336868678
+        ],
+        [
+          0.4425640566530671,
+          0.9509437482101679,
+          0.8748746649276936
+        ]
+      ],
+      "file": "salmon-6-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4377252973096568,
+          0.04387130286111979,
+          -1.0568006643807932
+        ],
+        [
+          0.4437653109376898,
+          0.9515684561701168,
+          0.8821670063489038
+        ]
+      ],
+      "file": "salmon-6-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.46122773524507266,
+          0.026583148624930386,
+          -1.0554027627474836
+        ],
+        [
+          0.46255083689884563,
+          1.041950237251715,
+          0.8582888675380143
+        ]
+      ],
+      "file": "salmon-6-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4690988323395704,
+          0.013149410574652132,
+          -1.0334354024489165
+        ],
+        [
+          0.44810798361582305,
+          1.0287201058422442,
+          0.8824630960344559
+        ]
+      ],
+      "file": "salmon-6-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.44117236625633915,
+          -0.034888847446064186,
+          -1.0590744910818775
+        ],
+        [
+          0.44159392702720834,
+          0.9807253484011353,
+          0.8572955050174093
+        ]
+      ],
+      "file": "salmon-6-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2816,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4439474276962434,
+          -0.03437677571154579,
+          -1.0535242063688686
+        ],
+        [
+          0.43724749045417394,
+          0.9819786483796444,
+          0.8708798746332741
+        ]
+      ],
+      "file": "salmon-6-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4545738947950717,
+          0.022247606811056975,
+          -1.063862394063324
+        ],
+        [
+          0.46757500039753414,
+          1.0241808426159118,
+          0.9040040811295166
+        ]
+      ],
+      "file": "salmon-6-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.4662833740843192,
+          0.02162024727624573,
+          -1.0707207847256806
+        ],
+        [
+          0.4544728105822193,
+          1.024808202150723,
+          0.9084643991373206
+        ]
+      ],
+      "file": "salmon-6-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.43951024641110115,
+          -0.006995918720297756,
+          -1.0709341214006087
+        ],
+        [
+          0.4428666351239787,
+          0.9929997124818453,
+          0.8971162184113081
+        ]
+      ],
+      "file": "salmon-6-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 6,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2656,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.443299079470723,
+          -0.007353870723952549,
+          -1.0726570961594697
+        ],
+        [
+          0.4387448772669553,
+          0.9933576644855,
+          0.8996611383164642
+        ]
+      ],
+      "file": "salmon-6-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3208,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.4043093298589525,
+          0.1326921361632465,
+          -0.9404181739430171
+        ],
+        [
+          0.4105627592082267,
+          0.9385907131381153,
+          0.7845332202128048
+        ]
+      ],
+      "file": "salmon-7-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3208,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.40554437434840207,
+          0.1326921361632465,
+          -0.9294757992521802
+        ],
+        [
+          0.4096194634906355,
+          0.9385907131381153,
+          0.7824543015258983
+        ]
+      ],
+      "file": "salmon-7-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3208,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3886061861396978,
+          0.10247980833053588,
+          -0.9409190686938718
+        ],
+        [
+          0.39074860357892227,
+          0.9083783853054046,
+          0.7815129800006332
+        ]
+      ],
+      "file": "salmon-7-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3208,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.38901426362843394,
+          0.10247980833053588,
+          -0.9381634478822541
+        ],
+        [
+          0.3904102594022239,
+          0.9083783853054046,
+          0.7804035318813004
+        ]
+      ],
+      "file": "salmon-7-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2848,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.4089672965978175,
+          0.14005172405175803,
+          -0.9531610629747919
+        ],
+        [
+          0.40632104214124687,
+          1.0589381179360555,
+          0.800309069436007
+        ]
+      ],
+      "file": "salmon-7-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2848,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.4087530412198588,
+          0.10958396671125925,
+          -0.9469644825888625
+        ],
+        [
+          0.406563952113216,
+          1.0279740699443984,
+          0.7997192284496436
+        ]
+      ],
+      "file": "salmon-7-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2848,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3901803835175101,
+          0.04752668272638305,
+          -0.9596001155996184
+        ],
+        [
+          0.38927389561449866,
+          0.9667580966564921,
+          0.7988080818865451
+        ]
+      ],
+      "file": "salmon-7-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2848,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3901055022551266,
+          0.047641616671898535,
+          -0.9580284757099125
+        ],
+        [
+          0.3893556252529382,
+          0.9667360309626303,
+          0.7985680793098522
+        ]
+      ],
+      "file": "salmon-7-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3008,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.543814295371948,
+          0.018698356897483615,
+          -0.8833949283362805
+        ],
+        [
+          0.543814295371948,
+          1.0411084952659895,
+          0.8629276238460339
+        ]
+      ],
+      "file": "salmon-7-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3008,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5748256098233847,
+          0.01965262363684006,
+          -0.835104801386803
+        ],
+        [
+          0.5748256098233847,
+          1.040154228526633,
+          0.8561560235963654
+        ]
+      ],
+      "file": "salmon-7-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3008,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5272728250761917,
+          -0.011883090332397372,
+          -0.897169743095573
+        ],
+        [
+          0.5272728250761917,
+          1.0112652868304493,
+          0.8655469428466335
+        ]
+      ],
+      "file": "salmon-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3008,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.543362834439131,
+          -0.011525275274428315,
+          -0.8630806535781502
+        ],
+        [
+          0.543362834439131,
+          1.01090747177248,
+          0.8630078408996109
+        ]
+      ],
+      "file": "salmon-7-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3208,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.4017583641700436,
+          0.02666164921054842,
+          -0.969837894512729
+        ],
+        [
+          0.41220500453196696,
+          1.0078033564103293,
+          0.8532480243590438
+        ]
+      ],
+      "file": "salmon-7-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3208,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.41504976591218834,
+          0.02530246772243988,
+          -0.9670319326200636
+        ],
+        [
+          0.3952130065487244,
+          1.0091625378984377,
+          0.8623232493646213
+        ]
+      ],
+      "file": "salmon-7-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3208,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3877787722182982,
+          -0.002654956164785671,
+          -0.9769791371002048
+        ],
+        [
+          0.3913587766574391,
+          0.9766953061202421,
+          0.8472673051435748
+        ]
+      ],
+      "file": "salmon-7-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3208,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3925289636322309,
+          -0.003467139762830973,
+          -0.9762780429989748
+        ],
+        [
+          0.3857232856442147,
+          0.9775074897182874,
+          0.852690237226293
+        ]
+      ],
+      "file": "salmon-7-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2848,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.4031558340575793,
+          0.007969153614107327,
+          -0.9726434875653702
+        ],
+        [
+          0.41135208010813606,
+          1.0165876941634082,
+          0.8633912377569817
+        ]
+      ],
+      "file": "salmon-7-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2848,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.40861861166242,
+          0.009354115336831281,
+          -0.9629648867730435
+        ],
+        [
+          0.4067134499518049,
+          1.0152027324406843,
+          0.8558092654902347
+        ]
+      ],
+      "file": "salmon-7-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2848,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.38822969933123463,
+          -0.021361091064249604,
+          -0.981864361956043
+        ],
+        [
+          0.39103803714479424,
+          0.9854932831763439,
+          0.8585622739643068
+        ]
+      ],
+      "file": "salmon-7-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2848,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.39005867141770234,
+          -0.02063326592197129,
+          -0.9793890239257512
+        ],
+        [
+          0.3894060573476019,
+          0.9847654580340657,
+          0.8545777955825206
+        ]
+      ],
+      "file": "salmon-7-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2848,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.4026615415665984,
+          0.07603301698428683,
+          -0.9646643099814288
+        ],
+        [
+          0.411846372599117,
+          0.9806423081580729,
+          0.8246748720954865
+        ]
+      ],
+      "file": "salmon-7-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2848,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.395288356237513,
+          0.07508936024343554,
+          -0.9561600260670973
+        ],
+        [
+          0.41535795390288677,
+          0.9815859648989241,
+          0.8356903666623832
+        ]
+      ],
+      "file": "salmon-7-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2848,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.38822969933123463,
+          0.04624077455241421,
+          -0.9653748497749928
+        ],
+        [
+          0.39103803714479424,
+          0.9500098949245241,
+          0.8197711308829893
+        ]
+      ],
+      "file": "salmon-7-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2848,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.38589921461221066,
+          0.04568924229775745,
+          -0.9632438906142721
+        ],
+        [
+          0.39244483577422107,
+          0.9505614271791809,
+          0.8262092776069332
+        ]
+      ],
+      "file": "salmon-7-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3008,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.4070111865610145,
+          0.09056779570151735,
+          -0.9621025296021642
+        ],
+        [
+          0.408344866885918,
+          1.0408518087428082,
+          0.8035871871629034
+        ]
+      ],
+      "file": "salmon-7-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3008,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.41535714629473647,
+          0.07688302262314672,
+          -0.9428561081583103
+        ],
+        [
+          0.3941984682248723,
+          1.0273495368484298,
+          0.824811717264857
+        ]
+      ],
+      "file": "salmon-7-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3008,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3895068065987033,
+          0.029143927845649176,
+          -0.9652526019288672
+        ],
+        [
+          0.3899636560816362,
+          0.9796371755331839,
+          0.8027049843165802
+        ]
+      ],
+      "file": "salmon-7-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3008,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3926718734356201,
+          0.02959248139587012,
+          -0.9603907832715675
+        ],
+        [
+          0.3854110866731051,
+          0.9807451328122827,
+          0.814714001675513
+        ]
+      ],
+      "file": "salmon-7-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2848,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.40041617769573973,
+          0.027121706445227878,
+          -0.9687584909100424
+        ],
+        [
+          0.4135014715626957,
+          1.020120842094641,
+          0.8484669452364354
+        ]
+      ],
+      "file": "salmon-7-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2848,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.4123065762538213,
+          0.02657186472277062,
+          -0.97455442879681
+        ],
+        [
+          0.4003818228440558,
+          1.0206706838170985,
+          0.8523761373344816
+        ]
+      ],
+      "file": "salmon-7-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2848,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3877446332899954,
+          -0.0022364283547408603,
+          -0.9748996626952412
+        ],
+        [
+          0.39138198418685066,
+          0.9890543212291887,
+          0.8423939163675512
+        ]
+      ],
+      "file": "salmon-7-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2848,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3918840412146084,
+          -0.002552653858850784,
+          -0.9763558176601492
+        ],
+        [
+          0.3869486082575202,
+          0.9893705467332985,
+          0.84464217471423
+        ]
+      ],
+      "file": "salmon-7-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3152,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.4045208886883466,
+          0.14776540576888308,
+          -0.9144934207865671
+        ],
+        [
+          0.41035120037883266,
+          0.916090704793465,
+          0.7608486240416782
+        ]
+      ],
+      "file": "salmon-8-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3152,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.4056822380773187,
+          0.14776540576888308,
+          -0.9035932794249575
+        ],
+        [
+          0.40948159976171894,
+          0.916090704793465,
+          0.7581985483587166
+        ]
+      ],
+      "file": "salmon-8-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3152,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3887119820021758,
+          0.11755307793617248,
+          -0.9149819345008317
+        ],
+        [
+          0.3906428077164442,
+          0.8858783769607543,
+          0.75700988577549
+        ]
+      ],
+      "file": "salmon-8-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3152,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3890832000430653,
+          0.11755307793617248,
+          -0.91223696327753
+        ],
+        [
+          0.39034132298759255,
+          0.8858783769607543,
+          0.7556170325424248
+        ]
+      ],
+      "file": "salmon-8-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2792,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.4088777715606192,
+          0.1584828994999915,
+          -0.9255648500434583
+        ],
+        [
+          0.4064105671784452,
+          1.03467485943817,
+          0.7742790801228373
+        ]
+      ],
+      "file": "salmon-8-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2792,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.40867898247497275,
+          0.12760518566959067,
+          -0.9193958128762479
+        ],
+        [
+          0.40663801085810203,
+          1.0037107473681601,
+          0.7736883629106118
+        ]
+      ],
+      "file": "salmon-8-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2792,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3901356197530965,
+          0.06655476554904666,
+          -0.9319726912471299
+        ],
+        [
+          0.3893186593789122,
+          0.9424946859228722,
+          0.7725558493081963
+        ]
+      ],
+      "file": "salmon-8-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2792,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3900684721774459,
+          0.06657684726287222,
+          -0.9304080398986532
+        ],
+        [
+          0.38939265533061895,
+          0.9424726042090465,
+          0.7722538975904002
+        ]
+      ],
+      "file": "salmon-8-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2952,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5332951535136503,
+          0.03678887685809484,
+          -0.8567427003099
+        ],
+        [
+          0.5332951535136503,
+          1.0156638998063148,
+          0.8373305883436235
+        ]
+      ],
+      "file": "salmon-8-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2952,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5631244327438085,
+          0.03766128112372946,
+          -0.8111250228449383
+        ],
+        [
+          0.5631244327438085,
+          1.0147914955406803,
+          0.8311398947992097
+        ]
+      ],
+      "file": "salmon-8-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2952,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5173731056664838,
+          0.006246104014857534,
+          -0.8702170137629597
+        ],
+        [
+          0.5173731056664838,
+          0.9857820169841309,
+          0.8396754688927391
+        ]
+      ],
+      "file": "salmon-8-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2952,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.5328606956745888,
+          0.006566344102625188,
+          -0.8365144533991193
+        ],
+        [
+          0.5328606956745888,
+          0.9854617768963632,
+          0.8374030037958793
+        ]
+      ],
+      "file": "salmon-8-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3152,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.40211178289161686,
+          0.044345181492999486,
+          -0.9404912170664548
+        ],
+        [
+          0.4118515858103937,
+          0.9832256471065816,
+          0.8250620873593962
+        ]
+      ],
+      "file": "salmon-8-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3152,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.41437867148455354,
+          0.04296921860455288,
+          -0.9377950741761268
+        ],
+        [
+          0.3958841009763592,
+          0.9846016099950282,
+          0.8342493614072166
+        ]
+      ],
+      "file": "salmon-8-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3152,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3879555583340102,
+          0.015033390822924153,
+          -0.9475720123502454
+        ],
+        [
+          0.3911819905417272,
+          0.9521127821112356,
+          0.8190492204624432
+        ]
+      ],
+      "file": "salmon-8-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3152,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.392192888804185,
+          0.014217007666628867,
+          -0.9468983955141357
+        ],
+        [
+          0.3860593604722605,
+          0.9529291652675309,
+          0.8245001929035508
+        ]
+      ],
+      "file": "salmon-8-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2792,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.4034331200270902,
+          0.02604545020586546,
+          -0.9425631357886484
+        ],
+        [
+          0.41107479413862513,
+          0.9918096188984573,
+          0.8345143056444542
+        ]
+      ],
+      "file": "salmon-8-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2792,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.40855415842263865,
+          0.027434939284317394,
+          -0.9329072833820955
+        ],
+        [
+          0.40677790319158624,
+          0.9904201298200053,
+          0.8269075483710111
+        ]
+      ],
+      "file": "salmon-8-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2792,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.38836837936420837,
+          -0.0032812052814766846,
+          -0.9517248848811009
+        ],
+        [
+          0.39089935711182044,
+          0.9607116187203781,
+          0.8296656928273424
+        ]
+      ],
+      "file": "salmon-8-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2792,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.39002644433293937,
+          -0.0025522481408958853,
+          -0.9492554875362695
+        ],
+        [
+          0.3894382844323649,
+          0.9599826615797973,
+          0.8256750173214081
+        ]
+      ],
+      "file": "salmon-8-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2792,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.4029388275361093,
+          0.09257698385284707,
+          -0.9367012790454641
+        ],
+        [
+          0.41156908662960606,
+          0.9569968905209956,
+          0.7978005904248171
+        ]
+      ],
+      "file": "salmon-8-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2792,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.3959338831126866,
+          0.09162322445750593,
+          -0.9283379317561277
+        ],
+        [
+          0.41471242702771316,
+          0.9579506499163367,
+          0.8089340153055952
+        ]
+      ],
+      "file": "salmon-8-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2792,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.38836837936420837,
+          0.0627864507459272,
+          -0.9373912995786453
+        ],
+        [
+          0.39089935711182044,
+          0.9263627679624942,
+          0.7928768959190142
+        ]
+      ],
+      "file": "salmon-8-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2792,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.38622244743491396,
+          0.062232390654584524,
+          -0.9352956188604986
+        ],
+        [
+          0.39212160295151777,
+          0.9269168280538369,
+          0.7993445505880348
+        ]
+      ],
+      "file": "salmon-8-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2952,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.4070563060998409,
+          0.11294109898132426,
+          -0.934066649507648
+        ],
+        [
+          0.40829974734709157,
+          1.0161502635822224,
+          0.7773088547838014
+        ]
+      ],
+      "file": "salmon-8-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2952,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.4146413302338249,
+          0.09550611928628316,
+          -0.915061445542573
+        ],
+        [
+          0.3949142842857839,
+          1.0026643303270582,
+          0.7987104774556972
+        ]
+      ],
+      "file": "salmon-8-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2952,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.38952936652758763,
+          0.05188929933064984,
+          -0.9372018774093809
+        ],
+        [
+          0.38994109615275185,
+          0.9549355816670648,
+          0.7764261240239868
+        ]
+      ],
+      "file": "salmon-8-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2952,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.39231332463754487,
+          0.05077725372414388,
+          -0.9324006268769215
+        ],
+        [
+          0.3857696354711803,
+          0.9560476272735707,
+          0.7884794542781246
+        ]
+      ],
+      "file": "salmon-8-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2792,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.40077525263262703,
+          0.04506515196446975,
+          -0.9396874258282543
+        ],
+        [
+          0.41314239662580843,
+          0.9950480214371252,
+          0.8205412512490489
+        ]
+      ],
+      "file": "salmon-8-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2792,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.4118195400364237,
+          0.044510063948862144,
+          -0.9454891826879683
+        ],
+        [
+          0.4008688590614534,
+          0.9956031094527328,
+          0.8244877427496136
+        ]
+      ],
+      "file": "salmon-8-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2792,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.38792425126183533,
+          0.015711694814740884,
+          -0.9457717579936316
+        ],
+        [
+          0.39120236621501076,
+          0.9639768229214329,
+          0.814434965839949
+        ]
+      ],
+      "file": "salmon-8-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "salmon",
+      "stage": 8,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2792,
+      "meshes": 8,
+      "drawCalls": 8,
+      "box": [
+        [
+          -0.391640321957643,
+          0.0153941569016538,
+          -0.9472293400954785
+        ],
+        [
+          0.3871923275144856,
+          0.96429436083452,
+          0.8166925549787329
+        ]
+      ],
+      "file": "salmon-8-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}

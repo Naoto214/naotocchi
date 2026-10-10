@@ -1,0 +1,47 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ Unknown source stages distinguish dark seeds, blue dome, antennae, wings and tall wisp (103.805048ms)
+✖ Unknown candidates preserve white canonical eyes through32 states and stay isolated (8.564919ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 221.744942
+
+✖ failing tests:
+
+test at tests/character-3d-unknown-stages-test.cjs:2:1
+✖ Unknown source stages distinguish dark seeds, blue dome, antennae, wings and tall wisp (103.805048ms)
+  AssertionError [ERR_ASSERTION]: stage 1
+      at TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-unknown-stages-test.cjs:4:31)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/character-3d-unknown-stages-test.cjs:7:1
+✖ Unknown candidates preserve white canonical eyes through32 states and stay isolated (8.564919ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(rows[n])
+  
+      at TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-unknown-stages-test.cjs:9:31)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

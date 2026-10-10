@@ -1,0 +1,12 @@
+✔ repeated scene gate requires cleanup, warm cache/resource plateau and unchanged save counters (10.287642ms)
+✔ scene save setup permits only recorded one-time city seed and retains whole-span mutation (25.57025ms)
+✔ scene save contract rejects dirty constituent proof even after state is restored and rejects adapter restoration failure (15.818242ms)
+✔ scene setup proof rejects unknown fields, storage commits and missing complete provenance (17.744259ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 185.684401

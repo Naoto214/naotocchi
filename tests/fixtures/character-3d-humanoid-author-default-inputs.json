@@ -1,0 +1,73 @@
+{
+  "adult": {
+    "archetype": "humanoid",
+    "idlePose": "stand",
+    "head": {
+      "r": 0.42
+    },
+    "body": {
+      "h": 0.52,
+      "r": 0.25
+    },
+    "legs": {
+      "len": 0.46,
+      "r": 0.1
+    },
+    "arms": {
+      "len": 0.42,
+      "r": 0.08
+    },
+    "hair": {
+      "style": "spiky",
+      "vol": 1
+    },
+    "clothing": "jacket",
+    "colors": {
+      "skin": "#f8d8b4",
+      "hair": "#885848",
+      "top": "#384868",
+      "bottom": "#2c3a58",
+      "shoe": "#e8e8e8",
+      "accent": "#f4f4f4"
+    },
+    "attachments": [
+      "backpack"
+    ]
+  },
+  "elder": {
+    "archetype": "humanoid",
+    "idlePose": "stand",
+    "head": {
+      "r": 0.42
+    },
+    "body": {
+      "h": 0.5,
+      "r": 0.28
+    },
+    "legs": {
+      "len": 0.4,
+      "r": 0.11
+    },
+    "arms": {
+      "len": 0.4,
+      "r": 0.085
+    },
+    "hair": {
+      "style": "soft",
+      "vol": 0.9
+    },
+    "clothing": "cardigan",
+    "stoop": 0.12,
+    "colors": {
+      "skin": "#f8d8a8",
+      "hair": "#c8bcbc",
+      "top": "#c89858",
+      "bottom": "#4c4444",
+      "shoe": "#5a3a28",
+      "accent": "#f6efe4"
+    },
+    "attachments": [
+      "cane"
+    ]
+  }
+}

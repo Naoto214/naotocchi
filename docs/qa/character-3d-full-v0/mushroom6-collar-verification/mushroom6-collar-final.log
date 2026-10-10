@@ -1,0 +1,36 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/mushroom6-collar-face-clearance/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/mushroom6-collar-face-clearance/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ mycelium has a central face and bounded tapered branching arms with real depth (89.749484ms)
+✔ upturned cap rim rises above its centre and separate scalloped collar follows stem (8.852265ms)
+✔ optional cap patches are vertex colours and cap-face lower volume fades to cream (14.407127ms)
+✔ mycelium young cap and upturned cap candidates retain source face placement and canonical actor motion (78.490176ms)
+✔ young cap face is above the lower rim and upturned underside keeps pale gills (22.900254ms)
+✔ leaning fungus keeps spore faces and bounded secondary bob under its own actor (52.06175ms)
+✔ spore-release stage keeps source lean, secondary faces and finite canonical motion as a reviewed stage (41.275456ms)
+✔ mature red cap keeps original raised crown inside upturned rim rather than an empty bowl (8.217642ms)
+✔ all fungus stages preserve Pilot and separate red dome, open rim and leaning release shapes (16.265577ms)
+✔ released spore cluster follows original rising path instead of symmetric horizontal grouping (13.163233ms)
+✔ mycelium and opened cap retain source squeezed neutral eyes without changing positive emotion (26.241869ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/mushroom6-collar-face-clearance/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/mushroom6-collar-face-clearance/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ mushroom 5: assembled cap and collar clear complete canonical face in32states (2480.765746ms)
+✔ mushroom 6: assembled cap and collar clear complete canonical face in32states (753.318873ms)
+✔ mushroom 7: assembled cap and collar clear complete canonical face in32states (1582.866332ms)
+✔ clownfish 2: both produced pectoral roots stay embedded in32states (701.14538ms)
+✔ clownfish 3: both produced pectoral roots stay embedded in32states (824.413275ms)
+✔ clownfish 5: both produced pectoral roots stay embedded in32states (2351.786789ms)
+✔ clownfish 6: both produced pectoral roots stay embedded in32states (759.842539ms)
+✔ clownfish 7: both produced pectoral roots stay embedded in32states (708.087017ms)
+✔ fish optional root inset preserves frozen Pilot and spread-fin default geometry (34.683704ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10374.667953

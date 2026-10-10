@@ -1,0 +1,618 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "64d739f9fda0fadf79595d3b45b1181ac6229f75",
+  "artifact": {
+    "id": 11603577369,
+    "name": "full-rollout-nonplayer-review-64d739f9fda0fadf79595d3b45b1181ac6229f75",
+    "digest": "sha256:388deb4436bf4655271598375d8347af144eedf80ab2d3fa82c4cdbb4a27733a"
+  },
+  "files": [
+    {
+      "path": "companion-many_tail_fox-0-34.jpg",
+      "sha256": "692629362f69a6dab0cc234e334c291c9f4928de094881a46b57c5492896f9d3",
+      "bytes": 14120
+    },
+    {
+      "path": "companion-many_tail_fox-0-back.jpg",
+      "sha256": "a8290319aa39b40d1a03a678155b1ffe6a41c42353a811e91d04ceddd37e4198",
+      "bytes": 12555
+    },
+    {
+      "path": "companion-many_tail_fox-0-dislike-idle-normal.jpg",
+      "sha256": "4c3959df8abfc1b4277bbeaf470cefa7af52679b159dc65777ce93f3ab608cfa",
+      "bytes": 14138
+    },
+    {
+      "path": "companion-many_tail_fox-0-dislike-idle-reduced.jpg",
+      "sha256": "a20a1ac07352c6250d271e02abf5b7dcb47cb334c9ec481dd13abe81f50ad686",
+      "bytes": 14324
+    },
+    {
+      "path": "companion-many_tail_fox-0-dislike-walk-normal.jpg",
+      "sha256": "1314b523631e137203f2e04f234171bb10ddb737cef7f9a888922a11924f39a4",
+      "bytes": 13898
+    },
+    {
+      "path": "companion-many_tail_fox-0-dislike-walk-reduced.jpg",
+      "sha256": "33942d5fda6e60339bd8ec3afa57f95fe72039798dfe278aacdc43f07863cd04",
+      "bytes": 14224
+    },
+    {
+      "path": "companion-many_tail_fox-0-front.jpg",
+      "sha256": "d84d20073031d61ac1eda5fbd15dc0ea770690e9f3fc4625af48b0c4ac03548b",
+      "bytes": 15197
+    },
+    {
+      "path": "companion-many_tail_fox-0-normal-idle-normal.jpg",
+      "sha256": "692629362f69a6dab0cc234e334c291c9f4928de094881a46b57c5492896f9d3",
+      "bytes": 14120
+    },
+    {
+      "path": "companion-many_tail_fox-0-normal-idle-reduced.jpg",
+      "sha256": "94eecc4453dcc120541c227260986eab16a262272f5a20d8de618bebfd773b2a",
+      "bytes": 14247
+    },
+    {
+      "path": "companion-many_tail_fox-0-normal-walk-normal.jpg",
+      "sha256": "e81fc42191152500542bd4d2eb3b477041a7cdf7891c421438d24793039a80d8",
+      "bytes": 13683
+    },
+    {
+      "path": "companion-many_tail_fox-0-normal-walk-reduced.jpg",
+      "sha256": "835b9e297bbda92de9e71328aa6bfad16692c673e2c649dda30000841554ef4e",
+      "bytes": 14109
+    },
+    {
+      "path": "companion-many_tail_fox-0-positive-idle-normal.jpg",
+      "sha256": "fb0fcb7e67265ded2bf80f03617adcd9ed023816b8dd8f5e7febcdc56c969608",
+      "bytes": 14134
+    },
+    {
+      "path": "companion-many_tail_fox-0-positive-idle-reduced.jpg",
+      "sha256": "0b00784180ac0cb04a8e6357eb021e1974e272be9481a4162b75efc5d8f5674e",
+      "bytes": 14166
+    },
+    {
+      "path": "companion-many_tail_fox-0-positive-walk-normal.jpg",
+      "sha256": "3c56255f5813fe10f6b63b481826181f8c715538fe9a93be3b97fef10875eebd",
+      "bytes": 14137
+    },
+    {
+      "path": "companion-many_tail_fox-0-positive-walk-reduced.jpg",
+      "sha256": "d9de43bac01fcd82da7d94a06b3b0793a6a62f2d1505b6c52f3c7437d99fc779",
+      "bytes": 14226
+    },
+    {
+      "path": "companion-many_tail_fox-0-sick-idle-normal.jpg",
+      "sha256": "5c00390330f549b988be1857ea667031f46caca4f56ccf06258d1ad44bd5897d",
+      "bytes": 14327
+    },
+    {
+      "path": "companion-many_tail_fox-0-sick-idle-reduced.jpg",
+      "sha256": "a3d74191d7c5af45ebb00152003c4a108458d6d85bc14e144cc5eafd3650418b",
+      "bytes": 14195
+    },
+    {
+      "path": "companion-many_tail_fox-0-sick-walk-normal.jpg",
+      "sha256": "798f7c0895d66a8cc7d5149c46f25721ab41861bf30a28b15057a1691f8b57bd",
+      "bytes": 13722
+    },
+    {
+      "path": "companion-many_tail_fox-0-sick-walk-reduced.jpg",
+      "sha256": "583d9870abc8ac6ca6933605511dd8bf82bd7d27ecbc75e6a2f590d4eb40d429",
+      "bytes": 14416
+    },
+    {
+      "path": "companion-many_tail_fox-0-side.jpg",
+      "sha256": "b0c79b7f4c62ab212d0a1e35a3cbc3e0d28f3f9d64c0c4eaa8b093b2d74497eb",
+      "bytes": 12718
+    },
+    {
+      "path": "companion-many_tail_fox-0-sleeping-idle-normal.jpg",
+      "sha256": "730eaa51940138b8dba6747c031c5d5b1a11ef3d10f32f86f5d92866b6ca4d63",
+      "bytes": 14148
+    },
+    {
+      "path": "companion-many_tail_fox-0-sleeping-idle-reduced.jpg",
+      "sha256": "545b43066c37a562c50024a89b1d39ae7634303c1e076059369de6c1f9cb455a",
+      "bytes": 14356
+    },
+    {
+      "path": "companion-many_tail_fox-0-sleeping-walk-normal.jpg",
+      "sha256": "08ce2e2a6563e7d57af715f03eeb722e4f2858ca2c34ddf2f9fa2b5e64747bb1",
+      "bytes": 13779
+    },
+    {
+      "path": "companion-many_tail_fox-0-sleeping-walk-reduced.jpg",
+      "sha256": "09015f3fb9cee8c57116271fad22142831c93068ad0b27756972e7ac83b82feb",
+      "bytes": 13978
+    },
+    {
+      "path": "companion-many_tail_fox-0-strained-idle-normal.jpg",
+      "sha256": "124a76e95b1feebd6eec9e6442e04e22ec9c5396e84cfcb114df41f567a54225",
+      "bytes": 14446
+    },
+    {
+      "path": "companion-many_tail_fox-0-strained-idle-reduced.jpg",
+      "sha256": "7abc4387b7d9a8226b025e8671c0b8acd96c03247bf88317ffb6e2b73d1e6627",
+      "bytes": 14355
+    },
+    {
+      "path": "companion-many_tail_fox-0-strained-walk-normal.jpg",
+      "sha256": "dd3c2bf23a82138c57abe06710a26b0dbe9af3abdd1f573cf3d478c1493dfa7a",
+      "bytes": 14358
+    },
+    {
+      "path": "companion-many_tail_fox-0-strained-walk-reduced.jpg",
+      "sha256": "55a50e42c0736dba2cdae3507ee1433fb6edab00a2de24d2270a46370fc8877f",
+      "bytes": 14419
+    },
+    {
+      "path": "companion-many_tail_fox-0-tired-idle-normal.jpg",
+      "sha256": "8890dc910f1b5848565190a0f8a30519c49c84d85b54f549b21aaf10b94bab99",
+      "bytes": 14151
+    },
+    {
+      "path": "companion-many_tail_fox-0-tired-idle-reduced.jpg",
+      "sha256": "c6fb7b32209433928c4de1be22dc4f2f05ce7b083ffe45077d59530b1e00802f",
+      "bytes": 14142
+    },
+    {
+      "path": "companion-many_tail_fox-0-tired-walk-normal.jpg",
+      "sha256": "62e9a18bb29534efabed61f0c0fd177c8d69a72f17ee7531970bb76db367ee0c",
+      "bytes": 13700
+    },
+    {
+      "path": "companion-many_tail_fox-0-tired-walk-reduced.jpg",
+      "sha256": "dfcfcbe4a8acd86f463f81ec598d0f0cefbdd3a206a00aa20f3c11b9b172deac",
+      "bytes": 14194
+    },
+    {
+      "path": "companion-many_tail_fox-0-wantsPlay-idle-normal.jpg",
+      "sha256": "0f27336e52320c6528fbcb15f118b156151dd4d81654b718117d852504cbd715",
+      "bytes": 14141
+    },
+    {
+      "path": "companion-many_tail_fox-0-wantsPlay-idle-reduced.jpg",
+      "sha256": "8b4d8614605acfd884f2d79e03a3c38de210e832bbe821fa7788317ca6d7b07f",
+      "bytes": 14268
+    },
+    {
+      "path": "companion-many_tail_fox-0-wantsPlay-walk-normal.jpg",
+      "sha256": "1e2ddeda30254ae43e1ca98aa0db1029c6fd11e8c4ccfcd48a352f619df3da92",
+      "bytes": 13976
+    },
+    {
+      "path": "companion-many_tail_fox-0-wantsPlay-walk-reduced.jpg",
+      "sha256": "855a58fc02189df16c7e4241d76e4362d7d3fa4669696a71375ece0ffcbfd175",
+      "bytes": 14105
+    },
+    {
+      "path": "companion-many_tail_fox-distance-back.jpg",
+      "sha256": "6b6ae247574a5a1877586cd4e2c7daa44e29306aef0e4075e5f54b0e4ae621a8",
+      "bytes": 119979
+    },
+    {
+      "path": "companion-many_tail_fox-distance-front.jpg",
+      "sha256": "daeefeb82dcb64c2efc4b50f758495df055ec601608a154df187b91d0a66e786",
+      "bytes": 120441
+    },
+    {
+      "path": "companion-many_tail_fox-motion.jpg",
+      "sha256": "8c0ed3dca05a1bc04abafd2a0eebd8de6b8aa67f15855a29de9b0055737186a2",
+      "bytes": 624585
+    },
+    {
+      "path": "companion-many_tail_fox-views.jpg",
+      "sha256": "10247ff8f965e28a243a7082ad90c0f91f96fe2f279822a7c70069a26c3b97ab",
+      "bytes": 76481
+    },
+    {
+      "path": "companion-unicorn-0-34.jpg",
+      "sha256": "d49a48300fe24744ee00519192b7e5bbf88f4e9659c870ea49cb0d25f964dc24",
+      "bytes": 12768
+    },
+    {
+      "path": "companion-unicorn-0-back.jpg",
+      "sha256": "166f0ab8c4588a8e113c597f99da7f8a0fd41fcdda9431a51fb5f1c575876a75",
+      "bytes": 10619
+    },
+    {
+      "path": "companion-unicorn-0-dislike-idle-normal.jpg",
+      "sha256": "969a2254031267ec017341ff4f23db54cef01f5aaf094792b01b3039b4613646",
+      "bytes": 12655
+    },
+    {
+      "path": "companion-unicorn-0-dislike-idle-reduced.jpg",
+      "sha256": "b8a0d8d154a9453bef2fee831e9642e0d47c9c0d2fad7a952b83c5c50c51d387",
+      "bytes": 12667
+    },
+    {
+      "path": "companion-unicorn-0-dislike-walk-normal.jpg",
+      "sha256": "1e5b937cb48644f409e1d162c3c7088b507a4fa2bccdbfbfbb51bff078fb9e0f",
+      "bytes": 12452
+    },
+    {
+      "path": "companion-unicorn-0-dislike-walk-reduced.jpg",
+      "sha256": "2381cd3a90024af143c9895a7c0d6b484f6a68d69357341f75384b481022ea35",
+      "bytes": 12508
+    },
+    {
+      "path": "companion-unicorn-0-front.jpg",
+      "sha256": "ed5c4de94a9236d2f3008b2668dfa8178b3d2d892ae7f463a9729afe0fc9631d",
+      "bytes": 10535
+    },
+    {
+      "path": "companion-unicorn-0-normal-idle-normal.jpg",
+      "sha256": "d49a48300fe24744ee00519192b7e5bbf88f4e9659c870ea49cb0d25f964dc24",
+      "bytes": 12768
+    },
+    {
+      "path": "companion-unicorn-0-normal-idle-reduced.jpg",
+      "sha256": "db950dac6b8e6d9bc5e946ea2f1daccbc11d16f2c7c62ecefc02a175d84d3cfe",
+      "bytes": 13051
+    },
+    {
+      "path": "companion-unicorn-0-normal-walk-normal.jpg",
+      "sha256": "045c6aa2c02ca163823f82bd2dd47262497ac3d7b2950c24b951a6921fd7a4ec",
+      "bytes": 12704
+    },
+    {
+      "path": "companion-unicorn-0-normal-walk-reduced.jpg",
+      "sha256": "cff866f9fe11fdbab06f806a809e8e84f67ce52d42b113a3a9243d93170257a7",
+      "bytes": 12804
+    },
+    {
+      "path": "companion-unicorn-0-positive-idle-normal.jpg",
+      "sha256": "1cc1fcdfddf8bd582c9af4ad9b1320a45911386b312a4617e8348f2761a7869c",
+      "bytes": 12896
+    },
+    {
+      "path": "companion-unicorn-0-positive-idle-reduced.jpg",
+      "sha256": "cea546a891a758efa8d7e7ed31cfcdee6b067955c7cc85ab86b3695a8d81e15f",
+      "bytes": 13036
+    },
+    {
+      "path": "companion-unicorn-0-positive-walk-normal.jpg",
+      "sha256": "f2bd7a05c186aca6cfbe748815b04178bf51fbb667c74f2aa45a68e38ef2d296",
+      "bytes": 12834
+    },
+    {
+      "path": "companion-unicorn-0-positive-walk-reduced.jpg",
+      "sha256": "4ae6924cd6478ad890b3e97f817ebd7d2c56ded4a2f404c40bdf3d654eb86341",
+      "bytes": 12873
+    },
+    {
+      "path": "companion-unicorn-0-sick-idle-normal.jpg",
+      "sha256": "5bcbb9eaf93879fe218959b2e0b2b0ed2975b8b4864fe8c025ee188eb2188b22",
+      "bytes": 12519
+    },
+    {
+      "path": "companion-unicorn-0-sick-idle-reduced.jpg",
+      "sha256": "5ae03d633c16746cf069dbc910b0385fa7571d2b0033b7709d37c9d433929225",
+      "bytes": 12760
+    },
+    {
+      "path": "companion-unicorn-0-sick-walk-normal.jpg",
+      "sha256": "6e9b411e58b6b7364db134623e61cc245f24fc146c0c30231964308a884c0a84",
+      "bytes": 12476
+    },
+    {
+      "path": "companion-unicorn-0-sick-walk-reduced.jpg",
+      "sha256": "d6cc2d4d962cfa6187eed21440cfb5f52b1d02b02afba42435ae944139b5b207",
+      "bytes": 12285
+    },
+    {
+      "path": "companion-unicorn-0-side.jpg",
+      "sha256": "bbe0bb84383d0f708c30fa7073988f61627b49b17631441636c87f670bc4c8af",
+      "bytes": 11984
+    },
+    {
+      "path": "companion-unicorn-0-sleeping-idle-normal.jpg",
+      "sha256": "51df1f5e81ab64eb02ae8e3856361fa905082897e48845561e49894f0ee70d7e",
+      "bytes": 12382
+    },
+    {
+      "path": "companion-unicorn-0-sleeping-idle-reduced.jpg",
+      "sha256": "6e80d0fef96e1068ef214a0149dab1b6e551f92994f1530d5c51f92849c25e7d",
+      "bytes": 12579
+    },
+    {
+      "path": "companion-unicorn-0-sleeping-walk-normal.jpg",
+      "sha256": "c65bebe105768215292d179f51af6b89b1fd40085549091fdd129609a407e3cd",
+      "bytes": 12300
+    },
+    {
+      "path": "companion-unicorn-0-sleeping-walk-reduced.jpg",
+      "sha256": "a618b93c2bcf6cbcd51a19480a4021ca51f9fb40a1012eb003a27a1d70cf5340",
+      "bytes": 12416
+    },
+    {
+      "path": "companion-unicorn-0-strained-idle-normal.jpg",
+      "sha256": "ed1e102b884e4b9d475ae52150a6baa0b7d70935a657b181db1ed2a035d00438",
+      "bytes": 12465
+    },
+    {
+      "path": "companion-unicorn-0-strained-idle-reduced.jpg",
+      "sha256": "b976129b23f4c5d12bf734ace30a262a022399d162ee82d8fccbca4edafa3370",
+      "bytes": 12728
+    },
+    {
+      "path": "companion-unicorn-0-strained-walk-normal.jpg",
+      "sha256": "df05d520004f9e364d8dffa861438be06da98fb5f5b955f5f74068a44585fe9b",
+      "bytes": 12468
+    },
+    {
+      "path": "companion-unicorn-0-strained-walk-reduced.jpg",
+      "sha256": "8870680818ea909bcd95f6c4515bf0b2f601acf9981b9f51f981214827810bd2",
+      "bytes": 12500
+    },
+    {
+      "path": "companion-unicorn-0-tired-idle-normal.jpg",
+      "sha256": "dcb12626b335c666f1b79558355337af610c8b527ce680af4e0456d8b94d0175",
+      "bytes": 12467
+    },
+    {
+      "path": "companion-unicorn-0-tired-idle-reduced.jpg",
+      "sha256": "0ec568e0369386c26d54895c5d32623ca3543a17c8267ca80579a1fbb69ef023",
+      "bytes": 12565
+    },
+    {
+      "path": "companion-unicorn-0-tired-walk-normal.jpg",
+      "sha256": "916f35d50f723ed7573cac06391ff3937cda02b701d0edd12a5c20a25bf6a103",
+      "bytes": 12405
+    },
+    {
+      "path": "companion-unicorn-0-tired-walk-reduced.jpg",
+      "sha256": "6955a14bee7ba97bce4be0f6a02b115043765e8f0e4470f1cd99dff76a25425e",
+      "bytes": 12331
+    },
+    {
+      "path": "companion-unicorn-0-wantsPlay-idle-normal.jpg",
+      "sha256": "3e4e1bdde17b11e4bf98bff11091691b9c27b6353ae14cc17318ed7c529006e7",
+      "bytes": 12081
+    },
+    {
+      "path": "companion-unicorn-0-wantsPlay-idle-reduced.jpg",
+      "sha256": "81a8daaf1867d9e1790d0ca80b92515d10c9593d38703caf60bc1918876c300c",
+      "bytes": 13230
+    },
+    {
+      "path": "companion-unicorn-0-wantsPlay-walk-normal.jpg",
+      "sha256": "8102a59d7867113296a3e09693a7d91f4c7f9dd85e258b58649c2dae29bc7249",
+      "bytes": 11331
+    },
+    {
+      "path": "companion-unicorn-0-wantsPlay-walk-reduced.jpg",
+      "sha256": "eebb34023a66c3d261ad8fd6a83142af67859f7d7a39344e396946faf06d7d05",
+      "bytes": 12799
+    },
+    {
+      "path": "companion-unicorn-distance-back.jpg",
+      "sha256": "a2d266e0ad894982338429f3ae6b2ac7972ee1a786ffef52909a7b19626934d8",
+      "bytes": 119672
+    },
+    {
+      "path": "companion-unicorn-distance-front.jpg",
+      "sha256": "d9d248247b8ef912e32bd14930718c24ba1f33e118c02f44a096af72ea05d5e7",
+      "bytes": 118738
+    },
+    {
+      "path": "companion-unicorn-motion.jpg",
+      "sha256": "8c718bfedbb144d313e752fb09b1bafe778ecbb9e95d38282ad981ea767f8750",
+      "bytes": 543232
+    },
+    {
+      "path": "companion-unicorn-views.jpg",
+      "sha256": "feea7e23907d5d26463cd6e8f006ed95dcb584cb107efe15f42da5f34229512d",
+      "bytes": 63766
+    },
+    {
+      "path": "companion-watcher-0-34.jpg",
+      "sha256": "b324bd7e2216d59beb1b26c0c84d9232ca746e2c48eacd77c2d89fb0e77a1692",
+      "bytes": 9506
+    },
+    {
+      "path": "companion-watcher-0-back.jpg",
+      "sha256": "277270d4729007ccd3a1c587be67543db6e8f2c1742f9901ff24e824eb2c48c9",
+      "bytes": 9228
+    },
+    {
+      "path": "companion-watcher-0-dislike-idle-normal.jpg",
+      "sha256": "9c6c0d2a8a9bcaf1027b25ea2113e5e86e666416b947120fd2189dfac4b6028a",
+      "bytes": 9348
+    },
+    {
+      "path": "companion-watcher-0-dislike-idle-reduced.jpg",
+      "sha256": "03ee996d79b36c8f19a2256f384898d04b52c3b1339a03fae7628cad4c63ead2",
+      "bytes": 9753
+    },
+    {
+      "path": "companion-watcher-0-dislike-walk-normal.jpg",
+      "sha256": "7a123a902b3e44361a2bdecf422a9ea5539616f92f1e141ba3dae5dbb8a9c8d3",
+      "bytes": 9472
+    },
+    {
+      "path": "companion-watcher-0-dislike-walk-reduced.jpg",
+      "sha256": "d40aed22b86dc09ea9e31f87e9017fdac6b68358df0e692a2a921875eb755eae",
+      "bytes": 9616
+    },
+    {
+      "path": "companion-watcher-0-front.jpg",
+      "sha256": "ddacfb5044386bd937b674b16abffa7bb608c55fd86723188332bbbee3cf39a6",
+      "bytes": 9903
+    },
+    {
+      "path": "companion-watcher-0-normal-idle-normal.jpg",
+      "sha256": "b324bd7e2216d59beb1b26c0c84d9232ca746e2c48eacd77c2d89fb0e77a1692",
+      "bytes": 9506
+    },
+    {
+      "path": "companion-watcher-0-normal-idle-reduced.jpg",
+      "sha256": "889e82cfb9add89eddbc990d99e296ec5586734a2831899536bce17ad8a93c8c",
+      "bytes": 9691
+    },
+    {
+      "path": "companion-watcher-0-normal-walk-normal.jpg",
+      "sha256": "67f8e32ecbe633c836f7ad2f9d1d15ee53f64689059a413914a26a83452e9517",
+      "bytes": 9489
+    },
+    {
+      "path": "companion-watcher-0-normal-walk-reduced.jpg",
+      "sha256": "0e1c102a720cc8ca87afc6be482754dc2a1bf33d43c32389cd0add5489f27f8b",
+      "bytes": 9670
+    },
+    {
+      "path": "companion-watcher-0-positive-idle-normal.jpg",
+      "sha256": "f9a07eeb41bceb6e62a1b5d13bda584f949a3093de95e9ba6dbae6229e47b736",
+      "bytes": 9563
+    },
+    {
+      "path": "companion-watcher-0-positive-idle-reduced.jpg",
+      "sha256": "1f5f6a306933abf8239222a03b5d491543ec881f1fa244015f7bcb57552bdbcb",
+      "bytes": 9807
+    },
+    {
+      "path": "companion-watcher-0-positive-walk-normal.jpg",
+      "sha256": "4fac93237521dd6b9c43aff185fa857d500839743e246b0c819476cc43194cea",
+      "bytes": 9618
+    },
+    {
+      "path": "companion-watcher-0-positive-walk-reduced.jpg",
+      "sha256": "4d5a3717e3c68b85f6d093a0910ae9abf707c734afd9e4b0f1e3137da6851fd0",
+      "bytes": 9871
+    },
+    {
+      "path": "companion-watcher-0-sick-idle-normal.jpg",
+      "sha256": "59d7984d1215ccca9ea2b19222a2e010ed7864b51b691a5f4176d01fb8cc18fa",
+      "bytes": 9256
+    },
+    {
+      "path": "companion-watcher-0-sick-idle-reduced.jpg",
+      "sha256": "819d171f6d06b19e8fece87b1e9d7431a7a5ced147e127bbf9b0711ca8da8f5d",
+      "bytes": 9429
+    },
+    {
+      "path": "companion-watcher-0-sick-walk-normal.jpg",
+      "sha256": "bb476a2ad3cd2eb8903542791cb437ae0d7317f8e0840d8280ac9b6d9bd550de",
+      "bytes": 9261
+    },
+    {
+      "path": "companion-watcher-0-sick-walk-reduced.jpg",
+      "sha256": "27ce9e80c750e112e984fdd0702b78a19734ee78580a042d5215dcc041432733",
+      "bytes": 9429
+    },
+    {
+      "path": "companion-watcher-0-side.jpg",
+      "sha256": "9f90769a2cc2067e099d94937c2e1ed605a2def12ee79a2929ef21d9e9f9a13d",
+      "bytes": 8191
+    },
+    {
+      "path": "companion-watcher-0-sleeping-idle-normal.jpg",
+      "sha256": "8b46e7fc3fdc59c0827e306c2e1360100728cc8aa4095431c18fd1be3621f6aa",
+      "bytes": 9483
+    },
+    {
+      "path": "companion-watcher-0-sleeping-idle-reduced.jpg",
+      "sha256": "a6399293ef5a9565061cd0d1b58affccdd1ca37d7881907587c628e4c4dcc4d6",
+      "bytes": 9752
+    },
+    {
+      "path": "companion-watcher-0-sleeping-walk-normal.jpg",
+      "sha256": "b5469b2730033f64a6637a8b0ae8f29985d483efa2fd691478241889048d55f7",
+      "bytes": 9581
+    },
+    {
+      "path": "companion-watcher-0-sleeping-walk-reduced.jpg",
+      "sha256": "141354f935c119a20f26835c8566cc4b151cefb01d8fdf342cd0159cbd204546",
+      "bytes": 9806
+    },
+    {
+      "path": "companion-watcher-0-strained-idle-normal.jpg",
+      "sha256": "bebddc93639e6bcf10e71be5662ad03b3dd8b202775b2bc83c73f736b9a59e58",
+      "bytes": 9521
+    },
+    {
+      "path": "companion-watcher-0-strained-idle-reduced.jpg",
+      "sha256": "15f03831df8723931ef1bdd45ee4afddb8b651920100a81f636f6d86d5c76d31",
+      "bytes": 9662
+    },
+    {
+      "path": "companion-watcher-0-strained-walk-normal.jpg",
+      "sha256": "a30a7c238331759455005fb5ed7b1aad5812164f5fc37caeb9dcffe40d49ad55",
+      "bytes": 9515
+    },
+    {
+      "path": "companion-watcher-0-strained-walk-reduced.jpg",
+      "sha256": "f6b57901bd778fafd314530e60f456cbaf30f1832f4131186df6eb2e7f990158",
+      "bytes": 9716
+    },
+    {
+      "path": "companion-watcher-0-tired-idle-normal.jpg",
+      "sha256": "0c8d6a73bb9e3733cc979a6021544680d0801b893636f73e9d3f423b4cdb6430",
+      "bytes": 9365
+    },
+    {
+      "path": "companion-watcher-0-tired-idle-reduced.jpg",
+      "sha256": "df5743b5d8e93d159b8b507fb9cbd7a41b7537698870058a8ca51a53c60b76a0",
+      "bytes": 9632
+    },
+    {
+      "path": "companion-watcher-0-tired-walk-normal.jpg",
+      "sha256": "0c883d5f159abe54c38819575bccbf3aa2d143d285d9aaa4aebbab5c5b677c99",
+      "bytes": 9341
+    },
+    {
+      "path": "companion-watcher-0-tired-walk-reduced.jpg",
+      "sha256": "c1a31c2b64a5d2456402ad1a3c7b89e02ece5749a913b9693fabd9611fedc32a",
+      "bytes": 9392
+    },
+    {
+      "path": "companion-watcher-0-wantsPlay-idle-normal.jpg",
+      "sha256": "61137f49f3d047550cab516c328e9c8e229a1b48190c2830ad280ea9e54d155e",
+      "bytes": 9741
+    },
+    {
+      "path": "companion-watcher-0-wantsPlay-idle-reduced.jpg",
+      "sha256": "3120d7a198c63e3f13addcc2525b85448dd6998dc07eaebbfb9523c4fadcd7c9",
+      "bytes": 9968
+    },
+    {
+      "path": "companion-watcher-0-wantsPlay-walk-normal.jpg",
+      "sha256": "507ebdf18ba56770d33784b9dfb925c6e66862affac1760023c070ad18c5ea64",
+      "bytes": 9623
+    },
+    {
+      "path": "companion-watcher-0-wantsPlay-walk-reduced.jpg",
+      "sha256": "c80d914268e5c02cc98f517b36bffbc76778250e605a788284eec8e3ea16b35d",
+      "bytes": 9848
+    },
+    {
+      "path": "companion-watcher-distance-back.jpg",
+      "sha256": "3e15b5396e282769d3a2f5ee593b35d0d0dc81abecdf0fcf2a1eedca4a644a5d",
+      "bytes": 116969
+    },
+    {
+      "path": "companion-watcher-distance-front.jpg",
+      "sha256": "24207d3e472a4069de59345d49764b640fc602fc41499b9c4b5af96c1bdd4ace",
+      "bytes": 116814
+    },
+    {
+      "path": "companion-watcher-motion.jpg",
+      "sha256": "35348d03bc7a0f654fa5101b8ca6fa593d535b9091d9bcd68a7e301da5b9a51f",
+      "bytes": 350708
+    },
+    {
+      "path": "companion-watcher-views.jpg",
+      "sha256": "d4cbae19e84c04d944be8d2ecf1e18732363a2422baa43ee8a826a98943c5d58",
+      "bytes": 42587
+    },
+    {
+      "path": "evidence.json",
+      "sha256": "7e8792d720119f0574f57fb393a2f31ddf775dbdcaa8f0f13653129b9224c01c",
+      "bytes": 77350
+    }
+  ],
+  "sourceRun": 37903430971,
+  "sourceRunConclusion": "success"
+}

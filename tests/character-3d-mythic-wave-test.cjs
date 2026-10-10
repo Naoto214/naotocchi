@@ -1,0 +1,56 @@
+const test=require('node:test'),assert=require('node:assert/strict'),SPEC=require('../character-3d/spec.js');
+test('dragon representatives preserve horned muzzle, plated upright trunk, curled tail and attached finger-supported wings',async()=>{
+ let rows;try{rows=require('../character-3d/mythic-spec.js')().dragon?.stages;}catch{}assert.ok(rows,'explicit original03and07 dragon candidates');assert.ok(rows[3]&&rows[7]);
+ const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ for(const n of [3,7]){const sp=rows[n],r=BUILDERS[sp.archetype](sp,'dragon:'+n);assert.equal(attachFace(r,r.faceSpec,'C').eyes.length,2);assert.equal(sp.horns.length,2);assert.ok(sp.belly.plates>=7);assert.ok(r.bones.tail);assert.ok(r.bones.legFL&&r.bones.legFR&&r.bones.legBL&&r.bones.legBR);assert.equal(!!r.bones.wingL,n===7);assert.equal(!!r.bones.wingR,n===7);r.root.updateMatrixWorld(true);
+ const head=r.parts.find(p=>p.bone==='head').mesh,target=new THREE.Mesh(r.faceSpec.target,new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));target.matrixAutoUpdate=false;target.matrix.copy(r.bones.head.matrixWorld);target.updateMatrixWorld(true);
+ for(const x of [-.065,.065]){const p=r.bones.head.localToWorld(new THREE.Vector3(x,.06,0)),ray=new THREE.Raycaster(new THREE.Vector3(p.x,p.y,2),new THREE.Vector3(0,0,-1));const core=ray.intersectObject(target)[0],actual=ray.intersectObject(head)[0];assert.ok(core&&actual);assert.ok(Math.abs(core.distance-actual.distance)<.002,'muzzle and horns do not obscure the upper facial target');}
+ const noHorns=BUILDERS[sp.archetype]({...sp,horns:[]},'no-horns'),maxY=g=>{g.computeBoundingBox();return g.boundingBox.max.y;};assert.ok(maxY(head.geometry)>maxY(noHorns.parts.find(p=>p.bone==='head').mesh.geometry)+.1,'ivory horns rise physically above the head');const tail=BUILDERS[sp.archetype]({...sp,tail:{...sp.tail,spines:[]}},'bare-tail').parts.find(p=>p.bone==='tail').mesh.geometry;tail.computeBoundingBox();assert.ok(tail.boundingBox.max.x-tail.boundingBox.min.x>.5,'tail wraps back and to the side');
+ const plainBody=BUILDERS[sp.archetype]({...sp,belly:{...sp.belly,plates:0}},'unplated');assert.ok(r.parts.find(p=>p.bone==='body').mesh.geometry.attributes.position.count>plainBody.parts.find(p=>p.bone==='body').mesh.geometry.attributes.position.count+500,'horizontal belly plates contribute volume');
+ let tris=0;for(const p of r.parts){const g=p.mesh.geometry;assert.ok([...g.attributes.position.array].every(Number.isFinite));tris+=(g.index?.count||g.attributes.position.count)/3;}assert.ok(tris<22000);assert.ok(new THREE.Box3().setFromObject(r.root,true).min.y>=-.005,'original standing feet/tail are grounded');
+ if(n===7){for(const name of ['wingL','wingR']){const g=r.parts.find(p=>p.bone===name).mesh.geometry;g.computeBoundingBox();assert.ok(g.boundingBox.max.z-g.boundingBox.min.z>.08,'curved membrane has side depth');}const plain=BUILDERS[sp.archetype]({...sp,wing:{...sp.wing,fingers:[]}},'unribbed');assert.ok(r.parts.find(p=>p.bone==='wingL').mesh.geometry.attributes.position.count>plain.parts.find(p=>p.bone==='wingL').mesh.geometry.attributes.position.count+100,'physical supporting wing fingers');}
+ }
+ assert.equal(SPEC.specKeyFor({kind:'author',id:'__unreviewed__'}),null,'unreviewed author identity remains isolated');
+});
+test('dragon owner keeps one canonical face with tail and attached wing motion across32 states',async()=>{
+ let rows;try{rows=require('../character-3d/mythic-spec.js')().dragon?.stages;}catch{}assert.ok(rows);
+ const {BUILDERS}=await import('../character-3d/archetypes.mjs'),{attachFace}=await import('../character-3d/rig.mjs'),{instantiate}=await import('../character-3d/runtime.mjs'),{animate,setEmotion}=await import('../character-3d/animate.mjs');
+ for(const n of [3,7]){const r=BUILDERS[rows[n].archetype](rows[n],'dragon:'+n);r.faces=[attachFace(r,r.faceSpec,'C')];for(const em of SPEC.CANONICAL_EMOTIONS)for(const moving of [false,true])for(const animLv of [0,2]){const a=instantiate({rig:r,key:'dragon:'+n});setEmotion(a,em);for(let i=0;i<20;i++)animate(a,{dt:.05,moving,animLv});assert.equal(a.faces.length,1);assert.equal(a.faces[0].emotion,em);for(const b of Object.values(a.bones))assert.ok([...b.position.toArray(),...b.rotation.toArray().slice(0,3)].every(Number.isFinite));}
+ if(n===7){const a=instantiate({rig:r,key:'dragon:7'});setEmotion(a,'normal');for(let i=0;i<20;i++)animate(a,{dt:.05,moving:true,animLv:2});assert.ok(Math.abs(a.bones.wingL.rotation.y-a.bones.wingL.userData.rest.r.y)>.01,'attached membranes respond to actor clock');assert.equal(a.bones.wingL.parent,a.bones.body);}
+ }
+});
+
+test('mythic candidate overlay requires one explicit wave and never mutates production lookup',()=>{
+ const {candidateConfig}=require('../tools/character-3d/candidate-spec.cjs'),before=JSON.stringify(SPEC.ROLLOUT),c=candidateConfig(['--candidate-mythic','--rollout','--species-only','--line','dragon']);assert.ok(c);assert.equal(c.spec.stageSpec('dragon',7).archetype,'winged_reptile');assert.equal(JSON.stringify(SPEC.ROLLOUT),before);assert.equal(SPEC.specKeyFor({kind:'author',id:'__unreviewed__'}),null,'unreviewed author identity remains isolated');assert.throws(()=>candidateConfig(['--candidate-mythic','--candidate-armored','--rollout','--species-only','--line','dragon']));
+});
+
+test('dragon membrane has one closed non-overlapping surface pair across its concave scallops',async()=>{
+ const sp=require('../character-3d/mythic-spec.js')().dragon.stages[7],{BUILDERS}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ const r=BUILDERS[sp.archetype]({...sp,wing:{...sp.wing,fingers:[]}},'membrane-only'),g=r.parts.find(p=>p.bone==='wingR').mesh.geometry,m=new THREE.Mesh(g,new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));let sampled=0;
+ for(let x=.041;x<.9;x+=.025)for(let y=-.103;y<.75;y+=.025){const hits=new THREE.Raycaster(new THREE.Vector3(x,y,2),new THREE.Vector3(0,0,-1)).intersectObject(m);const distinct=hits.filter((h,i)=>i===0||Math.abs(h.distance-hits[i-1].distance)>1e-5);if(distinct.length){sampled++;assert.equal(distinct.length,2,`single front/back membrane at ${x},${y}`);}}
+ assert.ok(sampled>600,'the full membrane silhouette is sampled, not removed');
+});
+
+test('dragon canonical mouth projects onto the protruding muzzle rather than behind it',async()=>{
+ const rows=require('../character-3d/mythic-spec.js')().dragon.stages,{BUILDERS}=await import('../character-3d/archetypes.mjs'),{THREE}=await import('../character-3d/geometry.mjs');for(const n of [3,7]){const sp=rows[n],r=BUILDERS[sp.archetype](sp,'dragon:'+n),f=r.faceSpec,target=new THREE.Mesh(f.target,new THREE.MeshBasicMaterial({side:THREE.DoubleSide})),actual=new THREE.Mesh(r.parts.find(p=>p.bone==='head').mesh.geometry,new THREE.MeshBasicMaterial({side:THREE.DoubleSide})),y=f.center[1]+(64-f.layout.mouthY)*f.half/64;for(const x of [-.018,0,.018]){const ray=new THREE.Raycaster(new THREE.Vector3(x,y,2),new THREE.Vector3(0,0,-1)),a=ray.intersectObject(target)[0],b=ray.intersectObject(actual)[0];assert.ok(a&&b);assert.ok(Math.abs(a.distance-b.distance)<.002,`dragon${n} mouth lies on visible muzzle`);}}
+});
+
+test('dragon wing fingers remain exposed on both sides of the closed membrane',async()=>{
+ const sp=require('../character-3d/mythic-spec.js')().dragon.stages[7];
+ const {wingedReptile}=await import('../character-3d/winged-reptile.mjs'),{THREE}=await import('../character-3d/geometry.mjs');
+ const mesh=s=>new THREE.Mesh(wingedReptile(s,'rib-visibility').parts.find(p=>p.bone==='wingR').mesh.geometry,new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));
+ const full=mesh(sp),bare=mesh({...sp,wing:{...sp.wing,fingers:[]}});
+ for(const side of [-1,1]){
+  let visible=0,sampled=0;
+  for(const path of sp.wing.fingers){
+   const curve=new THREE.CatmullRomCurve3(path.map(([x,y])=>new THREE.Vector3(x,y,0)));
+   for(const t of [.25,.5,.75]){
+    const p=curve.getPoint(t),ray=new THREE.Raycaster(new THREE.Vector3(p.x,p.y,side*2),new THREE.Vector3(0,0,-side));
+    const a=ray.intersectObject(full)[0],b=ray.intersectObject(bare)[0];
+    if(a&&b){sampled++;if(b.distance-a.distance>.002)visible++;}
+   }
+  }
+  assert.ok(sampled>=14,'sample supporting fingers across membrane');
+  assert.ok(visible>=12,`${side<0?'rear':'front'} wing fingers must protrude from membrane: ${visible}/${sampled}`);
+ }
+});

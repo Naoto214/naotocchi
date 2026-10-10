@@ -1,0 +1,42 @@
+{
+  "status": "REJECT_STAR01_SILHOUETTE",
+  "sourceCommit": "2789b990b800b0639914005dd4d4ed4e36bd3bae",
+  "archiveCommit": "5cf15f160b9cd292ffc407826354689570264ee6",
+  "actualReview": {
+    "fourViews": 32,
+    "freshStateImages": 160,
+    "normalDistance": 16
+  },
+  "reuse": {
+    "stages": [
+      3,
+      7
+    ],
+    "stateImages": 64,
+    "identicalWaveImages": 74,
+    "sourceCommit": "bc9103327e133c8a6bd4b18661c2000c7d5f2c4c"
+  },
+  "integrity": {
+    "waveFiles": 299,
+    "distanceFiles": 17,
+    "allHashesVerified": true
+  },
+  "acceptedStages": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "rejectedStages": [
+    1
+  ],
+  "findings": [
+    "01 circular ring loses original irregular dark seed, curled upper plume and lower wisp.",
+    "02/08 blue spirals,04 bentflames/wink,05 regularrays,06 larger redorange disk/shortcurledprominences remain legible across reviewedstates.",
+    "03/07 unchanged source/geometry;imagesbyte-identical;previousPASS reused."
+  ],
+  "next": "Correct01 data and inspect fresh views/states/distance;no Starpromotion until PASS."
+}

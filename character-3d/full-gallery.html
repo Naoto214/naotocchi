@@ -1,0 +1,24 @@
+<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>なおとっち Full Character 3D — 制作中</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f0e7;color:#34332f;font:16px/1.5 system-ui,sans-serif}main{max-width:1180px;margin:auto;padding:18px}h1{font-size:1.4rem}aside{padding:12px;background:#fff0ce;border-left:4px solid #b88636}nav{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}label{display:grid;font-size:.8rem}select,input,button{min-height:44px;font:inherit;padding:6px;border:1px solid #c3beb1;border-radius:6px;background:white;color:inherit}input{max-width:180px}article{margin:18px 0;background:#fff;border-radius:12px;padding:14px}h2{font-size:1rem;margin:0 0 10px}.views{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}figure{margin:0;text-align:center}img{width:100%;aspect-ratio:1;object-fit:contain;background:#eee9dd;border-radius:8px}figcaption{font-size:.75rem}.missing{aspect-ratio:1;background:#f4f2ed;display:grid;place-content:center;font-size:.75rem;color:#767064}.pages{display:flex;align-items:center;justify-content:center;gap:15px;margin:20px}small{color:#6d675d}a{color:#285e75}@media(max-width:600px){main{padding:12px}.views{grid-template-columns:repeat(2,minmax(0,1fr))}figure:first-child{grid-column:1/-1;max-width:170px;margin:auto}nav{gap:8px}}
+</style>
+<main><h1>Full Character 3D Rollout v0</h1><aside><strong>制作中の監査ページです。全量Human QA返却版ではありません。</strong><br>spec実装数と画像確認数を分けて表示します。未実装・未撮影を合格扱いにしません。iPhone実機性能は未確認です。</aside>
+<p id="summary">inventoryを読み込み中…</p>
+<nav><label>species / character<input id="search" placeholder="cat / dog…"></label><label>kind<select id="kind"><option value="">すべて</option></select></label><label>archetype<select id="archetype"><option value="">すべて</option></select></label><label>stage<select id="stage"><option value="">すべて</option></select></label><label>status<select id="status"><option value="">すべて</option><option value="spec-ready">spec実装済み</option><option value="pending">未実装</option></select></label></nav>
+<div id="results"></div><div class="pages"><button id="prev">前へ</button><span id="page"></span><button id="next">次へ</button></div>
+<p><small>一度に8対象まで表示し、画像は遅延読み込みします。原画のみがdesign正本です。制作中の3Dを新しいdesign正本にしません。</small></p></main>
+<script type="module">
+import SPEC from './spec-esm.mjs';
+const $=id=>document.getElementById(id),base='../',data=await fetch(base+'docs/qa/character-3d-full-v0/coverage.json').then(r=>{if(!r.ok)throw Error('Missing coverage evidence');return r.json();});
+$('summary').textContent=`対象 ${data.counts.total} ／ exact spec ${data.counts.exactSpecs} ／ 未実装 ${data.counts.pending} ／ 今回保存4方向 ${data.counts.fourViewRecords}`;
+for(const field of ['kind','archetype','stage'])for(const value of [...new Set(data.rows.map(r=>r[field]).filter(v=>v!=null))].sort((a,b)=>String(a).localeCompare(String(b)))){const o=document.createElement('option');o.value=value;o.textContent=value;$(field).append(o);}
+let page=0;
+function draw(){const found=data.rows.filter(r=>r.id.toLowerCase().includes($('search').value.toLowerCase())&&['kind','archetype','stage','status'].every(f=>!$(f).value||String(r[f])===$(f).value));const pages=Math.max(1,Math.ceil(found.length/8));page=Math.min(page,pages-1);$('results').replaceChildren();
+ for(const r of found.slice(page*8,page*8+8)){const a=document.createElement('article'),h=document.createElement('h2');h.textContent=`${r.id} ${r.stage?String(r.stage).padStart(2,'0'):''} · ${r.label} · ${r.exact?'spec実装済み／全量QA前':'未実装'}`;a.append(h);const views=document.createElement('div');views.className='views';
+  for(const [label,url]of [['original 2D',r.asset],...Object.entries(r.views)]){const f=document.createElement('figure');if(url){const img=document.createElement('img');img.src=base+url;img.alt=r.id+' '+label;img.loading='lazy';f.append(img);}else{const x=document.createElement('div');x.className='missing';x.textContent='未撮影';f.append(x);}const c=document.createElement('figcaption');c.textContent=label;f.append(c);views.append(f);}a.append(views);if(r.viewEvidence){const note=document.createElement('p');note.textContent='比較ボードの右側4枚が確認対象です（正面・3/4・横・後ろ）。各欄は同じボードを表示しています。';a.append(note);}
+  if(r.exact){const p=document.createElement('p'),link=document.createElement('a');link.href=`gallery.html?id=${encodeURIComponent(SPEC.specKeyFor(r.kind==='form'?{line:r.id,stage:r.stage,zeroBased:false}:{kind:r.kind,id:r.id}).id)}&stage=${r.stage||0}&layout=views`;link.textContent='live 3D・表情・動きを確認';p.append(link);a.append(p);}$('results').append(a);
+ }$('page').textContent=`${page+1} / ${pages}（${found.length}対象）`;$('prev').disabled=page===0;$('next').disabled=page===pages-1;
+}
+for(const id of ['search','kind','archetype','stage','status'])$(id).addEventListener('input',()=>{page=0;draw();});$('prev').onclick=()=>{page--;draw();};$('next').onclick=()=>{page++;draw();};draw();
+</script></html>

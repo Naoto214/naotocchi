@@ -1,0 +1,3394 @@
+{
+  "review": "player-motion-turtle-frog-coral",
+  "source": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "source_run_id": "37922214774",
+  "capture_context": "Controller reports recovered full source SHA/size-verified: 3113 raw files across 20 artifacts. Aggregate source run completed FAILED while assigned stage jobs SUCCESS. Visual verdict is based on actually opened images, not aggregate status. This reviewer did not repeat controller hash verification.",
+  "verdict": "PASS",
+  "scope": "Captured 34-view motion state images for assigned missing-motion stages only. Existing approved four-view/model gates unchanged.",
+  "counts": {
+    "stages": 16,
+    "motion_boards_actually_viewed": 16,
+    "state_cells_actually_viewed": 512,
+    "source_inline_rows_compared": 128,
+    "additional_raw_jpegs_actually_viewed": 7,
+    "stage_state_blockers": 0,
+    "turtle_states": 224,
+    "frog_states": 160,
+    "coral_states": 128
+  },
+  "state_axes": {
+    "emotions": [
+      "normal",
+      "positive",
+      "dislike",
+      "tired",
+      "sleeping",
+      "strained",
+      "wantsPlay",
+      "sick"
+    ],
+    "motion": [
+      "idle",
+      "walk"
+    ],
+    "motion_level": [
+      "normal",
+      "reduced"
+    ]
+  },
+  "actually_inspected_board_paths": [
+    "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-turtle/missing-motion/turtle-1-motion.jpg",
+    "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-turtle/missing-motion/turtle-2-motion.jpg",
+    "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-turtle/missing-motion/turtle-4-motion.jpg",
+    "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-turtle/missing-motion/turtle-5-motion.jpg",
+    "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-turtle/missing-motion/turtle-6-motion.jpg",
+    "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-turtle/missing-motion/turtle-7-motion.jpg",
+    "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-turtle/missing-motion/turtle-8-motion.jpg",
+    "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-frog/missing-motion/frog-1-motion.jpg",
+    "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-frog/missing-motion/frog-2-motion.jpg",
+    "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-frog/missing-motion/frog-4-motion.jpg",
+    "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-frog/missing-motion/frog-6-motion.jpg",
+    "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-frog/missing-motion/frog-8-motion.jpg",
+    "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-coral/missing-motion/coral-1-motion.jpg",
+    "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-coral/missing-motion/coral-3-motion.jpg",
+    "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-coral/missing-motion/coral-4-motion.jpg",
+    "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-coral/missing-motion/coral-6-motion.jpg"
+  ],
+  "additional_raw_images": [
+    {
+      "archive": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-frog/raw-evidence.zip",
+      "member": "missing-motion/frog-2-wantsPlay-idle-normal.jpg",
+      "actually_opened_path": "/workspace/scratch/150320e8a2fd/player-motion-qa-detail/frog-2-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "archive": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-frog/raw-evidence.zip",
+      "member": "missing-motion/frog-2-wantsPlay-idle-reduced.jpg",
+      "actually_opened_path": "/workspace/scratch/150320e8a2fd/player-motion-qa-detail/frog-2-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "archive": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-frog/raw-evidence.zip",
+      "member": "missing-motion/frog-4-wantsPlay-walk-normal.jpg",
+      "actually_opened_path": "/workspace/scratch/150320e8a2fd/player-motion-qa-detail/frog-4-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "archive": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-frog/raw-evidence.zip",
+      "member": "missing-motion/frog-8-sleeping-walk-normal.jpg",
+      "actually_opened_path": "/workspace/scratch/150320e8a2fd/player-motion-qa-detail/frog-8-sleeping-walk-normal.jpg"
+    },
+    {
+      "archive": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-coral/raw-evidence.zip",
+      "member": "missing-motion/coral-6-normal-idle-normal.jpg",
+      "actually_opened_path": "/workspace/scratch/150320e8a2fd/player-motion-qa-detail/coral-6-normal-idle-normal.jpg"
+    },
+    {
+      "archive": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-coral/raw-evidence.zip",
+      "member": "missing-motion/coral-6-positive-walk-normal.jpg",
+      "actually_opened_path": "/workspace/scratch/150320e8a2fd/player-motion-qa-detail/coral-6-positive-walk-normal.jpg"
+    },
+    {
+      "archive": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-coral/raw-evidence.zip",
+      "member": "missing-motion/coral-6-sick-walk-normal.jpg",
+      "actually_opened_path": "/workspace/scratch/150320e8a2fd/player-motion-qa-detail/coral-6-sick-walk-normal.jpg"
+    }
+  ],
+  "stage_results": [
+    {
+      "family": "turtle",
+      "stage": 1,
+      "board_path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-turtle/missing-motion/turtle-1-motion.jpg",
+      "actually_inspected": true,
+      "state_count": 32,
+      "verdict": "PASS",
+      "observation": "Green turtle head, domed segmented shell and pale rim stay readable. Four short limbs stay attached and in coherent support/step poses; shell/moss attachments remain together. Canonical eyes and mouth distinguish all eight emotions across normal/reduced idle/walk cells.",
+      "blockers": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    {
+      "family": "turtle",
+      "stage": 2,
+      "board_path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-turtle/missing-motion/turtle-2-motion.jpg",
+      "actually_inspected": true,
+      "state_count": 32,
+      "verdict": "PASS",
+      "observation": "Green turtle head, domed segmented shell and pale rim stay readable. Four short limbs stay attached and in coherent support/step poses; shell/moss attachments remain together. Canonical eyes and mouth distinguish all eight emotions across normal/reduced idle/walk cells.",
+      "blockers": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    {
+      "family": "turtle",
+      "stage": 4,
+      "board_path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-turtle/missing-motion/turtle-4-motion.jpg",
+      "actually_inspected": true,
+      "state_count": 32,
+      "verdict": "PASS",
+      "observation": "Green turtle head, domed segmented shell and pale rim stay readable. Four short limbs stay attached and in coherent support/step poses; shell/moss attachments remain together. Canonical eyes and mouth distinguish all eight emotions across normal/reduced idle/walk cells.",
+      "blockers": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    {
+      "family": "turtle",
+      "stage": 5,
+      "board_path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-turtle/missing-motion/turtle-5-motion.jpg",
+      "actually_inspected": true,
+      "state_count": 32,
+      "verdict": "PASS",
+      "observation": "Green turtle head, domed segmented shell and pale rim stay readable. Four short limbs stay attached and in coherent support/step poses; shell/moss attachments remain together. Canonical eyes and mouth distinguish all eight emotions across normal/reduced idle/walk cells.",
+      "blockers": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    {
+      "family": "turtle",
+      "stage": 6,
+      "board_path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-turtle/missing-motion/turtle-6-motion.jpg",
+      "actually_inspected": true,
+      "state_count": 32,
+      "verdict": "PASS",
+      "observation": "Green turtle head, domed segmented shell and pale rim stay readable. Four short limbs stay attached and in coherent support/step poses; shell/moss attachments remain together. Canonical eyes and mouth distinguish all eight emotions across normal/reduced idle/walk cells.",
+      "blockers": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    {
+      "family": "turtle",
+      "stage": 7,
+      "board_path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-turtle/missing-motion/turtle-7-motion.jpg",
+      "actually_inspected": true,
+      "state_count": 32,
+      "verdict": "PASS",
+      "observation": "Green turtle head, domed segmented shell and pale rim stay readable. Four short limbs stay attached and in coherent support/step poses; shell/moss attachments remain together. Canonical eyes and mouth distinguish all eight emotions across normal/reduced idle/walk cells.",
+      "blockers": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    {
+      "family": "turtle",
+      "stage": 8,
+      "board_path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-turtle/missing-motion/turtle-8-motion.jpg",
+      "actually_inspected": true,
+      "state_count": 32,
+      "verdict": "PASS",
+      "observation": "Green turtle head, domed segmented shell and pale rim stay readable. Four short limbs stay attached and in coherent support/step poses; shell/moss attachments remain together. Canonical eyes and mouth distinguish all eight emotions across normal/reduced idle/walk cells.",
+      "blockers": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    {
+      "family": "frog",
+      "stage": 1,
+      "board_path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-frog/missing-motion/frog-1-motion.jpg",
+      "actually_inspected": true,
+      "state_count": 32,
+      "verdict": "PASS",
+      "observation": "Tadpole stages retain green round body and attached fin tail; tail-bearing frog retains front limbs and hind limbs; mature frogs retain raised eye lobes, light belly, bent rear haunches and small toes. Face changes remain visible through all cells. Walk cells show bounded limb/haunch poses without visible detached joints or runaway parts.",
+      "blockers": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    {
+      "family": "frog",
+      "stage": 2,
+      "board_path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-frog/missing-motion/frog-2-motion.jpg",
+      "actually_inspected": true,
+      "state_count": 32,
+      "verdict": "PASS",
+      "observation": "Tadpole stages retain green round body and attached fin tail; tail-bearing frog retains front limbs and hind limbs; mature frogs retain raised eye lobes, light belly, bent rear haunches and small toes. Face changes remain visible through all cells. Walk cells show bounded limb/haunch poses without visible detached joints or runaway parts.",
+      "blockers": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    {
+      "family": "frog",
+      "stage": 4,
+      "board_path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-frog/missing-motion/frog-4-motion.jpg",
+      "actually_inspected": true,
+      "state_count": 32,
+      "verdict": "PASS",
+      "observation": "Tadpole stages retain green round body and attached fin tail; tail-bearing frog retains front limbs and hind limbs; mature frogs retain raised eye lobes, light belly, bent rear haunches and small toes. Face changes remain visible through all cells. Walk cells show bounded limb/haunch poses without visible detached joints or runaway parts.",
+      "blockers": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    {
+      "family": "frog",
+      "stage": 6,
+      "board_path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-frog/missing-motion/frog-6-motion.jpg",
+      "actually_inspected": true,
+      "state_count": 32,
+      "verdict": "PASS",
+      "observation": "Tadpole stages retain green round body and attached fin tail; tail-bearing frog retains front limbs and hind limbs; mature frogs retain raised eye lobes, light belly, bent rear haunches and small toes. Face changes remain visible through all cells. Walk cells show bounded limb/haunch poses without visible detached joints or runaway parts.",
+      "blockers": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    {
+      "family": "frog",
+      "stage": 8,
+      "board_path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-frog/missing-motion/frog-8-motion.jpg",
+      "actually_inspected": true,
+      "state_count": 32,
+      "verdict": "PASS",
+      "observation": "Tadpole stages retain green round body and attached fin tail; tail-bearing frog retains front limbs and hind limbs; mature frogs retain raised eye lobes, light belly, bent rear haunches and small toes. Face changes remain visible through all cells. Walk cells show bounded limb/haunch poses without visible detached joints or runaway parts.",
+      "blockers": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    {
+      "family": "coral",
+      "stage": 1,
+      "board_path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-coral/missing-motion/coral-1-motion.jpg",
+      "actually_inspected": true,
+      "state_count": 32,
+      "verdict": "PASS",
+      "observation": "Pink orb and peach/pink branching stages preserve their identities; branch tips and stone pads remain attached in idle/walk cells. Multicolor stage retains the pink/yellow/cyan cluster with purple background branches and colored base pads. Cluster face changes remain visible without a new motion-induced occluder.",
+      "blockers": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    {
+      "family": "coral",
+      "stage": 3,
+      "board_path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-coral/missing-motion/coral-3-motion.jpg",
+      "actually_inspected": true,
+      "state_count": 32,
+      "verdict": "PASS",
+      "observation": "Pink orb and peach/pink branching stages preserve their identities; branch tips and stone pads remain attached in idle/walk cells. Multicolor stage retains the pink/yellow/cyan cluster with purple background branches and colored base pads. Cluster face changes remain visible without a new motion-induced occluder.",
+      "blockers": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    {
+      "family": "coral",
+      "stage": 4,
+      "board_path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-coral/missing-motion/coral-4-motion.jpg",
+      "actually_inspected": true,
+      "state_count": 32,
+      "verdict": "PASS",
+      "observation": "Pink orb and peach/pink branching stages preserve their identities; branch tips and stone pads remain attached in idle/walk cells. Multicolor stage retains the pink/yellow/cyan cluster with purple background branches and colored base pads. Cluster face changes remain visible without a new motion-induced occluder.",
+      "blockers": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        }
+      ]
+    },
+    {
+      "family": "coral",
+      "stage": 6,
+      "board_path": "/workspace/scratch/150320e8a2fd/character-rollout/docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-coral/missing-motion/coral-6-motion.jpg",
+      "actually_inspected": true,
+      "state_count": 32,
+      "verdict": "PASS",
+      "observation": "Pink orb and peach/pink branching stages preserve their identities; branch tips and stone pads remain attached in idle/walk cells. Multicolor stage retains the pink/yellow/cyan cluster with purple background branches and colored base pads. Cluster face changes remain visible without a new motion-induced occluder.",
+      "blockers": [],
+      "states": [
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "normal",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "positive",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "dislike",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "tired",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sleeping",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "strained",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "wantsPlay",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "idle",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "normal",
+          "verdict": "PASS"
+        },
+        {
+          "emotion": "sick",
+          "motion": "walk",
+          "motion_level": "reduced",
+          "verdict": "PASS"
+        }
+      ]
+    }
+  ],
+  "blockers": [],
+  "accepted_v0_simplifications": [
+    {
+      "scope": "all 16 stages, all 32 cells each",
+      "disposition": "ACCEPTED_V0",
+      "detail": "Canonical emotion glyphs replace the sprite-specific eye and mouth drawing. Smooth volumes and rounded extremities simplify pixel highlights, claws/toes and branch texture. Existing approved geometry/source four-view decisions were not reopened."
+    },
+    {
+      "scope": "turtle:7 and turtle:8, all cells",
+      "disposition": "ACCEPTED_V0",
+      "detail": "Moss appears as small rounded clusters on the shell rather than pixel foliage; its shell attachment remains stable."
+    },
+    {
+      "scope": "frog:1, frog:2, frog:4 \u2014 wantsPlay/idle/normal and wantsPlay/walk/normal",
+      "disposition": "ACCEPTED_V0_POSE_FORESHORTENING",
+      "detail": "The animated tail is nearly edge-on or behind the round body. Raw frog:2 normal-vs-reduced and frog:4 walk-normal views confirm a visible attached tip/root silhouette rather than an orphan or missing mesh. Reduced cells retain a broader tail. This is a captured pose, not a claim of identical silhouette at every time."
+    },
+    {
+      "scope": "frog:4, frog:6, frog:8 \u2014 all walk cells",
+      "disposition": "ACCEPTED_V0",
+      "detail": "Locomotion is represented by limb/haunch stepping poses rather than a sprite-exact amphibian hop. Visible limbs keep anatomical connections and supports; thin toes and rounded curled hind feet are existing model simplifications."
+    },
+    {
+      "scope": "coral:3, coral:4, coral:6 \u2014 all cells",
+      "disposition": "ACCEPTED_V0",
+      "detail": "Coral uses bounded collective sway/pose changes with its rock-pad base rather than legged walking. Background branches and lower cluster members overlap naturally; the inspected raw stage-6 cells retain readable foreground expressions without new motion-induced detachment or face-covering geometry."
+    }
+  ],
+  "limits": [
+    "Static captured poses do not establish continuous playback smoothness or every gait phase.",
+    "Root owns separate distance QA.",
+    "No Human acceptance or iPhone/mobile acceptance claimed.",
+    "No capture, code edits, reimplementation, tests, promotion, remote operation or subagent work performed. Only this report and scratch extraction copies were written."
+  ]
+}

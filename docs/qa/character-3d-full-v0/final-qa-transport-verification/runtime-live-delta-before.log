@@ -1,0 +1,49 @@
+✖ scene setup diagnostic deltas accept live undefined properties and serialized omitted properties equally (19.258041ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 116.257478
+
+✖ failing tests:
+
+test at tests/character-3d-runtime-scene-diagnostics-test.cjs:66:1
+✖ scene setup diagnostic deltas accept live undefined properties and serialized omitted properties equally (19.258041ms)
+  AssertionError [ERR_ASSERTION]: setup exact state delta
+  + actual - expected
+  
+    [
+      {
+        after: [],
+  +     before: undefined,
+        path: 'lifetime.meguru.marks.city'
+      },
+      {
+        after: [],
+  +     before: undefined,
+        path: 'lifetime.meguru.paths.city'
+      },
+      {
+        after: [],
+  +     before: undefined,
+        path: 'lifetime.meguru.zones.city'
+      },
+      {
+        after: 7,
+        before: 6,
+  
+      at validateSceneSetup (/workspace/scratch/150320e8a2fd/asset-integrity-buffer/tools/character-3d/runtime-integration.cjs:64:10)
+      at validateRepeated (/workspace/scratch/150320e8a2fd/asset-integrity-buffer/tools/character-3d/runtime-integration.cjs:92:18)
+      at TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/asset-integrity-buffer/tests/character-3d-runtime-scene-diagnostics-test.cjs:67:436)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ { path: 'lifetime.meguru.marks.city', before: undefined, after: [] }, { path: 'lifetime.meguru.paths.city', before: undefined, after: [] }, { path: 'lifetime.meguru.zones.city', before: undefined, after: [] }, { path: 'lifetime.saveRevision', before: 6, after: 7 }, { path: 'savedAt', before: 1000, after: 1001 } ],
+    expected: [ { path: 'lifetime.meguru.marks.city', after: [] }, { path: 'lifetime.meguru.paths.city', after: [] }, { path: 'lifetime.meguru.zones.city', after: [] }, { path: 'lifetime.saveRevision', before: 6, after: 7 }, { path: 'savedAt', before: 1000, after: 1001 } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

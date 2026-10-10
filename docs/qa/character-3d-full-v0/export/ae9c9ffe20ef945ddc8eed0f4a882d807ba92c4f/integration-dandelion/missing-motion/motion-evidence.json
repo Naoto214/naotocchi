@@ -1,0 +1,3609 @@
+{
+  "source": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "entries": [
+    {
+      "id": "dandelion",
+      "stage": 2
+    },
+    {
+      "id": "dandelion",
+      "stage": 3
+    },
+    {
+      "id": "dandelion",
+      "stage": 5
+    },
+    {
+      "id": "dandelion",
+      "stage": 7
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2428,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4556031038228285,
+          -0.01835058435716385,
+          -0.29470372200012207
+        ],
+        [
+          0.4539413243523854,
+          0.8696616398248058,
+          0.314746710446352
+        ]
+      ],
+      "file": "dandelion-2-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2428,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4556031038228285,
+          0.0007988410305378793,
+          -0.29470372200012207
+        ],
+        [
+          0.4539413243523854,
+          0.8888110652125075,
+          0.314746710446352
+        ]
+      ],
+      "file": "dandelion-2-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2428,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4132597744464874,
+          -0.017999999225139618,
+          -0.29470372200012207
+        ],
+        [
+          0.4132597744464874,
+          0.869901716709137,
+          0.314746710446352
+        ]
+      ],
+      "file": "dandelion-2-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2428,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4132597744464874,
+          -0.008425286531288753,
+          -0.29470372200012207
+        ],
+        [
+          0.4132597744464874,
+          0.8794764294029879,
+          0.314746710446352
+        ]
+      ],
+      "file": "dandelion-2-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2268,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4556031038228285,
+          0.02504584562870131,
+          -0.3392014779325665
+        ],
+        [
+          0.4539413243523854,
+          0.9345034657252166,
+          0.2978084371808528
+        ]
+      ],
+      "file": "dandelion-2-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2268,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4556031038228285,
+          0.004411130667859212,
+          -0.3392014779325665
+        ],
+        [
+          0.4539413243523854,
+          0.9138687507643745,
+          0.2978084371808528
+        ]
+      ],
+      "file": "dandelion-2-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2268,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4132597744464874,
+          -0.036446328859009794,
+          -0.3383363598584155
+        ],
+        [
+          0.4132597744464874,
+          0.872901716709137,
+          0.2978084371808528
+        ]
+      ],
+      "file": "dandelion-2-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2268,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4132597744464874,
+          -0.03130322986432816,
+          -0.3383363598584155
+        ],
+        [
+          0.4132597744464874,
+          0.8780448157038186,
+          0.2978084371808528
+        ]
+      ],
+      "file": "dandelion-2-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2428,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4556031038228285,
+          -0.0776655409234747,
+          -0.3892607115852369
+        ],
+        [
+          0.4539413243523854,
+          0.8646616398248058,
+          0.47333696022435817
+        ]
+      ],
+      "file": "dandelion-2-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2428,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4556031038228285,
+          0.011567845249564487,
+          -0.3892607115852369
+        ],
+        [
+          0.4539413243523854,
+          0.953895025997845,
+          0.47333696022435817
+        ]
+      ],
+      "file": "dandelion-2-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2428,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4132597744464874,
+          -0.07731838591771,
+          -0.38921178984396626
+        ],
+        [
+          0.4132597744464874,
+          0.864901716709137,
+          0.47168177449957893
+        ]
+      ],
+      "file": "dandelion-2-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2428,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4132597744464874,
+          -0.03270169283119039,
+          -0.38921178984396626
+        ],
+        [
+          0.4132597744464874,
+          0.9095184097956566,
+          0.47168177449957893
+        ]
+      ],
+      "file": "dandelion-2-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2628,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4556031038228285,
+          -0.07362220205878084,
+          -0.29392022023830444
+        ],
+        [
+          0.4539413243523854,
+          0.8044819414353175,
+          0.3887213558845069
+        ]
+      ],
+      "file": "dandelion-2-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2628,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4556031038228285,
+          0.01978080071124371,
+          -0.29392022023830444
+        ],
+        [
+          0.4539413243523854,
+          0.897884944205342,
+          0.3887213558845069
+        ]
+      ],
+      "file": "dandelion-2-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2628,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4132597744464874,
+          -0.07329675692786315,
+          -0.2938650579694673
+        ],
+        [
+          0.4132597744464874,
+          0.8047076137065887,
+          0.3868550322918836
+        ]
+      ],
+      "file": "dandelion-2-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2628,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4132597744464874,
+          -0.026595255542850887,
+          -0.2938650579694673
+        ],
+        [
+          0.4132597744464874,
+          0.851409115091601,
+          0.3868550322918836
+        ]
+      ],
+      "file": "dandelion-2-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2268,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4556031038228285,
+          -0.08536067876939087,
+          -0.29263488156966005
+        ],
+        [
+          0.4539413243523854,
+          0.7840887086388214,
+          0.40997236584217117
+        ]
+      ],
+      "file": "dandelion-2-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2268,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4556031038228285,
+          -0.0764086677356922,
+          -0.29263488156966005
+        ],
+        [
+          0.4539413243523854,
+          0.7930407196725201,
+          0.40997236584217117
+        ]
+      ],
+      "file": "dandelion-2-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2268,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4132597744464874,
+          -0.0850443159561151,
+          -0.2925666059967148
+        ],
+        [
+          0.4132597744464874,
+          0.784309579372406,
+          0.4076623754216543
+        ]
+      ],
+      "file": "dandelion-2-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2268,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4132597744464874,
+          -0.08056831043926577,
+          -0.2925666059967148
+        ],
+        [
+          0.4132597744464874,
+          0.7887855848892553,
+          0.4076623754216543
+        ]
+      ],
+      "file": "dandelion-2-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2268,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.45510881133184755,
+          -0.04669309468745941,
+          -0.295168364900613
+        ],
+        [
+          0.4544356168433663,
+          0.8308751742318135,
+          0.3487210717809541
+        ]
+      ],
+      "file": "dandelion-2-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2268,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.45510881133184755,
+          0.04313728735371086,
+          -0.295168364900613
+        ],
+        [
+          0.4544356168433663,
+          0.9207055562729838,
+          0.3487210717809541
+        ]
+      ],
+      "file": "dandelion-2-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2268,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4132597744464874,
+          -0.046357865033807316,
+          -0.2951372039994935
+        ],
+        [
+          0.4132597744464874,
+          0.8311056480407715,
+          0.3476667945339745
+        ]
+      ],
+      "file": "dandelion-2-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2268,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4132597744464874,
+          -0.0014426740132221852,
+          -0.2951372039994935
+        ],
+        [
+          0.4132597744464874,
+          0.8760208390613566,
+          0.3476667945339745
+        ]
+      ],
+      "file": "dandelion-2-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2428,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4556031038228285,
+          -0.012426578059381604,
+          -0.350496130393689
+        ],
+        [
+          0.4539413243523854,
+          0.9025825527750112,
+          0.29734091366872784
+        ]
+      ],
+      "file": "dandelion-2-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2428,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4556031038228285,
+          0.07176922659940388,
+          -0.350496130393689
+        ],
+        [
+          0.4539413243523854,
+          0.9867783574337967,
+          0.29734091366872784
+        ]
+      ],
+      "file": "dandelion-2-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2428,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4132597744464874,
+          -0.04299838850765034,
+          -0.34940641438908854
+        ],
+        [
+          0.4132597744464874,
+          0.871901716709137,
+          0.29734091366872784
+        ]
+      ],
+      "file": "dandelion-2-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2428,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4132597744464874,
+          0.006829742059293743,
+          -0.34940641438908854
+        ],
+        [
+          0.4132597744464874,
+          0.9217298472760811,
+          0.29734091366872784
+        ]
+      ],
+      "file": "dandelion-2-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2268,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4543673725953762,
+          -0.06763793420242718,
+          -0.29428687123195524
+        ],
+        [
+          0.4551770555798377,
+          0.8345717906300616,
+          0.3807489046520666
+        ]
+      ],
+      "file": "dandelion-2-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2268,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4543673725953762,
+          0.00008049038939961228,
+          -0.29428687123195524
+        ],
+        [
+          0.4551770555798377,
+          0.9022902152218883,
+          0.3807489046520666
+        ]
+      ],
+      "file": "dandelion-2-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2268,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4132597744464874,
+          -0.06730138635660463,
+          -0.294236561265738
+        ],
+        [
+          0.4132597744464874,
+          0.8348046652078628,
+          0.3790467506458071
+        ]
+      ],
+      "file": "dandelion-2-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 2,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2268,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.4132597744464874,
+          -0.03344217406069122,
+          -0.294236561265738
+        ],
+        [
+          0.4132597744464874,
+          0.8686638775037762,
+          0.3790467506458071
+        ]
+      ],
+      "file": "dandelion-2-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2820,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8770550789540129,
+          -0.021909269242234478,
+          -0.9064311981201172
+        ],
+        [
+          0.9580444201565668,
+          0.6990460989497211,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2820,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8770550789540129,
+          -0.002759843854532748,
+          -0.9064311981201172
+        ],
+        [
+          0.9580444201565668,
+          0.7181955243374228,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2820,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8788900375366211,
+          0,
+          -0.9064311981201172
+        ],
+        [
+          0.9600961804389954,
+          0.6525508761405945,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2820,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8788900375366211,
+          0.009574712693850865,
+          -0.9064311981201172
+        ],
+        [
+          0.9600961804389954,
+          0.6621255888344454,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2660,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8770550789540129,
+          0.042932556658176274,
+          -0.9064311981201172
+        ],
+        [
+          0.9580444201565668,
+          0.7638879248501319,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2660,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8770550789540129,
+          0.022297841697334175,
+          -0.9064311981201172
+        ],
+        [
+          0.9580444201565668,
+          0.7432532098892898,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2660,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8788900375366211,
+          -0.010613036956890486,
+          -0.9064311981201172
+        ],
+        [
+          0.9600961804389954,
+          0.6555508761405945,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2660,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8788900375366211,
+          -0.00546993796220885,
+          -0.9064311981201172
+        ],
+        [
+          0.9600961804389954,
+          0.6606939751352762,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2820,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8770550789540129,
+          -0.039513181823056236,
+          -0.9064311981201172
+        ],
+        [
+          0.9580444201565668,
+          0.6940460989497211,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2820,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8770550789540129,
+          0.04972020434998295,
+          -0.9064311981201172
+        ],
+        [
+          0.9580444201565668,
+          0.7832794851227604,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2820,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8788900375366211,
+          -0.039513181823056236,
+          -0.9064311981201172
+        ],
+        [
+          0.9600961804389954,
+          0.6475508761405945,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2820,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8788900375366211,
+          0.00510351126346336,
+          -0.9064311981201172
+        ],
+        [
+          0.9600961804389954,
+          0.6921675692271141,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3020,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8770550789540129,
+          -0.04097074522641148,
+          -0.9064311981201172
+        ],
+        [
+          0.9580444201565668,
+          0.6441033330127379,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3020,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8770550789540129,
+          0.05243225754361307,
+          -0.9064311981201172
+        ],
+        [
+          0.9580444201565668,
+          0.7375063357827625,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3020,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8788900375366211,
+          -0.04097074522641148,
+          -0.9064311981201172
+        ],
+        [
+          0.9600961804389954,
+          0.6003978235721588,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3020,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8788900375366211,
+          0.005730756158600785,
+          -0.9064311981201172
+        ],
+        [
+          0.9600961804389954,
+          0.647099324957171,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2660,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8770550789540129,
+          -0.049883420381586024,
+          -0.9064311981201172
+        ],
+        [
+          0.9580444201565668,
+          0.6271224110337436,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2660,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8770550789540129,
+          -0.04093140934788736,
+          -0.9064311981201172
+        ],
+        [
+          0.9580444201565668,
+          0.6360744220674422,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2660,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8788900375366211,
+          -0.049883420381586024,
+          -0.9064311981201172
+        ],
+        [
+          0.9600961804389954,
+          0.584346806049347,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2660,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8788900375366211,
+          -0.04540741486473669,
+          -0.9064311981201172
+        ],
+        [
+          0.9600961804389954,
+          0.5888228115661963,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2660,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.876560786463032,
+          -0.025032898472545098,
+          -0.9064311981201172
+        ],
+        [
+          0.9585387126475476,
+          0.6670842549917324,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2660,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.876560786463032,
+          0.06479748356862518,
+          -0.9064311981201172
+        ],
+        [
+          0.9585387126475476,
+          0.7569146370329027,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2660,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8788900375366211,
+          -0.020136721535272302,
+          -0.9064311981201172
+        ],
+        [
+          0.9600961804389954,
+          0.6224488410949707,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2660,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8788900375366211,
+          0.024778469485312832,
+          -0.9064311981201172
+        ],
+        [
+          0.9600961804389954,
+          0.6673640321155558,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2820,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8770550789540129,
+          0.011011643707970899,
+          -0.9064311981201172
+        ],
+        [
+          0.9580444201565668,
+          0.7319670118999265,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2820,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8770550789540129,
+          0.09520744836675638,
+          -0.9064311981201172
+        ],
+        [
+          0.9580444201565668,
+          0.816162816558712,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2820,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8788900375366211,
+          -0.015147190292721992,
+          -0.9064311981201172
+        ],
+        [
+          0.9600961804389954,
+          0.6545508761405945,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2820,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8788900375366211,
+          0.03468094027422209,
+          -0.9064311981201172
+        ],
+        [
+          0.9600961804389954,
+          0.7043790067075386,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 2660,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8758193477265606,
+          -0.035324481346119846,
+          -0.9064311981201172
+        ],
+        [
+          0.9592801513840191,
+          0.6690747159812296,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 2660,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8758193477265606,
+          0.03239394324570695,
+          -0.9064311981201172
+        ],
+        [
+          0.9592801513840191,
+          0.7367931405730563,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 2660,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8788900375366211,
+          -0.035324481346119846,
+          -0.9064311981201172
+        ],
+        [
+          0.9600961804389954,
+          0.6239743498563767,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 3,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 2660,
+      "meshes": 6,
+      "drawCalls": 6,
+      "box": [
+        [
+          -0.8788900375366211,
+          -0.0014652690502064518,
+          -0.9064311981201172
+        ],
+        [
+          0.9600961804389954,
+          0.65783356215229,
+          1.039443016052246
+        ]
+      ],
+      "file": "dandelion-3-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5780920486886822,
+          -0.05209358092881626,
+          -0.4554244577884674
+        ],
+        [
+          0.5016492237767542,
+          0.9952619944879904,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5780920486886822,
+          -0.033531790135204124,
+          -0.4554244577884674
+        ],
+        [
+          0.5016492237767542,
+          1.0166486251348175,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5795920491218567,
+          -0.049572888761758804,
+          -0.4554244577884674
+        ],
+        [
+          0.5031464099884033,
+          0.9816999988079071,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5795920491218567,
+          -0.04058592620349729,
+          -0.4554244577884674
+        ],
+        [
+          0.5031464099884033,
+          0.9935125384049466,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5780920486886822,
+          0.012748244971594491,
+          -0.4554244577884674
+        ],
+        [
+          0.5016492237767542,
+          1.0717149527511811,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5780920486886822,
+          -0.008142497213770215,
+          -0.4554244577884674
+        ],
+        [
+          0.5016492237767542,
+          1.0524235473073063,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5795920491218567,
+          -0.0465728887617588,
+          -0.4554244577884674
+        ],
+        [
+          0.5031464099884033,
+          0.9963277508374482,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5795920491218567,
+          -0.04168585032952947,
+          -0.4554244577884674
+        ],
+        [
+          0.5031464099884033,
+          1.0028143384962371,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3630,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5780920486886822,
+          -0.05709358092881626,
+          -0.4554244577884674
+        ],
+        [
+          0.5016492237767542,
+          1.0109515600828751,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3630,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5780920486886822,
+          0.02944310276530456,
+          -0.4554244577884674
+        ],
+        [
+          0.5016492237767542,
+          1.112306289946431,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3630,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5795920491218567,
+          -0.0545728887617588,
+          -0.4554244577884674
+        ],
+        [
+          0.5031464099884033,
+          1.0038172979967999,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3630,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5795920491218567,
+          -0.012655406645040446,
+          -0.4554244577884674
+        ],
+        [
+          0.5031464099884033,
+          1.0605624345028841,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3830,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5780920486886822,
+          -0.061967966073087286,
+          -0.4554244577884674
+        ],
+        [
+          0.5016492237767542,
+          0.9675968185860155,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3830,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5780920486886822,
+          0.029297988512203298,
+          -0.4554244577884674
+        ],
+        [
+          0.5016492237767542,
+          1.0528480193450107,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3830,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5795920491218567,
+          -0.05959851543605327,
+          -0.4554244577884674
+        ],
+        [
+          0.5031464099884033,
+          0.9549130260236742,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3830,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5795920491218567,
+          -0.015036645687910674,
+          -0.4554244577884674
+        ],
+        [
+          0.5031464099884033,
+          0.993476554751378,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5780920486886822,
+          -0.06392609445451096,
+          -0.4554244577884674
+        ],
+        [
+          0.5016492237767542,
+          0.9517539729928992,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5780920486886822,
+          -0.055179148509852755,
+          -0.4554244577884674
+        ],
+        [
+          0.5016492237767542,
+          0.9601102300295628,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5795920491218567,
+          -0.0616070576608181,
+          -0.4554244577884674
+        ],
+        [
+          0.5031464099884033,
+          0.9393515291463054,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5795920491218567,
+          -0.05733614046348716,
+          -0.4554244577884674
+        ],
+        [
+          0.5031464099884033,
+          0.9432319049050705,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5775977561977014,
+          -0.054009837691663606,
+          -0.4554244577884674
+        ],
+        [
+          0.5021435162677351,
+          0.9672316969215982,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5775977561977014,
+          0.03321473686482399,
+          -0.4554244577884674
+        ],
+        [
+          0.5021435162677351,
+          1.0653849320609332,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5795920491218567,
+          -0.051589973211288456,
+          -0.4554244577884674
+        ],
+        [
+          0.5031464099884033,
+          0.9542347681309973,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5795920491218567,
+          -0.009283030151373349,
+          -0.4554244577884674
+        ],
+        [
+          0.5031464099884033,
+          1.0074859198815507,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3630,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5780920486886822,
+          -0.019172667978610884,
+          -0.4554244577884674
+        ],
+        [
+          0.5016492237767542,
+          1.0360135285311531,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3630,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5780920486886822,
+          0.0626016557392017,
+          -0.4554244577884674
+        ],
+        [
+          0.5016492237767542,
+          1.1323851167598527,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3630,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5795920491218567,
+          -0.0475728887617588,
+          -0.4554244577884674
+        ],
+        [
+          0.5031464099884033,
+          0.991541828309229,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3630,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5795920491218567,
+          -0.00016936772933176525,
+          -0.4554244577884674
+        ],
+        [
+          0.5031464099884033,
+          1.0535625612017174,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5768563174612299,
+          -0.05953077350095177,
+          -0.4554244577884674
+        ],
+        [
+          0.5028849550042066,
+          0.990256315932274,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5768563174612299,
+          0.006577549762786024,
+          -0.4554244577884674
+        ],
+        [
+          0.5028849550042066,
+          1.0512897138448234,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5795920491218567,
+          -0.05708570209890604,
+          -0.4554244577884674
+        ],
+        [
+          0.5031464099884033,
+          0.9771496346535047,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 5,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 3470,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.5795920491218567,
+          -0.02483799256866341,
+          -0.4554244577884674
+        ],
+        [
+          0.5031464099884033,
+          1.0043313326052408,
+          0.4399450719356537
+        ]
+      ],
+      "file": "dandelion-5-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6210,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6536838564320616,
+          -0.051931517759291404,
+          -0.5134211778640747
+        ],
+        [
+          0.5672645407949555,
+          1.1455704472736241,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6210,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6536838564320616,
+          -0.03337002351932979,
+          -0.5134211778640747
+        ],
+        [
+          0.5672645407949555,
+          1.1669652589454445,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6210,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6552685499191284,
+          -0.0494157075881958,
+          -0.5134211778640747
+        ],
+        [
+          0.5688414573669434,
+          1.120699994945526,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6210,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6552685499191284,
+          -0.04042904135980773,
+          -0.5134211778640747
+        ],
+        [
+          0.5688414573669434,
+          1.132521233915677,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6130,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6536838564320616,
+          0.012910308141119348,
+          -0.5134211778640747
+        ],
+        [
+          0.5672645407949555,
+          1.2227791202082705,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6130,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6536838564320616,
+          -0.007980275899666815,
+          -0.5134211778640747
+        ],
+        [
+          0.5672645407949555,
+          1.2035481876622283,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6130,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6552685499191284,
+          -0.0464157075881958,
+          -0.5134211778640747
+        ],
+        [
+          0.5688414573669434,
+          1.1360845433434337,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6130,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6552685499191284,
+          -0.041528510946820085,
+          -0.5134211778640747
+        ],
+        [
+          0.5688414573669434,
+          1.1426317534480548,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6290,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6536838564320616,
+          -0.0569315177592914,
+          -0.5134211778640747
+        ],
+        [
+          0.5672645407949555,
+          1.1664173748690454,
+          0.5026485966494117
+        ]
+      ],
+      "file": "dandelion-7-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6290,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6536838564320616,
+          0.029603657803728707,
+          -0.5134211778640747
+        ],
+        [
+          0.5672645407949555,
+          1.2706971370497389,
+          0.5495876337916402
+        ]
+      ],
+      "file": "dandelion-7-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6290,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6552685499191284,
+          -0.0544157075881958,
+          -0.5134211778640747
+        ],
+        [
+          0.5688414573669434,
+          1.148835327800608,
+          0.5026485966494117
+        ]
+      ],
+      "file": "dandelion-7-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6290,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6552685499191284,
+          -0.012499728744213241,
+          -0.5134211778640747
+        ],
+        [
+          0.5688414573669434,
+          1.208515893836832,
+          0.5505145135105558
+        ]
+      ],
+      "file": "dandelion-7-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6490,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6536838564320616,
+          -0.061815626693733916,
+          -0.5134211778640747
+        ],
+        [
+          0.5672645407949555,
+          1.106151012542877,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6490,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6536838564320616,
+          0.02945152945540916,
+          -0.5134211778640747
+        ],
+        [
+          0.5672645407949555,
+          1.1925455910129492,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6490,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6552685499191284,
+          -0.05945076513290405,
+          -0.5134211778640747
+        ],
+        [
+          0.5688414573669434,
+          1.08283335489619,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6490,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6552685499191284,
+          -0.014887688817361494,
+          -0.5134211778640747
+        ],
+        [
+          0.5688414573669434,
+          1.122551855618065,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6130,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6536838564320616,
+          -0.0637769963385481,
+          -0.5134211778640747
+        ],
+        [
+          0.5672645407949555,
+          1.0859040118094176,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6130,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6536838564320616,
+          -0.055029923549537035,
+          -0.5134211778640747
+        ],
+        [
+          0.5672645407949555,
+          1.0944093735842424,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6130,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6552685499191284,
+          -0.061462450981140136,
+          -0.5134211778640747
+        ],
+        [
+          0.5688414573669434,
+          1.0630918709953325,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6130,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6552685499191284,
+          -0.057191406894464294,
+          -0.5134211778640747
+        ],
+        [
+          0.5688414573669434,
+          1.0671214557692745,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6130,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6531895639410807,
+          -0.053854257048919746,
+          -0.5134211778640747
+        ],
+        [
+          0.5677588332859363,
+          1.1113293376950009,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6130,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6531895639410807,
+          0.03336885897887118,
+          -0.5134211778640747
+        ],
+        [
+          0.5677588332859363,
+          1.2089906126227947,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6130,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6552685499191284,
+          -0.05143907928466797,
+          -0.5134211778640747
+        ],
+        [
+          0.5688414573669434,
+          1.0874760064354494,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6130,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6552685499191284,
+          -0.009133590026813715,
+          -0.5134211778640747
+        ],
+        [
+          0.5688414573669434,
+          1.1402461468477352,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6290,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6536838564320616,
+          -0.019010604809086028,
+          -0.5134211778640747
+        ],
+        [
+          0.5672645407949555,
+          1.1868643294227152,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6290,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6536838564320616,
+          0.06276507005163193,
+          -0.5134211778640747
+        ],
+        [
+          0.5672645407949555,
+          1.283773975975552,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6290,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6552685499191284,
+          -0.0474157075881958,
+          -0.5134211778640747
+        ],
+        [
+          0.5688414573669434,
+          1.131084948846122,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6290,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6552685499191284,
+          -0.000010829353503480355,
+          -0.5134211778640747
+        ],
+        [
+          0.5688414573669434,
+          1.193657774753782,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 6130,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6524481252046093,
+          -0.05937357222651266,
+          -0.5134211778640747
+        ],
+        [
+          0.5685002720224078,
+          1.134767510627823,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 6130,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6524481252046093,
+          0.006735684330110368,
+          -0.5134211778640747
+        ],
+        [
+          0.5685002720224078,
+          1.1963751748546363,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 6130,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6552685499191284,
+          -0.05693323636054993,
+          -0.5134211778640747
+        ],
+        [
+          0.5688414573669434,
+          1.1106897828071918,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "dandelion",
+      "stage": 7,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 6130,
+      "meshes": 7,
+      "drawCalls": 7,
+      "box": [
+        [
+          -0.6552685499191284,
+          -0.02468459082316258,
+          -0.5134211778640747
+        ],
+        [
+          0.5688414573669434,
+          1.1384520353300185,
+          0.4959705173969269
+        ]
+      ],
+      "file": "dandelion-7-sick-walk-reduced.jpg"
+    }
+  ],
+  "errors": []
+}

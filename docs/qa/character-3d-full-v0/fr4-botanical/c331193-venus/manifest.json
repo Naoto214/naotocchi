@@ -1,0 +1,1916 @@
+[
+  {
+    "path": "evidence.json",
+    "size": 18042,
+    "sha256": "5ca424cf47232a9d94f06ee9fdb2a5c4a7f3bcd20d22fe3e9db702c4ebe1fe1e",
+    "gitBlob": "b378d2b8587726db91f0163c453f47540e1772b3"
+  },
+  {
+    "path": "motion-evidence.json",
+    "size": 160018,
+    "sha256": "a483151b433cfee9ef1724419a93bdc3bd51bc056492abaec1e225271728403c",
+    "gitBlob": "e05c0e3f3ec2a32ec4922877bf16c71375c20a40"
+  },
+  {
+    "path": "normal-distance/meguru-qa.json",
+    "size": 7830,
+    "sha256": "aa48a13bb416015066af04eb1b6463a5eddcdfd2ac93d8c4692a31c110e8fa0e",
+    "gitBlob": "356d42c1f3834fe5a3cd98878c71b1236f966e65"
+  },
+  {
+    "path": "normal-distance/player-venus_flytrap-1-back.png",
+    "size": 302716,
+    "sha256": "3283840ec571bf5f077b912ea9b08d73d89e3fd0743b82be2f7642bffba6710c",
+    "gitBlob": "29a58c71b2573ca43852cbdc14c075e57d5783da"
+  },
+  {
+    "path": "normal-distance/player-venus_flytrap-1-front.png",
+    "size": 305545,
+    "sha256": "d8e243857acab8994ec2b87de501ffe3e3a548599bc73cf8a15cbd81a98d4ddf",
+    "gitBlob": "e76032cce90eb8186b29f9a616c64d0991d0d939"
+  },
+  {
+    "path": "normal-distance/player-venus_flytrap-2-back.png",
+    "size": 308461,
+    "sha256": "c41f07802a074dadde14e243ee7c32e4fbbe2654dfa86a32602a1edd6f86783c",
+    "gitBlob": "9ed1ce0b153428772d9290fd5b591476fee3982e"
+  },
+  {
+    "path": "normal-distance/player-venus_flytrap-2-front.png",
+    "size": 311825,
+    "sha256": "9a9f515bc588f820e7a35a024d7fb0ff6ca0c8c171f30c9f35ec461330b7809e",
+    "gitBlob": "f918321d8a3f77e4a7554e944ca39776ac7d5d04"
+  },
+  {
+    "path": "normal-distance/player-venus_flytrap-3-back.png",
+    "size": 311689,
+    "sha256": "de3da156f0de9d951c1412ba41c275b2f96a1afa8fb51730cc005e482bf0efd5",
+    "gitBlob": "b1f8dadf7fd8b325359f85db265042970049b727"
+  },
+  {
+    "path": "normal-distance/player-venus_flytrap-3-front.png",
+    "size": 313721,
+    "sha256": "bf45e6869d085858039fc95783cf297459d8de68a26058c45a678f2e03fe73aa",
+    "gitBlob": "a64267f7eea563c6001972c8f3d2a82d0fc3d21a"
+  },
+  {
+    "path": "normal-distance/player-venus_flytrap-4-back.png",
+    "size": 311519,
+    "sha256": "4feb86ed0016928b4cfe063bb4da9736ed0b0072324372049910ebdf39e083d6",
+    "gitBlob": "b680ede9d9fba10b4cc7bafb44bb97fa0817eae9"
+  },
+  {
+    "path": "normal-distance/player-venus_flytrap-4-front.png",
+    "size": 313977,
+    "sha256": "e7b734cf70f0cf1a2e22ea129247db0f831c3cf3f594b2ecf8f2223d9f424865",
+    "gitBlob": "594343ff2d6f714ddfb815beadc164f0a746532a"
+  },
+  {
+    "path": "normal-distance/player-venus_flytrap-5-back.png",
+    "size": 309558,
+    "sha256": "09ccad6c9d9255db6e602e0df94e5b5be8b3d109f165efc0c8f4972821cf3d2b",
+    "gitBlob": "c2c39f8b5c25a665e18fad5182e391ae760e0bf3"
+  },
+  {
+    "path": "normal-distance/player-venus_flytrap-5-front.png",
+    "size": 310511,
+    "sha256": "4cfe8735595bb8e218b7bac4d79bbb0be2923b18e4c277c2f2c8fca40d61a172",
+    "gitBlob": "50d11c921c3de0f340c227b8074ecb0cc1a296be"
+  },
+  {
+    "path": "normal-distance/player-venus_flytrap-6-back.png",
+    "size": 304388,
+    "sha256": "3858a770cd9aaf97363d2a00c9fd5bf836a379adf1177228b7edec3d2cb0eed1",
+    "gitBlob": "696131c1b97a3d387863299ee1db57da9a266e32"
+  },
+  {
+    "path": "normal-distance/player-venus_flytrap-6-front.png",
+    "size": 310425,
+    "sha256": "4f18ba4871d628815544e7f574e7e9fa239293d66241386187f76e38e1ae9613",
+    "gitBlob": "f5d94d15ce45a97a5c13b7fd77ac41653f1766c9"
+  },
+  {
+    "path": "normal-distance/player-venus_flytrap-7-back.png",
+    "size": 314200,
+    "sha256": "fe18b3191cf4783adea7f59a4ecbeba3b71d869fa4e5cda3cf0c279c731f79a2",
+    "gitBlob": "ba96c1a4c2014cec53b52d1d87d3191a197f4812"
+  },
+  {
+    "path": "normal-distance/player-venus_flytrap-7-front.png",
+    "size": 314422,
+    "sha256": "d191cb623aee700d633193e257731613f0b6c8c327b069cefcaf8d479da6aa6c",
+    "gitBlob": "c0ec3683a4a4403bc764e67f8abaf5c87b095624"
+  },
+  {
+    "path": "normal-distance/player-venus_flytrap-8-back.png",
+    "size": 314078,
+    "sha256": "c9f5b2e56f3068b713b5e8fdf172c16a411b406e23c182a783aba1f1f266fa1d",
+    "gitBlob": "e85f46c3fe4b71599ab287af02ef951627826fef"
+  },
+  {
+    "path": "normal-distance/player-venus_flytrap-8-front.png",
+    "size": 315663,
+    "sha256": "b22ba7a82eace2c32c58bb4d45da9d4111b549061d7fc52c6ef0037c64cd6314",
+    "gitBlob": "e80c6f78cff3e2e4ab3cc17d06a83863b18669bf"
+  },
+  {
+    "path": "raw/fourviews.json",
+    "size": 52589,
+    "sha256": "c10cdeb3e08d2fd25096797b6830377dd36d6611919e8dfa48b5aad40482bbd5",
+    "gitBlob": "22a77a3a87b7f5959884bbd1d09414c73f74a263"
+  },
+  {
+    "path": "raw/states.json",
+    "size": 465140,
+    "sha256": "a1ed32605f5e986664e3f6d298167650c73bc30de86f067683c5f1bbe2f84b11",
+    "gitBlob": "e55f51cb20ccb3e52b2ac2d777100960e522bc99"
+  },
+  {
+    "path": "review.json",
+    "size": 692,
+    "sha256": "9deefe16002afb6309e87cace97d0c01f49f4c79e3d072875c9b393f28506abd",
+    "gitBlob": "5fafe677faacb3c9770c40448521b5450d4c9afa"
+  },
+  {
+    "path": "venus_flytrap-1-34.jpg",
+    "size": 9871,
+    "sha256": "748bdee599617ead6cc3748365e7a3c6d7a6ab23684b005084a9daecb72f683f",
+    "gitBlob": "df3112856e74947e3c07ba6a7e8e1421dfa8d128"
+  },
+  {
+    "path": "venus_flytrap-1-back.jpg",
+    "size": 9091,
+    "sha256": "d1f959b2fa290902c56607de2d74833760e71a0d4e8f7a8cf65830b8441e39e5",
+    "gitBlob": "038a8893484604dd3f096bc3a9b2d82cd6e9ee1b"
+  },
+  {
+    "path": "venus_flytrap-1-dislike-idle-normal.jpg",
+    "size": 9537,
+    "sha256": "4f8a5f5a23d8e418a9af1d72b14b6cc10117a92c211dc9f3441ba8c8853efa2e",
+    "gitBlob": "cd07a8b1ec6b3dfabbfd33339ea041462f66ca8c"
+  },
+  {
+    "path": "venus_flytrap-1-dislike-idle-reduced.jpg",
+    "size": 9597,
+    "sha256": "bed2398cca5052343852836c3c115d0cb3979bf09239db10d37416d935dbc279",
+    "gitBlob": "d7568459050f5b0672c6551881075925e84f36d7"
+  },
+  {
+    "path": "venus_flytrap-1-dislike-walk-normal.jpg",
+    "size": 9605,
+    "sha256": "9c97f331b514f431f750ceae677b38f1c30aac80850f9addfcd1aa5b7999a291",
+    "gitBlob": "a742dea88c9b2fb8a63b54545e8116bb6f3ff09c"
+  },
+  {
+    "path": "venus_flytrap-1-dislike-walk-reduced.jpg",
+    "size": 9663,
+    "sha256": "bd2df4d5388af09fe7bb7bf31c1d69293b5e7d8d747252db089c1c8e8af4ef27",
+    "gitBlob": "ce2a86bf6f571813fd027209b71685a3ddfee994"
+  },
+  {
+    "path": "venus_flytrap-1-front.jpg",
+    "size": 10293,
+    "sha256": "3ff2d1dd822cc7ad1bb7a36d8c0b2fda4107939a1800ef39b523573b85e41892",
+    "gitBlob": "14eb2a39f30c753e559cfb946b6d0a20ce6a71ec"
+  },
+  {
+    "path": "venus_flytrap-1-motion.jpg",
+    "size": 418601,
+    "sha256": "861ed070373ea038901fcf0e04d9d0d82d7f941293721d6cc7cfa7e6ebd76cfe",
+    "gitBlob": "cf5d473be524c0892c8545d805b2e691aaf749f5"
+  },
+  {
+    "path": "venus_flytrap-1-normal-idle-normal.jpg",
+    "size": 9871,
+    "sha256": "748bdee599617ead6cc3748365e7a3c6d7a6ab23684b005084a9daecb72f683f",
+    "gitBlob": "df3112856e74947e3c07ba6a7e8e1421dfa8d128"
+  },
+  {
+    "path": "venus_flytrap-1-normal-idle-reduced.jpg",
+    "size": 9941,
+    "sha256": "83d7b497ed9a913462daa8a3361e2f7098a96cde29f8823ae0f459bbf901b2c1",
+    "gitBlob": "18c821e87c4031db6c967c7aac1e8ca75b252ded"
+  },
+  {
+    "path": "venus_flytrap-1-normal-walk-normal.jpg",
+    "size": 9919,
+    "sha256": "77b8ded4a9f36aeeed8ff2a93c49ec7544a20170cf40b96493419ae181a552e8",
+    "gitBlob": "0abc8b54f284bae2404b1b867e2c368145347470"
+  },
+  {
+    "path": "venus_flytrap-1-normal-walk-reduced.jpg",
+    "size": 9999,
+    "sha256": "2772e472331ec87852932285255eab897969b289b63fddfdd41b81bcc39624b5",
+    "gitBlob": "945968f2a81f69ab163985239ad85ddcb70e3390"
+  },
+  {
+    "path": "venus_flytrap-1-positive-idle-normal.jpg",
+    "size": 9758,
+    "sha256": "c87ae17eeb5b3a8950286e92a7014024df26c213c3dcea1f3ad10d6c9508f821",
+    "gitBlob": "ce6648c169cc7ab1f3fbbf05c376b2298228307a"
+  },
+  {
+    "path": "venus_flytrap-1-positive-idle-reduced.jpg",
+    "size": 9961,
+    "sha256": "e6267ab5798e0fba572e8553d4b4b3de56f74c7cd6ebe471de2edd8bcfc6130a",
+    "gitBlob": "78514e8ab1891e9bf331e1f5f54a166e73a8c05a"
+  },
+  {
+    "path": "venus_flytrap-1-positive-walk-normal.jpg",
+    "size": 9821,
+    "sha256": "f27bf124d82565262fe5721701ce15e2d679393e0b5ee993557d765a5d6b56e8",
+    "gitBlob": "1f4222bb6f1a2275d244c879ad0c9c3c002381cb"
+  },
+  {
+    "path": "venus_flytrap-1-positive-walk-reduced.jpg",
+    "size": 10047,
+    "sha256": "e60f3c1af6ae046b86a225aab9a33abad1a062284940c87d9f8e570ccd86f8d2",
+    "gitBlob": "38ff4baff6d42196696ccca7661b38d819a0eb37"
+  },
+  {
+    "path": "venus_flytrap-1-sick-idle-normal.jpg",
+    "size": 9425,
+    "sha256": "6b18c51faaf72e78502e414d9b671f38673fea754f37e2d639281d50bd122216",
+    "gitBlob": "16474021807c38badf135f03d167415ec7bd04cc"
+  },
+  {
+    "path": "venus_flytrap-1-sick-idle-reduced.jpg",
+    "size": 9431,
+    "sha256": "c051141c7ed947ea906ec33b71b9cfa2e2018a2aa297a4241b68b3539c08c62d",
+    "gitBlob": "20770dd19e7ee1581e72e051ec4c0ba80c234f26"
+  },
+  {
+    "path": "venus_flytrap-1-sick-walk-normal.jpg",
+    "size": 9481,
+    "sha256": "e5008dce9b30058268cd8558f45f7537e2abe95e0c5d51e0e809f98b9fbd9244",
+    "gitBlob": "1e7a9a662e8ab59fb46a661eb4a6775f800c34e5"
+  },
+  {
+    "path": "venus_flytrap-1-sick-walk-reduced.jpg",
+    "size": 9513,
+    "sha256": "8a09fcf30e5c6af309061e072d78ac4aef1e74669762a31637b283911082dcc4",
+    "gitBlob": "6285e5cdef0eccb248b2c1c00b41fd192b03210d"
+  },
+  {
+    "path": "venus_flytrap-1-side.jpg",
+    "size": 8510,
+    "sha256": "f3b4c2be47afc0cb14756f2da579f0cac487012e9bd85d09e956bd2a673b9547",
+    "gitBlob": "12b13cef63b380f85fc8214ec23c560eee77065b"
+  },
+  {
+    "path": "venus_flytrap-1-sleeping-idle-normal.jpg",
+    "size": 9154,
+    "sha256": "78ba089a51f478e2adecbd8d13e4cae51316178d0af382ea04ace50cb5d86ecb",
+    "gitBlob": "3ddb917c82f0a4de5a4d192938510b4d48c38fa8"
+  },
+  {
+    "path": "venus_flytrap-1-sleeping-idle-reduced.jpg",
+    "size": 9359,
+    "sha256": "6dcc163fa73df27e6aa895b0ac19f7d8cd4388cc365801e56118901f9383a67e",
+    "gitBlob": "0badd895dcb16f712117af5b4444418c4a5fe1a9"
+  },
+  {
+    "path": "venus_flytrap-1-sleeping-walk-normal.jpg",
+    "size": 9197,
+    "sha256": "bc1908e264bd0ceead66f4ee2025df675678e6bda7e991447b34085a6f626c5a",
+    "gitBlob": "ba11c018315cf24790e05d29d48daf3ad905d3b0"
+  },
+  {
+    "path": "venus_flytrap-1-sleeping-walk-reduced.jpg",
+    "size": 9449,
+    "sha256": "6ab54fd885ce67e04c50ad06a51adf76a63a5613c3b0eeef126027b1ce0031af",
+    "gitBlob": "a48021955cd6433df887aaeccc0bd078ed2255f4"
+  },
+  {
+    "path": "venus_flytrap-1-strained-idle-normal.jpg",
+    "size": 9732,
+    "sha256": "ae2c3ca5a00b391ff57f873b496ccede01ab1629e48edb6fec09276332cfaaab",
+    "gitBlob": "67bfcd5b242902570b4e7c539736df5beb479016"
+  },
+  {
+    "path": "venus_flytrap-1-strained-idle-reduced.jpg",
+    "size": 9869,
+    "sha256": "09c2e99b64575de5d2c29b5033d89b7858b1bc363588fec66933dc57c931bea0",
+    "gitBlob": "6a817fc1493da3d72d6e0f092a13d38e61eed397"
+  },
+  {
+    "path": "venus_flytrap-1-strained-walk-normal.jpg",
+    "size": 9755,
+    "sha256": "1c2ee0b550cc2cdff80b73ea4fbb235139421ed06e3f12e6fa1b1fe6660c7f46",
+    "gitBlob": "e4c9e0feda14d7af7d9042a7b9f538eb8853e163"
+  },
+  {
+    "path": "venus_flytrap-1-strained-walk-reduced.jpg",
+    "size": 9966,
+    "sha256": "26cef3a94f24d45fefb00f18a1dbf514bae83edf53519ac2e03bff7baacbdd01",
+    "gitBlob": "c858588ff011ccffdc693538f0eb0c228fed7ebd"
+  },
+  {
+    "path": "venus_flytrap-1-tired-idle-normal.jpg",
+    "size": 9252,
+    "sha256": "3f80c0056a56fa68335c1129d15b81f14470c109a8645153cc9be1787bc5b48a",
+    "gitBlob": "3c40d8474e128c19e81656504cdb7793aa06de0d"
+  },
+  {
+    "path": "venus_flytrap-1-tired-idle-reduced.jpg",
+    "size": 9457,
+    "sha256": "aa2aae1982563042dcc277cee3131df08537bda6f902031deb70993fbd11af14",
+    "gitBlob": "91865986e3cf90d66af565cda45c071c9433fd67"
+  },
+  {
+    "path": "venus_flytrap-1-tired-walk-normal.jpg",
+    "size": 9264,
+    "sha256": "28768f46b612d6c9c2af846200ced76b25e40294df17a87706c66cb60c3d217a",
+    "gitBlob": "4eacde1d70b29abd7b53a4cf7e787c7544eb0bfd"
+  },
+  {
+    "path": "venus_flytrap-1-tired-walk-reduced.jpg",
+    "size": 9471,
+    "sha256": "34d3925ff7353070d97f82999d3c5ababe9f10611d4ccb0ae80d9ef5027c9836",
+    "gitBlob": "51e181dd6af4888242463fb13e6482fc63ab658f"
+  },
+  {
+    "path": "venus_flytrap-1-wantsPlay-idle-normal.jpg",
+    "size": 10086,
+    "sha256": "c2ab95dce67359650dbd3c045f8952542afa8983c01218ed4fd2b85ab0402f51",
+    "gitBlob": "5828b71447e8b477471ad37a9fa870ba93b6d4da"
+  },
+  {
+    "path": "venus_flytrap-1-wantsPlay-idle-reduced.jpg",
+    "size": 10257,
+    "sha256": "2c6a7f29f7977adc53cc46495d4f2f9a866e6801e0cdbf3083f5e126cb75019c",
+    "gitBlob": "a5bb51b2ec1ea896a358d964b24039d20d04ef7c"
+  },
+  {
+    "path": "venus_flytrap-1-wantsPlay-walk-normal.jpg",
+    "size": 10142,
+    "sha256": "ed75fcd6d8ddc2180fccf4cd80a70a9ac76ff060d7010bdbb151359b544bfd85",
+    "gitBlob": "24e57cf3763f399c780328881e42c8c418d20254"
+  },
+  {
+    "path": "venus_flytrap-1-wantsPlay-walk-reduced.jpg",
+    "size": 10181,
+    "sha256": "dcb89a9b9fbfacb4675fb765a78569f445f59e267697f206f9308cb7f5f0779a",
+    "gitBlob": "6b177d42fdf77806dadc00dc56cbda6740f9ff7b"
+  },
+  {
+    "path": "venus_flytrap-2-34.jpg",
+    "size": 13566,
+    "sha256": "020f1570e33d7903f98fd0a62a8a0157956c6699a6c45955f603eb5017426502",
+    "gitBlob": "d5eb8a14c39b1c396170fcc1cefd3309559c1e88"
+  },
+  {
+    "path": "venus_flytrap-2-back.jpg",
+    "size": 13065,
+    "sha256": "238e3d53fedcbd01464da1ba1c18142cd1e7ece6548a431626feb6cbc746dadb",
+    "gitBlob": "7c6a5f0ff191bfa5f56012cb5f33a155cdd6d4f3"
+  },
+  {
+    "path": "venus_flytrap-2-dislike-idle-normal.jpg",
+    "size": 13840,
+    "sha256": "7b93cbd4ffe06aa7600e49c879e0ccca19404ce36cb6aaa99b6af8dce802049e",
+    "gitBlob": "a7a92e2be736339f1987bc3473f544cafc1e530a"
+  },
+  {
+    "path": "venus_flytrap-2-dislike-idle-reduced.jpg",
+    "size": 13987,
+    "sha256": "be80474629a155e66dc7250d3c5168fdf86d1f7f092d115cab7a9ead75ee2773",
+    "gitBlob": "9441611f9bc5cd1b9c55768308a2f102f75687d1"
+  },
+  {
+    "path": "venus_flytrap-2-dislike-walk-normal.jpg",
+    "size": 13916,
+    "sha256": "6937f2aedbb99f987dd6b30bb9870a566daea7b69b703300298560c0f44a0f75",
+    "gitBlob": "92478b5b84c5929b1720c3adf433241e44ea9aa0"
+  },
+  {
+    "path": "venus_flytrap-2-dislike-walk-reduced.jpg",
+    "size": 14044,
+    "sha256": "3fcff1c954acce5b04a8e5d98a9ed97a10aca931692cdee26bd6478c78a442a6",
+    "gitBlob": "2700de6083775bc8c85af2510d3cb5fd017d7403"
+  },
+  {
+    "path": "venus_flytrap-2-front.jpg",
+    "size": 14205,
+    "sha256": "b9857f035fff6efa0f302947c8e16aeda5b55340f5489d61c86411f46f645da3",
+    "gitBlob": "8cdb46c3b71187699548b97468ffb71fa7c40c0f"
+  },
+  {
+    "path": "venus_flytrap-2-motion.jpg",
+    "size": 557022,
+    "sha256": "ec5f0df7fc1d6c813d1aa55ddbeaf71c9b71a06401fca2b2437620357542496f",
+    "gitBlob": "42656133b8c01b4aa496ae8e0980c2b21472774e"
+  },
+  {
+    "path": "venus_flytrap-2-normal-idle-normal.jpg",
+    "size": 13566,
+    "sha256": "020f1570e33d7903f98fd0a62a8a0157956c6699a6c45955f603eb5017426502",
+    "gitBlob": "d5eb8a14c39b1c396170fcc1cefd3309559c1e88"
+  },
+  {
+    "path": "venus_flytrap-2-normal-idle-reduced.jpg",
+    "size": 13453,
+    "sha256": "38d2d21cba947229f496766111f19ee1a2013d1c599a30a307385f1c7dad014e",
+    "gitBlob": "71e4c4f0eba2b7f276c9833855338efa31de4b28"
+  },
+  {
+    "path": "venus_flytrap-2-normal-walk-normal.jpg",
+    "size": 13619,
+    "sha256": "6a207c7b34fe2e38cdaa4ea07e4abc2a96eecf599e7e2014591d799fc304fce8",
+    "gitBlob": "cbc284f56326871a9dcbcc290b4aef5151af0893"
+  },
+  {
+    "path": "venus_flytrap-2-normal-walk-reduced.jpg",
+    "size": 13508,
+    "sha256": "6f6e5a1c77ebbbca4a75fec86750bb5c3f1075dd6951be0fff6c49a4730f9863",
+    "gitBlob": "7805c6b12d3d3a7a918d4efe108865737389ea72"
+  },
+  {
+    "path": "venus_flytrap-2-positive-idle-normal.jpg",
+    "size": 13372,
+    "sha256": "c1777069473661afe890672de89b47f11b32795a4e9d00a1f2ac2ec47fc0aa1e",
+    "gitBlob": "43cb0b05e92c89436e9920be2df6adfe616a5aac"
+  },
+  {
+    "path": "venus_flytrap-2-positive-idle-reduced.jpg",
+    "size": 13507,
+    "sha256": "29e0073d902dd0fb15a70f343a133d4e3ee08a94762459e27ceaf58c684a8c93",
+    "gitBlob": "f1c82af2959b1dc1bc8682c9ea14e722ef177631"
+  },
+  {
+    "path": "venus_flytrap-2-positive-walk-normal.jpg",
+    "size": 13435,
+    "sha256": "ca4ab94b56ac58e9997b93298b6b526ed4aa31c800bb68bce7f71d310a45a809",
+    "gitBlob": "e52884ca99129648e756f8cddcdad273fe008115"
+  },
+  {
+    "path": "venus_flytrap-2-positive-walk-reduced.jpg",
+    "size": 13577,
+    "sha256": "9e33bfeff77f018de8350f70292cd067706c6874af5a24ac7ac44ce8b9daeda1",
+    "gitBlob": "26bd9826b6df9950241159d6a5b3ebc9595b9e0c"
+  },
+  {
+    "path": "venus_flytrap-2-sick-idle-normal.jpg",
+    "size": 13542,
+    "sha256": "030441326eb26e5ed4e09ba0453a34139eb1aa7189acbe2d75c1b3f5ff3c518c",
+    "gitBlob": "b03a1a7758bd80b584e83c02877f0af6011500b9"
+  },
+  {
+    "path": "venus_flytrap-2-sick-idle-reduced.jpg",
+    "size": 13592,
+    "sha256": "3262e2475ddb89902e2334bb797cde46d8ef8161a33706e5abfb6b8514226f02",
+    "gitBlob": "f1e4bb2e91690d4b9ff9920b3e0e4b5bfde034bf"
+  },
+  {
+    "path": "venus_flytrap-2-sick-walk-normal.jpg",
+    "size": 13598,
+    "sha256": "d642053db71e30f2b33729529d94d4a2df01720b2258acfd225c1b106488d238",
+    "gitBlob": "72a3b8fbfe2abc646af69ebea74e6b0d939f365e"
+  },
+  {
+    "path": "venus_flytrap-2-sick-walk-reduced.jpg",
+    "size": 13677,
+    "sha256": "c385d841750696f5e18389a99663837f435b1646126123012f0432e8f20bc24a",
+    "gitBlob": "36ae437b5d2e0ee00155cf5b9d6907b12e54c634"
+  },
+  {
+    "path": "venus_flytrap-2-side.jpg",
+    "size": 9431,
+    "sha256": "5a8b25290cbe5b2a1f5464bb5b746bb43267988d87ef2e2cb0f96e7bd2ebeee6",
+    "gitBlob": "e4d0e1ebbb1535d999c51d8019093832ce25806e"
+  },
+  {
+    "path": "venus_flytrap-2-sleeping-idle-normal.jpg",
+    "size": 13247,
+    "sha256": "b3f99667c0b675d22fe9931844f412f246e6a6ffbc50d422e429dcac3d9fbfd1",
+    "gitBlob": "b7119a86287c6a8509afe6cfee83a089d05707dc"
+  },
+  {
+    "path": "venus_flytrap-2-sleeping-idle-reduced.jpg",
+    "size": 13174,
+    "sha256": "bb405b99b5175d784604539f80552dabf30e055c33d8abcc3cc80103f365d90c",
+    "gitBlob": "abfd7531e4e8f1016088325375c597ef16afa23b"
+  },
+  {
+    "path": "venus_flytrap-2-sleeping-walk-normal.jpg",
+    "size": 13285,
+    "sha256": "2dce38c75b4f0dc4607bd08c2e04149814d21107b1ab1355e1de1e0e25838fba",
+    "gitBlob": "04820b15328d033b760eea717ddb92d90b973e74"
+  },
+  {
+    "path": "venus_flytrap-2-sleeping-walk-reduced.jpg",
+    "size": 13273,
+    "sha256": "b67ea3e60446f3fc1617843256fd9d150c0a6e6f738cf6b6415320b0ed875326",
+    "gitBlob": "06ceaea749bb08b5ac868ec7aee7d881184d1ab5"
+  },
+  {
+    "path": "venus_flytrap-2-strained-idle-normal.jpg",
+    "size": 13595,
+    "sha256": "e99f80ba41a871c8d6bceb460f12d725a9c8858ce83a0135b3e885119cea7615",
+    "gitBlob": "5b76190f024760c3ec0ee0f00dd975d7072a5a0e"
+  },
+  {
+    "path": "venus_flytrap-2-strained-idle-reduced.jpg",
+    "size": 13622,
+    "sha256": "2de85ac28a82b984a18fa8ece42fa88e17d8502a6fa5c3af2245564494217a51",
+    "gitBlob": "6eb30f3db89fb931d3eac4cd0d95591c133410f1"
+  },
+  {
+    "path": "venus_flytrap-2-strained-walk-normal.jpg",
+    "size": 13630,
+    "sha256": "0017e9143180032d78a797818a918c753cf0e9ad669de17292f458213f81bf6a",
+    "gitBlob": "cb5baf5c8cd9114cc880cf241ea7df990ad26544"
+  },
+  {
+    "path": "venus_flytrap-2-strained-walk-reduced.jpg",
+    "size": 13721,
+    "sha256": "74d73ae7e8e532f5c6c5bedef311402990c39c1aa0022e50455d6495375c41aa",
+    "gitBlob": "de4746b85e4d7654b1986ad5141160fd8beefd4d"
+  },
+  {
+    "path": "venus_flytrap-2-tired-idle-normal.jpg",
+    "size": 13257,
+    "sha256": "7bcf18afdd76714e9028764eb00036ac338e48bb4c1ce71a2f2ed5c0d22543e7",
+    "gitBlob": "675ab96a203f6354fbbe38c1e85773accafd81fb"
+  },
+  {
+    "path": "venus_flytrap-2-tired-idle-reduced.jpg",
+    "size": 13356,
+    "sha256": "b586f1bfe9da24407e9885ca38d7ae0d6d8b9e8e78311705bf90b147ec2f534d",
+    "gitBlob": "f03413ff15ad8a3f0f55f6c0e8a246a1f552e1bd"
+  },
+  {
+    "path": "venus_flytrap-2-tired-walk-normal.jpg",
+    "size": 13267,
+    "sha256": "f17f985a54588adc4c8c8173eb279f39b484a174a4c28a68bf81e8c0e3b2c465",
+    "gitBlob": "2e204d91bd44167cf2d8ad842bb5fcc6caa3c4cb"
+  },
+  {
+    "path": "venus_flytrap-2-tired-walk-reduced.jpg",
+    "size": 13340,
+    "sha256": "03c155dca82a4d077acea8f4be9c0ec5f83db1cfbcf2ec9168799dbe55e7dbac",
+    "gitBlob": "5987bc77a4c348dc6305b459c0e98b809edc43bf"
+  },
+  {
+    "path": "venus_flytrap-2-wantsPlay-idle-normal.jpg",
+    "size": 13691,
+    "sha256": "9670946515dca06162b8e06df84c0f76b7e28a9ea4851a5382f9134e61b0119b",
+    "gitBlob": "0c1a97cf6e32c57b8587344935ab4d047d8ad23f"
+  },
+  {
+    "path": "venus_flytrap-2-wantsPlay-idle-reduced.jpg",
+    "size": 13741,
+    "sha256": "7d6cecacbb5fbc03b974c73e515fef6d199489b9a482151812dd01fb643cc18a",
+    "gitBlob": "45f92ada675933384f9a2ceddd9833f49ec0632e"
+  },
+  {
+    "path": "venus_flytrap-2-wantsPlay-walk-normal.jpg",
+    "size": 13741,
+    "sha256": "1867a8435971e6f9d3b399ba298fe9b64ed6594b9e5bf7f4f2f68bdc40b0c0c3",
+    "gitBlob": "53c58a73fd49fbbc0f02e7cb8b3242a6d390f411"
+  },
+  {
+    "path": "venus_flytrap-2-wantsPlay-walk-reduced.jpg",
+    "size": 13671,
+    "sha256": "138913a20c548fcb34481eb41a53b48f3063f28b75e733df75cdcc2e4b136c48",
+    "gitBlob": "e6ec76669fbb9f2ce7882418d765534f32ba4b72"
+  },
+  {
+    "path": "venus_flytrap-3-34.jpg",
+    "size": 13859,
+    "sha256": "455afb9a6019ae38190a8174cdb673442c53b71ffabbccda753378d4395316c4",
+    "gitBlob": "365a7e0579c95bf3a3487f729dc194f65eb7b94a"
+  },
+  {
+    "path": "venus_flytrap-3-back.jpg",
+    "size": 12792,
+    "sha256": "0e5537ccedce508d9574a09996e176c323ab93c949d937384a08c3b2daffc4d0",
+    "gitBlob": "4746a1fd0ed08adf144015e71736fcce9a24e1cd"
+  },
+  {
+    "path": "venus_flytrap-3-dislike-idle-normal.jpg",
+    "size": 12856,
+    "sha256": "99d7e7560d3fb3164459f670db91156e4cf71166d4a8081663aa139f15733619",
+    "gitBlob": "516fe1120f9b4bb615ba43a4c2c6b7280864b3af"
+  },
+  {
+    "path": "venus_flytrap-3-dislike-idle-reduced.jpg",
+    "size": 12804,
+    "sha256": "a01ec85a6078da89c9266d1e67b9918f05f1ef3675a2ff37b9ee996cf01f8272",
+    "gitBlob": "357c802023bf5c7e637780c5d51d9b0475bd64e6"
+  },
+  {
+    "path": "venus_flytrap-3-dislike-walk-normal.jpg",
+    "size": 12916,
+    "sha256": "232a2283a8186b25b890e8ded1e5d47ea380a4d662c1bd0896ea2e0c6e80ca2b",
+    "gitBlob": "b659ad1c9d27c60c1c1d96025fab9c664ca6309b"
+  },
+  {
+    "path": "venus_flytrap-3-dislike-walk-reduced.jpg",
+    "size": 12863,
+    "sha256": "5b44011db92bd5d33ca0cc88e113f14a58dbe5e044b7de3569989aa283b4c7e6",
+    "gitBlob": "170cde969e7c374f1310aa8305ec659c8bd871f4"
+  },
+  {
+    "path": "venus_flytrap-3-front.jpg",
+    "size": 15120,
+    "sha256": "9ca757f34388a5ae7b50db2359504ed5f21efd94da09a9b4108eee7c2fa01f9c",
+    "gitBlob": "6e62a969412f65b36144467fd252530b68b5e7f0"
+  },
+  {
+    "path": "venus_flytrap-3-motion.jpg",
+    "size": 555614,
+    "sha256": "315b3452299e18b86db22a17c7f8b0e0bce301705922d91be1e33ea0bc0fa3b6",
+    "gitBlob": "2083482ef9710dadbc8d8f04d48f3384c7227e41"
+  },
+  {
+    "path": "venus_flytrap-3-normal-idle-normal.jpg",
+    "size": 13859,
+    "sha256": "455afb9a6019ae38190a8174cdb673442c53b71ffabbccda753378d4395316c4",
+    "gitBlob": "365a7e0579c95bf3a3487f729dc194f65eb7b94a"
+  },
+  {
+    "path": "venus_flytrap-3-normal-idle-reduced.jpg",
+    "size": 13898,
+    "sha256": "8be85dca8b0058b12f8f558a95b95f8540f3fbf77f3feed6629ab138eafc4cf6",
+    "gitBlob": "6b68d241612ed4e9b2b8cf30049c4ce287c82ad0"
+  },
+  {
+    "path": "venus_flytrap-3-normal-walk-normal.jpg",
+    "size": 13911,
+    "sha256": "30f19445defb949119478cea73f1707e09c90ff2ec248290f34eb7737b642b1f",
+    "gitBlob": "12fd9c797d8490263d06f9e72142864f33aa0e2a"
+  },
+  {
+    "path": "venus_flytrap-3-normal-walk-reduced.jpg",
+    "size": 13948,
+    "sha256": "8402e86009cab8c63de55daed64453be741c72ebf0ec76a7d4294224da3dc74c",
+    "gitBlob": "baa79c304f734ececb3dcd3a90a5f3efb03c43e2"
+  },
+  {
+    "path": "venus_flytrap-3-positive-idle-normal.jpg",
+    "size": 14054,
+    "sha256": "6323b2eb143daf5d794a982323334c9f01cba78ca1782a96670482a445507602",
+    "gitBlob": "5069a3feb6de4fa95da2534d0a003780d8c849a2"
+  },
+  {
+    "path": "venus_flytrap-3-positive-idle-reduced.jpg",
+    "size": 14034,
+    "sha256": "534f94b26ece02ea08c7312dcc0ccb83268e417be222862cdbed489e176c23c3",
+    "gitBlob": "4c96c5199eee22909a9555588f067fb599cf90b0"
+  },
+  {
+    "path": "venus_flytrap-3-positive-walk-normal.jpg",
+    "size": 14105,
+    "sha256": "04e8d3b54b86901d8001937d0a9bec198ba527562ff1965c01f1b5e68659b346",
+    "gitBlob": "d7f300f7a6a319c68f6b61c83068e41d9d17bea0"
+  },
+  {
+    "path": "venus_flytrap-3-positive-walk-reduced.jpg",
+    "size": 14096,
+    "sha256": "bdd0ed307af97f86878b1ee71ab1cd32831c7b2e0c589a25eca8f303e7cc3a9b",
+    "gitBlob": "f6a429d16e4766505816470bf3ca26b4cb565874"
+  },
+  {
+    "path": "venus_flytrap-3-sick-idle-normal.jpg",
+    "size": 13581,
+    "sha256": "ab0b5ae8581311b35b5f2b75e78564bd4996603fb8b5651619a97d09a5f7aaab",
+    "gitBlob": "e1e7919dd9c42e2f5d861cca5b7df8fcebe10447"
+  },
+  {
+    "path": "venus_flytrap-3-sick-idle-reduced.jpg",
+    "size": 13630,
+    "sha256": "a223c165b2ffa78496addd25dd1b109689d7cfc13197956c93f32028119dacae",
+    "gitBlob": "983cc648da231cf8e62c28b5a643a67b18605b0b"
+  },
+  {
+    "path": "venus_flytrap-3-sick-walk-normal.jpg",
+    "size": 13635,
+    "sha256": "2637b7fd79eb10b71b7513847e8e54e96fc1b231e7c874fdb271481117617d1d",
+    "gitBlob": "7804c06a5a0f8a67a43b52b763234134cc3c6c15"
+  },
+  {
+    "path": "venus_flytrap-3-sick-walk-reduced.jpg",
+    "size": 13707,
+    "sha256": "08cfab6038d5acbba5ed71c0e5fb4b85e51ed796ddabb0b3ebfd23634d387ca0",
+    "gitBlob": "9254f1c6c7bc456b45e3e990b8059398d652efd2"
+  },
+  {
+    "path": "venus_flytrap-3-side.jpg",
+    "size": 10400,
+    "sha256": "9daa227a9624da17599be129c2d9213c10fbde5ab467afba3749db76a384c550",
+    "gitBlob": "acafad62495cc94f3b97380f82e7fa9e840cc86e"
+  },
+  {
+    "path": "venus_flytrap-3-sleeping-idle-normal.jpg",
+    "size": 13316,
+    "sha256": "9ad3840783abe52667976ca25661c64d7c9462d2fd1cb3711c944e504f349348",
+    "gitBlob": "87fefd7505f8ffcea51d459b91eb7fbd05c0006b"
+  },
+  {
+    "path": "venus_flytrap-3-sleeping-idle-reduced.jpg",
+    "size": 13273,
+    "sha256": "9b5d052f4737f575b959ada3164410415bc2e7dfb02c7edc88daece2558c2849",
+    "gitBlob": "ccb6f858cafaf7d76f3cc0406083af80f0d2bdfc"
+  },
+  {
+    "path": "venus_flytrap-3-sleeping-walk-normal.jpg",
+    "size": 13361,
+    "sha256": "8eedcf2378ef0a8dfe6e03c8399c990a80831a683ae5788ac1d8a365b41fbc0b",
+    "gitBlob": "9ad9c2a5af2648ef92b77a640b526f6533489167"
+  },
+  {
+    "path": "venus_flytrap-3-sleeping-walk-reduced.jpg",
+    "size": 13355,
+    "sha256": "5a19dcf5295097cd047df889ee4aee43d4b57ae402c86da18e106b69219da9a1",
+    "gitBlob": "b7de62161da640c8757248aed6f989cece208f92"
+  },
+  {
+    "path": "venus_flytrap-3-strained-idle-normal.jpg",
+    "size": 13815,
+    "sha256": "639e95598725eedf61e30101592a929939b892b9d67457c8cf83766fb96b7396",
+    "gitBlob": "f6d8a8620aea49e1ad82197a4b1f1efbf07dc7cd"
+  },
+  {
+    "path": "venus_flytrap-3-strained-idle-reduced.jpg",
+    "size": 13839,
+    "sha256": "145dc2049b00892b2b0188cd70e2b7031e8f9146ed3b9c3fc38c9b9c6cddd38a",
+    "gitBlob": "0aec99fed7d381f4f6cb3cd57cea343e9418925a"
+  },
+  {
+    "path": "venus_flytrap-3-strained-walk-normal.jpg",
+    "size": 13847,
+    "sha256": "e76ad646377ccf4df5a7a526f3341d4f9e9b79b9472ab2f2aa34a150490f728c",
+    "gitBlob": "73a66479cdfa880ec385878a4e0e2bda1c1e1600"
+  },
+  {
+    "path": "venus_flytrap-3-strained-walk-reduced.jpg",
+    "size": 13929,
+    "sha256": "16392cb138b68a19a702276349de7b5af613803c988667a594ee1706dfe442da",
+    "gitBlob": "7239c96763dd607087bb818f0a31e988768bf17a"
+  },
+  {
+    "path": "venus_flytrap-3-tired-idle-normal.jpg",
+    "size": 13406,
+    "sha256": "cbe2b0c8a9b43a3f1e5c266af08dc9b71bb4fcb8a21fd78f10eeff63dd2fdd57",
+    "gitBlob": "5625fc4966045d632a14e6b51ba90c958f86edd8"
+  },
+  {
+    "path": "venus_flytrap-3-tired-idle-reduced.jpg",
+    "size": 13391,
+    "sha256": "67e6fc5e314b99369d9559b2a708aad42e8935e9fd8d9709990e9c8cf2928f2c",
+    "gitBlob": "bff8319a1e2d8f2b6d0a161967253218a9135878"
+  },
+  {
+    "path": "venus_flytrap-3-tired-walk-normal.jpg",
+    "size": 13408,
+    "sha256": "c7017b9c9777460445278e38eebd332d77d11e6138cf1bba3ad1c8a310907028",
+    "gitBlob": "47616b202441307a8ef2a071eecaa128a3dccb76"
+  },
+  {
+    "path": "venus_flytrap-3-tired-walk-reduced.jpg",
+    "size": 13390,
+    "sha256": "043d1ced17dd8f0ab416199d146a7afbf67360bb7900a59c7f53b758fc670f06",
+    "gitBlob": "e7217f237691024a10feaf7d27f33e6cd057146b"
+  },
+  {
+    "path": "venus_flytrap-3-wantsPlay-idle-normal.jpg",
+    "size": 14249,
+    "sha256": "e9b865b62b459e5d5115b9d22e76d23d8006c948c24d3646331a9eb8230f8b40",
+    "gitBlob": "9d2e12e133af0746802edfda6693768e78e4b27d"
+  },
+  {
+    "path": "venus_flytrap-3-wantsPlay-idle-reduced.jpg",
+    "size": 14293,
+    "sha256": "de7708085d8c75c0f8de16dd39afd1cb51cf3bb35df47b085a965e62918a588c",
+    "gitBlob": "f8d369a2d3162406d063a20641d455542d1bc9b2"
+  },
+  {
+    "path": "venus_flytrap-3-wantsPlay-walk-normal.jpg",
+    "size": 14292,
+    "sha256": "a43765b91abd869cfd58abbd974b3099d6461ea1687e35d86081455e235e1bd1",
+    "gitBlob": "c5dba7ff8a59e0fa904e68449d44ab48f505b074"
+  },
+  {
+    "path": "venus_flytrap-3-wantsPlay-walk-reduced.jpg",
+    "size": 14228,
+    "sha256": "912df47864dd55e0f8a40a5e13a08d6dc0a44f16ea47f33bbc0a1d9f93490021",
+    "gitBlob": "665b8f9d89d2ae397f890e052773fd069f8d2a26"
+  },
+  {
+    "path": "venus_flytrap-4-34.jpg",
+    "size": 17058,
+    "sha256": "9ac63e4fe410c970a303eaf3aa917a610ffd69a4110c468debdeb6e210fa2e8e",
+    "gitBlob": "a30ba9c1d4e8510034fdf2c5aec19c0ba0e0181d"
+  },
+  {
+    "path": "venus_flytrap-4-back.jpg",
+    "size": 15867,
+    "sha256": "2999df85b900a1fd03fa3c91843b039a659d7daa312f915527c77815159df324",
+    "gitBlob": "bd27ca616cec286e330883cca2cc46022d9e3099"
+  },
+  {
+    "path": "venus_flytrap-4-dislike-idle-normal.jpg",
+    "size": 17276,
+    "sha256": "c47be66d1cd109f96c2f291bd560ca5cd0aa5ac5adf23a2107dec87da07c5c99",
+    "gitBlob": "8512095b763dc21946f2bf751ef51ff0c98ca0b7"
+  },
+  {
+    "path": "venus_flytrap-4-dislike-idle-reduced.jpg",
+    "size": 17245,
+    "sha256": "8b53f6ee4a82dfb36bdd82fed9129e3b276d26e5ae830ba28a64b1df682d0618",
+    "gitBlob": "03f41a53c155fde0495799da2e7f6d73c8734bab"
+  },
+  {
+    "path": "venus_flytrap-4-dislike-walk-normal.jpg",
+    "size": 17339,
+    "sha256": "61777511ae3499aa103ad69f13b69f195a9086f87c2524f5c14a24c250f7ed42",
+    "gitBlob": "30abda7bdccf947d67021b26337f78e11a32bf89"
+  },
+  {
+    "path": "venus_flytrap-4-dislike-walk-reduced.jpg",
+    "size": 17303,
+    "sha256": "84fb91f09804cecbfd379c6b303f6814dcaed15d8634acfa8ff69bb854bf94eb",
+    "gitBlob": "8955d0cf89985c683ee711b8fa38519ae1ff71b6"
+  },
+  {
+    "path": "venus_flytrap-4-front.jpg",
+    "size": 18536,
+    "sha256": "062baa304ff66d16ae5413c32d63dc7fe20805c29d72aefd041a46f40bde582e",
+    "gitBlob": "2d5830a8f9c547c891ef97f1b90c4c77f7328034"
+  },
+  {
+    "path": "venus_flytrap-4-motion.jpg",
+    "size": 696230,
+    "sha256": "80fbda74bafc8fa89209023421d9c06365344df3614a525b98cca03c494261e2",
+    "gitBlob": "a0a1eb23a0b425f1899c87f303bdf61b478cd959"
+  },
+  {
+    "path": "venus_flytrap-4-normal-idle-normal.jpg",
+    "size": 17058,
+    "sha256": "9ac63e4fe410c970a303eaf3aa917a610ffd69a4110c468debdeb6e210fa2e8e",
+    "gitBlob": "a30ba9c1d4e8510034fdf2c5aec19c0ba0e0181d"
+  },
+  {
+    "path": "venus_flytrap-4-normal-idle-reduced.jpg",
+    "size": 17010,
+    "sha256": "4ed7d155d3acb05bd880ac91328b5f14e7eee977d7acdcfedb80435e7999e4a1",
+    "gitBlob": "744f3ab619dd8cdbc7ac8c511ece5f0fb7d2bdf4"
+  },
+  {
+    "path": "venus_flytrap-4-normal-walk-normal.jpg",
+    "size": 17100,
+    "sha256": "be235228f350254dc793dd8aef437f3f14cbc54f49042797d96b1b88d9a8f6ee",
+    "gitBlob": "8a6415955a034af0f70675d9c18ecc98b84b883b"
+  },
+  {
+    "path": "venus_flytrap-4-normal-walk-reduced.jpg",
+    "size": 17072,
+    "sha256": "de14e4240141cf9be352f5564a2b457ea6feb94b44b739c4034b0e10fbe9215b",
+    "gitBlob": "ae9e7fb70b7ca8850256946fa21a86ce5f3898d2"
+  },
+  {
+    "path": "venus_flytrap-4-positive-idle-normal.jpg",
+    "size": 17423,
+    "sha256": "36e9061edd504b94ce42428e236b185934591f177f7b1f1c9c9444b8ab67e097",
+    "gitBlob": "d6ab117265820b1cff490f06e1e05021be42611c"
+  },
+  {
+    "path": "venus_flytrap-4-positive-idle-reduced.jpg",
+    "size": 17363,
+    "sha256": "55072fc7c9ec8e6422085a404055d6acd131295f37a529f7797fc7eddc6015c2",
+    "gitBlob": "22f2feec6b8120f3ecab874451f7650b7c17f230"
+  },
+  {
+    "path": "venus_flytrap-4-positive-walk-normal.jpg",
+    "size": 17475,
+    "sha256": "676ab4b3617f48808246b9cc923fad4afdbf9d681e9ad0d896fabfeed6f10454",
+    "gitBlob": "9aa88e695a629976b6e427766246937329fb258d"
+  },
+  {
+    "path": "venus_flytrap-4-positive-walk-reduced.jpg",
+    "size": 17415,
+    "sha256": "cd3879ccf4803bb8e8424715814b1ed19d5aaecc2d8b34e311122f2be5eee2a8",
+    "gitBlob": "de18487d6bb4c9d87b1bc5312374755959208eff"
+  },
+  {
+    "path": "venus_flytrap-4-sick-idle-normal.jpg",
+    "size": 16369,
+    "sha256": "90aa46c4bb4f6ec6e3482e04e18dd25661635ba64e460810dd90a914aa069d36",
+    "gitBlob": "fb32ecb814a420115b7f2a39f3b484b842e186de"
+  },
+  {
+    "path": "venus_flytrap-4-sick-idle-reduced.jpg",
+    "size": 16204,
+    "sha256": "b1ec6e7b34b1beabf46d4c9e54f191e79470a868c766cb4ff37effb722b1eb84",
+    "gitBlob": "4f52a900079e505ff4b089f04f9be5f4ab4c4f7c"
+  },
+  {
+    "path": "venus_flytrap-4-sick-walk-normal.jpg",
+    "size": 16435,
+    "sha256": "0d00f6e943b843b1bb2629f8f2623101b7f8fc69b99e8526de0f13315cb62e6f",
+    "gitBlob": "78874c33cb93c61c511a7949d2e2ebe7ce980afc"
+  },
+  {
+    "path": "venus_flytrap-4-sick-walk-reduced.jpg",
+    "size": 16283,
+    "sha256": "27b7685efa12c7a8745d68032002254a042d2a6ce53043600ee8b01d9ffc6c13",
+    "gitBlob": "f380e9c146a00c3c9801fdffe33c692585b1f5ef"
+  },
+  {
+    "path": "venus_flytrap-4-side.jpg",
+    "size": 12341,
+    "sha256": "77a6ddc4dc73487aceae766c92761854d9c7a7ad6619bfb042a502b8936abf99",
+    "gitBlob": "7ffa7a287d785e20b5b39046ad173b4653dae27c"
+  },
+  {
+    "path": "venus_flytrap-4-sleeping-idle-normal.jpg",
+    "size": 15828,
+    "sha256": "a32a37fb8e07905c3f5cd4ab3b2b939b343cbd3c8fb5b240046dacec701621be",
+    "gitBlob": "6ffff88b5e35683399945d57fd6ce745188ffeed"
+  },
+  {
+    "path": "venus_flytrap-4-sleeping-idle-reduced.jpg",
+    "size": 15728,
+    "sha256": "8f83ffee718ba51cdaa32f714db68213d2c6d78e310e206f082538bf9d9e45b2",
+    "gitBlob": "34a7a2871fd21131c6d563195e012309b3d52af3"
+  },
+  {
+    "path": "venus_flytrap-4-sleeping-walk-normal.jpg",
+    "size": 15872,
+    "sha256": "894c0cbb1f19f590e87fe7ff52d2d6a77f06fca234018c9a4fb85c10bba5d929",
+    "gitBlob": "e97f55ea6a1ffda78fa8ef13559e1b19c41c91eb"
+  },
+  {
+    "path": "venus_flytrap-4-sleeping-walk-reduced.jpg",
+    "size": 15816,
+    "sha256": "a06a0014df9d4ad86233e3b2cb44e09c26a4c23a338b32aa348b8bf4bc17be22",
+    "gitBlob": "50c69f063db08b404aedab3a876ce356993b64f2"
+  },
+  {
+    "path": "venus_flytrap-4-strained-idle-normal.jpg",
+    "size": 16585,
+    "sha256": "54c031c29b0e594edf1e79c22cc4bba4bc8b2af16b058895390c55444f3bfda5",
+    "gitBlob": "2a574e29d221c81aebc4d9f37a9fd60bd0727d29"
+  },
+  {
+    "path": "venus_flytrap-4-strained-idle-reduced.jpg",
+    "size": 16332,
+    "sha256": "142dafcf134d65373531f07f03ee7128c755d19885fb2d2a387d82ce1dfa990e",
+    "gitBlob": "a612274bcca271559d904deedf8a3fae6a30acaa"
+  },
+  {
+    "path": "venus_flytrap-4-strained-walk-normal.jpg",
+    "size": 16624,
+    "sha256": "058ea64084fbfe9ee6d7a225a976b6a26bb145aea16ea1411475ba0ea1c156d9",
+    "gitBlob": "8f58ad315791237741aa0a2b52eb06ccb1e3f678"
+  },
+  {
+    "path": "venus_flytrap-4-strained-walk-reduced.jpg",
+    "size": 16425,
+    "sha256": "56147bfa14dbde6c64cd7f00e8d0a3f1e9f20c92a782992d5dcc36a1fa86067b",
+    "gitBlob": "37829656976bf7a390598e0e724e60eb9f3c3a97"
+  },
+  {
+    "path": "venus_flytrap-4-tired-idle-normal.jpg",
+    "size": 15838,
+    "sha256": "ea4a2ac61f1e14bc2ebddd9f2a8909f87ed37ffd7e47380e8c4078d5185b939a",
+    "gitBlob": "5bd79434cb35fa5006c229c0d59d694e986ed5c2"
+  },
+  {
+    "path": "venus_flytrap-4-tired-idle-reduced.jpg",
+    "size": 15762,
+    "sha256": "6d42bc1346513712bd9f33747ece55df26f2cf358ed5e0633738f75926a5a8d0",
+    "gitBlob": "80751a6a557021b5c162f62b3781a521e829e942"
+  },
+  {
+    "path": "venus_flytrap-4-tired-walk-normal.jpg",
+    "size": 15839,
+    "sha256": "f5c76c7154d4758185aef0fb347f7889f74296948ff536e6f08f758591a86b71",
+    "gitBlob": "b79136014682f1a7620553c903252667c610ba4b"
+  },
+  {
+    "path": "venus_flytrap-4-tired-walk-reduced.jpg",
+    "size": 15772,
+    "sha256": "14af8140828b40d67e52690100aca55c337e13c7817a2f6967efc309d9375fa6",
+    "gitBlob": "df522bdbeb75cf4b0b73bfd96fc8bb441b56688b"
+  },
+  {
+    "path": "venus_flytrap-4-wantsPlay-idle-normal.jpg",
+    "size": 17622,
+    "sha256": "770d38b301b9dac3d4340828352eb8871e6c670acdbd50715c6fda06a5e71ec0",
+    "gitBlob": "11db72d863f18d12fa20339a1c1f32d20662b351"
+  },
+  {
+    "path": "venus_flytrap-4-wantsPlay-idle-reduced.jpg",
+    "size": 17667,
+    "sha256": "3f994cabf81e519d22d1a6a82a9ccc445e6efc7424ff4b61bf7957b7f1b29eed",
+    "gitBlob": "ae782e1d1003ed974862d89e8b23529653e11ad2"
+  },
+  {
+    "path": "venus_flytrap-4-wantsPlay-walk-normal.jpg",
+    "size": 17665,
+    "sha256": "a09ac4e3b89ea38f3283d8253e33331e6af8cf9f172c703f300a8e34c0f4fb25",
+    "gitBlob": "ac9dca6e8df36c3e6b981db85e91aacce5349daa"
+  },
+  {
+    "path": "venus_flytrap-4-wantsPlay-walk-reduced.jpg",
+    "size": 17594,
+    "sha256": "951f84813d77a05c2add5dd1b4b1d6b8b4db8ec908f33041cd9a76d84efe6b83",
+    "gitBlob": "eff686a2a56a3de4f5abbe6c2af7a1527a737a21"
+  },
+  {
+    "path": "venus_flytrap-5-34.jpg",
+    "size": 16874,
+    "sha256": "8b9c35657b37a4cebad0324cf83ff5d155127a98e42b43277a30d6a3e3aa1bc3",
+    "gitBlob": "7dc5134f1de396d9bb6a8bf1f6a1158ba58b4446"
+  },
+  {
+    "path": "venus_flytrap-5-back.jpg",
+    "size": 15691,
+    "sha256": "3096c2e3cfae3550ebecd4da305bd08efe04f680786d963dd037ed6acade1ded",
+    "gitBlob": "7bd3c9d2763664dd12fc0ffa9dd973ec8fb567ea"
+  },
+  {
+    "path": "venus_flytrap-5-dislike-idle-normal.jpg",
+    "size": 16766,
+    "sha256": "ff74dcac270d3629b9b75bfda65dce6bdb21740e34c35f2a40fcf2b69980c926",
+    "gitBlob": "28f8bffdcf4b958da4ecaea2838f28f769ed05f1"
+  },
+  {
+    "path": "venus_flytrap-5-dislike-idle-reduced.jpg",
+    "size": 16835,
+    "sha256": "cc11b9db7ff967a0c5f453e8939a8a26bfafa38521d66cbe4feaf11ab20b2080",
+    "gitBlob": "c9b6875b2355f83fa99faab7e779f7803f7d1608"
+  },
+  {
+    "path": "venus_flytrap-5-dislike-walk-normal.jpg",
+    "size": 16833,
+    "sha256": "807210c32e13bbfe7fc78f87f7a95b5356fbf174c078eda1c61c24afd17cecc2",
+    "gitBlob": "fa72b4a4567a5441baf24f49c88b60e20c731786"
+  },
+  {
+    "path": "venus_flytrap-5-dislike-walk-reduced.jpg",
+    "size": 16900,
+    "sha256": "55ba74fd579eac98a9839ab8057e41bddb55a225dabcaefefa80a3d373712501",
+    "gitBlob": "ce35dc64578d33d18a55061f22b694f8922dc195"
+  },
+  {
+    "path": "venus_flytrap-5-front.jpg",
+    "size": 18215,
+    "sha256": "19dd3259cb03507912f9404b985c6c6965ec7ed27866f113ad80f535fd28f6d2",
+    "gitBlob": "d93ec85c29dd1ed338c57d28011c7671b7441b80"
+  },
+  {
+    "path": "venus_flytrap-5-motion.jpg",
+    "size": 741506,
+    "sha256": "76f55a002a8e4d0099014e72ed1647aeee0fe6287832f27639e4ecd4244b1ede",
+    "gitBlob": "c493e3203333f4b568e3c194606933af56e01e64"
+  },
+  {
+    "path": "venus_flytrap-5-normal-idle-normal.jpg",
+    "size": 16874,
+    "sha256": "8b9c35657b37a4cebad0324cf83ff5d155127a98e42b43277a30d6a3e3aa1bc3",
+    "gitBlob": "7dc5134f1de396d9bb6a8bf1f6a1158ba58b4446"
+  },
+  {
+    "path": "venus_flytrap-5-normal-idle-reduced.jpg",
+    "size": 17119,
+    "sha256": "df303b618c0d5baa72f202ddb42a4685af3056d39a58a5b563a97c94015d5d4e",
+    "gitBlob": "babb2f6f5474e9053cb97636edd650b5a4d9633a"
+  },
+  {
+    "path": "venus_flytrap-5-normal-walk-normal.jpg",
+    "size": 16938,
+    "sha256": "fc60db28cee6bf9f8e9fa8657cf474beb15cc240b7a9403e1cbb5c9c4957d7f3",
+    "gitBlob": "b91eb170aaedc4e4799f02066bfd1bcc52eb6a41"
+  },
+  {
+    "path": "venus_flytrap-5-normal-walk-reduced.jpg",
+    "size": 17172,
+    "sha256": "6490e9e78a128ec9a9e91bfaba3d78d8185dd23f95eb767cf8e1d9a88d10b8a8",
+    "gitBlob": "7f94568619f5d6c50a4dee3970a6364367d874c3"
+  },
+  {
+    "path": "venus_flytrap-5-positive-idle-normal.jpg",
+    "size": 16867,
+    "sha256": "3ccf42df44434e16e1d626df39acb2b08dc8ecc5930c3d7a90fda1cf1cd3e738",
+    "gitBlob": "db78a9aa72720da816ac4557ee5cbf65c8c76790"
+  },
+  {
+    "path": "venus_flytrap-5-positive-idle-reduced.jpg",
+    "size": 17222,
+    "sha256": "4f79756de0dbc9d6dde3391023e0a954333a6b317f2e5ff69b1a0094b58fa942",
+    "gitBlob": "531d03411edd936e0b7c56a41c6139e705eb7d82"
+  },
+  {
+    "path": "venus_flytrap-5-positive-walk-normal.jpg",
+    "size": 16921,
+    "sha256": "576dbc89dd04a824846dbc9a677af99b74826a4c723ac8813f5c7821d41cccb2",
+    "gitBlob": "4cb7b73bf38354d55a9c4b71983b42029c2a2aa1"
+  },
+  {
+    "path": "venus_flytrap-5-positive-walk-reduced.jpg",
+    "size": 17289,
+    "sha256": "8fee775c051351ef4736b8e0b4e36d40c8d65b77a988d40696400166b0be257a",
+    "gitBlob": "2de131279bc7b3b20e86362e064949d9f1a8d384"
+  },
+  {
+    "path": "venus_flytrap-5-sick-idle-normal.jpg",
+    "size": 16297,
+    "sha256": "81a505b5c3fcfeee6a5d1917aa8e14b63e932a52a61779b77a8eaed99d228d4c",
+    "gitBlob": "bc453dc98505c4c43d59013379f65a96775f21d5"
+  },
+  {
+    "path": "venus_flytrap-5-sick-idle-reduced.jpg",
+    "size": 16509,
+    "sha256": "0aacd12595fd340a4a7354252ff3a9c34dbca344224086ea694eea2012ba4ca6",
+    "gitBlob": "bc4aef62177aa9df80e5f0a07ffdf799e8f81e45"
+  },
+  {
+    "path": "venus_flytrap-5-sick-walk-normal.jpg",
+    "size": 16364,
+    "sha256": "3a398fce076e17bdbf26ae72ebfdd0ac9458389f04c138d96ed64f1a2ee45dd3",
+    "gitBlob": "b6c467b9cc40183c0aec7b464b06c248651fdc01"
+  },
+  {
+    "path": "venus_flytrap-5-sick-walk-reduced.jpg",
+    "size": 16591,
+    "sha256": "5d7e86ed02040783db19d02d341435b940f5dca9dd0aed4f974c77dd4e0b1c68",
+    "gitBlob": "9727cb70ac26d86d2d50f1fc9b54d1a14da6eed4"
+  },
+  {
+    "path": "venus_flytrap-5-side.jpg",
+    "size": 11386,
+    "sha256": "cc25303793d4f4dd75a4009e199fa7df918994afeceae15c3d8ad529eef4afd8",
+    "gitBlob": "3f7af931d4ddb1cc956789a36138fb4209ceeab9"
+  },
+  {
+    "path": "venus_flytrap-5-sleeping-idle-normal.jpg",
+    "size": 16031,
+    "sha256": "8c25052ccefafbb7e4652c356f3a3787d5e839e770ba0a393f7ca600b7d9d462",
+    "gitBlob": "a9452352181f272c3596213731703908b04bd5b6"
+  },
+  {
+    "path": "venus_flytrap-5-sleeping-idle-reduced.jpg",
+    "size": 15987,
+    "sha256": "de50a1977e3b12e18822e935f7b72375cdfedc0e62043d031ccc6c47b53eb80a",
+    "gitBlob": "d19b02e851160e231d261acc7b99ad744ac5fd1f"
+  },
+  {
+    "path": "venus_flytrap-5-sleeping-walk-normal.jpg",
+    "size": 16090,
+    "sha256": "0a0c46578f0f4bf0facf2ef35b35968e51d75c5f28f9f2387cd5dde97e5a4a4d",
+    "gitBlob": "933f98c5952be0aa84bc66cd22af1bd7e2727cb9"
+  },
+  {
+    "path": "venus_flytrap-5-sleeping-walk-reduced.jpg",
+    "size": 16081,
+    "sha256": "fc32895622b20d97b6d08f99ed78985b3ed7e80563594e1b6a122dd17f1050ac",
+    "gitBlob": "2818d916b36ab48776d31389178407660cd15521"
+  },
+  {
+    "path": "venus_flytrap-5-strained-idle-normal.jpg",
+    "size": 16730,
+    "sha256": "45a78e86e65fd9366f15d8a22d56ae3bcc2579fa1b50ff8d1cba4a90eb4af108",
+    "gitBlob": "3b35364f38f7fabb26fa457ad1ff6c20fc24d593"
+  },
+  {
+    "path": "venus_flytrap-5-strained-idle-reduced.jpg",
+    "size": 16768,
+    "sha256": "3ee001e456f2dd9cd4179f6183bce88d569b57b9f95299689f209f570f1aa0ee",
+    "gitBlob": "960a473d2924e310201884fceae294bc590b0697"
+  },
+  {
+    "path": "venus_flytrap-5-strained-walk-normal.jpg",
+    "size": 16747,
+    "sha256": "bde87ca6dc5d072c2b6851bd97d4e65b9026d563e2a5690f01dd84efdf0608fa",
+    "gitBlob": "c3519ff42c76170d7e54ce8c2bb4af99bf7cd5a0"
+  },
+  {
+    "path": "venus_flytrap-5-strained-walk-reduced.jpg",
+    "size": 16867,
+    "sha256": "5367d1c03c419215dd6e329cb463e62aad59c6439746b73b5266f9eb3412e13c",
+    "gitBlob": "2dfc389afc82a1e65f071bc37bf00ef105f331be"
+  },
+  {
+    "path": "venus_flytrap-5-tired-idle-normal.jpg",
+    "size": 16361,
+    "sha256": "47509fe6de213fe72c95fec14fbd90d1341cc4ed4c8d2033ec6a4f91cd38356a",
+    "gitBlob": "459d79ca5dc480aa0ba8c6b6afac12d04c8119b9"
+  },
+  {
+    "path": "venus_flytrap-5-tired-idle-reduced.jpg",
+    "size": 16566,
+    "sha256": "cf23d885be7db54d9f69cbc20a30d8b6911c5270ee0707b00e4da13068d4855b",
+    "gitBlob": "bcd553004326fcda0245f5966fd9fa5f95de1eb0"
+  },
+  {
+    "path": "venus_flytrap-5-tired-walk-normal.jpg",
+    "size": 16360,
+    "sha256": "59f36edb4d75a58b3a953a57e544c36c33b0e57545c65daa94a37aec9c058ed1",
+    "gitBlob": "9f6ebda8c8b685ed2b2a5d278094fed1d65ed0d5"
+  },
+  {
+    "path": "venus_flytrap-5-tired-walk-reduced.jpg",
+    "size": 16560,
+    "sha256": "aa3f62a5adf5f574e86a397e23a4d53ff71fd2c50705d6524f2321946ede4071",
+    "gitBlob": "8dd3453000cb61ee4e6fde2a9a10146187489bb6"
+  },
+  {
+    "path": "venus_flytrap-5-wantsPlay-idle-normal.jpg",
+    "size": 17058,
+    "sha256": "3db2a304e617c9ec0a877c8fa25ee928f5785371b65e69a22d7977d25ccee0ff",
+    "gitBlob": "87fa0135f58f99d2232d197cf36cda1952557ba8"
+  },
+  {
+    "path": "venus_flytrap-5-wantsPlay-idle-reduced.jpg",
+    "size": 17335,
+    "sha256": "6f03149e639938fd2049b46f5c32e43ebd4a7a5a0f66f735b11fcc5eadb8f4ce",
+    "gitBlob": "15a070ff2614ee33177ac721e37385b5eb83e527"
+  },
+  {
+    "path": "venus_flytrap-5-wantsPlay-walk-normal.jpg",
+    "size": 17121,
+    "sha256": "b61c8bfa52a3041055fecda8a0443c47c7648325a9824570f899fe41afb78ca5",
+    "gitBlob": "14a7aeb3c60759f6b85cdbe897dc1b1df451ff3e"
+  },
+  {
+    "path": "venus_flytrap-5-wantsPlay-walk-reduced.jpg",
+    "size": 17270,
+    "sha256": "8854c6f1481f5a431563fa099994953eef4def191f6c40de3fb3762c9c98c2e3",
+    "gitBlob": "af7241b1b6d6e0a625a709d0b5849cb89e6b34cf"
+  },
+  {
+    "path": "venus_flytrap-6-34.jpg",
+    "size": 12099,
+    "sha256": "9d27369fd5c393dce6e0d7c0fa516706a043bcf6584d0252551b2ee937efaa18",
+    "gitBlob": "d8a0a09289495fc299129aff0983fae07ae08a33"
+  },
+  {
+    "path": "venus_flytrap-6-back.jpg",
+    "size": 10540,
+    "sha256": "b169f640ac838d7766ddacd6301e5e7ad836880b73d4ba16ed88a769536b4517",
+    "gitBlob": "7faa6607acee8db1bcde95993cbbf31e48ef9f0c"
+  },
+  {
+    "path": "venus_flytrap-6-dislike-idle-normal.jpg",
+    "size": 11785,
+    "sha256": "92007500315373beee31480c547113815fc0134ac1447b3b44d4be98c82d881b",
+    "gitBlob": "ca25425661b2a24720a5ae17ed8105b18a1a11e4"
+  },
+  {
+    "path": "venus_flytrap-6-dislike-idle-reduced.jpg",
+    "size": 11849,
+    "sha256": "22439f3af720344ce461fc2384e792a3fce6694eddeffc1bc364f6ac319bcceb",
+    "gitBlob": "c7d9490261dd28f113d6c6e4c932e1cacc9d220f"
+  },
+  {
+    "path": "venus_flytrap-6-dislike-walk-normal.jpg",
+    "size": 11843,
+    "sha256": "f4a0c05702b7c65ff1d3caa076e07acac70235b5f03dfe7f623976b4494a702e",
+    "gitBlob": "58f010ead3c76a70a518558c201f8f9b477d7507"
+  },
+  {
+    "path": "venus_flytrap-6-dislike-walk-reduced.jpg",
+    "size": 11896,
+    "sha256": "0416a8af15fd487e87b9d1011a7e1058d5df196f8bdc0b8c0e40c4610aa72572",
+    "gitBlob": "999d6aa445cb4067054e224259c4638e8eefec15"
+  },
+  {
+    "path": "venus_flytrap-6-front.jpg",
+    "size": 12772,
+    "sha256": "3b36ffbfe19f47f54c7336d02b3105fbff1ab7f722e3e85c0479d8832ec7ebe5",
+    "gitBlob": "3a2e103ffff7f54eb4e6df52eaad56b568f68e33"
+  },
+  {
+    "path": "venus_flytrap-6-motion.jpg",
+    "size": 529986,
+    "sha256": "5bf0278fc61dc8ae9bfa9918c94c23e5038ad33fe2faafefb4e7da3c7e8633e6",
+    "gitBlob": "8c601592561dce7eb0f2cc6bc715c329cb1b28c5"
+  },
+  {
+    "path": "venus_flytrap-6-normal-idle-normal.jpg",
+    "size": 12099,
+    "sha256": "9d27369fd5c393dce6e0d7c0fa516706a043bcf6584d0252551b2ee937efaa18",
+    "gitBlob": "d8a0a09289495fc299129aff0983fae07ae08a33"
+  },
+  {
+    "path": "venus_flytrap-6-normal-idle-reduced.jpg",
+    "size": 12075,
+    "sha256": "e76612e3b2e609169a09cf919bf880ad7a16fbde82ea67241d19eab029d9cdd8",
+    "gitBlob": "cd8a7ef3cd1bc133398370d0ce35733f693569a2"
+  },
+  {
+    "path": "venus_flytrap-6-normal-walk-normal.jpg",
+    "size": 12142,
+    "sha256": "ad2624c052635fe3d1e59f9de3ca827975933b7e788aafde6a55a88f3de1c0b7",
+    "gitBlob": "1b26ee1f17eb06cdfcfdd6a4427afdff747175b8"
+  },
+  {
+    "path": "venus_flytrap-6-normal-walk-reduced.jpg",
+    "size": 12132,
+    "sha256": "fa5b1099d07397a9cf4be0cae64d2b175dc377ebf0f0eeeb84730b3aeb0079d3",
+    "gitBlob": "4c33bb741e589572123016f7635f0ad1de30fa63"
+  },
+  {
+    "path": "venus_flytrap-6-positive-idle-normal.jpg",
+    "size": 12132,
+    "sha256": "85958a294e14ee2084f2bd5297c580302b38edb85f65cd69303b9102715ea073",
+    "gitBlob": "4b49763e5f775849890ed631f17075838ddc3aa7"
+  },
+  {
+    "path": "venus_flytrap-6-positive-idle-reduced.jpg",
+    "size": 12158,
+    "sha256": "fc6f27d04f4d0236293c09dbe590c761110ff3e80da18ff738eb3d3b33aa2d96",
+    "gitBlob": "f6ee9b2cc26a51d1d1dae72de3fea1e96467c236"
+  },
+  {
+    "path": "venus_flytrap-6-positive-walk-normal.jpg",
+    "size": 12191,
+    "sha256": "e5f4187f7a10c370f740dadce30530d70a5e39d846fd96ba69aecbd15178e0d1",
+    "gitBlob": "0e38563783e198ef34a3718faf37fde9cc833325"
+  },
+  {
+    "path": "venus_flytrap-6-positive-walk-reduced.jpg",
+    "size": 12213,
+    "sha256": "d8cb33b619c6fe0dd56bd2dd7370b2e23c50d645729bef5724be2c87fdffe046",
+    "gitBlob": "fc63dcfd1cb4387b6ef8737339e983ea22fa1211"
+  },
+  {
+    "path": "venus_flytrap-6-sick-idle-normal.jpg",
+    "size": 11680,
+    "sha256": "5b408e4e4bd1c40a01da5fd86b7cf654a8613ae32a2610edc45691f19d935cb9",
+    "gitBlob": "f0ae9e6c21a6fd84d45dc07130a7f9e47f0e5456"
+  },
+  {
+    "path": "venus_flytrap-6-sick-idle-reduced.jpg",
+    "size": 11692,
+    "sha256": "9f2cd91ddfeac18b09ab3a7e164ff874c9cabc750d6a5a280ef030924a9beb62",
+    "gitBlob": "bc7ea4393e62623c12065fdc37f9d089a4a2cfe7"
+  },
+  {
+    "path": "venus_flytrap-6-sick-walk-normal.jpg",
+    "size": 11742,
+    "sha256": "8565cd5636954a75849b0a1aa7004b1f99612d59106b0a57964e115273624c9b",
+    "gitBlob": "134243eb454d0cfce58e97782fd329e7d07f05b0"
+  },
+  {
+    "path": "venus_flytrap-6-sick-walk-reduced.jpg",
+    "size": 11790,
+    "sha256": "4dadd1082b58ed25440ae59c1585e25f2e086469ef1619d9d8bcca9f75079051",
+    "gitBlob": "e17fddc83341aea025b451176cf42b24bcb40640"
+  },
+  {
+    "path": "venus_flytrap-6-side.jpg",
+    "size": 8262,
+    "sha256": "0a9b75052567a6a3eb03d11a61cca4afb1a76e5a407174eec686f40b6d572411",
+    "gitBlob": "674958ac81e65fd93cc9446106156e21a1e7c5ec"
+  },
+  {
+    "path": "venus_flytrap-6-sleeping-idle-normal.jpg",
+    "size": 11648,
+    "sha256": "b774939b780d80649eff3aa39789a80537043823da8b7364732bfc260d571ceb",
+    "gitBlob": "94308e50b00cfda1504aa5c04111caa6e3f8ca4a"
+  },
+  {
+    "path": "venus_flytrap-6-sleeping-idle-reduced.jpg",
+    "size": 11627,
+    "sha256": "05dccfd6909345961c214852c9c540be53c731db815c4dbaca9318ea91235118",
+    "gitBlob": "ebad57d8a999e3664909b37679065207ccb19f20"
+  },
+  {
+    "path": "venus_flytrap-6-sleeping-walk-normal.jpg",
+    "size": 11697,
+    "sha256": "5220858081bb860be6d4b0e143b82560c9900efd93d0d7f1c75ac2d88a359684",
+    "gitBlob": "bbf796593147c5fdb5e61fc32621434273611883"
+  },
+  {
+    "path": "venus_flytrap-6-sleeping-walk-reduced.jpg",
+    "size": 11721,
+    "sha256": "683306d98584eaa736f9816f96218539cc362674697bd16f6b29c741c3f49593",
+    "gitBlob": "61e67ccee3a60c927b0a723810b74251392b1d1a"
+  },
+  {
+    "path": "venus_flytrap-6-strained-idle-normal.jpg",
+    "size": 11863,
+    "sha256": "d4b54cb95000728f2686f3289040a087530a65540dee24095d95792c693a584c",
+    "gitBlob": "464f7f6bfc35a786383978c3651e85768e87d9d9"
+  },
+  {
+    "path": "venus_flytrap-6-strained-idle-reduced.jpg",
+    "size": 11873,
+    "sha256": "83113539ca6c5a800c89060e65623f9d147090bab4a3ae211a38458a6df83da9",
+    "gitBlob": "04517d46aa3058b1853006604fe51a5b48777cbc"
+  },
+  {
+    "path": "venus_flytrap-6-strained-walk-normal.jpg",
+    "size": 11895,
+    "sha256": "559e6e1862fe1040712ef2fd70f9b208659d7b9c2b5d30a395b122fcea81e86d",
+    "gitBlob": "2f3ad6151ac63d1910c01f4e176dd12b2b30a436"
+  },
+  {
+    "path": "venus_flytrap-6-strained-walk-reduced.jpg",
+    "size": 11971,
+    "sha256": "f88aec3c0bee34a29bc6af0c5ab78c92cfb660721dabafae9d19bf5de2ca7285",
+    "gitBlob": "ff3b983abfe3490eceb4ba77608bd0b80d370b7a"
+  },
+  {
+    "path": "venus_flytrap-6-tired-idle-normal.jpg",
+    "size": 11653,
+    "sha256": "eef0357aa22dcd82fcfe6d2cafcbe16c1b7aa30e7df8c79e615880c8d4c0cb10",
+    "gitBlob": "cf87940406e72326a4f91c8a351b38749b22418e"
+  },
+  {
+    "path": "venus_flytrap-6-tired-idle-reduced.jpg",
+    "size": 11708,
+    "sha256": "4a6fbb83feee13159293a32f33e7cdd24fa2fa31b10e9fb9c2667989835eeb03",
+    "gitBlob": "b31c1ff6d6efa89d7314acb694d3d75748e6dc9b"
+  },
+  {
+    "path": "venus_flytrap-6-tired-walk-normal.jpg",
+    "size": 11649,
+    "sha256": "e704fa8f45889c7b48ce3ff3340b5bc6e2c45a3f4a111a1c2ac77dcb4798dc8e",
+    "gitBlob": "8b53388e4feaf3641ec2bd40c3099eb2cb6e675d"
+  },
+  {
+    "path": "venus_flytrap-6-tired-walk-reduced.jpg",
+    "size": 11716,
+    "sha256": "615b255a55580b1a189402e0f87aede470f770d7552076babdda1ff3e7809f71",
+    "gitBlob": "f9929fdf13a8952aed0caa6631b59db4f86c0f28"
+  },
+  {
+    "path": "venus_flytrap-6-wantsPlay-idle-normal.jpg",
+    "size": 12473,
+    "sha256": "1391263e20a5da2f4881eb78cdee9a4647c8bf0b751b947b757301ddd3691a84",
+    "gitBlob": "4b492e0abbe380e30bc76070794900e40db64a72"
+  },
+  {
+    "path": "venus_flytrap-6-wantsPlay-idle-reduced.jpg",
+    "size": 12314,
+    "sha256": "a9bbfb2292432534c1a2c0eff56f60e0f951054c964378fe0d73342b7ec9aa8a",
+    "gitBlob": "6bf2c619ef4d5bd9a208206eee7724a6b2725cb5"
+  },
+  {
+    "path": "venus_flytrap-6-wantsPlay-walk-normal.jpg",
+    "size": 12526,
+    "sha256": "b95469a7c4ab2e8606032d03efdbea19adb2946b523c7879a3b32fbc5ecf442e",
+    "gitBlob": "122b579b18f3a7f6656fc2ecb28a9eacab35b3a1"
+  },
+  {
+    "path": "venus_flytrap-6-wantsPlay-walk-reduced.jpg",
+    "size": 12254,
+    "sha256": "d81367e28a03a20bfce30c7c80846df2efdd96914f6b013dd329cc6fe8bb79fe",
+    "gitBlob": "4652d67fdbc768a6b8a405108e329100b18a7cae"
+  },
+  {
+    "path": "venus_flytrap-7-34.jpg",
+    "size": 19236,
+    "sha256": "41d7ac7907e4aadde66b1c36a7de64cc36a98a73b8d8330d110389e8f33886d8",
+    "gitBlob": "c2c33225a97d836a11c5ba79eac4b808083d85bb"
+  },
+  {
+    "path": "venus_flytrap-7-back.jpg",
+    "size": 17665,
+    "sha256": "6edbfb546c58eef420052998b84bf8a4478e616fe7fefeddaf5c21170dc4b1a7",
+    "gitBlob": "36133a3a20402d5762704ff7c00832bcd82a8c0e"
+  },
+  {
+    "path": "venus_flytrap-7-dislike-idle-normal.jpg",
+    "size": 18361,
+    "sha256": "2fcc6dc19a80d7de8e3fc312e4579c62791e4965e84d83a1cb963c4a02890f59",
+    "gitBlob": "6bc26799bd65c02b548f3803c06a9bacad2ba4f4"
+  },
+  {
+    "path": "venus_flytrap-7-dislike-idle-reduced.jpg",
+    "size": 18628,
+    "sha256": "e14e45b91d8cfb3f82d8f1c8789b9eab085506dda27d529a30172c1b1046fd52",
+    "gitBlob": "dbc37b950be76b8b5295b9511f09a5062fc3d6ef"
+  },
+  {
+    "path": "venus_flytrap-7-dislike-walk-normal.jpg",
+    "size": 18429,
+    "sha256": "df1627ec7f22c333545513c238e95631eb4cff1033d9b1dbbd306598f557e0e4",
+    "gitBlob": "c317c6dd20a8cc2d536a7700b54cffec4de02844"
+  },
+  {
+    "path": "venus_flytrap-7-dislike-walk-reduced.jpg",
+    "size": 18696,
+    "sha256": "517088322526b4bea9958780703f65e632c3122f552484a6bb2ceae7ceea206a",
+    "gitBlob": "efa95fcbb4ea5f4f2c820a5f96aa40a8d8e870ce"
+  },
+  {
+    "path": "venus_flytrap-7-front.jpg",
+    "size": 20303,
+    "sha256": "87f7a1f775fcce0a458fce58c5f79f88bea54348482ab3570d324eb9497e2ad7",
+    "gitBlob": "4057dbb492f4a8d9e91d0eed24b80530e731550d"
+  },
+  {
+    "path": "venus_flytrap-7-motion.jpg",
+    "size": 802012,
+    "sha256": "af64efa20e1a31849c0d116690136bdeafd1d86a24e1656e09e5ad85cf938724",
+    "gitBlob": "66de8b971bef9d06b8b407d8314931cbaf0fd6c3"
+  },
+  {
+    "path": "venus_flytrap-7-normal-idle-normal.jpg",
+    "size": 19236,
+    "sha256": "41d7ac7907e4aadde66b1c36a7de64cc36a98a73b8d8330d110389e8f33886d8",
+    "gitBlob": "c2c33225a97d836a11c5ba79eac4b808083d85bb"
+  },
+  {
+    "path": "venus_flytrap-7-normal-idle-reduced.jpg",
+    "size": 19349,
+    "sha256": "7bb18054c3c49f04417f6d209941f2ca5f7127ebbc2e8da16e844003c5db4597",
+    "gitBlob": "df321ddd75f15250c301f634471f82b1a12f55ee"
+  },
+  {
+    "path": "venus_flytrap-7-normal-walk-normal.jpg",
+    "size": 19283,
+    "sha256": "d4accc8eb2ad0a60cdd49882e2f8ca31053e58298b9ee7f567d8cc87f0c4bff1",
+    "gitBlob": "d9cb2cb14121e26f864464f8090a4570062456fe"
+  },
+  {
+    "path": "venus_flytrap-7-normal-walk-reduced.jpg",
+    "size": 19394,
+    "sha256": "d85ba67eb20556f9d980643ed9cce22e6e119e9d29f3820463bfc49b00151ca4",
+    "gitBlob": "e94600a18a42256adf225622076a06587092ea38"
+  },
+  {
+    "path": "venus_flytrap-7-positive-idle-normal.jpg",
+    "size": 18851,
+    "sha256": "a6f1a6b1fa12ee238576c232c0ad474c0dfb07caa5c5c2a8963129debdce8330",
+    "gitBlob": "eb16379532f0d72129d180f963080034d7c578e3"
+  },
+  {
+    "path": "venus_flytrap-7-positive-idle-reduced.jpg",
+    "size": 19019,
+    "sha256": "3ce9bbbd1f2da0ffec090e6e09facd8a2269210705f477f6f389251d1c6cf639",
+    "gitBlob": "4a707d305d1c5b4bb08ebfbd69574b43e1a5e0d7"
+  },
+  {
+    "path": "venus_flytrap-7-positive-walk-normal.jpg",
+    "size": 18890,
+    "sha256": "d0b08722e208fb06f4a34f563c61e86e8c6bd1cf1041d968a566088b6bc7f160",
+    "gitBlob": "9ada5db0590a0bfb1190ef9cdb25a810bf1af3d7"
+  },
+  {
+    "path": "venus_flytrap-7-positive-walk-reduced.jpg",
+    "size": 19059,
+    "sha256": "5a59d58d92605a34563f690b600e78b0a47cd7cccbcd0ad4381c8f705725465b",
+    "gitBlob": "5ee04ce5e6ba10ef60f2b7f98cd6b2edad5c6d21"
+  },
+  {
+    "path": "venus_flytrap-7-sick-idle-normal.jpg",
+    "size": 18018,
+    "sha256": "536afc2df0406dae6faa4d6c74e45eea8dac982e47e07480619dc1c60d384ea3",
+    "gitBlob": "235e0368fdaea7ee21067e8ff09ae60a97f6f6e2"
+  },
+  {
+    "path": "venus_flytrap-7-sick-idle-reduced.jpg",
+    "size": 18211,
+    "sha256": "2cb24f8c1ee8757e622f3adf9aab53790d3b7412a8208ff30206bc0a33eed79d",
+    "gitBlob": "0c4b540ac71991b75bf3caaad0de066ac367ef4f"
+  },
+  {
+    "path": "venus_flytrap-7-sick-walk-normal.jpg",
+    "size": 18084,
+    "sha256": "c3ddf8986819a6cf0f2848f66637d481d922b556a6cc4cd55aa20ced8f021a12",
+    "gitBlob": "fc150c62abc8ffe17487fe4ac8079f1df8ff399f"
+  },
+  {
+    "path": "venus_flytrap-7-sick-walk-reduced.jpg",
+    "size": 18293,
+    "sha256": "45efab7e4f99410d9e569792a262716891270a3ac903236bfa74a96e32ada9aa",
+    "gitBlob": "ac6eb10793afe53f009aea7d95af60cefce61370"
+  },
+  {
+    "path": "venus_flytrap-7-side.jpg",
+    "size": 12049,
+    "sha256": "d8c5f003020e36e87068887c11462d518d7d6fafc727d081218b6f04ff1e4bc1",
+    "gitBlob": "50bb4a13574741dbcffa2be3c190e309692fc162"
+  },
+  {
+    "path": "venus_flytrap-7-sleeping-idle-normal.jpg",
+    "size": 17939,
+    "sha256": "74c2848ca7af22949469208604efeff943e646d33918fd3e801b4f9ba97fa33c",
+    "gitBlob": "c27546a096f08d6373b91f12e0b4232864ee187e"
+  },
+  {
+    "path": "venus_flytrap-7-sleeping-idle-reduced.jpg",
+    "size": 17846,
+    "sha256": "79de206bb18db45b594a85d419c478c4a2c8315077a1ac3b830f580920df8fc4",
+    "gitBlob": "be0418c4e24d1b0fd1379967c3e5d090f83f605a"
+  },
+  {
+    "path": "venus_flytrap-7-sleeping-walk-normal.jpg",
+    "size": 17981,
+    "sha256": "c280ab9e60d649791e1157bc02bc9db156442a8bc95bfa4d3af67aa806162e76",
+    "gitBlob": "09af10598bc51884cacebc90bee6a7895bf1e06f"
+  },
+  {
+    "path": "venus_flytrap-7-sleeping-walk-reduced.jpg",
+    "size": 17910,
+    "sha256": "af9a19d1f9f7f826fdd3b55b4d0efa9e1e0c59151c99eef5329380d31166ddd3",
+    "gitBlob": "ca4e73af530de3f7bc758690280689e5559a974d"
+  },
+  {
+    "path": "venus_flytrap-7-strained-idle-normal.jpg",
+    "size": 18874,
+    "sha256": "bd2818b167183933f393d1388856845ee6680cb07f4655c9ad3e29e0a0757fbd",
+    "gitBlob": "7b13fd9ca755fe85178e7a0876bd50e15783c1b9"
+  },
+  {
+    "path": "venus_flytrap-7-strained-idle-reduced.jpg",
+    "size": 18878,
+    "sha256": "db9c4fc61926e80335bb3a6d53ada591974c40e5086ed771da4a3059034f28a0",
+    "gitBlob": "83ef9ee6dc2480781400d39b3b508125db40dbc1"
+  },
+  {
+    "path": "venus_flytrap-7-strained-walk-normal.jpg",
+    "size": 18896,
+    "sha256": "5ee68baf3f81143c305542698b0666a655322d517822beeecb9a6776d4560e6b",
+    "gitBlob": "90c477fc7919e2e0fc070aee66dc9923e7eda553"
+  },
+  {
+    "path": "venus_flytrap-7-strained-walk-reduced.jpg",
+    "size": 18959,
+    "sha256": "1a2f3e4d9b5f60c7d2a84f97c25542f39f97492be6a99e98bbd97f8b424e13bc",
+    "gitBlob": "46101dd4d428048f2bb8a85509dde6d57750ac1a"
+  },
+  {
+    "path": "venus_flytrap-7-tired-idle-normal.jpg",
+    "size": 18145,
+    "sha256": "a9b3699c4d6d8e9ca401cab9f40305ca49b758b7dd8f40e6db0272273e598dd6",
+    "gitBlob": "2ca8cfc17cb7ba7ed4328dacf522e13fe87e3cb5"
+  },
+  {
+    "path": "venus_flytrap-7-tired-idle-reduced.jpg",
+    "size": 18282,
+    "sha256": "15882b2c28491c5a4bae6a2e45f2abaeaa2ce0807e5038c44155212436d08fdf",
+    "gitBlob": "4db33f1f215c312fcbc9671e9823ee4b2e1532d7"
+  },
+  {
+    "path": "venus_flytrap-7-tired-walk-normal.jpg",
+    "size": 18135,
+    "sha256": "2ad17206d8cb3578c597e5e7dd1feadf1912e266c23a1c81b7b9d3c45f65ae56",
+    "gitBlob": "13a69cf5d84757facb2ac21300e0e65c820c6220"
+  },
+  {
+    "path": "venus_flytrap-7-tired-walk-reduced.jpg",
+    "size": 18272,
+    "sha256": "c6f6a46f78ee98e10a1b2ec2aae12ac3aac26389471dd1c7d02ccf9559e15440",
+    "gitBlob": "b90f3ecc50784155a129da350dc59fff403ec065"
+  },
+  {
+    "path": "venus_flytrap-7-wantsPlay-idle-normal.jpg",
+    "size": 19184,
+    "sha256": "339c7fe6238dffb93f4dc21bee80382cfd08e0ca3517b4dfb2ac16e9251eab03",
+    "gitBlob": "c2f6a187b3ab42f5f2679803eae68a98c25146b0"
+  },
+  {
+    "path": "venus_flytrap-7-wantsPlay-idle-reduced.jpg",
+    "size": 19354,
+    "sha256": "23191a96e95cc8484631d093aa01521754e2c25f5eaa78116a050e796507c9d8",
+    "gitBlob": "2885985b2d27f102f34341902ee5be19818c5d0c"
+  },
+  {
+    "path": "venus_flytrap-7-wantsPlay-walk-normal.jpg",
+    "size": 19224,
+    "sha256": "2a562f72a61531ec4d051d4163003f9a88064589e7f6e69052170c27c315eebf",
+    "gitBlob": "b95892be9d92b31083224968212b738b74e2809c"
+  },
+  {
+    "path": "venus_flytrap-7-wantsPlay-walk-reduced.jpg",
+    "size": 19278,
+    "sha256": "15fc9994f25fc6205582156c56791d8288552cb601abf48171b09a89a0463ce3",
+    "gitBlob": "ad7c59baeb54effa17c5474a9f07524acd52d25e"
+  },
+  {
+    "path": "venus_flytrap-8-34.jpg",
+    "size": 16580,
+    "sha256": "f12ce9bf0d1ca00b789456b4a8b44a09425660867567b4f8ec8cae5d83effb66",
+    "gitBlob": "54e18e7582912fa9766edf013dad7a4a8c05a58f"
+  },
+  {
+    "path": "venus_flytrap-8-back.jpg",
+    "size": 14445,
+    "sha256": "79d9d8c00d279199c75a5639240982ce18bad58b9e17e93ba27fa16a3e7309d3",
+    "gitBlob": "90221f1cabc021e8d2129ae38900c7ec244e47bf"
+  },
+  {
+    "path": "venus_flytrap-8-dislike-idle-normal.jpg",
+    "size": 16114,
+    "sha256": "21689d0ad44c5039c2d2b7a5553fa4f4927adafaa808cec0e8236eedeeee2bee",
+    "gitBlob": "2393d34a6e86cb3c9d6c972947b9f6f4378e2c88"
+  },
+  {
+    "path": "venus_flytrap-8-dislike-idle-reduced.jpg",
+    "size": 16400,
+    "sha256": "11407f3f44430688911db85ca002f18bd87112f534b336952d7f1afc6bbee971",
+    "gitBlob": "637bc840046427c03122efe8d59b5ddda7176ccf"
+  },
+  {
+    "path": "venus_flytrap-8-dislike-walk-normal.jpg",
+    "size": 16180,
+    "sha256": "0d9365417c2535104a01d28991bbb3b4a6471fff07cdc424e7154f35c7ca1c3c",
+    "gitBlob": "c1e878643b3a9639b4a0f60adbc01db1165a65f6"
+  },
+  {
+    "path": "venus_flytrap-8-dislike-walk-reduced.jpg",
+    "size": 16434,
+    "sha256": "0af7b74d593ca438567949767978c6635f917e389bdfc965d220b47a150c581b",
+    "gitBlob": "38868dfea1fbee544f5ccc8685d766d6ed04337a"
+  },
+  {
+    "path": "venus_flytrap-8-front.jpg",
+    "size": 18142,
+    "sha256": "d9ad840716794ed5b05399f2082ac8faa9548618e5f67a615553f3cce0449025",
+    "gitBlob": "7a508d987fc1434786ef326f1e735134c55ecf80"
+  },
+  {
+    "path": "venus_flytrap-8-motion.jpg",
+    "size": 753602,
+    "sha256": "d05f614e7e80e1f405e03eb75221d31dffb5263de485f288eab1a528ddcbed4f",
+    "gitBlob": "04fa352405c84a85478b4ca5725959093b6f904b"
+  },
+  {
+    "path": "venus_flytrap-8-normal-idle-normal.jpg",
+    "size": 16580,
+    "sha256": "f12ce9bf0d1ca00b789456b4a8b44a09425660867567b4f8ec8cae5d83effb66",
+    "gitBlob": "54e18e7582912fa9766edf013dad7a4a8c05a58f"
+  },
+  {
+    "path": "venus_flytrap-8-normal-idle-reduced.jpg",
+    "size": 16923,
+    "sha256": "3b5773a779183b0cbe277ccb3e3d58fb03de75e271f71f83d5304dbe99167693",
+    "gitBlob": "81f8eba7db7339c6d11c4b5f02619d792d6699ae"
+  },
+  {
+    "path": "venus_flytrap-8-normal-walk-normal.jpg",
+    "size": 16631,
+    "sha256": "1e5f12b0d1afaa4855b42bd9679bc6fef53ac22698a184452012984e458956b7",
+    "gitBlob": "c63d347ecec2eb5ee178cc3ee734c7eb7a3e0fdd"
+  },
+  {
+    "path": "venus_flytrap-8-normal-walk-reduced.jpg",
+    "size": 16978,
+    "sha256": "5de572fedec377a8d6955ccb12f75974910f960169bb4c1635ce805937507854",
+    "gitBlob": "80f917bd5a4c1ec6e6d8294144ac538f8cdbf514"
+  },
+  {
+    "path": "venus_flytrap-8-positive-idle-normal.jpg",
+    "size": 16584,
+    "sha256": "227f8781a3a0b287942d01184f65688882aedb8cb3ac8862394f56876e07f85c",
+    "gitBlob": "6f89c4153ba919e37cdf4cc19899e06a808a1e58"
+  },
+  {
+    "path": "venus_flytrap-8-positive-idle-reduced.jpg",
+    "size": 16740,
+    "sha256": "26dcd774cfa6c995d7cfd18d8c673b5f427602886aee91cabc7b53cfb84f7d34",
+    "gitBlob": "5ca7240232b0457ed8c291bb67f6604bf193ef1f"
+  },
+  {
+    "path": "venus_flytrap-8-positive-walk-normal.jpg",
+    "size": 16638,
+    "sha256": "83f1c0abaabc9aecd624180ddb71ae5afbfbb4e1a7d70fd0f3c5c38d120d1b1d",
+    "gitBlob": "f3f874ec369df2d726420e6826ca0e8cf6ae6ffb"
+  },
+  {
+    "path": "venus_flytrap-8-positive-walk-reduced.jpg",
+    "size": 16795,
+    "sha256": "10c124fb40c0dbb394a9db737ed1cb1d4128defc0fba3f06aa4f381d119cbf8a",
+    "gitBlob": "fcba50a7e2459b18e61b9fd811f6ecb9d14312a6"
+  },
+  {
+    "path": "venus_flytrap-8-sick-idle-normal.jpg",
+    "size": 15879,
+    "sha256": "e74f064b2e36daaf4165dd84e797afc7d1f14307a4118749a414f5a5ded7acc4",
+    "gitBlob": "cbadcf7110fe7b537550465a023b02bac53dfe0c"
+  },
+  {
+    "path": "venus_flytrap-8-sick-idle-reduced.jpg",
+    "size": 16077,
+    "sha256": "650cb350ad1905a940364c7cd2935d76f4a17e975425f9c72599d70057911b13",
+    "gitBlob": "166485228176f55e3bb88f1eaec6a51e074284c0"
+  },
+  {
+    "path": "venus_flytrap-8-sick-walk-normal.jpg",
+    "size": 15930,
+    "sha256": "72b32cd061d5ac0df94067ff72fa529c20fac31acdbe936c7f0f447a223ea008",
+    "gitBlob": "6c8aaf2eae6b01188a486aaa473c8a57f7b4f98b"
+  },
+  {
+    "path": "venus_flytrap-8-sick-walk-reduced.jpg",
+    "size": 16176,
+    "sha256": "2a418a722da98eaea7dbf8d8b8371e82a2cef23a3ee5e51235c0076d0dcf0c12",
+    "gitBlob": "a026bd664439e7bb887eedbe5e6cbcb3ffdae30d"
+  },
+  {
+    "path": "venus_flytrap-8-side.jpg",
+    "size": 11107,
+    "sha256": "8dedc966944761722ebf38b9f4a967ba6989112261d45f5f563cb5308a3e86ac",
+    "gitBlob": "87a1f701cf3505305cc7dd56679e76999f2e2138"
+  },
+  {
+    "path": "venus_flytrap-8-sleeping-idle-normal.jpg",
+    "size": 16432,
+    "sha256": "d4a30b557baa9c257ddd192960bff7ee24f3162a336337370b3f8da0516982f0",
+    "gitBlob": "10db2d0c8504be54cc8544f962decbc00cd2bbf7"
+  },
+  {
+    "path": "venus_flytrap-8-sleeping-idle-reduced.jpg",
+    "size": 16601,
+    "sha256": "090d2cfcff998d4db72a6e5c3c505d0f03bee82d2f10c11f6401a58ce79d7ed9",
+    "gitBlob": "0e4ad5297d5aea41f4c68a0b2a9e14875de008f9"
+  },
+  {
+    "path": "venus_flytrap-8-sleeping-walk-normal.jpg",
+    "size": 16497,
+    "sha256": "67fcdfb4eec13294089fc46f2d5cc5f38b63acfcb5276862c2acb35320dda9fe",
+    "gitBlob": "afb6cba2b78c6a3bc36396f18576e19445c209fb"
+  },
+  {
+    "path": "venus_flytrap-8-sleeping-walk-reduced.jpg",
+    "size": 16691,
+    "sha256": "e3a90d8faf5e5b46e80c8c167f22d869eec459da4f555a3e89d81d6c82423e71",
+    "gitBlob": "ed7798d1e4a98afe8ac281dd5d6e8e5d9d30e545"
+  },
+  {
+    "path": "venus_flytrap-8-strained-idle-normal.jpg",
+    "size": 16808,
+    "sha256": "5d8134136a1f65ba8429f1e159975982acbfac58fd9daaab95a8a61e45bc6846",
+    "gitBlob": "c628059805da2c23f7cceb9ded76f2885249d408"
+  },
+  {
+    "path": "venus_flytrap-8-strained-idle-reduced.jpg",
+    "size": 16886,
+    "sha256": "614e2ab3d70e4e77d85e8df00b3449934fa08ea2484166340feb992a94efbc84",
+    "gitBlob": "cd47d8368972a7c75e3a2afa9e2c12e9341f253d"
+  },
+  {
+    "path": "venus_flytrap-8-strained-walk-normal.jpg",
+    "size": 16835,
+    "sha256": "25b41720bac6cc9f1a9664137fab572cdbbc922bce9902cb14765ced93bac1dd",
+    "gitBlob": "43185d954405e19bf2b69faf7d16e98514d93219"
+  },
+  {
+    "path": "venus_flytrap-8-strained-walk-reduced.jpg",
+    "size": 16979,
+    "sha256": "86c6bfbc4479301b2f4840a9a17756c7b907e357da9a0ad39358276dab294d92",
+    "gitBlob": "c14f4818fedba7082747b3023ad76347bc04d14a"
+  },
+  {
+    "path": "venus_flytrap-8-tired-idle-normal.jpg",
+    "size": 16106,
+    "sha256": "eada617209cb6dd067d6cf210248d69c7fd3b704df745ea8061e590754c9a46d",
+    "gitBlob": "e1a3af4ad9f28d5cbcf16d16423b72a0046f8d35"
+  },
+  {
+    "path": "venus_flytrap-8-tired-idle-reduced.jpg",
+    "size": 16431,
+    "sha256": "32daaf9368022db4c60a7b41759447b7b1473903ea34b71a5d6392358b3eaa7f",
+    "gitBlob": "4cfcf5e68f3b1ef0ee3fec544fa1dbddeb842f4c"
+  },
+  {
+    "path": "venus_flytrap-8-tired-walk-normal.jpg",
+    "size": 16122,
+    "sha256": "0e2eb89017b55ee637f97aa263b4194d97e75d26d5fbe143750b6a3c551159a9",
+    "gitBlob": "0a436ebb72561f748419db5c000805c267f977d9"
+  },
+  {
+    "path": "venus_flytrap-8-tired-walk-reduced.jpg",
+    "size": 16432,
+    "sha256": "4ace0345187552160534e7fb8539b3582ae71cb98a8b1c4cf09a31f28b7b6a70",
+    "gitBlob": "45bc16293da9d51ea2184892bf97c8f04bbba872"
+  },
+  {
+    "path": "venus_flytrap-8-wantsPlay-idle-normal.jpg",
+    "size": 16756,
+    "sha256": "8e16deec0af89f305895022aa95feefd78436999240a9972ad959aadc5a8da43",
+    "gitBlob": "bfcb82e122e14704890d0f1363147e987aca57af"
+  },
+  {
+    "path": "venus_flytrap-8-wantsPlay-idle-reduced.jpg",
+    "size": 17005,
+    "sha256": "27a7444a6cc2bdda95b3968db139fbd597305b5d1c1e754a1efc2e6fa7cb1d85",
+    "gitBlob": "3ecffd5dcbc54e1fdf96405a8d301337152d1db9"
+  },
+  {
+    "path": "venus_flytrap-8-wantsPlay-walk-normal.jpg",
+    "size": 16796,
+    "sha256": "bceb82a542413054961780f1c7aad56f83067aeea75755fec7b7caaf2b02cc09",
+    "gitBlob": "8ed683744b47305c86213874d3a82cf2285ae2c5"
+  },
+  {
+    "path": "venus_flytrap-8-wantsPlay-walk-reduced.jpg",
+    "size": 16928,
+    "sha256": "603ed7cafdd44ce01c709e3eae160f074078a681073fc00d899a342451229be9",
+    "gitBlob": "3c0eea124c6c17add16fa5428824a946aefee323"
+  },
+  {
+    "path": "venus_flytrap-stages.jpg",
+    "size": 583434,
+    "sha256": "fad304a12413759e8ad12cfe40b037132759c8c938903571ffd2f9bf1d7979e1",
+    "gitBlob": "c06479ae0629338040ae53b649a20b2af759bb5f"
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "sourceCommit": "ca8229dc4b7a00dd617bd72706394e00024307c1",
+  "waveArtifact": 11424013987,
+  "distanceArtifact": 11423154902,
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "acceptedStages": [
+    1,
+    2,
+    5,
+    6,
+    8
+  ],
+  "checks": {
+    "fourViews": 20,
+    "canonicalMotion": 160,
+    "normalFrontBack": 10,
+    "fallbacks": 0,
+    "errors": 0
+  },
+  "review": "Early nymph proportions/claws/pads, upright emerging adult aligned to the open casing, bright green06 and muted gray08 retain morphology, attachment and coherent faces. Normal-distance screenshots reviewed at native pixel scale in crop sheets.",
+  "rejectedStage4": "Rear feet extend below the attached soil base; corrected foot paths and new capture required.",
+  "simplifications": [
+    "Smooth cuticle and simplified bands/veins/claw detail",
+    "Plain exuvia surface with folded limbs instead of detailed original ridges"
+  ],
+  "coverage": "146/293 unchanged; no full-family promotion"
+}

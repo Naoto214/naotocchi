@@ -1,0 +1,45 @@
+{
+  "sourceCommit": "47e62641538e0fd59ea94ad3598f3596b994408f",
+  "result": "REJECT_05_06_SILHOUETTE",
+  "reviewed": {
+    "fourViews": 32,
+    "normalDistance": 16,
+    "freshStateCells": 128,
+    "freshStateStages": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "reusedStateCells": 64,
+    "reusedStageImages": 74,
+    "reusedStages": [
+      3,
+      7
+    ],
+    "priorSource": "9fadab27a5abacedfb40add609f95fb14f2c69a3"
+  },
+  "hashesVerified": {
+    "unknown-wave": 299,
+    "unknown-distance": 17
+  },
+  "passedStages": [
+    1,
+    2,
+    3,
+    4,
+    7,
+    8
+  ],
+  "rejectedStages": [
+    5,
+    6
+  ],
+  "findings": [
+    "05 source round body/outward fan is too upright and narrow in candidate",
+    "06 source broad pear silhouette incorrectly translated into tall thin droplet",
+    "Root cause: preliminary source contact sheet resized width/height with independent caps, distorting aspect. Authoritative existing wave board preserves original aspect; use it for correction.",
+    "04 top spheres remain undefined organs, never expression eyes; canonical white face remains separate"
+  ],
+  "limits": "Rejected-stage states deferred to corrected capture;no runtime promotion;not Human/iPhone QA"
+}

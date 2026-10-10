@@ -1,0 +1,15 @@
+# Final Author promotion integration review
+
+Scope: pending root promotion against `00baa4da6d5a2a28ee95a6a52e9e5c15eef90269`, covering explicit allowance, related tests/sentinels, coverage and source-specific evidence. Unmerged future QA work and already reviewed model geometry are excluded.
+
+Spec verdict: PASS. Quality verdict: PASS.
+
+Critical: 0. Important: 0. Minor: 0.
+
+- The explicit runtime list adds only `author:naoto`, preserving every prior approval. Canonical Author and exact actual `kind:'naoto', id:'naoto'` resolve to the same stage-zero key. Wrong roles, case/ID spellings, unknown actual IDs and player aliases remain null; stage one remains absent. The asset path is the correct singular `assets/characters/author/naoto.png`. No production region/policy expansion occurs.
+- Promotion-test pairs match the complete allowlist, now with singular Author asset handling and actual-identity positive checks. First Author/identity/HTTP tests reflect its approved production registration while preserving geometry/ownership/default checks. Existing mutator name prefixes remain valid. Older family tests replace only the now-approved real Author null sentinel with permanent unknown `author:__unreviewed__`; namespace guards and family assertions remain intact. Browser-injected synthetic unreviewed factory exclusion is retained and is still exercised by the widening mutation.
+- Generated and saved coverage agree at 293/293 exact, zero pending and 293 four-view records. Exactly the Author row changes, using the reviewed `export/6eb8f197401c17c62178f28d68d511413c737657/author-hair-corrected` paths. All prior evidence rows/waves and two legacy mappings are preserved.
+- The source record identifies the successful capture, artifact/archive and 41 verified raw files, with actual root four-view/32-state/two-distance PASS. Independent `author-hair-corrected-image-review.md` resolves the prior hair blocker through actual source/four-view inspection and explicitly distinguishes root's state/distance sweep. Natural memory-lake 2D and bounded same-actor QA placement remain distinct; Human/iPhone and final production/integration gates remain open.
+- The input-identity record covers exactly all 43 approved factory keys, marked exact including signed zero, with existing review/source references across 16 accepted captures. It explicitly distinguishes input equality/default regression from new visual approval. Legacy2 evidence remains separate; the promotion itself changes no factory/model input.
+
+Independent read-only assertions checked the sole addition, retained keys, canonical/actual and negative identity boundaries, singular asset/stage guards, promotion-list equality, unique dynamic mutation anchor, generated/saved coverage and sole changed row/path existence, and identity-record coverage/source references. Inspected recorded four RED expectations followed by five focused GREEN tests and all seven role mutations detected/restored. No broad tests, mutations, images, implementation or remote operations were repeated. Complete coverage is not a claim of final integration or Human/iPhone completion.

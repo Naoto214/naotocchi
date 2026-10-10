@@ -1,0 +1,23 @@
+{
+  "sourceCommit": "c5b7fe8e72c7ea3eb01cd407e8b93f3cc9eb4bd7",
+  "waveArtifact": 11413994813,
+  "distanceSource": "cd81b79c1f3f22efdf9a17cf8a9d8f31839cd184",
+  "distanceArtifacts": [
+    11413430681,
+    11413920156
+  ],
+  "sameAdultBuilderSpecMotionBytes": true,
+  "fourViewCaptures": 32,
+  "motionCaptures": 256,
+  "distanceStages": 8,
+  "savedSheets": 10,
+  "verdict": "adult05-08 candidates accepted; entire armored family not promoted",
+  "observations": [
+    "All faces remain above horn/jaw roots through canonical motion",
+    "Pale05,slender red06,mature07 and low aged08 distinguish proportions and source appendages",
+    "Raised beetle06 covers remain attached",
+    "Known simplifications: smoother shell without fine scratch texture, thinner horn/jaw detail than pixel source"
+  ],
+  "individualCaptures": "Retained in the immutable source artifacts; all sheets and full raw records committed here. Full-family promotion still requires complete permanent capture set.",
+  "environment": "Chromium/SwiftShader, not iPhone"
+}

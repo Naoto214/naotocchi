@@ -1,0 +1,27 @@
+{
+  "baseCommit": "9b79310dcf4c1e78eb566ab2bdd88f0dc968e9bd",
+  "status": "CANDIDATES_ONLY_IMAGE_GATE_PENDING",
+  "originals": "assets/characters/venus_flytrap/01.png through08.png inspected",
+  "preserved": "All previously saved botanical stage specifications byte-equivalent under JSON serialization; accepted03/07 untouched. No new production entries.",
+  "stages": {
+    "1": "leaning brown seed",
+    "2": "soil-mounted seedling with two young cups",
+    "4": "base face and two unequal heads",
+    "5": "base face and three red heads",
+    "6": "one broad toothed cup with purple insect as sole face",
+    "8": "six white flowers,three face-bearing centers,two lower traps,radial foliage"
+  },
+  "simplifications": [
+    "Existing smooth broad leaves and five-petal blossoms retained; no pixel texture or detached decorative sparkles.",
+    "Insect is represented by a small purple closed body and two antennae, not an independent actor."
+  ],
+  "verification": {
+    "dedicatedPass": 222,
+    "venusMutationsDetected": 5,
+    "botanicalMutationsDetected": 22,
+    "pilotHashesUnchanged": 28,
+    "fullNpm": "running separately; earlier known3007pass/2resident failures retained"
+  },
+  "fixDuringVerification": "Ground test detected lower leaves at -.012/.034; only new base leaves raised .02/.045 at unchanged threshold.",
+  "next": "All8 four-direction,32-state and actual Meguru normal-distance image gates; keep runtime180/293 pending."
+}

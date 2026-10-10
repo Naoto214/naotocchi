@@ -1,0 +1,19 @@
+{
+  "status": "REJECT_IDLE_HOVER",
+  "sourceCommit": "d772ff5eeae7a4513185436e3fe22813c63930dc",
+  "archiveCommit": "7a46f3c9396df4bc56a6255a0b2999711ca9fd02",
+  "integrity": {
+    "rawFiles": 41,
+    "allHashesVerified": true
+  },
+  "actualReview": {
+    "fourViews": 4,
+    "stateImages": 32,
+    "normalDistance": 2
+  },
+  "findings": [
+    "Surface shading improved; hook/opaque volume and canonical32states readable.",
+    "Actual normal-distance idle character floats above ground because inheritedblobFloat hover. Source melting body should rest on ground."
+  ],
+  "next": "Use existinggrounded squashHop locomotion as opt-in candidate setting;keepdefaultfloatingblobs unchanged;freshdistance andstates required."
+}

@@ -1,0 +1,19 @@
+{
+  "status": "REJECT_HELD_WING_OCCLUSION",
+  "sourceCommit": "46ff692b1c0f3900db2839cc7000a25fb5c0446c",
+  "archiveCommit": "5a78d95e1f7b51ca32d5b3f2eb3c805a38fcb334",
+  "actualReview": {
+    "fourViews": 4,
+    "stateImages": 32,
+    "normalDistance": 0
+  },
+  "integrity": {
+    "rawFiles": 41,
+    "allHashesVerified": true
+  },
+  "findings": [
+    "Physical breast Vs remove coarse paint bands and canonical states remain readable.",
+    "Source held wing remains hidden behind assembled body/head; local forward extent test insufficient."
+  ],
+  "next": "Data-only shoulder/length/forward correction, world-ray RED/GREEN, fresh images required."
+}

@@ -1,0 +1,58 @@
+{
+  "sourceCommit": "8f2242e341a192a9ebf5ba7df21bae7162a27873",
+  "sourceRun": 37901146775,
+  "sourceRunConclusion": "failure",
+  "successfulCaptureJobId": 113723754605,
+  "successfulCaptureJobConclusion": "success",
+  "artifact": 11602991667,
+  "archiveCommit": "9e8caf3ae5384bf743822e3332c0bacdfbe6eb23",
+  "rawFilesVerified": 201,
+  "reviewer": "root actual image inspection; independent four-view review C0/I0",
+  "status": "PASS_ALL5_IMAGE_GATE",
+  "reviewed": {
+    "field_cow": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "forest_bear": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "grove_deer": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "cliff_goat": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    },
+    "gentle_gorilla": {
+      "fourViews": 4,
+      "expressionMotionStates": 32,
+      "normalDistance": 2,
+      "status": "PASS"
+    }
+  },
+  "findings": "Source identities, attached limbs/props, cow grass constituent connection, goat rock support and gorilla flower grip confirmed. Eyes/mouth clear in all32states; front/back normal-distance silhouettes readable.",
+  "contentReuse": {
+    "method": "Same-runtime produced indexed mesh attributes and world transforms across32states match pre-shared-fix Task6 model geometry exactly. Task6 data and prior defaults unchanged.",
+    "sha256": {
+      "field_cow": "cf7d44812f52c318744db8289fb23431c7048be0b6a68269402485d70d321856",
+      "forest_bear": "ab4d132c2c983202d1889c852251d911974cf63db10ba4073153c3b1caa30912",
+      "grove_deer": "e3ec8d8e7eeb8b7e58d0ade77bc393cb18049356262d9377820214200c2ad6cb",
+      "cliff_goat": "4afbd9e7e766dab22c6bf33109048b87154c581cbe5b715c100e217bb1d0286e",
+      "gentle_gorilla": "8b7282feca45d48de28cf4d177bfb45dd3057f753f2fba4c03c4ca2aca32cf22"
+    }
+  },
+  "ciNote": "Source dedicated failed stale tanuki-is-unimplemented expectations in tests26/27, not capture. Updated exact promoted-role and permanently missing-model fallback assertions RED/GREEN; independent review C0/I0. Integrated dedicated376PASS, Pilot28unchanged. Source run remains FAILURE.",
+  "humanQA": "OPEN_SEPARATE",
+  "iPhoneQA": "OPEN_SEPARATE"
+}

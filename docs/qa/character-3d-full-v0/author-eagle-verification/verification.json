@@ -1,0 +1,75 @@
+{
+  "baseCommit": "d7dc8973d7acfadb9298712505bb8735ffdbf0ce",
+  "authorWorkerCommit": "e67902df19c7b9781b8743b3d867fec35380f901",
+  "authorFocusedPass": 11,
+  "authorOriginalControls": [
+    "white source hoodie: RED",
+    "dark under-shirt: RED",
+    "eight source hair waves: RED",
+    "detached source hair constituent: RED",
+    "source hair occludes canonical face: RED",
+    "neck loses torso contact: RED",
+    "detached pale shoe sole: RED",
+    "hair terminal inward cap: RED",
+    "arm terminal inward cap: RED",
+    "humanoid default floor offset: RED",
+    "overbroad actual author alias: RED",
+    "legacy model key drift: RED",
+    "legacy redundant four-view recapture: RED",
+    "staged author clone loses actual identity: RED",
+    "author route bypasses legal unlock: RED",
+    "author adapter omits restore: RED",
+    "author pose omits restore: RED"
+  ],
+  "authorNear3DAdditionalControl": "RED and exact source restoration; original coordinates retained in provenance and restored after injected failure",
+  "authorProduction": "UNREGISTERED_IMAGE_GATE_PENDING",
+  "pilotHashesIdentical": 28,
+  "protectedGroups": "exact immutable fixture equality",
+  "humanQA": "OPEN_SEPARATE",
+  "iPhoneQA": "OPEN_SEPARATE",
+  "authorCodeReview": {
+    "critical": 0,
+    "important": 0,
+    "resolved": "Actual author initially outside near3D range; now positioned before presenter readiness and restored after capture."
+  },
+  "roleMutations": {
+    "detected": 7,
+    "restored": true
+  },
+  "integratedDedicated": {
+    "tests": 450,
+    "passed": 448,
+    "failed": 2,
+    "cause": "Old unregistered expectations for newly image-approved Spider and Snowman",
+    "correctedScopedRerun": {
+      "tests": 2,
+      "passed": 2,
+      "failed": 0
+    },
+    "fullRerun": "Pending next source CI; not labeled 450 PASS"
+  },
+  "rootIntegrationReview": {
+    "critical": 0,
+    "important": 0,
+    "minor": 0,
+    "scope": "Two promotions, author candidate/QA route, synthetic fixture gate and selectors; pending Eagle geometry excluded"
+  },
+  "eagleSourceFix": {
+    "workerCommit": "a7c955a1cb6dfd38787c8cd1d458a97647a75b50",
+    "affectedPass": 6,
+    "controls": [
+      "eagle former shallow primary wedges: RED",
+      "eagle detached primary feather: RED",
+      "eagle former short upper coverts: RED",
+      "eagle dark outer tips: RED"
+    ],
+    "restored": true,
+    "sharedFactoryChanged": false,
+    "otherWorkerRowsIdentical": 41,
+    "imageGate": "OPEN",
+    "codeReview": {
+      "critical": 0,
+      "important": 0
+    }
+  }
+}

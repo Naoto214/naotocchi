@@ -1,0 +1,618 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6",
+  "artifact": {
+    "id": 11606821438,
+    "name": "full-rollout-nonplayer-review-73a1b4e384b1a636a1f2f557edd3afd1cd19dfe6",
+    "digest": "sha256:de916e04cc36d6837e91c9f9d9df82147b7b2701cb44fe3b3657e84720d858cb"
+  },
+  "files": [
+    {
+      "path": "evidence.json",
+      "sha256": "75168a0cce8d4c6c8f51f93fc0a72b8154f54781ca990b85fb588131f461f8e1",
+      "bytes": 77329
+    },
+    {
+      "path": "partner-high_eagle-0-34.jpg",
+      "sha256": "b0bf42b341a6c463bd1d50f446f4291b844ea6e801ac392f134bef2273d345a7",
+      "bytes": 10745
+    },
+    {
+      "path": "partner-high_eagle-0-back.jpg",
+      "sha256": "46e58a213163011c85ee17a49638793bb0c4e5829f01861e29aa97e0e8d39b6b",
+      "bytes": 10612
+    },
+    {
+      "path": "partner-high_eagle-0-dislike-idle-normal.jpg",
+      "sha256": "7a1c9ee4331caafe9dea0550ef0edb71cb31445a455455f4052142ebad353bab",
+      "bytes": 10976
+    },
+    {
+      "path": "partner-high_eagle-0-dislike-idle-reduced.jpg",
+      "sha256": "3e2b364e440065ba8d5879e3281d758f44d15a3915cd783ef8776bcccfb00a14",
+      "bytes": 10833
+    },
+    {
+      "path": "partner-high_eagle-0-dislike-walk-normal.jpg",
+      "sha256": "0d345b2ab7f7a225d0221e6000fe8d1b0a4505a5d39e2601209e5b86ed4689ae",
+      "bytes": 10315
+    },
+    {
+      "path": "partner-high_eagle-0-dislike-walk-reduced.jpg",
+      "sha256": "d156744b39929105b820bd7d7defe2d9e713235f95d05a6e0632d02cf18b5b19",
+      "bytes": 10459
+    },
+    {
+      "path": "partner-high_eagle-0-front.jpg",
+      "sha256": "da967abecfc199262ab81264443e60f5e4fb15348ac33001aad840bb9d65dfab",
+      "bytes": 11303
+    },
+    {
+      "path": "partner-high_eagle-0-normal-idle-normal.jpg",
+      "sha256": "b0bf42b341a6c463bd1d50f446f4291b844ea6e801ac392f134bef2273d345a7",
+      "bytes": 10745
+    },
+    {
+      "path": "partner-high_eagle-0-normal-idle-reduced.jpg",
+      "sha256": "95d788c30df39875d1223791e7dae4e0af8976c5b13511e07fb997afe67cc0f4",
+      "bytes": 10882
+    },
+    {
+      "path": "partner-high_eagle-0-normal-walk-normal.jpg",
+      "sha256": "17a80f1b659f8a08d22f15e4c9005c9ff8ad8e7984be98c9ef8749bb7c622925",
+      "bytes": 10445
+    },
+    {
+      "path": "partner-high_eagle-0-normal-walk-reduced.jpg",
+      "sha256": "30d93b3ebc735ed5e7b85915818683f99304b06fcd6cf615f8b3f2a1d11e9841",
+      "bytes": 10424
+    },
+    {
+      "path": "partner-high_eagle-0-positive-idle-normal.jpg",
+      "sha256": "b4d0da32ef3c845d8dcb6eca3df4e0c4cba5c49f98d5290da8a284d112b1bd11",
+      "bytes": 10167
+    },
+    {
+      "path": "partner-high_eagle-0-positive-idle-reduced.jpg",
+      "sha256": "d4662ae2ef9431a12e6226e4b969671797b08c34eb035e3fd6e4c007fbf5da4c",
+      "bytes": 11030
+    },
+    {
+      "path": "partner-high_eagle-0-positive-walk-normal.jpg",
+      "sha256": "6b311f2e42b227ce9c2f8b92fcfdfc588e71a5c35a25eb573944da3a76318ff0",
+      "bytes": 10171
+    },
+    {
+      "path": "partner-high_eagle-0-positive-walk-reduced.jpg",
+      "sha256": "b7520fe891d141086ddc4d1ad89cb4b97884400c9d9b6f82516da2dd7f06faae",
+      "bytes": 10948
+    },
+    {
+      "path": "partner-high_eagle-0-sick-idle-normal.jpg",
+      "sha256": "3cb26768121f88893470dc2346ffb8630395ea69f399542da591126c7d6bb65e",
+      "bytes": 10490
+    },
+    {
+      "path": "partner-high_eagle-0-sick-idle-reduced.jpg",
+      "sha256": "cadffc8b2f2f5faf045afefda09425e080c255069b19b5e9e74e00d55e4f983d",
+      "bytes": 10742
+    },
+    {
+      "path": "partner-high_eagle-0-sick-walk-normal.jpg",
+      "sha256": "a4b92df3737590d434e12d53984047ace52e74f1954293ad49b55150e629e9e0",
+      "bytes": 10344
+    },
+    {
+      "path": "partner-high_eagle-0-sick-walk-reduced.jpg",
+      "sha256": "3e2e00baf1bbab8a0332419d0b25ece683664e0dc1d61b6661b4caa23c52d6db",
+      "bytes": 10247
+    },
+    {
+      "path": "partner-high_eagle-0-side.jpg",
+      "sha256": "546198da83774b86ee755a015cddee26b3548e400dbe16f7e8b6326e1abc3dff",
+      "bytes": 8951
+    },
+    {
+      "path": "partner-high_eagle-0-sleeping-idle-normal.jpg",
+      "sha256": "deffc6ab691bffb82d5b78533f6d378410cd3878f2ed78bcc08c7303a5e9221e",
+      "bytes": 10383
+    },
+    {
+      "path": "partner-high_eagle-0-sleeping-idle-reduced.jpg",
+      "sha256": "6ab17199fbde41ed6ef8920192ce7dcc7bc49e060042f3153d85b43e2af1f433",
+      "bytes": 10610
+    },
+    {
+      "path": "partner-high_eagle-0-sleeping-walk-normal.jpg",
+      "sha256": "d56d9d7621f5f466e1defb67fe014d06c5485b1040d6ac05ba2fa9928df6e7a1",
+      "bytes": 10189
+    },
+    {
+      "path": "partner-high_eagle-0-sleeping-walk-reduced.jpg",
+      "sha256": "048a4fa840682a98ab7c701eebccc3b3c67bdfd47200687304dc2317954469d6",
+      "bytes": 10182
+    },
+    {
+      "path": "partner-high_eagle-0-strained-idle-normal.jpg",
+      "sha256": "9f72245fd6a370d1da334158452a08da987a3e27f1b1dd078be55fb4e4f53ab2",
+      "bytes": 10668
+    },
+    {
+      "path": "partner-high_eagle-0-strained-idle-reduced.jpg",
+      "sha256": "5d3bfd2dc821c8abc318cf64a18b287eb9deda6d7e121a34411514b8c247115b",
+      "bytes": 10793
+    },
+    {
+      "path": "partner-high_eagle-0-strained-walk-normal.jpg",
+      "sha256": "d78e781304f92094d063bdf4e0d781b144456235bb446d6b0cd4e4ad3016f072",
+      "bytes": 10762
+    },
+    {
+      "path": "partner-high_eagle-0-strained-walk-reduced.jpg",
+      "sha256": "7458497358bab6bffb7aea98da31948eb2087395a963bcf1ebda89cd73b396af",
+      "bytes": 10822
+    },
+    {
+      "path": "partner-high_eagle-0-tired-idle-normal.jpg",
+      "sha256": "d7d454f3f9ba8d97280cfb11da3d35793c5cc9d52f60ce677a07f263a7f8f08f",
+      "bytes": 10509
+    },
+    {
+      "path": "partner-high_eagle-0-tired-idle-reduced.jpg",
+      "sha256": "1f6fea3c266f517343c63dd83d104f772c38b172b66e3d9e1fc861707f733b90",
+      "bytes": 10640
+    },
+    {
+      "path": "partner-high_eagle-0-tired-walk-normal.jpg",
+      "sha256": "35a81d266d210e9c22c3c11da04c5497f480fc0964b0a2324195981d6900a85e",
+      "bytes": 10085
+    },
+    {
+      "path": "partner-high_eagle-0-tired-walk-reduced.jpg",
+      "sha256": "540c1a26d9a59030a24d48a3bc6a912fbf4d98b5c3df32568f30ded908087573",
+      "bytes": 10232
+    },
+    {
+      "path": "partner-high_eagle-0-wantsPlay-idle-normal.jpg",
+      "sha256": "232cb4e3f0668ba4596232228e5e90b15b0d914668ee9b63b52e45ae97cd2b2b",
+      "bytes": 10509
+    },
+    {
+      "path": "partner-high_eagle-0-wantsPlay-idle-reduced.jpg",
+      "sha256": "4329cc9b90117901389d8243833bc0dcb00bb7c5f29fbbeee67d0ff607304761",
+      "bytes": 11150
+    },
+    {
+      "path": "partner-high_eagle-0-wantsPlay-walk-normal.jpg",
+      "sha256": "f417a8102fe32c894f3aa6165ec548776ecd31689c0036cfe9e54d6c8927b8fc",
+      "bytes": 10435
+    },
+    {
+      "path": "partner-high_eagle-0-wantsPlay-walk-reduced.jpg",
+      "sha256": "f20c76307be3636e03bc24d72d33eaaa1a4b765e8dc85c8eb3c9cb01150044bf",
+      "bytes": 10729
+    },
+    {
+      "path": "partner-high_eagle-distance-back.jpg",
+      "sha256": "6709c667ffd3f9ff52e28d452a4a7c62f069daa9f67d603b5d8d0c88e2392f7d",
+      "bytes": 117331
+    },
+    {
+      "path": "partner-high_eagle-distance-front.jpg",
+      "sha256": "1de41b4bf699ea0a7060d80585bb9ce85a80b5759880b16b0ed3839f326eb2c2",
+      "bytes": 118288
+    },
+    {
+      "path": "partner-high_eagle-motion.jpg",
+      "sha256": "dddf9fc682610459b06d08d834303be0888e3d22f0192f1335e081bcae7d90f7",
+      "bytes": 489626
+    },
+    {
+      "path": "partner-high_eagle-views.jpg",
+      "sha256": "55ab11eaf0bb98bafb659268eff2b1e5651804e60d203efa7b5a5dd36c2f4a43",
+      "bytes": 60898
+    },
+    {
+      "path": "partner-knitting_spider-0-34.jpg",
+      "sha256": "1d4e2142f218acfca840603a071b5b315520e9e194b5b0ea5ada1ff09e0b4d13",
+      "bytes": 18827
+    },
+    {
+      "path": "partner-knitting_spider-0-back.jpg",
+      "sha256": "b0abd1e9c1d0815d11d3fb3067296fdd476d9f3503e30a94773ed28b5c8a063b",
+      "bytes": 13591
+    },
+    {
+      "path": "partner-knitting_spider-0-dislike-idle-normal.jpg",
+      "sha256": "699341bbce23b8aaf05466f540345c9f92cebe05b64466fb1ae8d941d0c7cb71",
+      "bytes": 19347
+    },
+    {
+      "path": "partner-knitting_spider-0-dislike-idle-reduced.jpg",
+      "sha256": "2c6e8f599e707d61e2dcb8ee6290681b10e3462ecca469a20d2c63100c457c57",
+      "bytes": 19603
+    },
+    {
+      "path": "partner-knitting_spider-0-dislike-walk-normal.jpg",
+      "sha256": "b7919febd0f98836c1d6db7361c08340d9324af63d11b7a65830ce9290e9392b",
+      "bytes": 18686
+    },
+    {
+      "path": "partner-knitting_spider-0-dislike-walk-reduced.jpg",
+      "sha256": "9a46d11c7aa26dffcf1a2b2017cd1c5c895bbac842020c53bc5965171e8c1081",
+      "bytes": 19018
+    },
+    {
+      "path": "partner-knitting_spider-0-front.jpg",
+      "sha256": "a3e7d9549d136d37693cc82f0c7c58039a1affa10704b7551fe2a33457515832",
+      "bytes": 17054
+    },
+    {
+      "path": "partner-knitting_spider-0-normal-idle-normal.jpg",
+      "sha256": "1d4e2142f218acfca840603a071b5b315520e9e194b5b0ea5ada1ff09e0b4d13",
+      "bytes": 18827
+    },
+    {
+      "path": "partner-knitting_spider-0-normal-idle-reduced.jpg",
+      "sha256": "96864a9ec841a3cf610fcf975e7876b9558dff9057e74173cdf69cb6f5d69ca3",
+      "bytes": 19346
+    },
+    {
+      "path": "partner-knitting_spider-0-normal-walk-normal.jpg",
+      "sha256": "e6851d364bf377e19238394ea9be3830c009240ab9db61957fa694798992799e",
+      "bytes": 18127
+    },
+    {
+      "path": "partner-knitting_spider-0-normal-walk-reduced.jpg",
+      "sha256": "4accff3e7ab55c416f3215a0fa7cd1e815f569e485f3b83711d3b26689c06814",
+      "bytes": 18438
+    },
+    {
+      "path": "partner-knitting_spider-0-positive-idle-normal.jpg",
+      "sha256": "cb7671310d69cf92f93035412ce288d86d5b1c0473e69663fbcccdd8d6d23ad2",
+      "bytes": 18832
+    },
+    {
+      "path": "partner-knitting_spider-0-positive-idle-reduced.jpg",
+      "sha256": "2aefceb13e423f4cfa2455ba7eb4df5d5bcbfba433cd17d20350c525dfb370ba",
+      "bytes": 19570
+    },
+    {
+      "path": "partner-knitting_spider-0-positive-walk-normal.jpg",
+      "sha256": "6b1912abeeb51a75bdf94b42642c5d32346441b96cc650c0189d8f828c002f72",
+      "bytes": 19373
+    },
+    {
+      "path": "partner-knitting_spider-0-positive-walk-reduced.jpg",
+      "sha256": "458b2bebc1c8cd6e909e3a2ad2765b8d05f86f28b01e1254a6f699010ba09646",
+      "bytes": 19524
+    },
+    {
+      "path": "partner-knitting_spider-0-sick-idle-normal.jpg",
+      "sha256": "4eb58d4f44d8711cc61f2115aed6558a3b4944a5a710e11661aecbf49889ecfb",
+      "bytes": 18812
+    },
+    {
+      "path": "partner-knitting_spider-0-sick-idle-reduced.jpg",
+      "sha256": "ad4a49f10880be0a7f880dd2cad51a683d14a10fbff54979a0201700b3b83369",
+      "bytes": 18978
+    },
+    {
+      "path": "partner-knitting_spider-0-sick-walk-normal.jpg",
+      "sha256": "4bf86da24a922d27da009b2106dde9f398fb99005a0a56094e82bfed1effaaae",
+      "bytes": 17785
+    },
+    {
+      "path": "partner-knitting_spider-0-sick-walk-reduced.jpg",
+      "sha256": "b032ecb20077df4ae6b92ef7e727f537499e2fa19371dcd73d4d50e56d8b299b",
+      "bytes": 18560
+    },
+    {
+      "path": "partner-knitting_spider-0-side.jpg",
+      "sha256": "e68b86645dfd46ce827203c7c957daf89b25c74d49c92ad903b7e448f3eb9775",
+      "bytes": 12218
+    },
+    {
+      "path": "partner-knitting_spider-0-sleeping-idle-normal.jpg",
+      "sha256": "3f4b298a4d5c919e0eab8433d4062533c50c55c41582b0864874c496dc8c6ebf",
+      "bytes": 18302
+    },
+    {
+      "path": "partner-knitting_spider-0-sleeping-idle-reduced.jpg",
+      "sha256": "2e87d3a8cc68f3f1a5da535bd9f902c2a18c282c09a64dd824203a59173181d9",
+      "bytes": 18553
+    },
+    {
+      "path": "partner-knitting_spider-0-sleeping-walk-normal.jpg",
+      "sha256": "84266326517e35ba3d4b8a857c5e24c220fa1f7bce4e1d1c0f6f0a08daf128a0",
+      "bytes": 17699
+    },
+    {
+      "path": "partner-knitting_spider-0-sleeping-walk-reduced.jpg",
+      "sha256": "eb1ac3ec04209f1362832a572a37c848517595150748280e60bbf8b6c6b3bf93",
+      "bytes": 18081
+    },
+    {
+      "path": "partner-knitting_spider-0-strained-idle-normal.jpg",
+      "sha256": "af0f2f6b8dbc65e5338bfa433059f72e70f7c8e3464122a64403bf95d271e5a5",
+      "bytes": 18751
+    },
+    {
+      "path": "partner-knitting_spider-0-strained-idle-reduced.jpg",
+      "sha256": "19dae7c8c13067a622edcb6406e5c6b605b57b49a7e0bcf639388c94ee016830",
+      "bytes": 19080
+    },
+    {
+      "path": "partner-knitting_spider-0-strained-walk-normal.jpg",
+      "sha256": "0a74bf2c528bfa0977795c71f5713688fa2a71be5d0ecb01cc3c4dd071f0ea39",
+      "bytes": 18971
+    },
+    {
+      "path": "partner-knitting_spider-0-strained-walk-reduced.jpg",
+      "sha256": "c4007c012eb8687c64748e9159f7119977a56ec8bbe872d203dedffafef5564f",
+      "bytes": 19183
+    },
+    {
+      "path": "partner-knitting_spider-0-tired-idle-normal.jpg",
+      "sha256": "89727839f8408ac86a1ecdc9ec3f5bfc7e1c74c32e4800877f812f4bb991a392",
+      "bytes": 18388
+    },
+    {
+      "path": "partner-knitting_spider-0-tired-idle-reduced.jpg",
+      "sha256": "cfec16d1ed7419eefd119385f18c7de6eb921934bfaf1436936cc15dd8daac06",
+      "bytes": 18751
+    },
+    {
+      "path": "partner-knitting_spider-0-tired-walk-normal.jpg",
+      "sha256": "6bc01c1332d4a41b8d59449cc60586a9bcb9909ff9a5ba5408284244defdd7c0",
+      "bytes": 17379
+    },
+    {
+      "path": "partner-knitting_spider-0-tired-walk-reduced.jpg",
+      "sha256": "621bf7752f2dc4ed1cf5272d4e9c059b8859ee27566c29ab0092a87704b347e6",
+      "bytes": 17984
+    },
+    {
+      "path": "partner-knitting_spider-0-wantsPlay-idle-normal.jpg",
+      "sha256": "98bc12b5c9a783de1941b95ed2cc3d97b1fbad6df18eaac3475fa7f7e3039317",
+      "bytes": 19192
+    },
+    {
+      "path": "partner-knitting_spider-0-wantsPlay-idle-reduced.jpg",
+      "sha256": "1fe5c8b78f4987580397590a99ea2dccecd88b737672f7b6c4082577991b0726",
+      "bytes": 19735
+    },
+    {
+      "path": "partner-knitting_spider-0-wantsPlay-walk-normal.jpg",
+      "sha256": "18be38bc853877051dc89c72d02319fd2e95983875bec3e5a2af80f2cbabc974",
+      "bytes": 18842
+    },
+    {
+      "path": "partner-knitting_spider-0-wantsPlay-walk-reduced.jpg",
+      "sha256": "94e56f4bd5f8e392208eb23491162d02824433d47df37dcad7420d4f43ed96dd",
+      "bytes": 19050
+    },
+    {
+      "path": "partner-knitting_spider-distance-back.jpg",
+      "sha256": "26d7eb8b6a7d348bb93f9e6b8f84143ba63d51fa43a16c3eb1c23f1e9419387d",
+      "bytes": 120860
+    },
+    {
+      "path": "partner-knitting_spider-distance-front.jpg",
+      "sha256": "8408d9ef11d2d794ba8ca1689b5aa30e7a3ad45dfe8413b06a7cee323d3f4ebd",
+      "bytes": 132136
+    },
+    {
+      "path": "partner-knitting_spider-motion.jpg",
+      "sha256": "f50e11b1ea63b70e28c01f997a5e850fc1b3c8f17854e109f4599e58a6568d1b",
+      "bytes": 748789
+    },
+    {
+      "path": "partner-knitting_spider-views.jpg",
+      "sha256": "71eef3fb4be80fc58b5c3a04159acb0833c77edcf15a579279991ffe08b1b12d",
+      "bytes": 80253
+    },
+    {
+      "path": "partner-snowman-0-34.jpg",
+      "sha256": "498cf02edafb33ac7ca7042271d2a155c9e27e4a529ae155ec554b1365e156b5",
+      "bytes": 12461
+    },
+    {
+      "path": "partner-snowman-0-back.jpg",
+      "sha256": "04c100e2957e7fca8d2d7db18c117d49cfd233c48df34bd898b4fbe1629f1e0a",
+      "bytes": 11186
+    },
+    {
+      "path": "partner-snowman-0-dislike-idle-normal.jpg",
+      "sha256": "bb071c1341f458d91fbe5532cc57b70411f91d01e0a752ecf89cbc5536128f85",
+      "bytes": 12294
+    },
+    {
+      "path": "partner-snowman-0-dislike-idle-reduced.jpg",
+      "sha256": "2df1d005da8cf5974e1040c9ba2deb0d6974ce6a83d2953c0c14ca0bef5f48f4",
+      "bytes": 12572
+    },
+    {
+      "path": "partner-snowman-0-dislike-walk-normal.jpg",
+      "sha256": "b860cdca11d07e444b27c2fd03b9da7579b798ed78b2598dfbb32a6b11adc4da",
+      "bytes": 12336
+    },
+    {
+      "path": "partner-snowman-0-dislike-walk-reduced.jpg",
+      "sha256": "f316bfc292475d0dcfcd02574aceadc4e2d5cb6240fdf374163ab5bf810110fa",
+      "bytes": 12269
+    },
+    {
+      "path": "partner-snowman-0-front.jpg",
+      "sha256": "da953627ca5bb2d108605b19bd962c787e58ca2e98fc73620a271f893320fa98",
+      "bytes": 12836
+    },
+    {
+      "path": "partner-snowman-0-normal-idle-normal.jpg",
+      "sha256": "498cf02edafb33ac7ca7042271d2a155c9e27e4a529ae155ec554b1365e156b5",
+      "bytes": 12461
+    },
+    {
+      "path": "partner-snowman-0-normal-idle-reduced.jpg",
+      "sha256": "11a9cb442baa9c34a577ca03210ad327a358367f3ba74ae5f6c135ee7b754816",
+      "bytes": 12707
+    },
+    {
+      "path": "partner-snowman-0-normal-walk-normal.jpg",
+      "sha256": "f4be4e0ac827dfcc7a23fff508034d2e19f751b5f549272c73ac490cc3e7dd71",
+      "bytes": 12238
+    },
+    {
+      "path": "partner-snowman-0-normal-walk-reduced.jpg",
+      "sha256": "767d94b2a14e488815f7967427cfe14d0a7f39cf406edaffbf7560058a7dd465",
+      "bytes": 12227
+    },
+    {
+      "path": "partner-snowman-0-positive-idle-normal.jpg",
+      "sha256": "7c042a984c4ee541a931c2d01a99f1b664d092fdf01a428af92362611a694759",
+      "bytes": 12361
+    },
+    {
+      "path": "partner-snowman-0-positive-idle-reduced.jpg",
+      "sha256": "74419ef7913704a885b632363007b463ce61be081bab616bac72e0ffe88dfd1a",
+      "bytes": 12433
+    },
+    {
+      "path": "partner-snowman-0-positive-walk-normal.jpg",
+      "sha256": "324d22ccf306f086f18f91119accbb0164664a4e25966790557962800f26066b",
+      "bytes": 12324
+    },
+    {
+      "path": "partner-snowman-0-positive-walk-reduced.jpg",
+      "sha256": "27746f9fe625dd773d2e5f8ff11c4ea02e3cfcca6dd7d3cce577dfb0e02cd567",
+      "bytes": 12452
+    },
+    {
+      "path": "partner-snowman-0-sick-idle-normal.jpg",
+      "sha256": "99d05c87a88922422033821946f205c0369ac6f933275c32ee5651c3ca6db39c",
+      "bytes": 12603
+    },
+    {
+      "path": "partner-snowman-0-sick-idle-reduced.jpg",
+      "sha256": "fe3cc6203612ffa25f80f445c439165791e66f271efca69474077855f227b20d",
+      "bytes": 12688
+    },
+    {
+      "path": "partner-snowman-0-sick-walk-normal.jpg",
+      "sha256": "4252a7826dde1cc7bdc8adb623a1d4827627c170614a14edf0ed3bd92ffb701d",
+      "bytes": 12166
+    },
+    {
+      "path": "partner-snowman-0-sick-walk-reduced.jpg",
+      "sha256": "20987d170051c38ee8c3ec29891bf1b2f950366b333c21c62ea825090eb3fd43",
+      "bytes": 12417
+    },
+    {
+      "path": "partner-snowman-0-side.jpg",
+      "sha256": "10224428ed1c4ea8df8466c840a7ff7766aaa180645a93c0678eb6ef026da480",
+      "bytes": 10094
+    },
+    {
+      "path": "partner-snowman-0-sleeping-idle-normal.jpg",
+      "sha256": "147960dd3a26d84b4a9cd74b8ce232c77ba854e7d46a4b7a53ae98d8c90870f1",
+      "bytes": 12341
+    },
+    {
+      "path": "partner-snowman-0-sleeping-idle-reduced.jpg",
+      "sha256": "2234999002ea0c93e1a5ce18f0371e72e904e733b9dff7d3563b0cb67bb9a3a9",
+      "bytes": 12659
+    },
+    {
+      "path": "partner-snowman-0-sleeping-walk-normal.jpg",
+      "sha256": "fc07059275d2c62d8214eabd0200ad7dc327f627d3a7a5db11bcdb9ecfa5907c",
+      "bytes": 12307
+    },
+    {
+      "path": "partner-snowman-0-sleeping-walk-reduced.jpg",
+      "sha256": "62618946f723eb34e4cfd05f91e5f16756274adc717f2d0105a26fe04795a1f0",
+      "bytes": 12471
+    },
+    {
+      "path": "partner-snowman-0-strained-idle-normal.jpg",
+      "sha256": "5c96545a8ba190d5ed64f2645cb90a31f823c2bf5a127729f721c31dc861bd5b",
+      "bytes": 12746
+    },
+    {
+      "path": "partner-snowman-0-strained-idle-reduced.jpg",
+      "sha256": "6ff0dfccc81e4691494b4cc1a0b57ae78fe4f970d71461e0c094ea20df0fe283",
+      "bytes": 12823
+    },
+    {
+      "path": "partner-snowman-0-strained-walk-normal.jpg",
+      "sha256": "88fc1988000ad382d74f99b9768e7a6006d90c6558d33960c17a31bff53bbc43",
+      "bytes": 12748
+    },
+    {
+      "path": "partner-snowman-0-strained-walk-reduced.jpg",
+      "sha256": "1899a1b1fc16aeb97959cadfc80c533db92712e9a06465785826563b13ed0e4d",
+      "bytes": 12768
+    },
+    {
+      "path": "partner-snowman-0-tired-idle-normal.jpg",
+      "sha256": "e3d0dbd7d51041c6d9ff99dad402151dd3b0ebf70e9d872e82972fe37dca3972",
+      "bytes": 12395
+    },
+    {
+      "path": "partner-snowman-0-tired-idle-reduced.jpg",
+      "sha256": "21d3a4feb9104b057118431e18f8542036dc380db56dfcf8fca444e3b82c1d3d",
+      "bytes": 12644
+    },
+    {
+      "path": "partner-snowman-0-tired-walk-normal.jpg",
+      "sha256": "056fc94da1aaab0f9b8c83180dccc6543c09212b74e4bdb68a31b0c36d123af3",
+      "bytes": 12223
+    },
+    {
+      "path": "partner-snowman-0-tired-walk-reduced.jpg",
+      "sha256": "72a86ab54b738e8df23eee461bf8b74b749956db4d1ec68a1c839950f80b4ba0",
+      "bytes": 12454
+    },
+    {
+      "path": "partner-snowman-0-wantsPlay-idle-normal.jpg",
+      "sha256": "ba3ac974254bea52a078c8935cc9bd86d68a73870d5075a37c1482fe42eae302",
+      "bytes": 12143
+    },
+    {
+      "path": "partner-snowman-0-wantsPlay-idle-reduced.jpg",
+      "sha256": "8957064620a3d6ff8d1de6880eb125e79d2fe8358a6087ca09f5ab3f9b41d384",
+      "bytes": 12418
+    },
+    {
+      "path": "partner-snowman-0-wantsPlay-walk-normal.jpg",
+      "sha256": "9761230aefc7c9a9582f5b8b51a446b4624b9475fc63bbd6cad0d213eceeb15a",
+      "bytes": 12249
+    },
+    {
+      "path": "partner-snowman-0-wantsPlay-walk-reduced.jpg",
+      "sha256": "1b46bd68e27635dd6613927b48e3529fa1d305c1d9ba5919241e9d13f1ad930c",
+      "bytes": 12437
+    },
+    {
+      "path": "partner-snowman-distance-back.jpg",
+      "sha256": "254d4e6bdca3a86beba9e5ad131a28831ddbc38cc4c4d79c34dde5fee84e6286",
+      "bytes": 119606
+    },
+    {
+      "path": "partner-snowman-distance-front.jpg",
+      "sha256": "64fffe660813a80be5d85552069e838bbb997d26305ac211b92a2b00440675e6",
+      "bytes": 120846
+    },
+    {
+      "path": "partner-snowman-motion.jpg",
+      "sha256": "b8ff079827bba498dadbea95ff8d7fa0176cddbd48d975078014f0f737ed345f",
+      "bytes": 507128
+    },
+    {
+      "path": "partner-snowman-views.jpg",
+      "sha256": "ab466cd5e2738a1ef5b0d6a05e70b2cea3777a5ad191b3767d99f342cc440e68",
+      "bytes": 60532
+    }
+  ],
+  "sourceRun": 37911082729,
+  "sourceRunConclusion": "success"
+}

@@ -1,0 +1,13 @@
+{
+  "sourceCommit": "4460ffeedee03e405b04fa742b6e3c3943c19695",
+  "waveArtifact": 11423160081,
+  "distanceArtifact": 11421414000,
+  "environment": "Chromium/SwiftShader; not iPhone",
+  "stage3": "Representative gate accepted:4views,32states,normal front/back. Broad nymph abdomen, folded pads and digging claws remain attached; original round eyes corrected.",
+  "stage5": "Upright pose and forward face corrected, but tail and shell remain offset in depth. Reject attachment gate; world-space depth regression and correction required.",
+  "simplifications": [
+    "Smooth cuticle and simplified bands/claw detail",
+    "Wing pad and limb segmentation simplified"
+  ],
+  "coverage": "146/293 unchanged"
+}

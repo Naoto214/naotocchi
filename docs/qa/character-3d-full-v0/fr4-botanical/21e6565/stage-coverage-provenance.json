@@ -1,0 +1,25 @@
+{
+  "sourceCommit": "21e65658d0088702e0c20aaaf6ce23c2950d9323",
+  "artifactId": 11430983471,
+  "families": 19,
+  "uniqueExactStages": 152,
+  "live3d": true,
+  "fallbacks": 0,
+  "failedTemplates": 0,
+  "errors": [],
+  "ci": {
+    "Character 3D Full Rollout": {
+      "id": 37497895209,
+      "conclusion": "success"
+    },
+    "Runtime smoke test": {
+      "id": 37497904083,
+      "conclusion": "success"
+    },
+    "Home layout": {
+      "id": 37497904092,
+      "conclusion": "success"
+    }
+  },
+  "platform": "Chromium/SwiftShader; not iPhone"
+}

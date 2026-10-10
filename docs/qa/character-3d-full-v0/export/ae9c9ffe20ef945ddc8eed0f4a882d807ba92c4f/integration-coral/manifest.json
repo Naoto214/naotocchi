@@ -1,0 +1,768 @@
+{
+  "status": "PENDING_VISUAL_REVIEW",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "artifact": {
+    "id": 11613850782,
+    "name": "full-rollout-stages-coral-ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+    "digest": "sha256:6a11e5d9d9f2a5607deaade4a9b87b1c6d50eb89935a022da13c9faa4d3fc63b"
+  },
+  "files": [
+    {
+      "path": "meguru-qa.json",
+      "sha256": "9f1ad80d26cc63561b06bbf226201c90aafa65bfe1965ac863db142d9481f4db",
+      "bytes": 7484
+    },
+    {
+      "path": "missing-motion/coral-1-dislike-idle-normal.jpg",
+      "sha256": "201982630c30a2b2fa8a76924c6e126aa66d5a168dfd0bb870cb622aa003a44c",
+      "bytes": 8915
+    },
+    {
+      "path": "missing-motion/coral-1-dislike-idle-reduced.jpg",
+      "sha256": "ed4d710f3901e8856f101c38145b65d712439f58b4ab87dc80b60ccac66edd51",
+      "bytes": 9040
+    },
+    {
+      "path": "missing-motion/coral-1-dislike-walk-normal.jpg",
+      "sha256": "84d2ae0e17ebd1bb90075b75fbeae4bf3231dded6cd98803b9f262af80aafc7a",
+      "bytes": 9009
+    },
+    {
+      "path": "missing-motion/coral-1-dislike-walk-reduced.jpg",
+      "sha256": "1c5db784766e3ade276d11028d780cae548d2de03a1c8f79ea2e43e84b93ae1c",
+      "bytes": 9100
+    },
+    {
+      "path": "missing-motion/coral-1-motion.jpg",
+      "sha256": "685787877f3f3fce695270c790651ac83a982a925e137cf1b9da31a4029ece28",
+      "bytes": 423191
+    },
+    {
+      "path": "missing-motion/coral-1-normal-idle-normal.jpg",
+      "sha256": "8f7b18551dc60536420f22fc285ce974c2eb6020120b139da8b574a83da57224",
+      "bytes": 10436
+    },
+    {
+      "path": "missing-motion/coral-1-normal-idle-reduced.jpg",
+      "sha256": "df178ee049ba6ee40729678a07b22781c4c8a3e732683bdf8e43f32561e15b8d",
+      "bytes": 10625
+    },
+    {
+      "path": "missing-motion/coral-1-normal-walk-normal.jpg",
+      "sha256": "2fa537674f46057b209d63741089aad783dcea529beeece59d9dcc01b810c0a5",
+      "bytes": 10494
+    },
+    {
+      "path": "missing-motion/coral-1-normal-walk-reduced.jpg",
+      "sha256": "53615e6e398fed6b143d2a69069fd3215c8a59b82c1c4d7060c882e8ca41214c",
+      "bytes": 10651
+    },
+    {
+      "path": "missing-motion/coral-1-positive-idle-normal.jpg",
+      "sha256": "53e8bd17d65ce62187db9d62eaaff5cccb8d79428730b8ba7a49faf3177c46ca",
+      "bytes": 10275
+    },
+    {
+      "path": "missing-motion/coral-1-positive-idle-reduced.jpg",
+      "sha256": "587552e5b85bb0fadefc946df163de19e37816e0c92d745740e548582ec8a8e1",
+      "bytes": 10367
+    },
+    {
+      "path": "missing-motion/coral-1-positive-walk-normal.jpg",
+      "sha256": "0a1335ec2fbb95a7fafd3c818e444f84887b8b24eb7e0ec30bd48c1abf89d629",
+      "bytes": 10378
+    },
+    {
+      "path": "missing-motion/coral-1-positive-walk-reduced.jpg",
+      "sha256": "31009d959984abe618fc600ca5e967cbea590adc76ac430017d6c08163d97421",
+      "bytes": 10431
+    },
+    {
+      "path": "missing-motion/coral-1-sick-idle-normal.jpg",
+      "sha256": "0cf57422740f8ec5d930dd62c33e43d24a5164f7ee47847b8d9cd8753322d516",
+      "bytes": 10462
+    },
+    {
+      "path": "missing-motion/coral-1-sick-idle-reduced.jpg",
+      "sha256": "fbd34669716de999f89edb41ed8c9951e67d476506d77fde810a641b655fad96",
+      "bytes": 10706
+    },
+    {
+      "path": "missing-motion/coral-1-sick-walk-normal.jpg",
+      "sha256": "2827549e2baf1e002d79db529e6c586110c60565a1ba5bbe73b1566b33af386e",
+      "bytes": 10478
+    },
+    {
+      "path": "missing-motion/coral-1-sick-walk-reduced.jpg",
+      "sha256": "617b9ba7d86b3c414b698a79a272ccc05f6df2b35266b38ed0146ae98176b081",
+      "bytes": 10752
+    },
+    {
+      "path": "missing-motion/coral-1-sleeping-idle-normal.jpg",
+      "sha256": "029621a6686046fcf4c880980322360ecb094de9a22ea88e7e6eb1f88a717f9d",
+      "bytes": 9150
+    },
+    {
+      "path": "missing-motion/coral-1-sleeping-idle-reduced.jpg",
+      "sha256": "07650299ac452f2d02a7594e840025a0cdf9d859646aaa6e9dd615222af936b2",
+      "bytes": 9229
+    },
+    {
+      "path": "missing-motion/coral-1-sleeping-walk-normal.jpg",
+      "sha256": "6c340915f345da1330bb721c71b70ee0b928952acb7d305e2261a7d77a93f6e1",
+      "bytes": 9189
+    },
+    {
+      "path": "missing-motion/coral-1-sleeping-walk-reduced.jpg",
+      "sha256": "f35cc21f4fa1001bd41bf20158ef03f22de9cb59a7df6311d382c22921cb557b",
+      "bytes": 9232
+    },
+    {
+      "path": "missing-motion/coral-1-strained-idle-normal.jpg",
+      "sha256": "124ff4cd9a3fbc723da8ab9c37252ddf69b3ed6f0a68c9c30f5431ce9764fea0",
+      "bytes": 10592
+    },
+    {
+      "path": "missing-motion/coral-1-strained-idle-reduced.jpg",
+      "sha256": "0157c36b3a9f70e3da6e50d27c066b3611d92b913be373e944025c8de24269b4",
+      "bytes": 10799
+    },
+    {
+      "path": "missing-motion/coral-1-strained-walk-normal.jpg",
+      "sha256": "a14dd3364ed44121704df8977bbfa7f056dd31b8aa21065b14400a4c55981287",
+      "bytes": 10593
+    },
+    {
+      "path": "missing-motion/coral-1-strained-walk-reduced.jpg",
+      "sha256": "01e1662854a35974e3ebae6898ebc79b4f7283c3f08157703b37c04117537b2d",
+      "bytes": 10824
+    },
+    {
+      "path": "missing-motion/coral-1-tired-idle-normal.jpg",
+      "sha256": "1a0bbebb3ffdb04345bb092d10bad6fab32d7cb22731e022f337ca794b736c06",
+      "bytes": 9738
+    },
+    {
+      "path": "missing-motion/coral-1-tired-idle-reduced.jpg",
+      "sha256": "c0a765fc376a74544c9e59db8b49e737b2bc0309329ff3552c74622d0dfec79c",
+      "bytes": 9818
+    },
+    {
+      "path": "missing-motion/coral-1-tired-walk-normal.jpg",
+      "sha256": "c321503d77a78c6467ba192a15853c108c646d8d59608e69ceb548744fde7425",
+      "bytes": 9804
+    },
+    {
+      "path": "missing-motion/coral-1-tired-walk-reduced.jpg",
+      "sha256": "63c1eb9d9e356d0693f34a958cac9b84c3c1d19cf2af6fb92e8918ed032cdf66",
+      "bytes": 9862
+    },
+    {
+      "path": "missing-motion/coral-1-wantsPlay-idle-normal.jpg",
+      "sha256": "14d1f9f3e5fb91e32e889e98be52a2297da365aa41702e8f2b36ec0770ab386b",
+      "bytes": 10296
+    },
+    {
+      "path": "missing-motion/coral-1-wantsPlay-idle-reduced.jpg",
+      "sha256": "8a4927bf93d1a4f5a4af391aa97a2df82514251fe9a4139cc2f34e6fe41d1951",
+      "bytes": 10643
+    },
+    {
+      "path": "missing-motion/coral-1-wantsPlay-walk-normal.jpg",
+      "sha256": "3faf62328dd2806b0a3a20263f5eb28bc368a9ad09b3c43cdb1a12404dfe66f4",
+      "bytes": 10349
+    },
+    {
+      "path": "missing-motion/coral-1-wantsPlay-walk-reduced.jpg",
+      "sha256": "282cad36cddc02e1227e481be5294c834acc38b1f841f695a423c0e70b292c69",
+      "bytes": 10739
+    },
+    {
+      "path": "missing-motion/coral-3-dislike-idle-normal.jpg",
+      "sha256": "b199cec1b3b7e7df51d276be3beb4070d46902c5507ff38f0ea9d3f580093d3b",
+      "bytes": 14759
+    },
+    {
+      "path": "missing-motion/coral-3-dislike-idle-reduced.jpg",
+      "sha256": "bba3ee8dd7b5d6d24777662d9ed00b2e314ce22415299a2fb34462acdfe47bb0",
+      "bytes": 14710
+    },
+    {
+      "path": "missing-motion/coral-3-dislike-walk-normal.jpg",
+      "sha256": "61556dd5bba5d85465617c3a5b34d60caf0b1095100293cc2fbafc017fceaff9",
+      "bytes": 14871
+    },
+    {
+      "path": "missing-motion/coral-3-dislike-walk-reduced.jpg",
+      "sha256": "af9247c0810989d06f7a07b30cc3e508c6ba3643690f5421a99fea417dab9a64",
+      "bytes": 14756
+    },
+    {
+      "path": "missing-motion/coral-3-motion.jpg",
+      "sha256": "ddc0f951ea50d2baf169afc3ac5ae6275977f44933c76f42eff0fec7010cbaec",
+      "bytes": 613890
+    },
+    {
+      "path": "missing-motion/coral-3-normal-idle-normal.jpg",
+      "sha256": "6953cc66dff5c5d86375ecde201ff61216e272003137b6420451f8a2af7b6d35",
+      "bytes": 14523
+    },
+    {
+      "path": "missing-motion/coral-3-normal-idle-reduced.jpg",
+      "sha256": "5836b8596c5de0c335c41aae9909ea99cdcfa406fad488e576f76a995dc5cfec",
+      "bytes": 14482
+    },
+    {
+      "path": "missing-motion/coral-3-normal-walk-normal.jpg",
+      "sha256": "63c55860efb42cba459858efd263b5fe645b91134a5d86b1490309500bc17da3",
+      "bytes": 14574
+    },
+    {
+      "path": "missing-motion/coral-3-normal-walk-reduced.jpg",
+      "sha256": "591ab4e70e299b8b4f201062025efc796654cb25d8fd3fe9b83df3c96870b2dd",
+      "bytes": 14495
+    },
+    {
+      "path": "missing-motion/coral-3-positive-idle-normal.jpg",
+      "sha256": "6485afc294656c4d6cb8d1c0a756fecd1dcc75eff3750b6b2f984d6a60c2736a",
+      "bytes": 14505
+    },
+    {
+      "path": "missing-motion/coral-3-positive-idle-reduced.jpg",
+      "sha256": "fd645e62d3fa52c37fd144c9e3b2f962419d0bd90dc3c1ddcb78b03f8ef2830a",
+      "bytes": 14717
+    },
+    {
+      "path": "missing-motion/coral-3-positive-walk-normal.jpg",
+      "sha256": "c112ff6d7ef8445e3b3f1f6fa49d86973bfc82b85007b35441d5398b32b6928e",
+      "bytes": 14608
+    },
+    {
+      "path": "missing-motion/coral-3-positive-walk-reduced.jpg",
+      "sha256": "ec31b0f72f3131f3bf0ee8a84b8059ea0788b3e56dec1911cf3ae7486125a10c",
+      "bytes": 14785
+    },
+    {
+      "path": "missing-motion/coral-3-sick-idle-normal.jpg",
+      "sha256": "9af3370ef8799d4b89d8b3c6ab878aad3edde05645ef833820635a64d0b4f67c",
+      "bytes": 14414
+    },
+    {
+      "path": "missing-motion/coral-3-sick-idle-reduced.jpg",
+      "sha256": "9b510364dcc6b9e619ce0b0d95fdfa541a9eba50dc733dc51fd3b57b5274c7a1",
+      "bytes": 14332
+    },
+    {
+      "path": "missing-motion/coral-3-sick-walk-normal.jpg",
+      "sha256": "aecfd14e269cc8ddb01cf8bc1362dbfc6f5b90ebd43ec0b395b706f3658e63ef",
+      "bytes": 14427
+    },
+    {
+      "path": "missing-motion/coral-3-sick-walk-reduced.jpg",
+      "sha256": "56e5efb8fb4568a3d9107f33425a22d4cad5e21e3f621dacb2db4d37bd057a89",
+      "bytes": 14379
+    },
+    {
+      "path": "missing-motion/coral-3-sleeping-idle-normal.jpg",
+      "sha256": "f4e191a46a5206214da72ddf709550434aabed8e0f6143c4f785f784460d5f09",
+      "bytes": 14064
+    },
+    {
+      "path": "missing-motion/coral-3-sleeping-idle-reduced.jpg",
+      "sha256": "a7d61ec378764c93296d2e7cc368e868c9dfe66c45cb0ab30f871c746430094a",
+      "bytes": 13847
+    },
+    {
+      "path": "missing-motion/coral-3-sleeping-walk-normal.jpg",
+      "sha256": "4997195bcd780576ee0238d68066d1505fd8ddbc9079e72e384e3ce686519227",
+      "bytes": 14104
+    },
+    {
+      "path": "missing-motion/coral-3-sleeping-walk-reduced.jpg",
+      "sha256": "c9554a655179ac5272b1e7e1a6dc71c4a45d01a70e9bf80a55a61b117d361915",
+      "bytes": 13870
+    },
+    {
+      "path": "missing-motion/coral-3-strained-idle-normal.jpg",
+      "sha256": "89eca6e46f8ab61880397598cccca877e01c20d752c7750cf6807860587c622c",
+      "bytes": 14305
+    },
+    {
+      "path": "missing-motion/coral-3-strained-idle-reduced.jpg",
+      "sha256": "6f18ec3ea4cbf657b0cafeb16b830bd69ef901a17fec9ec98b96a4671c1ef80c",
+      "bytes": 14471
+    },
+    {
+      "path": "missing-motion/coral-3-strained-walk-normal.jpg",
+      "sha256": "1264bcf015c6fd41916ef451efb6d364aef55a08a028e885007ba2543298a74a",
+      "bytes": 14302
+    },
+    {
+      "path": "missing-motion/coral-3-strained-walk-reduced.jpg",
+      "sha256": "5b957f3cc7e7bba8d771f330ba4507c790d983437269acf6973e37bdd8251332",
+      "bytes": 14487
+    },
+    {
+      "path": "missing-motion/coral-3-tired-idle-normal.jpg",
+      "sha256": "d6db709a018bc57339fa419e565e6875c1142d0f72fc525e4852bb18fd8f320e",
+      "bytes": 14059
+    },
+    {
+      "path": "missing-motion/coral-3-tired-idle-reduced.jpg",
+      "sha256": "eb62a038bbb238ada347bf125d05d59fe49c5f88ba9bbf02c4b9fdccb3aa72eb",
+      "bytes": 14008
+    },
+    {
+      "path": "missing-motion/coral-3-tired-walk-normal.jpg",
+      "sha256": "a4057b7371d07f68be31356f91f4a17d1c4706a7c53ccff07ca15ac5277ba742",
+      "bytes": 14130
+    },
+    {
+      "path": "missing-motion/coral-3-tired-walk-reduced.jpg",
+      "sha256": "39d3f66377904c578edddefa560ae8b3ce34eaa057f1a8fb07bbb8b3d04cd161",
+      "bytes": 14053
+    },
+    {
+      "path": "missing-motion/coral-3-wantsPlay-idle-normal.jpg",
+      "sha256": "c1880b17f2cfc5a58cfc4c326206b04d443330f2ea961b4499f76f9b36bd4d77",
+      "bytes": 14684
+    },
+    {
+      "path": "missing-motion/coral-3-wantsPlay-idle-reduced.jpg",
+      "sha256": "d07e9438e05089148a15082b6e44120f482f7cbc486aa585d9d51a600c572bc3",
+      "bytes": 14852
+    },
+    {
+      "path": "missing-motion/coral-3-wantsPlay-walk-normal.jpg",
+      "sha256": "45172e8534de95ba343d1ebc5348b5f8f0cf043a9cd355072748cefe66514151",
+      "bytes": 14738
+    },
+    {
+      "path": "missing-motion/coral-3-wantsPlay-walk-reduced.jpg",
+      "sha256": "3be052ec7bd39368228e77e16e8a964bb6c19832609eb6af0f22af6dddcf4b76",
+      "bytes": 14955
+    },
+    {
+      "path": "missing-motion/coral-4-dislike-idle-normal.jpg",
+      "sha256": "c1c6a47ee89eaac0435f12fdd046ed8d315690b4dc3da3f18d8a96365f0ddb4e",
+      "bytes": 12417
+    },
+    {
+      "path": "missing-motion/coral-4-dislike-idle-reduced.jpg",
+      "sha256": "e4396a94fcb57462401cc7722c8bea8dd4dac586f2394e31b58fb687d0cf78c2",
+      "bytes": 12541
+    },
+    {
+      "path": "missing-motion/coral-4-dislike-walk-normal.jpg",
+      "sha256": "5ac422c32e937b1a6f264ae8092c48d0ccffc6da5115c869c312723ace9897c2",
+      "bytes": 12517
+    },
+    {
+      "path": "missing-motion/coral-4-dislike-walk-reduced.jpg",
+      "sha256": "784a872913eff260ec20993c490955845372cc23a46fd8859482e2257844caf8",
+      "bytes": 12596
+    },
+    {
+      "path": "missing-motion/coral-4-motion.jpg",
+      "sha256": "807f81fe3fcff79b6814ddca42dcd8914e43b69401c9a235445a13d0b9c5ba9b",
+      "bytes": 548159
+    },
+    {
+      "path": "missing-motion/coral-4-normal-idle-normal.jpg",
+      "sha256": "9539ad1751bf2888deae8bbc8b4ba89cf3cc227bfcd068779a7c8e3cae60c6b7",
+      "bytes": 12672
+    },
+    {
+      "path": "missing-motion/coral-4-normal-idle-reduced.jpg",
+      "sha256": "cb8f1c883001f5b0a3aa539c7501686365df9cc48d5fe1b8978e9c2e193f5b53",
+      "bytes": 12572
+    },
+    {
+      "path": "missing-motion/coral-4-normal-walk-normal.jpg",
+      "sha256": "85664651f4336d1e6c300fa459c9dc62419f0a1551565d020fd5da2fc4bcda25",
+      "bytes": 12731
+    },
+    {
+      "path": "missing-motion/coral-4-normal-walk-reduced.jpg",
+      "sha256": "256c335355a4a6b0622647abaeb357c35b922d843ab4d3b19ed7268fe7288964",
+      "bytes": 12587
+    },
+    {
+      "path": "missing-motion/coral-4-positive-idle-normal.jpg",
+      "sha256": "a094d4b2c8c4179772a70607c87f85f598f24991d3d6290c1b21e96734cf29fe",
+      "bytes": 12822
+    },
+    {
+      "path": "missing-motion/coral-4-positive-idle-reduced.jpg",
+      "sha256": "1ac24e7087b16485e59ab29e4613e43981309ea3193920dc0aefea3ee9b29b1d",
+      "bytes": 12873
+    },
+    {
+      "path": "missing-motion/coral-4-positive-walk-normal.jpg",
+      "sha256": "f2db90eced65ba1316954a6e0ba6dfb9ce632bb1115e227ec41fd2a125af9d0b",
+      "bytes": 12945
+    },
+    {
+      "path": "missing-motion/coral-4-positive-walk-reduced.jpg",
+      "sha256": "48ff112bdf6e3d6cae5a591294e817861f57ea88c6613eb36c2d887adaa5c743",
+      "bytes": 12937
+    },
+    {
+      "path": "missing-motion/coral-4-sick-idle-normal.jpg",
+      "sha256": "73dce6cbe54b4673cd91e66121b0752a39c190cdee3038b0b18130f242cb4b34",
+      "bytes": 12562
+    },
+    {
+      "path": "missing-motion/coral-4-sick-idle-reduced.jpg",
+      "sha256": "4cc28655c4d97593f046db9e95a091cea99b6ff1209d3a093a6d0b9509295c31",
+      "bytes": 12490
+    },
+    {
+      "path": "missing-motion/coral-4-sick-walk-normal.jpg",
+      "sha256": "9fcddeaadfff04c9e128fb62b81b16ae646688368087bbc206c6f56ecafa04eb",
+      "bytes": 12565
+    },
+    {
+      "path": "missing-motion/coral-4-sick-walk-reduced.jpg",
+      "sha256": "6836fe3cc7d8eaf1cd7a2dadb8d4abc2f818b1ec6c9e4bfb6e70ebb8953a4f27",
+      "bytes": 12532
+    },
+    {
+      "path": "missing-motion/coral-4-sleeping-idle-normal.jpg",
+      "sha256": "ebea1c826782b3e4424f60155a5cd5d80c8c728844fd7cc4992909cce893adef",
+      "bytes": 12084
+    },
+    {
+      "path": "missing-motion/coral-4-sleeping-idle-reduced.jpg",
+      "sha256": "7de41c23ab9b3d91cb9c7f0b46afc3d1581b1a9cbc2c89fa67a4bc5f6667b3f5",
+      "bytes": 12154
+    },
+    {
+      "path": "missing-motion/coral-4-sleeping-walk-normal.jpg",
+      "sha256": "337be95bde1b59c7167a2a3970edd3f8917b917d56782c9edcff42e9d62d11d5",
+      "bytes": 12105
+    },
+    {
+      "path": "missing-motion/coral-4-sleeping-walk-reduced.jpg",
+      "sha256": "09b2a9975a0aa9113817c01a24e822a4e05d3af2b595954281424d54f11bee36",
+      "bytes": 12163
+    },
+    {
+      "path": "missing-motion/coral-4-strained-idle-normal.jpg",
+      "sha256": "a7d0506dd604cbf925badccd528c129977d5d0e7bac20dc1bd8ae2241ec35d4f",
+      "bytes": 12515
+    },
+    {
+      "path": "missing-motion/coral-4-strained-idle-reduced.jpg",
+      "sha256": "a7031777b48e86bea30b6772ff3b0f44abafde4ef109460e8f11de2fd59b6e34",
+      "bytes": 12591
+    },
+    {
+      "path": "missing-motion/coral-4-strained-walk-normal.jpg",
+      "sha256": "ce8b35462ff53526e6c9afa3bcaf4677beb8e0166916766dd223cd9c7e2603ce",
+      "bytes": 12521
+    },
+    {
+      "path": "missing-motion/coral-4-strained-walk-reduced.jpg",
+      "sha256": "16ec068ad23f3156813e8250700c01ba340e3c50ba50b0dd2cd46f958dab069d",
+      "bytes": 12610
+    },
+    {
+      "path": "missing-motion/coral-4-tired-idle-normal.jpg",
+      "sha256": "00f5dbd9fc7064cbcb674eb2c19451e09dee772662961f76564155e4d53d1bea",
+      "bytes": 12178
+    },
+    {
+      "path": "missing-motion/coral-4-tired-idle-reduced.jpg",
+      "sha256": "63024827b9f2b910dd39542609c589d3c5e8551713bd8e28190490c237eb443a",
+      "bytes": 12279
+    },
+    {
+      "path": "missing-motion/coral-4-tired-walk-normal.jpg",
+      "sha256": "72dd0294291136f13e1daf49100ae56318d3a29e27a1065064b7f57d74b8ddcf",
+      "bytes": 12235
+    },
+    {
+      "path": "missing-motion/coral-4-tired-walk-reduced.jpg",
+      "sha256": "98f1f6078b177c6ef15e8ebd349dbf0aa6e7888b3cf7a18129630bb97e7fd3cb",
+      "bytes": 12315
+    },
+    {
+      "path": "missing-motion/coral-4-wantsPlay-idle-normal.jpg",
+      "sha256": "2aae7235b67ead73ac6b0aa1e769f2379487446a3f3efb63a4922c7dacde4025",
+      "bytes": 12953
+    },
+    {
+      "path": "missing-motion/coral-4-wantsPlay-idle-reduced.jpg",
+      "sha256": "76a07d40f14ab2bfac3b4003c8a2b9060a6dc991f5a17c619b9ba04ee5e21432",
+      "bytes": 13029
+    },
+    {
+      "path": "missing-motion/coral-4-wantsPlay-walk-normal.jpg",
+      "sha256": "4eb146bf3454c33c78d3c64944336aaeef9bda34fa9a0d5bbb5ef502bdf89fd5",
+      "bytes": 13014
+    },
+    {
+      "path": "missing-motion/coral-4-wantsPlay-walk-reduced.jpg",
+      "sha256": "58a068a3c7e7e393e635ad38d67c4c60322a1eb6e9e663b1339e876238723b77",
+      "bytes": 13119
+    },
+    {
+      "path": "missing-motion/coral-6-dislike-idle-normal.jpg",
+      "sha256": "2e8b7533cca8b669a762ad4e045c3de57005b796c5637cceb1eb95626309080c",
+      "bytes": 17002
+    },
+    {
+      "path": "missing-motion/coral-6-dislike-idle-reduced.jpg",
+      "sha256": "55811fdb92f8a5016fdeac456a255eb94435095bb443b4f5b3c54842d5da238d",
+      "bytes": 16884
+    },
+    {
+      "path": "missing-motion/coral-6-dislike-walk-normal.jpg",
+      "sha256": "3b1ea4fc4629772e0db6a37fef92168a4eee5b8ddc23227f300a198156de1a9e",
+      "bytes": 17084
+    },
+    {
+      "path": "missing-motion/coral-6-dislike-walk-reduced.jpg",
+      "sha256": "7a512eff0f08a5d95c3ad27f481dea15bfd8e8b0524cdb99767dd9685a0a1947",
+      "bytes": 16937
+    },
+    {
+      "path": "missing-motion/coral-6-motion.jpg",
+      "sha256": "6ae84699799ba08579ed5db688ee1d8b30713554688afb422d45b7b28b5cd629",
+      "bytes": 696369
+    },
+    {
+      "path": "missing-motion/coral-6-normal-idle-normal.jpg",
+      "sha256": "f69072bcd9b9c069643b660b2ed6d69ff4835aa190550e80df1aec555f4afc33",
+      "bytes": 15840
+    },
+    {
+      "path": "missing-motion/coral-6-normal-idle-reduced.jpg",
+      "sha256": "4321846fbc5152cfe962b852e3c95d107ef37a8e57e2cddb6685a68c6fa4dc89",
+      "bytes": 15820
+    },
+    {
+      "path": "missing-motion/coral-6-normal-walk-normal.jpg",
+      "sha256": "df3e2d53e5940a5700b710c2ac21d405a979ba25f887e21a997e778cb4634cd0",
+      "bytes": 15905
+    },
+    {
+      "path": "missing-motion/coral-6-normal-walk-reduced.jpg",
+      "sha256": "590304cff33a013e3c78560935b37717369801b5216ef1ce1cefdb62d6375bbc",
+      "bytes": 15826
+    },
+    {
+      "path": "missing-motion/coral-6-positive-idle-normal.jpg",
+      "sha256": "085f5337e33102ad240948e33140ee016a0f1b031ba64dd8a46dd7dab6cbf7f3",
+      "bytes": 15887
+    },
+    {
+      "path": "missing-motion/coral-6-positive-idle-reduced.jpg",
+      "sha256": "83f3195045fc953afedde9b0b480cefe299270a7e1e45259d807f622af0aff73",
+      "bytes": 15951
+    },
+    {
+      "path": "missing-motion/coral-6-positive-walk-normal.jpg",
+      "sha256": "2d830c0b581cead221c0ac4ab5f52bb40e026f913cc3e8e549398b93fb7e4c96",
+      "bytes": 16009
+    },
+    {
+      "path": "missing-motion/coral-6-positive-walk-reduced.jpg",
+      "sha256": "5cdae3831e145745861bd146cb2f0840df154b9ef8565c8c9179a8ae0b757833",
+      "bytes": 16020
+    },
+    {
+      "path": "missing-motion/coral-6-sick-idle-normal.jpg",
+      "sha256": "2e23b96c1e8d86cc3b5080d280fa1091f089881d11212207aae8a645ae2b5b14",
+      "bytes": 16138
+    },
+    {
+      "path": "missing-motion/coral-6-sick-idle-reduced.jpg",
+      "sha256": "30ddd0e4949ea8ce6791c398f22f3cb3e67febfeaf614549081d2136bae9cc14",
+      "bytes": 16023
+    },
+    {
+      "path": "missing-motion/coral-6-sick-walk-normal.jpg",
+      "sha256": "9f24d42b0cedbcf58dd08640f1f259b2292a3d16621a2ab10bf0f76afcfd8b42",
+      "bytes": 16142
+    },
+    {
+      "path": "missing-motion/coral-6-sick-walk-reduced.jpg",
+      "sha256": "82266a6a1913b3dd81faca9ce9ce035197f166d170e3e3024a72d112f179f56f",
+      "bytes": 16065
+    },
+    {
+      "path": "missing-motion/coral-6-sleeping-idle-normal.jpg",
+      "sha256": "569a8fe8860b22f3e99a64a9d7468e32146f939d23edb6440e53feda86efe7cc",
+      "bytes": 15423
+    },
+    {
+      "path": "missing-motion/coral-6-sleeping-idle-reduced.jpg",
+      "sha256": "4be46b8b886bc69aa6119af5c419d133d03db1fbaaba33094cb3436ab2c44be1",
+      "bytes": 15397
+    },
+    {
+      "path": "missing-motion/coral-6-sleeping-walk-normal.jpg",
+      "sha256": "7df3a2ce59d71bc8f2de083efe7d4fd28d9748e42563189c9a52c459a4fa23ac",
+      "bytes": 15467
+    },
+    {
+      "path": "missing-motion/coral-6-sleeping-walk-reduced.jpg",
+      "sha256": "853c92bf9ebf18bc6721e46cefa7d25ae31da1db0cb713f23498b5c3242dd3b8",
+      "bytes": 15390
+    },
+    {
+      "path": "missing-motion/coral-6-strained-idle-normal.jpg",
+      "sha256": "dcd75347c9c53e623687b10e5bfd29deadede7e19e24be7872e69fc8482d1cf3",
+      "bytes": 15891
+    },
+    {
+      "path": "missing-motion/coral-6-strained-idle-reduced.jpg",
+      "sha256": "1717a7d165008150c602b9712d893580b80aa942cbb8b731cfccb2fa5da9d72b",
+      "bytes": 15925
+    },
+    {
+      "path": "missing-motion/coral-6-strained-walk-normal.jpg",
+      "sha256": "cbf6f538a33cf68031c630d632ed4bd176a348d366ea4f6a9cd7f66a4013734c",
+      "bytes": 15894
+    },
+    {
+      "path": "missing-motion/coral-6-strained-walk-reduced.jpg",
+      "sha256": "2a118dc6808f1e8142e592a6c61f2412b9bd02bc2ff2208e8ab7d2f56ec7ed35",
+      "bytes": 15944
+    },
+    {
+      "path": "missing-motion/coral-6-tired-idle-normal.jpg",
+      "sha256": "38bc4169f8f73b3ecec91c65b036648027c5358c377f65d2b603d151ee8ec703",
+      "bytes": 15803
+    },
+    {
+      "path": "missing-motion/coral-6-tired-idle-reduced.jpg",
+      "sha256": "1a170e04ba01fb0eaf7be75f62b7483d5af17367b474c01dde5e3b87d03c45de",
+      "bytes": 15650
+    },
+    {
+      "path": "missing-motion/coral-6-tired-walk-normal.jpg",
+      "sha256": "f7f02e6c2b57e83edc4977f1c4cec952cea2757789740ae0970178524103758c",
+      "bytes": 15866
+    },
+    {
+      "path": "missing-motion/coral-6-tired-walk-reduced.jpg",
+      "sha256": "58609d7a99299f7cea955270857d48b417a19c2fcfaa718b30b68d3d85b706bc",
+      "bytes": 15693
+    },
+    {
+      "path": "missing-motion/coral-6-wantsPlay-idle-normal.jpg",
+      "sha256": "3bc4f787f0558d78f2e921570d7b152583577a5fd585b0b788e45c8dda89dc17",
+      "bytes": 16116
+    },
+    {
+      "path": "missing-motion/coral-6-wantsPlay-idle-reduced.jpg",
+      "sha256": "8c3ac2e0b661bf65fb6cc11a554bcf4e89dcc772960c4ece8a25ad2392badfce",
+      "bytes": 16169
+    },
+    {
+      "path": "missing-motion/coral-6-wantsPlay-walk-normal.jpg",
+      "sha256": "13ab25f545af388db0c8369306c70babd350201c438a72e0a15d13585313f1cc",
+      "bytes": 16159
+    },
+    {
+      "path": "missing-motion/coral-6-wantsPlay-walk-reduced.jpg",
+      "sha256": "36a5e54716a588be8c9b3151b6b468f46c3a377e1e2b885dfcb8021237856974",
+      "bytes": 16280
+    },
+    {
+      "path": "missing-motion/motion-evidence.json",
+      "sha256": "2d29fe3cb36d19a8dcf8daa49e1d8aeb887cb6edcd7049547914d1db22a8d2a0",
+      "bytes": 76430
+    },
+    {
+      "path": "player-coral-1-back.png",
+      "sha256": "e105be190d903001b5b0dd437db5cac56fceb45baf385d6f9e252d24b26a9f41",
+      "bytes": 308699
+    },
+    {
+      "path": "player-coral-1-front.png",
+      "sha256": "094bba20ef905dbd7afa4d2c8a2e19095d4ddeb4a96b803687e5bb9045c60536",
+      "bytes": 313061
+    },
+    {
+      "path": "player-coral-2-back.png",
+      "sha256": "74ae7f8226b4a2a79b8b0d1bcc26c7671fff12684bb337b9aca634ba1c8043e7",
+      "bytes": 312871
+    },
+    {
+      "path": "player-coral-2-front.png",
+      "sha256": "34d66d44d6ecee8950f698a17b44364cf69462c1949859bffaf0bdd1b54da8df",
+      "bytes": 318629
+    },
+    {
+      "path": "player-coral-3-back.png",
+      "sha256": "82f9175a6c03bc6be59adb99c18f77ee91eb203f099a3310b65eefb364e95a5b",
+      "bytes": 316243
+    },
+    {
+      "path": "player-coral-3-front.png",
+      "sha256": "dd8c96dac373ada25ca6ee47754a775fecbb5df23f27fddfcfa1d8159379c36f",
+      "bytes": 318746
+    },
+    {
+      "path": "player-coral-4-back.png",
+      "sha256": "20fd7762100e415eb5b7b9e9711c15608309d0343942723e3d591e608dd744f9",
+      "bytes": 313184
+    },
+    {
+      "path": "player-coral-4-front.png",
+      "sha256": "1f3e9ea7a86f45c28637226a9a4d83e2d9f9861b02ec12180c9998da3eb148e4",
+      "bytes": 316778
+    },
+    {
+      "path": "player-coral-5-back.png",
+      "sha256": "88d2b1f0363495b6b4ce44e37f9d859c45f55d59f78f4938825e43d2a80c905e",
+      "bytes": 313785
+    },
+    {
+      "path": "player-coral-5-front.png",
+      "sha256": "198ebd01f26909e464e5fea2eed1ec7193fd925da3f3b18e0a3183438a509313",
+      "bytes": 316195
+    },
+    {
+      "path": "player-coral-6-back.png",
+      "sha256": "bd346e220c6789fd128c3826c2fb303551d0aeda8df164a7ebdd4cdb77c58414",
+      "bytes": 313865
+    },
+    {
+      "path": "player-coral-6-front.png",
+      "sha256": "4c8f4cdf9975023af705b724adb0cf94391bc841cd66b002adf16007338d0b0e",
+      "bytes": 318704
+    },
+    {
+      "path": "player-coral-7-back.png",
+      "sha256": "5d568a5c1958874dcc91802a1583e4733e2f9cedbce16cf3232e436bc417d522",
+      "bytes": 314953
+    },
+    {
+      "path": "player-coral-7-front.png",
+      "sha256": "ab43a7a1075284ffd5bb01aeb9cc39f01fc5dd8d091896e6cd3a4a0827282fcd",
+      "bytes": 319209
+    },
+    {
+      "path": "player-coral-8-back.png",
+      "sha256": "4198bc01a586f954527d184ea2b63c641e4ee1e2fc22fe460f9b42cfe01d7d0a",
+      "bytes": 315709
+    },
+    {
+      "path": "player-coral-8-front.png",
+      "sha256": "3ab8186503d0ccd9daf679105006db1b028518ed20c2a615510a890307307671",
+      "bytes": 326000
+    }
+  ],
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "artifactJobId": 113792866148,
+  "artifactJobName": "stage-evidence (coral)",
+  "artifactJobStatus": "completed",
+  "artifactJobConclusion": "success",
+  "artifactEvidenceMode": "successful"
+}

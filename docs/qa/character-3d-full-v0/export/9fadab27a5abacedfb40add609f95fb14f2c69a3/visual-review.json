@@ -1,0 +1,24 @@
+{
+  "sourceCommit": "9fadab27a5abacedfb40add609f95fb14f2c69a3",
+  "status": "REJECT_ALL8_IMAGE_GATE",
+  "inspected": {
+    "fourViews": 32,
+    "stateCells": 256,
+    "normalDistance": 16
+  },
+  "rawHashVerification": {
+    "wave": 299,
+    "distance": 17
+  },
+  "findings": [
+    "04/05/06 raised wing roots separate visibly from torso; overlapping feathers read as a single tapered sheet.",
+    "08 coal footprint contains open gaps instead of a continuous mound."
+  ],
+  "otherStages": "01/02/03/07 visually acceptable in inspected four views, all32 states and normal distance;03/07 accepted definitions unchanged.",
+  "fixesPendingNewImages": [
+    "04/05/06 shoulder attachment moved inside torso; distinct raised feather endpoints and light edges.",
+    "08 closed charcoal mound beneath discrete coals."
+  ],
+  "environment": "Chromium/SwiftShader; not Human/iPhone acceptance",
+  "runtime": "Phoenix remains unregistered;212/293"
+}

@@ -1,0 +1,331 @@
+{
+  "status": "REJECT",
+  "scope": "ACTUAL_IMAGE_PLAYER_MOTION_TOPOLOGY_ONLY",
+  "sourceCommit": "ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f",
+  "sourceRun": 37922214774,
+  "sourceRunConclusion": "failure",
+  "reviewDate": "2026-10-09",
+  "reviewer": "small_mammal_review",
+  "counts": {
+    "boardsActuallyViewed": 18,
+    "producedCellsActuallyInspected": 576,
+    "statesPerBoard": 32,
+    "passingBoards": 15,
+    "rejectedBoards": 3,
+    "rawFramesActuallyViewed": 9,
+    "critical": 0,
+    "important": 1,
+    "minor": 0
+  },
+  "matrix": {
+    "emotions": [
+      "normal",
+      "positive",
+      "dislike",
+      "tired",
+      "sleeping",
+      "strained",
+      "wantsPlay",
+      "sick"
+    ],
+    "motions": [
+      "idle",
+      "walk"
+    ],
+    "motionPreferences": [
+      "normal",
+      "reduced"
+    ],
+    "originalReferenceColumnIsProducedCell": false
+  },
+  "sourceArtifactJobs": [
+    {
+      "family": "dandelion",
+      "jobId": 113792866031,
+      "jobName": "stage-evidence (dandelion)",
+      "conclusion": "success"
+    },
+    {
+      "family": "butterfly",
+      "jobId": 113792866004,
+      "jobName": "stage-evidence (butterfly)",
+      "conclusion": "success"
+    },
+    {
+      "family": "mushroom",
+      "jobId": 113792866050,
+      "jobName": "stage-evidence (mushroom)",
+      "conclusion": "success"
+    },
+    {
+      "family": "starfish",
+      "jobId": 113792866030,
+      "jobName": "stage-evidence (starfish)",
+      "conclusion": "success"
+    }
+  ],
+  "boards": [
+    {
+      "family": "dandelion",
+      "stage": 2,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dandelion/missing-motion/dandelion-2-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "PASS_SCOPED_MOTION_TOPOLOGY",
+      "observations": "Bulb, leaves, basal feet and readable face remain together in all sampled poses."
+    },
+    {
+      "family": "dandelion",
+      "stage": 3,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dandelion/missing-motion/dandelion-3-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "PASS_SCOPED_MOTION_TOPOLOGY",
+      "observations": "Small basal face remains visible inside the connected leaf rosette in all sampled poses."
+    },
+    {
+      "family": "dandelion",
+      "stage": 5,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dandelion/missing-motion/dandelion-5-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "PASS_SCOPED_MOTION_TOPOLOGY",
+      "observations": "Bud face remains readable above basal bracts; bud, stem and leaves stay connected."
+    },
+    {
+      "family": "dandelion",
+      "stage": 7,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-dandelion/missing-motion/dandelion-7-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "PASS_SCOPED_MOTION_TOPOLOGY",
+      "observations": "Flower face remains readable inside the petal ring; stem and leaf base stay attached."
+    },
+    {
+      "family": "butterfly",
+      "stage": 2,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-butterfly/missing-motion/butterfly-2-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "PASS_SCOPED_MOTION_TOPOLOGY",
+      "observations": "Head face stays readable; segmented caterpillar body and small legs remain joined."
+    },
+    {
+      "family": "butterfly",
+      "stage": 3,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-butterfly/missing-motion/butterfly-3-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "PASS_SCOPED_MOTION_TOPOLOGY",
+      "observations": "Raised caterpillar head remains joined to the segmented body; expressions stay visible."
+    },
+    {
+      "family": "butterfly",
+      "stage": 6,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-butterfly/missing-motion/butterfly-6-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "PASS_SCOPED_MOTION_TOPOLOGY",
+      "observations": "Face stays clear of wings and antennae; wing roots/body remain joined. Hanging cocoon stays connected to its branch."
+    },
+    {
+      "family": "butterfly",
+      "stage": 7,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-butterfly/missing-motion/butterfly-7-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "PASS_SCOPED_MOTION_TOPOLOGY",
+      "observations": "Face stays clear while wing poses vary; four wings, body and antennae retain visible connections."
+    },
+    {
+      "family": "mushroom",
+      "stage": 2,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-mushroom/missing-motion/mushroom-2-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "PASS_SCOPED_MOTION_TOPOLOGY",
+      "observations": "Face remains clear of the connected radial branches."
+    },
+    {
+      "family": "mushroom",
+      "stage": 3,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-mushroom/missing-motion/mushroom-3-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "PASS_SCOPED_MOTION_TOPOLOGY",
+      "observations": "Cap face remains readable; stem, cap and ground base remain connected."
+    },
+    {
+      "family": "mushroom",
+      "stage": 5,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-mushroom/missing-motion/mushroom-5-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "REJECT",
+      "observations": "REJECT: cap overhang hides tired/sleeping/sick eyes and clips dislike upper face; repeated in all four columns. Raw frames confirm the obstruction."
+    },
+    {
+      "family": "mushroom",
+      "stage": 6,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-mushroom/missing-motion/mushroom-6-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "REJECT",
+      "observations": "REJECT: cap overhang obscures dislike/tired upper face and sick forehead stress marks in all four columns; raw frames confirm the obstruction."
+    },
+    {
+      "family": "mushroom",
+      "stage": 7,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-mushroom/missing-motion/mushroom-7-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "REJECT",
+      "observations": "REJECT: tilted cap partly covers sick forehead stress marks in all four columns. Raw frame confirms clipping. Stem/cap remain connected; floating spores match source identity."
+    },
+    {
+      "family": "starfish",
+      "stage": 2,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-starfish/missing-motion/starfish-2-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "PASS_SCOPED_MOTION_TOPOLOGY",
+      "observations": "Blue larval silhouette stays coherent and facial expressions remain visible."
+    },
+    {
+      "family": "starfish",
+      "stage": 3,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-starfish/missing-motion/starfish-3-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "PASS_SCOPED_MOTION_TOPOLOGY",
+      "observations": "Five-armed body and blue upper appendage retain source identity and connections; expressions remain readable."
+    },
+    {
+      "family": "starfish",
+      "stage": 5,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-starfish/missing-motion/starfish-5-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "PASS_SCOPED_MOTION_TOPOLOGY",
+      "observations": "Five yellow arms remain continuous through sampled poses; face remains unobstructed."
+    },
+    {
+      "family": "starfish",
+      "stage": 6,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-starfish/missing-motion/starfish-6-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "PASS_SCOPED_MOTION_TOPOLOGY",
+      "observations": "Five orange arms and white nodules retain connections; eyes, mouth and forehead expressions remain readable."
+    },
+    {
+      "family": "starfish",
+      "stage": 7,
+      "path": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-starfish/missing-motion/starfish-7-motion.jpg",
+      "actualViewed": true,
+      "producedCellsInspected": 32,
+      "originalReferenceColumnInspected": true,
+      "status": "PASS_SCOPED_MOTION_TOPOLOGY",
+      "observations": "Five pink arms remain continuous; all sampled expressions remain visible."
+    }
+  ],
+  "findings": [
+    {
+      "id": "I1",
+      "severity": "Important",
+      "status": "OPEN",
+      "title": "Mushroom caps obscure canonical emotion details",
+      "affectedStages": [
+        5,
+        6,
+        7
+      ],
+      "family": "mushroom",
+      "description": "Stage 5 loses substantial eye detail in tired/sleeping/sick and upper dislike face. Stage 6 clips upper face/brows and hides sick forehead stress marks. Stage 7 partially clips sick forehead stress marks. These obstructions repeat across idle/walk and normal/reduced captures.",
+      "minimumFix": "Provide cap clearance for the complete canonical eye/brow/forehead/mouth footprint at each sampled emotion pose. Preserve source silhouette and attachment. Recapture and actually inspect all 32 states for the three affected stages after the correction; retain unaffected approvals only where inputs/geometry are unchanged.",
+      "rawConfirmation": [
+        {
+          "zipPath": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-mushroom/raw-evidence.zip",
+          "zipEntry": "missing-motion/mushroom-5-tired-idle-normal.jpg",
+          "extractedPath": "/workspace/scratch/150320e8a2fd/player-motion-qa-raw/mushroom-5-tired-idle-normal.jpg",
+          "actualViewed": true
+        },
+        {
+          "zipPath": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-mushroom/raw-evidence.zip",
+          "zipEntry": "missing-motion/mushroom-5-sleeping-idle-normal.jpg",
+          "extractedPath": "/workspace/scratch/150320e8a2fd/player-motion-qa-raw/mushroom-5-sleeping-idle-normal.jpg",
+          "actualViewed": true
+        },
+        {
+          "zipPath": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-mushroom/raw-evidence.zip",
+          "zipEntry": "missing-motion/mushroom-5-sick-idle-normal.jpg",
+          "extractedPath": "/workspace/scratch/150320e8a2fd/player-motion-qa-raw/mushroom-5-sick-idle-normal.jpg",
+          "actualViewed": true
+        },
+        {
+          "zipPath": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-mushroom/raw-evidence.zip",
+          "zipEntry": "missing-motion/mushroom-6-tired-idle-normal.jpg",
+          "extractedPath": "/workspace/scratch/150320e8a2fd/player-motion-qa-raw/mushroom-6-tired-idle-normal.jpg",
+          "actualViewed": true
+        },
+        {
+          "zipPath": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-mushroom/raw-evidence.zip",
+          "zipEntry": "missing-motion/mushroom-6-sleeping-idle-normal.jpg",
+          "extractedPath": "/workspace/scratch/150320e8a2fd/player-motion-qa-raw/mushroom-6-sleeping-idle-normal.jpg",
+          "actualViewed": true
+        },
+        {
+          "zipPath": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-mushroom/raw-evidence.zip",
+          "zipEntry": "missing-motion/mushroom-6-sick-idle-normal.jpg",
+          "extractedPath": "/workspace/scratch/150320e8a2fd/player-motion-qa-raw/mushroom-6-sick-idle-normal.jpg",
+          "actualViewed": true
+        },
+        {
+          "zipPath": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-mushroom/raw-evidence.zip",
+          "zipEntry": "missing-motion/mushroom-5-dislike-idle-normal.jpg",
+          "extractedPath": "/workspace/scratch/150320e8a2fd/player-motion-qa-raw/mushroom-5-dislike-idle-normal.jpg",
+          "actualViewed": true
+        },
+        {
+          "zipPath": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-mushroom/raw-evidence.zip",
+          "zipEntry": "missing-motion/mushroom-6-dislike-idle-normal.jpg",
+          "extractedPath": "/workspace/scratch/150320e8a2fd/player-motion-qa-raw/mushroom-6-dislike-idle-normal.jpg",
+          "actualViewed": true
+        },
+        {
+          "zipPath": "docs/qa/character-3d-full-v0/export/ae9c9ffe20ef945ddc8eed0f4a882d807ba92c4f/integration-mushroom/raw-evidence.zip",
+          "zipEntry": "missing-motion/mushroom-7-sick-idle-normal.jpg",
+          "extractedPath": "/workspace/scratch/150320e8a2fd/player-motion-qa-raw/mushroom-7-sick-idle-normal.jpg",
+          "actualViewed": true
+        }
+      ]
+    }
+  ],
+  "limits": {
+    "acceptedFourViewsReopened": false,
+    "continuousAnimationVideoReviewed": false,
+    "newCapturePerformed": false,
+    "humanApproval": false,
+    "iPhoneApproval": false,
+    "fullIntegrationApproval": false,
+    "rawHashVerification": "Root reported all 3113 raw files verified; this reviewer inspected images and manifest provenance, and did not rerun that verification.",
+    "sourceRunFailureRetained": true
+  }
+}

@@ -1,0 +1,32 @@
+(node:13) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/150320e8a2fd/character-rollout/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/150320e8a2fd/character-rollout/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ God source stages retain seed, winged infant, staff bearers and radiant rebirth identities (354.514084ms)
+✔ God all-stage candidates keep one face and owned props across32 states without runtime promotion (214.765347ms)
+✔ winged God orbs animate their attached wings in floating gait (20.092009ms)
+✖ staff finials stay outside the head silhouette instead of disappearing into hair (18.597137ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 718.004796
+
+✖ failing tests:
+
+test at tests/character-3d-god-stages-test.cjs:20:1
+✖ staff finials stay outside the head silhouette instead of disappearing into hair (18.597137ms)
+  AssertionError [ERR_ASSERTION]: finial clears hair/head 4
+      at TestContext.<anonymous> (/workspace/scratch/150320e8a2fd/character-rollout/tests/character-3d-god-stages-test.cjs:22:261)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

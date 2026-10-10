@@ -2,7 +2,7 @@ name: Home layout
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, feat/character-3d-pilot]
     paths:
       - '**.css'
       - '**.html'
