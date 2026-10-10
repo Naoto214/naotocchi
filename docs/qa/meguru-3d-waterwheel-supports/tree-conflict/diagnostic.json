@@ -1,0 +1,76 @@
+{
+  "checkout": "db9ba1c17ba8d6a7d59902c25587c86274727997",
+  "sourceSha256": {
+    "meguru.js": "bfd64ed25adf8734a71e8d874763f4de0cac1344d1ef54d718f2eb3fdbf9a77b",
+    "meguru-3d.mjs": "15635346d858c454fd9b78aec92f2a991d242ca118d768da4ec56b3e0a5996af",
+    "index.html": "db758d65a7e65744eaf42cff588670f7cfca122f9afe72c590f88838d43cf206"
+  },
+  "targetSha256": {
+    "river_lake:68": "dd1b8dc8fe01bd6cd03f27df95924e24c65297ff57837f2c4898118f536044a5",
+    "river_lake:406": "4d4a51bee3d2fed38ece92f3dd4f40bc2fbc133c55cac6fd79967c188864c9b9"
+  },
+  "targets": {
+    "tree": {
+      "id": "river_lake:68",
+      "x": 1392.3585151506252,
+      "z": 3329.7790468973562,
+      "collision": {
+        "shape": "circle",
+        "x": 1392.3585151506252,
+        "z": 3329.7790468973562,
+        "hw": 24.913585,
+        "hd": 24.913585,
+        "ang": 0
+      },
+      "root": {
+        "shape": "trunk",
+        "r": 27.093523687500003,
+        "h": 26.15926425,
+        "y": 0,
+        "taper": 0.5
+      }
+    },
+    "wheel": {
+      "id": "river_lake:406",
+      "x": 1383.2093294812105,
+      "z": 3334.449264001967,
+      "collision": {
+        "shape": "box",
+        "x": 1383.2093294812105,
+        "z": 3334.449264001967,
+        "hw": 31.587982533533744,
+        "hd": 15.793991266766872,
+        "ang": 0
+      }
+    }
+  },
+  "offset": {
+    "x": 9.149185669414692,
+    "z": -4.670217104610856
+  },
+  "centreDistance": 10.272221094662193,
+  "centreInsideBox": true,
+  "projectedRootInscribedRadius": 24.410421364214255,
+  "posts": [
+    {
+      "dx": -13,
+      "dz": 0,
+      "radius": 2.5,
+      "centreDistanceToTree": 22.636195652591557,
+      "centreInsideProjectedRootForAnyRotation": true
+    },
+    {
+      "dx": 13,
+      "dz": 0,
+      "radius": 2.5,
+      "centreDistanceToTree": 6.053073501357884,
+      "centreInsideProjectedRootForAnyRotation": true
+    }
+  ],
+  "limitations": [
+    "XZ footprint diagnostic, not triangle intersection or vertical terrain-contact proof.",
+    "Seven-sided base radius follows current renderer trunk2; does not prove any proposed redesign safe.",
+    "Existing source-correct four-direction images establish the contextual visible conflict.",
+    "No product mutation, browser rerun, full regression, Human QA or iPhone approval."
+  ]
+}

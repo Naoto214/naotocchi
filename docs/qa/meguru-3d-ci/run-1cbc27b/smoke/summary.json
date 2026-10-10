@@ -1,0 +1,10 @@
+{
+  "kind": "smoke",
+  "coverage": 13,
+  "issues": [],
+  "samples": 0,
+  "hidden": 0,
+  "partial": 0,
+  "maxPartyObstacleOverlap": 7.105427357601002e-14,
+  "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+}

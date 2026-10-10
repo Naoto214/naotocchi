@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>めぐる 3D 地形パス くらべ</title>
+<style>
+  :root { --bg: #f6f3ec; --ink: #2a2622; --sub: #6a645c; --card: #fff; --line: #e2dccf; --ok: #2f7d4a; --warn: #b26a1a; --accent: #3f7fc8; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #16151a; --ink: #ece8e0; --sub: #a39d93; --card: #222128; --line: #35333c; --accent: #7fb0ec; } }
+  :root[data-theme="dark"] { --bg: #16151a; --ink: #ece8e0; --sub: #a39d93; --card: #222128; --line: #35333c; --accent: #7fb0ec; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 16px; background: var(--bg); color: var(--ink); font: 15px/1.6 system-ui, -apple-system, "Hiragino Sans", sans-serif; }
+  main { max-width: 980px; margin: 0 auto; }
+  h1 { font-size: 20px; margin: 0 0 4px; } h2 { font-size: 17px; margin: 0 0 8px; }
+  p.lead { color: var(--sub); margin: 0 0 14px; font-size: 13px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin: 12px 0; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  figure { margin: 0; } img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); display: block; }
+  figcaption { font-size: 12px; color: var(--sub); text-align: center; margin-top: 4px; }
+  .meta { font-size: 13px; margin-top: 8px; } .meta b { display: inline-block; min-width: 5.5em; }
+  .tag { display: inline-block; font-size: 11px; padding: 1px 6px; border-radius: 999px; border: 1px solid var(--line); margin: 0 4px 4px 0; color: var(--sub); }
+  .extra { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+  ul { margin: 6px 0 0 1.2em; padding: 0; } li { margin: 2px 0; }
+  .links a { color: var(--accent); word-break: break-all; }
+  table { border-collapse: collapse; font-size: 12px; width: 100%; } td, th { border: 1px solid var(--line); padding: 3px 6px; text-align: left; vertical-align: top; }
+  .wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<main>
+<h1>めぐる 3D — Art Direction v1 → Geometry / Terrain / Regional Identity / Runtime Quality Pass</h1>
+<p class="lead">左 = BEFORE(Art Direction v1・PR #371 @ 69a8857b・iPhone Human QA 済み)。右 = AFTER(feat/meguru-3d-geometry-terrain-v1)。headless Chromium の しゃしん(iPhone 390 幅・昼 / 晴れ / 夏に 固定)。完成の 判定は しない。最終判断は iPhone の Human QA。</p>
+
+<div class="card">
+  <h2>Human QA の 未承認課題 → この pass で したこと</h2>
+  <div class="wrap"><table>
+    <tr><th>課題</th><th>したこと</th></tr>
+    <tr><td>HQ-1 残像</td><td>すかしの ghost が 白い 半透明の かたち だった(葉 / 家 / かべの material が 白 + instance color)→ もとの いろ に。ray で ほんとうに 隠す 物 だけ すかす(city で 131 → 平均 10)。大きな 物は うすく。線分の ふちで ちらつかない(6 frame)</td></tr>
+    <tr><td>HQ-2 player が きえる</td><td>カメラの まわりの がけ も すかしの 候補に(ジャングルの どうくつ)。ヤシ / 電柱 など あたりの ない 高い 物 も 候補に。ちかい 順に 16 まで。&amp;perf=1 に ray の 見え かた(ray n/3・occl)</td></tr>
+    <tr><td>HQ-3 カクつき</td><td>すかしの 出入りで 形ごとの instance 全部(数千 × 64 byte)を 送り なおして いた → かわった 1 つ だけ。1 frame めの bounding で かげが きえて いた。解像度の 自動調整(2 → 1.5)。まい frame の いろの alloc なし</td></tr>
+    <tr><td>HQ-4 予算</td><td>city 183k → 132k、jungle 214k → 174k、forest 145k → 148k(地形 + 小川 を 足して)。透明 fade で けさない</td></tr>
+    <tr><td>HQ-5 平面的</td><td>Terrain v1: 道 / spot / 敷地 は 平ら、ひらけた ところ に 丘、森の 根の 起伏、砂丘の 尾根、雪の 土手、がけの 足もと、海へ ひくく、池は くぼ地、小川は 谷</td></tr>
+    <tr><td>HQ-6 / HQ-7 小川・水</td><td>小川 / 川 = 1 本の ながれ(谷の 断面 + 水面 + 岸の 石 / あし / 草 / 花)。水の spot は 小川の よどみ(池の 円盤を ならべない)。海 / 川 / 池 で 面を かえる</td></tr>
+    <tr><td>HQ-8 橋</td><td>Bridge v4: 交わりの いち・むき・ながさ から。床は 水面より 上・下の 梁・橋台・橋脚・てすり・だん。丸太 / 木 / 石(アーチ)/ ロープ / 用水路の 板 は かたちが ちがう。橋の ない 交わりは 飛び石</td></tr>
+    <tr><td>HQ-9 家</td><td>Building v4: family(こいえ / 平屋 / 2 かい / 農家 / 納屋 / 小屋 / 日干し煉瓦 / みせ / 物置)。切妻 / 寄棟・ポーチ・出窓・縁側・はなれ。小さな 家は 大きな 屋根(シルエット 高さ / はば ≤ 1.5)</td></tr>
+    <tr><td>HQ-10 いえ ≒ いなか</td><td>いえ = 家ごとの 庭(花だん・ポスト・ひくい さく・飛び石)。いなか = ひろい 丘・畑の うね・用水路 と 板の はし・ひくい 農家 と 納屋</td></tr>
+    <tr><td>HQ-11 もり / ジャングル</td><td>もり = つめたい みどり・丸太 + こけ + きのこ・しだ。ジャングル = 大きな は の 下草・canopy の つる・ちかい もや</td></tr>
+    <tr><td>HQ-12 木</td><td>Tree v4: 根もとの はり・2 だんの 幹(すこし 曲がる)・枝・白っぽい ほそい 木</td></tr>
+    <tr><td>HQ-13 小物</td><td>自転車を 立てた(わ 2 つ + フレーム + ハンドル + サドル)。水車 / 観覧車の わ も たて</td></tr>
+    <tr><td>HQ-14 地域の 文法</td><td>REGION3D.grammar(13 地域 × 10 項目)</td></tr>
+    <tr><td>HQ-15 季節 / 天気</td><td>山: 春 / 夏 = 高原の みどり、秋 = かれ草、冬 / 雪 = 雪。大木も 季節の いろ。3D でも 雨 / 雪 の つぶ</td></tr>
+  </table></div>
+</div>
+
+<div class="card">
+  <h2>山 — 夏 / 冬</h2>
+  <div class="pair"><figure><img loading="lazy" src="mountain-summer-gt.jpg" alt="mountain summer"><figcaption>夏(高原の みどり・花)</figcaption></figure><figure><img loading="lazy" src="mountain-winter-gt.jpg" alt="mountain winter"><figcaption>冬(雪の 地面・がけの 上の 雪・白い 屋根・花 なし)</figcaption></figure></div>
+</div>
+
+<div id="regions"></div>
+
+<div class="card">
+  <h2>小川 / 川 / 橋 の 近く</h2>
+  <div class="extra">
+    <figure><img loading="lazy" src="forest-creek-gt.jpg" alt=""><figcaption>もりの 小川(谷・岸・まがり)</figcaption></figure>
+    <figure><img loading="lazy" src="forest-bridge-gt.jpg" alt=""><figcaption>もりの 丸太の はし</figcaption></figure>
+    <figure><img loading="lazy" src="river-stonebridge-gt.jpg" alt=""><figcaption>川の 石の はし(欄干・アーチ)</figcaption></figure>
+    <figure><img loading="lazy" src="countryside-river-gt.jpg" alt=""><figcaption>いなかの 川 と 丘</figcaption></figure>
+  </div>
+</div>
+</main>
+<script>
+const R = [
+  ['home', 'いえのまわり', 'HQ-5 / 9 / 10', '大きな 屋根の 小さな 家(切妻 / 寄棟)・家ごとの 庭(花だん・ポスト・さく・飛び石)・ほぼ 平らな 敷地', ['home-house']],
+  ['countryside', 'いなか', 'HQ-5 / 9 / 10', 'ゆるい 丘・ひくい 農家 + 縁側 + はなれ・納屋・畑の うね・川 と 用水路(板の はし)', []],
+  ['forest', 'もり', 'HQ-6 / 8 / 11 / 12', 'つめたい みどり・Tree v4・根の 起伏・丸太 + こけ + きのこ・小川 と 丸太 / 石の はし', []],
+  ['jungle', 'ジャングル', 'HQ-4 / 11', '大きな は の 下草・canopy の つる・ちかい もや・ジャングルの 川(飛び石 / 丸太)・tris 214k → 174k', []],
+  ['city', 'まち', 'HQ-1 / 4 / 13', 'すかしの 残像を なおした(白い 半透明の ビル)・自転車を 立てた・tris 183k → 132k', ['city-arcade', 'city-market']],
+  ['mountain', 'やま', 'HQ-5 / 15', '起伏(hill 70)・がけの 足もと・谷の 小川 と つり橋・夏 / 冬', []],
+  ['snow', 'ゆき', 'HQ-5', '道ばたの 雪の 土手(道の へりは 平ら)', []],
+  ['sea', 'うみ', 'HQ-5 / 7', '海へ ひくく・潮だまり = くぼ地の 水(道の 板を のせない)', []],
+  ['deepsea', 'しんかい', 'HQ-5', '海底の 起伏・谷は 深く', []],
+  ['river_lake', 'かわ と みずうみ', 'HQ-6 / 7 / 8', '川 = 谷の 断面 + 水面(中心 ふかく)・川の 中を あるく 道は あさせ・石 / 丸太の はし', ['river-bridge']],
+  ['desert', 'さばく', 'HQ-5', '砂丘の 尾根・オアシスは くぼ地', ['oasis']],
+  ['star_stop', 'ほしの えき', '—', '浮き島(地形は 平ら の まま)', []],
+  ['memory_lake', 'おもいでの みずうみ', 'HQ-5', '湖へ ひくく(きり)', []],
+];
+const host = document.getElementById('regions');
+for (const [id, label, hq, changed, extra] of R) {
+  const card = document.createElement('div'); card.className = 'card';
+  const ex = extra.map((n) => `<figure><img loading="lazy" src="../meguru-3d-art-direction-v1/${n}-ad.jpg" alt=""><figcaption>BEFORE ${n}</figcaption></figure><figure><img loading="lazy" src="${n}-gt.jpg" alt=""><figcaption>AFTER ${n}</figcaption></figure>`).join('');
+  card.innerHTML = `<h2>${label} <span style="color:var(--sub);font-weight:400;font-size:13px">${id}</span></h2>
+    <div class="pair"><figure><img loading="lazy" src="../meguru-3d-art-direction-v1/${id}-ad.jpg" alt="${id} before"><figcaption>BEFORE(Art Direction v1)</figcaption></figure><figure><img loading="lazy" src="${id}-gt.jpg" alt="${id} after"><figcaption>AFTER(この pass)</figcaption></figure></div>
+    ${ex ? `<div class="extra">${ex}</div>` : ''}
+    <div class="meta"><span class="tag">${hq}</span><br><b>かえた こと</b> ${changed}<br><b>status</b> Human QA 待ち(完成の 判定は しない)</div>`;
+  host.appendChild(card);
+}
+</script>
+</body>
+</html>

@@ -97,7 +97,9 @@ test('AD-5. Tree v3: 針葉樹 4〜5 段(明暗・下ほど ひろい)、広葉�
 test('AD-6. gate: もり と ジャングルは 1 まいの 絵で 見わけが つく(葉の palette・きりの いろ・ジャングル だけ 大きな は / つる / 根もとの 下草 / lowPoly)', () => {
   const F = M.REGION3D.forest, J = M.REGION3D.jungle;
   assert.notDeepEqual(F.foliage.crown, J.foliage.crown, '葉の palette が ちがう');
-  assert.ok(J.fogColor && !F.fogColor, 'ジャングルの きりは みどり');
+  // 2026-10-02 Geometry pass(HQ-11): もりにも つめたい きりの いろ。ジャングルの きりは もりより みどり が つよく、ちかい(見とおし が みじかい)
+  const green = (c) => { const [r, g, b] = hex(c); return g - (r + b) / 2; };
+  assert.ok(J.fogColor && F.fogColor && green(J.fogColor) > green(F.fogColor) && J.fog[0] < F.fog[0] && J.fog[1] < F.fog[1], 'ジャングルの きりは みどり で ちかい');
   assert.ok(J.lowPoly && !F.lowPoly);
   const jb = objsOf('jungle').objects.filter((o) => o.type === 'broadleaf'), fb = objsOf('forest').objects.filter((o) => o.type === 'broadleaf');
   assert.ok(jb.every((o) => o.parts.some((p) => p.shape === 'wblade')), 'ジャングルの 木には 大きな は');
@@ -108,24 +110,34 @@ test('AD-6. gate: もり と ジャングルは 1 まいの 絵で 見わけが 
   assert.ok(objsOf('jungle').objects.some((o) => o.type === 'palm') && !objsOf('forest').objects.some((o) => o.type === 'palm'), 'ジャングルには ヤシ');
 });
 
-test('AD-7. Building v3: 家は 箱 + 屋根 だけに しない(屋根の はりだし・土台の ふち・わく つき 入口 と まど・煙突 / 看板 / ひさし の 1〜2・まわりの しげみ と 花・家ごとの ちがい)', () => {
-  for (const rid of ['home', 'countryside', 'snow', 'mountain', 'sea']) {
+// 2026-10-02 Geometry pass(Human QA AD v1 HQ-9「家が 細い / 四角い / 塔の よう」): Building v3 の 契約を Building v4 に 再仕様化。
+// 家の かたまりを family に わけ(切妻 / 寄棟 / 平ら・ポーチ・出窓・縁側・はなれ・ベランダ)、高さ / 床 の 比を しばる
+test('AD-7. Building v4: family ごとの かたまり・屋根の かたち(切妻 / 寄棟 / 平ら)・のき・土台・入口 と まど・かたまりの 足し(ポーチ / 出窓 / 縁側 / はなれ / ベランダ / 煙突 / ひさし)・シルエット 高さ / はば ≤ 1.5', () => {
+  const fams = new Set();
+  for (const rid of ['home', 'countryside', 'snow', 'mountain', 'sea', 'desert', 'river_lake', 'city']) {
     const hs = objsOf(rid).objects.filter((o) => o.type === 'house'); if (!hs.length) continue;
     const bodies = new Set();
     for (const o of hs) {
-      const body = o.parts[0], h = body.h; bodies.add(body.color);
+      const body = o.parts[0], h = body.h, fam = body.family; bodies.add(body.color); fams.add(fam);
+      assert.ok(fam, o.id + ' family');
       assert.ok(o.parts.length >= 12, o.id + ' parts ' + o.parts.length);
-      assert.ok(o.parts.some((p) => p.shape === 'roof' || (p.shape === 'box' && p.y >= h - 0.01)), o.id + ' 屋根');
-      assert.ok(o.parts.some((p) => p.shape === 'box' && p.y > h - 10 && p.y < h + 0.01 && p.rx > body.rx * 1.05), o.id + ' 屋根の はりだし / ふち');
+      assert.ok(o.parts.some((p) => p.shape === 'roof' || p.shape === 'gable' || (p.shape === 'box' && p.y >= h - 0.01)), o.id + ' 屋根');
+      assert.ok(o.parts.some((p) => p.shape === 'box' && p.y > h - 10 && p.y < h + 0.01 && p.rx > body.rx * 1.02), o.id + ' のき / ふち');
       assert.ok(o.parts.some((p) => p.shape === 'box' && p.y === 0 && p.h <= 8 && p.rx > body.rx), o.id + ' 土台の ふち');
       assert.ok(o.parts.some((p) => p.door) && o.parts.some((p) => p.win), o.id + ' 入口 と まど');
-      const extras = (o.parts.some((p) => p.color === '#6a5a4a') ? 1 : 0) + (o.parts.some((p) => p.shape === 'board') ? 1 : 0) + (o.parts.some((p) => p.shape === 'wslab') ? 1 : 0);
-      assert.ok(extras >= 1 && extras <= 2, o.id + ' 煙突 / 看板 / ひさし ' + extras);
-      const fl = (M.REGION3D[rid].cover.flowers || []).length;   // ゆき など 花の ない 地域は しげみ だけ
+      // シルエットの 比: (からだ + 屋根の 高さ)/ いちばん ひろい はば(屋根の のき・屋上の 看板 を ふくむ)。家 ≤ 1.5、みせ ≤ 1.6(塔の ような 家に しない)
+      const roof = o.parts.find((p) => p.shape === 'gable' || p.shape === 'roof'), sign = Math.max(0, ...o.parts.filter((p) => p.shape === 'board').map((p) => p.w));
+      const span = Math.max(roof ? (roof.shape === 'gable' ? 2 * Math.max(roof.rx, roof.rz) : 2 * roof.r * 0.71) : 2 * Math.max(body.rx, body.rz), sign), ratio = (h + (roof ? roof.h : 18)) / span;
+      assert.ok(ratio <= (fam === 'shop' ? 1.6 : 1.5) + 1e-6, o.id + ' ' + fam + ' シルエット 高さ / はば ' + ratio.toFixed(2) + '(塔の ような 家に しない)');
+      const extra = ['wslab', 'rail', 'board'].filter((s) => o.parts.some((p) => p.shape === s)).length + (o.parts.some((p) => p.color === '#6a5a4a') ? 1 : 0) + (o.parts.filter((p) => p.solidBox).length >= 2 ? 1 : 0) + (o.parts.some((p) => p.shape === 'gable' && p !== o.parts.find((q) => q.shape === 'gable')) ? 1 : 0);
+      assert.ok(extra >= 1, o.id + ' かたまりの 足し ' + extra);
+      const fl = (M.REGION3D[rid].cover.flowers || []).length;
       assert.ok(o.parts.filter((p) => p.shape === 'crown' && p.small).length >= 2 && o.parts.filter((p) => p.shape === 'flower').length >= (fl ? 2 : 0), o.id + ' まわりの 植物');
     }
     if (hs.length >= 5) assert.ok(bodies.size >= 2, rid + ' 家の いろは ばらつく');
   }
+  for (const f of ['cottage', 'single', 'twostorey', 'farmhouse', 'barn', 'shed']) assert.ok(fams.has(f), 'family ' + f + ' が ある: ' + [...fams].join(','));
+  assert.ok(objsOf('home').objects.filter((o) => o.type === 'house').some((o) => o.parts.some((p) => p.shape === 'gable')) && objsOf('home').objects.filter((o) => o.type === 'house').some((o) => o.parts.some((p) => p.shape === 'roof')), 'home は 切妻 と 寄棟 が まざる');
 });
 
 test('AD-8. city scene: 低層 / 中層 / 高層の まざり・灰 だけで ない いろ・みせ(ガラス + ひさし + 看板 + たて看板)・路地の かべも 正面を もつ・高さは 床の 5.5 倍まで', () => {
@@ -154,7 +166,8 @@ test('AD-9. city の 小物: 自転車・自販機は 3D の かたち(unresolve
   const r = objsOf('city');
   assert.equal(r.unresolved.length, 0, 'unresolved ' + r.unresolved.slice(0, 5).join(','));
   const bikes = r.objects.filter((o) => o.type === 'bike');
-  assert.ok(bikes.length >= 2 && bikes.every((o) => o.parts.filter((p) => p.shape === 'ring').length === 2 && o.walkable), '自転車 = わ 2 つ・ふんで とおれる');
+  // 2026-10-02 Geometry pass(props gate・HQ-13「横倒しの 輪と 棒」): わ は たての わ(arch)2 つ・地面に つく・ハンドル と サドル
+  assert.ok(bikes.length >= 2 && bikes.every((o) => o.parts.filter((p) => p.shape === 'arch' && Math.abs(p.y - p.r) < 0.01).length === 2 && o.parts.some((p) => p.shape === 'wslab' && p.w >= 12) && o.parts.some((p) => p.shape === 'box') && o.walkable), '自転車 = 立った わ 2 つ + ハンドル + サドル・ふんで とおれる');
   assert.ok(!M.HIDDEN3D.has('🚲'));
   const vend = r.objects.filter((o) => o.kind === 'vending');
   assert.ok(vend.length >= 1 && vend.every((o) => o.parts.length >= 4), '自販機 = 本体 + パネル + 取り出し口 + ふち');
@@ -195,20 +208,31 @@ test('AD-11. 水の 統合: 川は なめらかに 曲がり はばが ゆれる
   assert.ok(new Set(bank.map((o) => o.kind)).size >= 3, '岸は 石 / あし / 草 / 花 の まざり');
 });
 
-test('AD-12. Bridge v3: 床は 水面(2.4)より 上・両はしの だん・床を ささえる 支柱 / 橋脚 が 地面から・てすり か 両わきの 石(よこから 見ても はし)', () => {
-  let n = 0;
+// 2026-10-02 Geometry pass(Human QA AD v1 HQ-8「橋は ベンチ / 板」): Bridge v3 の 契約を Bridge v4 に 再仕様化。
+// 橋は ながれの 交わり(小川 / 川 / 水の ない 谷)に すわり、ながさは 水の はば から。床の 上面は 水面(小川 −9・川 −11)より 13 いじょう 上
+test('AD-12. Bridge v4: 交わりに かかる(ながさ ≥ 水の はば)・床の 上面は 水面より 上・床より 下から ささえる 橋脚 / 橋台・種類で かたちが ちがう', () => {
+  let n = 0; const sig = {};
   for (const rid of ['forest', 'river_lake', 'jungle', 'mountain', 'countryside', 'star_stop']) for (const o of objsOf(rid).objects.filter((q) => q.type === 'bridge')) {
     n++;
     const deck = o.parts.find((p) => p.shape === 'plank' || p.shape === 'slab' || p.shape === 'log' || (p.shape === 'wslab' && p.len > 60));
     assert.ok(deck, o.id + ' 床');
     const top = deck.shape === 'plank' ? deck.y + 8 : deck.shape === 'slab' ? deck.y + 10 : deck.shape === 'log' ? deck.y + deck.r * 2 : deck.y + deck.h;
-    assert.ok(top > 2.4, o.id + ' 床の 上面 ' + top.toFixed(1) + ' > 水面 2.4');
-    const supports = o.parts.filter((p) => (p.shape === 'wpost' || p.shape === 'box') && p.y === 0 && p.h >= 5);
-    assert.ok(supports.length >= 2, o.id + ' 支柱 / 橋脚 ' + supports.length);
-    if (!/light/.test(o.kind)) assert.ok(o.parts.some((p) => p.shape === 'rail') || o.parts.filter((p) => p.shape === 'box' && p.h === 14).length === 2 || o.parts.filter((p) => p.shape === 'log').length === 3, o.id + ' てすり / 両わきの 石 / 丸太 3 本');
-    if (!/light/.test(o.kind)) assert.ok(o.parts.filter((p) => p.shape === 'box' && p.rz === 16).length === 2, o.id + ' 両はしの だん');
+    assert.ok(top >= 4, o.id + ' 床の 上面 ' + top.toFixed(1) + ' ≥ 4(水面 −9 / −11 より 上)');
+    if (o.bridgeKind === 'light') continue;
+    assert.ok(o.crossing, o.id + ' 交わり(小川 / 川 / 谷)に かかる');
+    assert.ok(deck.len >= o.crossing.w * 2, o.id + ' ながさ ' + Math.round(deck.len) + ' ≥ 水の はば ' + Math.round(o.crossing.w * 2));
+    const supports = o.parts.filter((p) => ['wpost', 'box', 'stone'].includes(p.shape) && (p.y || 0) < top - 4);
+    assert.ok(supports.length >= 2, o.id + ' 床より 下から ささえる 物 ' + supports.length);
+    if (o.bridgeKind === 'log') assert.ok(o.parts.filter((p) => p.shape === 'log').length === 3 && o.parts.some((p) => p.shape === 'rail'), o.id + ' 丸太 3 本 + ロープ');
+    if (o.bridgeKind === 'stone') {
+      assert.equal(o.parts.filter(p => p.shape === 'arch').length, 2, o.id + ' アーチ');
+      require('./helpers/stone-parapet.cjs')(o);
+    }
+    if (o.bridgeKind === 'wood' || o.bridgeKind === 'rope') assert.ok(o.parts.filter((p) => p.shape === 'rail').length >= 2, o.id + ' てすり');
+    sig[o.bridgeKind] = [...new Set(o.parts.map((p) => p.shape))].sort().join('/');
   }
   assert.ok(n >= 6, 'はし ' + n);
+  assert.ok(sig.log && sig.wood && sig.stone && new Set([sig.log, sig.wood, sig.stone]).size === 3, '丸太 / 木 / 石 は かたちの くみあわせが ちがう(色ちがい では ない)');
 });
 
 test('AD-13. さばくの サボテンは 大きく 4 種(柱・枝分かれ・まる・むれ)。オアシスの まわりは 花 で 対比', () => {
@@ -222,9 +246,13 @@ test('AD-13. さばくの サボテンは 大きく 4 種(柱・枝分かれ・�
   assert.ok(M.REGION3D.desert.cover.oasisFlowers.length >= 2 && (M.REGION3D.desert.cover.flowers || []).length === 0, 'さばくの 花は オアシス だけ');
 });
 
-test('AD-14. 光: 昼は 明るく(hemisphere 1.7・ambient 0.3)、岩 / がけは くらく つぶさない、葉の いろは 地域の palette から(白い material × instance color)', () => {
-  assert.match(SRC3D, /HemisphereLight\('#eaf4ff'.*?, 1\.7\)/, 'hemisphere 1.7');
-  assert.match(SRC3D, /AmbientLight\('#ffffff', 0\.3\)/, 'ambient 0.3');
+// 2026-10-02 VQ: old numeric contract flattened planes by favoring ambient fill.
+// New contract retains fill but transfers energy to the existing directional
+// light (1.2 hemi / 1.55 key / .22 ambient); same weather/season semantics.
+test('AD-14. 光: 明るい fill と 方向光で 面を 分ける・岩 / がけの 明るさ と 地域 palette を 保つ', () => {
+  assert.match(SRC3D, /HemisphereLight\('#eaf4ff'.*?, 1\.2\)/, 'hemisphere fill 1.2');
+  assert.match(SRC3D, /DirectionalLight\('#fff6e8', 1\.55\)/, 'key 1.55');
+  assert.match(SRC3D, /AmbientLight\('#ffffff', 0\.22\)/, 'ambient floor 0.22');
   assert.ok((SRC3D.match(/color: '#c4c1b8'/g) || []).length >= 2, '岩 / がけの material は 明るめ');
   assert.match(SRC3D, /shadeOf\(FOL\.crown, pt\.shade\)/, 'かんむりの いろは 地域の palette');
   for (const rid of REGIONS) { const f = M.REGION3D[rid].foliage; assert.ok(f && f.crown.length === 3 && f.conifer.length === 3, rid + ' の 葉の palette 3 段'); }

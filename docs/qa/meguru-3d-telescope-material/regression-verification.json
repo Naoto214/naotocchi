@@ -1,0 +1,40 @@
+{
+  "run": 37894253894,
+  "job": 113701852270,
+  "source": "cdd5f3f0d76b1059cdfce24f74195f38ea52fc63",
+  "artifact": 11599884064,
+  "zipSha256": "b4a8e5e50d03ec11ce90c7771d9ae223a02011697a298d6432d24c16a9c2461e",
+  "fullLogSha256": "83fccf30a8ee92fdee16e227dad4e3660165300333ff4539046b685b82d5aae6",
+  "commandSha256": "48f7c62f57fc40310f81244be423ff378d931a00d28de90223b0a9c84a202652",
+  "sourceSha256": {
+    "meguru.js": "5d2e07b0e5b6b6051a81bf157b13c6dc9f6dfce18f31c5b29de14a6a8c21fab5",
+    "meguru-3d.mjs": "15635346d858c454fd9b78aec92f2a991d242ca118d768da4ec56b3e0a5996af",
+    "index.html": "67f882e4c8b8bba0e536a35a66fd8aeb92c61f5228e97fcf7688cf8594b1b684"
+  },
+  "exit": 0,
+  "counts": {
+    "tests": [
+      2883,
+      80
+    ],
+    "pass": [
+      2883,
+      80
+    ],
+    "fail": [
+      0,
+      0
+    ],
+    "cancelled": [
+      0,
+      0
+    ],
+    "skipped": [
+      0,
+      0
+    ]
+  },
+  "pipeline": "package test pipeline with Node test concurrency4; NOT unmodified npm test",
+  "verified": "2026-10-10",
+  "retention": "Original ZIP/log remain in Actions. Routine summary and hashes retained in Git; no duplicate full ZIP."
+}

@@ -1,0 +1,83 @@
+(node:15) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/3320f3e69e77/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/3320f3e69e77/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ GA-1. 接地: 地面に つく parts は 足もとの いちばん ひくい 地面まで(斜面で 岩 / 盛り土 / 根 / 岸の 花が 浮かない)。13 地域 (12133.749791ms)
+✔ GA-2. 小川 / 川 の 交わり: 橋の 交わり には 橋(床 > 水面・ながさ ≥ 水の はば)、そのほかは 飛び石。ランドマークの 橋は 交わりの 上に ある とき だけ うけもつ (0.526927ms)
+✔ GA-3. 小川と 池を わける: ながれの 帯の 中に 池の 円盤(水の 小物)を おかない (0.243188ms)
+✔ GA-4. Building v4: 塔の ような 家 なし(シルエット 高さ / いちばん ひろい はば ≤ 1.6、看板 / 屋根の はりだし を ふくむ) (0.371792ms)
+✔ GA-5. 小物の 読みやすさ(props gate): 車 = 車輪・望遠鏡 = 3 本 足 + かたむいた 筒・像 = だい + からだ + あたま・かまくら = いりぐち・箱の 小物 = ひさし + 窓。絵文字の 立て看板 は のこって いない (9805.509352ms)
+✔ GA-6. 季節 / 天気 は 2D の 正本に あわせる: 針葉樹の 雪 = ゆき の 地域 か 冬、山の 頂の 雪 = それ + 雪の 日、deepsea / star_stop は 地表の 季節 なし (6.800681ms)
+✔ GA-7. 地域の 識別性(数で): いえ ≠ いなか(いなかは ひらけ +0.1 いじょう・構成の cosine < 0.75)、もり ≠ ジャングル(ジャングルは 見とおし せまく・高い 層・cosine < 0.6) (4140.778534ms)
+(node:16) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/3320f3e69e77/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/3320f3e69e77/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ GT-1. runtime P0(HQ-1 / HQ-2 / HQ-3): すかしは ray で ほんとうに 隠す 物 だけ・もとの いろ・大きな 物は うすく・ちらつかない・変わった instance だけ 送る (31.14318ms)
+✔ GT-2. ray の 格子(pure): 線分が とおる ます目の instance だけ が 候補 (0.543383ms)
+✔ GT-3. 予算(HQ-4): うすい 板は 1 まい・幹は ふたなし・mound は 下半分 なし・花の まんなか 8 三角形。透明 fade で けさない (0.229778ms)
+✔ GT-4. Terrain v1(HQ-5): 意味の ある 起伏。道 / spot は 平ら、ひらけた ところ に 丘、小川は 谷、池は くぼ地、海は 水へ ひくく。ランダムな こぶ だけ では ない (6514.406482ms)
+✔ GT-5. Creek / River v3(HQ-6): 小川は spot の 円盤の ならび では なく 1 本の ながれ。橋の spot の 下を とおり、道を 横切る ところは 橋 か 飛び石。道 / かたい 物 の 上を ながれない (1265.469842ms)
+✔ GT-6. Water(HQ-7): 海 / 川 / 池 で 水の 面を かえる(海 = 浅瀬 → 沖 → 水平線、川 = 谷の 中の ながれる 面、池 = しずかな くぼ地の 面) (0.791418ms)
+✔ GT-7. home と countryside(HQ-10): いえ = 家ごとの 庭(花だん・ポスト・ひくい さく・飛び石)、いなか = ひろい 畑 と 用水路 と 板の はし(庭 なし) (0.869626ms)
+✔ GT-8. forest と jungle(HQ-11): もり = つめたい みどり・たおれた 丸太・しだ・きのこ・見とおし ほどほど。ジャングル = 多層(大きな は の 下草・ヤシ・canopy の つる)・しめった もや (226.981771ms)
+✔ GT-9. Tree v4(HQ-12): 根もとの はり・2 だんの 幹(すこし かたむく)・かんむりへ のびる 枝・白っぽい ほそい 木(すずしい 地域) (1.054145ms)
+✔ GT-10. props gate(HQ-13): ラベル なしで わかる。自転車は 立って いる、水車 / 観覧車の わ は たて (3577.78045ms)
+✔ GT-11. 13 地域の grammar(HQ-14): 背景の 絵 なしで 3D だけで 地域が わかる きまり (0.363911ms)
+✔ GT-12. 季節 / 天気(HQ-15): 山は 夏(高原の みどり)と 冬(雪)で 地面が かわる・大木も 季節の いろ・3D でも 雨 / 雪 (0.625106ms)
+✖ GT-13. Human QA の 記録 と status: 未承認・main merge しない・Ready に しない・production Pages を かえない。特定の 作品の 名まえは 出さない (0.415279ms)
+(node:17) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/3320f3e69e77/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/3320f3e69e77/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ VQ-24 stone bridge masonry stays on both parapets and marks all four ends (9926.8816ms)
+✔ VQ-23 vehicle window frames connect body and roof at every cab corner when rotated (236.815369ms)
+✔ VQ-22 dry-bank patches are continuous, bounded and leave unpainted water unchanged (42.333079ms)
+✔ VQ-9 residential porch supports meet roof slopes within canonical lots (10032.802252ms)
+✔ VQ-8 farmhouse veranda posts meet a canopy contained over the existing deck (1166.448727ms)
+✔ VQ-6 cottage rooflines include both gable orientations within the residential family (327.937004ms)
+✔ VQ-5 garden stepping stones connect the actual front door to its finite road segment (312.143129ms)
+✔ VQ-1 contact footprints follow trunks and foundations without mutating objects (1.029798ms)
+✔ VQ-2 contact field excludes actors, water, bridges and tiny dressing; finite bounded support (0.392845ms)
+✔ VQ-3 outer-bank variation leaves water lanes and triangle topology unchanged (0.562401ms)
+✔ VQ-4 residential main roofs retain above-head clearance with canonical colliders (10107.403331ms)
+✔ VQ-7 garden beds retain their planting group outside canonical road and obstacle footprints (212.58338ms)
+✔ VQ-10 barn entrances read as broad paired doors within the wall (927.362261ms)
+✔ VQ-11 flower instances retain planter and window-box elevation (1.417254ms)
+✔ VQ-12 walkable market stalls have open counters and connected canopy supports (11045.046378ms)
+✔ VQ-13 representative farmhouse flowers clear the veranda as one planting group (1473.102537ms)
+✔ VQ-14 planting clearance preserves groups, rotations and blocked plots (9.29768ms)
+✔ VQ-15 residential facade openings fit beside the entrance without frame overlap (10862.534449ms)
+✔ VQ-16 single-family main windows reserve the existing bay projection (10052.872958ms)
+✔ VQ-17 two-storey entrance remains below its existing low canopy (316.10603ms)
+✔ VQ-18 ground fern fronds emerge above their root plane, without changing hanging palm leaves (4043.170314ms)
+✔ VQ-19 ordinary big-tree crowns vary azimuth without expanding their envelope (2899.783701ms)
+✔ VQ-20 ground frond roots attach to their own terrain position (3193.316352ms)
+✔ VQ-21 frond transforms preserve winding and radial direction for rising and hanging leaves (1.889239ms)
+ℹ tests 44
+ℹ suites 0
+ℹ pass 43
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 77302.029169
+
+✖ failing tests:
+
+test at tests/meguru-3d-geometry-terrain-test.cjs:197:1
+✖ GT-13. Human QA の 記録 と status: 未承認・main merge しない・Ready に しない・production Pages を かえない。特定の 作品の 名まえは 出さない (0.415279ms)
+  Error: ENOENT: no such file or directory, open '/workspace/scratch/3320f3e69e77/world/docs/qa/meguru-3d-art-direction-v1-human-qa.md'
+      at Object.readFileSync (node:fs:484:20)
+      at TestContext.<anonymous> (/workspace/scratch/3320f3e69e77/world/tests/meguru-3d-geometry-terrain-test.cjs:198:17)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/workspace/scratch/3320f3e69e77/world/docs/qa/meguru-3d-art-direction-v1-human-qa.md'
+  }

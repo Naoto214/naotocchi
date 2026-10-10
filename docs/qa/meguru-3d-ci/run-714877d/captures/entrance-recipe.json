@@ -1,0 +1,58 @@
+[
+  {
+    "region": "home",
+    "x": -142.5405,
+    "z": 564.2748571428572,
+    "yaw": -90,
+    "dist": 260,
+    "name": "entrance-15",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "home",
+    "x": -638.3747465346364,
+    "z": 1879.4778416139975,
+    "yaw": -90,
+    "dist": 260,
+    "name": "entrance-45",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "home",
+    "x": 563.8629066113149,
+    "z": 2595.4991945271327,
+    "yaw": -90,
+    "dist": 260,
+    "name": "entrance-64",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  },
+  {
+    "region": "home",
+    "x": -277.72033321897754,
+    "z": 656.1054989935475,
+    "yaw": -90,
+    "dist": 260,
+    "name": "entrance-196",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ]
+  }
+]

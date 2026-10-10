@@ -1,0 +1,10 @@
+{
+  "baseline": "f817ad49ce4ecd715bcc0cdeb678987d98c56a8c",
+  "regions": 13,
+  "changedStatues": [
+    "countryside:498",
+    "jungle:596"
+  ],
+  "onlyDescriptorDifference": "stoneFace:true on the original head",
+  "extraTrianglesPerHead": 56
+}

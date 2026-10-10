@@ -1,0 +1,14 @@
+(node:12) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/b7dafe93b718/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/b7dafe93b718/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ VQ-22 dry-bank patches are continuous, bounded and leave unpainted water unchanged (32.567609ms)
+✔ VQ-3 outer-bank variation leaves water lanes and triangle topology unchanged (0.588231ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 106.687525

@@ -1,0 +1,30 @@
+✖ VQ-7 garden beds retain their planting group outside canonical road and obstacle footprints (369.094709ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 491.071452
+
+✖ failing tests:
+
+test at tests/meguru-3d-visual-quality-test.cjs:102:1
+✖ VQ-7 garden beds retain their planting group outside canonical road and obstacle footprints (369.094709ms)
+  AssertionError [ERR_ASSERTION]: home:garden:home:15: incomplete planting group
+  
+  3 !== 5
+  
+      at TestContext.<anonymous> (/workspace/scratch/9a73a007e273/world/tests/meguru-3d-visual-quality-test.cjs:111:14)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 3,
+    expected: 5,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

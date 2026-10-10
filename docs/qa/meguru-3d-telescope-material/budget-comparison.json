@@ -1,0 +1,97 @@
+{
+  "beforeSource": "69e26840a4e853641f0c5443f7834b56b5b6e345",
+  "afterSource": "cdd5f3f0d76b1059cdfce24f74195f38ea52fc63",
+  "matchedNames": 68,
+  "unchanged": 60,
+  "changes": [
+    {
+      "name": "city-arcade-vq",
+      "before": {
+        "triangles": 130462,
+        "calls": 49
+      },
+      "after": {
+        "triangles": 130462,
+        "calls": 48
+      }
+    },
+    {
+      "name": "city-market-vq",
+      "before": {
+        "triangles": 130214,
+        "calls": 43
+      },
+      "after": {
+        "triangles": 130270,
+        "calls": 43
+      }
+    },
+    {
+      "name": "city-vq",
+      "before": {
+        "triangles": 130486,
+        "calls": 50
+      },
+      "after": {
+        "triangles": 130486,
+        "calls": 49
+      }
+    },
+    {
+      "name": "entrance-45",
+      "before": {
+        "triangles": 34456,
+        "calls": 43
+      },
+      "after": {
+        "triangles": 34458,
+        "calls": 44
+      }
+    },
+    {
+      "name": "mountain-slope-vq",
+      "before": {
+        "triangles": 106924,
+        "calls": 63
+      },
+      "after": {
+        "triangles": 106868,
+        "calls": 63
+      }
+    },
+    {
+      "name": "mountain-summer-vq",
+      "before": {
+        "triangles": 106354,
+        "calls": 55
+      },
+      "after": {
+        "triangles": 106298,
+        "calls": 55
+      }
+    },
+    {
+      "name": "mountain-vq",
+      "before": {
+        "triangles": 106342,
+        "calls": 54
+      },
+      "after": {
+        "triangles": 106286,
+        "calls": 54
+      }
+    },
+    {
+      "name": "mountain-winter-vq",
+      "before": {
+        "triangles": 104146,
+        "calls": 54
+      },
+      "after": {
+        "triangles": 104090,
+        "calls": 54
+      }
+    }
+  ],
+  "note": "Draw-log comparison, not gameplay frame pacing or iPhone performance. Entrance45 is an unaffected-region observation; its cause remains unconfirmed."
+}

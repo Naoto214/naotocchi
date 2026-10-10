@@ -254,9 +254,11 @@ test('v2-11. 川(river_lake)= terrain.pts からの 1 本の 帯(岸つき)。�
   const d = M.buildWorld('deepsea', reg, { world3d: true });
   assert.equal(d.terrain.kind, 'chasm'); assert.ok(d.spots.filter((q) => q.kind === 'water').some((q) => pondCovered(d, q, M.shoreX)));
   // レンダラー: 川 / 谷は stripGeometryData の 帯(bank + water)。旧「うみ = shore / pool の 帯を ならべる」は のこって いない
-  assert.match(SRC, /T\.kind === 'river' \|\| T\.kind === 'chasm'/, '川 / 谷の 帯');
-  assert.match(SRC, /'water:' \+ T\.kind/, '川の mesh');
-  assert.match(SRC, /'water:bank'/, '岸');
+  // 2026-10-02 Geometry pass(Creek / River v3): 川は 小川と おなじ ながれ(streams3d)の 谷の 断面(water:bank)+ 水面(water:river)。谷(chasm)は いままでの 帯
+  assert.match(SRC, /T\.kind === 'chasm' \|\| \(T\.kind === 'river' && !terr\)/, '谷の 帯(地形の ない とき は 川も)');
+  assert.match(SRC, /'water:' \+ T\.kind/, '谷の mesh');
+  assert.match(SRC, /river \? 'water:bank' : 'water:creekbed'/, '川の 岸 / 谷の 断面');
+  assert.match(SRC, /river \? waterMat : streamMat, river \? 'water:river' : 'water:creek'/, '川の 水面');
   assert.ok(!/if \(prof\.sea && world\.terrain && world\.terrain\.kind === 'coast'\)/.test(SRC), 'うみの 帯ならべ(pond chain)が のこって いない');
   assert.ok(!/for \(const q of ponds\) \{ push\('shore'/.test(SRC), '池の instanced disc ならべが のこって いない');
 });
@@ -323,9 +325,11 @@ test('v2-14. Kit v2 の 原型: 昆布は 曲がった は(木 / 柱では な�
   // はし(forest: まるた / いし、jungle / star_stop: ロープ / 光)
   const f = objsOf('forest'), log = f.find((o) => o.kind === '🌉' && o.spot === 'bridge1'), stone = f.find((o) => o.kind === '🌉' && o.spot === 'bridge2');
   assert.ok(log && log.parts.filter((pt) => pt.shape === 'log').length === 3 && log.parts.filter((pt) => pt.shape === 'wpost').length >= 4, 'まるたの はし = 丸太 3 本 + 支柱');
-  // 2026-10-01 Art Direction v1(Bridge v3): 床は 水面より 上・両はしの だん(ramp)・橋脚 が ふえた ので、両わきの 石 = 床の 上(y = 床)の 箱 2 つ で 見る
-  assert.ok(stone && stone.parts.some((pt) => pt.shape === 'slab') && stone.parts.filter((pt) => pt.shape === 'box' && pt.h === 14).length === 2, 'いしの はし = 石の いた + 両わきの 石');
-  assert.ok(stone.parts.find((pt) => pt.shape === 'slab').y + 10 > 2.4 && stone.parts.filter((pt) => pt.shape === 'box' && pt.h < 14).length >= 4, 'いしの はし: 床は 水面より 上・橋脚 と だん');   // AD v1
+  // 2026-10-01 Art Direction v1(Bridge v3): 床は 水面より 上・両はしの だん(ramp)・橋脚 が ふえた
+  // 2026-10-02 Geometry pass(Bridge v4): いしの はし = あつい 石の 床(slab)+ 両側の欄干(土台 + 笠石の高さ16、端柱24)+ アーチ 2 つ + 橋台 + だん。床の 上面は 小川の 水面(−9)より 上
+  assert.ok(stone, 'いしの はし');
+  require('./helpers/stone-parapet.cjs')(stone);
+  assert.ok(stone.parts.filter((pt) => pt.shape === 'arch').length === 2 && stone.parts.find((pt) => pt.shape === 'slab').y + 10 > -9 && stone.parts.filter((pt) => pt.shape === 'box' && pt.solidBox && pt.rz <= 20).length >= 4, 'いしの はし: アーチ・床は 水面より 上・橋台 と だん');
   const rope = [...objsOf('jungle'), ...objsOf('mountain')].find((o) => o.kind === 'ropebridge'), light = objsOf('star_stop').find((o) => o.kind === 'lightbridge');
   if (rope) assert.ok(rope.parts.some((pt) => pt.shape === 'plank') && rope.parts.filter((pt) => pt.shape === 'rail').length === 2 && rope.parts.filter((pt) => pt.shape === 'wpost').length >= 6, 'ロープの はし');
   if (light) assert.ok(light.parts.some((pt) => pt.shape === 'wslab') && light.parts.some((pt) => pt.shape === 'glowdisc'), '光の はし');
@@ -364,7 +368,8 @@ test('v2-15. Region Profile v2: 13 地域 ぜんぶに family(terrain / veg / ar
   assert.ok(!forest.some((o) => o.type === 'lamp' && o.parts.some((pt) => pt.shape === 'wslab')), 'もりに 電柱は ない');
   // jungle は 半分の 木を 20 三角形の かんむりに
   const jungle = M.worldObjects3d(M.buildWorld('jungle', reg, { world3d: true })).objects.filter((o) => o.type === 'broadleaf');
-  const smallMain = jungle.filter((o) => o.parts[1].small).length;
+  // 2026-10-02 Geometry pass(Tree v4): 根もとの はり + 幹 2 だん が さきに 入る ので、主の かんむり = はじめの crown
+  const smallMain = jungle.filter((o) => o.parts.find((pt) => pt.shape === 'crown').small).length;
   assert.ok(smallMain > jungle.length * 0.3 && smallMain < jungle.length * 0.7, 'jungle の かるい かんむり ' + smallMain + ' / ' + jungle.length);
   // 地面の 起伏は renderer が areas から つくる(あたり なし)
   assert.match(SRC, /const BUMP = \{ dunefield: 22, snowfield: 14, seabed: 12/, '起伏の 表');

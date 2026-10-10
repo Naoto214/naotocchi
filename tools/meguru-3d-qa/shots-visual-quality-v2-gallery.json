@@ -1,0 +1,350 @@
+[
+  {
+    "region": "home",
+    "x": 1113.7654555416855,
+    "z": 2410.6082631053455,
+    "yaw": -69.9464771704212,
+    "dist": 260,
+    "name": "family-cottage",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "home:10",
+    "galleryDistance": 323.01413333333335
+  },
+  {
+    "region": "home",
+    "x": -169.81577445831454,
+    "z": 523.127120248203,
+    "yaw": -69.9464771704212,
+    "dist": 260,
+    "name": "family-single",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "home:15",
+    "galleryDistance": 355.1131733333333
+  },
+  {
+    "region": "home",
+    "x": 450.49807733078865,
+    "z": 1972.9309642589385,
+    "yaw": -69.9464771704212,
+    "dist": 260,
+    "name": "family-shed",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "home:36",
+    "galleryDistance": 106.88491232288138
+  },
+  {
+    "region": "home",
+    "x": 208.75608989931652,
+    "z": 664.9971534781184,
+    "yaw": -69.9464771704212,
+    "dist": 180,
+    "name": "prop-signpost",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "home:66",
+    "galleryDistance": 146.4
+  },
+  {
+    "region": "home",
+    "x": -419.1308951597522,
+    "z": 1142.6602814695266,
+    "yaw": -69.9464771704212,
+    "dist": 180,
+    "name": "prop-bike",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "home:79",
+    "galleryDistance": 69
+  },
+  {
+    "region": "home",
+    "x": 989.0922579098326,
+    "z": 962.4847307371988,
+    "yaw": -69.9464771704212,
+    "dist": 260,
+    "name": "family-hut",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "home:109",
+    "galleryDistance": 360.736
+  },
+  {
+    "region": "home",
+    "x": -304.99560767729207,
+    "z": 614.9577620988933,
+    "yaw": -69.9464771704212,
+    "dist": 260,
+    "name": "family-twostorey",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "home:196",
+    "galleryDistance": 468.0052322825066
+  },
+  {
+    "region": "home",
+    "x": -348.19193098161236,
+    "z": 1503.938133400081,
+    "yaw": -69.9464771704212,
+    "dist": 180,
+    "name": "prop-boxprop",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "home:198",
+    "galleryDistance": 230
+  },
+  {
+    "region": "countryside",
+    "x": -2127.1071544583147,
+    "z": 5164.077263105346,
+    "yaw": -69.9464771704212,
+    "dist": 260,
+    "name": "family-farmhouse",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "countryside:0",
+    "galleryDistance": 478.27797695999993
+  },
+  {
+    "region": "countryside",
+    "x": -2094.5624344583143,
+    "z": 5428.227263105346,
+    "yaw": -69.9464771704212,
+    "dist": 260,
+    "name": "family-barn",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "countryside:6",
+    "galleryDistance": 515.1753600000001
+  },
+  {
+    "region": "countryside",
+    "x": 2250.2142098993163,
+    "z": 4293.822153478119,
+    "yaw": -69.9464771704212,
+    "dist": 180,
+    "name": "prop-tractor",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "countryside:18",
+    "galleryDistance": 92.69999999999999
+  },
+  {
+    "region": "countryside",
+    "x": 1947.8029296047584,
+    "z": 3138.097270466068,
+    "yaw": -69.9464771704212,
+    "dist": 180,
+    "name": "prop-wheel",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "countryside:495",
+    "galleryDistance": 168
+  },
+  {
+    "region": "countryside",
+    "x": -348.58445242923875,
+    "z": 5221.255538653208,
+    "yaw": -69.9464771704212,
+    "dist": 180,
+    "name": "prop-statue",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "countryside:498",
+    "galleryDistance": 130
+  },
+  {
+    "region": "city",
+    "x": -1896.8696476476093,
+    "z": 4543.693401984885,
+    "yaw": -69.9464771704212,
+    "dist": 260,
+    "name": "family-shop",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "city:0",
+    "galleryDistance": 352.656
+  },
+  {
+    "region": "city",
+    "x": -493.46759010068354,
+    "z": 840.1647534781184,
+    "yaw": -69.9464771704212,
+    "dist": 180,
+    "name": "prop-stall",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "city:336",
+    "galleryDistance": 65
+  },
+  {
+    "region": "city",
+    "x": 2045.7560898993165,
+    "z": 1305.9971534781184,
+    "yaw": -69.9464771704212,
+    "dist": 180,
+    "name": "prop-ferris",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "city:534",
+    "galleryDistance": 454
+  },
+  {
+    "region": "city",
+    "x": 275.2181476364941,
+    "z": 5319.119211833102,
+    "yaw": -69.9464771704212,
+    "dist": 180,
+    "name": "prop-telescope",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "city:821",
+    "galleryDistance": 164
+  },
+  {
+    "region": "city",
+    "x": 511.10518989931654,
+    "z": 134.5383534781184,
+    "yaw": -69.9464771704212,
+    "dist": 180,
+    "name": "prop-car",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "city:937",
+    "galleryDistance": 112
+  },
+  {
+    "region": "mountain",
+    "x": -1529.475662924309,
+    "z": 1587.7809794254522,
+    "yaw": -69.9464771704212,
+    "dist": 260,
+    "name": "family-cabin",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "mountain:589",
+    "galleryDistance": 494.496
+  },
+  {
+    "region": "desert",
+    "x": -346.21959272724706,
+    "z": 1956.8402110115017,
+    "yaw": -133.38142599334319,
+    "dist": 180,
+    "name": "prop-ruin",
+    "jpg": 1,
+    "env": [
+      "day",
+      "sunny",
+      "summer"
+    ],
+    "target": "desert:282",
+    "galleryDistance": 578.223067136
+  },
+  {
+    "region": "forest",
+    "target": "forest:dress:-3,1",
+    "name": "vegetation-forest-fern",
+    "galleryDistance": 300
+  },
+  {
+    "region": "forest",
+    "target": "forest:0",
+    "name": "vegetation-forest-tree"
+  },
+  {
+    "region": "jungle",
+    "target": "jungle:dress:-8,0",
+    "name": "vegetation-jungle-fern",
+    "galleryDistance": 300
+  },
+  {
+    "region": "jungle",
+    "target": "jungle:0",
+    "name": "vegetation-jungle-tree"
+  },
+  {
+    "region": "river_lake",
+    "target": "river_lake:406",
+    "name": "prop-wheel-river",
+    "galleryDistance": 150
+  }
+]

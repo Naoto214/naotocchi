@@ -1,0 +1,107 @@
+{
+  "codeCommit": "704faac1e62690d9c4dff5e862a0d8d424cefff9",
+  "codeTree": "e8e77de03cbc24ef86182f2df7fafd26053a6aa6",
+  "before": "dc91d3e9f99c42cc337db9177c0812e91878facb",
+  "status": "static-and-full-regression-verified; fresh-browser-evidence-blocked",
+  "sourceSha256": {
+    "meguru.js": "f8b4b380ed77586420c46463e0e0ebcb8122a4ae2f292db8b09cdcb640b03a2e",
+    "meguru-3d.mjs": "651e9933cc99e35e66a1b52b2e5b4553974a9b5f184aa2b712d0d2f3972df7d2",
+    "index.html": "571dbe0bf622c9e6e59913a48ab9e8a6f888616269c8fbe2f2c4c7de66f92618"
+  },
+  "fullRegression": {
+    "passed": [
+      2863,
+      80
+    ],
+    "failed": [
+      0,
+      0
+    ],
+    "exit": 0,
+    "command": "package.json test pipeline with only node --test changed to node --test --test-concurrency=4",
+    "rawLog": "full.log",
+    "metadata": "full-job.json",
+    "loadNote": "concurrency-note.txt"
+  },
+  "targeted": {
+    "passed": 12,
+    "failed": 0,
+    "log": "targeted.log"
+  },
+  "geometry": {
+    "regions": 13,
+    "float": 4,
+    "bury": 18,
+    "crossings": 18,
+    "crossingsValid": true,
+    "raw": "geometry-audit.json"
+  },
+  "protection": {
+    "regions": 13,
+    "canonical2dEqual": true,
+    "worldSemanticsEqual": true,
+    "nonDressingPositionsAndCollisionEqual": true,
+    "renderedDescriptorChanges": [
+      "home"
+    ],
+    "raw": "protection-summary.json",
+    "homeCounts": {
+      "before": {
+        "objects": 287,
+        "gardens": 18,
+        "gardenParts": 291
+      },
+      "after": {
+        "objects": 283,
+        "gardens": 14,
+        "gardenParts": 160
+      }
+    }
+  },
+  "browser": {
+    "status": "blocked-before-game-load",
+    "worldAfterExit": 2,
+    "reason": "Chromium AF_UNIX socket() failed: Operation not permitted (1); independently reproduced by Python socket diagnostic",
+    "capturesObtained": 0,
+    "smoke": "not-run",
+    "corridor": "not-run",
+    "visibility": "not-run",
+    "newPerformanceCounts": "not-measured",
+    "raw": [
+      "world-after.log",
+      "browser-jobs.json",
+      "socket-diagnostic.json"
+    ]
+  },
+  "historicalVq2": {
+    "code": "dea2f17668958ee37dcd6e557e9b2243f34710dd",
+    "evidence": "dc91d3e9f99c42cc337db9177c0812e91878facb",
+    "visibility": {
+      "samples": 2832,
+      "fullyHidden": 0,
+      "partial": 1,
+      "partialRegion": "mountain",
+      "step": 1000,
+      "yaw": [
+        0,
+        1.2,
+        -1.2,
+        3.14
+      ],
+      "method": "ray; not screen guarantee"
+    },
+    "partyObstacleOverlap": {
+      "region": "jungle",
+      "maximum": 0.002591405357044607,
+      "meaning": "x/z circular obstacle overlap; not terrain penetration"
+    },
+    "fullPassed": [
+      2861,
+      80
+    ]
+  },
+  "lostVq3Evidence": "Previous scratch logs/images and final pipeline completion were not retained; no reported numbers reconstructed as raw results.",
+  "humanQa": "unapproved: iPhone ghost/afterimage, disappearance, stutter, p95/p99/>60ms and final beauty",
+  "completion": "World/Art Direction not complete; not production ready",
+  "restrictions": "PR remains Draft; no main merge, Ready, production Pages, save/schema, Character 3D or Resident Expression changes"
+}

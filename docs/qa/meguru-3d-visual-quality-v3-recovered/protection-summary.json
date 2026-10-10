@@ -1,0 +1,87 @@
+{
+  "before": "dc91d3e9f99c42cc337db9177c0812e91878facb",
+  "after": "704faac1e62690d9c4dff5e862a0d8d424cefff9",
+  "regions": {
+    "home": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": false
+    },
+    "city": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "countryside": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "forest": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "mountain": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "snow": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "sea": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "deepsea": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "river_lake": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "jungle": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "desert": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "star_stop": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "memory_lake": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    }
+  },
+  "renderedChanged": [
+    "home"
+  ]
+}

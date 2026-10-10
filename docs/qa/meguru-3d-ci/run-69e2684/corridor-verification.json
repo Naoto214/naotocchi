@@ -1,0 +1,293 @@
+{
+  "run_id": 37780406075,
+  "source_commit": "69e26840a4e853641f0c5443f7834b56b5b6e345",
+  "artifact": {
+    "id": 11551747731,
+    "node_id": "MDg6QXJ0aWZhY3QxMTU1MTc0NzczMQ==",
+    "name": "world-corridor-69e26840a4e853641f0c5443f7834b56b5b6e345",
+    "size_in_bytes": 13193364,
+    "url": "https://api.github.com/repos/Naoto214/naotocchi/actions/artifacts/11551747731",
+    "archive_download_url": "https://api.github.com/repos/Naoto214/naotocchi/actions/artifacts/11551747731/zip",
+    "expired": false,
+    "digest": "sha256:5a5efa01ba75a9d0361909eacc9dfdd3659124ed8954135cf5100124dd366f46",
+    "created_at": "2026-10-08T13:00:44Z",
+    "updated_at": "2026-10-08T13:00:44Z",
+    "expires_at": "2026-11-07T13:00:43Z",
+    "workflow_run": {
+      "id": 37780406075,
+      "repository_id": 1354417029,
+      "head_repository_id": 1354417029,
+      "head_branch": "feat/meguru-3d-geometry-terrain-v1",
+      "head_sha": "69e26840a4e853641f0c5443f7834b56b5b6e345"
+    }
+  },
+  "summary": {
+    "kind": "corridor",
+    "coverage": 8,
+    "issues": [],
+    "samples": 0,
+    "hidden": 0,
+    "partial": 0,
+    "maxPartyObstacleOverlap": 0,
+    "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+  },
+  "original_files": [
+    {
+      "path": "corridor/browser-environment.json",
+      "sha256": "0dbc1953e814fbb132922282da3c2bb0c5e3fb7356e7672c2ae33817dac3bf18",
+      "size": 152
+    },
+    {
+      "path": "corridor/commit.txt",
+      "sha256": "1006c5bc3093a9b3c9be2f3ad91f1b683d3950a85ff0abb460eaa92ad5c64f27",
+      "size": 41
+    },
+    {
+      "path": "corridor/corridor/city_sea_city-arrived.png",
+      "sha256": "178b6e2ee18f49195ca4cbd20546ff47015882b172b099cfaaa49e190d5952c8",
+      "size": 320594
+    },
+    {
+      "path": "corridor/corridor/city_sea_city-corridor-0.png",
+      "sha256": "23a6cdef68c6317db671b3ac30a0016507b9603c18d9df24ef6010d10a90a169",
+      "size": 285351
+    },
+    {
+      "path": "corridor/corridor/city_sea_city-corridor-1.png",
+      "sha256": "744f922315824123afb4ed7f52e8041319c22aebac3611032f7e04c566d893f9",
+      "size": 259195
+    },
+    {
+      "path": "corridor/corridor/city_sea_city-corridor-2.png",
+      "sha256": "cb26cecfe14f0eaa8f587f296551924a8d161da6986ec974e0da73dc65c4ab16",
+      "size": 322996
+    },
+    {
+      "path": "corridor/corridor/city_sea_city-corridor-3.png",
+      "sha256": "d301e37d92e02a27732d62f618daa5d36a8e2779aca7e1c3fe3530928080c3c8",
+      "size": 305660
+    },
+    {
+      "path": "corridor/corridor/city_sea_sea-arrived.png",
+      "sha256": "693a94184514ab2537938eaa2e83c1ac3003c26f393feb580951fb98fb345690",
+      "size": 286246
+    },
+    {
+      "path": "corridor/corridor/city_sea_sea-corridor-0.png",
+      "sha256": "94ee970c4d3fb159bb237c67a70381f10298dbc6dcba47a345ddbf108c990a92",
+      "size": 302313
+    },
+    {
+      "path": "corridor/corridor/city_sea_sea-corridor-1.png",
+      "sha256": "2574acc2ed137b25468ccad8eae1ad3ed75181d9f0e9785c82bae67d148c5404",
+      "size": 287459
+    },
+    {
+      "path": "corridor/corridor/city_sea_sea-corridor-2.png",
+      "sha256": "8018f003bff364e5a019d77eb7036b833aea6600d27ffb0ac496a961e1f0340b",
+      "size": 295860
+    },
+    {
+      "path": "corridor/corridor/city_sea_sea-corridor-3.png",
+      "sha256": "18c9ac804fd801d609a9d0a3c50596c51bc6108224d032694ad676f36f59161a",
+      "size": 277762
+    },
+    {
+      "path": "corridor/corridor/city_sea_sea-corridor-4.png",
+      "sha256": "2ee0c65ad6ed8313081c7b8229867f9cfc8227f0cd162ecd04b86ec4bae7883a",
+      "size": 282028
+    },
+    {
+      "path": "corridor/corridor/corridor-qa.json",
+      "sha256": "99f43d077aa64fdb1cbb4349295c0885ae3d9a1932cb02c1172758604b68b926",
+      "size": 66267
+    },
+    {
+      "path": "corridor/corridor/countryside_forest_countryside-arrived.png",
+      "sha256": "6e08c64fae803082f1e60dd219c057a8b7096258d4822408a3b85eee5a3c45dc",
+      "size": 345893
+    },
+    {
+      "path": "corridor/corridor/countryside_forest_countryside-corridor-0.png",
+      "sha256": "ad604f99e30e3235309238ba921ba9fdd298a6f112d68e4480edfed5d025bdf6",
+      "size": 288820
+    },
+    {
+      "path": "corridor/corridor/countryside_forest_countryside-corridor-1.png",
+      "sha256": "6f803285d2d1c20dcac601a5872412007e897e43e95ad76bff287ee37cea3a5d",
+      "size": 297625
+    },
+    {
+      "path": "corridor/corridor/countryside_forest_countryside-corridor-2.png",
+      "sha256": "f659e778d9f854cc5b7bd9740ba659107de6f562da1e5e02dded32daa2490837",
+      "size": 327167
+    },
+    {
+      "path": "corridor/corridor/countryside_forest_countryside-corridor-3.png",
+      "sha256": "3aaa06faa8fac7bde6916bf41fe11146f61490ff7adac06d4bf7259e6f4dbc54",
+      "size": 302909
+    },
+    {
+      "path": "corridor/corridor/countryside_forest_forest-arrived.png",
+      "sha256": "327954ffe2ee99daec9afa330a606f5396d1ec1d73653f76cbab1c39f816784c",
+      "size": 357604
+    },
+    {
+      "path": "corridor/corridor/countryside_forest_forest-corridor-0.png",
+      "sha256": "13122105004369c75a923c0b888cc8cb8dd1f26459f48c0810a0cdf62232ca56",
+      "size": 311832
+    },
+    {
+      "path": "corridor/corridor/countryside_forest_forest-corridor-1.png",
+      "sha256": "e4ad9c00ff4757f3d7d25ac81e9c258d2685c615ee8365574276cfb7a696f58b",
+      "size": 318238
+    },
+    {
+      "path": "corridor/corridor/countryside_forest_forest-corridor-2.png",
+      "sha256": "399d006139697558c1fd920da6446c61fde0638f719c835c35ba75f6dc72011d",
+      "size": 330079
+    },
+    {
+      "path": "corridor/corridor/countryside_forest_forest-corridor-3.png",
+      "sha256": "feb7bd6bec70f7f26bad69bb644d937afbeaa736cf32e286a84143a8dad11908",
+      "size": 335798
+    },
+    {
+      "path": "corridor/corridor/countryside_forest_forest-corridor-4.png",
+      "sha256": "a602d7b4f2755556562e52c2696c33027472c19e4e98e67685c20627506a4651",
+      "size": 392358
+    },
+    {
+      "path": "corridor/corridor/forest_mountain_forest-arrived.png",
+      "sha256": "fa517b4b1e569775a3e2406a83773c72b507ac5816c47c7414fc09cff92f2d93",
+      "size": 328839
+    },
+    {
+      "path": "corridor/corridor/forest_mountain_forest-corridor-0.png",
+      "sha256": "603f1a686e9f775e33f5edd47568016fea3eee54b809ec8057074b5d7c1321e4",
+      "size": 311173
+    },
+    {
+      "path": "corridor/corridor/forest_mountain_forest-corridor-1.png",
+      "sha256": "ad3a97b617b5e03f279ea4c18f4ef9928411d9aa70f53b16d7630cf9a9807bdf",
+      "size": 306507
+    },
+    {
+      "path": "corridor/corridor/forest_mountain_forest-corridor-2.png",
+      "sha256": "c680cfaa903d2a4dbafd75c2d62801773cad6b4a66397f0064b13deabed2710a",
+      "size": 338190
+    },
+    {
+      "path": "corridor/corridor/forest_mountain_forest-corridor-3.png",
+      "sha256": "d1dfa8f8a92ad31da88852e4311ef45417cb27f7f7d2c02dc09c97aa6b50f343",
+      "size": 323398
+    },
+    {
+      "path": "corridor/corridor/forest_mountain_mountain-arrived.png",
+      "sha256": "b67f4f2cb9d40258ad36ddf1e1a8317b2197f51c796dac0f63f815135a695833",
+      "size": 395160
+    },
+    {
+      "path": "corridor/corridor/forest_mountain_mountain-corridor-0.png",
+      "sha256": "d3d62a3ba1790d37ba607b87c5cd1d10c47775bb7ad708fc40b1443ab12559c9",
+      "size": 310603
+    },
+    {
+      "path": "corridor/corridor/forest_mountain_mountain-corridor-1.png",
+      "sha256": "0daf42ec04cee8106f03934b0fc16be113ba5ba82e6c2a7121ac559e9b981fd2",
+      "size": 308480
+    },
+    {
+      "path": "corridor/corridor/forest_mountain_mountain-corridor-2.png",
+      "sha256": "88ccf6c440680bef34861f7cc7659a10d1f178f4a80d17930bba73d916729296",
+      "size": 320300
+    },
+    {
+      "path": "corridor/corridor/forest_mountain_mountain-corridor-3.png",
+      "sha256": "e26154fd0b4d4afdf384da58aeeb10748206a83f1a9a3aa9c670a3c6f9423cec",
+      "size": 308275
+    },
+    {
+      "path": "corridor/corridor/home_forest_forest-arrived.png",
+      "sha256": "198d4924dafa2f5e82eb71be058250cd0672cfdef598ec1207f7adba08ac0207",
+      "size": 331362
+    },
+    {
+      "path": "corridor/corridor/home_forest_forest-corridor-0.png",
+      "sha256": "4b4144dfdc266504589b51f65f42f51623d75c4f3a09728c6839f192d06cfc7b",
+      "size": 311024
+    },
+    {
+      "path": "corridor/corridor/home_forest_forest-corridor-1.png",
+      "sha256": "e55c661ff463666ee3e2d007172623e8af8c685cf355aef4f3962e0495139dfa",
+      "size": 299238
+    },
+    {
+      "path": "corridor/corridor/home_forest_forest-corridor-2.png",
+      "sha256": "baf116f24303a68e505f8c35cb1a41245bb480d638de573db5ab6098b29d023f",
+      "size": 306500
+    },
+    {
+      "path": "corridor/corridor/home_forest_forest-corridor-3.png",
+      "sha256": "c7e6e379700b31f389b7fcf6ab007c4c6bc81125978d0616b328c8be09507d45",
+      "size": 289055
+    },
+    {
+      "path": "corridor/corridor/home_forest_home-arrived.png",
+      "sha256": "3e4105aba39eb7d91167a112b225cd108d5672418a21d4cca3c90c3247557e3b",
+      "size": 364717
+    },
+    {
+      "path": "corridor/corridor/home_forest_home-corridor-0.png",
+      "sha256": "b499f16289ae55b757b9c4d2879d46ffbf943c844719bef689ea70e1be44585b",
+      "size": 292554
+    },
+    {
+      "path": "corridor/corridor/home_forest_home-corridor-1.png",
+      "sha256": "3e62812e940c013d7e49f4467061e6c720052d0aae96e895d0a775bb00a80884",
+      "size": 293196
+    },
+    {
+      "path": "corridor/corridor/home_forest_home-corridor-2.png",
+      "sha256": "0266124bc91dcdebbdbd954d77aaebb8a73a713b373c941e8b4c85bf662a1a76",
+      "size": 320844
+    },
+    {
+      "path": "corridor/corridor/home_forest_home-corridor-3.png",
+      "sha256": "7a76c2549759ce0e067ee28fa73b430ee210ebce94a3688868e283c48f3b55dc",
+      "size": 303330
+    },
+    {
+      "path": "corridor/corridor.log",
+      "sha256": "c85da781b4ca3d513b27b5aa4447e3cd61b224d2b1e905e8965c78af8ec832d0",
+      "size": 1056
+    },
+    {
+      "path": "corridor/node-version.txt",
+      "sha256": "33e26f35db6e57ce0c486ddc815fe966867e4f649e418eaf323f75f4720eb8e9",
+      "size": 9
+    },
+    {
+      "path": "corridor/runner-exit-code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "size": 2
+    },
+    {
+      "path": "corridor/source-sha256.txt",
+      "sha256": "ec9f0597a5901b878f9f4cc2f8ed7d541c040c46e160c9921e5fff80e9511d17",
+      "size": 233
+    },
+    {
+      "path": "corridor/summary.json",
+      "sha256": "19c90339925e4a7e238137f649d621999ff4f2c0b1da2f66fbc2f24850b11d2d",
+      "size": 257
+    },
+    {
+      "path": "corridor/summary.log",
+      "sha256": "57c189ddec11d771525997f498f842738802a766d10b3d356c96fb9cd2226d0b",
+      "size": 224
+    }
+  ],
+  "exit_code": 0,
+  "human_qa": false
+}

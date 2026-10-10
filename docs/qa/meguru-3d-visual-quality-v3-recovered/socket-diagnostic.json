@@ -1,0 +1,11 @@
+[
+  {
+    "family": "AF_UNIX",
+    "error": "[Errno 1] Operation not permitted",
+    "errno": 1
+  },
+  {
+    "family": "AF_INET",
+    "socket": "ok"
+  }
+]

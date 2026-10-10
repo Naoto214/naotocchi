@@ -1,0 +1,90 @@
+name: World visual quality (Draft branch)
+
+on:
+  push:
+    branches: [feat/meguru-3d-geometry-terrain-v1]
+    paths:
+      - meguru.js
+      - meguru-3d.mjs
+      - index.html
+      - 'package*.json'
+      - 'tests/**'
+      - 'tools/meguru-3d-qa/**'
+      - '.github/workflows/world-visual-quality.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: world-visual-quality-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - name: Full package pipeline (Node test concurrency 4)
+        shell: bash
+        run: |
+          mkdir -p qa-artifacts
+          git rev-parse HEAD > qa-artifacts/commit.txt
+          sha256sum meguru.js meguru-3d.mjs index.html > qa-artifacts/source-sha256.txt
+          node --version > qa-artifacts/node-version.txt
+          node -p "require('./package.json').scripts.test.replaceAll('node --test', 'node --test --test-concurrency=4')" > qa-artifacts/command.txt
+          set +e
+          bash -o pipefail -c "$(cat qa-artifacts/command.txt)" 2>&1 | tee qa-artifacts/full.log
+          result=${PIPESTATUS[0]}
+          echo "$result" > qa-artifacts/exit-code.txt
+          exit "$result"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: world-regression-${{ github.sha }}
+          path: qa-artifacts
+          retention-days: 30
+
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        audit: [captures, smoke, corridor, visibility]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: current
+      - uses: actions/checkout@v4
+        if: matrix.audit == 'captures'
+        with:
+          ref: cf500370365b49b8c7f538c92b009e934cf8844b
+          path: before
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install browser QA dependencies
+        working-directory: current
+        run: |
+          npm ci
+          npm install --no-save --package-lock=false playwright@1.51.1
+          npx playwright install --with-deps chromium
+          echo "PLAYWRIGHT_CHROMIUM=$(node -p 'require("playwright").chromium.executablePath()')" >> "$GITHUB_ENV"
+          echo "NODE_PATH=$PWD/node_modules" >> "$GITHUB_ENV"
+      - name: Run existing World audit
+        working-directory: current
+        env:
+          WORLD_QA_AUDIT: ${{ matrix.audit }}
+          YAWS: 0,1.2,-1.2,3.14
+        run: bash tools/meguru-3d-qa/ci-run.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: world-${{ matrix.audit }}-${{ github.sha }}
+          path: current/qa-artifacts
+          retention-days: 30

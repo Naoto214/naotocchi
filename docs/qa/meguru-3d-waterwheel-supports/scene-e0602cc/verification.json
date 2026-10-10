@@ -1,0 +1,144 @@
+{
+  "run_id": 37870051239,
+  "artifact_id": 11589519928,
+  "source_commit": "e0602cc6767447a102ad93df3d19377b204f3954",
+  "before_commit": "cf500370365b49b8c7f538c92b009e934cf8844b",
+  "zip_sha256": "30d5145aa6738fa7ebde28cd4502d7fff7269bb58b70483650bd38281b83a696",
+  "zip_digest_match": true,
+  "source_hashes_match_both_commits": true,
+  "exact_target_hashes_match": true,
+  "matching_cameras": 8,
+  "source_distinct_pairs": 8,
+  "exit_code": 0,
+  "errors": [],
+  "image_review": "inspected_all_8_pairs_river_tree_overlap_unresolved",
+  "human_qa": false,
+  "iphone_performance": false,
+  "files": [
+    {
+      "path": "after/inspection.json",
+      "sha256": "48fa6ac65ff078d6c797ec09d0953c69b47adc31a0c41fc45b91d6027f4baa1f",
+      "bytes": 3845
+    },
+    {
+      "path": "after/prop-wheel-0.jpg",
+      "sha256": "fbd3d8a867e605e3903946f703795c1c77774394cd9b4efc405c51b03c28e59b",
+      "bytes": 48464
+    },
+    {
+      "path": "after/prop-wheel-1.jpg",
+      "sha256": "e987d056ae3aad5d8fa1766b3900dbc3f6ecbc2ed88ea3dc59f691f568b100d3",
+      "bytes": 62456
+    },
+    {
+      "path": "after/prop-wheel-2.jpg",
+      "sha256": "ba1754601953d6a8ce2aa39d076e5c3d05e3244dd2b310738f829d7b84232f6a",
+      "bytes": 59255
+    },
+    {
+      "path": "after/prop-wheel-3.jpg",
+      "sha256": "0b79d465425e0c9bd5731ccd63c7361295aec1b385714f0a55105dc630b7e3c2",
+      "bytes": 63144
+    },
+    {
+      "path": "after/prop-wheel-river-0.jpg",
+      "sha256": "6e9c834704f9c9af5b8432c3366668c7c1d4c29bec733a33ccd85b1af64af9ef",
+      "bytes": 49738
+    },
+    {
+      "path": "after/prop-wheel-river-1.jpg",
+      "sha256": "3aa6eee36c424597c227995e6e2462b209bb1e5ec0f84b9f07cd46f447d82e86",
+      "bytes": 66227
+    },
+    {
+      "path": "after/prop-wheel-river-2.jpg",
+      "sha256": "3c20607aca3521b5148d53f51f9500d09bb06795ad74a9bca87bc37c61b7b2de",
+      "bytes": 58979
+    },
+    {
+      "path": "after/prop-wheel-river-3.jpg",
+      "sha256": "fc82098adb8c78856aecee6db39aeca29d7ac1a55a5e15a22159dc917237adfd",
+      "bytes": 68196
+    },
+    {
+      "path": "after.log",
+      "sha256": "7498ea46f0cf3fc57f3582c09aba11f488533bc881ae06553090868ce6f59987",
+      "bytes": 1476
+    },
+    {
+      "path": "before/inspection.json",
+      "sha256": "1774b09aa44f6add950f1bc4230ad4da07880ff4ecb101b4bb16d8e713267f60",
+      "bytes": 3845
+    },
+    {
+      "path": "before/prop-wheel-0.jpg",
+      "sha256": "81b3df5aca6d510f46fdd8adca8084c621cbee68234ff1669690eb2cb4cb35fe",
+      "bytes": 47780
+    },
+    {
+      "path": "before/prop-wheel-1.jpg",
+      "sha256": "c5b37f70b562cb16082745441a1b0b79131f441afd4a5c8a1312bafee34848a5",
+      "bytes": 62101
+    },
+    {
+      "path": "before/prop-wheel-2.jpg",
+      "sha256": "942aa405d002db5a33dc1ab03b77d0eccac5d481414beac3e5c446cda2456f88",
+      "bytes": 58293
+    },
+    {
+      "path": "before/prop-wheel-3.jpg",
+      "sha256": "88158e630e4f8e82444968bf660577bd3a31eb8ee65b02695a9610d41ce1f1ea",
+      "bytes": 62478
+    },
+    {
+      "path": "before/prop-wheel-river-0.jpg",
+      "sha256": "aa84925ae0a2bd9b375f9e7f9ad5c98338cbe83f84e9bff860ee4b9d6b562964",
+      "bytes": 49809
+    },
+    {
+      "path": "before/prop-wheel-river-1.jpg",
+      "sha256": "38658c8e647ca95f1df4a99ab6d0d360290492644e86826074bd0557173cf587",
+      "bytes": 66068
+    },
+    {
+      "path": "before/prop-wheel-river-2.jpg",
+      "sha256": "d33a7ac3a1d72fe35acab6fa0e42231a6b8e47e7b01297239233c60220ee9d4d",
+      "bytes": 58127
+    },
+    {
+      "path": "before/prop-wheel-river-3.jpg",
+      "sha256": "667a43b23fe5994b9b87ae873b7a110855abbef5c9eb50a109d7f94fd3cd421a",
+      "bytes": 68342
+    },
+    {
+      "path": "before-commit.txt",
+      "sha256": "95088bb5beacff0b0de5a360cc6ee93ec7bd60df4a5ccd4e0c8698f294988bfd",
+      "bytes": 41
+    },
+    {
+      "path": "before-source-sha256.txt",
+      "sha256": "834218f718111bcca9f99a49232a099f13ad11509e7746843e9e2ee4d260460c",
+      "bytes": 233
+    },
+    {
+      "path": "before.log",
+      "sha256": "f78932be3334ea44c1224221c379c1d5971ccc12f1ac38b5fa86b9de7bc5f286",
+      "bytes": 1476
+    },
+    {
+      "path": "commit.txt",
+      "sha256": "60c075fdbc934a1e4d937f75b0c3f9f0e5fe0006467b46037cdecff37a44ecdd",
+      "bytes": 41
+    },
+    {
+      "path": "runner-exit-code.txt",
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "bytes": 2
+    },
+    {
+      "path": "source-sha256.txt",
+      "sha256": "ec9f0597a5901b878f9f4cc2f8ed7d541c040c46e160c9921e5fff80e9511d17",
+      "bytes": 233
+    }
+  ]
+}

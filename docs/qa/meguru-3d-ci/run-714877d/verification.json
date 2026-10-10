@@ -1,0 +1,79 @@
+{
+  "sourceCommit": "714877dd8121e24c3f5d08ab627ca013ef24ae79",
+  "productCheckpoint": "a41dd089c5f71809974b62b7c1ec8f7b213fad81",
+  "baselineCommit": "1e2caad68912a1ede263b4fc90ed431706183b5e",
+  "runId": 37181442283,
+  "runUrl": "https://github.com/Naoto214/naotocchi/actions/runs/37181442283",
+  "regression": {
+    "mainPass": 2864,
+    "relationshipPass": 80,
+    "fail": 0,
+    "exit": 0,
+    "command": "package.json full pipeline; only node --test changed to node --test --test-concurrency=4"
+  },
+  "captures": {
+    "worldPerSide": 31,
+    "entrancesPerSide": 4,
+    "galleryPerSide": 20,
+    "active3D": true,
+    "errors": 0
+  },
+  "smoke": {
+    "kind": "smoke",
+    "coverage": 13,
+    "issues": [],
+    "samples": 0,
+    "hidden": 0,
+    "partial": 0,
+    "maxPartyObstacleOverlap": 4.973799150320701e-14,
+    "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+  },
+  "corridor": {
+    "kind": "corridor",
+    "coverage": 8,
+    "issues": [],
+    "samples": 0,
+    "hidden": 0,
+    "partial": 0,
+    "maxPartyObstacleOverlap": 0,
+    "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+  },
+  "visibility": {
+    "kind": "visibility",
+    "coverage": 13,
+    "issues": [],
+    "samples": 2832,
+    "hidden": 0,
+    "partial": 1,
+    "maxPartyObstacleOverlap": 0,
+    "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+  },
+  "visibilityConditions": {
+    "step": 1000,
+    "yaws": [
+      0,
+      1.2,
+      -1.2,
+      3.14
+    ],
+    "method": "ray probe; not pixel visibility or Human QA"
+  },
+  "historicalObservations": {
+    "vq2Visibility": {
+      "samples": 2832,
+      "hidden": 0,
+      "partial": 1,
+      "region": "mountain"
+    },
+    "vq2PartyCircularObstacleOverlap": 0.002591405357044607,
+    "17c1bdbRegression": {
+      "pass": 2858,
+      "fail": 1,
+      "formationMs": 463,
+      "unchangedUpperBoundMs": 300,
+      "isolatedRerun": "pass",
+      "cause": "unconfirmed"
+    }
+  },
+  "humanQa": "pending; iPhone ghost/afterimage/player disappearance/stutter/p95/p99/>60ms/final beauty"
+}

@@ -1,0 +1,91 @@
+{
+  "baselineCode": "704faac1e62690d9c4dff5e862a0d8d424cefff9",
+  "baselineEvidence": "1e2caad68912a1ede263b4fc90ed431706183b5e",
+  "sourceSha256": "7419ede1f63e838a497d3f335013927f4dae79afe573d2f86492415b498e0d16",
+  "regions": {
+    "home": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": false
+    },
+    "city": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "countryside": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "forest": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "mountain": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "snow": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "sea": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "deepsea": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "river_lake": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "jungle": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "desert": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "star_stop": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    },
+    "memory_lake": {
+      "world2d": true,
+      "worldSemantics": true,
+      "collision": true,
+      "rendered": true
+    }
+  },
+  "geometry": {
+    "float": 4,
+    "bury": 18,
+    "crossings": 18,
+    "valid": true
+  }
+}

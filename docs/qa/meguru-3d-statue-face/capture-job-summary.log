@@ -1,0 +1,7 @@
+Source: 61412b0b0dcb097e738476fda7a69cb142a0786c; full CI 38032036132; job 114154815437 success.
+Decoded job-log excerpt only; general capture ZIP not downloaded or visually reviewed.
+General baseline cf50037 also predates waterwheel/telescope changes; statue-specific paired images use f817ad4 instead.
+2026-10-10T06:55:19.5892870Z prop-statue {"active":true,"triangles":4730,"calls":9,"camera":{"x":0,"z":500,"yaw":-1.1207963267948966,"dist":130,"height":1}}
+2026-10-10T06:55:38.1054240Z prop-statue {"active":true,"triangles":4674,"calls":9,"camera":{"x":0,"z":500,"yaw":-1.1207963267948966,"dist":130,"height":1}}
+2026-10-10T06:55:43.5846161Z SHA256 digest of uploaded artifact zip is 811b85a587b70d73e1c64e1fae28e12679223335ee58ce8f8262d713f164eb38
+2026-10-10T06:55:43.8118853Z Artifact world-captures-61412b0b0dcb097e738476fda7a69cb142a0786c.zip successfully finalized. Artifact ID 11662312102

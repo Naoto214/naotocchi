@@ -1,0 +1,117 @@
+✔ index.html asset references exist and carry cache tokens (6.598794ms)
+✔ the bump tool rewrites only cache tokens (1.662822ms)
+(node:14) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/28c7e6574f23/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/28c7e6574f23/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ AD-1. scene dressing の 契約: 3D だけ・あたり なし・ふんで とおれる・群生(2〜8)・道 / spot / かたい 物 / 水 には おかない (11693.283891ms)
+✔ AD-2. 配置は「空いた ところに 均一に 置く」では なく 群生 + 意図した 余白: 道ばたの 帯(roadside)と ます目(grid)の 両方・余白が ある (2.399719ms)
+✔ AD-3. remove-it: 2D の world と corridor には dressing が ない(3D だけ)。cover を 外した profile では 群生 0 (598.432611ms)
+✔ AD-4. 花は 地域に あった いろ・場所: home / forest / jungle / countryside に 花の 群生、しんかい / ゆき には 花 なし、さばくは オアシスの まわり だけ (1.778811ms)
+✔ AD-5. Tree v3: 針葉樹 4〜5 段(明暗・下ほど ひろい)、広葉樹は かたまり 2〜5(明 / 中 / 暗)、ヤシは は 5〜8(はばは 長さに 比例) (3.846059ms)
+✔ AD-6. gate: もり と ジャングルは 1 まいの 絵で 見わけが つく(葉の palette・きりの いろ・ジャングル だけ 大きな は / つる / 根もとの 下草 / lowPoly) (5.485013ms)
+✔ AD-7. Building v4: family ごとの かたまり・屋根の かたち(切妻 / 寄棟 / 平ら)・のき・土台・入口 と まど・かたまりの 足し(ポーチ / 出窓 / 縁側 / はなれ / ベランダ / 煙突 / ひさし)・シルエット 高さ / はば ≤ 1.5 (4.23882ms)
+✔ AD-8. city scene: 低層 / 中層 / 高層の まざり・灰 だけで ない いろ・みせ(ガラス + ひさし + 看板 + たて看板)・路地の かべも 正面を もつ・高さは 床の 5.5 倍まで (5.097624ms)
+✔ AD-9. city の 小物: 自転車・自販機は 3D の かたち(unresolved なし)。街路樹・信号・横断歩道・電柱は そのまま (1.075882ms)
+✔ AD-10. いけがき は 箱では なく まるい しげみの れつ(あたりの 箱の なか・あたまより 下) (1.178403ms)
+✔ AD-11. 水の 統合: 川は なめらかに 曲がり はばが ゆれる(riverCurve・pure)。見た目の 水は あたりの 帯の 内がわ。川岸に 石 / あし / 草 / 花の 帯 (45.840741ms)
+✔ AD-12. Bridge v4: 交わりに かかる(ながさ ≥ 水の はば)・床の 上面は 水面より 上・床より 下から ささえる 橋脚 / 橋台・種類で かたちが ちがう (1.793523ms)
+✔ AD-13. さばくの サボテンは 大きく 4 種(柱・枝分かれ・まる・むれ)。オアシスの まわりは 花 で 対比 (0.532134ms)
+✔ AD-14. 光: 明るい fill と 方向光で 面を 分ける・岩 / がけの 明るさ と 地域 palette を 保つ (0.405879ms)
+✔ AD-15. 箱庭の 比率: ビルは 床の 5.5 倍まで、大木の 幹は あたりより ほそい、花 / しげみ / 街の 小物は 見える 大きさ、まど / 入口は 家に 対して 小さい (3.297302ms)
+✔ AD-16. density gate: 代表 spot(各地域 最初の ひろば)から 前景(〜250)/ 中景(250〜700)/ 遠景(700〜1800)の それぞれに 意味の ある 物が 1 つ いじょう。道の 方向は 読める(道の 上に 物 なし) (76.643067ms)
+✔ AD-17. Human QA gate の 記録: 13 地域 × 7 条件(ひと目で 地域・さびしく ない・箱っぽく ない・いろ・歩きたい・見どころ・前景 / 中景 / 遠景)が status doc に ある。main merge / Ready は しない (0.530269ms)
+✔ AD-18. 原則だけ: Nintendo / どうぶつの森 固有の 名まえ・asset・模様は code にも doc にも 出てこない (5.447674ms)
+(node:15) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/28c7e6574f23/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/28c7e6574f23/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ v2-1. player の 絵は きりで 消えない: キャラの material は fog なし・frustum culling なし・きりの 遠端は player + 900 より 遠く (1.404911ms)
+✔ v2-2. billboardVisible: 座標に いる のに 描かれない 状態(hidden / scale NaN / texture なし / きりの むこう)を 1 つの 判定で 見つける (57.953424ms)
+✔ v2-3. すかしは 見た目の 半径(えだはり)で 判定し、線分より 低い 物は すかさない。あたりの 半径 だけの 旧 判定も そのまま 通る (1.118403ms)
+✔ v2-4. ghost pool の 契約: 使った ものだけ visible、使わなかった ものは その frame で hidden、1 frame 使わなければ scene から はずす、pool は つかいまわす (2.378021ms)
+✔ v2-5. レンダラーの 切りかえで ghost が のこらない: scene の 捨て(地域 / corridor)・3D → 2D(fallback / 2D の 地域)で clear、stats に ghost と player (1.797566ms)
+✔ v2-6. corridor(地域の あいだの 道)は 3D で 描く: 10 本 × 2 方向 ぜんぶ 3D の 対象。飾りは ぜんぶ 意味の 表で 解決し(unresolved 0)、はしの いし だけ かたい (160.176069ms)
+✔ v2-7. corridor の gameplay は かわらない: 帯の 左右と はしの いし の あたり、着く / もどる、party の 受けわたし、セーブ なし (90.88183ms)
+✔ v2-8. しらせ: ふつうの spot と 地区は toast なし、ランドマークは quiet(左上の 静かな 強調)、ひみつ だけ toast。きろくは かわらない (1554.678221ms)
+✔ v2-9. ちずの 表示 filter: ふつうの 池・休憩所・小さな 橋・通過点は 出さず、現在地・つながり・gate・ランドマーク・ひみつ・hub / ひろば は 出す。きろくと 分母は かわらない (2206.813734ms)
+✔ v2-10. 帯(strip)の geometry は 1 まいに つながる: frame × lane の 頂点を 共有し、となりの frame と 面で つながる(池の ならび では ない) (1.874984ms)
+✔ v2-11. 川(river_lake)= terrain.pts からの 1 本の 帯(岸つき)。帯に かくれる 池は おかない。しんかいの 谷も 1 本の 帯 (1676.690125ms)
+✔ v2-12. 海(sea)/ 湖(memory_lake)= 岸線から 水平線まで 1 まいの 面(ぬれた 砂 → 浅瀬 → 沖)+ 岸の あわ。岸の むこうの 池は おかない (828.226978ms)
+✔ v2-13. 水の 見た目は あたり(walkability)を かえない: 岸の clamp・池の あたり・橋は 2D と 同じ。水の 面は あたりを もたない (2714.439406ms)
+✔ v2-14. Kit v2 の 原型: 昆布は 曲がった は(木 / 柱では ない)、遺跡は くずれた かべ、はしは いみ ごと、たてものは body + 屋根 + 入口 + まど (15635.775663ms)
+✔ v2-15. Region Profile v2: 13 地域 ぜんぶに family(terrain / veg / arch / water / density / landmark / sky)。まちは palette で ビルの いろ と 階数が ばらつき、電柱が ある (6833.833666ms)
+(node:21) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/28c7e6574f23/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/28c7e6574f23/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ GA-1. 接地: 地面に つく parts は 足もとの いちばん ひくい 地面まで(斜面で 岩 / 盛り土 / 根 / 岸の 花が 浮かない)。13 地域 (14855.696961ms)
+✔ GA-2. 小川 / 川 の 交わり: 橋の 交わり には 橋(床 > 水面・ながさ ≥ 水の はば)、そのほかは 飛び石。ランドマークの 橋は 交わりの 上に ある とき だけ うけもつ (0.687819ms)
+✔ GA-3. 小川と 池を わける: ながれの 帯の 中に 池の 円盤(水の 小物)を おかない (0.280854ms)
+✔ GA-4. Building v4: 塔の ような 家 なし(シルエット 高さ / いちばん ひろい はば ≤ 1.6、看板 / 屋根の はりだし を ふくむ) (0.701214ms)
+✔ GA-5. 小物の 読みやすさ(props gate): 車 = 車輪・望遠鏡 = 3 本 足 + かたむいた 筒・像 = だい + からだ + あたま・かまくら = いりぐち・箱の 小物 = ひさし + 窓。絵文字の 立て看板 は のこって いない (14219.611912ms)
+✔ GA-6. 季節 / 天気 は 2D の 正本に あわせる: 針葉樹の 雪 = ゆき の 地域 か 冬、山の 頂の 雪 = それ + 雪の 日、deepsea / star_stop は 地表の 季節 なし (9.895891ms)
+✔ GA-7. 地域の 識別性(数で): いえ ≠ いなか(いなかは ひらけ +0.1 いじょう・構成の cosine < 0.75)、もり ≠ ジャングル(ジャングルは 見とおし せまく・高い 層・cosine < 0.6) (5225.602752ms)
+(node:45) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/28c7e6574f23/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/28c7e6574f23/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ GT-1. runtime P0(HQ-1 / HQ-2 / HQ-3): すかしは ray で ほんとうに 隠す 物 だけ・もとの いろ・大きな 物は うすく・ちらつかない・変わった instance だけ 送る (50.874266ms)
+✔ GT-2. ray の 格子(pure): 線分が とおる ます目の instance だけ が 候補 (1.096922ms)
+✔ GT-3. 予算(HQ-4): うすい 板は 1 まい・幹は ふたなし・mound は 下半分 なし・花の まんなか 8 三角形。透明 fade で けさない (0.418022ms)
+✔ GT-4. Terrain v1(HQ-5): 意味の ある 起伏。道 / spot は 平ら、ひらけた ところ に 丘、小川は 谷、池は くぼ地、海は 水へ ひくく。ランダムな こぶ だけ では ない (7571.821528ms)
+✔ GT-5. Creek / River v3(HQ-6): 小川は spot の 円盤の ならび では なく 1 本の ながれ。橋の spot の 下を とおり、道を 横切る ところは 橋 か 飛び石。道 / かたい 物 の 上を ながれない (1223.184865ms)
+✔ GT-6. Water(HQ-7): 海 / 川 / 池 で 水の 面を かえる(海 = 浅瀬 → 沖 → 水平線、川 = 谷の 中の ながれる 面、池 = しずかな くぼ地の 面) (0.961163ms)
+✔ GT-7. home と countryside(HQ-10): いえ = 家ごとの 庭(花だん・ポスト・ひくい さく・飛び石)、いなか = ひろい 畑 と 用水路 と 板の はし(庭 なし) (0.942985ms)
+✔ GT-8. forest と jungle(HQ-11): もり = つめたい みどり・たおれた 丸太・しだ・きのこ・見とおし ほどほど。ジャングル = 多層(大きな は の 下草・ヤシ・canopy の つる)・しめった もや (282.244382ms)
+✔ GT-9. Tree v4(HQ-12): 根もとの はり・2 だんの 幹(すこし かたむく)・かんむりへ のびる 枝・白っぽい ほそい 木(すずしい 地域) (1.198175ms)
+✔ GT-10. props gate(HQ-13): ラベル なしで わかる。自転車は 立って いる、水車 / 観覧車の わ は たて (3647.543619ms)
+✔ GT-11. 13 地域の grammar(HQ-14): 背景の 絵 なしで 3D だけで 地域が わかる きまり (0.412814ms)
+✔ GT-12. 季節 / 天気(HQ-15): 山は 夏(高原の みどり)と 冬(雪)で 地面が かわる・大木も 季節の いろ・3D でも 雨 / 雪 (0.965959ms)
+✔ GT-13. Human QA の 記録 と status: 未承認・main merge しない・Ready に しない・production Pages を かえない。特定の 作品の 名まえは 出さない (4.067528ms)
+(node:53) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/28c7e6574f23/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/28c7e6574f23/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ 1. フラグなし: forest の world は いまの 2D の まま(props・あたり・3D の しるし なし) (1.621034ms)
+✔ 2. 3D モード: 道の うえの かたい 物は 見た目ごと 道の そとへ(約 1.5 × 大きさ まで)。おけない ものは 3D では おかない (3.209554ms)
+✔ 3. 3D の かたい 物は かならず あたりが あり、あたまより 下の 見た目は あたり + 10 まで(とおれる 木・見えない かべ なし) (3.694029ms)
+✔ 3b. ランドマーク(3D だけ): spot から 見た むきを たもって おく(±30 度)。たきは がけ = あたりの 箱 で、たきつぼ・あわ と いっしょ (4.315899ms)
+✔ 3c. せかいは 3D・キャラだけ 2D: けしきの 物に 立て看板・意味の ちがう 置きかえ・なぞの placeholder は ない (3.199449ms)
+✔ 3d. すかし(occlusion)は カメラ → player の あいだに ある かたい 物 だけ。とおい から すける こと は ない (50.692863ms)
+✔ 3e. たき は うしろ・よこ からも 岩の おか: がけの うしろに 岩の かたまり(あたり つき)が あり、見た目 = あたり (11.4851ms)
+✔ 4. 3D モードでも 道は ふさがない: 道はばの 3/4 の なか・spot の まんなか は あいて いる (2295.746827ms)
+✔ 5. 3D モードの forest: 50 の spot に ぜんぶ あるいて 行ける (2038.38984ms)
+✔ 6. 3D モードの forest: 27 にんの なかまも player も かたい 物に めりこまない (2534.778936ms)
+✔ 7. レンダラー: WebGL が ない ところでは すぐ 2D(こわれない・この あいだ ずっと 2D) (2.207197ms)
+✔ 8. フラグは URL だけ・セーブに のこさない。Three.js は version 固定で repo の なか。ふだんは よみこまない (11.375106ms)
+✔ 9. 全地域: 3D profile が あり、意味の 表で ぜんぶ 解決し(unresolved 0・立て看板 0)、かくす ものは きまった しるし だけ、2D(フラグなし)は かわらない (21802.833967ms)
+✔ 10. はっけんの しらせ(全地域): ランドマーク / ひみつ だけ「みつけた！」、その ばしょ だけの もの は かるく「が ある」、ふつうの 池・通過点は しずか。きろく は かわらない (3268.290896ms)
+✔ 11. 全地域(registry から): 3D モードで ぜんぶの spot と gate に 道に そって あるいて 行ける(とじこめ なし) (16813.606766ms)
+(node:61) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/28c7e6574f23/naotocchi/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/28c7e6574f23/naotocchi/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ VQ-9 residential porch supports meet roof slopes within canonical lots (13658.374846ms)
+✔ VQ-8 farmhouse veranda posts meet a canopy contained over the existing deck (1281.810532ms)
+✔ VQ-6 cottage rooflines include both gable orientations within the residential family (302.718237ms)
+✔ VQ-5 garden stepping stones connect the actual front door to its finite road segment (323.549969ms)
+✔ VQ-1 contact footprints follow trunks and foundations without mutating objects (59.239631ms)
+✔ VQ-2 contact field excludes actors, water, bridges and tiny dressing; finite bounded support (2.461678ms)
+✔ VQ-3 outer-bank variation leaves water lanes and triangle topology unchanged (1.459677ms)
+✔ VQ-4 residential main roofs retain above-head clearance with canonical colliders (13863.606161ms)
+✔ VQ-7 garden beds retain their planting group outside canonical road and obstacle footprints (261.39926ms)
+✔ VQ-10 barn entrances read as broad paired doors within the wall (1160.099455ms)
+✔ VQ-11 flower instances retain planter and window-box elevation (2.287603ms)
+✔ VQ-12 walkable market stalls have open counters and connected canopy supports (10827.477305ms)
+✔ VQ-13 representative farmhouse flowers clear the veranda as one planting group (1081.288405ms)
+✔ VQ-14 planting clearance preserves groups, rotations and blocked plots (11.851426ms)
+✔ VQ-15 residential facade openings fit beside the entrance without frame overlap (11045.373768ms)
+ℹ tests 85
+ℹ suites 0
+ℹ pass 85
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 67548.374356

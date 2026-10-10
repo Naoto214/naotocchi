@@ -1,0 +1,30 @@
+✖ VQ-11 flower instances retain planter and window-box elevation (4.87979ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 117.491877
+
+✖ failing tests:
+
+test at tests/meguru-3d-visual-quality-test.cjs:212:1
+✖ VQ-11 flower instances retain planter and window-box elevation (4.87979ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  25 !== 18
+  
+      at TestContext.<anonymous> (/workspace/scratch/28c7e6574f23/naotocchi/tests/meguru-3d-visual-quality-test.cjs:226:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 25,
+    expected: 18,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

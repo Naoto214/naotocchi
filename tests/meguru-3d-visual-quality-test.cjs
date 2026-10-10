@@ -1,0 +1,646 @@
+// 2026-10-02: world-only contact shading. Catch missing grounding, unbounded
+// canopy shadows, rotated buildings and accidental actor/water participation.
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const mod = () => import('../meguru-3d.mjs');
+// Removing the neutral material opt-in must expose the wooden tint regression.
+test('VQ-26 production telescopes use their declared metal colors without a wood multiplier', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const reg = M.buildRegistry(); let checked = 0;
+  for (const rid of Object.keys(M.REGION3D)) {
+    const objects = M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects;
+    for (const ob of objects.filter(o=>o.type==='telescope')) {
+      checked++;
+      assert.equal(ob.parts.length,4,'retain tripod and barrel');
+      for (const pt of ob.parts) {
+        assert.equal(pt.shape,'trunk','reuse existing geometry');
+        assert.equal(pt.neutralColor,true,ob.id+': declared metal color needs neutral material');
+        assert.ok(pt.taper>=0.65,'neutral alias retains the existing trunk rather than trunk2 mesh');
+        assert.match(pt.color,/^#[0-9a-f]{6}$/i);
+      }
+      assert.deepEqual(Array.from(ob.parts.slice(0,3),p=>p.color),['#c8c8d8','#c8c8d8','#c8c8d8']);
+    }
+  }
+  assert.ok(checked>0,'inspect actual production telescopes');
+});
+// Missing/parallel axle, a support inside the paddle sweep, or a gap beneath
+// the axle must fail for both actual waterwheels and rotated fixtures.
+test('VQ-25 waterwheel axle spans two grounded supports outside the paddle sweep', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const reg=M.buildRegistry(), fixtures=[];
+  for(const rid of ['countryside','river_lake']) {
+    const world=M.buildWorld(rid,reg,{world3d:true});
+    fixtures.push(...M.worldObjects3d(world).objects.filter(o=>o.type==='wheel'));
+  }
+  assert.equal(fixtures.length,2,'both production wheels');
+  const world=M.buildWorld('river_lake',reg);
+  for(const ang of [0,0.73,Math.PI/2,-2.1]) {
+    fixtures.push(M.worldObjects3d({...world,props:[{struct:'waterwheel',x:0,z:0,size:220,ang,collider3d:{shape:'box',w:0.32,d:0.16,ang}}],obstacles:[],world3d:false}).objects.find(o=>o.type==='wheel'));
+  }
+  for(const wheel of fixtures) {
+    assert.ok(wheel,'wheel fixture');
+    const ring=wheel.parts.find(p=>p.shape==='arch'),a=ring.ang;
+    const supports=wheel.parts.filter(p=>p.shape==='wpost');
+    assert.equal(supports.length,2,'two side supports, no central vertical post');
+    const axle=wheel.parts.find(p=>p.shape==='log');
+    assert.ok(axle,'constant-radius closed horizontal axle, not a tapered open trunk');
+    const nx=Math.cos(a),nz=-Math.sin(a),ux=Math.sin(a),uz=Math.cos(a);
+    assert.ok(Math.abs(Math.sin(axle.ang)*ux+Math.cos(axle.ang)*uz)<1e-9,'axle perpendicular to wheel plane');
+    assert.ok(Math.abs(axle.y+axle.r-ring.y)<1e-9,'round axle center at ring hub');
+    assert.equal(axle.dx||0,0,'axle centered across hub');
+    assert.equal(axle.dz||0,0,'axle centered across hub');
+    const ends=[-axle.len/2,axle.len/2];
+    const sides=new Set();
+    for(const p of supports) {
+      const side=(p.dx||0)*nx+(p.dz||0)*nz;
+      assert.ok(Math.abs((p.dx||0)*ux+(p.dz||0)*uz)<1e-9,'support lies on axle');
+      assert.ok(Math.abs(side)-p.r>=10,'post clears existing ten-unit paddle half-depth');
+      assert.ok(side-p.r>=ends[0]-1e-9 && side+p.r<=ends[1]+1e-9,'axle spans entire support');
+      assert.equal(p.y,0,'same structural ground datum');
+      assert.ok(Math.abs(p.y+p.h-axle.y)<1e-9,'post meets axle underside');
+      sides.add(Math.sign(side));
+    }
+    assert.deepEqual([...sides].sort(),[-1,1]);
+    assert.equal(wheel.parts.filter(p=>p.shape==='box').length,6,'retain six paddles');
+    assert.equal(wheel.parts.filter(p=>p.shape==='trunk').length,6,'retain six spokes');
+  }
+});
+// Missing/rotated terminal stones or coping that intrudes into the deck must fail.
+test('VQ-24 stone bridge masonry stays on both parapets and marks all four ends', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const reg=M.buildRegistry(); let checked=0;
+  for(const rid of Object.keys(M.REGION3D)) {
+    const w=M.buildWorld(rid,reg,{world3d:true});
+    for(const b of M.worldObjects3d(w).objects.filter(o=>o.type==='bridge' && o.bridgeKind==='stone' && o.crossing)) {
+      checked++;
+      const deck=b.parts.find(p=>p.shape==='slab'), a=b.crossing.pathAng;
+      const stones=b.parts.filter(p=>p.shape==='box' && p.y>=6 && p.h>=24);
+      assert.equal(stones.length,4,b.id+': four raised terminal stones');
+      const corners=new Set();
+      for(const p of stones) {
+        const t=(p.dx||0)*Math.sin(a)+(p.dz||0)*Math.cos(a);
+        const side=(p.dx||0)*Math.cos(a)-(p.dz||0)*Math.sin(a);
+        assert.equal(p.ang,a,'same longitudinal rotation as bridge');
+        assert.ok(Math.abs(t)+p.rx<=deck.len/2+1e-8,'within existing bridge ends');
+        assert.ok(Math.abs(side)-p.rz>=deck.w/2-3-1e-8,'preserve existing clear deck width');
+        assert.ok(Math.abs(side)+p.rz<=deck.w/2+9+1e-8,'preserve parapet exterior footprint');
+        assert.equal(p.y,6,'terminal rests on deck datum');
+        corners.add(Math.sign(t)+','+Math.sign(side));
+      }
+      assert.equal(corners.size,4,'one terminal at each distinct corner');
+      const parapet=b.parts.filter(p=>p.shape==='box' && p.y>=6);
+      for(let i=0;i<parapet.length;i++) for(let j=i+1;j<parapet.length;j++) {
+        const p=parapet[i],q=parapet[j],dx=(p.dx||0)-(q.dx||0),dz=(p.dz||0)-(q.dz||0);
+        const along=Math.abs(dx*Math.sin(a)+dz*Math.cos(a));
+        const side=Math.abs(dx*Math.cos(a)-dz*Math.sin(a));
+        const vertical=Math.min(p.y+p.h,q.y+q.h)-Math.max(p.y,q.y);
+        assert.ok(along>=p.rx+q.rx-1e-8 || side>=p.rz+q.rz-1e-8 || vertical<=1e-8,
+          'masonry interiors do not overlap or create coplanar differently colored side faces');
+      }
+      const coping=b.parts.filter(p=>p.shape==='box' && p.y>6 && p.h<=4);
+      assert.ok(coping.length>=4,b.id+': articulated coping on both sides');
+      for(const p of coping) {
+        const t=(p.dx||0)*Math.sin(a)+(p.dz||0)*Math.cos(a);
+        const side=(p.dx||0)*Math.cos(a)-(p.dz||0)*Math.sin(a);
+        assert.ok(Math.abs(t)+p.rx<=deck.len/2+1e-8);
+        assert.ok(Math.abs(side)-p.rz>=deck.w/2-3-1e-8);
+        assert.ok(Math.abs(side)+p.rz<=deck.w/2+9+1e-8);
+        assert.equal(p.ang,a);
+        assert.ok(p.y+p.h<=22,'coping does not raise existing parapet top');
+      }
+    }
+  }
+  assert.ok(checked>=2,'real forest and river stone crossings are covered');
+});
+test('VQ-23 vehicle window frames connect body and roof at every cab corner when rotated', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const world = M.buildWorld('city',M.buildRegistry());
+  for (const emoji of ['🚕','🚜']) for (const ang of [0,0.73,Math.PI/2,-2.1]) {
+    const fixture = {...world,props:[{emoji,x:0,z:0,size:100,ang}],obstacles:[],world3d:false};
+    const vehicle = M.worldObjects3d(fixture).objects.find(o=>o.type==='car');
+    assert.ok(vehicle,emoji);
+    const cab=vehicle.parts.find(p=>p.color==='#7fa9b8');
+    const roof=vehicle.parts.find(p=>p.shape==='box' && p.y===cab.y+cab.h);
+    const frames=vehicle.parts.filter(p=>p.shape==='box' && p.solidBox && p.rx<2 && p.rz<2 && p.y===cab.y);
+    assert.equal(frames.length,4,emoji+': four connected cab corners');
+    const corners=new Set();
+    for(const p of frames) {
+      const dx=p.dx-cab.dx,dz=p.dz-cab.dz;
+      const f=dx*Math.sin(cab.ang)+dz*Math.cos(cab.ang),s=dx*Math.cos(cab.ang)-dz*Math.sin(cab.ang);
+      assert.equal(p.ang,cab.ang);
+      assert.equal(p.y+p.h,roof.y,'frame reaches roof underside');
+      assert.ok(Math.abs(f)-p.rx<=cab.rx && Math.abs(f)+p.rx>cab.rx,'frame wraps cab front/back corner');
+      assert.ok(Math.abs(s)-p.rz<=cab.rz && Math.abs(s)+p.rz>cab.rz,'frame wraps cab side corner');
+      assert.ok(Math.abs(f)+p.rx<=roof.rx && Math.abs(s)+p.rz<=roof.rz,'frame stays under existing roof');
+      assert.equal(p.color,roof.color);
+      corners.add(Math.sign(f)+','+Math.sign(s));
+    }
+    assert.equal(corners.size,4,'no duplicate corner or missing side');
+  }
+});
+// Bank color patches must not recolor water or change the crossing geometry.
+test('VQ-22 dry-bank patches are continuous, bounded and leave unpainted water unchanged', async () => {
+  const { streamStripData } = await mod();
+  const pts = [0, 80, 160, 240, 320].map(z => ({x:0,z,w:50}));
+  const lanes = [{s:-1,a:1,b:35,y:0.6,c:[0.2,0.4,0.1]},
+    {s:-1,a:.88,b:0,y:-9,c:[0.1,0.3,0.7]}, {s:1,a:1,b:35,y:0.6,c:[0.2,0.4,0.1]}];
+  const painted = lanes.map((p,i)=>i===1?p:{...p,patch:[0.5,0.6,0.3]});
+  const input = JSON.stringify([pts,painted]);
+  const plain = streamStripData(pts,lanes), result = streamStripData(pts,painted);
+  assert.deepEqual(result.positions,plain.positions);
+  assert.deepEqual(result.index,plain.index);
+  assert.deepEqual(result.uvs,plain.uvs);
+  assert.equal(JSON.stringify([pts,painted]),input);
+  assert.deepEqual(streamStripData(pts,painted).colors,result.colors);
+  const shades = [];
+  for(let i=0;i<pts.length;i++) {
+    for(let channel=0;channel<3;channel++) assert.equal(result.colors[i*9+3+channel],plain.colors[i*9+3+channel]);
+    for(const j of [0,2]) for(let channel=0;channel<3;channel++) {
+      const color=result.colors[i*9+j*3+channel];
+      assert.ok(color>=painted[j].c[channel]-1e-7 && color<=painted[j].patch[channel]+1e-7);
+    }
+    shades.push(result.colors[i*9]);
+  }
+  assert.ok(new Set(shades).size>2,'bank must have spatial variation');
+  const near = streamStripData([{x:0,z:0,w:50},{x:0,z:0.001,w:50}],painted);
+  for(let j=0;j<9;j++) assert.ok(Math.abs(near.colors[j]-near.colors[9+j])<0.0001,'no seams in patch field');
+});
+// Catch disconnected porch supports and below-head roofs outside canonical lots.
+test('VQ-9 residential porch supports meet roof slopes within canonical lots', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const reg=M.buildRegistry(), count={};
+  for (const rid of ['home','city','countryside','forest','jungle','sea','river_lake','mountain','snow','desert','memory_lake','deepsea','star_stop']) {
+    for (const ob of M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects) {
+      const body=ob.parts.find(p=>['cottage','single','cabin'].includes(p.family));
+      if (!body || !ob.collision) continue;
+      const roof=ob.parts.find(p=>p.shape==='gable' && p.y===66);
+      if (!roof) continue;
+      const posts=ob.parts.filter(p=>p.shape==='wpost'), a=roof.ang||0;
+      assert.equal(posts.length,2,ob.id+': two supports');
+      for (const p of posts) {
+        const f=(p.dx-roof.dx)*Math.cos(a)-(p.dz-roof.dz)*Math.sin(a);
+        const side=(p.dx-roof.dx)*Math.sin(a)+(p.dz-roof.dz)*Math.cos(a);
+        assert.ok(Math.abs(f)+p.r<=roof.rz+1e-8 && Math.abs(side)+p.r<=roof.rx+1e-8,ob.id+': post footprint under roof');
+        const y=roof.y+roof.h*(1-Math.abs(f)/roof.rz);
+        assert.ok(Math.abs((p.y||0)+p.h-y)<1e-8,ob.id+': support meets slope');
+      }
+      for (const f of [-roof.rz,roof.rz]) for (const s of [-roof.rx,roof.rx]) {
+        const x=roof.dx+Math.cos(a)*f+Math.sin(a)*s, z=roof.dz-Math.sin(a)*f+Math.cos(a)*s;
+        assert.ok(Math.abs(x*Math.cos(a)-z*Math.sin(a))<=ob.collision.hd+1e-8 && Math.abs(x*Math.sin(a)+z*Math.cos(a))<=ob.collision.hw+1e-8,ob.id+': low roof within collider');
+      }
+      count[body.family]=(count[body.family]||0)+1;
+    }
+  }
+  for (const f of ['cottage','single','cabin']) assert.ok(count[f]>0,f+' coverage');
+});
+// 2026-10-04: freestanding veranda posts read as poles, not a sheltered entrance.
+// A supported canopy must stay over the existing deck, without expanding its footprint.
+test('VQ-8 farmhouse veranda posts meet a canopy contained over the existing deck', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const objects = M.worldObjects3d(M.buildWorld('countryside',M.buildRegistry(),{world3d:true})).objects;
+  let checked = 0;
+  for (const ob of objects.filter(o => o.parts.some(p => p.family === 'farmhouse'))) {
+    const deck = ob.parts.find(p => p.shape === 'box' && p.solidBox && p.y === 0 && p.h === 16);
+    assert.ok(deck, ob.id + ': veranda deck');
+    const posts = ob.parts.filter(p => p.shape === 'wpost');
+    const a = deck.ang || 0, local = p => ({f:(p.dx-deck.dx)*Math.cos(a)-(p.dz-deck.dz)*Math.sin(a),s:(p.dx-deck.dx)*Math.sin(a)+(p.dz-deck.dz)*Math.cos(a)});
+    const roof = ob.parts.find(p => p.shape === 'gable' && p.y > deck.h && p.y < M.OBJ3D_HEAD && Math.abs(local(p).f) <= deck.rz && Math.abs(local(p).s) <= deck.rx);
+    assert.ok(roof, ob.id + ': veranda posts have no canopy');
+    const c = local(roof);
+    assert.ok(Math.abs(c.f)+roof.rz <= deck.rz+1e-8 && Math.abs(c.s)+roof.rx <= deck.rx+1e-8,ob.id + ': canopy expands deck footprint');
+    // This low roof must remain entirely inside the canonical lot, unlike a low step.
+    for (const f of [-roof.rz,roof.rz]) for (const s of [-roof.rx,roof.rx]) {
+      const x = roof.dx+Math.cos(a)*f+Math.sin(a)*s, z = roof.dz-Math.sin(a)*f+Math.cos(a)*s;
+      assert.ok(Math.abs(x*Math.cos(a)-z*Math.sin(a)) <= ob.collision.hd+1e-8 && Math.abs(x*Math.sin(a)+z*Math.cos(a)) <= ob.collision.hw+1e-8,ob.id + ': low roof beyond collider');
+    }
+    assert.ok(posts.length >= 2,ob.id + ': supported at both ends');
+    for (const post of posts) {
+      const p = local(post);
+      // Gable has no underside: its slope, not its base plane, must meet the post.
+      const surfaceY = roof.y+roof.h*(1-Math.abs(p.f-c.f)/roof.rz);
+      assert.ok(Math.abs((post.y||0)+post.h-surfaceY) < 1e-8,ob.id + ': disconnected post top');
+      assert.ok(Math.abs(p.f-c.f)+post.r <= roof.rz+1e-8 && Math.abs(p.s-c.s)+post.r <= roof.rx+1e-8,ob.id + ': post outside canopy');
+    }
+    checked++;
+  }
+  assert.ok(checked > 20,'covers generated farmhouses across the countryside');
+});
+test('VQ-6 cottage rooflines include both gable orientations within the residential family', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({deterministic:true, fullDisplay:true}).api.meguruMod;
+  const objects = M.worldObjects3d(M.buildWorld('home',M.buildRegistry(),{world3d:true})).objects;
+  const directions = new Set();
+  for (const o of objects.filter(o => o.parts.some(p => p.family === 'cottage'))) {
+    const roof = o.parts.find(p => p.shape === 'gable');
+    directions.add(Math.round((roof.ang - (o.collision.ang || 0)) / (Math.PI/2)));
+  }
+  assert.ok(directions.has(0) && directions.has(1), 'both rooflines must actually occur in generated cottages');
+});
+test('VQ-5 garden stepping stones connect the actual front door to its finite road segment', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({ deterministic:true, fullDisplay:true, pinDate:true }).api.meguruMod;
+  const world = M.buildWorld('home', M.buildRegistry(), {world3d:true});
+  const objects = M.worldObjects3d(world).objects; let routes = 0;
+  for (const garden of objects.filter(o => o.garden)) {
+    const house = objects.find(o => garden.id === 'home:garden:' + o.id);
+    const door = house.parts.find(p => p.door);
+    const origin = {x:house.x + door.dx, z:house.z + door.dz};
+    const np = M.nearestPath(origin, world), a = house.collision.ang || 0;
+    for (const stone of garden.parts.filter(p => p.shape === 'stone')) {
+      const dx = garden.x + stone.dx - origin.x, dz = garden.z + stone.dz - origin.z;
+      assert.ok(dx * Math.cos(a) - dz * Math.sin(a) > 0, house.id + ': route goes behind front door');
+      const vx = np.seg.b.x - np.seg.a.x, vz = np.seg.b.z - np.seg.a.z;
+      const t = Math.max(0, Math.min(1, ((origin.x-np.seg.a.x)*vx+(origin.z-np.seg.a.z)*vz)/(vx*vx+vz*vz)));
+      const tx = np.seg.a.x + vx*t - origin.x, tz = np.seg.a.z + vz*t - origin.z;
+      assert.ok(Math.abs(dx*tz-dz*tx)/Math.hypot(tx,tz) < 0.001, house.id + ': stones drift from actual door');
+      assert.ok(!M.collidesAt(world,garden.x+stone.dx,garden.z+stone.dz,10));
+      for (const plant of [...garden.parts,...house.parts].filter(p => (p.y || 0) <= 7 && (p.shape === 'flower' || (p.shape === 'crown' && p.small)))) {
+        assert.ok(Math.hypot(plant.dx-stone.dx,plant.dz-stone.dz) >= plant.r+12, house.id + ': planting covers entrance stones');
+      }
+      routes++;
+    }
+  }
+  assert.ok(routes >= 8, 'retains useful entrance routes');
+});
+test('VQ-1 contact footprints follow trunks and foundations without mutating objects', async () => {
+  const { contactFootprints } = await mod();
+  assert.equal(typeof contactFootprints, 'function');
+  const objects = [{ type: 'broadleaf', x: 20, z: 30, parts: [
+    { shape: 'trunk', r: 12, h: 180, y: 0 },
+    { shape: 'crown', r: 100, y: 180, dx: 30, dz: -10 }
+  ] }, { type: 'house', x: -30, z: 40, parts: [
+    { shape: 'box', rx: 40, rz: 20, h: 80, y: 0, ang: Math.PI / 2 }
+  ] }];
+  const before = JSON.stringify(objects), f = contactFootprints(objects);
+  assert.equal(JSON.stringify(objects), before);
+  assert.ok(f.some(p => p.x === 20 && p.z === 30 && p.rx >= 12 && p.rx < 40));
+  assert.ok(f.some(p => p.x === 50 && p.z === 20 && p.rx > 60 && p.rx <= 130));
+  assert.ok(f.some(p => p.x === -30 && p.z === 40 && p.angle === Math.PI / 2));
+  assert.ok(f.every(p => p.strength > 0 && p.strength <= 0.28));
+});
+test('VQ-2 contact field excludes actors, water, bridges and tiny dressing; finite bounded support', async () => {
+  const { contactFootprints } = await mod();
+  assert.equal(typeof contactFootprints, 'function');
+  const excluded = ['actor','water','bridge','ford','dressing','decal'];
+  assert.deepEqual(contactFootprints(excluded.map(type => ({type,x:0,z:0,parts:[{shape:'box',rx:30,rz:30,h:50,y:0}]}))), []);
+  const f = contactFootprints([{type:'bigtree',x:1,z:2,parts:[{shape:'trunk',r:300,h:1500,y:0},{shape:'crown',r:1500,y:1700}]}]);
+  assert.ok(f.length > 0 && f.every(p => Number.isFinite(p.rx) && p.rx <= 240 && p.rz <= 240));
+});
+
+test('VQ-3 outer-bank variation leaves water lanes and triangle topology unchanged', async () => {
+  const { streamStripData } = await mod();
+  const pts = [0, 80, 160, 240].map(z => ({x:0,z,w:50}));
+  const lanes = [{s:-1,a:1,b:75,y:'g',c:[.4,.6,.3]}, {s:-1,a:.88,b:0,y:-9,c:[.3,.7,.8]}, {s:1,a:.88,b:0,y:-9,c:[.3,.7,.8]}];
+  const base = streamStripData(pts, lanes, () => 2);
+  const rough = streamStripData(pts, lanes.map((p,i)=>({...p,edgeVariation:i===0?10:0})), () => 2);
+  assert.deepEqual(rough.index,base.index);
+  assert.ok(rough.positions.some((n,i)=>n!==base.positions[i]), 'bank contour changes');
+  for(let i=0;i<pts.length;i++) for(let j=3;j<9;j++) assert.equal(rough.positions[i*9+j],base.positions[i*9+j], 'water unchanged');
+  for(let i=0;i<pts.length;i++) assert.ok(Math.abs(rough.positions[i*9]-base.positions[i*9])<=10);
+});
+
+// 2026-10-03 review regression: collision hashes alone do not protect a player
+// walking beneath an oversized eave. Main roofs must keep the existing clearance.
+test('VQ-4 residential main roofs retain above-head clearance with canonical colliders', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const h = harness({ deterministic:true, fullDisplay:true, pinDate:true });
+  const M = h.api.meguruMod, reg = M.buildRegistry(); let checked = 0;
+  for (const rid of Object.keys(M.REGION3D)) {
+    const world = M.buildWorld(rid, reg, { world3d:true });
+    for (const ob of M.worldObjects3d(world).objects) {
+      if (ob.type !== 'house') continue;
+      const body = ob.parts.find(p => p.family);
+      if (!body || !['cottage','single','farmhouse','cabin'].includes(body.family)) continue;
+      const roof = ob.parts.find(p => p.shape === 'roof' || p.shape === 'gable');
+      assert.ok(roof && roof.y >= M.OBJ3D_HEAD, ob.id + ': oversized main roof below player head');
+      checked++;
+    }
+  }
+  assert.ok(checked > 50, 'covers generated residential houses across regions');
+});
+
+// 2026-10-04: clipping individual flowers leaves incomplete boxes at road edges.
+// A bed must move as one group or be omitted as one group, never lose its contents.
+test('VQ-7 garden beds retain their planting group outside canonical road and obstacle footprints', () => {
+  const { harness } = require('./helpers/runtime-harness.cjs');
+  const M = harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const world = M.buildWorld('home',M.buildRegistry(),{world3d:true});
+  const objects = M.worldObjects3d(world).objects;
+  let beds = 0;
+  for (const garden of objects.filter(o => o.garden)) {
+    for (const bed of garden.parts.filter(p => p.shape === 'box' && p.h === 8 && p.y === 0)) {
+      const flowers = garden.parts.filter(p => p.shape === 'flower' && Math.hypot(p.dx-bed.dx,p.dz-bed.dz) < 30);
+      assert.equal(flowers.length,5,garden.id + ': incomplete planting group');
+      const a = bed.ang || 0;
+      for (const f of [-bed.rz,0,bed.rz]) for (const s of [-bed.rx,0,bed.rx]) {
+        const x = garden.x+bed.dx+Math.cos(a)*f+Math.sin(a)*s;
+        const z = garden.z+bed.dz-Math.sin(a)*f+Math.cos(a)*s;
+        const np = M.nearestPath({x,z},world);
+        assert.ok(!np || np.dist >= np.half+10,garden.id + ': bed footprint enters road');
+        assert.ok(!M.collidesAt(world,x,z,10),garden.id + ': bed footprint enters obstacle');
+      }
+      beds++;
+    }
+  }
+  assert.ok(beds > 0,'real generated flower beds remain');
+  for (const id of ['home:15','home:45','home:64']) {
+    const garden = objects.find(o => o.id === 'home:garden:' + id);
+    assert.ok(garden && garden.parts.some(p => p.shape === 'box' && p.h === 8),id + ': affected garden must retain a complete bed');
+  }
+});
+
+// A narrow ordinary-house door on a barn loses its agricultural silhouette.
+test('VQ-10 barn entrances read as broad paired doors within the wall', () => {
+  const {harness}=require('./helpers/runtime-harness.cjs');
+  const M=harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  let n=0;
+  for (const o of M.worldObjects3d(M.buildWorld('countryside',M.buildRegistry(),{world3d:true})).objects) {
+    const wall=o.parts.find(p=>p.family==='barn'); if(!wall) continue;
+    const door=o.parts.find(p=>p.door);
+    assert.ok(door.rx>=wall.rx*0.45,o.id+': broad agricultural doorway');
+    assert.ok(door.rx+4<=wall.rx,o.id+': frame within wall');
+    const a=wall.ang||0;
+    const seam=o.parts.find(p=>p.shape==='box' && p.h===door.h && p.rx<=1.5 && p.y===0 && Math.abs((p.dx-door.dx)*Math.sin(a)+(p.dz-door.dz)*Math.cos(a))<1e-8);
+    assert.ok(seam,o.id+': visible centre meeting of two leaves');
+    n++;
+  }
+  assert.ok(n>0,'generated barn coverage');
+});
+
+// Exercise the production descriptor-to-instance branch without requiring WebGL.
+// Losing part.y in any of stem / petals / centre must fail independently.
+test('VQ-11 flower instances retain planter and window-box elevation', () => {
+  const src = require('node:fs').readFileSync(require('node:path').join(__dirname,'../meguru-3d.mjs'),'utf8');
+  const branch = src.match(/case 'flower':([\s\S]*?)break;/)[1];
+  const emit = new Function('pt','push','px','pz','t','TAU',branch);
+  for (const [part, want] of [
+    [{shape:'flower',y:7,h:18,r:11,color:'#ffffff'},[7,25,26.5]],
+    [{shape:'flower',y:54,h:2,r:7,color:'#f2a6c0'},[54,56,57.5]],
+    [{shape:'flower',h:24,r:14,color:'#ffffff'},[0,24,25.5]]
+  ]) {
+    const got=[], before=JSON.stringify(part);
+    emit(part,(shape,instance)=>got.push({shape,...instance}),20,-30,0.5,Math.PI*2);
+    assert.deepEqual(got.map(p=>p.y),want,'all flower components share the declared base');
+    assert.deepEqual(got.map(p=>p.shape),['blade','petal','nut8']);
+    assert.ok(got.every(p=>p.x===20 && p.z===-30));
+    assert.equal(got[0].sy,part.h);
+    assert.equal(got[1].sx,part.r);
+    const ground=[];
+    emit({...part,y:0},(shape,instance)=>ground.push({shape,...instance}),20,-30,0.5,Math.PI*2);
+    assert.deepEqual(got.map(({y,...p})=>p),ground.map(({y,...p})=>p),'elevation must not alter scale, rotation, material or count');
+    assert.equal(JSON.stringify(part),before,'descriptor remains immutable');
+  }
+});
+
+// Reduced shop/cafe props must have a readable open counter, not a solid shed.
+test('VQ-12 walkable market stalls have open counters and connected canopy supports', () => {
+  const M=require('./helpers/runtime-harness.cjs').harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const reg=M.buildRegistry(); let checked=0;
+  for (const rid of Object.keys(M.WORLDS)) for (const o of M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects) {
+    if (o.type!=='boxprop' || o.collision || !['🏪','☕'].includes(o.kind)) continue;
+    const roof=o.parts.find(p=>p.shape==='wslab');
+    assert.ok(roof,o.id+': canopy');
+    const counter=o.parts.find(p=>p.shape==='box' && p.y===0);
+    assert.ok(counter && counter.h < roof.y*0.6,o.id+': counter leaves an open serving space');
+    const posts=o.parts.filter(p=>p.shape==='wpost');
+    assert.equal(posts.length,4,o.id+': four canopy corners supported');
+    const a=roof.ang||0;
+    for(const p of posts) {
+      assert.ok(Math.abs(p.y+p.h-roof.y)<1e-8,o.id+': support reaches canopy');
+      const f=p.dx*Math.cos(a)-p.dz*Math.sin(a), s=p.dx*Math.sin(a)+p.dz*Math.cos(a);
+      assert.ok(Math.abs(f)+p.r<=counter.rz+1e-8 && Math.abs(s)+p.r<=counter.rx+1e-8,o.id+': support remains in original footprint');
+    }
+    assert.ok(o.walkable && !o.solid,o.id+': existing soft-prop role');
+    checked++;
+  }
+  assert.equal(checked,6,'all six canonical city stalls covered');
+});
+
+// Ground planting must frame the veranda rather than grow through its floor.
+test('VQ-13 representative farmhouse flowers clear the veranda as one planting group', () => {
+  const M = require('./helpers/runtime-harness.cjs').harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const w = M.buildWorld('countryside',M.buildRegistry(),{world3d:true});
+  const ob = M.worldObjects3d(w).objects.find(o=>o.id==='countryside:0');
+  const deck = ob.parts.find(p=>p.shape==='box' && p.solidBox && p.y===0 && p.h===16);
+  const flowers = ob.parts.filter(p=>p.shape==='flower' && !p.y);
+  assert.equal(flowers.length,3);
+  for (const p of flowers) {
+    const x=p.dx-deck.dx,z=p.dz-deck.dz,a=deck.ang||0;
+    const f=x*Math.cos(a)-z*Math.sin(a),s=x*Math.sin(a)+z*Math.cos(a);
+    assert.ok(Math.hypot(Math.max(0,Math.abs(f)-deck.rz),Math.max(0,Math.abs(s)-deck.rx)) >= p.r+2-1e-8,'flower footprint clears deck');
+    assert.ok(!M.collidesAt(w,ob.x+p.dx,ob.z+p.dz,p.r),'planting stays outside canonical collision');
+    const np=M.nearestPath({x:ob.x+p.dx,z:ob.z+p.dz},w);
+    assert.ok(!np || np.dist>=np.half+p.r+4,'road remains clear');
+  }
+});
+
+test('VQ-14 planting clearance preserves groups, rotations and blocked plots', () => {
+  const src=require('node:fs').readFileSync('meguru.js','utf8');
+  const body=src.slice(src.indexOf('    function clearHousePlanting3d('),src.indexOf('    // Geometry pass(home / countryside'));
+  const build=(blocked=false)=>new Function('nearestPath','collidesAt',body+'; return clearHousePlanting3d;')(()=>null,()=>blocked);
+  for(const a of [0,Math.PI/2,0.73]) {
+    const at=(f,s)=>({dx:f*Math.cos(a)+s*Math.sin(a),dz:-f*Math.sin(a)+s*Math.cos(a)});
+    const house={id:'test:house',type:'house',x:0,z:0,collision:{ang:a},parts:[
+      {shape:'box',rx:30,rz:20,h:16,y:0,ang:a,dx:0,dz:0},
+      ...[-12,0,12].map(s=>({shape:'flower',r:5,h:20,y:0,...at(18,s)})),
+      {shape:'flower',r:5,h:2,y:40,...at(18,0)}
+    ]};
+    const before=JSON.parse(JSON.stringify(house)),world={regionId:'test',spots:[]};
+    build(true)(world,[house]);assert.deepEqual(house,before,'blocked plot retains whole group');
+    build()(world,[house]);assert.deepEqual(house.parts[0],before.parts[0]);assert.deepEqual(house.parts[4],before.parts[4],'raised flowers retained');
+    const mx=house.parts[1].dx-before.parts[1].dx,mz=house.parts[1].dz-before.parts[1].dz;
+    assert.ok(Math.hypot(mx,mz)>0&&Math.hypot(mx,mz)<=60);
+    for(let i=1;i<=3;i++) {
+      const p=house.parts[i],q=before.parts[i];
+      assert.ok(Math.abs(p.dx-q.dx-mx)<1e-8&&Math.abs(p.dz-q.dz-mz)<1e-8,'one rigid translation');
+      const f=p.dx*Math.cos(a)-p.dz*Math.sin(a),s=p.dx*Math.sin(a)+p.dz*Math.cos(a);
+      assert.ok(Math.hypot(Math.max(0,Math.abs(f)-20),Math.max(0,Math.abs(s)-30))>=7-1e-8);
+    }
+    const once=JSON.stringify(house);build()(world,[house]);assert.equal(JSON.stringify(house),once,'second pass stable');
+  }
+});
+
+// Existing facade intervals must reserve the entrance rather than overlap its frame.
+test('VQ-15 residential facade openings fit beside the entrance without frame overlap', () => {
+  const M=require('./helpers/runtime-harness.cjs').harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const reg=M.buildRegistry();let count=0;
+  for(const rid of Object.keys(M.WORLDS)) for(const ob of M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects) {
+    if(ob.type!=='house')continue;
+    const body=ob.parts[0];if(['shed','barn'].includes(body.family))continue;
+    const a=body.ang||0,side=p=>(p.dx-body.dx)*Math.sin(a)+(p.dz-body.dz)*Math.cos(a),front=p=>(p.dx-body.dx)*Math.cos(a)-(p.dz-body.dz)*Math.sin(a);
+    const door=ob.parts.find(p=>p.door);
+    const windows=ob.parts.filter(p=>p.win&&Math.abs(front(p)-body.rz-2.2)<1e-7);
+    assert.ok(windows.length>0 || (body.family==='single' && body.rx>36 && ob.parts.some(p=>p.win&&Math.abs(front(p)-body.rz-18.5)<1e-7)),ob.id+': facade has a main or bay opening');
+    for(const p of windows) {
+      assert.ok(p.rx>0 && p.h>=14,ob.id+': readable positive window dimensions');
+      assert.ok(side(p)-p.rx-3.5>=side(door)+door.rx+4+4-1e-7,ob.id+': sill clears door frame');
+      assert.ok(side(p)+p.rx+3.5<=body.rx-2+1e-7,ob.id+': sill within wall');
+      assert.ok(p.y+p.h+2<=body.h-2+1e-7,ob.id+': window frame below eaves');
+      count++;
+    }
+    for(let i=0;i<windows.length;i++)for(let j=i+1;j<windows.length;j++)if(windows[i].y===windows[j].y)assert.ok(Math.abs(side(windows[i])-side(windows[j]))>=windows[i].rx+windows[j].rx+7+2-1e-7,ob.id+': separated sills');
+  }
+  assert.ok(count>100);
+});
+
+// A projecting bay is already an opening; do not put another window behind its cap.
+test('VQ-16 single-family main windows reserve the existing bay projection', () => {
+  const M=require('./helpers/runtime-harness.cjs').harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const reg=M.buildRegistry();let count=0;
+  for(const rid of Object.keys(M.WORLDS)) for(const ob of M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects) {
+    if(ob.type!=='house')continue;
+    const b=ob.parts[0];if(b.family!=='single'||b.rx<=36)continue;
+    const a=b.ang||0,side=p=>(p.dx-b.dx)*Math.sin(a)+(p.dz-b.dz)*Math.cos(a),front=p=>(p.dx-b.dx)*Math.cos(a)-(p.dz-b.dz)*Math.sin(a);
+    const bay=ob.parts.find(p=>p.win&&Math.abs(front(p)-b.rz-18.5)<1e-7);
+    assert.ok(bay,ob.id+': existing bay remains a readable opening');
+    for(const p of ob.parts.filter(p=>p.win&&Math.abs(front(p)-b.rz-2.2)<1e-7)) {
+      assert.ok(side(p)+p.rx+3.5<=b.rx*.27-4+1e-7,ob.id+': main sill clears bay cap');
+    }
+    count++;
+  }
+  assert.ok(count>30);
+});
+
+test('VQ-17 two-storey entrance remains below its existing low canopy', () => {
+  const M=require('./helpers/runtime-harness.cjs').harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod;
+  const objects=M.worldObjects3d(M.buildWorld('home',M.buildRegistry(),{world3d:true})).objects;
+  const house=objects.find(o=>o.id==='home:196');
+  assert.equal(house.parts[0].family,'twostorey');
+  const door=house.parts.find(p=>p.door), canopy=house.parts.find(p=>p.shape==='wslab'&&p.y===52);
+  assert.ok(canopy,'existing entrance canopy');
+  assert.ok(door.y+door.h<=canopy.y,'door must not penetrate the unchanged canopy');
+});
+
+// Ground rosettes used the hanging-palm curvature: almost every leaf tip went
+// below its root plane. Check the actual production descriptors at each of the
+// five longitudinal vertices of the existing frond geometry.
+test('VQ-18 ground fern fronds emerge above their root plane, without changing hanging palm leaves', () => {
+  const {harness}=require('./helpers/runtime-harness.cjs');
+  const M=harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod, reg=M.buildRegistry();
+  let groundLeaves=0, hangingLeaves=0;
+  for(const rid of ['forest','jungle','sea']) for(const ob of M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects) {
+    for(const p of ob.parts.filter(p=>p.shape==='frond')) {
+      if((p.y||0)<=4) {
+        for(const t of [0,.25,.5,.75,1]) {
+          const y=(p.y||0)+(p.rise?1:-1)*t*t*p.len*(p.droop||.5);
+          assert.ok(y>=0,`${ob.id}: ground leaf vertex ${t} buried at ${y}`);
+          assert.ok(y<M.OBJ3D_HEAD*.5,`${ob.id}: ground leaf rises into actor head space`);
+        }
+        groundLeaves++;
+      } else { assert.ok(p.droop>0 && !p.rise,ob.id+': hanging palm leaf must still droop'); hangingLeaves++; }
+    }
+  }
+  assert.ok(groundLeaves>1000 && hangingLeaves>100,'both vegetation layers covered');
+});
+
+// Fixed world-axis offsets make every big tree present the same crown outline.
+// Sample real trees: the lower lobe should occupy all quadrants, while each
+// crown remains above walking head height and inside the existing radial bound.
+test('VQ-19 ordinary big-tree crowns vary azimuth without expanding their envelope', () => {
+  const {harness}=require('./helpers/runtime-harness.cjs');
+  const M=harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod,reg=M.buildRegistry();
+  for(const rid of ['forest','jungle']) {
+    const sectors=new Set();let count=0;
+    for(const ob of M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects) {
+      if(ob.type!=='bigtree')continue;
+      const crowns=ob.parts.filter(p=>p.shape==='crown');if(crowns.length!==3)continue;
+      const R=crowns[0].r, side=crowns[1];
+      sectors.add(Math.floor((Math.atan2(side.dz||0,side.dx||0)+Math.PI)/(Math.PI/2))%4);
+      for(const p of crowns) {
+        assert.ok(Math.hypot(p.dx||0,p.dz||0)+p.r<=R*1.35+1e-8,ob.id+': crown envelope expanded');
+        assert.ok(p.y-p.r*p.sy>=M.OBJ3D_HEAD,ob.id+': canopy enters walking head space');
+      }
+      count++;
+    }
+    assert.ok(count>20,rid+': real tree coverage');
+    assert.equal(sectors.size,4,rid+': every crown is aligned to the same world axis');
+  }
+});
+
+// A leaf can be above the object plane yet float above its offset terrain root.
+// Ground attachment must use the same production grounding path as the renderer.
+test('VQ-20 ground frond roots attach to their own terrain position', async () => {
+  const {harness}=require('./helpers/runtime-harness.cjs');
+  const M=harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod,reg=M.buildRegistry();
+  const m3=await mod();let checked=0;
+  for(const rid of ['forest','jungle']) {
+    const world=M.buildWorld(rid,reg,{world3d:true}),objects=M.worldObjects3d(world).objects,tg=m3.terrainGrid(world,M,objects);
+    for(const ob of objects) {
+      const ground=m3.objectGround(tg,ob);
+      for(const p of ob.parts.filter(p=>p.shape==='frond' && (p.y||0)<=4)) {
+        const root=(ground.part?ground.part(p):ground.base)+(p.y||0);
+        const surface=tg.surfaceY(ob.x+(p.dx||0),ob.z+(p.dz||0));
+        assert.ok(root<=surface+1e-8,ob.id+': fern root floats '+(root-surface));
+        assert.ok(root>=surface-6-1e-8,ob.id+': fern root too deeply embedded');
+        for(const side of [-1,1]) {
+          const x=ob.x+(p.dx||0)+Math.sin(p.dir)*p.len+Math.cos(p.dir)*p.w*.05*side;
+          const z=ob.z+(p.dz||0)+Math.cos(p.dir)*p.len-Math.sin(p.dir)*p.w*.05*side;
+          const tip=root+(p.rise?1:-1)*p.len*(p.droop||.5);
+          assert.ok(tip>tg.surfaceY(x,z),ob.id+': fern tip remains under terrain');
+        }
+        checked++;
+      }
+    }
+  }
+  assert.ok(checked>1000);
+});
+
+test('VQ-21 frond transforms preserve winding and radial direction for rising and hanging leaves', async () => {
+  const m3=await mod(),T=await import('../vendor/three-0.170.0/three.module.min.js');
+  assert.equal(typeof m3.frondPose,'function','production frond transform must be directly testable');
+  for(const dir of [0,Math.PI/2,Math.PI,Math.PI*1.5,.7]) for(const rise of [false,true]) {
+    const p={len:50,w:18,dir,droop:.4,rise},pose=m3.frondPose(p),obj=new T.Object3D();
+    obj.rotation.set(0,pose.ry,pose.rz);obj.scale.set(pose.sx,pose.sy,pose.sz);obj.updateMatrix();
+    assert.ok(obj.matrix.determinant()>0,'mirrored instance reverses Lambert lighting');
+    const tip=new T.Vector3(1,-1,0).applyMatrix4(obj.matrix);
+    assert.ok(Math.abs(tip.x-50*Math.sin(dir))<1e-8 && Math.abs(tip.z+50*Math.cos(dir))<1e-8,'radial leaf direction changed');
+    assert.ok(Math.abs(tip.y-(rise?20:-20))<1e-8,'leaf tip curvature');
+    // Compare transformed shader normal with actual transformed triangle winding.
+    const a=new T.Vector3(0,0,-.05),b=new T.Vector3(.25,-.0625,-.4),c=new T.Vector3(0,0,.05);
+    const normal=new T.Vector3().crossVectors(b.clone().sub(a),c.clone().sub(a)).normalize();
+    const shader=normal.clone().applyMatrix3(new T.Matrix3().getNormalMatrix(obj.matrix)).normalize();
+    const av=a.clone().applyMatrix4(obj.matrix),bv=b.clone().applyMatrix4(obj.matrix),cv=c.clone().applyMatrix4(obj.matrix);
+    const geometric=new T.Vector3().crossVectors(bv.sub(av),cv.sub(av)).normalize();
+    assert.ok(shader.dot(geometric)>.999999,'normal/winding mismatch');
+  }
+});
+
+// Removing the production opt-in must fail; other nuts must keep their old mesh.
+test('VQ-27 statue heads alone opt into recessed faces while retaining the original three-part shape',()=>{
+ const {harness}=require('./helpers/runtime-harness.cjs');
+ const M=harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod,reg=M.buildRegistry();let n=0;
+ for(const rid of Object.keys(M.REGION3D))for(const ob of M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects){
+  if(ob.type!=='statue'){assert.ok(ob.parts.every(p=>!p.stoneFace));continue;}
+  n++;assert.equal(ob.parts.length,3);const [base,body,head]=ob.parts;
+  assert.deepEqual([base.shape,base.rx,base.rz,base.h,base.y],['box',18,18,22,0]);
+  assert.deepEqual([body.shape,body.rx,body.rz,body.h,body.y],['box',9,7,34,22]);
+  assert.deepEqual([head.shape,head.r,head.y],['nut',9,56]);assert.equal(head.stoneFace,true,ob.id);
+ }
+ assert.ok(n>0);
+});
+// Any outward face vertex, lost original corner or open edge violates the approved silhouette.
+test('VQ-28 carved head preserves the icosahedron hull and is watertight with shallow inward details',async()=>{
+ const {statueHeadGeometry}=await import('../meguru-3d.mjs');
+ assert.equal(typeof statueHeadGeometry,'function','production carving geometry exists');
+ const T=await import('../vendor/three-0.170.0/three.module.min.js');
+ const old=new T.IcosahedronGeometry(1,0),g=statueHeadGeometry(),a=old.attributes.position,p=g.attributes.position;
+ const vertices=Array.from({length:p.count},(_,i)=>new T.Vector3().fromBufferAttribute(p,i));
+ const key=v=>v.toArray().map(x=>x.toFixed(6)).join(',');const set=new Set(vertices.map(key));
+ for(let i=0;i<a.count;i++)assert.ok(set.has(key(new T.Vector3().fromBufferAttribute(a,i))),'retain original corner');
+ for(let i=0;i<a.count;i+=3){const v=[0,1,2].map(j=>new T.Vector3().fromBufferAttribute(a,i+j));const normal=v[1].clone().sub(v[0]).cross(v[2].clone().sub(v[0])).normalize();for(const q of vertices)assert.ok(normal.dot(q.clone().sub(v[0]))<1e-6,'no outward projection');}
+ const edges=new Map(),directions=new Map();for(let i=0;i<p.count;i+=3){const v=vertices.slice(i,i+3);assert.ok(v[1].clone().sub(v[0]).cross(v[2].clone().sub(v[0])).length()>1e-8,'nondegenerate');for(let j=0;j<3;j++){const k=[key(v[j]),key(v[(j+1)%3])].sort().join('|');edges.set(k,(edges.get(k)||0)+1);directions.set(k,(directions.get(k)||0)+(key(v[j])<key(v[(j+1)%3])?1:-1));}}
+ for(const count of edges.values())assert.equal(count,2,'closed surface');
+ for(const balance of directions.values())assert.equal(balance,0,'opposite winding on each shared edge');
+ assert.ok(p.count/3<=100,'bounded statue geometry');
+ const color=g.attributes.color;assert.equal(color.count,p.count);
+ const dark=vertices.filter((v,i)=>color.getX(i)<0.8);assert.ok(dark.some(v=>v.x<0)&&dark.some(v=>v.x>0),'two eyes');
+ for(const v of dark){assert.ok(v.y>0,'eyes on upper face');assert.ok(v.z>0.7,'front only');}
+ for(const q of vertices){let near=Infinity;for(let i=0;i<a.count;i+=3){const v=[0,1,2].map(j=>new T.Vector3().fromBufferAttribute(a,i+j));const n=v[1].clone().sub(v[0]).cross(v[2].clone().sub(v[0])).normalize();near=Math.min(near,Math.abs(n.dot(q.clone().sub(v[0]))));}assert.ok(near<=0.036,'recess less than 0.324 world units');}
+ old.dispose();g.dispose();
+});

@@ -1,0 +1,23 @@
+(node:5) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/9a73a007e273/world/vendor/three-0.170.0/three.module.min.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/9a73a007e273/world/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+home         obj   283  ground 893 float 0 bury 0  houses 21 sil>1.6 0 max 1.59  crossings 0 bad 0  pond-on-stream 0
+city         obj  1096  ground 2690 float 0 bury 0  houses 42 sil>1.6 0 max 1.52  crossings 0 bad 0  pond-on-stream 0
+countryside  obj   899  ground 3771 float 1 bury 2  houses 72 sil>1.6 0 max 1.56  crossings 3 bad 0  pond-on-stream 0
+   worst by type {"dressing:wslab":2}
+forest       obj  1315  ground 3152 float 1 bury 0  houses 0 sil>1.6 0 max -  crossings 4 bad 0  pond-on-stream 0
+   worst by type {"log:log":1}
+mountain     obj   781  ground 2011 float 1 bury 2  houses 3 sil>1.6 0 max 0.83  crossings 3 bad 0  pond-on-stream 0
+   worst by type {"rock:mound":2}
+snow         obj   527  ground 1065 float 0 bury 0  houses 2 sil>1.6 0 max 1.16  crossings 0 bad 0  pond-on-stream 0
+sea          obj   529  ground 1603 float 0 bury 0  houses 15 sil>1.6 0 max 0.76  crossings 0 bad 0  pond-on-stream 0
+deepsea      obj   712  ground 1778 float 0 bury 0  houses 0 sil>1.6 0 max -  crossings 0 bad 0  pond-on-stream 0
+river_lake   obj   831  ground 3176 float 0 bury 1  houses 3 sil>1.6 0 max 0.84  crossings 3 bad 0  pond-on-stream 0
+   worst by type {"pier:plank":1}
+jungle       obj  1482  ground 4323 float 0 bury 4  houses 0 sil>1.6 0 max -  crossings 5 bad 0  pond-on-stream 0
+   worst by type {"ruin:mound":4}
+desert       obj   611  ground 1742 float 1 bury 9  houses 0 sil>1.6 0 max -  crossings 0 bad 0  pond-on-stream 0
+   worst by type {"ruin:mound":9}
+star_stop    obj   463  ground 1493 float 0 bury 0  houses 0 sil>1.6 0 max -  crossings 0 bad 0  pond-on-stream 0
+memory_lake  obj   352  ground 871 float 0 bury 0  houses 0 sil>1.6 0 max -  crossings 0 bad 0  pond-on-stream 0

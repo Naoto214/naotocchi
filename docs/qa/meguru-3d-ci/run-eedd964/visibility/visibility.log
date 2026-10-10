@@ -1,0 +1,13 @@
+home         avgGhost 0.2 samples 76 hidden 0 partial 0 {} err 0 tris 35k
+city         avgGhost 9.9 samples 252 hidden 0 partial 0 {} err 0 tris 130k
+countryside  avgGhost 1.5 samples 280 hidden 0 partial 0 {} err 0 tris 118k
+forest       avgGhost 2.1 samples 308 hidden 0 partial 0 {} err 0 tris 148k
+mountain     avgGhost 1.9 samples 252 hidden 0 partial 1 {} err 0 tris 105k
+snow         avgGhost 0.3 samples 204 hidden 0 partial 0 {} err 0 tris 69k
+sea          avgGhost 1.8 samples 200 hidden 0 partial 0 {} err 0 tris 69k
+deepsea      avgGhost 0.2 samples 220 hidden 0 partial 0 {} err 0 tris 71k
+river_lake   avgGhost 5.0 samples 220 hidden 0 partial 0 {} err 0 tris 113k
+jungle       avgGhost 3.9 samples 244 hidden 0 partial 0 {} err 0 tris 172k
+desert       avgGhost 0.8 samples 256 hidden 0 partial 0 {} err 0 tris 90k
+star_stop    avgGhost 0.0 samples 200 hidden 0 partial 0 {} err 0 tris 66k
+memory_lake  avgGhost 6.3 samples 120 hidden 0 partial 0 {} err 0 tris 51k
