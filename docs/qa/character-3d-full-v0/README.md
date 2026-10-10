@@ -13,6 +13,12 @@ The model rollout has **293/293 exact registrations and accepted four-view recor
 - [Export recovery](../../../.github/scripts/README-character-qa-export.md) saves original image bytes, SHA256 manifests and viewable sheets through existing Actions/Git Data objects. Successful export never approves images. Completed failed runs may supply explicitly verified successful-job artifacts, while failed runtime JSON remains diagnostic-only.
 - Human visual adoption and actual iPhone Safari performance/temperature/long-play are separate OPEN gates. Draft376; no Ready/main merge or v1.
 
+## Closure verification — 2026-10-10
+
+All four previously pending Runtime/Home runs are now confirmed SUCCESS. Source410 full npm CI (run37938268351, job113845760165) passed3022 main tests plus80 Relationship tests, with0failures. The earlier local0be exit1 remains unchanged in its original report.
+
+The lost scratch checkout was restored from GitHub atdf2cbb5, with matching HEAD/tree and clean state. Final scene ZIP/JSON bytes and SHA256 now match their manifest locally. No model, image, test or capture work was repeated. [Closure evidence](closure-verification.json). Human/iPhone QA remains OPEN.
+
 ## Historical wave evidence
 
 The following chronological checkpoints retain their original source-scoped results and limitations. Their old pending counts, performance casts and planned features are not the current rollout status.

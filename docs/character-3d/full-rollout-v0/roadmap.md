@@ -1,6 +1,6 @@
 # Full Rollout v0 — source-scoped integration and Human QA
 
-Production: `0be70751e0896388e46a33969bef51c15dcdb3ae`. Final QA: `410edf9674d5937496e7acd0f255c98de11fc399`. [Checkpoint](checkpoint.json) records asynchronous CI and final local synchronization separately. Draft376/base Pilot remains unchanged.
+Production: `0be70751e0896388e46a33969bef51c15dcdb3ae`. Final QA: `410edf9674d5937496e7acd0f255c98de11fc399`. [Checkpoint](checkpoint.json) records completed CI and recovered local synchronization separately. Draft376/base Pilot remains unchanged.
 
 | Gate | Result and scope |
 |---|---|
@@ -14,10 +14,10 @@ Production: `0be70751e0896388e46a33969bef51c15dcdb3ae`. Final QA: `410edf9674d59
 | Repeated scene |410 actualPASS:bounded natural city setup,38clean synchronous boundaries,3strict cycles/cleanup, exact11fixture, resource plateau, restoration|
 | Performance |f07 native dog04+companions1/5/27 andae9 native human/fish fixtures measured/audited; SwiftShader only, no device budget PASS|
 | Protected baseline |0be11protected groups and28Pilot identities exact; later changes are QA/docs only|
-| Async Runtime/Home CI |Use exact fresh conclusions incheckpoint; IN_PROGRESS is not PASS|
-| Final local synchronization |Executor disconnect blocked final fetch; resync final branch HEAD/tree/clean after recovery|
+| Runtime/Home CI |All four previously pending410/b923 runs SUCCESS;410 full npm3022+80 PASS/0FAIL, confirmed from job113845760165 log|
+| Local synchronization |Restored remote df2cbb5:HEAD/tree match, clean; final scene ZIP/JSON SHA256 verified. Closure publication receives a fresh final synchronization check.|
 | Human / iPhone |OPEN:visual adoption, Safari device, heat and sustained play|
 
 See [Human QA](../../qa/character-3d-full-v0/human-qa.md), [player evidence map](final-player-evidence-map.md) and [QA archive](../../qa/character-3d-full-v0/README.md). Original failed/rejected sources remain unchanged; newer approvals supersede only affected rows. Export success alone never approves images.
 
-All active model implementation and planned image gates are complete. Continue only the explicitly outstanding CI/local verification and Human/device gates. No Ready/main merge/import, PR372 operations or v1 work.
+All active model implementation and planned image gates are complete. Only Human/device gates remain after closure publication and its synchronization check. No Ready/main merge/import, PR372 operations or v1 work.

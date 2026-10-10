@@ -98,33 +98,53 @@
       "fail": 0,
       "exit": 0
     },
-    "scope": "Incremental coverage of all main checks; no second local fullnpm exit0 claimed",
-    "report": "docs/qa/character-3d-full-v0/final-npm-0be/result.json"
+    "scope": "Original local0be attempt and incremental repairs retained; subsequent completed410 full npm CI separately confirms3022+80 PASS/0FAIL.",
+    "report": "docs/qa/character-3d-full-v0/final-npm-0be/result.json",
+    "completedFullCi": {
+      "sourceCommit": "410edf9674d5937496e7acd0f255c98de11fc399",
+      "runId": 37938268351,
+      "jobId": 113845760165,
+      "conclusion": "success",
+      "fullNpmStep": "success",
+      "main": {
+        "tests": 3022,
+        "pass": 3022,
+        "fail": 0,
+        "durationMs": 870338.994728
+      },
+      "relationship": {
+        "tests": 80,
+        "pass": 80,
+        "fail": 0,
+        "durationMs": 4659.386426
+      },
+      "scope": "Completed full npm CI execution after buffer fix; original0be local failure remains unchanged. This is not a rerun performed during closure."
+    }
   },
   "asyncCI": [
     {
       "id": 37938268351,
       "source": "410edf9674d5937496e7acd0f255c98de11fc399",
-      "status": "in_progress",
-      "conclusion": null
+      "status": "completed",
+      "conclusion": "success"
     },
     {
       "id": 37938268352,
       "source": "410edf9674d5937496e7acd0f255c98de11fc399",
-      "status": "in_progress",
-      "conclusion": null
+      "status": "completed",
+      "conclusion": "success"
     },
     {
       "id": 37938899218,
       "source": "b92338e9e176eabb2af91fe6619a130bba4f67a2",
-      "status": "in_progress",
-      "conclusion": null
+      "status": "completed",
+      "conclusion": "success"
     },
     {
       "id": 37938899211,
       "source": "b92338e9e176eabb2af91fe6619a130bba4f67a2",
-      "status": "in_progress",
-      "conclusion": null
+      "status": "completed",
+      "conclusion": "success"
     }
   ],
   "independentReview": {
@@ -133,7 +153,15 @@
   },
   "humanQA": "OPEN",
   "iPhoneQA": "NOT_RUN_OPEN",
-  "localFinalSync": "BLOCKED_EXECUTOR_OFFLINE; final remote publication not locally synchronized/verified",
+  "localFinalSync": {
+    "status": "PASS",
+    "verifiedOn": "2026-10-10",
+    "restoredHead": "df2cbb5f67ca07bcdde3ee9a232c62e9b1ee4d19",
+    "restoredTree": "e0f48ddc2d3153a9c901aa905b0a751ee7571ee3",
+    "trackedAndUntrackedClean": true,
+    "finalSceneArchive": "Local ZIP and JSON exact against manifest size/SHA256",
+    "note": "Prior scratch removed by workspace maintenance; restored from remote, not reimplemented. Final documentation publication is followed by a fresh remote/local HEAD/tree/clean check."
+  },
   "constraints": {
     "draft376": true,
     "base": "feat/character-3d-pilot",

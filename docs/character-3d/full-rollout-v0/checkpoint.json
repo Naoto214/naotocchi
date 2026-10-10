@@ -1,5 +1,5 @@
 {
-  "baseCommit": "b92338e9e176eabb2af91fe6619a130bba4f67a2",
+  "baseCommit": "df2cbb5f67ca07bcdde3ee9a232c62e9b1ee4d19",
   "checkpoint": "all293-image-and-source-scoped-integration-verified-human-iphone-open",
   "coverage": {
     "exact": 293,
@@ -176,12 +176,40 @@
     "postwarmupCI172": "Character37937039121 dedicatedSUCCESS;scene113841589545FAIL setup exact state delta: livebefore:undefined versus JSON-omittedundefined. Rawartifact11618174182recoveryrequested; originalFAILretained. No additional native metrics (explicitreuse).",
     "liveDiagnosticFix": "63479083 strips onlyundefined optionaldiagnosticendpoints onbothsides, notrawstate/storage. Live/JSONpairedfixture15scenePASS,1controlRED/exactrestore,16otherfunctions exact. Root3related+6assetPASS,independentC0/I0. Freshscene gateOPEN.",
     "finalScene410": "Character37938257303 SUCCESS:dedicated113845722241 andscene113845722634 SUCCESS. Rawartifact11619241745 independently audited:17READY,38clean synchronous boundaries, exact11fixture,off0,hidden identity-boundcity,3strictcycles+cleanup23to23/nochanges,allrestorationtrue. Only bounded warmup city-map seed20to23; initialwholefalse flags preserved. No Human/iPhone approval.",
-    "finalRaw410": "Recovered4Gitentries using existingActions exporter. UTF8 JSON630363bytes roundtripped GitData create_blob exact9495a337e8f372d69869c8a8fe81cf74655ed3d9. ManifestSHA256bc9732685436bc4b2d1001f5ae44bded21beffe5f8a20fe070f37b18600052eb. Final archive localcheckout verification blocked by exec-server disconnection; priorarchives already localverified."
+    "finalRaw410": "Recovered4Gitentries using existingActions exporter. UTF8 JSON630363bytes roundtripped GitData create_blob exact9495a337e8f372d69869c8a8fe81cf74655ed3d9. ManifestSHA256bc9732685436bc4b2d1001f5ae44bded21beffe5f8a20fe070f37b18600052eb. Final archive localcheckout verification blocked by exec-server disconnection; priorarchives already localverified.",
+    "fullNpmCI410": {
+      "sourceCommit": "410edf9674d5937496e7acd0f255c98de11fc399",
+      "runId": 37938268351,
+      "jobId": 113845760165,
+      "conclusion": "success",
+      "fullNpmStep": "success",
+      "main": {
+        "tests": 3022,
+        "pass": 3022,
+        "fail": 0,
+        "durationMs": 870338.994728
+      },
+      "relationship": {
+        "tests": 80,
+        "pass": 80,
+        "fail": 0,
+        "durationMs": 4659.386426
+      },
+      "scope": "Completed full npm CI execution after buffer fix; original0be local failure remains unchanged. This is not a rerun performed during closure."
+    },
+    "localRecoveryClosure": {
+      "status": "PASS",
+      "verifiedOn": "2026-10-10",
+      "restoredHead": "df2cbb5f67ca07bcdde3ee9a232c62e9b1ee4d19",
+      "restoredTree": "e0f48ddc2d3153a9c901aa905b0a751ee7571ee3",
+      "trackedAndUntrackedClean": true,
+      "finalSceneArchive": "Local ZIP and JSON exact against manifest size/SHA256",
+      "note": "Prior scratch removed by workspace maintenance; restored from remote, not reimplemented. Final documentation publication is followed by a fresh remote/local HEAD/tree/clean check."
+    }
   },
   "next": [
-    "Fresh-check listed asynchronous Runtime/Home conclusions; distinguish SUCCESS/FAILURE/CANCELLED.",
-    "After executor recovery, fetch branch and verify finalremote/localHEAD/tree/clean; do not recreate saved implementation or repeat accepted imagegates.",
-    "Human visual adoption and actualiPhoneSafari/temperature/long-play remainOPEN. Use human-qa.md. NoReady/mainmerge/import/PR372/v1."
+    "Human visual adoption and actual iPhone Safari/temperature/long-play remain OPEN. Follow docs/qa/character-3d-full-v0/human-qa.md; static images/SwiftShader do not substitute for these gates.",
+    "No implementation/image recapture remains under the current v0 scope. Keep Draft376/basePilot; noReady/mainmerge/import/PR372/v1."
   ],
   "protected": [
     "Draft PR376/base feat/character-3d-pilot",
@@ -213,7 +241,7 @@
     ],
     "candidateBatchInProgress": [],
     "missingLegacyFourViewRecords": [],
-    "full293Integration": "PASS_SOURCE_SCOPED_IMAGE_FUNCTIONAL_SCENE_PROTECTED_AND_INCREMENTAL_NPM; asynchronous Runtime/Home runs listed separately, not inferred PASS. Human/iPhone OPEN.",
+    "full293Integration": "PASS_SOURCE_SCOPED_IMAGES_FUNCTIONAL_SCENE_PROTECTED_AND_FULL_NPM_CI; Runtime/Home all four previously pending runs SUCCESS. Human/iPhone separateOPEN.",
     "humanQA": "OPEN_SEPARATE",
     "iPhoneQA": "OPEN_SEPARATE",
     "candidateBatchReview": "All45nonplayer image and6df production-role functional gatesPASS; final410 repeatedscenePASS. No unimplemented active designs.",
@@ -241,29 +269,37 @@
       {
         "id": 37938268351,
         "source": "410edf9674d5937496e7acd0f255c98de11fc399",
-        "status": "in_progress",
-        "conclusion": null
+        "status": "completed",
+        "conclusion": "success"
       },
       {
         "id": 37938268352,
         "source": "410edf9674d5937496e7acd0f255c98de11fc399",
-        "status": "in_progress",
-        "conclusion": null
+        "status": "completed",
+        "conclusion": "success"
       },
       {
         "id": 37938899218,
         "source": "b92338e9e176eabb2af91fe6619a130bba4f67a2",
-        "status": "in_progress",
-        "conclusion": null
+        "status": "completed",
+        "conclusion": "success"
       },
       {
         "id": 37938899211,
         "source": "b92338e9e176eabb2af91fe6619a130bba4f67a2",
-        "status": "in_progress",
-        "conclusion": null
+        "status": "completed",
+        "conclusion": "success"
       }
     ],
-    "finalLocalSync": "OPEN_INFRASTRUCTURE:exec-server disconnected during final archive fetch; latest local verified b923HEAD/tree before disconnection. Final remote publication must be resynced/verified after executor recovery."
+    "finalLocalSync": {
+      "status": "PASS",
+      "verifiedOn": "2026-10-10",
+      "restoredHead": "df2cbb5f67ca07bcdde3ee9a232c62e9b1ee4d19",
+      "restoredTree": "e0f48ddc2d3153a9c901aa905b0a751ee7571ee3",
+      "trackedAndUntrackedClean": true,
+      "finalSceneArchive": "Local ZIP and JSON exact against manifest size/SHA256",
+      "note": "Prior scratch removed by workspace maintenance; restored from remote, not reimplemented. Final documentation publication is followed by a fresh remote/local HEAD/tree/clean check."
+    }
   },
   "verificationHistoryNote": "verification entries are source-scoped historical evidence. Current coverage/currentGates/next identify the active state; older pending or REJECT records are not current verdicts.",
   "productionSourceCommit": "0be70751e0896388e46a33969bef51c15dcdb3ae",

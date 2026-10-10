@@ -6,7 +6,7 @@ Use the final source/tree recorded in the [checkpoint](../../character-3d/full-r
 
 ## Source-specific handoff
 
-Production models: `0be70751e0896388e46a33969bef51c15dcdb3ae`. Final QA corrections: `410edf9674d5937496e7acd0f255c98de11fc399`. Final documentation/archive commits preserve these inputs. Current asynchronous CI and executor synchronization limitations are in the checkpoint; they are not silently marked PASS.
+Production models: `0be70751e0896388e46a33969bef51c15dcdb3ae`. Final QA corrections: `410edf9674d5937496e7acd0f255c98de11fc399`. Final documentation/archive commits preserve these inputs. The four formerly pending Runtime/Home runs are confirmed SUCCESS;410 full npm CI passed3022+80 tests with0failures. The workspace was restored from remote with HEAD/tree equality, clean state and final scene archive SHA256 verification; see the checkpoint.
 
 | Evidence | Scope |
 |---|---|
@@ -16,7 +16,7 @@ Production models: `0be70751e0896388e46a33969bef51c15dcdb3ae`. Final QA correcti
 |[Final scene audit](export/410edf9674d5937496e7acd0f255c98de11fc399/final-scene-review.md)|Actual410 PASS:38boundaries,3strict cycles,cleanup/cache/composition/restoration|
 |[Native metrics](export/f07fef280059b41e6ab22c2475b0cc5fd3c7c9ca/reviews/f07-scene-native-review.md)|dog04+nativecompanions1/5/27; frame/presenter/build/heap, clone animate and appearance windows|
 |[Protected proof](final-protected-verification/result.json)|11protected groups +28Pilot identities exact|
-|[npm attempt and repair](final-npm-0be/result.json)|Original exit1 retained;4buffer failures resolved by completeasset6PASS, separateRelationship80PASS|
+|[npm attempt and repair](final-npm-0be/result.json) / [completed CI](closure-verification.json)|Original local exit1 retained; subsequent410 full npm CI3022+80PASS/0FAIL|
 
 SwiftShader27cast measured204.83ms average RAF/533.4ms p95 and816.6ms maximum adjacent-frame appearance window. These are limitations, not smooth-frame/device PASS. Clone animation timing excludes rendering and other presenter work. Static sampled sheets do not approve continuous animation.
 
