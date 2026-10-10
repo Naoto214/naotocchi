@@ -1,11 +1,12 @@
 """02/77 supplied main movement delta, reusing existing price/identity proof.
 
-Discard arrival order for departing main/equipment remains supplied and
-unproved; this is conservation plus all other exact state changes, not an
-ordering ruling, origin authentication, or whole-rule admission certificate.
+475 adds exact person/equipment arrival order and a source-bound receipt.
+This conditional full delta is not origin authentication or a whole-rule
+admission certificate.
 """
 import copy
 from collections import Counter
+import proxy_population_departure_order as departure_order
 import proxy_population_payment_consumption as payment
 import proxy_population_start_obligations as starts
 import proxy_continuation_state as state
@@ -41,7 +42,9 @@ def audit(before,after,event):
    ep['hand'].remove(prior);ep['board']['main']=source;ep['time']-=proof['movement_payment']['payment_time']
    ec['game_state']['phase']='post_placement_response';ec['return_target']='normal_action_opportunity'
    ec['response_context']=dict(source_phase='post_placement_response',phase='response_window',window_kind='after_normal_action',origin_event_seq=event['seq'],turn_player=actor,priority_actor=actor,chain_status='empty',chain_links=[],consecutive_passes=0,response_opportunity_index=1,decision_kind='response_action',choice_kind='reaction_or_pass')
+   order_errors=departure_order.audit(before,after,event)
+   if order_errors:raise ValueError(str(order_errors))
    if canonical(after)!=canonical(expected):raise ValueError('main movement full delta differs')
  except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
  return dict(schema='supplied_main_movement_delta.v1',applicable=applicable,errors=errors,supplied_main_movement_verified=applicable and not errors,payment_and_identity_audit=proof,departed_instance_ids=departures,
-  event_sha256=event_digest(event),before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),discard_arrival_order_proven=False,incarnation_origin_proven=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)
+  event_sha256=event_digest(event),before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),discard_arrival_order_proven=applicable and not errors and 'departure_order' in event,incarnation_origin_proven=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)

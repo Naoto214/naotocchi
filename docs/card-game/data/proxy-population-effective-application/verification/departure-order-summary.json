@@ -1,0 +1,26 @@
+{
+  "base_head": "c75e7f1b4eebc5a7b3fe8d8a0aec4427c87ceee2",
+  "approved_ruling": "475/A",
+  "tests": 55,
+  "seconds": 276.515,
+  "exit_code": 0,
+  "log": "departure-order-final.log",
+  "python_files": 1050,
+  "python_fingerprint_unchanged": true,
+  "design_errors": [],
+  "old_numbered_sources_unchanged": 476,
+  "new_numbered_source": "475-person-equipment-departure-order.md",
+  "independent_review": {
+    "major_findings": 0,
+    "minor_docstrings_corrected": 2,
+    "independently_run_tests": 11
+  },
+  "preflight_ready": false,
+  "seeds_generated": 0,
+  "production_inputs_fixed": 0,
+  "matches_started": 0,
+  "policy_promoted": false,
+  "independent_balance_samples": 0,
+  "whole_set_conclusion": null,
+  "full_proxy_regression_claimed": false
+}

@@ -34,7 +34,7 @@ class CatActivationEffectTests(unittest.TestCase):
   def run():
    for normal in (True,False):
     for gear in (0,1,2):
-     b,a,event,history=actual(normal,gear);out=api.audit(b,a,event,history);self.assertEqual(out['errors'],[],(normal,gear));self.assertTrue(out['supplied_cat_activation_verified']);self.assertFalse(out['equipment_discard_order_proven']);self.assertIsNone(out['balance_admitted'])
+     b,a,event,history=actual(normal,gear);out=api.audit(b,a,event,history);self.assertEqual(out['errors'],[],(normal,gear));self.assertTrue(out['supplied_cat_activation_verified']);self.assertTrue(out['equipment_discard_order_proven']);self.assertIsNone(out['balance_admitted'])
    return {}
   self.run_case(run)
  def test_wrong_cost_refund_equipment_target_usage_and_receipt(self):
@@ -58,11 +58,11 @@ class CatActivationEffectTests(unittest.TestCase):
     with self.subTest(mode=mode):self.assertTrue(api.audit(before,after,ev,history)['errors'])
    return {}
   self.run_case(run)
- def test_typed_departure_and_unproven_discard_order(self):
+ def test_typed_departure_and_wrong_discard_order(self):
   def run():
    b,a,event,history=actual(True,2,typed=True);self.assertTrue(b['runtime']['stat_effects']);self.assertEqual(a['runtime']['stat_effects'],[]);self.assertEqual(api.audit(b,a,event,history)['errors'],[])
    bad=copy.deepcopy(a);bad['runtime']['stat_effects']=copy.deepcopy(b['runtime']['stat_effects']);self.assertTrue(api.audit(b,bad,event,history)['errors'])
-   reordered=copy.deepcopy(a);discard=reordered['legacy_continuation']['game_state']['players']['A']['discard'];discard[-2:]=reversed(discard[-2:]);proof=api.audit(b,reordered,event,history);self.assertEqual(proof['errors'],[]);self.assertFalse(proof['equipment_discard_order_proven']);self.assertIsNone(proof['balance_admitted']);return {}
+   reordered=copy.deepcopy(a);discard=reordered['legacy_continuation']['game_state']['players']['A']['discard'];discard[-2:]=reversed(discard[-2:]);proof=api.audit(b,reordered,event,history);self.assertTrue(proof['errors']);self.assertFalse(proof['equipment_discard_order_proven']);self.assertIsNone(proof['balance_admitted']);return {}
   self.run_case(run)
  def test_coverage_refuses_extra_growth(self):
   import proxy_population_trigger_coverage as coverage

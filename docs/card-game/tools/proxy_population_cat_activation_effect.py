@@ -1,6 +1,7 @@
 """C-cat_friend source cost and attached/typed departure, conditional on history."""
 import copy,hashlib
 from collections import Counter
+import proxy_population_departure_order as departure_order
 import proxy_continuation_rules as rules
 import proxy_continuation_state as state
 import proxy_resource_value_trajectory as old
@@ -44,8 +45,7 @@ def audit(before,after,event,history):
    for item,row in list(expected['runtime']['attachments'].items()):
     if row['target_instance_id']!=source:continue
     owner=row['controller'];ep=ec['game_state']['players'][owner];ep['board']['prepared'].remove(item);removed[owner].append(item);del expected['runtime']['attachments'][item];del expected['runtime']['public_prepared'][item]
-   # Physical membership is checked, but no canonical simultaneous discard order
-   # is inferred from dict insertion order or assigned a value.
+   # Conservation first; the475 ordered receipt is checked separately below.
    for owner,items in removed.items():
     original=g['players'][owner]['discard'];actual=after['legacy_continuation']['game_state']['players'][owner]['discard']
     if actual[:len(original)]!=original or Counter(actual[len(original):])!=Counter(items):raise ValueError('cat equipment discard membership differs')
@@ -53,6 +53,8 @@ def audit(before,after,event,history):
    ep=ec['game_state']['players'][actor];ep['board']['companions'].remove(source);ep['deck'].append(source)
    for key in ('stat_effects','conditional_effects'):expected['runtime'][key]=[r for r in expected['runtime'][key] if r['target_instance_id']!=source]
    expected['runtime']['ability_uses'].append(dict(source_instance_id=source,ability_key='activated_normal_action',turn_player=g['turn_player'],round=g['round'],count=1))
+   order_errors=departure_order.audit(before,after,event)
+   if order_errors:raise ValueError(str(order_errors))
    if canonical(after)!=canonical(expected):raise ValueError('cat activation full delta differs')
  except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
- return dict(schema='supplied_cat_activation_delta.v1',applicable=applicable,errors=errors,supplied_cat_activation_verified=applicable and not errors,event_sha256=event_digest(event),before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),equipment_discard_order_proven=False,history_origin_authenticated=False,selection_origin_authenticated=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)
+ return dict(schema='supplied_cat_activation_delta.v1',applicable=applicable,errors=errors,supplied_cat_activation_verified=applicable and not errors,event_sha256=event_digest(event),before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),equipment_discard_order_proven=applicable and not errors and 'departure_order' in event,history_origin_authenticated=False,selection_origin_authenticated=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)

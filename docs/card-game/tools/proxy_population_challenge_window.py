@@ -36,6 +36,7 @@ import proxy_population_prepared_predicates as prepared_predicates
 import proxy_population_response_composition as response_composition
 import proxy_population_payment_operands as payment_operands
 import proxy_population_response_operands as response_operands
+import proxy_population_departure_order as departure_order
 from proxy_mandatory_policy_contract import canonical
 
 _LOCK=Lock()
@@ -124,7 +125,7 @@ def contract_scope():
  try:
   runtime.operation=operation;runtime._step=step
   existing.SUPPORTED=supported|{'M-antlion-07','P-anglerfish'};window.OBSERVED_EVENTS=observed|{'challenge_declared'}
-  with main_routes.scope(),normal.scope(),application.scope(),chain.scope(),trigger_predicates.scope():yield
+  with departure_order.scope(),main_routes.scope(),normal.scope(),application.scope(),chain.scope(),trigger_predicates.scope():yield
  finally:runtime.operation=prior_operation;runtime._step=prior_step;existing.SUPPORTED=supported;window.OBSERVED_EVENTS=observed;_LOCK.release()
 
 

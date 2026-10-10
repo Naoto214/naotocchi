@@ -1,5 +1,6 @@
 """Current source-bound discarded companion recovery, independent of selection."""
 import copy,hashlib
+import proxy_population_departure_order as departure_order
 from contextlib import contextmanager
 import proxy_continuation_batch as batch
 import proxy_continuation_rules as rules
@@ -59,7 +60,9 @@ def activate(envelope,record,events,mandatory=False):
  # Install the complete atomic after state before validation: there is no valid
  # intermediate envelope with a detached source and an unpaid board reference.
  result=copy.deepcopy(paid);result.update(legacy_continuation=triggers.old.start._payload(after),event_seq=seq);state.validate(result)
+ ordered=departure_order.prepare(envelope,result);after=state.current(result)
  event=triggers._raw_event(before,after,'activate_response',actor,source_instance_id=source,source_zone='board',selected_candidate=action['candidate_id'],chain_link_id=link_id,target_instance_ids=action['target_instance_ids'],payment=payment,trigger_origin_event_seq=ctx['origin_event_seq'],mandatory=False,source_reference=cap['reference'])
+ if ordered is not None:event['departure_order']=ordered
  return result,[triggers.actions.bind_event(envelope,result,event)]
 
 def activate_normal(envelope,action,events):
@@ -73,6 +76,7 @@ def activate_normal(envelope,action,events):
  # the saved event; all before hashes bind the actual normal state.
  current=state.current(after);link=current['activation_zone'][-1]
  event=triggers._raw_event(before,current,'activate_companion_ability',g['turn_player'],source_instance_id=action['source_instance_id'],source_zone='board',selected_candidate=action['candidate_id'],chain_link_id=link['link_id'],target_instance_ids=action['target_instance_ids'],payment=link['payment'],trigger_origin_event_seq=current['response_context']['origin_event_seq'],mandatory=False,source_reference=descriptor(action['card_id'])['reference'])
+ if departure_order.ENABLED:event['departure_order']=departure_order.receipt(envelope,after)
  return after,[triggers.actions.bind_event(envelope,after,event)]
 
 def resolve(current,initial):

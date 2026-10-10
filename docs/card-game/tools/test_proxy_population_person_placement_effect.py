@@ -41,7 +41,7 @@ class PersonPlacementEffectTests(unittest.TestCase):
      with self.subTest(card=card,egg=egg):self.assertEqual(proof['errors'],[]);self.assertTrue(proof['supplied_person_placement_verified']);self.assertIsNone(proof['balance_admitted'])
    for card in ('C-box','P-desert_scorpion','P-cat_ceo'):
     b,a,event=actual(template,card,True,True);self.assertEqual(api.audit(b,a,event)['errors'],[])
-   b,a,event=replacement();proof=api.audit(b,a,event);self.assertEqual(proof['errors'],[]);self.assertFalse(proof['discard_arrival_order_proven'])
+   b,a,event=replacement();proof=api.audit(b,a,event);self.assertEqual(proof['errors'],[]);self.assertTrue(proof['discard_arrival_order_proven'])
    return {}
   self.run_case(run)
  def test_reentry_identity_and_cat_pending_generation(self):
@@ -61,7 +61,7 @@ class PersonPlacementEffectTests(unittest.TestCase):
     bad=copy.deepcopy(events[0]);bad['instance_transitions'][0]['from_instance_id']='missing';self.assertTrue(api.audit(recovered,end,bad)['errors'])
    return {}
   self.run_case(run)
- def test_replacement_typed_departure_and_unproved_discard_order(self):
+ def test_replacement_typed_departure_and_wrong_discard_order(self):
   def run(template):
    b,a,event=replacement();actor=event['actor'];old=event['replaced_instance_id']
    # Derive two typed rows with the existing constructors, then execute again.
@@ -71,7 +71,7 @@ class PersonPlacementEffectTests(unittest.TestCase):
    action=next(row for row in candidates.audit(b,[])['legal_candidate_details'] if row['action_type']=='place_companion' and row['target_instance_ids']==[old]);out=departure.replace_companion(b,action,[]);a=out['envelope'];event=out['events'][0]
    self.assertEqual(api.audit(b,a,event)['errors'],[])
    bad=copy.deepcopy(a);bad['runtime']['stat_effects']=b['runtime']['stat_effects'];self.assertTrue(api.audit(b,bad,event)['errors'])
-   reordered=copy.deepcopy(a);reordered['legacy_continuation']['game_state']['players'][actor]['discard'].reverse();proof=api.audit(b,reordered,event);self.assertEqual(proof['errors'],[]);self.assertFalse(proof['discard_arrival_order_proven'])
+   reordered=copy.deepcopy(a);reordered['legacy_continuation']['game_state']['players'][actor]['discard'].reverse();proof=api.audit(b,reordered,event);self.assertTrue(proof['errors']);self.assertFalse(proof['discard_arrival_order_proven'])
    return {}
   self.run_case(run)
  def test_full_delta_and_event_tampering_refused(self):

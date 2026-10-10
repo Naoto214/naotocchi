@@ -722,3 +722,20 @@ P07を番号付き正本から再確認し、449が複数装備退場時の捨�
 管理項目22維持。新規大項目の追加ではなくP11の比較前提とP07の既知順序境界を具体化した。preflight-ready=false、seed生成/本番入力固定/400戦0、全体結論null、policy promotion=false、独立balance標本0。新しい裁定を仮定せず、保存確認後にこの順序の選択をユーザーへ確認する。これは生成/開始承認の依頼ではない。P13〜18を含む他の残件は既存台帳に残る。
 
 最終固定結合24件PASS270.484s、exit0、Python1048ファイルfingerprint不変。既存unit response89/normal29の局所source合成・終了dispatch20を維持。design再実行errors=[]。全proxy回帰/全source到達の証明ではない。
+
+
+### 2026-10-10 承認A: 人物・装備の退場順（475）
+
+基準HEAD c75e7f1b4eebc5a7b3fe8d8a0aec4427c87ceee2/tree168d4347f95eedf34a31c97bb2f935461e74887e。fresh remote/PR259 Draft・open・unmergedを確認して復元。ユーザー承認Aを475へ追補し、旧01/06/114/116/119/449・過去結果は変更しない。
+
+現在の107経路で、人物→退場直前の準備枠順を共通departure_orderへ接続した。main交代・満員なかま交代・C-cat_friend本人支払が対象。本人が山札へ行く場合は装備だけを捨て札へ追加する。既存prefixと保存則を検証し、event/hash構築前に順序を確定。退場eventに順序付きmovements/ordinalとsource SHAを記録する。旧sorted equipment IDはmembership用途のまま。所有者選択・新しい反応窓・mandatory policy拡張はない。
+
+3つの既存full-delta監査でreceipt欠落・改竄と逆順を拒否する。辞書登録順の反転でも実再実行/state/event/hashが一致し、準備枠順を変えれば移動順が変わることを確認する。共通旧detach_targetは不変。475の適用された退場だけで順序証明を付け、全機会・情報実使用・標本適格性の証明にはしない。
+
+独立review1回: 重大な不具合なし、関連11PASS。軽微な旧docstring2件を修正。本文/誘発/捨て札参照との照合はverification/departure-order-source-review.md。既存番号付き476正本不変、新475を追加。最終検証はdeparture-order-final.logとsummary JSONを正本にし、旧全proxy PASSへ読み替えない。
+
+P07の退場順未決だけを解消。P07〜12の全dispatch/全source機会/情報read/operand由来、P13の外部承認信頼方式、P14〜18の結合と最終全体確認は依然未完。P13の推奨案をplans/2026-10-10-external-approval-trust-decision.mdに具体化したが未承認・未実装。非空approval_referenceやfresh remoteだけを本人承認・結果前lockへ昇格しない。
+
+preflight-ready=false。seed生成・本番入力固定・400戦開始は0。全体結論null、policy promotion=false、独立balance標本0、旧116除外を維持。管理項目22を増やさない。
+
+最終固定検証: 55PASS、276.515秒、exit0。Python1050ファイル不変、design errors=[]。既存unitのresponse89/normal29 covered、end dispatch20 verifiedを維持。全機会証明・最新全proxy回帰・preflight完了ではない。

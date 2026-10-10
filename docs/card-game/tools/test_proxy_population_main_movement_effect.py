@@ -50,13 +50,13 @@ class MainMovementEffectTests(unittest.TestCase):
     with self.subTest(mode=mode):self.assertTrue(api.audit(b,bad,event)['errors'])
    return {}
   self.run_case(run)
- def test_supplied_discard_arrival_order_is_not_a_rule_proof(self):
+ def test_wrong_discard_arrival_order_rejected_even_with_fresh_hashes(self):
   def run(template):
    import proxy_continuation_payments as payments
    b,a,event=actual(template,equipment=True);actor=event['actor'];offset=len(b['legacy_continuation']['game_state']['players'][actor]['discard']);p=a['legacy_continuation']['game_state']['players'][actor]
    self.assertGreater(len(p['discard'])-offset,1);p['discard'][offset:]=reversed(p['discard'][offset:])
    event=payments.transition_event(b,a,event['action_type'],actor,**{k:event[k] for k in ('source_instance_id','payment_time','source_reference','candidate_variant','payment_effect_ids','selected_candidate')})
-   proof=api.audit(b,a,event);self.assertEqual(proof['errors'],[]);self.assertFalse(proof['discard_arrival_order_proven']);return {}
+   proof=api.audit(b,a,event);self.assertTrue(proof['errors']);self.assertFalse(proof['discard_arrival_order_proven']);return {}
   self.run_case(run)
  def test_coverage_rejects_self_consistent_extra_growth(self):
   import proxy_population_trigger_coverage as coverage

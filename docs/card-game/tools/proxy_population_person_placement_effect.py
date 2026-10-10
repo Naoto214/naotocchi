@@ -1,6 +1,7 @@
-"""01/06/72/74/77 supplied person placement delta; discard order unproved."""
+"""01/06/72/74/77 supplied placement delta with the approved475 departure order."""
 import copy,hashlib
 from collections import Counter
+import proxy_population_departure_order as departure_order
 import proxy_population_payment_consumption as identity
 import proxy_population_start_obligations as starts
 import proxy_population_resolution_order as order
@@ -53,7 +54,9 @@ def audit(before,after,event):
    else:ep['board']['companions'].append(source)
    ec['game_state']['phase']='post_placement_response';ec['return_target']='normal_action_opportunity'
    ec['response_context']=dict(source_phase='post_placement_response',phase='response_window',window_kind='after_normal_action',origin_event_seq=seq,turn_player=actor,priority_actor=actor,chain_status='empty',chain_links=[],consecutive_passes=0,response_opportunity_index=1,decision_kind='response_action',choice_kind='reaction_or_pass')
+   order_errors=departure_order.audit(before,after,event)
+   if order_errors:raise ValueError(str(order_errors))
    if canonical(after)!=canonical(expected):raise ValueError('person placement full delta differs')
  except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
  return dict(schema='supplied_person_placement_delta.v1',applicable=applicable,errors=errors,supplied_person_placement_verified=applicable and not errors,prior_hand_instance_id=prior,replaced_instance_id=old,
-  event_sha256=event_digest(event),before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),discard_arrival_order_proven=False,activation_history_proven=False,incarnation_origin_proven=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)
+  event_sha256=event_digest(event),before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),discard_arrival_order_proven=applicable and not errors and 'departure_order' in event,activation_history_proven=False,incarnation_origin_proven=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)
