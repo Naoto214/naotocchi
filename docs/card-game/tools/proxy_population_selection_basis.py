@@ -23,15 +23,21 @@ def audit(record):
   if any(r.get('strategic_unresolved') is True or r.get('seed_proof') is not None for r in (record,choice)) or mode in ('seeded_fallback','response_seeded_fallback'):raise ValueError('legacy exclusion is not a nonfallback certificate')
   if kind=='normal_action':
    if record.get('policy_id')!='legacy_107_114_116' or record['context']['decision_kind']!=kind:raise ValueError('normal contract context differs')
-   p=record['problem'];ids=record['inventory']['legal_candidate_ids'];selected=record['selected_candidate']
+   upper_only='upper_priority_problem' in record
+   p=record['upper_priority_problem'] if upper_only else record['problem'];ids=record['inventory']['legal_candidate_ids'];selected=record['selected_candidate']
    if not ids or ids!=sorted(set(ids)) or ids!=p['legal_candidate_ids'] or selected!=choice['selected_candidate'] or selected not in ids:raise ValueError('normal candidate/selection binding differs')
    rows=p['candidates']
    if len(rows)!=len(ids) or {r['candidate_id'] for r in rows}!=set(ids):raise ValueError('normal comparison coverage differs')
    if any(type(r.get(k)) is not int for r in rows for k in priority.PRIORITY_ORDER[:4]):raise ValueError('normal priority operands unproved')
    # Matches114's current legacy branch: no caller-invented resource relation.
    scores={r['candidate_id']:dict(r,value_comparison_to={}) for r in rows}
-   winners=[i for i in ids if all(i==j or priority.compare_candidates(scores[i],scores[j])['winner']=='left' for j in ids)]
-   if mode=='priority_unique':
+   winners=[] if upper_only else [i for i in ids if all(i==j or priority.compare_candidates(scores[i],scores[j])['winner']=='left' for j in ids)]
+   if upper_only:
+    if 'problem' in record or mode!='priority_unique':raise ValueError('upper-only comparison branch differs')
+    vector=lambda row:tuple(row[k] for k in priority.PRIORITY_ORDER[:4])
+    best=max(vector(row) for row in rows)
+    if [row['candidate_id'] for row in rows if vector(row)==best]!=[selected]:raise ValueError('normal upper-only unique comparison not proven')
+   elif mode=='priority_unique':
     if winners!=[selected]:raise ValueError('normal unique comparison not proven')
    elif mode=='safe_free_development':
     if winners:raise ValueError('114 unique branch precedes safe development')

@@ -106,6 +106,11 @@ def select_verified_zero_immediate(envelope,inventory,context,policy,proved_acti
  permitted={a['candidate_id'] for a in proved_actions}|{'pass'}
  if len(frontier)==1:
   chosen=frontier[0];choice=dict(selected_candidate=chosen,resolution_mode='priority_unique',strategic_unresolved=False,reason_code='existing_114_upper_priority_unique')
+  # Preserve only the operands used by this upper-priority branch. Do not
+  # invent consumption/card-copy tie-break values for source-cost actions.
+  proved_ids={a['candidate_id'] for a in proved_actions}
+  scored=[dict(row,payment_time=0) if row['candidate_id'] in proved_ids else copy.deepcopy(row) for row in rows]
+  problem=dict(legal_candidate_ids=copy.deepcopy(ids),candidates=scored)
  else:
   if not set(frontier)<=permitted:raise ValueError('mixed resource comparison remains unproved')
   if any(priority.compare_candidates(a,b)['winner']!='unresolved' for a in top for b in top if a is not b):raise ValueError('pure incomparable premise differs')
@@ -113,4 +118,6 @@ def select_verified_zero_immediate(envelope,inventory,context,policy,proved_acti
   choice=dict(decision_kind='normal_action',resolution_mode='seeded_fallback',strategic_unresolved=True,reason_code='strategic_unresolved_seeded_fallback',legal_candidates=copy.deepcopy(ids),seeded_fallback_candidates=copy.deepcopy(frontier),candidate_set_complete=True,candidate_set_evidence=dict(source_ref='01-core-rules.md',state_ref=inventory['view_sha256'],enumeration_rule='complete current canonical inventory; verified zero-immediate transition or pass'),seed_context=copy.deepcopy(context),seed_proof=seed,selected_candidate=chosen,runner_up_candidates=[i for i in frontier if i!=chosen])
   errors=fallback.validate_seeded_resolution(choice)
   if errors:raise ValueError(str(errors))
- return dict(policy_id=policy,selected_candidate=chosen,choice=choice,selected_action=copy.deepcopy(next(a for a in details if a['candidate_id']==chosen)),candidate_set_complete=True,inventory=copy.deepcopy(inventory),context=copy.deepcopy(context),execution_evidence=dict(contract=contract,source_sha256=source_sha256,verified_immediate_candidates=[a['candidate_id'] for a in proved_actions],upper_priority_exclusions=[dict(candidate_id=row['candidate_id'],comparison=priority.compare_candidates(top[0],row)) for row in rows if upper(row)<best],strategic_resource_comparison='unproved'))
+ result=dict(policy_id=policy,selected_candidate=chosen,choice=choice,selected_action=copy.deepcopy(next(a for a in details if a['candidate_id']==chosen)),candidate_set_complete=True,inventory=copy.deepcopy(inventory),context=copy.deepcopy(context),execution_evidence=dict(contract=contract,source_sha256=source_sha256,verified_immediate_candidates=[a['candidate_id'] for a in proved_actions],upper_priority_exclusions=[dict(candidate_id=row['candidate_id'],comparison=priority.compare_candidates(top[0],row)) for row in rows if upper(row)<best],strategic_resource_comparison='unproved'))
+ if len(frontier)==1:result['upper_priority_problem']=problem
+ return result

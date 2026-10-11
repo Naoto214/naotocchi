@@ -137,7 +137,7 @@ def require_current_comparison(step):
   if proof['errors'] or proof['selection_computation_verified'] is not True:
    raise ValueError('current selection computation incomplete: '+str(proof['errors']))
   step['selection_computation_audit']=proof
- if decision.get('context',{}).get('decision_kind')=='normal_action' and decision.get('problem') is not None:
+ if decision.get('context',{}).get('decision_kind')=='normal_action' and (decision.get('problem') is not None or decision.get('upper_priority_problem') is not None):
   proof=step.get('normal_payment_operands',{});rows=proof.get('verified_candidates',[])
   ids=decision['inventory']['legal_candidate_ids']
   if proof.get('schema')!='normal_comparison_payment_operands.v1' or proof.get('errors')!=[] or proof.get('applicable') is not True or proof.get('supported_payment_operands_verified') is not True or proof.get('unproved_candidates')!=[] or len(rows)!=len(ids) or sorted(r.get('candidate_id','') for r in rows)!=ids:

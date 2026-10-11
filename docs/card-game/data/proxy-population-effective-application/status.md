@@ -1141,3 +1141,8 @@ preflight-ready=false、本番gate閉鎖、生成/固定/400戦0。P07–12の�
 ### 2026-10-11 公開適用証拠と監査用hashの分離
 
 73d821dから最小復元。現行runtimeの過去比較borrow無効化とnormal/responseのread経路をverification/public-read-boundary-review.mdへ対応表として保存。C-chameleonの公開適用証拠に含まれたfull game hashを、既存の公開盤面投影hashへ分離。raw履歴hash検証は保持。G-beach-volleyの正のconsumerはbool利用のため、選択結果の秘密依存を検出したとは主張しない。新1RED→関連19PASS9.374s/exit0、独立review C0/I0・4PASS。過去結果・正本本文不変。全read/P09/P11と最終合成/固定版回帰は未完。preflight-ready=false、gate閉鎖、生成/固定/400戦0。
+
+
+### 2026-10-11 上位比較唯一winnerの共通入口接続
+
+1c912a0から継続。共通zero-immediate selectorが既存114唯一winnerを返しても比較記録を欠き、共通gateで停止する経路を修正。実際に使った上位4operand/全候補だけをupper_priority_problemへ保持し、既存支払監査と入口gateを共有。下位の消費/現物同値/価値点数を追加しない。missing problemと支払候補欠落の2REDを修正。最終関連36PASS9.883s/exit0、tools再帰1044前後不変、design errors=[]、番号付き正本変更0。独立review C0/I0・19PASS。詳細/原log/指紋はverification/upper-comparison-entry-*。全proxy回帰・全operand根拠は未完。preflight-ready=false、生成/固定/400戦0。

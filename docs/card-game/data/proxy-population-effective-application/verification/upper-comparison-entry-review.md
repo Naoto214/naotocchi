@@ -1,0 +1,15 @@
+# 上位比較の現行入口接続
+
+基準1c912a0e91a43f1fe90218221658ae6b7dd95f78。
+
+共通select_verified_zero_immediateは、満員なかま交代/自己源回収/支払ドローを含む候補で、既存114上位比較の唯一winnerを返すことがある。しかしproblemを記録しなかったため、f38の共通selection gateで停止していた。保存済みfixtureの交際stage3を使い、選択そのものはrelationship/priority_uniqueのまま、selection auditがmissing problemで失敗するREDを確認した。
+
+既に使った上位4operandと全候補IDをupper_priority_problemとして記録し、selection_basisが同じ辞書式順序の唯一最大を確認する。通常problemとの併存/同率最大を拒否し、下位比較を新設しない。消費枚数・copy ID等の未使用値を0で補わない。既存payment_operandsの全候補照合をこのbranchへ共用し、common gateへ接続。payment候補1件欠落を受理してしまう2つ目のREDも確認してから修正した。純116fallback記録は変更しない。
+
+途中案では通常problem serializerへ接続したが、未使用の下位値の補完が必要になったため採用せず、既存候補器ファイルへの変更を戻した。最終変更はpopulationの5ファイルのみ。途中の誤ったcwdによるpath失敗は検証成功へ数えない。
+
+検証: 最初の関連30PASS4.352s。最終固定36PASS9.883s、runner10.088792127s、exit0。tools以下再帰Python1044件のbefore/after SHA256一致（以前の全docs再帰1068とは範囲が違う）。原logと全fingerprintをupper-comparison-entry-related.log / .json.gzへ保存。現行contract_scope + runtime._step + require_current_predicatesを通すfixtureを含む。比較成長を0へ改変すると計算証明を拒否、支払候補欠落も拒否。設計errors=[]、番号付きtop-level正本変更0。
+
+独立review1回Critical0/Important0。別実行19件PASS。上位同率/通常problem併存の拒否、全支払被覆、既存fallback不変、fresh runtime再構成と局所証明範囲を確認。
+
+新しい比較operandの意味や戦略的適格性は証明していない。operand_provenance_verified/legality/originはfalseのまま。過去結果は変更せず、全proxy回帰完了とはしない。preflight-ready=false、gate閉鎖、seed生成/本番固定/400戦0、policy promotion=false、独立balance標本0。P09/P10/P11の全source機会/実read/上位operand根拠と、P14–18の最終合成・固定版検証が残る。

@@ -12,13 +12,13 @@ from proxy_mandatory_policy_contract import canonical
 
 
 def audit_normal(envelope,events,decision):
- errors=[];verified=[];unproved=[];applicable=decision.get('problem') is not None
+ errors=[];verified=[];unproved=[];applicable=decision.get('problem') is not None or decision.get('upper_priority_problem') is not None
  try:
   state.validate(envelope);g=envelope['legacy_continuation']['game_state'];actor=g['turn_player'];time=g['players'][actor]['time']
   if type(time) is not int or time<0:raise ValueError('normal payment actor time unproved')
   if decision.get('context',{}).get('decision_kind')!='normal_action':raise ValueError('not a normal payment comparison')
   if applicable:
-   inventory=decision['inventory'];problem=decision['problem'];ids=inventory['legal_candidate_ids'];rows=problem['candidates']
+   inventory=decision['inventory'];problem=decision.get('problem',decision.get('upper_priority_problem'));ids=inventory['legal_candidate_ids'];rows=problem['candidates']
    if ids!=sorted(set(ids)) or ids!=problem['legal_candidate_ids'] or len(rows)!=len(ids) or {r['candidate_id'] for r in rows}!=set(ids):raise ValueError('payment comparison coverage differs')
    units=inventory['enumeration_units'];details=inventory['legal_candidate_details']
    unit_ids=[r['enumeration_unit_id'] for r in units]

@@ -18,7 +18,7 @@
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。
 2. このメモとstatus.mdの最新追補を先に読む。過去の長大な履歴・関連41件・完全入口検証を、環境を復元したという理由だけで全てやり直さない。
 3. P10実read経路の確認はverification/public-read-boundary-review.mdの表から再開する。runtimeで過去比較borrowが無効なことは確認済み。C-chameleon公開適用証拠のfull hashをpublic_board_sha256へ分離済み（関連19PASS、独立4PASS）。通常UNIT/ADMITTED/MAIN_TRANSITIONとresponse hand/boardのfield対応、P11その他operand、P09機会対応が次。有限検査や同じ実行器の再現を全情報利用の証明へ昇格しない。
-4. P07–12の全source機会/情報/他operandとP14–18の最終合成・版固定検証を既存22項目台帳で続行する。常時閉鎖の本番gateを、局所PASSだけで開かない。
+4. 上位比較唯一winnerの比較記録/支払gate接続も完了（verification/upper-comparison-entry-review.md、関連36PASS、独立19PASS）。再実装しない。P07–12の全source機会/情報/他operandとP14–18の最終合成・版固定検証を既存22項目台帳で続行する。常時閉鎖の本番gateを、局所PASSだけで開かない。
 
 ## 保存の区切り
 

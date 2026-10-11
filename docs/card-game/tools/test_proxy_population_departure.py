@@ -74,8 +74,36 @@ class ConnectionTests(unittest.TestCase):
    with api.scope():
     inv=candidates.audit(c,[]);r=candidates.select(c,inv,ctx,runtime.POLICY)
     self.assertEqual(r['selected_action']['action_type'],'relationship');self.assertEqual(r['choice']['resolution_mode'],'priority_unique');self.assertFalse(r['choice']['strategic_unresolved'])
+    import proxy_population_selection_basis as selection
+    import proxy_population_payment_operands as payment
+    self.assertEqual(selection.audit(r)['errors'],[])
+    proof=payment.audit_normal(c,[],r)
+    self.assertEqual(proof['errors'],[]);self.assertTrue(proof['supported_payment_operands_verified'])
+    self.assertEqual(proof['unproved_candidates'],[])
+    self.assertEqual({a['candidate_id'] for a in proof['verified_candidates']},set(inv['legal_candidate_ids']))
+    import proxy_population_decision_binding as binding
+    step=dict(decision=r,normal_payment_operands=proof)
+    binding.require_current_comparison(step)
+    bad=copy.deepcopy(step);bad['normal_payment_operands']['verified_candidates'].pop()
+    with self.assertRaisesRegex(ValueError,'payment coverage incomplete'):binding.require_current_comparison(bad)
+    bad=copy.deepcopy(r)
+    for row in bad['upper_priority_problem']['candidates']:row['certain_growth_difference']=0
+    self.assertFalse(selection.audit(bad)['selection_computation_verified'])
+    self.assertNotIn('problem',r)
    return {}
   runtime.operation(initial(),run)
+  # Exercise the current ordinary-entry composition, not only the serializer.
+  import proxy_population_challenge_window as current_window
+  import proxy_population_decision_binding as binding
+  def current_entry(forced):
+   with api.scope():step=runtime._step(e,initial(),[],[],[e],forced)
+   binding.require_current_predicates(step)
+   self.assertEqual(step['decision']['selected_action']['action_type'],'relationship')
+   self.assertTrue(step['selection_computation_audit']['selection_computation_verified'])
+   self.assertFalse(step['selection_computation_audit']['operand_provenance_verified'])
+   self.assertIsNone(step['evaluation']['balance_admitted'])
+   return {}
+  with current_window.contract_scope():runtime.operation(initial(),current_entry)
 
  def test_scope_connects_current_selector_apply_and_runtime_replay(self):
   self.assertTrue(hasattr(api,'scope'))
