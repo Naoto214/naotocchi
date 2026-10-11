@@ -5916,19 +5916,19 @@
       "status": "spec-ready",
       "reason": null,
       "views": {
-        "front": "docs/qa/character-3d-full-v0/export/896024b8bb8b05393bc63ea439c670a814791f71/author-fringe/author-naoto-0-front.jpg",
-        "34": "docs/qa/character-3d-full-v0/export/896024b8bb8b05393bc63ea439c670a814791f71/author-fringe/author-naoto-0-34.jpg",
-        "side": "docs/qa/character-3d-full-v0/export/896024b8bb8b05393bc63ea439c670a814791f71/author-fringe/author-naoto-0-side.jpg",
-        "back": "docs/qa/character-3d-full-v0/export/896024b8bb8b05393bc63ea439c670a814791f71/author-fringe/author-naoto-0-back.jpg"
+        "front": "docs/qa/character-3d-full-v0/export/26ba5558c031e6fc72c62c94448df84917ac928c/author-soft-hair/author-naoto-0-front.jpg",
+        "34": "docs/qa/character-3d-full-v0/export/26ba5558c031e6fc72c62c94448df84917ac928c/author-soft-hair/author-naoto-0-34.jpg",
+        "side": "docs/qa/character-3d-full-v0/export/26ba5558c031e6fc72c62c94448df84917ac928c/author-soft-hair/author-naoto-0-side.jpg",
+        "back": "docs/qa/character-3d-full-v0/export/26ba5558c031e6fc72c62c94448df84917ac928c/author-soft-hair/author-naoto-0-back.jpg"
       }
     }
   ],
   "currentVisualRepair": {
-    "status": "TECHNICAL_IMAGE_REVIEWED_HUMAN_QA_WAIT",
+    "status": "AUTHOR_CANDIDATE_HUMAN_QA_PENDING_NOT_APPROVED",
     "keys": [
       "author:naoto:0"
     ],
-    "note": "Deer Human approved/no further change. Author front-only fullness896024b actually reviewed; awaits user Human QA. All other292 unchanged. OverallHuman/iPhoneOPEN.",
-    "evidence": "docs/qa/character-3d-full-v0/author-fringe-20261011/visual-review.json"
+    "note": "Previous pointed fringe HumanREJECTED; bca beadlike candidate internallyREJECTED.26ba actual4views/32states/2distance reviewed; source likeness still HumanOPEN. Deer HumanAPPROVED and other292unchanged.",
+    "evidence": "docs/qa/character-3d-full-v0/author-soft-hair-20261011/visual-review.json"
   }
 }

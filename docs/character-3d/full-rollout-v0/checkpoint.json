@@ -392,9 +392,24 @@
   },
   "authorSoftHair20261011": {
     "baseline": "5c4cf9182b6cfb1869e4af1329e8160a9b7bfbc2",
-    "status": "CANDIDATE_IMAGE_PENDING",
+    "status": "IMAGES_REVIEWED_CANDIDATE_AWAITING_HUMAN_QA",
     "humanQA": "OPEN",
     "deerHumanQA": "APPROVED_UNCHANGED",
-    "evidence": "docs/qa/character-3d-full-v0/author-soft-hair-20261011"
+    "evidence": "docs/qa/character-3d-full-v0/author-soft-hair-20261011",
+    "sourceCommit": "26ba5558c031e6fc72c62c94448df84917ac928c",
+    "visualReview": "docs/qa/character-3d-full-v0/author-soft-hair-20261011/visual-review.json",
+    "internalRejectedSource": "bca25c1bb5b58c43c6a2f9d3733faac9fad8e3aa",
+    "characterCI": {
+      "run": 38133919846,
+      "status": "SUCCESS"
+    },
+    "runtimeCI": {
+      "run": 38133925343,
+      "status": "IN_PROGRESS_NOT_PASSED"
+    },
+    "homeCI": {
+      "run": 38133925347,
+      "status": "IN_PROGRESS_NOT_PASSED"
+    }
   }
 }
