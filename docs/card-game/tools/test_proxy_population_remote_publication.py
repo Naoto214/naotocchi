@@ -60,7 +60,8 @@ class RemotePublicationTests(unittest.TestCase):
   import proxy_population_batch_supervisor as supervisor
   from test_proxy_mandatory_population_input import bundle
   from contextlib import ExitStack
-  for module in (gen,attempt,supervisor):
+  # Generation now uses the owner-claim integration, covered separately.
+  for module in (attempt,supervisor):
    with self.subTest(entry=module.__name__),tempfile.TemporaryDirectory() as temp,ExitStack() as stack:
     root=Path(temp)/'docs'/'card-game';(root/'data').mkdir(parents=True);out=root/'data'/'must-not-exist'
     stack.enter_context(patch.object(module,'ROOT',root))
@@ -71,16 +72,12 @@ class RemotePublicationTests(unittest.TestCase):
     stack.enter_context(patch.object(attempt.connected,'reconstruct',side_effect=AssertionError('no execution')))
     stack.enter_context(patch.object(supervisor.subprocess,'run',side_effect=AssertionError('no child')))
     certificate={'commit':'1'*40,'tree':'2'*40}
-    if module is gen:
-     stack.enter_context(patch.object(gen.edition,'capture',return_value=certificate))
-     with self.assertRaisesRegex(ValueError,'remote'):gen.generate_after_external_approval(temp,'1'*40,out,'not-approval')
-    else:
-     stack.enter_context(patch.object(module.lock,'verify_git_binding',return_value=dict(immutable_content_verified=True)))
-     stack.enter_context(patch.object(module.edition,'audit_bundle_edition',return_value=dict(bundle_edition_bound=True)))
-     stack.enter_context(patch.object(module.generation_package,'audit_committed_generation',return_value=dict(committed_generation_consistent=True)))
-     args=(bundle(),certificate,certificate,temp)
-     if module is attempt:args+=('test-1A',)
-     with self.assertRaisesRegex(ValueError,'remote'):module.run_after_external_approval(*args,3,out,'not-approval')
+    stack.enter_context(patch.object(module.lock,'verify_git_binding',return_value=dict(immutable_content_verified=True)))
+    stack.enter_context(patch.object(module.edition,'audit_bundle_edition',return_value=dict(bundle_edition_bound=True)))
+    stack.enter_context(patch.object(module.generation_package,'audit_committed_generation',return_value=dict(committed_generation_consistent=True)))
+    args=(bundle(),certificate,certificate,temp)
+    if module is attempt:args+=('test-1A',)
+    with self.assertRaisesRegex(ValueError,'remote'):module.run_after_external_approval(*args,3,out,'not-approval')
     self.assertFalse(out.exists())
 
 if __name__=='__main__':unittest.main()

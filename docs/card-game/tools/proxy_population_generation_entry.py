@@ -1,6 +1,6 @@
 """Future OS generation entry; MUST NOT be invoked before external approval.
 
-A supplied reference records an operator assertion, never authenticates consent.
+A supplied reference is descriptive only; the exact live published claim is required.
 No CLI/default invocation. Current preparation/tests do not call this function
 successfully. No games, automatic retry, resume, remote publication or lock.
 """
@@ -10,6 +10,7 @@ import proxy_population_execution_edition as edition
 import proxy_population_external_approval as external_approval
 import proxy_population_input_history as history
 import proxy_population_remote_publication as remote
+import proxy_population_generation_authorization as authorization
 from proxy_population_material_protocol import Cursor
 from proxy_population_manifest_builder import assemble_supplied
 from proxy_population_generation_journal import collect_supplied,audit_journal
@@ -25,17 +26,19 @@ def write_exclusive(path,value):
  finally:os.close(directory)
 
 
-def generate_after_external_approval(repository,commit,destination,approval_reference):
+def generate_after_external_approval(repository,commit,destination,approval_reference,*,comment_id=None,claim_commit=None,claim_tree=None):
  """Operational caller must obtain approval; reference text is not a token."""
  if type(approval_reference) is not str or not approval_reference.strip():raise ValueError('external approval reference required; text does not authenticate approval')
  external_approval.require_operation_ready('generation')
- repository=Path(repository).resolve();destination=Path(destination).resolve()
+ repository=Path(repository).resolve();destination=Path(destination)
+ if not destination.is_absolute() or destination!=destination.resolve():raise ValueError('generation destination must be canonical and absolute')
  if repository!=ROOT.parents[1].resolve() or not destination.is_relative_to((ROOT/'data').resolve()) or destination==(ROOT/'data').resolve():raise ValueError('generation must use current source repository and a new CARD GAME data directory')
  certificate=edition.capture(repository,commit)
- publication=remote.verify(repository,certificate['commit'],certificate['tree'])
- if not publication['fresh_remote_head_verified']:raise ValueError('fresh remote source edition unverified')
  registry=history.build_cutoff_registry()
  if not registry['registry_verified']:raise ValueError('historical registry unproved')
+ authenticated=authorization.audit_generation(repository,certificate,registry,destination,comment_id,claim_commit,claim_tree)
+ if not authenticated['generation_authorization_bound']:raise ValueError('generation approval unverified: '+str(authenticated['errors']))
+ publication=authenticated['consumption']['remote_publication']
  fixture=load_json(ROOT/'data/proxy-fixtures-107/fixture-107-normal-decision-a-first.json')
  decks={p['player_id']:p['deck_order_top_to_bottom'] for p in fixture['input']['players']}
  cursor=Cursor(registry,decks,group_count=200)
@@ -44,7 +47,7 @@ def generate_after_external_approval(repository,commit,destination,approval_refe
  try:os.fsync(directory)
  finally:os.close(directory)
  metadata=dict(schema='population_generation_operation.v1',api='os.urandom',os_name=os.name,
-  platform=platform.platform(),approval_reference=approval_reference,remote_publication_observation=publication,external_approval_verified=False,
+  platform=platform.platform(),approval_reference=approval_reference,remote_publication_observation=publication,generation_authorization=authenticated,external_approval_verified=True,
   provenance_verified=False,input_lock_verified=False,execution_authorized=False,ready_for_execution=False)
  write_exclusive(destination/'operation.json',metadata)
  write_exclusive(destination/'edition.json',certificate)
@@ -60,7 +63,7 @@ def generate_after_external_approval(repository,commit,destination,approval_refe
  write_exclusive(destination/'manifest.json',bundle)
  report=dict(schema='population_generation_local_completion.v1',collection=collected,journal=journal,
   actual_os_read_calls=len(material['calls']),returned_byte_count=sum(r['byte_count'] for r in material['calls']),
-  planned_groups=200,planned_matches=400,completed_local_generation=True,external_approval_verified=False,
+  planned_groups=200,planned_matches=400,completed_local_generation=True,external_approval_verified=True,
   provenance_verified=False,input_lock_verified=False,remote_publication_verified=False,
   ready_for_execution=False,independent_balance_sample_count=0,new_matches=0,policy_promoted=False)
  write_exclusive(destination/'completion.json',report)

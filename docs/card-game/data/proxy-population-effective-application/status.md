@@ -1074,3 +1074,11 @@ P13方式の再承認は不要。P13全体・P14/15のfresh全blob/remote消費�
 これは現在remote上の消費記録へのbindingであり、全編集/取消履歴・remote巻戻し不存在・結果前時系列の証明ではない。本番gateは閉鎖。P07〜12/P14〜18と本番入口の最終合成は未完、preflight-ready=false、全体結論null、policy promotion=false、独立balance標本0。P13方式自体は採用済み。
 
 最終固定関連37PASS47.695s/exit0、再帰Python1058ファイル前後一致。設計errors=[]、番号付き正本477不変。全proxy回帰・全判断機会・結果前時系列の認証は未完。seed生成/本番固定/400戦0。
+
+全proxy回帰2032件/529moduleは開始したが、開始入口の後続実装が残るため最終版へ延期し、意図的にCtrl-C/exit130で中断。worker完了summary0、最終PASSなし。原本をgeneration-authorization-full-incomplete.json.gzへ保存。残存worker0を確認。全回帰を今回完了とはしない。作業場所をcard-game-nextへ分けたが、今回の固定関連検証までsource変更なし。
+
+作業場所移行時、変更一覧の取得で追跡済みPython3ファイルの転送が漏れ、初回固定45件は1FAIL/1ERRORとなった。旧生成入口が残ったためで、新API keyword拒否とreference単独のentropy境界到達を検知した。原本と照合して3ファイルを転送し、同じ検証を再実行する。初回log/fingerprintはcopy-incompleteとして保存し、修正後結果と分離する。
+
+移行先固定検証45件は1ERROR: 実行中に追跡済みPython3ファイルが旧HEAD版へ戻り、connected source fingerprintが正しく拒否した。前後hashで3件の変更を確認。原因未確定のため移行先を使用せず、変更が保たれている元の独立cloneへ戻して検証する。worktree-drift原本を保存し、この試行をPASSへ読み替えない。
+
+元の独立cloneで最終固定45PASS51.440s/exit0。再帰Python1060ファイル前後hash一致、設計errors=[]、保護番号付き477正本不変。移行先のcopy漏れ/実行中driftと全回帰の意図的中断を別logで保持。今回は最新全proxy完了ではない。生成/固定/400戦0、preflight-ready=false。
