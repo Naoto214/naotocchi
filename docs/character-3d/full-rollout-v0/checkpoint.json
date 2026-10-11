@@ -303,5 +303,21 @@
   },
   "verificationHistoryNote": "verification entries are source-scoped historical evidence. Current coverage/currentGates/next identify the active state; older pending or REJECT records are not current verdicts.",
   "productionSourceCommit": "0be70751e0896388e46a33969bef51c15dcdb3ae",
-  "qaSourceCommit": "410edf9674d5937496e7acd0f255c98de11fc399"
+  "qaSourceCommit": "410edf9674d5937496e7acd0f255c98de11fc399",
+  "humanFeedback20261011": {
+    "sourceBaseline": "216887bd2613b36838d1ba641d616a6d5aa08aee",
+    "targets": [
+      "partner:grove_deer",
+      "author:naoto"
+    ],
+    "status": "CANDIDATE_IMAGE_QA_PENDING",
+    "focusedTests": 33,
+    "geometryUnchangedOther": 291,
+    "pilotHashesMatched": 28,
+    "protectedGroupsMatched": 11,
+    "mutationControls": "4/4 RED and exact restoration",
+    "humanGate": "OPEN",
+    "iphoneGate": "OPEN",
+    "evidence": "docs/qa/character-3d-full-v0/human-feedback-20261011"
+  }
 }

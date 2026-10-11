@@ -428,6 +428,9 @@ jobs:
           else
             node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/nonplayer $LEGACY_STATES_DISTANCE
           fi
+      - name: Human feedback before and after comparisons
+        if: ${{ contains(github.event.head_commit.message, '[qa:human-feedback]') }}
+        run: node tools/character-3d/human-feedback-review.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -480,7 +483,9 @@ jobs:
           fi
       - name: Scoped selected nonplayer mutations
         if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (contains(github.event.head_commit.message, '[qa:nonplayer]'))) ) }}
-        run: node tools/character-3d/nonplayer-mutations.cjs
+        run: |
+          node tools/character-3d/nonplayer-mutations.cjs
+          node tools/character-3d/human-feedback-remove-it.cjs
       - name: Repaired fish and fungus mechanisms
         if: ${{ contains(github.event.head_commit.message, '[qa:motion-repair]') && !contains(github.event.head_commit.message, '[qa:runtime]') }}
         run: |
