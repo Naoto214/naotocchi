@@ -360,6 +360,20 @@
       "id": 38131058046,
       "sourceCommit": "fe2acd989f5d6f611a8251133795f83ae737800c",
       "status": "IN_PROGRESS_NOT_PASSED"
-    }
+    },
+    "deerHumanQA": "APPROVED_BY_USER_2026-10-11"
+  },
+  "authorFringe20261011": {
+    "baseline": "1f29df975e7b9bff34a048abc478864a3d146da2",
+    "status": "CANDIDATE_IMAGE_QA_PENDING",
+    "humanQA": "OPEN",
+    "iphoneQA": "OPEN",
+    "evidence": "docs/qa/character-3d-full-v0/author-fringe-20261011",
+    "preserved": [
+      "deer Human approved",
+      "head size",
+      "rear volumes and posterior paths",
+      "all other characters and architecture"
+    ]
   }
 }

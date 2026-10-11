@@ -451,7 +451,7 @@ jobs:
           mkdir -p test-results/full-rollout
           node tools/character-3d/inventory.cjs test-results/full-rollout/inventory.json
           if [ "${{ contains(github.event.head_commit.message, '[qa:human-feedback-refine]') }}" = true ]; then
-            node --test --test-reporter=tap tests/character-3d-author-candidate-test.cjs tests/character-3d-author-hair-test.cjs tests/character-3d-human-feedback-test.cjs tests/character-3d-gallery-routing-test.cjs tests/character-3d-nonplayer-mutations-test.cjs > test-results/full-rollout/dedicated.tap || { cat test-results/full-rollout/dedicated.tap; exit 1; }
+            node --test --test-reporter=tap tests/character-3d-author-candidate-test.cjs tests/character-3d-author-hair-test.cjs tests/character-3d-author-fringe-test.cjs tests/character-3d-human-feedback-test.cjs tests/character-3d-gallery-routing-test.cjs tests/character-3d-nonplayer-mutations-test.cjs > test-results/full-rollout/dedicated.tap || { cat test-results/full-rollout/dedicated.tap; exit 1; }
           else
           node --test --test-reporter=tap tests/character-3d*-test.cjs > test-results/full-rollout/dedicated.tap || { cat test-results/full-rollout/dedicated.tap; exit 1; }
           fi
@@ -490,6 +490,7 @@ jobs:
         run: |
           node tools/character-3d/nonplayer-mutations.cjs
           node tools/character-3d/human-feedback-remove-it.cjs
+          node tools/character-3d/author-fringe-remove-it.cjs
       - name: Repaired fish and fungus mechanisms
         if: ${{ contains(github.event.head_commit.message, '[qa:motion-repair]') && !contains(github.event.head_commit.message, '[qa:runtime]') }}
         run: |

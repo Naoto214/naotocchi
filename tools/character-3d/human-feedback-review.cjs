@@ -2,7 +2,7 @@
 const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict'),crypto=require('node:crypto'),sharp=require('sharp');
 const {serve}=require('./shot.cjs');
 async function run(out){
- const before=require('../../docs/qa/character-3d-full-v0/human-feedback-20261011/before-specs.json'),current=require('../../character-3d/nonplayer-spec.js')(),views=['front','34','side','back'];
+ const before=require('../../docs/qa/character-3d-full-v0/author-fringe-20261011/before-specs.json'),current=require('../../character-3d/nonplayer-spec.js')(),views=['front','34','side','back'];
  fs.mkdirSync(out,{recursive:true});const srv=await serve(),browser=await require('playwright').chromium.launch({args:['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']}),records=[],errors=[];
  const selected=require('../../.github/character-3d-nonplayer-qa.json').keys;assert.ok(selected.length&&selected.every(key=>before.rows[key]),'exact saved before rows required');
  try{for(const [key,row]of Object.entries(before.rows).filter(([key])=>selected.includes(key))){
