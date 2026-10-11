@@ -1,42 +1,42 @@
 {
-  "sourceCommit": "26ba5558c031e6fc72c62c94448df84917ac928c",
-  "runId": 38133919846,
+  "sourceCommit": "cd32a105882f6582039285418dbfe19f229dfb73",
+  "runId": 38135853106,
   "artifactJobEvidence": true,
   "families": [
     "author"
   ],
   "artifacts": [
     {
-      "id": 11700416093,
-      "label": "author-soft-hair",
-      "name": "full-rollout-nonplayer-review-26ba5558c031e6fc72c62c94448df84917ac928c",
-      "digest": "sha256:c6f8e80ad7d482a6fadf3cdd232dad854802f52e13cdaebe4dd111fbbbb4bf45",
-      "jobId": 114453756528,
+      "id": 11700563934,
+      "label": "author-hair-options",
+      "name": "full-rollout-nonplayer-review-cd32a105882f6582039285418dbfe19f229dfb73",
+      "digest": "sha256:4d6651c240df105d455c1ae8b7777abd7e7c72024fb0c14208baa97f0bfc2936",
+      "jobId": 114459436725,
       "evidenceMode": "successful",
       "required": [
         {
-          "pattern": "*-comparison.jpg",
+          "pattern": "author-naoto-?-views.jpg",
+          "count": 3
+        },
+        {
+          "pattern": "author-naoto-options.jpg",
           "count": 1
         },
         {
-          "pattern": "*-before-*.jpg",
-          "count": 4
+          "pattern": "author-naoto-?-front.jpg",
+          "count": 3
         },
         {
-          "pattern": "*-after-*.jpg",
-          "count": 4
+          "pattern": "author-naoto-?-34.jpg",
+          "count": 3
         },
         {
-          "pattern": "*-motion.jpg",
-          "count": 1
+          "pattern": "author-naoto-?-side.jpg",
+          "count": 3
         },
         {
-          "pattern": "*-distance-*.jpg",
-          "count": 2
-        },
-        {
-          "pattern": "evidence.json",
-          "count": 1
+          "pattern": "author-naoto-?-back.jpg",
+          "count": 3
         },
         {
           "pattern": "comparison-metadata.json",
