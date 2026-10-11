@@ -1,0 +1,3015 @@
+{
+  "sourceCommit": "4faa3e3f5293c6993bad8e385a8fc2156d82e056",
+  "platform": "Chromium/SwiftShader; not iPhone",
+  "candidateOnly": true,
+  "includeLegacyStatesDistance": false,
+  "plans": [
+    {
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "fourViews": [
+        "front",
+        "34",
+        "side",
+        "back"
+      ],
+      "states": [
+        {
+          "emotion": "normal",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "normal",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "normal",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "normal",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "positive",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "positive",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "positive",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "positive",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "dislike",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "dislike",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "dislike",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "dislike",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "tired",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "tired",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "tired",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "tired",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "sleeping",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "sleeping",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "sleeping",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "sleeping",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "strained",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "strained",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "strained",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "strained",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "sick",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "sick",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "sick",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "sick",
+          "moving": true,
+          "reduced": true
+        }
+      ],
+      "distanceViews": [
+        "front",
+        "back"
+      ],
+      "reuseFourViews": false,
+      "reuse": null
+    },
+    {
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "fourViews": [
+        "front",
+        "34",
+        "side",
+        "back"
+      ],
+      "states": [
+        {
+          "emotion": "normal",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "normal",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "normal",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "normal",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "positive",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "positive",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "positive",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "positive",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "dislike",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "dislike",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "dislike",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "dislike",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "tired",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "tired",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "tired",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "tired",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "sleeping",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "sleeping",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "sleeping",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "sleeping",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "strained",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "strained",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "strained",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "strained",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "wantsPlay",
+          "moving": true,
+          "reduced": true
+        },
+        {
+          "emotion": "sick",
+          "moving": false,
+          "reduced": false
+        },
+        {
+          "emotion": "sick",
+          "moving": true,
+          "reduced": false
+        },
+        {
+          "emotion": "sick",
+          "moving": false,
+          "reduced": true
+        },
+        {
+          "emotion": "sick",
+          "moving": true,
+          "reduced": true
+        }
+      ],
+      "distanceViews": [
+        "front",
+        "back"
+      ],
+      "reuseFourViews": false,
+      "reuse": null
+    }
+  ],
+  "evidence": [
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13432,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.18298667130897764,
+          -0.0005249887466430847,
+          -0.3721108287288811
+        ],
+        [
+          0.18298667130897764,
+          1.1515413618866792,
+          0.5666505682468415
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13432,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.18298667130897764,
+          -0.0005249887466430847,
+          -0.3721108287288811
+        ],
+        [
+          0.18298667130897764,
+          1.1515413618866792,
+          0.5666505682468415
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13432,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.18298667130897764,
+          -0.0005249887466430847,
+          -0.3721108287288811
+        ],
+        [
+          0.18298667130897764,
+          1.1515413618866792,
+          0.5666505682468415
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13432,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.18298667130897764,
+          -0.0005249887466430847,
+          -0.3721108287288811
+        ],
+        [
+          0.18298667130897764,
+          1.1515413618866792,
+          0.5666505682468415
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13432,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.18298667130897764,
+          -0.0005249887466430847,
+          -0.3721108287288811
+        ],
+        [
+          0.18298667130897764,
+          1.1515413618866792,
+          0.5666505682468415
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13432,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.18298667130897764,
+          0.01678789006343906,
+          -0.3768428472562811
+        ],
+        [
+          0.18298667130897764,
+          1.165621935654544,
+          0.5707819337692592
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13432,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.18298667130897764,
+          -0.0005249887466430847,
+          -0.36557387810945513
+        ],
+        [
+          0.18298667130897764,
+          1.1515413618866792,
+          0.5666505682468415
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13432,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.18298667130897764,
+          0.003887226525056353,
+          -0.3671594896032061
+        ],
+        [
+          0.18298667130897764,
+          1.1586169012437786,
+          0.568280756752816
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13272,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.17495086588904327,
+          0.058234354820601464,
+          -0.37163973712404025
+        ],
+        [
+          0.17495086588904327,
+          1.2269220771729445,
+          0.5698818395310852
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13272,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.17495086588904327,
+          0.06096433754693226,
+          -0.41173138289457106
+        ],
+        [
+          0.17495086588904327,
+          1.2132884066913654,
+          0.5630103442696459
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13272,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.18298667130897764,
+          -0.003607471079809299,
+          -0.368254947946539
+        ],
+        [
+          0.18298667130897764,
+          1.1650144862034588,
+          0.5698818395310852
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13272,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.18298667130897764,
+          0.006141294810570852,
+          -0.37041648943951333
+        ],
+        [
+          0.18298667130897764,
+          1.173711715077649,
+          0.566489240668726
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13432,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.18220885689500543,
+          -0.01913020651349373,
+          -0.37068554905010387
+        ],
+        [
+          0.18976461040192683,
+          1.1349259887803091,
+          0.6352038041822041
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13432,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.18220885689500543,
+          -0.010196648559917865,
+          -0.3713843324218547
+        ],
+        [
+          0.18976461040192677,
+          1.1438090116424453,
+          0.6382984052730424
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13432,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.18220885689500543,
+          -0.01913020651349373,
+          -0.36416036141226305
+        ],
+        [
+          0.18976461040192683,
+          1.1349259887803091,
+          0.6352038041822041
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13432,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.18220885689500543,
+          -0.014485290264532769,
+          -0.3651492243925987
+        ],
+        [
+          0.18976461040192683,
+          1.139383108510834,
+          0.6367655441548119
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13632,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.15220766402978694,
+          -0.0246107308728577,
+          -0.3772346515617131
+        ],
+        [
+          0.15220766402978694,
+          1.0893660421467273,
+          0.5752246637030292
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13632,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.15220766402978694,
+          -0.012146715224707116,
+          -0.3757936042932156
+        ],
+        [
+          0.15220766402978694,
+          1.100179299746453,
+          0.5793595460207406
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13632,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.15220766402978694,
+          -0.0246107308728577,
+          -0.37070587042837233
+        ],
+        [
+          0.15220766402978694,
+          1.0893660421467273,
+          0.5752246637030292
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13632,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.15220766402978694,
+          -0.019182804436613854,
+          -0.3720732470321858
+        ],
+        [
+          0.15220766402978694,
+          1.094798866527542,
+          0.5773161227712443
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13272,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.1448414843708942,
+          -0.02938977822410166,
+          -0.3781466378329348
+        ],
+        [
+          0.1448414843708942,
+          1.0652192195803214,
+          0.5773811810877502
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13272,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.1448414843708942,
+          0.030253986250579956,
+          -0.46996126684941675
+        ],
+        [
+          0.1448414843708942,
+          1.089833133380746,
+          0.5818926059016265
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13272,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.1448414843708942,
+          -0.02938977822410166,
+          -0.37162145019509396
+        ],
+        [
+          0.1448414843708942,
+          1.0652192195803214,
+          0.5773811810877502
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13272,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.1448414843708942,
+          -0.01329695389580271,
+          -0.3746802830067961
+        ],
+        [
+          0.1448414843708942,
+          1.0775612602345856,
+          0.5796706231986093
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13272,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.173246294288062,
+          -0.010173528029637613,
+          -0.3716795268427698
+        ],
+        [
+          0.17423487927002387,
+          1.0974105339420075,
+          0.5891176452334584
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13272,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.173246294288062,
+          0.079468473332437,
+          -0.5325027589017346
+        ],
+        [
+          0.17423487927002387,
+          1.1263364903063757,
+          0.5903309162842316
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13272,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.17374058677904294,
+          -0.010173528029637613,
+          -0.36514461891401884
+        ],
+        [
+          0.17374058677904294,
+          1.0974105339420075,
+          0.5891176452334584
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13272,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.17374058677904294,
+          0.014743047540261844,
+          -0.4069790221828177
+        ],
+        [
+          0.17374058677904294,
+          1.1118753151992378,
+          0.5897258189199128
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13432,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.17495086588904327,
+          0.018366806184877515,
+          -0.37916904883284464
+        ],
+        [
+          0.17495086588904327,
+          1.2067585497068363,
+          0.5611011871119119
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13432,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.17495086588904327,
+          0.07196754937880406,
+          -0.4772016692673362
+        ],
+        [
+          0.17495086588904327,
+          1.2191028492035532,
+          0.5658893934771344
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13432,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.18298667130897764,
+          -0.012554106765327866,
+          -0.37162145019509396
+        ],
+        [
+          0.18298667130897764,
+          1.1757719749308233,
+          0.5611011871119119
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13432,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.18298667130897764,
+          0.005923373923865438,
+          -0.3747668512693608
+        ],
+        [
+          0.18298667130897764,
+          1.1897046728574268,
+          0.5635204619738738
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 13272,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.16065566961789718,
+          -0.009509239084243837,
+          -0.3721108287288811
+        ],
+        [
+          0.16312713207280183,
+          1.1131567409452288,
+          0.5899651277777547
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 13272,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.16065566961789718,
+          0.05145950966883339,
+          -0.4833971908140079
+        ],
+        [
+          0.16312713207280183,
+          1.1379713850030289,
+          0.5955579555352439
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 13272,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.1618914008453495,
+          -0.009509239084243837,
+          -0.36557387810945513
+        ],
+        [
+          0.1618914008453495,
+          1.1131567409452288,
+          0.5899651277777547
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "partner:grove_deer",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 13272,
+      "meshes": 17,
+      "drawCalls": 17,
+      "box": [
+        [
+          -0.1618914008453495,
+          0.0060034979827887636,
+          -0.37202565774147267
+        ],
+        [
+          0.1618914008453495,
+          1.125612151476659,
+          0.5928038878949945
+        ]
+      ],
+      "kind": "partner",
+      "masterId": "grove_deer",
+      "roleKey": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "reuseFourViews": false,
+      "file": "partner-grove_deer-0-sick-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "front",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.294999977350235
+        ],
+        [
+          0.3216627764727591,
+          1.6742969579418505,
+          0.32201910417509594
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-front.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.294999977350235
+        ],
+        [
+          0.3216627764727591,
+          1.6742969579418505,
+          0.32201910417509594
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-34.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "side",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.294999977350235
+        ],
+        [
+          0.3216627764727591,
+          1.6742969579418505,
+          0.32201910417509594
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-side.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "back",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.294999977350235
+        ],
+        [
+          0.3216627764727591,
+          1.6742969579418505,
+          0.32201910417509594
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-back.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0037514439503398833,
+          -0.294999977350235
+        ],
+        [
+          0.3216627764727591,
+          1.6742969579418505,
+          0.32201910417509594
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-normal-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.049641857737296124,
+          -0.36336250443666057
+        ],
+        [
+          0.3216627764727591,
+          1.6992837859183758,
+          0.4048025584121038
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-normal-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -2.050399772191014e-8,
+          -0.294999977350235
+        ],
+        [
+          0.3216627764727591,
+          1.667264562034607,
+          0.32201910417509594
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-normal-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "normal",
+      "faceEmotions": [
+        "normal"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.004107109473041826,
+          -0.294999977350235
+        ],
+        [
+          0.3216627764727591,
+          1.6797579760228696,
+          0.32201910417509594
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-normal-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10128,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.059672108358193476,
+          -0.35111400475545845
+        ],
+        [
+          0.3216627764727591,
+          1.7603227388184581,
+          0.30889683447840544
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-positive-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10128,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.053800957433389085,
+          -0.35111400475545845
+        ],
+        [
+          0.3216627764727591,
+          1.7491050493082905,
+          0.36236803438399223
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-positive-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10128,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.0015805336453548202,
+          -0.3509406941666169
+        ],
+        [
+          0.3216627764727591,
+          1.691359027978789,
+          0.3089725842765329
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-positive-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "positive",
+      "faceEmotions": [
+        "positive"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10128,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.002214350089761563,
+          -0.3509406941666169
+        ],
+        [
+          0.3216627764727591,
+          1.7012106396988078,
+          0.3089725842765329
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-positive-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.40435996794050194,
+          -0.014455000229652626,
+          -0.3596209418837233
+        ],
+        [
+          0.4063390951116098,
+          1.717752526218678,
+          0.5252373002973308
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-dislike-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.40435996794050194,
+          0.008556132329767485,
+          -0.3596209418837233
+        ],
+        [
+          0.4063390951116098,
+          1.7329674076217598,
+          0.5252373002973308
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-dislike-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.40435996794050194,
+          -0.010710327319988222,
+          -0.35980927371659954
+        ],
+        [
+          0.4063390951116098,
+          1.7105393655758259,
+          0.5248289127173529
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-dislike-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "dislike",
+      "faceEmotions": [
+        "dislike"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.40435996794050194,
+          -0.007591257107838589,
+          -0.35980927371659954
+        ],
+        [
+          0.4063390951116098,
+          1.718146806277367,
+          0.5248289127173529
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-dislike-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10488,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.01884894236220369,
+          -0.31753405836976684
+        ],
+        [
+          0.3216627764727591,
+          1.5989374784707242,
+          0.3896805689065413
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-tired-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10488,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.017852797350422223,
+          -0.31753405836976684
+        ],
+        [
+          0.3216627764727591,
+          1.604830541116908,
+          0.3896805689065413
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-tired-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10488,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.015327011326950912,
+          -0.3173669485387275
+        ],
+        [
+          0.3216627764727591,
+          1.5920335701240131,
+          0.39000702761815564
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-tired-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "tired",
+      "faceEmotions": [
+        "tired"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10488,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.013283751237896713,
+          -0.3173669485387275
+        ],
+        [
+          0.3216627764727591,
+          1.594980101447105,
+          0.39000702761815564
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-tired-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10128,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.022017489381269684,
+          -0.32086318110365364
+        ],
+        [
+          0.3216627764727591,
+          1.568233958984473,
+          0.40591816897006283
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sleeping-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10128,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.01153091355763125,
+          -0.32086318110365364
+        ],
+        [
+          0.3216627764727591,
+          1.5829715887167224,
+          0.40591816897006283
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sleeping-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10128,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.018572390304378406,
+          -0.32065708876771115
+        ],
+        [
+          0.3216627764727591,
+          1.5614364744007152,
+          0.4063015853520861
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sleeping-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sleeping",
+      "faceEmotions": [
+        "sleeping"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10128,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.016997159997137024,
+          -0.32065708876771115
+        ],
+        [
+          0.3216627764727591,
+          1.56880528926684,
+          0.4063015853520861
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sleeping-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10128,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.32116848398177816,
+          -0.010129207419276365,
+          -0.2834538997594456
+        ],
+        [
+          0.32215706896374,
+          1.626736115645634,
+          0.3858639471607659
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-strained-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10128,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.32116848398177816,
+          -0.006116570244381947,
+          -0.2834538997594456
+        ],
+        [
+          0.32215706896374,
+          1.6370025495420968,
+          0.3858639471607659
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-strained-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10128,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.006528966279207071,
+          -0.2835303983617228
+        ],
+        [
+          0.3216627764727591,
+          1.6198738804208597,
+          0.38569156882746697
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-strained-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "strained",
+      "faceEmotions": [
+        "strained"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10128,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.008479219533460647,
+          -0.2835303983617228
+        ],
+        [
+          0.3216627764727591,
+          1.625007097369091,
+          0.38569156882746697
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-strained-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.026380163622738317,
+          -0.3790244903528496
+        ],
+        [
+          0.3216627764727591,
+          1.7329223519440928,
+          0.2921618571328787
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-wantsPlay-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.017902782403001694,
+          -0.3790244903528496
+        ],
+        [
+          0.3216627764727591,
+          1.7313576809560298,
+          0.3160747795505067
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-wantsPlay-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.0007960764178026603,
+          -0.37860670692917964
+        ],
+        [
+          0.3216627764727591,
+          1.6949196313309027,
+          0.29234163811108327
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-wantsPlay-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "wantsPlay",
+      "faceEmotions": [
+        "wantsPlay"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10288,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          0.0010305227862708044,
+          -0.37860670692917964
+        ],
+        [
+          0.3216627764727591,
+          1.7018675240744225,
+          0.29234163811108327
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-wantsPlay-walk-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": false,
+      "triangles": 10128,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3204270452453068,
+          -0.012638900631829597,
+          -0.2942540454482219
+        ],
+        [
+          0.3228985077002114,
+          1.6515648384001205,
+          0.4056455151320627
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sick-idle-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": false,
+      "triangles": 10128,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3204270452453068,
+          -0.015740830493615077,
+          -0.2942540454482219
+        ],
+        [
+          0.3228985077002114,
+          1.6586078868957141,
+          0.4056455151320627
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sick-walk-normal.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": false,
+      "reduced": true,
+      "triangles": 10128,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.009000019888877775,
+          -0.2942540454482219
+        ],
+        [
+          0.3216627764727591,
+          1.6445088712060008,
+          0.4056455151320627
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sick-idle-reduced.jpg"
+    },
+    {
+      "ready": true,
+      "id": "author:naoto",
+      "stage": 0,
+      "view": "34",
+      "emotion": "sick",
+      "faceEmotions": [
+        "sick"
+      ],
+      "moving": true,
+      "reduced": true,
+      "triangles": 10128,
+      "meshes": 14,
+      "drawCalls": 14,
+      "box": [
+        [
+          -0.3216627764727591,
+          -0.012367867244404196,
+          -0.2942540454482219
+        ],
+        [
+          0.3216627764727591,
+          1.6480303954537976,
+          0.4056455151320627
+        ]
+      ],
+      "kind": "author",
+      "masterId": "naoto",
+      "roleKey": "author:naoto",
+      "modelKey": "author:naoto",
+      "reuseFourViews": false,
+      "file": "author-naoto-0-sick-walk-reduced.jpg"
+    }
+  ],
+  "distance": [
+    {
+      "kind": "partner",
+      "id": "grove_deer",
+      "key": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "view": "front",
+      "actorIdentity": {
+        "key": "partner:grove_deer",
+        "kind": "partner",
+        "id": "grove_deer",
+        "asset": "assets/characters/partners/grove_deer.png"
+      },
+      "authorProvenance": null,
+      "qaPlacement": {
+        "region": "forest",
+        "actor": {
+          "x": 85,
+          "z": 165,
+          "heading": 3.141592653589793
+        },
+        "player": {
+          "x": 0,
+          "z": 150
+        },
+        "cameraYaw": 0
+      },
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "partner:grove_deer",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 17494,
+        "meshes": 31,
+        "bones": 25,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 18.665,
+        "cpuMsP95": 33.3,
+        "buildMsTotal": 423.4,
+        "buildMsMax": 390.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-grove_deer-distance-front.jpg"
+    },
+    {
+      "kind": "partner",
+      "id": "grove_deer",
+      "key": "partner:grove_deer",
+      "modelKey": "partner:grove_deer",
+      "view": "back",
+      "actorIdentity": {
+        "key": "partner:grove_deer",
+        "kind": "partner",
+        "id": "grove_deer",
+        "asset": "assets/characters/partners/grove_deer.png"
+      },
+      "authorProvenance": null,
+      "qaPlacement": {
+        "region": "forest",
+        "actor": {
+          "x": 85,
+          "z": 165,
+          "heading": 0
+        },
+        "player": {
+          "x": 0,
+          "z": 150
+        },
+        "cameraYaw": 0
+      },
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "partner:grove_deer",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 17494,
+        "meshes": 31,
+        "bones": 25,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 6.284,
+        "cpuMsP95": 0.3,
+        "buildMsTotal": 423.4,
+        "buildMsMax": 390.7,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "partner-grove_deer-distance-back.jpg"
+    },
+    {
+      "kind": "author",
+      "id": "naoto",
+      "key": "author:naoto",
+      "modelKey": "author:naoto",
+      "view": "front",
+      "actorIdentity": {
+        "key": "naoto",
+        "kind": "naoto",
+        "id": "naoto",
+        "asset": "assets/characters/author/naoto.png"
+      },
+      "authorProvenance": {
+        "originalRegion": "memory_lake",
+        "originalSpot": "deep",
+        "originalCoordinates": {
+          "x": -160,
+          "z": 4300,
+          "heading": 3.141592653589793
+        },
+        "naturalPresentation": "2D",
+        "qaPlacementRegion": "forest",
+        "qaPlacement": "same actual resident object in existing forest simulation resident list; bounded renderer.draw view adapter",
+        "actor": {
+          "key": "naoto",
+          "kind": "naoto",
+          "id": "naoto",
+          "asset": "assets/characters/author/naoto.png"
+        },
+        "sameActorObject": true,
+        "party": false,
+        "saveObjectChanged": false,
+        "bridgeGetterChanged": false
+      },
+      "qaPlacement": {
+        "region": "forest",
+        "actor": {
+          "x": 85,
+          "z": 165,
+          "heading": 3.141592653589793
+        },
+        "player": {
+          "x": 0,
+          "z": 150
+        },
+        "cameraYaw": 0
+      },
+      "actorHeading": 3.141592653589793,
+      "renderedYaw": 0,
+      "yawError": 0,
+      "specKey": {
+        "id": "author:naoto",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 14350,
+        "meshes": 28,
+        "bones": 22,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 6.339,
+        "cpuMsP95": 45.5,
+        "buildMsTotal": 137.1,
+        "buildMsMax": 92.8,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "author-naoto-distance-front.jpg"
+    },
+    {
+      "kind": "author",
+      "id": "naoto",
+      "key": "author:naoto",
+      "modelKey": "author:naoto",
+      "view": "back",
+      "actorIdentity": {
+        "key": "naoto",
+        "kind": "naoto",
+        "id": "naoto",
+        "asset": "assets/characters/author/naoto.png"
+      },
+      "authorProvenance": {
+        "originalRegion": "memory_lake",
+        "originalSpot": "deep",
+        "originalCoordinates": {
+          "x": -160,
+          "z": 4300,
+          "heading": 3.141592653589793
+        },
+        "naturalPresentation": "2D",
+        "qaPlacementRegion": "forest",
+        "qaPlacement": "same actual resident object in existing forest simulation resident list; bounded renderer.draw view adapter",
+        "actor": {
+          "key": "naoto",
+          "kind": "naoto",
+          "id": "naoto",
+          "asset": "assets/characters/author/naoto.png"
+        },
+        "sameActorObject": true,
+        "party": false,
+        "saveObjectChanged": false,
+        "bridgeGetterChanged": false
+      },
+      "qaPlacement": {
+        "region": "forest",
+        "actor": {
+          "x": 85,
+          "z": 165,
+          "heading": 0
+        },
+        "player": {
+          "x": 0,
+          "z": 150
+        },
+        "cameraYaw": 0
+      },
+      "actorHeading": 0,
+      "renderedYaw": -3.141592653589793,
+      "yawError": 2.4492935982947064e-16,
+      "specKey": {
+        "id": "author:naoto",
+        "stage": 0,
+        "exact": true
+      },
+      "live3d": true,
+      "stats": {
+        "live": 2,
+        "templates": 2,
+        "built": 2,
+        "tris": 14350,
+        "meshes": 28,
+        "bones": 22,
+        "materials": 1,
+        "atlases": 2,
+        "eyeGeos": 2,
+        "cpuMsAvg": 2.119,
+        "cpuMsP95": 0.4,
+        "buildMsTotal": 137.1,
+        "buildMsMax": 92.8,
+        "fallbacks": 0,
+        "removed": 0,
+        "created": 2,
+        "failedTemplates": 0,
+        "buildsThisFrame": 0
+      },
+      "file": "author-naoto-distance-back.jpg"
+    }
+  ],
+  "errors": []
+}
