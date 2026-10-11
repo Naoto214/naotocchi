@@ -14,6 +14,7 @@ import proxy_population_opportunity_ledger as ledger
 import proxy_population_trigger_latching as latching
 import proxy_population_trigger_effects as effects
 import proxy_population_hand_timing as hand_timing
+import proxy_population_timing_occurrence as timing_occurrence
 import proxy_population_paid_draw as paid
 import proxy_continuation_batch as batch
 import proxy_continuation_actions as actions
@@ -32,6 +33,9 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
  def raw(event):return {k:v for k,v in event.items() if k not in end.BIND_KEYS}
  def remember(before,after,event):
   event=raw(event);key=state.canonical_sha256(event);capture=latching.capture(before,after,event)
+  timing=timing_occurrence.audit(before,after,event,capture)
+  if timing['errors']:raise ValueError('timing occurrence differs: '+str(timing['errors']))
+  capture['independent_timing_audit']=timing
   hand=hand_timing.capture(before,after,event);capture['occurrences'].extend(hand['occurrences']);capture['hand_optional_capture']=hand
   pair=(copy.deepcopy(before),copy.deepcopy(after),copy.deepcopy(event))
   if key in pairs and canonical(list(pairs[key]))!=canonical(list(pair)):raise ValueError('actual timing event collision')

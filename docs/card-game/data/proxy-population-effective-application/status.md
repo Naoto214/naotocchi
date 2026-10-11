@@ -1109,3 +1109,14 @@ c1a4916から継続。generation_packageはoperation/completionを含むcanonica
 RED1FAIL（priority_unique）→既存116 fallbackと未証明候補保持を確認。関連22PASS4.805s・17PASS24.704s、独立review1回Important/Criticalなし・独立16PASS4.018s。最終固定85PASS183.565s/exit0、再帰Python1064前後hash一致。旧115/zero-rootの20ターン結合を含む。design errors=[]、保護番号付き477正本不変。全proxy回帰や全情報read/全機会の証明ではない。
 
 本番seed生成/入力固定/400戦0、preflight-ready=false、gate閉鎖、policy promotion=false、独立balance標本0、全体結論null。詳細はverification/reveal-operand-review.md。P07–12/P14–18の残件を維持する。
+
+
+### 2026-10-11 4sourceの発生機会をproducerと別に照合
+
+67111f2から継続。M-antlion-03/06・C-bat・P-cliff_goatの事象条件付き誘発を、発生直前盤面と実イベントから別に導出し、既存captureの分類sourceとoccurrence多重集合へ照合する。producer/replayが同じ機会を落とす穴を新REDで確認し、positive_windowの実入口とcoverage全遷移へ結合。費用/対象/回数の現在合法性は発生条件から分離したまま。M06のtyped適用真偽そのものは既存全差分監査へ依存する。
+
+2RED→関連13PASS7.823s・24PASS4.425s、独立review1回Critical0/Important0・独立6PASS0.497s。24/6にはテストclass importによる既存2件の重複を含むため、最終版はmodule importへ変更して重複を除く。詳細はverification/timing-occurrence-review.md。
+
+全開始/登場/終了/手札誘発・全read・比較operand・起点認証が完了したという意味ではない。P07–12/P14–18と最終gate合成は未完。preflight-ready=false、本番gate閉鎖、seed生成/入力固定/400戦0、policy promotion=false、独立balance標本0、全体結論null。
+
+最終固定54PASS168.040s/exit0、再帰Python1066ファイル前後hash一致。design errors=[]、番号付き正本477不変。旧115/zero-root20ターンの完走・機会順・連鎖を含む。最新全proxy回帰完了ではない。

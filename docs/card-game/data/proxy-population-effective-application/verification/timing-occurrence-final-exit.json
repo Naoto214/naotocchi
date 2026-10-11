@@ -1,0 +1,21 @@
+{
+  "modules": [
+    "test_proxy_population_timing_occurrence",
+    "test_proxy_population_trigger_latching",
+    "test_proxy_population_positive_window",
+    "test_proxy_population_trigger_coverage",
+    "test_proxy_population_opportunity_order",
+    "test_proxy_population_hand_timing",
+    "test_proxy_population_effect_application_runtime",
+    "test_proxy_population_trigger_predicates",
+    "test_proxy_population_challenge_window",
+    "test_proxy_population_connected_entry",
+    "test_proxy_population_source_conservation",
+    "test_proxy_population_resolution_semantics",
+    "test_proxy_population_nonresolution_semantics"
+  ],
+  "exit_code": 0,
+  "seconds": 168.22256500799995,
+  "source_unchanged": true,
+  "python_count": 1066
+}

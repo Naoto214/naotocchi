@@ -1,0 +1,68 @@
+"""Independent four-source timing checks over supplied transition boundaries.
+
+Does not call the occurrence producer or current-action enumerator. Costs,
+usage limits and targets belong to the later legal-action check. Effect truth
+is conditional on the separate full-delta audit, never inferred from a replay.
+"""
+from collections import Counter
+import hashlib
+import proxy_continuation_state as state
+import proxy_continuation_triggers as triggers
+import proxy_continuation_rules as rules
+import proxy_population_start_obligations as sources
+from proxy_mandatory_policy_contract import ROOT,canonical
+
+KINDS={'M-antlion-03':'after_opponent_quick_play','M-antlion-06':'after_own_quick_effect_applied','C-bat':'after_own_quick_on_opponent_turn','P-cliff_goat':'different_name_world_change'}
+QUICK=frozenset(('use_item','use_play','use_event'))
+
+
+def audit(before,after,event,capture):
+ errors=[];expected=[];classified=[]
+ try:
+  state.validate(before);state.validate(after)
+  if type(event['seq']) is not int or event['seq']!=before['event_seq']+1 or event['seq']!=after['event_seq']:raise ValueError('timing sequence differs')
+  prior=state.current(before);current=state.current(after);g=prior['game_state'];known=sources.catalog()['cards']
+  if event['actor'] not in g['players']:raise ValueError('timing event actor differs')
+  for suffix,value in (('before',prior),('after',current)):
+   if event['game_state_'+suffix+'_sha256']!=triggers.old.start.opening._stop_state_sha256(value['game_state']) or event['continuation_state_'+suffix+'_sha256']!=triggers.old.start._hash(value):raise ValueError('timing transition hashes differ')
+  if capture['schema']!='conditional_trigger_timing_capture.v1' or capture['scope']!=sorted(KINDS):raise ValueError('timing capture scope differs')
+  for name,value in (('before_envelope_sha256',before),('after_envelope_sha256',after),('event_sha256',event)):
+   if capture[name]!=state.canonical_sha256(value):raise ValueError('timing capture boundary differs')
+  for actor,p in g['players'].items():
+   board=p['board']
+   for source,slot in [(board['main'],'main'),(board['partner'],'partner'),*((s,'companions') for s in board['companions'])]:
+    if source is None:continue
+    card=g['cards'][source]['card_id']
+    if card not in KINDS:continue
+    expected_slot='main' if card.startswith('M-') else 'partner' if card=='P-cliff_goat' else 'companions'
+    if slot!=expected_slot:raise ValueError('timing source role differs')
+    reference=known[card]['reference'];met=False
+    classified.append(dict(source_instance_id=source,source_reference=reference,source_raw_sha256=known[card]['source_raw_sha256']))
+    if card in ('M-antlion-03','C-bat') and actor!=g['turn_player']:
+     played=g['cards'].get(event.get('source_instance_id'),{}).get('card_id')
+     details=next((r for r in rules.table()['cards'] if r['card_id']==played),None)
+     played_quick=event['action_type'] in QUICK|{'activate_response'} and event.get('source_zone') not in ('board','prepared') and details is not None and any(a['action_type'] in QUICK for a in details['actions'])
+     met=played_quick and event['actor']==(g['turn_player'] if card=='M-antlion-03' else actor)
+    elif card=='M-antlion-06' and actor==g['turn_player']==event['actor'] and event['action_type'].startswith('resolve'):
+     links=[r for r in prior['activation_zone'] if r['link_id']==event.get('chain_link_id') and r['source_instance_id']==event.get('source_instance_id')]
+     if len(links)!=1:raise ValueError('timing resolved link absent or ambiguous')
+     link=links[0]
+     if link['actor']==actor and link['action_type'] in QUICK and link.get('source_zone','hand')=='hand':
+      receipt=event.get('created_effect',event.get('result'))
+      if type(receipt) is not dict or type(receipt.get('effect_applied')) is not bool:raise ValueError('timing requires current typed application evidence')
+      met=receipt['effect_applied']
+    elif card=='P-cliff_goat' and event['action_type']=='place_world' and event['actor']==actor:
+     old=board['world'];new=current['game_state']['players'][actor]['board']['world']
+     if event.get('previous_world_instance_id')!=old or event.get('source_instance_id')!=new:raise ValueError('timing world receipt differs')
+     met=old is not None and new is not None and g['cards'][old]['card_id']!=current['game_state']['cards'][new]['card_id']
+     if board['main'] is None:
+      if hashlib.sha256((ROOT/'02-main-system.md').read_bytes()).hexdigest()!='6a0d04606f066f9078e88422394d3d0c5f5c6d927806bb0be99366f503af5127':raise ValueError('partner suppression source changed')
+      met=False
+    if met:expected.append(dict(origin_event_seq=event['seq'],source_instance_id=source,actor=actor,category='optional',ability_key=KINDS[card],source_reference=reference))
+  projection=[{k:r[k] for k in ('source_instance_id','source_reference','source_raw_sha256')} for r in capture['classifications']]
+  if Counter(map(canonical,projection))!=Counter(map(canonical,classified)):raise ValueError('timing classification coverage differs')
+  if Counter(map(canonical,capture['occurrences']))!=Counter(map(canonical,expected)):raise ValueError('timing occurrence set differs')
+ except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
+ return dict(schema='supplied_four_source_timing_occurrences.v1',supplied_timing_occurrences_verified=not errors,errors=errors,
+  expected_occurrence_count=len(expected),classified_source_count=len(classified),before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),event_sha256=state.canonical_sha256(event),
+  source_catalog_sha256=sources.CATALOG_SHA,scope=sorted(KINDS),effect_application_truth_proven=False,current_legal_actions_proven=False,information_use_proven=False,origin_authenticated=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)
