@@ -23,5 +23,31 @@
     "protectedGroupsAndSavePass": 3
   },
   "remainingHumanQA": "OPEN",
-  "iPhoneQA": "OPEN_NOT_RUN"
+  "iPhoneQA": "OPEN_NOT_RUN",
+  "productionCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+  "productionTree": "c0f2db50c2638d217aa4878dc5b44248622c4731",
+  "captureBuilderRigAnimationRuntimeUnchangedSince": "5b85b2048a0a28ca74a51bca1fcc6c6059c50d41",
+  "ci": [
+    {
+      "id": 38140123557,
+      "name": "Character 3D Full Rollout",
+      "status": "in_progress",
+      "conclusion": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830"
+    },
+    {
+      "id": 38140131275,
+      "name": "Runtime smoke test",
+      "status": "in_progress",
+      "conclusion": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830"
+    },
+    {
+      "id": 38140131288,
+      "name": "Home layout",
+      "status": "in_progress",
+      "conclusion": null,
+      "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830"
+    }
+  ]
 }

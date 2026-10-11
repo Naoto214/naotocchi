@@ -43,5 +43,19 @@
     "draft": true,
     "merged": false
   },
-  "verification": "docs/qa/character-3d-full-v0/author-side-layer-20261011/adoption-verification.json"
+  "verification": "docs/qa/character-3d-full-v0/author-side-layer-20261011/adoption-verification.json",
+  "productionCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+  "productionTree": "c0f2db50c2638d217aa4878dc5b44248622c4731",
+  "previewLinks": {
+    "Full Character 3D Gallery": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/full-gallery.html",
+    "Live 3D Gallery": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html",
+    "Approved Naoto": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=author%3Anaoto",
+    "Meguru Character 3D": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/index.html?meguru3d=1&char3d=1&perf=1",
+    "Same-condition 2D comparison": "https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/index.html?meguru3d=1&perf=1"
+  },
+  "implementationSaveVerified": {
+    "remoteLocalHeadEqual": true,
+    "remoteLocalTreeEqual": true,
+    "clean": true
+  }
 }

@@ -462,7 +462,34 @@
     },
     "visualReview": "docs/qa/character-3d-full-v0/author-side-layer-20261011/visual-review.json",
     "approvedRowSha256": "9da8617f42a408ae8eed51b69738fbfd7ad1e1a9da1b9ca6f1d3e3f188471aec",
-    "freeze": "No further hairstyle change without a confirmed defect"
+    "freeze": "No further hairstyle change without a confirmed defect",
+    "productionCommit": "00a83a4c6847bc2b6609fd42e413561973c91830",
+    "productionTree": "c0f2db50c2638d217aa4878dc5b44248622c4731",
+    "adoptionVerification": "docs/qa/character-3d-full-v0/author-side-layer-20261011/adoption-verification.json",
+    "adoptionCI": [
+      {
+        "id": 38140123557,
+        "name": "Character 3D Full Rollout",
+        "status": "in_progress",
+        "conclusion": null,
+        "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830"
+      },
+      {
+        "id": 38140131275,
+        "name": "Runtime smoke test",
+        "status": "in_progress",
+        "conclusion": null,
+        "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830"
+      },
+      {
+        "id": 38140131288,
+        "name": "Home layout",
+        "status": "in_progress",
+        "conclusion": null,
+        "sourceCommit": "00a83a4c6847bc2b6609fd42e413561973c91830"
+      }
+    ],
+    "adoptionCINote": "Observed in progress, not PASS. Local focused/protected and all24 mutation controls completed. Docs-only handoff preserves tested source."
   },
   "currentHumanApprovals": {
     "record": "docs/qa/character-3d-full-v0/human-approvals-20261011.json",
@@ -470,6 +497,9 @@
     "deerLegs": "APPROVED_UNCHANGED",
     "otherCharacters": "OPEN_291",
     "fullHumanQA": "OPEN",
-    "iPhoneQA": "OPEN_NOT_RUN"
+    "iPhoneQA": "OPEN_NOT_RUN",
+    "previewSource": "00a83a4c6847bc2b6609fd42e413561973c91830",
+    "previewTree": "c0f2db50c2638d217aa4878dc5b44248622c4731",
+    "previewHandoff": "docs/qa/character-3d-full-v0/human-qa.md"
   }
 }

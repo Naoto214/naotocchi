@@ -1,6 +1,6 @@
 # Full Rollout v0 — Human / iPhone QA
 
-Status: **Human / iPhone OPEN. All293 model image gates and source-scoped automated integration are verified.** This document prepares the separate Human gate; it does not grant acceptance. Draft PR376 stays based on the Pilot branch. No Ready/main merge, PR372 changes or automatic v1 work.
+Status: **Human / iPhone OPEN. All293 model image gates and source-scoped automated integration are verified.** Only the two explicit repair approvals below are accepted; the remaining Human and device gates stay open. Draft PR376 stays based on the Pilot branch. No Ready/main merge, PR372 changes or automatic v1 work.
 
 Use the final source/tree recorded in the [checkpoint](../../character-3d/full-rollout-v0/checkpoint.json), with the matching [evidence map](../../character-3d/full-rollout-v0/final-player-evidence-map.md) and source-specific export manifests. Historical Pilot URLs and performance numbers are references, not current measurements.
 
@@ -17,6 +17,22 @@ The user formally approved **Naoto E plus side layers** (including the seven-thr
 Continue through the existing gallery: player families (248 stages), companions (26), and remaining partners (17). Filter by family/kind and follow each live link. Record the exact key/stage, view or motion condition, approve/reject/requested change and a screenshot where useful. Review known approved repairs only if a concrete defect appears. Numerical coverage and automated tests are not Human acceptance.
 
 Actual iPhone Safari QA remains **OPEN / NOT_RUN**. Record device/iOS, source SHA and matched 3D/2D fixture, then initial display, continuous motion, ordinary distance, repeated transitions and sustained play. No development PC or Pages/main setting change is required.
+
+## Current commit-pinned iPhone preview — approved shape
+
+Source `00a83a4c6847bc2b6609fd42e413561973c91830`, tree `c0f2db50c2638d217aa4878dc5b44248622c4731`. Remote/local HEAD and tree matched with a clean worktree after the implementation save. These URLs include the exact approved Naoto shape in production and the approved four-view images in Full Gallery. The following documentation save changes no preview inputs.
+
+- [Full Character 3D Gallery](https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/full-gallery.html)
+- [Live 3D Gallery](https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html)
+- [Approved Naoto](https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/character-3d/gallery.html?id=author%3Anaoto)
+- [Meguru Character 3D](https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/index.html?meguru3d=1&char3d=1&perf=1)
+- [Same-condition 2D comparison](https://rawcdn.githack.com/Naoto214/naotocchi/00a83a4c6847bc2b6609fd42e413561973c91830/index.html?meguru3d=1&perf=1)
+
+These links reuse the existing Pilot rawcdn delivery. **Actual iPhone display/motion/performance is NOT_RUN**, and no new browser-rendering PASS is inferred from URL construction. The cloud-browser checks in the historical section below belong only to the old source.
+
+Open in iPhone Safari using a separate QA profile; the host may show an “Open the page” notice. Commit paths share an origin and may share saves. For Meguru 3D/2D comparison, use the same QA profile and matched save/region/camera/actor composition, opening the games sequentially. No development PC, Pages deployment or main change is required.
+
+Record the device/iOS and source SHA with feedback. Start with the remaining gallery entries; use the live view for motion and ordinary-distance Meguru for readability. Keep 1/5/27-actor performance, repeated transitions and sustained-play results unpassed until measured on the device.
 
 ## Historical source-specific handoff
 
@@ -43,7 +59,7 @@ SwiftShader27cast measured204.83ms average RAF/533.4ms p95 and816.6ms maximum ad
 
 ## Human review and device handoff
 
-### iPhone preview without a development PC (2026-10-10)
+### Historical iPhone preview and cloud delivery check (2026-10-10; superseded links)
 
 Fresh remote source: `41441d94b74a6889dfb53e58420e2796ea0da844`, tree `5ed672ba0e62613dbb280338260c1461e04dc5c4`. PR376 was open, Draft, unmerged, based on `feat/character-3d-pilot`. Reuse the Pilot rawcdn.githack.com delivery documented in `docs/qa/character-3d-quality3-2026-10-03.md`; no deployment, Pages setting, main or runtime change is needed. These links remain pinned to this reviewed source even after this documentation update.
 
