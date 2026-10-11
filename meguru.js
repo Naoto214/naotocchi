@@ -1750,6 +1750,19 @@
             const top = out[0].h, fx = Math.cos(ang), fz = -Math.sin(ang), sx = Math.sin(ang), sz = Math.cos(ang), pr = 1;
             out[2] = { shape: 'box', rx: bx, rz: bz, h: 2, y: top, ang, color: '#8a6a4a', solidBox: true };
             for (const f of [-1, 1]) for (const side of [-1, 1]) out.push({ shape: 'wpost', r: pr, h: bh, y: 0, color: '#8a6a4a', dx: fx * f * (bz-pr) + sx * side * (bx-pr), dz: fz * f * (bz-pr) + sz * side * (bx-pr) });
+            // Approved stall A: abutting cloth panels keep the original canopy
+            // envelope; shallow inset joints keep the counter's original top.
+            const canopyLen = bx * 2.5, edge = 2;
+            out[1] = { ...out[1], len: canopyLen - 2 * edge, color: '#e5dfcd' };
+            for (const side of [-1, 1]) out.push({ shape: 'wslab', len: edge, w: bz * 2.5, h: 4, y: bh, ang,
+              color: '#99a38c', dx: sx * side * (canopyLen - edge) / 2, dz: sz * side * (canopyLen - edge) / 2 });
+            out[2].h = 1.8;
+            const joint = 0.18, plank = (bx * 2 - joint * 2) / 3;
+            for (let i = 0; i < 3; i++) {
+              const u = -bx + plank / 2 + i * (plank + joint);
+              out.push({ shape: 'box', rx: plank / 2, rz: bz, h: 0.2, y: top + 1.8, ang,
+                color: '#8a6a4a', solidBox: true, dx: sx * u, dz: sz * u });
+            }
           }
           if (sm.vend) {   // Art Direction v1(city): 自販機らしさ = 明るい 前面の パネル + 取り出し口 + 足もとの ふち。正面 = (cos ang, −sin ang)
             const fx = Math.cos(ang), fz = -Math.sin(ang), v = (ctx && ctx.v) || 0;

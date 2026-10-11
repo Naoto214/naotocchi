@@ -644,3 +644,25 @@ test('VQ-28 carved head preserves the icosahedron hull and is watertight with sh
  for(const q of vertices){let near=Infinity;for(let i=0;i<a.count;i+=3){const v=[0,1,2].map(j=>new T.Vector3().fromBufferAttribute(a,i+j));const n=v[1].clone().sub(v[0]).cross(v[2].clone().sub(v[0])).normalize();near=Math.min(near,Math.abs(n.dot(q.clone().sub(v[0]))));}assert.ok(near<=0.036,'recess less than 0.324 world units');}
  old.dispose();g.dispose();
 });
+
+// Removing cloth edging, widening the canopy or lifting the joints must fail.
+test('VQ-29 six soft city stalls retain their bounds with subdued cloth and shallow counter joints',()=>{
+ const {harness}=require('./helpers/runtime-harness.cjs');
+ const M=harness({deterministic:true,fullDisplay:true,pinDate:true}).api.meguruMod,reg=M.buildRegistry();const ids=[];
+ for(const rid of Object.keys(M.REGION3D))for(const ob of M.worldObjects3d(M.buildWorld(rid,reg,{world3d:true})).objects){
+  if(ob.type!=='boxprop'||!['🏪','☕'].includes(ob.kind)||ob.collision)continue;
+  ids.push(ob.id);const p=ob.parts,roof=p.filter(q=>q.y===24),boards=p.filter(q=>q.y>11&&q.y<12.1);
+  assert.equal(roof.length,3,'cloth center and two restrained edges');
+  assert.equal(roof.filter(q=>q.color==='#e5dfcd').length,1);assert.equal(roof.filter(q=>q.color==='#99a38c').length,2);
+  const intervals=roof.map(q=>{assert.equal(q.h,4);assert.equal(q.w,20);const u=(q.dx||0)*Math.sin(q.ang)+(q.dz||0)*Math.cos(q.ang);return [u-q.len/2,u+q.len/2];}).sort((a,b)=>a[0]-b[0]);
+  assert.ok(Math.abs(intervals[0][0]+12.5)<1e-8&&Math.abs(intervals[2][1]-12.5)<1e-8);
+  for(let i=1;i<3;i++)assert.ok(Math.abs(intervals[i][0]-intervals[i-1][1])<1e-8,'abut without roof gaps/overlays');
+  assert.equal(p.filter(q=>q.shape==='wpost').length,4);assert.equal(p[0].h,10.08);
+  assert.equal(boards.length,3,'three broad planks');
+  for(const q of boards){assert.equal(q.shape,'box');assert.equal(q.solidBox,true);assert.ok(Math.abs(q.y+q.h-12.08)<1e-8);assert.ok(q.h<=.21);assert.equal(q.rz,8);}
+  const sorted=boards.map(q=>{const u=(q.dx||0)*Math.sin(q.ang)+(q.dz||0)*Math.cos(q.ang);return [u-q.rx,u+q.rx];}).sort((a,b)=>a[0]-b[0]);
+  assert.ok(Math.abs(sorted[0][0]+10)<1e-8&&Math.abs(sorted[2][1]-10)<1e-8);
+  for(let i=1;i<3;i++)assert.ok(Math.abs(sorted[i][0]-sorted[i-1][1]-.18)<1e-8,'small shallow joints only');
+ }
+ assert.deepEqual(ids.sort(),['city:336','city:340','city:348','city:524','city:556','city:557']);
+});
