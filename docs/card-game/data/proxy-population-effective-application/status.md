@@ -1120,3 +1120,12 @@ RED1FAIL（priority_unique）→既存116 fallbackと未証明候補保持を確
 全開始/登場/終了/手札誘発・全read・比較operand・起点認証が完了したという意味ではない。P07–12/P14–18と最終gate合成は未完。preflight-ready=false、本番gate閉鎖、seed生成/入力固定/400戦0、policy promotion=false、独立balance標本0、全体結論null。
 
 最終固定54PASS168.040s/exit0、再帰Python1066ファイル前後hash一致。design errors=[]、番号付き正本477不変。旧115/zero-root20ターンの完走・機会順・連鎖を含む。最新全proxy回帰完了ではない。
+
+
+### 2026-10-11 通常・responseの未証明停止と選択計算の入口結合
+
+通常/responseの全predicate合成、事象窓の実発生/見送り閉包、非fallback選択計算・全候補支払・response比較前提を記録確定前の共通gateへ接続。既存処理を再利用し、新しい値や順位は追加しない。旧116除外・全情報/全機会/その他operand未証明は保持。
+
+関連41PASS24.465s/exit0。旧115/零rootの完全connected入口は143step/181event、ordinary118件中非fallback108件の計算を監査、接続7監査errors=[]、source1068ファイル前後一致。設計errors=[]、保護番号付き477不変。各bundle独立review C0/I0、環境整理後の復元もread-onlyで重大相違なし。未保存差分とlogが自動整理で失われ、GitHub退避済みblobから復元・保存した経緯と証拠限界はverification/ordinary-entry-review.mdへ記録。最新全proxy完了ではない。
+
+preflight-ready=false、本番gate閉鎖、生成/固定/400戦0。P07–12の全source機会・全read・比較operandの由来、P14–18の最終合成/固定版検証は未完。過去の未証明を補完せず、準備完了や開始許可へ昇格しない。

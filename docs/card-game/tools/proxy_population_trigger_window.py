@@ -155,7 +155,11 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
             nonlocal current_ledger,active,current_proof,mode
             before=copy.deepcopy((current_ledger,active,current_proof,mode,boundaries))
             lengths=(len(records),len(start_proofs),len(other_proofs),len(closed_turns))
-            try:return step_body(*args,**kwargs)
+            try:
+                result=step_body(*args,**kwargs)
+                from proxy_population_decision_binding import require_current_predicates
+                require_current_predicates(result)
+                return result
             except Exception:
                 current_ledger,active,current_proof,mode,saved_boundaries=before
                 boundaries.clear();boundaries.update(saved_boundaries)

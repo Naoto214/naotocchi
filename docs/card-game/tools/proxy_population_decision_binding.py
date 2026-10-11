@@ -103,3 +103,46 @@ def audit_projection(result):
  except (ValueError,KeyError,TypeError) as error:errors.append(str(error))
  return dict(schema='step_decision_projection.v1',decision_projection_verified=not errors,errors=errors,decision_count=len(expected),
   all_rule_opportunities_proven=False,origin_authenticated=False,policy_eligible=None,balance_admitted=None)
+
+
+def require_current_predicates(step):
+ """Current ordinary entry only, after sequential-group closure is composed.
+
+ This consumes fresh in-process audits; it is not a saved-proof authenticator.
+ Information use and comparison operands remain distinct from this gate.
+ """
+ if 'ordinary_entry_binding' not in step:return
+ decision=step['decision']
+ if decision.get('context',{}).get('decision_kind')=='normal_action':
+  key='normal_unit_predicate_coverage';flag='supplied_normal_unit_predicates_covered';missing='unproved_enumeration_unit_ids';schema='normal_unit_predicate_coverage.v1'
+ elif decision.get('decision_kind')=='response_action':
+  key='response_source_predicate_coverage';flag='supplied_response_source_predicates_covered';missing='unproved_source_ids';schema='response_source_predicate_coverage.v1'
+ else:raise ValueError('current predicate decision kind differs')
+ proof=step.get(key)
+ if type(proof) is not dict or proof.get('schema')!=schema or proof.get('errors')!=[] or proof.get(flag) is not True or proof.get(missing)!=[]:
+  raise ValueError('current predicate coverage incomplete: '+key+': '+str(proof.get(missing) if type(proof) is dict else 'missing audit'))
+ require_current_comparison(step)
+
+
+def require_current_comparison(step):
+ """Join existing computation/payment audits without certifying other operands.
+
+ Fresh current-entry proofs only. Legacy116 remains excluded; neither a sole
+ candidate nor verified arithmetic establishes legality or information use.
+ """
+ import proxy_population_selection_basis as selection
+ decision=step['decision'];choice=decision.get('choice',decision);mode=choice.get('resolution_mode')
+ if mode not in ('seeded_fallback','response_seeded_fallback'):
+  proof=selection.audit(decision)
+  if proof['errors'] or proof['selection_computation_verified'] is not True:
+   raise ValueError('current selection computation incomplete: '+str(proof['errors']))
+  step['selection_computation_audit']=proof
+ if decision.get('context',{}).get('decision_kind')=='normal_action' and decision.get('problem') is not None:
+  proof=step.get('normal_payment_operands',{});rows=proof.get('verified_candidates',[])
+  ids=decision['inventory']['legal_candidate_ids']
+  if proof.get('schema')!='normal_comparison_payment_operands.v1' or proof.get('errors')!=[] or proof.get('applicable') is not True or proof.get('supported_payment_operands_verified') is not True or proof.get('unproved_candidates')!=[] or len(rows)!=len(ids) or sorted(r.get('candidate_id','') for r in rows)!=ids:
+   raise ValueError('current comparison payment coverage incomplete')
+ if decision.get('decision_kind')=='response_action' and mode=='priority_unique':
+  proof=step.get('response_comparison_operands',{})
+  if proof.get('schema')!='supplied_response_comparison_operands.v1' or proof.get('errors')!=[] or proof.get('applicable') is not True or proof.get('existing_comparison_operands_verified') is not True or proof.get('supplied_resolution_premises_verified') is not True or proof.get('unproved')!=[]:
+   raise ValueError('current response comparison coverage incomplete')
