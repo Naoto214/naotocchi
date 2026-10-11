@@ -1,17 +1,17 @@
 {
-  "sourceCommit": "fe2acd989f5d6f611a8251133795f83ae737800c",
-  "runId": 38131052301,
+  "sourceCommit": "896024b8bb8b05393bc63ea439c670a814791f71",
+  "runId": 38132401763,
   "artifactJobEvidence": true,
   "families": [
     "author"
   ],
   "artifacts": [
     {
-      "id": 11699390461,
-      "label": "human-feedback",
-      "name": "full-rollout-nonplayer-review-fe2acd989f5d6f611a8251133795f83ae737800c",
-      "digest": "sha256:7c166b742ae84bfcf442bccf9b5a3025bd4c20f31a67d4c5958c6bbfea5d12a8",
-      "jobId": 114445285164,
+      "id": 11700185286,
+      "label": "author-fringe",
+      "name": "full-rollout-nonplayer-review-896024b8bb8b05393bc63ea439c670a814791f71",
+      "digest": "sha256:7526a9a652dbc93521723059a327f913350290f507406bab0f7242f875c08e66",
+      "jobId": 114449257803,
       "evidenceMode": "successful",
       "required": [
         {
