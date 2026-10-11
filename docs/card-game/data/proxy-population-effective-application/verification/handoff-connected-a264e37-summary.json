@@ -1,0 +1,26 @@
+{
+  "base_head": "a264e379eeb4d1e5ae830b36b3cd712e7f9c7aeb",
+  "production_generation": false,
+  "new_matches": 0,
+  "command": "connected.reconstruct(bundle(), 'test-1A', 512)",
+  "completed": true,
+  "stop": null,
+  "steps": 143,
+  "events": 181,
+  "audits": {
+    "mandatory_policy_entry_audit": [],
+    "mandatory_origin_audit": [],
+    "mandatory_opportunity_audit": [],
+    "resolution_semantics_audit": [],
+    "nonresolution_semantics_audit": [],
+    "decision_projection_audit": [],
+    "source_conservation_audit": [],
+    "end_dispatch_obligation_audit": []
+  },
+  "record_sha256": "575ecc8733eacfb8e6ab35e0f4908ab26f57325c021b070cdeb702156e8cf6ca",
+  "exit_code": 0,
+  "seconds": 116.88036866100447,
+  "source_unchanged": true,
+  "python_count": 1072,
+  "verification_raw_sha256": "8ae5f949257b2f5a1693446a5a48dda02c369416a18a242734ce85a76de892f5"
+}

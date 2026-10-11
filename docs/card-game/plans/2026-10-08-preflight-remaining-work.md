@@ -927,3 +927,10 @@ P10 comparison/caps/worlds/batch・純粋114比較・116選択の実read表をpu
 ## 2026-10-12 自動バッチ途中の判断機会引渡し
 
 4fc9571からP09を継続。実終了バッチへ次の実response eventを混ぜ、native出力/hash/snapshotも同時変更すると、単体監査と実_step入口が通る2REDを再現。各event直前に通常/反応/完了境界を越えないことを検査し、最後の境界で制御を返す正規終了→開始draw→指定たまご選択を維持。06 source pin、既存mandatory policy/handler不変。review C0/I0/Minor0・別6PASS、最終21PASS10.672s/exit0、Python1072前後一致。verification/automatic-intermediate-opportunity-*。全dispatch/全機会証明ではない。preflight-ready=false、生成/固定/400戦0。次は直近bundleの固定版結合を一度実施し、残るP09〜11/P14〜18合成へ進む。
+
+
+## 2026-10-12 通常source母数の独立実状態照合
+
+a264e37から、共有normal投影が自手札sourceを落とすとproducer/監査/実入口が受理する2REDを修正。実owner手札・盤面・予約・常設sourceから6familyを別導出し、list/厳密count/hand variants/partner stage/card bindingを結合。投影default不変、全情報/全対象展開へは昇格しない。review C0/I0/Minor0・別6PASS、最終26PASS17.271s/exit0、Python1072前後一致。normal-source-projection-*参照。
+
+直前固定a264e37の旧115/零root完全結合143step181event、8監査errors=[]、completed=true/stop=null、116.880s/exit0、Python前後一致をhandoff-connected-a264e37-*へ保存。このsource母数修正前の結果であり、現版全回帰とはしない。次は共有target expanderの母数と実対象集合、P09全責務/P10全read/P11残operand/P14–18共通gate。preflight-ready=false、生成/固定/400戦0。

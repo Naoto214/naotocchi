@@ -20,17 +20,25 @@ def audit_normal(envelope,inventory):
   projected=candidates.NORMAL_PROJECTION(envelope) if candidates.NORMAL_PROJECTION else envelope
   view=candidates.old.candidates.project_normal_action_information(dict(game_state=projected['legacy_continuation']['game_state'],actor=actor),{})
   sources=candidates.old.normal_audit.board.extension_125.inventory_sources(view)
-  wanted={(row['family'],str(source)) for row in sources for source in row['sources']}
+  # The producer and expansion audit share projections. Derive the six
+  # families from actual owner zones so a shared omitted source cannot make
+  # both enumeration and its expected denominator shrink together.
+  owner=game['players'][actor];board=owner['board']
+  physical={'standing_pass':['pass'],'hand_card_action':list(owner['hand']),
+   'board_card_action':[s for s in [board['main'],*board['companions'],board['partner'],board['world'],*board['prepared']] if s is not None],
+   'reservation_action':list(owner['reservations']),'normal_challenge':['challenge:'+actor],'relationship_progress':['relationship:'+actor]}
+  if len(sources)!=len(physical) or canonical({row['family']:row['sources'] for row in sources})!=canonical(physical) or any(type(row['count']) is not int or row['count']!=len(row['sources']) for row in sources):raise ValueError('normal source inventory differs from actual owner zones')
+  wanted={(family,str(source)) for family,members in physical.items() for source in members}
   units=inventory['enumeration_units']
   if {(u['source_family'],u['source_id']) for u in units}!=wanted:raise ValueError('six-family current source coverage differs')
   if len({u['enumeration_unit_id'] for u in units})!=len(units):raise ValueError('duplicate enumeration unit')
   table=candidates.rules.table();by_card={r['card_id']:r for r in table['cards']}
-  for source in view['players'][actor]['hand']:
-   row=by_card[view['cards'][source]['card_id']]
+  for source in owner['hand']:
+   row=by_card[game['cards'][source]['card_id']]
    expected.update(('hand_card_action',source,a['action_type'],variant) for a in row['actions'] for variant in a['candidate_variants'])
   expected.add(('standing_pass','pass','pass','pass'))
   expected.update(('normal_challenge','challenge:'+actor,'challenge',v) for v in ('power','wisdom'))
-  stage=view['players'][actor]['board']['partner_stage']
+  stage=board['partner_stage']
   variant='no_partner' if stage is None else 'terminal' if stage=='married' else ('0-to-1','1-to-2','2-to-3','3-to-marriage')[stage]
   expected.add(('relationship_progress','relationship:'+actor,'relationship',variant))
   checked={'hand_card_action','standing_pass','normal_challenge','relationship_progress'}
@@ -39,7 +47,7 @@ def audit_normal(envelope,inventory):
   for u in units:
    if u['source_family'] in ('hand_card_action','board_card_action'):
     zone='hand' if u['source_family']=='hand_card_action' else 'board'
-    if u['source_zone']!=zone or u['source_instance_id']!=u['source_id'] or u['card_id']!=view['cards'][u['source_id']]['card_id']:raise ValueError('physical source/card/zone binding differs')
+    if u['source_zone']!=zone or u['source_instance_id']!=u['source_id'] or u['card_id']!=game['cards'][u['source_id']]['card_id']:raise ValueError('physical source/card/zone binding differs')
    elif u['source_instance_id'] is not None or u['card_id'] is not None:raise ValueError('non-card source has physical identity')
    if u['disposition'] not in ('admitted','excluded'):raise ValueError('unit disposition absent')
    if u['disposition']=='excluded' and (u['candidate_id'] is not None or not u['reason_codes']):raise ValueError('excluded unit lacks explicit reason')

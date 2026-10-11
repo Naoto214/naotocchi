@@ -1,0 +1,26 @@
+test_shared_normal_projection_cannot_omit_an_owned_hand_source (test_proxy_population_source_inventory.SourceInventoryTests.test_shared_normal_projection_cannot_omit_an_owned_hand_source) ... 
+  test_shared_normal_projection_cannot_omit_an_owned_hand_source (test_proxy_population_source_inventory.SourceInventoryTests.test_shared_normal_projection_cannot_omit_an_owned_hand_source) (boundary='audit') ... FAIL
+  test_shared_normal_projection_cannot_omit_an_owned_hand_source (test_proxy_population_source_inventory.SourceInventoryTests.test_shared_normal_projection_cannot_omit_an_owned_hand_source) (boundary='actual_entry') ... FAIL
+
+======================================================================
+FAIL: test_shared_normal_projection_cannot_omit_an_owned_hand_source (test_proxy_population_source_inventory.SourceInventoryTests.test_shared_normal_projection_cannot_omit_an_owned_hand_source) (boundary='audit')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_source_inventory.py", line 48, in run
+    with self.subTest(boundary='audit'):self.assertFalse(proof['source_and_variant_coverage_verified'],proof)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : {'schema': 'current_normal_source_inventory_coverage.v1', 'source_and_variant_coverage_verified': True, 'errors': [], 'source_inventory': [{'family': 'standing_pass', 'sources': ['pass'], 'count': 1, 'empty_reason_code': None, 'source_reference': '114-normal-decision-protocol-hardening.md', 'inspected_state_field': 'phase'}, {'family': 'hand_card_action', 'sources': ['A-002#1', 'A-003#1', 'A-004#1', 'A-005#1', 'A-006#1'], 'count': 5, 'empty_reason_code': None, 'source_reference': '114-normal-decision-protocol-hardening.md', 'inspected_state_field': 'players.A.hand'}, {'family': 'board_card_action', 'sources': ['A-016#1'], 'count': 1, 'empty_reason_code': None, 'source_reference': '01-core-rules.md', 'inspected_state_field': 'players.A.board'}, {'family': 'reservation_action', 'sources': [], 'count': 0, 'empty_reason_code': 'no_reservation_source', 'source_reference': '01-core-rules.md', 'inspected_state_field': 'players.A.reservations'}, {'family': 'normal_challenge', 'sources': ['challenge:A'], 'count': 1, 'empty_reason_code': None, 'source_reference': '01-core-rules.md', 'inspected_state_field': 'players.*.board'}, {'family': 'relationship_progress', 'sources': ['relationship:A'], 'count': 1, 'empty_reason_code': None, 'source_reference': '01-core-rules.md', 'inspected_state_field': 'players.A.board.partner'}], 'expected_variant_count': 19, 'actual_variant_count': 19, 'source_sha256': {'114-normal-decision-protocol-hardening.md': 'aa161063e4fa9e056818d00e3fe799448107b3b51f00c05e67c2c89c3a50e59a', '116-normal-decision-fallback-contract.md': '577dccec67343ead75aa813b464b432679927c2f4b71ed960be5058aaa3ef393', '121-normal-action-candidate-completeness-contract.md': '062ce35cbe0e82d7edc7c3c4bd8b2266afe48e9201e3a0be24ca974ae7763092'}, 'complete_legal_set_proven': False, 'target_predicates_proven': False, 'information_use_proven': False, 'all_rule_opportunities_proven': False, 'origin_authenticated': False, 'policy_eligible': None, 'balance_admitted': None}
+
+======================================================================
+FAIL: test_shared_normal_projection_cannot_omit_an_owned_hand_source (test_proxy_population_source_inventory.SourceInventoryTests.test_shared_normal_projection_cannot_omit_an_owned_hand_source) (boundary='actual_entry')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_source_inventory.py", line 50, in run
+    with self.assertRaisesRegex(ValueError,'source inventory'):runtime._step(e,initial(),[],[],[e],forced)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 0.102s
+
+FAILED (failures=2)

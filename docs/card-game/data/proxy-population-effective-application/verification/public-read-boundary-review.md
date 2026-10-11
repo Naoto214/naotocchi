@@ -76,3 +76,6 @@ P10の残件を「全read未証明」の一語で再開しない。実adapter群
 ## 2026-10-12 C-bat回収receiptの相手向け非公開化
 
 実next normal inventoryのpublic_historyへ伏せ準備の物理IDが残る経路を閉じた。現行public_application.scopeのみでraw eventとbefore準備表裏を照合し、相手の非公開target/returned_instance_idを除く。ownerの記録と確認できる公開装備のID、effect_appliedは保持。M06/Ccat/Efinalの対象は公開discard、Cchicken/Icoin/Ghitのrevealは本文上公開、非公開draw/bottomは既存whitelist対象外。concealed-return-history-review.mdと最終22PASS参照。raw marker/traceの起点認証や全情報証明には昇格しない。
+
+
+2026-10-12: normal source inventoryのexpected母数を共有projectionから実ownerの6familyへ切替え。手札/盤面sourceの共有欠落、厳密count、hand variant/stage/card bindingを別照合（normal-source-projection-*）。全target expander/全情報利用/比較operandを証明した扱いにはしない。

@@ -31,6 +31,56 @@ class SourceInventoryTests(unittest.TestCase):
    return {}
   runtime.operation(initial(),run)
 
+ def test_shared_normal_projection_cannot_omit_an_owned_hand_source(self):
+  from unittest.mock import patch
+  import proxy_population_challenge_window as window
+  def run(forced):
+   e,actor,source=fixture('E-first-date',1);e['legacy_continuation']['game_state']['phase']='normal_action'
+   native=candidates.NORMAL_PROJECTION
+   def omitted(envelope):
+    projected=native(envelope);player=projected['legacy_continuation']['game_state']['players'][actor]
+    if source in player['hand']:player['hand'].remove(source)
+    return projected
+   with patch.object(candidates,'NORMAL_PROJECTION',omitted):
+    inv=candidates.audit(e,[])
+    self.assertFalse(any(r['source_instance_id']==source for r in inv['enumeration_units']))
+    proof=api.audit_normal(e,inv)
+    with self.subTest(boundary='audit'):self.assertFalse(proof['source_and_variant_coverage_verified'],proof)
+    with self.subTest(boundary='actual_entry'):
+     with self.assertRaisesRegex(ValueError,'source inventory'):runtime._step(e,initial(),[],[],[e],forced)
+   return {}
+  with window.contract_scope():runtime.operation(initial(),run)
+
+ def test_projection_layers_cannot_shrink_owner_families_or_counts(self):
+  from unittest.mock import patch
+  def run(forced):
+   e,actor,source=fixture('E-first-date',1);g=e['legacy_continuation']['game_state'];g['phase']='normal_action'
+   native=candidates.NORMAL_PROJECTION;projector=candidates.old.candidates;public=projector.project_normal_action_information
+   factory=candidates.old.normal_audit.board.extension_125;native_sources=factory.inventory_sources
+   with legality.scope():
+    for mode in ('all_hand','partner','public_hand','public_partner','family_count'):
+     def project(envelope):
+      result=native(envelope);p=result['legacy_continuation']['game_state']['players'][actor]
+      if mode=='all_hand':p['hand']=[]
+      if mode=='partner':p['board']['partner']=None
+      return result
+     def expose(*args,**kwargs):
+      result=public(*args,**kwargs);p=result['players'][actor]
+      if mode=='public_hand':p['hand'].remove(source)
+      if mode=='public_partner':p['board']['partner']=None
+      return result
+     def sources(view):
+      result=native_sources(view)
+      if mode=='family_count':result[0]['count']=True
+      return result
+     with self.subTest(mode=mode),patch.object(candidates,'NORMAL_PROJECTION',project),patch.object(projector,'project_normal_action_information',expose),patch.object(factory,'inventory_sources',sources):
+      inventory=candidates.audit(e,[]);proof=api.audit_normal(e,inventory)
+      self.assertFalse(proof['source_and_variant_coverage_verified'],proof)
+    p=g['players'][actor];p['deck'].extend(p['hand']);p['hand']=[]
+    proof=api.audit_normal(e,candidates.audit(e,[]));self.assertTrue(proof['source_and_variant_coverage_verified'],proof)
+   return {}
+  runtime.operation(initial(),run)
+
 
 class ResponseSourceTests(unittest.TestCase):
  def test_response_sources_cannot_be_removed_with_their_candidate(self):
