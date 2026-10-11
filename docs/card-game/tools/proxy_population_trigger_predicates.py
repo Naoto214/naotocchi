@@ -223,9 +223,39 @@ def _collection(envelope,history,origin,result):
  return result
 
 
+def _start_collection(capture,envelope,result):
+ """Check all start sources without calling the producer or action enumerator.
+
+ The actual turn-start transition remains the caller's separate obligation.
+ This check does not turn a supplied capture into authenticated history.
+ """
+ c=envelope['legacy_continuation'];g=c['game_state'];ctx=c['response_context'];seq=envelope['event_seq']
+ public=starts.public_sources(envelope)
+ if capture['schema']!='current107_start_source_capture.v1' or capture['turn_player']!=g['turn_player'] or type(capture['event_seq']) is not int or type(seq) is not int or capture['event_seq']>=seq:raise ValueError('start collection capture boundary differs')
+ if g['phase']!='response_window' or ctx['window_kind']!='turn_start' or type(ctx['origin_event_seq']) is not int or ctx['origin_event_seq']!=seq or c['activation_zone'] or c['pending_triggers'] or any(p['reservations'] for p in g['players'].values()):raise ValueError('start collection opening boundary differs')
+ if canonical(public)!=canonical(capture['public_sources']):raise ValueError('start collection source presence differs')
+ expected=[];classified=[]
+ for source,row in sorted(public.items()):
+  card=row['card_id'];kind=row['classification']['start_kind'];actor=row['actor'];met=False
+  if kind=='none':reason='not_turn_start_trigger'
+  elif actor!=g['turn_player']:reason='requires_own_turn_start'
+  elif card=='C-chicken' and kind=='own_start_reveal_companion':
+   if row['slot']!='companions':raise ValueError('start collection companion slot differs')
+   met=True;reason='eligible_start_trigger'
+  elif card=='I-bowtie' and kind=='own_start_hand_at_most_two_draw':
+   if row['slot']!='prepared':raise ValueError('start collection equipment slot differs')
+   met=len(g['players'][actor]['hand'])<=2;reason='eligible_start_trigger' if met else 'hand_count_above_two'
+  else:raise ValueError('start collection condition unsupported')
+  classified.append(dict(source_instance_id=source,card_id=card,reason_code=reason,source_reference=row['classification']['reference']))
+  if met:expected.append(dict(origin_event_seq=seq,source_instance_id=source,actor=actor,category='optional',ability_key=kind,source_reference=row['classification']['reference']))
+ if Counter(map(canonical,result['occurrences']))!=Counter(map(canonical,expected)) or Counter(map(canonical,result['classifications']))!=Counter(map(canonical,classified)):raise ValueError('start collection occurrence/source set differs')
+ if result['schema']!='current107_start_occurrences.v1' or result['origin_event_seq']!=seq or result['current_envelope_sha256']!=state.canonical_sha256(envelope) or result['source_catalog_sha256']!=starts.CATALOG_SHA or canonical(result['capture'])!=canonical(capture):raise ValueError('start collection result binding differs')
+ return result
+
+
 @contextmanager
 def scope():
- native_latched=latching.current_actions;native_start=sequential.StartAdapter.enumerate;native_existing=existing.ExistingAdapter.enumerate;native_collect=existing.ExistingAdapter.collect
+ native_latched=latching.current_actions;native_start=sequential.StartAdapter.enumerate;native_existing=existing.ExistingAdapter.enumerate;native_collect=existing.ExistingAdapter.collect;native_start_collect=starts.collect
  def checked(result,envelope,occurrence,audit):
   rows,proof=result;check=audit(envelope,occurrence,rows)
   if check['errors']:raise ValueError('trigger current predicates differ: '+str(check['errors']))
@@ -242,8 +272,10 @@ def scope():
   result=native_collect(adapter,envelope,origin_event_seq)
   origin=envelope['legacy_continuation']['response_context']['origin_event_seq'] if origin_event_seq is None else origin_event_seq
   return _collection(envelope,adapter.history,origin,result)
+ def collect_start(capture,envelope):return _start_collection(capture,envelope,native_start_collect(capture,envelope))
  try:
+  starts.collect=collect_start
   existing.ExistingAdapter.collect=collect
   latching.current_actions=latched;sequential.StartAdapter.enumerate=start;existing.ExistingAdapter.enumerate=arrival
   yield
- finally:latching.current_actions=native_latched;sequential.StartAdapter.enumerate=native_start;existing.ExistingAdapter.enumerate=native_existing;existing.ExistingAdapter.collect=native_collect
+ finally:latching.current_actions=native_latched;sequential.StartAdapter.enumerate=native_start;existing.ExistingAdapter.enumerate=native_existing;existing.ExistingAdapter.collect=native_collect;starts.collect=native_start_collect

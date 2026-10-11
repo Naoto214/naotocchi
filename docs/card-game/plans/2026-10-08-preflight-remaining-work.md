@@ -868,3 +868,7 @@ preflight-ready=false、本番gate閉鎖、生成/固定/400戦0。P07–12の�
 ### 2026-10-11 3bundleの固定版全入口検証
 
 実装98a62f1/treebc0c189で旧115/零root・test-1Aを既存connected入口から1回検証。completed=true、stop=null、143step/181event。mandatory entry/origin/opportunity、resolution/nonresolution、decision projection、source conservationの7監査errors=[]。114.712707409s/exit0、docs/card-game再帰Python1068の全指紋前後一致。完全record・原指紋・要約をverification/three-bundle-connected-98a62f1-*へ保存。全proxy回帰ではない。本番生成/固定/400戦0、preflight-ready=false。次回は再開メモと上記recordを使い、この復元/結合検証を繰り返さない。P09残機会・P10実read・P11その他operand根拠とP14–18最終合成/固定版回帰は未完。
+
+### 開始時source collectionの別条件照合
+
+ffec94fからC-chicken/I-bowtieのproducer/replay同時省略をRED再現し、既存trigger_predicates.scopeへ公開source全件・条件・分類・occurrence・境界の別照合を接続。proof形/過去結果不変。関連34PASS2.901s、固定Python指紋一致、独立review C0/I0/Minor0（10PASS）。verification/start-collection-review.md参照。実開始起点や共有public_sources自体の独立証明とは分離。preflight-ready=false、生成/固定/400戦0。P09残りとP10/P11、P14–18合成へ続行。

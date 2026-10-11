@@ -123,6 +123,44 @@ class TriggerPredicateTests(unittest.TestCase):
    return {}
   runtime.operation(initial(),corrupt)
 
+ def test_start_producer_and_replay_cannot_agree_on_missing_occurrence(self):
+  from test_proxy_population_trigger_connection import both
+  import proxy_population_start_obligations as starts
+  import proxy_population_trigger_connection as connection
+  e,_,proof=both();native=starts.collect
+  def omitted(*args):
+   result=native(*args);result['occurrences']=[];return result
+  # Both production and its replay use the corrupted producer. The separate
+  # source-condition check must reject before a ledger can lose the group.
+  with patch.object(starts,'collect',omitted),api.scope():
+   with self.assertRaisesRegex(ValueError,'start collection'):
+    connection.validate_opening(e,dict(proof,occurrences=[]))
+
+ def test_start_collection_checks_negative_sources_identity_and_restores_scope(self):
+  from test_proxy_population_trigger_connection import both
+  import proxy_population_start_obligations as starts
+  e,_,proof=both();native=starts.collect
+  for mutation in ('duplicate','actor','origin','source','classification','hash','capture'):
+   def corrupt(capture,envelope):
+    result=native(capture,envelope)
+    if mutation=='duplicate':result['occurrences'].append(copy.deepcopy(result['occurrences'][0]))
+    elif mutation=='classification':result['classifications'].pop()
+    elif mutation=='hash':result['current_envelope_sha256']='0'*64
+    elif mutation=='capture':result['capture']['event_seq']=0
+    else:
+     key,value={'actor':('actor','B'),'origin':('origin_event_seq',99),'source':('source_instance_id','absent')}[mutation];result['occurrences'][0][key]=value
+    return result
+   with patch.object(starts,'collect',corrupt),api.scope():
+    with self.assertRaisesRegex(ValueError,'start collection'):starts.collect(proof['capture'],e)
+  self.assertIs(starts.collect,native)
+  # The same captured board can have >2 cards after the automatic start draw:
+  # bowtie is then absent, while chicken remains, including an empty deck.
+  high=copy.deepcopy(e);owner=high['legacy_continuation']['game_state']['players']['A'];owner['hand'].append(owner['deck'].pop());owner['discard']+=owner['deck'];owner['deck']=[]
+  with api.scope():
+   actual=starts.collect(proof['capture'],high)
+   self.assertEqual([o['ability_key'] for o in actual['occurrences']],['own_start_reveal_companion'])
+  self.assertIs(starts.collect,native)
+
  def test_start_adapter_audit_is_connected_to_real_inventory(self):
   from test_proxy_population_trigger_connection import both
   # Existing start fixture includes both source types and a source-bound capture.
