@@ -1,30 +1,29 @@
-// QA-only variants. Never imported by production runtime or spec registry.
+// QA-only geometry options. Never imported by production runtime/spec registry.
+// D/E replace the Human-rejected A/B/C; the original captures remain immutable.
 const definitions={
- A:{label:'Natural mash / soft overlapping fringe',count:11,flow:.045,radius:.054,taper:.40,edge:.133,jitter:.016},
- B:{label:'Loose 7:3 flow / no open part',count:10,flow:.095,radius:.057,taper:.42,edge:.148,jitter:.021},
- C:{label:'Soft mash-wolf / irregular layered fringe',count:13,flow:.070,radius:.049,taper:.46,edge:.124,jitter:.028}
+ D:{label:'Viewer-right 7:3 part / full sweep to viewer-left',mirror:1,partX:.105},
+ E:{label:'Viewer-left 7:3 part / full sweep to viewer-right',mirror:-1,partX:-.105}
 };
 function create(){
  const base=require('../../character-3d/nonplayer-spec.js')()['author:naoto'],out={};
+ // Unequal groups originate on opposite sides of an actual skin-visible opening.
+ // The long group travels sideways AND down, rather than projecting up/back.
+ const locks=[
+  {path:[[.050,.245,.100],[.020,.225,.200],[.005,.170,.255],[.025,.120,.252]],radius:.054,taper:.55},
+  {path:[[.038,.268,.075],[-.020,.239,.185],[-.055,.175,.256],[-.025,.098,.251]],radius:.061,taper:.57},
+  {path:[[.020,.281,.045],[-.063,.239,.180],[-.106,.160,.238],[-.078,.087,.243]],radius:.064,taper:.61},
+  {path:[[.005,.289,.010],[-.100,.237,.164],[-.159,.151,.211],[-.139,.072,.221]],radius:.063,taper:.62},
+  {path:[[-.020,.287,-.015],[-.135,.237,.130],[-.205,.136,.178],[-.192,.060,.185]],radius:.060,taper:.58},
+  {path:[[-.052,.275,-.040],[-.174,.215,.087],[-.238,.108,.129],[-.242,.036,.120]],radius:.054,taper:.60},
+  {path:[[-.083,.260,-.060],[-.212,.183,.040],[-.267,.091,.070],[-.271,.022,.055]],radius:.047,taper:.56},
+  {path:[[.163,.229,.099],[.180,.209,.181],[.195,.160,.227],[.182,.108,.234]],radius:.041,taper:.49},
+  {path:[[.174,.254,.047],[.216,.200,.157],[.243,.129,.179],[.232,.065,.176]],radius:.048,taper:.56},
+  {path:[[.183,.250,-.018],[.247,.177,.087],[.275,.098,.109],[.268,.032,.092]],radius:.047,taper:.54}
+ ];
  for(const [id,d]of Object.entries(definitions)){
-  const row=structuredClone(base),h=row.spec.hair;
+  const row=structuredClone(base),h=row.spec.hair,rear=h.closedPaths.slice(-3);
   h.closedVolumes=h.closedVolumes.slice(0,2);
-  const rear=h.closedPaths.slice(-3);h.closedPaths=[];
-  for(let i=0;i<d.count;i++){
-   const u=2*i/(d.count-1)-1;
-   const x=.235*u+.008*Math.sin(i*2.1),edge=Math.abs(u);
-   const rootX=Math.max(-.25,Math.min(.25,x+d.flow));
-   const z=.260*Math.sqrt(1-(x/.32)**2);
-   const tipY=d.edge-.070*edge+d.jitter*Math.sin(i*2.37+.6);
-   // Intersecting, varied-width locks: the ends overlap instead of forming a comb.
-   // Distributed roots and one-way curves avoid a central apex or exposed part.
-   h.closedPaths.push({path:[
-    [rootX,.280-.064*edge+.010*Math.sin(i*1.3),-.005],
-    [x+d.flow*.72,.250-.055*edge,z*.58],
-    [x+d.flow*.36,.195-.048*edge,z-.008],
-    [x,tipY,z-.018]
-   ],radius:d.radius*(1+.13*Math.sin(i*1.7)),taper:d.taper,outwardCaps:true,steps:18,radial:10});
-  }
+  h.closedPaths=locks.map(p=>({...p,path:p.path.map(([x,y,z])=>[x*d.mirror,y,z]),outwardCaps:true,steps:18,radial:10}));
   h.closedPaths.push(...rear);out[id]=row;
  }
  return out;

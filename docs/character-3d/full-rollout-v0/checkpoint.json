@@ -414,9 +414,9 @@
   },
   "authorHairOptions20261011": {
     "baseline": "1b8ef62aa3cbfe79b6f05150f4cd520eaa8c7284",
-    "status": "THREE_QA_ONLY_OPTIONS_VISUALLY_REVIEWED_HUMAN_SELECTION_OPEN",
+    "status": "HUMAN_REJECTED_ALL_A_B_C",
     "selected": null,
-    "humanQA": "OPEN",
+    "humanQA": "REJECTED",
     "evidence": "docs/qa/character-3d-full-v0/author-hair-options-20261011",
     "productionChanged": false,
     "sourceCommit": "e4c85576e96cfbeb7f8b83e66fd99f936178b0bd",
@@ -428,5 +428,13 @@
       "fail": 0
     },
     "internalRejectedSource": "cd32a105882f6582039285418dbfe19f229dfb73"
+  },
+  "authorSidepartOptions20261011": {
+    "baseline": "8daf05fe93fadc095e30bc6b79117afae6dfcd2d",
+    "status": "D_E_QA_ONLY_IMAGE_PENDING",
+    "selected": null,
+    "humanQA": "OPEN",
+    "productionChanged": false,
+    "evidence": "docs/qa/character-3d-full-v0/author-sidepart-options-20261011"
   }
 }
