@@ -18,3 +18,13 @@ All six front/oblique pairs inspected: unchanged silhouette, posts and counter; 
 Matched isolated12views each +54triangles /0calls; six normal-play views each +324triangles/0calls. Geometry cost, not measured frame-time improvement. The intended design has no need for visible deep joints at long distance. FullCI38129380354 pending; do not call it passed before verification.
 
 Independent image review inspected all18pairs plus selected full-resolution views: no blocking visual issue; confirmed tiny normal-distance joints and existing overlay limitations.
+
+FullCI browser4 jobs SUCCESS. Decoded job logs verified source8b228fe: smoke13/corridor8issues[]; visibility2832samples/hidden0/partial1/issues[]; broad captures136active outputs/no captured exception or nonzero error line. Browser archives were not downloaded or byte-verified; do not call broad images freshly reviewed. Dedicated18stallpairs are the appearance evidence. New smoke maximum0.0023790025392855796 remains nonzero, cause of historical differences unconfirmed. BridgeCI38129380359 SUCCESS, without fresh bridge-image QA claim.
+
+## CI failure and token recovery
+
+FullCI38129380354 finished FAILURE: regression2884PASS/2FAIL/exit1, subsequent80not executed; browser4SUCCESS. Both failures are in asset-integrity-test: the manually chosen `20261011-stall-a` token violates the existing YYYYMMDD-assetHash rule. This is an implementation mistake, not an obsolete test premise. Failed regression ZIP/source/commit/exit/counts verified and retained as anomaly evidence; never report the original run as success.
+
+Fix: use exported bump-versions.assetHash for meguru.js, yielding20261011-61e68d0a. Only index cache token changes; meguru.js/meguru-3d.mjs byte-identical to8b228fe, so targeted visual evidence remains applicable. Independent review confirms formula and exact equivalence. Asset integrity + version checks8PASS/0FAIL/exit0. Initial local continuation80failed76/4because sparse assets missing; partial restores yielded78/2then79/1. These failures are retained; restoring exact tracked character/atlas/clear assets does not change product code or test premises. Future index token edits must include asset-integrity-test in the related suite.
+
+Final local continuation80PASS/0FAIL/exit0 after exact tracked assets restored. This is a separate continuation, not a successful rerun of the original full pipeline. Cache-token correction will trigger new CI; pending verification.

@@ -1,0 +1,61 @@
+{
+  "run": 38129380354,
+  "source": "8b228fea786cdb187655f9755b3bc1dd7d53a1d9",
+  "evidence": "decoded GitHub job logs; browser ZIPs not downloaded or byte-verified",
+  "jobs": [
+    {
+      "job": 114440336176,
+      "summary": {
+        "kind": "smoke",
+        "coverage": 13,
+        "issues": [],
+        "samples": 0,
+        "hidden": 0,
+        "partial": 0,
+        "maxPartyObstacleOverlap": 0.0023790025392855796,
+        "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+      },
+      "source_seen": true
+    },
+    {
+      "job": 114440336180,
+      "summary": {
+        "kind": "corridor",
+        "coverage": 8,
+        "issues": [],
+        "samples": 0,
+        "hidden": 0,
+        "partial": 0,
+        "maxPartyObstacleOverlap": 0,
+        "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+      },
+      "source_seen": true
+    },
+    {
+      "job": 114440336261,
+      "summary": {
+        "kind": "visibility",
+        "coverage": 13,
+        "issues": [],
+        "samples": 2832,
+        "hidden": 0,
+        "partial": 1,
+        "maxPartyObstacleOverlap": 0,
+        "caveat": "ray/descriptor observations are not Human QA; overlap is x/z circular obstacles, not terrain penetration"
+      },
+      "source_seen": true
+    },
+    {
+      "job": 114440336260,
+      "summary": {
+        "kind": "captures",
+        "status": "success",
+        "logged_active_captures": 136,
+        "browser_exceptions": 0,
+        "nonzero_error_lines": 0,
+        "scope": "Broad baseline predates wheel/telescope/statue/stall. Images not downloaded/reviewed again; current stall attribution uses dedicated paired capture."
+      },
+      "source_seen": true
+    }
+  ]
+}
