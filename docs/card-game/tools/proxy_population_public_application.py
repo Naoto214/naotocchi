@@ -60,9 +60,32 @@ def companion_applied(game,events,shots,actor):
 
 _LOCK=Lock()
 @contextmanager
-def scope(events,shots):
+def scope(events,shots,runtime_history=None):
  if not _LOCK.acquire(blocking=False):raise ValueError('public application history scope reentry/concurrency forbidden')
- prior=history_api.companion_applied
+ import proxy_continuation_candidates as candidates
+ import proxy_continuation_state as state
+ prior=history_api.companion_applied;prior_projection=candidates.PUBLIC_HISTORY_PROJECTION
+ native_projection=prior_projection or history_api.event_projection
+ trace={}
+ def project(event,actor):
+  result=native_projection(event,actor)
+  actual=[e for e in events if e['seq']==event['seq']]
+  if len(actual)!=1:raise ValueError('public history actual event absent or ambiguous')
+  raw=actual[0]
+  if any(event.get(k)!=raw.get(k) for k in ('seq','action_type','actor')):raise ValueError('public history event identity differs')
+  if raw['actor']!=actor and raw['action_type']=='resolve_board_ability' and raw.get('source_reference')=='72-companion-26-card-text-draft.md#C-bat':
+   target=raw.get('result',{}).get('target_instance_id');before=trace.get(raw['seq']-1);visible=False
+   if before is not None:
+    current=state.current(before)
+    if 'envelope_before_sha256' in raw and raw['envelope_before_sha256']!=state.state_hash(before):raise ValueError('public history preparation boundary differs')
+    if raw.get('game_state_before_sha256')!=game_hash(current['game_state']) or raw.get('continuation_state_before_sha256')!=batch.old.start._hash(current):raise ValueError('public history preparation boundary differs')
+    p=current['game_state']['players'][raw['actor']]
+    visible=target in p['board']['prepared'] and before['runtime']['public_prepared'].get(target,{}).get('face_up') is True
+   for key in ('target_instance_id','returned_instance_id'):
+    receipt=result.get('result',{})
+    if not visible:receipt.pop(key,None)
+    elif key in receipt and receipt[key]!=raw.get('result',{}).get(key):raise ValueError('public history return identity differs')
+  return result
  def checked(game,supplied,actor):
   n=len(supplied)
   if [e['seq'] for e in supplied]!=list(range(1,n+1)) or n>len(events):raise ValueError('public application supplied prefix differs')
@@ -70,5 +93,8 @@ def scope(events,shots):
   # event identity/action/actor. Read receipts only from actual runtime events.
   if any(any(e.get(k)!=events[i].get(k) for k in ('seq','action_type','actor')) for i,e in enumerate(supplied)):raise ValueError('public application event identity differs')
   return companion_applied(game,events[:n],shots[:n+1],actor)
- try:history_api.companion_applied=checked;yield
- finally:history_api.companion_applied=prior;_LOCK.release()
+ try:
+  trace.update({e['event_seq']:e for e in runtime_history or []})
+  if len(trace)!=len(runtime_history or []):raise ValueError('public history duplicate transition boundary')
+  history_api.companion_applied=checked;candidates.PUBLIC_HISTORY_PROJECTION=project;yield
+ finally:history_api.companion_applied=prior;candidates.PUBLIC_HISTORY_PROJECTION=prior_projection;_LOCK.release()

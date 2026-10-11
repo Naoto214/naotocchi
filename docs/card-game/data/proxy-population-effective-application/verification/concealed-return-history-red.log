@@ -1,0 +1,33 @@
+test_actual_next_normal_inventory_hides_opponents_concealed_return_identity (test_proxy_population_public_history.PublicHistoryBoundaryTests.test_actual_next_normal_inventory_hides_opponents_concealed_return_identity) ... FAIL
+
+======================================================================
+FAIL: test_actual_next_normal_inventory_hides_opponents_concealed_return_identity (test_proxy_population_public_history.PublicHistoryBoundaryTests.test_actual_next_normal_inventory_hides_opponents_concealed_return_identity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_public_history.py", line 26, in test_actual_next_normal_inventory_hides_opponents_concealed_return_identity
+    with connected.contract_scope():runtime.operation(initial(),run)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 124, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 123, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_public_history.py", line 23, in run
+    self.assertNotIn(target,str(projected));self.assertTrue(projected[0]['result']['effect_applied'])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'A-034#1' unexpectedly found in "[{'seq': 5, 'action_type': 'resolve_board_ability', 'actor': 'A', 'source_zone': 'board', 'source_instance_id': 'A-011#1', 'result': {'effect_applied': True, 'target_instance_id': 'A-034#1', 'returned_instance_id': 'A-034#1'}}]"
+
+----------------------------------------------------------------------
+Ran 1 test in 0.123s
+
+FAILED (failures=1)

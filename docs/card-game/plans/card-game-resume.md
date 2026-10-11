@@ -23,6 +23,8 @@
 
 - 2026-10-12: 現在のいなか終了成長条件を満たすpassのdelta0比較根拠を撤回し既存116 unknown保持。pass-end-unknown-*、31PASS/独立5PASS・指摘なし。新比較時間幅/値は定義しない。次はP10伏せ札回収の公開履歴field、P11残operandとP09/P14–18合成。
 
+- 2026-10-12: C-bat伏せ回収IDの相手公開履歴漏れを現行projectionで修正。concealed-return-history-*、最終22PASS32.549s/独立16PASS・C0I0M1負例追加、Python前後一致。raw/owner/表向き装備は保持。履歴起点認証ではない。次はP09自動dispatch条件と監査の結合、P10/P11と共通gate。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

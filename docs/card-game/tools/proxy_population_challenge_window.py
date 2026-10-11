@@ -46,7 +46,7 @@ def contract_scope():
  if not _LOCK.acquire(blocking=False):raise ValueError('challenge connection concurrency/reentry forbidden')
  supported=existing.SUPPORTED;observed=window.OBSERVED_EVENTS;prior_operation=runtime.operation;prior_step=runtime._step
  def step(envelope,initial,events,shots,runtime_history,forced,session=None):
-  with unresolved.scope(),public_application.scope(events,shots):
+  with unresolved.scope(),public_application.scope(events,shots,runtime_history):
    result=prior_step(envelope,initial,events,shots,runtime_history,forced,session)
    current=result['source_envelope']['legacy_continuation']
    decision=result['decision']

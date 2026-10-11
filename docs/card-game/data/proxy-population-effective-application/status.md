@@ -1205,3 +1205,8 @@ P10 comparison/caps/worlds/batch・純粋114比較・116選択の実read表をpu
 ## 2026-10-12 pass比較の未証明保持
 
 自分のW-countrysideが現在の終了成長条件を満たすとき、pass直後delta0を比較根拠へ昇格する経路を止め、既存116 unknownへ保持。新しい比較時間幅・0/+5・期待値は定義しない。新2RED、review C0/I0/Minor0・別5PASS、最終31PASS3.339s/exit0、再帰Python1071前後一致。verification/pass-end-unknown-*。合法pass/実遷移保持、未知passによる有料候補除外を防止、116除外維持。P11全operand、P09全自動機会、P10公開履歴、P14–18合成は未完、preflight-ready=false。
+
+
+## 2026-10-12 伏せ準備回収の公開履歴境界
+
+59cf189からP10の実next normal inventoryにC-bat相手伏せ札IDが流れる1REDを修正。現行projection hookでtarget/returned IDを非公開化し、owner・表向き装備・適用bool・raw履歴は保持。実before/game/continuationと存在するenvelope hashを照合、再投影/復元を検証。historical projector不変。lock例外1REDも修正。review C0/I0/Minor1の負例を追加、型不正fixtureによるmessage不一致1FAILはfixture訂正として記録。最終22PASS32.549s/exit0、Python1072前後一致、design errors=[]。verification/concealed-return-history-*参照。供給raw marker/traceの起点認証や全情報/機会証明とは別。preflight-ready=false、生成/固定/400戦0。次はP09自動dispatchの条件と全差分監査の結合、P10共通gate/P11残operand、P14–18合成。
