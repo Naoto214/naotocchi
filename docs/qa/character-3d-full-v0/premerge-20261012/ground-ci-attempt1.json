@@ -120,5 +120,12 @@
   "performanceVerdict": {
     "pass": true
   },
-  "interpretation": "After char3dHooks resets presenter, zero creations/fallbacks were observed before the fixed1200ms snapshot. Timing hypothesis; root cause not yet proven. Same-job retry requested without code/criteria changes."
+  "interpretation": "After char3dHooks resets presenter, zero creations/fallbacks were observed before the fixed1200ms snapshot. Unchanged-source attempt2 succeeded. Timing hypothesis; exact delay cause not proven. Original failure preserved; corrected condition-wait QA separately passed on45cbd592.",
+  "unchangedRetry": {
+    "run": 38178440729,
+    "attempt": 2,
+    "conclusion": "success",
+    "source": "4cefebf1d835d2c1552028a29f1f04c63316fc8b",
+    "usedAsLatestGate": false
+  }
 }

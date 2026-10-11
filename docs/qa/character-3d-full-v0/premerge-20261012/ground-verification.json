@@ -28,10 +28,44 @@
     "important": 0,
     "minor": 0
   },
-  "ciStatus": "PENDING; Character attempt1 failure preserved separately; QA condition-wait correction requires fresh CI",
+  "ciStatus": "PASS",
   "iPhoneStatus": "NOT_RUN",
   "worldImported": false,
   "modelChanges": false,
   "ready": false,
-  "merged": false
+  "merged": false,
+  "qaValidationCommit": "45cbd59294b6a1e692eb314495bce82f27fbf704",
+  "qaValidationTree": "7c5049bc2cb2dd6d51a66197cbf691552deed808",
+  "ci": [
+    {
+      "name": "Home layout",
+      "run": 38179250657,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/38179250657",
+      "source": "45cbd59294b6a1e692eb314495bce82f27fbf704"
+    },
+    {
+      "name": "Runtime smoke test",
+      "run": 38179250660,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/38179250660",
+      "source": "45cbd59294b6a1e692eb314495bce82f27fbf704"
+    },
+    {
+      "name": "Character 3D Full Rollout",
+      "run": 38179244538,
+      "conclusion": "success",
+      "url": "https://github.com/Naoto214/naotocchi/actions/runs/38179244538",
+      "source": "45cbd59294b6a1e692eb314495bce82f27fbf704"
+    }
+  ],
+  "ciFullRegression": {
+    "tests": 3025,
+    "relationshipTests": 80,
+    "fail": 0,
+    "job": 114588106094
+  },
+  "iPhonePage": "https://rawcdn.githack.com/Naoto214/naotocchi/45cbd59294b6a1e692eb314495bce82f27fbf704/docs/qa/character-3d-full-v0/premerge-20261012/iphone.html",
+  "futureWorldIntegrationStatus": "NOT_RUN",
+  "finalEvidenceCommitPolicy": "Documentation only; CI results refer to qaValidationCommit; no new production code"
 }

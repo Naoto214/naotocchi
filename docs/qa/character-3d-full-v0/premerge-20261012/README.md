@@ -10,11 +10,13 @@ Character presenterは従来holderの高さを0に固定していた。Worldのp
 
 将来World統合では、同じ `walkY` の値を `cp.present(a, { ...ci, groundY: wy })`、3D足元影、2D fallbackとその影へ一貫して渡すこと。Worldの地形・橋・collisionは本修正へ取り込まない。World統合後の実rendererで高さ・影・fallbackを確認するgateは未実施であり、この入力契約のNode検証を統合済みPASSとは扱わない。
 
-検証：追加3件は修正前RED、修正後GREEN。`ground-height-remove-it.cjs` の3/3 mutationを検出し、runtimeの元バイトを完全復元。浮遊モデルのreduced motionにも小さな揺れがあるため、接地高さを比較するテストだけdt=0で時間を固定した（製品animation変更なし）。初回関連・全体回帰はこのテスト条件不備を含むため成功証跡として使わず、修正済み条件で再実行する。
+検証：追加3件は修正前RED、修正後GREEN。`ground-height-remove-it.cjs` の3/3 mutationを検出し、runtimeの元バイトを完全復元。浮遊モデルのreduced motionにも小さな揺れがあるため、接地高さを比較するテストだけdt=0で時間を固定した（製品animation変更なし）。初回関連・全体回帰はこのテスト条件不備を含むため成功証跡として使わず、修正済み条件で再実行し、以下の成功を確認した。
 
-修正後の関連71/71、全体回帰3025+80（npm test exit0）、保護11群一致を確認。3/3 mutation復元、独立レビュー指摘なし。下記の旧実装3022+80・既存CI成功を流用していない。完全ログは `ground-full-regression.log.gz`。既存Three.jsのMODULE_TYPELESS_PACKAGE_JSON警告は残るが、package種別は変更しない。iPhone実機はNOT_RUN。最終CI結果は `ground-verification.json` へ追記する。
+修正後の関連71/71、全体回帰3025+80（npm test exit0）、保護11群一致を確認。3/3 mutation復元、独立レビュー指摘なし。下記の旧実装3022+80・既存CI成功を流用していない。完全ログは `ground-full-regression.log.gz`。既存Three.jsのMODULE_TYPELESS_PACKAGE_JSON警告は残るが、package種別は変更しない。iPhone実機はNOT_RUN。最終CI結果は `ground-verification.json` に保存。
 
-Character CI38178440729のattempt1はfallback判定1件で失敗。45体接続・繰り返しscene/save検証・1/5/27体性能測定は成功していた。失敗時はhooks設定直後のreset状態（live0、created95=removed95、fallbacks0）であり、固定1200msの判定が実描画前に走った可能性がある。後の地域復帰ではlive9に回復。再実行で消して済ませず `ground-ci-attempt1.json` に失敗を保持する。QA toolは固定sleepを最大60秒の完全fallback条件待ちへ置換し、従来の最終assertを維持。timeoutは後のsnapshotが回復してもFAIL。手動draw・シナリオ再試行・閾値緩和はない。実際の最初の遅延原因（SwiftShader等）は断定しない。
+Character CI38178440729のattempt1はfallback判定1件で失敗。45体接続・繰り返しscene/save検証・1/5/27体性能測定は成功していた。失敗時はhooks設定直後のreset状態（live0、created95=removed95、fallbacks0）であり、固定1200msの判定が実描画前に走った可能性がある。後の地域復帰ではlive9に回復。再実行で消して済ませず `ground-ci-attempt1.json` に失敗を保持する。QA toolは固定sleepを最大60秒の完全fallback条件待ちへ置換し、従来の最終assertを維持。timeoutは後のsnapshotが回復してもFAIL。手動draw・シナリオ再試行・閾値緩和はない。実際の最初の遅延原因（SwiftShader等）は断定しない。同一ソースのattempt2は成功したが、それだけを最新gateには使わない。条件待ち修正後の `45cbd59294b6a1e692eb314495bce82f27fbf704` でCharacter CI38179244538が成功。柴犬のみ2D・猫/player/Worldは3D、fallbacks1、地域復帰live9を確認（`ground-ci-corrected.json`）。この実行はruntime/scene範囲。45体接続と1/5/27体性能は製品ソース同一の4cefebf1 attempt1の成功stepを再利用し、造形を再測定したとは扱わない。
+
+最新QA対象 `45cbd59294b6a1e692eb314495bce82f27fbf704` の3種CIは全てSUCCESS：Character38179244538、Runtime38179250660、Home38179250657。Runtimeログでも3025+80、fail0を確認。最終記録commitは文書のみで、上記CI対象と区別する。iPhoneはNOT_RUN、将来World統合はNOT_RUN。PR376はDraft/open/unmergedを維持し、Ready・retarget・mergeは行わない。
 
 ## groundY修正前の監査対象と結論（保存済み履歴）
 
