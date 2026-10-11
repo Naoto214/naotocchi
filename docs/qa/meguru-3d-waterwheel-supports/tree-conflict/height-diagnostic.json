@@ -1,0 +1,74 @@
+{
+  "checkout": "0e0ccfd20165bbb018e59e2835b041b26db6cdcf",
+  "sourceSha256": {
+    "meguru.js": "d0dbcf795ed72a16bf1078433ba1ba3f5deb983dc302463fcd0594dea42ee06f",
+    "meguru-3d.mjs": "83999bae172fc91bd60ad354265c05b7f34703f6a8688303dc30e9603c18d920",
+    "index.html": "b94e979c057b1c67fcf6c7ab80eccddb35558331898e05afbac58b0a505c6749"
+  },
+  "targetSha256": {
+    "river_lake:68": "dd1b8dc8fe01bd6cd03f27df95924e24c65297ff57837f2c4898118f536044a5",
+    "river_lake:406": "4d4a51bee3d2fed38ece92f3dd4f40bc2fbc133c55cac6fd79967c188864c9b9"
+  },
+  "postSamples": [
+    {
+      "dx": -13,
+      "dz": 0,
+      "postBaseY": -0.7851070814243655,
+      "postTopY": 31.802875452109383,
+      "rootContainment": {
+        "sample": {
+          "x": 1370.2093294812105,
+          "z": 3334.449264001967,
+          "y": 0.240839995761157
+        },
+        "baseY": -0.759160004238843,
+        "height": 26.15926425,
+        "u": 0.03822737483910695,
+        "inscribedRadius": 23.943848200479074,
+        "centreDistance": 22.636195652591557,
+        "margin": 1.3076525478875176,
+        "contained": true
+      }
+    },
+    {
+      "dx": 13,
+      "dz": 0,
+      "postBaseY": -0.7851070814243655,
+      "postTopY": 31.802875452109383,
+      "rootContainment": {
+        "sample": {
+          "x": 1396.2093294812105,
+          "z": 3334.449264001967,
+          "y": 0.240839995761157
+        },
+        "baseY": -0.759160004238843,
+        "height": 26.15926425,
+        "u": 0.03822737483910695,
+        "inscribedRadius": 23.943848200479074,
+        "centreDistance": 6.053073501357884,
+        "margin": 17.89077469912119,
+        "contained": true
+      }
+    }
+  ],
+  "hub": {
+    "sample": {
+      "x": 1383.2093294812105,
+      "z": 3334.449264001967,
+      "y": 34.80287545210938
+    },
+    "baseY": -0.7055718584032202,
+    "height": 90.30205110640001,
+    "u": 0.39321861325911783,
+    "inscribedRadius": 13.52490023811084,
+    "centreDistance": 10.272221094662193,
+    "margin": 3.2526791434486473,
+    "contained": true
+  },
+  "conclusion": "Both post foot centrelines are inside the grounded root volume; wheel hub is inside the lower-trunk volume. Root-only or crown-only changes cannot clear the hub.",
+  "limitations": [
+    "Conservative centreline containment in the implied closed frustum volume, not exact triangle-surface intersection; current trunk mesh has open ends.",
+    "No new browser/image QA, regression, Human QA or physical iPhone result.",
+    "No product mutation or proof that every fixed-anchor redesign is impossible. WQ-WHEEL-TREE remains OPEN."
+  ]
+}
