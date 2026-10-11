@@ -739,3 +739,18 @@ P07の退場順未決だけを解消。P07〜12の全dispatch/全source機会/�
 preflight-ready=false。seed生成・本番入力固定・400戦開始は0。全体結論null、policy promotion=false、独立balance標本0、旧116除外を維持。管理項目22を増やさない。
 
 最終固定検証: 55PASS、276.515秒、exit0。Python1050ファイル不変、design errors=[]。既存unitのresponse89/normal29 covered、end dispatch20 verifiedを維持。全機会証明・最新全proxy回帰・preflight完了ではない。
+
+
+### 2026-10-11 107現物の全実trace結合・中断保存
+
+fresh remote b5e18191209e2acb578a91805f2b586693ec1b05/tree73e5ebe04e6dde3a273f19bd227d5444d6423837とPR259 Draft/open/unmergedを確認して復元。再送されたAは退場順の再確認と扱い、保存済み475を変更しない。外部承認方式P13の承認へ読み替えない。
+
+P06/P08: 既存source catalog/107 fixture/入力再構成/100・105 lifecycleを再利用し、80現物・41種類の定義から全実eventの所有者・世代metadata・journal・最終stateへ結合。connected_entryにsource_conservation_auditを追加し、初期/途中の追加・欠落・定義変更・不明actor・記録投影の欠落重複を拒否。実traceのlegacy reservationsなしは検査するが、全到達での非到達証明へは上げない。
+
+P17: request保存・child処理・result保存時のKeyboardInterrupt/SystemExitでも固定400行/200群を保持した報告へ進み、その後で中断を再送。中断行はrecord_unverified、以降はnot_executed。完了済み行と部分ファイルを保持し、後続起動・自動retry/resume・行差替えはしない。最終報告自体の再中断/SIGKILL/書込み不能は保証外として明記。
+
+独立review1回の2指摘をREDで再現して修正。最終関連22PASS36.261s/別exit0。初回19件1FAIL（child終了の原因未確定）、別関連logの途中切れは保存し、完了へ読み替えない。詳細はverification/source-and-interrupt-review.md。固定結合は別summary/logへ記録する。
+
+preflight-ready=false、生成/固定/400戦開始0、policy promotion=false、独立balance標本0、全体結論null。P07〜12の全dispatch・全source機会・情報実使用・operand由来とP13〜18の未完は既存22項目台帳で維持。今回の保存則と中断保存だけで全体完了へ昇格しない。
+
+最終固定結合: 46PASS305.038s、exit0、Ran/OKのlog末尾を確認。Python1053ファイル不変、番号付き正本477不変（475含む）、design errors=[]。既存unit response89/normal29 covered・end dispatch20 verifiedを維持。最終関連22PASS/別exit0と初回失敗・途中切れを分離保存。preflight-ready未達。

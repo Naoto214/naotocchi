@@ -1,0 +1,38 @@
+test_control_interrupt_keeps_full_schedule_and_never_retries (test_proxy_population_supervisor_interrupt.SupervisorInterruptTests.test_control_interrupt_keeps_full_schedule_and_never_retries) ... 
+  test_control_interrupt_keeps_full_schedule_and_never_retries (test_proxy_population_supervisor_interrupt.SupervisorInterruptTests.test_control_interrupt_keeps_full_schedule_and_never_retries) (signal='KeyboardInterrupt') ... ERROR
+  test_control_interrupt_keeps_full_schedule_and_never_retries (test_proxy_population_supervisor_interrupt.SupervisorInterruptTests.test_control_interrupt_keeps_full_schedule_and_never_retries) (signal='SystemExit') ... ERROR
+
+======================================================================
+ERROR: test_control_interrupt_keeps_full_schedule_and_never_retries (test_proxy_population_supervisor_interrupt.SupervisorInterruptTests.test_control_interrupt_keeps_full_schedule_and_never_retries) (signal='KeyboardInterrupt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_supervisor_interrupt.py", line 16, in test_control_interrupt_keeps_full_schedule_and_never_retries
+    report=json.loads((out/'supervisor.json').read_text());control=json.loads((out/'result-0001.json').read_text())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmprm32v_on/docs/card-game/data/interrupted/supervisor.json'
+
+======================================================================
+ERROR: test_control_interrupt_keeps_full_schedule_and_never_retries (test_proxy_population_supervisor_interrupt.SupervisorInterruptTests.test_control_interrupt_keeps_full_schedule_and_never_retries) (signal='SystemExit')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_supervisor_interrupt.py", line 16, in test_control_interrupt_keeps_full_schedule_and_never_retries
+    report=json.loads((out/'supervisor.json').read_text());control=json.loads((out/'result-0001.json').read_text())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmphk9o2q40/docs/card-game/data/interrupted/supervisor.json'
+
+----------------------------------------------------------------------
+Ran 1 test in 1.550s
+
+FAILED (errors=2)

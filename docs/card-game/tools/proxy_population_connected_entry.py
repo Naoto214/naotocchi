@@ -13,6 +13,7 @@ import proxy_population_policy_journal as policy_journal
 import proxy_population_decision_binding as decision_binding
 import proxy_population_resolution_semantics as semantics
 import proxy_population_nonresolution_semantics as nonresolution
+import proxy_population_source_conservation as source_conservation
 from proxy_mandatory_policy_contract import ROOT,canonical
 
 _LOCK=Lock()
@@ -64,6 +65,9 @@ def reconstruct(bundle,match_id,limit):
   projection=decision_binding.audit_projection(result['runtime'])
   if not projection['decision_projection_verified']:raise ValueError('actual decision projection differs: '+str(projection['errors']))
   result['decision_projection_audit']=projection
+  source_proof=source_conservation.audit(result,bundle)
+  if not source_proof['supplied_source_conservation_verified']:raise ValueError('actual source conservation differs: '+str(source_proof['errors']))
+  result['source_conservation_audit']=source_proof
   if fingerprint()!=before:raise ValueError('connected tools source changed during reconstruction')
   result.update(schema='bound_population_connected_runtime.v1',connected_tools_sha256=before,reconstruction_step_limit=limit,ready_for_execution=False,ready_for_input_generation=False)
   return result

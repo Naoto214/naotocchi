@@ -1,0 +1,45 @@
+test_entry_rejects_failed_conservation_gate (test_proxy_population_source_conservation.SourceConservationTests.test_entry_rejects_failed_conservation_gate) ... FAIL
+test_forged_source_metadata_and_journal_are_rejected (test_proxy_population_source_conservation.SourceConservationTests.test_forged_source_metadata_and_journal_are_rejected) ... FAIL
+test_initial_and_every_actual_transition_are_bound (test_proxy_population_source_conservation.SourceConservationTests.test_initial_and_every_actual_transition_are_bound) ... FAIL
+test_missing_duplicate_step_and_final_changes_rejected (test_proxy_population_source_conservation.SourceConservationTests.test_missing_duplicate_step_and_final_changes_rejected) ... FAIL
+
+======================================================================
+FAIL: test_entry_rejects_failed_conservation_gate (test_proxy_population_source_conservation.SourceConservationTests.test_entry_rejects_failed_conservation_gate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_source_conservation.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(api,'bound source conservation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : bound source conservation absent
+
+======================================================================
+FAIL: test_forged_source_metadata_and_journal_are_rejected (test_proxy_population_source_conservation.SourceConservationTests.test_forged_source_metadata_and_journal_are_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_source_conservation.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(api,'bound source conservation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : bound source conservation absent
+
+======================================================================
+FAIL: test_initial_and_every_actual_transition_are_bound (test_proxy_population_source_conservation.SourceConservationTests.test_initial_and_every_actual_transition_are_bound)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_source_conservation.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(api,'bound source conservation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : bound source conservation absent
+
+======================================================================
+FAIL: test_missing_duplicate_step_and_final_changes_rejected (test_proxy_population_source_conservation.SourceConservationTests.test_missing_duplicate_step_and_final_changes_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_source_conservation.py", line 13, in setUp
+    def setUp(self):self.assertIsNotNone(api,'bound source conservation absent')
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : bound source conservation absent
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.602s
+
+FAILED (failures=4)

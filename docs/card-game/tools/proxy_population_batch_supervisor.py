@@ -49,12 +49,13 @@ def run_after_external_approval(bundle,receipt,certificate,repository,limit,dest
   execution_edition_sha256=digest(canonical(certificate)),reconstruction_step_limit=limit,approval_reference=approval_reference,
   planned_rows=copy.deepcopy(rows),planned_groups=groups,generation_package_evidence=package,remote_publication_observation=publication,external_approval_verified=False,input_lock_verified=False,ready_for_execution=False)
  write_exclusive(destination/'start.json',start)
+ interruption=None
  for index,row in enumerate(rows,1):
   target=destination/('attempt-'+str(index).zfill(4));row.update(execution_status='started',attempt_directory=target.name)
   request=dict(bundle=bundle,receipt=receipt,certificate=certificate,repository=str(repository),match_id=row['match_id'],limit=limit,destination=str(target),approval_reference=approval_reference)
   control=dict(match_id=row['match_id'],request_sha256=digest(canonical(request)))
-  write_exclusive(destination/('request-'+str(index).zfill(4)+'.json'),dict(control,execution_status='started'))
   try:
+   write_exclusive(destination/('request-'+str(index).zfill(4)+'.json'),dict(control,execution_status='started'))
    process=subprocess.run([sys.executable,'-I','-c',CHILD,str(Path(__file__).resolve().parent)],input=canonical(request),stdout=subprocess.PIPE,stderr=subprocess.PIPE,cwd=repository,check=False)
    control.update(returncode=process.returncode,stdout_base64=base64.b64encode(process.stdout).decode(),stderr_base64=base64.b64encode(process.stderr).decode())
    if process.returncode!=0:raise ValueError('worker process failed')
@@ -65,9 +66,17 @@ def run_after_external_approval(bundle,receipt,certificate,repository,limit,dest
    compressed=(target/'record.json.gz').read_bytes();raw=gzip.decompress(compressed);run=json.loads(raw,object_pairs_hook=_pairs,parse_constant=_nonfinite)
    if canonical(run)!=raw or digest(compressed)!=record['compressed_sha256'] or digest(raw)!=record['record_sha256'] or run['schema']!='bound_population_connected_runtime.v1' or run['binding']['match_id']!=row['match_id'] or run['supplied_bundle_sha256']!=start['supplied_bundle_sha256'] or type(run['completed']) is not bool or run['completed']!=(record['execution_status']=='completed'):raise ValueError('worker retained record binding differs')
    row.update(execution_status=record['execution_status'],receipt_sha256=digest(body))
-  except Exception as error:
+  except BaseException as error:
+   # Preserve the fixed schedule on operator interruption, then propagate it.
+   # This neither retries the row nor certifies a partially written child.
+   if not isinstance(error,Exception):interruption=error
    row.update(execution_status='record_unverified',stop_reason=type(error).__name__+': '+str(error))
-  control['result']=copy.deepcopy(row);write_exclusive(destination/('result-'+str(index).zfill(4)+'.json'),control)
+  control['result']=copy.deepcopy(row)
+  try:write_exclusive(destination/('result-'+str(index).zfill(4)+'.json'),control)
+  except BaseException as error:
+   if not isinstance(error,Exception):interruption=error
+   row.update(execution_status='record_unverified',stop_reason=type(error).__name__+': '+str(error))
+   # Retain a partial control file as-is; never overwrite it or rerun a child.
   if row['execution_status']!='completed':break
  completed=sum(r['execution_status']=='completed' for r in rows)
  report=dict(schema='fixed_population_supervisor_result.v1',status='completed_fixed_schedule' if completed==400 else 'stopped',
@@ -75,4 +84,6 @@ def run_after_external_approval(bundle,receipt,certificate,repository,limit,dest
   completed_rows=completed,not_executed_rows=sum(r['execution_status']=='not_executed' for r in rows),
   automatic_retry_allowed=False,whole_set=dict(allowed=False,counts=None,rates=None,conclusion=None),
   external_approval_verified=False,input_lock_verified=False,ready_for_execution=False,policy_promoted=False,independent_balance_sample_count=0)
- write_exclusive(destination/'supervisor.json',report);return report
+ write_exclusive(destination/'supervisor.json',report)
+ if interruption is not None:raise interruption
+ return report

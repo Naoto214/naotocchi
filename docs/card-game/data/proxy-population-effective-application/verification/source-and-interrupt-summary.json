@@ -1,0 +1,33 @@
+{
+  "base_head": "b5e18191209e2acb578a91805f2b586693ec1b05",
+  "tests": 46,
+  "seconds": 305.038,
+  "exit_code": 0,
+  "log": "source-and-interrupt-integration.log",
+  "related_tests": 22,
+  "related_seconds": 36.261,
+  "related_exit_code": 0,
+  "python_files": 1053,
+  "python_fingerprint_unchanged": true,
+  "unchanged_numbered_sources": 477,
+  "design_errors": [],
+  "review": {
+    "count": 1,
+    "findings": 2,
+    "fixed_with_red_regression": true,
+    "second_review_claimed": false
+  },
+  "incomplete_logs": [
+    "source-and-interrupt-final-related.log"
+  ],
+  "failed_prior_log": "source-and-interrupt-related.log",
+  "preflight_ready": false,
+  "seeds_generated": 0,
+  "production_inputs_fixed": 0,
+  "matches_started": 0,
+  "policy_promoted": false,
+  "independent_balance_samples": 0,
+  "whole_set_conclusion": null,
+  "full_proxy_regression_claimed": false,
+  "external_approval_method_approved": false
+}
