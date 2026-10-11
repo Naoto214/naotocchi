@@ -1151,3 +1151,8 @@ preflight-ready=false、本番gate閉鎖、生成/固定/400戦0。P07–12の�
 ### 2026-10-11 手札誘発の発生機会をproducerと別に照合
 
 2f145e1から継続。G-air-hockeyのproducer/replay双方の欠落が通るREDを確認し、既存timing_occurrenceに83/発生直前手札/相手実プレイ/challengeからの別導出を追加。実rememberと全遷移coverageに結合。関連29PASS15.504s/exit0、tools1044前後不変、独立review C0/I0・15PASS。全情報/全機会の証明には昇格しない。詳細はverification/hand-occurrence-independent-*。preflight-ready=false、生成/固定/400戦0。
+
+
+### 2026-10-11 3bundleの固定版全入口検証
+
+実装98a62f1/treebc0c189で旧115/零root・test-1Aを既存connected入口から1回検証。completed=true、stop=null、143step/181event。mandatory entry/origin/opportunity、resolution/nonresolution、decision projection、source conservationの7監査errors=[]。114.712707409s/exit0、docs/card-game再帰Python1068の全指紋前後一致。完全record・原指紋・要約をverification/three-bundle-connected-98a62f1-*へ保存。全proxy回帰ではない。本番生成/固定/400戦0、preflight-ready=false。次回は再開メモと上記recordを使い、この復元/結合検証を繰り返さない。P09残機会・P10実read・P11その他operand根拠とP14–18最終合成/固定版回帰は未完。
