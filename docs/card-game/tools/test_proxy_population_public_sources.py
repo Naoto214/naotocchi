@@ -30,6 +30,44 @@ class PublicSourceTests(unittest.TestCase):
    return {}
   runtime.operation(initial(),run)
 
+ def test_arrival_collection_cannot_reclassify_missing_registered_source_as_outside(self):
+  def run(forced):
+   e,h,_,_=fixture('M-beetle-01')
+   with predicates.scope(),patch.object(existing,'SUPPORTED',existing.SUPPORTED-{'M-beetle-01'}):
+    with self.assertRaisesRegex(ValueError,'native collection source coverage'):
+     existing.ExistingAdapter(h).proof(e)
+   return {}
+  runtime.operation(initial(),run)
+
+ def test_connected_scope_requires_the_challenge_source_registration(self):
+  import proxy_population_challenge_window as connected
+  from test_proxy_population_challenge_predicates import challenge_fixture
+  def run(forced):
+   for card in ('M-antlion-07','P-anglerfish'):
+    e,h,o=challenge_fixture(card)
+    good=existing.ExistingAdapter(h).proof(e);self.assertIn(o['source_instance_id'],{r['source_instance_id'] for r in good['occurrences']})
+    with self.subTest(card=card),patch.object(existing,'SUPPORTED',existing.SUPPORTED-{card}):
+     with self.assertRaisesRegex(ValueError,'native collection source coverage'):
+      existing.ExistingAdapter(h).proof(e)
+   return {}
+  with connected.contract_scope():runtime.operation(initial(),run)
+
+ def test_registration_gate_rejects_every_missing_or_extra_source_and_restores(self):
+  def run(forced):
+   e,h,_,_=fixture('M-beetle-01');native=existing.ExistingAdapter.collect
+   wanted=predicates.NATIVE_CARDS
+   for removed in sorted(wanted):
+    with self.subTest(removed=removed),predicates.scope(),patch.object(existing,'SUPPORTED',set(wanted)-{removed}):
+     with self.assertRaisesRegex(ValueError,'native collection source coverage'):
+      existing.ExistingAdapter(h).proof(e)
+   with predicates.scope(),patch.object(existing,'SUPPORTED',set(wanted)|{'C-chicken'}):
+    with self.assertRaisesRegex(ValueError,'native collection source coverage'):
+     existing.ExistingAdapter(h).proof(e)
+   self.assertIs(existing.ExistingAdapter.collect,native)
+   with predicates.scope():self.assertTrue(existing.ExistingAdapter(h).proof(e)['current_collection_audit']['current_source_collection_bound'])
+   return {}
+  runtime.operation(initial(),run)
+
  def test_source_metadata_and_classification_cannot_change_together(self):
   e,_,_=both();native=starts.public_sources
   for field,value in (('actor','B'),('slot','main'),('card_id','C-bat'),('classification',{})):

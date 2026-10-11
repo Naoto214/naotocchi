@@ -26,6 +26,8 @@ CITY_SOURCE='67-legacy-test-card-function-and-tracking.md'
 CITY_SHA='50438dff1ded3861040b2f8309761416d4859eb7846edbacf358e1cd08045311'
 END_CARDS=frozenset(('M-beetle-02','W-countryside','P-desert_scorpion','I-sleepboost1'))
 ARRIVAL_CARDS=frozenset(('M-antlion-04','M-antlion-05','M-beetle-01'))
+NATIVE_CARDS=ARRIVAL_CARDS|END_CARDS|frozenset(('W-city','P-cat_ceo'))
+CHALLENGE_CARDS=frozenset(('M-antlion-07','P-anglerfish'))
 FIELDS=('action_type','card_id','card_copy_id','source_instance_id','target_instance_ids','cost_instance_ids','candidate_variant','base_time_cost')
 
 
@@ -210,10 +212,10 @@ def audit_relationship(envelope,occurrence,actions,history):return _audit(envelo
 def audit_challenge(envelope,occurrence,actions,history):return _audit(envelope,occurrence,actions,'challenge',history)
 
 
-def _collection(envelope,history,origin,result):
+def _collection(envelope,history,origin,result,supported_cards):
  """Bind a fresh native collect result; never authenticate a saved proof object."""
  public=starts.public_sources(envelope);classified=result['classifications'];outside=result['unproved_sources']
- supported={s for s,r in public.items() if r['card_id'] in existing.SUPPORTED}
+ supported={s for s,r in public.items() if r['card_id'] in supported_cards}
  classified_ids=[r['source_instance_id'] for r in classified];outside_ids=[r['source_instance_id'] for r in outside]
  if len(set(classified_ids))!=len(classified_ids) or set(classified_ids)!=supported or len(set(outside_ids))!=len(outside_ids) or set(outside_ids)!=set(public)-supported:raise ValueError('native collection source coverage differs')
  if type(origin) is not int or sum(e['seq']==origin for e in history)!=1:raise ValueError('native collection origin absent or ambiguous')
@@ -280,7 +282,11 @@ def _start_collection(capture,envelope,result):
 
 
 @contextmanager
-def scope():
+def scope(*,challenge_sources=False):
+ if type(challenge_sources) is not bool:raise ValueError('native collection scope flag differs')
+ # Independently fixed predicate responsibilities, never the mutable producer
+ # registry. The actual474 connection explicitly requires both challenge rows.
+ expected_native=NATIVE_CARDS|(CHALLENGE_CARDS if challenge_sources else frozenset())
  native_latched=latching.current_actions;native_start=sequential.StartAdapter.enumerate;native_existing=existing.ExistingAdapter.enumerate;native_collect=existing.ExistingAdapter.collect;native_start_collect=starts.collect;native_sources=starts.public_sources
  def checked(result,envelope,occurrence,audit):
   rows,proof=result;check=audit(envelope,occurrence,rows)
@@ -295,9 +301,10 @@ def scope():
   if audit is None:return result
   return checked(result,envelope,occurrence,lambda e,o,a:audit(e,o,a,adapter.history))
  def collect(adapter,envelope,origin_event_seq=None):
+  if set(existing.SUPPORTED)!=expected_native:raise ValueError('native collection source coverage registration differs')
   result=native_collect(adapter,envelope,origin_event_seq)
   origin=envelope['legacy_continuation']['response_context']['origin_event_seq'] if origin_event_seq is None else origin_event_seq
-  return _collection(envelope,adapter.history,origin,result)
+  return _collection(envelope,adapter.history,origin,result,expected_native)
  def collect_start(capture,envelope):return _start_collection(capture,envelope,native_start_collect(capture,envelope))
  def public_sources(envelope):return _public_sources(envelope,native_sources(envelope))
  try:

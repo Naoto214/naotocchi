@@ -17,7 +17,9 @@
 
 - 2026-10-12追加: partial unknown frontierのproved_scoresを費用監査へ接続。分割欠落/重複・偽費用・費用根拠なしを拒否。partial-payment-*、最終23PASS/独立review I1修正済み。その後、下記の共通helper結合で複数frontier記録/費用を接続。
 
-- 2026-10-12追加: 共通helperの複数frontier比較行をfallback_priority_problemへ保存、置換/paid draw/回収で全候補支払を実入口へ結合。fallback-payment-*、最終32PASS/独立review I1修正済み。次はこの3bundleによる旧115/零root結合確認、P09自動dispatch/P11上位operandとP14–18。
+- 2026-10-12追加: 共通helperの複数frontier比較行をfallback_priority_problemへ保存、置換/paid draw/回収で全候補支払を実入口へ結合。fallback-payment-*、最終32PASS/独立review I1修正済み。この3bundleの固定4b520b3完全結合は下記完了。
+
+- 2026-10-12: 固定4b520b3の旧115/零root結合143step/181event、8監査errors=[]、115.941s/exit0、指紋一致。payment-connected-4b520b3-*。その後native登録の共有欠落を拒否（native-source-scope-*、39PASS/独立C0I0M1のfixture修正）。完全結合は登録修正前、最新は関連39件/実初期10step。復元で再実行しない。次はP09自動dispatchの残り、P10全公開履歴/許可read、P11上位/成長のsource根拠、P14–18共通gate。
 
 ## 再開手順
 

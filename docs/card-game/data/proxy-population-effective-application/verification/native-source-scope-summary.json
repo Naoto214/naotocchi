@@ -1,0 +1,22 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "test_proxy_population_public_sources",
+    "test_proxy_population_native_collection",
+    "test_proxy_population_arrival_predicates",
+    "test_proxy_population_end_predicates",
+    "test_proxy_population_challenge_predicates",
+    "test_proxy_population_trigger_predicates",
+    "test_proxy_population_connected_entry",
+    "-v"
+  ],
+  "exit_code": 0,
+  "seconds": 31.071833122994576,
+  "base_head": "4b520b3f3330244b3fb206d7d208e95deefdf6a1",
+  "python_count": 1070,
+  "source_unchanged": true,
+  "fingerprints_raw_sha256": "437e1587faf6756f271f9517b23f151695b94f1a3fddccea332be0dddb12ea6d",
+  "tests_passed": 39
+}

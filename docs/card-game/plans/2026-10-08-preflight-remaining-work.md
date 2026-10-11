@@ -905,3 +905,10 @@ P10 comparison/caps/worlds/batch・純粋114比較・116選択の実read表をpu
 ## 2026-10-12 共通helperの複数frontier支払結合
 
 基準07ab449。置換/paid draw/回収の共通helperが比較した全候補をfallback_priority_problemへ保存し、指定3contractでは欠落を拒否。除外された候補も費用監査対象。既存unique分岐を再実装せず、計算/値/116除外を保持。初回RED2FAIL、review C0/I1の競合route混入をRED1FAIL→GREEN。最終32PASS33.190s/exit0、再帰Python前後一致。原本verification/fallback-payment-*。本番生成/固定/400戦0、preflight-ready=false。P11の当該記録/費用結合は完了。上位/成長の由来、P09自動処理の全機会、P10全履歴・共通gate、P14–18最終合成は未完。次は変更3bundleの旧115/零root結合確認。
+
+
+## 2026-10-12 native source登録責務・固定版結合
+
+4b520b3固定の旧115/零root完全結合は143step/181event、completed=true/stop=null、8監査errors=[]、115.941s/exit0、Python1070前後一致。payment-connected-4b520b3-*保存。今回source登録追加前の結果と区別する。
+
+その後P09の共有SUPPORTEDからの欠落をRED再現。nativeの対象責務を固定集合へ分離、実474は挑戦2sourceも明示必須。登録欠落/余分/分類対応を拒否する。review C0/I0/Minor1（挑戦fixtureの誤importを修正）、最終39PASS30.860s/exit0、Python前後一致。native-source-scope-*参照。P09の全自動dispatch/起点、P10全許可read/履歴、P11上位operand、P14–18共通gateは未完。preflight-ready=false、生成/固定/400戦0。
