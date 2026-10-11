@@ -1164,3 +1164,9 @@ ffec94fからC-chicken/I-bowtieのproducer/replay同時省略をRED再現し、�
 ### ちょうせん宣言差分と比較operandの分離
 
 e8d55b1から、宣言atomic delta0を107/114比較値へ昇格する経路を現行unproved_priorityで遮断。比較中だけCHALLENGE_GAPを既存116 unknown frontierへ渡し、合法候補と実宣言handlerは維持。未採用414の文言を比較証拠としない。関連32PASS9.347s、固定Python指紋一致、独立review C0/I0/Minor0（10PASS）。verification/challenge-unknown-review.md参照。preflight-ready=false、生成/固定/400戦0。
+
+### 初期manifest入口の終了dispatch結合
+
+c9bbaf2から、終了機会監査がerrors=[]でもverified=false/unprovedなら初期manifest入口で拒否するよう接続。全transitionとの1:1/厳密bool/hash bindingを要求し、部分履歴診断は保持。関連18PASS41.515s、固定Python指紋一致、独立review C0/I0/Minor0（7PASS）。verification/end-dispatch-entry-review.md参照。直前固定c9bbaf2の全結合143step181event7監査errors=[]、116.378s/exit0の完全原本も保存（新gate追加前と区別）。P10 normal UNIT/ADMITTED/MAIN_TRANSITION・response/逐次groupの実read対応をpublic-read-boundary-review.mdへ追補。
+
+未完: P09の到来/自動を含む全機会合成、P10比較側/下流helperの全許可read結合、P11残るoperandの正本根拠、P14–18生成由来・remote lock・最終共通gate/固定版検証。常時閉鎖gateはまだ開かない。preflight-ready=false、生成/固定/400戦0、独立balance標本0、全体結論null。

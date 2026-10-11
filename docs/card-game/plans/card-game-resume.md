@@ -2,16 +2,16 @@
 
 最新の正本はGitHubの `design/card-pool-master-20260914` のfresh exact-ref。本文中の固定SHAよりremoteが進んでいればremoteを優先する。
 
-## このメモ作成時の検証済み実装
+## 最新bundleの基準と再利用する検証
 
-- HEAD: f38d620908de3cd0b6757276f9ef2fe76f1ec2a5
-- tree: 8338758bd7bda6a769296dc91bfae3f180a66f25
-- PR259: Draft/open/unmerged。変更対象docs/card-game/のみ。
-- 通常/response predicateの不完全被覆停止、4source事象窓の閉包、非fallback選択計算/全候補支払/response比較前提を実入口へ接続済み。再実装しない。
-- 関連41件PASS。保存115/零rootの完全入口143step/181event、ordinary118件・選択計算監査108件、connected監査errors=[]、実行中source1068件不変。全proxy回帰完了ではない。
-- 検証要約: data/proxy-population-effective-application/verification/ordinary-entry-verification-summary.json
-- 完全条件付きrecord: 同verification/ordinary-entry-restored-record.json.gz
-- 環境整理と証拠欠落の経緯: 同verification/ordinary-entry-review.md、session-stop-2026-10-11.md
+- 最新保存commit/treeはfresh remote exact-refから取得する。この追補の基準はc9bbaf2453e4222db0cc2e554fb497f518d43f6d / tree36f51f5f436fd256bd07ec536a0f1536d745288d。本文自己参照のため最新保存SHAを推測しない。
+- PR259 Draft/open/unmerged、docs/card-game/のみ。人物/装備475A裁定は実装済み、再質問不要。
+- f38d620の通常/response predicate・4source窓閉包・非fallback計算/支払/response前提gateは完了済み。後続の公開証拠hash分離、上位唯一winner比較記録、手札誘発別導出も完了。再実装しない。
+- e8d55b1: 開始時source collectionのproducer/replay同時省略を拒否。関連34PASS/独立10PASS。
+- c9bbaf2: ちょうせん宣言delta0を比較operandへ昇格せず116 unknownへ保持。関連32PASS/独立10PASS。
+- c9bbaf2の旧115/零root完全結合: 143step/181event、7監査errors=[]、116.378s/exit0、Python前後一致。verification/start-challenge-connected-c9bbaf2-*。復元だけを理由に再実行しない。
+- 最新追補: end_dispatch.require_actual_traceを初期manifest入口へ接続。未証明終了機会・欠落/重複/別境界proofを拒否。関連18PASS41.515s、独立7PASS。verification/end-dispatch-entry-*。上記完全結合はこのgate追加前であり現在版全回帰ではない。
+- 停止表示原因調査はsession-stop-2026-10-11.mdに保存済み。原因確定不能を環境切断確定等へ読み替えない。
 
 ## 再開手順
 

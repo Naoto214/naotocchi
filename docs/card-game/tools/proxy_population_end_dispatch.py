@@ -51,3 +51,28 @@ def audit(before,history,event,trace):
  return dict(schema='supplied_end_dispatch_order.v1',applicable=applicable,supplied_end_dispatch_verified=applicable and verified and not errors,errors=errors,route=route,
   classifications=classified,prior_opening_delta=opening,unproved=unproved,before_envelope_sha256=state.canonical_sha256(before),event_sha256=event_digest(event),
   scope='supported_end_sources_before_typed_expiry_and_finish',history_origin_authenticated=False,all_rule_opportunities_proven=False,legacy_reservation_closure_proven=False,policy_eligible=None,balance_admitted=None)
+
+
+def require_actual_trace(result):
+ """Join fresh end-dispatch audits at the manifest-backed initial entry.
+
+ Partial-history diagnostics may retain an unproved prior opening. A trace
+ reconstructed from its initial input cannot use that as a successful gate.
+ This is not an authenticator for caller-supplied saved audit dictionaries.
+ """
+ proofs=result['runtime']['supported_trigger_coverage']['end_dispatch_audits']
+ expected=[]
+ for step in result['runtime']['steps']:
+  before=step['source_envelope']
+  if len(step['events'])!=len(step['envelopes']):raise ValueError('end dispatch obligations transition coverage differs')
+  for event,after in zip(step['events'],step['envelopes']):
+   expected.append((before,event));before=after
+ if len(proofs)!=len(expected):raise ValueError('end dispatch obligations audit coverage differs')
+ applicable_count=0
+ for proof,(before,event) in zip(proofs,expected):
+  applicable=event['action_type'] in KINDS
+  if proof.get('schema')!='supplied_end_dispatch_order.v1' or proof.get('errors')!=[] or proof.get('unproved')!=[] or proof.get('applicable') is not applicable or proof.get('supplied_end_dispatch_verified') is not applicable:raise ValueError('end dispatch obligations incomplete')
+  if proof.get('before_envelope_sha256')!=state.canonical_sha256(before) or proof.get('event_sha256')!=event_digest(event):raise ValueError('end dispatch obligations transition binding differs')
+  applicable_count+=applicable
+ return dict(schema='actual_trace_end_dispatch_obligations.v1',supplied_end_dispatch_obligations_joined=True,errors=[],transition_count=len(expected),end_dispatch_count=applicable_count,
+  scope='fresh_manifest_entry_trace_end_dispatch_audits',origin_authenticated=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)
