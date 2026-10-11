@@ -20,7 +20,8 @@ GUARDS={'upper-priority or pending-effect proof unavailable','batch upper-priori
 DIRECT_GROWTH_GAP='direct growth comparison operand proof unavailable'
 REVEAL_GROWTH_GAP='unrevealed growth comparison operand proof unavailable'
 CHALLENGE_GAP='challenge comparison operand proof unavailable'
-GUARDS.update((DIRECT_GROWTH_GAP,REVEAL_GROWTH_GAP,CHALLENGE_GAP))
+PASS_END_GAP='pass with eligible end growth comparison operand proof unavailable'
+GUARDS.update((DIRECT_GROWTH_GAP,REVEAL_GROWTH_GAP,CHALLENGE_GAP,PASS_END_GAP))
 _LOCK=Lock()
 
 
@@ -31,7 +32,7 @@ def unresolved(envelope,inventory,context,policy,reason):
  if policy!='legacy_107_114_116' or reason not in GUARDS or g['phase']!='normal_action' or c['activation_zone'] or c['pending_triggers'] or any(p['reservations'] for p in g['players'].values()):raise ValueError('unproved priority is not complete legal execution')
  if context['actor']!=g['turn_player'] or context['round']!=g['round'] or canonical(candidates.audit(envelope,inventory['public_history']))!=canonical(inventory):raise ValueError('unproved priority fresh inventory/context differs')
  # A coverage error unrelated to the public threshold must never be recast.
- if not any(p['growth']==100 for p in g['players'].values()) and reason not in {DIRECT_GROWTH_GAP,REVEAL_GROWTH_GAP,CHALLENGE_GAP,'relationship 100 maintenance boundary requires priority proof','uncertain reveal threshold priority requires proof'}:raise ValueError('non-threshold upper comparison remains unproved')
+ if not any(p['growth']==100 for p in g['players'].values()) and reason not in {DIRECT_GROWTH_GAP,REVEAL_GROWTH_GAP,CHALLENGE_GAP,PASS_END_GAP,'relationship 100 maintenance boundary requires priority proof','uncertain reveal threshold priority requires proof'}:raise ValueError('non-threshold upper comparison remains unproved')
  kinds={'pass','challenge','relationship','play_main','place_world','place_partner','place_companion','attach_item','set_item','use_item','use_play','use_event','activate_main_ability','activate_companion_ability'}
  for action in inventory['legal_candidate_details']:
   if action['action_type'] not in kinds:raise ValueError('continuation action handler unproved')
@@ -72,7 +73,7 @@ def unresolved(envelope,inventory,context,policy,reason):
 @contextmanager
 def scope():
  if not _LOCK.acquire(blocking=False):raise ValueError('unproved priority scope concurrency/reentry forbidden')
- prior=candidates.select;prior_ready=batch.ready;prior_outcome=batch.outcome;prior_event=batch._event
+ prior=candidates.select;prior_ready=batch.ready;prior_outcome=batch.outcome;prior_event=batch._event;prior_scores=candidates._scores
  def legal_ready(envelope,action,history=None):
   state.validate(envelope);c=envelope['legacy_continuation'];g=c['game_state']
   if g['phase']!='normal_action' or c['activation_zone'] or c['pending_triggers'] or any(p['reservations'] or type(p['growth']) is not int or not 0<=p['growth']<=100 for p in g['players'].values()):raise ValueError('physical normal entry boundary unproved')
@@ -109,15 +110,26 @@ def scope():
   # let time conservation dominate them. No deck inspection or expected value.
   if action.get('card_id') in ('G-hit-blow','I-c_coin2'):raise ValueError(REVEAL_GROWTH_GAP)
   return proof
+ def comparison_scores(envelope,inventory):
+  # The normal-pass event opens another opportunity; its delta0 does not
+  # certify the later optional end-growth outcome. Preserve that gap without
+  # predicting responses, optional choices, growth values or resource value.
+  if any(a['action_type']=='pass' for a in inventory['legal_candidate_details']):
+   g=envelope['legacy_continuation']['game_state'];actor=g['turn_player'];source=g['players'][actor]['board']['world']
+   if source is not None and g['cards'][source]['card_id']=='W-countryside':
+    from proxy_population_trigger_predicates import end_condition
+    batch.classification('W-countryside')
+    if end_condition(envelope,inventory['public_history'],source,actor):raise ValueError(PASS_END_GAP)
+  return prior_scores(envelope,inventory)
  def select(envelope,inventory,context,policy,inputs=None):
   # Physical permission must not be used as proof of a zero upper score.
-  active_ready=batch.ready;active_outcome=batch.outcome
+  active_ready=batch.ready;active_outcome=batch.outcome;active_scores=candidates._scores
   try:
-   batch.ready=prior_ready;batch.outcome=comparison_outcome
+   batch.ready=prior_ready;batch.outcome=comparison_outcome;candidates._scores=comparison_scores
    return prior(envelope,inventory,context,policy,inputs)
   except ValueError as error:
    if policy!='legacy_107_114_116' or str(error) not in GUARDS:raise
    return unresolved(envelope,inventory,context,policy,str(error))
-  finally:batch.ready=active_ready;batch.outcome=active_outcome
+  finally:batch.ready=active_ready;batch.outcome=active_outcome;candidates._scores=active_scores
  try:candidates.select=select;batch.ready=legal_ready;batch.outcome=outcome;batch._event=event;yield
  finally:candidates.select=prior;batch.ready=prior_ready;batch.outcome=prior_outcome;batch._event=prior_event;_LOCK.release()

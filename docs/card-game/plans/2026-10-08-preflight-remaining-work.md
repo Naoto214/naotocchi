@@ -912,3 +912,8 @@ P10 comparison/caps/worlds/batch・純粋114比較・116選択の実read表をpu
 4b520b3固定の旧115/零root完全結合は143step/181event、completed=true/stop=null、8監査errors=[]、115.941s/exit0、Python1070前後一致。payment-connected-4b520b3-*保存。今回source登録追加前の結果と区別する。
 
 その後P09の共有SUPPORTEDからの欠落をRED再現。nativeの対象責務を固定集合へ分離、実474は挑戦2sourceも明示必須。登録欠落/余分/分類対応を拒否する。review C0/I0/Minor1（挑戦fixtureの誤importを修正）、最終39PASS30.860s/exit0、Python前後一致。native-source-scope-*参照。P09の全自動dispatch/起点、P10全許可read/履歴、P11上位operand、P14–18共通gateは未完。preflight-ready=false、生成/固定/400戦0。
+
+
+## 2026-10-12 pass比較の未証明保持
+
+自分のW-countrysideが現在の終了成長条件を満たすとき、pass直後delta0を比較根拠へ昇格する経路を止め、既存116 unknownへ保持。新しい比較時間幅・0/+5・期待値は定義しない。新2RED、review C0/I0/Minor0・別5PASS、最終31PASS3.339s/exit0、再帰Python1071前後一致。verification/pass-end-unknown-*。合法pass/実遷移保持、未知passによる有料候補除外を防止、116除外維持。P11全operand、P09全自動機会、P10公開履歴、P14–18合成は未完、preflight-ready=false。

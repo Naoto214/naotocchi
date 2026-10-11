@@ -21,6 +21,8 @@
 
 - 2026-10-12: 固定4b520b3の旧115/零root結合143step/181event、8監査errors=[]、115.941s/exit0、指紋一致。payment-connected-4b520b3-*。その後native登録の共有欠落を拒否（native-source-scope-*、39PASS/独立C0I0M1のfixture修正）。完全結合は登録修正前、最新は関連39件/実初期10step。復元で再実行しない。次はP09自動dispatchの残り、P10全公開履歴/許可read、P11上位/成長のsource根拠、P14–18共通gate。
 
+- 2026-10-12: 現在のいなか終了成長条件を満たすpassのdelta0比較根拠を撤回し既存116 unknown保持。pass-end-unknown-*、31PASS/独立5PASS・指摘なし。新比較時間幅/値は定義しない。次はP10伏せ札回収の公開履歴field、P11残operandとP09/P14–18合成。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。
