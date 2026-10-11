@@ -411,5 +411,13 @@
       "run": 38133925347,
       "status": "IN_PROGRESS_NOT_PASSED"
     }
+  },
+  "authorHairOptions20261011": {
+    "baseline": "1b8ef62aa3cbfe79b6f05150f4cd520eaa8c7284",
+    "status": "THREE_QA_ONLY_OPTIONS_IMAGE_PENDING",
+    "selected": null,
+    "humanQA": "OPEN",
+    "evidence": "docs/qa/character-3d-full-v0/author-hair-options-20261011",
+    "productionChanged": false
   }
 }

@@ -419,6 +419,7 @@ jobs:
       - run: npm install --no-save --package-lock=false playwright@1.62.1
       - run: npx playwright install --with-deps chromium
       - name: Capture selected nonplayer candidates or integration batch
+        if: ${{ !contains(github.event.head_commit.message, '[qa:hair-options]') }}
         env:
           QA_SCOPED: ${{ contains(github.event.head_commit.message, '[qa:nonplayer]') }}
         run: |
@@ -428,6 +429,9 @@ jobs:
           else
             node tools/character-3d/nonplayer-review.cjs test-results/full-rollout/nonplayer $LEGACY_STATES_DISTANCE
           fi
+      - name: Unadopted author hairstyle options
+        if: ${{ contains(github.event.head_commit.message, '[qa:hair-options]') }}
+        run: node tools/character-3d/human-feedback-review.cjs --hair-options
       - name: Human feedback before and after comparisons
         if: ${{ contains(github.event.head_commit.message, '[qa:human-feedback]') }}
         run: node tools/character-3d/human-feedback-review.cjs
@@ -450,7 +454,9 @@ jobs:
         run: |
           mkdir -p test-results/full-rollout
           node tools/character-3d/inventory.cjs test-results/full-rollout/inventory.json
-          if [ "${{ contains(github.event.head_commit.message, '[qa:human-feedback-refine]') }}" = true ]; then
+          if [ "${{ contains(github.event.head_commit.message, '[qa:hair-options]') }}" = true ]; then
+            node --test --test-reporter=tap tests/character-3d-author-hair-options-test.cjs tests/character-3d-integration-workflow-test.cjs > test-results/full-rollout/dedicated.tap || { cat test-results/full-rollout/dedicated.tap; exit 1; }
+          elif [ "${{ contains(github.event.head_commit.message, '[qa:human-feedback-refine]') }}" = true ]; then
             node --test --test-reporter=tap tests/character-3d-author-candidate-test.cjs tests/character-3d-author-hair-test.cjs tests/character-3d-author-fringe-test.cjs tests/character-3d-human-feedback-test.cjs tests/character-3d-gallery-routing-test.cjs tests/character-3d-nonplayer-mutations-test.cjs > test-results/full-rollout/dedicated.tap || { cat test-results/full-rollout/dedicated.tap; exit 1; }
           else
           node --test --test-reporter=tap tests/character-3d*-test.cjs > test-results/full-rollout/dedicated.tap || { cat test-results/full-rollout/dedicated.tap; exit 1; }
@@ -486,7 +492,7 @@ jobs:
             node tools/character-3d/phoenix-stages-remove-it.cjs > test-results/full-rollout/phoenix-stages-remove-it.txt
           fi
       - name: Scoped selected nonplayer mutations
-        if: ${{ !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (contains(github.event.head_commit.message, '[qa:nonplayer]'))) ) }}
+        if: ${{ !contains(github.event.head_commit.message, '[qa:hair-options]') && !contains(github.event.head_commit.message, '[qa:motion-repair]') && (!contains(github.event.head_commit.message, '[qa:runtime]') && (!contains(github.event.head_commit.message, '[qa:integration]') && (contains(github.event.head_commit.message, '[qa:nonplayer]'))) ) }}
         run: |
           node tools/character-3d/nonplayer-mutations.cjs
           node tools/character-3d/human-feedback-remove-it.cjs
