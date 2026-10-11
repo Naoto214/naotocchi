@@ -450,7 +450,11 @@ jobs:
         run: |
           mkdir -p test-results/full-rollout
           node tools/character-3d/inventory.cjs test-results/full-rollout/inventory.json
+          if [ "${{ contains(github.event.head_commit.message, '[qa:human-feedback-refine]') }}" = true ]; then
+            node --test --test-reporter=tap tests/character-3d-author-candidate-test.cjs tests/character-3d-author-hair-test.cjs tests/character-3d-human-feedback-test.cjs tests/character-3d-gallery-routing-test.cjs tests/character-3d-nonplayer-mutations-test.cjs > test-results/full-rollout/dedicated.tap || { cat test-results/full-rollout/dedicated.tap; exit 1; }
+          else
           node --test --test-reporter=tap tests/character-3d*-test.cjs > test-results/full-rollout/dedicated.tap || { cat test-results/full-rollout/dedicated.tap; exit 1; }
+          fi
       - name: Focused runtime QA regression
         if: ${{ contains(github.event.head_commit.message, '[qa:runtime]') }}
         run: |

@@ -230,20 +230,22 @@
  const distinctPartners={high_eagle:highEagle,snowman};
  const distinctPartnerRows=Object.fromEntries(Object.entries(distinctPartners).map(([id,spec])=>['partner:'+id,{kind:'partner',id,asset:'assets/characters/partners/'+id+'.png',spec}]));
  // Actual singular author asset; presentation candidate only until image approval.
- const naoto={archetype:'humanoid',idlePose:'stand',normalEye:'round',head:{r:.28},body:{h:.48,r:.19,closedVolume:true,sourceShirt:{at:[0,.255],size:[.065,.17],color:'#252832'}},legs:{len:.52,r:.054,spread:.54,floorOffset:-.009,outwardCaps:true},arms:{len:.40,r:.048,outwardCaps:true},hair:{style:'center',closedVolumes:[{size:[.285,.170,.250],at:[0,.145,-.035],segments:[24,18]},{size:[.282,.240,.155],at:[0,-.015,-.170],segments:[24,18]}],closedPaths:[]},clothing:'hoodie',wardrobe:{sleeve:.90},attachments:['hood'],colors:{skin:'#f6ccb0',hair:'#3e3034',top:'#f8f6f0',sleeve:'#f8f6f0',bottom:'#2e344a',shoe:'#303748',accent:'#f5f3ed'},details:[{name:'authorNeck',bone:'body',color:'#f6ccb0',paths:[{path:[[0,.37,0],[0,.49,.005],[0,.55,.015]],radius:.065,taper:.12,outwardCaps:true,radial:10,steps:14}]},{name:'authorZip',bone:'body',color:'#e0e2de',paths:[]}]};
+ const naoto={archetype:'humanoid',idlePose:'stand',normalEye:'round',head:{r:.28},body:{h:.48,r:.19,closedVolume:true,sourceShirt:{at:[0,.255],size:[.065,.17],color:'#252832'}},legs:{len:.52,r:.054,spread:.54,floorOffset:-.009,outwardCaps:true},arms:{len:.40,r:.048,outwardCaps:true},hair:{style:'center',closedVolumes:[{size:[.290,.170,.225],at:[0,.190,-.065],segments:[24,18]},{size:[.282,.215,.155],at:[0,.015,-.170],segments:[24,18]}],closedPaths:[]},clothing:'hoodie',wardrobe:{sleeve:.90},attachments:['hood'],colors:{skin:'#f6ccb0',hair:'#3e3034',top:'#f8f6f0',sleeve:'#f8f6f0',bottom:'#2e344a',shoe:'#303748',accent:'#f5f3ed'},details:[{name:'authorNeck',bone:'body',color:'#f6ccb0',paths:[{path:[[0,.37,0],[0,.49,.005],[0,.55,.015]],radius:.065,taper:.12,outwardCaps:true,radial:10,steps:14}]},{name:'authorZip',bone:'body',color:'#e0e2de',paths:[]}]};
  for(const side of [-1,1]){naoto.details[1].paths.push({path:[[side*.066,.11,.11],[side*.068,.20,.136],[side*.06,.35,.128],[side*.05,.43,.082]],radius:.008,outwardCaps:true,steps:18,radial:7});naoto.details.push({name:side<0?'authorSoleL':'authorSoleR',bone:side<0?'legL':'legR',color:'#e9eaeb',volumes:[{size:[.064,.015,.095],at:[0,-.55,.0243],segments:[12,8]}]});}
  // Overlapping downward locks follow the source's rounded crown, offset part and temple fringe.
  const authorLocks=[
-  [[-.045,.292,-.035],[-.125,.280,.130],[-.200,.205,.205],[-.245,.075,.185]],
-  [[-.020,.300,-.010],[-.080,.285,.180],[-.155,.205,.245],[-.185,.075,.250]],
-  [[.005,.300,.005],[-.020,.285,.205],[-.080,.235,.260],[-.125,.125,.265]],
-  [[.025,.300,-.005],[.065,.290,.190],[.105,.225,.265],[.185,.075,.255]],
-  [[.030,.295,-.050],[.150,.280,.135],[.210,.185,.215],[.230,.065,.185]],
-  [[-.115,.260,-.060],[-.230,.190,.080],[-.282,.050,.075],[-.266,-.095,.045]],
-  [[.110,.260,-.080],[.230,.190,.060],[.284,.040,.065],[.265,-.095,.025]],
-  [[.015,.305,-.105],[.160,.270,-.130],[.240,.125,-.190],[.210,-.125,-.215]]
+  [[-.050,.330,-.040],[-.105,.325,.140],[-.195,.210,.215],[-.270,.070,.145],[-.285,-.005,.090]],
+  [[-.025,.345,-.025],[-.055,.325,.190],[-.130,.230,.260],[-.215,.095,.225],[-.240,.030,.150]],
+  [[-.025,.330,.020],[-.030,.295,.220],[-.080,.220,.275],[-.180,.100,.260],[-.205,.055,.225]],
+  [[-.030,.340,-.030],[.040,.325,.160],[.010,.250,.275],[.085,.155,.270],[.180,.100,.260],[.215,.045,.205]],
+  [[-.015,.340,-.075],[.125,.310,.095],[.185,.200,.225],[.265,.070,.160],[.285,-.025,.070]],
+  [[.025,.320,-.110],[.185,.270,.035],[.250,.145,.140],[.285,.040,.095],[.265,-.070,.035]],
+  [[-.125,.280,-.090],[-.245,.180,.015],[-.290,.040,.025],[-.265,-.095,-.025]],
+  [[-.045,.340,-.140],[-.190,.270,-.195],[-.255,.120,-.210],[-.200,-.140,-.200]],
+  [[.045,.340,-.135],[.190,.270,-.190],[.255,.120,-.210],[.205,-.145,-.200]],
+  [[.005,.345,-.170],[.035,.230,-.285],[.015,.075,-.325],[-.025,-.150,-.230]]
  ];
- for(const path of authorLocks)naoto.hair.closedPaths.push({path,radius:.055,taper:.88,outwardCaps:true,steps:18,radial:8});
+ for(const path of authorLocks)naoto.hair.closedPaths.push({path,radius:.060,taper:.86,outwardCaps:true,steps:18,radial:8});
  const authorRows={'author:naoto':{kind:'author',id:'naoto',asset:'assets/characters/author/naoto.png',spec:naoto}};
  const humanoidPartners={cat_ceo:catCeo,robot_neighbor:robotNeighbor,snow_spirit:snowSpirit,sea_mermaid:seaMermaid};
  const humanoidPartnerRows=Object.fromEntries(Object.entries(humanoidPartners).map(([id,spec])=>['partner:'+id,{kind:'partner',id,asset:'assets/characters/partners/'+id+'.png',spec}]));

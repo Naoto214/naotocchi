@@ -310,7 +310,7 @@
       "partner:grove_deer",
       "author:naoto"
     ],
-    "status": "CANDIDATE_IMAGE_QA_PENDING",
+    "status": "DEER_IMAGE_ACCEPTED_AUTHOR_REFINEMENT_PENDING",
     "focusedTests": 33,
     "geometryUnchangedOther": 291,
     "pilotHashesMatched": 28,
@@ -318,6 +318,17 @@
     "mutationControls": "4/4 RED and exact restoration",
     "humanGate": "OPEN",
     "iphoneGate": "OPEN",
-    "evidence": "docs/qa/character-3d-full-v0/human-feedback-20261011"
+    "evidence": "docs/qa/character-3d-full-v0/human-feedback-20261011",
+    "firstCandidate": "4faa3e3f5293c6993bad8e385a8fc2156d82e056",
+    "firstImageVerdicts": {
+      "partner:grove_deer": "TECHNICAL_IMAGE_ACCEPTED",
+      "author:naoto": "REJECTED_HELMET_SILHOUETTE"
+    },
+    "refinementTests": {
+      "shape": 4,
+      "authorRegression": 11,
+      "workflow": 23
+    },
+    "refinementMutation": "4/4 detected and exact restoration"
   }
 }

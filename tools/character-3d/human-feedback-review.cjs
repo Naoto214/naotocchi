@@ -4,7 +4,8 @@ const {serve}=require('./shot.cjs');
 async function run(out){
  const before=require('../../docs/qa/character-3d-full-v0/human-feedback-20261011/before-specs.json'),current=require('../../character-3d/nonplayer-spec.js')(),views=['front','34','side','back'];
  fs.mkdirSync(out,{recursive:true});const srv=await serve(),browser=await require('playwright').chromium.launch({args:['--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']}),records=[],errors=[];
- try{for(const [key,row]of Object.entries(before.rows)){
+ const selected=require('../../.github/character-3d-nonplayer-qa.json').keys;assert.ok(selected.length&&selected.every(key=>before.rows[key]),'exact saved before rows required');
+ try{for(const [key,row]of Object.entries(before.rows).filter(([key])=>selected.includes(key))){
   assert.equal(current[key].asset,row.asset,'immutable original design');const original=await sharp(row.asset).trim().resize(280,280,{fit:'contain',background:'#eee9dd'}).extend({top:20,bottom:20,left:20,right:20,background:'#eee9dd'}).png().toBuffer(),tiles=[];
   for(const [y,version]of ['before','after'].entries()){
    const page=await browser.newPage({viewport:{width:320,height:320},deviceScaleFactor:1});page.on('pageerror',e=>errors.push(String(e)));
