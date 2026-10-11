@@ -1,0 +1,13 @@
+# Remaining World gates after the approved single-tree relocation
+
+This checkpoint supersedes the earlier stall list's unapproved tree-treatment scope. The user explicitly authorized moving only river_lake:68 and its collider. It does not authorize other placement/collision exceptions.
+
+| Item | Evidence / remaining work | Dependency and completion condition |
+|---|---|---|
+| WQ-WHEEL-TREE | Approved candidate implemented in c010bf2; conservative full-rotation envelope and neighbor checks pass; all six image pairs reviewed independently without blocking findings. | CI38148933340 all5SUCCESS; regression ZIP/source/command/exit verified2887+80PASS/0FAIL. This bounded automated unit is complete; final summary GitData save and remote verification complete its handoff. Human appearance approval is separate. |
+| Historical smoke overlap variability | Current run38148933340 maximum4.973799150320701e-14; older nonzero values remain recorded. Real-time input/sample timing is a possible source, not a demonstrated cause. | Read-only diagnosis is allowed; a causal explanation requires reproducible evidence. No repeated full run solely to obtain zero. This tree correction does not prove the cause of historical variation. |
+| Human visual QA | Target images support the bounded relocation; normal-road view retains another foreground tree's partial occlusion. | Explicit human review of the current product and regional/normal-gameplay appearance. Automated review cannot grant approval. |
+| Physical iPhone performance | Close triangle/draw-call counts unchanged; no physical-device timing measurements. | Identified device/version/source, observations of ghosts/player loss/stutter and p95/p99/>60ms/adaptive resolution, then explicit acceptance. Desktop CI is insufficient. |
+| Weak props / bridge composition | Prior statue/telescope/stall units and dry bridge approaches retain their saved evidence. No next bounded palette/form/composition design is specified in the current canonical. | Read-only selection is possible. New palette/form or further collider relocation requires a new explicit design decision; do not manufacture another product change. |
+
+No new major interference or scenic issue was found during this unit. The work did not add a newly counted defect. World remains incomplete. PR374 stays Draft/open/unmerged; no Ready/main merge/production Pages change. Card preflight, PR259, seed generation, input locking and battle execution were not changed by this World unit. Historical failures and missing unmodified npm raw evidence remain historical, never retroactively passed.
