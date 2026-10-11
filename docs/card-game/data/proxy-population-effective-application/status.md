@@ -1254,3 +1254,7 @@ f46d525から共有cost_options省略の8REDを修正。55/114固定からM01任
 ## 2026-10-12 固定1c48304の完全結合
 
 source/target/支払集合・比較copy ID・回収対象・fresh trace共通責務をまとめて、固定1c4830439682007bb11c31a3baf77f0761563852で旧115/零rootの既存入力だけを完全結合。connected.reconstruct(bundle(), 'test-1A', 512)は143step/181event、completed=true、stop=null、root9監査errors=[]、114.115s/exit0。Python1075の前後指紋一致。内訳normal30/response88/automatic25/逐次誘発0であり、全source分岐の実発生証明ではない。trace-connected-1c48304-record.json.xz/verification.json.gz/summary.jsonへ原本保存。設計検査errors=[]/exit0。生成/固定/新規標本0、preflight-ready=false。復元だけを理由に再実行しない。次はP10の全許可read/公開historyとP11残る比較根拠、P14–18共通本番gateの合成。公開GitHub repo GETで本人authority323909980を再確認したが、実承認は取得/消費していない。
+
+### いなか配置の比較未証明保持（2026-10-12）
+
+終了時成長条件が現在成立するW-countryside配置を、配置直後delta0だけでpassより劣位としない。比較中だけWORLD_END_GAPとして116 unknown/frontierへ残し、合法/実配置は維持。新値/時間幅/先読みなし。world-end-unknown-*、最終34PASS31.655s・Python1075前後一致、独立7PASS/C0I0M0。固定1c48304完全結合は本変更前。preflight-ready=false、生成/固定/400戦0。次はP09–11とP14–18共通gateの合成。

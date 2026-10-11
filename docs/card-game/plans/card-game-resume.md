@@ -41,6 +41,8 @@
 
 - 2026-10-12: 固定1c48304の旧115/零root完全結合143step181event、9監査errors=[]、completed=true/stop=null、114.115s/exit0、Python1075前後一致、design errors=[]。trace-connected-1c48304-*。逐次誘発0の既存unit診断であり全source証明ではない。復元で再実行不要。次はP10/P11とP14–18合成。
 
+- 2026-10-12: いなか配置の終了成長条件成立時もdelta0を比較証拠にせず116 unknownへ保持。world-end-unknown-*、34PASS31.655s/独立7PASS・指摘なし、Python1075前後一致。実配置は維持。次はP09–11/P14–18共通gate合成。preflight-ready=false。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

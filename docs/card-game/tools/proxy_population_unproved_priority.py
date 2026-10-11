@@ -21,7 +21,8 @@ DIRECT_GROWTH_GAP='direct growth comparison operand proof unavailable'
 REVEAL_GROWTH_GAP='unrevealed growth comparison operand proof unavailable'
 CHALLENGE_GAP='challenge comparison operand proof unavailable'
 PASS_END_GAP='pass with eligible end growth comparison operand proof unavailable'
-GUARDS.update((DIRECT_GROWTH_GAP,REVEAL_GROWTH_GAP,CHALLENGE_GAP,PASS_END_GAP))
+WORLD_END_GAP='world placement with eligible end growth comparison operand proof unavailable'
+GUARDS.update((DIRECT_GROWTH_GAP,REVEAL_GROWTH_GAP,CHALLENGE_GAP,PASS_END_GAP,WORLD_END_GAP))
 _LOCK=Lock()
 
 
@@ -32,7 +33,7 @@ def unresolved(envelope,inventory,context,policy,reason):
  if policy!='legacy_107_114_116' or reason not in GUARDS or g['phase']!='normal_action' or c['activation_zone'] or c['pending_triggers'] or any(p['reservations'] for p in g['players'].values()):raise ValueError('unproved priority is not complete legal execution')
  if context['actor']!=g['turn_player'] or context['round']!=g['round'] or canonical(candidates.audit(envelope,inventory['public_history']))!=canonical(inventory):raise ValueError('unproved priority fresh inventory/context differs')
  # A coverage error unrelated to the public threshold must never be recast.
- if not any(p['growth']==100 for p in g['players'].values()) and reason not in {DIRECT_GROWTH_GAP,REVEAL_GROWTH_GAP,CHALLENGE_GAP,PASS_END_GAP,'relationship 100 maintenance boundary requires priority proof','uncertain reveal threshold priority requires proof'}:raise ValueError('non-threshold upper comparison remains unproved')
+ if not any(p['growth']==100 for p in g['players'].values()) and reason not in {DIRECT_GROWTH_GAP,REVEAL_GROWTH_GAP,CHALLENGE_GAP,PASS_END_GAP,WORLD_END_GAP,'relationship 100 maintenance boundary requires priority proof','uncertain reveal threshold priority requires proof'}:raise ValueError('non-threshold upper comparison remains unproved')
  kinds={'pass','challenge','relationship','play_main','place_world','place_partner','place_companion','attach_item','set_item','use_item','use_play','use_event','activate_main_ability','activate_companion_ability'}
  for action in inventory['legal_candidate_details']:
   if action['action_type'] not in kinds:raise ValueError('continuation action handler unproved')
@@ -101,6 +102,13 @@ def scope():
   if action['action_type']=='challenge':raise ValueError(CHALLENGE_GAP)
   proof=prior_outcome(envelope,action,history)
   cap=proof.get('capability',{})
+  # Placing the end-growth source is not proof that its comparison growth
+  # is zero. Use only the existing current public condition; do not predict
+  # the optional activation, later responses, or any comparison horizon.
+  if action['action_type']=='place_world' and action.get('card_id')=='W-countryside':
+   from proxy_population_trigger_predicates import end_condition
+   actor=envelope['legacy_continuation']['game_state']['turn_player']
+   if end_condition(envelope,history or [],action['source_instance_id'],actor):raise ValueError(WORLD_END_GAP)
   # The native generic branch initializes growth to zero. Direct-growth
   # mechanisms need their own114 comparison proof; effect execution support
   # and a source-classification hash are not that proof. No replacement score.

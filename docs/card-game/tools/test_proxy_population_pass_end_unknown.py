@@ -79,4 +79,39 @@ class PassEndUnknownTests(unittest.TestCase):
    self.assertIs(candidates._scores,native);return {}
   runtime.operation(initial(),run)
 
+ def test_placing_currently_eligible_end_growth_source_keeps_comparison_unknown(self):
+  def run(forced):
+   e,h=supplied();g=e['legacy_continuation']['game_state'];p=g['players']['A'];source=p['board']['world']
+   p['board']['world']=None;p['hand']=[source];p['time']=2
+   d=runtime._step(e,initial(),h,[],[e],forced)['decision']
+   cid=next(a['candidate_id'] for a in d['inventory']['legal_candidate_details'] if a.get('source_instance_id')==source)
+   proof=d.get('execution_evidence',{}).get('candidate_comparison_evidence',{})
+   self.assertIn(cid,proof.get('unproved',{}));self.assertNotIn(cid,proof.get('proved_scores',{}))
+   self.assertIn(cid,d['choice']['seeded_fallback_candidates']);self.assertEqual(runtime._evaluate(d)['legacy_116'],'excluded')
+   self.assertFalse(d['execution_evidence']['policy_eligible'])
+   return {}
+  with connected.contract_scope():runtime.operation(initial(),run)
+
+ def test_world_placement_keeps_actual_handler_and_current_negative_conditions(self):
+  import proxy_continuation_batch as batch
+  def run(forced):
+   for count in (0,1,2):
+    e,h=supplied();g=e['legacy_continuation']['game_state'];p=g['players']['A'];source=p['board']['world']
+    p['board']['world']=None;p['hand']=[source];p['time']=2
+    if count==0:h=h[:1]
+    elif count==2:h.append(dict(h[-1],seq=3));e['event_seq']=3
+    inv=candidates.audit(e,h);action=next(a for a in inv['legal_candidate_details'] if a.get('source_instance_id')==source)
+    with self.subTest(count=count):
+     d=runtime._step(e,initial(),h,[],[e],forced)['decision']
+     if count==1:
+      proof=d['execution_evidence']['candidate_comparison_evidence']
+      self.assertEqual(proof['unproved'][action['candidate_id']],unresolved.WORLD_END_GAP)
+     else:self.assertEqual(d['choice']['resolution_mode'],'priority_unique')
+     after,events=batch.transition(e,action,h)
+     self.assertEqual(after['legacy_continuation']['game_state']['players']['A']['board']['world'],source)
+     self.assertEqual(after['legacy_continuation']['game_state']['players']['A']['growth'],p['growth'])
+     self.assertEqual(events[0]['action_type'],'place_world')
+   return {}
+  with connected.contract_scope():runtime.operation(initial(),run)
+
 if __name__=='__main__':unittest.main()
