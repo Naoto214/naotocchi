@@ -36,7 +36,11 @@ def segment(envelope,initial,events,shots,runtime,limit,proof,session=None):
   timing=timing_occurrence.audit(before,after,event,capture)
   if timing['errors']:raise ValueError('timing occurrence differs: '+str(timing['errors']))
   capture['independent_timing_audit']=timing
-  hand=hand_timing.capture(before,after,event);capture['occurrences'].extend(hand['occurrences']);capture['hand_optional_capture']=hand
+  hand=hand_timing.capture(before,after,event)
+  hand_check=timing_occurrence.audit_hand(before,after,event,hand)
+  if hand_check['errors']:raise ValueError('hand timing occurrence differs: '+str(hand_check['errors']))
+  capture['independent_hand_timing_audit']=hand_check
+  capture['occurrences'].extend(hand['occurrences']);capture['hand_optional_capture']=hand
   pair=(copy.deepcopy(before),copy.deepcopy(after),copy.deepcopy(event))
   if key in pairs and canonical(list(pairs[key]))!=canonical(list(pair)):raise ValueError('actual timing event collision')
   pairs[key]=pair;captures[key]=capture;return capture

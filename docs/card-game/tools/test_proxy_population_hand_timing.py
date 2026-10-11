@@ -48,11 +48,24 @@ class HandTimingTests(unittest.TestCase):
    before,after,event,history,source=fixture();proof=api.capture(before,after,event)
    rows=proof['occurrences'];self.assertEqual([r['source_instance_id'] for r in rows],[source]);self.assertEqual(rows[0]['actor'],'A')
    self.assertFalse(proof['origin_authenticated']);self.assertFalse(proof['opportunity_completeness_proven'])
+   import proxy_population_timing_occurrence as independent
+   check=independent.audit_hand(before,after,event,proof)
+   self.assertEqual(check['errors'],[]);self.assertFalse(check['all_rule_opportunities_proven'])
+   bad_captures=[]
+   bad=copy.deepcopy(proof);bad['occurrences']=[];bad_captures.append(bad)
+   bad=copy.deepcopy(proof);bad['occurrences']*=2;bad_captures.append(bad)
+   bad=copy.deepcopy(proof);bad['occurrences'][0]['actor']='B';bad_captures.append(bad)
+   bad=copy.deepcopy(proof);bad['before_envelope_sha256']='0'*64;bad_captures.append(bad)
+   for bad in bad_captures:self.assertTrue(independent.audit_hand(before,after,event,bad)['errors'])
    # A card drawn only afterwards was not present at the triggering event.
    early=copy.deepcopy(before);p=early['legacy_continuation']['game_state']['players']['A'];p['hand'].remove(source);p['deck'].append(source)
    from proxy_continuation_triggers import _raw_event
    changed=_raw_event(state.current(early),state.current(after),event['action_type'],event['actor'],source_instance_id=event['source_instance_id'],chain_link_id=event['chain_link_id'])
-   self.assertEqual(api.capture(early,after,changed)['occurrences'],[])
+   empty=api.capture(early,after,changed)
+   self.assertEqual(empty['occurrences'],[])
+   self.assertEqual(independent.audit_hand(early,after,changed,empty)['errors'],[])
+   empty['occurrences']=proof['occurrences']
+   self.assertTrue(independent.audit_hand(early,after,changed,empty)['errors'])
    return {}
   runtime.operation(initial(),run)
  def test_current_cost_target_and_parameter_are_reenumerated_at_latched_origin(self):
@@ -103,6 +116,20 @@ class HandTimingTests(unittest.TestCase):
   runtime.operation(initial(),run)
 
 class ConnectedHandTimingTests(unittest.TestCase):
+ def test_entry_rejects_hand_occurrence_omitted_by_both_producer_and_replay(self):
+  import proxy_population_challenge_window as connected
+  i=initial();i['order_id']='unit-only'
+  def prepare(forced):
+   before,_,_,history,source=fixture()
+   with connected.contract_scope():proof=existing.ExistingAdapter(history[:-1]).proof(before)
+   return dict(before=before,history=history[:-1],proof=proof)
+  p=runtime.operation(i,prepare);native=api.capture
+  def omitted(*args):
+   capture=native(*args);capture['occurrences']=[];return capture
+  with patch.object(api,'capture',omitted):
+   result=connected.segment(p['before'],i,p['history'],[],[p['before']],1,p['proof'])
+  self.assertIsNotNone(result['stop'],'hand occurrence omission accepted')
+  self.assertIn('hand timing occurrence',result['stop']['detail'])
  def test_actual_quick_step_enters_sequential_group_before_ordinary_response(self):
   import proxy_population_challenge_window as connected
   i=initial();i['order_id']='unit-only' # Existing synthetic unit identifier; no experimental input.

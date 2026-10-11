@@ -188,7 +188,11 @@ def audit(result,initial_history,initial_proof,initial=None,initial_snapshots=No
             independent_timing=timing_occurrence.audit(previous,after,event,timing)
             if independent_timing['errors']:raise ValueError('timing occurrence differs: '+str(independent_timing['errors']))
             timing_occurrence_audits.append(independent_timing)
-            history.append(event);expected.extend(timing['occurrences']);expected.extend(hand_timing.capture(previous,after,event)['occurrences'])
+            hand=hand_timing.capture(previous,after,event)
+            hand_check=timing_occurrence.audit_hand(previous,after,event,hand)
+            if hand_check['errors']:raise ValueError('hand timing occurrence differs: '+str(hand_check['errors']))
+            independent_timing['hand_timing_audit']=hand_check
+            history.append(event);expected.extend(timing['occurrences']);expected.extend(hand['occurrences'])
             # Scan every transition, not only events selected by the driver.
             # Past origins cannot be retroactively repaired at a later event.
             native=existing.ExistingAdapter(history).proof(after,event['seq'])

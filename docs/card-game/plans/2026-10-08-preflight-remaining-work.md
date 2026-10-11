@@ -858,3 +858,8 @@ preflight-ready=false、本番gate閉鎖、生成/固定/400戦0。P07–12の�
 ### 2026-10-11 上位比較唯一winnerの共通入口接続
 
 1c912a0から継続。共通zero-immediate selectorが既存114唯一winnerを返しても比較記録を欠き、共通gateで停止する経路を修正。実際に使った上位4operand/全候補だけをupper_priority_problemへ保持し、既存支払監査と入口gateを共有。下位の消費/現物同値/価値点数を追加しない。missing problemと支払候補欠落の2REDを修正。最終関連36PASS9.883s/exit0、tools再帰1044前後不変、design errors=[]、番号付き正本変更0。独立review C0/I0・19PASS。詳細/原log/指紋はverification/upper-comparison-entry-*。全proxy回帰・全operand根拠は未完。preflight-ready=false、生成/固定/400戦0。
+
+
+### 2026-10-11 手札誘発の発生機会をproducerと別に照合
+
+2f145e1から継続。G-air-hockeyのproducer/replay双方の欠落が通るREDを確認し、既存timing_occurrenceに83/発生直前手札/相手実プレイ/challengeからの別導出を追加。実rememberと全遷移coverageに結合。関連29PASS15.504s/exit0、tools1044前後不変、独立review C0/I0・15PASS。全情報/全機会の証明には昇格しない。詳細はverification/hand-occurrence-independent-*。preflight-ready=false、生成/固定/400戦0。

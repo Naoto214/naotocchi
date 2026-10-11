@@ -16,6 +16,46 @@ KINDS={'M-antlion-03':'after_opponent_quick_play','M-antlion-06':'after_own_quic
 QUICK=frozenset(('use_item','use_play','use_event'))
 
 
+def audit_hand(before,after,event,capture):
+ """Derive83's hand trigger without calling capture or action enumeration.
+
+ Reads each source owner's pre-event hand for rule accounting, not the other
+ player's decision. Current payment/targets and full transition semantics
+ remain separate checks. A later draw cannot create an earlier occurrence.
+ """
+ errors=[];expected=[];classified=0
+ try:
+  state.validate(before);state.validate(after)
+  prior=state.current(before);current=state.current(after);g=prior['game_state']
+  if type(event['seq']) is not int or event['seq']!=before['event_seq']+1 or event['seq']!=after['event_seq']:raise ValueError('hand timing sequence differs')
+  for suffix,value in (('before',prior),('after',current)):
+   if event['game_state_'+suffix+'_sha256']!=triggers.old.start.opening._stop_state_sha256(value['game_state']) or event['continuation_state_'+suffix+'_sha256']!=triggers.old.start._hash(value):raise ValueError('hand timing transition hashes differ')
+  if capture['schema']!='owner_hand_optional_timing_capture.v1' or capture['scope']!=['G-air-hockey']:raise ValueError('hand timing capture scope differs')
+  for name,value in (('before_envelope_sha256',before),('after_envelope_sha256',after),('event_sha256',event)):
+   if capture[name]!=state.canonical_sha256(value):raise ValueError('hand timing capture boundary differs')
+  reference=sources.catalog()['cards']['G-air-hockey']['reference']
+  if reference!='83-play-batch-3-card-text-draft.md#G-air-hockey':raise ValueError('hand timing source reference differs')
+  actor=event['actor']
+  if actor not in ('A','B'):raise ValueError('hand timing actor differs')
+  played=event.get('source_instance_id');card=g['cards'].get(played,{}).get('card_id')
+  row=next((r for r in rules.table()['cards'] if r['card_id']==card),None)
+  is_play=event['action_type'] in ('use_play','activate_response') and event.get('source_zone') not in ('board','prepared') and row is not None and row['card_type']=='play'
+  if is_play:
+   links=[l for l in current['activation_zone'] if l['link_id']==event.get('chain_link_id')]
+   if len(links)!=1 or played not in g['players'][actor]['hand']:raise ValueError('hand timing actual play absent')
+   link=links[0]
+   if (link['actor'],link['source_instance_id'],link['card_id'],link['action_type'])!=(actor,played,card,'use_play') or link.get('source_zone') in ('board','prepared') or prior['response_context']['chain_status']=='resolving':raise ValueError('hand timing activation identity differs')
+   battle=g.get('challenge');owner='B' if actor=='A' else 'A'
+   hand_sources=[s for s in g['players'][owner]['hand'] if g['cards'][s]['card_id']=='G-air-hockey'];classified=len(hand_sources)
+   if battle and battle['status']=='comparing' and all(g['players'][a]['board']['main']==battle['participants'][a] for a in ('A','B')):
+    expected=[dict(origin_event_seq=event['seq'],source_instance_id=s,actor=owner,category='optional',ability_key='opponent_quick_play_during_challenge',source_reference=reference) for s in hand_sources]
+  if Counter(map(canonical,capture['occurrences']))!=Counter(map(canonical,expected)):raise ValueError('hand timing occurrence set differs')
+ except (ValueError,KeyError,TypeError,IndexError,AttributeError,OSError) as error:errors.append(str(error))
+ return dict(schema='supplied_hand_timing_occurrences.v1',supplied_hand_timing_occurrences_verified=not errors,errors=errors,
+  expected_occurrence_count=len(expected),classified_source_count=classified,before_envelope_sha256=state.canonical_sha256(before),after_envelope_sha256=state.canonical_sha256(after),event_sha256=state.canonical_sha256(event),
+  source_catalog_sha256=sources.CATALOG_SHA,scope=['G-air-hockey'],current_legal_actions_proven=False,information_use_proven=False,origin_authenticated=False,all_rule_opportunities_proven=False,policy_eligible=None,balance_admitted=None)
+
+
 def audit(before,after,event,capture):
  errors=[];expected=[];classified=[]
  try:
