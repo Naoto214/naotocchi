@@ -87,6 +87,82 @@ class PaymentExpansionTests(unittest.TestCase):
    return {}
   runtime.operation(initial(),run)
 
+class SharedCostPoolTests(unittest.TestCase):
+ def test_shared_optional_discount_omission_is_rejected(self):
+  from unittest.mock import patch
+  def run(forced):
+   e,_,_=fixture('M-antlion-01');g=e['legacy_continuation']['game_state'];g['phase']='normal_action';p=g['players'][g['turn_player']]
+   item=next(s for s in p['hand']+p['deck']+p['discard'] if g['cards'][s]['card_id']=='I-poop1')
+   if item not in p['hand']:next(p[z] for z in ('deck','discard') if item in p[z]).remove(item);p['hand'].append(item)
+   native=candidates.rules.cost_options
+   for keep in (0,1):
+    with patch.object(candidates.rules,'cost_options',lambda *args:[native(*args)[keep]] if args[1]['action_type']=='set_item' else native(*args)):
+     inv=candidates.audit(e,[])
+     self.assertEqual(len([r for r in inv['enumeration_units'] if r['source_instance_id']==item and r['action_type']=='set_item']),1)
+     with self.subTest(keep=keep):self.assertFalse(api.audit_normal(e,inv)['registered_expansions_verified'])
+   return {}
+  runtime.operation(initial(),run)
+ def test_shared_paid_cost_omission_is_rejected_in_normal_and_response(self):
+  from unittest.mock import patch
+  import proxy_population_board_predicates as board
+  import proxy_continuation_actions as actions
+  def run(forced):
+   for card in ('M-antlion-02','M-antlion-08'):
+    e,source,costs=fixture(card);g=e['legacy_continuation']['game_state'];p=g['players'][g['turn_player']]
+    native=paid.cost_options
+    with paid.scope(),patch.object(paid,'cost_options',lambda *args:[] if args[2]=='M-antlion-02' else native(*args)[:1]):
+     history=[dict(seq=1,action_type='turn_start_and_normal_draw',actor=g['turn_player']),dict(seq=3,action_type='normal_pass_end_request',actor=g['turn_player'])]
+     import proxy_continuation_state as state
+     import proxy_resource_value_trajectory as old
+     current=state.current(e);history[-1].update(game_state_after_sha256=old.start.opening._stop_state_sha256(g),continuation_state_after_sha256=old.start._hash(current))
+     response=actions.response_inventory(e,initial(),history)
+     with self.subTest(card=card,kind='response'):self.assertFalse(board.audit_response(e,history,response)['response_board_predicates_verified'])
+     g['phase']='normal_action';inv=candidates.audit(e,[])
+     self.assertEqual(len([r for r in inv['enumeration_units'] if r['source_instance_id']==source]),1)
+     with self.subTest(card=card,kind='normal_expansion'):self.assertFalse(api.audit_normal(e,inv)['registered_expansions_verified'])
+     with self.subTest(card=card,kind='normal_predicates'):self.assertFalse(board.audit_normal(e,inv)['board_predicates_verified'])
+   return {}
+  runtime.operation(initial(),run)
+
+ def test_actual_entry_rejects_shared_payment_omissions(self):
+  from unittest.mock import patch
+  import proxy_population_challenge_window as window
+  def run(forced):
+   for card in ('M-antlion-01','M-antlion-02','M-antlion-08'):
+    e,_,_=fixture(card);g=e['legacy_continuation']['game_state'];g['phase']='normal_action';p=g['players'][g['turn_player']];p['time']=0
+    if card=='M-antlion-01':
+     item=next(s for s in p['hand']+p['deck']+p['discard'] if g['cards'][s]['card_id']=='I-poop1')
+     for z in ('hand','deck','discard'):
+      if item in p[z]:p[z].remove(item)
+     p['deck']+=p['hand'];p['hand']=[item]
+     native=candidates.rules.cost_options;guard=patch.object(candidates.rules,'cost_options',lambda *args:native(*args)[:1])
+    else:
+     p['deck']+=p['hand'];p['hand']=[];native=paid.cost_options;guard=patch.object(paid,'cost_options',lambda *args:[] if args[2]=='M-antlion-02' else native(*args)[:1])
+    with self.subTest(card=card),paid.scope(),guard:
+     with self.assertRaisesRegex(ValueError,'candidate expansions'):runtime._step(e,initial(),[],[],[e],forced)
+   return {}
+  with window.contract_scope():runtime.operation(initial(),run)
+
+ def test_independent_paid_pool_preserves_multiple_quick_costs_and_usage(self):
+  import proxy_population_cost_alternatives as costs
+  from unittest.mock import patch
+  def run(forced):
+   e,source,initial_costs=fixture('M-antlion-08');g=e['legacy_continuation']['game_state'];g['phase']='normal_action';p=g['players'][g['turn_player']]
+   for card in ('G-hit-blow','E-boss'):
+    target=next(s for s in p['hand']+p['deck'] if g['cards'][s]['card_id']==card);next(p[z] for z in ('hand','deck') if target in p[z]).remove(target);p['discard'].append(target)
+   options=costs.paid_costs(e,source);self.assertEqual(len(options),6);self.assertTrue(all(a!=b for a,b in options));self.assertEqual({tuple(x) for x in options},{tuple(reversed(x)) for x in options})
+   with paid.scope():
+    inventory=candidates.audit(e,[]);self.assertTrue(api.audit_normal(e,inventory)['registered_expansions_verified'])
+    self.assertEqual({tuple(r['cost_instance_ids']) for r in inventory['enumeration_units'] if r['source_instance_id']==source},{tuple(x) for x in options})
+    g['round']=2;e['runtime']['ability_uses']=[dict(source_instance_id=source,ability_key='activated_normal_action',turn_player=g['turn_player'],round=1,count=1)]
+    self.assertEqual(costs.paid_costs(e,source),options)
+    e['runtime']['ability_uses'][0]['round']=2;self.assertEqual(costs.paid_costs(e,source),[])
+    self.assertTrue(api.audit_normal(e,candidates.audit(e,[]))['registered_expansions_verified'])
+   with patch.dict(costs.SOURCES,{costs.TEXT:'0'*64}):
+    with self.assertRaisesRegex(ValueError,'source changed'):costs.paid_costs(e,source)
+   return {}
+  runtime.operation(initial(),run)
+
 class ConnectedExpansionTests(unittest.TestCase):
  def test_actual_normal_entries_export_expansion_evidence(self):
   from test_proxy_mandatory_population_input import bundle

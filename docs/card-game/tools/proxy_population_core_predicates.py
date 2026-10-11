@@ -8,11 +8,13 @@ never selects a candidate or executes a transition.
 import hashlib
 import proxy_continuation_state as state
 import proxy_continuation_rules as rules
+import proxy_population_cost_alternatives as cost_alternatives
 import proxy_continuation_payments as payments
 from proxy_population_trigger_effects import relationship_payment
 from proxy_population_candidate_expansions import TABLE_PATH,TABLE_SHA
 from proxy_mandatory_policy_contract import ROOT,canonical
 SOURCES={'01-core-rules.md':'d95ee407ec1fb853a8da1102bf933a5e972e3bc6ecc0b78cfb20831e8c45ec71','02-main-system.md':'6a0d04606f066f9078e88422394d3d0c5f5c6d927806bb0be99366f503af5127','06-action-chain-checkpoint.md':'7ac6d6141095d1139b8a8e072bc1523d621b7f100a57e292c08bbc97a7618c67',TABLE_PATH:TABLE_SHA}
+SOURCES.update(cost_alternatives.SOURCES)
 CORE={'pass','challenge','relationship','play_main','place_companion','place_partner','place_world','attach_item','set_item'}
 
 def _predicates(envelope,row,table):
@@ -79,7 +81,7 @@ def _predicates(envelope,row,table):
     elif targets:raise ValueError('preparation target grammar differs')
     require(len(b['prepared'])<3,'preparation_slots_full')
     option={k:row['evidence'][k] for k in ('payment_time','cost_modifiers')}
-    if canonical(option) not in list(map(canonical,rules.cost_options(envelope,row,cost))):raise ValueError('item payment evidence differs')
+    if canonical(option) not in list(map(canonical,cost_alternatives.item_options(envelope,row,cost))):raise ValueError('item payment evidence differs')
     cost=option['payment_time']
    require(p['time']>=cost,'insufficient_time')
  return sorted(reasons),cost

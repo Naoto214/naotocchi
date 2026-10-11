@@ -1232,3 +1232,8 @@ e389658から共有target expanderのI-bowtie対象欠落2REDを修正。実owne
 ## 2026-10-12 比較card copy IDの現物結合
 
 829c8dbから通常/partial比較行のcopy別現物・欠落・boolが通る10REDを修正。既存payment全行監査でactual sourceへ結合、relationship/challengeは既存outcomeのpartner/main対応。上位専用3helperの未使用tie fieldを創作しない。review C0/I1/Minor0の通常problemへの例外偽装を実入口1RED→GREEN。最終42PASS6.832s/exit0、Python1072前後一致。comparison-copy-id-*参照。全上位/成長/消費枚数の意味証明は別、preflight-ready=false、生成/固定/400戦0。次は共有支払option/paid costの候補母数、P09〜11/P14〜18の合成。
+
+
+## 2026-10-12 支払選択肢の独立集合
+
+f46d525から共有cost_options省略の8REDを修正。55/114固定からM01任意軽減2通り、M02自伏せ1枚、M08異なるset/quick2枚全順序を監査側だけで別導出。normal expansion/core・normal/response boardへ接続、実入口3拒否も確認。review C0/I0/Minor0・別5PASS、最終47PASS19.149s/exit0、Python1073前後一致、design errors=[]。fixture/source数誤認・response history/hash不足・test module名誤りを失敗原本に保持。independent-cost-pools-*参照。新比較/価値/生成なし、preflight-ready=false。次は閉じたsource集合と全判断責務、P09〜11/P14〜18の共通gate合成。

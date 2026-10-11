@@ -33,6 +33,8 @@
 
 - 2026-10-12: 比較card copy IDをactual candidate sourceへ結合。comparison-copy-id-*、42PASS6.832s/独立11PASS、review I1の通常problem例外偽装を修正。上位のみの既存helperにはtie fieldを創作しない。次は共有支払options/paid costの候補母数と残工程合成。
 
+- 2026-10-12: M01任意軽減/M02伏せ支払/M08異なる捨て札全順序を固定55/114から独立照合。independent-cost-pools-*、47PASS19.149s/独立5PASS・指摘なし、design errors=[]。通常/responseへ結合、全価値/起点とは別。次はsource閉包・全判断責務と現行共通gate合成。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

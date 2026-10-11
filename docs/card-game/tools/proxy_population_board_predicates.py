@@ -10,6 +10,7 @@ from collections import Counter
 import proxy_continuation_state as state
 import proxy_continuation_rules as rules
 import proxy_population_paid_draw as paid
+import proxy_population_cost_alternatives as cost_alternatives
 import proxy_population_discard_recovery as recovery
 # Preserve the source predicate before closed_start temporarily suppresses native offers.
 from proxy_board_trigger_audit_144 import matches as source_start_matches
@@ -34,8 +35,7 @@ def _expected(envelope,source):
  if card in paid.DESCRIPTORS:
   cap=paid.batch.classification(card)
   if source!=p['board']['main'] or cap['kind']!='activated' or cap['timing']!='own_turn':raise ValueError('paid ability current source differs')
-  used=rules.used(envelope,source,'activated_normal_action')
-  costs=[] if used else paid.cost_options(g,actor,card,envelope['runtime'])
+  costs=cost_alternatives.paid_costs(envelope,source)
   rows=[dict(action_type='activate_main_ability',target_instance_ids=[],cost_instance_ids=c,allowed=True) for c in costs]
   if not rows:rows=[dict(action_type='board_passive',target_instance_ids=[],cost_instance_ids=None,allowed=False)]
   return rows,cap['reference']
