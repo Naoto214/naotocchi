@@ -15,6 +15,7 @@ import proxy_population_resolution_semantics as semantics
 import proxy_population_nonresolution_semantics as nonresolution
 import proxy_population_source_conservation as source_conservation
 import proxy_population_end_dispatch as end_dispatch
+import proxy_population_trace_obligations as trace_obligations
 from proxy_mandatory_policy_contract import ROOT,canonical
 
 _LOCK=Lock()
@@ -70,6 +71,7 @@ def reconstruct(bundle,match_id,limit):
   if not source_proof['supplied_source_conservation_verified']:raise ValueError('actual source conservation differs: '+str(source_proof['errors']))
   result['source_conservation_audit']=source_proof
   result['end_dispatch_obligation_audit']=end_dispatch.require_actual_trace(result)
+  result['trace_obligations_audit']=trace_obligations.require_actual_trace(result)
   if fingerprint()!=before:raise ValueError('connected tools source changed during reconstruction')
   result.update(schema='bound_population_connected_runtime.v1',connected_tools_sha256=before,reconstruction_step_limit=limit,ready_for_execution=False,ready_for_input_generation=False)
   return result
