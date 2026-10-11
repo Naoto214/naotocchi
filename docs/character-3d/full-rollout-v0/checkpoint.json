@@ -365,8 +365,8 @@
   },
   "authorFringe20261011": {
     "baseline": "1f29df975e7b9bff34a048abc478864a3d146da2",
-    "status": "TECHNICAL_IMAGE_REVIEWED_AWAITING_HUMAN_QA_STOPPED",
-    "humanQA": "OPEN",
+    "status": "SUPERSEDED_REJECTED",
+    "humanQA": "REJECTED_BY_USER_CENTRAL_V_AND_PART",
     "iphoneQA": "OPEN",
     "evidence": "docs/qa/character-3d-full-v0/author-fringe-20261011",
     "preserved": [
@@ -389,5 +389,12 @@
       "id": 38132407819,
       "status": "IN_PROGRESS_NOT_PASSED"
     }
+  },
+  "authorSoftHair20261011": {
+    "baseline": "5c4cf9182b6cfb1869e4af1329e8160a9b7bfbc2",
+    "status": "CANDIDATE_IMAGE_PENDING",
+    "humanQA": "OPEN",
+    "deerHumanQA": "APPROVED_UNCHANGED",
+    "evidence": "docs/qa/character-3d-full-v0/author-soft-hair-20261011"
   }
 }

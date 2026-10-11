@@ -234,20 +234,29 @@
  for(const side of [-1,1]){naoto.details[1].paths.push({path:[[side*.066,.11,.11],[side*.068,.20,.136],[side*.06,.35,.128],[side*.05,.43,.082]],radius:.008,outwardCaps:true,steps:18,radial:7});naoto.details.push({name:side<0?'authorSoleL':'authorSoleR',bone:side<0?'legL':'legR',color:'#e9eaeb',volumes:[{size:[.064,.015,.095],at:[0,-.55,.0243],segments:[12,8]}]});}
  // Overlapping downward locks follow the source's rounded crown, offset part and temple fringe.
  const authorLocks=[
-  [[-.050,.330,-.040],[-.105,.325,.140],[-.195,.210,.215],[-.270,.070,.145],[-.285,-.005,.090]],
-  [[-.025,.345,-.025],[-.055,.325,.190],[-.130,.230,.260],[-.215,.095,.225],[-.240,.030,.150]],
-  [[-.025,.330,.020],[-.030,.295,.260],[-.020,.210,.325],[-.105,.145,.320],[-.205,.055,.225]],
-  [[-.030,.340,-.030],[.040,.325,.195],[.065,.255,.325],[.030,.165,.335],[.145,.115,.300],[.215,.045,.205]],
-  [[-.015,.340,-.075],[.125,.310,.095],[.185,.200,.225],[.265,.070,.160],[.285,-.025,.070]],
-  [[.025,.320,-.110],[.185,.270,.035],[.250,.145,.140],[.285,.040,.095],[.265,-.070,.035]],
+  [[-.170,.270,-.040],[-.205,.255,.095],[-.250,.160,.175],[-.270,.045,.115]],
+  [[-.105,.310,.005],[-.140,.275,.160],[-.180,.215,.245],[-.215,.120,.200]],
+  [[-.025,.335,.025],[-.075,.300,.160],[-.100,.245,.255],[-.120,.185,.275]],
+  [[.075,.320,.025],[.025,.285,.165],[-.015,.235,.260],[-.040,.180,.280]],
+  [[.165,.280,-.015],[.125,.250,.145],[.100,.205,.265],[.070,.155,.275]],
+  [[.215,.210,-.040],[.240,.170,.105],[.235,.115,.205],[.235,.040,.155]],
   [[-.125,.280,-.090],[-.245,.180,.015],[-.290,.040,.025],[-.265,-.095,-.025]],
   [[-.045,.340,-.140],[-.190,.270,-.195],[-.255,.120,-.210],[-.200,-.140,-.200]],
   [[.045,.340,-.135],[.190,.270,-.190],[.255,.120,-.210],[.205,-.145,-.200]],
   [[.005,.345,-.170],[.035,.230,-.285],[.015,.075,-.325],[-.025,-.150,-.230]]
  ];
  for(const path of authorLocks)naoto.hair.closedPaths.push({path,radius:.060,taper:.86,outwardCaps:true,steps:18,radial:8});
- // Front-only fullness: existing posterior volumes and last three waves stay exact.
- for(let i=0;i<5;i++){const lock=naoto.hair.closedPaths[i];lock.radius=.079;lock.taper=.80;}
+ // Short overlapping front waves, with rounded ends instead of long V-shaped spikes.
+ for(let i=0;i<6;i++){naoto.hair.closedPaths[i].radius=.047;naoto.hair.closedPaths[i].taper=.42;}
+ for(const [size,at] of [
+  [[.080,.100,.072],[-.215,.155,.135]],
+  [[.090,.092,.068],[-.155,.205,.215]],
+  [[.085,.085,.065],[-.075,.235,.245]],
+  [[.080,.080,.065],[.005,.220,.258]],
+  [[.085,.076,.068],[.080,.205,.245]],
+  [[.080,.090,.072],[.155,.180,.200]],
+  [[.065,.098,.065],[.225,.125,.125]]
+ ])naoto.hair.closedVolumes.push({size,at,segments:[20,14]});
  const authorRows={'author:naoto':{kind:'author',id:'naoto',asset:'assets/characters/author/naoto.png',spec:naoto}};
  const humanoidPartners={cat_ceo:catCeo,robot_neighbor:robotNeighbor,snow_spirit:snowSpirit,sea_mermaid:seaMermaid};
  const humanoidPartnerRows=Object.fromEntries(Object.entries(humanoidPartners).map(([id,spec])=>['partner:'+id,{kind:'partner',id,asset:'assets/characters/partners/'+id+'.png',spec}]));
