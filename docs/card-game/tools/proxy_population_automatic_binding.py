@@ -1,14 +1,15 @@
 """Bind native forced output to exported transitions and subchoices.
 
-This is a structural cross-audit, not a proof of dispatch predicates, effect
-semantics, complete judgment opportunities, or initial-input authenticity.
+Native batches must hand ordinary opportunities back to the choice entry.
+Other dispatch predicates, effects and full opportunity closure stay separate.
 """
 import hashlib
 import proxy_continuation_state as state
 import proxy_resource_value_trajectory as old
 from proxy_population_decision_binding import equal,audit_transitions
 from proxy_population_runtime import BIND_KEYS
-from proxy_mandatory_policy_contract import canonical
+from proxy_mandatory_policy_contract import ROOT,canonical
+from proxy_population_resolution_order import SOURCE,SOURCE_SHA
 
 
 def audit_step(step):
@@ -20,6 +21,14 @@ def audit_step(step):
   f=step['forced_record']
   if type(f) is not dict:raise ValueError('native automatic output absent')
   audit_transitions(step)
+  if hashlib.sha256((ROOT/SOURCE).read_bytes()).hexdigest()!=SOURCE_SHA:raise ValueError('automatic opportunity source changed')
+  # A next-turn batch may contain reset/draw and designated egg choices. It
+  # must stop when ordinary response/normal control is reached, even if native
+  # output and replay agree on extra events which silently consume that choice.
+  for boundary in [before,*step['envelopes'][:-1]]:
+   current=boundary['legacy_continuation'];phase=current['game_state']['phase'];context=current['response_context']
+   ordinary=phase=='normal_action' or (phase in ('response_window','post_placement_response','turn_end_response') and context['chain_status']!='resolving' and not current['pending_triggers'])
+   if ordinary or phase=='completed':raise ValueError('automatic output crosses ordinary or terminal opportunity')
   raw=lambda events:[{k:v for k,v in e.items() if k not in BIND_KEYS} for e in events]
   equal(raw(f['new_events']),raw(step['events']),'native automatic event projection differs')
   equal(f['new_snapshots'],step['snapshots'],'native automatic snapshots differ')
@@ -45,5 +54,5 @@ def audit_step(step):
   elif step['result'] is not None or final['game_state']['phase']=='completed':raise ValueError('unbound completion result')
   identity=dict(entry_envelope_sha256=state.state_hash(before),native_output_sha256=hashlib.sha256(canonical(f)).hexdigest(),event_count=len(step['events']),mandatory_decision_count=len(step['mandatory_decisions']),completed=completed)
  except (ValueError,KeyError,TypeError,IndexError) as error:errors.append(str(error))
- return dict(schema='automatic_output_transition_binding.v1',automatic_output_binding_verified=not errors,errors=errors,identity=identity,
+ return dict(schema='automatic_output_transition_binding.v1',automatic_output_binding_verified=not errors,ordinary_opportunity_handoffs_verified=not errors,source_sha256={SOURCE:SOURCE_SHA},errors=errors,identity=identity,
   effect_semantics_proven=False,dispatch_predicates_proven=False,all_rule_opportunities_proven=False,origin_authenticated=False,policy_eligible=None,balance_admitted=None)

@@ -1,0 +1,44 @@
+test_end_automatic_batch_cannot_consume_next_ordinary_response (test_proxy_population_automatic_binding.AutomaticBindingTests.test_end_automatic_batch_cannot_consume_next_ordinary_response) ... 
+  test_end_automatic_batch_cannot_consume_next_ordinary_response (test_proxy_population_automatic_binding.AutomaticBindingTests.test_end_automatic_batch_cannot_consume_next_ordinary_response) (boundary='audit') ... FAIL
+  test_end_automatic_batch_cannot_consume_next_ordinary_response (test_proxy_population_automatic_binding.AutomaticBindingTests.test_end_automatic_batch_cannot_consume_next_ordinary_response) (boundary='actual_entry') ... FAIL
+
+======================================================================
+FAIL: test_end_automatic_batch_cannot_consume_next_ordinary_response (test_proxy_population_automatic_binding.AutomaticBindingTests.test_end_automatic_batch_cannot_consume_next_ordinary_response) (boundary='audit')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_automatic_binding.py", line 54, in test_end_automatic_batch_cannot_consume_next_ordinary_response
+    with self.subTest(boundary='audit'):self.assertFalse(proof['automatic_output_binding_verified'],proof)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : {'schema': 'automatic_output_transition_binding.v1', 'automatic_output_binding_verified': True, 'errors': [], 'identity': {'entry_envelope_sha256': 'a0ca68529f5aef7f87dc86ebc1b326a5279c90cdd0d8792c1c9a3e349c03ced2', 'native_output_sha256': 'db13a8a4799159d5e9c13628d36310e2ec8d2b58fb151a7e6cf37dc96b01e99d', 'event_count': 4, 'mandatory_decision_count': 1, 'completed': False}, 'effect_semantics_proven': False, 'dispatch_predicates_proven': False, 'all_rule_opportunities_proven': False, 'origin_authenticated': False, 'policy_eligible': None, 'balance_admitted': None}
+
+======================================================================
+FAIL: test_end_automatic_batch_cannot_consume_next_ordinary_response (test_proxy_population_automatic_binding.AutomaticBindingTests.test_end_automatic_batch_cannot_consume_next_ordinary_response) (boundary='actual_entry')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_automatic_binding.py", line 63, in test_end_automatic_batch_cannot_consume_next_ordinary_response
+    with window.contract_scope():runtime.operation(initial(),inject)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 124, in operation
+    return prior_operation(initial,connected)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/proxy_population_challenge_window.py", line 123, in connected
+    with arithmetic.scope(),growth.scope(),partner_draw.scope(),victory.scope(),legality.scope(),public_turn.scope(),response_context.scope(),loss_reward.scope():return callback(forced)
+                                                                                                                                                                         ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/d4cb931fdeff/card-game/docs/card-game/tools/test_proxy_population_automatic_binding.py", line 59, in inject
+    with self.assertRaisesRegex(ValueError,'automatic output binding'):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 1 test in 9.745s
+
+FAILED (failures=2)

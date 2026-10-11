@@ -1210,3 +1210,8 @@ P10 comparison/caps/worlds/batch・純粋114比較・116選択の実read表をpu
 ## 2026-10-12 伏せ準備回収の公開履歴境界
 
 59cf189からP10の実next normal inventoryにC-bat相手伏せ札IDが流れる1REDを修正。現行projection hookでtarget/returned IDを非公開化し、owner・表向き装備・適用bool・raw履歴は保持。実before/game/continuationと存在するenvelope hashを照合、再投影/復元を検証。historical projector不変。lock例外1REDも修正。review C0/I0/Minor1の負例を追加、型不正fixtureによるmessage不一致1FAILはfixture訂正として記録。最終22PASS32.549s/exit0、Python1072前後一致、design errors=[]。verification/concealed-return-history-*参照。供給raw marker/traceの起点認証や全情報/機会証明とは別。preflight-ready=false、生成/固定/400戦0。次はP09自動dispatchの条件と全差分監査の結合、P10共通gate/P11残operand、P14–18合成。
+
+
+## 2026-10-12 自動バッチ途中の判断機会引渡し
+
+4fc9571からP09を継続。実終了バッチへ次の実response eventを混ぜ、native出力/hash/snapshotも同時変更すると、単体監査と実_step入口が通る2REDを再現。各event直前に通常/反応/完了境界を越えないことを検査し、最後の境界で制御を返す正規終了→開始draw→指定たまご選択を維持。06 source pin、既存mandatory policy/handler不変。review C0/I0/Minor0・別6PASS、最終21PASS10.672s/exit0、Python1072前後一致。verification/automatic-intermediate-opportunity-*。全dispatch/全機会証明ではない。preflight-ready=false、生成/固定/400戦0。次は直近bundleの固定版結合を一度実施し、残るP09〜11/P14〜18合成へ進む。

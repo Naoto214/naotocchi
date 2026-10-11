@@ -33,6 +33,35 @@ class AutomaticBindingTests(unittest.TestCase):
     lambda b:b.update(final_envelope=copy.deepcopy(b['source_envelope']))):
     bad=copy.deepcopy(s);mutate(bad)
     self.assertFalse(self.check(bad)['automatic_output_binding_verified'])
+ def test_end_automatic_batch_cannot_consume_next_ordinary_response(self):
+  import proxy_continuation_state as state
+  import proxy_resource_value_trajectory as old
+  from proxy_population_runtime import BIND_KEYS
+  steps=self.record['runtime']['steps']
+  index=next(i for i,s in enumerate(steps[:-1]) if s['source_envelope']['legacy_continuation']['game_state']['phase']=='turn_end' and s['forced_record'] is not None and steps[i+1]['decision'] is not None)
+  original=steps[index];following=steps[index+1]
+  self.assertEqual(following['decision']['decision_kind'],'response_action')
+  self.assertTrue(self.check(original)['automatic_output_binding_verified'])
+  bad=copy.deepcopy(original)
+  for key in ('events','envelopes','snapshots'):bad[key]+=copy.deepcopy(following[key])
+  bad['final_envelope']=copy.deepcopy(following['final_envelope'])
+  with payments.scope():
+   current=state.current(bad['final_envelope']);f=bad['forced_record']
+   f.update(new_events=[{k:v for k,v in e.items() if k not in BIND_KEYS} for e in bad['events']],new_envelopes=copy.deepcopy(bad['envelopes']),new_snapshots=copy.deepcopy(bad['snapshots']),final_continuation_state=old.start._payload(current),last_valid_event_seq=bad['final_envelope']['event_seq'])
+   for key,value in (('final_game_state_sha256',old.start.opening._stop_state_sha256(current['game_state'])),('final_continuation_state_sha256',old.start._hash(current))):
+    if key in f:f[key]=value
+   proof=api.audit_step(bad)
+  with self.subTest(boundary='audit'):self.assertFalse(proof['automatic_output_binding_verified'],proof)
+  import proxy_population_runtime as runtime
+  import proxy_population_challenge_window as window
+  from test_proxy_population_runtime import initial
+  def inject(forced):
+   with self.assertRaisesRegex(ValueError,'automatic output binding'):
+    runtime._step(copy.deepcopy(original['source_envelope']),initial(),[],[],[original['source_envelope']],lambda *args:copy.deepcopy(f))
+   return {}
+  with self.subTest(boundary='actual_entry'):
+   with window.contract_scope():runtime.operation(initial(),inject)
+
  def test_ordinary_entry_cannot_be_relabelled_automatic(self):
   self.assertIsNotNone(api)
   s=copy.deepcopy(next(s for s in self.record['runtime']['steps'] if s['decision'] is not None))
