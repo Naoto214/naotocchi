@@ -47,7 +47,7 @@ class SourceInventoryTests(unittest.TestCase):
     proof=api.audit_normal(e,inv)
     with self.subTest(boundary='audit'):self.assertFalse(proof['source_and_variant_coverage_verified'],proof)
     with self.subTest(boundary='actual_entry'):
-     with self.assertRaisesRegex(ValueError,'source inventory'):runtime._step(e,initial(),[],[],[e],forced)
+     with self.assertRaisesRegex(ValueError,'source inventory|candidate expansions'):runtime._step(e,initial(),[],[],[e],forced)
    return {}
   with window.contract_scope():runtime.operation(initial(),run)
 

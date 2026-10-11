@@ -934,3 +934,8 @@ P10 comparison/caps/worlds/batch・純粋114比較・116選択の実read表をpu
 a264e37から、共有normal投影が自手札sourceを落とすとproducer/監査/実入口が受理する2REDを修正。実owner手札・盤面・予約・常設sourceから6familyを別導出し、list/厳密count/hand variants/partner stage/card bindingを結合。投影default不変、全情報/全対象展開へは昇格しない。review C0/I0/Minor0・別6PASS、最終26PASS17.271s/exit0、Python1072前後一致。normal-source-projection-*参照。
 
 直前固定a264e37の旧115/零root完全結合143step181event、8監査errors=[]、completed=true/stop=null、116.880s/exit0、Python前後一致をhandoff-connected-a264e37-*へ保存。このsource母数修正前の結果であり、現版全回帰とはしない。次は共有target expanderの母数と実対象集合、P09全責務/P10全read/P11残operand/P14–18共通gate。preflight-ready=false、生成/固定/400戦0。
+
+
+## 2026-10-12 通常手札対象集合の独立照合
+
+e389658から共有target expanderのI-bowtie対象欠落2REDを修正。実owner/公開盤面と固定114からhand source/action/variantの対象集合を別導出、79/83公開装備・91初デートの現条件を照合。disposition/費用全多重度/全ルールの独立証明には拡張しない。review C0/I0/Minor0・別3PASS1.153s、最終31PASS18.648s/exit0、Python1072前後一致。fixtureのpaid.scope順序、先行拒否gateのmessage期待を訂正し失敗原本を保持。verification/normal-target-pool-*参照。P09全dispatch/機会、P10全read、P11残operand、P14–18共通gate/最終版は未完。preflight-ready=false、生成/固定/400戦0。次は自動event条件の正本責務との対応と共通gateの合成。

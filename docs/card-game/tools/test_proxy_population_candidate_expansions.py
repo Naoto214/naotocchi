@@ -47,6 +47,29 @@ class ExpansionTests(unittest.TestCase):
     self.assertFalse(api.audit_normal(e,bad)['registered_expansions_verified'])
    return {}
   runtime.operation(initial(),run)
+ def test_shared_target_expander_cannot_hide_an_attachment_alternative(self):
+  from unittest.mock import patch
+  from test_proxy_population_activation_legality import fixture as target_fixture
+  import proxy_population_challenge_window as window
+  def run(forced):
+   e,actor,_=target_fixture('E-first-date',1);g=e['legacy_continuation']['game_state'];g['phase']='normal_action';p=g['players'][actor];p['time']=10
+   companion=next(s for s in p['hand']+p['deck']+p['discard'] if g['cards'][s]['card_id']=='C-box');next(p[z] for z in ('hand','deck','discard') if companion in p[z]).remove(companion);p['board']['companions'].append(companion)
+   item=next(s for s in p['hand']+p['deck']+p['discard'] if g['cards'][s]['card_id']=='I-bowtie')
+   if item not in p['hand']:next(p[z] for z in ('deck','discard') if item in p[z]).remove(item);p['hand'].append(item)
+   native=candidates.old.candidates._targets
+   def omitted(variant,view,family):
+    result=native(variant,view,family)
+    return result[:1] if variant=='each_legal_own_person' else result
+   with patch.object(candidates.old.candidates,'_targets',omitted):
+    inventory=candidates.audit(e,[]);targets=[r['target_instance_ids'] for r in inventory['enumeration_units'] if r['source_instance_id']==item]
+    self.assertEqual(len(targets),1);self.assertTrue(sources.audit_normal(e,inventory)['source_and_variant_coverage_verified'])
+    proof=api.audit_normal(e,inventory)
+    with self.subTest(boundary='audit'):self.assertFalse(proof['registered_expansions_verified'],proof)
+    with self.subTest(boundary='actual_entry'):
+     with self.assertRaisesRegex(ValueError,'candidate expansions'):runtime._step(e,initial(),[],[],[e],forced)
+   return {}
+  with window.contract_scope():runtime.operation(initial(),run)
+
 class PaymentExpansionTests(unittest.TestCase):
  def test_optional_discount_is_a_separate_candidate_even_when_unaffordable(self):
   def run(forced):

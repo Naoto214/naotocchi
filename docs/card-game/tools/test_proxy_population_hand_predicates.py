@@ -4,6 +4,7 @@ from unittest.mock import patch
 import proxy_continuation_candidates as candidates
 import proxy_continuation_state as state
 import proxy_population_runtime as runtime
+import proxy_population_paid_draw as paid
 import proxy_population_challenge_window as connected
 from test_proxy_population_first_response import game_with
 from test_proxy_population_runtime import initial
@@ -15,6 +16,7 @@ except ImportError:api=None
 class HandPredicateTests(unittest.TestCase):
  def test_current_quick_sources_and_forged_dispositions(self):
   self.assertIsNotNone(api)
+  @paid.scope()
   def run(forced):
    table=candidates.rules.table();cards=[r['card_id'] for r in table['cards'] if any(a['action_type'] in ('use_play','use_item','use_event') for a in r['actions'])]
    self.assertEqual(len(cards),15)
@@ -25,6 +27,8 @@ class HandPredicateTests(unittest.TestCase):
      events=[dict(seq=1,action_type='turn_start_and_egg_draw',actor=actor),dict(seq=2,action_type='challenge_compared',actor=actor,result=dict(outcome='win_loss',loser=actor))]
      inv=candidates.audit(e,events);proof=api.audit_normal(e,events,inv)
      self.assertTrue(proof['hand_predicates_verified'],(card,time,proof['errors']))
+     import proxy_population_candidate_expansions as expansions
+     target_proof=expansions.audit_normal(e,inv);self.assertTrue(target_proof['registered_expansions_verified'],(card,time,target_proof['errors']))
      self.assertFalse(proof['complete_legal_set_proven']);self.assertIsNone(proof['balance_admitted'])
      own=[r for r in proof['verified_units'] if r['source_instance_id']==source];self.assertTrue(own,card)
      for verified in own:
@@ -36,6 +40,7 @@ class HandPredicateTests(unittest.TestCase):
   with connected.contract_scope():runtime.operation(initial(),run)
 
  def test_populated_targets_thresholds_and_public_conditions(self):
+  @paid.scope()
   def run(forced):
    for card in sorted(api.SUPPORTED):
     g,actor,source=game_with(card);g.update(phase='normal_action',round=10)
@@ -60,6 +65,14 @@ class HandPredicateTests(unittest.TestCase):
     events=[dict(seq=1,action_type='turn_start_and_normal_draw',actor=actor),dict(seq=2,action_type='challenge_compared',actor=actor,result=dict(outcome='win_loss',loser=actor))]
     inv=candidates.audit(e,events);proof=api.audit_normal(e,events,inv)
     self.assertTrue(proof['hand_predicates_verified'],(card,proof['errors']))
+    import proxy_population_candidate_expansions as expansions
+    target_proof=expansions.audit_normal(e,inv);self.assertTrue(target_proof['registered_expansions_verified'],(card,target_proof['errors']))
+    if card=='G-archery-3d':
+     import proxy_continuation_payments as payments
+     self.assertTrue(payments.equipment_targets(g,e['runtime'],actor,card))
+     with patch.object(payments,'equipment_targets',return_value=[]):
+      bad_inventory=candidates.audit(e,events)
+      self.assertFalse(expansions.audit_normal(e,bad_inventory)['registered_expansions_verified'])
     own=[r for r in proof['verified_units'] if r['source_instance_id']==source]
     if card not in ('G-air-hockey','G-baseball-batting','G-asteroids-classic','G-beach-volley'):
      self.assertTrue(any(r['activation_allowed'] for r in own),card)
@@ -74,6 +87,7 @@ class HandPredicateTests(unittest.TestCase):
  def test_source_drift_and_entry_binding(self):
   self.assertIsNotNone(api)
   from test_proxy_population_loss_reward import fixture
+  @paid.scope()
   def run(forced):
    e,actor,source,events=fixture();inv=candidates.audit(e,events)
    with patch.dict(api.SOURCES,{'91-event-21-card-text-draft.md':'0'*64}):self.assertFalse(api.audit_normal(e,events,inv)['hand_predicates_verified'])

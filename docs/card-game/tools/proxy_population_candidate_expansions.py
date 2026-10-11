@@ -23,6 +23,53 @@ def signature(row,cost=None):
  return canonical(result)
 
 
+def _hand_target_pools(envelope,table,units):
+ """Derive the registered target sets without calling the shared expander.
+
+ This certifies source/variant target membership, not payment-option coverage,
+ disposition, selection or the future success of an activated effect.
+ """
+ g=envelope['legacy_continuation']['game_state'];actor=g['turn_player'];owner=g['players'][actor];board=owner['board'];other='B' if actor=='A' else 'A';rt=envelope['runtime'];cards={r['card_id']:r for r in table['cards']}
+ targetless={'birth','time_skip','transform','start_relationship_stage_zero','single_no_target','single_no_card_target','set_face_down','empty_slot','empty_world_slot','seven_or_eight_cards','nine_or_more_cards','main','companion','partner','world','play','item','event','power','wisdom'}
+ expected={};actual={}
+ for source in owner['hand']:
+  card=g['cards'][source]['card_id']
+  for action in cards[card]['actions']:
+   for variant in action['candidate_variants']:
+    targets=[]
+    if card in ('G-archery-3d','G-asteroids-classic') and action['action_type']=='use_play':
+     #79: opponent face-up equipment with printed cost<=2, requires world.
+     #83: own face-up equipment with printed cost>=3; no world requirement.
+     payments.capability(card)
+     controller=other if card=='G-archery-3d' else actor
+     if card!='G-archery-3d' or board['world'] is not None:
+      for target in g['players'][controller]['board']['prepared']:
+       if rt['public_prepared'][target]['face_up'] is not True:continue
+       if target not in rt['attachments']:raise ValueError('target pool public attachment absent')
+       costs=[a['base_time_cost'] for a in cards[g['cards'][target]['card_id']]['actions'] if a['action_type']=='attach_item']
+       if any(type(cost) is not int for cost in costs):raise ValueError('target pool printed item cost unproved')
+       if any(cost<=2 if card=='G-archery-3d' else cost>=3 for cost in costs):targets.append(target)
+    elif variant in targetless:pass
+    elif variant in ('single_own_main','single_own_participant','each_threatened_own_main'):targets=[board['main']] if board['main'] is not None else []
+    elif variant=='each_legal_own_person':targets=[s for s in [board['main'],*board['companions'],board['partner']] if s is not None]
+    elif variant in ('each_legal_own_companion','replace_each_legal_companion'):targets=list(board['companions'])
+    elif variant=='replace_current_world':targets=[board['world']] if board['world'] is not None else []
+    elif variant=='each_legal_stage_zero_partner':
+     if card!='E-first-date':raise ValueError('target pool partner mechanism unproved')
+     #91 current activation allows any stage; resolution has its own condition.
+     targets=[board['partner']] if board['partner'] is not None else []
+    elif variant in ('each_legal_discard_non_main','each_legal_discard_companion'):
+     targets=[s for s in owner['discard'] if (not g['cards'][s]['card_id'].startswith('M-') if variant=='each_legal_discard_non_main' else g['cards'][s]['card_id'].startswith('C-'))]
+    elif variant=='each_legal_opponent_main':
+     target=g['players'][other]['board']['main'];targets=[target] if target is not None else []
+    else:raise ValueError('target pool variant unproved: '+variant)
+    expected[(source,action['action_type'],variant)]={tuple([target]) for target in targets} or {()}
+ for row in units:
+  if row['source_family']=='hand_card_action':actual.setdefault((row['source_instance_id'],row['action_type'],row['candidate_variant']),set()).add(tuple(row['target_instance_ids']))
+ if expected!=actual:raise ValueError('normal hand target pools differ from actual zones')
+ return len(expected)
+
+
 def audit_normal(envelope,inventory):
  errors=[];expected=[];actual=[]
  try:
@@ -31,7 +78,7 @@ def audit_normal(envelope,inventory):
   if g['phase']!='normal_action':raise ValueError('not a normal expansion entry')
   projected=candidates.NORMAL_PROJECTION(envelope) if candidates.NORMAL_PROJECTION else envelope
   view=candidates.old.candidates.project_normal_action_information(dict(game_state=projected['legacy_continuation']['game_state'],actor=actor),{})
-  table=candidates.rules.table();view['_candidate_table']=table
+  table=candidates.rules.table();_hand_target_pools(envelope,table,inventory['enumeration_units']);view['_candidate_table']=table
   view['_verified_ability_uses']={s:[1] if candidates.rules.used(envelope,s,'activated_normal_action') else [] for s in g['players'][actor]['board']['companions']}
   with candidates.classification_scope(projected,table):baseline=candidates.old.normal_audit.board.expand_units(view,table)
   transformed=set()

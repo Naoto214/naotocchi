@@ -29,6 +29,8 @@
 
 - 2026-10-12: 固定a264e37完全結合143step/181event、8監査errors=[]、116.880s/exit0・指紋一致（handoff-connected-a264e37-*）。その後normal共有投影のowner source欠落を実6family照合で修正、normal-source-projection-*、26PASS17.271s/独立6PASS・指摘なし。完全結合はsource母数修正前。次は共有target expanderと実対象の対応、残るP09〜11/P14〜18合成。
 
+- 2026-10-12: 通常hand target集合を実状態から別照合し共有expanderの装備先省略を拒否。normal-target-pool-*、31PASS18.648s/独立3PASS・指摘なし。費用全多重度/全board target証明は別。次は自動dispatch条件と全機会/情報/operandを共通gateへ合成。preflight-ready=false。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

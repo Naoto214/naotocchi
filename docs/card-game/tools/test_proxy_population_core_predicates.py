@@ -15,6 +15,8 @@ class CorePredicateTests(unittest.TestCase):
    e,_,_=fixture('M-antlion-01');g=e['legacy_continuation']['game_state'];g['phase']='normal_action';p=g['players'][g['turn_player']]
    p['hand']+=p['deck']+p['discard'];p['deck']=[];p['discard']=[];p['time']=10
    inv=candidates.audit(e,[]);proof=api.audit_normal(e,inv)
+   import proxy_population_candidate_expansions as expansions
+   target_proof=expansions.audit_normal(e,inv);self.assertTrue(target_proof['registered_expansions_verified'],target_proof['errors'])
    self.assertTrue(proof['core_predicates_verified'],proof['errors'])
    self.assertEqual({r['action_type'] for r in proof['verified_units']},{'pass','challenge','relationship','play_main','place_companion','place_partner','place_world','attach_item','set_item'})
    self.assertTrue(proof['unproved_units']);self.assertFalse(proof['complete_legal_set_proven']);self.assertFalse(proof['information_use_proven'])
