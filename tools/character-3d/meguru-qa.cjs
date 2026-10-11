@@ -161,7 +161,18 @@ async function walk(page, seconds) {
     // ---------- actor 単位 fallback: しば だけ 3D を こわす → しば だけ 2D、ほかは 3D・world も 3D の まま
     await pose(page, { spot: 'entry', yaw: 0, env });
     await page.evaluate(() => globalThis.__meguruRun.renderer.char3dHooks({ failUpdate: (a) => a.id === 'shiba' }));
-    await page.waitForTimeout(1200);
+    // Hook installation synchronously clears the presenter. Slow/half-rate rendering
+    // may not have produced the next frame after a fixed sleep; wait for the actual invariant.
+    try {
+      await page.waitForFunction(() => {
+        const r = globalThis.__meguruRun, rd = r?.renderer, p = rd?.char3dPresenter;
+        const shiba = r?.party.find(a => a.id === 'shiba'), cat = r?.party.find(a => a.id === 'cat_friend');
+        return !!p && !!shiba && !!cat && rd.is3D && !rd.failed &&
+          p.isBroken(shiba) && !p.has(shiba) && p.has(cat) && p.has(r.sim.player);
+      }, null, { polling: 'raf', timeout: 60000 });
+    } catch (error) {
+      R.checks.fallbackWait = { error: String(error.message || error) };
+    }
     R.checks.fallback = await page.evaluate(() => {
       const r = globalThis.__meguruRun, rd = r.renderer, p = rd.char3dPresenter;
       const shiba = r.party.find((a) => a.id === 'shiba'), cat = r.party.find((a) => a.id === 'cat_friend');
@@ -242,6 +253,7 @@ async function walk(page, seconds) {
   must(C.after3dOn.live.live === C.forest3d.live.live, '2D → 3D: おなじ 数に もどる');
   must(C.playerVisible.drawn3d === C.playerVisible.frames, 'player は 120 frame ずっと 3D で えがかれる');
   must(C.fallback.worldIs3D && !C.fallback.rendererFailed && C.fallback.shibaBroken && !C.fallback.shiba3d && C.fallback.cat3d && C.fallback.player3d, 'actor 単位 fallback(しば だけ 2D)');
+  must(!C.fallbackWait, 'actor fallback readiness timeout: ' + (C.fallbackWait?.error || ''));
   try{require('./runtime-integration.cjs').validateCityCache(C.regionSwitch.beforeCity,C.regionSwitch.inCity);}catch(error){must(false,error.message);}
   must(C.regionSwitch.backInForest.is3D && C.regionSwitch.backInForest.live > 0 && C.regionSwitch.backInForest.holdersInScene === C.regionSwitch.backInForest.live, 'forest に もどる: scene の 3D = live(ghost なし)');
   }

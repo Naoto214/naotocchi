@@ -12,9 +12,11 @@ Character presenterは従来holderの高さを0に固定していた。Worldのp
 
 検証：追加3件は修正前RED、修正後GREEN。`ground-height-remove-it.cjs` の3/3 mutationを検出し、runtimeの元バイトを完全復元。浮遊モデルのreduced motionにも小さな揺れがあるため、接地高さを比較するテストだけdt=0で時間を固定した（製品animation変更なし）。初回関連・全体回帰はこのテスト条件不備を含むため成功証跡として使わず、修正済み条件で再実行する。
 
-この安全な保存単位では関連・全体回帰を実行中、修正後のCharacter/Runtime/Home CIは未完了。下記の旧実装3022+80・既存CI成功はgroundY修正後の証拠に流用しない。iPhone実機はNOT_RUN。最終結果は `ground-verification.json` へ追記する。
+修正後の関連71/71、全体回帰3025+80（npm test exit0）、保護11群一致を確認。3/3 mutation復元、独立レビュー指摘なし。下記の旧実装3022+80・既存CI成功を流用していない。完全ログは `ground-full-regression.log.gz`。既存Three.jsのMODULE_TYPELESS_PACKAGE_JSON警告は残るが、package種別は変更しない。iPhone実機はNOT_RUN。最終CI結果は `ground-verification.json` へ追記する。
 
-## 監査対象と結論
+Character CI38178440729のattempt1はfallback判定1件で失敗。45体接続・繰り返しscene/save検証・1/5/27体性能測定は成功していた。失敗時はhooks設定直後のreset状態（live0、created95=removed95、fallbacks0）であり、固定1200msの判定が実描画前に走った可能性がある。後の地域復帰ではlive9に回復。再実行で消して済ませず `ground-ci-attempt1.json` に失敗を保持する。QA toolは固定sleepを最大60秒の完全fallback条件待ちへ置換し、従来の最終assertを維持。timeoutは後のsnapshotが回復してもFAIL。手動draw・シナリオ再試行・閾値緩和はない。実際の最初の遅延原因（SwiftShader等）は断定しない。
+
+## groundY修正前の監査対象と結論（保存済み履歴）
 
 - Character正本 `f82e9c0fa61dbd628d84e4d9bdfc76366aecfd2e`。main `0b0a6b30e8e098472b2fa965604f4901874942e3` は祖先（GitHub compareのmerge_base一致）。mainとの機械的競合なし。Expression368/Motion375を含む。
 - World最新確認 `a0124f35e1ade1a2f2e007bb520cedb61de72b4d`、PR374 Draft。共通祖先 `591b9def6a88733721249f80d3138087d00764f0` をGitHubで照合してmerge-treeのみ実行。branch取り込みなし。最新の木1本移動も取り込まない。
@@ -45,7 +47,7 @@ Worldの `billboardVisible` は `!m.visible` をhiddenとする。一方Characte
 
 ## iPhone：開発PC不要の確認順
 
-[実機確認ページ](iphone.html) はゲームを既存commit00a83a4固定で開く。QAページ自体も保存commit固定URLで使う。既存makeSaveの [1/5/27コード](../batch-human-qa-20261011/iphone-fixtures.json) と既存プロフィール読込を再利用。自動save編集なし。SafariでQA専用プロファイルを作る（同じrawcdn originのcommit間は保存領域共有）。端末名・iOSを入力する。
+[実機確認ページ](iphone.html) は既存ページを再利用し、ゲーム参照先だけgroundY修正済みcommit `4cefebf1d835d2c1552028a29f1f04c63316fc8b` に更新。QAページ自体もこの更新を含む保存commit固定URLで使う。旧ページの00a83a4実測を新ソースの実機結果として扱わない。既存makeSaveの [1/5/27コード](../batch-human-qa-20261011/iphone-fixtures.json) と既存プロフィール読込を再利用。自動save編集なし。SafariでQA専用プロファイルを作る（同じrawcdn originのcommit間は保存領域共有）。端末名・iOSを入力する。
 
 1. **表示・移動**：5体コードをゲームのプロフィール→セーブのバックアップから読み込む。めぐる→森に入り、playerと仲間5体が表示されること、60秒ほど移動・方向転換できることを確認。空白・消失・二重描画・固着を記録。
 2. **表情**：ページの表情選択で8canonical表情を順に確認し、「通常の表情制御」へ戻す。全293体の細かな造形確認は不要。表情変更で消える・例外が起きる場合は不合格。

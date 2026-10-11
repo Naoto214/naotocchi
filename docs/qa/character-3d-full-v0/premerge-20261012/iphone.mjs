@@ -1,5 +1,5 @@
 import { presentationState } from '../../../../tools/character-3d/presentation-diagnostic.mjs';
-const SOURCE='00a83a4c6847bc2b6609fd42e413561973c91830';
+const SOURCE='4cefebf1d835d2c1552028a29f1f04c63316fc8b';
 const url=`https://rawcdn.githack.com/Naoto214/naotocchi/${SOURCE}/index.html?meguru3d=1&char3d=1&perf=1`;
 const $=id=>document.getElementById(id),frame=$('game');frame.src=url;$('direct').href=url;
 const record={source:SOURCE,qaPage:location.href,deviceClaim:null,userAgent:navigator.userAgent,physicalDeviceVerified:false,verdict:'UNREVIEWED_NOT_PASS',events:[]};

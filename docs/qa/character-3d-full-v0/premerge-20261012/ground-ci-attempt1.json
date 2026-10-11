@@ -1,0 +1,124 @@
+{
+  "source": "4cefebf1d835d2c1552028a29f1f04c63316fc8b",
+  "run": 38178440729,
+  "job": 114585684523,
+  "attempt": 1,
+  "verdict": {
+    "pass": false,
+    "fails": [
+      "actor 単位 fallback(しば だけ 2D)"
+    ]
+  },
+  "fallback": {
+    "worldIs3D": true,
+    "rendererFailed": false,
+    "shibaBroken": false,
+    "shiba3d": false,
+    "cat3d": false,
+    "player3d": false,
+    "stats": {
+      "live": 0,
+      "templates": 10,
+      "built": 10,
+      "tris": 0,
+      "meshes": 0,
+      "bones": 0,
+      "materials": 1,
+      "atlases": 12,
+      "eyeGeos": 10,
+      "cpuMsAvg": 3.437,
+      "cpuMsP95": 10.2,
+      "buildMsTotal": 346.3,
+      "buildMsMax": 112.6,
+      "fallbacks": 0,
+      "removed": 95,
+      "created": 95,
+      "failedTemplates": 0,
+      "buildsThisFrame": 0
+    }
+  },
+  "repeated": {
+    "cycles": 3,
+    "restored": {
+      "step": true,
+      "region": true,
+      "draw": true,
+      "charFlag": true
+    },
+    "unchanged": {
+      "save": true,
+      "storage": true,
+      "getter": true,
+      "saveWrites": true
+    },
+    "finalLive": 9
+  },
+  "regionSwitch": {
+    "before": 0,
+    "beforeCity": {
+      "live": 0,
+      "templates": 10,
+      "built": 10,
+      "tris": 0,
+      "meshes": 0,
+      "bones": 0,
+      "materials": 1,
+      "atlases": 12,
+      "eyeGeos": 10,
+      "cpuMsAvg": 3.437,
+      "cpuMsP95": 10.2,
+      "buildMsTotal": 346.3,
+      "buildMsMax": 112.6,
+      "fallbacks": 0,
+      "removed": 95,
+      "created": 95,
+      "failedTemplates": 0,
+      "buildsThisFrame": 0,
+      "holders": 0,
+      "glCanvases": 1,
+      "textures": 42,
+      "geometries": 106
+    },
+    "inCity": {
+      "region": "city",
+      "is3D": false,
+      "live": 0,
+      "templates": 10,
+      "built": 10,
+      "tris": 0,
+      "meshes": 0,
+      "bones": 0,
+      "materials": 1,
+      "atlases": 12,
+      "eyeGeos": 10,
+      "cpuMsAvg": 3.437,
+      "cpuMsP95": 10.2,
+      "buildMsTotal": 346.3,
+      "buildMsMax": 112.6,
+      "fallbacks": 0,
+      "removed": 95,
+      "created": 95,
+      "failedTemplates": 0,
+      "buildsThisFrame": 0,
+      "holders": 0,
+      "glCanvases": 1,
+      "textures": 42,
+      "geometries": 106,
+      "sameScene": true,
+      "sameHolders": true,
+      "sameCanvases": true,
+      "hiddenGL": true
+    },
+    "backInForest": {
+      "region": "forest",
+      "is3D": true,
+      "live": 9,
+      "holdersInScene": 9
+    }
+  },
+  "errors": [],
+  "performanceVerdict": {
+    "pass": true
+  },
+  "interpretation": "After char3dHooks resets presenter, zero creations/fallbacks were observed before the fixed1200ms snapshot. Timing hypothesis; root cause not yet proven. Same-job retry requested without code/criteria changes."
+}

@@ -1,0 +1,37 @@
+{
+  "sourceCommit": "4cefebf1d835d2c1552028a29f1f04c63316fc8b",
+  "sourceTree": "099d7143da20d30ec331ec56d54f3f326c9f5af8",
+  "related": {
+    "tests": 71,
+    "pass": 71,
+    "fail": 0
+  },
+  "fullRegression": {
+    "command": "npm test",
+    "exitCode": 0,
+    "tests": 3025,
+    "relationshipTests": 80,
+    "fail": 0,
+    "logSha256": "a83711a4d5ad34e412a910fe1306cb4e95373e287ac9f929d0391e7489545b03"
+  },
+  "groundMutations": {
+    "detected": 3,
+    "total": 3,
+    "restoredRuntimeSha256": "47fc27857794647abaf9deb6f0fa492dda14777424741d53c705b001a2326c9a"
+  },
+  "protectedGroups": {
+    "matched": 11,
+    "total": 11
+  },
+  "review": {
+    "critical": 0,
+    "important": 0,
+    "minor": 0
+  },
+  "ciStatus": "PENDING; Character attempt1 failure preserved separately; QA condition-wait correction requires fresh CI",
+  "iPhoneStatus": "NOT_RUN",
+  "worldImported": false,
+  "modelChanges": false,
+  "ready": false,
+  "merged": false
+}
