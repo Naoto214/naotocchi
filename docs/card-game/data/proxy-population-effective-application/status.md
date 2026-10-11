@@ -1063,3 +1063,14 @@ generation/attempt/supervisor入口へ共通preflight停止を接続。現行gat
 P13方式の再承認は不要。P13全体・P14/15のfresh全blob/remote消費記録/結果前時系列とP16の全証拠合成は未完。P07〜12も残る。preflight-ready=false、seed生成/本番入力固定/400戦0、policy promotion=false、独立balance標本0、全体結論null。詳細はexternal-approval-review.mdと方式計画末尾。
 
 最終関連固定32PASS46.662s/exit0、再帰Python1056ファイル前後一致。design errors=[]、番号付き正本477不変。初回32件2FAILは別logに保持。今回の実本人コメント検証/消費0、seed/本番固定/400戦0、全proxy回帰完了ではない。
+
+
+### 2026-10-11 P14/15 消費記録の公開commit結合
+
+基準03a6462/tree9ce3d03から継続。承認した公開版から消費記録だけを追加した直後commitを、単一親・親tree・追加path1件・通常blob・canonical記録で照合。元request/保存時HEAD/証明範囲を再検査し、現在の本人commentと保存comment一致、fresh remote exact-refへ結合した。公開verify_liveの既定HEAD照合は弱めない。
+
+新5RED→13PASS、保存HEAD偽装RED1FAIL・ready偽装RED1FAILを各拒否して関連13PASS0.534s。独立review1回重要指摘なし、独立17PASS1.410s。すべて合成Gitとコメントで、実本人承認消費・本番claim保存・seed/固定/400戦0。
+
+これは現在remote上の消費記録へのbindingであり、全編集/取消履歴・remote巻戻し不存在・結果前時系列の証明ではない。本番gateは閉鎖。P07〜12/P14〜18と本番入口の最終合成は未完、preflight-ready=false、全体結論null、policy promotion=false、独立balance標本0。P13方式自体は採用済み。
+
+最終固定関連37PASS47.695s/exit0、再帰Python1058ファイル前後一致。設計errors=[]、番号付き正本477不変。全proxy回帰・全判断機会・結果前時系列の認証は未完。seed生成/本番固定/400戦0。

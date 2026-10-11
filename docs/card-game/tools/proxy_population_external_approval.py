@@ -135,13 +135,19 @@ def _check_comment(comment,request,comment_id):
 
 
 def verify_live(request,comment_id):
+ return _verify_live_at_head(request,comment_id,None)
+
+
+def _verify_live_at_head(request,comment_id,publication_commit):
+ """Internal hook for a separately validated, exact claim-only child commit."""
  request=copy.deepcopy(request)
  errors=[];evidence=None
  try:
   _validate_request(request);_comment_id(comment_id)
+  expected_head=request['publication']['commit'] if publication_commit is None else _sha(publication_commit,40)
   repo=_get('');pr=_get('/pulls/259')
   if repo['full_name']!=REPOSITORY or not _owner(repo['owner']):raise ValueError('repository authority differs')
-  if type(pr['number']) is not int or pr['number']!=PR or pr['state']!='open' or pr['draft'] is not True or pr['merged'] is not False or pr['head']['repo']['full_name']!=REPOSITORY or pr['head']['ref']!=BRANCH or pr['head']['sha']!=request['publication']['commit']:raise ValueError('live PR edition/state differs')
+  if type(pr['number']) is not int or pr['number']!=PR or pr['state']!='open' or pr['draft'] is not True or pr['merged'] is not False or pr['head']['repo']['full_name']!=REPOSITORY or pr['head']['ref']!=BRANCH or pr['head']['sha']!=expected_head:raise ValueError('live PR edition/state differs')
   comment=_get('/issues/comments/'+str(comment_id));_check_comment(comment,request,comment_id)
   ids=set();found=[];pages=[];revoked=False
   for page in range(1,101):
@@ -160,7 +166,7 @@ def verify_live(request,comment_id):
   if len(found)!=1 or canonical(_comment_projection(found[0]))!=canonical(_comment_projection(comment)):raise ValueError('approval listing changed or absent')
   last=_get('/issues/comments/'+str(comment_id));_check_comment(last,request,comment_id)
   if canonical(_comment_projection(last))!=canonical(_comment_projection(comment)):raise ValueError('approval changed during read')
-  evidence=dict(comment=_comment_projection(last),comment_pages=pages,repository_sha256=digest(repo),pr_sha256=digest(pr),observed_at=datetime.now(timezone.utc).isoformat())
+  evidence=dict(observed_publication_commit=expected_head,comment=_comment_projection(last),comment_pages=pages,repository_sha256=digest(repo),pr_sha256=digest(pr),observed_at=datetime.now(timezone.utc).isoformat())
  except (ValueError,KeyError,TypeError,AttributeError,OSError) as error:errors.append(str(error))
  return dict(schema='live_population_owner_approval.v1',external_approval_verified=not errors,errors=errors,
   request_sha256=digest(request),comment_id=comment_id,evidence=evidence,

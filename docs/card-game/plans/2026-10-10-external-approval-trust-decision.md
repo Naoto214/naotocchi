@@ -46,3 +46,12 @@ P07〜12の全dispatch／全機会／情報実使用／operand由来の未完も
 - API読取・local消費・remote保存は単一transactionではない。全blob/editionのfresh再照合、remote消費記録の結果前固定、P14/15の乱数由来・時系列・巻戻し境界、P16の全必須証拠合成は未完。現時点で本番入口を開かない。
 - request builderは供給された証拠へのbindingであり、それ自体はedition/package真実性を認証しない。今後既存capture/audit/remote検査と共通gate内でfresh合成する。`verify_live`のtrueは「現在の本人コメントがこのrequestを承認している」範囲のみ。
 - P07〜12の全機会/情報実使用/operand由来も未完。P13全体完了・preflight-readyを主張しない。生成・開始の実承認は準備完了後に具体的なrequestを提示して別々に取得する。
+
+
+## 2026-10-11 消費記録だけの後続commitへの結合
+
+承認requestが指す公開commitから消費記録を保存するとHEADが進む。任意の新HEADへ認証を移せないため、`approval_publication.audit_committed_consumption`で親が承認commitただ1つ、親tree一致、差分が`A docs/card-game/data/proxy-population-approval-consumption/<comment ID>.json`だけの後続commitを検査する。merge/別親/追加変更/更新/別名/非通常blobを認めない。現行版追補であり実消費commitを作ったものではない。
+
+Gitのimmutable blobからcanonicalな記録を読み、元request・comment ID・承認時の公開HEAD・local消費状態・証明範囲を照合する。その後、現在の本人commentを指定child HEADのPRでfresh再認証し、保存時commentとの一致とremote exact-refを確認する。公開`verify_live`の既定は承認版HEAD一致のまま。単なる任意overrideを公開引数へ追加しない。
+
+このauditは読取専用で、commit作成・remote更新・実承認消費・seed生成・実行を行わない。現在のremote上の消費記録結合だけを扱い、過去のremote巻戻し不存在、結果前時系列、全編集/取消履歴はfalseのまま。generation/attempt/supervisorの共通gateも閉鎖を維持。各本番入口との最終合成とP07〜12/P14〜18は未完。
