@@ -235,11 +235,11 @@
  // Overlapping downward locks follow the source's rounded crown, offset part and temple fringe.
  const authorLocks=[
   [[-.170,.270,-.040],[-.205,.255,.095],[-.250,.160,.175],[-.270,.045,.115]],
-  [[-.105,.310,.005],[-.140,.275,.160],[-.180,.215,.245],[-.215,.120,.200]],
+  [[-.105,.310,.005],[-.140,.275,.160],[-.180,.215,.245],[-.180,.100,.235]],
   [[-.025,.335,.025],[-.075,.300,.160],[-.100,.245,.255],[-.120,.185,.275]],
   [[.075,.320,.025],[.025,.285,.165],[-.015,.235,.260],[-.040,.180,.280]],
   [[.165,.280,-.015],[.125,.250,.145],[.100,.205,.265],[.070,.155,.275]],
-  [[.215,.210,-.040],[.240,.170,.105],[.235,.115,.205],[.235,.040,.155]],
+  [[.215,.210,-.040],[.240,.170,.105],[.235,.115,.205],[.180,.100,.225]],
   [[-.125,.280,-.090],[-.245,.180,.015],[-.290,.040,.025],[-.265,-.095,-.025]],
   [[-.045,.340,-.140],[-.190,.270,-.195],[-.255,.120,-.210],[-.200,-.140,-.200]],
   [[.045,.340,-.135],[.190,.270,-.190],[.255,.120,-.210],[.205,-.145,-.200]],
@@ -247,16 +247,13 @@
  ];
  for(const path of authorLocks)naoto.hair.closedPaths.push({path,radius:.060,taper:.86,outwardCaps:true,steps:18,radial:8});
  // Short overlapping front waves, with rounded ends instead of long V-shaped spikes.
- for(let i=0;i<6;i++){naoto.hair.closedPaths[i].radius=.047;naoto.hair.closedPaths[i].taper=.42;}
+ for(let i=0;i<6;i++){naoto.hair.closedPaths[i].radius=.029;naoto.hair.closedPaths[i].taper=.65;}
+ // Three broad, shallow overlapping layers avoid bead-like individual fringe lobes.
  for(const [size,at] of [
-  [[.080,.100,.072],[-.215,.155,.135]],
-  [[.090,.092,.068],[-.155,.205,.215]],
-  [[.085,.085,.065],[-.075,.235,.245]],
-  [[.080,.080,.065],[.005,.220,.258]],
-  [[.085,.076,.068],[.080,.205,.245]],
-  [[.080,.090,.072],[.155,.180,.200]],
-  [[.065,.098,.065],[.225,.125,.125]]
- ])naoto.hair.closedVolumes.push({size,at,segments:[20,14]});
+  [[.180,.115,.085],[-.105,.220,.205]],
+  [[.160,.108,.082],[.095,.225,.198]],
+  [[.130,.086,.075],[-.030,.272,.220]]
+ ])naoto.hair.closedVolumes.push({size,at,segments:[24,14]});
  const authorRows={'author:naoto':{kind:'author',id:'naoto',asset:'assets/characters/author/naoto.png',spec:naoto}};
  const humanoidPartners={cat_ceo:catCeo,robot_neighbor:robotNeighbor,snow_spirit:snowSpirit,sea_mermaid:seaMermaid};
  const humanoidPartnerRows=Object.fromEntries(Object.entries(humanoidPartners).map(([id,spec])=>['partner:'+id,{kind:'partner',id,asset:'assets/characters/partners/'+id+'.png',spec}]));
