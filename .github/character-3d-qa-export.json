@@ -1,17 +1,17 @@
 {
-  "sourceCommit": "cd32a105882f6582039285418dbfe19f229dfb73",
-  "runId": 38135853106,
+  "sourceCommit": "e4c85576e96cfbeb7f8b83e66fd99f936178b0bd",
+  "runId": 38136126011,
   "artifactJobEvidence": true,
   "families": [
     "author"
   ],
   "artifacts": [
     {
-      "id": 11700563934,
+      "id": 11700744062,
       "label": "author-hair-options",
-      "name": "full-rollout-nonplayer-review-cd32a105882f6582039285418dbfe19f229dfb73",
-      "digest": "sha256:4d6651c240df105d455c1ae8b7777abd7e7c72024fb0c14208baa97f0bfc2936",
-      "jobId": 114459436725,
+      "name": "full-rollout-nonplayer-review-e4c85576e96cfbeb7f8b83e66fd99f936178b0bd",
+      "digest": "sha256:edda71d7a84476d5b7961f99eb2be3288502c59ac7b02a42cee39c8f1004f03f",
+      "jobId": 114460238257,
       "evidenceMode": "successful",
       "required": [
         {
