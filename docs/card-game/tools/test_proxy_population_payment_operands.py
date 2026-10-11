@@ -15,7 +15,7 @@ class PaymentOperandTests(unittest.TestCase):
    e,_,source,h=supplied('normal_action','I-c_coin2');d=execute(e,h,forced)['decision']
    evidence=d['execution_evidence']['candidate_comparison_evidence']
    self.assertIn('pass',evidence['proved_scores']);self.assertTrue(evidence['unproved'])
-   for mode in ('cost','missing','overlap','identity','evidence','reason','cost_bool'):
+   for mode in ('cost','missing','overlap','identity','evidence','reason','cost_bool','foreign_route'):
     bad=copy.deepcopy(d);part=bad['execution_evidence']['candidate_comparison_evidence']
     if mode=='cost':part['proved_scores']['pass']['payment_time']=1;part['proved_scores']['pass']['time_after_certain_resolution']-=1
     elif mode=='missing':part['proved_scores'].pop('pass')
@@ -23,6 +23,7 @@ class PaymentOperandTests(unittest.TestCase):
     elif mode=='identity':part['proved_scores']['pass']['candidate_id']='foreign'
     elif mode=='evidence':bad['execution_evidence'].pop('candidate_comparison_evidence')
     elif mode=='reason':part['unproved'][next(iter(part['unproved']))]=''
+    elif mode=='foreign_route':bad['fallback_priority_problem']=dict(legal_candidate_ids=['foreign'],candidates=[dict(candidate_id='foreign',payment_time=999)])
     else:part['proved_scores']['pass']['payment_time']=False
     with self.subTest(mode=mode):self.assertTrue(api.audit_normal(e,h,bad)['errors'])
    proof=api.audit_normal(e,h,d)
@@ -33,6 +34,18 @@ class PaymentOperandTests(unittest.TestCase):
    self.assertEqual(runtime._evaluate(d)['legacy_116'],'excluded')
    return {}
   self.run_scoped(run)
+
+ def test_actual_entry_rejects_partial_frontier_conflicting_route(self):
+  prior=runtime._step
+  def tampered(*args,**kwargs):
+   step=prior(*args,**kwargs)
+   step['decision']['fallback_priority_problem']=dict(legal_candidate_ids=['foreign'],candidates=[dict(candidate_id='foreign',payment_time=999)])
+   return step
+  def run(forced):
+   e,_,_,h=supplied('normal_action','I-c_coin2')
+   with self.assertRaisesRegex(ValueError,'normal payment operands differ'):execute(e,h,forced)
+   return {}
+  with patch.object(runtime,'_step',tampered),window.contract_scope():runtime.operation(initial(),run)
 
  def test_actual_entry_rejects_partial_frontier_payment_tampering(self):
   prior=runtime._step

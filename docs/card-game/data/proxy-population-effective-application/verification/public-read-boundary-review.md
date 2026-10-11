@@ -68,3 +68,6 @@ P10の残件を「全read未証明」の一語で再開しない。実adapter群
 | activation_legality response selector →119 | 公開response context、全候補details、first-dateの既存5成長条件 | unknown候補ありは119/116へ。有限の情報置換テストを全fieldの独立証明としない |
 
 残りを一般語だけに戻さない: (1) zero-immediate複数frontier分岐の比較operand保存/費用結合、(2) comparisonに渡される上位/成長のsource・実状態根拠、(3) 全event public_history投影と履歴起点、(4) 現行scope全体の情報境界証拠の共通gateへの結合。今回表の静的読取だけでinformation_use_provenやpreflightをtrueにしない。
+
+
+2026-10-12追補: 上表のzero-immediate複数frontier保存/支払結合はfallback-payment bundleで完了（3contract・除外候補を含む）。(1)は再実装しない。(2)上位/成長のsource根拠、(3)全event公開投影/履歴起点、(4)共通gateの結合は未完。

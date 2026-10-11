@@ -10,11 +10,15 @@ import proxy_population_hand_predicates as hand
 import proxy_population_board_predicates as board
 from proxy_mandatory_policy_contract import canonical
 
+ZERO_IMMEDIATE_CONTRACTS=frozenset(('own_companion_replacement_470','source_cost_discard_recovery_470','existing_own_turn_paid_draw'))
+
 
 def audit_normal(envelope,events,decision):
  errors=[];verified=[];unproved=[]
- partial=decision.get('execution_evidence',{}).get('contract')=='existing116_unproved_upper_comparison.v1'
- applicable=partial or decision.get('problem') is not None or decision.get('upper_priority_problem') is not None
+ contract=decision.get('execution_evidence',{}).get('contract')
+ partial=contract=='existing116_unproved_upper_comparison.v1'
+ fallback=contract in ZERO_IMMEDIATE_CONTRACTS and decision.get('choice',{}).get('resolution_mode')=='seeded_fallback'
+ applicable=partial or fallback or any(decision.get(k) is not None for k in ('problem','upper_priority_problem','fallback_priority_problem'))
  try:
   state.validate(envelope);g=envelope['legacy_continuation']['game_state'];actor=g['turn_player'];time=g['players'][actor]['time']
   if type(time) is not int or time<0:raise ValueError('normal payment actor time unproved')
@@ -24,13 +28,19 @@ def audit_normal(envelope,events,decision):
    if ids!=sorted(set(ids)):raise ValueError('payment comparison candidate identity differs')
    if partial:
     evidence=decision['execution_evidence']['candidate_comparison_evidence'];proved=evidence['proved_scores'];unknown=evidence['unproved']
-    if decision.get('problem') is not None or decision.get('upper_priority_problem') is not None or decision['choice']['resolution_mode']!='seeded_fallback':raise ValueError('partial payment comparison route differs')
+    if any(decision.get(k) is not None for k in ('problem','upper_priority_problem','fallback_priority_problem')) or decision['choice']['resolution_mode']!='seeded_fallback':raise ValueError('partial payment comparison route differs')
     if type(proved) is not dict or type(unknown) is not dict or set(proved)&set(unknown) or set(proved)|set(unknown)!=set(ids):raise ValueError('partial payment comparison coverage differs')
     if any(row['candidate_id']!=key for key,row in proved.items()) or any(type(reason) is not str or not reason for reason in unknown.values()):raise ValueError('partial payment comparison identity differs')
     rows=list(proved.values())
     unproved.extend(dict(candidate_id=cid,reason='comparison_operand_unproved',comparison_reason=unknown[cid]) for cid in sorted(unknown))
    else:
-    problem=decision['upper_priority_problem'] if decision.get('upper_priority_problem') is not None else decision['problem'];rows=problem['candidates']
+    if fallback:
+     if decision.get('problem') is not None or decision.get('upper_priority_problem') is not None:raise ValueError('fallback payment comparison route differs')
+     problem=decision['fallback_priority_problem']
+    else:
+     if decision.get('fallback_priority_problem') is not None:raise ValueError('unexpected fallback payment comparison')
+     problem=decision['upper_priority_problem'] if decision.get('upper_priority_problem') is not None else decision['problem']
+    rows=problem['candidates']
     if ids!=problem['legal_candidate_ids'] or len(rows)!=len(ids) or {r['candidate_id'] for r in rows}!=set(ids):raise ValueError('payment comparison coverage differs')
    units=inventory['enumeration_units'];details=inventory['legal_candidate_details']
    unit_ids=[r['enumeration_unit_id'] for r in units]
@@ -55,7 +65,7 @@ def audit_normal(envelope,events,decision):
    for row in rows:
     unit=byid[row['candidate_id']];key=unit['enumeration_unit_id'];cost=costs.get(key)
     if type(cost) is not int or cost<0:
-     if partial:raise ValueError('partial proved comparison payment unverified: '+row['candidate_id'])
+     if partial or fallback:raise ValueError('proved comparison payment unverified: '+row['candidate_id'])
      unproved.append(dict(candidate_id=row['candidate_id'],reason='payment_source_not_in_certified_predicate_scope'));continue
     if type(row.get('payment_time')) is not int or row['payment_time']!=cost:raise ValueError('comparison payment differs: '+row['candidate_id'])
     remaining=time-cost

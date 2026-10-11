@@ -15,7 +15,9 @@
 
 - 2026-10-12: 共有public_sourcesの列挙を両ownerの全公開盤面slotから別に照合。開始/到来producer同時欠落を拒否し、伏せidentityを読まない。public-sources-*、固定27PASS/独立22PASS。全機会/起点証明ではない。再実装不要。
 
-- 2026-10-12追加: partial unknown frontierのproved_scoresを費用監査へ接続。分割欠落/重複・偽費用・費用根拠なしを拒否。partial-payment-*、最終23PASS/独立review I1修正済み。次の具体的P11残件はdeparture.select_verified_zero_immediateの複数frontier比較行保存・費用結合。
+- 2026-10-12追加: partial unknown frontierのproved_scoresを費用監査へ接続。分割欠落/重複・偽費用・費用根拠なしを拒否。partial-payment-*、最終23PASS/独立review I1修正済み。その後、下記の共通helper結合で複数frontier記録/費用を接続。
+
+- 2026-10-12追加: 共通helperの複数frontier比較行をfallback_priority_problemへ保存、置換/paid draw/回収で全候補支払を実入口へ結合。fallback-payment-*、最終32PASS/独立review I1修正済み。次はこの3bundleによる旧115/零root結合確認、P09自動dispatch/P11上位operandとP14–18。
 
 ## 再開手順
 

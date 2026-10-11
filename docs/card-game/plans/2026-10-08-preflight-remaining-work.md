@@ -900,3 +900,8 @@ a9cfd35からP11を継続。problem=Noneのexisting116_unproved_upper_comparison
 新2件6FAIL→関連16PASS。独立review C0/I1: proved行の費用根拠が欠けるとunprovedへ移して実入口を通れる境界を発見。実入口1FAILで再現し、その行は拒否するよう修正。最終固定23PASS36.921s/exit0、再帰Python1069前後一致。review前22PASSと修正後23PASSを別原本で保持。中間green.logの末尾はtool完了出力と違って欠落していたためintermediate-partialとして保持し、最終PASSは完全final.log/summaryのみから判定。設計検査errors=[]、番号付きtop-level正本変更なし。
 
 P10 comparison/caps/worlds/batch・純粋114比較・116選択の実read表をpublic-read-boundary-review.mdへ追補。次の具体的P11残件はzero-immediate共通helperの複数frontier分岐（全比較行保存/費用結合がまだない）。上位/成長由来、P09全機会、P14–18最終gateも未完。preflight-ready=false、生成/本番固定/400戦0、policy promotion=false、独立balance標本0、全体結論null。
+
+
+## 2026-10-12 共通helperの複数frontier支払結合
+
+基準07ab449。置換/paid draw/回収の共通helperが比較した全候補をfallback_priority_problemへ保存し、指定3contractでは欠落を拒否。除外された候補も費用監査対象。既存unique分岐を再実装せず、計算/値/116除外を保持。初回RED2FAIL、review C0/I1の競合route混入をRED1FAIL→GREEN。最終32PASS33.190s/exit0、再帰Python前後一致。原本verification/fallback-payment-*。本番生成/固定/400戦0、preflight-ready=false。P11の当該記録/費用結合は完了。上位/成長の由来、P09自動処理の全機会、P10全履歴・共通gate、P14–18最終合成は未完。次は変更3bundleの旧115/零root結合確認。
