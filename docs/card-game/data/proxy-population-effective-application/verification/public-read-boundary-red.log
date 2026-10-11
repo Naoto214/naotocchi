@@ -1,0 +1,25 @@
+F
+======================================================================
+FAIL: test_public_application_certificate_ignores_hidden_deck_order_but_checks_raw_hashes (test_proxy_population_public_application.ActualApplicationTests.test_public_application_certificate_ignores_hidden_deck_order_but_checks_raw_hashes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_public_application.py", line 68, in test_public_application_certificate_ignores_hidden_deck_order_but_checks_raw_hashes
+    runtime.operation(initial(),run)
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_population_runtime.py", line 48, in operation
+    return engine.run_route(initial,POLICY)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_continuation_batch_runner.py", line 43, in run_route
+    result=base.run_route(initial,policy,forced)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/proxy_population_runtime.py", line 43, in driver
+    return callback(forced)
+           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf2a9d80ee7a/card-game/docs/card-game/tools/test_proxy_population_public_application.py", line 62, in run
+    self.assertEqual(actual,baseline)
+AssertionError: {'con[308 chars]6': '13efebde0ee24b9ff9586469762e976e536f7df90[288 chars]alse} != {'con[308 chars]6': '505024e3811fde6dd2c97a416d3ab5840cf21dc6a[288 chars]alse}
+Diff is 889 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.027s
+
+FAILED (failures=1)

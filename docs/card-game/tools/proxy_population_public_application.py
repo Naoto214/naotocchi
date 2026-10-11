@@ -30,7 +30,10 @@ def companion_applied(game,events,shots,actor):
   if own['main'] and own['world'] and other['world']:
    for source in own['companions']:
     if g['cards'][source]['card_id']=='C-chameleon':
-     cap=batch.classification('C-chameleon');applications.append(dict(event_seq=shot['event_seq'],source_instance_id=source,source_reference=cap['reference'],application_kind='actual_public_continuous_stat_adjustment',game_state_sha256=game_hash(g)))
+     # Raw state hashes above authenticate the supplied transitions, but must
+     # not become the public condition's certificate. Bind only the public
+     # board fields actually used to establish this application.
+     cap=batch.classification('C-chameleon');applications.append(dict(event_seq=shot['event_seq'],source_instance_id=source,source_reference=cap['reference'],application_kind='actual_public_continuous_stat_adjustment',public_board_sha256=hashlib.sha256(canonical(public(g))).hexdigest()))
  for event in events:
   if event['seq']<start or event['actor']!=actor or event['action_type'] not in ('resolve_board_trigger','resolve_board_ability'):continue
   source=event.get('source_instance_id');g=shots[event['seq']-1]['game_state'];card=g['cards'].get(source,{}).get('card_id')

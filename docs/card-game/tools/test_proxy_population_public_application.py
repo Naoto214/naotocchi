@@ -40,6 +40,32 @@ class ActualApplicationTests(unittest.TestCase):
    events.append(dict(seq=seq,action_type='person_placement',actor=actor,source_instance_id=ch,game_state_before_sha256=api.game_hash(before),game_state_after_sha256=api.game_hash(g)));shots.append(dict(event_seq=seq,game_state=copy.deepcopy(g)))
    result=api.companion_applied(g,events,shots,actor);self.assertTrue(result['condition_met']);self.assertEqual({r['source_instance_id'] for r in result['applications']},{ch});return {}
   runtime.operation(initial(),run)
+ def test_public_application_certificate_ignores_hidden_deck_order_but_checks_raw_hashes(self):
+  def run(forced):
+   g,events,shots,actor,ch=trace();before=copy.deepcopy(g)
+   g['players'][actor]['discard'].remove(ch);g['players'][actor]['board']['companions'].append(ch)
+   seq=len(events)+1
+   events.append(dict(seq=seq,action_type='person_placement',actor=actor,source_instance_id=ch,game_state_before_sha256=api.game_hash(before),game_state_after_sha256=api.game_hash(g)))
+   shots.append(dict(event_seq=seq,game_state=copy.deepcopy(g)))
+   baseline=api.companion_applied(g,events,shots,actor)
+   changed=copy.deepcopy(shots)
+   for shot in changed:
+    for player in shot['game_state']['players'].values():player['deck'].reverse()
+   self.assertNotEqual(api.game_hash(changed[-1]['game_state']),api.game_hash(g))
+   with self.assertRaisesRegex(ValueError,'history hash differs'):
+    api.companion_applied(changed[-1]['game_state'],events,changed,actor)
+   rebound=copy.deepcopy(events)
+   for event,left,right in zip(rebound,changed,changed[1:]):
+    event['game_state_before_sha256']=api.game_hash(left['game_state'])
+    event['game_state_after_sha256']=api.game_hash(right['game_state'])
+   actual=api.companion_applied(changed[-1]['game_state'],rebound,changed,actor)
+   self.assertEqual(actual,baseline)
+   self.assertTrue(actual['condition_met']);self.assertFalse(actual['origin_authenticated'])
+   for application in actual['applications']:
+    self.assertNotIn('game_state_sha256',application)
+    self.assertEqual(len(application['public_board_sha256']),64)
+   return {}
+  runtime.operation(initial(),run)
  def test_native_companion_recovery_success_and_no_application_are_distinct(self):
   from test_proxy_population_discard_recovery import fixture
   import proxy_population_discard_recovery as recovery

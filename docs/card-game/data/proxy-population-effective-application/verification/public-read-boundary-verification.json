@@ -1,0 +1,13 @@
+{
+  "base_head": "73d821db03ffc7390bd898cf901eeb9299aaf8cd",
+  "evidence_kind": "tool_output_summary_not_original_green_log",
+  "tests": 19,
+  "seconds": 9.374,
+  "exit_code": 0,
+  "source_sha256": {
+    "tools/proxy_population_public_application.py": "d03f1d12a52fb4fb64ade58cebd786c9a78dd26bea3d0d3dd1968b2fbe73ab68",
+    "tools/test_proxy_population_public_application.py": "8fe826d7577ffec476431b51678b397cfa1ed5117e51cb7c07bb0ba258121e46"
+  },
+  "full_proxy_regression_complete": false,
+  "preflight_ready": false
+}

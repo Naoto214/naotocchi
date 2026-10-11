@@ -848,3 +848,8 @@ RED1FAIL（priority_unique）→既存116 fallbackと未証明候補保持を確
 関連41PASS24.465s/exit0。旧115/零rootの完全connected入口は143step/181event、ordinary118件中非fallback108件の計算を監査、接続7監査errors=[]、source1068ファイル前後一致。設計errors=[]、保護番号付き477不変。各bundle独立review C0/I0、環境整理後の復元もread-onlyで重大相違なし。未保存差分とlogが自動整理で失われ、GitHub退避済みblobから復元・保存した経緯と証拠限界はverification/ordinary-entry-review.mdへ記録。最新全proxy完了ではない。
 
 preflight-ready=false、本番gate閉鎖、生成/固定/400戦0。P07–12の全source機会・全read・比較operandの由来、P14–18の最終合成/固定版検証は未完。過去の未証明を補完せず、準備完了や開始許可へ昇格しない。
+
+
+### 2026-10-11 公開適用証拠と監査用hashの分離
+
+73d821dから最小復元。現行runtimeの過去比較borrow無効化とnormal/responseのread経路をverification/public-read-boundary-review.mdへ対応表として保存。C-chameleonの公開適用証拠に含まれたfull game hashを、既存の公開盤面投影hashへ分離。raw履歴hash検証は保持。G-beach-volleyの正のconsumerはbool利用のため、選択結果の秘密依存を検出したとは主張しない。新1RED→関連19PASS9.374s/exit0、独立review C0/I0・4PASS。過去結果・正本本文不変。全read/P09/P11と最終合成/固定版回帰は未完。preflight-ready=false、gate閉鎖、生成/固定/400戦0。
