@@ -15,6 +15,8 @@
 
 - 2026-10-12: 共有public_sourcesの列挙を両ownerの全公開盤面slotから別に照合。開始/到来producer同時欠落を拒否し、伏せidentityを読まない。public-sources-*、固定27PASS/独立22PASS。全機会/起点証明ではない。再実装不要。
 
+- 2026-10-12追加: partial unknown frontierのproved_scoresを費用監査へ接続。分割欠落/重複・偽費用・費用根拠なしを拒否。partial-payment-*、最終23PASS/独立review I1修正済み。次の具体的P11残件はdeparture.select_verified_zero_immediateの複数frontier比較行保存・費用結合。
+
 ## 再開手順
 
 1. fresh remote HEAD/tree・PR259を確認する。checkoutが消失した場合だけこのブランチから復元し、local HEAD/tree/cleanを照合する。既存差分があれば消さずに確認する。

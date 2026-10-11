@@ -49,3 +49,22 @@ P10の残件を「全read未証明」の一語で再開しない。実adapter群
 | trigger_sequential.inventory / step | offerされた同owner群、各adapterの全合法action、公開group/ordinal | 既存116のseed addressへfull envelope hashを渡さない。実stateは整合性と記録へ保持 |
 
 候補生成側に実装された以上の条件は確認した。comparisonのcaps/worlds/batchと下流helper全体のP10/P11合成、初期入力/履歴の起点結合は完了扱いしない。既存information_use/prepared_informationの有限置換PASSを、この静的読取の代わりや全path証明としない。
+
+
+## 2026-10-12 比較側と下流helperの読取追跡
+
+以下の実経路を追加確認。候補生成表と結合して読むが、局所試験のPASSを全経路の動的アクセス証明へ昇格しない。full envelopeのvalidate/hash/deepcopyによる整合性読取と、順位を決める値への読取を区別する。
+
+| 経路 | 比較・選択に使う入力 | 証拠と残る境界 |
+|---|---|---|
+| candidates._scores | 両者growth/reservations、pending/activation、actor time、自候補payment/物理ID、公開配置slot | >=100/未処理をguard。自候補evidenceの費用は独立payment監査へ接続。上位0/成長0の一般由来はP11で別扱い |
+| caps.scope.scores → arrival_certificate | 自main/attachments、公開world、source固定分類、再列挙候補、自time | current107のno-arrival部分だけ。hidden deck順を比較値に使用する処理なし。capability一致は履歴起点認証ではない |
+| worlds.scope.scores → placement_certificate | 両者world有無、公開growth/予約、自world候補/印刷cost | world既設とpendingをguard。後続効果の評価や一般成長根拠を証明しない |
+| batch.scope.scores → outcome | 自partner段階/main/進行flag、公開growth/time、自候補とsource分類、公開履歴 | 通常challenge・direct growth・未公開revealは現行unproved_priorityがunknownへ遮断。費用と成長は別監査 |
+| departure.select_verified_zero_immediate（paid_draw/recovery/置換の共通先） | 自候補の実activation/置換検査、actor time、delegate済scores、上位4operand | helper内にdeck順/相手手札identityによる順位付けなし。uniqueはupper_priority_problem保存済み。複数frontier分岐では全比較行の保存/支払監査結合が未完で、次の具体的P11作業 |
+| normal_frontier / unproved_priority | 上記scores、完全候補ids、公開context、safe-placement証拠 | comparatorは入力行だけを読む。unknownを0にせず比較不能。partial proved_scoresは今回支払監査へ接続。全上位/成長由来は未完 |
+| 114 compare_candidates | 上位4数値、明示resource relation、その全同値後の支払/消費/copy | state/envelopeを受け取らない。relation未供給はunresolved。現行通常入口で歴史borrow無効。純粋計算一致はoperand認証ではない |
+| 116 build_seed_proof | 規定contextのキーとcanonical候補ID集合 | state hash/raw deckを材料に加えない。旧116の除外維持。指定mandatory policyへ昇格しない |
+| activation_legality response selector →119 | 公開response context、全候補details、first-dateの既存5成長条件 | unknown候補ありは119/116へ。有限の情報置換テストを全fieldの独立証明としない |
+
+残りを一般語だけに戻さない: (1) zero-immediate複数frontier分岐の比較operand保存/費用結合、(2) comparisonに渡される上位/成長のsource・実状態根拠、(3) 全event public_history投影と履歴起点、(4) 現行scope全体の情報境界証拠の共通gateへの結合。今回表の静的読取だけでinformation_use_provenやpreflightをtrueにしない。

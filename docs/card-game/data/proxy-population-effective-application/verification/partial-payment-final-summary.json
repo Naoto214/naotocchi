@@ -1,0 +1,21 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "unittest",
+    "test_proxy_population_payment_operands",
+    "test_proxy_population_unproved_priority",
+    "test_proxy_population_information_use",
+    "test_proxy_population_connected_entry",
+    "-v"
+  ],
+  "exit_code": 0,
+  "seconds": 37.206661188,
+  "python_count": 1069,
+  "python_fingerprint_before": "2fa9ddd8ce2cab21eec2074a2b1b402818a17508b4d26d4943ed95e9bfa2cb3d",
+  "python_fingerprint_after": "2fa9ddd8ce2cab21eec2074a2b1b402818a17508b4d26d4943ed95e9bfa2cb3d",
+  "python_unchanged": true,
+  "base": "a9cfd359494c10ec3ac3665a49312d10b678243b",
+  "full_proxy_regression": false,
+  "production_inputs_generated": 0
+}

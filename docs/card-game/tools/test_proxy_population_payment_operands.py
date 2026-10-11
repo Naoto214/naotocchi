@@ -10,6 +10,59 @@ class PaymentOperandTests(unittest.TestCase):
  def run_scoped(self,body):
   with window.contract_scope():runtime.operation(initial(),body)
 
+ def test_partial_unknown_frontier_checks_proved_payments_without_certifying_unknowns(self):
+  def run(forced):
+   e,_,source,h=supplied('normal_action','I-c_coin2');d=execute(e,h,forced)['decision']
+   evidence=d['execution_evidence']['candidate_comparison_evidence']
+   self.assertIn('pass',evidence['proved_scores']);self.assertTrue(evidence['unproved'])
+   for mode in ('cost','missing','overlap','identity','evidence','reason','cost_bool'):
+    bad=copy.deepcopy(d);part=bad['execution_evidence']['candidate_comparison_evidence']
+    if mode=='cost':part['proved_scores']['pass']['payment_time']=1;part['proved_scores']['pass']['time_after_certain_resolution']-=1
+    elif mode=='missing':part['proved_scores'].pop('pass')
+    elif mode=='overlap':part['unproved']['pass']='invented'
+    elif mode=='identity':part['proved_scores']['pass']['candidate_id']='foreign'
+    elif mode=='evidence':bad['execution_evidence'].pop('candidate_comparison_evidence')
+    elif mode=='reason':part['unproved'][next(iter(part['unproved']))]=''
+    else:part['proved_scores']['pass']['payment_time']=False
+    with self.subTest(mode=mode):self.assertTrue(api.audit_normal(e,h,bad)['errors'])
+   proof=api.audit_normal(e,h,d)
+   self.assertTrue(proof['applicable']);self.assertTrue(proof['supported_payment_operands_verified']);self.assertEqual(proof['errors'],[])
+   self.assertEqual({r['candidate_id'] for r in proof['verified_candidates']},set(evidence['proved_scores']))
+   self.assertEqual({r['candidate_id'] for r in proof['unproved_candidates']},set(evidence['unproved']))
+   self.assertFalse(proof['operand_provenance_verified']);self.assertIsNone(proof['policy_eligible'])
+   self.assertEqual(runtime._evaluate(d)['legacy_116'],'excluded')
+   return {}
+  self.run_scoped(run)
+
+ def test_actual_entry_rejects_partial_frontier_payment_tampering(self):
+  prior=runtime._step
+  def tampered(*args,**kwargs):
+   step=prior(*args,**kwargs)
+   row=step['decision']['execution_evidence']['candidate_comparison_evidence']['proved_scores']['pass']
+   row['payment_time']=1;row['time_after_certain_resolution']-=1
+   return step
+  def run(forced):
+   e,_,_,h=supplied('normal_action','I-c_coin2')
+   with self.assertRaisesRegex(ValueError,'normal payment operands differ'):execute(e,h,forced)
+   return {}
+  with patch.object(runtime,'_step',tampered),window.contract_scope():runtime.operation(initial(),run)
+
+ def test_partial_proved_row_requires_a_certified_payment_at_actual_entry(self):
+  native=api.core.audit_normal;seen=[]
+  def missing(*args,**kwargs):
+   proof=native(*args,**kwargs)
+   for unit in proof['verified_units']:
+    if unit.get('action_type')=='set_item':unit['payment_time']=None;seen.append(True)
+   return proof
+  def run(forced):
+   e,actor,_,h=supplied('normal_action','I-c_coin2');g=e['legacy_continuation']['game_state'];p=g['players'][actor]
+   item=next(s for s in p['deck'] if g['cards'][s]['card_id']=='I-poop1');p['deck'].remove(item);p['hand'].append(item)
+   with patch.object(api.core,'audit_normal',missing):
+    with self.assertRaisesRegex(ValueError,'normal payment operands differ'):execute(e,h,forced)
+   self.assertTrue(seen)
+   return {}
+  self.run_scoped(run)
+
  def test_actual_comparisons_reject_self_consistent_payment_and_time_tampering(self):
   self.assertIsNotNone(api)
   def run(forced):
@@ -17,7 +70,10 @@ class PaymentOperandTests(unittest.TestCase):
     e,actor,source,h=supplied('normal_action',card);step=execute(e,h,forced);d=step['decision']
     proof=api.audit_normal(e,h,d)
     if d['problem'] is None:
-     self.assertFalse(proof['applicable']);self.assertFalse(proof['supported_payment_operands_verified']);self.assertEqual(proof['errors'],[])
+     self.assertTrue(proof['applicable']);self.assertEqual(proof['errors'],[])
+     evidence=d['execution_evidence']['candidate_comparison_evidence']
+     self.assertEqual({r['candidate_id'] for r in proof['unproved_candidates']},set(evidence['unproved']))
+     self.assertEqual({r['candidate_id'] for r in proof['verified_candidates']},set(evidence['proved_scores']))
      self.assertEqual(step['normal_payment_operands'],proof);continue
     self.assertTrue(proof['supported_payment_operands_verified'],proof)
     self.assertEqual(proof['unproved_candidates'],[])

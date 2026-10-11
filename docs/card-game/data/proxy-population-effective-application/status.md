@@ -1179,3 +1179,12 @@ f1b1625から、開始capture/collectと到来collectが共有するpublic_sourc
 新4テストで6FAILのRED、追加境界を含む関連24PASS、最終固定27PASS29.123s/exit0（初期manifest10step入口含む）、再帰Python1069前後指紋一致。独立review C0/I0、別実行22PASSと実contract_scope拒否/復元を確認。中間green出力はtool上24PASS/exit0だが保存ファイルの末尾が欠落。原因未確定のためintermediate-partial.logとして保持し、原本PASSは完全なfinal.logとsummaryの27PASS/exit0に限定。証拠public-sources-*。全proxy回帰や完全512step結合は今回再実行していない。
 
 preflight-ready=false、生成/本番固定/400戦0、policy promotion=false、独立balance標本0。次はP09自動dispatch/残機会の合成、P10 comparison/helperの許可field、P11上位/成長operandの正本根拠、P14–18の共通gate。
+
+
+### 2026-10-12 部分未証明frontierの証明済み支払結合
+
+a9cfd35からP11を継続。problem=Noneのexisting116_unproved_upper_comparisonで、proved_scoresの支払が監査対象外だった欠落をRED再現。完全合法集合をproved/unprovedの重複なし完全分割へ照合し、proved行だけを既存core/hand/board支払根拠に結合。未知行はunknownのまま、旧116除外・比較方式・値/順位は維持。
+
+新2件6FAIL→関連16PASS。独立review C0/I1: proved行の費用根拠が欠けるとunprovedへ移して実入口を通れる境界を発見。実入口1FAILで再現し、その行は拒否するよう修正。最終固定23PASS36.921s/exit0、再帰Python1069前後一致。review前22PASSと修正後23PASSを別原本で保持。中間green.logの末尾はtool完了出力と違って欠落していたためintermediate-partialとして保持し、最終PASSは完全final.log/summaryのみから判定。設計検査errors=[]、番号付きtop-level正本変更なし。
+
+P10 comparison/caps/worlds/batch・純粋114比較・116選択の実read表をpublic-read-boundary-review.mdへ追補。次の具体的P11残件はzero-immediate共通helperの複数frontier分岐（全比較行保存/費用結合がまだない）。上位/成長由来、P09全機会、P14–18最終gateも未完。preflight-ready=false、生成/本番固定/400戦0、policy promotion=false、独立balance標本0、全体結論null。
