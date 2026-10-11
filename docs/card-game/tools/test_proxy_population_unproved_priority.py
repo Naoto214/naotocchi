@@ -61,6 +61,28 @@ class UnprovedPriorityTests(unittest.TestCase):
   base.operation(initial(),run)
 
 
+class ChallengeOperandTests(unittest.TestCase):
+ def test_declaration_delta_does_not_certify_challenge_comparison_values(self):
+  helper=fixtures.ChallengeTests();helper.setUp()
+  def run(forced):
+   e=base.engine.payments.upgrade(helper.e);g=e['legacy_continuation']['game_state'];g['phase']='normal_action'
+   for p in g['players'].values():p['deck'].extend(p['hand']);p['hand']=[];p['time']=0
+   inventory=candidates.audit(e,[]);challenge_ids=[a['candidate_id'] for a in inventory['legal_candidate_details'] if a['action_type']=='challenge']
+   self.assertEqual(len(challenge_ids),2)
+   import proxy_population_normal_frontier as frontier
+   with frontier.scope(),api.scope():
+    step=base._step(e,initial(),[],[],[e],forced);decision=step['decision']
+   evidence=decision.get('execution_evidence',{}).get('candidate_comparison_evidence',{})
+   for cid in challenge_ids:
+    self.assertIn(cid,evidence.get('unproved',{}))
+    self.assertNotIn(cid,evidence.get('proved_scores',{}))
+    self.assertIn(cid,decision['choice']['seeded_fallback_candidates'])
+   self.assertEqual(step['evaluation']['legacy_116'],'excluded')
+   self.assertFalse(decision['execution_evidence']['policy_eligible'])
+   return {}
+  base.operation(initial(),run)
+
+
 class DirectGrowthOperandTests(unittest.TestCase):
  def test_direct_growth_default_zero_is_not_a_normal_comparison_proof(self):
   from test_proxy_population_activation_legality import fixture

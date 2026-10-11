@@ -1160,3 +1160,7 @@ preflight-ready=false、本番gate閉鎖、生成/固定/400戦0。P07–12の�
 ### 開始時source collectionの別条件照合
 
 ffec94fからC-chicken/I-bowtieのproducer/replay同時省略をRED再現し、既存trigger_predicates.scopeへ公開source全件・条件・分類・occurrence・境界の別照合を接続。proof形/過去結果不変。関連34PASS2.901s、固定Python指紋一致、独立review C0/I0/Minor0（10PASS）。verification/start-collection-review.md参照。実開始起点や共有public_sources自体の独立証明とは分離。preflight-ready=false、生成/固定/400戦0。P09残りとP10/P11、P14–18合成へ続行。
+
+### ちょうせん宣言差分と比較operandの分離
+
+e8d55b1から、宣言atomic delta0を107/114比較値へ昇格する経路を現行unproved_priorityで遮断。比較中だけCHALLENGE_GAPを既存116 unknown frontierへ渡し、合法候補と実宣言handlerは維持。未採用414の文言を比較証拠としない。関連32PASS9.347s、固定Python指紋一致、独立review C0/I0/Minor0（10PASS）。verification/challenge-unknown-review.md参照。preflight-ready=false、生成/固定/400戦0。

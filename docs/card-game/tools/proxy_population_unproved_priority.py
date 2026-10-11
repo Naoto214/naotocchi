@@ -19,7 +19,8 @@ SOURCES={'114-normal-decision-protocol-hardening.md':'aa161063e4fa9e056818d00e3f
 GUARDS={'upper-priority or pending-effect proof unavailable','batch upper-priority/pending boundary unproved','relationship 100 maintenance boundary requires priority proof','uncertain reveal threshold priority requires proof','world placement upper-priority or pending effects unproved'}
 DIRECT_GROWTH_GAP='direct growth comparison operand proof unavailable'
 REVEAL_GROWTH_GAP='unrevealed growth comparison operand proof unavailable'
-GUARDS.update((DIRECT_GROWTH_GAP,REVEAL_GROWTH_GAP))
+CHALLENGE_GAP='challenge comparison operand proof unavailable'
+GUARDS.update((DIRECT_GROWTH_GAP,REVEAL_GROWTH_GAP,CHALLENGE_GAP))
 _LOCK=Lock()
 
 
@@ -30,7 +31,7 @@ def unresolved(envelope,inventory,context,policy,reason):
  if policy!='legacy_107_114_116' or reason not in GUARDS or g['phase']!='normal_action' or c['activation_zone'] or c['pending_triggers'] or any(p['reservations'] for p in g['players'].values()):raise ValueError('unproved priority is not complete legal execution')
  if context['actor']!=g['turn_player'] or context['round']!=g['round'] or canonical(candidates.audit(envelope,inventory['public_history']))!=canonical(inventory):raise ValueError('unproved priority fresh inventory/context differs')
  # A coverage error unrelated to the public threshold must never be recast.
- if not any(p['growth']==100 for p in g['players'].values()) and reason not in {DIRECT_GROWTH_GAP,REVEAL_GROWTH_GAP,'relationship 100 maintenance boundary requires priority proof','uncertain reveal threshold priority requires proof'}:raise ValueError('non-threshold upper comparison remains unproved')
+ if not any(p['growth']==100 for p in g['players'].values()) and reason not in {DIRECT_GROWTH_GAP,REVEAL_GROWTH_GAP,CHALLENGE_GAP,'relationship 100 maintenance boundary requires priority proof','uncertain reveal threshold priority requires proof'}:raise ValueError('non-threshold upper comparison remains unproved')
  kinds={'pass','challenge','relationship','play_main','place_world','place_partner','place_companion','attach_item','set_item','use_item','use_play','use_event','activate_main_ability','activate_companion_ability'}
  for action in inventory['legal_candidate_details']:
   if action['action_type'] not in kinds:raise ValueError('continuation action handler unproved')
@@ -92,6 +93,11 @@ def scope():
   if 'growth_operation' in proof:result['growth_evidence']=dict(contract='bounded_growth_474.v1',source_sha256=ruling.RULING_SHA,operation=copy.deepcopy(proof['growth_operation']))
   return result
  def comparison_outcome(envelope,action,history=None):
+  # A declaration's atomic delta does not prove the107/114 comparison
+  # operands for the challenge. The older immediate-only proof references
+  # the unadopted414 design; retain unknown through the existing116 bridge.
+  # Actual declaration legality/transition remain with their existing handler.
+  if action['action_type']=='challenge':raise ValueError(CHALLENGE_GAP)
   proof=prior_outcome(envelope,action,history)
   cap=proof.get('capability',{})
   # The native generic branch initializes growth to zero. Direct-growth
